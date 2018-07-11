@@ -1,0 +1,27 @@
+image: ruby:2.3-alpine
+
+before_script:
+    - gem install mdl
+
+stages:
+    - check
+    - deploy
+
+md-lint:
+    stage: check
+    script:
+        - bash _ci/markdownlint.sh
+
+pages:
+    stage: deploy
+    script:
+        # 生成：临时目录 .public
+        - mkdir .public
+        - cp -r * .public
+        # 发布：发布目录 public
+        - mv .public public
+    artifacts:
+        paths:
+            - public
+    only:
+        - master
