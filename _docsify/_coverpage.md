@@ -1,9 +1,9 @@
 <!-- ![weibo logo](https://h5.sinaimg.cn/weibocn/v6/img/home/topbar-logo_2x.76f03f0a.png) -->
 ![avatar](_docsify/avatar-120.png)
 
-# IceHe's Lib <small>Beta</small>
+# IceHe <small>Lib</small>
 
-> Record my life.
+> 譬如朝露 &nbsp; 去日苦多
 
 - 计划 / 日报 / 周报
 - 笔记 / 总结 / 项目
