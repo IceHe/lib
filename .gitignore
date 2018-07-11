@@ -1,0 +1,23 @@
+# General
+.DS_Store
+~*
+
+# IntelliJ IDEA
+.idea/
+.iml
+
+# Log
+*.log
+
+# Package
+*.rar
+*.tar.gz
+*.zip
+
+# Thumbnails
+._*
+
+# VS Code
+.vscode/
+*/.vscode/
+
