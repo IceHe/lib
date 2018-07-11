@@ -1,4 +1,4 @@
-image: ruby:2.3-alpine
+image: ruby
 
 before_script:
     - gem install mdl
