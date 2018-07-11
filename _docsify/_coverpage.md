@@ -11,6 +11,6 @@
 - 技术收藏 / 阅读收藏
 - ……
 
-[下拉阅读](#Index)
+[下拉阅读](#索引)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
