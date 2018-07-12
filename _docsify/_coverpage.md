@@ -1,5 +1,4 @@
-<!-- ![weibo logo](https://h5.sinaimg.cn/weibocn/v6/img/home/topbar-logo_2x.76f03f0a.png) -->
-![avatar](_docsify/avatar-120.png)
+<!-- ![avatar](_docsify/avatar-120.png) -->
 
 # IceHe <small>Lib</small>
 
