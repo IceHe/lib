@@ -2,7 +2,7 @@
 
 # IceHe's <small>Lib</small>
 
-> Done is better than perfect.
+<!-- > Done is better than perfect. -->
 
 <!-- - Tech & Life / Tool / Hobby / Resume -->
 <!-- - Wiki：Never memorize something that you can look up. -->
