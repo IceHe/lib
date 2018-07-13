@@ -8,7 +8,7 @@
 <!-- - Wiki：Never memorize something that you can look up. -->
 <!-- - **Albert Einstein** -->
 
-- 写一部小说就像在黑夜里开车。<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
+- 写一部小说就像在黑夜里开车<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程
     - **E.L. Doctorow**
 
 [Get Started](#索引)
