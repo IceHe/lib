@@ -1,15 +1,16 @@
-<!-- ![avatar](_docsify/avatar-120.png) -->
+![avatar](_docsify/avatar-120.png)
 
-# IceHe <small>Lib</small>
+# IceHe's <small>Lib</small>
 
-> 譬如朝露 &nbsp; 去日苦多
+> Done is better than perfect.
 
-- 计划 / 日报 / 周报
-- 笔记 / 总结 / 项目
-- 简历 / 工具 / 爱好
-- 技术收藏 / 阅读收藏
-- ……
+<!-- - Tech & Life / Tool / Hobby / Resume -->
+<!-- - Wiki：Never memorize something that you can look up. -->
+<!-- - **Albert Einstein** -->
 
-[下拉阅读](#索引)
+- 写一部小说就像在黑夜里开车。<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
+    - **E.L. Doctorow**
+
+[Get Started](#索引)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
