@@ -1,6 +1,6 @@
-![avatar](_docsify/avatar-120.png)
+<img src="_docsify/avatar-400.png" alt="avatar"  width="120px"/>
 
-# IceHe's <small>Lib</small>
+# IceHe <small>Lib</small>
 
 <!-- > Done is better than perfect. -->
 
@@ -11,6 +11,11 @@
 - 写一部小说就像在黑夜里开车<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程
     - **E.L. Doctorow**
 
-[Get Started](#索引)
+<!-- [GitHub](https://github.com/IceHe) -->
+<!-- [GitLab](https://gitlab.com/IceHe) -->
+<!-- [Weibo](https://weibo.com/icedes) -->
+
+[Blog](https://icehe.me)
+[Read](#索引)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
