@@ -94,25 +94,27 @@
             // ( Ref : https://github.com/njleonzhang/docsify-edit-on-github )
             var editHtml = [
               // '[:memo: Edit Document](',
-              // '<i class="far fa-fw fa-edit"></i> [Edit Content](',
+              // '<i class="far fa-fw fa-edit"></i> Click to [Edit Content](',
+              '[Edit Content](',
               // 'Click to [Edit Content](',
-              '[编辑](',
+              // '[编辑](',
               'https://coding.net/u/IceHe/p/IceHe/git/blob/master/',
               'https://coding.net/u/IceHe/p/IceHe/git/edit/master/',
               vm.route.file,
-              // ')\n',
-              ') 内容\n',
+              ')\n',
+              // ') 内容\n',
             ].join('');
 
             var footer = [
               '<i class="far fa-fw fa-copyright"></i> 2018 IceHe',
-              // 'Powered by [docsify](https://docsify.js.org)',
+              // '<i class="far fa-fw fa-star"></i> Powered by [docsify](https://docsify.js.org)',
+              'Powered by [docsify](https://docsify.js.org)',
               // '<i class="far fa-fw fa-star"></i> [docsify](https://docsify.js.org)',
-              '[docsify](https://docsify.js.org) 驱动',
-              // '<i class="fa fa-server"></i> Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              // '[docsify](https://docsify.js.org) 驱动',
+              // '<i class="fa fa-fw fa-cube"></i> Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
               // '<i class="fa fa-fw fa-server"></i>&nbsp; <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
               // '<i class="fa fa-fw fa-cube"></i> <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
-              '<a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> 部署',
+              // '<a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> 部署',
               editHtml,
             ].join(' &nbsp;|&nbsp; ');
 
