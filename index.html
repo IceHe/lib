@@ -85,7 +85,8 @@
             // Inspired by **Edit on GitHub**
             // ( Ref : https://github.com/njleonzhang/docsify-edit-on-github )
             var editHtml = [
-              '[Edit Document](',
+              // 'Click to [**Edit Document**](',
+              'Click to [**Edit Content**](',
               // '[:memo: Edit Document](',
               // '[Edit on Coding.net](',
               // 'https://github.com/IceHe/IceHe/blob/master/',
@@ -93,16 +94,16 @@
               'https://coding.net/u/IceHe/p/IceHe/git/edit/master/',
               vm.route.file,
               ')\n',
-            ].join();
+            ].join('');
 
             var footer = [
               // '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>',
-              'Powered by [docsify](https://docsify.js.org)',
-              'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              'Powered by [**docsify**](https://docsify.js.org)',
+              'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">**Coding Pages**</a>',
               editHtml,
             ].join(' &nbsp;|&nbsp; ');
 
-            return [html, '\n\n----\n\n', footer].join('');
+            return html + '\n\n----\n\n' + footer;
           });
         },
       ]
