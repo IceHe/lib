@@ -90,20 +90,21 @@
             // ( Ref : https://github.com/njleonzhang/docsify-edit-on-github )
             var editHtml = [
               // '[:memo: Edit Document](',
-              // 'Click to [Edit Content](',
-              '[编辑](',
+              'Click to [Edit Content](',
+              // '[编辑](',
               'https://coding.net/u/IceHe/p/IceHe/git/blob/master/',
               'https://coding.net/u/IceHe/p/IceHe/git/edit/master/',
               vm.route.file,
-              ') 本页内容\n',
+              ')\n',
+              // ') 本页内容\n',
             ].join('');
 
             var footer = [
               '<i class="far fa-copyright"></i> 2018 IceHe',
-              // 'Powered by [docsify](https://docsify.js.org)',
-              '[docsify](https://docsify.js.org) 驱动',
-              // 'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
-              '<a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> 部署',
+              'Powered by [docsify](https://docsify.js.org)',
+              // '[docsify](https://docsify.js.org) 驱动',
+              'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              // '<a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> 部署',
               editHtml,
             ].join(' &nbsp;|&nbsp; ');
 
