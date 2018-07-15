@@ -19,11 +19,11 @@
 
   <!-- Font Awesome -->
   <!-- ( Ref : https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css ) -->
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/regular.css" integrity="sha384-avJt9MoJH2rB4PKRsJRHZv7yiFZn8LrnXuzvmZoD3fh1aL6aM6s0BBcnCvBe6XSD" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous"> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous"> -->
 
   <!-- KateX -->
   <!-- ( Ref : https://github.com/Khan/KaTeX#readme ) -->
@@ -94,21 +94,25 @@
             // ( Ref : https://github.com/njleonzhang/docsify-edit-on-github )
             var editHtml = [
               // '[:memo: Edit Document](',
-              'Click to [Edit Content](',
-              // '[编辑](',
+              // '<i class="far fa-fw fa-edit"></i> [Edit Content](',
+              // 'Click to [Edit Content](',
+              '[编辑](',
               'https://coding.net/u/IceHe/p/IceHe/git/blob/master/',
               'https://coding.net/u/IceHe/p/IceHe/git/edit/master/',
               vm.route.file,
-              ')\n',
-              // ') 本页内容\n',
+              // ')\n',
+              ') 内容\n',
             ].join('');
 
             var footer = [
-              '<i class="far fa-copyright"></i> 2018 IceHe',
-              'Powered by [docsify](https://docsify.js.org)',
-              // '[docsify](https://docsify.js.org) 驱动',
-              'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
-              // '<a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> 部署',
+              '<i class="far fa-fw fa-copyright"></i> 2018 IceHe',
+              // 'Powered by [docsify](https://docsify.js.org)',
+              // '<i class="far fa-fw fa-star"></i> [docsify](https://docsify.js.org)',
+              '[docsify](https://docsify.js.org) 驱动',
+              // '<i class="fa fa-server"></i> Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              // '<i class="fa fa-fw fa-server"></i>&nbsp; <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              // '<i class="fa fa-fw fa-cube"></i> <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              '<a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> 部署',
               editHtml,
             ].join(' &nbsp;|&nbsp; ');
 
