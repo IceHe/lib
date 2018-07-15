@@ -1,5 +1,4 @@
 - [GitHub](https://github.com/IceHe)
-- [GitLab](https://gitlab.com/IceHe)
 - [Weibo](https://weibo.com/icedes)
 
 <!-- - [GitLab](https://gitlab.com/IceHe) -->
