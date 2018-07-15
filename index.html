@@ -17,6 +17,10 @@
   <!-- <link rel="shortcut icon" type="image/x-icon" href="_docsify/weibo-favicon.ico" /> -->
   <link rel="shortcut icon" type="image/x-icon" href="_docsify/h-favicon.ico" />
 
+  <!-- Font Awesome -->
+  <!-- ( Ref : https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css ) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
   <!-- KateX -->
   <!-- ( Ref : https://github.com/Khan/KaTeX#readme ) -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
@@ -85,21 +89,21 @@
             // Inspired by **Edit on GitHub**
             // ( Ref : https://github.com/njleonzhang/docsify-edit-on-github )
             var editHtml = [
-              // 'Click to [**Edit Document**](',
-              'Click to [**Edit Content**](',
               // '[:memo: Edit Document](',
-              // '[Edit on Coding.net](',
-              // 'https://github.com/IceHe/IceHe/blob/master/',
-              // 'https://github.com/IceHe/IceHe/edit/master/',
+              // 'Click to [Edit Content](',
+              '[编辑](',
+              'https://coding.net/u/IceHe/p/IceHe/git/blob/master/',
               'https://coding.net/u/IceHe/p/IceHe/git/edit/master/',
               vm.route.file,
-              ')\n',
+              ') 本页内容\n',
             ].join('');
 
             var footer = [
-              // '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>',
-              'Powered by [**docsify**](https://docsify.js.org)',
-              'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">**Coding Pages**</a>',
+              '<i class="far fa-copyright"></i> 2018 IceHe',
+              // 'Powered by [docsify](https://docsify.js.org)',
+              '[docsify](https://docsify.js.org) 驱动',
+              // 'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              '<a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> 部署',
               editHtml,
             ].join(' &nbsp;|&nbsp; ');
 
