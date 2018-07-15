@@ -66,30 +66,52 @@
 
       // Pagination ( Prev & Next Page )
       // ( Ref : https://github.com/imyelo/docsify-pagination )
-      pagination: {
-        previousText: '上一章节',
-        nextText: '下一章节',
-      },
+      // pagination: {
+      //   previousText: '上一章节',
+      //   nextText: '下一章节',
+      // },
 
-      // KateX
-      // ( Ref : https://github.com/Khan/KaTeX#readme )
-      // ( Usage : https://github.com/docsifyjs/docsify/issues/96#issuecomment-284404397 )
       plugins: [
-        function (hook) {
-          hook.beforeEach(function (content) {
-            return content.replace(/\$\$([\s\S]*?)\$\$/g, function (m, code) {
+        function (hook, vm) {
+          hook.beforeEach(function (html) {
+            // KateX
+            // ( Ref : https://github.com/Khan/KaTeX#readme )
+            // ( Usage : https://github.com/docsifyjs/docsify/issues/96#issuecomment-284404397 )
+            html = html.replace(/\$\$([\s\S]*?)\$\$/g, function (m, code) {
               console.log(code)
               return katex.renderToString(code.trim())
             })
-          })
-        }
+
+            // Inspired by **Edit on GitHub**
+            // ( Ref : https://github.com/njleonzhang/docsify-edit-on-github )
+            var editHtml = [
+              '[Edit Document](',
+              // '[:memo: Edit Document](',
+              // '[Edit on Coding.net](',
+              // 'https://github.com/IceHe/IceHe/blob/master/',
+              // 'https://github.com/IceHe/IceHe/edit/master/',
+              'https://coding.net/u/IceHe/p/IceHe/git/edit/master/',
+              vm.route.file,
+              ')\n',
+            ].join();
+
+            var footer = [
+              // '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>',
+              'Powered by [docsify](https://docsify.js.org)',
+              'Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>',
+              editHtml,
+            ].join(' &nbsp;|&nbsp; ');
+
+            return [html, '\n\n----\n\n', footer].join('');
+          });
+        },
       ]
     }
 
     // Offline Mode ( supported by PWA - Progressive Web Apps )
     // ( Ref : https://docsify.js.org/#/pwa?id=offline-mode )
     if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('_docsify/service-worker.js')
+      navigator.serviceWorker.register('_docsify/service-worker.js');
     }
   </script>
 
@@ -114,7 +136,7 @@
 
   <!-- Pagination -->
   <!-- ( Ref : https://github.com/imyelo/docsify-pagination ) -->
-  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script> -->
 
   <!-- PlantUML -->
   <!-- ( Ref : https://github.com/imyelo/docsify-plantuml ) -->
@@ -127,27 +149,27 @@
   <!-- Code Block Syntax Highlight by Prism ( https://prismjs.com/ ) -->
   <!-- ( Ref : https://docsify.js.org/#/language-highlight ) -->
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-c.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-cpp.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-css.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-docker.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-git.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-groovy.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-c.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-cpp.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-css.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-docker.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-git.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-groovy.min.js"></script> -->
   <script src="//unpkg.com/prismjs/components/prism-http.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script> -->
   <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-makefile.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-makefile.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script> -->
   <script src="//unpkg.com/prismjs/components/prism-properties.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-ruby.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-vim.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-wiki.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-ruby.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-vim.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-wiki.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script> -->
 
 </body>
 </html>
