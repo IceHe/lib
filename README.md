@@ -1,6 +1,7 @@
 # IceHe's Lib
 
-**Pages** : [GitHub](https://icehe.github.io/IceHe) / [GitLab](https://icehe.gitlab.io/IceHe) ( powered by [docsify](https://docsify.js.org/) )
+**Pages** : [Coding.net](https://lib.icehe.me/) / [GitHub](https://icehe.github.io/IceHe) / [GitLab](https://icehe.gitlab.io/IceHe)
+<!-- ( powered by [docsify](https://docsify.js.org/) ) -->
 
 ## Index
 
