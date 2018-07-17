@@ -27,7 +27,7 @@
 
   <!-- KateX -->
   <!-- ( Ref : https://github.com/Khan/KaTeX#readme ) -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous"> -->
 
   <!-- Themes -->
   <!-- ( Usage : Enable one & Disable others ) -->
@@ -85,10 +85,10 @@
             // KateX
             // ( Ref : https://github.com/Khan/KaTeX#readme )
             // ( Usage : https://github.com/docsifyjs/docsify/issues/96#issuecomment-284404397 )
-            html = html.replace(/\$\$([\s\S]*?)\$\$/g, function (m, code) {
-              console.log(code)
-              return katex.renderToString(code.trim())
-            })
+            // html = html.replace(/\$\$([\s\S]*?)\$\$/g, function (m, code) {
+            //   console.log(code)
+            //   return katex.renderToString(code.trim())
+            // })
 
             // Inspired by **Edit on GitHub**
             // ( Ref : https://github.com/njleonzhang/docsify-edit-on-github )
@@ -134,7 +134,7 @@
   <!-- KateX -->
   <!-- ( Ref : https://github.com/Khan/KaTeX#readme ) -->
   <!-- Notice : KateX must be loaded before `docsify.min.js`! -->
-  <script src="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js" integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js" integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous"></script> -->
 
   <!-- Basic -->
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
@@ -156,11 +156,11 @@
 
   <!-- PlantUML -->
   <!-- ( Ref : https://github.com/imyelo/docsify-plantuml ) -->
-  <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+  <!-- <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script> -->
 
   <!-- Zoom Image -->
   <!-- ( Ref : https://docsify.js.org/#/plugins?id=zoom-image ) -->
-  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script> -->
 
   <!-- Code Block Syntax Highlight by Prism ( https://prismjs.com/ ) -->
   <!-- ( Ref : https://docsify.js.org/#/language-highlight ) -->
