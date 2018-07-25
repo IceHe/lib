@@ -114,14 +114,14 @@
               content,
               '\n\n----\n\n',
               footer,
-            ].join("")
+            ].join('')
           });
         },
       ]
     }
 
     // Offline Mode : https://docsify.js.org/#/pwa?id=offline-mode
-    //    ( Supported by PWA - Progressive Web Apps )
+    // ( Supported by PWA - Progressive Web Apps )
     if (typeof navigator.serviceWorker !== 'undefined') {
       navigator.serviceWorker.register('_docsify/service-worker.js');
     }
