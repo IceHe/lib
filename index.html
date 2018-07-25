@@ -31,7 +31,7 @@
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous"> -->
 
   <!-- Themes : https://docsify.js.org/#/themes -->
-  <!--    ( Usage : Enable one & Disable others ) -->
+  <!-- ( Usage : Enable one & Disable others ) -->
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/buble.css"> -->
   <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css"> -->
@@ -44,80 +44,23 @@
 <body>
 
   <!-- Loading dialog : https://docsify.js.org/#/quickstart?id=loading-dialog -->
+  <!-- ( Warning : Don't remove it! ) -->
   <!-- <div id="app">Loading……</div> -->
   <div id="app"></div>
 
-  <!-- Basic -->
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-
-  <!-- Advanced Plugins : https://docsify.js.org/#/plugins -->
-
-  <!-- Copy to Clipboard : https://docsify.js.org/#/plugins?id=copy-to-clipboard -->
-  <script src="//unpkg.com/docsify-copy-code"></script>
-
-  <!-- Full Text Search : https://docsify.js.org/#/plugins?id=full-text-search -->
-  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
-
-  <!-- Gitalk : https://docsify.js.org/#/plugins?id=gitalk -->
-  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <!-- <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> -->
-
-  <!-- KateX : https://github.com/Khan/KaTeX#readme -->
-  <!--    ( Notice : KateX must be loaded before `docsify.min.js`! ) -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js" integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous"></script> -->
-
-  <!-- Pagination : https://github.com/imyelo/docsify-pagination -->
-  <!-- <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script> -->
-
-  <!-- PlantUML : https://github.com/imyelo/docsify-plantuml -->
-  <!-- <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script> -->
-
-  <!-- Zoom Image : https://docsify.js.org/#/plugins?id=zoom-image -->
-  <!-- <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script> -->
-
-  <!-- Code Block Syntax Highlight by Prism ( https://prismjs.com/ ) : https://docsify.js.org/#/language-highlight -->
-  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
-  <!-- <script src="//unpkg.com/prismjs/components/prism-c.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-cpp.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-css.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-docker.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-git.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-groovy.min.js"></script> -->
-  <script src="//unpkg.com/prismjs/components/prism-http.min.js"></script>
-  <!-- <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script> -->
-  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
-  <!-- <script src="//unpkg.com/prismjs/components/prism-makefile.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script> -->
-  <script src="//unpkg.com/prismjs/components/prism-properties.min.js"></script>
-  <!-- <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-ruby.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-vim.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-wiki.min.js"></script> -->
-  <!-- <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script> -->
-
-  <!-- Configuration : https://docsify.js.org/#/configuration -->
   <script>
     window.$docsify = {
-      // Enable `logo` or `name`
-      // https://docsify.js.org/#/configuration?id=logo
-      // logo: '_docsify/avatar-120.png',
-      // https://docsify.js.org/#/configuration?id=name
-      // name: "IceHe's Lib",
-      // https://docsify.js.org/#/configuration?id=repo
-      // repo: 'https://github.com/IceHe/IceHe',
 
+      // Configuration : https://docsify.js.org/#/configuration
       auto2top: true, // https://docsify.js.org/#/configuration?id=auto2top
       coverpage: '_docsify/_coverpage.md', // https://docsify.js.org/#/cover
       loadNavbar: '_docsify/_navbar.md', // https://docsify.js.org/#/custom-navbar
+      // logo: '_docsify/avatar-120.png', // https://docsify.js.org/#/configuration?id=logo
+      // name: "IceHe's Lib", // https://docsify.js.org/#/configuration?id=name
       notFoundPage: '_docsify/_404.md', // https://docsify.js.org/#/configuration?id=notfoundpage
+      repo: 'https://github.com/IceHe/IceHe', // https://docsify.js.org/#/configuration?id=repo
 
-      // Full Text Search
-      //    https://docsify.js.org/#/plugins?id=full-text-search
+      // Full Text Search : https://docsify.js.org/#/plugins?id=full-text-search
       search: {
         depth: 6, // Headline depth, 1 - 6
         maxAge: 86400000, // Expiration time, the default one day
@@ -126,8 +69,7 @@
         placeholder: 'Type to search',
       },
 
-      // Pagination ( Prev & Next Page )
-      //    https://github.com/imyelo/docsify-pagination
+      // Pagination ( Prev & Next Page ) : https://github.com/imyelo/docsify-pagination
       // pagination: {
       //   previousText: '上一章节',
       //   nextText: '下一章节',
@@ -136,21 +78,16 @@
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (html) {
-            // KateX
-            //    https://github.com/Khan/KaTeX#readme
-            //    Usage : https://github.com/docsifyjs/docsify/issues/96#issuecomment-284404397
+            // KateX : https://github.com/Khan/KaTeX#readme
+            // ( Usage : https://github.com/docsifyjs/docsify/issues/96#issuecomment-284404397 )
             // html = html.replace(/\$\$([\s\S]*?)\$\$/g, function (m, code) {
             //   console.log(code)
             //   return katex.renderToString(code.trim())
             // })
 
-            // Inspired by **Edit on GitHub**
-            //    https://github.com/njleonzhang/docsify-edit-on-github
+            // Inspired by `Edit on GitHub` : https://github.com/njleonzhang/docsify-edit-on-github
             var editHtml = [
-              // '[:memo: Edit Document](',
-              // '<i class="far fa-fw fa-edit"></i> Click to [Edit Content](',
-              '[:memo: Edit Content](',
-              // 'https://coding.net/u/IceHe/p/IceHe/git/blob/master/',
+              '[Edit Content](',
               'https://coding.net/u/IceHe/p/IceHe/git/edit/master/',
               vm.route.file,
               ')\n',
@@ -180,6 +117,33 @@
       ]
     }
 
+    // Offline Mode : https://docsify.js.org/#/pwa?id=offline-mode
+    //    ( Supported by PWA - Progressive Web Apps )
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('_docsify/service-worker.js');
+    }
+  </script>
+
+  <!-- KateX : https://github.com/Khan/KaTeX#readme -->
+  <!-- ( Notice : KateX must be loaded before basic `docsify.min.js`! ) -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js" integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous"></script> -->
+
+  <!-- Basic -->
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
+  <!-- Advanced Plugins : https://docsify.js.org/#/plugins -->
+
+  <!-- Copy to Clipboard : https://docsify.js.org/#/plugins?id=copy-to-clipboard -->
+  <script src="//unpkg.com/docsify-copy-code"></script>
+
+  <!-- Full Text Search : https://docsify.js.org/#/plugins?id=full-text-search -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+
+  <!-- Gitalk : https://docsify.js.org/#/plugins?id=gitalk -->
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> -->
+  <script>
     const gitalk = new Gitalk({
       clientID: 'f8a2811502c9a9054d41',
       clientSecret: '13b07500a108ec1765980f81da5e7db7386df286',
@@ -189,14 +153,41 @@
       id: location.href,     // Ensure uniqueness and length less than 50
       distractionFreeMode: false // Facebook-like distraction free mode
     });
-
-    // Offline Mode
-    //    Supported by PWA - Progressive Web Apps
-    //    https://docsify.js.org/#/pwa?id=offline-mode
-    if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('_docsify/service-worker.js');
-    }
   </script>
+
+  <!-- Pagination : https://github.com/imyelo/docsify-pagination -->
+  <!-- <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script> -->
+
+  <!-- PlantUML : https://github.com/imyelo/docsify-plantuml -->
+  <!-- <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script> -->
+
+  <!-- Zoom Image : https://docsify.js.org/#/plugins?id=zoom-image -->
+  <!-- <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script> -->
+
+  <!-- Code Block Syntax Highlight : https://docsify.js.org/#/language-highlight -->
+  <!-- ( Supported by Prism ( https://prismjs.com/ ) -->
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-c.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-cpp.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-css.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-docker.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-git.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-groovy.min.js"></script> -->
+  <script src="//unpkg.com/prismjs/components/prism-http.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script> -->
+  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-makefile.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script> -->
+  <script src="//unpkg.com/prismjs/components/prism-properties.min.js"></script>
+  <!-- <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-ruby.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-vim.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-wiki.min.js"></script> -->
+  <!-- <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script> -->
 
 </body>
 </html>
