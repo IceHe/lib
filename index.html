@@ -19,11 +19,6 @@
   <!-- <link rel="shortcut icon" type="image/x-icon" href="_docsify/weibo-favicon.ico" /> -->
   <link rel="shortcut icon" type="image/x-icon" href="_docsify/h-favicon.ico" />
 
-  <!-- Gitalk -->
-  <!-- ( Ref : https://docsify.js.org/#/plugins?id=gitalk ) -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
-  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
-
   <!-- Font Awesome -->
   <!-- ( Ref : https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css ) -->
   <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
@@ -52,11 +47,12 @@
 
   <!-- Loading dialog -->
   <!-- ( Ref : https://docsify.js.org/#/quickstart?id=loading-dialog ) -->
-  <div id="app">Loading……</div>
+  <!-- <div id="app">Loading……</div> -->
+  <div id="app"></div>
 
   <!-- Gitalk -->
   <!-- ( Ref : https://docsify.js.org/#/plugins?id=gitalk ) -->
-  <div id="gitalk-container"></div>
+  <!-- <div id="gitalk-container"></div> -->
 
   <script>
     window.$docsify = {
@@ -166,20 +162,24 @@
 
   <!-- Gitalk -->
   <!-- ( Ref : https://docsify.js.org/#/plugins?id=gitalk ) -->
-  <!-- <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script> -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+
+  <!-- Gitalk -->
+  <!-- ( Ref : https://docsify.js.org/#/plugins?id=gitalk ) -->
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> -->
   <script>
     const gitalk = new Gitalk({
       clientID: 'f8a2811502c9a9054d41',
       clientSecret: '13b07500a108ec1765980f81da5e7db7386df286',
       repo: 'gitalk-comments',
-      owner: 'IceHe.me',
-      admin: ['IceHe.me'],
-      // facebook-like distraction free mode
-      distractionFreeMode: false
+      owner: 'icehe',
+      admin: ['icehe'],
+      id: location.pathname,     // Ensure uniqueness and length less than 50
+      distractionFreeMode: false // Facebook-like distraction free mode
     });
-    gitalk.render('gitalk-container');
   </script>
 
   <!-- Pagination -->
