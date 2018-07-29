@@ -1,4 +1,4 @@
-# IceHe Lib
+# IceHe's Lib
 
 <!-- **Pages** : [Coding](https://lib.icehe.xyz/) / [GitHub](https://icehe.github.io/IceHe) / [GitLab](https://icehe.gitlab.io/IceHe) -->
 
@@ -145,7 +145,7 @@
 
 ## Index
 
-- [Diary 日志](logs/) ：日计划 + 日报 / 周计划 + 周报
+- [Diary 日志](diary/) ：日计划 + 日报 / 周计划 + 周报
 - [CV 简历](cv.md) ：经验、技能、教育
     - 微博视频平台 / 服务端 / Java
     - 微博移动应用服务 / 服务端 / PHP
