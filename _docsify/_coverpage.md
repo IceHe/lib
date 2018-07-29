@@ -20,6 +20,6 @@
 <!-- [Weibo](https://weibo.com/icedes) -->
 
 [Blog](https://icehe.me)
-[Read](#icehe39s-lib)
+[Read](#icehe-lib)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
