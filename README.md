@@ -1,6 +1,6 @@
-# IceHe's Lib
+# IceHe Lib
 
-**Pages** : [Coding](https://lib.icehe.me/) / [GitHub](https://icehe.github.io/IceHe) / [GitLab](https://icehe.gitlab.io/IceHe)
+<!-- **Pages** : [Coding](https://lib.icehe.xyz/) / [GitHub](https://icehe.github.io/IceHe) / [GitLab](https://icehe.gitlab.io/IceHe) -->
 
 ## Index
 
