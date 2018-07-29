@@ -6,18 +6,19 @@
 
     <!-- Done is better than perfect. -->
 
-<!-- - **“Done is better than perfect.”** -->
+<!-- - &nbsp; -->
+
+<!-- - [GitHub](https://github.com/IceHe) &nbsp;/&nbsp; [GitLab](https://gitlab.com/IceHe) &nbsp;/&nbsp; [Weibo](https://weibo.com/icedes) -->
 
 - 写一部小说就像在黑夜里开车<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程
-    - **E.L. Doctorow**
+- **E.L. Doctorow**
 
-<!-- - Tech & Life / Tool / Hobby / Resume -->
+<!-- - Tech &nbsp;/&nbsp; Tool &nbsp;/&nbsp; Life &nbsp;/&nbsp; Favorite &nbsp;/&nbsp; Wiki -->
+
 <!-- - Wiki：Never memorize something that you can look up. -->
 <!-- - **Albert Einstein** -->
 
-<!-- [GitHub](https://github.com/IceHe) -->
-<!-- [GitLab](https://gitlab.com/IceHe) -->
-<!-- [Weibo](https://weibo.com/icedes) -->
+<!-- - &nbsp; -->
 
 [Blog](https://icehe.me)
 [Read](#icehe-lib)
