@@ -1,0 +1,6 @@
+title: 2016/07 stu38 spo9 was5
+date: 2016-07-31 00:00:00
+toc: false
+---
+[返回月历 **Back to Month ^**](/lifelogs/2016/07/index.html)
+<br/><div>Week 1</div><div>16/07/04 ~ 16/07/10</div><div>类，时，%</div><div>学58.0，49.2</div><div>动9.0，7.6</div><div>读16.5，14.0</div><div>乐18.0，15.3</div><div>必10.0，8.5</div><div>废6.5，5.5</div><div>总118.0</div><div><br/></div><div>Week 2</div><div>16/07/11 ~ 16/07/17</div><div>类，时，%</div><div>学52.0，44.3</div><div>动11.0，9.4</div><div>读17.5，14.9</div><div>乐25.5，21.7</div><div>必8.0，6.8</div><div>废3.5，3.0</div><div>总117.5</div><div><br/></div><div>Week 3</div><div>16/07/18 ~ 16/07/24</div><div>类，时，%</div><div>学27.5，22.2</div><div>动11.0，8.9</div><div>读18.5，14.9</div><div>乐44.0，35.5</div><div>必20.5，16.5</div><div>废2.5，2.0</div><div>总124.0</div><div><br/></div><div>Week 4</div><div>16/07/25 ~ 16/07/31</div><div>类，时，%</div><div>学44.5，37.2</div><div>动13.0，10.9</div><div>读23.0，19.2</div><div>乐17.0，14.2</div><div>必12.5，10.5</div><div>废9.5，7.9</div><div>总119.5</div><div><br/></div><div>Monthly</div><div>2016/07</div><div>类，时，%</div><div>学201.0，38.0</div><div>动45.5，8.6</div><div>读83.0，15.7</div><div>乐117.0，22.1</div><div>必55.0，10.4</div><div>废28.0，5.3</div><div>总529.5</div>

@@ -1,0 +1,6 @@
+title: 2016/10 stu44 spo11 was8
+date: 2016-11-01 00:00:00
+toc: false
+---
+[返回月历 **Back to Month ^**](/lifelogs/2016/10/index.html)
+<br/><div>Week 1</div><div>16/10/03 ~ 16/10/09</div><div>类，时，%</div><div>学42.5，36.8</div><div>动11.5，10.0</div><div>读17.0，14.7</div><div>乐31.0，26.8</div><div>必10.5，9.1</div><div>废3.0，2.6</div><div>总115.5</div><div><br/></div><div>Week 2</div><div>16/10/10 ~ 16/10/16</div><div>类，时，%</div><div>学56.5，47.9</div><div>动12.0，10.2</div><div>读11.0，9.3</div><div>乐15.5，13.1</div><div>必12.0，10.2</div><div>废11.0，9.3</div><div>总118.0</div><div><br/></div><div>Week 3</div><div>16/10/17 ~ 16/10/23</div><div>类，时，%</div><div>学50.0，43.1</div><div>动12.0，10.3</div><div>读16.5，14.2</div><div>乐15.0，12.9</div><div>必9.0，7.8</div><div>废13.5，11.6</div><div>总116.0</div><div><br/></div><div>Week 4</div><div>16/10/24 ~ 16/10/30</div><div>类，时，%</div><div>学60.0，51.1</div><div>动13.5，11.5</div><div>读8.0，6.8</div><div>乐14.0，11.9</div><div>必10.0，8.5</div><div>废12.0，10.2</div><div>总117.5</div><div><br/></div><div>Monthly</div><div>2016/10</div><div>类，时，%</div><div>学228.0，44.2</div><div>动55.0，10.7</div><div>读59.0，11.4</div><div>乐85.5，16.6</div><div>必47.0，9.1</div><div>废41.5，8.0</div><div>总516.0</div><div><div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"/></div>

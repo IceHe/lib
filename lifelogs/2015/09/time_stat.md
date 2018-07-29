@@ -1,0 +1,6 @@
+title: 2015/09 stu33 spo6 was4
+date: 2015-09-30 00:00:00
+toc: false
+---
+[返回月历 **Back to Month ^**](/lifelogs/2015/09/index.html)
+<br/><div>Week 1</div><div>15/08/31 ~ 15/09/06</div><div>类，时，%</div><div>学47，40.9</div><div>动6，5.2</div><div>读30，26.1</div><div>乐20.5，17.8<br/>必8，7<br/>废3.5，3<br/>总115</div><div><br/></div><div>Week 2</div><div>15/09/07 ~ 15/09/13</div><div>类，时，%<br/>学34，28.7<br/>动5.5，4.6</div><div>读15，12.7</div><div>乐44，37.1</div><div>必17，14.3</div><div>废3，2.5<br/>总118.5</div><div><br/></div><div>Week 3</div><div>15/09/14 ~ 15/09/20</div><div>类，时，%</div><div>学42，36.7</div><div>动7.5，6.6</div><div>读18，15.7</div><div>乐27，23.6</div><div>必14.5，12.7</div><div>废5.5，4.8</div><div>总114.5</div><div><br/></div><div>Week 4</div><div>15/09/21 ~ 15/09/27</div><div>类，时，%</div><div>学23.5，20.5</div><div>动10.5，9.2</div><div>读17，14.8</div><div>乐21.5，18.8<br/>必34.5，30.1</div><div>废7.5，6.6</div><div>总114.5</div><div><br/></div><div>Monthly</div><div>2015/09</div><div>类，时，%</div><div>学162.5，32.8</div><div>动32.0，6.5</div><div>读75.5，15.2</div><div>乐120.5，24.3</div><div>必85.0，17.2</div><div>废20.0，4.0</div><div>总495.5</div>

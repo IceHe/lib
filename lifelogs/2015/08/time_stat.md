@@ -1,0 +1,6 @@
+title: 2015/08 Time Statistics
+date: 2015-08-31 00:00:00
+toc: false
+---
+[返回月历 **Back to Month ^**](/lifelogs/2015/08/index.html)
+<br/><div>Week 1</div><div>15/08/03 ~ 15/08/09</div><div>类，时，%</div><div>学50.5，43.7</div><div>动7，6.1</div><div>读35.5，30.7</div><div>乐12，10.4</div><div>必85，7.4</div><div>废2，1.7</div><div>总115.5</div><div><br/></div><div>Week 2</div><div>15/08/10 ~ 15/08/16</div><div>类，时，%<br/>学20.5，17.4</div><div>动5，4.2</div><div>读37.5，31.8</div><div>乐39.5，33.5</div><div>必14.5，12.3</div><div>废1，0.8<br/>总118</div><div><br/></div><div>Week 3</div><div>15/08/17 ~ 15/08/23</div><div>类，时，%</div><div>学44.5，37.7</div><div>动4.5，3.8</div><div>读24，20.3</div><div>乐30.5，25.8</div><div>必11.5，9.7</div><div>废3，2.5</div><div>总118</div><div><br/></div><div>Week 4</div><div>15/08/24 ~ 15/08/30</div><div>类，时，%<br/>学46，39.8<br/>动4.5，3.9</div><div>读20，17.3</div><div>乐25，21.6</div><div>必16，13.9</div><div>废4，3.5<br/>总115.5</div><div><br/></div><div>Monthly</div><div>2015/08</div><div>类，时，%</div><div>学178，34.5</div><div>动24，4.7</div><div>读132.5，25.7</div><div>乐113.5，22</div><div>必57.5，11.2</div><div>废10，1.9</div><div>总515.5</div>
