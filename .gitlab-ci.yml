@@ -4,16 +4,16 @@ before_script:
     - gem install mdl
 
 stages:
-    - check
-    - deploy
+    - parallel
 
 md-lint:
-    stage: check
+    stage: parallel
     script:
-        - bash _ci/markdownlint.sh
+        - mdl --style _ci/markdownlint.style.rb --list-rules
+        - mdl --style _ci/markdownlint.style.rb --git-recurse . && echo ''
 
 pages:
-    stage: deploy
+    stage: parallel
     script:
         # 生成：临时目录 .public
         - mkdir .public
