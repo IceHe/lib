@@ -6,7 +6,7 @@
 
 - IceHe | Hzy（ 广州人在北京 ）
 - [GitHub](https://github.com/IceHe) - 工具配置、小作品 … <!-- / [GitLab](https://gitlab.com/IceHe) <sup>bak</sup> -->
-- 博客：[icehe.me](https://icehe.me) - Think, Mac, Git, C++, ASM …
+- 博客：[icehe.me](https://icehe.me) - 思考、Mac、Git、C++、ASM …
 - 微博：[@\_IceHe\_](http://weibo.com/icedes) - 技术、折腾、日常 …
 
 联络
@@ -47,7 +47,7 @@
 
 ## 技能
 
-技能级别 Skill Level
+技能级别
 
 :dizzy: 精通 Proficient<br/>
 :star2: 熟悉 Familiar<br/>
