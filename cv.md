@@ -24,16 +24,16 @@
 
 志趣
 
-- 工具控：[我的利器](/tools) - Apps & 物件
-- 爱折腾：[我的快捷键](/mac/shortcuts) - 默认 & 自定义
-- 阅读收藏：[技术](/tech) & [生活](/read) - 文章、问答、笔记 …
+- 工具控：[我的利器](tools.md) - Apps & 物件
+- 爱折腾：[我的快捷键](mac/shortcuts.md) - 默认 & 自定义
+- 阅读收藏：[技术](tech.md) & [生活](read.md) - 文章、问答、笔记 …
 - 生活爱好：[ACGMN](https://baike.baidu.com/item/ACGMN)、羽毛球、~~毽球~~ <sup>past</sup>
 
 无关 : P
 
-- [最喜爱的](/favourites)：书、文、电影、ACGMN …
-- [回忆](/moments)：Good old days
-- [旧文](/old_blog)：为赋新词强说愁
+- [最喜爱的](favourites.md)：书、文、电影、ACGMN …
+- [回忆](moments.md)：Good old days
+- [旧文](old-blog.md)：为赋新词强说愁
 
 <!-- <hidden> -->
 <!-- - **我是** -->
