@@ -5,9 +5,11 @@
 我是
 
 - IceHe | Hzy（ 广州人在北京 ）
-- [GitHub](https://github.com/IceHe) - 工具配置、小作品 … <!-- / [GitLab](https://gitlab.com/IceHe) <sup>bak</sup> -->
+- [GitHub](https://github.com/IceHe) - 工具配置、小作品 …
 - 博客：[icehe.me](https://icehe.me) - 思考、Mac、Git、C++、ASM …
 - 微博：[@\_IceHe\_](http://weibo.com/icedes) - 技术、折腾、日常 …
+
+<!-- / [GitLab](https://gitlab.com/IceHe) <sup>bak</sup> -->
 
 联络
 
@@ -57,7 +59,7 @@
 
 编程语言
 
-:star: 胜任 **`Java` `PHP` `C++`**</br>
+:star: 胜任 **`Java` `PHP` `C++`**<br/>
 :sparkles: 了解 `C` `Python` `JavaScript` `ASM`<br/>
 
 操作系统
@@ -68,7 +70,7 @@
 Database
 
 :star: 胜任 **`MySQL` `Redis` `Memcached`**<br/>
-:sparkles:了解 `MS SQL Server 2008` `Oracle DB`<br/>
+:sparkles: 了解 `MS SQL Server 2008` `Oracle DB`<br/>
 
 Web
 
