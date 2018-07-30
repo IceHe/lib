@@ -93,7 +93,6 @@
 - [__CV 简历__](/about.md)
 - [回忆](/moments.md)
 - [旧博索引](/old_blog.md)
-- [打赏博主](/reward.md)
 
 ---
 
