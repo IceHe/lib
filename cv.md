@@ -51,49 +51,50 @@
 
 技能级别
 
-:dizzy: 精通 Proficient<br/>
-:star2: 熟悉 Familiar<br/>
-:star: 胜任 Competent<br/>
+:trophy: 精通 Proficient<br/>
+:star: 熟悉 Familiar<br/>
+:zap: 胜任 Competent<br/>
 :sparkles: 了解 Know<br/>
+<!-- :crown: :star2: :zap: :pill: -->
 <!-- :trollface: ???? Little<br/> -->
 
 编程语言
 
-:star: 胜任 **`Java` `PHP` `C++`**<br/>
-:sparkles: 了解 `C` `Python` `JavaScript` `ASM`<br/>
+:zap: 胜任 **Java , PHP , C++**<br/>
+:sparkles: 了解 C , Python , JavaScript , ASM<br/>
 
 操作系统
 
-:star2: 熟悉 **`macOS`**<br/>
-:star: 胜任 **`CentOS 7` `Ubuntu`** `Windows`<br/>
+:star: 熟悉 **macOS**<br/>
+:zap: 胜任 **CentOS 7 , Ubuntu** , Windows<br/>
 
 Database
 
-:star: 胜任 **`MySQL` `Redis` `Memcached`**<br/>
-:sparkles: 了解 `MS SQL Server 2008` `Oracle DB`<br/>
+:zap: 胜任 **MySQL , Redis , Memcached**<br/>
+:sparkles: 了解 MS SQL Server 2008 , Oracle DB<br/>
 
 Web
 
-:star: 胜任 **`Docker`** `HTML` `CSS`<br/>
+:zap: 胜任 **Docker** , HTML , CSS<br/>
 
 工具
 
-:star2: 熟悉 **`GitLab CI` `Git` `Vim`** `Zsh`<br/>
-:star: 胜任 `Qt 4/5`
+:star: 熟悉 **GitLab CI , Git , Vim** , Zsh<br/>
+:zap: 胜任 Qt 4/5
 
 脚本
 
-:star: 胜任 **`Bash`**  `AppleScript` `Batch file`<br/>
+:zap: 胜任 **Bash** , AppleScript , Batch file<br/>
 
 IDE
 
-:star2: 熟悉 **`IntelliJ IDEA` `PhpStorm`**<br/>
-:star: 胜任 `Visual Studio` `Eclipse`<br/>
+:star: 熟悉 **IntelliJ IDEA , PhpStorm**<br/>
+:zap: 胜任 Visual Studio , Eclipse<br/>
 
 语言
 
-:star: 胜任 `英语` 大学六级，技术内容的基本阅读 & 写作<br/>
-:dizzy: 母语 `普通话` `粤语`<br/>
+:zap: **英语**：大学六级，技术内容的基本阅读 & 写作<br/>
+:trophy: **普通话、粤语**<br/>
 
 ---
 
@@ -173,7 +174,7 @@ IDE
 
 ## 略
 
-- 大学实践（尝试方向）
+> 大学实践（尝试）
 
 **华南理工毽球社 - 社长** _2012.09 ~ 2014.06_
 
@@ -211,8 +212,8 @@ IDE
 
 ---
 
-<center>![Avatar](http://7vzp68.com1.z0.glb.clouddn.com/about/avatar_03a.jpg)</center>
-
 > 写一部小说就像在黑夜里开车。你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
 >
 > **E.L. Doctorow**
+
+![Avatar](http://7vzp68.com1.z0.glb.clouddn.com/about/avatar_03a.jpg)
