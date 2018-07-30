@@ -38,3 +38,14 @@ lib
 - **format content (little)**
 
 > Done is better than perfect.
+
+## Week
+
+work
+
+- docs 25%
+- java advanced ?% (bak)
+
+lib
+
+- format content 100%
