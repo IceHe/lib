@@ -1,10 +1,8 @@
-title: 回忆
-date: 2016-06-28
-updated: 2017-03-15
-categories: [whoami]
-tags: [whoami]
-description: My Moments&#58; Photos & Memory - 执信，华工，毽球，社团，悦读，新浪微博，小时候，未来……
-----------
+# 回忆
+
+> My Moments : Photos & Memory
+>
+> 执信，华工，毽球，社团，悦读，新浪微博，小时候，未来……
 
 ## 执信
 
@@ -174,23 +172,6 @@ description: My Moments&#58; Photos & Memory - 执信，华工，毽球，社团
 - 过去的都过去了，要往前看。
 - 一路远行，往事越发模糊，不知为何，却看得更清楚了。
 
-{% cq %}
-Bye, my good old days : )
-
-__Ice He__
-{% endcq %}
-
-<style type="text/css">
-article .article-content h2 {
-    font-weight: bold;
-    font-size: 1.8em;
-}
-article img.fix_width {
-    width: 32em;
-    height: auto;
-}
-img.fix_height {
-    width: auto;
-    height: 32em;
-}
-</style>
+> Bye, my good old days : )
+>
+> **Ice He**
