@@ -2,6 +2,15 @@
 
 <!-- **Pages** : [Coding](https://lib.icehe.xyz/) / [GitHub](https://icehe.github.io/IceHe) / [GitLab](https://icehe.gitlab.io/IceHe) -->
 
+## First
+
+- [Diary 日志](diary.md) ：
+    - 日计划 + 日报 & 周计划 + 周报（ [归档](diary/) ）
+- [CV 简历](cv.md) ：技能、经历、教育
+    - 微博视频平台 / 服务端 / Java
+    - 微博移动应用服务 / 服务端 / PHP
+    - 华南理工 / 软件工程 / 本科
+
 ## C++
 
 - [C++ Primer 第五版](/c++/C++ Primer 5th.html)
@@ -141,25 +150,6 @@
 - [**几步教程**](https://nsteptech.com/) - 不业余的中文技术教程
 - [**Johnson**](http://mrzys.coding.me/) - Pythoner, Web, Sina
 
-## Index
-
-- [Diary 日志](diary/) ：日计划 + 日报 / 周计划 + 周报
-- [CV 简历](cv.md) ：经验、技能、教育
-    - 微博视频平台 / 服务端 / Java
-    - 微博移动应用服务 / 服务端 / PHP
-    - 华南理工 / 本科 / 软件工程
-
-## TODO
-
-- [ ] 日志：日报 / 周报
-    - [ ] 要记录些什么
-    - [ ] 定好模板
-- [ ] 博客内容迁移
-    - [ ] 确定哪些该展示
-    - [ ] 展示的层次（不能太深，尽量扁平）
-    - [ ] 简单清洗内容（主要是标题部分）
-    - [ ] 深度清理内容（博客文章内容不是标准 Markdown ！不少嵌入的 HTML）
-
 ## TEMP
 
 Library / Wiki
@@ -168,7 +158,3 @@ Library / Wiki
 - 爱好：对酒当歌，人生几何？譬如朝露，去日苦多
 - 工具：君子性非异也，善假于物也
 - 人生：皇皇三十载，书剑两无成
-
-IceHe's Lib
-
-- [GitHub](https://github.com/IceHe/IceHe) / [GitLab](https://gitlab.com/IceHe/IceHe)
