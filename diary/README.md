@@ -1,65 +1,40 @@
-# 日报
+# This Week
 
-## 8-07-15
+> 2018-07-30 Mon
 
-计划
+## Tue
 
-- 工作（work / job）
-    - [ ] 主要：小接口需求
-    - [ ] 备用：新人文档！
-- 学习（stu / tech）
-    - [ ] IceHe Lib（昨天只是改善了网页效果而已……内容一点没动）
-        - [ ] 网站架构：日报 & 周报（即Life Logs）
-        - [ ] 内容迁移：将博客完全迁移过来
-- 休憩（娱乐 joy）
-    - 略
-- 生活（杂务 / 必须 must）
-    - 略
+work
 
-反省
+- alarm
+    - release
+- docs
+    - 4 business
+        - investigate
+        - report to boss
+    - 4 colleagues
+        - summary: common causes of alarms
 
-## 8-07-14
+lib
 
-计划
+- format content: little
+    - tools
 
-- 工作（work / job）
-    - [x] 媒体库的文档
-        - [x] 旧文档整理清楚（8-07-13 差一些完成）
-        - [x] 画架构图 / 部署图（8-07-14 很费时间，还是先把重要的部分写完！）
-- 学习（stu / tech）
-    - [ ] IceHe Lib（完全没动！）
-        - [ ] 网站架构：日报 & 周报（即Life Logs）
-        - [ ] 内容迁移：将博客完全迁移过来
-        - [ ] 改善了网页展示效果而已…… 内容一点没迁移！
-            - 反省：这是今天实际做的内容，我果然还是分不清事情的轻重！……
-- 休憩（娱乐 joy）
-    - [ ] 爬山（对新朋友，不能出尔反尔）
-- 生活（杂务 / 必须 must）
+spo
 
-反省
+- badminton
 
-- medialib 文档是写完了…… 但是花了太多的时间
-    - 原因：还是太追求完美了…… 记得「时间有限，青春很短，做最重要的事」！
-    > Life is short.
+## Mon
 
-## 8-07-13
+work
 
-计划
+- alarm
+    - coding (done)
+    - review (done)
+    - **release (todo)**
 
-- 工作（work / job）
-    - [] 媒体库的文档
-        - [ ] 旧文档整理清楚（差一些完成）
-        - [x] 为何区分新旧库（说清楚了）
-        - [ ] 画架构图 / 部署图（很费时间，还是先把重要的部分写完！）
-- 学习（stu / tech）
-    - [ ] IceHe's Lib（完全没动！）
-        - [ ] 网站架构：日报 & 周报（即Life Logs）
-        - [ ] 内容迁移：将博客完全迁移过来
-- 休憩（娱乐 joy）
-- 生活（杂务 / 必须 must）
+lib
 
-反省
+- **format content (little)**
 
-- 完成度不佳！**最大的问题是 medialib 文档没写完！**
-    - 原因：还是太追求完美了……记得「比起过程和安全感，结果最重要！」
-    > Done is better than perfect.
+> Done is better than perfect.
