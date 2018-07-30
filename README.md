@@ -4,7 +4,7 @@
 
 ## First
 
-- [Diary 日志](diary.md) ：
+- [Diary 日志](diary.md)
     - 日计划 + 日报 & 周计划 + 周报（ [归档](diary/) ）
 - [CV 简历](cv.md) ：技能、经历、教育
     - 微博视频平台 / 服务端 / Java
