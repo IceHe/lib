@@ -1,6 +1,28 @@
 # This Week
 
-> 2018-07-30 Mon ~
+> 2018-07-30 Mon ~ 2018-08-05 Sun
+
+## Wed
+
+work
+
+- alarm
+    - review
+- docs
+    - 4 business
+        - investigate (delay 1 day)
+        - report to boss
+    - 4 colleagues
+        - summary: common causes of alarms (delay 1 day)
+
+lib
+
+- format content: little
+    - tools (delay 1 day)
+
+spo
+
+- ride if not rain at night
 
 ## Tue
 
@@ -8,21 +30,23 @@ work
 
 - alarm
     - release (done)
+    - one more API alarm & deployment & refactor (done, unplanned)
 - docs
     - 4 business
-        - investigate (doing)
-        - report to boss
+        - investigate (doing, slowly)
+        - report to boss (delay)
     - 4 colleagues
-        - summary: common causes of alarms
+        - summary: common causes of alarms (delay)
+    - improve im/form README.md, freshman-guide.md & so on (done, unplanned)
 
 lib
 
 - format content: little
-    - tools
+    - tools (delay : because doing others)
 
 spo
 
-- badminton
+- badminton (done)
 
 ## Mon
 
