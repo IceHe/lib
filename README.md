@@ -4,16 +4,16 @@
 
 ## First
 
-- [Diary 日志](diary.md)
-    - 日计划 + 日报 & 周计划 + 周报（ [归档](diary/) ）
+- [Diary 日志](diary.md) : 日计划 + 日报 + 周计划 + 周报 ( [archived](diary/) )
+- [~~时间管理日志~~](lifelogs.md) ( deprecated )
+- [~~时间管理日志说明~~](think/time_mgt.md) ( deprecated )
 
 ## C++
 
 - [C++ Primer 第五版](c++/C++ Primer 5th.html)
 - [C++ 面试宝典](c++/C++ Interview Book.html)
 - [C++ 编程规范](c++/C++ Code Standards 编码标准.html)
-- Effective C++
-    - [笔记 1](c++/Effective C++ - Reading Note 1.html) , [笔记 2](c++/Effective C++ - Reading Note 2.html) , [笔记 3](c++/Effective C++ - Reading Note 3.html) , [笔记 4](c++/Effective C++ - Reading Note 4.html)
+- Effective C++ : [笔记 1](c++/Effective C++ - Reading Note 1.html) , [笔记 2](c++/Effective C++ - Reading Note 2.html) , [笔记 3](c++/Effective C++ - Reading Note 3.html) , [笔记 4](c++/Effective C++ - Reading Note 4.html)
 - [C++ 宏定义与位操作](c++/macro_and_bit_operations.md)
 
 ## Command
@@ -87,11 +87,6 @@
 - [2016 春夏](think/2016_summer.md)
 - [再见 2015](think/bye2015.md)
 - [生活指南](think/life_manual.md)
-
-## Time Mgt
-
-- [时间管理日志](lifelogs.md)
-- [时间管理日志说明](think/time_mgt.md)
 
 ## Who am I
 
