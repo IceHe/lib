@@ -1,16 +1,16 @@
 # This Week
 
-> 2018-07-30 Mon
+> 2018-07-30 Mon ~
 
 ## Tue
 
 work
 
 - alarm
-    - release
+    - release (done)
 - docs
     - 4 business
-        - investigate
+        - investigate (doing)
         - report to boss
     - 4 colleagues
         - summary: common causes of alarms
