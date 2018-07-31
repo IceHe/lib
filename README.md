@@ -7,15 +7,6 @@
 - [Diary 日志](diary.md)
     - 日计划 + 日报 & 周计划 + 周报（ [归档](diary/) ）
 
-## Who am I
-
-- [CV 简历](cv.md) ：技能、经历、教育
-    - 微博视频平台 / 服务端 / Java
-    - 微博移动应用服务 / 服务端 / PHP
-    - 华南理工 / 软件工程 / 本科
-- [回忆](moments.md)
-- [旧博索引](old-blog.md)
-
 ## C++
 
 - [C++ Primer 第五版](c++/C++ Primer 5th.html)
@@ -101,6 +92,15 @@
 
 - [时间管理日志](lifelogs.md)
 - [时间管理日志说明](think/time_mgt.md)
+
+## Who am I
+
+- [CV 简历](cv.md) ：技能、经历、教育
+    - 微博视频平台 / 服务端 / Java
+    - 微博移动应用服务 / 服务端 / PHP
+    - 华南理工 / 软件工程 / 本科
+- [回忆](moments.md)
+- [旧博索引](old-blog.md)
 
 ---
 
