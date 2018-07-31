@@ -20,7 +20,7 @@
 
 - [**Git 总结**](cmd/git_note.md) - **常用操作**
 
-## Readind
+## Reading
 
 - [**技术阅读收藏**](tech.md)
 - [**文字阅读收藏**](read.md)
