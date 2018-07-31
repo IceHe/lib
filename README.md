@@ -105,9 +105,9 @@
 - [Jan Fan](http://janfan.cn/) - Good Student, Little NLP, Tencent
 - [Johnson](http://mrzys.coding.me/) - Pythoner, Web, Sina
 
-## 一些想法
+## Ideas
 
-### 为什么写
+### Why to write
 
 - 我可以用 Evernote「记录」，但是难以「分享」；用 GitHub 可以同时做到两者，但是展示效果不佳；所以做了这个博客。
     - 只可惜我不够懂「前端、设计」，只能在别人完备的方案上进行自定义的修改。
@@ -116,7 +116,7 @@
     - 当然，我希望有更多的访客，但更在意这片小天地是否每一处都符合自己的心意。
     - 因此，我常常在完善旧文章，很少发布新文章。虽然文章少，但通常都很长。
 
-### 写什么
+### What to write
 
 - **不追赶容易过时的技术**
     - 软件技术日新月异，其中大多数不过昙花一现，很快就会被层出不穷的优秀后来者所取代。
@@ -145,9 +145,6 @@
 
 ## TEMP
 
-Library / Wiki
-
-- resume / tool / favorite / macos-shortcuts / tech bookmark / read bookmark
 - 爱好：对酒当歌，人生几何？譬如朝露，去日苦多
 - 工具：君子性非异也，善假于物也
 - 人生：皇皇三十载，书剑两无成
