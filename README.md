@@ -4,7 +4,7 @@
 
 ## First
 
-- [Diary 日志](diary.md) : 日计划 + 日报 + 周计划 + 周报 ( [archived](diary/) )
+- [Diary 日志](diary.md) : 日计划 + 日报 ( [archived](diary/) )
 - [~~时间管理日志~~](lifelogs.md) ( deprecated )
 - [~~时间管理日志说明~~](think/time_mgt.md) ( deprecated )
 
