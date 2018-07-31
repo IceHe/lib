@@ -6,7 +6,7 @@
 
 work
 
-- alarm
+- alarm (almost)
     - review
 - docs
     - 4 business
@@ -28,20 +28,20 @@ spo
 
 work
 
-- alarm
+- alarm (almost)
     - release (done)
     - one more API alarm & deployment & refactor (done, unplanned)
 - docs
-    - 4 business
+    - 4 business (little)
         - investigate (doing, slowly)
         - report to boss (delay)
-    - 4 colleagues
+    - 4 colleagues (none)
         - summary: common causes of alarms (delay)
     - improve im/form README.md, freshman-guide.md & so on (done, unplanned)
 
 lib
 
-- format content: little
+- format content (little)
     - tools (delay : because doing others)
 
 spo
