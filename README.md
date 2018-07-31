@@ -16,11 +16,11 @@
     - [笔记 1](c++/Effective C++ - Reading Note 1.html) , [笔记 2](c++/Effective C++ - Reading Note 2.html) , [笔记 3](c++/Effective C++ - Reading Note 3.html) , [笔记 4](c++/Effective C++ - Reading Note 4.html)
 - [C++ 宏定义与位操作](c++/macro_and_bit_operations.md)
 
-## Command 命令行
+## Command
 
 - [**Git 总结**](cmd/git_note.md) - **常用操作**
 
-## Read 阅读积累
+## Readind
 
 - [**技术阅读收藏**](tech.md)
 - [**文字阅读收藏**](read.md)
@@ -78,7 +78,7 @@
 - [搭建个人博客](web/build_blog.md)
 - [实现网站的打赏功能](web/donate.md)
 
-## Think 思考
+## Thinking
 
 - [2017 夏秋冬](think/2017_from_summer_to_winter.md)
 - [2017 春](think/2017_spring.md)
@@ -88,7 +88,7 @@
 - [再见 2015](think/bye2015.md)
 - [生活指南](think/life_manual.md)
 
-## Time Mgt. 时间管理
+## Time Mgt
 
 - [时间管理日志](lifelogs.md)
 - [时间管理日志说明](think/time_mgt.md)
@@ -103,6 +103,12 @@
 - [旧博索引](old-blog.md)
 
 ---
+
+## Links
+
+- [SF Zhou](http://sf-zhou.github.io/) - ACMer, Microsoft, SenseTime
+- [Jan Fan](http://janfan.cn/) - Good Student, Little NLP, Tencent
+- [Johnson](http://mrzys.coding.me/) - Pythoner, Web, Sina
 
 ## 一些想法
 
@@ -141,13 +147,6 @@
 - 追求整洁、秩序、完满，还不如由它杂乱不堪来得省心。我就是一个典型的「强迫症、细节控」，可是不想再继续这样下去了。人生太短暂了，何不及时行乐去享受乐趣，或是好好做事追寻人生的意义。
 - 不过，我还是想留下这个博客 —— 这一片隐秘天地，让我自己一个人，能够静静地跟自己说说话。
 - 记于 2017-03-15
-
-## 好友链接
-
-- [**SF Zhou**](http://sf-zhou.github.io/) - ACMer, Microsoft, SenseTime
-- [**Jan Fan**](http://janfan.cn/) - Good Student, Little NLP, Tencent
-- [**几步教程**](https://nsteptech.com/) - 不业余的中文技术教程
-- [**Johnson**](http://mrzys.coding.me/) - Pythoner, Web, Sina
 
 ## TEMP
 
