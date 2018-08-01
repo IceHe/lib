@@ -9,18 +9,18 @@
     - 微博移动应用服务 / 服务端 / PHP
     - 华南理工 / 软件工程 / 本科
 
-## Read
-
-- [技术阅读收藏](tech.md)
-- [文字阅读收藏](read.md)
-
-## Mac
+## Mac ( zheteng )
 
 - [利器 - 软件、物件的推荐](tools.md)
 - [Mac 效率指南](mac/efficiency.md)
 - [Mac 快捷键](mac/shortcuts.md)
 
-## Thinking
+## Read
+
+- [技术阅读收藏](tech.md)
+- [文字阅读收藏](read.md)
+
+## Think
 
 Writing : Record my Life
 
@@ -40,7 +40,9 @@ Time Management
 - [~~时间管理日志~~](lifelogs.md) ( archived )
 - [~~时间管理日志说明~~](think/time_mgt.md) ( archived )
 
-## Command
+## Cmd
+
+Commands
 
 - [Git 总结](cmd/git_note.md) : 常用操作
 
