@@ -7,13 +7,24 @@
 
 ## 说明
 
-主要介绍 macOS、[iOS](#iOS) 的 apps；提及一点 [Windows](#Windows)。（下文 Apple 指代 macOS + iOS）
-
 - 适合自己的工具，才是最好的工具，所以本文仅供参考，自行尝试最重要。
 - 笔者是工具控，目力之内看起来还有点用的工具都会折腾过一遍。
     - 过程中浪费了许多时间精力在很少派上用场甚至无用的工具上。
     - 善于发现生活中关键的效率瓶颈，再根据需求寻找或创造工具就足够了。
     - 因为折腾工具而忘记了把事做成的初心，实在是南辕北辙（笔者便是前车之鉴）。
+
+字体格式的含义
+
+- ~~删除线~~ 标识的一定是我现在不用的 Apps。
+
+---
+
+## 软件
+
+主要介绍
+
+- macOS、[iOS](#iOS) 的 apps（下文 Apple 指代 macOS + iOS）
+- 一点 [Windows](#Windows)
 
 App 选择原则
 
@@ -38,34 +49,26 @@ App 选择原则
 - [少数派](http://sspai.com/) - 高质量 App 推荐媒体，关于 iOS、Mac、硬件。
 - [Best App](https://github.com/hzlzh/Best-App) - List in GitHub
 
-字体格式的含义
-
-- ~~删除线~~ 标识的一定是我现在不用的 Apps。
-
----
-
-## 软件
-
 ### 常用
 
 网络访问
 
-- [**Shawdowsocks**](https://portal.shadowsocks.to/) <sup>Ladder</sup>
+- [Shawdowsocks](https://portal.shadowsocks.to/) <sup>Ladder</sup>
 
     - 首选的科学上网（番羽土啬）方案：
-        Shadowsocks 服务 + Mac 的 [**ShadowsocksX-NG**](https://github.com/shadowsocks/ShadowsocksX-NG) + 浏览器的 proxy 类插件：
-        如 Chrome 的 [**SwitchyOmega**](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en)；可用 [**Surge**](https://nssurge.com/) 替换 ShadowsocksX-NG。
+        Shadowsocks 服务 + Mac 的 [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG) + 浏览器的 proxy 类插件：
+        如 Chrome 的 [SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en)；可用 [Surge](https://nssurge.com/) 替换 ShadowsocksX-NG。
     - 备选方案：[VPN](https://www.cup.com/staticip/?=panda) + [CHNRoute](https://github.com/fivesheep/chnroutes) + [Dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html)。
 
-- [**Chrome**](https://www.google.com/chrome/)
+- [Chrome](https://www.google.com/chrome/)
 
-    - 配合 [**cVim**](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh) 拓展，可在浏览器内 **使用 Vim 键位** 浏览网页、操作浏览器！键盘党神器。
+    - 配合 [cVim](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh) 拓展，可在浏览器内 **使用 Vim 键位** 浏览网页、操作浏览器！键盘党神器。
         - 可惜它无法在页面未加载完毕的情况下使用 Vim 键位，不够（[Firefox](http://www.firefox.com.cn/) + [VimFX](https://github.com/akhodakivskiy/VimFx)）极致！
     - 用 **Inspect Element**（审查元素）配合 **Postman** 等做 Web 开发、调试，比 Firefox 顺手。
 
 常用
 
-- [**Trello**](https://trello.com/) <sup>Favorite</sup>
+- [Trello](https://trello.com/) <sup>Favorite</sup>
     基于 Board 的事务管理。
 
     - 使用 board 看板、list 列表、card 卡片等，组织事务；
@@ -74,7 +77,7 @@ App 选择原则
     - 我在现实管理工作项目的过程中，GitLab Issue Board 的应用，给我带来了很大的帮助。虽然那段时间很忙，但我还是有条不紊地推进了我和同事间的分工协作。自此迷上了使用 Board 的方式去管理事务。
     - 类似的产品很多，Trello 是最简洁、好用、易上手的，这是我用它的关键原因。Slack 的服务被墙，在移动端访问不便（而 Trello 没被墙）；而国内的模仿者们则做得太复杂了，可能因为他们主攻 toB 的市场，不适合我这样的个人用户来使用，所以无爱。
 
-- [**2Do**](https://www.2doapp.com/) <sup>Powerful</sup>
+- [2Do](https://www.2doapp.com/) <sup>Powerful</sup>
     GTD 事务管理。
 
     - 功能齐全、好用，用法可简可繁。快捷键完备！
@@ -86,17 +89,17 @@ App 选择原则
     - 《[做少数派中的少数派：双拼输入快速入门](http://sspai.com/32809)》
     - 《[选择输入法的哲学：兼论双拼的优缺点](http://sspai.com/33019)》
 
-- [**1Password**](https://agilebits.com/onepassword) <sup>Privacy</sup>
+- [1Password](https://agilebits.com/onepassword) <sup>Privacy</sup>
     帐号密码管理，以及私人信息的加密存储。
 
     - 用一（两）个主密码管理所有其它密码。可生成随机密码，可记录登录网站时用的帐号密码，可自动填写表单登录网站。
-    - 以前一直用不惯，觉得用浏览器自带的自动登录和 iCloud 的 [**KeyChain Access**](https://support.apple.com/kb/PH20093?locale=zh_CN) 来记录管理帐号和密码足矣，可是不便于保存一些私人信息。工作之后，经济独立，更加注意保护个人隐私和财产安全了，要管理的私人信息多而杂乱，所以不得不借助专用的工具。
+    - 以前一直用不惯，觉得用浏览器自带的自动登录和 iCloud 的 [KeyChain Access](https://support.apple.com/kb/PH20093?locale=zh_CN) 来记录管理帐号和密码足矣，可是不便于保存一些私人信息。工作之后，经济独立，更加注意保护个人隐私和财产安全了，要管理的私人信息多而杂乱，所以不得不借助专用的工具。
     - 其它选择：
-        - [**KeyChain Access**](https://support.apple.com/kb/PH20093?locale=zh_CN)：macOS & iOS 原生支持，方便免费。
-        - [**Dashlane**](https://www.dashlane.com/)：好用，但贵。
-        - [**LastPass**](https://lastpass.com/)：够用，免费。
+        - [KeyChain Access](https://support.apple.com/kb/PH20093?locale=zh_CN)：macOS & iOS 原生支持，方便免费。
+        - [Dashlane](https://www.dashlane.com/)：好用，但贵。
+        - [LastPass](https://lastpass.com/)：够用，免费。
 
-- [**Outlook**](https://outlook.live.com/owa/)
+- [Outlook](https://outlook.live.com/owa/)
     邮箱客户端，微软出品。
 
     - 方便设置在邮箱服务器生效的邮件规则（因为公司邮箱用 Outlook 的服务）。
@@ -107,50 +110,50 @@ App 选择原则
 
 笔记
 
-- [**MindNode**](https://mindnode.com/) <sup>Flexible</sup>
+- [MindNode](https://mindnode.com/) <sup>Flexible</sup>
     思维导图，归纳总结笔记。
 
     - 操作简便易上手，轻巧稳定。
     - 我原来用 Markdown 线性列表来做记录、归纳、总结，但是这样的话，内容再组织实在不灵活，不如思维导图灵巧。
 
-- [**Notes**](https://support.apple.com/kb/PH22609?viewlocale=en_US&locale=en_JO) <sup>Simple</sup>
+- [Notes](https://support.apple.com/kb/PH22609?viewlocale=en_US&locale=en_JO) <sup>Simple</sup>
     Apple 自带的轻量级笔记应用。
 
     - 用于收集灵感和想法，做书摘、读书笔记和日记。因为它启动迅速，使用稳定便捷，所以更常使用它而非 Evernote。
 
-- [**~~nvALT~~**](http://brettterpstra.com/projects/nvalt/) <sup>Casual</sup>
+- [~~nvALT~~](http://brettterpstra.com/projects/nvalt/) <sup>Casual</sup>
     macOS 上的草稿处理中心。随叫随到（快捷键齐备），迅速记录（操作简洁），检索便捷。
 
     - 如果我用 Sublime Text 做一些随意的文字记录，要保留久一点都得保存成文件，难免在显眼的地方（例如桌面）看到一堆临时文件，过后的清理也麻烦，怕不小心删掉了别的有用的文件。
     - 用 nvALT 的话，它会统一在暗处做文字记录的整理（除非导出文件），眼不见为净。
 
-- [**Notion**](https://www.notion.so/) <sup>Checklist</sup>
+- [Notion](https://www.notion.so/) <sup>Checklist</sup>
     用作 **checklist**（检查清单）。
 
     - 我只用它来复用自己的 checklist 模板。例如，每天的早上起床、晚上回住处要做的杂务流程，以及出行的行李清单等 checklist。（虽然功能强大，但操作不够便捷，数据同步不尽如人意）
     - 原来我用 Evernote 来复用 checklist 模板，可是在 check 勾选、uncheck 反选复选框，以及浏览 checklist 的过程中，很容易唤起键盘，可以说相当烦人，而 Notion 则不会有这样的体验。
 
-- [**Evernote**](https://www.yinxiang.com/) <sup>Rec Offline, RIL</sup>
+- [Evernote](https://www.yinxiang.com/) <sup>Rec Offline, RIL</sup>
     云笔记，第二大脑（知识管理）。
 
     - 好记性不如烂笔头，而如今知识更新之快，纸笔已跟不上，于是笔记软件大放异彩。云端存储同步笔记（同时定期备份整个硬盘），有备份就不怕丢；便于检索，甚至搜索图片中的文字。总是死记硬背没有出路，不能被检索的知识毫无意义。
     - 现在觉得值得离线记录的东西不多了，用 Google 搜索更便捷，而且还能获得更新更好的资料；值得沉淀的知识不断更新记录在博客就够了。
     - 现在我主要将它作为 Read It Later（RIL）类 App 来用。
-        - 用法：[**剪藏**](https://evernote.com/intl/zh-cn/webclipper/)、微博 [**@我的印象笔记**](http://weibo.com/u/2859258962)、微信分享给 **我的印象笔记**、[邮件收藏](https://help.evernote.com/hc/zh-cn/articles/209005347-%E5%A6%82%E4%BD%95%E4%BF%9D%E5%AD%98%E9%82%AE%E4%BB%B6%E8%87%B3Evernote) 等。
+        - 用法：[剪藏](https://evernote.com/intl/zh-cn/webclipper/)、微博 [@我的印象笔记](http://weibo.com/u/2859258962)、微信分享给 **我的印象笔记**、[邮件收藏](https://help.evernote.com/hc/zh-cn/articles/209005347-%E5%A6%82%E4%BD%95%E4%BF%9D%E5%AD%98%E9%82%AE%E4%BB%B6%E8%87%B3Evernote) 等。
     - 其它选择：
-        - [**~~有道云笔记~~**](https://note.youdao.come)：Evernote 迁移到其它平台比较简单，但 [有道云笔记](https://note.youdao.come) 导出的笔记格式经过加密、无法通用，很难迁移到别的平台，所以不推荐使用
-        - [**为知笔记**](http://www.wiz.cn/)、[**Leanote**](https://leanote.com/)、[**Notion**](https://www.notion.so) …
+        - [~~有道云笔记~~](https://note.youdao.come)：Evernote 迁移到其它平台比较简单，但 [有道云笔记](https://note.youdao.come) 导出的笔记格式经过加密、无法通用，很难迁移到别的平台，所以不推荐使用
+        - [为知笔记](http://www.wiz.cn/)、[Leanote](https://leanote.com/)、[Notion](https://www.notion.so) …
 
 ### 命令行
 
 代码管理
 
-- [**Git**](https://git-scm.com/) <sup>Required</sup>
+- [Git](https://git-scm.com/) <sup>Required</sup>
     分布式代码版本管理系统（必学）。
 
 编辑器
 
-- [**Vim**](http://www.vim.org/) <sup>God-like</sup>
+- [Vim](http://www.vim.org/) <sup>God-like</sup>
     编辑器之神（ Emacs 则是神的编辑器 ）。
 
     - 服务器通常是 *nix 系统，vi* 是标配，而 Emacs 不常有。服务端开发和运维人员经常要在远程服务器编辑文本，遂 vi\* 是必备技能！
@@ -158,9 +161,9 @@ App 选择原则
     - 在命令行之外，Sublime Text 原生支持 Vim 的基本操作，VS Code 插件支持 Vim 操作。
     - Vim vs. Emacs! &nbsp;[What are the main differences between Vim and Emacs?**](https://www.quora.com/Text-Editors-What-are-the-main-differences-between-Vim-and-Emacs)》
     - 其它：《[一年成为Emacs高手（像神一样使用编辑器）](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)》
-    - 我的配置 [**.vimrc**](https://github.com/IceHe/macos-home-conf/blob/master/.vimrc)
+    - 我的配置 [.vimrc](https://github.com/IceHe/macos-home-conf/blob/master/.vimrc)
 
-- [**~~spf13-vim~~**](http://vim.spf13.com/)
+- [~~spf13-vim~~](http://vim.spf13.com/)
     一整套 Vim 配置方案。
 
     - 比起漫无休止地折腾配置，不如遵从实用主义：站在巨人的肩膀上，直接使用久经考验的的配置方案。
@@ -170,35 +173,35 @@ App 选择原则
 
 Shell
 
-- [**Zsh**](http://zsh.sourceforge.net/) <sup>Powerful</sup>
+- [Zsh](http://zsh.sourceforge.net/) <sup>Powerful</sup>
     比 Bash 更强大、便捷、高效的 Shell！
 
-    - 配置 Zsh 比较复杂，可以使用 [**oh-my-zsh**](http://ohmyz.sh/) 等成熟的配置方案。
-    - [**Fish**](https://fishshell.com/) ( a shell for the 90s 😂 ) 虽然很好，但存在兼容性问题，有些 Bash 的指令需要改写才能运行在 Fish 上。尝试使用之后，还是更喜欢 Zsh。
+    - 配置 Zsh 比较复杂，可以使用 [oh-my-zsh](http://ohmyz.sh/) 等成熟的配置方案。
+    - [Fish](https://fishshell.com/) ( a shell for the 90s 😂 ) 虽然很好，但存在兼容性问题，有些 Bash 的指令需要改写才能运行在 Fish 上。尝试使用之后，还是更喜欢 Zsh。
     - 参考：[Comparison of Command Shells - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
-    - 我的配置 [**.zshrc**](https://github.com/IceHe/macos-home-conf/blob/master/.zshrc)
+    - 我的配置 [.zshrc](https://github.com/IceHe/macos-home-conf/blob/master/.zshrc)
 
-- [**oh-my-zsh**](http://ohmyz.sh/) <sup>Efficient</sup>
+- [oh-my-zsh](http://ohmyz.sh/) <sup>Efficient</sup>
     管理 Zsh 配置的开源框架，预打包了相关的主题、插件、配置。
 
     - 配置过程傻瓜化，一条安装指令就能让你畅快地享受 Zsh 的强大与高效！
-    - 我的命令行提示符主题 [**.sunrise_icehe**](https://github.com/IceHe/macos-home-conf/blob/master/.config/zsh/sunrise_icehe.zsh-theme)
+    - 我的命令行提示符主题 [.sunrise_icehe](https://github.com/IceHe/macos-home-conf/blob/master/.config/zsh/sunrise_icehe.zsh-theme)
 
-- [**tmux**](https://tmux.github.io/) <sup>Powerful</sup>
+- [tmux](https://tmux.github.io/) <sup>Powerful</sup>
     终端多路复用软件，即命令行中的 「桌面」、「分屏工具」。
 
     - 允许一个用户在一个终端窗口或一个远程终端会话中，使用多个终端会话。
-    - [**screen**](https://www.gnu.org/software/screen/manual/screen.html) 命令的替代方案，使用方法基本相同。
-    - 我的配置 [**.tmux.conf**](https://github.com/IceHe/macos-home-conf/blob/master/.tmux.conf)
+    - [screen](https://www.gnu.org/software/screen/manual/screen.html) 命令的替代方案，使用方法基本相同。
+    - 我的配置 [.tmux.conf](https://github.com/IceHe/macos-home-conf/blob/master/.tmux.conf)
 
 ---
 
 包管理
 
-- [**Homebrew**](http://brew.sh/) <sup>Best</sup>
+- [Homebrew](http://brew.sh/) <sup>Best</sup>
     macOS 的包管理器。`brew` 就如 `agt-get` 之于 Ubuntu，`yum` 之于 RedHat、CentOS 的存在。
 
-- [**~~Homebrew Cask~~**](http://caskroom.io/)
+- [~~Homebrew Cask~~](http://caskroom.io/)
     安装、更新 macOS Apps 的命令行工具。
 
     - 用命令行的方式安装、更新 Mac Apps，其中还包括了许多第三方的 Apps。
@@ -212,23 +215,23 @@ Shell
 
 常用
 
-- [**IntelliJ IDEA**](https://www.jetbrains.com/idea/) <sup>Master Piece</sup>
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/) <sup>Master Piece</sup>
 
-- [**~~PhpStorm~~**](https://www.jetbrains.com/phpstorm/)
+- [~~PhpStorm~~](https://www.jetbrains.com/phpstorm/)
     PHP 的最佳 IDE。
 
     - 现阶段 PHP 类型推导做得最好的 IDE，稳定、崩溃少，功能完善，设置选项齐全。（我觉得）比 ZendStudio、Eclipse 好用多了。
     - 技术支持服务靠谱，客服答复迅速、解决方案有效
-    - 配合 [**IdeaVim**](https://plugins.jetbrains.com/plugin/164?pr=idea) 插件可用 Vim 的方式进行操作，可以少记许多执行相同功能的 IDE 快捷键。
-        - 我的配置 [**.ideavimrc**](https://github.com/IceHe/macos-home-conf/blob/master/.ideavimrc)
-    - [**JetBrains**](https://www.jetbrains.com/products.html) 出品的其它优秀 IDE：[**PyCharm**](https://www.jetbrains.com/pycharm/)、[**WebStorm**](https://www.jetbrains.com/webstorm/)、[**CLion**](https://www.jetbrains.com/clion/)、[**GoLand**](https://www.jetbrains.com/go/) …
+    - 配合 [IdeaVim](https://plugins.jetbrains.com/plugin/164?pr=idea) 插件可用 Vim 的方式进行操作，可以少记许多执行相同功能的 IDE 快捷键。
+        - 我的配置 [.ideavimrc](https://github.com/IceHe/macos-home-conf/blob/master/.ideavimrc)
+    - [JetBrains](https://www.jetbrains.com/products.html) 出品的其它优秀 IDE：[PyCharm](https://www.jetbrains.com/pycharm/)、[WebStorm](https://www.jetbrains.com/webstorm/)、[CLion](https://www.jetbrains.com/clion/)、[GoLand](https://www.jetbrains.com/go/) …
 
-- [**Sublime Text**](http://www.sublimetext.com/) <sup>Fastest</sup>
+- [Sublime Text](http://www.sublimetext.com/) <sup>Fastest</sup>
     代码编辑器。Vintage 模式，可用 Vim 键位进行操作。冷启动也快如闪电！
 
-    - 候选：[**VS Code**](https://code.visualstudio.com/)，开源、持续且活跃的开发，更不必说本身有微软过硬的技术实力背书。
-    - 我自定义的 [**keymap**](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/Default%20(OSX).sublime-keymap)
-    - 我安装的 [**plugins**](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/Package%20Control.sublime-settings)
+    - 候选：[VS Code](https://code.visualstudio.com/)，开源、持续且活跃的开发，更不必说本身有微软过硬的技术实力背书。
+    - 我自定义的 [keymap](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/Default%20(OSX).sublime-keymap)
+    - 我安装的 [plugins](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/Package%20Control.sublime-settings)
         - **Clickable URLs**：`⌘ ⌥ ↩` 打开光标当前位置的 URL。
         - **Compare Side-By-Side**：文本差异对比。
         - **CTags**：编程语言对象定位器。
@@ -239,47 +242,47 @@ Shell
         - **Pretty JSON**：JSON 格式美化、最小化、有效性检查。
         - **TrailingSpaces**、**Trimmer**：去除多余的空格，包括每行内容后面的。
 
-- [**iTerm2**](https://www.iterm2.com/)
+- [iTerm2](https://www.iterm2.com/)
     macOS 下的终端仿真机。是系统默认自带的 Terminal 的最佳替代 App。
 
-- [**~~Dash~~**](https://kapeli.com/dash)
+- [~~Dash~~](https://kapeli.com/dash)
     查阅 API 参考文档、管理代码片段的工具。功能单一却精准。
 
 网络
 
-- [**Charles**](https://www.charlesproxy.com/) <sup>Best</sup>
+- [Charles](https://www.charlesproxy.com/) <sup>Best</sup>
     网络封包分析（抓包）工具。如 Fiddler 之于 Windows。主要用于「应用层」的分析。
 
-- [**Postman**](http://www.getpostman.com/) <sup>Powerful</sup>
+- [Postman](http://www.getpostman.com/) <sup>Powerful</sup>
     APIs 开发、测试、归档的辅助工具。
 
-    - Mac 的 HTTP 客户端。用于与 REST 服务交互，以助构建 API、HTTP 请求，检查来自服务器的响应。其它选择：[**~~Paw~~**](https://paw.cloud/)
+    - Mac 的 HTTP 客户端。用于与 REST 服务交互，以助构建 API、HTTP 请求，检查来自服务器的响应。其它选择：[~~Paw~~](https://paw.cloud/)
 
-- [**~~Wireshark~~**](https://www.wireshark.org/) <sup>Powerful</sup>
+- [~~Wireshark~~](https://www.wireshark.org/) <sup>Powerful</sup>
     网络封包分析工具。比 Charles 强大得多，但是也复杂得多。主要用于「网络层」的分析。
     （并非运维人员，日常工作很少用得着。有益于深入理解学习计算机网络的知识。）
-- [**~~LaunchRocket~~**](https://github.com/jimbojsb/launchrocket)
+- [~~LaunchRocket~~](https://github.com/jimbojsb/launchrocket)
     安装在 macOS 系统设置面板的 App，通过 `launchd` 管理各式 services。
 
     - 比使用命令行，更便于启动、终止 services 以及进行 root 授权。
 
 数据
 
-- [**~~Squel Pro~~**](http://www.sequelpro.com/) <sup>Free</sup>
+- [~~Squel Pro~~](http://www.sequelpro.com/) <sup>Free</sup>
     管理 MySQL 数据库的 GUI 工具。
 
-- [**~~Transmit~~**](https://panic.com/transmit/)
+- [~~Transmit~~](https://panic.com/transmit/)
     FTP 的 GUI 工具。
     （rsync 命令比 FTP 的效率高得多，用法也更丰富。一般情况下传输文件用 netcat 命令也够用。）
 
 办公
 
-- [**Adobe Acrobat Reader DC**](https://get.adobe.com/cn/reader/)
+- [Adobe Acrobat Reader DC](https://get.adobe.com/cn/reader/)
     一般情况下，不使用额外的 **PDF 阅读软件**，Mac 系统自带的 Preview 就够用了。
 
     - 但在特殊情况下，需要用到 PDF 的一些高级特性，还是 Adobe 家的软件亲自处理更妥当，例如签证申请文件、合同、加密文件等。
 
-- [**~~Parallel Desktop~~**](http://www.parallels.com/landingpage/pd/general/?src=r&pd11) <sup>Best</sup>
+- [~~Parallel Desktop~~](http://www.parallels.com/landingpage/pd/general/?src=r&pd11) <sup>Best</sup>
     虚拟机软件。
 
     - 最适合用于安装 Windows。它将 Windows、Ubuntu 跟 macOS（几乎）无缝对接，使用流畅自然。（我现在完全脱离了 Windows 平台独占的软件，包括游戏，所以几乎用不着它。还有它的软件升级定价策略很不地道，跟重新买差别不大…）
@@ -287,69 +290,69 @@ Shell
 
 ### 快捷键
 
-- [**Keyboard Maestro**](https://www.keyboardmaestro.com/main/) <sup>Geek , Best , Favorite</sup>
+- [Keyboard Maestro](https://www.keyboardmaestro.com/main/) <sup>Geek , Best , Favorite</sup>
     高度自定义的效率工具，加速常用操作，甚至自动化。功能强大，用途甚广，限制你的只有你的想象力。
 
-    - 替代用于 **快速启动、切换 Apps** 的 [**~~Manico~~**](http://manico.im/) <sup>Great</sup>、[**~~Contexts~~**](https://contexts.co/) <sup>Simple</sup>。
+    - 替代用于 **快速启动、切换 Apps** 的 [~~Manico~~](http://manico.im/) <sup>Great</sup>、[~~Contexts~~](https://contexts.co/) <sup>Simple</sup>。
         - 我是键盘党，以前用 Windows 时已经习惯用快捷键和鼠标手势迅速打开、切换程序，因此离不开这类工具。
 
-    - 替代用于 **Apps 分屏** 的 [**~~Moom~~**](https://manytricks.com/moom) <sup>Great</sup>、[**~~Spectacle~~**](https://www.spectacleapp.com/) <sup>Simple</sup>。
+    - 替代用于 **Apps 分屏** 的 [~~Moom~~](https://manytricks.com/moom) <sup>Great</sup>、[~~Spectacle~~](https://www.spectacleapp.com/) <sup>Simple</sup>。
         用快捷键等触发分屏操作，按需快速摆放 App 窗口（移动、缩放）。
         - Moom 用久了我形成了固定的习惯，主要用全屏、左右各半、左右 3/5 和居中等少数几种布局，只需要设置几个快捷键来触发对应操作就够了。
         - 参考：《[说说 Mac 分屏的事(2) - Moom 的10个技巧](http://zhuanlan.zhihu.com/MacTips/20258341)》
 
-    - 替代用于 **用缩写加速文本输入** 的 [**~~TextExpander~~**](https://textexpander.com/) <sup>Great</sup>、[**~~aText~~**](https://www.trankynam.com/atext/) <sup>Simple</sup>。
+    - 替代用于 **用缩写加速文本输入** 的 [~~TextExpander~~](https://textexpander.com/) <sup>Great</sup>、[~~aText~~](https://www.trankynam.com/atext/) <sup>Simple</sup>。
         输入缩写时，根据用户的设定模板来自动拓展输入的文本，提升输入效率，特别是高频使用的词句。
 
-    - 替代用于 **稳定便捷地切换同一 App 的多个子窗口** 的 [**HyperSwitch**](https://bahoom.com/hyperswitch) <sup>Best</sup>。
+    - 替代用于 **稳定便捷地切换同一 App 的多个子窗口** 的 [HyperSwitch](https://bahoom.com/hyperswitch) <sup>Best</sup>。
         - 这类应用的出现，是因为在某些 Apps 下，无法用系统的 <code>⌘ \`</code> 来切换其下的各个子窗口。
         - 当然可以用触摸板三指下滑的手势或快捷键触发 App Expose，可以显示当前应用的所有窗口，然后点击选择进行窗口切换，但是不够快捷。
 
-    - 可以替代用于 **剪贴板管理** 的 [**ClipMenu**](http://www.clipmenu.com/) <sup>Simply , Favorite</sup>、[**~~Paste~~**](http://pasteapp.me/) <sup>Beauty</sup>。
+    - 可以替代用于 **剪贴板管理** 的 [ClipMenu](http://www.clipmenu.com/) <sup>Simply , Favorite</sup>、[~~Paste~~](http://pasteapp.me/) <sup>Beauty</sup>。
         - 这类应用很多，Keyboard Maestro 在这方面还是做得不够好。
         - Paste 颜值高，可是配置选项不多，不如 ClipMenu 定制性强。ClipMenu 短小精悍，显示紧凑（可能你会觉得丑），快捷键调用方便，响应迅速。
         - 所以，剪贴板方面我还是选用了更合我口味的专用 App **ClipMenu**。
 
-    - 可以替代或补充用于 **自动化流程** 的 [**Automator**](https://developer.apple.com/library/content/documentation/AppleApplications/Conceptual/AutomatorConcepts/Automator.html) <sup>macOS built-in</sup>
+    - 可以替代或补充用于 **自动化流程** 的 [Automator](https://developer.apple.com/library/content/documentation/AppleApplications/Conceptual/AutomatorConcepts/Automator.html) <sup>macOS built-in</sup>
         - 可以编写脚本，控制自动化的理过，调用命令脚本、控制 GUI，判断系统状态如网路、蓝牙、电源连接等…… 减少人工的重复操作。
         - 参考：《 [懒的前提是要足够高效： Mac 效率工具Keyboard Maestro 详解 - 少数派](https://sspai.com/post/28721) 》
 
-- [**Karabiner-Elements**](https://pqrs.org/osx/karabiner/index.html) <sup>Geek , Best , Favorite</sup>
+- [Karabiner-Elements](https://pqrs.org/osx/karabiner/index.html) <sup>Geek , Best , Favorite</sup>
     强大、稳定的键位修改功能，预定义了大量奇巧的修改方案。键盘党神器！
 
     - 可自定义快捷键去启动、切换 App，打开文件和网址，快速输入关键词跳转到网站的搜索页，甚至运行 Shell 命令行。发挥想象力，配合上述的 Keyboard Maestro，还能做到更多的事。除了「键位修改」，其它繁杂的功能最好交给 Keyboard Maestro 或者 Shell 脚本来完成，用起来省心。
-    - 我的配置 [**karabiner.json**](https://github.com/IceHe/macos-home-conf/blob/master/.config/karabiner/karabiner.json)
+    - 我的配置 [karabiner.json](https://github.com/IceHe/macos-home-conf/blob/master/.config/karabiner/karabiner.json)
 
 - **Karabiner Event-Viewer**
     键盘码查询。不用查表，直接击键，即得出对应的键盘码和按键组合等。
 
     - 是 Karabiner-Elements 附带 App，用于调试键位、快捷键组合。
 
-- [**~~CheatSheet~~**](https://www.mediaatelier.com/CheatSheet/) <sup>Tips, for freshman</sup>
+- [~~CheatSheet~~](https://www.mediaatelier.com/CheatSheet/) <sup>Tips, for freshman</sup>
     快捷键快速提醒。长按 Command 键，显示当前程序的快捷键列表，方便快速入门 Mac 各处的快捷键。（新手专用）
 
 ### 系统增强
 
-- [**Amphetamine**](https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12)
+- [Amphetamine](https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12)
     防止 Mac 休眠。
 
     - 原因：Mac 每次休眠后都会重启软件，导致软件丢失部分上下文，于是我无法在完全一样的环境下持续工作，一定程度上打断了工作，降低了效率。
     - 休眠（Sleep）：硬盘休眠。
         屏幕休眠（Display Sleep）：即关闭屏幕，连屏幕保护程序（Screen Saver）也不运作。
-    - 其它选择：它比同类软件 [~~Caffine~~](https://itunes.apple.com/us/app/caffeine/id411246225?mt=12)、[**~~Owly~~**](https://itunes.apple.com/us/app/owly-display-sleep-prevention/id882812218?mt=12) 功能完备、好用；[~~InsomniaX~~](http://semaja2.net/projects/insomniaxinfo/) 没用过。
+    - 其它选择：它比同类软件 [~~Caffine~~](https://itunes.apple.com/us/app/caffeine/id411246225?mt=12)、[~~Owly~~](https://itunes.apple.com/us/app/owly-display-sleep-prevention/id882812218?mt=12) 功能完备、好用；[~~InsomniaX~~](http://semaja2.net/projects/insomniaxinfo/) 没用过。
 
-- [**Bartender**](https://www.macbartender.com/)
+- [Bartender](https://www.macbartender.com/)
     收起或彻底隐藏毋需过多关注的菜单栏 App 图标。（我这个整洁癖、强迫症的福音）
 
     - 不推荐购买 [~~Vanilla~~](http://matthewpalmer.net/vanilla/)，使用简便，自然配置项有限，最主要因为功能的实现方法不合理以致有 bug，例如会遮蔽菜单栏的一些别的内容，又如某些图标不能符合预期地显示或隐藏。
 
-- [**~~ClipMenu~~**](http://www.clipmenu.com/) <sup>Simple</sup>
+- [~~ClipMenu~~](http://www.clipmenu.com/) <sup>Simple</sup>
     剪贴板管理。
 
     - 主要用于快速查询剪贴板的历史记录，并提取出需要的内容保存到当前的剪贴板中。
     - 支持 URL、纯文本、RTF、图片、文件等各种格式，包括剪贴历史的排序、内容的大小写转换、自定义文本的调用。
 
-- [**Copied**](https://copiedapp.com/) <sup>Favorite, Searchable</sup>
+- [Copied](https://copiedapp.com/) <sup>Favorite, Searchable</sup>
     剪贴板管理。（2018-04 开始尝试用它替代 ClipMenu）
 
     - 不同于 ClipMenu 的简单，它拥有丰富完备的功能。
@@ -358,15 +361,15 @@ Shell
     - 匹配规则：纯数字、URL 链接等，分别保存到不同的列表，应用不同的格式化模板。
     - App 定制规则：来自不同 App 的内容，分别保存到不同的列表，应用不同的格式化模板。
     - Queue（队列）：先入先出地输出内容（平时默认：后入先出）。
-    - 其它选择：[**Paste**](http://pasteapp.me/) 最好看！这类 App 层出不穷…
+    - 其它选择：[Paste](http://pasteapp.me/) 最好看！这类 App 层出不穷…
 
-- [**PopClip**](http://pilotmoon.com/popclip/)
+- [PopClip](http://pilotmoon.com/popclip/)
     快捷工具条。
 
     - 在选中文本是弹出，辅助操作的工具条，包括：搜索、查字典、剪切、复制、粘贴等。
     - TODO
 
-- [**HyperSwitch**](https://bahoom.com/hyperswitch) <sup>Best</sup>
+- [HyperSwitch](https://bahoom.com/hyperswitch) <sup>Best</sup>
     稳定切换同一 App 下各子窗口。
 
     - HyperSwitcher 选择切换的窗口时，会显示各应用的缩略图。
@@ -375,26 +378,26 @@ Shell
         窗口增强工具。光标停到 Dock 的 App 图标上，能快速预览该软件的所有窗口，点击切换到不同的窗口或桌面。还有快速调整窗口布局、大小、位置等的功能。
         - 用处还是不大，用 HyperSwitcher 切换子窗口时就能看到 App 下所有子窗口的预览图。
 
-- [**KeyCastr**](https://github.com/keycastr/keycastr)
+- [KeyCastr](https://github.com/keycastr/keycastr)
     键盘输入可视化：在显示屏上会显示你的键盘敲击动作，包括使用快捷键组合。
 
     - 主要用于展示你如何（用快捷键）高效地使用电脑。
 
-- [**Itasycal**](https://www.mowglii.com/itsycal/) <sup>Simple</sup>
+- [Itasycal](https://www.mowglii.com/itsycal/) <sup>Simple</sup>
     菜单栏上的日历小工具。自定义日期时间显示的格式，方便查看月历和事件！
 
-- [**Quick Look plugins**](https://github.com/sindresorhus/quick-look-plugins)
+- [Quick Look plugins](https://github.com/sindresorhus/quick-look-plugins)
     增强 Finder 的文件预览（Preview）功能。
 
     - 在 Finder 浏览目录和文件时，选中文件，再按空格键，即可进行简单的预览。
     - 该插件提供各种类型文件的预览功能：快速预览各种格式的图片，包括 GIF；对各种不同编程语言的代码进行着色，便于查看… 详情查看其 [GitHub 仓库 README.md](https://github.com/sindresorhus/quick-look-plugins) 的说明。
 
-- [**~~ShawdowsocksX~~**](http://macappstore.org/shadowsocksx/) <sup>No update</sup>
+- [~~ShawdowsocksX~~](http://macappstore.org/shadowsocksx/) <sup>No update</sup>
 
-- [**ShawdowsocksX NG**](https://github.com/shadowsocks/ShadowsocksX-NG) <sup>Ladder</sup>
+- [ShawdowsocksX NG](https://github.com/shadowsocks/ShadowsocksX-NG) <sup>Ladder</sup>
     ShadowsocksX 是在 Mac 上配合 Shadowsock 工作的软件。NG 是后人维护的版本。
 
-- [**ShowyEdge**](https://pqrs.org/osx/ShowyEdge/index.html.en) <sup>Great</sup>
+- [ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en) <sup>Great</sup>
     输入法状态提示。
 
     - 显示一条样式可定制的色带在屏幕顶部，以提示正在使用什么输入法。在全屏使用 App 时，也能轻易区分输入法状态！
@@ -402,11 +405,11 @@ Shell
     - 我输入英文只使用默认的「U.S.」input source，输入中文只使用「拼音输入法」，切换「中/英」输入只要直接切换输入法就好了。
         - 我不想只用「拼音输入法」，然后在一种输入法下进行中英输入切换。这时中英切换通常只需要用一个键 `⇧`、`^` 或 `⇪`，看似操作很方便，但也容易「误操作」，使用大量使用快捷键时就很不便，特别是在用 Vim 的方式进行编辑时，误操作几率非常高！
 
-- [**Time Machine**](https://support.apple.com/en-hk/HT201250) <sup>Required</sup>
+- [Time Machine](https://support.apple.com/en-hk/HT201250) <sup>Required</sup>
     macOS 自带的系统备份、恢复软件。
 
     - 要有忧患意识，不要等硬盘坏了、Mac 丢了，才追悔莫及。
-- [**~~Time Out~~**](http://www.dejal.com/timeout/) <sup>Health , Protect Eyes!</sup>
+- [~~Time Out~~](http://www.dejal.com/timeout/) <sup>Health , Protect Eyes!</sup>
     定时作息提醒工具。定时遮盖桌面的应用程序，提醒你离开电脑，去休息眼睛、活动身体。
     - 如人饮水，冷暖自知。自己多注意就好，要是实在不自觉，这个应用才有用武之地；其实真到了严重的程度，它也帮不到你了。
     - 其实我有一个个人的休息方式：因为我比较容易口渴，所以经常喝水；饮水量大就经常上洗手间，自然会多走动，不久坐。
@@ -414,25 +417,25 @@ Shell
 - **Dictionary** <sup>Great</sup>
     macOS 系统自带的字典应用，足够好用。
 
-- [**EuDic Free**](http://www.eudic.net/eudic/mac_dictionary.aspx) <sup>Free, Great</sup>
+- [EuDic Free](http://www.eudic.net/eudic/mac_dictionary.aspx) <sup>Free, Great</sup>
     欧路词典，Mac 上最好用的第三方词典。
 
-- [**Numi**](http://numi.io/) <sup>Great</sup>
+- [Numi](http://numi.io/) <sup>Great</sup>
     系统默认计算器的替代方案。
 
     - 单位换算好用啊！例如，您输入左边的内容，就能得到右边的结果：
         Input `1 day in sec` , print `86,400 s` .
         Input `547 day in year` , print `1 yr 6 mon. 2 day` .
 
-- [**IINA Player**](https://lhc70000.github.io/iina/)
+- [IINA Player](https://lhc70000.github.io/iina/)
     视频播放软件。比 [~~MPlayerX~~](http://mplayerx.org)、[~~VLC~~](http://www.videolan.org/index.html) 都好用！
 
-- [**网易云音乐**](http://music.163.com/) <sup>Joy</sup>
+- [网易云音乐](http://music.163.com/) <sup>Joy</sup>
     网易云音乐，用音乐休闲放松，看大家的评论能得到许多共鸣和欢乐。
 
-    - 由于音乐版权的原因，只能多下载几个 Apps 来听歌，如 [**QQMuscic**](https://y.qq.com/)、[**Xiami**](http://www.xiami.com/) 虾米。
+    - 由于音乐版权的原因，只能多下载几个 Apps 来听歌，如 [QQMuscic](https://y.qq.com/)、[Xiami](http://www.xiami.com/) 虾米。
 
-- [**搜狗输入法**](https://pinyin.sogou.com/mac/)
+- [搜狗输入法](https://pinyin.sogou.com/mac/)
     macOS 上功能最全的中文输入法。虽然不够让人满意，但却是最好的选择。
 
     - 许多功能常见诸于 Windows 上的输入法，但在 macOS 上就没有实现，搜狗已经很齐全了。
@@ -480,40 +483,40 @@ Shell
 
 系统增强
 
-- [**~~Alfred~~**](https://www.alfredapp.com/) <sup>据称键盘党的神兵利器</sup>、[**~~LaunchBar~~**](https://www.obdev.at/products/launchbar/index.html) <sup>Historic</sup>
+- [~~Alfred~~](https://www.alfredapp.com/) <sup>据称键盘党的神兵利器</sup>、[~~LaunchBar~~](https://www.obdev.at/products/launchbar/index.html) <sup>Historic</sup>
     Spotlight 的增强版！关键字缩写的检索还是 Spotlight 精准；要用命令的话，我会在终端中操作，没有 Alfred 的用武之地；要启动程序的话，有 Manico 的支持足矣。
 
     - 很多人把它说得神乎其神，其实我并不觉得有大用。看看操作流程：先输入一些字符，Alfred 智能检索猜出你要做的事，如打开程序、文本，或者运行脚本等；然后，选一个选项执行。
     - **我更喜欢敲快捷键「一步到位」执行要做的操作！** 例如，我借助 AppleScript、Python、Shell、Keyboard Maestro 和 Automator 等写好脚本、录制好一系列操作和控制流程，然后用快捷键激活它们就好了。
 
-- [**~~BetterTouchTool~~**](http://www.boastr.net/)
+- [~~BetterTouchTool~~](http://www.boastr.net/)
     为 Mac 的触摸板定制更多手势操作。iOS 版 App 还可以用来让 iPhone、iPad 设备化身为 Mac 的触摸板。现已是收费软件，但不贵。
 
     - 可是作为键盘党，自定义的快捷键足以让我驰骋 macOS，基本没机会用它。
 
-- [**~~Boom~~**](http://www.globaldelight.com/boom/index.php) <sup>极不推荐</sup>
+- [~~Boom~~](http://www.globaldelight.com/boom/index.php) <sup>极不推荐</sup>
     音效增强软件。可用于突破系统音量的上限，留意音量过大可能损坏 Mac 音箱。可有可无。
 
-- [**~~Contexts~~**](https://contexts.co/) <sup>Great</sup>
+- [~~Contexts~~](https://contexts.co/) <sup>Great</sup>
     App 窗口切换工具。操作行云流水，切换方面比 Manico 更优秀！但不能定制用于快速启动 App 的快捷键，因而被 Manico 替代。
 
-- [**~~CleanMyMac~~**](http://cleanmymac.com/) <sup>不推荐</sup>
+- [~~CleanMyMac~~](http://cleanmymac.com/) <sup>不推荐</sup>
     Mac 系统清理软件。macOS 本身已经够好用、省心，毋需过多维护，它只不过锦上添花，不客气地说，是画蛇添足、无关痛痒。
 
     - 帮助卸载一些顽固的软件还是有用的。
 
-- [**~~f.lux~~**](https://justgetflux.com/)
+- [~~f.lux~~](https://justgetflux.com/)
     根据所在地当时的日照，自动调整屏幕色温、亮度，减少蓝光对眼睛的刺激，以调整激素水平，保护正常睡眠节律。
 
     - 然而 macOS 和 iOS 的 Night Shift 已将其功能整合了（效果类似）。
 
-- [**~~HazeOver~~**](https://hazeover.com/) <sup>Focus</sup>
+- [~~HazeOver~~](https://hazeover.com/) <sup>Focus</sup>
     便于让你瞬间定位到当前正在使用窗口。
 
     - 除当前激活的窗口，其它窗口都会显示阴影，让人更专注与当前窗口的工作。
     <span class="hidden">- 可惜经过长期使用，感觉可有可无，上述说法可能只有理论上的作用，可能只是心理安慰。</span>
 
-- [**~~iStat Menus~~**](https://bjango.com/mac/istatmenus/)
+- [~~iStat Menus~~](https://bjango.com/mac/istatmenus/)
     显示软硬件状态（CPU、内存、网络、磁盘）的监控面板，支持顶部菜单栏部分自定义。
 
     - Mac 没异常时，知道这些信息真的有什么用吗？浪费菜单栏的空间和计算资源还让人分神。
@@ -523,13 +526,13 @@ Shell
 
     - 可惜通常情况下，hosts 并不需要复杂的管理；对于程序员来说，不如直接在 `.zshrc` 加上 `alias vh='vim hosts'` 一句剪短的配置，然后在命令行中输入 `vh` 指令打开 hosts 文件来进行修改，反而更直接省事。
 
-- [**~~Nozio~~**](http://noiz.io/) & etc
+- [~~Nozio~~](http://noiz.io/) & etc
     白噪音应用。模拟大自然的声音，屏蔽其它噪音干扰，帮助保持专注，提高效率，放松睡眠。
 
-    - 音乐听久了也累，有时戴个 [**3M 降噪海绵耳塞**](http://item.jd.com/10277731026.html)（便宜），纯粹安静地工作就很专注、舒服，其实毋需白噪音。
+    - 音乐听久了也累，有时戴个 [3M 降噪海绵耳塞](http://item.jd.com/10277731026.html)（便宜），纯粹安静地工作就很专注、舒服，其实毋需白噪音。
     - 可以的话，买 Bose 的 [QC 系列消噪耳机](https://www.bose.cn/zh_cn/products/headphones/noise_cancelling_headphones.html)，效果更佳。我买的是 [QC 20](https://www.bose.cn/zh_cn/products/headphones/earphones/quietcomfort-20i-acoustic-noise-cancelling-headphones.html#v=qc20_apple_black)。
 
-- [**~~Squirrel~~**](http://rime.im/)  <sup>Geek but 不推荐</sup>
+- [~~Squirrel~~](http://rime.im/)  <sup>Geek but 不推荐</sup>
     鼠须管输入法，稳定、流畅、开源，个人可定制性极高。是 Rime 中州韵输入法的 Mac 发行版。
 
     - 折腾一番后，个人定制出来的输入法，从界面到操作细节都能很好地贴合个人习惯。
@@ -545,27 +548,27 @@ Shell
 - **Safari** <sup>Simple</sup>
     iOS 自带浏览器。足够好用。
 
-- [**Shadowsockrocket**](https://itunes.apple.com/us/app/shadowrocket/id932747118?mt=8) <sup>Favorite</sup>
-    iOS 上配合 Shadowsocks 使用的科学上网（番羽土啬）利器。候选: [**~~Surge~~**](https://itunes.apple.com/us/app/surge-web-developer-tool-proxy/id1040100637?mt=8) <sup>Expensive</sup>
+- [Shadowsockrocket](https://itunes.apple.com/us/app/shadowrocket/id932747118?mt=8) <sup>Favorite</sup>
+    iOS 上配合 Shadowsocks 使用的科学上网（番羽土啬）利器。候选: [~~Surge~~](https://itunes.apple.com/us/app/surge-web-developer-tool-proxy/id1040100637?mt=8) <sup>Expensive</sup>
 
-- [**讯飞输入法**](http://www.xunfei.cn/) <sup>Favorite</sup>
+- [讯飞输入法](http://www.xunfei.cn/) <sup>Favorite</sup>
     在用非手写输入的键盘时，竟然可以在键盘区滑动，这时可用手写方式输入！优秀的语音识别输入能力，准确率高，支持方言。
 
 个人管理：事务、时间、习惯
 
-- [**2Do**](https://itunes.apple.com/us/app/2do-reminders-personal-planner/id303656546?mt=8) <sup>Powerful</sup>
+- [2Do](https://itunes.apple.com/us/app/2do-reminders-personal-planner/id303656546?mt=8) <sup>Powerful</sup>
     GTD 事务管理。( [Ref Above](#Common) )
 
-- [**BlockyTime**](http://www.anniapp.com/blockytime/index.html) <sup>Simple</sup>
+- [BlockyTime](http://www.anniapp.com/blockytime/index.html) <sup>Simple</sup>
     时间的记录统计工具，规划、督促、自省。
     A quicker time logger, let you never spend much time on tracking time.
 
-- [**HabitBull**](http://www.habitbull.com/)
+- [HabitBull](http://www.habitbull.com/)
     习惯养成，记录、统计、分析养成的情况。该领域有很多 App，好用的不多… 这个也不算最好的选择，需要自行挑选。
 
 记录
 
-- [**MindNode**](https://mindnode.com/) <sup>Powerful</sup>
+- [MindNode](https://mindnode.com/) <sup>Powerful</sup>
     思维导图。( [Ref Above](#Common) )
 
 - **Notes** <sup>Simple</sup>
@@ -573,10 +576,10 @@ Shell
 
 财务
 
-- [**网易有钱**](https://qian.163.com/) <sup>Simple</sup>
+- [网易有钱](https://qian.163.com/) <sup>Simple</sup>
     简单方便的记账软件。可以自动同步银行储蓄卡、信用卡和支付宝账户的交易和余额数据，然后再给每笔收支调整分类和补充备注就行了，实在是方便。
     - 后来，我发现自己只需要知道自己各个账户的余额，以及总体的收支情况，所以就弃用「随手记」换用它。如果注重隐私信息的安全，请注意退避该 App。
-    - 其它选择：[**随手记专业版**](http://www.feidee.com/money/) <sup>One fo the best</sup> ，我用得最顺手的记账软件。弃用理由见上文。
+    - 其它选择：[随手记专业版](http://www.feidee.com/money/) <sup>One fo the best</sup> ，我用得最顺手的记账软件。弃用理由见上文。
 
 社交
 
@@ -596,32 +599,32 @@ Shell
     - 能用微信小程序代替的 App 我都不下载。
         例如：大众点评、摩拜单车、嘀嘀出行、京东 等等。
 
-- [**TIM**](https://office.qq.com/) <sup>Simple</sup>
+- [TIM](https://office.qq.com/) <sup>Simple</sup>
     手机上简洁版的 QQ，腾讯官方出品。
 
     - 去除了多余的娱乐功能，保证基本的进阶功能使用，方便工作，如音频视频通话等。
     - 不过还是得留着原版的 QQ，TIM 还不支持 QQ 的授权登录操作…
 
-- [**微信**](https://weixin.qq.com/)
+- [微信](https://weixin.qq.com/)
 
 阅读 & 学习
 
-- [**得到**](https://www.igetget.com/)
+- [得到](https://www.igetget.com/)
     「罗辑思维」团队推出的主打 **知识服务** 的 App，在行走、饮食等琐碎时间里收听音频内容。
 
-- [**Kindle**](https://itunes.apple.com/us/app/kindle-read-books-ebooks-magazines/id302584613?mt=8)
+- [Kindle](https://itunes.apple.com/us/app/kindle-read-books-ebooks-magazines/id302584613?mt=8)
     Amazon 的电子书资源是最全面、最丰富的，喜欢读书的话，没有太多其它的选择。
 
-- [**~~多看阅读~~**](http://www.duokan.com/)、[**~~微信读书~~**](https://weread.qq.com/)
+- [~~多看阅读~~](http://www.duokan.com/)、[~~微信读书~~](https://weread.qq.com/)
     阅读软件。可导入 PDF，带云存储，操作流畅，阅读体验一流。
 
-- [**欧路词典 Pro**](http://www.eudic.net/eudic/mac_dictionary.aspx)
+- [欧路词典 Pro](http://www.eudic.net/eudic/mac_dictionary.aspx)
     英语词典。可使用在线有道词典，无广告！
 
 - [**~~扇贝英语~~** 系列 Apps](http://www.shanbay.com/) <sup>English</sup>
     扇贝单词、扇贝炼句、扇贝听力、扇贝读书。工具不重要，最重要还是要坚持学习。
 
-- [**~~网易公开课~~**](http://open.163.com/)
+- [~~网易公开课~~](http://open.163.com/)
     国内最好的公开课平台。
 
 - **Castro 2**
@@ -630,22 +633,22 @@ Shell
 
 音乐 & 游戏 & 视频
 
-- [**网易云音乐**](http://music.163.com/) <sup>Favorite</sup>
+- [网易云音乐](http://music.163.com/) <sup>Favorite</sup>
     网易云音乐，音乐类软件的新标杆。能找到很多好歌单，冷门好歌，最喜欢看歌曲评论，分享感动和共鸣。
 
-- [**Bilibili**](http://www.bilibili.com/) <sup>Favorite</sup>
+- [Bilibili](http://www.bilibili.com/) <sup>Favorite</sup>
     现在看视频不带弹幕，就总觉得差点意思。
 
-- [**YouTube**](https://www.youtube.com/yt/devices/)、[**爱奇艺**](http://www.iqiyi.com/)、[**优酷**](http://youku.com/)、[**土豆**](http://mobile.tudou.com/)
+- [YouTube](https://www.youtube.com/yt/devices/)、[爱奇艺](http://www.iqiyi.com/)、[优酷](http://youku.com/)、[土豆](http://mobile.tudou.com/)
 
-- [**虾米音乐**](http://www.xiami.com/)、[**QQ 音乐**](https://y.qq.com/)、[**豆瓣 FM**](https://douban.fm/)
+- [虾米音乐](http://www.xiami.com/)、[QQ 音乐](https://y.qq.com/)、[豆瓣 FM](https://douban.fm/)
 
 安全
 
-- [**1Password**](https://1password.com/)
+- [1Password](https://1password.com/)
     密码管理。
 
-- ~~[**Authy**](https://www.authy.com/)~~
+- ~~[Authy](https://www.authy.com/)~~
     两步验证器。提高安全意识，能开启两步验证的网络服务都开启，别嫌麻烦。
     j
     - Authy 对比其它验证器的主要优点：可以多设备云同步、备份其中的 token 信息！
@@ -656,10 +659,10 @@ Shell
 
 生活
 
-- [**高德地图**](https://itunes.apple.com/cn/app/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E7%B2%BE%E5%87%86%E4%B8%93%E4%B8%9A%E7%9A%84%E6%89%8B%E6%9C%BA%E5%9C%B0%E5%9B%BE-%E8%87%AA%E9%A9%BE%E5%85%AC%E4%BA%A4%E9%AA%91%E8%A1%8C%E5%AF%BC%E8%88%AA/id461703208?mt=8)
+- [高德地图](https://itunes.apple.com/cn/app/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E7%B2%BE%E5%87%86%E4%B8%93%E4%B8%9A%E7%9A%84%E6%89%8B%E6%9C%BA%E5%9C%B0%E5%9B%BE-%E8%87%AA%E9%A9%BE%E5%85%AC%E4%BA%A4%E9%AA%91%E8%A1%8C%E5%AF%BC%E8%88%AA/id461703208?mt=8)
     各个地图 App 当中，个人觉得这个最美观、顺手。备用：腾讯地图，可以离线使用。
 
-- [**支付宝**](https://mobile.alipay.com/index.htm)、[**滴滴出行**](http://www.xiaojukeji.com/index/index)、[**美团外卖**](http://waimai.meituan.com/)、[**饿了么**](https://www.ele.me/home/)、[**大众点评**](https://www.dianping.com/)
+- [支付宝](https://mobile.alipay.com/index.htm)、[滴滴出行](http://www.xiaojukeji.com/index/index)、[美团外卖](http://waimai.meituan.com/)、[饿了么](https://www.ele.me/home/)、[大众点评](https://www.dianping.com/)
 
 - ~~**联系人信息同步助手**~~
     如 **QQ 同步助手**，一般没必要安装，微信等 App 也可以做到，不过它也有额外的用处。
@@ -671,42 +674,42 @@ Shell
 
 有必要使用的浏览器插件不多。例如，[Greasemonkey](http://www.greasespot.net/)、Stylish 等就不建议折腾。
 
-- [**1Password**](https://agilebits.com/onepassword) <sup>Pwd Security</sup>
+- [1Password](https://agilebits.com/onepassword) <sup>Pwd Security</sup>
     管理帐号密码。
 
-- [**cVim**](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh?hl=en) <sup>Powerful</sup>
-    用 Vim 的键位去浏览、导航网页，减少使用鼠标的使用，键盘党神器！（~~[**Vimium**](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)~~ <sup>备选</sup>）
+- [cVim](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh?hl=en) <sup>Powerful</sup>
+    用 Vim 的键位去浏览、导航网页，减少使用鼠标的使用，键盘党神器！（~~[Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)~~ <sup>备选</sup>）
     功能强大丰富，通过修改类似 `.vimrc` 的配置文件来设置功能（比较麻烦）。
-    - 我的配置 [**.cvimrc**](https://github.com/IceHe/macos-home-conf/blob/master/.cvimrc)
+    - 我的配置 [.cvimrc](https://github.com/IceHe/macos-home-conf/blob/master/.cvimrc)
 
-- [**Chrono Download Manager**](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn)
+- [Chrono Download Manager](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn)
     批量下载工具。多线下载，速度更快，功能更强，非 P2P 下载用它代替迅雷和浏览器自带的下载器。
     （一般情况下用浏览器默认的下载器就够了）
 
-- [**Evernote Web Clipper**](https://evernote.com/intl/zh-cn/webclipper/) <sup>Offline Archived</sup>
+- [Evernote Web Clipper](https://evernote.com/intl/zh-cn/webclipper/) <sup>Offline Archived</sup>
     一键收藏各类网页图文，保存到 Evernote。
 
-- [**JSON Formmater**](https://github.com/callumlocke/json-formatter) <sup>Web Development</sup>
+- [JSON Formmater](https://github.com/callumlocke/json-formatter) <sup>Web Development</sup>
     清晰明了地展示页面的 JSON 格式数据。
 
-- [**One Tab**](https://www.one-tab.com/) <sup>Simple</sup>
+- [One Tab](https://www.one-tab.com/) <sup>Simple</sup>
     对标签页进行分组收纳等管理，避免标签页过多以致难以查找所需标签页，降低 Chrome 的内存消耗。
 
-- [**SwithyOmega**](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en) <sup>Web Development</sup>
+- [SwithyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en) <sup>Web Development</sup>
     「代理服务」配置工具，用于「科学上网」。
 
-- [**uBlock**](https://www.ublock.org/) <sup>Simple</sup>
+- [uBlock](https://www.ublock.org/) <sup>Simple</sup>
     快速轻量级的广告过滤器。我放弃了老牌的工具，如 ~~[Adblock Plus](https://adblockplus.org/zh_CN/) & [Adblock Plus Elem Hide Helper](https://adblockplus.org/zh_CN/elemhidehelper)~~。
 
 ### Windows
 
-- [**TortoisGit**](https://tortoisegit.org/) - 便捷好用的 Git GUI 工具。
-- [**Fiddler**](http://www.telerik.com/fiddler) - [抓包工具](http://m.open-open.com/m/lib/view/1375954572906.html)。
-- [**EditPlus**](https://www.editplus.com/) - 功能强大的文本编辑软件。
-- [**StrokesPlus**](http://www.strokesplus.com/) - 强大的 [全局鼠标手势软件](http://bbs.kafan.cn/thread-1410275-1-1.html)。
-- [**Everything**](https://www.voidtools.com/) - 强大的 [全局文件检索工具](http://xbeta.info/everything-search-tool.htm)（ [Q & A](http://my.oschina.net/alphajay/blog/79431?fromerr=k12K2L1s) ）。
-- [**Listary Pro**](http://www.listary.com/) - 类似于 Everything，[各有优劣](http://www.iplaysoft.com/listary.html)。
-- [**AutoHotkey**](https://autohotkey.com/) - [全局快捷键设置工具](http://xbeta.info/autohotkey-guide-2.htm)。
+- [TortoisGit](https://tortoisegit.org/) - 便捷好用的 Git GUI 工具。
+- [Fiddler](http://www.telerik.com/fiddler) - [抓包工具](http://m.open-open.com/m/lib/view/1375954572906.html)。
+- [EditPlus](https://www.editplus.com/) - 功能强大的文本编辑软件。
+- [StrokesPlus](http://www.strokesplus.com/) - 强大的 [全局鼠标手势软件](http://bbs.kafan.cn/thread-1410275-1-1.html)。
+- [Everything](https://www.voidtools.com/) - 强大的 [全局文件检索工具](http://xbeta.info/everything-search-tool.htm)（ [Q & A](http://my.oschina.net/alphajay/blog/79431?fromerr=k12K2L1s) ）。
+- [Listary Pro](http://www.listary.com/) - 类似于 Everything，[各有优劣](http://www.iplaysoft.com/listary.html)。
+- [AutoHotkey](https://autohotkey.com/) - [全局快捷键设置工具](http://xbeta.info/autohotkey-guide-2.htm)。
 - 参考：[Windows常用软件推荐](http://wsgzao.github.io/post/windows/)
 
 ---
@@ -738,7 +741,7 @@ Shell
     - 果然还是按耐不住好奇心，买了一把机械键盘（严格来说静电容键盘不是机械键盘）来尝试。
     - 「[HHKB Pro 2](https://www.amazon.cn/PFU-Happy-Hacking-Keyboard-Professional2-%E5%A2%A8-%E7%84%A1%E5%88%BB%E5%8D%B0-%E8%8B%B1%E8%AA%9E%E9%85%8D%E5%88%97-USB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-%E9%9D%99%E9%9B%BB%E5%AE%B9%E9%87%8F%E7%84%A1%E6%8E%A5%E7%82%B9-UNIX%E9%85%8D%E5%88%97-WINDOWS-MAC%E4%B8%A1%E5%AF%BE%E5%BF%9C-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-PD-KB400BN/dp/B000F8OECM/ref=sr_1_2?ie=UTF8&qid=1494650270&sr=8-2&keywords=hhkb)」系列 60 键 US 布局精简至极，看起来精致小巧、赏心悦目「逼格满满」啊！但是我这个快捷键党为了改键的需求，最终选择了按键更多、布局奇特的日本版。
     - 为了无痛切换 HHKB JP 和 Mac 键盘而同时修改两者的布局，其键位功能基本一致，并吸收了 60% 键盘的特点：如数字键 1 左侧的 Backquote 键换成了 Esc 键等。
-    - 其它：觉得键盘还是该配 [**木质腕托**](https://search.jd.com/Search?keyword=%E6%9C%A8%E8%85%95%E6%89%98&enc=utf-8&wq=mu%E8%85%95%E6%89%98)，不然每天敲键盘的时间太长很累。还有该配 [**桌垫**](https://item.mi.com/1172700033.html)，不然我手臂瘦没有肉，手肘放在桌上感觉特别「搁」。
+    - 其它：觉得键盘还是该配 [木质腕托](https://search.jd.com/Search?keyword=%E6%9C%A8%E8%85%95%E6%89%98&enc=utf-8&wq=mu%E8%85%95%E6%89%98)，不然每天敲键盘的时间太长很累。还有该配 [桌垫](https://item.mi.com/1172700033.html)，不然我手臂瘦没有肉，手肘放在桌上感觉特别「搁」。
     - 配合 App **Karabiner-Elements** 来同时使用两副键盘，分别启用不同的两套快捷键。
 
 ### 外置设备
@@ -807,7 +810,7 @@ Shell
 
 - **降噪耳机**（[Bose](https://www.bose.cn/zh_cn/index.html) 目前市面上最好的消噪耳机品牌）
 
-    - [**Bose QC30**](https://www.bose.cn/zh_cn/products/headphones/earphones/quietcontrol-30.html#v=qc30_black) <sup>Favorite</sup>
+    - [Bose QC30](https://www.bose.cn/zh_cn/products/headphones/earphones/quietcontrol-30.html#v=qc30_black) <sup>Favorite</sup>
         QuietControl 30 Wireless Headphones 无线蓝牙控噪耳机。
         - 特点：
             - 主动消噪，耳塞发出一种波与有规律的噪音相消；消噪后，自然就可以用更小的音量听清播放的音频；人声不能完全隔绝，不过会像是在水底听水面上的声音，感觉距离远了，声量小了许多；消噪程度可控，可调节到「完全消噪」和「关闭消噪」间的任意水平；完全消噪时，只要低音量地播放音乐或白噪音，就可以在很大程度上隔绝外部噪音。可以帮助我在嘈杂的办公室也能在静谧专注地做事。
@@ -819,7 +822,7 @@ Shell
             - 外观挺丑，而且还容易戴歪，人称「狗圈」。
         - SONY 也进入了「消噪耳机」的市场，新出的产品音质很好，颈戴款的耳塞外观还行，比 Bose 的颈戴款好看，可是蓝牙不能同事连接多台设备。
 
-    - ~~[**Bose QC20**](https://www.bose.com/en_us/products/headphones/earphones/quietcomfort-20i-acoustic-noise-cancelling-headphones.html#v=qc20_apple_white)~~ <sup>_备用_</sup>
+    - ~~[Bose QC20](https://www.bose.com/en_us/products/headphones/earphones/quietcomfort-20i-acoustic-noise-cancelling-headphones.html#v=qc20_apple_white)~~ <sup>_备用_</sup>
         QuietComfort® 20 Acoustic Noise Cancelling®headphones — for Apple devices
         - 续航时间 16h，充电时间 2h；可「一键切换」是否隔绝周围环境的噪音。
 
@@ -866,7 +869,7 @@ Shell
     买一双高性价比的羽球鞋，是为了运动时更舒适灵活地移动，抗震性好，保护脚趾、脚掌、脚踝、膝盖。
 
     - 美津浓的鞋比尤尼克斯的更柔软舒适，特别对我这种经常跑动刹车的人来说没那么顶脚趾。
-    - 旧：[**~~YONEX 65FT 白 JP 版~~**](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.H4Rwq7&id=14324807794&_u=euv5jet879d) <sup>_已穿坏…_</sup>
+    - 旧：[~~YONEX 65FT 白 JP 版~~](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.H4Rwq7&id=14324807794&_u=euv5jet879d) <sup>_已穿坏…_</sup>
 
 - **运动服**：[YONEX 16201 训练服](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.CoCGMf&id=37144559361&_u=puv5jet55e6) - 速干 <sup>Favorite</sup>
     最好 VC 面料，透汗、速干，便于清洗（个人汗量较大）；美观，除了运动，平时也可以穿。Under Armour 的也不错。
@@ -904,7 +907,7 @@ Shell
 - **无限魔方** - 减压、手癖 <sup>Favorite</sup>
     用新的「手癖」玩减压神器去代替其它不良手癖！例如，咬手指、敲桌子、抠鼻、抠耳朵、抠脚、抓脸、抓头发… 还有减压骰子、减压手柄、魔方骰子、指尖陀螺、减压笔等。（电商搜索关键词「减压神器）
 
-- [**3M 子弹型耳塞**](https://item.jd.com/617192.html)、**眼罩** - 安眠
+- [3M 子弹型耳塞](https://item.jd.com/617192.html)、**眼罩** - 安眠
     耳塞隔音，窗帘、床帘和眼罩遮光。
 
 - **透气的慢跑鞋**（[Under Amour](https://www.underarmour.cn/p1285677-001.htm)） <sup>Favorite</sup>
@@ -914,7 +917,7 @@ Shell
     多喝水，多喝温水。
 
 - **伞具**
-    - [**Topumbrella 渐变色折叠伞**](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.CoCGMf&id=18427718268&_u=puv5jetf0a2) <sup>蓝~紫色</sup>
+    - [Topumbrella 渐变色折叠伞](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.CoCGMf&id=18427718268&_u=puv5jetf0a2) <sup>蓝~紫色</sup>
         轻便好看，直接推拉杆上连接伞骨的圆环便可开合，不用按按钮。
-    - [**BENJAMIN 本傑明傘**](https://www.taobao.com/product/benjamin%E6%9C%AC%E5%82%91%E6%98%8E%E5%82%98.htm) <sup>_wish!_</sup>
+    - [BENJAMIN 本傑明傘](https://www.taobao.com/product/benjamin%E6%9C%AC%E5%82%91%E6%98%8E%E5%82%98.htm) <sup>_wish!_</sup>
         喜欢的款式：大洋之舞 和 深海鱼群。
