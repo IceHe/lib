@@ -1,11 +1,9 @@
 # 利器 - 软硬件推荐
 
-推荐 macOS 和 iOS 的 apps 以及日常使用的电子产品。
-
 > 君子生非异也，善假于物也。
 > **荀子**
 
-## 说明
+推荐 macOS 和 iOS 的 apps 以及日常使用的电子产品。
 
 - 适合自己的工具，才是最好的工具，所以本文仅供参考，自行尝试最重要。
 - 笔者是工具控，目力之内看起来还有点用的工具都会折腾过一遍。
@@ -21,10 +19,7 @@
 
 ## 软件
 
-主要介绍
-
-- macOS、[iOS](#iOS) 的 apps（下文 Apple 指代 macOS + iOS）
-- 一点 [Windows](#Windows)
+主要介绍：macOS、[iOS](#iOS) 的 apps（下文 Apple 指代 macOS + iOS），还有少数几个 [Windows](#Windows) 的软件
 
 App 选择原则
 
@@ -32,12 +27,10 @@ App 选择原则
 - 「实用」最重要，美观次之，价格别太贵就行。
 - 「稳定」：不能时常引起系统崩溃，起码提升效率的收益得超过操作系统崩溃重启的损失。
 - 「简洁易用」：满足实际的需求即可，不需要花哨、多余的功能。
-    - 「开箱即用」是工具最好的状态。
-    - 参考 KISS 和 SR 原则（keep it simple stupid & single responsibility）。
+    - 「开箱即用」是工具最好的状态。参考 KISS 和 SR 原则 ( keep it simple stupid & single responsibility ) 。
 - 「设置项齐全」：可以根据自身习惯调整 App，让它用起来更顺手、省心。
-    - 开箱即用虽好，但也认同为了极致高效或完成复杂工作的工具提高复杂度，如 IDE、PS。
-    - 不过设置项合理、足够就行，不一定非要很齐全。
-    - 比如，设置好各常用功能的快捷键，以便调用；或将流程变得更自动化，以节省时间和精力。
+    - 开箱即用虽好，但我也认同「为了极致高效或完成复杂工作的工具而提高复杂度」的理念，例如 IDE、PS
+    - 软件设置项合理够用就行，不一定非要很齐全，例如设置好各常用功能的快捷键，以便快速调用，或者将流程变得更自动化，以节省时间精力。
 
 笔者相关文章
 
@@ -54,19 +47,25 @@ App 选择原则
 网络访问
 
 - [Shawdowsocks](https://portal.shadowsocks.to/) <sup>Ladder</sup>
+    科学上网（番羽土啬）。
 
-    - 首选的科学上网（番羽土啬）方案：
-        Shadowsocks 服务 + Mac 的 [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG) + 浏览器的 proxy 类插件：
-        如 Chrome 的 [SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en)；可用 [Surge](https://nssurge.com/) 替换 ShadowsocksX-NG。
-    - 备选方案：[VPN](https://www.cup.com/staticip/?=panda) + [CHNRoute](https://github.com/fivesheep/chnroutes) + [Dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html)。
+    - 首选方案：Shadowsocks 服务 + Mac 的 [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG) + Chrome 的 proxy 插件 [SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en)
+    - 备选方案：[VPN](https://www.cup.com/staticip/?=panda) + [CHNRoute](https://github.com/fivesheep/chnroutes) + [Dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html)
 
-- [Chrome](https://www.google.com/chrome/)
+- [Chrome](https://www.google.com/chrome/) <sup>Universal</sup>
+    浏览器。
 
     - 配合 [cVim](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh) 拓展，可在浏览器内 **使用 Vim 键位** 浏览网页、操作浏览器！键盘党神器。
         - 可惜它无法在页面未加载完毕的情况下使用 Vim 键位，不够（[Firefox](http://www.firefox.com.cn/) + [VimFX](https://github.com/akhodakivskiy/VimFx)）极致！
     - 用 **Inspect Element**（审查元素）配合 **Postman** 等做 Web 开发、调试，比 Firefox 顺手。
 
 常用
+
+- [2Do](https://www.2doapp.com/) <sup>Powerful</sup>
+    GTD 事务管理。
+
+    - 功能齐全、好用，用法可简可繁。快捷键完备！
+    - 推荐使用 iCloud Reminders 的 CalDAV 同步方式（支持 2Do 绝大部分特性，足以满足我的需求）；Dropbox 的同步方式虽然可以支持 2Do 的所有特性，可是需要翻墙才能同步数据，iPhone 需要长期开着 VPN 略显麻烦。所以为了稳定和省心，选择了前一种同步方式。
 
 - [Trello](https://trello.com/) <sup>Favorite</sup>
     基于 Board 的事务管理。
@@ -77,14 +76,7 @@ App 选择原则
     - 我在现实管理工作项目的过程中，GitLab Issue Board 的应用，给我带来了很大的帮助。虽然那段时间很忙，但我还是有条不紊地推进了我和同事间的分工协作。自此迷上了使用 Board 的方式去管理事务。
     - 类似的产品很多，Trello 是最简洁、好用、易上手的，这是我用它的关键原因。Slack 的服务被墙，在移动端访问不便（而 Trello 没被墙）；而国内的模仿者们则做得太复杂了，可能因为他们主攻 toB 的市场，不适合我这样的个人用户来使用，所以无爱。
 
-- [2Do](https://www.2doapp.com/) <sup>Powerful</sup>
-    GTD 事务管理。
-
-    - 功能齐全、好用，用法可简可繁。快捷键完备！
-    - 推荐使用 iCloud Reminders 的 CalDAV 同步方式（支持 2Do 绝大部分特性，足以满足我的需求）；Dropbox 的同步方式虽然可以支持 2Do 的所有特性，可是需要翻墙才能同步数据，iPhone 需要长期开着 VPN 略显麻烦。所以为了稳定和省心，选择了前一种同步方式。
-
-- **双拼输入方案** <sup>Favorite</sup>
-    高效，易学！比五笔容易掌握得多，对比全拼，输入效率显著提升，十分值得学习。
+- **双拼输入方案** <sup>Favorite</sup> 高效，易学！比五笔容易掌握得多，对比全拼，输入效率显著提升，十分值得学习。
 
     - 《[做少数派中的少数派：双拼输入快速入门](http://sspai.com/32809)》
     - 《[选择输入法的哲学：兼论双拼的优缺点](http://sspai.com/33019)》
@@ -94,13 +86,12 @@ App 选择原则
 
     - 用一（两）个主密码管理所有其它密码。可生成随机密码，可记录登录网站时用的帐号密码，可自动填写表单登录网站。
     - 以前一直用不惯，觉得用浏览器自带的自动登录和 iCloud 的 [KeyChain Access](https://support.apple.com/kb/PH20093?locale=zh_CN) 来记录管理帐号和密码足矣，可是不便于保存一些私人信息。工作之后，经济独立，更加注意保护个人隐私和财产安全了，要管理的私人信息多而杂乱，所以不得不借助专用的工具。
-    - 其它选择：
+    - 其它选择
         - [KeyChain Access](https://support.apple.com/kb/PH20093?locale=zh_CN)：macOS & iOS 原生支持，方便免费。
         - [Dashlane](https://www.dashlane.com/)：好用，但贵。
         - [LastPass](https://lastpass.com/)：够用，免费。
 
-- [Outlook](https://outlook.live.com/owa/)
-    邮箱客户端，微软出品。
+- [Outlook](https://outlook.live.com/owa/) 邮箱客户端，微软出品。
 
     - 方便设置在邮箱服务器生效的邮件规则（因为公司邮箱用 Outlook 的服务）。
         自动处理，屏蔽干扰，提高邮件处理效率。
@@ -110,8 +101,7 @@ App 选择原则
 
 笔记
 
-- [MindNode](https://mindnode.com/) <sup>Flexible</sup>
-    思维导图，归纳总结笔记。
+- [MindNode](https://mindnode.com/) <sup>Flexible</sup> 思维导图，归纳总结笔记。
 
     - 操作简便易上手，轻巧稳定。
     - 我原来用 Markdown 线性列表来做记录、归纳、总结，但是这样的话，内容再组织实在不灵活，不如思维导图灵巧。
@@ -120,12 +110,6 @@ App 选择原则
     Apple 自带的轻量级笔记应用。
 
     - 用于收集灵感和想法，做书摘、读书笔记和日记。因为它启动迅速，使用稳定便捷，所以更常使用它而非 Evernote。
-
-- [~~nvALT~~](http://brettterpstra.com/projects/nvalt/) <sup>Casual</sup>
-    macOS 上的草稿处理中心。随叫随到（快捷键齐备），迅速记录（操作简洁），检索便捷。
-
-    - 如果我用 Sublime Text 做一些随意的文字记录，要保留久一点都得保存成文件，难免在显眼的地方（例如桌面）看到一堆临时文件，过后的清理也麻烦，怕不小心删掉了别的有用的文件。
-    - 用 nvALT 的话，它会统一在暗处做文字记录的整理（除非导出文件），眼不见为净。
 
 - [Notion](https://www.notion.so/) <sup>Checklist</sup>
     用作 **checklist**（检查清单）。
@@ -143,6 +127,12 @@ App 选择原则
     - 其它选择：
         - [~~有道云笔记~~](https://note.youdao.come)：Evernote 迁移到其它平台比较简单，但 [有道云笔记](https://note.youdao.come) 导出的笔记格式经过加密、无法通用，很难迁移到别的平台，所以不推荐使用
         - [为知笔记](http://www.wiz.cn/)、[Leanote](https://leanote.com/)、[Notion](https://www.notion.so) …
+
+- [~~nvALT~~](http://brettterpstra.com/projects/nvalt/) <sup>Casual</sup>
+    macOS 上的草稿处理中心。随叫随到（快捷键齐备），迅速记录（操作简洁），检索便捷。
+
+    - 如果我用 Sublime Text 做一些随意的文字记录，要保留久一点都得保存成文件，难免在显眼的地方（例如桌面）看到一堆临时文件，过后的清理也麻烦，怕不小心删掉了别的有用的文件。
+    - 用 nvALT 的话，它会统一在暗处做文字记录的整理（除非导出文件），眼不见为净。
 
 ### 命令行
 
@@ -188,7 +178,7 @@ Shell
     - 我的命令行提示符主题 [.sunrise_icehe](https://github.com/IceHe/macos-home-conf/blob/master/.config/zsh/sunrise_icehe.zsh-theme)
 
 - [tmux](https://tmux.github.io/) <sup>Powerful</sup>
-    终端多路复用软件，即命令行中的 「桌面」、「分屏工具」。
+    终端多路复用软件，即命令行中的 「桌面、分屏工具」。
 
     - 允许一个用户在一个终端窗口或一个远程终端会话中，使用多个终端会话。
     - [screen](https://www.gnu.org/software/screen/manual/screen.html) 命令的替代方案，使用方法基本相同。
@@ -209,7 +199,7 @@ Shell
     - 重装 macOS 时可以用 `brew cask install` 命令组成的脚本便捷地安装必要的 Apps。
 
 - [~~dotfiles~~](https://dotfiles.github.io/)
-    可供参考的 dotfiles 配置，还有[我的 dotfiles](https://github.com/IceHe/macos-home-conf)。（[dotfiles 是什么？](http://www.jianshu.com/p/7UJapk)）
+    可供参考的 dotfiles 配置，还有 [我的 dotfiles](https://github.com/IceHe/macos-home-conf)。（[dotfiles 是什么？](http://www.jianshu.com/p/7UJapk)）
 
 ### 软件开发
 
@@ -226,11 +216,16 @@ Shell
         - 我的配置 [.ideavimrc](https://github.com/IceHe/macos-home-conf/blob/master/.ideavimrc)
     - [JetBrains](https://www.jetbrains.com/products.html) 出品的其它优秀 IDE：[PyCharm](https://www.jetbrains.com/pycharm/)、[WebStorm](https://www.jetbrains.com/webstorm/)、[CLion](https://www.jetbrains.com/clion/)、[GoLand](https://www.jetbrains.com/go/) …
 
+- [VS Code](https://code.visualstudio.com/) <sup>开箱即用</sup> 开源、持续且活跃的开发，更不必说本身有微软过硬的技术实力背书。
+
+    - 我自定义的 [configs]()
+    - 我安装的 [plugins]()
+        - TODO
+
 - [Sublime Text](http://www.sublimetext.com/) <sup>Fastest</sup>
     代码编辑器。Vintage 模式，可用 Vim 键位进行操作。冷启动也快如闪电！
 
-    - 候选：[VS Code](https://code.visualstudio.com/)，开源、持续且活跃的开发，更不必说本身有微软过硬的技术实力背书。
-    - 我自定义的 [keymap](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/Default%20(OSX).sublime-keymap)
+    - 我自定义的 [keymap](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/)
     - 我安装的 [plugins](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/Package%20Control.sublime-settings)
         - **Clickable URLs**：`⌘ ⌥ ↩` 打开光标当前位置的 URL。
         - **Compare Side-By-Side**：文本差异对比。
