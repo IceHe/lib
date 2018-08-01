@@ -2,18 +2,33 @@
 
 > 2018-07-30 Mon ~ 2018-08-05 Sun
 
+## Thu
+
+work
+
+- docs
+    - discuss with Wenqing
+    - alarm: common causes of alarms (delay 2 day)
+- alarm
+    - merge MR
+
+lib
+
+- format content: little
+    - tools (delay 1 day)
+
 ## Wed
 
 work
 
-- alarm (almost)
-    - review
+- alarm
+    - review (almost)
 - docs
     - 4 business
-        - investigate (delay 1 day)
-        - report to boss
+        - investigate (delay 1 day, done)
+        - report to boss (done)
     - 4 colleagues
-        - summary: common causes of alarms (delay 1 day)
+        - summary: common causes of alarms (delay 1 day, 0%)
 
 lib
 
@@ -22,7 +37,7 @@ lib
 
 spo
 
-- ride if not rain at night
+- ride if not rain at night (give up)
 
 ## Tue
 
