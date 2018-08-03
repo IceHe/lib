@@ -2,15 +2,29 @@
 
 > 2018-07-30 Mon ~ 2018-08-05 Sun
 
+## Fri
+
+work
+
+- docs
+    - work flow (doing, extra, 40%)
+    - how to apply (doing)
+
+lib
+
+- format content: little
+    - tools (delay 2 days)
+
 ## Thu
 
 work
 
 - docs
     - discuss with Wenqing
-    - alarm: common causes of alarms (delay 2 day)
+    - alarm: common causes of alarms (delay 2 day, done)
+    - work-flow: (doing, extra, 40%)
 - alarm
-    - merge MR
+    - merge MR (done, extra refactor)
 
 lib
 
