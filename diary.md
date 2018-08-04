@@ -2,25 +2,53 @@
 
 > 2018-07-30 Mon ~ 2018-08-05 Sun
 
+## Sun
+
+work
+
+- docs
+    - work flow (delay 2 day, 70%)
+    - how to apply (delay 2 day)
+
+lib
+
+- format content: little
+    - tools (delay 3 days)
+
+docker
+
+- summary in project 'snippets' (50%)
+
+
 ## Sat
 
 work
 
 - docs
-    - work flow (delay 1 day, doing, extra, 70%)
-    - how to apply (delay 1 day)
+    - work flow (delay 1 day, 70%, do nothing!)
+    - how to apply (delay 1 day, do nothing!)
+    - improve deployment (extra, done)
+        - Dockerfiles (extra, done)
+        - documents (extra, done)
+        - .gitlab-ci.yml (extra, done)
 
 lib
 
 - format content: little
-    - tools (delay 2 days)
+    - tools (delay 2 days, do nothing!)
+
+docker (extra)
+
+- get account back (hub.docker.com) (extra, done)
+- push images (extra, done)
+- summary in project 'snippets' (extra, 50%, doing)
 
 ## Fri
 
 work
 
 - docs
-    - work flow (doing, extra, 70%)
+    - work flow (doing, 70%)
     - how to apply (delay)
 
 lib
