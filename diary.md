@@ -2,13 +2,26 @@
 
 > 2018-07-30 Mon ~ 2018-08-05 Sun
 
+## Sat
+
+work
+
+- docs
+    - work flow (delay 1 day, doing, extra, 70%)
+    - how to apply (delay 1 day)
+
+lib
+
+- format content: little
+    - tools (delay 2 days)
+
 ## Fri
 
 work
 
 - docs
-    - work flow (doing, extra, 40%)
-    - how to apply (doing)
+    - work flow (doing, extra, 70%)
+    - how to apply (delay)
 
 lib
 
