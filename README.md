@@ -2,7 +2,7 @@
 
 ## Review
 
-- [Diary 日志](diary.md) : 日计划 + 日报 ( [archived](diary/) )
+- [Diary 日志](diary/) : 日计划 + 日报 ( [archived](diary/) )
 - [CV 简历](cv.md) ：技能、经历、教育
     - 微博视频平台 / 服务端 / Java
     - 微博移动应用服务 / 服务端 / PHP
