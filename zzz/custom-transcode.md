@@ -1,92 +1,77 @@
-# 定制转码
+# 自定义转码
 
 ## 需求
 
 ### 背景
 
-时常会有业务方需要对一批媒体进行定制的转码，创建为新的媒体，或者替换原有的媒体。做一个新的「定制转码」服务，将该处理流程标准化，便于复用，提升效率。
+时常会有业务方需要对一批媒体进行自定义的转码，创建为新的媒体，或者替换原有的媒体。做一个新的「自定义转码」服务，将该处理流程标准化，便于复用，提升效率。
 
 ### 功能
 
-业务方提供媒体的 ID 以及定制配置，即可进行转码，然后创建新的媒体，或替换原有媒体。
+业务方提供媒体的 ID 以及自定义配置，即可进行转码；然后创建新的媒体，或替换原有媒体。
 
 - 接入方式
-    - 调用「批量添加媒体 ID 定制转码任务」的接口
+    - 调用「批量添加媒体 ID 自定义转码任务」的接口
 - 所需数据
     - 媒体 media_id 列表
-    - 任务类型 task_type
+    - 转码自定义配置的 ID（config_id）
+
+> 展望：可以考虑囊括转码以外的「自定义的批量操作」
+> - 例如：批量修改媒体信息（洗数据？）
 
 ## 接口
 
-说明
+格式
 
 - API
+    - 接口说明
     - 请求方法：GET / POST
     - Host：待定
     - URL
     - 参数
 
-### 定制配置
+失败返回
 
-- 添加
-
-```http
-POST [host]/config/add
-```
-
-|参数|必选|类型|备注|
-|-|:-:|-|-|
-|TODO|
+- 除非下文特殊说明，均与此类似
 
 ```json
 {
-    "config_id": "foObAR"
+    "error": "error_mesage", // 错误消息
+    "error_code": 500 // 错误码（待定）
 }
 ```
 
-- 查询（支持批量）
+错误码
 
-```http
-GET [host]/config/get
-```
+- TODO
 
-- 更新
+### 添加
 
-```http
-POST [host]/config/update
-```
+通过 media_ids 批量添加自定义转码任务
 
-- 删除（暂不支持）
+<!-- - **任务类型** `task_type`：每种类型对应一种自定义的任务需求
+- **任务需求**：来自于业务方，通常可以归纳为以下多个操作的组合，包括但不限于
+    - 去除 / 添加 / 替换水印
+    - 添加清晰度
+    - 添加新的媒体文件 / 替换原有的媒体文件
+    - ……
+- 需求实现：对应每种新的任务需求，需要先做好代码实现（初版）
+    - 初版：只支持一两种任务
+    - 后续：抽象出多种标准化的操作
+        - 抽象复用原有代码
+        - 便于组合成满足不同需求的任务，配置成新的任务类型 -->
 
-```http
-POST [host]/config/delete
-```
-
-|参数|必选|类型|备注|
-|-|:-:|-|-|
-|config_id|1|string|配置 ID|
-
-```json
-{
-    "result": true
-}
-```
-
-### 转码任务
-
-- 添加清单文件（待定）
-    - 清单文件如何上传？或使用脚本将清单文件中的 media_id 读出再调用「添加」接口批量写入？
-
-```http
-POST [host]/task/add_by_file
-```
-
-|参数|必选|类型|备注|
-|-|:-:|-|-|
-|file_url|1|string|文件地址：文件只能包含 media_id，每行一个 media_id（即使用换行符 `\n` 分隔）|
-|config_id|1|string|定制转码配置的 ID：该配置需要先行添加；media_ids 指定的媒体均使用该配置执行任务|
-
-- 添加
+- **类型** `task_type`：每种类型对应一种自定义的任务需求
+- **任务需求**：来自于业务方，通常可以归纳为以下多个操作的组合，包括但不限于
+    - 去除 / 添加 / 替换水印
+    - 添加清晰度
+    - 添加新的媒体文件 / 替换原有的媒体文件
+    - ……
+- 需求实现：对应每种新的任务需求，需要先做好代码实现（初版）
+    - 初版：只支持一两种任务
+    - 后续：抽象出多种标准化的操作
+        - 抽象复用原有代码
+        - 便于组合成满足不同需求的任务，配置成新的任务类型
 
 ```http
 POST [host]/task/add
@@ -95,40 +80,121 @@ POST [host]/task/add
 |参数|必选|类型|备注|
 |-|:-:|-|-|
 |media_ids|1|string|媒体 ID 列表：用逗号 `,` 分隔，最多 15 个|
-|config_id|1|string|定制转码配置的 ID：该配置需要先行添加；media_ids 指定的媒体均使用该配置执行任务|
+|task_type|1|string|定制转码的任务类型：取值范围（待定）|
+
+成功返回
 
 ```json
 {
-    "result": true
+    "tasks": [
+        {
+            "task_id": "1",
+            "media_id": "apple",
+            "task_type": "transcode_remove_watermark_1",
+            "result": true
+        },
+        {
+            "task_id": "2",
+            "media_id": "boy",
+            "task_type": "transcode_remove_watermark_1",
+            "result": true
+        },
+        ……
+    ]
 }
 ```
 
-- 查询（支持批量）
+失败返回
+
+- 部分失败
+
+```json
+{
+    "tasks": [
+        {
+            "task_id": "1",
+            "media_id": "apple",
+            "task_type": "transcode_remove_watermark_1",
+            "result": true
+        },
+        {
+            "task_id": null,
+            "media_id": "boy",
+            "task_type": "transcode_remove_watermark_1",
+            "result": false, // 失败
+            "cause": "MQ is full"
+        },
+        ……
+    ]
+}
+```
+
+- 完全失败
+
+```json
+{
+    "error": "fail to add task",
+    "error_code": 110 // 待定
+}
+```
+
+- 任务类型不存在
+
+```json
+{
+    "error": "task_type not exist",
+    "error_code": 120 // 待定
+}
+```
+
+### 查询
+
+支持批量
 
 ```http
 GET [host]/task/get
 ```
 
+参数
+
+- 传 media_ids 或 task_ids ，二选一
+
 |参数|必选|类型|备注|
 |-|:-:|-|-|
-|media_id|1|string|媒体 ID|
+|media_ids|1|string|媒体 ID 列表：用逗号 `,` 分隔，最多 15 个|
+|task_ids|1|string|任务 ID 列表：用逗号 `,` 分隔，最多 15 个|
+
+成功返回
 
 ```json
 {
-    "media_id": "xxxx",
-    "config": {
-        "todo": "todo"
-    }
+    "tasks": [
+        {
+            "task_id": "1",
+            "media_id": "apple",
+            "task_type": "transcode_remove_watermark_1"
+        },
+        {
+            "task_id": "2",
+            "media_id": "boy",
+            "task_type": "transcode_remove_watermark_1"
+        },
+        ……
+    ]
 }
 ```
 
-- 更新（暂不支持）
+### 更新
+
+（暂不实现）
 
 ```http
 POST [host]/task/update
 ```
 
-- 删除（暂不支持）
+### 删除
+
+（暂不实现）支持批量
 
 ```http
 POST [host]/task/delete
@@ -136,21 +202,41 @@ POST [host]/task/delete
 
 |参数|必选|类型|备注|
 |-|:-:|-|-|
-|media_id|1|string|媒体 ID|
+|media_ids|1|string|媒体 ID 列表：用逗号 `,` 分隔，最多 15 个|
+|task_ids|1|string|任务 ID 列表：用逗号 `,` 分隔，最多 15 个|
 
-- 回调
-    - 转码成功后，创建或更新媒体信息
-    - 转码失败后，是否重试
+### 回调
+
+- 无论被通知操作成功或失败，均记录日志
+    - 成功：记录成功日志 callback_suc.log，并执行后续操作，例如创建新的媒体或替换原有的媒体
+    - 失败：记录失败日志 callback_fail.log，不执行后续操作
 
 ```http
 POST [host]/task/callback
 ```
 
-### 媒体信息
+### 文件添加
+
+（暂不支持）通过包含 media_id 的文件的地址，来添加定制转码任务
+
+- 待议：清单文件如何上传？或使用脚本将清单文件中的 media_id 读出再调用「添加」接口批量写入？
+
+```http
+POST [host]/task/add_by_file
+```
+
+|参数|必选|类型|备注|
+|-|:-:|-|-|
+|file_url|1|string|文件地址：文件只能包含 media_id，每行一个 media_id（即使用换行符 `\n` 分隔）|
+|task_type|1|string|定制转码的任务类型：取值范围（待定）|
 
 ## 架构流程
 
 ### 流程
+
+#### 任务添加与执行
+
+以转码任务为例
 
 ```plantuml
 @startuml
@@ -160,51 +246,61 @@ actor biz_partner
 folder custom_transcode {
     folder producer {
         folder API_p as "API" {
-            component config_add
             component task_add
         }
     }
-
     folder cusumer {
         folder API_c as "API" {
             component task_callback
         }
         agent polling_executor
     }
+    folder task_type {
+        agent transcode_task
+    }
 }
 
 folder storage {
-    database DB [
-        DB: configs
+    database task_type [
+        task_type
         ===
-        config1: {…}
+        task_type1: { }
         ---
-        config2: {…}
+        task_type1: { key: value}
         ---
-        …
+        ……
     ]
     queue MQ [
         MQ: tasks
         ===
-        task1: {media_id1, config_id1}
+        task_id1: {media_id1, task_type1}
         ---
-        task2: {media_id2, config_id2}
+        task_id2: {media_id2, task_type2}
         ---
-        …
+        ……
+    ]
+    folder log [
+        suc.log
+        ---
+        fail.log
+        ---
+        ……
     ]
 }
 
-folder file {
-    agent log [
-        fail.log
-        ===
-        fail_task1: {media_id1, config_id1}
-        ---
-        fail_task2: {media_id2, config_id2}
-        ---
-        …
-    ]
-}
+agent services [
+    **services**
+    ===
+    media_lib
+    ---
+    object_lib
+    ---
+    story
+    ---
+    weibovideo
+    ---
+    ……
+]
 
 folder video_center {
     folder API_v as "API" {
@@ -214,20 +310,20 @@ folder video_center {
     agent caller
 }
 
-biz_partner ---> config_add : 1. config
-biz_partner ---> task_add : 3. media_ids & config_id
+biz_partner --> task_add : 1. media_ids & task_type
 
-config_add ---> DB : 2. add\nconfig
-task_add ---> DB : 4. exist\nconfig?
-task_add ---> MQ : 5. push\ntask
+task_add --> transcode_task : 2. exist type?
+task_add --> MQ : 3. push task
 
-MQ ---> polling_executor : 6. get\ntask
-DB ---> polling_executor : 7. get\nconfig
-get_trans_config ---> polling_executor: 8. get trans config
-polling_executor ---> create_transcode_with_config: 9. media_id \n& trans_config \n& callback_url
+MQ ---> polling_executor : 4. get task
+polling_executor --> transcode_task : 5. call impl
+services --> transcode_task : 6. get context\n by media_id
+get_trans_config --> transcode_task : 7. get config\n by context
+transcode_task --> transcode_task : 8. modify config
+transcode_task --> create_transcode_with_config: 9. context \n& config \n& callback_url
 
-caller ---> task_callback : 10. tell success \nor failure?
-task_callback ...> log : 11. if failed,\nwrite log
+caller --> task_callback : 10. tell success \nor failure?
+task_callback ..> log : 11. write log
 
 @enduml
 ```
