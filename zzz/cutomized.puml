@@ -1,0 +1,81 @@
+@startuml
+
+folder transcode_conf {
+    database customized_conf [
+        DB: **customized_conf**
+        ===
+        id1: { customized_conf1 }
+        ---
+        id2: { customized_conf2 }
+        ---
+        ……
+    ]
+    database common_conf [
+        **common_conf**
+        ===
+        common_conf1
+        ---
+        common_conf2
+        ---
+        ……
+    ]
+}
+
+folder custom_transcode {
+    folder cusumer {
+        folder API_c as "API" {
+            component task_callback
+        }
+        agent polling_executors
+    }
+    folder task_type {
+        agent replace_old
+        agent create_new
+    }
+}
+
+queue tasks [
+    MQ: tasks
+    ===
+    task_id2: { media_id2, task_type2, customized_conf_id2 }
+    ---
+    task_id3: { media_id3, task_type3, customized_conf_detail3 }
+    ---
+    ……
+]
+
+rectangle services {
+    agent media_lib
+    agent object_lib
+    agent story
+    agent weibovideo
+}
+
+folder video_center {
+    folder API_v as "API" {
+        component get_trans_config
+        component create_trans_with_config
+    }
+}
+
+folder transcode {
+    folder workers {
+        component worker
+    }
+    agent caller
+}
+
+tasks --> polling_executors : 1. get task
+customized_conf --> polling_executors : 2. get customized_conf\n by id
+services --> polling_executors : 3. get context\n by media_id
+get_trans_config --> polling_executors : 4. get config\n with context
+common_conf --> get_trans_config : 4.1. get config
+polling_executors --> create_trans_with_config : 5. media_id\n & config\n & customized
+create_trans_with_config --> worker : 6. media_id\n & config\n & customized
+worker --> caller : 7. fin
+caller --> task_callback : 8. tell success \nor failure?
+task_callback --> create_new : 9. post process
+create_new --> media_lib : 10.a. modify media
+create_new --> object_lib : 10.b. modify object
+
+@enduml
