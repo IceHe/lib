@@ -1,0 +1,65 @@
+@startuml
+
+actor biz_partner
+
+actor transcode_admin
+
+folder transcode_conf {
+    database common_conf [
+        **common_conf**
+        ===
+        common_conf1
+        ---
+        common_conf2
+        ---
+        ……
+    ]
+    database customized_conf [
+        DB: **customized_conf**
+        ===
+        id1: { customized_conf1 }
+        ---
+        id2: { customized_conf2 }
+        ---
+        ……
+    ]
+}
+
+folder custom_transcode {
+    folder producer {
+        folder API_p as "API" {
+            component add_task
+        }
+    }
+    'folder cusumer {
+    '    folder API_c as "API" {
+    '        component task_callback
+    '    }
+    '    agent polling_executorss
+    '}
+    folder task_type {
+        agent replace_old
+        agent create_new
+    }
+}
+
+queue tasks [
+    MQ: tasks
+    ===
+    task_id1: { media_id1, task_type1 }
+    ---
+    task_id2: { media_id2, task_type2, customized_conf_id2 }
+    ---
+    task_id3: { media_id3, task_type3, customized_conf_detail3 }
+    ---
+    ……
+]
+
+biz_partner --> transcode_admin : 1. media_ids & requirement
+transcode_admin --> transcode_admin : 2. transfer requirement to\n / task_type\n / common_conf\n / customized_conf
+transcode_admin --> common_conf : 3.a.\n create / modify\n common conf
+transcode_admin --> customized_conf : 3.b.\n create / modify\n customized_conf
+transcode_admin --> add_task : 4. media_id & task_type\n & ( customized_id or customized_conf )
+add_task --> tasks : 5. push task
+
+@enduml
