@@ -1,0 +1,82 @@
+@startuml
+
+folder transcode_conf {
+    database common_conf [
+        **common_conf**
+        ===
+        common_conf1
+        ---
+        common_conf2
+        ---
+        ……
+    ]
+}
+
+folder custom_transcode {
+    folder cusumer {
+        folder API_c as "API" {
+            component task_callback
+        }
+        agent polling_executors
+    }
+    folder task_type {
+        agent replace_old
+        agent create_new
+    }
+}
+
+queue tasks [
+    MQ: tasks
+    ===
+    task_id1: { media_id1, task_type1 }
+    ---
+    task_id2: { media_id2, task_type2 }
+    ---
+    task_id3: { media_id3, task_type3 }
+    ---
+    ……
+]
+
+rectangle services {
+    agent media_lib
+    agent object_lib
+    agent story
+    agent weibovideo
+}
+
+folder video_center {
+    folder API_v as "API" {
+        component create_trans
+    }
+}
+
+folder transcode {
+    folder workers {
+        component worker
+    }
+    agent caller
+}
+
+database log [
+    **log**
+    ===
+    exec
+    ---
+    succ
+    ---
+    fail
+]
+
+tasks --> polling_executors : 1. get task
+services --> polling_executors : 2. get context\n by media_id
+polling_executors ..> log : 3. start
+polling_executors --> create_trans : 4. media_id\n & context
+common_conf --> create_trans : 5. get config\n by context
+create_trans --> worker : 6. media_id\n & config
+caller --> task_callback : 7. tell success \nor failure?
+task_callback ..> log : 8. succ or fail
+task_callback --> create_new : 9. post process
+create_new --> media_lib : 10.a. modify media
+create_new --> object_lib : 10.b. modify object
+
+@enduml
