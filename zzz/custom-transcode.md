@@ -602,6 +602,6 @@ CREATE TABLE `custom_config` (
 - fail
 - …
 
-```ini
+```properties
 [FAIL] 20180725 23:09:26.196 [custom_transcode] callback - task={"task_id":"aBcDe","media_id":"12345","config_id":"video_120"}, response={……} 3406181d-8074-47bf-8e7d-1cfe7578cd75
 ```
