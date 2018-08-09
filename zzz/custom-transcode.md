@@ -175,8 +175,8 @@ database log [
 ]
 
 tasks --> polling_executors : 1. get task
-services --> polling_executors : 2. get context\n by media_id
-polling_executors ..> log : 3. start msg
+polling_executors ..> log : 2. start msg
+services --> polling_executors : 3. get context\n by media_id
 polling_executors --> create_trans : 4. media_id\n & context
 common_conf --> create_trans : 5. get config\n by context
 create_trans --> worker : 6. media_id\n & config
