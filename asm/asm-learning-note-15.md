@@ -1,11 +1,156 @@
 title: ASM 汇编语言 15
-date: 2015-04-16
+date: 2015-04-15
 noupdate: true
 categories: [ASM]
 tags: [ASM]
-description: ASM - Note&#58; Intel 系列微处理器的 3 种工作模式。汇编编译器（masm.exe）对jmp的相关处理，编译器中的地址计数器（AC），对伪操作指令的处理。用栈传递参数。无溢出除法的公式证明。
+description: ASM - Note&#58; 使用 BIOS 进行键盘输入和磁盘读写。中断例程对键盘输入的处理。使用 int 16h 中断例程读取键盘缓冲区。字符串的输入。应用 int 13h 中断例程对磁盘进行读写。编写包含多个功能子程序的中断例程。
 ---
 
 <ul><li>Created on 2014-11</li></ul><br/>
 
-<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><br/></div><b>附注1 <u>Intel</u>系列<u>微处理器</u>的<u>3种工作模式</u></b><div><b><br/></b></div><div>重要版本8086/8088、80386。</div><div><br/></div><div>80386具备了80286对多任务系统的支持，</div><div>又对8086/8088兼容。</div><div><br/></div><div>它可以在以下3个模式下工作：</div><div>（1）<b>实模式</b>：工作方式相当于一个8086</div><div>（2）<b>保护</b>模式：提供支持多任务环境的工作方式，</div><div>&nbsp; &nbsp; &nbsp;建立爆出机制（这与VAX等小型机类似）。</div><div>（3）<b>模拟8086</b>模式：可从保护模式切换至其中的一种8086工作方式。</div><div>&nbsp; &nbsp; &nbsp;这种方式的提供使用户可以方便地在保护模式下运行一个或多个原8086程序。</div><div><br/></div><div>PC<b>一开机</b>，处于<b>实模式</b>。<b>DOS</b>处于实模式。</div><div><b>Windows</b>系统在加载后，会将CPU切换到<b>保护模式</b>。</div><div>在<b>Windows下</b>运行一个<b>DOS</b>下的<b>程序</b>，CPU切换至</div><div><b>模拟8086</b>模式下运行该程序。</div><div><br/></div><div><br/></div><div><br/></div><div><b>附注2 补码</b></div><div><br/></div><div>特别注意点：1000 0000b = -128</div><div><br/></div><div><br/></div><div><br/></div><div><b>附注3 <u>汇编编译</u>器（masm.exe）对<u>jmp的相关处理</u></b></div><div><br/></div><div>1. 向前转移</div><div>先读到标号，后读到jmp指令</div><div>s: &nbsp; &nbsp; ...</div><div>&nbsp; &nbsp; &nbsp; &nbsp;...</div><div>&nbsp; &nbsp; &nbsp;jmp s（jmp short s / jmp near ptr s / jmp far ptr s）</div><div><br/></div><div><b>编译器</b>中<b>有</b>一个<b>地址计数器（AC）</b>，</div><div>编译过程中，每读到一字节，AC+=1。</div><div>当编译器遇到一些伪操作时，如db / dw等，</div><div>会根据实际情况使AC增加。</div><div><br/></div><div>向前转移时，complier读到 <b>标号s</b> 后，</div><div>记下此时<b>AC的值</b>为 <b>as</b>（annotation start？），</div><div>在读到 <b>jmp &nbsp;... s</b> 后，记下此时AC的值为 <b>aj</b>（annotation jmp？）。</div><div>那么可以通过 <b>as - aj</b>&nbsp;算出<b>位移值 disp</b>。</div><div><br/></div><div>（1）若<b>disp</b>属于<b>[-128, 127]</b>，这不管汇编指令格式是：</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jmp s / jmp short s / jmp near ptr s / jmp far ptr s</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b>都</b>会转变<b>为 jmp short s</b> 所对应的<b>机器码：</b></div><div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EB disp</b>（占 2 Bytes）；</div><div><br/></div><div>（2）若disp属于<b>[-32768, 32767]</b>，则：</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于 <b>jmp short</b> 将产生编译<b>错误</b>；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于 <b>jmp s、jmp near ptr s</b>，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;将产生<b>jmp near ptr s</b> 所对应的<b>机器码：</b></div><div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;E9 disp</b>（占 3 Bytes）；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于 <b>jmp far ptr s</b>，将产生对应的机器码：</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>EA 偏移地址 段地址</b>（占 5 Bytes）。</div><div><br/></div><div><br/></div><div>2.向后转移：</div><div>先读到jmp指令，后读到标号</div><div>&nbsp; &nbsp; &nbsp;jmp s（jmp short s / jmp near ptr s / jmp far ptr s）</div><div>&nbsp; &nbsp; &nbsp; &nbsp;...</div><div>s: &nbsp; &nbsp; ...</div><div><br/></div><div>在此情况下，complier先读到 jmp ... s 指令，</div><div>由于还没读到 标号s，所以不能确定 其位置的AC值，</div><div>即不能确定 disp 值。</div><div><br/></div><div>此时，complier将 jmp ... s 都当作 jmp short s 来读取，</div><div>记下jmp指令的位置和AC的值作为 aj（annotation jmp？），</div><div>并作以下处理：</div><div><br/></div><div>a. 对于 jmp <b>short</b> s，complier生成&nbsp;<b>EB</b> 和 <b>一个</b> <b>nop</b> 指令，</div><div>&nbsp; &nbsp; &nbsp;即用 nop <b>预留 1 Byte&nbsp;</b>空间，存放 <b>8 bits</b> 的<b>disp</b>。</div><div><br/></div><div>b. 对于 <b>jmp s</b> 和 jmp <b>near ptr</b> s，生成&nbsp;<b>E9&nbsp;</b>和 <b>两个 nop</b> 指令，</div><div>&nbsp; &nbsp; &nbsp;即&nbsp;预留 <b>2</b> Bytes，放 <b>16</b> bits 的disp。</div><div><br/></div><div>c. 对于 jmp <b>far ptr</b> s， 生成 <b>EA</b>&nbsp;和 <b>四个</b> nop 指令，</div><div>&nbsp; &nbsp; &nbsp;即 预留 <b>4 Bytes</b>，放&nbsp;<b>段地址</b> 和&nbsp;<b>段地址</b>。</div><div><br/></div><div>以上处理完后，当向后读到 标号s 时，</div><div>记下此时AC的值作为 as（annotation start？），</div><div>并计算出转移的位移量：<b>disp = as - aj</b>（公式与向前转移相同）。</div><div><br/></div><div>（1）若<b>disp</b>属于<b>[-128, 127]</b>，这不管汇编指令格式是：</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jmp s / jmp short s / jmp near ptr s / jmp far ptr s</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>都</b>在前面记下的 jmp ... s 指令位置处添上</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp short s对应的机器码：<b>EB disp</b></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *注意：此时，对于&nbsp;jmp s 和 jmp near ptr s 格式，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;在机器码 EB disp 后还有 1 条 nop 指令（空着）；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;对于jmp far ptr s，在机器码EB disp后还有3条nop指令（空着）。</div><div><br/></div><div>（2）若disp属于<b>[-32768, 32767]</b>，则：</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于&nbsp;<b>jmp short</b>&nbsp;将产生编译<b>错误</b>；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于&nbsp;<b>jmp s、jmp near ptr s</b>，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;在前面记下的 jmp ... s 指令位置处添上</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp near ptr s对应的机器码：<b>E9 disp</b>（占 3 Bytes）；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于&nbsp;<b>jmp far ptr s</b>，在前面记下的 jmp ... s 指令位置处添上</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>EA 偏移地址 段地址</b>（占 5 Bytes）。</div><div><br/></div><div><br/></div><div><br/></div><div><b>附注4 用栈传递参数</b></div><div><br/></div><div>此技术和高级语言编译器的工作原理密切相关，</div><div>结合C语言的函数调用来描述。</div><div><br/></div><div>栈传递参数原理：</div><div>由调用者将需要传递给子程序的参数压入栈中，</div><div>子程序从栈中去取得参数。</div><div><br/></div><div>（例）</div><div>;说明：计算(a-b)^3，a、b为字型数据</div><div>;参数：进入子程序时，栈顶存放IP，后面依次存放a、b</div><div>;结果：<b>(dx:ax)=(a-b)^3</b></div><div>dif_cube:</div><div><b>&nbsp; &nbsp; &nbsp;push bp</b></div><div>&nbsp; &nbsp; &nbsp;mov bp, sp</div><div><b>&nbsp; &nbsp; &nbsp;mov ax, [bp + 4] &nbsp; &nbsp; ;后入栈的是a</b></div><div><b>&nbsp; &nbsp; &nbsp;sub ax, [bp + 6] &nbsp; &nbsp; ;先入栈的是b</b></div><div>&nbsp; &nbsp; &nbsp;mov bp, ax</div><div>&nbsp; &nbsp; &nbsp;mul bp</div><div>&nbsp; &nbsp; &nbsp;mul bp</div><div>&nbsp; &nbsp; &nbsp;pop bp</div><div>&nbsp; &nbsp; &nbsp;ret 4</div><div><br/></div><div>一个子程序结尾有：<b>ret n</b></div><div>n为整数，意思是，将<b>栈顶</b>指针修<b>改为调用前的值</b>。</div><div><b>ret n</b> 功能等于&nbsp;<b>pop ip &nbsp; &nbsp;&nbsp;add sp, n</b></div><div><br/></div><div>调用dif_cube程序的代码如下：</div><div>mov ax, 1 &nbsp; &nbsp; ;b</div><div>push ax</div><div>mov ax, 3 &nbsp; &nbsp; ;a</div><div>push ax</div><div>call diff_cube &nbsp; &nbsp; ;注意参数压栈的顺序</div><div><br/></div><div><br/></div><div>1.语句call diff_cube后，栈的情况： &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IP &nbsp; &nbsp; &nbsp;a &nbsp; &nbsp; &nbsp; &nbsp;b</div><div>1000:0000 &nbsp; &nbsp; 00 00&nbsp;00 00&nbsp;00 00&nbsp;00 00 |&nbsp;00 00 XX XX 03 00 01 00</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>↑ ss:sp</b></div><div>2.dif_cube执行第1句push bp后：&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;bp &nbsp; &nbsp; &nbsp;IP &nbsp; &nbsp; &nbsp; a &nbsp; &nbsp; &nbsp; b</div><div>1000:0000 &nbsp; &nbsp; 00 00&nbsp;00 00&nbsp;00 00&nbsp;00 00 | ZZ ZZ XX XX 03 00 01 00</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b>↑ ss:sp</b></div><div>3.所以，dif_cube 子程序以下语句中的 <b>[bp + 4]指 a</b>，<b>[bp + 6]指 b</b>。</div><div>mov ax, [bp + 4] &nbsp; &nbsp; ;后入栈的是a</div><div>sub ax, [bp + 6] &nbsp; &nbsp; ;先入栈的是b</div><div><br/></div><div><br/></div><div>利用<b>C程序，</b>了解<b>栈</b>在<b>参数传递</b>中的应用：</div><div>*.注意：在<b>C</b>语言中，<b>局部变量</b>也在<b>栈中存储</b>。</div><div><br/></div><div>void add(int, int, int);</div><div>main(){</div><div>&nbsp; &nbsp; &nbsp;int a = 1;</div><div>&nbsp; &nbsp; &nbsp;int b = 2;</div><div>&nbsp; &nbsp; &nbsp;int c = 0;</div><div>&nbsp; &nbsp; &nbsp;add(a, b, c);</div><div>&nbsp; &nbsp; &nbsp;c++;</div><div>}</div><div>void add(int a, int b, int c){</div><div>&nbsp; &nbsp; &nbsp;c = a + b;</div><div>}</div><div><br/></div><div>编译后的汇编程序：</div><div><br/></div><div>mov bp, sp &nbsp; &nbsp; ;bp = 原栈顶位置 sp</div><div><b>sub sp, 6</b> &nbsp; &nbsp; <b>;栈顶sp - 6，留出空间存放数据段？</b></div><div><br/></div><div>mov word ptr [bp - 6], 0001 &nbsp; &nbsp; ;int a</div><div>mov word ptr [bp - 4], 0002 &nbsp; &nbsp; ;int b</div><div>mov word ptr [bp - 2], 0000 &nbsp; &nbsp; ;int c</div><div><br/></div><div>push [bp - 2] &nbsp; &nbsp; ;push c</div><div>push [bp - 4] &nbsp; &nbsp; ;push b</div><div>push [bp - 6] &nbsp; &nbsp; ;push a</div><div>call ADDR</div><div><br/></div><div><b>add sp, 6 &nbsp; &nbsp; ;sp恢复回原栈顶top的位置？</b></div><div>inc word ptr [bp - 2]</div><div><br/></div><div>ADDR:</div><div>&nbsp; &nbsp; &nbsp;push bp</div><div><br/></div><div>&nbsp; &nbsp; &nbsp;mov bp, sp &nbsp; &nbsp; ;这里的bp = 新栈顶位置 sp</div><div>&nbsp; &nbsp; &nbsp;mov ax, [bp + 4] &nbsp; &nbsp; ;b</div><div>&nbsp; &nbsp; &nbsp;add ax, [bp + 6] &nbsp; &nbsp; ;a? &nbsp; &nbsp;<b>（有点蒙？这里我画图理解，放的应该是c？淡忘之后再分析一次）</b></div><div>&nbsp; &nbsp; &nbsp;mov [bp + 8], ax</div><div>&nbsp; &nbsp; &nbsp;mov sp, bp</div><div>&nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; &nbsp;;栈的情况：a b c | a b c</div><div>&nbsp; &nbsp; &nbsp;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;↑top=bp</div><div>&nbsp; &nbsp; &nbsp;;左边abc是压入的参数，右边abc是其源</div><div><br/></div><div>&nbsp; &nbsp; &nbsp;pop bp</div><div>&nbsp; &nbsp; &nbsp;ret</div><div><br/></div><div><br/></div><div><br/></div><div><b>附注5 （</b><b>无溢出除法</b><b>）公式证明</b></div><div><br/></div><div><b>无溢出除法</b>公式：</div><div><br/></div><div>H：x的高16位</div><div>L：x的低16位</div><div>int()：取商</div><div>rem()：取余</div><div><br/></div><div>H = int( x / 65536) &nbsp; &nbsp; ; 即 H = x / 0FFFFH</div><div>L = rem( x / 65536) &nbsp; &nbsp; ; 即 L = x % 0FFFFH</div><div><b><br/></b></div><div><b>X / n = int(H / n) * 65536 + [rem(H / n) * 65536 + L] / n</b></div><div><b><br/></b></div><div>&nbsp; &nbsp; &nbsp;;乘以65536，等于左移16位</div><div>&nbsp; &nbsp; &nbsp;;1.被除数x的高16位，除以除数n得到，x/n的商的高16位；</div><div>&nbsp; &nbsp; &nbsp;;2.被除数x的高16位，除以除数n得到的余， 加上被除数x的低16位，</div><div>&nbsp; &nbsp; &nbsp;; &nbsp; 除以除数n得到，x/n的商的低16位。</div><div><br/></div><div><br/></div><div><b>综合研究</b></div><div>（因为寻找适用的tc.exe无果，此部分暂且放弃）</div><div>研究实验1 <b>搭建一个精简的C语言开发环境</b></div><div>研究实验2 <b>使用寄存器</b></div><div>研究实验3&nbsp;<b>使用内存空间</b></div><div>研究实验4&nbsp;<b>不用main函数编程</b></div><div>研究实验5&nbsp;<b>函数如何接收</b></div></div>
+<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十七、使用BIOS进行键盘输入和磁盘读写</b></div><div><b><br/></b></div><div>键盘输入：最基本的输入</div><div>磁盘：最常用的储存设备</div><div>BIOS：为以上两种外设<b>提供了最基本的中断例程</b></div><div><b><br/></b></div><div><b><br/></b></div><div>17.1 int 9 中断例程对键盘输入的处理</div><div><br/></div><div>一般键盘输入，在CPU执行完int 9中断例程后，都放到键盘缓冲区中。</div><div><b>键盘缓冲区</b>有<b>16个字</b>单元，<b>可以存储15个</b>按键的<b>扫描码和对应</b>的<b>ASCII码</b>。</div><div>键盘缓冲区使用环形队列结构管理的内存区。</div><div><br/></div><div>int 9 中断例程对键盘输入的处理方法：</div><div><img width="1355px" height="743px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png" /><img width="1334px" height="1302px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png" /></div><div><br/></div><div><br/></div><div>17.2 使用 int 16h 中断例程读取键盘缓冲区</div><div><br/></div><div>BIOS 提供了 <b>int 16h</b> 中断例程，它包<b>含功能</b>：<br/><b>从键盘缓冲区中读取</b>一个键盘<b>输入</b>，功能<b>编号为0</b>。</div><div><br/></div><div>（例）</div><div>mov ah, 0</div><div>int 16h</div><div>结果：(ah)=扫描码，(al)=ASCII码。</div><div>功能：</div><div>（1）检测键盘缓冲区是否有数据；</div><div>（2）没有则重复第一步</div><div>（3）读取缓冲区第一个字单元的键盘输入；</div><div>（4）将读取的扫描码送入ah，ASCII码送入al；</div><div>（5）将已读取的键盘输入从缓冲区中删除。</div><div>*. 具体例子，请看原书P303</div><div><br/></div><div>可见，BIOS的<b>int 9</b> 和 <b>int 16h</b>中断例程是一对<b>相互配合</b>的程序。</div><div><b>int 9</b> 向缓冲区<b>写，int 16h</b> 从缓冲区<b>读，</b>但<b>调用时机不同</b>。</div><div>int 9 在键按下时，它就写入；int 16h 则是<b>被应用程序调用</b>时，它才去读。</div><div><br/></div><div><br/></div><div><b>编程：</b>接收用户的键盘输入，输入r，将屏幕字符设置为红色；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; g则设为绿色； b则设为蓝色。</div><div>源码：</div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 16h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 1</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; cmp al, &apos;r&apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je red<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp al, &apos;g&apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je green<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp al, &apos;b&apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je blue</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp short sret<br/><br/><b>red:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shl ah, 1<br/>
+green:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shl ah, 1</b><br/><b>blue:</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 1<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 2000<br/>
+c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; and byte ptr es:[bx], 11111000b<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; or es:[bx], ah</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+sret:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div><br/></div><div>17.3 字符串的输入</div><div>最基本的字符串输入程序，需具备以下功能：</div><div>（1）在输入的同时需要显示这个字符串；</div><div>（2）一般在输入回车符后，字符串输入结束；</div><div>（3）能够删除已经输入的字符。</div><div><br/></div><div><b>编程：实现以上3个基本功能</b>，参数如下——</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (dh)、(dl)=字符串在屏幕上显示的行、列位置；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ds:si指向字符串的储存空间，字符串以0为结束符。</div><div>实现思路：详看原书P304~305</div><div><br/></div><div><b>处理过程</b>：</div><div>（1）调用int 16h 读取键盘输入</div><div>（2）若是字符，入栈，显示栈中所有字符；继续执行（1）；</div><div>（3）若是退格键，一个字符出栈，显示栈中所有字符；继续执行（2）；</div><div>（4）若是Enter键，向栈压入0，返回。</div><div><br/></div><div>源码：</div><div>&nbsp; &nbsp; &nbsp;其中子程序charstack的子程序的参数说明：</div><div>&nbsp; &nbsp; &nbsp;(ah)=功能号，0表示入栈，1表示出栈，2表示显示；</div><div>&nbsp; &nbsp; &nbsp;<b>ds:si</b>指向字符<b>栈空间</b>；</div><div>&nbsp; &nbsp; &nbsp;入栈：(al)=入栈字符；</div><div>&nbsp; &nbsp; &nbsp;出站：(al)=出栈返回的字符；</div><div>&nbsp; &nbsp; &nbsp;显示：<b>(dh)、(dl)</b>=字符串在屏幕上显示的<b>行、列</b>位置。</div><div><br/></div><div>assume cs:code<br/>
+stack segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; db 64 dup (0)<br/>
+stack ends<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, stack<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0&nbsp;&nbsp;&nbsp;&nbsp; ;ds:si指向charstack的字符栈空间<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 0&nbsp;&nbsp;&nbsp;&nbsp; ;显示在第0行<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 0&nbsp;&nbsp;&nbsp;&nbsp; ;显示在第0列<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call getstr<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+getstr:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
+getstrs:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; ;获取键盘输入<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 16h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp al, 20h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jb not_char&nbsp;&nbsp;&nbsp;&nbsp; ;ASCII码小于20h，说明不是字符<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0&nbsp;&nbsp;&nbsp;&nbsp; ;调用charstack的0号子程序<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;字符入栈<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2&nbsp;&nbsp;&nbsp;&nbsp; ;调用charstack的2号子程序<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;显示栈中的字符</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp getstrs<br/><br/>
+not_char:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 0eh&nbsp;&nbsp;&nbsp;&nbsp; ;退格键的扫描码<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je backspace<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 1ch&nbsp;&nbsp;&nbsp;&nbsp; ;回车键的扫描码<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je enter_btn</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp getstrs<br/><br/>
+backspace:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 1&nbsp;&nbsp;&nbsp;&nbsp; ;调用charstack的1号子程序<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;字符出栈<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2&nbsp;&nbsp;&nbsp;&nbsp; ;类同上<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;显示栈中的字符<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp getstrs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+enter_btn:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;0入栈<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;显示栈中字符<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><br/>
+charstack:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp short&nbsp; charstart<br/><b>table&nbsp;&nbsp;&nbsp;&nbsp; dw charpush, charpop, charshow<br/>
+top&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dw 0&nbsp;&nbsp;&nbsp;&nbsp; ;栈顶</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+charstart:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push dx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ja sret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bl, ah<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; add bx, bx</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; jmp word ptr table[bx]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+charpush:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov bx, top<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds:[si][bx], al</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; inc top</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp sret<br/><br/>
+charpop:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp top, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je sret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; dec top<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, top<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, ds:[si][bx]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp sret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+charshow:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 160<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mul dh&nbsp;&nbsp;&nbsp;&nbsp; ;dh：显示在第几行<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add dl, dl&nbsp;&nbsp;&nbsp;&nbsp; ;dl：显示在第几列<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add di, dx&nbsp;&nbsp;&nbsp;&nbsp; ;di：对应的显示缓冲区的偏移量</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+charshows:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp bx, top<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jne not_empty<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], &apos; &apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp sret<br/>
+not_empty:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov al, ds:[si][bx]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es:[di], al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di + 2], &apos; &apos;&nbsp;&nbsp;&nbsp;&nbsp; ;设置下一个显示位为空</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp charshows<br/><br/>
+sret:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop dx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+code ends<br/>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A017.3%E4%BE%8B.asm" target="_blank">汇编语言第十七章17.3例.asm</a><br/></div><div><br/></div><div><br/></div><div>17.4 应用 <b>int 13h 中断例程对磁盘进行读写</b></div><div><b>以3.5英寸软盘为例讲解</b>（无法测试，只能做简单的笔记）。</div><div>3.5英寸软盘：2面 * 80磁道 * 18扇区 * 512字节 = 1440KB ≈ 1.44MB</div><div><br/></div><div>int 13h 入口参数：</div><div>(ah)=int 13h的功能号</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2：读扇区；3：写扇区</div><div>(al)=读/写的扇区数</div><div>(ch)=磁道号</div><div>(cl)=扇区号</div><div>(dh)=磁头号（对于软盘即面号,因为一个面用一个磁头来读写）</div><div>(dl)=驱动器号 &nbsp; &nbsp; 软驱从0开始，0：软驱A，1：软驱B；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;硬盘从80h开始，80h：硬盘C，81h：硬盘D</div><div>es:bx 指向接受从扇区读入数据的内存区。</div><div><br/></div><div>返回参数：</div><div>操作成功：(ah)=0，(al)=读/写的扇区数</div><div>操作失败：(ah)=出错代码</div><div><br/></div><div><br/></div><div><b>实验17 编写包含多个功能子程序的中断例程</b></div><div><b>以3.5英寸软盘为对象编写</b>（无法测试，只能简单描述题目）。</div><div><br/></div><div><img width="690px" height="237px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/1714006dae86aabe425b8e38249e2398.png" /></div><div><img width="497px" height="442px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/05dedeb0e9cfc789488adb730e26db81.png" /></div><div><img width="689px" height="181px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/e77389b70bb8aac0a6fe5832c80ec166.png" /></div><div><br/></div><div><br/></div><div><b>课程设计2</b></div><div><b>(完成并不现实：因为当前使用电脑CPU为64位，</b></div><div><b>&nbsp; &nbsp; &nbsp;而非16位的8086CPU，即使编写的汇编程序也无法测试)</b></div><div><img width="559px" height="575px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/e8dc941688cdf6097fa9a4cbd36cb199.png" /></div><div><img width="557px" height="169px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/ce9f20b2811d6aa5cdb98795b5d636d9.png" /></div><div><br/></div><div><br/></div><div><img width="555px" height="295px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/28a66282bd49010054d7c45bdf8e9087.png" /></div></div>

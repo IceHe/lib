@@ -1,166 +1,385 @@
 title: ASM 汇编语言 11
-date: 2015-04-12
+date: 2015-04-11
 noupdate: true
 categories: [ASM]
 tags: [ASM]
-description: ASM - Note&#58; 端口的读写，in / out 指令。shl 和 shr 指令。CMOS RAM 芯片，其中存储的时间信息。访问 CMOS RAM。
+description: ASM - Note&#58; int 指令，中断例程。实现 2*2456^2 。将一个全是字母，以 0 结尾的字符串，转化为大写。用 7ch 中断例程实现 loop 指令的功能。BIOS 和 DOS 所提供的中断例程，及其中断例程的安装过程及其应用。
 ---
 
 <ul><li>Created on 2014-11</li></ul><br/>
 
-<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十四、端口</b></div><div><b><br/></b></div><div>PC系统中，和CPU通过总线项链的芯片除存储器外，还有：</div><div>（1）各种接口卡（如，网卡、显卡）上的接口芯片，它们控制接口卡进行工作</div><div>（2）主板上的接口芯片，CPU通过它们对部分外设进行访问</div><div>（3）其它芯片，用来存储相关的系统信息，或进行相关的IO处理</div><div><br/></div><div>这些芯片中，都有一组可以由CPU读写的寄存器。</div><div>物理上它们在不同芯片中，但在以下两点上相同：</div><div>（1）都和CPU的总线相连，当然这种连接是通过它们所在的芯片进行的</div><div>（2）CPU对它们进行读写时，都通过控制线向它们所在的芯片发出端口读写命令</div><div><br/></div><div>可见，CPU将这些寄存器当作端口，</div><div>对其统一编址，建立统一的地址端口空间。</div><div><br/></div><div>CPU可直接读写以下3个地方的数据：</div><div>（1）CPU内部的寄存器</div><div>（2）内存单元</div><div>（3）端口</div><div><br/></div><div><br/></div><div>14.1 <b>端口</b>的<b>读写</b></div><div>PC系统中，CPU最多可以定位<b>64K</b>个不同的<b>端口</b>，<b>0~65535</b></div><div>对<b>端口</b>的<b>读写指令</b>只有两条：<b>in</b>、<b>out</b></div><div>而无push、pop、mov等指令</div><div><br/></div><div><b>访问</b>端口：</div><div><b>in al, 60h</b></div><div>（1）CPU通过地址线将地址信息60h发出</div><div>（2）CPU通过控制线发出端口读命令，选中端口所在的芯片，</div><div>&nbsp; &nbsp; &nbsp;并通知它，将要从中读取数据</div><div>（3）端口所在的芯片将60h端口中的数据通过数据线送入CPU</div><div><br/></div><div><b>写入</b>端口：</div><div><b>out 20h, al</b></div><div>类同上一条</div><div><br/></div><div><br/></div><div>14.2 <b>CMOS &nbsp;RAM</b> 芯片</div><div><br/></div><div>CMOS &nbsp;RAM&nbsp;芯片 一般<b>简称 CMOS</b>。特征如下：</div><div>（1）包含一个实时钟，和一个128个存储单元的RAM存储器。</div><div>&nbsp; &nbsp; &nbsp;（早期计算机为64Bytes）</div><div>（2）靠电池供电，关机后其内部实时钟仍可正常工作，RAM中的信息不丢失。</div><div>（3）128个字节的RAM中，内部实时钟占用0~0dh单元来保存时间，</div><div>&nbsp; &nbsp; &nbsp;其余大部分单元用于保存系统配置信息，供系统启动时BIOS程序读取。</div><div>&nbsp; &nbsp; &nbsp;BIOS也提供了相关程序，使开机时可配置CMOS &nbsp;RAM中的系统信息。</div><div>（4）该芯片内部有两个端口，地址分别为70h、71h。通过它们读写CMOS RAM。</div><div>（5）70h为地址端口，存放要访问的CMOS RAM单元的地址；</div><div>&nbsp; &nbsp; &nbsp;71h为数据端口，存放从选定的CMOS RAM单元中读取的数据。</div><div>&nbsp; &nbsp; &nbsp;如读取CMOS的2号存储单元：</div><div>&nbsp; &nbsp; &nbsp;a. 将 2 送入端口 70h</div><div>&nbsp; &nbsp; &nbsp;b. 从端口 71h 读 2 号单元的内容</div><div><br/></div><div>检测点14.1</div><div>编程：读取CMOS RAM的2号单元的内容 / 将0写入该单元</div><div>assume cs:code<br/>
-code segment<br/>
-start:</div><div>&nbsp;&nbsp;&nbsp;&nbsp; ;read CMOS RAM unit2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;write unit2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; out 71h, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><u>&nbsp; &nbsp; &nbsp;</u><b><u>;in/out指令，好像只能凭借al寄存器来做参数中转&nbsp; &nbsp;</u></b> &nbsp;</div><div><br/></div><div>&nbsp; &nbsp; &nbsp;;test operator&apos;s result<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h</div><div><br/></div><div><b>&nbsp; &nbsp; &nbsp;;大概是CMOS的2单元一直在变</b></div><div><b>&nbsp; &nbsp; &nbsp;;从&nbsp;71h&nbsp;读到 al 的数据并不是预想中的 0</b></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-code ends<br/>
-end start</div><div><br/></div><div><br/></div><div>14.3 <b>shl</b> 和 <b>shr</b> 指令</div><div>它们是<b>逻辑移位指令</b></div><div><b><br/></b></div><div><b>shl</b> —— <b>逻辑左移</b>：</div><div>（1）将一个寄存器或内存单元中的数据向<b>左移</b>位</div><div>（2）将<b>最后移出</b>的一<b>位写入CF</b>中</div><div>（3）<b>低位</b>用<b>0补充</b></div><div>指令：</div><div>mov al, 10000001b</div><div><b>shl al, 1</b> &nbsp; &nbsp; ;左移一位</div><div><br/></div><div><b>shr</b> —— 逻辑右移：</div><div>（1）将一个寄存器或内存单元中的数据向<b>右移</b>位</div><div>（2）将<b>最后移出</b>的<b>一位写入CF</b>中</div><div>（3）<b>高位</b>用<b>0补充</b></div><div><b><br/></b></div><div><b><br/></b></div><div>检测点14.2</div><div>计算 (ax) = (ax) * 10</div><div>（1）第一版</div><div>assume cs:code<br/>
+<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十三、int 指令</b></div><div><b><br/></b></div><div>本章介绍 由int指令引发的中断</div><div><b><br/></b></div><div>13.1 int 指令</div><div>没有做除法，也可以直接使用&nbsp;<b>int 0</b>&nbsp;指令<b>引发除法溢出中断</b>。</div><div><br/></div><div><b>中断处理程序</b>&nbsp;—— 简称：<b>中断例程</b></div><div><b><br/></b></div><div>13.2 编写供应用程序调用的中断例程</div><div><br/></div><div><b>实例1：</b>实现2 * 2456^2</div><div>使用中断处理程序实现平方</div><div>assume cs:code<br/>
 code segment<br/>
 start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, cs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset sqr<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>shl ax, 1</b>&nbsp;&nbsp;&nbsp;&nbsp; <b>; ax * 2</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bx, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div><u>&nbsp; &nbsp; &nbsp;<b>;</b><b>shl/shr指令，若用</b><b>立即数作为参数时，</b></u></div><div><u>&nbsp; &nbsp; &nbsp;<b>;立即数必须为1（每次仅允许移一位！）</b></u></div><div>&nbsp;&nbsp;&nbsp;&nbsp; <b>shl ax, 1&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 4<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; shl ax, 1&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 8</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 200h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add ax, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset sqrend - offset sqr<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch], 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch + 2], 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;test sqr<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 3456<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 7ch<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add ax, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; adc dx, dx<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+sqr:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mul ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; iret<br/>
+sqrend:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/><br/>
 code ends<br/>
-end start</div><div><br/></div><div>（2）第二版</div><div>assume cs:code<br/>
+end start</div><div><br/></div><div><br/></div><div><b>实例2</b>：将一个全是字母，以0结尾的字符串，转化为大写。</div><div>把终端程序当作子程序来使用。</div><div>assume cs:code, ds:data<br/>
+data segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; db &apos;conversion&apos;, 0<br/>
+data ends<br/><br/>
 code segment<br/>
 start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;install int 7ch<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, cs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset capital<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; shl ax, 1&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bx, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><u>&nbsp;&nbsp;&nbsp;&nbsp;</u> <b><u>;当移位数大于1时，要先将移位数置于CL中，然后再用CL移位。<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;可以使用8位立即数指定范围从1到31的移位次数</u><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; shl ax, cl&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 8</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 200h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add ax, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset cap_end - offset capital<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-code ends<br/>
-end start</div><div><br/></div><div><br/></div><div>14.4 CMOS &nbsp;RAM 中存储的时间信息</div><div><b>CMOS RAM</b> <b>存着</b>当前的时间：</div><div><b>年、月、日、时、分、秒</b>。</div><div><br/></div><div><b>信息</b>的<b>长度</b>均为 <b>1 Byte</b>。</div><div><b>存放单元</b>为：<b>秒0 分2 时4 日7 月8 年9</b></div><div>这些数据<b>以BCD码</b>的方式<b>存放。</b></div><div><b><br/></b></div><div><b>BCD码</b>：</div><div>以4位二进制数，表示十进制数码的编码方式，如下：</div><div>0-0000，1-0001，2-0010，3-0011，4-0100，</div><div>5-0101，6-0110，7-0111，8-1000，9-1001。</div><div><br/></div><div>1 Byte 可表示 2个BCD码，如 0001 0100b 表示 14。</div><div>（以上为BCD码中的8421版本，其它详情请看<a href="http://baike.baidu.com/link?url=jh2w0DfroFs6zztCYEmXpxVTIAWmpHaF7cJ6lWWxXLCniVWaxFs_tbJ_HwAMHl2_dOorIxg8MwsTTgJCg8xs7_">百度百科</a>）</div><div><br/></div><div>在屏幕中间显示当前‘分钟’：</div><div>assume cs:code<br/>
-code segment<br/>
-start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2&nbsp;&nbsp;&nbsp;&nbsp; ;如上文，单元2 存放着‘分钟’信息<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>out 70h, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;set int 7ch<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch], 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch + 2], 0<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 4<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; shr ah, cl&nbsp;&nbsp;&nbsp;&nbsp; ;右移4位，取高四位<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; and al, 00001111b</b>&nbsp;&nbsp;&nbsp;&nbsp; <b>;保留低四位</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>add ah, 30h&nbsp;&nbsp;&nbsp;&nbsp; ;+30h 转换为对应数字的ascii<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add al, 30h</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h&nbsp;&nbsp;&nbsp;&nbsp; ;输出到屏幕<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ds, bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr ds:[160 * 12 + 40 * 2], ah<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr ds:[160 * 12 + 40 * 2 + 2], al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-code ends<br/>
-end start</div><div><br/></div><div><br/></div><div><br/></div><div><b>实验14 访问CMOS RAM</b></div><div>编程：以“年/月/日 时:分:秒”的格式，显示当前的日期、时间。</div><div>注意：CMOS RAM 中存储着系统的配置信息，除了保存时间信息的单元外，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 不要向其它单元写内容，否则将引起一些系统错误。</div><div><br/></div><div>assume cs:code<br/>
-time_pos segment<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>db 9, 8, 7, 4, 2, 0</b><br/>
-time_pos ends</div><div><br/></div><div><img width="619px" height="69px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2011/tmp.png" /><br/><b><br/></b></div><div><b>;上一个段不满 16 Bytes (8 Words)<br/>
-;新起的段也只从 下一个 16Bytes * n 的内存位置开始（见上图）<br/>
-;16Bytes * n 即 10h * n</b><br/>
-time_delimiter segment<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>db &apos;/&apos;, &apos;/&apos;, &apos; &apos;, &apos;:&apos;, &apos;:&apos;, &apos;$&apos;</b><br/>
-time_delimiter ends<br/><br/>
-time_str segment<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>db 18 dup (0)</b><br/>
-time_str ends<br/><br/>
-code segment<br/>
-start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, time_pos<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;test int 7ch<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, data<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov si, 0<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, time_str<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov di, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 7ch<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 6<br/>
-circle:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+capital:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; ;暂存寄存器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pushf<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;从端口获取当前时间<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov al, ds:[si]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ch, 0<br/>
+r0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cl, ds:[si]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jcxz ok<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;切分当前时间的CBD码，存到不同的存储单元中<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 4<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; shr ah, cl<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; and al, 00001111b</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp cl, 61h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jb next<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp cl, 7ah<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ja next<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;将BCD码转换为，对应数字的ASCII码<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add ah, 30h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add al, 30h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;将时间拼接成字符串，暂存到指定内存中<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es:[di], ah<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;es:[di]访问的是段time_str<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es:[di], al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;ds:16[si]访问的是段time_delimiter<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov bl, ds:16[si]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>;为什么idata（直接数/常量）偏移量是16而非6？</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;答：段time_str只用db指令声明了6Bytes的数据，<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;&nbsp;&nbsp;&nbsp; 但紧邻的段time_delimiter并非从上一个段<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;&nbsp;&nbsp;&nbsp; time_str的第7字节开始的，而是从下一个<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;&nbsp;&nbsp;&nbsp; 16Bytes * n的内存位置开始的！<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], bl<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; and byte ptr ds:[si], 11011111b<br/><br/>
+next:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; loop circle<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp r0<br/><br/>
+ok:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;恢复寄存器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; popf<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; iret<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;locate cursor<br/>
+cap_end:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/>
+code ends<br/>
+end start</div><div><br/></div><div><br/></div><div>13.3 对int、iret 和 栈的深入理解</div><div>目的：用7ch<b>中断例程实现loop</b>指令的<b>功能</b></div><div>实例：在屏幕中间显示80个感叹号“<b>！</b>”。</div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;install<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, cs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset lop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset lop_end - offset lop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch], 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch + 2], 0<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;test<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 12 * 160<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, offset s - offset se<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 80<br/>
+s:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], &apos;!&apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 7ch<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;loop s<br/>
+se:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/><br/>
+lop:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; dec cx&nbsp;&nbsp;&nbsp;&nbsp; ;想想这句可置于jcxz后吗？<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jcxz ed<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;暂存寄存器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bp<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bp, sp<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add ss:[bp + 2], bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;恢复寄存器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bp<br/><br/>
+ed:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; iret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+lop_end:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/><br/>
+code ends<br/>
+end start</div><div><br/></div><div><br/></div><div>13.14&nbsp;<b>BIOS</b>&nbsp;和&nbsp;<b>DOS</b>&nbsp;所提供的<b>中断例程</b></div><div>在系统板的ROM中存放着一套程序，</div><div>称为&nbsp;<b>BIOS</b>（基础输入输出系统），</div><div>主要包含以下几部分内容：</div><div>（1）硬件系统的监测和初始化程序</div><div>（2）外部中断（15章中详解）和内部中断的中断例程</div><div>（3）用于对硬件设备进行I/O操作的中断例程</div><div>（4）其它和硬件系统相关的中断例程</div><div><br/></div><div>从OS（操作系统）的角度看，</div><div>DOS的中断例程 就是 OS向coder提供的编程资源。</div><div><br/></div><div><b>BIOS和DOS</b>在所提供的<b>中断例程</b>中<b>提供了</b></div><div>许多实现了程序员在<b>编程时所需功能的子程序</b>。</div><div>可以用&nbsp;<b>int 指令</b>可<b>直接调用</b>它们。</div><div><br/></div><div>和硬件设备相关的DOS中断例程中，</div><div>一般都调用了BIOS的中断例程。</div><div><br/></div><div><br/></div><div>13.5&nbsp;<b>BIOS</b>&nbsp;和&nbsp;<b>DOS 中断例程</b>的<b>安装</b>过程：</div><div>（1）开机，CPU加电，初始化(CS)=0FFFFH，(IP)=0。</div><div>自动从<b>FFFF:0</b>单元执行程序，此处有一条跳转指令，</div><div>然后将<b>跳转</b>到<b>BIOS中</b>的<b>硬件系统检测</b>和<b>初始化程序</b>。</div><div><br/></div><div>（2）初始化程序建立BIOS所支持的中断变量，</div><div>即将<b>BIOS</b>提供的<b>中断例程的入口地址登记</b>在中断向量表中。</div><div>*. 注意：对于BIOS所提供的中断例程，</div><div>只需将入口地址登记入中断向量表即可，</div><div>因为它们具体程序已被固化在ROM中，在内存中一直存在。</div><div><br/></div><div>（3）硬件系统检测和初始化完成后，</div><div>调用&nbsp;<b>int 19h</b>&nbsp;进行<b>操作系统</b>的<b>引导</b>。</div><div>自此计算机交给操作系统控制。</div><div><br/></div><div>（4）DOS启动后，除完成其它工作外，</div><div>还将它所提供的中断例程装入内存，并建立相应的中断向量。</div><div><br/></div><div><br/></div><div><br/></div><div>13.6 BIOS 中断例程应用（例子）</div><div>&nbsp;<b>int 10h 中断例程是 BIOS 提供的</b>，</div><div>其中<b>包含</b>多个和<b>屏幕输出相关</b>的<b>子程序</b>。</div><div><br/></div><div>一般，供程序员调用的中断例程往往包括多个子程序，</div><div>其内部用传递进来的<b>参数决定执行哪个子程序</b>。</div><div><b>都用 ah</b> 来传递<b>内部子程序</b>的<b>编号</b>。</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;指使用 int 10h 中断例程的2号子程序——<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;置光标<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, 2</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0&nbsp;&nbsp;&nbsp;&nbsp; ;第0页，bh：页号<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 5&nbsp;&nbsp;&nbsp;&nbsp; ;第5行，dh：行号<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 12&nbsp;&nbsp;&nbsp;&nbsp; ;第12列，dl：列号<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>int 10h&nbsp;</b>&nbsp;&nbsp;&nbsp; ;调用10h号中断例程<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;int 10h 9号子程序——<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;在光标位置显示字符<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, 9</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, &apos;a&apos;&nbsp;&nbsp;&nbsp;&nbsp; ;al：显示的字符<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bl, 7&nbsp;&nbsp;&nbsp;&nbsp; ;bl：颜色属性<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0&nbsp;&nbsp;&nbsp;&nbsp; ;bh：第0页<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 3&nbsp;&nbsp;&nbsp;&nbsp; ;cx：字符重复个数<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>int 10h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/><br/>
+code ends<br/>
+end start</div><div><br/></div><div>显示缓冲区分为8页，每页4KB，显示器可以显示任一页内容。</div><div>一般，显示第0页，即是内存B8000H~B8F9FH的内容。</div><div><br/></div><div>关于显示缓冲区，详细参考：<a href="evernote:///view/7264256/s33/396fabf7-1451-4af9-8409-c75e0a2d404f/396fabf7-1451-4af9-8409-c75e0a2d404f/" style="color: rgb(105, 170, 53);">Assembly Language - Note 6</a>&nbsp;文末的图</div><div><br/></div><div><br/></div><div><br/></div><div>13.7 DOS 中断例程的应用</div><div><b>int 21h 中断例程是 DOS 提供的</b>，其中包含了供程序员编程时调用的子程序。</div><div><br/></div><div>之前的程序一直以以下语句结尾：</div><div><b>mov ax, 4c00h</b></div><div><b>int 21h</b></div><div>使用的是 <b>int 21h 中断例程</b>的 <b>4ch 号子程序</b>，</div><div><b>功能</b>为 <b>程序返回</b>，可提供返回值作为参数。</div><div><br/></div><div>mov ah, 4ch &nbsp; &nbsp; ;4ch号子程序，功能：程序返回</div><div>mov al, 0 &nbsp; &nbsp; ;al——返回值</div><div>int 21h</div><div><br/></div><div>int 21h 的 9 号子程序　——　在光标位置显示字符串</div><div>ds:dx　;指向字符串，要显示的字符串需用“$”作为结束符</div><div>mov ah, 9</div><div>int 21h</div><div><br/></div><div>（完整程序）</div><div>assume cs:code<br/>
+data segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; db &apos;Welcome to masm!&apos;, &apos;$&apos;<br/>
+data ends<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2&nbsp;&nbsp;&nbsp;&nbsp; ;置光标<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0&nbsp;&nbsp;&nbsp;&nbsp; ;第0页<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 12&nbsp;&nbsp;&nbsp;&nbsp; ;第12行<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 30&nbsp;&nbsp;&nbsp;&nbsp; ;第30列<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, 2&nbsp;&nbsp;&nbsp;&nbsp; ;设置光标位置，int 10h的2号子程序<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 10h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 5&nbsp;&nbsp;&nbsp;&nbsp; ;第5行<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 12&nbsp;&nbsp;&nbsp;&nbsp; ;第12列<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 10h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;print time_str<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, time_str<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov dx, 0&nbsp;&nbsp;&nbsp;&nbsp; <b>;ds:dx指向字符串，&apos;$&apos;作为结束符</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, 9&nbsp;&nbsp;&nbsp;&nbsp; ;在光标位置处显示字符串，int 21h的9号子程序<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, data<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dx, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 9<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
 code ends<br/>
-end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2011/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E5%AE%9E%E9%AA%8C14.asm" target="_blank">汇编语言第十四章实验14.asm</a><br/></div></div>
+end start</div><div><br/></div><div><br/></div><div><br/></div><div><b>实验13 编写、应用中断例程</b></div><div><b><br/></b></div><div>（1）编写并安装 int 7ch中断例程，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 功能为显示一个用0结束的字符串，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 中断例程安装在0:200处。</div><div>参数：(dh)=行号，(dl)=列号，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (cl)=颜色，ds:si指向字符串首地址</div><div><br/></div><div>assume cs:code<br/>
+data segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; db &apos;Welcome to masm!&apos;, 0<br/>
+data ends<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;install<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, cs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset show_str<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset show_end - offset show_str<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch], 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch + 2], 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;test<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 10&nbsp;&nbsp;&nbsp;&nbsp; ;row<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 10&nbsp; ;col<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 15&nbsp;&nbsp;&nbsp;&nbsp; ;color<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, data<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 7ch<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+show_str:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;暂存寄存器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 80 * 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mul dh<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add al, dl&nbsp;&nbsp;&nbsp;&nbsp; ;ax + dl * 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; adc ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add al, dl<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; adc ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ch, cl<br/>
+r0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp byte ptr ds:[si], 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je ok<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cl, ds:[si]&nbsp;&nbsp;&nbsp;&nbsp; ;此时 ch &amp; cl = color &amp; char<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es:[di], cx&nbsp;&nbsp;&nbsp;&nbsp; ;此时 es:[di] 内存 为 char &amp; color<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;在寄存器cx中，低字节的char，放在了内存的低地址中<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;即8086CPU是小端模式的<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc&nbsp;&nbsp;&nbsp;&nbsp; si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp r0<br/><br/>
+ok:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;恢复寄存器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; iret<br/>
+show_end:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/>
+code ends<br/>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2010/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%AE%9E%E9%AA%8C13%20%281%29.asm" target="_blank">汇编语言第十三章实验13 (1).asm</a></div><div><br/></div><div><br/></div><div>（2）编写并安装 int 7ch 中断例程，功能为完成loop指令的功能</div><div>参数：(cx)=循环次数，(bx)=位移</div><div>实现：在屏幕中间显示80个 “<b>！</b>”感叹号。</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;install<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, cs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset lop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset lop_end - offset lop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch], 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[4 * 7ch + 2], 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;test<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 12 * 160<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, offset r0 - offset r0_end<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 80<br/>
+r0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], &apos;!&apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 7ch<br/>
+r0_end:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+lop:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; dec cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jcxz ok<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bp<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; ;因为sp不是基址寄存器之一，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;不能靠直接写ss:[sp]来操作它<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;才让sp传值给bp，用ss:[bp + n]……</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bp, sp<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, ss:4[bp]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add ax, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ss:4[bp], ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bp<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+ok:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; iret<br/>
+lop_end:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/><br/>
+code ends<br/>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2010/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%AE%9E%E9%AA%8C13%20%282%29.asm" target="_blank">汇编语言第十三章实验13 (2).asm</a><br/></div><div><br/></div><div><br/></div><div>（3）下面的程序，分别在屏幕的第2、4、6、8行</div><div>&nbsp; &nbsp; &nbsp;显示4句英文诗，补全程序：</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/>
+s1:&nbsp;&nbsp;&nbsp;&nbsp; db &apos;Good,better,bset,&apos;, &apos;$&apos;<br/>
+s2:&nbsp;&nbsp;&nbsp;&nbsp; db &apos;Never let it rest,&apos;, &apos;$&apos;<br/>
+s3:&nbsp;&nbsp;&nbsp;&nbsp; db &apos;Till good is better,&apos;, &apos;$&apos;<br/>
+s4: db &apos;And better,best.&apos;, &apos;$&apos;<br/>
+s:&nbsp;&nbsp;&nbsp;&nbsp; dw offset s1, offset s2, offset s3, offset s4<br/>
+row:&nbsp;&nbsp;&nbsp;&nbsp; db 2, 4, 6, 8<br/><br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, cs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, offset s<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset row<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 4<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+ok:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;int 10h中断例程的2号子程序，置光标<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;bh：页号<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;dh：行号<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;dl：列号<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dh, <b>ds:[si]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 10h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;int 21h的9号子程序，在光标位置显示字符串<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;ds:dx 指向字符串，要显示的字符串需用“$”作为结束符<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dx, <b>ds:[bx]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 9<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add bx, 2</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop ok<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2010/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%AE%9E%E9%AA%8C13%20%283%29.asm" target="_blank">汇编语言第十三章实验13 (3).asm</a><br/></div></div>

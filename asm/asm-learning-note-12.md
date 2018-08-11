@@ -1,300 +1,166 @@
 title: ASM 汇编语言 12
-date: 2015-04-13
+date: 2015-04-12
 noupdate: true
 categories: [ASM]
 tags: [ASM]
-description: 外中断。接口芯片和端口，可屏蔽中断、不可屏蔽中断。PC 机键盘的处理过程。编写 int 9 中断例程，并将其安装。
+description: ASM - Note&#58; 端口的读写，in / out 指令。shl 和 shr 指令。CMOS RAM 芯片，其中存储的时间信息。访问 CMOS RAM。
 ---
 
 <ul><li>Created on 2014-11</li></ul><br/>
 
-<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十五、外中断</b></div><div><b><br/></b></div><div>15.1 接口芯片和端口</div><div>外设的输入不直接送入内存和CPU，</div><div>而是送入相关的接口芯片的端口中；</div><div>CPU向外设输出也不直接送入外设，</div><div>也是送入端口中。</div><div>CPU还可以向外设输出控制命令。</div><div><br/></div><div><b>CPU通过端口和外部设备进行联系。</b></div><div><br/></div><div><br/></div><div>15.2 外中断信息</div><div>例：外设输入到达时，相关芯片将向CPU发出相应的中断信息。</div><div>CPU在执行完当前指令后，可以检测到发送过来的中断信息，</div><div>引发中断，处理外设输入。</div><div><br/></div><div><br/></div><div><b>外中断源</b>，共有以下<b>两类</b>：<b>可屏蔽中断/不可屏蔽中断</b></div><div><b><br/></b></div><div>1.<b>可屏蔽中断</b></div><div>即，CPU可以不响应的外中断。</div><div><br/></div><div>CPU<b>是否响应可屏蔽中断</b>，<b>取决于标志</b>寄存器中<b>IF位</b>。</div><div>若<b>IF&nbsp;= 1</b>，<b>可屏蔽中断可引发</b>CPU的中断过程；</div><div>若<b>IF&nbsp;= 0</b>，则<b>不响应</b>可屏蔽中断。</div><div><br/></div><div>回忆<b>内中断引发过程</b>，</div><div>（1）取中断类型码n（2）标志寄存器入栈，<b>IF=0</b>，TF=0；</div><div>（3）CS、IP入栈（4）(ip) = (n * 4), (cs) = (n * 4 + 2)</div><div>然后转去执行中断处理程序（中断例程）。</div><div><br/></div><div>可屏蔽中断所引发的中断过程，除第（1）步的&nbsp;</div><div>实现与内中断有所不同外，</div><div>其它与内中断的中断过程基本上相同。</div><div>之所以<b>第（2）步 IF 置为0</b>，在<b>进入中断处理程序后</b>，<b>禁止其它的可屏蔽中断</b>！</div><div><br/></div><div><br/></div><div>2.<b>不可屏蔽中断</b></div><div><b>CPU必须响应的外中断</b>——检测到它的信息时，执行完当前指令后，立即响应。</div><div><br/></div><div>对于<b>8086CPU</b>，<b>不可屏蔽中断</b>的<b>中断类型码固定为2！</b></div><div>所以该中断过程中，不需要取中断类型码。</div><div>（1）标志寄存器入栈，<b>IF=0</b>，TF=0；</div><div>（2）CS、IP入栈（3）(ip) = (8), (cs) = (0AH)</div><div><br/></div><div><br/></div><div><br/></div><div>15.3 PC机<b>键盘的处理过程</b></div><div>PC机处理外设输入的基本方法：</div><div><br/></div><div>1. 键盘输入</div><div>键盘每个键相当于一个个开关，</div><div>键盘有一个芯片对每个键的开关状态进行扫描。</div><div><br/></div><div>（1）<b>按下</b>一个<b>键</b>，开关触发，芯片<b>产生</b>一个<b>扫描码</b>，</div><div>扫描码说明按下的键在键盘上的位置。</div><div><b>扫描码</b>被送入主板上的<b>相关</b>接口芯片的寄存器中，</div><div>该寄存器的<b>端口地址</b>为<b>60h</b>。</div><div><br/></div><div>（2）<b>松开</b>一个<b>键</b>，其它类同上。</div><div><br/></div><div><b>按下按键</b>产生的扫描码，称为<b>通码</b>；</div><div><b>松开</b>按键产生的扫描码，称为<b>断码</b>。</div><div>扫描码<b>长度</b>为 <b>1 Byte</b>，通码第七位为0，断码的第7位为1。</div><div><br/></div><div><b>断码 = 通码 + 80h</b>（部分键盘扫描码表见于文末）</div><div><br/></div><div><br/></div><div>2. 引发9号中断</div><div>键盘的<b>输入到达60h端口</b>时，相关芯片就会向CPU</div><div><b>发出</b><b>int 9</b>的<b>可屏蔽中断</b>信息。</div><div>此时若IF = 1，则响应中断。</div><div><br/></div><div>3. 执行 int 9 中断例程</div><div><b>BIOS提供</b>了 <b>int 9</b> 中断例程，处理基本的键盘输入处理。</div><div>主要工作如下：</div><div>（1）读出60h端口中的扫描码；</div><div>（2）a. 若是<b>字符键</b>的扫描码，则将对应的字符码（ASCII）</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 送入内存中的<b>BIOS键盘缓冲区</b>。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; b. 若是控制键（如Ctrl）和切换键（如CapsLock）等的扫描码，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 则将其转为状态字节（用二进制位记录控制键和切换键的字节），</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 写入内存中储存状态字节的单元。</div><div>（3）对键盘系统进行相关的控制，如，向相关芯片发出应答信息。</div><div><br/></div><div>BIOS键盘缓冲区，是系统启动后，BIOS用于存放 int 9 中断例程所接收的</div><div>键盘输入的内存区。<b>可以存储15个键盘输入</b>。</div><div>除了接收扫描码外，<b>还要产生</b>和<b>扫描码对应</b>的<b>字符码</b>，</div><div><b>一个</b>键盘<b>输入</b>用 1 word（<b>2 Bytes</b>）存放，</div><div><b>高位</b>存放<b>扫描码</b>，<b>低位</b>存放<b>字符码</b>。</div><div><br/></div><div>0040:17单元存储键盘状态字节，记录了控制键和切换键的状态，</div><div>其中各位记录的信息如下：</div><div>bit &nbsp; &nbsp;键位 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;置为1表示？</div><div>0 &nbsp; &nbsp; 右shift &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按下</div><div>1 &nbsp; &nbsp; 左shift &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按下</div><div>2 &nbsp; &nbsp; Ctrl &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按下</div><div>3 &nbsp; &nbsp; Alt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 按下</div><div>4 &nbsp; &nbsp; ScrollLock &nbsp; &nbsp; Scroll指示灯亮</div><div>5 &nbsp; &nbsp; NumLock &nbsp; &nbsp; 小键盘输入的是数字</div><div>6 &nbsp; &nbsp; CapsLock &nbsp; &nbsp; 输入大写字母</div><div>7 &nbsp; &nbsp; Insert &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;处于删除状态（否则处于插入态）</div><div><br/></div><div><br/></div><div><br/></div><div>15.4 编写 int 9 中断例程</div><div>键盘输入处理过程：</div><div>（1）键盘产生扫描码；</div><div>（2）扫描码送入60h</div><div>（3）引发int 9（可屏蔽中断）</div><div>（9）CPU执行 int 9 中断例程，处理输入</div><div><br/></div><div>编程：在屏幕中间<b>依次显示&quot;a&quot;~&quot;z&quot;，</b>并可以<b>让人看清</b>。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 在显示过程中，<b>按下Esc</b>键后，<b>改变</b>显示的<b>颜色</b>。</div><div><br/></div><div>assume cs:code<br/>
-stack segment<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; db 128 dup (0)<br/>
-stack ends<br/>
-data segment<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; dw 0, 0<br/>
-data ends<br/>
+<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十四、端口</b></div><div><b><br/></b></div><div>PC系统中，和CPU通过总线项链的芯片除存储器外，还有：</div><div>（1）各种接口卡（如，网卡、显卡）上的接口芯片，它们控制接口卡进行工作</div><div>（2）主板上的接口芯片，CPU通过它们对部分外设进行访问</div><div>（3）其它芯片，用来存储相关的系统信息，或进行相关的IO处理</div><div><br/></div><div>这些芯片中，都有一组可以由CPU读写的寄存器。</div><div>物理上它们在不同芯片中，但在以下两点上相同：</div><div>（1）都和CPU的总线相连，当然这种连接是通过它们所在的芯片进行的</div><div>（2）CPU对它们进行读写时，都通过控制线向它们所在的芯片发出端口读写命令</div><div><br/></div><div>可见，CPU将这些寄存器当作端口，</div><div>对其统一编址，建立统一的地址端口空间。</div><div><br/></div><div>CPU可直接读写以下3个地方的数据：</div><div>（1）CPU内部的寄存器</div><div>（2）内存单元</div><div>（3）端口</div><div><br/></div><div><br/></div><div>14.1 <b>端口</b>的<b>读写</b></div><div>PC系统中，CPU最多可以定位<b>64K</b>个不同的<b>端口</b>，<b>0~65535</b></div><div>对<b>端口</b>的<b>读写指令</b>只有两条：<b>in</b>、<b>out</b></div><div>而无push、pop、mov等指令</div><div><br/></div><div><b>访问</b>端口：</div><div><b>in al, 60h</b></div><div>（1）CPU通过地址线将地址信息60h发出</div><div>（2）CPU通过控制线发出端口读命令，选中端口所在的芯片，</div><div>&nbsp; &nbsp; &nbsp;并通知它，将要从中读取数据</div><div>（3）端口所在的芯片将60h端口中的数据通过数据线送入CPU</div><div><br/></div><div><b>写入</b>端口：</div><div><b>out 20h, al</b></div><div>类同上一条</div><div><br/></div><div><br/></div><div>14.2 <b>CMOS &nbsp;RAM</b> 芯片</div><div><br/></div><div>CMOS &nbsp;RAM&nbsp;芯片 一般<b>简称 CMOS</b>。特征如下：</div><div>（1）包含一个实时钟，和一个128个存储单元的RAM存储器。</div><div>&nbsp; &nbsp; &nbsp;（早期计算机为64Bytes）</div><div>（2）靠电池供电，关机后其内部实时钟仍可正常工作，RAM中的信息不丢失。</div><div>（3）128个字节的RAM中，内部实时钟占用0~0dh单元来保存时间，</div><div>&nbsp; &nbsp; &nbsp;其余大部分单元用于保存系统配置信息，供系统启动时BIOS程序读取。</div><div>&nbsp; &nbsp; &nbsp;BIOS也提供了相关程序，使开机时可配置CMOS &nbsp;RAM中的系统信息。</div><div>（4）该芯片内部有两个端口，地址分别为70h、71h。通过它们读写CMOS RAM。</div><div>（5）70h为地址端口，存放要访问的CMOS RAM单元的地址；</div><div>&nbsp; &nbsp; &nbsp;71h为数据端口，存放从选定的CMOS RAM单元中读取的数据。</div><div>&nbsp; &nbsp; &nbsp;如读取CMOS的2号存储单元：</div><div>&nbsp; &nbsp; &nbsp;a. 将 2 送入端口 70h</div><div>&nbsp; &nbsp; &nbsp;b. 从端口 71h 读 2 号单元的内容</div><div><br/></div><div>检测点14.1</div><div>编程：读取CMOS RAM的2号单元的内容 / 将0写入该单元</div><div>assume cs:code<br/>
+code segment<br/>
+start:</div><div>&nbsp;&nbsp;&nbsp;&nbsp; ;read CMOS RAM unit2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;write unit2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; out 71h, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><u>&nbsp; &nbsp; &nbsp;</u><b><u>;in/out指令，好像只能凭借al寄存器来做参数中转&nbsp; &nbsp;</u></b> &nbsp;</div><div><br/></div><div>&nbsp; &nbsp; &nbsp;;test operator&apos;s result<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h</div><div><br/></div><div><b>&nbsp; &nbsp; &nbsp;;大概是CMOS的2单元一直在变</b></div><div><b>&nbsp; &nbsp; &nbsp;;从&nbsp;71h&nbsp;读到 al 的数据并不是预想中的 0</b></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div><br/></div><div>14.3 <b>shl</b> 和 <b>shr</b> 指令</div><div>它们是<b>逻辑移位指令</b></div><div><b><br/></b></div><div><b>shl</b> —— <b>逻辑左移</b>：</div><div>（1）将一个寄存器或内存单元中的数据向<b>左移</b>位</div><div>（2）将<b>最后移出</b>的一<b>位写入CF</b>中</div><div>（3）<b>低位</b>用<b>0补充</b></div><div>指令：</div><div>mov al, 10000001b</div><div><b>shl al, 1</b> &nbsp; &nbsp; ;左移一位</div><div><br/></div><div><b>shr</b> —— 逻辑右移：</div><div>（1）将一个寄存器或内存单元中的数据向<b>右移</b>位</div><div>（2）将<b>最后移出</b>的<b>一位写入CF</b>中</div><div>（3）<b>高位</b>用<b>0补充</b></div><div><b><br/></b></div><div><b><br/></b></div><div>检测点14.2</div><div>计算 (ax) = (ax) * 10</div><div>（1）第一版</div><div>assume cs:code<br/>
 code segment<br/>
 start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, stack<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ss, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov sp, 128<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 2<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, data<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>shl ax, 1</b>&nbsp;&nbsp;&nbsp;&nbsp; <b>; ax * 2</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div><u>&nbsp; &nbsp; &nbsp;<b>;</b><b>shl/shr指令，若用</b><b>立即数作为参数时，</b></u></div><div><u>&nbsp; &nbsp; &nbsp;<b>;立即数必须为1（每次仅允许移一位！）</b></u></div><div>&nbsp;&nbsp;&nbsp;&nbsp; <b>shl ax, 1&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 4<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shl ax, 1&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 8</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add ax, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div>（2）第二版</div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shl ax, 1&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><u>&nbsp;&nbsp;&nbsp;&nbsp;</u> <b><u>;当移位数大于1时，要先将移位数置于CL中，然后再用CL移位。<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;可以使用8位立即数指定范围从1到31的移位次数</u><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shl ax, cl&nbsp;&nbsp;&nbsp;&nbsp; ; ax * 8</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add ax, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div><br/></div><div>14.4 CMOS &nbsp;RAM 中存储的时间信息</div><div><b>CMOS RAM</b> <b>存着</b>当前的时间：</div><div><b>年、月、日、时、分、秒</b>。</div><div><br/></div><div><b>信息</b>的<b>长度</b>均为 <b>1 Byte</b>。</div><div><b>存放单元</b>为：<b>秒0 分2 时4 日7 月8 年9</b></div><div>这些数据<b>以BCD码</b>的方式<b>存放。</b></div><div><b><br/></b></div><div><b>BCD码</b>：</div><div>以4位二进制数，表示十进制数码的编码方式，如下：</div><div>0-0000，1-0001，2-0010，3-0011，4-0100，</div><div>5-0101，6-0110，7-0111，8-1000，9-1001。</div><div><br/></div><div>1 Byte 可表示 2个BCD码，如 0001 0100b 表示 14。</div><div>（以上为BCD码中的8421版本，其它详情请看<a href="http://baike.baidu.com/link?url=jh2w0DfroFs6zztCYEmXpxVTIAWmpHaF7cJ6lWWxXLCniVWaxFs_tbJ_HwAMHl2_dOorIxg8MwsTTgJCg8xs7_">百度百科</a>）</div><div><br/></div><div>在屏幕中间显示当前‘分钟’：</div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2&nbsp;&nbsp;&nbsp;&nbsp; ;如上文，单元2 存放着‘分钟’信息<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>out 70h, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 4<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shr ah, cl&nbsp;&nbsp;&nbsp;&nbsp; ;右移4位，取高四位<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; and al, 00001111b</b>&nbsp;&nbsp;&nbsp;&nbsp; <b>;保留低四位</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>add ah, 30h&nbsp;&nbsp;&nbsp;&nbsp; ;+30h 转换为对应数字的ascii<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add al, 30h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h&nbsp;&nbsp;&nbsp;&nbsp; ;输出到屏幕<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr ds:[160 * 12 + 40 * 2], ah<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr ds:[160 * 12 + 40 * 2 + 2], al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div><br/></div><div><br/></div><div><b>实验14 访问CMOS RAM</b></div><div>编程：以“年/月/日 时:分:秒”的格式，显示当前的日期、时间。</div><div>注意：CMOS RAM 中存储着系统的配置信息，除了保存时间信息的单元外，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 不要向其它单元写内容，否则将引起一些系统错误。</div><div><br/></div><div>assume cs:code<br/>
+time_pos segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>db 9, 8, 7, 4, 2, 0</b><br/>
+time_pos ends</div><div><br/></div><div><img width="619px" height="69px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2011/tmp.png" /><br/><b><br/></b></div><div><b>;上一个段不满 16 Bytes (8 Words)<br/>
+;新起的段也只从 下一个 16Bytes * n 的内存位置开始（见上图）<br/>
+;16Bytes * n 即 10h * n</b><br/>
+time_delimiter segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>db &apos;/&apos;, &apos;/&apos;, &apos; &apos;, &apos;:&apos;, &apos;:&apos;, &apos;$&apos;</b><br/>
+time_delimiter ends<br/><br/>
+time_str segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>db 18 dup (0)</b><br/>
+time_str ends<br/><br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, time_pos<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;int 9 键盘输入处理的中断例程<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;将它的入口地址保存在ds:0、ds:2单元中<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; push es:[9 * 4]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ds:[0]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push es:[9 * 4 + 2]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ds:[2]</b><br/>
-&nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; &nbsp;<b>cli &nbsp; &nbsp; ;以防在设置新的中断例程入口地址时，发生中断</b></div><div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ;以致于产生错误</b></div><div>&nbsp;&nbsp;&nbsp;&nbsp; <b>mov word ptr es:[9 * 4], offset int9<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es:[9 * 4 + 2], cs</b><br/>
-&nbsp; &nbsp; &nbsp;<b>sti &nbsp; &nbsp; ;同上</b></div><div><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ah, &apos;a&apos;<br/><br/>
-c0:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov es:[160 * 12 + 40 * 2], ah</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call delay<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>inc ah<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, &apos;z&apos;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jna c0</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push ds:[0]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es:[9 * 4]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push ds:[2]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es:[9 * 4 + 2]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-delay:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push dx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov dx, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
-c1:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; sub ax, 1<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; sbb dx, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp ax, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jne c1<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp dx, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jne c1</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop dx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;新的 int 9 中断例程<br/>
-int9:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; in al, 60h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>pushf<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pushf<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop bx&nbsp;&nbsp;&nbsp;&nbsp; ;bx is flag<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; and bh, 11111100b<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; popf</b></div><div><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; call dword ptr ds:[0]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;注意dword！<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;这条指令已经把ds:[0]和ds:[2]两个字都传送过去了</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp al, 1<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jne int9ret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc byte ptr es:[160 * 12 + 40 * 2 + 1]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;将属性值加一，改变颜色<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-int9ret:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; iret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-code ends<br/>
-end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A015.4%E4%BE%8B.asm" target="_blank">汇编语言第十五章15.4例.asm</a><br/></div><div><br/></div><div><br/></div><div>15.5 安装新的int 9中断例程</div><div>安装新的int 9，使得原有中断例程的功能得到拓展。</div><div><br/></div><div>功能：在DOS下，按F1键后，改变当前屏幕的显示颜色，其它键照常。</div><div><br/></div><div>assume cs:code<br/>
-stack segment<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; db 128 dup (0)<br/>
-stack ends<br/>
-code segment<br/>
-start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, stack<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ss, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov sp, 128<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push cs<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ds&nbsp;&nbsp;&nbsp;&nbsp; ;新int 9的源码地址<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax&nbsp;&nbsp;&nbsp;&nbsp; ;存放的目标地址<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset int9<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov di, 204h&nbsp;&nbsp;&nbsp;&nbsp; ;预留前四字节，放原来的int9的入口地址</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset int9end - offset int9<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>;将旧的int 9中断例程入口地址“偏移/段地址”暂存于0:200~0:203<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push es:[9 * 4]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es:[200h]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push es:[9 * 4 + 2]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es:[202h]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;安全设置新的int 9入口地址<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>cli<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[9 * 4], 204h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[9 * 4 + 2], 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; sti</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-int9:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;暂存寄存器<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; in al, 60h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pushf<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>call dword ptr cs:[200h]&nbsp;&nbsp;&nbsp;&nbsp; ;执行中断例程时，(CS)=0</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp al, 3bh<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jne int9ret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>mov bx, 1</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 2000<br/>
-r0:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>inc byte ptr es:[bx]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add bx, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; loop r0<br/><br/>
-int9ret:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;恢复寄存器<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; iret<br/><br/>
-int9end:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; nop<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-code ends<br/>
-end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A015.5%E4%BE%8B.asm" target="_blank">汇编语言第十五章15.5例.asm</a><br/></div><div><br/></div><div><br/></div><div><b>实验15 安装新的int 9 中断例程</b></div><div>功能：在DOS下，按下“A”键后，除非不再松开，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 如果松开，就显示满屏幕的“A”；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 其它键照常处理。</div><div>提示：按下一个键产生的扫描码为通码，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 松开时产生的是断码，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 断码 = 通码 + 30h</div><div><br/></div><div>assume cs:code<br/>
-code segment<br/>
-start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0&nbsp;&nbsp;&nbsp;&nbsp; <b>;无法将idata直接push到stack中</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov di, 204h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>;0:200~203存储原有 int 9 中断例程的入口地址</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>push es:[9 * 4]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es:[200h]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>push es:[9 * 4 + 2]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es:[202h]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;install the new int 9 routine<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>push cs<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ds</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset fill_a<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset f_a_end - offset fill_a<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>;避免设置新中断程序中途，<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;可屏蔽中断导致入口地址的设置不正确</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; cli</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[9 * 4], <b>204h</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[9 * 4 + 2], 0<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; sti</b><br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-fill_a:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;暂存寄存器<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; in al, 60h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; pushf<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call <u>dword ptr</u> <u>cs</u>:[200h]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp al, 9eh&nbsp;&nbsp;&nbsp;&nbsp; ;A的断码<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jne ok<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, time_str<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov di, 0<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, &apos;A&apos;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 2000<br/>
-c0:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; loop c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 6<br/>
+circle:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;暂存寄存器<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-ok:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ;恢复寄存器<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;从端口获取当前时间<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov al, ds:[si]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; out 70h, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; in al, 71h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;切分当前时间的CBD码，存到不同的存储单元中<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 4<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shr ah, cl<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; and al, 00001111b</b><br/>
 &nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; iret<br/>
-f_a_end:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; nop<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;将BCD码转换为，对应数字的ASCII码<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add ah, 30h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add al, 30h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;将时间拼接成字符串，暂存到指定内存中<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es:[di], ah<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;es:[di]访问的是段time_str<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es:[di], al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;ds:16[si]访问的是段time_delimiter<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov bl, ds:16[si]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>;为什么idata（直接数/常量）偏移量是16而非6？</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;答：段time_str只用db指令声明了6Bytes的数据，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;&nbsp;&nbsp;&nbsp; 但紧邻的段time_delimiter并非从上一个段<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;&nbsp;&nbsp;&nbsp; time_str的第7字节开始的，而是从下一个<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;&nbsp;&nbsp;&nbsp;&nbsp; 16Bytes * n的内存位置开始的！<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], bl<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop circle<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;locate cursor<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0&nbsp;&nbsp;&nbsp;&nbsp; ;第0页<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 12&nbsp;&nbsp;&nbsp;&nbsp; ;第12行<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 30&nbsp;&nbsp;&nbsp;&nbsp; ;第30列<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, 2&nbsp;&nbsp;&nbsp;&nbsp; ;设置光标位置，int 10h的2号子程序<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 10h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;print time_str<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, time_str<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov dx, 0&nbsp;&nbsp;&nbsp;&nbsp; <b>;ds:dx指向字符串，&apos;$&apos;作为结束符</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>mov ah, 9&nbsp;&nbsp;&nbsp;&nbsp; ;在光标位置处显示字符串，int 21h的9号子程序<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
 code ends<br/>
-end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%E5%AE%9E%E9%AA%8C15.asm" target="_blank">汇编语言第十五章实验15.asm</a><br/></div><div><br/></div><div><br/></div><div><b>8086CPU指令系统总结</b>：</div><div>若想了解详情，自行查阅相关指令手册。</div><div><br/></div><div>提供以下几大类指令：</div><div><br/></div><div>1. <b>数据传输</b>指令：</div><div>如，mov、push、pop、pushf、popf、xchg等。</div><div>实现寄存器、内存等之间的<b>单个数据传送</b>。</div><div><br/></div><div>*.&nbsp;<b>XCHG交换</b>指令：</div><div>两个寄存器，寄存器和内存变量之间内容的交换指令，</div><div>两个操作数的<b>数据类型要相同</b>，</div><div>可以是一个<b>字节</b>，也可以是一个<b>字</b>，也可以是<b>双字</b>。</div><div><br/></div><div><br/></div><div>2. <b>算术运算</b>指令</div><div>如，add、sub、adc、sbb、inc、dec、cmp、imul、idiv、mul、div、aaa等。</div><div>执行<b>结果影响标志寄存器</b>。</div><div><br/></div><div>*. <b>aaa -&nbsp;</b>ASCII Adjust After Addition，<b>非压缩、非组合的BCD码调整指令</b>；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AAA指令将AL调整为一个非压缩BCD格式的数字，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AL是两个非压缩BCD数字相加后的结果；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;如果AL(3~0位)大于9或辅助进位AF=1<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/b6b5791f2db37228982a7c2731c95a54.gif" />则AH=AH+01H<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/b6b5791f2db37228982a7c2731c95a54.gif" />AL=AL+06H<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/b6b5791f2db37228982a7c2731c95a54.gif" /></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;且置AF和CF为1<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/db8b8337372eb2429a3a4d8a0d11f2e0.gif" />否则置AF和CF为零<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/6a8574a306d803c49e114f395e74cf23.gif" />AL(7~4位)=0<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/6a8574a306d803c49e114f395e74cf23.gif" /></div><div><b>imul 有符号乘法</b>，将被乘数与乘数均作为有符号数。</div><div>mul 无符号乘法，将被乘数及乘数均作为无符号数。</div><div><b>idiv同理。</b></div><div><br/></div><div><br/></div><div>3. <b>逻辑</b>指令</div><div>如，and、or、not、xor、test、shl、shr、 rol、ror、rcl、rcr等。</div><div><b>除了not</b>外，其它指令的结果<b>影响标志寄存器</b>。</div><div><br/></div><div>*. <b>test</b> 指令，将两操作数作<b>与and</b>运算，仅<b>修改标志位</b>，<b>不回送结果</b>。</div><div><b>sal</b> / <b>sar</b> 指令，Shift Arithmetic Left / Right，</div><div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;算术左/右移</b>，执行时将操作数看成带符号数进行移位；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;算术右移时，最高位保持不变；算术左移和逻辑左移一致。</div><div><b>rol / ror</b> 指令，Rotate Left / Right ，<b>左/右循环移位</b>。&nbsp;</div><div><b>rcl / rcr</b> 指令，Rotate Left / Right <b>Through Carry</b>，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;带进位左/右循环移位，以右移为例：</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>标志位CF移入</b>操作数<b>最高位</b>，操作数<b>最低位进入</b>标志位<b>CF</b>。</div><div><br/></div><div><br/></div><div>4. <b>转移</b>指令</div><div>可以<b>修改</b>IP，或同时修改<b>CS和IP</b>的指令。</div><div>分以下几类：</div><div>（1）<b>无条件转移</b>指令，如jmp</div><div>（2）<b>条件转移</b>指令：如jcxz、je、jne、jb、jnb、ja、jna等</div><div>（3）<b>循环</b>指令：如loop</div><div>（4）<b>过程</b>，如call、ret、retf</div><div>（5）<b>中断</b>，如int、iret</div><div><br/></div><div><br/></div><div>5.&nbsp;<b>处理控制</b>指令</div><div>对标志寄存器，或其它处理机状态进行设置。</div><div>如cld / std、cli / sti、nop、clc / stc、<b>cmc、</b><b>hlt、wait、esc、lock</b>等。</div><div><br/></div><div>*. cmc&nbsp;(CoMplement Carry) <b>进位位求反</b>指令：</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 执行操作后<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/b6b5791f2db37228982a7c2731c95a54.gif" />CF=!CF <img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/b6b5791f2db37228982a7c2731c95a54.gif" />即CF=1<img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/b6b5791f2db37228982a7c2731c95a54.gif" />执行CMC操作后 CF=0；反之相反。</div><div>wait/fwait 同步FPU与CPU：停止CPU的运行，直到FPU完成当前操作码。</div><div>hlt (halt) ：停止，无操作数。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 使程序<b>停止</b>运行，处理器进入暂停状态，不执行任何操作，不影响标志。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 当复位（外语：RESET）线上有复位信号、CPU响应非屏蔽中断、</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CPU响应可屏蔽中断3种情况之一时，CPU脱离暂停状态，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 执行HLT的下一条指令。</div><div>esc，指令助记符，交权给外部协处理器。（意义暂不明晰）</div><div>lock（意义暂不明晰）</div><div><br/></div><div><br/></div><div>6. <b>串处理</b>指令</div><div>对内存中的<b>批量数据</b>进行<b>处理</b>。</div><div>如movsb、movsw、<b>cmps、scas、lods、stos</b>等。</div><div>若要使用它们方便进行批量数据处理，</div><div>则需要<b>与rep、repe、repne</b>等<b>前缀指令配合</b>使用。</div><div><br/></div><div>*.&nbsp;<b>repe / repne</b>，即是&nbsp;repeat <b>equal</b> /&nbsp;repeat <b>not equal</b>，</div><div>意思是：<b>相等时重复 / 不相等时重复</b>。</div><div><br/></div><div><br/></div><div><br/></div><div><b>*.完整</b><b>键盘扫描码</b><b>表：</b><a href="evernote:///view/7264256/s33/57b177c1-a9e9-4727-a748-bd69042cc8e1/57b177c1-a9e9-4727-a748-bd69042cc8e1/" style="color: rgb(105, 170, 53);">键盘扫描码</a>。</div><div><b>部分</b>如下：</div><div>键位&nbsp;/ 通码 / 断码</div><div>ESC&nbsp;&nbsp;&nbsp;01H, 81H&nbsp;<br/>
-!1&nbsp;&nbsp;&nbsp;02H, 82H<br/>
-@2&nbsp;&nbsp;&nbsp;03H, 83H<br/>
-#3&nbsp;&nbsp;&nbsp;04H, 84H<br/>
-$4&nbsp;&nbsp;&nbsp;05H, 85H<br/>
-%5&nbsp;&nbsp;&nbsp;06H, 86H<br/>
-^6&nbsp;&nbsp;&nbsp;07H, 87H<br/>
-&amp;7&nbsp;&nbsp;&nbsp;08H, 88H<br/>
-*8&nbsp;&nbsp;&nbsp;09H, 89H<br/>
-(9&nbsp;&nbsp;&nbsp;0AH, 8AH<br/>
-)0&nbsp;&nbsp;&nbsp;0BH, 8BH<br/>
-_-&nbsp;&nbsp;&nbsp;0CH, 8CH<br/>
-+=&nbsp;&nbsp;&nbsp;0DH, 8DH<br/>
-ERASE&nbsp;0EH, 8EH<br/>
-TAB&nbsp;&nbsp;&nbsp;0FH, 8FH<br/>
-Q&nbsp;&nbsp;&nbsp;10H, 90H<br/>
-W&nbsp;&nbsp;&nbsp;11H, 91H<br/>
-E&nbsp;&nbsp;&nbsp;12H, 92H<br/>
-R&nbsp;&nbsp;&nbsp;13H, 93H<br/>
-T&nbsp;&nbsp;&nbsp;14H, 94H<br/>
-Y&nbsp;&nbsp;&nbsp;15H, 95H<br/>
-U&nbsp;&nbsp;&nbsp;16H, 96H<br/>
-I&nbsp;&nbsp;&nbsp;17H, 97H<br/>
-O&nbsp;&nbsp;&nbsp;18H, 98H<br/>
-P&nbsp;&nbsp;&nbsp;19H, 99H<br/>
-{[&nbsp;&nbsp;&nbsp;1AH, 9AH<br/>
-}]&nbsp;&nbsp;&nbsp;1BH, 9BH<br/>
-ENTER&nbsp;1CH, 9CH<br/>
-L_CTRL&nbsp;1DH, 9DH&nbsp;///左CTRL<br/>
-A&nbsp;&nbsp;&nbsp;1EH, 9EH<br/>
-S&nbsp;&nbsp;&nbsp;1FH, 9FH<br/>
-D&nbsp;&nbsp;&nbsp;20H, A0H<br/>
-F&nbsp;&nbsp;&nbsp;21H, A1H<br/>
-G&nbsp;&nbsp;&nbsp;22H, A2H<br/>
-H&nbsp;&nbsp;&nbsp;23H, A3H<br/>
-J&nbsp;&nbsp;&nbsp;24H, A4H<br/>
-K&nbsp;&nbsp;&nbsp;25H, A5H<br/>
-L&nbsp;&nbsp;&nbsp;26H, A6H<br/>
-:;&nbsp;&nbsp;&nbsp;27H, A7H<br/>
-&quot;&apos;&nbsp;&nbsp;&nbsp;28H, A8H<br/>
-~`&nbsp;&nbsp;&nbsp;29H, A9H<br/>
-L_SHIFT&nbsp;2AH, AAH&nbsp;///左SHIFT<br/>
-|\&nbsp;&nbsp;&nbsp;2BH, ABH<br/>
-Z&nbsp;&nbsp;&nbsp;2CH, ACH<br/>
-X&nbsp;&nbsp;&nbsp;2DH, ADH<br/>
-C&nbsp;&nbsp;&nbsp;2EH, AEH<br/>
-V&nbsp;&nbsp;&nbsp;2FH, AFH<br/>
-B&nbsp;&nbsp;&nbsp;30H, B0H<br/>
-N&nbsp;&nbsp;&nbsp;31H, B1H<br/>
-M&nbsp;&nbsp;&nbsp;32H, B2H<br/>
-&lt;,&nbsp;&nbsp;&nbsp;33H, B3H<br/>
-&gt;.&nbsp;&nbsp;&nbsp;34H, B4H<br/>
-?/&nbsp;&nbsp;&nbsp;35H, B5H<br/></div></div>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2011/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E5%AE%9E%E9%AA%8C14.asm" target="_blank">汇编语言第十四章实验14.asm</a><br/></div></div>

@@ -1,156 +1,478 @@
 title: ASM 汇编语言 14
-date: 2015-04-15
+date: 2015-04-14
 noupdate: true
 categories: [ASM]
 tags: [ASM]
-description: ASM - Note&#58; 使用 BIOS 进行键盘输入和磁盘读写。中断例程对键盘输入的处理。使用 int 16h 中断例程读取键盘缓冲区。字符串的输入。应用 int 13h 中断例程对磁盘进行读写。编写包含多个功能子程序的中断例程。
+description: ASM - Note&#58; 直接定址表。数据标号、地址标号。在其它段中，使用数据标号。写子程序计算 sin(x)。实现子程序 setscreen，为显示输出提供指定功能。
 ---
 
 <ul><li>Created on 2014-11</li></ul><br/>
 
-<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十七、使用BIOS进行键盘输入和磁盘读写</b></div><div><b><br/></b></div><div>键盘输入：最基本的输入</div><div>磁盘：最常用的储存设备</div><div>BIOS：为以上两种外设<b>提供了最基本的中断例程</b></div><div><b><br/></b></div><div><b><br/></b></div><div>17.1 int 9 中断例程对键盘输入的处理</div><div><br/></div><div>一般键盘输入，在CPU执行完int 9中断例程后，都放到键盘缓冲区中。</div><div><b>键盘缓冲区</b>有<b>16个字</b>单元，<b>可以存储15个</b>按键的<b>扫描码和对应</b>的<b>ASCII码</b>。</div><div>键盘缓冲区使用环形队列结构管理的内存区。</div><div><br/></div><div>int 9 中断例程对键盘输入的处理方法：</div><div><img width="1355px" height="743px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png" /><img width="1334px" height="1302px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png" /></div><div><br/></div><div><br/></div><div>17.2 使用 int 16h 中断例程读取键盘缓冲区</div><div><br/></div><div>BIOS 提供了 <b>int 16h</b> 中断例程，它包<b>含功能</b>：<br/><b>从键盘缓冲区中读取</b>一个键盘<b>输入</b>，功能<b>编号为0</b>。</div><div><br/></div><div>（例）</div><div>mov ah, 0</div><div>int 16h</div><div>结果：(ah)=扫描码，(al)=ASCII码。</div><div>功能：</div><div>（1）检测键盘缓冲区是否有数据；</div><div>（2）没有则重复第一步</div><div>（3）读取缓冲区第一个字单元的键盘输入；</div><div>（4）将读取的扫描码送入ah，ASCII码送入al；</div><div>（5）将已读取的键盘输入从缓冲区中删除。</div><div>*. 具体例子，请看原书P303</div><div><br/></div><div>可见，BIOS的<b>int 9</b> 和 <b>int 16h</b>中断例程是一对<b>相互配合</b>的程序。</div><div><b>int 9</b> 向缓冲区<b>写，int 16h</b> 从缓冲区<b>读，</b>但<b>调用时机不同</b>。</div><div>int 9 在键按下时，它就写入；int 16h 则是<b>被应用程序调用</b>时，它才去读。</div><div><br/></div><div><br/></div><div><b>编程：</b>接收用户的键盘输入，输入r，将屏幕字符设置为红色；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; g则设为绿色； b则设为蓝色。</div><div>源码：</div><div>assume cs:code<br/>
+<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十六、直接定址表</b></div><div><b><br/></b></div><div>16.1 描述了单元长度的标号——<b>数据标号</b></div><div><br/></div><div>（1）以下程序中，code、a、b、start、s（后面带冒号“:”）</div><div>都是<b><u>地址标号</u>，仅表示</b><b>内存单元</b>的<b>地址</b>。</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/><b>a:</b>&nbsp;&nbsp;&nbsp;&nbsp; db 1, 2, 3, 4, 5, 6, 7, 8<br/><b>b:</b>&nbsp;&nbsp;&nbsp;&nbsp; dw 0<br/><b>start:</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, <b>offset</b> <b>a</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, <b>offset</b> <b>b</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 8<br/><b>c0:</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, cs:[si]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add cs:[bx], ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop <b>c0</b><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/><br/>
+code ends<br/>
+end <b>start</b></div><div><br/></div><div><br/></div><div>（2）另一种——<b>数据标号</b></div><div>不但<b>表示内存单元</b>的<b>地址</b>，还表示其<b>长度</b>，</div><div>无论是byte/word/dword。</div><div>如以下程序中的a、b标号，<b>后面没跟“:”冒号</b>。</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/><b>a</b>&nbsp;&nbsp;&nbsp;&nbsp; db 1, 2, 3, 4, 5, 6, 7, 8<br/><b>b</b>&nbsp;&nbsp;&nbsp;&nbsp; dw 0<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 8<br/>
+c0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, cs:[si]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add <b>b</b>, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop c0<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/><br/>
+code ends<br/>
+end start</div><div><br/></div><div>以上a、b这种标号的使用示例如下：</div><div>mov ax, b &nbsp; &nbsp; = &nbsp; &nbsp; mov ax, cs:[8]</div><div>mov <b>b, 2</b> &nbsp; &nbsp; &nbsp;= &nbsp; &nbsp; mov word ptr cs:[8]</div><div>inc <b>b</b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= &nbsp; &nbsp; inc word ptr cs:[8]</div><div><br/></div><div>mov al, <b>a[si] &nbsp; &nbsp; = &nbsp; &nbsp;</b> mov al, cs:0[si]</div><div>mov al, a[3] &nbsp; &nbsp; &nbsp;= &nbsp; &nbsp; mov al, cs:0[3]</div><div><br/></div><div>这句会引发编译错误！—— mov al, b 或 mov b, al</div><div><br/></div><div><br/></div><div><br/></div><div><b>检测点1.6</b></div><div>将a处的8个数据累加，结果存储到b处的双字中，补全程序。</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/>
+a&nbsp;&nbsp;&nbsp;&nbsp; dw 0fff1h, 0fff2h, 0fff3h, 0fff4h, 0fff5h, 0fff6h, 0fff7h, 0fff8h<br/>
+b&nbsp;&nbsp;&nbsp;&nbsp; dd 0<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 8<br/>
+c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ax, a:[si]</b></div><div><b>&nbsp; &nbsp; &nbsp;</b>;下一句可简化为<b>&nbsp;</b>add word ptr <b>b</b>, ax<b><br/></b><b>&nbsp;&nbsp;&nbsp;&nbsp; add word ptr b[0], ax &nbsp; &nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; adc word ptr b[2], 0</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop c0<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/><br/>
+code ends<br/>
+end start</div><div><br/></div><div><br/></div><div><br/></div><div>16.2 在其它段中，使用数据标号</div><div><br/></div><div><b>地址标号</b>（带冒号后缀）：</div><div><b>只能在代码段中使用</b>，不能在其它段使用。</div><div><br/></div><div><b>&nbsp; &nbsp; &nbsp;&gt;&gt;assume的作用：</b></div><div><u>若想<b>在代码段中直接用数据标号</b>访问数据，</u></div><div><u>则<b>需</b>要用<b>伪指令assume</b>，</u></div><div><u><b>将标号</b>所在的<b>段和段寄存器联系</b>起来。</u></div><div>否则编译时，无法确定标号的段地址在哪一个寄存器中。</div><div>（下文实例详细说明）</div><div><br/></div><div>此种联系是编译器需要的，</div><div>但段寄存器实际上不一定会真的存放该段的地址。</div><div>还要用指令对段寄存器进行设置。</div><div><br/></div><div>（例）</div><div>assume cs:code, ds:data<br/>
+data segment<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; a db 1, 2, 3, 4, 5, 6, 7, 8<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; b dw 0<br/>
+data ends<br/>
 code segment<br/>
 start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, data<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 8<br/>
+c0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, a[si]<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 16h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 1</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; cmp al, &apos;r&apos;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; je red<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp al, &apos;g&apos;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; je green<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp al, &apos;b&apos;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; je blue</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp short sret<br/><br/><b>red:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; shl ah, 1<br/>
-green:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; shl ah, 1</b><br/><b>blue:</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add b, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div>已有<b>assume ..., ds:data</b></div><div>但是还要</div><div>mov ax, data</div><div>mov ds, ax</div><div>然后以下就是<b>assume ds:data</b>对<b>编译</b>实际的<b>影响</b>：</div><div>mov al, a[si] 编译为 mov al, [si+0]</div><div><img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/e8c800492bf9619ab7e61184592c770c.png" /></div><div>add b, ax 编译为 add [8], ax</div><div><img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/488a2b294983eb6c4dc88d71380790e8.png" /></div><div><br/></div><div>当<b>删除</b>以上源程序中assume ..., <b>ds:data</b>中的ds:data后，</div><div>用masm<b>编译</b>时，会<b>产生</b><b>错误</b>，报错信息如下：</div><div><img width="px" height="px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/18512c4d794b8a6c2c7ed46b68c9bcf7.png" /></div><div>t.asm(14)是这一句：mov al, <b>a</b>[si]</div><div>编译程序不知道标号在哪里了！</div><div><br/></div><div>当然可将以下语句移到 code segment（段）中，</div><div>就可顺利编译，但原理必须明白！：</div><div>&nbsp; &nbsp; &nbsp;a db 1, 2, 3, 4, 5, 6, 7, 8<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; b dw 0</div><div><br/></div><div><br/></div><div><u><b>标号可以作为</b><b>数据</b>来<b>定义</b>！</u></div><div>data segment</div><div>&nbsp; &nbsp; &nbsp;<b>a</b> db 1, 2, 3, 4, 5, 6, 7, 8</div>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>b</b> dw 0
+<div>&nbsp; &nbsp; &nbsp;<u>c <b>dw a, b</b> &nbsp; &nbsp; ;相当于 c <b>dw offset a, offset b</b></u></div><div>&nbsp; &nbsp; &nbsp;<u>d <b>dd a, b</b> &nbsp; &nbsp; ;相当于 <b>d dw offset a, seg a, offset b, seg b</b></u><br/><div>data ends</div><div><br/></div><div><br/></div><div><br/></div><div>16.3 <b>直接定址表</b></div><div><br/></div><div>根据我的理解，就像<b>数组</b>。</div><div>实例如下：</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 2bh</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call showbyte<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+showbyte:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp short show<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; <u>table</u> db &apos;0123456890ABCDEF&apos;&nbsp;&nbsp;&nbsp;&nbsp; ;字符表</b><br/>
+show:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, al;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 4<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shr ah, cl&nbsp;&nbsp;&nbsp;&nbsp; ;ah得到原al的高4位<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; and al, 00001111b&nbsp;&nbsp;&nbsp;&nbsp; ;al得到原al的低4位<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bl, ah<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ah, table[bx]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es:[160 * 12 + 40 * 2], ah<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bl, al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov al, table[bx]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es:[160 * 12 + 40 * 2 + 2], al<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+code ends<br/>
+end start</div><div><br/></div><div>在以上程序中，我们在（1byte大小的）<b>数值&nbsp;0~15</b></div><div>和 <b>字符 “0” ~ “F”</b>（16进制表示法）之间建立的<b>映射关系</b>为：</div><div>以<b>数值N为table表</b>中的<b>偏移</b>，可以<b>找到对应字符</b>。</div><div><br/></div><div><br/></div><div>利用表，建立两个数据集之间的一种映射关系，</div><div>根据给出的数据，得到另一数据集对应的数据，目的是：</div><div>（1）为了算法的清晰和简洁；</div><div>（2）加快运算速度；</div><div>（3）使程序易于扩充。</div><div><br/></div><div><br/></div><div><b>编程：写一个子程序，计算sin(x)，</b></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x属于{0, 30, 60, 90, 120, 150, 180}集合（单位：度）。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 如，sin(30)结果显示为“0.5”。</div><div><br/></div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 255<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call showsin<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+showsin:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp short show<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; ;字符串偏移地址表<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; table dw s0, s30, s60, s90, s120, s150, s180</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; s0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; db &apos;0&apos;, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; s30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; db &apos;0.5&apos;, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; s60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; db &apos;0.866&apos;, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; s90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; db &apos;1&apos;, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; s120&nbsp;&nbsp;&nbsp;&nbsp; db &apos;0,866&apos;, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; s150&nbsp;&nbsp;&nbsp;&nbsp; db &apos;0.5&apos;, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; s180&nbsp;&nbsp;&nbsp;&nbsp; db &apos;0&apos;, 0<br/>
+show:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; ;以下用“角度值/30”作为table的偏移，</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;取得对应字符串的偏移地址，置于bx中<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bl, 30<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; div bl<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov bl, al&nbsp;&nbsp;&nbsp;&nbsp; ;高字节ah存余，低字节al存商</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; add bx, bx&nbsp;&nbsp;&nbsp;&nbsp; ;偏移地址为word型，以bx * 2以对应地址</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, table[bx]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;以下显示sin(x)对应的字符串<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 160 * 12 + 40 * 2<br/>
+shows:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, cs:[bx]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; je ok<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es:[si], ah<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp short shows<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+ok:&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+code ends<br/>
+end start</div><div><br/></div><div>角度值没有检测，可能超范围（0~180），</div><div>真实编程需要检测。</div></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A016.3%E4%BE%8B.asm" target="_blank">汇编语言第十六章16.3例.asm</a><br/></div><div><br/></div><div><br/></div><div>16.4 程序入口地址的直接定址表</div><div><br/></div><div>可以<b>在直接定址表</b>中<b>存储子程序</b>的<b>地址</b>，</div><div>从而方便地<b>实现不同子程序的调用</b>。</div><div><br/></div><div><b>编程：</b></div><div><b>实现一个子程序setscreen，为显示输出提供如下功能：</b></div><div>（1）清屏；</div><div>（2）设置前景色；</div><div>（3）设置背景色；</div><div>（4）向上滚动一行。</div><div><br/></div><div>入口参数说明如下：</div><div>a. 用ah寄存器传递功能号：</div><div>&nbsp; &nbsp; &nbsp;0表示以上功能（1）清屏，</div><div>&nbsp; &nbsp; &nbsp;1表示（2），2表示（3），3表示（4）。</div><div>b. 对于功能（2）、（3），用al传递颜色值，</div><div>&nbsp; &nbsp; &nbsp;(al)属于{0, 1, 2, 3, 4, 5, 6, 7}范围。</div><div><br/></div><div>下面是实现思路：</div><div>（1）清屏：将屏幕字符设置为空格；</div><div>（2）前景色：设置屏幕字符属性字节的第0、1、2位；</div><div>（3）背景色：设置屏幕字符属性字节的第4、5、6位；</div><div>（4）向上滚一行：依次将第n + 1行复制到第n行处，最后一行置空。</div><div><br/></div><div>源代码：</div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 3<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov al, 3<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; call setscreen<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+setscreen:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp short set<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; table dw sub1, sub2, sub3, sub4</b><br/>
+set:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 3<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ja sret</div><div><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov bl, ah<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; add bx, bx</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; call word ptr table[bx]&nbsp;&nbsp;&nbsp;&nbsp; ;调用对应的功能子程序</b><br/>
+sret:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+sub1:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 2000<br/>
+sub1c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[bx], &apos; &apos;</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub1c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+sub2:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov bx, 1<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; mov cx, 2000<br/>
-c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; and byte ptr es:[bx], 11111000b<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; or es:[bx], ah</b><br/>
+sub2c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; and byte ptr es:[bx], 11111000b</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; or es:[bx], al</b><br/>
 &nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; loop c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub2c0<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
-sret:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-code ends<br/>
-end start</div><div><br/></div><div><br/></div><div>17.3 字符串的输入</div><div>最基本的字符串输入程序，需具备以下功能：</div><div>（1）在输入的同时需要显示这个字符串；</div><div>（2）一般在输入回车符后，字符串输入结束；</div><div>（3）能够删除已经输入的字符。</div><div><br/></div><div><b>编程：实现以上3个基本功能</b>，参数如下——</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (dh)、(dl)=字符串在屏幕上显示的行、列位置；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ds:si指向字符串的储存空间，字符串以0为结束符。</div><div>实现思路：详看原书P304~305</div><div><br/></div><div><b>处理过程</b>：</div><div>（1）调用int 16h 读取键盘输入</div><div>（2）若是字符，入栈，显示栈中所有字符；继续执行（1）；</div><div>（3）若是退格键，一个字符出栈，显示栈中所有字符；继续执行（2）；</div><div>（4）若是Enter键，向栈压入0，返回。</div><div><br/></div><div>源码：</div><div>&nbsp; &nbsp; &nbsp;其中子程序charstack的子程序的参数说明：</div><div>&nbsp; &nbsp; &nbsp;(ah)=功能号，0表示入栈，1表示出栈，2表示显示；</div><div>&nbsp; &nbsp; &nbsp;<b>ds:si</b>指向字符<b>栈空间</b>；</div><div>&nbsp; &nbsp; &nbsp;入栈：(al)=入栈字符；</div><div>&nbsp; &nbsp; &nbsp;出站：(al)=出栈返回的字符；</div><div>&nbsp; &nbsp; &nbsp;显示：<b>(dh)、(dl)</b>=字符串在屏幕上显示的<b>行、列</b>位置。</div><div><br/></div><div>assume cs:code<br/>
-stack segment<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; db 64 dup (0)<br/>
-stack ends<br/>
-code segment<br/>
-start:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, stack<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ds, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0&nbsp;&nbsp;&nbsp;&nbsp; ;ds:si指向charstack的字符栈空间<br/><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 0&nbsp;&nbsp;&nbsp;&nbsp; ;显示在第0行<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov dl, 0&nbsp;&nbsp;&nbsp;&nbsp; ;显示在第0列<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call getstr<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-getstr:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push ax<br/>
-getstrs:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; ;获取键盘输入<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; int 16h</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp al, 20h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jb not_char&nbsp;&nbsp;&nbsp;&nbsp; ;ASCII码小于20h，说明不是字符<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0&nbsp;&nbsp;&nbsp;&nbsp; ;调用charstack的0号子程序<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;字符入栈<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2&nbsp;&nbsp;&nbsp;&nbsp; ;调用charstack的2号子程序<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;显示栈中的字符</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp getstrs<br/><br/>
-not_char:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 0eh&nbsp;&nbsp;&nbsp;&nbsp; ;退格键的扫描码<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; je backspace<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 1ch&nbsp;&nbsp;&nbsp;&nbsp; ;回车键的扫描码<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; je enter_btn</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp getstrs<br/><br/>
-backspace:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 1&nbsp;&nbsp;&nbsp;&nbsp; ;调用charstack的1号子程序<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;字符出栈<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2&nbsp;&nbsp;&nbsp;&nbsp; ;类同上<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;显示栈中的字符<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp getstrs<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-enter_btn:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;0入栈<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; call charstack&nbsp;&nbsp;&nbsp;&nbsp; ;显示栈中字符<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><br/>
-charstack:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp short&nbsp; charstart<br/><b>table&nbsp;&nbsp;&nbsp;&nbsp; dw charpush, charpop, charshow<br/>
-top&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dw 0&nbsp;&nbsp;&nbsp;&nbsp; ;栈顶</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-charstart:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push dx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 2<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; ja sret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bl, ah<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; add bx, bx</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; jmp word ptr table[bx]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-charpush:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov bx, top<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov ds:[si][bx], al</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; inc top</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp sret<br/><br/>
-charpop:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp top, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; je sret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; dec top<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bx, top<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, ds:[si][bx]</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp sret<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-charshow:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov al, 160<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mul dh&nbsp;&nbsp;&nbsp;&nbsp; ;dh：显示在第几行<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov di, ax<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add dl, dl&nbsp;&nbsp;&nbsp;&nbsp; ;dl：显示在第几列<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov dh, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; add di, dx&nbsp;&nbsp;&nbsp;&nbsp; ;di：对应的显示缓冲区的偏移量</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-charshows:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; cmp bx, top<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jne not_empty<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], &apos; &apos;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp sret<br/>
-not_empty:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov al, ds:[si][bx]<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov es:[di], al<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di + 2], &apos; &apos;&nbsp;&nbsp;&nbsp;&nbsp; ;设置下一个显示位为空</b><br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; jmp charshows<br/><br/>
-sret:<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop di<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; pop dx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+sub3:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 4<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shl al, cl</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 1<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 2000<br/>
+sub3c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; and byte ptr es:[bx], 10001111b<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; or es:[bx], al</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub3c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+sub4:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push ds<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 160<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 24</b><br/>
+sub4c0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 160<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub4c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 80<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0<br/>
+sub4c1:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[160 * 24 + si], &apos; &apos;</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub4c1<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop ds<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 code ends<br/>
-end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A017.3%E4%BE%8B.asm" target="_blank">汇编语言第十七章17.3例.asm</a><br/></div><div><br/></div><div><br/></div><div>17.4 应用 <b>int 13h 中断例程对磁盘进行读写</b></div><div><b>以3.5英寸软盘为例讲解</b>（无法测试，只能做简单的笔记）。</div><div>3.5英寸软盘：2面 * 80磁道 * 18扇区 * 512字节 = 1440KB ≈ 1.44MB</div><div><br/></div><div>int 13h 入口参数：</div><div>(ah)=int 13h的功能号</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2：读扇区；3：写扇区</div><div>(al)=读/写的扇区数</div><div>(ch)=磁道号</div><div>(cl)=扇区号</div><div>(dh)=磁头号（对于软盘即面号,因为一个面用一个磁头来读写）</div><div>(dl)=驱动器号 &nbsp; &nbsp; 软驱从0开始，0：软驱A，1：软驱B；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;硬盘从80h开始，80h：硬盘C，81h：硬盘D</div><div>es:bx 指向接受从扇区读入数据的内存区。</div><div><br/></div><div>返回参数：</div><div>操作成功：(ah)=0，(al)=读/写的扇区数</div><div>操作失败：(ah)=出错代码</div><div><br/></div><div><br/></div><div><b>实验17 编写包含多个功能子程序的中断例程</b></div><div><b>以3.5英寸软盘为对象编写</b>（无法测试，只能简单描述题目）。</div><div><br/></div><div><img width="690px" height="237px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/1714006dae86aabe425b8e38249e2398.png" /></div><div><img width="497px" height="442px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/05dedeb0e9cfc789488adb730e26db81.png" /></div><div><img width="689px" height="181px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/e77389b70bb8aac0a6fe5832c80ec166.png" /></div><div><br/></div><div><br/></div><div><b>课程设计2</b></div><div><b>(完成并不现实：因为当前使用电脑CPU为64位，</b></div><div><b>&nbsp; &nbsp; &nbsp;而非16位的8086CPU，即使编写的汇编程序也无法测试)</b></div><div><img width="559px" height="575px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/e8dc941688cdf6097fa9a4cbd36cb199.png" /></div><div><img width="557px" height="169px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/ce9f20b2811d6aa5cdb98795b5d636d9.png" /></div><div><br/></div><div><br/></div><div><img width="555px" height="295px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/28a66282bd49010054d7c45bdf8e9087.png" /></div></div>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A016.4%E4%BE%8B.asm" target="_blank">汇编语言第十六章16.4例.asm</a><br/></div><div><br/></div><div><br/></div><div><b>实验16 编写包含多个功能子程序的中断例程</b></div><div>功能：安装一个新的int 7ch 中断例程，</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 为显示输出提供如下功能子程序：</div><div>（1）清屏；</div><div>（2）设置前景色；</div><div>（3）设置背景色；</div><div>（4）向上滚动一行。</div><div><br/></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 入口参数说明如下：</div><div>（1）用ah寄存器传递功能号：0表示清屏，</div><div>&nbsp; &nbsp; &nbsp;1表示设置前景色，2表示设置背景色，</div><div>&nbsp; &nbsp; &nbsp;3表示向上滚动一行；</div><div>（2）对于2、3号功能，用al传送颜色值，</div><div>&nbsp; &nbsp; &nbsp;(al)属于{0,1,2,3,4,5,6,7}</div><div><br/></div><div><b>代码：</b></div><div>;安装int 7ch中断例程</div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;install int 7ch<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop ds<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov si, offset set_screen<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, offset s_s_end - offset set_screen<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cld<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cli<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[7ch * 4], 200h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov word ptr es:[7ch * 4 + 2], 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; sti<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+set_screen:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; jmp short sel_sub<br/><b>table:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; dw offset sub0 - offset set_screen + 200h, offset sub1 - offset set_screen + 200h, offset sub2 - offset set_screen + 200h, offset sub3 - offset set_screen + 200h</b><br/>
+sel_sub:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cmp ah, 3<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ja end_sub<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bh, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bl, ah<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; add bx, bx&nbsp;&nbsp;&nbsp;&nbsp; ;千万记得将bx加倍！<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;以对应table中储存子程序入口地址的偏移量</b><br/>
+cal_add:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; call word ptr es:[bx]<u>[offset table - offset set_screen + 200h]</u></b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+end_sub:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; iret<br/><br/>
+sub0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 25 * 80<br/>
+sub0c0:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[bx], &apos; &apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub0c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/><br/>
+sub1:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; cmp al, 7&nbsp;&nbsp;&nbsp;&nbsp; ;对于输入的(al)颜色参数，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ja sub1_ok&nbsp;&nbsp;&nbsp;&nbsp; ;第一种处理方式，检测范围</b><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 1</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 25 * 80<br/>
+sub1c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; and byte ptr es:[bx], 11111000b<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; or byte ptr es:[bx], al</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub1c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+sub1_ok:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/><br/>
+sub2:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; and al, 00000111b&nbsp;&nbsp;&nbsp;&nbsp; ;对于输入的(al)颜色参数，<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;第二种处理方式，清除超过范围的部分</b><br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov cl, 4<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; shl al, cl</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 1</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 25 * 80<br/>
+sub2c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; and byte ptr es:[bx], 10001111b<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; or byte ptr es:[bx], al</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub2c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/><br/>
+sub3:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push ds<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b80ah&nbsp;&nbsp;&nbsp;&nbsp; ;之前错写成0b8a0h了！仔细领悟一下！<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;之所以偏移的行数过多，因为ds:[bx] = ds * 16 + bx！</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov bx, 0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 24 * 80<br/>
+sub3c0:<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; push ds:[bx]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es:[bx]</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub3c0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 80<br/>
+sub3c1:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[bx], &apos; &apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub3c1<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop ds<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop bx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+s_s_end:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; nop<br/>
+code ends<br/>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16.asm" target="_blank">汇编语言第十六章实验16.asm</a><br/></div><div><br/></div><div><br/></div><div>;测试程序</div><div>assume cs:code<br/>
+code segment<br/>
+start:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ;test<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ah, 0<br/>
+&nbsp; &nbsp; &nbsp;;mov al, 3<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 7ch<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 4c00h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; int 21h<br/>
+code ends<br/>
+end start</div><div><br/></div><div><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F.asm" target="_blank">汇编语言第十六章实验16测试程序.asm</a><br/></div><div><br/></div><div><br/></div><div><b>;sub3的更优写法：</b></div><div>sub3:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push ds<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; push si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov si, 0b800h<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov ds, si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov es, si</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov si, 160<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov di, 0</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/><b>&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 24 * 160<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; cli<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; rep movsb</b><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov cx, 80<br/>
+sub3c1:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; mov byte ptr es:[di], &apos; &apos;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; inc di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; loop sub3c1<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop si<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop es<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop ds<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop di<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; pop cx<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ret</div></div>
