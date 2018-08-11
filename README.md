@@ -23,7 +23,7 @@
 
 ## ASM
 
-准备：[在win7 64位系统上使用 debug.exe](asm/在win7 64位系统上使用debug.exe.html)
+准备：[在 Windows7 64 位系统上使用 debug.exe](asm/prepare-asm-on-windows-7.md)
 
 1. [寄存器、CS、IP、CPU、内存](asm/Assembly Language - Note 1.html)
 2. [大小端、寄存器、DS、[addr]、栈](asm/Assembly Language - Note 2.html)
