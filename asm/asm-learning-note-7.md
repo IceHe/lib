@@ -5,4 +5,592 @@
 - Created on 2014-10
 - 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
-<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十、CALL和RET指令</b></div><div><br/></div><div>10.1 ret和retf</div><div><b>ret</b>指令：<b>用栈中的数据</b>，<b>修改IP</b>的内容，从而实现<b>近转移</b>。</div><div><b>retf</b>指令：用<b>栈</b>中的<b>数据</b>，修改<b>CS和IP</b>的内容，从而实现<b>远</b>转移。</div><div><br/></div><div>执行<b>ret</b>指令的两步操作：</div><div>（1）(IP) = &nbsp;((SS) * 16 + (SP))</div><div>（2）(SP) = (SP) + 2</div><div>相当于：<b>pop IP</b><br/><br/></div><div>执行<b>retf</b>指令的四步操作：</div><div>（1）(IP) = ((SS) * 16 + (SP))</div><div>（2）(SP) = (SP) + 2</div><div>（3）(CS) = ((SS) * 16 + (SP))</div><div>（4）(SP) = (SP) + 2</div><div>相当于：<b>pop ip</b></div><div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pop cs</b></div><div><br/></div><div>10.2 call指令</div><div>CPU执行call指令时，进行两步操作：</div><div>（1）将当前的 <b>“IP” 或者 “CS和IP同时” &nbsp;压入栈</b>中。</div><div>（2）转移。</div><div>call指令<b>不能实现短转移</b>。</div><div>它实现转移的方法与<b>jmp原理相同</b>。</div><div><br/></div><div>10.3 <b>依据位移</b>进行转移的call指令</div><div><b>call 标号</b>（将当前的IP压栈后，转到标号处执行指令）</div><div>使用该指令时，CPU进行如下操作：</div><div>（1）(sp) = (sp) - 2</div><div>&nbsp; &nbsp; &nbsp; &nbsp; ((ss) * 16 + (sp)) = (ip)</div><div>（2）(ip) = (ip) + 16位位移</div><div><br/></div><div>16位位移 = 标号处的地址 - call<b>指令后的</b>第一个字节的地址</div><div>16位位移的范围：-32768~32767，用补码表示</div><div>它由编译程序在编译时算出。</div><div><br/></div><div>相当于：pop IP</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp near ptr 标号</div><div><br/></div><div>10.4 转移的（根据）<b>目的地址</b>在指令中的call指令</div><div>“<b>call far ptr 标号</b>”实现的是<b>段间转移</b>。</div><div>使用该指令时，CPU进行如下操作：</div><div>（1）(sp) = (sp) - 2</div><div>&nbsp; &nbsp; &nbsp; &nbsp; ((ss) * 16 + (sp)) = (<b>cs</b>)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; (sp) = (sp) - 2</div><div>&nbsp; &nbsp; &nbsp; &nbsp; ((ss) * 16 + (sp)) = (<b>ip</b>)</div><div>（2）(ip) = 标号所在段的段地址</div><div>&nbsp; &nbsp; &nbsp; &nbsp; (cs) = 标号所在段中的偏移地址</div><div><br/></div><div>相当于：push cs</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;push ip</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp far ptr 标号</div><div><br/></div><div>（以上的两个自然段，之后不会再记这么拖拉重复的笔记方式，要更精简一点）</div><div><br/></div><div>10.5 转移地址<b>在寄存器中</b>的call指令</div><div>call 16位reg</div><div>相当于：push ip</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp 16位reg</div><div><br/></div><div>10.6转移地址<b>在内存中</b>的call指令</div><div>（1）<b>call word ptr</b> 内存单元地址</div><div>相当于：push ip</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp word ptr 内存单元地址</div><div><br/></div><div>（2）<b>call dword ptr</b> 内存单元地址</div><div>相当于：push cs</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;push ip</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp word ptr 内存单元地址</div><div><br/></div><div>10.7 call 和 ret 的配合使用</div><div><b>具有子程序的源程序的框架</b>如下：</div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">assume cs:code</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code segment</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">main:&nbsp;&nbsp;&nbsp;...</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call sub1</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, 4c00h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 21h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">sub1:&nbsp;&nbsp;&nbsp;...</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call sub2</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">sub2:&nbsp;&nbsp;&nbsp;...</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code ends</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">end main</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体">10.8 mul&nbsp;</font><span style="color: rgb(1, 1, 1); font-family: 新宋体;">指令</span></div><div align="left"><font color="#010101" face="新宋体"><b>MUL 乘法指令</b>, 使用它时请注意：</font></div><div align="left"><font color="#010101" face="新宋体">（1）两个相乘的数：都是8位的长度，或都是16位的。</font></div><div align="left"><font color="#010101" face="新宋体">如果是8位，一个默认放在AL中，另一个放在8位reg或内存byte字节单元中；</font></div><div align="left"><font color="#010101" face="新宋体">如果是16位，一个默认放在AX中，另一个放在16位reg或内存word字单元中。</font></div><div align="left"><font color="#010101" face="新宋体">（2）乘积：</font></div><div align="left"><font color="#010101" face="新宋体">如果是8位乘法，结果默认放在AX中；</font></div><div align="left"><font color="#010101" face="新宋体">如果是16位乘法，结果的</font><span style="color: rgb(1, 1, 1); font-family: 新宋体;">高位放在DX中，</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">低位放在AX中。</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;"><br/></span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">例：</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">mul reg</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">mul 内存单元</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">mul byte ptr ds:[0]</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">mul word ptr [bx+si+8]</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;"><br/></span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;"><br/></span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">10.9 模块化程序设计</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">由call和ret支持</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;"><br/></span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">10.10 参数和结果传递的问题</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">10.11 批量数据的传递</span></div><div align="left"><span style="color: rgb(1, 1, 1); font-family: 新宋体;">10.12 寄存器冲突的问题</span></div><div align="left"><font color="#010101" face="新宋体">（这一节的书本内容不错，看原书方便，做笔记不便利。）</font></div><div align="left"><font color="#010101" face="新宋体">其本质：</font></div><div align="left"><font color="#010101" face="新宋体">&nbsp; &nbsp; &nbsp;用栈保存子程序要使用的寄存器。</font></div><div align="left"><font color="#010101" face="新宋体">&nbsp; &nbsp; &nbsp;<b>先push该子程序要使用的寄存器的内容，用完后再pop回原寄存器处。</b></font></div><div align="left"><font color="#010101" face="新宋体"><b><br/></b></font></div><div align="left"><font color="#010101" face="新宋体">例：</font></div><div align="left"><font color="#010101" face="新宋体" size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font><font color="#010101" face="新宋体" size="1"><span style="font-size: 9pt;">;</span></font>&nbsp;<font color="#010101" face="Times New Roman" size="1"><span style="font-size: 9pt;">保存子程序要使用的寄存器的原内容</span></font></div><div align="left"><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">capital: push cx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;push si</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">将以</span></font><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&apos;0&apos;</span></font><font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">为终结符的字符串的每个字符转换为大写</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">change: &nbsp;mov cl, [si]</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mov ch, 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jcxz ok</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;and byte ptr [si], 11011111b</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;inc si</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;jmp short change</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></font><font color="#010101" face="新宋体" size="1"><span style="font-size: 9pt;">;</span></font>&nbsp;<font color="#010101" face="Times New Roman" size="1"><span style="font-size: 9pt;">恢复子程序使用过的寄存器的原内容</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">ok: &nbsp; &nbsp; &nbsp;pop si&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;pop cx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ret</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体"><b>实验10 编写子程序</b></font></div><div align="left"><font color="#010101" face="新宋体"><br/></font></div><div align="left"><font color="#010101" face="新宋体"><b>1.显示字符串（指定位置、颜色）</b></font></div><div align="left"><font color="#010101" face="新宋体">功能：在指定的位置，用指定的颜色，显示一个用0结束的字符串。</font></div><div align="left"><font color="#010101" face="新宋体">参数：(dh)=行号 0~24，(dl)=列号 0~79，(cl)=颜色，ds:di指向字符串的首地址。</font></div><div align="left"><font color="#010101" face="新宋体">返回：无</font></div><div align="left"><font color="#010101" face="新宋体" size="2"><br/></font></div><div align="left"><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">assume cs:code, ds:data</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">data segment</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db &apos;Welcome to masm!&apos;,0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">data ends</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code segment</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">start:</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, data</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ds, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">数据段位置</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov si, 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">字符串首地址</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dh, 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">行</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dl, 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">列</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov cl, 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">颜色</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call show_str</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, 4c00h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 21h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">show_str:</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">保存寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push es</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push di</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push ax</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">求出目的行的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov al, 0a0h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mul dh</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov bx, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;bx</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">目标行的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">求出目的列的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov al, 2</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mul dl</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov di, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;di</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">目标列的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, 0b800h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov es, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;es</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">显示区内存位置</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ah, cl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;ah</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">另存颜色</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">s:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmp byte ptr ds:[si], 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;je e</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov al, ds:[si]</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov es:[bx][di], ax</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc si</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc di</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc di</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp s</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">e:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">恢复寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop ax</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop bp</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop es</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code ends</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">end start</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="2">参照了：</font><a href="evernote:///view/7264256/s33/396fabf7-1451-4af9-8409-c75e0a2d404f/396fabf7-1451-4af9-8409-c75e0a2d404f/" style="color: rgb(105, 170, 53);">《Assembly Language》 Note 6</a>&nbsp;的实验9</div></div><div align="left"><font color="#010101" face="新宋体" size="2"><br/></font></div><div align="left"><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.1.asm" target="_blank">汇编语言第十章实验10.1.asm</a></div><div align="left"><font color="#010101" face="新宋体" size="2"><br/></font></div><div align="left"><font color="#010101" face="新宋体" size="2"><br/></font></div><div align="left"><font color="#010101" face="新宋体"><b>2.解决除法溢出的问题</b></font></div><div align="left"><div><span style="color: rgb(1, 1, 1); font-family: 新宋体;">功能：进行不会产生溢出的除法运算，</span></div><div><span style="color: rgb(1, 1, 1); font-family: 新宋体;">&nbsp; &nbsp; &nbsp; 被除数为dword型，除数为word型，结果为dword型。</span></div><div><span style="color: rgb(1, 1, 1); font-family: 新宋体;">参数：(ax)=dword型数据的</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">被除数的</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">低16位</span></div><div><span style="color: rgb(1, 1, 1); font-family: 新宋体;">&nbsp; &nbsp; &nbsp; (dx)=</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">dword型数据的</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">被除数的高</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">16位</span></div><div><span style="color: rgb(1, 1, 1); font-family: 新宋体;">&nbsp; &nbsp; &nbsp; (cx)=</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">word型</span><span style="color: rgb(1, 1, 1); font-family: 新宋体;">除数</span></div><div><font color="#010101" face="新宋体">返回：(dx)=结果的高16位</font></div><div><font color="#010101" face="新宋体">&nbsp; &nbsp; &nbsp; (ax)=结果的低16位</font></div><div><font color="#010101" face="新宋体">&nbsp; &nbsp; &nbsp; (cx)=余数</font></div><div><span style="color: rgb(1, 1, 1); font-family: 新宋体;"><br/></span></div></div><div align="left"><font color="#010101" face="新宋体">例如：1000/1 的8位除法 或 11000/1 的16位除法</font></div><div align="left"><font color="#010101" face="新宋体">&nbsp; &nbsp; &nbsp; 它们的商无法放入 al 或 ax 中，导致溢出。</font></div><div align="left"><font color="#010101" face="新宋体">解法：</font></div><div align="left"><font color="#010101" face="新宋体" size="2"><br/></font></div><div align="left"><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">assume cs:code</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code segment</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">start:</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">计算</span></font><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">10000/10</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, 4240h&nbsp;&nbsp;&nbsp;;10000 = F4240H</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dx, 0fh</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov cx, 0ah&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;10 = 0AH</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call divdw</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, 4c00h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 21h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">divdw:</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">保存寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;X/N = int(H/N) * FFFFH + [rem(H/N) * FFFFH + L] / N</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;X</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">是被除数，</span></font> <font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">N</span></font><font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">是除数，</span></font><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">H</span></font><font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">是被除数高位，</span></font> <font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">L</span></font><font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">是被除数低位；</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; * FFFFH</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">是左移位，</span></font> <font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">int(x/n)</span></font><font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">是商，</span></font><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">rem(x/n)</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">是余数。</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push ax&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">暂存被除数低位</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, dx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;dx</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">被除数高位</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dx, 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div cx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov bx, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">暂存被除数高位被除的商</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;dx</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">被除数高位被除的余数</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">恢复被除数低位</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div cx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; mov cx, dx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">余数放在指定位置</span></font> <font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">cx</span></font></div></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dx, bx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">恢复被除数高位被除的商</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp; &nbsp; &nbsp; &nbsp; ;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">恢复寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code ends</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">end start</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.2.asm" target="_blank">汇编语言第十章实验10.2.asm</a><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><br/></div><div align="left"><br/></div><div align="left"><b>3.数值显示</b></div><div align="left">功能：将word型数据转变成表示十进制数的字符串，字符串以0为结尾符。</div><div align="left">参数： (ax)=word型数据，ds:si指向字符串的首地址。</div><div align="left">返回：无</div><div align="left">应用：编程，将数据12666以十进制的形式在屏幕的8行3列，用绿色显示出来。</div><div align="left">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 显示时，使用本次实验的第一个子程序 show_ptr（见上文）。</div><div align="left"><br/></div><div align="left"><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">assume cs:code</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">data segment</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db 10 dup (0)</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">data ends</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code segment</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">start:</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">显示</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, 12666</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov bx, data</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ds, bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov si, 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call dtoc</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dh, 8</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dl, 3</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov cl, 2</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov si, 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call show_str</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov ax, 4c00h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 21h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">dtoc:</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">保存寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push cx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push dx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov cx, 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">s3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov dx, 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov bx, 10</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add dx, 30h ;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">转换为</span></font><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">ASCII</span></font><font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">码</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push dx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">暂存入栈</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc cx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">统计要显示几个字符</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmp ax, 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jne s3</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">ss3:pop ds:[si]</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc si</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loop ss3</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov byte ptr ds:[si], 0&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">写入字符串的结尾符</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">e3:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">恢复寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop dx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop cx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">show_str:</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">保存寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push es</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push di</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; push ax</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">求出目的行的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov al, 0a0h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mul dh</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov bx, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;bx</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">目标行的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">求出目的列的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov al, 2</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mul dl</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov di, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;di</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">目标列的偏移量</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov ax, 0b800h</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov es, ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;es</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">显示区内存位置</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov ah, cl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ah</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">另存颜色</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">s2:&nbsp;&nbsp;&nbsp;&nbsp; cmp byte ptr ds:[si], 0</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; je e2</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov al, ds:[si]</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mov es:[bx][di], ax</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inc si</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inc di</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inc di</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jmp s2</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">e2:&nbsp;&nbsp;&nbsp;&nbsp; ;</span></font> <font color="#010101" face="Times New Roman" size="1"><span style="font-size:9pt">恢复寄存器的数据</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pop ax</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pop bx</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pop bp</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pop es</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ret</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">code ends</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt">end start</span></font></div><div align="left"><font color="#010101" face="新宋体" size="1"><span style="font-size:9pt"><br/></span></font></div><div align="left"><strong>Att - </strong><a title="Attachment 附件" href="http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3.asm" target="_blank">汇编语言第十章实验10.3.asm</a></div></div></div></div></div>
+## 章十、CALL和RET指令
+
+10.1 ret和retf
+
+**ret**指令：**用栈中的数据**，**修改IP**的内容，从而实现**近转移**。
+
+**retf**指令：用**栈**中的**数据**，修改**CS和IP**的内容，从而实现**远**转移。
+
+执行**ret**指令的两步操作：
+
+（1）(IP) =  ((SS) * 16 + (SP))
+
+（2）(SP) = (SP) + 2
+
+相当于：**pop IP**
+
+执行**retf**指令的四步操作：
+
+（1）(IP) = ((SS) * 16 + (SP))
+
+（2）(SP) = (SP) + 2
+
+（3）(CS) = ((SS) * 16 + (SP))
+
+（4）(SP) = (SP) + 2
+
+相当于：**pop ip**
+
+**             pop cs**
+
+10.2 call指令
+
+CPU执行call指令时，进行两步操作：
+
+（1）将当前的 **“IP” 或者 “CS和IP同时”  压入栈**中。
+
+（2）转移。
+
+call指令**不能实现短转移**。
+
+它实现转移的方法与**jmp原理相同**。
+
+10.3 **依据位移**进行转移的call指令
+
+**call 标号**（将当前的IP压栈后，转到标号处执行指令）
+
+使用该指令时，CPU进行如下操作：
+
+（1）(sp) = (sp) - 2
+
+        ((ss) * 16 + (sp)) = (ip)
+
+（2）(ip) = (ip) + 16位位移
+
+16位位移 = 标号处的地址 - call**指令后的**第一个字节的地址
+
+16位位移的范围：-32768~32767，用补码表示
+
+它由编译程序在编译时算出。
+
+相当于：pop IP
+
+             jmp near ptr 标号
+
+10.4 转移的（根据）**目的地址**在指令中的call指令
+
+“**call far ptr 标号**”实现的是**段间转移**。
+
+使用该指令时，CPU进行如下操作：
+
+（1）(sp) = (sp) - 2
+
+        ((ss) * 16 + (sp)) = (**cs**)
+
+        (sp) = (sp) - 2
+
+        ((ss) * 16 + (sp)) = (**ip**)
+
+（2）(ip) = 标号所在段的段地址
+
+        (cs) = 标号所在段中的偏移地址
+
+相当于：push cs
+
+             push ip
+
+             jmp far ptr 标号
+
+（以上的两个自然段，之后不会再记这么拖拉重复的笔记方式，要更精简一点）
+
+10.5 转移地址**在寄存器中**的call指令
+
+call 16位reg
+
+相当于：push ip
+
+             jmp 16位reg
+
+10.6转移地址**在内存中**的call指令
+
+（1）**call word ptr** 内存单元地址
+
+相当于：push ip
+
+             jmp word ptr 内存单元地址
+
+（2）**call dword ptr** 内存单元地址
+
+相当于：push cs
+
+             push ip
+
+             jmp word ptr 内存单元地址
+
+10.7 call 和 ret 的配合使用
+
+**具有子程序的源程序的框架**如下：
+
+assume cs:code
+
+code segment
+
+main:   ...
+
+                call sub1
+
+                ...
+
+                mov ax, 4c00h
+
+                int 21h
+
+sub1:   ...
+
+                call sub2
+
+                ...
+
+                ret
+
+sub2:   ...
+
+                ret
+
+code ends
+
+end main
+
+10.8 mul 指令
+
+**MUL 乘法指令**, 使用它时请注意：
+
+（1）两个相乘的数：都是8位的长度，或都是16位的。
+
+如果是8位，一个默认放在AL中，另一个放在8位reg或内存byte字节单元中；
+
+如果是16位，一个默认放在AX中，另一个放在16位reg或内存word字单元中。
+
+（2）乘积：
+
+如果是8位乘法，结果默认放在AX中；
+
+如果是16位乘法，结果的高位放在DX中， 低位放在AX中。
+
+例：
+
+mul reg
+
+mul 内存单元
+
+mul byte ptr ds:[0]
+
+mul word ptr [bx+si+8]
+
+10.9 模块化程序设计
+
+由call和ret支持
+
+10.10 参数和结果传递的问题
+
+10.11 批量数据的传递
+
+10.12 寄存器冲突的问题
+
+（这一节的书本内容不错，看原书方便，做笔记不便利。）
+
+其本质：
+
+     用栈保存子程序要使用的寄存器。
+
+     **先push该子程序要使用的寄存器的内容，用完后再pop回原寄存器处。**
+
+
+
+例：
+
+         ;  保存子程序要使用的寄存器的原内容
+<div align="left">
+capital: push cx
+
+         push si
+
+         ;  将以 &apos;0&apos; 为终结符的字符串的每个字符转换为大写
+
+change:  mov cl, [si]
+
+         mov ch, 0
+
+         jcxz ok
+
+         and byte ptr [si], 11011111b
+
+         inc si
+
+         jmp short change
+
+          ;  恢复子程序使用过的寄存器的原内容
+
+ok:      pop si
+
+         pop cx
+
+         ret
+
+**实验10 编写子程序**
+
+**1.显示字符串（指定位置、颜色）**
+
+功能：在指定的位置，用指定的颜色，显示一个用0结束的字符串。
+
+参数：(dh)=行号 0~24，(dl)=列号 0~79，(cl)=颜色，ds:di指向字符串的首地址。
+
+返回：无
+
+<div align="left">
+assume cs:code, ds:data
+
+data segment
+
+        db &apos;Welcome to masm!&apos;,0
+
+data ends
+
+code segment
+
+start:
+
+        mov ax, data
+
+        mov ds, ax      ;  数据段位置
+
+        mov si, 0       ;  字符串首地址
+
+        mov dh, 8       ;  行
+
+        mov dl, 3       ;  列
+
+        mov cl, 2       ;  颜色
+
+        call show_str
+
+        mov ax, 4c00h
+
+        int 21h
+
+show_str:
+
+        ;  保存寄存器的数据
+
+        push es
+
+        push di
+
+        push bx
+
+        push ax
+
+        ;  求出目的行的偏移量
+
+        mov al, 0a0h
+
+        mul dh
+
+        mov bx, ax      ;bx  目标行的偏移量
+
+        ;  求出目的列的偏移量
+
+        mov al, 2
+
+        mul dl
+
+        mov di, ax      ;di  目标列的偏移量
+
+        mov ax, 0b800h
+
+        mov es, ax      ;es  显示区内存位置
+
+        mov ah, cl      ;ah  另存颜色
+
+s:      cmp byte ptr ds:[si], 0
+
+        je e
+
+        mov al, ds:[si]
+
+        mov es:[bx][di], ax
+
+        inc si
+
+        inc di
+
+        inc di
+
+        jmp s
+
+e:      ;  恢复寄存器的数据
+
+        pop ax
+
+        pop bx
+
+        pop bp
+
+        pop es
+
+        ret
+
+code ends
+
+end start
+
+<div align="left">参照了：<a href="evernote:///view/7264256/s33/396fabf7-1451-4af9-8409-c75e0a2d404f/396fabf7-1451-4af9-8409-c75e0a2d404f/" style="color: rgb(105, 170, 53);">《Assembly Language》 Note 6</a> 的实验9</div></div>
+
+Attachment 附件：[>汇编语言第十章实验10.1.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.1.asm)
+
+**2.解决除法溢出的问题**
+
+功能：进行不会产生溢出的除法运算，
+
+      被除数为dword型，除数为word型，结果为dword型。
+
+参数：(ax)=dword型数据的 被除数的 低16位
+
+      (dx)= dword型数据的 被除数的高 16位
+
+      (cx)= word型 除数
+
+返回：(dx)=结果的高16位
+
+      (ax)=结果的低16位
+
+      (cx)=余数
+
+例如：1000/1 的8位除法 或 11000/1 的16位除法
+
+      它们的商无法放入 al 或 ax 中，导致溢出。
+
+解法：
+
+<div align="left">
+assume cs:code
+
+code segment
+
+start:
+
+        ;  计算 10000/10
+
+        mov ax, 4240h   ;10000 = F4240H
+
+        mov dx, 0fh
+
+        mov cx, 0ah             ;10 = 0AH
+
+        call divdw
+
+        mov ax, 4c00h
+
+        int 21h
+
+divdw:
+
+        ;  保存寄存器的数据
+
+        push bx
+
+        ;X/N = int(H/N) * FFFFH + [rem(H/N) * FFFFH + L] / N
+
+        ;X  是被除数，  N 是除数， H 是被除数高位，  L 是被除数低位；
+
+        ; * FFFFH  是左移位，  int(x/n) 是商， rem(x/n)  是余数。
+
+        push ax ;  暂存被除数低位
+
+        mov ax, dx      ;dx  被除数高位
+
+        mov dx, 0
+
+        div cx
+
+        mov bx, ax      ;  暂存被除数高位被除的商
+
+                                ;dx  被除数高位被除的余数
+
+        pop ax          ;  恢复被除数低位
+
+        div cx
+
+        mov cx, dx      ;  余数放在指定位置  cx
+
+        mov dx, bx      ;  恢复被除数高位被除的商
+
+        ;  恢复寄存器的数据
+
+        pop bx
+
+        ret
+
+code ends
+
+end start
+
+Attachment 附件：[>汇编语言第十章实验10.2.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.2.asm)
+ </div>
+
+**3.数值显示**
+
+功能：将word型数据转变成表示十进制数的字符串，字符串以0为结尾符。
+
+参数： (ax)=word型数据，ds:si指向字符串的首地址。
+
+返回：无
+
+应用：编程，将数据12666以十进制的形式在屏幕的8行3列，用绿色显示出来。
+
+          显示时，使用本次实验的第一个子程序 show_ptr（见上文）。
+
+<div align="left">
+assume cs:code
+
+data segment
+
+        db 10 dup (0)
+
+data ends
+
+code segment
+
+start:
+
+        ;  显示
+
+        mov ax, 12666
+
+        mov bx, data
+
+        mov ds, bx
+
+        mov si, 0
+
+        call dtoc
+
+        mov dh, 8
+
+        mov dl, 3
+
+        mov cl, 2
+
+        mov si, 0
+
+        call show_str
+
+        mov ax, 4c00h
+
+        int 21h
+
+dtoc:
+
+        ;  保存寄存器的数据
+
+        push bx
+
+        push cx
+
+        push dx
+
+        mov cx, 0
+
+s3:     mov dx, 0
+
+        mov bx, 10
+
+        div bx
+
+        add dx, 30h ;  转换为 ASCII 码
+
+        push dx         ;  暂存入栈
+
+        inc cx          ;  统计要显示几个字符
+
+        cmp ax, 0
+
+        jne s3
+
+ss3:pop ds:[si]
+
+        inc si
+
+        loop ss3
+
+        mov byte ptr ds:[si], 0 ;  写入字符串的结尾符
+
+e3:     ;  恢复寄存器的数据
+
+        pop dx
+
+        pop cx
+
+        pop bx
+
+        ret
+
+show_str:
+
+        ;  保存寄存器的数据
+
+        push es
+
+        push di
+
+        push bx
+
+        push ax
+
+        ;  求出目的行的偏移量
+
+        mov al, 0a0h
+
+        mul dh
+
+        mov bx, ax      ;bx  目标行的偏移量
+
+        ;  求出目的列的偏移量
+
+        mov al, 2
+
+        mul dl
+
+        mov di, ax      ;di  目标列的偏移量
+
+        mov ax, 0b800h
+
+        mov es, ax      ;es  显示区内存位置
+
+        mov ah, cl      ;ah  另存颜色
+
+s2:     cmp byte ptr ds:[si], 0
+
+        je e2
+
+        mov al, ds:[si]
+
+        mov es:[bx][di], ax
+
+        inc si
+
+        inc di
+
+        inc di
+
+        jmp s2
+
+e2:     ;  恢复寄存器的数据
+
+        pop ax
+
+        pop bx
+
+        pop bp
+
+        pop es
+
+        ret
+
+code ends
+
+end start
+
+Attachment 附件：[>汇编语言第十章实验10.3.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3.asm)
