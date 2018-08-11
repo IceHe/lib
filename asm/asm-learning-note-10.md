@@ -1,12 +1,9 @@
-title: ASM 汇编语言 10
-date: 2015-04-10
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; 内中断，中断处理程序，中断向量表，中断过程。安装、设置中断向量，单步中断。编写 0 号中断的处理程序。
----
+# ASM 汇编语言 10
 
-<ul><li>Created on 2014-11</li></ul><br/>
+> ASM - Note&#58; 内中断，中断处理程序，中断向量表，中断过程。安装、设置中断向量，单步中断。编写 0 号中断的处理程序。
+
+- Created on 2014-11
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十二、内中断</b></div><div><br/></div><div><b>中断</b>：CPU不再接着（刚执行完的指令）向下执行</div><div><br/></div><div>12.1 内中断的<b>产生</b></div><div>当8086 CPU发生以下情况时，将产生马上处理的中断信息：</div><div>&nbsp; &nbsp; &nbsp;*. 右边数字为<b>中断类型码</b></div><div>（1）<b>除法</b>错误（执行div时产生溢出） - 0</div><div>（2）<b>单步</b>执行 - 1</div><div>（3）执行<b>into</b>指令 - 4</div><div>（4）执行<b>int</b>指令 - 该指令的格式为 <b>int n</b></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 指令中n为byte型立即数，是提供给CPU的中断类型码</div><div><br/></div><div>12.2&nbsp;<b>中断处理</b>程序</div><div>根据中断类型码，定位相应中断处理程序</div><div><br/></div><div>12.3&nbsp;<b>中断向量表</b></div><div>中断向量表，存储<b>256个</b>中断处理程序的&nbsp;<b>入口地址</b>（CS:IP）</div><div>它在内存中存放，对于8086PC机，<b>放在内存地址0处</b></div><div>（在0000:0000~0000:03FF，CS、IP地址分别都是dword，共占4B）</div><div><br/></div><div>12.4 <b>中断过程</b>：</div><div>（1）从中断信息中，取得<b>中断类型码 N</b></div><div>（2）<b>标志寄存器</b>的值<b>入栈</b>，pushf</div><div>&nbsp; &nbsp; &nbsp;（因为中断过程中要改变标志寄存器的值，要先将其保存在栈中）</div><div>（3）将标志寄存器的第8位 <b>TF</b> 和 第9位 <b>IF</b>&nbsp;的值 设<b>置为 0</b></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TF = 0， IF = 0（目的日后详述）</div><div>（4）<b>CS</b> 的内容 <b>入栈</b>，push cs</div><div>（5）<b>IP</b>&nbsp;的内容&nbsp;<b>入栈</b>，push ip</div><div>（6）设置中断处理程序的入口地址</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; IP = (中断类型码 * 4) &nbsp; &nbsp; ; 用地址为&nbsp;中断类型码 * 4 的内存内容 设置IP</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CS = (中断类型码 * 4 + 2) &nbsp; &nbsp; ; 类上</div><div>然后执行中断处理程序</div><div><br/></div><div>12.5&nbsp;中断处理程序 使用 <b>iret</b> 指令返回</div><div><b>iret</b> 功能：<b>&nbsp;pop ip &nbsp; &nbsp;&nbsp;pop cs</b> &nbsp; &nbsp;&nbsp;<b>popf</b></div><div><br/></div><div><br/></div><div>12.6 除法错误中断的处理</div><div>12.7 编程处理 0 号（除法错误）中断</div><div>12.8 安装</div><div>12.9 do1</div><div>12.10设置中断向量</div><div><br/></div><div>assume cs:code<br/>
 code segment<br/>

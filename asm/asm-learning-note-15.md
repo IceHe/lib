@@ -1,12 +1,9 @@
-title: ASM 汇编语言 15
-date: 2015-04-15
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; 使用 BIOS 进行键盘输入和磁盘读写。中断例程对键盘输入的处理。使用 int 16h 中断例程读取键盘缓冲区。字符串的输入。应用 int 13h 中断例程对磁盘进行读写。编写包含多个功能子程序的中断例程。
----
+# ASM 汇编语言 15
 
-<ul><li>Created on 2014-11</li></ul><br/>
+> ASM - Note&#58; 使用 BIOS 进行键盘输入和磁盘读写。中断例程对键盘输入的处理。使用 int 16h 中断例程读取键盘缓冲区。字符串的输入。应用 int 13h 中断例程对磁盘进行读写。编写包含多个功能子程序的中断例程。
+
+- Created on 2014-11
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十七、使用BIOS进行键盘输入和磁盘读写</b></div><div><b><br/></b></div><div>键盘输入：最基本的输入</div><div>磁盘：最常用的储存设备</div><div>BIOS：为以上两种外设<b>提供了最基本的中断例程</b></div><div><b><br/></b></div><div><b><br/></b></div><div>17.1 int 9 中断例程对键盘输入的处理</div><div><br/></div><div>一般键盘输入，在CPU执行完int 9中断例程后，都放到键盘缓冲区中。</div><div><b>键盘缓冲区</b>有<b>16个字</b>单元，<b>可以存储15个</b>按键的<b>扫描码和对应</b>的<b>ASCII码</b>。</div><div>键盘缓冲区使用环形队列结构管理的内存区。</div><div><br/></div><div>int 9 中断例程对键盘输入的处理方法：</div><div><img width="1355px" height="743px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png" /><img width="1334px" height="1302px" src="http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png" /></div><div><br/></div><div><br/></div><div>17.2 使用 int 16h 中断例程读取键盘缓冲区</div><div><br/></div><div>BIOS 提供了 <b>int 16h</b> 中断例程，它包<b>含功能</b>：<br/><b>从键盘缓冲区中读取</b>一个键盘<b>输入</b>，功能<b>编号为0</b>。</div><div><br/></div><div>（例）</div><div>mov ah, 0</div><div>int 16h</div><div>结果：(ah)=扫描码，(al)=ASCII码。</div><div>功能：</div><div>（1）检测键盘缓冲区是否有数据；</div><div>（2）没有则重复第一步</div><div>（3）读取缓冲区第一个字单元的键盘输入；</div><div>（4）将读取的扫描码送入ah，ASCII码送入al；</div><div>（5）将已读取的键盘输入从缓冲区中删除。</div><div>*. 具体例子，请看原书P303</div><div><br/></div><div>可见，BIOS的<b>int 9</b> 和 <b>int 16h</b>中断例程是一对<b>相互配合</b>的程序。</div><div><b>int 9</b> 向缓冲区<b>写，int 16h</b> 从缓冲区<b>读，</b>但<b>调用时机不同</b>。</div><div>int 9 在键按下时，它就写入；int 16h 则是<b>被应用程序调用</b>时，它才去读。</div><div><br/></div><div><br/></div><div><b>编程：</b>接收用户的键盘输入，输入r，将屏幕字符设置为红色；</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; g则设为绿色； b则设为蓝色。</div><div>源码：</div><div>assume cs:code<br/>
 code segment<br/>

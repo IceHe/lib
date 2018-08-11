@@ -1,12 +1,9 @@
-title: ASM 汇编语言 12
-date: 2015-04-12
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; 端口的读写，in / out 指令。shl 和 shr 指令。CMOS RAM 芯片，其中存储的时间信息。访问 CMOS RAM。
----
+# ASM 汇编语言 12
 
-<ul><li>Created on 2014-11</li></ul><br/>
+> ASM - Note&#58; 端口的读写，in / out 指令。shl 和 shr 指令。CMOS RAM 芯片，其中存储的时间信息。访问 CMOS RAM。
+
+- Created on 2014-11
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十四、端口</b></div><div><b><br/></b></div><div>PC系统中，和CPU通过总线项链的芯片除存储器外，还有：</div><div>（1）各种接口卡（如，网卡、显卡）上的接口芯片，它们控制接口卡进行工作</div><div>（2）主板上的接口芯片，CPU通过它们对部分外设进行访问</div><div>（3）其它芯片，用来存储相关的系统信息，或进行相关的IO处理</div><div><br/></div><div>这些芯片中，都有一组可以由CPU读写的寄存器。</div><div>物理上它们在不同芯片中，但在以下两点上相同：</div><div>（1）都和CPU的总线相连，当然这种连接是通过它们所在的芯片进行的</div><div>（2）CPU对它们进行读写时，都通过控制线向它们所在的芯片发出端口读写命令</div><div><br/></div><div>可见，CPU将这些寄存器当作端口，</div><div>对其统一编址，建立统一的地址端口空间。</div><div><br/></div><div>CPU可直接读写以下3个地方的数据：</div><div>（1）CPU内部的寄存器</div><div>（2）内存单元</div><div>（3）端口</div><div><br/></div><div><br/></div><div>14.1 <b>端口</b>的<b>读写</b></div><div>PC系统中，CPU最多可以定位<b>64K</b>个不同的<b>端口</b>，<b>0~65535</b></div><div>对<b>端口</b>的<b>读写指令</b>只有两条：<b>in</b>、<b>out</b></div><div>而无push、pop、mov等指令</div><div><br/></div><div><b>访问</b>端口：</div><div><b>in al, 60h</b></div><div>（1）CPU通过地址线将地址信息60h发出</div><div>（2）CPU通过控制线发出端口读命令，选中端口所在的芯片，</div><div>&nbsp; &nbsp; &nbsp;并通知它，将要从中读取数据</div><div>（3）端口所在的芯片将60h端口中的数据通过数据线送入CPU</div><div><br/></div><div><b>写入</b>端口：</div><div><b>out 20h, al</b></div><div>类同上一条</div><div><br/></div><div><br/></div><div>14.2 <b>CMOS &nbsp;RAM</b> 芯片</div><div><br/></div><div>CMOS &nbsp;RAM&nbsp;芯片 一般<b>简称 CMOS</b>。特征如下：</div><div>（1）包含一个实时钟，和一个128个存储单元的RAM存储器。</div><div>&nbsp; &nbsp; &nbsp;（早期计算机为64Bytes）</div><div>（2）靠电池供电，关机后其内部实时钟仍可正常工作，RAM中的信息不丢失。</div><div>（3）128个字节的RAM中，内部实时钟占用0~0dh单元来保存时间，</div><div>&nbsp; &nbsp; &nbsp;其余大部分单元用于保存系统配置信息，供系统启动时BIOS程序读取。</div><div>&nbsp; &nbsp; &nbsp;BIOS也提供了相关程序，使开机时可配置CMOS &nbsp;RAM中的系统信息。</div><div>（4）该芯片内部有两个端口，地址分别为70h、71h。通过它们读写CMOS RAM。</div><div>（5）70h为地址端口，存放要访问的CMOS RAM单元的地址；</div><div>&nbsp; &nbsp; &nbsp;71h为数据端口，存放从选定的CMOS RAM单元中读取的数据。</div><div>&nbsp; &nbsp; &nbsp;如读取CMOS的2号存储单元：</div><div>&nbsp; &nbsp; &nbsp;a. 将 2 送入端口 70h</div><div>&nbsp; &nbsp; &nbsp;b. 从端口 71h 读 2 号单元的内容</div><div><br/></div><div>检测点14.1</div><div>编程：读取CMOS RAM的2号单元的内容 / 将0写入该单元</div><div>assume cs:code<br/>
 code segment<br/>

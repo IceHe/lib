@@ -1,12 +1,9 @@
-title: ASM 汇编语言 6
-date: 2015-04-06
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; 转移指令的原理。操作符 offset。以不同寻址方式使用 jmp 指令。jcxz 有条件转移，loop 循环，dec 等指令。编译器对转移位移的超界检测。在屏幕中间显示绿色、绿底红色、白底蓝色的字符串。
----
+# ASM 汇编语言 6
 
-<ul><li>Created on 2014-10</li></ul><br/>
+> ASM - Note&#58; 转移指令的原理。操作符 offset。以不同寻址方式使用 jmp 指令。jcxz 有条件转移，loop 循环，dec 等指令。编译器对转移位移的超界检测。在屏幕中间显示绿色、绿底红色、白底蓝色的字符串。
+
+- Created on 2014-10
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 <div><br/></div><b>章九、转移指令的原理</b><div><br/></div><b>可以修改IP，或同时修改CS和IP</b>的指令统称为<b>转移指令。</b><div><br/></div>

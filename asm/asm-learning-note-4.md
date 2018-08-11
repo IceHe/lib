@@ -1,12 +1,9 @@
-title: ASM 汇编语言 4
-date: 2015-04-04
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; 使用栈，将数据、代码、栈放入不同的段，编写并调试具有多个段的程序，以字符形式给出数据，大小写转换问题，[idata] 直接寻址，[bx] 间接寻址，[bx + idata] 相对寻址，SI 和 DI 寄存器。
----
+# ASM 汇编语言 4
 
-<ul><li>Created on 2014-10</li></ul><br/>
+> ASM - Note&#58; 使用栈，将数据、代码、栈放入不同的段，编写并调试具有多个段的程序，以字符形式给出数据，大小写转换问题，[idata] 直接寻址，[bx] 间接寻址，[bx + idata] 相对寻址，SI 和 DI 寄存器。
+
+- Created on 2014-10
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章六、包含多个段的程序</b></div><div><br/></div><div>程序取得所需空间的方法：</div><div>（1）在加载程序的时候为程序分配。</div><div>（2）在执行过程中向系统申请。（本教材不讨论该方法）</div><div><br/></div>
 6.1 在代码段中使用数据

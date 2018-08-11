@@ -1,12 +1,9 @@
-title: ASM 汇编语言 11
-date: 2015-04-11
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; int 指令，中断例程。实现 2*2456^2 。将一个全是字母，以 0 结尾的字符串，转化为大写。用 7ch 中断例程实现 loop 指令的功能。BIOS 和 DOS 所提供的中断例程，及其中断例程的安装过程及其应用。
----
+# ASM 汇编语言 11
 
-<ul><li>Created on 2014-11</li></ul><br/>
+> ASM - Note&#58; int 指令，中断例程。实现 2*2456^2 。将一个全是字母，以 0 结尾的字符串，转化为大写。用 7ch 中断例程实现 loop 指令的功能。BIOS 和 DOS 所提供的中断例程，及其中断例程的安装过程及其应用。
+
+- Created on 2014-11
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十三、int 指令</b></div><div><b><br/></b></div><div>本章介绍 由int指令引发的中断</div><div><b><br/></b></div><div>13.1 int 指令</div><div>没有做除法，也可以直接使用&nbsp;<b>int 0</b>&nbsp;指令<b>引发除法溢出中断</b>。</div><div><br/></div><div><b>中断处理程序</b>&nbsp;—— 简称：<b>中断例程</b></div><div><b><br/></b></div><div>13.2 编写供应用程序调用的中断例程</div><div><br/></div><div><b>实例1：</b>实现2 * 2456^2</div><div>使用中断处理程序实现平方</div><div>assume cs:code<br/>
 code segment<br/>

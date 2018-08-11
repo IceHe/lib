@@ -1,12 +1,9 @@
-title: ASM 汇编语言 14
-date: 2015-04-14
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; 直接定址表。数据标号、地址标号。在其它段中，使用数据标号。写子程序计算 sin(x)。实现子程序 setscreen，为显示输出提供指定功能。
----
+# ASM 汇编语言 14
 
-<ul><li>Created on 2014-11</li></ul><br/>
+> ASM - Note&#58; 直接定址表。数据标号、地址标号。在其它段中，使用数据标号。写子程序计算 sin(x)。实现子程序 setscreen，为显示输出提供指定功能。
+
+- Created on 2014-11
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章十六、直接定址表</b></div><div><b><br/></b></div><div>16.1 描述了单元长度的标号——<b>数据标号</b></div><div><br/></div><div>（1）以下程序中，code、a、b、start、s（后面带冒号“:”）</div><div>都是<b><u>地址标号</u>，仅表示</b><b>内存单元</b>的<b>地址</b>。</div><div><br/></div><div>assume cs:code<br/>
 code segment<br/><b>a:</b>&nbsp;&nbsp;&nbsp;&nbsp; db 1, 2, 3, 4, 5, 6, 7, 8<br/><b>b:</b>&nbsp;&nbsp;&nbsp;&nbsp; dw 0<br/><b>start:</b><br/>

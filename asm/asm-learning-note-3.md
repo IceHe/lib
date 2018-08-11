@@ -1,12 +1,9 @@
-title: ASM 汇编语言 3
-date: 2015-04-03
-noupdate: true
-categories: [ASM]
-tags: [ASM]
-description: ASM - Note&#58; 汇编指令，伪指令，segment … ends，end，assume，编译和连接，执行过程的跟踪，单步调试，[BX] 和 loop 指令，Debug 程序的各种命令，段前缀，一段安全的空间。
----
+# ASM 汇编语言 3
 
-<ul><li>Created on 2014-10</li></ul><br/>
+> ASM - Note&#58; 汇编指令，伪指令，segment … ends，end，assume，编译和连接，执行过程的跟踪，单步调试，[BX] 和 loop 指令，Debug 程序的各种命令，段前缀，一段安全的空间。
+
+- Created on 2014-10
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>教材：《汇编语言》（第二版）王爽 著 清华大学出版社</div><div><br/></div><div><b>章四、第一个程序</b></div><div><br/></div>
 4.2 源程序 例：
