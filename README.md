@@ -1,13 +1,5 @@
 # IceHe's Lib
 
-## Review
-
-- [Diary 日志](diary/) : 日计划 + 日报 ( [archived](diary/) )
-- [CV 简历](cv.md) ：技能、经历、教育
-    - 微博视频平台 / 服务端 / Java
-    - 微博移动应用服务 / 服务端 / PHP
-    - 华南理工 / 软件工程 / 本科
-
 ## Mac
 
 - [利器 - 软件、物件的推荐](tools.md)
@@ -94,6 +86,7 @@ Writing : Record my Life
 
 Time Management
 
+- [日报周报](diary/)
 - [生活指南](think/life_manual.md) ( deprecated )
 - [~~时间管理日志~~](lifelogs.md) ( archived )
 - [~~时间管理日志说明~~](think/time_mgt.md) ( archived )
@@ -103,6 +96,10 @@ Time Management
 - [技术阅读收藏](tech.md) ( 2017-11-15 )
 - [文字阅读收藏](read.md) ( 2017-11-15 )
 - [最喜爱的](favourites.md) : 影视 & ACGMN
+- [CV 简历](cv.md) ：技能、经历、教育
+    - 微博视频平台 / 服务端 / Java
+    - 微博移动应用服务 / 服务端 / PHP
+    - 华南理工 / 软件工程 / 本科
 
 ## Friends
 
