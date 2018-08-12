@@ -298,7 +298,7 @@ end start
 assume cs:code, ds:data, ss:stack
 
 data segment
-     db &apos;welcome to masm!&apos;
+     db 'welcome to masm!'
      db 27h, 42h, 01h, 13 dup (0)
 data ends
 
