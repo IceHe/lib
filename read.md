@@ -2,12 +2,6 @@
 
 > Reading Bookmarks 文字阅读内容的书签：网站、博客、文章、问答、专栏、书籍、播客、微信公众号…
 
----
-
-> Never memorize something that you can look up.
-> 
-> __Albert Einstein__
-
 - __上标__
     - The item with <sup>__Best__</sup>&nbsp; implies it is `one of the best`.
     - The item with <sup>Note</sup>&nbsp; implies it is `a link to my related note`.
@@ -384,3 +378,7 @@
 - 毕竟本站访问量少得可怜，即使在这里分享，也不能产生太多分享的价值。
 - 所以，还是花更多时间在提升自己算了。
 - 2017-11-15
+
+> Never memorize something that you can look up.
+>
+> __Albert Einstein__

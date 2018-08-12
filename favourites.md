@@ -1,33 +1,28 @@
 # 最喜爱的
 
-
 > Favorites: 我最喜欢的书籍、电影、电视剧、动画、游戏…
 
-{% cq %}
-乐以忘忧，不知老之将至。
+__所爱之物记录于此。__ 所爱不少，所以只记录最偏爱的那一些。
 
-__《论语·述而》__
-{% endcq %}
+## Apps
 
-- __所爱之物记录于此。__ 所爱不少，所以只记录最偏爱的那一些。
-
-# Apps
-# 物件
+## 物件
 
 - [__利器推荐__](/tools)
 
-# 运动
+## 运动
 
 - __羽毛球__
 - [~~__毽球__~~](/about/#华工毽球社-社长)
 
-# 书
+## 书
 
 - [__阅读收藏夹__](/read/#书)
 
-# 电影
+## 电影
 
-大致按喜爱程度，从低到高排：
+大致按喜爱程度，从低到高排
+
 - [__Ready Player One__](https://movie.douban.com/subject/4920389/)
     《头号玩家》，热爱游戏！
 - [__Limitless__](https://movie.douban.com/subject/3041269/)
@@ -73,7 +68,7 @@ __《论语·述而》__
 - [__你的名字。__](https://movie.douban.com/subject/1308807/) <sup>最爱 No.1</sup>
     梦。
 
-# 电视剧
+## 电视剧
 
 - [__半泽直树__](https://movie.douban.com/subject/24697949/)
     复仇，弱肉强食。
@@ -86,7 +81,7 @@ __《论语·述而》__
 - [__Black Mirror__](https://movie.douban.com/subject_search?search_text=Black+Mirror&cat=1002) <sup>__Best__</sup>
     《黑镜》，警世。<sup>（第一季最精彩）</sup>
 
-# 动画
+## 动画
 
 - [__食梦者__](https://movie.douban.com/subject/4195628/) <sup>__Best of the Best__</sup>
     十年！<sup>（包括 [第二季](https://movie.douban.com/subject/5407066/)、[第三季](https://movie.douban.com/subject/7161694/)）</sup>
@@ -187,27 +182,27 @@ __《论语·述而》__
 - <span class="val_pos icon-douban"> &nbsp;[__其它看过的片__](http://movie.douban.com/people/IceHeGZ/collect?sort=rating&start=0&mode=grid&tags_sort=count)
     用豆瓣记录所有看过的片意义不大还麻烦，以后只在博客此处做记录。
 
-# 漫画
+## 漫画
 
 - __初恋僵尸__
 - __官能先生__
 
-# 轻小说
+## 轻小说
 
 - __Overload__
 - __龙王的工作__
 - __为了女儿，我说不定连魔王都能干掉。__
 
-# 游戏
+## 游戏
 
-## iOS
+### iOS
 
 - [__Deemo__](https://itunes.apple.com/cn/app/deemo/id700637744?mt=8) <sup>__Best__</sup>
     最爱的音乐游戏！最喜爱的曲目： Magnolia , Walking by the sea , Living in the one.
 - [__Beholder__](https://itunes.apple.com/cn/app/beholder/id1205486761?mt=8) <sup>__Best__</sup>
     反乌托邦。只要看一看游戏开头的过场动画，就会被故事背景和设定深深吸引…… 玩起来有点累，但毫无疑问，这是一款神作！
 
-## PC
+### PC
 
 - [__三国志 9__](http://www.gamecity.ne.jp/products/products/ee/new/san9/)
     战略游戏经典之作。
@@ -218,7 +213,7 @@ __《论语·述而》__
 - [__Warcraft 3__](http://us.blizzard.com/en-us/games/war3/) <sup>__Best__</sup>
     《魔兽争霸3 冰封王座》！当年多喜欢即时战略，不过这股风潮已经过去。之后崛起的 Dota、LOL 就没玩了。
 
-## 掌机
+### 掌机
 
 - [__Final Fantasy Tactics A2__](http://ffta2.ffsky.cn/) <sup>__Best__</sup>
     《最终幻想战略版》 A & A2 ！ 我最喜欢的游戏类型就是战棋，它就是我心目中的神作！ 最喜欢的最终幻想衍生游戏分支，我重玩次数最多的游戏， 献给这个系列的两作游戏的时间远超700小时。
@@ -231,14 +226,14 @@ __《论语·述而》__
 - [__Pokemon__](https://en.wikipedia.org/wiki/Pok%C3%A9mon)
     《口袋怪物》系列，童年经典。
 
-## PS2
+### PS2
 
 - [__Gundom Seed & Seed Destiny__](https://en.wikipedia.org/wiki/Gundam_Seed:_Rengou_vs._Z.A.F.T.)
     当年迷高达的，所以爱屋及乌。
 - [__木叶的忍者英雄们 系列__](http://www.baike.com/wiki/%E3%80%8A%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85%3A%E6%9C%A8%E5%8F%B6%E8%8B%B1%E9%9843%E3%80%8B)
     我曾经最精通的格斗游戏。有很长一段时间，我曾是我那一片街区，这个游戏打得最好的！
 
-## 红白机
+### 红白机
 
 - [__热血系列__](https://zh.wikipedia.org/wiki/%E7%86%B1%E8%A1%80%E7%B3%BB%E5%88%97) <sup>__Best__</sup>
     热血硬派、热血高校、热血物语、热血足球、热血篮球、 热血进行曲、热血新记录、热血格斗传说……
@@ -247,7 +242,7 @@ __《论语·述而》__
 - [__Super Mario Bros.__](https://zh.wikipedia.org/wiki/%E8%B6%85%E7%BA%A7%E9%A9%AC%E9%87%8C%E5%A5%A5%E5%85%84%E5%BC%9F)
     《超级马里奥兄弟》，横版闯关的经典。
 
-## Gal Games
+### Gal Games
 
 - [__沙耶之歌__](https://zh.wikipedia.org/wiki/%E6%B2%99%E8%80%B6%E4%B9%8B%E6%AD%8C) <sup>__Best__</sup>
     我的重口 Gal 入门作，虚渊玄作品。
@@ -256,14 +251,14 @@ __《论语·述而》__
 - [__鬼哭街 2011 重制版__](http://baike.baidu.com/view/8890991.htm) <sup>__Best__</sup>
     我想象中的现代中式武侠打斗的文字描写范本，虚渊玄作品。
 
-## 其它
+### 其它
 
 - [__游戏王__](https://zh.wikipedia.org/wiki/%E9%81%8A%E6%88%B2%E7%8E%8B%E9%9B%86%E6%8F%9B%E7%B4%99%E7%89%8C%E9%81%8A%E6%88%B2) <sup>__Best__</sup>
     挚爱的卡牌游戏，当年几个损友一起愉快地玩了三年，花了不少钱去买正版卡牌；初三戒了，就再也没有继续下去，几个损友如今也难再聚。
 - [__围棋__](https://zh.wikipedia.org/wiki/%E5%9B%B4%E6%A3%8B) <sup>__Best__</sup>
     深奥幽玄。当年买了好几本大部头教材，小学中午午睡时间我不睡觉，就在被窝里钻研。
 
-# 歌手
+## 歌手
 
 - Twins <sup>__Best__</sup>
 - 古巨基
@@ -289,3 +284,7 @@ __《论语·述而》__
 - GARNiDELiA
 - LiSA
 - Ryo（现代音乐创作家！）
+
+> 乐以忘忧，不知老之将至。
+>
+> __《论语·述而》__
