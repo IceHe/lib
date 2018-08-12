@@ -3,11 +3,11 @@
 > AppleScript Advanced: 检查控制 Wifi、蓝牙、硬盘、键盘输入，执行命令，操纵其它 App 等：如 Evernote 笔记的同步、检索、编辑、复制、删除、导入导出、重命名、移动笔记本、加标签…
 
 - I supposed that you have learned AppleScript, so I will not introduce it in detail.
-- You can learn AppleScript in practice or my [AppleScript Quick Start 快速入门](/applescript/applescript/).
+- You can learn AppleScript in practice or my [AppleScript Quick Start 快速入门](scripts/applescript/applescript.md).
 
 ## References
 
-- [AppleScript Quick Start 快速入门](/applescript/applescript/) - My Blog Article
+- [AppleScript Quick Start 快速入门](scripts/applescript/applescript.md) - My Blog Article
 - [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
 - [Mac Wrangle Evernote with AppleScript](https://dev.evernote.com/doc/articles/applescript.php) / [通过 AppleScript 连接印象笔记](https://dev.yinxiang.com/doc/articles/applescript.php) - Evernote Official Docs
 - [Evernote Search Grammar](https://dev.evernote.com/doc/articles/search_grammar.php) / [搜索语法](https://dev.yinxiang.com/doc/articles/search_grammar.php) - How to Search Notes
@@ -20,7 +20,7 @@
 ## Evernote
 
 - I just list the code that I use most frequently.
-- If you want further use of manipulating Evernote by AppleScript, you can read the official documentations from [Apple and Evernote](/applescript/evernote/#References) and use other programming language to cooperate with AppleScript.
+- If you want further use of manipulating Evernote by AppleScript, you can read the official documentations from [Apple and Evernote](scripts/applescript/evernote.md#References) and use other programming language to cooperate with AppleScript.
 - There is only some sample code, so it cannot run successfully in this order.
 
 But you can learn how to manipulate Evernote with AppleScript from it.<br/><br/>

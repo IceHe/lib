@@ -471,8 +471,8 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 - 进阶用法：Keyboard Maestro、Alfred 等的许多效率类软件不但能被 AppleScript 调用和操作，他们也能调用 AppleScript。所以它作为一种胶水语言，可以与其它 Apps 甚至命令行的命令、脚本进行组合，产生进阶的功能，实现一些 Apps 原来并没有的新功能，以满足自身的需求。
 - 可以参考：
     《[**AppleScript Language Guide**](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)》官方文档
-    《[**用 AppleScript 操作 Evernote / macOS**](/applescript/evernote_osx/)》
-    《[**AppleScript Quick Start 快速入门**](/applescript/applescript/)》
+    《[**用 AppleScript 操作 Evernote / macOS**](scripts/applescript/evernote-macos.md)》
+    《[**AppleScript Quick Start 快速入门**](scripts/applescript/applescript.md)》
 
 ### Automator
 

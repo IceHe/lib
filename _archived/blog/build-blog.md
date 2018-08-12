@@ -9,7 +9,7 @@
 > 《题破山寺后禅院》**常建**
 
 - 原博客：https://icehe.me
-- **进阶文章**《 [**折腾个人博客**](/web/blog_changelog) 》
+- **进阶文章**《 [**折腾个人博客**](_archived/blog/blog_changelog.md) 》
 
 ## 后记
 

@@ -466,5 +466,5 @@ log test
 
 Further use
 
-1. [用 AppleScript 操作 Evernote / macOS](/applescript/evernote/)
+1. [用 AppleScript 操作 Evernote / macOS](scripts/applescript/evernote.md)
 2. [A service to log Dictionary lookups ](http://hints.macworld.com/article.php?story=20121106085330476)
