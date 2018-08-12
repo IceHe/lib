@@ -99,13 +99,13 @@ Python
 
 ## ~~Archived~~
 
-Blog
+~~Blog~~
 
 - [~~个人技术博客 icehe.me~~](https://icehe.me)
 - [~~搭建个人博客~~](_archived/blog/build-blog.md)
 - [~~折腾个人博客~~](_archived/blog/blog-changelog.md)
 
-Time Management
+~~Time Management~~
 
 - [~~生活笔记~~](_archived/think/life-note.md)
 - [~~生活指南~~](_archived/think/life-manual.md)
