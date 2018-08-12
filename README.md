@@ -87,7 +87,7 @@ Writing : Record my Life
 Time Management
 
 - [日报周报](diary/)
-- [生活指南](think/life-manual.md) ( deprecated )
+- [生活指南](_archived/think/life-manual.md) ( deprecated )
 - [~~时间管理日志~~](_archived/lifelogs.md) ( archived )
 - [~~时间管理日志说明~~](_archived/think/time-mgt.md) ( archived )
 
