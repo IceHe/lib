@@ -2,8 +2,6 @@
 
 > C++ Advanced - Note: class 类；宁以 pass-by-reference-to-const 替换 pass-by-value；错误返回 reference；private 私有；宁以 non-member、non-friend 替换 member 函数；类型转换；不抛出异常的 swap 函数；尽可能延后变量定义式的出现时间；minimize casting 尽量少做转型操作。
 
----
-
 - Created on 2014-05
 
 ## 条款19：设计class犹如设计type

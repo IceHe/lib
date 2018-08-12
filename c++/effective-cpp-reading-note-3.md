@@ -2,8 +2,6 @@
 
 > C++ Advanced - Note: complilation dependencies 编译依存关系降至最低；public->is-a 关系。Interface、Inheritance 接口与继承；绝不重新定义继承而来的 non-virtual 函数；has-a 关系；多重继承；Implict Interface、Polymorphism 隐式接口和编译期多态；typename；学习处理模板化基类内的名称。
 
----
-
 - Created on 2014-05
 
 ## 条款31：将文件间的编译依存关系降至最低
