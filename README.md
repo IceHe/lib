@@ -71,10 +71,10 @@ Python
 
 ### Marks
 
-- [技术阅读收藏](tech.md) ( 2017-11-15 )
-- [文字阅读收藏](read.md) ( 2017-11-15 )
-- [最喜爱的](favourites.md) : 影视 & ACGMN
-- [CV 简历](cv.md) ：技能、经历、教育
+- [技术阅读收藏](marks/tech.md) ( 2017-11-15 )
+- [文字阅读收藏](marks/read.md) ( 2017-11-15 )
+- [最喜爱的](marks/favourites.md) : 影视 & ACGMN
+- [CV 简历](marks/cv.md) ：技能、经历、教育
     - 微博视频平台 / 服务端 / Java
     - 微博移动应用服务 / 服务端 / PHP
     - 华南理工 / 软件工程 / 本科
