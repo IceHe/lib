@@ -3,9 +3,9 @@
 - Created on 2016-08-01 00:00:00
 
 [**< Jun. 2016** - Prev 上一月](/lifelogs/2016/06/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Aug. 2016 >**](/lifelogs/2016/08/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs/index.md)
-<br/>
-#### Logs 日志记录
----
+
+## Logs 日志记录
+
 1. [16/07/01 stu31 spo8 joy33 was13](/lifelogs/2016/07/d01.md)
 2. [16/07/02 stu40 joy11 was20](/lifelogs/2016/07/d02.md)
 3. [16/07/03 stu44 joy30](/lifelogs/2016/07/d03.md)

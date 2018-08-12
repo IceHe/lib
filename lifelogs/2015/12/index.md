@@ -3,9 +3,9 @@
 - Created on 2015-12-01 00:00:00
 
 [**< Nov. 2015** - Prev 上一月](/lifelogs/2015/11/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jan. 2016 >**](/lifelogs/2016/01/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs/index.md)
-<br/>
-#### Logs 日志记录
----
+
+## Logs 日志记录
+
 1. [15/12/01 stu47 spo18](/lifelogs/2015/12/d01.md)
 2. [15/12/02 stu61 spo6 was9](/lifelogs/2015/12/d02.md)
 3. [15/12/03 stu53 spo12 was3](/lifelogs/2015/12/d03.md)

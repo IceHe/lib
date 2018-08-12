@@ -3,9 +3,9 @@
 - Created on 2016-04-01 00:00:00
 
 [**< Mar. 2016** - Prev 上一月](/lifelogs/2016/03/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **May. 2016 >**](/lifelogs/2016/05/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs/index.md)
-<br/>
-#### Logs 日志记录
----
+
+## Logs 日志记录
+
 1. [16/04/01 stu40 joy25 was11](/lifelogs/2016/04/d01.md)
 2. [16/04/02 stu13 spo20 joy13 mus49](/lifelogs/2016/04/d02.md)
 3. [16/04/03 stu24 spo3 joy27 mus40](/lifelogs/2016/04/d03.md)

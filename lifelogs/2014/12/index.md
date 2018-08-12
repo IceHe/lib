@@ -3,9 +3,10 @@
 - Created on 2014-12-01
 
 [**< Nov. 2014** - Prev 上一月](/lifelogs/2014/11/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jan. 2015 >**](/lifelogs/2015/01/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs)
-<br/>
-#### Logs 日志记录
----
+
+
+## Logs 日志记录
+
 1. [14/12/01](/lifelogs/2014/12/d01.md)
 2. [14/12/02](/lifelogs/2014/12/d02.md)
 3. [14/12/03](/lifelogs/2014/12/d03.md)
