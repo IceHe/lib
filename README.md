@@ -63,12 +63,12 @@ JavaScript
 
 Python
 
-- [Python3 快速入门](python/quick_start.md)
+- [Python3 快速入门](python/python-quick-start.md)
 
 ## Blog
 
-- [搭建个人博客](web/build_blog.md)
-- [折腾个人博客](web/blog_changelog.md)
+- [搭建个人博客](web/build-blog.md)
+- [折腾个人博客](web/blog-changelog.md)
 - [个人技术博客 icehe.me](https://icehe.me) ( archived )
 
 ## Think
@@ -76,21 +76,21 @@ Python
 Writing : Record my Life
 
 - 2018 春夏秋冬 ( TODO )
-- [2017 夏秋冬](think/2017_from_summer_to_winter.md)
-- [2017 春](think/2017_spring.md)
-- [2016 冬](think/2016_winter.md)
-- [2016 秋](think/2016_fall.md)
-- [2016 春夏](think/2016_summer.md)
-- [再见 2015](think/bye2015.md)
+- [2017 夏秋冬](think/2017-summer-2-winter.md)
+- [2017 春](think/2017-spring.md)
+- [2016 冬](think/2016-winter.md)
+- [2016 秋](think/2016-fall.md)
+- [2016 春夏](think/2016-summer.md)
+- [再见 2015](think/2015-bye.md)
 - [回忆](moments.md)
 - [旧博索引](old-blog.md)
 
 Time Management
 
 - [日报周报](diary/)
-- [生活指南](think/life_manual.md) ( deprecated )
+- [生活指南](think/life-manual.md) ( deprecated )
 - [~~时间管理日志~~](lifelogs.md) ( archived )
-- [~~时间管理日志说明~~](think/time_mgt.md) ( archived )
+- [~~时间管理日志说明~~](think/time-mgt.md) ( archived )
 
 ## Marks
 
