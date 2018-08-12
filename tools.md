@@ -15,8 +15,6 @@
 
 - ~~删除线~~ 标识的一定是我现在不用的 Apps。
 
----
-
 ## 软件
 
 主要介绍：macOS、[iOS](#iOS) 的 apps（下文 Apple 指代 macOS + iOS），还有少数几个 [Windows](#Windows) 的软件
