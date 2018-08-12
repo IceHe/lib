@@ -1,7 +1,7 @@
 # Family Accumulation
 
-date: 2016-06-15
----
+- Created on 2016-06-15
+
 
 # 论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？
 

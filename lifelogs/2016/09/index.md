@@ -1,8 +1,7 @@
 # 2016/09 stu51 spo11 was6
 
-date: 2016-10-01 00:00:00
-toc: false
----
+- Created on 2016-10-01 00:00:00
+
 [**< Aug. 2016** - Prev 上一月](/lifelogs/2016/08/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Oct. 2016 >**](/lifelogs/2016/10/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs/index.md)
 <br/>
 #### Logs 日志记录

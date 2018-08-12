@@ -1,7 +1,7 @@
 # How to Study
 
-date: 2016-06-24
----
+- Created on 2016-06-24
+
 
 # Studying
 

@@ -1,8 +1,7 @@
 # 2015/12 stu50 spo9 was4
 
-date: 2015-12-01 00:00:00
-toc: false
----
+- Created on 2015-12-01 00:00:00
+
 [**< Nov. 2015** - Prev 上一月](/lifelogs/2015/11/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jan. 2016 >**](/lifelogs/2016/01/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs/index.md)
 <br/>
 #### Logs 日志记录

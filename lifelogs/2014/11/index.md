@@ -1,10 +1,9 @@
 # 2014-11
 
-date: 2014-11-01
-toc: false
----
+- Created on 2014-11-01
+
 [**< Oct. 2014** - Prev 上一月](/lifelogs/2014/2014%20Aug~Dec%20Time%20Statistics%20-%20From%20aTimeLogger.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Dec. 2014 >**](/lifelogs/2014/12/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs)
-<br/>
+
 #### Logs 日志记录
 ---
 4. [14/11/04](/lifelogs/2014/11/d04.md)

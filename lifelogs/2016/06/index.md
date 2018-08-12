@@ -1,8 +1,7 @@
 # 2016/06 stu46 spo10 was4
 
-date: 2016-06-01 00:00:00
-toc: false
----
+- Created on 2016-06-01 00:00:00
+
 [**< May. 2016** - Prev 上一月](/lifelogs/2016/05/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jul. 2016 >**](/lifelogs/2016/07/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs/index.md)
 <br/>
 #### Logs 日志记录

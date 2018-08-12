@@ -1,8 +1,7 @@
 # 2015/05 stu30 spo8 was6
 
-date: 2015-05-01
-toc: false
----
+- Created on 2015-05-01
+
 [**< Apr. 2015** - Prev 上一月](/lifelogs/2015/04/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jun. 2015 >**](/lifelogs/2015/06/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs)
 <br/>
 #### Logs 日志记录

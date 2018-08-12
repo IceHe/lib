@@ -1,8 +1,7 @@
 # 2015/06 stu21 spo4 was2
 
-date: 2015-06-01
-toc: false
----
+- Created on 2015-06-01
+
 [**< May. 2015** - Prev 上一月](/lifelogs/2015/05/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jul. 2015 >**](/lifelogs/2015/07/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs)
 <br/>
 #### Logs 日志记录

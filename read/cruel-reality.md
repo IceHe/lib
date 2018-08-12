@@ -1,7 +1,7 @@
 # Cruel Reality
 
-date: 2016-06-15
----
+- Created on 2016-06-15
+
 
 # Loser 应该知道的 6 个残酷人生事实
 

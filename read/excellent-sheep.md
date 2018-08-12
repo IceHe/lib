@@ -1,7 +1,7 @@
 # Excellent Sheep
 
-date: 2016-06-17
----
+- Created on 2016-06-17
+
 
 # 精致的利己主义者和常青藤的绵羊
 

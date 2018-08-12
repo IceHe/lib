@@ -1,7 +1,7 @@
 # Happiness Course
 
-date: 2015-02-27
----
+- Created on 2015-02-27
+
 
 # 《幸福课》知乎专栏 系列文章
 

@@ -1,7 +1,7 @@
 # Chinese Chess
 
-date: 2016-06-20
----
+- Created on 2016-06-20
+
 
 # 风尘棋客
 
