@@ -148,7 +148,7 @@ PV 阅读数统计
 
 自动化 导入个人时间管理日志
 
-- 自动导出 自己在 Evernote 上做的 [时间管理日志](_archived/lifelogs/)
+- 自动导出 自己在 Evernote 上做的 [时间管理日志](_archived/lifelogs.md)
     - 修改内容以适应 Hexo 的文章要求
 - 自动导入 成为 Hexo 文章，并部署到网站上
 - 后来改用更便捷的 App 进行管理时间，不再更新博客上的时间管理日志

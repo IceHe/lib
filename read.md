@@ -24,22 +24,22 @@
 
 - [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](https://www.zhihu.com/question/24561532/answer/28240920)- 灯塔 <sup>__Best__ / [Note](read/meaning.md)</sup>
 - [眼前的苟且，也正是诗和远方](http://zhuanlan.zhihu.com/lswlsw/19895904) - 迷茫 <sup>__Best__ / [Note](read/poet.md)</sup>
-- [为什么长大以后反而不容易快乐？](http://zhuanlan.zhihu.com/xiepanda/19582894)- You are not special. <sup>__Best__ / [Note](read/why_unhappy.md)</sup>
-- [《 幸福课 》动机在杭州 的知乎专栏](http://zhuanlan.zhihu.com/happy) - 平常心 <sup>__Best__ / [Note](read/happiness_course.md)</sup>
-- [风尘棋客](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=216723229&amp;idx=1&amp;sn=87c7dbb95abce565fa001c3a5063427a&amp;scene=1&amp;srcid=0308jCVD1x8LridYzELGd0ZS#rd)  <sup>__Best__ / [Note](read/chinese_chess.md)</sup>
+- [为什么长大以后反而不容易快乐？](http://zhuanlan.zhihu.com/xiepanda/19582894)- You are not special. <sup>__Best__ / [Note](read/why-unhappy.md)</sup>
+- [《 幸福课 》动机在杭州 的知乎专栏](http://zhuanlan.zhihu.com/happy) - 平常心 <sup>__Best__ / [Note](read/happiness-course.md)</sup>
+- [风尘棋客](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=216723229&amp;idx=1&amp;sn=87c7dbb95abce565fa001c3a5063427a&amp;scene=1&amp;srcid=0308jCVD1x8LridYzELGd0ZS#rd)  <sup>__Best__ / [Note](read/chinese-chess.md)</sup>
     「年轻的时候，我一直觉得世界上最酷的事情，莫过于无忧无虑地四处环游；可就在刚才，看到许银川在比以前更胖了的赵大胖面前推枰认负的那一刻，忽然觉得，能十年如一日地把一件看似简单的事情做到极致，或许更酷一点。」
 - [我与清华的差距在哪里？](https://www.zhihu.com/question/47607160/answer/107439050) - 从一开始就……
 - [《 论悲观主义的益处 》阿兰·德·波顿](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=233397081&amp;idx=1&amp;sn=836801a648013f925fca14de3572c45c&amp;scene=1&amp;srcid=0309TRipy9egTmxD0B51Q272#rd) <sup>__Best__ / [Note](read/pessimist.md)</sup>
     「如果你拒绝让你的悲伤压在身上，哪怕只有一个钟点的时光；假如你总是汲汲营营地试图提前避免或者推迟一切可能的伤痛；假如你认为痛苦是邪恶的，是可憎的，是理应消灭的，是异常变态的存在，那么你的心中显然窃据着舒适的宗教。对幸福的理解是多么浅薄啊，你这个贪图舒适且渺小的家伙！幸福与不幸乃双生姐妹，要么一起成长，要么一起萎缩，就像你的处境一样。」
-- [Loser 应该知道的 6 个残酷人生事实](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) <sup>__Best__ / [Note](read/cruel_reality.md)</sup>
+- [Loser 应该知道的 6 个残酷人生事实](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) <sup>__Best__ / [Note](read/cruel-reality.md)</sup>
     「这个世界只关心你能给予什么。」英语原文：[6 Harsh Truths That Will Make You a Better Person](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
-- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](https://www.zhihu.com/question/23721974/answer/25493813) <sup>[Note](read/teacher_said.md)</sup>
+- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](https://www.zhihu.com/question/23721974/answer/25493813) <sup>[Note](read/teacher-said.md)</sup>
     「我们用『我能做到什么』来判断和定位自己，而别人用『你已经做过什么』来判断和定位你。」
-- [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](https://www.douban.com/note/502334634/) <sup>[Note](read/family_accumulation.md)</sup>
+- [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](https://www.douban.com/note/502334634/) <sup>[Note](read/family-accumulation.md)</sup>
     家世的积累，才是你的起点。
-- [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](https://www.zhihu.com/question/20773220) <sup>[Note](read/suggestions_for_the_young.md)</sup>
+- [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](https://www.zhihu.com/question/20773220) <sup>[Note](read/suggestions-for_the-young.md)</sup>
     「如果不能先学着适应环境，就不要妄想改变环境。」
-- [精致的利己主义者和常青藤的绵羊](http://mp.weixin.qq.com/s?__biz=MjM5NzExOTE2Ng==&mid=208583700&idx=1&sn=9bb0ea491064b3ffb93e7f24f9fc04a3&scene=5#rd) - 中西 <sup>[Note](read/excellent_sheep.md)</sup>
+- [精致的利己主义者和常青藤的绵羊](http://mp.weixin.qq.com/s?__biz=MjM5NzExOTE2Ng==&mid=208583700&idx=1&sn=9bb0ea491064b3ffb93e7f24f9fc04a3&scene=5#rd) - 中西 <sup>[Note](read/excellent-sheep.md)</sup>
 - [《 感谢你给我机会上场 》方励的一席演讲](http://yixi.tv/lecture/177) - 循着乐趣前行 <sup>__Best__</sup>
 - [《 潜台词 》李松蔚 的知乎专栏](http://zhuanlan.zhihu.com/lswlsw) - 洞悉人心
 - [苦难有什么价值？](https://www.zhihu.com/question/19988077)- 无谓的苦难
@@ -49,12 +49,12 @@
 
 ### 方法
 
-- [How to Study: A Brief Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html) - 方法论 <sup>__Best__ / [Note](read/how_to_study.md)</sup>
+- [How to Study: A Brief Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html) - 方法论 <sup>__Best__ / [Note](read/how-to-study.md)</sup>
     - [Stop Telling Students to Study for Exams](http://www.chronicle.com/article/Stop-Telling-Students-to-Study/131622/)
     - [How Tests Make Us Smarter](http://www.nytimes.com/2014/07/20/opinion/sunday/how-tests-make-us-smarter.html)
     - [Sorry, You Can’t Speed Read](https://www.nytimes.com/2016/04/17/opinion/sunday/sorry-you-cant-speed-read.html)
 - [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html)
-- [你的自控能力强么？｜研究：不快乐的人自控力更差](http://mp.weixin.qq.com/s?__biz=MzI1OTAwNDc1OA==&amp;mid=405068698&amp;idx=1&amp;sn=a401b7eba92b3bc4378cb5ec8dfd7c48&amp;scene=1&amp;srcid=04011TWvm7WC8dEBpfJRwAIP#rd) <sup>[Note](read/self_control.md)</sup>
+- [你的自控能力强么？｜研究：不快乐的人自控力更差](http://mp.weixin.qq.com/s?__biz=MzI1OTAwNDc1OA==&amp;mid=405068698&amp;idx=1&amp;sn=a401b7eba92b3bc4378cb5ec8dfd7c48&amp;scene=1&amp;srcid=04011TWvm7WC8dEBpfJRwAIP#rd) <sup>[Note](read/self-control.md)</sup>
     吃好，睡好，保持好心情与好状态，做发自内心想做的事情
 - [自控力极差的人如何自救？](https://www.zhihu.com/question/21368231)
 - [Marc Andreessen 的个人效率指南](http://mp.weixin.qq.com/s?__biz=MjM5NjA3OTM0MA==&mid=2655709822&idx=1&sn=516c60dd587c8e7f1340c30d36009133&chksm=bd50f9fd8a2770eb534aff6d5e3687173252e47e101fcba33e0c371cb6831963742a301c5d2d&mpshare=1&scene=1&srcid=1231XJ9lLXhisaUROcjs64f7#rd) - 简单易行，有所启发
@@ -354,21 +354,21 @@
 - [你的自控能力强么？｜研究：不快乐的人自控力更差](read/self_control.md)
 - [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](read/meaning.md) <sup>__Best__</sup>
 - [眼前的苟且，也正是诗和远方](read/poet.md) <sup>__Best__</sup>
-- [为什么长大以后反而不容易快乐？](read/why_unhappy.md)
-- [《 幸福课 》动机在杭州 的知乎专栏](read/happiness_course.md)
-- [风尘棋客](read/chinese_chess.md)
+- [为什么长大以后反而不容易快乐？](read/why-unhappy.md)
+- [《 幸福课 》动机在杭州 的知乎专栏](read/happiness-course.md)
+- [风尘棋客](read/chinese-chess.md)
 - [《 论悲观主义的益处 》阿兰·德·波顿](read/pessimist.md)
-- [Loser 应该知道的 6 个残酷人生事实](read/cruel_reality.md) <sup>__Best__</sup>
-- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](read/teacher_said.md)
-- [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](read/family_accumulation.md)
-- [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](read/suggestions_for_the_young.md)
-- [精致的利己主义者和常青藤的绵羊](read/excellent_sheep.md)
-- [How to Study: A Brief Guide](read/how_to_study.md)
+- [Loser 应该知道的 6 个残酷人生事实](read/cruel-reality.md) <sup>__Best__</sup>
+- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](read/teacher-said.md)
+- [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](read/family-accumulation.md)
+- [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](read/suggestions-for-the-young.md)
+- [精致的利己主义者和常青藤的绵羊](read/excellent-sheep.md)
+- [How to Study: A Brief Guide](read/how-to-study.md)
 - [牙齿保健 - 刷牙、蛀牙、智齿](read/tooth.md) <sup>__Best__</sup>
 - Not Mentioned Above.
-    - [做事的方法](read/how_to_do.md)
+    - [做事的方法](read/how-to-do.md)
     - [减肥每天需要摄入多少卡路里](read/calorie.md)
-    - [《The Power of Less》书摘](read/power_of_less.md)
+    - [《The Power of Less》书摘](read/power-of-less.md)
 
 ## 后记
 
