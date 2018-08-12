@@ -1,15 +1,12 @@
 # 技术阅读收藏
 
-
 > Technology Bookmarks 技术内容的书签：工具、文档、Wiki、技术博客…
 
 ---
 
-{% cq %}
-Never memorize something that you can look up.
-
-__Albert Einstein__
-{% endcq %}
+> Never memorize something that you can look up.
+>
+> __Albert Einstein__
 
 - 好内容很多，但人生太有限，不可尽揽。本来我还想着给碰到的每一篇好文章写下笔记呢……
 - __生活本来就是一团乱麻，「完美」只是镜花水月，盲目接近它和追求它，均是徒劳，甚至可以说是一出悲剧，就如西西弗斯的滚石。__
