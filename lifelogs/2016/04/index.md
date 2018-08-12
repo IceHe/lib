@@ -4,8 +4,6 @@
 
 [**< Mar. 2016** - Prev 上一月](/lifelogs/2016/03/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **May. 2016 >**](/lifelogs/2016/05/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](lifelogs.md)
 
-## Logs 日志记录
-
 1. [16/04/01 stu40 joy25 was11](/lifelogs/2016/04/d01.md)
 2. [16/04/02 stu13 spo20 joy13 mus49](/lifelogs/2016/04/d02.md)
 3. [16/04/03 stu24 spo3 joy27 mus40](/lifelogs/2016/04/d03.md)
@@ -37,4 +35,3 @@
 29. [16/04/29 stu68 spo3 joy18](/lifelogs/2016/04/d29.md)
 30. [16/04/30 stu40 spo20 joy11 was9](/lifelogs/2016/04/d30.md)
 32. [**Summary 2016/04 stu47 spo7 was5**](/lifelogs/2016/04/time_stat.md)
-

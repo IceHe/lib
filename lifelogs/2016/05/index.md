@@ -4,8 +4,6 @@
 
 [**< Apr. 2016** - Prev 上一月](/lifelogs/2016/04/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jun. 2016 >**](/lifelogs/2016/06/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](lifelogs.md)
 
-## Logs 日志记录
-
 1. [16/05/01 stu47 spo3 was12](/lifelogs/2016/05/d01.md)
 2. [16/05/02 stu24 spo24 joy24](/lifelogs/2016/05/d02.md)
 3. [16/05/03 stu48 spo9 was9](/lifelogs/2016/05/d03.md)

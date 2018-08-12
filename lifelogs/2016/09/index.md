@@ -4,8 +4,6 @@
 
 [**< Aug. 2016** - Prev 上一月](/lifelogs/2016/08/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Oct. 2016 >**](/lifelogs/2016/10/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](lifelogs.md)
 
-## Logs 日志记录
-
 1. [16/09/01 stu54 spo15](/lifelogs/2016/09/d01.md)
 2. [16/09/02 stu74 spo6 was3](/lifelogs/2016/09/d02.md)
 3. [16/09/03 stu37 spo27 was7](/lifelogs/2016/09/d03.md)

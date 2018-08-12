@@ -5,7 +5,7 @@
 [**< Dec. 2014** - Prev 上一月](/lifelogs/2014/12/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Feb. 2015 >**](/lifelogs/2015/02/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](lifelogs.md)
 
 
-## Logs 日志记录
+
 
 1. [15/01/01 stu0 rd73 新历，新年快乐。](/lifelogs/2015/01/d01.md)
 2. [15/01/02 stu0 rd50](/lifelogs/2015/01/d02.md)
