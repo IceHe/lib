@@ -12,14 +12,15 @@
 
 ## C++
 
-- [C++ Primer 第五版](c++/cpp-primer-5th.md)
-- [C++ 面试宝典](c++/cpp-interview-book.md)
-- [C++ 编程规范](c++/cpp-code-standards.md)
-- [Effective C++ Part 1](c++/effective-cpp-reading-note-1.md)
-    - [Part 2](c++/effective-cpp-reading-note-2.md)
-    - [Part 3](c++/effective-cpp-reading-note-3.md)
-    - [Part 4](c++/effective-cpp-reading-note-4.md)
-- [C++ 宏定义与位操作](c++/cpp-macro-n-bit-operations.md)
+- [C++ Primer 第五版](cpp/cpp-primer-5th.md)
+- [C++ 面试宝典](cpp/cpp-interview-book.md)
+- [C++ 编程规范](cpp/cpp-code-standards.md)
+- Effective C++
+    - [Part 1](cpp/effective-cpp-reading-note-1.md)
+    - [Part 2](cpp/effective-cpp-reading-note-2.md)
+    - [Part 3](cpp/effective-cpp-reading-note-3.md)
+    - [Part 4](cpp/effective-cpp-reading-note-4.md)
+- [C++ 宏定义与位操作](cpp/cpp-macro-n-bit-operations.md)
 
 ## ASM
 
