@@ -5,7 +5,7 @@ updated: 2918-07-09
 noupdate: true
 categories: [C++]
 tags: [C++]
-description: Note &#58; 简明笔记。
+description: Note : 简明笔记。
 ---
 
 # C++

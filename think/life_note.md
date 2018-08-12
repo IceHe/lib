@@ -5,7 +5,7 @@ updated: 2018-01-01
 noupdate: true
 categories: [think]
 tags: [think]
-description: Alpha&#58; Personal Life Note & Self-Help.
+description: Alpha: Personal Life Note & Self-Help.
 ---
 
 # 前言

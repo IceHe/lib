@@ -1,6 +1,6 @@
 # ASM 汇编语言 12
 
-> ASM - Note&#58; 端口的读写，in / out 指令。shl 和 shr 指令。CMOS RAM 芯片，其中存储的时间信息。访问 CMOS RAM。
+> ASM - Note: 端口的读写，in / out 指令。shl 和 shr 指令。CMOS RAM 芯片，其中存储的时间信息。访问 CMOS RAM。
 
 - Created on 2014-11
 - 教材：《汇编语言》（第二版）王爽 著 清华大学出版社

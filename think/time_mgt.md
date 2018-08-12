@@ -4,7 +4,7 @@ date: 2015-11-13
 updated: 2016-12-05
 categories: [time mgt]
 tags: [time mgt]
-description: Time Mgt.&#58; Life Log Format 时间日志格式。Principles 原则，Transaction Categories 事务类别，Time Granularity 时间粒度，Log Instance 实例，Schedule 规划。
+description: Time Mgt.: Life Log Format 时间日志格式。Principles 原则，Transaction Categories 事务类别，Time Granularity 时间粒度，Log Instance 实例，Schedule 规划。
 ---
 
 - 链接：《 [我所有的时间统计日志](/lifelogs) 》

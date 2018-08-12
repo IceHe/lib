@@ -4,7 +4,7 @@ date: 2018-11-30
 noupdate: true
 categories: [Cmd]
 tags: [Cmd]
-description: The Art of Command Line &#58; 命令行的艺术
+description: The Art of Command Line : 命令行的艺术
 -----------------
 
 Ref : [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md)

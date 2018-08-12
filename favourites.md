@@ -3,7 +3,7 @@ date: 2015-11-19
 updated: 2018-04-06
 categories: [read]
 tags: [read]
-description: Favorites&#58; 我最喜欢的书籍、电影、电视剧、动画、游戏…
+description: Favorites: 我最喜欢的书籍、电影、电视剧、动画、游戏…
 ---
 
 {% cq %}

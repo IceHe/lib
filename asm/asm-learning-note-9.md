@@ -1,6 +1,6 @@
 # ASM 汇编语言 9
 
-> ASM - Note&#58; 标志寄存器 OF、DF、IF、TF、SF、ZF、AF、PF、CF 及其符号值对应表。adc、sbb、cmp 指令，检测比较结果的条件转移指令 je、jne、jb、jnb、ja、jna。DF 标识和串传送指令，movsb、movsw、rep。pushf 与 popf。将以 0 结尾的字符串中的小写字母转变成大写。
+> ASM - Note: 标志寄存器 OF、DF、IF、TF、SF、ZF、AF、PF、CF 及其符号值对应表。adc、sbb、cmp 指令，检测比较结果的条件转移指令 je、jne、jb、jnb、ja、jna。DF 标识和串传送指令，movsb、movsw、rep。pushf 与 popf。将以 0 结尾的字符串中的小写字母转变成大写。
 
 - Created on 2014-11
 - 教材：《汇编语言》（第二版）王爽 著 清华大学出版社

@@ -5,7 +5,7 @@ updated: 2018-02-20
 noupdate: false
 categories: [read]
 tags: [read]
-description: 《How to Study&#58; A Brief Guide》的译文，将在（有生之年）持续施工。
+description: 《How to Study: A Brief Guide》的译文，将在（有生之年）持续施工。
 ---
 
 - 原文：How to Study: A Brief Guide
