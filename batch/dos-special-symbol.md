@@ -1,8 +1,7 @@
 # Batch 批处理中的特殊符号
 
-> DOS Batch file Symbols: 指令符号，短路"与"执行&#38;&#38; 短路"或"执行&#166;&#166; 连续执行&#38; 管道&#166; 指令隐藏显示@ 注释::
+> DOS Batch file Symbols: 指令符号，短路"与"执行&& 短路"或"执行|| 连续执行& 管道| 指令隐藏显示@ 注释::
 
----
 <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div><b>指令符号：</b></div><div><br/></div><div><b>&amp;</b> &nbsp; &nbsp; 执行相邻的所有指令，无论是否有发生错误</div><div><b>&amp;&amp; &nbsp;</b> &nbsp; 前一个指令执行错误，不执行后一个指令</div><div><b>||</b> &nbsp; &nbsp; 抢一个指令执行正确，不执行后一个指令</div><div><b>|</b> &nbsp; &nbsp; 管道指令，前一指令的执行结果，作为下一指令的输入</div><div><br/></div><div><br/></div><div><b>&gt;</b> &nbsp; &nbsp; 输出重定向到一个文件，文件清空，从头写</div><div><b>&gt;&gt;</b> &nbsp; &nbsp;&nbsp;输出重定向到一个文件，从文件最后开始写</div><div><b>&lt;</b> &nbsp; &nbsp; 从一个文件的内容作为某指令的输入</div><div><br/></div><div><br/></div><div>&gt;&amp; 将一个句柄的输出写入到另一个句柄的输入中。&nbsp;</div><div>&lt;&amp; 从一个句柄读取输入并将其写入到另一个句柄输出中。</div><div><br/></div><div><br/></div><div>^ &nbsp; &nbsp; 1.转义符，如果要输出^|&amp;@等的特殊字符，需要用^^、^|、^&amp;、^@等。</div><div>&nbsp; &nbsp; &nbsp;2.分行符，如以下的多行指令，会输出一行字符：1234</div><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><div>@echo 1^</div><div>2^</div><div>3^</div><div>4</div><div>最后一行不带^，说明指令到这结束。</div></blockquote><div>&nbsp; &nbsp; &nbsp;3.异或，用于set指令的计算功能</div><div>&nbsp; &nbsp; &nbsp;4.其它，详于下文…</div><div><br/></div><div>----------------------------------------------------------------------</div><div><br/></div><div>~<br/>
 ① 在for中表示使用增强的变量扩展。<br/>
 ② 在%var:~n,m%中表示使用扩展环境变量指定位置的字符串。<br/>
