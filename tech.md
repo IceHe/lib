@@ -18,12 +18,11 @@
 
 最好的习惯：查阅官方网站的文档。
 
-- [My Git Note](/cmd/git_note)
+- [My Git Note](cmd/git-note.md)
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Vim 键位操作总结图
 - [PHP.net](http://php.net) 官方文档
 - [PHP The Right Way](http://www.phptherightway.com/) <sup>_todo_</sup>
 - [PHP Type Comparisons](http://www.php.net/manual/en/types.comparisons.php) - PHP 变量比较结果参考
-<!-- - 注意：官方文档的表格依然有错，建议 [用代码来进行实验](/php/determine_variable/#代码实验)。 -->
 - [Mac Developer Library](https://developer.apple.com/library/mac/navigation/) -> [AppleScript Language Guide](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html)
 - [Object Oriented Design](http://www.cheatography.com/david/cheat-sheets/object-oriented-design/) ( Cheat Sheet )
 
@@ -205,7 +204,7 @@
 
 ## 其它
 
-- [《程序员必读的职业规划书》Note & 招聘相关微博摘录](/tech/career.html)
+- [《程序员必读的职业规划书》Note & 招聘相关微博摘录](read/career.md)
 	& 简历上的 精通、熟练、掌握、理解 英语怎么翻译？
 
 ## 后记

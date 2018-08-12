@@ -52,7 +52,7 @@
 
 ## 时间日志格式
 
-- [Explanations for Log Format - 日志记录格式的说明](/think/time_mgt/)
+- [Explanations for Log Format - 日志记录格式的说明](_archived/think/time-mgt.md)
 
 ## 2017
 

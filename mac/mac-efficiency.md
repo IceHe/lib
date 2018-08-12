@@ -409,7 +409,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
     - 确认：^ h = ↩ 确认指令。
 - **命令别名**（Aliases）
     - 通常用来给常用命令指定一个「缩写」，一遍更便捷地输入长的命令组合。作为程序员，我的手速、输入准确率都一般，就特别喜欢输入缩写命令。
-        - 例如，我让 gs = git status，gp = git push 等（见 [Git Aliases](/cmd/git_note/#Zsh-Aliases) ）。
+        - 例如，我让 gs = git status，gp = git push 等（见 [Git Aliases](cmd/git-note.md#Zsh-Aliases) ）。
     - alias 命令，列出所有的 aliases。
 - Zsh 还有许多好东西，在此暂略，可以根据自己的需求，自行查阅学习。
     - 可以简单参阅我的 [.zshrc](https://github.com/IceHe/macos-home-conf/blob/master/.zshrc) 配置。注意以上特性并不都是 Zsh 特有的，详看 [各种 Shell 的对比](https://en.wikipedia.org/wiki/Comparison_of_command_shells)。
@@ -489,8 +489,8 @@ Shell、CLI : Bash 脚本、命令行，都是程序员的基本功，就不赘�
 
 接下来列举的一些其它 Apps，它们大大地提升我的效率，所以推荐您去了解和尝试
 
-- 具体详见《[**利器 - 软硬件推荐**](/tools)》，其中列举了绝大多数笔者用的 Apps，包括简要的介绍和进一步的说明
-- 选读《[**Mac 快捷键**](/mac/shortcuts)》列举了绝大多数笔者用的快捷键，仅供参考
+- 具体详见《[**利器 - 软硬件推荐**](tools.md)》，其中列举了绝大多数笔者用的 Apps，包括简要的介绍和进一步的说明
+- 选读《[**Mac 快捷键**](mac/mac-shortcuts.md)》列举了绝大多数笔者用的快捷键，仅供参考
 - 因为以上两篇博文的部分内容与本文有交集，不打算重复赘述其中相同的内容，以下仅简单列举笔者推荐的 Apps 并附上一句话的介绍说明
 
 **Time Machine** <sup>Required</sup>
@@ -504,7 +504,7 @@ Shell、CLI : Bash 脚本、命令行，都是程序员的基本功，就不赘�
 [**Keyboard Maestro**](https://www.keyboardmaestro.com/main/) <sup>**Best**</sup>
 
 - 高度自定义的效率工具，加速常用操作，甚至自动化。功能强大，用途甚广，限制你的只有你的想象力
-- 可以参考笔者的对其用法的 [简要介绍](/tools/#快捷键) 或《[Keyboard Maestro 入门指南](https://sspai.com/post/36442)》
+- 可以参考笔者的对其用法的 [简要介绍](tools.md#快捷键) 或《[Keyboard Maestro 入门指南](https://sspai.com/post/36442)》
 
 [**ClipMenu**](http://www.clipmenu.com/) <sup>**Simple**</sup>
 

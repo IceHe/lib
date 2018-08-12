@@ -29,8 +29,8 @@ App 选择原则
 
 笔者相关文章
 
-- 《[Mac 效率指南](/mac/efficiency)》
-- 《[Mac 快捷键](/mac/shortcuts)》
+- 《[Mac 效率指南](mac/mac-efficiency.md)》
+- 《[Mac 快捷键](mac/mac-shortcuts.md)》
 
 参考阅读
 
@@ -383,7 +383,7 @@ Shell
 
 - 稳定切换同一 App 下各子窗口。
 - HyperSwitcher 选择切换的窗口时，会显示各应用的缩略图。
-- 可以用 [Keyboard Maestro](/tools/#Shortcuts) 来实现同样的功能以替代它。
+- 可以用 [Keyboard Maestro](tools.md#Shortcuts) 来实现同样的功能以替代它。
 - 相关 App：[~~HyperDock~~](https://bahoom.com/hyperdock/)
     窗口增强工具。光标停到 Dock 的 App 图标上，能快速预览该软件的所有窗口，点击切换到不同的窗口或桌面。还有快速调整窗口布局、大小、位置等的功能。
     - 用处还是不大，用 HyperSwitcher 切换子窗口时就能看到 App 下所有子窗口的预览图。
@@ -902,7 +902,7 @@ Shell
     - 旋转式的比声波式的刷得干净；
     - 声波式的比旋转式的磨损小；
     - 用电动牙刷的话使劲别太大。
-- 相关笔记 - [牙齿保健](/read/tooth.html)
+- 相关笔记 - [牙齿保健](read/tooth.md)
 
 **冲牙器**（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332)
 
@@ -915,7 +915,7 @@ Shell
 - 争议：
     - [美国卫生署删除了“剔牙”“用牙线”的建议…](http://weibo.com/1878363622/E1OfvzJjo?from=page_1005051878363622_profile&wvr=6&mod=weibotime&type=comment#_rnd1471001024021)
     - [Flossing has no proven benefits, so U.S. health department stops recommending the practice](http://www.nydailynews.com/life-style/no-floss-u-s-health-department-article-1.2735915)
-- 相关笔记 - [牙齿保健](/read/tooth.html)
+- 相关笔记 - [牙齿保健](read/tooth.md)
 
 ### 运动
 

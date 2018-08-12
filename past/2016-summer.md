@@ -6,7 +6,7 @@
 
 ### 毽球
 
-#### [亚军](/moments/#亚军)
+#### [亚军](past/moments.md#亚军)
 
 <img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/xingwuzhou_00.png" class="fix_width">
 <img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/xingwuzhou_01.png" class="fix_width"><p class="image-caption">天津星五洲杯毽球邀请赛 亚军</p>
@@ -14,7 +14,7 @@
 - 在广东的时候，我的水平（中等）只能算战五渣。结果来到这种没有奖金的比赛（虽然也强但没那么多高手），凭着我们队年轻的体力优势（其它基本都是 30+、40+，甚至有 50+），在小组第二出线的情况下（真正技术不够强），逆转获得亚军（2/16）。
 - 运气太好，大概这是最后一次能拿到这么好的成绩了吧（虽然艰难，还是觉得有点水份）。
 
-#### [冠军](/moments/#冠军)
+#### [冠军](past/moments.md#冠军)
 
 
 <img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/champion_02.png" class="fix_width">
@@ -220,7 +220,7 @@
     - 原来，混着过就是想着能有更多时间保持平缓的节奏一直做事。
     - 要是状态一直好还行，不然极端起来可能工作日打酱油，周末公司没人（清静）才把所有都补上，真的工作了这节奏就很不好。
     - 毕竟要和别人协作，得工作节律一致。还是得工作时间尽量把活都干完才行。
-- 还是回到专时专用的状态吧。这就是写那篇 《[生活指南](/think/life_manual/)》的原因。
+- 还是回到专时专用的状态吧。这就是写那篇 《[生活指南](_archived/think/life-manual.md)》的原因。
 
 ### 抱怨
 
