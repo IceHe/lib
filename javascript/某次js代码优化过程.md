@@ -2,12 +2,10 @@
 
 > 优化某段使 id 为 blink 的 html 标签闪烁的代码。手段：用 jQuery 写法精简代码；避免重复使用选择器去获取标签和属性；改用布尔变量及“ ? : ”表达式等压缩语句。
 
-toc: false
----
 目标功能：使id为blink的html标签闪烁。
 
+我得到的原始程序
 
-我得到的原始程序：
 ```javascript
 function blinklink() {
     if (!document.getElementById( 'blink').style.color) {
@@ -24,8 +22,8 @@ function blinklink() {
 blinklink();
 ```
 
+第一版修改
 
-第一版修改：
 ```javascript
 // 精简代码：使用 jQuery 写法
 function blinklink() {
@@ -40,8 +38,8 @@ function blinklink() {
 blinklink();
 ```
 
+第二版
 
-第二版：
 ```javascript
 // 改进定时执行的方法，是代码更容易理解
 function blinklink() {
@@ -57,8 +55,8 @@ setInterval("blinklink();", 500);
 // 之前这里竟然犯傻使用setTimeout()（在预设的毫秒数后，执行指定的语句）。
 ```
 
+第三版
 
-第三版：
 ```javascript
 // 优化性能：用全局变量记录颜色值，避免每次都使用 jQuery 选择器去检索标签的属性
 var color = 'red' ;
@@ -74,8 +72,8 @@ function change_color() {
 setInterval("$('#blink').css('color', change_color);", 500);
 ```
 
+第四版
 
-第四版：
 ```javascript
 // 精简代码：使用布尔变量
 // 使用 “ ?: ” 表达式
@@ -87,8 +85,8 @@ function change_color(){
 setInterval('change_color();', 1000);
 ```
 
+最终（第五）版
 
-最终（第五）版：
 ```javascript
 // 精简代码：压缩语句
 var isRed = true;
@@ -98,7 +96,7 @@ function change_color(){
 setInterval('change_color();', 750);
 ```
 
-只剩下5行代码了！<br/>
+只剩下5行代码了！
 即使是如此简单的地方，细想一下，
 都可以有优化的空间，要勤于思考。
 
