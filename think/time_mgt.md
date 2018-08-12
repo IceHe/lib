@@ -1,4 +1,5 @@
-title: 时间管理日志说明
+# 时间管理日志说明
+
 date: 2015-11-13
 updated: 2016-12-05
 categories: [time mgt]

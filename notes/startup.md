@@ -1,4 +1,5 @@
-title: Standford Startup Course - Note
+# Standford Startup Course - Note
+
 ---
 
 别雇佣平庸的人！绝对会后悔！宁缺毋滥。

@@ -1,4 +1,5 @@
-title: C 入门 gdb 调试实例
+# C 入门 gdb 调试实例
+
 date: 2020-04-30
 updated: 2018-03-28
 noupdate: true

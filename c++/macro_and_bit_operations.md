@@ -1,4 +1,5 @@
-title: C++ 宏定义与位操作
+# C++ 宏定义与位操作
+
 date: 2017-05-07
 updated: 2017-05-07
 noupdate: true

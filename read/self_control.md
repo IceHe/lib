@@ -1,4 +1,5 @@
-title: Self Control
+# Self Control
+
 date: 2016-06-17
 ---
 

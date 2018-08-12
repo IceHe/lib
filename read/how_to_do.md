@@ -1,4 +1,5 @@
-title: How to Do
+# How to Do
+
 date: 2016-06-25
 toc: false
 ---

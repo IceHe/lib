@@ -1,4 +1,5 @@
-title: AppleScript 快速入门
+# AppleScript 快速入门
+
 date: 2016-03-11
 updated: 2016-03-13
 noupdate: true

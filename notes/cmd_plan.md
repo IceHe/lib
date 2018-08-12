@@ -1,4 +1,5 @@
-title: Cmd Plan
+# Cmd Plan
+
 ---
 
 ``` markdown

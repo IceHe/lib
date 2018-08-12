@@ -1,4 +1,5 @@
-title: PHP Note
+# PHP Note
+
 ---
 
 [Mac 安裝 pecl ，安裝 php extension](blog.caesarchi.com/2012/03/mac-pecl-php-extension.html)

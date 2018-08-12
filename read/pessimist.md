@@ -1,4 +1,5 @@
-title: Pessimist
+# Pessimist
+
 date: 2016-06-18
 ---
 

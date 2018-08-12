@@ -1,4 +1,5 @@
-title: Life Framework
+# Life Framework
+
 date: 2016-04-17
 -------------------------
 <!--updated: 2016-04-17-->

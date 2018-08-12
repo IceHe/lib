@@ -1,4 +1,5 @@
-title: Python3 快速入门
+# Python3 快速入门
+
 date: 2017-04-17
 updated: 2017-04-23
 noupdate: true

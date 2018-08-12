@@ -1,4 +1,5 @@
-title: 2014 Aug~Dec Time Statistics -  From aTimeLogger
+# 2014 Aug~Dec Time Statistics -  From aTimeLogger
+
 date: 2015-03-04 17:56:08
 ---
 [下一月 Next - **Nov. 2014 >**](/lifelogs/2014/11/index.html) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs)

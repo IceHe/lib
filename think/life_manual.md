@@ -1,4 +1,5 @@
-title: 生活指南
+# 生活指南
+
 date: 2016-08-07
 updated: 2017-12-24
 categories: [think]

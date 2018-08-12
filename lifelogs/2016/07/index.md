@@ -1,4 +1,5 @@
-title: 2016/07 stu38 spo9 was5
+# 2016/07 stu38 spo9 was5
+
 date: 2016-08-01 00:00:00
 toc: false
 ---

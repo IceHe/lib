@@ -1,4 +1,5 @@
-title: Shell - Note
+# Shell - Note
+
 ---
 
 脚本首行     `#!/bin/bash`

@@ -1,4 +1,5 @@
-title: Teacher Said
+# Teacher Said
+
 date: 2016-06-15
 ---
 

@@ -1,4 +1,5 @@
-title: Tmp Note
+# Tmp Note
+
 ---
 
 # Google 技巧：不让 google.com 跳转到 google.com.hk

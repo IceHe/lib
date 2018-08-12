@@ -1,4 +1,5 @@
-title: The Power of Less
+# The Power of Less
+
 date: 2017-03-15
 toc: false
 ---

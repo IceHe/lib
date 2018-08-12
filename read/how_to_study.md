@@ -1,4 +1,5 @@
-title: How to Study
+# How to Study
+
 date: 2016-06-24
 ---
 

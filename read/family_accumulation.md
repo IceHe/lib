@@ -1,4 +1,5 @@
-title: Family Accumulation
+# Family Accumulation
+
 date: 2016-06-15
 ---
 

@@ -1,4 +1,5 @@
-title: 搭建个人博客
+# 搭建个人博客
+
 date: 2015-11-14
 updated: 2017-05-01
 categories: [Web]

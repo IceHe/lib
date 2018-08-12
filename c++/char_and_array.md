@@ -1,4 +1,5 @@
-title: C++ 的字符与数组
+# C++ 的字符与数组
+
 date: 2918-07-07
 updated: 2918-07-07
 noupdate: true

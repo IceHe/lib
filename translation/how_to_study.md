@@ -1,4 +1,5 @@
-title: 如何学习
+# 如何学习
+
 date: 2018-12-20
 updated: 2018-02-20
 noupdate: false

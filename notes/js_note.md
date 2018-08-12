@@ -1,4 +1,5 @@
-title: JS Note
+# JS Note
+
 ---
 
 [js页面跳转常用的几种方式](http://www.jb51.net/article/25403.htm)

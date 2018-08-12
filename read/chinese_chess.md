@@ -1,4 +1,5 @@
-title: Chinese Chess
+# Chinese Chess
+
 date: 2016-06-20
 ---
 

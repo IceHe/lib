@@ -1,4 +1,5 @@
-title: More effective C++
+# More effective C++
+
 ---
 
 条款1：仔细区别pointers和references

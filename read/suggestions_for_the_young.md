@@ -1,4 +1,5 @@
-title: Suggestions for The Young
+# Suggestions for The Young
+
 date: 2016-06-15
 ---
 

@@ -1,4 +1,5 @@
-title: Excellent Sheep
+# Excellent Sheep
+
 date: 2016-06-17
 ---
 

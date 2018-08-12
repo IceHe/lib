@@ -1,4 +1,5 @@
-title: 命令行笔记
+# 命令行笔记
+
 date: 2018-11-30
 noupdate: true
 categories: [Cmd]

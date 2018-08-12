@@ -1,4 +1,5 @@
-title: GitLab 自动化
+# GitLab 自动化
+
 date: 2018-12-01
 categories: [Web]
 tags: [Web]

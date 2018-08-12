@@ -1,4 +1,5 @@
-title: C++ 笔记
+# C++ 笔记
+
 date: 2919-07-09
 updated: 2918-07-09
 noupdate: true

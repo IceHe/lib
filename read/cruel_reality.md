@@ -1,4 +1,5 @@
-title: Cruel Reality
+# Cruel Reality
+
 date: 2016-06-15
 ---
 

@@ -1,4 +1,5 @@
-title: 某次 JavaScript 代码优化过程
+# 某次 JavaScript 代码优化过程
+
 date: 2015-02-20
 updated: 2016-04-23
 categories: [JavaScript]

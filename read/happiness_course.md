@@ -1,4 +1,5 @@
-title: Happiness Course
+# Happiness Course
+
 date: 2015-02-27
 ---
 
