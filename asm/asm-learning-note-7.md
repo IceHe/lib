@@ -231,7 +231,7 @@ ok:      pop si
 assume cs:code, ds:data
 
 data segment
-        db &apos;Welcome to masm!&apos;,0
+        db 'Welcome to masm!',0
 data ends
 
 code segment
