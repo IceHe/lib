@@ -1,7 +1,5 @@
 # Tmp Note
 
----
-
 # Google 技巧：不让 google.com 跳转到 google.com.hk
 
 * 直接用http://www.google.com/ncr，ncr是no country redirection，是一个强制不跳转的命令；

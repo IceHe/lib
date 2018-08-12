@@ -1,7 +1,5 @@
 # 正则表达式 - Note
 
----
-
 # Regular Expression 正则表达式
 
 自《百度百科 正则表达式》：

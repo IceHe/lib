@@ -1,7 +1,5 @@
 # More effective C++
 
----
-
 条款1：仔细区别pointers和references
 distinguish between pointers and references.
 

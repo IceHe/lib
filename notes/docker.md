@@ -1,7 +1,5 @@
 # Docker Note
 
----
-
 [ ] 先根据羊生杰的配置，做好docker
 https://gitlab.weibo.cn/sora/docker
 

@@ -1,7 +1,5 @@
 # PHP Note
 
----
-
 [Mac 安裝 pecl ，安裝 php extension](blog.caesarchi.com/2012/03/mac-pecl-php-extension.html)
 [Install PHP pear (要用pecl只要装pear)](http://www.cnblogs.com/bugY/archive/2012/07/06/2578972.html)
 

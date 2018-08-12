@@ -1,7 +1,5 @@
 # Bash - Note
 
----
-
 [Bash脚本](https://github.com/ruanyf/articles/blob/master/dev/linux/script.md)
 
 <https://github.com/ruanyf/articles/tree/master/dev/bash>

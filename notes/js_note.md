@@ -1,7 +1,5 @@
 # JS Note
 
----
-
 [js页面跳转常用的几种方式](http://www.jb51.net/article/25403.htm)
 [js 获取真实的 外网IP、内网IP](https://www.giuem.com/js-get-ip/)
 [js 常见 字符串操作函数](http://web.jobbole.com/82334/)

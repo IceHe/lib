@@ -1,7 +1,5 @@
 # 对 Mac 的看法
 
----
-
 Related: 我是效率控，工具控，ff，双拼，鼠须管，快捷键，插件
 
 - [OS X 10.11 El Capitan U盘启动盘制作与注意事项](http://www.weiosx.com/show-12-223-1.html)
