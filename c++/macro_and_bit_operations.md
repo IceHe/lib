@@ -5,7 +5,9 @@ updated: 2017-05-07
 noupdate: true
 categories: [C++]
 tags: [C++]
-description: Macro & Bit Operations: 思考题与知识点。
+
+> Macro & Bit Operations: 思考题与知识点。
+
 ---
 
 - 提醒：不过多赘述「宏」以及本文相关的其它 C++ 基础知识，不明之处暂请自行 Google。

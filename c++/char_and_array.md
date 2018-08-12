@@ -5,7 +5,9 @@ updated: 2918-07-07
 noupdate: true
 categories: [C++]
 tags: [C++]
-description: char & array : 一些相关的趣题，与知识点。
+
+> char & array : 一些相关的趣题，与知识点。
+
 ---
 
 ## 字符串

@@ -5,7 +5,9 @@ updated: 2918-07-16
 noupdate: true
 categories: [PHP]
 tags: [PHP]
-description: PHP Coding Experience : 日常工作的经验总结。
+
+> PHP Coding Experience : 日常工作的经验总结。
+
 ---
 
 ## 引子

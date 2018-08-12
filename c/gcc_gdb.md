@@ -5,7 +5,9 @@ updated: 2018-03-28
 noupdate: true
 categories: [C]
 tags: [C]
-description: Pratice : 用 gcc 编译 C 程序，用 gdb 调试。
+
+> Pratice : 用 gcc 编译 C 程序，用 gdb 调试。
+
 ---
 
 Ref <https://segmentfault.com/a/1190000013964454>

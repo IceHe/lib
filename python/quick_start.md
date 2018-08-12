@@ -5,7 +5,9 @@ updated: 2017-04-23
 noupdate: true
 categories: [Python]
 tags: [Python]
-description: 目标：让有编程基础的人，通过简单参阅本文，即可快速上手使用 Python3 的基本特性。
+
+> 目标：让有编程基础的人，通过简单参阅本文，即可快速上手使用 Python3 的基本特性。
+
 ---
 
 - 内容：

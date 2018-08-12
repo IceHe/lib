@@ -4,7 +4,9 @@ date: 2017-04-15
 updated: 2017-11-28
 categories: [Mac]
 tags: [Mac]
-description: macOS Efficiency: 关于「如何高效使用 Mac」的个人见解。
+
+> macOS Efficiency: 关于「如何高效使用 Mac」的个人见解。
+
 ---
 
 {% cq %}

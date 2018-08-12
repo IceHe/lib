@@ -4,7 +4,9 @@ date: 2017-12-10
 no_update: true
 categories: [think]
 tags: [think]
-description: 五月至十二月，夏秋冬事记「譬如朝露，去日苦多」。「羡与敬」。
+
+> 五月至十二月，夏秋冬事记「譬如朝露，去日苦多」。「羡与敬」。
+
 ---
 
 ## 工具

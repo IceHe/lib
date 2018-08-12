@@ -5,7 +5,9 @@ updated: 2019-07-10
 noupdate: true
 categories: [PHP]
 tags: [PHP]
-description: 写 PHP 代码的一些经验与感想。
+
+> 写 PHP 代码的一些经验与感想。
+
 ---
 
 ## 引子

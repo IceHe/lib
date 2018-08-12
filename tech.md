@@ -3,7 +3,9 @@ date: 2016-06-14
 updated: 2017-11-15
 categories: [read]
 tags: [read]
-description: Technology Bookmarks 技术内容的书签：工具、文档、Wiki、技术博客…
+
+> Technology Bookmarks 技术内容的书签：工具、文档、Wiki、技术博客…
+
 ---
 
 {% cq %}

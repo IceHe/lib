@@ -3,7 +3,9 @@
 date: 2018-12-01
 categories: [Web]
 tags: [Web]
-description: Office Automatic : 主要使用 API、CI 等。CI 即 Continuous Integration 持续集成。
+
+> Office Automatic : 主要使用 API、CI 等。CI 即 Continuous Integration 持续集成。
+
 ---
 
 和笔者正在进行的微博移动端 API 重构项目一样，同部门的其它项目 __在 GitLab 相关的工作流程上也有许多重复且固定的操作__，有同事也想要从这些琐碎中得到解放，去做更多更有意义的工作。于是，笔者做了相关的技术分享，准备讲稿的同时顺便撰成本文。

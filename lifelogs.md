@@ -4,7 +4,9 @@ date: 2015-01-23
 updated: 2017-11-27
 categories: [time mgt]
 tags: [time mgt]
-description: Life Logs: 个人时间使用情况的记录统计日志。已停更。
+
+> Life Logs: 个人时间使用情况的记录统计日志。已停更。
+
 ---
 
 ## 新的体悟
