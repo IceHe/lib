@@ -902,7 +902,7 @@ Shell
     - 旋转式的比声波式的刷得干净；
     - 声波式的比旋转式的磨损小；
     - 用电动牙刷的话使劲别太大。
-- 相关笔记 - [牙齿保健](read/tooth.md)
+- 相关笔记 - [牙齿保健](_archived/read/tooth.md)
 
 **冲牙器**（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332)
 
@@ -915,7 +915,7 @@ Shell
 - 争议：
     - [美国卫生署删除了“剔牙”“用牙线”的建议…](http://weibo.com/1878363622/E1OfvzJjo?from=page_1005051878363622_profile&wvr=6&mod=weibotime&type=comment#_rnd1471001024021)
     - [Flossing has no proven benefits, so U.S. health department stops recommending the practice](http://www.nydailynews.com/life-style/no-floss-u-s-health-department-article-1.2735915)
-- 相关笔记 - [牙齿保健](read/tooth.md)
+- 相关笔记 - [牙齿保健](_archived/read/tooth.md)
 
 ### 运动
 
