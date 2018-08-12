@@ -53,7 +53,7 @@ AppleScript
 Batch 批处理
 
 - [Batch 批处理指令](batch/batch/batch-commands.md)
-- [Batch 批处理中的特殊符号](batch/DOS 特殊符号 Symbol.html)
+- [Batch 批处理中的特殊符号](batch/dos-special-symbol.md)
 - [DOS 常用指令](batch/dos-common-commands.md)
 - [DOS 环境变量](batch/DOS 环境变量 Environment Variable.html)
 
