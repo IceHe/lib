@@ -82,8 +82,8 @@ Writing : Record my Life
 - [2016 秋](think/2016-fall.md)
 - [2016 春夏](think/2016-summer.md)
 - [再见 2015](think/2015-bye.md)
-- [回忆](moments.md)
-- [旧博索引](old-blog.md)
+- [回忆](past/moments.md)
+- [旧博索引](past/old-blog.md)
 
 Time Management
 
