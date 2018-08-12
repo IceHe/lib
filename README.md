@@ -8,7 +8,7 @@
 
 ## Git
 
-- [Git 总结](cmd/git_note.md) : 常用操作 / 概念 / 原理
+- [Git 总结](cmd/git-note.md) : 常用操作 / 概念 / 原理
 
 ## C++
 
