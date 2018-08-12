@@ -4,7 +4,7 @@
 
 ---
 
-<ul><li>Created on 2014-02</li></ul><br/>
+- Created on 2014-02
 
 <strong>Download - </strong><a href="http://7vzp67.com1.z0.glb.clouddn.com/pdf%2FC%2B%2B%20Code%20Standards.pdf">C++ Code Standards.pdf</a>
 
