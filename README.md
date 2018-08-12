@@ -48,7 +48,7 @@
 AppleScript
 
 - [AppleScript 快速入门](applescript/applescript.md)
-- [用 AppleScript 操作 Evernote / macOS](applescript/evernote_osx.md)
+- [用 AppleScript 操作 Evernote / macOS](applescript/evernote-macos.md)
 
 Batch 批处理
 
