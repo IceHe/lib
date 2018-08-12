@@ -59,7 +59,7 @@ Batch 批处理
 
 JavaScript
 
-- [某次 JavaScript 代码优化过程](javascript/某次js代码优化过程.md)
+- [某次 JavaScript 代码优化过程](javascript/optimize-javascript-code.md)
 
 Python
 
