@@ -2,12 +2,10 @@
 
 > AppleScript Advanced: 检查控制 Wifi、蓝牙、硬盘、键盘输入，执行命令，操纵其它 App 等：如 Evernote 笔记的同步、检索、编辑、复制、删除、导入导出、重命名、移动笔记本、加标签…
 
------------------------------------------------------------------------
-
 - I supposed that you have learned AppleScript, so I will not introduce it in detail.
 - You can learn AppleScript in practice or my [AppleScript Quick Start 快速入门](/applescript/applescript/).
 
-# References
+## References
 
 - [AppleScript Quick Start 快速入门](/applescript/applescript/) - My Blog Article
 - [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
@@ -19,17 +17,17 @@
     1. [AppleScript_for_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)
     2. [AppleScript_for_me](https://github.com/IceHe/AppleScript_for_me)
 
-# Evernote
----
+## Evernote
 
 - I just list the code that I use most frequently.
 - If you want further use of manipulating Evernote by AppleScript, you can read the official documentations from [Apple and Evernote](/applescript/evernote/#References) and use other programming language to cooperate with AppleScript.
 - There is only some sample code, so it cannot run successfully in this order.
+
 But you can learn how to manipulate Evernote with AppleScript from it.<br/><br/>
 
-## Evernote
+### Evernote
 
-- Launch, Sync, Wait, Quit
+Launch, Sync, Wait, Quit
 
 ``` applescript
 -- Launch Evernote
@@ -47,7 +45,7 @@ if application "Evernote" is running then
 
         repeat with i from 0 to 300
 
-            -- Is Evernote synchronizing or not?
+            -- Is Evernote synchronizing or not
             if not isSynchronizing then
                 return i
             end if
@@ -58,9 +56,9 @@ if application "Evernote" is running then
 end if
 ```
 
-## Notebook
+### Notebook
 
-- Exist, Create, Rename, Delete
+Exist, Create, Rename, Delete
 
 ``` applescript
 tell application "Evernote"
@@ -72,7 +70,7 @@ tell application "Evernote"
     notebook named notebook_name
     -- But it's more clear when the keyword `notebook` with `named`.
 
-    -- Notebook exists or not?
+    -- Notebook exists or not
     notebook named notebook_name exists
 
     -- Create Notebook
@@ -109,9 +107,9 @@ tell application "Evernote"
 end tell
 ```
 
-## Note
+### Note
 
-- Exist, Find, Create, Import, Export, Read, Rename, Move, Delete
+Exist, Find, Create, Import, Export, Read, Rename, Move, Delete
 
 ``` applescript
 tell application "Evernote"
@@ -169,7 +167,7 @@ tell application "Evernote"
 end tell
 ```
 
-- Simplify Formating
+Simplify Formating
 
 ``` applescript
 tell application "Evernote"
@@ -212,7 +210,7 @@ tell application "Evernote"
 end tell
 ```
 
-- Write Note content to Clipboard
+Write Note content to Clipboard
 
 ``` applescript
 tell application "Evernote"
@@ -252,11 +250,11 @@ end tell
 return the clipboard
 ```
 
-# macOS
+## macOS
 
 If your Mac does not have some commands as mentioned below, you can install them through `Homebrew`.
 
-## Is Mac on AC Power?
+### Is Mac on AC Power
 
 ``` applescript
 set is_ac_power to do shell script "pmset -g batt | grep -q 'AC Power' && echo 1 || echo 0"
@@ -264,7 +262,7 @@ set is_ac_power to do shell script "pmset -g batt | grep -q 'AC Power' && echo 1
 return ("1" = is_ac_power)
 ```
 
-## Is application running?
+### Is application running
 
 ``` applescript
 set app_name to "app_x"
@@ -274,7 +272,7 @@ tell application "System Events"
 end tell
 ```
 
-## Is application on Dock?
+### Is application on Dock
 
 ``` applescript
 set app_name to "app_x"
@@ -297,7 +295,7 @@ tell application "System Events"
 end tell
 ```
 
-## Is network available?
+### Is network available
 
 ``` applescript
 repeat with i from 1 to 5
@@ -318,7 +316,7 @@ end repeat
 return true
 ```
 
-## Switch Wi-fi
+### Switch Wi-fi
 
 You need to show Wi-Fi status in menu bar:
 `System Preferences` → `Network` → Check `Show Wi-Fi status in menu bar`.
@@ -352,7 +350,7 @@ end tell
 return true
 ```
 
-## Is Bluetooth ON?
+### Is Bluetooth ON
 
 You need to install the command `blueutil` (through `Homebrew`).
 
@@ -362,7 +360,7 @@ set is_bluetooth_on to do shell script "/usr/local/bin/blueutil power"
 return ("1" = is_bluetooth_on)
 ```
 
-## Swith Bluetooth
+### Swith Bluetooth
 
 ``` applescript
 set flag to true
@@ -397,7 +395,7 @@ end tell
 return true
 ```
 
-## Input Key Code / Keystroke
+### Input Key Code / Keystroke
 
 ``` applescript
 set app_name to "app_1"
@@ -425,7 +423,7 @@ tell application "System Events" to tell process app_name
 end tell
 ```
 
-## Eject Disks
+### Eject Disks
 
 ``` applescript
 tell application "Finder"
@@ -460,7 +458,7 @@ tell application "Finder"
 end tell
 ```
 
-## Execute Commands in iTerm
+### Execute Commands in iTerm
 
 The version of iTerm is beta 3.0.
 
@@ -500,7 +498,7 @@ tell application "iTerm"
 end tell
 ```
 
-## Get local IP address
+### Get local IP address
 
 ``` applescript
 -- Physical: 物理网口的 IP
@@ -524,7 +522,7 @@ if cur_ip ≠ "" then
 end if
 ```
 
-## Startup Tasks
+### Startup Tasks
 
 ``` applescript
 on run argv
