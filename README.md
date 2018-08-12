@@ -1,16 +1,18 @@
 # IceHe's Lib
 
-## Mac
+## Tech
+
+### Mac
 
 - [利器 - 软件、物件的推荐](tools.md)
 - [Mac 效率指南](mac/mac-efficiency.md)
 - [Mac 快捷键](mac/mac-shortcuts.md)
 
-## Git
+### Git
 
 - [Git 总结](cmd/git-note.md) : 常用操作 / 概念 / 原理
 
-## C++
+### C++
 
 - [C++ Primer 第五版](cpp/cpp-primer-5th.md)
 - [C++ 面试宝典](cpp/cpp-interview-book.md)
@@ -22,7 +24,7 @@
     - [Part 4](cpp/effective-cpp-reading-note-4.md)
 - [C++ 宏定义与位操作](cpp/cpp-macro-n-bit-operations.md)
 
-## ASM
+### ASM
 
 [汇编语言的学习准备](asm/prepare-asm-on-windows-7.md)
 
@@ -43,29 +45,31 @@
 15. [用 BIOS 进行键盘输入和磁盘读写，及相关实验](asm/asm-learning-note-15.md)
 16. [附录内容：汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](asm/asm-learning-note-16.md)
 
-## Scripts
+### Scripts
 
 AppleScript
 
-- [AppleScript 快速入门](applescript/applescript.md)
-- [用 AppleScript 操作 Evernote / macOS](applescript/evernote-macos.md)
+- [AppleScript 快速入门](scripts/applescript/applescript.md)
+- [用 AppleScript 操作 Evernote / macOS](scripts/applescript/evernote-macos.md)
 
 Batch 批处理
 
-- [Batch 批处理指令](batch/batch-commands.md)
-- [Batch 批处理中的特殊符号](batch/dos-special-symbol.md)
-- [DOS 常用指令](batch/dos-common-commands.md)
-- [DOS 环境变量](batch/dos-environment-variable.md)
+- [Batch 批处理指令](scripts/batch/batch-commands.md)
+- [Batch 批处理中的特殊符号](scripts/batch/dos-special-symbol.md)
+- [DOS 常用指令](scripts/batch/dos-common-commands.md)
+- [DOS 环境变量](scripts/batch/dos-environment-variable.md)
 
 JavaScript
 
-- [某次 JavaScript 代码优化过程](javascript/optimize-javascript-code.md)
+- [某次 JavaScript 代码优化过程](scripts/javascript/optimize-javascript-code.md)
 
 Python
 
-- [Python3 快速入门](python/python-quick-start.md)
+- [Python3 快速入门](scripts/python/python-quick-start.md)
 
-## Marks
+## Life
+
+### Marks
 
 - [技术阅读收藏](tech.md) ( 2017-11-15 )
 - [文字阅读收藏](read.md) ( 2017-11-15 )
@@ -75,7 +79,7 @@ Python
     - 微博移动应用服务 / 服务端 / PHP
     - 华南理工 / 软件工程 / 本科
 
-## Past
+### Past
 
 - [日报周报](diary/)
 - [2017 夏秋冬](past/2017-summer-2-winter.md)
@@ -87,25 +91,25 @@ Python
 - [回忆](past/moments.md)
 - [旧博索引](past/old-blog.md)
 
-## Archived
-
-Blog
-
-- [~~个人技术博客 icehe.me~~](https://icehe.me) ( deprecated )
-- [~~搭建个人博客~~](_archived/blog/build-blog.md) ( archived )
-- [~~折腾个人博客~~](_archived/blog/blog-changelog.md) ( archived )
-
-Time Management
-
-- [~~生活笔记~~](_archived/think/life-note.md) ( archived )
-- [~~生活指南~~](_archived/think/life-manual.md) ( archived )
-- [~~时间管理日志~~](_archived/lifelogs.md) ( archived )
-- [~~时间管理日志说明~~](_archived/think/time-mgt.md) ( archived )
-
-## Friends
+### Friends
 
 - [Jan Fan](http://janfan.cn/) - Good Student, Little NLP, Tencent, Studying @ Finland
 - [Johnson](http://mrzys.coding.me/) - Pythoner, Web, Sina Mobile
 - [SF Zhou](http://sf-zhou.github.io/) - ACMer, Microsoft, SenseTime
+
+## ~~Archived~~
+
+Blog
+
+- [~~个人技术博客 icehe.me~~](https://icehe.me)
+- [~~搭建个人博客~~](_archived/blog/build-blog.md)
+- [~~折腾个人博客~~](_archived/blog/blog-changelog.md)
+
+Time Management
+
+- [~~生活笔记~~](_archived/think/life-note.md)
+- [~~生活指南~~](_archived/think/life-manual.md)
+- [~~时间管理日志~~](_archived/lifelogs.md)
+- [~~时间管理日志说明~~](_archived/think/time-mgt.md)
 
 > 对酒当歌，人生几何？譬如朝露，去日苦多
