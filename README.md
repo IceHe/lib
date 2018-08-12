@@ -19,7 +19,7 @@
     - [Part 2](c++/effective-cpp-reading-note-2.md)
     - [Part 3](c++/effective-cpp-reading-note-3.md)
     - [Part 4](c++/effective-cpp-reading-note-4.md)
-- [C++ 宏定义与位操作](c++/macro_and_bit_operations.md)
+- [C++ 宏定义与位操作](c++/cpp-macro-n-bit-operations.md)
 
 ## ASM
 
