@@ -32,8 +32,8 @@
 无关 : P
 
 - [最喜爱的](favourites.md)：书、文、电影、ACGMN …
-- [回忆](moments.md)：Good old days
-- [旧文](old-blog.md)：为赋新词强说愁
+- [回忆](past/moments.md)：Good old days
+- [旧文](past/old-blog.md)：为赋新词强说愁
 
 <!-- <hidden> -->
 <!-- - **我是** -->
