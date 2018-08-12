@@ -65,16 +65,9 @@ Python
 
 - [Python3 快速入门](python/python-quick-start.md)
 
-## Blog
-
-- [搭建个人博客](web/build-blog.md)
-- [折腾个人博客](web/blog-changelog.md)
-- [个人技术博客 icehe.me](https://icehe.me) ( archived )
-
 ## Think
 
-Writing : Record my Life
-
+- [日报周报](diary/)
 - [2017 夏秋冬](think/2017-summer-2-winter.md)
 - [2017 春](think/2017-spring.md)
 - [2016 冬](think/2016-winter.md)
@@ -83,13 +76,6 @@ Writing : Record my Life
 - [再见 2015](think/2015-bye.md)
 - [回忆](past/moments.md)
 - [旧博索引](past/old-blog.md)
-
-Time Management
-
-- [日报周报](diary/)
-- [生活指南](_archived/think/life-manual.md) ( deprecated )
-- [~~时间管理日志~~](_archived/lifelogs.md) ( archived )
-- [~~时间管理日志说明~~](_archived/think/time-mgt.md) ( archived )
 
 ## Marks
 
@@ -100,6 +86,21 @@ Time Management
     - 微博视频平台 / 服务端 / Java
     - 微博移动应用服务 / 服务端 / PHP
     - 华南理工 / 软件工程 / 本科
+
+## Archived
+
+Blog
+
+- [~~搭建个人博客~~](web/build-blog.md) ( archived )
+- [~~折腾个人博客~~](web/blog-changelog.md) ( archived )
+- [~~个人技术博客 icehe.me~~](https://icehe.me) ( deprecated )
+
+Time Management
+
+- [~~生活笔记~~](_archived/think/life-note.md) ( archived )
+- [~~生活指南~~](_archived/think/life-manual.md) ( archived )
+- [~~时间管理日志~~](_archived/lifelogs.md) ( archived )
+- [~~时间管理日志说明~~](_archived/think/time-mgt.md) ( archived )
 
 ## Friends
 
