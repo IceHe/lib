@@ -3,8 +3,8 @@
 ## Mac
 
 - [利器 - 软件、物件的推荐](tools.md)
-- [Mac 效率指南](mac/efficiency.md)
-- [Mac 快捷键](mac/shortcuts.md)
+- [Mac 效率指南](mac/mac-efficiency.md)
+- [Mac 快捷键](mac/mac-shortcuts.md)
 
 ## Git
 

@@ -25,7 +25,7 @@
 志趣
 
 - 工具控：[我的利器](tools.md) - Apps & 物件
-- 爱折腾：[我的快捷键](mac/shortcuts.md) - 默认 & 自定义
+- 爱折腾：[我的快捷键](mac/mac-shortcuts.md) - 默认 & 自定义
 - 阅读收藏：[技术](tech.md) & [生活](read.md) - 文章、问答、笔记 …
 - 生活爱好：[ACGMN](https://baike.baidu.com/item/ACGMN)、羽毛球、~~毽球~~ <sup>past</sup>
 
