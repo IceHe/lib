@@ -65,18 +65,6 @@ Python
 
 - [Python3 快速入门](python/python-quick-start.md)
 
-## Think
-
-- [日报周报](diary/)
-- [2017 夏秋冬](think/2017-summer-2-winter.md)
-- [2017 春](think/2017-spring.md)
-- [2016 冬](think/2016-winter.md)
-- [2016 秋](think/2016-fall.md)
-- [2016 春夏](think/2016-summer.md)
-- [再见 2015](think/2015-bye.md)
-- [回忆](past/moments.md)
-- [旧博索引](past/old-blog.md)
-
 ## Marks
 
 - [技术阅读收藏](tech.md) ( 2017-11-15 )
@@ -86,6 +74,18 @@ Python
     - 微博视频平台 / 服务端 / Java
     - 微博移动应用服务 / 服务端 / PHP
     - 华南理工 / 软件工程 / 本科
+
+## Past
+
+- [日报周报](diary/)
+- [2017 夏秋冬](past/2017-summer-2-winter.md)
+- [2017 春](past/2017-spring.md)
+- [2016 冬](past/2016-winter.md)
+- [2016 秋](past/2016-fall.md)
+- [2016 春夏](past/2016-summer.md)
+- [再见 2015](past/2015-bye.md)
+- [回忆](past/moments.md)
+- [旧博索引](past/old-blog.md)
 
 ## Archived
 
