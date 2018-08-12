@@ -40,7 +40,7 @@
 <!--     - 其它：[知乎](https://www.zhihu.com/people/icehe/activities) / [豆瓣](https://www.douban.com/people/IceHeGZ) -->
 <!-- <a href="http://weibo.com/icedes" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">@\_IceHe\_</a> -->
 <!-- - **特点** -->
-<!--     - 省察 ：[时间管理](/lifelogs) - 时间使用情况记录 & 统计 -->
+<!--     - 省察 ：[时间管理](_archived/lifelogs.md) - 时间使用情况记录 & 统计 -->
 <!-- - **: P** -->
 <!--     - 箴言 ：Less. 宁静致远。 -->
 <!-- </hidden> -->

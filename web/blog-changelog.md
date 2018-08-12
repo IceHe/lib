@@ -118,7 +118,7 @@
     - 分别给两个域名都添加了 Google Analytics、Google Webmaster、百度统计和百度站长工具
     - 由于 Gitcafe 被 Coding.net 收购，放弃了 icehe.gitcafe.io 的使用。
 - 自动化 导入个人时间管理日志
-    - 自动导出 自己在 Evernote 上做的 [时间管理日志](/lifelogs/)
+    - 自动导出 自己在 Evernote 上做的 [时间管理日志](_archived/lifelogs/)
         - 修改内容以适应 Hexo 的文章要求
     - 自动导入 成为 Hexo 文章，并部署到网站上
     - 后来改用更便捷的 App 进行管理时间，不再更新博客上的时间管理日志

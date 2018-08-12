@@ -71,63 +71,63 @@
 
 ## 2016
 
-1. [一月：月光，学习。](/lifelogs/2016/01/index.md) 学 49 动 8 废 5
+1. [一月：月光，学习。](_archived/lifelogs/2016/01/index.md) 学 49 动 8 废 5
     <sup>Jan: use up, learn.</sup>
-2. [二月：休息，懒。](/lifelogs/2016/02/index.md) 学 37 动 4 废 4
+2. [二月：休息，懒。](_archived/lifelogs/2016/02/index.md) 学 37 动 4 废 4
     <sup>Feb: Relax, lazy.</sup>
-3. [三月：迷乱，迁居。](/lifelogs/2016/03/index.md) 学 50 动 9 废 4
+3. [三月：迷乱，迁居。](_archived/lifelogs/2016/03/index.md) 学 50 动 9 废 4
     <sup>Mar: confused, move house.</sup>
-4. [四月：加班，新项目。](/lifelogs/2016/04/index.md) 学 47 动 7 废 5
+4. [四月：加班，新项目。](_archived/lifelogs/2016/04/index.md) 学 47 动 7 废 5
     <sup>Apr: work overtime, new project.</sup>
-5. [五月：微博头条，新朋友。](/lifelogs/2016/05/index.md) 学 50 动 11 废 4
+5. [五月：微博头条，新朋友。](_archived/lifelogs/2016/05/index.md) 学 50 动 11 废 4
     <sup>May: TopWeibo, new friends.</sup>
-6. [六月：疲累。](/lifelogs/2016/06/index.md) 学 46 动 10 废 4
+6. [六月：疲累。](_archived/lifelogs/2016/06/index.md) 学 46 动 10 废 4
     <sup>Jun: tired.</sup>
-7. [七月：迷乱，冲绳。](/lifelogs/2016/07/index.md) 学 38 动 9 废 5
+7. [七月：迷乱，冲绳。](_archived/lifelogs/2016/07/index.md) 学 38 动 9 废 5
     <sup>Jul: dizzy, Okinawa.</sup>
-8. [八月：晚睡，迁到新浪新总部。](/lifelogs/2016/08/index.md) 学 50 动 10 废 5
+8. [八月：晚睡，迁到新浪新总部。](_archived/lifelogs/2016/08/index.md) 学 50 动 10 废 5
     <sup>Aug: sleep late, move to the new Sina headquarter.</sup>
-9. [九月：计划，反馈，月光，纠结，讲究方法。](/lifelogs/2016/09/index.md) 学 51 动 11 废 6
+9. [九月：计划，反馈，月光，纠结，讲究方法。](_archived/lifelogs/2016/09/index.md) 学 51 动 11 废 6
     <sup>Sep: plan & feedback, use up, hesitating, methodology</sup>
-10. [十月：重构，痛苦，精简。](/lifelogs/2016/10/index.md) 学 44 动 11 废 8
+10. [十月：重构，痛苦，精简。](_archived/lifelogs/2016/10/index.md) 学 44 动 11 废 8
     <sup>Oct: refactor, pain, less.</sup>
 11. 十一月：重构主项目，沉浸工作。
 12. 十二月：重构主项目，赶进度；沉迷精品 iOS 游戏。
 
 ## 2015
 
-1. [一月：适应，北京。](/lifelogs/2015/01/index.md) 学 40 动 4 废 3
+1. [一月：适应，北京。](_archived/lifelogs/2015/01/index.md) 学 40 动 4 废 3
     <sup>Jan: adapt, Beijing.</sup>
-2. [二月：压力，新年。](/lifelogs/2015/02/index.md) 学 34 动 2 废 2
+2. [二月：压力，新年。](_archived/lifelogs/2015/02/index.md) 学 34 动 2 废 2
     <sup>Feb: pressure, new year.</sup>
-3. [三月：技术博客，工具控。](/lifelogs/2015/03/index.md) 学 34 动 4 废 7
+3. [三月：技术博客，工具控。](_archived/lifelogs/2015/03/index.md) 学 34 动 4 废 7
     <sup>Mar: tech blog, tool zealot.</sup>
-4. [四月：毕业设计，悠闲。](/lifelogs/2015/04/index.md) 学 26 动 8 废 10
+4. [四月：毕业设计，悠闲。](_archived/lifelogs/2015/04/index.md) 学 26 动 8 废 10
     <sup>Apr: graduation design, leisure.</sup>
-5. [五月：毕业设计，论文，混乱的生活。](/lifelogs/2015/05/index.md) 学 30 动 8 废 6
+5. [五月：毕业设计，论文，混乱的生活。](_archived/lifelogs/2015/05/index.md) 学 30 动 8 废 6
     <sup>May: graduation design, paper, chaotic life.</sup>
-6. [六月：毕业季，最后一月。](/lifelogs/2015/06/index.md) 学 21 动 4 废 2
+6. [六月：毕业季，最后一月。](_archived/lifelogs/2015/06/index.md) 学 21 动 4 废 2
     <sup>Jun: graduation season, the last month</sup>
-7. [七月：新浪，入职，新起点。](/lifelogs/2015/07/index.md) 学 29 动 3 废 2
+7. [七月：新浪，入职，新起点。](_archived/lifelogs/2015/07/index.md) 学 29 动 3 废 2
     <sup>Jul: Sina, entry, new begining.</sup>
-8. [八月：公司公寓，适应。](/lifelogs/2015/08/index.md) 学 34 动 5 废 2
+8. [八月：公司公寓，适应。](_archived/lifelogs/2015/08/index.md) 学 34 动 5 废 2
     <sup>Aug: apartment, adapt.</sup>
-9. [九月：单元测试，新人培训。](/lifelogs/2015/09/index.md) 学 33 动 6 废 4
+9. [九月：单元测试，新人培训。](_archived/lifelogs/2015/09/index.md) 学 33 动 6 废 4
     <sup>Sep: unit test, orientation.</sup>
-10. [十月：音乐节，运动。](/lifelogs/2015/10/index.md) 学 40 动 9 废 4
+10. [十月：音乐节，运动。](_archived/lifelogs/2015/10/index.md) 学 40 动 9 废 4
     <sup>Oct: music festival, sports.</sup>
-11. [十一月：运动，饮食，睡眠，好习惯。](/lifelogs/2015/11/index.md) 学 49 动 8 废 3
+11. [十一月：运动，饮食，睡眠，好习惯。](_archived/lifelogs/2015/11/index.md) 学 49 动 8 废 3
     <sup>Nov: sports, eating, sleep, good habits.</sup>
-12. [十二月：学习，运动。](/lifelogs/2015/12/index.md) 学 50 动 9 废 4
+12. [十二月：学习，运动。](_archived/lifelogs/2015/12/index.md) 学 50 动 9 废 4
     <sup>Dec: learn, sports.</sup>
 
 ## 2014
 
-1. [八至十二月 时间统计实习，校招。](/lifelogs/2014/2014 Aug~Dec Time Statistics - From aTimeLogger.md)
+1. [八至十二月 时间统计实习，校招。](_archived/lifelogs/2014/2014 Aug~Dec Time Statistics - From aTimeLogger.md)
     <sup>Aug ~ Dec Time Stat: intership, campus recruiting.</sup>
-2. [十一月：挣扎，旅行，云南。](/lifelogs/2014/11/index.md)
+2. [十一月：挣扎，旅行，云南。](_archived/lifelogs/2014/11/index.md)
     <sup>Nov: struggle, travel, Yunnan, Lijiang.</sup>
-3. [十二月：实习，旅行，北京。](/lifelogs/2014/12/index.md)
+3. [十二月：实习，旅行，北京。](_archived/lifelogs/2014/12/index.md)
     <sup>Dec: intership, travel, Beijing.</sup>
 
 > 皇皇三十载，书剑两无成。
