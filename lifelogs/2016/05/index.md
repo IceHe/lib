@@ -2,7 +2,7 @@
 
 - Created on 2016-05-01 00:00:00
 
-[**< Apr. 2016** - Prev 上一月](/lifelogs/2016/04/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jun. 2016 >**](/lifelogs/2016/06/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](lifelogs.md)
+[**< Apr. 2016** - Prev 上一月](/lifelogs/2016/04/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jun. 2016 >**](/lifelogs/2016/06/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](_archived/lifelogs.md)
 
 1. [16/05/01 stu47 spo3 was12](/lifelogs/2016/05/d01.md)
 2. [16/05/02 stu24 spo24 joy24](/lifelogs/2016/05/d02.md)

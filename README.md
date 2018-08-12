@@ -75,7 +75,6 @@ Python
 
 Writing : Record my Life
 
-- 2018 春夏秋冬 ( TODO )
 - [2017 夏秋冬](think/2017-summer-2-winter.md)
 - [2017 春](think/2017-spring.md)
 - [2016 冬](think/2016-winter.md)
@@ -89,8 +88,8 @@ Time Management
 
 - [日报周报](diary/)
 - [生活指南](think/life-manual.md) ( deprecated )
-- [~~时间管理日志~~](lifelogs.md) ( archived )
-- [~~时间管理日志说明~~](think/time-mgt.md) ( archived )
+- [~~时间管理日志~~](_archived/lifelogs.md) ( archived )
+- [~~时间管理日志说明~~](_archived/think/time-mgt.md) ( archived )
 
 ## Marks
 
