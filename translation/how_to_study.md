@@ -1,11 +1,5 @@
 # 如何学习
 
-date: 2018-12-20
-updated: 2018-02-20
-noupdate: false
-categories: [read]
-tags: [read]
-
 > 《How to Study: A Brief Guide》的译文，将在（有生之年）持续施工。
 
 ---

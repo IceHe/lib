@@ -1,11 +1,5 @@
 # 生活笔记
 
-date: 2018-12-25
-updated: 2018-01-01
-noupdate: true
-categories: [think]
-tags: [think]
-
 > Alpha: Personal Life Note & Self-Help.
 
 ---

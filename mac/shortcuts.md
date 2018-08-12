@@ -1,10 +1,5 @@
 # Mac 快捷键
 
-date: 2016-01-06
-updated: 2018-04-17
-categories: [Mac]
-tags: [Mac]
-
 > macOS Shortcuts: 我的 macOS 快捷键列表。
 
 ---------------------------

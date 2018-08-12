@@ -1,9 +1,5 @@
 # GitLab 自动化
 
-date: 2018-12-01
-categories: [Web]
-tags: [Web]
-
 > Office Automatic : 主要使用 API、CI 等。CI 即 Continuous Integration 持续集成。
 
 ---

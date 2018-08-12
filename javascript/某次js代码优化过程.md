@@ -1,10 +1,5 @@
 # 某次 JavaScript 代码优化过程
 
-date: 2015-02-20
-updated: 2016-04-23
-categories: [JavaScript]
-tags: [JavaScript]
-
 > 优化某段使 id 为 blink 的 html 标签闪烁的代码。手段：用 jQuery 写法精简代码；避免重复使用选择器去获取标签和属性；改用布尔变量及“ ? : ”表达式等压缩语句。
 
 toc: false

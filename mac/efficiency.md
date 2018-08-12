@@ -1,19 +1,11 @@
 # Mac 效率指南
 
-date: 2017-04-15
-updated: 2017-11-28
-categories: [Mac]
-tags: [Mac]
-
 > macOS Efficiency: 关于「如何高效使用 Mac」的个人见解。
 
 ---
 
-{% cq %}
-君子生非异也，善假于物也。
-
-__荀子__
-{% endcq %}
+> 君子生非异也，善假于物也。
+> __荀子__
 
 ## 说明
 

@@ -1,11 +1,4 @@
 # Life Framework
-
-date: 2016-04-17
--------------------------
-<!--updated: 2016-04-17-->
-<!--show_updated: false-->
-<!--categories: [think]-->
-<!--tags: [think]-->
 <!--description: 生活框架，每日自省清单。-->
 
 # 当下

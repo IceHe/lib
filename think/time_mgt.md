@@ -1,10 +1,5 @@
 # 时间管理日志说明
 
-date: 2015-11-13
-updated: 2016-12-05
-categories: [time mgt]
-tags: [time mgt]
-
 > Time Mgt.: Life Log Format 时间日志格式。Principles 原则，Transaction Categories 事务类别，Time Granularity 时间粒度，Log Instance 实例，Schedule 规划。
 
 ---

@@ -1,11 +1,5 @@
 # C++ 的字符与数组
 
-date: 2918-07-07
-updated: 2918-07-07
-noupdate: true
-categories: [C++]
-tags: [C++]
-
 > char & array : 一些相关的趣题，与知识点。
 
 ---

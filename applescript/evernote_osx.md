@@ -1,10 +1,5 @@
 # AppleScript 操作 Evernote 与 macOS
 
-date: 2016-03-13
-updated: 2016-09-22
-categories: [AppleScript]
-tags: [AppleScript]
-
 > AppleScript Advanced: 检查控制 Wifi、蓝牙、硬盘、键盘输入，执行命令，操纵其它 App 等：如 Evernote 笔记的同步、检索、编辑、复制、删除、导入导出、重命名、移动笔记本、加标签…
 
 -----------------------------------------------------------------------

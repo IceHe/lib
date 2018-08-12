@@ -1,11 +1,5 @@
 # PHP 编程经验
 
-date: 2019-07-10
-updated: 2019-07-10
-noupdate: true
-categories: [PHP]
-tags: [PHP]
-
 > 写 PHP 代码的一些经验与感想。
 
 ---

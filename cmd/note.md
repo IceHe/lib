@@ -1,10 +1,5 @@
 # 命令行笔记
 
-date: 2018-11-30
-noupdate: true
-categories: [Cmd]
-tags: [Cmd]
-
 > The Art of Command Line : 命令行的艺术
 
 -----------------

@@ -1,11 +1,5 @@
 # PHP 编程经验
 
-date: 2918-07-16
-updated: 2918-07-16
-noupdate: true
-categories: [PHP]
-tags: [PHP]
-
 > PHP Coding Experience : 日常工作的经验总结。
 
 ---
