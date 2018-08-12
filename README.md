@@ -91,9 +91,9 @@ Python
 
 Blog
 
-- [~~搭建个人博客~~](web/build-blog.md) ( archived )
-- [~~折腾个人博客~~](web/blog-changelog.md) ( archived )
 - [~~个人技术博客 icehe.me~~](https://icehe.me) ( deprecated )
+- [~~搭建个人博客~~](_archived/blog/build-blog.md) ( archived )
+- [~~折腾个人博客~~](_archived/blog/blog-changelog.md) ( archived )
 
 Time Management
 
