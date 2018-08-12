@@ -2,7 +2,7 @@
 
 - Created on 2016-09-01 00:00:00
 
-[**< Jul. 2016** - Prev 上一月](/lifelogs/2016/07/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Sep. 2016 >**](/lifelogs/2016/09/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs/index.md)
+[**< Jul. 2016** - Prev 上一月](/lifelogs/2016/07/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Sep. 2016 >**](/lifelogs/2016/09/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**]((lifelogs.md))
 
 ## Logs 日志记录
 

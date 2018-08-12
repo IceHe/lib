@@ -2,7 +2,7 @@
 
 - Created on 2014-12-01
 
-[**< Nov. 2014** - Prev 上一月](/lifelogs/2014/11/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jan. 2015 >**](/lifelogs/2015/01/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](/lifelogs)
+[**< Nov. 2014** - Prev 上一月](/lifelogs/2014/11/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jan. 2015 >**](/lifelogs/2015/01/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](lifelogs.md)
 
 
 ## Logs 日志记录
