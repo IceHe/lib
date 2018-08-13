@@ -14,6 +14,7 @@
 
 - Docker - [Alpine Linux](docker/alpine/README.md)
 - Git - [Note](git/README.md) : 常用操作 / 概念 / 原理
+- Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - Web - [How to docsify](_docsify/)
 
