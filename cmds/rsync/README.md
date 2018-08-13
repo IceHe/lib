@@ -1,0 +1,28 @@
+# Rsync
+
+## Usage
+
+Steps
+
+- Put [rsyncd.conf](#rsyncdconf) in directory `/etc/`
+- Usually put [rsyncd.secrets](#rsyncdsecrets) in directory `/etc/` on remote server
+- Put [rsyncd.secrets](#rsyncdsecrets) in directory you like on local machine
+- Run [rsync_to_somewhere.sh](#rsync2somewheresh) on local machine
+
+Reference
+
+- http://transamrit.net/docs/rsync/
+
+## Files
+
+### rsync2somewhere.sh
+
+[cmds/rsync/rsync2somewhere.sh](../../cmds/rsync/rsync2somewhere.sh ':include :type=code bash')
+
+### rsyncd.conf
+
+[cmds/rsync/rsyncd.conf](../../cmds/rsync/rsyncd.conf ':include :type=code bash')
+
+### rsyncd.secrets
+
+[cmds/rsync/rsyncd.secrets](../../cmds/rsync/rsyncd.secrets ':include :type=code bash')
