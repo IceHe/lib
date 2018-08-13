@@ -1,6 +1,12 @@
 # IceHe's Lib
 
+> Website : [icehe.xyz](https://icehe.xyz) ( Powered by docsify )
+
 ## Tech
+
+### Web
+
+- [How to docsify](_docsify/)
 
 ### Mac
 
@@ -71,8 +77,6 @@ Python
 
 ### Marks
 
-- [技术阅读收藏](marks/tech.md) ( 2017-11-15 )
-- [文字阅读收藏](marks/read.md) ( 2017-11-15 )
 - [最喜爱的](marks/favourites.md) : 影视 & ACGMN
 - [CV 简历](marks/cv.md) ：技能、经历、教育
     - 微博视频平台 / 服务端 / Java
@@ -98,6 +102,11 @@ Python
 - [SF Zhou](http://sf-zhou.github.io/) - ACMer, Microsoft, SenseTime
 
 ## ~~Archived~~
+
+Marks
+
+- [技术阅读收藏](_archived/marks/tech.md) ( 2017-11-15 )
+- [文字阅读收藏](_archived/marks/read.md) ( 2017-11-15 )
 
 ~~Blog~~
 
