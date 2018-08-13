@@ -17,11 +17,15 @@ Docker
 - [Intro](docker/README.md) : Build & Push Images
 - [Alpine Linux](docker/alpine/README.md)
 
+Markdown
+
+- [Style Guide](markdown/README.md)
+- [Lint Tool : mdl](markdown/lint/README.md)
+
 Others
 
 - Git - [Note](git/README.md) : 常用操作 / 概念 / 原理
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
-- Markdown - [Lint Tool : mdl](markdown/lint/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
 - Rsync - [Usage & Files](cmds/rsync/README.md)
