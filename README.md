@@ -10,15 +10,17 @@
 - [Mac 效率指南](mac/mac-efficiency.md)
 - [Mac 快捷键](mac/mac-shortcuts.md)
 
-### Web
+### Snips
+
+Web
 
 - [How to docsify](_docsify/)
 
-### Git
+Git
 
-- [Git 总结](git/README.md) : 常用操作 / 概念 / 原理
+- [Git Note](git/README.md) : 常用操作 / 概念 / 原理
 
-### Docker
+Docker
 
 - [Alpine Linux](docker/alpine/README.md)
 
