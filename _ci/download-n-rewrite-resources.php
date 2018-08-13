@@ -8,7 +8,7 @@ echo var_export($argv, true)."\n\n";
 // Download resources to directory `_docsify/resources/`
 $toDownload = false;
 // Rewrite links of resources to local files
-$toRewriteOriginal = false;
+$toRewriteOriginal = true;
 
 foreach ($argv as $arg) {
     if (in_array($arg, ['--download', '-d'])) {
