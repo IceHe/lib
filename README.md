@@ -12,13 +12,10 @@
 
 ### Snips
 
-<!-- Web -->
-<!-- Git -->
-<!-- Docker -->
-
-- [How to docsify](_docsify/)
-- [Git Note](git/README.md) : 常用操作 / 概念 / 原理
-- [Docker / Alpine Linux](docker/alpine/README.md)
+- Docker - [Alpine Linux](docker/alpine/README.md)
+- Git - [Note](git/README.md) : 常用操作 / 概念 / 原理
+- Nginx - [Simple Conf](nginx/README.md)
+- Web - [How to docsify](_docsify/)
 
 ### C++
 
