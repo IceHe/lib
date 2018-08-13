@@ -35,7 +35,7 @@ Others
 
 ### ASM
 
-[汇编语言的学习准备](asm/prepare-asm-on-windows-7.md)
+[汇编语言的学习准备](asm/prepare-on-windows-7.md)
 
 1. [寄存器、CS、IP、CPU、内存](asm/learning-note-1.md)
 2. [大小端、寄存器、DS、[addr]、栈](asm/learning-note-2.md)

@@ -55,7 +55,7 @@ Chapter 2 实验 1 查看 CPU 和内存，用机器指令和汇编指令编程
 
 ## 使用 debug.exe
 
-> [准备 Windows7 下的汇编工具 debug.exe](asm/prepare-asm-on-windows-7.md)
+> [准备 Windows7 下的汇编工具 debug.exe](prepare-on-windows-7.md)
 
 ### 指令
 
