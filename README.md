@@ -77,8 +77,10 @@ Python
 
 ### Marks
 
-- [最喜爱的](marks/favourites.md) : 影视 & ACGMN
-- [CV 简历](marks/cv.md) ：技能、经历、教育
+- [技术阅读收藏](marks/tech.md)
+- [文字阅读收藏](marks/read.md)
+- [最喜爱的](marks/favourites.md) : 影视 / ACGMN
+- [CV 简历](marks/cv.md) ：技能 / 经历 / 教育
     - 微博视频平台 / 服务端 / Java
     - 微博移动应用服务 / 服务端 / PHP
     - 华南理工 / 软件工程 / 本科
@@ -97,16 +99,11 @@ Python
 
 ### Friends
 
-- [Jan Fan](http://janfan.cn/) - Good Student, Little NLP, Tencent, Studying @ Finland
-- [Johnson](http://mrzys.coding.me/) - Pythoner, Web, Sina Mobile
-- [SF Zhou](http://sf-zhou.github.io/) - ACMer, Microsoft, SenseTime
+- [Jan Fan](http://janfan.cn/) : Good Student / Little NLP / Tencent / Studying @ Finland
+- [Johnson](http://mrzys.coding.me/) : Pythoner / Web / Sina Mobile
+- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 
 ## ~~Archived~~
-
-Marks
-
-- [技术阅读收藏](marks/tech.md) ( 2017-11-15 )
-- [文字阅读收藏](marks/read.md) ( 2017-11-15 )
 
 ~~Blog~~
 
