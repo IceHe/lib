@@ -1,10 +1,10 @@
 # Markdown Style
 
-> 推荐参考，但并非强制执行的 Markdown 风格标准！
+推荐参考，但并非强制执行的 Markdown 风格标准！
 
 ## 建议 Suggestions
 
-> **Readability > Writability** : 易阅读 > 易编写
+**Readability > Writability** : 易阅读 > 易编写
 
 ### 标题 Heading
 
@@ -237,6 +237,8 @@ Markdown Lint Tool `mdl`
 - 了解 GitLab 原生支持的 Markdown 语法
 
 ### Style Guide
+
+> Highly recommend you to read these files below!
 
 Markdown Style：**Readability > Writability**
 
