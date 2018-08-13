@@ -38,7 +38,7 @@ Mine : [icehe/lib/.gitlab-ci.yml](https://github.com/IceHe/lib/blob/master/.gitl
 
 `icehe/markdownlint`
 
-- Built by : markdownlint/Dockerfile
+- Built by : markdown/lint/Dockerfile
 - Hub : https://hub.docker.com/r/icehe/markdownlint
 
 ```bash
@@ -49,8 +49,8 @@ docker push icehe/markdownlint
 
 #### Dockerfile
 
-File : _ci/markdownlint/Dockerfile
+File : markdown/lint/Dockerfile
 
-[_ci/markdownlint/Dockerfile](Dockerfile ':include :type=code docker')
+[markdown/lint/Dockerfile](../markdown/lint/Dockerfile ':include :type=code docker')
 
 My image : [icehe/markdownlint](https://hub.docker.com/r/icehe/markdownlint) @ hub.docker.com
