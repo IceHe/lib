@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Service config file template
+#
+#   - Put config file in directory `/etc/init.d/`.
+#   - Replace `path/to/website` with real path.
+#   - Replace `[port]` with available port you want (e.g., 80).
+#       - Tip: Run `lsof -i :[port]` to check port availability.
+#   - Run `service start docsify` in terminal.
+#   - Visit `http://[host_ip]:[port]/` in browser.
+#
+# Ref : https://unix.stackexchange.com/questions/236084/how-do-i-create-a-service-for-a-shell-script-so-i-can-start-and-stop-it-like-a-d
+
+case "$1" in
+start)
+   docsify serve -p [port] path/to/website &
+   echo $!>/var/run/docsify.pid
+   ;;
+stop)
+   kill `cat /var/run/docsify.pid`
+   rm /var/run/docsify.pid
+   ;;
+restart)
+   $0 stop
+   $0 start
+   ;;
+status)
+   if [ -e /var/run/docsify.pid ]; then
+      echo docsify-website is running, pid=`cat /var/run/docsify.pid`
+   else
+      echo docsify-website is NOT running
+      exit 1
+   fi
+   ;;
+*)
+   echo "Usage: $0 {start|stop|status|restart}"
+esac
+
+exit 0
