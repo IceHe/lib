@@ -343,11 +343,11 @@
 
 ## 额外
 
-- 最喜欢的 [电影](favourites.md#Motion-Picture-电影)
-- 最喜欢的 [电视剧](favourites.md#TV-Dramas-电视剧)
-- 最喜欢的 [动画](favourites.md#Animate-动画)
-- 最喜欢的 [游戏](favourites.md#Games-游戏)
-- 最喜欢的 [歌手](favourites.md#Singers-歌手)
+- 最喜欢的 [电影](../../marks/favourites.md#Motion-Picture-电影)
+- 最喜欢的 [电视剧](../../marks/favourites.md#TV-Dramas-电视剧)
+- 最喜欢的 [动画](../../marks/favourites.md#Animate-动画)
+- 最喜欢的 [游戏](../../marks/favourites.md#Games-游戏)
+- 最喜欢的 [歌手](../../marks/favourites.md#Singers-歌手)
 
 ## 笔记
 
