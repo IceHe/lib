@@ -112,17 +112,52 @@ Reference
 
 ## Deploy
 
-### Rsync
+### Pages
 
-Send website files to specified remote directory.
+Configurated by
 
-### Nginx
+- GitLab : Config file `.gitlab-ci.yml`
+- GitHub : Project Settings
+- Coding.net : Project Settings
+
+#### GitLab CI
+
+File : .gitlab-ci.yml
+
+- build job definition as follow
+
+```yaml
+# Deploy @ GitLab Pages
+pages:
+    stage: deploy
+    script:
+        # Build：temporary directory `.public/`
+        - mkdir .public
+        - cp -r * .public
+        # Release：formal directory `public/`
+        - mv .public public
+    artifacts:
+        paths:
+            - public
+    only:
+        - master
+```
+
+Mine : [icehe/lib/.gitlab-ci.yml](https://github.com/IceHe/lib/blob/master/.gitlab-ci.yml)
+
+### VPS
+
+#### Rsync
+
+At first, send website files to specified remote directory.
+
+#### Nginx
 
 Recommended method
 
 [nginx/docsify.conf](../_ci/nginx/docsify.conf ':include :type=code nginx')
 
-### Service
+#### Service
 
 Optional method
 
