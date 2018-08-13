@@ -29,8 +29,8 @@ App 选择原则
 
 笔者相关文章
 
-- 《[Mac 效率指南](mac/mac-efficiency.md)》
-- 《[Mac 快捷键](mac/mac-shortcuts.md)》
+- 《[Mac 效率指南](../mac/efficiency.md)》
+- 《[Mac 快捷键](../mac/mac-shortcuts.md)》
 
 参考阅读
 
