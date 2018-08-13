@@ -9,8 +9,8 @@ stages:
 md-lint:
     stage: parallel
     script:
-        - mdl --style _ci/markdownlint/style.rb --list-rules
-        - mdl --style _ci/markdownlint/style.rb --git-recurse .
+        - mdl --style markdown/lint/style.rb --list-rules
+        - mdl --style markdown/lint/style.rb --git-recurse .
 
 # Deploy @ GitLab Pages
 pages:

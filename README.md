@@ -21,7 +21,7 @@ Others
 
 - Git - [Note](git/README.md) : 常用操作 / 概念 / 原理
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
-- Markdown - [Lint Tool : mdl](_ci/markdownlint/README.md)
+- Markdown - [Lint Tool : mdl](markdown/lint/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - Web - [How to docsify](_docsify/)
 
