@@ -14,11 +14,11 @@ rule "MD012" # Multiple consecutive blank lines
 rule "MD018" # No space after hash on atx style header
 rule "MD019" # Multiple spaces after hash on atx style header
 rule "MD020" # No space inside hashes on closed atx style header
-rule "MD021" # Multiple spaces inside hashes on closed atx style header
+rule "MD021" # Multiple spaces insidehashes on closed atx style header
 rule "MD022" # Headers should be surrounded by blank lines
 rule "MD023" # Headers must start at the beginning of the line
 # rule "MD024" # Multiple headers with the same content
-# rule "MD025" # Multiple top level headers in the same document
+rule "MD025" # Multiple top level headers in the same document
 rule "MD026" # Trailing punctuation in header
 # rule "MD027" # Multiple spaces after blockquote symbol
 rule "MD028" # Blank line inside blockquote
@@ -31,6 +31,6 @@ rule "MD032" # Lists should be surrounded by blank lines
 rule "MD035" # Horizontal style
 rule "MD036" # Emphasis used instead of a header
 rule "MD037" # Spaces inside emphasis markers
-# rule "MD038" # Spaces inside code span elements
+rule "MD038" # Spaces inside code span elements
 rule "MD039" # Spaces inside link text
 # rule "MD046" # Code block style
