@@ -23,6 +23,7 @@ Others
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Markdown - [Lint Tool : mdl](markdown/lint/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
+- PHP - [Functions & Scripts](php/README.md)
 - Web - [How to docsify](_docsify/)
 
 ### C++
@@ -68,13 +69,10 @@ Batch 批处理
 - [DOS 常用指令](scripts/batch/dos-common-commands.md)
 - [DOS 环境变量](scripts/batch/dos-environment-variable.md)
 
-JavaScript
+Others
 
-- [某次 JavaScript 代码优化过程](scripts/javascript/optimize-some-code.md)
-
-Python
-
-- [Python3 Quick Start](scripts/python/quick-start.md)
+- Python 3 - [Quick Start](scripts/python/quick-start.md)
+- JavaScript - [某次代码优化](scripts/javascript/optimize-some-code.md)
 
 ## Life
 
