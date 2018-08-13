@@ -10,15 +10,16 @@ md-lint:
     stage: parallel
     script:
         - mdl --style _ci/markdownlint.style.rb --list-rules
-        - mdl --style _ci/markdownlint.style.rb --git-recurse . && echo ''
+        - mdl --style _ci/markdownlint.style.rb --git-recurse .
 
+# Deploy @ GitLab Pages
 pages:
     stage: parallel
     script:
-        # 生成：临时目录 .public
+        # Build：temporary directory `.public/`
         - mkdir .public
         - cp -r * .public
-        # 发布：发布目录 public
+        # Release：formal directory `public/`
         - mv .public public
     artifacts:
         paths:
