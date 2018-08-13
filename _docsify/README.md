@@ -16,7 +16,7 @@ Require
 
 ### Install
 
-- on macOS
+on macOS
 
 ```bash
 brew install npm
@@ -49,7 +49,7 @@ docsify serve . -p [port]
 
 http://localhost:3000
 
-- Default port is 3000.
+Default port is 3000.
 
 ## Build
 
@@ -115,8 +115,6 @@ Reference
 ### Rsync
 
 Send website files to specified remote directory.
-
-<!-- [rsync to 10.77.120.249](rsync_to_10.77.120.249.sh ':include :type=code bash') -->
 
 ### Nginx
 
