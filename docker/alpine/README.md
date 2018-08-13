@@ -24,44 +24,12 @@ apk add bash
 
 Reference
 
-- https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
-
-## Build & Push
-
-Register
-
-- [hub.docker.com](https://hub.docker.com)
-
-Login by your [username] registered
-
-```bash
-docker login
-```
-
-Go to path/to/dir_with_dockerfile
-
-```bash
-cd docker/alpine
-```
-
-Build Image
-
-```bash
-docker build --compress --squash -t [username]/alpine ./
-```
-
-Push Image
-
-```bash
-docker push [username]/alpine
-```
-
-Example
-
-- https://hub.docker.com/r/icehe/alpine
+- [Alpine Linux - Package Management]( https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management) @ wiki.alpinelinux.org
 
 ## Dockerfile
 
 File : docker/alpine/Dockerfile
 
 [docker/alpine/Dockerfile](Dockerfile ':include :type=code docker')
+
+My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
