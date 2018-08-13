@@ -24,6 +24,7 @@ Others
 - Markdown - [Lint Tool : mdl](markdown/lint/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
+- Rsync - [Usage & Files](cmds/rsync/README.md)
 - Web - [How to docsify](_docsify/)
 
 ### C++
