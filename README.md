@@ -22,6 +22,11 @@ Markdown
 - [Style Guide](markdown/README.md)
 - [Lint Tool : mdl](markdown/lint/README.md)
 
+Commands
+
+- [List](cmds/README.md) ( TODO )
+- Rsync - [Usage & Files](cmds/rsync/README.md)
+
 Others
 
 - Coding - [Abbreviations](coding/abbrs.md)
@@ -29,7 +34,6 @@ Others
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
-- Rsync - [Usage & Files](cmds/rsync/README.md)
 - Web - [How to docsify](_docsify/)
 
 ### C++
