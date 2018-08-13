@@ -15,7 +15,7 @@
 Docker
 
 - [Intro](docker/README.md) : Build & Push Images
-- [Alpine Linux](docker/alpine/README.md)
+- [Alpine Linux](docker/alpine/README.md) : Minimal OS Image
 
 Markdown
 
