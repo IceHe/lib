@@ -1,9 +1,5 @@
 # Nginx
 
-## Simple Conf
-
-[simple.conf](./simple.conf ':include :type=code nginx')
-
 ## Usage
 
 - Put config file in directory `/etc/nginx/conf.d/`
@@ -13,3 +9,9 @@
     - or `systemctl restart nginx` ( systemd )
     - or `nginx -s reload`
 - Visit `http://[host_ip]:[port]/` in browser
+
+## Simple Conf
+
+File : simple.conf
+
+[simple.conf](./simple.conf ':include :type=code nginx')
