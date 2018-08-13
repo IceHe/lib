@@ -24,16 +24,16 @@
 
 志趣
 
-- 工具控：[我的利器](tools.md) - Apps & 物件
-- 爱折腾：[我的快捷键](mac/mac-shortcuts.md) - 默认 & 自定义
+- 工具控：[我的利器](../marks/tools.md) - Apps & 物件
+- 爱折腾：[我的快捷键](../mac/shortcuts.md) - 默认 & 自定义
 - 阅读收藏：[技术](../marks/tech.md) & [生活](../marks/read.md) - 文章、问答、笔记 …
 - 生活爱好：[ACGMN](https://baike.baidu.com/item/ACGMN)、羽毛球、~~毽球~~ <sup>past</sup>
 
 无关 : P
 
-- [最喜爱的](favourites.md)：书、文、电影、ACGMN …
-- [回忆](past/moments.md)：Good old days
-- [旧文](past/old-blog.md)：为赋新词强说愁
+- [最喜爱的](../marks/favourites.md)：书、文、电影、ACGMN …
+- [回忆](../past/moments.md)：Good old days
+- [旧文](../past/old-blog.md)：为赋新词强说愁
 
 <!-- <hidden> -->
 <!-- - **我是** -->
@@ -144,9 +144,9 @@ IDE
 - 「华工教学云平台」Windows 客户端（C++ Qt GUI），及 Linux 服务端的部分功能
 - _C , C++ , Qt Framework , CentOS 6.5_
 
-**毕业设计 - [基于进程安全测量的安全管理](https://github.com/IceHe/secure_mgt_by_dynamic_measuring)** _2015.03 ~ 2015.05_
+**毕业设计 - [基于进程安全测量的安全管理](https://github.com/IceHe/secure-mgt-by-dyn-measuring)** _2015.03 ~ 2015.05_
 
-- 包括：[安全测量模块](https://github.com/IceHe/dimm)（Linux Loadable Kernel Module）、[安全管理器](https://github.com/IceHe/secure_monitor)（Qt GUI）
+- 包括：[安全测量模块](https://github.com/IceHe/dimm)（Linux Loadable Kernel Module）、[安全管理器](https://github.com/IceHe/secure-monitor)（Qt GUI）
 - 原理：用 SHA-1 分别计算进程在内存中的代码段与参数段，
     - 得出定长的信息摘要作为特征值（方便比对），去比对标准特征值，
     - 便可判断进程是否被篡改，或程序是否被替换

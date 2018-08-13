@@ -30,7 +30,7 @@ App 选择原则
 笔者相关文章
 
 - 《[Mac 效率指南](../mac/efficiency.md)》
-- 《[Mac 快捷键](../mac/mac-shortcuts.md)》
+- 《[Mac 快捷键](../mac/shortcuts.md)》
 
 参考阅读
 
@@ -383,7 +383,7 @@ Shell
 
 - 稳定切换同一 App 下各子窗口。
 - HyperSwitcher 选择切换的窗口时，会显示各应用的缩略图。
-- 可以用 [Keyboard Maestro](tools.md#Shortcuts) 来实现同样的功能以替代它。
+- 可以用 [Keyboard Maestro](#Shortcuts) 来实现同样的功能以替代它。
 - 相关 App：[~~HyperDock~~](https://bahoom.com/hyperdock/)
     窗口增强工具。光标停到 Dock 的 App 图标上，能快速预览该软件的所有窗口，点击切换到不同的窗口或桌面。还有快速调整窗口布局、大小、位置等的功能。
     - 用处还是不大，用 HyperSwitcher 切换子窗口时就能看到 App 下所有子窗口的预览图。
