@@ -8,23 +8,22 @@ echo var_export($argv, true)."\n\n";
 // Download resources to directory `_docsify/resources/`
 $toDownload = false;
 // Rewrite links of resources to local files
-// $toRewriteOriginal = false; // default
-$toRewriteOriginal = true; // temp
+$toRewrite = true; // default
 
 foreach ($argv as $arg) {
     if (in_array($arg, ['--download', '-d'])) {
         $toDownload = true;
     } elseif (in_array($arg, ['--rewrite', '-r'])) {
-        $toRewriteOriginal = true;
+        $toRewrite = true;
     }
 }
 
 echo 'toDownload: '.intval($toDownload)."\n";
-echo 'toRewriteOriginal: '.intval($toRewriteOriginal)."\n";
+echo 'toRewrite: '.intval($toRewrite)."\n";
 echo "\n";
 
 // Get content of `index.html`
-$content = file_get_contents("index.html");
+$content = file_get_contents("index.raw.html");
 echo $content."\n\n";
 
 // Extract URLs of resources from `index.html`
@@ -57,11 +56,6 @@ foreach ($resources[1] ?? [] as $resource) {
 echo $contectImproved."\n\n";
 
 // Save new `index.html` with links to local resources
-if ($toRewriteOriginal) {
-    file_put_contents("index.original.html", $content);
-    file_put_contents("index.html", $contectImproved);
-} else {
-    file_put_contents("index.improved.html", $contectImproved);
-}
+file_put_contents($toRewrite ? 'index.html' : 'index.improved.html', $contectImproved);
 
 echo "Fin.\n\n";
