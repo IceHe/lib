@@ -27,10 +27,10 @@ Others
 
 ### C++
 
-- [C++ Primer 5th](cpp/cpp-primer-5th.md)
-- [C++ Interview Book](cpp/cpp-interview-book.md)
-- [C++ Coding Standards](cpp/cpp-code-standards.md)
-- [C++ Macros & Bit Operations](cpp/cpp-macro-n-bit-operations.md)
+- [C++ Primer 5th](cpp/primer-5th.md)
+- [C++ Interview Book](cpp/interview-book.md)
+- [C++ Coding Standards](cpp/code-standards.md)
+- [C++ Macros & Bit Operations](cpp/macro-n-bit-operations.md)
 - Effective C++ : [P1](cpp/effective-cpp-reading-note-1.md) / [P2](cpp/effective-cpp-reading-note-2.md) / [P3](cpp/effective-cpp-reading-note-3.md) / [P4](cpp/effective-cpp-reading-note-4.md)
 
 ### ASM
