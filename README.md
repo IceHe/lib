@@ -1,6 +1,6 @@
 # IceHe's Lib
 
-> Website : [icehe.xyz](https://icehe.xyz) ( Powered by docsify )
+Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 
 ## Tech
 
@@ -34,7 +34,7 @@ Others
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
-- Web - [How to docsify](_docsify/)
+- Web - [How to docsify](_docsify/README.md)
 
 ### C++
 
