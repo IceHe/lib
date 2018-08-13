@@ -105,8 +105,8 @@ Python
 
 Marks
 
-- [技术阅读收藏](_archived/marks/tech.md) ( 2017-11-15 )
-- [文字阅读收藏](_archived/marks/read.md) ( 2017-11-15 )
+- [技术阅读收藏](marks/tech.md) ( 2017-11-15 )
+- [文字阅读收藏](marks/read.md) ( 2017-11-15 )
 
 ~~Blog~~
 
