@@ -62,4 +62,6 @@ Example
 
 ## Dockerfile
 
-[Dockerfile](Dockerfile ':include :type=code docker')
+File : docker/alpine/Dockerfile
+
+[docker/alpine/Dockerfile](Dockerfile ':include :type=code docker')
