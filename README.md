@@ -12,21 +12,21 @@
 
 ### Snips
 
-Web
+<!-- Web -->
 
 - [How to docsify](_docsify/)
 
-Git
+<!-- Git -->
 
 - [Git Note](git/README.md) : 常用操作 / 概念 / 原理
 
-Docker
+<!-- Docker -->
 
-- [Alpine Linux](docker/alpine/README.md)
+- [Docker / Alpine Linux](docker/alpine/README.md)
 
 ### C++
 
-- [C++ Primer 第五版](cpp/cpp-primer-5th.md)
+- [C++ Primer 5th](cpp/cpp-primer-5th.md)
 - [C++ 面试宝典](cpp/cpp-interview-book.md)
 - [C++ 编程规范](cpp/cpp-code-standards.md)
 - Effective C++
@@ -61,7 +61,7 @@ Docker
 
 AppleScript
 
-- [AppleScript 快速入门](scripts/applescript/applescript.md)
+- [AppleScript Quick Start](scripts/applescript/quick-start.md)
 - [用 AppleScript 操作 Evernote / macOS](scripts/applescript/evernote-macos.md)
 
 Batch 批处理
@@ -77,7 +77,7 @@ JavaScript
 
 Python
 
-- [Python3 快速入门](scripts/python/python-quick-start.md)
+- [Python3 Quick Start](scripts/python/quick-start.md)
 
 ## Life
 
