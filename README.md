@@ -24,8 +24,8 @@ Markdown
 
 Commands
 
-- [List](cmds/README.md) ( TODO )
-- Rsync - [Usage & Files](cmds/rsync/README.md)
+- [List](commands/README.md) ( TODO )
+- Rsync - [Usage & Files](commands/rsync/README.md)
 
 Others
 

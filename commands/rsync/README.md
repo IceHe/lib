@@ -17,12 +17,12 @@ Reference
 
 ### rsync2somewhere.sh
 
-[cmds/rsync/rsync2somewhere.sh](../../cmds/rsync/rsync2somewhere.sh ':include :type=code bash')
+[cmds/rsync/rsync2somewhere.sh](../rsync/rsync2somewhere.sh ':include :type=code bash')
 
 ### rsyncd.conf
 
-[cmds/rsync/rsyncd.conf](../../cmds/rsync/rsyncd.conf ':include :type=code bash')
+[cmds/rsync/rsyncd.conf](../rsync/rsyncd.conf ':include :type=code bash')
 
 ### rsyncd.secrets
 
-[cmds/rsync/rsyncd.secrets](../../cmds/rsync/rsyncd.secrets ':include :type=code bash')
+[cmds/rsync/rsyncd.secrets](../rsync/rsyncd.secrets ':include :type=code bash')
