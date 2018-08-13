@@ -37,22 +37,22 @@ Others
 
 [汇编语言的学习准备](asm/prepare-asm-on-windows-7.md)
 
-1. [寄存器、CS、IP、CPU、内存](asm/asm-learning-note-1.md)
-2. [大小端、寄存器、DS、[addr]、栈](asm/asm-learning-note-2.md)
-3. [伪指令、编译、连接、调试，[BX]、loop、段前缀、内存空间](asm/asm-learning-note-3.md)
-4. [栈、数据、代码、栈的段、多段程序，大小写转换、寻址、SI、DI](asm/asm-learning-note-4.md)
-5. [bx、si、di、bp、寻址、除法、dd、dup、结构化数据](asm/asm-learning-note-5.md)
-6. [转移、offset、jmp、jcxz、loop、dec、超界检测](asm/asm-learning-note-6.md)
-7. [call、ret、mul、显示字符串（指定位置、颜色）、除法溢出、数值显示](asm/asm-learning-note-7.md)
-8. [课程设计：公司数据以指定格式在屏幕上显示](asm/asm-learning-note-8.md)
-9. [标志寄存器，adc、sbb、cmp，检测比较结果的条件转移指令，DF标识和串传送指令，及相关实验](asm/asm-learning-note-9.md)
-10. [内中断、中断处理程序、中断向量表，安装、设置中断向量](asm/asm-learning-note-10.md)
-11. [int 指令，中断例程，及相关实验](asm/asm-learning-note-11.md)
-12. [端口的读写，in、out、shl、shr，访问 CMOS RAM。](asm/asm-learning-note-12.md)
-13. [外中断，接口芯片和端口，可屏蔽/不可屏蔽中断，PC机键盘的处理过程，及相关实验](asm/asm-learning-note-13.md)
-14. [直接定址表，数据、地址标号。在其它段中，计算sin(x)，及相关实验](asm/asm-learning-note-14.md)
-15. [用 BIOS 进行键盘输入和磁盘读写，及相关实验](asm/asm-learning-note-15.md)
-16. [附录内容：汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](asm/asm-learning-note-16.md)
+1. [寄存器、CS、IP、CPU、内存](asm/learning-note-1.md)
+2. [大小端、寄存器、DS、[addr]、栈](asm/learning-note-2.md)
+3. [伪指令、编译、连接、调试，[BX]、loop、段前缀、内存空间](asm/learning-note-3.md)
+4. [栈、数据、代码、栈的段、多段程序，大小写转换、寻址、SI、DI](asm/learning-note-4.md)
+5. [bx、si、di、bp、寻址、除法、dd、dup、结构化数据](asm/learning-note-5.md)
+6. [转移、offset、jmp、jcxz、loop、dec、超界检测](asm/learning-note-6.md)
+7. [call、ret、mul、显示字符串（指定位置、颜色）、除法溢出、数值显示](asm/learning-note-7.md)
+8. [课程设计：公司数据以指定格式在屏幕上显示](asm/learning-note-8.md)
+9. [标志寄存器，adc、sbb、cmp，检测比较结果的条件转移指令，DF标识和串传送指令，及相关实验](asm/learning-note-9.md)
+10. [内中断、中断处理程序、中断向量表，安装、设置中断向量](asm/learning-note-10.md)
+11. [int 指令，中断例程，及相关实验](asm/learning-note-11.md)
+12. [端口的读写，in、out、shl、shr，访问 CMOS RAM。](asm/learning-note-12.md)
+13. [外中断，接口芯片和端口，可屏蔽/不可屏蔽中断，PC机键盘的处理过程，及相关实验](asm/learning-note-13.md)
+14. [直接定址表，数据、地址标号。在其它段中，计算sin(x)，及相关实验](asm/learning-note-14.md)
+15. [用 BIOS 进行键盘输入和磁盘读写，及相关实验](asm/learning-note-15.md)
+16. [附录内容：汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](asm/learning-note-16.md)
 
 ### Scripts
 
@@ -70,7 +70,7 @@ Batch 批处理
 
 JavaScript
 
-- [某次 JavaScript 代码优化过程](scripts/javascript/optimize-javascript-code.md)
+- [某次 JavaScript 代码优化过程](scripts/javascript/optimize-some-code.md)
 
 Python
 
