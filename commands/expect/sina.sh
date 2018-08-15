@@ -3,24 +3,25 @@
 set timeout 180
 
 # creates a new process running program args
-spawn ssh zhiyuan16@202.106.182.212
+spawn ssh [username]@[host_or_ip]
 
 # waits until one of the patterns matches the output of a spawned process
 expect {
 
     "password:" {
         # sends string to the current process
-        send "o3isK3BeZ0hkKIGJAyz2Cp/HjadPqUpSLL+XC9zb0V9+dGId5/U/kPCGogXSz9k9K\r"
+        send "[password]\r"
         # allows expect itself to continue executing rather than returning as it normally would
         exp_continue
 
     } "Enter:" {
+        # [interact according to output from remote server]
         send "1\r"
         exp_continue
 
     } "server ip or domain name ( 'q' to exit ):" {
-        #send "10.13.130.231\r"
-        send "10.77.120.249\r"
+        # [interact according to output from remote server]
+        send "[ip]\r"
 
         # gives control of the current process to the user, so that keystrokes are sent to the current process, and the stdout and stderr of the current process are returned
         interact
