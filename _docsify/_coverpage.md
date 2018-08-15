@@ -17,6 +17,6 @@
 <!-- [Blog](https://icehe.me) -->
 
 [Weibo](https://weibo.com/icedes)
-[Read](#icehe39s-lib)
+[Library](#icehe39s-lib)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
