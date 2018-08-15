@@ -1,25 +1,26 @@
 # Commands
 
-## Best Guide
+## Ref
 
-- [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md)
- / [中文版](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
+- [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) / [中文版](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
 
-## Current
+```bash
+man [command]
 
-- [expect](../commands/expect/README.md)
-- [rsync](../commands/rsync/README.md)
+# e.g.: `man bash`
+```
 
-## Other Snips
+## Tmp
+
+`npm` install globally
 
 ```bash
 # NPM Install globally
 npm i docsify-cli -g
 ```
 
-```bash
-# List Docs
-find public | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
-```
+List directory content like `tree`
 
-TODO
+```bash
+find [directory_path] | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
+```
