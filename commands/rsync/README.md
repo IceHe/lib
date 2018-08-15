@@ -1,5 +1,13 @@
 # Rsync
 
+rysnc
+
+> faster, flexible replacement for rcp
+
+rcp
+
+> remote file copy
+
 ## Usage
 
 Steps
