@@ -12,6 +12,10 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 
 ### Snips
 
+[Commands](commands/README.md) : 命令行工具
+
+- [expect](../commands/expect/README.md) / [rsync](../commands/rsync/README.md) / [tar](../commands/tar.md) / …
+
 Docker
 
 - [Intro](docker/README.md) : Build & Push Images
@@ -21,12 +25,6 @@ Markdown
 
 - [Style Guide](markdown/README.md)
 - [Lint Tool : mdl](markdown/lint/README.md)
-
-Commands
-
-- [List](commands/README.md) ( TODO )
-- expect - [Example](commands/expect/README.md)
-- rsync - [Usage & Files](commands/rsync/README.md)
 
 Others
 
