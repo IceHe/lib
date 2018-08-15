@@ -124,8 +124,8 @@ Others
 
 ~~Time Management~~
 
-- [~~生活笔记~~](_archived/think/life-note.md)
-- [~~生活指南~~](_archived/think/life-manual.md)
+- [~~Note~~](_archived/think/life-note.md)
+- [~~Self-Manual~~](_archived/think/life-manual.md)
 - [~~时间管理日志~~](_archived/lifelogs.md)
 - [~~时间管理日志说明~~](_archived/think/time-mgt.md)
 
