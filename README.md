@@ -6,7 +6,7 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 
 ### Mac
 
-- [利器 - 软件、物件的推荐](tools.md)
+- [利器 - 软件、物件的推荐](marks/tools.md)
 - [Mac 效率指南](mac/efficiency.md)
 - [Mac 快捷键](mac/shortcuts.md)
 
