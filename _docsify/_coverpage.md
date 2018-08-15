@@ -2,11 +2,7 @@
 
 # IceHe <small>Lib</small>
 
-<!-- > Done is better than perfect. -->
-
     <!-- Done is better than perfect. -->
-
-<!-- - &nbsp; -->
 
 <!-- - [GitHub](https://github.com/IceHe) &nbsp;/&nbsp; [GitLab](https://gitlab.com/IceHe) &nbsp;/&nbsp; [Weibo](https://weibo.com/icedes) -->
 
@@ -18,9 +14,7 @@
 <!-- - Wiki：Never memorize something that you can look up. -->
 <!-- - **Albert Einstein** -->
 
-<!-- - &nbsp; -->
-
-[Blog](https://icehe.me)
+<!-- [Blog](https://icehe.me) -->
 [Read](#icehe39s-lib)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
