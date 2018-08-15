@@ -1,6 +1,4 @@
 - [Home](/)
-- [Weibo](https://weibo.com/icedes)
-- [Blog](https://icehe.me)
 - [CV](marks/cv.md)
 
 <!-- - External -->
