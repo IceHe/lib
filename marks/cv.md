@@ -216,4 +216,4 @@ IDE
 >
 > **E.L. Doctorow**
 
-![Avatar](http://7vzp68.com1.z0.glb.clouddn.com/about/avatar_03a.jpg)
+<!-- ![Avatar](http://7vzp68.com1.z0.glb.clouddn.com/about/avatar_03a.jpg) -->
