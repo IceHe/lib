@@ -14,7 +14,9 @@
 <!-- - Wiki：Never memorize something that you can look up. -->
 <!-- - **Albert Einstein** -->
 
-[Blog](https://icehe.me)
+<!-- [Blog](https://icehe.me) -->
+
+[Weibo](https://weibo.com/icedes)
 [Read](#icehe39s-lib)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
