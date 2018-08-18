@@ -12,17 +12,17 @@ md-lint:
         - mdl --style markdown/lint/style.rb --list-rules
         - mdl --style markdown/lint/style.rb --git-recurse .
 
-# Deploy @ GitLab Pages
-pages:
-    stage: parallel
-    script:
-        # Build：temporary directory `.public/`
-        - mkdir .public
-        - cp -r * .public
-        # Release：formal directory `public/`
-        - mv .public public
-    artifacts:
-        paths:
-            - public
-    only:
-        - master
+# Deploy @ GitLab Pages ( Disabled )
+#pages:
+#    stage: parallel
+#    script:
+#        # Build：temporary directory `.public/`
+#        - mkdir .public
+#        - cp -r * .public
+#        # Release：formal directory `public/`
+#        - mv .public public
+#    artifacts:
+#        paths:
+#            - public
+#    only:
+#        - master
