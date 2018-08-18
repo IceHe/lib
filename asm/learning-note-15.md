@@ -19,9 +19,9 @@
 
 int 9 中断例程对键盘输入的处理方法：
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/Evernote%20Camera%20Roll%2020150117%20171602.png)
 
 ### 17.2 使用 int 16h 中断例程读取键盘缓冲区
 
@@ -312,18 +312,18 @@ es:bx 指向接受从扇区读入数据的内存区。
 
 以3.5英寸软盘为对象编写（无法测试，只能简单描述题目）。
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/1714006dae86aabe425b8e38249e2398.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/1714006dae86aabe425b8e38249e2398.png)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/05dedeb0e9cfc789488adb730e26db81.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/05dedeb0e9cfc789488adb730e26db81.png)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/e77389b70bb8aac0a6fe5832c80ec166.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/e77389b70bb8aac0a6fe5832c80ec166.png)
 
 ### 课程设计2
 
 (完成并不现实：因为当前使用电脑CPU为64位，而非16位的8086CPU，即使编写的汇编程序也无法测试)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/e8dc941688cdf6097fa9a4cbd36cb199.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/e8dc941688cdf6097fa9a4cbd36cb199.png)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/ce9f20b2811d6aa5cdb98795b5d636d9.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/ce9f20b2811d6aa5cdb98795b5d636d9.png)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/28a66282bd49010054d7c45bdf8e9087.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2014/28a66282bd49010054d7c45bdf8e9087.png)

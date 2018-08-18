@@ -235,5 +235,5 @@ Telegram 确实正如传说中的那样，很有「互联网精神」（自由�
 
 毕竟要好好生活，好好爱自己。
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2017game_reigns_her_majesty.PNG" style="width: 32em; height: auto;" /><p class="image-caption">Game - Reigns: Her Majesty</p>
+<img src="https://img.icehe.xyz/2017game_reigns_her_majesty.PNG" style="width: 32em; height: auto;" /><p class="image-caption">Game - Reigns: Her Majesty</p>
 

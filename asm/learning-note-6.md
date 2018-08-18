@@ -350,6 +350,6 @@ end start
 
 Attachment 附件：[汇编语言第九章实验9.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%206/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B9%9D%E7%AB%A0%E5%AE%9E%E9%AA%8C9.asm)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%206/Picture.jpeg)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%206/Picture.jpeg)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%206/Picture.jpeg)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%206/Picture.jpeg)

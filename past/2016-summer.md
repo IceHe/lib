@@ -8,8 +8,8 @@
 
 #### [亚军](past/moments.md#亚军)
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/xingwuzhou_00.png" class="fix_width">
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/xingwuzhou_01.png" class="fix_width"><p class="image-caption">天津星五洲杯毽球邀请赛 亚军</p>
+<img src="https://img.icehe.xyz/2016spring/xingwuzhou_00.png" class="fix_width">
+<img src="https://img.icehe.xyz/2016spring/xingwuzhou_01.png" class="fix_width"><p class="image-caption">天津星五洲杯毽球邀请赛 亚军</p>
 
 - 在广东的时候，我的水平（中等）只能算战五渣。结果来到这种没有奖金的比赛（虽然也强但没那么多高手），凭着我们队年轻的体力优势（其它基本都是 30+、40+，甚至有 50+），在小组第二出线的情况下（真正技术不够强），逆转获得亚军（2/16）。
 - 运气太好，大概这是最后一次能拿到这么好的成绩了吧（虽然艰难，还是觉得有点水份）。
@@ -17,8 +17,8 @@
 #### [冠军](past/moments.md#冠军)
 
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/champion_02.png" class="fix_width">
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/champion_01.png" class="fix_width"><p class="image-caption">京津冀天津毽球邀请赛 冠军</p>
+<img src="https://img.icehe.xyz/2016spring/champion_02.png" class="fix_width">
+<img src="https://img.icehe.xyz/2016spring/champion_01.png" class="fix_width"><p class="image-caption">京津冀天津毽球邀请赛 冠军</p>
 
 - 然而，万万没想到，仅仅两个月后的这又一次天津之行，还是同样的队员，发生了同样的剧情，小组第二出线，然而结局却是我们拿到了冠军了！还是因为年轻体力好啊。天津真乃福地。
 - 在这些高手相对没那么多的小比赛里，获得了以前不敢想的成绩。可惜只是看起来厉害而已，曾经有过唬人的冠亚头衔，就很高兴了。
@@ -26,40 +26,40 @@
 
 ### 新羽球拍
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/shuttle_cock_00.png" class="fix_height" /><p class="image-caption">旧拍多次断线</p>
+<img src="https://img.icehe.xyz/2016spring/shuttle_cock_00.png" class="fix_height" /><p class="image-caption">旧拍多次断线</p>
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/shuttle_cock_01.png" class="fix_height" /><p class="image-caption">胜利突击鬼斩</p>
+<img src="https://img.icehe.xyz/2016spring/shuttle_cock_01.png" class="fix_height" /><p class="image-caption">胜利突击鬼斩</p>
 
 - 几乎每周至少五天在打羽毛球，运动方面的注意力和爱好，已经几乎全转移到这上面了。自从 1 月旧球拍多次断线，勉强能和羽毛球老手能对上几球之后，终于考虑并买回一个好拍了。
 
 ### 微博头条
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/workplace_00.png" class="fix_width" />
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/workplace_02.png" class="fix_width" /><p class="image-caption">新工位（虽然只用了一小段时间）</p>
+<img src="https://img.icehe.xyz/2016spring/workplace_00.png" class="fix_width" />
+<img src="https://img.icehe.xyz/2016spring/workplace_02.png" class="fix_width" /><p class="image-caption">新工位（虽然只用了一小段时间）</p>
 
 - 虽然临时被借调到别的部门的项目去，工作上有了许多新的麻烦需求。但也还是会有清闲的时候，也认识了些新朋友，日趋平淡的生活也泛起了一点新的波澜。
 
 ### 雨访慕田峪（长城）
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/great_wall_00.png" class="fix_width" />
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/great_wall_01.png" class="fix_width" />
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/great_wall_02.png" class="fix_height" /><p class="image-caption">不到长城非好汉。</p>
+<img src="https://img.icehe.xyz/2016spring/great_wall_00.png" class="fix_width" />
+<img src="https://img.icehe.xyz/2016spring/great_wall_01.png" class="fix_width" />
+<img src="https://img.icehe.xyz/2016spring/great_wall_02.png" class="fix_height" /><p class="image-caption">不到长城非好汉。</p>
 
 - 祝羊同学，日后大展宏图。
 
 ### 意外
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/rant_00.png" class="fix_width" />
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/rant_01.png" class="fix_width" /><p class="image-caption">生活充满意外。</p>
+<img src="https://img.icehe.xyz/2016spring/rant_00.png" class="fix_width" />
+<img src="https://img.icehe.xyz/2016spring/rant_01.png" class="fix_width" /><p class="image-caption">生活充满意外。</p>
 
 ### 新居
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/dorm_00.png" class="fix_width" />
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/dorm_01.png" class="fix_width" /><p class="image-caption">没错，很宽敞，因为我睡厅。而且只需￥1050。</p>
+<img src="https://img.icehe.xyz/2016spring/dorm_00.png" class="fix_width" />
+<img src="https://img.icehe.xyz/2016spring/dorm_01.png" class="fix_width" /><p class="image-caption">没错，很宽敞，因为我睡厅。而且只需￥1050。</p>
 
 ### 雨后
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/rainbow_02.png" class="fix_width" /><p class="image-caption">某日下班，适逢雨后</p>
+<img src="https://img.icehe.xyz/2016spring/rainbow_02.png" class="fix_width" /><p class="image-caption">某日下班，适逢雨后</p>
 
 - 互联网职人的流动很快。或许为了多挣点，或许为了长远发展，或许新鲜感消失，对平淡或麻烦不断的工作心生厌倦，或许是为了家庭、妻儿而迁居…… 「聚散有时」。
 - 或许知道人事变动后的某一刻，或许是吃离职饭时，或许是回头看到那个收拾得干干净净的工位时，可能会怅然若失，发出那往事不可追的一声慨叹，即使离开的人啊可能与你并不熟悉。
@@ -67,16 +67,16 @@
 
 ### 2016 夏冲绳
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/Okinawa/aquarium_00.png" class="fix_width"><p class="image-caption">水族馆</p>
+<img src="https://img.icehe.xyz/Okinawa/aquarium_00.png" class="fix_width"><p class="image-caption">水族馆</p>
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/Okinawa/izakaya_00.png" class="fix_width"><p class="image-caption">居酒屋</p>
+<img src="https://img.icehe.xyz/Okinawa/izakaya_00.png" class="fix_width"><p class="image-caption">居酒屋</p>
 
 - 部门团队建设。即使公司几乎不报销多少经费，自己多些花钱，也还是想要出去走走，积累宝贵的出国旅行经验。
 - 玩得开心，虽然海岛很闷热啊。
 
 ### 骑行
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016summer/bike_00.png" class="fix_width"><p class="image-caption">美利达公爵 300，入门级山地车，24速 + 油碟（液控刹车）</p>
+<img src="https://img.icehe.xyz/2016summer/bike_00.png" class="fix_width"><p class="image-caption">美利达公爵 300，入门级山地车，24速 + 油碟（液控刹车）</p>
 
 - 本想着以后弃毽球，转行打羽毛球锻炼身体，由于现在交通不便、场地紧缺，每周又顶多只能打两场球了。更别说要结伙去踢毽球的场地有多么的路途遥远了。
 - 现在每天骑车上下班通勤，单程骑行时间 20 分钟，能顺便锻炼身体。只是太阳有点大，我怕晒黑，只能准备一打防晒霜了，还有袖套。
@@ -84,7 +84,7 @@
 
 ### 新浪总部落成入驻
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/workplace_01.png" class="fix_width"><p class="image-caption">新工位~</p>
+<img src="https://img.icehe.xyz/about/workplace_01.png" class="fix_width"><p class="image-caption">新工位~</p>
 
 - 网上有许多新总部大楼的美图，懒得贴了。反正我对新总部很满意，虽然饭堂伙食还是差点意思。
 - 住处离新公司总部更近，骑行通勤后，更是没有了错过公交末班车的烦恼，更喜欢赖在公司里了。

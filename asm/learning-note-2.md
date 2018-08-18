@@ -173,8 +173,8 @@ DS
 
 只做问题 3.9：交换ax和bx中的值
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%202/d824691b0784a01c1ff478c8d0d0b94a.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%202/d824691b0784a01c1ff478c8d0d0b94a.png)
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%202/08df8df77da5faf25658c48ee86cff40.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%202/08df8df77da5faf25658c48ee86cff40.png)
 
 每当SS段寄存器被修改时，下一条指令也会紧跟着被执行！

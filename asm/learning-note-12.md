@@ -250,7 +250,7 @@ end start
 
 注意：CMOS RAM 中存储着系统的配置信息，除了保存时间信息的单元外，不要向其它单元写内容，否则将引起一些系统错误。
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2011/tmp.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2011/tmp.png)
 
 ```nasm
 assume cs:code

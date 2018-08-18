@@ -6,7 +6,7 @@
 
 ## 执信
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/about/memorable_00.jpg)
+![](https://img.icehe.xyz/about/memorable_00.jpg)
 
 - 那是我高一的时候。Gold Voice 初赛，我在台上唱《亲爱的那并不是爱情》，排几个我的同学朋友带动起其它场内的人晃起了双手，那确实成了我心中最难忘的时刻。她们虽然并不算真正熟识的朋友，现在也都在国外了，难免勾起对人事变迁的感慨。真是 [往事如昨](http://290841032.qzone.qq.com/)。
 - 在那之前，经历了一次很严重的感冒，毁嗓了。说实话，多年之后我才想通，即使没有那场意外，也顶多徒有不过如是的嗓子，唱歌水平也是远远不行的（实话），如不是情商垫底，早该发现了。
@@ -14,9 +14,9 @@
 
 ## 实习
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/glr_00.jpg" class="fix_width" />
+<img src="https://img.icehe.xyz/about/glr_00.jpg" class="fix_width" />
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/glr_01.jpg" class="fix_width" />
+<img src="https://img.icehe.xyz/about/glr_01.jpg" class="fix_width" />
 
 - 大学入学前在 GLR 的这段实习时光，大大开拓了我的眼界，却也让我变得很浮躁。不过也算让我更早地进入和度过自己最浮躁的阶段。
 - GLR 「过来人」后改名为「优职英才」，创业是残酷的，那几位创始人终究没能大获成功，这家公司现在成了他们的副业。大概他们又回去搞投行、咨询了，其实挺希望他们最后能做成这家公司，或者做成其它事业。
@@ -25,54 +25,54 @@
 
 ### 毽球
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/about/jianqiu_00.jpg)
+![](https://img.icehe.xyz/about/jianqiu_00.jpg)
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/jianqiu_01.gif" class="fix_height" />
+<img src="https://img.icehe.xyz/about/jianqiu_01.gif" class="fix_height" />
 
 - 高中就开始热衷的小众运动。曾努力练习，可是一直不得法，不过还是一直坚持到现在。
 - 有幸拥有一帮强大的队友，这些年获得了 [一些小成绩](cv.md#略)，重要的是玩得开心。太多事想要做，现在只能偶尔玩玩了。
 
 ### 电工
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/handicraft_02.jpg" class="fix_width" />
+<img src="https://img.icehe.xyz/about/handicraft_02.jpg" class="fix_width" />
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/handicraft_01.jpg" class="fix_width" />
+<img src="https://img.icehe.xyz/about/handicraft_01.jpg" class="fix_width" />
 
 - 微电子工艺实习课程里的一个自由发挥的手工作业。突然想到可以做个左轮手枪~
 
 ### 社团
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/zonghe_00.jpg" class="fix_width" />
+<img src="https://img.icehe.xyz/about/zonghe_00.jpg" class="fix_width" />
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/zonghe_01.jpg" class="fix_width" />
+<img src="https://img.icehe.xyz/about/zonghe_01.jpg" class="fix_width" />
 
 - 早期玩社团留了许多照片，后来即使拍了也忘记要了，只留下很少。
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/师兄毕业照_00.JPG" class="fix_width" />
+<img src="https://img.icehe.xyz/about/师兄毕业照_00.JPG" class="fix_width" />
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/师兄毕业照_01.JPG" class="fix_width" />
+<img src="https://img.icehe.xyz/about/师兄毕业照_01.JPG" class="fix_width" />
 
 - 职业体验协会的师兄毕业时的合照。
 
 ### 多看
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/about/duokan_read_history_160621.png)
+![](https://img.icehe.xyz/about/duokan_read_history_160621.png)
 
 - 多看阅历看起来挺多，其实其中许多都不长。感觉做了很多无效的阅读，其实可以省下时间去看更有营养的书、做更重要的事。
 
 ### 宿舍
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/about/dorm_00.jpg)
+![](https://img.icehe.xyz/about/dorm_00.jpg)
 
 - 经常用整理宿舍来拖延回避困难、不想做的事，比如考试复习。
 
 ## 新浪
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/workplace_00.png" class="fix_width">
+<img src="https://img.icehe.xyz/2016spring/workplace_00.png" class="fix_width">
 
 - 曾经在泰鹏大厦时的工位。
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/workplace_01.png" class="fix_width">
+<img src="https://img.icehe.xyz/about/workplace_01.png" class="fix_width">
 
 - 新浪总部大楼的新工位~
 
@@ -80,21 +80,21 @@
 
 ### 亚军
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/xingwuzhou_00.png" class="fix_width">
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/xingwuzhou_01.png" class="fix_width">
+<img src="https://img.icehe.xyz/2016spring/xingwuzhou_00.png" class="fix_width">
+<img src="https://img.icehe.xyz/2016spring/xingwuzhou_01.png" class="fix_width">
 
 - 在广东的时候，我的水平（中等）只能算战五渣。结果来到这种没有奖金的比赛（虽然也强但没那么多高手），凭着我们队年轻的体力优势（其它基本都是 30+、40+，甚至有 50+），在小组第二出线的情况下（真正技术不够强），逆转获得亚军（2/16）。运气太好，大概这是最后一次能拿到这么好的成绩了吧（虽然艰难，还是觉得有点水份）。
 
 ### 冠军
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/champion_02.png" class="fix_width">
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/2016spring/champion_01.png" class="fix_width">
+<img src="https://img.icehe.xyz/2016spring/champion_02.png" class="fix_width">
+<img src="https://img.icehe.xyz/2016spring/champion_01.png" class="fix_width">
 
 - 然而，万万没想到，仅仅两个月后的这又一次天津之行，还是同样的队员，发生了同样的剧情，小组第二出线，然而结局却是我们拿到了冠军了！还是因为年轻体力好啊。天津真乃福地。
 
 ## 家
 
-<img src="http://7vzp68.com1.z0.glb.clouddn.com/about/home_desk.png" class="fix_width">
+<img src="https://img.icehe.xyz/about/home_desk.png" class="fix_width">
 
 - 书桌。久违的家。
 

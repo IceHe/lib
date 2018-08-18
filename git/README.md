@@ -567,7 +567,7 @@ Git 参照名称又有区分“一般参照”与“符号参照”，两者的�
 - 但不能用 C^2 来表达“第二个上层 commit 物件”！
     - 原因是在没有合并的情况下，这个 C 只有一个上层对象而已，只能用 C^2 代表 “上一层对象的第二个上层对象”。
 
-![Git Refname with ~ and ^](http://7vzp68.com1.z0.glb.clouddn.com/git%2Fgit_refname_relationship_00.jpg)
+![Git Refname with ~ and ^](https://img.icehe.xyz/git%2Fgit_refname_relationship_00.jpg)
 
 - 上述概念比较抽象，透过图解更清晰易懂。
 - 如上图所示，想找到 C 这个 commit 对象的相对路径下的其它 commit 对象（上层对象），
@@ -587,7 +587,7 @@ Git 参照名称又有区分“一般参照”与“符号参照”，两者的�
 - `Staging area` 等待被 commit 的地方
 - `Staged files` 等待被 commit 的文件
 
-![Git File Statuses](http://7vzp68.com1.z0.glb.clouddn.com/git%2Fgit_file_status_00.jpg)
+![Git File Statuses](https://img.icehe.xyz/git%2Fgit_file_status_00.jpg)
 
 - `untracked` 未追踪的，代表尚未被加入 Git 仓库的文件状态
 - `unmodified` 未修改的，代表文件第一次被加入，或是文件内容与 HEAD 内容一致的状态
@@ -596,7 +596,7 @@ Git 参照名称又有区分“一般参照”与“符号参照”，两者的�
 
 ### Objects
 
-![Git Objects Relationship](http://7vzp68.com1.z0.glb.clouddn.com/git%2Fgit_objects_sample_00.jpg)
+![Git Objects Relationship](https://img.icehe.xyz/git%2Fgit_objects_sample_00.jpg)
 
 blob 对象
 
@@ -652,11 +652,11 @@ tag 对象
 
 ### Rebase Example
 
-![Git Merge Result](http://7vzp68.com1.z0.glb.clouddn.com/git%2Fgit_merge_result_00.png)
+![Git Merge Result](https://img.icehe.xyz/git%2Fgit_merge_result_00.png)
 
 - 整合分支最容易的方法是 merge 命令。它会把两个分支的最新快照（C3 和 C4）以及二者最近的共同祖先（C2）进行三方合并，合并的结果是生成一个新的快照（并提交）。
 
-![Git Rebase Result](http://7vzp68.com1.z0.glb.clouddn.com/git%2Fgit_rebase_result_00.png)
+![Git Rebase Result](https://img.icehe.xyz/git%2Fgit_rebase_result_00.png)
 
 - “变基”（rebase）的方法：可以提取在 C4 中引入的补丁和修改，然后在 C3 的基础上再应用一次。
 - 使用 rebase 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样。
@@ -674,7 +674,7 @@ tag 对象
     $ git merge experiment
     ```
 
-![Git Merge After Rebasing](http://7vzp68.com1.z0.glb.clouddn.com/git%2Fgit_merge_after_rebase_00.png)
+![Git Merge After Rebasing](https://img.icehe.xyz/git%2Fgit_merge_after_rebase_00.png)
 
 - 此时，C4' 指向的快照就和上面使用 merge 命令的例子中 C5 指向的快照一模一样了。
     - 两种整合方法的最终结果没有任何区别，但是变基使得提交历史更加整洁。

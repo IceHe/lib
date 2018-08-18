@@ -188,17 +188,17 @@ mov ds, ax
 
 mov al, a[si] 编译为 mov al, [si+0]
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/e8c800492bf9619ab7e61184592c770c.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2013/e8c800492bf9619ab7e61184592c770c.png)
 
 add b, ax 编译为 add [8], ax
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/488a2b294983eb6c4dc88d71380790e8.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2013/488a2b294983eb6c4dc88d71380790e8.png)
 
 当删除以上源程序中assume ..., ds:data中的ds:data后，
 
 用masm编译时，会产生错误，报错信息如下：
 
-![](http://7vzp68.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/18512c4d794b8a6c2c7ed46b68c9bcf7.png)
+![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2013/18512c4d794b8a6c2c7ed46b68c9bcf7.png)
 
 t.asm(14)是这一句：mov al, a[si]
 
