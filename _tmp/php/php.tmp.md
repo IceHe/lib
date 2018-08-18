@@ -105,29 +105,29 @@ PHP - The Right Way
 
 * `$oo ? $oo : $xx` === `$oo ?: $xx`
 
-	注意：`$a ?: $b` !== `$a ?? $b`
+    注意：`$a ?: $b` !== `$a ?? $b`
 
-	而且 `$a[$k] ?: $b` !== `$a[$k] ?? $b`
+    而且 `$a[$k] ?: $b` !== `$a[$k] ?? $b`
 
 * `empty($v) === !$v`
 
-	注意：使用下标访问时，即使用 `$vs[$k]` 时，
+    注意：使用下标访问时，即使用 `$vs[$k]` 时，
 
-	`empty($vs[$k]) !== !$vs[$k]`
+    `empty($vs[$k]) !== !$vs[$k]`
 
-	所以，`empty($a) ? $b : $a` === `$a ? $a : $b` === `$a ?: $b`
+    所以，`empty($a) ? $b : $a` === `$a ? $a : $b` === `$a ?: $b`
 
 * 当 `$v` 为 `0`, `''`, `'0'`, `[]`, `null`, `false` 时，
 
-	false === `empty($v)` === `!$v`
+    false === `empty($v)` === `!$v`
 
 * `empty($vs[$k])` 已经包含了 `isset($vs[$k])` 的判断，
 
-	所以，当 `$vs[$k]` 不存在时，使用 `empty($vs[$k])` 不会出现数组下标访问的错误
+    所以，当 `$vs[$k]` 不存在时，使用 `empty($vs[$k])` 不会出现数组下标访问的错误
 
 * 当 `$params = Request::only('a', 'b');` 时，
 
-	如果 `Request::all()` 中不存在 a 参数，`$params['a'] === null`
+    如果 `Request::all()` 中不存在 a 参数，`$params['a'] === null`
 
 ## 常用函数
 
