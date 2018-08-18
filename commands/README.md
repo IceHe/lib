@@ -12,6 +12,12 @@ man [command]
 
 ## Tmp
 
+crontab
+
+```bash
+alias crontab="VIM_CRONTAB=true crontab"
+```
+
 `npm` install globally
 
 ```bash
