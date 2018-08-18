@@ -77,33 +77,33 @@ Chapter 2 实验 1 查看 CPU 和内存，用机器指令和汇编指令编程
 
 ### 基本操作实践
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/4bc20fd901206044a792ae37d5ccd1b3.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/4bc20fd901206044a792ae37d5ccd1b3.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/8274851476c413d426e343e69e8e5187.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/8274851476c413d426e343e69e8e5187.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/17ee180333575eb889d093caeb72a845.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/17ee180333575eb889d093caeb72a845.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/706f7ccda236318f3be58b20c32a521d.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/706f7ccda236318f3be58b20c32a521d.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/55b18e7e228e351d59ab509d2d91d089.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/55b18e7e228e351d59ab509d2d91d089.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/565deced8c0a4ce33c0b5eb86a066b28.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/565deced8c0a4ce33c0b5eb86a066b28.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/1ee20fb40a66fb58acb5ba8312ac301d.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/1ee20fb40a66fb58acb5ba8312ac301d.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/a04b37ec53451fff31c98c59b1ee0343.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/a04b37ec53451fff31c98c59b1ee0343.png)
 
 ## 实验
 
 ### 任务一
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/bac5af4d74353db662a06aaf11cbe162.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/bac5af4d74353db662a06aaf11cbe162.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/3c1fa34129c318f8ef086ac0725b126a.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/3c1fa34129c318f8ef086ac0725b126a.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/6b62a7dc51f24ad3ee0932c29fade4fc.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/6b62a7dc51f24ad3ee0932c29fade4fc.png)
 
-![](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/386bad5a0f13c43e209df53c0b81298f.png)
+![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%201/386bad5a0f13c43e209df53c0b81298f.png)
 
 ### 任务二
 

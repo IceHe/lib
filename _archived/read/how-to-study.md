@@ -92,7 +92,7 @@
             - Draw a __vertical line__ ']' in the margin.
                 - So that you can re-read the text, highlight different passages each time.
                 - e.g.
-                ![](https://img.icehe.xyz/how_to_study/vertical_line_in_the_margin.jpg)
+                ![img](https://img.icehe.xyz/how_to_study/vertical_line_in_the_margin.jpg)
             - Or use __a pair of small square brackets__ in the text.
                 - e.g. __[__ exactly where the highlighted passage begins or ends __]__
         - This way

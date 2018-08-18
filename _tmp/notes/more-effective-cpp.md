@@ -48,6 +48,8 @@ avoid gratuitous default constructors.
 
 不提供default constructor的问题：
 （1）初始化数组
+
+```cpp
 OneClass *p = new OneClass[c]; // 错误！无法调用默认构造函数
 可以这样解决
 OneClass p[] = {
@@ -55,30 +57,43 @@ OneClass p[] = {
      OneClass(param2),
      ...
 };
+```
+
 但只用于non-heap数组，无法用于heap数组。
 
 所以，更一般化的解决方法是使用“指针数组”，而非“对象数组”。
+
+```cpp
 OneClass *ary[10];
 for(...){ // 然后这样初始化
      ary[i] = new OneClass(param);
 }
+```
+
 但必须记得：
 a. 删除数组的所有对象，否则内存泄漏；
 b. 需要存放指针，有结构开销，内存消耗大一些。
 
 避免以上b点关于“用太多内存”的问题，可以避免：
 先为该数组分配raw memory，然后使用placement new在这块内存上构造OneClass objects。
+
+```cpp
 void *rawMemory = operator new[](10 * sizeof(OneClass));
 OneClass *array = static_cast<OneClass*>(rawMemory);
 for(int i = 0; i < 10; ++i){
      new (&array[i])  OneClass(ID Number); // 没看懂！
 } // 说是，利用placement new 构造这块内存中的OneClass objects
+```
+
 而且在数组内的对象结束生命时，以手动方式调用其destructors，
 最后还得以调用operator detele[]的方式释放raw memory：
+
+```cpp
 for(int i = 9; i >= 0; --i){ // 以其构造顺序的相反顺序析构掉
      array[i].~OneClass();
 }
 operator delete[](rawMemory); // 释放rawMemory
+```
 
 （不提供default constructor的问题：）
 （2）classes不提供default constructor，它们将不适用于许多template-based container classes。

@@ -6,7 +6,7 @@
 
 ## 执信
 
-![](https://img.icehe.xyz/about/memorable_00.jpg)
+![img](https://img.icehe.xyz/about/memorable_00.jpg)
 
 - 那是我高一的时候。Gold Voice 初赛，我在台上唱《亲爱的那并不是爱情》，排几个我的同学朋友带动起其它场内的人晃起了双手，那确实成了我心中最难忘的时刻。她们虽然并不算真正熟识的朋友，现在也都在国外了，难免勾起对人事变迁的感慨。真是 [往事如昨](http://290841032.qzone.qq.com/)。
 - 在那之前，经历了一次很严重的感冒，毁嗓了。说实话，多年之后我才想通，即使没有那场意外，也顶多徒有不过如是的嗓子，唱歌水平也是远远不行的（实话），如不是情商垫底，早该发现了。
@@ -25,7 +25,7 @@
 
 ### 毽球
 
-![](https://img.icehe.xyz/about/jianqiu_00.jpg)
+![img](https://img.icehe.xyz/about/jianqiu_00.jpg)
 
 <img src="https://img.icehe.xyz/about/jianqiu_01.gif" class="fix_height" />
 
@@ -56,13 +56,13 @@
 
 ### 多看
 
-![](https://img.icehe.xyz/about/duokan_read_history_160621.png)
+![img](https://img.icehe.xyz/about/duokan_read_history_160621.png)
 
 - 多看阅历看起来挺多，其实其中许多都不长。感觉做了很多无效的阅读，其实可以省下时间去看更有营养的书、做更重要的事。
 
 ### 宿舍
 
-![](https://img.icehe.xyz/about/dorm_00.jpg)
+![img](https://img.icehe.xyz/about/dorm_00.jpg)
 
 - 经常用整理宿舍来拖延回避困难、不想做的事，比如考试复习。
 

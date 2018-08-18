@@ -34,4 +34,4 @@ c:
 debug
 ```
 
-![](https://img.icehe.xyz/%E5%9C%A8win7%2064%E4%BD%8D%E7%B3%BB%E7%BB%9F%E4%B8%8A%E4%BD%BF%E7%94%A8debug.exe/866a2b6fce5ee69bf854f69d64495109.jpeg)
+![img](https://img.icehe.xyz/%E5%9C%A8win7%2064%E4%BD%8D%E7%B3%BB%E7%BB%9F%E4%B8%8A%E4%BD%BF%E7%94%A8debug.exe/866a2b6fce5ee69bf854f69d64495109.jpeg)
