@@ -3,17 +3,13 @@ stages:
 
 md-lint:
     stage: parallel
-    #image: icehe/markdownlint
-    image: ruby
-    before_script:
-        - gem install mdl
-        - mdl --help
+    image: icehe/markdownlint
     script:
         - mdl --style markdown/lint/style.rb --list-rules
-        - mdl --style markdown/lint/style.rb --git-recurse .
+        - mdl --style markdown/lint/style.rb . -g && echo 'All is well.'
 
-# Deploy @ GitLab Pages ( Disabled )
 #pages:
+#    # Deploy @ GitLab Pages ( Disabled )
 #    stage: parallel
 #    script:
 #        # Build：temporary directory `.public/`
