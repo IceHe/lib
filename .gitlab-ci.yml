@@ -1,7 +1,7 @@
 stages:
     - parallel
 
-md-lint:
+mdl:
     stage: parallel
     image: icehe/markdownlint
     script:
