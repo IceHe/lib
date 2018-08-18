@@ -1,13 +1,9 @@
-image: ruby
-
-before_script:
-    - gem install mdl
-
 stages:
     - parallel
 
 md-lint:
     stage: parallel
+    image: icehe/markdownlint
     script:
         - mdl --style markdown/lint/style.rb --list-rules
         - mdl --style markdown/lint/style.rb --git-recurse .
