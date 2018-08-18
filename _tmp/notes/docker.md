@@ -13,7 +13,7 @@ docker run -itd --name web -p 80:80 -v /Users/IceHe/Coding/Work/sora:/var/www:rw
 
 分析JSON文件时出错。文件格式可能不正确.
 unexpected character at line 1 column 1
-<br /> <b>Warning</b>: include(/var/www/public/../vendor/autoload.php): failed to open stream: No such file or directory in <b>/var/www/public/index.php</b> on line <b>3</b><br /> <br /> <b>Warning</b>: include(): Failed opening '/var/www/public/../vendor/autoload.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib64') in <b>/var/www/public/index.php</b> on line <b>3</b><br /> <br /> <b>Warning</b>: Class 'Request' not found in <b>/var/www/app/Bootstrap.php</b> on line <b>26</b><br /> ["exception catched."]
+<br/> <b>Warning</b>: include(/var/www/public/../vendor/autoload.php): failed to open stream: No such file or directory in <b>/var/www/public/index.php</b> on line <b>3</b><br /> <br /> <b>Warning</b>: include(): Failed opening '/var/www/public/../vendor/autoload.php' for inclusion (include_path='.:/usr/lib64/php:/usr/lib64') in <b>/var/www/public/index.php</b> on line <b>3</b><br /> <br /> <b>Warning</b>: Class 'Request' not found in <b>/var/www/app/Bootstrap.php</b> on line <b>26</b><br /> ["exception catched."]
 
 因为需要先给 Sora 项目下载依赖包！
 
@@ -171,7 +171,8 @@ Run 'docker-machine COMMAND --help' for more information on a command.
 * 除了 pull，镜像也可通过"编译"得到，指的是一种构建行为。通过手动编写或者从 github 获取 Dockerfile 来构建一个镜像。可把 Dockerfile 看成是一个脚本，它会在容器每次启动时执行。一般在 Dockerfile 里面需编写基础软件的安装脚本和配置脚本。
 
 Dockerfile 实例：
- 
+
+```docker
 # Ubuntu Dockerfile
 #
 # https://github.com/dockerfile/ubuntu
@@ -196,6 +197,7 @@ ADD root/scripts /root/scripts
 # Set working directory.
 ENV HOME /root
 WORKDIR /rootzz
+```
 
 * FROM 指令表示这次构建需要基于ubuntu仓库的12.10这个TAG的镜像，如果本地不存在这个镜像的话，会自动下载镜像。镜像实际上就是编译好的结果。向上面这个Dockerfile，在原始ubuntu的基础上安装了很多常用的软件。
 * 官方 Dockerfile 教程

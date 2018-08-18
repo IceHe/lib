@@ -1,5 +1,6 @@
 # Life Framework
-<!--description: 生活框架，每日自省清单。-->
+
+> 生活框架，每日自省清单。
 
 # 当下
 
@@ -72,4 +73,3 @@ sup {
     font-size: 70%;
 }
 </style>
-

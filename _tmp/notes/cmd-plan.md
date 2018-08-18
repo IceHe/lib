@@ -237,10 +237,12 @@ $ find -maxdepth 1 -type d
 $ hostname
 
 # 显示当前的日期时间
+
 $ date
 2016年 03月 14日 星期一 17:32:35 CST
 
 # 显示本月日历
+
 $ cal
       三月 2016
 日 一 二 三 四 五 六
