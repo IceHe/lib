@@ -3,7 +3,7 @@ stages:
 
 md-lint:
     stage: parallel
-    image: icehe/markdownlint
+    image: icehe/markdownlint:latest
     script:
         - mdl --style markdown/lint/style.rb --list-rules
         - mdl --style markdown/lint/style.rb --git-recurse .
