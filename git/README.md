@@ -355,9 +355,7 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 
 [mergetool](http://git-scm.com/docs/git-mergetool) ...
 
-
 ### Share & Update
-
 
 [fetch](http://git-scm.com/docs/git-fetch) `[<options>] [<repo>]`
 
@@ -471,9 +469,7 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 
 [clean](http://git-scm.com/docs/git-clean), [gc](http://git-scm.com/docs/git-gc), [fsck](http://git-scm.com/docs/git-fsck), [filter-branch](http://git-scm.com/docs/git-filter-branch), [instaweb](http://git-scm.com/docs/git-instaweb), [archive](http://git-scm.com/docs/git-archive), [bundle](http://git-scm.com/docs/git-bundle) ...
 
-
 ### Email
-
 
 [am](http://git-scm.com/docs/git-am), [apply](http://git-scm.com/docs/git-apply), [format-patch](http://git-scm.com/docs/git-format-patch), [send-email](http://git-scm.com/docs/git-send-email), [request-pull](http://git-scm.com/docs/git-request-pull) ...
 
@@ -500,12 +496,9 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 
 [cat-file](http://git-scm.com/docs/git-cat-file), [commit-tree](http://git-scm.com/docs/git-commit-tree), [count-objects](http://git-scm.com/docs/git-count-objects), [diff-index](http://git-scm.com/docs/git-diff-index), [for-each-ref](http://git-scm.com/docs/git-for-each-ref), [hash-object](http://git-scm.com/docs/git-hash-object), [merge-base](http://git-scm.com/docs/git-merge-base), [read-tree](http://git-scm.com/docs/git-read-tree), [rev-list](http://git-scm.com/docs/git-rev-list), [rev-parse](http://git-scm.com/docs/git-rev-parse), [show-ref](http://git-scm.com/docs/git-show-ref), [symbolic-ref](http://git-scm.com/docs/git-symbolic-ref), [update-index](http://git-scm.com/docs/git-update-index), [update-ref](http://git-scm.com/docs/git-update-ref), [verify-pack](http://git-scm.com/docs/git-verify-pack), [write-tree](http://git-scm.com/docs/git-write-tree) ...
 
-
 ### [.gitignore](https://git-scm.com/docs/gitignore)
 
-
 A file specifies intentionally untracked files that Git should ignore. Files already tracked are not affected.
-
 
 Gitignore **patterns** from multiple **sources**, with the following order of precedence, from highest to lowest:
 

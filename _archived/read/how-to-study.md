@@ -2,7 +2,6 @@
 
 - Created on 2016-06-24
 
-
 # Studying
 
 ## Advices to self

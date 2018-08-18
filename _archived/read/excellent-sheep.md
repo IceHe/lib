@@ -2,7 +2,6 @@
 
 - Created on 2016-06-17
 
-
 # 精致的利己主义者和常青藤的绵羊
 
 - from: <http://mp.weixin.qq.com/s?__biz=MjM5NzExOTE2Ng==&mid=208583700&idx=1&sn=9bb0ea491064b3ffb93e7f24f9fc04a3&scene=5#rd>

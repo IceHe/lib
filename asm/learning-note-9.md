@@ -164,8 +164,6 @@ sf = 1 and of = 1 —— (ax) >= (bx)
 
 如果溢出，逻辑上的真正结果必然和实际结果“相反”！
 
-
-
 ### 11.9 检测比较结果的条件转移指令
 
 条件转移指令通常和cmp相配合使用。
@@ -207,29 +205,20 @@ data ends
 code segment
 
 start:  mov ax, data
-
         mov ds, ax
-
         mov bx, 0
 
-
         mov ax, 0
-
         mov cx, 16
 
 s:      cmp byte ptr [bx], 8
-
         jna next
-
         inc ax
 
 next:   inc bx
-
         loop s
 
-
         mov ax, 4c00h
-
         int 21h
 
 code ends
@@ -276,8 +265,6 @@ if df = 0     add si, 2     add di, 2
 
 if df = 1     sub si, 2     sub di, 2
 
-
-
 一般 movsb / movsw 都和 rep 配合使用：
 
 rep movsb
@@ -308,8 +295,6 @@ cld 指令 —— clear df    ： 将 标志寄存器的df位 ， 置为0。
 
 std 指令 —— set df      ：将标志寄存器的df位，置为 1。
 
-
-
 原书P233（2）编程：
 
 用串传送指令，将F000H段的最后16个字符复制到data段中。
@@ -327,33 +312,22 @@ code segment
 start:       mov ax, 0f000h
 
                                 mov ds, ax
-
                                 mov si, 0ffffh
 
-
                                 mov ax, data
-
                                 mov es, ax
-
                                 mov di, 15
 
-
                                 std
-
                                 mov cx, 16
-
                                 rep movsb
 
-
                                 mov ax, 4c00h
-
                                 int 21h
 
 code ends
 
 end start
-
-
 
 ### 11.11 pushf 和 popf
 

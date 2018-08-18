@@ -2,7 +2,6 @@
 
 - Created on 2016-06-15
 
-
 # 眼前的苟且，也正是诗和远方
 
 - From: http://zhuanlan.zhihu.com/lswlsw/19895904

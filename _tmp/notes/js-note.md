@@ -70,7 +70,6 @@ if(browser.versions.mobile
 }
 ```
 
-
 # js 如何处理反斜杠 “\” （js 调用 php 调用 sql 来检索db）
 
 中文字符——

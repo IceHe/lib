@@ -4,8 +4,6 @@
 
 [**< Oct. 2015** - Prev 上一月](_archived/lifelogs/2015/10/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Dec. 2015 >**](_archived/lifelogs/2015/12/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](_archived/lifelogs.md)
 
-
-
 1. [15/11/01 stu58 spo6](_archived/lifelogs/2015/11/d01.md)
 2. [15/11/02 stu58 spo12](_archived/lifelogs/2015/11/d02.md)
 3. [15/11/03 stu53 spo9 was9](_archived/lifelogs/2015/11/d03.md)

@@ -4,8 +4,6 @@
 
 [**< Jun. 2015** - Prev 上一月](_archived/lifelogs/2015/06/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Aug. 2015 >**](_archived/lifelogs/2015/08/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](_archived/lifelogs.md)
 
-
-
 1. [15/07/01 stu21 mus15](_archived/lifelogs/2015/07/d01.md)
 2. [15/07/02 stu24 joy36](_archived/lifelogs/2015/07/d02.md)
 3. [15/07/03 stu19 mus44](_archived/lifelogs/2015/07/d03.md)

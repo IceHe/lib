@@ -16,7 +16,6 @@
 
 #### [冠军](past/moments.md#冠军)
 
-
 <img src="https://img.icehe.xyz/2016spring/champion_02.png" class="fix_width">
 <img src="https://img.icehe.xyz/2016spring/champion_01.png" class="fix_width"><p class="image-caption">京津冀天津毽球邀请赛 冠军</p>
 

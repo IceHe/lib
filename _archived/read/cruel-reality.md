@@ -2,7 +2,6 @@
 
 - Created on 2016-06-15
 
-
 # Loser 应该知道的 6 个残酷人生事实
 
 原标题：6 Harsh Truths That Will Make You a Better Person

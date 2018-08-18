@@ -43,7 +43,6 @@ Types and their related operations.
 
     "abc" & "123"  # "abc123"
 
-
 -- List
 
     {1, 7, "Beethoven", 4.5}
@@ -58,7 +57,6 @@ Types and their related operations.
 
     # item <number> of <list>
     item 1 of a_list  # "foo"
-
 
 -- Record
 
@@ -116,7 +114,6 @@ Types and their related operations.
     2 ^ 3  # 8.0  # 2 to the power of 3
     9 div 4  # 2  # Divide Exactly
     9 mod 4  # 1  # Remainer
-
 
 -- 获取变量的类型
 
@@ -287,25 +284,21 @@ Result
         set total to total + x
     end repeat
 
-
 -- Tell 命令块
 
     tell application "Finder"
         quit
     end tell
 
-
     # or express in one line
 
     tell application "Microsoft Word" to quit
-
 
     # For events in the "Core Suite",
     # (activate, open, reopen, close, print, and quit)
     # the application may be supplied as the direct object to transitive commands:
 
     quit application "Microsoft Word"
-
 
     # The concept of an object hierarchy can be expressed using nested blocks:
 
@@ -319,11 +312,9 @@ Result
         end tell
     end tell
 
-
     # It can also be expressed using nested prepositional phrases:
 
     pixel 7 of row 3 of TIFF image "my bitmap"
-
 
 -- Handler
 
@@ -349,7 +340,6 @@ Result
     -- called with:
     check for 8 from 7 thru 10
 
-
 -- Catch Error 捕获错误
 
     try
@@ -357,7 +347,6 @@ Result
     on error
          -- error commands
     end try
-
 
 -- Script
 
@@ -367,7 +356,6 @@ Result
 
     # Script objects can use the same 'tell' structures that are used for application objects, and can be loaded from and saved to files.
     # Runtime execution time can be reduced in some cases by using script objects.
-
 
 -- Execute AppleScript Scripts as Shell Commands
 
@@ -388,11 +376,9 @@ log test
 (*3.14159265359*)
 (*test*)
 
-
 -- Execute Shell Commands
 
     set fileInfo to do shell script "cd ~; ls"
-
 
 -- An audio message using a synthesized computer voice
 
@@ -406,7 +392,6 @@ log test
 
     delay 9.8
 
-
 -- A modal window with “OK” and “Cancel” buttons
 
     display dialog "info_text"
@@ -414,7 +399,6 @@ log test
 -- A modal window with a single “OK” button and an icon representing the app displaying the alert
 
     display alert "warning_text"
-
 
 -- ¬ character & Dialog Samples
 
@@ -451,7 +435,6 @@ log test
         default button 2 ¬
         cancel button 1 ¬
         giving up after 2
-
 
 -- Get Input 获取输入的数据
 

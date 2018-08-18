@@ -2,7 +2,6 @@
 
 - Created on 2016-06-15
 
-
 # 你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？
 
 - From: <https://www.zhihu.com/question/23721974/answer/25493813>

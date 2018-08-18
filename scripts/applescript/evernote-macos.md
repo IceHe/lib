@@ -450,7 +450,6 @@ tell application "Finder"
         display alert "SUC to eject disk '" & diskName & "'!"
     end try
 
-
     -- Eject all disks
     eject the disks
     display dialog "Successfully ejected disks." buttons {"Close"} default button "Close"
@@ -477,7 +476,6 @@ tell application "iTerm"
     if without_win then
         create window with default profile
     end if
-
 
     tell current window
 

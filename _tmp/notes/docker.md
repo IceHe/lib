@@ -3,11 +3,9 @@
 [ ] 先根据羊生杰的配置，做好docker
 https://gitlab.weibo.cn/sora/docker
 
-
 # 第四步的命令行改为
 
 docker run -itd --name web -p 80:80 -v /Users/IceHe/Coding/Work/sora:/var/www:rw hub.weibo.cn/mapi/v7-dev-mac
-
 
 # 本地访问 http://mapi.app
 
@@ -24,8 +22,6 @@ composer install
  或 php composer.phar install)
 
 每次下载 PHP 项目，都该先安装依赖的！
-
-
 
 `docker -h`
 
@@ -93,7 +89,6 @@ Commands:
 
 Run 'docker COMMAND --help' for more information on a command.
 
-
 docker-machine -h
 
 Usage: docker-machine [OPTIONS] COMMAND [arg...]
@@ -141,7 +136,6 @@ Commands:
   help            Shows a list of commands or help for one command
 
 Run 'docker-machine COMMAND --help' for more information on a command.
-
 
 # Docker 与虚拟化的区别
 

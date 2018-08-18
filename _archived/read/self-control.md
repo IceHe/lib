@@ -2,7 +2,6 @@
 
 - Created on 2016-06-17
 
-
 # 你的自控能力强么？｜研究：不快乐的人自控力更差
 
 - From: <http://mp.weixin.qq.com/s?__biz=MzI1OTAwNDc1OA==&mid=405068698&idx=1&sn=a401b7eba92b3bc4378cb5ec8dfd7c48&scene=1&srcid=04011TWvm7WC8dEBpfJRwAIP#rd>

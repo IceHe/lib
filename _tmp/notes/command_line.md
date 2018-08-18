@@ -105,11 +105,9 @@ Add SSH key for Git
 
 - **`man cmd_name ...` Format & display the cmd Manual.**.
 
-
 - **`bash` Bourne-Again SHell**
 
     An sh-compatible cmd language interpreter that cmds rd from the standard input or from a file.
-
 
 - **`ls [-ACFGLRSTUalmrtu1] [file ...]` List dir Contents.**
 
@@ -141,12 +139,10 @@ Add SSH key for Git
     `-u` Use time of **last access**, instead of last modification of the file
     `-U` Use time of file **creation**, instead of ...
 
-
 - **`cd [-|-1|-2|-3|-4|-5|-6|-7|-8|-9]` Change Dir.**
 
     `-` Back to previous working dir.
     `-1|-2|-3|-4|-5|-6|-7|-8|-9` Back to recently working dir in dir stacks.
-
 
 - **`mv [-f | -i | -n] source target` Move file.**
     `mv source ... directory` mv files to a dir.
@@ -156,7 +152,6 @@ Add SSH key for Git
     `-n` Don't ...
 
     Be able to **Rename** a file.
-
 
 - **`cp [-R [-H | -L | -P]] [-fi | -n] [-apvX] source_file target_file` Copy files.**
     `cp source_file ... target_directory` cp files to a dir.
@@ -177,7 +172,6 @@ Add SSH key for Git
      &nbsp; &nbsp; &nbsp; &nbsp; `-L` ..., **all** symbolic links are followed.
      &nbsp; &nbsp; &nbsp; &nbsp; `-P` ..., **no** ... followed. *(Default)*
 
-
 - **`rm [-dfiPRrvW] file ...` Rm files & dir entries.**
 
     `-d` Rm **dirs** as well.
@@ -190,7 +184,6 @@ Add SSH key for Git
     `-P` **Permanently** del files by overwriting three times! And then no one can re-read them. [Here is WHY](http://unix.stackexchange.com/questions/36870/whats-the-purpose-of-rm-p).
     `-W` Undelete the named files. Only be used to recover files covered by whiteouts.
 
-
 - **`mkdir [-p] [-m mode] directory_name` Make Dirs.**
 
     `-p` Create **intermediate** dirs as required.
@@ -198,11 +191,9 @@ Add SSH key for Git
     `-m mode` Set the mode of permission bits of the final created dir.
      &nbsp; &nbsp; &nbsp; &nbsp; Operation char `+` & `-` can be used to modify the initial mode `a=rwx`.
 
-
 - **`rmdir [-p] directory ...` Rm Dirs.**
 
     `-p` Rm each dir component of a pathname, if they are empty.
-
 
 - **`chmod [-R [-H | -L | -P]] mode file ...` Change file Modes.**
     `chmod [-R [-H | -L | -P]] [-a | +a | =a] ACE file ...`
@@ -249,7 +240,6 @@ Add SSH key for Git
 
     - Filesystem [**ACL**](https://en.wikipedia.org/wiki/Access_control_list) is used to administrate file permissions.
 
-
 - **`chown [-h] [-R [-H | -L | -P]] owner[:group] file ...` Change file Owner and group.**
     `chown [-h] [-R [-H | -L | -P]] :group file ...`
 
@@ -257,12 +247,10 @@ Add SSH key for Git
 
     `[-R [-H | -L | -P]]` Same as `cp` cmd above.
 
-
 - **`su [- | -l | -m] [login [args]]` Substitute user identity.**
 
     `-` | `-l` Simulate a **full** login.
     `-m` Leave the env **unmodified**.
-
 
 - **`sudo -A | -b | -h | -i | -s` Exec a cmd as another user**
 
@@ -271,7 +259,6 @@ Add SSH key for Git
     `-h` Print a short help message about `sudo` cmd.
     `-i` (Simulate **initial** login) Runs the shell specified by the pwd DB entry of the target user as a login shell.
     `-s` Runs the **shell** specified by the SHELL env variable if it is set or the shell as specified in the pwd DB.
-
 
 - **`ifconfig interface [create] ... [parameters]` Configure network interface params.**
     `ifconfig interface destroy`
@@ -284,7 +271,6 @@ Add SSH key for Git
     `ifconfig interface -bonddev iface`
     `ifconfig interface bondmode lacp | static`
 
-
 - **`uname [-amnprsv]` Print OS name.**
 
     `-a` == `-manrsv`
@@ -295,15 +281,12 @@ Add SSH key for Git
     `-s` ... **OS** name.
     `-v` ... OS **version**.
 
-
 - **`uptime` Show how long system has been running.**
-
 
 - **`ps` Process Status.**
 
     - `-e`
     - `-f`
-
 
 - **`env`**
 - **`cat`**
@@ -345,7 +328,6 @@ Add SSH key for Git
 - **`htop`**
 - **`lsof`**
 - **`ssh`**
-
 
 - [Art of CL](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md)
 

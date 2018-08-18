@@ -153,7 +153,6 @@ const Rational operator*(const Rational* lhs, const Rational* rhs){...}
 如果你需要为某个函数的所有参数（包括被this指针所指的那个隐喻参数）
 进行类型转换，那么这个函数必须是个non-member。
 
-
 ## 条款25：考虑写出一个不抛出异常的swap函数
 
 consider support for a non-throwing swap.
@@ -298,7 +297,6 @@ avoid returning "handles" to object internals.
 保证封装性，帮助const成员函数的行为像个const，
 并将“虚吊号码牌”（dangling handles）的可能性降至最低。
 （虚吊号码牌，即是野指针，对象已被销毁，但是指向这个地方的指针还在）
-
 
 ## 条款29：为“异常安全”而努力是值得的
 

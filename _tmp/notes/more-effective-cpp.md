@@ -10,7 +10,6 @@ pointer就有可能不指向（代表）任何对象。
 或是你实现一个操作符，而其语法需求无法由pointer达成，就该选择references。
 否则采用pointers。
 
-
 条款2：最好使用C++转型操作符
 prefer C++-style casts.
 
@@ -26,7 +25,6 @@ reinterpret _cast：此操作符的转换结果几乎总是与编译平台息息
 向下转型：父类对象指向子类。
 向上转型：将子类对象转为父类对象。
 
-
 条款3：绝对不要以多态（polymorphically）方式处理数组
 nver treat arrays polymorphically.
 
@@ -40,7 +38,6 @@ delete [] ary 时，调用的是ary的声明类型对应的析构函数，而非
 因为C++语言规范中说，通过base class pointer去删除一个由derived classes objects组成的数组，其结果未定义！
 
 绝对不要以多态（polymorphically）方式处理数组，会产生你意想不到的结果！
-
 
 条款4：非必要不提供default constructor
 avoid gratuitous default constructors.
@@ -88,7 +85,6 @@ operator delete[](rawMemory); // 释放rawMemory
 
 此条款的其它论述有点麻烦，其它部还是直接看原书较好。
 
-
 条款5：对定制的“类型转换函数”保持警觉
 be wary of user-defined conversion functions.
 
@@ -102,7 +98,6 @@ C++允许编译器在不同类型之间执行隐式转换implicit conversions。
 或者
 将构造函数声明为explicit的——编译器不能因隐式类型转换的需要而调用他们。
 
-
 条款6：区别increment/decrement操作符的前置（prefix）和后置（postfix）形式
 distinguish between prefix and postfix forms of increment and decrement operators.
 
@@ -113,19 +108,14 @@ C时代，++前置式的含义：increment and fetch（累加然后取出）；
 ++后置式：fetch and increment（取出然后累加）。--decrement操作符类同。
 这些就是++、--操作符如何实现的正式规范。
 
-
 条款7：千万不要重载&&，||和“,”（逗号）操作符
 never overload && , || , or "," .
 
 重载了它们之后，就无法判断这些操作符左边的还是右边的expression表达式更早执行了！
 &&、||的短路功能丢失，逗号操作符的从左到右的执行顺序不能被保证。
 
-
 条款8：了解各种不同意义的new和delete
 understand the different meanings of new and delete.
-
-
-
 
 条款9:利用destructors避免泄漏资源
 use destructors to prevent resource leaks.

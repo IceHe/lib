@@ -271,7 +271,6 @@ private继承意味着is-implemented-in-terms-of（根据某物实现出）。
 和复合（composition）不同，private继承可以造成empty base最优化。
 这对致力于尺寸最小化的程序库开发者而言，可能很重要。
 
-
 ## 条款40：明智而审慎低使用多重继承
 
 use multiple inheritance judiciouly.
@@ -295,7 +294,6 @@ clsss IOFile : public InputFile, public OutputFile{...};
     其中一个情节设计“public继承某个Interface class”
     和“private继承某个协助实现的class”的两两组合。
 
-
 ## 条款41：了解隐式接口和编译期多态
 
 understand implicit interfaces and compile-time polymorphism.
@@ -306,7 +304,6 @@ understand implicit interfaces and compile-time polymorphism.
 3. 对templates参数而言，接口是隐式的（implicit），奠基于有效表达式。
     多态是通过template具现化和函数重载解析（function overloading resolution）
     发生于编译期。
-
 
 ## 条款42：了解typename的双重意义
 
@@ -323,7 +320,6 @@ void func(){
      ... // 只是以防T类型中有一个static成员也叫const_iterator，
           // typename关键字就说清楚了，这指的是类型，而非其它！
 }
-
 
 ## 条款43：学习处理模板化基类内的名称
 
