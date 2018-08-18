@@ -135,7 +135,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十二章安装关于除法溢出的中断程序的实例.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%209/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%AE%89%E8%A3%85%E5%85%B3%E4%BA%8E%E9%99%A4%E6%B3%95%E6%BA%A2%E5%87%BA%E7%9A%84%E4%B8%AD%E6%96%AD%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AE%9E%E4%BE%8B.asm)
+Attachment 附件：[汇编语言第十二章安装关于除法溢出的中断程序的实例.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%209/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%AE%89%E8%A3%85%E5%85%B3%E4%BA%8E%E9%99%A4%E6%B3%95%E6%BA%A2%E5%87%BA%E7%9A%84%E4%B8%AD%E6%96%AD%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AE%9E%E4%BE%8B.asm)
 
 ### 12.11 单步中断
 
@@ -226,4 +226,4 @@ end start
 1. 趁着对12.10小节的中断处理程序的安装程序还有印象时，重写的。不够独立。
 2. 竟然对照12.10小节的程序来debug！不能容忍有下次！
 
-Attachment 附件：[汇编语言第十二章实验10.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%209/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%AE%9E%E9%AA%8C10.asm)
+Attachment 附件：[汇编语言第十二章实验10.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%209/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E5%AE%9E%E9%AA%8C10.asm)

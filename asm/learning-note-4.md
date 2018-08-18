@@ -95,14 +95,14 @@ end start
 
 ### 实验6 编写、调试具有多个段的程序
 
-Attachment 附件：[实验题5 (5).asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%204/%E5%AE%9E%E9%AA%8C%E9%A2%985%285%29.asm)
+Attachment 附件：[实验题5 (5).asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%204/%E5%AE%9E%E9%AA%8C%E9%A2%985%285%29.asm)
 
 ```nasm
 db 1, 2, 3, 4, 5, ... ; define byte
 dw 1ah, 2bh, 3ch, ... ; define word
 ```
 
-Attachment 附件：[实验题5 (6).asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%204/%E5%AE%9E%E9%AA%8C%E9%A2%985%286%29.asm)
+Attachment 附件：[实验题5 (6).asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%204/%E5%AE%9E%E9%AA%8C%E9%A2%985%286%29.asm)
 
 - 例：mov ax, [bx + 200] 等于 mov ax, [si +200] 以及 mov ax, [di +200]。
 

@@ -291,7 +291,7 @@ end start
 
 参照了 [Note 6 实验 9](../asm/learning-note-6.md#实验9-根据材料编程)
 
-Attachment 附件：[汇编语言第十章实验10.1.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.1.asm)
+Attachment 附件：[汇编语言第十章实验10.1.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.1.asm)
 
 #### 2.解决除法溢出的问题
 
@@ -364,7 +364,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十章实验10.2.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.2.asm)
+Attachment 附件：[汇编语言第十章实验10.2.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.2.asm)
  </div>
 
 #### 3.数值显示
@@ -473,4 +473,4 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十章实验10.3.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3.asm)
+Attachment 附件：[汇编语言第十章实验10.3.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3.asm)

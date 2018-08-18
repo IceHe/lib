@@ -275,7 +275,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十七章17.3例.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2014/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A017.3%E4%BE%8B.asm)
+Attachment 附件：[汇编语言第十七章17.3例.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2014/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A017.3%E4%BE%8B.asm)
 
 ### 17.4 应用 int 13h 中断例程对磁盘进行读写
 

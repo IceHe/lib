@@ -344,4 +344,4 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十四章实验14.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2011/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E5%AE%9E%E9%AA%8C14.asm)
+Attachment 附件：[汇编语言第十四章实验14.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2011/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E5%AE%9E%E9%AA%8C14.asm)

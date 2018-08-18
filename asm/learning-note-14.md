@@ -374,7 +374,7 @@ end start
 
 角度值没有检测，可能超范围（0~180），真实编程需要检测。
 
-Attachment 附件：[汇编语言第十六章16.3例.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A016.3%E4%BE%8B.asm)
+Attachment 附件：[汇编语言第十六章16.3例.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A016.3%E4%BE%8B.asm)
 
 ### 16.4 程序入口地址的直接定址表
 
@@ -557,7 +557,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十六章16.4例.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A016.4%E4%BE%8B.asm)
+Attachment 附件：[汇编语言第十六章16.4例.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A016.4%E4%BE%8B.asm)
 
 ### 实验 16 编写包含多个功能子程序的中断例程
 
@@ -756,7 +756,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十六章实验16.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16.asm)
+Attachment 附件：[汇编语言第十六章实验16.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16.asm)
 
 ```nasm
 ;测试程序
@@ -778,7 +778,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十六章实验16测试程序.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F.asm)
+Attachment 附件：[汇编语言第十六章实验16测试程序.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F.asm)
 
 ```nasm
 ;sub3的更优写法：

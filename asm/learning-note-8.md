@@ -160,7 +160,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[>汇编语言第十章实验10.3改进版.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207%20extra/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3%E6%94%B9%E8%BF%9B%E7%89%88.asm)
+Attachment 附件：[>汇编语言第十章实验10.3改进版.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207%20extra/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3%E6%94%B9%E8%BF%9B%E7%89%88.asm)
  </div>
 
 完整的解法：
@@ -528,4 +528,4 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十章课程设计1.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%207%20extra/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A11.asm)
+Attachment 附件：[汇编语言第十章课程设计1.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207%20extra/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A11.asm)

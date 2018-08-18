@@ -251,7 +251,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十五章15.4例.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A015.4%E4%BE%8B.asm)
+Attachment 附件：[汇编语言第十五章15.4例.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A015.4%E4%BE%8B.asm)
 </div>
 
 ### 15.5 安装新的 int 9 中断例程
@@ -341,7 +341,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十五章15.5例.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A015.5%E4%BE%8B.asm)
+Attachment 附件：[汇编语言第十五章15.5例.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A015.5%E4%BE%8B.asm)
 </div>
 
 ### 实验 15 安装新的 int 9 中断例程
@@ -438,7 +438,7 @@ code ends
 end start
 ```
 
-Attachment 附件：[汇编语言第十五章实验15.asm](http://7vzp67.com1.z0.glb.clouddn.com/Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%E5%AE%9E%E9%AA%8C15.asm)
+Attachment 附件：[汇编语言第十五章实验15.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2012/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%E5%AE%9E%E9%AA%8C15.asm)
 
 ### 8086CPU指令系统总结
 
