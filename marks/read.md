@@ -260,6 +260,7 @@
 ## 播客
 
 尽量使用 [Podcasts](http://www.apple.com/itunes/podcasts/) 等泛用型播客客户端订阅为佳。
+
 - [一天世界](https://ipn.li/yitianshijie/) <sup>Great</sup>
     「用整体性的视角，观察当代社会的技术、文化以及商业风景，对抗消费主义导向的论述，强调对技术、艺术的敏锐的感受力，以及精神和肉体上的强健。」一个小众播客。
 - [IT 公论](https://ipn.li/itgonglun/) <sup>Great</sup>

@@ -91,6 +91,7 @@ __「学习」并不等同于「做作业」！__
 一些关于项目期间管理时间的敲门，[详见下文](#projectime)。TODO：Link
 
 还有一些关于时间管理的网站，可以看一看：
+
 - ["How to Be Punctual"](https://www.wikihow.com/Be-Punctual)（如何守时）
 - …… 或者在 Google 上搜索 ["time management"（时间管理）](http://www.google.com/search?hl=en&q=time+management)来找些新方法。
 - 有一堆漂亮的可打印的网络日历、日程表等，可以在 [ePrintableCalendars.com](http://www.eprintablecalendars.com/) 和 [timeanddate.com](https://www.timeanddate.com/) 上找到。
@@ -100,7 +101,8 @@ __「学习」并不等同于「做作业」！__
 
 # 3. 在课堂做笔记，在家重写笔记
 
-__大纲和索引：__
+大纲和索引：
+
 1. 做笔记
 2. 做完整的笔记
 3. 使用缩写
@@ -200,18 +202,21 @@ wh : which
 >
 > - detail 1
 > - detail 2
->   - further detail 2.1
+>     - further detail 2.1
 > - detail 3
->   - further detail 3.1
->   - further detail 3.2
+>     - further detail 3.1
+>     - further detail 3.2
 >
-> ---
+> ===
+>
 > 2\. Main idea 2
 >
-> ---
+> ===
+>
 > 3\. Main idea 3
 >
-> ---
+> ===
+>
 > etc.
 
 ## 3.7. 不用在电脑上记笔记
@@ -258,7 +263,8 @@ __你应该什么时候学习和做作业__？这会诱惑你将作业拖延到�
 
 # 5. 在课前和课后，积极主动且慢慢地阅读
 
-__大纲和索引：__
+大纲和索引：
+
 1. 积极主动而非消极被动地阅读
 2. 慢慢地阅读
 3. 在页边的空白标注关键内容
@@ -380,7 +386,8 @@ __大纲和索引：__
 
 # 7. 为考试而学习
 
-__提纲：__
+提纲：
+
 1. 别只为考试而学习
 2. 管理你的时间
 3. 如果不去学习

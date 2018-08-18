@@ -396,6 +396,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 [Zsh](http://zsh.sourceforge.net/)
 
 可能在默认的配置下 [Fish](https://fishshell.com/) 使用起来比 Zsh 更好一点，但是它对 Bash 的兼容性不够好，Bash 的脚本或指令组合不一定能在 Fish 上跑，相反亦然，影响通用性。Zsh 在这方面则基本没有问题。[综合各方面进行对比](https://en.wikipedia.org/wiki/Comparison_of_command_shells)，我认为 Zsh 暂时是各种 Shell 中最好的选择。
+
 - **快速切换目录**：最常用最便捷的功能
     - 直接输入目录的路径，毋需添加 cd 指令，即可切换到指定路径。
     - 输入不完整路径（或者指令）然后按 ⇥，自动补全目录（或指令），或者列出相似的候选项。

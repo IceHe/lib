@@ -2148,7 +2148,7 @@ sorted(L, key=byScore, reverse=True)
 
 # 函数式编程（其它）
 
-##  函数作为返回值
+## 函数作为返回值
 
 ```python
 def lazySum(*args):

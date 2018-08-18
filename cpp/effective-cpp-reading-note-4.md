@@ -330,7 +330,7 @@ new和delete如果接受了额外参数，便称为placement的。
 那么当new的内存分配动作需要取消并恢复旧观时就没有人员和operator delete会被调用。
 
 1. 当你写一个placement operator new，请确定也写出了对应的placement operator delete。
-如果没有这样做，你的程序可能因为发生隐微而时断时续的内存泄露。
+    如果没有这样做，你的程序可能因为发生隐微而时断时续的内存泄露。
 2. 当你声明placement new和placement delete，请确定不要无意识（非故意）地掩盖了它们的正常版本。
 
 ## 条款53：不要轻忽编译器的警告

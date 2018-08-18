@@ -17,7 +17,7 @@ flag：标志寄存器，16位，按位起作用。
 
 |编号|15|14|13|12|11|10|9|8|7|6|5|4|3|2|1|0|
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
-|用途|-|-|-|-|OF|DF|IF|TF|SF|ZF|-|AF|-|PF|-|CF|
+|用途|/|/|/|/|OF|DF|IF|TF|SF|ZF|/|AF|/|PF|/|CF|
 
 空出的都是在8086CPU中没有被使用，不具有含义。
 
@@ -146,21 +146,16 @@ cmp指令执行后，根据计算结果来设置标志寄存器(主要是 zf 和
 
 为什么判断(ax)和(bx)的大小关系，看的是 cf 标志位，而不是 sf 呢？
 
-因为一般情况下 (ax) - (bx) < 0，即是(ax) < (bx)，sf = 1 ；
-
-但是当涉及有符号数的对比时，如34 - (-96) = 130 发生了溢出，
-
-结果82H，即-126！sf = 1，但是 (ax) > (bx)。
+- 因为一般情况下 (ax) - (bx) < 0，即是(ax) < (bx)，sf = 1 ；
+- 但是当涉及有符号数的对比时，如34 - (-96) = 130 发生了溢出，
+- 结果82H，即-126！sf = 1，但是 (ax) > (bx)。
 
 不过 sf 结合 of 还是可以判断(ax)和(bx)的大小关系的。
 
-sf = 0 and of = 0 —— (ax) >= (bx)
-
-sf = 1 and of = 0 —— (ax) <= (bx)
-
-sf = 0 and of = 1 —— (ax) <= (bx)
-
-sf = 1 and of = 1 —— (ax) >= (bx)
+- sf = 0 and of = 0 —— (ax) >= (bx)
+- sf = 1 and of = 0 —— (ax) <= (bx)
+- sf = 0 and of = 1 —— (ax) <= (bx)
+- sf = 1 and of = 1 —— (ax) >= (bx)
 
 如果溢出，逻辑上的真正结果必然和实际结果“相反”！
 
@@ -168,32 +163,26 @@ sf = 1 and of = 1 —— (ax) >= (bx)
 
 条件转移指令通常和cmp相配合使用。
 
-指令      含义                    检测相关标志位
+|指令|含义|检测相关标志位|
+|-|-|-|
+|je|== 等于则转移|zf = 1|
+|jne|!= 不等于则..|zf = 0|
+|jb|< 低于则..|cf = 1|
+|jnb|>= 不低于..|cf = 0|
+|ja|> 高于..|cf = 0 and zf = 0|
+|jna|<= 不高于..|cf = 1 or zf = 0|
 
-je          == 等于则转移      zf = 1
-
-jne        != 不等于则..         zf = 0
-
-jb          < 低于则..             cf = 1
-
-jnb        >= 不低于..           cf = 0
-
-ja          > 高于..                cf = 0 and zf = 0
-
-jna        <= 不高于..           cf = 1 or zf = 0
-
-e —— equal
-
-b —— below
-
-a —— above
+- e —— equal
+- b —— below
+- a —— above
 
 在使用这些跳转指令前，先用不用cmp指令，由我们决定。
 
 例子：
 
 编程统计data段中，数值大于8的字节的个数，用ax保存统计结果。
-<div align="left">
+
+```nasm
 assume cs:code, ds:data
 
 data segment
@@ -224,6 +213,7 @@ next:   inc bx
 code ends
 
 end start
+```
 
 ### 11.10 DF 标识 和 串传送指令
 
@@ -237,49 +227,48 @@ movsb (无参数)
 
 功能：相当于以下几步操作。
 
+```nasm
 - ((es) * 16 + (di)) = ((ds) * 16 + (si))
-
 - 若df = 0，则 (si) = (si) + 1
-
                   (di) = (di) + 1
-
      若df = 1，则 (si) = (si) - 1
-
                   (di) = (di) - 1
+```
 
- 用汇编语言描述则是：
+用汇编语言描述则是：
 
+```nasm
 mov es:[di], byte ptr ds:[si]     ;8086CPU并不支持这样的指令，这里仅仅为描述
-
 if df = 0     inc si     inc di
-
 if df = 1     dec si     dec di
+```
 
 movsw (无参数)
 
 功能 用汇编语言描述则是：
-<div align="left">
+
+```nasm
 mov es:[di], word ptr ds:[si]     ;8086CPU并不支持这样的指令，这里仅仅为描述
-
 if df = 0     add si, 2     add di, 2
-
 if df = 1     sub si, 2     sub di, 2
+```
 
 一般 movsb / movsw 都和 rep 配合使用：
 
+```nasm
 rep movsb
-
 rep movsw
+```
 
 用汇编描述就是：
 
+```nasm
 s:   movsb
-
      loop s
 
 s:   movsw
-
      loop s
+```
 
 rep 指令的作用：
 
@@ -287,57 +276,50 @@ rep 指令的作用：
 
 然后可以根据flag寄存器的 df 标志，决定传送方向：
 
-df = 0     从前向后 传送
-
-df = 1     相反
-
-cld 指令 —— clear df    ： 将 标志寄存器的df位 ， 置为0。
-
-std 指令 —— set df      ：将标志寄存器的df位，置为 1。
+- df = 0     从前向后 传送
+- df = 1     相反
+- cld 指令 —— clear df    ： 将 标志寄存器的df位 ， 置为0。
+- std 指令 —— set df      ：将标志寄存器的df位，置为 1。
 
 原书P233（2）编程：
 
 用串传送指令，将F000H段的最后16个字符复制到data段中。
-<div align="left">
+
+```nasm
 assume cs:code
 
 data segment
-
-                db 16 dup (0)
-
+            db 16 dup (0)
 data ends
 
 code segment
 
 start:       mov ax, 0f000h
+             mov ds, ax
+             mov si, 0ffffh
 
-                                mov ds, ax
-                                mov si, 0ffffh
+             mov ax, data
+             mov es, ax
+             mov di, 15
 
-                                mov ax, data
-                                mov es, ax
-                                mov di, 15
+             std
+             mov cx, 16
+             rep movsb
 
-                                std
-                                mov cx, 16
-                                rep movsb
-
-                                mov ax, 4c00h
-                                int 21h
-
+             mov ax, 4c00h
+             int 21h
 code ends
 
 end start
+```
 
 ### 11.11 pushf 和 popf
 
-pushf 指令：将标志寄存器的值压栈。
-
-popf  指令：从栈中弹出数据，送入标志寄存器中。
+- pushf 指令：将标志寄存器的值压栈。
+- popf  指令：从栈中弹出数据，送入标志寄存器中。
 
 ### 11.12 标志寄存器在Debug中的表示
 
-<div align="left">
 用debug.exe查看当前标志寄存器的标志位值？
 
 用R指令，得到的信息右下角： NV   UP   EI   PL   NZ   NA   PO   NC
@@ -350,12 +332,12 @@ popf  指令：从栈中弹出数据，送入标志寄存器中。
 |-|-|-|
 |溢出标志OF(Over flow flag)|OV|overflow|NV|
 |方向标志DF(Direction flag)|DN|down|UP|
-|中断标志IF(Interrupt flag)|EI|DI|
+|中断标志IF(Interrupt flag)|EI|DI|/|
 |符号标志SF(Sign flag)|NG|negative|PL positive|
 |零标志ZF(Zero flag)|ZR|zero|NZ not zero|
 |辅助标志AF(Auxiliary carry flag)|AC|assist|NA|
-|奇偶标志PF(Parity flag)|PE even|PO odd|
-|进位标志CF(Carry flag)|CY carry|NC not carry|
+|奇偶标志PF(Parity flag)|PE even|PO odd|/|
+|进位标志CF(Carry flag)|CY carry|NC not carry|/|
 
 ### 实验 11 编写子程序
 

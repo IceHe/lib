@@ -103,7 +103,7 @@ exe_name
 
 - [offset]——指一个内存单元的地址，
 - 段地址在DS（data segment）段寄存器中，偏移量是"[ ]"中的数字，
-- 地址实际是 DS * 16 + offset，即DS * 10H + offset，
+- 地址实际是 `DS * 16 + offset`，即 `DS * 10H + offset` ，
 - 即DS内的数（16进制）左移一位再与offset相加。
 
 pos & ax

@@ -46,16 +46,20 @@
 * 添加一个PHP Remote Debug，添加一个服务器
     * 填入要进行远程调试环境的主机的 IP
     * 勾选 Use Path mappings
+
 （端口据说使用默认的80就好，不过有时记得根据实际情况调试）
 路径填入：与该本地project对应的在远程主机的目录
+
 * 记得 Ide key (session id) 填入的值
+
 必须与远程主机的 php.ini 中 xdebug 写的 ide 一致
 
 * xdebug 的安装过程颇为复杂，请另寻安装教程。
 * xdebug 安装后，还需要配置到 /etc/php.ini
     * 工作时远程主机的 xdebug 的配置文件路径为：/etc/php.d/xdebug.ini
     * 当时该配置文件的内容为：
-```
+
+```ini
 [xdebug]
 xdebug.remote_enable = On
 xdebug.remote_connect_back = Off
@@ -68,7 +72,8 @@ xdebug.remote_autostart = 1
 # 设置更长的超时时间，以便 Xdebug 调试
 
 * 修改 php-fpm 的 v5.conf 配置文件
-```
+
+```ini
 [v5.weibo.cn]
 user = www
 group = www
@@ -89,8 +94,9 @@ catch_workers_output
 
 # rsync 配置
 
-1. 在 server 的 `/etc/rysnc.conf` 添加设置，对某目录进行rsync支持。
-```
+1\. 在 server 的 `/etc/rysnc.conf` 添加设置，对某目录进行rsync支持。
+
+```properties
 [project_name]
 hosts allow = 10.0.0.0/8
 hosts deny  = *
@@ -101,23 +107,25 @@ auth users  = user_name
 secrets file = /path/to/rsync.pass
 ```
 
-2. 在 server 的 `/path/to/rsync.pass` 文件中添加用户和密码，以冒号分隔两者。（该文件的权限位需设为 `600`）
-```
+2\. 在 server 的 `/path/to/rsync.pass` 文件中添加用户和密码，以冒号分隔两者。（该文件的权限位需设为 `600`）
+
+```properties
 user_name:passwd
 ```
 
-3. 在本机写 rsync 的脚本。
-```
+3\. 在本机写 rsync 的脚本。
+
+```bash
 #!/bin/sh
 rsync -rltgoDP --delete --password-file=/path/to/.rsync.pwd --exclude='/path/need/to/exclude' /path/to/local_project/ rsync://<user_name>@<server_ip_addr>:<port_number>/project_name
 ```
 
-4. 在本机创建文件 /path/to/.rsync.pwd，并将密码写入其中。（建议其可读写的权限设置得更严格）
-```
+4\. 在本机创建文件 /path/to/.rsync.pwd，并将密码写入其中。（建议其可读写的权限设置得更严格）
+
+```properties
 passwd
 ```
 
-5. 给本机的 rsync 脚本赋予运行权限， 给 server 的项目目录 /path/to/project 赋予对应 rsync 用户的写入权限，然后运行 rysnc 脚本即可。
+5\. 给本机的 rsync 脚本赋予运行权限， 给 server 的项目目录 /path/to/project 赋予对应 rsync 用户的写入权限，然后运行 rysnc 脚本即可。
 
 # 基于 Composer 的 PHP 模块化开发
-

@@ -200,7 +200,6 @@
     相关：[Theory X and Theory Y](https://en.wikipedia.org/wiki/Theory_X_and_Theory_Y)
 - [如何看待阿里巴巴安全部门的月饼事件？](https://www.zhihu.com/question/50600301)
 - [从第三方服务角度看公司技术部门如何正确计算投入产出比～](http://weibo.com/ttarticle/p/show?id=2309404061670841429641)
-<!--- [成功技术领导者10条经验锤炼](http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=208891164&idx=1&sn=893d43e516f576917dcb99cfa421a226&scene=5&srcid=3vfJDE1cRf8X4ecZlk7h#rd) 初次看不明觉厉，再看没有感触，待观察。-->
 
 ## 其它
 

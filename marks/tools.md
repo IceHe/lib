@@ -332,7 +332,7 @@ Shell
 - 可自定义快捷键去启动、切换 App，打开文件和网址，快速输入关键词跳转到网站的搜索页，甚至运行 Shell 命令行。发挥想象力，配合上述的 Keyboard Maestro，还能做到更多的事。除了「键位修改」，其它繁杂的功能最好交给 Keyboard Maestro 或者 Shell 脚本来完成，用起来省心。
 - 我的配置 [karabiner.json](https://github.com/IceHe/macos-home-conf/blob/master/.config/karabiner/karabiner.json)
 
-**Karabiner Event-Viewer**
+Karabiner Event-Viewer
 
 - 键盘码查询。不用查表，直接击键，即得出对应的键盘码和按键组合等。
 - 是 Karabiner-Elements 附带 App，用于调试键位、快捷键组合。
@@ -533,7 +533,6 @@ Shell
 
 - 便于让你瞬间定位到当前正在使用窗口。
 - 除当前激活的窗口，其它窗口都会显示阴影，让人更专注与当前窗口的工作。
-<span class="hidden">- 可惜经过长期使用，感觉可有可无，上述说法可能只有理论上的作用，可能只是心理安慰。</span>
 
 [~~iStat Menus~~](https://bjango.com/mac/istatmenus/)
 
@@ -562,9 +561,9 @@ Shell
 
 ### iOS
 
-基础服务
+> 基础服务
 
-**Safari** <sup>Simple</sup>
+Safari <sup>Simple</sup>
 
 - iOS 自带浏览器。足够好用。
 
@@ -576,7 +575,7 @@ Shell
 
 - 在用非手写输入的键盘时，竟然可以在键盘区滑动，这时可用手写方式输入！优秀的语音识别输入能力，准确率高，支持方言。
 
-个人管理：事务、时间、习惯
+> 个人管理：事务、时间、习惯
 
 [2Do](https://itunes.apple.com/us/app/2do-reminders-personal-planner/id303656546?mt=8) <sup>Powerful</sup>
 
@@ -591,17 +590,17 @@ Shell
 
 - 习惯养成，记录、统计、分析养成的情况。该领域有很多 App，好用的不多… 这个也不算最好的选择，需要自行挑选。
 
-记录
+> 记录
 
 [MindNode](https://mindnode.com/) <sup>Powerful</sup>
 
 - 思维导图。( [Ref Above](#Common) )
 
-**Notes** <sup>Simple</sup>
+Notes <sup>Simple</sup>
 
 - iOS & macOS 自带的轻量级笔记应用，启动、编辑、同步迅速稳定，方便易用。
 
-财务
+> 财务
 
 [网易有钱](https://qian.163.com/) <sup>Simple</sup>
 
@@ -609,22 +608,22 @@ Shell
 - 后来，我发现自己只需要知道自己各个账户的余额，以及总体的收支情况，所以就弃用「随手记」换用它。如果注重隐私信息的安全，请注意退避该 App。
 - 其它选择：[随手记专业版](http://www.feidee.com/money/) <sup>One fo the best</sup> ，我用得最顺手的记账软件。弃用理由见上文。
 
-社交
+> 社交
 
-**Mail** <sup>Simple</sup>
+Mail <sup>Simple</sup>
 
 - iOS 自带邮箱客户端，足够好用。
 
-**QQMail**
+QQMail
 
 - 个人邮箱。
 
-**Outlook**
+Outlook
 
 - 工作邮箱，主要用于设置邮箱服务器的邮件规则
 - （分类不同邮件，某些邮件标为已读）
 
-**WeChat** <sup>Required for payment</sup>
+WeChat <sup>Required for payment</sup>
 
 - 微信，主要用于支付、社交和碎片阅读（公众号）。
 - 能用微信小程序代替的 App 我都不下载。
@@ -638,7 +637,7 @@ Shell
 
 [微信](https://weixin.qq.com/)
 
-阅读 & 学习
+> 阅读 & 学习
 
 [得到](https://www.igetget.com/)
 
@@ -664,10 +663,10 @@ Shell
 
 - 国内最好的公开课平台。
 
-**Castro 2**
+Castro 2
 
 - 泛用型博客客户端，收听个人播客自媒体，主要关于科技、技术、英语。
-不安装知乎、微博之类的资讯阅读类 Apps，要看书或者文章就用 Mac 或实体书看。
+    - 不安装知乎、微博之类的资讯阅读类 Apps，要看书或者文章就用 Mac 或实体书看。
 
 音乐 & 游戏 & 视频
 
@@ -683,7 +682,7 @@ Shell
 
 [虾米音乐](http://www.xiami.com/)、[QQ 音乐](https://y.qq.com/)、[豆瓣 FM](https://douban.fm/)
 
-安全
+> 安全
 
 [1Password](https://1password.com/)
 
@@ -699,7 +698,7 @@ Shell
 
 - 利用 iOS 提供的接口协助过滤；一般没必要安装，注意隐私就好。如有必要再装。
 
-生活
+> 生活
 
 [高德地图](https://itunes.apple.com/cn/app/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E7%B2%BE%E5%87%86%E4%B8%93%E4%B8%9A%E7%9A%84%E6%89%8B%E6%9C%BA%E5%9C%B0%E5%9B%BE-%E8%87%AA%E9%A9%BE%E5%85%AC%E4%BA%A4%E9%AA%91%E8%A1%8C%E5%AF%BC%E8%88%AA/id461703208?mt=8)
 

@@ -20,10 +20,12 @@ $this->$funcName($param);
 
 # PHP 对象的属性使用非常规命名时的访问方法
 
+```php
 object(SimpleXMLElement)[10]
   public 'source-url' => string 'file://C:\wamp\www\t_html_out.html' (length=34)
   public 'file-name' => string 't_html_out.html' (length=15)
   public 'attachment' => string 'true' (length=4)
+```
 
 如上文中PHP对象的属性名 source-url、file-name，
 它们使用了非常规的命名，如属性名中带有减号 - 。
@@ -32,7 +34,7 @@ object(SimpleXMLElement)[10]
 
 此时，使用特殊的语法：$obj->{"source-url"} 来访问。
 
-# Where is php.ini?
+# Where is php.ini
 
 MacOS，brew 安装的php的 php.ini 文件在：
 /usr/local/etc/php/版本号/php.ini
@@ -344,4 +346,5 @@ $array = [
 From: www.laruence.com/manual/yaf.classes.html#yaf.class.application.props._app
 _app
     Yaf_Application通过特殊的方式实现了单利模式, 此属性保存当前实例
+
 # 单例模式 误为 单利模式

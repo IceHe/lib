@@ -290,10 +290,6 @@
 - 实际上，它们确实浪费了我许多时间和精力，其实本可以做更重要的事情。不过没必要为了缓解劳苦无功的懊恼，而给它们强行附上意义。那些意义不过是为了合理化过度投入的沉没成本、缓解认知失调而生的说辞罢了。
 - 想法很零碎，还需沉淀。
 
-{% cq %}
-Never memorize something that you can look up.
-
-__Albert Einstein__
-{% endcq %}
-
-<style type="text/css">article img.fix_width{width: 32em; height: auto;}img.fix_height{height: 28em; width: auto;}</style>
+> Never memorize something that you can look up.
+>
+> __Albert Einstein__
