@@ -1,11 +1,5 @@
 # 牙齿保健
 
-date: 2016-07
-updated: 2016-08-03
----
-
-# 牙齿保健
-
 - Ref
     - 播客 @[太医来了](http://ipn.li/taiyilaile/)
         - [#38.「有的牙医就是享受手动刷牙的快感。」](http://ipn.li/taiyilaile/38/)
@@ -22,13 +16,14 @@ updated: 2016-08-03
             - [如何正确地刷牙？](https://www.zhihu.com/question/19785262/answer/36545057)
             - [电动牙刷刷牙相比手动刷牙有什么优缺点？](https://www.zhihu.com/question/19825877/answer/15856166)
                 - [难道刷牙时真的不能让牙膏沾水而自己刷出泡沫？貌似一直沾水刷牙?](https://www.zhihu.com/question/20336202/answer/60711439)
-                - [ 声波电动牙刷和机械式电动牙刷哪个好？ ](https://www.zhihu.com/question/19641783/answer/15855761)
+                - [声波电动牙刷和机械式电动牙刷哪个好？](https://www.zhihu.com/question/19641783/answer/15855761)
                 - [每天刷牙为什么还会有龋齿？](https://www.zhihu.com/question/30582839/answer/48625166)
             - [使用牙线有必要性吗？](https://www.zhihu.com/question/20842469/answer/44441538)
             - [漱口水有何功效？有何副作用？](https://www.zhihu.com/question/20368732/answer/16323210)
             - [洗牙到底安全不安全？](https://www.zhihu.com/question/21031894/answer/17017915)
             - [如何从小到大保护好牙齿？](https://www.zhihu.com/question/20632901/answer/15702825)
             - [烤瓷牙为什么这么贵？是材料贵，还是其他什么原因？](https://www.zhihu.com/question/30674383)
+
 <!--- [金杯银杯，不如知友的口碑](https://zhuanlan.zhihu.com/p/20437258) - 2015 牙科科普推荐-->
 
 ## 刷牙
