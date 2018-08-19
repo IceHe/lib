@@ -251,7 +251,7 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 - `git push origin <tag_name>` 推送本地标签
 - `git push origin --tags` 推送所有本地标签
 
-## Aliases
+### Aliases 别名
 
 - My Zsh Aliases of Git : [mac-conf/.config/zsh/git.zsh](https://github.com/IceHe/mac-conf/raw/master/.config/zsh/git.zsh)
     - Based on [oh-my-zsh plugin git](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
