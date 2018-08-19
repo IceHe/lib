@@ -2,7 +2,7 @@
 
 - Created on 2015-01-01
 
-[**< Dec. 2014** - Prev 上一月](_archived/lifelogs/2014/12/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Feb. 2015 >**](_archived/lifelogs/2015/02/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](_archived/lifelogs.md)
+[< Dec. 2014 - Prev 上一月](_archived/lifelogs/2014/12/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Feb. 2015 >](_archived/lifelogs/2015/02/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](_archived/lifelogs.md)
 
 1. [15/01/01 stu0 rd73 新历，新年快乐。](_archived/lifelogs/2015/01/d01.md)
 2. [15/01/02 stu0 rd50](_archived/lifelogs/2015/01/d02.md)
@@ -35,4 +35,4 @@
 29. [15/01/29 stu23 spo14](_archived/lifelogs/2015/01/d29.md)
 30. [15/01/30 stu60](_archived/lifelogs/2015/01/d30.md)
 31. [15/01/31 stu55](_archived/lifelogs/2015/01/d31.md)
-32. **[2015/01 Time Statistics](_archived/lifelogs/2015/01/time_stat.md)**
+32. [2015/01 Time Statistics](_archived/lifelogs/2015/01/time_stat.md)

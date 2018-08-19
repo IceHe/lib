@@ -2,7 +2,7 @@
 
 - Created on 2015-11-01 00:00:00
 
-[**< Oct. 2015** - Prev 上一月](_archived/lifelogs/2015/10/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Dec. 2015 >**](_archived/lifelogs/2015/12/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](_archived/lifelogs.md)
+[< Oct. 2015 - Prev 上一月](_archived/lifelogs/2015/10/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Dec. 2015 >](_archived/lifelogs/2015/12/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](_archived/lifelogs.md)
 
 1. [15/11/01 stu58 spo6](_archived/lifelogs/2015/11/d01.md)
 2. [15/11/02 stu58 spo12](_archived/lifelogs/2015/11/d02.md)
@@ -34,8 +34,8 @@
 28. [15/11/28 stu49 spo11 was3](_archived/lifelogs/2015/11/d28.md)
 29. [15/11/29 stu38 spo12 was6](_archived/lifelogs/2015/11/d29.md)
 30. [15/11/30 stu70 spo3](_archived/lifelogs/2015/11/d30.md)
-32. [**Summary 2015/11 stu49 spo8 was3**](_archived/lifelogs/2015/11/time_stat.md)
-32. [**Summary 2015/11 stu49 spo8 was3**](_archived/lifelogs/2015/11/time_stat.md)
-32. [**Summary 2015/11 stu49 spo8 was3**](_archived/lifelogs/2015/11/time_stat.md)
-32. [**Summary 2015/11 stu49 spo8 was3**](_archived/lifelogs/2015/11/time_stat.md)
-32. [**Summary 2015/11 stu49 spo8 was3**](_archived/lifelogs/2015/11/time_stat.md)
+32. [Summary 2015/11 stu49 spo8 was3](_archived/lifelogs/2015/11/time_stat.md)
+32. [Summary 2015/11 stu49 spo8 was3](_archived/lifelogs/2015/11/time_stat.md)
+32. [Summary 2015/11 stu49 spo8 was3](_archived/lifelogs/2015/11/time_stat.md)
+32. [Summary 2015/11 stu49 spo8 was3](_archived/lifelogs/2015/11/time_stat.md)
+32. [Summary 2015/11 stu49 spo8 was3](_archived/lifelogs/2015/11/time_stat.md)

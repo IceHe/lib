@@ -2,7 +2,7 @@
 
 - Created on 2016-05-01 00:00:00
 
-[**< Apr. 2016** - Prev 上一月](_archived/lifelogs/2016/04/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jun. 2016 >**](_archived/lifelogs/2016/06/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](_archived/lifelogs.md)
+[< Apr. 2016 - Prev 上一月](_archived/lifelogs/2016/04/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Jun. 2016 >](_archived/lifelogs/2016/06/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](_archived/lifelogs.md)
 
 1. [16/05/01 stu47 spo3 was12](_archived/lifelogs/2016/05/d01.md)
 2. [16/05/02 stu24 spo24 joy24](_archived/lifelogs/2016/05/d02.md)
@@ -35,4 +35,4 @@
 29. [16/05/29 stu39 spo16 joy26](_archived/lifelogs/2016/05/d29.md)
 30. [16/05/30 stu56 spo12 joy15 was6](_archived/lifelogs/2016/05/d30.md)
 31. [16/05/31 stu54 spo9 was3](_archived/lifelogs/2016/05/d31.md)
-32. [**Summary 2016/05 stu50 spo11 was4**](_archived/lifelogs/2016/05/time_stat.md)
+32. [Summary 2016/05 stu50 spo11 was4](_archived/lifelogs/2016/05/time_stat.md)

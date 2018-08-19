@@ -2,7 +2,7 @@
 
 - Created on 2015-06-01
 
-[**< May. 2015** - Prev 上一月](_archived/lifelogs/2015/05/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - **Jul. 2015 >**](_archived/lifelogs/2015/07/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 **Back to Years ^**](_archived/lifelogs.md)
+[< May. 2015 - Prev 上一月](_archived/lifelogs/2015/05/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Jul. 2015 >](_archived/lifelogs/2015/07/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](_archived/lifelogs.md)
 
 1. [15/06/01 stu39](_archived/lifelogs/2015/06/d01.md)
 2. [15/06/02 stu27 spo3 joy21](_archived/lifelogs/2015/06/d02.md)
@@ -34,4 +34,4 @@
 28. [15/06/28 stu36 joy42](_archived/lifelogs/2015/06/d28.md)
 29. [15/06/29 stu34 joy41](_archived/lifelogs/2015/06/d29.md)
 30. [15/06/30 stu25 spo16](_archived/lifelogs/2015/06/d30.md)
-31. **[2015/06 Time Statistics](_archived/lifelogs/2015/06/time_stat.md)**
+31. [2015/06 Time Statistics](_archived/lifelogs/2015/06/time_stat.md)
