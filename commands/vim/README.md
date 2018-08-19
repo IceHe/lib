@@ -1,0 +1,212 @@
+# Vim
+
+> Only list the useful keys that I’m unfamiliar with here.
+
+## References
+
+Offical Website
+
+- [Home](http://www.vim.org/)
+- [Docs](http://www.vim.org/docs.php)
+
+Others
+
+- [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Image
+
+Mine
+
+- My config file [__.vimrc__](https://github.com/IceHe/macos-home-conf/blob/master/.vimrc)
+
+## Move Cursor
+
+- _`^ o` | `^ i` [ Prev | Next ] Cursor Pos_
+- `{` | `}` [ Prev | Next ] Blank Line
+- `w` | `⇧ W` Head of Next [ Word / Str ]
+- `e` | `⇧ E` Tail of Next [ Word / Str ]
+- `b` | `⇧ B` Head of Prev [ Word / Str ]
+- `ge` | `gE` Tail of Prev [ Word / Str ]
+- `;` Repeat the last manipulation about `f` `t` `⇧ F` `⇧ T`
+- `0` Head of Line
+- `^` = `⇧ 6` Head of Line ( Non-Whitespace )
+- `$` = `⇧ 4` End of Line
+- `"` Switch to some Register
+- _`-` Head of Prev Line_
+- _`⇧ +` Head of Next Line_
+
+### EasyMotion
+
+[EasyMotion](https://github.com/easymotion/vim-easymotion)
+
+- It's a Vim plugin. [spf13-vim](http://vim.spf13.com/) makes it easier to use:
+- In normal mode `,`, `,` ( Twice ) then input a cursor motion instruction,
+    - such as `w`, `e`, `b`, `f*`, `F*`, `t*`, `T*` or etc.
+- The screen will display some keycues.
+- If you input one of the keycues, then your cursor will get to the specified place.
+
+## Select Range
+
+- `ciw` Del Word
+- `caw` Del Word including the Following Spaces 凵
+- `dw` Del until Head of Next Word
+- `de` Del to End of Cur Word
+- `ci*` Select & Manipulate the string surrounded by `*`.
+- `ca*` Select & Manipulate the string surrounded by `*` including `*`.
+
+## Column Mode
+
+Example
+
+1. In normal mode `^ v` then select a block area
+2. `⇧ I` then type some string to insert
+3. `⎋`, `⎋` ( Twice ) to apply the insertion at each line heading of the selected block area
+
+## Repeat Command
+
+- `.` Repeat Command
+- `;` Repeat Movement : f / F / t / T
+
+## Edit Content
+
+### Copy & Join
+
+- `⇧ Y` Copy from the cursor to the end of line
+- `⇧ K` Join curren line and next line without breaking
+
+### Delete
+
+- `x` Del Char Forward ⌦
+- _`⇧ X` Del Char Backward ⌫_
+- `s` Del Char Forward & then Insert
+- `⇧ S` Del Current Line & then Insert
+- `⇧ C` Del to End of Line & then Insert
+- `⇧ D` Del to End of Line
+
+### Exchange
+
+- `xp` Exchange the Current Char and the Next Char
+- `ddp` Exchange the Current Line and the Next Line
+
+### Lower or Upper Case
+
+- `⇧ ~` Toggle Case & Mv Cursor to Next char
+- `u` to Lowercase
+- `⇧ U` to Uppercase
+
+### Increase or Decrease Num
+
+In Normal Mode
+
+- `^ a` Increase Num
+- `^ x` Decrease Num
+
+## Macro
+
+- `q a~z|A~Z` Start Recording Macro marked as `a~z|A~Z`
+- `q` Stop Recording
+- `@ a~z|A~Z` Play Macro marked as `a~z|A~Z`
+- `@@` Repeat Macro that you last used
+
+## Save & Quit
+
+- `^ s` = `:w` Save ( valid in both Insert & Normal Mode )
+- `⇧ ZZ` Save & Quit
+- `⇧ ZQ` Quit without Saving
+
+## CTags
+
+Powered by plugin
+
+- `^ ]` Find Declaration
+- `^ t` Back from Declaration
+
+## Emacs-like
+
+Mimic Emacs in Insert Mode
+
+- `^ b` = `←`
+- `^ f` = `→`
+- `^ p` = `↑`
+- `^ n` = `↓`
+- `^ a` = `Home`
+- `^ e` = `End`
+- `^ k` Del to End of Line
+- `^ u` Del to Head of Line
+- `^ t` Exchange Chars ( Before & After Cursor )
+
+## Window
+
+- `^w`, `n` = `:new<CR>` New Horizontal Split ( editing new empty buffer )
+- `^w`, `s` = `:split<CR>` Split Window Horizontally ( editing current buffer )
+- `^w`, `v` = `:vsplit<CR>` Split Window Vertically ( editing current buffer )
+- `^w`, `c` = `:close<CR>` Close Window
+- `^w`, `o` = `:only<CR>` Close All Windows But only the Current
+- `^w`, `w` Go to Next window
+- `^w`, `p` Go to Prev window
+- `^w`, `↑` Go to window Above
+- `^w`, `↓` Go to window Below
+- `^w`, `←` Go to window on Left
+- `^w`, `→` Go to window on Right
+
+## Tab
+
+- `:tabedit [path/to/file]<CR>` Open Existing File in New Tab
+- `,`, `t` = `:tabedit<space>`
+- `:edit [path/to/file]<CR>` Open Existing File in Current Tab
+- `,`, `e` = `:edit<space>`
+- `:tabnew<CR>` Open New Empty Tab
+- `:tabc<CR>` Close Current Tab
+- `:tabo<CR>` Close all Other Tabs But only the Current
+- `L` = `gt` = `:tabn<CR>` Next Tab
+- `H` = `gT` = `:tabp<CR>` Prev Tab
+- `,`, `a` = `1gt` to Tab 1
+- `,`, `s` = `2gt` to Tab 2
+- … d f g h j k …
+- `,`, `l` = `9gt` to Tab 9
+- `,`, `;` = `10gt` to Tab 10
+- `,`, `1` = `11gt` to Tab 11
+- `,`, `2` = `12gt` to Tab 12
+- …
+- `,`, `9` = `19gt` to Tab 19
+- `,`, `0` = `20gt` to Tab 20
+- `,`, `W` = `:tabm<space>-1<CR>` Move Tab Left
+- `,`, `E` = `:tabm<space>+1<CR>` Move Tab Right
+
+## Search & Replace
+
+- `:%s/search_str/replace_str/gci`
+    - `:` switch to Command Mode
+    - `%` find __each occurence__ of `search_str`
+    - `s` replace operation
+    - `g` replace __globally__
+    - `c` ask for __confirmation__
+    - `i` __case insensitive__ , `I` case __sensitive__
+- `:'<,'>s/foo/bar/g`
+    - `'<,'>` replace __within a visual selection__ (when compiled with +visual)
+- `:5,12$/foo/bar/g`
+    - `5` , `12` start from line 5 to the line 12
+- `:.,$/foo/bar/g`
+    - `.` , `$` start from the __current line__ to the __last line__
+- `:.,+2s/foo/bar/g`
+    - `.` , `+2` start from the current line to the __next two lines__
+- `:'a,'bs/foo/bar/g`
+    - `'a` , `'b` start from the __mark a__ to the __mark b__
+- `:g/^baz/s/foo/bar/g`
+    - Change each 'foo' to 'bar' in __each line starting with 'baz'__
+- Reference : [__Search and replace__](http://vim.wikia.com/wiki/Search_and_replace) & [__Vim 字符串替换及小技巧__](http://xstarcd.github.io/wiki/vim/vim_replace_encodeing.html)
+
+## Others
+
+Check Encoding Value
+
+- `ga` Show ASCII of Char
+- `g8` Goto UTF-8 of Char
+
+Open Path
+
+- `gf` Open Path where cursor is
+
+Toggle
+
+- `,`, `h` = `:set noh<CR>` Deactivate Highlighted
+- `,`, `n` = `:set nu!<CR>` Toggle Absolute Line Number
+- `,`, `r` = `:set rnu!<CR>` Toggle Relative Line Number
