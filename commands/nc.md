@@ -14,6 +14,67 @@ Recommended
 - `-l` **Listen** for an incoming connection rather than initiate a connection to a remote host.
 - `-n` **No DNS lookups** : Do not do any DNS or service lookups on any specified addresses, hostnames or ports.
 
+## Scan Ports
+
+Single Port
+
+```bash
+nc -v [host_name] [port]
+```
+
+```bash
+# e.g.
+$ nc -v baidu.com 80
+
+# ouput
+found 0 associations
+found 1 connections:
+     1: flags=82<CONNECTED,PREFERRED>
+        outif en9
+        src 10.235.64.55 port 55043
+        dst 220.181.57.216 port 80
+        rank info not available
+        TCP aux info available
+
+Connection to baidu.com port 80 [tcp/http] succeeded!
+```
+
+Multiple Ports ( Range )
+
+```bash
+nc -v -z -n [host_name] [min_port]-[max_port]
+```
+
+```bash
+# e.g.
+nc -v -z -n 10.4.5.6 87-88
+
+# output
+nc: connectx to 10.4.5.6 port 87 (tcp) failed: Connection refused
+found 0 associations
+found 1 connections:
+     1: flags=82<CONNECTED,PREFERRED>
+        outif en9
+        src 10.235.64.55 port 55089
+        dst 10.4.5.6 port 88
+        rank info not available
+        TCP aux info available
+
+Connection to 10.4.5.6 port 88 [tcp/kerberos] succeeded!
+```
+
+### Chat with Terminal
+
+Example
+
+```bash
+# One machine ( IP : 10.1.2.3 )
+nc -l 8888
+
+# Another
+nc 10.1.2.3 8888
+```
+
 ## Transfer File
 
 > Transfer file from `local` machine to `remote`
@@ -21,9 +82,9 @@ Recommended
 Assume
 
 - Both of them are in the intranet.
-- Host IPs
-    - Local : 10.1.2.3
-    - Remote : 10.4.5.6
+- Hosts : ( IP or domain name )
+    - Local IP : 10.1.2.3
+    - Remote IP : 10.4.5.6
 
 ### Remote as Server
 
@@ -33,15 +94,15 @@ Assume
 # Remote server listens to local machine
 nc -l [port] > [file_path]
 
-# nc -l 8888 > tmp_someday.log
+# `nc -l 8888 > tmp_someday.log`
 ```
 
 **Local** : Client to Connect
 
 ```bash
-nc -n [remote_ip] [port] < [file_path]
+nc -n [remote_host] [port] < [file_path]
 
-# nc -n 10.4.5.6 8888 < tmp_20180819.log
+# `nc -n 10.4.5.6 8888 < tmp_20180819.log`
 ```
 
 ### Local as Server
@@ -51,26 +112,26 @@ nc -n [remote_ip] [port] < [file_path]
 ```bash
 nc -l [port] < [file_path]
 
-# nc -l 8888 < tmp_20180819.log
+# `nc -l 8888 < tmp_20180819.log`
 ```
 
 **Remote** : Client to Connect
 
 ```bash
-nc -n [local_ip] [port] > [file_path]
+nc -n [local_host] [port] > [file_path]
 
-# nc -n 10.1.2.3 8888 > tmp_someday.log
+# `nc -n 10.1.2.3 8888 > tmp_someday.log`
 ```
 
 ### Trouble-shooting
 
-Notice : Sometimes you have to transfer via **IPv4** using option `-4`
+Notice : Sometimes you have to transfer via **IPv4** using option **`-4`**
 
 ```bash
 # Remote
 nc -4l [port] > [file_path]
 # Local
-nc -4n [remote_ip] [port] < [file_path]`
+nc -4n [remote_host] [port] < [file_path]`
 ```
 
 Optional : Check **MD5** digest for security
@@ -89,15 +150,41 @@ Assume
 
 - Same as 'Transfer File' above
 
-Local : Server to Listen
-
-```bash
-tar -czvf - [directory_path] | nc -l [port]
-
-```
-
 ### Local as Server
 
-## Scan
+**Local** : Server to Listen
 
-TODO
+```bash
+tar czvf - [directory_path] | nc -l [port]
+
+# `tar czvf - logs | nc -l 8888`
+```
+
+**Remote** : Client to Connect
+
+- The last `-` means using the original directory name
+
+```bash
+nc -n [local_host] [port] | tar xzvf -
+
+# `nc -n 10.1.2.3 8888 | tar xzvf -`
+```
+
+### Better Zip
+
+- Packed by `tar` & Compressed by **`bzip2`**
+    - `*.tar.gz` is larger than `*.tbz2`
+
+Local
+
+```bash
+tar cvf - [directory_path] | bzip2 -z | nc -l [port]
+
+# `tar cvf - logs | bzip2 -z | nc -l 8888`
+```
+
+Remote
+
+```bash
+nc -n [remote_host] [port] | bzip2 -d | tar cvf -
+```
