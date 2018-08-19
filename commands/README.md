@@ -12,10 +12,16 @@ man [command]
 
 ## Tmp
 
-crontab
+`crontab`
 
 ```bash
 alias crontab="VIM_CRONTAB=true crontab"
+```
+
+`tree` ( mock ) : list directory content
+
+```bash
+find [directory_path] | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
 ```
 
 `npm` install globally
@@ -25,8 +31,19 @@ alias crontab="VIM_CRONTAB=true crontab"
 npm i docsify-cli -g
 ```
 
-List directory content like `tree`
+`ps`
+
+> process status
 
 ```bash
-find [directory_path] | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
+ps -ef
+ps aux
+```
+
+`service`
+
+```bash
+service [serv_name] [start|stop|status|restart]
+
+# e.g.: service nginx restart
 ```
