@@ -20,6 +20,7 @@
 
 ## C
 
+- cal : call
 - chk : check
 - cli : command line interface
 - cls : class
@@ -27,7 +28,10 @@
 - cmp : compare
 - cmt : comment
 - conf : configuration
+- conv : convert
 - cp : copy
+- cr : carriage return
+- crlf : carriage return / line feed
 - ctrl : contrl
 - cur : current
 
@@ -49,13 +53,17 @@
 - e.g. : for example
 - edt : edit
 - elem : element
+- enc : encoding
 - env : environment
 - eof : end of file
 - eol : end of line
 - err : error
 - esc : escape
 - etc. : et cetera (aka. and so on) 等等
-- evt : event ?
+- evt : event
+- ex : exception
+- exe : executive
+- exec : execute
 - ext : extension
 - exp : experience
 - expr : expression
@@ -66,6 +74,7 @@
 
 ## H
 
+- h : help
 - hrs : hours
 
 ## I
@@ -75,12 +84,14 @@
 - imp : improve
 - impl : implement
 - info : information
+- init : initiate
 - ins : insert
 
 ## L
 
 - len : length
-- lf : left
+- lf : left | line feed
+- lib : library
 - loc : location
 - lol : laugh out loud
 - lyt : layout
@@ -88,6 +99,9 @@
 ## M
 
 - mc : memcached
+- mem : memory
+- millis : millisecond
+- mk : make
 - msg : message
 - mv : move
 
@@ -99,29 +113,39 @@
 
 - op : operation | option
 - opt : option
+- ori : original
+- orm : object relational mapping
 - oth : others
 
 ## P
 
-- p , ptr : pointer
+- preg : PECL regular expression
+- ptr : pointer
 - pw , pwd : passowrd
 - prev : previous
+- proc : process
 
 ## R
 
 - rec : record
-- regex : regular expression
 - ref : reference
+- regex : regular expression
+- rem : remove
 - req : request | requirement
+- resp : response
 - ret : return
 - rg : right
 - rm : remove
 - rn : rename
 - rst : result
-- rsp , resp : response
+- rsp : response
+- rtt : round-trip time
 
 ## S
 
+- s : silent
+- sec : second | secure , security
+- serv : server | service
 - shf : shift
 - sim : simple | simplify
 - src : source
@@ -139,6 +163,7 @@
 
 ## V
 
+- v : verbose
 - val : value
 - var : variable
 
