@@ -64,6 +64,10 @@
 
 - fn , func : function
 
+## H
+
+- hrs : hours
+
 ## I
 
 - idx : index
@@ -127,6 +131,7 @@
 ## T
 
 - tmp , temp : temporary
+- ts : timestamp
 
 ## U
 
@@ -141,3 +146,8 @@
 
 - w : word
 - win : window
+- wtf : what the fuck
+
+## Y
+
+- yrs : years | yours
