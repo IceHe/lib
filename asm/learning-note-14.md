@@ -13,7 +13,7 @@
 
 都是地址标号，仅表示内存单元的地址。
 
-```
+```nasm
 assume cs:code
 
 code segment
