@@ -1,8 +1,10 @@
 # Commands
 
-## Ref
+## References
 
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) / [中文版](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
+
+`man`
 
 ```bash
 man [command]
@@ -10,7 +12,7 @@ man [command]
 # e.g.: `man bash`
 ```
 
-## Tmp
+## Temporary
 
 `crontab`
 
@@ -45,5 +47,13 @@ ps aux
 ```bash
 service [serv_name] [start|stop|status|restart]
 
-# e.g.: service nginx restart
+# e.g.: `service nginx restart`
+```
+
+`systemctl`
+
+```bash
+systemctl [start|stop|reload|restart] [serv_name]
+
+# e.g.: `systemctl restart nginx`
 ```
