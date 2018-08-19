@@ -181,7 +181,7 @@
 
 ### 二月
 
-- 124\. &nbsp; 2011-02-12 &nbsp; [__弘毅。\[长篇\] &lt;玖二&gt;__](http://user.qzone.qq.com/290841032/blog/1297493974)
+- 124\. &nbsp; 2011-02-12 &nbsp; [__弘毅。&lt;玖二&gt;__](http://user.qzone.qq.com/290841032/blog/1297493974)
 - 123\. &nbsp; 2011-02-03 &nbsp; [__你好, 兔年！&lt;玖一&gt;__](http://user.qzone.qq.com/290841032/blog/1296706007)
 
 ### 一月
