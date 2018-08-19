@@ -1,5 +1,7 @@
 # tmux
 
+> terminal multiplexer
+
 ## References
 
 Official
