@@ -367,7 +367,7 @@ Spotlight
 cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 
 - 但需要编辑类似 .vimrc 的配置文件来进行配置，不够用户友好
-- 我的配置：[.cvimrc](https://github.com/IceHe/macos-home-conf/blob/master/.cvimrc)
+- 我的配置：[.cvimrc](https://github.com/IceHe/mac-conf/blob/master/.cvimrc)
 
 ### 其它插件
 
@@ -413,7 +413,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
         - 例如，我让 gs = git status，gp = git push 等（见 [Git Aliases](cmd/git-note.md#Zsh-Aliases) ）。
     - alias 命令，列出所有的 aliases。
 - Zsh 还有许多好东西，在此暂略，可以根据自己的需求，自行查阅学习。
-    - 可以简单参阅我的 [.zshrc](https://github.com/IceHe/macos-home-conf/blob/master/.zshrc) 配置。注意以上特性并不都是 Zsh 特有的，详看 [各种 Shell 的对比](https://en.wikipedia.org/wiki/Comparison_of_command_shells)。
+    - 可以简单参阅我的 [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc) 配置。注意以上特性并不都是 Zsh 特有的，详看 [各种 Shell 的对比](https://en.wikipedia.org/wiki/Comparison_of_command_shells)。
 
 ### Vim
 
@@ -423,7 +423,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 - 其次，拓展广。很多 IDE 和编辑器都有 Vim 插件，不用记太多各个 Apps 专有的快捷键，学会 Vim 就可以在其中进行绝大多数常用的文本编辑操作，减轻记忆负担，提升效率。
     - 例如，Sublime Text 系列就自带 Vintage Mode 专门支持 Vim 键位的操作。
 - 各种 Shell（命令行）除了自带 Emacs 式的快捷键，其实也有 Vim 式的快捷键，可以尝试一下，看看自己习不习惯。
-- 我的配置 [**.vimrc**](https://github.com/IceHe/macos-home-conf/blob/master/.vimrc)
+- 我的配置 [**.vimrc**](https://github.com/IceHe/mac-conf/blob/master/.vimrc)
 
 ### tmux
 
@@ -431,7 +431,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 
 - 允许一个用户在一个终端窗口或一个远程终端会话中，使用多个终端会话。
 - tmux 是由 [screen](https://www.gnu.org/software/screen/manual/screen.html) 发展而来的，其中许多命令都是共有的。screen 虽不如后来者 tmux 易用、强大、美观，但是更通用 —— 大多数服务器都有 screen 命令。
-- 我的配置 [**.tmux.conf**](https://github.com/IceHe/macos-home-conf/blob/master/.tmux.conf)
+- 我的配置 [**.tmux.conf**](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf)
 
 ### iTerm2
 
@@ -456,7 +456,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
     - 改成这样的话，双手就基本不用远离键盘中心区了（参考盲打键盘的标准姿势），
     - 而且用强健的右大拇指去代替比较弱小的左小拇指去按 ⎋，减轻长时间敲击键盘的手指不适。
     - 最重要的是从 2016 款开始 MacBook Pro 由于 Touch Bar 不再带实体的 ⎋，Vim 使用者难以适应缺乏反馈的虚拟按键。
-- 我的配置 [**karabiner.json**](https://github.com/IceHe/macos-home-conf/blob/master/.config/karabiner/karabiner.json)
+- 我的配置 [**karabiner.json**](https://github.com/IceHe/mac-conf/blob/master/.config/karabiner/karabiner.json)
 
 ### AppleScript
 
