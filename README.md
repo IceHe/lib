@@ -49,6 +49,8 @@ Common ( Basic )
 
 Advanced
 
+- [bzip2](commands/bzip2.md) : block-sorting file compressor
+- [curl](commands/curl.md) : transfer data from or to a server
 - [expect](commands/expect/README.md) : interact with programs
 - [nc](commands/nc.md) : TCP / UDP connect & listen
 - [rsync](commands/rsync/README.md) : transfer files
@@ -112,9 +114,10 @@ Others
 - [文字阅读收藏](marks/read.md)
 - [最喜爱的](marks/favourites.md) : 影视 / ACGMN
 - [CV 简历](marks/cv.md) ：技能 / 经历 / 教育
-    - 微博视频平台 / 服务端 / Java
-    - 微博移动应用服务 / 服务端 / PHP
-    - 华南理工 / 软件工程 / 本科
+
+<!--     - 微博视频平台 / 服务端 / Java -->
+<!--     - 微博移动应用服务 / 服务端 / PHP -->
+<!--     - 华南理工 / 软件工程 / 本科 -->
 
 ### Past
 
