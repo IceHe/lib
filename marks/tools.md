@@ -152,7 +152,7 @@ App 选择原则
 - 其它：《[一年成为Emacs高手（像神一样使用编辑器）](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)》
 - 我的配置 [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc)
 
-[~~spf13-vim~~](http://vim.spf13.com/)
+[SpaceVim](https://spacevim.org/) / [~~spf13-vim~~](http://vim.spf13.com/)
 
 - 一整套 Vim 配置方案。
 - 比起漫无休止地折腾配置，不如遵从实用主义：站在巨人的肩膀上，直接使用久经考验的的配置方案。
