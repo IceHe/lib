@@ -211,8 +211,8 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 - `git branch <branch_name>` 新建分支
 - `git checkout -b <branch_name>` 新建分支，并切换到该分支
 - `git checkout <branch_name>` 切换分支
-- _`git merge <branch_name>` 将另一分支 <branch_name> 导入到当前分支_
-- _`git merge --squash <branch_name>` 把另一分支的所有提交合并成一个提交，并导入到当前分支_
+- `git merge <branch_name>` 将另一分支 <branch_name> 导入到当前分支
+- `git merge --squash <branch_name>` 把另一分支的所有提交合并成一个提交，并导入到当前分支
 - `git fetch -p` 删除远程不存在的分支
 - `git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d`
     删除所有已经合并到主干的本地分支 ( [Ref](http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged) )
