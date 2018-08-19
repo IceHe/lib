@@ -13,7 +13,7 @@
 - Run `service start simple_http_service` in terminal.
 - Visit `http://[host]:[port]/` in browser.
 
-Ref : [How do I create a service for a shell script so I can start and stop it like a daemon?]( https://unix.stackexchange.com/questions/236084/how-do-i-create-a-service-for-a-shell-script-so-i-can-start-and-stop-it-like-a-d)
+Reference : [How do I create a service for a shell script so I can start and stop it like a daemon?]( https://unix.stackexchange.com/questions/236084/how-do-i-create-a-service-for-a-shell-script-so-i-can-start-and-stop-it-like-a-d)
 
 ## HTTP Service
 
