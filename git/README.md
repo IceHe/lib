@@ -258,4 +258,4 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 
 [Docs Abstract](docs-abstract.md ':include')
 
-[Concepts](concepts.md ':include')
+[Concepts](concepts.include.md ':include')
