@@ -1,4 +1,4 @@
-## Concepts
+## Concepts n Theory
 
 Git 中的部分概念、指令的简要笔记。
 
