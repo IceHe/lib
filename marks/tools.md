@@ -150,7 +150,7 @@ App 选择原则
 - 在命令行之外，Sublime Text 原生支持 Vim 的基本操作，VS Code 插件支持 Vim 操作。
 - Vim vs. Emacs! &nbsp;[What are the main differences between Vim and Emacs?**](https://www.quora.com/Text-Editors-What-are-the-main-differences-between-Vim-and-Emacs)》
 - 其它：《[一年成为Emacs高手（像神一样使用编辑器）](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)》
-- 我的配置 [.vimrc](https://github.com/IceHe/macos-home-conf/blob/master/.vimrc)
+- 我的配置 [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc)
 
 [~~spf13-vim~~](http://vim.spf13.com/)
 
@@ -168,20 +168,20 @@ Shell
 - 配置 Zsh 比较复杂，可以使用 [oh-my-zsh](http://ohmyz.sh/) 等成熟的配置方案。
 - [Fish](https://fishshell.com/) ( a shell for the 90s 😂 ) 虽然很好，但存在兼容性问题，有些 Bash 的指令需要改写才能运行在 Fish 上。尝试使用之后，还是更喜欢 Zsh。
 - 参考：[Comparison of Command Shells - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
-- 我的配置 [.zshrc](https://github.com/IceHe/macos-home-conf/blob/master/.zshrc)
+- 我的配置 [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc)
 
 [oh-my-zsh](http://ohmyz.sh/) <sup>Efficient</sup>
 
 - 管理 Zsh 配置的开源框架，预打包了相关的主题、插件、配置。
 - 配置过程傻瓜化，一条安装指令就能让你畅快地享受 Zsh 的强大与高效！
-- 我的命令行提示符主题 [.sunrise_icehe](https://github.com/IceHe/macos-home-conf/blob/master/.config/zsh/sunrise_icehe.zsh-theme)
+- 我的命令行提示符主题 [.sunrise_icehe](https://github.com/IceHe/mac-conf/blob/master/.config/zsh/sunrise_icehe.zsh-theme)
 
 [tmux](https://tmux.github.io/) <sup>Powerful</sup>
 
 - 终端多路复用软件，即命令行中的 「桌面、分屏工具」。
 - 允许一个用户在一个终端窗口或一个远程终端会话中，使用多个终端会话。
 - [screen](https://www.gnu.org/software/screen/manual/screen.html) 命令的替代方案，使用方法基本相同。
-- 我的配置 [.tmux.conf](https://github.com/IceHe/macos-home-conf/blob/master/.tmux.conf)
+- 我的配置 [.tmux.conf](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf)
 
 ---
 
@@ -214,7 +214,7 @@ Shell
 - 现阶段 PHP 类型推导做得最好的 IDE，稳定、崩溃少，功能完善，设置选项齐全。（我觉得）比 ZendStudio、Eclipse 好用多了。
 - 技术支持服务靠谱，客服答复迅速、解决方案有效
 - 配合 [IdeaVim](https://plugins.jetbrains.com/plugin/164?pr=idea) 插件可用 Vim 的方式进行操作，可以少记许多执行相同功能的 IDE 快捷键。
-    - 我的配置 [.ideavimrc](https://github.com/IceHe/macos-home-conf/blob/master/.ideavimrc)
+    - 我的配置 [.ideavimrc](https://github.com/IceHe/mac-conf/blob/master/.ideavimrc)
 - [JetBrains](https://www.jetbrains.com/products.html) 出品的其它优秀 IDE：[PyCharm](https://www.jetbrains.com/pycharm/)、[WebStorm](https://www.jetbrains.com/webstorm/)、[CLion](https://www.jetbrains.com/clion/)、[GoLand](https://www.jetbrains.com/go/) …
 
 [VS Code](https://code.visualstudio.com/) <sup>开箱即用</sup>
@@ -227,8 +227,8 @@ Shell
 [Sublime Text](http://www.sublimetext.com/) <sup>Fastest</sup>
 
 - 代码编辑器。Vintage 模式，可用 Vim 键位进行操作。冷启动也快如闪电！
-- 我自定义的 [keymap](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/)
-- 我安装的 [plugins](https://github.com/IceHe/macos-home-conf/blob/master/.config/sublime/Package%20Control.sublime-settings)
+- 我自定义的 [keymap](https://github.com/IceHe/mac-conf/blob/master/.config/sublime/)
+- 我安装的 [plugins](https://github.com/IceHe/mac-conf/blob/master/.config/sublime/Package%20Control.sublime-settings)
     - **Clickable URLs**：`⌘ ⌥ ↩` 打开光标当前位置的 URL。
     - **Compare Side-By-Side**：文本差异对比。
     - **CTags**：编程语言对象定位器。
@@ -330,7 +330,7 @@ Shell
 
 - 强大、稳定的键位修改功能，预定义了大量奇巧的修改方案。键盘党神器！
 - 可自定义快捷键去启动、切换 App，打开文件和网址，快速输入关键词跳转到网站的搜索页，甚至运行 Shell 命令行。发挥想象力，配合上述的 Keyboard Maestro，还能做到更多的事。除了「键位修改」，其它繁杂的功能最好交给 Keyboard Maestro 或者 Shell 脚本来完成，用起来省心。
-- 我的配置 [karabiner.json](https://github.com/IceHe/macos-home-conf/blob/master/.config/karabiner/karabiner.json)
+- 我的配置 [karabiner.json](https://github.com/IceHe/mac-conf/blob/master/.config/karabiner/karabiner.json)
 
 Karabiner Event-Viewer
 
@@ -725,7 +725,7 @@ Castro 2
 
 - 用 Vim 的键位去浏览、导航网页，减少使用鼠标的使用，键盘党神器！（~~[Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)~~ <sup>备选</sup>）
 - 功能强大丰富，通过修改类似 `.vimrc` 的配置文件来设置功能（比较麻烦）。
-- 我的配置 [.cvimrc](https://github.com/IceHe/macos-home-conf/blob/master/.cvimrc)
+- 我的配置 [.cvimrc](https://github.com/IceHe/mac-conf/blob/master/.cvimrc)
 
 [Chrono Download Manager](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn)
 
