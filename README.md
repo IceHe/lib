@@ -45,6 +45,7 @@ Common ( Basic )
 
 - [README](commands/README.md) : temporary note
 - [tar](commands/tar.md) : pack & compress
+- [wget](commands/wget.md) : network downloader
 
 Advanced
 
