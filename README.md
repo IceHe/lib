@@ -112,14 +112,16 @@ Others
 - [Jan Fan](http://janfan.cn/) : Good Student / Little NLP / Tencent / Studying @ Finland
 - [Johnson](http://mrzys.coding.me/) : Pythoner / Web / Sina Mobile
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
+- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
+- Me : Back-end / Sina Weibo / **Weak, Poor & Helpless**
 
-## ~~Archived~~
+## Archived
 
-~~Blog~~
+Blog
 
-- [~~个人技术博客 icehe.me~~](https://icehe.me)
-- [~~搭建个人博客~~](_archived/blog/build-blog.md)
-- [~~折腾个人博客~~](_archived/blog/blog-changelog.md)
+- [个人技术博客 icehe.me](https://icehe.me)
+- [搭建个人博客](_archived/blog/build-blog.md)
+- [折腾个人博客](_archived/blog/blog-changelog.md)
 
 ~~Time Management~~
 
