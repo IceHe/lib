@@ -4,17 +4,7 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 
 ## Tech
 
-### Mac
-
-- [利器 - 软件、物件的推荐](marks/tools.md)
-- [Mac 效率指南](mac/efficiency.md)
-- [Mac 快捷键](mac/shortcuts.md)
-
 ### Snips
-
-[Commands](commands/README.md) : 命令行工具
-
-- [expect](../commands/expect/README.md) / [rsync](../commands/rsync/README.md) / [tar](../commands/tar.md) / …
 
 Docker
 
@@ -29,11 +19,40 @@ Markdown
 Others
 
 - Coding - [Abbreviations](coding/abbrs.md)
-- Git - [Note](git/README.md) : 常用操作 / 概念 / 原理
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
 - Web - [How to docsify](_docsify/README.md)
+
+### Mac
+
+- [利器 - 软件、物件的推荐](marks/tools.md)
+- [Mac 效率指南](mac/efficiency.md)
+- [Mac 快捷键](mac/shortcuts.md)
+
+### Git
+
+[Summary](git/README.md) : 常用操作
+
+- [Docs Abstract](git/README.md#docs-abstract) : 文档摘要
+- [Concepts](git/README.md#concepts) : 概念 & 原理
+
+### CLI
+
+> Command Line Interface 命令行界面
+
+Common ( Basic )
+
+- [README](commands/README.md) : temporary note
+- [tar](commands/tar.md) : pack & compress
+
+Advanced
+
+- [expect](commands/expect/README.md) : interact with programs
+- [rsync](commands/rsync/README.md) : transfer files
+- [tmux](commands/tmux.md) : terminal multiplexer
+- [vim](commands/vim.md) : terminal editor
+- [zsh](commands/zsh.md) : one of shells
 
 ### C++
 
@@ -109,11 +128,11 @@ Others
 
 ### Friends
 
-- [Jan Fan](http://janfan.cn/) : Good Student / Little NLP / Tencent / Studying @ Finland
-- [Johnson](http://mrzys.coding.me/) : Pythoner / Web / Sina Mobile
+- [Jan Fan](http://janfan.cn/) : good student / little NLP / Tencent / studying @ Finland
+- [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Back-end / Sina Weibo / **Weak, Poor & Helpless**
+- Me : Back-end / Sina Weibo / **weak, poor & helpless**
 
 ## Archived
 
