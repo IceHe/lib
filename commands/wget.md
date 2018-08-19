@@ -7,8 +7,8 @@
 
 ## Options
 
-- `-O file` | `--output-document=file` The documents will be concatenated together and written to "file".
-- `--no-check-certificate` Don't check the server certificate against the available certificate authorities.
+- `-O file` | `--output-document=file` written to "file"
+- `--no-check-certificate` Don't check the server certificate
 
 ## Usage
 
