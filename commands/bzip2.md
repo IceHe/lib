@@ -5,7 +5,7 @@
 ## Options
 
 - `-d | --decompress` Force decompression.
-- `-z | --compress` The complement to `-d` : **forces compression**, regardless of the invocation name.
+- `-z | --compress` The complement to `-d` **forces compression**, regardless of the invocation name.
 
 ## Usage
 
