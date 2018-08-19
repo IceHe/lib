@@ -11,7 +11,7 @@
 ## A
 
 - abbr : abbreviation
-- aka : also known as
+- aka. : also known as 又叫做，亦称
 - app : application
 
 ## B
@@ -24,6 +24,7 @@
 - cli : command line interface
 - cls : class
 - cmd : command
+- cmp : compare
 - cmt : comment
 - conf : configuration
 - cp : copy
@@ -32,7 +33,7 @@
 
 ## D
 
-- d , dat : data
+- dat : data
 - db : database
 - dec : decimal
 - desc : description
@@ -40,8 +41,7 @@
 - dev : development | device
 - dir : directory
 - dn : down
-- doc : documentation
-- docs : documents ?
+- doc , docs : documentation
 - dw : double word
 
 ## E
@@ -54,8 +54,11 @@
 - eol : end of line
 - err : error
 - esc : escape
+- etc. : et cetera (aka. and so on) 等等
 - evt : event ?
 - ext : extension
+- exp : experience
+- expr : expression
 
 ## F
 
@@ -64,6 +67,9 @@
 ## I
 
 - idx : index
+- i.e. : id est（拉丁语）即（也就是）
+- imp : improve
+- impl : implement
 - info : information
 - ins : insert
 
@@ -71,11 +77,13 @@
 
 - len : length
 - lf : left
+- loc : location
 - lol : laugh out loud
 - lyt : layout
 
 ## M
 
+- mc : memcached
 - msg : message
 - mv : move
 
@@ -98,22 +106,31 @@
 ## R
 
 - rec : record
+- regex : regular expression
 - ref : reference
 - req : request | requirement
 - ret : return
 - rg : right
 - rm : remove
+- rn : rename
+- rst : result
+- rsp , resp : response
 
-# S
+## S
 
 - shf : shift
+- sim : simple | simplify
 - src : source
 - sym : symbol
 - sys : system
 
-# T
+## T
 
 - tmp , temp : temporary
+
+## U
+
+- upd : update
 
 ## V
 
@@ -124,9 +141,3 @@
 
 - w : word
 - win : window
-
-## Others
-
-- 其它：
-    - 星期几 的缩写
-    - 月份 的缩写
