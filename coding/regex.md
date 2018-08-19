@@ -20,6 +20,19 @@ Add whitespaces between Chinese & English words
 $1 $2 $3
 ```
 
+Add a whitespace after comma `,`
+
+```bash
+,([^ \n]+)
+, $1
+```
+
+Find Function
+
+```bash
+functionName\(([^,^;]*,\s?){6}([^;^,]*?)\)
+```
+
 Replace HTML Tag with Markdown
 
 - Bold
