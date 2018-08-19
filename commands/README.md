@@ -19,7 +19,7 @@ Mine
 ```bash
 man [command]
 
-# e.g.: `man bash`
+# `man bash`
 ```
 
 
@@ -58,7 +58,7 @@ ps aux
 ```bash
 service [serv_name] [start|stop|status|restart]
 
-# e.g.: `service nginx restart`
+# `service nginx restart`
 ```
 
 `systemctl`
@@ -66,5 +66,5 @@ service [serv_name] [start|stop|status|restart]
 ```bash
 systemctl [start|stop|reload|restart] [serv_name]
 
-# e.g.: `systemctl restart nginx`
+# `systemctl restart nginx`
 ```

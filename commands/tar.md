@@ -18,7 +18,7 @@ Pack
 ```bash
 tar cvf [pacakge_name].tar [directory_or_filenames]
 
-# e.g.: `tar cvf directory.tar directory`
+# `tar cvf directory.tar directory`
 ```
 
 Unpack
@@ -26,7 +26,7 @@ Unpack
 ```bash
 tar xvf [package_name]
 
-# e.g.: `tar xvf directory.tar
+# `tar xvf directory.tar
 ```
 
 ## Gzip
@@ -36,7 +36,7 @@ Pack & Gzip ( Compress )
 ```bash
 tar czvf [archive_name].tar.gz [directory_or_filenames]
 
-# e.g.: `tar czvf archive.tar.gz *.html`
+# `tar czvf archive.tar.gz *.html`
 ```
 
 Un-gzip & Unpack
@@ -44,7 +44,7 @@ Un-gzip & Unpack
 ```bash
 tar xzvf [archive_name].tar.gz
 
-# e.g.: `tar xzvf archive.tar.gz`
+# `tar xzvf archive.tar.gz`
 ```
 
 ## Bzip2
