@@ -11,7 +11,7 @@ Recommended
 
 - [Regex 101](https://regex101.com/)
 
-### Usage
+## Usage
 
 Add whitespaces between Chinese & English words
 
