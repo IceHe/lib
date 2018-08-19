@@ -49,6 +49,7 @@ Common ( Basic )
 Advanced
 
 - [expect](commands/expect/README.md) : interact with programs
+- [nc](commands/nc.md) : TCP / UDP connect & listen
 - [rsync](commands/rsync/README.md) : transfer files
 - [tmux](commands/tmux.md) : terminal multiplexer
 - [vim](commands/vim.md) : terminal editor
