@@ -8,8 +8,8 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 
 Docker
 
-- [Intro](docker/README.md) : Build & Push Images
-- [Alpine Linux](docker/alpine/README.md) : Minimal OS Image
+- [Intro](docker/README.md) : build & push images
+- [Alpine Linux](docker/alpine/README.md) : minimal OS image
 
 Markdown
 
@@ -26,9 +26,9 @@ Others
 
 ### Mac
 
-- [利器 - 软件、物件的推荐](marks/tools.md)
-- [Mac 效率指南](mac/efficiency.md)
-- [Mac 快捷键](mac/shortcuts.md)
+- [Tools](marks/tools.md) : 利器 - 软件、物件的推荐
+- [Mac Efficiency](mac/efficiency.md) : 效率指南
+- [Mac Shortcuts](mac/shortcuts.md) : 快捷键
 
 ### Git
 
