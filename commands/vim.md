@@ -9,13 +9,16 @@ Offical Website
 - [Home](http://www.vim.org/)
 - [Docs](http://www.vim.org/docs.php)
 
-Others
+Recommended
 
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Image
+- [SpaceVim](https://spacevim.org/) - Modern Vim Distribution
 
 Mine
 
-- My config file [__.vimrc__](https://github.com/IceHe/macos-home-conf/blob/master/.vimrc)
+- [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc) ; for **Vim & NeoVim** in terminal
+- [.cvimrc](https://github.com/IceHe/mac-conf/blob/master/.cvimrc) : for Chrome **'cVim'** Plugin
+- [.ideavimrc](https://github.com/IceHe/mac-conf/blob/master/.ideavimrc) : for JetBrains **'IdeaVim'** Plugin
 
 ## Move Cursor
 
@@ -33,6 +36,27 @@ Mine
 - _`-` Head of Prev Line_
 - _`⇧ +` Head of Next Line_
 
+### Emacs-like
+
+Mimic Emacs in Insert Mode
+
+- `^ b` = `←`
+- `^ f` = `→`
+- `^ p` = `↑`
+- `^ n` = `↓`
+- `^ a` = `Home`
+- `^ e` = `End`
+- `^ k` Del to End of Line
+- `^ u` Del to Head of Line
+- `^ t` Exchange Chars ( Before & After Cursor )
+
+### CTags
+
+Powered by plugin
+
+- `^ ]` Find Declaration
+- `^ t` Back from Declaration
+
 ### EasyMotion
 
 [EasyMotion](https://github.com/easymotion/vim-easymotion)
@@ -43,7 +67,9 @@ Mine
 - The screen will display some keycues.
 - If you input one of the keycues, then your cursor will get to the specified place.
 
-## Select Range
+## Edit Content
+
+### Range
 
 - `ciw` Del Word
 - `caw` Del Word including the Following Spaces 凵
@@ -51,26 +77,6 @@ Mine
 - `de` Del to End of Cur Word
 - `ci*` Select & Manipulate the string surrounded by `*`.
 - `ca*` Select & Manipulate the string surrounded by `*` including `*`.
-
-## Column Mode
-
-Example
-
-1. In normal mode `^ v` then select a block area
-2. `⇧ I` then type some string to insert
-3. `⎋`, `⎋` ( Twice ) to apply the insertion at each line heading of the selected block area
-
-## Repeat Command
-
-- `.` Repeat Command
-- `;` Repeat Movement : f / F / t / T
-
-## Edit Content
-
-### Copy & Join
-
-- `⇧ Y` Copy from the cursor to the end of line
-- `⇧ K` Join curren line and next line without breaking
 
 ### Delete
 
@@ -86,6 +92,11 @@ Example
 - `xp` Exchange the Current Char and the Next Char
 - `ddp` Exchange the Current Line and the Next Line
 
+### Copy & Join
+
+- `⇧ Y` Copy from the cursor to the end of line
+- `⇧ K` Join curren line and next line without breaking
+
 ### Lower or Upper Case
 
 - `⇧ ~` Toggle Case & Mv Cursor to Next char
@@ -99,41 +110,25 @@ In Normal Mode
 - `^ a` Increase Num
 - `^ x` Decrease Num
 
-## Macro
+### Column Mode
 
-- `q a~z|A~Z` Start Recording Macro marked as `a~z|A~Z`
-- `q` Stop Recording
-- `@ a~z|A~Z` Play Macro marked as `a~z|A~Z`
-- `@@` Repeat Macro that you last used
+Example
 
-## Save & Quit
+1. In normal mode `^ v` then select a block area
+2. `⇧ I` then type some string to insert
+3. `⎋`, `⎋` ( Twice ) to apply the insertion at each line heading of the selected block area
+
+## Files
+
+- `gf` Open Path where cursor is
+
+### Save & Quit
 
 - `^ s` = `:w` Save ( valid in both Insert & Normal Mode )
 - `⇧ ZZ` Save & Quit
 - `⇧ ZQ` Quit without Saving
 
-## CTags
-
-Powered by plugin
-
-- `^ ]` Find Declaration
-- `^ t` Back from Declaration
-
-## Emacs-like
-
-Mimic Emacs in Insert Mode
-
-- `^ b` = `←`
-- `^ f` = `→`
-- `^ p` = `↑`
-- `^ n` = `↓`
-- `^ a` = `Home`
-- `^ e` = `End`
-- `^ k` Del to End of Line
-- `^ u` Del to Head of Line
-- `^ t` Exchange Chars ( Before & After Cursor )
-
-## Window
+### Window
 
 - `^w`, `n` = `:new<CR>` New Horizontal Split ( editing new empty buffer )
 - `^w`, `s` = `:split<CR>` Split Window Horizontally ( editing current buffer )
@@ -147,7 +142,7 @@ Mimic Emacs in Insert Mode
 - `^w`, `←` Go to window on Left
 - `^w`, `→` Go to window on Right
 
-## Tab
+### Tab
 
 - `:tabedit [path/to/file]<CR>` Open Existing File in New Tab
 - `,`, `t` = `:tabedit<space>`
@@ -171,7 +166,21 @@ Mimic Emacs in Insert Mode
 - `,`, `W` = `:tabm<space>-1<CR>` Move Tab Left
 - `,`, `E` = `:tabm<space>+1<CR>` Move Tab Right
 
-## Search & Replace
+## Advenced
+
+### Repeat
+
+- `.` Repeat Command
+- `;` Repeat Movement : f / F / t / T
+
+### Macro
+
+- `q a~z|A~Z` Start Recording Macro marked as `a~z|A~Z`
+- `q` Stop Recording
+- `@ a~z|A~Z` Play Macro marked as `a~z|A~Z`
+- `@@` Repeat Macro that you last used
+
+### Search & Replace
 
 - `:%s/search_str/replace_str/gci`
     - `:` switch to Command Mode
@@ -194,18 +203,14 @@ Mimic Emacs in Insert Mode
     - Change each 'foo' to 'bar' in __each line starting with 'baz'__
 - Reference : [__Search and replace__](http://vim.wikia.com/wiki/Search_and_replace) & [__Vim 字符串替换及小技巧__](http://xstarcd.github.io/wiki/vim/vim_replace_encodeing.html)
 
-## Others
-
-Check Encoding Value
+### Encoding Value
 
 - `ga` Show ASCII of Char
 - `g8` Goto UTF-8 of Char
 
-Open Path
+### Toggle
 
-- `gf` Open Path where cursor is
-
-Toggle
+Custom
 
 - `,`, `h` = `:set noh<CR>` Deactivate Highlighted
 - `,`, `n` = `:set nu!<CR>` Toggle Absolute Line Number
