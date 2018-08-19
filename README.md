@@ -6,6 +6,11 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 
 ### Snips
 
+Coding
+
+- [Abbreviations](coding/abbrs.md)
+- [Regular Expressions](coding/regex.md)
+
 Docker
 
 - [Intro](docker/README.md) : build & push images
@@ -18,7 +23,6 @@ Markdown
 
 Others
 
-- Coding - [Abbreviations](coding/abbrs.md)
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [Simple Conf](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
@@ -41,22 +45,21 @@ Others
 
 > Command Line Interface 命令行界面
 
-Common ( Basic )
-
 - [README](commands/README.md) : temporary note
-- [tar](commands/tar.md) : pack & compress
-- [wget](commands/wget.md) : network downloader
-
-Advanced
-
 - [bzip2](commands/bzip2.md) : block-sorting file compressor
 - [curl](commands/curl.md) : transfer data from or to a server
-- [expect](commands/expect/README.md) : interact with programs
+- [expect](commands/expect.md) : interact with programs
 - [nc](commands/nc.md) : TCP / UDP connect & listen
 - [rsync](commands/rsync/README.md) : transfer files
+- [tar](commands/tar.md) : pack & compress
 - [tmux](commands/tmux.md) : terminal multiplexer
 - [vim](commands/vim.md) : terminal editor
+- [wget](commands/wget.md) : network downloader
 - [zsh](commands/zsh.md) : one of shells
+
+TODO
+
+- awk / crontab / sed / grep / xargs
 
 ### C++
 
