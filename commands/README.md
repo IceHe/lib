@@ -22,7 +22,6 @@ man [command]
 # `man bash`
 ```
 
-
 ## Temporary
 
 `crontab`
