@@ -1,5 +1,12 @@
 # Nginx
 
+> a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server.
+
+## References
+
+- Home : https://www.nginx.com/
+- Wiki : https://www.nginx.com/resources/wiki/
+
 ## Usage
 
 - Put config file in directory `/etc/nginx/conf.d/`
@@ -15,3 +22,16 @@
 File : simple.conf
 
 [simple.conf](./simple.conf ':include :type=code nginx')
+
+## Proxy Pass
+
+Modify nginx config
+
+- Find specified domain server config
+- Append location config
+    - Put `location /sub_path/` before `location /`
+    - Setup proxy `proxy_pass` to real website host
+
+File : proxy_pass.conf
+
+[proxy_pass.conf](./proxy_pass.conf ':include :type=code nginx')
