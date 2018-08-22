@@ -24,7 +24,7 @@ Markdown
 Others
 
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
-- Nginx - [Simple Conf](nginx/README.md)
+- Nginx - [HTTP Server](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
 - Web - [How to docsify](_docsify/README.md)
 
