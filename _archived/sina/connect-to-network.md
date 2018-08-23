@@ -34,7 +34,7 @@
 
 ## 下一步
 
-接入新浪内网后，请访问 [video.admin.intra.weibo.com/lib/#/freshman-guide/get-devices](freshman-guide/get-devices.md)
+接入新浪内网后，请访问 [video.admin.intra.weibo.com/lib/#/freshman-guide](http://video.admin.intra.weibo.com/lib/#/freshman-guide/README)
 
 ---
 
