@@ -97,6 +97,7 @@ head -1 client | jq -r .medialive_qa_datas
 ```
 
 - cannot work
+
 ``` shell
 sed -E "s/.* --([^-]*)--加入直播间成功.*/\1/g" client
 head client | egrep -o "--([^-]*)--加入直播间成功"
