@@ -31,8 +31,9 @@ Others
 ### Mac
 
 - [Tools](marks/tools.md) : 利器 - 软件 / 物件的推荐
-- [Mac Efficiency](mac/efficiency.md) : 效率指南
-- [Mac Shortcuts](mac/shortcuts.md) : 快捷键
+- [Efficiency](mac/efficiency.md) : 效率指南
+- [Shortcuts](mac/shortcuts.md) : 快捷键
+- [Initialize](mac/initialize.md) : 系统初始化
 
 ### Git
 
