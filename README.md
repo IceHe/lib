@@ -12,6 +12,8 @@ Coding
 - [Regular Expressions](coding/regex.md)
 - [Work Flow](coding/work-flow.md)
 
+<!-- - [WB Bootcamp Note](coding/wb-bootcamp_tmp.md) ( TEMP ) -->
+
 Docker
 
 - [Intro](docker/README.md) : build & push images
@@ -29,13 +31,17 @@ Others
 - PHP - [Functions & Scripts](php/README.md)
 - Web - [How to docsify](_docsify/README.md)
 
+<!--
+
 Java ( TODO )
 
 - [Glossary](java/glossary.md) : Basic Concepts
 - Basics ( Knowledge )
-- Frameworks & Technology : Open Source
+- [Frameworks & Technology](java/frameworks-n-tech.md) : Open Source
 - [Spring Boot](java/spring-boot.md) : Quick Start
-- Code Style
+- [Code Style](java/code-style_tmp.md) ( To-Rewrite )
+
+-->
 
 ### Mac
 
@@ -43,6 +49,8 @@ Java ( TODO )
 - [Efficiency](mac/efficiency.md) : 效率指南
 - [Shortcuts](mac/shortcuts.md) : 快捷键
 - [Initialize](mac/initialize.md) : 系统初始化
+
+<!-- [Re-install](mac/macos-reinstall_tmp.md) ( TEMP ) -->
 
 ### Git
 
@@ -65,6 +73,9 @@ Java ( TODO )
 - [vim](commands/vim.md) : terminal editor
 - [wget](commands/wget.md) : network downloader
 - [zsh](commands/zsh.md) : one of shells
+
+<!-- - [awk-sed-grep](commands/awk-sed-grep_tmp.md) -->
+<!-- - [useful](commands/useful_tmp.md) -->
 
 TODO
 
