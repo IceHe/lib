@@ -33,6 +33,8 @@ Java ( TODO )
 
 - Glossary : Basic Concepts
 - Basics ( Knowledge )
+- Frameworks & Technology : Open Source
+- Spring Boot
 - Code Style
 
 ### Mac
