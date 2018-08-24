@@ -29,6 +29,12 @@ Others
 - PHP - [Functions & Scripts](php/README.md)
 - Web - [How to docsify](_docsify/README.md)
 
+Java ( TODO )
+
+- Glossary : Basic Concepts
+- Basics ( Knowledge )
+- Code Style
+
 ### Mac
 
 - [Tools](marks/tools.md) : 利器 - 软件 / 物件的推荐
