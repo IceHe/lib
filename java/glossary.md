@@ -64,11 +64,13 @@ Hibernate
 > It's Hibernate ORM in short.
 > a high-performance Object/Relational persistence and query service, which is licensed under the open source LGPL and is free to download.
 > not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities.
+
 - <https://www.tutorialspoint.com/hibernate/index.htm>
 
 H2 Database Engine
 
 > a relational database management system written in Java.
+
 - <https://en.wikipedia.org/wiki/H2_(DBMS)>
 
 Getter & Setter
@@ -106,8 +108,11 @@ Maven
 
 > a software project management and comprehension tool.
 > Based on POM, it can manage a project's build, reporting & documentation from a central piece of information.
+
 - <https://maven.apache.org/>
+
 > a tool that is used for building and managing any Java-based project.
+
 - <https://maven.apache.org/what-is-maven.html>
 - others: ant, gradle, make
 
@@ -115,11 +120,13 @@ POM: Project Object Model
 
 > an XML file that contains information about the project and configuration details used by Maven to build the project.
 > an XML representation of a Maven project held in a file named `pom.xml`.
+
 - <https://maven.apache.org/guides/introduction/introduction-to-the-pom.html>
 
 Maven Wrapper
 
 > an easy way to ensure a user of your Maven build has everything necessary to run your Maven build.
+
 - <https://github.com/takari/maven-wrapper>
 - can be replaced by IDE (ItelliJ IDEA)
 
@@ -135,6 +142,7 @@ JBoss
 Slf4j
 
 > Causes lombok to generate a logger field.
+
 - <https://projectlombok.org/api/lombok/extern/slf4j/Slf4j.html>
 
 Lombok
@@ -142,12 +150,14 @@ Lombok
 > It's a Java library that automatically plugs into your editor and build tools, spicing up your java.
 > __Never write another getter or equals method again.__
 > (Early access to future Java features such as `val`, and much more.)
+
 - <https://projectlombok.org/>
 
 Groovy
 
 > Groovy 是 用于 Java 虚拟机的一种敏捷的动态语言，它是一种成熟的面向对象编程语言，既可以用于面向对象编程，又可以用作纯粹的脚本语言。使用该种语言不必编写过多的代码，同时又具有闭包和动态语言中的其他特性。
 > Groovy 是 JVM 的一个替代语言（替代是指可以用 Groovy 在 Java 平台上进行 Java 编程），使用方式基本与使用  Java 代码的方式相同，该语言特别适合与 Spring 的动态语言支持一起使用，设计时充分考虑了 Java 集成，这使 Groovy 与 Java 代码的互操作很容易。
+
 - <https://baike.baidu.com/item/Groovy/180590>
 
 Other Tips
@@ -213,13 +223,12 @@ Redis
 MySQL
 
 > binlog: Binary Log（感觉好像 Redis AOF 就是参考它来实现的，过往的最佳实践）
+
 - <https://dev.mysql.com/doc/refman/8.0/en/binary-log.html>
 - 整型数据 <https://dev.mysql.com/doc/refman/5.5/en/integer-types.html>
-
 - Java Composity Key 联合主键
     Differ JpaRepository & CrudRepository
     <https://stackoverflow.com/questions/14014086/what-is-difference-between-crudrepository-and-jparepository-interfaces-in-spring>
-
 - SQL Time Type? `timestamp` vs `datetime`
     <https://www.codeproject.com/Tips/1215635/MySQL-DATETIME-vs-TIMESTAMP>
     <https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql>
@@ -232,12 +241,12 @@ Protocol Buffer
 unsigned long/int not found in Java?
 
 > unsigned 应该在 Java 中不存在，Long 和 Integer 覆盖了相关的使用场景？
-> 注意 Long、Integer 等都有 Long.parseLong() 和 Long.parseUnsignedLong() 等方法，
->   然后直接给声明 long 类型的变量进行赋值。
+> 注意 Long、Integer 等都有 Long.parseLong() 和 Long.parseUnsignedLong() 等方法，然后直接给声明 long 类型的变量进行赋值。
 
 MCQ : MemcacheQ
 
 > Simple Queue Service over Memcache
+
 - <http://memcachedb.org/memcacheq/>
 - MemcacheDB <http://memcachedb.org/>
 - Memcached <http://memcached.org/>
@@ -301,8 +310,9 @@ kafka
 >   replica 中的一个角色，从 leader 中复制数据。
 > 10. controller：
 >   kafka 集群中的其中一个服务器，用来进行 leader election 以及 各种 failover。
-> 12. zookeeper：
-> kafka 通过 zookeeper 来存储集群的 meta 信息。
+> 11. zookeeper：
+>   kafka 通过 zookeeper 来存储集群的 meta 信息。
+
 - 很棒的笔记总结！<https://www.cnblogs.com/cyfonly/p/5954614.html>
 - 官方文档 <https://kafka.apache.org/documentation/#introduction>
 - benchmark <https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines>
@@ -315,9 +325,11 @@ SDWAN
 
 > Software-Defined WAN (SDWAN)
 > An SD-WAN simplifies the management and operation of a WAN by decoupling (separating) the networking hardware from its control mechanism. This concept is similar to how software-defined networking implements virtualization technology to improve data center management and operation.
+
 - <https://en.wikipedia.org/wiki/SD-WAN>
 
 PowerDNS
 
 > PowerDNS, founded in the late 1990s, is a premier supplier of open source DNS software, services and support.
+
 - <https://www.powerdns.com/>
