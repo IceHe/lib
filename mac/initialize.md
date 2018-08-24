@@ -1,13 +1,13 @@
 # Mac Initialize
 
-- 基于 macOS
-- 面向 Java 开发者
+- Based on macOS
+- For Java developers
 
 ## Install
 
-### 翻墙
+### Over the Wall
 
-若所需软件无法下载，或者速度太慢，可能需要「翻墙」，方法如下
+若所需软件无法下载，或者速度太慢，可能需要「番羽土啬」，方法如下
 
 1. 连接网络
 2. 打开「系统偏好设置」
@@ -16,7 +16,7 @@
 5. 「代理」
 6. 勾选「自动代理配置」
 7. 找到「URL:」文本框（在「代理配置文件」下面）
-8. 填写 `http://url/to/proxy.pac`（PAC 文件的网址）
+8. 填写 ~~`http://url/to/proxy.pac`~~（PAC 文件的网址 TODO）
 9. 点击「好」
 
 参考：[PAC](https://baike.baidu.com/item/PAC/16292100)（代理自动配置）- 百度百科
@@ -280,8 +280,7 @@ ssh-keygen -t rsa -C "[邮箱前缀]@gmail.com" -b 4096
 Overwrite (y/n)?
 ```
 
-- 建议输入 y ，重新生成
-    - 注意：本建议仅针对从公司领取的办公电脑，而非个人私有的设备
+- 建议输入「y」，重新生成
 
 - 将公钥复制到系统剪贴板
 
@@ -297,7 +296,7 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 Maven 配置
 
-- 打开 Maven 配置文件模板 [~~settings.xml~~](todo/settings.xml)，**复制** 其内容
+- 打开 Maven 配置文件模板 [~~settings.xml~~](todo/settings.xml)（TODO），**复制** 其内容
 - 打开本地的配置文件，**粘贴覆盖** 原来的内容
     - `open` 命令：使用默认的文本编辑器打开
     - 注意：若使用私人设备办公，设备已存在有效的 Maven 配置，请谨慎地人工合并 settings.xml 的内容
