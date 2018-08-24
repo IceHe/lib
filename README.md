@@ -31,10 +31,10 @@ Others
 
 Java ( TODO )
 
-- Glossary : Basic Concepts
+- [Glossary](java/glossary.md) : Basic Concepts
 - Basics ( Knowledge )
 - Frameworks & Technology : Open Source
-- Spring Boot
+- [Spring Boot](java/spring-boot.md) : Quick Start
 - Code Style
 
 ### Mac
