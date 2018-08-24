@@ -115,7 +115,7 @@ Others
 - `⌘ 1`, `⌘ 2` Manipulation
     Press "⌘ 1" then "⌘ 2" to do the manipulation.
 
-[macOS](shortcuts/macos.md ':include')
+[macOS](shortcuts/macos.include.md ':include')
 
 ## Crazy Remappings
 
@@ -129,16 +129,16 @@ Supported by
 - [__Keyboard Maestro__](#Keyboard-Maestro)
 - [__Karabiner-Elements__](#Karabiner-Elements)
 
-[Keyboard Maestro](shortcuts/keyboard-maestro.md ':include')
+[Keyboard Maestro](shortcuts/keyboard-maestro.include.md ':include')
 
-[Karabiner-Elements](shortcuts/karabiner-elements.md ':include')
+[Karabiner-Elements](shortcuts/karabiner-elements.include.md ':include')
 
-[App Switcher](shortcuts/app-switcher.md ':include')
+[App Switcher](shortcuts/app-switcher.include.md ':include')
 
-[System Assistant](shortcuts/system-assistant.md ':include')
+[System Assistant](shortcuts/system-assistant.include.md ':include')
 
-[Development](shortcuts/development.md ':include')
+[Development](shortcuts/development.include.md ':include')
 
-[Other Apps](shortcuts/other-apps.md ':include')
+[Other Apps](shortcuts/other-apps.include.md ':include')
 
 > 天下武功，唯快不破。
