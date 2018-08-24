@@ -10,6 +10,7 @@ Coding
 
 - [Abbreviations](coding/abbrs.md)
 - [Regular Expressions](coding/regex.md)
+- [Work Flow](coding/work-flow.md)
 
 Docker
 
@@ -37,10 +38,9 @@ Others
 
 ### Git
 
-[Summary](git/README.md) : 常用操作
-
-- [Docs Abstract](git/README.md#docs-abstract) : 文档摘要
-- [Concepts & Theory](git/README.md#concepts-n-theory) : 概念 & 原理
+- [Common Operations](git/README.md)
+- [Docs Abstract](git/README.md#docs-abstract)
+- [Concepts & Theory](git/README.md#concepts-n-theory)
 
 ### CLI
 
