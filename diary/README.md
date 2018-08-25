@@ -4,9 +4,11 @@
 
 Plans & Reviews
 
-- [Week 33](diary/2018-week-33.md)
-- [Week 32](diary/2018-week-32.md)
-- [Week 31](diary/2018-week-31.md)
+- <diary/w35-0825-0827.md>
+- none
+- <diary/w33-0813-0819.md>
+- <diary/w32-0813-0819.md>
+- <diary/w31-0730-0805.md>
 
 Deadline
 
