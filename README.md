@@ -136,7 +136,7 @@ Others
 - [Technology Bookmarks](marks/tech.md)
 - [Reading Bookmarks](marks/read.md)
 - [Favorites](marks/favourites.md) : ACGMN
-- [CV 简历](marks/cv.md) ：Skills / Exp / Edu
+- [About](marks/cv.md) ：Skills / Exp / Edu ( Curriculum Vitae )
 
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
@@ -144,7 +144,6 @@ Others
 
 ### Past
 
-- [日报周报](diary/)
 - [2017 Summer to Winter](past/2017-summer-2-winter.md)
 - [2017 Spring](past/2017-spring.md)
 - [2016 Winter](past/2016-winter.md)
@@ -160,7 +159,7 @@ Others
 - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Back-end / Sina Weibo / **weak, poor & helpless**
+- Me : Back-end / Sina Weibo / weak, poor & helpless
 
 ## Archived
 
@@ -172,6 +171,7 @@ Blog
 
 ~~Time Management~~
 
+- [Diary](diary/)
 - [~~Note~~](_archived/think/life-note.md)
 - [~~Self Manual~~](_archived/think/life-manual.md)
 - [~~Life Logs~~](_archived/lifelogs.md) : ~~时间管理日志~~
