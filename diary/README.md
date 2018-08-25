@@ -4,8 +4,8 @@
 
 Plans & Reviews
 
-- <diary/w35-0825-0827.md>
-- none
+- <diary/w35-w36-0825-0902.md>
+- w34 none
 - <diary/w33-0813-0819.md>
 - <diary/w32-0813-0819.md>
 - <diary/w31-0730-0805.md>
