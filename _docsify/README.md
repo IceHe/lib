@@ -155,10 +155,10 @@ At first, send website files to specified remote directory.
 
 Recommended method
 
-[nginx/docsify.conf](../_ci/nginx/docsify.conf ':include :type=code nginx')
+[nginx/docsify.conf](deploy/nginx/docsify.conf ':include :type=code nginx')
 
 #### Service
 
 Optional method
 
-[service/docsify](../_ci/service/docsify ':include :type=code bash')
+[service/docsify](deploy/service/docsify ':include :type=code bash')
