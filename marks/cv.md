@@ -1,13 +1,15 @@
 # IceHe CV
 
+Curriculum Vitae
+
 ## 简介
 
 我是
 
 - IceHe | Hzy（ 广州人在北京 ）
-- [GitHub](https://github.com/IceHe) - 工具配置、小作品 …
-- 博客：[icehe.me](https://icehe.me) - 思考、Mac、Git、C++、ASM …
-- 微博：[@\_IceHe\_](http://weibo.com/icedes) - 技术、折腾、日常 …
+- [GitHub](https://github.com/IceHe) - Tools & Configs
+- 博客：[icehe.xyz](https://icehe.xyz) - Tech
+- 微博：[@\_IceHe\_](http://weibo.com/icedes) - Life
 
 <!-- / [GitLab](https://gitlab.com/IceHe) <sup>bak</sup> -->
 
