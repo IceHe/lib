@@ -6,7 +6,7 @@ Curriculum Vitae
 
 我是
 
-- IceHe | Hzy（ 广州人在北京 ）
+- IceHe | Hzy - 广州人在北京
 - [GitHub](https://github.com/IceHe) - Tools & Configs
 - 博客：[icehe.xyz](https://icehe.xyz) - Tech
 - 微博：[@\_IceHe\_](http://weibo.com/icedes) - Life
@@ -20,32 +20,14 @@ Curriculum Vitae
 
 经历
 
-- 微博视频平台：Java 服务端研发 _2018.04 ~ Now_
-- 微博 Mobile API：PHP 服务端研发 _2014.12 ~ 2018.04_
-- 华南理工大学：C++ 软件工程 本科 _2011.09 ~ 2015.07_
+- 微博视频平台 - Java 服务端研发 _2018.04 ~ Now_
+- 微博 Mobile API - PHP 服务端研发 _2014.12 ~ 2018.04_
+- 华南理工大学 - C++ 软件工程 本科 _2011.09 ~ 2015.07_
 
-志趣
+工具控
 
-- 工具控：[我的利器](../marks/tools.md) - Apps & 物件
-- 爱折腾：[我的快捷键](../mac/shortcuts.md) - 默认 & 自定义
-- 阅读收藏：[技术](../marks/tech.md) & [生活](../marks/read.md) - 文章、问答、笔记 …
-- 生活爱好：[ACGMN](https://baike.baidu.com/item/ACGMN)、羽毛球、~~毽球~~ <sup>past</sup>
-
-无关 : P
-
-- [最喜爱的](../marks/favourites.md)：书、文、电影、ACGMN …
-- [回忆](../past/moments.md)：Good old days
-- [旧文](../past/old-blog.md)：为赋新词强说愁
-
-<!-- <hidden> -->
-<!-- - **我是** -->
-<!--     - 其它：[知乎](https://www.zhihu.com/people/icehe/activities) / [豆瓣](https://www.douban.com/people/IceHeGZ) -->
-<!-- <a href="http://weibo.com/icedes" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">@\_IceHe\_</a> -->
-<!-- - **特点** -->
-<!--     - 省察 ：[时间管理](_archived/lifelogs.md) - 时间使用情况记录 & 统计 -->
-<!-- - **: P** -->
-<!--     - 箴言 ：Less. 宁静致远。 -->
-<!-- </hidden> -->
+- [我的利器](../marks/tools.md) - Apps & 物件
+- [我的快捷键](../mac/shortcuts.md) - 默认 & 自定义
 
 ---
 
@@ -171,6 +153,12 @@ IDE
 ---
 
 ## ~~无关~~
+
+- 生活爱好：ACGMN / 羽毛球 / ~~毽球~~ ( past )
+- [最喜爱的](../marks/favourites.md)：书、文、影视 …
+- [回忆](../past/moments.md)：Good old days
+- [旧文](../past/old-blog.md)：为赋新词强说愁
+- 尝试（弯路）如下
 
 **华南理工毽球社 - 社长** _2012.09 ~ 2014.06_
 
