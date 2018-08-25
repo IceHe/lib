@@ -45,3 +45,5 @@ work
 - [ ] custom transcode
     - [ ] final design : Mon (1 day), 3rd version ()
     - [ ] develop : 0 ~ 20% ()
+
+> too Busy & Tired to do it …
