@@ -136,7 +136,8 @@ Others
 - [Technology Bookmarks](marks/tech.md)
 - [Reading Bookmarks](marks/read.md)
 - [Favorites](marks/favourites.md) : ACGMN
-- [About](marks/cv.md) ：Skills / Exp / Edu ( Curriculum Vitae )
+- [CV](marks/cv.md) ：Skills / Exp / Edu
+- [Diary](diary/)
 
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
@@ -171,7 +172,6 @@ Blog
 
 ~~Time Management~~
 
-- [Diary](diary/)
 - [~~Note~~](_archived/think/life-note.md)
 - [~~Self Manual~~](_archived/think/life-manual.md)
 - [~~Life Logs~~](_archived/lifelogs.md) : ~~时间管理日志~~
