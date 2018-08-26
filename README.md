@@ -11,6 +11,7 @@ Coding
 - [Abbreviations](coding/abbrs.md)
 - [Regular Expressions](coding/regex.md)
 - [Work Flow](coding/work-flow.md)
+- [GitHub DMCA](coding/github-dmca.md)
 
 <!-- - [WB Bootcamp Note](coding/wb-bootcamp_tmp.md) ( TEMP ) -->
 
