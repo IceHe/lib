@@ -55,8 +55,8 @@ Java ( TODO )
 ### Git
 
 - [Common Operations](git/README.md)
-- [Docs Abstract](git/README.md#docs-abstract)
-- [Concepts & Theory](git/README.md#concepts-n-theory)
+- [Docs Abstract](docs-abstract.md)
+- [Concepts & Theory](concepts-n-theory.md)
 
 ### CLI
 
