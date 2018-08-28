@@ -47,8 +47,11 @@ foreach ($resources[1] ?? [] as $resource) {
         shell_exec($cmd);
     }
 
+    // $replacePath = $localFilePath;
+    $replacePath = "https://cdn.icehe.xyz/{$localFilePath}";
+
     // Replace links to resources in `index.html`
-    $contectImproved = str_replace($resource, $localFilePath, $contectImproved);
+    $contectImproved = str_replace($resource, $replacePath, $contectImproved);
 
     echo "\n";
 }

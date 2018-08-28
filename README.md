@@ -11,6 +11,7 @@ Coding
 - [Abbreviations](coding/abbrs.md)
 - [Regular Expressions](coding/regex.md)
 - [Work Flow](coding/work-flow.md)
+- [GitHub DMCA](coding/github-dmca.md)
 
 <!-- - [WB Bootcamp Note](coding/wb-bootcamp_tmp.md) ( TEMP ) -->
 
@@ -137,7 +138,6 @@ Others
 - [Reading Bookmarks](marks/read.md)
 - [Favorites](marks/favourites.md) : ACGMN
 - [CV](marks/cv.md) ：Skills / Exp / Edu
-- [Diary](diary/)
 
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
@@ -166,8 +166,8 @@ Others
 
 Blog
 
-- [Personal Tech Blog](https://icehe.me) : icehe.me
-- [Hot to Build Blog](_archived/blog/build-blog.md) : 搭建博客
+- [Tech Blog](https://icehe.me) : icehe.me ( previous )
+- [How to Build Blog](_archived/blog/build-blog.md) : 搭建博客
 - [Blog Changlogs](_archived/blog/blog-changelog.md) : 折腾博客
 
 ~~Time Management~~
@@ -176,5 +176,6 @@ Blog
 - [~~Self Manual~~](_archived/think/life-manual.md)
 - [~~Life Logs~~](_archived/lifelogs.md) : ~~时间管理日志~~
 - [~~Time Mgt.~~](_archived/think/time-mgt.md) : ~~时间管理日志说明~~
+- [Diary](diary/)
 
 > 对酒当歌，人生几何？譬如朝露，去日苦多
