@@ -51,6 +51,8 @@ Java ( TODO )
 - [Shortcuts](mac/shortcuts.md) : 快捷键
 - [Initialize](mac/initialize.md) : 系统初始化
 
+Shortcuts
+
 <!-- [Re-install](mac/macos-reinstall_tmp.md) ( TEMP ) -->
 
 ### Git
