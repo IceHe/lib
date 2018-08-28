@@ -1,14 +1,14 @@
-## Concepts n Theory
+# Concepts n Theory
 
 Git 中的部分概念、指令的简要笔记。
 
-### Commit ID
+## Commit ID
 
 - Git 对象 id 是透过内容进行 SHA1 哈希后的结果，所以很长。
 - 在 Git 标示 “绝对名称” 时，可以用前面几个字符代替，最少不可低于 4 个字符。
 - 也就是说 4 ~ 40 个字符长度的 “绝对名称” 都是可以用的。
 
-### Refname
+## Refname
 
 “参照名称” 简单来说就是 Git 对象的一个 “指针”，用来指向特定 Git 对象，所以可以把 “参照名称” 想像成 Git 对象绝对名称的别名 （Alias），用来帮助记忆。
 
@@ -27,7 +27,7 @@ Git 参照名称又有区分“一般参照”与“符号参照”，两者的�
 
 “符号参照” 会指向另一个 “一般参照”，而 “一般参照” 则是指向一个 Git 物件的 “绝对名称”。
 
-#### Differ ^ and ~
+### Differ ^ and ~
 
 相对名称表示法 ^ 与 ~ 的差异
 
@@ -47,7 +47,7 @@ Git 参照名称又有区分“一般参照”与“符号参照”，两者的�
     - 由于 C 这个 commit 对象有三个上层对象，这代表这个 commit 对象是透过合并而被建立的，
     - 那么要透过“相对名称”找到每一个路径，就必须搭配组合 ^ 与 ~ 的使用技巧，才能定位到每个想开启的版本。
 
-### File Statuses
+## File Statuses
 
 “索引” 的目的主要用来纪录 “有哪些文件即将要被提交到下一个 commit 版本中”。
 
@@ -67,7 +67,7 @@ Git 参照名称又有区分“一般参照”与“符号参照”，两者的�
 - `modified` 已修改的，代表文件已经被修改过，或是文件内容与 HEAD 内容不一致的状态
 - `staged` 等待被 commit 的，代表下次执行 git commit 会将这些文件全部送入仓库
 
-### Objects
+## Objects
 
 ![Git Objects Relationship](https://img.icehe.xyz/git%2Fgit_objects_sample_00.jpg)
 
@@ -87,7 +87,7 @@ tag 对象
 
 - 是一个容器，通常用来关联特定一个 commit 对象（也可以关联到特定 blob、tree 对象），并额外储存一些额外的参考信息（metadata），例如: tag 名称。使用 tag 对象最常见的情况是替特定一个版本的 commit 对象标示一个易懂的名称，可能是代表某个特定发行的版本，或是拥有某个特殊意义的版本。）
 
-### Cmd Prompt
+## Cmd Prompt
 
 - 命令行提示符中，位于路径后面的 Git 相关提示：`[master +10 ~0 -0 !]`
     - *PS:  具体显示效果根据命令行配置而不同。*
@@ -98,7 +98,7 @@ tag 对象
     - `~0` 代表有 0 个 “修改” 的文件。
     - `-0` 代表有 0 个 “删除” 的文件。
 
-### Reset Mode
+## Reset Mode
 
 除了默认的 mixed 模式，还有 soft 和 hard 模式。欲了解受各模式影响的部分，请参照下面的表格。
 
@@ -112,7 +112,7 @@ tag 对象
 - 复原修改过的索引的状态（mixed）。
 - 彻底取消最近的提交（hard）。
 
-### credential.helper
+## credential.helper
 
 - Git 拥有一个凭证系统来处理密码储存的事，避免用户总是需要重复输入密码。
     - `git config credential.helper <options>`
@@ -123,7 +123,7 @@ tag 对象
     - `osxkeychain` 模式，需要你使用的是 Mac。它会将凭证缓存到你系统用户的钥匙串中。它将凭证存放在磁盘中，且永不过期，但会被加密，其加密方式与存放 HTTPS 凭证以及 Safari 的自动填写的方式是相同的。
     - 如果使用的是 Windows，可以安装一个叫做 “winstore” 的辅助工具。这和上面说的 “osxkeychain” 十分类似，但是是使用 Windows Credential Store 来控制敏感信息。可以在 https://gitcredentialstore.codeplex.com 下载。
 
-### Rebase Example
+## Rebase Example
 
 ![Git Merge Result](https://img.icehe.xyz/git%2Fgit_merge_result_00.png)
 
@@ -169,7 +169,7 @@ tag 对象
 - 总的原则是，只对尚未推送或分享给别人的本地修改执行变基操作清理历史，从不对已推送至别处的提交执行变基操作，这样，你才能享受到两种方式（变基VS合并）带来的便利。
 - 更多的变基例子参考 [Git 分支 - 变基](http://git-scm.com/book/en/v2/Git-Branching-Rebasing)。
 
-### Hook
+## Hook
 
 [Hook](http://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90)
 
