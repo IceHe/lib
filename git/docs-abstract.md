@@ -1,6 +1,6 @@
-## Docs Abstract
+# Docs Abstract
 
-### Abbreviations
+## Abbreviations
 
 - `abbr` abbreviation
 - `addr` address
@@ -25,7 +25,7 @@
 - `rm` remove
 - `var` variable
 
-### Setup & Config
+## Setup & Config
 
 [help](http://git-scm.com/docs/git-help)
 
@@ -43,7 +43,7 @@
 - `--global` ... to global `~/.gitconfig`
 - `--system` ... to system-wide `$(prefix)/etc/gitconfig`
 
-### Create & Get Proj
+## Create & Get Proj
 
 [init](http://git-scm.com/docs/git-init)
 
@@ -55,7 +55,7 @@
 - Clone a repo into a new dir.
 - `--branch <branch_name>` | `-b <branch_name>`
 
-### Snapshot
+## Snapshot
 
 <!--- `HEAD` The latest version of cur branch. (Need improving)-->
 
@@ -102,7 +102,7 @@
 
 - Move or rename a file, dir or a symlink.
 
-### Branch & Merge
+## Branch & Merge
 
 [branch](http://git-scm.com/docs/git-branch) `[<option>] <branch_name>`
 
@@ -163,7 +163,7 @@
 
 [mergetool](http://git-scm.com/docs/git-mergetool) ...
 
-### Share & Update
+## Share & Update
 
 [fetch](http://git-scm.com/docs/git-fetch) `[<options>] [<repo>]`
 
@@ -193,7 +193,7 @@
 
 - Initialize, update or inspect submodules.
 
-### Inspect & Compare
+## Inspect & Compare
 
 [show](http://git-scm.com/docs/git-show)
 
@@ -209,7 +209,7 @@
 
 [describe](http://git-scm.com/docs/git-describe) ...
 
-### Patch
+## Patch
 
 [revert](http://git-scm.com/docs/git-revert) `<commit>…`
 
@@ -240,7 +240,7 @@
 
 [apply](http://git-scm.com/docs/git-apply) ...
 
-### Debug
+## Debug
 
 [bisect](http://git-scm.com/docs/git-bisect) `<subcommand> <options>`
 
@@ -268,7 +268,7 @@
 - `--ignore-case` | `-i` Ignore case diff between the patterns and the files.
 - `--line-number` | `-n` Prefix the line num to matching lines.
 
-### Administration
+## Administration
 
 [reflog](http://git-scm.com/docs/git-reflog)
 
@@ -277,19 +277,19 @@
 
 [clean](http://git-scm.com/docs/git-clean), [gc](http://git-scm.com/docs/git-gc), [fsck](http://git-scm.com/docs/git-fsck), [filter-branch](http://git-scm.com/docs/git-filter-branch), [instaweb](http://git-scm.com/docs/git-instaweb), [archive](http://git-scm.com/docs/git-archive), [bundle](http://git-scm.com/docs/git-bundle) ...
 
-### Email
+## Email
 
 [am](http://git-scm.com/docs/git-am), [apply](http://git-scm.com/docs/git-apply), [format-patch](http://git-scm.com/docs/git-format-patch), [send-email](http://git-scm.com/docs/git-send-email), [request-pull](http://git-scm.com/docs/git-request-pull) ...
 
-### External Systems
+## External Systems
 
 [svn](http://git-scm.com/docs/git-svn), [fast-import](http://git-scm.com/docs/git-fast-import) ...
 
-### Server Admin
+## Server Admin
 
 [daemon](http://git-scm.com/docs/git-daemon), [update-server-info](http://git-scm.com/docs/git-update-server-info) ...
 
-### Plumbing Cmds
+## Plumbing Cmds
 
 [ls-files](http://git-scm.com/docs/git-ls-files)
 
@@ -304,7 +304,7 @@
 
 [cat-file](http://git-scm.com/docs/git-cat-file), [commit-tree](http://git-scm.com/docs/git-commit-tree), [count-objects](http://git-scm.com/docs/git-count-objects), [diff-index](http://git-scm.com/docs/git-diff-index), [for-each-ref](http://git-scm.com/docs/git-for-each-ref), [hash-object](http://git-scm.com/docs/git-hash-object), [merge-base](http://git-scm.com/docs/git-merge-base), [read-tree](http://git-scm.com/docs/git-read-tree), [rev-list](http://git-scm.com/docs/git-rev-list), [rev-parse](http://git-scm.com/docs/git-rev-parse), [show-ref](http://git-scm.com/docs/git-show-ref), [symbolic-ref](http://git-scm.com/docs/git-symbolic-ref), [update-index](http://git-scm.com/docs/git-update-index), [update-ref](http://git-scm.com/docs/git-update-ref), [verify-pack](http://git-scm.com/docs/git-verify-pack), [write-tree](http://git-scm.com/docs/git-write-tree) ...
 
-### .gitignore
+## .gitignore
 
 [.gitignore](https://git-scm.com/docs/gitignore)
 
