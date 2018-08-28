@@ -1,8 +1,11 @@
-# Git 总结
+# Git 常用操作
 
 > Git Note: 我的 Git 笔记，日常工作曾使用的指令组合。
 
 Omit the unusual commands at my work.
+
+- 笔者不时得用上但常忘记的指令
+- 提要：`HEAD` 代表的是最近的一次提交（ [Refname](#Refname) ）
 
 ## References
 
@@ -15,12 +18,7 @@ Omit the unusual commands at my work.
 - [30 天精通 Git 版本控管](https://github.com/doggy8088/Learn-Git-in-30-days/) - 深入理解
 - [GIT和SVN之间的五个基本区别](http://www.oschina.net/news/12542/git-and-svn) - [英文出处](http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/)
 
-## Memo
-
-- 笔者不时得用上但常忘记的指令
-- 提要：`HEAD` 代表的是最近的一次提交（ [Refname](#Refname) ）
-
-### Frequent 频繁
+## Frequent 频繁
 
 凭印象简单罗列出以下个人常用命令，仅供参考
 
@@ -126,7 +124,7 @@ git rebase
     --abort
 ```
 
-### Check 检查
+## Check 检查
 
 Commit 提交
 
@@ -151,7 +149,7 @@ Text 文本
 
 - `git grep "search_text"` 在 Git 仓库中，查找代码片段
 
-### Index 索引
+## Index 索引
 
 - `git add <file_path>` 将需要提交的文件加入暂存区
 - `git rm --cached <file_path>` 删除文件在 Git 中的索引，但保留原件！
@@ -165,9 +163,9 @@ git log --pretty="%H" --author="authorname" | while read commit_hash; do git sho
 
 - 列出某个作者所有修改过的文件 ( [Reference](http://stackoverflow.com/questions/6349139/can-i-get-git-to-tell-me-all-the-files-one-user-has-modified) )
 
-### Back 反悔
+## Back 反悔
 
-#### File 文件
+### File 文件
 
 - `git checkout <file_path>` 将已被修改的文件恢复到上一次提交的状态
 - `git checkout <commit_id> <file_path>` 将已被修改的文件恢复到指定版本的状态
@@ -175,7 +173,7 @@ git log --pretty="%H" --author="authorname" | while read commit_hash; do git sho
 - `git reset HEAD <file_path>` 取消该文件的暂存状态
 - `git reset <commit_id> <file_path>` 取消该文件的暂存状态，将其 HEAD 指针移到指定 commit_id 的版本
 
-#### Commit 提交
+### Commit 提交
 
 遗漏了部分需要提交的变更后，将其补充到上一个提交
 
@@ -205,7 +203,7 @@ git reflog                 # 查看 revert 操作的前的 commit 的 id
 git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 ```
 
-### Branch 分支
+## Branch 分支
 
 - `git branch` 查看分支
 - `git branch <branch_name>` 新建分支
@@ -217,7 +215,7 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 - `git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d`
     删除所有已经合并到主干的本地分支 ( [Ref](http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged) )
 
-### Config 配置
+## Config 配置
 
 - `git config user.name "IceHe"` 设置用户名
 - `git config user.email "icehe.me@qq.com"` 设置邮箱
@@ -230,7 +228,7 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
     - `git config credential.helper store` 长久储存密码，不用每次输入（非 macOS）
     - `git config --unset credential.helper` 密码更改后，重新设定
 
-### Pull & Push
+## Pull & Push
 
 - `git pull faraway another:master`
     将远端 faraway 仓库的 another 分支，拉到本地 master 分支
@@ -239,19 +237,19 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 - _`git config http.postBuffer 524288000`
     当更新的内容较多时，Git 的缓存区可能不够用，可能导致 `git push` 失败，需用该指令增加缓存空间。_
 
-### Rebase 变基
+## Rebase 变基
 
 - `git rebase <branch_name>` 变基的操作可能会发生 “冲突” 等意外状况
 - `git rebase --continue` 修复 “冲突” 等意外后，执行它以继续变基操作
 - `git rebase --abort` 假如情况弄得一团糟，需要中途中止变基操作时，运行该指令
 
-### Tag 标签
+## Tag 标签
 
 - `git tag -a <tag_name> -m "<tag_message>"` 创建标签
 - `git push origin <tag_name>` 推送本地标签
 - `git push origin --tags` 推送所有本地标签
 
-### Aliases 别名
+## Aliases 别名
 
 - My Zsh Aliases of Git : [mac-conf/.config/zsh/git.zsh](https://github.com/IceHe/mac-conf/raw/master/.config/zsh/git.zsh)
     - Based on [oh-my-zsh plugin git](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
