@@ -1,12 +1,12 @@
 # Work Flow
 
-以典型的业务需求开发为例
+以典型的业务需求相关的 Java Web 接口开发为例，仅供参考
 
 ## 流程图
 
 ### 四个阶段
 
-注意：流程仅供参考，请根据实际情况调整
+注意：具体流程请根据实际情况调整
 
 ```plantuml
 @startuml
@@ -39,20 +39,15 @@ repeat
 
 partition 开发阶段 {
     split
-        :代码实现 (Java);
+        :代码实现 \n (Java);
     split again
-        :单元测试 (Groovy);
+        :单元测试 \n (Spock, \n Groovy);
     end split
     :创建 MR (Merge Request)]
     :**代码审查** (Review);
 }
 
 repeat while (通过审查 ?) is (No) not (Yes)
-'if (通过审查 ?) then (Yes)
-'else (No)
-'    :**继续开发**<
-'    detach
-'endif
 
 partition 测试阶段 {
     :部署测试环境;
