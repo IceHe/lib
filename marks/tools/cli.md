@@ -2,13 +2,17 @@
 
 ## 代码管理
 
-[Git](https://git-scm.com/) <sup>Required</sup>
+### Git
+
+https://git-scm.com <sup>Required</sup>
 
 - 分布式代码版本管理系统（必学）。
 
 ## 编辑器
 
-[Vim](http://www.vim.org/) <sup>God-like</sup>
+### Vim
+
+http://www.vim.org <sup>God-like</sup>
 
 - 编辑器之神（ Emacs 则是神的编辑器 ）。
 - 服务器通常是 *nix 系统，vi* 是标配，而 Emacs 不常有。服务端开发和运维人员经常要在远程服务器编辑文本，遂 vi\* 是必备技能！
@@ -18,7 +22,9 @@
 - 其它：《[一年成为Emacs高手（像神一样使用编辑器）](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)》
 - 我的配置 [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc)
 
-[SpaceVim](https://spacevim.org/) / [~~spf13-vim~~](http://vim.spf13.com/)
+### SpaceVim
+
+https://spacevim.org / [~~spf13-vim~~](http://vim.spf13.com/)
 
 - 一整套 Vim 配置方案。
 - 比起漫无休止地折腾配置，不如遵从实用主义：站在巨人的肩膀上，直接使用久经考验的的配置方案。
@@ -26,7 +32,9 @@
 
 ## Shell
 
-[Zsh](http://zsh.sourceforge.net/) <sup>Powerful</sup>
+### Zsh
+
+http://zsh.sourceforge.net <sup>Powerful</sup>
 
 - 比 Bash 更强大、便捷、高效的 Shell！
 - 配置 Zsh 比较复杂，可以使用 [oh-my-zsh](http://ohmyz.sh/) 等成熟的配置方案。
@@ -34,13 +42,17 @@
 - 参考：[Comparison of Command Shells - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
 - 我的配置 [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc)
 
-[oh-my-zsh](http://ohmyz.sh/) <sup>Efficient</sup>
+### oh-my-zsh
+
+http://ohmyz.sh <sup>Efficient</sup>
 
 - 管理 Zsh 配置的开源框架，预打包了相关的主题、插件、配置。
 - 配置过程傻瓜化，一条安装指令就能让你畅快地享受 Zsh 的强大与高效！
 - 我的命令行提示符主题 [.sunrise_icehe](https://github.com/IceHe/mac-conf/blob/master/.config/zsh/sunrise_icehe.zsh-theme)
 
-[tmux](https://tmux.github.io/) <sup>Powerful</sup>
+### tmux
+
+https://tmux.github.io <sup>Powerful</sup>
 
 - 终端多路复用软件，即命令行中的 「桌面、分屏工具」。
 - 允许一个用户在一个终端窗口或一个远程终端会话中，使用多个终端会话。
@@ -49,17 +61,23 @@
 
 ## 包管理
 
-[Homebrew](http://brew.sh/) <sup>Best</sup>
+### Homebrew
+
+http://brew.sh <sup>Best</sup>
 
 - macOS 的包管理器。`brew` 就如 `agt-get` 之于 Ubuntu，`yum` 之于 RedHat、CentOS 的存在。
 
-[~~Homebrew Cask~~](http://caskroom.io/)
+### Homebrew Cask
+
+http://caskroom.io
 
 - 安装、更新 macOS Apps 的命令行工具。
 - 用命令行的方式安装、更新 Mac Apps，其中还包括了许多第三方的 Apps。
 - 可以不用忍受 AppStore 缓慢的下载速度，也不必再一一访问各个官网去下载第三方 Apps 了。
 - 重装 macOS 时可以用 `brew cask install` 命令组成的脚本便捷地安装必要的 Apps。
 
-[~~dotfiles~~](https://dotfiles.github.io/)
+### ~~dotfiles~~
 
-- 可供参考的 dotfiles 配置，还有 [我的 dotfiles](https://github.com/IceHe/macos-home-conf)。（[dotfiles 是什么？](http://www.jianshu.com/p/7UJapk)）
+https://dotfiles.github.io
+
+- 可供参考的 dotfiles 配置，还有 [我的 dotfiles](https://github.com/IceHe/mac-conf)。（[dotfiles 是什么？](http://www.jianshu.com/p/7UJapk)）
