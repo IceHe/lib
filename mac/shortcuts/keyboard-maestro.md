@@ -1,8 +1,6 @@
 # Keyboard Maestro
 
-## Reference
-
-- [Home](https://www.keyboardmaestro.com/main/)
+- https://www.keyboardmaestro.com/main/
 
 ## Search in Web
 
@@ -19,10 +17,9 @@
 ## Abbr Expander
 
 - Regular : Type `|[a-zA-Z0-9]+` | `[a-zA-Z0-9]+|` → Extend | Rewrite …
+- More examples as follow
 
-Abbrs Examples (below)
-
-Dates
+### Dates
 
 - Type string `|hm`, it will be replaced by the time string `hh:mm`
 - Type `|ymd`, replaced by `yy/MM/dd`
@@ -31,7 +28,7 @@ Dates
 - `|d/` → `YYYY/MM/dd`
 - `|d.` → `YYYY.MM.dd` …
 
-Symbols
+### Symbols
 
 - `|up` → `↑`
 - `|dn` → `↓`
@@ -43,7 +40,7 @@ Symbols
 - `|cmd` → `⌘`
 - `|ret` → `↩` …
 
-Words
+### Words
 
 - `|http` → `HTTP`
 - `|db` → `database`
@@ -51,21 +48,21 @@ Words
 - `desc|` → `description`
 - `env|` → `environment` …
 
-Commands
+### Commands
 
 - `|vh` → `sudo vim /etc/hosts`
 - `|vp` → `sudo vim /etc/php.ini`
 - `|snr` → `sudo service nginx restart`
 - `|spr` → `sudo service php-fpm restart` …
 
-Links
+### Links
 
 - `|blog` → `https://icehe.me` …
 
-Mails
+### Mails
 
 - `|qm` → `666@qq.com` …
 
-Numbers
+### Numbers
 
 - `|127` → `127.0.0.1` …
