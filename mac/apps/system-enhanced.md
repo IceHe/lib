@@ -1,6 +1,8 @@
 # 系统增强
 
-[Amphetamine](https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12)
+## Amphetamine
+
+https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12
 
 - 防止 Mac 休眠。
 - 原因：Mac 每次休眠后都会重启软件，导致软件丢失部分上下文，于是我无法在完全一样的环境下持续工作，一定程度上打断了工作，降低了效率。
@@ -54,7 +56,7 @@ https://bahoom.com/hyperswitch <sup>Best</sup>
     窗口增强工具。光标停到 Dock 的 App 图标上，能快速预览该软件的所有窗口，点击切换到不同的窗口或桌面。还有快速调整窗口布局、大小、位置等的功能。
     - 用处还是不大，用 HyperSwitcher 切换子窗口时就能看到 App 下所有子窗口的预览图。
 
-## KeyCastr
+## ~~KeyCastr~~
 
 https://github.com/keycastr/keycastr
 
