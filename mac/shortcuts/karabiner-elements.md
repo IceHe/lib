@@ -1,8 +1,14 @@
-### Karabiner-Elements
+# Karabiner-Elements
 
-[Official Reference](https://pqrs.org/osx/karabiner/index.html)
+> Changes not only the shortcuts but also the keyboard key-remappings!
 
-- Changes not only the shortcuts but also the keyboard key-remappings!
+## References
+
+- [Home](https://pqrs.org/osx/karabiner/index.html)
+
+## Remappings
+
+### Common
 
 Quit
 
@@ -24,9 +30,9 @@ Functional Keys
 - `Functional Keys` → `F1` ~ `F12`
 - `Fn + Functional Keys` → `Functional Keys`
 
----
+### Input Sources
 
-> Input Sources ( abbr : IS )
+( abbr : IS )
 
 `⇪` Caps ( current pos is Lf `^` ) → to Chinese Input Source
 
@@ -42,7 +48,7 @@ Functional Keys
     - App `Karabiner` : Press Lf Rg `⇧`, Rg `⌘`, `⎋` alone will trigger `F18`
     - App `Keyboard Maestro` : `F18` → to US English IS
 
----
+#### Switch Stably
 
 > How to switch two input sources stably?
 
