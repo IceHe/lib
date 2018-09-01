@@ -1,7 +1,5 @@
 # Markdown Lint
 
-## Refs
-
 - Source : https://github.com/markdownlint/markdownlint
 - Usage : https://github.com/markdownlint/markdownlint/issues/67#issuecomment-75839369
 
