@@ -1,6 +1,6 @@
 # QQ
 
-- [Mac QQ](http://im.qq.com/macqq/)
+- http://im.qq.com/macqq/
 
 Common
 
