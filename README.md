@@ -48,7 +48,7 @@ Java ( TODO )
 
 - [Tools](marks/tools.md) : 利器 - 软件 / 物件的推荐
 - [Efficiency](mac/efficiency.md) : 效率指南
-- [Shortcuts](mac/shortcuts.md) : 快捷键
+- [Shortcuts](mac/shortcuts/README.md) : 快捷键
 - [Initialize](mac/initialize.md) : 系统初始化
 
 ### Git
