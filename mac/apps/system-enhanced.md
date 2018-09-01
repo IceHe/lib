@@ -8,18 +8,24 @@
     屏幕休眠（Display Sleep）：即关闭屏幕，连屏幕保护程序（Screen Saver）也不运作。
 - 其它选择：它比同类软件 [~~Caffine~~](https://itunes.apple.com/us/app/caffeine/id411246225?mt=12)、[~~Owly~~](https://itunes.apple.com/us/app/owly-display-sleep-prevention/id882812218?mt=12) 功能完备、好用；[~~InsomniaX~~](http://semaja2.net/projects/insomniaxinfo/) 没用过。
 
-[Bartender](https://www.macbartender.com/)
+## Bartender
+
+https://www.macbartender.com/
 
 - 收起或彻底隐藏毋需过多关注的菜单栏 App 图标。（我这个整洁癖、强迫症的福音）
 - 不推荐购买 [~~Vanilla~~](http://matthewpalmer.net/vanilla/)，使用简便，自然配置项有限，最主要因为功能的实现方法不合理以致有 bug，例如会遮蔽菜单栏的一些别的内容，又如某些图标不能符合预期地显示或隐藏。
 
-[~~ClipMenu~~](http://www.clipmenu.com/) <sup>Simple</sup>
+## ~~ClipMenu~~
+
+http://www.clipmenu.com <sup>Simple</sup>
 
 - 剪贴板管理。
 - 主要用于快速查询剪贴板的历史记录，并提取出需要的内容保存到当前的剪贴板中。
 - 支持 URL、纯文本、RTF、图片、文件等各种格式，包括剪贴历史的排序、内容的大小写转换、自定义文本的调用。
 
-[Copied](https://copiedapp.com/) <sup>Favorite, Searchable</sup>
+## Copied
+
+https://copiedapp.com <sup>Favorite, Searchable</sup>
 
 - 剪贴板管理。（2018-04 开始尝试用它替代 ClipMenu）
 - 不同于 ClipMenu 的简单，它拥有丰富完备的功能。
@@ -30,12 +36,16 @@
 - Queue（队列）：先入先出地输出内容（平时默认：后入先出）。
 - 其它选择：[Paste](http://pasteapp.me/) 最好看！这类 App 层出不穷…
 
-[PopClip](http://pilotmoon.com/popclip/)
+## PopClip
+
+http://pilotmoon.com/popclip/
 
 - 快捷工具条。
 - 在选中文本是弹出，辅助操作的工具条，包括：搜索、查字典、剪切、复制、粘贴等。
 
-[HyperSwitch](https://bahoom.com/hyperswitch) <sup>Best</sup>
+## HyperSwitch
+
+https://bahoom.com/hyperswitch <sup>Best</sup>
 
 - 稳定切换同一 App 下各子窗口。
 - HyperSwitcher 选择切换的窗口时，会显示各应用的缩略图。
@@ -44,28 +54,40 @@
     窗口增强工具。光标停到 Dock 的 App 图标上，能快速预览该软件的所有窗口，点击切换到不同的窗口或桌面。还有快速调整窗口布局、大小、位置等的功能。
     - 用处还是不大，用 HyperSwitcher 切换子窗口时就能看到 App 下所有子窗口的预览图。
 
-[KeyCastr](https://github.com/keycastr/keycastr)
+## KeyCastr
+
+https://github.com/keycastr/keycastr
 
 - 键盘输入可视化：在显示屏上会显示你的键盘敲击动作，包括使用快捷键组合。
 - 主要用于展示你如何（用快捷键）高效地使用电脑。
 
-[Itasycal](https://www.mowglii.com/itsycal/) <sup>Simple</sup>
+## Itasycal
+
+https://www.mowglii.com/itsycal <sup>Simple</sup>
 
 - 菜单栏上的日历小工具。自定义日期时间显示的格式，方便查看月历和事件！
 
-[Quick Look plugins](https://github.com/sindresorhus/quick-look-plugins)
+## Quick Look plugins
+
+https://github.com/sindresorhus/quick-look-plugins
 
 - 增强 Finder 的文件预览（Preview）功能。
 - 在 Finder 浏览目录和文件时，选中文件，再按空格键，即可进行简单的预览。
 - 该插件提供各种类型文件的预览功能：快速预览各种格式的图片，包括 GIF；对各种不同编程语言的代码进行着色，便于查看… 详情查看其 [GitHub 仓库 README.md](https://github.com/sindresorhus/quick-look-plugins) 的说明。
 
-[~~ShawdowsocksX~~](http://macappstore.org/shadowsocksx/) <sup>No update</sup>
+## ~~ShawdowsocksX~~
 
-[ShawdowsocksX NG](https://github.com/shadowsocks/ShadowsocksX-NG) <sup>Ladder</sup>
+http://macappstore.org/shadowsocksx <sup>No update</sup>
+
+## ShawdowsocksX NG
+
+https://github.com/shadowsocks/ShadowsocksX-NG <sup>Ladder</sup>
 
 - ShadowsocksX 是在 Mac 上配合 Shadowsock 工作的软件。NG 是后人维护的版本。
 
-[ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en) <sup>Great</sup>
+## ShowyEdge
+
+https://pqrs.org/osx/ShowyEdge/index.html.en <sup>Great</sup>
 
 - 输入法状态提示。
 - 显示一条样式可定制的色带在屏幕顶部，以提示正在使用什么输入法。在全屏使用 App 时，也能轻易区分输入法状态！
@@ -73,42 +95,56 @@
 - 我输入英文只使用默认的「U.S.」input source，输入中文只使用「拼音输入法」，切换「中/英」输入只要直接切换输入法就好了。
     - 我不想只用「拼音输入法」，然后在一种输入法下进行中英输入切换。这时中英切换通常只需要用一个键 `⇧`、`^` 或 `⇪`，看似操作很方便，但也容易「误操作」，使用大量使用快捷键时就很不便，特别是在用 Vim 的方式进行编辑时，误操作几率非常高！
 
-[Time Machine](https://support.apple.com/en-hk/HT201250) <sup>Required</sup>
+## Time Machine
+
+https://support.apple.com/en-hk/HT201250 <sup>Required</sup>
 
 - macOS 自带的系统备份、恢复软件。
 - 要有忧患意识，不要等硬盘坏了、Mac 丢了，才追悔莫及。
 
-[~~Time Out~~](http://www.dejal.com/timeout/) <sup>Health , Protect Eyes!</sup>
+## ~~Time Out~~
+
+http://www.dejal.com/timeout <sup>Health , Protect Eyes!</sup>
 
 - 定时作息提醒工具。定时遮盖桌面的应用程序，提醒你离开电脑，去休息眼睛、活动身体。
 - 如人饮水，冷暖自知。自己多注意就好，要是实在不自觉，这个应用才有用武之地；其实真到了严重的程度，它也帮不到你了。
 - 其实我有一个个人的休息方式：因为我比较容易口渴，所以经常喝水；饮水量大就经常上洗手间，自然会多走动，不久坐。
 
-**Dictionary** <sup>Great</sup>
+### Dictionary
 
-- macOS 系统自带的字典应用，足够好用。
+- macOS 系统自带的字典应用，足够好用。<sup>Great</sup>
 
-[EuDic Free](http://www.eudic.net/eudic/mac_dictionary.aspx) <sup>Free, Great</sup>
+## EuDic Free
+
+http://www.eudic.net/eudic/mac_dictionary.aspx <sup>Free, Great</sup>
 
 - 欧路词典，Mac 上最好用的第三方词典。
 
-[Numi](http://numi.io/) <sup>Great</sup>
+## Numi
+
+http://numi.io <sup>Great</sup>
 
 - 系统默认计算器的替代方案。
 - 单位换算好用啊！例如，您输入左边的内容，就能得到右边的结果：
     Input `1 day in sec` , print `86,400 s` .
     Input `547 day in year` , print `1 yr 6 mon. 2 day` .
 
-[IINA Player](https://lhc70000.github.io/iina/)
+## IINA Player
+
+https://lhc70000.github.io/iina
 
 - 视频播放软件。比 [~~MPlayerX~~](http://mplayerx.org)、[~~VLC~~](http://www.videolan.org/index.html) 都好用！
 
-[网易云音乐](http://music.163.com/) <sup>Joy</sup>
+## 网易云音乐
+
+http://music.163.com <sup>Joy</sup>
 
 - 网易云音乐，用音乐休闲放松，看大家的评论能得到许多共鸣和欢乐。
 - 由于音乐版权的原因，只能多下载几个 Apps 来听歌，如 [QQMuscic](https://y.qq.com/)、[Xiami](http://www.xiami.com/) 虾米。
 
-[搜狗输入法](https://pinyin.sogou.com/mac/)
+## 搜狗输入法
+
+https://pinyin.sogou.com/mac
 
 - macOS 上功能最全的中文输入法。虽然不够让人满意，但却是最好的选择。
 - 许多功能常见诸于 Windows 上的输入法，但在 macOS 上就没有实现，搜狗已经很齐全了。
