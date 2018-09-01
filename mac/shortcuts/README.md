@@ -1,6 +1,6 @@
 # Mac Shorcuts
 
-TODO: to remove mac/shortcuts/*
+<!-- TODO: split it into pieces different apps -->
 
 > macOS Shortcuts: 我的 macOS 快捷键列表。
 
@@ -25,7 +25,27 @@ TODO: to remove mac/shortcuts/*
 - 同时使用多个 IDE 和代码编辑器的话，尽量将快捷键配置得一样，增强快捷键的通用性，减轻记忆快捷键的负担，减少误用
 - 建议尽量都使用 Vim 插件，统一以 Vim 方式进行操作，可以进一步减轻记忆负担，增加操作效率
 
-### Key Symbols
+### Examples
+
+- Meanings of Font Style
+    - The items with superscript <sup>_custom_</sup> implies it might **be custom by me**.
+    - _The italic item_ is **not frequently-used**.
+- `⌘ ⌥ a` Manipulation
+    Press "Cmd", "Opt" & "a" at the same time to do the manipulation .
+- `A` Manipulation
+- `⇧ A` Manipulation
+    The capital letter "A" means pressing "Shf" & "a" at the same time !
+- `⌘ 1` | `⌘ 2` Manipulation
+    Press "⌘ 1" or "⌘ 2" to do the manipulation.
+- `⌘ 1`, `⌘ 2` Manipulation
+    Press "⌘ 1" then "⌘ 2" to do the manipulation.
+
+### Abbrs & Symbols
+
+- Reference : [Abbreviations](coding/abbrs.md)
+- Abstract as follow
+
+Symbols
 
 -  : Power
 - ⌘ : Command ( Cmd )
@@ -44,23 +64,6 @@ TODO: to remove mac/shortcuts/*
 - ⌫ : Delete ( Del ) | Backspace
 - 0~9 : One of the digits 0 ~ 9
 - a~z : One of the alphabet a ~ z
-
-### Examples
-
-- Meanings of Font Style
-    - The items with superscript <sup>_custom_</sup> implies it might **be custom by me**.
-    - _The italic item_ is **not frequently-used**.
-- `⌘ ⌥ a` Manipulation
-    Press "Cmd", "Opt" & "a" at the same time to do the manipulation .
-- `A` Manipulation
-- `⇧ A` Manipulation
-    The capital letter "A" means pressing "Shf" & "a" at the same time !
-- `⌘ 1` | `⌘ 2` Manipulation
-    Press "⌘ 1" or "⌘ 2" to do the manipulation.
-- `⌘ 1`, `⌘ 2` Manipulation
-    Press "⌘ 1" then "⌘ 2" to do the manipulation.
-
-### Abbreviations
 
 Buttons
 
@@ -91,45 +94,58 @@ Words
 
 Symbols
 
-- & And
-- | Or
+- `&` And
+- `|` Or
 
-Others
+## macOS
 
-- `aka` Also known as
-- `e.g.` for example
+- Some are common & default in operating system.
+- Some of the keys below can be modified in `System Preference → Keyboard`.
+- Some are modified by Apps Karabiner-Elements & Keyboard Maestro
 
-<!-- ## Crazy Remappings
+Details
 
-What to do :
+- [Basic](mac/shortcuts/macos-basic.md)
+- [File & Edit](mac/shortcuts/file-n-edit.md)
+- [Finder](mac/shortcuts/finder.md)
+- [Window & Tab](mac/shortcuts/window-n-tab.md)
+- [Input Sources](mac/shortcuts/input-sources.md)
+- [macOS Emacs Built-in](mac/shortcuts/macos-emacs-builtin.md)
+- [Activity Monitor](mac/shortcuts/activity-monitor.md)
+- [Mail](mac/shortcuts/mail.md)
 
-- **Remap** the key codes.
-- **Open or Switch** to the specified **app or URL**.
+## Crazy Remappings
 
-Supported by
-
-- [Keyboard Maestro](#Keyboard-Maestro)
-- [Karabiner-Elements](#Karabiner-Elements) -->
-
-## Shortcut List
-
-- [macOS](mac/shortcuts/macos.md)
 - [Keyboard Maestro](mac/shortcuts/keyboard-maestro.md)
 - [Karabiner-Elements](mac/shortcuts/karabiner-elements.md)
-- [App Switcher](mac/shortcuts/app-switcher.md)
+- [Keyboard Layouts](mac/shortcuts/keyboard-layouts.md)
+
+## System Assistant
+
 - [System Assistant](mac/shortcuts/system-assistant.md)
-- [Development](mac/shortcuts/development.md)
-- [Other Apps](mac/shortcuts/other-apps.md)
 
-## Related Articles
+## Development
 
-Mine
+- [Charles](mac/shortcuts/charles.md)
+- [Script Editor](mac/shortcuts/script-editor.md)
+- [Sublime Text](mac/shortcuts/sublime-text.md)
+- [JetBrains](mac/shortcuts/jetbrains.md)
 
-- [利器 - 软硬件推荐](marks/tools.md)
-- [Mac Efficiency 效率指南](mac/efficiency.md)
+## Command Line
 
-Official
+- [iTerm2](mac/shortcuts/iterm2.md)
+- [tmux](commands/tmux.md)
+- [Vim](commands/vim.md)
+- [Zsh](commands/zsh.md)
 
-- [Mac 键盘快捷键](https://support.apple.com/zh-cn/HT201236) ( from Apple Supprot )
+## Others
+
+- [2Do](mac/shortcuts/2do.md)
+- [EuDict](mac/shortcuts/eu-dict.md)
+- [MindNode](mac/shortcuts/mindnode.md)
+- [NeteaseMusic](mac/shortcuts/netease-music.md)
+- [Outlook](mac/shortcuts/outlook.md)
+- [QQ](mac/shortcuts/qq.md)
+- [Trello](mac/shortcuts/qq.md)
 
 > 天下武功，唯快不破。
