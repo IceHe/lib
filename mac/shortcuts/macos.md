@@ -1,10 +1,10 @@
-## macOS
+# macOS
 
 - Some are common & default in operating system.
 - Some of the keys below can be modified in `System Preference → Keyboard`.
 - Some are modified by Apps [Karabiner-Elements](#Karabiner-Elements) & [Keyboard Maestro](#Keyboard-Maestro).
 
-### System
+## System
 
 Power
 
@@ -37,7 +37,7 @@ Screenshot
 - _`⌘ ⇧ 4` Capture the selected area_
     - The screenshots are saved in `~/Desktop`.
 
-### Finder
+## Finder
 
 File
 
@@ -82,7 +82,7 @@ View
 - _`⌘ ⌥ t` Show | Hide Tool Bar_
 - _`⌘ /` Show | Hide Status Bar_
 
-### File & Edit
+## File & Edit
 
 File
 
@@ -113,7 +113,7 @@ Edit
     - `⌘ +` Bigger | Zoom In
     - `⌘ -` Smaller | Zoom Out
 
-### Window & Tab
+## Window & Tab
 
 Window
 
@@ -146,7 +146,7 @@ Tab
 - `⌘ [` Backward
 - `⌘ ]` Forward
 
-### Input Sources
+## Input Sources
 
 Select
 
@@ -178,7 +178,7 @@ Sogou Input <sup>__Now I use__</sup>
 - _`⌥ ⇧ B` Emoji & Symbols_
 - _`⌥ ⇧ 凵` Add a space between Chinese & English_
 
-### Emacs Mode
+## Emacs Mode
 
 - A few people know that it's supported in  by default in macOS.
 - They may work, if you append some modifier keys to them.
@@ -210,12 +210,12 @@ Moreover modified by `Keyboard Maestro`
 
 Ref : [Keyboard Shortcuts ( Emacs ) for Editing Text Fields in OS X](http://jblevins.org/log/kbd)
 
-### Activity Monitor
+## Activity Monitor
 
 - `⌘ ⌥ f` Filter Processes
 - `⌘ ⌥ q` Quit the selected Process
 
-### Mail
+## Mail
 
 - `⌘ ^ s` <sup>_custom_</sup> | `⌘ ⇧ N` <sup>default</sup> Get All New Mail
 - `⌘ r` Reply
