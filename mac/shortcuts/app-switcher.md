@@ -28,7 +28,7 @@ Symbols
 - `凵 \` = `⇧ \` = `|`
 - `凵 '` = `⇧ '` = `"`
 
-#### Layout `⌥` `⇧` `^`
+## Layout `⌥` `⇧` `^`
 
 1234 …
 
@@ -94,7 +94,7 @@ zxcv …
 - `^ ⌥ ⇧ M` Send Clipboard to iPhone by Messages
 - _`⌥ ⇧ N` Numbers_
 
-#### Layout `Fn`
+## Layout `Fn`
 
 Arrange the windows
 
@@ -122,7 +122,7 @@ Others
 
 - `Fn u` = `⇪`
 
-#### Layout `⎋`
+## Layout `⎋`
 
 qwer …
 
