@@ -8,11 +8,16 @@
 
 - i7 - 3.1 GHz / Mem 16 GB / SSD 512 GB。Unix-like，稳定、省心。Mac 是软件工程师的最佳工作平台！
 
-**显示器**：[DELL UltraSharp U2515Hx 25-inch](https://item.jd.com/1453819.html)
+**显示器**：横向主屏 [LG 27UD58-B UHD 4K 27-inch](https://item.jd.com/3446665.html)
 
-- 2K（2560 * 1440）分辨率，窄边框，IPS 面板，LED-Lit（背光）。双显示器，竖起屏并排使用。
+**显示器**：竖向副屏 [DELL UltraSharp U2515Hx 2K 25-inch](https://item.jd.com/1453819.html)
 
-**触控板**：[Magic Trackpad 2](http://www.apple.com/cn/shop/product/MJ2R2CH/A/magic-trackpad-2?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2)
+**鼠标**：[Logitech MX Master 2S](https://item.jd.com/4294661.html)
+
+- 工作强度大的时候，用触摸板的话，手掌的支撑不足，真的累…… 于是换了鼠标。
+- 滚轮还是喜欢用自由滚动模式，而不是步进模式（看起来更多人喜欢这个）。
+
+**~~触控板~~**：[Magic Trackpad 2](http://www.apple.com/cn/shop/product/MJ2R2CH/A/magic-trackpad-2?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2)
 
 - Macbook 自带触摸板的手感已经足够好了。稍微嫌它们大了点，因为我向来将光标移动速度向来调到最高，基本一般幅度的滑动，光标就能到位，不需要太大的触控面积。
 
@@ -23,7 +28,7 @@
 - [键程](http://baike.baidu.com/view/1748635.htm) 不会太长或太短，不需要用力按下，有舒适的反馈感（个人感觉），用久了手也不容易疲劳，特别是小指；而且敲击按键的声音小，不容易打扰到别人。
 - 使用蓝牙 4.0 无线连接，功耗低 —— 没有连接线，这点简直是洁癖和强迫症的福音；内置电池，Lightning 接口充电，一次充电能够续航三周以上，省心。
 
-**静电容键盘**：[PFU HHKB Professional JP](https://www.amazon.cn/PFU-Happy-Hacking-Keyboard-Professional-JP-%E6%97%A5%E6%9C%AC%E8%AA%9E%E9%85%8D%E5%88%97-%E5%A2%A8-USB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-%E9%9D%99%E9%9B%BB%E5%AE%B9%E9%87%8F%E7%84%A1%E6%8E%A5%E7%82%B9-N%E3%82%AD%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-PD-KB420B/dp/B001KWJTD6/ref=sr_1_2?ie=UTF8&qid=1494650201&sr=8-2&keywords=hhkb+jp)
+**~~静电容键盘~~**：[PFU HHKB Professional JP](https://www.amazon.cn/PFU-Happy-Hacking-Keyboard-Professional-JP-%E6%97%A5%E6%9C%AC%E8%AA%9E%E9%85%8D%E5%88%97-%E5%A2%A8-USB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-%E9%9D%99%E9%9B%BB%E5%AE%B9%E9%87%8F%E7%84%A1%E6%8E%A5%E7%82%B9-N%E3%82%AD%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-PD-KB420B/dp/B001KWJTD6/ref=sr_1_2?ie=UTF8&qid=1494650201&sr=8-2&keywords=hhkb+jp)
 
 - 黑色，有刻印（按键上印有键位说明），日文键盘布局。
 - 果然还是按耐不住好奇心，买了一把机械键盘（严格来说静电容键盘不是机械键盘）来尝试。
@@ -77,9 +82,14 @@
     - [Turquoise Silicone Case](https://www.apple.com/cn/shop/product/MKXJ2FE/A/iphone-6-plus-6s-plus-%E7%A1%85%E8%83%B6%E4%BF%9D%E6%8A%A4%E5%A3%B3-%E7%82%AD%E7%81%B0%E8%89%B2?fnode=99)（宝石绿官方硅胶保护壳），一分钱一分货，用久了也能保持悦目的颜色。
     - ~~[Rose Gray Leather Case](https://www.apple.com/cn/shop/product/MKX92FE/A/iphone-6-plus-6s-plus-%E7%9A%AE%E9%9D%A9%E4%BF%9D%E6%8A%A4%E5%A3%B3-%E6%A3%95%E8%89%B2?fnode=99) 官方真皮保护壳易氧化变色，显脏，所以得买深色的。~~
 
+**手机**：坚果 Pro 1 - 128GB <sup>backup</sup>
+
+- iPhone 没法双卡双待，就用备用机用来使用另一张手机卡；避免主力机遗失后，没备用手机用。
+
 **手表**：[Apple Watch Sport](http://www.apple.com/cn/shop/buy-watch/apple-watch-sport/38-%E6%AF%AB%E7%B1%B3%E6%B7%B1%E7%A9%BA%E7%81%B0%E8%89%B2%E9%93%9D%E9%87%91%E5%B1%9E%E8%A1%A8%E5%A3%B3-%E9%BB%91%E8%89%B2%E8%BF%90%E5%8A%A8%E5%9E%8B%E8%A1%A8%E5%B8%A6?product=MJ2X2CH/A&step=detail)
 
 - 38mm Space Gray Aluminum Case with Black Sport Band ，iPhone、Mac 的辅助工具，健康助手。
+    - 后来买了个有点贵的「午夜蓝色现代风扣式表带」，后悔。
 - 在 Mac 旁边，只要手上戴着手表并已解锁，唤醒 macOS 后它就会自动解锁，直接进入主界面。
 - 消息推送更私密，还可以使用语音识别输入内容，不用掏出手机就可以快速预览信息、回复。
 - 便于设置闹钟、计时、倒计时，倒计时可结合番茄工作法使用。
@@ -96,6 +106,10 @@
 ~~**电子阅读器**：[Kindle Paperwhite](https://www.amazon.cn/Kindle-Paperwhite%E7%94%B5%E5%AD%90%E4%B9%A6%E9%98%85%E8%AF%BB%E5%99%A8-300-ppi%E7%94%B5%E5%AD%90%E5%A2%A8%E6%B0%B4%E8%A7%A6%E6%8E%A7%E5%B1%8F-%E5%86%85%E7%BD%AE%E9%98%85%E8%AF%BB%E7%81%AF-%E8%B6%85%E9%95%BF%E7%BB%AD%E8%88%AA/dp/B00QJDOLIO) E-reader~~ <sup>_Sold_</sup>
 
 - 需要长时间看书时，还得用 E-Ink 屏，保护视力。用惯手机阅读后，感觉这样更方便，就卖了…
+
+**电子阅读器**：Kindle Oasis 2 E-reader <sup>_Sold_</sup>
+
+- 然后脑抽了，又买了新的……
 
 ## 音频输出
 
@@ -124,27 +138,8 @@
 - 而且戴耳机、耳塞，多少会压迫侧颊、耳朵、头部，耳道有异物感，始终不是最舒适的状态。长时间戴耳机、耳塞，又不注意清洁设备和耳朵，有可能导致中耳炎，请注意保护听力。
 - 音效还不错（对比类似价位的同类产品）；续航持久；无线连接迅速；防水，可以在浴室使用。
 
-## 护牙
+## 视频输出
 
-**电动牙刷**：[Philips Sonicare DiamondClean Sonic Electric Rechargeable Toothbrush](https://www.amazon.com/Philips-Sonicare-DiamondClean-Rechargeable-HX9332/dp/B0052JN7XG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933357&sr=8-1&keywords=hx9332) <sup>Favorite</sup>
+**投影仪**：[极米无屏电视 Z6X](https://shop.xgimi.com/goods/1182200401.html)
 
-- Model HX9331/04 (White) 声波式电动牙刷。确实比手动刷干净多了！（[亚马逊中国](https://www.amazon.cn/Philips-%E9%A3%9E%E5%88%A9%E6%B5%A6-HX9332-04%E9%92%BB%E7%9F%B3%E4%BA%AE%E7%99%BD%E5%9E%8B%E5%A3%B0%E6%B3%A2%E9%9C%87%E5%8A%A8%E7%89%99%E5%88%B7/dp/B007ZY5GV2/ref=sr_1_6?ie=UTF8&qid=1468507397&sr=8-6&keywords=philips+diamondclean)）
-- [电动牙刷刷牙相比手动刷牙有什么优缺点？](https://www.zhihu.com/question/19825877/answer/15856166) 总结：
-    - 电动比手动好，各种好（完爆）；
-    - 旋转式的比声波式的刷得干净；
-    - 声波式的比旋转式的磨损小；
-    - 用电动牙刷的话使劲别太大。
-- 相关笔记 - [牙齿保健](_archived/read/tooth.md)
-
-**冲牙器**（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332)
-
-- Model HX8332/11（[京东](http://item.jd.hk/1964052662.html)）。注意：用了一年半，感觉充一次电用不了几次就又没电了。
-- 总结：
-    - [使用牙线有必要性吗？](https://www.zhihu.com/question/20842469/answer/44441538)
-    - 牙齿与牙齿间的缝隙，牙线或冲牙器，才能弄干净；
-    - 需要牙刷 + 牙线结合使用才能全面清洁牙齿。
-    - [清理牙缝哪家强？两款水牙线的主观评测](https://zhuanlan.zhihu.com/p/20475312)
-- 争议：
-    - [美国卫生署删除了“剔牙”“用牙线”的建议…](http://weibo.com/1878363622/E1OfvzJjo?from=page_1005051878363622_profile&wvr=6&mod=weibotime&type=comment#_rnd1471001024021)
-    - [Flossing has no proven benefits, so U.S. health department stops recommending the practice](http://www.nydailynews.com/life-style/no-floss-u-s-health-department-article-1.2735915)
-- 相关笔记 - [牙齿保健](_archived/read/tooth.md)
+- 方便晚上追番剧，提高幸福度。
