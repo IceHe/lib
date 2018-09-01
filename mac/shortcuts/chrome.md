@@ -2,7 +2,7 @@
 
 - [Official Home Page](https://www.google.com/chrome/)
 
-## Usual
+## Common
 
 - `⌘ l` Edit Address Bar
 - `⌘ y` Full History
