@@ -1,6 +1,6 @@
 # MindNode
 
-- [MindNode](https://mindnode.com/)
+- https://mindnode.com/
 
 ## File
 
