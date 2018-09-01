@@ -344,7 +344,6 @@ Add SSH key for Git
 
 - [**Docs**](http://www.vim.org/docs.php)
 - [**SPF-13**](http://vim.spf13.com/) &nbsp;&&nbsp; [my fork](https://github.com/IceHe/spf13-vim)
-- [My Shortcut Note](../../mac/shortcuts.md#Vim)
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - 键位操作总结图。
 
 <br/>
@@ -359,6 +358,5 @@ Add SSH key for Git
 
 # Related
 
-- 我的 [Mac 快捷键](../../mac/shortcuts.md)
 - **CLI Note 命令行**
 
