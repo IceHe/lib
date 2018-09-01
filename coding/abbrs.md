@@ -121,6 +121,7 @@ Other meanings
 - fmt : format
 - fn: function
 - func : function
+- fyi : for your infomation 供参考
 
 ### G
 
