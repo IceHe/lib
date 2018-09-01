@@ -20,7 +20,7 @@ Pinyin Simplified (macOS built-in)
 
 ## Sogou Input
 
-__Now I use__
+Now I use
 
 - Right `⇧` Switch to Smart English Input Mode (when using Chinese Input Mode)
 - All else low-frequency shortcuts are disabled.
