@@ -1,6 +1,6 @@
 # Chrome
 
-- [Official Home Page](https://www.google.com/chrome/)
+- [Chrome](https://www.google.com/chrome/)
 
 ## Common
 
