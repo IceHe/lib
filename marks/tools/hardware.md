@@ -1,8 +1,8 @@
-## 硬件
+# 硬件
 
 会附带一些个人感受。
 
-### 生产工具
+## 生产工具
 
 **便携电脑**：[MacBook Pro Retina 13-inch](http://www.apple.com/cn/shop/buy-mac/macbook-pro?product=MF841CH/A&step=config) <sup>Favorite</sup>
 
@@ -32,7 +32,7 @@
 - 其它：觉得键盘还是该配 [木质腕托](https://search.jd.com/Search?keyword=%E6%9C%A8%E8%85%95%E6%89%98&enc=utf-8&wq=mu%E8%85%95%E6%89%98)，不然每天敲键盘的时间太长很累。还有该配 [桌垫](https://item.mi.com/1172700033.html)，不然我手臂瘦没有肉，手肘放在桌上感觉特别「搁」。
 - 配合 App **Karabiner-Elements** 来同时使用两副键盘，分别启用不同的两套快捷键。
 
-### 外置设备
+## 外置设备
 
 **便携 SSD**：[SAMSUNG Portable SSD T3 500GB](http://www.samsung.com/cn/memory-storage/pssd-mu-pt/MU-PT500BCN/)
 
@@ -58,7 +58,7 @@
 - 性价比
     - 本来想买个用 Thunderbolt 2 接口接入的更好的拓展邬，但至少贵一倍，而且新款 MacBook Pro 支持的是更先进的兼容 USB Type-C 的 Thunderbolt 3 接口，所以我不想买 Thunderbolt 2 的，最后决定先买个便宜的将就着用。
 
-### 移动设备
+## 移动设备
 
 **手机**：[iPhone](https://www.apple.com/cn/iphone/) <sup>Favorite</sup>
 
@@ -97,7 +97,7 @@
 
 - 需要长时间看书时，还得用 E-Ink 屏，保护视力。用惯手机阅读后，感觉这样更方便，就卖了…
 
-### 音频输出
+## 音频输出
 
 **降噪耳机**（[Bose](https://www.bose.cn/zh_cn/index.html) 目前市面上最好的消噪耳机品牌）
 
@@ -124,7 +124,7 @@
 - 而且戴耳机、耳塞，多少会压迫侧颊、耳朵、头部，耳道有异物感，始终不是最舒适的状态。长时间戴耳机、耳塞，又不注意清洁设备和耳朵，有可能导致中耳炎，请注意保护听力。
 - 音效还不错（对比类似价位的同类产品）；续航持久；无线连接迅速；防水，可以在浴室使用。
 
-### 护牙
+## 护牙
 
 **电动牙刷**：[Philips Sonicare DiamondClean Sonic Electric Rechargeable Toothbrush](https://www.amazon.com/Philips-Sonicare-DiamondClean-Rechargeable-HX9332/dp/B0052JN7XG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933357&sr=8-1&keywords=hx9332) <sup>Favorite</sup>
 
