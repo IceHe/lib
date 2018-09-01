@@ -2,9 +2,7 @@
 
 > Digital Millennium Copyright Act
 
-## References
-
-Reading
+References
 
 - [Takedown Policy](https://help.github.com/articles/dmca-takedown-policy/)
 - [Guide to Submitting a DMCA Takedown Notcie](https://help.github.com/articles/guide-to-submitting-a-dmca-takedown-notice/)
