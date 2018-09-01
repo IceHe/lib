@@ -97,7 +97,7 @@ http://www.sequelpro.com <sup>Free</sup>
 https://panic.com/transmit
 
 - FTP 的 GUI 工具。
-- （rsync 命令比 FTP 的效率高得多，用法也更丰富。一般情况下传输文件用 netcat 命令也够用。）
+- rsync 命令比 FTP 的效率高得多，用法也更丰富。一般情况下传输文件用 netcat 命令也够用。
 
 ## 办公
 
