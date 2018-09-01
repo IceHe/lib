@@ -2,21 +2,19 @@
 
 > Only list the useful keys that I’m unfamiliar with here.
 
-## References
-
 Offical Website
 
-- [Home](http://www.vim.org/)
-- [Docs](http://www.vim.org/docs.php)
+- Home : http://www.vim.org/
+- Docs : http://www.vim.org/docs.php
 
 Recommended
 
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Image
-- [SpaceVim](https://spacevim.org/) - Modern Vim Distribution
+- SpaceVim : https://spacevim.org/ - Modern Vim Distribution
 
-Mine
+My config files
 
-- [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc) ; for **Vim & NeoVim** in terminal
+- [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc) : for **Vim & NeoVim** in terminal
 - [.cvimrc](https://github.com/IceHe/mac-conf/blob/master/.cvimrc) : for Chrome **'cVim'** Plugin
 - [.ideavimrc](https://github.com/IceHe/mac-conf/blob/master/.ideavimrc) : for JetBrains **'IdeaVim'** Plugin
 
