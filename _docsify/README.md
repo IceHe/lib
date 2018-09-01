@@ -1,7 +1,5 @@
 # How to docsify
 
-## docsify
-
 [docsify](https://docsify.js.org/)
 
 - [Quickstart](https://docsify.js.org/#/quickstart)
