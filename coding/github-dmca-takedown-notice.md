@@ -5,9 +5,9 @@ I am a software engineer of [Weibo](https://weibo.com).
 Our web security team recently found an full repo
 which rights owned by us here:
 
-https://github.com/[TEMP_MASK]
+https://github.com/[USERNAME]/[PROJECT_NAME]
 
-Using `[TEMP_MASK]` as github search keyword can found it as well.
+Using `[MASK]` as github search keyword can found it as well.
 
 Finally, we figure out this is a repo that is an internal project of
 our team. Its commits are almost mine (IceHe / IceHe.me).
@@ -15,10 +15,10 @@ We are so sorry that due to my negligence.
 I ever pushed this onto GitHub, and have already removed
 as soon as I noticed there are something sensitive in it!
 
-But user `g5srpc` got this repo and pushed onto his GitHub account.
+But user `[USERNAME]` got this repo and pushed onto his GitHub account.
 But he doesn't show any public contact information on GitHub,
 and we cannot contact with him.
-We have already tried to search his id `g5srpc` on Internet.
+We have already tried to search his id `[USERNAME]` on Internet.
 
 So we decide to try to get in touch with Github DMCA Agent,
 and please help us to remove this repo permanentlly.
