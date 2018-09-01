@@ -7,7 +7,7 @@ Omit the unusual commands at my work.
 - 笔者不时得用上但常忘记的指令
 - 提要：`HEAD` 代表的是最近的一次提交（ [Refname](#Refname) ）
 
-## References
+References
 
 - [Git SCM](http://git-scm.com/) —— Official Site
 - [Git Book](http://git-scm.com/book/en/v2) - Official Guide 细致全面（[简体中文版](http://git-scm.com/book/zh/v2)）
