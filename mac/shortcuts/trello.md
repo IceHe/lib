@@ -1,6 +1,6 @@
 # Trello
 
-- [Trello](https://trello.com/)
+- https://trello.com/
 
 ## Navigate
 
