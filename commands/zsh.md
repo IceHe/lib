@@ -1,37 +1,33 @@
 # Zsh
 
-## References
-
 Offical
 
-- [Home](http://zsh.sourceforge.net/)
-- [Guide](http://zsh.sourceforge.net/Guide/)
-- [Docs](http://zsh.sourceforge.net/Doc/)
+- Zsh : http://zsh.sourceforge.net/
+    - Guide : http://zsh.sourceforge.net/Guide/
+    - Doc : http://zsh.sourceforge.net/Doc/
 
 Recommended
 
-- [oh-my-zsh](http://ohmyz.sh/)
+- Oh-my-zsh : http://ohmyz.sh/
 
-Mine
+My config files
 
 - mac-conf
     - [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc)
     - [.config/zsh/*.zsh](https://github.com/IceHe/mac-conf/tree/master/.config/zsh)
 
-## Emacs
-
-Emacs Mode
+## Emacs Mode
 
 - `^ a` Mv Cursor to Head of Line
 - `^ e` Mv Cursor to End of Line
 - `^ w` Del Word
 - `^ k` Del to End of Line
 - `^ u` Del Line
-- _`^ p` Backward Word_
-- _`^ n` Forward Word_
-- _`^ f` Mv Cursor Rg_ ( I use `Fn l` instead. )
-- _`^ b` Mv Cursor Lf_ ( I use `Fn h` instead. )
-- `^ h` Del Backward ⌫ ( I used to use `⌫`. )
+- `^ p` Backward Word
+- `^ n` Forward Word
+- `^ f` _Mv Cursor Rg ( I use `Fn l` instead. )_
+- `^ b` _Mv Cursor Lf ( I use `Fn h` instead. )_
+- `^ h` Del Backward ⌫ ( I used to use `⌫` )
 - `^ d` Del Forward ⌦ ( seldom used )
 - `^ l` Clear Screen
 
@@ -51,8 +47,6 @@ Emacs Mode
 
 ## Aliases
 
-Examples
-
 - `alias d='docker'`
 - `alias g='git'`
 - `alias gco='git checkout'`
@@ -67,3 +61,5 @@ Examples
 - …
 - `alias zl='cd ~/Documents'`
 - …
+
+See more in [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc) ( my config file )
