@@ -1,6 +1,6 @@
 # Chrome
 
-- [Chrome](https://www.google.com/chrome/)
+- https://www.google.com/chrome/
 
 ## Common
 
