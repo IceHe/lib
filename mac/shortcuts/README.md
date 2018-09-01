@@ -39,7 +39,7 @@
     - Press "⌘ 1" or "⌘ 2" to do the manipulation.
 - `⌘ 1`, `⌘ 2` Manipulation
     - Press "⌘ 1" then "⌘ 2" to do the manipulation.
-- Reference : [Abbrs & Symbols](coding/abbrs.md) e.g.:
+- Reference : [Abbrs & Symbols](coding/abbrs.md)
     - ⌘ : Command ( Cmd )
     - ⌥ : Option | Alt ( Opt )
     - ⇧ : Shift ( Shf )
