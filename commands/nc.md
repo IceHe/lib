@@ -2,10 +2,6 @@
 
 > **netcat** : arbitrary TCP and UDP connections and listens
 
-## References
-
-Recommended
-
 - [Linux Netcat 命令——网络工具中的瑞士军刀](https://www.oschina.net/translate/linux-netcat-command)
 
 ## Options
