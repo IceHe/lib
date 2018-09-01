@@ -2,9 +2,10 @@
 
 ## References
 
-- [Zsh](http://zsh.sourceforge.net/) / [Doc](http://zsh.sourceforge.net/Doc/)
-- [oh-my-zsh](http://ohmyz.sh/)
-- [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc) ( my config file )
+- Zsh : http://zsh.sourceforge.net/
+    - Doc : http://zsh.sourceforge.net/Doc/
+- oh-my-zsh : http://ohmyz.sh/
+- my config file : [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc)
 
 ## Emacs Mode
 
