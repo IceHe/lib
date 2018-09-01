@@ -1,6 +1,6 @@
 # Outlook
 
-- [Outlook](https://outlook.live.com/owa/)
+- https://outlook.live.com/owa/
 
 ## Usual
 
