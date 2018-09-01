@@ -8,7 +8,44 @@
 
 常见于类、方法、变量、命令等的命名…
 
-## A
+## Symbols
+
+### ASCII
+
+Other meanings
+
+- `&` : and
+- `|` : or
+- `@` : at
+- `~` : home direcotry
+- `*` : optional | wildcard character
+- `?` : maybe | candidate
+- `!` : not
+- `>` : next
+
+### Unicode
+
+- `` : Power
+- `⌘` : Command ( Cmd )
+- `⌥` : Option | Alt
+- `^` : Control | Ctrl
+- `⇧` : Shift ( Shf )
+- `⇪` : CapsLock
+- `⇥` : Tab
+- `⎋` : Escape ( Esc )
+- `↩` : Return ( Ret ) | Enter
+- `凵` : Space
+- `↑` : Up
+- `↓` : Down ( Dn )
+- `←` : Left ( Lf )
+- `→` : Right ( Rg )
+- `⌫` : Delete ( Del ) | Backspace
+- `0~9` : One of the digits 0 ~ 9
+- `a~z` : One of the alphabet a ~ z
+
+## Alphabet
+
+### A
 
 - abbr : abbreviation
 - ad : advertisement
@@ -18,14 +55,14 @@
 - asm : assembly
 - auth : authenticate
 
-## B
+### B
 
 - bak : backup
 - bat : batch
 - bin : binary
 - btm : bottom
 
-## C
+### C
 
 - ca : certificate authority | certificate agency
 - cal : call
@@ -44,7 +81,7 @@
 - ctrl : contrl
 - cur : current
 
-## D
+### D
 
 - dag : directed acyclic graph
 - dat : data
@@ -59,7 +96,7 @@
 - doc , docs : documentation
 - dw : double word
 
-## E
+### E
 
 - e.g. : for example
 - edt : edit
@@ -79,24 +116,24 @@
 - exp : experience
 - expr : expression
 
-## F
+### F
 
 - fmt : format
 - fn: function
 - func : function
 
-## G
+### G
 
 - gen : generate
 - gfm : Github Flavored Markdown
 
-## H
+### H
 
 - h : help
 - hex : heximal
 - hrs : hours
 
-## I
+### I
 
 - ico : icon
 - idc : internet data center 数据中心
@@ -111,14 +148,14 @@
 - ins : insert
 - int : integer | interrupt
 
-## J
+### J
 
 - jar : Java Archive file
 - jd : job description
 - jr : job requirement
 - js : javascript
 
-## L
+### L
 
 - lan : local area network
 - lang : language
@@ -131,7 +168,7 @@
 - lol : laugh out loud
 - lyt : layout
 
-## M
+### M
 
 - mc : memcached
 - md : markdown
@@ -142,11 +179,11 @@
 - msg : message
 - mv : move
 
-## N
+### N
 
 - num : number
 
-## O
+### O
 
 - oct : octal | October
 - op : operation | option
@@ -155,9 +192,10 @@
 - orm : object relational mapping
 - oth : others
 
-## P
+### P
 
 - pe : private capital
+- pf : prefix
 - preg : PECL regular expression
 - prev : previous
 - ptr : pointer
@@ -168,13 +206,13 @@
 - p.s. : postscript 附言
 - py : python
 
-## Q
+### Q
 
 - qa : quality assurance
 - Q & A : questions & answers
 - qps : queries per second
 
-## R
+### R
 
 - rb : ruby
 - rd : read | research development
@@ -196,7 +234,7 @@
 - rtt : round-trip time
 - rw : rewrite
 
-## S
+### S
 
 - s : silent
 - sec : second | secure , security
@@ -213,7 +251,7 @@
 - sym : symbol
 - sys : system
 
-## T
+### T
 
 - ta : teaching assistant
 - tb : team building
@@ -223,13 +261,13 @@
 - ts : timestamp
 - txt : plain text file
 
-## U
+### U
 
 - ue : user experience design
 - ui : user interface | user interaction
 - upd : update
 
-## V
+### V
 
 - v : verbose
 - val : value
@@ -237,13 +275,13 @@
 - vc : venture capital
 - vp : vice president 副总裁
 
-## W
+### W
 
 - w : word
 - wan : wide area network
 - win : window
 - wtf : what the fuck
 
-## Y
+### Y
 
 - yrs : years | yours
