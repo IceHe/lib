@@ -1,4 +1,4 @@
-### 核心应用
+# 核心应用
 
 [Keyboard Maestro](https://www.keyboardmaestro.com/main/) <sup>Geek , Best , Favorite</sup>
 
