@@ -1,7 +1,5 @@
 # Docker
 
-## Official Pages
-
 - Home : https://www.docker.com/
 - Docs : https://docs.docker.com/
 - Hub : https://hub.docker.com/
