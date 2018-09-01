@@ -1,6 +1,6 @@
-## 生活
+# 生活
 
-### 运动
+## 运动
 
 **羽球拍**：[Victor TK-ONIGIRI](http://www.victorsport.com.cn/product_data.php?id=bVjabyTqrMjj666zMjEk67dD4xSyq)
 
@@ -18,7 +18,7 @@
 - 最好 VC 面料，透汗、速干，便于清洗（个人汗量较大）；美观，除了运动，平时也可以穿。Under Armour 的也不错。
 - 紧身上衣、紧身裤、运动长裤：冬天也能好好地保持运动
 
-### 背包
+## 背包
 
 **大背包**：[Côte & Ciel Backpack](http://www.coteetciel.com/en-CN/isar-backpack-black-melange-laptop-bag) - 装电脑
 
@@ -38,7 +38,7 @@
 
 - 坐飞机看到旁边妹子背的这款包很好看。也在考虑 [Backpack、Backpack Mini](https://www.rains.dk/collections/backpacks)。
 
-### 日用
+## 日用
 
 **带 USB 口的插线板**（[米家](http://www.mi.com/powerstrip/)）- 充电
 
