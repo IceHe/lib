@@ -1,6 +1,6 @@
 # 2Do
 
-- [2Do](https://www.2doapp.com/) : I don't want to list all its shortcuts, as there are so many…
+- https://www.2doapp.com/
 
 ## Sync
 
