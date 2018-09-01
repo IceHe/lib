@@ -2,9 +2,7 @@
 
 > Changes not only the shortcuts but also the keyboard key-remappings!
 
-## References
-
-- [Home](https://pqrs.org/osx/karabiner/index.html)
+- https://pqrs.org/osx/karabiner/index.html)
 
 ## Remappings
 
