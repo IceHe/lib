@@ -2,6 +2,31 @@
 
 推荐参考，但并非强制执行的 Markdown 风格标准！
 
+## 参考 References
+
+### GFM
+
+[GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
+
+- 了解 GitLab 原生支持的 Markdown 语法
+
+### Style Guide
+
+> Highly recommend you to read these files below!
+
+Markdown Style：**Readability > Writability**
+
+- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide/)
+- [Google](https://github.com/google/styleguide/tree/gh-pages/docguide)
+    - [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)
+    - [Sytle Guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
+    - [Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
+
+### 中文排版
+
+- [写给大家看的中文排版指南](https://zhuanlan.zhihu.com/p/20506092)
+- [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
+
 ## 建议 Suggestions
 
 **Readability > Writability** : 易阅读 > 易编写
@@ -227,28 +252,3 @@ Markdown Lint Tool `mdl`
 [remark-lint](https://github.com/remarkjs/remark-lint)
 
 - 错误输出比 markdownlint 可读性更好
-
-## Refs
-
-### GFM
-
-[GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
-
-- 了解 GitLab 原生支持的 Markdown 语法
-
-### Style Guide
-
-> Highly recommend you to read these files below!
-
-Markdown Style：**Readability > Writability**
-
-- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide/)
-- [Google](https://github.com/google/styleguide/tree/gh-pages/docguide)
-    - [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)
-    - [Sytle Guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
-    - [Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
-
-### 中文排版
-
-- [写给大家看的中文排版指南](https://zhuanlan.zhihu.com/p/20506092)
-- [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
