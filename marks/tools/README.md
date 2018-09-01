@@ -29,8 +29,8 @@ App 选择原则
 
 笔者相关文章
 
-- 《[Mac 效率指南](../mac/efficiency.md)》
-- 《[Mac 快捷键](../mac/shortcuts.md)》
+- 《[Mac 效率指南](mac/efficiency.md)》
+- 《[Mac 快捷键](mac/shortcuts/README.md)》
 
 参考阅读
 
@@ -39,7 +39,7 @@ App 选择原则
 
 ### 常用
 
-[Common](marks/tools/common.md)
+[Common](mac/apps/common.md)
 
 ### 命令行
 
@@ -47,19 +47,19 @@ App 选择原则
 
 ### 软件开发
 
-[Development](marks/tools/development.md)
+[Development](mac/apps/development.md)
 
 ### 核心应用
 
-[Core-Apps](marks/tools/core-apps.md)
+[Core-Apps](mac/apps/core-apps.md)
 
 ### 系统增强
 
-[System-Enhanced](marks/tools/system-enhanced.md)
+[System-Enhanced](mac/apps/system-enhanced.md)
 
 #### 其它候选
 
-[App-Candidates](marks/tools/app-candidates.md)
+[App-Candidates](mac/apps/candidates.md)
 
 ### iOS
 
@@ -67,7 +67,7 @@ App 选择原则
 
 ### Chrome 插件
 
-[Chrome](marks/tools/chrome.md)
+[Chrome](mac/apps/chrome.md)
 
 ### Windows
 
