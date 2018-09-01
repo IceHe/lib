@@ -1,6 +1,6 @@
-## Other Apps
+# Other Apps
 
-### 2Do
+## 2Do
 
 [Official Reference](https://www.2doapp.com/)
 
@@ -48,7 +48,7 @@ Edit
 - _`⌘ r` Tags_
 - _`^ ⌘ ↑|↓` Move Up | Down_
 
-### Chrome
+## Chrome
 
 [Official Reference](https://www.google.com/chrome/browser/desktop/index.html)
 
@@ -75,7 +75,7 @@ Extension
 - `⌘ ⇧ C` Send Current Tab to One Tab
 - `⌘ ⇧ P` Activate SwitchyOmega
 
-#### cVim
+### cVim
 
 [Official Reference](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh?hl=en)
 
@@ -204,12 +204,12 @@ Others
 - `⎋` Cancel
 - `Q` Help ( Manual )
 
-### Dictionary
+## Dictionary
 
 - `⌘ ⇧ D` Look Up in Dictionary
 - `⌘ 0~9` Switch Dictionary
 
-### EuDict Free
+## EuDict Free
 
 [Official Reference](https://www.eudic.net/eudic/mac_dictionary.aspx)
 
@@ -219,7 +219,7 @@ Others
 - __`⌘ ⇧ L` Look up Selection__
 - __`⌘ ⇧ 2` Translate Selection__
 
-### MindNode
+## MindNode
 
 [Official Reference](https://mindnode.com/)
 
@@ -262,7 +262,7 @@ Select
 
 - `⌘ ⌥ a` All Subnodes
 
-### NeteaseMusic
+## NeteaseMusic
 
 [Official Reference](http://music.163.com/#/download)
 
@@ -274,7 +274,7 @@ Select
 - __`⌘ l` Dislike__
 - __`⌘ r` Show | Hide Lyrics__
 
-### Outlook
+## Outlook
 
 [Official Reference](https://outlook.live.com/owa/)
 
@@ -315,7 +315,7 @@ Filter
 - `⌘ ⇧ O` Unread
 - `⌘ ⌥ o` Flagged
 
-### QQ
+## QQ
 
 [Official Reference](http://im.qq.com/macqq/)
 
@@ -330,7 +330,7 @@ Filter
 - `⌘ 2` Switch to Contacts
 - `⌘ 3` Switch to Applications
 
-### Trello
+## Trello
 
 [Official Reference](https://trello.com/)
 
