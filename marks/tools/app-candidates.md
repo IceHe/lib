@@ -1,11 +1,9 @@
-### 其它候选
+# 其它候选
 
 - 连提及都没有价值的 Apps 在此就不一一列举了。
 - 放在这里的有一些公认很好的 Apps，但我不常用甚至觉得鸡肋，且看我的理由。
 
----
-
-系统增强
+## 系统增强
 
 [~~Alfred~~](https://www.alfredapp.com/) <sup>据称键盘党的神兵利器</sup>、[~~LaunchBar~~](https://www.obdev.at/products/launchbar/index.html) <sup>Historic</sup>
 
