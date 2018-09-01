@@ -14,9 +14,9 @@
 
 ## 软件
 
-主要介绍：macOS、[iOS](#iOS) 的 apps（下文 Apple 指代 macOS + iOS），还有少数几个 [Windows](#Windows) 的软件
+主要介绍 macOS、iOS 的 Apps
 
-App 选择原则
+**选择原则**
 
 - 「常用」的工具才值得折腾，不常用的凑合着用就行了。
 - 「实用」最重要，美观次之，价格别太贵就行。
@@ -27,49 +27,18 @@ App 选择原则
     - 开箱即用虽好，但我也认同「为了极致高效或完成复杂工作的工具而提高复杂度」的理念，例如 IDE、PS
     - 软件设置项合理够用就行，不一定非要很齐全，例如设置好各常用功能的快捷键，以便快速调用，或者将流程变得更自动化，以节省时间精力。
 
-笔者相关文章
+**软件列表**
 
-- 《[Mac 效率指南](mac/efficiency.md)》
-- 《[Mac 快捷键](mac/shortcuts/README.md)》
+- [常用](mac/apps/common.md)
+- [命令行](marks/tools/cli.md)
+- [软件开发](mac/apps/development.md)
+- [核心应用](mac/apps/core-apps.md)
+- [系统增强](mac/apps/system-enhanced.md)
+- [其它候选](mac/apps/candidates.md)
+- [iOS](marks/tools/ios.md)
+- [Chrome 插件](mac/apps/chrome.md)
 
-参考阅读
-
-- [少数派](http://sspai.com/) - 高质量 App 推荐媒体，关于 iOS、Mac、硬件。
-- [Best App](https://github.com/hzlzh/Best-App) - List in GitHub
-
-### 常用
-
-[Common](mac/apps/common.md)
-
-### 命令行
-
-[CLI](marks/tools/cli.md)
-
-### 软件开发
-
-[Development](mac/apps/development.md)
-
-### 核心应用
-
-[Core-Apps](mac/apps/core-apps.md)
-
-### 系统增强
-
-[System-Enhanced](mac/apps/system-enhanced.md)
-
-#### 其它候选
-
-[App-Candidates](mac/apps/candidates.md)
-
-### iOS
-
-[iOS](marks/tools/ios.md)
-
-### Chrome 插件
-
-[Chrome](mac/apps/chrome.md)
-
-### Windows
+Windows
 
 - [TortoisGit](https://tortoisegit.org/) - 便捷好用的 Git GUI 工具。
 - [Fiddler](http://www.telerik.com/fiddler) - [抓包工具](http://m.open-open.com/m/lib/view/1375954572906.html)。
@@ -79,6 +48,13 @@ App 选择原则
 - [Listary Pro](http://www.listary.com/) - 类似于 Everything，[各有优劣](http://www.iplaysoft.com/listary.html)。
 - [AutoHotkey](https://autohotkey.com/) - [全局快捷键设置工具](http://xbeta.info/autohotkey-guide-2.htm)。
 - 参考：[Windows常用软件推荐](http://wsgzao.github.io/post/windows/)
+
+参考阅读
+
+- [Mac 效率指南](mac/efficiency.md) ( mine )
+- [Mac 快捷键](mac/shortcuts/README.md) ( mine )
+- [少数派](http://sspai.com/) - 高质量 App 推荐媒体，关于 iOS、Mac、硬件。
+- [Best App](https://github.com/hzlzh/Best-App) - List in GitHub
 
 ---
 
