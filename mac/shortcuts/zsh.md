@@ -4,8 +4,8 @@
 
 - Zsh : http://zsh.sourceforge.net/
     - Doc : http://zsh.sourceforge.net/Doc/
-- oh-my-zsh : http://ohmyz.sh/
-- my config file : [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc)
+- Oh-my-zsh : http://ohmyz.sh/
+- My config file : [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc)
 
 ## Emacs Mode
 
