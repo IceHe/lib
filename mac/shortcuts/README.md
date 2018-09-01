@@ -112,12 +112,12 @@ Supported by
 ## Shortcut List
 
 - [macOS](mac/shortcuts/macos.md)
-- [Keyboard Maestro](keyboard-maestro.md)
-- [Karabiner-Elements](karabiner-elements.md)
-- [App Switcher](app-switcher.md)
-- [System Assistant](system-assistant.md)
-- [Development](development.md)
-- [Other Apps](other-apps.md)
+- [Keyboard Maestro](mac/shortcuts/keyboard-maestro.md)
+- [Karabiner-Elements](mac/shortcuts/karabiner-elements.md)
+- [App Switcher](mac/shortcuts/app-switcher.md)
+- [System Assistant](mac/shortcuts/system-assistant.md)
+- [Development](mac/shortcuts/development.md)
+- [Other Apps](mac/shortcuts/other-apps.md)
 
 ## Related Articles
 
