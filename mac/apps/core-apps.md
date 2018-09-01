@@ -1,6 +1,8 @@
 # 核心应用
 
-[Keyboard Maestro](https://www.keyboardmaestro.com/main/) <sup>Geek , Best , Favorite</sup>
+## Keyboard Maestro
+
+https://www.keyboardmaestro.com/main <sup>Geek , Best , Favorite</sup>
 
 - 高度自定义的效率工具，加速常用操作，甚至自动化。功能强大，用途甚广，限制你的只有你的想象力。
 - 替代用于 **快速启动、切换 Apps** 的 [~~Manico~~](http://manico.im/) <sup>Great</sup>、[~~Contexts~~](https://contexts.co/) <sup>Simple</sup>。
@@ -32,17 +34,21 @@
     - 可以编写脚本，控制自动化的理过，调用命令脚本、控制 GUI，判断系统状态如网路、蓝牙、电源连接等…… 减少人工的重复操作。
     - 参考：《 [懒的前提是要足够高效： Mac 效率工具Keyboard Maestro 详解 - 少数派](https://sspai.com/post/28721) 》
 
-[Karabiner-Elements](https://pqrs.org/osx/karabiner/index.html) <sup>Geek , Best , Favorite</sup>
+## Karabiner-Elements
+
+https://pqrs.org/osx/karabiner/index.html <sup>Geek , Best , Favorite</sup>
 
 - 强大、稳定的键位修改功能，预定义了大量奇巧的修改方案。键盘党神器！
 - 可自定义快捷键去启动、切换 App，打开文件和网址，快速输入关键词跳转到网站的搜索页，甚至运行 Shell 命令行。发挥想象力，配合上述的 Keyboard Maestro，还能做到更多的事。除了「键位修改」，其它繁杂的功能最好交给 Keyboard Maestro 或者 Shell 脚本来完成，用起来省心。
 - 我的配置 [karabiner.json](https://github.com/IceHe/mac-conf/blob/master/.config/karabiner/karabiner.json)
 
-Karabiner Event-Viewer
+## Karabiner Event-Viewer
 
 - 键盘码查询。不用查表，直接击键，即得出对应的键盘码和按键组合等。
 - 是 Karabiner-Elements 附带 App，用于调试键位、快捷键组合。
 
-[~~CheatSheet~~](https://www.mediaatelier.com/CheatSheet/) <sup>Tips, for freshman</sup>
+## ~~CheatSheet~~
+
+https://www.mediaatelier.com/CheatSheet <sup>Tips, for freshman</sup>
 
 - 快捷键快速提醒。长按 Command 键，显示当前程序的快捷键列表，方便快速入门 Mac 各处的快捷键。（新手专用）
