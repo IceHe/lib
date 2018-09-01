@@ -49,9 +49,13 @@ https://mindnode.com <sup>Powerful</sup>
 
 - 思维导图。( [Ref Above](#Common) )
 
-Notes <sup>Simple</sup>
+### Notes
 
-- iOS & macOS 自带的轻量级笔记应用，启动、编辑、同步迅速稳定，方便易用。
+- iOS & macOS 自带的轻量级笔记应用，启动、编辑、同步迅速稳定，方便易用。<sup>Simple</sup>
+
+### Notions
+
+- 专门用于做 Checklist
 
 ## 财务
 
@@ -76,11 +80,11 @@ https://qian.163.com <sup>Simple</sup>
 ### Outlook
 
 - 工作邮箱，主要用于设置邮箱服务器的邮件规则
-- （分类不同邮件，某些邮件标为已读）
+- 分类不同邮件，某些邮件标为已读
 
-### WeChat
+### 微信
 
-- 微信，主要用于支付、社交和碎片阅读（公众号）。<sup>Required for payment</sup>
+- 主要用于支付、社交和碎片阅读（公众号）。<sup>Required for payment</sup>
 - 能用微信小程序代替的 App 我都不下载。
     例如：大众点评、摩拜单车、嘀嘀出行、京东 等等。
 
@@ -91,10 +95,6 @@ https://office.qq.com <sup>Simple</sup>
 - 手机上简洁版的 QQ，腾讯官方出品。
 - 去除了多余的娱乐功能，保证基本的进阶功能使用，方便工作，如音频视频通话等。
 - 不过还是得留着原版的 QQ，TIM 还不支持 QQ 的授权登录操作…
-
-### 微信
-
-https://weixin.qq.com
 
 ## 阅读 & 学习
 
@@ -110,7 +110,9 @@ https://itunes.apple.com/us/app/kindle-read-books-ebooks-magazines/id302584613?m
 
 - Amazon 的电子书资源是最全面、最丰富的，喜欢读书的话，没有太多其它的选择。
 
-[~~多看阅读~~](http://www.duokan.com/)、[~~微信读书~~](https://weread.qq.com/)
+### ~~多看阅读~~
+
+http://www.duokan.com/
 
 - 阅读软件。可导入 PDF，带云存储，操作流畅，阅读体验一流。
 
@@ -132,12 +134,7 @@ http://open.163.com
 
 - 国内最好的公开课平台。
 
-### Castro 2
-
-- 泛用型博客客户端，收听个人播客自媒体，主要关于科技、技术、英语。
-    - 不安装知乎、微博之类的资讯阅读类 Apps，要看书或者文章就用 Mac 或实体书看。
-
-音乐 & 游戏 & 视频
+## 音乐 & 游戏 & 视频
 
 ### 网易云音乐
 
@@ -150,10 +147,6 @@ http://music.163.com <sup>Favorite</sup>
 http://www.bilibili.com <sup>Favorite</sup>
 
 - 现在看视频不带弹幕，就总觉得差点意思。
-
-[YouTube](https://www.youtube.com/yt/devices/)、[爱奇艺](http://www.iqiyi.com/)、[优酷](http://youku.com/)、[土豆](http://mobile.tudou.com/)
-
-[虾米音乐](http://www.xiami.com/)、[QQ 音乐](https://y.qq.com/)、[豆瓣 FM](https://douban.fm/)
 
 ## 安全
 
@@ -174,14 +167,6 @@ https://1password.com
 - 利用 iOS 提供的接口协助过滤；一般没必要安装，注意隐私就好。如有必要再装。
 
 ## 生活
-
-### 高德地图
-
-https://itunes.apple.com/cn/app/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E7%B2%BE%E5%87%86%E4%B8%93%E4%B8%9A%E7%9A%84%E6%89%8B%E6%9C%BA%E5%9C%B0%E5%9B%BE-%E8%87%AA%E9%A9%BE%E5%85%AC%E4%BA%A4%E9%AA%91%E8%A1%8C%E5%AF%BC%E8%88%AA/id461703208?mt=8
-
-- 各个地图 App 当中，个人觉得这个最美观、顺手。备用：腾讯地图，可以离线使用。
-
-[支付宝](https://mobile.alipay.com/index.htm)、[滴滴出行](http://www.xiaojukeji.com/index/index)、[美团外卖](http://waimai.meituan.com/)、[饿了么](https://www.ele.me/home/)、[大众点评](https://www.dianping.com/)
 
 ~~**联系人信息同步助手**~~
 
