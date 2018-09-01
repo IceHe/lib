@@ -1,12 +1,10 @@
-### Keyboard Maestro
+# Keyboard Maestro
 
-[Official Reference](https://www.keyboardmaestro.com/main/)
+## Reference
 
-Global Macro
+- [Home](https://www.keyboardmaestro.com/main/)
 
-- _`⌘ ^ ⇧ O` Toggle All Micro_
-
-Search in Web
+## Search in Web
 
 - `⌘ ^ ⇧ A` Amazon
 - `⌘ ^ ⇧ B` Baidu
@@ -18,13 +16,11 @@ Search in Web
 - `⌘ ^ ⇧ W` Weibo
 - `⌘ ^ ⇧ Z` Zhihu
 
-Abbrs
+## Abbr Expander
 
 - Regular : Type `|[a-zA-Z0-9]+` | `[a-zA-Z0-9]+|` → Extend | Rewrite …
 
----
-
-> Abbrs Examples (below)
+Abbrs Examples (below)
 
 Dates
 
