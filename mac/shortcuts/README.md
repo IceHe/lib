@@ -1,5 +1,7 @@
 # Mac Shorcuts
 
+TODO: to remove mac/shortcuts/*
+
 > macOS Shortcuts: 我的 macOS 快捷键列表。
 
 - Some explanation
