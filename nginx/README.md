@@ -2,8 +2,6 @@
 
 > a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server.
 
-## References
-
 - Home : https://www.nginx.com/
 - Wiki : https://www.nginx.com/resources/wiki/
 
