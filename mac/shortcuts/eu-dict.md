@@ -1,6 +1,6 @@
 # EuDict
 
-- [EuDict](https://www.eudic.net/eudic/mac_dictionary.aspx)
+- https://www.eudic.net/eudic/mac_dictionary.aspx
 
 Common
 
