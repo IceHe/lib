@@ -26,8 +26,8 @@ Curriculum Vitae
 
 工具控
 
-- [我的利器](../marks/tools.md) - Apps & 物件
-- [我的快捷键](../mac/shortcuts.md) - 默认 & 自定义
+- [我的利器](marks/tools/README.md) - Apps & 物件
+- [我的快捷键](mac/shortcuts/README.md) - 默认 & 自定义
 
 ---
 
