@@ -25,11 +25,26 @@
     - [Flossing has no proven benefits, so U.S. health department stops recommending the practice](http://www.nydailynews.com/life-style/no-floss-u-s-health-department-article-1.2735915)
 - 相关笔记 - [牙齿保健](_archived/read/tooth.md)
 
-### 加湿
+## 加湿
 
 **加湿器**：[PHILIPS Humidifier HU4801/00](https://item.jd.com/729822.html)
 
 - 北方春季、冬季湿度太低，需要加湿；不然鼻子和皮肤都不舒服。
+
+## 衣物
+
+特点
+
+- 运动型的速干T恤（汗多）
+- 一年四季穿长裤
+- 偏爱深色（显瘦）
+- 偏爱修身（人矮，避免显得更矮）
+
+## 鞋子
+
+**透气的慢跑鞋**（[Under Amour](https://www.underarmour.cn/p1285677-001.htm)） <sup>Favorite</sup>
+
+- 日常穿，轻便、柔软、透气、减震。
 
 ## 运动
 
@@ -61,10 +76,6 @@
 
 - 要大小适中、便宜、轻便不累赘，用来放伞、水、纸巾这些不方便揣口袋、拎手里的杂物。
 
-**骑行背包**（[迪卡侬](https://detail.tmall.com/item.htm?spm=a1z10.4-b-s.w5003-14623109746.39.6z07wX&id=37930654463&scene=taobao_shop&skuId=3157441268509)）
-
-- 背着大背包出行，容易汗流浃背。骑行、跑步甚至日常出行，我都喜欢使用这个小巧轻便的透气户外背包。
-
 **好看的背包**：[Rains Msn Bag](https://www.rains.dk/collections/backpacks/products/msn-bag?variant=16742951681) <sup>_wish_</sup>
 
 - 坐飞机看到旁边妹子背的这款包很好看。也在考虑 [Backpack、Backpack Mini](https://www.rains.dk/collections/backpacks)。
@@ -88,10 +99,6 @@
 [3M 子弹型耳塞](https://item.jd.com/617192.html)、**眼罩** - 安眠
 
 - 耳塞隔音，窗帘、床帘和眼罩遮光。
-
-**透气的慢跑鞋**（[Under Amour](https://www.underarmour.cn/p1285677-001.htm)） <sup>Favorite</sup>
-
-- 日常穿，轻便、柔软、透气、减震。
 
 **恒温电水壶**（[米家](https://www.mi.com/kettle/)）- 喝水
 
