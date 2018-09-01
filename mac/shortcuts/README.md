@@ -31,71 +31,28 @@
     - The items with superscript <sup>_custom_</sup> implies it might **be custom by me**.
     - _The italic item_ is **not frequently-used**.
 - `⌘ ⌥ a` Manipulation
-    Press "Cmd", "Opt" & "a" at the same time to do the manipulation .
+    - Press "Cmd", "Opt" & "a" at the same time to do the manipulation .
 - `A` Manipulation
 - `⇧ A` Manipulation
-    The capital letter "A" means pressing "Shf" & "a" at the same time !
+    - The capital letter "A" means pressing "Shf" & "a" at the same time !
 - `⌘ 1` | `⌘ 2` Manipulation
-    Press "⌘ 1" or "⌘ 2" to do the manipulation.
+    - Press "⌘ 1" or "⌘ 2" to do the manipulation.
 - `⌘ 1`, `⌘ 2` Manipulation
-    Press "⌘ 1" then "⌘ 2" to do the manipulation.
-
-### Abbrs & Symbols
-
-- Reference : [Abbreviations](coding/abbrs.md)
-- Abstract as follow
-
-Symbols
-
--  : Power
-- ⌘ : Command ( Cmd )
-- ⌥ : Option | Alt
-- ^ : Control | Ctrl
-- ⇧ : Shift ( Shf )
-- ⇪ : CapsLock
-- ⇥ : Tab
-- ⎋ : Escape ( Esc )
-- ↩ : Return ( Ret ) | Enter
-- 凵 : Space
-- ↑ : Up
-- ↓ : Down ( Dn )
-- ← : Left ( Lf )
-- → : Right ( Rg )
-- ⌫ : Delete ( Del ) | Backspace
-- 0~9 : One of the digits 0 ~ 9
-- a~z : One of the alphabet a ~ z
-
-Buttons
-
-- `Cmd` Command
-- `Ctrl` Control
-- `Esc` Escape
-- `Opt` Option
-- `Ret` Return
-- `Shf` Shift
-- `Del` Delete
-
-Directions & Positions
-
-- `Dn` Down
-- `Lf` left
-- `Rg` Right
-- `Prev` Previous
-- `Btm` Bottom
-
-Words
-
-- `App` Application
-- `Dir` Directory
-- `Mv` Move
-- `Rm` Remove
-- `Str` String
-- `Pf` Prefix
-
-Symbols
-
-- `&` And
-- `|` Or
+    - Press "⌘ 1" then "⌘ 2" to do the manipulation.
+- Reference : [Abbrs & Symbols](coding/abbrs.md) e.g.:
+    - ⌘ : Command ( Cmd )
+    - ⌥ : Option | Alt ( Opt )
+    - ⇧ : Shift ( Shf )
+    - `Dir` Directory
+    - `Mv` Move
+    - `Rm` Remove
+    - `Pf` Prefix
+    - `Dn` Down
+    - `Lf` left
+    - `Rg` Right
+    - `Prev` Previous
+    - `Btm` Bottom
+    - …
 
 ## macOS
 
