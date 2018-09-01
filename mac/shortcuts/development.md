@@ -7,16 +7,18 @@
 - Due to the help from `tmux` and `Zsh`, I don't need much support from `iTerm` as follows.
 - `⌘ 0~9` Switch Tab
 
-### PhpStorm
+### IntelliJ IDEA
 
-[Official Reference](https://www.jetbrains.com/phpstorm/)
 
 References
 
+- [Home Page](https://www.jetbrains.com/idea/)
 - Quick Guide : `PhpStorm` → `Help` → `Keymap Reference`
 - Advance Settings : `PhpStorm` → `Preferences…` → `Keymap`
 
-Refactor
+#### Common
+
+##### Refactor
 
 - `^ ⌥ t` Refactor This
 - `^ ⌥ o` Optimize Imports
@@ -33,7 +35,7 @@ Refactor
 - _`F5` Copy File_
 - _`F6` Move File_
 
-Code
+##### Code
 
 - _`^ 凵` Auto Complete_
 - `⌘ /` Line Comment
@@ -47,7 +49,7 @@ Code
 - _`^ ⇧ I` Inspect Code_
 - _`⌘ ⇧ V` Copy from History_
 
-Debug
+##### Debug
 
 - `^ ⇧ B` Toggle Line BreakPoint
 - `^ ⇧ E` Edit BreakPoint ( Break if conditional is true)
@@ -63,13 +65,13 @@ Debug
 - `^ ⇧ N` Resume Program ( Next BreakPoint )
 - `^ ⇧ J` Step Over ( Next Line )
 
-File
+##### File
 
 - `⌘ ⇧ C` Copy Path
 - `^ ⌥ r` Copy Reference ( `File:Line` | `Class::method()` )
 - _`⇧ ↩` Open in a new Editor Window_ ( in Project View)
 
-Find
+##### Find
 
 - `⌘ f` Find
 - `⌘ ⇧ F` Find in Paths
@@ -86,7 +88,7 @@ Find
 - _`⇧, ⇧` Search (Everything) Everywhere_
 - _`⌘ ⇧ A` Find Actions_
 
-Navigate
+##### Navigate
 
 - `F2` Next Highlighted Error
 - `⇧ F2` Prev Highlighted Error
@@ -112,7 +114,7 @@ Navigate
 - `⌘ 6` Todo
 - `⌘ 7` Structure
 
-VCS: History & Compare
+##### VCS: History & Compare
 
 - `^ ⌥ l` Local History -> Show History
 - `^ ⌥ a` Git -> Annotate
@@ -124,7 +126,7 @@ VCS: History & Compare
 - _`^ ⇧ C` Commit Project to VCS_
 - _`⌘ ⌥ g` 'VCS' Operations Quick Popup_
 
-Tools
+##### Tools
 
 - `⌘ ^ h` Hide All Tool Windows
 - _`^ ⌥ q` Terminal_
@@ -139,12 +141,12 @@ Tools
 - Its most keys are the same as Vim, so I just list my custom keys.
 - My config file [__.ideavimrc__](https://github.com/IceHe/mac-conf/blob/master/.ideavimrc)
 
-Ctags Like
+##### Ctags Like
 
 - `^ ]` Find Declaration
 - `^ t` Back from Declaration
 
-Tab
+##### Tab
 
 - `H` Prev Tab
 - `L` Next Tab
@@ -160,6 +162,8 @@ Tab
 - `,` `9` = `19gt`
 - `,` `0` = `20gt`
 
+##### Emacs-like
+
 Mimic Emacs in Insert Mode:
 
 - `^ b` = `←`
@@ -172,7 +176,7 @@ Mimic Emacs in Insert Mode:
 - `^ u` Del to Head of Line
 - `^ t` Exchange Chars ( Before & After Cursor )
 
-Vim-Surround
+##### Vim-Surround
 
 - `ds*` Delete Surround
     - such as `ds'` `ds"` `ds[` `ds{` <code>ds\`</code> `dst` ( `t` for HTML Tag ) …
@@ -185,7 +189,7 @@ Vim-Surround
     - 2rd `*` for New Surround Char
     - such as `cs'"` `cs[{` `cst<p>`…
 
-Others
+##### Others
 
 - `^ r` = `:redo<CR>` Redo
 - `⇧ K` = `Jx` Join curren line and next line without breaking concated spacing
@@ -202,12 +206,12 @@ Others
 
 [Official Reference](https://www.sublimetext.com/)
 
-Cursor Position
+#### Cursor Position
 
 - `^ i` Jump Forward
 - `^ o` Jump Backword
 
-Find & Replace
+#### Find & Replace
 
 - `⌘ f` Find
 - `⌥ ↩` Find All
@@ -218,34 +222,34 @@ Find & Replace
 - `⌘ ⌥ r` Toggle Regular Expression
 - `⌘ ⌥ c` Toggle Case Sensitive
 
-Selection
+#### Selection
 
 - `⌘ d` Expand Selection to Word
 - `^ ⇧ M` Expand Selection to Brackets
 - `⌘ ⇧ L` Split into Lines
 - _`^ l` Scroll to the Selection_
 
-Bookmarks
+#### Bookmarks
 
 - `⌘ F2` Toggle Bookmark
 - `F2` Next Bookmark
 - `⇧ F2` Prev Bookmark
 - `⌘ ⇧ F2` Clear All Bookmarks
 
-Layout
+#### Layout
 
 - `⌘ ⌥ 1~4` 1~4 Columns
 - _`⌘ ⌥ 5` Grid_
 - _`⌘ ⌥ ⇧ 2~3` 2~3 Rows_
 
-Command Palette…
+#### Command Palette…
 
 - `⌘ p` Quick Open File
 - `⌘ ⇧ P` Command Palette…
 - `⌘ ⇧ C` Copy File Path
 - `^ s` Trim Trailing Whitespace
 
-Sidebar
+#### Sidebar
 
 - `⌘ k` `⌘ b` Toggle Sidebar
 
@@ -253,7 +257,7 @@ Sidebar
 
 [Official Reference](https://www.charlesproxy.com/)
 
-Proxy
+#### Proxy
 
 - `⌘ r` [ Start | Stop ] Recording
 - _`⌘ t` Start | Stop Throttling_
@@ -262,7 +266,7 @@ Proxy
 - _`⌘ ⇧ k` Breakpoint Settings_
 - _`⌘ ⇧ p` macOS Proxy_
 
-Session
+#### Session
 
 - `⌘ ⌫` Clear
 - _`⌘ o` Open_
@@ -271,7 +275,7 @@ Session
 - _`⌘ ⇧ s` Save As …_
 - _`⌘ l` Error Log_
 
-View
+#### View
 
 - `⌘ 1` Overview
 - `⌘ 2` Request
@@ -284,7 +288,7 @@ View
 - _`⌘ 6` Note_
 - _`⌘ ⇧ V` Viewer Mappings_
 
-Tools
+#### Tools
 
 - `⌘ ⇧ R` Repeat
 - `⌘ ⇧ D` DNS Spoofing Settings <sup>_custom_</sup>
