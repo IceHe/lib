@@ -1,4 +1,4 @@
-### Chrome 插件
+# Chrome 插件
 
 有必要使用的浏览器插件不多。例如，[Greasemonkey](http://www.greasespot.net/)、Stylish 等就不建议折腾。
 
