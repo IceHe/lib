@@ -1,5 +1,9 @@
 # Java
 
+Related
+
+Maven
+
 ## Glossary
 
 ### JEE
@@ -147,7 +151,7 @@ Getter & Setter
 
 A free Java Development Environment designed for beginners, used by millions worldwide.
 
-### Java Others
+### Others
 
 JNDI : Java Naming and Directory Interface
 
