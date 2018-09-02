@@ -15,6 +15,6 @@ References
 
 DMCA Takedown Notice from Weibo
 
-[DMCA Takedown Notice from Weibo](github-dmca-takedown-notice.md ':include :type=code markdown')
+[DMCA Takedown Notice from Weibo](takedown-notice.md ':include :type=code markdown')
 
 Another Weibo Notice : https://github.com/github/dmca/blob/master/2015/2015-11-13-Weibo.md
