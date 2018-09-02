@@ -295,7 +295,7 @@ end start
 
 一般，显示第0页，即是内存B8000H~B8F9FH的内容。
 
-关于显示缓冲区，详细参考：[Note 6](../asm/asm-learning-note-6.md) 文末的图
+关于显示缓冲区，详细参考：[Note 6](asm/asm-learning-note-6.md) 文末的图
 
 ### 13.7 DOS 中断例程的应用
 

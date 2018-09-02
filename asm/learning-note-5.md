@@ -20,7 +20,7 @@ sreg（segment register）段寄存器：
 
 - ds、ss、cs、es
 
-reg、sreg 详见 [Note 2](../asm/learning-note-2.md)
+reg、sreg 详见 [Note 2](asm/learning-note-2.md)
 
 ### 8.1 bx，si，di 和 bp
 
@@ -52,7 +52,7 @@ reg、sreg 详见 [Note 2](../asm/learning-note-2.md)
 
 ### 8.4 寻址方式
 
-详见 [Note 2](../asm/learning-note-4.md) 7.5 开始的地方
+详见 [Note 2](asm/learning-note-4.md) 7.5 开始的地方
 
 ### 8.5 指令要处理的数据有多长
 

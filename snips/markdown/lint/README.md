@@ -49,6 +49,6 @@ docker push icehe/markdownlint
 
 File : markdown/lint/Dockerfile
 
-[markdown/lint/Dockerfile](../../markdown/lint/Dockerfile ':include :type=code docker')
+[markdown/lint/Dockerfile](Dockerfile ':include :type=code docker')
 
 My image : [icehe/markdownlint](https://hub.docker.com/r/icehe/markdownlint) @ hub.docker.com

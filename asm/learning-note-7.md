@@ -289,7 +289,7 @@ code ends
 end start
 ```
 
-参照了 [Note 6 实验 9](../asm/learning-note-6.md#实验9-根据材料编程)
+参照了 [Note 6 实验 9](asm/learning-note-6.md#实验9-根据材料编程)
 
 Attachment 附件：[汇编语言第十章实验10.1.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.1.asm)
 
