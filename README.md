@@ -26,8 +26,8 @@ Markdown
 
 Others
 
-- Init.d - [Simple HTTP Service](init/init.d/README.md)
-- Nginx - [HTTP Server](nginx/README.md)
+- Init.d - [Simple HTTP Service](snips/init.d/README.md)
+- Nginx - [HTTP Server](snips/nginx/README.md)
 - Web - [How to docsify](_docsify/README.md)
 
 Storage (TEST)
@@ -124,7 +124,7 @@ Batch 批处理
 
 Others
 
-- PHP - [Functions & Scripts](php/README.md)
+- PHP - [Functions & Scripts](scripts/php/README.md)
 - Python 3 - [Quick Start](scripts/python/quick-start.md)
 - JavaScript - [Optimize some code](scripts/javascript/optimize-some-code.md)
 
