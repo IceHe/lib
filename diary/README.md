@@ -5,18 +5,18 @@
 Target
 
 - Life
-    1. Ability to schedule time ( related to work )
-    2. Sleep Early
+    - 1\. Ability to schedule time ( related to work )
+    - 2\. Sleep Early
 - Study
-    1. Get started with Java
+    - 1\. Get started with Java
         - Spring & Spring Boot / api-common / harmonia / motan
             - jedis / mysql / kafka
         - Java Basic :《技术详解》卷 2
-    2. Make Lib better ( ?details )
+    - 2\. Make Lib better ( ?details )
         - ? summary past (meaningful knowledege & thoughts)
 - Work
-    1. Pass work trial period!
-    2. Finish job on time
+    - 1\. Pass work trial period!
+    - 2\. Finish job on time
 
 Weeks
 
