@@ -1,5 +1,7 @@
 # Redis
 
+> REmote DIctionary Server
+
 - Redis : https://redis.io
     - Commands : https://redis.io/commands
     - Documentation : https://redis.io/documentation
