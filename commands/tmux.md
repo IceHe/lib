@@ -4,7 +4,9 @@
 
 - Home : https://tmux.github.io/
 - Manual : http://man.openbsd.org/OpenBSD-current/man1/tmux.1
-- My config file : [.tmux.conf](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf)
+- My config file :
+    - [.tmux.conf](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf) on macOS
+    - .tmux.conf on Linux distributions (TODO)
 
 ## Shortcuts
 
