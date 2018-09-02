@@ -30,6 +30,7 @@ Others
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [HTTP Server](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
+- Redis - [Notes](redis/README.md)
 - Web - [How to docsify](_docsify/README.md)
 
 <!--
