@@ -28,19 +28,19 @@ Web
 
 - Init.d - [Simple HTTP Service](snips/init.d/README.md)
 - Nginx - [HTTP Server](snips/nginx/README.md)
-- [IP address](snips/web/ip.md)
+- [IP address](snips/ip.md)
 - [How to docsify](_docsify/README.md)
 
 Storage
 
-- Redis - [Notes](snips/redis/README.md) (TODO)
-- MySQL - [Notes](snips/mysql/README.md) (TODO)
+- [Redis](snips/redis/README.md) Notes (TODO)
+- [MySQL](snips/mysql/README.md) Notes (TODO)
 
 Java
 
-- Glossary : [Notes](snips/java/README.md) (TODO)
-- Maven : [Notes](snips/java/maven.md) (TODO)
-- Spring : [Notes](snips/java/spring.md) (TODO)
+- [Glossary](snips/java/README.md) Notes (TODO)
+- [Maven](snips/java/maven.md) Notes (TODO)
+- [Spring](snips/java/spring.md) Notes (TODO)
 
 <!-- - [Code Style](_tmp/java-code-style.tmp.md) ( To-Rewrite ) -->
 
