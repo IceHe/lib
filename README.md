@@ -12,8 +12,7 @@ Coding
 - [Regular Expressions](coding/regex.md)
 - [Work Flow](coding/work-flow.md)
 - [GitHub DMCA](coding/github-dmca.md)
-
-<!-- - [WB Bootcamp Note](coding/wb-bootcamp_tmp.md) ( TEMP ) -->
+- [Glossary](coding/glossary.md) (TEST)
 
 Docker
 
@@ -30,20 +29,20 @@ Others
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [HTTP Server](nginx/README.md)
 - PHP - [Functions & Scripts](php/README.md)
-- Redis - [Notes](redis/README.md)
 - Web - [How to docsify](_docsify/README.md)
 
-<!--
+Storage (TEST)
 
-Java ( TODO )
+- Redis - [Notes](redis/README.md)
+- MySQL - [Notes](mysql/README.md)
 
-- [Glossary](java/glossary.md) : Basic Concepts
-- Basics ( Knowledge )
-- [Frameworks & Technology](java/frameworks-n-tech.md) : Open Source
-- [Spring Boot](java/spring-boot.md) : Quick Start
-- [Code Style](java/code-style_tmp.md) ( To-Rewrite )
+Java (TEST)
 
--->
+- Glossary : [Notes](java/README.md)
+- Maven : [Notes](java/maven.md)
+- Spring : [Notes](java/spring.md)
+
+<!-- - [Code Style](java/code-style_tmp.md) ( To-Rewrite ) -->
 
 ### Mac
 
