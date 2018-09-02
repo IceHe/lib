@@ -16,7 +16,7 @@
 
 主要介绍 macOS、iOS 的 Apps
 
-**选择原则**
+### 选择原则
 
 - 「常用」的工具才值得折腾，不常用的凑合着用就行了。
 - 「实用」最重要，美观次之，价格别太贵就行。
@@ -27,7 +27,7 @@
     - 开箱即用虽好，但我也认同「为了极致高效或完成复杂工作的工具而提高复杂度」的理念，例如 IDE、PS
     - 软件设置项合理够用就行，不一定非要很齐全，例如设置好各常用功能的快捷键，以便快速调用，或者将流程变得更自动化，以节省时间精力。
 
-**软件列表**
+### 详情列表
 
 - [常用](mac/apps/common.md)
 - [命令行](marks/tools/cli.md)
@@ -49,14 +49,12 @@ Windows
 - [AutoHotkey](https://autohotkey.com/) - [全局快捷键设置工具](http://xbeta.info/autohotkey-guide-2.htm)。
 - 参考：[Windows常用软件推荐](http://wsgzao.github.io/post/windows/)
 
-参考阅读
+### 参考阅读
 
 - [Mac 效率指南](mac/efficiency.md) ( mine )
 - [Mac 快捷键](mac/shortcuts/README.md) ( mine )
 - [少数派](http://sspai.com/) - 高质量 App 推荐媒体，关于 iOS、Mac、硬件。
 - [Best App](https://github.com/hzlzh/Best-App) - List in GitHub
-
----
 
 ## 硬件
 
@@ -66,6 +64,4 @@ Windows
 
 [Life](marks/tools/life.md)
 
-> 君子生非异也，善假于物也。
->
-> **荀子**
+> 君子生非异也，善假于物也。—— **荀子**
