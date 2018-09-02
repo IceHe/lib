@@ -142,17 +142,6 @@ Others
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
 <!--     - 华南理工 / 软件工程 / 本科 -->
 
-### Past
-
-- [2017 Summer to Winter](past/2017-summer-2-winter.md)
-- [2017 Spring](past/2017-spring.md)
-- [2016 Winter](past/2016-winter.md)
-- [2016 Fall](past/2016-fall.md)
-- [2016 Spring & Summer](past/2016-summer.md)
-- [Bye 2015](past/2015-bye.md)
-- [Moments](past/moments.md) : 回忆
-- [Old Blog](past/old-blog.md) : 旧博索引
-
 ### Friends
 
 - [Jan Fan](http://janfan.cn/) : good student / little NLP / Tencent / studying @ Finland
@@ -168,6 +157,17 @@ Blog
 - [Tech Blog](https://icehe.me) : icehe.me ( previous )
 - [How to Build Blog](_archived/blog/build-blog.md) : 搭建博客
 - [Blog Changlogs](_archived/blog/blog-changelog.md) : 折腾博客
+
+Past
+
+- [2017 Summer to Winter](_archived/past/2017-summer-2-winter.md)
+- [2017 Spring](_archived/past/2017-spring.md)
+- [2016 Winter](_archived/past/2016-winter.md)
+- [2016 Fall](_archived/past/2016-fall.md)
+- [2016 Spring & Summer](_archived/past/2016-summer.md)
+- [Bye 2015](_archived/past/2015-bye.md)
+- [Moments](_archived/past/moments.md) : 回忆
+- [Old Blog](_archived/past/old-blog.md) : 旧博索引
 
 ~~Time Management~~
 
