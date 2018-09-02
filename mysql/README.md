@@ -4,7 +4,7 @@
 
 ## Q & A
 
-Create User
+### Create User
 
 ```bash
 # login as root user
@@ -19,3 +19,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
 # if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
 mysql_upgrade -u root -p
 ```
+
+### SERIAL
+
+SQL `SERIAL` TYPE
+
+- an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
