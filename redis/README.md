@@ -104,3 +104,21 @@ Q & A
 
 - SET without expiry ( [ref](https://stackoverflow.com/questions/40019390/redis-set-with-option-without-expiry) )
     - Send `set` command without `EX` option
+
+## Other Notes
+
+部分基本知识：
+
+1. 任何二进制的序列都可以作为 key 使用
+2. Redis 有统一的规则来设计 key
+3. 对 key-value 允许的最大长度是 512MB
+
+应用场景：
+
+1. 最常用的就是 __会话缓存__
+2. __消息队列__，比如支付
+3. 活动 __排行榜__ 或 __计数__
+4. __发布、订阅__ 消息（消息通知）（pubsub？）
+5. 商品列表、评论列表等
+
+ref : https://www.itcodemonkey.com/article/3506.html
