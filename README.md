@@ -8,11 +8,11 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 
 Coding
 
-- [Abbreviations](coding/abbrs.md)
-- [Regular Expressions](coding/regex.md)
-- [Work Flow](coding/work-flow.md)
-- [GitHub DMCA](coding/github-dmca.md)
-- [Glossary](coding/glossary.md) (TEST)
+- [Abbreviations](snips/abbrs.md)
+- [Work Flow](snips/work-flow.md)
+- [Regular Expressions](snips/regex.md) (TODO)
+- [Glossary](snips/glossary.md) (TODO)
+- [GitHub DMCA](snips/github-dmca/README.md)
 
 Docker
 
@@ -24,25 +24,25 @@ Markdown
 - [Style Guide](snips/markdown/README.md)
 - [Lint Tool : mdl](snips/markdown/lint/README.md)
 
-Others
+Web
 
 - Init.d - [Simple HTTP Service](snips/init.d/README.md)
 - Nginx - [HTTP Server](snips/nginx/README.md)
-- Web - [How to docsify](_docsify/README.md)
-- Internet - [IP address](snips/web/ip.md)
+- [IP address](snips/web/ip.md)
+- [How to docsify](_docsify/README.md)
 
-Storage (TEST)
+Storage
 
-- Redis - [Notes](snips/redis/README.md)
-- MySQL - [Notes](snips/mysql/README.md)
+- Redis - [Notes](snips/redis/README.md) (TODO)
+- MySQL - [Notes](snips/mysql/README.md) (TODO)
 
-Java (TEST)
+Java
 
-- Glossary : [Notes](snips/java/README.md)
-- Maven : [Notes](snips/java/maven.md)
-- Spring : [Notes](snips/java/spring.md)
+- Glossary : [Notes](snips/java/README.md) (TODO)
+- Maven : [Notes](snips/java/maven.md) (TODO)
+- Spring : [Notes](snips/java/spring.md) (TODO)
 
-<!-- - [Code Style](java/code-style_tmp.md) ( To-Rewrite ) -->
+<!-- - [Code Style](_tmp/java-code-style.tmp.md) ( To-Rewrite ) -->
 
 ### Mac
 
