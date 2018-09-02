@@ -1,10 +1,6 @@
 # MySQL
 
-> TODO
-
-## Q & A
-
-### Create User
+## Create User
 
 ```bash
 # login as root user
@@ -20,7 +16,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
 mysql_upgrade -u root -p
 ```
 
-### SERIAL
+## SERIAL
 
 SQL `SERIAL` TYPE
 
