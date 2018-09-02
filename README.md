@@ -152,13 +152,13 @@ Others
 
 ## Archived
 
-Blog
+### Blog
 
 - [Tech Blog](https://icehe.me) : icehe.me ( previous )
 - [How to Build Blog](_archived/blog/build-blog.md) : 搭建博客
 - [Blog Changlogs](_archived/blog/blog-changelog.md) : 折腾博客
 
-Past
+### Past
 
 - [2017 Summer to Winter](_archived/past/2017-summer-2-winter.md)
 - [2017 Spring](_archived/past/2017-spring.md)
@@ -168,6 +168,8 @@ Past
 - [Bye 2015](_archived/past/2015-bye.md)
 - [Moments](_archived/past/moments.md) : 回忆
 - [Old Blog](_archived/past/old-blog.md) : 旧博索引
+
+---
 
 ~~Time Management~~
 
