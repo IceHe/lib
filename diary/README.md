@@ -2,18 +2,9 @@
 
 ## 2018
 
-Plans & Reviews
-
-- <diary/w35-w36-0825-0902.md>
-- w34 none
-- <diary/w33-0813-0819.md>
-- <diary/w32-0813-0819.md>
-- <diary/w31-0730-0805.md>
-
-Deadline
-
-- 08/19 lib
-    - move content from 'blog' to 'lib'
-    - format content
-    - update content
-- 08/31 future plan
+- [w31-0730-0805.md](diary/w31-0730-0805.md)
+- [w32-0806-0812.md](diary/w32-0806-0812.md)
+- [w33-0813-0819.md](diary/w33-0813-0819.md)
+- week 34 none
+- [w35-w36-0825-0902.md](diary/w35-w36-0825-0902.md)
+- [w36-0903-0909.md](w36-0903-0909.md)
