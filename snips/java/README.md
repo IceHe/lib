@@ -1,9 +1,5 @@
 # Java
 
-Related
-
-Maven
-
 ## Glossary
 
 ### JEE
