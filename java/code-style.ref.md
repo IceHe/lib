@@ -1,5 +1,7 @@
 # Java Code Style
 
+> TODO : rewrite then publish
+
 ## Readability
 
 ### Naming
