@@ -16,24 +16,25 @@ Coding
 
 Docker
 
-- [Intro](docker/README.md) : build & push images
-- [Alpine Linux](docker/alpine/README.md) : minimal OS image
+- [Intro](snips/docker/README.md) : build & push images
+- [Alpine Linux](snips/docker/alpine/README.md) : minimal OS image
 
 Markdown
 
-- [Style Guide](markdown/README.md)
-- [Lint Tool : mdl](markdown/lint/README.md)
+- [Style Guide](snips/markdown/README.md)
+- [Lint Tool : mdl](snips/markdown/lint/README.md)
 
 Others
 
 - Init.d - [Simple HTTP Service](snips/init.d/README.md)
 - Nginx - [HTTP Server](snips/nginx/README.md)
 - Web - [How to docsify](_docsify/README.md)
+- Internet - [IP address](snips/web/ip.md)
 
 Storage (TEST)
 
-- Redis - [Notes](redis/README.md)
-- MySQL - [Notes](mysql/README.md)
+- Redis - [Notes](snips/redis/README.md)
+- MySQL - [Notes](snips/mysql/README.md)
 
 Java (TEST)
 
