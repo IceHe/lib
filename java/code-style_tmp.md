@@ -1,12 +1,8 @@
-# 代码风格要求
+# Java Code Style
 
-- 必须 must
-- 禁止 must not
-- 建议 suggest
+## Readability
 
-## 可读性
-
-### 命名
+### Naming
 
 驼峰命名法 Camel Case
 
@@ -165,7 +161,7 @@ Translatable // 接口
 AbstractTranslator implements Translatable // 实现类
 ```
 
-### 代码格式
+### Formatting
 
 所有人使用统一的代码格式化工具，对代码进行格式化。避免在 MR 中出现不必要的 diff ，或者出现不必要的冲突。
 
@@ -363,7 +359,7 @@ final 可以声明类、成员变量、方法、以及本地变量，下列情�
 - 类成员方法只供类内部调用，必须是 private
 - 类成员方法只对继承类公开，那么限制为 protected
 
-### 注释
+### Comment
 
 代码中的注释不必面面俱到，更多的情况是通过清晰的代码结构，和命名规范来“说明”代码的功能。
 
@@ -493,11 +489,11 @@ public abstract class SpringBootServletInitializer
 }
 ```
 
-## 可维护
+## Maintaability
 
-### 集合操作
+### Collection
 
-#### 构建
+#### Build
 
 集合类除了构建过程中可以使用具体类，其它地方应该使用接口，而不是具体实现类。
 
@@ -572,7 +568,7 @@ List<E> concurrentMap = new ArrayList<>();
 Set<E> concurrentSet = new HashSet<>());
 ```
 
-#### 元素
+#### Element
 
 集合中的元素如果是自定义的类型，该类需要同时实现 `hashCode()` 和 `equals(Object)` 方法，定义业务级两个对象判断相同的条件。如果没有定义这两个方法，则会以是否为同一个 Java 对象作为判断是否相同的条件，大多数情况下它们都与期望的业务逻辑不同。
 
@@ -622,9 +618,9 @@ void method(List<E> list) {
 
 尽量不添加 `null` 。有些集合实现不支持将 `null` 作为元素或 key 或 value 的，当尝试加入的时候，则会抛出 `NullPointerException` 。需要放 `null` 的时候，需要上下文中能推断出来相应的集合支持 `null` （这种方式不推荐，因为我们希望使用时基于接口，而不基于实现）。
 
-### 并发
+### Concurrent
 
-#### 线程
+#### Thread
 
 同类线程需要不止一个时，不允许手动创建线程，应该使用线程池。线程池可以控制线程的数量，避免创建了过多的线程。
 
@@ -658,7 +654,7 @@ Thread.sleep(timeUnit.toMillis(delay), delay);
 task.run();
 ```
 
-#### 竞争
+#### Competition
 
 尽量减小竞争资源的使用，无法避免时，应该将减小临界区的粒度。能用无锁数据结构，就不要用锁；能锁区块，就不要锁整个方法体；能用对象锁，就不要用类锁；能用共享锁，就不要用互斥锁。
 
@@ -732,7 +728,7 @@ DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
 当多线程都需要使用 `Random` 的时候，使用 `ThreadLocalRandom` 的实现。 `Random` 的每次调用都会竞争该对象持有的 `seed` ，导致性能下降。
 
-#### 资源
+#### Resource
 
 当数据写进 `db`、`redis` 之后，不要立即从从库中读取值。建议直接使用内存用于更新的值。如果一定需要从 `db` 或者 `redis` 中读取一个值，则考虑从主库中读取。
 
@@ -744,15 +740,15 @@ DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
 直接将新值作为一个长缓存设置到缓存中的话，如果有两个并发的更新同时发生的时候，有可能缓存中最后保留的不是最终的更新结果。
 
-### 模块划分
+### Module Division
 
 1. 按层次分：`web` / `service` / `storage`，各自组织成一个模块。
 2. 有些实用类，包括业务逻辑，需要在项目内共用，要提出来做为单独的模块。
 3. 避免重复的模块，比如同时有 `util` 和 `tool` 模块。
 
-### 单元测试
+### Unit Test
 
-#### 概论
+#### Introdution
 
 单元测试的作用是测试被测单元的逻辑。即当某些条件发生时的外在表现，不关心如果内部实现的机制。所以写测试用例的时候，需要明确被测方法的边界，然后才能明确验证点。
 
@@ -773,7 +769,7 @@ DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 - JUnit, TestNG, Spock
 - Mock 工具：EasyMock, Mockito, PowerMock, Spock
 
-#### 范围
+#### Scope
 
 私有方法不写单元测试，私有方法的逻辑需要通过公有方法的单测覆盖。因为私有方法可以理解为是非私有方法的实现机制的一部分，而不是外在表现的一部分
 
@@ -856,7 +852,7 @@ def "test storage"() {
 }
 ```
 
-#### 测试内容
+#### How to Test
 
 测试用例的方法名需要能表达测试的意图
 
@@ -920,9 +916,9 @@ class MyTest extends Specification {
 }
 ```
 
-## 可发布
+## Releaseability
 
-### 日志
+### Log
 
 统一使用 SLF4J 框架获得 logger ，代码里不应该直接依赖 log4j、commons-logging 等日志框架。
 
@@ -1000,7 +996,7 @@ catch(WeiboMessageException e){
 
 所有外部调用的请求及返回应当打印 info 或 debug 日志，避免出现异常后无法排查问题。
 
-### 异常处理
+### Exception Handling
 
 执行长期任务的线程（如队列处理线程）需要在最外围捕获 Throwable，避免线程崩溃后无法排查原因。
 
@@ -1023,7 +1019,3 @@ while(true){
     }
 }
 ```
-
-## 可扩展
-
-### 结构设计
