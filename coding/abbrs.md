@@ -72,6 +72,7 @@ Other meanings
 - cmd : command
 - cmp : compare
 - cmt : comment
+- cnt : count
 - conf : configuration
 - conv : convert
 - cp : copy
@@ -107,7 +108,7 @@ Other meanings
 - eol : end of line
 - err : error
 - esc : escape
-- etc. : et cetera (aka. and so on) 等等
+- etc. : et cetera (aka. and so on) 等等，及其它
 - evt : event
 - ex : exception
 - exe : executive
@@ -186,6 +187,7 @@ Other meanings
 
 ### O
 
+- obj : object
 - oct : octal | October
 - op : operation | option
 - opt : option
@@ -267,6 +269,7 @@ Other meanings
 - ue : user experience design
 - ui : user interface | user interaction
 - upd : update
+- usr : user
 
 ### V
 
