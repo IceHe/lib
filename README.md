@@ -28,7 +28,6 @@ Others
 
 - Init.d - [Simple HTTP Service](init/init.d/README.md)
 - Nginx - [HTTP Server](nginx/README.md)
-- PHP - [Functions & Scripts](php/README.md)
 - Web - [How to docsify](_docsify/README.md)
 
 Storage (TEST)
@@ -38,9 +37,9 @@ Storage (TEST)
 
 Java (TEST)
 
-- Glossary : [Notes](java/README.md)
-- Maven : [Notes](java/maven.md)
-- Spring : [Notes](java/spring.md)
+- Glossary : [Notes](snips/java/README.md)
+- Maven : [Notes](snips/java/maven.md)
+- Spring : [Notes](snips/java/spring.md)
 
 <!-- - [Code Style](java/code-style_tmp.md) ( To-Rewrite ) -->
 
@@ -125,6 +124,7 @@ Batch 批处理
 
 Others
 
+- PHP - [Functions & Scripts](php/README.md)
 - Python 3 - [Quick Start](scripts/python/quick-start.md)
 - JavaScript - [Optimize some code](scripts/javascript/optimize-some-code.md)
 
