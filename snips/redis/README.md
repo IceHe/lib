@@ -12,7 +12,7 @@
 ### Install
 
 ```bash
-# on CentOS7
+# on CentOS 7
 yum install redis
 
 # on macOS
@@ -61,8 +61,6 @@ protection-mode yes
 #   - `redis-cli -h [host] -p [port] -a [password]`
 # ( It is default commented out. )
 requiredpass foobared
-
-# TODO
 ```
 
 ## Commands
