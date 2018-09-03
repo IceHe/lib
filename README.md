@@ -33,14 +33,14 @@ Web
 
 Storage
 
-- [Redis](snips/redis/README.md) Notes (TODO)
-- [MySQL](snips/mysql/README.md) Notes (TODO)
+- [Redis](snips/redis/README.md) - Notes (TODO)
+- [MySQL](snips/mysql/README.md) - Notes (TODO)
 
 Java
 
-- [Glossary](snips/java/README.md) Notes (TODO)
-- [Maven](snips/java/maven.md) Notes (TODO)
-- [Spring](snips/java/spring.md) Notes (TODO)
+- [Glossary](snips/java/README.md) - Notes (TODO)
+- [Maven](snips/java/maven.md) - Notes (TODO)
+- [Spring](snips/java/spring.md) - Notes (TODO)
 
 <!-- - [Code Style](_tmp/java-code-style.tmp.md) ( To-Rewrite ) -->
 
