@@ -2,16 +2,16 @@
 
 - Created on 2016-06-24
 
-# Studying
+## Studying
 
-## Advices to self
+### Advices to self
 
 - Eat that frog
 - Pick the vital 20%
 - Breaking a job down makes it more achievable
 - WWSMAND?（这是啥）
 
-# [How to Study: A Bried Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html)
+## [How to Study: A Bried Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html)
 
 - 1\. "Studying" is not the same thing as "doing homework"!
 - 2\. Manage Your Time
