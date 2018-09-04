@@ -35,8 +35,6 @@
     「这个世界只关心你能给予什么。」英语原文：[6 Harsh Truths That Will Make You a Better Person](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
 - [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](https://www.zhihu.com/question/23721974/answer/25493813) <sup>[Note](_archived/read/teacher-said.md)</sup>
     「我们用『我能做到什么』来判断和定位自己，而别人用『你已经做过什么』来判断和定位你。」
-- [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](https://www.douban.com/note/502334634/) <sup>[Note](_archived/read/family-accumulation.md)</sup>
-    家世的积累，才是你的起点。
 - [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](https://www.zhihu.com/question/20773220) <sup>[Note](_archived/read/suggestions-for_the-young.md)</sup>
     「如果不能先学着适应环境，就不要妄想改变环境。」
 - [精致的利己主义者和常青藤的绵羊](http://mp.weixin.qq.com/s?__biz=MjM5NzExOTE2Ng==&mid=208583700&idx=1&sn=9bb0ea491064b3ffb93e7f24f9fc04a3&scene=5#rd) - 中西 <sup>[Note](_archived/read/excellent-sheep.md)</sup>
