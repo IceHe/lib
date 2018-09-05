@@ -25,10 +25,10 @@
 
 ## Install
 
-Improvement
+Auxiliary Tool
 
-- Plugins of IntelliJ IDEA ( IDE )
-    - Spock Framework Enhancements : https://plugins.jetbrains.com/plugin/7114-spock-framework-enhancements
+- Spock Framework Enhancements - plugins of IntelliJ IDEA :
+    - https://plugins.jetbrains.com/plugin/7114-spock-framework-enhancements
 
 ## Usage
 
