@@ -10,6 +10,26 @@
     - Interaction Based Testing : http://spockframework.org/spock/docs/1.1/interaction_based_testing.html
     - Extensions : http://spockframework.org/spock/docs/1.1/extensions.html
 
+> ~~Mockito~~
+>
+> - Brief Intro
+>     - Tasty mocking framework for unit tests in Java
+> - References
+>     - Home Page : https://site.mockito.org/
+>     - How-to : https://site.mockito.org/#how
+> - Related Tool
+>     - TestMe - Plugin of IntelliJ IDEA : https://plugins.jetbrains.com/plugin/9471-testme
+> - Reasons for Deprecation
+>     - Spock is powerful enough.
+>     - It is too complicated to use Mockito when your code is complicated.
+
+## Install
+
+Improvement
+
+- Plugins of IntelliJ IDEA ( IDE )
+    - Spock Framework Enhancements : https://plugins.jetbrains.com/plugin/7114-spock-framework-enhancements
+
 ## Usage
 
 ## Sample
