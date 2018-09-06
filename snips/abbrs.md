@@ -49,17 +49,20 @@ Other meanings
 
 - abbr : abbreviation
 - ad : advertisement
+- addr : address
 - aes : Advanced Encrypted Standard
 - aka. : also known as 又叫做，亦称
 - app : application
 - asm : assembly
 - auth : authenticate
+- auto : automatical
 
 ### B
 
 - bak : backup
 - bat : batch
 - bin : binary
+- biz : business
 - btm : bottom
 
 ### C
@@ -91,6 +94,7 @@ Other meanings
 - desc : description
 - del : delete
 - dev : development | device
+- diff : differ | difference
 - dir : directory
 - dll : dynamic link library
 - dn : down
@@ -224,6 +228,7 @@ Other meanings
 - regex : regular expression
 - rem : remove
 - ren : rename
+- repo : repository
 - req : request | requirement
 - resp : response
 - ret : return
