@@ -10,9 +10,10 @@ Coding
 
 - [Abbreviations](snips/abbrs.md)
 - [Work Flow](snips/work-flow.md)
+- [GitHub DMCA](snips/github-dmca/README.md)
 - [Regular Expressions](snips/regex.md) (TODO)
 - [Glossary](snips/glossary.md) (TODO)
-- [GitHub DMCA](snips/github-dmca/README.md)
+- [Java Notes](snips/java/README.md) (TODO)
 
 Docker
 
@@ -36,12 +37,6 @@ Storage
 - [Redis](snips/redis/README.md) - Notes (TODO)
 - [MySQL](snips/mysql/README.md) - Notes (TODO)
 
-Java
-
-- [Glossary](snips/java/README.md) - Notes (TODO)
-- [Maven](snips/java/maven.md) - Notes (TODO)
-- [Spring](snips/java/spring.md) - Notes (TODO)
-
 <!-- - [Code Style](_tmp/java-code-style.tmp.md) ( To-Rewrite ) -->
 
 ### Mac
@@ -63,6 +58,7 @@ Java
 
 - [README](commands/README.md) : temporary note
 - [bzip2](commands/bzip2.md) : block-sorting file compressor
+- [crontab](commands/crontab/README.md) :
 - [curl](commands/curl.md) : transfer data from or to a server
 - [expect](commands/expect.md) : interact with programs
 - [nc](commands/nc.md) : TCP / UDP connect & listen
@@ -78,7 +74,7 @@ Java
 
 TODO
 
-- awk / crontab / sed / grep / xargs
+- crontab / awk / sed / grep / xargs
 
 ### C++
 
