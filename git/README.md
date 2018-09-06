@@ -1,6 +1,6 @@
 # Git 常用操作
 
-> Git Note: 我的 Git 笔记，日常工作曾使用的指令组合。
+> Common Git Commands : 我的 Git 笔记，日常工作曾使用的指令组合。
 
 Omit the unusual commands at my work.
 
