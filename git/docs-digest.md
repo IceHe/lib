@@ -1,29 +1,31 @@
-# Docs Abstract
+# Docs Digest
 
 ## Abbreviations
 
-- `abbr` abbreviation
-- `addr` address
-- `auto` automatically
-- `cmd` command
-- `config` configuration
-- `cur` current
-- `del` delete
-- `desc` description
-- `diff` difference
-- `dir` directory
-- `dirs` directories
-- `docs` documentations
-- `info` information
-- `msg` message
-- `mv` move
-- `num` number
-- `obj` object
-- `opt` option
-- `proj` project
-- `repo` repository
-- `rm` remove
-- `var` variable
+- abbr : abbreviation
+- addr : address
+- auto : automatically
+- cmd : command
+- config : configuration
+- cur : current
+- del : delete
+- desc : description
+- diff : difference
+- dir : directory
+- dirs : directories
+- docs : documentations
+- info : information
+- msg : message
+- mv : move
+- num : number
+- obj : object
+- opt : option
+- proj : project
+- repo : repository
+- rm : remove
+- var : variable
+
+See more in [Abbreviations](snips/abbrs.md)
 
 ## Setup & Config
 
