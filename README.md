@@ -37,8 +37,6 @@ Storage
 - [Redis](snips/redis/README.md) - Notes (TODO)
 - [MySQL](snips/mysql/README.md) - Notes (TODO)
 
-<!-- - [Code Style](_tmp/java-code-style.tmp.md) ( To-Rewrite ) -->
-
 ### Mac
 
 - [Tools](marks/tools/README.md) : 利器 - 软件 / 物件的推荐
@@ -48,8 +46,8 @@ Storage
 
 ### Git
 
-- [Common Operations](git/README.md)
-- [Docs Abstract](git/docs-abstract.md)
+- [Common Commands](git/README.md)
+- [Docs Digest](git/docs-digest.md)
 - [Concepts & Theory](git/concepts-n-theory.md)
 
 ### CLI
