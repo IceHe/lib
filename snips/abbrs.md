@@ -258,6 +258,7 @@ Other meanings
 
 - ta : teaching assistant
 - tb : team building
+- TBD : To Be Determinated
 - tel : tell | telephone
 - temp : temporary
 - tmp : temporary
