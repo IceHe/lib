@@ -77,7 +77,7 @@ nc 10.1.2.3 8888
 
 Assume
 
-- Both of them are in the intranet.
+- Both of them are in the same network.
 - Hosts : ( IP or domain name )
     - Local IP : 10.1.2.3
     - Remote IP : 10.4.5.6
@@ -89,15 +89,18 @@ Assume
 ```bash
 # Remote server listens to local machine
 nc -l [port] > [file_path]
-
 # `nc -l 8888 > tmp_someday.log`
 ```
 
 **Local** : Client to Connect
 
 ```bash
-nc -n [remote_host] [port] < [file_path]
+nc [remote_host] [port] < [file_path]
+```
 
+```bash
+# Notice : using ip with option `-n`
+nc -n [remote_ip] [port] < [file_path]
 # `nc -n 10.4.5.6 8888 < tmp_20180819.log`
 ```
 
@@ -106,16 +109,20 @@ nc -n [remote_host] [port] < [file_path]
 **Local** : Server to Listen
 
 ```bash
+# Local machine listens to remote server
 nc -l [port] < [file_path]
-
 # `nc -l 8888 < tmp_20180819.log`
 ```
 
 **Remote** : Client to Connect
 
 ```bash
-nc -n [local_host] [port] > [file_path]
+nc [local_host] [port] > [file_path]
+```
 
+```bash
+# Notice : using ip with option `-n`
+nc -n [remote_ip] [port] > [file_path]
 # `nc -n 10.1.2.3 8888 > tmp_someday.log`
 ```
 
@@ -134,7 +141,6 @@ Optional : Check **MD5** digest for security
 
 ```bash
 md5sum [file_path]
-
 # Replace `md5sum` with `md5` on macOS
 ```
 
@@ -152,7 +158,6 @@ Assume
 
 ```bash
 tar czvf - [directory_path] | nc -l [port]
-
 # `tar czvf - logs | nc -l 8888`
 ```
 
@@ -162,7 +167,6 @@ tar czvf - [directory_path] | nc -l [port]
 
 ```bash
 nc -n [local_host] [port] | tar xzvf -
-
 # `nc -n 10.1.2.3 8888 | tar xzvf -`
 ```
 
@@ -175,7 +179,6 @@ Local
 
 ```bash
 tar cvf - [directory_path] | bzip2 -z | nc -l [port]
-
 # `tar cvf - logs | bzip2 -z | nc -l 8888`
 ```
 
