@@ -1,12 +1,18 @@
 # Cron
 
-cron
-
 > A time-based job scheduler in Unix-like computer operating systems.
+
+References
 
 - Wikipedia : https://en.wikipedia.org/wiki/Cron
 
-> `crontab` : maintain crontab files for individual users
+Related Command
+
+- `crontab` : maintain crontab files for individual users
+
+Assume
+
+- on Linux ( CentOS 7 )
 
 ## Commands
 
@@ -22,11 +28,11 @@ Edit crontab
 crontab -e
 ```
 
-## Config File
+## Config
 
 ### User
 
-File Path
+File paths
 
 ```bash
 $ tree /var/spool/cron
@@ -38,9 +44,7 @@ $ tree /var/spool/cron
 └── icehe
 ```
 
-File sample
-
-[/etc/crontab](user-crontab ':include :type=code bash')
+Content sample
 
 ```bash
 # Setup Environment Variables
@@ -87,7 +91,7 @@ HOME=/
 # *  *  *  *  * user-name command to be executed
 
 # run ntp
-0 * * * * root /bin/sleep $(($RANDOM\%120+10)) && /usr/sbin/ntpdate tiger.sina.com.cn > /dev/null
+0 * * * * root /bin/sleep $(($RANDOM\%120+10)) && /usr/sbin/ntpdate example.com.cn > /dev/null
 0 3,7,10,13,16,19,23 * * *              root /var/cfengine/bin/cfexecd
 # run sce_agent_update
 0 * * * * root /bin/sleep $(($RANDOM\%120+10)) && /bin/sh /var/sce/sce_agent_update.sh >> /var/log/sce/sce_agent.lo
@@ -98,8 +102,61 @@ e_agent.log 2>&1
 30 */1 * * * root /var/cfengine/inputs/files/scripts/cfengine_health_check.sh
 ```
 
-## Timing
+### Timing
 
 crontab guru : <https://crontab.guru/#0_*_*_*_*>
 
 - The quick and simple editor for cron schedule expressions
+
+## Debug
+
+### Log
+
+Log files
+
+- /var/log/cron
+- /var/log/cron-[YYYYMMdd]
+- /var/log/cron-[YYYYMMdd].gz
+
+/var/log/cron
+
+- content sample
+
+```bash
+Sep  7 15:19:14 box029 crontab[17831]: (root) BEGIN EDIT (icehe)
+Sep  7 15:19:17 box029 crontab[17831]: (root) REPLACE (icehe)
+Sep  7 15:19:17 box029 crontab[17831]: (root) END EDIT (icehe)
+Sep  7 15:20:01 box029 CROND[17915]: (root) CMD (/usr/lib64/sa/sa1 1 1)
+Sep  7 15:21:01 box029 CROND[18033]: (sysmon) CMD (cd /usr/local && ./send.sh >/dev/null 2>&1)
+Sep  7 16:01:01 box029 CROND[23251]: (root) CMD (run-parts /etc/cron.hourly)
+Sep  7 16:01:01 box029 run-parts(/etc/cron.hourly)[23251]: starting 0anacron
+Sep  7 16:01:01 box029 run-parts(/etc/cron.hourly)[23268]: finished 0anacron
+Sep  7 16:01:01 box029 run-parts(/etc/cron.hourly)[23251]: starting mcelog.cron
+Sep  7 16:01:01 box029 run-parts(/etc/cron.hourly)[23274]: finished mcelog.cron
+```
+
+Log written by **rsyslog**.service
+
+- Start if it's off
+
+```bash
+# systemv
+systemctl status rsyslog
+systemctl start rsyslog
+
+# service
+service rsyslog status
+service rsyslog start
+```
+
+### crond
+
+Jobs run by **crond**.service
+
+```bash
+# systemv
+systemctl [status|start|stop|restart] crond
+
+# service
+service crond [status|start|stop|restart] crond
+```
