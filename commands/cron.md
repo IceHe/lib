@@ -1,6 +1,12 @@
-# Crontab
+# Cron
 
-> maintain crontab files for individual users
+cron
+
+> A time-based job scheduler in Unix-like computer operating systems.
+
+- Wikipedia : https://en.wikipedia.org/wiki/Cron
+
+> `crontab` : maintain crontab files for individual users
 
 ## Commands
 
