@@ -58,8 +58,20 @@ service [serv_name] [start|stop|status|restart]
 
 `systemctl`
 
+- control services
+
 ```bash
 systemctl [start|stop|reload|restart] [serv_name]
 
 # `systemctl restart nginx`
+```
+
+- list services
+
+```bash
+# list all
+systemctl list-unit-files
+
+# list enabled
+systemctl list-unit-files | grep enabled
 ```
