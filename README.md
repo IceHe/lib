@@ -34,8 +34,8 @@ Web
 
 Storage
 
-- [Redis](snips/redis/README.md) - Notes (TODO)
-- [MySQL](snips/mysql/README.md) - Notes (TODO)
+- [Redis](snips/redis/README.md) (TODO)
+- [MySQL](snips/mysql/README.md) (TODO)
 
 ### Mac
 
@@ -56,7 +56,7 @@ Storage
 
 - [README](commands/README.md) : temporary note
 - [bzip2](commands/bzip2.md) : block-sorting file compressor
-- [crontab](commands/crontab/README.md) :
+- [cron](commands/cron.md) : time-based job scheduler
 - [curl](commands/curl.md) : transfer data from or to a server
 - [expect](commands/expect.md) : interact with programs
 - [nc](commands/nc.md) : TCP / UDP connect & listen
