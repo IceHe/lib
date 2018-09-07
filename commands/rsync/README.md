@@ -8,18 +8,15 @@ rcp
 
 > remote file copy
 
-## Usage
+- Quickstart : http://transamrit.net/docs/rsync/
+- Exit Codes : https://lxadm.com/Rsync_exit_codes
 
-Steps
+## Usage
 
 - Put [rsyncd.conf](#rsyncdconf) in directory `/etc/`
 - Usually put [rsyncd.secrets](#rsyncdsecrets) in directory `/etc/` on remote server
 - Put [rsyncd.secrets](#rsyncdsecrets) in directory you like on local machine
 - Run [rsync_to_somewhere.sh](#rsync2somewheresh) on local machine
-
-Reference
-
-- http://transamrit.net/docs/rsync/
 
 ## Files
 
