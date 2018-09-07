@@ -223,7 +223,8 @@ Other meanings
 ### R
 
 - rb : ruby
-- rd : read | research development
+- rd : read
+- RD : Research & Development
 - rec : record
 - ref : reference
 - regex : regular expression
@@ -246,6 +247,7 @@ Other meanings
 ### S
 
 - s : silent
+- SDE : Software Development Engineer
 - sec : second | secure , security
 - serv : server | service
 - sh : shell
