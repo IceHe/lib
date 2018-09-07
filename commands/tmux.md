@@ -14,7 +14,7 @@
 
 - The description `Pf, *` implies that tap `Pf` at first and then tap the key `*`.
 - `Pf, ⇧ ?` List Keys
-- `Pf, d` Detach Client
+- `Pf, d` Detach Client ( Detach Session )
 - `Pf, c` New Window
 - `Pf, s` Reload config file `.tmux.conf`
 - `Pf, \` Split Window Horizontally
@@ -37,3 +37,23 @@ In Copy Mode:
 - `y` Copy Selection
 - `u` Copy Selection & Exit Copy Mode
 - `⇧ L` Copy Line ( & Exit Copy Mode )
+
+## Commands
+
+### Sessions
+
+List
+
+```bash
+$ tmux list-sessions
+
+# output
+0: 6 windows (created Mon Sep  3 09:30:05 2018) [130x65]
+```
+
+Attach
+
+```bash
+tmux attach-session -t [session_number]
+# e.g. `tmux attach-session -t 0`
+```
