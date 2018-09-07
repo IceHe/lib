@@ -168,10 +168,11 @@ Other meanings
 - lb : load balancer
 - len : length
 - lf : left | line feed
+- LGTM : Looks Good To Me
 - lib : library
 - lnk : link
 - loc : location
-- lol : laugh out loud
+- LOL : Laugh Out Loud
 - lyt : layout
 
 ### M
