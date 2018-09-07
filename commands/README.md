@@ -50,10 +50,17 @@ ps aux
 
 `service`
 
+- control services
+
 ```bash
 service [serv_name] [start|stop|status|restart]
-
 # `service nginx restart`
+```
+
+- list services
+
+```bash
+service --status-all
 ```
 
 `systemctl`
@@ -62,7 +69,6 @@ service [serv_name] [start|stop|status|restart]
 
 ```bash
 systemctl [start|stop|reload|restart] [serv_name]
-
 # `systemctl restart nginx`
 ```
 
@@ -71,7 +77,12 @@ systemctl [start|stop|reload|restart] [serv_name]
 ```bash
 # list all
 systemctl list-unit-files
-
 # list enabled
 systemctl list-unit-files | grep enabled
+```
+
+`netstat`
+
+```bash
+netstat --lnpt
 ```
