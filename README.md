@@ -163,7 +163,7 @@ Others
 
 ### Blog
 
-- [Tech Blog](https://icehe.me) : icehe.me ( previous )
+- [Tech Blog](https://icehe.me) : icehe.me ( rarely updated )
 - [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
 - [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
 
