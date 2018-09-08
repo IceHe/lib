@@ -1,10 +1,15 @@
 # Glossary
 
+> Temporary Notes
+
 ACL: Access Control List
 
 - 访问控制列表，是路由器和交换机接口的指令列表，用来控制端口进出的数据包。ACL 适用于所有的被路由协议，如 IP、IPX、AppleTalk 等
 
 LVS: Linus Virtual Server
+
+- Linux Virtual Server (LVS) is load balancing software for Linux kernel–based operating systems.
+- https://en.wikipedia.org/wiki/Linux_Virtual_Server
 
 OSGi: Open Services Gateway initiative
 
