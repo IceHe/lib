@@ -20,12 +20,6 @@ man [command]
 
 ## Temporary
 
-`crontab`
-
-```bash
-alias crontab="VIM_CRONTAB=true crontab"
-```
-
 `tree` ( mock ) : list directory content
 
 ```bash
