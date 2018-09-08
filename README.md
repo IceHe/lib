@@ -133,6 +133,7 @@ Others
 [GitHub](https://github.com/IceHe) / [GitLab](https://gitlab.com/users/IceHe/projects)
 
 - [lib](https://github.com/IceHe/lib)
+- [blog](https://github.com/IceHe/blog)
 - [mac-conf](https://github.com/IceHe/mac-conf)
 - [applescript](https://github.com/IceHe/applescript)
 - [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset)
