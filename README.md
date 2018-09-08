@@ -16,6 +16,7 @@ Coding
 Docker
 
 - [Intro](/snips/docker/README.md)
+- [Docker Compose](/snips/docker/compose.md)
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
 
 Markdown
