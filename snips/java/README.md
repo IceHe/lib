@@ -3,18 +3,18 @@
 Basic
 
 - [Glossary](snips/java/glossary.md)
-- [Groovy](snips/java/groovy/README.md) ( TODO )
+- [Groovy](snips/java/groovy.md) ( TODO )
+
+Coding
+
+- [Snippets](snips/java/snippets.md) ( TODO )
 
 Framework
 
-- [Spock](snips/java/spock/README.md) - Unit Tests
+- [Spock](snips/java/spock.md) - Unit Tests
 - [Spring](snips/java/spring.md) ( TODO )
 
 Package Manager
 
 - [Maven](snips/java/maven.md) ( TODO )
 - Gradle ( TODO )
-
-Notes
-
-- [Snippets](snips/java/snippets.md)
