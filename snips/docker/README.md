@@ -40,3 +40,14 @@ Example
 
 - https://hub.docker.com/r/icehe/alpine
 - https://hub.docker.com/r/icehe/markdownlint
+
+## TODO
+
+- `login`
+- `pull`
+- `run` / `stop`
+- `ps` Show process status
+- `rm` Remove Container
+- `rmi` Remove Image
+- `exec` Execute in image
+- `docker-compose`
