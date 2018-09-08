@@ -26,8 +26,8 @@ Markdown
 
 Web
 
-- [Simple HTTP Service](/snips/init.d/README.md) - /etc/init.d
-- [HTTP Server](/snips/nginx/README.md) - Nginx
+- [Simple HTTP Service](/snips/init.d/README.md) : /etc/init.d
+- [HTTP Server](/snips/nginx/README.md) : Nginx
 - [IP addr](/snips/ip.md)
 - [docsify](/_docsify/README.md)
 
@@ -39,7 +39,7 @@ Storage
 Others
 
 - [Glossary](/snips/glossary.md)
-- [GitHub DMCA](/snips/github-dmca.md) - alert myself!
+- [GitHub DMCA](/snips/github-dmca.md) : alert myself!
 
 ### Mac
 
@@ -124,28 +124,28 @@ Batch 批处理
 
 Others
 
-- PHP - [Functions & Scripts](/scripts/php/README.md)
-- Python 3 - [Quick Start](/scripts/python/quick-start.md)
-- JavaScript - [Optimize some code](/scripts/javascript/optimize-some-code.md)
+- PHP : [Functions & Scripts](/scripts/php/README.md)
+- Python 3 : [Quick Start](/scripts/python/quick-start.md)
+- JavaScript : [Optimize some code](/scripts/javascript/optimize-some-code.md)
 
 ### Repos
 
 [GitHub](https://github.com/IceHe) / [GitLab](https://gitlab.com/users/IceHe/projects)
 
-- [lib](https://github.com/IceHe/lib)
-- [blog](https://github.com/IceHe/blog)
-- [mac-conf](https://github.com/IceHe/mac-conf)
-- [applescript](https://github.com/IceHe/applescript)
-- [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset)
+- [lib](https://github.com/IceHe/lib) : library | wiki ( this website )
+- [blog](https://github.com/IceHe/blog) : prev tech blog ( archived )
+- [mac-conf](https://github.com/IceHe/mac-conf) : macOS config files ( @ home dir )
+- [applescript](https://github.com/IceHe/applescript) : to manipulate macOS
+- [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset) : ruleset for PHPCS 3.1.0
 
 ## Life
 
 ### Marks
 
+- [CV](/marks/cv.md) ：Skills / Exp / Edu
 - [Technology Bookmarks](/marks/tech.md)
 - [Reading Bookmarks](/marks/read.md)
 - [Favorites](/marks/favourites.md) : ACGMN
-- [CV](/marks/cv.md) ：Skills / Exp / Edu
 
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
