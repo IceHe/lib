@@ -9,15 +9,13 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](_docsify/README.md) )
 Coding
 
 - [Abbreviations](snips/abbrs.md)
+- [Regular Expression](snips/regex.md)
 - [Work Flow](snips/work-flow.md)
-- [GitHub DMCA](snips/github-dmca/README.md)
-- [Regular Expressions](snips/regex.md) (TODO)
-- [Glossary](snips/glossary.md) (TODO)
-- [Java Notes](snips/java/README.md) (TODO)
+- [Java](snips/java/README.md)
 
 Docker
 
-- [Intro](snips/docker/README.md) : build & push images
+- [Intro](snips/docker/README.md)
 - [Alpine Linux](snips/docker/alpine/README.md) : minimal OS image
 
 Markdown
@@ -29,13 +27,18 @@ Web
 
 - Init.d - [Simple HTTP Service](snips/init.d/README.md)
 - Nginx - [HTTP Server](snips/nginx/README.md)
-- [IP address](snips/ip.md)
-- [How to docsify](_docsify/README.md)
+- [IP addr](snips/ip.md)
+- [docsify](_docsify/README.md)
 
 Storage
 
 - [Redis](snips/redis/README.md) (TODO)
 - [MySQL](snips/mysql/README.md) (TODO)
+
+Others
+
+- [Glossary](snips/glossary.md)
+- [GitHub DMCA](snips/github-dmca.md) - alert myself!
 
 ### Mac
 
