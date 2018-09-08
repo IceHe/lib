@@ -9,9 +9,9 @@ Recommended
 
 - [Regex 101](https://regex101.com/)
 
-## Usage
+## Code Style
 
-Add whitespaces between Chinese & English words
+Add whitespaces between Chinese & English words ( imperfect )
 
 ```bash
 ([^a-zA-Z0-9`'"_\- \(\),.#\[\]=?{}/*@:])([a-zA-Z0-9`'"_\-\(\),.#\[\]=?{}/*@:]+)([^a-zA-Z0-9`'"_\- \(\),.#\[\]=?{}/*@:])
@@ -25,13 +25,32 @@ Add a whitespace after comma `,`
 , $1
 ```
 
-Find Function
+## Refactor
+
+Find function with 7 params
 
 ```bash
 functionName\(([^,^;]*,\s?){6}([^;^,]*?)\)
 ```
 
-Replace HTML Tag with Markdown
+## Markdown
+
+Heading Level Down
+
+```bash
+^##
+^#
+```
+
+Link Match
+
+```bash
+\[([^\]]+)\]\(([^\)]+)\)
+# Title : $1
+# Link : $2
+```
+
+Replace HTML Tag
 
 - Bold
 
