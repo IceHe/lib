@@ -26,10 +26,10 @@ Markdown
 
 Web
 
-- [Simple HTTP Service](/snips/init.d/README.md) : /etc/init.d
-- [HTTP Server](/snips/nginx/README.md) : Nginx
-- [IP addr](/snips/ip.md)
-- [docsify](/_docsify/README.md)
+- init.d : [Simple HTTP Service](/snips/init.d/README.md)
+- Nginx : [HTTP Server](/snips/nginx/README.md)
+- [How to docsify](/_docsify/README.md)
+- [IP address](/snips/ip.md) ( TODO )
 
 Storage
 
@@ -38,7 +38,7 @@ Storage
 
 Others
 
-- [Glossary](/snips/glossary.md)
+- [Glossary](/snips/glossary.md) ( TODO )
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
 
 ### Mac
