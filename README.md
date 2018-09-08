@@ -25,15 +25,15 @@ Markdown
 
 Web
 
-- Init.d - [Simple HTTP Service](/snips/init.d/README.md)
-- Nginx - [HTTP Server](/snips/nginx/README.md)
+- [Simple HTTP Service](/snips/init.d/README.md) - /etc/init.d
+- [HTTP Server](/snips/nginx/README.md) - Nginx
 - [IP addr](/snips/ip.md)
 - [docsify](/_docsify/README.md)
 
 Storage
 
-- [Redis](/snips/redis/README.md) (TODO)
-- [MySQL](/snips/mysql/README.md) (TODO)
+- [Redis](/snips/redis/README.md) ( TODO )
+- [MySQL](/snips/mysql/README.md) ( TODO )
 
 Others
 
@@ -63,7 +63,7 @@ Others
 - [curl](/commands/curl.md) : transfer data from or to a server
 - [expect](/commands/expect.md) : interact with programs
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
-- [netstat](/commands/netstat.md) : show network status
+- [netstat](/commands/netstat.md) : show network status ( TODO )
 - [rsync](/commands/rsync/README.md) : transfer files
 - [tar](/commands/tar.md) : pack & compress
 - [tmux](/commands/tmux.md) : terminal multiplexer
