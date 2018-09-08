@@ -68,3 +68,12 @@ List<String> list1 = list0.stream()
         .filter(StringUtils::isNotBlank)
         .collect(Collectors.toList());
 ```
+
+## optinal
+
+Optional.ofNullable(…).ifPresent(…);
+
+```java
+Optional.ofNullable(map.get("content"))
+        .ifPresent(it -> doSomething.withContent((Map<String, Object>) content));
+```
