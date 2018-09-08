@@ -7,7 +7,7 @@ Basic
 
 Coding
 
-- [Snippets](snips/java/snippets.md) ( TODO )
+- [Snippets](snips/java/snippets.md)
 
 Framework
 
@@ -16,5 +16,5 @@ Framework
 
 Package Manager
 
-- [Maven](snips/java/maven.md) ( TODO )
+- [Maven](/snips/java/maven.md) ( TODO )
 - Gradle ( TODO )
