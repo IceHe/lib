@@ -60,6 +60,7 @@ Storage
 - [curl](commands/curl.md) : transfer data from or to a server
 - [expect](commands/expect.md) : interact with programs
 - [nc](commands/nc.md) : TCP / UDP connect & listen
+- [netstat](commands/netstat.md) : show network status
 - [rsync](commands/rsync/README.md) : transfer files
 - [tar](commands/tar.md) : pack & compress
 - [tmux](commands/tmux.md) : terminal multiplexer

@@ -80,9 +80,3 @@ systemctl list-unit-files
 # list enabled
 systemctl list-unit-files | grep enabled
 ```
-
-`netstat`
-
-```bash
-netstat --lnpt
-```
