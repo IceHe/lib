@@ -57,10 +57,6 @@ netstat -alnpt
 
 ## Socket States
 
-- Since there are no states in raw mode
-    and usually no states used in UDP and UDPLite,
-    this column may be left blank.
-
 Normally this can be one of several values as follow.
 
 |state|descript|
