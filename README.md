@@ -16,8 +16,8 @@ Coding
 Docker
 
 - [Intro](/snips/docker/README.md)
-- [Docker Compose](/snips/docker/compose.md)
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
+- [Docker Compose](/snips/docker/compose.md) ( TODO )
 
 Markdown
 
@@ -51,8 +51,8 @@ Others
 ### Git
 
 - [Common Commands](/git/README.md)
-- [Docs Digest](/git/docs-digest.md)
 - [Concepts & Theory](/git/concepts-n-theory.md)
+- [Docs Digest](/git/docs-digest.md)
 
 ### CLI
 
@@ -127,6 +127,15 @@ Others
 - PHP - [Functions & Scripts](/scripts/php/README.md)
 - Python 3 - [Quick Start](/scripts/python/quick-start.md)
 - JavaScript - [Optimize some code](/scripts/javascript/optimize-some-code.md)
+
+### Repos
+
+[GitHub](https://github.com/IceHe) / [GitLab](https://gitlab.com/users/IceHe/projects)
+
+- [lib](https://github.com/IceHe/lib)
+- [mac-conf](https://github.com/IceHe/mac-conf)
+- [applescript](https://github.com/IceHe/applescript)
+- [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset)
 
 ## Life
 
