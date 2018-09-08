@@ -64,7 +64,7 @@ Others
 - [curl](/commands/curl.md) : transfer data from or to a server
 - [expect](/commands/expect.md) : interact with programs
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
-- [netstat](/commands/netstat.md) : show network status ( TODO )
+- [netstat](/commands/network-status.md) : show network status ( TODO )
 - [rsync](/commands/rsync/README.md) : transfer files
 - [tar](/commands/tar.md) : pack & compress
 - [tmux](/commands/tmux.md) : terminal multiplexer
