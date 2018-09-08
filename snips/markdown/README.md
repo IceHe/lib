@@ -243,7 +243,7 @@ Markdown Lint Tool `mdl`
 
 - 由 markdown/lint/style.rb 文件声明，详情如下
 
-[mdl styles](../markdown/lint/style.rb ':include :type=code properties')
+[mdl styles](./lint/style.rb ':include :type=code properties')
 
 推荐通过 form 项目 CI 的 `mdl`（markdownlint）检查后，才允许合并 MR
 

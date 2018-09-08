@@ -2,17 +2,17 @@
 
 Basic
 
-- [Glossary](snips/java/glossary.md)
-- [Groovy](snips/java/groovy.md) ( TODO )
+- [Glossary](/snips/java/glossary.md)
+- [Groovy](/snips/java/groovy.md) ( TODO )
 
 Coding
 
-- [Snippets](snips/java/snippets.md)
+- [Snippets](/snips/java/snippets.md)
 
 Framework
 
-- [Spock](snips/java/spock.md) - Unit Tests
-- [Spring](snips/java/spring.md) ( TODO )
+- [Spock](/snips/java/spock.md) - Unit Tests
+- [Spring](/snips/java/spring.md) ( TODO )
 
 Package Manager
 
