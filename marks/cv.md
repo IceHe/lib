@@ -8,10 +8,9 @@ Curriculum Vitae
 
 - IceHe | Hzy - 广州人在北京
 - [GitHub](https://github.com/IceHe) - Tools & Configs
-- 博客：[icehe.xyz](https://icehe.xyz) - Tech
+- Tech Wiki：[icehe.xyz](https://icehe.xyz)
+- 技术博客：[icehe.me](https://icehe.me)
 - 微博：[@\_IceHe\_](http://weibo.com/icedes) - Life
-
-<!-- / [GitLab](https://gitlab.com/IceHe) <sup>bak</sup> -->
 
 联络
 
