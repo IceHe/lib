@@ -10,7 +10,7 @@ Curriculum Vitae
 - [GitHub](https://github.com/IceHe) - Tools & Configs
 - Tech Wiki：[icehe.xyz](https://icehe.xyz)
 - 技术博客：[icehe.me](https://icehe.me)
-- 微博：[@\_IceHe\_](http://weibo.com/icedes) - Life
+- 生活微博：[@\_IceHe\_](http://weibo.com/icedes)
 
 联络
 
