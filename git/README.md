@@ -37,7 +37,7 @@ git remote add NAME URL
 
 git pull
 
-    [REMOTE_NAME:BRANCH_NAME]
+    [<remote_name>:<branch_name>]
 
 git fetch
 
@@ -68,7 +68,7 @@ git mv
 
 git commit
 
-    -m COMMIT_MSG
+    -m <commit_msg>
     -a          # add all
     --amend     # fix | append
     --cached
@@ -81,7 +81,7 @@ git stash
 
     pop
     list
-    drop STACK_ID
+    drop <stack_id>
     clear all
 
 git branch
@@ -92,9 +92,9 @@ git branch
 
 git checkout
 
-    [BRANCH_NAME]         # switch to
-    [path/to/FILE|DIR]    # back to the past
-    -b BRANCH_NAME      # new branch
+    [<branch_name>]         # switch to
+    [<path/to/file|dir>]    # back to the past
+    -b <branch_name>        # new branch
 
 git log
 
@@ -108,7 +108,7 @@ git reflog
 git reset
 
     --hard
-    - [commit_id]
+    - [<commit_id>]
 
 git clean
 
