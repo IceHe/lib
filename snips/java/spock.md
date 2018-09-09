@@ -2,6 +2,8 @@
 
 ## References
 
+Spock
+
 > - Spock is a testing and specification framework for Java and Groovy applications.
 > - What makes it stand out from the crowd is its beautiful and highly expressive specification language.
 > - Thanks to its JUnit runner, Spock is compatible with most IDEs, build tools, and continuous integration servers.
@@ -19,22 +21,22 @@ Groovy
 
 - Testing with spock : http://groovy-lang.org/testing.html#_testing_with_spock
 
-> ~~Mockito~~ ( deprecated! )
->
-> - Brief Intro
->     - Tasty mocking framework for unit tests in Java
-> - Reasons for Deprecation
->     - Spock is powerful enough.
->     - It is too complicated to use Mockito when your code is complicated.
-> - References
->     - Home Page : https://site.mockito.org/
->     - How-to : https://site.mockito.org/#how
-> - Related Tool
->     - TestMe - Plugin of IntelliJ IDEA : https://plugins.jetbrains.com/plugin/9471-testme
+~~Mockito~~ ( deprecated! )
+
+- Brief Intro
+    - Tasty mocking framework for unit tests in Java
+- **Reasons for Deprecation**
+    - Spock is powerful enough.
+    - It is too complicated to use Mockito when your code is complicated.
+- References
+    - Home Page : https://site.mockito.org/
+    - How-to : https://site.mockito.org/#how
+- Related Tool
+    - TestMe - Plugin of IntelliJ IDEA : https://plugins.jetbrains.com/plugin/9471-testme
 
 ## Must READ
 
-Quickstar
+Quickstart
 
 ### Groovy
 
