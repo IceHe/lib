@@ -15,7 +15,7 @@
 Download as **original filename**
 
 ```bash
-wget [url_to_file]
+wget <url_to_file>
 
 # `wget https://raw.githubusercontent.com/IceHe/mac-conf/master/.vimrc`
 ```
@@ -23,7 +23,7 @@ wget [url_to_file]
 Download as **specified filename**
 
 ```bash
-wget -O [specified_filename] [url_to_file]
+wget -O <specified_filename> <url_to_file>
 
 # `wget -O _vimrc https://raw.githubusercontent.com/IceHe/mac-conf/master/.vimrc`
 ```
