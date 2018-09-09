@@ -15,7 +15,7 @@
 Single Port
 
 ```bash
-nc -v [host_name] [port]
+nc -v <host_name> <port>
 ```
 
 ```bash
@@ -38,7 +38,7 @@ Connection to baidu.com port 80 [tcp/http] succeeded!
 Multiple Ports ( Range )
 
 ```bash
-nc -v -z -n [host_name] [min_port]-[max_port]
+nc -v -z -n <host_name> <min_port>-<max_port>
 ```
 
 ```bash
@@ -88,19 +88,19 @@ Assume
 
 ```bash
 # Remote server listens to local machine
-nc -l [port] > [file_path]
+nc -l <port> > <file_path>
 # `nc -l 8888 > tmp_someday.log`
 ```
 
 **Local** : Client to Connect
 
 ```bash
-nc [remote_host] [port] < [file_path]
+nc <remote_host> <port> < <file_path>
 ```
 
 ```bash
 # Notice : using ip with option `-n`
-nc -n [remote_ip] [port] < [file_path]
+nc -n <remote_ip> <port> < <file_path>
 # `nc -n 10.4.5.6 8888 < tmp_20180819.log`
 ```
 
@@ -110,19 +110,19 @@ nc -n [remote_ip] [port] < [file_path]
 
 ```bash
 # Local machine listens to remote server
-nc -l [port] < [file_path]
+nc -l <port> < <file_path>
 # `nc -l 8888 < tmp_20180819.log`
 ```
 
 **Remote** : Client to Connect
 
 ```bash
-nc [local_host] [port] > [file_path]
+nc <local_host> <port> > <file_path>
 ```
 
 ```bash
 # Notice : using ip with option `-n`
-nc -n [remote_ip] [port] > [file_path]
+nc -n <remote_ip> <port> > <file_path>
 # `nc -n 10.1.2.3 8888 > tmp_someday.log`
 ```
 
@@ -132,15 +132,15 @@ Notice : Sometimes you have to transfer via **IPv4** using option **`-4`**
 
 ```bash
 # Remote
-nc -4l [port] > [file_path]
+nc -4l <port> > <file_path>
 # Local
-nc -4n [remote_host] [port] < [file_path]`
+nc -4n <remote_host> <port> < <file_path>`
 ```
 
 Optional : Check **MD5** digest for security
 
 ```bash
-md5sum [file_path]
+md5sum <file_path>
 # Replace `md5sum` with `md5` on macOS
 ```
 
@@ -157,7 +157,7 @@ Assume
 **Local** : Server to Listen
 
 ```bash
-tar czvf - [directory_path] | nc -l [port]
+tar czvf - <directory_path> | nc -l <port>
 # `tar czvf - logs | nc -l 8888`
 ```
 
@@ -166,7 +166,7 @@ tar czvf - [directory_path] | nc -l [port]
 - The last `-` means using the original directory name
 
 ```bash
-nc -n [local_host] [port] | tar xzvf -
+nc -n <local_host> <port> | tar xzvf -
 # `nc -n 10.1.2.3 8888 | tar xzvf -`
 ```
 
@@ -178,12 +178,12 @@ nc -n [local_host] [port] | tar xzvf -
 Local
 
 ```bash
-tar cvf - [directory_path] | bzip2 -z | nc -l [port]
+tar cvf - <directory_path> | bzip2 -z | nc -l <port>
 # `tar cvf - logs | bzip2 -z | nc -l 8888`
 ```
 
 Remote
 
 ```bash
-nc -n [remote_host] [port] | bzip2 -d | tar cvf -
+nc -n <remote_host> <port> | bzip2 -d | tar cvf -
 ```
