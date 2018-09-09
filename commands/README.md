@@ -74,3 +74,18 @@ systemctl list-unit-files
 # list enabled
 systemctl list-unit-files | grep enabled
 ```
+
+`where` `which`
+
+```bash
+$ where python
+# output e.g.
+/usr/local/bin/python
+/usr/bin/python
+```
+
+```bash
+$ which python
+# output e.g.
+/usr/local/bin/python
+```
