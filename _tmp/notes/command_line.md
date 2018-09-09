@@ -45,9 +45,9 @@ Add SSH key for Git
 
 # [Zsh](http://zsh.sourceforge.net/)
 
-- [**Docs**](http://zsh.sourceforge.net/Doc/)
+- [Docs](http://zsh.sourceforge.net/Doc/)
 
-- [**oh-my-zsh**](http://ohmyz.sh/) &nbsp;&&nbsp;  [my fork](https://github.com/IceHe/oh-my-zsh)
+- [oh-my-zsh](http://ohmyz.sh/) &nbsp;&&nbsp;  [my fork](https://github.com/IceHe/oh-my-zsh)
 
 - Alias
 
@@ -206,7 +206,7 @@ Add SSH key for Git
     **Absolute** mode is an octal number constructed from the sum of one or more of the following values:
     `4000` Set-user-**ID-on-execution bit**: Executable files with this bit set will run with effective uid set to the **uid** of the file owner.
     `2000` Set-group-ID-on-execution bit: ... set to the **gid** ...
-    `1000` [**Sticky bit**](https://en.wikipedia.org/wiki/Sticky_bit). (Only file/dir's owner or root user can rename or del it, if set.)
+    `1000` [Sticky bit](https://en.wikipedia.org/wiki/Sticky_bit). (Only file/dir's owner or root user can rename or del it, if set.)
     `0400` Allow **rd** by **owner**.
     `0200` ... **write** ...
     `0100` ... **execution** ... for files. Allow ... to **search** in it for dirs.
@@ -239,7 +239,7 @@ Add SSH key for Git
     Complete examples:
     `chmod +rwx ./test.sh` == `chmod 777 ./test.sh`
 
-    - Filesystem [**ACL**](https://en.wikipedia.org/wiki/Access_control_list) is used to administrate file permissions.
+    - Filesystem [ACL](https://en.wikipedia.org/wiki/Access_control_list) is used to administrate file permissions.
 
 - **`chown [-h] [-R [-H | -L | -P]] owner[:group] file ...` Change file Owner and group.**
     `chown [-h] [-R [-H | -L | -P]] :group file ...`
@@ -342,8 +342,8 @@ Add SSH key for Git
 
 # [Vim](http://www.vim.org/)
 
-- [**Docs**](http://www.vim.org/docs.php)
-- [**SPF-13**](http://vim.spf13.com/) &nbsp;&&nbsp; [my fork](https://github.com/IceHe/spf13-vim)
+- [Docs](http://www.vim.org/docs.php)
+- [SPF-13](http://vim.spf13.com/) &nbsp;&&nbsp; [my fork](https://github.com/IceHe/spf13-vim)
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - 键位操作总结图。
 
 <br/>
