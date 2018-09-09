@@ -40,7 +40,7 @@ docsify serve .
 
 ```bash
 # Optional: sepcify port
-docsify serve . [-p PORT]
+docsify serve . [-p <port>]
 
 # e.g.
 docsify serve .
