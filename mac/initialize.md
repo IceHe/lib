@@ -40,95 +40,92 @@ Restore from backups of Time Machine
 8. 填写 ~~`http://url/to/proxy.pac`~~（PAC 文件的网址 TODO）
 9. 点击「好」
 
-参考：[PAC](https://baike.baidu.com/item/PAC/16292100)（代理自动配置）- 百度百科
+Ref : [PAC](https://baike.baidu.com/item/PAC/16292100)（代理自动配置）- 百度百科
 
 ### Homebrew
 
 [macOS 包管理器](https://brew.sh/)，用于安装 & 管理 macOS 的命令行工具以及 Apps ，命令为 `brew`
 
-步骤
+Steps
 
-- 安装 Homebrew
+- Install Homebrew
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-- 查看版本（确认是否安装有误）
+- Show version ( check if installed successfully or not ? )
 
 ```bash
-brew --version
-
-# 输出（以当前最新版本为准）
-# Homebrew 1.7.2
-# Homebrew/homebrew-core (git revision 27f23; last commit 2018-08-24)
+$ brew --version
+# output e.g.
+Homebrew 1.7.2
+Homebrew/homebrew-core (git revision 27f23; last commit 2018-08-24)
 ```
 
 ### JDK 8
 
-安装 [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) 版本 8（ [历史](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8) ）
+Install [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) version 8 ( [History](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8) )
 
-- 推荐：命令行安装（如下）
-- 备选：官网下载使用「Mac OS X x64」版本的 [最新安装包](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- Recommended ：Install via commands as follow
+- Alternative : Download [binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of Mac OS X x64 from offical website
 
-命令行安装步骤
+Steps
 
-- 配置软件源
+- Tap a formula repository ( 配置软件源 )
 
 ```bash
 brew tap caskroom/versions
 ```
 
-- 安装 JDK 8
-    - 注意：中途需要输入当前 macOS 登入用户的密码！
-    - 若需最新版本 Java 10+ ，则用命令 `brew cask install java`
+- Install JDK 8
+    - Notice : require to input macOS user password
+    - For latest version, execute `brew cask install java`
 
 ```bash
 brew cask install java8
 ```
 
-获取 JDK 路径
+Get JDK Path
 
-- 若是了解最新版本，则用命令 `/usr/libexec/java_home`
+- For latest version, execute `/usr/libexec/java_home`
 
 ```bash
-/usr/libexec/java_home -v 1.8
-
-# 输出（以当前最新版本为准）
-# /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
+$ /usr/libexec/java_home -v 1.8
+# output e.g.
+/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
 ```
 
-配置环境变量 JAVA_HOME
+Environment Variable `JAVA_HOME`
 
-- 在 ~/.bashrc 文件中（的合适位置）添加如下命令
-    - 若文件 ~/.bashrc 不存在，则创建之
-    - 若使用的 Shell 并非默认的 Bash ，而是 Zsh 则在 ~/.zshrc 文件中添加
-        - 其它 Shell 操作类似
+- Append the command line below to config file `~/.bashrc`
+    - If ~/.bashrc doesn't exists, create it.
+    - If use other shell such as `zsh`, append to `~/.zshrc`
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 ```
 
-> 波浪号 `~`
+> `~` tilde ( 波浪号 )
 >
-> - 路径 `~/.bashrc` 中的 `~` 是命令行中「当前登入用户的用户根目录」的缩写
-> - 在 macOS 中，用户根目录为 `/Users/[username]` 例如 `/Users/icehe`
+> - In the path `~/.bashrc`, `~` means current user's home directory
+> - In macOS, it's `/Users/[USERNAME]` such as `/Users/IceHe`
 
 ### CLI
 
-> 命令行
+> Command Line Interface
 
-使用 `brew` 另行安装命令行工具
+Install other commands by command `brew`
 
 - 即使 macOS 已经预装了基本的命令行工具
 - 但是它们只随着 OS 更新而更新，更新频率低，版本相对滞后
 
-务必安装
+What to Install ( recommended )
 
 ```bash
 brew install \
-cmake coreutils curl except gawk git gradle groovysdk \
-fzf jq maven nvim ruby safe-rm tmux vim wget
+    cmake coreutils curl except gawk git gradle groovysdk \
+    fzf jq maven nvim ruby safe-rm tmux vim wget
 ```
 
 ```bash
@@ -137,29 +134,31 @@ fzf jq maven nvim ruby safe-rm tmux vim wget
 brew install reattach-to-user-namespace
 ```
 
-更新方法
+How to Update
 
-- brew update ：更新 Homebrew 自身 & 软件源
-- brew upgrade ：更新由 Homebrew 管理的软件
+- brew update ：
+    - Fetch the newest version of Homebrew from GitHub using git.
+- brew upgrade ：
+    - Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
 
 ```bash
 brew update && brew upgrade
 ```
 
-若遭遇如下错误
+If encounter error below,
 
 ```bash
 # 输出
 xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 ```
 
-则尝试运行以下命令，然后重新执行之前的命令
+Execute command below and then re-run commands above.
 
 ```bash
 xcode-select install
 ```
 
-> 命令行工具列表 & 说明
+> Command List & Description
 >
 > - [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
 >     - produce shell scripts to automatically configure software source code packages
@@ -167,43 +166,45 @@ xcode-select install
 >     - an cross-platform family of tools designed to build, test and package software
 > - [coreutils](http://www.gnu.org/s/coreutils/)
 >     - the basic file, shell and text manipulation utilities of the GNU operating system
->     - 包含许多实用命令，详见 [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html) 的目录，例如 [realpath](http://man7.org/linux/man-pages/man1/realpath.1.html) 用于获取文件或目录的绝对路径
+>     - include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html). e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
 > - [curl](https://curl.haxx.se/)
 >     - transfer data with URLs
->     - 常用于：HTTP 接口调试、文件下载
-> - [except](https://linux.die.net/man/1/expect)
+>     - for HTTP debug & download files
+> - [expect](https://linux.die.net/man/1/expect)
 >     - programmed dialogue with interactive programs
->     - 基于它撰写脚本，可以与交互式程序进行应答
->     - 常用于：远程登录
+>     - I write a script using expect for remote login
 > - [gawk](https://linux.die.net/man/1/gawk) ( awk )
 >     - pattern scanning and processing language
->     - 常用于：文本格式化、日志分析
+>     - for text formatting & log analysis
 > - [git](https://git-scm.com/)
->     - 分布式代码版本管理系统
->     - 用于：配合 GitLab 管理代码
+>     - a distributed version control system
+>     - for code management
 > - [gradle](https://gradle.org/)
 >     - a build automation tool focused on flexibility and performance
->     - 常用于：基于 *.gradle 配置对 Java、Groovy 项目进行自动构建
+>     - for building Java & Groovy projects based on config file *.gradle
 > - [groovysdk](http://www.groovy-lang.org/)
->     - A multi-faceted language for the Java platform
->     - 常用于：单元测试（ [Spock](http://spockframework.org/) 框架 ）以及部分 Java 项目
->     - 注意：安装的是 Homebrew 的 groovysdk 包，而非 groovy 包，原因详见 [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852)
->     - 附注：IntelliJ IDEA（ IDE ）如何给 Groovy 编写的项目添加 SDK 支持，参考 [链接](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA)
+>     - a multi-faceted language for the Java platform
+>     - for Java unit-testing ( [Spock](http://spockframework.org/) ) or Groovy projects
+>     - Notice : Install **groovysdk** but ~~groovy~~ by Homebrew ( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) )
+>     - More : Add Groovy SDK to IntelliJ IDEA ( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) )
 > - [jq](https://stedolan.github.io/jq/)
 >     - a lightweight and flexible command-line JSON processor
->     - 常用于：JSON 的格式化、数据操作，例如「切片、过滤、map、改变结构」
+>     - for JSON formatting
+>         - basic filters
+>         - builtin operators & functions
+>         - advanced features…
 > - [maven](https://maven.apache.org/)
 >     - a software project management and comprehension tool
->     - 常用于：基于配置文件 pom.xml 对 Java 项目进行管理
+>     - for Java project management based on config files - pom.xml
 > - [ruby](https://www.ruby-lang.org/en/)
->     - Ruby 编程语言
->     - 其包管理器 `gem` 常用于：运行某些软件的安装脚本
+>     - Ruby programming language
+>     - Package Manger : `gem`
 > - [vim](https://www.vim.org/)
->     - 「编辑器之神」Vim（ 与之对应的是「神的编辑器」Emacs ）
->     - 常用的命令行文本编辑器
->     - 备选：`nvim` 即 [Neovim](https://neovim.io/)
+>     - the God of editors - Vim / the editor of Gods - Emacs
+>     - text editor in CLI
+>     - optional : `nvim` aka. [Neovim](https://neovim.io/)
 > - [wget](https://www.gnu.org/software/wget/)
->     - 通过 HTTP/HTTPS、FTP/FTPS 协议，下载文件
+>     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
 
 ### IntelliJ IDEA
 
@@ -246,91 +247,92 @@ xcode-select install
 
 #### Common
 
-即时通讯
+Instant Messaging
 
 - [Mac QQ](http://im.qq.com/macqq/)
-- 手机客户端
-    - 推荐：[TIM - 专注团队沟通协作](https://tim.qq.com/download.html)（官方精简版 QQ）
-    - 备选：[Mobile QQ](http://im.qq.com/mobileqq/)（完整版）
+- Mobile Client
+    - Recommended : [TIM](https://tim.qq.com/download.html) ( official QQ as well )
+        - Focus on comunication & teamwork
+    - Alternative : [Mobile QQ](http://im.qq.com/mobileqq/)
 
-邮箱
+Email
 
 - Mail
-    - macOS 自带邮箱客户端
-- [Microsoft Outlook](https://products.office.com/zh-cn/outlook/email-and-calendar-software-microsoft-outlook?tab=tabs-1)（付费）
-    - 使用 Outlook 客户端便于设置 Outlook 邮箱服务端的邮箱规则
-        - 邮件数量较多，建议自行设置邮箱规则
-        - 建议购买 [Office 365](https://products.office.com/zh-cn/compare-all-microsoft-office-products?tab=1) ，其中包含 Outlook 的服务
+    - macOS builtin mail client
+- [Microsoft Outlook](https://products.office.com/zh-cn/outlook/email-and-calendar-software-microsoft-outlook?tab=tabs-1) ( recommend to purchase )
+    - Better rules for too many emails
+    - [Office 365](https://products.office.com/zh-cn/compare-all-microsoft-office-products?tab=1) license ( include Outlook, Word, Excel, PPT & etc. )
 
-浏览器
+Browser
 
 - [Chrome](https://www.google.com/chrome/)
 
-命令行终端
+Terminal Emulator
 
 - [iTerm2](https://www.iterm2.com/)
-    - 远比 macOS 自带的 Terminal 好用
+    - Better than macOS builtin Terminal
 
-文本编辑器
+Code Editor
 
-- [VS Code](https://code.visualstudio.com/)（推荐）
-    - 易用、免费、开源
-    - 胜任 [Markdown](https://docs.gitlab.com/ee/user/markdown.html) 编辑
-        - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) ：语法风格检测
-        - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
-            - 支持 Markdown 代码块中 [PlatUML](http://plantuml.com/) 源码对应 UML 图的实时预览
-    - 胜任 [PlatUML](http://plantuml.com/) 绘制
-        - 需安装插件 : [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
-    - 进阶：可使用 Vim 操作方式编辑文本
-        - 需安装插件 : [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+- [VS Code](https://code.visualstudio.com/) ( recommended )
+    - Easy to use, free, open source
+    - Support [Markdown](https://docs.gitlab.com/ee/user/markdown.html) ( *.md file )
+        - Check Markdown style
+            - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) plugin
+        - Support [PlatUML](http://plantuml.com/) real-time rendering in Markdown code blocks
+            - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) plugin
+    - Support [PlatUML](http://plantuml.com/) ( *.puml file )
+        - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) plugin
+    - Advanced : Vim emulator - edit text like Vim
+        - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) plugin
 - [Sublime Text](https://www.sublimetext.com/)
-    - 轻量易用，提供免费版
-    - 冷启动快如闪电（是竞品中最快的）
-    - 自带 Vintage 模式：可用 Vim 操作方式编辑文本
+    - Lightweight, easy to use, free
+    - Its cold boot is the fastest. ( compared to VS Code, Atom & etc. )
+    - Builtin **Vintage** Mode : edit text like Vim
 
 #### Recommended
 
-Chrome 插件
+Chrome plugins
 
-- [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) ：当打开的标签页过多时，可暂存到 OneTab 的列表中，节省内存、简洁展示
-- [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) ：轻量级的广告过滤器
-- [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) ：JSON 数据的格式化展示
-- [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) ：方便快捷地管理、切换多个代理服务
-- [cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh)（ 进阶 ）：使用类似 Vim 的操作方式，浏览网页
+- [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
+    - 当打开的标签页过多时，可暂存到 OneTab 的列表中，节省内存、简洁展示
+- [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
+- [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
+- [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
+- [cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ) : Add Vim-like key-bindings to Chrome for faster operations
 
-剪贴板管理（多选一）
+Clipboard Management
 
-- 建议安装的原因
+- Reasons for installation
     - 复制粘贴时，经常需要在多个页面和 Apps 之间反复切换
     - 剪贴板管理工具可以减少不必要的重复操作，大大提高效率
 - [Paste 2](https://pasteapp.me/)
-    - 优点：简洁、美观、易用，可搜索剪贴板历史，而且可试用
-    - 缺点：图形界面占用空间较大，信息展示效率不高
+    - Advantages : Simple, pretty, easy to use, able to search copied content
+    - Disadvantages : 图形界面占用空间较大，信息展示效率不高
 - [Copy'em Paste](http://apprywhere.com/copy-em-paste.html)
-    - 定制化程度更高
-- 略
+    - More configurations
+- …
 
-英语词典
+Dictionary
 
 - 词典 Dictionary
-    - macOS 默认自带，够用
-- 二选一
-    - [欧路词典](https://www.eudic.net/v4/en/app/eudic)（推荐）
-    - [有道词典](https://itunes.apple.com/cn/app/you-dao-ci-dian/id491854842?mt=12)
+    - macOS builtin, enough
+- Alternative
+    - EuDic : [欧路词典](https://www.eudic.net/v4/en/app/eudic) ( recommended )
+    - Youdao Dict : [有道词典](https://itunes.apple.com/cn/app/you-dao-ci-dian/id491854842?mt=12)
 
-API 开发环境
+HTTP API Debug
 
 - [Postman](https://www.getpostman.com/)
-    - 常用于：调试 & 测试 HTTP API
-    - 可用 `curl` 命令行替代，但不如专用软件便捷
+    - for HTTP API debug & test
 
-思维导图（多选一）
+Mind Mapping
 
-- [MindNote](https://mindnode.com/)（推荐）
+- [MindNote](https://mindnode.com/) ( recommended )
 - [XMind](https://www.xmind.net/)
-- 略
+- …
 
-参考 Mac :
+Mac references :
 
 - [Tools](marks/tools/README.md) : 利器 - 软件 / 物件的推荐
 - [Efficiency](mac/efficiency.md) : 效率指南
@@ -338,9 +340,9 @@ API 开发环境
 
 ## Config
 
-包括
+Include
 
-- 本地 & 远端的开发环境配置
+- Development configurations on local & remote machines
 
 ### System Preferences
 
@@ -447,30 +449,28 @@ VS Code
 
 ### Git
 
-Git 配置 用户名 & 邮箱
+Git username & email
 
-- 用途：Git 根据 username 关联每次代码提交和提交它们的用户
-    - 配置 Git 用户名 & 邮箱
-    - `[邮箱]` 例如 icehe@gmail.com
-    - `[邮件前缀]` 例如 icehe
+- `[EMAIL]` e.g. icehe@gmail.com
+- `[USERNAME]` e.g. IceHe
 
 ```bash
-git config --global user.name [邮箱前缀]
-git config --global user.email [邮箱]
+git config --global user.name [USERNAME]
+git config --global user.email [EMAIL]
 
-# 例如
-# `git config --global user.name icehe`
-# `git config --global user.email icehe@gmail.com`
+# e.g.
+git config --global user.name icehe
+git config --global user.email icehe@gmail.com
 ```
 
-查看设置（确认内容）
+Check
 
 ```bash
-git config --global -l | grep user
+$ git config --global -l | grep user
 
-# 输出（以您的设置为准）
-# user.name=icehe
-# user.email=icehe@gmail.com
+# output e.g.
+user.name=icehe
+user.email=icehe@gmail.com
 ```
 
 ### Git* Repo
@@ -505,7 +505,6 @@ Overwrite (y/n)?
 ```
 
 - 建议输入「y」，重新生成
-
 - 将公钥复制到系统剪贴板
 
 ```bash
@@ -518,7 +517,7 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 ### Maven
 
-Maven 配置
+Configurations
 
 - 打开 Maven 配置文件模板 [~~settings.xml~~](todo/settings.xml)（TODO），**复制** 其内容
 - 打开本地的配置文件，**粘贴覆盖** 原来的内容
