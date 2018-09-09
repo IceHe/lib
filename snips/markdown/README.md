@@ -213,11 +213,48 @@ Markdown Style：**Readability > Writability**
         - 正式上线
 ```
 
+### 链接 Link
+
+基于简单原则：尽量少地格式化，去表达同样的意思
+
+> 不使用 `<link>` 语法来写 URL ，直接写即可
+
+- GitHub 和 GitLab 等常用的 Markdown 语法渲染引擎基本都支持直接写 URL
+
+```markdown
+https://icehe.xyz
+```
+
+不推荐的做法
+
+```markdown
+<https://icehe.xyz>
+```
+
+> 如果 URL 链接不是太长，而且自身能准确表达其网页内容，就不要使用 `[link](url)` 语法了
+
+```markdown
+My image : https://hub.docker.com/r/icehe/alpine
+```
+
+不推荐的做法
+
+```markdown
+My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
+```
+
+两种做法的效果
+
+- `[link](url)` 语法：为链接添加标题，并隐去链接本体，如下
+    - My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
+- 不如直接使用链接本体
+    - My image : https://hub.docker.com/r/icehe/alpine
+
 ### 其它 Others
 
 > 一行内容不要太长
 
-to be continue …
+to be perfect …
 
 ## Tools
 
