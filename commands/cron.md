@@ -155,8 +155,8 @@ Jobs run by **crond**.service
 
 ```bash
 # systemv
-systemctl [status|start|stop|restart] crond
+systemctl <status|start|stop|restart> crond
 
 # service
-service crond [status|start|stop|restart] crond
+service crond <status|start|stop|restart> crond
 ```
