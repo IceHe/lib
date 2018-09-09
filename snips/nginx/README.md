@@ -13,7 +13,7 @@
 - Run `service nginx restart` in terminal ( SysVinit )
     - or `systemctl restart nginx` ( systemd )
     - or `nginx -s reload`
-- Visit `http://[HOST]:[PORT]/` in browser
+- Visit `http://<host>:<port>/` in browser
 
 ## Simple Conf
 
