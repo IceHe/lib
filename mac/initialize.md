@@ -44,7 +44,7 @@ Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config
 
 ### Homebrew
 
-[macOS 包管理器](https://brew.sh/)，用于安装 & 管理 macOS 的命令行工具以及 Apps ，命令为 `brew`
+`brew` [macOS package manager](https://brew.sh/) for installing & managing softwares on macOS
 
 Steps
 
