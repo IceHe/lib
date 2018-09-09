@@ -35,24 +35,38 @@ TCP
 
 ```bash
 netstat -at
+# differ `netstat -t`
 ```
 
 UDP
 
 ```bash
 netstat -au
+# differ `netstat -u`
 ```
 
-TCP with PID & Program Name
+TCP **with PID & program name**
+
+- `-p` option
 
 ```bash
 netstat -anpt
 ```
 
-TCP Listening Sockets with PID & Program Name
+TCP **listening** sockets with PID & program name
+
+- `-l` option
 
 ```bash
 netstat -alnpt
+```
+
+Show **active** sockets
+
+- ESTABLISHED means active.
+
+```bash
+netstat -anpt | grep ESTA
 ```
 
 ## Socket States
