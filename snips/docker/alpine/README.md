@@ -22,7 +22,7 @@ apk add bash
 
 Reference
 
-- [Alpine Linux - Package Management]( https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management) @ wiki.alpinelinux.org
+-  https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
 
 ## Dockerfile
 
@@ -30,4 +30,4 @@ File : docker/alpine/Dockerfile
 
 [docker/alpine/Dockerfile](Dockerfile ':include :type=code docker')
 
-My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
+My image : https://hub.docker.com/r/icehe/alpine
