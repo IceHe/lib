@@ -21,13 +21,13 @@ brew install redis
 
 ### Start
 
-service ( better )
+Service ( recommended )
 
 ```bash
 systemctl [start|stop|restart|status] redis
 ```
 
-manually
+Manually
 
 ```bash
 redis-server
