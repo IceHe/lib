@@ -9,7 +9,7 @@
 > 《题破山寺后禅院》**常建**
 
 - 原博客：https://icehe.me
-- **进阶文章**《 [**折腾个人博客**](_archived/blog/blog_changelog.md) 》
+- **进阶文章**《 [折腾个人博客](_archived/blog/blog_changelog.md) 》
 
 ## 后记
 
@@ -37,11 +37,11 @@
 
 ### 引子
 
-非软件、计算机专业的人，自行搭建个人博客其实不难。前人早已造好了各种「轮子」，只要根据网上的教程摸索一下，动动手指头就可以组装出自己的博客。可以用 isnowfy 的 [**静态页面生成静态博客**](http://isnowfy.github.io/about-simple-cn.html) 的方法，对一个新手来说，那感觉真是妙极了！
+非软件、计算机专业的人，自行搭建个人博客其实不难。前人早已造好了各种「轮子」，只要根据网上的教程摸索一下，动动手指头就可以组装出自己的博客。可以用 isnowfy 的 [静态页面生成静态博客](http://isnowfy.github.io/about-simple-cn.html) 的方法，对一个新手来说，那感觉真是妙极了！
 
 当时就想：不如自己写个博客生成器吧！那当真是一件蛮有 geek 的事啊。但吾生有崖，而知也无涯，没必要自己重新「造轮子」，阅源码解其精妙未尝不可。君子善假于物，省出时间，去做真正想做的事情岂不是更好。
 
-搭建博客的方法，除了用不同的静态博客生成器来生成外，还可以租用或搭建一个服务器，来运行一个动态博客，其中最出名的非 [**Wordpress**](https://wordpress.com/) 莫属，现在有更多性能优越、更便于搭建维护的博客框架，可另行查阅。
+搭建博客的方法，除了用不同的静态博客生成器来生成外，还可以租用或搭建一个服务器，来运行一个动态博客，其中最出名的非 [Wordpress](https://wordpress.com/) 莫属，现在有更多性能优越、更便于搭建维护的博客框架，可另行查阅。
 
 为了让个人博客有足够定制空间的同时，尽可能降低维护成本，**我选择了静态博客生成器：[Hexo](http://hexo.io/) !**（有空会找机会再折腾一个动态博客）
 
@@ -56,9 +56,9 @@
 - [Hexo 系列教程：（五）Hexo 博客的优化技巧续](http://www.zipperary.com/2013/06/02/hexo-guide-5/)
 - …
 
-其中会提到，下文涉及的「[**定制点**](#Custom_Points_定制点)」的内容，包含功能模块的具体配置方法。可能其中涉及各工具和模块已经有新版本，具体操作细节最好参考它们最新的官方文档。
+其中会提到，下文涉及的「[定制点](#Custom_Points_定制点)」的内容，包含功能模块的具体配置方法。可能其中涉及各工具和模块已经有新版本，具体操作细节最好参考它们最新的官方文档。
 
-有探索精神的直接可直接参照 [**Hexo官网**](https://hexo.io/zh-cn/)，它提供中/英文的各种帮助信息，包括文档、API、插件、主题等，告诉你建站方法、基本操作、自定义部分…… 前人之述备矣，在此不再赘述基础部分。
+有探索精神的直接可直接参照 [Hexo官网](https://hexo.io/zh-cn/)，它提供中/英文的各种帮助信息，包括文档、API、插件、主题等，告诉你建站方法、基本操作、自定义部分…… 前人之述备矣，在此不再赘述基础部分。
 
 ### 定制点
 
@@ -70,9 +70,9 @@
 
 Theme不单只提供不同的博客外观、视觉效果，**通常还会提供许多功能模块的配套支持！一般包括但不限于：评论、分享、RSS订阅、联系方式、百度/谷歌的统计分析、标签云。** 官网上有提供很多第三方主题：
 
-- 官方列表：[**Hexo Themes**](https://hexo.io/themes/)
+- 官方列表：[Hexo Themes](https://hexo.io/themes/)
 - 现在选用的是：[IIssNan](http://iissnan.com/) 的 [**NexT**（官方文档）](http://theme-next.iissnan.com/)
-- ~~曾经选用的是：[WuChong](http://wuchong.me/) 的 [**Jacman**](https://github.com/wuchong/jacman)~~
+- ~~曾经选用的是：[WuChong](http://wuchong.me/) 的 [Jacman](https://github.com/wuchong/jacman)~~
 - ~~该主题作者的官方教程：[如何使用 Jacman 主题](http://wuchong.me/blog/2014/11/20/how-to-use-jacman/)~~
 
 **它包含了以下绝大多数的定制点，不需要自己折腾太多，也可以很快做好。** 如果你更喜欢 DIY，想要亲手试一试第一次搭建静态微博，从中多了解学习些细节问题，当然更好。
@@ -83,9 +83,9 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 
 利用第三方社会化评论系统，可以便捷地为博客添加评论模块。这些评论系统可以让你和你的访客在你的博客下添加评论，还能审核、删除、迁移（博客变更后保留评论）、自定义评论框的外观效果等，它们一般都提供足够的定制空间。推荐
 
-- 国内：[**畅言**](http://changyan.kuaizhan.com/) （可惜需要网站备案…）
-- 国外：[**Disqus**](https://disqus.com/)
-- 原来国内能用 ~~[**多说**](http://duoshuo.com/)~~ 可惜在 2017 年 5 月 1 日关停了服务。
+- 国内：[畅言](http://changyan.kuaizhan.com/) （可惜需要网站备案…）
+- 国外：[Disqus](https://disqus.com/)
+- 原来国内能用 ~~[多说](http://duoshuo.com/)~~ 可惜在 2017 年 5 月 1 日关停了服务。
 
 具体评论系统搭建比较麻烦，有能用的，就不推荐自己折腾。
 
@@ -93,40 +93,40 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 
 添加分享模块可以方便自己或他人在第三方的社交平台分享你的博客内容。这还是借助第三方的帮助：它们也会提供许多方便定制选项，懂些 HTML、CSS、JavaScript 就能深度定制了。推荐
 
-- [**百度分享**](http://share.baidu.com/)
-- [**jiathis**](http://www.jiathis.com/)
+- [百度分享](http://share.baidu.com/)
+- [jiathis](http://www.jiathis.com/)
 - 自己编写（并不会太难）
 
 #### 关于页面
 
 一般用于介绍博主或博客的页面。
 
-- 例如：[**我的「Me 我」页面**](https://icehe.me/about/)
+- 例如：[我的「Me 我」页面](https://icehe.me/about/)
 
 #### 404 找不到页面
 
 当访问一个不存在于博客中的页面时，展示的提示页面。
 
-- 例如：[**我的 404 页面**](https://icehe.me/not_found/)
-- 推荐：[**腾讯公益 404**](http://www.qq.com/404/)
+- 例如：[我的 404 页面](https://icehe.me/not_found/)
+- 推荐：[腾讯公益 404](http://www.qq.com/404/)
 
 #### 域名
 
 有只属于自己的个性化域名，简直自豪感满满，因为终于有自己的个人网站了 T_T 分两步：买域名，域名解析。域名购买推荐
 
-- 国内老牌：[**万网**](http://wanwang.aliyun.com/)（已被阿里收购）
-- 国外老牌：[**GoDaddy**](https://www.godaddy.com/)
-- 我的选择：[**NameCheap**](https://www.namecheap.com)
+- 国内老牌：[万网](http://wanwang.aliyun.com/)（已被阿里收购）
+- 国外老牌：[GoDaddy](https://www.godaddy.com/)
+- 我的选择：[NameCheap](https://www.namecheap.com)
 
-想要最低的价格，可以参考域名比价网站 [**Domain Price Comparison**](https://www.domcomp.com)。推荐阅读知乎问答：[**现在去哪里买 .com 域名最便宜？**](http://www.zhihu.com/question/19551906) 因为买域名不能只考虑价格，还得考虑服务。域名解析推荐
+想要最低的价格，可以参考域名比价网站 [Domain Price Comparison](https://www.domcomp.com)。推荐阅读知乎问答：[现在去哪里买 .com 域名最便宜？](http://www.zhihu.com/question/19551906) 因为买域名不能只考虑价格，还得考虑服务。域名解析推荐
 
-- 老牌：[**万网**](http://wanwang.aliyun.com/)（在万网买的域名，可以直接用它）
-- 我的选择：[**DNSPod**](https://www.dnspod.cn/)（国内、免费、稳定、快速、用户友好）
+- 老牌：[万网](http://wanwang.aliyun.com/)（在万网买的域名，可以直接用它）
+- 我的选择：[DNSPod](https://www.dnspod.cn/)（国内、免费、稳定、快速、用户友好）
 
 域名解析选择国内运营商，有利于提高国内访客的访问速度。具体配置过程可参考
 
-- [**域名和 DNS**](https://wsgzao.github.io/post/hexo-guide/#%E5%9F%9F%E5%90%8D%E5%92%8CDNS)
-- [**购买域名、设置dns**](http://www.zipperary.com/2013/05/27/domain-name-and-dns/)
+- [域名和 DNS](https://wsgzao.github.io/post/hexo-guide/#%E5%9F%9F%E5%90%8D%E5%92%8CDNS)
+- [购买域名、设置dns](http://www.zipperary.com/2013/05/27/domain-name-and-dns/)
 
 #### Sitemap & RSS
 
@@ -136,20 +136,20 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 
 具体配置过程可参考
 
-- [**Hexo 博客的优化技巧续**](http://www.zipperary.com/2013/06/02/hexo-guide-5/)（推荐结合以下内容阅读）
+- [Hexo 博客的优化技巧续](http://www.zipperary.com/2013/06/02/hexo-guide-5/)（推荐结合以下内容阅读）
 
 注意可能出现的 Bug
 
-- 本博客 [**RSS Feed**](http://icehe.me/atom.xml) 和 [**search.xml**](http://icehe.me/search.xml) 曾无法正常地以 UTF-8 的编码格式被解析。（后者用于 Hexo 的 NexT 主题文档推荐的 [**站内搜索**](#站内搜索) 之一的 [**Local Search**](http://theme-next.iissnan.com/third-party-services.html#local-search)）
+- 本博客 [RSS Feed](http://icehe.me/atom.xml) 和 [search.xml](http://icehe.me/search.xml) 曾无法正常地以 UTF-8 的编码格式被解析。（后者用于 Hexo 的 NexT 主题文档推荐的 [站内搜索](#站内搜索) 之一的 [Local Search](http://theme-next.iissnan.com/third-party-services.html#local-search)）
 
 后来我遍寻网上的相关搜索结果，在仔细研究之下，才发现这原来是因为
 
-- 自己的某些博文中（不知为何）混入了一些「[**控制字符**](http://baike.baidu.com/item/%E6%8E%A7%E5%88%B6%E5%AD%97%E7%AC%A6)」，
+- 自己的某些博文中（不知为何）混入了一些「[控制字符](http://baike.baidu.com/item/%E6%8E%A7%E5%88%B6%E5%AD%97%E7%AC%A6)」，
 - 只要将博客中不在 UTF-8 编码范围内的控制字符去掉，即可恢复正常。
 
 搜索、替换的具体操作提示
 
-- 浏览器打开这些 xml 文件时，就会告诉你哪里解析出错了，看一看第一个解析出错的编码是什么。我的是 `0x15` 即 `^U`，详见 [**ASCII 表**](http://www.asciitable.com/)。
+- 浏览器打开这些 xml 文件时，就会告诉你哪里解析出错了，看一看第一个解析出错的编码是什么。我的是 `0x15` 即 `^U`，详见 [ASCII 表](http://www.asciitable.com/)。
 - 再看一看这个控制字符来自于博客的哪一篇博文或组件，使用 Vim 编辑器打开混入了控制字符的文件，查找并删除它。（不是所有编辑器都能便捷地支持控制字符的输入和查找）Vim 替换指令请自行 Google，Vim 中输入控制字符的方式如下：例如输入 `^U`，要先按 `^V` 然后 再按 `^U` 即可。
 - 重复以上步骤直至完全解析成功为止。
 
@@ -174,12 +174,12 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 
 百度和 Google 都有提供站内搜索功能，但是只能是搜索到你博客中被搜索引擎收录到的那部分内容。对于一个新建的小网站来说，很可能被其收录的内容很少，没有对博客足够齐全的索引，搜索结果差。国内的一般访客也访问不了 Google，百度站内搜索的体验也不佳。推荐
 
-- 我的选择：Hexo 主题 NexT 内置的 [**Local Search**](http://theme-next.iissnan.com/third-party-services.html#local-search)
-- 国外免费：[**Google CSE**](https://cse.google.com/cse/) 需要访客能访问 Google 才行
-- 国外收费：[**Algolia**](https://www.algolia.com/) 和 [**Swiftype**](https://swiftype.com/) 在免费试用后，需缴费才能继续使用完整功能
+- 我的选择：Hexo 主题 NexT 内置的 [Local Search](http://theme-next.iissnan.com/third-party-services.html#local-search)
+- 国外免费：[Google CSE](https://cse.google.com/cse/) 需要访客能访问 Google 才行
+- 国外收费：[Algolia](https://www.algolia.com/) 和 [Swiftype](https://swiftype.com/) 在免费试用后，需缴费才能继续使用完整功能
 - 国内：暂无足够好的选项
 
-[**Local Search**](http://theme-next.iissnan.com/third-party-services.html#local-search) 和 [**Google CSE**](https://cse.google.com/cse/) 根据官方的流程一步步来即可。而 Swiftype 具体配置过程可参考：[利用 Swiftype 为 Hexo 添加站内搜索 v2.0](http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html)
+[Local Search](http://theme-next.iissnan.com/third-party-services.html#local-search) 和 [Google CSE](https://cse.google.com/cse/) 根据官方的流程一步步来即可。而 Swiftype 具体配置过程可参考：[利用 Swiftype 为 Hexo 添加站内搜索 v2.0](http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html)
 
 #### PV/UV
 
@@ -234,5 +234,5 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 
 ### 关于我
 
-- 这是我的 [**简介**](cv.md)。
+- 这是我的 [简介](cv.md)。
 - **感谢您的阅读。**
