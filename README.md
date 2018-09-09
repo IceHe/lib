@@ -17,7 +17,7 @@ Docker
 
 - [Intro](/snips/docker/README.md)
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
-- [Docker Compose](/snips/docker/compose.md) ( TODO )
+- [Docker Compose](/snips/docker/compose.md) ( undone )
 
 Markdown
 
@@ -29,16 +29,17 @@ Web
 - init.d : [Simple HTTP Service](/snips/init.d/README.md)
 - Nginx : [HTTP Server](/snips/nginx/README.md)
 - [How to docsify](/_docsify/README.md)
-- [IP address](/snips/ip.md) ( TODO )
+- [IP address](/snips/ip.md) ( undone )
 
 Storage
 
-- [Redis](/snips/redis/README.md) ( TODO )
-- [MySQL](/snips/mysql/README.md) ( TODO )
+- [MySQL](/snips/mysql/README.md) ( undone )
+- [Redis](/snips/redis/README.md) ( undone )
+- [RocksDB](/snips/rocks-db.md) ( todo )
 
 Others
 
-- [Glossary](/snips/glossary.md) ( TODO )
+- [Glossary](/snips/glossary.md) ( temporary )
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
 
 ### Mac
@@ -59,24 +60,26 @@ Others
 > Command Line Interface 命令行界面
 
 - [README](/commands/README.md) : temporary note
+- [bash](/commands/bash.md) ( todo )
 - [bzip2](/commands/bzip2.md) : block-sorting file compressor
 - [cron](/commands/cron.md) : time-based job scheduler
 - [curl](/commands/curl.md) : transfer data from or to a server
 - [expect](/commands/expect.md) : interact with programs
+- [ls](/commands/ls.md) ( todo )
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
-- [netstat](/commands/network-status.md) : show network status ( TODO )
+- [netstat](/commands/network-status.md) : show network status
 - [rsync](/commands/rsync/README.md) : transfer files
+- [service](/commands/service.md) & [systemctl](/commands/systemctl.md) ( todo )
 - [tar](/commands/tar.md) : pack & compress
 - [tmux](/commands/tmux.md) : terminal multiplexer
 - [vim](/commands/vim.md) : terminal editor
 - [wget](/commands/wget.md) : network downloader
 - [zsh](/commands/zsh.md) : one of shells
 
-<!-- - [awk-sed-grep](/commands/awk-sed-grep_tmp.md) -->
-<!-- - [useful](/commands/useful_tmp.md) -->
-
 <!-- TODO -->
 
+<!-- - [awk-sed-grep](/commands/awk-sed-grep_tmp.md) -->
+<!-- - [useful](/commands/useful_tmp.md) -->
 <!-- - awk / sed / grep / xargs -->
 
 ### C++
