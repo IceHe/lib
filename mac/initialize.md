@@ -28,19 +28,19 @@ Restore from backups of Time Machine
 
 ### Over the Wall
 
-若所需软件无法下载，或者速度太慢，可能需要「番羽土啬」，方法如下
+If cannot download softwares you need, you need to over the Great-Fire_Wall ( in China Main Land )
 
-1. 连接网络
-2. 打开「系统偏好设置」
-3. 「网络」
-4. 「高级…」
-5. 「代理」
-6. 勾选「自动代理配置」
-7. 找到「URL:」文本框（在「代理配置文件」下面）
-8. 填写 ~~`http://url/to/proxy.pac`~~（PAC 文件的网址 TODO）
-9. 点击「好」
+1. Connect to network
+2. Open **System Preferences**
+3. **Network**
+4. **Advanced…**
+5. **Proxies**
+6. Select **Automatic Proxy Configurattion**
+7. Find "**URL:**" input box under "Proxy Configuration File"
+8. Fill with ~~`http://url/to/proxy.pac`~~ ( URL to PAC file ( todo ) )
+9. Click **OK**
 
-Ref : [PAC](https://baike.baidu.com/item/PAC/16292100)（代理自动配置）- 百度百科
+Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config - Wikipedia
 
 ### Homebrew
 
@@ -106,7 +106,7 @@ Environment Variable `JAVA_HOME`
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 ```
 
-> `~` tilde ( 波浪号 )
+> `~` tilde symbol
 >
 > - In the path `~/.bashrc`, `~` means current user's home directory
 > - In macOS, it's `/Users/[USERNAME]` such as `/Users/IceHe`
@@ -117,8 +117,8 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 Install other commands by command `brew`
 
-- 即使 macOS 已经预装了基本的命令行工具
-- 但是它们只随着 OS 更新而更新，更新频率低，版本相对滞后
+- Although some softwares has been pre-installed in macOS, their versions are often outdated.
+- You should install & update them by yourself.
 
 What to Install ( recommended )
 
@@ -295,7 +295,7 @@ Code Editor
 Chrome plugins
 
 - [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
-    - 当打开的标签页过多时，可暂存到 OneTab 的列表中，节省内存、简洁展示
+    - If open too many tabs, you can stash them in OneTab to save memory space & visible screen area
 - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
 - [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
 - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
@@ -304,18 +304,18 @@ Chrome plugins
 Clipboard Management
 
 - Reasons for installation
-    - 复制粘贴时，经常需要在多个页面和 Apps 之间反复切换
-    - 剪贴板管理工具可以减少不必要的重复操作，大大提高效率
+    - You often switch Apps when you are copying and pasting.
+    - Clipboard management apps reduces unnecessary manipulatioin, raise efficiency & boost productivity.
 - [Paste 2](https://pasteapp.me/)
-    - Advantages : Simple, pretty, easy to use, able to search copied content
-    - Disadvantages : 图形界面占用空间较大，信息展示效率不高
+    - Advantages : Simple, pretty, easy to use, able to search copied content.
+    - Disadvantages : It takes up too much screen space.
 - [Copy'em Paste](http://apprywhere.com/copy-em-paste.html)
     - More configurations
 - …
 
 Dictionary
 
-- 词典 Dictionary
+- Dictionary 词典
     - macOS builtin, enough
 - Alternative
     - EuDic : [欧路词典](https://www.eudic.net/v4/en/app/eudic) ( recommended )
@@ -475,54 +475,55 @@ user.email=icehe@gmail.com
 
 ### Git* Repo
 
-为代码仓库添加 SSH 公钥（例如 GitHub / GitLab）
+Add SSH public SSH key for accounts ( e.g., GitHub & GitLab )
 
-- 优点：无需本地记录账号密码或重复输入，即可执行拉取、推送代码等操作
-- 生成 & 获取 SSH 密钥（ 公钥 + 私钥 ）
+- Advantage : No longer need to enter username & password on trusted devices ( before operations )
 
-生成和添加的步骤
+Steps to Generate & Add SSH key
 
-- 生成新的 SSH 密钥对
+- Generate new SSH key pair ( include public & private key pairs )
 
 ```bash
-ssh-keygen -t rsa -C "[邮箱前缀]@gmail.com" -b 4096
+ssh-keygen -t rsa -C "<email>" -b 4096
 
-# 例如
-# `ssh-keygen -t rsa -C "icehe@gmail.com" -b 4096`
+# e.g.
+ssh-keygen -t rsa -C "icehe@gmail.com" -b 4096
 ```
 
-- ssh-keygen 的命令行会多次提示你进行输入，如下
-    - Enter file in which to save the key (/Users/[用户名]/.ssh/id_rsa):
+- `ssh-keygen` will request user input as follow
+    - Enter file in which to save the key (/Users/\<username\>/.ssh/id_rsa):
     - Enter passphrase (empty for no passphrase):
     - Enter same passphrase again:
-- 都敲回车键「↩」即可（ 无需其它输入 ）
-- 如果本地已存在默认 SSH 密钥对，命令行会提示
+- Press the Enter ↩ key
+- If a local SSH key pair exists, command prompt will display
 
 ```bash
-# 输出
-/Users/[用户名]/.ssh/id_rsa already exists.
+# outpu
+/Users/<username>/.ssh/id_rsa already exists.
 Overwrite (y/n)?
 ```
 
-- 建议输入「y」，重新生成
-- 将公钥复制到系统剪贴板
+- Input **y** to re-generate
+- Copy **public key** to clipboard
 
 ```bash
 pbcopy < ~/.ssh/id_rsa.pub
 ```
 
-- 进入个人 Settings 的 SSH Keys 页面 ( 自行查找 )
-- 将剪贴板中的公钥信息，粘贴到「Key」文本输入框中（ Title 文本框将会被自动填充 ）
-- 然后点击「Add key」即可
+- Enter **Settings** webpage and then **SSH Keys** page ( find it yourself )
+- Paste **public key** to input box **Key** ( **Title** input box will be auto-filled )
+- Click **Add key**
 
 ### Maven
 
 Configurations
 
-- 打开 Maven 配置文件模板 [~~settings.xml~~](todo/settings.xml)（TODO），**复制** 其内容
-- 打开本地的配置文件，**粘贴覆盖** 原来的内容
-    - `open` 命令：使用默认的文本编辑器打开
-    - 注意：若使用私人设备办公，设备已存在有效的 Maven 配置，请谨慎地人工合并 settings.xml 的内容
+- Open Maven configuration file template [~~settings.xml~~](todo/settings.xml) ( todo ),
+- Copy its content
+- Open local Maven configuration file
+- Overlay paste original content
+    - `open` : open file with default editor
+    - Notic : If you use your own private devices & Maven configuration files exists, please merge content of configurations carefully.
 
 ```bash
 open ~/.m2/settting.xml
