@@ -65,7 +65,7 @@ Others
 - [cron](/commands/cron.md) : time-based job scheduler
 - [curl](/commands/curl.md) : transfer data from or to a server
 - [expect](/commands/expect.md) : interact with programs
-- [ls](/commands/ls.md) ( todo )
+- [ls](/commands/ls.md) : list directory contents
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
 - [netstat](/commands/network-status.md) : show network status
 - [rsync](/commands/rsync/README.md) : transfer files
