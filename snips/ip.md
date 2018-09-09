@@ -27,5 +27,5 @@ Subnet Mask & Wildcard
 
 Reference
 
-- Subnet Mask : https://www.iplocation.net/subnet-mask
+- https://www.iplocation.net/subnet-mask
 - Explanation : https://learningnetwork.cisco.com/message/357793#357793
