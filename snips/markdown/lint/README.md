@@ -13,13 +13,22 @@ mdl --style path/to/style.rb --list-rules
 mdl --style path/to/style.rb . -g && echo 'All is well.'
 ```
 
+## Style
+
+File : style.rb
+
+- My style definitions as follow
+
+[markdown/lint/style.rb](style.rb ':include :type=code ruby')
+
 ## GitLab CI
 
 ### Config
 
 File : .gitlab-ci.yml
 
-- mdl job definition as follow
+- Mine : https://github.com/IceHe/lib/blob/master/.gitlab-ci.yml
+- `mdl` job definition as follow
 
 ```yaml
 mdl:
@@ -30,14 +39,12 @@ mdl:
         - mdl --style path/to/style.rb . -g && echo 'All is well.'
 ```
 
-Mine : [icehe/lib/.gitlab-ci.yml](https://github.com/IceHe/lib/blob/master/.gitlab-ci.yml)
-
 ### Image
 
 `icehe/markdownlint`
 
+- Mime : https://hub.docker.com/r/icehe/markdownlint
 - Built by : markdown/lint/Dockerfile
-- Hub : https://hub.docker.com/r/icehe/markdownlint
 
 ```bash
 cd markdownlint
@@ -50,5 +57,3 @@ docker push icehe/markdownlint
 File : markdown/lint/Dockerfile
 
 [markdown/lint/Dockerfile](Dockerfile ':include :type=code docker')
-
-My image : [icehe/markdownlint](https://hub.docker.com/r/icehe/markdownlint) @ hub.docker.com
