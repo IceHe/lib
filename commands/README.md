@@ -13,7 +13,7 @@ Manual
 - `man` is an interface to the on-line reference manuals
 
 ```bash
-man [command]
+man <command>
 
 # `man bash`
 ```
@@ -23,7 +23,7 @@ man [command]
 `tree` ( mock ) : list directory content
 
 ```bash
-find [directory_path] | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
+find <directory_path> | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
 ```
 
 `npm` install globally
@@ -47,7 +47,7 @@ ps aux
 - control services
 
 ```bash
-service [serv_name] [start|stop|status|restart]
+service <serv_name> <start|stop|status|restart>
 # `service nginx restart`
 ```
 
@@ -62,7 +62,7 @@ service --status-all
 - control services
 
 ```bash
-systemctl [start|stop|reload|restart] [serv_name]
+systemctl <start|stop|reload|restart> <serv_name>
 # `systemctl restart nginx`
 ```
 
@@ -93,7 +93,7 @@ $ which python
 `ln` make links
 
 ```bash
-ln -s source_file [target_file]
+ln -s <source_file> <target_file>
 ```
 
 unix / linux 不同的程序仓库代表什么
