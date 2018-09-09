@@ -24,3 +24,23 @@ Shebang line
 #!/usr/bin/env groovy
 println "Hello from the shebang line"
 ```
+
+Map
+
+```groovy
+def map = [foo: "bar", num: 110, is_good: true]
+```
+
+List
+
+```groovy
+def list = [1, "2", 3.3, false]
+```
+
+Clousure
+
+```groovy
+retry(3) {
+    doSomething()
+}
+```
