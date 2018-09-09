@@ -50,7 +50,7 @@ Other meanings
 - abbr : abbreviation
 - ad : advertisement
 - addr : address
-- aes : Advanced Encrypted Standard
+- AES : Advanced Encrypted Standard
 - aka. : also known as 又叫做，亦称
 - app : application
 - asm : assembly
@@ -126,12 +126,13 @@ Other meanings
 - fmt : format
 - fn: function
 - func : function
-- fyi : FYI - For Your Infomation 供参考
+- FYI : For Your Infomation 供参考
 
 ### G
 
 - gen : generate
-- gfm : Github Flavored Markdown
+- GFM : Github Flavored Markdown
+- GFW : great fire wall
 
 ### H
 
@@ -177,7 +178,7 @@ Other meanings
 
 ### M
 
-- mc : memcached
+- MC : memcached
 - md : markdown
 - mem : memory
 - millis : millisecond
@@ -202,7 +203,7 @@ Other meanings
 
 ### P
 
-- pe : private capital
+- PE : Private Capital
 - pf : prefix
 - preg : PECL regular expression
 - prev : previous
@@ -210,15 +211,16 @@ Other meanings
 - pw , pwd : passowrd
 - prev : previous
 - proc : process
-- ps : Photo Shop
+- ps : process status
+- PS : Photo Shop
 - p.s. : postscript 附言
 - py : python
 
 ### Q
 
 - qa : quality assurance
-- Q & A : questions & answers
-- qps : queries per second
+- Q & A : Questions & Answers
+- QPS : queries per second
 
 ### R
 
@@ -239,7 +241,7 @@ Other meanings
 - rn : rename
 - rst : result
 - rsp : response
-- rtf : rich text format
+- RTF : Rich Text Format
 - rtn : return
 - rtt : round-trip time
 - rw : rewrite
@@ -256,7 +258,7 @@ Other meanings
 - sim : simple | simplify
 - slb : server load balancing
 - src : source
-- sso : single sign-on 单点登录
+- SSO : Single Sign-On 单点登录
 - sum : summary | summation
 - swp : swap
 - sym : symbol
@@ -285,8 +287,8 @@ Other meanings
 - v : verbose
 - val : value
 - var : variable
-- vc : venture capital
-- vp : vice president 副总裁
+- VC : Venture Capital
+- VP : Vice President 副总裁
 
 ### W
 
