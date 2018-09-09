@@ -40,7 +40,12 @@ docsify serve .
 
 ```bash
 # Optional: sepcify port
-docsify serve . -p [port]
+docsify serve . [-p PORT]
+
+# e.g.
+docsify serve .
+# or
+docsify serve . -p 4000
 ```
 
 ### Visit
@@ -55,7 +60,7 @@ Default port is 3000.
 
 ```bash
 # Rewrite links to resources
-php _ci/deploy/download-n-rewrite-resources.php --rewrite # --download
+php path/to/download-n-rewrite-resources.php --rewrite # --download
 # ( option `--download` : get or refresh resources in directory `_docsify/resources/*` )
 
 # Generate Docs
@@ -65,10 +70,10 @@ mv .public public
 
 ## Access Control
 ## ( Suggestion : 敏感内容只能在项目的代码仓库下查看，通过项目的访问权限来限制阅读 )
-rm -rf public/sensitive/
+rm -rf public/path/to/SENSITIVE/FILEs
 
 ## Remove Useless Files
-rm -rf public/path/to/useless/files
+rm -rf public/path/to/USELESS/FILEs
 
 # List Docs
 find public | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
@@ -101,7 +106,8 @@ cd path/to/project
 ```
 
 ```bash
-php _ci/deploy/download-n-rewrite-resources.php --download --rewrite
+php path/to/download-n-rewrite-resources.php --download --rewrite
+# current path is scripts/php/download-n-rewrite-resources.php
 ```
 
 Reference
