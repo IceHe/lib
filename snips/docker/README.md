@@ -6,7 +6,7 @@
 - Train : https://training.docker.com/
     - Another Choice : [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/) @ GitBook
 
-## Login
+## Login Registry
 
 > Recommended : Managed your Docker images on [hub.docker.com](https://hub.docker.com)
 
@@ -31,40 +31,46 @@ docker logout
 # if without [SERVER], default is `hub.docker.com`.
 ```
 
-## Build & Push
+## Build & Push Image
 
-Manual
+### Manual
 
-- `build` an image from a Dockerfile
+`build` an image from a Dockerfile
 
 ```bash
 docker build [OPTIONS] PATH | URL | -
 ```
 
-- `push` an image to a registry
+`push` an image to a registry
 
 ```bash
 docker push NAME[:TAG]
 ```
 
-Quickstart
+### Quickstart
 
 1\. Go to path/to/dir_with_dockerfile
 
 ```bash
 cd path/to/Dockerfile
+# e.g.
+cd alpine
 ```
 
 2\. Build Image
 
 ```bash
-docker build --compress --squash -t [username]/[image_name] ./
+docker build --compress --squash -t USERNAME/IMAGE_NAME ./
+# e.g.
+docker build --compress --squash -t icehe/alpine ./
 ```
 
 3\. Push Image
 
 ```bash
-docker push [username]/[image_name]
+docker push USERNAME/IMAGE_NAME
+# e.g.
+docker push icehe/alpine
 ```
 
 Examples
@@ -72,7 +78,7 @@ Examples
 - https://hub.docker.com/r/icehe/alpine
 - https://hub.docker.com/r/icehe/markdownlint
 
-## Pull & Run
+## Pull Image
 
 `pull` an image or a repository from a registry
 
@@ -81,8 +87,10 @@ Examples
 ```bash
 docker pull IMAGE_NAME[:TAG]
 # e.g.
-docker pull icehe/markdownlint:latest
+docker pull icehe/alpine:latest
 ```
+
+## Run Container
 
 `run` a command in a new container
 
@@ -103,7 +111,9 @@ docker run -dit \
     icehe/alpine:latest
 ```
 
-**stop** one or more containers
+## Stop & Start Container
+
+`stop` one or more containers
 
 ```bash
 docker stop CONTAINER [CONTAINER...]
@@ -111,7 +121,7 @@ docker stop CONTAINER [CONTAINER...]
 docker stop icehe_alpine
 ```
 
-**start** one or more stoped containers
+`start` one or more stoped containers
 
 ```bash
 docker start CONTAINER [CONTAINER...]
@@ -119,7 +129,7 @@ docker start CONTAINER [CONTAINER...]
 docker start icehe_alpine
 ```
 
-## Execute
+## Exec CMD in Container
 
 **exec** : Run a command in a running container
 
@@ -178,41 +188,9 @@ icehe/alpine         latest              e535b10e6f55        5 weeks ago        
 ruby                 alpine              c3f3338e8929        7 weeks ago         62MB
 ```
 
-## Remove & Kill
+### Others
 
-`rm` : Remove one or more **containers**
-
-- Options : `-f` | `--force` Force the removal of a running container ( uses SIGKILL )
-
-```bash
-docker rm CONTAINER [CONTAINER...]
-# e.g.
-docker rm icehe_alpine
-```
-
-`rmi` : Remove one or more **images**
-
-- Options : `-f` | `--force` Force removal of the images
-
-```bash
-docker rm [OPTIONS] IMAGE [IMAGE...]
-# e.g.
-docker rmi icehe/markdownlint icehe/alpine ruby
-```
-
-`kill` one or more running containers
-
-- Options : `-s, --signal string` Signal to send to the container ( default "KILL" )
-
-```bash
-docker kill CONTAINER [CONTAINER...]
-# e.g.
-docker kill icehe_alpine
-```
-
-## Others
-
-Display system-wide information
+System-wide information
 
 ```bash
 docker info
@@ -224,8 +202,46 @@ Show version
 docker version
 ```
 
-List docker commands
+Help : Docker commands
 
 ```bash
 docker help
+```
+
+## Remove
+
+### Container
+
+`rm` : Remove one or more **containers**
+
+- Options : `-f` | `--force` Force the removal of a running container ( uses SIGKILL )
+
+```bash
+docker rm CONTAINER [CONTAINER...]
+# e.g.
+docker rm icehe_alpine
+```
+
+### Image
+
+`rmi` : Remove one or more **images**
+
+- Options : `-f` | `--force` Force removal of the images
+
+```bash
+docker rm [OPTIONS] IMAGE [IMAGE...]
+# e.g.
+docker rmi icehe/markdownlint icehe/alpine ruby
+```
+
+## Kill Container
+
+`kill` one or more running containers
+
+- Options : `-s, --signal string` Signal to send to the container ( default "KILL" )
+
+```bash
+docker kill CONTAINER [CONTAINER...]
+# e.g.
+docker kill icehe_alpine
 ```
