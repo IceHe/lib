@@ -208,17 +208,17 @@ xcode-select install
 
 ### IntelliJ IDEA
 
-[官网](https://www.jetbrains.com/idea/) 下载 [最新版本](https://www.jetbrains.com/idea/download/#section=mac)
+Download [latest isntallation](https://www.jetbrains.com/idea/download/#section=mac) from [offical website](https://www.jetbrains.com/idea/)
 
-- 选择版本：**Ultimate**
+- Choose version : **Ultimate**
 
-获取软件使用许可
+Get lincense
 
-- 购买官方的 [License](https://www.jetbrains.com/idea/buy/#edition=commercial)（若财力允许，请支持正版）
-- 或者：淘宝购买 License
-- 或者：temp workaround - [Ref 1](http://idea.lanyus.com/) / [Ref 2](https://www.jianshu.com/p/f404994e2843)
+- Buy offical [license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+- or buy a license on Taobao
+- or temp workaround - [Ref 1](http://idea.lanyus.com/) / [Ref 2](https://www.jianshu.com/p/f404994e2843)
 
-安装插件
+Intsll plugins
 
 - [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
 - [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
@@ -229,18 +229,18 @@ xcode-select install
 > >
 > > Never write another getter or equals method again. Early access to future java features such as val, and much more.
 >
-> 可选插件
+> Optional plugins
 > - [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
->     - 不时需要绘制 UML 图，以便文档展示，通常使用 [PlatUML](http://plantuml.com/)
+>     - Draw UML graphs for docs by [PlatUML](http://plantuml.com/)
 > - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)
->     - 使用 Vim 的操作方式进行编辑，推荐 Vim 重度用户使用
+>     - Vim emulator - edit text like Vim
 >
-> IDE 的取舍
+> IDE for team
 >
-> - 使用统一的 IDE 及其配置，便于协作
->     - 统一代码风格，统一代码格式化的规则
->     - 功能和操作方法基本一致，互相帮忙使用别人电脑时阻碍小
->     - 使用相同的工具，有利于传授积累相关经验
+> - Use the same IDE for better collaboration in a team
+>     - Uniform code format for all developers in a team
+>     - Easy to learn IDE developing experience accumulated by other teammates
+>     - Teammates are easy to use others' development environment (IDE)
 >     - ……
 
 ### Mac Apps
