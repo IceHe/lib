@@ -54,6 +54,6 @@ $ tmux list-sessions
 Attach
 
 ```bash
-tmux attach-session -t [session_number]
+tmux attach-session -t <session_number>
 # e.g. `tmux attach-session -t 0`
 ```
