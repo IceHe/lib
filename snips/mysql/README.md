@@ -18,6 +18,6 @@ mysql_upgrade -u root -p
 
 ## SERIAL
 
-SQL `SERIAL` TYPE
+`SERIAL` SQL TYPE
 
 - an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
