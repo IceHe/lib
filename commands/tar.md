@@ -9,14 +9,14 @@
 - `x` | `-x` Extract to disk from the archive
 - `z` | `-z` Compress the resulting archive `*.gz` with `gzip`
 - `f` | `-f` Read/Write the archive from/to the specified file
-    - e.g.: `-f [file_name]`
+    - e.g.: `-f <file_name>`
 
 ## Pack
 
 Pack
 
 ```bash
-tar cvf [pacakge_name].tar [directory_or_filenames]
+tar cvf <pacakge_name>.tar <directory_or_filenames>
 
 # `tar cvf directory.tar directory`
 ```
@@ -24,7 +24,7 @@ tar cvf [pacakge_name].tar [directory_or_filenames]
 Unpack
 
 ```bash
-tar xvf [package_name]
+tar xvf <package_name>
 
 # `tar xvf directory.tar
 ```
@@ -34,7 +34,7 @@ tar xvf [package_name]
 Pack & Gzip ( Compress )
 
 ```bash
-tar czvf [archive_name].tar.gz [directory_or_filenames]
+tar czvf <archive_name>.tar.gz <directory_or_filenames>
 
 # `tar czvf archive.tar.gz *.html`
 ```
@@ -42,7 +42,7 @@ tar czvf [archive_name].tar.gz [directory_or_filenames]
 Un-gzip & Unpack
 
 ```bash
-tar xzvf [archive_name].tar.gz
+tar xzvf <archive_name>.tar.gz
 
 # `tar xzvf archive.tar.gz`
 ```
@@ -52,14 +52,14 @@ tar xzvf [archive_name].tar.gz
 Pack & Bzip2 ( Compress )
 
 ```bash
-tar cjvf [archive].tar.bz2 [files]
+tar cjvf <archive>.tar.bz2 <files>
 ```
 
 Un-bzip\* & Unpack
 
 ```bash
 # bzip
-tar xjvf [archive].tar.bz
+tar xjvf <archive>.tar.bz
 # bzip2
-tar xjvf [archive].tar.bz2
+tar xjvf <archive>.tar.bz2
 ```
