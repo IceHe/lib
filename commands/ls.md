@@ -24,7 +24,6 @@ Seldom
 - `-t` Sort by time modified (most recently modified first)
     - before sorting the operands by lexicographical order.
 
-
 ## Usage
 
 ### List
