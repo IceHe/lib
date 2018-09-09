@@ -417,34 +417,34 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 
 ### Vim
 
-[**Vim**](http://www.vim.org/)（也可以选择 [Neovim](https://neovim.io/)）
+[Vim](http://www.vim.org/)（也可以选择 [Neovim](https://neovim.io/)）
 
 - 首先，通用性有保证！服务器没有 GUI 界面，可能没有 Emacs，但是基本不可能没有 Vi*，学会 Vim 保证你在几乎任何服务器环境下都能无碍地编辑文本。
 - 其次，拓展广。很多 IDE 和编辑器都有 Vim 插件，不用记太多各个 Apps 专有的快捷键，学会 Vim 就可以在其中进行绝大多数常用的文本编辑操作，减轻记忆负担，提升效率。
     - 例如，Sublime Text 系列就自带 Vintage Mode 专门支持 Vim 键位的操作。
 - 各种 Shell（命令行）除了自带 Emacs 式的快捷键，其实也有 Vim 式的快捷键，可以尝试一下，看看自己习不习惯。
-- 我的配置 [**.vimrc**](https://github.com/IceHe/mac-conf/blob/master/.vimrc)
+- 我的配置 [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc)
 
 ### tmux
 
-[**tmux**](https://tmux.github.io/) : 终端多路复用软件，即命令行中的「窗口管理」、「分屏工具」。
+[tmux](https://tmux.github.io/) : 终端多路复用软件，即命令行中的「窗口管理」、「分屏工具」。
 
 - 允许一个用户在一个终端窗口或一个远程终端会话中，使用多个终端会话。
 - tmux 是由 [screen](https://www.gnu.org/software/screen/manual/screen.html) 发展而来的，其中许多命令都是共有的。screen 虽不如后来者 tmux 易用、强大、美观，但是更通用 —— 大多数服务器都有 screen 命令。
-- 我的配置 [**.tmux.conf**](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf)
+- 我的配置 [.tmux.conf](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf)
 
 ### iTerm2
 
-[**iTerm2**](https://www.iterm2.com/) : 功能和可配置性，比系统自带的终端 Terminal 强大许多。
+[iTerm2](https://www.iterm2.com/) : 功能和可配置性，比系统自带的终端 Terminal 强大许多。
 
 - 对命令行的使用环境要求不高的话，用 Terminal 也没差，只要适合自己，够用就好。
-- 其它选择：[**VS Code**](https://www.google.com/)，自带终端（Terminal），新一代轻量文本编辑器的佼佼者。
+- 其它选择：[VS Code](https://www.google.com/)，自带终端（Terminal），新一代轻量文本编辑器的佼佼者。
 
 ## 进阶
 
 ### Karabiner-Elements
 
-[**Karabiner-Elements**](https://github.com/tekezo/Karabiner-Elements) 改变键盘的键位
+[Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements) 改变键盘的键位
 
 - 我将 ⇪ 改成 ^，这样的话，按下由 ^、⌘ 组合而成的快捷键会顺手很多。
 - 原来的 ^，用于一键触发 ^ 凵 以便一键切换输入法。
@@ -456,11 +456,11 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
     - 改成这样的话，双手就基本不用远离键盘中心区了（参考盲打键盘的标准姿势），
     - 而且用强健的右大拇指去代替比较弱小的左小拇指去按 ⎋，减轻长时间敲击键盘的手指不适。
     - 最重要的是从 2016 款开始 MacBook Pro 由于 Touch Bar 不再带实体的 ⎋，Vim 使用者难以适应缺乏反馈的虚拟按键。
-- 我的配置 [**karabiner.json**](https://github.com/IceHe/mac-conf/blob/master/.config/karabiner/karabiner.json)
+- 我的配置 [karabiner.json](https://github.com/IceHe/mac-conf/blob/master/.config/karabiner/karabiner.json)
 
 ### AppleScript
 
-[**AppleScript**](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)
+[AppleScript](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)
 
 系统内置的可用于操作 macOS 以及 Apps 的脚本语言。能实现许多功能在此暂不赘述。
 
@@ -471,13 +471,13 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 - 基础用法：用 AppleScript 写好脚本，然后保存为 Application，就可以用点击打开、Spotlight 搜索、快捷键等各种方式来便捷地调用它，以实现自己的功能。
 - 进阶用法：Keyboard Maestro、Alfred 等的许多效率类软件不但能被 AppleScript 调用和操作，他们也能调用 AppleScript。所以它作为一种胶水语言，可以与其它 Apps 甚至命令行的命令、脚本进行组合，产生进阶的功能，实现一些 Apps 原来并没有的新功能，以满足自身的需求。
 - 可以参考：
-    《[**AppleScript Language Guide**](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)》官方文档
-    《[**用 AppleScript 操作 Evernote / macOS**](scripts/applescript/evernote-macos.md)》
-    《[**AppleScript Quick Start 快速入门**](scripts/applescript/applescript.md)》
+    《[AppleScript Language Guide](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)》官方文档
+    《[用 AppleScript 操作 Evernote / macOS](scripts/applescript/evernote-macos.md)》
+    《[AppleScript Quick Start 快速入门](scripts/applescript/applescript.md)》
 
 ### Automator
 
-[**Automator**](http://www.macworld.co.uk/how-to/mac-software/what-automator-can-do-for-you-3605538/) :可谓 macOS 的「按键精灵」。
+[Automator](http://www.macworld.co.uk/how-to/mac-software/what-automator-can-do-for-you-3605538/) :可谓 macOS 的「按键精灵」。
 
 - 有时候用 JS、Shell、Python、AppleScript 写脚本来实现某些功能并不方便，比如关于 GUI 的一些任务，不如直接手动做。
 - 这时需要的若只是重复性的简单鼠标键盘操作，就可以用 Automator 直接录制键盘、鼠标的操作来重复运行，以减少重复的人工劳动。
@@ -490,41 +490,41 @@ Shell、CLI : Bash 脚本、命令行，都是程序员的基本功，就不赘�
 
 接下来列举的一些其它 Apps，它们大大地提升我的效率，所以推荐您去了解和尝试
 
-- 具体详见《[**利器 - 软硬件推荐**](marks/tools/README.md)》，其中列举了绝大多数笔者用的 Apps，包括简要的介绍和进一步的说明
-- 选读《[**Mac 快捷键**](mac/shortcuts/README.md)》列举了绝大多数笔者用的快捷键，仅供参考
+- 具体详见《[利器 - 软硬件推荐](marks/tools/README.md)》，其中列举了绝大多数笔者用的 Apps，包括简要的介绍和进一步的说明
+- 选读《[Mac 快捷键](mac/shortcuts/README.md)》列举了绝大多数笔者用的快捷键，仅供参考
 - 因为以上两篇博文的部分内容与本文有交集，不打算重复赘述其中相同的内容，以下仅简单列举笔者推荐的 Apps 并附上一句话的介绍说明
 
 **Time Machine** <sup>Required</sup>
 
 - macOS 自带的系统备份、恢复软件。要有忧患意识，不要等硬盘坏了、Mac 丢了，才追悔莫及
 
-[**CheatSheet**](https://www.mediaatelier.com/CheatSheet/)
+[CheatSheet](https://www.mediaatelier.com/CheatSheet/)
 
 - 快捷键快速提醒。长按 Command 键，显示当前程序的快捷键列表，方便快速入门 Mac 各处的快捷键（新手专用）
 
-[**Keyboard Maestro**](https://www.keyboardmaestro.com/main/) <sup>**Best**</sup>
+[Keyboard Maestro](https://www.keyboardmaestro.com/main/) <sup>**Best**</sup>
 
 - 高度自定义的效率工具，加速常用操作，甚至自动化。功能强大，用途甚广，限制你的只有你的想象力
 - 可以参考笔者的对其用法的 [简要介绍](tools.md#快捷键) 或《[Keyboard Maestro 入门指南](https://sspai.com/post/36442)》
 
-[**ClipMenu**](http://www.clipmenu.com/) <sup>**Simple**</sup>
+[ClipMenu](http://www.clipmenu.com/) <sup>**Simple**</sup>
 
 - 剪贴板管理。主要用于快速查询剪贴板的历史记录，并提取出需要的内容保存到当前的剪贴板中
 - 相关 Apps 层出不穷，根据自身需求进行选择，我偏爱轻便简单的 ClipMenu
 
-[**HyperSwitch**](https://bahoom.com/hyperswitch)
+[HyperSwitch](https://bahoom.com/hyperswitch)
 
 - 稳定切换同一 App 下各子窗口
 
-[**Amphetamine**](https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12)
+[Amphetamine](https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12)
 
 - 防止 Mac 休眠。Mac 每次休眠后都会重启软件，导致软件丢失部分上下文，于是我无法在完全一样的环境下持续工作，一定程度上打断了工作，降低了效率
 
-[**Bartender**](https://www.macbartender.com/)
+[Bartender](https://www.macbartender.com/)
 
 - 收起或彻底隐藏毋需过多关注的菜单栏 App 图标。
 
-[**ShowyEdge**](https://pqrs.org/osx/ShowyEdge/index.html.en) <sup>Great</sup>
+[ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en) <sup>Great</sup>
 
 - 输入法状态提示。显示一条样式可定制的色带在屏幕顶部，以提示正在使用什么输入法。在全屏使用 App 时，也能轻易区分输入法状态！
 
