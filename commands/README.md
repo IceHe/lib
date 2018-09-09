@@ -89,3 +89,9 @@ $ which python
 # output e.g.
 /usr/local/bin/python
 ```
+
+`ln` make links
+
+```bash
+ln -s source_file [target_file]
+```
