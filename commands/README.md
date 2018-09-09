@@ -95,3 +95,15 @@ $ which python
 ```bash
 ln -s source_file [target_file]
 ```
+
+unix / linux 不同的程序仓库代表什么
+
+- /bin
+- /sbin
+- /usr/bin
+- /usr/sbin
+- /usr/local/bin
+- /usr/local/sbin
+- /usr/local/go/bin
+- /Users/USERNAME/.composer/vendor/bin
+- ……
