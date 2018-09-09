@@ -3,7 +3,7 @@
 case "$1" in
 start)
     # Ref : http://php.net/manual/en/features.commandline.webserver.php
-    php -S [host]:[port] -t /path/to/website &
+    php -S HOST:PORT -t /path/to/website &
     echo $!>/var/run/simple_http_service.pid
     ;;
 stop)
