@@ -12,7 +12,7 @@
 ### Compress
 
 ```bash
-bzip2 -z [file_path]
+bzip2 -z <file_path>
 ```
 
 e.g.
@@ -29,7 +29,7 @@ index.html.bz2
 - Files which were not created by bzip2 will be detected and ignored, and a warning issued.
 
 ```bash
-bzip2 -d [file_path]
+bzip2 -d <file_path>
 ```
 
 e.g.
