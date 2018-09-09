@@ -4,16 +4,16 @@
 #
 #   - Put config file in directory `/etc/init.d/`.
 #   - Replace `path/to/website` with real path.
-#   - Replace `[PORT]` with available port you want (e.g., 80).
-#       - Tip: Run `lsof -i :PORT` to check port availability.
+#   - Replace `<port>` with available port you want (e.g., 80).
+#       - Tip: Run `lsof -i :<port>` to check port availability.
 #   - Run `service start docsify` in terminal.
-#   - Visit `http://[HOST_IP]:[PORT]/` in browser.
+#   - Visit `http://<host_ip>:<port>/` in browser.
 #
 # Ref : https://unix.stackexchange.com/questions/236084/how-do-i-create-a-service-for-a-shell-script-so-i-can-start-and-stop-it-like-a-d
 
 case "$1" in
 start)
-   docsify serve -p [PORT] path/to/website &
+   docsify serve -p <port> path/to/website &
    echo $!>/var/run/docsify.pid
    ;;
 stop)
