@@ -15,7 +15,15 @@
 
 ### Common
 
-- `<pid>` : Process ID
+Process ID `<pid>`
+
+- `pidof <process_name>`
+- `ps aux | grep <process_name>`
+- `ps -ef | grep <process_name>`
+
+```bash
+pidof nginx
+```
 
 Kill process
 
