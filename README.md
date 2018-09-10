@@ -65,7 +65,8 @@ Others
 - [cron](/commands/cron.md) : time-based job scheduler
 - [curl](/commands/curl.md) : transfer data from or to a server
 - [expect](/commands/expect.md) : interact with programs
-- [kill](/commands/kill.md) ( todo )
+- [kill](/commands/kill.md) : terminate or signal a process
+- [killall](/commands/killall.md) : kill processes by name
 - [ls](/commands/ls.md) : list directory contents
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
 - [netstat](/commands/network-status.md) : show network status
