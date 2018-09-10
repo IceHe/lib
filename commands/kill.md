@@ -113,3 +113,8 @@ Only returns after the process dies
 ```bash
 killall -w <process_name>
 ```
+
+## Others
+
+- `pgrep` find processes by name
+- `pkill` signal processes by name
