@@ -26,13 +26,6 @@ man <command>
 find <directory_path> | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
 ```
 
-`npm` install globally
-
-```bash
-# NPM Install globally
-npm i docsify-cli -g
-```
-
 `ps`
 
 > process status
