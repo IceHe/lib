@@ -4,6 +4,16 @@
 
 - [Differences between `kill <pid>` & `kill -9 <pid>`](https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process)
 
+refs
+
+https://blog.csdn.net/ithomer/article/details/9402431
+
+https://www.linode.com/docs/tools-reference/tools/use-killall-and-kill-to-stop-processes-on-linux/
+
+https://www.howtoforge.com/linux-killall-command/
+
+https://www.google.co.jp/search?newwindow=1&safe=active&ei=X2mWW9v5A9Sk-Qa9o5HQDw&q=linux+killall&oq=linux+killall&gs_l=psy-ab.3...6513.6887.0.7131.3.3.0.0.0.0.0.0..0.0....0...1.1.64.psy-ab..3.0.0....0.zDhE0TfCTnk
+
 ## Options
 
 - `-s, --signal <signal>` Specify the signal to send.
@@ -17,12 +27,11 @@
 
 Process ID `<pid>`
 
-- `pidof <process_name>`
-- `ps aux | grep <process_name>`
-- `ps -ef | grep <process_name>`
-
 ```bash
-pidof nginx
+pidof <process_name>
+pgrep <process_name>
+ps aux | grep <process_name>
+ps -ef | grep <process_name>
 ```
 
 Kill process
