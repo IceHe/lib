@@ -15,6 +15,8 @@
 
 ### Common
 
+- `<pid>` : Process ID
+
 Kill process
 
 - give the target process a chance to clean up
@@ -22,9 +24,9 @@ Kill process
 
 ```bash
 kill <pid>
-# aka
+# aka (in BSD)
 kill -s TERM <pid>
-# or
+# or (in Linux)
 kill -s SIGTERM <pid>
 # aka
 kill -15 <pid>
@@ -36,10 +38,20 @@ Force to kill process
 
 ```bash
 kill -9 <pid>
-# aka
+# aka (in BSD)
 kill -s KILL <pid>
-# or
+# or (in Linux)
 kill -s SIGKILL <pid>
+```
+
+Kill process & then restart it
+
+```bash
+kill -1 <pid>
+# aka (in BSD)
+kill -s HUP <pid>
+# or (in Linux)
+kill -s SIGHUP <pid>
 ```
 
 ### List Signals
