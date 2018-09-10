@@ -4,16 +4,6 @@
 
 - [Differences between `kill <pid>` & `kill -9 <pid>`](https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process)
 
-refs
-
-https://blog.csdn.net/ithomer/article/details/9402431
-
-https://www.linode.com/docs/tools-reference/tools/use-killall-and-kill-to-stop-processes-on-linux/
-
-https://www.howtoforge.com/linux-killall-command/
-
-https://www.google.co.jp/search?newwindow=1&safe=active&ei=X2mWW9v5A9Sk-Qa9o5HQDw&q=linux+killall&oq=linux+killall&gs_l=psy-ab.3...6513.6887.0.7131.3.3.0.0.0.0.0.0..0.0....0...1.1.64.psy-ab..3.0.0....0.zDhE0TfCTnk
-
 ## Options
 
 - `-s, --signal <signal>` Specify the signal to send.
@@ -27,11 +17,14 @@ https://www.google.co.jp/search?newwindow=1&safe=active&ei=X2mWW9v5A9Sk-Qa9o5HQD
 
 Process ID `<pid>`
 
+- How to get
+
 ```bash
 pidof <process_name>
 pgrep <process_name>
 ps aux | grep <process_name>
 ps -ef | grep <process_name>
+……
 ```
 
 Kill process
@@ -89,4 +82,34 @@ $ kill -l
 9)  SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
 10) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
 11) SIGRTMAX-1  64) SIGRTMAX
+```
+
+## killall
+
+> kill processes by name
+
+### Options
+
+- `-u <username>` Limit potentially matching processes to those belonging to the specified user
+- `-w` | `--wait` Wait for all killed processes to die
+    - Note that killall may wait forever if the signal was ignored, had no effect, or if the process stays in zombie state.
+
+### Usage
+
+Kill processes by name
+
+```bash
+killall <process_name>
+```
+
+Kill all processes that a specific user owns
+
+```bash
+killall -u <username>
+```
+
+Only returns after the process dies
+
+```bash
+killall -w <process_name>
 ```
