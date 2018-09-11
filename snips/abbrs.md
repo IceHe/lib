@@ -126,7 +126,8 @@ Other meanings
 ### F
 
 - fmt : format
-- fn: function
+- fn : function
+- fs : file system
 - func : function
 - FYI : For Your Infomation 供参考
 
