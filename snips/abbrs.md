@@ -53,6 +53,7 @@ Other meanings
 - AES : Advanced Encrypted Standard
 - aka. : also known as 又叫做，亦称
 - app : application
+- arg : argument
 - asm : assembly
 - auth : authenticate
 - auto : automatical
@@ -69,6 +70,7 @@ Other meanings
 
 - ca : certificate authority | certificate agency
 - cal : call
+- chan : channel
 - chk : check
 - cli : command line interface
 - cls : class
@@ -133,12 +135,14 @@ Other meanings
 - gen : generate
 - GFM : Github Flavored Markdown
 - GFW : great fire wall
+- gid : group id
 
 ### H
 
 - h : help
 - hex : heximal
 - hrs : hours
+- hup : hang up
 
 ### I
 
@@ -154,6 +158,7 @@ Other meanings
 - init : initiate
 - ins : insert
 - int : integer | interrupt
+- io : input/output
 
 ### J
 
@@ -174,6 +179,7 @@ Other meanings
 - lnk : link
 - loc : location
 - LOL : Laugh Out Loud
+- ls : list
 - lyt : layout
 
 ### M
@@ -185,6 +191,7 @@ Other meanings
 - mk : make
 - mq : message queue
 - msg : message
+- multi : multiple
 - mv : move
 
 ### N
@@ -205,6 +212,7 @@ Other meanings
 
 - PE : Private Capital
 - pf : prefix
+- pid : process id
 - preg : PECL regular expression
 - prev : previous
 - ptr : pointer
@@ -225,6 +233,7 @@ Other meanings
 ### R
 
 - rb : ruby
+- rcv : received
 - rd : read
 - RD : Research & Development
 - rec : record
@@ -252,17 +261,21 @@ Other meanings
 - SDE : Software Development Engineer
 - sec : second | secure , security
 - serv : server | service
+- sess : session
 - sh : shell
 - shf : shift
 - sig : signal | signature
 - sim : simple | simplify
 - slb : server load balancing
+- snd : send
 - src : source
 - SSO : Single Sign-On 单点登录
+- stat : status | statistics
 - sum : summary | summation
 - swp : swap
 - sym : symbol
 - sys : system
+- sz : size
 
 ### T
 
@@ -271,6 +284,7 @@ Other meanings
 - TBD : To Be Determinated
 - tel : tell | telephone
 - temp : temporary
+- term : terminate
 - tmp : temporary
 - ts : timestamp
 - txt : plain text file
@@ -279,8 +293,10 @@ Other meanings
 
 - ue : user experience design
 - ui : user interface | user interaction
+- uid : user id
 - upd : update
 - usr : user
+- util : utility
 
 ### V
 
@@ -288,6 +304,7 @@ Other meanings
 - val : value
 - var : variable
 - VC : Venture Capital
+- VM : virtual machine
 - VP : Vice President 副总裁
 
 ### W
