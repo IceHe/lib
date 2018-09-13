@@ -70,7 +70,7 @@ Others
 - [lsof](/commands/lsof.md) : list open files ( todo )
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
 - [netstat](/commands/network-status.md) : show network status
-- [ps](/commands/ps.md) : process status ( undone )
+- [ps](/commands/ps.md) : process status
 - [rsync](/commands/rsync/README.md) : transfer files
 - [service](/commands/service.md) & [systemctl](/commands/systemctl.md) ( todo )
 - [tar](/commands/tar.md) : pack & compress
