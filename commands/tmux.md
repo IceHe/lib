@@ -46,8 +46,7 @@ List
 
 ```bash
 $ tmux list-sessions
-
-# output
+# output e.g.
 0: 6 windows (created Mon Sep  3 09:30:05 2018) [130x65]
 ```
 
@@ -55,5 +54,6 @@ Attach
 
 ```bash
 tmux attach-session -t <session_number>
-# e.g. `tmux attach-session -t 0`
+# e.g.
+tmux attach-session -t 0
 ```
