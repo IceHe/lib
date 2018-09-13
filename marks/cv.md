@@ -12,6 +12,8 @@ Curriculum Vitae
 - 技术博客：[icehe.me](https://icehe.me)
 - 生活微博：[@\_IceHe\_](http://weibo.com/icedes)
 
+![弱小，可怜，又无助](http://ww1.rs.fanjian.net/c/ba/65/41/e2ba2d4d1a65865e8e4107f9f9620dce.jpg)
+
 联络
 
 - [icehe.me@qq.com](mailto:icehe.me@qq.com)
