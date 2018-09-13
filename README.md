@@ -141,6 +141,7 @@ Others
 - [lib](https://github.com/IceHe/lib) : library | wiki ( this website )
 - [blog](https://github.com/IceHe/blog) : prev tech blog ( archived )
 - [mac-conf](https://github.com/IceHe/mac-conf) : macOS config files ( @ home dir )
+- [linux-conf](https://github.com/IceHe/linux-conf) : Linux config files ( @ home dir )
 - [applescript](https://github.com/IceHe/applescript) : to manipulate macOS
 - [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset) : ruleset for PHPCS 3.1.0
 
