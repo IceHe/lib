@@ -4,7 +4,7 @@
 
 - `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i.
 
-```bash
+```text
 If no address is speci-
 fied, this option selects the listing of all Internet and x.25
 (HP-UX) network files.
@@ -97,3 +97,13 @@ Here are some sample addresses:
     tcp@bar:1-smtp - TCP, ports 1 through smtp, host bar
     :time - either TCP, UDP or UDPLITE time service port
 ```
+
+## Usage
+
+15 examples (better, more practical)
+
+https://www.thegeekstuff.com/2012/08/lsof-command-examples/
+
+10 examples
+
+https://www.tecmint.com/10-lsof-command-examples-in-linux/
