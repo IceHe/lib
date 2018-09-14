@@ -10,11 +10,38 @@
     - It also causes the command arguments to be printed.
     - See the `c` option, the format keyword args, and the format keyword comm.
 
+### Style,
+
+- BSD-style options `v`
+- Unix-style options `-v`
+- GNU-style options `--version`
+
+Reference : https://unix.stackexchange.com/questions/78691/unix-bsd-gnu-options-in-linuxs-ps-command-where-are-they-from
+
 ## Usage
 
+Standard syntax ( Unix-style )
+
 ```bash
-ps -ef
-ps aux
+$ ps -ef
+# output e.g.
+  UID   PID  PPID   C STIME   TTY           TIME CMD
+    0     1     0   0 Wed11PM ??         0:35.22 /sbin/launchd
+    0    52     1   0 Wed11PM ??         0:01.15 /usr/sbin/syslogd
+    0    53     1   0 Wed11PM ??         0:03.27 /usr/libexec/UserEventAgent (System)
+  ………
+```
+
+BSD syntax ( BSD-style )
+
+```bash
+$ ps aux
+# output e.g.
+USER  PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
+root    52   0.0  0.0  4305532   1240   ??  Ss   Wed11PM   0:01.17 /usr/sbin/syslogd
+root  5277   0.0  0.0  4268180   1120 s002  R+    1:29AM   0:00.00 ps aux
+root     1   0.0  0.1  4328008  11828   ??  Ss   Wed11PM   0:36.65 /sbin/launchd
+……
 ```
 
 ## Process
