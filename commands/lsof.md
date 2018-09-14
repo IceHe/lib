@@ -1,5 +1,7 @@
 # lsof
 
+> list open files
+
 ## Options
 
 - `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i.
