@@ -27,7 +27,7 @@ $content = file_get_contents("index.raw.html");
 echo $content."\n\n";
 
 // Extract URLs of resources from `index.html`
-$count = preg_match_all('/ (?:href|src)="((?!_docsify|_files|_images|https:\/\/cdn\.icehe\.xyz\/)[^"]+)"/', $content, $resources);
+$count = preg_match_all('/ (?:href|src)="((?!_docsify|_files|_images|https:\/\/)[^"]+)"/', $content, $resources);
 echo var_export($resources, true)."\n";
 echo $count."\n\n";
 
