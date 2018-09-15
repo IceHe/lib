@@ -125,6 +125,7 @@ Other meanings
 
 ### F
 
+- fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - fmt : format
 - fn : function
 - fs : file system
@@ -197,6 +198,7 @@ Other meanings
 
 ### N
 
+- No. : number
 - num : number
 
 ### O
