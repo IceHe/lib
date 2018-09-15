@@ -17,7 +17,8 @@ Docker
 
 - [Intro](/snips/docker/README.md)
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
-- [Docker Compose](/snips/docker/compose.md) ( undone )
+
+<!-- - [Docker Compose](/snips/docker/compose.md) ( todo ) -->
 
 Markdown
 
@@ -33,9 +34,9 @@ Web
 
 Storage
 
-- [MySQL](/snips/mysql/README.md) ( undone )
+- [MySQL](/snips/mysql/README.md) ( todo )
 - [Redis](/snips/redis/README.md) ( undone )
-- [RocksDB](/snips/rocks-db.md) ( todo )
+- [RocksDB](/snips/rocks-db.md) ( undone )
 
 Others
 
