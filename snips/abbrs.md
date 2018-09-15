@@ -86,6 +86,7 @@ Other meanings
 - crlf : carriage return / line feed
 - ctrl : contrl
 - cur : current
+- cwd : current working directory
 
 ### D
 
@@ -126,6 +127,7 @@ Other meanings
 ### F
 
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
+- FIFO : First In First Out
 - fmt : format
 - fn : function
 - fs : file system
