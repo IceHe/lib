@@ -102,6 +102,21 @@ Here are some sample addresses:
 
 ## Usage
 
+List all open files
+
+```bash
+lsof
+# output e.g.
+COMMAND    PID      USER   FD      TYPE             DEVICE   SIZE/OFF    NODE NAME
+loginwind  107 zhiyuan16  cwd       DIR                1,4       1056       2 /
+loginwind  107 zhiyuan16  txt       REG                1,4    1259472 3456550 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+loginwind  107 zhiyuan16  txt       REG                1,4   26771408 3812344 /usr/share/icu/icudt59l.dat
+loginwind  107 zhiyuan16  txt       REG                1,4     115856 3600205 /System/Library/LoginPlugins/DisplayServices.loginPlugin/Contents/MacOS/DisplayServices
+loginwind  107 zhiyuan16  txt       REG                1,4     114224 3600256 /System/Library/LoginPlugins/FSDisconnect.loginPlugin/Contents/MacOS/FSDisconnect
+loginwind  107 zhiyuan16  txt       REG                1,4     236208 3903424 /private/var/db/timezone/tz/2018e.1.0/icutz/icutz44l.dat
+……
+```
+
 15 examples (better, more practical)
 
 https://www.thegeekstuff.com/2012/08/lsof-command-examples/
