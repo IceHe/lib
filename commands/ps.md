@@ -10,7 +10,7 @@
     - It also causes the command arguments to be printed.
     - See the `c` option, the format keyword args, and the format keyword comm.
 
-### Style,
+### Style
 
 - BSD-style options `v`
 - Unix-style options `-v`
