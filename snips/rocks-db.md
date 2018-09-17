@@ -17,6 +17,7 @@ TMP
 Wikipedia : https://en.wikipedia.org/wiki/RocksDB
 
 > RocksDB is a high performance **embedded database** for **key-value** data **written in C++**.
+> - It provides official application programming interface (API) language bindings for C++, C, and Java.
 
 - An [**embeded database**](https://en.wikipedia.org/wiki/Embedded_database) system
     is a database management system (DBMS)
@@ -31,11 +32,25 @@ Wikipedia : https://en.wikipedia.org/wiki/RocksDB
 > such as solid-state drives (SSD),
 > for input/output (I/O) bound workloads.
 
+RocksDB, like LevelDB, stores keys and values in arbitrary byte arrays, and data is sorted byte-wise by key or by providing a custom comparator.
+
+RocksDB provides all of the features of LevelDB, plus:
+
+- Transactions[15]
+- Backups[16] and snapshots[17]
+- Column families[18]
+- Bloom filters[19]
+- Time to live (TTL) support[20]
+- Universal compaction[21]
+- Merge operators[22]
+- Statistics collection[23]
+- Geospatial indexing[24]
+
 ### Articles
 
 [Comparing new RocksDB and MMFiles storage engines](https://www.arangodb.com/why-arangodb/comparing-rocksdb-mmfiles-storage-engines/)
 
-> The “rocksdb” engine is **optimized for datasets that are bigger than main memory**.
+> The "rocksdb" engine is **optimized for datasets that are bigger than main memory**.
 >
 > The engine will keep a hot set of the data in main memory,
 > but will happily load additional data from disk should it not be in the cached hot set.
