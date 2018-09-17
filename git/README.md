@@ -228,6 +228,10 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
     - `git config credential.helper store` 长久储存密码，不用每次输入（非 macOS）
     - `git config --unset credential.helper` 密码更改后，重新设定
 
+其它
+
+- `git config --global pager.branch false` 将 `git branch` 的内容输出到 stdout
+
 ## Pull & Push
 
 - `git pull faraway another:master`
