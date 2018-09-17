@@ -31,7 +31,7 @@ Derivations
 - peta : ( 10^3 )^5
 - exa : ( 10^3 )^6
 
-**SI prefixes**
+**SI** prefixes
 
 - 1 KB = 1,000 Byte = 10^3 Byte
 - 1 MB = 1,000 KB = 10^3 KB
@@ -39,7 +39,7 @@ Derivations
 - 1 TB = 1,000 GB = 10^9 KB = 1,000,000,000 KB
 - …
 
-**IEC prefixes**
+**IEC** prefixes
 
 - 1 KiB = 1,024 Byte = 2^10 Byte
 - 1 MiB = 1,024 KiB = 2^20 KB
