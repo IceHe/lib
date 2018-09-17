@@ -10,9 +10,20 @@
 
 ### macOS
 
+Search `macOS` in Mac App Store
+
+- Download macOS Installation，e.g. High Sierra
+- Reference : https://support.apple.com/zh-cn/HT201372
+
 Create bootable installer for macOS（创建引导分区，即U盘安装）
 
-- Reference : https://support.apple.com/en-us/HT201372
+```bash
+sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia \
+--volume /Volumes/Install\ macOS\ High\ Sierra \
+--applicationpath /Applications/Install\ macOS\ High\ Sierra.app
+```
+
+- Reference : https://support.apple.com/zh-cn/HT201372
 
 Reboot, press `⌘ + r`
 
@@ -20,6 +31,8 @@ Reboot, press `⌘ + r`
     - Connect wifi, wait for processing until reboot
 - or Reboot, press `⌥` for a few seconds
     - Reboot from different disk you selected
+- Reference : https://support.apple.com/zh-cn/HT204904
+
 
 Restore from backups of Time Machine
 
