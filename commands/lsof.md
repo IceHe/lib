@@ -4,118 +4,136 @@
 
 ## Options
 
-- `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i.
+- `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i .
 
-```text
-If no address is speci-
-fied, this option selects the listing of all Internet and x.25
-(HP-UX) network files.
+## Usage
 
-If  -i4  or  -i6  is specified with no following address, only
-files of the indicated IP version,  IPv4  or  IPv6,  are  dis-
-played.   (An  IPv6  specification  may  be  used  only if the
-dialects  supports  IPv6,  as  indicated   by   ``[46]''   and
-``IPv[46]''  in lsof's -h or -?  output.)  Sequentially speci-
-fying -i4, followed by -i6 is the same as specifying  -i,  and
-vice-versa.   Specifying  -i4,  or -i6 after -i is the same as
-specifying -i4 or -i6 by itself.
+### Network Connection
 
-Multiple addresses (up to a limit of  100)  may  be  specified
-with  multiple  -i  options.   (A  port number or service name
-range is counted as one address.)  They are joined in a single
-ORed set before participating in AND option selection.
+An Internet address is specified in the form : ( Items in square brackets are optional. )
 
-An  Internet address is specified in the form (Items in square
-brackets are optional.):
+```bash
+ls -i [46][protocol][@hostname|hostaddr][:service|port]
+```
 
-
-[46][protocol][@hostname|hostaddr][:service|port]
-
-where:
-    46 specifies the IP version, IPv4 or IPv6
-        that applies to the following address.
-        '6' may be be specified only if the UNIX
-        dialect supports IPv6.  If neither '4' nor
-        '6' is specified, the following address
-        applies to all IP versions.
-    protocol is a protocol name - TCP, UDP
-    hostname is an Internet host name.  Unless a
-        specific IP version is specified, open
-        network files associated with host names
-        of all versions will be selected.
-    hostaddr is a numeric Internet IPv4 address in
-        dot form; or an IPv6 numeric address in
-        colon form, enclosed in brackets, if the
-        UNIX dialect supports IPv6.  When an IP
-        version is selected, only its numeric
-        addresses may be specified.
-    service is an /etc/services name - e.g., smtp -
-        or a list of them.
-    port is a port number, or a list of them.
-
-IPv6 options may be used only if  the  UNIX  dialect  supports
-IPv6.  To see if the dialect supports IPv6, run lsof and spec-
-ify the -h or -?  (help) option.  If the displayed description
-of  the  -i  option contains ``[46]'' and ``IPv[46]'', IPv6 is
-supported.
-
-IPv4 host names and addresses may not be specified if  network
-file  selection is limited to IPv6 with -i 6.  IPv6 host names
-and addresses may not be specified if network  file  selection
-is  limited  to  IPv4  with  -i  4.  When an open IPv4 network
-file's address is mapped in an IPv6 address, the  open  file's
-type  will be IPv6, not IPv4, and its display will be selected
-by '6', not '4'.
-
-At least one address component -  4,  6,  protocol,  hostname,
-hostaddr,  or  service - must be supplied.  The `@' character,
-leading the host specification, is always required; as is  the
-`:',  leading the port specification.  Specify either hostname
-or hostaddr.  Specify either service name list or port  number
-list.   If  a service name list is specified, the protocol may
-also need to be specified if the TCP,  UDP  and  UDPLITE  port
-numbers  for  the  service name are different.  Use any case -
-lower or upper - for protocol.
-
-Service names and port numbers may be combined in a list whose
-entries  are  separated  by  commas  and  whose  numeric range
-entries are separated by minus signs.  There may be no  embed-
-ded spaces, and all service names must belong to the specified
-protocol.  Since service  names  may  contain  embedded  minus
-signs,  the starting entry of a range can't be a service name;
-it can be a port number, however.
+- **hostname** is an Internet host name.
+    - Unless a specific IP version is specified, open network files associated with host names of all versions will be selected.
+- **hostaddr** is a numeric Internet IPv4 address in dot form;
+    - or an IPv6 numeric address in colon form, enclosed in brackets, if the UNIX dialect supports IPv6.
+    - When an IP version is selected, only its numeric addresses may be specified.
+- **service** is an /etc/services name. e.g., smtp or a list of them.
+- **port** is a port number, or a list of them.
 
 Here are some sample addresses:
 
-    -i6 - IPv6 only
-    TCP:25 - TCP and port 25
-    @1.2.3.4 - Internet IPv4 host address 1.2.3.4
-    @[3ffe:1ebc::1]:1234 - Internet IPv6 host address
-        3ffe:1ebc::1, port 1234
-    UDP:who - UDP who service port
-    TCP@lsof.itap:513 - TCP, port 513 and host name lsof.itap
-    tcp@foo:1-10,smtp,99 - TCP, ports 1 through 10,
-        service name smtp, port 99, host name foo
-    tcp@bar:1-smtp - TCP, ports 1 through smtp, host bar
-    :time - either TCP, UDP or UDPLITE time service port
+- `-i6` IPv6 only
+- `TCP:25` TCP and port 25
+- `@1.2.3.4` - Internet IPv4 host address 1.2.3.4
+- `@[3ffe:1ebc::1]:1234` - Internet IPv6 host address
+    3ffe:1ebc::1, port 1234
+- `UDP:who` - UDP who service port
+- `TCP@lsof.itap:513` - TCP, port 513 and host name lsof.itap
+- `tcp@foo:1-10,smtp,99` - TCP, ports 1 through 10,
+    service name smtp, port 99, host name foo
+- `tcp@bar:1-smtp` - TCP, ports 1 through smtp, host bar
+- `:time` - either TCP, UDP or UDPLITE time service port
+
+List all network connections
+
+```bash
+# all
+lsof -i
+# only IPv4
+lsof -i4
+# only IPv6
+lsof -i6
+# TCP
+lsof -i tcp
+# UDP
+lsof -i udp
 ```
 
-## Usage
+### Others
 
 List all open files
 
 ```bash
 lsof
 # output e.g.
-COMMAND    PID      USER   FD      TYPE             DEVICE   SIZE/OFF    NODE NAME
-loginwind  107 zhiyuan16  cwd       DIR                1,4       1056       2 /
-loginwind  107 zhiyuan16  txt       REG                1,4    1259472 3456550 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
-loginwind  107 zhiyuan16  txt       REG                1,4   26771408 3812344 /usr/share/icu/icudt59l.dat
-loginwind  107 zhiyuan16  txt       REG                1,4     115856 3600205 /System/Library/LoginPlugins/DisplayServices.loginPlugin/Contents/MacOS/DisplayServices
-loginwind  107 zhiyuan16  txt       REG                1,4     114224 3600256 /System/Library/LoginPlugins/FSDisconnect.loginPlugin/Contents/MacOS/FSDisconnect
-loginwind  107 zhiyuan16  txt       REG                1,4     236208 3903424 /private/var/db/timezone/tz/2018e.1.0/icutz/icutz44l.dat
+COMMAND    PID  USER   FD TYPE DEVICE SIZE/OFF    NODE NAME
+loginwind  107 icehe  cwd  DIR    1,4     1056       2 /
+loginwind  107 icehe  txt  REG    1,4  1259472 3456550 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+loginwind  107 icehe  txt  REG    1,4 26771408 3812344 /usr/share/icu/icudt59l.dat
+loginwind  107 icehe  txt  REG    1,4   115856 3600205 /System/Library/LoginPlugins/DisplayServices.loginPlugin/Contents/MacOS/DisplayServices
+loginwind  107 icehe  txt  REG    1,4   114224 3600256 /System/Library/LoginPlugins/FSDisconnect.loginPlugin/Contents/MacOS/FSDisconnect
+loginwind  107 icehe  txt  REG    1,4   236208 3903424 /private/var/db/timezone/tz/2018e.1.0/icutz/icutz44l.dat
 ……
 ```
+
+FD is the File Descriptor number of the file or:
+
+- **cwd** : current working directory;
+- Lnn : library references (AIX);
+- err : FD information error (see NAME column);
+- jld : jail directory (FreeBSD);
+- ltx : shared library text (code and data);
+- Mxx : hex memory-mapped type number xx.
+- m86 : DOS Merge mapped file;
+- **mem** : memory-mapped file;
+- **mmap** : memory-mapped device;
+- **pd**  : parent directory;
+- **rtd** : root directory;
+- tr  : kernel trace file (OpenBSD);
+- **txt** : program text (code and data);
+- v86 : VP/ix mapped file;
+- **NUMBER** : Represent the actual file descriptor.
+    - The character after the number i.e. `1u`, represents the mode in which the file is opened.
+        - **r** for read
+        - **w** for write
+        - **u** for read and write
+
+TYPE – Specifies the type of the file. Some of the values of TYPEs are,
+
+- REG : Regular File
+- DIR : Directory
+- FIFO : First In First Out
+- CHR : Character special file
+
+For a complete list of FD & TYPE, refer man lsof.
+
+---
+
+List processes which opened a specific file
+
+```bash
+lsof <path/to/file>
+```
+
+List opened files under a directory
+
+```bash
+lsof <path/to/directory>
+```
+
+List all open files by a specific process
+
+```bash
+lsof -p <process_id>
+```
+
+List files opened by a specific user
+
+```bash
+lsof -u <username>
+```
+
+FD – Represents the file descriptor. Some of the values of FDs are,
+
+cwd – Current Working Directory
+txt – Text file
+mem – Memory mapped file
+mmap – Memory mapped device
+NUMBER – Represent the actual file descriptor. The character after the number i.e ‘1u’, represents the mode in which the file is opened. r for read, w for write, u for read and write.
 
 15 examples (better, more practical)
 
