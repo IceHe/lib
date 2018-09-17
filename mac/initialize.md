@@ -33,7 +33,6 @@ Reboot, press `⌘ + r`
     - Reboot from different disk you selected
 - Reference : https://support.apple.com/zh-cn/HT204904
 
-
 Restore from backups of Time Machine
 
 - or Restore from Disk Backup by Disk Utility
