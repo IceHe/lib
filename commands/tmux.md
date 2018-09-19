@@ -6,7 +6,8 @@
 - Manual : http://man.openbsd.org/OpenBSD-current/man1/tmux.1
 - My config file :
     - [.tmux.conf](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf) on macOS
-    - .tmux.conf on Linux distributions ( todo )
+    - [.tmux.conf](https://github.com/IceHe/linux-conf/blob/master/.tmux.conf) on Linux
+- Related command : [screen](https://www.gnu.org/software/screen/manual/screen.html)
 
 ## Shortcuts
 

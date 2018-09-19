@@ -17,8 +17,7 @@ Docker
 
 - [Intro](/snips/docker/README.md)
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
-
-<!-- - [Docker Compose](/snips/docker/compose.md) ( todo ) -->
+- [Docker Compose](/snips/dOcker/compose.md)
 
 Markdown
 
@@ -30,17 +29,17 @@ Web
 - init.d : [Simple HTTP Service](/snips/init.d/README.md)
 - Nginx : [HTTP Server](/snips/nginx/README.md)
 - [How to docsify](/_docsify/README.md)
-- [IP address](/snips/ip.md) ( undone )
+- [IP address](/snips/ip.md)
 
 Storage
 
-- [MySQL](/snips/mysql/README.md) ( todo )
-- [Redis](/snips/redis/README.md) ( undone )
-- [RocksDB](/snips/rocks-db.md) ( undone )
+- [MySQL](/snips/mysql/README.md)
+- [Redis](/snips/redis/README.md)
+- [RocksDB](/snips/rocks-db.md)
 
 Others
 
-- [Glossary](/snips/glossary.md) ( temporary )
+- [Glossary](/snips/glossary.md)
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
 
 ### Mac
@@ -60,8 +59,11 @@ Others
 
 > Command Line Interface 命令行界面
 
-- [README](/commands/README.md) : temporary note
-- [bash](/commands/bash.md) ( todo )
+<!-- - [bash](/commands/bash.md) -->
+<!-- - [mkdir](/commands/lsof.md) : make directories -->
+<!-- - [service](/commands/service.md) & [systemctl](/commands/systemctl.md) -->
+
+- [README](/commands/README.md)
 - [bzip2](/commands/bzip2.md) : block-sorting file compressor
 - [cron](/commands/cron.md) : time-based job scheduler
 - [curl](/commands/curl.md) : transfer data from or to a server
@@ -70,12 +72,10 @@ Others
 - [kill](/commands/kill.md) : terminate or signal a process
 - [ls](/commands/ls.md) : list directory contents
 - [lsof](/commands/lsof.md) : list open files ( undone )
-- [mkdir](/commands/lsof.md) : make directories ( todo )
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
 - [netstat](/commands/network-status.md) : show network status
 - [ps](/commands/ps.md) : process status
 - [rsync](/commands/rsync/README.md) : transfer files
-- [service](/commands/service.md) & [systemctl](/commands/systemctl.md) ( todo )
 - [tar](/commands/tar.md) : pack & compress
 - [tmux](/commands/tmux.md) : terminal multiplexer
 - [vim](/commands/vim.md) : terminal editor

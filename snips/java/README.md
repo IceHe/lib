@@ -3,7 +3,6 @@
 Basic
 
 - [Glossary](/snips/java/glossary.md)
-- [Groovy](/snips/java/groovy.md) ( todo )
 
 Coding
 
@@ -12,9 +11,8 @@ Coding
 Framework
 
 - [Spock](/snips/java/spock.md) - Unit Tests
-- [Spring](/snips/java/spring.md) ( todo )
+- [Spring](/snips/java/spring.md)
 
 Package Manager
 
-- [Maven](/snips/java/maven.md) ( todo )
-- Gradle ( todo )
+- [Maven](/snips/java/maven.md)

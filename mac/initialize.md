@@ -49,7 +49,7 @@ If cannot download softwares you need, you need to over the Great-Fire_Wall ( in
 5. **Proxies**
 6. Select **Automatic Proxy Configurattion**
 7. Find "**URL:**" input box under "Proxy Configuration File"
-8. Fill with ~~`http://url/to/proxy.pac`~~ ( URL to PAC file ( todo ) )
+8. Fill with ~~`http://url/to/proxy.pac`~~ ( URL to PAC file )
 9. Click **OK**
 
 Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config - Wikipedia
@@ -530,7 +530,7 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 Configurations
 
-- Open Maven configuration file template [~~settings.xml~~](todo/settings.xml) ( todo ),
+- Open Maven configuration file template ~~settings.xml~~ ( not exist now ) .
 - Copy its content
 - Open local Maven configuration file
 - Overlay paste original content

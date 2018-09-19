@@ -11,6 +11,7 @@
     - 声波式的比旋转式的磨损小；
     - 用电动牙刷的话使劲别太大。
 - 相关笔记 - [牙齿保健](_archived/read/tooth.md)
+- 现状：坏了，已经换成 [松下（Panasonic）电动牙刷 EW-DM712K405](https://item.jd.com/5295417.html) ( 2018-09-19 )
 
 **冲牙器**（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332)
 
