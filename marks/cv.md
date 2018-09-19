@@ -55,7 +55,7 @@ Curriculum Vitae
 
 Database
 
-:zap: 胜任 **MySQL , Redis , Memcached**<br/>
+:zap: 胜任 **MySQL , Redis**<!-- , Memcached--><br/>
 :sparkles: 了解 MS SQL Server 2008 , Oracle DB<br/>
 
 Web
