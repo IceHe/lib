@@ -33,27 +33,20 @@
 - diff
 - wc
 - grep
-
     - grep -v
     - egrep
     - grep -E
-
 - vimdiff
 
 ### Network
 
-- curl
 - ifconfig
-- lsof
-- nc
-- netstat
 - ping
 - wget
 
 ### Dir & File
 
 - cd
-
 - chmod
 
 chmod ugo+rwxa file    user group other read write executable all
@@ -91,15 +84,10 @@ rm -rf
 
 ### Language
 
-- composer
-- gem
 - maven
-- npm
-- yarn
 
 ### Others
 
-- crontab
 - docker
 - export
 - git
@@ -121,14 +109,10 @@ find [dir] -name 'file_name'
 
 kill -HUP
 
-- python
-- php
-
 - rsync
 
 rsync -goDp
 
-- service
 - sudo
 - su
 - source
@@ -136,7 +120,6 @@ rsync -goDp
 - ltrace
 
 - screen
-- tmux
 
 - top
 - htop
@@ -156,7 +139,6 @@ rsync -goDp
 - pbcopy
 - pbpaste
 - realpath
-
 - readline
 
 ### Bash
