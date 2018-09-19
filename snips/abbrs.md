@@ -317,8 +317,16 @@ Other meanings
 - w : word
 - wan : wide area network
 - win : window
+- WIP : Work In Process|Progress
 - wtf : what the fuck
 
 ### Y
 
 - yrs : years | yours
+
+### temp
+
+SoC, SOC : System on Chip
+    Chip or IC : Integrated Circuit (集成电路)
+plug-and-play (PnP) 即插即用
+UUID : Universally Unique Identifier 通用唯一标识符

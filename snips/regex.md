@@ -25,6 +25,13 @@ Add a whitespace after comma `,`
 , $1
 ```
 
+Replace "" with ''
+
+```bash
+"([^"]*)"
+'$1'
+```
+
 ## Refactor
 
 Find function with 7 params

@@ -24,6 +24,45 @@
 
 - RocksDB 升级后，使用其旧版本 API 的程序可以不用修改
 
+## 适合的场景 & 同类产品
+
+适合场景
+
+- 大批量的写入和删除
+
+缺点
+
+- 更大的数据冗余
+
+---
+
+> 存储引擎，同类场景
+
+LevelDB
+
+- 占用的存储空间最小
+
+RocksDB
+
+- 读和删除性能最好
+- 跟 LevelDB 相比，牺牲更多的存储存储空间，提升读写性能，特别是大批量的的写操作
+
+HyperLevelDB
+
+- 大批量的写操作最快，比 Rocks DB 还快一倍（写 100M 条 24B 的记录）
+- 但是查询操作最慢，特别是大批量的查询操作，花费 RocksDB 的 4 倍以上的时间（读 100M 条 24B 的数据）
+
+LMDB
+
+- 只有小量数据（具体条件下，50M 条以下的 24B 大小的记录）的查询上最快
+- 花费的存储空间，却是其它的一倍以上，其它指标均落后
+
+……
+
+Ref : https://www.influxdata.com/blog/benchmarking-leveldb-vs-rocksdb-vs-hyperleveldb-vs-lmdb-performance-for-influxdb/
+
+2014 年的 benchmark，可供参考，需要更新的数据
+
 ## 基本使用
 
 - 基本操作: get / put / delete / scan

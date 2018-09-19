@@ -35,7 +35,6 @@ Storage
 
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
-- [RocksDB](/snips/rocks-db.md)
 
 Others
 
