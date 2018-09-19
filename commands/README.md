@@ -197,3 +197,9 @@ https://devhints.io
 - `head -n 1` | `head -1` 显示文件的第1行
 - `tr` 对来自标准输入的字符进行替换、压缩和删除
     可以将一组字符变成另外一组字符。`tr 'A-Z' 'a-z'` 则为大小写替换
+
+`tcpdump`
+
+```bash
+tcpdump -i any -nnX -w file_name
+```
