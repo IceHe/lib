@@ -15,7 +15,6 @@ Others
 - 吴镝：TiDB 在今日头条的实践 ( 关于 RocksDB ) : https://mp.weixin.qq.com/s?__biz=MzI3NDIxNTQyOQ==&mid=2247485726&idx=1&sn=083505292d4860585421b3b0f4484451&from=1083293010&wm=3333_2001&weiboauthoruid=1188203673
 - （应该无关）TiDB 分布式数据库在转转公司的应用实践 : https://zhuanlan.zhihu.com/p/37453182
 
-
 ## Notes
 
 ### Intro
