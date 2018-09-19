@@ -317,6 +317,7 @@ Other meanings
 - w : word
 - wan : wide area network
 - win : window
+- WIP : Work In Process|Progress
 - wtf : what the fuck
 
 ### Y
