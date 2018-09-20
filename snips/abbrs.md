@@ -292,6 +292,7 @@ Other meanings
 - tel : tell | telephone
 - temp : temporary
 - term : terminate
+- TL;DR : too long; didn't read.
 - tmp : temporary
 - ts : timestamp
 - txt : plain text file
