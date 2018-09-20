@@ -81,8 +81,6 @@ Others
 - [wget](/commands/wget.md) : network downloader
 - [zsh](/commands/zsh.md) : one of shells
 
-<!-- TODO -->
-
 <!-- - [awk-sed-grep](/commands/awk-sed-grep_tmp.md) -->
 <!-- - [useful](/commands/useful_tmp.md) -->
 <!-- - awk / sed / grep / xargs -->
