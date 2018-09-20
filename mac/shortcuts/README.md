@@ -1,7 +1,5 @@
 # Mac Shorcuts
 
-<!-- TODO: split it into pieces different apps -->
-
 > macOS Shortcuts: 我的 macOS 快捷键列表。
 
 - Some explanation
