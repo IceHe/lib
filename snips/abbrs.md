@@ -169,6 +169,7 @@ Other meanings
 - jar : Java Archive file
 - jd : job description
 - jr : job requirement
+- Jr. : Junior 初级的
 - js : javascript
 
 ### L
@@ -188,6 +189,7 @@ Other meanings
 
 ### M
 
+- MBR : Master Boot Record
 - MC : memcached
 - md : markdown
 - mem : memory
