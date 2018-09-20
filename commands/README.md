@@ -203,3 +203,5 @@ https://devhints.io
 ```bash
 tcpdump -i any -nnX -w file_name
 ```
+
+[bash 的威力](https://zhuanlan.zhihu.com/p/31209138?group_id=915890535597486080)
