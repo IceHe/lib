@@ -57,3 +57,5 @@ FB 机型：OCP 六种（肖鹏截图提供）？
 * 冷存储
 
 https://en.wikipedia.org/wiki/Open_Compute_Project
+
+![](ocp.png)
