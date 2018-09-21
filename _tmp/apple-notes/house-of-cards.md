@@ -12,7 +12,7 @@ https://www.facebook.com/pg/professorofpower/videos/?ref=page_internal
 
 政治理论：
 6C = conflict冲突 compete竞争 conquer征服
-	compromise妥协 cooperate合作 consensus共识
+    compromise妥协 cooperate合作 consensus共识
 （我的联想：既得利益者和无产者的斗争，就是所谓寻求利益重新分配（打土豪分田地））
 
 前面的三个C关于暴力，是广义的暴力。
