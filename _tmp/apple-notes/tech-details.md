@@ -59,3 +59,66 @@ FB 机型：OCP 六种（肖鹏截图提供）？
 https://en.wikipedia.org/wiki/Open_Compute_Project
 
 ![](ocp.png)
+
+---
+技术细节速记
+
+头部用户分级 C1、C2、C3
+
+统计 30 天内发的微博的总阅读数
+C1 是 1000W 阅读数
+C2 是 100W
+C3 是 10W
+
+每天发博数
+
+按照经验来看的话，大概是 10 ~ 50 条
+
+---
+
+cache value
+
+protocol buffer 序列化/反序列化
+quicklz 解压
+
+加起来不到1ms
+
+Redis 内存碎片，重启
+Memcached 钙化
+
+---
+
+feed cache
+
+3 days max 50 条
+30 days 1 month max 200 条
+
+---
+
+MAPI QPS 峰值
+
+12:30 午高峰 40w
+22:30 晚高峰 55w
+
+（中午）鹿晗公开女友事件峰值 118w
+
+---
+
+微博 feed QPS
+
+日常 1w+
+春节 2.4~2.5w (?)
+
+---
+
+微博 评论 QPS
+
+日常 2w+（忘了）
+春节 ????
+
+---
+
+替换 Redis 实例
+
+用域名调用 Redis 实例，
+在 DNS 上修改域名对应的 IP 即可。
