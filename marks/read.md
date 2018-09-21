@@ -44,6 +44,7 @@
 - [你有什么道理后悔没有早点知道？](https://www.zhihu.com/question/23819007)
 - [我们这一代人的困惑](http://mp.weixin.qq.com/s?__biz=MzA3OTQ4NDkxOA==&amp;mid=202075659&amp;idx=1&amp;sn=350db3032e8f3dca423ba6b93935e33a&amp;scene=0#rd) - 大部分人的梦想永远都实现不了。
 - [马云的缺陷是什么？](https://www.zhihu.com/question/35670576/answer/64989492) - 当年阿里巴巴的「十八罗汉」甘愿跟着马云，并不只是因为马云能打鸡血、“忽悠”…… 一点点启示。
+- [花14年考上哈佛医学院，直到上周才想起来大哭一场……这部现实版“实习医生格蕾”令人五味杂陈！](http://wenhui.whb.cn/third/jinri/201802/07/188888.html?tt_from=weixin&tt_group_id=6519696464753459716&from=singlemessage&isappinstalled=0)
 
 ### 方法
 
