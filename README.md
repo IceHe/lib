@@ -70,7 +70,7 @@ Others
 - [expect](/commands/expect.md) : interact with programs
 - [kill](/commands/kill.md) : terminate or signal a process
 - [ls](/commands/ls.md) : list directory contents
-- [lsof](/commands/lsof.md) : list open files ( undone )
+- [lsof](/commands/lsof.md) : list open files
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
 - [netstat](/commands/network-status.md) : show network status
 - [ps](/commands/ps.md) : process status
