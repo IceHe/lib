@@ -76,3 +76,18 @@ scheme
     - id 可以直接算出创建日期
 - what it should be（id 该是啥样子的）（功能：可能包含技术实现）
     - id 是 long 类型，包含创建日期
+
+## Smart 法则
+
+* S 代表具体( Specific )，描述不能笼统；
+* M 代表可度量( Measurable )，指任务可数量化或者行为化；
+* A 代表可实现( Attainable )，指任务在付出努力的情况下可以实现，避免设立过高或过低的目标；
+* R 代表相关性( Relevant ），指任务与其它目标相关联；
+* T 代表有时限( Time-bound )，注重完成绩效指标的特定期限。
+
+## 概率论/统计学
+
+平均数 mean
+中位数 median
+众数 mode {of the set of numbers}
+
