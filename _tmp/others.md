@@ -79,3 +79,8 @@ https://weibo.com/2387178543/G6hNpFPNk?type=comment
 ## spring boot 空实现 QPS 压力测试
 
 ## 工作：使用 transcode 项目的 center 模块来上手
+
+## Google 技巧：不让 google.com 跳转到 google.com.hk
+
+* 直接用http://www.google.com/ncr，ncr是no country redirection，是一个强制不跳转的命令；
+* 用https://www.google.com/，https协议。
