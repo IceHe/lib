@@ -1,4 +1,4 @@
-# jz ofr 摘录
+# 剑指 offer 摘录
 
 ## STAR 法则：描述项目
 
