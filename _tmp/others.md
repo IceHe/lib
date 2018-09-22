@@ -25,24 +25,6 @@ Design Patterns : 个人化的简要笔记。
 - 为了总结、复习设计模式写下本文。以下只会简单地以我自己能够理解的语言来总结，可能只有简单的一段话甚至一句话，顶多只有一个简单的例子。
     - 一切以简便快捷地激活、辅助我对设计模式的记忆为目的。（可能你们会看得云里雾里）
 
-## 北京落户
-
-先排居住证
-
-需要在公司排队办（申请北京积分落户的前提）
-
-【链接】北京市居住证服务平台
-https://www.bjjzz.gov.cn/bjsjzzfwpt/usernew/space
-
-【链接】居住证办理服务-首都之窗-北京市政务门户网
-http://www.beijing.gov.cn/zhuanti/jzz/
-
-【链接】申领《北京市居住证》
-http://www.beijing.gov.cn/zhuanti/jzz/blzn/t1458442.htm
-
-在 HR 门户，个人信息里，可以找到一个链接
-http://www.bjrbj.gov.cn/jflh/
-
 ## Axb Quotation
 
 > boss 技术语录：记录内容并非原话
@@ -81,12 +63,6 @@ scheme
 * A 代表可实现( Attainable )，指任务在付出努力的情况下可以实现，避免设立过高或过低的目标；
 * R 代表相关性( Relevant ），指任务与其它目标相关联；
 * T 代表有时限( Time-bound )，注重完成绩效指标的特定期限。
-
-## 概率论/统计学
-
-平均数 mean
-中位数 median
-众数 mode {of the set of numbers}
 
 ## Service 101
 
