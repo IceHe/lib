@@ -18,7 +18,7 @@
 
 # Common
 
-**Explanations**
+Explanations
 
 - `[-o]`
     Sth between `[` & `]` is optional.
@@ -33,7 +33,7 @@
     Option `-d` is default option of the cmd.
     It's valid even if it isn't specified.
 
-**Commonly Options**
+Commonly Options
 
 - *PS: Usually act as follows, but not always!*
 - `-a` **All**: Exec cmds with many default options.
@@ -45,9 +45,9 @@
 - `-r` | `-R` **Recursive**: Do with sth including entire subtree.
 - `-v` **Verbose**: Show details.
 
-**`man cmd_name ...` Format & display the cmd Manual.**.
+`man cmd_name ...` Format & display the cmd Manual.
 
-**`bash` Bourne-Again SHell**
+`bash` Bourne-Again SHell
 
 - An sh-compatible cmd language interpreter that cmds rd from the standard input or from a file.
 
