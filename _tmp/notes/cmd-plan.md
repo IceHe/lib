@@ -16,8 +16,6 @@
 
 [chmod 0000 权限用法](https://github.com/ruanyf/articles/blob/master/dev/linux/basic.md)
 
-[bash的用法](https://github.com/ruanyf/articles/blob/master/dev/linux/bash.md)
-
 [SHELL编程之语法基础 – 邹立巍的博客](http://liwei.life/2016/05/16/69/)
 
 [bash命令一览](https://github.com/ruanyf/articles/blob/master/dev/linux/commands.md)
@@ -42,11 +40,7 @@
 
 [Make 命令教程](https://github.com/ruanyf/articles/blob/master/2015/2015-02-19-make.md)
 
-lsof : list open files
-
 0 Blg: CLI Note! #g
-
-pwd 命令用于显示当前目录。
 
 env 查看环境变量
 
@@ -82,20 +76,6 @@ Bash <http://www.mediacollege.com/cgi-bin/man/page.cgi?topic=bash>
 
 <http://explainshell.com/>
 
-删除文件夹实例：
-rm -rf /var/log/httpd/access
-将会删除/var/log/httpd/access目录以及其下所有文件、文件夹
-
-删除文件使用实例：
-rm -f /var/log/httpd/access.log
-将会强制删除/var/log/httpd/access.log这个文件
-
-linux下重命名文件或文件夹的命令mv既可以重命名，又可以移动文件或文件夹.
-例子：将目录A重命名为B
-mv A B
-例子：将/a目录移动到/b下，并重命名为c
-mv /a /b/c
-
 建立符号连接
 ln -s src dest
 为某一个文件在另外一个位置建立一个同步的链接，最常用的参数是-s
@@ -103,9 +83,6 @@ ln -s src dest
 当要在不同的目录，用到相同的文件时，不需要在每一个需要的目录下都放一个必须相同的文件，
 只要在某个固定的目录，放上该文件，然后在其它 的目录下用ln命令链接（link）它就可以，不必重复的占用磁盘空间。
 例如：ln –s /bin/less /usr/local/bin/less -s 是代号（symbolic）的意思。
-
-查找一个命令的绝对路径
-where command_name
 
 MacOS下没有Linux的tree指令用以查看目录树，
 可以用一下的指令来代替：
@@ -130,14 +107,6 @@ rsync -avzP --delete --password-file=/Users/IceHe/.rsync.pwd --exclude='.git' --
 
 # 将代码从服务端拷贝到本地来
 rsync -avzP --delete --password-file=/Users/IceHe/.rsync.pwd --exclude='.git' --exclude='.idea' rsync://www@dev:8875/weibov5_code /Users/IceHe/Coding/Work/weibov5_code_RSYNC_DEV
-
-git clone <url> <dest_path>
-设置dest_path，可以将文件放到指定的目录中
-
-在vim中使用Shell指令
-先输入“ :! ”，再输入你要使用的指令！
-
-lsof -i tcp:80 哪个程序占用了80端口？
 
 ^old^new
 替换前一条命令里的部分字符串。
@@ -217,17 +186,6 @@ I have no idea if that will work, but it's worth a shot.
 `export LC_ALL="zh_CN.UTF-8"`
 每次启动命令行，就都能正确本地化
 
-# 只显示常规目录
-
-$ ls -d */
-$ ls -F | grep /
-$ ls -l | grep ^d
-$ tree -dL 1
-
-# 只显示隐藏目录
-
-$ ls -d .*/
-
 # 隐藏目录和非隐藏目录都显示
 
 $ find -maxdepth 1 -type d
@@ -242,15 +200,6 @@ $ date
 2016年 03月 14日 星期一 17:32:35 CST
 
 # 显示本月日历
-
-$ cal
-      三月 2016
-日 一 二 三 四 五 六
-       1  2  3  4  5
- 6  7  8  9 10 11 12
-13 14 15 16 17 18 19
-20 21 22 23 24 25 26
-27 28 29 30 31
 
 # 应用管理
 
