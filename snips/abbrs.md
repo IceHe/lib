@@ -222,6 +222,7 @@ Other meanings
 
 ### P
 
+- param : parameter
 - PE : Private Capital
 - pf : prefix
 - pid : process id
