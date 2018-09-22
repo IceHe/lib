@@ -75,55 +75,100 @@ Homebrew 1.7.2
 Homebrew/homebrew-core (git revision 27f23; last commit 2018-08-24)
 ```
 
-### JDK 8
+### Homebrew-Cask
 
-Install [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) version 8 ( [History](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8) )
+Install Mac Apps by Homebrew-Cask
 
-- Recommended ：Install via commands as follow
-- Alternative : Download [binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of Mac OS X x64 from offical website
+- Homebrew-Cask extends Homebrew and allows you to install large binary files via a command-line tool.
+- Notice : I have to install ShadowsocksX-NG ( for over Great-Fire_Wall ) at first in China mainland, or fail to download some installions.
 
-Steps
-
-- Tap a formula repository ( 配置软件源 )
+Required ( for me )
 
 ```bash
-brew tap caskroom/versions
+brew cask install \
+    appcleaner \
+    charles \
+    docker \
+    evernote \
+    flash-player \
+    google-chrome \
+    hyperswitch \
+    iina \
+    itsycal \
+    java \
+    java8 \
+    intellij-idea \
+    phpstorm \
+    karabiner-elements \
+    keyboard-maestro \
+    kindle \
+    launchrocket \
+    microsoft-office \
+    mounty \
+    neteasemusic \
+    notion \
+    numi \
+    paste \
+    popclip \
+    postman \
+    qq \
+    qqmusic \
+    renamer \
+    sequel-pro \
+    shadowsocksx-ng \
+    snipaste \
+    sublime-text \
+    thunder \
+    visual-studio-code \
+    wechat
 ```
 
-- Install JDK 8
-    - Notice : require to input macOS user password
-    - For latest version, execute `brew cask install java`
+Required but cannot install by `brew cask install`
+
+- 2Do
+- Copied
+- ShadowsocksX-NG
+- Trello
+- Wireshark
+
+For quick-look ( preview ) in Finder
 
 ```bash
-brew cask install java8
+brew cask install \
+    betterzipql \
+    qlcolorcode \
+    qlimagesize \
+    qlmarkdown \
+    qlprettypatch \
+    qlstephen \
+    quicklook-csv \
+    quicklook-json \
+    webpquicklook
 ```
 
-Get JDK Path
-
-- For latest version, execute `/usr/libexec/java_home`
+Optional ( for me )
 
 ```bash
-$ /usr/libexec/java_home -v 1.8
-# output e.g.
-/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
+brew cask install \
+    desmume \
+    clion \
+    datagrip \
+    goland \
+    pycharm \
+    keycastr \
+    time-out \
+    virtualbox
 ```
 
-Environment Variable `JAVA_HOME`
+Optional but cannot install by `brew cask install`
 
-- Append the command line below to config file `~/.bashrc`
-    - If ~/.bashrc doesn't exists, create it.
-    - If use other shell such as `zsh`, append to `~/.zshrc`
+- Apple Configurator 2
+- Kantu
+- 百度网盘
+- 虾米音乐
+- 酷我音乐
 
-```bash
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-```
-
-> `~` tilde symbol
->
-> - In the path `~/.bashrc`, `~` means current user's home directory
-> - In macOS, it's `/Users/[USERNAME]` such as `/Users/IceHe`
-
-### CLI
+### CLI Tools
 
 > Command Line Interface
 
@@ -217,43 +262,6 @@ xcode-select install
 >     - optional : `nvim` aka. [Neovim](https://neovim.io/)
 > - [wget](https://www.gnu.org/software/wget/)
 >     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
-
-### IntelliJ IDEA
-
-Download [latest isntallation](https://www.jetbrains.com/idea/download/#section=mac) from [offical website](https://www.jetbrains.com/idea/)
-
-- Choose version : **Ultimate**
-
-Get lincense
-
-- Buy offical [license](https://www.jetbrains.com/idea/buy/#edition=commercial)
-- or buy a license on Taobao
-- or temp workaround - [Ref 1](http://idea.lanyus.com/) / [Ref 2](https://www.jianshu.com/p/f404994e2843)
-
-Intsll plugins
-
-- [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
-- [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
-
-> [Project Lombok](https://projectlombok.org/)
->
-> > It is a java library that automatically plugs into your editor and build tools, spicing up your java.
-> >
-> > Never write another getter or equals method again. Early access to future java features such as val, and much more.
->
-> Optional plugins
-> - [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
->     - Draw UML graphs for docs by [PlatUML](http://plantuml.com/)
-> - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)
->     - Vim emulator - edit text like Vim
->
-> IDE for team
->
-> - Use the same IDE for better collaboration in a team
->     - Uniform code format for all developers in a team
->     - Easy to learn IDE developing experience accumulated by other teammates
->     - Teammates are easy to use others' development environment (IDE)
->     - ……
 
 ### Mac Apps
 
@@ -350,7 +358,94 @@ Mac references :
 - [Efficiency](mac/efficiency.md) : 效率指南
 - [Shortcuts](mac/shortcuts/README.md) : 快捷键
 
-## Config
+### Java Development
+
+#### JDK 8
+
+Install [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) version 8 ( [History](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8) )
+
+- Recommended ：Install via commands as follow
+- Alternative : Download [binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of Mac OS X x64 from offical website
+
+Steps
+
+- Tap a formula repository ( 配置软件源 )
+
+```bash
+brew tap caskroom/versions
+```
+
+- Install JDK 8
+    - Notice : require to input macOS user password
+    - For latest version, execute `brew cask install java`
+
+```bash
+brew cask install java8
+```
+
+Get JDK Path
+
+- For latest version, execute `/usr/libexec/java_home`
+
+```bash
+$ /usr/libexec/java_home -v 1.8
+# output e.g.
+/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
+```
+
+Environment Variable `JAVA_HOME`
+
+- Append the command line below to config file `~/.bashrc`
+    - If ~/.bashrc doesn't exists, create it.
+    - If use other shell such as `zsh`, append to `~/.zshrc`
+
+```bash
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+```
+
+> `~` tilde symbol
+>
+> - In the path `~/.bashrc`, `~` means current user's home directory
+> - In macOS, it's `/Users/[USERNAME]` such as `/Users/IceHe`
+
+#### IntelliJ IDEA
+
+Download [latest isntallation](https://www.jetbrains.com/idea/download/#section=mac) from [offical website](https://www.jetbrains.com/idea/)
+
+- Choose version : **Ultimate**
+
+Get lincense
+
+- Buy offical [license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+- or buy a license on Taobao
+- or temp workaround - [Ref 1](http://idea.lanyus.com/) / [Ref 2](https://www.jianshu.com/p/f404994e2843)
+
+Intsll plugins
+
+- [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
+- [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
+
+> [Project Lombok](https://projectlombok.org/)
+>
+> > It is a java library that automatically plugs into your editor and build tools, spicing up your java.
+> >
+> > Never write another getter or equals method again. Early access to future java features such as val, and much more.
+>
+> Optional plugins
+> - [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
+>     - Draw UML graphs for docs by [PlatUML](http://plantuml.com/)
+> - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)
+>     - Vim emulator - edit text like Vim
+>
+> IDE for team
+>
+> - Use the same IDE for better collaboration in a team
+>     - Uniform code format for all developers in a team
+>     - Easy to learn IDE developing experience accumulated by other teammates
+>     - Teammates are easy to use others' development environment (IDE)
+>     - ……
+
+## Configure
 
 Include
 
