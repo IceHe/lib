@@ -21,13 +21,13 @@ discussion : It has slightly higher overhead than insertion sort!
 a [ 0 ~ n ]
 // 循环不能改成 1~n 要兼容长度1的数组
 for i = 0 ~ n - 1
-	//swapped = false
-	for x = n ~ i + 1
-		 if a [x - 1] > a [x]
-			swap (a, x - 1, x)
-			//swapped = true
-	if !swapped
-		break
+    //swapped = false
+    for x = n ~ i + 1
+         if a [x - 1] > a [x]
+            swap (a, x - 1, x)
+            //swapped = true
+    if !swapped
+        break
 end
 ```
 

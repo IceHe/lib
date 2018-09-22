@@ -5,27 +5,27 @@
 https://www.toptal.com/developers/sorting-algorithms/quick-sort
 
 properties :
-	not stable
+    not stable
 
 ``` pseudo code 1 (easiest)
 a = [0 ~ n]
 sort (a, 0, n)
 
 sort (a, beg, end)
-	if (beg >= end)
-		return a
+    if (beg >= end)
+        return a
 
-	swap(a, beg, rand(beg ~ end))
-	k = beg
+    swap(a, beg, rand(beg ~ end))
+    k = beg
 
-	for i = beg + 1 ~ end
-		if (a[i] < a[beg])
-			swap(a, i, ++k)（这里 即是最后 k 还是 <= end，所以没问题）
+    for i = beg + 1 ~ end
+        if (a[i] < a[beg])
+            swap(a, i, ++k)（这里 即是最后 k 还是 <= end，所以没问题）
 
-	swap(a, beg, k)
+    swap(a, beg, k)
 
-	sort(a, beg, k - 1)
-	sort(a, k + 1, end)
+    sort(a, beg, k - 1)
+    sort(a, k + 1, end)
 ```
 
 ``` php 1 (easiest)
@@ -66,21 +66,21 @@ a [0 ~ n]
 sort(a, 0, n-1)
 
 sort(a, beg, end)
-	if (beg == end)
-		return
+    if (beg == end)
+        return
 
-	swap(a, beg, rand(beg, end))
+    swap(a, beg, rand(beg, end))
 
-	i = beg + 1
-	x = end
+    i = beg + 1
+    x = end
 
-	while (i <= x)
-		while(i <= end && a[i] <= a[beg]) ++i
-		while(x > beg && a[x] > a[beg]) --x
-		if (i < x) swap(a, i, x)
+    while (i <= x)
+        while(i <= end && a[i] <= a[beg]) ++i
+        while(x > beg && a[x] > a[beg]) --x
+        if (i < x) swap(a, i, x)
 
-	swap(a, beg, x)
+    swap(a, beg, x)
 
-	sort(a, beg, x - 1)
-	sort(a, x + 1, end)
+    sort(a, beg, x - 1)
+    sort(a, x + 1, end)
 ```

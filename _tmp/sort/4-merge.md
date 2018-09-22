@@ -7,54 +7,54 @@
 https://www.toptal.com/developers/sorting-algorithms/merge-sort
 
 properties :
-	stable
-	Θ(n) extra space for array
-	Θ(log(n)) extra space for linked lists
-	random : Θ(n*lg(n)) time
-			worst O(n^2) time
-			(0.5 ~ 1)*lg(n) per element comparison（我终于想明白了！）
-			(1 ~ 1.5)*lg(n) per element comparison（不相等时才赋值？）
-	not adaptive
-	does not require random access to data
+    stable
+    Θ(n) extra space for array
+    Θ(log(n)) extra space for linked lists
+    random : Θ(n*lg(n)) time
+            worst O(n^2) time
+            (0.5 ~ 1)*lg(n) per element comparison（我终于想明白了！）
+            (1 ~ 1.5)*lg(n) per element comparison（不相等时才赋值？）
+    not adaptive
+    does not require random access to data
 
 discussion :
-	It's very predictable.
-	It's the algorithm of choice for a variety of situations :
-		when stability is required,
-		when sorting linked lists,
-		and when random access is much more expensive than sequential access
-		(for example, external sorting on tape)
+    It's very predictable.
+    It's the algorithm of choice for a variety of situations :
+        when stability is required,
+        when sorting linked lists,
+        and when random access is much more expensive than sequential access
+        (for example, external sorting on tape)
 
 ``` pseudo code
 a = [0 ~ n]
 sort (a , 0 , n - 1)
 
 sort (a , beg , end):
-	if beg == end
-		return a
+    if beg == end
+        return a
 
-	pivot = (beg + end) / 2
+    pivot = (beg + end) / 2
 
-	sort (a , beg , pivot)
-	sort (a , pivot + 1 , end)
+    sort (a , beg , pivot)
+    sort (a , pivot + 1 , end)
 
-	tmp = a
+    tmp = a
 
-	i = beg
-	x = pivot
-	k = beg
+    i = beg
+    x = pivot
+    k = beg
 
-	while i <= pivot && x <= end
-		a[k++] = (tmp[i] <= tmp[x])
-			? tmp[i++]
-			: tmp[x++]
+    while i <= pivot && x <= end
+        a[k++] = (tmp[i] <= tmp[x])
+            ? tmp[i++]
+            : tmp[x++]
 
-	while k <= end
-		a[k++] = (i > pivot)
-			? tmp[x++]
-			: tmp[i++]
+    while k <= end
+        a[k++] = (i > pivot)
+            ? tmp[x++]
+            : tmp[i++]
 
-	return a
+    return a
 ```
 
 ``` php
