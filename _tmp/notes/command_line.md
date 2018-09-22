@@ -9,100 +9,47 @@
 - `bg %num` specify ...
 - `fg %num` specify ...
 
-# [Zsh](http://zsh.sourceforge.net/)
-
-- [Docs](http://zsh.sourceforge.net/Doc/)
-
-- [oh-my-zsh](http://ohmyz.sh/) &nbsp;&&nbsp;  [my fork](https://github.com/IceHe/oh-my-zsh)
-
-- Alias
-
-    - [.zshrc](https://github.com/IceHe/oh-my-zsh/blob/master/.zshrc)
-    - [dir](https://github.com/IceHe/oh-my-zsh/blob/master/lib/directories.zsh)
-    - [git](https://github.com/IceHe/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
-    - [tmux](https://github.com/IceHe/oh-my-zsh/blob/master/plugins/tmux/tmux.plugin.zsh)
-    - [vi-mode](https://github.com/IceHe/oh-my-zsh/blob/master/plugins/vi-mode/vi-mode.plugin.zsh)
-
  「Linux Shell 哪种更常用，这些shell各有什么特长？」知乎 [依云的回答](https://www.zhihu.com/question/29380922/answer/44157927) 摘要：
 
-    - `bash`：通用，广泛可得。(Powerful and always available.)
-    - `zsh`：各种功能十分强大，尤其是补全和脚本，但也更复杂。
-    - `fish`：对新用户友好，但不符合 POSIX 标准，别处复制的命令基本没法用！
-    - 可参考：[Comparison of Command Shells - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
+- `bash`：通用，广泛可得。(Powerful and always available.)
+- `zsh`：各种功能十分强大，尤其是补全和脚本，但也更复杂。
+- `fish`：对新用户友好，但不符合 POSIX 标准，别处复制的命令基本没法用！
+- 可参考：[Comparison of Command Shells - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
 
 # Common
 
--  **Explanations**
+**Explanations**
 
-    - `[-o]`
+- `[-o]`
     Sth between `[` & `]` is optional.
     Option `-o` is optional.
-
-    - `[-abc]`
+- `[-abc]`
     Options `-a`, `-b` and `-c` can be used at the same time.
-
-    - `[-a | -b | -c]`
+- `[-a | -b | -c]`
     The last option of `-a`, `-b` or `-c` overides the other previous options.
-
-    - `[-A [-B]]`
+- `[-A [-B]]`
     Option `-B` is valid if option `-A` is specified.
-
-    - `-d` *(Default)*
+- `-d` *(Default)*
     Option `-d` is default option of the cmd.
     It's valid even if it isn't specified.
 
-<br/>
+**Commonly Options**
 
-- **Commonly Options**
+- *PS: Usually act as follows, but not always!*
+- `-a` **All**: Exec cmds with many default options.
+- `-d` Do with sth including **dirs**.
+- `-f` **Force**: Do sth without confirmation.
+- `-i` **If**: Need confirmation to do sth.
+- `-n` **Not**: When need confirmation, don't do sth.
+- `-p` **Preserve** sth.
+- `-r` | `-R` **Recursive**: Do with sth including entire subtree.
+- `-v` **Verbose**: Show details.
 
-    *PS: Usually act as follows, but not always!*
+**`man cmd_name ...` Format & display the cmd Manual.**.
 
-    `-a` **All**: Exec cmds with many default options.
-    `-d` Do with sth including **dirs**.
-    `-f` **Force**: Do sth without confirmation.
-    `-i` **If**: Need confirmation to do sth.
-    `-n` **Not**: When need confirmation, don't do sth.
-    `-p` **Preserve** sth.
-    `-r` | `-R` **Recursive**: Do with sth including entire subtree.
-    `-v` **Verbose**: Show details.
+**`bash` Bourne-Again SHell**
 
-<br/>
-
-- **`man cmd_name ...` Format & display the cmd Manual.**.
-
-- **`bash` Bourne-Again SHell**
-
-    An sh-compatible cmd language interpreter that cmds rd from the standard input or from a file.
-
-- **`ls [-ACFGLRSTUalmrtu1] [file ...]` List dir Contents.**
-
-    `-1` Output to be **one entry per line**. &nbsp;*(Default option when not using terminals.)*
-    `-C` Multi-**column** output. &nbsp;*(Default option when using in termainals.)*
-
-    `-A` List **all** except for `.` and `..`.
-    `-a` **All**: Including hidden files (whose names begin with a dot `.`).
-
-    `-F` Display **prompts**:
-     &nbsp; &nbsp; &nbsp; &nbsp; Slash `/` after each dir pathname
-     &nbsp; &nbsp; &nbsp; &nbsp; Asterisk `*` after each executable
-     &nbsp; &nbsp; &nbsp; &nbsp; At sign `@` after each symbolic link
-     &nbsp; &nbsp; &nbsp; &nbsp; Equals sign `=` after each socket
-     &nbsp; &nbsp; &nbsp; &nbsp; Percent sign `%` after each whiteout
-     &nbsp; &nbsp; &nbsp; &nbsp; Vertical bar `|` after each FIFO
-
-    `-G` Colorized output. *(It's equivalent to defining CLICOLOR in the env.)*
-    `-R` **Recursively** list subdirs encountered.
-
-    `-l` List in **long** format.
-    `-m` **Stream** output format, items separated by commas.
-    `-T` With complete **time** information.
-
-    `-r` List in **reverse** order.
-    `-S` Sort files by **size**.
-    `-t` Sort by **time** modified.
-
-    `-u` Use time of **last access**, instead of last modification of the file
-    `-U` Use time of file **creation**, instead of ...
+- An sh-compatible cmd language interpreter that cmds rd from the standard input or from a file.
 
 - **`cd [-|-1|-2|-3|-4|-5|-6|-7|-8|-9]` Change Dir.**
 
@@ -295,11 +242,4 @@
 - **`ssh`**
 
 - [Art of CL](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md)
-
-<br/>
-
-# Todo
-
-- to be continue ...
-
 - [realpath](http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file)
