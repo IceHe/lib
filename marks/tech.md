@@ -172,6 +172,7 @@
 - [左耳朵耗子：不灌鸡汤，说真的年龄渐长，技术人的发展之路该怎么走？](http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2650995135&idx=1&sn=758336ff3ecbfdc239d80a11a7122344&chksm=bdbf01ec8ac888fa1c24d310bb34ca257c4ba06e3d92a1d32d05803498e10624d0c525c1cc59&mpshare=1&scene=1&srcid=1229uZN9HTY7NE6ZuPIyse2t#rd)
 - [为何公司宁愿给新人开高工资，却不愿意给知根知底的老员工涨薪？](https://www.zhihu.com/question/62260755)
 - [高级工程师的个人职业发展](http://www.ixirong.com/2016/10/28/senior-software-career-advise/index.html)
+- [怎样在大公司混成中层干部？](https://zhuanlan.zhihu.com/p/31340026)
 
 ## IT 业态
 
