@@ -34,7 +34,6 @@ TRUNCATE TABLE ：删除内容、释放空间但不删除定义。
 DELETE TABLE: 删除内容不删除定义，不释放空间。
 DROP TABLE ：删除内容和定义，释放空间。
 
-
 ## 悲观锁、乐观锁
 
 （事务隔离）https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2
