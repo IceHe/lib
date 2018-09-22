@@ -107,3 +107,18 @@ scheme
 
 在非洲这个大陆上 ，原人进化的时间最长 ，解剖学上的现代人可能也起源于那里 ，那里的地方病如疟疾或黄热病使欧洲的探险者失去了生命 。如果长期的领先优势有什么价值的话 ，那么为什么枪炮和钢铁不是首先出现在非洲 ，从而使非洲人和他们的病菌得以征服欧洲 ?同时 ，又用什么来说明何以澳大利亚土著未能超越使用石器的狩猎采集阶段呢 ?
 
+## Service 101
+
+https://mp.weixin.qq.com/s?__biz=MzA3NDM0ODQwMw==&mid=2649827699&idx=1&sn=e97071f2f049b8027c3105b8bd4ade70&chksm=8704ab6fb0732279f3c1b463653a812bbaef4d921fe65fe82cfb397765b01a9c5552a18307fe&scene=21#wechat_redirect
+
+## 软件工程师需要了解的网络知识：从铜线到HTTP
+
+https://weibo.com/2277420203/G06QNi9zC?type=comment#_rnd1537542666970
+
+## 0基础想转行的朋友通过Java入行
+
+https://weibo.com/2387178543/G6hNpFPNk?type=comment
+
+## spring boot 空实现 QPS 压力测试
+
+## 工作：使用 transcode 项目的 center 模块来上手
