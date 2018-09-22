@@ -1,47 +1,13 @@
 # CLI Note 命令行
 
----
-<!--date: 2016-01-24 20:12:50-->
-<!--updated: 2016-01-27-->
-<!--categories: [Command]-->
-<!--tags: [Command]-->
-<!--description: 我的命令行指令总结，及相关配置。CLI = Command Line Interface-->
-
 # Temp
 
-`command &` run the process in background
-`^ z` suspend the process
-`bg` continue the process in background
-`fg` continue the process in foreground
-`bg %num` specify ...
-`fg %num` specify ...
-
-Add SSH key for Git
-
-1. `ssh-keygen`
-2. `cat id_rsa.pub | pbcopy`
-3. Paste to add in Gitlab & etc
-
-# Abbreviations
-
-`abbr` abbreviation
-`cmd` command
-`cmds` commands
-
-`DB` database
-`del` delete
-`dir` directory
-`dirs` directories
-
-`env` environment
-`exec` execute
-`OS` operating system
-
-`param` parameter
-`pwd` password
-`rd` read
-`rm` remove
-`sth` something
+- `command &` run the process in background
+- `^ z` suspend the process
+- `bg` continue the process in background
+- `fg` continue the process in foreground
+- `bg %num` specify ...
+- `fg %num` specify ...
 
 # [Zsh](http://zsh.sourceforge.net/)
 
@@ -63,8 +29,6 @@ Add SSH key for Git
     - `zsh`：各种功能十分强大，尤其是补全和脚本，但也更复杂。
     - `fish`：对新用户友好，但不符合 POSIX 标准，别处复制的命令基本没法用！
     - 可参考：[Comparison of Command Shells - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
-
-<br/>
 
 # Common
 
@@ -334,29 +298,8 @@ Add SSH key for Git
 
 <br/>
 
-# [Git](http://git-scm.com)
-
-- [My Git Note](cmd/git-note.md)
-
-<br/>
-
-# [Vim](http://www.vim.org/)
-
-- [Docs](http://www.vim.org/docs.php)
-- [SPF-13](http://vim.spf13.com/) &nbsp;&&nbsp; [my fork](https://github.com/IceHe/spf13-vim)
-- [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - 键位操作总结图。
-
-<br/>
-
 # Todo
 
 - to be continue ...
 
 - [realpath](http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file)
-
-<br/>
-
-# Related
-
-- **CLI Note 命令行**
-
