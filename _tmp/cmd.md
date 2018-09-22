@@ -63,8 +63,6 @@ du -sh
 
 ln -s
 
-- ls
-
 - mkdir
 
 mkdir -p
@@ -82,33 +80,16 @@ rm -rf
 - bg
 - jobs
 
-### Language
-
-- maven
-
 ### Others
 
-- docker
 - export
-- git
 - gdb
-
 - find
 
 递归查找文件
 find [dir] -name 'file_name'
 
 - make
-
-- ps
-
-`ps -ef`
-`ps aux`
-
-- kill
-
-kill -HUP
-
 - rsync
 
 rsync -goDp
@@ -131,22 +112,6 @@ rsync -goDp
 - whereis
 
 - z
-- zsh
-
-### macOS
-
-- launchctl
-- pbcopy
-- pbpaste
-- realpath
-- readline
-
-### Bash
-
-- bash
-
-.bashrc
-scrpit
 
 ### lock
 
