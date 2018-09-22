@@ -143,3 +143,9 @@ PowerDNS
 > PowerDNS, founded in the late 1990s, is a premier supplier of open source DNS software, services and support.
 
 - <https://www.powerdns.com/>
+
+云计算
+
+- IaaS：基础设施即服务 Infrastructure as a Service
+- PaaS：平台即服务 Platform as a Service
+- SaaS：软件即服务 Software as a Service
