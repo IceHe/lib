@@ -46,7 +46,7 @@
 * IO型（存储型？硬盘型？）
 * GPU型（显卡型）
 
-FB 机型：OCP 六种（肖鹏截图提供）？
+FB 机型：OCP 六种
 （OCP: Open Compute Project）
 
 * 网络
@@ -57,6 +57,8 @@ FB 机型：OCP 六种（肖鹏截图提供）？
 * 冷存储
 
 https://en.wikipedia.org/wiki/Open_Compute_Project
+
+（肖鹏截图提供）？
 
 ![](ocp.png)
 
