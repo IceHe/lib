@@ -1,5 +1,7 @@
 # DB
 
+## CAP 原理
+
 ## ACID
 
 atomicity 原子性
