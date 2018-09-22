@@ -68,7 +68,7 @@ Other meanings
 
 ### C
 
-- ca : certificate authority | certificate agency
+- CA : Certificate Authority | Certificate Agency
 - cal : call
 - chan : channel
 - chk : check
@@ -86,11 +86,12 @@ Other meanings
 - crlf : carriage return / line feed
 - ctrl : contrl
 - cur : current
+- cv : Curriculum Vitae 简历
 - cwd : current working directory
 
 ### D
 
-- dag : directed acyclic graph
+- DAG : Directed Acyclic Graph
 - dat : data
 - db : database
 - dec : decimal
@@ -115,6 +116,7 @@ Other meanings
 - eol : end of line
 - err : error
 - esc : escape
+- et al. : et alii 以及其他人（等人）；et alibi 以及其他地方
 - etc. : et cetera (aka. and so on) 等等，及其它
 - evt : event
 - ex : exception
@@ -172,9 +174,11 @@ Other meanings
 - Jr. : Junior 初级的
 - js : javascript
 
+### K
+
 ### L
 
-- lan : local area network
+- LAN : Local Area Network
 - lang : language
 - lb : load balancer
 - len : length
@@ -190,7 +194,7 @@ Other meanings
 ### M
 
 - MBR : Master Boot Record
-- MC : memcached
+- mc : Memcached
 - md : markdown
 - mem : memory
 - millis : millisecond
@@ -208,11 +212,12 @@ Other meanings
 ### O
 
 - obj : object
-- oct : octal | October
+- oct : octal
+- Oct : October
 - op : operation | option
 - opt : option
 - ori : original
-- orm : object relational mapping
+- ORM : Object Relational Mapping
 - oth : others
 
 ### P
@@ -220,22 +225,21 @@ Other meanings
 - PE : Private Capital
 - pf : prefix
 - pid : process id
+- PnP : plug-and-play 即插即用
 - preg : PECL regular expression
 - prev : previous
-- ptr : pointer
-- pw , pwd : passowrd
-- prev : previous
 - proc : process
-- ps : process status
-- PS : Photo Shop
-- p.s. : postscript 附言
+- ptr : pointer
+- ps : process status | Photo Shop
+- P.S. : postscript 附言
+- pw , pwd : passowrd
 - py : python
 
 ### Q
 
 - qa : quality assurance
 - Q & A : Questions & Answers
-- QPS : queries per second
+- qps : queries per second
 
 ### R
 
@@ -275,8 +279,11 @@ Other meanings
 - sim : simple | simplify
 - slb : server load balancing
 - snd : send
+- SoC, SOC : System on Chip
+    - Chip or IC : Integrated Circuit (集成电路)
 - src : source
-- SSO : Single Sign-On 单点登录
+- sso : Single Sign-On 单点登录
+- st : something | sometimes
 - stat : status | statistics
 - sum : summary | summation
 - swp : swap
@@ -305,6 +312,7 @@ Other meanings
 - upd : update
 - usr : user
 - util : utility
+- uuid : Universally Unique Identifier 通用唯一标识符
 
 ### V
 
@@ -318,18 +326,18 @@ Other meanings
 ### W
 
 - w : word
-- wan : wide area network
+- WAN : wide area network
 - win : window
 - WIP : Work In Process|Progress
 - wtf : what the fuck
+- www : world wide web
+
+### X
 
 ### Y
 
 - yrs : years | yours
 
-### temp
+### Z
 
-SoC, SOC : System on Chip
-    Chip or IC : Integrated Circuit (集成电路)
-plug-and-play (PnP) 即插即用
-UUID : Universally Unique Identifier 通用唯一标识符
+- ZZZ : fall asleep
