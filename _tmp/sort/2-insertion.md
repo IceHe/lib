@@ -18,12 +18,13 @@ nearly sorted : O(n) a little (a few swaps) more than 1 pass (comparisons)
 reversed : O(n^2)
 
 discussion :
-    1. It's the algorithm of choice either
-                when the data is nearly sorted (compared with bubble sort)
-        or when the problem size is small (low overhead).
-    2. It's often used as the recursive base case (when problem size is small)
-        for higher overhead divide-and-conquer sorting algorithms,
-        such as merge sort or quick sort.
+
+1. It's the algorithm of choice either
+	when the data is nearly sorted (compared with bubble sort)
+	or when the problem size is small (low overhead).
+2. It's often used as the recursive base case (when problem size is small)
+	for higher overhead divide-and-conquer sorting algorithms,
+	such as merge sort or quick sort.
 
 ``` pseudo code
 a = [0 ~ n]
