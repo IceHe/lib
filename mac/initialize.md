@@ -503,7 +503,6 @@ Chrome
 Sogou Input
 
 - login by WeChat
-- ShowyEdge : show color bar
 - configure in `System Preferences`
     - remove useless input sources
     - add Sogou Input
