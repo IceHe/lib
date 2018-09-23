@@ -103,7 +103,7 @@ Q & A
 - SET without expiry ( [ref](https://stackoverflow.com/questions/40019390/redis-set-with-option-without-expiry) )
     - Send `set` command without `EX` option
 
-## Other Notes
+## TEMP
 
 部分基本知识：
 
@@ -120,3 +120,17 @@ Q & A
 5. 商品列表、评论列表等
 
 ref : https://www.itcodemonkey.com/article/3506.html
+
+---
+
+- [Zeech's Tech Blog](http://zcheng.ren/index.html) -
+- [ZeeCoder](https://blog.csdn.net/terence1212)
+    - 以上两个博客有 Redis 源码分析的内容
+- [Redis 源码分析 - huangz/note](http://note.huangz.me/storage/redis_code_analysis/index.html) 许多 Redis 书籍均由该作者翻译
+- [Redis 命令参考](http://redisdoc.com/)
+- 注释版源码
+    - 2.6 : https://github.com/huangz1990/annotated_redis_source
+    - 3.0 : https://github.com/huangz1990/redis-3.0-annotated
+- 1.0 源码阅读
+    - http://pein0119.github.io/2014/08/18/-Redis-10%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89---%E5%BC%80%E7%AF%87/
+
