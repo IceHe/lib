@@ -12,3 +12,22 @@ References
 - <https://www.gnu.org/software/bash/manual/bashref.html>
 - <http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html>
 - <http://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/refcards.html>
+
+## TEMP
+
+confirm.sh
+
+```bash
+#!/bin/bash
+
+read -r -p "Are You Sure? [Y/n]"
+echo
+
+if [[ $REPLY =~ ^[yY]$ ]]; then
+    echo 'Yes'
+elif [[ $REPLY =~ ^[nN]$ ]]; then
+    echo 'No'
+else
+    echo 'Invalid Input!'
+fi
+```
