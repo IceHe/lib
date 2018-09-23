@@ -115,6 +115,7 @@
 - [有哪些优秀的沟通思路？](https://www.zhihu.com/question/36088643)
 - [学而时嘻之](http://www.geekonomics10000.com/) - 博客「用理工科思维理解世界」
 - [成功并不难，在于少犯错误](https://m.igetget.com/share/audio/aid/NjdFyCB0wtrv9kcJjmJg) - 保持有时就行
+- [勤劳致贫](https://zhuanlan.zhihu.com/p/34216349) -
 
 ### 政治
 
