@@ -123,6 +123,7 @@
 - [分布式服务化系统一致性的“最佳实干”](http://www.jianshu.com/p/1156151e20c8) <sup>_temp_</sup>
 - [从 GitLab 误删除数据库想到的](https://coolshell.cn/articles/17680.html) - 自动化运维
 - [关于高可用的系统](https://coolshell.cn/articles/17459.html)
+- [Netflix 微服务技术架构](https://mp.weixin.qq.com/s?__biz=MzI4MTY5NTk4Ng==&mid=2247489175&amp;idx=1&amp;sn=76895b3269a7390d6991cea5d3cb89c5&source=41#wechat_redirect )
 
 ## Linux
 
