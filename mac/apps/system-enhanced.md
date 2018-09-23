@@ -10,7 +10,7 @@ https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12
     屏幕休眠（Display Sleep）：即关闭屏幕，连屏幕保护程序（Screen Saver）也不运作。
 - 其它选择：它比同类软件 [~~Caffine~~](https://itunes.apple.com/us/app/caffeine/id411246225?mt=12)、[~~Owly~~](https://itunes.apple.com/us/app/owly-display-sleep-prevention/id882812218?mt=12) 功能完备、好用；[~~InsomniaX~~](http://semaja2.net/projects/insomniaxinfo/) 没用过。
 
-## Bartender
+## ~~Bartender~~
 
 https://www.macbartender.com/
 
@@ -87,7 +87,7 @@ https://github.com/shadowsocks/ShadowsocksX-NG <sup>Ladder</sup>
 
 - ShadowsocksX 是在 Mac 上配合 Shadowsock 工作的软件。NG 是后人维护的版本。
 
-## ShowyEdge
+## ~~ShowyEdge~~
 
 https://pqrs.org/osx/ShowyEdge/index.html.en <sup>Great</sup>
 
