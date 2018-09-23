@@ -1,5 +1,8 @@
 # arithmetic
 
+- [小学生口算秘诀：任意两位数乘以两位数的速算法_百度经验](https://jingyan.baidu.com/article/3d69c5518002f1f0ce02d76a.html)
+- [6句乘法口诀，两位数相乘也能心算出来！-教育频道-手机搜狐](http://m.sohu.com/n/451720589/)
+
 20以内乘法
 11  11  121
 11  12  132
