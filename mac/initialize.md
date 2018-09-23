@@ -94,11 +94,10 @@ brew cask install \
     google-chrome \
     hyperswitch \
     iina \
+    intellij-idea \
     itsycal \
     java \
     java8 \
-    intellij-idea \
-    phpstorm \
     karabiner-elements \
     keyboard-maestro \
     kindle \
@@ -109,7 +108,6 @@ brew cask install \
     notion \
     numi \
     paste \
-    popclip \
     postman \
     qq \
     qqmusic \
@@ -127,9 +125,7 @@ Required but cannot install by `brew cask install`
 
 - 2Do
 - Copied
-- ShadowsocksX-NG
 - Trello
-- Wireshark
 
 For quick-look ( preview ) in Finder
 
@@ -150,14 +146,13 @@ Optional ( for me )
 
 ```bash
 brew cask install \
-    desmume \
-    clion \
     datagrip \
-    goland \
-    pycharm \
+    desmume \
     keycastr \
+    popclip \
     time-out \
-    virtualbox
+    virtualbox \
+    wireshark
 ```
 
 Optional but cannot install by `brew cask install`
