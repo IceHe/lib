@@ -524,10 +524,6 @@ Shell、CLI : Bash 脚本、命令行，都是程序员的基本功，就不赘�
 
 - 收起或彻底隐藏毋需过多关注的菜单栏 App 图标。
 
-[ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en) <sup>Great</sup>
-
-- 输入法状态提示。显示一条样式可定制的色带在屏幕顶部，以提示正在使用什么输入法。在全屏使用 App 时，也能轻易区分输入法状态！
-
 其余略
 
 ## 后记
