@@ -1,5 +1,8 @@
 # Diary
 
+- [Review](/diary/review.md)
+- [Week 39](/diary/w39.md)
+
 ## Timetable
 
 Time available **$ 10h/day**
