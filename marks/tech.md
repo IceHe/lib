@@ -174,6 +174,7 @@
 - [为何公司宁愿给新人开高工资，却不愿意给知根知底的老员工涨薪？](https://www.zhihu.com/question/62260755)
 - [高级工程师的个人职业发展](http://www.ixirong.com/2016/10/28/senior-software-career-advise/index.html)
 - [怎样在大公司混成中层干部？](https://zhuanlan.zhihu.com/p/31340026)
+- [Letter to a Junior Engineer](https://builttoadapt.io/a-letter-to-a-junior-engineer-edec0e260b87) - What I’d want to know at the beginning of my career.
 
 ## IT 业态
 
