@@ -15,8 +15,8 @@ Study
     - Spring & Spring Boot / api-common / harmonia / motan
         - jedis / mysql / kafka
     - Java Basic :《技术详解》卷 2
-- 2\. Make Lib better ( ?details )
-    - ? summary past (meaningful knowledege & thoughts)
+- 2\. Make Lib better
+    - summary past commands
 
 Work
 
