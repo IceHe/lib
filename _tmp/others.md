@@ -84,3 +84,9 @@ https://weibo.com/2387178543/G6hNpFPNk?type=comment
 
 * 直接用http://www.google.com/ncr，ncr是no country redirection，是一个强制不跳转的命令；
 * 用https://www.google.com/，https协议。
+
+## 听力练习
+
+【4步带你听懂80%的英语】原来字幕是耽搁你听力进步的罪魁祸首？外教告诉你，只要拿掉字幕，跟着这4个步骤，2个月后，你就能听懂80%的英语对话。
+
+- https://weibo.com/2141823055/FrqSqu5Rq?type=comment
