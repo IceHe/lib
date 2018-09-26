@@ -9,9 +9,9 @@
     - 背景：
         - **MyRocks Deep Dive 幻灯片** https://www.slideshare.net/matsunobu/myrocks-deep-dive
         - https://github.com/facebook/mysql-5.6/wiki/MyRocks-advantages-over-InnoDB
-    - MySQL 存储引擎 ?
+    - MySQL 存储引擎
         - InnoDB
-        - ISAM ?
+        - ISAM ( Indexed Sequential Access Method )
 
 ## MyRocks
 
@@ -25,14 +25,6 @@ MyRocks 特性
         - 将多次输入，合并在一起，减少为少数几次输入
 
 ---
-
-> 简单提及一下磁盘寻道的问题，所以采用 SSD（闪存）
-
----
-
-> 写入放大（英语：Write amplification，简称WA）是闪存和固态硬盘（SSD）中一种不良的现象，即实际写入的物理数据量是写入数据量的多倍。（TODO 解释待优化）
->
-> 由于闪存在可重新写入数据前必须先擦除，而擦除操作的粒度与写入操作相比低得多，执行这些操作就会多次移动（或改写）用户数据和元数据。因此，要改写数据，就需要读取闪存某些已使用的部分，更新它们，并写入到新的位置，如果新位置在之前已使被用过，还需连同先擦除；由于闪存的这种工作方式，必须擦除改写的闪存部分比新数据实际需要的大得多。此倍增效应会增加请求写入的次数，缩短SSD的寿命，从而减小SSD能可靠运行的时间。增加的写入也会消耗闪存的带宽，此主要降低SSD的随机写入性能。许多因素会影响SSD的写入放大，一些可以由用户来控制，而另一些则是数据写入和SSD使用的直接结果。
 
 LSM 的优点
 
@@ -104,13 +96,15 @@ RocksDB 特性
 - 高性能
     - 使用 log structured engine（LSM）（要和 B+ 树进行对比）
         - Leveled LSM Structure
-        - MemTable
-        - WAL (Write Ahead Log)
+        - **MemTable**
+        - **WAL (Write Ahead Log)**
         - Compaction
         - Column Family
     - 用 C++ 编写
     - key-value **持久化** 存储
-    - 支持任意大小的二进制字节流（byte stream, byte[]）
+    - 按照 key 排序，排序的函数可以由用户自定义
+    - 支持任意的二进制字节流（byte stream, byte[]）
+        （当然有大小限制，最大 4GB）
 - 为快速存储而优化
     - 发掘闪存（Flash）& 内存（RAM）全部的读写潜力
         - SSD 就属于闪存
@@ -123,7 +117,89 @@ RocksDB 特性
     - 基本：opening & closing
     - 高级：merging、compaction filter
 
+适用场景
+
+- 大量写操作（插入操作）的场景
+
 其它可选的产品
 
-- TODO
+- Berkeley DB
+- SQLite
+- Kyoto TreeDB
+- HBase
+- LevelDB
+- Cassandra
 
+> - LevelDB、Cassandra 根据文件分层，而不是文件大小进行合并
+
+基本结构
+
+- MemTable（顾名思义，内存的数据结构）
+- sstfile
+    - **WAL (Write Ahead Log)**
+- logfiles
+
+> LSM 数据库的性能在很大程度上取决于压缩算法及其实现（为什么？）
+
+memtable
+
+- 具体实现
+    - 默认 skiplist memtable
+    - vector memtable
+    - prefix-hash memtable（前缀散列）
+        - 对 gets , puts , scans-within-a-key-prefix 有理
+
+talks（演讲）
+
+- https://github.com/facebook/rocksdb/tree/gh-pages-old/talks
+- RocksDB
+    https://github.com/facebook/rocksdb/blob/gh-pages-old/talks/2014-08-05-Flash-Memory-Summit-Siying-RocksDB.pdf
+- RocksDB storage engine for MySQL and MongoDB
+    https://www.slideshare.net/IgorCanadi/rocksdb-storage-engine-for-mysql-and-mongodb
+- The Hive Think Tank: Rocking the Database World with RocksDB
+    https://www.slideshare.net/HiveData/siying-dong-facebook
+
+LSM 树对比 B+ 树 http://blog.51cto.com/9425473/1741432
+
+- 同样支持怎删改查操作，以及顺序扫描操作（scan）
+- LSM 牺牲了读性能（低一个数量级），大幅提高写性能（提高一个数量级）
+- LSM 使用批量存储顺序写入，规避随机写入的问题（顺序读写比随机读写快三个数量级）
+    - 将数据的修改增量保存在内存当中，然后达到指定大小（上限），在批量写入磁盘
+    - 但是读取的时候，需要合并磁盘中历史数据以及最近的修改操作
+    - 先访问内存，没有再去访问存储文件
+
+LSM 树原理 http://www.open-open.com/lib/view/open1424916275249.html
+
+- 十年前，谷歌发表了 “BigTable” 的论文，论文中很多很酷的方面之一就是它所使用的文件组织方式，这个方法更一般的名字叫 Log Structured-Merge Tree
+
+读性能的几种方式 http://www.open-open.com/lib/view/open1424916275249.html （这些都不是 LSM 树使用的方法）
+
+- 二分查找: 将文件数据有序保存，使用二分查找来完成特定key的查找。
+- 哈希：用哈希将数据分割为不同的bucket
+- B+树：使用B+树 或者 ISAM 等方法，可以减少外部文件的读取
+- 外部文件： 将数据保存为日志，并创建一个hash或者查找树映射相应的文件。
+
+> 很多树结构可以不用 update-in-place，最流行就是 append-only Btree，也称为 Copy-On-Write Tree
+
+数据库选型 https://www.keakon.net/2018/07/13/key%20/%20value%20%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%80%89%E5%9E%8B
+
+> - 3 种 compact 的方式：**leveled、universal** 和 FIFO
+> - 当一层的数据文件超过该层的阈值时，就往它的下层来 compact。**L0 之间因为可能有重复的数据，因此需要全合并后写入 L1。而 L1 之后的数据文件不会有重复的 key**，因此在 key 范围不重合的情况下，可以并发地向下合并。RocksDB 默认有 L0 ~ L6 这 7 层，L1 容量是 256 MB（建议把 L0 和 L1 大小设为一样，可以减小写入放大），之后每层都是上一层容量的 10 倍。很显然，层数越高就表示写入放大倍数越高。
+> - 那么可不可以不分这么多层，以减小写入放大倍数呢？Universal 这种风格就是尽量只用 L0，并将新的 SST 不断合并到老的 SST，因此数据文件的大小是不等的。
+> - TiKV 和 Pika 都选择了 leveled 风格，也是 RocksDB 的默认值，应该是适合大部分情况的。但如果需要更高的写入性能，并且总数据容量不大（例如少于 100 GB），可以选择 universal。
+
+- BadgerDB ，它的原理和 LevelDB 差不多，但是又做了个重要的优化：将 key 和 value 分开存放。因为 key 的空间占用会小很多，所以更容易放入内存中，能加快查询速度。而在合并时，合并 key 的开销很小（只是修改 value 的索引地址），合并 value 也只是删掉老的 value 即可，甚至不需要和 key 的合并同步进行，定期清理下就行了。而且因为 key 单独存放，所以遍历 key 和测试 key 是否存在也会快很多。不过如果 value 长度很小，那么分开存放反而增加了一次随机读，这是要结合实际项目来考虑的。
+
+使用 RocksDB
+
+- TiDB : TiKV 底层使用 RocksDB
+- pika : 在使用 Redis 容量过大的一个解决方案
+    - 在 RocksDB 上封装了多数据结构的库 nemo
+    - 又在 nemo 上封装的网络逻辑，实现了 Redis 协议的解析
+
+LevelDB
+
+- SSTable : Sorted String Table
+    https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/
+- LevelDB : http://web.archive.org/web/20130502222338/http://dailyjs.com/2013/04/19/leveldb-and-node-1/
+- LSM Paper
