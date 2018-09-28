@@ -108,6 +108,8 @@ unix / linux 不同的程序仓库代表什么
 - `… | jq -r 'join(",")'`
     - 原来错的命令行是 `… | jq -r '.[]|join(",")'`
     - `.[]` 表达式，遍历显示所有 value！
+- `… | jq -r '.playlists | .[].id'`
+    - 将 playlists 数组中的每个元素的 id 提取出来
 - ref : http://hyperpolyglot.org/json
 
 `touch` change file access and modification times
