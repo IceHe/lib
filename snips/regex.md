@@ -79,3 +79,16 @@ Replace HTML Tag
 <a href="([^"]*)"[^>]*>([^<]*)</a>
 [$2]($1)
 ```
+
+## Find
+
+```bash
+^\[[^\]]*\]
+```
+
+```bash
+# e.g.
+[ERROR]
+[WARN]
+[INFO]
+```
