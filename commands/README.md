@@ -1,5 +1,18 @@
 # Commands
 
+## recent
+
+- [ab](ab.md)
+- [date](date.md)
+- tee : pipe fitting
+- top / htop
+
+```bash
+2>&1 | tee $(date +"%Y-%m-%d_%H-%M_%S").log
+```
+
+## Archived
+
 Recommended Guide
 
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) / [中文版](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
