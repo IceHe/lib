@@ -40,48 +40,6 @@ man <command>
 find <directory_path> | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
 ```
 
-`ps`
-
-> process status
-
-```bash
-ps -ef
-ps aux
-```
-
-`service`
-
-- control services
-
-```bash
-service <serv_name> <start|stop|status|restart>
-# `service nginx restart`
-```
-
-- list services
-
-```bash
-service --status-all
-```
-
-`systemctl`
-
-- control services
-
-```bash
-systemctl <start|stop|reload|restart> <serv_name>
-# `systemctl restart nginx`
-```
-
-- list services
-
-```bash
-# list all
-systemctl list-unit-files
-# list enabled
-systemctl list-unit-files | grep enabled
-```
-
 `where` `which`
 
 ```bash
