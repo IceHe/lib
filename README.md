@@ -59,8 +59,6 @@ Others
 > Command Line Interface 命令行界面
 
 <!-- - [bash](/commands/bash.md) -->
-<!-- - [mkdir](/commands/lsof.md) : make directories -->
-<!-- - [service](/commands/service.md) & [systemctl](/commands/systemctl.md) -->
 
 - [README](/commands/README.md)
 - [bzip2](/commands/bzip2.md) : block-sorting file compressor
@@ -71,10 +69,13 @@ Others
 - [kill](/commands/kill.md) : terminate or signal a process
 - [ls](/commands/ls.md) : list directory contents
 - [lsof](/commands/lsof.md) : list open files
+- [mkdir](/commands/lsof.md) : make directories
 - [nc](/commands/nc.md) : TCP / UDP connect & listen
 - [netstat](/commands/network-status.md) : show network status
 - [ps](/commands/ps.md) : process status
 - [rsync](/commands/rsync/README.md) : transfer files
+- [service](/commands/service.md) : run a System V init script
+- [systemctl](/commands/systemctl.md) : control systemd & service manager
 - [tar](/commands/tar.md) : pack & compress
 - [tmux](/commands/tmux.md) : terminal multiplexer
 - [vim](/commands/vim.md) : terminal editor
