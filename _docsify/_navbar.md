@@ -1,6 +1,6 @@
 - [Home](/)
-- [About](marks/cv.md)
 
+<!-- - [About](marks/cv.md) -->
 <!-- - External -->
 <!--     - [Blog](https://icehe.me) -->
 <!--     - [GitHub](https://github.com/IceHe) -->
