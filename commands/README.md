@@ -6,6 +6,7 @@
 - [date](date.md)
 - tee : pipe fitting
 - top / htop
+- iftip 流量带宽
 
 ```bash
 2>&1 | tee $(date +"%Y-%m-%d_%H-%M_%S").log
