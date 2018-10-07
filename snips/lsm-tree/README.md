@@ -6,8 +6,11 @@
     - [SSTable and Log Structured Storage: LevelDB](https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/)
 - GitHub : https://github.com/google/leveldb
     - Wiki : https://github.com/google/leveldb/blob/master/doc/index.md
+        - Implementation notes : https://github.com/google/leveldb/blob/master/doc/impl.md
+        - Immutable Table File Format : https://github.com/google/leveldb/blob/master/doc/table_format.md
+        - Log File Format : https://github.com/google/leveldb/blob/master/doc/log_format.md
 - Wikipedia : https://en.wikipedia.org/wiki/LevelDB
-
+    - Benchmarks : https://web.archive.org/web/20110820001028/http://leveldb.googlecode.com/svn/trunk/doc/benchmark.html
 
 ## RocksDB
 
