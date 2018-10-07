@@ -3,11 +3,11 @@
 ## LevelDB
 
 - Official Website : http://leveldb.org/
-- Wikipedia :
-- GitHub :
-    - Wiki :
+    - [SSTable and Log Structured Storage: LevelDB](https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/)
+- GitHub : https://github.com/google/leveldb
+    - Wiki : https://github.com/google/leveldb/blob/master/doc/index.md
+- Wikipedia : https://en.wikipedia.org/wiki/LevelDB
 
-[SSTable and Log Structured Storage: LevelDB](https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/)
 
 ## RocksDB
 
