@@ -129,11 +129,11 @@ lsof -u <username>
 
 FD – Represents the file descriptor. Some of the values of FDs are,
 
-cwd – Current Working Directory
-txt – Text file
-mem – Memory mapped file
-mmap – Memory mapped device
-NUMBER – Represent the actual file descriptor. The character after the number i.e ‘1u’, represents the mode in which the file is opened. r for read, w for write, u for read and write.
+- cwd – Current Working Directory
+- txt – Text file
+- mem – Memory mapped file
+- mmap – Memory mapped device
+- NUMBER – Represent the actual file descriptor. The character after the number i.e ‘1u’, represents the mode in which the file is opened. r for read, w for write, u for read and write.
 
 15 examples (better, more practical)
 
