@@ -9,3 +9,7 @@ References
 - Java Performace - JMH : http://tutorials.jenkov.com/java-performance/jmh.html
 - Code Tools - jmh : http://openjdk.java.net/projects/code-tools/jmh/
 - 使用JMH实现性能测试 : https://xnslong.github.io/blog/#/tools/java/JMH-benchmarking
+
+Others
+
+- 接口性能测试方案 白皮书 V1.0 : https://blog.csdn.net/hexieshangwang/article/details/47186507
