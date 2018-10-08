@@ -58,8 +58,6 @@ Others
 
 > Command Line Interface 命令行界面
 
-<!-- - [bash](/commands/bash.md) -->
-
 - [README](/commands/README.md)
 - [bzip2](/commands/bzip2.md) : block-sorting file compressor
 - [cron](/commands/cron.md) : time-based job scheduler
@@ -81,10 +79,6 @@ Others
 - [vim](/commands/vim.md) : terminal editor
 - [wget](/commands/wget.md) : network downloader
 - [zsh](/commands/zsh.md) : one of shells
-
-<!-- - [awk-sed-grep](/commands/awk-sed-grep_tmp.md) -->
-<!-- - [useful](/commands/useful_tmp.md) -->
-<!-- - awk / sed / grep / xargs -->
 
 ### C++
 
