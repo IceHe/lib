@@ -117,6 +117,7 @@ Other meanings
 - err : error
 - esc : escape
 - et al. : et alii 以及其他人（等人）；et alibi 以及其他地方
+- ETA : Estimated  Time of Arrival 预计抵达时间
 - etc. : et cetera (aka. and so on) 等等，及其它
 - evt : event
 - ex : exception
