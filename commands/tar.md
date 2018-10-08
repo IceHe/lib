@@ -24,7 +24,7 @@ tar cvf <pacakge_name>.tar <directory_or_filenames>
 Unpack
 
 ```bash
-tar xvf <package_name>
+tar xvf <package_name>.tar
 
 # `tar xvf directory.tar
 ```
