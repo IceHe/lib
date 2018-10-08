@@ -1,16 +1,23 @@
 # Commands
 
-## recent
+## TODOs
 
 - [ab](ab.md)
+- [awk-sed-grep_tmp](awk-sed-grep_tmp.md)
+- [bash](bash.md)
 - [date](date.md)
+- [lsof](lsof.md)
+- [sed](sed.md)
 - tee : pipe fitting
 - top / htop
 - iftip 流量带宽
+- [useful_tmp](useful_tmp.md)
 
 ```bash
 2>&1 | tee $(date +"%Y-%m-%d_%H-%M_%S").log
 ```
+
+<!-- - awk / sed / grep / xargs -->
 
 ## Archived
 
