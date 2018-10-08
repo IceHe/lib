@@ -216,6 +216,7 @@ Other meanings
 - oct : octal
 - Oct : October
 - op : operation | option
+- ops : operations
 - opt : option
 - ori : original
 - ORM : Object Relational Mapping
