@@ -15,9 +15,14 @@
 ## RocksDB
 
 - Official Website : http://myrocks.io
-- Wikipedia : https://en.wikipedia.org/wiki/RocksDB#Embedded
-- GitHub :
-    - Wiki :
+- Wikipedia : https://en.wikipedia.org/wiki/RocksDB
+- GitHub : https://github.com/facebook/rocksdb
+    - Wiki : https://github.com/facebook/rocksdb/wiki
+        - Talks : https://github.com/facebook/rocksdb/wiki/Talks
+            - **2013-11-14-History-of-RocksDB** : https://www.youtube.com/watch?v=V_C-T5S-w8g
+            - **2014-08-05-Embedded-Key-Value-Store-for-Flash-and-Faster-Storage** : https://github.com/facebook/rocksdb/blob/gh-pages-old/talks/2014-08-05-Flash-Memory-Summit-Siying-RocksDB.pdf
+            - 2014-03-27-RocksDB-In-Memory : https://github.com/facebook/rocksdb/blob/gh-pages-old/talks/2014-03-27-RocksDB-Meetup-Haobo-RocksDB-In-Memory.pdf
+            - **2015-09-29-Challenges-of-LSM-Trees-in-Practice** : https://github.com/facebook/rocksdb/blob/gh-pages-old/talks/2015-09-29-HPTS-Siying-RocksDB.pdf
 
 [MyRocks Deep Dive](https://www.slideshare.net/matsunobu/myrocks-deep-dive)
 
