@@ -13,3 +13,24 @@ References
 Others
 
 - 接口性能测试方案 白皮书 V1.0 : https://blog.csdn.net/hexieshangwang/article/details/47186507
+
+## Usage
+
+```bash
+# Create Project
+ mvn archetype:generate \
+    -DinteractiveMode=false \
+    -DarchetypeGroupId=org.openjdk.jmh \
+    -DarchetypeArtifactId=jmh-java-benchmark-archetype \
+    -DgroupId=xyz.icehe \
+    -DartifactId=first-benchmark \
+    -Dversion=1.0
+
+# Compile
+mvn clean package
+# or ?
+mvn clean install
+
+# Run
+java -jar target/benchmarks.jar
+```
