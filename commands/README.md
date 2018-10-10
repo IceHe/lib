@@ -6,6 +6,7 @@
 - [awk-sed-grep_tmp](awk-sed-grep_tmp.md)
 - [bash](bash.md)
 - [date](date.md)
+- `df -h` 查看硬盘使用量
 - [lsof](lsof.md)
 - [sed](sed.md)
 - tee : pipe fitting
