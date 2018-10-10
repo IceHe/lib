@@ -38,12 +38,8 @@
 
 [Log Structured Merge Trees - ben stopford](http://www.benstopford.com/2015/02/14/log-structured-merge-trees/)
 
-# RocksDB
+## MyRocks
 
-参考
-
-- RocksDB 官网：https://rocksdb.org/
-- LevelDB from Google
 - MyRocks (MySQL on RocksDB Storage Engine) 官网：http://myrocks.io/ （TODO）
     - FB 的 MySQL 分支版本，包含 MyRocks 的实现：https://github.com/facebook/mysql-5.6
     - 背景：
@@ -52,12 +48,6 @@
     - MySQL 存储引擎
         - InnoDB
         - ISAM ( Indexed Sequential Access Method )
-
-## MyRocks
-
-benchmark
-
-- https://www.slideshare.net/matsunobu/myrocks-deep-dive
 
 ### MyRocks advantages over InnoDB
 
@@ -69,9 +59,6 @@ Ref : https://github.com/facebook/mysql-5.6/wiki/MyRocks-advantages-over-InnoDB
 
 talks（演讲）
 
-- https://github.com/facebook/rocksdb/tree/gh-pages-old/talks
-- RocksDB
-    https://github.com/facebook/rocksdb/blob/gh-pages-old/talks/2014-08-05-Flash-Memory-Summit-Siying-RocksDB.pdf
 - RocksDB storage engine for MySQL and MongoDB
     https://www.slideshare.net/IgorCanadi/rocksdb-storage-engine-for-mysql-and-mongodb
 - The Hive Think Tank: Rocking the Database World with RocksDB
@@ -110,17 +97,7 @@ LevelDB
 
 跳跃表
 
-# RocksDB
-
-TODO
-
-- Home : https://rocksdb.org/
-- GitHub : https://github.com/facebook/rocksdb
-    - Wiki : https://github.com/facebook/rocksdb/wiki
-
-TMP
-
-- Google Search 'RocksDB' : https://www.google.co.jp/search?q=RocksDB&ei=tymOW6bEEsOC-Qax-6jACg&start=10&sa=N&biw=1280&bih=1320&dpr=2
+## RocksDB
 
 Others
 
@@ -128,40 +105,6 @@ Others
 - （应该无关）TiDB 分布式数据库在转转公司的应用实践 : https://zhuanlan.zhihu.com/p/37453182
 
 ## Notes
-
-### Intro
-
-Wikipedia : https://en.wikipedia.org/wiki/RocksDB
-
-> RocksDB is a high performance **embedded database** for **key-value** data **written in C++**.
-> - It provides official application programming interface (API) language bindings for C++, C, and Java.
-
-- An [**embeded database**](https://en.wikipedia.org/wiki/Embedded_database) system
-    is a database management system (DBMS)
-    which is tightly integrated with an application sofware
-    that requires access to stored data,
-    such that the database system is "hidden" from the application's end-user
-    and requires little or no ongoing maintenance.
-
-> It is **a fork of [LevelDB](https://en.wikipedia.org/wiki/LevelDB)**
-> which was then optimized to exploit many central processing unit (CPU) cores,
-> and make efficient use of fast storage,
-> such as solid-state drives (SSD),
-> for input/output (I/O) bound workloads.
-
-RocksDB, like LevelDB, stores keys and values in arbitrary byte arrays, and data is sorted byte-wise by key or by providing a custom comparator.
-
-RocksDB provides all of the features of LevelDB, plus:
-
-- Transactions[15]
-- Backups[16] and snapshots[17]
-- Column families[18]
-- Bloom filters[19]
-- Time to live (TTL) support[20]
-- Universal compaction[21]
-- Merge operators[22]
-- Statistics collection[23]
-- Geospatial indexing[24]
 
 ### Articles
 
