@@ -9,9 +9,9 @@
 - `df -h` 查看硬盘使用量
 - [lsof](lsof.md)
 - [sed](sed.md)
-- tee : pipe fitting
+- tee : pipe fitting `tee -a <append_file_path>`
 - top / htop
-- iftip 流量带宽
+- iftop 流量带宽
 - [useful_tmp](useful_tmp.md)
 
 ```bash
@@ -228,3 +228,30 @@ unzip <file_path>.zip
 ```
 
 [bash 的威力](https://zhuanlan.zhihu.com/p/31209138?group_id=915890535597486080)
+
+bash 循环语句
+
+```bash
+#!/bin/bash
+
+for i in {03..23}; do
+    echo processing access.log.20181007-$i
+
+    gunzip access.log.20181007-$i.gz
+
+    grep 'playlists/video_stream.json' access.log.20181007-$i >> access_log_video_stream
+    wc -l access_log_video_stream
+
+    grep 'playlists/list.json' access.log.20181007-$i >> access_log_list
+    wc -l access_log_list
+
+    grep 'playlists/show.json' access.log.20181007-$i >> access_log_show
+    wc -l access_log_show
+
+    gzip access.log.20181007-$i
+done
+```
+
+截取文件内容
+
+https://blog.csdn.net/kangaroo_07/article/details/43733891
