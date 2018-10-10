@@ -186,4 +186,45 @@ https://devhints.io
 tcpdump -i any -nnX -w file_name
 ```
 
+解压缩 http://alex09.iteye.com/blog/647128
+
+```bash
+# .gz
+## compress
+gzip <file_path>
+## de-compress
+gzip -d <file_path>.gz
+gunzip <file_path>.gz
+
+# .rar
+## compress
+rar a <file_path>.rar <dir_path>
+## de-compress
+rar x <file_path>.rar
+
+# .tar
+## compress
+tar cvf <file_path>
+## de-compress
+tar xvf <file_path>
+
+# .tar.Z
+## compress
+tar cZvf <file_path>
+## de-compress
+tar xZvf <file_path>.tar.Z
+
+# Z
+## compress
+compress <file_path>
+## de-compress
+uncompress <file_path>.Z
+
+# .zip
+## compress
+zip <file_path>.zip <dir_path>
+## de-compress
+unzip <file_path>.zip
+```
+
 [bash 的威力](https://zhuanlan.zhihu.com/p/31209138?group_id=915890535597486080)
