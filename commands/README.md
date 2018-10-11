@@ -254,4 +254,6 @@ done
 
 截取文件内容
 
+- 头几行 `head -5`，中间几行 `sed -n '10,20p'`，末尾几行 `tail -5`
+
 https://blog.csdn.net/kangaroo_07/article/details/43733891
