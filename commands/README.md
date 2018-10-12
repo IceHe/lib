@@ -7,16 +7,17 @@
 - [bash](bash.md)
 - [date](date.md)
 - `df -h` 查看硬盘使用量
+
+```bash
+2>&1 | tee $(date +"%Y-%m-%d_%H-%M_%S").log
+```
+
 - [lsof](lsof.md)
 - [sed](sed.md)
 - tee : pipe fitting `tee -a <append_file_path>`
 - top / htop
 - iftop 流量带宽
 - [useful_tmp](useful_tmp.md)
-
-```bash
-2>&1 | tee $(date +"%Y-%m-%d_%H-%M_%S").log
-```
 
 <!-- - awk / sed / grep / xargs -->
 
