@@ -314,6 +314,8 @@ Other meanings
 - uid : user id
 - upd : update
 - usr : user
+- UTC : Coordinated Universal Time 协调世界时
+    - English speakers originally proposed CUT (for "coordinated universal time"), while French speakers proposed TUC (for "temps universel coordonné"). The compromise that emerged was UTC.
 - util : utility
 - uuid : Universally Unique Identifier 通用唯一标识符
 
