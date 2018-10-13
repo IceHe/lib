@@ -7,7 +7,8 @@
 Time available **$ 10h/day**
 
 - 07:00-08:30 : get up / commute / breakfast $ 1.5h
-- 08:30-11:30 : **work $ 3h**
+- 08:30-10:30 : **stu $ 2h**
+- 10:30-11:30 : **work $ 1h**
 - 11:30-13:00 : lunch / relax / nap $ 1.5h
 - 13:00-18:00 : **work $ 5h**
 - 18:00-19:00 : dinner / relax $ 1h
@@ -40,9 +41,9 @@ Life
 Study
 
 - 1\. Get started with Java
+    - Java Basic :《技术详解》卷 1
     - Spring & Spring Boot / api-common / harmonia / motan
         - jedis / mysql / kafka
-    - Java Basic :《技术详解》卷 2
 - 2\. Make Lib better
     - summary past commands
 
