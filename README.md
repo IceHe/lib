@@ -189,6 +189,4 @@ Others
 - [~~Life Logs~~](/_archived/lifelogs.md) : ~~时间管理日志~~
 - [~~Time Mgt.~~](/_archived/think/time-mgt.md) : ~~时间管理日志说明~~
 
-<!-- - [Diary](/diary/README.md) -->
-
 > 对酒当歌，人生几何？譬如朝露，去日苦多
