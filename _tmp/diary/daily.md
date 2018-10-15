@@ -1,6 +1,35 @@
 ## Daily
 
-SMART 法则 : https://en.wikipedia.org/wiki/SMART_criteria
+### 2018-10-15
+
+work
+
+- Pressure Test
+
+stu
+
+- Java Basic : 10 pages
+- Learn from : video-simulation
+- Commands : date
+
+life
+
+- Sleep early : 23:00
+
+### 2018-10-14
+
+stu
+
+- Java Basic : 30 pages
+- Commands - date
+
+life
+
+- Sleep early : 23:00
+
+### SMART 法则
+
+https://en.wikipedia.org/wiki/SMART_criteria
 
 - Specific : 目标明确
     - ~~成为勤奋学习的人~~
@@ -17,14 +46,3 @@ SMART 法则 : https://en.wikipedia.org/wiki/SMART_criteria
 - Time-based : 限定时间
     - ~~读 10 页 Java Basic~~
     - 今天读 10 页 Java Basic
-
-### 2018-10-14
-
-stu
-
-- Java Basic : 30 pages
-- Commands - date
-
-life
-
-- Sleep early : 23:00
