@@ -252,3 +252,12 @@ done
 - 头几行 `head -5`，中间几行 `sed -n '10,20p'`，末尾几行 `tail -5`
 
 https://blog.csdn.net/kangaroo_07/article/details/43733891
+
+bash 脚本
+
+`bash -ex` 同 `set -ex`
+
+- `-e` 有命令执行错误就退出
+- `-x` 打印执行的命令行
+
+https://www.peterbe.com/plog/set-ex
