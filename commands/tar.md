@@ -10,6 +10,8 @@
 - `z` | `-z` Compress the resulting archive `*.gz` with `gzip`
 - `f` | `-f` Read/Write the archive from/to the specified file
     - e.g.: `-f <file_name>`
+- `-P` | `--absolute-names` Don't strip leading `/'s form file name
+- `--remove-files` Remove files after adding files to the archive
 
 ## Pack
 
