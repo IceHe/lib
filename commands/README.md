@@ -222,9 +222,36 @@ zip <file_path>.zip <dir_path>
 unzip <file_path>.zip
 ```
 
+截取文件内容
+
+- 头几行 `head -5`，中间几行 `sed -n '10,20p'`，末尾几行 `tail -5`
+
+https://blog.csdn.net/kangaroo_07/article/details/43733891
+
+### bash
+
+bash 脚本
+
+#### -ex
+
+`bash -ex` 同 `set -ex`
+
+- `-e` 有命令执行错误就退出
+- `-x` 打印执行的命令行
+
+参考 https://www.peterbe.com/plog/set-ex
+
+#### 变量文本替换
+
+```bash
+for line in $(cat 30007-urls-show); do echo ${line/30007/8080} | tee -a urls-show; done
+```
+
+参考 https://www.cnblogs.com/chengmo/archive/2010/10/02/1841355.html
+
 [bash 的威力](https://zhuanlan.zhihu.com/p/31209138?group_id=915890535597486080)
 
-bash 循环语句
+#### 循环语句
 
 ```bash
 #!/bin/bash
@@ -246,18 +273,3 @@ for i in {03..23}; do
     gzip access.log.20181007-$i
 done
 ```
-
-截取文件内容
-
-- 头几行 `head -5`，中间几行 `sed -n '10,20p'`，末尾几行 `tail -5`
-
-https://blog.csdn.net/kangaroo_07/article/details/43733891
-
-bash 脚本
-
-`bash -ex` 同 `set -ex`
-
-- `-e` 有命令执行错误就退出
-- `-x` 打印执行的命令行
-
-https://www.peterbe.com/plog/set-ex
