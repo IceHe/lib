@@ -2,15 +2,27 @@
 
 > list open files
 
+References
+
+- 15 Linux lsof Command Examples (Identify Open Files) : https://www.thegeekstuff.com/2012/08/lsof-command-examples/
+
+
 ## Options
 
 - `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i .
+- `-t` Specifies that lsof should produce terse output with process identifiers only and no header
+    - e.g., so that the output may be piped to `kill`.
+    - `-t` selects the -w option.
+- `+|-w` Enables (+) or disables (-) the suppression of warning messages.
+- `-a` It may be used to AND the selections.
+    - e.g., specifying -a, -U, and -ufoo produces a listing of only
+       UNIX socket files that belong to processes owned by user "foo".
 
 ## Usage
 
 ### Network Connection
 
-An Internet address is specified in the form : ( Items in square brackets are optional. )
+An Internet address is specified in the form : ( Items in square brackets "[]" are optional. )
 
 ```bash
 ls -i [46][protocol][@hostname|hostaddr][:service|port]
@@ -43,17 +55,177 @@ List all network connections
 ```bash
 # all
 lsof -i
+
 # only IPv4
 lsof -i4
+
 # only IPv6
 lsof -i6
+
 # TCP
 lsof -i tcp
+
 # UDP
 lsof -i udp
+
+# TCP Range
+$ lsof -i:3000-4000
+# e.g. output
+COMMAND   PID  USER FD  TYPE             DEVICE SIZE/OFF NODE NAME
+nginx   66394 icehe 12u IPv4 0x851262b2d39c6f85      0t0  TCP *:hbci (LISTEN)
+nginx   66394 icehe 13u IPv4 0x851262b2d39c78e5      0t0  TCP *:terabase (LISTEN)
+nginx   66410 icehe 12u IPv4 0x851262b2d39c6f85      0t0  TCP *:hbci (LISTEN)
+nginx   66410 icehe 13u IPv4 0x851262b2d39c78e5      0t0  TCP *:terabase (LISTEN)
 ```
 
-### Others
+### File
+
+List processes which opened a specific file
+
+```bash
+lsof <path/to/file>
+
+# e.g.
+$ lsof /etc/localtime
+# output
+COMMAND   PID   USER  FD   TYPE DEVICE SIZE/OFF   NODE NAME
+java    10097  icehe mem    REG    8,1      388 263109 /etc/../usr/share/zoneinfo/Asia/Shanghai
+```
+
+### Directory
+
+List opened files under a directory
+
+```bash
+lsof +D <path/to/directory>
+
+# e.g.
+$ lsof +D /etc
+# output
+lsof +D /etc
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+systemd-u 546 root  mem    REG    8,3  6345977  455 /etc/udev/hwdb.bin
+systemd-u 546 root   11r   REG    8,3  6345977  455 /etc/udev/hwdb.bin
+……
+```
+
+### Process
+
+List files opened by a specific process
+
+```bash
+lsof -p <process_id>
+
+# e.g.
+$ pidof dockerd
+# output
+12037
+
+$ lsof -p `pidof dockerd`
+# output
+COMMAND   PID USER  FD  TYPE DEVICE SIZE/OFF      NODE NAME
+dockerd 12037 root cwd   DIR    8,1     4096      5705 /usr/home/icehe
+dockerd 12037 root rtd   DIR    8,3     4096         2 /
+dockerd 12037 root txt   REG    8,1 39941680    531592 /usr/bin/dockerd
+dockerd 12037 root mem-  REG    8,7    65536  12451859 /data0/docker-1.13.1-fs/volumes/metadata.db
+dockerd 12037 root   0u  CHR  136,0      0t0         3 /dev/pts/0 (deleted)
+……
+```
+
+List opened files based on process names starting with …
+
+```bash
+lsof -c <process_name_prefix>
+
+# e.g.
+$ lsof -c java
+# output
+COMMAND   PID  USER  FD TYPE DEVICE SIZE/OFF      NODE NAME
+java    10097 icehe cwd  DIR   0,36     4096 516503227 /zookeeper-3.4.13
+java    10097 icehe rtd  DIR   0,36     4096 516503173 /
+java    10097 icehe txt  REG    8,7     6240  13380993 /usr/lib/jvm/java-1.8-openjdk/jre/bin/java
+java    10097 icehe mem  REG    8,7           13381075 /usr/lib/jvm/java-1.8-openjdk/jre/lib/jsse.jar (stat: No such file or directory)
+……
+```
+
+### User
+
+List files opened by a specific user
+
+```bash
+lsof -u <username>
+
+# e.g.
+$ lsof -u icehe
+# output
+COMMAND   PID  USER  FD TYPE DEVICE SIZE/OFF      NODE NAME
+sshd    10843 icehe cwd  DIR    8,3     4096         2 /
+sshd    10843 icehe rtd  DIR    8,3     4096         2 /
+sshd    10843 icehe txt  REG    8,1  2904586      5273 /usr/local/sbin/sshd
+sshd    10843 icehe DEL  REG    0,4          502158159 /dev/zero
+sshd    10843 icehe mem  REG    8,1    37152    142746 /usr/lib64/libnss_sss.so.2
+……
+```
+
+### Kill Process
+
+Kill all process that belongs to a particular user
+
+```bash
+kill `lsof -t -u <username>`
+
+# e.g.
+$ lsof -t -u icehe
+# output
+10843
+10844
+11178
+11179
+12805
+12806
+$ kill -9 `lsof -t -u icehe`
+```
+
+### Combine
+
+List files:
+
+- opened by a specific user
+- based on process names starting with
+
+```bash
+lsof -u <username> -c <process_name_prefix> -a
+
+# e.g.
+$ lsof -u icehe -c java -a
+# output
+COMMAND   PID  USER  FD TYPE DEVICE SIZE/OFF      NODE NAME
+java    10097 icehe cwd  DIR   0,36     4096 516503227 /zookeeper-3.4.13
+java    10097 icehe rtd  DIR   0,36     4096 516503173 /
+java    10097 icehe txt  REG    8,7     6240  13380993 /usr/lib/jvm/java-1.8-openjdk/jre/bin/java
+……
+```
+
+List files:
+
+- opened by a specific user
+- TCP connections
+- based on process names starting with
+
+```bash
+lsof -u <username> -i <TCP|UDP> -c <process_name_prefix> -a
+
+# e.g.
+$ lsof -u root -i TCP -c java -a
+# output
+COMMAND   PID USER FD  TYPE    DEVICE SIZE/OFF NODE NAME
+java    11879 root  8u IPv4 521506573      0t0  TCP localhost:42649 (LISTEN)
+java    11879 root 18u IPv4 521499336      0t0  TCP localhost:42649->localhost:36218 (ESTABLISHED)
+java    12017 root  6u IPv4 521510870      0t0  TCP localhost:36218->localhost:42649 (ESTABLISHED)
+……
+```
+
+## Display
 
 List all open files
 
@@ -61,14 +233,19 @@ List all open files
 lsof
 # output e.g.
 COMMAND    PID  USER   FD TYPE DEVICE SIZE/OFF    NODE NAME
+init       1    root  cwd  DIR    8,1     4096      2 /
+init       1    root  txt  REG    8,1   124704 917562 /sbin/init
+init       1    root   0u  CHR    1,3      0t0   4369 /dev/null
+init       1    root   1u  CHR    1,3      0t0   4369 /dev/null
+init       1    root   2u  CHR    1,3      0t0   4369 /dev/null
+init       1    root   3r FIFO    0,8      0t0   6323 pipe
+……
 loginwind  107 icehe  cwd  DIR    1,4     1056       2 /
-loginwind  107 icehe  txt  REG    1,4  1259472 3456550 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
 loginwind  107 icehe  txt  REG    1,4 26771408 3812344 /usr/share/icu/icudt59l.dat
-loginwind  107 icehe  txt  REG    1,4   115856 3600205 /System/Library/LoginPlugins/DisplayServices.loginPlugin/Contents/MacOS/DisplayServices
-loginwind  107 icehe  txt  REG    1,4   114224 3600256 /System/Library/LoginPlugins/FSDisconnect.loginPlugin/Contents/MacOS/FSDisconnect
-loginwind  107 icehe  txt  REG    1,4   236208 3903424 /private/var/db/timezone/tz/2018e.1.0/icutz/icutz44l.dat
 ……
 ```
+
+### File Descriptions
 
 FD is the File Descriptor number of the file or:
 
@@ -100,45 +277,3 @@ TYPE – Specifies the type of the file. Some of the values of TYPEs are,
 - CHR : Character special file
 
 For a complete list of FD & TYPE, refer man lsof.
-
----
-
-List processes which opened a specific file
-
-```bash
-lsof <path/to/file>
-```
-
-List opened files under a directory
-
-```bash
-lsof <path/to/directory>
-```
-
-List all open files by a specific process
-
-```bash
-lsof -p <process_id>
-```
-
-List files opened by a specific user
-
-```bash
-lsof -u <username>
-```
-
-FD – Represents the file descriptor. Some of the values of FDs are,
-
-- cwd – Current Working Directory
-- txt – Text file
-- mem – Memory mapped file
-- mmap – Memory mapped device
-- NUMBER – Represent the actual file descriptor. The character after the number i.e ‘1u’, represents the mode in which the file is opened. r for read, w for write, u for read and write.
-
-15 examples (better, more practical)
-
-https://www.thegeekstuff.com/2012/08/lsof-command-examples/
-
-10 examples
-
-https://www.tecmint.com/10-lsof-command-examples-in-linux/
