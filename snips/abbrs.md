@@ -211,7 +211,7 @@ Other meanings
 ### N
 
 - n/a , N/A , n.a. : not applicable 不适用
-- NFS : Network File System
+- NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
 - No. : number
 - num : number
 
