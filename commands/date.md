@@ -143,6 +143,15 @@ Thu Mar 16 13:14:15 CST 2017
 Tue Oct 25 12:34:56 CST 2016
 ```
 
+Make directory named after date & time
+
+```bash
+$ mkdir `date +%Y%m%d_%H%M%S`
+$ ls
+# output e.g.
+20181016_173418
+```
+
 ## Timezone
 
 Environment **TZ** : Specifies the timezone, unless overridden by command line parameters.
