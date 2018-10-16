@@ -1,6 +1,6 @@
 ## Daily
 
-### 2018-10-15
+### 2018-10-16
 
 work
 
@@ -8,20 +8,9 @@ work
 
 stu
 
-- Java Basic : 10 pages
-- Learn from : video-simulation
-- Commands : date
-
-life
-
-- Sleep early : 23:00
-
-### 2018-10-14
-
-stu
-
-- Java Basic : 30 pages
-- Commands - date
+- [x] Java Basic : 10 pages
+- ~~Learn from : video-simulation~~
+- [x] Commands : date
 
 life
 
