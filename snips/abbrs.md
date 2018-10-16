@@ -149,6 +149,7 @@ Other meanings
 ### H
 
 - h : help
+- HDFS : Hadoop Distributed File System
 - hex : heximal
 - hrs : hours
 - hup : hang up
@@ -210,6 +211,7 @@ Other meanings
 ### N
 
 - n/a , N/A , n.a. : not applicable 不适用
+- NFS : Network File System
 - No. : number
 - num : number
 
