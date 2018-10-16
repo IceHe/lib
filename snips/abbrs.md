@@ -84,6 +84,8 @@ Other meanings
 - cpp : c++
 - cr : carriage return
 - crlf : carriage return / line feed
+- CST : China Standard Time 北京时间
+    - 歧义：Central Standard Time（不同国家的）中央时区
 - ctrl : contrl
 - cur : current
 - cv : Curriculum Vitae 简历
@@ -207,6 +209,7 @@ Other meanings
 
 ### N
 
+- n/a , N/A , n.a. : not applicable 不适用
 - No. : number
 - num : number
 
