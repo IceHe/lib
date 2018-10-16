@@ -81,7 +81,7 @@ FORMAT controls the output.  Interpreted sequences are:
 |%w|day of week (0..6); 0 is Sunday|
 |%W|week number of year, with Monday as first day of week (00..53)|
 |%x|locale's date representation (e.g., 12/31/99)|
-|%X|locale's time representation (e.g., 23:13:48)|
+|%X|locale's
 |%y|last two digits of year (00..99)|
 |%Y|year|
 |%z|+hhmm numeric time zone (e.g., -0400)|
@@ -125,6 +125,10 @@ Option `-d`
 $ date -d 2018-12-31\ 12:34:56
 # output e.g.
 Mon Dec 31 12:34:56 CST 2018
+
+$ date -d "1 day ago"
+# output e.g.
+Mon Oct 15 20:28:39 CST 2018
 ```
 
 Option `-f`
