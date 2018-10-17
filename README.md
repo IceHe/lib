@@ -59,6 +59,8 @@ Others
 > Command Line Interface 命令行界面
 
 - [README](/commands/README.md) : temporary notes
+- bash - GNU Bourne-Again SHell
+    - [\$parameter](/commands/$parameter.md) : expansion or substitution
 - [bzip2](/commands/bzip2.md) : block-sorting file compressor
 - [cron](/commands/cron.md) : time-based job scheduler
 - [curl](/commands/curl.md) : transfer data from or to a server
