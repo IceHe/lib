@@ -8,7 +8,7 @@ work
 
 stu
 
-- [x] Java Basic : 10 pages
+- [ ] Java Basic : 10 pages
 - ~~Learn from : video-simulation~~
 - [x] Commands : date
 
