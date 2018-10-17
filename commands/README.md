@@ -5,6 +5,8 @@
 - [ab](ab.md)
 - [awk-sed-grep_tmp](awk-sed-grep_tmp.md)
 - [bash](bash.md)
+- [dstat](dstat.md)
+    - https://linux.cn/article-3215-1.html
 - `df -h` 查看硬盘使用量
 - [sed](sed.md)
 - tee : pipe fitting `tee -a <append_file_path>`
