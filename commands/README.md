@@ -6,7 +6,6 @@
 - [awk-sed-grep_tmp](awk-sed-grep_tmp.md)
 - [bash](bash.md)
 - `df -h` 查看硬盘使用量
-- [lsof](lsof.md)
 - [sed](sed.md)
 - tee : pipe fitting `tee -a <append_file_path>`
 - top / htop
