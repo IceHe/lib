@@ -10,9 +10,12 @@
 - `df -h` 查看硬盘使用量
 - [sed](sed.md)
 - tee : pipe fitting `tee -a <append_file_path>`
-- top / htop
+- top / **htop**
 - iftop 流量带宽
 - [useful_tmp](useful_tmp.md)
+- 数组变量 Array Variable
+
+https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 
 <!-- - awk / sed / grep / xargs -->
 
