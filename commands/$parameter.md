@@ -4,7 +4,6 @@
 
 References
 
-- 玩转 Bash 变量 : https://segmentfault.com/a/1190000002539169
 - shell 脚本之变量、数组、扩展 : http://opus.konghy.cn/shell-tutorial/chapter2.html
 - shell 变量替换与扩展 : http://www.huangdc.com/78
 
@@ -374,6 +373,22 @@ $ echo ${ary[*]#[1-3]}
 4 5
 $ echo ${ary[*]#[135]}
 2 4
+
+$ abc2=abcabc
+$ echo ${abc2#*b}
+cabc
+$ echo ${abc2##*b}
+c
+
+$ path=/usr/home/icehe/bash/t.ba.sh
+$ echo ${path#/*/}
+home/icehe/bash/t.ba.sh
+$ echo ${path##/*/}
+t.ba.sh
+$ echo ${path%.*}
+/usr/home/icehe/bash/t.ba
+$ echo ${path%%.*}
+/usr/home/icehe/bash/t
 ```
 
 ### \$\{parameter%word\}
@@ -400,6 +415,13 @@ $ echo ${ary[*]%[13]}
 4 5
 $ echo ${ary[*]%[0-3]}
 a b c d e4
+
+
+$ abc2=abcabc
+$ echo ${abc2%b*}
+abca
+$ echo ${abc2%%b*}
+a
 ```
 
 ### \$\{parameter/pattern/string\}
@@ -423,6 +445,12 @@ $ echo ${str/c/x}
 abxde
 $ echo ${str/bc/ }
 a de
+
+$ abc2=abcabc
+$ echo ${abc2//bc/x}
+axax
+$ echo ${abc2//bc/}
+aa
 ```
 
 ### \$\{parameter^pattern\}
