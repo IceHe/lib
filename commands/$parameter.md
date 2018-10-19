@@ -142,7 +142,7 @@ $@[]=c
 
 ## Param Expansion
 
-### \$\{param\}
+### $\{param\}
 
 The value of parameter is substituted.
 
@@ -162,7 +162,7 @@ $ echo "$param4"
 456
 ```
 
-### \$\{param:-word\}
+### $\{param:-word\}
 
 Use Default Values.
 
@@ -183,7 +183,7 @@ $ echo ${param:-NULL}
 123
 ```
 
-### \$\{parameter:+word\}
+### $\{parameter:+word\}
 
 Use Alternate Value.
 
@@ -198,7 +198,7 @@ $ echo ${param:+set}
 set
 ```
 
-### \$\{param:=word\}
+### $\{param:=word\}
 
 Assign Default Values.
 
@@ -213,7 +213,7 @@ $ echo ${param:=default}
 default
 ```
 
-### \$\{param:?word\}
+### $\{param:?word\}
 
 Display Error if Null or Unset.
 
@@ -227,8 +227,8 @@ $ echo ${param:?error}
 -bash: param: error
 ```
 
-### \$\{parameter:offset\}
-### \$\{param:offset:length\}
+### $\{parameter:offset\}
+### $\{param:offset:length\}
 
 Substring Expansion.
 
@@ -281,9 +281,9 @@ $ echo ${ary[*]: -3:2}
 7 8
 ```
 
-### \$\{!prefix*\}
+### $\{!prefix*\}
 
-### \$\{!prefix@\}
+### $\{!prefix@\}
 
 Names matching prefix.
 
@@ -301,9 +301,9 @@ $ echo ${!a@}
 a1 a2 a3
 ```
 
-### \$\{!name[*]\}
+### $\{!name[*]\}
 
-### \$\{!name[@]\}
+### $\{!name[@]\}
 
 List of array keys.
 
@@ -349,9 +349,9 @@ $ echo ${#a[*]}
 3
 ```
 
-### \$\{parameter#word\}
+### $\{parameter#word\}
 
-### \$\{parameter##word\}
+### $\{parameter##word\}
 
 Remove matching prefix pattern.
 
@@ -391,9 +391,9 @@ $ echo ${path%%.*}
 /usr/home/icehe/bash/t
 ```
 
-### \$\{parameter%word\}
+### $\{parameter%word\}
 
-### \$\{parameter%%word\}
+### $\{parameter%%word\}
 
 Remove matching suffix pattern.
 
@@ -424,9 +424,11 @@ $ echo ${abc2%%b*}
 a
 ```
 
-### \$\{parameter/pattern/string\}
+### $\{parameter/pattern/string\}
 
-Pattern substitution.
+### $\{parameter//pattern/string\}
+
+Pattern substitution. `//` means replacing all matches.
 
 - The pattern is expanded to produce a pattern just as in pathname expansion.
 - Parameter is expanded and the longest match of pattern against its value is replaced with string.
@@ -453,15 +455,15 @@ $ echo ${abc2//bc/}
 aa
 ```
 
-### \$\{parameter^pattern\}
+### $\{parameter^pattern\}
 
-### \$\{parameter^^pattern\}
+### $\{parameter^^pattern\}
 
-### \$\{parameter,pattern\}
+### $\{parameter,pattern\}
 
-### \$\{parameter,,pattern\}
+### $\{parameter,,pattern\}
 
-### \$\{parameter~~pattern\}
+### $\{parameter~~pattern\}
 
 Case modification.
 
