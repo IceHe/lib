@@ -266,6 +266,20 @@ $ echo "${param:0:-3}"
 12
 $ echo "${param:1:-3}"
 2
+
+$ ary=(`seq 5 9`)
+
+$ echo ${!ary[*]}
+0 1 2 3 4
+$ echo ${ary[*]}
+5 6 7 8 9
+
+$ echo ${ary[*]:2}
+7 8 9
+$ echo ${ary[*]:2:1}
+7
+$ echo ${ary[*]: -3:2}
+7 8
 ```
 
 ### \$\{!prefix*\}
