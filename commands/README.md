@@ -13,7 +13,6 @@
 - top / **htop**
 - iftop 流量带宽
 - [useful_tmp](useful_tmp.md)
-- 数组变量 Array Variable
 
 https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 
@@ -169,8 +168,6 @@ https://devhints.io
     2 标准错误输出 stderr
 - `cut` 剪切数据。以每一行为一个处理对象。
     -b 按字节 -c 按字符 -f 按域 －d 指定分隔符 与 awk 相似
-- `$$` 当前shell进程的 id，即 pid
-- `$*` 传递給脚本或者函数的所有参数
 - `2>>/dev/null` 把错误流写进/dev/null中，
     /dev/null是类Unix系统中的一个特殊文件设备，
     作用是接受一切输入它的数据，并丢弃这些数据
@@ -244,14 +241,6 @@ bash 脚本
 - `-x` 打印执行的命令行
 
 参考 https://www.peterbe.com/plog/set-ex
-
-#### 变量文本替换
-
-```bash
-for line in $(cat 30007-urls-show); do echo ${line/30007/8080} | tee -a urls-show; done
-```
-
-参考 https://www.cnblogs.com/chengmo/archive/2010/10/02/1841355.html
 
 [bash 的威力](https://zhuanlan.zhihu.com/p/31209138?group_id=915890535597486080)
 
