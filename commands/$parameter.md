@@ -433,6 +433,8 @@ a de
 
 ### \$\{parameter,,pattern\}
 
+### \$\{parameter~~pattern\}
+
 Case modification.
 
 - This expansion modifies the case of alphabetic characters in parameter.
@@ -471,4 +473,13 @@ echo ${STR,,[BD]}
 AbCdE
 echo ${STR,,[B-D]}
 AbcdE
+
+# ~~
+$ rev=Hello
+$ echo ${rev~~}
+hELLO
+$ echo ${rev~~[Hl]}
+heLLo
+$ echo ${rev~~[l-o]}
+HeLLO
 ```
