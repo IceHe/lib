@@ -4,7 +4,7 @@
 
 > 你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？
 
-- From: <https://www.zhihu.com/question/23721974/answer/25493813>
+- From: https://www.zhihu.com/question/23721974/answer/25493813
 - Duke Finance Professor Said
     - 「我们用『我们能做到什么』来判断和定位自己，而别人用『你已经做到了什么』来判断和定位你。」
         - 我觉得我能做到，只是没做而已。事实是别人眼里的区别只有「做到了」和「没做到」。
