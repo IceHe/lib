@@ -4,7 +4,7 @@
 
 > 为什么长大以后反而不容易快乐
 
-- From: <https://zhuanlan.zhihu.com/p/19582894>
+- From: https://zhuanlan.zhihu.com/p/19582894
     - **超级推荐直接看原文**！以下仅仅是自己的一些摘录而已。
 - 祖辈
     - 成长环境：饥荒、战乱
