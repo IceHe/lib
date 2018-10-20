@@ -157,8 +157,8 @@ IDE
 
 - 生活爱好：ACGMN / 羽毛球 / ~~毽球~~ ( past )
 - [最喜爱的](marks/favourites.md)：书、文、影视 …
-- [回忆](_archived/past/moments.md)：Good old days
-- [旧文](_archived/past/old-blog.md)：为赋新词强说愁
+- [回忆](/_archived/past/moments.md)：Good old days
+- [旧文](/_archived/past/old-blog.md)：为赋新词强说愁
 - 尝试（弯路）如下
 
 **华南理工毽球社 - 社长** _2012.09 ~ 2014.06_
