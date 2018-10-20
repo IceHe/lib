@@ -1,7 +1,5 @@
 # Cmd Plan
 
-``` markdown
-
 <http://www.cnblogs.com/kluan/p/4458278.html> du -m --max-depth=1
 
 <http://siberiawolf.com/free_programming/index.html#Shell>
@@ -155,7 +153,8 @@ About Windows CMD
 # CentOS 6.5 Locale Problem
 
 Problem:
-```
+
+```bash
 $ locale
 locale: Cannot set LC_CTYPE to default locale: No such file or directory
 locale: Cannot set LC_ALL to default locale: ?????????
@@ -194,21 +193,12 @@ $ find -maxdepth 1 -type d
 
 $ hostname
 
-# 显示当前的日期时间
-
-$ date
-2016年 03月 14日 星期一 17:32:35 CST
-
-# 显示本月日历
-
 # 应用管理
 
 $ whatis nginx
 $ whereis nginx
 
 # 命令行小技巧
-
-!! 重复上一个命令
 
 !$ 上一个命令中最后一个参数
 
@@ -235,9 +225,4 @@ $ find /some/path -type f -iname "*.txt" -exec rm -f {} \;
 # 列举包含某字符串的文件
 
 find ./ -type f | xargs grep 'www.baidu.com'
-
-# pmset
-
-mac 电源管理
-
 ```
