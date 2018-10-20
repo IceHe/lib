@@ -195,11 +195,6 @@ Commonly Options
 
 - **`uptime` Show how long system has been running.**
 
-- **`ps` Process Status.**
-
-    - `-e`
-    - `-f`
-
 - **`env`**
 - **`cat`**
 - **`kill`**
@@ -211,7 +206,6 @@ Commonly Options
 - **`df`**
 
 - **`rsync`**
-- **`netcat`**
 - **`netstat`**
 - **`ifconfig`**
 - **`ping`**
