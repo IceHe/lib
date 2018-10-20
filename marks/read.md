@@ -375,6 +375,7 @@
     - [做事的方法](/_archived/read/how-to-do.md)
     - [减肥每天需要摄入多少卡路里](/_archived/read/calorie.md)
     - [《The Power of Less》书摘](/_archived/read/power-of-less.md)
+    - [《反脆弱》书摘](/_archived/read/anti-fragile.md)
 
 ## 后记
 
