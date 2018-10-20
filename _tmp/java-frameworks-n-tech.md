@@ -12,44 +12,6 @@
     - TAuth：用于后端不同服务器间互相调用接口的认证协议，HTTP header 里增加 Token
     - TAuth2：用于后端不同服务器间互相调用接口的认证协议（ 替代 TAuth ），HTTP header 里增加 Token
 
-前端机
-
-- 处理 web 请求的机器
-
-队列机
-
-- 处理消息队列的机器
-
-长尾数据
-
-- 冷门数据
-
-## 存储
-
-### 数据库
-
-- [MySQL](https://www.mysql.com/)
-- [HBase](https://hbase.apache.org/)
-- [pika](https://github.com/pika/pika)
-
-### 缓存
-
-[Redis](https://redis.io)
-
-- 开源的 k-v 缓存
-
-[Memcached](https://memcached.org/)（简称 MC）
-
-- 开源的 k-v 缓存
-
-### 消息队列
-
-[kafka](https://kafka.apache.org/)
-
-- 分布式流平台，可用作消息队列
-
-MCQ
-
 ## 框架
 
 [Spring Boot](https://spring.io/projects/spring-boot)
