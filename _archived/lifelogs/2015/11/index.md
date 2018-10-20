@@ -35,7 +35,3 @@
 29. [15/11/29 stu38 spo12 was6](/_archived/lifelogs/2015/11/d29.md)
 30. [15/11/30 stu70 spo3](/_archived/lifelogs/2015/11/d30.md)
 32. [Summary 2015/11 stu49 spo8 was3](/_archived/lifelogs/2015/11/time_stat.md)
-32. [Summary 2015/11 stu49 spo8 was3](/_archived/lifelogs/2015/11/time_stat.md)
-32. [Summary 2015/11 stu49 spo8 was3](/_archived/lifelogs/2015/11/time_stat.md)
-32. [Summary 2015/11 stu49 spo8 was3](/_archived/lifelogs/2015/11/time_stat.md)
-32. [Summary 2015/11 stu49 spo8 was3](/_archived/lifelogs/2015/11/time_stat.md)
