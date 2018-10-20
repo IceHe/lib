@@ -175,9 +175,23 @@ Others
 
 ### Digest
 
--
+> Start with what is right rather than what is acceptable.
+>
+> 做正确的选择，而不是可以接受的选择。
+
+好文共赏。
+
+- [Anti-Fragile](/_archived/read/anti-fragile.md)
+- [Cruel Reality](/_archived/read/cruel-reality.md)
+- [Happyness Course](/_archived/read/happiness-course.md)
+- [Life Meaning](/_archived/read/meaning.md)
+- [Poet](/_archived/read/poet.md) : 诗和远方
+- [Teacher Said](/_archived/read/teacher-said.md)
+- [Why Unhappy](/_archived/read/why-unhappy.md)
 
 ### Past
+
+> 遑遑三十载，书剑两无成。
 
 - [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
 - [2017 Spring](/_archived/past/2017-spring.md)
@@ -188,7 +202,7 @@ Others
 - [Moments](/_archived/past/moments.md) : 回忆
 - [Old Blog](/_archived/past/old-blog.md) : 旧博索引
 
----
+### Null
 
 ~~Time Management~~
 
@@ -196,5 +210,7 @@ Others
 - [~~Self Manual~~](/_archived/think/life-manual.md)
 - [~~Life Logs~~](/_archived/lifelogs.md) : ~~时间管理日志~~
 - [~~Time Mgt.~~](/_archived/think/time-mgt.md) : ~~时间管理日志说明~~
+
+---
 
 > 对酒当歌，人生几何？譬如朝露，去日苦多
