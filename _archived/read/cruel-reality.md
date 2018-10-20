@@ -7,8 +7,8 @@
 
 原标题：6 Harsh Truths That Will Make You a Better Person
 
-- From: <http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359>
-- 英语原文：<https://www.reddit.com/r/TheRedPill/comments/1rq5gr/6_harsh_truths_that_will_make_you_a_better_person/?sort=top>
+- From: http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359
+- 英语原文：https://www.reddit.com/r/TheRedPill/comments/1rq5gr/6_harsh_truths_that_will_make_you_a_better_person/?sort=top
 - 这个世界只关心你能给予什么
     - 「你这个路人，可以给路边的伤者开刀吗？因为你是个好人，所以你要帮忙开刀？疯子，滚开！你又不是医生。」
     - 为什么这个社会对你不屑，你得不到尊重？
