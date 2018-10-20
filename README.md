@@ -210,7 +210,7 @@ Others
 - [Moments](/_archived/past/moments.md) : 回忆
 - [Old Blog](/_archived/past/old-blog.md) : 旧博索引
 
-### Null
+### Nonsense
 
 ~~Time Management~~
 
