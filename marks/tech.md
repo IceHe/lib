@@ -207,7 +207,7 @@
 
 ## 其它
 
-- [《程序员必读的职业规划书》Note & 招聘相关微博摘录](/_archived/read/career.md)
+- [《程序员必读的职业规划书》《剑指 Offer》Note & 招聘相关微博摘录](/_archived/read/career.md)
     & 简历上的 精通、熟练、掌握、理解 英语怎么翻译？
 
 ## 后记
