@@ -124,7 +124,7 @@
 
 ### 政治
 
-- [Power 錕的紙牌屋](https://www.facebook.com/professorofpower)（[Youtube Link](https://www.youtube.com/channel/UCdFyD6_8485ajuKML_6HbiQ/featured)）
+- [Power 錕的紙牌屋](https://www.facebook.com/professorofpower) ( [Youtube Link](https://www.youtube.com/channel/UCp5-fK2eOL8yKDHCU3snE0w/playlists) ) <sup>[Note](/_archived/read/power-kun.md)</sup>
 - [驱离的世界：社会分层与阶级固化](http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650672863&idx=1&sn=abba62bbd7a4683368bff346ed6e26a4&chksm=bed481fe89a308e8fdc87d3f1e859ed6bd1fdecb9ad72b437727b22403ebb0810dce171fd276&mpshare=1&scene=1&srcid=0129QvkvhNvqPmhNcTfZI3jX#rd) - 现实 <sup>批判学习</sup>
     - From: 微信公众号[「大浪淘沙」](http://chuansong.me/account/knowledgewealth)
 - [城堡的落成：上升通道即将关闭的中国社会](http://mp.weixin.qq.com/s?__biz=MzI0NzA3MTM5NQ==&mid=2650556875&idx=1&sn=f4ff05366f08ce9d0c57c12936efc492&chksm=f1bd7e07c6caf7119f88e5fba355ef17b94b821d144f04d8f2eed30172181b47f678dbf3f660&mpshare=1&scene=1&srcid=0217gRDhIcXQIjTPNp1PGMsq#rd) <sup>__Best__</sup>
