@@ -129,7 +129,7 @@ Work
 ### 基础准则
 
 - Done is better than perfect.
-- Late equals never.
+- Later equals never.
 
 ### 过滤内容规则
 
