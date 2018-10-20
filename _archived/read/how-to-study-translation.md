@@ -2,6 +2,8 @@
 
 > 《How to Study: A Brief Guide》的译文，将在（有生之年）持续施工。
 
+状态：未翻译完成（TODO）
+
 ---
 
 - 原文：How to Study: A Brief Guide
