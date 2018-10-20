@@ -2,7 +2,8 @@
 
 - Created on 2015-02-27
 - Att : [《幸福课》知乎专栏_读书笔记.rtf](https://att.icehe.xyz//%E3%80%8A%E5%B9%B8%E7%A6%8F%E8%AF%BE%E3%80%8B%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F%20-%20Note/%E3%80%8A%E5%B9%B8%E7%A6%8F%E8%AF%BE%E3%80%8B%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.rtf)
-- From : <http://zhuanlan.zhihu.com/happy>
+- From : http://zhuanlan.zhihu.com/happy
+    - 第一篇 : https://zhuanlan.zhihu.com/p/19562678
     - **超级推荐直接看专栏原文**！以下仅仅是自己的一些摘录而已。
 
 ## 一、一条河的上游和下游
