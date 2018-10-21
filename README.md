@@ -212,7 +212,7 @@ Others
 
 ~~Time Management~~ ( Nonsense )
 
-- [~~Self Manual~~](/_archived/think/life-manual.md)
+- [~~Self Manual~~](/_archived/lifelogs/life-manual.md)
 - [~~Life Logs~~](/_archived/lifelogs/README.md) : ~~时间管理日志~~
 
 ---
