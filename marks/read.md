@@ -372,7 +372,7 @@
 - [How to Study: A Brief Guide](/_archived/read/how-to-study.md)
 - [牙齿保健 - 刷牙、蛀牙、智齿](/_archived/read/tooth.md) <sup>__Best__</sup>
 - Not Mentioned Above.
-    - [做事的方法](/_archived/read/how-to-do.md)
+    - [做事的方法](/_archived/lifelogs/how-to-do.md)
     - [《The Power of Less》书摘](/_archived/read/power-of-less.md)
     - [《反脆弱》书摘](/_archived/read/anti-fragile.md)
 
