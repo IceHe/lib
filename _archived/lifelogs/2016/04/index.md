@@ -2,7 +2,7 @@
 
 - Created on 2016-04-01 00:00:00
 
-[< Mar. 2016 - Prev 上一月](/_archived/lifelogs/2016/03/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - May. 2016 >](/_archived/lifelogs/2016/05/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](/_archived/lifelogs.md)
+[< Mar. 2016 - Prev 上一月](/_archived/lifelogs/2016/03/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - May. 2016 >](/_archived/lifelogs/2016/05/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/_archived/lifelogs/README.md)
 
 1. [16/04/01 stu40 joy25 was11](/_archived/lifelogs/2016/04/d01.md)
 2. [16/04/02 stu13 spo20 joy13 mus49](/_archived/lifelogs/2016/04/d02.md)

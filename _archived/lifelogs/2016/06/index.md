@@ -2,7 +2,7 @@
 
 - Created on 2016-06-01 00:00:00
 
-[< May. 2016 - Prev 上一月](/_archived/lifelogs/2016/05/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Jul. 2016 >](/_archived/lifelogs/2016/07/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](/_archived/lifelogs.md)
+[< May. 2016 - Prev 上一月](/_archived/lifelogs/2016/05/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Jul. 2016 >](/_archived/lifelogs/2016/07/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/_archived/lifelogs/README.md)
 
 1. [16/06/01 stu59 spo12 was6](/_archived/lifelogs/2016/06/d01.md)
 2. [16/06/02 stu69 spo9 was3](/_archived/lifelogs/2016/06/d02.md)

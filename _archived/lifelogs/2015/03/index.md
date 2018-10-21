@@ -2,7 +2,7 @@
 
 - Created on 2015-03-01
 
-[< Feb. 2015 - Prev 上一月](/_archived/lifelogs/2015/02/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Apr. 2015 >](/_archived/lifelogs/2015/04/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](/_archived/lifelogs.md)
+[< Feb. 2015 - Prev 上一月](/_archived/lifelogs/2015/02/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Apr. 2015 >](/_archived/lifelogs/2015/04/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/_archived/lifelogs/README.md)
 
 1. [15/03/01 stu41 joy50](/_archived/lifelogs/2015/03/d01.md)
 2. [15/03/02 stu27 rd47 mus24](/_archived/lifelogs/2015/03/d02.md)

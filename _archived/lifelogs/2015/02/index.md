@@ -2,7 +2,7 @@
 
 - Created on 2015-02-01
 
-[< Jan. 2015 - Prev 上一月](/_archived/lifelogs/2015/01/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Mar. 2015 >](/_archived/lifelogs/2015/03/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^](/_archived/lifelogs.md)
+[< Jan. 2015 - Prev 上一月](/_archived/lifelogs/2015/01/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Mar. 2015 >](/_archived/lifelogs/2015/03/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/_archived/lifelogs/README.md)
 
 1. [15/02/01 stu62 spo3](/_archived/lifelogs/2015/02/d01.md)
 2. [15/02/02 stu69](/_archived/lifelogs/2015/02/d02.md)

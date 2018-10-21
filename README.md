@@ -159,11 +159,11 @@ Others
 
 ### Friends
 
-- [Jan Fan](http://janfan.cn/) : good student / little NLP / Tencent / studying @ Finland
+- [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
 - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Back-end / Sina Weibo / weak, poor & helpless
+- Me : Back-end / Sina Weibo / Fool, lazy, self-abandoned & poor
 
 ## Archived
 
@@ -216,7 +216,7 @@ Others
 
 - [~~Note~~](/_archived/think/life-note.md)
 - [~~Self Manual~~](/_archived/think/life-manual.md)
-- [~~Life Logs~~](/_archived/lifelogs.md) : ~~时间管理日志~~
+- [~~Life Logs~~]](/_archived/lifelogs/README.md) : ~~时间管理日志~~
 - [~~Time Mgt.~~](/_archived/think/time-mgt.md) : ~~时间管理日志说明~~
 
 ---
