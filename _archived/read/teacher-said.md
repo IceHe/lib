@@ -28,8 +28,9 @@ Duke Finance Professor Said
 ---
 
 > Start with what is right rather than what is acceptable.
+>
+> 做正确的选择，而不是可以接受的选择。
 
-- 「做正确的选择，而不是可以接受的选择。」
 - 做正确的选择意味着艰巨的付出。
 - 选择可接受（将就）的选择，只是因为你懒于付出，得过且过。
 
