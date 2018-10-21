@@ -210,13 +210,10 @@ Others
 - [Moments](/_archived/past/moments.md) : 回忆
 - [Old Blog](/_archived/past/old-blog.md) : 旧博索引
 
-### Nonsense
-
-~~Time Management~~
+~~Time Management~~ ( Nonsense )
 
 - [~~Self Manual~~](/_archived/think/life-manual.md)
 - [~~Life Logs~~](/_archived/lifelogs/README.md) : ~~时间管理日志~~
-- [~~Time Mgt.~~](/_archived/lifelogs/time-mgt.md) : ~~时间管理日志说明~~
 
 ---
 
