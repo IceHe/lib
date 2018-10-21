@@ -228,6 +228,7 @@ $ echo ${param:?error}
 ```
 
 ### $\{parameter:offset\}
+
 ### $\{param:offset:length\}
 
 Substring Expansion.

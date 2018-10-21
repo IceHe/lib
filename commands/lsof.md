@@ -6,7 +6,6 @@ References
 
 - 15 Linux lsof Command Examples (Identify Open Files) : https://www.thegeekstuff.com/2012/08/lsof-command-examples/
 
-
 ## Options
 
 - `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i .
