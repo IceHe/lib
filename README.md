@@ -216,7 +216,7 @@ Others
 
 - [~~Note~~](/_archived/think/life-note.md)
 - [~~Self Manual~~](/_archived/think/life-manual.md)
-- [~~Life Logs~~]](/_archived/lifelogs/README.md) : ~~时间管理日志~~
+- [~~Life Logs~~](/_archived/lifelogs/README.md) : ~~时间管理日志~~
 - [~~Time Mgt.~~](/_archived/think/time-mgt.md) : ~~时间管理日志说明~~
 
 ---
