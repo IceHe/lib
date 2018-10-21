@@ -176,10 +176,6 @@ Others
 
 ### Digest
 
-> Start with what is right rather than what is acceptable.
->
-> 做正确的选择，而不是可以接受的选择。
-
 好文共赏。
 
 - [Anti-Fragile](/_archived/read/anti-fragile.md)
@@ -201,8 +197,6 @@ Others
 
 ### Past
 
-> 遑遑三十载，书剑两无成。
-
 - [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
 - [2017 Spring](/_archived/past/2017-spring.md)
 - [2016 Winter](/_archived/past/2016-winter.md)
@@ -215,8 +209,6 @@ Others
 ~~Time Management~~ ( Nonsense )
 
 - [~~Self Manual~~](/_archived/lifelogs/life-manual.md)
-- [~~Life Logs~~](/_archived/lifelogs/README.md) : ~~时间管理日志~~
-
----
+- [~~Life Logs~~](/_archived/lifelogs/README.md)
 
 > 对酒当歌，人生几何？譬如朝露，去日苦多
