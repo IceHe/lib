@@ -190,6 +190,7 @@ Others
     / [_digest_](/_archived/read/happiness-course.md)
 - [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920)
     / [_digest_](/_archived/read/meaning.md)
+- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) / [_digest_](/_archived/read/pessimist.md)
 - [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方
     / [_digest_](/_archived/read/poet.md)
 - [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813)
