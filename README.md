@@ -163,13 +163,14 @@ Others
 - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Back-end / Sina Weibo / Fool, lazy, self-abandoned & poor
+- Me : Back-end / Sina Weibo / Fool, lazy & poor
+    - Have no dream & self-abandoned
 
 ## Archived
 
 ### Blog
 
-- [Tech Blog](https://icehe.me) : icehe.me ( rarely updated )
+- [Tech Blog](https://icehe.me) : icehe.me ( no update )
 - [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
 - [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
 
@@ -182,7 +183,7 @@ Others
 好文共赏。
 
 - [Anti-Fragile](/_archived/read/anti-fragile.md)
-    / [_Book_](https://item.jd.com/11364406.html)
+    / [_book_](https://item.jd.com/11364406.html)
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
     / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)
     / [_digest_](/_archived/read/cruel-reality.md)
