@@ -1,4 +1,4 @@
-1 Bubble
+# 1 Bubble
 
 冒泡排序：从最底往上冒
 （含义都搞不清，不可能写对，亲身经验）
@@ -32,23 +32,21 @@ end
 ```
 
 ``` php
-        function bubble_sort($a) {
-            $len = count($a);
-            for ($i = 0; $i < $len; ++$i) {
-                for ($x = $len - 1; $x > $i; --$x) {
-                    if ($a[$x - 1] > $a[$x]) {
-                        swap($a, $x - 1, $x);
-                        $swapped = true;
-                    }
-                }
-
-                if (!($swapped ?? false)) {
-                    break;
-                }
+function bubble_sort($a) {
+    $len = count($a);
+    for ($i = 0; $i < $len; ++$i) {
+        for ($x = $len - 1; $x > $i; --$x) {
+            if ($a[$x - 1] > $a[$x]) {
+                swap($a, $x - 1, $x);
+                $swapped = true;
             }
-
-            return $a;
         }
+
+        if (!($swapped ?? false)) {
+            break;
+        }
+    }
+
+    return $a;
+}
 ```
-
-

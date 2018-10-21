@@ -34,22 +34,22 @@ for i = 0 ~ n - 1
 ```
 
 ``` php
-        function selection_sort($a) {
-            $len = count($a);
-            for ($i = 0; $i < $len - 1; ++$i) {
-                $pos = $i;
+function selection_sort($a) {
+    $len = count($a);
+    for ($i = 0; $i < $len - 1; ++$i) {
+        $pos = $i;
 
-                for ($x = $i + 1; $x < $len; ++$x) {
-                    if ($a[$pos] > $a[$x]) {
-                        $pos = $x;
-                    }
-                }
-
-                if ($pos != $i) {
-                    swap($a, $pos, $i);
-                }
+        for ($x = $i + 1; $x < $len; ++$x) {
+            if ($a[$pos] > $a[$x]) {
+                $pos = $x;
             }
-
-            return $a;
         }
+
+        if ($pos != $i) {
+            swap($a, $pos, $i);
+        }
+    }
+
+    return $a;
+}
 ```

@@ -35,14 +35,14 @@ end
 ```
 
 ``` php
-        function insertion_sort($a) {
-            $len = count($a);
-            for ($i = 0; $i < $len - 1; ++$i) {
-                for ($x = $i + 1; $x > 0 && $a[$x - 1] > $a[$x]; --$x) {
-                    swap($a, $x - 1, $x);
-                }
-            }
-
-            return $a;
+function insertion_sort($a) {
+    $len = count($a);
+    for ($i = 0; $i < $len - 1; ++$i) {
+        for ($x = $i + 1; $x > 0 && $a[$x - 1] > $a[$x]; --$x) {
+            swap($a, $x - 1, $x);
         }
+    }
+
+    return $a;
+}
 ```

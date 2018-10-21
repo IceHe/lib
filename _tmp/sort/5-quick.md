@@ -29,36 +29,36 @@ sort (a, beg, end)
 ```
 
 ``` php 1 (easiest)
-        function quick_sort($a) {
-            $len = count($a);
+function quick_sort($a) {
+    $len = count($a);
 
-            function q(&$a, $l, $r) {
-                if ($l >= $r) {
-                    return $a;
-                }
-
-                swap($a, $l, mt_rand($l, $r));
-
-                $k = $l;
-
-                for ($i = $l + 1; $i <= $r; ++$i) {
-                    if ($a[$i] < $a[$l]) {
-                        swap($a, $i, ++$k);
-                    }
-                }
-
-                swap($a, $l, $k);
-
-                q($a, $l, $k - 1);
-                q($a, $k + 1, $r);
-
-                return $a;
-            }
-
-            $a = q($a, 0, $len - 1);
-
+    function q(&$a, $l, $r) {
+        if ($l >= $r) {
             return $a;
         }
+
+        swap($a, $l, mt_rand($l, $r));
+
+        $k = $l;
+
+        for ($i = $l + 1; $i <= $r; ++$i) {
+            if ($a[$i] < $a[$l]) {
+                swap($a, $i, ++$k);
+            }
+        }
+
+        swap($a, $l, $k);
+
+        q($a, $l, $k - 1);
+        q($a, $k + 1, $r);
+
+        return $a;
+    }
+
+    $a = q($a, 0, $len - 1);
+
+    return $a;
+}
 ```
 
 ``` pseudo code 2 (improved)

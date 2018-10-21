@@ -58,98 +58,98 @@ sort (a , beg , end):
 ```
 
 ``` php
-        function merge_sort($a) {
-            $len = count($a);
-            if ($len <= 1) {
-                return $a;
-            }
+function merge_sort($a) {
+    $len = count($a);
+    if ($len <= 1) {
+        return $a;
+    }
 
-            $pivot = intval($len / 2);
-            $b = merge_sort(array_slice($a, 0, $pivot));
-            $c = merge_sort(array_slice($a, $pivot, $len - $pivot));
+    $pivot = intval($len / 2);
+    $b = merge_sort(array_slice($a, 0, $pivot));
+    $c = merge_sort(array_slice($a, $pivot, $len - $pivot));
 
-            $i = 0;
-            $j = 0;
-            $k = 0;
+    $i = 0;
+    $j = 0;
+    $k = 0;
 
-            while ($i < $pivot && $j < $len - $pivot) {
-                $a[$k++] = ($b[$i] <= $c[$j]) ? $b[$i++] : $c[$j++];
-            }
+    while ($i < $pivot && $j < $len - $pivot) {
+        $a[$k++] = ($b[$i] <= $c[$j]) ? $b[$i++] : $c[$j++];
+    }
 
-            while ($k < $len) {
-                $a[$k++] = ($i >= $pivot) ? $c[$j++] : $b[$i++];
-            }
+    while ($k < $len) {
+        $a[$k++] = ($i >= $pivot) ? $c[$j++] : $b[$i++];
+    }
 
-            return $a;
-        }
+    return $a;
+}
 ```
 
 ``` PHP mock C++ recursive
-        function merge_sort($a) {
-            function m(&$a, $beg, $end) {
-                if ($beg >= $end) {
-                    return $a;
-                }
+function merge_sort($a) {
+    function m(&$a, $beg, $end) {
+        if ($beg >= $end) {
+            return $a;
+        }
 
-                $mid = intval(($beg + $end) / 2);
+        $mid = intval(($beg + $end) / 2);
 
-                m($a, $beg, $mid);
-                m($a, $mid + 1, $end);
+        m($a, $beg, $mid);
+        m($a, $mid + 1, $end);
 
-                $t = $a;
+        $t = $a;
 
-                $i = $beg;
-                $j = $mid + 1;
-                $k = $beg;
+        $i = $beg;
+        $j = $mid + 1;
+        $k = $beg;
 
-                while ($i <= $mid && $j <= $end) {
-                    $a[$k++] = ($t[$i] <= $t[$j])
-                        ? $t[$i++]
-                        : $t[$j++];
-                }
+        while ($i <= $mid && $j <= $end) {
+            $a[$k++] = ($t[$i] <= $t[$j])
+                ? $t[$i++]
+                : $t[$j++];
+        }
 
-                while ($k <= $end) {
-                    $a[$k++] = ($i > $mid)
-                        ? $t[$j++]
-                        : $t[$i++];
-                }
-            }
+        while ($k <= $end) {
+            $a[$k++] = ($i > $mid)
+                ? $t[$j++]
+                : $t[$i++];
+        }
+    }
 ```
 
 ``` PHP mock C++ iterative
-        function merge_sort($a) {
-            $len = count($a);
+function merge_sort($a) {
+    $len = count($a);
 
-            for ($seg = 1; $seg < $len; $seg += $seg) {
-                $t = $a;
+    for ($seg = 1; $seg < $len; $seg += $seg) {
+        $t = $a;
 
-                for ($beg = 0; $beg < $len; $beg += $seg * 2) {
-                    $beg1 = $beg;
-                    $end1 = $beg + $seg - 1;
+        for ($beg = 0; $beg < $len; $beg += $seg * 2) {
+            $beg1 = $beg;
+            $end1 = $beg + $seg - 1;
 
-                    $beg2 = $beg + $seg;
-                    $end2 = $beg + $seg + $seg - 1;
+            $beg2 = $beg + $seg;
+            $end2 = $beg + $seg + $seg - 1;
 
-                    $k = $beg;
+            $k = $beg;
 
-                    while ($beg1 <= $end1 && $beg2 <= $end2) {
-                        $a[$k++] = ($t[$beg1] <= $t[$beg2])
-                            ? $t[$beg1++]
-                            : $t[$beg2++];
-                    }
-
-                    while ($k <= $end2) {
-                        $a[$k++] = ($beg1 > $end1)
-                            ? $t[$beg2++]
-                            : $t[$beg1++];
-                    }
-
-                    show_ary($a);
-                }
+            while ($beg1 <= $end1 && $beg2 <= $end2) {
+                $a[$k++] = ($t[$beg1] <= $t[$beg2])
+                    ? $t[$beg1++]
+                    : $t[$beg2++];
             }
 
-            return $a;
+            while ($k <= $end2) {
+                $a[$k++] = ($beg1 > $end1)
+                    ? $t[$beg2++]
+                    : $t[$beg1++];
+            }
+
+            show_ary($a);
         }
+    }
+
+    return $a;
+}
 
 ```
 
