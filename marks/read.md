@@ -367,7 +367,6 @@
 - [Loser 应该知道的 6 个残酷人生事实](/_archived/read/cruel-reality.md) <sup>__Best__</sup>
 - [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](/_archived/read/teacher-said.md)
 - [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](/_archived/read/family-accumulation.md)
-- [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](/_archived/read/suggestions-for-the-young.md)
 - [精致的利己主义者和常青藤的绵羊](/_archived/read/excellent-sheep.md)
 - [How to Study: A Brief Guide](/_archived/read/how-to-study.md)
 - [牙齿保健 - 刷牙、蛀牙、智齿](/_archived/read/tooth.md) <sup>__Best__</sup>
