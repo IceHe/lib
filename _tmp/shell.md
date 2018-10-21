@@ -56,15 +56,6 @@ str1 != str1
 
 循环语句
 
-for语句
-
-``` sh
-for variable in values
-do
-     # statement
-done
-```
-
 while语句
 
 ``` sh

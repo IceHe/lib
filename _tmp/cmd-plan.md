@@ -20,8 +20,6 @@
 
 [Debian的用法](https://github.com/ruanyf/articles/blob/master/dev/linux/debian.md)
 
-[cUrl](https://curl.haxx.se/)
-
 [归档和备份](https://github.com/ruanyf/articles/blob/master/dev/bash/archiving.md)
 
 [一些好用的命令](http://popozhu.github.io/2013/06/24/%E4%B8%80%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/)
@@ -189,10 +187,6 @@ I have no idea if that will work, but it's worth a shot.
 
 $ find -maxdepth 1 -type d
 
-# hostname命令返回当前服务器的主机名。
-
-$ hostname
-
 # 应用管理
 
 $ whatis nginx
@@ -225,4 +219,3 @@ $ find /some/path -type f -iname "*.txt" -exec rm -f {} \;
 # 列举包含某字符串的文件
 
 find ./ -type f | xargs grep 'www.baidu.com'
-```

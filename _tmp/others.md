@@ -6,8 +6,6 @@ https://www.wireshark.org/#learnWS
 
 http://blogread.cn/it/article/7294?f=wb_blogread
 
-## diff HTTP API & RPC API
-
 ## PPT Template
 
 Reveal.js : https://github.com/hakimel/reveal.js
@@ -75,8 +73,6 @@ https://weibo.com/2277420203/G06QNi9zC?type=comment#_rnd1537542666970
 ## 0基础想转行的朋友通过Java入行
 
 https://weibo.com/2387178543/G6hNpFPNk?type=comment
-
-## spring boot 空实现 QPS 压力测试
 
 ## 工作：使用 transcode 项目的 center 模块来上手
 
