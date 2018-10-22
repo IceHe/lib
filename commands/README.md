@@ -1,5 +1,22 @@
 # Commands
 
+- which
+- whereis
+`where` `which`
+
+```bash
+$ where python
+# output e.g.
+/usr/local/bin/python
+/usr/bin/python
+```
+
+```bash
+$ which python
+# output e.g.
+/usr/local/bin/python
+```
+
 ## TODOs
 
 - [ab](ab.md)
@@ -42,21 +59,6 @@ man <command>
 
 ```bash
 find <directory_path> | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
-```
-
-`where` `which`
-
-```bash
-$ where python
-# output e.g.
-/usr/local/bin/python
-/usr/bin/python
-```
-
-```bash
-$ which python
-# output e.g.
-/usr/local/bin/python
 ```
 
 `ln` make links
@@ -371,9 +373,6 @@ rsync -goDp
 - uptime
 - uname
 - whoami
-- which
-- whereis
-
 - z
 
 ### lock
