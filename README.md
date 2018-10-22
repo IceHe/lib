@@ -79,6 +79,7 @@ Others
 - [service](/commands/service.md) : run a System V init script
 - [systemctl](/commands/systemctl.md) : control systemd & service manager
 - [tar](/commands/tar.md) : pack & compress
+- [tee](/commands/tee.md) : write to standard output & files
 - [tmux](/commands/tmux.md) : terminal multiplexer
 - [vim](/commands/vim.md) : terminal editor
 - [wget](/commands/wget.md) : network downloader
