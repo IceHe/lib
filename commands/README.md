@@ -7,9 +7,7 @@
 - [bash](bash.md)
 - [dstat](dstat.md)
     - https://linux.cn/article-3215-1.html
-- `df -h` 查看硬盘使用量
 - [sed](sed.md)
-- tee : pipe fitting `tee -a <append_file_path>`
 - top / **htop**
 - iftop 流量带宽
 - [useful_tmp](useful_tmp.md)
