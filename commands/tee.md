@@ -29,8 +29,8 @@ cat file1 | tee -a file2
 
 Differ?
 
-- `tee -a` : save in file and print in standard output
-- `>`, `>>` : save and do not print
+- `tee -a` : Write to both standard output and files
+- `>`, `>>` : Only write to files!
 
 ```bash
 cat file1 | tee -a file2
