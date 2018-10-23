@@ -19,7 +19,6 @@ mkdir -m 600 root-user-only-dir
 
 # check
 $ ls -l
-# output e.g.
 drw-------   2 icehe  staff    64B Sep 30 18:25 root-user-only-dir
 ```
 
@@ -28,7 +27,6 @@ mkdir -p path/to/some-dir
 
 # check
 $ tree path
-# output e.g.
 path
 └── to
     └── some-dir
@@ -40,7 +38,6 @@ mkdir -p foo/bar/{app/boy/{cat,dog},egg,fool}
 
 # check
 $ tree foo
-# output e.g.
 foo
 └── bar
     ├── apple
