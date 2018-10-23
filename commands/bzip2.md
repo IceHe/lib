@@ -19,8 +19,6 @@ e.g.
 
 ```bash
 $ bzip2 -z index.html
-
-# output
 index.html.bz2
 ```
 
@@ -38,8 +36,6 @@ e.g.
 
 ```bash
 $ bzip2 -d index.html.bz2
-
-# output
 index.html
 ```
 
