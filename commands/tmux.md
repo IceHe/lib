@@ -47,7 +47,6 @@ List
 
 ```bash
 $ tmux list-sessions
-# output e.g.
 0: 6 windows (created Mon Sep  3 09:30:05 2018) [130x65]
 ```
 
