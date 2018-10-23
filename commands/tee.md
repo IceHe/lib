@@ -35,7 +35,7 @@ Differ?
 ```bash
 cat file1 | tee -a file2
 cat file1 | tee file2
-# or?
+# or ?
 cat file1 > file2
 cat file1 >> file2
 ```
