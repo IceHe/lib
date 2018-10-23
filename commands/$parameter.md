@@ -29,7 +29,6 @@ $ab
 
 # e.g.
 $ echo $ab
-# output
 apache benchmark
 ```
 
@@ -41,7 +40,6 @@ unset <param_name>
 # e.g.
 $ unset ab
 $ echo ${ab:-NULL}
-# output
 NULL
 ```
 
@@ -118,7 +116,6 @@ Test
 ```bash
 # e.g.
 $ bash t.sh a b c
-# output
 $_=/bin/bash
 $*=a b c
 $@=a b c
