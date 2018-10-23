@@ -16,13 +16,9 @@ Single Port
 
 ```bash
 nc -v <host_name> <port>
-```
 
-```bash
 # e.g.
 $ nc -v baidu.com 80
-
-# ouput
 found 0 associations
 found 1 connections:
      1: flags=82<CONNECTED,PREFERRED>
@@ -39,9 +35,7 @@ Multiple Ports ( Range )
 
 ```bash
 nc -v -z -n <host_name> <min_port>-<max_port>
-```
 
-```bash
 # e.g.
 nc -v -z -n 10.4.5.6 87-88
 
@@ -89,7 +83,9 @@ Assume
 ```bash
 # Remote server listens to local machine
 nc -l <port> > <file_path>
-# `nc -l 8888 > tmp_someday.log`
+
+# e.g.
+nc -l 8888 > tmp_someday.log
 ```
 
 **Local** : Client to Connect
@@ -101,7 +97,9 @@ nc <remote_host> <port> < <file_path>
 ```bash
 # Notice : using ip with option `-n`
 nc -n <remote_ip> <port> < <file_path>
-# `nc -n 10.4.5.6 8888 < tmp_20180819.log`
+
+#  e.g.
+nc -n 10.4.5.6 8888 < tmp_20180819.log
 ```
 
 ### Local as Server
@@ -111,7 +109,9 @@ nc -n <remote_ip> <port> < <file_path>
 ```bash
 # Local machine listens to remote server
 nc -l <port> < <file_path>
-# `nc -l 8888 < tmp_20180819.log`
+
+# e.g.
+nc -l 8888 < tmp_20180819.log
 ```
 
 **Remote** : Client to Connect
@@ -123,7 +123,9 @@ nc <local_host> <port> > <file_path>
 ```bash
 # Notice : using ip with option `-n`
 nc -n <remote_ip> <port> > <file_path>
-# `nc -n 10.1.2.3 8888 > tmp_someday.log`
+
+# e.g.
+nc -n 10.1.2.3 8888 > tmp_someday.log
 ```
 
 ### Trouble-shooting
@@ -158,7 +160,9 @@ Assume
 
 ```bash
 tar czvf - <directory_path> | nc -l <port>
-# `tar czvf - logs | nc -l 8888`
+
+# e.g.
+tar czvf - logs | nc -l 8888
 ```
 
 **Remote** : Client to Connect
@@ -167,7 +171,9 @@ tar czvf - <directory_path> | nc -l <port>
 
 ```bash
 nc -n <local_host> <port> | tar xzvf -
-# `nc -n 10.1.2.3 8888 | tar xzvf -`
+
+# e.g.
+nc -n 10.1.2.3 8888 | tar xzvf -
 ```
 
 ### Better Zip
@@ -179,7 +185,9 @@ Local
 
 ```bash
 tar cvf - <directory_path> | bzip2 -z | nc -l <port>
-# `tar cvf - logs | bzip2 -z | nc -l 8888`
+
+# e.g.
+tar cvf - logs | bzip2 -z | nc -l 8888
 ```
 
 Remote
