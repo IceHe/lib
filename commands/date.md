@@ -96,7 +96,6 @@ Common
 
 ```bash
 $ date
-# ouput e.g.
 Sat Oct 13 15:36:49 CST 2018
 # CST : China Standard Time
 ```
@@ -115,7 +114,7 @@ $ date +%Y-%m-%d\ %H:%M:%S
 # or
 $ date +%F\ %T
 
-# output e.g.
+# output
 2018-10-16 17:02:56
 ```
 
@@ -123,11 +122,9 @@ Option `-d`
 
 ```bash
 $ date -d 2018-12-31\ 12:34:56
-# output e.g.
 Mon Dec 31 12:34:56 CST 2018
 
 $ date -d "1 day ago"
-# output e.g.
 Mon Oct 15 20:28:39 CST 2018
 ```
 
@@ -135,13 +132,11 @@ Option `-f`
 
 ```bash
 $ cat date_str
-# output e.g.
 2018-01-02 01:02:03
 2017-03-16 13:14:15
 2016-10-25 12:34:56
 
 $ date -f date_str
-# output e.g.
 Tue Jan  2 01:02:03 CST 2018
 Thu Mar 16 13:14:15 CST 2017
 Tue Oct 25 12:34:56 CST 2016
@@ -152,7 +147,6 @@ Make directory named after date & time
 ```bash
 $ mkdir `date +%Y%m%d_%H%M%S`
 $ ls
-# output e.g.
 20181016_173418
 ```
 
@@ -172,7 +166,6 @@ Asia/Shanghai
 
 ```bash
 $ ls /usr/share/zoneinfo/
-# output e.g.
 Africa      EET      Greenwich    Mexico      right
 America     Egypt    Hongkong     MST         ROC
 Antarctica  Eire     HST          MST7MDT     ROK
@@ -188,7 +181,6 @@ CST6CDT     GMT-0    Libya        PRC         zone.tab
 Cuba        GMT+0    MET          PST8PDT     Zulu
 
 $ ls /usr/share/zoneinfo/Asia
-# output e.g.
 Aden        Dili          Kuching       Shanghai
 Almaty      Dubai         Kuwait        Singapore
 Amman       Dushanbe      Macao         Srednekolymsk
@@ -219,7 +211,6 @@ Dhaka       Kuala_Lumpur  Seoul
 
 ```bash
 $ timedatectl
-# output e.g.
       Local time: Tue 2018-10-16 17:09:17 CST
   Universal time: Tue 2018-10-16 09:09:17 UTC
         RTC time: Tue 2018-10-16 09:09:17
