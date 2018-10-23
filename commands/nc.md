@@ -37,9 +37,7 @@ Multiple Ports ( Range )
 nc -v -z -n <host_name> <min_port>-<max_port>
 
 # e.g.
-nc -v -z -n 10.4.5.6 87-88
-
-# output
+$ nc -v -z -n 10.4.5.6 87-88
 nc: connectx to 10.4.5.6 port 87 (tcp) failed: Connection refused
 found 0 associations
 found 1 connections:
