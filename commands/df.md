@@ -58,8 +58,7 @@ References
 Output in KB, GB, TB…
 
 ```bash
-df -h
-# output e.g.
+$ df -h
 Filesystem      Size   Used  Avail Capacity  iused               ifree %iused  Mounted on
 /dev/disk1s1   466Gi  355Gi  109Gi    77%  3484707 9223372036851291100    0%   /
 devfs          344Ki  344Ki    0Bi   100%     1191                   0  100%   /dev
@@ -71,8 +70,7 @@ map auto_home    0Bi    0Bi    0Bi   100%        0                   0  100%   /
 Output in KiB, GiB, TiB…
 
 ```bash
-df -H
-# output e.g.
+$ df -H
 Filesystem     Size   Used  Avail Capacity  iused               ifree %iused  Mounted on
 /dev/disk1s1   500G   381G   117G    77%  3484687 9223372036851291120    0%   /
 devfs          352k   352k     0B   100%     1191                   0  100%   /dev
