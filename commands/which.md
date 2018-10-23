@@ -16,22 +16,26 @@
 Print the first matching executable
 
 ```bash
-which <COMMAND_NAME>
-
-# e.g.
 $ which bash
-# output
 /bin/bash
 ```
 
 Print all matching executables
 
 ```bash
-which -a <COMMAND_NAME>
-
-# e.g.
 $ which -a bash
-# output
 /bin/bash
 /usr/bin/bash
+```
+
+In BSD OS, builtin `where` == `which -a`
+
+```bash
+$ where php
+/usr/local/bin/php
+/usr/bin/php
+
+$ which php
+/usr/local/bin/php
+/usr/bin/php
 ```
