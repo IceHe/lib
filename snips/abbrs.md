@@ -317,6 +317,7 @@ Other meanings
 - ue : user experience design
 - ui : user interface | user interaction
 - uid : user id
+- UML : Unified Modeling Language 统一建模语言
 - upd : update
 - usr : user
 - UTC : Coordinated Universal Time 协调世界时
