@@ -484,3 +484,24 @@ grep时去掉grep本身
 计算299秒是多少分钟
 
 `bc <<< 'obase=60;299'`
+
+## sed
+
+```bash
+#!/bin/sh
+
+for arg in $*
+do
+    grep -E '(?:class )(.*?)(?:Sniff)' $arg \
+        | awk '{ print $2; }' \
+        | awk -F 'Sniff' '{ print "    <!-- ## Squiz.Operators."$1" -->"; }' \
+        >> ~/Desktop/tmp.txt
+
+    sed -n '3p' $arg \
+        | sed 's/^...//g; s/\.$//g' \
+        | awk '{ print "    <!-- "$0" -->"; }' \
+        >> ~/Desktop/tmp.txt
+
+    echo >> ~/Desktop/tmp.txt
+done
+```
