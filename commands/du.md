@@ -47,5 +47,5 @@ du -h --max-depth=1
 List files' size recursively in current directory
 
 ```bash
-$ du -ah
+du -ah
 ```
