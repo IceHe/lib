@@ -70,7 +70,6 @@ Steps
 
 ```bash
 $ brew --version
-# output e.g.
 Homebrew 1.7.2
 Homebrew/homebrew-core (git revision 27f23; last commit 2018-08-24)
 ```
@@ -384,7 +383,6 @@ Get JDK Path
 
 ```bash
 $ /usr/libexec/java_home -v 1.8
-# output e.g.
 /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
 ```
 
@@ -568,8 +566,6 @@ Check
 
 ```bash
 $ git config --global -l | grep user
-
-# output e.g.
 user.name=icehe
 user.email=icehe@gmail.com
 ```
