@@ -29,7 +29,6 @@ e.g.
 ```bash
 $ systemctl restart nginx
 $ systemctl status nginx
-# output
 ● nginx.service - The nginx HTTP and reverse proxy server
    Loaded: loaded (/etc/systemd/system/nginx.service; disabled; vendor preset: disabled)
    Active: active (running) since Sun 2018-09-30 19:22:22 CST; 4s ago
@@ -59,9 +58,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 All
 
 ```bash
-systemctl list-unit-files
-
-# output e.g.
+$ systemctl list-unit-files
 UNIT FILE                                     STATE
 dev-mqueue.mount                              static
 sys-kernel-debug.mount                        static
@@ -74,9 +71,7 @@ cups.path                                     enabled
 Enabled
 
 ```bash
-systemctl list-unit-files | grep enabled
-
-# output e.g.
+$ systemctl list-unit-files | grep enabled
 UNIT FILE                                     STATE
 docker.service                                enabled
 nginx-proxy.service                           enabled
