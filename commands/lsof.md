@@ -86,7 +86,6 @@ lsof <path/to/file>
 
 # e.g.
 $ lsof /etc/localtime
-# output
 COMMAND   PID   USER  FD   TYPE DEVICE SIZE/OFF   NODE NAME
 java    10097  icehe mem    REG    8,1      388 263109 /etc/../usr/share/zoneinfo/Asia/Shanghai
 ```
@@ -100,7 +99,6 @@ lsof +D <path/to/directory>
 
 # e.g.
 $ lsof +D /etc
-# output
 lsof +D /etc
 COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
 systemd-u 546 root  mem    REG    8,3  6345977  455 /etc/udev/hwdb.bin
@@ -117,11 +115,9 @@ lsof -p <process_id>
 
 # e.g.
 $ pidof dockerd
-# output
 12037
 
 $ lsof -p `pidof dockerd`
-# output
 COMMAND   PID USER  FD  TYPE DEVICE SIZE/OFF      NODE NAME
 dockerd 12037 root cwd   DIR    8,1     4096      5705 /usr/home/icehe
 dockerd 12037 root rtd   DIR    8,3     4096         2 /
@@ -138,7 +134,6 @@ lsof -c <process_name_prefix>
 
 # e.g.
 $ lsof -c java
-# output
 COMMAND   PID  USER  FD TYPE DEVICE SIZE/OFF      NODE NAME
 java    10097 icehe cwd  DIR   0,36     4096 516503227 /zookeeper-3.4.13
 java    10097 icehe rtd  DIR   0,36     4096 516503173 /
@@ -156,7 +151,6 @@ lsof -u <username>
 
 # e.g.
 $ lsof -u icehe
-# output
 COMMAND   PID  USER  FD TYPE DEVICE SIZE/OFF      NODE NAME
 sshd    10843 icehe cwd  DIR    8,3     4096         2 /
 sshd    10843 icehe rtd  DIR    8,3     4096         2 /
@@ -175,7 +169,6 @@ kill `lsof -t -u <username>`
 
 # e.g.
 $ lsof -t -u icehe
-# output
 10843
 10844
 11178
@@ -197,7 +190,6 @@ lsof -u <username> -c <process_name_prefix> -a
 
 # e.g.
 $ lsof -u icehe -c java -a
-# output
 COMMAND   PID  USER  FD TYPE DEVICE SIZE/OFF      NODE NAME
 java    10097 icehe cwd  DIR   0,36     4096 516503227 /zookeeper-3.4.13
 java    10097 icehe rtd  DIR   0,36     4096 516503173 /
@@ -216,7 +208,6 @@ lsof -u <username> -i <TCP|UDP> -c <process_name_prefix> -a
 
 # e.g.
 $ lsof -u root -i TCP -c java -a
-# output
 COMMAND   PID USER FD  TYPE    DEVICE SIZE/OFF NODE NAME
 java    11879 root  8u IPv4 521506573      0t0  TCP localhost:42649 (LISTEN)
 java    11879 root 18u IPv4 521499336      0t0  TCP localhost:42649->localhost:36218 (ESTABLISHED)
@@ -229,8 +220,7 @@ java    12017 root  6u IPv4 521510870      0t0  TCP localhost:36218->localhost:4
 List all open files
 
 ```bash
-lsof
-# output e.g.
+$ lsof
 COMMAND    PID  USER   FD TYPE DEVICE SIZE/OFF    NODE NAME
 init       1    root  cwd  DIR    8,1     4096      2 /
 init       1    root  txt  REG    8,1   124704 917562 /sbin/init
