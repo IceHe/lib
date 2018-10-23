@@ -56,7 +56,8 @@
 ```bash
 curl -LO <url_to_file>
 
-# `curl -LO https://getcomposer.org/composer.phar`
+# e.g.
+curl -LO https://getcomposer.org/composer.phar
 ```
 
 ### Request
@@ -64,5 +65,6 @@ curl -LO <url_to_file>
 ```bash
 curl -X <http_method> <url> -H '<header_name>: <header_value>'
 
-# `curl -X POST http://10.1.2.3:8888/comments -H 'Host: api.weibo.cn'`
+# e.g.
+curl -X POST http://10.1.2.3:8888/comments -H 'Host: api.weibo.cn'
 ```
