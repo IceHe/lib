@@ -69,7 +69,6 @@ lsof -i udp
 
 # TCP Range
 $ lsof -i:3000-4000
-# e.g. output
 COMMAND   PID  USER FD  TYPE             DEVICE SIZE/OFF NODE NAME
 nginx   66394 icehe 12u IPv4 0x851262b2d39c6f85      0t0  TCP *:hbci (LISTEN)
 nginx   66394 icehe 13u IPv4 0x851262b2d39c78e5      0t0  TCP *:terabase (LISTEN)
