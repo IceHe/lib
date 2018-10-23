@@ -73,7 +73,6 @@ ls -hlrS
 
 # e.g.: show top 10 largest files ( including path inode )
 $ ls -hlrS | tail
-# output e.g.
 total 280
 -rw-r--r--   1 icehe  staff    70B Aug  6 00:10 README.md
 drwxr-xr-x   3 icehe  staff    96B Aug 16 00:04 Music
@@ -96,8 +95,6 @@ Sorted by modified date
 
 ```bash
 $ ls -hlrt
-
-# output e.g.
 total 280
 drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
 -rw-r--r--   1 icehe  staff    70B Aug  6 00:10 README.md
@@ -111,8 +108,6 @@ Sorted by access date
 
 ```bash
 $ ls -lrtu
-
-# output e.g.
 total 280
 -rw-r--r--   1 icehe  staff    70B Aug  6 00:10 README.md
 drwxr-xr-x   3 icehe  staff    96B Aug 16 00:04 Music
@@ -127,8 +122,6 @@ Sorted by creation date
 
 ```bash
 $ ls -lrtU
-
-# output e.g.
 total 280
 drwx------@ 64 icehe  staff   2.0K Mar  7  2015 Library
 drwx------+ 38 icehe  staff   1.2K Apr 15  2015 Downloads
