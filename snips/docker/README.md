@@ -156,7 +156,6 @@ docker ps [OPTIONS]
 
 # e.g.
 $ docker ps -a
-# output e.g.
 CONTAINER ID        IMAGE                 COMMAND             CREATED             STATUS              PORTS                   NAMES
 3a9d01a3969b        icehe/alpine:latest   "/bin/sh"           10 minutes ago      Up 9 minutes        0.0.0.0:30080->80/tcp   icehe_alpine
 ```
@@ -168,7 +167,6 @@ docker top CONTAINER
 
 # e.g.
 $ docker top icehe_alpine
-# output e.g.
 PID                 USER                TIME                COMMAND
 2431                root                0:00                /bin/sh
 ```
@@ -181,7 +179,6 @@ PID                 USER                TIME                COMMAND
 ```bash
 $ docker images
 
-# output e.g.
 REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
 icehe/markdownlint   latest              34b32c8ea585        3 weeks ago         79.2MB
 icehe/alpine         latest              e535b10e6f55        5 weeks ago         18.1MB
