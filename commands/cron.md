@@ -37,8 +37,6 @@ File paths
 
 ```bash
 $ tree /var/spool/cron
-
-# output e.g.
 /var/spool/cron
 ├── root
 ├── sysmon
