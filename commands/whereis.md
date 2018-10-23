@@ -18,7 +18,6 @@ whereis <COMMAND_NAME>...
 
 # e.g.
 $ whereis java bash
-# output
 java: /usr/bin/java /usr/lib/java /etc/java /usr/share/java /usr/share/man/man1/java.1
 bash: /usr/bin/bash /usr/share/man/man1/bash.1.gz
 ```
@@ -26,11 +25,7 @@ bash: /usr/bin/bash /usr/share/man/man1/bash.1.gz
 Show lookup paths
 
 ```bash
-whereis -l <COMMAND_NAME>
-
-# e.g.
 $ whereis -l java
-# output
 bin: /usr/bin
 bin: /usr/sbin
 bin: /usr/lib
