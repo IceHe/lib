@@ -24,7 +24,6 @@ Standard syntax ( Unix-style )
 
 ```bash
 $ ps -ef
-# output e.g.
   UID   PID  PPID   C STIME   TTY           TIME CMD
     0     1     0   0 Wed11PM ??         0:35.22 /sbin/launchd
     0    52     1   0 Wed11PM ??         0:01.15 /usr/sbin/syslogd
@@ -36,7 +35,6 @@ BSD syntax ( BSD-style )
 
 ```bash
 $ ps aux
-# output e.g.
 USER  PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
 root    52   0.0  0.0  4305532   1240   ??  Ss   Wed11PM   0:01.17 /usr/sbin/syslogd
 root  5277   0.0  0.0  4268180   1120 s002  R+    1:29AM   0:00.00 ps aux
