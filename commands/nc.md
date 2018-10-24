@@ -1,14 +1,29 @@
 # nc
 
-> **netcat** : arbitrary TCP and UDP connections and listens
+In Linux
+
+> **ncat** - Concatenate and redirect sockets
+>
+> - Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat.
+
+- https://nmap.org/ncat/
+
+In BSD
+
+> **netcat** - arbitrary TCP and UDP connections and listens
 
 - [Linux Netcat 命令——网络工具中的瑞士军刀](https://www.oschina.net/translate/linux-netcat-command)
 
 ## Options
 
-- `-4` **IPV4 Only** : Forces nc to use IPv4 addresses only.
-- `-l` **Listen** for an incoming connection rather than initiate a connection to a remote host.
-- `-n` **No DNS lookups** : Do not do any DNS or service lookups on any specified addresses, hostnames or ports.
+- `-4` Use **IPV4 only** : Forces nc to use IPv4 addresses only.
+- `-6` Use **IPV6 only**
+- `-l, --listen` **Listen** for an incoming connection rather than initiate a connection to a remote host.
+- `-n, --nodns` **No DNS lookups** : Do not do any DNS or service lookups on any specified addresses, hostnames or ports.
+- `-c, --sh-exec <command>` Executes the given command via /bin/sh
+- `-e, --exec <command>` Executes the given command
+- `-u, --udp` Use UDP instead of default TCP
+- `--sctp` Use SCTP instead of default TCP
 
 ## Scan Ports
 
