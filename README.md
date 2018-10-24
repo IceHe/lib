@@ -65,7 +65,7 @@ Others
 - [cron](/commands/cron.md) : time-based job scheduler
 - [curl](/commands/curl.md) : transfer data from or to a server
 - [date](/commands/date.md) : print or set the system date & time
-- [df](/commands/df.md) : display free disk space
+- [df](/commands/df.md) : report file system disk space usage
 - [du](/commands/du.md) : estimate file space usage
 - [expect](/commands/expect.md) : interact with programs
 - [kill](/commands/kill.md) : terminate or signal a process
