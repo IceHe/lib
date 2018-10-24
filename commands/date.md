@@ -1,8 +1,6 @@
 # date
 
-> display or set date and time
-
-https://blog.csdn.net/xs1326962515/article/details/80351568
+> display or set the system date and time
 
 ## Options
 
@@ -125,6 +123,20 @@ Mon Dec 31 12:34:56 CST 2018
 
 $ date -d "1 day ago"
 Mon Oct 15 20:28:39 CST 2018
+
+# e.g.
+$ date -s 20120523
+$ date -s 01:01:01
+$ date -s "01:01:01 2012-05-23"
+$ date -s "01:01:01 20120523"
+$ date -s "2012-05-23 01:01:01"
+$ date -s "20120523 01:01:01"
+$ date -d "-1 day"   # 昨天
+$ date -d "+1 day"   # 明天
+$ date -d "-1 month" # 上月
+$ date -d "+1 month" # 下月
+$ date -d "-1 year"  # 去年
+$ date -d "+1 year"  # 明年
 ```
 
 Option `-f`
@@ -147,6 +159,19 @@ Make directory named after date & time
 $ mkdir `date +%Y%m%d_%H%M%S`
 $ ls
 20181016_173418
+```
+
+Compute duration
+
+```bash
+#!/bin/bash
+
+start=$(date +%s)
+nmap man.linuxde.net &> /dev/null
+end=$(date +%s)
+
+difference=$(( end - start ))
+echo $difference seconds.
 ```
 
 ## Timezone
