@@ -1,5 +1,11 @@
 # netstat
 
+In Linux
+
+> Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+
+In BSD
+
 > show network status
 
 - Here is intro to use `netstat` on Linux
@@ -13,15 +19,15 @@ References
 
 Linux
 
-- `-a` | `--all` **All** sockets
+- `-a, --all` **All** sockets
     - both listening and non-listening sockets
-- `-l` | `--listening` Only **listening** sockets
-- `-n` | `--numeric` Show **numerical addresses**
+- `-l, --listening` Only **listening** sockets
+- `-n, --numeric` Show **numerical addresses**
     - instead of trying to determine symbolic host, port or user names
-- `-p` | `--program` Show **PID & name of program**
+- `-p, --program` Show **PID & name of program**
     - to which each socket belongs
-- `-t` | `--tcp` Only **TCP**
-- `-u` | `--udp` Only **UDP**
+- `-t, --tcp` Only **TCP**
+- `-u, --udp` Only **UDP**
 
 ## Usage
 
