@@ -1,12 +1,19 @@
 # df
 
+In Linux
+
+> report file system disk space usage
+
+In BSD
+
 > display free disk space
 
 ## Options
 
-- `-a` | `--all` include dummy file systems
-- `-h` | `--human-readable` print sizes in human readable format (e.g., 1K 234M 2G)
-- `-H` | `--si` likewise, but use powers of 1000 not 1024
+- `-a, --all` include dummy file systems
+- `-h, --human-readable` print sizes in human readable format (e.g., 1K 234M 2G)
+- `-H, --si` likewise, but use powers of 1000 not 1024
+- `-T, --print-type` print file system type
 
 ## KiB & KB
 
@@ -59,13 +66,13 @@ Output in KB, GB, TB…
 
 ```bash
 $ df -h
-Filesystem      Size   Used  Avail Capacity  iused               ifree %iused  Mounted on
-/dev/disk1s1   466Gi  355Gi  109Gi    77%  3484707 9223372036851291100    0%   /
-devfs          344Ki  344Ki    0Bi   100%     1191                   0  100%   /dev
-/dev/disk1s4   466Gi  1.0Gi  109Gi     1%        2 9223372036854775805    0%   /private/var/vm
-map -hosts       0Bi    0Bi    0Bi   100%        0                   0  100%   /net
-map auto_home    0Bi    0Bi    0Bi   100%        0                   0  100%   /home
-/dev/disk2s4   454Gi  128Gi  326Gi    29%      355          4294966924    0%   /Volumes/IceHe_何志远
+Filesystem     Size  Used Avail Capacity  iused               ifree %iused  Mounted on
+/dev/disk1s1  466Gi 355Gi 109Gi    77%  3484707 9223372036851291100    0%   /
+devfs         344Ki 344Ki   0Bi   100%     1191                   0  100%   /dev
+/dev/disk1s4  466Gi 1.0Gi 109Gi     1%        2 9223372036854775805    0%   /private/var/vm
+map -hosts      0Bi   0Bi   0Bi   100%        0                   0  100%   /net
+map auto_home   0Bi   0Bi   0Bi   100%        0                   0  100%   /home
+/dev/disk2s4  454Gi 128Gi 326Gi    29%      355          4294966924    0%   /Volumes/IceHe_何志远
 ```
 Output in KiB, GiB, TiB…
 
@@ -77,4 +84,22 @@ devfs          352k   352k     0B   100%     1191                   0  100%   /d
 /dev/disk1s4   500G   1.1G   117G     1%        2 9223372036854775805    0%   /private/var/vm
 map -hosts       0B     0B     0B   100%        0                   0  100%   /net
 map auto_home    0B     0B     0B   100%        0                   0  100%   /home
+```
+
+```bash
+$ df -hT
+Filesystem Type     Size Used Avail Use% Mounted on
+/dev/sda3  ext4     3.9G 365M  3.3G  10% /
+devtmpfs   devtmpfs 5.8G    0  5.8G   0% /dev
+tmpfs      tmpfs    5.8G    0  5.8G   0% /dev/shm
+tmpfs      tmpfs    5.8G 642M  5.2G  11% /run
+tmpfs      tmpfs    5.8G    0  5.8G   0% /sys/fs/cgroup
+/dev/sda1  ext4      12G 3.9G  7.3G  35% /usr
+/dev/sdb1  ext4     134G  99G   29G  78% /data1
+/dev/sda7  ext4     235G 101G  122G  46% /data0
+/dev/sda5  ext4     7.8G  37M  7.3G   1% /tmp
+/dev/sda6  ext4     7.8G 509M  6.9G   7% /var
+overlay    overlay  235G 101G  122G  46% /data0/docker-1.13.1-fs/overlay/64fce5a854ba98f1dac917735fd4531bac33c29378a29d4523a283dbd5bd605b/merged
+shm        tmpfs     64M    0   64M   0% /data0/docker-1.13.1-fs/containers/dc50f340afd86e2e93dbc0c76d36bb5379288d64e9f6eb23bb29b19a1633ba33/shm
+……
 ```
