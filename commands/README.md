@@ -23,16 +23,6 @@ Mine
 
 - [Home/CLI](README.md#cli)
 
-Manual
-
-- `man` is an interface to the on-line reference manuals
-
-```bash
-man <command>
-
-# `man bash`
-```
-
 ## Temporary
 
 `tree` ( mock ) : list directory content
