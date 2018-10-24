@@ -2,13 +2,13 @@
 
 > Control the systemd system and service manager
 
+## Usage
+
 Synopsis
 
 ```bash
 systemctl [OPTIONS...] COMMAND [NAME]
 ```
-
-## Usage
 
 ### Control services
 
