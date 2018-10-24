@@ -1,6 +1,12 @@
 # du
 
+In Linux
+
 > estimate file space usage
+
+In BSD
+
+> display disk usage statistics
 
 ## Optoins
 
