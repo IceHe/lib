@@ -2,6 +2,12 @@
 
 rysnc
 
+- In Linux
+
+> a fast, versatile, remote (and local) file-copying tool
+
+- In BSD
+
 > faster, flexible replacement for rcp
 
 rcp
