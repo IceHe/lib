@@ -2,9 +2,15 @@
 
 > run a System V init script
 
+/etc/init.d
+
+- The directory containing System V init scripts.
+
 Control services
 
 ```bash
+service <SCRIPT> <COMMAND> [OPTIONS]
+
 # common
 service <serv_name> <start|stop|restart|status>
 # seldom
