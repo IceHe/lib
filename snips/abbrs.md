@@ -145,6 +145,7 @@ Other meanings
 - GFM : Github Flavored Markdown
 - GFW : great fire wall
 - gid : group id
+- GMT : Greenwich Mean Time 格林威治时间
 
 ### H
 
@@ -211,6 +212,7 @@ Other meanings
 ### N
 
 - n/a , N/A , n.a. : not applicable 不适用
+- NaN : Not a Number
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
 - No. : number
 - num : number
