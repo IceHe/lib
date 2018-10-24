@@ -1,6 +1,8 @@
 # bzip2
 
-> a block-sorting file compressor
+> - bzip2, bunzip2 - a block-sorting file compressor
+> - bzcat - decompresses files to stdout
+> - bzip2recover - recovers data from damaged bzip2 files
 
 ## Options
 
