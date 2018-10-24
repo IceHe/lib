@@ -6,8 +6,9 @@
 - [bash](bash.md)
 - [dstat](dstat.md)
     - https://linux.cn/article-3215-1.html
-- top / **htop**
 - iftop 流量带宽
+- man
+- top / **htop**
 
 https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 
