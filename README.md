@@ -58,7 +58,6 @@ Others
 
 > Command Line Interface 命令行界面
 
-- [README](/commands/README.md) : temporary notes
 - bash : GNU Bourne-Again SHell
     - [$parameter](/commands/$parameter.md) : basic, expansion & substitution
 - [bzip2](/commands/bzip2.md) : block-sorting file compressor
@@ -179,7 +178,7 @@ Others
 
 ### Digest
 
-好文共赏。
+好文共赏
 
 - [Anti-Fragile](/_archived/read/anti-fragile.md)
     / [_book_](https://item.jd.com/11364406.html)
