@@ -4,19 +4,31 @@
 
 ## Options
 
-`-d, --date=STRING` display time described by STRING, not 'now'
+`-d, --date=STRING`
 
-`-f, --file=DATEFILE` like --date once for each line of DATEFILE
+display time described by STRING, not 'now'
 
-`-r, --reference=FILE` display the last modification time of FILE
+`-f, --file=DATEFILE`
 
-`-R, --rfc-2822` output date and time in RFC 2822 format.
+like --date once for each line of DATEFILE
+
+`-r, --reference=FILE`
+
+display the last modification time of FILE
+
+`-R, --rfc-2822`
+
+output date and time in RFC 2822 format.
 
 - e.g.: Mon, 07 Aug 2006 12:34:56 -0600
 
-`-s, --set=STRING` set time described by STRING
+`-s, --set=STRING`
 
-`-u, --utc, --universal` print or set Coordinated Universal Time (UTC)
+set time described by STRING
+
+`-u, --utc, --universal`
+
+print or set Coordinated Universal Time (UTC)
 
 ## Format
 
