@@ -23,6 +23,7 @@ wc [OPTION]... [FILE]...
 ## Usage
 
 ```bash
+
 $ echo 何冰 | wc -m
 3
 
@@ -34,6 +35,10 @@ $ echo 123 | wc -m
 
 $ echo 123 | wc -c
 4
+
+$ wc README.md
+# lines / chars / bytes / filename
+217     893    9048 README.md
 
 $ wc -l README.md
 217 FILE_NAME
