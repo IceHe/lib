@@ -10,7 +10,7 @@
 - [dstat](dstat.md)
     - https://linux.cn/article-3215-1.html
 - iftop 流量带宽
-- man
+- **man**
 - top / **htop**
 - sort FILE | uniq > FILE_UNIQ 去重
 
