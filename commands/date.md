@@ -4,12 +4,19 @@
 
 ## Options
 
-- `-d, --date=<STRING>` Display time described by STRING, not 'now'
-- `-f, --file=<DATE_FILE>` Like `--date` once for each line of DATEFILE
-- `-R, --rfc-2822` Output date and time in RFC 2822 format.
-    - e.g.: Tue, 16 Oct 2018 16:35:45 +0800
-- `-s, --set=<DATE_STRING>` Set time described by STRING
-- `-u, --utc, --universal` Print or set Coordinated Universal Time (UTC)
+`-d, --date=STRING` display time described by STRING, not 'now'
+
+`-f, --file=DATEFILE` like --date once for each line of DATEFILE
+
+`-r, --reference=FILE` display the last modification time of FILE
+
+`-R, --rfc-2822` output date and time in RFC 2822 format.
+
+- e.g.: Mon, 07 Aug 2006 12:34:56 -0600
+
+`-s, --set=STRING` set time described by STRING
+
+`-u, --utc, --universal` print or set Coordinated Universal Time (UTC)
 
 ## Format
 
