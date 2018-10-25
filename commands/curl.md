@@ -4,48 +4,22 @@
 
 ## Options
 
-```bash
--I , --head
-
-    Fetch headers only! ( HTTP FTP FILE )
-
--i , --include
-
-    Include the HTTP-header in the output.
-
--H , --header <header>
-
-    Extra header to include in the request
-    when sending HTTP to a server ( HTTP )
-    e.g., `curl -H "X-First-Name: Joe" http://example.com/`
-
--X , --request <command>
-
-    Specify a custom request method to use
-    when communicating with the HTTP server
-    e.g., `curl -X HEAD http://example.com/`
-
--s , --silent
-
-    Silent or quiet mode.
-    Do not show progress meter or error messages.
-
--S , --show-error
-
-    When used with -s, --silent,
-    it makes curl show an error message if it fails.
-
--L , --location
-
-    Enable redirect ( HTTP ) : If the server reports
-    that requested page has moved to different location
-    (indicated with Location: header & 3XX response code),
-    it will make curl redo the request on the new place.
-
-- O , --remote-name
-
-    Write output to local file named like remote file.
-    (Only file part of remote file is used, path is cut off.)
+- `-I , --head` Fetch headers only! ( HTTP FTP FILE )
+- `-i , --include` Include the HTTP-header in the output.
+- `-H , --header <header>` Extra header to include in the request
+    - when sending HTTP to a server ( HTTP )
+    - e.g., `curl -H "X-First-Name: Joe" http://example.com/`
+- `-X , --request <command>` Specify a custom request method to use
+    - when communicating with the HTTP server
+    - e.g., `curl -X HEAD http://example.com/`
+- `-s , --silent` Silent or quiet mode.
+    - Do not show progress meter or error messages.
+- `-S , --show-error` It makes curl show an error message if it fails
+    - when used with `-s, --silent`
+- `-L , --location` Enable redirect ( HTTP ) :
+    - If the server reports that requested page has moved to different location (indicated with Location: header & 3XX response code), it will make curl redo the request on the new place.
+- `-O , --remote-name` Write output to local file named like remote file.
+    - (Only file part of remote file is used, path is cut off.)
 
 ```
 
