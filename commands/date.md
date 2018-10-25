@@ -4,6 +4,7 @@
 
 ## Options
 
+```bash
 `-d, --date=STRING`
 
 display time described by STRING, not 'now'
@@ -29,6 +30,7 @@ set time described by STRING
 `-u, --utc, --universal`
 
 print or set Coordinated Universal Time (UTC)
+```
 
 ## Format
 
