@@ -9,6 +9,8 @@
 - iftop 流量带宽
 - man
 - top / **htop**
+- wc
+- sort FILE | uniq > FILE_UNIQ 去重
 
 https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 
@@ -507,7 +509,7 @@ Install
 
 https://blog.csdn.net/kingofworld/article/details/41774079
 
-## Usage
+### Usage
 
 Options
 
