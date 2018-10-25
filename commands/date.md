@@ -4,33 +4,30 @@
 
 ## Options
 
-```bash
-`-d, --date=STRING`
+- `-d, --date=STRING`
 
-display time described by STRING, not 'now'
+    display time described by STRING, not 'now'
 
-`-f, --file=DATEFILE`
+- `-f, --file=DATEFILE`
 
-like --date once for each line of DATEFILE
+    like --date once for each line of DATEFILE
 
-`-r, --reference=FILE`
+- `-r, --reference=FILE`
 
-display the last modification time of FILE
+    display the last modification time of FILE
 
-`-R, --rfc-2822`
+- `-R, --rfc-2822`
 
-output date and time in RFC 2822 format.
+    output date and time in RFC 2822 format.
+    e.g.: Mon, 07 Aug 2006 12:34:56 -0600
 
-- e.g.: Mon, 07 Aug 2006 12:34:56 -0600
+- `-s, --set=STRING`
 
-`-s, --set=STRING`
+    set time described by STRING
 
-set time described by STRING
+- `-u, --utc, --universal`
 
-`-u, --utc, --universal`
-
-print or set Coordinated Universal Time (UTC)
-```
+    print or set Coordinated Universal Time (UTC)
 
 ## Format
 
