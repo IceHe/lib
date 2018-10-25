@@ -17,11 +17,8 @@
 
 ```bash
 bzip2 -z <file_path>
-```
 
-e.g.
-
-```bash
+# e.g.
 $ bzip2 -z index.html
 index.html.bz2
 ```
@@ -34,11 +31,8 @@ index.html.bz2
 bzip2 -d <file_path>.bz2
 # or
 bunzip2 <file_path>.bz2
-```
 
-e.g.
-
-```bash
+# e.g.
 $ bzip2 -d index.html.bz2
 index.html
 ```
