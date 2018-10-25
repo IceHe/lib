@@ -21,8 +21,6 @@
 - `-O , --remote-name` Write output to local file named like remote file.
     - (Only file part of remote file is used, path is cut off.)
 
-```
-
 ## Usage
 
 ### Download
