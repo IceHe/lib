@@ -62,7 +62,7 @@ $ wc -ml FILE_1 FILE_2
 4834 53693 total
 ```
 
-
+Combination
 
 ```bash
 $ grep 101 FILE_3 | wc -l
