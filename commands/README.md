@@ -524,6 +524,8 @@ Related commands
 - dstat
 - iostat ?
 
+### http_load
+
 ## Bash
 
 > GNU Bourne-Again SHell
