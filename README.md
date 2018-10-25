@@ -77,6 +77,7 @@ Others
 - [ps](/commands/ps.md) : process status
 - [rsync](/commands/rsync/README.md) : transfer files
 - [service](/commands/service.md) : run a System V init script
+- [sleep](/commands/sleep.md) : delay for a specified amount of time
 - [systemctl](/commands/systemctl.md) : control systemd & service manager
 - [tar](/commands/tar.md) : pack & compress
 - [tee](/commands/tee.md) : write to standard output & files
