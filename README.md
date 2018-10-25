@@ -59,8 +59,8 @@ Others
 > Command Line Interface 命令行界面
 
 - [README](/commands/README.md) : temporary notes
-- bash - GNU Bourne-Again SHell
-    - [\$parameter](/commands/$parameter.md) : basic, expansion & substitution
+- bash : GNU Bourne-Again SHell
+    - [$parameter](/commands/$parameter.md) : basic, expansion & substitution
 - [bzip2](/commands/bzip2.md) : block-sorting file compressor
 - [cron](/commands/cron.md) : time-based job scheduler
 - [curl](/commands/curl.md) : transfer data from or to a server
@@ -83,6 +83,7 @@ Others
 - [tee](/commands/tee.md) : write to standard output & files
 - [tmux](/commands/tmux.md) : terminal multiplexer
 - [vim](/commands/vim.md) : terminal editor
+- [wc](/commands/wc.md) : print newline, word, and byte counts for each file
 - [wget](/commands/wget.md) : network downloader
 - [zsh](/commands/zsh.md) : one of shells
 
