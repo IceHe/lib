@@ -47,6 +47,7 @@ Other meanings
 
 ### A
 
+- a : all
 - abbr : abbreviation
 - ad : advertisement
 - addr : address
@@ -79,6 +80,7 @@ Other meanings
 - cmt : comment
 - cnt : count
 - conf : configuration
+- const : constant
 - conv : convert
 - cp : copy
 - cpp : c++
@@ -93,6 +95,7 @@ Other meanings
 
 ### D
 
+- d : day
 - DAG : Directed Acyclic Graph
 - dat : data
 - db : database
@@ -125,12 +128,13 @@ Other meanings
 - ex : exception
 - exe : executive
 - exec : execute
-- ext : extension
 - exp : experience
 - expr : expression
+- ext : extension
 
 ### F
 
+- f : file
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - FIFO : First In First Out
 - fmt : format
@@ -143,7 +147,7 @@ Other meanings
 
 - gen : generate
 - GFM : Github Flavored Markdown
-- GFW : great fire wall
+- GFW : Great Fire Wall
 - gid : group id
 - GMT : Greenwich Mean Time 格林威治时间
 
@@ -157,6 +161,7 @@ Other meanings
 
 ### I
 
+- i : index | me
 - ico : icon
 - idc : internet data center 数据中心
 - idx : index
@@ -183,28 +188,31 @@ Other meanings
 
 ### L
 
+- l , L : long
 - LAN : Local Area Network
 - lang : language
-- lb : load balancer
+- LB : load balancer
 - len : length
 - lf : left | line feed
 - LGTM : Looks Good To Me
 - lib : library
-- lnk : link
+- ln , lnk : link
 - loc : location
-- LOL : Laugh Out Loud
+- lol : Laugh Out Loud
 - ls : list
 - lyt : layout
 
 ### M
 
+- m : minute
+- M : month
 - MBR : Master Boot Record
 - mc : Memcached
 - md : markdown
 - mem : memory
 - millis : millisecond
 - mk : make
-- mq : message queue
+- MQ : message queue
 - msg : message
 - multi : multiple
 - mv : move
@@ -221,7 +229,7 @@ Other meanings
 
 - obj : object
 - oct : octal
-- Oct : October
+    - Oct : October
 - op : operation | option
 - ops : operations
 - opt : option
@@ -240,19 +248,21 @@ Other meanings
 - prev : previous
 - proc : process
 - ptr : pointer
-- ps : process status | Photo Shop
+- ps : process status | PhotoShop
 - P.S. : postscript 附言
 - pw , pwd : passowrd
 - py : python
 
 ### Q
 
+- q : question
 - qa : quality assurance
 - Q & A : Questions & Answers
 - qps : queries per second
 
 ### R
 
+- r : are
 - rb : ruby
 - rcv : received
 - rd : read
@@ -272,7 +282,7 @@ Other meanings
 - rst : result
 - rsp : response
 - rtd : root directory
-- RTF : Rich Text Format
+- rtf : Rich Text Format
 - rtn : return
 - rtt : round-trip time
 - rw : rewrite
@@ -286,11 +296,12 @@ Other meanings
 - sess : session
 - sh : shell
 - shf : shift
+- shr : share
 - sig : signal | signature
-- sim : simple | simplify
+- sim : simple , simplify
 - slb : server load balancing
 - snd : send
-- SoC, SOC : System on Chip
+- SoC , SOC : System on Chip
     - Chip or IC : Integrated Circuit (集成电路)
 - src : source
 - sso : Single Sign-On 单点登录
@@ -304,8 +315,9 @@ Other meanings
 
 ### T
 
-- ta : teaching assistant
-- tb : team building
+- t : temporary
+- TA : teaching assistant
+- TB : team building
 - TBD : To Be Determinated
 - tel : tell | telephone
 - temp : temporary
@@ -317,7 +329,8 @@ Other meanings
 
 ### U
 
-- ue : user experience design
+- u : you
+- UE : user experience design
 - ui : user interface | user interaction
 - uid : user id
 - UML : Unified Modeling Language 统一建模语言
@@ -325,6 +338,7 @@ Other meanings
 - usr : user
 - UTC : Coordinated Universal Time 协调世界时
     - English speakers originally proposed CUT (for "coordinated universal time"), while French speakers proposed TUC (for "temps universel coordonné"). The compromise that emerged was UTC.
+- UTS : Universal Time-sharing System
 - util : utility
 - uuid : Universally Unique Identifier 通用唯一标识符
 
@@ -350,8 +364,9 @@ Other meanings
 
 ### Y
 
+- y : year
 - yrs : years | yours
 
 ### Z
 
-- ZZZ : fall asleep
+- zzz : fall asleep
