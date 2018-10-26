@@ -86,9 +86,9 @@ Others
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
-- [tar](/cmd/tar.md) : pack & compress
-- [tee](/cmd/tee.md) : write to standard output & files
-- [tmux](/cmd/tmux.md) : terminal multiplexer
+- [tar](/cmd/t/tar.md) : pack & compress
+- [tee](/cmd/t/tee.md) : write to standard output & files
+- [tmux](/cmd/t/tmux.md) : terminal multiplexer
 - [vim](/cmd/vim.md) : terminal editor
 - [wc](/cmd/w/wc.md) : print newline, word, and byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
