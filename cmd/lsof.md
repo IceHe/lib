@@ -8,8 +8,8 @@ References
 
 ## Options
 
-- `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i .
-- `-t` Specifies that lsof should produce terse output with process identifiers only and no header
+- `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i.
+- `-t` Specifies that lsof should produce terse output with process identifiers only and no header.
     - e.g., so that the output may be piped to `kill`.
     - `-t` selects the -w option.
 - `+|-w` Enables (+) or disables (-) the suppression of warning messages.
@@ -37,17 +37,17 @@ ls -i [46][protocol][@hostname|hostaddr][:service|port]
 
 Here are some sample addresses:
 
-- `-i6` IPv6 only
-- `TCP:25` TCP and port 25
-- `@1.2.3.4` - Internet IPv4 host address 1.2.3.4
-- `@[3ffe:1ebc::1]:1234` - Internet IPv6 host address
+- `-i6` : IPv6 only
+- `TCP:25` : TCP and port 25
+- `@1.2.3.4` : Internet IPv4 host address 1.2.3.4
+- `@[3ffe:1ebc::1]:1234` : Internet IPv6 host address
     3ffe:1ebc::1, port 1234
 - `UDP:who` - UDP who service port
-- `TCP@lsof.itap:513` - TCP, port 513 and host name lsof.itap
-- `tcp@foo:1-10,smtp,99` - TCP, ports 1 through 10,
+- `TCP@lsof.itap:513` : TCP, port 513 and host name lsof.itap
+- `tcp@foo:1-10,smtp,99` : TCP, ports 1 through 10,
     service name smtp, port 99, host name foo
-- `tcp@bar:1-smtp` - TCP, ports 1 through smtp, host bar
-- `:time` - either TCP, UDP or UDPLITE time service port
+- `tcp@bar:1-smtp` : TCP, ports 1 through smtp, host bar
+- `:time` : Either TCP, UDP or UDPLITE time service port
 
 List all network connections
 
@@ -174,6 +174,7 @@ $ lsof -t -u icehe
 11179
 12805
 12806
+
 $ kill -9 `lsof -t -u icehe`
 ```
 
