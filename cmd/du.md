@@ -6,7 +6,7 @@ In Linux
 
 In BSD
 
-> display disk usage statistics
+> display **disk usage** statistics
 
 ## Optoins
 
