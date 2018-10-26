@@ -1,6 +1,6 @@
 # Commands
 
-- [README](/commands/README.md) : temporary notes
+- [README](/cmd/README.md) : temporary notes
 
 ## TODOs
 

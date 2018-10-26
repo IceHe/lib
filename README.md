@@ -67,32 +67,32 @@ Others
 > Command Line Interface 命令行界面
 
 - bash : GNU Bourne-Again SHell
-    - [$parameter](/commands/$parameter.md) : basic, expansion & substitution
-- [bzip2](/commands/bzip2.md) : block-sorting file compressor
-- [cron](/commands/cron.md) : time-based job scheduler
-- [curl](/commands/curl.md) : transfer data from or to a server
-- [date](/commands/date.md) : print or set the system date & time
-- [df](/commands/df.md) : report file system disk space usage
-- [du](/commands/du.md) : estimate file space usage
-- [expect](/commands/expect.md) : interact with programs
-- [kill](/commands/kill.md) : terminate or signal a process
-- [ls](/commands/ls.md) : list directory contents
-- [lsof](/commands/lsof.md) : list open files
-- [mkdir](/commands/lsof.md) : make directories
-- [nc](/commands/nc.md) : TCP / UDP connect & listen
-- [netstat](/commands/network-status.md) : show network status
-- [ps](/commands/ps.md) : process status
-- [rsync](/commands/rsync/README.md) : transfer files
-- [service](/commands/service.md) : run a System V init script
-- [sleep](/commands/sleep.md) : delay for a specified amount of time
-- [systemctl](/commands/systemctl.md) : control systemd & service manager
-- [tar](/commands/tar.md) : pack & compress
-- [tee](/commands/tee.md) : write to standard output & files
-- [tmux](/commands/tmux.md) : terminal multiplexer
-- [vim](/commands/vim.md) : terminal editor
-- [wc](/commands/wc.md) : print newline, word, and byte counts for each file
-- [wget](/commands/wget.md) : network downloader
-- [zsh](/commands/zsh.md) : one of shells
+    - [$parameter](/cmd/$parameter.md) : basic, expansion & substitution
+- [bzip2](/cmd/bzip2.md) : block-sorting file compressor
+- [cron](/cmd/cron.md) : time-based job scheduler
+- [curl](/cmd/curl.md) : transfer data from or to a server
+- [date](/cmd/date.md) : print or set the system date & time
+- [df](/cmd/df.md) : report file system disk space usage
+- [du](/cmd/du.md) : estimate file space usage
+- [expect](/cmd/expect.md) : interact with programs
+- [kill](/cmd/kill.md) : terminate or signal a process
+- [ls](/cmd/ls.md) : list directory contents
+- [lsof](/cmd/lsof.md) : list open files
+- [mkdir](/cmd/lsof.md) : make directories
+- [nc](/cmd/nc.md) : TCP / UDP connect & listen
+- [netstat](/cmd/network-status.md) : show network status
+- [ps](/cmd/ps.md) : process status
+- [rsync](/cmd/rsync/README.md) : transfer files
+- [service](/cmd/service.md) : run a System V init script
+- [sleep](/cmd/sleep.md) : delay for a specified amount of time
+- [systemctl](/cmd/systemctl.md) : control systemd & service manager
+- [tar](/cmd/tar.md) : pack & compress
+- [tee](/cmd/tee.md) : write to standard output & files
+- [tmux](/cmd/tmux.md) : terminal multiplexer
+- [vim](/cmd/vim.md) : terminal editor
+- [wc](/cmd/wc.md) : print newline, word, and byte counts for each file
+- [wget](/cmd/wget.md) : network downloader
+- [zsh](/cmd/zsh.md) : one of shells
 
 ### ASM
 
@@ -124,7 +124,7 @@ AppleScript
 
 Batch 批处理
 
-- [Batch 批处理指令](/scripts/batch/commands.md)
+- [Batch 批处理指令](/scripts/batch/cmd.md)
 - [Batch 批处理中的特殊符号](/scripts/batch/dos-special-symbol.md)
 - [DOS Common Commands](/scripts/batch/dos-common-commands.md)
 - [DOS Environment Variables](/scripts/batch/dos-environment-variable.md)
