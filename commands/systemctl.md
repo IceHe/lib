@@ -18,15 +18,14 @@ systemctl <start|stop|reload|restart|status> <parttern>
 
 More COMMAND details
 
-- reload : reload **configuration** of the units
-- try-restart : restart **if the units are running** ( do nothing if not running )
-- show : show **properties** of the units
-- kill : send a signal to one or more proecesses of the unit
+- `reload` : reload **configuration** of the units
+- `try-restart` : restart **if the units are running** ( do nothing if not running )
+- `show` : show **properties** of the units
+- `kill` : send a signal to one or more proecesses of the unit
 - ……
 
-e.g.
-
 ```bash
+# e.g.
 $ systemctl restart nginx
 $ systemctl status nginx
 ● nginx.service - The nginx HTTP and reverse proxy server
