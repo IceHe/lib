@@ -8,9 +8,9 @@ mkdir [-pv] [-m mode] directory_name ...
 
 ## Options
 
-- `-m <mode>` set the file permission bits of the final created directory to the specified mode.
-- `-p` create intermediate directories as required.
-- `-v` _verbose_
+- `-m <mode>` Set the file permission bits of the final created directory to the specified mode.
+- `-p` Create intermediate directories as required.
+- `-v` _Verbose output_
 
 ## Usage
 
