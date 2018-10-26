@@ -15,11 +15,8 @@ service <SCRIPT> <COMMAND> [OPTIONS]
 service <serv_name> <start|stop|restart|status>
 # seldom
 service <serv_name> <try-restart|reload|force-reload>
-```
 
-e.g.
-
-```bash
+# e.g.
 $ service nginx restart
 Redirecting to /bin/systemctl restart nginx.service
 
