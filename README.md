@@ -74,7 +74,7 @@ Others
 - [date](/cmd/d/date.md) : print or set the system date & time
 - [df](/cmd/d/df.md) : report file system disk space usage
 - [du](/cmd/d/du.md) : estimate file space usage
-- [expect](/cmd/expect.md) : interact with programs
+- [expect](/cmd/e/expect.md) : interact with programs
 - [kill](/cmd/kill.md) : terminate or signal a process
 - [ls](/cmd/l/ls.md) : list directory contents
 - [lsof](/cmd/l/lsof.md) : list open files
