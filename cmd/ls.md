@@ -4,7 +4,7 @@
 
 ## Options
 
-Common
+### Common
 
 - `-A` List all entries except for `.` and `..`
 - `-h` Use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte
@@ -12,14 +12,14 @@ Common
 - `-l` List in long format
     - If the output is to a terminal, a total sum for all the file sizes is output on a line before the long listing.
 
-Seldom
+### Useful
 
 - `-u` Use time of last access, instead of last modification of the file
 - `-U` Use time of file creation, instead of ……
-- `-R` Recursively list subdirectories encountered
 - `-r` Reverse the order of the sort to get reverse lexicographical order
     - or the oldest entries first
     - or largest files last, if combined with sort by size
+- `-R` Recursively list subdirectories encountered
 - `-S` Sort files by size
 - `-t` Sort by time modified (most recently modified first)
     - before sorting the operands by lexicographical order.
