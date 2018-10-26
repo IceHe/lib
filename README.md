@@ -76,8 +76,8 @@ Others
 - [du](/cmd/d/du.md) : estimate file space usage
 - [expect](/cmd/expect.md) : interact with programs
 - [kill](/cmd/kill.md) : terminate or signal a process
-- [ls](/cmd/ls.md) : list directory contents
-- [lsof](/cmd/lsof.md) : list open files
+- [ls](/cmd/l/ls.md) : list directory contents
+- [lsof](/cmd/l/lsof.md) : list open files
 - [mkdir](/cmd/lsof.md) : make directories
 - [nc](/cmd/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/network-status.md) : show network status
