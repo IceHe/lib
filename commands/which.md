@@ -16,6 +16,9 @@
 Print the first matching executable
 
 ```bash
+which <command_name>
+
+# e.g.
 $ which bash
 /bin/bash
 ```
