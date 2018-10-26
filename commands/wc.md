@@ -41,30 +41,30 @@ $ echo 123 | wc -m
 Lines & …
 
 ```bash
-$ wc FILE_1
+$ wc file_1
 # lines / words / bytes / filename
-34 112 893 FILE_1
+34 112 893 file_1
 
-$ wc -l FILE_1
-34 FILE_1
+$ wc -l file_1
+34 file_1
 
-$ wc -l FILE_1 FILE_2
-  34 FILE_1
-4800 FILE_2
+$ wc -l file_1 file_2
+  34 file_1
+4800 file_2
 4834 total
 
-$ wc -lm FILE_1 FILE_2
+$ wc -lm file_1 file_2
 # equals
-$ wc -ml FILE_1 FILE_2
+$ wc -ml file_1 file_2
 # lines / chars
-  34   893 FILE_1
-4800 52800 FILE_2
+  34   893 file_1
+4800 52800 file_2
 4834 53693 total
 ```
 
 Combination
 
 ```bash
-$ grep 101 FILE_3 | wc -l
+$ grep 101 file_3 | wc -l
 35
 ```
