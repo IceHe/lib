@@ -6,14 +6,14 @@ In Linux
 
 In BSD
 
-> display free disk space
+> **display free disk** space
 
 ## Options
 
-- `-a, --all` include dummy file systems
-- `-h, --human-readable` print sizes in human readable format (e.g., 1K 234M 2G)
-- `-H, --si` likewise, but use powers of 1000 not 1024
-- `-T, --print-type` print file system type
+- `-a, --all` Include dummy file systems
+- `-h, --human-readable` Print sizes in human readable format (e.g., 1K 234M 2G)
+- `-H, --si` Likewise, but use powers of 1000 not 1024
+- `-T, --print-type` Print file system type
 
 ## KiB & KB
 
@@ -62,7 +62,7 @@ References
 
 ## Usage
 
-Output in KB, GB, TB…
+Print in KB, GB, TB…
 
 ```bash
 $ df -h
@@ -74,7 +74,8 @@ map -hosts      0Bi   0Bi   0Bi   100%        0                   0  100%   /net
 map auto_home   0Bi   0Bi   0Bi   100%        0                   0  100%   /home
 /dev/disk2s4  454Gi 128Gi 326Gi    29%      355          4294966924    0%   /Volumes/IceHe_何志远
 ```
-Output in KiB, GiB, TiB…
+
+Print in KiB, GiB, TiB…
 
 ```bash
 $ df -H
@@ -85,6 +86,8 @@ devfs          352k   352k     0B   100%     1191                   0  100%   /d
 map -hosts       0B     0B     0B   100%        0                   0  100%   /net
 map auto_home    0B     0B     0B   100%        0                   0  100%   /home
 ```
+
+Print with Type
 
 ```bash
 $ df -hT
