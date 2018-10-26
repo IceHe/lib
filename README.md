@@ -89,7 +89,7 @@ Others
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
-- [vim](/cmd/vim.md) : terminal editor
+- [vim](/cmd/v/vim.md) : terminal editor
 - [wc](/cmd/w/wc.md) : print newline, word, and byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) : locate & show path
