@@ -81,7 +81,7 @@ Others
 - [mkdir](/cmd/lsof.md) : make directories
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
-- [ps](/cmd/ps.md) : process status
+- [ps](/cmd/p/ps.md) : process status
 - [rsync](/cmd/rsync/README.md) : transfer files
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
