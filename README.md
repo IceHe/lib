@@ -54,6 +54,14 @@ Others
 - [Concepts & Theory](/git/concepts-n-theory.md)
 - [Docs Digest](/git/docs-digest.md)
 
+### C++
+
+- [C++ Primer 5th](/cpp/primer-5th.md)
+- [C++ Interview Book](/cpp/interview-book.md)
+- [C++ Coding Standards](/cpp/code-standards.md)
+- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
+- Effective C++ : [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
+
 ### CLI
 
 > Command Line Interface 命令行界面
@@ -85,14 +93,6 @@ Others
 - [wc](/commands/wc.md) : print newline, word, and byte counts for each file
 - [wget](/commands/wget.md) : network downloader
 - [zsh](/commands/zsh.md) : one of shells
-
-### C++
-
-- [C++ Primer 5th](/cpp/primer-5th.md)
-- [C++ Interview Book](/cpp/interview-book.md)
-- [C++ Coding Standards](/cpp/code-standards.md)
-- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
-- Effective C++ : [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
 
 ### ASM
 
@@ -151,30 +151,13 @@ Others
 ### Marks
 
 - [CV](/marks/cv.md) ：Skills / Exp / Edu
+- [Favorites](/marks/favourites.md) : ACGMN
 - [Technology Bookmarks](/marks/tech.md)
 - [Reading Bookmarks](/marks/read.md)
-- [Favorites](/marks/favourites.md) : ACGMN
 
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
 <!--     - 华南理工 / 软件工程 / 本科 -->
-
-### Friends
-
-- [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
-- [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
-- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
-- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Back-end / Sina Weibo / Fool, lazy & poor
-    - Have no dream & self-abandoned
-
-## Archived
-
-### Blog
-
-- [Tech Blog](https://icehe.me) : icehe.me ( no update )
-- [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
-- [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
 
 ### Digest
 
@@ -197,6 +180,15 @@ Others
 - [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
     / [_digest_](/_archived/read/why-unhappy.md)
 
+### Friends
+
+- [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
+- [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
+- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
+- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
+- Me : Back-end / Sina Weibo / Fool, lazy & poor
+    - Have no dream & self-abandoned
+
 ### Past
 
 - [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
@@ -207,6 +199,14 @@ Others
 - [Bye 2015](/_archived/past/2015-bye.md)
 - [Moments](/_archived/past/moments.md) : 回忆
 - [Old Blog](/_archived/past/old-blog.md) : 旧博索引
+
+## Archived
+
+### Blog
+
+- [Tech Blog](https://icehe.me) : icehe.me ( no update )
+- [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
+- [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
 
 ~~Time Management~~ ( Nonsense )
 
