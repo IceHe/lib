@@ -90,8 +90,9 @@ Others
 - [tee](/cmd/tee.md) : write to standard output & files
 - [tmux](/cmd/tmux.md) : terminal multiplexer
 - [vim](/cmd/vim.md) : terminal editor
-- [wc](/cmd/wc.md) : print newline, word, and byte counts for each file
-- [wget](/cmd/wget.md) : network downloader
+- [wc](/cmd/w/wc.md) : print newline, word, and byte counts for each file
+- [wget](/cmd/w/wget.md) : network downloader
+- [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) : locate & show path
 - [zsh](/cmd/zsh.md) : one of shells
 
 ### ASM
