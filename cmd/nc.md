@@ -17,9 +17,10 @@ In BSD
 ## Options
 
 - `-4` Use **IPV4 only** : Forces nc to use IPv4 addresses only.
-- `-6` Use **IPV6 only**
+- `-6` Use **IPV6 only** : …
 - `-l, --listen` **Listen** for an incoming connection rather than initiate a connection to a remote host.
-- `-n, --nodns` **No DNS lookups** : Do not do any DNS or service lookups on any specified addresses, hostnames or ports.
+- `-n, --nodns` **No DNS lookups**
+    - Do not do any DNS or service lookups on any specified addresses, hostnames or ports.
 - `-c, --sh-exec <command>` Executes the given command via /bin/sh
 - `-e, --exec <command>` Executes the given command
 - `-u, --udp` Use UDP instead of default TCP
@@ -67,8 +68,6 @@ Connection to 10.4.5.6 port 88 [tcp/kerberos] succeeded!
 ```
 
 ### Chat with Terminal
-
-Example
 
 ```bash
 # One machine ( IP : 10.1.2.3 )
@@ -155,8 +154,10 @@ nc -4n <remote_host> <port> < <file_path>`
 Optional : Check **MD5** digest for security
 
 ```bash
+# on Linux
 md5sum <file_path>
-# Replace `md5sum` with `md5` on macOS
+# on BSD
+md5 <file_pahh>
 ```
 
 ## Transfer Directory
@@ -173,7 +174,6 @@ Assume
 
 ```bash
 tar czvf - <directory_path> | nc -l <port>
-
 # e.g.
 tar czvf - logs | nc -l 8888
 ```
@@ -184,21 +184,20 @@ tar czvf - logs | nc -l 8888
 
 ```bash
 nc -n <local_host> <port> | tar xzvf -
-
 # e.g.
 nc -n 10.1.2.3 8888 | tar xzvf -
 ```
 
 ### Better Zip
 
-- Packed by `tar` & Compressed by **`bzip2`**
-    - `*.tar.gz` is larger than `*.tbz2`
+Packed by `tar` & Compressed by **`bzip2`**
+
+- `*.tar.gz` is larger than `*.tbz2`
 
 Local
 
 ```bash
 tar cvf - <directory_path> | bzip2 -z | nc -l <port>
-
 # e.g.
 tar cvf - logs | bzip2 -z | nc -l 8888
 ```
