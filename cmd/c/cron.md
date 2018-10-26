@@ -56,7 +56,7 @@ MAILTO=root
 15 * * * * ./script_with_output.sh &>> output.log
 ```
 
-_Source file paths_
+Source file paths
 
 ```bash
 $ tree /var/spool/cron
