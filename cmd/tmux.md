@@ -4,7 +4,7 @@
 
 - Home : https://tmux.github.io/
 - Manual : http://man.openbsd.org/OpenBSD-current/man1/tmux.1
-- My config file :
+- My config files :
     - [.tmux.conf](https://github.com/IceHe/mac-conf/blob/master/.tmux.conf) on macOS
     - [.tmux.conf](https://github.com/IceHe/linux-conf/blob/master/.tmux.conf) on Linux
 - Related command : [screen](https://www.gnu.org/software/screen/manual/screen.html)
