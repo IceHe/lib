@@ -12,7 +12,7 @@ References
 Assgin
 
 ```bash
-param_name=param_value
+param_name=<param_value>
 
 # e.g.
 ab='apache benchmark'
@@ -35,7 +35,7 @@ apache benchmark
 Unset
 
 ```bash
-unset param_name
+unset <param_name>
 
 # e.g.
 $ unset ab
