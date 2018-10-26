@@ -4,30 +4,28 @@ On Linux
 
 > Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
 
-On BSD
-
-> show network status
-
 - Here is intro to use `netstat` on Linux
 - Notice : It is different between macOS (FreeBSD) & Linux !
 
-References
+On BSD
+
+> show **network status**
+
+Reference
 
 - [netstat 的 10 个基本用法](https://linux.cn/article-2434-1.html)
 
 ## Options
 
-Linux
-
 - `-a, --all` **All** sockets
-    - both listening and non-listening sockets
+    - Both listening and non-listening sockets
 - `-l, --listening` Only **listening** sockets
-- `-n, --numeric` Show **numerical addresses**
-    - instead of trying to determine symbolic host, port or user names
-- `-p, --program` Show **PID & name of program**
+- `-n, --numeric` **Numerical addresses**
+    - Instead of trying to determine symbolic host, port or user names
+- `-p, --program` **PID & name of program**
     - to which each socket belongs
-- `-t, --tcp` Only **TCP**
-- `-u, --udp` Only **UDP**
+- `-t, --tcp` **TCP** only
+- `-u, --udp` **UDP** only
 
 ## Usage
 
