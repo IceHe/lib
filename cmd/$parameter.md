@@ -39,55 +39,60 @@ unset <param_name>
 
 # e.g.
 $ unset ab
+# check
 $ echo ${ab:-NULL}
 NULL
 ```
 
 ## Shell Variables
 
-- `$HOME` : The home directory of the current user; the default argument for the cd builtin command.
-    - The value of this variable is also used when performing tilde expansion ( i.e. `~` ).
-- _`$HOSTNAME`_ : Automatically set to the name of the current host.
-- `$PATH` : The search path for commands.
-    - It is a colon-separated list of directories in which the shell looks for commands (see COMMAND EXECUTION below).
+- `$HOME` : Home directory of current user
+    - Default argument for the cd builtin command.
+    - Value of this variable is also used when performing tilde expansion ( i.e. `~` ).
+- `$HOSTNAME` : Automatically set to name of current host.
+- `$PATH` : The search path for commands
+    - It is a colon-separated list of directories in which the shell looks for commands.
     - The default path is system-dependent, and is set by the administrator who installs bash.
     - A common value is ``/usr/gnu/bin:/usr/local/bin:/usr/ucb:/bin:/usr/bin''.
-- `$OLDPWD` : The previous working directory as set by the cd command.
-- `$PWD` : The current working directory as set by the cd command.
+- `$OLDPWD` : Previous working directory as set by the cd command
+- `$PWD` : Current working directory as set by the cd command
 - **`$RANDOM`** : Each time this parameter is referenced, a random integer between 0 and 32767 is generated. ( 2^15 = 32768 )
     - The sequence of random numbers may be initialized by assigning a value to RANDOM.
     - If RANDOM is unset, it loses its special properties, even if it is subsequently reset.
-- **`$UID`** : Expands to the user ID of the current user, initialized at shell startup. It's readonly.
+- **`$UID`** : Expands to the user ID of the current user, initialized at shell startup.
+    - It's readonly.
 - `IFS` : The **Internal Field Separator** that is used for word splitting after expansion and to split lines into words with the read builtin command.
     - The default value is `<space><tab><newline>`.
 
 ## Special Params
 
-The shell treats several parameters specially. These parameters may only be referenced; assignment to them is not allowed.
+The shell treats several parameters specially.
 
-- **`$*`** : Expands to the **positional parameters**, starting from one.
+These parameters may only be referenced; assignment to them is not allowed.
+
+- **`$*`** : **Positional parameters**, starting from one
     - When the expansion occurs within double quotes, it expands to a single word with the value of each parameter separated by the first character of the IFS special variable.
     - That is, "\$*" is equivalent to "\$1c\$2c...", where c is the first character of the value of the IFS variable.
     - If IFS is unset, the parameters are separated by spaces.
     - If IFS is null, the parameters are joined without intervening separators.
-- **`$@`** : Expands to the **positional parameters**, starting from one.
+- **`$@`** : **Positional parameters**, starting from one
     - When the expansion occurs within double quotes, each parameter expands to a separate word.
     - That is, "\$@" is equivalent to "$1" "$2" ...
     - If the double-quoted expansion occurs within a word, the expansion of the first parameter is joined with the beginning part of the original word, and the expansion of the last parameter is joined with the last part of the original word.
     - When there are no positional parameters, "\$@" and \$@ expand to nothing (i.e., they are removed).
-- **`$#`** : Expands to the **number of positional parameters** in decimal.
-- **`$?`** : Expands to the **exit status of the most recently executed foreground pipeline**.
-- `$-` : Expands to the current option flags as specified upon invocation, by the set builtin command, or those set by the shell itself (such as the -i option).
-- `$$` : Expands to the **process ID of the shell**.
+- **`$#`** : **Number of positional parameters** in decimal
+- **`$?`** : **Exit status of the most recently executed foreground pipeline**
+- `$-` : Expands to **current option flags** as specified upon invocation, by the set builtin command, or those set by the shell itself (such as the -i option).
+- `$$` : **Process ID of the shell**
     - In a () subshell, it expands to the process ID of the current shell, not the subshell.
-- `$!` : Expands to the **process ID of the most recently executed background (asynchronous) command**.
-- **`$0`** : Expands to **the name of the shell or shell script**.
+- `$!` : **Process ID of the most recently executed background (asynchronous) command**.
+- **`$0`** : **Name of the shell or shell script**.
     - This is set at shell initialization.
     - If bash is invoked with a file of commands, $0 is set to the name of that file.
     - If bash is started with the -c option, then $0 is set to the first argument after the string to be executed, if one is present.
     - Otherwise, it is set to the file name used to invoke bash, as given by argument zero.
-- `$_` : At shell startup, set to **the absolute pathname used to invoke the shell** or shell script being executed as passed in the environment or argument list.
-    - Subsequently, expands to the **last argument to the previous command**, after expansion.
+- `$_` : At shell startup, set to the **Absolute Pathname used to invoke the shell** or shell script being executed as passed in the environment or argument list.
+    - Subsequently, expands to the **Last Argument to Previous Command**, after expansion.
     - Also set to the full pathname used to invoke each command executed and placed in the environment exported to that command.
 
 Demo Script : t.sh
@@ -111,11 +116,12 @@ for param in $*; do echo \$*[]=$param; done
 for param in $@; do echo \$@[]=$param; done
 ```
 
-Test
+Run Script
 
 ```bash
-# e.g.
 $ bash t.sh a b c
+
+# output
 $_=/bin/bash
 $*=a b c
 $@=a b c
@@ -143,7 +149,8 @@ $@[]=c
 
 The value of parameter is substituted.
 
-- The braces are required when parameter is a positional parameter with more than one digit, or when parameter is followed by a character which is not to be interpreted as part of its name.
+- The braces are required when parameter is a positional parameter with more than one digit,
+    - or when parameter is followed by a character which is not to be interpreted as part of its name.
 
 ```bash
 $param
@@ -167,7 +174,7 @@ Use Default Values.
 - Otherwise, the value of parameter is substituted.
 
 ```bash
-# e.g.
+$ unset param
 $ echo ${param:-NULL}
 NULL
 
@@ -184,7 +191,8 @@ $ echo ${param:-NULL}
 
 Use Alternate Value.
 
-- If parameter is null or unset, nothing is substituted, otherwise the expansion of word is substituted.
+- If parameter is null or unset, nothing is substituted.
+- Otherwise, the expansion of word is substituted.
 
 ```bash
 $ unset param
@@ -204,7 +212,6 @@ Assign Default Values.
 - Positional parameters and special parameters may not be assigned to in this way.
 
 ```bash
-# e.g.
 $ unset param
 $ echo ${param:=default}
 default
@@ -214,11 +221,11 @@ default
 
 Display Error if Null or Unset.
 
-- If parameter is null or unset, the expansion of word (or a message to that effect if word is not present) is written to the standard error and the shell, if it is not interactive, exits.
+- If parameter is null or unset, the expansion of word (or a message to that effect if word is not present) is written to the standard error and the shell.
+- If it is not interactive, exits.
 - Otherwise, the value of parameter is substituted.
 
 ```bash
-# e.g.
 $ unset param
 $ echo ${param:?error}
 -bash: param: error
@@ -235,16 +242,16 @@ Substring Expansion.
 - Length and Offset can be arithmetic expressions.
 - If offset evaluates to a number **less than zero**, the value is used as an offset **from the end of the value of parameter**.
 - If length evaluates to a number less than zero, and parameter is not @ and not an indexed or associative array, it is interpreted as an offset from the end of the value of parameter rather than a number of characters, and the expansion is the characters between the two offsets.
-- If parameter is @, the result is length positional parameters beginning at offset.
-- If parameter is an indexed array name subscripted by @ or *, the result is the length members of the array beginning with ${parameter[offset]}.
+- _If parameter is @, the result is length positional parameters beginning at offset._
+- _If parameter is an indexed array name subscripted by @ or *, the result is the length members of the array beginning with ${parameter[offset]}._
 - A negative offset is taken relative to one greater than the maximum index of the specified array.
 - Substring expansion applied to an associative array produces undefined results.
-- Note that a negative offset must be separated from the colon by at least one space to avoid being confused with the :- expansion.
+- **Note that a negative offset must be separated from the colon by at least one space to avoid being confused with the :- expansion.**
 - Substring indexing is zero-based unless the positional parameters are used, in which case the indexing starts at 1 by default.
 - If offset is 0, and the positional parameters are used, $0 is prefixed to the list.
 
 ```bash
-# e.g.
+# string
 $ param=12345
 
 $ echo ${param:1}
@@ -264,6 +271,7 @@ $ echo "${param:0:-3}"
 $ echo "${param:1:-3}"
 2
 
+# array
 $ ary=(`seq 5 9`)
 
 $ echo ${!ary[*]}
@@ -286,10 +294,9 @@ $ echo ${ary[*]: -3:2}
 Names matching prefix.
 
 - Expands to the names of variables whose names begin with prefix, separated by the first character of the IFS special variable.
-- When @ is used and the expansion appears within double quotes, each variable name expands to a separate word.
+- _When @ is used and the expansion appears within double quotes, each variable name expands to a separate word._
 
 ```bash
-# e.g.
 $ a1=
 $ a2=
 $ a3=
@@ -310,7 +317,6 @@ List of array keys.
 - When @ is used and the expansion appears within double quotes, each key expands to a separate word.
 
 ```bash
-# e.g.
 $ a[1]=4
 $ a[2]=5
 $ a[3]=6
@@ -323,7 +329,7 @@ $ echo ${a[*]}
 4 5 6
 ```
 
-### ${#parameter}
+### $\{#parameter\}
 
 **Parameter length**.
 
@@ -332,7 +338,6 @@ $ echo ${a[*]}
 - If parameter is an array name subscripted by * or @, the value substituted is the number of elements in the array.
 
 ```bash
-# e.g.
 $ param=12345
 $ echo ${#a[*]}
 5
@@ -355,29 +360,32 @@ Remove matching prefix pattern.
 
 - The word is expanded to produce a pattern just as in pathname expansion.
 - If the pattern matches the beginning of the value of parameter, then the result of the expansion is the expanded value of parameter with the shortest matching pattern (the # case) or the longest matching pattern (the ## case) deleted.
-- If parameter is @ or *, the pattern removal operation is applied to each positional parameter in turn, and the expansion is the resultant list.
-- If parameter is an array variable subscripted with @ or *, the pattern removal operation is applied to each member of the array in turn, and the expansion is the resultant list.
+- _If parameter is @ or *, the pattern removal operation is applied to each positional parameter in turn, and the expansion is the resultant list._
+- _If parameter is an array variable subscripted with @ or *, the pattern removal operation is applied to each member of the array in turn, and the expansion is the resultant list._
 
 ```bash
-# e.g.
+# string
 $ str=abcde
 $ echo ${str#a}
 bcde
 $ echo ${str#abc}
 de
 
+# array
 $ ary=(1 2 3 4 5)
 $ echo ${ary[*]#[1-3]}
 4 5
 $ echo ${ary[*]#[135]}
 2 4
 
+# string wildcard
 $ abc2=abcabc
 $ echo ${abc2#*b}
 cabc
 $ echo ${abc2##*b}
 c
 
+# file suffix wildcard
 $ path=/usr/home/icehe/bash/t.ba.sh
 $ echo ${path#/*/}
 home/icehe/bash/t.ba.sh
@@ -397,24 +405,25 @@ Remove matching suffix pattern.
 
 - The word is expanded to produce a pattern just as in pathname expansion.
 - If the pattern matches a trailing portion of the expanded value of parameter, then the result of the expansion is the expanded value of parameter with the shortest matching pattern (the % case) or the longest matching pattern (the %% case) deleted.
-- If parameter is @ or *, the pattern removal operation is applied to each positional parameter in turn, and the expansion is the resultant list.
-- If parameter is an array variable subscripted with @ or *, the pattern removal operation is applied to each member of the array in turn, and the expansion is the resultant list.
+- _If parameter is @ or *, the pattern removal operation is applied to each positional parameter in turn, and the expansion is the resultant list._
+- _If parameter is an array variable subscripted with @ or *, the pattern removal operation is applied to each member of the array in turn, and the expansion is the resultant list._
 
 ```bash
-# e.g.
+# #
 $ str=abcde
 $ echo ${str#e}
 abcd
 $ echo ${str#de}
 abc
 
+# %
 $ ary=(a0 b1 c2 d3 e4)
 $ echo ${ary[*]%[13]}
 4 5
 $ echo ${ary[*]%[0-3]}
 a b c d e4
 
-
+# %…*
 $ abc2=abcabc
 $ echo ${abc2%b*}
 abca
@@ -424,9 +433,11 @@ a
 
 ### $\{parameter/pattern/string\}
 
-### $\{parameter//pattern/string\}
+**Pattern substitution.**
 
-Pattern substitution. `//` means replacing all matches.
+- **The `//` below means replacing all matches.**
+
+### $\{parameter//pattern/string\}
 
 - The pattern is expanded to produce a pattern just as in pathname expansion.
 - Parameter is expanded and the longest match of pattern against its value is replaced with string.
@@ -435,17 +446,18 @@ Pattern substitution. `//` means replacing all matches.
 - If pattern begins with #, it must match at the beginning of the expanded value of parameter.
 - If pattern begins with %, it must match at the end of the expanded value of parameter.
 - If string is null, matches of pattern are deleted and the / following pattern may be omitted.
-- If parameter is @ or *, the substitution operation is applied to each positional parameter in turn, and the expansion is the resultant list.
-- If parameter is an array variable subscripted with @ or *, the substitution operation is applied to each member of the array in turn, and the expansion is the resultant list.
+- _If parameter is @ or *, the substitution operation is applied to each positional parameter in turn, and the expansion is the resultant list._
+- _If parameter is an array variable subscripted with @ or *, the substitution operation is applied to each member of the array in turn, and the expansion is the resultant list._
 
 ```bash
-# e.g.
+# /
 $ str=abcde
 $ echo ${str/c/x}
 abxde
 $ echo ${str/bc/ }
 a de
 
+# //
 $ abc2=abcabc
 $ echo ${abc2//bc/x}
 axax
@@ -470,14 +482,12 @@ Case modification.
 - The ^ operator converts lowercase letters matching pattern to uppercase; the , operator converts matching uppercase letters to lowercase.
 - The ^^ and ,, expansions convert each matched character in the expanded value; the ^ and , expansions match and convert only the first character in the expanded value.
 - If pattern is omitted, it is treated like a ?, which matches every character.
-- If parameter is @ or *, the case modification operation is applied to each positional parameter in turn, and the expansion is the resultant list.
-- If parameter is an array variable subscripted with @ or *, the case modification operation is applied to each member of the array in turn, and the expansion is the resultant list.
+- _If parameter is @ or *, the case modification operation is applied to each positional parameter in turn, and the expansion is the resultant list._
+- _If parameter is an array variable subscripted with @ or *, the case modification operation is applied to each member of the array in turn, and the expansion is the resultant list._
 
 ```bash
-# e.g.
+# ^
 $ str=abcde
-$ STR=ABCDE
-
 $ echo ${str^}
 Abcde
 $ echo ${str^^}
@@ -489,6 +499,8 @@ AbCdE
 echo ${str^^[c-e]}
 abCDE
 
+# ,
+$ STR=ABCDE
 $ echo ${STR,}
 aBCDE
 $ echo ${STR,,}
