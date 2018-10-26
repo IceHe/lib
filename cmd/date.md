@@ -4,7 +4,7 @@
 
 ## Options
 
-- `-d, --date=<STRING>` Display time described by STRING, not 'now'
+- `-d, --date=<STRING>` Display time described by STRING, not 'now'.
 - `-f, --file=<DATE_FILE>` Like `--date` once for each line of DATEFILE
 - `-R, --rfc-2822` Output date and time in RFC 2822 format.
     - e.g.: Tue, 16 Oct 2018 16:35:45 +0800
@@ -13,7 +13,9 @@
 
 ## Format
 
-FORMAT controls the output.  Interpreted sequences are:
+FORMAT controls the output.
+
+See below for interpreted sequences.
 
 ### Common
 
@@ -124,7 +126,7 @@ Mon Dec 31 12:34:56 CST 2018
 $ date -d "1 day ago"
 Mon Oct 15 20:28:39 CST 2018
 
-# e.g.
+# others
 $ date -s 20120523
 $ date -s 01:01:01
 $ date -s "01:01:01 2012-05-23"
@@ -157,6 +159,7 @@ Make directory named after date & time
 
 ```bash
 $ mkdir `date +%Y%m%d_%H%M%S`
+# check
 $ ls
 20181016_173418
 ```
@@ -182,6 +185,7 @@ Environment **TZ** : Specifies the timezone, unless overridden by command line p
 
 ```bash
 $ TZ='Asia/Shanghai'; export TZ
+# check
 $ echo $TZ
 Asia/Shanghai
 ```
@@ -231,7 +235,7 @@ Damascus    Krasnoyarsk   Samarkand
 Dhaka       Kuala_Lumpur  Seoul
 ```
 
-### Check
+### Local
 
 ```bash
 $ timedatectl
