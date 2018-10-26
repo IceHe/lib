@@ -38,9 +38,9 @@ Kill process
 kill <pid>
 ## aka.
 kill -15 <pid>
-## aka. in BSD
+## aka. on BSD
 kill -s TERM <pid>
-## aka. in Linux
+## aka. on Linux
 kill -s SIGTERM <pid>
 ```
 
@@ -50,9 +50,9 @@ Force to kill process
 
 ```bash
 kill -9 <pid>
-## aka. in BSD
+## aka. on BSD
 kill -s KILL <pid>
-## aka. in Linux
+## aka. on Linux
 kill -s SIGKILL <pid>
 ```
 
@@ -60,9 +60,9 @@ Kill process & then restart it
 
 ```bash
 kill -1 <pid>
-# aka in BSD
+# aka on BSD
 kill -s HUP <pid>
-# or in Linux
+# or on Linux
 kill -s SIGHUP <pid>
 ```
 
