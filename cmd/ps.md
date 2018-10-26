@@ -1,10 +1,10 @@
 # ps
 
-In Linux
+On Linux
 
 > report a snapshot of the current processes
 
-In BSD
+On BSD
 
 > process status
 

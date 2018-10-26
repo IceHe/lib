@@ -1,10 +1,10 @@
 # netstat
 
-In Linux
+On Linux
 
 > Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
 
-In BSD
+On BSD
 
 > show network status
 

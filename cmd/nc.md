@@ -1,6 +1,6 @@
 # nc
 
-In Linux
+On Linux
 
 > **ncat** - Concatenate and redirect sockets
 >
@@ -8,7 +8,7 @@ In Linux
 
 - https://nmap.org/ncat/
 
-In BSD
+On BSD
 
 > **netcat** - arbitrary TCP and UDP connections and listens
 

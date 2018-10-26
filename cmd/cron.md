@@ -1,10 +1,10 @@
 # Cron
 
-In Linux
+On Linux
 
 > crond - daemon to execute scheduled commands
 
-In BSD
+On BSD
 
 > A time-based job scheduler in Unix-like computer operating systems.
 

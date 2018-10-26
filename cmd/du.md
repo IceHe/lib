@@ -1,10 +1,10 @@
 # du
 
-In Linux
+On Linux
 
 > estimate file space usage
 
-In BSD
+On BSD
 
 > display **disk usage** statistics
 
