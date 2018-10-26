@@ -2,6 +2,8 @@
 
 > terminate or signal a process
 
+Reference
+
 - [Differences between `kill <pid>` & `kill -9 <pid>`](https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process)
 
 ## Options
@@ -34,12 +36,12 @@ Kill process
 
 ```bash
 kill <pid>
-# aka (in BSD)
-kill -s TERM <pid>
-# or (in Linux)
-kill -s SIGTERM <pid>
-# aka
+## aka.
 kill -15 <pid>
+## aka. in BSD
+kill -s TERM <pid>
+## aka. in Linux
+kill -s SIGTERM <pid>
 ```
 
 Force to kill process
@@ -48,9 +50,9 @@ Force to kill process
 
 ```bash
 kill -9 <pid>
-# aka (in BSD)
+## aka. in BSD
 kill -s KILL <pid>
-# or (in Linux)
+## aka. in Linux
 kill -s SIGKILL <pid>
 ```
 
@@ -58,9 +60,9 @@ Kill process & then restart it
 
 ```bash
 kill -1 <pid>
-# aka (in BSD)
+# aka in BSD
 kill -s HUP <pid>
-# or (in Linux)
+# or in Linux
 kill -s SIGHUP <pid>
 ```
 
@@ -115,5 +117,5 @@ killall -w <process_name>
 
 ## Others
 
-- `pgrep` find processes by name
-- `pkill` signal processes by name
+- `pgrep` Find processes by name
+- `pkill` Signal processes by name
