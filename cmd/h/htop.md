@@ -82,3 +82,90 @@
 ## Commands
 
 Interactive Commands
+
+```bash
+The following commands are supported while in htop:
+
+Arrows, PgUP, PgDn, Home, End
+    Scroll the process list.
+
+Space
+    Tag or untag a process. Commands that can operate on multiple processes, like "kill", will  then  apply  over  the
+    list of tagged processes, instead of the currently highlighted one.
+
+U    Untag all processes (remove all tags added with the Space key).
+
+s    Trace  process system calls: if strace(1) is installed, pressing this key will attach it to the currently selected
+    process, presenting a live update of system calls issued by the process.
+
+l    Display open files for a process: if lsof(1) is installed, pressing  this  key  will  display  the  list  of  file
+    descriptors opened by the process.
+
+F1, h, ?
+    Go to the help screen
+
+F2, S
+    Go to the setup screen, where you can configure the meters displayed at the top of the screen, set various display
+    options, choose among color schemes, and select which columns are displayed, in which order.
+
+F3, /
+    Incrementally search the command lines of all the displayed processes. The currently selected  (highlighted)  com‐
+    mand will update as you type. While in search mode, pressing F3 will cycle through matching occurrences.
+
+F4, \
+    Incremental process filtering: type in part of a process command line and only processes whose names match will be
+    shown. To cancel filtering, enter the Filter option again and press Esc.
+
+F5, t
+    Tree view: organize processes by parenthood, and layout the relations between them as a  tree.  Toggling  the  key
+    will switch between tree and your previously selected sort view. Selecting a sort view will exit tree view.
+
+F6   On  sorted view, select a field for sorting, also accessible through < and >.  The current sort field is indicated
+    by a highlight in the header.  On tree view, expand or collapse the current subtree. A "+" indicator in  the  tree
+    node indicates that it is collapsed.
+
+F7, ]
+    Increase the selected process's priority (subtract from 'nice' value).  This can only be done by the superuser.
+
+F8, [
+    Decrease the selected process's priority (add to 'nice' value)
+
+F9, k
+    "Kill"  process:  sends  a  signal  which is selected in a menu, to one or a group of processes. If processes were
+    tagged, sends the signal to all tagged processes.  If none is tagged, sends to the currently selected process.
+
+F10, q
+    Quit
+
+I    Invert the sort order: if sort order is increasing, switch to decreasing, and vice-versa.
+
++, - When in tree view mode, expand or collapse subtree. When a subtree is collapsed a "+" sign shows to  the  left  of
+    the process name.
+
+a (on multiprocessor machines)
+    Set CPU affinity: mark which CPUs a process is allowed to use.
+
+u    Show only processes owned by a specified user.
+
+M    Sort by memory usage (top compatibility key).
+
+P    Sort by processor usage (top compatibility key).
+
+T    Sort by time (top compatibility key).
+
+F    "Follow"  process: if the sort order causes the currently selected process to move in the list, make the selection
+    bar follow it. This is useful for monitoring a process: this way, you can keep a process always visible on screen.
+    When a movement key is used, "follow" loses effect.
+
+K    Hide kernel threads: prevent the threads belonging the kernel to be displayed in the process list. (This is a tog‐
+    gle key.)
+
+H    Hide user threads: on systems that represent them differently than ordinary processes (such as  recent  NPTL-based
+    systems), this can hide threads from userspace processes in the process list. (This is a toggle key.)
+
+Ctrl-L
+    Refresh: redraw screen and recalculate values.
+
+Numbers
+    PID search: type in process ID and the selection highlight will be moved to it.
+```
