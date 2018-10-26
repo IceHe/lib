@@ -92,7 +92,7 @@ Others
 - [vim](/cmd/v/vim.md) : terminal editor
 - [wc](/cmd/w/wc.md) : print newline, word, and byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
-- [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) : locate & show path
+- [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
 - [zsh](/cmd/zsh.md) : one of shells
 
 ### ASM
