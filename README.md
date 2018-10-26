@@ -78,7 +78,7 @@ Others
 - [kill](/cmd/kill.md) : terminate or signal a process
 - [ls](/cmd/l/ls.md) : list directory contents
 - [lsof](/cmd/l/lsof.md) : list open files
-- [mkdir](/cmd/lsof.md) : make directories
+- [mkdir](/cmd/m/mkdir.md) : make directories
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
 - [ps](/cmd/p/ps.md) : process status
