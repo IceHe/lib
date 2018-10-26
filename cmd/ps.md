@@ -6,7 +6,7 @@ On Linux
 
 On BSD
 
-> process status
+> **process status**
 
 ## Options
 
@@ -18,11 +18,15 @@ On BSD
 
 ### Style
 
-- BSD-style options `v`
-- Unix-style options `-v`
-- GNU-style options `--version`
+Option Styles
 
-Reference : https://unix.stackexchange.com/questions/78691/unix-bsd-gnu-options-in-linuxs-ps-command-where-are-they-from
+- BSD-style `v`
+- Unix-style `-v`
+- GNU-style `--version`
+
+Reference
+
+- https://unix.stackexchange.com/questions/78691/unix-bsd-gnu-options-in-linuxs-ps-command-where-are-they-from
 
 ## Usage
 
