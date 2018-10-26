@@ -16,7 +16,7 @@
 ### Compress
 
 ```bash
-bzip2 -z filename
+bzip2 -z <filename>
 
 # e.g.
 $ bzip2 -z index.html
@@ -28,9 +28,9 @@ index.html.bz2
 - Files which were not created by bzip2 will be detected and ignored, and a warning issued.
 
 ```bash
-bzip2 -d filename.bz2
+bzip2 -d <filename>.bz2
 # or
-bunzip2 filename.bz2
+bunzip2 <filename>.bz2
 
 # e.g.
 $ bzip2 -d index.html.bz2
