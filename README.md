@@ -83,9 +83,9 @@ Others
 - [netstat](/cmd/network-status.md) : show network status
 - [ps](/cmd/ps.md) : process status
 - [rsync](/cmd/rsync/README.md) : transfer files
-- [service](/cmd/service.md) : run a System V init script
-- [sleep](/cmd/sleep.md) : delay for a specified amount of time
-- [systemctl](/cmd/systemctl.md) : control systemd & service manager
+- [service](/cmd/s/service.md) : run a System V init script
+- [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
+- [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
 - [tar](/cmd/tar.md) : pack & compress
 - [tee](/cmd/tee.md) : write to standard output & files
 - [tmux](/cmd/tmux.md) : terminal multiplexer
