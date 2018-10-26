@@ -71,9 +71,9 @@ Others
 - [bzip2](/cmd/bzip2.md) : block-sorting file compressor
 - [cron](/cmd/cron.md) : time-based job scheduler
 - [curl](/cmd/curl.md) : transfer data from or to a server
-- [date](/cmd/date.md) : print or set the system date & time
-- [df](/cmd/df.md) : report file system disk space usage
-- [du](/cmd/du.md) : estimate file space usage
+- [date](/cmd/d/date.md) : print or set the system date & time
+- [df](/cmd/d/df.md) : report file system disk space usage
+- [du](/cmd/d/du.md) : estimate file space usage
 - [expect](/cmd/expect.md) : interact with programs
 - [kill](/cmd/kill.md) : terminate or signal a process
 - [ls](/cmd/ls.md) : list directory contents
