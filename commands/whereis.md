@@ -14,7 +14,7 @@
 Locate commands
 
 ```bash
-whereis <COMMAND_NAME>...
+whereis <command_name>...
 
 # e.g.
 $ whereis java bash
