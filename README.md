@@ -68,7 +68,7 @@ Others
 
 - bash : GNU Bourne-Again SHell
     - [$parameter](/cmd/$parameter.md) : basic, expansion & substitution
-- [bzip2](/cmd/bzip2.md) : block-sorting file compressor
+- [bzip2](/cmd/b/bzip2.md) : block-sorting file compressor
 - [cron](/cmd/c/cron.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [date](/cmd/d/date.md) : print or set the system date & time
