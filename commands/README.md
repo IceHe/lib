@@ -5,18 +5,8 @@
 ## TODOs
 
 - [awk-sed-grep_tmp](awk-sed-grep_tmp.md)
-- [bash](bash.md)
-- cut
-- [dstat](dstat.md)
-    - https://linux.cn/article-3215-1.html
-- iftop 流量带宽
-- **man**
-- top / **htop**
-- sort FILE | uniq > FILE_UNIQ 去重
 
 https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
-
-<!-- - awk / sed / grep / xargs -->
 
 ## Archived
 
@@ -246,13 +236,6 @@ done
 
 > The Art of Command Line : 命令行的艺术
 
-### String
-
-- cat
-- head
-- less
-- tail
-
 ### Process
 
 - ack
@@ -286,7 +269,6 @@ done
 
 ### Dir & File
 
-- cd
 - chmod
 
 chmod ugo+rwxa file    user group other read write executable all
@@ -295,21 +277,9 @@ chmod ugo+rwxa file    user group other read write executable all
 
 chown 用户名:用户分组
 
-- du
-
-du -sh
-
 - ln
 
 ln -s
-
-- mkdir
-
-mkdir -p
-
-- rm
-
-rm -rf
 
 ### Jobs
 
