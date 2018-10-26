@@ -70,7 +70,7 @@ PID TTY STAT  TIME COMMAND
 
 ### Others
 
-> See `man ps` in Linux
+> See `man ps` on Linux
 
 Print using standard syntax
 
