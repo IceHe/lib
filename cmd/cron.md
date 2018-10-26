@@ -20,6 +20,7 @@ Related Command
 Assume
 
 - on Linux ( CentOS 7 )
+    - Cron doesn't work on macOS & etc.
 
 ## Usage
 
@@ -39,16 +40,6 @@ crontab -e
 
 ### User
 
-File paths
-
-```bash
-$ tree /var/spool/cron
-/var/spool/cron
-├── root
-├── sysmon
-└── icehe
-```
-
 Content sample
 
 ```bash
@@ -63,6 +54,16 @@ MAILTO=root
 # Schedules
 * * * * * ./script_to_execute.sh
 15 * * * * ./script_with_output.sh &>> output.log
+```
+
+_Source file paths_
+
+```bash
+$ tree /var/spool/cron
+/var/spool/cron
+├── root
+├── sysmon
+└── icehe
 ```
 
 ### System
@@ -125,7 +126,7 @@ Log files
 
 /var/log/cron
 
-- content sample
+- Log content sample
 
 ```bash
 Sep  7 15:19:14 box029 crontab[17831]: (root) BEGIN EDIT (icehe)
