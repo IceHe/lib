@@ -8,23 +8,23 @@
 sleep NUMBER[SUFFIX]...
 ```
 
-NUMBER
+### NUMBER
 
 - Pause for NUMBER seconds (default).
 - NUMBER may be
     - an **integer**
     - an arbitrary **floating point** number
 
-SUFFIX
+Given two or more arguments!
+
+- Pause for the amount of time specified by the sum of their values.
+
+### SUFFIX
 
 - `s` for seconds (the default)
 - `m` for minutes
 - `h` for hours
 - `d` for days.
-
-Given two or more arguments
-
-- pause for the amount of time specified by the sum of their values.
 
 ## Usage
 
