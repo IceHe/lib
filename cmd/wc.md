@@ -4,7 +4,7 @@
 
 In short
 
-> word count
+> **word count**
 
 Synopsis
 
@@ -21,22 +21,6 @@ wc [OPTION]... [FILE]...
 - `-w, --words` print word counts
 
 ## Usage
-
-Bytes & Chars
-
-```bash
-$ echo 何冰 | wc -c
-7
-
-$ echo 何冰 | wc -m
-3
-
-$ echo 123 | wc -c
-4
-
-$ echo 123 | wc -m
-4
-```
 
 Lines & …
 
@@ -67,4 +51,20 @@ Combination
 ```bash
 $ grep 101 file_3 | wc -l
 35
+```
+
+Bytes & Chars
+
+```bash
+$ echo 何冰 | wc -c
+7
+
+$ echo 何冰 | wc -m
+3
+
+$ echo 123 | wc -c
+4
+
+$ echo 123 | wc -m
+4
 ```
