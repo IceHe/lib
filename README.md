@@ -79,8 +79,8 @@ Others
 - [ls](/cmd/l/ls.md) : list directory contents
 - [lsof](/cmd/l/lsof.md) : list open files
 - [mkdir](/cmd/lsof.md) : make directories
-- [nc](/cmd/nc.md) : TCP / UDP connect & listen
-- [netstat](/cmd/network-status.md) : show network status
+- [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
+- [netstat](/cmd/n/network-status.md) : show network status
 - [ps](/cmd/ps.md) : process status
 - [rsync](/cmd/rsync/README.md) : transfer files
 - [service](/cmd/s/service.md) : run a System V init script
