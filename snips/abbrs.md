@@ -271,6 +271,7 @@ Other meanings
 - rn : rename
 - rst : result
 - rsp : response
+- rtd : root directory
 - RTF : Rich Text Format
 - rtn : return
 - rtt : round-trip time
