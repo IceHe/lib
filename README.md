@@ -62,9 +62,9 @@ Others
 - [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
 - Effective C++ : [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
 
-### CLI
+### CMD
 
-> Command Line Interface 命令行界面
+> Commands & CLI ( Command Line Interface )
 
 - bash : GNU Bourne-Again SHell
     - [$parameter](/cmd/$parameter.md) : basic, expansion & substitution
