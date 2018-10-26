@@ -31,7 +31,7 @@ $ which -a bash
 /usr/bin/bash
 ```
 
-On BSD OS, builtin `where` == `which -a`
+On BSD, builtin `where` == `which -a`
 
 ```bash
 $ where php
