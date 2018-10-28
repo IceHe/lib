@@ -1,32 +1,6 @@
-# Diary
-
-> 真是无聊的人生呢。还是试着努力一下吧。
-
-感想 2018-10-27
-
-- 连正常人的生活都过不好了，真的脱轨了！
-
-方法先简单粗暴一点，从简到繁杂，重新搭建
+# Daily
 
 - 2Do：记录该做的事情（用简单粗暴的工具，记录该做的事情）
-
-## 2018 Target
-
-Study
-
-- 1\. Get started with Java
-    - **Java Basic《技术详解》卷 1 : 10 pages/day**
-    - Spring
-- 2\. Summarize commands @ Lib
-    - **1 command/day**
-
-Work
-
-- **Finish each task on time!**
-
-Life
-
-- **Sleep Early @ 23:00**
 
 ## Exp
 
@@ -60,23 +34,3 @@ Life
 Sleep Early @ 23:00
 
 - 不要熬夜做事，把习惯改成早起去做
-
-## SMART 法则
-
-https://en.wikipedia.org/wiki/SMART_criteria
-
-- Specific : 目标明确
-    - ~~成为勤奋学习的人~~
-    - 今天读书
-- Measurable : 可度量
-    - ~~今天读书~~
-    - 今天读 10 页 Java Basic
-- Achievable : 可实现
-    - ~~今天读 100 页 Java Basic~~
-    - 今天读 10 页 Java Basic
-- Relevant : 做的事要与目标相关（有意义）
-    - ~~今天读 10 页经济学导论~~
-    - 今天读 10 页 Java Basic
-- Time-based : 限定时间
-    - ~~读 10 页 Java Basic~~
-    - 今天读 10 页 Java Basic
