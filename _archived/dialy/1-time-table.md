@@ -1,4 +1,4 @@
-# Timetable
+# Time Table
 
 ## Much Sleep
 
