@@ -9,7 +9,7 @@ Life
 Study
 
 - 1\. Get started with Java
-    - **Java Basic《技术详解》卷 1 : 10 pages/day**
+    - **"Core Java : Fundermantals" : 10 pages/day**
     - Spring
 - 2\. Summarize commands @ Lib
     - **1 command/day**
