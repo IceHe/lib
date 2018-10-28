@@ -2,18 +2,25 @@
 
 ## 2018
 
-Life
+Life : Better Health
 
 - **Sleep Early @ 23:00**
 
-Study
+Study : Get started with Java
 
-- 1\. Get started with Java
-    - **"Core Java : Fundermantals" : 10 pages/day**
-    - Spring
-- 2\. Summarize commands @ Lib
-    - **1 command/day**
+1. **Read 10 pages/day** : "Core Java : Fundermantals"
+2. **Summarize 1 command/day** @ Lib
 
-Work
+Work :
 
-- **Finish each task on time!**
+- Finish each task on time!
+
+### _Alternative_
+
+Study : Get started with Java
+
+- Read "Spring Action"
+
+Life : Better Health
+
+- Breakfast @ Sina
