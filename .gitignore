@@ -27,3 +27,6 @@ _tmp/
 # _
 _*
 */_*
+
+!_archived/
+!_archived/_*
