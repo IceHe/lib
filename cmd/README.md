@@ -531,3 +531,9 @@ else
     echo 'Invalid Input!'
 fi
 ```
+
+## zgrep
+
+```bash
+zgrep 'content' file.gz
+```
