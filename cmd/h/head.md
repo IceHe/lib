@@ -12,8 +12,10 @@ head [OPTION]... [FILE]...
 
 ### Amount
 
-- `-n, --lines=[-]K` Print the first K lines instead of the first 10; with the leading '-', print all but the last K  lines  of  each file
-- `-c, --bytes=[-]K` Print the first K bytes of each file; with the leading '-', print all but the last K bytes of each file
+- `-n, --lines=[-]K` Print the first K lines instead of the first 10;
+    - with the leading '-', print all but the last K lines of each file
+- `-c, --bytes=[-]K` Print the first K bytes of each file;
+    - with the leading '-', print all but the last K bytes of each file
 
 K may have a multiplier suffix:
 
@@ -33,7 +35,9 @@ K may have a multiplier suffix:
 
 ## Usage
 
-Print 10 lines ( Default )
+### Default
+
+Print 10 lines
 
 ```bash
 $ head LICENSE
@@ -49,6 +53,8 @@ $ head LICENSE
   The GNU General Public License is a free, copyleft license for
 ```
 
+### Positive
+
 Print 1st line
 
 ```bash
@@ -56,10 +62,10 @@ $ head -1 README.md
 <!DOCTYPE html>
 ```
 
-Print top 20 lines
+Print top 12 lines
 
 ```bash
-$ head -20 index.html
+$ head -12 index.html
 <!DOCTYPE html>
 
 <!-- Entry to docsify : https://docsify.js.org -->
@@ -71,16 +77,22 @@ $ head -20 index.html
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Weibo Video Platform Docs">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-  <!-- Favicon : https://en.wikipedia.org/wiki/Favicon -->
-  <!-- <link rel="shortcut icon" type="image/x-icon" href="_docsify/weibo-favicon.ico" /> -->
-  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icehe.xyz/_docsify/h-favicon.ico" />
-
-  <!-- Font Awesome : https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css -->
-  <!-- <link rel="stylesheet" href="https://cdn.icehe.xyz/_docsify/resources/__use.fontawesome.com_releases_v5.1.0_css_all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
+  <meta name="description" content="IceHe's Library">
 ```
+
+### All But Last
+
+Print print all but the last 36 lines
+
+```bash
+$ head -n -36 for.sh
+#!/bin/bash
+
+function do_pressure_test {
+    echo seq \$1=$1
+```
+
+### Verbose
 
 Print first line of files **verbosely**
 
