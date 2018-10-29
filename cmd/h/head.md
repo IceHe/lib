@@ -13,9 +13,9 @@ head [OPTION]... [FILE]...
 ### Amount
 
 - `-n, --lines=[-]K` Print the first K lines instead of the first 10;
-    - with the leading '-', print all but the last K lines of each file
+    - with the leading '-' ( e.g. `-n -5K` ), print all but the last K lines of each file
 - `-c, --bytes=[-]K` Print the first K bytes of each file;
-    - with the leading '-', print all but the last K bytes of each file
+    - with the leading '-' ( e.g. `-n -7K` ), print all but the last K bytes of each file
 
 K may have a multiplier suffix:
 
