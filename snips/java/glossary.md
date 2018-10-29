@@ -43,9 +43,6 @@ ref : https://stackoverflow.com/questions/5871053/java-war-vs-jar-what-is-the-di
 ## Java Data Acces
 
 - JPA : Java Persistence API
-- ORM : Object Relational Mapping
-- DAO : Data Access Object
-    - ref : https://en.wikipedia.org/wiki/Data_access_object
 - JDO : Java Data Objects
     - a specification of Java object persistence.
 
