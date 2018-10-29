@@ -9,6 +9,7 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](/_docsify/README.md) )
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
+- [Concepts](/snips/concepts.md)
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
 - [Java](/snips/java/README.md)
@@ -50,19 +51,11 @@ Others
 
 ### Git
 
-- [Common Commands](/git/README.md)
+- [Commands](/git/README.md)
 - [Concepts & Theory](/git/concepts-n-theory.md)
 - [Docs Digest](/git/docs-digest.md)
 
-### C++
-
-- [C++ Primer 5th](/cpp/primer-5th.md)
-- [C++ Interview Book](/cpp/interview-book.md)
-- [C++ Coding Standards](/cpp/code-standards.md)
-- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
-- Effective C++ : [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
-
-### CMD
+### Cmd
 
 > Commands & CLI ( Command Line Interface )
 
@@ -94,6 +87,14 @@ Others
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
 - [zsh](/cmd/zsh.md) : one of shells
+
+### C++
+
+- [C++ Primer 5th](/cpp/primer-5th.md)
+- [C++ Interview Book](/cpp/interview-book.md)
+- [C++ Coding Standards](/cpp/code-standards.md)
+- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
+- Effective C++ : [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
 
 ### ASM
 
@@ -138,7 +139,7 @@ Others
 
 ### Repos
 
-[GitHub](https://github.com/IceHe) / [GitLab](https://gitlab.com/users/IceHe/projects)
+[GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
 
 - [lib](https://github.com/IceHe/lib) : library | wiki ( this website )
 - [blog](https://github.com/IceHe/blog) : prev tech blog ( archived )
@@ -181,15 +182,6 @@ Others
 - [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
     / [_digest_](/_archived/read/why-unhappy.md)
 
-### Friends
-
-- [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
-- [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
-- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
-- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Back-end / Sina Weibo / Fool, lazy & poor
-    - Have no dream & self-abandoned
-
 ### Past
 
 - [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
@@ -201,6 +193,15 @@ Others
 - [Moments](/_archived/past/moments.md) : 回忆
 - [Old Blog](/_archived/past/old-blog.md) : 旧博索引
 
+### Friends
+
+- [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
+- [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
+- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
+- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
+- Me : Back-end / Sina Weibo / Fool, lazy & poor
+    - Have no dream & self-abandoned
+
 ## Archived
 
 ### Blog
@@ -208,6 +209,8 @@ Others
 - [Tech Blog](https://icehe.me) : icehe.me ( no update )
 - [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
 - [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
+
+### Others
 
 ~~Time Management~~ ( Nonsense )
 
