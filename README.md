@@ -68,6 +68,7 @@ Others
 - [df](/cmd/d/df.md) : report file system disk space usage
 - [du](/cmd/d/du.md) : estimate file space usage
 - [expect](/cmd/e/expect.md) : interact with programs
+- [head](/cmd/h/head.md) : output the first part of files
 - [kill](/cmd/kill.md) : terminate or signal a process
 - [ls](/cmd/l/ls.md) : list directory contents
 - [lsof](/cmd/l/lsof.md) : list open files
@@ -79,6 +80,7 @@ Others
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
+- [tail](/cmd/t/tail.md) : output the last part of files
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
