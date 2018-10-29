@@ -255,7 +255,7 @@ Other meanings
 
 ### Q
 
-- q : question
+- q : question | quiet ( for CLI )
 - qa : quality assurance
 - Q & A : Questions & Answers
 - qps : queries per second
