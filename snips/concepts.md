@@ -12,3 +12,6 @@ Processor affinity
 - ACID
 - CAP
 - Concurrent & Parallel
+- ORM : Object Relational Mapping
+- DAO : Data Access Object
+    - Ref : https://en.wikipedia.org/wiki/Data_access_object
