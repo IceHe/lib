@@ -53,12 +53,12 @@ $ head LICENSE
   The GNU General Public License is a free, copyleft license for
 ```
 
-### Positive
+### Common
 
 Print 1st line
 
 ```bash
-$ head -1 README.md
+$ head -1 index.html
 <!DOCTYPE html>
 ```
 
