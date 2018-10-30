@@ -315,9 +315,6 @@ rsync -goDp
 - top
 - htop
 
-- uptime
-- uname
-- whoami
 - z
 
 ### lock
