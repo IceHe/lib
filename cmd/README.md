@@ -1,6 +1,7 @@
 # Commands
 
-- [README](/cmd/README.md) : temporary notes
+- dig
+- nslookup
 
 ## TODOs
 
