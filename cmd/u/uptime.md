@@ -1,6 +1,12 @@
 # uptime
 
+Linux
+
 > Tell how long the system has been running.
+
+BSD
+
+> show how long system has been running
 
 ## Options
 
