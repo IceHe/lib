@@ -67,6 +67,7 @@ Others
 - [date](/cmd/d/date.md) : print or set the system date & time
 - [df](/cmd/d/df.md) : report file system disk space usage
 - [du](/cmd/d/du.md) : estimate file space usage
+- [env](/cmd/e/env.md) : run a program in a modified environment
 - [expect](/cmd/e/expect.md) : interact with programs
 - [head](/cmd/h/head.md) : output the first part of files
 - [kill](/cmd/kill.md) : terminate or signal a process
