@@ -87,6 +87,7 @@ Others
 - [uname](/cmd/u/uname.md) : print system information
 - [uptime](/cmd/u/uptime.md) : show how long system has been running
 - [vim](/cmd/v/vim.md) : terminal editor
+- [w](/cmd/w/w.md) : show who is logged on & what they are doing
 - [wc](/cmd/w/wc.md) : print newline, word, and byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
