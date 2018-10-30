@@ -43,11 +43,26 @@ import java.util.Arrays;
 List<Integer> intList = Arrays.asList(1, 2, 3);
 ```
 
+Empty List
+
+```java
+Collections.emptyList();
+```
+
 Set
 
 ```java
 import com.google.common.collect.Sets;
 Set<Integer> intSet = Sets.newHashSet(1, 2, 3);
+```
+
+## conditional
+
+Collection
+
+```bash
+CollectionUtils.isEmpty(collection)
+CollectionUtils.isNotEmpty(collection)
 ```
 
 ## stream
