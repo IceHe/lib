@@ -26,7 +26,7 @@
 
 ### Default
 
-Sample : content of txt1 file
+Sample 1 : txt1 file
 
 ```bash
 $ cat txt1
@@ -59,7 +59,7 @@ $ uniq -c txt1
 
 ### Ignore Case
 
-Sample : content of txt2 file
+Sample 2 : txt2 file
 
 ```bash
 $ cat txt2
@@ -89,6 +89,37 @@ $ uniq -i txt2
 Test 30
 Hello 95
 ```
+
+### Repeated
+
+Sample 3 : txt3 file
+
+```bash
+$ cat txt3
+test 30
+Hello 95
+Hello 95
+Linux 85
+Linux 85
+Linux 85
+```
+
+```bash
+$ uniq -d txt3
+Hello 95
+Linux 85
+```
+
+### Unique
+
+```bash
+$ uniq -u txt3
+test 30
+```
+
+### Skip Chars
+
+### Check Chars
 
 ### Notice!
 
