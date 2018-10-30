@@ -2,6 +2,7 @@
 
 - dig
 - nslookup
+- ifconfig
 
 ## TODOs
 
@@ -247,7 +248,6 @@ done
     - paste
 - sed
 - sort
-- tar
 - uniq
 - xargs
 
@@ -255,7 +255,6 @@ done
 
 - comm
 - diff
-- wc
 - grep
     - grep -v
     - egrep
@@ -266,7 +265,6 @@ done
 
 - ifconfig
 - ping
-- wget
 
 ### Dir & File
 
@@ -310,12 +308,8 @@ rsync -goDp
 - source
 - strace
 - ltrace
-
 - screen
-
 - top
-- htop
-
 - z
 
 ### lock
@@ -490,7 +484,6 @@ Options
 
 Related commands
 
-- htop
 - dstat
 - iostat ?
 
