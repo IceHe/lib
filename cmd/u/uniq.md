@@ -1,3 +1,97 @@
 # uniq
 
-TODO
+> report or omit repeated lines
+
+## Options
+
+### Common
+
+- `-c, --count` Prefix lines by the number of occurrences
+- `-i, --ignore-case` Ignore differences in case when comparing
+
+### Maybe
+
+- `-d, --repeated` Only print duplicate lines, one for each group
+- `-s, --skip-chars=N` Avoid comparing the first N characters
+- `-u, --unique` Only print unique lines
+- `-w, --check-chars=N` Compare no more than N characters in lines
+
+### Seldom
+
+- `-D, --all-repeated[=METHOD]` Print all duplicate lines groups can be delimited with an empty line METHOD={none(default),prepend,separate}
+- `-f, --skip-fields=N` avoid comparing the first N fields
+- `--group[=METHOD]` Show all items, separating groups with an empty line METHOD={separate(default),prepend,append,both}
+
+## Usage
+
+### Default
+
+Sample : content of txt1 file
+
+```bash
+$ cat txt1
+test 30
+test 30
+test 30
+Hello 95
+Hello 95
+Hello 95
+Hello 95
+Linux 85
+Linux 85
+```
+
+```bash
+$ uniq txt1
+test 30
+Hello 95
+Linux 85
+```
+
+### Count
+
+```bash
+$ uniq -c txt1
+      3 test 30
+      4 Hello 95
+      2 Linux 85
+```
+
+### Ignore Case
+
+Sample : content of txt2 file
+
+```bash
+$ cat txt2
+Test 30
+test 30
+test 30
+Hello 95
+Hello 95
+hello 95
+hello 95
+```
+
+Default
+
+```bash
+$ uniq txt2
+Test 30
+test 30
+Hello 95
+hello 95
+```
+
+Ignore Case
+
+```bash
+$ uniq -i txt2
+Test 30
+Hello 95
+```
+
+### Notice!
+
+```bash
+sort | uniq
+```
