@@ -36,6 +36,8 @@ Float floatVar = Float.parseFloat("1.2");
 
 ## new
 
+### List
+
 List
 
 ```java
@@ -49,12 +51,22 @@ Empty List
 Collections.emptyList();
 ```
 
+### Set
+
 Set
 
 ```java
 import com.google.common.collect.Sets;
 Set<Integer> intSet = Sets.newHashSet(1, 2, 3);
 ```
+
+Immutable Set
+
+```java
+import com.google.common.collect.ImmutableSet;
+public static final Set<String> CONSTANTS = ImmutableSet.of(AAA, SSS);
+```
+
 
 ## conditional
 
