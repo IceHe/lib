@@ -67,7 +67,6 @@ import com.google.common.collect.ImmutableSet;
 public static final Set<String> CONSTANTS = ImmutableSet.of(AAA, SSS);
 ```
 
-
 ## conditional
 
 Collection
