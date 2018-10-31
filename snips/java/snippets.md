@@ -71,9 +71,19 @@ public static final Set<String> CONSTANTS = ImmutableSet.of(AAA, SSS);
 
 Collection
 
-```bash
+```java
 CollectionUtils.isEmpty(collection)
 CollectionUtils.isNotEmpty(collection)
+```
+
+## split
+
+List Partion
+
+- https://stackoverflow.com/questions/2895342/java-how-can-i-split-an-arraylist-in-multiple-small-arraylists
+
+```java
+List<List<String>> listPartions = Lists.partition(list, 50);
 ```
 
 ## stream
