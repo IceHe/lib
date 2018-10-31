@@ -247,9 +247,10 @@ Other meanings
 - preg : PECL regular expression
 - prev : previous
 - proc : process
-- ptr : pointer
+- prog : program
 - ps : process status | PhotoShop
 - P.S. : postscript 附言
+- ptr : pointer
 - pw , pwd : passowrd
 - py : python
 
