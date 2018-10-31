@@ -119,10 +119,57 @@ test 30
 
 ### Skip Chars
 
-### Check Chars
-
-### Notice!
+Sample 4 : txt4 file
 
 ```bash
-sort | uniq
+$ cat txt4
+Apple
+Apple
+Application
+Application
+Station
+Station
+Section
+Section
+```
+
+```bash
+$ uniq -w3 txt4
+Apple
+Station
+Section
+```
+
+### Check Chars
+
+```bash
+$ uniq -s4 txt4
+Apple
+Application
+Station
+```
+
+### Sort & Uniq
+
+Sample 5 : txt5 file
+
+```bash
+$ cat txt5
+Apple
+Application
+Application
+Apple
+```
+
+```bash
+$ uniq txt5
+Apple
+Application
+Apple
+```
+
+```bash
+$ sort txt5 | uniq
+Apple
+Application
 ```
