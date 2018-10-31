@@ -52,14 +52,14 @@ bar
 
 ```bash
 $ cat -n txt1 txt2
-     1	haha
+     1  haha
      2
      3
-     4	hehe
-     5	foo
+     4  hehe
+     5  foo
      6
      7
-     8	bar
+     8  bar
 ```
 
 ### Suppress
@@ -78,12 +78,12 @@ bar
 
 ```bash
 $ cat -bs txt1 txt2
-     1	haha
+     1  haha
 
-     2	hehe
-     3	foo
+     2  hehe
+     3  foo
 
-     4	bar
+     4  bar
 ```
 
 ### Others
