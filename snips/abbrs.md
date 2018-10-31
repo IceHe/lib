@@ -223,6 +223,8 @@ Other meanings
 - NaN : Not a Number
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
 - No. : number
+- NUL : null '\0' in string
+    - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
 
 ### O
