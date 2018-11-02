@@ -19,5 +19,5 @@ Package Manager
 
 Command Line Tools
 
-- jconsole : VM Statistics
+- jconsole : VM Performance Statistics
 - jmap : Stack & Heap
