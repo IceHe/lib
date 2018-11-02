@@ -38,6 +38,13 @@ Object-Relational Mapping ( Here is not _Object-Role Modeling_. )
 - Object-relational mapping (ORM, O/RM, and O/R mapping tool) in computer science is a programming technique for converting data between incompatible type systems using object-oriented programming languages.
 - Wikipedia : https://en.wikipedia.org/wiki/Object-relational_mapping
 
+## Lint
+
+From **Core Java Volume I-Fundermentals**
+
+> - 术语 lint 最初用来描述一种定位 C 程序中潜在问题的工具
+> - 现在通常用于描述查找可疑但不违背语法规则的代码问题的工具
+
 ## Processor affinity
 
 - Processor affinity, or CPU pinning, enables the binding and unbinding of a process or a thread to a central processing unit (CPU) or a range of CPUs, so that the process or thread will execute only on the designated CPU or CPUs rather than any CPU.
