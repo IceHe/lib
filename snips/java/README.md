@@ -16,3 +16,8 @@ Framework
 Package Manager
 
 - [Maven](/snips/java/maven.md)
+
+Command Line Tools
+
+- jconsole : VM Statistics
+- jmap : Stack & Heap
