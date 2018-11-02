@@ -81,6 +81,7 @@ Other meanings
 - cnt : count
 - conf : configuration
 - const : constant
+- constr : constructor
 - conv : convert
 - cp : copy
 - cpp : c++
