@@ -103,7 +103,7 @@ filter blank string
 ```java
 List<String> list0 = Arrays.asList("a", "", "b");
 List<String> list1 = list0.stream()
-        .filter(Objects::isNull)
+        .filter(Objects::isnull)
         .filter(Objects::nonNull) // or
         .filter(StringUtils::isNotBlank) // or
         .collect(Collectors.toList());
