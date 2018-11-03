@@ -6,6 +6,11 @@
 - In the context of databases, a sequence of database operations that satisfies the ACID properties (and these can be perceived as a single logical operation on the data) is called a transaction.
 - Wikipedia : https://en.wikipedia.org/wiki/ACID_(computer_science)
 
+## BASE
+
+- Eventually-consistent services are often classified as providing BASE (Basically Available, Soft state, Eventual consistency) semantics, in contrast to traditional ACID (Atomicity, Consistency, Isolation, Durability) guarantees.
+- Ref : https://en.wikipedia.org/wiki/Eventual_consistency
+
 ## CAP
 
 CAP theorem
@@ -67,9 +72,3 @@ process & thread
 
 - process
 - thread
-
-BASE
-
-> Eventually-consistent services are often classified as providing BASE (Basically Available, Soft state, Eventual consistency) semantics, in contrast to traditional ACID (Atomicity, Consistency, Isolation, Durability) guarantees.
-
-- Ref : https://en.wikipedia.org/wiki/Eventual_consistency
