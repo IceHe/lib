@@ -17,6 +17,9 @@ CAP theorem
 - In particular, the CAP theorem **implies that in the presence of a network partition, one has to choose between consistency and availability**.
 - Note that consistency as defined in the CAP theorem is quite different from the consistency guaranteed in ACID database transactions.
 - Wikipedia : https://en.wikipedia.org/wiki/CAP_theorem
+- 知乎 : https://www.zhihu.com/question/54105974/answer/139037688
+- CAP迷思：关于分区容忍性 : http://zzyongx.github.io/blogs/cap-confusion-problems-with-partition-tolerance.html
+- ~~百度百科~~ : https://baike.baidu.com/item/CAP%E5%8E%9F%E5%88%99/5712863?fr=aladdin ( 关于 A 和 P 说得好像有点问题 )
 
 ## Concurrency & Parallelism
 
@@ -60,4 +63,13 @@ From **Core Java Volume I-Fundermentals**
 
 ## _TODO_
 
-- process & thread
+process & thread
+
+- process
+- thread
+
+BASE
+
+> Eventually-consistent services are often classified as providing BASE (Basically Available, Soft state, Eventual consistency) semantics, in contrast to traditional ACID (Atomicity, Consistency, Isolation, Durability) guarantees.
+
+- Ref : https://en.wikipedia.org/wiki/Eventual_consistency
