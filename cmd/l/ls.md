@@ -141,7 +141,7 @@ ls -Ahlrtu
 ls -AhlrtU
 ```
 
-### Aliases
+## Aliases
 
 Confis file : https://github.com/IceHe/mac-conf/blob/master/.config/zsh/ls.zsh
 
@@ -167,3 +167,42 @@ alias lt='ls -Ahlrt'
 alias ltu='ls -Ahlrtu'
 alias ltU='ls -AhlrtU'
 ```
+
+## Output Columns
+
+Description of Output Columns
+
+- 1 : permission ( access rights )
+- 2 : count of hard links to the file/dir
+- 3 : owner user ( UID | username )
+- 4 : owner group ( GID | group name )
+- 5 : size
+- 6 : mtime / atime / ctime
+- 7 : name
+
+Ref : https://askubuntu.com/questions/19510/what-does-the-second-column-in-the-output-of-ls-n-mean/19513#19513
+
+## File Timestamps
+
+> Notice: There's **no file creation timestamp** kept in most filesystems
+
+Ref :
+
+### atime
+
+Last Access Time
+
+- a for access
+
+### mtime
+
+Last Modification Time
+
+- m for modify
+
+### ctime
+
+Last Changed Time
+
+- c for change
+
