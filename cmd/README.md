@@ -247,8 +247,6 @@ done
     - join
     - paste
 - sed
-- sort
-- uniq
 - xargs
 
 #### filter
