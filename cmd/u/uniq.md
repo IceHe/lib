@@ -26,7 +26,7 @@
 
 ### Default
 
-Sample 1 : txt1 file
+Sample
 
 ```bash
 $ cat txt1
@@ -59,7 +59,7 @@ $ uniq -c txt1
 
 ### Ignore Case
 
-Sample 2 : txt2 file
+Sample
 
 ```bash
 $ cat txt2
@@ -92,7 +92,7 @@ Hello 95
 
 ### Repeated
 
-Sample 3 : txt3 file
+Sample
 
 ```bash
 $ cat txt3
@@ -119,7 +119,7 @@ test 30
 
 ### Skip Chars
 
-Sample 4 : txt4 file
+Sample
 
 ```bash
 $ cat txt4
@@ -151,7 +151,7 @@ Station
 
 ### Sort & Uniq
 
-Sample 5 : txt5 file
+Sample
 
 ```bash
 $ cat txt5
