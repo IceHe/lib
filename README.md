@@ -88,6 +88,7 @@ Others
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
+- [touch](/cmd/t/touch.md) : change file access & modification times
 - [uname](/cmd/u/uname.md) : print system information
 - [uniq](/cmd/u/uniq.md) : report or omit repeated lines
 - [uptime](/cmd/u/uptime.md) : show how long system has been running
