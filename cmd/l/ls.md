@@ -18,16 +18,39 @@ Reference
 
 ### Format
 
+Description
+
 - `-h, --human-readable` With `-l`, print sizes in human readable format (e.g., 1K 234M 2G)
     - Use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of digits to three or less using base 2 for sizes.
-- `--si` Likewise, but use powers of 1000 not 1024
 - `-l` List in long format
     - If the output is to a terminal, a total sum for all the file sizes is output on a line before the long listing.
-- `-L, --dereference` When showing file information for a symbolic link, show information for the file the link references rather than for the link itself.
-- `-m` Fill width with a comma separated list of entries
+
+Indicators
+
+- `--indicator-style=WORD` Append indicator with style WORD to entry names :
+    - none ( default )
+    - slash ( same as `-p` )
+    - file-type  ( same as `--file-type` )
+    - classify ( same as `-F` )
+- `-F, --classify` Append indicator ( one of `*/=>@|` ) to entries
+    - Indicators :
+        - `*` executable
+        - `/` directory
+        - `@` symbolic link ( or that the file has extended attributes )
+        - `|` named pipe
+        - `=` socket
+        - `>` door
+- `--file-type` Likewise, except do not append `*`
+- `-p, --indicator-style=slash` Append `/` indicator to directories
+
+Seldom
+
+- `-k, --kibibytes` Default to 1024-byte blocks for disk usage
+- `--si` Likewise, but use powers of 1000 not 1024
 - `-1` List one file per line
 - `-x` List entries by lines instead of by columns
-- `-k, --kibibytes` Default to 1024-byte blocks for disk usage
+- `-m` Fill width with a comma separated list of entries
+- `-L, --dereference` When showing file information for a symbolic link, show information for the file the link references rather than for the link itself.
 - `--quoting-style=WORD` Use quoting style WORD for entry names :
     - literal ''
     - locale ‘’ ( ZH )
@@ -121,18 +144,33 @@ drwxr-xr-x+   5 icehe  staff   160B Oct 16  2015 Public
 -rw-r--r--    1 icehe  staff    70B Aug  5 14:44 README.md
 ```
 
-#### Grep
+#### Indicators
 
-List with `grep`
+Default
 
 ```bash
-ls | grep
-ls -A | grep
-ls -hl | grep
-ls -Ahl | grep
+$ ls
+bin   data0  dev  home  lib64       media  nonexistent  proc  run   srv  tmp  var
+boot  data1  etc  lib   lost+found  mnt    opt          root  sbin  sys  usr
 ```
 
-#### Hide
+Append `/` indicator to directories
+
+```bash
+$ ls -p
+bin    data0/  dev/  home/  lib64        media/  nonexistent/  proc/  run/  srv/  tmp/  var/
+boot/  data1/  etc/  lib    lost+found/  mnt/    opt/          root/  sbin  sys/  usr/
+```
+
+Append indicator ( one of `*/=>@|` ) to entries
+
+```bash
+$ ls -F
+bin@   data0/  dev/  home/  lib64@       media/  nonexistent/  proc/  run/   srv/  tmp/  var/
+boot/  data1/  etc/  lib@   lost+found/  mnt/    opt/          root/  sbin@  sys/  usr/
+```
+
+#### Hide / Ignore
 
 Sample
 
@@ -152,11 +190,16 @@ lrwxrwxrwx    1 root   root        9 Jul 11 19:37 lib64 -> usr/lib64
 
 Hide some files
 
+- `--hide`
+- `-I, --ignore`
+
 ```bash
 ls --hide=<shell_pattern>
 
 # e.g.
 $ ls -l --hide=b* | head
+# or
+$ ls -l --ignore=b* | head
 total 204
 drwxr-xr-x    9 root   root     4096 Jul 19 03:45 data0
 drwxr-xr-x    5 root   root     4096 Sep 21 17:51 data1
@@ -169,6 +212,8 @@ drwx------.   2 root   root    16384 Apr 25  2018 lost+found
 drwxr-xr-x.   2 root   root     4096 Apr 11  2018 media
 
 $ ls -l --hide=[bdl]* | head
+# or
+$ ls -l --ignore=[bdl]* | head
 total 180
 drwxr-xr-x. 148 root   root    12288 Oct 25 19:02 etc
 drwxr-xr-x.   2 root   root     4096 Apr 11  2018 home
