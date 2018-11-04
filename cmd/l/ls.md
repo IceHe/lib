@@ -40,7 +40,7 @@ Reference
 
 > Default File Timestamp : **Last Modification Time**
 
-- `-S` Sort by file/dir size, largest first
+- `-S` Sort by file size, largest first
 - `-t` Sort by time, newest first
     - File Timestamps
         - Default : mtime
@@ -150,7 +150,7 @@ lrwxrwxrwx    1 root   root        7 Jul 11 19:37 lib -> usr/lib
 lrwxrwxrwx    1 root   root        9 Jul 11 19:37 lib64 -> usr/lib64
 ```
 
-Hide some files/dirs
+Hide some files
 
 ```bash
 ls --hide=<shell_pattern>
@@ -220,7 +220,7 @@ dr-xr-xr-x.   2 root   root    20480 Sep 13 16:28 sbin
 
 #### Size
 
-File/Directory Size ( largest first )
+File Size ( largest first )
 
 ```bash
 $ ls -hlS
@@ -399,7 +399,7 @@ Description of Output Columns
 - 1 : Permissions ( access rights )
     - 1st character : File Type
     - Next 9 characters : File Permissions
-- 2 : Count of Hard Links to the file/dir
+- 2 : Count of Hard Links to the file
 - 3 : Owner User : UID | username
 - 4 : Owner Group : GID | group name
 - 5 : Size
@@ -437,7 +437,7 @@ rwx------
     - `g` group
     - `o` others
 
-## File Timestamps
+## Timestamps
 
 Reference
 
