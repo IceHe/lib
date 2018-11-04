@@ -2,51 +2,126 @@
 
 > **list** directory contents
 
+Reference
+
+- Unix LS Command: 15 Practical Examples : https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/
+
 ## Options
 
-### Common
+### Filter
 
-- `-A` List all entries except for `.` and `..`
-- `-h` Use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte
-    - in order to reduce the number of digits to three or less using base 2 for sizes.
+- `-a, --all` Do not ignore entries starting with `.`
+- `-A, --almost-all` List all entries except for `.` and `..`
+- `-d, --directory` List directories themselves, not their contents
+- `--hide=PATTERN` Do not list implied entries matching shell PATTERN (overridden by -a or -A)
+- `-I, --ignore=PATTERN` Do not list implied entries matching shell PATTERN
+
+### Format
+
+- `-h, --human-readable` With `-l`, print sizes in human readable format (e.g., 1K 234M 2G)
+    - Use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of digits to three or less using base 2 for sizes.
+- `--si` Likewise, but use powers of 1000 not 1024
 - `-l` List in long format
     - If the output is to a terminal, a total sum for all the file sizes is output on a line before the long listing.
+- `-L, --dereference` When showing file information for a symbolic link, show information for the file the link references rather than for the link itself.
+- `-m` Fill width with a comma separated list of entries
+- `-1` List one file per line
+- `-x` List entries by lines instead of by columns
+- `-k, --kibibytes` Default to 1024-byte blocks for disk usage
+- `--quoting-style=WORD` Use quoting style WORD for entry names :
+    - literal ''
+    - locale ‘’ ( ZH )
+    - shell ( none )
+    - shell-always ''
+    - c ""
+    - escape ( ? )
 
-### Useful
+### Sort
 
-- `-u` Use time of last access, instead of last modification of the file
-- `-U` Use time of file creation, instead of ……
-- `-r` Reverse the order of the sort to get reverse lexicographical order
-    - or the oldest entries first
-    - or largest files last, if combined with sort by size
-- `-R` Recursively list subdirectories encountered
-- `-S` Sort files by size
-- `-t` Sort by time modified (most recently modified first)
-    - before sorting the operands by lexicographical order.
+> Default File Timestamp : **Last Modification Time**
+
+- `-S` Sort by file/dir size, largest first
+- `-t` Sort by time, newest first
+    - File Timestamps
+        - Default : mtime
+        - `-lt` mtime : last modification time (content)
+        - `-ltc` ctime : last changed time (metadata)
+        - `-ltu` atime : last access time
+        - `-ltU` creation time ( BSD only! )
+    - _See details in "File Timestamps" Below_
+- `-c` Sort by ctime ( (metadata) last changed time )
+    - with `-lt` : sort by, and show, ctime;
+    - with `-l` : show ctime and sort by name;
+    - otherwise : sort by ctime.
+- `-u` Sort by atime ( last access time )
+    - with `-lt` : sort by, and show, atime;
+    - with `-l` : show atime and sort by name;
+    - otherwise : sort by atime.
+- `-U` Differ on different OS
+    - On Linux : Do not sort; list entries in directory order
+    - On BSD : Sort by file creation time
+- `-r, --reverse` Reverse order
+- `-R, --recursive` List subdirectories recursively
+- `-v` Natural sort of (version) numbers within text
+- `-X` Sort alphabetically by entry extension
 
 ## Usage
 
 ### List
 
-List with details
+#### All
 
-```bash
-ls -hl
-```
-
-List all
+List all ( except `.` & `..` )
 
 ```bash
 ls -A
+
+# e.g.
+ls -A1 | tail
+Documents
+Downloads
+Library
+Movies
+Music
+OneDrive - elcass
+Pictures
+Public
+README.md
+VirtualBox VMs
+```
+
+#### Details
+
+List with details ( human-readable )
+
+```bash
+$ ls -hl
+total 280
+drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
+drwx------+ 24 icehe  staff   768B Nov  3 17:11 Desktop
+drwx------+ 21 icehe  staff   672B Oct 21 18:42 Documents
+……
 ```
 
 List all with details
 
 ```bash
 ls -Ahl
+# e.g.
+$ ls -Ahl | tail
+drwxr-xr-x    3 icehe  staff    96B Nov 23  2017 Applications
+drwx------+  24 icehe  staff   768B Nov  3 17:11 Desktop
+drwx------+  21 icehe  staff   672B Oct 21 18:42 Documents
+drwx------+  17 icehe  staff   544B Nov  2 16:20 Downloads
+drwx------+  97 icehe  staff   3.0K Sep  2 16:00 Library
+drwx------+   9 icehe  staff   288B Jun  8 13:52 Movies
+drwx------+  13 icehe  staff   416B Sep 11  2017 Music
+drwx------+  29 icehe  staff   928B Oct 29 16:01 Pictures
+drwxr-xr-x+   5 icehe  staff   160B Oct 16  2015 Public
+-rw-r--r--    1 icehe  staff    70B Aug  5 14:44 README.md
 ```
 
-### Grep
+#### Grep
 
 List with `grep`
 
@@ -57,96 +132,234 @@ ls -hl | grep
 ls -Ahl | grep
 ```
 
+#### Hide
+
+Sample
+
+```bash
+$ ls -l | head
+total 208
+lrwxrwxrwx    1 root   root        7 Jul 11 19:37 bin -> usr/bin
+dr-xr-xr-x.   5 root   root     4096 Jul 18 14:42 boot
+drwxr-xr-x    9 root   root     4096 Jul 19 03:45 data0
+drwxr-xr-x    5 root   root     4096 Sep 21 17:51 data1
+drwxr-xr-x   18 root   root     3180 Jul 18 14:41 dev
+drwxr-xr-x. 148 root   root    12288 Oct 25 19:02 etc
+drwxr-xr-x.   2 root   root     4096 Apr 11  2018 home
+lrwxrwxrwx    1 root   root        7 Jul 11 19:37 lib -> usr/lib
+lrwxrwxrwx    1 root   root        9 Jul 11 19:37 lib64 -> usr/lib64
+```
+
+Hide some files/dirs
+
+```bash
+ls --hide=<shell_pattern>
+
+# e.g.
+$ ls -l --hide=b* | head
+total 204
+drwxr-xr-x    9 root   root     4096 Jul 19 03:45 data0
+drwxr-xr-x    5 root   root     4096 Sep 21 17:51 data1
+drwxr-xr-x   18 root   root     3180 Jul 18 14:41 dev
+drwxr-xr-x. 148 root   root    12288 Oct 25 19:02 etc
+drwxr-xr-x.   2 root   root     4096 Apr 11  2018 home
+lrwxrwxrwx    1 root   root        7 Jul 11 19:37 lib -> usr/lib
+lrwxrwxrwx    1 root   root        9 Jul 11 19:37 lib64 -> usr/lib64
+drwx------.   2 root   root    16384 Apr 25  2018 lost+found
+drwxr-xr-x.   2 root   root     4096 Apr 11  2018 media
+
+$ ls -l --hide=[bdl]* | head
+total 180
+drwxr-xr-x. 148 root   root    12288 Oct 25 19:02 etc
+drwxr-xr-x.   2 root   root     4096 Apr 11  2018 home
+drwxr-xr-x.   2 root   root     4096 Apr 11  2018 media
+drwxr-xr-x.   2 root   root     4096 Apr 11  2018 mnt
+drwx------.   3 sysmon sysmon   4096 Apr 25  2018 nonexistent
+drwxr-xr-x.   9 root   root     4096 Jul 16 17:51 opt
+dr-xr-xr-x  379 root   root        0 Jul 18 22:41 proc
+dr-xr-x---.  15 root   root     4096 Nov  3 20:32 root
+drwxr-xr-x   41 root   root     1200 Oct  9 19:59 run
+```
+
+#### Link
+
+Default : Show symbolic link itself
+
+```bash
+$
+ls -l
+total 208
+lrwxrwxrwx 1 root root 7 Jul 11 19:37 bin -> usr/bin
+……
+lrwxrwxrwx 1 root root 7 Jul 11 19:37 lib -> usr/lib
+lrwxrwxrwx 1 root root 9 Jul 11 19:37 lib64 -> usr/lib64
+……
+lrwxrwxrwx 1 root root 8 Jul 11 19:37 sbin -> usr/sbin
+……
+```
+
+Show real file linked to
+
+```bash
+$ ls -lL
+dr-xr-xr-x.   2 root   root    61440 Oct 26 12:24 bin
+……
+dr-xr-xr-x.  52 root   root     4096 Aug 29 14:46 lib
+dr-xr-xr-x. 118 root   root    98304 Sep 13 16:41 lib64
+……
+dr-xr-xr-x.   2 root   root    20480 Sep 13 16:28 sbin
+……
+```
+
 ### Sort By
 
 `-r` options
 
-- Show the latest at last ( datetime )
 - Show the largest at last ( size )
+- Show the newest at last ( time )
 
 #### Size
 
-Sorted by increasing size
+File/Directory Size ( largest first )
 
 ```bash
-ls -hlrS
-
-# e.g.: show top 10 largest files ( including path inode )
-$ ls -hlrS | tail
+$ ls -hlS
 total 280
--rw-r--r--   1 icehe  staff    70B Aug  6 00:10 README.md
-drwxr-xr-x   3 icehe  staff    96B Aug 16 00:04 Music
+drwx------+ 97 icehe  staff   3.0K Sep  2 16:00 Library
+drwx------+ 29 icehe  staff   928B Oct 29 16:01 Pictures
+drwx------+ 24 icehe  staff   768B Nov  3 17:11 Desktop
+drwx------+ 21 icehe  staff   672B Oct 21 18:42 Documents
+drwx------+ 17 icehe  staff   544B Nov  2 16:20 Downloads
+drwx------+ 13 icehe  staff   416B Sep 11  2017 Music
+drwx------+  9 icehe  staff   288B Jun  8 13:52 Movies
+drwxr-xr-x+  5 icehe  staff   160B Oct 16  2015 Public
 drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
-drwx------+ 35 icehe  staff   1.1K Aug 31 02:07 Documents
-drwx------+ 38 icehe  staff   1.2K Aug 17 23:19 Downloads
-drwx------+ 40 icehe  staff   1.3K Sep  6 02:03 Desktop
-drwx------@ 64 icehe  staff   2.0K Aug 26 11:10 Library
+-rw-r--r--   1 icehe  staff    70B Aug  5 14:44 README.md
 ```
 
-List all sorted by increasing size
+Size in Reverse Order ( smallest first )
 
 ```bash
-ls -AhlrS
+$ ls -hlSr
+total 280
+-rw-r--r--   1 icehe  staff    70B Aug  5 14:44 README.md
+drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
+drwxr-xr-x+  5 icehe  staff   160B Oct 16  2015 Public
+drwx------+  9 icehe  staff   288B Jun  8 13:52 Movies
+drwx------+ 13 icehe  staff   416B Sep 11  2017 Music
+drwx------+ 17 icehe  staff   544B Nov  2 16:20 Downloads
+drwx------+ 21 icehe  staff   672B Oct 21 18:42 Documents
+drwx------+ 24 icehe  staff   768B Nov  3 17:11 Desktop
+drwx------+ 29 icehe  staff   928B Oct 29 16:01 Pictures
+drwx------+ 97 icehe  staff   3.0K Sep  2 16:00 Library
 ```
 
 #### Time
 
-Sorted by modified date
+##### mtime
+
+Default : Modification Time ( newest first )
 
 ```bash
-$ ls -hlrt
+$ ls -hlt
 total 280
+drwx------+ 24 icehe  staff   768B Nov  3 17:11 Desktop
+drwx------+ 17 icehe  staff   544B Nov  2 16:20 Downloads
+drwx------+ 29 icehe  staff   928B Oct 29 16:01 Pictures
+drwx------+ 21 icehe  staff   672B Oct 21 18:42 Documents
+drwx------+ 97 icehe  staff   3.0K Sep  2 16:00 Library
+-rw-r--r--   1 icehe  staff    70B Aug  5 14:44 README.md
+drwx------+  9 icehe  staff   288B Jun  8 13:52 Movies
 drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
--rw-r--r--   1 icehe  staff    70B Aug  6 00:10 README.md
-drwxr-xr-x   3 icehe  staff    96B Aug 16 00:04 Music
-drwx------+ 38 icehe  staff   1.2K Aug 17 23:19 Downloads
-drwx------@ 64 icehe  staff   2.0K Aug 26 11:10 Library
-drwx------+ 35 icehe  staff   1.1K Aug 31 02:07 Documen
+drwx------+ 13 icehe  staff   416B Sep 11  2017 Music
+drwxr-xr-x+  5 icehe  staff   160B Oct 16  2015 Public
 ```
 
-Sorted by access date
+Modification Time in Reverse Order ( oldest first )
 
 ```bash
-$ ls -lrtu
+$ ls -hltr
 total 280
--rw-r--r--   1 icehe  staff    70B Aug  6 00:10 README.md
-drwxr-xr-x   3 icehe  staff    96B Aug 16 00:04 Music
-drwxr-xr-x   3 icehe  staff    96B Sep  9 23:26 Applications
-drwx------+ 40 icehe  staff   1.3K Sep  9 23:26 Desktop
-drwx------+ 35 icehe  staff   1.1K Sep  9 23:26 Documents
-drwx------+ 38 icehe  staff   1.2K Sep  9 23:26 Downloads
-drwx------@ 64 icehe  staff   2.0K Sep  9 23:26 Library
+drwxr-xr-x+  5 icehe  staff   160B Oct 16  2015 Public
+drwx------+ 13 icehe  staff   416B Sep 11  2017 Music
+drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
+drwx------+  9 icehe  staff   288B Jun  8 13:52 Movies
+-rw-r--r--   1 icehe  staff    70B Aug  5 14:44 README.md
+drwx------+ 97 icehe  staff   3.0K Sep  2 16:00 Library
+drwx------+ 21 icehe  staff   672B Oct 21 18:42 Documents
+drwx------+ 29 icehe  staff   928B Oct 29 16:01 Pictures
+drwx------+ 17 icehe  staff   544B Nov  2 16:20 Downloads
+drwx------+ 24 icehe  staff   768B Nov  3 17:11 Desktop
 ```
 
-Sorted by creation date
+##### atime
+
+Access Time
 
 ```bash
-$ ls -lrtU
+$ ls -hltu
 total 280
-drwx------@ 64 icehe  staff   2.0K Mar  7  2015 Library
-drwx------+ 38 icehe  staff   1.2K Apr 15  2015 Downloads
+drwx------+ 97 icehe  staff   3.0K Nov  4 18:18 Library
+drwx------+ 21 icehe  staff   672B Nov  4 15:16 Documents
+drwx------+ 17 icehe  staff   544B Nov  3 20:27 Downloads
+drwx------+ 24 icehe  staff   768B Nov  3 20:27 Desktop
+drwxr-xr-x   3 icehe  staff    96B Nov  3 03:16 Applications
+drwx------+ 29 icehe  staff   928B Oct 29 16:10 Pictures
+drwx------+ 13 icehe  staff   416B Oct 29 16:03 Music
+-rw-r--r--   1 icehe  staff    70B Aug 24 16:44 README.md
+drwxr-xr-x+  5 icehe  staff   160B Aug 17 15:10 Public
+drwx------+  9 icehe  staff   288B Jun  8 13:52 Movies
+```
+
+##### ctime
+
+Changed Time
+
+```bash
+$ ls -hltc
+total 280
+drwx------+ 24 icehe  staff   768B Nov  3 17:11 Desktop
+drwx------+ 17 icehe  staff   544B Nov  2 16:20 Downloads
+drwx------+ 29 icehe  staff   928B Oct 29 16:01 Pictures
+drwx------+ 21 icehe  staff   672B Oct 21 18:42 Documents
+drwx------+ 97 icehe  staff   3.0K Sep  2 16:00 Library
+-rw-r--r--   1 icehe  staff    70B Aug  5 14:44 README.md
+drwx------+  9 icehe  staff   288B Jun  8 13:52 Movies
+drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
+drwx------+ 13 icehe  staff   416B Sep 11  2017 Music
+drwxr-xr-x+  5 icehe  staff   160B Sep 12  2016 Public
+```
+
+##### creation
+
+Creation Time
+
+```bash
+$ ls -hltU
+total 280
+-rw-r--r--   1 icehe  staff    70B Aug  5 14:44 README.md
+drwx------+ 24 icehe  staff   768B Oct 12  2017 Desktop
+drwx------+ 21 icehe  staff   672B Oct 12  2017 Documents
+drwx------+  9 icehe  staff   288B Sep 12  2016 Movies
 drwxr-xr-x   3 icehe  staff    96B Jun 17  2015 Applications
-drwx------+ 35 icehe  staff   1.1K Oct 12  2017 Documents
-drwx------+ 40 icehe  staff   1.3K Oct 12  2017 Desktop
--rw-r--r--   1 icehe  staff    70B Aug  6 00:10 README.md
-drwxr-xr-x   3 icehe  staff    96B Aug 16 00:04 Music
+drwx------+ 17 icehe  staff   544B Apr 15  2015 Downloads
+drwx------+ 13 icehe  staff   416B Apr 15  2015 Music
+drwx------+ 29 icehe  staff   928B Apr 15  2015 Pictures
+drwxr-xr-x+  5 icehe  staff   160B Apr 15  2015 Public
+drwx------+ 97 icehe  staff   3.0K Mar  7  2015 Library
 ```
 
-List all sorted by …
-
-```bash
-ls -AhlrS
-ls -Ahlrt
-ls -Ahlrtu
-ls -AhlrtU
-```
-
-## Aliases
+### Aliases
 
 Confis file : https://github.com/IceHe/mac-conf/blob/master/.config/zsh/ls.zsh
 
 ```bash
+######
+# ls #
+######
+
 # List
+# ( overwrite $ZSH/lib/directories.zsh )
 alias l='ls -h'
 alias la='ls -hA'
 alias ll='ls -hl'
@@ -159,50 +372,102 @@ alias llg='ls -hl | grep'
 alias llag='ls -Ahl | grep'
 
 # Sort by Size
-alias lS='ls -hlrS'
-alias laS='ls -AhlrS'
+alias lS='ls -AhlS'
 
 # Sort by Time
-alias lt='ls -Ahlrt'
-alias ltu='ls -Ahlrtu'
-alias ltU='ls -AhlrtU'
+# - Modified
+alias lt='ls -Ahlt'
+# - Changed (metadata)
+alias ltc='ls -Ahltc'
+# - Access
+alias ltu='ls -Ahltu'
+# - Creation
+alias ltU='ls -AhltU'
 ```
 
 ## Output Columns
 
+References
+
+- What does the second column in the output of 'ls -n' mean? https://askubuntu.com/questions/19510/what-does-the-second-column-in-the-output-of-ls-n-mean/19513#19513
+- See `man ls`
+
+### Description
+
 Description of Output Columns
 
-- 1 : permission ( access rights )
-- 2 : count of hard links to the file/dir
-- 3 : owner user ( UID | username )
-- 4 : owner group ( GID | group name )
-- 5 : size
-- 6 : mtime / atime / ctime
-- 7 : name
+- 1 : Permissions ( access rights )
+    - 1st character : File Type
+    - Next 9 characters : File Permissions
+- 2 : Count of Hard Links to the file/dir
+- 3 : Owner User : UID | username
+- 4 : Owner Group : GID | group name
+- 5 : Size
+- 6 : Timestamps : mtime / atime / ctime ( see below )
+- 7 : Name
 
-Ref : https://askubuntu.com/questions/19510/what-does-the-second-column-in-the-output-of-ls-n-mean/19513#19513
+### File Type
+
+- `-` Regular File
+- `d` Directory
+- `l` Symbolic Link
+- `s` Socket Link
+- `b` Block Special File
+- `c` Character pecial File
+- `p` FIFO
+
+### Permission Characters
+
+- 9 characters specifies the file permissions
+
+```bash
+# e.g.
+rwxrwxrwx
+rwxr-xr-x
+r-xr-x---
+rwx------
+```
+
+- Each 3 characters refers to permissions
+    - `r` read
+    - `w` write
+    - `x` execute
+- for
+    - `u` user
+    - `g` group
+    - `o` others
 
 ## File Timestamps
 
-> Notice: There's **no file creation timestamp** kept in most filesystems
+Reference
 
-Ref :
+- atime, ctime and mtime in Unix filesystems : https://www.unixtutorial.org/atime-ctime-mtime-in-unix-filesystems/
+
+Notice!
+
+- There's **no file creation timestamp** kept in most filesystems
+    - None on Linux…
+    - Exist on macOS!
+- When a new file or directory is created, usually all three times `atime, ctime and mtime` are configured to capture the current time.
 
 ### atime
 
 Last Access Time
 
-- a for access
+- The last time the data from a file or directory was accessed.
+- Read by one of the Unix processes directly or through commands and scripts.
 
 ### mtime
 
 Last Modification Time
 
-- m for modify
+- The Time of the last change to file's contents.
+- It does not change with owner or permission changes, and is therefore used for tracking the actual changes to data of the file itself.
 
-### ctime
+### ctime  (metadata)
 
 Last Changed Time
 
-- c for change
-
+- When your file or directory got **metadata changes**
+    - typically that's **file ownership (username and/or group) and access permissions**,
+    - ctime will also get updated if the file contents got changed.
