@@ -325,9 +325,12 @@ Other meanings
 - TBD : To Be Determinated
 - tel : tell | telephone
 - temp : temporary
+- templ : template
 - term : terminate
 - TL;DR : too long; didn't read.
 - tmp : temporary
+- tmpl : template
+- tpl : template
 - ts : timestamp
 - txt : plain text file
 
@@ -365,6 +368,8 @@ Other meanings
 - www : world wide web
 
 ### X
+
+- x : unknown | unknown number
 
 ### Y
 
