@@ -9,7 +9,9 @@
 ## BASE
 
 - Eventually-consistent services are often classified as providing BASE (Basically Available, Soft state, Eventual consistency) semantics, in contrast to traditional ACID (Atomicity, Consistency, Isolation, Durability) guarantees.
-- Ref : https://en.wikipedia.org/wiki/Eventual_consistency
+- References
+    - Eventual Consistency : https://en.wikipedia.org/wiki/Eventual_consistency
+    - Wikipedia : https://en.wikipedia.org/wiki/Base#Computing
 
 ## CAP
 
