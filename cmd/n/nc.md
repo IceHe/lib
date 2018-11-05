@@ -158,6 +158,10 @@ Optional : Check **MD5** digest for security
 md5sum <file_path>
 # on BSD
 md5 <file_pahh>
+
+# e.g.
+$ md5sum file
+a839fce6688124b38eca3c42d2d59b10  file
 ```
 
 ## Transfer Directory
