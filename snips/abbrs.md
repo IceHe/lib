@@ -306,6 +306,7 @@ Other meanings
 - s : silent
 - SDE : Software Development Engineer
 - sec : second | secure , security
+- sep : separator, separate
 - serv : server | service
 - sess : session
 - sh : shell
