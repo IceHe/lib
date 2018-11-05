@@ -2,6 +2,10 @@
 
 > sort lines of text files
 
+Reference
+
+- GNU Coreutils : https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html
+
 Synopsis
 
 ```bash
