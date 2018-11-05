@@ -27,13 +27,12 @@ $ env -u test
 ……
 
 $ env
-test=TEST
+# no $test
 ……
 ```
 
 ```bash
 $ env
-env -u test
 HOSTNAME=icehe-host
 SHELL=/bin/bash
 TERM=xterm-256color
