@@ -3,6 +3,9 @@
 Reference
 
 - Coreutils - GNU core utilities : https://www.gnu.org/software/coreutils/coreutils.html
+- URL Template as follow
+
+> www.gnu.org/software/coreutils/manual/html_node/**[COMMAND_NAME]**-invocation.html
 
 TODO
 
