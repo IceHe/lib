@@ -44,19 +44,50 @@ On BSD
 List size of current directory
 
 ```bash
-du -hs
+$ du -hs
+ 58M    .
 ```
 
 List files' size in current directory
 
 ```bash
-du -hs *
+$ du -hs *
 # or (a little different)
-du -h --max-depth=1
+$ du -h --max-depth=1
+# output
+4.0K    CNAME
+ 52K    LICENSE
+ 12K    README.md
+6.0M    _archived
+1.2M    _docsify
+184K    asm
+260K    cmd
+8.0K    commands
+108K    cpp
+ 44K    git
+ 16K    index.html
+ 12K    index.raw.html
+200K    mac
+1.6M    marks
+140K    scripts
+9.7M    snips
 ```
 
 List files' size recursively in current directory
 
 ```bash
 du -ah
+
+# e.g.
+$ du -ah | head
+4.0K    ./_docsify/_navbar.md
+4.0K    ./_docsify/deploy/nginx/docsify.conf
+4.0K    ./_docsify/deploy/nginx
+4.0K    ./_docsify/deploy/service/docsify
+4.0K    ./_docsify/deploy/service
+8.0K    ./_docsify/deploy
+8.0K    ./_docsify/resources/__unpkg.com_docsify-pagination_dist_docsify-pagination.min.js
+152K    ./_docsify/resources/__unpkg.com_gitalk_dist_gitalk.min.js
+4.0K    ./_docsify/resources/__unpkg.com_prismjs_components_prism-http.min.js
+4.0K    ./_docsify/resources/__unpkg.com_prismjs_components_prism-php.min.j
 ```
