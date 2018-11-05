@@ -37,12 +37,6 @@ Mine
 find <directory_path> | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
 ```
 
-`ln` make links
-
-```bash
-ln -s <source_file> <target_file>
-```
-
 unix / linux 不同的程序仓库代表什么
 
 - /bin
@@ -282,10 +276,6 @@ chmod ugo+rwxa file    user group other read write executable all
 - chown
 
 chown 用户名:用户分组
-
-- ln
-
-ln -s
 
 ### Jobs
 
