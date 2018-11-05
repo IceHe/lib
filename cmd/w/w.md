@@ -1,6 +1,6 @@
 # w
 
-> Show who is logged on and what they are doing
+> Show **who** is logged on and what they are doing
 
 ## Options
 
