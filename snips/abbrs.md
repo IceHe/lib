@@ -113,6 +113,9 @@ Other meanings
 
 ### E
 
+
+- e : element | error | exception | exponent
+- E : exponent 指数 ( [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) )
 - e.g. : for example
 - edt : edit
 - elem : element
@@ -129,13 +132,14 @@ Other meanings
 - ex : exception
 - exe : executive
 - exec : execute
-- exp : experience
+- exp : experience | exponent
 - expr : expression
 - ext : extension
 
 ### F
 
-- f : file
+- f : file | force
+- F : full ( CLI )
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - FIFO : First In First Out
 - fmt : format
@@ -146,6 +150,7 @@ Other meanings
 
 ### G
 
+- G : billion 十亿
 - gen : generate
 - GFM : Github Flavored Markdown
 - GFW : Great Fire Wall
@@ -154,7 +159,8 @@ Other meanings
 
 ### H
 
-- h : help
+- h : handle | hour | help
+- H : hour
 - HDFS : Hadoop Distributed File System
 - hex : heximal
 - hrs : hours
@@ -162,7 +168,8 @@ Other meanings
 
 ### I
 
-- i : index | me
+- i : index | integer | me
+- I : me
 - ico : icon
 - idc : internet data center 数据中心
 - idx : index
@@ -187,6 +194,8 @@ Other meanings
 
 ### K
 
+- k : kilo- 千
+
 ### L
 
 - l , L : long
@@ -206,7 +215,7 @@ Other meanings
 ### M
 
 - m : minute
-- M : month
+- M : month | million 百万
 - MBR : Master Boot Record
 - mc : Memcached
 - md : markdown
@@ -220,6 +229,7 @@ Other meanings
 
 ### N
 
+- n : number
 - n/a , N/A , n.a. : not applicable 不适用
 - NaN : Not a Number
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
@@ -311,6 +321,7 @@ Other meanings
 - sso : Single Sign-On 单点登录
 - st : something | sometimes
 - stat : status | statistics
+- str : string
 - sum : summary | summation
 - swp : swap
 - sym : symbol
@@ -351,10 +362,12 @@ Other meanings
 
 ### V
 
-- v : verbose
+- v : verbose | version
+- V : version
 - val : value
 - var : variable
 - VC : Venture Capital
+- ver : version
 - VM : virtual machine
 - VP : Vice President 副总裁
 
@@ -364,6 +377,7 @@ Other meanings
 - WAN : wide area network
 - win : window
 - WIP : Work In Process|Progress
+- wnd : window
 - wtf : what the fuck
 - www : world wide web
 
