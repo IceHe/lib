@@ -21,10 +21,10 @@ Given two or more arguments!
 
 ### SUFFIX
 
-- `s` for seconds (the default)
-- `m` for minutes
-- `h` for hours
-- `d` for days.
+- `s` seconds (the default)
+- `m` minutes
+- `h` hours
+- `d` days.
 
 ## Usage
 
