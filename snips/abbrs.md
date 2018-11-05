@@ -113,7 +113,6 @@ Other meanings
 
 ### E
 
-
 - e : element | error | exception | exponent
 - E : exponent 指数 ( [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) )
 - e.g. : for example
