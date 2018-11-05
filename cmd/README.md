@@ -1,5 +1,11 @@
 # Commands
 
+Reference
+
+- Coreutils - GNU core utilities : https://www.gnu.org/software/coreutils/coreutils.html
+
+TODO
+
 - dig
 - nslookup
 - ifconfig
