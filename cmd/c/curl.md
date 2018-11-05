@@ -38,14 +38,19 @@ Download
 
 ```bash
 curl -LO <url_to_file>
+
 # e.g.
-curl -LO https://getcomposer.org/composer.phar
+$ curl -LO https://getcomposer.org/composer.phar
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1841k  100 1841k    0     0   449k      0  0:00:04  0:00:04 --:--:--  449k
 ```
 
 ### Request
 
 ```bash
 curl -X <http_method> <url> -H '<header_name>: <header_value>'
+
 # e.g.
-curl -X POST http://10.1.2.3:8888/comments -H 'Host: api.weibo.cn'
+$ curl -X POST http://10.1.2.3:8888/comments -H 'Host: api.weibo.cn'
 ```
