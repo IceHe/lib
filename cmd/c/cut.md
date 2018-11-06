@@ -35,3 +35,8 @@ Each range is one of:
 - `-M` From first to M'th (included) byte, character or field
 
 ## Usage
+
+```bash
+```
+
+Ref : http://man.linuxde.net/cut
