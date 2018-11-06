@@ -65,12 +65,14 @@ Others
 - [cat](/cmd/c/cat.md) : concatenate files & print on the standard output
 - [cron](/cmd/c/cron.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
+- [cut](/cmd/c/cut.md) : remove sections from each line of files
 - [date](/cmd/d/date.md) : print or set the system date & time
 - [df](/cmd/d/df.md) : report file system disk space usage
 - [du](/cmd/d/du.md) : estimate file space usage
 - [env](/cmd/e/env.md) : run a program in a modified environment
 - [expect](/cmd/e/expect.md) : interact with programs
 - [head](/cmd/h/head.md) : output the first part of files
+- [htop](/cmd/h/htop.md) : interactive process viewer
 - [kill](/cmd/kill.md) : terminate or signal a process
 - [ln](/cmd/l/ln.md) : make links between files
 - [ls](/cmd/l/ls.md) : list directory contents
