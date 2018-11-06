@@ -21,3 +21,25 @@ mysql_upgrade -u root -p
 `SERIAL` SQL TYPE
 
 - an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
+
+## Connect
+
+```bash
+$ mysql -h HOST -P PORT -u USERNAME -pPASSWORD
+```
+
+## CLI
+
+Databases
+
+```bash
+> show databases;
+> use DB_NAME;
+> show tables;
+```
+
+Show Table Definition
+
+```bash
+desc TABLE_NAME;
+```
