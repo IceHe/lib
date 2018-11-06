@@ -119,6 +119,13 @@ lrwxrwxrwx 1 root root 11 Nov  5 14:47 sub_dir -> dir/sub_dir
 
 ## Links
 
+References
+
+- What is the difference between a hard link and a symbolic link? https://medium.com/@wendymayorgasegura/what-is-the-difference-between-a-hard-link-and-a-symbolic-link-8c0493041b62
+- Wikipedia
+    - Symbolic link : https://en.wikipedia.org/wiki/Symbolic_link
+    - Hard link : https://en.wikipedia.org/wiki/Hard_link
+
 ### Intro
 
 > **本质** 是映射
@@ -139,16 +146,16 @@ Symbolic link 比较常用
 ### Hard Link
 
 - 以文件副本的形式存在，但不占用实际空间
-    - 就像一个文件有多个别名（alias）
+    - 就像一个文件有多个文件名（alias 别名）
 - 不允许给「目录」创建链接
-- 只有在同一个「文件系统」中才能创建链接
+- 只有在同一个「文件系统」或「分区」中才能创建链接
 
 ### Symbolic Link
 
-- 是一个独立的文件，保存的是「路径」的值
+- 保存的是「路径」的值
     - 类似于 Windows 操作系统中的快捷方式
 - 可以给「目录」创建链接
-- 可以跨「文件系统」链接
+- 可以跨「文件系统、分区」进行链接
 - 可以对一个不存在的文件进行链接
 
 删除 symbolic link 并不影响被指向的文件
