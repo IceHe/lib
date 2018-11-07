@@ -81,6 +81,7 @@ Others
 - [mkdir](/cmd/m/mkdir.md) : make directories
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
+- [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [ps](/cmd/p/ps.md) : process status
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
