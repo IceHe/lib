@@ -74,7 +74,7 @@ Others
 - [expect](/cmd/e/expect.md) : interact with programs
 - [head](/cmd/h/head.md) : output the first part of files
 - [htop](/cmd/h/htop.md) : interactive process viewer
-- [kill](/cmd/kill.md) : terminate or signal a process
+- [kill](/cmd/k/kill.md) : terminate or signal a process
 - [ln](/cmd/l/ln.md) : make links between files
 - [ls](/cmd/l/ls.md) : list directory contents
 - [lsof](/cmd/l/lsof.md) : list open files
