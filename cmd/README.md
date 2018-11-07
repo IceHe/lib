@@ -9,7 +9,6 @@ Reference
 
 TODO
 
-- dig
 - nslookup
 - ifconfig
 
