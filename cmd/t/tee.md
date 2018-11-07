@@ -2,7 +2,7 @@
 
 > Read from standard input and write to standard output and files
 
-## Synopsis
+Synopsis
 
 ```bash
 tee [OPTION]... [FILE]...
