@@ -103,7 +103,7 @@ Others
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
 - [whoami](/cmd/w/whoami.md) : print effective userid
-- [zsh](/cmd/zsh.md) : one of shells
+- [zsh](/cmd/z/zsh.md) : one of shells
 
 ### C++
 
