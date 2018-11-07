@@ -6,12 +6,6 @@ In short
 
 > **word count**
 
-Synopsis
-
-```bash
-wc [OPTION]... [FILE]...
-```
-
 ## Options
 
 - `-c, --bytes` print byte counts
