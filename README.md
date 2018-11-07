@@ -81,6 +81,7 @@ Others
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
 - [ps](/cmd/p/ps.md) : process status
+- [rm](/cmd/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
