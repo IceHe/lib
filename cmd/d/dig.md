@@ -35,6 +35,8 @@ Options & More : see `man dig`
 
 ## Usage
 
+DNS Records : see [nslookup](/cmd/n/nslookup.md#Records)
+
 ### Default
 
 ```bash
