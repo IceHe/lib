@@ -85,6 +85,7 @@ Others
 - [netstat](/cmd/n/network-status.md) : show network status
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [ps](/cmd/p/ps.md) : process status
+- [realpath](/cmd/r/realpath.md) : print the resolved path
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
 - [service](/cmd/s/service.md) : run a System V init script
