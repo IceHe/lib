@@ -7,14 +7,6 @@ Reference
 
 > www.gnu.org/software/coreutils/manual/html_node/**[COMMAND_NAME]**-invocation.html
 
-Real path
-
-```bash
-# linux
-readlink -f file
-realpath file
-```
-
 ## TODOs
 
 - [awk-sed-grep_tmp](awk-sed-grep_tmp.md)
@@ -263,11 +255,6 @@ done
     - egrep
     - grep -E
 - vimdiff
-
-### Network
-
-- ifconfig
-- ping
 
 ### Dir & File
 
