@@ -69,12 +69,15 @@ Others
 - [date](/cmd/d/date.md) : print or set the system date & time
 - [df](/cmd/d/df.md) : report file system disk space usage
 - [dig](/cmd/d/dig.md) : DNS lookup utility
+- [dstat](/cmd/d/dstat.md) : versatile tool for generating system resource statistics
 - [du](/cmd/d/du.md) : estimate file space usage
 - [env](/cmd/e/env.md) : run a program in a modified environment
 - [expect](/cmd/e/expect.md) : interact with programs
 - [head](/cmd/h/head.md) : output the first part of files
 - [htop](/cmd/h/htop.md) : interactive process viewer
 - [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
+- [iftop](/cmd/i/iftop.md) : display bandwidth usage on an interface by host
+- [iostat](/cmd/i/iostat.md) :
 - [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
 - [kill](/cmd/k/kill.md) : terminate or signal a process
 - [ln](/cmd/l/ln.md) : make links between files
@@ -103,6 +106,7 @@ Others
 - [uniq](/cmd/u/uniq.md) : report or omit repeated lines
 - [uptime](/cmd/u/uptime.md) : show how long system has been running
 - [vim](/cmd/v/vim.md) : terminal editor
+- [vmstat](/cmd/v/vmstat.md) : report virtual memory statistics
 - [w](/cmd/w/w.md) : show who is logged on & what they are doing
 - [wc](/cmd/w/wc.md) : print newline, word, and byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
