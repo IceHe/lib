@@ -384,7 +384,7 @@ Other meanings
 
 ### X
 
-- x : unknown | unknown number
+- x : extended | unknown | unknown number
 
 ### Y
 
