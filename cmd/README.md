@@ -7,11 +7,6 @@ Reference
 
 > www.gnu.org/software/coreutils/manual/html_node/**[COMMAND_NAME]**-invocation.html
 
-TODO
-
-- nslookup
-- ifconfig
-
 Real path
 
 ```bash
