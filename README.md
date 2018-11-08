@@ -84,6 +84,7 @@ Others
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
+- [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
 - [ps](/cmd/p/ps.md) : process status
 - [realpath](/cmd/r/realpath.md) : print the resolved path
 - [rm](/cmd/r/rm.md) : remove files or directories
