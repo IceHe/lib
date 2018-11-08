@@ -2,4 +2,5 @@
 
 > print resolved symbolic links or canonical file names
 
-It is similiar `realpath` ( [link](/cmd/r/realpath.md) ).
+- It is similiar to `realpath`.
+- Recommend to use [`realpath`](/cmd/r/realpath.md).
