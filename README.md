@@ -74,6 +74,8 @@ Others
 - [expect](/cmd/e/expect.md) : interact with programs
 - [head](/cmd/h/head.md) : output the first part of files
 - [htop](/cmd/h/htop.md) : interactive process viewer
+- [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
+- [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
 - [kill](/cmd/k/kill.md) : terminate or signal a process
 - [ln](/cmd/l/ln.md) : make links between files
 - [ls](/cmd/l/ls.md) : list directory contents
