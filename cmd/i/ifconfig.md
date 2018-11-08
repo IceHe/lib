@@ -2,6 +2,8 @@
 
 > configure a network interface
 
+Reference : http://man.linuxde.net/ifconfig
+
 ## Usage
 
 ### Default
@@ -68,6 +70,33 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX packets 4693797291  bytes 807575307414 (752.1 GiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
         device memory 0x96c00000-96cfffff
+```
+
+### ON / OFF
+
+```bash
+# ON
+$ ifconfig eth0 up
+# OFF
+$ ifconfig eth0 down
+```
+
+#### ARP
+
+```bash
+# 开启网卡 eth0 的 ARP 协议
+ifconfig eth0 arp
+# 关闭网卡 eth0 的 ARP 协议
+ifconfig eth0 -arp
+```
+
+### MTU
+
+Max Transmission Unit : 最大传输单元
+
+```bash
+# 设置能通过的最大数据包大小为 1500 bytes
+ifconfig eth0 mtu 1500
 ```
 
 ## Synopsis
