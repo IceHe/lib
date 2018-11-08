@@ -468,11 +468,6 @@ Options
 - `-t` duration second
 - `-g` output data
 
-Related commands
-
-- dstat
-- iostat ?
-
 ### http_load
 
 ## Bash
