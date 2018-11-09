@@ -275,7 +275,7 @@ Other meanings
 
 ### R
 
-- r : are
+- r : are | recursively ( for CLI )
 - rb : ruby
 - rcv : received
 - rd : read
@@ -302,7 +302,7 @@ Other meanings
 
 ### S
 
-- s : silent
+- s : silent ( for CLI )
 - SDE : Software Development Engineer
 - sec : second | secure , security
 - seg : segment
@@ -331,7 +331,7 @@ Other meanings
 
 ### T
 
-- t : temporary
+- t : temporary | time
 - TA : teaching assistant
 - TB : team building
 - TBD : To Be Determinated
@@ -359,12 +359,12 @@ Other meanings
     - English speakers originally proposed CUT (for "coordinated universal time"), while French speakers proposed TUC (for "temps universel coordonné"). The compromise that emerged was UTC.
 - UTS : Universal Time-sharing System
 - util : utility
-- uuid : Universally Unique Identifier 通用唯一标识符
+- uuid : Universally Unique IDentifier 通用唯一标识符
 
 ### V
 
-- v : verbose | version
-- V : version
+- v : version | verbose ( for CLI )
+- V : version ( for CLI )
 - val : value
 - var : variable
 - VC : Venture Capital
@@ -374,7 +374,7 @@ Other meanings
 
 ### W
 
-- w : word
+- w : word | who ( for CLI )
 - WAN : wide area network
 - win : window
 - WIP : Work In Process|Progress
@@ -384,7 +384,7 @@ Other meanings
 
 ### X
 
-- x : extended | unknown | unknown number
+- x : extended ( for CLI ) | unknown number
 
 ### Y
 
@@ -393,4 +393,5 @@ Other meanings
 
 ### Z
 
+- z : compress ( for CLI )
 - zzz : fall asleep
