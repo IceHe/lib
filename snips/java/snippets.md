@@ -34,21 +34,73 @@ Integer intVar = Integer.parseInt("11");
 Float floatVar = Float.parseFloat("1.2");
 ```
 
+## conditional
+
+Collection
+
+```java
+CollectionUtils.isEmpty(collection)
+CollectionUtils.isNotEmpty(collection)
+```
+
+## enum
+
+```java
+package xyz.icehe.type;
+
+import com.google.common.collect.ImmutableSet;
+import org.apache.commons.lang.StringUtils;
+
+import java.util.Set;
+
+public enum Young {
+
+    BOY("BOY"),
+    GIRL("GIRL"),
+    ;
+
+    public static final Set<Young> VALUES
+            = ImmutableSet.copyOf(values());
+
+    private String value;
+
+    Young(String value) {
+        this.value = value;
+    }
+
+    public static Young parse(String value) {
+        if (StringUtils.isBlank(value)) {
+            return null;
+        }
+
+        for (Young young : values()) {
+            if (young.equals(value)) {
+                return young;
+            }
+        }
+
+        return null;
+    }
+
+    public static boolean isValidYoung(String value) {
+        return null != parse(value);
+    }
+
+    public String toString() {
+        return value;
+    }
+
+}
+
+```
+
 ## new
 
 ### List
 
-List
-
 ```java
 import java.util.Arrays;
 List<Integer> intList = Arrays.asList(1, 2, 3);
-```
-
-Empty List
-
-```java
-Collections.emptyList();
 ```
 
 ### Set
@@ -67,13 +119,36 @@ import com.google.common.collect.ImmutableSet;
 public static final Set<String> CONSTANTS = ImmutableSet.of(AAA, SSS);
 ```
 
-## conditional
-
-Collection
+### empty collections
 
 ```java
-CollectionUtils.isEmpty(collection)
-CollectionUtils.isNotEmpty(collection)
+Collections.emptyList();
+Collections.emptySet();
+Collections.emptyMap();
+
+// generic type
+Collections.<String>emptySet();
+……
+```
+
+## optinal
+
+Optional.ofNullable(…).ifPresent(…);
+
+```java
+Optional.ofNullable(map.get("content"))
+        .ifPresent(it -> doSomething.withContent((Map<String, Object>) content));
+```
+
+## sort
+
+```java
+Map<String, List<Long>> keyValuesMap = getKeyValuesMap();
+
+// 返回结果是乱序的；
+// 需要根据输入参数 valueList 中 value 的原始顺序，重新排列好
+keyValuesMap.forEach((key, vals) -> Collections.
+        sort(vals, Comparator.comparingInt(val -> valueList.indexOf(val))));
 ```
 
 ## split
@@ -107,13 +182,4 @@ List<String> list1 = list0.stream()
         .filter(Objects::nonNull) // or
         .filter(StringUtils::isNotBlank) // or
         .collect(Collectors.toList());
-```
-
-## optinal
-
-Optional.ofNullable(…).ifPresent(…);
-
-```java
-Optional.ofNullable(map.get("content"))
-        .ifPresent(it -> doSomething.withContent((Map<String, Object>) content));
 ```
