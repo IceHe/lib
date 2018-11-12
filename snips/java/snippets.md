@@ -86,6 +86,10 @@ public enum Young {
         return null != parse(value);
     }
 
+    public String getValue() {
+        return value;
+    }
+
     public String toString() {
         return value;
     }
@@ -163,6 +167,16 @@ List<List<String>> listPartions = Lists.partition(list, 50);
 
 ## stream
 
+### collect
+
+```java
+List<Long> longList = ……;
+Map<Double, String> scoreValues = longList.stream()
+        .collect(Collectors.toMap(val -> (double) val, val -> String.valueOf(val)));
+```
+
+### concat
+
 concat integers with ","
 
 ```java
@@ -172,6 +186,8 @@ String str = intSet.stream()
         .map(elem -> String.valueOf(elem)) // cast Integer to String
         .collect(Collectors.joining(",")); // concat with charactor ","
 ```
+
+### filter
 
 filter blank string
 
