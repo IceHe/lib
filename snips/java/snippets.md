@@ -95,7 +95,6 @@ public enum Young {
     }
 
 }
-
 ```
 
 ## new
