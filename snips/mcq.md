@@ -4,7 +4,7 @@ MemcacheQ
 
 - ~~Home Page~~ : http://memcachedb.org/memcacheq/ ( Invalid link on 2018-11-13 )
 
-MemcacheDB
+Memcached
 
 - Offical Home : https://memcached.org/
 - GitHub Wiki : https://github.com/memcached/memcached/wiki
