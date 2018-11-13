@@ -32,8 +32,9 @@ Web
 - [How to docsify](/_docsify/README.md)
 - [IP address](/snips/ip.md)
 
-Storage
+Storage ( usage )
 
+- [MemcacheQ](/snips/mcq.md)
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
 
