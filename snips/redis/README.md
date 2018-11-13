@@ -70,14 +70,14 @@ requiredpass foobared
 if `requiredpass` is on
 
 ```bash
-redis -h [host] -p [port] -a [password]
+redis-cli -h [host] -p [port] -a [password]
 # e.g. `redis -h 127.0.0.1 -p 6379 -a foobared`
 ```
 
 or
 
 ```bash
-redis -h [host] -p [port]
+redis-cli -h [host] -p [port]
 # e.g. `redis -h 127.0.0.1 -p 6379
 
 > AUTH [password]
@@ -103,6 +103,8 @@ Q & A
 - SET without expiry ( [ref](https://stackoverflow.com/questions/40019390/redis-set-with-option-without-expiry) )
     - Send `set` command without `EX` option
 
+---
+
 ## TEMP
 
 部分基本知识：
@@ -122,6 +124,8 @@ Q & A
 ref : https://www.itcodemonkey.com/article/3506.html
 
 ---
+
+### 源码解析
 
 - [Zeech's Tech Blog](http://zcheng.ren/index.html) -
 - [ZeeCoder](https://blog.csdn.net/terence1212)
