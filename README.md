@@ -57,7 +57,7 @@ Others
 
 ### Cmd
 
-> Commands & CLI ( Command Line Interface )
+> Commands & CLI ( Command-Line Interface )
 
 - bash : GNU Bourne-Again SHell
     - [$parameter](/cmd/p/$parameter.md) : basic, expansion & substitution
@@ -226,7 +226,6 @@ Others
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
 - Me : Back-end / Sina Weibo / Fool, lazy & poor
-    - Have no dream & self-abandoned
 
 ## Archived
 
