@@ -1,6 +1,6 @@
-# MemcachedQ
+# MemcacheQ
 
-MemcachedQ
+MemcacheQ
 
 - ~~Home Page~~ : http://memcachedb.org/memcacheq/ ( Invalid link on 2018-11-13 )
 
