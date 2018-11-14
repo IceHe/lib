@@ -17,13 +17,13 @@ Other meanings
 - `&` : and
 - `|` : or
 - `@` : at
-- `~` : home direcotry
-- `*` : optional | wildcard character
+- `~` : [home direcotry](https://en.wikipedia.org/wiki/Home_directory)
+- `*` : optional | [wildcard character](https://en.wikipedia.org/wiki/Wildcard_character)
 - `?` : maybe | candidate
 - `!` : not
 - `>` : next
 
-### Unicode
+### Keyboard
 
 - `` : Power
 - `⌘` : Command ( Cmd )
@@ -81,18 +81,19 @@ Other meanings
 - cnt : count
 - conf : configuration
 - const : constant
-- constr : constructor
+- constr : [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
 - conv : convert
-- cp : copy
-- cpp : c++
+- cp : [copy](https://en.wikipedia.org/wiki/Copy_(command))
+- cpp : [c++](https://en.wikipedia.org/wiki/C%2B%2B)
 - cr : carriage return
 - crlf : carriage return / line feed
+    ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
 - ctrl : contrl
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
-- cwd : current working directory
+- cwd : [current working directory](https://en.wikipedia.org/wiki/Working_directory)
 
 ### D
 
@@ -106,7 +107,7 @@ Other meanings
 - dev : development | device
 - diff : differ | difference
 - dir : directory
-- dll : dynamic link library
+- dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
 - dn : down
 - doc , docs : documentation
 - dw : double word
@@ -120,8 +121,8 @@ Other meanings
 - elem : element
 - enc : encoding
 - env : environment
-- eof : end of file
-- eol : end of line
+- eof : [end of file](https://en.wikipedia.org/wiki/End-of-file)
+- eol : end of line ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - err : error
 - esc : escape
 - et al. : et alii 以及其他人（等人）；et alibi 以及其他地方
@@ -132,7 +133,8 @@ Other meanings
 - ex : exception
 - exe : executive | execution
 - exec : execute
-- exp : experience | exponent
+- exp : experience
+    | [exponent](https://en.wikipedia.org/wiki/Scientific_notation#E-notation)
 - expr : expression
 - ext : extension
 
@@ -145,7 +147,7 @@ Other meanings
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
 - fmt : format
 - fn : function
-- fs : file system
+- fs : [file system](https://en.wikipedia.org/wiki/File_system)
 - func : function
 - FYI : [For Your Infomation](https://en.wikipedia.org/wiki/FYI) 供参考
 
@@ -174,7 +176,7 @@ Other meanings
 - ico : icon
 - idc : internet data center 数据中心
 - idx : index
-- i.e. : id est（拉丁语）即（也就是）
+- i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）
 - img : image
 - imp : improve
 - impl : implement
@@ -182,7 +184,7 @@ Other meanings
 - ini : initialization
 - init : initiate
 - ins : insert
-- int : integer | interrupt
+- int : [integer](https://en.wikipedia.org/wiki/Integer_(computer_science))     | [interrupt](https://en.wikipedia.org/wiki/Interrupt)
 - io : input/output
 
 ### J
@@ -218,15 +220,16 @@ Other meanings
 - m : minute
 - M : month | million 百万
 - MBR : [Master Boot Record](https://en.wikipedia.org/wiki/Master_boot_record)
-- mc : Memcached
-- md : markdown
-- mem : memory
-- millis : millisecond
-- mk : make
+- mc : [Memcached](https://en.wikipedia.org/wiki/Memcached)
+- md : [markdown](https://en.wikipedia.org/wiki/Markdown)
+- mem : [memory](https://en.wikipedia.org/wiki/Computer_data_storage#Primary_storage)
+- millis : [millisecond](https://en.wikipedia.org/wiki/Millisecond)
+- mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
+- mod : modify | mode
 - MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
 - msg : message
 - multi : multiple
-- mv : move
+- mv : [move](https://en.wikipedia.org/wiki/Move_(command)) ( for CLI )
 
 ### N
 
@@ -256,25 +259,26 @@ Other meanings
 - param : parameter
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix
-- pid : process id
+- pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
 - preg : [PECL](https://en.wikipedia.org/wiki/PEAR#PECL) regular expression
 - prev : previous
-- proc : process
-- prog : program
-- ps : process status | PhotoShop
+- proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
+- prog : [program](https://en.wikipedia.org/wiki/Computer_program)
+- ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
 - PS : PhotoShop
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
 - ptr : pointer
 - pw , pwd : passowrd
+- pwd : [print working directory](https://en.wikipedia.org/wiki/Pwd)
 - py : python
 
 ### Q
 
 - q : question | quiet ( for CLI )
-- qa : quality assurance
+- QA : [quality assurance](https://en.wikipedia.org/wiki/Quality_assurance)
 - Q & A : [Questions & Answers](https://en.wikipedia.org/wiki/Q%26A)
-- qps : queries per second
+- qps : [queries per second](https://en.wikipedia.org/wiki/Queries_per_second)
 
 ### R
 
@@ -317,7 +321,7 @@ Other meanings
 - shr : share
 - sig : signal | signature
 - sim : simple , simplify
-- slb : server load balancing
+- slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - snd : send
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
@@ -346,14 +350,14 @@ Other meanings
 - tmp : temporary
 - tmpl : template
 - tpl : template
-- ts : timestamp
+- ts : [timestamp](https://en.wikipedia.org/wiki/Timestamp)
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)
 
 ### U
 
 - u : you
 - UE : [user experience design](https://en.wikipedia.org/wiki/User_experience_design) ( [others](https://en.wikipedia.org/w/index.php?title=Special:Search&search=user+experience+design&fulltext=1&profile=default) )
-- ui : user interface | user interaction
+- ui : [user interface](https://en.wikipedia.org/wiki/User_interface) | [user interaction](https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction)
 - uid : user id
 - UML : [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 统一建模语言
 - upd : update
@@ -362,7 +366,7 @@ Other meanings
     - English speakers originally proposed CUT (for "coordinated universal time"), while French speakers proposed TUC (for "temps universel coordonné"). The compromise that emerged was UTC.
 - UTS : [Universal Time-sharing System](https://en.wikipedia.org/wiki/Universal_Time-Sharing_System)
 - util : utility
-- uuid : Universally Unique IDentifier 通用唯一标识符
+- uuid : [Universally Unique IDentifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) 通用唯一标识符
 
 ### V
 
@@ -382,8 +386,8 @@ Other meanings
 - win : window
 - WIP : [Work In Process](https://en.wikipedia.org/wiki/Work_in_process) or Progress
 - wnd : window
-- wtf : what the fuck
-- www : world wide web
+- wtf : [what the fuck](https://en.wikipedia.org/wiki/Fuck#Modern_usage)
+- www : [world wide web](https://en.wikipedia.org/wiki/World_Wide_Web)
 
 ### X
 
