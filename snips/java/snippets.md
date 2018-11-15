@@ -143,6 +143,33 @@ Optional.ofNullable(map.get("content"))
         .ifPresent(it -> doSomething.withContent((Map<String, Object>) content));
 ```
 
+## primitive types
+
+long & double
+
+```java
+……
+    public static void main(String[] args) {
+        long midL = 4305912891445794L; // 16 位数
+        double midD = (double) midL;
+        // long 范围 -9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807
+
+        double flags = 12;
+        while (flags > 1) {
+            flags /= 10;
+        }
+        double midWithFlagsD = midD + flags;
+        // 4305912891445794.12
+
+        System.out.println(midWithFlagsD);
+        // output 4.305912891445794E15
+        // double 有效位数为 15 位
+        // 新添加小数部分，被截断了
+        // 还是 4305912891445794
+    }
+……
+```
+
 ## sort
 
 ```java
