@@ -174,7 +174,7 @@ Other meanings
 - i : index | integer | me
 - I : me
 - ico : icon
-- idc : internet data center 数据中心
+- idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
 - idx : index
 - i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）
 - img : image
