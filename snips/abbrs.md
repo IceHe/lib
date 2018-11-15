@@ -330,6 +330,7 @@ Other meanings
 - st : something | sometimes
 - stat : status | statistics
 - str : string
+- sub : subscribe, subscription
 - sum : summary | summation
 - swp : swap
 - sym : symbol
