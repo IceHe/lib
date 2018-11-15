@@ -7,9 +7,21 @@
 - See `man iostat` for more.
 - Recommend to use [`dstat`](/cmd/d/dstat.md).
 
+## Synopsis
+
+```bash
+iostat [ -c ] [ -d ] [ -h ] [ -k | -m ]
+    [ -N ] [ -t ] [ -V ] [ -x ] [ -y ] [ -z ]
+    [ -j { ID | LABEL | PATH | UUID | ... } ]
+    [ [ -T ] -g group_name ]
+    [ -p [ device [,...] | ALL ] ]
+    [ device [...] | ALL ]
+    [ interval [ count ] ]
+```
+
 ## Options
 
-Content
+Display
 
 - `-c` Display **CPU** utilization report
 - `-d` Display **device** utilization report
@@ -23,7 +35,9 @@ Format
 
 ## Usage
 
-### Default
+### Display
+
+#### Default
 
 ```bash
 $ iostat
@@ -34,6 +48,39 @@ avg-cpu:  %user   %nice %system %iowait  %steal   %idle
 
 Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
 sda              10.21        96.35       172.04  942451408 1682772420
+```
+
+#### CPU
+
+```bash
+$ iostat -c
+Linux 3.10.0-862.6.3.el7.x86_64 (box029.wb.trans.imgbed.bx.sinanode.com)        11/15/2018      _x86_64_        (24 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.68    0.00    0.51    0.05    0.00   98.76
+```
+
+#### Device
+
+```bash
+iostat -d
+Linux 3.10.0-862.6.3.el7.x86_64 (box029.wb.trans.imgbed.bx.sinanode.com)        11/15/2018      _x86_64_        (24 CPU)
+
+Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+sda              10.31       108.07       179.64 1121062944 1863404872
+```
+
+#### Extended
+
+```bash
+$ iostat -x
+Linux 3.10.0-862.6.3.el7.x86_64 (box029.wb.trans.imgbed.bx.sinanode.com)        11/15/2018      _x86_64_        (24 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.68    0.00    0.51    0.05    0.00   98.76
+
+Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+sda               0.10     5.23    1.57    8.74   108.07   179.64    55.81     0.08    8.05    1.61    9.21   1.58   1.63
 ```
 
 ### Interval
