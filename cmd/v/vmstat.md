@@ -49,27 +49,6 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  0  1 133632 3192476 591804 6748972    0    0     4     7    0    0  1  1 99  0  0
 ```
 
-#### Output Unit
-
-```bash
-vmstat -S <character>
-
-# e.g.
-$ vmstat -S K
-# K : 1024 bytes
-# k : 1000 bytes
-procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
- r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
- 1  0 133632 3167672 594204 6753820    0    0     4     7    0    0  1  1 99  0  0
-
-$ vmstat -S M
-# M : 1048576 bytes
-# m : 1000000 bytes
-procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
- r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
- 0  0    130   3096    580   6595    0    0     4     7    0    0  1  1 99  0  0
-```
-
 ### Num of Forks
 
 ```bash
@@ -164,4 +143,43 @@ vmstat -p <device>
 $ vmstat -p sda1
 sda1          reads   read sectors  writes    requested writes
               859958   20557314    2187249   29626552
+```
+
+### Size Unit
+
+```bash
+vmstat -S <character>
+
+# e.g.
+$ vmstat -S K
+# K : 1024 bytes
+# k : 1000 bytes
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0 133632 3167672 594204 6753820    0    0     4     7    0    0  1  1 99  0  0
+
+$ vmstat -S M
+# M : 1048576 bytes
+# m : 1000000 bytes
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0    130   3096    580   6595    0    0     4     7    0    0  1  1 99  0  0
+```
+
+### With Timestamp
+
+```bash
+$ vmstat -t
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu----- -----timestamp-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st                 CST
+ 0  0 133632 3174344 594432 6754140    0    0     4     7    0    0  1  1 99  0  0 2018-11-14 20:59:57
+```
+
+### Wide Ouput Mode
+
+```bash
+$ vmstat -w
+procs -----------------------memory---------------------- ---swap-- -----io---- -system-- --------cpu--------
+ r  b         swpd         free         buff        cache   si   so    bi    bo   in   cs  us  sy  id  wa  st
+ 1  0       133632      4155796       505364      5839292    0    0     5     8    0    0   1   1  99   0   0
 ```
