@@ -224,6 +224,11 @@ Other meanings
 - md : [markdown](https://en.wikipedia.org/wiki/Markdown)
 - mem : [memory](https://en.wikipedia.org/wiki/Computer_data_storage#Primary_storage)
 - millis : [millisecond](https://en.wikipedia.org/wiki/Millisecond)
+    - milli-\* 10^-3
+    - micro-\* 10^-6
+    - nano-\* 10^-9
+    - pico-\* 10^-12
+    - femto-\* 10^-15
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mod : modify | mode
 - MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
