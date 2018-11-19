@@ -1,6 +1,6 @@
 # Time Table
 
-## Much Sleep
+## _Much Sleep_
 
 Time available for more sleep **$ 8h/day**
 
@@ -10,7 +10,7 @@ Time available for more sleep **$ 8h/day**
 - 11:30-13:00 : lunch / relax / nap $ 1.5h
 - 13:00-18:00 : **work $ 5h**
 - 18:00-19:00 : dinner / relax $ 1h
-- 19:00-21:00 : **buf / stu $ 2h**
+- 19:00-21:00 : **work buf / stu $ 2h**
 - 21:00-22:00 : plan / go home $ 1h
 - 22:00-23:00 : clean / oth $ 1h
 - 23:00-23:30 : joy $ 30m
@@ -26,7 +26,7 @@ Time available **$ 9h/day**
 - 11:30-13:00 : lunch / relax / nap $ 1.5h
 - 13:00-18:00 : **work $ 5h**
 - 18:00-19:00 : dinner / relax $ 1h
-- 19:00-21:00 : **buf / stu $ 2h**
+- 19:00-21:00 : **work buf / stu $ 2h**
 - 21:00-22:00 : plan / go home $ 1h
 - 22:00-23:00 : clean / oth $ 1h
 - 23:00-23:30 : joy $ 30m
@@ -42,6 +42,6 @@ Time available **$ 10h/day**
 - 11:30-13:00 : lunch / relax / nap $ 1.5h
 - 13:00-18:00 : **work $ 5h**
 - 18:00-19:00 : dinner / relax $ 1h
-- 19:00-21:00 : **buf / stu $ 2h**
+- 19:00-21:00 : **work buf / stu $ 2h**
 - 21:00-22:00 : plan / go home $ 1h
 - 22:00-23:00 : clean / oth $ 1h - 23:00-23:30 : joy $ 30m
