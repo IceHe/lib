@@ -75,3 +75,7 @@ ERROR
 > MySql server startup error 'The server quit without updating PID file '
 
 - StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
+
+## TODO
+
+- Upgrade macOS MySQL from version 5.7 to 8+
