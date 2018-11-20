@@ -67,3 +67,11 @@ show create table <table_name>
 # e.g.
 show create table jobs
 ```
+
+## Troubleshooting
+
+ERROR
+
+> MySql server startup error 'The server quit without updating PID file '
+
+- StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
