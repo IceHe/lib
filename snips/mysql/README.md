@@ -79,3 +79,4 @@ ERROR
 ## TODO
 
 - Upgrade macOS MySQL from version 5.7 to 8+
+- `mysqldump` backup
