@@ -25,21 +25,45 @@ mysql_upgrade -u root -p
 ## Connect
 
 ```bash
-$ mysql -h HOST -P PORT -u USERNAME -pPASSWORD
+mysql -h HOST -P PORT -u USERNAME -pPASSWORD
+# e.g.
+$ mysql -h db.icehe.xyz -P 5104 -u username -ppassword
 ```
 
 ## CLI
 
-Databases
+### Databases
+
+Show
 
 ```bash
-> show databases;
-> use DB_NAME;
-> show tables;
+show databases;
+```
+
+Select
+
+```bash
+use DB_NAME;
+```
+
+### Tables
+
+Show
+
+```bash
+show tables;
 ```
 
 Show Table Definition
 
 ```bash
 desc TABLE_NAME;
+```
+
+Show Create Table
+
+```bash
+show create table <table_name>
+# e.g.
+show create table jobs
 ```
