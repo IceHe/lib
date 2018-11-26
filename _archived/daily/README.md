@@ -1,10 +1,18 @@
 # Daily
 
-## 2018-11
+## 2018
 
-1. Rd "Core Java" : 10p/d ( $ 1h )
-2. Sum CMD : 1/d ( $ 30m )
-3. Ask @wenqing9 for a new task ( $ ? )
+Week 48 : 11/26 ~ 12/02
+
+- Sleep Early on 23:00
+- Finish Job on time
+
+Dec
+
+- Sleep Early on 23:00
+- Finish Job on time
+- Rd "Core Java" : 10p/d ( $ 1h )
+- Sum CMD : 1/d ( $ 30m )
 
 ## Major Problems
 
@@ -41,7 +49,10 @@ _2018-11-19 1:57 AM_
 改回老土的
 
 > 三思而后行。
+
 ## 深思熟虑？！
+
+_2018-11-19_
 
 不能不明不白做需求，完成工作。
 
