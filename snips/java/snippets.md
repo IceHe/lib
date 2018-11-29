@@ -191,6 +191,15 @@ List Partion
 List<List<String>> listPartions = Lists.partition(list, 50);
 ```
 
+## sql
+
+### query count
+
+```java
+String sql = "SELECT count(*) FROM ? …";
+int count = jdbcInfo.getJdbcTemplate().queryForInt(sql, params);
+```
+
 ## stream
 
 ### collect
