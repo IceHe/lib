@@ -2,7 +2,7 @@
 
 ## SMART 法则
 
-_References_
+References
 
 - https://wiki.mbalib.com/wiki/SMART%E5%8E%9F%E5%88%99
 - https://en.wikipedia.org/wiki/SMART_criteria
