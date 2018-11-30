@@ -9,7 +9,7 @@ Week 48 : 11/26 ~ 12/02
 
 Dec
 
-- Sleep Early on 23:00
+- **Sleep Early on 23:00**
 - Finish Job on time
 - Rd "Core Java" : 10p/d ( $ 1h )
 - Sum CMD : 1/d ( $ 30m )
