@@ -40,8 +40,9 @@ Storage ( usage )
 
 Others
 
-- [Glossary](/snips/glossary.md)
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
+- [Glossary](/snips/glossary.md)
+- [~~Daily~~](/snips/daily/README.md)
 
 ### Mac
 
@@ -240,7 +241,6 @@ Others
 
 ~~Time Management~~ ( Nonsense )
 
-- [~~Daily~~](/_archived/daily/README.md)
 - [~~Life Logs~~](/_archived/lifelogs/README.md)
 - [~~Self Manual~~](/_archived/lifelogs/life-manual.md)
 
