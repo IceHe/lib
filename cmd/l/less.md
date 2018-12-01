@@ -19,13 +19,13 @@ more : file perusal filter for crt viewing
 
 ## Options
 
-### Case
+### Percent
 
-Default : `-i, --ignore-case` **case sensitive**
+Default : `-m, --long-prompt` **with percent into the file**
 
-- `-i, --ignore-case` Causes searches to ignore case; that is, uppercase and lowercase  are  considered  identical.
-    - This  option  is ignored  if  any uppercase letters appear in the search pattern; in other words, if a pattern contains uppercase letters, then that search does not ignore case.
-- `-I, --IGNORE-CASE` Like -i, but searches ignore case even if the pattern contains uppercase letters.
+- `-m, --long-prompt` Causes  less  to  prompt verbosely (like more), with the percent into the file.
+    - By default, less prompts with a colon.
+- `-M, --LONG-PROMPT` Causes less to prompt even more verbosely than more.
 
 ### Line Numbers
 
@@ -37,12 +37,30 @@ Default : `-n, --line-numbers` **without line numbers**
     - Using line numbers means: the line number will be displayed in the verbose prompt and in the = command, and the v command will pass the current line number to the editor (see also the discussion of LESSEDIT in PROMPTS below).
 - `-N, --LINE-NUMBERS` Causes a line number to be displayed at the beginning of each line in the display.
 
-### Percent
+### Case
 
-Default : `-m, --long-prompt` **with percent into the file**
+Default : `-i, --ignore-case` **case sensitive**
 
-- `-m, --long-prompt` Causes  less  to  prompt verbosely (like more), with the percent into the file.
-    - By default, less prompts with a colon.
-- `-M, --LONG-PROMPT` Causes less to prompt even more verbosely than more.
+- `-i, --ignore-case` Causes searches to ignore case; that is, uppercase and lowercase  are  considered  identical.
+    - This  option  is ignored  if  any uppercase letters appear in the search pattern; in other words, if a pattern contains uppercase letters, then that search does not ignore case.
+- `-I, --IGNORE-CASE` Like -i, but searches ignore case even if the pattern contains uppercase letters.
+
+## Commands
+
+> Interactive Commands
+
+TODO
 
 ## Usage
+
+Default : case sensitive
+
+```bash
+less <file_path>
+```
+
+Recommended : with **line numbers & percent** into the file
+
+```bash
+less -MN <file_path>
+```
