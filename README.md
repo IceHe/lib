@@ -84,7 +84,7 @@ Others
 - [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
 - [kill](/cmd/k/kill.md) : terminate or signal a process
 - [less](/cmd/l/less.md) : opposite of more
-    - [more](/cmd/m/more.md) : file perusal filter for paging through text one screenful at a time
+    - more : file perusal filter for paging through text one screenful at a time
 - [ln](/cmd/l/ln.md) : make links between files
 - [ls](/cmd/l/ls.md) : list directory contents
 - [lsof](/cmd/l/lsof.md) : list open files
