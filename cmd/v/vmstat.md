@@ -24,7 +24,7 @@ vmstat [options] [delay [count]]
     - This includes the fork, vfork, and clone system calls, and is equivalent to the total number of tasks created.
     - Each process is represented by one or more tasks, depending on thread usage.
     - This display does not repeat.
-- `-m, --slabs` Displays slabinfo.
+- `-m, --slabs` Displays slabinfo. ( [related](https://en.wikipedia.org/wiki/Slab_allocation) )
 - `-n, --one-header` Display the header only once rather than periodically.
 - `-s, --stats` Displays a table of various event counters and memory statistics.
     - This display does not repeat.
