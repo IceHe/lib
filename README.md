@@ -246,4 +246,4 @@ Others
 - [~~Life Logs~~](/_archived/lifelogs/README.md)
 - [~~Self Manual~~](/_archived/lifelogs/life-manual.md)
 
-> 对酒当歌，人生几何？譬如朝露，去日苦多
+> 靡不有初，鲜克有终
