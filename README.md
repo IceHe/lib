@@ -79,7 +79,7 @@ Others
 - [htop](/cmd/h/htop.md) : interactive process viewer
 - [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
 - [iftop](/cmd/i/iftop.md) : display bandwidth usage on an interface by host
-- [iostat](/cmd/i/iostat.md) :
+- [iostat](/cmd/i/iostat.md) : statistics of CPU & IO for devices & partitions
 - [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
 - [kill](/cmd/k/kill.md) : terminate or signal a process
 - [ln](/cmd/l/ln.md) : make links between files
