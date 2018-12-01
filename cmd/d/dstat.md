@@ -24,7 +24,13 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 ## Description
 
+### Intro
+
 Dstat is a versatile **replacement for `vmstat`, `iostat` and `ifstat`**.
+
+- [vmstat](/cmd/v/vmstat.md)
+- [iostat](/cmd/i/iostat.md)
+- [ifstat](/cmd/i/ifstat.md)
 
 Dstat allows you to view all of your system resources instantly, you can e.g. compare disk usage in combination with interrupts from your IDE controller, or **compare the network bandwidth numbers directly with the disk throughput (in the same interval)**.
 
