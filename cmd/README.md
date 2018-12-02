@@ -258,16 +258,6 @@ done
     - grep -E
 - vimdiff
 
-### Dir & File
-
-- chmod
-
-chmod ugo+rwxa file    user group other read write executable all
-
-- chown
-
-chown 用户名:用户分组
-
 ### Jobs
 
 - ^ c
@@ -379,10 +369,6 @@ grep时去掉grep本身
 显示当前文件夹下最大的10个文件/文件夹。
 
 `du -s * |sort -n |tail`
-
-把file2的权限更新到与file1一致.
-
-`chmod --reference file1 file2`
 
 同ctrl+x e
 
