@@ -93,6 +93,13 @@ Display new data appended to file
 $ tail -f info.log
 ```
 
+#### Replacement
+
+```bash
+$ less info.log
+# And then : press the interative command `F` ( Shift + F ) !
+```
+
 ### All But Top
 
 Print print all but the top 36 lines
