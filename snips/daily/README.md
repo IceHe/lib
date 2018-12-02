@@ -6,15 +6,6 @@ Week 48 : 12/03 ~ 12/09
 
 |Target|Mon|Tue|Web|Thu|Fri|Sat|Sun|
 |:-|-|-|-|-|-|-|-|
-|Sleep Early|-|-|-|-|O|O|X|
-|Job on Time|-|-|-|-|X|-|-|
-|Stu 1 Cmd|-|-|-|-|X|O|O|
-|Rd 10 Pg|-|-|-|-|X|O|O|
-
-Week 48 : 12/03 ~ 12/09
-
-|Target|Mon|Tue|Web|Thu|Fri|Sat|Sun|
-|:-|-|-|-|-|-|-|-|
 |Sleep Early|-|-|-|-|-|-|-|
 |Job on Time|-|-|-|-|-|-|-|
 |Stu 1 Cmd|-|-|-|-|-|-|-|
