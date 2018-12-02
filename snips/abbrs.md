@@ -282,6 +282,7 @@ Other meanings
 - prev : previous
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
+- prop : property
 - ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
 - PS : PhotoShop
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
