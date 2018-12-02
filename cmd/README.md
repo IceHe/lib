@@ -13,6 +13,8 @@ Reference
 
 https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 
+- [Linux 需要掌握的一些命令 | 菜鸟教程](http://www.runoob.com/w3cnote/linux-useful-command.html)
+
 ## Archived
 
 Recommended Guide
