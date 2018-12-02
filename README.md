@@ -65,6 +65,7 @@ Others
     - [$parameter](/cmd/p/$parameter.md) : basic, expansion & substitution
 - [bzip2](/cmd/b/bzip2.md) : block-sorting file compressor
 - [cat](/cmd/c/cat.md) : concatenate files & print on the standard output
+- [chown](/cmd/c/chown.md) : change file owner & group
 - [cron](/cmd/c/cron.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
@@ -112,7 +113,7 @@ Others
 - [uptime](/cmd/u/uptime.md) : show how long system has been running
 - [vim](/cmd/v/vim.md) : terminal editor
 - [w](/cmd/w/w.md) : show who is logged on & what they are doing
-- [wc](/cmd/w/wc.md) : print newline, word, and byte counts for each file
+- [wc](/cmd/w/wc.md) : print newline, word, & byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
 - [whoami](/cmd/w/whoami.md) : print effective userid
