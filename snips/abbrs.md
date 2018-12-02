@@ -301,6 +301,7 @@ Other meanings
 ### R
 
 - r : are | recursively ( for CLI )
+- R : recursively ( for CLI )
 - rb : ruby
 - rcv : received
 - rd : read
