@@ -6,8 +6,8 @@
 
 Common
 
-- `-R, --recursive` operate on files and directories recursively
-- `--reference=RFILE` use RFILE's owner and group rather than specifying OWNER:GROUP values
+- `-R, --recursive` operate on files & directories recursively
+- `--reference=RFILE` use RFILE's owner & group rather than specifying OWNER:GROUP values
 
 Symbolic Link
 
@@ -50,7 +50,7 @@ chown icehe:staff -R logs/
 
 Symbolic Link
 
-- Change the owner of file and subfiles
+- Change the owner of file & subfiles
 
 ```bash
 chown -hR root file
