@@ -28,7 +28,7 @@ Other meanings
 - `` : Power
 - `⌘` : Command ( Cmd )
 - `⌥` : Option | Alt
-- `^` : Control | Ctrl
+- `^` : Control ( Ctrl )
 - `⇧` : Shift ( Shf )
 - `⇪` : CapsLock
 - `⇥` : Tab
@@ -47,7 +47,7 @@ Other meanings
 
 ### A
 
-- a : all
+- a : all ( for CLI )
 - abbr : abbreviation
 - ad : advertisement
 - addr : address
@@ -57,10 +57,12 @@ Other meanings
 - arg : argument
 - asm : assembly
 - auth : authenticate
-- auto : automatical
+- auto : automatic
 
 ### B
 
+- b : [bit](https://en.wikipedia.org/wiki/Bit)
+- B : [byte](https://en.wikipedia.org/wiki/Byte)
 - bak : backup
 - bat : batch
 - bin : binary
@@ -85,12 +87,12 @@ Other meanings
 - conv : convert
 - cp : [copy](https://en.wikipedia.org/wiki/Copy_(command))
 - cpp : [c++](https://en.wikipedia.org/wiki/C%2B%2B)
-- cr : carriage return
+- cr : [carriage return](https://en.wikipedia.org/wiki/Carriage_return)
 - crlf : carriage return / line feed
     ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
-- ctrl : contrl
+- ctrl : control
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
 - cwd : [current working directory](https://en.wikipedia.org/wiki/Working_directory)
@@ -102,6 +104,7 @@ Other meanings
 - dat : data
 - db : database
 - dec : decimal
+- decr : decrease
 - desc : description
 - del : delete
 - dev : development | device
@@ -109,7 +112,8 @@ Other meanings
 - dir : directory
 - dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
 - dn : down
-- doc , docs : documentation
+- doc : documentation
+- docs : documentation
 - dw : double word
 
 ### E
@@ -127,16 +131,16 @@ Other meanings
 - esc : escape
 - et al. : et alii 以及其他人（等人）；et alibi 以及其他地方
 - ETA : [Estimated Time of Arrival](https://en.wikipedia.org/wiki/Estimated_time_of_arrival) 预计抵达时间
-- etc. : et cetera ( etcetera ) (aka. and so on) 等等，及其它
+- etc. : [et cetera](https://en.wikipedia.org/wiki/Et_cetera) ( etcetera ) (aka. and so on) 等等，及其它
     - `&c` or `&c.` for `& etc.`
 - evt : event
-- ex : exception
+- ex : exception | excluding, without | exit
 - exe : executive | execution
 - exec : execute
 - exp : experience
     | [exponent](https://en.wikipedia.org/wiki/Scientific_notation#E-notation)
 - expr : expression
-- ext : extension
+- ext : extension | extract | extra | exterior
 
 ### F
 
@@ -162,7 +166,7 @@ Other meanings
 
 ### H
 
-- h : handle | hour | help
+- h : handle | hour | help ( for CLI )
 - H : hour
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system)
 - hex : heximal
@@ -171,7 +175,7 @@ Other meanings
 
 ### I
 
-- i : index | integer | me
+- i : index | integer | ignore ( for CLI ) | me
 - I : me
 - ico : icon
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
@@ -180,6 +184,7 @@ Other meanings
 - img : image
 - imp : improve
 - impl : implement
+- incr : increase
 - info : information
 - ini : initialization
 - init : initiate
@@ -189,6 +194,7 @@ Other meanings
 
 ### J
 
+- j : jump
 - jar : [Java Archive file](https://en.wikipedia.org/wiki/JAR_(file_format))
 - jd : job description
 - jr : job requirement
@@ -198,6 +204,9 @@ Other meanings
 ### K
 
 - k : kilo- 千
+- KiB : [kibibyte](https://en.wikipedia.org/wiki/Kibibyte) , 2^10 = 1024 bytes
+    - KB : Kilobyte , 10^3 = 1000 bytes
+    - Others : GiB / TiB / PiB / EiB / ZiB / YiB
 
 ### L
 
@@ -206,10 +215,11 @@ Other meanings
 - lang : language
 - LB : [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)) ( or balancer )
 - len : length
-- lf : left | line feed
+- lf : left | [line feed](https://en.wikipedia.org/wiki/Newline)
 - LGTM : Looks Good To Me
 - lib : library
-- ln , lnk : link
+- ln : link
+- lnk : link
 - loc : location
 - lol : Laugh Out Loud
 - ls : list
@@ -266,6 +276,8 @@ Other meanings
 - pf : prefix
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
+- post- : after, behind (in time or order) 后 / 晚于 / 末尾
+- pre- : before (in time, place, order, degree, or importance) 前，在前 / 先于，预先
 - preg : [PECL](https://en.wikipedia.org/wiki/PEAR#PECL) regular expression
 - prev : previous
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
