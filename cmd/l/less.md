@@ -19,6 +19,13 @@ more : file perusal filter for crt viewing
 
 ## Options
 
+Most options may be changed :
+
+- either on the command line,
+- or from within less by using the - or -- command
+
+It will take effect after repainting
+
 ### Percent
 
 Default : `-m, --long-prompt` **with percent into the file**
@@ -45,22 +52,55 @@ Default : `-i, --ignore-case` **case sensitive**
     - This  option  is ignored  if  any uppercase letters appear in the search pattern; in other words, if a pattern contains uppercase letters, then that search does not ignore case.
 - `-I, --IGNORE-CASE` Like -i, but searches ignore case even if the pattern contains uppercase letters.
 
-## Commands
-
-> Interactive Commands
-
-TODO
-
 ## Usage
 
-Default : case sensitive
+### Default
+
+Case sensitive
 
 ```bash
 less <file_path>
 ```
 
-Recommended : with **line numbers & percent** into the file
+### Recommended
+
+With **percent** into the file
+
+```bash
+less -M <file_path>
+```
+
+With **line numbers** & **percent** into the file
 
 ```bash
 less -MN <file_path>
 ```
+
+## Commands
+
+> Interactive Commands
+
+### Move
+
+- `j, ^N, …` Forward one line
+- `k, ^P, …` Backward one line
+- `f, ^F, w, …` Forward one window
+- `b, ^B, z, …` Backward one window
+- `d, ^D` Forward one half-window
+- `u, ^U` Backward one half-window
+- `F` **Forward forever; like `tail -f`** !
+
+### Search
+
+- `/pattern` Search forward for (N-th) matching line
+- `?pattern` Search backward for (N-th) matching line
+- `n` Repeat previous search (for N-th occurrence)
+- `N` Repeat previous search in reverse direction
+
+### Jump
+
+- `g, <, …` Go to first line
+- `G, >, …` Go to last line
+- `m<letter>` Mark the current position with \<letter\>
+- `'<letter>` Go to a previously marked position
+- `''` Go to the previous position
