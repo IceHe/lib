@@ -99,7 +99,7 @@ Other meanings
 
 ### D
 
-- d : day
+- d : day | delimiter ( for CLI )
 - DAG : [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
 - dat : data
 - db : database
