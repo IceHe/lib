@@ -58,7 +58,7 @@ Principles
 - Do @ First (in the morning)
 - Plan @ End of Day (before sleeping)
 
-_References_
+References
 
 - **《最后一英里》**
 - **《助推》**
