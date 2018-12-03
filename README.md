@@ -80,6 +80,7 @@ Others
 - [du](/cmd/d/du.md) : estimate file space usage
 - [env](/cmd/e/env.md) : run a program in a modified environment
 - [expect](/cmd/e/expect.md) : interact with programs
+- [find](/cmd/f/find.md) : search for files in a directory hierarchy
 - [head](/cmd/h/head.md) : output the first part of files
 - [htop](/cmd/h/htop.md) : interactive process viewer
 - [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
