@@ -28,7 +28,7 @@ rule "MD022" # Headers should be surrounded by blank lines
 rule "MD023" # Headers must start at the beginning of the line
 # rule "MD024" # Multiple headers with the same content
 # rule "MD025" # Multiple top level headers in the same document
-rule "MD026" # Trailing punctuation in header
+# rule "MD026" # Trailing punctuation in header
 # rule "MD027" # Multiple spaces after blockquote symbol
 rule "MD028" # Blank line inside blockquote
 # rule "MD029" # Ordered list item prefix
