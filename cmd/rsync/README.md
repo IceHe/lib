@@ -16,6 +16,11 @@ rcp
 
 - Quickstart : http://transamrit.net/docs/rsync/
 - Exit Codes : https://lxadm.com/Rsync_exit_codes
+- **Explaination** : https://explainshell.com/explain?cmd=rsync+-chavzP+--stats+user%40remote.host%3A%2Fpath%2Fto%2Fcopy+%2Fpath%2Fto%2Flocal%2Fstorage
+
+```bash
+rsync -chavzP --stats user@remote.host:/path/to/copy /path/to/local/storage
+```
 
 ## Usage
 
