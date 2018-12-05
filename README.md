@@ -86,7 +86,7 @@ Others
 - [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
 - [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
 - [kill](/cmd/k/kill.md) : terminate or signal a process
-- [less](/cmd/l/less.md) : opposite of more
+- [less](/cmd/l/less.md) : provides `more` emulation plus extensive enhancements
     - more : file perusal filter for paging through text one screenful at a time
 - [ln](/cmd/l/ln.md) : make links between files
 - [ls](/cmd/l/ls.md) : list directory contents
@@ -97,7 +97,7 @@ Others
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [php](/cmd/p/php.md) : PHP Command Line Interface
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
-- [python](/cmd/p/python.md) : an interpreted, interactive, object-oriented programming language
+- [python](/cmd/p/python.md) : Python Command Line Interface
 - [ps](/cmd/p/ps.md) : process status
 - [realpath](/cmd/r/realpath.md) : print the resolved path
 - [rm](/cmd/r/rm.md) : remove files or directories
