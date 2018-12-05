@@ -97,6 +97,7 @@ Others
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [php](/cmd/p/php.md) : PHP Command Line Interface
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
+- [python](/cmd/p/python.md) : an interpreted, interactive, object-oriented programming language
 - [ps](/cmd/p/ps.md) : process status
 - [realpath](/cmd/r/realpath.md) : print the resolved path
 - [rm](/cmd/r/rm.md) : remove files or directories
