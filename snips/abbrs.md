@@ -8,6 +8,12 @@
 
 常见于类、方法、变量、命令等的命名…
 
+---
+
+References
+
+- https://github.com/dnnrly/abbreviate/blob/master/data/en-us/common
+
 ## Symbols
 
 ### ASCII
@@ -49,6 +55,8 @@ Other meanings
 
 - a : all ( for CLI )
 - abbr : abbreviation
+- abs : absolute
+- abt : about
 - ad : advertisement
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
@@ -68,6 +76,7 @@ Other meanings
 - bin : binary
 - biz : business
 - btm : bottom
+- btw : by the way | between
 
 ### C
 
@@ -105,12 +114,14 @@ Other meanings
 - db : database
 - dec : decimal
 - decr : decrease
+- def : define, definition
 - desc : description
 - del : delete
 - dev : development | device
 - diff : differ | difference
 - dir : directory
 - dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
+- dmg : [Apple Disk Image](https://en.wikipedia.org/wiki/Apple_Disk_Image)
 - dn : down
 - doc : documentation
 - docs : documentation
@@ -123,6 +134,7 @@ Other meanings
 - e.g. : for example
 - edt : edit
 - elem : element
+- en : English
 - enc : encoding
 - env : environment
 - eof : [end of file](https://en.wikipedia.org/wiki/End-of-file)
@@ -168,6 +180,7 @@ Other meanings
 
 - h : handle | hour | help ( for CLI )
 - H : hour
+- HD : [Hard Disk](https://en.wikipedia.org/wiki/Hard_disk_drive)
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system)
 - hex : heximal
 - hrs : hours
@@ -223,6 +236,7 @@ Other meanings
 - loc : location
 - lol : Laugh Out Loud
 - ls : list
+- ltd : limited
 - lyt : layout
 
 ### M
@@ -239,6 +253,7 @@ Other meanings
     - nano-\* 10^-9
     - pico-\* 10^-12
     - femto-\* 10^-15
+- mgr : manager
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mod : modify | mode
 - MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
@@ -293,7 +308,7 @@ Other meanings
 
 ### Q
 
-- q : question | quiet ( for CLI )
+- q : [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) | question | quiet ( for CLI )
 - QA : [quality assurance](https://en.wikipedia.org/wiki/Quality_assurance)
 - Q & A : [Questions & Answers](https://en.wikipedia.org/wiki/Q%26A)
 - qps : [queries per second](https://en.wikipedia.org/wiki/Queries_per_second)
@@ -344,15 +359,19 @@ Other meanings
 - snd : send
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
+- spec : specific | specified | specification
+- spk : speak | speaker
 - src : source
 - sso : [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on) 单点登录
 - st : something | sometimes
 - stat : status | statistics
+- stk : [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 - str : string
 - sub : subscribe, subscription
 - sum : summary | summation
 - swp : swap
 - sym : symbol
+- syn : synchronize, [synchronization](https://en.wikipedia.org/wiki/Synchronization)
 - sys : system
 - sz : size
 
@@ -380,6 +399,8 @@ Other meanings
 - ui : [user interface](https://en.wikipedia.org/wiki/User_interface) | [user interaction](https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction)
 - uid : user id
 - UML : [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 统一建模语言
+- uni : unique
+- uniq : unique
 - upd : update
 - usr : user
 - UTC : [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) 协调世界时
@@ -397,6 +418,7 @@ Other meanings
 - VC : [Venture Capital](https://en.wikipedia.org/wiki/Venture_capital)
 - ver : version
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
+- vol : volume
 - VP : [Vice President](https://en.wikipedia.org/wiki/Vice_president) 副总裁
 
 ### W
@@ -416,6 +438,7 @@ Other meanings
 ### Y
 
 - y : year
+- yr : year
 - yrs : years | yours
 
 ### Z
