@@ -271,10 +271,6 @@ done
 
 - export
 - gdb
-- find
-
-递归查找文件
-find [dir] -name 'file_name'
 
 - make
 - rsync
@@ -305,10 +301,6 @@ lsattr 查锁
 用root身份执行最后一个命令
 
 `sudo !!`
-
-在当前文件夹下开启一个简易http服务器，可以用于临时分享文件
-
-`python -m SimpleHTTPServer`
 
 把最后一次执行命令的foo替换成bar后执行
 
