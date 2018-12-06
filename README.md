@@ -82,6 +82,7 @@ Others
 - [expect](/cmd/e/expect.md) : interact with programs
 - [find](/cmd/f/find.md) : search for files in a directory hierarchy
 - [grep](/cmd/g/grep.md) : print lines matching a pattern
+    - [zgrep](/cmd/z/zgrep.md) : search possibly compressed files for a regular expression
 - [head](/cmd/h/head.md) : output the first part of files
 - [htop](/cmd/h/htop.md) : interactive process viewer
 - [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
