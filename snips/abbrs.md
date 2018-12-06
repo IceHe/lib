@@ -174,6 +174,7 @@ Other meanings
 - GFM : [Github Flavored Markdown](https://github.github.com/gfm/)
 - GFW : [Great Fire Wall](https://en.wikipedia.org/wiki/Great_Firewall)
 - gid : group id
+- glob : [glob patterns](https://en.wikipedia.org/wiki/Glob_(programming))
 - GMT : [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) 格林威治时间
 
 ### H
