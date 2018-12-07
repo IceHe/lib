@@ -79,7 +79,7 @@ naveen
 ```bash
 sort -o <output_file> <input_file>
 # e.g.
-$ sort -o output1 input1
+sort -o output1 input1
 ```
 
 ### Reverse Order
@@ -305,7 +305,7 @@ Dodge
 Default Sort
 
 ```bash
-$ merge input1 input3
+$ sort input1 input3
 abhishek
 chitransh
 clerk    900
