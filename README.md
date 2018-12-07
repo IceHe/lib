@@ -98,6 +98,7 @@ Others
 - [netstat](/cmd/n/network-status.md) : show network status
 - [nl](/cmd/n/nl.md) : number lines of files
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
+- [paste](/cmd/p/paste.md) : merge lines of files
 - [php](/cmd/p/php.md) : PHP Command Line Interface
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
 - [python](/cmd/p/python.md) : Python Command Line Interface
