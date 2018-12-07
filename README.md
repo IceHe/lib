@@ -96,6 +96,7 @@ Others
 - [mkdir](/cmd/m/mkdir.md) : make directories
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
+- [nl](/cmd/n/nl.md) : number lines of files
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [php](/cmd/p/php.md) : PHP Command Line Interface
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
