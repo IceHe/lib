@@ -4,16 +4,24 @@
 
 ## Synopsis
 
+grep
+
 ```bash
 grep [OPTIONS] PATTERN [FILE...]
 grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
 ```
+
+egrep
 
 ```bash
 egrep
 # same as
 grep -E
 ```
+
+fgrep
+
+- _cannot understand its usage temporarily_
 
 ```bash
 fgrep
@@ -148,7 +156,7 @@ Basic vs Extended Regular Expressions
 Sample
 
 ```bash
-$ cat input1
+$ cat input
 abhishek
 divyam
 chitransh
@@ -159,7 +167,7 @@ harsh
 ### Default
 
 ```bash
-$ grep h input1
+$ grep h input
 abhishek
 chitransh
 harsh
@@ -168,14 +176,14 @@ harsh
 ### Count
 
 ```bash
-$ grep h input1 -c
+$ grep h input -c
 3
 ```
 
 ### Line Number
 
 ```bash
-$ grep h input1 -n
+$ grep h input -n
 1:abhishek
 3:chitransh
 5:harsh
@@ -184,13 +192,79 @@ $ grep h input1 -n
 ### Invert Match
 
 ```bash
-$ grep h input1 -v
+$ grep h input -v
 divyam
 naveen
 ```
 
 ### Context
 
+#### After
+
+```bash
+$ grep t input -A 1
+chitransh
+naveen
+```
+
+#### Before
+
+```bash
+grep t input -B 1
+divyam
+chitransh
+```
+
+#### Before & After
+
+```bash
+$ grep t input -C 1
+divyam
+chitransh
+naveen
+```
+
 ### Recursive
 
+Follow all symbolic links ( Recommended )
+
+```bash
+grep <content> <file/directory> -R
+```
+
+Follow symbolic links only if they are on the command line
+
+```bash
+grep <content> <file/directory> -r
+```
+
 ### Regular Expression
+
+`egrep` = `grep -E`
+
+```bash
+$ egrep '.*sh$' input
+# same as
+$ grep -E '.*sh$' input
+chitransh
+harsh
+```
+
+```bash
+$ egrep '.*sh' input
+abhishek
+chitransh
+harsh
+```
+
+```bash
+$ egrep '[n|h]a.*' input
+naveen
+harsh
+```
+
+```bash
+$ egrep '(abh|chi).*' input
+abhishek
+chitransh
+```
