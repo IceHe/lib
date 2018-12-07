@@ -14,14 +14,14 @@ Translate, squeeze, and/or delete characters from standard input, writing to sta
 
 - `-c, -C, --complement` use the complement of SET1
 - `-d, --delete` delete characters in SET1, do not translate
-- `-s, --squeeze-repeats` replace  each  input  sequence  of  a repeated character that is listed in SET1 with a single occurrence of that character
+- `-s, --squeeze-repeats` replace each input sequence of a repeated character that is listed in SET1 with a single occurrence of that character
 - `-t, --truncate-set1` first truncate SET1 to length of SET2
 
 ## SETs
 
 SETs are specified as strings of characters.
 
-Most represent themselves.  Interpreted sequences are:
+Most represent themselves. Interpreted sequences are:
 
 - `\NNN` character with octal value NNN (1 to 3 octal digits)
 - `\\` backslash
