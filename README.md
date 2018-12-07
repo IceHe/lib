@@ -67,6 +67,7 @@ Others
 - [cat](/cmd/c/cat.md) : concatenate files & print on the standard output
 - [chmod](/cmd/c/chmod.md) : change file mode bits
 - [chown](/cmd/c/chown.md) : change file owner & group
+- [comm](/cmd/c/comm.md) : compare two sorted files line by line
 - [cron](/cmd/c/cron.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
