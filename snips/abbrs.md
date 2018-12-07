@@ -102,6 +102,7 @@ Other meanings
     ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
+- CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
 - ctrl : control
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
