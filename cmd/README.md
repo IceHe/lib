@@ -117,15 +117,6 @@ sips -Z 640 *.jpg
 mogrify -format jpg *.png
 ```
 
-查看文件、文件夹占用的磁盘大小
-
-```bash
-# cwd
-du -sh
-# files in cwd
-du -sh *
-```
-
 https://devhints.io
 
 - 命令行输出
@@ -332,10 +323,6 @@ lsattr 查锁
 显示进程树
 
 `ps awwfux |less -S`
-
-执行command，如果5s后没有结束就kill它。
-
-`timeout 5s COMMAND`
 
 对比当前和10秒后进程打开文件的情况（同理可对比其它命令）
 
