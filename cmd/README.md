@@ -258,7 +258,6 @@ done
 
 rsync -goDp
 
-- sudo
 - source
 - strace
 - ltrace
@@ -277,10 +276,6 @@ lsattr 查锁
 统计每秒访问量
 
 `grep 'interface_name' localhost_access_log |awk '{print $5}' |sort |uniq -c |sort -n -r |head -n 20`
-
-用root身份执行最后一个命令
-
-`sudo !!`
 
 把最后一次执行命令的foo替换成bar后执行
 
