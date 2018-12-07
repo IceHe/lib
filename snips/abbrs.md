@@ -73,6 +73,7 @@ Other meanings
 - B : [byte](https://en.wikipedia.org/wiki/Byte)
 - bak : backup
 - bat : batch
+- B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
 - bin : binary
 - biz : business
 - btm : bottom
