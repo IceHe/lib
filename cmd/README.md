@@ -132,15 +132,10 @@ https://devhints.io
     0 标准输入流 stdin
     1 标准输出流 stdout
     2 标准错误输出 stderr
-- `cut` 剪切数据。以每一行为一个处理对象。
-    -b 按字节 -c 按字符 -f 按域 －d 指定分隔符 与 awk 相似
 - `2>>/dev/null` 把错误流写进/dev/null中，
     /dev/null是类Unix系统中的一个特殊文件设备，
     作用是接受一切输入它的数据，并丢弃这些数据
 - `$?` 上个命令的退出状态，或函数的返回值
-- `head -n 1` | `head -1` 显示文件的第1行
-- `tr` 对来自标准输入的字符进行替换、压缩和删除
-    可以将一组字符变成另外一组字符。`tr 'A-Z' 'a-z'` 则为大小写替换
 
 `tcpdump`
 
@@ -188,12 +183,6 @@ zip <file_path>.zip <dir_path>
 ## de-compress
 unzip <file_path>.zip
 ```
-
-截取文件内容
-
-- 头几行 `head -5`，中间几行 `sed -n '10,20p'`，末尾几行 `tail -5`
-
-https://blog.csdn.net/kangaroo_07/article/details/43733891
 
 ### bash
 
@@ -252,10 +241,6 @@ done
 
 - comm
 - diff
-- grep
-    - grep -v
-    - egrep
-    - grep -E
 - vimdiff
 
 ### Jobs
@@ -318,10 +303,6 @@ lsattr 查锁
 
 `time read`
 
-less版tail -f，按ctrl+c可以暂停输入，shift+F继续输入。
-
-`less +F file`
-
 把上一个命令存为sh文件
 
 `echo "!!" > foo.sh`
@@ -342,10 +323,6 @@ less版tail -f，按ctrl+c可以暂停输入，shift+F继续输入。
 
 `awk '!x[$0]++' file`
 
-grep时去掉grep本身
-
-`ps aux |grep [p]rocess-name`
-
 输出文件的10-20行
 
 `sed -n '10,20p' file`
@@ -353,10 +330,6 @@ grep时去掉grep本身
 显示当前正在使用网络的连接。
 
 `ss -p`
-
-用finder打开当前文件夹（mac）。
-
-`open .`
 
 显示当前文件夹下最大的10个文件/文件夹。
 
@@ -386,17 +359,9 @@ grep时去掉grep本身
 
 `find . -name "*.[ch]" -exec grep -i -H "search pharse" {} \;`
 
-查看哪个进程占用了80端口
-
-`lsof -i tcp:80`
-
 删除1，3列
 
 `awk '{$1=$3=""}1' file`
-
-显示行号
-
-`nl`
 
 切换到上一个命令最后一个参数指向的目录（:t是文件）
 
@@ -482,10 +447,4 @@ elif [[ $REPLY =~ ^[nN]$ ]]; then
 else
     echo 'Invalid Input!'
 fi
-```
-
-## zgrep
-
-```bash
-zgrep 'content' file.gz
 ```
