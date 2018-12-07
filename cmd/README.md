@@ -231,9 +231,6 @@ done
 - ack
 - ag
 - awk
-- cut
-    - join
-    - paste
 - sed
 - xargs
 
@@ -262,7 +259,6 @@ done
 rsync -goDp
 
 - sudo
-- su
 - source
 - strace
 - ltrace
