@@ -88,7 +88,16 @@ less -MN <file_path>
 - `b, ^B, z, …` Backward one window
 - `d, ^D` Forward one half-window
 - `u, ^U` Backward one half-window
+
+#### tail -f
+
 - `F` **Forward forever; like `tail -f`** !
+
+```bash
+# Active @ CLI
+less +F <file>
+# Press interrupt ( Ctrl + C ) to abort
+```
 
 ### Search
 
