@@ -112,6 +112,7 @@ Others
 - [sort](/cmd/s/sort.md) : sort lines of text files
 - [stat](/cmd/s/stat.md) : display file or file system status
 - [su](/cmd/s/su.md) : run a command with substitute user and group ID
+- [sudo](/cmd/s/sudo.md) : execute a command as another user
 - [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
 - [tail](/cmd/t/tail.md) : output the last part of files
 - [tar](/cmd/t/tar.md) : pack & compress
@@ -123,6 +124,7 @@ Others
 - [uniq](/cmd/u/uniq.md) : report or omit repeated lines
 - [uptime](/cmd/u/uptime.md) : show how long system has been running
 - [vim](/cmd/v/vim.md) : terminal editor
+- [visudo](/cmd/v/visudo.md) : edit the sudoers file
 - [w](/cmd/w/w.md) : show who is logged on & what they are doing
 - [wc](/cmd/w/wc.md) : print newline, word, & byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
