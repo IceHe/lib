@@ -227,7 +227,6 @@ done
 
 #### filter
 
-- comm
 - diff
 - vimdiff
 
@@ -258,9 +257,11 @@ rsync -goDp
 
 ### lock
 
+```bash
 chattr +i file
 chattr -i file
 lsattr 查锁
+```
 
 ## Useful
 
