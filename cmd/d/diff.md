@@ -57,3 +57,11 @@ $ diff file1 file2
 3        3
        > 4
 ```
+
+### See Also
+
+`vimdiff`
+
+```bash
+$ vimdiff file1 file2
+```
