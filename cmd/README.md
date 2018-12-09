@@ -203,15 +203,6 @@ done
 - sed
 - xargs
 
-### Jobs
-
-- ^ c
-- ^ d
-- ^ z
-- fg
-- bg
-- jobs
-
 ### Others
 
 - export
