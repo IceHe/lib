@@ -73,7 +73,7 @@ Others
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
 - [date](/cmd/d/date.md) : print or set the system date & time
 - [df](/cmd/d/df.md) : report file system disk space usage
-- [diff](/cmd/d/diff.md) : compare files line by line
+- _[diff](/cmd/d/diff.md) : compare files line by line_
 - [dig](/cmd/d/dig.md) : DNS lookup utility
 - [dstat](/cmd/d/dstat.md) : versatile tool for generating system resource statistics
     - [iftop](/cmd/i/iftop.md) : display bandwidth usage on an interface by host
