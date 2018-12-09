@@ -14,30 +14,42 @@ Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
 
 ## Options
 
-- **`-a, --archive` same as `-dR --preserve=all` ( 归档文件夹，并保留现有的属性 )**
-    - for archiving directory
-    - perserve links, file attributes (context, xattr) & content
-- _`--backup[=CONTROL]` make a backup of each existing destination file_
-- _`-b` like `--backup` but does not accept an argument_
-- `-d` same as `--no-dereference --preserve=links`
-    - _`-L, --dereference` always follow symbolic links in SOURCE_
-    - _`-P, --no-dereference` never follow symbolic links in SOURCE_
-- **`-f, --force` if  an  existing  destination file cannot be opened, remove it and try again**
+### Interact
+
+- `-f, --force` if an existing destination file cannot be opened, remove it and try again
     - this option is ignored when the `-n` option is also used
 - `-i, --interactive` prompt before overwrite
     - overrides a previous `-n` option
-- **`-l, --link` hard link files instead of copying**
 - `-n, --no-clobber` do not overwrite an existing file
     - overrides a previous `-i` option
-- **`-p` same as `--preserve=mode,ownership,timestamps`**
-- `--preserve[=ATTR_LIST]` preserve the specified attributes (default: mode,ownership,timestamps)
-    - if possible additional attributes:  context, links, xattr, all
-    - _`--no-preserve=ATTR_LIST` don't preserve the specified attributes_
-- **`-R, -r, --recursive` copy directories recursively**
-- _`--remove-destination` remove each existing destination file before attempting to open it ( contrast with `--force` )_
-- **`-s, --symbolic-link` make symbolic links instead of copying**
-- **`-u, --update` copy only when the SOURCE file is newer than the destination file**
+
+### Common
+
+- `-p` same as `--preserve=mode,ownership,timestamps`
+- `-R, -r, --recursive` copy directories recursively
+- `-t, --target-directory=DIRECTORY` move all SOURCE arguments into DIRECTORY
+- `-u, --update` copy only when the SOURCE file is newer than the destination file
     - or when the destination file is missing
+
+### Link
+
+- `-l, --link` hard link files instead of copying
+- `-s, --symbolic-link` make symbolic links instead of copying
+
+### Others
+
+- `-a, --archive` same as `-dR --preserve=all` ( 归档文件夹，并保留现有的属性 )
+    - for archiving directory
+    - perserve links, file attributes (context, xattr) & content
+- `-b` like `--backup` but does not accept an argument
+- `--backup[=CONTROL]` make a backup of each existing destination file
+- _`-d` same as `--no-dereference --preserve=links`_
+    - _`-L, --dereference` always follow symbolic links in SOURCE_
+    - _`-P, --no-dereference` never follow symbolic links in SOURCE_
+- `--preserve[=ATTR_LIST]` preserve the specified attributes (default: mode,ownership,timestamps)
+    - if possible additional attributes: context, links, xattr, all
+    - _`--no-preserve=ATTR_LIST` don't preserve the specified attributes_
+- _`--remove-destination` remove each existing destination file before attempting to open it ( contrast with `--force` )_
 - `-x, --one-file-system` stay on this file system
 - ……
 
