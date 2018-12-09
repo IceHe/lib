@@ -91,6 +91,8 @@ Others
 - [htop](/cmd/h/htop.md) : interactive process viewer
 - [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
 - [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
+- [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
+    - stop (suspend) the execution of processes and continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
 - [kill](/cmd/k/kill.md) : terminate or signal a process
 - [less](/cmd/l/less.md) : provides `more` emulation plus extensive enhancements
