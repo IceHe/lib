@@ -86,7 +86,7 @@ cp -u <source_file> <destination_file>
 #### **Files To Directory**
 
 ```bash
-cp -t <destination_directory> <source_file1> <source_file2> ……
+cp -t <destination_dir> <source_file1> <source_file2> ……
 
 # e.g.
 $ cp -t dest_dir/ file sample words
@@ -98,7 +98,7 @@ file  sample  words
 #### _Backup_
 
 ```bash
-cp -b <source> <destination_directory>
+cp -b <source> <destination_dir>
 # cannot use option `-f` to force execution without confirmation
 ```
 
@@ -107,15 +107,15 @@ cp -b <source> <destination_directory>
 #### Recursive
 
 ```bash
-cp -r <source_directory> <destination_directory>
+cp -r <source_dir> <destination_dir>
 # same as
-cp -R <source_directory> <destination_directory>
+cp -R <source_dir> <destination_dir>
 ```
 
 #### _Archive_
 
 ```bash
-cp -a <source_directory> <destination_directory>
+cp -a <source_dir> <destination_dir>
 ```
 
 ### Link
