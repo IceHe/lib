@@ -225,11 +225,6 @@ done
 - sed
 - xargs
 
-#### filter
-
-- diff
-- vimdiff
-
 ### Jobs
 
 - ^ c
