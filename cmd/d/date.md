@@ -184,10 +184,24 @@ Environment **TZ** : Specifies the timezone, unless overridden by command line p
 - If neither is specified, the setting from /etc/localtime is used.
 
 ```bash
+# temporary
 $ TZ='Asia/Shanghai'; export TZ
+
 # check
 $ echo $TZ
 Asia/Shanghai
+```
+
+Other ways
+
+```bash
+# permanent
+# ( `\cp` for skipping interactive confirmation )
+$ \cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+# or
+$ TZ=Asia/Shanghai
+$ ln -fns /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ```
 
 ### List
