@@ -56,29 +56,7 @@ unix / linux 不同的程序仓库代表什么
     - 将 playlists 数组中的每个元素的 id 提取出来
 - ref : http://hyperpolyglot.org/json
 
-`touch` change file access and modification times
-
 `cat /etc/*-release` 查看 Linux ( Distribution ) 发行版
-
-设置时区
-
-``` sh
-# 设置时区
-#   以便正确设置 crontab 的执行时间
-#   写成 `\cp` 是为了跳过 confirmation 直接执行命令
-
-\cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
-# 当时在 V7 的 Docker 镜像里试，
-# -r, -f 和 -i 选项，都还是要进行确认，真是不明白为啥……
-```
-
-- 另一种方法
-
-``` sh
-TZ=Asia/Shanghai
-ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-```
 
 测量整条命令的运行时间
 
