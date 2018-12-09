@@ -65,6 +65,7 @@ Others
     - [$parameter](/cmd/p/$parameter.md) : basic, expansion & substitution
 - [bzip2](/cmd/b/bzip2.md) : block-sorting file compressor
 - [cat](/cmd/c/cat.md) : concatenate files & print on the standard output
+- [cd](/cmd/c/cd.md) : change the current directory
 - [chmod](/cmd/c/chmod.md) : change file mode bits
 - [chown](/cmd/c/chown.md) : change file owner & group
 - [comm](/cmd/c/comm.md) : compare two sorted files line by line
