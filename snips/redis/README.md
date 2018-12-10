@@ -103,6 +103,15 @@ Q & A
 - SET without expiry ( [ref](https://stackoverflow.com/questions/40019390/redis-set-with-option-without-expiry) )
     - Send `set` command without `EX` option
 
+### INFO
+
+```bash
+info
+dbsize
+keys *
+flushall
+```
+
 ---
 
 ## TEMP
