@@ -109,6 +109,9 @@ Q & A
 info
 dbsize
 keys *
+# 清除单个库所有key数据
+flushdb
+# 清除所有库所有key数据
 flushall
 ```
 
