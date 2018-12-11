@@ -116,6 +116,7 @@ Others
 - [realpath](/cmd/r/realpath.md) : print the resolved path
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
+- [seq](/cmd/s/seq.md) : print a sequence of numbers
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [sort](/cmd/s/sort.md) : sort lines of text files
