@@ -134,3 +134,9 @@ cp -l <source> <destination>
 ```bash
 cp -s <source> <destination>
 ```
+
+### Follow Symbolic Link
+
+```bash
+cp -LR <source_dir> <destination_dir>
+```
