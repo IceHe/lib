@@ -84,6 +84,7 @@ Others
 - [du](/cmd/d/du.md) : estimate file space usage
 - [env](/cmd/e/env.md) : run a program in a modified environment
 - [expect](/cmd/e/expect.md) : interact with programs
+- [expr](/cmd/e/expr.md) : evaluate expressions
 - [find](/cmd/f/find.md) : search for files in a directory hierarchy
 - [grep](/cmd/g/grep.md) : print lines matching a pattern
     - [zgrep](/cmd/z/zgrep.md) : search possibly compressed files for a regular expression
