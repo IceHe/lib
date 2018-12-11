@@ -69,7 +69,7 @@ Others
 - [chmod](/cmd/c/chmod.md) : change file mode bits
 - [chown](/cmd/c/chown.md) : change file owner & group
 - [comm](/cmd/c/comm.md) : compare two sorted files line by line
-- [cp](/cmd/c/cp.md) : copy files and directories
+- [cp](/cmd/c/cp.md) : copy files & directories
 - [cron](/cmd/c/cron.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
@@ -93,7 +93,7 @@ Others
 - [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
 - [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
 - [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
-    - stop (suspend) the execution of processes and continue (resume) their execution at a later point
+    - stop (suspend) the execution of processes & continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
 - [kill](/cmd/k/kill.md) : terminate or signal a process
 - [less](/cmd/l/less.md) : provides `more` emulation plus extensive enhancements
@@ -116,12 +116,13 @@ Others
 - [realpath](/cmd/r/realpath.md) : print the resolved path
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
+- [sed](/cmd/s/sed.md) : stream editor for filtering & transforming text
 - [seq](/cmd/s/seq.md) : print a sequence of numbers
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [sort](/cmd/s/sort.md) : sort lines of text files
 - [stat](/cmd/s/stat.md) : display file or file system status
-- [su](/cmd/s/su.md) : run a command with substitute user and group ID
+- [su](/cmd/s/su.md) : run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
 - [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
 - [tail](/cmd/t/tail.md) : output the last part of files
