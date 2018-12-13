@@ -26,7 +26,7 @@ sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 - `--follow-symlinks` follow symlinks when processing in place
 - **`-i[SUFFIX], --in-place[=SUFFIX]` edit files in place** (makes backup if SUFFIX supplied)
 - `-c, --copy` use copy instead of rename when shuffling files in -i mode
-- `-b, --binary` does nothing; for compatibility with WIN32/CYGWIN/MSDOS/EMX ( open files in binary mode (CR+LFs are not  treated specially))
+- `-b, --binary` does nothing; for compatibility with WIN32/CYGWIN/MSDOS/EMX ( open files in binary mode (CR+LFs are not treated specially))
 - `-l N, --line-length=N` specify the desired line-wrap length for the `l' command
 - `--posix` disable all GNU extensions.
 - `-r, --regexp-extended` use extended regular expressions in the script.
@@ -51,11 +51,11 @@ TODO: ????
     - which has each embedded newline preceded by a backslash.
 - `i \text` Insert text
     - which has each embedded newline preceded by a backslash.
-- `q [exit-code]` Immediately  quit  the  sed script without processing any more input
+- `q [exit-code]` Immediately quit the sed script without processing any more input
     - except that if auto-print is not disabled the current pattern space will be printed.
 - `Q [exit-code]` Immediately quit the sed script without processing any more input.
 - `r filename` Append text read from filename.
-- `R filename` Append  a  line  read  from  filename.
+- `R filename` Append a line read from filename.
     - Each invocation of the command reads a line from the file.
 
 ### Accept address ranges
@@ -65,25 +65,25 @@ TODO: ????
     - if label is omitted, branch to end of script.
 - `c \text` Replace the selected lines with text,
     - which has each embedded newline preceded by a backslash.
-- `d` Delete pattern space.  Start next cycle.
-- `D` If pattern space contains no newline, start a normal new cycle as if the  d  command  was  issued.
-    - Otherwise,  delete  text  in the pattern space up to the first newline, and restart cycle with the resultant pattern space, without reading a new line of input.
+- `d` Delete pattern space. Start next cycle.
+- `D` If pattern space contains no newline, start a normal new cycle as if the d command was issued.
+    - Otherwise, delete text in the pattern space up to the first newline, and restart cycle with the resultant pattern space, without reading a new line of input.
 - `h H` Copy/append pattern space to hold space.
 - `g G` Copy/append hold space to pattern space.
 - `l` List out the current line in a 'visually unambiguous' form.
-- `l width` List out the current line in a 'visually unambiguous' form, breaking  it  at  width  characters.
+- `l width` List out the current line in a 'visually unambiguous' form, breaking it at width characters.
 - `n N` Read/append the next line of input into the pattern space.
 - `p` Print the current pattern space.
 - `P` Print up to the first embedded newline of the current pattern space.
-- `s/regexp/replacement/` Attempt  to  match  regexp against the pattern space.
+- `s/regexp/replacement/` Attempt to match regexp against the pattern space.
     - If successful, replace that portion matched with replacement.
     - The replacement may contain the special character & to refer to that portion of the pattern space which matched, and the special escapes \1 through \9 to refer to the corresponding matching sub-expressions in the regexp.
 - `t label` If a s/// has done a successful substitution since the last input line was read and since the last t or T command, then branch to label; if label is omitted, branch to end of script.
-- `T label` If  no  s///  has  done a successful substitution since the last input line was read and since the last t or T command, then branch to label; if label is omitted, branch to end of script.
+- `T label` If no s/// has done a successful substitution since the last input line was read and since the last t or T command, then branch to label; if label is omitted, branch to end of script.
 - `w filename` Write the current pattern space to filename.
 - `W filename` Write the first line of the current pattern space to filename.
 - `x` Exchange the contents of the hold and pattern spaces.
-- `y/source/dest/` Transliterate  the  characters  in  the  pattern space which appear in source to the corresponding character in dest.
+- `y/source/dest/` Transliterate the characters in the pattern space which appear in source to the corresponding character in dest.
 
 ## Addresses
 
@@ -91,29 +91,29 @@ TODO: ????
 
 Count of addresses
 
-- Sed commands can be given with **no addresses**, in which case the command will be  executed  for  **all  input lines**;
+- Sed commands can be given with **no addresses**, in which case the command will be executed for **all input lines**;
 - with **one address**, in which case the command will only be executed for input lines which match that address;
-- or with **two addresses**, in which case the command will be executed  for  all  input  lines  which **match  the inclusive range of lines starting from the first address and continuing to the second address**.
+- or with **two addresses**, in which case the command will be executed for all input lines which **match the inclusive range of lines starting from the first address and continuing to the second address**.
 
 ### Range
 
 Three things to note about address ranges:
 
-- the syntax is `addr1,addr2` (i.e., the addresses  are  separated by a comma);
+- the syntax is `addr1,addr2` (i.e., the addresses are separated by a comma);
 - the line which `addr1` matched will always be accepted, even if `addr2` selects an earlier line;
 - and if `addr2` is a regexp, it will not be tested against the line that `addr1` matched.
 
-After the address (or address-range), and before the command, a `!` may be inserted, which specifies  that the command shall only be executed if the address (or address-range) does not match.
+After the address (or address-range), and before the command, a `!` may be inserted, which specifies that the command shall only be executed if the address (or address-range) does not match.
 
 ### Types
 
 The following address types are supported:
 
-- `number` Match  only  the  specified line number
+- `number` Match only the specified line number
     - (which increments cumulatively across files, unless the -s option is specified on the command line).
 - `first~step` Match every step'th line starting with line first.
-    - For example, ``sed -n 1~2p''  will  print  all the  odd-numbered  lines  in  the  input  stream, and the address 2~5 will match every fifth line, starting with the second.
-    - first can be zero; in this case, sed operates as if it  were  equal  to step.  (This is an extension.)
+    - For example, ``sed -n 1~2p'' will print all the odd-numbered lines in the input stream, and the address 2~5 will match every fifth line, starting with the second.
+    - first can be zero; in this case, sed operates as if it were equal to step. (This is an extension.)
 - `$` Match the last line.
 - `/regexp/` Match lines matching the regular expression regexp.
 - `\cregexpc` Match lines matching the regular expression regexp
@@ -123,11 +123,11 @@ The following address types are supported:
 
 GNU sed also supports some special 2-address forms:
 
-- `0,addr2` Start  out  in  "matched  first address" state, until addr2 is found.
-    - This is similar to 1,addr2, except that if addr2 matches the very first line of input the 0,addr2 form will be at the  end  of its  range, whereas the 1,addr2 form will still be at the beginning of its range.
+- `0,addr2` Start out in "matched first address" state, until addr2 is found.
+    - This is similar to 1,addr2, except that if addr2 matches the very first line of input the 0,addr2 form will be at the end of its range, whereas the 1,addr2 form will still be at the beginning of its range.
     - This works only when addr2 is a regular expression.
 - `addr1,+N` Will match addr1 and the N lines following addr1.
-- `addr1,~N` Will match addr1 and the lines following addr1 until the next line whose input line  number  is  a multiple of N.
+- `addr1,~N` Will match addr1 and the lines following addr1 until the next line whose input line number is a multiple of N.
 
 ## Usage
 
@@ -253,6 +253,9 @@ $ sed 2,3\!d sample1
 #### Print
 
 ```bash
+$ sed -n 2,3p sample1
+2
+3
 ```
 
 #### Replace
@@ -342,3 +345,6 @@ manager  5000
 director 4000
 employee 6000
 ```
+
+#### Edit in Place
+
