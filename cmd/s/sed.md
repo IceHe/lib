@@ -258,6 +258,22 @@ $ sed -n 2,3p sample1
 3
 ```
 
+Sample Print
+
+```bash
+$ cat sample_print
+1app
+2app
+3cat
+4cat
+```
+
+```bash
+$ sed -n /app/p sample_print
+1app
+2app
+```
+
 #### Replace
 
 ```bash
@@ -273,6 +289,24 @@ $ sed 2,3c\B sample1
 1
 B
 4
+```
+
+Sample Replace
+
+```bash
+$ cat sample_replace
+1app
+2app
+3cat
+4cat
+```
+
+```bash
+$ sed s/cat/AAA/g sample_replace
+1app
+2app
+3AAA
+4AAA
 ```
 
 #### Insert
@@ -348,3 +382,10 @@ employee 6000
 
 #### Edit in Place
 
+```bash
+```
+
+### Combination
+
+```bash
+```
