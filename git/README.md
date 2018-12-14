@@ -214,6 +214,12 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 - `git fetch -p` 删除远程不存在的分支
 - `git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d`
     删除所有已经合并到主干的本地分支 ( [Ref](http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged) )
+- 删除 master 之外的其它分支
+
+```bash
+$ git checkout master
+$ git branch | sed 1d | xargs git branch -d
+```
 
 ## Config 配置
 
