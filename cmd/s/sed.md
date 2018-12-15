@@ -337,6 +337,28 @@ append_line
 append_line
 ```
 
+#### Next Line
+
+Do something in the next line
+
+```bash
+$ sed '/^2$/{n; s/3/C/;}' sample1
+1
+2
+C
+4
+```
+
+#### Quit
+
+Print until 2nd line & Quit
+
+```bash
+$ sed 2q sample1
+1
+2
+```
+
 #### Number
 
 Sample 2
@@ -363,6 +385,38 @@ No Name Mark Remark
 
 ### File
 
+#### Read
+
+Append sample2 content to the line of smaple1 that matched regex '/3/'
+
+```bash
+$ sed '/3/r sample2' sample1
+1
+2
+3
+No Name Mark Remark
+ 1 tom 59 AZ
+ 2 jack 77 XP
+ 3 alex 97 CC
+4
+```
+
+#### Write
+
+Write sample1 content matched regex '/3/' to file 'output_file'
+
+```bash
+$ sed '/3/w output_file' sample1
+No Name Mark Remark
+01 tom 59 AZ
+02 jack 77 XP
+03 alex 97 CC
+
+# check
+$ cat output_file
+03 alex 97 CC
+```
+
 #### Append
 
 ```bash
@@ -383,9 +437,28 @@ employee 6000
 #### Edit in Place
 
 ```bash
+$ sed -i.bak 's/^0/ /g' sample2
+
+# check
+$ cat sample2
+No Name Mark Remark
+ 1 tom 59 AZ
+ 2 jack 77 XP
+ 3 alex 97 CC
+
+$ cat sample2.bak
+No Name Mark Remark
+01 tom 59 AZ
+02 jack 77 XP
+03 alex 97 CC
 ```
 
 ### Combination
 
+`-e` add the script to the commands to be executed
+
 ```bash
+$ sed -e '1d;4d' -e 's/7/0/g' sample2
+01 tom 59 AZ
+02 jack 00 XP
 ```
