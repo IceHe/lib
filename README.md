@@ -260,17 +260,19 @@ Others
 
 ## Archived
 
-### Blog
+### Nonsense
 
-- [Tech Blog](https://icehe.me) : icehe.me ( no update )
-- [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
-- [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
-
-### Others
-
-~~Time Management~~ ( Nonsense )
+~~Time Management~~
 
 - [~~Life Logs~~](/_archived/lifelogs/README.md)
 - [~~Self Manual~~](/_archived/lifelogs/life-manual.md)
+
+### Prev Blog
+
+2015 ~ 2017
+
+- [Tech Blog](https://icehe.me) : icehe.me
+- [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
+- [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
 
 > 靡不有初，鲜克有终
