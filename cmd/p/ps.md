@@ -10,11 +10,27 @@ On BSD
 
 ## Options
 
+### Unix
+
 - `-e` | `-A` Select all processes
 - `-f` Do full-format listing
     - This option can be combined with many other UNIX-style options to add additional columns.
     - It also causes the command arguments to be printed.
     - See the `c` option, the format keyword args, and the format keyword comm.
+- `-C cmdlist` Select by command name.
+    - This selects the processes whose executable name is given in cmdlist.
+
+### BSD
+
+They are imposed upon the set of all processes when some BSD-style (without "-") options are used or when the ps personality setting is BSD-like.
+
+The set of processes selected in this manner is in addition to the set of processes selected by other means.
+
+- `a` Lift the BSD-style "only yourself" restriction
+    - An alternate description is that this option causes ps to list all processes with a terminal (tty), or to list all processes when used together with the `x` option.
+- `x` Lift the BSD-style "must have a tty" restriction
+    - An alternate description is that this option causes ps to list all processes owned by you (same EUID as ps), or to list all processes when used together with the `a` option.
+- `u` Display user-oriented format.
 
 ### Style
 
