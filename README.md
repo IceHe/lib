@@ -97,6 +97,7 @@ Others
     - stop (suspend) the execution of processes & continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
 - [kill](/cmd/k/kill.md) : terminate or signal a process
+- [killall](/cmd/k/killall.md) : kill processes by name
 - [less](/cmd/l/less.md) : provides `more` emulation plus extensive enhancements
     - more : file perusal filter for paging through text one screenful at a time
 - [ln](/cmd/l/ln.md) : make links between files
