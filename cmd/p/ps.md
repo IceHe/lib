@@ -72,6 +72,16 @@ PID TTY STAT  TIME COMMAND
 ……
 ```
 
+### Find by CMD
+
+```bash
+$ ps -fC man
+UID         PID   PPID  C STIME TTY          TIME CMD
+root      23586 154034  0 Dec12 pts/36   00:00:00 man sed
+root     140090  46010  0 16:39 pts/34   00:00:00 man ps
+root     164487 178198  0 Nov08 pts/26   00:00:00 man times
+```
+
 ### Others
 
 > See `man ps` on Linux
