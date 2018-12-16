@@ -9,7 +9,7 @@
 - Rd "Core Java" : 10p/d ( $ 1h )
 - Sum CMD : 1/d ( $ 30m )
 
-Week 48 : 12/03 ~ 12/09
+Week ? : date1 ~ date2
 
 |Target|Mon|Tue|Web|Thu|Fri|Sat|Sun|
 |:-|-|-|-|-|-|-|-|
