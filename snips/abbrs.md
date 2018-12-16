@@ -295,9 +295,11 @@ Other meanings
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
+- pr : priority ( for CLI )
 - pre- : before (in time, place, order, degree, or importance) 前，在前 / 先于，预先
 - preg : [PECL](https://en.wikipedia.org/wiki/PEAR#PECL) regular expression
 - prev : previous
+- pri : priority
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
 - prop : property
