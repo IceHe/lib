@@ -144,6 +144,7 @@ Others
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
 - [whoami](/cmd/w/whoami.md) : print effective userid
+- [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
 - [zsh](/cmd/z/zsh.md) : one of shells
 
 ### C++
