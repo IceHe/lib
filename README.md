@@ -61,6 +61,7 @@ Others
 
 > Commands & CLI ( Command-Line Interface )
 
+- [awk](/cmd/a/awk.md) : pattern scanning and processing language
 - bash : GNU Bourne-Again SHell
     - [$parameter](/cmd/p/$parameter.md) : basic, expansion & substitution
 - [bzip2](/cmd/b/bzip2.md) : block-sorting file compressor
