@@ -5,8 +5,8 @@
 References
 
 - StackOverflow : https://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-contain-a-specific-string
-- http://www.runoob.com/linux/linux-comm-sed.html
-- http://www.theunixschool.com/2012/06/sed-25-examples-to-delete-line-or.html
+- Basic : http://www.runoob.com/linux/linux-comm-sed.html
+- Advanced :  http://www.theunixschool.com/2012/06/sed-25-examples-to-delete-line-or.html
 
 ## Synopsis
 
@@ -37,8 +37,6 @@ sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 ## Commands
 
 ### Zero-address
-
-TODO: ????
 
 - `: label` Label for `b` and `t` commands.
 - `#comment` The comment extends until the next newline (or the end of a -e script fragment).
