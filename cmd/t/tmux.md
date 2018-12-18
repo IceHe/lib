@@ -17,6 +17,8 @@
 - `Pf, ⇧ ?` List Keys
 - `Pf, d` Detach Client ( Detach Session )
 - `Pf, c` New Window
+- `Pf, ,` Rename Window
+- `Pf, $` Rename Session
 - `Pf, s` Reload config file `.tmux.conf`
 - `Pf, \` Split Window Horizontally
 - `Pf, -` Split Window Vertically
