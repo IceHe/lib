@@ -22,14 +22,14 @@ Command Line Tools
 - jconsole : VM Performance Statistics
 - jmap : Stack & Heap
 
-Install
+Install Java 8 on CentOS
 
 - Reference : https://www.digitalocean.com/community/tutorials/how-to-install-java-on-centos-and-fedora
 - Download Java 8 - Binary Installation : https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 ```bash
-# 下载 ( to test )
-curl -L -b "oraclelicense=a" -O <jdk_download_url>
+# 下载
+curl -L -b "oraclelicense=a" -O <official_jdk_download_url>
 # e.g.
 curl -L -b "oraclelicense=a" -O
 https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm
