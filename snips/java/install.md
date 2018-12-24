@@ -2,44 +2,47 @@
 
 ## macOS
 
-安装 [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) 版本 8（ [历史](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8) ）
+Install [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) Version 8 ( [History](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8) )
 
-- 推荐：命令行安装（如下）
-- 备选：官网下载使用「Mac OS X x64」版本的 [最新安装包](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- Recommended: Install by command line ( as follow )
+- Optional: Download Binary Installation for Mac OS X x64  ( [Link](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) )
 
-命令行安装步骤
+Steps
 
-- 配置软件源
+- Configure Software Source
 
 ```bash
 brew tap caskroom/versions
 ```
 
-- 安装 JDK 8
-    - 注意：中途需要输入当前 macOS 登入用户的密码！
-    - 若需最新版本 Java 10+ ，则用命令 `brew cask install java`
+- Install JDK 8
+    - Notice: You have to enter your mac password once.
+    - If require Java 10+ (latest version), use `brew cask install java`
 
 ```bash
 brew cask install java8
 ```
 
-获取 JDK 路径
+Get PATH to JDK
 
-- 若是了解最新版本，则用命令 `/usr/libexec/java_home`
+- If for Java 10+ (latest version), use `/usr/libexec/java_home`
 
 ```bash
 /usr/libexec/java_home -v 1.8
 
-# 输出（以当前最新版本为准）
+# output e.g.
 # /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
 ```
 
-配置环境变量 JAVA_HOME
+Set Environment Variable JAVA_HOME
 
-- 在 ~/.bashrc 文件中（的合适位置）添加如下命令
-    - 若文件 ~/.bashrc 不存在，则创建之
-    - 若使用的 Shell 并非默认的 Bash ，而是 Zsh 则在 ~/.zshrc 文件中添加
-        - 其它 Shell 操作类似
+- Append the command below to config file `~/.bashrc`
+    - If config file `~/.bashrc` doesn't exist, create it.
+    - If you use other Shell other than Bash, i.e. Zsh, append to config file `~/.zshrc`
+
+```bash
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+```
 
 ## CentOS
 
