@@ -63,57 +63,9 @@ protection-mode yes
 requiredpass foobared
 ```
 
-## Commands
+## Usage
 
-### Access
-
-if `requiredpass` is on
-
-```bash
-redis-cli -h [host] -p [port] -a [password]
-# e.g. `redis -h 127.0.0.1 -p 6379 -a foobared`
-```
-
-or
-
-```bash
-redis-cli -h [host] -p [port]
-# e.g. `redis -h 127.0.0.1 -p 6379
-
-> AUTH [password]
-# e.g. `AUTH foobared`
-```
-
-### SET
-
-```bash
-set key value [EX seconds] [PX milliseconds] [NX|XX]
-# e.g. `set foo bar EX 180 NX`
-```
-
-Options
-
-- EX seconds : Set the specified expire time, in seconds.
-- PX milliseconds : Set the specified expire time, in milliseconds.
-- NX : Only set the key if it does not already exist.
-- XX : Only set the key if it already exist.
-
-Q & A
-
-- SET without expiry ( [ref](https://stackoverflow.com/questions/40019390/redis-set-with-option-without-expiry) )
-    - Send `set` command without `EX` option
-
-### INFO
-
-```bash
-info
-dbsize
-keys *
-# 清除单个库所有key数据
-flushdb
-# 清除所有库所有key数据
-flushall
-```
+See command [redis-cli](/cmd/r/redis-cli.md)
 
 ---
 
