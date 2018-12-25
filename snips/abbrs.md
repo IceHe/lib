@@ -1,5 +1,7 @@
 # Abbreviations
 
+> The abbreviations below are usually related to coding (programmming).
+
 常见命名方式
 
 - 保留头几个字母
@@ -51,9 +53,12 @@ Other meanings
 
 ## Alphabet
 
+Notice : `for CLI` The abbreviations have special meanings when using Command Line Interface.
+
 ### A
 
-- a : all ( for CLI )
+- a
+    - for CLI : all | append (`tar`)
 - abbr : abbreviation
 - abs : absolute
 - abt : about
@@ -70,6 +75,7 @@ Other meanings
 ### B
 
 - b : [bit](https://en.wikipedia.org/wiki/Bit)
+    - for CLI : backup | batch | buffer (`df` `du` `tar`)
 - B : [byte](https://en.wikipedia.org/wiki/Byte)
 - bak : backup
 - bat : batch
@@ -81,6 +87,7 @@ Other meanings
 
 ### C
 
+- c : command | check ( for CLI )
 - CA : [Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority)
 - cal : call
 - chan : channel
@@ -110,7 +117,9 @@ Other meanings
 
 ### D
 
-- d : day | delimiter ( for CLI )
+- d : day
+    - for CLI : daemon | debug | delete | delimiter | directory
+- D : define ( for CLI )
 - DAG : [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
 - dat : data
 - db : database
@@ -131,7 +140,8 @@ Other meanings
 
 ### E
 
-- e : element | error | exception | _exponent_
+- e : element | error | exception | exponent
+    - for CLI : edit | equal (`test`) | exclude | execute | expression
 - E : exponent 指数 ( [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) )
 - e.g. : for example
 - edt : edit
@@ -181,8 +191,9 @@ Other meanings
 
 ### H
 
-- h : handle | hour | help ( for CLI )
-- H : hour
+- h : handle | hour
+    - for CLI : help | headers | hostname (`redis-cli`)
+- H : hour | header ( for CLI `curl` )
 - HD : [Hard Disk](https://en.wikipedia.org/wiki/Hard_disk_drive)
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system)
 - hex : heximal
@@ -191,8 +202,9 @@ Other meanings
 
 ### I
 
-- i : index | integer | ignore ( for CLI ) | me
-- I : me
+- i : index | integer | me
+    - for CLI : ignore | initialize | interactive
+- I : me | include ( for CLI )
 - ico : icon
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
 - idx : index
@@ -201,6 +213,7 @@ Other meanings
 - imp : improve
 - impl : implement
 - incr : increase
+- ind : index
 - info : information
 - ini : initialization
 - init : initiate
@@ -219,14 +232,16 @@ Other meanings
 
 ### K
 
-- k : kilo- 千
+- k : kilo- 千 | kill ( for CLI )
 - KiB : [kibibyte](https://en.wikipedia.org/wiki/Kibibyte) , 2^10 = 1024 bytes
     - KB : Kilobyte , 10^3 = 1000 bytes
     - Others : GiB / TiB / PiB / EiB / ZiB / YiB
 
 ### L
 
-- l , L : long
+- l : length | long
+    - for CLI : list | load (`gcc`) | login (`ssh`)
+- L : long
 - LAN : [Local Area Network](https://en.wikipedia.org/wiki/Local_area_network)
 - lang : language
 - LB : [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)) ( or balancer )
@@ -245,6 +260,7 @@ Other meanings
 ### M
 
 - m : minute
+    - for CLI : mail | message | mode | modification
 - M : month | million 百万
 - MBR : [Master Boot Record](https://en.wikipedia.org/wiki/Master_boot_record)
 - mc : [Memcached](https://en.wikipedia.org/wiki/Memcached)
@@ -267,6 +283,7 @@ Other meanings
 ### N
 
 - n : number
+    - for CLI : number (`head` `tail`) | not (`make`)
 - n/a , N/A , n.a. : [not applicable](https://en.wikipedia.org/wiki/N/a) 不适用
 - NaN : [Not a Number](https://en.wikipedia.org/wiki/NaN)
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
@@ -277,6 +294,7 @@ Other meanings
 
 ### O
 
+- o : output ( also for CLI )
 - obj : object
 - oct : octal
     - Oct : October
@@ -289,6 +307,8 @@ Other meanings
 
 ### P
 
+- p : port ( for CLI `redis-cli` )
+- P : port ( for CLI `mysql` )
 - param : parameter
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix
@@ -348,7 +368,8 @@ Other meanings
 
 ### S
 
-- s : silent ( for CLI )
+- s
+    - for CLI : silent | size | subject
 - SDE : [Software Development Engineer](https://en.wikipedia.org/wiki/SDE#In_science,_medicine,_and_technology) or Environment
 - sec : second | secure , security
 - seg : segment
@@ -382,7 +403,7 @@ Other meanings
 
 ### T
 
-- t : temporary | time
+- t : temporary | time | tag ( for CLI )
 - TA : teaching assistant
 - TB : team building
 - TBD : [To Be Determinated](https://en.wikipedia.org/wiki/To_be_announced)
@@ -400,6 +421,7 @@ Other meanings
 ### U
 
 - u : you
+    - for CLI : user (`crontab`)
 - UE : [user experience design](https://en.wikipedia.org/wiki/User_experience_design) ( [others](https://en.wikipedia.org/w/index.php?title=Special:Search&search=user+experience+design&fulltext=1&profile=default) )
 - ui : [user interface](https://en.wikipedia.org/wiki/User_interface) | [user interaction](https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction)
 - uid : user id
@@ -428,7 +450,8 @@ Other meanings
 
 ### W
 
-- w : word | who ( for CLI )
+- w : word
+    - for CLI : who | width
 - WAN : [Wide Area Network](https://en.wikipedia.org/wiki/Wide_area_network)
 - win : window
 - WIP : [Work In Process](https://en.wikipedia.org/wiki/Work_in_process) or Progress
@@ -438,15 +461,17 @@ Other meanings
 
 ### X
 
-- x : extended ( for CLI ) | unknown number
+- x : unknown number
+    - for CLI : extended | debug (`sh`) | extract (`tar` `zip`)
 
 ### Y
 
 - y : year
+    - for CLI : yes
 - yr : year
 - yrs : years | yours
 
 ### Z
 
-- z : compress ( for CLI )
+- z : compress ( for CLI `tar` `bzip` )
 - zzz : fall asleep
