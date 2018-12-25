@@ -85,6 +85,14 @@ tar xvf <package_name>.tar
 tar xvf directory.tar
 ```
 
+## List
+
+```bash
+tar tf <package_name>.tar
+# e.g.
+tar tf directory.tar
+```
+
 ## Gzip
 
 Pack & Gzip ( Compress )
