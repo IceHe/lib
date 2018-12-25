@@ -117,6 +117,7 @@ Others
 - [python](/cmd/p/python.md) : Python Command Line Interface
 - [ps](/cmd/p/ps.md) : process status
 - [realpath](/cmd/r/realpath.md) : print the resolved path
+- [redis-cli](/cmd/r/redis-cli.md) : Redis Client
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
 - [sed](/cmd/s/sed.md) : stream editor for filtering & transforming text
