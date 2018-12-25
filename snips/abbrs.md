@@ -444,6 +444,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - var : variable
 - VC : [Venture Capital](https://en.wikipedia.org/wiki/Venture_capital)
 - ver : version
+- VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address)
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
 - vol : volume
 - VP : [Vice President](https://en.wikipedia.org/wiki/Vice_president) 副总裁
