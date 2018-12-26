@@ -49,6 +49,7 @@ Dgawk is an awk debugger.
 
 - `NF` The number of fields in the current input record.
 - `NR` The total number of input records seen so far.
+- `FNR` The input record number in the current input file.
 - `ARGC` The number of command line arguments (does not include options to gawk, or the program source).
 - `ARGV` Array of command line arguments.
     - The array is indexed from 0 to ARGC - 1.
@@ -57,11 +58,13 @@ Dgawk is an awk debugger.
 - `FILENAME` The name of the current input file.
     - If no files are specified on the command line, the value of FILENAME is “-”.
     - However, FILENAME is undefined inside the BEGIN block (unless set by getline).
-- `FNR` The input record number in the current input file.
+- `IGNORECASE` Controls the case-sensitivity of all regular expression and string operations.
+    - If IGNORECASE  has  a  non-zero value, then string comparisons and pattern matching in rules, field splitting with FS and FPAT, record separating with RS, regular expression matching with ~ and !~, and the gensub(), gsub(), index(),  match(), patsplit(), split(), and sub() built-in functions all ignore case when doing regular expression operations.
+    - NOTE: Array subscripting is not affected.
+    - However, the asort() and asorti() functions are affected.
+    - Thus, if IGNORECASE is not equal to zero, /aB/ matches all of the strings "ab", "aB", "Ab", and  "AB".
+    - As with all AWK variables, the initial value of IGNORECASE is zero, so all regular expression and string operations are normally case-sensitive.
 - `CONVFMT` The conversion format for numbers, "%.6g", by default.
-- `ENVIRON` An array containing the values of the current environment.
-    - The array is indexed by the environment variables, each element being the value of that variable (e.g., ENVIRON["HOME"] might be /home/arnold).
-    - Changing this array does not affect the environment seen by programs which gawk spawns via redirection or the system() function.
 - `ERRNO` If a system error occurs either doing a redirection for getline, during a read for  getline,  or  during  a close(),  then  ERRNO  will  contain a string describing the error.
     - The value is subject to translation in non-English locales.
 - `FIELDWIDTHS` A whitespace separated list of field widths.
@@ -72,17 +75,6 @@ Dgawk is an awk debugger.
     - See Fields, above.
 - `FS` The input field separator, a space by default.
     - See Fields, above.
-- `IGNORECASE` Controls the case-sensitivity of all regular expression and string operations.
-    - If IGNORECASE  has  a  non-zero value, then string comparisons and pattern matching in rules, field splitting with FS and FPAT, record separating with RS, regular expression matching with ~ and !~, and the gensub(), gsub(), index(),  match(), patsplit(), split(), and sub() built-in functions all ignore case when doing regular expression operations.
-    - NOTE: Array subscripting is not affected.
-    - However, the asort() and asorti() functions are affected.
-    - Thus, if IGNORECASE is not equal to zero, /aB/ matches all of the strings "ab", "aB", "Ab", and  "AB".
-    - As with all AWK variables, the initial value of IGNORECASE is zero, so all regular expression and string operations are normally case-sensitive.
-- `LINT` Provides dynamic control of the --lint option from within an AWK program.
-    - When  true,  gawk  prints  lint warnings.
-    - When  false,  it  does  not.
-    - When assigned the string value "fatal", lint warnings become fatal errors, exactly like --lint=fatal.
-    - Any other true value just prints warnings.
 - `OFMT` The output format for numbers, "%.6g", by default.
 - `OFS` The output field separator, a space by default.
 - `ORS` The output record separator, by default a newline.
@@ -116,6 +108,9 @@ Dgawk is an awk debugger.
         - where i1 and i2 are the indices, and v1 and v2 are the corresponding values of the two elements being  compared.
         - It should return a number less than, equal to, or greater than 0, depending on how the elements of the array are to be ordered.
         - `PROCINFO["version"]` the version of gawk.
+- `ENVIRON` An array containing the values of the current environment.
+    - The array is indexed by the environment variables, each element being the value of that variable (e.g., ENVIRON["HOME"] might be /home/arnold).
+    - Changing this array does not affect the environment seen by programs which gawk spawns via redirection or the system() function.
 
 ## Usage
 
@@ -166,6 +161,45 @@ alex
 ```
 
 ……
+
+#### Custom Seperator
+
+Sample with separator comma `,`
+
+```bash
+$ cat sample_comma
+No,Name,Mark,Remark
+01,tom,59,AZ
+02,jack,77,XP
+03,alex,97,CC
+```
+
+Use Default Separator
+
+```bash
+$ awk '{print $2}' sample_comma
+# output 4 blank lines
+
+
+
+
+```
+
+Use Custom separator
+
+```bash
+$ awk -F, '{print $2}' sample_comma
+# same as
+$ awk -F , '{print $2}' sample_comma
+# same as
+$ awk -F',' '{print $2}' sample_comma
+# output
+Name
+tom
+jack
+alex
+```
+
 
 ### Built-in Variables
 
@@ -244,53 +278,21 @@ $ awk -F '[,7]' '{print NF, $3}' sample_comma
 5 9
 ```
 
-### Custom Seperator
-
-Sample with separator comma `,`
+#### Environment Variables
 
 ```bash
-$ cat sample_comma
-No,Name,Mark,Remark
-01,tom,59,AZ
-02,jack,77,XP
-03,alex,97,CC
+$ awk 'BEGIN{print ENVIRON["HOME"]; print ENVIRON["PATH"];}'
+/root
+/usr/local/sbin:/usr/local/rvm/gems/ruby-2.5.1/bin:/usr/local/rvm/gems/ruby-2.5.1@global/bin:/usr/local/rvm/rubies/ruby-2.5.1/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin:/usr/local/bin:/root/bin
 ```
 
-Use Default Separator
+#### Proc Info
 
 ```bash
-$ awk '{print $2}' sample_comma
-# output 4 blank lines
-
-
-
-
+$ awk 'BEGIN{print PROCINFO["version"]; print PROCINFO["strftime"]}'
+4.0.2
+%a %b %e %H:%M:%S %Z %Y
 ```
-
-Use Custom separator
-
-```bash
-$ awk -F, '{print $2}' sample_comma
-# same as
-$ awk -F , '{print $2}' sample_comma
-# same as
-$ awk -F',' '{print $2}' sample_comma
-# output
-Name
-tom
-jack
-alex
-```
-
-### Script
-
-```bash
-awk -f awk_script input_file
-# e.g.
-awk -f parser.awk info.log
-```
-
-Temporarily Ommited
 
 ### Pattern
 
@@ -298,6 +300,18 @@ Temporarily Ommited
 
 ```bash
 $ awk '$3 > 60 {print $0}' sample
+No Name Mark Remark
+02 jack 77 XP
+03 alex 97 CC
+```
+
+#### Record Length
+
+```bash
+$ awk 'length>13' sample
+No Name Mark Remark
+
+$ awk 'length>12' sample
 No Name Mark Remark
 02 jack 77 XP
 03 alex 97 CC
@@ -316,4 +330,71 @@ $ awk '/^[0-9]{2}/ {print $0}' sample
 $ awk '/^[0-9]{2}/' sample | awk '$3 > 60'
 02 jack 77 XP
 03 alex 97 CC
+```
+
+#### Reverse
+
+Regex
+
+```bash
+$ awk '!/^[0-9]{2}/' sample
+No Name Mark Remark
+```
+
+Specified Field
+
+```bash
+$ awk '$3 !~ /[0-9]+/' sample
+No Name Mark Remark
+```
+
+#### Ignore Case
+
+Case Sensitive
+
+```bash
+$ awk '/c/' sample
+02 jack 77 XP
+```
+
+Ignore Case
+
+```bash
+$ awk 'BEGIN{IGNORECASE=1} /c/' sample
+02 jack 77 XP
+03 alex 97 CC
+```
+
+### Script
+
+```bash
+awk -f awk_script input_file
+# e.g.
+awk -f parser.awk info.log
+```
+
+#### Hello World
+
+Sample Hello
+
+```bash
+$ cat hello.awk
+BEGIN {
+    # quote string with " not '
+    print "hello, world!"
+}
+```
+
+Run
+
+```bash
+$ awk -f hello.awk
+hello, world!
+```
+
+#### Total Size of Files
+
+```bash
+$ ls -l | awk '{sum += $5} END {print sum}'
+178481205
 ```
