@@ -6,6 +6,10 @@
     - `kiss : keep it simple & stupid` 简单原则
     - `ootb : out of the box` 开箱即用
 
+Reference
+
+- macOS Setup Guide : http://sourabhbajaj.com/mac-setup/
+
 ## Install
 
 ### macOS
