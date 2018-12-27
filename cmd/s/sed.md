@@ -127,6 +127,31 @@ GNU sed also supports some special 2-address forms:
 - `addr1,+N` Will match addr1 and the N lines following addr1.
 - `addr1,~N` Will match addr1 and the lines following addr1 until the next line whose input line number is a multiple of N.
 
+## Space
+
+`sed` has a **hold space** and a **pattern space**.
+
+- We have to distinguish between them before concentrating on that specific command!
+
+Related Advanced Commands
+
+- `n N` Read/append the next line of input into the pattern space.
+- `h H` Copy/append pattern space to hold space.
+- `g G` Copy/append hold space to pattern space.
+- `x` Exchange the contents of the hold and pattern spaces.
+- ……
+
+Reference : https://unix.stackexchange.com/questions/233014/how-does-the-command-sed-1ghd-reverse-the-contents-of-a-file
+
+### Pattern Space
+
+- When `sed` reads a new line, it is loaded into the pattern space.
+- Therefore, that space is **overwritten every time a new line is processed**.
+
+### Hold Space
+
+- The hold space is **consistent over the whole processing** and values can be stored there for later usage.
+
 ## Usage
 
 ### Addresses
@@ -453,10 +478,40 @@ No Name Mark Remark
 
 ### Combination
 
+#### Normal
+
 `-e` add the script to the commands to be executed
 
 ```bash
 $ sed -e '1d;4d' -e 's/7/0/g' sample2
 01 tom 59 AZ
 02 jack 00 XP
+```
+
+#### Reverse Contents
+
+```bash
+sed '1!G;h;$!d' <file>
+
+# e.g.
+$ seq 4 | sed '1!G;h;$!d'
+4
+3
+2
+1
+```
+
+#### 九九乘法表
+
+```bash
+$ seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, NR, i*NR, i==NR?"\n":"\t")}'
+1x1=1
+1x2=2   2x2=4
+1x3=3   2x3=6   3x3=9
+1x4=4   2x4=8   3x4=12  4x4=16
+1x5=5   2x5=10  3x5=15  4x5=20  5x5=25
+1x6=6   2x6=12  3x6=18  4x6=24  5x6=30  6x6=36
+1x7=7   2x7=14  3x7=21  4x7=28  5x7=35  6x7=42  7x7=49
+1x8=8   2x8=16  3x8=24  4x8=32  5x8=40  6x8=48  7x8=56  8x8=64
+1x9=9   2x9=18  3x9=27  4x9=36  5x9=45  6x9=54  7x9=63  8x9=72  9x9=81
 ```
