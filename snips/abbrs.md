@@ -337,6 +337,8 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - q : [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) | question | quiet ( for CLI )
 - QA : [quality assurance](https://en.wikipedia.org/wiki/Quality_assurance)
 - Q & A : [Questions & Answers](https://en.wikipedia.org/wiki/Q%26A)
+- QoE : [Quality of Experience](https://en.wikipedia.org/wiki/Quality_of_experience)
+- QoS : [Quality of Service](https://en.wikipedia.org/wiki/Quality_of_service)
 - qps : [queries per second](https://en.wikipedia.org/wiki/Queries_per_second)
 
 ### R
