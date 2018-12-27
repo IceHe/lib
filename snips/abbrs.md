@@ -62,6 +62,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - abbr : abbreviation
 - abs : absolute
 - abt : about
+- ACL : [Access control list](https://en.wikipedia.org/wiki/Access_control_list)
 - ad : advertisement
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
