@@ -112,6 +112,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
 - CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
 - ctrl : control
+- ctx : context
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
 - cwd : [current working directory](https://en.wikipedia.org/wiki/Working_directory)
