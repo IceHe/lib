@@ -134,6 +134,172 @@ Dgawk is an awk debugger.
     - The array is indexed by the environment variables, each element being the value of that variable (e.g., ENVIRON["HOME"] might be /home/arnold).
     - Changing this array does not affect the environment seen by programs which gawk spawns via redirection or the system() function.
 
+## Scripts Structure
+
+Reference : Work Principles http://www.runoob.com/w3cnote/awk-work-principle.html
+
+```bash
+awk 'BEGIN{ commands } pattern{ commands } END{ commands }'
+```
+
+## Patterns
+
+### Introduction
+
+```bash
+BEGIN
+END
+BEGINFILE
+ENDFILE
+/regular expression/
+relational expression
+pattern && pattern
+pattern || pattern
+pattern ? pattern : pattern
+(pattern)
+! pattern
+pattern1, pattern2
+```
+
+### BEGIN & END
+
+BEGIN and END are two special kinds of patterns which are not tested against the input.
+
+- The action parts of all BEGIN patterns are merged as if all the statements had been written in a single BEGIN block.
+- They are executed before any of the  input is read.
+- Similarly, all the END blocks are merged, and executed when all the input is exhausted (or when an exit statement is executed).
+- BEGIN and END patterns cannot be combined with other  patterns  in  pattern  expressions.
+- BEGIN and END patterns cannot have missing action parts.
+
+### Regular Expression
+
+For `/regular expression/` patterns, the associated statement is executed for each input record that matches the regular expression.
+
+- These  generally  test whether certain fields match certain regular expressions.
+
+Regular expressions are the same as those in egrep, and are summarized in section 'Regular Expressions' ( see `man awk` ).
+
+### Logical Operations
+
+The `&&`, `||`, and `!` operators are logical AND, logical OR, and logical NOT, respectively, as in C.
+
+- They do short-circuit evaluation, also as in C, and are used for combining more primitive pattern expressions.
+- As  in  most  languages, parentheses may be used to change the order of evaluation.
+
+The `?:` operator is like the same operator in C.
+
+- If the first pattern is true then the pattern used for testing is the second pattern, otherwise it is the third.
+- Only one of the second and third patterns is evaluated.
+
+A relational expression may use any of the operators defined below in the section on actions ( see `man awk` ).
+
+### Range
+
+The `pattern1, pattern2` form of an expression is called a range pattern.
+
+- It matches all input records starting with a record that matches pattern1, and continuing until a record that matches pattern2, inclusive.
+- It does not combine with any other sort of pattern expression.
+
+## Statements
+
+### Control
+
+```bash
+if (condition) statement [ else statement ]
+
+while (condition) statement
+do statement while (condition)
+for (expr1; expr2; expr3) statement
+for (var in array) statement
+break
+continue
+
+delete array[index]
+delete array
+
+exit [ expression ]
+
+{ statements }
+
+switch (expression) {
+case value|regex : statement
+...
+[ default: statement ]
+}
+```
+
+### I/O
+
+- `close(file [, how])` Close  file,  pipe or co-process.
+    - The optional how should only be used when closing one end of a two-way pipe to a co-process.
+    - It must be a string value, either "to" or "from".
+- `getline` Set $0 from next input record; set NF, NR, FNR.
+- `getline <file` Set $0 from next record of file; set NF.
+- `getline var` Set var from next input record; set NR, FNR.
+- `getline var <file` Set var from next record of file.
+- `command | getline [var]` Run command piping the output either into $0 or var, as above.
+- `command |& getline [var]` Run command as a co-process piping the output either into $0 or var, as above.
+    - Co-processes are a gawk extension.
+    - (command can also be a socket. See the subsection Special File Names, below.)
+- `next` Stop processing the current input record.
+    - The next input record is read and processing starts over with the first pattern in the AWK program.
+    - If the end of the input data is reached, the END block(s), if any, are executed.
+- `nextfile` Stop processing the current input file.
+    - The next input record read comes from the next input file.
+    - FILENAME and ARGIND are updated, FNR is reset to 1, and processing starts  over  with  the first  pattern  in the AWK program.
+    - If the end of the input data is reached, the END block(s), if any, are executed.
+- `print` Print the current record.
+    - The output record is terminated with the value of the ORS variable.
+- `print expr-list` Print expressions.
+    - Each expression is separated by the value of the OFS  variable.
+    - The  output record is terminated with the value of the ORS variable.
+- `print expr-list >file` Print  expressions  on file.
+    - Each expression is separated by the value of the OFS variable.
+    - The output record is terminated with the value of the ORS variable.
+- `printf fmt, expr-list` Format and print.
+    - See The printf Statement, below.
+- `printf fmt, expr-list >file` Format and print on file.
+- `system(cmd-line)` Execute the command cmd-line, and return the exit status.
+    - (This may not  be  available  on  non-POSIX systems.)
+- `fflush([file])` Flush any buffers associated with the open output file or pipe file.
+    - If file is missing or if it is the null string, then flush all open output files and pipes.
+
+Additional output redirections are allowed for print and printf.
+
+- `print ... >> file` Appends output to the file.
+- `print ... | command` Writes on a pipe.
+- `print ... |& command` Sends data to a co-process or socket.
+    - (See also the subsection Special File Names, below.)
+
+The getline command returns 1 on success, 0 on end of file, and -1 on an error.
+
+- Upon an error, ERRNO contains a string describing the problem.
+
+NOTE: Failure in opening a two-way socket will result in a non-fatal error being returned to the calling function.
+
+- If using a pipe, co-process, or socket to getline, or from print or printf within a loop, you must use close()  to  create new  instances  of  the  command or socket.
+- AWK does not automatically close pipes, sockets, or co-processes when they return EOF.
+
+The print Statment
+
+- See in `man awk`
+
+## Functions
+
+### Numeric
+
+### String
+
+### Time
+
+### Others
+
+Bit Manipulations
+
+Type
+
+### User-Defined
+
 ## Usage
 
 Sample
@@ -222,6 +388,27 @@ jack
 alex
 ```
 
+### String
+
+#### Join
+
+```bash
+awk 'BEGIN { x="z"; str="app" x "boy" x "cat"; print str; }'
+appzboyzcat
+```
+
+```bash
+awk '{ str=str $0 } END { print str }' sample
+No Name Mark Remark01 tom 59 AZ02 jack 77 XP03 alex 97 CC
+```
+
+```bash
+$ awk '{ str=str " " $0 } END { print str }' sample
+ No Name Mark Remark 01 tom 59 AZ 02 jack 77 XP 03 alex 97 CC
+
+$ awk 'NR == 1 { str = $0 } NR != 1 { str = str " " $0 } END { print str }' sample
+No Name Mark Remark 01 tom 59 AZ 02 jack 77 XP 03 alex 97 CC
+```
 
 ### Built-in Variables
 
@@ -316,7 +503,7 @@ $ awk 'BEGIN{print PROCINFO["version"]; print PROCINFO["strftime"]}'
 %a %b %e %H:%M:%S %Z %Y
 ```
 
-### Pattern
+### Patterns
 
 #### Compare
 
@@ -389,6 +576,51 @@ $ awk 'BEGIN{IGNORECASE=1} /c/' sample
 03 alex 97 CC
 ```
 
+#### Range
+
+Range `pattern1, pattern2`
+
+```bash
+$ awk '/1/, /3/ {print $0}' sample
+01 tom 59 AZ
+02 jack 77 XP
+03 alex 97 CC
+```
+
+OR `pattern1 || pattern2`
+
+```bash
+$ awk '/1/ || /3/ {print $0}' sample
+01 tom 59 AZ
+03 alex 97 CC
+```
+
+AND `pattern1 && pattern2`
+
+```bash
+awk '/7/ && /9/ {print $0}' sample
+03 alex 97 CC
+```
+
+NOT `!pattern`
+
+```bash
+$ '!/2/ {print $0}' sample
+No Name Mark Remark
+01 tom 59 AZ
+03 alex 97 CC
+```
+
+`expression ? pattern1 : pattern2`
+
+```bash
+$ awk '1 ? /2/ : /3/ {print $0}' sample
+02 jack 77 XP
+
+$ awk '0 ? /2/ : /3/ {print $0}' sample
+03 alex 97 CC
+```
+
 ### Script
 
 ```bash
@@ -423,6 +655,22 @@ $ ls -l | awk '{sum += $5} END {print sum}'
 178481205
 ```
 
+#### Fabonacci Sequence
+
+```bash
+$ seq 9 | awk 'BEGIN {a=0;b=1;print b;} {for(i=0;i<NF;i++){t=b;b=a+b;a=t;print b;}}'
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+```
+
 #### 九九乘法表
 
 ```bash
@@ -436,4 +684,37 @@ $ seq 9 | sed 'H;g' | awk -v RS='' '{for(i=1;i<=NF;i++)printf("%dx%d=%d%s", i, N
 1x7=7   2x7=14  3x7=21  4x7=28  5x7=35  6x7=42  7x7=49
 1x8=8   2x8=16  3x8=24  4x8=32  5x8=40  6x8=48  7x8=56  8x8=64
 1x9=9   2x9=18  3x9=27  4x9=36  5x9=45  6x9=54  7x9=63  8x9=72  9x9=81
+```
+
+## Examples
+
+### Control Statement
+
+`while () {};`
+
+```bash
+$ awk 'BEGIN {i=3; while (i--) {print i};}'
+2
+1
+0
+```
+
+`do {…} while (…);`
+
+```bash
+$ awk 'BEGIN {i=3; do { print i } while(i--);}'
+3
+2
+1
+0
+```
+
+`if (…) {…} else {…};`
+
+```bash
+$ awk 'BEGIN { if (1) { print ARGC } else { print ARGV[0], ARGV[1] } }' sample
+2
+
+$ awk 'BEGIN { if (0) { print ARGC } else { print ARGV[0], ARGV[1] } }' sample
+awk sample
 ```
