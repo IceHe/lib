@@ -247,6 +247,7 @@ Others
 
 ### Past
 
+- [2018 Winter](/_archived/past/2018-winter.md)
 - [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
 - [2017 Spring](/_archived/past/2017-spring.md)
 - [2016 Winter](/_archived/past/2016-winter.md)
