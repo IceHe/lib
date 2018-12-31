@@ -33,6 +33,13 @@
 - Non-numeric values and numeric values less than zero inhibit truncation.
 - The shell sets the default value to the value of HISTSIZE after reading any startup files.
 
+`HISTSIZE`
+
+- The number of commands to remember in the command history (see HISTORY below).
+- If the value is 0, commands are not saved in the history list.
+- Numeric values less than zero result in every command being saved on the history list (there is no limit).
+- The shell sets the default value to 500 after reading any startup files.
+
 ### PS\*
 
 `PS1` 主提示符
