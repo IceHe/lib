@@ -36,7 +36,19 @@ Time-based : 有时间期限
     - ~~读 10 页 Java Basic~~
     - 今天读 10 页 Java Basic
 
+## 解决问题
+
+- what : 是什么（表面问题，根本问题）
+- why : 为什么（直接原因，根本原因）
+- how : 怎么办（解决方案，实行步骤）
+
 ## STAR 法则
+
+Reference
+
+- 百度百科 :  https://baike.baidu.com/item/STAR%E6%B3%95%E5%88%99/9056070?fr=aladdin
+
+> 是一种讲述自己故事的方式，或者说，是一个清晰、条理的作文模板
 
 Situation : 情景（背景？）
 
