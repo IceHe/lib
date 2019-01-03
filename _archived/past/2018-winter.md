@@ -1,5 +1,7 @@
 # 2018 年冬（草稿）
 
+> Draft : Work in progress
+
 <!-- STAR 法则 -->
 
 <!-- - 背景 Situation -->
