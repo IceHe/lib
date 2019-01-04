@@ -6,20 +6,21 @@ Life : Better Health
 
 - **Sleep Early @ 23:00**
 
+Study : Get started with Java
+
+- TBD
+
 Work :
 
 - Finish Job on time!
-
-Study : Get started with Java
-
-1. **Read 10 pages/day** : "Core Java : Fundermantals"
-2. **Summarize 1 command/day** @ Lib
 
 ### _Alternative_
 
 Study : Get started with Java
 
+- Read "Core Java : Fundermantals"
 - Read "Spring Action"
+- Summarize 1 command/day @ Lib
 
 Life : Better Health
 
