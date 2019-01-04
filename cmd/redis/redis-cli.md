@@ -128,3 +128,37 @@ Q & A
 
 - SET without expiry ( [ref](https://stackoverflow.com/questions/40019390/redis-set-with-option-without-expiry) )
     - Send `set` command without `EX` option
+
+---
+
+### TMP
+
+临时
+
+使用 scan 比 keys 更安全
+
+- Reference : http://cmsblogs.com/?p=2642 ( TODO：好东西，值得以后收录 )
+
+```bash
+scan 0
+```
+
+查询较大的 key
+
+```bash
+redis-cli -p 6380 --bigkeys
+```
+
+重命名危险命令
+
+```bash
+rename-command flushdb flushddbb
+rename-command flushall flushallall
+rename-command keys keysys
+```
+
+监控 `monitor`
+
+慢日志 `slowlog`
+
+---
