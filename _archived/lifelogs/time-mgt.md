@@ -294,13 +294,13 @@ Log 时间使用情况统计日志以 《 [15/10/20 stu52 spo12 was3](/_archived
 
 有关脚本详见我的[Github](https://github.com/IceHe)：
 
-** on macOS **
+**on macOS**
 
 - [操作 Evernote 用的 AppleScript 脚本](https://github.com/IceHe/AppleScript_for_Evernote)
 - [操作时间管理日志用的 AppleScript 脚本](https://github.com/IceHe/AppleScript_for_DayLog)
 - [操作时间管理日志用的 Python 脚本](https://github.com/IceHe/Python_for_DayLog)
 
-** on Windows **
+**on Windows**
 
 - [操作时间管理日志用的 PHP、Batch 脚本](https://github.com/IceHe/my_scripts_on_win) *（已弃用）*
 
