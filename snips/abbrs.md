@@ -85,6 +85,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
 - bin : binary
 - biz : business
+- [BSON](https://en.wikipedia.org/wiki/BSON) : a computer data interchange format used mainly as a data storage and network transfer format in the MongoDB database
 - btm : bottom
 - btw : by the way | between
 
@@ -237,6 +238,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - jr : job requirement
 - Jr. : Junior 初级的
 - js : javascript
+- json : [JavaScript Object Notation](https://en.wikipedia.org/wiki/JSON)
 
 ### K
 
