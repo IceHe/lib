@@ -1,4 +1,4 @@
-# awk
+# awk (WIP)
 
 > gawk - pattern scanning and processing language
 

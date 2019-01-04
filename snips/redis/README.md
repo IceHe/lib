@@ -1,4 +1,4 @@
-# Redis
+# Redis (WIP)
 
 > REmote DIctionary Server
 

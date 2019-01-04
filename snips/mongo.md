@@ -1,4 +1,4 @@
-# MongoDB
+# MongoDB (draft)
 
 References
 
@@ -88,4 +88,17 @@ mongostore
 ```bash
 # 跳过前 m 个，最多 n 个，倒序列举
 > db.collection_name.find({……}).skip(m).limit(n).sort(-1)
+```
+
+## Commands
+
+Monitor ( 监控 )
+
+- Reference : http://www.mongodb.org.cn/tutorial/23.html
+
+```bash
+# 运行状态监测
+mongostat
+# 实例监测，统计数据
+mongotop
 ```

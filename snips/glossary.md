@@ -1,6 +1,4 @@
-# Glossary
-
-> Temporary Notes
+# Glossary (draft)
 
 ACL: Access Control List
 

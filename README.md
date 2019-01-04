@@ -9,7 +9,6 @@ Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](/_docsify/README.md) )
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
-- [Concepts](/snips/concepts.md)
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
 - [Java](/snips/java/README.md)
@@ -37,11 +36,14 @@ Storage ( usage )
 - [MemcacheQ](/snips/mcq.md)
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
+- [Mongo](/snips/mongo.md)
 
 Others
 
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
 - [Glossary](/snips/glossary.md)
+- [Concepts](/snips/concepts.md) (merge into Glossary?)
+- [Go](/snips/go.md)
 - [~~Daily~~](/snips/daily/README.md)
 
 ### Mac

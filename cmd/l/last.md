@@ -1,4 +1,4 @@
-# last
+# last (WIP)
 
 > last, lastb - show listing of last logged in users
 
