@@ -6,7 +6,7 @@ Life : Better Health
 
 - **Sleep Early @ 23:00**
 
-Study : Get started with Java
+Study : Better Fundermantals
 
 - TBD
 
