@@ -87,7 +87,7 @@ IDE
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.04 ~ Now_
 
-- TODO：开发维护媒体库 API、探测报警、整理文档库
+- 文档库（文档整理）、探测报警、接口 CRUD
 - _Java 8 , Spring Boot , MySQL , Redis , Memcached , Docker , CentOS 7_
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端研发** _2015.07 ~ 2018.03_
