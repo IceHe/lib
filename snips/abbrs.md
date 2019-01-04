@@ -431,6 +431,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - TL;DR : [too long; didn't read.](https://en.wikipedia.org/wiki/TL;DR)
 - tmp : temporary
 - tmpl : template
+- top : [table of processes](https://en.wikipedia.org/wiki/Top_(software)) ( for CLI )
 - tpl : template
 - ts : [timestamp](https://en.wikipedia.org/wiki/Timestamp)
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)
