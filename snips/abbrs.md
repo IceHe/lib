@@ -35,10 +35,10 @@ Other meanings
 
 - `` : Power
 - `⌘` : Command ( Cmd )
-- `⌥` : Option | Alt
+- `⌥` : Option ( Opt ) | Alt
 - `^` : Control ( Ctrl )
 - `⇧` : Shift ( Shf )
-- `⇪` : CapsLock
+- `⇪` : CapsLock ( Caps )
 - `⇥` : Tab
 - `⎋` : Escape ( Esc )
 - `↩` : Return ( Ret ) | Enter
@@ -53,7 +53,12 @@ Other meanings
 
 ## Alphabet
 
-Notice : `for CLI` The abbreviations have special meanings when using Command Line Interface.
+Notice :
+
+- `for CLI` about Command-Line Interface.
+- `for Go` about Go Programming Language
+- `for kernel` about Linux (kernel).
+- `for SQL` about SQL
 
 ### A
 
@@ -70,6 +75,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - app : application
 - arg : argument
+- asc : ascend
 - asm : assembly
 - auth : authenticate
 - auto : automatic
@@ -95,7 +101,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - CA : [Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority)
 - cal : call
 - CAP : [Consistency, Availability, Partition Tolerance](https://en.wikipedia.org/wiki/CAP_theorem)
-- chan : channel
+- chan : channel ( for Go )
 - chk : check
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 - cls : class
@@ -133,7 +139,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - dec : decimal
 - decr : decrease
 - def : define, definition
-- desc : description
+- desc : description | descend ( for SQL )
 - del : delete
 - dev : development | device
 - diff : differ | difference
@@ -154,7 +160,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - e.g. : for example
 - edt : edit
 - elem : element
-- en : English
+- EN : English
 - enc : encoding
 - env : environment
 - eof : [end of file](https://en.wikipedia.org/wiki/End-of-file)
@@ -181,7 +187,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - FAQ : [Frequently Asked Questions](https://en.wikipedia.org/wiki/FAQ) 常见问题
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
-- [firmwave](https://en.wikipedia.org/wiki/Firmware)
+- [firmwave](https://en.wikipedia.org/wiki/Firmware) ( to rm? )
 - fmt : format
 - fn : function
 - fs : [file system](https://en.wikipedia.org/wiki/File_system)
@@ -224,7 +230,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - incr : increase
 - ind : index
 - info : information
-- ini : initialization
+- ini : initialization (configuration files)
 - init : initiate
 - ins : insert
 - int : [integer](https://en.wikipedia.org/wiki/Integer_(computer_science))     | [interrupt](https://en.wikipedia.org/wiki/Interrupt)
@@ -233,7 +239,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 
 ### J
 
-- j : jump
+- j : jump | bzip2 ( for CLI )
 - jar : [Java Archive file](https://en.wikipedia.org/wiki/JAR_(file_format))
 - jd : job description
 - jr : job requirement
@@ -324,7 +330,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - P : port ( for CLI `mysql` )
 - param : parameter
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
-- pf : prefix
+- pf : prefix | process flags ( for kernel )
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
@@ -493,5 +499,6 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 
 ### Z
 
-- z : compress ( for CLI `tar` `bzip` )
+- z
+    - for CLI : gzip | compress ( `tar` `bzip` )
 - zzz : fall asleep
