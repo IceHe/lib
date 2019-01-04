@@ -75,6 +75,7 @@
 - `^ ⌥ g` Toggle Regex
 - _`^ ⌥ c` Toggle Case Sensitive_
 - `^ g` Find Usage
+- `^ s` Find Complementation
 - `⌘ o` Find Class
 - `⌘ ⇧ O` Find File
 - `⌘ ⌥ o` Find Symbols ( Class, Files, Methods, Functions )
