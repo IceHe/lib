@@ -1,5 +1,7 @@
 # Mac Shorcuts
 
+( last updated : 2018-09-02 )
+
 > macOS Shortcuts: 我的 macOS 快捷键列表。
 
 - Some explanation
