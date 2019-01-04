@@ -143,6 +143,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - dn : down
 - doc : documentation
 - docs : documentation
+- dup : duplicate
 - dw : double word
 
 ### E
