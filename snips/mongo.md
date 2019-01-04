@@ -7,14 +7,14 @@ References
 
 ## Database
 
-Create
+### Create
 
 ```bash
 > use db_name
 # if not exist, it wiil be created.
 ```
 
-Delete
+### Delete
 
 ```bash
 # switch to db you want to drop
@@ -23,16 +23,34 @@ Delete
 > db.dropDatabase()
 ```
 
+### Dump & Store
+
+> 备份与恢复
+
+- Reference : http://www.mongodb.org.cn/tutorial/22.html
+
+Dump
+
+```bash
+mongodump
+```
+
+Store
+
+```bash
+mongostore
+```
+
 ## Collection
 
-Insert
+### Insert
 
 ```bash
 # e.g.
 > db.collection_name.insert({"name":"hello"})
 ```
 
-List (Find)
+### Find
 
 ```bash
 > db.collection_name.find()
@@ -41,7 +59,7 @@ List (Find)
 > db.collection_name.find({name:"icehe"}).pretty()
 ```
 
-Update
+### Update
 
 - Reference : http://www.mongodb.org.cn/tutorial/11.html
 
@@ -52,13 +70,13 @@ Update
 > db.t_collection.update({name:"icehe"},{$set:{name:"abc"}})
 ```
 
-Delete
+### Delete
 
 ```bash
 > db.collection_name.remove({……})
 ```
 
-Query
+### Query
 
 - Reference
     - where, and, or : http://www.mongodb.org.cn/tutorial/13.html
