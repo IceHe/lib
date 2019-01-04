@@ -297,6 +297,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - NaN : [Not a Number](https://en.wikipedia.org/wiki/NaN)
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
 - No. : number
+- NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
@@ -357,6 +358,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - rcv : received
 - rd : read
 - RD : Research & Development
+- RDBMS : [Relational Database Management System](https://en.wikipedia.org/wiki/Relational_database_management_system)
 - rec : record
 - ref : reference
 - regex : [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
@@ -393,6 +395,8 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - sig : signal | signature
 - sim : simple , simplify
 - slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
+- SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
+    - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
 - snd : send
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
