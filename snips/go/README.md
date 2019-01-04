@@ -26,6 +26,8 @@ export PATH=$PATH:$GOROOT/bin
 export GOBIN=/Users/IceHe/go/bin
 ```
 
+---
+
 ## beego
 
 References
