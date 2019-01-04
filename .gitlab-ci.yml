@@ -9,7 +9,7 @@ mdl:
         - mdl --style snips/markdown/lint/style.rb . --git-recurse && echo 'All is well.'
 
 pages:
-    # Deploy @ GitLab Pages ( Disabled )
+    # Deploy @ GitLab Pages
     stage: parallel
     script:
         # Build：temporary directory `.public/`
