@@ -122,7 +122,7 @@ VCS: History & Compare
 ## Tools
 
 - `⌘ ^ h` Hide All Tool Windows
-- _`^ ⌥ q` Terminal_
+- `^ ⌥ q` Terminal
 - _`^ ⌥ s` Test RESTful Web Service_
 - `⌘ ⇧ ↑↓←→` Extend | Shrink Tool Window
 
