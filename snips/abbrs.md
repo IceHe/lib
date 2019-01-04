@@ -62,6 +62,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - abbr : abbreviation
 - abs : absolute
 - abt : about
+- ACID : [Atomicity, Consistency, Isolation, Durability](https://en.wikipedia.org/wiki/ACID_(computer_science))
 - ACL : [Access control list](https://en.wikipedia.org/wiki/Access_control_list)
 - ad : advertisement
 - addr : address
@@ -79,6 +80,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
     - for CLI : backup | batch | buffer (`df` `du` `tar`)
 - B : [byte](https://en.wikipedia.org/wiki/Byte)
 - bak : backup
+- BASE : [Basically Available, Soft state, Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency)
 - bat : batch
 - B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
 - bin : binary
@@ -91,6 +93,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - c : command | check ( for CLI )
 - CA : [Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority)
 - cal : call
+- CAP : [Consistency, Availability, Partition Tolerance](https://en.wikipedia.org/wiki/CAP_theorem)
 - chan : channel
 - chk : check
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
@@ -122,6 +125,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - d : day
     - for CLI : daemon | debug | delete | delimiter | directory
 - D : define ( for CLI )
+- DAO : [Data Access Object](https://en.wikipedia.org/wiki/Data_access_object)
 - DAG : [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
 - dat : data
 - db : database
@@ -175,6 +179,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - FAQ : [Frequently Asked Questions](https://en.wikipedia.org/wiki/FAQ) 常见问题
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
+- [firmwave](https://en.wikipedia.org/wiki/Firmware)
 - fmt : format
 - fn : function
 - fs : [file system](https://en.wikipedia.org/wiki/File_system)
@@ -222,6 +227,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
 - ins : insert
 - int : [integer](https://en.wikipedia.org/wiki/Integer_(computer_science))     | [interrupt](https://en.wikipedia.org/wiki/Interrupt)
 - io : input/output
+- IPC : [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)
 
 ### J
 
@@ -276,6 +282,7 @@ Notice : `for CLI` The abbreviations have special meanings when using Command Li
     - femto-\* 10^-15
 - mgr : manager
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
+- mm : [memory management](https://en.wikipedia.org/wiki/Memory_management)
 - mod : modify | mode
 - MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
 - msg : message
