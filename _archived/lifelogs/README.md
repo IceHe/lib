@@ -54,6 +54,10 @@
 
 - [Explanations for Log Format - 日志记录格式的说明](/_archived/lifelogs/time-mgt.md)
 
+## 2019
+
+- 一月：从零到一，重新积累……
+
 ## 2018
 
 - 一月：重构项目冲刺。
