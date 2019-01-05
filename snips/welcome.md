@@ -2,10 +2,6 @@
 
 > 一件事要想清楚为什么而做？然后是怎么去做？不忘初心，方得始终（不至于南辕北辙）。
 
-<!-- > - What is my Lib? -->
-<!-- > - Why I build? -->
-<!-- > - How to build? -->
-
 ## What is my Lib?
 
 我的「[IceHe's Lib](https://icehe.xyz)」是什么？
@@ -126,8 +122,6 @@
 
 ### No SEO
 
-邮件
-
 **Disadvantages** 缺点
 
 - 难以推广：SPA 的 SEO 效果不佳
@@ -135,12 +129,6 @@
             - 也没有兴趣让谷歌收录（虽然它对收录比较好）
             - 影响访问速度
         - 难以被搜索引擎收录，特别是百度
-
-深知自己水平有限没有必要
-
-- What：一件事
-- Why：有没必要
-- How：怎么做
 
 ### No Comments
 
