@@ -25,3 +25,9 @@ Study : Get started with Java
 Life : Better Health
 
 - Breakfast @ Sina
+
+---
+
+Write : Quicker
+
+- 1000 words / hour
