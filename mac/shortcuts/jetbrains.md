@@ -75,6 +75,7 @@
 - `^ ⌥ g` Toggle Regex
 - _`^ ⌥ c` Toggle Case Sensitive_
 - `^ g` Find Usage
+- `^ s` Find Complementation
 - `⌘ o` Find Class
 - `⌘ ⇧ O` Find File
 - `⌘ ⌥ o` Find Symbols ( Class, Files, Methods, Functions )
@@ -122,7 +123,7 @@ VCS: History & Compare
 ## Tools
 
 - `⌘ ^ h` Hide All Tool Windows
-- _`^ ⌥ q` Terminal_
+- `^ ⌥ q` Terminal
 - _`^ ⌥ s` Test RESTful Web Service_
 - `⌘ ⇧ ↑↓←→` Extend | Shrink Tool Window
 

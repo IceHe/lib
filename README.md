@@ -1,6 +1,8 @@
 # IceHe's Lib
 
-Website : [icehe.xyz](https://icehe.xyz) ( by [docsify](/_docsify/README.md) )
+> **[Lib](/snips/what-is-lib.md) : What is my Lib? Why I build it?**
+
+Website : [icehe.xyz](https://icehe.xyz) ( powered by [docsify](/_docsify/README.md) )
 
 ## Tech
 
