@@ -18,18 +18,40 @@ References
 
 ## Symbols
 
+Note that :
+
+- `for CLI` about Command-Line Interface
+- `for Go` about Go Programming Language
+- `for kernel` about Linux (kernel)
+- `for SQL` about SQL
+- `for Regex` about Regular Expression
+
 ### ASCII
 
-Other meanings
-
-- `&` : and
-- `|` : or
-- `@` : at
-- `~` : [home direcotry](https://en.wikipedia.org/wiki/Home_directory)
+- `.` : dot | abbreviation ( like P.S. ) | match any char ( for Regex )
+- `'` : quote | single character | string ( for PHP )
+- `"` : double quote | string | emphasize | single-line comment ( for VimScript )
+- `:` : colon | key-value separator
+- `|` : or | pipeline ( for CLI )
+- `/` : slash | or | separator ( like date "2019/01/05" )
+- `//` : single-line comment | floor division ( for Python )
+- `\` : backslash | escape character | path separator ( for Windows )
+- `@` : at ( for location / email / … ) | annotation ( for Java, Python, … )
+- `#` : comment ( for Bash script )
+- `$` : dollar | variable ( for PHP, Bash ) | money
+- `%` : percent | placeholder ( for C / C++ / … )
+- `^` : control | xor ( for logical op ) | head of string/line ( for Regex )
+- `&` : and | run in the background ( for CLI )
+- `~` : tilde | [home direcotry](https://en.wikipedia.org/wiki/Home_directory) | reverse
+- `-` : minus | option ( for CLI )
+- `=` : assign | equal ( equivalent to )
 - `*` : optional | [wildcard character](https://en.wikipedia.org/wiki/Wildcard_character)
-- `?` : maybe | candidate
-- `!` : not
-- `>` : next
+- `?` : maybe | candidate | non-greedy match ( for Regex ) | placeholder ( for SQL )
+- `!` : not ( negation ) | reverse
+- `<` : less than | redirecting input ( for CLI )
+- `>` : greater than | next | redirecting output ( for CLI )
+- `<<` : left bitwise shift
+- `>>` : right bitwise shift | appending redirected output ( for CLI )
 
 ### Keyboard
 
@@ -52,13 +74,6 @@ Other meanings
 - `a~z` : One of the alphabet a ~ z
 
 ## Alphabet
-
-Notice :
-
-- `for CLI` about Command-Line Interface.
-- `for Go` about Go Programming Language
-- `for kernel` about Linux (kernel).
-- `for SQL` about SQL
 
 ### A
 
