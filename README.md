@@ -1,6 +1,6 @@
 # IceHe's Lib
 
-> **[Lib](/snips/what-is-lib.md) : What is my Lib? Why I build it?**
+> [Welcome](/snips/welcome.md) - What is my Lib? Why I build?
 
 Website : [icehe.xyz](https://icehe.xyz) ( powered by [docsify](/_docsify/README.md) )
 
