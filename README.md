@@ -2,7 +2,8 @@
 
 > [Welcome](/snips/welcome.md) - What is my Lib? Why I build?
 
-Website : [icehe.xyz](https://icehe.xyz) ( powered by [docsify](/_docsify/README.md) )
+- Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
+- Author : [IceHe](/marks/cv.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
 
