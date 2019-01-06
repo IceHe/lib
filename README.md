@@ -274,10 +274,8 @@ Others
 
 ### Nonsense
 
-~~Time Management~~
-
-- [~~Life Logs~~](/_archived/lifelogs/README.md)
-- [~~Self Manual~~](/_archived/lifelogs/life-manual.md)
+- Time Mgt. : [Life Logs](/_archived/lifelogs/README.md) & [Log Format](/_archived/lifelogs/time-mgt.md)
+- Way of Life : [Self Manual](/_archived/lifelogs/life-manual.md)
 
 ### Prev Blog
 
