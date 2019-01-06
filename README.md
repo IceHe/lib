@@ -233,22 +233,22 @@ Others
 
 好文共赏
 
-- [Anti-Fragile](/_archived/read/anti-fragile.md)
-    / [_book_](https://item.jd.com/11364406.html)
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
     / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)
     / [_digest_](/_archived/read/cruel-reality.md)
-- [Happyness Course](https://zhuanlan.zhihu.com/p/19562678)
-    / [_digest_](/_archived/read/happiness-course.md)
 - [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920)
     / [_digest_](/_archived/read/meaning.md)
-- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) / [_digest_](/_archived/read/pessimist.md)
+- [Happyness Course](https://zhuanlan.zhihu.com/p/19562678)
+    / [_digest_](/_archived/read/happiness-course.md)
+- [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
+    / [_digest_](/_archived/read/why-unhappy.md)
 - [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方
     / [_digest_](/_archived/read/poet.md)
 - [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813)
     / [_digest_](/_archived/read/teacher-said.md)
-- [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
-    / [_digest_](/_archived/read/why-unhappy.md)
+- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) / [_digest_](/_archived/read/pessimist.md)
+- [Anti-Fragile](/_archived/read/anti-fragile.md)
+    / [_book_](https://item.jd.com/11364406.html)
 
 ### Past
 
