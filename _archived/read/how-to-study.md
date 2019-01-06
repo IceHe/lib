@@ -1,4 +1,4 @@
-# How to Study
+# How to Study (WIP)
 
 - Created on 2016-06-24
 
