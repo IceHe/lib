@@ -1,4 +1,4 @@
-# Commands
+# Commands (draft)
 
 Reference
 
@@ -20,10 +20,6 @@ https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 Recommended Guide
 
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) / [中文版](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
-
-Mine
-
-- [Home/CLI](README.md#cli)
 
 ## Temporary
 
@@ -233,17 +229,9 @@ lsattr 查锁
 
 `grep 'interface_name' localhost_access_log |awk '{print $5}' |sort |uniq -c |sort -n -r |head -n 20`
 
-把最后一次执行命令的foo替换成bar后执行
-
-`^foo^bar`
-
 开启编辑器，用来编辑一个复杂命令并执行
 
 `ctrl-x e`
-
-插入最近命令的参数，每按一次向前移动一个参数
-
-`'ALT+.' or '<ESC> .'`
 
 开启一个简易计时器
 
@@ -252,10 +240,6 @@ lsattr 查锁
 把上一个命令存为sh文件
 
 `echo "!!" > foo.sh`
-
-输出文件中start_pattern到stop_pattern中间的部分
-
-`awk '/start_pattern/,/stop_pattern/' file.txt`
 
 为特别复杂的语句添加label，以后可以在ctrl+R时直接搜索label
 
@@ -279,7 +263,7 @@ lsattr 查锁
 
 显示当前文件夹下最大的10个文件/文件夹。
 
-`du -s * |sort -n |tail`
+`du -s * | sort -n | tail`
 
 同ctrl+x e
 
@@ -287,7 +271,7 @@ lsattr 查锁
 
 显示进程树
 
-`ps awwfux |less -S`
+`ps awwfux | less -S`
 
 对比当前和10秒后进程打开文件的情况（同理可对比其它命令）
 
