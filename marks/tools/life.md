@@ -43,7 +43,7 @@
 
 ## 鞋子
 
-**透气的慢跑鞋**：[Under Amour](https://www.underarmour.cn/p1285677-001.htm) 品牌 <sup>Favorite</sup>
+**透气的慢跑鞋**（[Under Amour](https://www.underarmour.cn/p1285677-001.htm)） <sup>Favorite</sup>
 
 - 日常穿，轻便、柔软、透气、减震。
 
@@ -81,11 +81,6 @@
 
 - 坐飞机看到旁边妹子背的这款包很好看。也在考虑 [Backpack、Backpack Mini](https://www.rains.dk/collections/backpacks)。
 
-**羽毛球包**：双肩背包
-
-- 从广州买比较便宜（因为是全国大宗商品的主要集散地）
-- 携带方便，同时放球拍、球鞋、衣物、饮用水都不成问题
-
 ## 日用
 
 **带 USB 口的插线板**（[米家](http://www.mi.com/powerstrip/)）- 充电
@@ -116,9 +111,3 @@
     轻便好看，直接推拉杆上连接伞骨的圆环便可开合，不用按按钮。
 - [BENJAMIN 本傑明傘](https://www.taobao.com/product/benjamin%E6%9C%AC%E5%82%91%E6%98%8E%E5%82%98.htm) <sup>_wish!_</sup>
     喜欢的款式：大洋之舞 和 深海鱼群。
-
-**体温探测器**（米家）- 发烧量体温
-
-**吹风机** - 吹干长发
-
-**脏衣篓**
