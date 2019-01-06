@@ -43,14 +43,14 @@
 
 ### 详情列表
 
-- [常用](mac/apps/common.md)
+- [常用](/mac/apps/common.md)
 - [命令行](marks/tools/cli.md)
-- [软件开发](mac/apps/development.md)
-- [核心应用](mac/apps/core-apps.md)
-- [系统增强](mac/apps/system-enhanced.md)
-- [其它候选](mac/apps/candidates.md)
+- [软件开发](/mac/apps/development.md)
+- [核心应用](/mac/apps/core-apps.md)
+- [系统增强](/mac/apps/system-enhanced.md)
+- [其它候选](/mac/apps/candidates.md)
 - [iOS](marks/tools/ios.md)
-- [Chrome 插件](mac/apps/chrome.md)
+- [Chrome 插件](/mac/apps/chrome.md)
 
 Windows
 
@@ -65,8 +65,8 @@ Windows
 
 ### 参考阅读
 
-- [Mac 效率指南](mac/efficiency.md) ( mine )
-- [Mac 快捷键](mac/shortcuts/README.md) ( mine )
+- [Mac 效率指南](/mac/efficiency.md) ( mine )
+- [Mac 快捷键](/mac/shortcuts/README.md) ( mine )
 - [少数派](http://sspai.com/) - 高质量 App 推荐媒体，关于 iOS、Mac、硬件。
 - [Best App](https://github.com/hzlzh/Best-App) - List in GitHub
 
