@@ -1,8 +1,6 @@
-# 如何学习
+# 如何学习 (WIP)
 
 > 《How to Study: A Brief Guide》的译文，将在（有生之年）持续施工。
-
-状态：未翻译完成（TODO）
 
 ---
 
