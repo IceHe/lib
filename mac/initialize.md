@@ -2,9 +2,9 @@
 
 - Based on macOS
 - For Java developers
-- Follow principles:
-    - `kiss : keep it simple & stupid` 简单原则
-    - `ootb : out of the box` 开箱即用
+- Follow principles :
+    - `KISS : keep it simple & stupid` 简单原则
+    - `OOTB : out of the box` 开箱即用
 
 Reference
 
