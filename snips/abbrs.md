@@ -88,6 +88,7 @@ Note that :
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
+- AOF : [Append Only File](https://redis.io/topics/persistence)
 - app : application
 - arg : argument
 - asc : ascend
@@ -224,6 +225,7 @@ Note that :
 - h : handle | hour
     - for CLI : help | headers | hostname (`redis-cli`)
 - H : hour | header ( for CLI `curl` )
+- [HAProxy](https://en.wikipedia.org/wiki/HAProxy) : a high availability load balancer and proxy server
 - HD : [Hard Disk](https://en.wikipedia.org/wiki/Hard_disk_drive)
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system)
 - hex : heximal
@@ -235,6 +237,7 @@ Note that :
 - i : index | integer | me
     - for CLI : ignore | initialize | interactive
 - I : me | include ( for CLI )
+- IaaS : 基础设施即服务 [Infrastructure as a Service](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)
 - ico : icon
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
 - idx : index
@@ -288,6 +291,7 @@ Note that :
 - lol : Laugh Out Loud
 - ls : list
 - ltd : limited
+- LVS: [Linus Virtual Server](https://en.wikipedia.org/wiki/Linux_Virtual_Server) - a load balancing software
 - lyt : layout
 
 ### M
@@ -345,6 +349,7 @@ Note that :
 
 - p : port ( for CLI `redis-cli` )
 - P : port ( for CLI `mysql` )
+- PaaS：平台即服务 [Platform as a Service](https://en.wikipedia.org/wiki/Paas)
 - param : parameter
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix | process flags ( for kernel )
@@ -380,10 +385,12 @@ Note that :
 
 - r : are | recursively ( for CLI )
 - R : recursively ( for CLI )
+- RAID : [Redundant Array of Independent Disks](https://en.wikipedia.org/wiki/RAID)
 - rb : ruby
 - rcv : received
 - rd : read
 - RD : Research & Development
+- RDB : [Redis DataBase](https://redis.io/topics/persistence) ( persistence )
 - RDBMS : [Relational Database Management System](https://en.wikipedia.org/wiki/Relational_database_management_system)
 - rec : record
 - ref : reference
@@ -393,6 +400,7 @@ Note that :
 - repo : repository
 - req : request | requirement
 - resp : response
+- REST: [REpresentational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
 - ret : return
 - rg : right
 - rm : remove
@@ -409,6 +417,7 @@ Note that :
 
 - s
     - for CLI : silent | size | subject
+- SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
 - SDE : [Software Development Engineer](https://en.wikipedia.org/wiki/SDE#In_science,_medicine,_and_technology) or Environment
 - sec : second | secure , security
 - seg : segment
@@ -424,11 +433,13 @@ Note that :
 - SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
 - snd : send
+- SOAP : [Simple Object Access Protocol](https://en.wikipedia.org/wiki/SOAP) ( based on XML )
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
 - spec : specific | specified | specification
 - spk : speak | speaker
 - src : source
+- SSL : [Secure Sockets Layer](https://en.wikipedia.org/wiki/Transport_Layer_Security) ( deprecated )
 - sso : [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on) 单点登录
 - st : something | sometimes
 - stat : status | statistics
@@ -453,6 +464,7 @@ Note that :
 - templ : template
 - term : terminate 中止 | [terminal](https://en.wikipedia.org/wiki/Terminal_emulator) 终端
 - TL;DR : [too long; didn't read.](https://en.wikipedia.org/wiki/TL;DR)
+- TLS : [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 - tmp : temporary
 - tmpl : template
 - top : [table of processes](https://en.wikipedia.org/wiki/Top_(software)) ( for CLI )
