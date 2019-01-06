@@ -278,8 +278,8 @@ Previous Blog : 2015 ~ 2017
 ### Friends
 
 - [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
-- [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
+- [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
 - Me : Back-end / Sina Weibo / Fool, lazy & poor
 
