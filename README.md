@@ -1,6 +1,6 @@
 # IceHe's Lib
 
-> [Welcome](/snips/welcome.md) - What is my Lib? Why I build?
+> [Welcome](/_archived/blog/welcome.md) - What is my Lib? Why I build?
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
 - Author : [IceHe](/marks/cv.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
@@ -45,7 +45,6 @@ Others
 
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
 - [Glossary](/snips/glossary.md)
-- [Concepts](/snips/concepts.md) (merge into Glossary?)
 - [Go](/snips/go.md)
 - [~~Daily~~](/snips/daily/README.md)
 
