@@ -268,6 +268,7 @@ Note that :
 - KiB : [kibibyte](https://en.wikipedia.org/wiki/Kibibyte) , 2^10 = 1024 bytes
     - KB : Kilobyte , 10^3 = 1000 bytes
     - Others : GiB / TiB / PiB / EiB / ZiB / YiB
+- KISS : [keep it simple, stupid](https://en.wikipedia.org/wiki/KISS_principle)
 
 ### L
 
@@ -338,6 +339,7 @@ Note that :
 - ori : original
 - ORM : [Object Relational Mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
 - oth : others
+- OOTB : [out-of-the-box](https://en.wikipedia.org/wiki/Out_of_the_box_(feature))
 
 ### P
 
