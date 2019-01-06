@@ -252,6 +252,8 @@ Others
 
 ### Past
 
+Timeline
+
 - [2018 Winter](/_archived/past/2018-winter.md)
 - [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
 - [2017 Spring](/_archived/past/2017-spring.md)
@@ -262,6 +264,17 @@ Others
 - [Moments](/_archived/past/moments.md) : 回忆
 - [Old Blog](/_archived/past/old-blog.md) : 旧博索引
 
+Nonsense
+
+- Time Mgt. : [Life Logs](/_archived/lifelogs/README.md) & [Log Format](/_archived/lifelogs/time-mgt.md)
+- Way of Life : [Self Manual](/_archived/lifelogs/life-manual.md)
+
+Previous Blog : 2015 ~ 2017
+
+- [Tech Blog](https://icehe.me) : icehe.me
+- [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
+- [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
+
 ### Friends
 
 - [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
@@ -269,20 +282,5 @@ Others
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
 - Me : Back-end / Sina Weibo / Fool, lazy & poor
-
-## Archived
-
-### Nonsense
-
-- Time Mgt. : [Life Logs](/_archived/lifelogs/README.md) & [Log Format](/_archived/lifelogs/time-mgt.md)
-- Way of Life : [Self Manual](/_archived/lifelogs/life-manual.md)
-
-### Prev Blog
-
-2015 ~ 2017
-
-- [Tech Blog](https://icehe.me) : icehe.me
-- [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
-- [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
 
 > 靡不有初，鲜克有终
