@@ -9,6 +9,8 @@
 
 ### ON DUPLICATE KEY UPDATE
 
+- Reference : https://sql.sh/cours/insert-into/on-duplicate-key
+
 ## CLI
 
 ### Create User
@@ -42,13 +44,13 @@ $ mysql -h db.icehe.xyz -P 5104 -u username -ppassword
 Show
 
 ```bash
-show databases;
+show databases
 ```
 
 Select
 
 ```bash
-use db_name;
+use db_name
 ```
 
 #### Tables
@@ -56,13 +58,13 @@ use db_name;
 Show
 
 ```bash
-show tables;
+show tables
 ```
 
 Show Table Definition
 
 ```bash
-desc table_name;
+desc table_name
 ```
 
 Show Create Table
