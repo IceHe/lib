@@ -1,6 +1,17 @@
 # MySQL (WIP)
 
-## Create User
+## SQL
+
+### References
+
+- https://www.w3schools.com/sql/sql_syntax.asp
+- https://sql.sh/cours
+
+### ON DUPLICATE KEY UPDATE
+
+## CLI
+
+### Create User
 
 ```bash
 # login as root user
@@ -9,20 +20,14 @@ mysql -u root -p
 # create new user
 create user 'springuser'@'localhost' identified by 'ThePassword';
 
-# grant privileges to new user
+# grant privileges to new user ( DML )
 GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
 
 # if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
 mysql_upgrade -u root -p
 ```
 
-## SERIAL
-
-`SERIAL` SQL TYPE
-
-- an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
-
-## Connect
+### Connect
 
 ```bash
 mysql -h HOST -P PORT -u USERNAME -pPASSWORD
@@ -30,9 +35,9 @@ mysql -h HOST -P PORT -u USERNAME -pPASSWORD
 $ mysql -h db.icehe.xyz -P 5104 -u username -ppassword
 ```
 
-## CLI
+### Interact
 
-### Databases
+#### Databases
 
 Show
 
@@ -43,10 +48,10 @@ show databases;
 Select
 
 ```bash
-use DB_NAME;
+use db_name;
 ```
 
-### Tables
+#### Tables
 
 Show
 
@@ -57,7 +62,7 @@ show tables;
 Show Table Definition
 
 ```bash
-desc TABLE_NAME;
+desc table_name;
 ```
 
 Show Create Table
@@ -68,15 +73,18 @@ show create table <table_name>
 show create table jobs
 ```
 
-## Troubleshooting
+## Others
+
+### SERIAL
+
+`SERIAL` SQL TYPE
+
+- an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
+
+### Troubleshooting
 
 ERROR
 
 > MySql server startup error 'The server quit without updating PID file '
 
 - StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
-
-## TODO
-
-- Upgrade macOS MySQL from version 5.7 to 8+
-- `mysqldump` backup
