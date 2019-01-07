@@ -6,6 +6,7 @@
     - Commands : https://redis.io/commands
     - Documentation : https://redis.io/documentation
     - Download : https://redis.io/download
+- ZH Docs : http://redisdoc.com
 
 ## Prepare
 
