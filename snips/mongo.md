@@ -32,14 +32,28 @@ References
 Dump
 
 ```bash
-mongodump
+mongodump -h <host> --port=<port> -d <db> \
+    -u <username> -p <password> \
+    -o <output_directory>
+
+# e.g.
+mongodump -h 10.2.3.4 --port=27017 -d test \
+    -u admin -p 12345 -o dump
 ```
 
-Store
+Restore
 
 ```bash
-mongostore
+mongorestore -h <host> --port=<port> -d <db> \
+    -u <username> -p <password> \
+    --directoryperdb <output_directory/db_name>
+# e.g.
 ```
+
+- `--directoryperdb` 备份数据所在位置
+    - 例如：/usr/home/icehe/dump/test（test 为 DB 名）
+- `--drop` 恢复的时候，先删除当前数据，然后恢复备份的数据
+    - 即恢复后，备份后添加修改的数据都会被删除。慎用！
 
 ## Collection
 
