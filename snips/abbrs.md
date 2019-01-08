@@ -384,7 +384,7 @@ Note that :
 ### R
 
 - r : are | recursively ( for CLI )
-- R : recursively ( for CLI )
+- R : recursively ( for CLI ) | result ( for Java )
 - RAID : [Redundant Array of Independent Disks](https://en.wikipedia.org/wiki/RAID)
 - rb : ruby
 - rcv : received
