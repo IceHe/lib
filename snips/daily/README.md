@@ -1,3 +1,0 @@
-# Daily (WIP)
-
-nil
