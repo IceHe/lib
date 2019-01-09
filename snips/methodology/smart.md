@@ -1,6 +1,4 @@
-# References
-
-## SMART 法则
+# SMART 法则
 
 References
 
