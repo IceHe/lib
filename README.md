@@ -66,7 +66,8 @@ Others
 
 - [awk](/cmd/a/awk.md) : pattern scanning and processing language
 - [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell
-    - [$parameter](/cmd/p/$parameter.md) : basic, expansion & substitution
+    - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
+    - [shell variables](/cmd/bash/shell-variables.md) : variables are set by the shell
 - [bzip2](/cmd/b/bzip2.md) : block-sorting file compressor
 - [cat](/cmd/c/cat.md) : concatenate files & print on the standard output
 - [cd](/cmd/c/cd.md) : change the current directory
