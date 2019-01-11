@@ -227,7 +227,7 @@ Note that :
 - H : hour | header ( for CLI `curl` )
 - [HAProxy](https://en.wikipedia.org/wiki/HAProxy) : a high availability load balancer and proxy server
 - HD : [Hard Disk](https://en.wikipedia.org/wiki/Hard_disk_drive)
-- HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system)
+- HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system) ( [百度百科](https://baike.baidu.com/item/hdfs/4836121) )
 - hex : heximal
 - hrs : hours
 - hup : hang up
