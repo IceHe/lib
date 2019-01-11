@@ -46,7 +46,6 @@ Others
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
 - [Glossary](/snips/glossary.md)
 - [Go](/snips/go.md)
-- [~~Daily~~](/snips/daily/README.md)
 
 ### Mac
 
@@ -253,7 +252,8 @@ Others
 
 Timeline
 
-- [2018 Winter](/_archived/past/2018-winter.md)
+<!-- - [2018 Winter](/_archived/past/2018-winter.md) -->
+
 - [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
 - [2017 Spring](/_archived/past/2017-spring.md)
 - [2016 Winter](/_archived/past/2016-winter.md)
