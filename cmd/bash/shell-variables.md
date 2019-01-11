@@ -1,5 +1,7 @@
 # Shell Variables
 
+> variables are set by the shell
+
 ## PATH
 
 `PATH` The search path for commands.
