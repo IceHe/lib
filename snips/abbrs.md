@@ -42,7 +42,7 @@ Note that :
 - `%` : percent | placeholder ( for C / C++ / … )
 - `^` : control | xor ( for logical op ) | head of string/line ( for Regex )
 - `&` : and | run in the background ( for CLI )
-- `~` : tilde | [home direcotry](https://en.wikipedia.org/wiki/Home_directory) | reverse
+- `~` : [home direcotry](https://en.wikipedia.org/wiki/Home_directory) | reverse
 - `-` : minus | option ( for CLI )
 - `=` : assign | equal ( equivalent to )
 - `*` : optional | [wildcard character](https://en.wikipedia.org/wiki/Wildcard_character)
@@ -53,18 +53,25 @@ Note that :
 - `<<` : left bitwise shift
 - `>>` : right bitwise shift | appending redirected output ( for CLI )
 
+#### Explanations
+
+Reference : https://www.computerhope.com/jargon/q/question.htm
+
+- `~` : tilde
+- <code>\`</code> :
+
 ### Keyboard
 
 - `` : Power
 - `⌘` : Command ( Cmd )
-- `⌥` : Option ( Opt ) | Alt
+- `⌥` : Option ( Opt ) | Alternate ( Alt )
 - `^` : Control ( Ctrl )
 - `⇧` : Shift ( Shf )
 - `⇪` : CapsLock ( Caps )
 - `⇥` : Tab
 - `⎋` : Escape ( Esc )
 - `↩` : Return ( Ret ) | Enter
-- `凵` : Space
+- `凵` : Space ( Spacebar )
 - `↑` : Up
 - `↓` : Down ( Dn )
 - `←` : Left ( Lf )
