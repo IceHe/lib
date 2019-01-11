@@ -2,9 +2,9 @@
 
 TODOs
 
-- Built-in Commands
-- Control Structure
+- Compound Commands ( Control Structure )
 - Built-in Function
+- Built-in Commands
 - Special Characters?
 - ……
 
