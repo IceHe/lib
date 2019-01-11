@@ -37,8 +37,8 @@ Web
 Storage ( usage )
 
 - [MemcacheQ](/snips/mcq.md)
-- [MySQL](/snips/mysql/README.md)
-- [Redis](/snips/redis/README.md)
+- [MySQL](/snips/mysql.md)
+- [Redis](/snips/redis.md)
 - [Mongo](/snips/mongo.md)
 
 Others
