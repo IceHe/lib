@@ -64,3 +64,15 @@ darwin17.0
 # on CentOS 7
 linux-gnu
 ```
+
+## EPOCHSECONDS
+
+It expands to the time in seconds since the Unix epoch.
+
+( New in Bash 5.0 )
+
+## EPOCHREALTIME
+
+It expands to the time in seconds since the Unix epoch with microsecond granularity.
+
+( New in Bash 5.0 )
