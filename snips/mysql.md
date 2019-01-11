@@ -2,10 +2,14 @@
 
 ## SQL
 
-### References
+References
 
 - https://www.w3schools.com/sql/sql_syntax.asp
 - https://sql.sh/cours
+
+### Basic Grammar
+
+TODO
 
 ### ON DUPLICATE KEY UPDATE
 
