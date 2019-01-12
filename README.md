@@ -73,6 +73,7 @@ Others
 - [cd](/cmd/c/cd.md) : change the current directory
 - [chmod](/cmd/c/chmod.md) : change file mode bits
 - [chown](/cmd/c/chown.md) : change file owner & group
+- [column](/cmd/c/column.md) :
 - [comm](/cmd/c/comm.md) : compare two sorted files line by line
 - [cp](/cmd/c/cp.md) : copy files & directories
 - [cron](/cmd/c/cron.md) : time-based job scheduler
@@ -142,6 +143,7 @@ Others
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
 - [touch](/cmd/t/touch.md) : change file access & modification times
 - [tr](/cmd/t/tr.md) : translate or delete characters
+- [ulimit](/cmd/u/ulimit.md) : system resource limit to shell
 - [uname](/cmd/u/uname.md) : print system information
 - [uniq](/cmd/u/uniq.md) : report or omit repeated lines
 - [uptime](/cmd/u/uptime.md) : show how long system has been running
