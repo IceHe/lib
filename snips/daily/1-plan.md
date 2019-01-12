@@ -1,6 +1,31 @@
-# Time Table
+# Plan
 
-## _Much Sleep_
+## Daily Routine
+
+早起（一天很短暂！小心无意识地蹉跎）
+
+- 要是第一：先做最重要、最困难的事情
+    - 优先只做最重要的事就好，必须做的麻烦杂务自然会自己找上门来
+- 雷厉风行：必须完成的杂务，雷厉风行、见缝插针地做
+
+每晚：预估至少需要 30 min，保守 1h
+
+- 1\. 做反省
+- 2\. 做计划
+
+早睡
+
+- 保证第二天的精力！
+- 完成不了可以安排到第二天！
+    - 合理安排任务：先过一遍任务内容，粗想要花多少时间精力，再去安排（不要想当然）
+
+## Tools
+
+## Time Table
+
+Schedule
+
+### _Much Sleep_
 
 Time available for more sleep **$ 8h/day**
 
@@ -15,7 +40,7 @@ Time available for more sleep **$ 8h/day**
 - 22:00-23:00 : clean / oth $ 1h
 - 23:00-23:30 : joy $ 30m
 
-## Normal
+### Normal
 
 Time available **$ 9h/day**
 
@@ -31,7 +56,7 @@ Time available **$ 9h/day**
 - 22:00-23:00 : clean / oth $ 1h
 - 23:00-23:30 : joy $ 30m
 
-## Ideal
+### Ideal
 
 Time available **$ 10h/day**
 
