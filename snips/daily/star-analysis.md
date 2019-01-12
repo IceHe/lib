@@ -1,4 +1,4 @@
-# Life
+# Self Analysis
 
 ## Situation
 
@@ -66,5 +66,4 @@ References
 
 ## Result
 
-- See [Statistics](/snips/daily/7-statistics.md)
-- 反省（TODO）
+- 反省-ing
