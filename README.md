@@ -104,7 +104,7 @@ Others
 - [kill](/cmd/k/kill.md) : terminate or signal a process
 - [killall](/cmd/k/killall.md) : kill processes by name
 - [last](/cmd/l/last.md) : show listing of last logged in users
-- [less](/cmd/l/less.md) : provides `more` emulation plus extensive enhancements
+- [less](/cmd/l/less.md) : provides \`more\` emulation plus extensive enhancements
     - more : file perusal filter for paging through text one screenful at a time
 - [ln](/cmd/l/ln.md) : make links between files
 - [ls](/cmd/l/ls.md) : list directory contents
