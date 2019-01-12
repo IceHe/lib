@@ -73,7 +73,7 @@ Others
 - [cd](/cmd/c/cd.md) : change the current directory
 - [chmod](/cmd/c/chmod.md) : change file mode bits
 - [chown](/cmd/c/chown.md) : change file owner & group
-- [column](/cmd/c/column.md) :
+- [column](/cmd/c/column.md) : columnate lists
 - [comm](/cmd/c/comm.md) : compare two sorted files line by line
 - [cp](/cmd/c/cp.md) : copy files & directories
 - [cron](/cmd/c/cron.md) : time-based job scheduler
