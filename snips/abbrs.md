@@ -475,6 +475,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - tmp : temporary
 - tmpl : template
 - top : [table of processes](https://en.wikipedia.org/wiki/Top_(software)) ( for CLI )
+- TORM : to remove ( for me )
 - tpl : template
 - ts : [timestamp](https://en.wikipedia.org/wiki/Timestamp)
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)
