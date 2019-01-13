@@ -12,9 +12,9 @@
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
+- [Glossary](/snips/glossary.md)
 - [Regular Expression](/snips/regex.md)
 - [Sorting Alogorithms](/snips/sort/README.md)
-- [Glossary](/snips/glossary.md)
 - [Work Flow](/snips/work-flow.md)
 
 Docker
