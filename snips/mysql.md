@@ -9,7 +9,7 @@ References
 
 ### Basic Grammar
 
-TODO
+TODO : abstract
 
 ### ON DUPLICATE KEY UPDATE
 
