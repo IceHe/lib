@@ -5,13 +5,13 @@ require_once('./tools.php');
 function selectionSort(array $ary): array {
     $len = count($ary);
     for ($i = 0; $i < $len; $i++) {
-        $maxIdx = $i;
+        $minIdx = $i;
         for ($j = $len - 1; $j > $i; $j--) {
-            if ($ary[$j] > $ary[$maxIdx]) {
-                $maxIdx = $j;
+            if ($ary[$j] < $ary[$minIdx]) {
+                $minIdx = $j;
             }
         }
-        if ($maxIdx != $i) swap($ary, $i, $maxIdx);
+        if ($minIdx != $i) swap($ary, $i, $minIdx);
     }
     return $ary;
 }
