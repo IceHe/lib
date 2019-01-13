@@ -1,4 +1,4 @@
-# Sorting Algorithm (draft)
+# Sorting Algorithm (WIP)
 
 Reference
 
@@ -6,13 +6,7 @@ Reference
 
 ## Action
 
-PHP
-
-- [Tool Functions](/snips/sort/tools.php)
-- [Bubble](/snips/sort/bubble.php)
-- [Selection](/snips/sort/selection.php)
-- [Insertion](/snips/sort/insert.php)
-- [Merge](/snips/sort/merge.php)
+TODO
 
 ## Plan
 
