@@ -33,13 +33,13 @@ function chkSortedAry(array $ary): void {
 }
 
 function testSort(string $sortFnName): void {
-    $rndAry = rndAry();
-    line(ary2str($rndAry));
-    chkSortedAry($rndAry);
+    $ary = rndAry();
+    line(ary2str($ary));
+    chkSortedAry($ary);
 
-    $sortedAry =  $sortFnName($rndAry);
-    line(ary2str($sortedAry));
-    chkSortedAry($sortedAry);
+    $sortFnName($ary);
+    line(ary2str($ary));
+    chkSortedAry($ary);
 }
 
 function line($str = ''): void {
