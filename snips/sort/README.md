@@ -1,10 +1,14 @@
 # Sorting Algorithm (draft)
 
-Todos
+## Todos
 
+> Kinds * Implementations
+
+Kinds
+
+- Bubble
 - Insert
 - Selective
-- Bubble
 - Merge
 - Quicksort
     - 两路
@@ -15,6 +19,23 @@ Todos
 
 Implementations
 
-- PHP : draft
-- C++ : necessary
+- PHP : draft - 理清思路
 - C : optional (recommended)
+- C++ : optional (necessary?)
+- Java : optional
+- Template : C++ / Java ?
+
+## Plan
+
+- 先写伪代码，理清思路
+- 是不是应该先用纸写实现
+- 用 PHP 写实现
+- 第二次重写复习时用另一种语言
+    - C++ / Java ?
+
+## Action
+
+PHP
+
+- [Tool Functions](/snips/sort/tools.php)
+- [Bubble](/snips/sort/bubble.php)
