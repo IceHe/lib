@@ -66,35 +66,36 @@ requiredpass foobared
 
 ## Usage
 
+### redis-cli
+
 See command [redis-cli](/cmd/r/redis-cli.md)
 
 ---
 
 ## TEMP
 
+### Note
+
 部分基本知识：
 
-1. 任何二进制的序列都可以作为 key 使用
-2. Redis 有统一的规则来设计 key
-3. 对 key-value 允许的最大长度是 512MB
+- 任何二进制的序列都可以作为 key 使用
+- 对 key-value 允许的最大长度是 512MB
 
 应用场景：
 
 1. 最常用的就是 __会话缓存__
 2. __消息队列__，比如支付
 3. 活动 __排行榜__ 或 __计数__
-4. __发布、订阅__ 消息（消息通知）（pubsub？）
+4. __发布、订阅__ 消息（消息通知）: pubsub?
 5. 商品列表、评论列表等
 
 ref : https://www.itcodemonkey.com/article/3506.html
 
 微博单台 Redis 示例能扛 5w QPS
 
----
-
 ### 源码解析
 
-- [Zeech's Tech Blog](http://zcheng.ren/index.html) -
+- [Zeech's Tech Blog](http://zcheng.ren/index.html)
 - [ZeeCoder](https://blog.csdn.net/terence1212)
     - 以上两个博客有 Redis 源码分析的内容
 - [Redis 源码分析 - huangz/note](http://note.huangz.me/storage/redis_code_analysis/index.html) 许多 Redis 书籍均由该作者翻译
