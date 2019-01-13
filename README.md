@@ -14,8 +14,8 @@ Coding
 - [Abbreviations](/snips/abbrs.md)
 - [Regular Expression](/snips/regex.md)
 - [Sorting Alogorithms](/snips/sort/README.md)
-- [_Glossary_](/snips/glossary.md)
-- [_Work Flow_](/snips/work-flow.md)
+- [Glossary](/snips/glossary.md)
+- [Work Flow](/snips/work-flow.md)
 
 Docker
 
