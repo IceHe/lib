@@ -45,5 +45,3 @@ function testSort(string $sortFnName): void {
 function line($str = ''): void {
     echo "${str}\n";
 }
-
-//echo aryToLine(randAry());
