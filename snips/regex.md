@@ -2,10 +2,11 @@
 
 Manual
 
-- [Wikipedia](https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
+- [Wikipedia EN](https://en.wikipedia.org/wiki/Regular_expression) ( better )
+- [Wikipedia ZH](https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
 - [百度百科](https://baike.baidu.com/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
 
-Recommended
+Online tester & debugger: PHP, PCRE, Python, Golang & JavaScript
 
 - [Regex 101](https://regex101.com/)
 
@@ -41,13 +42,6 @@ functionName\(([^,^;]*,\s?){6}([^;^,]*?)\)
 ```
 
 ## Markdown
-
-Heading Level Down
-
-```bash
-^##
-^#
-```
 
 Link Match
 
