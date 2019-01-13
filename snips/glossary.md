@@ -1,16 +1,5 @@
 # Glossary (draft)
 
-## OSGi
-
-Open Services Gateway initiative
-
-- Java 动态化模块化系统的一系列规范。可以认为是 Java 平台的模块层。
-
-## reverse proxy
-
-- 反向代理方式，是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。
-- In computer networks, a reverse proxy is a type of proxy server that retrieves resources on behalf of a client from one or more servers. These resources are then returned to the client as if they originated from the Web server itself.
-
 ## MySQL
 
 - binlog: Binary Log（感觉好像 Redis AOF 就是参考它来实现的，过往的最佳实践）
@@ -24,17 +13,16 @@ Open Services Gateway initiative
     - https://www.codeproject.com/Tips/1215635/MySQL-DATETIME-vs-TIMESTAMP
     - https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql
 
-## Protocol Buffer
-
-- serialize 序列化 协议
-    - https://developers.google.com/protocol-buffers/
-
 ## MCQ : MemcacheQ
 
 - Simple Queue Service over Memcache
-    - http://memcachedb.org/memcacheq/
+    - http://memcachedb.org/memcacheq/ ( invalid link on 2019-01-13 )
 - MemcacheDB : http://memcachedb.org/
 - Memcached : http://memcached.org/
+
+## Protocol Buffer
+
+- 来自 Google 的序列化 ( serialize ) 协议 : https://developers.google.com/protocol-buffers/
 
 ## kafka
 
@@ -80,35 +68,9 @@ Open Services Gateway initiative
 > 11. zookeeper：
 >   kafka 通过 zookeeper 来存储集群的 meta 信息。
 
-- 很棒的笔记总结！<https://www.cnblogs.com/cyfonly/p/5954614.html>
-- 官方文档 <https://kafka.apache.org/documentation/#introduction>
-- benchmark <https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines>
-
-## Others
-
-unsigned long/int not found in Java?
-
-- unsigned 应该在 Java 中不存在，Long 和 Integer 覆盖了相关的使用场景？
-- 注意 Long、Integer 等都有 Long.parseLong() 和 Long.parseUnsignedLong() 等方法，然后直接给声明 long 类型的变量进行赋值。
-
-keepalived
-
-SDWAN
-
-> Software-Defined WAN (SDWAN)
-> An SD-WAN simplifies the management and operation of a WAN by decoupling (separating) the networking hardware from its control mechanism. This concept is similar to how software-defined networking implements virtualization technology to improve data center management and operation.
-
-- <https://en.wikipedia.org/wiki/SD-WAN>
-
-PowerDNS
-
-> PowerDNS, founded in the late 1990s, is a premier supplier of open source DNS software, services and support.
-
-- <https://www.powerdns.com/>
-
-Varnish Cache: a cache
-
-- a web application accelerator aka. __a caching HTTP reverse proxy__
+- 很棒的笔记总结！https://www.cnblogs.com/cyfonly/p/5954614.html
+- 官方文档 : https://kafka.apache.org/documentation/#introduction
+- Benchmark :  https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines
 
 ---
 
@@ -145,6 +107,11 @@ CAP theorem
 - **Concurrency** is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.
 - **Parallelism** is when tasks literally run at the same time, e.g., on a multicore processor.
 - Reference : StackOverflow : https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism
+
+## Reverse proxy
+
+- 反向代理方式，是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。
+- In computer networks, a reverse proxy is a type of proxy server that retrieves resources on behalf of a client from one or more servers. These resources are then returned to the client as if they originated from the Web server itself.
 
 ## Database
 
