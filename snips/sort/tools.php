@@ -24,7 +24,7 @@ function chkSortedAry(array $ary): void {
     $len = count($ary);
     if ($len == 1) return;
     for ($i = 0; $i < $len - 1; $i++) {
-        if ($ary[$i] < $ary[$i + 1]) {
+        if ($ary[$i] > $ary[$i + 1]) {
             line('not sorted!');
             return;
         }
