@@ -1,5 +1,22 @@
 # Sorting Algorithm (draft)
 
+## Action
+
+PHP
+
+- [Tool Functions](/snips/sort/tools.php)
+- [Bubble](/snips/sort/bubble.php)
+- [Selection](/snips/sort/selection.php)
+- [Insert](/snips/sort/insert.php)
+
+## Plan
+
+- 先写伪代码，理清思路
+- 是不是应该先用纸写实现
+- 用 PHP 写实现
+- 第二次重写复习时用另一种语言
+    - C++ / Java ?
+
 ## Todos
 
 > Kinds * Implementations
@@ -24,18 +41,3 @@ Implementations
 - C++ : optional (necessary?)
 - Java : optional
 - Template : C++ / Java ?
-
-## Plan
-
-- 先写伪代码，理清思路
-- 是不是应该先用纸写实现
-- 用 PHP 写实现
-- 第二次重写复习时用另一种语言
-    - C++ / Java ?
-
-## Action
-
-PHP
-
-- [Tool Functions](/snips/sort/tools.php)
-- [Bubble](/snips/sort/bubble.php)
