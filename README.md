@@ -13,8 +13,9 @@ Coding
 
 - [Abbreviations](/snips/abbrs.md)
 - [Regular Expression](/snips/regex.md)
-- [Work Flow](/snips/work-flow.md)
-- [Java](/snips/java/README.md)
+- [Sorting Alogorithms](/snips/sort/README.md)
+- [_Glossary_](/snips/glossary.md)
+- [_Work Flow_](/snips/work-flow.md)
 
 Docker
 
@@ -27,13 +28,6 @@ Markdown
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
-Web
-
-- init.d : [Simple HTTP Service](/snips/init.d/README.md)
-- Nginx : [HTTP Server](/snips/nginx/README.md)
-- [How to docsify](/_docsify/README.md)
-- [IP address](/snips/ip.md)
-
 Storage ( usage )
 
 - [MemcacheQ](/snips/mcq.md)
@@ -41,11 +35,21 @@ Storage ( usage )
 - [Redis](/snips/redis.md)
 - [Mongo](/snips/mongo.md)
 
+Web
+
+- init.d : [Simple HTTP Service](/snips/init.d/README.md)
+- Nginx : [HTTP Server](/snips/nginx/README.md)
+- [How to docsify](/_docsify/README.md)
+- [IP address](/snips/ip.md)
+
+Languages
+
+- [Go](/snips/go.md)
+- [Java](/snips/java/README.md)
+
 Others
 
 - [GitHub DMCA](/snips/github-dmca.md) : alert myself!
-- [Glossary](/snips/glossary.md)
-- [Go](/snips/go.md)
 
 ### Mac
 
