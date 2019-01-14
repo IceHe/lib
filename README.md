@@ -14,7 +14,6 @@ Coding
 - [Abbreviations](/snips/abbrs.md)
 - [Glossary](/snips/glossary.md)
 - [Regular Expression](/snips/regex.md)
-- [Sorting Alogorithms](/snips/sort/README.md)
 - [Work Flow](/snips/work-flow.md)
 
 Docker
@@ -37,19 +36,32 @@ Storage ( usage )
 
 Web
 
-- init.d : [Simple HTTP Service](/snips/init.d/README.md)
-- Nginx : [HTTP Server](/snips/nginx/README.md)
-- [How to docsify](/_docsify/README.md)
 - [IP address](/snips/ip.md)
+- Nginx : [HTTP Server](/snips/nginx/README.md)
+- init.d : [Simple HTTP Service](/snips/init.d/README.md) ( php -S )
+- [How to docsify?](/_docsify/README.md)
+- [How to mail on CentOS?](/snips/mailx.md) ( mailx )
+
+Algorithms
+
+- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
+- [Sorting](/snips/sort/README.md) : Insertion / Heap / Quick / …
 
 Languages
 
 - [Go](/snips/go.md)
 - [Java](/snips/java/README.md)
 
-Others
-
-- [GitHub DMCA](/snips/github-dmca.md) : alert myself!
+<!--
+- Insertion
+- Selection
+- Bubble
+- Shell
+- Merge
+- Heap
+- Quick
+- Quick3
+-->
 
 ### Mac
 
@@ -221,6 +233,8 @@ Others
 - [linux-conf](https://github.com/IceHe/linux-conf) : Linux config files ( @ home dir )
 - [applescript](https://github.com/IceHe/applescript) : to manipulate macOS
 - [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset) : ruleset for PHPCS 3.1.0
+
+[GitHub DMCA](/snips/github-dmca.md) : Alert myself!
 
 ## Life
 
