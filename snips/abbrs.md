@@ -395,6 +395,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - R : recursively ( for CLI ) | result ( for Java )
 - RAID : [Redundant Array of Independent Disks](https://en.wikipedia.org/wiki/RAID)
 - rb : ruby
+- rc : [run commands](https://unix.stackexchange.com/questions/111611/what-does-the-rc-stand-for-in-etc-rc-d)
 - rcv : received
 - rd : read
 - RD : Research & Development
