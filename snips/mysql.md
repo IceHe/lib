@@ -79,6 +79,33 @@ show create table <table_name>
 show create table jobs
 ```
 
+### Dump
+
+References
+
+- Dump Data : http://www.runoob.com/mysql/mysql-database-export.html
+- Import Data : http://www.runoob.com/mysql/mysql-database-import.html
+
+Trouble-shooting
+
+- How should I tackle --secure-file-priv in MySQL? https://stackoverflow.com/a/40419548/5110899
+
+Dump
+
+```bash
+mysqldump -u USERNAME -p DATABASE | tee -a dump.sql
+# then enter password
+```
+
+Import
+
+- Read & Execute SQL
+
+```bash
+mysql -u USERNAME -p DATABASE < dump.sql
+# then enter password
+```
+
 ## Others
 
 ### SERIAL
