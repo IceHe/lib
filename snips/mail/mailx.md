@@ -8,7 +8,7 @@ References
 
 > send and receive Internet mail
 
-### Options
+Options
 
 - `-a file` Attach the given file to the message.
 - `-s subject` Specify subject on command line
@@ -50,11 +50,6 @@ set smtp-auth-password=PASSWORD     # 密码
 
 ```bash
 # e.g.
-echo "CONTENT" | mailx -s "SUBJECT" 290841032@qq.com,fenggongweiye@163.com
-```
-
-```bash
-mail -s
-# or
-mail
+echo "CONTENT" | mail -s "SUBJECT" 290841032@qq.com,fenggongweiye@163.com
+# or replace `mail` with `mailx`
 ```
