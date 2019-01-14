@@ -1,4 +1,4 @@
-# C (draft)
+# C (placeholder)
 
 Todos
 
