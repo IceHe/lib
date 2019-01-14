@@ -61,9 +61,8 @@ Web
 - [Nginx : Simple HTTP Server](/snips/nginx/README.md)
 - [init.d : Simple HTTP Service](/snips/init.d/README.md) ( php -S )
 - [How to docsify?](/_docsify/README.md)
-- How to mail?
-    - [on CentOS](/snips/mailx.md) : mailx
-    - [on macOS](/snips/mailx.md) : msmtp
+- [How to mail on CentOS?](/snips/mail/mailx.md) mailx
+    - [on macOS](/snips/mail/msmtp.md) : msmtp ( draft / to validate )
 
 ### Mac
 
