@@ -6,6 +6,12 @@ References
 
 ### Pseudo
 
+```bash
+
+```
+
 ### PHP
+
+[bubble-sort.php](./php/bubble-sort.php ':include :type=code php')
 
 ## Properties
