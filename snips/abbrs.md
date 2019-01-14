@@ -400,6 +400,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - RDB : [Redis DataBase](https://redis.io/topics/persistence) ( persistence )
 - RDBMS : [Relational Database Management System](https://en.wikipedia.org/wiki/Relational_database_management_system)
 - rec : record
+- Redis : [REmote DIctionary Server](https://en.wikipedia.org/wiki/Redis)
 - ref : reference
 - regex : [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 - rem : remove
