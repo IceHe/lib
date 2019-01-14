@@ -417,6 +417,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - rtd : root directory
 - rtf : [Rich Text Format](https://en.wikipedia.org/wiki/Rich_Text_Format)
 - rtn : return
+- RTO : [Retransmission Timeout](https://www.extrahop.com/company/blog/2016/retransmission-timeouts-rtos-application-performance-degradation)
 - rtt : [round-trip (delay) time](https://en.wikipedia.org/wiki/Round-trip_delay_time)
 - rw : rewrite
 
