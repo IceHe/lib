@@ -7,6 +7,28 @@ References
 
 ## Database
 
+### Show
+
+```bash
+> show dbs
+# e.g.
+admin  0.000GB
+config 0.000GB
+local  0.000GB
+test   0.052GB
+```
+
+### Select
+
+```bash
+> use test
+switched to db test
+
+# show current db
+> db
+test
+```
+
 ### Create
 
 ```bash
