@@ -2,7 +2,8 @@
 
 References
 
-- Sorting Algorithms : https://www.toptal.com/develoers/sorting-algorithms
+- Sorting Algorithms : https://www.toptal.com/developers/sorting-algorithms
+
 
 [Study Plan](/snips/sort/plan.md)
 
@@ -14,4 +15,5 @@ References
 - [Bubble Sort](/snips/sort/bubble-sort.md)
 - [Shell Sort](/snips/sort/shell-sort.md)
 - [Merge Sort](/snips/sort/merge-sort.md)
+- [Heap Sort](/snips/sort/heap-sort.md)
 - [Quick Sort](/snips/sort/quick-sort.md)
