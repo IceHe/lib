@@ -46,11 +46,12 @@ Restore
 ```bash
 mongorestore -h <host> --port=<port> -d <db> \
     -u <username> -p <password> \
-    --directoryperdb <output_directory/db_name>
+    <output_directory/db_name>
 # e.g.
+mongorestore -h 127.0.0.1 --port=27017 -d db_name dump/db_name
 ```
 
-- `--directoryperdb` 备份数据所在位置
+- `<output_directory/db_name>` 备份数据所在位置
     - 例如：/usr/home/icehe/dump/test（test 为 DB 名）
 - `--drop` 恢复的时候，先删除当前数据，然后恢复备份的数据
     - 即恢复后，备份后添加修改的数据都会被删除。慎用！
