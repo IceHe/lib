@@ -5,7 +5,9 @@
 - Home : https://www.nginx.com/
 - Wiki : https://www.nginx.com/resources/wiki/
 
-## Usage
+## Simple HTTP Server
+
+### Usage
 
 - Put config file in directory `/etc/nginx/conf.d/`
     - or `/usr/local/ect/nginx/servers` ( macOS )
@@ -15,13 +17,13 @@
     - or `nginx -s reload`
 - Visit `http://<host>:<port>/` in browser
 
-## Simple Conf
+### Simple Conf
 
 File : simple.conf
 
 [simple.conf](./simple.conf ':include :type=code nginx')
 
-## Proxy Pass
+### Proxy Pass
 
 Modify nginx config
 
