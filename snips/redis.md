@@ -8,6 +8,12 @@
     - Download : https://redis.io/download
 - ZH Docs : http://redisdoc.com
 
+## Commands
+
+- [redis-cli](/cmd/redis/redis-cli.md) : Redis client
+- [redis-server](/cmd/redis/redis-server.md) ( & redis-sentinel ) : Redis server
+- [redis-dump](/cmd/redis/redis-dump.md) : Backup & restore Redis data to and from JSON
+
 ## Prepare
 
 ### Install
