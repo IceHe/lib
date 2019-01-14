@@ -251,12 +251,12 @@ Others
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
 <!--     - 华南理工 / 软件工程 / 本科 -->
 
-### Methodology
+### Principles
 
-- [SMART](/snips/methodology/smart.md)
-- [STAR](/snips/methodology/star.md)
-- [SWOT](/snips/methodology/swot.md)
-- [what-why-how](/snips/methodology/what-why-how.md)
+- [SMART](/snips/principles/smart.md)
+- [STAR](/snips/principles/star.md)
+- [SWOT](/snips/principles/swot.md)
+- [what-why-how](/snips/principles/what-why-how.md)
 
 ### Digest
 
