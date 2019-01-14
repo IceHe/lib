@@ -1,7 +1,9 @@
 
 # init.d/service
 
-## Usage
+## Simple HTTP Service
+
+### Usage
 
 - Put config file in directory `/etc/init.d/`.
     - Ref 1 : https://askubuntu.com/questions/5039/what-is-the-difference-between-etc-init-and-etc-init-d
@@ -15,7 +17,7 @@
 
 Reference : [How do I create a service for a shell script so I can start and stop it like a daemon?]( https://unix.stackexchange.com/questions/236084/how-do-i-create-a-service-for-a-shell-script-so-i-can-start-and-stop-it-like-a-d)
 
-## HTTP Service
+### HTTP Service
 
 File : simple-http-service
 
