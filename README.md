@@ -9,6 +9,22 @@
 
 ### Snips
 
+Algorithms
+
+- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
+- [Sorting](/snips/sort/README.md) : Insertion / Heap / Quick / …
+
+<!--
+- Insertion
+- Selection
+- Bubble
+- Shell
+- Merge
+- Heap
+- Quick
+- Quick3
+-->
+
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
@@ -21,6 +37,11 @@ Docker
 - [Intro](/snips/docker/README.md)
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
 - [Docker Compose](/snips/dOcker/compose.md)
+
+Languages
+
+- [Go](/snips/go.md)
+- [Java](/snips/java/README.md)
 
 Markdown
 
@@ -37,31 +58,12 @@ Storage ( usage )
 Web
 
 - [IP address](/snips/ip.md)
-- Nginx : [HTTP Server](/snips/nginx/README.md)
-- init.d : [Simple HTTP Service](/snips/init.d/README.md) ( php -S )
+- [Nginx : Simple HTTP Server](/snips/nginx/README.md)
+- [init.d : Simple HTTP Service](/snips/init.d/README.md) ( php -S )
 - [How to docsify?](/_docsify/README.md)
-- [How to mail on CentOS?](/snips/mailx.md) ( mailx )
-
-Algorithms
-
-- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
-- [Sorting](/snips/sort/README.md) : Insertion / Heap / Quick / …
-
-Languages
-
-- [Go](/snips/go.md)
-- [Java](/snips/java/README.md)
-
-<!--
-- Insertion
-- Selection
-- Bubble
-- Shell
-- Merge
-- Heap
-- Quick
-- Quick3
--->
+- How to mail?
+    - [on CentOS](/snips/mailx.md) : mailx
+    - [on macOS](/snips/mailx.md) : msmtp
 
 ### Mac
 
@@ -248,6 +250,13 @@ Others
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
 <!--     - 华南理工 / 软件工程 / 本科 -->
+
+### Methodology
+
+- [SMART](/snips/methodology/smart.md)
+- [STAR](/snips/methodology/star.md)
+- [SWOT](/snips/methodology/swot.md)
+- [what-why-how](/snips/methodology/what-why-how.md)
 
 ### Digest
 
