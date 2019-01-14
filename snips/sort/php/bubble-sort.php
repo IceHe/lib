@@ -2,7 +2,7 @@
 
 require_once('./tools.php');
 
-function bubbleSort(array $ary): void {
+function bubbleSort(array &$ary): void {
     $len = count($ary);
     for ($i = 0; $i < $len; $i++) {
         $isSorted = true;
