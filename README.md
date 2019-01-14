@@ -129,6 +129,7 @@ Others
 - [realpath](/cmd/r/realpath.md) : print the resolved path
 - [redis-cli](/cmd/redis/redis-cli.md) : Redis client
 - [redis-server](/cmd/redis/redis-server.md) ( & redis-sentinel ) : Redis server
+- [redis-dump](/cmd/redis/redis-dump.md) ( & redis-load ) : Backup & restore Redis data to and from JSON
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
 - [sed](/cmd/s/sed.md) : stream editor for filtering & transforming text
