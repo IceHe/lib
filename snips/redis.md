@@ -80,7 +80,7 @@ See command [redis-cli](/cmd/r/redis-cli.md)
 
 ## TEMP
 
-### Note
+### 15m Quickstart
 
 部分基本知识：
 
@@ -95,7 +95,7 @@ See command [redis-cli](/cmd/r/redis-cli.md)
 4. __发布、订阅__ 消息（消息通知）: pubsub?
 5. 商品列表、评论列表等
 
-ref : https://www.itcodemonkey.com/article/3506.html
+Ref : https://www.itcodemonkey.com/article/3506.html
 
 微博单台 Redis 示例能扛 5w QPS
 
