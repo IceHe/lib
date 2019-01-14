@@ -10,7 +10,13 @@ Online tester & debugger: PHP, PCRE, Python, Golang & JavaScript
 
 - [Regex 101](https://regex101.com/)
 
-## Code Style
+## Intro
+
+Since the 1980s, different syntaxes for writing regular expressions exist, one being the **POSIX standard** and another, widely used, being the **Perl syntax**.
+
+## Usage
+
+### Code Style
 
 Add whitespaces between Chinese & English words ( imperfect )
 
@@ -33,7 +39,7 @@ Replace "" with ''
 '$1'
 ```
 
-## Refactor
+### Refactor
 
 Find function with 7 params
 
@@ -41,7 +47,7 @@ Find function with 7 params
 functionName\(([^,^;]*,\s?){6}([^;^,]*?)\)
 ```
 
-## Markdown
+### Markdown
 
 Link Match
 
@@ -74,7 +80,7 @@ Replace HTML Tag
 [$2]($1)
 ```
 
-## Find
+### Find
 
 ```bash
 ^\[[^\]]*\]
