@@ -17,3 +17,4 @@ References
 - [Merge Sort](/snips/sort/merge-sort.md)
 - [Heap Sort](/snips/sort/heap-sort.md)
 - [Quick Sort](/snips/sort/quick-sort.md)
+- [Quick3 Sort](/snips/sort/quick3-sort.md)
