@@ -359,6 +359,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - P : port ( for CLI `mysql` )
 - PaaS：平台即服务 [Platform as a Service](https://en.wikipedia.org/wiki/Paas)
 - param : parameter
+- PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix | process flags ( for kernel )
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
