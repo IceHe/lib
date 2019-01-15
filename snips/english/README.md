@@ -1,5 +1,9 @@
 # English (placeholder)
 
+## Index
+
+- [Statistics](/snips/english/stats.md)
+
 ## Plan
 
 TODOs
