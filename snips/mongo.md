@@ -139,3 +139,75 @@ mongostat
 # 实例监测，统计数据
 mongotop
 ```
+
+## Basic
+
+### 文档关系
+
+- 嵌入式关系
+
+```json
+{
+    "_id":ObjectId("52ffc33cd85242f436000001"),
+    "contact": "987654321",
+    "dob": "01-01-1991",
+    "name": "Tom Benzamin",
+    "address": [
+        {
+            "building": "22 A, Indiana Apt",
+            "pincode": 123456,
+            "city": "Los Angeles",
+            "state": "California"
+        },
+        {
+            "building": "170 A, Acropolis Apt",
+            "pincode": 456789,
+            "city": "Chicago",
+            "state": "Illinois"
+        }
+    ]
+}
+```
+
+- 引用式关系
+
+```json
+{
+	"_id":ObjectId("52ffc33cd85242f436000001"),
+	"contact": "987654321",
+	"dob": "01-01-1991",
+	"name": "Tom Benzamin",
+	"address_ids": [
+		ObjectId("52ffc4a5d85242602e000000"),
+		ObjectId("52ffc4a5d85242602e000001")
+	]
+}
+```
+
+Ref : http://www.mongodb.org.cn/tutorial/28.html
+
+## Others
+
+覆盖索引查询
+
+- Ref : http://www.mongodb.org.cn/tutorial/30.html
+- 概念
+- 建立索引
+- 查询
+- 分析查询：索引是否有效，性能如何？
+    - explain()
+    - hint()
+- 限制 : http://www.mongodb.org.cn/tutorial/34.html
+
+原子操作
+
+- Ref : http://www.mongodb.org.cn/tutorial/32.html
+- 常用命令
+
+ObjectId
+
+- Ref : http://www.mongodb.org.cn/tutorial/35.html
+
+固定集合（Capped Collections）
+
+- Ref : http://www.mongodb.org.cn/tutorial/41.html
