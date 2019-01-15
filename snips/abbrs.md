@@ -272,6 +272,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - Jr. : Junior 初级的
 - js : javascript
 - json : [JavaScript Object Notation](https://en.wikipedia.org/wiki/JSON)
+- jwt : [JSON Web Tokens](https://jwt.io/introduction/)
 
 ### K
 
