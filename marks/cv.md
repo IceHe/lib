@@ -12,7 +12,7 @@ Curriculum Vitae
 - 技术博客：[icehe.me](https://icehe.me)
 - 生活微博：[@\_IceHe\_](http://weibo.com/icedes)
 
-![弱小，可怜，又无助](http://ww1.rs.fanjian.net/c/ba/65/41/e2ba2d4d1a65865e8e4107f9f9620dce.jpg)
+<!-- ![弱小，可怜，又无助](http://ww1.rs.fanjian.net/c/ba/65/41/e2ba2d4d1a65865e8e4107f9f9620dce.jpg) -->
 
 联络
 
@@ -87,8 +87,7 @@ IDE
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.05 ~ 2019.01_
 
-- 接口 CRUD：视频墙、媒体库
-- 探测报警、文档库（文档整理）
+- 媒体库 / 探测报警 / 视频墙 / 文档库 / partial request
 - _Java 8 , Spring Boot , MySQL , Redis , Memcached , Docker , CentOS 7_
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端研发** _2015.07 ~ 2018.03_
