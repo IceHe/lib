@@ -21,7 +21,7 @@ Curriculum Vitae
 
 经历
 
-- 微博视频平台 - Java 服务端研发 _2018.04 ~ Now_
+- 微博视频平台 - Java 服务端研发 _2018.05 ~ 2019.01_
 - 微博 Mobile API - PHP 服务端研发 _2014.12 ~ 2018.04_
 - 华南理工大学 - C++ 软件工程 本科 _2011.09 ~ 2015.07_
 
@@ -85,9 +85,10 @@ IDE
 
 ## 经历
 
-**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.04 ~ Now_
+**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.05 ~ 2019.01_
 
-- 文档库（文档整理）、探测报警、接口 CRUD
+- 接口 CRUD：视频墙、媒体库
+- 探测报警、文档库（文档整理）
 - _Java 8 , Spring Boot , MySQL , Redis , Memcached , Docker , CentOS 7_
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端研发** _2015.07 ~ 2018.03_
