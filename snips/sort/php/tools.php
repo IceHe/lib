@@ -33,6 +33,8 @@ function chkSortedAry(array $ary): void {
 }
 
 function testSort(string $sortFnName): void {
+    echo "<<sort : ${sortFnName}>>\n";
+
     $ary = rndAry();
     line(ary2str($ary));
     chkSortedAry($ary);
