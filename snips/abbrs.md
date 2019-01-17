@@ -196,7 +196,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - etc. : [et cetera](https://en.wikipedia.org/wiki/Et_cetera) ( etcetera ) (aka. and so on) 等等，及其它
     - `&c` or `&c.` for `& etc.`
 - evt : event
-- ex : exception | excluding, without | exit
+- ex : exception | excluding, without | exit | expire ( for Redis )
 - exe : executive | execution
 - exec : execute
 - exp : experience
@@ -339,6 +339,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
+- nx : not exist ( for Redis )
 
 ### O
 
@@ -371,6 +372,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - preg : [PECL](https://en.wikipedia.org/wiki/PEAR#PECL) regular expression
 - prev : previous
 - pri : priority
+- [primitive](https://en.wikipedia.org/wiki/Language_primitive) : atomic element / operation
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
 - prop : property
@@ -432,6 +434,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
     - for CLI : silent | size | subject
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
 - SDE : [Software Development Engineer](https://en.wikipedia.org/wiki/SDE#In_science,_medicine,_and_technology) or Environment
+- SDS : [Simple Dynamic String](https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b5af9d96fb9a04f83465ada) ( for Redis )
 - sec : second | secure , security
 - seg : segment
 - sep : separator, separate
@@ -532,6 +535,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 
 - x : unknown number
     - for CLI : extended | debug (`sh`) | extract (`tar` `zip`)
+- xx : exist ( for Redis )
 
 ### Y
 
