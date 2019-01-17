@@ -407,6 +407,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - RDBMS : [Relational Database Management System](https://en.wikipedia.org/wiki/Relational_database_management_system)
 - rec : record
 - Redis : [REmote DIctionary Server](https://en.wikipedia.org/wiki/Redis)
+- reentrant : [可重入](https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5)
 - ref : reference
 - regex : [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 - rem : remove
