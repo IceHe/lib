@@ -80,6 +80,10 @@ See command [redis-cli](/cmd/r/redis-cli.md)
 
 ## TEMP
 
+## FAQ
+
+- Redis strings vs Redis hashes to represent JSON: efficiency? - Stack Overflow :  https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
+
 ### 15m Quickstart
 
 部分基本知识：
