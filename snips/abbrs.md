@@ -90,6 +90,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - abs : absolute
 - abt : about
 - ACID : [Atomicity, Consistency, Isolation, Durability](https://en.wikipedia.org/wiki/ACID_(computer_science))
+- ACK : acknowledgement 确认 ( for TCP )
 - ACL : [Access control list](https://en.wikipedia.org/wiki/Access_control_list)
 - ad : advertisement
 - addr : address
@@ -211,6 +212,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - FAQ : [Frequently Asked Questions](https://en.wikipedia.org/wiki/FAQ) 常见问题
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
+- fin : finish | 结束 ( for TCP )
 - [firmwave](https://en.wikipedia.org/wiki/Firmware) ( to rm? )
 - fmt : format
 - fn : function
@@ -383,6 +385,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
 - PS : PhotoShop
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
+- PSH : push 传送 ( for TCP )
 - ptr : pointer
 - pw , pwd : passowrd
 - pwd : [print working directory](https://en.wikipedia.org/wiki/Pwd)
@@ -424,7 +427,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - rg : right
 - rm : remove
 - rn : rename
-- rst : result
+- rst : result | reset 重置 ( for TCP )
 - rsp : response
 - rtd : root directory
 - rtf : [Rich Text Format](https://en.wikipedia.org/wiki/Rich_Text_Format)
@@ -471,6 +474,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - swp : swap
 - sym : symbol
 - syn : synchronize, [synchronization](https://en.wikipedia.org/wiki/Synchronization)
+    - SYN : synchronous 建立联机 ( for TCP )
 - sys : system
 - sz : size
 
@@ -505,6 +509,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - uni : unique
 - uniq : unique
 - upd : update
+- URG : urgent 紧急 ( for TCP )
 - usr : user
 - UTC : [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) 协调世界时
     - English speakers originally proposed CUT (for "coordinated universal time"), while French speakers proposed TUC (for "temps universel coordonné"). The compromise that emerged was UTC.
