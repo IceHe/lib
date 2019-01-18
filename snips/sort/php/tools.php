@@ -32,10 +32,10 @@ function chkSortedAry(array $ary): void {
     line('sorted.');
 }
 
-function testSort(string $sortFnName): void {
+function testSort(string $sortFnName, int $len = 10, int $min = 0, int $max = 100): void {
     echo "<<sort : ${sortFnName}>>\n";
 
-    $ary = rndAry();
+    $ary = rndAry($len, $min, $max);
     line(ary2str($ary));
     chkSortedAry($ary);
 
