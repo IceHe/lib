@@ -298,6 +298,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - lnk : link
 - loc : location
 - lol : Laugh Out Loud
+- lru : least recently used ( TODO : add link )
 - ls : list
 - ltd : limited
 - LVS: [Linus Virtual Server](https://en.wikipedia.org/wiki/Linux_Virtual_Server) - a load balancing software
@@ -326,6 +327,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - msg : message
 - multi : multiple
 - mv : [move](https://en.wikipedia.org/wiki/Move_(command)) ( for CLI )
+- MVCC : 多版本并行控制
 
 ### N
 
@@ -347,6 +349,8 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - obj : object
 - oct : octal
     - Oct : October
+- OLAP : 在线分析处理
+- OLTP : 在线事务处理
 - op : operation | option
 - ops : operations
 - opt : option
