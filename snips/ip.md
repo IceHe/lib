@@ -1,4 +1,4 @@
-# IP
+# IP (WIp)
 
 ## Intranet
 
@@ -41,3 +41,9 @@ Reference
 > By that I mean that, on some systems, a local hosts file can be bypassed. The host.conf file controls this on Linux (and many other Unices).
 
 Reference : https://stackoverflow.com/questions/7382602/what-is-the-difference-between-127-0-0-1-and-localhost
+
+### Multicase & Broadcast
+
+`255.255.255.255`
+
+- 仅内网适用（因为 router 不会转发），仅用于主机配置
