@@ -192,6 +192,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - eol : end of line ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - err : error
 - esc : escape
+- ESTAB : established ( for TCP )
 - et al. : et alii 以及其他人（等人）；et alibi 以及其他地方
 - ETA : [Estimated Time of Arrival](https://en.wikipedia.org/wiki/Estimated_time_of_arrival) 预计抵达时间
 - etc. : [et cetera](https://en.wikipedia.org/wiki/Et_cetera) ( etcetera ) (aka. and so on) 等等，及其它
@@ -408,6 +409,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - rb : ruby
 - rc : [run commands](https://unix.stackexchange.com/questions/111611/what-does-the-rc-stand-for-in-etc-rc-d)
 - rcv : received
+- rcvd : received
 - rd : read
 - RD : Research & Development
 - RDB : [Redis DataBase](https://redis.io/topics/persistence) ( persistence )
@@ -484,6 +486,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - TA : teaching assistant
 - TB : team building
 - TBD : [To Be Determinated](https://en.wikipedia.org/wiki/To_be_announced)
+- TCP : [Transmission Control Protocol](https://hit-alibaba.github.io/interview/basic/network/TCP.html)
 - tel : tell | telephone
 - temp : temporary
 - templ : template
