@@ -34,7 +34,8 @@
 
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
-[Weibo](https://weibo.com/icedes)
+<!-- [Weibo](https://weibo.com/icedes) -->
+
 [Library](#icehe39s-lib)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
