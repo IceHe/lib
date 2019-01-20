@@ -151,6 +151,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
 - cwd : [current working directory](https://en.wikipedia.org/wiki/Working_directory)
+- cwnd : [congestion window](https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window) ( for TCP )
 
 ### D
 
@@ -325,7 +326,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - mgr : manager
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mm : [memory management](https://en.wikipedia.org/wiki/Memory_management)
-- MMS : [Maximum Segment Size](https://en.wikipedia.org/wiki/Maximum_segment_size)
+- MSS : [Maximum Segment Size](https://en.wikipedia.org/wiki/Maximum_segment_size)
 - mod : modify | mode
 - MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
 - msg : message
