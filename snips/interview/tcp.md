@@ -10,9 +10,14 @@ References
     - 可靠：使用校验和、确认和重传机制保证
 - 按字节排序，确保数据顺序不变和非重复
 - **滑动窗口** 机制进行 **流量控制**
+    - 取决于接收方的接收缓冲区大小
+    - zero window : 接收方缓冲区已满，不能再接收数据；发送收到通知后暂停发送（未验证确定）
+    - window full : 声明发送方发的包将耗尽接收方的缓冲区，然后发送方主动暂停发送（未验证确定）
 - 动态改变 **窗口大小** 进行 **拥塞控制**
     - 慢启动
-    - 快速失败
+    - 拥塞避免
+    - 快速重传
+    - 快速恢复
 
 Notice
 
@@ -27,9 +32,9 @@ Notice
 note over client, server: LISTEN
 client -> server : SYN=1, Seq=x
 note left of client: SYN_SENT
-client <- server : SYN=1, ACK=1, ACK-num=x+1, Seq=y
+client <- server : SYN=1, ACK=x+1, Seq=y
 note right of server: SYN_RCVD
-client -> server : ACK=1, ACK-num=y+1
+client -> server : ACK=y+1
 note over client, server: ESTAB
 
 @enduml
@@ -48,7 +53,7 @@ note over client, server: ESTAB
 client -> server : FIN=1, Seq=x
 note left of client: FIN_WAIT_1
 
-client <- server : ACK=1, ACK-num=x+1
+client <- server : ACK=x+1
 note right of server: CLOSE WAIT
 note left of client: FIN_WAIT_2
 
@@ -56,7 +61,7 @@ client <- server : FIN=1, Seq=y
 note right of server: LAST_ACK
 note left of client: TIMED_WAIT
 
-client -> server : ACK=1, ACK-num=y+1
+client -> server : ACK=y+1
 note right of server: CLOSED
 
 client -> client : timed wait for 2*max seg lifetime
@@ -144,6 +149,49 @@ References
 选择重传
 
 - 较弱的策略为 Go Back N（详见《计算机网络》自顶向下的方法）
+
+### Flow Control
+
+流量控制：暂略
+
+### Congestion Control
+
+References
+
+- 《计算机网络：自顶向下方法》
+- 拥塞控制 : https://www.cnblogs.com/losbyday/p/5847041.html
+
+> - 慢启动：指数增长（翻倍）直到 ssthresh 值
+> - 拥塞避免：线性增、乘性减
+> - 快速重传
+> - 快速失败
+
+慢启动
+
+- cwnd（拥堵窗口）初始值：取用户拥堵窗口和滑动窗口（流量控制）的最小值
+    - RFC 建议 2~4 个 MSS（视 MSS 大小而定）
+        - MSS 取决于 MTU
+- 指数增长（翻倍）直到 ssthresh 值（Slow Start Threshold）
+
+拥塞避免
+
+- cwnd 到达 ssthresh 值后，线性增
+- 发生拥堵后，cwnd 被设置为：拥塞时（发生网络超时），ssthresh 被设置为 cwnd 原来的 1/2
+- 然后 cwnd 从 1 开始指数增长，直到再次到 ssthresh 时，线性增
+
+快速重传
+
+- 如果某个发出去的包，在等待超时时间内没有得到 ACK 回复，就发起重传
+    - RTO : Retransmission TimeOut 重传超时时间
+- 但是等待这个时间太久了，影响速度，又做了「快速重传」的优化
+    - 发送方收到三个重复的 ACK 时，就直接发起重传！
+- Seq 和 ACK-num 很重要：它们的累计确认保证了，不用重传很多数据。
+
+快速恢复
+
+- 发生（收到三个重复 ACK）快速重传后，ssthresh 设置为原来的一半
+- 但是！cwnd 并不设为 1，也是设为原来的 1/2，然后线性增
+    - 意思只有发生（RTO）重传超时，cwnd 才会被设为 1
 
 ## Others
 
