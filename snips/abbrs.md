@@ -212,6 +212,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - f : file | force ( for CLI )
 - F : full ( for CLI )
 - FAQ : [Frequently Asked Questions](https://en.wikipedia.org/wiki/FAQ) 常见问题
+- FCFS : First Come First Serve ( for OS )
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
 - fin : finish | 结束 ( for TCP )
