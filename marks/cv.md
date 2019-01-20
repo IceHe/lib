@@ -155,6 +155,8 @@ IDE
 
 ## ~~无关~~
 
+> 弯路。
+
 - 生活爱好：ACGMN / 羽毛球 / ~~毽球~~ ( past )
 - [最喜爱的](marks/favourites.md)：书、文、影视 …
 - [回忆](/_archived/past/moments.md)：Good old days
