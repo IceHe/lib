@@ -126,6 +126,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - CA : [Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority)
 - cal : call
 - CAP : [Consistency, Availability, Partition Tolerance](https://en.wikipedia.org/wiki/CAP_theorem)
+- CAS : Compare & Set/Swap ( for Lock )
 - chan : channel ( for Go )
 - chk : check
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
@@ -458,6 +459,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - shr : share
 - sig : signal | signature
 - sim : simple , simplify
+- SJF : Shortest Job First ( for OS )
 - slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
@@ -468,6 +470,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - spec : specific | specified | specification
 - spk : speak | speaker
 - src : source
+- SRJF : Shortest Remaining Job First ( for OS )
 - SSL : [Secure Sockets Layer](https://en.wikipedia.org/wiki/Transport_Layer_Security) ( deprecated )
 - sso : [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on) 单点登录
 - st : something | sometimes
@@ -495,6 +498,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - templ : template
 - term : terminate 中止 | [terminal](https://en.wikipedia.org/wiki/Terminal_emulator) 终端
 - TL;DR : [too long; didn't read.](https://en.wikipedia.org/wiki/TL;DR)
+- TLB : Translation Lookaside Buffer 转译缓冲区（实现虚拟地址到物理地址的转换）( for OS )
 - TLS : [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 - tmp : temporary
 - tmpl : template
