@@ -4,7 +4,9 @@
 
 - canolical : adj. 权威的 n.
 - conscious : adj.
+- dummy : adj. 虚假的
 - forgery : n. 伪造；伪造罪；伪造物
+- hence : adv. 因此；今后
 - integrity : n. 完整性；正直；诚实
 - mimic : vt. 模仿 adj. 模仿的；假装的 n. 模仿者;仿制品
 - oblivious : adj.
