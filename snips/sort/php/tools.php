@@ -22,13 +22,17 @@ function ary2str(array $ary): string {
 
 function chkSortedAry(array $ary): void {
     $len = count($ary);
-    if ($len == 1) return;
+    if ($len == 1) {
+        line('sorted.');
+    }
+
     for ($i = 0; $i < $len - 1; $i++) {
         if ($ary[$i] > $ary[$i + 1]) {
             line('not sorted!');
             return;
         }
     }
+
     line('sorted.');
 }
 
