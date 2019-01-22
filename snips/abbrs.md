@@ -447,6 +447,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - s
     - for CLI : silent | size | subject
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
+- SAPI : Server API ( for PHP )
 - SDE : [Software Development Engineer](https://en.wikipedia.org/wiki/SDE#In_science,_medicine,_and_technology) or Environment
 - SDS : [Simple Dynamic String](https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b5af9d96fb9a04f83465ada) ( for Redis )
 - sec : second | secure , security
