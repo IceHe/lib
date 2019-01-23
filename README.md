@@ -310,6 +310,6 @@ Previous Blog : 2015 ~ 2017
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Back-end / Sina Weibo / Fool, lazy & poor
+- Me : Web Backend / Sina Weibo
 
 > 靡不有初，鲜克有终
