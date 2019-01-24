@@ -41,7 +41,7 @@
 
 机型：（自己的猜想）
 
-* 计算密集型（CPU型？显卡型）
+* 计算密集型（CPU型）
 * 内存型（缓存性）
 * IO型（存储型？硬盘型？）
 * GPU型（显卡型）
@@ -58,7 +58,7 @@ FB 机型：OCP 六种
 
 https://en.wikipedia.org/wiki/Open_Compute_Project
 
-（肖鹏截图提供）？
+（肖鹏截图提供）
 
 ![](ocp.png)
 
