@@ -4,6 +4,7 @@ require_once("./tools.php");
 require_once("./insertion-sort.php");
 
 function binarySearch(array &$ary, int $val): int {
+    
 }
 
 line();
