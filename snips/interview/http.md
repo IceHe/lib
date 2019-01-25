@@ -132,8 +132,8 @@ Common
 - 304 Not Modified
 - \-\-\-
 - 400 Bad Request 服务端请求有语法错误
-- 403 Forbidden（服务器收到请求，但是）拒绝服务
 - 401 Unauthorized 请求未经授权
+- 403 Forbidden（服务器收到请求，但是）拒绝服务
 - 404 Not Found 请求的资源不存在
 - \-\-\-
 - 500 Internal Server Error 服务器发生不可预期的错误
