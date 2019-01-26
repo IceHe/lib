@@ -1,4 +1,4 @@
-# Quick Sort
+# X Sort
 
 References
 
