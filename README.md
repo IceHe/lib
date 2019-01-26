@@ -57,9 +57,10 @@ Storage ( usage )
 
 Web
 
-- [IP address](/snips/web/ip.md)
-- [Nginx : Simple HTTP Server](/snips/nginx/README.md)
+- [IP Address](/snips/web/ip.md)
+- [URL Encoding](/snips/web/url-encoding.md)
 - [init.d : Simple HTTP Service](/snips/init.d/README.md) ( php -S )
+- [Nginx : Simple HTTP Server](/snips/nginx/README.md)
 - [How to docsify?](/_docsify/README.md)
 - [How to mail on CentOS?](/cmd/m/mailx.md) mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( draft / sth wrong? )
