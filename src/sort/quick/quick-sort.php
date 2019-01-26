@@ -1,6 +1,6 @@
 <?php
 
-require_once('./tools.php');
+require_once("../_utils/utils.php");
 
 function quickSort(array &$ary): void {
     doQuickSort($ary, 0, count($ary) - 1);

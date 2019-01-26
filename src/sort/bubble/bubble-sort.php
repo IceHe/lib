@@ -1,6 +1,6 @@
 <?php
 
-require_once('./tools.php');
+require_once("../_utils/utils.php");
 
 function bubbleSort(array &$ary): void {
     $len = count($ary);
