@@ -185,24 +185,24 @@ Web
 
 ### ASM
 
-[Prepare on Windows 7](/asm/prepare-on-windows-7.md)
+[Prepare on Windows 7](/_archived/asm/prepare-on-windows-7.md)
 
-1. [Register / CS / IP / CPU / Memory](/asm/learning-note-1.md)
-2. [Endien / Register / DS / [addr] / Stack](/asm/learning-note-2.md)
-3. [Pesudo Instruction / Compile / Link / Debug / [BX] / loop / Seg Prefix  / Mem Space](/asm/learning-note-3.md)
-4. [Stack / Data / Code / 栈的段 / 多段程序 / 大小写转换 / Addressing / SI / DI](/asm/learning-note-4.md)
-5. [bx / si / di / bp / Addressing / Division / dd / dup / Structural Data](/asm/learning-note-5.md)
-6. [Jump / offset / jmp / jcxz / loop / dec / Bounds Checking](/asm/learning-note-6.md)
-7. [call / ret / mul / Show Str (Pos, Color) / Division Overflow / Show Value](/asm/learning-note-7.md)
-8. [Course Design : 公司数据以指定格式在屏幕上显示](/asm/learning-note-8.md)
-9. [flag register / adc / sbb / cmp 检测比较结果的条件转移指令，DF 标识和串传送指令 / Tests](/asm/learning-note-9.md)
-10. [internal interrupt / Interrupt Routine / Install 中断向量表 / 设置中断向量](/asm/learning-note-10.md)
-11. [int instruction / Interrupt Routine / Tests](/asm/learning-note-11.md)
-12. [Port IO / in / out / shl / shr / Visit CMOS RAM](/asm/learning-note-12.md)
-13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / Tests](/asm/learning-note-13.md)
-14. [直接定址表 / Data / 地址标号 / 在其它段中，计算 sin(x) / Tests](/asm/learning-note-14.md)
-15. [用 BIOS 进行键盘输入和磁盘读写 / Tests](/asm/learning-note-15.md)
-16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
+1. [Register / CS / IP / CPU / Memory](/_archived/asm/learning-note-1.md)
+2. [Endien / Register / DS / [addr] / Stack](/_archived/asm/learning-note-2.md)
+3. [Pesudo Instruction / Compile / Link / Debug / [BX] / loop / Seg Prefix  / Mem Space](/_archived/asm/learning-note-3.md)
+4. [Stack / Data / Code / 栈的段 / 多段程序 / 大小写转换 / Addressing / SI / DI](/_archived/asm/learning-note-4.md)
+5. [bx / si / di / bp / Addressing / Division / dd / dup / Structural Data](/_archived/asm/learning-note-5.md)
+6. [Jump / offset / jmp / jcxz / loop / dec / Bounds Checking](/_archived/asm/learning-note-6.md)
+7. [call / ret / mul / Show Str (Pos, Color) / Division Overflow / Show Value](/_archived/asm/learning-note-7.md)
+8. [Course Design : 公司数据以指定格式在屏幕上显示](/_archived/asm/learning-note-8.md)
+9. [flag register / adc / sbb / cmp 检测比较结果的条件转移指令，DF 标识和串传送指令 / Tests](/_archived/asm/learning-note-9.md)
+10. [internal interrupt / Interrupt Routine / Install 中断向量表 / 设置中断向量](/_archived/asm/learning-note-10.md)
+11. [int instruction / Interrupt Routine / Tests](/_archived/asm/learning-note-11.md)
+12. [Port IO / in / out / shl / shr / Visit CMOS RAM](/_archived/asm/learning-note-12.md)
+13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / Tests](/_archived/asm/learning-note-13.md)
+14. [直接定址表 / Data / 地址标号 / 在其它段中，计算 sin(x) / Tests](/_archived/asm/learning-note-14.md)
+15. [用 BIOS 进行键盘输入和磁盘读写 / Tests](/_archived/asm/learning-note-15.md)
+16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/_archived/asm/learning-note-16.md)
 
 ### Scripts
 
