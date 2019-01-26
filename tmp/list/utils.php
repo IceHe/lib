@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../sort/php/tools.php");
+require_once("../sort/_utils/utils.php");
 
 class ListNode {
     public $val;
