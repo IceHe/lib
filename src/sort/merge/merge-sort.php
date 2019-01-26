@@ -71,9 +71,9 @@ function mergeSort3(array &$ary): void {
     $privot = floor($len / 2);
 
     $aryA = array_slice($ary, 0, $privot);
-    mergeSort($aryA);
-
     $aryB = array_slice($ary, $privot);
+    
+    mergeSort($aryA);
     mergeSort($aryB);
 
     $a = 0;
