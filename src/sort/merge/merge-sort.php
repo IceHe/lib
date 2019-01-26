@@ -29,34 +29,6 @@ function mergeSort(array &$ary): void {
     }
 }
 
-//// wrong
-//function mergeSort1(array &$ary): void {
-//    $len = count($ary);
-//    if ($len <= 1) {
-//        return;
-//    }
-//
-//    $privot = floor($len / 2);
-//    $aryA = array_slice($ary, 0, $privot);
-//    $aryB = array_slice($ary, $privot);
-//    mergeSort1($aryA);
-//    mergeSort1($aryB);
-//
-//    $k = 0;
-//
-//    while (!empty($aryA) && !empty($aryB)) {
-//        if (reset($aryA) < reset($aryB)) {
-//            $ary[$k++] = array_shift($aryA);
-//        } else {
-//            $ary[$k++] = array_shift($aryB);
-//        }
-//    }
-//
-//    while (!empty($aryB)) {
-//        $ary[$k++] = array_shift($aryB);
-//    }
-//}
-
 function mergeSort2(array &$ary): void {
     doMergeSort2($ary, 0, count($ary) - 1);
 }
@@ -90,37 +62,38 @@ function doMergeSort2(array &$ary, int $beg, int $end): void {
     }
 }
 
-function doMergeSort3(array &$ary, int $beg, int $end): void {
-    if ($beg >= $end) {
+function mergeSort3(array &$ary): void {
+    $len = count($ary);
+    if ($len <= 1) {
         return;
     }
 
-    $privot = floor(($beg + $end) / 2);
+    $privot = floor($len / 2);
 
-    doMergeSort3($ary, 0, $privot);
-    doMergeSort3($ary, $privot + 1, $end);
+    $aryA = array_slice($ary, 0, $privot);
+    mergeSort($aryA);
 
-    $bakAry = $ary;
+    $aryB = array_slice($ary, $privot);
+    mergeSort($aryB);
 
-    $i = $beg;
-    $j = $privot + 1;
-    $k = $beg;
-    while ($k <= $end) {
-        if ($i > $privot) {
-            $ary[$k] = $bakAry[$j++];
-        } else if ($j > $end) {
-            $ary[$k] = $bakAry[$i++];
-        } else if ($bakAry[$i] < $bakAry[$j]) {
-            $ary[$k] = $bakAry[$i++];
+    $a = 0;
+    $b = 0;
+    $k = 0;
+    while ($k < $len) {
+        if ($a >= $privot) {
+            $ary[$k] = $aryB[$b++];
+        } else if ($b >= $len - $privot) {
+            $ary[$k] = $aryA[$a++];
+        } else if ($aryA[$a] < $aryB[$b]) {
+            $ary[$k] = $aryA[$a++];
         } else {
-            $ary[$k] = $bakAry[$j++];
+            $ary[$k] = $aryB[$b++];
         }
-        $k++;
+        ++$k;
     }
 }
 
 testSort("mergeSort");
-//testSort("mergeSort1");
 testSort("mergeSort2");
-//testSort("mergeSort3");
+testSort("mergeSort3");
 
