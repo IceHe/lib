@@ -1,4 +1,4 @@
-# 2018 年冬 (Draft)
+# 2018 年冬 (draft)
 
 > Draft : Work in progress
 
