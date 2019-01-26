@@ -155,6 +155,7 @@ Web
 - [stat](/cmd/s/stat.md) : display file or file system status
 - [su](/cmd/s/su.md) : run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
+- [sysctl](/cmd/s/sysctl.md) : configure kernel parameters at runtime
 - [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
 - [tail](/cmd/t/tail.md) : output the last part of files
 - [tar](/cmd/t/tar.md) : pack & compress
