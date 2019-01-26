@@ -1,4 +1,4 @@
-# Explanations (draft)
+# Storage
 
 ## ACID CAP
 
