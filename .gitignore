@@ -28,5 +28,5 @@ _tmp/
 _*
 */_*
 
-!_archived/
-!_archived/_*
+!_lru/
+!_lru/_*
