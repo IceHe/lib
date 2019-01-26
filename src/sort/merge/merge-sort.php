@@ -72,7 +72,7 @@ function mergeSort3(array &$ary): void {
 
     $aryA = array_slice($ary, 0, $privot);
     $aryB = array_slice($ary, $privot);
-    
+
     mergeSort($aryA);
     mergeSort($aryB);
 
