@@ -33,29 +33,27 @@ function quickSort2(array &$ary): void {
     doQuickSort($ary, 0, $len - 1);
 }
 
-function doQuickSort2(array &$ary, $beg, $end): void {
-    if ($beg >= $end) {
+function doQuickSort2(array &$ary, $first, $last): void {
+    if ($first >= $last) {
         return;
     }
 
-    $privot = floor(($beg + $end) / 2);
-    swap($ary, $privot, $end);
+    $privot = mt_rand($first, $last);
+    swap($ary, $privot, $last);
 
-    $front = $beg;
-    $rear = $end - 1;
+    $left = $first - 1;
+    $right = $last;
     do {
-        while (/*$front <= $end - 1 &&*/ $ary[$front] < $ary[$end]) $front++;
-        while ($rear >= 0 && $ary[$rear] >= $ary[$end]) $rear--;
-        swap($ary, $front, $rear);
-    } while ($front <= $rear);
-    swap($ary, $front, $rear);
+        while ($ary[++$left] < $ary[$last]);
+        while ($right > 0 && $ary[--$right] > $ary[$last]);
+        swap($ary, $left, $right);
+    } while ($left < $right);
 
-    swap($ary, $privot, $end);
+    swap($ary, $left, $right);
+    swap($ary, $left, $last);
 
-    $privot = floor(($beg + $end) / 2);
-    doQuickSort($ary, $beg, $privot - 1);
-    doQuickSort($ary, $privot + 1, $end);
-
+    doQuickSort($ary, $first, $left - 1);
+    doQuickSort($ary, $left + 1, $last);
 }
 
 testSort("quickSort", 10);
