@@ -9,18 +9,20 @@ function binarySearch($ary, $val): int {
         return -1;
     }
 
-    $beg = 0;
-    $end = $len - 1;
-    while ($beg <= $end) {
-        $privot = floor(($beg + $end) / 2);
-        if ($ary[$privot] === $val) {
-            return $privot;
-        } else if ($ary[$privot] < $val) {
-            $beg = $privot + 1;
-        } else { // $ary[$privot] > $val
-            $end = $privot - 1;
+    $left = 0;
+    $right = $len - 1;
+
+    while ($left <= $right) {
+        $mid = floor(($left + $right) / 2);
+        if ($ary[$mid] === $val) {
+            return $mid;
+        } else if ($ary[$mid] < $val) {
+            $left = $mid + 1;
+        } else {
+            $right = $mid - 1;
         }
     }
+
     return -1;
 }
 

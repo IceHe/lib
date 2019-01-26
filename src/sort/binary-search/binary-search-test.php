@@ -1,7 +1,7 @@
 <?php
 
 require_once("../_utils/utils.php");
-require_once("./insertion-sort.php");
+require_once("../insertion/insertion-sort.php");
 
 function binarySearch(array &$ary, int $val): int {
 
