@@ -26,62 +26,120 @@ Note that :
 - `for kernel` about Linux (kernel)
 - `for SQL` about SQL
 - `for Regex` about Regular Expression
+- ……
 
 ### ASCII
 
-- `.` : dot | abbreviation ( like P.S. ) | match any char ( for Regex )
-- `'` : quote | single character | string ( for PHP )
-- `"` : double quote | string | emphasize | single-line comment ( for VimScript )
-- `:` : colon | key-value separator
-- `|` : or | pipeline ( for CLI )
-- `/` : slash | or | separator ( like date "2019/01/05" )
-- `//` : single-line comment | floor division ( for Python )
-- `\` : backslash | escape character | path separator ( for Windows )
-- `@` : at ( for location / email / … ) | annotation ( for Java, Python, … )
-- `#` : comment ( for Bash script )
-- `$` : dollar | variable ( for PHP, Bash ) | money
-- `%` : percent | placeholder ( for C / C++ / … )
-- `^` : control | xor ( for logical op ) | head of string/line ( for Regex )
-- `&` : and | run in the background ( for CLI )
-- `~` : [home direcotry](https://en.wikipedia.org/wiki/Home_directory) | reverse
-- `-` : minus | option ( for CLI )
-- `=` : assign | equal ( equivalent to )
-- `*` : optional | [wildcard character](https://en.wikipedia.org/wiki/Wildcard_character)
-- `?` : maybe | candidate | non-greedy match ( for Regex ) | placeholder ( for SQL )
-- `!` : not ( negation ) | reverse
-- `<` : less than | redirecting input ( for CLI )
-- `>` : greater than | next | redirecting output ( for CLI )
-- `<<` : left bitwise shift
-- `>>` : right bitwise shift | appending redirected output ( for CLI )
+#### Extend
 
-How to describe symbols ?
+- `.` dot
+    - abbreviation ( like P.S. )
+    - match any char ( for Regex )
+- `'` quote
+    - single character ( for C )
+    - string ( for PHP )
+    - single-line comment ( for PlantUML )
+- `"` double quote | string | emphasize
+    - single-line comment ( for VimScript )
+- `:` colon | key-value separator
+- `|` or | pipeline ( for CLI )
+- `/` slash | or
+    - separator ( like date "2019/01/05" )
+- `//` single-line comment
+    - floor division ( for Python )
+- `\` backslash | escape character
+    - path separator ( for Windows )
+- `@` at ( for location / email / … )
+    - annotation ( for Java, Python, … )
+- `#` comment ( for Bash script )
+- `$` dollar | money
+    - variable ( for PHP, Bash )
+- `%` percent
+    - placeholder ( for C / C++ / … )
+    - escaped character ( for URL encoding )
+- `^` control
+    - xor ( for logical op )
+    - head of string/line ( for Regex )
+    - not ( for Regex )
+- `&` and
+    - run in the background ( for CLI )
+- `~` [home direcotry](https://en.wikipedia.org/wiki/Home_directory) | reverse
+- `-` minus | option ( for CLI )
+- `=` assign | equal ( equivalent to )
+- `*` optional | [wildcard character](https://en.wikipedia.org/wiki/Wildcard_character)
+- `?` maybe | candidate
+    - non-greedy match ( for Regex )
+    - placeholder ( for SQL )
+- `!` not ( negation ) | reverse
+- `<` less than
+    - redirecting input ( for CLI )
+- `>` greater than | next
+    - redirecting output ( for CLI )
+- `<<` left bitwise shift
+- `>>` right bitwise shift
+    - appending redirected output ( for CLI )
 
-- `~` : tilde
-- <code>\`</code> : backquote / grave …
-- `!` : bang / exclamative mark / exclamative point
-- `@` : at
+#### Explain
+
+How to explain symbols?
+
+- `~` tilde
+- <code>\`</code> backquote | grave …
+- `!` exclamative mark | exclamative point | bang
+- `@` at
+- `#` hash | sharp
+- `$` dollar
+- `¥` Chinese/Japenese Yuan
+- `§` micro | section
+- `%` percent
+- `°` degree
+- `^` caret (脱字符号；插入符号)
+- `&` ampersand | and
+- `*` asterisk | multiplication | star
+- `(` open parenthesis
+- `)` close parenthesis
+- `-` hyphen | minus | dash
+- `_` underscore
+- `+` plus
+- `=` equal
+- `{` open brace | curly bracket
+- `}` close brace | curly bracket
+- `[` open bracket
+- `]` closed bracket
+- `|` pipe | or | vertical bar
+- `\` backslash
+- `/` forward slash | division
+- `:` colon
+- `;` semicolon
+- `"` quote | quotation mark
+- `'` apostrophe | single quote
+- `<` less than | angle brackets
+- `>` greater than | angle brackets
+- `,` comma
+- `.` period | dot | full stop
+- `?` question mark
 
 Reference : https://www.computerhope.com/keys.htm
 
 ### Keyboard
 
-- `` : Power
-- `⌘` : Command ( Cmd )
-- `⌥` : Option ( Opt ) | Alternate ( Alt )
-- `^` : Control ( Ctrl )
-- `⇧` : Shift ( Shf )
-- `⇪` : CapsLock ( Caps )
-- `⇥` : Tab
-- `⎋` : Escape ( Esc )
-- `↩` : Return ( Ret ) | Enter
-- `凵` : Space ( Spacebar )
-- `↑` : Up
-- `↓` : Down ( Dn )
-- `←` : Left ( Lf )
-- `→` : Right ( Rg )
-- `⌫` : Delete ( Del ) | Backspace
-- `0~9` : One of the digits 0 ~ 9
-- `a~z` : One of the alphabet a ~ z
+- `` Power
+- `⌘` Command ( Cmd )
+- `⌥` Option ( Opt ) | Alternate ( Alt )
+- `^` Control ( Ctrl )
+- `⇧` Shift ( Shf )
+- `⇪` CapsLock ( Caps )
+- `⇥` Tab
+- `⎋` Escape ( Esc )
+- `↩` Return ( Ret ) | Enter
+- `凵` Space ( Spacebar )
+- `↑` Up
+- `↓` Down ( Dn )
+- `←` Left ( Lf )
+- `→` Right ( Rg )
+- `⌫` Delete ( Del ) | Backspace
+- `0~9` One of the digits 0 ~ 9
+- `a~z` One of the alphabet a ~ z
 
 ## Alphabet
 
