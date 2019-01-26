@@ -1,6 +1,6 @@
 # IceHe's Lib
 
-> [Welcome](/_archived/blog/welcome.md) - What is my Lib? Why I build?
+> [Welcome](/_lru/blog/welcome.md) - What is my Lib? Why I build?
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
 - Author : [IceHe](/marks/cv.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
@@ -67,9 +67,9 @@ Web
 ### Mac
 
 - [Tools](/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
-- [Efficiency](/_archived/mac/efficiency.md) : 效率指南
-- [Shortcuts](/_archived/mac/shortcuts/README.md) : 快捷键
-- [Initialize](/_archived/mac/initialize.md) : 系统初始化
+- [Efficiency](/_lru/mac/efficiency.md) : 效率指南
+- [Shortcuts](/_lru/mac/shortcuts/README.md) : 快捷键
+- [Initialize](/_lru/mac/initialize.md) : 系统初始化
 
 ### Git
 
@@ -185,24 +185,24 @@ Web
 
 ### ASM
 
-[Prepare on Windows 7](/_archived/asm/prepare-on-windows-7.md)
+[Prepare on Windows 7](/_lru/asm/prepare-on-windows-7.md)
 
-1. [Register / CS / IP / CPU / Memory](/_archived/asm/learning-note-1.md)
-2. [Endien / Register / DS / [addr] / Stack](/_archived/asm/learning-note-2.md)
-3. [Pesudo Instruction / Compile / Link / Debug / [BX] / loop / Seg Prefix  / Mem Space](/_archived/asm/learning-note-3.md)
-4. [Stack / Data / Code / 栈的段 / 多段程序 / 大小写转换 / Addressing / SI / DI](/_archived/asm/learning-note-4.md)
-5. [bx / si / di / bp / Addressing / Division / dd / dup / Structural Data](/_archived/asm/learning-note-5.md)
-6. [Jump / offset / jmp / jcxz / loop / dec / Bounds Checking](/_archived/asm/learning-note-6.md)
-7. [call / ret / mul / Show Str (Pos, Color) / Division Overflow / Show Value](/_archived/asm/learning-note-7.md)
-8. [Course Design : 公司数据以指定格式在屏幕上显示](/_archived/asm/learning-note-8.md)
-9. [flag register / adc / sbb / cmp 检测比较结果的条件转移指令，DF 标识和串传送指令 / Tests](/_archived/asm/learning-note-9.md)
-10. [internal interrupt / Interrupt Routine / Install 中断向量表 / 设置中断向量](/_archived/asm/learning-note-10.md)
-11. [int instruction / Interrupt Routine / Tests](/_archived/asm/learning-note-11.md)
-12. [Port IO / in / out / shl / shr / Visit CMOS RAM](/_archived/asm/learning-note-12.md)
-13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / Tests](/_archived/asm/learning-note-13.md)
-14. [直接定址表 / Data / 地址标号 / 在其它段中，计算 sin(x) / Tests](/_archived/asm/learning-note-14.md)
-15. [用 BIOS 进行键盘输入和磁盘读写 / Tests](/_archived/asm/learning-note-15.md)
-16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/_archived/asm/learning-note-16.md)
+1. [Register / CS / IP / CPU / Memory](/_lru/asm/learning-note-1.md)
+2. [Endien / Register / DS / [addr] / Stack](/_lru/asm/learning-note-2.md)
+3. [Pesudo Instruction / Compile / Link / Debug / [BX] / loop / Seg Prefix  / Mem Space](/_lru/asm/learning-note-3.md)
+4. [Stack / Data / Code / 栈的段 / 多段程序 / 大小写转换 / Addressing / SI / DI](/_lru/asm/learning-note-4.md)
+5. [bx / si / di / bp / Addressing / Division / dd / dup / Structural Data](/_lru/asm/learning-note-5.md)
+6. [Jump / offset / jmp / jcxz / loop / dec / Bounds Checking](/_lru/asm/learning-note-6.md)
+7. [call / ret / mul / Show Str (Pos, Color) / Division Overflow / Show Value](/_lru/asm/learning-note-7.md)
+8. [Course Design : 公司数据以指定格式在屏幕上显示](/_lru/asm/learning-note-8.md)
+9. [flag register / adc / sbb / cmp 检测比较结果的条件转移指令，DF 标识和串传送指令 / Tests](/_lru/asm/learning-note-9.md)
+10. [internal interrupt / Interrupt Routine / Install 中断向量表 / 设置中断向量](/_lru/asm/learning-note-10.md)
+11. [int instruction / Interrupt Routine / Tests](/_lru/asm/learning-note-11.md)
+12. [Port IO / in / out / shl / shr / Visit CMOS RAM](/_lru/asm/learning-note-12.md)
+13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / Tests](/_lru/asm/learning-note-13.md)
+14. [直接定址表 / Data / 地址标号 / 在其它段中，计算 sin(x) / Tests](/_lru/asm/learning-note-14.md)
+15. [用 BIOS 进行键盘输入和磁盘读写 / Tests](/_lru/asm/learning-note-15.md)
+16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/_lru/asm/learning-note-16.md)
 
 ### Scripts
 
@@ -263,46 +263,46 @@ Others
 
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
     / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)
-    / [_digest_](/_archived/read/cruel-reality.md)
+    / [_digest_](/_lru/read/cruel-reality.md)
 - [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920)
-    / [_digest_](/_archived/read/meaning.md)
+    / [_digest_](/_lru/read/meaning.md)
 - [Happyness Course](https://zhuanlan.zhihu.com/p/19562678)
-    / [_digest_](/_archived/read/happiness-course.md)
+    / [_digest_](/_lru/read/happiness-course.md)
 - [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
-    / [_digest_](/_archived/read/why-unhappy.md)
+    / [_digest_](/_lru/read/why-unhappy.md)
 - [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方
-    / [_digest_](/_archived/read/poet.md)
+    / [_digest_](/_lru/read/poet.md)
 - [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813)
-    / [_digest_](/_archived/read/teacher-said.md)
-- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) / [_digest_](/_archived/read/pessimist.md)
-- [Anti-Fragile](/_archived/read/anti-fragile.md)
+    / [_digest_](/_lru/read/teacher-said.md)
+- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) / [_digest_](/_lru/read/pessimist.md)
+- [Anti-Fragile](/_lru/read/anti-fragile.md)
     / [_book_](https://item.jd.com/11364406.html)
 
 ### Past
 
 Timeline
 
-<!-- - [2018 Winter](/_archived/past/2018-winter.md) -->
+<!-- - [2018 Winter](/_lru/past/2018-winter.md) -->
 
-- [2017 Summer to Winter](/_archived/past/2017-summer-2-winter.md)
-- [2017 Spring](/_archived/past/2017-spring.md)
-- [2016 Winter](/_archived/past/2016-winter.md)
-- [2016 Fall](/_archived/past/2016-fall.md)
-- [2016 Spring & Summer](/_archived/past/2016-summer.md)
-- [Bye 2015](/_archived/past/2015-bye.md)
-- [Moments](/_archived/past/moments.md) : 回忆
-- [Old Blog](/_archived/past/old-blog.md) : 旧博索引
+- [2017 Summer to Winter](/_lru/past/2017-summer-2-winter.md)
+- [2017 Spring](/_lru/past/2017-spring.md)
+- [2016 Winter](/_lru/past/2016-winter.md)
+- [2016 Fall](/_lru/past/2016-fall.md)
+- [2016 Spring & Summer](/_lru/past/2016-summer.md)
+- [Bye 2015](/_lru/past/2015-bye.md)
+- [Moments](/_lru/past/moments.md) : 回忆
+- [Old Blog](/_lru/past/old-blog.md) : 旧博索引
 
 Nonsense
 
-- Time Mgt. : [Life Logs](/_archived/lifelogs/README.md) & [Log Format](/_archived/lifelogs/time-mgt.md)
-- Way of Life : [Self Manual](/_archived/lifelogs/life-manual.md)
+- Time Mgt. : [Life Logs](/_lru/lifelogs/README.md) & [Log Format](/_lru/lifelogs/time-mgt.md)
+- Way of Life : [Self Manual](/_lru/lifelogs/life-manual.md)
 
 Previous Blog : 2015 ~ 2017
 
 - [Tech Blog](https://icehe.me) : icehe.me
-- [How to Build Blog](/_archived/blog/build-blog.md) : 搭建博客
-- [Blog Changlogs](/_archived/blog/blog-changelog.md) : 折腾博客
+- [How to Build Blog](/_lru/blog/build-blog.md) : 搭建博客
+- [Blog Changlogs](/_lru/blog/blog-changelog.md) : 折腾博客
 
 ### Friends
 

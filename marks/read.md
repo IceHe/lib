@@ -22,22 +22,22 @@
 
 ### 人生
 
-- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](https://www.zhihu.com/question/24561532/answer/28240920)- 灯塔 <sup>__Best__ / [Note](/_archived/read/meaning.md)</sup>
-- [眼前的苟且，也正是诗和远方](http://zhuanlan.zhihu.com/lswlsw/19895904) - 迷茫 <sup>__Best__ / [Note](/_archived/read/poet.md)</sup>
-- [为什么长大以后反而不容易快乐？](http://zhuanlan.zhihu.com/xiepanda/19582894)- You are not special. <sup>__Best__ / [Note](/_archived/read/why-unhappy.md)</sup>
-- [《 幸福课 》动机在杭州 的知乎专栏](http://zhuanlan.zhihu.com/happy) - 平常心 <sup>__Best__ / [Note](/_archived/read/happiness-course.md)</sup>
-- [风尘棋客](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=216723229&amp;idx=1&amp;sn=87c7dbb95abce565fa001c3a5063427a&amp;scene=1&amp;srcid=0308jCVD1x8LridYzELGd0ZS#rd)  <sup>__Best__ / [Note](/_archived/read/chinese-chess.md)</sup>
+- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](https://www.zhihu.com/question/24561532/answer/28240920)- 灯塔 <sup>__Best__ / [Note](/_lru/read/meaning.md)</sup>
+- [眼前的苟且，也正是诗和远方](http://zhuanlan.zhihu.com/lswlsw/19895904) - 迷茫 <sup>__Best__ / [Note](/_lru/read/poet.md)</sup>
+- [为什么长大以后反而不容易快乐？](http://zhuanlan.zhihu.com/xiepanda/19582894)- You are not special. <sup>__Best__ / [Note](/_lru/read/why-unhappy.md)</sup>
+- [《 幸福课 》动机在杭州 的知乎专栏](http://zhuanlan.zhihu.com/happy) - 平常心 <sup>__Best__ / [Note](/_lru/read/happiness-course.md)</sup>
+- [风尘棋客](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=216723229&amp;idx=1&amp;sn=87c7dbb95abce565fa001c3a5063427a&amp;scene=1&amp;srcid=0308jCVD1x8LridYzELGd0ZS#rd)  <sup>__Best__ / [Note](/_lru/read/chinese-chess.md)</sup>
     「年轻的时候，我一直觉得世界上最酷的事情，莫过于无忧无虑地四处环游；可就在刚才，看到许银川在比以前更胖了的赵大胖面前推枰认负的那一刻，忽然觉得，能十年如一日地把一件看似简单的事情做到极致，或许更酷一点。」
 - [我与清华的差距在哪里？](https://www.zhihu.com/question/47607160/answer/107439050) - 从一开始就……
-- [《 论悲观主义的益处 》阿兰·德·波顿](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=233397081&amp;idx=1&amp;sn=836801a648013f925fca14de3572c45c&amp;scene=1&amp;srcid=0309TRipy9egTmxD0B51Q272#rd) <sup>__Best__ / [Note](/_archived/read/pessimist.md)</sup>
+- [《 论悲观主义的益处 》阿兰·德·波顿](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=233397081&amp;idx=1&amp;sn=836801a648013f925fca14de3572c45c&amp;scene=1&amp;srcid=0309TRipy9egTmxD0B51Q272#rd) <sup>__Best__ / [Note](/_lru/read/pessimist.md)</sup>
     「如果你拒绝让你的悲伤压在身上，哪怕只有一个钟点的时光；假如你总是汲汲营营地试图提前避免或者推迟一切可能的伤痛；假如你认为痛苦是邪恶的，是可憎的，是理应消灭的，是异常变态的存在，那么你的心中显然窃据着舒适的宗教。对幸福的理解是多么浅薄啊，你这个贪图舒适且渺小的家伙！幸福与不幸乃双生姐妹，要么一起成长，要么一起萎缩，就像你的处境一样。」
-- [Loser 应该知道的 6 个残酷人生事实](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) <sup>__Best__ / [Note](/_archived/read/cruel-reality.md)</sup>
+- [Loser 应该知道的 6 个残酷人生事实](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) <sup>__Best__ / [Note](/_lru/read/cruel-reality.md)</sup>
     「这个世界只关心你能给予什么。」英语原文：[6 Harsh Truths That Will Make You a Better Person](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
-- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](https://www.zhihu.com/question/23721974/answer/25493813) <sup>[Note](/_archived/read/teacher-said.md)</sup>
+- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](https://www.zhihu.com/question/23721974/answer/25493813) <sup>[Note](/_lru/read/teacher-said.md)</sup>
     「我们用『我能做到什么』来判断和定位自己，而别人用『你已经做过什么』来判断和定位你。」
-- [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](https://www.zhihu.com/question/20773220) <sup>[Note](/_archived/read/suggestions-for_the-young.md)</sup>
+- [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](https://www.zhihu.com/question/20773220) <sup>[Note](/_lru/read/suggestions-for_the-young.md)</sup>
     「如果不能先学着适应环境，就不要妄想改变环境。」
-- [精致的利己主义者和常青藤的绵羊](http://mp.weixin.qq.com/s?__biz=MjM5NzExOTE2Ng==&mid=208583700&idx=1&sn=9bb0ea491064b3ffb93e7f24f9fc04a3&scene=5#rd) - 中西 <sup>[Note](/_archived/read/excellent-sheep.md)</sup>
+- [精致的利己主义者和常青藤的绵羊](http://mp.weixin.qq.com/s?__biz=MjM5NzExOTE2Ng==&mid=208583700&idx=1&sn=9bb0ea491064b3ffb93e7f24f9fc04a3&scene=5#rd) - 中西 <sup>[Note](/_lru/read/excellent-sheep.md)</sup>
 - [《 感谢你给我机会上场 》方励的一席演讲](http://yixi.tv/lecture/177) - 循着乐趣前行 <sup>__Best__</sup>
 - [《 潜台词 》李松蔚 的知乎专栏](http://zhuanlan.zhihu.com/lswlsw) - 洞悉人心
 - [苦难有什么价值？](https://www.zhihu.com/question/19988077)- 无谓的苦难
@@ -53,12 +53,12 @@
 
 ### 方法
 
-- [How to Study: A Brief Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html) - 方法论 <sup>__Best__ / [Note](/_archived/read/how-to-study.md)</sup>
+- [How to Study: A Brief Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html) - 方法论 <sup>__Best__ / [Note](/_lru/read/how-to-study.md)</sup>
     - [Stop Telling Students to Study for Exams](http://www.chronicle.com/article/Stop-Telling-Students-to-Study/131622/)
     - [How Tests Make Us Smarter](http://www.nytimes.com/2014/07/20/opinion/sunday/how-tests-make-us-smarter.html)
     - [Sorry, You Can’t Speed Read](https://www.nytimes.com/2016/04/17/opinion/sunday/sorry-you-cant-speed-read.html)
 - [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html)
-- [你的自控能力强么？｜研究：不快乐的人自控力更差](http://mp.weixin.qq.com/s?__biz=MzI1OTAwNDc1OA==&amp;mid=405068698&amp;idx=1&amp;sn=a401b7eba92b3bc4378cb5ec8dfd7c48&amp;scene=1&amp;srcid=04011TWvm7WC8dEBpfJRwAIP#rd) <sup>[Note](/_archived/read/self-control.md)</sup>
+- [你的自控能力强么？｜研究：不快乐的人自控力更差](http://mp.weixin.qq.com/s?__biz=MzI1OTAwNDc1OA==&amp;mid=405068698&amp;idx=1&amp;sn=a401b7eba92b3bc4378cb5ec8dfd7c48&amp;scene=1&amp;srcid=04011TWvm7WC8dEBpfJRwAIP#rd) <sup>[Note](/_lru/read/self-control.md)</sup>
     吃好，睡好，保持好心情与好状态，做发自内心想做的事情
 - [自控力极差的人如何自救？](https://www.zhihu.com/question/21368231)
 - [Marc Andreessen 的个人效率指南](http://mp.weixin.qq.com/s?__biz=MjM5NjA3OTM0MA==&mid=2655709822&idx=1&sn=516c60dd587c8e7f1340c30d36009133&chksm=bd50f9fd8a2770eb534aff6d5e3687173252e47e101fcba33e0c371cb6831963742a301c5d2d&mpshare=1&scene=1&srcid=1231XJ9lLXhisaUROcjs64f7#rd) - 简单易行，有所启发
@@ -124,7 +124,7 @@
 
 ### 政治
 
-- [Power 錕的紙牌屋](https://www.facebook.com/professorofpower) ( [Youtube Link](https://www.youtube.com/channel/UCp5-fK2eOL8yKDHCU3snE0w/playlists) ) <sup>[Note](/_archived/read/power-kun.md)</sup>
+- [Power 錕的紙牌屋](https://www.facebook.com/professorofpower) ( [Youtube Link](https://www.youtube.com/channel/UCp5-fK2eOL8yKDHCU3snE0w/playlists) ) <sup>[Note](/_lru/read/power-kun.md)</sup>
 - [驱离的世界：社会分层与阶级固化](http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650672863&idx=1&sn=abba62bbd7a4683368bff346ed6e26a4&chksm=bed481fe89a308e8fdc87d3f1e859ed6bd1fdecb9ad72b437727b22403ebb0810dce171fd276&mpshare=1&scene=1&srcid=0129QvkvhNvqPmhNcTfZI3jX#rd) - 现实 <sup>批判学习</sup>
     - From: 微信公众号[「大浪淘沙」](http://chuansong.me/account/knowledgewealth)
 - [城堡的落成：上升通道即将关闭的中国社会](http://mp.weixin.qq.com/s?__biz=MzI0NzA3MTM5NQ==&mid=2650556875&idx=1&sn=f4ff05366f08ce9d0c57c12936efc492&chksm=f1bd7e07c6caf7119f88e5fba355ef17b94b821d144f04d8f2eed30172181b47f678dbf3f660&mpshare=1&scene=1&srcid=0217gRDhIcXQIjTPNp1PGMsq#rd) <sup>__Best__</sup>
@@ -146,7 +146,7 @@
 - [哪些公认的健康食品其实并非那么健康？为什么？](https://www.zhihu.com/question/27579870)- 沙拉，果汁…
 - [你的早餐吃对了吗？我们这次要追根究底](http://mp.weixin.qq.com/s?__biz=MzA5ODUxMjMzMw==&amp;mid=205342438&amp;idx=1&amp;sn=f6b92fd19c172d257ea928aa1e4a9f56&amp;scene=1&amp;srcid=10268XdbmcwIqId5H9CmOuo7#rd) - 暂无定论，少吃高碳水食物
 - [长期用耳塞听歌会导致听力下降吗？](https://www.zhihu.com/question/22292248)- 注意音量！
-- [如何正确地刷牙？](https://www.zhihu.com/question/19785262) <sup>[Best Note](/_archived/read/tooth.md)</sup>
+- [如何正确地刷牙？](https://www.zhihu.com/question/19785262) <sup>[Best Note](/_lru/read/tooth.md)</sup>
 - [电动牙刷刷牙相比手动刷牙有什么优缺点？](https://www.zhihu.com/question/19825877/answer/15856166)
 - [洗牙到底安全不安全？](https://www.zhihu.com/question/21031894)- 有益，不贵
 - [午餐后如何洁齿护牙清理口腔，尤其上班族？](https://www.zhihu.com/question/30359724)- 饭后刷牙！
@@ -278,7 +278,7 @@
     - [15. 蛋白粉、阿胶、鱼翅、燕窝、虫草……我们不吃！都不吃！](http://ipn.li/taiyilaile/15/) - 补品、营养品
     - [23. 包皮 GO!](http://ipn.li/taiyilaile/23/)
     - [26. 有志青年独具慧眼，刚烈女子荡气回肠](http://ipn.li/taiyilaile/26/) —— 肛肠
-    - [38.「有的牙医就是享受手动刷牙的快感。」](http://ipn.li/taiyilaile/38/) <sup>[Note](/_archived/read/tooth.md)</sup>
+    - [38.「有的牙医就是享受手动刷牙的快感。」](http://ipn.li/taiyilaile/38/) <sup>[Note](/_lru/read/tooth.md)</sup>
     - [44. 减肥？减脂？减重？你到底要哪样？](http://ipn.li/taiyilaile/44/)
     - [46. 听了那么多道理，还是睡不好这一觉](http://ipn.li/taiyilaile/46/) - 误区
     - [52. 花间一壶酒](http://ipn.li/taiyilaile/52/) - 饮酒
@@ -357,22 +357,22 @@
 
 ## 笔记
 
-- [你的自控能力强么？｜研究：不快乐的人自控力更差](/_archived/read/self_control.md)
-- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](/_archived/read/meaning.md) <sup>__Best__</sup>
-- [眼前的苟且，也正是诗和远方](/_archived/read/poet.md) <sup>__Best__</sup>
-- [为什么长大以后反而不容易快乐？](/_archived/read/why-unhappy.md)
-- [《 幸福课 》动机在杭州 的知乎专栏](/_archived/read/happiness-course.md)
-- [风尘棋客](/_archived/read/chinese-chess.md)
-- [《 论悲观主义的益处 》阿兰·德·波顿](/_archived/read/pessimist.md)
-- [Loser 应该知道的 6 个残酷人生事实](/_archived/read/cruel-reality.md) <sup>__Best__</sup>
-- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](/_archived/read/teacher-said.md)
-- [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](/_archived/read/family-accumulation.md)
-- [精致的利己主义者和常青藤的绵羊](/_archived/read/excellent-sheep.md)
-- [How to Study: A Brief Guide](/_archived/read/how-to-study.md)
-- [牙齿保健 - 刷牙、蛀牙、智齿](/_archived/read/tooth.md) <sup>__Best__</sup>
+- [你的自控能力强么？｜研究：不快乐的人自控力更差](/_lru/read/self_control.md)
+- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](/_lru/read/meaning.md) <sup>__Best__</sup>
+- [眼前的苟且，也正是诗和远方](/_lru/read/poet.md) <sup>__Best__</sup>
+- [为什么长大以后反而不容易快乐？](/_lru/read/why-unhappy.md)
+- [《 幸福课 》动机在杭州 的知乎专栏](/_lru/read/happiness-course.md)
+- [风尘棋客](/_lru/read/chinese-chess.md)
+- [《 论悲观主义的益处 》阿兰·德·波顿](/_lru/read/pessimist.md)
+- [Loser 应该知道的 6 个残酷人生事实](/_lru/read/cruel-reality.md) <sup>__Best__</sup>
+- [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](/_lru/read/teacher-said.md)
+- [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](/_lru/read/family-accumulation.md)
+- [精致的利己主义者和常青藤的绵羊](/_lru/read/excellent-sheep.md)
+- [How to Study: A Brief Guide](/_lru/read/how-to-study.md)
+- [牙齿保健 - 刷牙、蛀牙、智齿](/_lru/read/tooth.md) <sup>__Best__</sup>
 - Not Mentioned Above.
-    - [《The Power of Less》书摘](/_archived/read/power-of-less.md)
-    - [《反脆弱》书摘](/_archived/read/anti-fragile.md)
+    - [《The Power of Less》书摘](/_lru/read/power-of-less.md)
+    - [《反脆弱》书摘](/_lru/read/anti-fragile.md)
 
 ## 后记
 
