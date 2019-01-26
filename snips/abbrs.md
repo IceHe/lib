@@ -14,6 +14,7 @@
 
 References
 
+- https://www.computerhope.com/jargon.htm
 - https://github.com/dnnrly/abbreviate/blob/master/data/en-us/common
 
 ## Symbols
@@ -53,12 +54,14 @@ Note that :
 - `<<` : left bitwise shift
 - `>>` : right bitwise shift | appending redirected output ( for CLI )
 
-#### Explanations
-
-Reference : https://www.computerhope.com/jargon/q/question.htm
+How to describe symbols ?
 
 - `~` : tilde
-- <code>\`</code> :
+- <code>\`</code> : backquote / grave …
+- `!` : bang / exclamative mark / exclamative point
+- `@` : at
+
+Reference : https://www.computerhope.com/keys.htm
 
 ### Keyboard
 
@@ -116,6 +119,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - bg : background
 - bin : binary
 - biz : business
+- brk : [break](https://en.wikipedia.org/wiki/Sbrk)
 - [BSON](https://en.wikipedia.org/wiki/BSON) : a computer data interchange format used mainly as a data storage and network transfer format in the MongoDB database
 - btm : bottom
 - btw : by the way | between
@@ -375,6 +379,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix | process flags ( for kernel )
+- pg : page
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
@@ -387,6 +392,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
 - prop : property
+- prt : print
 - ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
 - PS : PhotoShop
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
@@ -448,6 +454,7 @@ Reference : https://www.computerhope.com/jargon/q/question.htm
     - for CLI : silent | size | subject
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
 - SAPI : Server API ( for PHP )
+- scrn : screen
 - SDE : [Software Development Engineer](https://en.wikipedia.org/wiki/SDE#In_science,_medicine,_and_technology) or Environment
 - SDS : [Simple Dynamic String](https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b5af9d96fb9a04f83465ada) ( for Redis )
 - sec : second | secure , security
