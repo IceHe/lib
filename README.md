@@ -62,8 +62,8 @@ Web
 - [init.d : Simple HTTP Service](/snips/init.d/README.md) ( php -S )
 - [How to docsify?](/_docsify/README.md)
 - [How to mail on CentOS?](/cmd/m/mailx.md) mailx
+    - [on macOS](/cmd/m/msmtp.md) : msmtp ( draft / sth wrong? )
 
-<!--     - [on macOS](/snips/mail/msmtp.md) : msmtp ( draft / to validate ) -->
 <!-- - [Chrome](/snips/web/chrome.md) -->
 
 ### Mac
