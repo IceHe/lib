@@ -28,7 +28,7 @@ Algorithms
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
-- [Glossary](/snips/glossary.md)
+- [Glossary](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
 
@@ -63,8 +63,7 @@ Web
 - [How to docsify?](/_docsify/README.md)
 - [How to mail on CentOS?](/cmd/m/mailx.md) mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( draft / sth wrong? )
-
-<!-- - [Chrome](/snips/web/chrome.md) -->
+- [Chrome](/snips/web/chrome.md) : clear cookie ( draft )
 
 ### Mac
 
