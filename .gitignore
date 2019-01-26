@@ -14,9 +14,6 @@
 *.tar.gz
 *.zip
 
-# Temporary
-_tmp/
-
 # Thumbnails
 ._*
 
@@ -27,6 +24,9 @@ _tmp/
 # _
 _*
 */_*
+*/*/_*
 
 !_lru/
 !_lru/_*
+!_docsify/
+!_docsify/_*
