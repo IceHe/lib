@@ -1,6 +1,24 @@
 # LSM Tree Related
 
-Preview
+## PDFs
+
+Papers
+
+- [BigTable](./bigtable-paper.pdf)
+- [LSM-Tree](./lsm-tree-paper.pdf)
+
+RocksDB PPT
+
+- [rocksdb-flash-memory-summit.pdf](./rocksdb-flash-memory-summit.pdf)
+- [rocksdb-kv-store-optimized-for-flash.pdf](./rocksdb-kv-store-optimized-for-flash.pdf)
+- [story-of-rocksdb.pdf](./story-of-rocksdb.pdf)
+- [myrocks-deep-dive.pdf](./myrocks-deep-dive.pdf)
+
+Mine
+
+- [rocksdb-icehe-sharing.pdf](./rocksdb-icehe-sharing.pdf)
+
+## Preview
 
 - [获得PCC性能大赛背后的RocksDB引擎:5分钟全面了解其原理](https://sdk.cn/news/6686)
 
@@ -88,21 +106,3 @@ Preview
 > - 那么可不可以不分这么多层，以减小写入放大倍数呢？Universal 这种风格就是尽量只用 L0，并将新的 SST 不断合并到老的 SST，因此数据文件的大小是不等的。
 > - TiKV 和 Pika 都选择了 leveled 风格，也是 RocksDB 的默认值，应该是适合大部分情况的。但如果需要更高的写入性能，并且总数据容量不大（例如少于 100 GB），可以选择 universal。
 > - BadgerDB ，它的原理和 LevelDB 差不多，但是又做了个重要的优化：将 key 和 value 分开存放。因为 key 的空间占用会小很多，所以更容易放入内存中，能加快查询速度。而在合并时，合并 key 的开销很小（只是修改 value 的索引地址），合并 value 也只是删掉老的 value 即可，甚至不需要和 key 的合并同步进行，定期清理下就行了。而且因为 key 单独存放，所以遍历 key 和测试 key 是否存在也会快很多。不过如果 value 长度很小，那么分开存放反而增加了一次随机读，这是要结合实际项目来考虑的。
-
-## PDF
-
-Papers
-
-- [BigTable](./bigtable-paper.pdf)
-- [LSM-Tree](./lsm-tree-paper.pdf)
-
-RocksDB PPT
-
-- [rocksdb-flash-memory-summit.pdf](./rocksdb-flash-memory-summit.pdf)
-- [rocksdb-kv-store-optimized-for-flash.pdf](./rocksdb-kv-store-optimized-for-flash.pdf)
-- [story-of-rocksdb.pdf](./story-of-rocksdb.pdf)
-- [myrocks-deep-dive.pdf](./myrocks-deep-dive.pdf)
-
-Mine
-
-- [rocksdb-icehe-sharing.pdf](./rocksdb-icehe-sharing.pdf)
