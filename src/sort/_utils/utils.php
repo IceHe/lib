@@ -46,6 +46,8 @@ function testSort(string $sortFnName, int $len = 10, int $min = 0, int $max = 10
     $sortFnName($ary);
     line(ary2str($ary));
     chkSortedAry($ary);
+
+    line();
 }
 
 function line($str = ''): void {
