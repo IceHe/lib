@@ -1,26 +1,29 @@
 <?php
 
-function reverseList(?ListNode &$head): ListNode {
+require_once("./utils.php");
+
+function reverseListRecur(?ListNode $head): ListNode {
     if ($head == null || $head->next == null) {
         return $head;
     }
 
-    $newHead = reverseList($head->next);
+    $newHead = reverseListRecur($head->next);
     $head->next->next = $head;
     $head->next = null;
+
     return $newHead;
 }
 
-function reverseList2(?ListNode $head): ListNode {
-    if ($head == null) {
-        return null;
+function reverseListIter(?ListNode &$head): ListNode {
+    if ($head == null || $head->next == null) {
+        return $head;
     }
 
     $prev = $head;
     $cur = $head->next;
-    $next = null;
+    $head->next = null;
 
-    while ($cur) {
+    while ($cur != null) {
         $next = $cur->next;
         $cur->next = $prev;
 
@@ -28,15 +31,13 @@ function reverseList2(?ListNode $head): ListNode {
         $cur = $next;
     }
 
-    $head->next = null;
     return $prev;
 }
 
+$list = newList(10);
+printList($list);
+printList(reverseListRecur($list));
 
 $list = newList(10);
 printList($list);
-printList(reverseList($list));
-
-$list = newList(10);
-printList($list);
-printList(reverseList2($list));
+printList(reverseListIter($list));
