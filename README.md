@@ -73,9 +73,9 @@ Web
 
 ### Git
 
-- [Commands](/git/README.md)
-- [Concepts & Theory](/git/concepts-n-theory.md)
-- [Docs Digest](/git/docs-digest.md)
+- [Commands](/_lru/git/README.md)
+- [Concepts & Theory](/_lru/git/concepts-n-theory.md)
+- [Docs Digest](/_lru/git/docs-digest.md)
 
 ### Cmd
 
