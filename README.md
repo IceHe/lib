@@ -177,11 +177,11 @@ Web
 
 ### C++
 
-- [C++ Primer 5th](/cpp/primer-5th.md)
-- [C++ Interview Book](/cpp/interview-book.md)
-- [C++ Coding Standards](/cpp/code-standards.md)
-- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
-- Effective C++ : [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
+- [C++ Primer 5th](/_lru/cpp/primer-5th.md)
+- [C++ Interview Book](/_lru/cpp/interview-book.md)
+- [C++ Coding Standards](/_lru/cpp/code-standards.md)
+- [C++ Macros & Bit Operations](/_lru/cpp/macro-n-bit-operations.md)
+- Effective C++ : [P1](/_lru/cpp/effective-cpp-reading-note-1.md) / [P2](/_lru/cpp/effective-cpp-reading-note-2.md) / [P3](/_lru/cpp/effective-cpp-reading-note-3.md) / [P4](/_lru/cpp/effective-cpp-reading-note-4.md)
 
 ### ASM
 
