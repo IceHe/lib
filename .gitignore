@@ -6,27 +6,7 @@
 .idea/
 .iml
 
-# Log
-*.log
-
-# Package
-*.rar
-*.tar.gz
-*.zip
-
-# Thumbnails
-._*
-
 # VS Code
 .vscode/
 */.vscode/
 
-# _
-_*
-*/_*
-*/*/_*
-
-!_lru/
-!_lru/_*
-!_docsify/
-!_docsify/_*
