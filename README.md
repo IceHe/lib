@@ -3,7 +3,7 @@
 > [Welcome](/_lru/blog/welcome.md) - What is my Lib? Why I build?
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
-- Author : [IceHe](/marks/cv.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
+- Author : [IceHe](/_lru/marks/cv.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
 
@@ -66,7 +66,7 @@ Web
 
 ### Mac
 
-- [Tools](/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
+- [Tools](/_lru/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
 - [Efficiency](/_lru/mac/efficiency.md) : 效率指南
 - [Shortcuts](/_lru/mac/shortcuts/README.md) : 快捷键
 - [Initialize](/_lru/mac/initialize.md) : 系统初始化
@@ -241,10 +241,10 @@ Others
 
 ### Marks
 
-- [CV](/marks/cv.md) ：Skills / Exp / Edu
-- [Favorites](/marks/favourites.md) : ACGMN
-- [Technology Bookmarks](/marks/tech.md)
-- [Reading Bookmarks](/marks/read.md)
+- [CV](/_lru/marks/cv.md) ：Skills / Exp / Edu
+- [Favorites](/_lru/marks/favourites.md) : ACGMN
+- [Technology Bookmarks](/_lru/marks/tech.md)
+- [Reading Bookmarks](/_lru/marks/read.md)
 
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
