@@ -7,7 +7,7 @@ function reverseListRecur(?ListNode $head): ListNode {
 }
 
 function reverseListIter(?ListNode &$head): ListNode {
-    
+
 }
 
 $list = newList(10);
