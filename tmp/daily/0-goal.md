@@ -1,19 +1,12 @@
 # Goal (WIP)
 
-References
-
-- What's the difference in meaning and usage between "target" and "goal"?
-    - https://english.stackexchange.com/questions/7941/whats-the-difference-in-meaning-and-usage-between-target-and-goal
-- Difference between “purpose”, “aim”, “target”, “goal”, “objective”, and “ambition”
-    - https://english.stackexchange.com/questions/188858/difference-between-purpose-aim-target-goal-objective-and-ambitio
-
-Goal: something important that you hope to achieve in the future, even though it may take a long time.
-
-- e.g.: The country can still achieve its goal of reducing poverty by a third.
-
-Target: the exact result that a person or organization intends to achieve by doing something, often the amount of money they want to get; a particular amount or total that you want to achieve.
-
-- e.g.: The company is on track to meet its target of increasing profits by 10%.
+- Goals : 抽象的目标
+- Targets : 具体的目标
+    - 参照 [SMART 原则](/snips/methodology/smart.md) 设立目标
+        - 具体 / 可测量 / 可实现 / 目标导向 / 时间限制
+            - 可实现：**分阶段设立可实现的小目标** - 不可能一步登天，不能操之过急。
+            - 时间限制：小目标的各个完成时间点
+            - ……
 
 ## Goals
 
@@ -23,39 +16,13 @@ Target: the exact result that a person or organization intends to achieve by doi
 >     - 早睡
 >     - 早起
 >     - 短午睡
-> - 充实感（成就感）
->     - 进步的成就感：每天一个有一定难度的明确小挑战！
+> - 充实感（进步的成就感）
+>     - 每天一个有一定难度的明确小挑战！
 > - 不使人困扰（不制造麻烦）
->     - 及时保质完成任务
+>     - 「及时、保质」完成工作任务
 > - 予人帮助（或许能使你我快慰）
 >     - 打招呼
 >     - 予人感谢
-
-Goals : 抽象的目标
-
-- 三级标题 `###`
-- 四级标题 `####`
-
-Targets : 具体的目标
-
-- 五级标题 `#####` 及其下的段落
-- 参照 [SMART 原则](/snips/methodology/smart.md) 设立目标
-    - 具体 / 可测量 / 可实现 / 目标导向 / 时间限制
-        - 可实现：**分阶段设立可实现的小目标** - 不可能一步登天，不能操之过急。
-        - 时间限制：小目标的各个完成时间点
-        - ……
-
-Requirements :（到达最终目标的）默认要求
-
-- 除非迫不得已的特殊情况，每天都贯彻落实
-
-Others
-
-- ~~被删除线~~ 标识的目标，可以暂时忽略
-    - 一时间没办法关注并完成太多目标！
-- 完成或放弃的目标，应该放到别的地方进行归档
-    - 完成的目标放到 Done 那一小节
-    - 放弃的目标也可以单独放到一个小节，然后说明原因
 
 ## Targets
 
@@ -96,11 +63,12 @@ Others
 
 #### 饮食正常
 
+> 清淡、节制饮食
+
 后续候选的阶段性目标
 
-- 清淡、节制饮食
-    - 清淡：不辛辣、不油腻
-    - 节制：七八分饱（不过饱）
+- 清淡：不辛辣、不油腻
+- 节制：七八分饱（不过饱）
 
 ##### 少喝软饮
 
@@ -130,7 +98,7 @@ _每周最多 ? 次_（下一阶段中目标）
 
 #### 举止正常
 
-行为举止正常（不打扰、不恶心别人）
+> 行为举止正常（不打扰、不恶心别人）
 
 后续候选的阶段性目标
 
@@ -164,7 +132,7 @@ _每周最多 ? 次_（下一阶段中目标）
 
 跟前一天的自己相比，每天都有值得骄傲的进步，得到由衷的满足感（最终目标）
 
-用 PHP 实现：冒泡排序、选择排序、插入排序、归并排序（阶段性小目标）
+阅读 Redis 设计与实现（阶段性小目标）
 
 #### ~~时间掌控感~~
 
@@ -188,11 +156,13 @@ _每周最多 ? 次_（下一阶段中目标）
 每次都及时保质完成任务（最终目标）
 
 - 包括
-    - 工作任务！
+    - **工作任务！**
     - 生活中对别人的承诺
     - _内心中对自己的承诺_
 
-完成对自己的承诺（阶段性小目标）**（目标不够具体！）**
+完成对自己的承诺（阶段性小目标）
+
+- TODO / TBD
 
 ### 予人帮助（WIP）
 
@@ -250,45 +220,3 @@ _今天称赞别人一个值得称赞的地方_（阶段性小目标）
 ##### 安静
 
 不大呼小叫，不打扰到别人
-
----
-
-## Archived
-
-### 2019
-
-Life
-
-- Better Health
-    - **Sleep Early @ 23:30**
-
-Study
-
-- Better Fundermantals
-    - TBD
-
-Work
-
-- Make a Living
-    - Finish Job on time!
-
-#### _Alternative_
-
-Life
-
-- Better Health
-    - Breakfast @ Sina
-- Better Life
-
-Study
-
-- Get started with Java
-    - Read "Core Java : Fundermantals"
-    - Read "Spring Action"
-- Get started with CLI
-    - Summarize 1 command/day @ Lib
-
-Write
-
-- Quicker
-    - 1000 words / hour

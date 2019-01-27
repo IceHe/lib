@@ -1,6 +1,4 @@
-# Reflect (WIP)
-
-> Diary
+# Reflection Diary (WIP)
 
 2018-12-26 Wed : Good
 

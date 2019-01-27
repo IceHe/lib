@@ -1,4 +1,4 @@
-# Tiny Plan
+# STAR Analysis (draft)
 
 ## Situation
 
@@ -43,4 +43,3 @@
     - _打招呼/予人感谢/予人称赞（TODO）_
 
 ## Action (Plan)
-
