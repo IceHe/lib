@@ -43,7 +43,7 @@ Markdown
 Storage ( usage )
 
 - [MemcacheQ](/snips/mcq.md)
-- [MySQL](/snips/mysql.md)
+- [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis.md)
 - [Mongo](/snips/mongo.md)
 
