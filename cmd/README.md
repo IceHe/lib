@@ -4,8 +4,6 @@
 
 ## References
 
-
-
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) / [中文版](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md) ( Recommended Guide! )
 - [Linux 需要掌握的一些命令 | 菜鸟教程](http://www.runoob.com/w3cnote/linux-useful-command.html)
 

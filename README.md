@@ -12,18 +12,8 @@
 Algorithms
 
 - [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
-- [Sorting](/snips/sort/README.md) : Insertion / Heap / Quick / …
 
-<!--
-- Insertion
-- Selection
-- Bubble
-- Shell
-- Merge
-- Heap
-- Quick
-- Quick3
--->
+<!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
 Coding
 

@@ -4,7 +4,6 @@ References
 
 - Sorting Algorithms : https://www.toptal.com/developers/sorting-algorithms
 
-
 [Study Plan](/snips/sort/plan.md)
 
 ## Links
