@@ -1,5 +1,31 @@
 # Glossary (draft)
 
+## 向后兼容 & 向后兼容
+
+Forward & Backward compatible
+
+- forward 理解为「前进/未来」（不是~~以前~~），向未来拓展！
+- backward 理解为「后退/过去」，向过去兼容！
+
+我的想法
+
+- forward : 旧版本软件，可以替代新版本软件运作
+- backward : 新版本软件，可以替代旧版本软件运作
+
+例如
+
+- 向前兼容：新版的 doc 文档，可以被旧版的 Microsoft Office Word 打开。
+- 向后兼容：旧版的 doc 文档，可以被新版的 Microsoft Office Word 打开。
+
+轮子哥的解释
+
+- forward 向前兼容：Windows 3.1 要能运行为 Windows 10 开发的程序
+- backward 向后兼容：Windows 10 要能运行为 Windows 3.1 开发的程序
+
+References
+
+- 软件的「向前兼容」和「向后兼容」如何区分？- 知乎 : https://www.zhihu.com/question/47239021
+
 ## MySQL
 
 - binlog: Binary Log（感觉好像 Redis AOF 就是参考它来实现的，过往的最佳实践）
