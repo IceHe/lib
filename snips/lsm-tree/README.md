@@ -2,6 +2,10 @@
 
 ## PDFs
 
+Mine
+
+- [rocksdb-icehe-sharing.pdf](./rocksdb-icehe-sharing.pdf)
+
 Papers
 
 - [BigTable](./bigtable-paper.pdf)
@@ -13,10 +17,6 @@ RocksDB PPT
 - [rocksdb-kv-store-optimized-for-flash.pdf](./rocksdb-kv-store-optimized-for-flash.pdf)
 - [story-of-rocksdb.pdf](./story-of-rocksdb.pdf)
 - [myrocks-deep-dive.pdf](./myrocks-deep-dive.pdf)
-
-Mine
-
-- [rocksdb-icehe-sharing.pdf](./rocksdb-icehe-sharing.pdf)
 
 ## Preview
 

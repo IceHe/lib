@@ -9,7 +9,9 @@
 
 ### Snips
 
-Algorithms
+<!-- Algorithms -->
+
+Data Structure
 
 - [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
 
