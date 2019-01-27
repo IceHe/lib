@@ -8,6 +8,10 @@
     - Download : https://redis.io/download
 - ZH Docs : http://redisdoc.com
 
+基本原理和方案设计
+
+- Redis 深度历险：核心原理与应用实践 : https://juejin.im/book/5afc2e5f6fb9a07a9b362527
+
 ## Commands
 
 - [redis-cli](/cmd/redis/redis-cli.md) : Redis client
