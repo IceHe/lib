@@ -5,6 +5,7 @@
 References
 
 - 原理 2：交头接耳 —— 通信协议 : https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5afc39496fb9a07ab458d0f1
+- Redis Protocol specification : https://redis.io/topics/protocol
 
 Redis 协议将传输的结构数据分为 5 种最小单元类型，单元结束时统一加上回车换行符号 `\r\n`。
 
