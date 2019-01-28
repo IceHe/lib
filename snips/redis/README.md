@@ -80,3 +80,16 @@ Redis 4.0 的数据恢复
 Related
 
 - OS 多进程 Copy On Write 机制（TODO）
+
+## Others
+
+Pipeline 管道
+
+- 多个请求合到一起发送，多个响应合到一起返回，减少网络的连接传输的次数。
+    - 客户端改变读写顺序，带来性能提升？
+        - 说的是？读写连续较多的数据，对服务端和客户端，IO 的效率都会提交比较多。
+
+Transaction 事务
+
+- multi / exec / discard
+    - 对应 SQL 的
