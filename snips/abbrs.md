@@ -438,6 +438,7 @@ Reference : https://www.computerhope.com/keys.htm
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix | process flags ( for kernel )
+- PFAIL : Possibly Fail ( for Redis Cluster )
 - pg : page
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
