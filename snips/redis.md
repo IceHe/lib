@@ -44,14 +44,14 @@ Manually
 redis-server
 ```
 
-## Config
+### Config
 
 Config files
 
 - /etc/redis.conf
 - /etc/redis-sentinel.conf
 
-### redis.conf
+#### redis.conf
 
 ```properties
 # There are all default values below.
@@ -78,7 +78,43 @@ requiredpass foobared
 
 ### redis-cli
 
-See command [redis-cli](/cmd/r/redis-cli.md)
+See command [redis-cli](/cmd/redis/redis-cli.md)
+
+### Interactive Commands
+
+References
+
+- Redis 运维手册 : http://shouce.jb51.net/redis-all-about/Intro/index.html
+
+#### Debug
+
+hstats
+
+- 在 [美团针对Redis Rehash机制的探索和实践](https://mp.weixin.qq.com/s/ufoLJiXE0wU4Bc7ZbE9cDQ) 看到了查看 Redis 对象内部统计信息的图，由以下命令获得
+
+```bash
+> 127.0.0.1:6379> DEBUG HTSTATS 0
+[Dictionary HT]
+Hash table 0 stats (main hash table):
+ table size: 4
+ number of elements: 1
+ different slots: 1
+ max chain length: 1
+ avg chain length (counted): 1.00
+ avg chain length (computed): 1.00
+ Chain length distribution:
+   0: 3 (75.00%)
+   1: 1 (25.00%)
+[Expires HT]
+No stats available for empty dictionaries
+```
+
+object
+
+```bash
+127.0.0.1:6379> DEBUG OBJECT h_test
+Value at:0x7f8da6e1ca70 refcount:1 encoding:ziplist serializedlength:30 lru:5141558 lru_seconds_idle:501
+```
 
 ---
 
