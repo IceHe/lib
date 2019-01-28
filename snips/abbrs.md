@@ -201,6 +201,7 @@ Reference : https://www.computerhope.com/keys.htm
 - const : constant
 - constr : [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
 - conv : convert
+- COW : [Copy-On-Write](https://en.wikipedia.org/wiki/Copy-on-write)
 - cp : [copy](https://en.wikipedia.org/wiki/Copy_(command))
 - cpp : [c++](https://en.wikipedia.org/wiki/C%2B%2B)
 - cr : [carriage return](https://en.wikipedia.org/wiki/Carriage_return)
@@ -492,7 +493,7 @@ Reference : https://www.computerhope.com/keys.htm
 - repo : repository
 - req : request | requirement
 - resp : response
-- RESP : Redis Serialization Protocol
+- RESP : [Redis Serialization Protocol](https://redis.io/topics/protocol)
 - REST: [REpresentational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
 - ret : return
 - rg : right
