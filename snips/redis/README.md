@@ -10,7 +10,7 @@
     - LRU 算法比较成熟
 - Nginx : 多进程模型（每个进程单线程？）
 
-## RESP
+## RESP 序列化
 
 > Redis Serialization Protocol
 
@@ -46,13 +46,15 @@ AOF : Append Only File?
 - 重放：从宕机中恢复服务
 - 主从同步
 
-重写
+#### 重写
 
 - 理由：运行时间长之后，内容太多（有重复、有失效），需要重写
 - 方法：`bgrewriteof` 命令 fork 出子进程
     - 重写 AOF 文件
     - 追加重写期间的新操作
     - 替换旧的 AOF 文件
+
+#### fsync
 
 强制写文件 `fsync`
 
@@ -65,7 +67,6 @@ AOF : Append Only File?
         - appendfsync always 总是
         - appendfsync no 永不：根据系统刷新输出缓冲区的时间来决定的，一般来说是 30s
             - 注意：只是「永不主动刷磁盘」而已，还是会等待操作系统来刷磁盘
-
 
 运维
 
@@ -81,15 +82,105 @@ Related
 
 - OS 多进程 Copy On Write 机制（TODO）
 
-## Others
-
-Pipeline 管道
+## Pipeline 管道
 
 - 多个请求合到一起发送，多个响应合到一起返回，减少网络的连接传输的次数。
     - 客户端改变读写顺序，带来性能提升？
         - 说的是？读写连续较多的数据，对服务端和客户端，IO 的效率都会提交比较多。
 
-Transaction 事务
+## Transaction 事务
 
 - multi / exec / discard
-    - 对应 SQL 的
+    - 类似于 SQL 的 begin / commit / rollback
+        - 但是只能放弃事务（discard），并不能回滚（rollback）
+    - 与 Pipeline 结合使用
+- watch：监视某个变量的值是否有变化
+    - 属于「乐观锁」机制，不同于分布式锁服务的「悲观锁」机制（这个还要再理解理解）
+    - 不能在 multi 和 exec 间使用 watch 命令
+
+```bash
+> watch books
+OK
+> incr books  # 被修改了
+(integer) 1
+> multi
+OK
+> incr books
+QUEUED
+> exec  # 事务执行失败
+(nil)
+```
+
+## Codis 集群方案
+
+- Ref : https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b029e5e5188254266432000
+
+Codis 集群方案之一：Redis 的代理中间件
+
+- slot 槽位：默认 1024，然后是 2048 / 4096 / …?
+- 槽位存储在 ZooKeeper 或 etcd 等分布式配置服务中
+
+代价
+
+- 有些 Redis 命令不支持：例如 rename
+- 迁移的卡顿较大
+- 增加的网络开销
+- 需要 zk 服务
+
+## ziplist
+
+Ziplist 压缩链表
+
+- 小 HashTable : key value 分别作为 entry 连续存储在 ziplist 中
+- 小 SortedSet : value score 分别作为 entry 连续存储在 ziplist 中
+- 除了这两种结构，其它结构例如 set 不会用 ziplist 存储（是吧？）
+    - Set 只有 int 时用 intset 结构存，否则用
+
+## listpack
+
+> Redis 5.0 对 ziplist 的改进
+
+- 去掉了 `zltail_offset`
+- 长度字段用 variant 来编码
+- 消灭了「级联更新」（由于 entry 长度变长扩充内存占用，然后挪动后面的元素）
+    - （这个一时还没想懂）
+- 替代 ziplist：为时尚早，只在新的 Stream 数据结构中使用 listpack
+    - 由于 ziplist 使用广泛，由于兼容性问题，暂时没有直接被 listpack 替换
+
+## intset
+
+```bash
+# e.g.
+> sadd test_set 1 2 3
+(integer) 3
+
+> smembers test_set
+1) "1"
+2) "2"
+3) "3"
+
+> OBJECT encoding test_set
+"intset"
+
+> sadd test_set ice
+(integer) 1
+
+> OBJECT encoding test_set
+"hashtable"
+```
+
+## Others
+
+PubSub 订阅
+
+- TODO
+
+快照同步（RDB 同步）
+
+- 当增量同步（AOF 同步）的缓冲区满了之后，会丢失一些修改
+- 所以这时需要先进行 RDB 同步，然后再重新用 AOF 同步
+    - 问题：要是 RDB 同步太慢，会重蹈覆辙 —— 内存中的指令缓冲区会被填满，又得重新做 RDB 同步了……
+
+Sential 哨兵（机制的实现不太清楚，有很多不同版本的实现？）
+
+- TODO

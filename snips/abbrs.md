@@ -636,4 +636,5 @@ Reference : https://www.computerhope.com/keys.htm
 
 - z
     - for CLI : gzip | compress ( `tar` `bzip` )
+- zk : [ZooKeeper](https://en.wikipedia.org/wiki/Apache_ZooKeeper) 分布式配置服务
 - zzz : fall asleep
