@@ -132,7 +132,7 @@ Related?
 - Sential 哨兵（机制的实现不太清楚，有很多不同版本的实现？）
     - TODO
 
-## Cluster
+## Cluster 官方集群方案
 
 > Redis Cluster
 
@@ -140,6 +140,21 @@ Related?
 - slots 槽位分为 1024 * 16 = 16384
 - 每个 redis 实例都保存有所有节点的槽位信息
 - cluster 客户端可以获得槽位信息表，直接访问数据所在的 Redis 实例
+
+跳转：`-MOVED` 报错
+
+- 说明数据所在的槽位，以及 HOST:PORT
+
+```bash
+> GET x
+-MOVED 3999 127.0.0.1:6381
+```
+
+迁移：key 数据搬运
+
+- 以 slot 为单位
+- keywords : migrating / importing / asking
+- 故障认定 PFAIL : Gossip 协议沟通各节点状态
 
 ## ziplist
 
