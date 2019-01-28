@@ -492,6 +492,7 @@ Reference : https://www.computerhope.com/keys.htm
 - repo : repository
 - req : request | requirement
 - resp : response
+- RESP : Redis Serialization Protocol
 - REST: [REpresentational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
 - ret : return
 - rg : right
