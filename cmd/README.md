@@ -9,6 +9,9 @@
 
 ## Index
 
+> 暂时以主页的 Index List 为准
+> （后续 Index 完全迁移到这之后再以这里为准）
+
 - [awk](/cmd/a/awk.md) : pattern scanning and processing language
 - [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell
     - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
