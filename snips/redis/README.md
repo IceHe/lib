@@ -210,7 +210,57 @@ Ziplist 压缩链表
 "hashtable"
 ```
 
-## Others
+### Expire
+
+> 过期淘汰
+
+每秒十次过期扫描，过期贪心策略
+
+- 随机选取 20 个 key，如果过期就淘汰
+- 一旦其中有超过 1/4 的 key 被淘汰，再进行上一步，循环往复
+- 如果一直持续执行，会有 25 ms 超时上限（避免阻塞后续读写请求）
+
+存在的问题
+
+- 大量的 key 同时过期，导致 Redis 卡顿
+
+从库策略
+
+- 从库不主动进行过期淘汰，等待主库同步对过期 key 的 del 指令
+
+### LRU
+
+> 内存淘汰
+
+设置最大使用内存
+
+- `maxmemory`
+
+淘汰策略
+
+- 前缀
+    - 带 `volatile-*` 前缀，代表只淘汰有过期值的 key
+    - 带 `allkeys-*` 前缀，代表淘汰范围包括所有的 key
+- noneviction 不淘汰：满了之后，进入「只读」状态，无法写入
+- volatile-lru 最近最少使用
+- volatile-ttl 最近过期
+- volatile-random 随机
+- allkeys-lru 最近最少使用
+- allkeys-random 随机
+
+LRU 实现：近似模拟（据说 MC 的 LRU 实现比较成熟）
+
+- 随机选取淘汰范围内的 key，选择一个最近最早使用的 key
+
+### Lazy Delete
+
+> 惰性删除
+
+
+
+## Tmp
+
+### TODOs
 
 PubSub 订阅
 
@@ -222,9 +272,15 @@ PubSub 订阅
 - 所以这时需要先进行 RDB 同步，然后再重新用 AOF 同步
     - 问题：要是 RDB 同步太慢，会重蹈覆辙 —— 内存中的指令缓冲区会被填满，又得重新做 RDB 同步了……
 
----
+Stream
 
-## Tmp
+- 借鉴了 kafka 队列
+    - 但是没有 partition实现
+
+info 指令
+
+- 对于排查错误很重要，要自己多尝试
+- 还有 debug 命令！
 
 ### FAQ
 
