@@ -435,6 +435,7 @@ Reference : https://www.computerhope.com/keys.htm
 - P : port ( for CLI `mysql` )
 - PaaS：平台即服务 [Platform as a Service](https://en.wikipedia.org/wiki/Paas)
 - param : parameter
+- PCB : [Process Control Block](https://en.wikipedia.org/wiki/Process_control_block) ( task struct )
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix | process flags ( for kernel )
