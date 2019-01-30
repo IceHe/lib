@@ -1,6 +1,9 @@
-# IceHe CV
+# IceHe Bio
 
-Curriculum Vitae
+> A short biographical profile
+
+<!-- CV -->
+<!-- Curriculum Vitae -->
 
 ## 简介
 

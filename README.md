@@ -3,7 +3,7 @@
 > [Welcome](/_lru/blog/welcome.md) - What is my Lib? Why I build?
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
-- Author : [IceHe](/_lru/marks/cv.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
+- Author : [IceHe](/_lru/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
 
@@ -242,7 +242,7 @@ Others
 
 ### Marks
 
-- [CV](/_lru/marks/cv.md) ：Skills / Exp / Edu
+- [Bio](/_lru/marks/bio.md) ：Skills / Exp / Edu
 - [Favorites](/_lru/marks/favourites.md) : ACGMN
 - [Technology Bookmarks](/_lru/marks/tech.md)
 - [Reading Bookmarks](/_lru/marks/read.md)

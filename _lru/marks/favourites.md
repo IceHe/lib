@@ -8,16 +8,16 @@ __所爱之物记录于此。__ 所爱不少，所以只记录最偏爱的那一
 
 ## 物件
 
-- [__利器推荐__](/marks/tools/README.md)
+- [__利器推荐__](/_lru/marks/tools/README.md)
 
 ## 运动
 
 - __羽毛球__
-- [~~__毽球__~~](/marks/cv.md#略)
+- [~~__毽球__~~](/_lru/marks/bio.md#无关)
 
 ## 书
 
-- [__阅读收藏夹__](/marks/read.md#书)
+- [__阅读收藏夹__](/_lru/marks/read.md#书)
 
 ## 电影
 
