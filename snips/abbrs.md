@@ -544,6 +544,7 @@ Reference : https://www.computerhope.com/keys.htm
 - SPU : Standard Product Unit（标准化产品单元）商品信息聚合的最小单位（TODO）
 - src : source
 - SRJF : Shortest Remaining Job First ( for OS )
+- ssh : [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)
 - SSL : [Secure Sockets Layer](https://en.wikipedia.org/wiki/Transport_Layer_Security) ( deprecated )
 - sso : [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on) 单点登录
 - st : something | sometimes

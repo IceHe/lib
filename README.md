@@ -149,6 +149,7 @@ Web
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [sort](/cmd/s/sort.md) : sort lines of text files
+- [ssh](/cmd/s/ssh.md) : OpenSSH Client (remote login program) (TODO)
 - [stat](/cmd/s/stat.md) : display file or file system status
 - [su](/cmd/s/su.md) : run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
