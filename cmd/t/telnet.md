@@ -1,5 +1,7 @@
-# telnet
+# telnet (TODO)
 
 > user interface to the TELNET protocol
 
-TODO
+## Options
+
+## Usage

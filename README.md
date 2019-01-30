@@ -158,7 +158,7 @@ Web
 - [tail](/cmd/t/tail.md) : output the last part of files
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
-- [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol
+- [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol (TODO)
 - [timeout](/cmd/t/timeout.md) : run a command with a time limit
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
 - [touch](/cmd/t/touch.md) : change file access & modification times
