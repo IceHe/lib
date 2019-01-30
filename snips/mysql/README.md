@@ -150,3 +150,23 @@ ERROR
 
 > - 写唯一索引要检查记录是不是存在，所以在修改唯一索引之前，必须把修改的记录相关的索引页读出来才知道是不是唯一。
 > - 这样的话，Insert buffer 就没意义了，反正要读出来 (读带来随机 IO) ，所以只对非唯一索引有效。
+
+对比
+
+- redo log : 提升对磁盘的顺序写的 IO 消耗
+- change buffer : 提升对磁盘的随机 IO 的消耗？（出发点不同）
+
+### Data Type
+
+> 数据类型
+
+INT
+
+- tinyint 1
+- smallint 2
+- midiumint 3
+- int 4
+    - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
+- bigint 8
+
+
