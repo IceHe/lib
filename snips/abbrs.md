@@ -407,6 +407,7 @@ Reference : https://www.computerhope.com/keys.htm
 - NaN : [Not a Number](https://en.wikipedia.org/wiki/NaN)
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
 - No. : number
+- no-no : n. 禁忌；不可作之事
 - NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
@@ -530,7 +531,7 @@ Reference : https://www.computerhope.com/keys.htm
 - sig : signal | signature
 - sim : simple , simplify
 - SJF : Shortest Job First ( for OS )
-- SKU : Stock Keeping Unit（库存量单位）（TODO）
+- SKU : Stock Keeping Unit（库存量单位）库存进出计量的单位（TODO）
 - slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
@@ -540,7 +541,7 @@ Reference : https://www.computerhope.com/keys.htm
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
 - spec : specific | specified | specification
 - spk : speak | speaker
-- SPU : Standard Product Unit（标准化产品单元）（TODO）
+- SPU : Standard Product Unit（标准化产品单元）商品信息聚合的最小单位（TODO）
 - src : source
 - SRJF : Shortest Remaining Job First ( for OS )
 - SSL : [Secure Sockets Layer](https://en.wikipedia.org/wiki/Transport_Layer_Security) ( deprecated )
