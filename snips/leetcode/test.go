@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 const Pi = 3.14
@@ -12,6 +13,8 @@ func main() {
 	fmt.Println(J)
 	fmt.Println(S)
 	fmt.Println(numJewelsInStones(J, S))
+
+	fmt.Println(strings.ToLower(S))
 
 	// test
 	//fmt.Println(math.Pi)
