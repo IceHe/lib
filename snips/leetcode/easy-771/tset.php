@@ -1,5 +1,7 @@
 <?php
 
+// https://leetcode.com/problems/jewels-and-stones/
+
 class Solution {
     function numJewelsInStones($J, $S) {
         $map = [];

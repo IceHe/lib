@@ -1,5 +1,7 @@
 package main
 
+// https://leetcode.com/problems/jewels-and-stones/
+
 import (
 	"fmt"
 )

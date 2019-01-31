@@ -1,5 +1,7 @@
 <?php
 
+// https://leetcode.com/problems/unique-email-addresses
+
 //function numUniqueEmails($emails) {
 //    $cnt = 0;
 //    $uniqueEmails = [];

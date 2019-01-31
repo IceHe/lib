@@ -1,5 +1,7 @@
 package main
 
+// https://leetcode.com/problems/unique-email-addresses
+
 import (
 	"fmt"
 	"strings"
