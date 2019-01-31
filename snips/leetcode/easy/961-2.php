@@ -16,5 +16,19 @@ class Solution {
     }
 }
 
-$A = [5,1,5,2,5,3,5,4];
-echo (new Solution())->repeatedNTimes($A);
+//class Solution {
+//    function repeatedNTimes($A) {
+//        $len = count($A);
+//        for ($k = 1; $k <= 3; ++$k) {
+//            for ($i = 0; $i < $len - $k; $i++) {
+//                if ($A[$i] == $A[$i + $k]) {
+//                    return $A[$i];
+//                }
+//            }
+//        }
+//        return false;
+//    }
+//}
+
+$A = [1,2,3,3];
+echo (new Solution())->repeatedNTimes($A)."\n";
