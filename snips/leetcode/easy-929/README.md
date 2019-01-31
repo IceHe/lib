@@ -54,23 +54,23 @@ class Solution {
 
 ```go
 func numUniqueEmails(emails []string) int {
-	cnt := 0
-	mailMap := make(map[string]bool)
-	for _, mail := range emails {
-		atIndex := strings.Index(mail, "@")
-		localName := mail[:atIndex]
+    cnt := 0
+    mailMap := make(map[string]bool)
+    for _, mail := range emails {
+        atIndex := strings.Index(mail, "@")
+        localName := mail[:atIndex]
 
-		plusIndex := strings.Index(mail, "+")
-		validLocalName := localName[:plusIndex]
+        plusIndex := strings.Index(mail, "+")
+        validLocalName := localName[:plusIndex]
 
-		validLocalName = strings.Replace(validLocalName, ".", "", -1)
-		validFullName := validLocalName + mail[atIndex:]
+        validLocalName = strings.Replace(validLocalName, ".", "", -1)
+        validFullName := validLocalName + mail[atIndex:]
 
-		if _, ok := mailMap[validFullName]; !ok {
-			cnt++
-			mailMap[validFullName] = true
-		}
-	}
-	return cnt
+        if _, ok := mailMap[validFullName]; !ok {
+            cnt++
+            mailMap[validFullName] = true
+        }
+    }
+    return cnt
 }
 ```
