@@ -21,6 +21,8 @@ function reverseListIter(?ListNode &$head): ListNode {
 
     $prev = $head;
     $cur = $head->next;
+    $next = null;
+
     $head->next = null;
 
     while ($cur != null) {

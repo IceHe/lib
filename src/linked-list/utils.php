@@ -13,11 +13,6 @@ class ListNode {
 }
 
 function printList(Listnode $head): void {
-    if ($head == null) {
-        line("null");
-        return;
-    }
-
     $cur = $head;
     while ($cur) {
         echo $cur->val . ", ";
