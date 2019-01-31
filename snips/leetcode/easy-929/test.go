@@ -21,10 +21,10 @@ func numUniqueEmails(emails []string) int {
 	mailMap := make(map[string]bool)
 	for _, mail := range emails {
 		atIndex := strings.Index(mail, "@")
-		localName := mail[:atIndex - 1]
+		localName := mail[:atIndex]
 
 		plusIndex := strings.Index(mail, "+")
-		validLocalName := localName[:plusIndex - 1]
+		validLocalName := localName[:plusIndex]
 
 		validLocalName = strings.Replace(validLocalName, ".", "", -1)
 		validFullName := validLocalName + mail[atIndex:]
@@ -34,6 +34,6 @@ func numUniqueEmails(emails []string) int {
 			mailMap[validFullName] = true
 		}
 	}
-	return 0
+	return cnt
 }
 
