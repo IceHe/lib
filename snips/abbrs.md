@@ -316,6 +316,7 @@ Reference : https://www.computerhope.com/keys.htm
 - I : me | include ( for CLI )
 - IaaS : 基础设施即服务 [Infrastructure as a Service](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)
 - ico : icon
+- ICMP : [Internet Control Message Protocol](https://baike.baidu.com/item/ICMP) ( for Network )
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
 - idx : index
 - i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）

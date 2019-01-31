@@ -1,4 +1,4 @@
-# IP (WIp)
+# IP (WIP)
 
 ## Intranet
 
@@ -30,7 +30,15 @@ Reference
 - https://www.iplocation.net/subnet-mask
 - Explanation : https://learningnetwork.cisco.com/message/357793#357793
 
-## Differ 127.0.0.1 from localhost
+## 127.0.0.1
+
+References
+
+- https://www.pcmag.com/encyclopedia/term/57812/loopback-address
+- localhost - Wikipedia : https://en.wikipedia.org/wiki/Localhost
+- 百度百科 : https://baike.baidu.com/item/%E6%9C%AC%E5%9C%B0%E5%9B%9E%E7%8E%AF%E5%9C%B0%E5%9D%80
+
+### Differ 127.0.0.1 from localhost
 
 > Well, the most likely difference is that you still **have to do an actual lookup of `localhost` somewhere**.
 >
