@@ -533,6 +533,7 @@ s := arr[:]
 ```
 
 - 范围切片
+    - 区间左闭右开，即不包含 endIndex
 
 ```go
 s := arr[startIndex:endIndex]
