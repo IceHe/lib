@@ -6,7 +6,6 @@
 - Wiki : https://www.nginx.com/resources/wiki/
 - Docs : Nginx中文文档 : http://www.nginx.cn/doc/
 
-
 ## Simple HTTP Server
 
 ### Usage

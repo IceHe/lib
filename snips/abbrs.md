@@ -191,6 +191,7 @@ Reference : https://www.computerhope.com/keys.htm
 - CAS : Compare & Set/Swap ( for Lock )
 - chan : channel ( for Go )
 - chk : check
+- CIP : Client IP
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 - cls : class
 - cmd : command
@@ -233,6 +234,7 @@ Reference : https://www.computerhope.com/keys.htm
 - del : delete
 - dev : development | device
 - diff : differ | difference
+- DIP : Director IP 转发地址
 - dir : directory
 - dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
 - dmg : [Apple Disk Image](https://en.wikipedia.org/wiki/Apple_Disk_Image)
@@ -275,6 +277,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - f : file | force ( for CLI )
 - F : full ( for CLI )
+- [Fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) ( from Wikipedia ) 分布式计算的谬误（错误假设）
 - FAQ : [Frequently Asked Questions](https://en.wikipedia.org/wiki/FAQ) 常见问题
 - FCFS : First Come First Serve ( for OS )
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
@@ -502,6 +505,7 @@ Reference : https://www.computerhope.com/keys.htm
 - REST: [REpresentational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
 - ret : return
 - rg : right
+- RIP : Real IP ( for Server )
 - rm : remove
 - rn : rename
 - rst : result | reset 重置 ( for TCP )
@@ -612,7 +616,7 @@ Reference : https://www.computerhope.com/keys.htm
 - var : variable
 - VC : [Venture Capital](https://en.wikipedia.org/wiki/Venture_capital)
 - ver : version
-- VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address)
+- VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address) 虚拟服务器地址
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
 - vol : volume
 - VP : [Vice President](https://en.wikipedia.org/wiki/Vice_president) 副总裁
