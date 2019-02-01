@@ -5,6 +5,12 @@ Reference
 - Official Website : https://golang.org/
 - beego : https://beego.me/
 
+Guide
+
+- GO 语言学习资源整理 - 后端 - 掘金 : https://juejin.im/entry/58bfa8d244d90400696bbf96
+    - Go 语言之旅 : https://tour.go-zh.org/list
+    - Go 入门指南 : https://www.kancloud.cn/kancloud/the-way-to-go/72432
+
 ## Install
 
 Reference
