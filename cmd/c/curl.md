@@ -2,6 +2,11 @@
 
 > transfer a URL : a tool to transfer data from or to a server, using one of the supported protocols
 
+References
+
+- https://curl.haxx.se/docs/
+    - https://curl.haxx.se/docs/manpage.html
+
 ## Options
 
 Header

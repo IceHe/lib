@@ -1,6 +1,6 @@
 # PHP
 
-## 魔术方法
+## Magic Methods
 
 References
 
