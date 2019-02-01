@@ -4,6 +4,8 @@
 
 - Home : https://www.nginx.com/
 - Wiki : https://www.nginx.com/resources/wiki/
+- Docs : Nginx中文文档 : http://www.nginx.cn/doc/
+
 
 ## Simple HTTP Server
 
@@ -35,3 +37,6 @@ Modify nginx config
 File : proxy_pass.conf
 
 [proxy_pass.conf](./proxy_pass.conf ':include :type=code nginx')
+
+## Basic
+

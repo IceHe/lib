@@ -487,6 +487,7 @@ Reference : https://www.computerhope.com/keys.htm
 - RD : Research & Development
 - RDB : [Redis DataBase](https://redis.io/topics/persistence) ( persistence )
 - RDBMS : [Relational Database Management System](https://en.wikipedia.org/wiki/Relational_database_management_system)
+- [REAL Server](https://en.wikipedia.org/wiki/REAL_Server) : RDBMS built on top of the SQLite database engine
 - rec : record
 - Redis : [REmote DIctionary Server](https://en.wikipedia.org/wiki/Redis)
 - reentrant : [可重入](https://zh.wikipedia.org/wiki/%E5%8F%AF%E9%87%8D%E5%85%A5)
