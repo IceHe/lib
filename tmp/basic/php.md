@@ -38,3 +38,9 @@ Seldom
     - e.g. `CallableClass($params);`
 - `static __set_state(array $properties): object` for var_export()（不是特别理解）
 - `__debugInfo(void): array` for var_dump()
+
+Autoload
+
+- PHP: 类的自动加载 - Manual : http://php.net/manual/zh/language.oop5.autoload.php
+- PHP: spl_autoload_register - Manual : http://php.net/manual/zh/function.spl-autoload-register.php
+- Basic usage #autoloading - Composer : https://getcomposer.org/doc/01-basic-usage.md#autoloading

@@ -20,6 +20,7 @@ Data Structure
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
+- [Cloud Utils](/snips/cloud.md) ( draft )
 - [Glossary](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)

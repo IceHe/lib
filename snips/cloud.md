@@ -123,6 +123,22 @@ Serialization + Compression
 
 - json + gzip
 
+Comparison
+
+- Protocol Buffers, Avro, Thrift & MessagePack - igvita.com : https://www.igvita.com/2011/08/01/protocol-buffers-avro-thrift-messagepack/
+
+### Msgpack
+
+> It's like JSON, but fast and small.
+
+- MessagePack is an efficient binary serialization format.
+- It lets you exchange data among multiple languages like JSON. But it's faster and smaller.
+- Small integers are encoded into a single byte, and typical short strings require only one extra byte in addition to the strings themselves.
+
+References
+
+- https://msgpack.org/index.html
+
 ### Protocol Buffer
 
 - 来自 Google 的序列化 ( serialize ) 协议 : https://developers.google.com/protocol-buffers/
@@ -133,6 +149,16 @@ References
 
 - GitHub - protostuff/protostuff: Java serialization library, proto compiler, code generator : https://github.com/protostuff/protostuff
 - Google Code Archive - Long-term storage for Google Code Project Hosting. : https://code.google.com/archive/p/protostuff/
+
+### Pipe?
+
+#### ZMQ
+
+> Distributed Messaging
+
+References
+
+- http://zeromq.org/
 
 ## Others
 
