@@ -36,6 +36,8 @@ select / poll
 - 返回值是就绪的 fd 个数
 - 需要遍历作为参数传入的 fd 列表，来判断哪个就绪了（效率很低）
 
-## 惊群效应
+## Thundering Herd Problem
 
-- Linux惊群效应详解（最详细的了吧）- lyztyycode - CSDN博客 : https://blog.csdn.net/lyztyycode/article/details/78648798
+> 惊群效应
+
+- Linux惊群效应详解（最详细的了吧）: https://blog.csdn.net/lyztyycode/article/details/78648798
