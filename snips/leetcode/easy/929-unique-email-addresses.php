@@ -28,6 +28,31 @@ class Solution
     }
 }
 
+//class Solution
+//{
+//    function numUniqueEmails($emails) {
+//        $cnt = 0;
+//        $uniqueEmails = [];
+//        foreach ($emails as $email) {
+//            $names = explode('@', $email);
+//            $localName = $names[0] ?? '';
+//            $domainName = $names[1] ?? '';
+//
+//            $parts = explode('+', $localName);
+//            $validPart = $parts[0] ?? '';
+//            $validPart = str_replace('.', '', $validPart);
+//
+//            $validEmail = $validPart.$domainName;
+//            if (!in_array($validEmail, $uniqueEmails)) {
+//                $uniqueEmails[] = $validEmail;
+//                $cnt++;
+//            }
+//        }
+//        return $cnt;
+//    }
+//}
+
+
 // Wrong Answer
 
 //class Solution {

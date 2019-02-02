@@ -17,6 +17,7 @@ func numUniqueEmails(emails []string) int {
 		atIndex := strings.Index(mail, "@")
 		localName := mail[:atIndex]
 
+        // 注意：若字符串中不含 `+` 符号，返回的下标是 -1 ！
 		plusIndex := strings.Index(mail, "+")
 		validLocalName := localName
 		if plusIndex != -1 {
