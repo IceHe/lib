@@ -2,6 +2,8 @@
 
 // https://leetcode.com/problems/unique-morse-code-words/
 
+// Runtime: 12 ms, faster than 100.00% of PHP online submissions for Unique Morse Code Words.
+
 class Solution {
     function uniqueMorseRepresentations($words) {
         static $map = [

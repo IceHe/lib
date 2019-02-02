@@ -7,16 +7,8 @@ import (
 	"strings"
 )
 
-func main() {
-	emails := []string{
-		"test.email+alex@leetcode.com",
-		"test.e.mail+bob.cathy@leetcode.com",
-		"testemail+david@lee.tcode.com",
-	}
-
-	fmt.Println(emails)
-	fmt.Println(numUniqueEmails(emails))
-}
+// Runtime: 12 ms, faster than 89.83% of Go online submissions for Unique Email Addresses.
+// Memory Usage: 4.7 MB, less than 94.59% of Go online submissions for Unique Email Addresses.
 
 func numUniqueEmails(emails []string) int {
 	cnt := 0
@@ -26,7 +18,10 @@ func numUniqueEmails(emails []string) int {
 		localName := mail[:atIndex]
 
 		plusIndex := strings.Index(mail, "+")
-		validLocalName := localName[:plusIndex]
+		validLocalName := localName
+		if plusIndex != -1 {
+			validLocalName = localName[:plusIndex]
+		}
 
 		validLocalName = strings.Replace(validLocalName, ".", "", -1)
 		validFullName := validLocalName + mail[atIndex:]
@@ -37,5 +32,16 @@ func numUniqueEmails(emails []string) int {
 		}
 	}
 	return cnt
+}
+
+func main() {
+	emails := []string{
+		"test.email+alex@leetcode.com",
+		"test.e.mail+bob.cathy@leetcode.com",
+		"testemail+david@lee.tcode.com",
+	}
+
+	fmt.Println(emails)
+	fmt.Println(numUniqueEmails(emails))
 }
 

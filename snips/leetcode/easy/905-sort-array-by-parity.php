@@ -2,7 +2,8 @@
 
 // https://leetcode.com/problems/sort-array-by-parity/
 
-// 44 ms
+// Runtime: 32 ms, faster than 94.74% of PHP online submissions for Sort Array By Parity.
+
 class Solution {
     function swap(&$ary, $i, $j) {
         $tmp = $ary[$i];
@@ -20,7 +21,8 @@ class Solution {
     }
 }
 
-//// 32m
+// Runtime: 32 ms, faster than 94.74% of PHP online submissions for Sort Array By Parity.
+
 //class Solution {
 //    function swap(&$ary, $i, $j) {
 //        $tmp = $ary[$i];

@@ -1,14 +1,13 @@
 package main
 
+// https://leetcode.com/problems/n-repeated-element-in-size-2n-array/
+
 import (
 	"fmt"
 )
 
-func main() {
-	A := []int{1, 2, 3, 3}
-	fmt.Println(A)
-	fmt.Println(repeatedNTimes(A))
-}
+// Runtime: 36 ms, faster than 97.67% of Go online submissions for N-Repeated Element in Size 2N Array.
+// Memory Usage: 5.2 MB, less than 100.00% of Go online submissions for N-Repeated Element in Size 2N Array.
 
 func repeatedNTimes(A []int) int {
 	set := make(map[int]int)
@@ -20,4 +19,10 @@ func repeatedNTimes(A []int) int {
 		}
 	}
 	return 0
+}
+
+func main() {
+	A := []int{1, 2, 3, 3}
+	fmt.Println(A)
+	fmt.Println(repeatedNTimes(A))
 }

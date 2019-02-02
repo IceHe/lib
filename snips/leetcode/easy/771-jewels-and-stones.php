@@ -2,6 +2,8 @@
 
 // https://leetcode.com/problems/jewels-and-stones/
 
+// Runtime: 12 ms, faster than 100.00% of PHP online submissions for Jewels and Stones.
+
 class Solution {
     function numJewelsInStones($J, $S) {
         $map = [];
