@@ -105,3 +105,9 @@ cgroups 资源限制
 - 上线管理都是一台 puppet 的
 
 后来也有部门用 k8s，不过还没铺开
+
+## 扩缩容算法
+
+https://zh.numberempire.com/graphingcalculator.php
+
+（详见相册）
