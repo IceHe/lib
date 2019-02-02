@@ -34,6 +34,19 @@
 - 时间太长的 RT（>30s），很可能是网络中断了（切换 WiFi/移动网络，乘坐交通工具）
 - 成功的响应的慢速比，跟失败的响应分开算。
 
+## 机器管理
+
+Marathon <-> Mesos Master <-> Mesos Slave
+
+- Marathon 知道有哪些资源：CPU/mem/硬盘
+    - 也知道具体服务需要多少资源（cpu/mem/硬盘）
+- Marathon 告诉 Mesos Master 在哪些机器部署哪些服务，资源限制是（cpu/mem/硬盘）
+- Mesos Master 对 Mesos Slave 进行操作
+
+为什么不用 k8s？
+
+- 当年 k8s 还不成熟，就用了 Marathon + Mesos + DCP（微博自研的）
+
 ## Nginx 负载均衡
 
 - 简单粗暴：轮询（稳定，没有额外的消耗；而且其他复杂的策略并不能更好）
@@ -44,7 +57,7 @@
 物理机 32 核，开超线程变成 64 核
 
 - nginx
-    - worker_cnt? auto
+    - worker_processes auto
         - 线上看这样设置，进程数跟 CPU 核数差不多
     - cpu_affiity auto
 - php-fpm
@@ -55,6 +68,12 @@
         - 以前 300
         - 现在 200
     - max_requests 1500
+
+References
+
+- Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang : https://blog.gtwang.org/linux/nginx-php-fpm-configuration-optimization/
+
+---
 
 cgroups 资源限制
 

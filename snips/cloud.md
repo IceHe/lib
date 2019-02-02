@@ -107,6 +107,7 @@ References
 References
 
 - Deliver better software, faster | Puppet : https://puppet.com/
+- 系统运维|Puppet 简介 : https://linux.cn/article-5058-1.html
 
 ## Distributed
 
