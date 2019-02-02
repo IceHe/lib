@@ -240,6 +240,8 @@ Chrome 和 Firefox 等浏览器都没有默认打开的特性。
 
 ## HTTP 2
 
+TODO
+
 ## QUIC
 
 > QUICK / Quick UDP Internet Connections

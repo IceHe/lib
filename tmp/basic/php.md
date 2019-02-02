@@ -44,3 +44,24 @@ Autoload
 - PHP: 类的自动加载 - Manual : http://php.net/manual/zh/language.oop5.autoload.php
 - PHP: spl_autoload_register - Manual : http://php.net/manual/zh/function.spl-autoload-register.php
 - Basic usage #autoloading - Composer : https://getcomposer.org/doc/01-basic-usage.md#autoloading
+
+## Others
+
+### Shared Memory Functions
+
+References
+
+- http://php.net/manual/en/ref.shmop.php
+
+### Process Control
+
+References
+
+- http://php.net/manual/en/book.pcntl.php
+    - ZH : http://php.net/manual/zh/book.pcntl.php
+
+### php-rdkafka
+
+References
+
+- https://github.com/arnaud-lb/php-rdkafka

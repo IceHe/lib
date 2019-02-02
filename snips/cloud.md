@@ -100,6 +100,14 @@ References
 
 - https://www.zabbix.com/
 
+### Puppet
+
+> Make software discovery, management, and delivery automatic and pervasive with Puppet.
+
+References
+
+- Deliver better software, faster | Puppet : https://puppet.com/
+
 ## Distributed
 
 > 服务发现，配置共享（强一致性，高可用性）
