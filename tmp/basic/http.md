@@ -135,6 +135,8 @@ Common
 - 401 Unauthorized 请求未经授权
 - 403 Forbidden（服务器收到请求，但是）拒绝服务
 - 404 Not Found 请求的资源不存在
+- 499 Token Required（Returned by ArcGIS for Server）（面试被问到了）
+    - A token is required but was not submitted.
 - \-\-\-
 - 500 Internal Server Error 服务器发生不可预期的错误
 - 502 Bad Gateway
@@ -235,3 +237,30 @@ Chrome 和 Firefox 等浏览器都没有默认打开的特性。
 - 过滤用户输入
     - 使用 HTML 解析库进行解析，过滤掉危险的标签
         - 例如 script，或者元素的 onclick 事件
+
+## HTTP 2
+
+## QUIC
+
+> QUICK / Quick UDP Internet Connections
+
+- 基于 UDP
+- 快速连接
+    - 0-RTT 建连
+- 安全可靠（SSL/TLS）
+- 多路并发
+    - 没有队头阻塞，多路复用
+    - 基于 stream 和 connection 的流量控制
+
+速度和效率
+
+- 0-RTT 建连
+- 灵活（自定义？）的拥塞控制
+- 没有队头阻塞的多路复用
+- 前向纠错
+    - 没发几个包需要多发一个用于纠错的包（结构上的消耗）？
+- 连接迁移
+
+完全握手
+
+- 1 RTT

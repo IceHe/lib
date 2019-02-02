@@ -8,13 +8,93 @@ References
 
 - 简单之美 | Kubernetes基础篇：主要特性、基本概念与总体架构 : http://shiyanjun.cn/archives/1671.html
 
-## rsyslog
+## SRE
+
+> Site Reliable Engineering
+
+### rsyslog
 
 > RSYSLOG is the rocket-fast system for log processing.
 
 References
 
 - https://www.rsyslog.com/
+
+### Mesos
+
+> Program against your datacenter like it’s a single pool of resources
+
+- Apache Mesos abstracts CPU, memory, storage, and other compute resources away from machines (physical or virtual), enabling fault-tolerant and elastic distributed systems to easily be built and run effectively.
+
+References
+
+- Apache Mesos : http://mesos.apache.org/
+- Mesos入门 · Mesos中文手册 : https://mesos-cn.gitbooks.io/mesos-cn/content/primer/Mesos-of-Getting-Started.html
+
+### Marathon
+
+> A container orchestration platform for Mesos and DC/OS
+
+References
+
+- Marathon: https://mesosphere.github.io/marathon/
+
+Marathon is a production-grade container orchestration platform for Mesosphere’s Datacenter Operating System (DC/OS) and Apache **Mesos**.
+
+Features
+
+- High Availability.
+    - Marathon runs as an active/passive cluster with leader election for 100% uptime.
+- Multiple container runtimes.
+    - Marathon has first-class support for both Mesos containers (using cgroups) and Docker.
+- Stateful apps.
+    - Marathon can bind persistent storage volumes to your application.
+    - You can run databases like MySQL and Postgres, and have storage accounted for by Mesos.
+- _Beautiful and powerful UI._
+    Constraints. These allow to e.g. place only one instance of an application per rack, node, etc.
+- Service Discovery & Load Balancing.
+    - Several methods available.
+- Health Checks.
+    - Evaluate your application’s health using HTTP or TCP checks.
+- Event Subscription.
+    - Supply an HTTP endpoint to receive notifications - for example to integrate with an external load balancer.
+- Metrics.
+    - Query them at /metrics in JSON format or push them to systems like graphite, statsd and Datadog.
+- Complete REST API for easy integration and scriptability.
+
+### Elastic Search
+
+### Kibana
+
+> 通过 Kibana，您能够对 Elasticsearch 中的数据进行可视化并在 Elastic Stack 进行操作
+
+References
+
+- https://www.elastic.co/products/kibana
+- https://www.elastic.co/cn/products/kibana
+
+### Graphite
+
+> Make it easy to store and graph metrics
+
+References
+
+- https://graphiteapp.org/
+
+Graphite is an enterprise-ready monitoring tool that runs equally well on cheap hardware or Cloud infrastructure. Teams use Graphite to track the performance of their websites, applications, business services, and networked servers. It marked the start of a new generation of monitoring tools, making it easier than ever to store, retrieve, share, and visualize time-series data.
+
+### Zabbix
+
+> Monitor anything :
+> Solutions for any kind of IT infrastructure, services, applications, resources
+
+References
+
+- https://www.zabbix.com/
+
+### Spark
+
+### Hadoop
 
 ## Distributed
 
