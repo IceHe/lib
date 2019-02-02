@@ -107,6 +107,20 @@ virtual memory          (kbytes, -v) unlimited
 file locks                      (-x) unlimited
 ```
 
+#### File Descriptors
+
+Maximum number of open file descriptors
+
+```bash
+# CentOS 7.6
+$ ulimit -n
+200000
+
+# macOS
+$ ulimit -n
+4864
+```
+
 ### _macOS_
 
 Soft Limit ( default )
