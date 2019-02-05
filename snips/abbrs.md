@@ -206,6 +206,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cp : [copy](https://en.wikipedia.org/wiki/Copy_(command))
 - cpp : [c++](https://en.wikipedia.org/wiki/C%2B%2B)
 - cr : [carriage return](https://en.wikipedia.org/wiki/Carriage_return)
+- CRC : [Cyclic Redundancy Check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check)
 - crlf : carriage return / line feed
     ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
@@ -442,6 +443,7 @@ Reference : https://www.computerhope.com/keys.htm
 - param : parameter
 - PCB : [Process Control Block](https://en.wikipedia.org/wiki/Process_control_block) ( task struct )
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
+- pct : percent ( for MySQL )
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - pf : prefix | process flags ( for kernel )
 - PFAIL : Possibly Fail ( for Redis Cluster )
@@ -532,6 +534,7 @@ Reference : https://www.computerhope.com/keys.htm
 - serv : server | service
 - sess : session
 - sh : [shell](https://en.wikipedia.org/wiki/Shell_(computing))
+- sha1 : [Secure Hash Algorithm 1](https://en.wikipedia.org/wiki/SHA-1)
 - shf : shift
 - shr : share
 - sig : signal | signature

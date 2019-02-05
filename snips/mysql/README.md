@@ -125,6 +125,93 @@ mysql -u USERNAME -p DATABASE < dump.sql
 # then enter password
 ```
 
+### Slow Log
+
+e.g.
+
+```bash
+mysql> set global slow_query_log=1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> mysql> show variables like '%slow%';
++---------------------------+--------------------------------------------+
+| Variable_name             | Value                                      |
++---------------------------+--------------------------------------------+
+| log_slow_admin_statements | OFF                                        |
+| log_slow_slave_statements | OFF                                        |
+| slow_launch_time          | 2                                          |
+| slow_query_log            | ON                                         |
+| slow_query_log_file       | /usr/local/var/mysql/icehe-laptop-slow.log |
++---------------------------+--------------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> show variables like '%long_query%';
++-----------------+----------+
+| Variable_name   | Value    |
++-----------------+----------+
+| long_query_time | 0.000000 |
++-----------------+----------+
+1 row in set (0.00 sec)
+
+mysql> system tail /usr/local/var/mysql/icehe-laptop-slow.log
+# Time: 2019-02-05T02:05:43.401259Z
+# User@Host: root[root] @ localhost []  Id:    20
+# Query_time: 0.000048  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1549332343;
+show processlist;
+# Time: 2019-02-05T02:06:47.968559Z
+# User@Host: root[root] @ localhost []  Id:    20
+# Query_time: 0.001060  Lock_time: 0.000100 Rows_sent: 5  Rows_examined: 1032
+SET timestamp=1549332407;
+show variables like '%slow%';
+
+mysql> select @@global.tx_isolation,@@tx_isolation,version(),"custom content";
++-----------------------+-----------------+-----------+----------------+
+| @@global.tx_isolation | @@tx_isolation  | version() | custom content |
++-----------------------+-----------------+-----------+----------------+
+| REPEATABLE-READ       | REPEATABLE-READ | 5.7.24    | custom content |
++-----------------------+-----------------+-----------+----------------+
+1 row in set, 2 warnings (0.01 sec)
+```
+
+### Others
+
+#### Processlist
+
+Ref : MySQL慢查询&分析SQL执行效率浅谈 - 简书 : https://www.jianshu.com/p/43091bfa8aa7
+
+```bash
+mysql> show processlist;
++----+------+-----------------+----------+---------+------+----------+------------------+
+| Id | User | Host            | db       | Command | Time | State    | Info             |
++----+------+-----------------+----------+---------+------+----------+------------------+
+| 16 | root | localhost:62050 | life_log | Sleep   |   27 |          | NULL             |
+| 17 | root | localhost:62051 | NULL     | Sleep   |   27 |          | NULL             |
+| 20 | root | localhost       | life_log | Query   |    0 | starting | show processlist |
++----+------+-----------------+----------+---------+------+----------+------------------+
+3 rows in set (0.00 sec)
+```
+
+#### Warnings
+
+```bash
+mysql> show warnings;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    21
+Current database: life_log
+
++---------+------+------------------------------------------------------------------------------------------------------------------------+
+| Level   | Code | Message                                                                                                                |
++---------+------+------------------------------------------------------------------------------------------------------------------------+
+| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
+| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
+| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
+| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
++---------+------+------------------------------------------------------------------------------------------------------------------------+
+4 rows in set (0.01 sec)
+```
+
 ## Others
 
 ### SERIAL
