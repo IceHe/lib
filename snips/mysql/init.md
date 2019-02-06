@@ -23,6 +23,14 @@ References
 ### Connect
 
 ```bash
+mysql -h HOST -P PORT -u USERNAME -pPASSWORD
+# e.g.
+$ mysql -h db.icehe.xyz -P 5104 -u username -ppassword
+```
+
+e.g.
+
+```bash
 $ mysql -u root -p
 Enter password:
 # then press ENTER ↩ ( as no password )
@@ -38,6 +46,24 @@ affiliates. Other names may be trademarks of their respective
 owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+```
+
+#### Create User
+
+- 仅供参考
+
+```bash
+# login as root user
+mysql -u root -p
+
+# create new user
+create user 'springuser'@'localhost' identified by 'ThePassword';
+
+# grant privileges to new user ( DML )
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
+
+# if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
+mysql_upgrade -u root -p
 ```
 
 ### Change Password
@@ -75,4 +101,31 @@ mysql> SHOW DATABASES;
 ```bash
 mysql> USE test_db;
 Database changed
+```
+
+### Dump
+
+References
+
+- Dump Data : http://www.runoob.com/mysql/mysql-database-export.html
+- Import Data : http://www.runoob.com/mysql/mysql-database-import.html
+
+Trouble-shooting
+
+- How should I tackle --secure-file-priv in MySQL? https://stackoverflow.com/a/40419548/5110899
+
+Dump
+
+```bash
+mysqldump -u USERNAME -p DATABASE | tee -a dump.sql
+# then enter password
+```
+
+Import
+
+- Read & Execute SQL
+
+```bash
+mysql -u USERNAME -p DATABASE < dump.sql
+# then enter password
 ```

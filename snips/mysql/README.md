@@ -38,29 +38,7 @@ TODO : abstract
 
 ## CLI
 
-### Create User
-
-```bash
-# login as root user
-mysql -u root -p
-
-# create new user
-create user 'springuser'@'localhost' identified by 'ThePassword';
-
-# grant privileges to new user ( DML )
-GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
-
-# if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
-mysql_upgrade -u root -p
-```
-
-### Connect
-
-```bash
-mysql -h HOST -P PORT -u USERNAME -pPASSWORD
-# e.g.
-$ mysql -h db.icehe.xyz -P 5104 -u username -ppassword
-```
+Sth. was moved to [init.md](/snips/mysql/init.md).
 
 ### Interact
 
@@ -100,34 +78,7 @@ show create table <table_name>
 show create table jobs
 ```
 
-### Dump
-
-References
-
-- Dump Data : http://www.runoob.com/mysql/mysql-database-export.html
-- Import Data : http://www.runoob.com/mysql/mysql-database-import.html
-
-Trouble-shooting
-
-- How should I tackle --secure-file-priv in MySQL? https://stackoverflow.com/a/40419548/5110899
-
-Dump
-
-```bash
-mysqldump -u USERNAME -p DATABASE | tee -a dump.sql
-# then enter password
-```
-
-Import
-
-- Read & Execute SQL
-
-```bash
-mysql -u USERNAME -p DATABASE < dump.sql
-# then enter password
-```
-
-### Slow Log
+#### Slow Log
 
 e.g.
 
@@ -176,8 +127,6 @@ mysql> select @@global.tx_isolation,@@tx_isolation,version(),"custom content";
 1 row in set, 2 warnings (0.01 sec)
 ```
 
-### Others
-
 #### Processlist
 
 Ref : MySQL慢查询&分析SQL执行效率浅谈 - 简书 : https://www.jianshu.com/p/43091bfa8aa7
@@ -212,6 +161,33 @@ Current database: life_log
 | Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
 +---------+------+------------------------------------------------------------------------------------------------------------------------+
 4 rows in set (0.01 sec)
+```
+
+#### Prepare
+
+References
+
+- 理解Mysql prepare预处理语句 : https://www.cnblogs.com/simpman/p/6510604.html
+- MySQL :: MySQL 8.0 Reference Manual :: 13.5 Prepared SQL Statement Syntax : https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html
+
+#### Explain
+
+References
+
+- MySQL 性能优化神器 Explain 使用分析 : https://segmentfault.com/a/1190000008131735
+
+#### Lock
+
+References
+
+- MySQL Transactional and Locking Commands - MySQL Reference Manual [Book] : https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
+
+```sql
+> lock table t write;
+Query OK, 0 rows affected (0.00 sec)
+
+> unlock tables;
+Query OK, 0 rows affected (0.00 sec)
 ```
 
 ## Others
