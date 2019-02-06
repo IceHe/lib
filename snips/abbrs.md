@@ -559,6 +559,7 @@ Reference : https://www.computerhope.com/keys.htm
 - st : something | sometimes
 - stat : status | statistics
 - stk : [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
+- stmt : statement ( for SQL )
 - str : string
 - sub : subscribe, subscription
 - sum : summary | summation

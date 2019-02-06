@@ -24,11 +24,13 @@ binlog (binary log)
 References
 
 - https://www.w3schools.com/sql/sql_syntax.asp
-- https://sql.sh/cours
 
 ### Basic Grammar
 
 TODO : abstract
+
+- `LIMIT length`
+- `LIMIT offset, length` = `LIMIT length OFFSET offset`
 
 ### ON DUPLICATE KEY UPDATE
 
@@ -256,4 +258,8 @@ INT
     - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
 - bigint 8
 
+### binlog_row_image
 
+References
+
+- MySQL 5.7贴心参数之binlog_row_image : http://www.cnblogs.com/gomysql/p/6155160.html
