@@ -589,6 +589,7 @@ Reference : https://www.computerhope.com/keys.htm
 - top : [table of processes](https://en.wikipedia.org/wiki/Top_(software)) ( for CLI )
 - TORM : to remove ( for me )
 - tpl : template
+- trx : transaction ( for SQL )
 - ts : [timestamp](https://en.wikipedia.org/wiki/Timestamp)
 - TTL : [Time to Live](https://en.wikipedia.org/wiki/Time_to_live)
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)

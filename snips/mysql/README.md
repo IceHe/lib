@@ -315,7 +315,7 @@ resetconnection(\x) Clean session context.
 For server side help, type 'help contents'
 ```
 
-## Index & Key
+### Index & Key
 
 References
 
@@ -324,3 +324,15 @@ References
 > KEY | INDEX
 >
 > - KEY is normally a synonym for INDEX. The key attribute PRIMARY KEY can also be specified as just KEY when given in a column definition. This was implemented for compatibility with other database systems.
+
+### utf8 & utf8mb4
+
+References
+
+- 清官谈 MySQL 中 utf8 和 utf8mb4 区别 : http://blogread.cn/it/article/7546?f=wb_blogread
+
+### Binlog Config
+
+References
+
+- mysql中如何开启binlog? : https://www.cnblogs.com/chuanzhang053/p/9335924.html
