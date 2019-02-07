@@ -196,6 +196,28 @@ Query OK, 0 rows affected (0.00 sec)
 Query OK, 0 rows affected (0.00 sec)
 ```
 
+#### Isolation
+
+隔离级别
+
+```bash
+mysql> select @@tx_isolation;
++-----------------+
+| @@tx_isolation  |
++-----------------+
+| REPEATABLE-READ |
++-----------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select @@global.tx_isolation;
++-----------------------+
+| @@global.tx_isolation |
++-----------------------+
+| REPEATABLE-READ       |
++-----------------------+
+```
+
+
 ## Others
 
 ### SERIAL
@@ -292,3 +314,13 @@ resetconnection(\x) Clean session context.
 
 For server side help, type 'help contents'
 ```
+
+## Index & Key
+
+References
+
+- mysql中index和key的区别 : https://blog.csdn.net/kusedexingfu/article/details/78347354
+
+> KEY | INDEX
+>
+> - KEY is normally a synonym for INDEX. The key attribute PRIMARY KEY can also be specified as just KEY when given in a column definition. This was implemented for compatibility with other database systems.

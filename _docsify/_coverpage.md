@@ -2,7 +2,7 @@
 
 # IceHe <small>Lib</small>
 
-    <!-- 人生也是这样的吗？ -->
+    <!-- 好记性不如烂博客。 -->
 
 <!-- Done is better than perfect. -->
 
