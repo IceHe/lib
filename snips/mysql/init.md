@@ -66,6 +66,48 @@ GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
 mysql_upgrade -u root -p
 ```
 
+#### Version
+
+```bash
+mysql> select version();
++-----------+
+| version() |
++-----------+
+| 5.7.24    |
++-----------+
+1 row in set (0.00 sec)
+```
+
+or
+
+```bash
+mysql> status;
+# or
+mysql> \s
+--------------
+mysql  Ver 14.14 Distrib 5.7.24, for osx10.13 (x86_64) using  EditLine wrapper
+
+Connection id:          29
+Current database:       life_log
+Current user:           root@localhost
+SSL:                    Not in use
+Current pager:          less
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         5.7.24 Homebrew
+Protocol version:       10
+Connection:             Localhost via UNIX socket
+Server characterset:    utf8
+Db     characterset:    utf8
+Client characterset:    utf8
+Conn.  characterset:    utf8
+UNIX socket:            /tmp/mysql.sock
+Uptime:                 23 days 8 hours 5 min 10 sec
+
+Threads: 5  Questions: 909871  Slow queries: 225  Opens: 282  Flush tables: 1  Open tables: 243  Queries per second avg: 0.451
+--------------
+```
+
 ### Change Password
 
 ```bash
@@ -101,6 +143,26 @@ mysql> SHOW DATABASES;
 ```bash
 mysql> USE test_db;
 Database changed
+```
+
+#### Current DB & User
+
+```bash
+mysql> select DATABASE();
++------------+
+| DATABASE() |
++------------+
+| life_log   |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select USER();
++----------------+
+| USER()         |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.00 sec)
 ```
 
 ### Dump
