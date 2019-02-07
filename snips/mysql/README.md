@@ -217,7 +217,6 @@ mysql> select @@global.tx_isolation;
 +-----------------------+
 ```
 
-
 ## Others
 
 ### SERIAL
