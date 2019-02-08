@@ -330,8 +330,37 @@ References
 
 - 清官谈 MySQL 中 utf8 和 utf8mb4 区别 : http://blogread.cn/it/article/7546?f=wb_blogread
 
-### Binlog Config
+### Binlog
 
 References
 
 - mysql中如何开启binlog? : https://www.cnblogs.com/chuanzhang053/p/9335924.html
+
+```bash
+# e.g.
+mysql> set @@binlog_format=row;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select @@binlog_format;
++-----------------+
+| @@binlog_format |
++-----------------+
+| ROW             |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select @@binlog_row_image;
++--------------------+
+| @@binlog_row_image |
++--------------------+
+| FULL               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> show binlog events;
+```
+
+```bash
+# e.g.
+$ mysqlbinlog -vv mysql-bin.000001 --start-position=2078
+```
