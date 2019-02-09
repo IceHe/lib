@@ -364,3 +364,20 @@ mysql> show binlog events;
 # e.g.
 $ mysqlbinlog -vv mysql-bin.000001 --start-position=2078
 ```
+
+### sql_safe_updates
+
+```bash
+mysql> set sql_safe_updates=1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show variables like '%sql_safe_updates%';
++------------------+-------+
+| Variable_name    | Value |
++------------------+-------+
+| sql_safe_updates | ON    |
++------------------+-------+
+1 row in set (0.00 sec)
+```
+
+保护：如果忘记在 update/delete 语句添加 where 条件，或者索引字段的话，执行会报错

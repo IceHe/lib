@@ -300,6 +300,7 @@ Reference : https://www.computerhope.com/keys.htm
 - gid : group id
 - glob : [glob patterns](https://en.wikipedia.org/wiki/Glob_(programming))
 - GMT : [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) 格林威治时间
+- GTID : [Global Transaction Identifier](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-concepts.html) ( for MySQL )
 
 ### H
 
