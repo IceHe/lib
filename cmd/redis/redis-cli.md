@@ -243,6 +243,18 @@ active_defrag_running:0
 lazyfree_pending_objects:0
 ```
 
+### stat
+
+```bash
+$ redis-cli --stat
+------- data ------ --------------------- load -------------------- - child -
+keys       mem      clients blocked requests            connections
+131        8.94M    1       0       77826 (+0)          17
+131        8.94M    1       0       77827 (+1)          17
+131        8.94M    1       0       77828 (+1)          17
+……
+```
+
 ### keys
 
 References
