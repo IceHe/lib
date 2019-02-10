@@ -173,6 +173,7 @@ Reference : https://www.computerhope.com/keys.htm
 - bak : backup
 - BASE : [Basically Available, Soft state, Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency)
 - bat : batch
+- BKA : Batched Key Access 算法 ( for SQL )
 - B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
 - bg : background
 - bin : binary
@@ -397,6 +398,8 @@ Reference : https://www.computerhope.com/keys.htm
 - mgr : manager
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mm : [memory management](https://en.wikipedia.org/wiki/Memory_management)
+- MRR : Multi-Range Read 优化 ( for SQL )
+    - 尽量顺序读盘，先将主键按照顺序排序号，再去磁盘按页获取（充分利用顺序 IO 效率高）
 - MSS : [Maximum Segment Size](https://en.wikipedia.org/wiki/Maximum_segment_size)
 - mod : modify | mode
 - MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
@@ -412,6 +415,7 @@ Reference : https://www.computerhope.com/keys.htm
 - n/a , N/A , n.a. : [not applicable](https://en.wikipedia.org/wiki/N/a) 不适用
 - NaN : [Not a Number](https://en.wikipedia.org/wiki/NaN)
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
+- NLJ : Nested-Loop Join 算法 ( for SQL : Index/Simple/Block NLJ )
 - No. : number
 - no-no : n. 禁忌；不可作之事
 - NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"

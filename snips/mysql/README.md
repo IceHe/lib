@@ -381,3 +381,44 @@ mysql> show variables like '%sql_safe_updates%';
 ```
 
 保护：如果忘记在 update/delete 语句添加 where 条件，或者索引字段的话，执行会报错
+
+### Multi-Range Read
+
+References
+
+- 35 | join语句怎么优化？: https://time.geekbang.org/column/article/80147
+
+优化开启语句
+
+```bash
+mysql> set optimizer_switch="mrr_cost_based=off";
+Query OK, 0 rows affected (0.00 sec)
+
+# e.g. `Using MRR`
+mysql> explain select * from t1 where a>=1 and a<=100;
++----+-------------+-------+------------+-------+---------------+------+---------+------+------+----------+----------------------------------+
+| id | select_type | table | partitions | type  | possible_keys | key  | key_len | ref  | rows | filtered | Extra                            |
++----+-------------+-------+------------+-------+---------------+------+---------+------+------+----------+----------------------------------+
+|  1 | SIMPLE      | t1    | NULL       | range | a             | a    | 5       | NULL |  100 |   100.00 | Using index condition; Using MRR |
++----+-------------+-------+------------+-------+---------------+------+---------+------+------+----------+----------------------------------+
+1 row in set, 1 warning (0.00 sec)
+```
+
+### Batched Key Access
+
+References
+
+- 35 | join语句怎么优化？: https://time.geekbang.org/column/article/80147
+
+优化算法，开启方法
+
+- 依赖 MRR
+
+```sql
+set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
+```
+
+### Union
+
+- union : 去重
+- union all : 不去重
