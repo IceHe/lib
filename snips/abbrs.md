@@ -312,6 +312,7 @@ Reference : https://www.computerhope.com/keys.htm
 - HD : [Hard Disk](https://en.wikipedia.org/wiki/Hard_disk_drive)
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system) ( [百度百科](https://baike.baidu.com/item/hdfs/4836121) )
 - hex : heximal
+- HRBP : [Human Resource Business Partner](https://baike.baidu.com/item/HRBP)
 - hrs : hours
 - hup : hang up
 
