@@ -2,6 +2,8 @@
 
 // https://leetcode.com/problems/delete-columns-to-make-sorted/
 
+// TODO
+
 class Solution {
 
     /**
@@ -14,9 +16,9 @@ class Solution {
         for ($col = 0; $col < $len; $col++) {
             $char = '';
             foreach ($A as $str) {
-                if ($str[$col]) {
+//                if ($str[$col] > ) {
                     continue;
-                }
+//                }
             }
             $cnt++;
         }
