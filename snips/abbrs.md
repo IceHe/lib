@@ -176,6 +176,7 @@ Reference : https://www.computerhope.com/keys.htm
 - BKA : Batched Key Access 算法 ( for SQL )
 - B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
 - bg : background
+- BGP : Border Gatway Protocol
 - bin : binary
 - biz : business
 - brk : [break](https://en.wikipedia.org/wiki/Sbrk)
@@ -438,6 +439,7 @@ Reference : https://www.computerhope.com/keys.htm
 - opt : option
 - ori : original
 - ORM : [Object Relational Mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
+- OSPF : Open Shortest Path First 开放最短链路优先
 - oth : others
 - OOTB : [out-of-the-box](https://en.wikipedia.org/wiki/Out_of_the_box_(feature))
 
@@ -514,6 +516,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ret : return
 - rg : right
 - RIP : Real IP ( for Server )
+- RIP : Routing Information Protocol 路由信息协议
 - rm : remove
 - rn : rename
 - rst : result | reset 重置 ( for TCP )

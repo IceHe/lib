@@ -59,7 +59,7 @@ Marathon <-> Mesos Master <-> Mesos Slave
 - nginx
     - worker_processes auto
         - 线上看这样设置，进程数跟 CPU 核数差不多
-    - cpu_affiity auto
+    - cpu_affinity auto
 - php-fpm
     - Ref : http://php.net/manual/en/install.fpm.configuration.php
     - pm : static
@@ -100,7 +100,7 @@ cgroups 资源限制
 
 ## Weibo DCP
 
-其实是用 puppet（自动化运维工具）来管理一堆机器
+其实是用 puppet（自动化运维工具，并不是……）来管理一堆机器
 
 - 上线管理都是一台 puppet 的
 

@@ -4,10 +4,6 @@
 
 ## Algorithm
 
-Others
-
-- [x] Binary Search
-
 ### Sort
 
 Ref : https://www.toptal.com/developers/sorting-algorithms/quick-sort

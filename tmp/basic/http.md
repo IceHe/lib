@@ -27,10 +27,11 @@ Features
 - body 消息主体
 
 ```bash
-<method> <request-URL> <version>
+<method> <request_url> HTTP/<version>
 <headers>
 
 <entity-body>
+
 ```
 
 e.g. GET
@@ -41,20 +42,22 @@ Host: www.example.com
 User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
 Gecko/20050225 Firefox/1.0.1
 Connection: Keep-Alive
+
 ```
 
 e.g. POST
 
 ```http
- POST / HTTP/1.1
- Host: www.example.com
- User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
- Gecko/20050225 Firefox/1.0.1
- Content-Type: application/x-www-form-urlencoded
- Content-Length: 40
- Connection: Keep-Alive
+POST / HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
+Gecko/20050225 Firefox/1.0.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 40
+Connection: Keep-Alive
 
- sex=man&name=Professional
+sex=man&name=Professional
+
 ```
 
 ### POST Content-Type
@@ -231,16 +234,32 @@ Chrome 和 Firefox 等浏览器都没有默认打开的特性。
 - 提交含有 JS 脚本的文本内容到页面
     - 一旦服务器没有处理好（过滤、转义），分发到到用户手上，就会运行这些脚本
     - 可能导致盗号或其他未授权操作
+- 或者将 js 静态资源，替换成包含恶意代码的版本
 
 避免方法
 
 - 过滤用户输入
     - 使用 HTML 解析库进行解析，过滤掉危险的标签
         - 例如 script，或者元素的 onclick 事件
+- 使用 HTTPS 获取 js 等静态资源
 
 ## HTTP 2
 
-TODO
+References
+
+- http2 简介 - 掘金 : https://juejin.im/post/5aaccf8f51882555784dbabc
+
+Features
+
+- 二进制分帧
+- 头部压缩
+    - 使用索引值指定使用的头信息
+        - 客户端和服务端：共同维护一个静态字典及其后面的动态字典
+- 服务端推送
+    - 例如：服务端主动将 HTML 包含的 CSS、JS、images 资源也推送给客户端
+        - 客户端不用再另外发起请求去取资源
+- 多路复用
+- 优化手段
 
 ## QUIC
 
