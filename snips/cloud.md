@@ -20,6 +20,17 @@ References
 
 - https://www.rsyslog.com/
 
+### Filebeat
+
+> Lightweight Shipper for Logs
+>
+> - Forget using SSH when you have tens, hundreds, or even thousands of servers, virtual machines, and containers generating logs.
+> - Filebeat helps you keep the simple things simple by offering a lightweight way to forward and centralize logs and files.
+
+References
+
+- Filebeat: Lightweight Log Analysis & Elasticsearch : https://www.elastic.co/products/beats/filebeat
+
 ### Mesos
 
 > Program against your datacenter like it’s a single pool of resources

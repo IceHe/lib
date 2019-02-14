@@ -247,7 +247,10 @@ Chrome 和 Firefox 等浏览器都没有默认打开的特性。
 
 References
 
+- **HTTP/2 幕后原理** : https://www.ibm.com/developerworks/cn/web/wa-http2-under-the-hood/index.html
 - http2 简介 - 掘金 : https://juejin.im/post/5aaccf8f51882555784dbabc
+- HTTP /2 协议简介 : https://blog.upyun.com/?p=1447
+- HTTP/2.0 相比1.0有哪些重大改进？- 知乎 : https://www.zhihu.com/question/34074946
 
 Features
 
