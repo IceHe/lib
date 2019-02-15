@@ -65,3 +65,27 @@ References
 References
 
 - https://github.com/arnaud-lb/php-rdkafka
+
+### Life Cycle 生命周期
+
+References
+
+- PHP的生命周期 : https://segmentfault.com/a/1190000013321594
+
+PHP 的启动
+
+- MINIT - Module Init
+    - 模块初始化：拓展、常量、类、资源等 PHP 脚本需要用到的东西，常驻内存
+- RINIT - Request Init
+    - PHP 调用所有模块的 RINIT 函数，执行相关操作
+    - 初始化跟本次请求相关的变量
+- RSHUTDOWN - Request Shutdown
+    - PHP 调用已加载拓展的 RSHUTDOWN
+    - die / exit 时，PHP 会启动回收本次请求使用的资源
+        - 变量、内存
+- MSHUTDOWN - Module Shutdown
+    - PHP 调用所有拓展的 MSHUTDOWN 函数，释放资源
+
+PHP 的生命周期
+
+（CGI/CLI）

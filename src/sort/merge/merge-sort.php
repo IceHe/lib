@@ -2,7 +2,7 @@
 
 require_once("../_utils/utils.php");
 
-function mergeSort(array &$ary): void {
+function mergeSortRecur(array &$ary): void {
     $len = count($ary);
     if ($len <= 1) {
         return;
@@ -11,8 +11,8 @@ function mergeSort(array &$ary): void {
     $privot = floor($len / 2);
     $aryA = array_slice($ary, 0, $privot);
     $aryB = array_slice($ary, $privot);
-    mergeSort($aryA);
-    mergeSort($aryB);
+    mergeSortRecur($aryA);
+    mergeSortRecur($aryB);
 
     $k = 0;
     while ($k < $len) {
@@ -29,40 +29,7 @@ function mergeSort(array &$ary): void {
     }
 }
 
-function mergeSort2(array &$ary): void {
-    doMergeSort2($ary, 0, count($ary) - 1);
-}
-
-function doMergeSort2(array &$ary, int $beg, int $end): void {
-    if ($beg >= $end) {
-        return;
-    }
-
-    $privot = floor(($beg + $end) / 2);
-
-    doMergeSort2($ary, $beg, $privot);
-    doMergeSort2($ary, $privot + 1, $end);
-
-    $bakAry = $ary;
-
-    $i = $beg;
-    $j = $privot + 1;
-    $k = $beg;
-    while ($k <= $end) {
-        if ($i > $privot) {
-            $ary[$k] = $bakAry[$j++];
-        } else if ($j > $end) {
-            $ary[$k] = $bakAry[$i++];
-        } else if ($bakAry[$i] < $bakAry[$j]) {
-            $ary[$k] = $bakAry[$i++];
-        } else {
-            $ary[$k] = $bakAry[$j++];
-        }
-        $k++;
-    }
-}
-
-function mergeSort3(array &$ary): void {
+function mergeSortRecur2(array &$ary): void {
     $len = count($ary);
     if ($len <= 1) {
         return;
@@ -73,8 +40,8 @@ function mergeSort3(array &$ary): void {
     $aryA = array_slice($ary, 0, $privot);
     $aryB = array_slice($ary, $privot);
 
-    mergeSort($aryA);
-    mergeSort($aryB);
+    mergeSortRecur2($aryA);
+    mergeSortRecur2($aryB);
 
     $a = 0;
     $b = 0;
@@ -93,7 +60,45 @@ function mergeSort3(array &$ary): void {
     }
 }
 
-testSort("mergeSort");
-testSort("mergeSort2");
-testSort("mergeSort3");
+function mergeSortIter(array &$ary): void {
+    $len = count($ary);
+    if ($len <= 1) {
+        return;
+    }
+
+    for ($step = 1; $step <= $len; $step *= 2) {
+        $offset = $step * 2;
+        for ($i = 0; $i < $len; $i += $offset) {
+            $head1 = $i;
+            $head2 = min($i + $step, $len - 1);
+            $tail2 = min($i + $offset - 1, $len - 1);
+            assistMergeSort($ary, $head1, $head2, $tail2);
+        }
+    }
+}
+
+function assistMergeSort(array &$ary, $head1, $head2, $tail2) {
+    $tmpAry = $ary;
+    $tail1 = $head2 - 1;
+
+    $i = $head1;
+    $j = $head2;
+    $k = $head1;
+    while ($k <= $tail2) {
+        if ($i > $tail1) {
+            $ary[$k] = $tmpAry[$j++];
+        } else if ($j > $tail2) {
+            $ary[$k] = $tmpAry[$i++];
+        } else if ($tmpAry[$i] < $tmpAry[$j]) {
+            $ary[$k] = $tmpAry[$i++];
+        } else {
+            $ary[$k] = $tmpAry[$j++];
+        }
+        $k++;
+    }
+}
+
+testSort("mergeSortRecur");
+testSort("mergeSortRecur2");
+testSort("mergeSortIter");
 
