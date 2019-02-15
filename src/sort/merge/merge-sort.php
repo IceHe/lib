@@ -72,12 +72,12 @@ function mergeSortIter(array &$ary): void {
             $head1 = $i;
             $head2 = min($i + $step, $len - 1);
             $tail2 = min($i + $offset - 1, $len - 1);
-            assistMergeSort($ary, $head1, $head2, $tail2);
+            assistMergeSortIter($ary, $head1, $head2, $tail2);
         }
     }
 }
 
-function assistMergeSort(array &$ary, $head1, $head2, $tail2) {
+function assistMergeSortIter(array &$ary, $head1, $head2, $tail2) {
     $tmpAry = $ary;
     $tail1 = $head2 - 1;
 

@@ -89,3 +89,43 @@ PHP 的启动
 PHP 的生命周期
 
 （CGI/CLI）
+
+暂从略
+
+- extensions -> MINIT()
+    - while (requests)
+        - request index.php
+        - extensions -> RINIT()
+        - run index.php
+        - extensions -> RSHUTDOWN()
+        - finish cleaning up index.php
+    - end while
+- extensions -> MSHUTDOWN
+
+即
+
+- extensions -> MINIT()
+    - extensions -> RINIT()
+    - SCRIPT
+    - extensions -> RSHUTDOWN()
+- extensions -> MSHUTDOWN
+
+### PHP 使用的内存量
+
+```php
+<php?
+
+$startMemSize = memory_get_usage();
+// ...
+$endMemSize = memory_get_usage();
+
+echo $startMemSize." bytes \n";
+echo $endMemSize." bytes \n";
+echo ($endMemSize - $startMemSize)." bytes \n";
+
+// output:
+// ……
+// 363088 bytes
+// 373784 bytes
+// 10696 bytes
+```
