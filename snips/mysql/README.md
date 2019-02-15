@@ -422,3 +422,11 @@ set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
 
 - union : 去重
 - union all : 不去重
+
+### innodb_lock_wait_timeout
+
+> 锁等待超时时间
+
+```sql
+set Innodb_lock_wait_timeout = 5;
+```

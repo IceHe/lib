@@ -2,6 +2,8 @@
 
 // https://leetcode.com/problems/invert-binary-tree/
 
+require_once('../_utils/tree-node.php');
+
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -12,7 +14,6 @@
  * }
  */
 class Solution {
-
     /**
      * @param TreeNode $root
      * @return TreeNode
@@ -37,21 +38,13 @@ class Solution {
     }
 }
 
-class TreeNode {
-    public $val = null;
-    public $left = null;
-    public $right = null;
-    function __construct($value) { $this->val = $value; }
-
-    // TODO
-    static function build(array $ary): ?TreeNode {
-        $len = count($ary);
-        if ($len === 0) {
-            return null;
-        }
-
-    }
-}
-
 $treeAry = [4,2,7,1,3,6,9];
-// TODO
+$treeNode = TreeNode::build($treeAry);
+TreeNode::traverse($treeNode);
+
+echo "-------------\n";
+
+$solution = new Solution();
+$solution->invertTree($treeNode);
+TreeNode::traverse($treeNode);
+
