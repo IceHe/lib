@@ -67,6 +67,6 @@ class TreeNode {
 
 // for test
 //$treeAry = [4,2,7,1,8,6,9];
-$treeAry = [4,2,7,1,null,null,9];
-$treeNode = TreeNode::build($treeAry);
-TreeNode::traverse($treeNode);
+//$treeAry = [4,2,7,1,null,null,9];
+//$treeNode = TreeNode::build($treeAry);
+//TreeNode::traverse($treeNode);
