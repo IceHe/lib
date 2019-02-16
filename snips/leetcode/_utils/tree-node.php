@@ -6,7 +6,7 @@ class TreeNode {
     public $right = null;
     public function __construct($value) { $this->val = $value; }
 
-    public static function build(array $ary): ?TreeNode {
+    public static function build(array $ary, $skipNull = true): ?TreeNode {
         $len = count($ary);
         if ($len === 0) {
             return null;
@@ -14,7 +14,7 @@ class TreeNode {
 
         $nodeAry = [];
         foreach ($ary as $i => $v) {
-            if ($v === null) {
+            if ($v === null && $skipNull) {
                 continue;
             }
 
