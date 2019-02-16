@@ -12,7 +12,7 @@ function mergeSortIter(array &$ary): void {
 
 }
 
-testSort("mergeSortCur", 10);
+testSort("mergeSortRecur", 10);
 testSort("mergeSortIter", 10);
 
 $endMemSize = memory_get_usage();
