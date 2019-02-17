@@ -110,6 +110,12 @@ PHP 的生命周期
     - extensions -> RSHUTDOWN()
 - extensions -> MSHUTDOWN
 
+### 深拷贝 & 浅拷贝
+
+References
+
+- PHP中对象的深拷贝与浅拷贝 : https://www.cnblogs.com/taijun/p/4208008.html
+
 ### PHP 使用的内存量
 
 ```php
