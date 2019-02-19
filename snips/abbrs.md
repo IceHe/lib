@@ -313,6 +313,7 @@ Reference : https://www.computerhope.com/keys.htm
 - HD : [Hard Disk](https://en.wikipedia.org/wiki/Hard_disk_drive)
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system) ( [百度百科](https://baike.baidu.com/item/hdfs/4836121) )
 - hex : heximal
+- hi : hard interrupt ( for CLI `top` )
 - HRBP : [Human Resource Business Partner](https://baike.baidu.com/item/HRBP)
 - hrs : hours
 - hup : hang up
@@ -325,6 +326,8 @@ Reference : https://www.computerhope.com/keys.htm
 - IaaS : 基础设施即服务 [Infrastructure as a Service](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)
 - ico : icon
 - ICMP : [Internet Control Message Protocol](https://baike.baidu.com/item/ICMP) ( for Network )
+- id : identity, identifier
+    - idle ( for CLI `top` )
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
 - idx : index
 - i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）
@@ -546,6 +549,7 @@ Reference : https://www.computerhope.com/keys.htm
 - sha1 : [Secure Hash Algorithm 1](https://en.wikipedia.org/wiki/SHA-1)
 - shf : shift
 - shr : share
+- si : soft interrupt ( for CLI `top` )
 - sig : signal | signature
 - sim : simple , simplify
 - SJF : Shortest Job First ( for OS )
@@ -572,6 +576,8 @@ Reference : https://www.computerhope.com/keys.htm
 - str : string
 - sub : subscribe, subscription
 - sum : summary | summation
+- supremum : InnoDB 给每个索引添加了一个不存在的最大值
+    - 以符合间隙锁（next-key lock）的前开后闭区间。
 - swp : swap
 - sym : symbol
 - syn : synchronize, [synchronization](https://en.wikipedia.org/wiki/Synchronization)
