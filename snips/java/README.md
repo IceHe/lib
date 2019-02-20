@@ -25,3 +25,11 @@ Command Line Tools
 
 - jconsole : VM Performance Statistics
 - jmap : Stack & Heap
+
+---
+
+<!-- Interview -->
+
+Basics
+
+- （Java 基础）我的阿里之路+Java面经考点 : https://juejin.im/post/5aa4a2e35188255589496eb8

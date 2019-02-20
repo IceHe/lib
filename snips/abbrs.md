@@ -187,6 +187,8 @@ Reference : https://www.computerhope.com/keys.htm
 ### C
 
 - c : command | check ( for CLI )
+- c10k Problem : 10 thousand client
+- c17n : canonicalization
 - CA : [Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority)
 - cal : call
 - CAP : [Consistency, Availability, Partition Tolerance](https://en.wikipedia.org/wiki/CAP_theorem)
@@ -323,6 +325,9 @@ Reference : https://www.computerhope.com/keys.htm
 - i : index | integer | me
     - for CLI : ignore | initialize | interactive
 - I : me | include ( for CLI )
+- i10n : localization
+- i14y : interoperability
+- i18n : internationalization
 - IaaS : 基础设施即服务 [Infrastructure as a Service](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)
 - ico : icon
 - ICMP : [Internet Control Message Protocol](https://baike.baidu.com/item/ICMP) ( for Network )
@@ -358,6 +363,7 @@ Reference : https://www.computerhope.com/keys.htm
 ### K
 
 - k : kilo- 千 | kill ( for CLI )
+- k8s : Kubernetes
 - KiB : [kibibyte](https://en.wikipedia.org/wiki/Kibibyte) , 2^10 = 1024 bytes
     - KB : Kilobyte , 10^3 = 1000 bytes
     - Others : GiB / TiB / PiB / EiB / ZiB / YiB
@@ -390,6 +396,7 @@ Reference : https://www.computerhope.com/keys.htm
 - m : minute
     - for CLI : mail | message | mode | modification
 - M : month | million 百万
+- m17n : multilingualization 多语言
 - MBR : [Master Boot Record](https://en.wikipedia.org/wiki/Master_boot_record)
 - mc : [Memcached](https://en.wikipedia.org/wiki/Memcached)
 - md : [markdown](https://en.wikipedia.org/wiki/Markdown)
@@ -456,6 +463,7 @@ Reference : https://www.computerhope.com/keys.htm
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 - pct : percent ( for MySQL )
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
+- P13N : personalization
 - pf : prefix | process flags ( for kernel )
 - PFAIL : Possibly Fail ( for Redis Cluster )
 - pg : page
@@ -632,6 +640,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - v : version | verbose ( for CLI )
 - V : version ( for CLI )
+- v12n : virtualization
 - val : value
 - var : variable
 - VC : [Venture Capital](https://en.wikipedia.org/wiki/Venture_capital)
@@ -662,6 +671,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - y : year
     - for CLI : yes
+- Y2K38 Problem : Year 2038
 - yr : year
 - yrs : years | yours
 

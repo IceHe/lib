@@ -71,8 +71,10 @@ CAP theorem
 
 ## Concurrency & Parallelism
 
-- **Concurrency** is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.
-- **Parallelism** is when tasks literally run at the same time, e.g., on a multicore processor.
+> 并发 & 并行（的区别）
+
+- 并发 **Concurrency** is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.
+- 并行 **Parallelism** is when tasks literally run at the same time, e.g., on a multicore processor.
 - Reference : StackOverflow : https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism
 
 ## Reverse proxy
