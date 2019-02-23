@@ -135,3 +135,29 @@ echo ($endMemSize - $startMemSize)." bytes \n";
 // 373784 bytes
 // 10696 bytes
 ```
+
+### 将字符之间的 ASCII 值差值计算
+
+错误方式……
+
+```php
+// 误以为是 C/C++ 的处理方式：
+$charDiff = 'z' - 'a';
+// 或者
+$charDiff = (int) ('z' - 'a');
+// 会报错（PHP 7.1.25）
+PHP Warning:  A non-numeric value encountered in /Users/IceHe/Documents/Lib/snips/leetcode/easy/806-number-of-lines-to-write-string.php on line 25
+PHP Stack trace:
+PHP   1. {main}() /Users/IceHe/Documents/Lib/snips/leetcode/easy/806-number-of-lines-to-write-string.php:0
+PHP   2. Solution->numberOfLines() /Users/IceHe/Documents/Lib/snips/leetcode/easy/806-number-of-lines-to-write-string.php:43
+```
+
+正确方式
+
+```php
+$charDiff = ord('z') - ord('a');
+```
+
+References
+
+- PHP: ord - Manual  : http://php.net/manual/en/function.ord.php
