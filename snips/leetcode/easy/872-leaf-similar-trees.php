@@ -119,7 +119,8 @@ require_once('../_utils/tree-node.php');
 //看了别人的方案，了解到可以不用把所有叶子节点都先算出来，再全部一起对比……
 //而是一个一个对比，省空间，也省时间！优雅呀
 //Ref : https://leetcode.com/problems/leaf-similar-trees/discuss/152329/C%2B%2BJavaPython-O(logN)-Space
-
+//Runtime: 12 ms, faster than 100.00% of PHP online submissions for Leaf-Similar Trees.
+//Memory Usage: 16.4 MB, less than 100.00% of PHP online submissions for Leaf-Similar Trees.
 
 class Solution {
 
@@ -153,18 +154,21 @@ class Solution {
                 return false;
             }
 
-            $peepNode = array_pop($stack);
-
-            if ($peepNode === null) {
+            $node = array_pop($stack);
+            if ($node === null) {
                 continue;
             }
 
-            if (!$peepNode->left && !$peepNode->right) {
-                return $peepNode->val;
+            if ($node->left === null && $node->right === null) {
+                return $node->val;
             }
 
-            array_push($stack, $peepNode->left);
-            array_push($stack, $peepNode->right);
+            if ($node->left !== null) {
+                array_push($stack, $node->left);
+            }
+            if ($node->right !== null) {
+                array_push($stack, $node->right);
+            }
         }
     }
 }
@@ -175,8 +179,8 @@ class Solution {
 $root1 = TreeNode::build([99,6,null,109,77,null,57,92,2,118,113]);
 $root2 = TreeNode::build([87,75,null,118,12,null,null,65,2,113,92]);
 
-TreeNode::traverse($root1);
-TreeNode::traverse($root2);
+//TreeNode::traverse($root1);
+//TreeNode::traverse($root2);
 
-//$solution = new Solution();
-//echo ($solution->leafSimilar($root1, $root2) ? '1' : '0')."\n";
+$solution = new Solution();
+echo ($solution->leafSimilar($root1, $root2) ? 'true' : 'false')."\n";
