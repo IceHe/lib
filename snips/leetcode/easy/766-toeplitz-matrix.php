@@ -84,6 +84,34 @@
 //Runtime: 32 ms, faster than 100.00% of PHP online submissions for Toeplitz Matrix.
 //Memory Usage: 16.4 MB, less than 100.00% of PHP online submissions for Toeplitz Matrix.
 
+//class Solution {
+//
+//    /**
+//     * @param Integer[][] $matrix
+//     * @return Boolean
+//     */
+//    function isToeplitzMatrix($matrix) {
+//        $m = count($matrix);
+//        $n = count($matrix[0] ?? []);
+//
+//        for ($r = 0; $r < $m; $r++) {
+//            for ($c = 0; $c < $n; $c++) {
+//                if ($r + 1 < $m && $c + 1 < $n
+//                    && ($matrix[$r][$c] !== $matrix[$r + 1][$c + 1])
+//                ) {
+//                    return false;
+//                }
+//            }
+//        }
+//
+//        return true;
+//    }
+//}
+
+// 基于答案二，边界情况优化（哨兵），精简代码
+//Runtime: 44 ms, faster than 100.00% of PHP online submissions for Toeplitz Matrix.
+//Memory Usage: 16.6 MB, less than 100.00% of PHP online submissions for Toeplitz Matrix.
+
 class Solution {
 
     /**
@@ -94,11 +122,9 @@ class Solution {
         $m = count($matrix);
         $n = count($matrix[0] ?? []);
 
-        for ($r = 0; $r < $m; $r++) {
-            for ($c = 0; $c < $n; $c++) {
-                if ($r + 1 < $m && $c + 1 < $n
-                    && ($matrix[$r][$c] !== $matrix[$r + 1][$c + 1])
-                ) {
+        for ($r = 0; $r < $m - 1; $r++) {
+            for ($c = 0; $c < $n - 1; $c++) {
+                if ($matrix[$r][$c] !== $matrix[$r + 1][$c + 1]) {
                     return false;
                 }
             }
@@ -107,6 +133,7 @@ class Solution {
         return true;
     }
 }
+
 
 $solution = new Solution();
 
