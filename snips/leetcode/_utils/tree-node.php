@@ -6,7 +6,7 @@ class TreeNode {
     public $right = null;
     public function __construct($value = null) { $this->val = $value; }
 
-    public static function build(array $ary, $skipNull = true): ?TreeNode {
+    public static function build(array $ary, $buildNullNode = false): ?TreeNode {
         $len = count($ary);
         if ($len === 0) {
             return null;
@@ -21,35 +21,34 @@ class TreeNode {
         $curFloorCnt = 0;
 
         foreach ($ary as $v) {
-            if ($v === null) {
-                $curFloorCnt++;
-                continue;
-            }
-
-            $node = new TreeNode($v);
-            array_push($curFloor, $node);
             $curFloorCnt++;
 
-            // init once
-            if ($root === null) {
-                $root = $node;
-            }
+            if ($buildNullNode || $v !== null) {
+                $node = new TreeNode($v);
+                array_push($curFloor, $node);
 
-            // do after 1st iteration
-            if (!empty($prevFloor)) {
-                $parentNodeIdx = floor(($curFloorCnt - 1) / 2);
-                $parentNode = $prevFloor[$parentNodeIdx] ?? null;
+                // init once
+                if ($root === null) {
+                    $root = $node;
+                }
 
-                if ($parentNode !== null) {
-                    if (($curFloorCnt - 1) % 2 == 0) {
-                        $parentNode->left = $node;
-                    } else {
-                        $parentNode->right = $node;
+                // do after 1st floor
+                if (!empty($prevFloor)) {
+                    $parentNodeIndex = (int)floor(($curFloorCnt - 1) / 2);
+                    $parentNode = $prevFloor[$parentNodeIndex] ?? null;
+
+                    if ($parentNode !== null) {
+                        if (($curFloorCnt - 1) % 2 == 0) {
+                            $parentNode->left = $node;
+                        } else {
+                            $parentNode->right = $node;
+                        }
                     }
                 }
             }
 
-            if ($curFloorCnt === $maxCurFloorCnt) {
+            // Go upstairs
+            if ($curFloorCnt >= $maxCurFloorCnt) {
                 $prevFloor = $curFloor;
                 $curFloor = [];
 
@@ -92,6 +91,8 @@ class TreeNode {
 
 ////$treeAry = [4,2,7,1,8,6,9];
 ////$treeAry = [4,2,7,1,null,null,9];
-//$treeAry = [5,3,6,2,4,null,8,1,null,null,null,7,9];
+////$treeAry = [5,3,6,2,4,null,8,1,null,null,null,7,9];
+////$treeAry = [99,6,null,109,77,null,57,92,2,118,113];
+//$treeAry = [87,75,null,118,12,null,null,65,2,113,92];
 //$treeNode = TreeNode::build($treeAry);
 //TreeNode::traverse($treeNode);

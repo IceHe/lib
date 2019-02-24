@@ -67,7 +67,7 @@ $val = 2;
 //$root = [18,2,22,null,null,null,63,null,84,null,null];
 //$val = 63;
 
-$root = TreeNode::build($root, false);
+$root = TreeNode::build($root, true);
 TreeNode::traverse($root);
 
 echo "-------------\n";
