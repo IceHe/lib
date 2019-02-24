@@ -7,6 +7,8 @@
 
 ## Tech
 
+> Get busy living or get busy dying.
+
 ### Snips
 
 <!-- Algorithms -->
@@ -267,21 +269,41 @@ Others
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
     / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)
     / [_digest_](/_lru/read/cruel-reality.md)
+    - "Nice guy? I never give a shit."
 - [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920)
     / [_digest_](/_lru/read/meaning.md)
+    - 因为活着，才去寻找意义。
 - [Happyness Course](https://zhuanlan.zhihu.com/p/19562678)
     / [_digest_](/_lru/read/happiness-course.md)
+    - 如果你只有一个选择，它让你满意吗？
 - [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
     / [_digest_](/_lru/read/why-unhappy.md)
+    - 我，并不特别。
 - [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方
     / [_digest_](/_lru/read/poet.md)
+    - 眼前的苟且，也正是诗和远方。
 - [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813)
     / [_digest_](/_lru/read/teacher-said.md)
+    - 我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。
+    - 做正确的选择，而不是可以接受的选择。
 - [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) / [_digest_](/_lru/read/pessimist.md)
+    - It's the hardest part when memories remain.
 - [Anti-Fragile](/_lru/read/anti-fragile.md)
     / [_book_](https://item.jd.com/11364406.html)
 
 ### Past
+
+> 我没有一天不后悔。<br/>
+> 并非受到惩罚才感到后悔。<br/>
+> 回首往事，<br/>
+> 那个愚钝的年轻笨蛋，<br/>
+> 想跟他谈谈，<br/>
+> 想要跟他讲道理，<br/>
+> 想让他明白，<br/>
+> 但是办不到。<br/>
+> 那个少年早就不见了，<br/>
+> 只剩下垂老的身躯，<br/>
+> 我得接受现实。<br/>
 
 Timeline
 
