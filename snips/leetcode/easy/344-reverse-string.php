@@ -2,6 +2,9 @@
 
 // https://leetcode.com/problems/reverse-string/
 
+//Runtime: 76 ms, faster than 100.00% of PHP online submissions for Reverse String.
+//Memory Usage: 38.9 MB, less than 16.67% of PHP online submissions for Reverse String.
+
 class Solution {
 
     /**
@@ -9,16 +12,18 @@ class Solution {
      * @return NULL
      */
     function reverseString(&$s) {
-        $len = count($s);
-        for ($i = 0; $i <= $len / 2; $i++) {
-            $this->swapChar($s, $i, $len - 1 - $i);
+        // bug 记录
+//        for ($i = 0; $i <= count($s) / 2; $i++) {
+//        for ($i = 0; $i < count($s) / 2; $i++) {
+        for ($i = 0; $i < (int)(count($s) / 2); $i++) {
+            $this->swapChar($s, $i, count($s) - 1 - $i);
         }
     }
 
     private function swapChar(array &$str, $a, $b): void {
-        $tmp = $str[$a];
-        $str[$a] = $str[$b];
-        $str[$b] = $tmp;
+        $str[$a] = $str[$a] ^ $str[$b];
+        $str[$b] = $str[$a] ^ $str[$b];
+        $str[$a] = $str[$a] ^ $str[$b];
     }
 }
 
