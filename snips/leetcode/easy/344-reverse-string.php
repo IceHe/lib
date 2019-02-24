@@ -12,7 +12,7 @@ class Solution {
      * @return NULL
      */
     function reverseString(&$s) {
-        // bug 记录
+        // bug 记录 —— 原因：边界问题！
 //        for ($i = 0; $i <= count($s) / 2; $i++) {
 //        for ($i = 0; $i < count($s) / 2; $i++) {
         for ($i = 0; $i < (int)(count($s) / 2); $i++) {
