@@ -229,4 +229,6 @@ Result：自己的贡献
 我得接受事实。
 ```
 
-> Nice guy
+> Nice guy? I never give a shit.
+
+首先要做一个有用的人。
