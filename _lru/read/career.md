@@ -215,12 +215,17 @@ References
 
 - 百度、腾讯和阿里等互联网公司级别、薪资待遇 - 百度经验 : https://jingyan.baidu.com/article/d2b1d102c2978c5c7f37d470.html
 
-## 北京调查
+## 背景调查
+
+> reference check ( ~~backgroud investigation~~ )
 
 References
 
 - 背景调查 - 背调流程，员工入职背景调查有出入怎么办？: http://www.zgsmile.com/Solution/Index/8
 - 背景调查 - 全攻略（不能听HR的，否则很惨）- 知乎 : https://zhuanlan.zhihu.com/p/33248594
+- HR 是怎么做背景调查的？调查哪些内容？- 知乎 : https://www.zhihu.com/question/26085771
+
+> 荣誉业绩不是叫 glory，而是叫 track record
 
 ## 后悔
 
