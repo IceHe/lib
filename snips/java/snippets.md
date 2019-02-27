@@ -234,3 +234,25 @@ List<String> list1 = list0.stream()
         .filter(StringUtils::isNotBlank) // or
         .collect(Collectors.toList());
 ```
+
+### toArray
+
+```java
+return wordCountMap.entrySet().stream()
+        .filter(entry -> entry.getValue() == 1)
+        .map(Map.Entry::getKey)
+        .collect(Collectors.toList())
+        .toArray(new String[0]);
+        // 关键点 new String[0]
+        // 实际长度比较大，也会适应到指定的长度（震惊）！
+
+        /**
+         * 解释摘要：<T> T[] toArray(T[] a);
+         * ……
+         * Otherwise, a new
+         * array is allocated with the runtime type of the specified array and
+         * the size of this list.
+         * ……
+         */
+
+```
