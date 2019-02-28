@@ -442,6 +442,7 @@ Reference : https://www.computerhope.com/keys.htm
 - obj : object
 - oct : octal
     - Oct : October
+- OKR : [Objective & Key Results](http://blog.devtang.com/2018/11/22/okr-introduction/)
 - OLAP : 在线分析处理
 - OLTP : 在线事务处理
 - op : operation | option
