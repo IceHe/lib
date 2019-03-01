@@ -98,7 +98,7 @@ Object-Relational Mapping ( Here is not _Object-Role Modeling_. )
 
 ## Lint
 
-From **Core Java Volume I-Fundermentals**
+From **Core Java Volume I - Fundermentals**
 
 > - 术语 lint 最初用来描述一种定位 C 程序中潜在问题的工具
 > - 现在通常用于描述查找可疑但不违背语法规则的代码问题的工具

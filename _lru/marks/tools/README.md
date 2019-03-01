@@ -72,10 +72,10 @@ Windows
 
 ## 硬件
 
-[Hardware](marks/tools/hardware.md)
+[Hardware](/_lru/marks/tools/hardware.md)
 
 ## 生活
 
-[Life](marks/tools/life.md)
+[Life](/_lru/marks/tools/life.md)
 
 > 君子生非异也，善假于物也。—— **荀子**
