@@ -535,6 +535,7 @@ Reference : https://www.computerhope.com/keys.htm
 - rsp : response
 - rtd : root directory
 - rtf : [Rich Text Format](https://en.wikipedia.org/wiki/Rich_Text_Format)
+- RTFM : Read The Fucking Manual
 - rtn : return
 - RTO : [Retransmission Timeout](https://www.extrahop.com/company/blog/2016/retransmission-timeouts-rtos-application-performance-degradation)
 - rtt : [round-trip (delay) time](https://en.wikipedia.org/wiki/Round-trip_delay_time)
@@ -580,6 +581,7 @@ Reference : https://www.computerhope.com/keys.htm
 - sso : [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on) 单点登录
 - st : something | sometimes
 - stat : status | statistics
+- STFW : Search The Fucking Web的意思。
 - stk : [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 - stmt : statement ( for SQL )
 - str : string

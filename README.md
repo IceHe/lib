@@ -244,6 +244,10 @@ Others
 
 ## Life
 
+> What is your dream?
+
+<!-- > Life is not perfect. -->
+
 ### Marks
 
 - [Bio](/_lru/marks/bio.md) ：Skills / Exp / Edu
@@ -256,6 +260,8 @@ Others
 <!--     - 华南理工 / 软件工程 / 本科 -->
 
 ### Principles
+
+> Don’t try, just do. Failure is not an option.
 
 - [SMART](/snips/principles/smart.md)
 - [STAR](/snips/principles/star.md)
