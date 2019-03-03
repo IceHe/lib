@@ -267,6 +267,7 @@ Others
 - [STAR](/snips/principles/star.md)
 - [SWOT](/snips/principles/swot.md)
 - [what-why-how](/snips/principles/what-why-how.md)
+- [how-to-ask](/snips/principles/how-to-ask.md)
 
 ### Digest
 
