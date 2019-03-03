@@ -354,6 +354,7 @@ Reference : https://www.computerhope.com/keys.htm
 - j : jump | bzip2 ( for CLI )
 - jar : [Java Archive file](https://en.wikipedia.org/wiki/JAR_(file_format))
 - jd : job description
+- JFGI : Just Fucking Google It
 - jr : job requirement
 - Jr. : Junior 初级的
 - js : javascript
