@@ -2,6 +2,8 @@
 
 # IceHe <small>Lib</small>
 
+<!-- Don’t try, just do. Failure is not an option. -->
+
     <!-- 好记性不如烂博客 -->
 
 <!-- Done is better than perfect. -->
@@ -14,6 +16,9 @@
 
 <!-- - Wiki：Never memorize something that you can look up. -->
 <!-- - **Albert Einstein** -->
+
+<!-- - Don’t try, just do. Failure is not an option. -->
+<!-- - from _Anonymous_ -->
 
 - 写一部小说就像在黑夜里开车<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程
 - **E.L. Doctorow**
