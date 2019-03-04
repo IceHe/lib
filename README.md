@@ -240,7 +240,7 @@ Others
 - [applescript](https://github.com/IceHe/applescript) : to manipulate macOS
 - [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset) : ruleset for PHPCS 3.1.0
 
-[GitHub DMCA](/_lru/git/github-dmca.md) : Alert myself!
+<!-- [GitHub DMCA](/_private/others/github-dmca.md) : Alert myself! -->
 
 ## Life
 
