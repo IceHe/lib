@@ -98,6 +98,7 @@ brew cask install \
     hyperswitch \
     iina \
     intellij-idea \
+    iterm2 \
     itsycal \
     karabiner-elements \
     keyboard-maestro \
@@ -122,7 +123,7 @@ brew cask install \
     wechat
 ```
 
-Required but cannot install by `brew cask install`
+Required but cannot install by `brew cask install` ( via Mac App Store )
 
 - 2Do
 - Copied
@@ -142,6 +143,8 @@ brew cask install \
     quicklook-json \
     webpquicklook
 ```
+
+<!-- 以上的 betterzipql 好像已经无法安装了 -->
 
 Optional ( for me )
 
