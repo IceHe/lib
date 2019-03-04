@@ -97,7 +97,6 @@ brew cask install \
     google-chrome \
     hyperswitch \
     iina \
-    intellij-idea \
     iterm2 \
     itsycal \
     karabiner-elements \
@@ -109,7 +108,6 @@ brew cask install \
     neteasemusic \
     notion \
     numi \
-    phpstorm \
     postman \
     qq \
     qqmusic \
@@ -128,6 +126,13 @@ Required but cannot install by `brew cask install` ( via Mac App Store )
 - 2Do
 - Copied
 - Trello
+
+Required but better installed by [JetBrains Toolbox](https://www.jetbrains.com/toolbox/)
+
+- DataGrip
+- IntelliJ-IDEA
+- PhpStorm
+- …
 
 For quick-look ( preview ) in Finder
 
@@ -150,7 +155,6 @@ Optional ( for me )
 
 ```bash
 brew cask install \
-    datagrip \
     desmume \
     keycastr \
     popclip \
@@ -180,8 +184,9 @@ What to Install ( recommended )
 
 ```bash
 brew install \
-    cmake coreutils curl except gawk git gradle groovysdk \
-    fzf jq maven nvim ruby safe-rm tmux vim wget
+    cmake composer coreutils curl except gawk git \
+    gradle groovysdk fzf jq maven nvim ruby safe-rm \
+    tmux vim wget
 ```
 
 ```bash
