@@ -44,12 +44,12 @@
 ### 详情列表
 
 - [常用](/_lru/mac/apps/common.md)
-- [命令行](marks/tools/cli.md)
+- [命令行](/_lru/marks/tools/cli.md)
 - [软件开发](/_lru/mac/apps/development.md)
 - [核心应用](/_lru/mac/apps/core-apps.md)
 - [系统增强](/_lru/mac/apps/system-enhanced.md)
 - [其它候选](/_lru/mac/apps/candidates.md)
-- [iOS](marks/tools/ios.md)
+- [iOS](/_lru/marks/tools/ios.md)
 - [Chrome 插件](/_lru/mac/apps/chrome.md)
 
 Windows

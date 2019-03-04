@@ -99,8 +99,6 @@ brew cask install \
     iina \
     intellij-idea \
     itsycal \
-    java \
-    java8 \
     karabiner-elements \
     keyboard-maestro \
     kindle \
@@ -352,7 +350,7 @@ Mind Mapping
 
 Mac references :
 
-- [Tools](marks/tools/README.md) : 利器 - 软件 / 物件的推荐
+- [Tools](/_lru/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
 - [Efficiency](/mac/efficiency.md) : 效率指南
 - [Shortcuts](/mac/shortcuts/README.md) : 快捷键
 

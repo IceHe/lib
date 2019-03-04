@@ -30,7 +30,7 @@
 
 工具控
 
-- [我的利器](marks/tools/README.md) - Apps & 物件
+- [我的利器](/_lru/marks/tools/README.md) - Apps & 物件
 - [我的快捷键](/_lru/mac/shortcuts/README.md) - 默认 & 自定义
 
 ---
@@ -161,7 +161,7 @@ IDE
 > 弯路。
 
 - 生活爱好：ACGMN / 羽毛球 / ~~毽球~~ ( past )
-- [最喜爱的](marks/favourites.md)：书、文、影视 …
+- [最喜爱的](/_lru/marks/favourites.md)：书、文、影视 …
 - [回忆](/_lru/past/moments.md)：Good old days
 - [旧文](/_lru/past/old-blog.md)：为赋新词强说愁
 - 尝试（弯路）如下
