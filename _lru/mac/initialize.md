@@ -108,7 +108,7 @@ brew cask install \
     neteasemusic \
     notion \
     numi \
-    paste \
+    phpstorm \
     postman \
     qq \
     qqmusic \
