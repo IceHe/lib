@@ -554,6 +554,7 @@ Reference : https://www.computerhope.com/keys.htm
 - sec : second | secure , security
 - seg : segment
 - sep : separator, separate
+- Serde : Serializer / Deserializer 的简写
 - serv : server | service
 - sess : session
 - sh : [shell](https://en.wikipedia.org/wiki/Shell_(computing))

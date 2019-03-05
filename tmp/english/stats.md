@@ -8,6 +8,7 @@
 - conscious : adj.
 - dummy : adj. 虚假的
 - exclamative : adj. 惊叹的
+- facilitate : v. 促进；帮助；使容易
 - forgery : n. 伪造；伪造罪；伪造物
 - hence : adv. 因此；今后
 - integrity : n. 完整性；正直；诚实
