@@ -42,6 +42,24 @@ Restore from backups of Time Machine
 - or Restore from Disk Backup by Disk Utility
 - or Re-install macOS
 
+#### Cannot Repeat Keys
+
+References
+
+- Search Google : macos mojave keyboard cannot repeat
+    - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
+        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
+
+Solution
+
+- Run command
+
+```bash
+defaults write -g ApplePressAndHoldEnabled -bool false
+```
+
+- Reboot & test
+
 ### Over the Wall
 
 If cannot download softwares you need, you need to over the Great-Fire_Wall ( in China Main Land )
