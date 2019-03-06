@@ -270,11 +270,11 @@ Others
 
 > Don’t try, just do. Failure is not an option.
 
+- [What Why How](/snips/principles/what-why-how.md)
+- [How to Ask](/snips/principles/how-to-ask.md)
 - [SMART](/snips/principles/smart.md)
 - [STAR](/snips/principles/star.md)
 - [SWOT](/snips/principles/swot.md)
-- [what-why-how](/snips/principles/what-why-how.md)
-- [how-to-ask](/snips/principles/how-to-ask.md)
 
 ### Digest
 
