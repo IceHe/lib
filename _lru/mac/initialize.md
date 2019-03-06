@@ -285,6 +285,28 @@ xcode-select install
 > - [wget](https://www.gnu.org/software/wget/)
 >     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
 
+#### Neovim Clipboard
+
+> Cannot i/o system clipboard
+
+Troubleshooting for myself
+
+- First, link ~/.vimrc to ~/.config/nvim/init.vim ( run command as follow ) !
+
+```bash
+ln -s /Users/[username]/.vimrc /Users/[username]/.config/nvim/init.vim
+```
+
+Or try ( reference )
+
+- Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub : https://github.com/neovim/neovim/issues/7945
+
+```bash
+# vim
+:checkhealth
+:help clipboard
+```
+
 ### Mac Apps
 
 #### Common
