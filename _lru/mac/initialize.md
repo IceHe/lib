@@ -42,6 +42,24 @@ Restore from backups of Time Machine
 - or Restore from Disk Backup by Disk Utility
 - or Re-install macOS
 
+#### Cannot Repeat Keys
+
+References
+
+- Search Google : macos mojave keyboard cannot repeat
+    - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
+        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
+
+Solution
+
+- Run command
+
+```bash
+defaults write -g ApplePressAndHoldEnabled -bool false
+```
+
+- Reboot & test
+
 ### Over the Wall
 
 If cannot download softwares you need, you need to over the Great-Fire_Wall ( in China Main Land )
@@ -266,6 +284,28 @@ xcode-select install
 >     - optional : `nvim` aka. [Neovim](https://neovim.io/)
 > - [wget](https://www.gnu.org/software/wget/)
 >     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
+
+#### Neovim Clipboard
+
+> Cannot i/o system clipboard
+
+Troubleshooting for myself
+
+- First, link ~/.vimrc to ~/.config/nvim/init.vim ( run command as follow ) !
+
+```bash
+ln -s /Users/[username]/.vimrc /Users/[username]/.config/nvim/init.vim
+```
+
+Or try ( reference )
+
+- Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub : https://github.com/neovim/neovim/issues/7945
+
+```bash
+# vim
+:checkhealth
+:help clipboard
+```
 
 ### Mac Apps
 
