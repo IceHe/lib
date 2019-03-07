@@ -158,6 +158,7 @@ Reference : https://www.computerhope.com/keys.htm
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - AOF : [Append Only File](https://redis.io/topics/persistence)
+- AOI : [Area Of Interest](https://baike.baidu.com/item/AOI/18907777)
 - app : application
 - arg : argument
 - asc : ascend
