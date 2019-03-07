@@ -4,7 +4,7 @@
 
 References
 
-- Apache Hive TM : https://hive.apache.org/
+- [Hive](/snips/data-process/hive.md) ( mine ) : data process
 
 ## SRE
 

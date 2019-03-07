@@ -11,11 +11,7 @@
 
 ### Snips
 
-<!-- Algorithms -->
-
-Data Structure
-
-- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
+<!-- Algorithms ( Basic ) -->
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
@@ -26,6 +22,11 @@ Coding
 - [Glossary](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
+
+Data Process
+
+- [MaxCompute](/snips/data-process/max-compute.md) ( 原 ODPS - Open Data Process Service )
+- Apache [Hive](/snips/data-process/hive.md) : from FaceBook
 
 Docker
 
@@ -43,7 +44,12 @@ Markdown
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
-Storage ( usage )
+Storage - theory
+
+- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
+    - _Data structure related to LevelDB / RockDB_
+
+Storage - usage
 
 - [MemcacheQ](/snips/mcq.md)
 - [MySQL](/snips/mysql/README.md)
@@ -264,11 +270,11 @@ Others
 
 > Don’t try, just do. Failure is not an option.
 
+- [What Why How](/snips/principles/what-why-how.md)
+- [How to Ask](/snips/principles/how-to-ask.md)
 - [SMART](/snips/principles/smart.md)
 - [STAR](/snips/principles/star.md)
 - [SWOT](/snips/principles/swot.md)
-- [what-why-how](/snips/principles/what-why-how.md)
-- [how-to-ask](/snips/principles/how-to-ask.md)
 
 ### Digest
 
