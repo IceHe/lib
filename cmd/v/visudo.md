@@ -39,3 +39,23 @@ visudo [-chqsV] [-f sudoers] [-x output_file]
 ```bash
 visudo
 ```
+
+### Troubleshooting
+
+After using `visudo` to grant all privileges to a new user :
+
+```bash
+$ sudo vim /etc/hosts
+sudo: must be setuid root
+```
+
+Solution
+
+- Getting message `sudo: must be setuid root`, but sudo IS already owned by root - Stack Overflow : https://stackoverflow.com/a/16682298
+
+```bash
+$ su root
+$ chmod u+s /usr/bin/sudo
+$ su non_root_user
+# then test
+```
