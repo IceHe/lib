@@ -1,6 +1,8 @@
 # CentOS 6
 
-## Locale - Chinese
+## Locale
+
+- for Chinese : zh_
 
 ### CLI
 
@@ -8,10 +10,22 @@ References
 
 - centos6.5版本改系统语言成中文简体 - CSDN博客 : https://blog.csdn.net/zk673820543/article/details/50190355
 
-Show available locales.
+Solution
+
+- List available locales
 
 ```bash
 $ locale -a
+```
+
+- Modify i18n  config file
+
+```bash
+$ vim /etc/sysconfig/i18n
+
+# Refer below modifications
+LANG="zh_CN.utf8"
+SYSFONT="latarcyrheb-sun16"
 ```
 
 ### Vim
