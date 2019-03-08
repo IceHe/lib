@@ -154,7 +154,7 @@ Web
 - [redis-dump](/cmd/redis/redis-dump.md) ( & redis-load ) : Backup & restore Redis data to and from JSON
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/README.md) : transfer files
-- [scp](/cmd/s/scp.md) :
+- [scp](/cmd/s/scp.md) : secure copy (remote file copy program)
 - [sed](/cmd/s/sed.md) : stream editor for filtering & transforming text
 - [seq](/cmd/s/seq.md) : print a sequence of numbers
 - [service](/cmd/s/service.md) : run a System V init script
