@@ -26,6 +26,16 @@
     - [Flossing has no proven benefits, so U.S. health department stops recommending the practice](http://www.nydailynews.com/life-style/no-floss-u-s-health-department-article-1.2735915)
 - 相关笔记 - [牙齿保健](/_lru/read/tooth.md)
 
+## 清洁
+
+**剃须刀**: Braun 5090cc
+
+- [德国博朗男士往复式电动剃须刀5090cc 水洗自动清洁充电刮胡刀](https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.84.527f53b99DlzmU&id=38890219067&skuId=54896787566&standard=1&user_id=444969165&cat_id=2&is_b=1&rn=9c7e4f64b317efa951e5b9b8da88bf80)
+- 参考资料
+    - [剃须刀，想给老爸和男朋友各买一个剃须刀，有什么品牌推荐的？](https://www.zhihu.com/question/21329265/answer/148142106)
+    - [飞利浦剃须刀哪款性价比高？](https://www.zhihu.com/question/52092923/answer/147821109)
+    - [天猫博朗专卖店](https://braunjyx.tmall.com/category-227300006.htm?spm=a1z10.5-b-s.w4011-15721826442.4.743824c4m75JpU&search=y&scene=taobao_shop#TmshopSrchNav)
+
 ## 加湿
 
 **加湿器**：[PHILIPS Humidifier HU4801/00](https://item.jd.com/729822.html)
@@ -80,6 +90,12 @@
 **好看的背包**：[Rains Msn Bag](https://www.rains.dk/collections/backpacks/products/msn-bag?variant=16742951681) <sup>_wish_</sup>
 
 - 坐飞机看到旁边妹子背的这款包很好看。也在考虑 [Backpack、Backpack Mini](https://www.rains.dk/collections/backpacks)。
+
+**羽毛球包**
+
+- 打球专包专用，可以提早放好要用的装备，方便出门打球
+    - 出门打球时，不用腾空有其它用途的背包来装打球的装备
+    - 打球回来后，也不用再腾空背包中的打球装备来装回别的东西
 
 ## 日用
 
