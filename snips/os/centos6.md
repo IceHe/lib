@@ -2,7 +2,7 @@
 
 ## Locale
 
-- for Chinese : zh_
+- for Chinese : zh_CN
 
 ### CLI
 
