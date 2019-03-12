@@ -133,6 +133,7 @@ Web
 - [less](/cmd/l/less.md) : provides \`more\` emulation plus extensive enhancements
     - more : file perusal filter for paging through text one screenful at a time
 - [ln](/cmd/l/ln.md) : make links between files
+- [locale](/cmd/l/locale.md) : get locale-specific information
 - [ls](/cmd/l/ls.md) : list directory contents
 - [lsof](/cmd/l/lsof.md) : list open files
 - [man](/cmd/m/man.md) : an interface to the on-line reference manuals
