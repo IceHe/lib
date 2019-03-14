@@ -365,6 +365,8 @@ Reference : https://www.computerhope.com/keys.htm
 ### K
 
 - k : kilo- 千 | kill ( for CLI )
+- KA : [Key Account](https://wiki.mbalib.com/wiki/%E5%A4%A7%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86) 关键客户（大客户、重要客户）
+    - 其它参考：[百度百科](https://baike.baidu.com/item/Key%20Account/7288923)
 - k8s : Kubernetes
 - KiB : [kibibyte](https://en.wikipedia.org/wiki/Kibibyte) , 2^10 = 1024 bytes
     - KB : Kilobyte , 10^3 = 1000 bytes
