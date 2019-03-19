@@ -218,6 +218,7 @@ Reference : https://www.computerhope.com/keys.htm
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
 - CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
+- CTR : [Click Through Rate](https://en.wikipedia.org/wiki/Click-through_rate) 点进率
 - ctrl : control
 - ctx : context
 - cur : current
@@ -584,7 +585,7 @@ Reference : https://www.computerhope.com/keys.htm
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
 - spec : specific | specified | specification
 - spk : speak | speaker
-- SPU : Standard Product Unit（标准化产品单元）商品信息聚合的最小单位（TODO）
+- SPU : [Standard Product Unit](https://www.zhihu.com/question/29073730)（标准化产品单元）商品信息聚合的最小单位
 - src : source
 - SRJF : Shortest Remaining Job First ( for OS )
 - ssh : [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)

@@ -26,7 +26,8 @@ Coding
 Data Process
 
 - [MaxCompute](/snips/data-process/max-compute.md) ( 原 ODPS - Open Data Process Service )
-- Apache [Hive](/snips/data-process/hive.md) : from FaceBook
+
+<!-- - Apache [Hive](/snips/data-process/hive.md) : from FaceBook -->
 
 Docker
 
