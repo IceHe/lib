@@ -223,6 +223,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ctx : context
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
+- CVR : [Conversion Rate](https://www.quora.com/What-is-CVR-in-digital-marketing) ( [Ad Tech](https://www.mobvista.com/en/blog/what-are-cvr-and-ctr/) ) 转化率
 - cwd : [current working directory](https://en.wikipedia.org/wiki/Working_directory)
 - cwnd : [congestion window](https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window) ( for TCP )
 
