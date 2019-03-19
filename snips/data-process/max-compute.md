@@ -24,6 +24,9 @@ References 2 ( appended on 2019-03-19 )
 - 支持「分区表」partition
     - 「动态分区」( [detail](https://helpcdn.aliyun.com/document_detail/73779.html?spm=a2c4g.11186623.2.10.78327a71NlDfQR) )
 - 多路输出 ( [detail](https://helpcdn.aliyun.com/document_detail/73776.html?spm=a2c4g.11186623.2.17.32155f20skrxZC) )
+- Lateral View : 将一行拆成多行数据 ( [detail](https://helpcdn.aliyun.com/document_detail/87722.html?spm=a2c4g.11186623.2.18.602a10d0yevW4A) )
+- SEMI JOIN : 右表只用来过滤左表的数据而不出现在结果集中 ( [detail](https://helpcdn.aliyun.com/document_detail/73784.html?spm=a2c4g.11186623.2.15.6c813acbZcQQZA) )
+    - 支持 LEFT SEMI JOIN 和 LEFT ANTI JOIN 两种语法
 
 ## Glossary
 
@@ -68,6 +71,10 @@ References 2 ( appended on 2019-03-19 )
     - INSERT INTO 会向表或表的分区中追加数据
     - 而INSERT OVERWRITE 会在向表或分区中插入数据前清空表中的原有数据
 - insert overwrite 不支持 values 语法
+- except（和 union 有关）跟 left anti join 不同
+    - except 需要两个数据集的全部字段一致？
+    - left anti join 只是指定的字段一致就行？
+- Explain 的效果和 MySQL 不太一样 ( [detail](https://helpcdn.aliyun.com/document_detail/73787.html?spm=a2c4g.11186623.2.10.36ad47c5O2ZU2p) )
 
 ## SQL Optimize
 
