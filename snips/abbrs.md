@@ -156,6 +156,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ad : advertisement
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+- AK : Access Key (ID/Secret)
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - AOF : [Append Only File](https://redis.io/topics/persistence)
 - AOI : [Area Of Interest](https://baike.baidu.com/item/AOI/18907777)
@@ -233,6 +234,7 @@ Reference : https://www.computerhope.com/keys.htm
 - DAG : [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
 - dat : data
 - db : database
+- DDL : [Data Definition Language](https://en.wikipedia.org/wiki/Data_definition_language)
 - dec : decimal
 - decr : decrease
 - def : define, definition
@@ -244,6 +246,7 @@ Reference : https://www.computerhope.com/keys.htm
 - dir : directory
 - dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
 - dmg : [Apple Disk Image](https://en.wikipedia.org/wiki/Apple_Disk_Image)
+- DML : [Data Manipulation Language](https://en.wikipedia.org/wiki/Data_manipulation_language)
 - dn : down
 - doc : documentation
 - docs : documentation
@@ -414,6 +417,7 @@ Reference : https://www.computerhope.com/keys.htm
 - mgr : manager
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mm : [memory management](https://en.wikipedia.org/wiki/Memory_management)
+- MR : Merge Request ( for Git ) | [MapReduce](https://helpcdn.aliyun.com/document_detail/27875.html?spm=a2c4g.11186623.2.26.1d136141VvtbDq)
 - MRR : Multi-Range Read 优化 ( for SQL )
     - 尽量顺序读盘，先将主键按照顺序排序号，再去磁盘按页获取（充分利用顺序 IO 效率高）
 - MSS : [Maximum Segment Size](https://en.wikipedia.org/wiki/Maximum_segment_size)
@@ -455,7 +459,9 @@ Reference : https://www.computerhope.com/keys.htm
 - ori : original
 - ORM : [Object Relational Mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
 - OSPF : Open Shortest Path First 开放最短链路优先
+- OSS : [Object Storage Service](https://www.aliyun.com/product/oss?spm=a2c4g.11186623.2.10.4d933abdzkr1xJ)
 - oth : others
+- TS : [TableStore](https://help.aliyun.com/document_detail/27280.html?spm=5176.54465.905680.docots.43fe17bb9x3HRi)
 - OOTB : [out-of-the-box](https://en.wikipedia.org/wiki/Out_of_the_box_(feature))
 
 ### P
@@ -568,7 +574,7 @@ Reference : https://www.computerhope.com/keys.htm
 - sig : signal | signature
 - sim : simple , simplify
 - SJF : Shortest Job First ( for OS )
-- SKU : Stock Keeping Unit（库存量单位）库存进出计量的单位（TODO）
+- SKU : [Stock Keeping Unit](https://en.wikipedia.org/wiki/Stock_keeping_unit)（库存量单位）库存进出计量的单位
 - slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
