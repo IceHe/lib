@@ -23,6 +23,9 @@ References 2 ( appended on 2019-03-19~20 )
 - 阿里云数加大数据体验馆-构建百亿数据毫秒级响应的日志分析系统 : https://data.aliyun.com/experience/case10?spm=5176.7944453.751670.btn5.34236c1fXjoHsc
     - 用户指南 : https://helpcdn.aliyun.com/document_detail/73783.html?spm=a2c4g.11186623.2.23.2d8235f33TRgOY
 - 什么是MaxCompute_产品简介_MaxCompute-阿里云 : https://help.aliyun.com/document_detail/27800.html?spm=5176.208367.1107645.2.42f64918yhrcGH
+- 视频介绍
+    - DataWorks调度配置分享_功能介绍_视频专区_MaxCompute-阿里云 : https://help.aliyun.com/video_detail/87887.html?spm=a2c4g.11174359.2.6.6caa4ca0xj8T7j
+    - MaxCompute 2.0新功能介绍_功能介绍_视频专区_MaxCompute-阿里云 : https://help.aliyun.com/video_detail/89937.html?spm=a2c4g.11174359.2.1.6caa4ca0xj8T7j
 
 ## Features
 
