@@ -87,7 +87,7 @@ Web
 
 [Index](/cmd/README.md)
 
-<!-- ( too long so moved ) -->
+<!-- ( too long so moved to _cmd/README.md ) -->
 
 - [awk](/cmd/a/awk.md) : pattern scanning and processing language
 - [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell
@@ -324,7 +324,7 @@ Others
 
 Timeline
 
-<!-- - [2018 Winter](/_lru/past/2018-winter.md) -->
+<!-- - [2018 Winter](/_lru/past/2018-winter.md) moved -->
 
 - [2017 Summer to Winter](/_lru/past/2017-summer-2-winter.md)
 - [2017 Spring](/_lru/past/2017-spring.md)
