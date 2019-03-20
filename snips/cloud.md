@@ -164,6 +164,33 @@ Features
 
 - Paxos
 
+## Data Process
+
+### Flink
+
+> Stateful Computations over Data Streams
+
+References
+
+- https://flink.apache.org/
+
+### Fluentd
+
+> Fluentd is an open source data collector for unified logging layer.
+
+References
+
+- Fluentd | Open Source Data Collector | Unified Logging Layer : https://www.fluentd.org/
+
+
+### Logstash
+
+> Centralize, Transform & Stash Your Data
+
+References
+
+- Logstash: Collect, Parse, Transform Logs | Elastic : https://www.elastic.co/products/logstash
+
 ## MQ
 
 > Message Queue ( message broker )

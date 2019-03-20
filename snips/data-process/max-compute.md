@@ -38,6 +38,7 @@ Intro ( [ref](https://help.aliyun.com/document_detail/27800.html?spm=5176.208367
         - 语法与 MySQL 等有差异
         - 响应时间：在使用方式上，MaxCompute SQL **最快可以在分钟、乃至秒级别完成查询，无法在毫秒级别返回结果**
     - 「用户自定义函数」：满足自定义的计算需求
+        - UDF / UDAF / UDTF / UDT / UDJ
     - 「MapReduce」：提供 [Java 编程接口](https://help.aliyun.com/document_detail/27883.html?spm=a2c4g.11186623.6.686.c6097b56IAdWgR)（MapBase/ReduceBase/……）
     - 「Graph」：图计算框架，利用图进行建模
 - SDK - [Java](https://help.aliyun.com/document_detail/34614.html?spm=a2c4g.11186623.2.29.1c9d1536rQWZxC#concept-utw-vvc-5db)
@@ -50,6 +51,12 @@ Tech Detail
 - Lateral View : 将一行拆成多行数据 ( [detail](https://helpcdn.aliyun.com/document_detail/87722.html?spm=a2c4g.11186623.2.18.602a10d0yevW4A) )
 - SEMI JOIN : 右表只用来过滤左表的数据而不出现在结果集中 ( [detail](https://helpcdn.aliyun.com/document_detail/73784.html?spm=a2c4g.11186623.2.15.6c813acbZcQQZA) )
     - 支持 LEFT SEMI JOIN 和 LEFT ANTI JOIN 两种语法
+
+Usage
+
+- DataWorks : 数据控制台
+    - 可以将 DataWorks 理解成 MaxCompute 的 web 客户端
+    - 与其它阿里云服务的集成使用_产品简介_MaxCompute-阿里云 : https://help.aliyun.com/document_detail/57151.html?spm=a2c4g.11186623.6.545.39a2d603yQm5hO
 
 ## Glossary
 
@@ -64,6 +71,9 @@ Tech Detail
     - 输入和输出是多对一的关系
 - UDTF : User Defined Table Valued Function 自定义表值函数
     - 一次函数调用输出多行数据（唯一能返回多个字段的自定义函数）
+- UDT : User Defined Type
+    - UDT允许在SQL中直接引用第三方语言的类或者对象，获取其数据内容或者调用其方法！
+    - UDT_SQL_用户指南_MaxCompute-阿里云 : https://helpcdn.aliyun.com/document_detail/92652.html?spm=a2c4g.11186623.6.665.66455a25xaxvdK
 - 生命周期 Life Cycle : 数据表的存活时间，（经历指定时间后没有变动）过期会被自动回收
     - 可以禁用 ( [detail](https://helpcdn.aliyun.com/document_detail/73769.html?spm=a2c4g.11186623.2.53.20316aaaV4AKrw) )
 
