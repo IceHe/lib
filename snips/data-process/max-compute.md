@@ -3,6 +3,10 @@
 > - 大数据计算服务（MaxCompute，原名 ODPS）是一种快速、完全托管的TB/PB级数据仓库解决方案。
 > - MaxCompute 向用户提供了完善的数据导入方案，以及多种经典的分布式计算模型。
 
+## Data Flow
+
+DTS -> MaxCompute
+
 ## References
 
 References 1
@@ -14,12 +18,31 @@ References 1
     - 最佳实践 : https://yq.aliyun.com/teams/6/type_blog-cid_106-page_1?spm=5176.7944453.751674.3.528772eet44gHq
     - 更多精彩内容 : https://yq.aliyun.com/teams/6/?spm=5176.7944453.751674.4.528772eet44gHq
 
-References 2 ( appended on 2019-03-19 )
+References 2 ( appended on 2019-03-19~20 )
 
 - 阿里云数加大数据体验馆-构建百亿数据毫秒级响应的日志分析系统 : https://data.aliyun.com/experience/case10?spm=5176.7944453.751670.btn5.34236c1fXjoHsc
     - 用户指南 : https://helpcdn.aliyun.com/document_detail/73783.html?spm=a2c4g.11186623.2.23.2d8235f33TRgOY
+- 什么是MaxCompute_产品简介_MaxCompute-阿里云 : https://help.aliyun.com/document_detail/27800.html?spm=5176.208367.1107645.2.42f64918yhrcGH
 
 ## Features
+
+Intro ( [ref](https://help.aliyun.com/document_detail/27800.html?spm=5176.208367.1107645.2.42f64918yhrcGH) )
+
+- 数据通道
+    - 批量、历史数据通道：Tunnel 提供Java编程接口，实现本地文件和服务数据的互通
+    - 实时、增量数据通道：DataHub 适合增量数据导入
+        - 支持多种数据传输插件 Logstash、Fluentd
+- 计算分析
+    - SQL
+        - 不支持事务、索引、Update/Delete
+        - 语法与 MySQL 等有差异
+        - 响应时间：在使用方式上，MaxCompute SQL **最快可以在分钟、乃至秒级别完成查询，无法在毫秒级别返回结果**
+    - 「用户自定义函数」：满足自定义的计算需求
+    - 「MapReduce」：提供 [Java 编程接口](https://help.aliyun.com/document_detail/27883.html?spm=a2c4g.11186623.6.686.c6097b56IAdWgR)（MapBase/ReduceBase/……）
+    - 「Graph」：图计算框架，利用图进行建模
+- SDK - [Java](https://help.aliyun.com/document_detail/34614.html?spm=a2c4g.11186623.2.29.1c9d1536rQWZxC#concept-utw-vvc-5db)
+
+Tech Detail
 
 - 支持「分区表」partition
     - 「动态分区」( [detail](https://helpcdn.aliyun.com/document_detail/73779.html?spm=a2c4g.11186623.2.10.78327a71NlDfQR) )
