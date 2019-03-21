@@ -182,7 +182,6 @@ References
 
 - Fluentd | Open Source Data Collector | Unified Logging Layer : https://www.fluentd.org/
 
-
 ### Logstash
 
 > Centralize, Transform & Stash Your Data
