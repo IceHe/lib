@@ -430,3 +430,53 @@ set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
 ```sql
 set Innodb_lock_wait_timeout = 5;
 ```
+
+### Avg Row Len
+
+References
+
+- Avg_row_length是怎么计算的？: https://www.cnblogs.com/sunss/p/6122997.html
+- Q & A ( on MySQL Forums )
+    - How Avg_row_length is calculated? : https://forums.mysql.com/read.php?22,219129
+    - Re: How Avg_row_length is calculated? : https://forums.mysql.com/read.php?22,219129,224296#msg-224296
+
+Command
+
+- Avg_row_length 顾名思义是：平均每行的长度
+    - e.g. 查询命令 & 输出，如下
+
+```sql
+show table status like 'tb_name'\G
+```
+
+```sql
+*************************** 1. row ***************************
+           Name: tb_name
+         Engine: InnoDB
+        Version: 10
+     Row_format: Compact
+           Rows: 3425
+ Avg_row_length: 138
+    Data_length: 475136
+Max_data_length: 0
+   Index_length: 1572864
+      Data_free: 3145728
+ Auto_increment: 6894011508
+    Create_time: 2016-10-12 15:03:25
+    Update_time: NULL
+     Check_time: NULL
+      Collation: utf8mb4_general_ci
+       Checksum: NULL
+ Create_options:
+        Comment: NULL
+row in set (0.00 sec)
+```
+
+该值是如何计算得出？
+
+- InnoDB 的行数是一个近似值
+- 平均每行长度 = 数据大小 / 行数
+- 大部分都是超过了每行的长度
+    - 因为在 InnoDB 的老版本中为了页对齐都自动的往上增加了
+    - 比如有一行行长 29 bytes 为了保证页对齐，往上加了 1 或 2 bytes
+- 在经历了多次块分裂后，认为「块」到达约 69% 满了
