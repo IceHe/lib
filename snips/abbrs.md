@@ -614,6 +614,7 @@ Reference : https://www.computerhope.com/keys.htm
 - t : temporary | time | tag ( for CLI )
 - TA : teaching assistant
 - TB : team building
+- tb : table ( for SQL )
 - TBD : [To Be Determinated](https://en.wikipedia.org/wiki/To_be_announced)
 - TCP : [Transmission Control Protocol](https://hit-alibaba.github.io/interview/basic/network/TCP.html)
 - tel : tell | telephone
