@@ -42,6 +42,28 @@ TODO : abstract
 
 - Reference : https://sql.sh/cours/insert-into/on-duplicate-key
 
+### Select
+
+```sql
+select * from table_name
+```
+
+使用 `select *` 查询大量数据时
+
+- 如果表结构变更，可能导致 `table definition is not consistent` 错误（自己实验一下）
+
+### SQL Injection
+
+避免 SQL 注入风险
+
+- 尽可能使用 ORM，减少代码层 SQL 语句的拼接
+- 显式地要查询的字段条件进行校验，避免 SQL 语法错误
+    - 包括：字段名、字段类型
+    - 字段名用反引号包围 <code>\`field_name\`</code>
+        - 其它例如「表名」等也是如此
+- 显式类型转换
+    - 分页参数必须使用 intval 显式强制转换，「分页长度、页数」等条件容易招致「SQL 注入」风险
+
 ## CLI
 
 Sth. was moved to [init.md](/snips/mysql/init.md).
