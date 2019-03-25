@@ -7,14 +7,26 @@
 
 ## References
 
+### Elasticsearch
+
 - Elasticsearch: RESTful, Distributed Search & Analytics : https://www.elastic.co/products/elasticsearch
 - ES快速入门 - 简书 : https://www.jianshu.com/p/ddee872c69c1
+- 全文搜索引擎 Elasticsearch 入门教程 - 阮一峰的网络日志 : http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html
+    - 有点旧，数据操作的描述不太对
+
+### Tools
+
+#### elastic-head
+
+> a web front end for browsing and interacting with an Elastic Search cluster.
+
+- GitHub : https://github.com/mobz/elasticsearch-head
 
 ## Jianshu QuickStart
 
 ES快速入门 - 简书 : https://www.jianshu.com/p/ddee872c69c1
 
-### Intro
+### Introduction
 
 > 是一种搜索引擎，也是一种 **"数据库"**
 
@@ -57,7 +69,10 @@ Index (DB) 索引
 Type (Table) 类型
 
 - 是索引的逻辑类别/分区
-    - 注意：据说 ES 6 之后没有 type 了？
+    - 注意：type 将被废弃
+        - ES 6 中，Document 只能加一个 type
+        - ES 7 中，取消对 type 的支持
+        - 原因? TODO FIND
 
 Document (Row) 文档
 
@@ -87,4 +102,140 @@ Console ( GUI )
 
 - Marvel 是 Elasticsearch 的管理和监控工具，在开发环境下免费使用
     - 它包含了一个叫做 Sense 的交互式控制台，使用户方便的通过浏览器直接与 Elasticsearch 进行交互
--
+
+## Usage
+
+### Initialize
+
+#### Install
+
+```bash
+$ brew install elasticsearch
+```
+
+#### Run
+
+Start
+
+```bash
+$ elasticsearch
+```
+
+Check
+
+- Visit http://localhost:9200/?pretty
+- Or run a command (as follow)
+
+```bash
+$ curl 'localhost:9200/?pretty'
+{
+  "name" : "NSEMAPo",
+  "cluster_name" : "elasticsearch_mac",
+  "cluster_uuid" : "wtgkEFY9Q-OJolsbVoEQNA",
+  "version" : {
+    "number" : "6.6.2",
+    "build_flavor" : "oss",
+    "build_type" : "tar",
+    "build_hash" : "3bd3e59",
+    "build_date" : "2019-03-06T15:16:26.864148Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.6.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
+
+#### Plugins
+
+References
+
+- Elasticsearch Plugins and Integrations [6.6] | Elastic : https://www.elastic.co/guide/en/elasticsearch/plugins/6.6/index.html
+    - TODO : 看看这个参考资料有没用
+
+Locate command
+
+- on macOS
+
+```bash
+# e.g.
+/usr/local/Cellar/elasticsearch/6.6.2/bin/elasticsearch-plugin
+```
+
+Help
+
+```bash
+$ elasticsearch-plugin -h
+A tool for managing installed elasticsearch plugins
+
+Commands
+--------
+list - Lists installed elasticsearch plugins
+install - Install a plugin
+remove - removes a plugin from Elasticsearch
+
+Non-option arguments:
+command
+
+Option         Description
+------         -----------
+-h, --help     show help
+-s, --silent   show minimal output
+-v, --verbose  show verbose output
+```
+
+Install
+
+- List offical plugins
+
+```bash
+$ elasticsearch-plugin install -h
+Install a plugin
+
+The following official plugins may be installed by name:
+  analysis-icu
+  analysis-kuromoji
+  analysis-nori
+  analysis-phonetic
+  analysis-smartcn
+  analysis-stempel
+  analysis-ukrainian
+  discovery-azure-classic
+  discovery-ec2
+  discovery-file
+  discovery-gce
+  ingest-attachment
+  ingest-geoip
+  ingest-user-agent
+  mapper-annotated-text
+  mapper-murmur3
+  mapper-size
+  repository-azure
+  repository-gcs
+  repository-hdfs
+  repository-s3
+  store-smb
+
+Non-option arguments:
+plugin id
+
+Option             Description
+------             -----------
+-E <KeyValuePair>  Configure a setting
+-b, --batch        Enable batch mode explicitly, automatic confirmation of
+                     security permission
+-h, --help         show help
+-s, --silent       show minimal output
+-v, --verbose      show verbose output
+```
+
+- Install
+
+```bash
+$ elasticsearch-plugin install [PLUGIN_NAME]
+```
+
+### Manipulate
+
+TODO
