@@ -154,7 +154,8 @@ Reference : https://www.computerhope.com/keys.htm
 - ACK : acknowledgement 确认 ( for TCP )
 - ACL : [Access control list](https://en.wikipedia.org/wiki/Access_control_list)
 - ad : advertisement
-- Ad hoc : for this 特设的、特定目的的 (TODO)
+- Ad hoc : [for this](https://en.wikipedia.org/wiki/Ad_hoc) ( [ZH Ver.](https://zh.wikipedia.org/zh-hans/Ad_hoc) ) ( adj. / adv. )
+    - 拉丁短语，意思：特设的、特定目的的（地）、即席的、临时的、将就的、专案的
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 - AK : Access Key (ID/Secret)
@@ -253,6 +254,7 @@ Reference : https://www.computerhope.com/keys.htm
 - dn : down
 - doc : documentation
 - docs : documentation
+- DSL : [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language)
 - dup : duplicate
 - dw : double word
 
