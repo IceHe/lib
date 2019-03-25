@@ -12,6 +12,8 @@
 Offical
 
 - Elasticsearch: RESTful, Distributed Search & Analytics : https://www.elastic.co/products/elasticsearch
+    - Download : https://www.elastic.co/downloads/elasticsearch
+        - Past Releases : https://www.elastic.co/downloads/past-releases
 
 Recommended
 
@@ -113,18 +115,83 @@ Install (暂略)
     - Marvel 是 Elasticsearch 的管理和监控工具，在开发环境下免费使用
         - 它包含了一个叫做 Sense 的交互式控制台，使用户方便的通过浏览器直接与 Elasticsearch 进行交互
 
-API
+### 基本概念
 
+- Indexing 索引
+    - 存储数据
+- Search 搜索
+- Aggregations 聚合
+
+类比: DB vs ES
+
+```bash
+Relational DB -> Databases -> Tables -> Rows -> Columns
+Elasticsearch -> Indices   -> Types  -> Documents -> Fields
+```
+
+索引 Index 的含义
+
+- 名词：**存储 Documents (数据) 的地方**
+- 动词："索引一个文档" 表示 **把一个文档存储到索引 (名词) 中**
+
+### 基本操作
+
+via RESTful APIs
+
+文档操作 (documenT)
+
+- GET 检索
+- PUT 创建/修改
+- DELETE 删除
+- HEAD 检查是否存在
+
+数据
+
+- 原始JSON文档包含在_source字段中
+
+```bash
+# request
+GET /megacorp/employee/1
+
+# response
+{
+  "_index" :   "megacorp",
+  "_type" :    "employee",
+  "_id" :      "1",
+  "_version" : 1,
+  "found" :    true,
+  "_source" :  {
+      "first_name" :  "John",
+      "last_name" :   "Smith",
+      "age" :         25,
+      "about" :       "I love to go rock climbing",
+      "interests":  [ "sports", "music" ]
+  }
+}
+```
 
 ## Usage
 
 ### Initialize
 
+References
+
+- 安装Elasticsearch - ES权威指南 : https://es.xiaoleilu.com/010_Intro/15_API.html
+- ~~Elasticsearch，elasticsearch-head插件，Kibana插件安装 - CSDN博客~~ : https://blog.csdn.net/jiduochou963/article/details/88686315
+
 #### Install
 
 ```bash
+# latest
 $ brew install elasticsearch
+# or latest version of 5.x
+$ brew install elasticsearch@5.6
 ```
+
+or download version 5.1.2
+
+- Elasticsearch 5.1.2 | Elastic : https://www.elastic.co/downloads/past-releases/elasticsearch-5-1-2
+
 
 #### Run
 
