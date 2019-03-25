@@ -17,13 +17,12 @@ Offical
 
 Recommended
 
-- Elasticsearch权威指南（中文版） : https://es.xiaoleilu.com/010_Intro/05_What_is_it.html
-
 Others
 
-- ES快速入门 - 简书 : https://www.jianshu.com/p/ddee872c69c1
 - 全文搜索引擎 Elasticsearch 入门教程 - 阮一峰的网络日志 : http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html
     - 有点旧，数据操作的描述不太对
+- ~~ES快速入门 - 简书~~ : https://www.jianshu.com/p/ddee872c69c1
+- ~~Elasticsearch权威指南（中文版）~~ : https://es.xiaoleilu.com/010_Intro/05_What_is_it.html
 
 ### Tools
 
@@ -38,6 +37,8 @@ Others
 ES快速入门 - 简书 : https://www.jianshu.com/p/ddee872c69c1
 
 ### Introduction
+
+( 这个文档比较简略，就是先拿来随便看看的 )
 
 > 是一种搜索引擎，也是一种 **"数据库"**
 
@@ -83,7 +84,9 @@ Type (Table) 类型
     - 注意：type 将被废弃
         - ES 6 中，Document 只能加一个 type
         - ES 7 中，取消对 type 的支持
-        - 原因? TODO FIND
+        - 原因
+            - **Removal of mapping types** | Elasticsearch Reference : https://www.elastic.co/guide/en/elasticsearch/reference/master/removal-of-types.html
+            - 为什么ElasticSearch要在7.X版本去掉type? https://blog.csdn.net/zjx546391707/article/details/78631394
 
 Document (Row) 文档
 
@@ -102,6 +105,8 @@ Mapping (Schema) 映射
         - 字段 age，其类型是 Integer
 
 ## Definitive Guide
+
+( 太落后了，介绍的查询语法在 ES 5 已经被废弃 )
 
 Definitions
 

@@ -154,6 +154,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ACK : acknowledgement 确认 ( for TCP )
 - ACL : [Access control list](https://en.wikipedia.org/wiki/Access_control_list)
 - ad : advertisement
+- Ad hoc : for this 特设的、特定目的的 (TODO)
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 - AK : Access Key (ID/Secret)
