@@ -441,6 +441,7 @@ Reference : https://www.computerhope.com/keys.htm
 - No. : number
 - no-no : n. 禁忌；不可作之事
 - NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"
+- NRT : Near Realtime
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
