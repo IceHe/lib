@@ -9,7 +9,16 @@
 
 ### Elasticsearch
 
+Offical
+
 - Elasticsearch: RESTful, Distributed Search & Analytics : https://www.elastic.co/products/elasticsearch
+
+Recommended
+
+- Elasticsearch权威指南（中文版） : https://es.xiaoleilu.com/010_Intro/05_What_is_it.html
+
+Others
+
 - ES快速入门 - 简书 : https://www.jianshu.com/p/ddee872c69c1
 - 全文搜索引擎 Elasticsearch 入门教程 - 阮一峰的网络日志 : http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html
     - 有点旧，数据操作的描述不太对
@@ -98,10 +107,14 @@ Definitions
 - 分布式的实时分析搜索引擎
 - 可以扩展到上百台服务器，处理PB级结构化或非结构化数据
 
-Console ( GUI )
+Install (暂略)
 
-- Marvel 是 Elasticsearch 的管理和监控工具，在开发环境下免费使用
-    - 它包含了一个叫做 Sense 的交互式控制台，使用户方便的通过浏览器直接与 Elasticsearch 进行交互
+- Plugins
+    - Marvel 是 Elasticsearch 的管理和监控工具，在开发环境下免费使用
+        - 它包含了一个叫做 Sense 的交互式控制台，使用户方便的通过浏览器直接与 Elasticsearch 进行交互
+
+API
+
 
 ## Usage
 
