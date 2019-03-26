@@ -32,6 +32,28 @@ Others
 
 - GitHub : https://github.com/mobz/elasticsearch-head
 
+## Official Reference 5.1
+
+- Getting Started | Elasticsearch Reference [5.1] | Elastic : https://www.elastic.co/guide/en/elasticsearch/reference/5.1/getting-started.html
+- 5.4 中文版 (对照) : http://cwiki.apachecn.org/pages/viewpage.action?pageId=4260360
+    - 重大改变 - Elastic Elasticsearch - ApacheCN - 中文社区 : http://cwiki.apachecn.org/pages/viewpage.action?pageId=4260605
+
+get
+
+- Get API - Elastic Elasticsearch - ApacheCN - 中文社区 : http://cwiki.apachecn.org/display/Elasticsearch/Get+API
+
+multi-get
+
+- 多个 GET API - Elastic Elasticsearch - ApacheCN - 中文社区 : http://cwiki.apachecn.org/pages/viewpage.action?pageId=5505071
+
+search
+
+- Search APIs - Elastic Elasticsearch - ApacheCN - 中文社区 : http://cwiki.apachecn.org/display/Elasticsearch/Search+APIs
+
+sort
+
+- _doc 除了是最有效的排序顺序没有真正的用例。所以如果你不关心文档返回的顺序，那么你应该按 _doc 排序。 这特别有助于滚动。
+
 ## Jianshu QuickStart
 
 ES快速入门 - 简书 : https://www.jianshu.com/p/ddee872c69c1
@@ -83,6 +105,7 @@ Type (Table) 类型
 - 是索引的逻辑类别/分区
     - 注意：type 将被废弃
         - ES 6 中，Document 只能加一个 type
+            - 【拓展篇】Elasticsearch 6.0 一个索引只允许有一个type - Elastic 中文社区 : https://elasticsearch.cn/article/337
         - ES 7 中，取消对 type 的支持
         - 原因
             - **Removal of mapping types** | Elasticsearch Reference : https://www.elastic.co/guide/en/elasticsearch/reference/master/removal-of-types.html
