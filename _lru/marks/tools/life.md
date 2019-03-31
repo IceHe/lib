@@ -53,9 +53,19 @@
 
 ## 鞋子
 
-**透气的慢跑鞋**（[Under Amour](https://www.underarmour.cn/p1285677-001.htm)） <sup>Favorite</sup>
+**透气的慢跑鞋**（[Under Amour](https://www.underarmour.cn/p1285677-001.htm) / [Nike](https://www.nike.com/cn/zh_cn)） <sup>Favorite</sup>
 
 - 日常穿，轻便、柔软、透气、减震。
+- 新鞋 : [Nike Epic React Flyknit 2](https://www.nike.com/cn/t/epic-react-flyknit-2-%E7%94%B7%E5%AD%90%E8%B7%91%E6%AD%A5%E9%9E%8B-gq9xbj/BQ8928-002) (2019-03-31 嘚瑟一下)
+
+## 服务
+
+**洗衣 / 洗鞋** : [布瑞琳洗护](http://www.branew.com.cn/)
+
+- 网上看评价比较靠谱 (大众点评/高德地图/百度地图)
+- 洗衣 120? 元一件 (羽绒服)
+- 洗鞋 88 元一双
+- _袜子 15 元一双 (太贵了… 断了我的念想)_
 
 ## 运动
 

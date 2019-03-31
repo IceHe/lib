@@ -15,15 +15,18 @@ https://itunes.apple.com/us/app/amphetamine/id937984704?mt=12
 https://www.macbartender.com/
 
 - 收起或彻底隐藏毋需过多关注的菜单栏 App 图标。（我这个整洁癖、强迫症的福音）
-- 不推荐购买 [~~Vanilla~~](http://matthewpalmer.net/vanilla/)，使用简便，自然配置项有限，最主要因为功能的实现方法不合理以致有 bug，例如会遮蔽菜单栏的一些别的内容，又如某些图标不能符合预期地显示或隐藏。
+- _后来将不是一定要用的插件 (包括 Bartender) 给停了, 减轻 OS 的负担._
+- 类似软件 [~~Vanilla~~](http://matthewpalmer.net/vanilla/)
+    - 不推荐购买 ，使用简便，自然配置项有限，最主要因为功能的实现方法不合理以致有 bug，例如会遮蔽菜单栏的一些别的内容，又如某些图标不能符合预期地显示或隐藏。
 
 ## ~~ClipMenu~~
 
 http://www.clipmenu.com <sup>Simple</sup>
 
 - 剪贴板管理。
-- 主要用于快速查询剪贴板的历史记录，并提取出需要的内容保存到当前的剪贴板中。
+- 主要用于快速查找剪贴板的历史记录，并提取出需要的内容保存到当前的剪贴板中。
 - 支持 URL、纯文本、RTF、图片、文件等各种格式，包括剪贴历史的排序、内容的大小写转换、自定义文本的调用。
+- _但是不支持用关键字搜索历史记录, 所以后来改用 Copied 了._
 
 ## Copied
 
@@ -38,12 +41,14 @@ https://copiedapp.com <sup>Favorite, Searchable</sup>
 - Queue（队列）：先入先出地输出内容（平时默认：后入先出）。
 - 其它选择：[Paste](http://pasteapp.me/) 最好看！这类 App 层出不穷…
 
-## PopClip
+## ~~PopClip~~
 
 http://pilotmoon.com/popclip/
 
 - 快捷工具条。
 - 在选中文本是弹出，辅助操作的工具条，包括：搜索、查字典、剪切、复制、粘贴等。
+- _电脑性能好的话, 可以考虑安装; 不然不想同时运行太多消耗计算资源的插件._
+- _有个缺点: 有时在不适宜的 App/场景 下弹框, 影响体验_
 
 ## HyperSwitch
 
@@ -184,3 +189,11 @@ https://pinyin.sogou.com/mac
     - `rq` 日期 → `2018年03月24日`
     - `sj` 时间 → `2018年03月24日20:14:57`
     - `xq` 星期 → `2018年03月24日 星期六`
+
+## EasyRes
+
+c
+
+- 场景 : Mac 用 数据线 连接显示器
+    - 可以用 EasyRes 来查看 数据线 & 显示器 支持的哪些 分辨率 (4K) & 刷新频率 (60Hz) 的组合!
+- _不常用_
