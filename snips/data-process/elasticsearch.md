@@ -220,7 +220,6 @@ or download version 5.1.2
 
 - Elasticsearch 5.1.2 | Elastic : https://www.elastic.co/downloads/past-releases/elasticsearch-5-1-2
 
-
 #### Run
 
 Start
