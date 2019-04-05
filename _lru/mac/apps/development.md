@@ -22,9 +22,15 @@ https://www.jetbrains.com/phpstorm
 https://code.visualstudio.com <sup>开箱即用</sup>
 
 - 开源、持续且活跃的开发，更不必说本身有微软过硬的技术实力背书。
-
-<!-- - 我自定义的 [configs]() -->
-<!-- - 我安装的 [plugins]() -->
+- 我自定义的 config
+    - [settings.json](https://github.com/IceHe/mac-conf/blob/master/.config/vscode/settings.json)
+    - [keybindings.json](https://github.com/IceHe/mac-conf/blob/master/.config/vscode/keybindings.json)
+- 我推荐的 plugins
+    - [Mardown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)
+    - markdownlint
+    - [PlantUML](http://plantuml.com/)
+    - Sublime Text Keymap and Settings Importer
+    - Vim
 
 ### Sublime Text
 

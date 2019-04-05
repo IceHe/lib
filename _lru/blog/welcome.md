@@ -73,7 +73,7 @@
 - 以 [Markdown](https://en.wikipedia.org/wiki/Markdown) 格式为主，辅以必要的图片和外链 ( [hyperlink](https://en.wikipedia.org/wiki/Hyperlink) ) 等
     - 尽可能以纯文本格式来描述和保存 —— 兼容性好，易迁移，易处理
     - GitHub、GitLab 以及常用的文本编辑器对 Markdown 内容的渲染和浏览都有着很不错的支持
-        - GitLab 甚至支持在 Markdown 文件中对 PlantUML 代码块进行 UML 图渲染
+        - GitLab 甚至支持在 Markdown 文件中对 [PlantUML](http://plantuml.com/) 代码块进行 UML 图渲染
         - 参考 [Github Flavored Markdown](https://github.github.com/gfm/)
 
 3\. 组织内容

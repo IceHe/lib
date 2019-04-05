@@ -585,6 +585,7 @@ Reference : https://www.computerhope.com/keys.htm
 - SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
 - snd : send
+- SOA : [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)
 - SOAP : [Simple Object Access Protocol](https://en.wikipedia.org/wiki/SOAP) ( based on XML )
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
@@ -606,6 +607,7 @@ Reference : https://www.computerhope.com/keys.htm
 - sum : summary | summation
 - supremum : InnoDB 给每个索引添加了一个不存在的最大值
     - 以符合间隙锁（next-key lock）的前开后闭区间。
+- svg : [Scalable Vector Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) (XML-based vector image format)
 - swp : swap
 - sym : symbol
 - syn : synchronize, [synchronization](https://en.wikipedia.org/wiki/Synchronization)

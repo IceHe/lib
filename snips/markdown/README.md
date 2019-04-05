@@ -265,7 +265,7 @@ to be perfect …
 [VS Code](https://code.visualstudio.com/)
 
 - 「markdownlint」插件
-- 「Mardown Preview Enhanced」插件
+- 「[Mardown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)」插件
     - 免费，Markdown 效果预览，自动检测错误
 
 ### Mardown Lint
