@@ -479,6 +479,7 @@ Reference : https://www.computerhope.com/keys.htm
 - PCB : [Process Control Block](https://en.wikipedia.org/wiki/Process_control_block) ( task struct )
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 - pct : percent ( for MySQL )
+- PDCA : [Plan-Do-Check-Act](https://en.wikipedia.org/wiki/PDCA)
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
 - P13N : personalization
 - pf : prefix | process flags ( for kernel )

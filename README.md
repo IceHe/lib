@@ -271,7 +271,7 @@ Others
 
 ### Principles
 
-> Don’t try, just do. Failure is not an option.
+> 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
 - [What Why How](/snips/principles/what-why-how.md)
 - [How to Ask](/snips/principles/how-to-ask.md)
@@ -280,6 +280,8 @@ Others
 - [SWOT](/snips/principles/swot.md)
 
 ### Digest
+
+> Don’t try, just do. Failure is not an option.
 
 好文共赏
 
@@ -347,6 +349,8 @@ Previous Blog : 2015 ~ 2017
 - [Blog Changlogs](/_lru/blog/blog-changelog.md) : 折腾博客
 
 ### Friends
+
+> To be a better man.
 
 - [Jan Fan](http://janfan.cn/) : Good student / Little NLP / Tencent / Studying @ Finland
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
