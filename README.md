@@ -279,6 +279,10 @@ Others
 - [STAR](/snips/principles/star.md)
 - [SWOT](/snips/principles/swot.md)
 
+Newly
+
+- [PDCA](/snips/principles/pdca.md)
+
 ### Digest
 
 > Don’t try, just do. Failure is not an option.
