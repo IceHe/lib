@@ -158,6 +158,7 @@ Reference : https://www.computerhope.com/keys.htm
     - 拉丁短语，意思：特设的、特定目的的（地）、即席的、临时的、将就的、专案的
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+- AIDA : [Awareness → Interest → Desire → Action](https://en.wikipedia.org/wiki/AIDA_(marketing))
 - AK : Access Key (ID/Secret)
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - AOF : [Append Only File](https://redis.io/topics/persistence)

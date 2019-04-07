@@ -282,6 +282,7 @@ Others
 Newly
 
 - [PDCA](/snips/principles/pdca.md)
+- [AIDA](/snips/principles/aida.md)
 
 ### Digest
 
