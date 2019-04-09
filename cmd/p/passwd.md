@@ -30,9 +30,9 @@ Available to root only
 
 - `-l, --lock` This option is used to lock the password of specified account.
     - The locking is performed by rendering the encrypted password into an invalid string (by prefixing the encrypted  string  with  an  !).
-    - Note  that  the account is not fully locked - the user can still log in by other means of authentication such as the ssh public key authentication.
+    - Note  that  the account is not fully locked - the user can still log in by other means of authentication such as the ssh public key authentication. 关闭
     - Use chage -E 0 user command instead for full account locking.
-- `-u, --unlock` This is the reverse of the -l option - it will unlock the account password by removing the ! prefix.
+- `-u, --unlock` This is the reverse of the -l option - it will unlock the account password by removing the ! prefix. 恢复
     - By default passwd will refuse to create a passwordless account (it will not unlock an account that has only "!" as a password).
     - The force option -f will override this protection.
 - `-d, --delete` This is a quick way to delete a password for an account.
@@ -42,7 +42,7 @@ Available to root only
 - `-n, --minimum DAYS` This will set the minimum password lifetime, in days, if the user's account supports password lifetimes.
 - `-x, --maximum DAYS` This will set the maximum password lifetime, in days, if the user's account supports password lifetimes.
 - `-w, --warning DAYS` This will set the number of days in advance the user will begin receiving warnings that her password will  expire,  if  the user's account supports password lifetimes.
-- `-i, --inactive DAYS` This will set the number of days which will pass before an expired password for this account will be taken to mean that the account is inactive and should be disabled, if the user's account supports password lifetimes.
+- `-i, --inactive DAYS` This will set the number of days which will pass before an expired password for this account will be taken to mean that the account is inactive and should be disabled, if the user's account supports password lifetimes. 关闭密码认证 (无需输入密码)
 - **`-S, --status`** This will output a short information about the status of the password for a given account.
 
 ## Usage

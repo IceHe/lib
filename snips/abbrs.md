@@ -267,6 +267,7 @@ Reference : https://www.computerhope.com/keys.htm
 - e.g. : for example
 - edt : edit
 - elem : element
+- ELK : [ELK Stack : Elasticsearch Logstash Kibana](https://www.elastic.co/cn/elk-stack)
 - EN : English
 - enc : encoding
 - env : environment
@@ -476,6 +477,7 @@ Reference : https://www.computerhope.com/keys.htm
 - p : port ( for CLI `redis-cli` )
 - P : port ( for CLI `mysql` )
 - PaaS：平台即服务 [Platform as a Service](https://en.wikipedia.org/wiki/Paas)
+- PAM : [Linux PAM : Pluggable Authentication Modules](http://www.linux-pam.org/whatispam.html)
 - param : parameter
 - PCB : [Process Control Block](https://en.wikipedia.org/wiki/Process_control_block) ( task struct )
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
@@ -493,7 +495,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pre- : before (in time, place, order, degree, or importance) 前，在前 / 先于，预先
 - preg : [PECL](https://en.wikipedia.org/wiki/PEAR#PECL) regular expression
 - prev : previous
-- pri : priority
+- pri : private | priority ( for CLI )
 - [primitive](https://en.wikipedia.org/wiki/Language_primitive) : atomic element / operation
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
@@ -504,6 +506,7 @@ Reference : https://www.computerhope.com/keys.htm
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
 - PSH : push 传送 ( for TCP )
 - ptr : pointer
+- pub : public
 - pw , pwd : passowrd
 - pwd : [print working directory](https://en.wikipedia.org/wiki/Pwd)
 - py : python
