@@ -640,6 +640,7 @@ Reference : https://www.computerhope.com/keys.htm
 - tmpl : template
 - top : [table of processes](https://en.wikipedia.org/wiki/Top_(software)) ( for CLI )
 - TORM : to remove ( for me )
+- tp : thread pool
 - tpl : template
 - trx : transaction ( for SQL )
 - ts : [timestamp](https://en.wikipedia.org/wiki/Timestamp)
