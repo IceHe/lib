@@ -11,8 +11,6 @@
 
 ### Snips
 
-> 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。—— 鲁迅
-
 <!-- Algorithms ( Basic ) -->
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
@@ -193,6 +191,8 @@ Web
 - [whoami](/cmd/w/whoami.md) : print effective userid
 - [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
 - [zsh](/cmd/z/zsh.md) : one of shells
+
+> 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。—— 鲁迅
 
 ### C++
 
