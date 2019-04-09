@@ -70,6 +70,8 @@ Web
 
 ### Mac
 
+> 君子性非异也，善假于物也。—— 荀子
+
 - [Tools](/_lru/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
 - [Efficiency](/_lru/mac/efficiency.md) : 效率指南
 - [Shortcuts](/_lru/mac/shortcuts/README.md) : 快捷键
