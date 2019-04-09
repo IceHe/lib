@@ -256,6 +256,8 @@ Others
 
 ## Life
 
+> 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。—— E.L. Doctorow
+
 <!-- > What is your dream? -->
 
 <!-- > Life is not perfect. -->
