@@ -256,7 +256,7 @@ Others
 
 ## Life
 
-> What is your dream?
+<!-- > What is your dream? -->
 
 <!-- > Life is not perfect. -->
 
