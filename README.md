@@ -192,7 +192,9 @@ Web
 - [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
 - [zsh](/cmd/z/zsh.md) : one of shells
 
-> 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。—— 鲁迅
+> 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
+>
+> —— 鲁迅
 
 ### C++
 
@@ -258,7 +260,9 @@ Others
 
 ## Life
 
-> 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。—— E.L. Doctorow
+> 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
+>
+> —— E.L. Doctorow
 
 <!-- > What is your dream? -->
 
