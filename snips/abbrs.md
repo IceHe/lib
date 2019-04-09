@@ -424,13 +424,14 @@ Reference : https://www.computerhope.com/keys.htm
 - mgr : manager
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mm : [memory management](https://en.wikipedia.org/wiki/Memory_management)
+- mod : modify | mode
+- MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
+- MQP : Message Queue Protocol
 - MR : Merge Request ( for Git ) | [MapReduce](https://helpcdn.aliyun.com/document_detail/27875.html?spm=a2c4g.11186623.2.26.1d136141VvtbDq)
 - MRR : Multi-Range Read 优化 ( for SQL )
     - 尽量顺序读盘，先将主键按照顺序排序号，再去磁盘按页获取（充分利用顺序 IO 效率高）
-- MSS : [Maximum Segment Size](https://en.wikipedia.org/wiki/Maximum_segment_size)
-- mod : modify | mode
-- MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
 - msg : message
+- MSS : [Maximum Segment Size](https://en.wikipedia.org/wiki/Maximum_segment_size)
 - multi : multiple
 - mv : [move](https://en.wikipedia.org/wiki/Move_(command)) ( for CLI )
 - MVCC : 多版本并行控制

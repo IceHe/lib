@@ -288,8 +288,6 @@ Newly
 
 ### Digest
 
-> Don’t try, just do. Failure is not an option.
-
 好文共赏
 
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
@@ -348,6 +346,8 @@ Nonsense
 
 - Time Mgt. : [Life Logs](/_lru/lifelogs/README.md) & [Log Format](/_lru/lifelogs/time-mgt.md)
 - Way of Life : [Self Manual](/_lru/lifelogs/life-manual.md)
+
+> Don’t try, just do. Failure is not an option.
 
 Previous Blog : 2015 ~ 2017
 
