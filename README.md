@@ -95,6 +95,7 @@ Web
 - [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell
     - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
     - [shell variables](/cmd/bash/shell-variables.md) : variables are set by the shell
+- [brew](/cmd/b/brew.md) : the missing package manager for macOS
 - [bzip2](/cmd/b/bzip2.md) : block-sorting file compressor
 - [cat](/cmd/c/cat.md) : concatenate files & print on the standard output
 - [cd](/cmd/c/cd.md) : change the current directory
