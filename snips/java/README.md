@@ -8,14 +8,19 @@ Basic
 
 - [Glossary](/snips/java/glossary.md)
 
+Style Guide
+
+- Google : https://google.github.io/styleguide/javaguide.html
+- Alibaba : https://edu.aliyun.com/certification/cldt02
+
 Coding
 
 - [Snippets](/snips/java/snippets.md)
 
 Framework
 
+- [Spring](/snips/java/spring.md) & Spring Boot
 - [Spock](/snips/java/spock.md) - Unit Tests
-- [Spring](/snips/java/spring.md)
 
 Package Manager
 
@@ -23,6 +28,7 @@ Package Manager
 
 Command Line Tools
 
+- java : TODO
 - jconsole : VM Performance Statistics
 - jmap : Stack & Heap
 

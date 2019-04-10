@@ -163,6 +163,9 @@ Reference : https://www.computerhope.com/keys.htm
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - AOF : [Append Only File](https://redis.io/topics/persistence)
 - AOI : [Area Of Interest](https://baike.baidu.com/item/AOI/18907777)
+- APM : [Application Performance Management](https://en.wikipedia.org/wiki/Application_performance_management)
+    - the monitoring and management of performance and availability of software applications
+    - strives to detect and diagnose complex application performance problems to maintain an expected level of service
 - app : application
 - arg : argument
 - asc : ascend
