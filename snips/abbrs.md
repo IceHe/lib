@@ -353,6 +353,8 @@ Reference : https://www.computerhope.com/keys.htm
 - incr : increase
 - ind : index
 - info : information
+- infra : (esp in textual annotation) [below; further on](https://www.collinsdictionary.com/dictionary/english/infra_1)
+    - (in writing) see below (拉丁语)
 - ini : initialization (configuration files)
 - init : initiate
 - ins : insert
@@ -520,6 +522,7 @@ Reference : https://www.computerhope.com/keys.htm
 - QoE : [Quality of Experience](https://en.wikipedia.org/wiki/Quality_of_experience)
 - QoS : [Quality of Service](https://en.wikipedia.org/wiki/Quality_of_service)
 - qps : [queries per second](https://en.wikipedia.org/wiki/Queries_per_second)
+- q.v. : [quod vide](https://en.wiktionary.org/wiki/quod_vide) 参见… (拉丁语)
 
 ### R
 
@@ -675,6 +678,11 @@ Reference : https://www.computerhope.com/keys.htm
 - var : variable
 - VC : [Venture Capital](https://en.wikipedia.org/wiki/Venture_capital)
 - ver : version
+- vide : vt. [refer, see](https://www.collinsdictionary.com/dictionary/english/vide) 参见, 参阅
+    - [vide ante](https://www.collinsdictionary.com/dictionary/english/vide-ante) : see before; see earlier (in the book, etc.) 见前, 参见上文
+    - [vide infra](https://www.collinsdictionary.com/dictionary/english/vide-infra) : see below; see further on (in the book, etc.) 见下
+    - [vide post](https://www.collinsdictionary.com/dictionary/english/vide-post) : see after; see further on (in the book, etc.) 见后
+    - [vide supra](https://www.collinsdictionary.com/dictionary/english/vide-supra) : see above; see earlier (in the book, etc.) 见上
 - VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address) 虚拟服务器地址
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
 - vol : volume
