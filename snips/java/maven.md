@@ -23,6 +23,7 @@ Related tool : Gradle
 
 References
 
+- Maven - Introduction to the Dependency Mechanism : https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
 - Difference between maven scope compile and provided for JAR packaging - Stack Overflow : https://stackoverflow.com/questions/6646959/difference-between-maven-scope-compile-and-provided-for-jar-packaging
 
 Differ `provided` from `compile`
