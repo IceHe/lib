@@ -260,14 +260,18 @@ Others
 
 ## Life
 
+<!--
+
 > 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
 > —— E.L. Doctorow
 
+-->
+
 <!-- > What is your dream? -->
 
-<!-- > Life is not perfect. -->
-
 ### Marks
+
+> Don’t try, just do. Failure is not an option.
 
 - [Bio](/_lru/marks/bio.md) ：Skills / Exp / Edu
 - [Favorites](/_lru/marks/favourites.md) : ACGMN
@@ -338,7 +342,7 @@ Newly
 
 Timeline
 
-<!-- - [2018 Winter](/_lru/past/2018-winter.md) moved -->
+<!-- - [2018 Winter](/_lru/past/2018-winter.md) moved temp -->
 
 - [2017 Summer to Winter](/_lru/past/2017-summer-2-winter.md)
 - [2017 Spring](/_lru/past/2017-spring.md)
@@ -354,8 +358,6 @@ Nonsense
 - Time Mgt. : [Life Logs](/_lru/lifelogs/README.md) & [Log Format](/_lru/lifelogs/time-mgt.md)
 - Way of Life : [Self Manual](/_lru/lifelogs/life-manual.md)
 
-> Don’t try, just do. Failure is not an option.
-
 Previous Blog : 2015 ~ 2017
 
 - [Tech Blog](https://icehe.me) : icehe.me
@@ -370,6 +372,8 @@ Previous Blog : 2015 ~ 2017
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime
 - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
-- Me : Web Backend / Sina Weibo / Ele.me
+- Me : A fool / Web Backend / Sina Weibo / Ele.me
+
+## Ending
 
 > 靡不有初，鲜克有终
