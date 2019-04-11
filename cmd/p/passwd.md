@@ -71,3 +71,55 @@ root LK 1969-12-31 0 99999 7 -1 (Alternate authentication scheme in use.)
 $ passwd -S icehe
 passwd: Unknown user name 'icehe'.
 ```
+
+## Related
+
+References
+
+- passwd 命令 : http://man.linuxde.net/passwd
+
+> 与用户、组账户信息相关的文件
+
+存放用户信息：
+
+```bash
+/etc/passwd
+/etc/shadow
+```
+
+存放组信息：
+
+```bash
+/etc/group
+/etc/gshadow
+```
+
+用户信息文件分析（每项用:隔开）
+
+```bash
+# e.g.
+jack:X:503:504:::/home/jack/:/bin/bash
+```
+
+- `jack` 用户名
+- `X` 口令/密码
+- `503` 用户 id（0 代表root, 普通新建用户从 500 开始）
+- `504` 所在组
+- `:` 描述
+- `/home/jack/` 用户主目录
+- `/bin/bash` 用户缺省 Shell
+
+组信息文件分析
+
+```bash
+jack:$!$:???:13801:0:99999:7:*:*:
+```
+
+- `jack` 组名
+- `$!$` 被加密的口令
+- `13801` 创建日期与今天相隔的天数
+- `0` 口令最短位数
+- `99999` 用户口令
+- `7` 到 7 天时提醒
+- `*` 禁用天数
+- `*` 过期天数
