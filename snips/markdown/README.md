@@ -254,7 +254,11 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
 
 > 一行内容不要太长
 
-to be perfect …
+短句方便阅读.
+
+> 文档撰写方面, 对 "必须 / 应该 / 建议" 的字眼的使用, 请参考 RFC 2119
+
+- https://www.ietf.org/rfc/rfc2119.txt
 
 ## Tools
 
