@@ -12,6 +12,11 @@
 
 - Redis 深度历险：核心原理与应用实践 : https://juejin.im/book/5afc2e5f6fb9a07a9b362527
 
+容量评估
+
+- **Redis 容量预估** - 极数云舟 : http://www.redis.cn/redis_memory/
+- Redis 容量评估模型 - 腾讯游戏学院 : https://gameinstitute.qq.com/community/detail/114987
+
 ## Mode
 
 - Redis : 单线程模型
