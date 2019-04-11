@@ -271,6 +271,7 @@ Reference : https://www.computerhope.com/keys.htm
 - edt : edit
 - elem : element
 - ELK : [ELK Stack : Elasticsearch Logstash Kibana](https://www.elastic.co/cn/elk-stack)
+- 'em : [them](https://www.urbandictionary.com/define.php?term=%27em)
 - EN : English
 - enc : encoding
 - env : environment
