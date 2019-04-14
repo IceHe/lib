@@ -122,6 +122,7 @@ Web
 - [expr](/cmd/e/expr.md) : evaluate expressions
 - [file](/cmd/f/file.md) : determine file type
 - [find](/cmd/f/find.md) : search for files in a directory hierarchy
+- [git](/cmd/g/git.md) : the stupid content tracker
 - [grep](/cmd/g/grep.md) : print lines matching a pattern
     - [zgrep](/cmd/z/zgrep.md) : search possibly compressed files for a regular expression
 - [head](/cmd/h/head.md) : output the first part of files
