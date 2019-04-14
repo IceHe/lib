@@ -300,7 +300,7 @@ Newly
 
 - [PDCA](/snips/principles/pdca.md) : Plan → Do → Check → Act ( Adjust )
 - [AIDA](/snips/principles/aida.md) : Attention → Interest → Desire → Action
-- _FERI : Fact → Emotion ( Feel ) → Reflect → Improve ( Solution )_
+- _FERI : Fact → Emotion ( Feel ) → Reflect → Improve ( Temporary Solution )_
 
 ### Digest
 
