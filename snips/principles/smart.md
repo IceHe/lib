@@ -5,6 +5,8 @@ References
 - https://wiki.mbalib.com/wiki/SMART%E5%8E%9F%E5%88%99
 - https://en.wikipedia.org/wiki/SMART_criteria
 
+## Meaning
+
 Specific : 目标具体（明确）
 
 - ~~成为勤奋学习的人~~
