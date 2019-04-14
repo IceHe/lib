@@ -287,15 +287,18 @@ Others
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
 - [What Why How](/snips/principles/what-why-how.md)
-- [How to Ask](/snips/principles/how-to-ask.md)
-- [SMART](/snips/principles/smart.md)
-- [STAR](/snips/principles/star.md)
-- [SWOT](/snips/principles/swot.md)
+- [How to Ask](/snips/principles/how-to-ask.md) JFGI & RTFM
+    - JFGI : Just Fucking Google It
+    - RTFM : Read The Fucking Manual
+- [SMART](/snips/principles/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR](/snips/principles/star.md) : Situation → Target → Action → Result
+- [SWOT](/snips/principles/swot.md) : Strengths / Weakness / Oppertunities / Threats
 
 Newly
 
-- [PDCA](/snips/principles/pdca.md)
-- [AIDA](/snips/principles/aida.md)
+- [PDCA](/snips/principles/pdca.md) : Plan → Do → Check → Act ( Adjust )
+- [AIDA](/snips/principles/aida.md) : Attention → Interest → Desire → Action
+- _FERI : Fact → Emotion ( Feel ) → Reflect → Improve_
 
 ### Digest
 
