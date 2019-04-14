@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Author : IceHe
+# Email : icehe.me@qq.com
+# Website : https://icehe.xyz
+
 echo "
 ================================================================================
 START: $(date)"
