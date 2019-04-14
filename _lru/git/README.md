@@ -41,11 +41,16 @@ git pull
 
 git fetch
 
-    --all           # fetch from all remotes
-    -a | --append   # append to .git/FETCH_HEAD instead of overwriting
-    -f | --force    # force overwrite of local branch
-    -p | --prune    # prune remote-tracking branches no longer on remote
-    -t | --tags     # fetch all tags & associated objects
+    # fetch from all remotes
+    --all
+    # append to .git/FETCH_HEAD instead of overwriting
+    -a | --append
+    # force overwrite of local branch
+    -f | --force
+    # prune remote-tracking branches no longer on remote
+    -p | --prune
+    # fetch all tags & associated objects
+    -t | --tags
 
 git status
 
@@ -56,7 +61,8 @@ git diff
 
     --cached
     --word-diff
-    HEAD^   # compare to the past of the past
+    # compare to the past of the past
+    HEAD^
 
 git add
 git rm
@@ -69,13 +75,16 @@ git mv
 git commit
 
     -m <commit_msg>
-    -a          # add all
-    --amend     # fix | append
+    # add all
+    -a
+    # fix | append
+    --amend
     --cached
 
 git push
 
-    -u | --set-upstream # set upstream for git pull/status
+    # set upstream for git pull/status
+    -u | --set-upstream
 
 git stash
 
@@ -86,15 +95,21 @@ git stash
 
 git branch
 
-    -a | --all      # list all
-    -d | --delete   # delete
-    -D              # force to delete
+    # list all
+    -a | --all
+    # delete
+    -d | --delete
+    # force to delete
+    -D
 
 git checkout
 
-    [<branch_name>]         # switch to
-    [<path/to/file|dir>]    # back to the past
-    -b <branch_name>        # new branch
+    # switch to
+    [<branch_name>]
+    # back to the past
+    [<path/to/file|dir>]
+    # new branch
+    -b <branch_name>
 
 git log
 
@@ -113,7 +128,8 @@ git reset
 git clean
 
     -f | --force
-    -d  # remove whole directories
+    # remove whole directories
+    -d
 
 git cherry-pick COMMIT_ID
 
@@ -219,6 +235,26 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 ```bash
 $ git checkout master
 $ git branch | sed 1d | xargs git branch -d
+```
+
+删除远程分支
+
+```git
+# 查看本地分支
+git branch
+
+# 查看全部分支 (包括远程分支)
+git branch -a
+
+# 本地删除
+git branch -D <branch_name>
+# e.g.
+git branch -D backup
+
+# 远程删除
+git push origin --delete <branch_name>
+# e.g.
+git push origin --delete backup
 ```
 
 ## Config 配置
