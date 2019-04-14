@@ -5,20 +5,24 @@
 Omit the unusual commands at my work.
 
 - 笔者不时得用上但常忘记的指令
-- 提要：`HEAD` 代表的是最近的一次提交（ [Refname](#Refname) ）
+- 提要：`HEAD` 代表的是最近的一次提交
 
-References
+## References 参考
 
-- [Git SCM](http://git-scm.com/) —— Official Site
-- [Git Book](http://git-scm.com/book/en/v2) - Official Guide 细致全面（[简体中文版](http://git-scm.com/book/zh/v2)）
-- [Git Reference](http://git-scm.com/docs) - Official Docs
-- [猴子都能懂的 Git 入门](http://backlogtool.com/git-guide/en/) - 深入浅出（[中文版](http://backlogtool.com/git-guide/cn/)）
-- [闯过这 54 关，点亮你的 Git 技能树](https://segmentfault.com/a/1190000004222489?utm_source=Weibo&utm_medium=shareLink&utm_campaign=socialShare) - 实用主义。在具体的工作场景下学习如何使用
-- [廖学峰的官方网站：Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000) - 快速上手
-- [30 天精通 Git 版本控管](https://github.com/doggy8088/Learn-Git-in-30-days/) - 深入理解
-- [GIT和SVN之间的五个基本区别](http://www.oschina.net/news/12542/git-and-svn) - [英文出处](http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/)
+- Git SCM ( official site ) : http://git-scm.com/
+- Git Book ( official guide ) : http://git-scm.com/book/en/v2 ( 细致全面 )
+    - 中文版 : http://git-scm.com/book/zh/v2
+- Git Reference ( official docs ) : http://git-scm.com/docs
+- 猴子都能懂的 Git 入门 : http://backlogtool.com/git-guide/en/ ( 深入浅出 )
+    - 中文版 : http://backlogtool.com/git-guide/cn/
+- 闯过这 54 关，点亮你的 Git 技能树 : https://segmentfault.com/a/1190000004222489?utm_source=Weibo&utm_medium=shareLink&utm_campaign=socialShare
+    - 实用主义, 在具体的工作场景下学习如何使用
+- 廖学峰的官方网站 - Git 教程 : http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000 ( 快速上手 )
+- 30 天精通 Git 版本控管 : https://github.com/doggy8088/Learn-Git-in-30-days/ ( 深入理解 )
+- GIT和SVN之间的五个基本区别 : http://www.oschina.net/news/12542/git-and-svn
+    - 英文出处 : http://boxysystems.com/index.php/5-fundamental-differences-between-git-svn/
 
-## Frequent 频繁
+## Frequent 常用
 
 凭印象简单罗列出以下个人常用命令，仅供参考
 
@@ -177,7 +181,7 @@ Text 文本
 git log --pretty="%H" --author="authorname" | while read commit_hash; do git show --oneline --name-only $commit_hash | tail -n+2; done | sort | uniq
 ```
 
-- 列出某个作者所有修改过的文件 ( [Reference](http://stackoverflow.com/questions/6349139/can-i-get-git-to-tell-me-all-the-files-one-user-has-modified) )
+- 列出某个作者所有修改过的文件 ( Reference : http://stackoverflow.com/questions/6349139/can-i-get-git-to-tell-me-all-the-files-one-user-has-modified )
 
 ## Back 反悔
 
@@ -229,7 +233,7 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 - `git merge --squash <branch_name>` 把另一分支的所有提交合并成一个提交，并导入到当前分支
 - `git fetch -p` 删除远程不存在的分支
 - `git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d`
-    删除所有已经合并到主干的本地分支 ( [Ref](http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged) )
+    删除所有已经合并到主干的本地分支 ( Ref : http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged )
 - 删除 master 之外的其它分支
 
 ```bash
@@ -297,5 +301,5 @@ git push origin --delete backup
 
 ## Aliases 别名
 
-- My Zsh Aliases of Git : [mac-conf/.config/zsh/git.zsh](https://github.com/IceHe/mac-conf/raw/master/.config/zsh/git.zsh)
-    - Based on [oh-my-zsh plugin git](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
+- My Zsh Aliases of Git : mac-conf/.config/zsh/git.zsh : https://github.com/IceHe/mac-conf/raw/master/.config/zsh/git.zsh
+    - Based on oh-my-zsh plugin git : https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
