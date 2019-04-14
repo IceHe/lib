@@ -143,6 +143,7 @@ Web
 - [man](/cmd/m/man.md) : an interface to the on-line reference manuals
 - [mkdir](/cmd/m/mkdir.md) : make directories
 - [mv](/cmd/m/mv.md) : move (rename) files
+- [mvn](/cmd/m/mvn.md) : Java Package Management
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
 - [nl](/cmd/n/nl.md) : number lines of files

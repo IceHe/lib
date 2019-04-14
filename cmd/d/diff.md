@@ -51,7 +51,7 @@ $ diff file1 file2
 - `%>` lines from FILE2
 
 ```bash
-[root@box029 zhiyuan16]# diff -y file1 file2
+$ diff -y file1 file2
 1      <
 2        2
 3        3
