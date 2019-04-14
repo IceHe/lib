@@ -498,6 +498,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pg : page
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
+- pom : [Project Oject Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) ( for Maven )
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
 - pr : priority ( for CLI )
 - pre- : before (in time, place, order, degree, or importance) 前，在前 / 先于，预先
