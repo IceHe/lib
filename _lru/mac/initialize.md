@@ -516,6 +516,12 @@ Dock
 
 - set `Auto Hide`
 - remove useless apps from Dock
+- 通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派 : https://sspai.com/post/33366
+
+```bash
+defaults write com.apple.dock autohide-delay -int 0
+killall Dock
+```
 
 Notification
 
