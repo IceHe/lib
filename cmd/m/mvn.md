@@ -42,7 +42,7 @@ Details
 
 - `-am,--also-make` If project list is specified, also build projects required by the list
 - `-amd,--also-make-dependents` If project list is specified, also build projects that depend on projects on the list
-- `-B,--batch-mode` Run in non-interactive (batch) mode (disables output color)
+- **`-B,--batch-mode` Run in non-interactive (batch) mode (disables output color)**
 - `-b,--builder <arg>` The id of the build strategy to use
 - `-C,--strict-checksums` Fail the build if checksums don't match
 - `-c,--lax-checksums` Warn if checksums don't match
@@ -74,11 +74,12 @@ Details
 - **`-s,--settings <arg>` Alternate path for the user settings file***
 - `-t,--toolchains <arg>` Alternate path for the user toolchains file
 - **`-T,--threads <arg>` Thread count, for instance 2.0C where C is core multiplied**
-- `-U,--update-snapshots` Forces a check for missing releases and updated snapshots on remote repositories
+- **`-U,--update-snapshots` Forces a check for missing releases and updated snapshots on remote repositories**
 - `-up,--update-plugins` Ineffective, only kept for backward compatibility
 - `-v,--version` Display version information
 - `-V,--show-version` Display version information WITHOUT stopping build
 - **`-X,--debug` Produce execution debug output**
+
 ## Referneces
 
 Maven - Maven Documentation ( guides/index ) : https://maven.apache.org/guides/index.html
