@@ -211,6 +211,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cmt : comment
 - cnt : count
 - conf : configuration
+- conn : connect, connection
 - const : constant
 - constr : [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
 - conv : convert
