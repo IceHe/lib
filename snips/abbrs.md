@@ -367,6 +367,7 @@ Reference : https://www.computerhope.com/keys.htm
 - int : [integer](https://en.wikipedia.org/wiki/Integer_(computer_science))     | [interrupt](https://en.wikipedia.org/wiki/Interrupt)
 - io : input/output
 - IPC : [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)
+- ix : index ( for MySQL )
 
 ### J
 
