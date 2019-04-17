@@ -346,3 +346,14 @@ $ elasticsearch-plugin install [PLUGIN_NAME]
 ### Manipulate
 
 TODO
+
+#### elasticdump
+
+> Import and export tools for elasticsearch
+
+<!-- > Tools for moving and saving indices. -->
+
+References
+
+- Elasticsearch:跨集群数据迁移之离线迁移 - 简书 : https://www.jianshu.com/p/50ef4c9090f0
+- GitHub - taskrabbit/elasticsearch-dump : https://github.com/taskrabbit/elasticsearch-dump
