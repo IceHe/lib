@@ -1,5 +1,5 @@
 - [Home](/)
-- [Issues](https://github.com/IceHe/lib/issues)
+- [Contact](https://github.com/IceHe/lib/issues)
 
 <!-- - [About](/_lru/marks/bio.md) -->
 <!-- - External -->
