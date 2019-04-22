@@ -42,6 +42,10 @@ Restore from backups of Time Machine
 - or Restore from Disk Backup by Disk Utility
 - or Re-install macOS
 
+Disable animations to accelerate macOS
+
+- Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
+
 #### Cannot Repeat Keys
 
 References
