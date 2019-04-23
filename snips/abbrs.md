@@ -718,6 +718,7 @@ Reference : https://www.computerhope.com/keys.htm
 - y : year
     - for CLI : yes
 - Y2K38 Problem : Year 2038
+- YMMV : [Your Mileage May Vary](https://dictionary.cambridge.org/us/dictionary/english/ymmv)
 - yr : year
 - yrs : years | yours
 
