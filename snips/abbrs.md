@@ -159,6 +159,7 @@ Reference : https://www.computerhope.com/keys.htm
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
 - AIDA : [Awareness → Interest → Desire → Action](https://en.wikipedia.org/wiki/AIDA_(marketing))
+- AIR : Automatic, Indenpendent, Repeatable 即 "空气" 原则
 - AK : Access Key (ID/Secret)
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - AOF : [Append Only File](https://redis.io/topics/persistence)
