@@ -315,6 +315,7 @@ Reference : https://www.computerhope.com/keys.htm
 ### G
 
 - G : billion 十亿
+- GAV : GroupId, ArtifactId, Version : 即 Maven 坐标, 唯一标识 jar 包
 - gen : generate
 - GFM : [Github Flavored Markdown](https://github.github.com/gfm/)
 - GFW : [Great Fire Wall](https://en.wikipedia.org/wiki/Great_Firewall)
@@ -405,6 +406,9 @@ Reference : https://www.computerhope.com/keys.htm
 - lf : left | [line feed](https://en.wikipedia.org/wiki/Newline)
 - LGTM : Looks Good To Me
 - lib : library
+    - 一方库 : 本工程内部子项目模块依赖的库 (jar 包)
+    - 二方库 : 公司内部发布到中央仓库, 可供公司内部其它应用依赖的库 (jar 包)
+    - 三方库 : 公司之外的开源库 (jar 包)
 - ln : link
 - lnk : link
 - loc : location
@@ -457,7 +461,7 @@ Reference : https://www.computerhope.com/keys.htm
 - No. : number
 - no-no : n. 禁忌；不可作之事
 - NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"
-- NPE : Null Pointer Exception ( for Java )
+- NPE : Null Pointer Exception ( Linux | java.lang.NullPointerException )
 - NRT : Near Realtime
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
@@ -473,6 +477,9 @@ Reference : https://www.computerhope.com/keys.htm
 - OKR : [Objective & Key Results](http://blog.devtang.com/2018/11/22/okr-introduction/)
 - OLAP : 在线分析处理
 - OLTP : 在线事务处理
+- OOM : Out Of Memory
+    - 源于 java.lang.OutOfMemoryError, 当 JVM 没有足够内存来为对象分配空间, 并且垃圾回收器也无法回收空间时, 系统出现的严重状态
+- OOP : Object Oriented Programming
 - op : operation | option
 - ops : operations
 - opt : option
@@ -503,6 +510,8 @@ Reference : https://www.computerhope.com/keys.htm
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - pk : primary key ( for SQL )
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
+- POJO : Plain Ordinary Java Object
+    - 通常专指只有 setter / getter / toString 的简单类, 包括 DO/DTO/BO/VO 等
 - pom : [Project Oject Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) ( for Maven )
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
 - pr : priority ( for CLI )
@@ -606,6 +615,8 @@ Reference : https://www.computerhope.com/keys.htm
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
 - snd : send
 - SOA : [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)
+    - 面向服务架构, 可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部署、组合和使用,
+    - 有利于提升组件重用性可维护性.
 - SOAP : [Simple Object Access Protocol](https://en.wikipedia.org/wiki/SOAP) ( based on XML )
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
