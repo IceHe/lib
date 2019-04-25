@@ -501,6 +501,7 @@ Reference : https://www.computerhope.com/keys.htm
 - PFAIL : Possibly Fail ( for Redis Cluster )
 - pg : page
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
+- pk : primary key ( for SQL )
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
 - pom : [Project Oject Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) ( for Maven )
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
@@ -667,6 +668,7 @@ Reference : https://www.computerhope.com/keys.htm
 - UE : [user experience design](https://en.wikipedia.org/wiki/User_experience_design) ( [others](https://en.wikipedia.org/w/index.php?title=Special:Search&search=user+experience+design&fulltext=1&profile=default) )
 - ui : [user interface](https://en.wikipedia.org/wiki/User_interface) | [user interaction](https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction)
 - uid : user id
+- uk : unique key ( for SQL )
 - UML : [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 统一建模语言
 - uni : unique
 - uniq : unique
