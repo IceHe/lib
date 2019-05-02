@@ -114,6 +114,7 @@ Paragraph <!-- newly added on 2019-05-02 -->
 
 - `⇧ Y` Copy from the cursor to the end of line
 - `⇧ K` Join curren line and next line without breaking
+- `]p` Paste under the current indentation level
 
 ### Lower or Upper Case
 
