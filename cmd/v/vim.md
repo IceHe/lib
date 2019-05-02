@@ -10,11 +10,13 @@ Offical Website
 
 - Home : http://www.vim.org/
 - Docs : http://www.vim.org/docs.php
+- Vim documentation: help : http://vimdoc.sourceforge.net/htmldoc/
 
 Recommended
 
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Image
 - Vim cheatsheet : https://devhints.io/vim
+    - Interactive Vim tutorial : https://openvim.com/
 - SpaceVim : https://spacevim.org/ - Modern Vim Distribution
 
 My config files

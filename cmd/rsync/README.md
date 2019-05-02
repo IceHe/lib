@@ -15,6 +15,7 @@ rcp
 > remote file copy
 
 - Quickstart : http://transamrit.net/docs/rsync/
+- Rsync cheatsheet : https://devhints.io/rsync
 - Exit Codes : https://lxadm.com/Rsync_exit_codes
 - **Explaination** : https://explainshell.com/explain?cmd=rsync+-chavzP+--stats+user%40remote.host%3A%2Fpath%2Fto%2Fcopy+%2Fpath%2Fto%2Flocal%2Fstorage
 
