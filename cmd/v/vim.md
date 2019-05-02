@@ -1,6 +1,10 @@
 # Vim
 
-> Only list the useful keys that I’m unfamiliar with here.
+> terminal text editor
+
+Purpose
+
+- Only list the useful keys that I’m unfamiliar with here.
 
 Offical Website
 
@@ -10,6 +14,7 @@ Offical Website
 Recommended
 
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Image
+- Vim cheatsheet : https://devhints.io/vim
 - SpaceVim : https://spacevim.org/ - Modern Vim Distribution
 
 My config files
@@ -68,10 +73,10 @@ Powered by plugin
 [EasyMotion](https://github.com/easymotion/vim-easymotion)
 
 - It's a Vim plugin. [spf13-vim](http://vim.spf13.com/) makes it easier to use:
-- In normal mode `,`, `,` ( Twice ) then input a cursor motion instruction,
-    - such as `w`, `e`, `b`, `f*`, `F*`, `t*`, `T*` or etc.
-- The screen will display some keycues.
-- If you input one of the keycues, then your cursor will get to the specified place.
+    - In normal mode `,`, `,` ( Twice ) then input a cursor motion instruction,
+        - such as `w`, `e`, `b`, `f*`, `F*`, `t*`, `T*` or etc.
+    - The screen will display some keycues.
+    - If you input one of the keycues, then your cursor will get to the specified place.
 
 ## Edit Content
 
@@ -162,12 +167,15 @@ Example
 ### Tab
 
 - `:tabedit [path/to/file]<CR>` Open Existing File in New Tab
-- `,`, `t` = `:tabedit<space>`
 - `:edit [path/to/file]<CR>` Open Existing File in Current Tab
-- `,`, `e` = `:edit<space>`
 - `:tabnew<CR>` Open New Empty Tab
 - `:tabc<CR>` Close Current Tab
 - `:tabo<CR>` Close all Other Tabs But only the Current
+
+Custom
+
+- `,`, `t` = `:tabedit<space>`
+- `,`, `e` = `:edit<space>`
 - `L` = `gt` = `:tabn<CR>` Next Tab
 - `H` = `gT` = `:tabp<CR>` Prev Tab
 - `,`, `a` = `1gt` to Tab 1

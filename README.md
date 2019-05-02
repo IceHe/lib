@@ -185,7 +185,7 @@ Web
 - [uname](/cmd/u/uname.md) : print system information
 - [uniq](/cmd/u/uniq.md) : report or omit repeated lines
 - [uptime](/cmd/u/uptime.md) : show how long system has been running
-- [vim](/cmd/v/vim.md) : terminal editor
+- [vim](/cmd/v/vim.md) : terminal text editor
 - [visudo](/cmd/v/visudo.md) : edit the sudoers file
 - [w](/cmd/w/w.md) : show who is logged on & what they are doing
 - [wc](/cmd/w/wc.md) : print newline, word, & byte counts for each file
