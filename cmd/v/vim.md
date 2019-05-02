@@ -55,7 +55,15 @@ Powered by plugin
 - `^ ]` Find Declaration
 - `^ t` Back from Declaration
 
-### EasyMotion
+### Marks
+
+- <code>\`^</code> Last position of cursor in insert mode
+    - `'^` Head of line of last position of cursor in insert mode
+- <code>\`.</code> Last change
+    - `'.` Head of line of last change
+- <code>\`\`</code> | `''` Last jump
+
+### _EasyMotion_
 
 [EasyMotion](https://github.com/easymotion/vim-easymotion)
 
@@ -75,6 +83,13 @@ Powered by plugin
 - `de` Del to End of Cur Word
 - `ci*` Select & Manipulate the string surrounded by `*`.
 - `ca*` Select & Manipulate the string surrounded by `*` including `*`.
+
+Paragraph <!-- newly added on 2019-05-02 -->
+
+- `vip` Select paragraph _( same as `⇧ V`, `⇧ }` ? )_
+- `vipip` Select more paragraphs _( better : `⇧ V`, `⇧ }`, `⇧ }`, … )_
+- _`yip` Yank inner paragraph_
+- `yap` Yank paragraph (including newline) _( better than `yip` )_
 
 ### Delete
 
@@ -98,8 +113,12 @@ Powered by plugin
 ### Lower or Upper Case
 
 - `⇧ ~` Toggle Case & Mv Cursor to Next char
-- `u` to Lowercase
-- `⇧ U` to Uppercase
+- `gu` to Lowercase
+    - or `u` after selecting range
+- `gU` to Uppercase
+    - or `⇧ U` after selecting range
+- `guu` | `gugu` Lowercase current line
+- `gUU` | `gUgU` Lowercase current line
 
 ### Increase or Decrease Num
 
