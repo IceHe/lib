@@ -7,7 +7,7 @@
 ```bash
 chgrp staff file    # Change group to `staff`
 chgrp staff dir
-chgrp staff -R dir  # Change files in dir …
+chgrp staff -R dir  # Recursively in directory
 ```
 
 Group `staff` is related to root. ( see file `/etc/group` )

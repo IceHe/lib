@@ -2,24 +2,14 @@
 
 > change file owner and group
 
-## Options
+## Quickstart
 
-Common
-
-- `-R, --recursive` operate on files & directories recursively
-- `--reference=RFILE` use RFILE's owner & group rather than specifying OWNER:GROUP values
-
-Symbolic Link
-
-- `-h, --no-dereference` **affect symbolic links instead of any referenced file**
-    - useful only on systems that can change the ownership of a symlink
-- `--dereference` affect the referent of each symbolic link ( **default** )
-    - rather than the symbolic link itself
-
-Wrong Operation Prevention
-
-- `--preserve-root` **fail to operate recursively on '/'**
-- `--no-preserve-root` do not treat '/' specially ( **default** )
+```bash
+chown user:group file   # Change file owner & group
+chown user file         # Only owner …
+chown :group file       # Only group …
+chown user:group dir    # Recursively in directory
+```
 
 ## Usage
 
@@ -107,3 +97,22 @@ chown : <file_path>
 # e.g.
 chown : file
 ```
+
+## Options
+
+Common
+
+- `-R, --recursive` operate on files & directories recursively
+- `--reference=RFILE` use RFILE's owner & group rather than specifying OWNER:GROUP values
+
+Symbolic Link
+
+- `-h, --no-dereference` **affect symbolic links instead of any referenced file**
+    - useful only on systems that can change the ownership of a symlink
+- `--dereference` affect the referent of each symbolic link ( **default** )
+    - rather than the symbolic link itself
+
+Wrong Operation Prevention
+
+- `--preserve-root` **fail to operate recursively on '/'**
+- `--no-preserve-root` do not treat '/' specially ( **default** )
