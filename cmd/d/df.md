@@ -8,6 +8,13 @@ On BSD
 
 > **display free disk** space
 
+## Quickstart
+
+```bash
+df -h   # Display in human readable format
+df -H   # Likewise, but use powers of 1000 not 1024
+```
+
 ## Options
 
 - `-a, --all` Include dummy file systems
