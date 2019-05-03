@@ -2,7 +2,22 @@
 
 > remove sections from each line of files
 
-Synopsis
+## Quickstart
+
+```bash
+cut -f 1,3 -d ':' --output-delimiter=', ' file
+# -f 1,3    : Show fields of column 1 & 3
+# -d ':'    : Split by ':' (delimiter)
+# --output-delimiter ', ' : Use ', ' as field delimiter
+
+# e.g.
+sed 's/#.*//' /etc/group | cut -f 2-3 -d ':' --output-delimiter=', '
+# -f 2-3    : Show fields from column 2 to 3 (range)
+sed 's/#.*//' /etc/group | cut -f 1-2,4 -d ':' --output-delimiter=', '
+# -f 2-3,4  : Show fields from column 1 to 2 and of column 4 (multiple ranges)
+```
+
+## Synopsis
 
 ```bash
 cut OPTION... [FILE]...
