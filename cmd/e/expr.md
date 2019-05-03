@@ -2,6 +2,18 @@
 
 > evaluate expressions
 
+## Quickstart
+
+```bash
+expr 1 + 2      # 3
+expr 11 \* 12   # 132
+expr 192 / 11   # 17
+expr 192 % 11   # 5
+expr 5 \| 10    #
+……
+# 没怎么用过的命令, 不知道什么场景下比较有用.
+```
+
 ## Synopsis
 
 ```bash
@@ -174,7 +186,12 @@ expr: non-integer argument
 ```
 
 `/`
+
+- …
+
 `%`
+
+- …
 
 ### String Operation
 
