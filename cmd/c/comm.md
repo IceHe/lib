@@ -13,14 +13,6 @@ comm -13 file1 file2    # Lines unique to file2
 
 ## Options
 
-### Synopsis
-
-```bash
-comm [OPTION]... FILE1 FILE2
-```
-
-Compare sorted files FILE1 and FILE2 line by line.
-
 ### Column
 
 Meanings of Column N to FILE N

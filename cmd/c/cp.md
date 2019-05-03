@@ -2,6 +2,35 @@
 
 > copy files and directories
 
+## Quickstart
+
+```bash
+cp file new_file        # Copy file
+cp -r dir new_dir       # Copy directory
+cp -R dir new_dir
+cp -t dir file1 file2   # Copy files to directory
+```
+
+Notice!
+
+```bash
+# All the same
+cp -r dir new_dir
+cp -r dir/ new_dir
+cp -r dir new_dir/
+cp -r dir/ new_dir/
+
+# If `new_dir` has been existed,
+# `dir` will be copied into `new_dir`.
+$ mkdir dir
+$ cp -r dir new_dir
+$ ls new_dir
+# output noting
+$ cp -r dir new_dir
+$ ls new_dir/
+dir
+```
+
 ## Synopsis
 
 ```bash

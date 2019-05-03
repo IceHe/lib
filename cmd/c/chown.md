@@ -11,14 +11,14 @@ chown :group file       # Only group …
 chown -R user:group dir # Recursively in directory
 ```
 
-## Usage
-
-Synopsis
+## Synopsis
 
 ```bash
 chown [OPTION]... [OWNER][:[GROUP]] FILE...
 chown [OPTION]... --reference=RFILE FILE...
 ```
+
+## Usage
 
 ### Common
 
