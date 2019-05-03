@@ -2,15 +2,24 @@
 
 > compare two sorted files line by line
 
-## Synopsis
+## Quickstart
+
+```bash
+comm file1 file2        # Compare file1 with file2
+comm -12 file1 file2    # Print lines in both file1 & file2
+comm -23 file1 file2    # Lines unique to file1
+comm -13 file1 file2    # Lines unique to file2
+```
+
+## Options
+
+### Synopsis
 
 ```bash
 comm [OPTION]... FILE1 FILE2
 ```
 
 Compare sorted files FILE1 and FILE2 line by line.
-
-## Options
 
 ### Column
 
