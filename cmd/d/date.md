@@ -2,6 +2,23 @@
 
 > display or set the system date and time
 
+## Quickstart
+
+```bash
+date +"%Y-%m-%d %H:%M:%S %a"
+date +%Y-%m-%d\ %H:%M:%S\ %a
+date +%F\ %T\ %a
+# 2019-05-03 18:55:25 Fri ( output )
+
+# Comparison :
+# YYYY-MM-dd HH:mm:ss E ( Java format )
+# YYYY-mm-dd HH:ii:ss D ( PHP format )
+
+# e.g.
+date -d 2018-04-12\ 12:34:56    # Display date wanted
+# Thu Apr 12 12:34:56 CST 2018
+```
+
 ## Options
 
 - `-d, --date=<STRING>` Display time described by STRING, not 'now'.
