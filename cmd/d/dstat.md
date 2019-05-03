@@ -4,11 +4,10 @@
 
 Reference : https://linux.cn/article-3215-1.html
 
-## Usage
-
-Default
+## Quickstart
 
 ```bash
+# Default
 $ dstat
 You did not select any stats, using -cdngy by default.
 ----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
@@ -23,8 +22,6 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 ```
 
 ## Description
-
-### Intro
 
 Dstat is a versatile **replacement for `vmstat`, `iostat` and `ifstat`**.
 
