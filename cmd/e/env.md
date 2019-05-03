@@ -2,6 +2,14 @@
 
 > run a program in a (temporary) modified environment
 
+## Quickstart
+
+```bash
+env # Print all environment variables
+```
+
+## Synopsis
+
 Set each NAME to VALUE in the environment and run COMMAND.
 
 ```bash
