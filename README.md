@@ -67,6 +67,7 @@ Web
 - [How to mail on CentOS?](/cmd/m/mailx.md) mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( draft / sth wrong? )
 - [Chrome](/snips/web/chrome.md) : clear cookie ( draft )
+- [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md): estimation
 
 ### Mac
 
