@@ -2,6 +2,8 @@
 
 > The missing package manager for macOS
 
+## Quickstart
+
 Usage
 
 ```bash
