@@ -2,6 +2,133 @@
 
 > search for files in a directory hierarchy
 
+## Quickstart
+
+```bash
+# Common
+find -type d    # Find directory
+find -type f    # Find regular file
+find -type l    # Find symbolic link
+
+# Find files matched shell pattern
+find -path "*m*"
+find -name "*.log"
+# -name : the path without the leading dir
+
+# Others
+find -maxdepth 1    # Descend at most 1 level of dirs
+find -mtime 5       # Find files modified 5 min ago
+find -empty         # Find empty files & dirs
+```
+
+## Synopsis
+
+```bash
+find [-H] [-L] [-P] [-D debugopts] [-Olevel] [path...] [expression]
+```
+
+## Usage
+
+### Name Pattern
+
+#### File
+
+Suffix
+
+```bash
+$ find -name "*3"
+./sample3
+./input3
+```
+
+Extension Name
+
+```bash
+$ find -name "*.log"
+./info.log
+./access.log
+./warn.log
+……
+```
+
+#### Directory
+
+```bash
+$ find -maxdepth 1 -path "*d*"
+./dir
+./sub_dir
+./dictionary
+……
+
+$ find -maxdepth 1 -path "*d"
+$ find -maxdepth 1 -path "d*"
+# output nothing
+```
+
+### Type
+
+#### File
+
+```bash
+$ find -maxdepth 1 -type f
+./.mysql_history
+./.bash_profile
+./.lesshst
+./.vimrc
+./.bash_history
+./.bash_logout
+./.bashrc
+```
+
+#### Directory
+
+```bash
+$ find -maxdepth 1 -type d
+.
+./.config
+./.ssh
+./dir
+./.local
+./.cache
+./.mozilla
+```
+
+### Timestamp
+
+Files modified in 7 days
+
+```bash
+$ find -mtime -7
+```
+
+Files that are not accessed in 7 days
+
+```bash
+$ find -atime +7
+```
+
+### Size
+
+File Size
+
+```bash
+find -size 0
+```
+
+Empty file or directory
+
+```bash
+find -empty
+```
+
+#### Advanced
+
+Absolute path of empty files
+
+```bash
+find -type f -size 0 -exec realpath {} \;
+```
+
 ## Options
 
 ### Timestamp
@@ -64,7 +191,7 @@
 
 ### Name Pattern
 
-- `-name pattern` Base of file name (the path with the leading directories removed) matches shell pattern pattern.
+- `-name pattern` Base of file name (the path with the leading directories removed) matches shell pattern.
     - Because the leading directories are removed, the file names considered for a match with -name will never include a slash, so `-name a/b` will never match anything (you probably need to use -path instead).
     - The metacharacters (`*`, `?`, and `[]`) match a `.` at the start of the base name (this is a change in findutils-4.2.2).
     - To ignore a directory and the files under it, use `-prune`; see an example in the description of `-path`.
@@ -161,116 +288,3 @@ Note that
 ### Others
 
 - `-mount` Don't descend directories on other filesystems.
-
-## Usage
-
-### Synopsis
-
-```bash
-find [-H] [-L] [-P] [-D debugopts] [-Olevel] [path...] [expression]
-```
-
-### Name Pattern
-
-#### File
-
-Suffix
-
-```bash
-$ find -name "*3"
-./sample3
-./input3
-```
-
-Extension Name
-
-```bash
-$ find -name "*.log"
-./info.log
-./access.log
-./warn.log
-……
-```
-
-#### Directory
-
-```bash
-$ find -maxdepth 1 -path "*d*"
-./dir
-./sub_dir
-./dictionary
-……
-
-$ find -maxdepth 1 -path "*d"
-$ find -maxdepth 1 -path "d*"
-# output nothing
-```
-
-or
-
-```bash
-```
-
-### Type
-
-#### File
-
-```bash
-$ find -maxdepth 1 -type f
-./.mysql_history
-./.bash_profile
-./.lesshst
-./.vimrc
-./.bash_history
-./.bash_logout
-./.bashrc
-```
-
-#### Directory
-
-```bash
-$ find -maxdepth 1 -type d
-.
-./.config
-./.ssh
-./dir
-./.local
-./.cache
-./.mozilla
-```
-
-### Timestamp
-
-Files modified in 7 days
-
-```bash
-$ find -mtime -7
-```
-
-Files that are not accessed in 7 days
-
-```bash
-$ find -atime +7
-```
-
-### Size
-
-File Size
-
-```bash
-find -size 0
-```
-
-Empty file or directory
-
-```bash
-find -empty
-```
-
-#### Advanced
-
-Absolute path of empty files
-
-```bash
-find -type f -size 0 -exec realpath {} \;
-```
