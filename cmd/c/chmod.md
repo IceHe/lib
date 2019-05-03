@@ -2,7 +2,16 @@
 
 > change file mode bits
 
-## Description
+## Quickstart
+
+```bash
+chmod 777 file          # Grant all access permissions
+chmod ugo+a file
+chmod ugo+rwx file
+chmod -R u+x,go-w dir   # Compound operations
+```
+
+## Details
 
 ### Modes
 
@@ -88,24 +97,6 @@ Meanings of N-th Digit
 - However, for each symbolic link listed on the command line, chmod changes the permissions of the pointed-to file.
 - In contrast, chmod ignores symbolic links encountered during recursive directory traversals.
 
-## Options
-
-Common
-
-- `-R, --recursive` change files & directories recursively
-- `--reference=RFILE` use RFILE's owner and group rather than specifying OWNER:GROUP values
-
-Ouput
-
-- `-c, --changes` like verbose but report only when a change is made
-- `-f, --silent, --quiet` suppress most error messages
-- `-v, --verbose` output a diagnostic for every file processed
-
-Wrong Operation Prevention
-
-- `--preserve-root` **fail to operate recursively on '/'**
-- `--no-preserve-root` do not treat '/' specially ( **default** )
-
 ## Usage
 
 ### Synopsis
@@ -144,3 +135,21 @@ chmod -R <user><operator><access> <directory>
 chmod -R a+r logs/
 chmod -R o+r,o-x logs/
 ```
+
+## Options
+
+Common
+
+- `-R, --recursive` change files & directories recursively
+- `--reference=RFILE` use RFILE's owner and group rather than specifying OWNER:GROUP values
+
+Ouput
+
+- `-c, --changes` like verbose but report only when a change is made
+- `-f, --silent, --quiet` suppress most error messages
+- `-v, --verbose` output a diagnostic for every file processed
+
+Wrong Operation Prevention
+
+- `--preserve-root` **fail to operate recursively on '/'**
+- `--no-preserve-root` do not treat '/' specially ( **default** )
