@@ -2,6 +2,16 @@
 
 > Change the current directory to dir.
 
+## Quickstart
+
+```bash
+cd dir  # Change directory
+cd ~    # To user's home
+cd $HOME
+cd -    # To last dir
+cd $OLDPWD
+```
+
 ## _Synopsis_
 
 ```bash
@@ -23,27 +33,3 @@ cd [-L|[-P [-e]]] [dir]
     - see also the -P option to the `set` builtin command
 - `-L` Forces symbolic links to be followed
 - `-e` If the `-e` option is supplied with `-P`, and the current working directory cannot be successfully determined after a successful directory change, `cd` will return an unsuccessful status.
-
-## Usage
-
-### Default
-
-```bash
-cd <directory>
-```
-
-### To User Home
-
-```bash
-cd ~
-# same as
-cd $HOME
-```
-
-### To Previous Directory
-
-```bash
-cd -
-# same as
-cd $OLDPWD
-```
