@@ -7,6 +7,21 @@ References
 - https://curl.haxx.se/docs/
     - https://curl.haxx.se/docs/manpage.html
 
+## Quickstart
+
+```bash
+curl -I icehe.xyz   # Print only Headers
+
+curl -s -X POST -H "Foo: bar" icehe.xyz
+# -s            : Do not show progress meter or error messages
+# -X POST       : Specify request method
+# -H "Foo: bar" : Add a header
+
+curl -LO https://getcomposer.org/composer.phar
+# -L : Enable redirect
+# -O : Write local file named like remote file
+```
+
 ## Options
 
 Header
