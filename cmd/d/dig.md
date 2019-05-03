@@ -2,10 +2,12 @@
 
 > DNS lookup utility
 
-- `dig` (**domain information groper**) is a flexible tool for interrogating DNS name servers.
-- It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried.
-- Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output.
-- Other lookup tools tend to have less functionality than `dig`.
+## Quickstart
+
+```bash
+dig icehe.xyz           # Lookup DNS info of a domain (?)
+dig +short icehe.xyz    # Only show IPs & CNAMEs (?)
+```
 
 ## Synopsis
 
@@ -21,6 +23,13 @@ dig [global-queryopt...] [query...]
 ```
 
 Options & More : see `man dig`
+
+## Description
+
+- `dig` (**domain information groper**) is a flexible tool for interrogating DNS name servers.
+- It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried.
+- Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output.
+- Other lookup tools tend to have less functionality than `dig`.
 
 ## Query Options
 
