@@ -8,8 +8,8 @@ Format
 
 - `-b, --number-nonblank` Number nonempty output lines, overrides `-n`
 - _`-E, --show-ends` Display $ at end of each line_
-- **`n, --number` Number all output lines**
-- `s, --squeeze-blank` Suppress repeated empty output lines
+- **`-n, --number` Number all output lines**
+- `-s, --squeeze-blank` Suppress repeated empty output lines
 - _`-T, --show-tabs` Display TAB characters as ^I_
 - _`-v, --show-nonprinting` Use ^ and M-notation, except for LFD & TAB_
 

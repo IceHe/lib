@@ -5,33 +5,54 @@
 Usage
 
 ```bash
-# Common
-brew search git     # Search for a package
-brew install git    # Install …
-brew uninstall git  # Uninstall …
+# COMMON #
+
+# Search for a package
+brew search git
+# Install …
+brew install git
+# Uninstall …
+brew uninstall git
 brew remove git
 brew rm git
-brew upgrade git    # Upgrade …
-brew upgrade        # Upgrade all
-brew update         # Update brew & cask (itself)
-brew list           # List installed
+# Upgrade …
+brew upgrade git
+# Upgrade all
+brew upgrade
+# Update brew & cask (itself)
+brew update
+# List installed
+brew list
 brew ls
 
-# Versions
-brew list --versions git    # See what versions you have
-brew switch git 2.5.0       # Change version
+# VERSIONS #
+
+# See what versions you have
+brew list --versions git
+# Change version
+brew switch git 2.5.0
 # ( Link is also for switching version. )
-brew unlink git             # Unlink …
-brew link git               # Link …
+# Unlink …
+brew unlink git
+# Link …
+brew link git
 brew ln git
 
-# Cask (Apps)
-brew tap caskroom/versions  # Tap a formula repository
-brew cask install java      # Install macOS apps
-brew cask uninstall java    # Uninstall …
+# CASK (APPS) #
 
-# Others
-brew doctor     # Check potential problems
-brew outdated   # What's due for upgrades?
-brew home git   # Open homepage
+# Tap a formula repository
+brew tap caskroom/versions
+# Install macOS apps
+brew cask install java
+# Uninstall …
+brew cask uninstall java
+
+# OTHERS #
+
+# Check potential problems
+brew doctor
+# What's due for upgrades?
+brew outdated
+# Open homepage
+brew home git
 ```
