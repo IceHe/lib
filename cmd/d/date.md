@@ -5,19 +5,23 @@
 ## Quickstart
 
 ```bash
+# Display date now
+# YYYY-MM-dd HH:mm:ss E ( Java format )
+# YYYY-mm-dd HH:ii:ss D ( PHP format )
 date +"%Y-%m-%d %H:%M:%S %a"
 date +%Y-%m-%d\ %H:%M:%S\ %a
 date +%F\ %T\ %a
 # 2019-05-03 18:55:25 Fri ( output )
 
-# Comparison :
-# YYYY-MM-dd HH:mm:ss E ( Java format )
-# YYYY-mm-dd HH:ii:ss D ( PHP format )
-
-# e.g.
-date -d 2018-04-12\ 12:34:56    # Display date wanted
-# Thu Apr 12 12:34:56 CST 2018
+# Display date wanted
+date -d "-1 day"    # yesterday
+# Thu May  2 19:05:08 CST 2019 ( output )
+date -d 2018-04-12\ 12:34:56    # specified date
+# Thu Apr 12 12:34:56 CST 2018 ( output )
 ```
+
+- PHP: date - Manual : https://www.php.net/manual/en/function.date.php
+- DateTimeFormatter (Java Platform SE 8 ) : https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
 
 ## Options
 
