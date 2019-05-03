@@ -2,10 +2,19 @@
 
 > compare files line by line
 
-Synopsis
+## Quickstart
 
 ```bash
-diff [OPTION]... FILES
+diff -y file1 file2 # Output in two columns
+# -y == --side-by-side
+
+# e.g. output
+1   <
+2     2
+3     3
+    > 4
+# < : lines from file1
+# > : lines from file2
 ```
 
 ## Options
