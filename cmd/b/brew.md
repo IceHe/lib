@@ -4,8 +4,6 @@
 
 ## Quickstart
 
-Usage
-
 ```bash
 # Common
 brew search git

@@ -4,38 +4,26 @@
 > - bzcat - decompresses files to stdout
 > - bzip2recover - recovers data from damaged bzip2 files
 
+## Quickstart
+
+```bash
+bzip2 -z file       # Compress
+bzip2 -d file.bz2   # Decompress
+bunzip2 file.bz2
+```
+
 ## Options
 
-- `-c, --stdout` Compress or decompress to standard output
+- `-k, --keep` Keep (don't delete) input files during compression or decompression
 - `-d, --decompress` Force decompression
 - `-z, --compress` The complement to `-d` **forces compression**, regardless of the invocation name
-- `-k, --keep` Keep (don't delete) input files during compression or decompression
+- `-c, --stdout` Compress or decompress to standard output ( for pipe )
 
-## Usage
+## Details
 
-### Compress
-
-```bash
-bzip2 -z <filename>
-
-# e.g.
-$ bzip2 -z index.html
-index.html.bz2
-```
-
-### Decompress
+Decompress
 
 - Files which were not created by bzip2 will be detected and ignored, and a warning issued.
-
-```bash
-bzip2 -d <filename>.bz2
-# or
-bunzip2 <filename>.bz2
-
-# e.g.
-$ bzip2 -d index.html.bz2
-index.html
-```
 
 `bzip2` guesses filename as follows
 
@@ -44,8 +32,8 @@ index.html
 
 |From|To|
 |:-|:-|
-|filename.bz2|filename|
-|filename.bz|filename|
-|filename.tbz2|filename.tar|
-|filename.tbz|filename.tar|
+|file.bz2|file|
+|file.bz|file|
+|file.tbz2|file.tar|
+|file.tbz|file.tar|
 |anyothername|anyothername.out|
