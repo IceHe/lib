@@ -2,13 +2,22 @@
 
 > concatenate files and print on the standard output
 
+## Quickstart
+
+```bash
+cat file        # Print a file
+cat -n file     # With line numbers
+cat file1 file2 # Print files
+cat             # Copy standard input to standard output
+```
+
 ## Options
 
 Format
 
+- **`-n, --number` Number all output lines**
 - `-b, --number-nonblank` Number nonempty output lines, overrides `-n`
 - _`-E, --show-ends` Display $ at end of each line_
-- **`-n, --number` Number all output lines**
 - `-s, --squeeze-blank` Suppress repeated empty output lines
 - _`-T, --show-tabs` Display TAB characters as ^I_
 - _`-v, --show-nonprinting` Use ^ and M-notation, except for LFD & TAB_
