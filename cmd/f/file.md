@@ -2,6 +2,14 @@
 
 > determine file type
 
+## Quickstart
+
+```bash
+file README.md  # Determine file type
+# e.g. output
+# README.md: exported SGML document, UTF-8 Unicode text
+```
+
 ## Synopsis
 
 ```bash
