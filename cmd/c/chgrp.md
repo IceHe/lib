@@ -2,6 +2,16 @@
 
 > change group ownership
 
+## Quickstart
+
+```bash
+chgrp staff file    # Change group to `staff`
+chgrp staff dir
+chgrp staff -R dir  # Change files in dir …
+```
+
+Group `staff` is related to root. ( see file `/etc/group` )
+
 ## Options
 
 Common
@@ -21,21 +31,3 @@ The following options modify how a hierarchy is traversed when the `-R` option i
     - `-H` if a command line argument is a symbolic link to a directory, traverse it
     - `-L` traverse every symbolic link to a directory encountered
     - `-P` do not traverse any symbolic links (default)
-
-## Usage
-
-### Single
-
-Change the group of /u to "staff"
-
-```bash
-chgrp staff /u
-```
-
-### Recursive
-
-Change the group of /u and subfiles to "staff"
-
-```bash
-chgrp -hR staff /u
-```
