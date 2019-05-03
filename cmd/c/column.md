@@ -2,6 +2,18 @@
 
 > columnate lists
 
+## Quickstart
+
+```bash
+column -s ':' -t -o '|' file
+# -s ':' : Split by ':'
+# -t     : Create a table
+# -o '|' : Use '|' as table delimiters
+
+# e.g.
+sed 's/#.*//' /etc/group | column -s ':' -t -o '|'
+```
+
 ## Synopsis
 
 ```bash

@@ -8,7 +8,7 @@
 chown user:group file   # Change file owner & group
 chown user file         # Only owner …
 chown :group file       # Only group …
-chown user:group dir    # Recursively in directory
+chown -R user:group dir # Recursively in directory
 ```
 
 ## Usage
