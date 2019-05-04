@@ -6,9 +6,9 @@
 
 ```bash
 # Regular Expression
-egrep pattern file      # Use extended syntaxes
-grep -E pattern file
 grep -e pattern file    # Use basic syntaxes
+grep -E pattern file    # Use extended syntaxes
+egrep pattern file      # (prefer)
 # e.g.
 egrep "^#" /etc/hosts
 
