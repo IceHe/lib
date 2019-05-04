@@ -2,6 +2,36 @@
 
 > grep, egrep, fgrep - print lines matching a pattern
 
+## Quickstart
+
+```bash
+# Regular Expression
+egrep pattern file      # Use extended syntaxes
+grep -E pattern file
+grep -e pattern file    # Use basic syntaxes
+# e.g.
+egrep "^#" /etc/hosts
+
+# Common
+grep -v pattern file    # Invert match
+grep --invert-match pattern file
+grep -i pattern file    # Ignore case
+grep --ignore-case pattern file
+grep -n pattern file    # Print with line numbers
+grep --line-number pattern file
+grep -c pattern file    # Count of matching lines
+grep --count pattern file
+
+# Context
+grep -A NUM pattern file    # Print n lines after matching lines
+grep --after-context=n pattern file
+grep -B NUM pattern file    # Print n lines before matching lines
+grep --before-context=n pattern file
+grep -C NUM pattern file    # Print n lines before & after …
+grep -NUM pattern file      # e.g. grep -2 abc file
+grep --context=NUM pattern file
+```
+
 ## Synopsis
 
 grep
@@ -127,29 +157,6 @@ Interpret PATTERN as :
 - **`-R, --dereference-recursive`** Read all files under each directory, recursively.
     - **Follow all symbolic links**, unlike -r.
 
-## Regular Expression
-
-grep understands three different versions of regular expression syntax:
-
-- basic
-- extended
-- perl
-
-Implementsations
-
-- In **GNU grep, there is no difference** in available functionality **between basic & extended syntaxes**.
-- In other implementations, basic regular expressions are less powerful.
-    - Differences for basic regular expressions are summarized afterwards.
-    - Perl regular expressions give additional functionality, and are documented in pcresyntax(3) and pcrepattern(3), but may not be available on every system.
-
-Basic vs Extended Regular Expressions
-
-- In basic regular expressions the meta-characters `? + { | ( )` lose their special meaning; instead use the backslashed versions `\? \+ \{ \| \( \)`.
-- Traditional egrep did not support the `{` meta-character, and some egrep implementations support `\{` instead, so portable scripts should avoid `{` in grep -E patterns and should use `[{]` to match a literal `{`.
-- GNU grep -E attempts to support traditional usage by assuming that `{` is not special if it would be the start of an invalid interval specification.
-    - For example, the command grep `-E '{1'` searches for the two-character string `{1` instead of reporting a syntax error in the regular expression.
-    - POSIX allows this behavior as an extension, but portable scripts should avoid it.
-
 ## Usage
 
 Sample
@@ -267,3 +274,26 @@ $ egrep '(abh|chi).*' input
 abhishek
 chitransh
 ```
+
+## Regular Expression
+
+grep understands three different versions of regular expression syntax:
+
+- basic
+- extended
+- perl
+
+Implementsations
+
+- In **GNU grep, there is no difference** in available functionality **between basic & extended syntaxes**.
+- In other implementations, basic regular expressions are less powerful.
+    - Differences for basic regular expressions are summarized afterwards.
+    - Perl regular expressions give additional functionality, and are documented in pcresyntax(3) and pcrepattern(3), but may not be available on every system.
+
+Basic vs Extended Regular Expressions
+
+- In basic regular expressions the meta-characters `? + { | ( )` lose their special meaning; instead use the backslashed versions `\? \+ \{ \| \( \)`.
+- Traditional egrep did not support the `{` meta-character, and some egrep implementations support `\{` instead, so portable scripts should avoid `{` in grep -E patterns and should use `[{]` to match a literal `{`.
+- GNU grep -E attempts to support traditional usage by assuming that `{` is not special if it would be the start of an invalid interval specification.
+    - For example, the command grep `-E '{1'` searches for the two-character string `{1` instead of reporting a syntax error in the regular expression.
+    - POSIX allows this behavior as an extension, but portable scripts should avoid it.
