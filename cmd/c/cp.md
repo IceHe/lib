@@ -8,10 +8,11 @@
 cp file new_file        # Copy file
 cp -r dir new_dir       # Copy directory
 cp -R dir new_dir
-cp -t dir file1 file2   # Copy files to directory
+cp file dir             # Copy file to dir
+cp -t dir file1 file2   # Copy files to dir
 ```
 
-Notice!
+Notice:
 
 ```bash
 # All the same
@@ -22,6 +23,7 @@ cp -r dir/ new_dir/
 
 # If `new_dir` has been existed,
 # `dir` will be copied into `new_dir`.
+# e.g.
 $ mkdir dir
 $ cp -r dir new_dir
 $ ls new_dir
