@@ -7,6 +7,19 @@
 - See `man iostat` for more.
 - Recommend to use [`dstat`](/cmd/d/dstat.md).
 
+## Quickstart
+
+```bash
+$ iostat
+Linux 3.10.0-957.5.1.el7.x86_64 (icehe)         2019年05月04日  _x86_64_        (1 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.21    0.00    0.16    0.00    0.00   99.63
+
+Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+vda               0.20         0.16         1.23     466565    3578632
+```
+
 ## Synopsis
 
 ```bash
