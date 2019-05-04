@@ -2,6 +2,13 @@
 
 > last, lastb - show listing of last logged in users
 
+## Quickstart
+
+```bash
+last -10    # List last 10 logged in users
+last -10 -w # Display full user & domain names
+```
+
 ## Intro
 
 `last`
