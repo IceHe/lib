@@ -4,6 +4,12 @@
 
 Reference : http://man.linuxde.net/ifconfig
 
+## Quickstart
+
+```bash
+ifconfig    # Show status of the currently active interfaces
+```
+
 ## Usage
 
 ### Default
