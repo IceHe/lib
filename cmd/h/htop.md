@@ -2,6 +2,51 @@
 
 > interactive process viewer
 
+## Quickstart
+
+```bash
+$ htop
+
+  CPU[||                       1.3%]   Tasks: 21, 36 thr; 1 running
+  Mem[|||||||||||||||||||60.5M/487M]   Load average: 0.23 0.09 0.07
+  Swp[                        0K/0K]   Uptime: 33 days, 17:35:13
+
+  PID USER      PRI  NI  VIRT   RES   SHR S CPU% MEM%   TIME+  Command
+ 6441 root        0 -20  123M  8420  5816 S  0.7  1.7  2h41:57 /usr/local/aegi…
+28509 root       20   0  119M  2184  1424 R  0.7  0.4  0:00.05 htop
+ 3164 root       20   0 40748  2744  2000 S  0.0  0.6  6:37.65 /usr/sbin/aliyu…
+    1 root       20   0 43532  3516  2300 S  0.0  0.7  0:32.53 /usr/lib/system…
+ 1779 root       16  -4 55520  1104   648 S  0.0  0.2  0:00.07 /sbin/auditd
+……
+
+# Then press `h` to get help
+
+htop 2.2.0 - (C) 2004-2019 Hisham Muhammad
+Released under the GNU GPL. See 'man' page for more info.
+
+CPU usage bar: [low-priority/normal/kernel/virtualiz               used%]
+Memory bar:    [used/buffers/cache                            used/total]
+Swap bar:      [used                                          used/total]
+Type and layout of header meters are configurable in the setup screen.
+
+ Status: R: running; S: sleeping; T: traced/stopped; Z: zombie; D: disk sleep
+ Arrows: scroll process list              Space: tag process
+ Digits: incremental PID search               c: tag process and its children
+   F3 /: incremental name search              U: untag all processes
+   F4 \: incremental name filtering        F9 k: kill process/tagged processes
+   F5 t: tree view                         F7 ]: higher priority (root only)
+      p: toggle program path               F8 [: lower priority (+ nice)
+      u: show processes of a single user      a: set CPU affinity
+      H: hide/show user process threads       e: show process environment
+      K: hide/show kernel threads             i: set IO priority
+      F: cursor follows process               l: list open files with lsof
+ F6 + -: expand/collapse tree                 s: trace syscalls with strace
+  P M T: sort by CPU%, MEM% or TIME
+      I: invert sort order               F2 C S: setup
+ F6 > .: select sort column                F1 h: show this help screen
+Press any key to return.                  F10 q: quit
+```
+
 ## Options
 
 - `-p, --pid=PID,PID...` Given PIDs only
