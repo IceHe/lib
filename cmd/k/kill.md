@@ -6,6 +6,30 @@ Reference
 
 - [Differences between `kill <pid>` & `kill -9 <pid>`](https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process)
 
+## Quickstart
+
+```bash
+# Get PID of process
+pidof nginx
+pgrep nginx
+ps aux | grep nginx
+ps -ef | grep nginx
+
+# kill
+kill pid        # Kill a process
+kill -9 pid     # Force to kill
+kill -1 pid     # Kill & then restart it
+kill -s HUP pid
+
+# e.g.
+$ pidof nginx
+507 541
+$ kill -1 507 541
+# or
+$ pkill -HUP nginx
+
+```
+
 ## Options
 
 - `-s, --signal <signal>` Specify the signal to send.
