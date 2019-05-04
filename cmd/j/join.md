@@ -2,7 +2,7 @@
 
 > join lines of two files on a common field
 
-Synopsis
+## Synopsis
 
 ```bash
 join [OPTION]... FILE1 FILE2
