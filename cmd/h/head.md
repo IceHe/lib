@@ -8,6 +8,14 @@ Sysnopsis
 head [OPTION]... [FILE]...
 ```
 
+## Quickstart
+
+```bash
+head file       # Print top 10 lines in file
+head -25 file   # Print top 25 lines in file
+head -n -5 file # Print all but last 5 lines
+```
+
 ## Options
 
 ### Amount
