@@ -2,6 +2,14 @@
 
 > show / manipulate routing, devices, policy routing and tunnels
 
+## Quickstart
+
+```bash
+ip addr     # List IP addrs assigned to all network interfaces
+ip addr show eth0   # List IP addrs assigned to eth0
+ip route    # Show table routes
+```
+
 ## Usage
 
 Common
@@ -41,6 +49,7 @@ $ ip addr show eth0
     inet 10.77.120.249/24 brd 10.77.120.255 scope global eth0
        valid_lft forever preferred_lft forever
 ```
+
 ## Synopsis
 
 ```bash
