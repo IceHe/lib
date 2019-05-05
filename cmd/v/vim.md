@@ -68,7 +68,8 @@ Powered by plugin
     - `'^` Head of line of last position of cursor in insert mode
 - <code>\`.</code> Last change
     - `'.` Head of line of last change
-- <code>\`\`</code> | `''` Last jump
+- <code>\`\`</code> Last jump
+    - `''` Head of line of last jump
 
 ### _EasyMotion_
 
