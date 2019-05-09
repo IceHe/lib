@@ -2,6 +2,17 @@
 
 > opposite of more
 
+## Quickstart
+
+```bash
+less +F file    # Like `tail -f`
+
+# e.g. use less to view text
+grep pattern file | less
+
+# TODO
+```
+
 ## Descriptions
 
 ### more
