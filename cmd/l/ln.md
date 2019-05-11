@@ -6,6 +6,14 @@ Reference
 
 - GNU Coreutils : https://www.gnu.org/software/coreutils/manual/html_node/ln-invocation.html
 
+## Quickstart
+
+```bash
+ln -s
+
+# TODO
+```
+
 ## Synopsis
 
 Create a link to TARGET with the name LINK_NAME.
