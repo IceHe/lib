@@ -5,9 +5,9 @@
 ## Quickstart
 
 ```bash
-ip addr     # List IP addrs assigned to all network interfaces
+ip addr # List IP addrs assigned to all network interfaces
 ip addr show eth0   # List IP addrs assigned to eth0
-ip route    # Show table routes
+ip route            # Show table routes
 ```
 
 ## Usage
