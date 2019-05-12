@@ -2,6 +2,13 @@
 
 > an interface to the on-line reference **manuals**
 
+## Quickstart
+
+```bash
+man command # Format & display the on-line manual pages
+man awk     # e.g.
+```
+
 ## Synopsis
 
 System's manual pager
