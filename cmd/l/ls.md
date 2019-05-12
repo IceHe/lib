@@ -12,6 +12,8 @@ Reference
 # Common
 ls -hl      # List with human readable sizes in long format
 ls -ahl     # List all with …
+ls -hl file    # List info about file
+ls -hl f1 f2   # List info about files
 
 ## Range options
 # -a : List all ( Do not ignore entries starting with `.` )
@@ -31,11 +33,11 @@ ls -ltc     # Sort by ctime ( metadata last Changed time )
 ls -ltu     # Sort by atime ( last access time )
 ls -ltU     # Sort by creation time ( Notice: BSD only! )
 
-## In reverse order
+## `-r, --reverse` : In reverse order
 ls -ltr
 ls -ltcr
 ls -ltur
-ls -ltUr    # ( Notice: BSD only! )
+ls -ltUr
 ```
 
 ## Options
