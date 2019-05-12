@@ -11,13 +11,19 @@ References
 
 See `man msmtp` for more
 
-## Install
+---
+
+**Notice : There is something wrong with setting QQMail in msmtp on macOS**!
+
+- **TODO : If I actually need to send email via command line on macOS, I will try it again.**
+
+### Install
 
 ```bash
 brew install msmtp
 ```
 
-## Config
+### Config
 
 Create file `~/.mailrc` & append configs to it as below
 
@@ -58,7 +64,7 @@ password PASSWORD
 account default: qqmail
 ```
 
-## Send
+### Send
 
 ```bash
 # e.g.

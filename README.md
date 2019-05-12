@@ -65,9 +65,11 @@ Web
 - [Nginx : Simple HTTP Server](/snips/nginx/README.md)
 - [How to docsify?](/_docsify/README.md)
 - [How to mail on CentOS?](/cmd/m/mailx.md) mailx
-    - [on macOS](/cmd/m/msmtp.md) : msmtp ( draft / sth wrong? )
-- [Chrome](/snips/web/chrome.md) : clear cookie ( draft )
+    - [on macOS](/cmd/m/msmtp.md) : msmtp ( sth wrong? )
 - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md): estimation
+
+<!-- Useless -->
+<!-- - [Chrome](/snips/web/chrome.md) : clear cookie ( draft ) -->
 
 ### Mac
 
