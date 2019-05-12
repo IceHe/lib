@@ -7,6 +7,9 @@
 
 ## Tech
 
+> Later equals never.
+> —— LeBlanc
+
 ### Snips
 
 <!-- Algorithms ( Basic ) -->
@@ -377,9 +380,6 @@ Nonsense
 
 - Time Mgt. : [Life Logs](/_lru/lifelogs/README.md) & [Log Format](/_lru/lifelogs/time-mgt.md)
 - Way of Life : [Self Manual](/_lru/lifelogs/life-manual.md)
-
-> Later equals never.
-> —— LeBlanc
 
 Previous Blog : 2015 ~ 2017
 
