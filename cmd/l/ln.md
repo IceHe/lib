@@ -20,8 +20,8 @@ ln -s file link     # Create soft (symbolic) link …
 ln -s dir link      # Create soft link to dir
 
 # Recommended : with options -iv
-# -i : Prompt whether to rm destinations (interactively)
-# -v : Print names of each linked file (verbosely)
+# -i, --interactive : Prompt whether to rm destinations
+# -v, --verbose     : Print names of each linked file
 ln -iv file link
 ln -siv file link
 ln -siv dir link
@@ -29,9 +29,8 @@ ln -siv dir link
 # Check Link ( via `ls` )
 ls -hl link     # Check link
 ls -hl          # Check current working dir
-# -h : Print in human readable format
+# -h, --human-readable : Print human readable sizes
 # -l : Use a long listing format
-
 ```
 
 ## Synopsis
