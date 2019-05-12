@@ -9,9 +9,29 @@ Reference
 ## Quickstart
 
 ```bash
-ln -s
+# File
+ln file link        # Create hard (physical) link to file
+ln -s file link     # Create soft (symbolic) link …
 
-# TODO
+# Directory
+# macOS : Symbolic link only!
+# Linux : Maybe allow superuser to attempt to hard link dirs
+# ( will probably fail due to system restrictions, even for superuser )
+ln -s dir link      # Create soft link to dir
+
+# Recommended : with options -iv
+# -i : Prompt whether to rm destinations (interactively)
+# -v : Print names of each linked file (verbosely)
+ln -iv file link
+ln -siv file link
+ln -siv dir link
+
+# Check Link ( via `ls` )
+ls -hl link     # Check link
+ls -hl          # Check current working dir
+# -h : Print in human readable format
+# -l : Use a long listing format
+
 ```
 
 ## Synopsis
@@ -42,6 +62,11 @@ Default
 - When creating hard links, each TARGET must exist.
 - Symbolic links can hold arbitrary text;
     - if later resolved, a relative link is interpreted in relation to its parent directory.
+
+Aliases for link types
+
+- hard link : physical link
+- soft link : symbolic link
 
 ## Options
 
@@ -84,7 +109,7 @@ Notice
 ln -iv <target> <link>
 ```
 
-- Symbolic Link
+- Soft Link
 
 ```bash
 ln -isv <target> <link>
@@ -109,14 +134,14 @@ lrwxrwxrwx 1 root root 7 Nov  5 14:33 file -> ../file
 
 ### Directory
 
-> Symbolic Link Only!
+> Soft Link Only!
 
 ```bash
 # error : hard link
 $ ln -d dir/sub_dir sub_dir_hard
 ln: failed to create hard link ‘sub_dir_hard’ => ‘dir/sub_dir’: Operation not permitted
 
-# ok : symbolic link
+# ok : soft link
 $ ln -dsv dir/sub_dir sub_dir
 ‘sub_dir/sub_dir’ -> ‘dir/sub_dir’
 
