@@ -7,8 +7,6 @@
 
 ## Tech
 
-> Get busy living or get busy dying.
-
 ### Snips
 
 <!-- Algorithms ( Basic ) -->
@@ -272,11 +270,9 @@ Others
 
 -->
 
-<!-- > What is your dream? -->
-
 ### Marks
 
-> Don’t try, just do. Failure is not an option.
+> Get busy living or get busy dying.
 
 - [Bio](/_lru/marks/bio.md) ：Skills / Exp / Edu
 - [Favorites](/_lru/marks/favourites.md) : ACGMN
@@ -382,6 +378,9 @@ Nonsense
 - Time Mgt. : [Life Logs](/_lru/lifelogs/README.md) & [Log Format](/_lru/lifelogs/time-mgt.md)
 - Way of Life : [Self Manual](/_lru/lifelogs/life-manual.md)
 
+> Later equals never.
+> —— LeBlanc
+
 Previous Blog : 2015 ~ 2017
 
 - [Tech Blog](https://icehe.me) : icehe.me
@@ -397,6 +396,10 @@ Previous Blog : 2015 ~ 2017
 - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
 - Me : A fool / Web Backend / Sina Weibo / Ele.me
+
+## Work
+
+> Don’t try, just do. Failure is not an option.
 
 ## Ending
 
