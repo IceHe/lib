@@ -6,6 +6,38 @@ Reference
 
 - Unix LS Command: 15 Practical Examples : https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/
 
+## Quickstart
+
+```bash
+# Common
+ls -hl      # List with human readable sizes in long format
+ls -ahl     # List all with …
+
+## Range options
+# -a : List all ( Do not ignore entries starting with `.` )
+# -A : List all except for `.` and `..`
+# -d : List dirs
+
+## Format options
+# -h : Print sizes in human readable format
+# -l : List in long format
+# -p : Append '/' indicator to directories ( e.g. dir/ )
+
+# Sort by time
+# - Newest first
+# - With option -l to show *time sorted by
+ls -lt      # Sort by mtime ( content last Modification time )
+ls -ltc     # Sort by ctime ( metadata last Changed time )
+ls -ltu     # Sort by atime ( last access time )
+ls -ltU     # Sort by creation time ( Notice: BSD only! )
+
+## In reverse order
+ls -ltr
+ls -ltcr
+ls -ltur
+ls -ltUr    # ( Notice: BSD only! )
+```
+
 ## Options
 
 ### Filter
@@ -71,7 +103,7 @@ Seldom
         - `-ltc` ctime : last changed time (metadata)
         - `-ltu` atime : last access time
         - `-ltU` creation time ( BSD only! )
-    - _See details in "File Timestamps" Below_
+    - _See details in section "Timestamps" below_
 - `-c` Sort by ctime ( (metadata) last changed time )
     - with `-lt` : sort by, and show, ctime;
     - with `-l` : show ctime and sort by name;
