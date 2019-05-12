@@ -2,6 +2,14 @@
 
 > make directories
 
+## Quickstart
+
+```bash
+mkdir dir   # Make directory
+```
+
+## Synopsis
+
 ```bash
 mkdir [-pv] [-m mode] directory_name ...
 ```
