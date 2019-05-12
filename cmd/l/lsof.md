@@ -6,6 +6,45 @@ References
 
 - 15 Linux lsof Command Examples (Identify Open Files) : https://www.thegeekstuff.com/2012/08/lsof-command-examples/
 
+## Quickstart
+
+```bash
+# Default
+lsof            # List all open files
+
+# Port
+lsof -i:port    # List processes which used a specific port
+## e.g.
+lsof -i:3000        # specific port 3000
+lsof -i:3000-4000   # port range from 3000 to 4000
+
+# File
+lsof file       # List processes which opened specific file
+lsof dir        # List processes which opened specific dir
+
+# Directory
+lsof +D dir     # List opened files under a specific dir
+
+# Process
+lsof -p pid     # List files opened by a specific process
+lsof -c cmd_pf  # List files opened by a process executing a command
+                #   that begins with 'cmd_pf' (command prefix)
+## e.g.
+lsof -p 541
+lsof -p dockerd
+lsof -p `pidof dockerd`
+lsof -c nginx
+
+# User
+lsof -u username    # List files opened by a specific user
+
+# Combine selection
+# -a : causes list selection options to be ANDed
+## e.g.
+lsof -a -u icehe -c vim
+sudo lsof -a -u root -c rsyslogd
+```
+
 ## Options
 
 - `-i [i]` Selects the listing of files any of whose Internet address matches the address specified in i.
@@ -13,7 +52,7 @@ References
     - e.g., so that the output may be piped to `kill`.
     - `-t` selects the -w option.
 - `+|-w` Enables (+) or disables (-) the suppression of warning messages.
-- `-a` It may be used to AND the selections.
+- `-a` Causes list selections options to be ANDed.
     - e.g., specifying -a, -U, and -ufoo produces a listing of only
        UNIX socket files that belong to processes owned by user "foo".
 
@@ -126,10 +165,10 @@ dockerd 12037 root   0u  CHR  136,0      0t0         3 /dev/pts/0 (deleted)
 ……
 ```
 
-List opened files based on process names starting with …
+List files opened by processes executing a command that begins with 'command_prefix'
 
 ```bash
-lsof -c <process_name_prefix>
+lsof -c <command_prefix>
 
 # e.g.
 $ lsof -c java
@@ -178,15 +217,15 @@ $ lsof -t -u icehe
 $ kill -9 `lsof -t -u icehe`
 ```
 
-### Combine
+### Combine Selection
 
 List files:
 
 - opened by a specific user
-- based on process names starting with
+- based on processes executing a command that begins with 'command_prefix'
 
 ```bash
-lsof -u <username> -c <process_name_prefix> -a
+lsof -u <username> -c <command_prefix> -a
 
 # e.g.
 $ lsof -u icehe -c java -a
