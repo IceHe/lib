@@ -27,7 +27,7 @@ Symbolic Link
 
 The following options modify how a hierarchy is traversed when the `-R` option is also specified.
 
-- If  more than one is specified, only the final one takes effect.
+- If more than one is specified, only the final one takes effect.
     - `-H` if a command line argument is a symbolic link to a directory, traverse it
     - `-L` traverse every symbolic link to a directory encountered
     - `-P` do not traverse any symbolic links (default)

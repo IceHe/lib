@@ -13,20 +13,20 @@ References
 lsof            # List all open files
 
 # Port
-lsof -i:port    # List processes which used a specific port
+lsof -i:port    # List processes which used a specified port
 ## e.g.
-lsof -i:3000        # specific port 3000
+lsof -i:3000        # specified port 3000
 lsof -i:3000-4000   # port range from 3000 to 4000
 
 # File
-lsof file       # List processes which opened specific file
-lsof dir        # List processes which opened specific dir
+lsof file       # List processes which opened specified file
+lsof dir        # List processes which opened specified dir
 
 # Directory
-lsof +D dir     # List opened files under a specific dir
+lsof +D dir     # List opened files under a specified dir
 
 # Process
-lsof -p pid     # List files opened by a specific process
+lsof -p pid     # List files opened by a specified process
 lsof -c cmd_pf  # List files opened by a process executing a command
                 #   that begins with 'cmd_pf' (command prefix)
 ## e.g.
@@ -36,7 +36,7 @@ lsof -p `pidof dockerd`
 lsof -c nginx
 
 # User
-lsof -u username    # List files opened by a specific user
+lsof -u username    # List files opened by a specified user
 
 # Combine selection
 # -a : causes list selection options to be ANDed
@@ -117,7 +117,7 @@ nginx   66410 icehe 13u IPv4 0x851262b2d39c78e5      0t0  TCP *:terabase (LISTEN
 
 ### File
 
-List processes which opened a specific file
+List processes which opened a specified file
 
 ```bash
 lsof <path/to/file>
@@ -146,7 +146,7 @@ systemd-u 546 root   11r   REG    8,3  6345977  455 /etc/udev/hwdb.bin
 
 ### Process
 
-List files opened by a specific process
+List files opened by a specified process
 
 ```bash
 lsof -p <process_id>
@@ -182,7 +182,7 @@ java    10097 icehe mem  REG    8,7           13381075 /usr/lib/jvm/java-1.8-ope
 
 ### User
 
-List files opened by a specific user
+List files opened by a specified user
 
 ```bash
 lsof -u <username>
@@ -221,7 +221,7 @@ $ kill -9 `lsof -t -u icehe`
 
 List files:
 
-- opened by a specific user
+- opened by a specified user
 - based on processes executing a command that begins with 'command_prefix'
 
 ```bash
@@ -238,7 +238,7 @@ java    10097 icehe txt  REG    8,7     6240  13380993 /usr/lib/jvm/java-1.8-ope
 
 List files:
 
-- opened by a specific user
+- opened by a specified user
 - TCP connections
 - based on process names starting with
 
