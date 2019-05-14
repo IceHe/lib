@@ -1,6 +1,6 @@
 - [Content](/)
 - [Home](/)
-- [Contact](https://github.com/IceHe/lib/issues)
+- [Message](https://github.com/IceHe/lib/issues)
 
 <!-- - [About](/_lru/marks/bio.md) -->
 <!-- - External -->
