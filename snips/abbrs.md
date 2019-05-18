@@ -309,6 +309,7 @@ Reference : https://www.computerhope.com/keys.htm
 - fmt : format
 - fn : function
 - fs : [file system](https://en.wikipedia.org/wiki/File_system)
+- fst : first ( see in Java class "Pair" )
 - func : function
 - FYI : [For Your Infomation](https://en.wikipedia.org/wiki/FYI) 供参考
 
@@ -613,7 +614,7 @@ Reference : https://www.computerhope.com/keys.htm
 - slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
-- snd : send
+- snd : send | second ( see in Java class "Pair" )
 - SOA : [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)
     - 面向服务架构, 可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部署、组合和使用,
     - 有利于提升组件重用性可维护性.
