@@ -38,8 +38,8 @@ Docker
 
 Languages
 
-- [Go](/snips/go.md)
-- [Java](/snips/java/README.md)
+- [Go](/snips/go.md) ( draft )
+- [Java](/snips/java/README.md) ( TODO )
 
 Markdown
 
