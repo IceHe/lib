@@ -77,6 +77,9 @@ Web
 > 君子性非异也，善假于物也。—— 荀子
 
 - [Tools](/_lru/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
+    - [Software](/_lru/marks/tools/README#软件) : 软件
+    - [Hardware](/_lru/marks/tools/hardware) : 硬件
+    - [Life](/_lru/marks/tools/life) : 生活
 - [Efficiency](/_lru/mac/efficiency.md) : 效率指南
 - [Shortcuts](/_lru/mac/shortcuts/README.md) : 快捷键
 - [Initialize](/_lru/mac/initialize.md) : 系统初始化
