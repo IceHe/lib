@@ -1,5 +1,12 @@
 # 生活
 
+> Daily use
+
+TODO
+
+- 电动牙刷换新了
+- 鼻毛修剪器
+
 ## 护牙
 
 **电动牙刷**：[Philips Sonicare DiamondClean Sonic Electric Rechargeable Toothbrush](https://www.amazon.com/Philips-Sonicare-DiamondClean-Rechargeable-HX9332/dp/B0052JN7XG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933357&sr=8-1&keywords=hx9332) <sup>Favorite</sup>
@@ -13,7 +20,7 @@
 - 相关笔记 - [牙齿保健](/_lru/read/tooth.md)
 - 现状：坏了，已经换成 [松下（Panasonic）电动牙刷 EW-DM712K405](https://item.jd.com/5295417.html) ( 2018-09-19 )
 
-**冲牙器**（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332)
+~~**冲牙器**~~（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332) <sup>_零部件遗失_</sup>
 
 - Model HX8332/11（[京东](http://item.jd.hk/1964052662.html)）。注意：用了一年半，感觉充一次电用不了几次就又没电了。
 - 总结：
@@ -38,7 +45,7 @@
 
 ## 加湿
 
-**加湿器**：[PHILIPS Humidifier HU4801/00](https://item.jd.com/729822.html)
+~~**加湿器**：[PHILIPS Humidifier HU4801/00](https://item.jd.com/729822.html)~~ <sup>_闲置_</sup>
 
 - 北方春季、冬季湿度太低，需要加湿；不然鼻子和皮肤都不舒服。
 
@@ -46,14 +53,16 @@
 
 特点
 
-- 运动型的速干T恤（汗多）
+- 运动型的速干T恤（汗多）- YONEX
+- 轻薄的跑步夹克 - [Nike](https://www.nike.com/cn/t/essential-%E7%94%B7%E5%AD%90%E8%B7%91%E6%AD%A5%E5%A4%B9%E5%85%8B-4VTnkbzB)
+- 优衣库的卫衣
 - 一年四季穿长裤
 - 偏爱深色（显瘦）
 - 偏爱修身（人矮，避免显得更矮）
 
 ## 鞋子
 
-**透气的慢跑鞋**（[Under Amour](https://www.underarmour.cn/p1285677-001.htm) / [Nike](https://www.nike.com/cn/zh_cn)） <sup>Favorite</sup>
+**透气的慢跑鞋** ( [Under Amour](https://www.underarmour.cn/p1285677-001.htm) / [Nike](https://www.nike.com/cn/zh_cn) / Addidas Yeezy ) <sup>Favorite</sup>
 
 - 日常穿，轻便、柔软、透气、减震。
 - 新鞋 : [Nike Epic React Flyknit 2](https://www.nike.com/cn/t/epic-react-flyknit-2-%E7%94%B7%E5%AD%90%E8%B7%91%E6%AD%A5%E9%9E%8B-gq9xbj/BQ8928-002) (2019-03-31 嘚瑟一下)
@@ -87,7 +96,7 @@
 
 ## 背包
 
-**大背包**：[Côte & Ciel Backpack](http://www.coteetciel.com/en-CN/isar-backpack-black-melange-laptop-bag) - 装电脑
+**大背包**：[Côte & Ciel Backpack](http://www.coteetciel.com/en-CN/isar-backpack-black-melange-laptop-bag) - 装电脑 <sup>_闲置_</sup>
 
 - Isar Eco Yarn / Black Melange ，就是喜欢它特别的外观设计。
 - 即使是小号的包依然偏大，适合高大的人背；而且外形奇特，比较“挑人”，不容易搭配。
