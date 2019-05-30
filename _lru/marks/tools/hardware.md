@@ -12,16 +12,12 @@
 
 **显示器**：横向主屏 [LG 27UD58-B UHD 4K 27-inch](https://item.jd.com/3446665.html)
 
-**显示器**：竖向副屏 [DELL UltraSharp U2515Hx 2K 25-inch](https://item.jd.com/1453819.html)
+**显示器**：~~竖向副屏~~ [DELL UltraSharp U2515Hx 2K 25-inch](https://item.jd.com/1453819.html) <sup>_工位空间受限_</sup>
 
 **鼠标**：[Logitech MX Master 2S](https://item.jd.com/4294661.html)
 
 - 工作强度大的时候，用触摸板的话，手掌的支撑不足，真的累…… 于是换了鼠标。
 - 滚轮还是喜欢用自由滚动模式，而不是步进模式（看起来更多人喜欢这个）。
-
-**~~触控板~~**：[Magic Trackpad 2](http://www.apple.com/cn/shop/product/MJ2R2CH/A/magic-trackpad-2?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2)
-
-- Macbook 自带触摸板的手感已经足够好了。稍微嫌它们大了点，因为我向来将光标移动速度向来调到最高，基本一般幅度的滑动，光标就能到位，不需要太大的触控面积。
 
 **蓝牙键盘**：[Magic Keyboard](http://www.apple.com/cn/shop/product/MLA22CH/A/magic-keyboard?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2) <sup>Favorite</sup>
 
@@ -30,7 +26,11 @@
 - [键程](http://baike.baidu.com/view/1748635.htm) 不会太长或太短，不需要用力按下，有舒适的反馈感（个人感觉），用久了手也不容易疲劳，特别是小指；而且敲击按键的声音小，不容易打扰到别人。
 - 使用蓝牙 4.0 无线连接，功耗低 —— 没有连接线，这点简直是洁癖和强迫症的福音；内置电池，Lightning 接口充电，一次充电能够续航三周以上，省心。
 
-**~~静电容键盘~~**：[PFU HHKB Professional JP](https://www.amazon.cn/PFU-Happy-Hacking-Keyboard-Professional-JP-%E6%97%A5%E6%9C%AC%E8%AA%9E%E9%85%8D%E5%88%97-%E5%A2%A8-USB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-%E9%9D%99%E9%9B%BB%E5%AE%B9%E9%87%8F%E7%84%A1%E6%8E%A5%E7%82%B9-N%E3%82%AD%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-PD-KB420B/dp/B001KWJTD6/ref=sr_1_2?ie=UTF8&qid=1494650201&sr=8-2&keywords=hhkb+jp)
+**~~触控板~~**：[Magic Trackpad 2](http://www.apple.com/cn/shop/product/MJ2R2CH/A/magic-trackpad-2?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2) <sup>_Sold_</sup>
+
+- Macbook 自带触摸板的手感已经足够好了。稍微嫌它们大了点，因为我向来将光标移动速度向来调到最高，基本一般幅度的滑动，光标就能到位，不需要太大的触控面积。
+
+**~~静电容键盘~~**：[PFU HHKB Professional JP](https://www.amazon.cn/PFU-Happy-Hacking-Keyboard-Professional-JP-%E6%97%A5%E6%9C%AC%E8%AA%9E%E9%85%8D%E5%88%97-%E5%A2%A8-USB%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89-%E9%9D%99%E9%9B%BB%E5%AE%B9%E9%87%8F%E7%84%A1%E6%8E%A5%E7%82%B9-N%E3%82%AD%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-PD-KB420B/dp/B001KWJTD6/ref=sr_1_2?ie=UTF8&qid=1494650201&sr=8-2&keywords=hhkb+jp) <sup>_Sold_</sup>
 
 - 黑色，有刻印（按键上印有键位说明），日文键盘布局。
 - 果然还是按耐不住好奇心，买了一把机械键盘（严格来说静电容键盘不是机械键盘）来尝试。
@@ -41,11 +41,11 @@
 
 ## 外置设备
 
-**便携 SSD**：[SAMSUNG Portable SSD T3 500GB](http://www.samsung.com/cn/memory-storage/pssd-mu-pt/MU-PT500BCN/)
+**便携 SSD**：[SAMSUNG Portable SSD T3 500GB](http://www.samsung.com/cn/memory-storage/pssd-mu-pt/MU-PT500BCN/) <sup>_闲置_</sup>
 
 - 主要作为 MacBook Pro 的备份盘，备份和系统重装镜像恢复的速度飞快，就是有点奢侈…
 
-**拓展邬 & 底座**：[Sabrent USB 3 Universal Docking Station](https://www.amazon.cn/gp/product/B013WQWCEA/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) - 连接、整齐
+~~**拓展邬 & 底座**~~：[Sabrent USB 3 Universal Docking Station](https://www.amazon.cn/gp/product/B013WQWCEA/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) - 连接、整齐 <sup>_闲置_</sup>
 
 - 接口够用
     - USB 3.0 接口 x 2，USB 2.0 接口 x 2，大功率 USB 充电专用接口 x 2，全是 Type-A 的；还有 Ethernet 接口、HDMI、音频 IO。
@@ -78,19 +78,20 @@
     - 除了大部头的书和高清视频，一般的阅读和视频在小屏上看也没差，大不了回头在 Mac 上看。
 - 我很喜欢 [Red Silicone Case](http://www.apple.com/cn/shop/product/MMW82FE/A/iphone-7-%E7%A1%85%E8%83%B6%E4%BF%9D%E6%8A%A4%E5%A3%B3-%E9%BB%91%E8%89%B2?fnode=99)（官方硅胶保护壳）的轻微磨砂质感，好看、舒适、不滑手。
 - 除非你想日后再倒卖出手，否则没必要贴膜，影响观感、手感和手势操作。
-- **其它**：~~iPhone Plus~~ <sup>_备用_</sup>
+- ~~**其它**：iPhone Plus~~ <sup>_赠予_</sup>
     - 续航不错，作为iPad 的替代品和备用手机，出门就可以不带充电宝了。
     - 屏幕尺寸合适，比小屏 iPhone 更适合阅读和看视频，又比 iPad Mini 更便携、方便单手操作，挤地铁公交的时候用也没问题，也是最适合玩手机游戏的尺寸。
     - [Turquoise Silicone Case](https://www.apple.com/cn/shop/product/MKXJ2FE/A/iphone-6-plus-6s-plus-%E7%A1%85%E8%83%B6%E4%BF%9D%E6%8A%A4%E5%A3%B3-%E7%82%AD%E7%81%B0%E8%89%B2?fnode=99)（宝石绿官方硅胶保护壳），一分钱一分货，用久了也能保持悦目的颜色。
     - ~~[Rose Gray Leather Case](https://www.apple.com/cn/shop/product/MKX92FE/A/iphone-6-plus-6s-plus-%E7%9A%AE%E9%9D%A9%E4%BF%9D%E6%8A%A4%E5%A3%B3-%E6%A3%95%E8%89%B2?fnode=99) 官方真皮保护壳易氧化变色，显脏，所以得买深色的。~~
 
-**手机**：坚果 Pro 1 - 128GB <sup>backup</sup>
+~~**手机**：坚果 Pro 1 - 128GB~~ <sup>_赠予_</sup>
 
 - iPhone 没法双卡双待，就用备用机用来使用另一张手机卡；避免主力机遗失后，没备用手机用。
 
-**手表**：[Apple Watch Sport](http://www.apple.com/cn/shop/buy-watch/apple-watch-sport/38-%E6%AF%AB%E7%B1%B3%E6%B7%B1%E7%A9%BA%E7%81%B0%E8%89%B2%E9%93%9D%E9%87%91%E5%B1%9E%E8%A1%A8%E5%A3%B3-%E9%BB%91%E8%89%B2%E8%BF%90%E5%8A%A8%E5%9E%8B%E8%A1%A8%E5%B8%A6?product=MJ2X2CH/A&step=detail)
+**手表**：[Apple Watch Series 4 Sport](https://www.apple.com/cn/shop/buy-watch/apple-watch/MU672CH/A) <sup>Upgraded</sup> ← ~~Apple Watch Sport~~
 
-- 38mm Space Gray Aluminum Case with Black Sport Band ，iPhone、Mac 的辅助工具，健康助手。
+- 40mm Space Gray Aluminum Case with Black Sport Loop, Red Sport Band & Cornflower Modern Buckle
+- ~~38mm Space Gray Aluminum Case with Black Sport Band~~ ，iPhone、Mac 的辅助工具，健康助手。
     - 后来买了个有点贵的「午夜蓝色现代风扣式表带」，后悔。
 - 在 Mac 旁边，只要手上戴着手表并已解锁，唤醒 macOS 后它就会自动解锁，直接进入主界面。
 - 消息推送更私密，还可以使用语音识别输入内容，不用掏出手机就可以快速预览信息、回复。
@@ -101,7 +102,7 @@
 - 每久坐一段时间，它就会提醒您站起来活动一下。
 - 从实用性上说，运动款（Sport）就够用了，买标准款没必要。（究其原因是穷…）
 
-~~**平板电脑**：[iPad](http://www.apple.com/cn/ipad)~~
+~~**平板电脑**：[iPad](http://www.apple.com/cn/ipad)~~ <sup>_赠予_</sup>
 
 - 多用于阅读技术类书籍，看看动漫、电影、公开课。配合蓝牙键盘能够满足轻度使用，不用总是携带笔记本电脑回住处。还是因为用得少，也想身边的物品更精简，就给家里人用了（他们用大屏就不那么费眼力）。
 
@@ -109,7 +110,7 @@
 
 - 需要长时间看书时，还得用 E-Ink 屏，保护视力。用惯手机阅读后，感觉这样更方便，就卖了…
 
-**电子阅读器**：Kindle Oasis 2 E-reader <sup>_Sold_</sup>
+**电子阅读器**：Kindle Oasis 2 E-reader <sup>_Seldom_</sup>
 
 - 然后脑抽了，又买了新的……
 
@@ -133,15 +134,22 @@
     QuietComfort® 20 Acoustic Noise Cancelling®headphones — for Apple devices
     - 续航时间 16h，充电时间 2h；可「一键切换」是否隔绝周围环境的噪音。
 
-**便携无线蓝牙音箱**：[Sony SRS-X1-V](http://item.jd.com/10132928766.html) <sup>Favorite</sup>
+~~**便携无线蓝牙音箱**：[Sony SRS-X1-V](http://item.jd.com/10132928766.html)~~ <sup>_闲置_</sup>
 
 - Bluetooth Wireless Speaker System (Purple)。不打扰别人情况下，尽量用蓝牙音箱来外放，更舒服自在。
 - 在安静环境下，用适度的音量外放合适的音乐或白噪声，容易让人产生沉浸式的专注体验。耳塞、耳机的音源很靠近耳朵，发出的声音太容易抢占人的注意力，沉浸体验不如外放设备。
 - 而且戴耳机、耳塞，多少会压迫侧颊、耳朵、头部，耳道有异物感，始终不是最舒适的状态。长时间戴耳机、耳塞，又不注意清洁设备和耳朵，有可能导致中耳炎，请注意保护听力。
 - 音效还不错（对比类似价位的同类产品）；续航持久；无线连接迅速；防水，可以在浴室使用。
 
+**便携无线蓝牙音箱**：[Sound Link Micro](https://www.bose.cn/zh_cn/products/speakers/portable_speakers/soundlink-micro.html) <sup>Favorite</sup>
+
+- Bose 比 SONY 等厂商品更好的地方在于: "Bose Connect"
+    - 一个 Bose 设备可以同时连接多个音源, 方便切换, 很省心
+    - 虽然自动连接偶尔会不奏效, 但总体上运作比较稳定
+- 哪怕是小小的一点更方便了, 就觉得有必要买着用起来, 让生活更便捷.
+
 ## 视频输出
 
-**投影仪**：[极米无屏电视 Z6X](https://shop.xgimi.com/goods/1182200401.html)
+~~**投影仪**：[极米无屏电视 Z6X](https://shop.xgimi.com/goods/1182200401.html)~~ <sup>_住处空间受限_</sup>
 
 - 方便晚上追番剧，提高幸福度。
