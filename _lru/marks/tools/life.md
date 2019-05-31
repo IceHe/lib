@@ -2,14 +2,14 @@
 
 > Daily use
 
-TODO
-
-- 电动牙刷换新了
-- 鼻毛修剪器
-
 ## 护牙
 
-**电动牙刷**：[Philips Sonicare DiamondClean Sonic Electric Rechargeable Toothbrush](https://www.amazon.com/Philips-Sonicare-DiamondClean-Rechargeable-HX9332/dp/B0052JN7XG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933357&sr=8-1&keywords=hx9332) <sup>Favorite</sup>
+**电动牙刷**: [Panasonic EW-DM712](http://consumer.panasonic.cn/product/beauty-health/tooth-brush/electric-toothbrush/ew-dm712.html) <sup>Favorite</sup>
+
+- 小巧轻便, 携带方便, 算上旅行盒和充电器也一样. ( 比以前用的轻便多了 )
+- 外观好看, 用起来也不赖, 还没有之前用惯的飞利浦高端系列那么贵.
+
+~~**电动牙刷**：[Philips Sonicare DiamondClean Sonic Electric Rechargeable Toothbrush](https://www.amazon.com/Philips-Sonicare-DiamondClean-Rechargeable-HX9332/dp/B0052JN7XG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933357&sr=8-1&keywords=hx9332)~~ <sup>_Broken_</sup>
 
 - Model HX9331/04 (White) 声波式电动牙刷。确实比手动刷干净多了！（[亚马逊中国](https://www.amazon.cn/Philips-%E9%A3%9E%E5%88%A9%E6%B5%A6-HX9332-04%E9%92%BB%E7%9F%B3%E4%BA%AE%E7%99%BD%E5%9E%8B%E5%A3%B0%E6%B3%A2%E9%9C%87%E5%8A%A8%E7%89%99%E5%88%B7/dp/B007ZY5GV2/ref=sr_1_6?ie=UTF8&qid=1468507397&sr=8-6&keywords=philips+diamondclean)）
 - [电动牙刷刷牙相比手动刷牙有什么优缺点？](https://www.zhihu.com/question/19825877/answer/15856166) 总结：
@@ -20,7 +20,7 @@ TODO
 - 相关笔记 - [牙齿保健](/_lru/read/tooth.md)
 - 现状：坏了，已经换成 [松下（Panasonic）电动牙刷 EW-DM712K405](https://item.jd.com/5295417.html) ( 2018-09-19 )
 
-~~**冲牙器**~~（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332) <sup>_零部件遗失_</sup>
+~~**冲牙器**（水牙线）：[Philips Sonicare Airfloss Ultra](https://www.amazon.com/Philips-Sonicare-HX8332-Airfloss-Ultra/dp/B01AVE8AAG/ref=sr_1_1_a_it?ie=UTF8&qid=1468933177&sr=8-1&keywords=hx8332)~~ <sup>_零部件遗失_</sup>
 
 - Model HX8332/11（[京东](http://item.jd.hk/1964052662.html)）。注意：用了一年半，感觉充一次电用不了几次就又没电了。
 - 总结：
@@ -35,13 +35,19 @@ TODO
 
 ## 清洁
 
-**剃须刀**: Braun 5090cc
+**剃须刀**: [Braun 5090cc](https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.84.527f53b99DlzmU&id=38890219067&skuId=54896787566&standard=1&user_id=444969165&cat_id=2&is_b=1&rn=9c7e4f64b317efa951e5b9b8da88bf80)
 
-- [德国博朗男士往复式电动剃须刀5090cc 水洗自动清洁充电刮胡刀](https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.84.527f53b99DlzmU&id=38890219067&skuId=54896787566&standard=1&user_id=444969165&cat_id=2&is_b=1&rn=9c7e4f64b317efa951e5b9b8da88bf80)
+- "往复式电动剃须刀, 干湿两用, 可水洗, 带自动清洁中心" ( 懒得自己清洗… )
+- 确实比以前自己廉价的剃须刀剃的干净多了, 也没那么容易剃伤脸部皮肤.
 - 参考资料
     - [剃须刀，想给老爸和男朋友各买一个剃须刀，有什么品牌推荐的？](https://www.zhihu.com/question/21329265/answer/148142106)
     - [飞利浦剃须刀哪款性价比高？](https://www.zhihu.com/question/52092923/answer/147821109)
     - [天猫博朗专卖店](https://braunjyx.tmall.com/category-227300006.htm?spm=a1z10.5-b-s.w4011-15721826442.4.743824c4m75JpU&search=y&scene=taobao_shop#TmshopSrchNav)
+
+**鼻毛修剪器**: [ER-PGN70](http://consumer.panasonic.cn/product/beauty-health/mens-shaver-grooming/grooming/er-pgn70.html)
+
+- 比起用圆头小剪刀, 剪得更快更彻底更干净, 动力强劲, 使用起来也很方便.
+- 男士可能长得不好看, 但至少得保持整洁的仪容.
 
 ## 加湿
 
