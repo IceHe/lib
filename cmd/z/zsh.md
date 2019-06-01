@@ -40,9 +40,8 @@ My config files
 - _`⎋`, `q` Push Line_
 - _`⎋`, `g` Get Line_
 - `^ v` Edit Command Line in Vim
-- `^ x`, `凵` **Expand Alias** ( see [] )
+- `^ x`, `凵` **Expand Alias** ( custom )
 - `^ x`, `^ v` Vi Cmd Mode
-- `^ x`, `^ e` Edit Command Line in Vim
 - _`^ x`, `^ b` Vi Macth Bracket_
 
 ## Aliases
