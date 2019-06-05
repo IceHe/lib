@@ -743,9 +743,9 @@ print(x, y)
 
 程序源文件附件
 
-- [CMakeLists.txt](https://att.icehe.xyz//cpp_macro_and_bit_op/CMakeLists.txt)
-- [print_tools.h](https://att.icehe.xyz//cpp_macro_and_bit_op/print_tools.h)
-- [main.cpp](https://att.icehe.xyz//cpp_macro_and_bit_op/main.cpp)
+- [CMakeLists.txt](https://att.icehe.xyz/cpp_macro_and_bit_op/CMakeLists.txt)
+- [print_tools.h](https://att.icehe.xyz/cpp_macro_and_bit_op/print_tools.h)
+- [main.cpp](https://att.icehe.xyz/cpp_macro_and_bit_op/main.cpp)
 
 发到七牛云存储之后，才想起来用 [GitHubGist](https://gist.github.com/) 更方便:
 
