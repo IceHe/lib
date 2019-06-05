@@ -1,6 +1,6 @@
 # IceHe's Lib
 
-> [Welcome](/_lru/blog/welcome.md) - What is my Lib? Why I build?
+> [Welcome](/blog/welcome.md) - What is my Lib? Why I build?
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
 - Author : [IceHe](/_lru/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
@@ -387,8 +387,8 @@ Nonsense
 Previous Blog : 2015 ~ 2017
 
 - [Tech Blog](https://icehe.me) : icehe.me
-- [How to Build Blog](/_lru/blog/build-blog.md) : 搭建博客
-- [Blog Changlogs](/_lru/blog/blog-changelog.md) : 折腾博客
+- [How to Build Blog](/blog/build-blog.md) : 搭建博客
+- [Blog Changlogs](/blog/blog-changelog.md) : 折腾博客
 
 ### Friends
 
