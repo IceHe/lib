@@ -10,7 +10,7 @@
 
 ---
 
-- 链接：《 [我所有的时间统计日志](/_archived/lifelogs/README.md) 》
+- 链接：《 [我所有的时间统计日志](/lifelogs/README.md) 》
 - 启发：《 [奇特的一生](https://book.douban.com/subject/1115353/) 》 [柳比歇夫](https://zh.wikipedia.org/zh-hans/%E4%BA%9A%E5%8E%86%E5%B1%B1%E5%A4%A7%C2%B7%E4%BA%9A%E5%8E%86%E5%B1%B1%E5%BE%B7%E7%BD%97%E7%BB%B4%E5%A5%87%C2%B7%E6%9F%B3%E6%AF%94%E6%AD%87%E5%A4%AB) 的时间统计法
 - 补充：时间管理日志格式一直根据实际使用进行调整，可能与本文描述不一致。
 - 最新：2016-12-05
@@ -85,7 +85,7 @@ _例如，某30min用了15min以上读书，
 
 # 日志实例
 
-Log 时间使用情况统计日志以 《 [15/10/20 stu52 spo12 was3](/_archived/lifelogs/2015/10/d20.html) 》 为例简要解释。
+Log 时间使用情况统计日志以 《 [15/10/20 stu52 spo12 was3](/lifelogs/2015/10/d20.html) 》 为例简要解释。
 仅解释（截止至本日志更新之日）最新的日志格式，不赘述旧格式。
 
 日志仅记录<span id="valid_time">**有效生活时间**</span>，即
@@ -239,7 +239,7 @@ Log 时间使用情况统计日志以 《 [15/10/20 stu52 spo12 was3](/_archived
     *本博客的LifeLogs经过编辑，缺省了源日志的该部分内容。*
 
 8. **周 / 月 统计表**
-    周和月的时间使用情况统计日志以《[2015/10 stu40 spo9 was4](/_archived/lifelogs/2015/10/time_stat.html)》为例。
+    周和月的时间使用情况统计日志以《[2015/10 stu40 spo9 was4](/lifelogs/2015/10/time_stat.html)》为例。
 
     统计属于当月的几个周 以及整月的时间使用情况：
     **(a)** 一周从周一开始
