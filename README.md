@@ -381,8 +381,8 @@ Timeline
 
 Nonsense
 
-- Time Mgt. : [Life Logs](/_lru/lifelogs/README.md) & [Log Format](/_lru/lifelogs/time-mgt.md)
-- Way of Life : [Self Manual](/_lru/lifelogs/life-manual.md)
+- Time Mgt. : [Life Logs](/lifelogs/README.md) & [Log Format](/lifelogs/time-mgt.md)
+- Way of Life : [Self Manual](/lifelogs/life-manual.md)
 
 Previous Blog : 2015 ~ 2017
 
