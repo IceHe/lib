@@ -41,6 +41,8 @@ Languages
 - [Go](/snips/go.md) ( draft )
 - [Java](/snips/java/README.md) ( TODO )
 
+<!-- TODO: separate Java part from section Snips -->
+
 Markdown
 
 - [Style Guide](/snips/markdown/README.md)
