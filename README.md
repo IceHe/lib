@@ -238,21 +238,21 @@ Web
 
 AppleScript
 
-- [AppleScript Quick Start](/_lru/scripts/applescript/quick-start.md)
-- [AppleScript to Control Evernote / macOS](/_lru/scripts/applescript/evernote-macos.md)
+- [AppleScript Quick Start](/scripts/applescript/quick-start.md)
+- [AppleScript to Control Evernote / macOS](/scripts/applescript/evernote-macos.md)
 
 Batch 批处理
 
-- [Batch 批处理指令](/_lru/scripts/batch/cmd.md)
-- [Batch 批处理中的特殊符号](/_lru/scripts/batch/dos-special-symbol.md)
-- [DOS Common Commands](/_lru/scripts/batch/dos-common-commands.md)
-- [DOS Environment Variables](/_lru/scripts/batch/dos-environment-variable.md)
+- [Batch 批处理指令](/scripts/batch/cmd.md)
+- [Batch 批处理中的特殊符号](/scripts/batch/dos-special-symbol.md)
+- [DOS Common Commands](/scripts/batch/dos-common-commands.md)
+- [DOS Environment Variables](/scripts/batch/dos-environment-variable.md)
 
 Others
 
-- PHP : [Functions & Scripts](/_lru/scripts/php/README.md)
-- Python 3 : [Quick Start](/_lru/scripts/python/quick-start.md)
-- JavaScript : [Optimize some code](/_lru/scripts/javascript/optimize-some-code.md)
+- PHP : [Functions & Scripts](/scripts/php/README.md)
+- Python 3 : [Quick Start](/scripts/python/quick-start.md)
+- JavaScript : [Optimize some code](/scripts/javascript/optimize-some-code.md)
 
 ### Repos
 
