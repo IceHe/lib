@@ -368,16 +368,16 @@ Newly
 
 Timeline
 
-<!-- - [2018 Winter](/_lru/past/2018-winter.md) moved temp -->
+<!-- - [2018 Winter](/past/2018-winter.md) moved temp -->
 
-- [2017 Summer to Winter](/_lru/past/2017-summer-2-winter.md)
-- [2017 Spring](/_lru/past/2017-spring.md)
-- [2016 Winter](/_lru/past/2016-winter.md)
-- [2016 Fall](/_lru/past/2016-fall.md)
-- [2016 Spring & Summer](/_lru/past/2016-summer.md)
-- [Bye 2015](/_lru/past/2015-bye.md)
-- [Moments](/_lru/past/moments.md) : 回忆
-- [Old Blog](/_lru/past/old-blog.md) : 旧博索引
+- [2017 Summer to Winter](/past/2017-summer-2-winter.md)
+- [2017 Spring](/past/2017-spring.md)
+- [2016 Winter](/past/2016-winter.md)
+- [2016 Fall](/past/2016-fall.md)
+- [2016 Spring & Summer](/past/2016-summer.md)
+- [Bye 2015](/past/2015-bye.md)
+- [Moments](/past/moments.md) : 回忆
+- [Old Blog](/past/old-blog.md) : 旧博索引
 
 Nonsense
 
