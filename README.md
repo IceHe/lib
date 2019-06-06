@@ -80,9 +80,9 @@ Web
     - [Software](/_lru/marks/tools/README#软件) : 软件
     - [Hardware](/_lru/marks/tools/hardware) : 硬件
     - [Life](/_lru/marks/tools/life) : 生活
-- [Efficiency](/_lru/mac/efficiency.md) : 效率指南
-- [Shortcuts](/_lru/mac/shortcuts/README.md) : 快捷键
-- [Initialize](/_lru/mac/initialize.md) : 系统初始化
+- [Efficiency](/mac/efficiency.md) : 效率指南
+- [Shortcuts](/mac/shortcuts/README.md) : 快捷键
+- [Initialize](/mac/initialize.md) : 系统初始化
 
 ### Git
 
