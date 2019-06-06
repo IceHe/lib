@@ -44,12 +44,12 @@
 ### 详情列表
 
 - [常用](/mac/apps/common.md)
-- [命令行](/_lru/marks/tools/cli.md)
+- [命令行](/marks/tools/cli.md)
 - [软件开发](/mac/apps/development.md)
 - [核心应用](/mac/apps/core-apps.md)
 - [系统增强](/mac/apps/system-enhanced.md)
 - [其它候选](/mac/apps/candidates.md)
-- [iOS](/_lru/marks/tools/ios.md)
+- [iOS](/marks/tools/ios.md)
 - [Chrome 插件](/mac/apps/chrome.md)
 
 Windows
@@ -72,10 +72,10 @@ Windows
 
 ## 硬件
 
-[Hardware](/_lru/marks/tools/hardware.md)
+[Hardware](/marks/tools/hardware.md)
 
 ## 生活
 
-[Life](/_lru/marks/tools/life.md)
+[Life](/marks/tools/life.md)
 
 > 君子生非异也，善假于物也。—— **荀子**

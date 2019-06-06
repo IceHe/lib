@@ -3,7 +3,7 @@
 > [Welcome](/blog/welcome.md) - What is my Lib? Why I build?
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
-- Author : [IceHe](/_lru/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
+- Author : [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
 
@@ -76,10 +76,10 @@ Web
 
 > 君子性非异也，善假于物也。—— 荀子
 
-- [Tools](/_lru/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
-    - [Software](/_lru/marks/tools/README#软件) : 软件
-    - [Hardware](/_lru/marks/tools/hardware) : 硬件
-    - [Life](/_lru/marks/tools/life) : 生活
+- [Tools](/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
+    - [Software](/marks/tools/README#软件) : 软件
+    - [Hardware](/marks/tools/hardware) : 硬件
+    - [Life](/marks/tools/life) : 生活
 - [Efficiency](/mac/efficiency.md) : 效率指南
 - [Shortcuts](/mac/shortcuts/README.md) : 快捷键
 - [Initialize](/mac/initialize.md) : 系统初始化
@@ -280,10 +280,10 @@ Others
 
 > Get busy living or get busy dying.
 
-- [Bio](/_lru/marks/bio.md) ：Skills / Exp / Edu
-- [Favorites](/_lru/marks/favourites.md) : ACGMN
-- [Technology Bookmarks](/_lru/marks/tech.md)
-- [Reading Bookmarks](/_lru/marks/read.md)
+- [Bio](/marks/bio.md) ：Skills / Exp / Edu
+- [Favorites](/marks/favourites.md) : ACGMN
+- [Technology Bookmarks](/marks/tech.md)
+- [Reading Bookmarks](/marks/read.md)
 
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->

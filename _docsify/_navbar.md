@@ -2,7 +2,7 @@
 - [Home](/)
 - [Message](https://github.com/IceHe/lib/issues)
 
-<!-- - [About](/_lru/marks/bio.md) -->
+<!-- - [About](/marks/bio.md) -->
 <!-- - External -->
 <!--     - [Blog](https://icehe.me) -->
 <!--     - [GitHub](https://github.com/IceHe) -->
