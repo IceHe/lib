@@ -245,7 +245,7 @@ AppleScript
 
 Batch 批处理
 
-- [Batch 批处理指令](/scripts/batch/cmd.md)
+- [Batch 批处理指令](/scripts/batch/commands.md)
 - [Batch 批处理中的特殊符号](/scripts/batch/dos-special-symbol.md)
 - [DOS Common Commands](/scripts/batch/dos-common-commands.md)
 - [DOS Environment Variables](/scripts/batch/dos-environment-variable.md)
