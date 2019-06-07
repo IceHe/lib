@@ -205,6 +205,7 @@ Reference : https://www.computerhope.com/keys.htm
 - chan : channel ( for Go )
 - chk : check
 - CIP : Client IP
+- cjk : Chinese, Japenese and Korean languages (中日韩)
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 - cls : class
 - cmd : command
