@@ -49,7 +49,35 @@
 - 比起用圆头小剪刀, 剪得更快更彻底更干净, 动力强劲, 使用起来也很方便.
 - 男士可能长得不好看, 但至少得保持整洁的仪容.
 
-## 加湿
+**洁面仪**: [VisaPure MEN Essential 洁肤仪 MS5031/00 | Philips -飞利浦](https://www.philips.com.cn/c-p/MS5031_00/visapure-men-essential-facial-cleansing-brush)
+
+- 短期使用感受 : 还是直接上手洗比较便捷快速, 就当花钱尝尝鲜吧. ( 2019-06-11 )
+- 参考资料
+    - 是否有推荐和好用的洁面仪？- 知乎 : https://www.zhihu.com/question/22664726/answer/181193174
+        - 是否有推荐和好用的洁面仪？- 知乎 : https://www.zhihu.com/question/22664726/answer/558865860
+    - 洁面仪的面部清洁效果如何，使用时有哪些注意事项？- 知乎 : https://www.zhihu.com/question/34001468/answer/146512167
+    - 一年前我就告诉你别碰“它”！现在脸毁了，才知道哭？- 知乎 : https://zhuanlan.zhihu.com/p/58359495
+
+## 护理
+
+**离子梳** : [Philips EasyShine 负离子造型梳 HP4722/25](https://www.philips.com.cn/c-p/HP4722_25/easyshine-ionic-styling-brush)
+
+- 短期使用感受 : 除静电, 抚平蓬松, 还是有作用的. ( 2019-06-11 )
+- 参考资料
+    - 哪位达人可以比较一下飞利浦，博朗和松下的离子发梳吗？ - 知乎 : https://www.zhihu.com/question/30069554/answer/109683546
+    - 直发易打结，用什么梳子好？ - 知乎 : https://www.zhihu.com/question/22499440/answer/21667425
+    - **评测 | 真人狂梳一个月， 33款人气梳子谁能拯救脱发** - 知乎 : https://zhuanlan.zhihu.com/p/32726601
+    - Differ 2 products : https://www.philips.com.cn/etc/philips/b2c/compareproducts.html?locale=zh_CN&catalog=CONSUMER&ctn=HP4722/45,HP4676/05
+        - EasyShine 负离子造型梳 HP4676/05 | Philips -飞利浦  : https://www.philips.com.cn/c-p/HP4676_05/easyshine-ionic-brush
+        - EasyShine 负离子造型梳 HP4722/45 | Philips -飞利浦  : https://www.philips.com.cn/c-p/HP4722_45/easyshine-ionic-styling-brush
+- 对比产品
+    - [BRAUN BR730 - 博朗离子发梳](https://www.braun.com.cn/zh-cn/products/hair-care/brushes/satin-hair-7-br730-brush-iontec)
+    - [Philips EasyShine 负离子造型梳 HP4676/05](https://www.philips.com.cn/c-p/HP4676_05/easyshine-ionic-brush) ( 不看型号数字的话, 感觉它更高档…… )
+
+最终选择
+
+- **EasyShine 负离子造型梳 HP4722/45** | Philips -飞利浦 (去京东买了) : https://www.philips.com.cn/c-p/HP4722_45/easyshine-ionic-styling-brush
+    - EasyShine 负离子造型梳 HP4676/05 | Philips -飞利浦 (不看型号数字, 感觉它更高档…) : https://www.philips.com.cn/c-p/HP4676_05/easyshine-ionic-brush
 
 ~~**加湿器**：[PHILIPS Humidifier HU4801/00](https://item.jd.com/729822.html)~~ <sup>_闲置_</sup>
 
