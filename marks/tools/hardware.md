@@ -12,12 +12,14 @@
 
 **显示器**：横向主屏 [LG 27UD58-B UHD 4K 27-inch](https://item.jd.com/3446665.html)
 
-**显示器**：~~竖向副屏~~ [DELL UltraSharp U2515Hx 2K 25-inch](https://item.jd.com/1453819.html) <sup>_工位空间受限_</sup>
+**显示器**：竖向副屏 ~~[DELL UltraSharp U2515Hx 2K 25-inch](https://item.jd.com/1453819.html)~~ <sup>_工位空间受限_</sup>
 
-**鼠标**：[Logitech MX Master 2S](https://item.jd.com/4294661.html)
+**鼠标**：Logitech [MX Vertical](https://www.logitech.com.cn/zh-cn/product/mx-vertical-ergonomic-mouse) / ~~[MX Master 2S](https://www.logitech.com.cn/zh-cn/product/mx-master-2s-flow)~~ <sup>_闲置_</sup>
 
-- 工作强度大的时候，用触摸板的话，手掌的支撑不足，真的累…… 于是换了鼠标。
-- 滚轮还是喜欢用自由滚动模式，而不是步进模式（看起来更多人喜欢这个）。
+- 工作强度大的时候, 用触摸板的话, 手掌的支撑不足, 真的累…… 于是换了鼠标.
+- 滚轮还是喜欢用自由滚动模式, 而不是步进模式 (看起来更多人喜欢这个).
+- 新买的 MX Vertical 握感更舒适, 显得原来用的 MX Master 低矮了, 支撑不足;
+- 但是没有了用于横向的滚轮, 一旦习惯它, 碰到需要横向滚动的场合就很难受, 所幸这种情况并不常见.
 
 **蓝牙键盘**：[Magic Keyboard](http://www.apple.com/cn/shop/product/MLA22CH/A/magic-keyboard?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2) <sup>Favorite</sup>
 
