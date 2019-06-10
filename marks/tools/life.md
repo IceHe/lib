@@ -60,6 +60,10 @@
 
 ## 护理
 
+**普通梳子** : [Tangle Teezer](https://detail.tmall.com/item.htm?id=569654113642)
+
+- 尝鲜 ( 6.18 用购物排遣烦闷… )
+
 **离子梳** : [Philips EasyShine 负离子造型梳 HP4722/25](https://www.philips.com.cn/c-p/HP4722_25/easyshine-ionic-styling-brush)
 
 - 短期使用感受 : 除静电, 抚平蓬松, 还是有作用的. ( 2019-06-11 )
