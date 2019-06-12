@@ -21,7 +21,7 @@
 - 新买的 MX Vertical 握感更舒适, 显得原来用的 MX Master 低矮了, 支撑不足;
 - 但是没有了用于横向的滚轮, 一旦习惯它, 碰到需要横向滚动的场合就很难受, 所幸这种情况并不常见.
 
-**蓝牙键盘**: [Magic Keyboard with Numeric Keypad - Space Gray](https://www.apple.com/cn/shop/product/MRMH2?fnode=4c) <sup>Favorite</sup> / ~~[Magic Keyboard - Silver](http://www.apple.com/cn/shop/product/MLA22CH/A/magic-keyboard?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2)~~ <sup>_闲置_</sup>
+**蓝牙键盘**: [Magic Keyboard - Silver](http://www.apple.com/cn/shop/product/MLA22CH/A/magic-keyboard?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2) <sup>Favorite</sup>
 
 - 小巧轻便。Mac 的键盘布局紧凑合理，手用更小幅度的移动就能触及所有按键，省力。
 - 可能你会觉得敲起来手感「绵软」，但是作为「键盘党」的我，快捷键很多而且用得频繁，就觉得使用它很舒适、省力、安静。
