@@ -402,10 +402,12 @@ Previous Blog : 2015 ~ 2017
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent
 - Me : A fool / Web Backend / Sina Weibo / Ele.me
 
-## Work
+### Work
 
 > Don’t try, just do. Failure is not an option.
+>
+> Get it / Make it without reason.
 
-## Ending
+## End
 
 > 靡不有初，鲜克有终
