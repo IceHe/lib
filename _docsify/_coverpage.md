@@ -8,12 +8,6 @@
 
 <!-- Done is better than perfect. -->
 
-<!-- Life is not perfect. -->
-
-<!-- 你的愿望是什么？-->
-
-<!-- What is your dream? -->
-
 <!-- - Wiki：Never memorize something that you can look up. -->
 <!-- - **Albert Einstein** -->
 
@@ -41,8 +35,7 @@
 
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
-<!-- [Weibo](https://weibo.com/icedes) -->
-
+[Weibo](https://weibo.com/icedes)
 [Library](#icehe39s-lib)
 
 <!-- Ref : https://docsify.js.org/#/cover -->
