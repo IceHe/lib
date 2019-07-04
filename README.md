@@ -302,6 +302,7 @@ Others
 - [SMART](/snips/principles/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR](/snips/principles/star.md) : Situation → Target → Action → Result
 - [SWOT](/snips/principles/swot.md) : Strengths / Weakness / Oppertunities / Threats
+- [GTD](/snips/principles/get.md) : Get Thing Done - Flow Chart ( [actual](/snips/principles/get-actual.md) )
 
 Newly
 
