@@ -145,6 +145,9 @@ Policy
         - 列出已完成的没意义的小事, 来提升自己的满足感? 太没出息.
         - 除非状态太差了, 需要自我激励; 否则尽量别这么做了……
     - 直接归档 ( Archived ) , 当然最好删除 ( Removed )
+- 部分步骤从 Action 阶段前移到 Plan 阶段
+    - Split up
+    - Sort by
 - 其它 : 优化描述
 
 ```plantuml
@@ -153,6 +156,7 @@ start
 :Task / Thought / Memo]
 -[#black]-> Collect at once!;
 #paleGreen:Inbox|
+-[#black]-> Once a day.;
 while (Empty?) is (No)
     if (**Have to do?**) then (No)
         #white:Quited;
@@ -161,6 +165,7 @@ while (Empty?) is (No)
             #white:Done;
         else (No)
             if (Allow to defer?) then (Yes)
+                '#white:Deferred;
                 #yellow:Deferred|
             else (No)
                 if (Allow to delegate?) then (Yes)
@@ -173,8 +178,10 @@ while (Empty?) is (No)
                         if (Fixed-term?) then (Yes)
                             '#white:Due Dated;
                             #turquoise:Calendar|
+                            #white:Sort by \ndue time;
                         else (No)
                             #plum:Todo|
+                            #white:Sort by \npriority;
                         endif
                     endif
                 endif
@@ -198,7 +205,7 @@ start
 :Task / Thought / Memo]
 -[#black]-> Collect at once!;
 #paleGreen:Inbox|
--[#black]-> Repeat until empty…;
+-[#black]-> Once a day.\nRepeat until empty…;
 if (**Have to do?**) then (No)
     #white:Quited;
     end
@@ -208,6 +215,7 @@ else (Yes)
         end
     else (No)
         if (Allow to defer?) then (Yes)
+            '#white:Deferred;
             #yellow:Deferred|
             stop
         else (No)
@@ -217,13 +225,68 @@ else (Yes)
             else (No)
                 if (Should split up?) then (Yes)
                     #paleGreen:Inbox|
+                    'note right : SMART 法则
                     stop
                 else (No)
                     if (Fixed-term?) then (Yes)
+                        '#white:Due Dated;
                         #turquoise:Calendar|
+                        #white:Sort by \ndue time;
                     else (No)
                         #plum:Todo|
+                        floating note right : SMART Principle
+                        #white:Sort by \npriority;
+                        floating note right : 使命 : 合格的人 \n目标 : 理性 - 按优先级行动 \n优先级 : 健康 > 工作 > 学习
                     endif
+                    end
+                endif
+            endif
+        endif
+    endif
+endif
+@enduml
+```
+
+### Actual
+
+```plantuml
+@startuml
+start
+:Task / Thought / Memo]
+-[#black]-> Collect at once!;
+#paleGreen:Inbox|
+-[#black]-> Once a day.\nRepeat until empty…;
+if (**Have to do?**) then (No)
+    #white:Quited;
+    end
+else (Yes)
+    if (**Finish in 2 min?**) then (Yes)
+        #white:Done;
+        end
+    else (No)
+        if (Allow to defer?) then (Yes)
+            '#white:Deferred;
+            #yellow:Deferred<
+            stop
+        else (No)
+            if (Allow to delegate?) then (Yes)
+                #lightGray:Delegate;
+                end
+            else (No)
+                if (Should split up?) then (Yes)
+                    #paleGreen:Inbox|
+                    'note right : SMART 法则
+                    stop
+                else (No)
+                    #plum:Todo|
+                    if (Fixed-term?) then (Yes)
+                        #turquoise:Set due time<
+                        #white:Sort by due time;
+                    else (No)
+                    endif
+                    #white:Sort by priority;
+                    floating note right : 使命 : 合格的人 \n目标 : 理性 - 按优先级行动 \n优先级 : 健康 > 工作 > 学习
+                    'floating note right : SMART Principle
                     end
                 endif
             endif
@@ -247,38 +310,86 @@ fork again
 end fork
 if (What is it actually?) then (Problem)
     #aqua:Thinking<
-    #white:Think : What & Why & How\n碎片时间 : 通勤 / 散步 / 休憩;
+    #white:What & Why & How\n集中 / 通勤 / 散步 / 休憩;
     'note right : What & Why & How
     #paleGreen:Inbox|
     stop
 else (Action)
-    #coral:Today|
-    #white:Sort & Select;
-    note right : 使命 : 合格的人 \n目标 : 理性 - 按优先级行动 \n优先级 : 健康 > 工作 > 学习
     #lightGreen:Doing<
-    #white:Action;
+    #white:Just do it.;
     note right : 每天早上全力以赴\n去做最重要的一件事!
-    fork
+    if (Problems found?) then (Yes)
         :Problems]
         #paleGreen:Inbox|
-    fork again
-        :Key Info]
+        #lightBlue:Redo<
+        stop
+    else (No)
+        :Logs]
         #deepSkyBlue:Done|
-    end fork
-    :Reflect / Improve / Plan;
-    note right : STAR Principles
-    fork
-        #paleGreen:Inbox|
-    fork again
-        #plum:Todo|
-    fork again
-        #coral:Today|
-    fork again
-        #deepSkyBlue:Done|
-        #white:Archived;
-    end fork
-    stop
+        note right : STAR Principle
+        end
+    endif
 endif
+@enduml
+```
+
+### Actual
+
+```plantuml
+@startuml
+start
+#plum:Todo|
+if (What is it actually?) then (Problem)
+    #aqua:Thinking<
+    #white:What & Why & How\n集中 / 通勤 / 散步 / 休憩;
+    'note right : What & Why & How
+    #paleGreen:Inbox|
+    stop
+else (Action)
+    #lightGreen:Doing<
+    #white:Just do it.;
+    note right : 每天早上全力以赴\n去做最重要的一件事!
+    if (Problems found?) then (Yes)
+        :Problems]
+        #lightBlue:Redo<
+        stop
+    else (No)
+        :Logs]
+        #deepSkyBlue:Done<
+        note right : STAR Principle
+        end
+    endif
+endif
+@enduml
+```
+
+## Reflect
+
+```plantuml
+@startuml
+start
+fork
+    #paleGreen:Inbox|
+fork again
+    #plum:Todo|
+end fork
+:Reflect & Improve & Plan;
+note right : STAR Principle
+fork
+    #lightGreen:Doing<
+    #white:Untag & Moved;
+fork again
+    #lightBlue:Redo<
+    #white:Moved;
+fork again
+    fork
+        #lightGray:Meaningless]
+    fork again
+        #deepSkyBlue:Done<
+    end fork
+    #white:Archived / Removed;
+end fork
+stop
 @enduml
 ```
 
