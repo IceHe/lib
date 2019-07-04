@@ -2,7 +2,7 @@
 
 ## Intro
 
-```puml
+```plantuml
 @startuml
 
 cloud todo as "Task / Thought / Memo"
@@ -31,12 +31,12 @@ inbox --> do
 
 > PlantUML
 
-```puml
+```plantuml
 @startuml
 @enduml
 ```
 
-## Decision
+## Plan
 
 ### Ver 0
 
@@ -44,7 +44,7 @@ Policy
 
 - 如无必要, 勿增实体. 例如, 可以推断出来的节点, 就别画蛇添足了.
 
-```puml
+```plantuml
 @startuml
 start
 :Task / Thought / Memo]
@@ -99,13 +99,13 @@ Policy
     - 简化列表 : 不使用 "Calendar" List, 改用 "设置 Due Date" 的方式表示
     - 优化用词
 
-```puml
+```plantuml
 @startuml
 start
 :Task / Thought / Memo]
 -[#black]-> Record at once!;
 #paleGreen:Inbox|
--[#black]-> Decide one by one.;
+-[#black]-> Decide step by step.;
 if (**Have to do?**) then (No)
     #white:Quit now!;
     end
@@ -147,41 +147,84 @@ Policy
     - 直接归档 ( Archived ) , 当然最好删除 ( Removed )
 - 其它 : 优化描述
 
-```puml
+```plantuml
 @startuml
 start
 :Task / Thought / Memo]
 -[#black]-> Collect at once!;
 #paleGreen:Inbox|
--[#black]-> Decide \n  one by one \n  step by setp.;
+while (Empty?) is (No)
+    if (**Have to do?**) then (No)
+        #white:Quited;
+    else (Yes)
+        if (**Finish in 2 min?**) then (Yes)
+            #white:Done;
+        else (No)
+            if (Allow to defer?) then (Yes)
+                #yellow:Deferred|
+            else (No)
+                if (Allow to delegate?) then (Yes)
+                    #lightGray:Delegated;
+                else (No)
+                    if (  Should split up?) then (Yes)
+                        #white:Split up;
+                        #paleGreen:Inbox|
+                    else (No)
+                        if (Fixed-term?) then (Yes)
+                            '#white:Due Dated;
+                            #turquoise:Calendar|
+                        else (No)
+                            #plum:Todo|
+                        endif
+                    endif
+                endif
+            endif
+        endif
+    endif
+endwhile (Yes)
+end
+@enduml
+```
+
+### Ver 3
+
+Policy
+
+- 能够理解流程, 故追求简洁性 : 简化流程图样式 ( 不追求最准确的表意 )
+
+```plantuml
+@startuml
+start
+:Task / Thought / Memo]
+-[#black]-> Collect at once!;
+#paleGreen:Inbox|
+-[#black]-> Repeat until empty…;
 if (**Have to do?**) then (No)
-    #white:Quit now!;
+    #white:Quited;
     end
 else (Yes)
     if (**Finish in 2 min?**) then (Yes)
-        #white:Do now!;
+        #white:Done;
         end
     else (No)
         if (Allow to defer?) then (Yes)
-            #paleGreen:Inbox|
+            #yellow:Deferred|
             stop
         else (No)
             if (Allow to delegate?) then (Yes)
                 #lightGray:Delegate;
                 end
             else (No)
-                if (  Should split up?) then (Yes)
+                if (Should split up?) then (Yes)
                     #paleGreen:Inbox|
                     stop
                 else (No)
                     if (Fixed-term?) then (Yes)
-                        #white:Due Date;
-                        '#turquoise:Calendar|
+                        #turquoise:Calendar|
                     else (No)
                         #plum:Todo|
                     endif
-
-                    stop
+                    end
                 endif
             endif
         endif
@@ -194,10 +237,14 @@ endif
 
 ### Ver 0
 
-```puml
+```plantuml
 @startuml
 start
-#plum:Todo|
+fork
+    #turquoise:Calendar|
+fork again
+    #plum:Todo|
+end fork
 if (What is it actually?) then (Problem)
     #aqua:Thinking<
     #white:Think : What & Why & How\n碎片时间 : 通勤 / 散步 / 休憩;
@@ -247,7 +294,7 @@ endif
 
 > Flow Chart - PlantUML
 
-```puml
+```plantuml
 @startuml
 start
 :任务 / 感想 / 备忘]
@@ -286,7 +333,7 @@ endif
 @enduml
 ```
 
-```puml
+```plantuml
 @startuml
 start
 #plum:任务清单|
