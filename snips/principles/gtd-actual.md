@@ -30,6 +30,7 @@ while (Repeat until empty \n  or all with label?) is (No)
                 else (No)
                     if (  Should split up?) then (Yes)
                         #white:Split up;
+                        note right : SMART 法则
                         #paleGreen:Inbox|
                     else (No)
                         #aqua:Todo|
