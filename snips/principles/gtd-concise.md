@@ -1,5 +1,7 @@
 # Do Flow
 
+> Concise Version
+
 ## Plan
 
 ### Ver 0
