@@ -162,7 +162,7 @@ else (Yes)
         #white:Do now!;
         end
     else (No)
-        if (Allow to delay?) then (Yes)
+        if (Allow to defer?) then (Yes)
             #paleGreen:Inbox|
             stop
         else (No)
@@ -170,15 +170,19 @@ else (Yes)
                 #lightGray:Delegate;
                 end
             else (No)
-                #white:Split up;
-                note right : SMART Principles;
-                if (Fixed-term?) then (Yes)
-                    '#white:Due Date;
-                    #turquoise:Calendar|
+                if (  Should split up?) then (Yes)
+                    #paleGreen:Inbox|
+                    stop
                 else (No)
-                    #plum:Todo|
+                    if (Fixed-term?) then (Yes)
+                        #white:Due Date;
+                        '#turquoise:Calendar|
+                    else (No)
+                        #plum:Todo|
+                    endif
+
+                    stop
                 endif
-                stop
             endif
         endif
     endif
