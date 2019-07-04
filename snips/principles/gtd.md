@@ -73,10 +73,10 @@ else (No)
                 endif
             else (No)
                 if (Is it fixed-term?) then (Yes)
-                    #turquoise:Calendar|
+                    #pink:Calendar|
                     stop
                 else (No)
-                    #plum:Todo|
+                    #aqua:Todo|
                     stop
                 endif
             endif
@@ -124,7 +124,7 @@ else (Yes)
                 #deepSkyBlue:Done|
                 end
             else (No)
-                #plum:Todo|
+                #aqua:Todo|
                 if (Is it fixed-term?) then (Yes)
                     #white:Due dated;
                 endif
@@ -175,9 +175,9 @@ while (Empty?) is (No)
                         #paleGreen:Inbox|
                     else (No)
                         if (Fixed-term?) then (Yes)
-                            #turquoise:Calendar|
+                            #pink:Calendar|
                         else (No)
-                            #plum:Todo|
+                            #aqua:Todo|
                         endif
                         #white:Sort by priority;
                     endif
@@ -196,12 +196,12 @@ end
 @startuml
 start
 fork
-    #turquoise:Calendar|
+    #pink:Calendar|
 fork again
-    #plum:Todo|
+    #aqua:Todo|
 end fork
 if (What is it actually?) then (Problem)
-    #aqua:Thinking|
+    #plum:Thinking|
     #white:What & Why & How\n集中 / 通勤 / 散步 / 休憩;
     'note right : What & Why & How
     #paleGreen:Inbox|
@@ -232,7 +232,7 @@ start
 fork
     #paleGreen:Inbox|
 fork again
-    #plum:Todo|
+    #aqua:Todo|
 end fork
 :Reflect & Improve & Plan;
 note right : STAR Principle

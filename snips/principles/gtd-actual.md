@@ -32,10 +32,9 @@ while (Repeat until empty \n  or all with label?) is (No)
                         #white:Split up;
                         #paleGreen:Inbox|
                     else (No)
-                        #plum:Todo|
+                        #aqua:Todo|
                         if (Fixed-term?) then (Yes)
-                            #turquoise:Set due time<
-                            #white:Sort by due time;
+                            #pink:Due time<
                         else (No)
                         endif
                         #white:Sort by priority;
@@ -54,9 +53,9 @@ end
 ```plantuml
 @startuml
 start
-#plum:Todo|
+#aqua:Todo|
 if (What is it actually?) then (Problem)
-    #aqua:Thinking<
+    #plum:Thinking<
     #white:What & Why & How\n集中 / 通勤 / 散步 / 休憩;
     'note right : What & Why & How
     #white:Untag;
@@ -89,7 +88,7 @@ start
 fork
     #paleGreen:Inbox|
 fork again
-    #plum:Todo|
+    #aqua:Todo|
 end fork
 :Reflect & Improve & Plan;
 note right : STAR Principle
