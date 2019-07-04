@@ -212,6 +212,7 @@ else (Action)
     note right : 每天早上全力以赴\n去做最重要的一件事!
     if (Problems found?) then (Yes)
         :Problems]
+        #crimson:Redo<
         #paleGreen:Inbox|
         stop
     else (No)
@@ -247,7 +248,7 @@ fork again
     fork
         #orange:WIP|
     fork again
-        #lightBlue:Redo<
+        #crimson:Redo<
     end fork
     #paleGreen:Inbox|
 end fork

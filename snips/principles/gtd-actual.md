@@ -68,7 +68,7 @@ else (Action)
     if (Problems found?) then (Yes)
         :Problems]
         #white:Untag;
-        #lightBlue:Redo<
+        #crimson:Redo<
         stop
     else (No)
         :Logs]
@@ -97,7 +97,7 @@ fork
         #orange:WIP<
         #white:Untag;
     fork again
-        #lightBlue:Redo<
+        #crimson:Redo<
     end fork
     #paleGreen:Inbox|
 fork again
