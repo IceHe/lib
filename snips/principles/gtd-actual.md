@@ -18,11 +18,11 @@ while (Repeat until empty \n  or all with label?) is (No)
     else (Yes)
         if (**Finish in 2 min?**) then (Yes)
             #white:Done;
-            #deepSkyBlue:Done<
+            #deepSkyBlue:Done|
             :Archived;
         else (No)
             if (Allow to defer?) then (Yes)
-                #yellow:Deferred<
+                #yellow:Deferred|
             else (No)
                 if (Allow to delegate?) then (Yes)
                     #lightGray:Delegated;
