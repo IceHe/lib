@@ -156,7 +156,7 @@ start
 :Task / Thought / Memo]
 -[#black]-> Collect at once!;
 #paleGreen:Inbox|
--[#black]-> Once a day.;
+-[#black]-> Clean up;
 while (Empty?) is (No)
     if (**Have to do?**) then (No)
         #white:Quited;
