@@ -271,6 +271,7 @@ Reference : https://www.computerhope.com/keys.htm
 - e : element | error | exception | exponent
     - for CLI : edit | equal (`test`) | exclude | execute | expression
 - E : exponent 指数 ( [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) )
+- EC2 : [Amazon Elastic Compute Cloud](https://aws.amazon.com/cn/ec2/)
 - e.g. : for example
 - edt : edit
 - elem : element
@@ -595,6 +596,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - s
     - for CLI : silent | size | subject
+- S3 : [Amazon Simple Storage Service](https://aws.amazon.com/cn/s3/)
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
 - SAPI : Server API ( for PHP )
 - scrn : screen
