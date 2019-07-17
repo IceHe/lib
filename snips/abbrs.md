@@ -316,6 +316,7 @@ Reference : https://www.computerhope.com/keys.htm
 - fs : [file system](https://en.wikipedia.org/wiki/File_system)
 - fst : first ( see in Java class "Pair" )
 - func : function
+- Fuxi : 阿里云 伏羲分布式资源管理
 - FYI : [For Your Infomation](https://en.wikipedia.org/wiki/FYI) 供参考
 
 ### G
@@ -445,6 +446,7 @@ Reference : https://www.computerhope.com/keys.htm
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mm : [memory management](https://en.wikipedia.org/wiki/Memory_management)
 - mod : modify | mode
+- MPP : Massively Parallel Processor 大量信息并行处理机
 - MQ : [message queue](https://en.wikipedia.org/wiki/Message_queue)
 - MQP : Message Queue Protocol
 - MR : Merge Request ( for Git ) | [MapReduce](https://helpcdn.aliyun.com/document_detail/27875.html?spm=a2c4g.11186623.2.26.1d136141VvtbDq)
