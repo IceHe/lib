@@ -31,8 +31,8 @@ while (Empty?) is (No)
                             #white:Due time;
                         else (No)
                         endif
-                        #white:Todo|
                         #white:Sort by\npriority;
+                        #white:Todo|
                     endif
                 endif
             endif

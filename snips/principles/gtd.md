@@ -222,11 +222,11 @@ while (Empty?) is (No)
                         note right : SMART 法则
                         #white:Inbox|
                     else (No)
+                        #white:Todo|
                         if (Fixed-term?) then (Yes)
                             #white:Due time;
                         else (No)
                         endif
-                        #white:Todo|
                         #white:Sort by\npriority;
                     endif
                 endif
