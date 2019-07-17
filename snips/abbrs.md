@@ -168,6 +168,7 @@ Reference : https://www.computerhope.com/keys.htm
     - the monitoring and management of performance and availability of software applications
     - strives to detect and diagnose complex application performance problems to maintain an expected level of service
 - app : application
+- Apsara : 阿里云 飞天操作系统 ( 单集群超过 5K 台服务器的技术瓶颈 )
 - arg : argument
 - asc : ascend
 - asm : assembly
@@ -502,6 +503,7 @@ Reference : https://www.computerhope.com/keys.htm
 - P : port ( for CLI `mysql` )
 - PaaS：平台即服务 [Platform as a Service](https://en.wikipedia.org/wiki/Paas)
 - PAM : [Linux PAM : Pluggable Authentication Modules](http://www.linux-pam.org/whatispam.html)
+- Pangu : 阿里云 盘古分布式文件系统
 - param : parameter
 - PCB : [Process Control Block](https://en.wikipedia.org/wiki/Process_control_block) ( task struct )
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
