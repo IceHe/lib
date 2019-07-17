@@ -288,6 +288,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ETA : [Estimated Time of Arrival](https://en.wikipedia.org/wiki/Estimated_time_of_arrival) 预计抵达时间
 - etc. : [et cetera](https://en.wikipedia.org/wiki/Et_cetera) ( etcetera ) (aka. and so on) 等等，及其它
     - `&c` or `&c.` for `& etc.`
+- etl : extract 抽取, transform 转换, load 加载 ( 常用于数据仓库 )
 - evt : event
 - ex : exception | excluding, without | exit | expire ( for Redis )
 - exe : executive | execution
