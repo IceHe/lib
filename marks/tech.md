@@ -59,6 +59,7 @@
 - [PHP7 革新与性能优化](https://www.csdn.net/article/1970-01-01/2825720)
 - [The secret of PHP7's Performance](https://www.slideshare.net/slideshow/embed_code/key/KMbqLBfzYnMN29)
 - [如何重构“箭头型”代码](https://coolshell.cn/articles/17757.html)
+- [炸！业界难题，跨库分页的几种常见方案](https://mp.weixin.qq.com/s/H_2hyEqQ70Y_OoFZh_P_5A)
 
 ## 阅读
 
