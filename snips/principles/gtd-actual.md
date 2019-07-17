@@ -67,38 +67,6 @@ endif
 @enduml
 ```
 
-## Reflect
-
-```plantuml
-@startuml
-start
-fork
-    #paleGreen:Inbox|
-fork again
-    #aqua:Todo|
-end fork
-:Reflect & Improve & Plan;
-note right : STAR Principle
-fork
-    fork
-        #orange:WIP<
-        #white:Untag;
-    fork again
-        #crimson:Redo<
-    end fork
-    #paleGreen:Inbox|
-fork again
-    fork
-        #lightGray:Meaningless]
-    fork again
-        #deepSkyBlue:Done<
-    end fork
-    #white:Archived;
-end fork
-stop
-@enduml
-```
-
 ---
 
 <!-- ----------------------------------------------- -->

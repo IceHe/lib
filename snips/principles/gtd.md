@@ -190,7 +190,57 @@ end
 @enduml
 ```
 
+### Ver 3
+
+Policy
+
+- 简化到只剩核心流程, 省略具体操作
+- 简化样式
+
+```plantuml
+@startuml
+start
+:Task / Thought / Memo]
+-[#black]-> Collect at once!;
+#white:Inbox|
+-[#black]-> Clean up;
+while (Empty?) is (No)
+    if (**Have to do?**) then (No)
+        #white:Quited;
+    else (Yes)
+        if (**Finish in 2 min?**) then (Yes)
+            #white:Done;
+        else (No)
+            if (Allow to defer?) then (Yes)
+                #white:Deferred;
+            else (No)
+                if (Allow to delegate?) then (Yes)
+                    #white:Delegated;
+                else (No)
+                    if (  Should split up?) then (Yes)
+                        #white:Split up;
+                        note right : SMART 法则
+                        #white:Inbox|
+                    else (No)
+                        #white:Todo|
+                        if (Fixed-term?) then (Yes)
+                            #white:Due time;
+                        else (No)
+                        endif
+                        #white:Sort by\npriority;
+                    endif
+                endif
+            endif
+        endif
+    endif
+endwhile (Yes)
+end
+@enduml
+```
+
 ## Action
+
+### Ver 0
 
 ```plantuml
 @startuml
@@ -222,6 +272,30 @@ else (Action)
         end
     endif
 endif
+@enduml
+```
+
+### Ver 1
+
+```plantuml
+@startuml
+start
+#white:Todo|
+if (What is it?) then (Problem)
+    #white:Thinking;
+    note right : What Why How\n/ 集中 / 通勤 \n/ 散步 / 休憩
+else (Action)
+    #white:Doing;
+    note right : 早上全力以赴\n做最重要的一件事!
+    if (Problems found?) then (No)
+        #white:Logging;
+        note right : STAR 法则
+        end
+    else (Yes)
+    endif
+endif
+        #white:Inbox|
+        stop
 @enduml
 ```
 
