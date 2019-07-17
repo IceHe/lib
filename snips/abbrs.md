@@ -182,6 +182,7 @@ Reference : https://www.computerhope.com/keys.htm
 - bak : backup
 - BASE : [Basically Available, Soft state, Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency)
 - bat : batch
+- BI : Business Intelligence
 - BKA : Batched Key Access 算法 ( for SQL )
 - B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
 - bg : background
