@@ -81,6 +81,7 @@
 - [十分钟搞清字符集和字符编码](http://blog.jobbole.com/84903/)
 - [中文编码杂谈](http://mp.weixin.qq.com/s?__biz=MzAwNjMxMTA5Mw==&amp;mid=401458542&amp;idx=1&amp;sn=8b92d5fb274760558154eb38a7a796de&amp;scene=1&amp;srcid=0104vzltG2BqJX4KXEWMcK4N#rd)
 - [程序员小灰](http://chuansong.me/account/dreamsee321) <sup>微信公众号</sup> <sup>__Best__</sup>
+- [抖音设局](https://mp.weixin.qq.com/s/IzL6tbgS8V6k67KTdD_eXg) - 一个极度理性自律的精英, 利用他人的不理性的放纵来挣钱
 
 ## Web
 
@@ -204,6 +205,9 @@
     相关：[Theory X and Theory Y](https://en.wikipedia.org/wiki/Theory_X_and_Theory_Y)
 - [如何看待阿里巴巴安全部门的月饼事件？](https://www.zhihu.com/question/50600301)
 - [从第三方服务角度看公司技术部门如何正确计算投入产出比～](http://weibo.com/ttarticle/p/show?id=2309404061670841429641)
+- [“钱”就一定能解决一切激励问题么? (leader 必读)](https://mp.weixin.qq.com/s/Qeta0QEFREss092H31EpBw) - 内在激励 / 薪资激励的分配
+- [受不了了! 是 leader 都管得这么细么???](https://mp.weixin.qq.com/s/JWPimnXWeLoa1wR-nwNgZw) - 管理策略因人而异
+- [为什么我就遇不到，手摸手指导我的 leader?](https://mp.weixin.qq.com/s/7PVnUFf31HW163S2exWQEw) - 如何带新员工?
 
 ## 其它
 
