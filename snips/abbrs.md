@@ -582,6 +582,7 @@ Reference : https://www.computerhope.com/keys.htm
 - rn : rename
 - rst : result | reset 重置 ( for TCP )
 - rsp : response
+- rt : realtime
 - rtd : root directory
 - rtf : [Rich Text Format](https://en.wikipedia.org/wiki/Rich_Text_Format)
 - RTFM : Read The Fucking Manual
