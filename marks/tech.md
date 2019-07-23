@@ -127,6 +127,7 @@
 - [关于高可用的系统](https://coolshell.cn/articles/17459.html)
 - [Netflix 微服务技术架构](https://mp.weixin.qq.com/s?__biz=MzI4MTY5NTk4Ng==&mid=2247489175&amp;idx=1&amp;sn=76895b3269a7390d6991cea5d3cb89c5&source=41#wechat_redirect )
 - [海量数据存储基础](https://media.weibo.cn/article?id=2309404025046866781970)
+- [淘宝服务端高并发分布式架构演进之路](https://mp.weixin.qq.com/s/HK3MmQDybmapUsDqUIc_CA) - 层层递进, 简明易懂 ( 入门级 )
 
 ## Linux
 
