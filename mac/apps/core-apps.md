@@ -18,10 +18,11 @@ https://www.keyboardmaestro.com/main <sup>Geek , Best , Favorite</sup>
 - 替代用于 **用缩写加速文本输入** 的 [~~TextExpander~~](https://textexpander.com/) <sup>Great</sup>、[~~aText~~](https://www.trankynam.com/atext/) <sup>Simple</sup>。
     输入缩写时，根据用户的设定模板来自动拓展输入的文本，提升输入效率，特别是高频使用的词句。
 
-- 替代用于 **稳定便捷地切换同一 App 的多个子窗口** 的 [HyperSwitch](https://bahoom.com/hyperswitch) <sup>Best</sup>。
+- 替代用于 **稳定便捷地切换同一 App 的多个子窗口** 的 [HyperSwitch](https://bahoom.com/hyperswitch) <sup>Best ( Simple & Free )</sup>。
 
     - 这类应用的出现，是因为在某些 Apps 下，无法用系统的 <code>⌘ \`</code> 来切换其下的各个子窗口。
     - 当然可以用触摸板三指下滑的手势或快捷键触发 App Expose，可以显示当前应用的所有窗口，然后点击选择进行窗口切换，但是不够快捷。
+    - 替代品 [Witch](https://manytricks.com/witch/) <sup>Useful & Paid</sup> 快捷键可改 ( HyperSwitch 只有两种选择 ), 有更多细致的配置项可选.
 
 - 可以替代用于 **剪贴板管理** 的 [ClipMenu](http://www.clipmenu.com/) <sup>Simply , Favorite</sup>、[~~Paste~~](http://pasteapp.me/) <sup>Beauty</sup>。
 
