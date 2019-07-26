@@ -268,7 +268,7 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
 
 [VS Code](https://code.visualstudio.com/)
 
-- 「markdownlint」插件
+- 「[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)」插件
 - 「[Mardown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)」插件
     - 免费，Markdown 效果预览，自动检测错误
 
