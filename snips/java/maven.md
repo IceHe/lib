@@ -16,8 +16,8 @@ Related tool : Gradle
 
 ## Config
 
-- config file : `.m2/settings.xml`
-- one of mirrors : https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.0.1.RELEASE
+- Config file : `.m2/settings.xml`
+- One of mirrors : https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.0.1.RELEASE
 
 ## provided
 
