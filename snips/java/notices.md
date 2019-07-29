@@ -28,3 +28,20 @@ References
 
 - GitHub - zzz40500/GsonFormat: 根据Gson库使用的要求,将JSONObject格式的String  解析成实体 : https://github.com/zzz40500/GsonFormat
 
+## Maven Dependencies Red Underlines
+
+- Maven Dependencies Red underlines - IDEs Support (IntelliJ Platform) | JetBrains : https://intellij-support.jetbrains.com/hc/en-us/community/posts/207369215-Maven-Dependencies-Red-underlines
+
+> **todd prickett** : _Created November 16, 2018 03:33_
+>
+> I agree with all the suggestions to delete the .idea directory.
+>
+> I tried a maven clean/compile from both inside and outside the IDE.  Both worked, but red squiggles remained.
+>
+> I tried clean, reimport from the Maven directory.  No joy.
+>
+> I tried restarting IntelliJ.  No joy.
+>
+> I tried Invalidate Caches/Restart.  No joy.
+>
+> Finally, I exited IntelliJ.  Deleted the .idea directory.  Imported a new project and chose the .pom file to import from.  Success.
