@@ -25,6 +25,7 @@ Style Guide
 Coding
 
 - [Snippets](/snips/java/snippets.md)
+- [Notices](/snips/java/notices.md)
 
 ---
 

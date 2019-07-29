@@ -256,3 +256,11 @@ return wordCountMap.entrySet().stream()
          */
 
 ```
+
+## executor ( TODO )
+
+References
+
+- https://blog.csdn.net/chzphoenix/article/details/78968075
+- Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
+- https://blog.csdn.net/wqh8522/article/details/79224290
