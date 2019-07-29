@@ -471,6 +471,7 @@ Intsll plugins
 
 - [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
 - [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
+- [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format)
 
 > [Project Lombok](https://projectlombok.org/)
 >
