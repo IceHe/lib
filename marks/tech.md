@@ -128,6 +128,7 @@
 - [Netflix 微服务技术架构](https://mp.weixin.qq.com/s?__biz=MzI4MTY5NTk4Ng==&mid=2247489175&amp;idx=1&amp;sn=76895b3269a7390d6991cea5d3cb89c5&source=41#wechat_redirect )
 - [海量数据存储基础](https://media.weibo.cn/article?id=2309404025046866781970)
 - [淘宝服务端高并发分布式架构演进之路](https://mp.weixin.qq.com/s/HK3MmQDybmapUsDqUIc_CA) - 层层递进, 简明易懂 ( 入门级 )
+- [深度解读微博 Service Mesh 大规模实践](https://mp.weixin.qq.com/s/Tju8hY0FyvmKmzM_AudkTA) - 可以借鉴 "双发" 机制! <sup>[Note](/read/backup-request.md)</sup>
 
 ## Linux
 
