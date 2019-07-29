@@ -469,9 +469,11 @@ Get lincense
 
 Intsll plugins
 
-- [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
-- [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
+- [**Maven Helper**](https://plugins.jetbrains.com/plugin/7179-maven-helper)
+- [**Lombok Plugin**](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
 - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
+- [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat)
+    - Generate POJO according to JSON.
 - [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) ( related below )
     - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
     - [GitHub - google/google-java-format](https://github.com/google/google-java-format)
