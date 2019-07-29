@@ -14,7 +14,7 @@ Core Spring Framework Annotations
 
 - https://stackoverflow.com/a/10604537
 
-### @Component vs. @Service
+### @Component vs. @Service ( TODO )
 
 @Component 跟 @Service @Controller @Repository 有什么区别？
 
@@ -32,16 +32,20 @@ Core Spring Framework Annotations
 >
 > By using a specialized annotation we hit two birds with one stone. First, they are treated as Spring bean and second you can put special behavior required by that layer.
 
-### @Data
-
-TODO
+### @Data ( TODO )
 
 总结：lombok 的 @Data 注释导致的问题 (详见微博)
 
 - https://weibo.com/2181657940/HvqLW7XUr
 
-### @Value
-
-TODO
+### @Value ( TODO )
 
 - 在@Value注解中为String类型的字段设置null值 | 鸟窝 : https://colobu.com/2015/09/09/set-null-for-a-string-property-by-Value/
+
+### @JSONField ( TODO )
+
+- fastJSON中@JSONField注解详解 - 明洋的专栏 - CSDN博客 : https://blog.csdn.net/yaomingyang/article/details/79861281
+- _FastJson中@JSONField注解使用 - 奔跑的蜗牛的博客 - CSDN博客 : https://blog.csdn.net/u011425751/article/details/51219242_ (感觉写得不太好，费解)
+- 有空自己写代码实验一下好了
+- JSON.toJSONString中序列化空字符串遇到的坑 - 极客分享Geek-Share.com : https://www.geek-share.com/detail/2750512280.html
+- fastjson SerializerFeature详解 - 孤天浪雨 - CSDN博客 : https://blog.csdn.net/u010246789/article/details/52539576

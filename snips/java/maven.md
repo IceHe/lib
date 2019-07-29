@@ -43,3 +43,9 @@ For a web app, if the app server already provides the JAR (or its functionality)
 References
 
 - difference between maven compile and provided scope (Other Build Tools forum at Coderanch) : https://coderanch.com/t/502091/build-tools/difference-maven-compile-scope
+
+## Resolve Package Conflictions ( TODO )
+
+References
+
+-  maven依赖jar包时版本冲突的解决 : https://blog.csdn.net/sinat_39789638/article/details/78005945
