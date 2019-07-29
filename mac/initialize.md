@@ -486,6 +486,7 @@ Intsll plugins
 > > Never write another getter or equals method again. Early access to future java features such as val, and much more.
 >
 > Optional plugins
+>
 > - [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
 >     - Draw UML graphs for docs by [PlatUML](http://plantuml.com/)
 > - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)
