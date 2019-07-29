@@ -1,4 +1,3 @@
-- [Content](/)
 - [Home](/)
 - [Message](https://github.com/IceHe/lib/issues)
 
