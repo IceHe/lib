@@ -264,3 +264,59 @@ References
 - https://blog.csdn.net/chzphoenix/article/details/78968075
 - Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
 - https://blog.csdn.net/wqh8522/article/details/79224290
+
+# StringParsableUtils
+
+```java
+
+package xyz.icehe.response;
+
+import com.alibaba.common.lang.StringUtil;
+import lombok.experimental.UtilityClass;
+
+import java.time.LocalDateTime;
+import java.util.Objects;
+import java.util.function.Function;
+
+@UtilityClass
+public class StringParsableUtils {
+
+    public boolean isInteger(String string) {
+        return isStringParsable(string, Integer::parseInt);
+    }
+
+    public boolean isLong(String string) {
+        return isStringParsable(string, Long::parseLong);
+    }
+
+    public boolean isDouble(String string) {
+        return isStringParsable(string, Double::parseDouble);
+    }
+
+    public boolean isDateTime(String string) {
+        return isStringParsable(string, LocalDateTime::parse);
+    }
+
+    private <T> Boolean isStringParsable(
+            String string, Function<? super String, T> parsingFunction) {
+        return parseByFunction(string, parsingFunction) != null;
+    }
+
+    private <T> T parseByFunction(
+            String string, Function<? super String, T> parsingFunction) {
+
+        Objects.requireNonNull(parsingFunction, "parsingFunction must not be null";
+
+        if (StringUtil.isBlank(string)) {
+            return null;
+        }
+
+        try {
+            return parsingFunction.apply(string);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+}
+
+```
