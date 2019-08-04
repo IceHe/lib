@@ -11,7 +11,9 @@ Basic
 Framework
 
 - [Spring](/snips/java/spring.md) & Spring Boot
-- [Spock](/snips/java/spock.md) - Unit Tests
+
+<!-- Already moved to Home's README.md -->
+<!-- - [Spock](/snips/java/spock.md) - Unit Tests -->
 
 Package Manager
 

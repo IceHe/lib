@@ -8,6 +8,7 @@ Spock
 > - What makes it stand out from the crowd is its beautiful and highly expressive specification language.
 > - Thanks to its JUnit runner, Spock is compatible with most IDEs, build tools, and continuous integration servers.
 
+- Intro : 使用Spock框架进行单元测试 : http://blog.2baxb.me/archives/1398
 - Home Page : http://spockframework.org/
 - GitHub : https://github.com/spockframework/spock
 - Docs Index : http://spockframework.org/spock/docs/1.1/index.html

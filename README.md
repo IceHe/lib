@@ -40,8 +40,7 @@ Languages
 
 - [Go](/snips/go.md) ( draft )
 - [Java](/snips/java/README.md) ( TODO )
-
-<!-- TODO: separate Java part from section Snips -->
+    - [Spock](/snips/java/spock.md) - Unit Tests
 
 Markdown
 
@@ -258,7 +257,7 @@ Others
 
 ### Repos
 
-[GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
+Mine : [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
 
 - [lib](https://github.com/IceHe/lib) : library | wiki ( this website )
 - [blog](https://github.com/IceHe/blog) : prev tech blog ( archived )
@@ -268,6 +267,10 @@ Others
 - [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset) : ruleset for PHPCS 3.1.0
 
 <!-- [GitHub DMCA](/_private/others/github-dmca.md) : Alert myself! -->
+
+Others
+
+- Art of Command Line : TODO
 
 ## Life
 
