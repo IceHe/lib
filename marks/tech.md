@@ -129,6 +129,11 @@
 - [海量数据存储基础](https://media.weibo.cn/article?id=2309404025046866781970)
 - [淘宝服务端高并发分布式架构演进之路](https://mp.weixin.qq.com/s/HK3MmQDybmapUsDqUIc_CA) - 层层递进, 简明易懂 ( 入门级 )
 - [深度解读微博 Service Mesh 大规模实践](https://mp.weixin.qq.com/s/Tju8hY0FyvmKmzM_AudkTA) - 可以借鉴 "双发" 机制! <sup>[Note](/read/backup-request.md)</sup>
+- [通过四道常问面试题，带你了解什么是数据库分库分表](https://maimai.cn/article/detail?fid=1270344407&efid=-vhtQDnXxgSzuxObhKtmbg) - _较水, 但还能有点收获._
+    - "分库是啥意思？就是你一个库一般我们经验而言, 最多支撑到并发 2000, 一定要扩容了, 而且一个健康的单库并发值你最好保持在每秒 1000 左右, 不要太大. "
+    - "range 分发, 好处在于扩容简单, 只要预备好, 每月都准备一个库即可，到了新的月份时, 就会读写新的库了; 缺点，大部分请求都访问最新的数据. "
+    - "hash 分发, 好处在于可以平均分配每个库的数据量和请求压力; 坏处在于扩容麻烦，需要数据迁移，旧数据需要重新 hash 计算值分配到不同的库表. "
+
 
 ## Linux
 
