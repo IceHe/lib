@@ -37,6 +37,35 @@
 - [随机问题 - 洗牌算法](http://mp.weixin.qq.com/s?__biz=MzA4NjE3MDg4OQ==&amp;mid=403338527&amp;idx=1&amp;sn=0c3649ba03268f8b9605b1b75e14cb8b&amp;scene=1&amp;srcid=0406vMkKTTz3LabAOl04P8L6#rd)
 - [结构之法 算法之道](http://blog.csdn.net/v_july_v) <sup>_todo_</sup>
 
+## GitHub 仓库
+
+[dwmkerr/hacker-laws](https://github.com/dwmkerr/hacker-laws) & [nusr/hacker-laws-zh](https://github.com/nusr/hacker-laws-zh)
+
+- 简介 Intro
+    - 💻📖 Laws, Theories, Principles and Patterns that developers will find useful.
+    - 💻📖对开发人员有用的定律、理论、原则和模式。
+- 摘要 Abstract
+    - 布鲁克斯法则 - Brooks's Law
+        - "九个女人不能在一个月内生一个孩子. "
+    - 盖尔定律 - Gall's Law
+        - 一个切实可行的复杂系统势必是从一个切实可行的简单系统发展而来的.
+        - 从头开始设计的复杂系统根本不切实可行，无法修修补补让它切实可行.
+        - 你必须由一个切实可行的简单系统重新开始.
+    - 汉隆的剃刀 - Hanlon's Razor
+        - 一个行为所产生的消极结果通常并不是恶意导致的.
+        - 相反，消极结果更有可能归咎于这些没有得到充分理解的行动或影响.
+    - 侯世达定律 - Hofstadter's Law
+        - 即使考虑到侯世达定律, 它也总是比你预期要长.
+    - 复杂性守恒定律 - The Law of Leaky Abstractions
+        - 即使简化整个系统，内在的复杂性也不会降低.
+        - 它会转移到用户, 并且用户必须以更复杂的方式行事!
+    - 抽象泄露定律 - The Law of Leaky Abstractions
+        - 过度依赖抽象, 加上对底层过程的理解不足, 实际上使得问题在某些情况下更加复杂.
+    - 帕金森定理 - Parkinson's Law
+        - 在工作能够完成的时限内, 工作量会一直增加, 直到所有可用时间都被填满为止.
+    - 你不需要它原则 - You Aren't Gonna Need It
+        - 只有当你需要某些东西的时候, 才去实现它们, 而不是在你预见的时候.
+
 ## 代码技巧
 
 - [编程的智慧](http://www.yinwang.org/blog-cn/2015/11/21/programming-philosophy) - 编码习惯！
