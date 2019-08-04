@@ -9,10 +9,17 @@
 
 ## Tools
 
-- [BeJson](http://www.bejson.com/) - JSON 格式校验、格式化，及网络、前端、编码、转换等相关工具
-- [OSChina Online Tools](http://tool.oschina.net/) - 常用 Web 开发辅助工具、相关知识的简明手册
-- [HTTP Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#1xx_Informational) - 状态码
-- [TCP & UDP Port Numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Well-known_ports) - 端口号
+- BeJson : http://www.bejson.com
+    - JSON 格式校验、格式化，及网络、前端、编码、转换等相关工具
+        - 类似 - JSON.cn : https://www.json.cn
+    - 常用 Web 开发辅助工具、相关知识的简明手册
+        - 类似 - 开源中国 : http://tool.oschina.net
+- Regex101 : https://regex101.com
+    - Online regex tester and debugger : PHP, PCRE, Python, Golang and JavaScript
+- Crontab.guru : https://crontab.guru/#0_*_*_*_*
+    - The cron schedule expression editor
+- HTTP Status Codes ( 状态码 ) : https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#1xx_Informational
+- TCP & UDP Port Numbers ( 端口号 ) : https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Well-known_ports
 
 ## 文档
 
@@ -25,6 +32,7 @@
 - [PHP Type Comparisons](http://www.php.net/manual/en/types.comparisons.php) - PHP 变量比较结果参考
 - [Mac Developer Library](https://developer.apple.com/library/mac/navigation/) -> [AppleScript Language Guide](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html)
 - [Object Oriented Design](http://www.cheatography.com/david/cheat-sheets/object-oriented-design/) ( Cheat Sheet )
+- Elasticsearch Cheatsheet - 1.X ~ 7.X : http://elasticsearch-cheatsheet.jolicode.com
 
 ## 算法
 
