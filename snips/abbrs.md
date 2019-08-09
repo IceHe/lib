@@ -360,6 +360,7 @@ Reference : https://www.computerhope.com/keys.htm
 - id : identity, identifier
     - idle ( for CLI `top` )
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
+- id : IDs - 多个 ID
 - idx : index
 - i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）
 - img : image
