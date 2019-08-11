@@ -12,9 +12,9 @@
 
 ### Snips
 
-Algorithms - Basic ( Doing )
+Algorithms - Basic
 
-- [README](/snips)
+- [README](/snips/README.md)
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
@@ -82,6 +82,12 @@ Other Language
 - [Efficiency](/mac/efficiency.md) : 效率指南
 - [Shortcuts](/mac/shortcuts/README.md) : 快捷键
 - [Initialize](/mac/initialize.md) : 系统初始化
+
+### Java
+
+- [Index](/java/README.md) ( Doing )
+- [Hello World](/java/hello-world.md) ( draft )
+- [Spock](/java/spock.md) : Unit Tests
 
 ### Git
 
@@ -205,14 +211,6 @@ Other Language
 > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
 > —— 鲁迅
 
-### Java
-
-> Doing
-
-- [Index](/java/README.md)
-- [Hello World](/java/hello-world.md) ( draft )
-- [Spock](/java/spock.md) : Unit Tests
-
 ### C++
 
 - [C++ Primer 5th](/cpp/primer-5th.md)
@@ -275,9 +273,9 @@ Mine : [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/Ic
 
 <!-- [GitHub DMCA](/_private/others/github-dmca.md) : Alert myself! -->
 
-Others
+<!-- Others -->
 
-- Art of Command Line : TODO
+<!-- - Art of Command Line : TODO -->
 
 ## Life
 
@@ -297,6 +295,7 @@ Others
 - [Technology Bookmarks](/marks/tech.md)
 - [Reading Bookmarks](/marks/read.md)
 
+<!--     - 饿了么北京物流众包运营 / 服务端 / Java -->
 <!--     - 微博视频平台 / 服务端 / Java -->
 <!--     - 微博移动应用服务 / 服务端 / PHP -->
 <!--     - 华南理工 / 软件工程 / 本科 -->
