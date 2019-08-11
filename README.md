@@ -31,8 +31,8 @@ Coding
 
 Languages
 
-- [Java](/snips/java/README.md) ( TODO )
-    - [Spock](/snips/java/spock.md) : Unit Tests
+- [Java](/java/README.md) ( TODO )
+    - [Spock](/java/spock.md) : Unit Tests
 - [Go](/snips/go.md) ( draft )
 
 Docker
