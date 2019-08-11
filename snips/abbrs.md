@@ -242,6 +242,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - d : day
     - for CLI : daemon | debug | delete | delimiter | directory
+    - for programing language : double
 - D : define ( for CLI )
 - DAO : [Data Access Object](https://en.wikipedia.org/wiki/Data_access_object)
 - DAG : [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
@@ -302,7 +303,9 @@ Reference : https://www.computerhope.com/keys.htm
 
 ### F
 
-- f : file | force ( for CLI )
+- f
+    - for CLI : file | force
+    - for programing language : float
 - F : full ( for CLI )
 - [Fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) ( from Wikipedia ) 分布式计算的谬误（错误假设）
 - FAQ : [Frequently Asked Questions](https://en.wikipedia.org/wiki/FAQ) 常见问题
@@ -601,6 +604,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - s
     - for CLI : silent | size | subject
+    - for programing language : string
 - S3 : [Amazon Simple Storage Service](https://aws.amazon.com/cn/s3/)
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
 - SAPI : Server API ( for PHP )
