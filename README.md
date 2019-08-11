@@ -64,12 +64,10 @@ Web
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( sth wrong? )
 - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md): estimation
 
-Other Language
+Others
 
 - [Go](/snips/go.md) ( draft )
-
-<!-- Useless -->
-<!-- - [Chrome](/snips/web/chrome.md) : clear cookie ( draft ) -->
+- [Chrome](/snips/web/chrome.md) : clear cookie ( draft )
 
 ### Mac
 
@@ -85,9 +83,11 @@ Other Language
 
 ### Java
 
-- [Index](/java/README.md) ( Doing )
-- [Hello World](/java/hello-world.md) ( draft )
+[Index](/java/README.md) ( Doing )
+
+- [Hello World](/java/hello-java.md) ( draft )
 - [Spock](/java/spock.md) : Unit Tests
+- ……
 
 ### Git
 

@@ -6,7 +6,7 @@ Install
 
 Basic
 
-- [Hello World](/java/hello-world.md) ( draft )
+- [Hello World](/java/hello-java.md) ( draft )
 - [Glossary](/java/glossary.md)
 
 Framework
