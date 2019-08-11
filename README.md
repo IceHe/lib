@@ -273,9 +273,12 @@ Mine : [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/Ic
 
 <!-- [GitHub DMCA](/_private/others/github-dmca.md) : Alert myself! -->
 
-<!-- Others -->
+Recommendation
 
-<!-- - Art of Command Line : TODO -->
+- [Art of Command Line](https://github.com/jlevy/the-art-of-command-line) : Master the command line, in one page.
+- [Redis](https://github.com/antirez/redis) : An in-memory database that persists on disk.
+- [docsify](https://github.com/docsifyjs/docsify) : 🃏 A magical documentation site generator.
+    - The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
 
 ## Life
 
