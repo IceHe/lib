@@ -4,7 +4,7 @@
 
 References
 
-- [Hive](/snips/data-process/hive.md) ( mine ) : data process
+- [Hive](/snips/cloud/max-compute.md#Hive) ( mine ) : data process
 
 ## SRE
 

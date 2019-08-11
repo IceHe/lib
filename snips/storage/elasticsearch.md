@@ -4,6 +4,7 @@
 
 - As the heart of the Elastic Stack, it centrally **stores your data**
     - so you can **discover the expected and uncover the unexpected**.
+- From : Facebook Inc.
 
 ## References
 

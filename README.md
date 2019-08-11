@@ -21,29 +21,25 @@ Algorithms _( Basic Part )_
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
-- [Cloud Utils](/snips/cloud.md) ( draft )
+- [Cloud Utils](/snips/cloud/README.md) ( draft )
     - AliYun
         - AnalyticDB ( ADB / ADS )
-        - [MaxCompute](/snips/data-process/max-compute.md) ( 原 ODPS - Open Data Process Service )
+        - [MaxCompute](/snips/cloud/max-compute.md) ( 原 ODPS - Open Data Process Service )
 - [Glossary](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
 
-Data Process
+Languages
 
-<!-- - Apache [Hive](/snips/data-process/hive.md) : from FaceBook -->
+- [Java](/snips/java/README.md) ( TODO )
+    - [Spock](/snips/java/spock.md) : Unit Tests
+- [Go](/snips/go.md) ( draft )
 
 Docker
 
 - [Intro](/snips/docker/README.md)
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
 - [Docker Compose](/snips/docker/compose.md)
-
-Languages
-
-- [Go](/snips/go.md) ( draft )
-- [Java](/snips/java/README.md) ( TODO )
-    - [Spock](/snips/java/spock.md) - Unit Tests
 
 Markdown
 
@@ -57,10 +53,11 @@ Storage - theory
 
 Storage - usage
 
-- [MemcacheQ](/snips/mcq.md)
+- [Elasticsearch](/snips/storage/elasticsearch.md)
+- [MemcacheQ](/snips/storage/mcq.md)
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
-- [Mongo](/snips/mongo.md)
+- [Mongo](/snips/storage/mongo.md)
 
 Web
 
