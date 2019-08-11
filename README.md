@@ -12,9 +12,9 @@
 
 ### Snips
 
-Algorithms _( Basic Part )_
+Algorithms - Basic ( Doing )
 
-- DOING
+- [README](/snips)
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
@@ -29,12 +29,6 @@ Coding
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
 
-Languages
-
-- [Java](/java/README.md) ( TODO )
-    - [Spock](/java/spock.md) : Unit Tests
-- [Go](/snips/go.md) ( draft )
-
 Docker
 
 - [Intro](/snips/docker/README.md)
@@ -46,7 +40,7 @@ Markdown
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
-Storage - usage
+Storage - Usage
 
 - [Elasticsearch](/snips/storage/elasticsearch.md)
 - [MemcacheQ](/snips/storage/mcq.md)
@@ -54,7 +48,7 @@ Storage - usage
 - [Redis](/snips/redis/README.md)
 - [Mongo](/snips/storage/mongo.md)
 
-Storage - basic
+Storage - Basic
 
 - [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
     - _Data structure related to LevelDB / RockDB_
@@ -69,6 +63,10 @@ Web
 - [How to mail on CentOS?](/cmd/m/mailx.md) mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( sth wrong? )
 - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md): estimation
+
+Other Language
+
+- [Go](/snips/go.md) ( draft )
 
 <!-- Useless -->
 <!-- - [Chrome](/snips/web/chrome.md) : clear cookie ( draft ) -->
@@ -206,6 +204,14 @@ Web
 
 > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
 > —— 鲁迅
+
+### Java
+
+> Doing
+
+- [Index](/java/README.md)
+- [Hello World](/java/hello-world.md) ( draft )
+- [Spock](/java/spock.md) : Unit Tests
 
 ### C++
 
