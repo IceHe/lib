@@ -4,19 +4,19 @@
 
 Mine
 
-- [rocksdb-icehe-sharing.pdf](./rocksdb-icehe-sharing.pdf)
+- [rocksdb-icehe-sharing.pdf](https://github.com/IceHe/lib/blob/master/snips/lsm-tree/rocksdb-icehe-sharing.pdf)
 
 Papers
 
-- [BigTable](./bigtable-paper.pdf)
-- [LSM-Tree](./lsm-tree-paper.pdf)
+- [BigTable](https://github.com/IceHe/lib/blob/master/snips/lsm-tree/bigtable-paper.pdf)
+- [LSM-Tree](https://github.com/IceHe/lib/blob/master/snips/lsm-tree/lsm-tree-paper.pdf)
 
 RocksDB PPT
 
-- [rocksdb-flash-memory-summit.pdf](./rocksdb-flash-memory-summit.pdf)
-- [rocksdb-kv-store-optimized-for-flash.pdf](./rocksdb-kv-store-optimized-for-flash.pdf)
-- [story-of-rocksdb.pdf](./story-of-rocksdb.pdf)
-- [myrocks-deep-dive.pdf](./myrocks-deep-dive.pdf)
+- [rocksdb-flash-memory-summit.pdf](https://github.com/IceHe/lib/blob/master/snips/lsm-tree/rocksdb-flash-memory-summit.pdf)
+- [rocksdb-kv-store-optimized-for-flash.pdf](https://github.com/IceHe/lib/blob/master/snips/lsm-tree/rocksdb-kv-store-optimized-for-flash.pdf)
+- [story-of-rocksdb.pdf](https://github.com/IceHe/lib/blob/master/snips/lsm-tree/story-of-rocksdb.pdf)
+- [myrocks-deep-dive.pdf](https://github.com/IceHe/lib/blob/master/snips/lsm-tree/myrocks-deep-dive.pdf)
 
 ## Preview
 

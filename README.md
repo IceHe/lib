@@ -48,7 +48,7 @@ Markdown
 
 Storage - theory
 
-- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
+- [LSM Tree](/snips/storage/lsm-tree/README.md) : Log-Structured Merge-Tree
     - _Data structure related to LevelDB / RockDB_
 
 Storage - usage
