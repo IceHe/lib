@@ -22,9 +22,9 @@ Coding
 
 - [Abbreviations](/snips/abbrs.md)
 - [Cloud Utils](/snips/cloud/README.md) ( draft )
-    - AliYun
-        - AnalyticDB ( ADB / ADS )
-        - [MaxCompute](/snips/cloud/max-compute.md) ( 原 ODPS - Open Data Process Service )
+    - [MaxCompute](/snips/cloud/max-compute.md)
+        <!-- ( 原 ODPS - Open Data Process Service ) -->
+    <!-- - AnalyticDB -->
 - [Glossary](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
@@ -46,11 +46,6 @@ Markdown
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
-Storage - theory
-
-- [LSM Tree](/snips/storage/lsm-tree/README.md) : Log-Structured Merge-Tree
-    - _Data structure related to LevelDB / RockDB_
-
 Storage - usage
 
 - [Elasticsearch](/snips/storage/elasticsearch.md)
@@ -58,6 +53,11 @@ Storage - usage
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
 - [Mongo](/snips/storage/mongo.md)
+
+Storage - basic
+
+- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
+    - _Data structure related to LevelDB / RockDB_
 
 Web
 
