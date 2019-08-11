@@ -6,6 +6,7 @@ Install
 
 Basic
 
+- [Hello World](/snips/java/hello-world.md)
 - [Glossary](/snips/java/glossary.md)
 
 Framework
