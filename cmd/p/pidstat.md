@@ -161,4 +161,3 @@ Average:        0     22094       156         0  pidstat
 - `-T { TASK | CHILD | ALL }`
     - This option specifies what has to be monitored by the pidstat command.
     - The TASK keyword indicates that statistics are to be reported for individual tasks (this is the default option) whereas the CHILD keyword indicates that statistics are to be globally reported for the selected tasks and all their children.
-    - …
