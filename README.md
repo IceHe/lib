@@ -165,7 +165,7 @@ Others
 - [passwd](/cmd/p/passwd.md) : modify a user's password
 - [paste](/cmd/p/paste.md) : merge lines of files
 - [php](/cmd/p/php.md) : PHP Command Line Interface
-- [pidstat](/cmd/pidstat.md) : report statistics for Linux tasks
+- [pidstat](/cmd/p/pidstat.md) : report statistics for Linux tasks
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
 - [python](/cmd/p/python.md) : Python Command Line Interface
 - [ps](/cmd/p/ps.md) : process status
