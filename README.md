@@ -164,6 +164,7 @@ Others
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [passwd](/cmd/p/passwd.md) : modify a user's password
 - [paste](/cmd/p/paste.md) : merge lines of files
+- [perf](/cmd/p/perf.md) : performance analysis tools for Linux
 - [php](/cmd/p/php.md) : PHP Command Line Interface
 - [pidstat](/cmd/p/pidstat.md) : report statistics for Linux tasks
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
@@ -187,6 +188,7 @@ Others
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
 - [sysctl](/cmd/s/sysctl.md) : configure kernel parameters at runtime
 - [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
+- [tac](/cmd/t/tac.md) : concatenate and print files in reverse
 - [tail](/cmd/t/tail.md) : output the last part of files
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
