@@ -636,6 +636,7 @@ Reference : https://www.computerhope.com/keys.htm
 - SOAP : [Simple Object Access Protocol](https://en.wikipedia.org/wiki/SOAP) ( based on XML )
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
+- SOP : Standard Operating Procedure 标准操作程序
 - spec : specific | specified | specification
 - spk : speak | speaker
 - SPU : [Standard Product Unit](https://www.zhihu.com/question/29073730)（标准化产品单元）商品信息聚合的最小单位
