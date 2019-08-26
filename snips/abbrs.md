@@ -190,6 +190,7 @@ Reference : https://www.computerhope.com/keys.htm
 - BGP : Border Gatway Protocol
 - bin : binary
 - biz : business
+- bmp : bitmap
 - brk : [break](https://en.wikipedia.org/wiki/Sbrk)
 - [BSON](https://en.wikipedia.org/wiki/BSON) : a computer data interchange format used mainly as a data storage and network transfer format in the MongoDB database
 - btm : bottom
