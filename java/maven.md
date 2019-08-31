@@ -6,7 +6,13 @@ Maven : https://maven.apache.org/
 - based on a POM (project object model)
 - including project's build, reporting & documentation
 
-Related tool : Gradle
+Book :
+
+- 《Maven 实战》( Maven 3 in Action 中文版 )
+
+Related tool :
+
+- Gradle
 
 ## Add Dependecy
 
