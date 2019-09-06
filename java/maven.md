@@ -54,4 +54,10 @@ References
 
 References
 
--  maven依赖jar包时版本冲突的解决 : https://blog.csdn.net/sinat_39789638/article/details/78005945
+- maven依赖jar包时版本冲突的解决 : https://blog.csdn.net/sinat_39789638/article/details/78005945
+
+## 试错经验
+
+- 子模块不要写变量, 显式写明 version
+- plugin 写 deply `<configuration><deploy>true</deploy></configuration>` 结果跳过了部署……
+- 依赖排错命令 mvn dependency:list/tree/analyze
