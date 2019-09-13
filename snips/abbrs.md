@@ -737,6 +737,7 @@ Reference : https://www.computerhope.com/keys.htm
 - win : window
 - WIP : [Work In Process](https://en.wikipedia.org/wiki/Work_in_process) or Progress
 - wnd : window
+- ws : [Web Service](https://en.wikipedia.org/wiki/Web_service)
 - wtf : [what the fuck](https://en.wikipedia.org/wiki/Fuck#Modern_usage)
 - www : [world wide web](https://en.wikipedia.org/wiki/World_Wide_Web)
 
