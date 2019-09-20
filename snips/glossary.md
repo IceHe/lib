@@ -4,8 +4,8 @@
 
 同义词
 
-- forword / 向前 / 向上
-- backword / 向后 / 向下
+- forword / 向前 / upword / 向上
+- backword / 向后 / downword / 向下
 
 Forward & Backward compatible
 
