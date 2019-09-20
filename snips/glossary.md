@@ -2,6 +2,11 @@
 
 ## 向后兼容 & 向后兼容
 
+同义词
+
+- forword / 向前 / 向上
+- backword / 向后 / 向下
+
 Forward & Backward compatible
 
 - forward 理解为「前进/未来」（不是~~以前~~），向未来拓展！
@@ -14,8 +19,8 @@ Forward & Backward compatible
 
 例如
 
-- 向前兼容：新版的 doc 文档，可以被旧版的 Microsoft Office Word 打开。
-- 向后兼容：旧版的 doc 文档，可以被新版的 Microsoft Office Word 打开。
+- 向前兼容：旧版的 Microsoft Office Word 可以打开新版的 doc 文档.
+- 向后兼容：新版的 Microsoft Office Word 可以打开旧版的 doc 文档.
 
 轮子哥的解释
 
