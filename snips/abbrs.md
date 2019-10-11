@@ -21,12 +21,12 @@ References
 
 Note that :
 
-- `for CLI` about Command-Line Interface
-- `for Go` about Go Programming Language
-- `for kernel` about Linux (kernel)
-- `for SQL` about SQL
-- `for Regex` about Regular Expression
-- ……
+`for CLI` about Command-Line Interface
+`for Go` about Go Programming Language
+`for kernel` about Linux (kernel)
+`for SQL` about SQL
+`for Regex` about Regular Expression
+……
 
 ### ASCII
 
