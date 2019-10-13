@@ -63,13 +63,13 @@ https://tmux.github.io <sup>Powerful</sup>
 
 ### Homebrew
 
-http://brew.sh <sup>Best</sup>
+https://brew.sh <sup>Best</sup>
 
 - macOS 的包管理器。`brew` 就如 `agt-get` 之于 Ubuntu，`yum` 之于 RedHat、CentOS 的存在。
 
 ### Homebrew Cask
 
-http://caskroom.io
+https://formulae.brew.sh/cask
 
 - 安装、更新 macOS Apps 的命令行工具。
 - 用命令行的方式安装、更新 Mac Apps，其中还包括了许多第三方的 Apps。
