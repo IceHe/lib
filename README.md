@@ -387,6 +387,7 @@ Newly
 Timeline
 
 - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
+- [2018 Winter](/past/2018-winter.md)
 - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
 - [2017 Spring](/past/2017-spring.md)
 - [2016 Winter](/past/2016-winter.md)
