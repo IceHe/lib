@@ -160,12 +160,6 @@ Features
 
 ## Data Process
 
-### Hive
-
-References
-
-- [Hive](/snips/cloud/max-compute.md#Hive) ( mine ) : data process
-
 ### Flink
 
 > Stateful Computations over Data Streams
@@ -197,6 +191,12 @@ References
 References
 
 - [MaxCompute](/snips/cloud/max-compute.md)
+
+#### Hive
+
+References
+
+- [Hive](/snips/cloud/max-compute.md#Hive) ( mine ) : data process
 
 ## MQ
 
