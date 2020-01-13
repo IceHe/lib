@@ -1,5 +1,9 @@
 # MySQL (WIP)
 
+暂时觉得比较好的付费课程
+
+- 极客时间 App → MySQL 的专栏
+
 ## Features
 
 ### Lock
