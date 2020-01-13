@@ -14,14 +14,18 @@
 
 **显示器**: 竖向副屏 ~~[DELL UltraSharp U2515Hx 2K 25-inch](https://item.jd.com/1453819.html)~~ <sup>_工位空间受限_</sup>
 
-**鼠标**: Logitech [MX Vertical](https://www.logitech.com.cn/zh-cn/product/mx-vertical-ergonomic-mouse) / ~~[MX Master 2S](https://www.logitech.com.cn/zh-cn/product/mx-master-2s-flow)~~ <sup>_闲置_</sup>
+**鼠标**: Logitech [MX Vertical](https://www.logitech.com.cn/zh-cn/product/mx-vertical-ergonomic-mouse) / [MX Master 2S](https://www.logitech.com.cn/zh-cn/product/mx-master-2s-flow) <sup>Favorite</sup>
 
 - 工作强度大的时候, 用触摸板的话, 手掌的支撑不足, 真的累…… 于是换了鼠标.
 - 滚轮还是喜欢用自由滚动模式, 而不是步进模式 (看起来更多人喜欢这个).
 - 新买的 MX Vertical 握感更舒适, 显得原来用的 MX Master 低矮了, 支撑不足;
 - 但是没有了用于横向的滚轮, 一旦习惯它, 碰到需要横向滚动的场合就很难受, 所幸这种情况并不常见.
 
-**蓝牙键盘**: [Magic Keyboard - Silver](http://www.apple.com/cn/shop/product/MLA22CH/A/magic-keyboard?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2) <sup>Favorite</sup>
+**双模键盘**: Filco 圣手二代 87 键  <sup>Favorite</sup> / Minila 67 键 <sup>_闲置_</sup>
+
+- TODO
+
+**蓝牙键盘**: [Magic Keyboard - Silver](http://www.apple.com/cn/shop/product/MLA22CH/A/magic-keyboard?fnode=55ff065819d666715b20a981bb6f5f6fea4670ea0305310e909e70f9db010fd3682e64118d0243109ebfec218056294be90dcd230d2da847d0fcd4a75b19ad6c9a0d3698c7ad96b873aa34184e1581ddf746c770f885a1c8e9a62f2985f320e2) <sup>Quiet</sup>
 
 - 小巧轻便。Mac 的键盘布局紧凑合理，手用更小幅度的移动就能触及所有按键，省力。
 - 可能你会觉得敲起来手感「绵软」，但是作为「键盘党」的我，快捷键很多而且用得频繁，就觉得使用它很舒适、省力、安静。
@@ -69,7 +73,7 @@
 
 ## 移动设备
 
-**手机**: [iPhone](https://www.apple.com/cn/iphone/) <sup>Favorite</sup>
+**手机**: [iPhone 7](https://www.apple.com/cn/iphone/) <sup>Favorite</sup>
 
 - iOS 系统安全、稳定、流畅、省心。
 - GTD、阅读、笔记、通讯、记账… 随身的效率工具。
@@ -80,7 +84,7 @@
     - 除了大部头的书和高清视频，一般的阅读和视频在小屏上看也没差，大不了回头在 Mac 上看。
 - 我很喜欢 [Red Silicone Case](http://www.apple.com/cn/shop/product/MMW82FE/A/iphone-7-%E7%A1%85%E8%83%B6%E4%BF%9D%E6%8A%A4%E5%A3%B3-%E9%BB%91%E8%89%B2?fnode=99)（官方硅胶保护壳）的轻微磨砂质感，好看、舒适、不滑手。
 - 除非你想日后再倒卖出手，否则没必要贴膜，影响观感、手感和手势操作。
-- ~~**其它**：iPhone Plus~~ <sup>_赠予_</sup>
+- ~~**其它**：iPhone 6 Plus~~ <sup>_赠予_</sup>
     - 续航不错，作为iPad 的替代品和备用手机，出门就可以不带充电宝了。
     - 屏幕尺寸合适，比小屏 iPhone 更适合阅读和看视频，又比 iPad Mini 更便携、方便单手操作，挤地铁公交的时候用也没问题，也是最适合玩手机游戏的尺寸。
     - [Turquoise Silicone Case](https://www.apple.com/cn/shop/product/MKXJ2FE/A/iphone-6-plus-6s-plus-%E7%A1%85%E8%83%B6%E4%BF%9D%E6%8A%A4%E5%A3%B3-%E7%82%AD%E7%81%B0%E8%89%B2?fnode=99)（宝石绿官方硅胶保护壳），一分钱一分货，用久了也能保持悦目的颜色。
@@ -90,7 +94,7 @@
 
 - iPhone 没法双卡双待，就用备用机用来使用另一张手机卡；避免主力机遗失后，没备用手机用。
 
-**手表**: [Apple Watch Series 4 Sport](https://www.apple.com/cn/shop/buy-watch/apple-watch/MU672CH/A) <sup>Upgraded</sup> ← ~~Apple Watch Sport~~
+**手表**: [Apple Watch Series 4 Sport](https://www.apple.com/cn/shop/buy-watch/apple-watch/MU672CH/A) <sup>Upgraded</sup> ← ~~Apple Watch Sport (一代)~~ <sup>_已损坏_</sup>
 
 - 40mm Space Gray Aluminum Case with Black Sport Loop, Red Sport Band & Cornflower Modern Buckle
 - ~~38mm Space Gray Aluminum Case with Black Sport Band~~ ，iPhone、Mac 的辅助工具，健康助手。
@@ -104,7 +108,7 @@
 - 每久坐一段时间，它就会提醒您站起来活动一下。
 - 从实用性上说，运动款（Sport）就够用了，买标准款没必要。（究其原因是穷…）
 
-~~**平板电脑**: [iPad](http://www.apple.com/cn/ipad)~~ <sup>_赠予_</sup>
+**平板电脑**: iPad Mini ( 2019款 ) <sup>_闲置_</sup> / ~~[iPad](http://www.apple.com/cn/ipad)~~ <sup>_赠予_</sup>
 
 - 多用于阅读技术类书籍，看看动漫、电影、公开课。配合蓝牙键盘能够满足轻度使用，不用总是携带笔记本电脑回住处。还是因为用得少，也想身边的物品更精简，就给家里人用了（他们用大屏就不那么费眼力）。
 
@@ -120,7 +124,8 @@
 
 **降噪耳机** : [Bose](https://www.bose.cn/zh_cn/index.html) 目前市面上最好的消噪耳机品牌
 
-- [Bose QC30](https://www.bose.cn/zh_cn/products/headphones/earphones/quietcontrol-30.html#v=qc30_black) <sup>Favorite</sup>
+- AirPods Pro <sup>轻便</sup>
+- [Bose QC30](https://www.bose.cn/zh_cn/products/headphones/earphones/quietcontrol-30.html#v=qc30_black) <sup>_闲置_</sup>
     QuietControl 30 Wireless Headphones 无线蓝牙控噪耳机。
     - 特点：
         - 主动消噪，耳塞发出一种波与有规律的噪音相消；消噪后，自然就可以用更小的音量听清播放的音频；人声不能完全隔绝，不过会像是在水底听水面上的声音，感觉距离远了，声量小了许多；消噪程度可控，可调节到「完全消噪」和「关闭消噪」间的任意水平；完全消噪时，只要低音量地播放音乐或白噪音，就可以在很大程度上隔绝外部噪音。可以帮助我在嘈杂的办公室也能在静谧专注地做事。
@@ -152,6 +157,6 @@
 
 ## 视频输出
 
-~~**投影仪**: [极米无屏电视 Z6X](https://shop.xgimi.com/goods/1182200401.html)~~ <sup>_住处空间受限_</sup>
+**投影仪**: [极米无屏电视 Z6X](https://shop.xgimi.com/goods/1182200401.html) <sup>Favorite</sup>
 
 - 方便晚上追番剧，提高幸福度。
