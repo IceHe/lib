@@ -1,9 +1,10 @@
 # How to docsify
 
-[docsify](https://docsify.js.org/)
+External links
 
-- [Quickstart](https://docsify.js.org/#/quickstart)
-- [Deploy](https://docsify.js.org/#/deploy)
+- [docsify](https://docsify.js.org/)
+    - [Quickstart](https://docsify.js.org/#/quickstart)
+    - [Deploy](https://docsify.js.org/#/deploy)
 
 ## Preview
 
