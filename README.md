@@ -28,7 +28,7 @@ Coding
 
 Docker
 
-- [Docker](/snips/docker/README.md) : Intro & Command
+- [Docker](/snips/docker/README.md) : Command & Composor
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
 
 Markdown
@@ -42,7 +42,7 @@ Storage - Usage
 - [MemcacheQ](/snips/storage/mcq.md)
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
-- [Mongo](/snips/storage/mongo.md)
+- [_Mongo_](/snips/storage/mongo.md) ( draft )
 
 Storage - Basic
 

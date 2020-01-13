@@ -54,4 +54,4 @@ Reference : https://stackoverflow.com/questions/7382602/what-is-the-difference-b
 
 `255.255.255.255`
 
-- 仅内网适用（因为 router 不会转发），仅用于主机配置
+- 仅内网适用 ( 因为 router 不会转发 ) , 仅用于主机配置
