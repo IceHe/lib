@@ -53,10 +53,10 @@ Web
 
 - [IP Address](/snips/web/ip.md)
 - [URL Encoding](/snips/web/url-encoding.md)
-- [init.d : Simple HTTP Service](/snips/init.d/README.md) ( php -S )
-- [Nginx : Simple HTTP Server](/snips/nginx/README.md)
-- [How to docsify?](/_docsify/README.md)
-- [How to mail on CentOS?](/cmd/m/mailx.md) mailx
+- [init.d](/snips/init.d/README.md) : Simple HTTP Service ( `php -S` )
+- [Nginx](/snips/nginx/README.md) : Simple HTTP Server
+- [How to docsify](/_docsify/README.md)
+- [How to mail on CentOS](/cmd/m/mailx.md) : mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( sth wrong? )
 - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md): estimation
 

@@ -1,4 +1,4 @@
-# How to mail on CentOS?
+# How to mail on CentOS
 
 References
 

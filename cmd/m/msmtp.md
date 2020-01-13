@@ -1,4 +1,4 @@
-# How to mail on macOS? (draft)
+# How to mail on macOS (draft)
 
 References
 
