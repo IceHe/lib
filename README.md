@@ -56,10 +56,13 @@ Web
 - Simple HTTP Service
     - [init.d](/snips/init.d/README.md) with `php -S`
     - [Nginx](/snips/nginx/README.md)
-- [How to docsify](/_docsify/README.md)
-- [How to mail on CentOS](/cmd/m/mailx.md) : mailx
+- How to mail
+    - [on CentOS](/cmd/m/mailx.md) : mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( sth wrong? )
-- [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md): estimation
+- How to estimate
+    - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
+- How to build personal website
+    - Powered by [docsify](/_docsify/README.md)
 
 Others
 
