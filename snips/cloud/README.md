@@ -1,11 +1,5 @@
 # Cloud
 
-## Hive
-
-References
-
-- [Hive](/snips/cloud/max-compute.md#Hive) ( mine ) : data process
-
 ## SRE
 
 > Site Reliable Engineering
@@ -166,6 +160,12 @@ Features
 
 ## Data Process
 
+### Hive
+
+References
+
+- [Hive](/snips/cloud/max-compute.md#Hive) ( mine ) : data process
+
 ### Flink
 
 > Stateful Computations over Data Streams
@@ -189,6 +189,14 @@ References
 References
 
 - Logstash: Collect, Parse, Transform Logs | Elastic : https://www.elastic.co/products/logstash
+
+### MaxCompute
+
+> 原 ODPS - Open Data Process Service
+
+References
+
+- [MaxCompute](/snips/cloud/max-compute.md)
 
 ## MQ
 

@@ -22,9 +22,6 @@ Coding
 
 - [Abbreviations](/snips/abbrs.md)
 - [Cloud Utils](/snips/cloud/README.md) ( draft )
-    - [MaxCompute](/snips/cloud/max-compute.md)
-        <!-- ( 原 ODPS - Open Data Process Service ) -->
-    <!-- - AnalyticDB -->
 - [Glossary](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
 - [Work Flow](/snips/work-flow.md)
