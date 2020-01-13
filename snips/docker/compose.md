@@ -1,4 +1,4 @@
-# Docker Compose (WIP)
+# Docker Compose (TBD)
 
 > Define and run multi-container applications with Docker.
 

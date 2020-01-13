@@ -24,13 +24,13 @@ Coding
 - [Cloud Utils](/snips/cloud/README.md) ( draft )
 - [Glossary](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
-- [Work Flow](/snips/work-flow.md)
+- [_Work Flow_](/snips/work-flow.md)
 
 Docker
 
 - [Intro](/snips/docker/README.md)
-- [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
 - [Docker Compose](/snips/docker/compose.md)
+- [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
 
 Markdown
 
