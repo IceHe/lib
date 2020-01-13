@@ -17,9 +17,13 @@ Require
 
 on macOS
 
+- Step 1
+
 ```bash
 brew install npm
 ```
+
+- Step 2
 
 ```bash
 npm i docsify-cli -g
@@ -40,7 +44,7 @@ docsify serve .
 ```
 
 ```bash
-# Optional: sepcify port
+# Optional: sepcific port
 docsify serve . [-p <port>]
 
 # e.g.
@@ -53,7 +57,7 @@ docsify serve . -p 4000
 
 http://localhost:3000
 
-Default port is 3000.
+- Default port is 3000.
 
 ## Build
 
@@ -113,7 +117,7 @@ php path/to/download-n-rewrite-resources.php --download --rewrite
 
 Reference
 
-- [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/_ci/download-n-rewrite-resources.php)
+- [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/scripts/php/download-n-rewrite-resources.php)
 
 ## Deploy
 
