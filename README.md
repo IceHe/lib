@@ -53,8 +53,9 @@ Web
 
 - [IP Address](/snips/web/ip.md)
 - [URL Encoding](/snips/web/url-encoding.md)
-- [init.d](/snips/init.d/README.md) : Simple HTTP Service ( `php -S` )
-- [Nginx](/snips/nginx/README.md) : Simple HTTP Server
+- Simple HTTP Service
+    - [init.d](/snips/init.d/README.md) with `php -S`
+    - [Nginx](/snips/nginx/README.md)
 - [How to docsify](/_docsify/README.md)
 - [How to mail on CentOS](/cmd/m/mailx.md) : mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( sth wrong? )
