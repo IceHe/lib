@@ -12,9 +12,9 @@
 
 ### Snips
 
-Algorithms - Basic
+<!-- Algorithms - Basic -->
 
-- [README](/snips/README.md)
+<!-- - [README](/snips/README.md) -->
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 

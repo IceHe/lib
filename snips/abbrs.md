@@ -347,6 +347,7 @@ Reference : https://www.computerhope.com/keys.htm
 - hex : heximal
 - hi : hard interrupt ( for CLI `top` )
 - HRBP : [Human Resource Business Partner](https://baike.baidu.com/item/HRBP)
+- hr : hour | human resource
 - hrs : hours
 - hup : hang up
 
@@ -736,6 +737,7 @@ Reference : https://www.computerhope.com/keys.htm
 - WAN : [Wide Area Network](https://en.wikipedia.org/wiki/Wide_area_network)
 - win : window
 - WIP : [Work In Process](https://en.wikipedia.org/wiki/Work_in_process) or Progress
+- wk : week
 - wnd : window
 - ws : [Web Service](https://en.wikipedia.org/wiki/Web_service)
 - wtf : [what the fuck](https://en.wikipedia.org/wiki/Fuck#Modern_usage)
