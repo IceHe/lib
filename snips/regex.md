@@ -16,7 +16,7 @@ Since the 1980s, different syntaxes for writing regular expressions exist, one b
 
 ## Usage
 
-### Code Style
+### CH & EN
 
 Add whitespaces between Chinese & English words ( imperfect )
 
@@ -25,6 +25,8 @@ Add whitespaces between Chinese & English words ( imperfect )
 $1 $2 $3
 ```
 
+### Comma
+
 Add a whitespace after comma `,`
 
 ```bash
@@ -32,30 +34,16 @@ Add a whitespace after comma `,`
 , $1
 ```
 
-Replace "" with ''
+### Date
+
+Date Range
 
 ```bash
-"([^"]*)"
-'$1'
+([0-9]{4})\s*?[/\-.年]\s*?([0-9]{1,2})\s*?[/\-.月]\s*?([0-9]{1,2})[日]?
+# 2020年01月12日 ~ 2020 年 1 月 13 日
 ```
 
-### Refactor
-
-Find function with 7 params
-
-```bash
-functionName\(([^,^;]*,\s?){6}([^;^,]*?)\)
-```
-
-### Markdown
-
-Link Match
-
-```bash
-\[([^\]]+)\]\(([^\)]+)\)
-# Title : $1
-# Link : $2
-```
+### HTML Tags
 
 Replace HTML Tag
 
@@ -80,7 +68,35 @@ Replace HTML Tag
 [$2]($1)
 ```
 
-### Find
+### MD Link
+
+Link Match
+
+```bash
+\[([^\]]+)\]\(([^\)]+)\)
+
+# Title : $1
+# Link : $2
+```
+
+### Params
+
+Find function with 7 params
+
+```bash
+functionName\(([^,^;]*,\s?){6}([^;^,]*?)\)
+```
+
+### Quote
+
+Replace "" with ''
+
+```bash
+"([^"]*)"
+'$1'
+```
+
+### Square Brackets
 
 ```bash
 ^\[[^\]]*\]
