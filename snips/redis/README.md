@@ -10,7 +10,7 @@
 
 基本原理和方案设计
 
-- Redis 深度历险：核心原理与应用实践 : https://juejin.im/book/5afc2e5f6fb9a07a9b362527
+- **Redis 深度历险：核心原理与应用实践** : https://juejin.im/book/5afc2e5f6fb9a07a9b362527 ( 推荐 )
 
 容量评估
 
@@ -19,7 +19,7 @@
 
 ## Mode
 
-- Redis : 单线程模型
+- Redis : 单线程模型 ( 现支持多线程 )
     - 单机压测 : QPS 60k
 - Memcached : 多线程模型
     - 单机压测 : QPS 300k
@@ -46,7 +46,7 @@ Redis 协议将传输的结构数据分为 5 种最小单元类型，单元结�
 
 ## Persistence
 
-- 快照（RDB?）
+- 快照 ( RDB? )
     - `save` 同步保存
     - `bgsave` 异步保存
 - AOF
