@@ -2,8 +2,8 @@
 
 Functions
 
-- [Compare type & value](https://github.com/IceHe/lib/blob/master/scripts/php/cmp-type-and-val.php) - first ver.
-- [Compare type & value](https://github.com/IceHe/lib/blob/master/scripts/php/cmp-type-and-val.better.php) - better ver.
+- [Compare type & value](https://github.com/IceHe/lib/blob/master/scripts/php/cmp-type-n-val.php) - first ver.
+- [Compare type & value](https://github.com/IceHe/lib/blob/master/scripts/php/cmp-type-n-val.better.php) - better ver.
 - [Trim query string in URL](https://github.com/IceHe/lib/blob/master/scripts/php/url-without-query.php)
 
 Scripts
