@@ -1,4 +1,4 @@
-# Cron
+# Crontab
 
 On Linux
 
@@ -21,6 +21,13 @@ Assume
 
 - on Linux ( CentOS 7 )
     - Cron doesn't work on macOS & etc.
+
+Notice
+
+- **`cron`** is different from `crontab`
+    - Cron Expression Generator & Explainer : https://www.freeformatter.com/cron-expression-generator-quartz.html
+    - Cron Trigger Tutorial : http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
+
 
 ## Usage
 
