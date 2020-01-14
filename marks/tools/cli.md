@@ -24,7 +24,9 @@ http://www.vim.org <sup>God-like</sup>
 
 ### ~~SpaceVim~~
 
-https://spacevim.org / [~~spf13-vim~~](http://vim.spf13.com/) ( 没用惯, 后来都放弃了 )
+https://spacevim.org / [~~spf13-vim~~](http://vim.spf13.com/)
+
+( 没用惯, 后来都放弃了 )
 
 - 一整套 Vim 配置方案。
 - 比起漫无休止地折腾配置，不如遵从实用主义：站在巨人的肩膀上，直接使用久经考验的的配置方案。

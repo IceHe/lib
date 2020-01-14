@@ -10,6 +10,8 @@ https://www.jetbrains.com/idea <sup>Master Piece</sup>
 
 https://www.jetbrains.com/phpstorm
 
+( 转技术栈后, 不怎么用了 )
+
 - PHP 的最佳 IDE。
 - 现阶段 PHP 类型推导做得最好的 IDE，稳定、崩溃少，功能完善，设置选项齐全。（我觉得）比 ZendStudio、Eclipse 好用多了。
 - 技术支持服务靠谱，客服答复迅速、解决方案有效
@@ -85,7 +87,7 @@ https://www.wireshark.org <sup>Powerful</sup>
 
 ### LaunchRocket
 
-https://github.com/jimbojsb/launchrocket
+https://github.com/jimbojsb/launchrocket ( 不用本机开发 )
 
 - 安装在 macOS 系统设置面板的 App，通过 `launchd` 管理各式 services。
 - 比使用命令行，更便于启动、终止 services 以及进行 root 授权。
