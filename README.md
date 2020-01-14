@@ -159,6 +159,7 @@ _Others_
 - [man](/cmd/m/man.md) : an interface to the on-line reference manuals
 - [mkdir](/cmd/m/mkdir.md) : make directories
 - [mount](/cmd/m/mount.md) : mount a filesystem
+    - [umount](/cmd/m/mount.md#umount) : un-mount a filesystem
 - [mv](/cmd/m/mv.md) : move (rename) files
 - [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
