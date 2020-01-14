@@ -21,7 +21,17 @@ https://www.google.com/chrome <sup>Universal</sup>
 
 ## 常用
 
-### 2DO
+### TickTick 滴答清单
+
+https://ticktick.com
+
+- Todo-List
+- Calendar 视图
+- Habit 养成
+
+<!--
+
+### ~~2DO~~
 
 https://www.2doapp.com <sup>Powerful</sup>
 
@@ -29,7 +39,9 @@ https://www.2doapp.com <sup>Powerful</sup>
 - 功能齐全、好用，用法可简可繁。快捷键完备！
 - 推荐使用 iCloud Reminders 的 CalDAV 同步方式（支持 2Do 绝大部分特性，足以满足我的需求）；Dropbox 的同步方式虽然可以支持 2Do 的所有特性，可是需要翻墙才能同步数据，iPhone 需要长期开着 VPN 略显麻烦。所以为了稳定和省心，选择了前一种同步方式。
 
-### Trello
+-->
+
+### ~~Trello~~
 
 https://trello.com <sup>Favorite</sup>
 
@@ -71,7 +83,11 @@ https://outlook.live.com/owa
 
 ## 笔记
 
-### MindNode
+现在只用本网站的 Git 代码仓库进行记录
+
+<!--
+
+### ~~MindNode~~
 
 https://mindnode.com/ <sup>Flexible</sup>
 
@@ -79,14 +95,14 @@ https://mindnode.com/ <sup>Flexible</sup>
 - 操作简便易上手，轻巧稳定。
 - 我原来用 Markdown 线性列表来做记录、归纳、总结，但是这样的话，内容再组织实在不灵活，不如思维导图灵巧。
 
-### Notes
+### ~~Notes~~
 
 https://support.apple.com/kb/PH22609?viewlocale=en_US&locale=en_JO <sup>Simple</sup>
 
 - Apple 自带的轻量级笔记应用。
 - 用于收集灵感和想法，做书摘、读书笔记和日记。因为它启动迅速，使用稳定便捷，所以更常使用它而非 Evernote。
 
-### Notion
+### ~~Notion~~
 
 https://www.notion.so <sup>Checklist</sup>
 
@@ -94,7 +110,7 @@ https://www.notion.so <sup>Checklist</sup>
 - 我只用它来复用自己的 checklist 模板。例如，每天的早上起床、晚上回住处要做的杂务流程，以及出行的行李清单等 checklist。（虽然功能强大，但操作不够便捷，数据同步不尽如人意）
 - 原来我用 Evernote 来复用 checklist 模板，可是在 check 勾选、uncheck 反选复选框，以及浏览 checklist 的过程中，很容易唤起键盘，可以说相当烦人，而 Notion 则不会有这样的体验。
 
-### Evernote
+### ~~Evernote~~
 
 https://www.yinxiang.com <sup>Rec Offline, RIL</sup>
 
@@ -114,3 +130,5 @@ http://brettterpstra.com/projects/nvalt <sup>Casual</sup>
 - macOS 上的草稿处理中心。随叫随到（快捷键齐备），迅速记录（操作简洁），检索便捷。
 - 如果我用 Sublime Text 做一些随意的文字记录，要保留久一点都得保存成文件，难免在显眼的地方（例如桌面）看到一堆临时文件，过后的清理也麻烦，怕不小心删掉了别的有用的文件。
 - 用 nvALT 的话，它会统一在暗处做文字记录的整理（除非导出文件），眼不见为净。
+
+-->

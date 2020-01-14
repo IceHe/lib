@@ -93,6 +93,10 @@ __所爱之物记录于此。__ 所爱不少，所以只记录最偏爱的那一
     人生，天赋与努力。
 - [__棋魂__](https://movie.douban.com/subject/1474243/) <sup>__Best__</sup>
     围棋。
+- [__Beastars__](https://movie.douban.com/subject/30458442/) <sup>__Best__</sup>
+    艺术。
+- [__灰与幻想的格林姆迦尔__](https://movie.douban.com/subject/26644116/) <sup>__Best__</sup>
+    "写实" 的异世界。
 - [__虫师__](https://movie.douban.com/subject/1800597/)
     恬静，幽深。
 - [__亚人__](https://movie.douban.com/review/7794549/) <sup>__Best__</sup>
@@ -165,6 +169,10 @@ __所爱之物记录于此。__ 所爱不少，所以只记录最偏爱的那一
     恋爱喜剧。
 - [__齐木楠雄的灾难__](https://movie.douban.com/subject/26801048/) <sup>__Best__</sup>
     笑得根本停不下来… 哈哈哈…
+- [__小林家的龙女仆__](https://movie.douban.com/subject/26899726/) <sup>__Best__</sup>
+    康娜酱~
+- [__慎重勇者__](https://movie.douban.com/subject/30372448/)
+    康娜酱~
 - [__冰上的尤里__](https://movie.douban.com/subject/26756212/)
     华丽。
 - [__Angel Beats!__](http://movie.douban.com/subject/4202090/)
