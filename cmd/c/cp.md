@@ -12,7 +12,7 @@ cp file dir             # Copy file to dir
 cp -t dir file1 file2   # Copy files to dir
 ```
 
-Notice:
+Notice
 
 ```bash
 # All the same
