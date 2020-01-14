@@ -9,12 +9,10 @@
 
 我是
 
-- IceHe | Hzy - 广州人在北京
+- IceHe ( 冰何 ) - 广州人在北京
 - [GitHub](https://github.com/IceHe) - Tools & Configs
 - 技术博客: [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
 - 生活微博: [@\_IceHe\_](http://weibo.com/icedes)
-
-<!-- ![弱小，可怜，又无助](http://ww1.rs.fanjian.net/c/ba/65/41/e2ba2d4d1a65865e8e4107f9f9620dce.jpg) -->
 
 联络
 
@@ -23,9 +21,9 @@
 
 经历
 
-- 阿里巴巴本地生活 - 众包物流 - Java 服务端研发 _2019.03 ~ Now_
-- 微博视频平台 - Java 服务端研发 _2018.05 ~ 2019.02_
-- 微博 Mobile API - PHP 服务端研发 _2014.12 ~ 2018.04_
+- 阿里巴巴本地生活 - 众包物流 Java 服务端 _2019.03 ~ Now_
+- 微博视频平台 - Java 服务端 _2018.05 ~ 2019.02_
+- 微博 Mobile API - PHP 服务端 _2014.12 ~ 2018.04_
 - 华南理工大学 - C++ 软件工程 本科 _2011.09 ~ 2015.07_
 
 工具控
@@ -46,47 +44,43 @@
 
 编程语言
 
-- 胜任 **Java , PHP , C++**<br/>
-- 了解 C , Python , JavaScript , ASM<br/>
+- 胜任 **Java , PHP** , C++
+- 了解 C , Python , JavaScript , ASM
 
-操作系统
+存储缓存
 
-- 熟悉 **macOS**<br/>
-- 胜任 **CentOS 7 , Ubuntu** , Windows<br/>
-
-Database
-
-- 胜任 **MySQL , Redis**<!-- , Memcached--><br/>
-- 了解 MS SQL Server 2008 , Oracle DB<br/>
+- 胜任 **MySQL , Redis**
+- 了解 Memcached
 
 Web
 
-- 胜任 **Docker** , HTML , CSS<br/>
+- 胜任 Docker , HTML , CSS
 
-工具
+操作系统
 
-- 熟悉 **GitLab CI , Git , Vim** , Zsh<br/>
-- 胜任 Qt 4/5
+- 熟悉 macOS
+- 胜任 CentOS 7 , Ubuntu
 
-脚本
+开发工具
 
-- 胜任 **Bash** , AppleScript , Batch file<br/>
+- 熟悉 Git , Vim , Zsh , IntelliJ IDEA , PhpStorm
+- 胜任 GitLab CI , Qt 4/5
 
-IDE
+语言能力
 
-- 熟悉 **IntelliJ IDEA , PhpStorm**<br/>
-- 胜任 Visual Studio , Eclipse<br/>
-
-语言
-
-- **英语**：大学六级，技术内容的基本阅读 & 写作<br/>
-- **普通话、粤语**<br/>
+- **英语**：大学六级，技术内容的基本阅读 & 写作
+- **普通话、粤语**
 
 ---
 
 ## 经历
 
-**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.05 ~ 2019.01_
+**阿里巴巴本地生活 - 众包物流 - 运营 & 数据 - Java 服务端研发** _2019.03 ~ Now_
+
+- 骑手 CRM / 群组 / 培训 / 秒送 & 优选 / …
+- _Java 8 , Spring Boot , MySQL , Redis, MaxCompute (ODPS)_
+
+**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.05 ~ 2019.02_
 
 - 媒体库 / 探测报警 / 视频墙 / 文档库 / partial request
 - _Java 8 , Spring Boot , MySQL , Redis , Memcached , Docker , CentOS 7_
