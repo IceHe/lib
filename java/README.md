@@ -1,4 +1,6 @@
-# Java (WIP)
+# Java ( draft )
+
+## Intro
 
 Install
 
@@ -30,15 +32,16 @@ Coding
 - [Snippets](/java/snippets.md)
 - [Notices](/java/notices.md)
 
----
-
-## TODO
-
 Command Line Tools
 
 - java : TODO
 - jconsole : VM Performance Statistics
 - jmap : Stack & Heap
+- ……
+
+## Others
+
+### Some Refs
 
 IntelliJ IDEA Plugins
 
