@@ -146,10 +146,11 @@ _Others_
 - [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
     - stop (suspend) the execution of processes & continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
+    - common combo : `column → join`
 - [kill](/cmd/k/kill.md) : terminate or signal a process
-- [killall](/cmd/k/killall.md) : kill processes by name
+    - [killall](/cmd/k/killall.md) : kill processes by name
 - [last](/cmd/l/last.md) : show listing of last logged in users
-- [less](/cmd/l/less.md) : provides \`more\` emulation plus extensive enhancements
+- [less](/cmd/l/less.md) : provides \`more\` emulation plus extensive enhancements ( TODO )
     - more : file perusal filter for paging through text one screenful at a time
 - [ln](/cmd/l/ln.md) : make links between files
 - [locale](/cmd/l/locale.md) : get locale-specific information
