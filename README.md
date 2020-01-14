@@ -104,7 +104,7 @@ _Others_
 <!-- ( too long so moved to _cmd/README.md ) -->
 
 - [awk](/cmd/a/awk.md) : pattern scanning and processing language
-- [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell
+- [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell ( draft )
     - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
     - [shell variables](/cmd/bash/shell-variables.md) : variables are set by the shell
 - [brew](/cmd/b/brew.md) : the missing package manager for macOS
