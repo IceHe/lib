@@ -146,7 +146,6 @@ _Others_
 - [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
     - stop (suspend) the execution of processes & continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
-    - common combo : `column → join`
 - [kill](/cmd/k/kill.md) : terminate or signal a process
     - [killall](/cmd/k/killall.md) : kill processes by name
 - [last](/cmd/l/last.md) : show listing of last logged in users
@@ -160,7 +159,7 @@ _Others_
 - [mkdir](/cmd/m/mkdir.md) : make directories
 - [mount](/cmd/m/mount.md) : mount a filesystem
     - [umount](/cmd/m/mount.md#umount) : un-mount a filesystem
-- [mv](/cmd/m/mv.md) : move (rename) files
+- [mv](/cmd/m/mv.md) : move (rename) files ( TODO : and below )
 - [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
@@ -214,6 +213,22 @@ _Others_
 - [whoami](/cmd/w/whoami.md) : print effective userid
 - [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
 - [zsh](/cmd/z/zsh.md) : one of shells
+
+Scenes
+
+- __connect__ : curl, nc, ssh, telnet
+- __directory__ : cp, find, ln, ls, mv
+- __disk__ : df, du
+- __monitor status__ : dstat, htop, lsof, netstat, ps, stat
+- __network detect__ : dig, ifconfig, ip, netstat, nslookup, ping
+- __string display__ : cat, head, less, tac, tail
+- __string process__ :
+    - awk, column, comm, cut, grep,
+    - join, paste, sed, sort, tr,
+    - uniq, wc, ……
+- __transfer data__ : ftp, nc, rsync, scp
+- __write file__ : tee, `>`
+- ……
 
 > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
 > —— 鲁迅
