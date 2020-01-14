@@ -11,9 +11,8 @@
 
 - IceHe | Hzy - 广州人在北京
 - [GitHub](https://github.com/IceHe) - Tools & Configs
-- Tech Wiki：[icehe.xyz](https://icehe.xyz)
-- 技术博客：[icehe.me](https://icehe.me)
-- 生活微博：[@\_IceHe\_](http://weibo.com/icedes)
+- 技术博客: [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
+- 生活微博: [@\_IceHe\_](http://weibo.com/icedes)
 
 <!-- ![弱小，可怜，又无助](http://ww1.rs.fanjian.net/c/ba/65/41/e2ba2d4d1a65865e8e4107f9f9620dce.jpg) -->
 
@@ -24,7 +23,8 @@
 
 经历
 
-- 微博视频平台 - Java 服务端研发 _2018.05 ~ 2019.01_
+- 阿里巴巴本地生活 - 众包物流 - Java 服务端研发 _2019.03 ~ Now_
+- 微博视频平台 - Java 服务端研发 _2018.05 ~ 2019.02_
 - 微博 Mobile API - PHP 服务端研发 _2014.12 ~ 2018.04_
 - 华南理工大学 - C++ 软件工程 本科 _2011.09 ~ 2015.07_
 
@@ -43,14 +43,6 @@
 - 熟悉 Familiar
 - 胜任 Competent
 - 了解 Know
-
-<!-- :trophy: 精通 Proficient<br/> -->
-<!-- :star: 熟悉 Familiar<br/> -->
-<!-- :zap: 胜任 Competent<br/> -->
-<!-- :sparkles: 了解 Know<br/> -->
-
-<!-- :crown: :star2: :zap: :pill: -->
-<!-- :trollface: ???? Little<br/> -->
 
 编程语言
 
