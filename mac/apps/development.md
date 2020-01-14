@@ -82,12 +82,16 @@ http://www.getpostman.com <sup>Powerful</sup>
 
 https://www.wireshark.org <sup>Powerful</sup>
 
+( 不常用 )
+
 - 网络封包分析工具。比 Charles 强大得多，但是也复杂得多。主要用于「网络层」的分析。
 - （并非运维人员，日常工作很少用得着。有益于深入理解学习计算机网络的知识。）
 
 ### LaunchRocket
 
-https://github.com/jimbojsb/launchrocket ( 不用本机开发 )
+https://github.com/jimbojsb/launchrocket
+
+( 无需本机部署开发环境, 就用不着了 )
 
 - 安装在 macOS 系统设置面板的 App，通过 `launchd` 管理各式 services。
 - 比使用命令行，更便于启动、终止 services 以及进行 root 授权。
