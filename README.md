@@ -117,7 +117,7 @@ _Others_
 - [column](/cmd/c/column.md) : columnate lists
 - [comm](/cmd/c/comm.md) : compare two sorted files line by line
 - [cp](/cmd/c/cp.md) : copy files & directories
-- [cron](/cmd/c/cron.md) : time-based job scheduler
+- [crontab](/cmd/c/crontab.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
 - [date](/cmd/d/date.md) : print or set the system date & time
