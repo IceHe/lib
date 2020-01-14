@@ -120,16 +120,17 @@ _Others_
 - [crontab](/cmd/c/crontab.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
-    - Recommended  : `column | cut`
+    - common combo : `column | cut`
 - [date](/cmd/d/date.md) : print or set the system date & time
-- [df](/cmd/d/df.md) : report file system disk space usage
-- _[diff](/cmd/d/diff.md) : compare files line by line_
+- [df](/cmd/d/df.md) : report file system disk space usage ( display free space )
+- [diff](/cmd/d/diff.md) : compare files line by line
+    - better choice : `comm`
 - [dig](/cmd/d/dig.md) : DNS lookup utility
 - [dstat](/cmd/d/dstat.md) : versatile tool for generating system resource statistics
     - [iftop](/cmd/i/iftop.md) : display bandwidth usage on an interface by host
     - [iostat](/cmd/i/iostat.md) : statistics of CPU & IO for devices & partitions
     - [vmstat](/cmd/v/vmstat.md) : report virtual memory statistics
-- [du](/cmd/d/du.md) : estimate file space usage
+- [du](/cmd/d/du.md) : estimate file space usage ( disk usage )
 - [env](/cmd/e/env.md) : run a program in a modified environment
 - [expect](/cmd/e/expect.md) : interact with programs
 - [expr](/cmd/e/expr.md) : evaluate expressions

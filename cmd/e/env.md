@@ -26,14 +26,17 @@ env [OPTION]... [-] [NAME=VALUE]... [COMMAND [ARG]...]
 ```bash
 $ export test=TEST
 
+# display all
 $ env
 test=TEST
 ……
 
+# remove $test
 $ env -u test
-# no $test
+# without $test
 ……
 
+# display all again
 $ env
 # no $test
 ……
