@@ -52,7 +52,7 @@
 - [iOS](/marks/tools/ios.md)
 - [Chrome 插件](/mac/apps/chrome-plugins.md)
 
-Windows
+Windows ( 可能已过时 )
 
 - [TortoisGit](https://tortoisegit.org/) - 便捷好用的 Git GUI 工具。
 - [Fiddler](http://www.telerik.com/fiddler) - [抓包工具](http://m.open-open.com/m/lib/view/1375954572906.html)。
