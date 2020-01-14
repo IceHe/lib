@@ -39,50 +39,56 @@
 
 技能级别
 
-:trophy: 精通 Proficient<br/>
-:star: 熟悉 Familiar<br/>
-:zap: 胜任 Competent<br/>
-:sparkles: 了解 Know<br/>
+- 精通 Proficient
+- 熟悉 Familiar
+- 胜任 Competent
+- 了解 Know
+
+<!-- :trophy: 精通 Proficient<br/> -->
+<!-- :star: 熟悉 Familiar<br/> -->
+<!-- :zap: 胜任 Competent<br/> -->
+<!-- :sparkles: 了解 Know<br/> -->
+
 <!-- :crown: :star2: :zap: :pill: -->
 <!-- :trollface: ???? Little<br/> -->
 
 编程语言
 
-:zap: 胜任 **Java , PHP , C++**<br/>
-:sparkles: 了解 C , Python , JavaScript , ASM<br/>
+- 胜任 **Java , PHP , C++**<br/>
+- 了解 C , Python , JavaScript , ASM<br/>
 
 操作系统
 
-:star: 熟悉 **macOS**<br/>
-:zap: 胜任 **CentOS 7 , Ubuntu** , Windows<br/>
+- 熟悉 **macOS**<br/>
+- 胜任 **CentOS 7 , Ubuntu** , Windows<br/>
 
 Database
 
-:zap: 胜任 **MySQL , Redis**<!-- , Memcached--><br/>
-:sparkles: 了解 MS SQL Server 2008 , Oracle DB<br/>
+- 胜任 **MySQL , Redis**<!-- , Memcached--><br/>
+- 了解 MS SQL Server 2008 , Oracle DB<br/>
 
 Web
 
-:zap: 胜任 **Docker** , HTML , CSS<br/>
+- 胜任 **Docker** , HTML , CSS<br/>
 
 工具
 
-:star: 熟悉 **GitLab CI , Git , Vim** , Zsh<br/>
-:zap: 胜任 Qt 4/5
+- 熟悉 **GitLab CI , Git , Vim** , Zsh<br/>
+- 胜任 Qt 4/5
 
 脚本
 
-:zap: 胜任 **Bash** , AppleScript , Batch file<br/>
+- 胜任 **Bash** , AppleScript , Batch file<br/>
 
 IDE
 
-:star: 熟悉 **IntelliJ IDEA , PhpStorm**<br/>
-:zap: 胜任 Visual Studio , Eclipse<br/>
+- 熟悉 **IntelliJ IDEA , PhpStorm**<br/>
+- 胜任 Visual Studio , Eclipse<br/>
 
 语言
 
-:zap: **英语**：大学六级，技术内容的基本阅读 & 写作<br/>
-:trophy: **普通话、粤语**<br/>
+- **英语**：大学六级，技术内容的基本阅读 & 写作<br/>
+- **普通话、粤语**<br/>
 
 ---
 

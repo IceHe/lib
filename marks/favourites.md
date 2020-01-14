@@ -83,6 +83,8 @@ __所爱之物记录于此。__ 所爱不少，所以只记录最偏爱的那一
 
 ## 动画
 
+- [__进击的巨人__](http://movie.douban.com/subject_search?search_text=%E7%A0%B4%E5%88%83%E4%B9%8B%E5%89%91&cat=1002) <sup>__Best of the Best__</sup>
+    史诗。
 - [__食梦者__](https://movie.douban.com/subject/4195628/) <sup>__Best of the Best__</sup>
     十年！<sup>（包括 [第二季](https://movie.douban.com/subject/5407066/)、[第三季](https://movie.douban.com/subject/7161694/)）</sup>
 - [__排球少年__](https://movie.douban.com/subject/25732103/) <sup>__Best of the Best__</sup>
@@ -103,8 +105,6 @@ __所爱之物记录于此。__ 所爱不少，所以只记录最偏爱的那一
     反英雄主义。
 - [__剑风传奇__](http://movie.douban.com/subject_search?search_text=%E5%89%91%E9%A3%8E%E4%BC%A0%E5%A5%87&cat=1002) <sup>__Best__</sup>
     快意。
-- [__进击的巨人__](http://movie.douban.com/subject_search?search_text=%E7%A0%B4%E5%88%83%E4%B9%8B%E5%89%91&cat=1002)
-    热血。
 - [__火星异种__](https://movie.douban.com/subject/25825458/)
     热血。<sup>（只推荐第一季，及其漫画）</sup>
 - [__破刃之剑__](http://movie.douban.com/subject_search?search_text=%E7%A0%B4%E5%88%83%E4%B9%8B%E5%89%91&cat=1002)
