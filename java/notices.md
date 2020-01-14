@@ -14,7 +14,7 @@ References
 - 不该去 catch Throwable !
 - 也不该去 catch Error 吧 ?
 
-## generate serial version uid in IDEA ( TODO )
+## generate serial version uid in IDEA ( draft )
 
 References
 
@@ -24,7 +24,7 @@ References
 - java - What is a serialVersionUID and why should I use it? - Stack Overflow : https://stackoverflow.com/questions/285793/what-is-a-serialversionuid-and-why-should-i-use-it
 - java - How to generate serial version UID in Intellij - Stack Overflow : https://stackoverflow.com/questions/24573643/how-to-generate-serial-version-uid-in-intellij/24573768
 
-## GsonFormat ( TODO )
+## GsonFormat ( draft )
 
 - GitHub - zzz40500/GsonFormat: 根据Gson库使用的要求,将JSONObject格式的String  解析成实体 : https://github.com/zzz40500/GsonFormat
 
