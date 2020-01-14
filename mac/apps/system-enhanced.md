@@ -192,7 +192,7 @@ https://pinyin.sogou.com/mac
 
 ## EasyRes
 
-c
+http://easyresapp.com
 
 - 场景 : Mac 用 数据线 连接显示器
     - 可以用 EasyRes 来查看 数据线 & 显示器 支持的哪些 分辨率 (4K) & 刷新频率 (60Hz) 的组合!

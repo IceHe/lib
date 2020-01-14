@@ -23,11 +23,15 @@ https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdem
 - 批量下载工具。多线下载，速度更快，功能更强，非 P2P 下载用它代替迅雷和浏览器自带的下载器。
 - （一般情况下用浏览器默认的下载器就够了）
 
+<!--
+
 ## Evernote Web Clipper
 
 https://evernote.com/intl/zh-cn/webclipper <sup>Offline Archived</sup>
 
 - 一键收藏各类网页图文，保存到 Evernote。
+
+-->
 
 ## JSON Formmater
 

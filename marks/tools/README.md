@@ -50,7 +50,7 @@
 - [系统增强](/mac/apps/system-enhanced.md)
 - [其它候选](/mac/apps/candidates.md)
 - [iOS](/marks/tools/ios.md)
-- [Chrome 插件](/mac/apps/chrome.md)
+- [Chrome 插件](/mac/apps/chrome-plugins.md)
 
 Windows
 

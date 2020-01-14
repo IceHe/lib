@@ -22,11 +22,21 @@ http://www.xunfei.cn/ <sup>Favorite</sup>
 
 > 事务、时间、习惯
 
-### 2Do
+### TickTick 滴答清单
 
-https://itunes.apple.com/us/app/2do-reminders-personal-planner/id303656546?mt=8 <sup>Powerful</sup>
+- GTD 事务管理 & Calendar 视图 & 习惯养成
 
-- GTD 事务管理。( [Ref Above](#Common) )
+### Alarm
+
+- 起床闹钟 & 重要事务提醒
+
+### Due
+
+- 日常事务提醒
+
+### Forest
+
+- 减少使用手机的时间, 让人专注
 
 ### BlockyTime
 
@@ -35,11 +45,7 @@ http://www.anniapp.com/blockytime/index.html <sup>Simple</sup>
 - 时间的记录统计工具，规划、督促、自省。
 - A quicker time logger, let you never spend much time on tracking time.
 
-### HabitBull
-
-http://www.habitbull.com
-
-- 习惯养成，记录、统计、分析养成的情况。该领域有很多 App，好用的不多… 这个也不算最好的选择，需要自行挑选。
+<!--
 
 ## 记录
 
@@ -57,11 +63,15 @@ https://mindnode.com <sup>Powerful</sup>
 
 - 专门用于做 Checklist
 
+-->
+
 ## 财务
 
-### 网易有钱
+### ~~网易有钱~~
 
 https://qian.163.com <sup>Simple</sup>
+
+( 不常用 )
 
 - 简单方便的记账软件。可以自动同步银行储蓄卡、信用卡和支付宝账户的交易和余额数据，然后再给每笔收支调整分类和补充备注就行了，实在是方便。
 - 后来，我发现自己只需要知道自己各个账户的余额，以及总体的收支情况，所以就弃用「随手记」换用它。如果注重隐私信息的安全，请注意退避该 App。
@@ -75,12 +85,7 @@ https://qian.163.com <sup>Simple</sup>
 
 ### QQMail
 
-- 个人邮箱。
-
-### Outlook
-
-- 工作邮箱，主要用于设置邮箱服务器的邮件规则
-- 分类不同邮件，某些邮件标为已读
+- 作为个人邮箱, 服务挺不错的
 
 ### 微信
 
@@ -103,6 +108,14 @@ https://office.qq.com <sup>Simple</sup>
 https://www.igetget.com
 
 - 「罗辑思维」团队推出的主打 **知识服务** 的 App，在行走、饮食等琐碎时间里收听音频内容。
+
+### 极客时间
+
+- 编程方面的付费知识服务
+
+### 看理想
+
+- 文艺方面的付费播客服务
 
 ### Kindle
 
