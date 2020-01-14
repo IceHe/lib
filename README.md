@@ -185,7 +185,7 @@ _Others_
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [sort](/cmd/s/sort.md) : sort lines of text files
-- [ssh](/cmd/s/ssh.md) : OpenSSH Client (remote login program) (TODO)
+- [ssh](/cmd/s/ssh.md) : OpenSSH Client (remote login program) ( TODO )
 - [stat](/cmd/s/stat.md) : display file or file system status
 - [su](/cmd/s/su.md) : run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
@@ -195,7 +195,7 @@ _Others_
 - [tail](/cmd/t/tail.md) : output the last part of files
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
-- [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol (TODO)
+- [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol ( TODO )
 - [timeout](/cmd/t/timeout.md) : run a command with a time limit
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
 - [touch](/cmd/t/touch.md) : change file access & modification times
@@ -219,7 +219,7 @@ Scenes
 - __connect__ : curl, nc, ssh, telnet
 - __directory__ : cp, find, ln, ls, mv
 - __disk__ : df, du
-- __monitor status__ : dstat, htop, lsof, netstat, ps, stat
+- __monitor status__ : dstat, htop, lsof, netstat, pidstat, ps, stat, top
 - __network detect__ : dig, ifconfig, ip, netstat, nslookup, ping
 - __string display__ : cat, head, less, tac, tail
 - __string process__ :
