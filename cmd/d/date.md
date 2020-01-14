@@ -23,6 +23,10 @@ date -d 2018-04-12\ 12:34:56    # specified date
 - PHP: date - Manual : https://www.php.net/manual/en/function.date.php
 - DateTimeFormatter (Java Platform SE 8 ) : https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
 
+Notice
+
+- Differ `yyyy` and `YYYY` format : https://stackoverflow.com/questions/15133549/difference-between-yyyy-and-yyyy-in-nsdateformatter
+
 ## Options
 
 - `-d, --date=<STRING>` Display time described by STRING, not 'now'.
