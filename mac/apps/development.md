@@ -120,6 +120,12 @@ https://get.adobe.com/cn/reader
 - 一般情况下，不使用额外的 **PDF 阅读软件**，Mac 系统自带的 Preview 就够用了。
 - 但在特殊情况下，需要用到 PDF 的一些高级特性，还是 Adobe 家的软件亲自处理更妥当，例如签证申请文件、合同、加密文件等。
 
+### Microsoft Office 套件
+
+略
+
+<!--
+
 ### ~~Parallel Desktop~~
 
 http://www.parallels.com/landingpage/pd/general/?src=r&pd11 <sup>Best</sup>
@@ -127,3 +133,5 @@ http://www.parallels.com/landingpage/pd/general/?src=r&pd11 <sup>Best</sup>
 - 虚拟机软件。
 - 最适合用于安装 Windows。它将 Windows、Ubuntu 跟 macOS（几乎）无缝对接，使用流畅自然。（我现在完全脱离了 Windows 平台独占的软件，包括游戏，所以几乎用不着它。还有它的软件升级定价策略很不地道，跟重新买差别不大…）
 - 其它选择：[~~Virtual Box~~](https://www.virtualbox.org/)（适合装 Linux），[~~VMWare Fusion~~](http://www.vmware.com/products/fusion.html)（没用过）
+
+-->
