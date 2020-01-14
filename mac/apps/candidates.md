@@ -69,6 +69,14 @@ https://itunes.apple.com/us/app/ihosts/id1102004240?mt=12
 - 灵活管理 macOS 的 hosts 的方案。
 - 可惜通常情况下，hosts 并不需要复杂的管理；对于程序员来说，不如直接在 `.zshrc` 加上 `alias vh='vim hosts'` 一句剪短的配置，然后在命令行中输入 `vh` 指令打开 hosts 文件来进行修改，反而更直接省事。
 
+## ~~Manico~~
+
+通过预设的快捷键, 快速启动或切换到指定 App. ( 已被 Keyboard Maestro 替代 )
+
+## ~~Moom~~
+
+快速调整 App 的窗口布局. ( 已被 Keyboard Maestro 替代 )
+
 ## ~~Nozio~~
 
 http://noiz.io & etc
@@ -76,6 +84,10 @@ http://noiz.io & etc
 - 白噪音应用。模拟大自然的声音，屏蔽其它噪音干扰，帮助保持专注，提高效率，放松睡眠。
 - 音乐听久了也累，有时戴个 [3M 降噪海绵耳塞](http://item.jd.com/10277731026.html)（便宜），纯粹安静地工作就很专注、舒服，其实毋需白噪音。
 - 可以的话，买 Bose 的 [QC 系列消噪耳机](https://www.bose.cn/zh_cn/products/headphones/noise_cancelling_headphones.html)，效果更佳。我买的是 [QC 20](https://www.bose.cn/zh_cn/products/headphones/earphones/quietcomfort-20i-acoustic-noise-cancelling-headphones.html#v=qc20_apple_black)。
+
+## ~~Spectacle~~
+
+快速调整 App 的窗口布局. ( 已被 Keyboard Maestro 替代 )
 
 ## ~~Squirrel~~
 
@@ -87,3 +99,7 @@ http://rime.im  <sup>Geek but 不推荐</sup>
 - iFanr 爱范儿的推荐 《 [鼠须管，“神级”输入法](http://www.ifanr.com/156409) 》
 - 配置教程 《 [Rime 输入法 — 鼠须管（Squirrel）词库添加及配置](http://www.jianshu.com/p/cffc0ea094a7) 》
 - 我自定义的 [Rime 配置](https://github.com/IceHe/Rime)、 [Dictionaries 词库](https://github.com/IceHe/dictionaries)
+
+## ~~TextExpander~~
+
+文字快速录入或按需改写, 缩写拓展. ( 已被 Keyboard Maestro 替代 )
