@@ -5,10 +5,15 @@
 ## Quickstart
 
 ```bash
-cd dir  # Change directory
-cd ~    # To user's home
+# Change directory
+cd dir
+
+# To user's home
+cd ~
 cd $HOME
-cd -    # To last dir
+
+# To last dir
+cd -
 cd $OLDPWD
 ```
 
