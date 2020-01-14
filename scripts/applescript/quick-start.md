@@ -2,7 +2,7 @@
 
 > AppleScript Quick Start: 在有编程基础的情况下，通过快速浏览示例代码，即可熟悉语法，快速入门。
 
-# References
+## References
 
 - [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
 - __App's AppleScript Dictionary :__
@@ -11,7 +11,7 @@
     - [AppleScript_for_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)
     - [AppleScript_for_me](https://github.com/IceHe/AppleScript_for_me)
 
-# Fundamentals
+## Fundamentals
 
 Export `*.scpt` as a runable Application（导出为可运行程序）
 
@@ -28,7 +28,7 @@ Export `*.scpt` as a runable Application（导出为可运行程序）
     *)
 ```
 
-## Types
+### Types
 
 Types and their related operations.
 
@@ -76,7 +76,7 @@ Types and their related operations.
 
 ```
 
-## Basic Operations
+### Basic Operations
 
 ```applescript
 -- Assign Variable
@@ -128,7 +128,7 @@ Types and their related operations.
     class of variable
 ```
 
-### Date
+#### Date
 
 Src Code
 
@@ -187,7 +187,7 @@ Result
 (*Countdown: 2years 14months 272days 11:14:0*)
 ```
 
-## Conditional
+### Conditional
 
 ```applescript
 -- contains, is contained by
@@ -225,7 +225,7 @@ Result
     {"foo", "bar"} ends with "bar"  # true
 ```
 
-## Control Statements
+### Control Statements
 
 ```applescript
 -- Conditional 逻辑语句
@@ -364,7 +364,7 @@ Result
 
 ```
 
-## Components
+### Components
 
 ```applescript
 -- log 历史记录
@@ -442,7 +442,7 @@ log test
     log text returned of result
 ```
 
-## Advanced
+### Advanced
 
 - It is not the whole AppleScript above.
 - If you want know more in detail, please read [official documentations](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html).
