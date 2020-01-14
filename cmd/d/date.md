@@ -6,8 +6,8 @@
 
 ```bash
 # Display date now
-# YYYY-MM-dd HH:mm:ss E ( Java format )
-# YYYY-mm-dd HH:ii:ss D ( PHP format )
+# yyyy-MM-dd HH:mm:ss E ( Java format )
+# yyyy-mm-dd HH:ii:ss D ( PHP format )
 date +"%Y-%m-%d %H:%M:%S %a"
 date +%Y-%m-%d\ %H:%M:%S\ %a
 date +%F\ %T\ %a

@@ -120,6 +120,7 @@ _Others_
 - [crontab](/cmd/c/crontab.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
+    - Recommended  : `column | cut`
 - [date](/cmd/d/date.md) : print or set the system date & time
 - [df](/cmd/d/df.md) : report file system disk space usage
 - _[diff](/cmd/d/diff.md) : compare files line by line_
