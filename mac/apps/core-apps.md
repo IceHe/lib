@@ -52,4 +52,6 @@ https://pqrs.org/osx/karabiner/index.html <sup>Geek , Best , Favorite</sup>
 
 https://www.mediaatelier.com/CheatSheet <sup>Tips, for freshman</sup>
 
+( 新手专用, 熟练之后就用不着了 )
+
 - 快捷键快速提醒。长按 Command 键，显示当前程序的快捷键列表，方便快速入门 Mac 各处的快捷键。（新手专用）
