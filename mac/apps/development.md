@@ -82,10 +82,8 @@ http://www.getpostman.com <sup>Powerful</sup>
 
 https://www.wireshark.org <sup>Powerful</sup>
 
-( 不常用 )
-
 - 网络封包分析工具。比 Charles 强大得多，但是也复杂得多。主要用于「网络层」的分析。
-- （并非运维人员，日常工作很少用得着。有益于深入理解学习计算机网络的知识。）
+- ( 并非运维人员，日常工作很少用得着。有益于深入理解学习计算机网络的知识。)
 
 ### LaunchRocket
 
