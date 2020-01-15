@@ -5,7 +5,7 @@ References
 - Book "Linux Kernel Development, Third Edition"
     - ZH Ver. :《 Linux 内核设计与实现（原书第3版）》
 
-## Intro
+## Introdution
 
 Linux 特点
 
@@ -28,6 +28,8 @@ Linux 特点
 - 中断响应 ( interrupt )
 - 进程调度 : 管理多个进程, 分享 CPU 时间 ( process scheduling )
 - 内存管理 : 管理进程地址空间 ( memory management )
+    - 地址空间 ( [address space](https://en.wikipedia.org/wiki/Address_space) )
+    - or 虚拟内存 ( virtual memory ) ?
 - 网络 : TCP/IP … ( network )
 - 进程间通讯 : IPC ( Inter-Process Communication )
 
@@ -106,22 +108,22 @@ Linux 跟 Unix 的 显著差异
 - 虚拟处理器
 - 虚拟内存 ( virtual memory )
 
-进程声明周期?
+进程的 "生命周期"
 
-- fork() : 父进程 调用 fork() 创建 子进程
+- 1\. fork() : 父进程 调用 fork() **创建 子进程**
     - fork() 一共 return 两次
         - 一次 return 到 父进程
         - 另一次 return 到 子进程
     - fork() 实际上由 clone() 系统调用实现的
-- exec() : 创建新的 地址空间, 并把新的程序载入其中
-- exit() : 系统调用退出执行, 释放资源
-- wait4() : 父进程 调用 wait4() 系统调用 查询子进程 是否终结
+- 2\. exec() : 创建新的 地址空间, 然后 **把新的程序载入** 其中
+- 3\. exit() : 系统调用退出执行, 释放资源
+- 4*\. wait4() : 父进程 调用 wait4() 系统调用 查询子进程 是否终结
     - 由内核负责实现 wait4() 系统调用
     - C Lib 通常提供 wait(), waitpid(), wait3(), wait4() 函数
-- **进程退出执行后, 被设置为 "僵死状态"**
-    - **直到它的父进程调用 wait() 或 waitpid() 为止**
+    - **进程退出执行后, 被设置为 "僵死状态"**
+        - **直到它的父进程调用 wait() 或 waitpid() 为止**
 
-内存分配
+_内存分配_
 
 - [Slab allocation](https://en.wikipedia.org/wiki/Slab_allocation)
 
@@ -133,3 +135,41 @@ struct thread_info {
     ……
 }
 ```
+
+进程状态 ( process state )
+
+- TASK_RUNNING 运行
+    - 正在运行 / 在 task list 中待执行
+    - _进程在用户空间中执行的唯一可能状态_ ( 不是很理解 ? )
+- TASK_INTERRUPTIBLE 可中断
+    - 正在睡眠, 被阻塞
+- TASK_UNINTERRUPTIBLE 不可中断
+- __TASK_TRACED 被跟踪
+    - 被其它进程跟踪的进程 例如 ptrace
+- __TASK_STOPPED 停止
+    - 被停止执行 : 没有运行, 也不能投入运行
+
+进程家族树
+
+- 所有进程是 pid 为 1 的 init 进程的后代
+- 1\. 内核在系统启动的最后阶段启动 init 进程
+- 2\. init 进程读取系统的初始化脚本 initscript, 并执行其它的相关程序, 最终完成启动
+
+写时拷贝 ( copy-on-write )
+
+- 1\. fork() 时, 父进程 & 子进程 共享同一个进程地址空间
+- 2\. 只有需要写入时, 数据才会被复制, 然后各个进程才开始拥有各自的拷贝
+- 好处 : 减少系统资源的消耗, 节省复制资源所需的时间, 进程得以快速启动
+
+线程 ( thread )
+
+- 是一个现代编程的抽象概念 : 同一程序内共享内存地址空间运行的一组线程
+    - _支持 并发 ( concurrent ) / 并行 ( parallelism ) 设计技术_
+- Linux 把所有的线程 ( thread ) 当做进程 ( process ) 来实现
+    - _跟 Microsoft Windows 或 Sun Solaris 等操作系统的实现差异非常大_
+
+创建线程
+
+- clone(CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND, 0)
+    - 需要用 "参数标志" ( flags ) 指明需要共享哪些资源?
+    - 地址空间 / 文件系统资源 / 文件描述符 / 信号处理程序

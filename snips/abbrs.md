@@ -477,6 +477,7 @@ Reference : https://www.computerhope.com/keys.htm
 - NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"
 - NPE : Null Pointer Exception ( Linux | java.lang.NullPointerException )
 - NRT : Near Realtime
+- ns : [namespace](https://en.wikipedia.org/wiki/Namespace)
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
