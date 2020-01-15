@@ -381,7 +381,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ins : insert
 - int : [integer](https://en.wikipedia.org/wiki/Integer_(computer_science))     | [interrupt](https://en.wikipedia.org/wiki/Interrupt)
 - io : input/output
-- IPC : [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)
+- ipc : [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)
 - ix : index ( for MySQL )
 
 ### J
@@ -726,6 +726,7 @@ Reference : https://www.computerhope.com/keys.htm
     - [vide post](https://www.collinsdictionary.com/dictionary/english/vide-post) : see after; see further on (in the book, etc.) 见后
     - [vide supra](https://www.collinsdictionary.com/dictionary/english/vide-supra) : see above; see earlier (in the book, etc.) 见上
 - VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address) 虚拟服务器地址
+- virt : virtual
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
 - vol : volume
 - VP : [Vice President](https://en.wikipedia.org/wiki/Vice_president) 副总裁

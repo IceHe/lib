@@ -5,7 +5,7 @@ References
 - Book "Linux Kernel Development, Third Edition"
     - ZH Ver. :《 Linux 内核设计与实现（原书第3版）》
 
-## Notes
+## Intro
 
 Linux 特点
 
@@ -62,3 +62,54 @@ Linux 跟 Unix 的 显著差异
 - 第 3 位 : 修订版本号 ( revision version )
 - 第 4 位 : 稳定版本号 ( stable version )
 - 前两位加起来, 例如 "2.6" 代表一个内核系列 ( kernel series )
+
+内核开发的特点
+
+- 不能访问 **C 库** ( [ANSI C Lib](https://en.wikipedia.org/wiki/C_standard_library) ? ), 以及标准的 C 头文件
+    - 原因 : 速度 & 大小 ( 太大 )
+- 必须使用 **GNU C** ( [GNU C Lib / glibc](https://en.wikipedia.org/wiki/GNU_C_Library) )
+    - 内核不完全符合 ANSI C 标准
+- 没有 用户空间那样的 **内存保护机制** ( [Memory protection](https://en.wikipedia.org/wiki/Memory_protection) )
+- 难以执行 **浮点运算**
+    - 由于硬件体系结构的问题, 内核不能完美支持浮点操作 ( 用户空间可以 ).
+- 每个进程只有一个很小的 **定长堆栈**
+- 由于内核支持 异步中断 / 抢占 / SMP, 因此必须时刻注意 同步 和 并发
+    - 进程并发访问共享数据 -> 要求有同步机制 保证不出现竞争条件
+    - 常用解决方案 : 自旋锁 ( spin lock ) & 信号量( semaphore )
+- _考虑可移植性的重要性_
+
+## Process Management
+
+相关名词
+
+- 进程 ( process ) : 处于执行期的 程序 (目标码 存放在存储介质上)
+    - 进程跟 任务 ( task ) 同义
+    - 可执行程序代码 ( Unix 称其为 text section )
+- 执行线程 ( thread of execution )
+- 进程描述符 ( process descriptor )
+- 任务列表 ( task list )
+    - **内核把进程的列表存放在 task list**
+    - list 中每一项的类型为 task_struct
+    - 双向循环链表结构 : 并非由静态数组实现, 所以不应叫做 task array
+
+现代操作系统的 2 种 "虚拟机制"
+
+- 虚拟处理器
+- 虚拟内存 ( virtual memory )
+
+进程声明周期?
+
+- fork() : 父进程 调用 fork() 创建 子进程
+    - fork() 一共 return 两次
+        - 一次 return 到 父进程
+        - 另一次 return 到 子进程
+    - fork() 实际上由 clone() 系统调用实现的
+- exec() : 创建新的 地址空间, 并把新的程序载入其中
+- exit() : 系统调用退出执行, 释放资源
+- wait4() : 父进程 调用 wait4() 系统调用 查询子进程 是否终结
+    - 由内核负责实现 wait4() 系统调用
+    - C Lib 通常提供 wait(), waitpid(), wait3(), wait4() 函数
+- **进程退出执行后, 被设置为 "僵死状态"**
+    - **直到它的父进程调用 wait() 或 waitpid() 为止**
+
+
