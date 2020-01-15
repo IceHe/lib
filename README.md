@@ -36,6 +36,10 @@ Markdown
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
+Operating System
+
+- [Linux Kernel](/snips/linux.md) ( reading | draft )
+
 Storage - Usage
 
 - [Elasticsearch](/snips/storage/elasticsearch.md)
