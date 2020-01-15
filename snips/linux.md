@@ -16,7 +16,7 @@ Linux 特点
 
 设计理念
 
-- 设计 ( design ) 和 机制 ( mechanism? ) 分离
+- 设计 ( design ) & 机制 ( mechanism? ) 分离
 
 内核设计
 
@@ -45,7 +45,7 @@ Linux 跟 Unix 的 显著差异
     - 特点 : 多个 CPU 共享一台计算机的内存 (及其它资源)
     - 目标 : 利用多 CPU (多核) 并行处理, 提升单机性能
 - 支持抢占 ( preemptive / [pre-emption](https://en.wikipedia.org/wiki/Preemption_(computing)) )
-- 不区分 线程 和 进程 : 所有 进程 & 线程 都一样, **只不过其中的一些 进程 / 线程 共享资源而已**
+- 不区分 线程 & 进程 : 所有 进程 & 线程 都一样, **只不过其中的一些 进程 / 线程 共享资源而已**
 - _提供具有设备类的面向对象的 设备模型 / 热插拔事件, 以及用户空间的 设备文件系统 ( [sysfs](https://en.wikipedia.org/wiki/Sysfs) )_
     - TODO : 暂时还没能跟以往知识联系起来
     - sysfs : "a pseudo file system" provided by the Linux kernel that exports information about various kernel subsystems, hardware devices, and associated device drivers from the kernel's device model to "user space" through "virtual files". In addition to providing information about various devices and kernel subsystems, exported virtual files are also used for their configuration.
@@ -73,7 +73,7 @@ Linux 跟 Unix 的 显著差异
 - 难以执行 **浮点运算**
     - 由于硬件体系结构的问题, 内核不能完美支持浮点操作 ( 用户空间可以 ).
 - 每个进程只有一个很小的 **定长堆栈**
-- 由于内核支持 异步中断 / 抢占 / SMP, 因此必须时刻注意 同步 和 并发
+- 由于内核支持 异步中断 / 抢占 / SMP, 因此必须时刻注意 同步 & 并发
     - 进程并发访问共享数据 -> 要求有同步机制 保证不出现竞争条件
     - 常用解决方案 : 自旋锁 ( spin lock ) & 信号量( semaphore )
 - _考虑可移植性的重要性_
@@ -90,6 +90,15 @@ Linux 跟 Unix 的 显著差异
 - 任务列表 ( task list )
     - **内核把进程的列表存放在 task list**
     - list 中每一项的类型为 task_struct
+        - task_struct 在 32 位机器上, 大小约 1.7 KB, 较大但合理, 包括 :
+            - 进程 打开的文件
+            - 进程 地址空间
+            - _挂起的信号_ ( 不太懂 ? )
+            - 进程 状态 ( process status )
+            - ……
+        - task_struct 会被 预分配 & 重复使用
+            - 以避免 动态分配 & 释放 带来的资源消耗
+            - 优点 : 进程创建迅速
     - 双向循环链表结构 : 并非由静态数组实现, 所以不应叫做 task array
 
 现代操作系统的 2 种 "虚拟机制"
@@ -112,4 +121,15 @@ Linux 跟 Unix 的 显著差异
 - **进程退出执行后, 被设置为 "僵死状态"**
     - **直到它的父进程调用 wait() 或 waitpid() 为止**
 
+内存分配
 
+- [Slab allocation](https://en.wikipedia.org/wiki/Slab_allocation)
+
+分配进程描述符
+
+```c
+struct thread_info {
+    struct task_struct  *task;
+    ……
+}
+```
