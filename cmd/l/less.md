@@ -6,12 +6,15 @@
 
 ```bash
 less +F file    # Like `tail -f`
+# or
+less file       # `less` then press `⇧ + F` = `tail -f`
+
+less -N file    # with line number
+# or
+less file       # 1.`less` 2.press `-` 3.press `N`
 
 # e.g. use less to view text
 grep pattern file | less
-
-# TODO
-DOING ? 2019-08-04
 ```
 
 ## Descriptions

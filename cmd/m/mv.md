@@ -2,6 +2,17 @@
 
 > move (rename) files
 
+## Quickstart
+
+```bash
+mv original_name new_name           # rename file / dir
+
+mv src_file /path/to/dest_file      # file to file path
+mv src_file destination_dir/        # file to dir
+
+mv -t dest_dir/ src_file1 src_file2 # files to dir path
+```
+
 ## Synopsis
 
 ```bash
