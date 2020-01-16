@@ -173,3 +173,8 @@ struct thread_info {
 - clone(CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND, 0)
     - 需要用 "参数标志" ( flags ) 指明需要共享哪些资源?
     - 地址空间 / 文件系统资源 / 文件描述符 / 信号处理程序
+
+vfork() 跟 fork() 的区别
+
+- 除了不拷贝父进程的页表项外, 它跟 fork() 的功能基本相同.
+- 紫禁城作为父进程的一个单独的线程在它的地址空间里运行, 父进程被阻塞, 直到子进程退出或执行 exec()
