@@ -163,8 +163,8 @@ _Others_
 - [mkdir](/cmd/m/mkdir.md) : make directories
 - [mount](/cmd/m/mount.md) : mount a filesystem
     - [umount](/cmd/m/mount.md#umount) : un-mount a filesystem
-- [mv](/cmd/m/mv.md) : move (rename) files ( TODO : and below )
-- [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project
+- [mv](/cmd/m/mv.md) : move (rename) files
+- [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project ( TODO : and below )
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
 - [nl](/cmd/n/nl.md) : number lines of files
