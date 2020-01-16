@@ -678,6 +678,8 @@ Reference : https://www.computerhope.com/keys.htm
 - temp : temporary
 - templ : template
 - term : terminate 中止 | [terminal](https://en.wikipedia.org/wiki/Terminal_emulator) 终端
+- tgid : thread group id
+- tid : thread id
 - TL;DR : [too long; didn't read.](https://en.wikipedia.org/wiki/TL;DR)
 - TLB : Translation Lookaside Buffer 转译缓冲区（实现虚拟地址到物理地址的转换）( for OS )
 - TLS : [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security)
