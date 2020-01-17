@@ -14,6 +14,22 @@ On BSD
 
 - [Linux Netcat 命令——网络工具中的瑞士军刀](https://www.oschina.net/translate/linux-netcat-command)
 
+## Quickstart
+
+```bash
+# transfer file
+## send
+nc -l 8888 < tmp_someday.log
+## receive
+nc -n 10.1.2.3 8888 > tmp_someday.log
+
+# transfer files
+## send
+tar czvf - logs | nc -l 8888
+## receive
+nc -n 10.1.2.3 | tar xzvf -
+```
+
 ## Options
 
 - `-4` Use **IPV4 only** : Forces nc to use IPv4 addresses only.
