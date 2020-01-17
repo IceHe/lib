@@ -165,8 +165,8 @@ _Others_
     - [umount](/cmd/m/mount.md#umount) : un-mount a filesystem
 - [mv](/cmd/m/mv.md) : move (rename) files
 - [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project
-- [nc](/cmd/n/nc.md) : TCP / UDP connect & listen ( TODO : and below )
-- [netstat](/cmd/n/network-status.md) : show network status
+- [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
+- [netstat](/cmd/n/network-status.md) : show network status ( TODO : and below )
 - [nl](/cmd/n/nl.md) : number lines of files
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [passwd](/cmd/p/passwd.md) : modify a user's password

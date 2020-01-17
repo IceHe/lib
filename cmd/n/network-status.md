@@ -15,6 +15,11 @@ Reference
 
 - [netstat 的 10 个基本用法](https://linux.cn/article-2434-1.html)
 
+## Quickstart
+
+```bash
+```
+
 ## Options
 
 - `-a, --all` **All** sockets
