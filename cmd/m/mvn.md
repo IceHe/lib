@@ -18,6 +18,17 @@ Synopsis
 usage: mvn [options] [<goal(s)>] [<phase(s)>]
 ```
 
+## Quickstart
+
+```bash
+mvn clean   # 清理
+mvn compile # 编译
+mvn test    # 单测
+mvn package # 打包
+mvn install # 安装 ( 到本地仓库 )
+mvn deploy  # 部署 ( 到远端仓库 )
+```
+
 ## Options
 
 <!--
