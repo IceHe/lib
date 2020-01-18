@@ -342,3 +342,5 @@ CFS 公平调度 实现
 - SCHED_NORMAL
 
 注意 : 负数的 NICE 值, 只能有 super user ( root? ) 才能设置 ( 用于提高进程的优先级 )
+
+## System Call
