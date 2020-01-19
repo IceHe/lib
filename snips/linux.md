@@ -415,3 +415,67 @@ In other words, Unix 的系统调用抽象出用于完成特定确定目的的�
 - 确定 明确的用途
 - Linux 不提倡从用多用途的 系统调用 :
     - 一个系统通过传递不同的参数值, 来选择完成不同的工作
+
+## Kernel Data Structure
+
+common
+
+- linked list
+- queue
+- map
+- binary tree
+
+linked list 设计
+
+- **Linux 内核标准链表实现 : 环形双向链表 ( circular doubly linked list )**
+
+linked list 实现
+
+- 实现思路 : 不是将数据结构塞入链表, 而是 **将链表节点塞入数据结构**
+
+节约两次提领 ( dereference )
+
+- 如果已经有链表的 next 和 prev 指针了 :
+    - 可以直接调用内部链表函数, 直接省下一点时间
+    - _其实就是提领指针的时间_
+- 封装好的函数, 没有太多特殊的操作 :
+    - 1\. 仅仅找到 next 和 prev 指针
+    - 2\. 再调用内部函数而已
+- 内部函数 跟 外部包装函数同名 : 仅仅在前面加了两条下划线
+
+queue
+
+- 基本操作 : enqueue, dequeue
+- 实现结构 : kfifo
+    - 维护 2 个偏移量 : 入口偏移 & 出口偏移
+    - _推测 : 用固定大小的数组实现的?_
+
+map 设计
+
+- 映射, 也常被称为 关联数组
+    - 在 Linux 被命名为 idr _( 啥单词组合的缩写? )_
+- 基本操作 :
+    - add(key, value)
+    - remove(key)
+    - value = lookup(key)
+
+map 实现
+
+- 散列表
+    - 优点 : 提供更好的平均的渐进复杂度
+- 二叉树 ( binary tree )
+    - 优点 : 最坏的情况下, 能有更好的表现
+        - 对数复杂度 < 线性复杂性
+        - 二叉搜索树, 满足顺序保证, 遍历性能好
+        - 不需要散列函数, 只需要定义 <= 操作算子即可
+
+UID : 唯一标识数
+
+- 映射 UID 到一个指针
+
+binary tree
+
+- BST : binary search tree 二叉搜索树
+- 自平衡二叉搜索树 : 例如, **rbtree 红黑树 ( 半平衡 )**
+
+## Interrupt Processing
