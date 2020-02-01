@@ -437,7 +437,7 @@ Previous Blog : 2015 ~ 2017
 
 - [Jan Fan](http://janfan.cn/) : Good student / Tencent / Study @ Sweden
 - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile
-- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / ????
+- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent / Tubi
 - Me : A fool / Web Backend / Sina Weibo / Ele.me
 
