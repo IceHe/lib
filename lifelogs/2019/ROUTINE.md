@@ -126,7 +126,7 @@
         - 最好 00:00 最晚 01:00
 - 截止于 : 2020.02.29
 
-进展详见 [CHANGELOG.md](CHANGELOG.md)
+<!-- 进展详见 [CHANGELOG.md](CHANGELOG.md) -->
 
 ## 时间表 (日) **
 
