@@ -27,6 +27,14 @@ mvn test    # 单测
 mvn package # 打包
 mvn install # 安装 ( 到本地仓库 )
 mvn deploy  # 部署 ( 到远端仓库 )
+
+# 手动下载 jar 包后, 安装到本地仓库
+mvn install:install-file \
+    -Dfile=test-artifact-1.0.0.jar \
+    -DgroupId=xyz.icehe \
+    -DartifactId=test-artifact \
+    -Dversion=1.0.0 \
+    -Dpackaging=jar
 ```
 
 ## Options
