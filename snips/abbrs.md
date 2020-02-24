@@ -398,7 +398,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 ### K
 
-- k : kilo- 千 | kill ( for CLI )
+- k : kilo- 千 | kill ( for CLI ) | kernel ( for Linux )
 - KA : [Key Account](https://wiki.mbalib.com/wiki/%E5%A4%A7%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86) 关键客户（大客户、重要客户）
     - 其它参考：[百度百科](https://baike.baidu.com/item/Key%20Account/7288923)
 - k8s : Kubernetes
@@ -481,6 +481,7 @@ Reference : https://www.computerhope.com/keys.htm
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
+- NR : number
 - nx : not exist ( for Redis )
 
 ### O
@@ -692,6 +693,7 @@ Reference : https://www.computerhope.com/keys.htm
 - tpl : template
 - trx : transaction ( for SQL )
 - ts : [timestamp](https://en.wikipedia.org/wiki/Timestamp)
+- tsk : task ( for Linux )
 - TTL : [Time to Live](https://en.wikipedia.org/wiki/Time_to_live)
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)
 
