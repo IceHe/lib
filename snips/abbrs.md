@@ -205,6 +205,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cal : call
 - CAP : [Consistency, Availability, Partition Tolerance](https://en.wikipedia.org/wiki/CAP_theorem)
 - CAS : Compare & Set/Swap ( for Lock )
+- cb : char block? ( for Linux )
 - chan : channel ( for Go )
 - chk : check
 - CIP : Client IP
@@ -231,6 +232,7 @@ Reference : https://www.computerhope.com/keys.htm
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
 - CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
 - CTR : [Click Through Rate](https://en.wikipedia.org/wiki/Click-through_rate) 点进率
+- ctl : control
 - ctrl : control
 - ctx : context
 - cur : current
