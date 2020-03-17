@@ -397,3 +397,24 @@ References
 References
 
 - InfoQ - 促进软件开发领域知识与创新的传播 : https://www.infoq.cn/article/what-is-coreos
+
+### Pouch
+
+References
+
+- 阿里巴巴正式开源自研容器技术Pouch : https://yq.aliyun.com/articles/283774?spm=5176.10695662.1996646101.searchclickresult.2f2f2b56Iti0pz
+
+它跟 Docker 的区别 ?
+
+- 众所周知，行业中的容器方案大多基于Linux内核提供的cgroup和namespace来实现隔离，然后这样的轻量级方案存在弊端：
+    - 容器间，容器与宿主间，共享同一个内核；
+    - 内核实现的隔离资源，维度不足。
+- 面对如此的内核现状，阿里巴巴采取了三个方面的工作，来解决容器的安全问题：
+    - 用户态增强容器的隔离维度，比如网络带宽、磁盘使用量等；
+    - 给内核提交patch，修复容器的资源可见性问题，cgroup方面的bug；
+    - 实现基于Hypervisor的容器，通过创建新内核来实现容器隔离。
+- P2P 镜像分发
+- 富容器
+    - _有必要么? 大概是迫于业务部署环境的现状做的_
+- 内核兼容性
+    - 让不支持容器基础技术的老内核, 也能跑在容器上
