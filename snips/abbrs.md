@@ -284,6 +284,14 @@ Reference : https://www.computerhope.com/keys.htm
 - ELK : [ELK Stack : Elasticsearch Logstash Kibana](https://www.elastic.co/cn/elk-stack)
 - 'em : [them](https://www.urbandictionary.com/define.php?term=%27em)
 - EMERG : emergency ( for Linux )
+    - Linux Kerner
+        - EMERG 紧急 \> ALERT 警告
+        - \> CRIT 临界情况 \> ERR 错误
+        - \> WARNING 警告 \> NOTICE 普通的通知/注意
+        - \> INFO 消息 \> DEBUG 调试
+    - Java log : error > warn > info > debug
+    - PHP log : fatal > error > warn > info > debug ?
+    - JetBrains : error > blocker > critial > major > warning > weak warning
 - EN : English
 - enc : encoding
 - env : environment
