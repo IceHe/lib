@@ -93,7 +93,7 @@ Linux 跟 Unix 的 显著差异
 相关名词
 
 - 进程 ( process ) : 处于执行期的 程序 (目标码 存放在存储介质上)
-    - 进程跟 任务 ( task ) 同义
+    - 进程 ( process ) 跟 任务 ( task ) 同义
     - 可执行程序代码 ( Unix 称其为 text section )
 - 执行线程 ( thread of execution )
 - 进程描述符 ( process descriptor )
@@ -106,7 +106,7 @@ Linux 跟 Unix 的 显著差异
             - _挂起的信号_ ( 不太懂 ? )
             - 进程 状态 ( process status )
             - ……
-        - task_struct 会被 预分配 & 重复使用
+        - task_struct 会被 预分配 & 重复使用 ( slab )
             - 以避免 动态分配 & 释放 带来的资源消耗
             - 优点 : 进程创建迅速
     - 双向循环链表结构 : 并非由静态数组实现, 所以不应叫做 task array
