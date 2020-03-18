@@ -508,6 +508,7 @@ Reference : https://www.computerhope.com/keys.htm
 - OOM : Out Of Memory
     - 源于 java.lang.OutOfMemoryError, 当 JVM 没有足够内存来为对象分配空间, 并且垃圾回收器也无法回收空间时, 系统出现的严重状态
 - OOP : Object Oriented Programming
+- oops : 哎哟
 - op : operation | option
 - ops : operations
 - opt : option
@@ -603,6 +604,7 @@ Reference : https://www.computerhope.com/keys.htm
 - rg : right
 - RIP : Real IP ( for Server )
 - RIP : Routing Information Protocol 路由信息协议
+- RISC : Reduced Instruction-Set Computer 精简指令集计算机
 - rm : remove
 - rn : rename
 - rst : result | reset 重置 ( for TCP )
