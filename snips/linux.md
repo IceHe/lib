@@ -21,7 +21,13 @@ Linux 特点
 内核设计
 
 - 单内核 ( [monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel) ) : e.g. Unix, Linux
+    - 从整体上作为一个单独的大进程来实现
+    - 运行在单独的地址空间上, 运行在内核态下, 功能模块, 直接通过函数进行调用
 - 微内核 ( [microkernel](https://en.wikipedia.org/wiki/Microkernel) ) : e.g. macOS, Windows
+    - 各功能划分为独立的过程, 每个过程叫一个 "服务器" (server?)
+    - 只有请求特权服务的服务器, 才能运行在特权模式下, 其它服务器则运行在用户空间
+    - 服务器间通过消息传递通信 -- IPC 进程间通信 机制
+- Linux 是单内核, 但是设计和实现上支持 动态加载内核模块
 
 内核提供的服务
 
@@ -29,7 +35,7 @@ Linux 特点
 - 进程调度 : 管理多个进程, 分享 CPU 时间 ( process scheduling )
 - 内存管理 : 管理进程地址空间 ( memory management )
     - 地址空间 ( [address space](https://en.wikipedia.org/wiki/Address_space) )
-    - or 虚拟内存 ( virtual memory ) ?
+    - 虚拟内存 ( virtual memory ) / 物理内存 / 页表映射
 - 网络 : TCP/IP … ( network )
 - 进程间通讯 : IPC ( Inter-Process Communication )
 
@@ -48,11 +54,10 @@ Linux 跟 Unix 的 显著差异
     - 目标 : 利用多 CPU (多核) 并行处理, 提升单机性能
 - 支持抢占 ( preemptive / [pre-emption](https://en.wikipedia.org/wiki/Preemption_(computing)) )
 - 不区分 线程 & 进程 : 所有 进程 & 线程 都一样, **只不过其中的一些 进程 / 线程 共享资源而已**
-- _提供具有设备类的面向对象的 设备模型 / 热插拔事件, 以及用户空间的 设备文件系统 ( [sysfs](https://en.wikipedia.org/wiki/Sysfs) )_
-    - TODO : 暂时还没能跟以往知识联系起来
+- 提供具有设备类的面向对象的 设备模型 / 热插拔事件, 以及用户空间的 设备文件系统 ( [sysfs](https://en.wikipedia.org/wiki/Sysfs) )
     - sysfs : "a pseudo file system" provided by the Linux kernel that exports information about various kernel subsystems, hardware devices, and associated device drivers from the kernel's device model to "user space" through "virtual files". In addition to providing information about various devices and kernel subsystems, exported virtual files are also used for their configuration.
 - _忽略了设计得拙劣的 Unix 特性 / 过时的标准_
-- _体现了 "自由" 的精髓 ( 我 ???? 无关紧要 ) : 公开开发模型, 自由发展, 实用主义_
+- _体现了 "自由" 的精髓 : 公开开发模型, 自由发展, 实用主义_
 
 内核版本号
 
@@ -62,7 +67,10 @@ Linux 跟 Unix 的 显著差异
     - 单数 : 开发版 ( development )
     - 双数 : 稳定版 ( stable )
 - 第 3 位 : 修订版本号 ( revision version )
+    - 包括 bugfix / 新的 drivers / 新的 features
 - 第 4 位 : 稳定版本号 ( stable version )
+    - 版本发布周期变长, 才引入 "稳定版本号"
+    - 包括关键性的 bugfix, 开发板内核向前移植的重要修改等
 - 前两位加起来, 例如 "2.6" 代表一个内核系列 ( kernel series )
 
 内核开发的特点
