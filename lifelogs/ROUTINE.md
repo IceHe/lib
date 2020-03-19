@@ -204,7 +204,7 @@
         - [ ] 1.3. 躺床, 不玩手机
             - 最好 23:30 最晚 00:30
     - [ ] 读完 技术书 2 本
-        - [ ] Linux Kernel Development
+        - [x] Linux Kernel Development
         - [ ] ~~Understand the JVM~~
 
 <!--
