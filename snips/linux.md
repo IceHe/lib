@@ -100,12 +100,13 @@ Linux 跟 Unix 的 显著差异
 - 任务列表 ( task list )
     - **内核把进程的列表存放在 task list**
     - list 中每一项的类型为 task_struct
-        - task_struct 在 32 位机器上, 大小约 1.7 KB, 较大但合理, 包括 :
-            - 进程 打开的文件
-            - 进程 地址空间
-            - _挂起的信号_ ( 不太懂 ? )
-            - 进程 状态 ( process status )
-            - ……
+        - task_struct 在 32 位机器上, 大小约 1.7 KB, 较大但合理
+            - _对比 x86 架构的内存页大小一般是 4KB,_ 包括 :
+                - 进程 打开的文件
+                - 进程 地址空间
+                - _挂起的信号_ ( 不太懂 ? )
+                - 进程 状态 ( process status )
+                - ……
         - task_struct 会被 预分配 & 重复使用 ( slab )
             - 以避免 动态分配 & 释放 带来的资源消耗
             - 优点 : 进程创建迅速
@@ -139,7 +140,7 @@ _内存分配_
 
 ```c
 struct thread_info {
-    struct task_struct  *task;
+    struct task_struct *task;
     ……
 }
 ```
@@ -163,7 +164,7 @@ struct thread_info {
 - 1\. 内核在系统启动的最后阶段启动 init 进程
 - 2\. init 进程读取系统的初始化脚本 initscript, 并执行其它的相关程序, 最终完成启动
 
-写时拷贝 ( copy-on-write )
+**写时拷贝** ( copy-on-write )
 
 - 1\. fork() 时, 父进程 & 子进程 共享同一个进程地址空间
 - 2\. 只有需要写入时, 数据才会被复制, 然后各个进程才开始拥有各自的拷贝
@@ -185,14 +186,17 @@ struct thread_info {
 vfork() 跟 fork() 的区别
 
 - 除了不拷贝父进程的页表项外, 它跟 fork() 的功能基本相同.
-- 父进程准备睡眠, 等待紫禁城将其唤醒
+- 父进程准备睡眠, 等待子进程其唤醒
     - 紫禁城作为父进程的一个单独的线程在它的地址空间里运行, 父进程被阻塞, 直到子进程退出或执行 exec()
 
 进程终结
 
 - 正常来说, 进程的析构是自身引起的 : 在进程调用 exit（）系统调用时
     - 内核必须释放它所占有的资源
-    - 并通知父进程 : 子进程已终结
+        - ……
+    - 并通知父进程 "进程已终结", 并给其子进程找养父
+        - 否则 "孤儿进程" 就会在退出时永远处于僵死状态 _( 因为父进程可能在其子进程之前退出 )_
+    - 调用 schedule() 切换到新的进程
 - 或者 可能隐式地从某个程序的 main 函数返回
     - **其实 C compiler 会在 main() 函数的返回点后面, 放置调用 exit() 的代码!**
 - 或者 进程接收到它 既不能处理 也不能忽略的 信号或异常时, 被动地终结
@@ -216,7 +220,7 @@ vfork() 跟 fork() 的区别
 
 - "O(1) 调度算法"
 - "反转楼梯最后期限调度算法"
-    - ( RSDL : Rotating Staircase Deadline scheduler )
+    - ( RSDL : Rotating Staircase Deadline scheduler 反转楼梯最后期限调度 )
     - 后来替代 O(1) 算法时, 又名 "完全公平调度算法"
     - ( CFS : Complete Fair scheduler )
 
