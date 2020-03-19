@@ -38,9 +38,10 @@ Markdown
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
-Operating System
+Reading
 
-- [Linux Kernel](/snips/linux.md) ( reading | draft )
+- [Linux Kernel](/snips/linux.md) ( draft )
+- [JVM - Java Virtual Machine](/snips/jvm.md) ( draft )
 
 Storage - Usage
 
