@@ -229,6 +229,7 @@ Reference : https://www.computerhope.com/keys.htm
 - crit : critical (condition) 临界 (条件/情况)
 - crlf : carriage return / line feed
     ( [newline](https://en.wikipedia.org/wiki/Newline) )
+- CRM : Customer Relationship Management 客户关系管理
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
 - CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
@@ -297,6 +298,7 @@ Reference : https://www.computerhope.com/keys.htm
 - env : environment
 - eof : [end of file](https://en.wikipedia.org/wiki/End-of-file)
 - eol : end of line ( [newline](https://en.wikipedia.org/wiki/Newline) )
+- ERP : Enterprise Resource Planning 企业资源规划
 - err : error
 - esc : escape
 - ESTAB : established ( for TCP )

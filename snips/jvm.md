@@ -8,7 +8,7 @@ References
 
 ## Introduction
 
-### Keywords?
+Keywords?
 
 - 自动内存管理 : 永久代 / 元空间
 - 垃圾回收算法和收集器 : ZGC / 低延迟全并发收集器
@@ -23,5 +23,17 @@ References
 - 内存模型 : 结构 / 原子性 / 可见性 / 有序性
 - 线程安全
 
-## Index
+优点
 
+- 一次编译, 到处(随处)运行. Write Once, Run Anywhere.
+- 相对安全的内存管理和访问机制
+    - 避免绝大部分内存泄露和指针越界
+- 实现了热点代码检测 & 运行时编译及优化
+- _完善的 API_
+
+运行在 JVM 上的编程语言
+
+- Kotlin
+- Clojure
+- JRuby
+- Groovy
