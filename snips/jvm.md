@@ -167,3 +167,11 @@ VM 发展
     - 支持更复杂的优化
         - Partial Escape Analysis 部分逃逸分析
         - Aggressive Speculative Optimization 预测性优化 _( 比较激进 )_
+
+提前编译 AOT - Ahead of Time Compilation
+
+- 相对于 "即时编译" 的概念, 提前将所有代码编译好
+    - 启动更快, 不用预热
+    - 但是破坏了 "一次编写, 到处运行" 的约定
+        - 不同的硬件和操作系统需要不同的发行包
+- _"向 Native 迈进", 性能更好, 内存占用更小, 运行时环境更小_
