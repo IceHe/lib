@@ -139,3 +139,31 @@ VM 发展
     - _(也有)_ 准确式内存管理
     - 热点探测技术 _( 通过执行计数器, 找到最具编译价值的代码 )_
         - 即时编译 或 栈上替换编译 OSR ( On-Stack Replacement )
+- BEA Liquid VM / Azul VM
+    - 针对特定架构的硬件, 进行优化, 充分发挥硬件性能
+        - 自带操作系统/越过操作系统, 不需要再进行内核态/用户态的切换, 直接控制硬件…… 等
+- Graal VM
+    - 无语言倾向 : "Run Programs Faster Anywhere."
+    - 在 HotSpot VM 的基础上, 增强成跨语言全栈虚拟机
+        - 可以作为任何语言的运行平台使用
+            - _包括 Java / Scala / Groovy / Kotlin 等 JVM 之上的语言_
+            - _还有 C / C++ / Rust 等基于 LLVM 的语言_
+            - _还有 JavaScript / Ruby / Python / R 等_
+        - _无额外开销地混合使用这些编程语言_
+        - _支持不同语言中混用对方接口和对象_
+        - _也支持这些语言使用已经编写好的本地库文件_
+    - 原理 :
+        - 将不同语言的源码, 编译成中间格式 _( 例如 LLVM 字节码 )_
+        - 通过解释器转换为能被 Graal VM 接受的中间表示 _( IR - Intermediate Representation )_
+            - _? 不是特别明白 中间码 和 中间表示 的区别_
+
+即时编译器
+
+- C1 编译器 : 编译时间短, 代码优化程度低 -- 客户端编译器
+- C2 编译器 : 编译时间长, 代码优化程度高 -- 服务器编译器
+    - 通常它们会在分层编译机制下, 与解释器互相配合来共同构成 HotSpot VM 的执行子系统
+- Graal 编译器 : C2 的替代者
+    - 可维护性更好, 性能还反超历史悠久的 C2 _( 代码复杂难以维护 )_
+    - 支持更复杂的优化
+        - Partial Escape Analysis 部分逃逸分析
+        - Aggressive Speculative Optimization 预测性优化 _( 比较激进 )_
