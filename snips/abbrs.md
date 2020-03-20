@@ -404,6 +404,7 @@ Reference : https://www.computerhope.com/keys.htm
 - jar : [Java Archive file](https://en.wikipedia.org/wiki/JAR_(file_format))
 - jd : job description
 - JFGI : Just Fucking Google It
+- JNI : Java Native Interface ?
 - jr : job requirement
 - Jr. : Junior 初级的
 - js : javascript
