@@ -486,7 +486,7 @@ Reference : https://www.computerhope.com/keys.htm
 - n/a , N/A , n.a. : [not applicable](https://en.wikipedia.org/wiki/N/a) 不适用
 - NaN : [Not a Number](https://en.wikipedia.org/wiki/NaN)
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
-- nio : Non-blocking IO ( for Java )
+- nio : new Input/Output ( 特性 Non-blocking ) ( for Java )
 - NLJ : Nested-Loop Join 算法 ( for SQL : Index/Simple/Block NLJ )
 - No. : number
 - no-no : n. 禁忌；不可作之事
