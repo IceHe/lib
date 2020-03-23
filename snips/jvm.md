@@ -415,7 +415,7 @@ JVM 参数
 - 随后进行一次筛选, 条件是此对象是否有必要执行 finalized() 方法
     - 如果对象没有覆盖 (自定义的) 的 finalize() 方法
     - 或者 finalize() 已经被 VM 调用过
-    - 就会被视为 "没有必要执行 finalize()"
+    - 就会被视为 "没有必要执行 finalize()" (然后第二次被标记 -> 回收 (死亡))
 - 如有必要, 执行 finalize()
     - 对象被放置到 F-Queue 队列中
     - 稍候有 VM 自动建立、低调度优先级的 Finalizer 线程去执行它们的 finalize() 方法
