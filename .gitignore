@@ -6,6 +6,10 @@
 .idea/
 .iml
 
+# Java
+**/*.class
+**/*.hprof
+
 # VS Code
 .vscode/
 */.vscode/
