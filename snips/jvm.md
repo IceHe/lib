@@ -366,3 +366,27 @@ JVM 参数
 - 主流 JVM 没有选用 引用计数算法 来管理内存
     - 主要原因 : 有许多例外情况要考虑, 需要大量额外的处理
         - 例如, 引用计数很难解决对象之间相互引用的问题
+
+可达性分析算法 Reachability Analysis
+
+- 基本思路
+    - 通过一系列称为 GC Roots 的根对象作为起始节点集
+    - 从这些节点开始, 根据引用关系向下搜索, 搜索过程所走过的路径称为 引用链 Reference Chain
+    - 如果某个对象到 GC Roots 间没有任何引用相连
+        - 或者用图论的话来说, 就是从 GC Roots 到这个对象不可达时, 则证明此对象是不可能再被使用的
+
+固定可作为 GC Roots 的对象包括
+
+- VM Stack (栈帧中的本地变量表) 中引用的对象
+    - 例如, 各个线程被调用的方法堆栈中使用的参数、局部变量、临时变量等
+- Method Area 中静态属性引用的对象
+    - 例如 Java 类的引用类型静态变量
+- Method Area 中常量引用的对象
+    - 例如 字符串常量池 String Table 中的引用
+- Native Method Stack 中 JNI (即通常所说的 Native 方法) 引用的对象
+- JVM 内部的引用
+    - 例如, 基本数据类型对应的 Class 对象,
+    - 一些常驻的异常对象 NullPointerException、OutOfMemoryError 等
+    - 系统类加载器
+- 所有被同步锁 (synchronized 关键字) 持有的对象
+- 反应 JVM 内部情况的 JMXBean、JVMTI 中注册的回调、本地代码缓存等
