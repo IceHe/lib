@@ -7,8 +7,8 @@
 .iml
 
 # Java
-**/*.class
-**/*.hprof
+*.class
+*.hprof
 
 # VS Code
 .vscode/

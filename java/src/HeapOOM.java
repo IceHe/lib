@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/** VM Args: -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError */
+/**
+ * javac HeapOOM.java
+ * java -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError HeapOOM > HeapOOM.output 2>&1
+ */
 public class HeapOOM {
     public static void main(String[] args) {
         List<OOMObject> list = new ArrayList<OOMObject>();
