@@ -34,7 +34,10 @@ Coding
 
 Command Line Tools
 
-- java : TODO
+- jar : Java archive tool
+- java : Java application launcher
+- javac : Java compiler
+- javap : Java class file disassembler
 - jconsole : VM Performance Statistics
 - jmap : Stack & Heap
 - ……
