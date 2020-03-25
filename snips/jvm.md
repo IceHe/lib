@@ -626,7 +626,7 @@ Appel 式回收 (命名为作者的名字)
 - Both
     - G1 - Garbage First
 
-Serial 收集器
+Serial 收集器 (新生代用)
 
 - _最基础, 历史最悠久_
 - "单线程" 工作的新生代收集器, 必须暂停其他所有工作线程 (Stop The World) , 直到收集结束
@@ -634,14 +634,14 @@ Serial 收集器
 - 迄今为止, 依然是 HotSpot VM 运行在客户端模式下的默认新生代收集器
 - 优点 : 简单高效, 所有收集器里额外内存消耗 (Memory Footprint) 最小的
 
-ParNew 收集器
+ParNew 收集器 (新生代用)
 
 - 它实质上是 Serial 收集器的多线程并行版本
     - JDK 7 前的首选新生代收集器, 适宜运行在服务端模式下的 HotSpot 虚拟机
     - 只有 Serial 和 ParNew (新生代) 能与 CMS 收集器 (老年代) 配合工作
-        - CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器
+        - _CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器_
 
-Parallel Scavenge 收集器
+Parallel Scavenge 收集器 (新生代用)
 
 - 新生代收集器, 基于 Mark-Copy 算法实现, 也称为 "吞吐量优先收集器"
 - 目标区别
@@ -655,10 +655,23 @@ Parallel Scavenge 收集器
         - Eden 与 Survivor 区的比例 (-XX:SurvivorRatio)
         - 晋升老年代对象的大小 (-XX:PretenureSizeThreshold)
 
-Serial Old 收集器
+Serial Old 收集器 (老年代用)
 
 - 它是 Serial 收集器的老年代版本 -- 单线程的老年代收集器
     - Old Generation : 采用 Mark-Compact 算法
 - 主要存在意义 : 供客户端模式下的 HotSpot VM 使用
+- 服务器模式下的 主要用途
+    - A. JDK 5 及之前, 与 Parallel Scavenge 收集器搭配使用
+    - B. 作为 CMS 收集器发生失败时的后备预案, _在并发手机发生 Concurrent ModeFailure 时使用 (?)_
+
+Parallel Old 收集器 (老年代用)
+
+- 它是 Parallel Scavenge 收集器的老年代版本, 支持多线程并发收集, 基于 Mark-Compact 算法实现
+    - 与新生代用的 Parallel Scavenge 收集器搭配使用
+
+CMS - Cocurrent Mark Sweep 收集器 (老年代用)
+
+- 目标 : 获取最短回收停顿时间
+    - B/S 架构系统的服务端上, 重视响应速度, 给用户更好的交互体验
 
 TODO : _紧接着的部分比较复杂, 先看完再回头做笔记吧_
