@@ -629,9 +629,8 @@ Appel 式回收 (命名为作者的名字)
 Serial 收集器
 
 - _最基础, 历史最悠久_
-- "单线程" 工作的收集器, 必须暂停其他所有工作线程 (Stop The World) , 直到收集结束
+- "单线程" 工作的新生代收集器, 必须暂停其他所有工作线程 (Stop The World) , 直到收集结束
     - Young Generation : 采用 Mark-Copy 算法
-    - Old Generation : 采用 Mark-Compact 算法
 - 迄今为止, 依然是 HotSpot VM 运行在客户端模式下的默认新生代收集器
 - 优点 : 简单高效, 所有收集器里额外内存消耗 (Memory Footprint) 最小的
 
@@ -640,6 +639,26 @@ ParNew 收集器
 - 它实质上是 Serial 收集器的多线程并行版本
     - JDK 7 前的首选新生代收集器, 适宜运行在服务端模式下的 HotSpot 虚拟机
     - 只有 Serial 和 ParNew (新生代) 能与 CMS 收集器 (老年代) 配合工作
-        - CMS 第一款真正意义上的 支持并发的垃圾收集器
+        - CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器
+
+Parallel Scavenge 收集器
+
+- 新生代收集器, 基于 Mark-Copy 算法实现, 也称为 "吞吐量优先收集器"
+- 目标区别
+    - CMS 收集器 : 尽可能缩短垃圾收集时, 用户线程的停顿时间
+    - Parallel Scavenge 收集器 : 达到一个可控制的吞吐量 (Throughput)
+        - 吞吐量 : 运行用户代码的时间 与 处理器总消耗时间 的比值
+        - 处理器总消耗时间 = 运行用户代码的时间 + 运行垃圾收集的时间
+- 参数 `+XX:+UseAdaptiveSizePolicy` 激活 垃圾收集的自适应的调节策略 (GC Ergonomics)
+    - 不需要手动调节细节参数
+        - 新生代的大小 (-Xmn)
+        - Eden 与 Survivor 区的比例 (-XX:SurvivorRatio)
+        - 晋升老年代对象的大小 (-XX:PretenureSizeThreshold)
+
+Serial Old 收集器
+
+- 它是 Serial 收集器的老年代版本 -- 单线程的老年代收集器
+    - Old Generation : 采用 Mark-Compact 算法
+- 主要存在意义 : 供客户端模式下的 HotSpot VM 使用
 
 TODO : _紧接着的部分比较复杂, 先看完再回头做笔记吧_
