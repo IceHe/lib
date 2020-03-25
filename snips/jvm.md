@@ -494,11 +494,11 @@ Java Heap 区域的划分
     - 内存空间碎片化 : 标记、清除后, 会产生大量不连续的内存碎片
         - 当分配较大对象 难以找到连续的内存时, 不得不提前触发另一次垃圾收集动作
 
-标记-复制算法 Semispace Copying
+标记-复制算法 Mark-Copy
 
 - 简称 "复制算法", 为解决 Mark-Sweep 面对大量可回收对象时执行效率低的问题而发明
 - 过程
-    - 将可用内存按容量划分为大小相等的两块, 每次只使用其中的一块
+    - 将可用内存按容量划分为大小相等的两块, 每次只使用其中的一块 (Semispace Copying)
         - 当这一块内存用完了, 就将还存活着的对象复制到另一块上面
         - 然后再把已使用过的内存空间一次清理掉
 - 取舍
@@ -604,6 +604,42 @@ Appel 式回收 (命名为作者的名字)
 
 并发的可达性分析
 
-- TODO
+- 略 _(详见原文, 暂时还不是特别懂)_
+
+### 经典垃圾收集
+
+区别
+
+- "经典" 是为了跟目前几款仍处于试验状态, 但执行效果上有革命性改进的高性能低延迟收集器区分开来
+- _经典垃圾收集器 千锤百炼, 足够成熟_
+
+关系 _(详见原书图3-6)_
+
+- Young Generation
+    - Serial
+    - ParNew
+    - Parallel Scavenge
+- Tenured Generation
+    - CMS - Concurrent Mark Sweep
+    - Serial Old (MSC)
+    - Parallele Old
+- Both
+    - G1 - Garbage First
+
+Serial 收集器
+
+- _最基础, 历史最悠久_
+- "单线程" 工作的收集器, 必须暂停其他所有工作线程 (Stop The World) , 直到收集结束
+    - Young Generation : 采用 Mark-Copy 算法
+    - Old Generation : 采用 Mark-Compact 算法
+- 迄今为止, 依然是 HotSpot VM 运行在客户端模式下的默认新生代收集器
+- 优点 : 简单高效, 所有收集器里额外内存消耗 (Memory Footprint) 最小的
+
+ParNew 收集器
+
+- 它实质上是 Serial 收集器的多线程并行版本
+    - JDK 7 前的首选新生代收集器, 适宜运行在服务端模式下的 HotSpot 虚拟机
+    - 只有 Serial 和 ParNew (新生代) 能与 CMS 收集器 (老年代) 配合工作
+        - CMS 第一款真正意义上的 支持并发的垃圾收集器
 
 TODO : _紧接着的部分比较复杂, 先看完再回头做笔记吧_
