@@ -700,4 +700,41 @@ CMS - Cocurrent Mark Sweep 收集器 (老年代用)
 
 ### Garbage First 收集器
 
-TODO : _紧接着的部分比较复杂, 先看完再回头做笔记吧_
+- 开创了 面向局部收的设计思路 和 基于 Region 的内存布局形式
+- 简称 G1, 被 Oracle 官方称为 全功能的垃圾收集器 Fully-Featured Garbage Collector (同时能用在新生代 & 老年代)
+- 主要面向 服务端应用, 旨在替换 CMS 收集器
+    - JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器
+        - 它取代了 Parallel Scavenge & Parallel Old 组合
+- 作为 CMS 收集器的替代者和继承者, 希望建立起 停顿时间模型 Pause Prediction Model 的收集器
+    - Pause Prediction Model : 支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标
+    - 算是 实时 Java (RTSJ) 的中断实时垃圾收集器 的特征
+
+HotSpot VM 提出了 统一垃圾收集器接口 Garbage Collector Interface
+
+- 将内存回收的 行为与实现分离 (职责分离的设计原则)
+- _以此为基础移除或加入一款收集器更容易, 易于控制风险_
+
+回收集 Collection Set
+
+- 简称 CSet
+- Mixed GC 模式 : 面向堆内存任何部分来组成 回收集 CSet
+    - 衡量标准不再是属于哪个分代 (新生代/老年代)
+    - 而是哪块内存中存放的垃圾数量最多, 回收收益最大
+
+基于 Region 的堆内存布局
+
+- 遵循分代收集理论设计
+- 把连续的 Java 堆划分为多个大小相等的独立区域 Region
+    - _不再坚持固定大小以及固定数量的分代区域划分_
+    - 每个 Region 都可以根据需要, 扮演新生代的 Eden 空间、Survivor 空间或者老年代空间
+        - 对扮演不同角色的 Region 采用不同的策略处理
+        - Region 大小取值范围 : 1MB ~ 32MB, 且应为 2 的 N 次幂
+        - _Humongous 区域 : 专门用来存储 大对象 -- 超过一个 Region 容量一半的对象_
+- 处理思路
+    - 将 Region 作为单词回收的最小单元 → 能够建立可预测的停顿时间模型
+        - 有计划地避免在整个 Java 堆中进行全区域的垃圾收集
+    - G1 收集器跟踪各个 Region 里面的垃圾堆积的 "价值" 大小
+        - 即 回收所获得的空间大小 以及回收所需时间 的经验值
+    - 维护一个优先级列表, 根据用设定允许的停顿时间, 优先回收价值收益最大的 Region
+
+TODO
