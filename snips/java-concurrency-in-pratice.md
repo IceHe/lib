@@ -35,3 +35,8 @@ Unknown Keywords
 - 条件谓词
 - 过早唤醒
 - CountDownLatch
+
+GUI 程序的运行方式
+
+- 主事件循环 Main Event Loop
+- 事件分发线程 EDT - Event Dispatch Thread _(用以代替主事件循环)_
