@@ -851,4 +851,10 @@ HotSpot VM 提出了 统一垃圾收集器接口 Garbage Collector Interface
     - 经过并发回收和引用更新之后, 整个回收集中所有 Region 再无存活对象
     - 然后其它同上文中的 并发清理
 
+**Brooks Pointer**
+
+- 详见原书 _内容偏向底层实现, 不想记那么多细节_
+
+### ZGC 收集器
+
 TODO
