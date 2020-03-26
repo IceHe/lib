@@ -5,7 +5,7 @@ References
 - Book "Java Concurrency in Pratice"
     - ZH Ver. :《 Linux 并发编程实战 》
 
-## Introduction
+## 简介 Introduction
 
 Unknown Keywords
 
@@ -59,3 +59,9 @@ GUI 程序的运行方式
     - 当某个操作无法继续执行下去时, 就会发生 liveness failure
         - 例如, 无意中造成无限循环, 后续的代码无法继续执行
 - 性能 : 希望正确的事情尽快发生
+
+## 基础知识 Fundamentals
+
+### Thread Safety
+
+TODO

@@ -379,6 +379,7 @@ Newly
     - It's the hardest part when memories remain.
 - [Anti-Fragile](/read/anti-fragile.md)
     / [_book_](https://item.jd.com/11364406.html)
+- [VicodinXYZ's Life Beliefs](/read/life-beliefs.md)
 
 ### Past
 
