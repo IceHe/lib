@@ -684,6 +684,10 @@ CMS - Cocurrent Mark Sweep 收集器 (老年代用)
         - 停顿时间比初始标记阶段稍长, 但远比并发标记时间短
     - 4\. 并发清楚 CMS concurrent sweep
         - 清理删除掉标记阶段判断的已经死亡的对象
+        - 可以与用户线程一起并发
     - 其中 初始标记、重新标记 仍然需要 Stop The World
+- 特点 : 并发收集、低停顿, 也被称为 "并发低停顿收集器" Concurrent Low Pause Collector
+- 缺点 :
+    -
 
 TODO : _紧接着的部分比较复杂, 先看完再回头做笔记吧_
