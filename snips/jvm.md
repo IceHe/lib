@@ -688,6 +688,16 @@ CMS - Cocurrent Mark Sweep 收集器 (老年代用)
     - 其中 初始标记、重新标记 仍然需要 Stop The World
 - 特点 : 并发收集、低停顿, 也被称为 "并发低停顿收集器" Concurrent Low Pause Collector
 - 缺点 :
-    -
+    - 对处理器资源十分敏感 _(面向并发设计的程序都对处理器资源敏感)_
+        - 默认启动的回收线程数 = (处理器核心数 + 3) / 4
+            - 处理器核心 >= 4 时, 只占用 < 25% 的处理器运算资源
+            - 处理器核心 < 4 时, 对用户程序的影响就比较大
+    - 无法处理 "浮动垃圾" Floating Garbage
+        - 有可能出现 Concurrent Mode Failure 失败进而导致另一次 Stop The World 的 Full GC 产生
+        - Floating Garbage : 在 CMS 并发标记和并发清理阶段, 用户进程继续运行
+            - 用户程序自然产生新的垃圾对象, 它们出现在标记过程结束之后, 无法在当次收集中处理掉它们, 只能等下一次垃圾收集来处理
+    - Mark-Sweep 算法本身就会使内存空间碎片化, 碎片过多时, 也会提前触发 Full GC
+
+### Garbage First 收集器
 
 TODO : _紧接着的部分比较复杂, 先看完再回头做笔记吧_
