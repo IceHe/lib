@@ -700,11 +700,12 @@ CMS - Cocurrent Mark Sweep 收集器 (老年代用)
 
 ### Garbage First 收集器
 
+- 简称 G1
+    - 被 Oracle 官方称为 全功能的垃圾收集器 Fully-Featured Garbage Collector (同时能用在新生代 & 老年代)
+    - 主要面向 服务端应用, 旨在替换 CMS 收集器
+        - JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器
+            - 它取代了 Parallel Scavenge & Parallel Old 组合
 - 开创了 面向局部收的设计思路 和 基于 Region 的内存布局形式
-- 简称 G1, 被 Oracle 官方称为 全功能的垃圾收集器 Fully-Featured Garbage Collector (同时能用在新生代 & 老年代)
-- 主要面向 服务端应用, 旨在替换 CMS 收集器
-    - JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器
-        - 它取代了 Parallel Scavenge & Parallel Old 组合
 - 作为 CMS 收集器的替代者和继承者, 希望建立起 停顿时间模型 Pause Prediction Model 的收集器
     - Pause Prediction Model : 支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标
     - 算是 实时 Java (RTSJ) 的中断实时垃圾收集器 的特征
@@ -730,11 +731,124 @@ HotSpot VM 提出了 统一垃圾收集器接口 Garbage Collector Interface
         - 对扮演不同角色的 Region 采用不同的策略处理
         - Region 大小取值范围 : 1MB ~ 32MB, 且应为 2 的 N 次幂
         - _Humongous 区域 : 专门用来存储 大对象 -- 超过一个 Region 容量一半的对象_
-- 处理思路
-    - 将 Region 作为单词回收的最小单元 → 能够建立可预测的停顿时间模型
-        - 有计划地避免在整个 Java 堆中进行全区域的垃圾收集
-    - G1 收集器跟踪各个 Region 里面的垃圾堆积的 "价值" 大小
-        - 即 回收所获得的空间大小 以及回收所需时间 的经验值
-    - 维护一个优先级列表, 根据用设定允许的停顿时间, 优先回收价值收益最大的 Region
+
+处理思路
+
+- 将 Region 作为单词回收的最小单元 → 能够建立可预测的停顿时间模型
+    - 有计划地避免在整个 Java 堆中进行全区域的垃圾收集
+- G1 收集器跟踪各个 Region 里面的垃圾堆积的 "价值" 大小
+    - 即 回收所获得的空间大小 以及回收所需时间 的经验值
+- 维护一个优先级列表, 根据用设定允许的停顿时间, 优先回收价值收益最大的 Region
+
+实现细节 : 暂略 (看原书), 以下为部分名词摘录
+
+- 解决多个独立 Region 间跨 Region 引用的对象的问题?
+    - 使用更复杂的记忆集避免全堆做 GC Roots 扫描
+    - 每个 Region 都有自己的 Remembered Set
+    - 细节暂略, 但内存占用较高, 甚至能达到整个堆容量的 20%
+- 解决用户线程改变对象引用时, 保证不能打破原本的对象图结构的问题?
+    - CMS 采用 增量更新算法 实现
+    - G1 采用 原始快照 SATB 算法 _(?暂无详细介绍)_
+- TAMS - Top at Mark Start 指针 : 划分出 并发回收过程中的新对象分配, 必须要在两个这样的指针位置以上
+    - 这些位置的对象被隐式标记为存活, 不纳入回收范围
+
+运作过程 : 细节略
+
+- 初始标记 Initial Marking
+    - 仅仅标记一下 GC Roots 能直接关联到的对象
+    - 并修改 TAMS (Top at Mark Start) 指针的值
+        - 让下一阶段用户线程并发运行时, 能正确地在可用的 Region 中分配新对象
+    - _本阶段需要停顿, 但耗时很短, 而且借用进行 Minor GC 的时候同步完成_
+        - _所以 G1 Collector 这阶段实际并没有额外的停顿 (?现在还不太理解)_
+- 并发标记 Concurrent Marking
+    - 从 GC Roots 开始对对重的对象进行可达性分析, 递归扫描整个堆里的对象图, 找出要回收的对象
+        - _耗时较长, 但可与用户线程并发执行_
+    - 当对象图扫描完成以后, 还要重新处理 SATB 记录下的在并发UI有引用变动的对象
+- 最终标记 Final Marking
+    - 对用户线程做另一个短暂的暂停, 用于处理并发阶段结束后仍遗留下来的最后那少量的 SATB 记录
+- 筛选回收 Live Data Counting and Evacuation
+    - 负责更新 Region 的统计数据, 对各个 Region 的回收价值和成本进行排序
+    - 根据用户所期望的停顿时间来执行回收计划, 可以自由选择任意多个 Region 构成回收集
+    - 把决定回收的那一部分 Region 的存活对象复制到空的 Region 中
+    - 再清理掉整个旧 Region 中的全部空间
+    - _整个过程涉及存活对象的移动, 必须暂停用户线程, 由多条收集器线程并行完成_
+
+目标
+
+- _并非纯粹追求 低延迟_
+- 在延迟可控的情况下, 获得尽可能高的吞吐量
+    - 默认的停顿目标 200ms, 合理范围 100~300ms
+
+设计导向 _(从G1开始)_
+
+- 追求能够应付应用的内存分配速率 Allocation Rate
+- 不追求一次把整个 Java 堆全部清理干净
+
+### 低延迟垃圾收集器 Low-Latency Garbage Collector
+
+- aka. Low-Pause-Time Garbage Collector
+
+衡量垃圾收集器的最重要3项指标 (不可能三角)
+
+- 内存占用 Memory Footprint (->低)
+- 吞吐量 Throughput (->大)
+- 延迟 Latency (->低)
+
+指标取舍
+
+- 能容忍多占用一些内存
+- 但是都追求 "低延迟"
+
+各款收集器的并发情况
+
+- 详见原书图3-14
+
+### Shenandoah 收集器
+
+目标
+
+- 能在任何堆内存大小下, 都可以把垃圾收集的停顿时间限制在 10ms 以内
+
+渊源
+
+- 非 Oracle 官方领导开发的垃圾收集器
+- 比 ZGC 更像是 G1 收集器的继承者
+    - 相似的堆内存布局
+    - 初始标记、并发标记等许多阶段的处理思路一致
+
+与 G1 的三处明显不同
+
+- 支持并发整理算法
+    - G1 在回收阶段支持多线程并行, 但不能与用户线程并行, 而 Shenandoah 可以
+- 默认不使用分代收集 : _基于性价比权衡, 分代收集的优先级较低_
+- 摒弃了 G1 收集器中耗费大量内存和计算资源去维护的记忆集
+    - Shenandoah 改用 连接矩阵 Connection Matrix 的全局数据结构来记录跨 Region 关系
+        - 可以理解为 一张二维表格, Region M 有对象指向 Region N 就在 N 行 M 列中打上标记 (简述)
+    - 降低了处理跨代指针时, 记忆集的维护消耗, 也降低了为伪共享问题 _(这个不太记得了…)_
+
+工作过程 : 可参考原书图3-16
+
+- 初始标记 Initial Marking
+- 并发标记 Concurrent Marking
+- 最终标记 Final Marking
+- 并发清理 Concurrent Cleanup
+    - 清理那些整个区域连一个存活对象也没有的 Region
+        - 这种 Region 一般被称为 Immediate Garbage Region
+- 并发收集 Concurrent Evacuation _(核心差异点)_
+    - 先将存活对象复制到其他未使用的 Region 时, 如果要和用户线程一起并发, 会导致
+        - 移动后的对象, 内存中的引用还指向旧对象的地址, 没法一瞬间改过来
+        - _用户线程这时使用内存中的这些引用, 就会出错_
+    - 通过 "读屏障" 和称为 Brooks Pointers 的指针转发 来解决 (后文再详述)
+- 初始引用更新 Initial Update Reference
+    - 并发回收阶段复制对象结束后, 还需要把堆中所有指向就对象的引用, 修正为复制后的新地址!
+    - 该阶段只为了建立一个线程集合点, 确保所有并发回收阶段中进行的收集器线程都完成了存活对象的移动任务
+- 并发引用更新 Concurrent Update Reference
+    - 真正开始进行 引用更新操作
+    - 与用户线程一起并发
+- 最终引用更新 Final Update Reference
+    - 解决对堆中的引用更新后, 还要修正存在于 GC Roots 中的引用
+- 并发清理 Concurrent Cleanup
+    - 经过并发回收和引用更新之后, 整个回收集中所有 Region 再无存活对象
+    - 然后其它同上文中的 并发清理
 
 TODO
