@@ -90,8 +90,12 @@ Primary Mechanism for Synchronization in Java
 
 If **multiple threads access the same mutable state variable without appropriate synchronization**, your program is broken. There are three ways to fix it:
 
-- Don't share the state variable across threads;
-- Make the state variable immutable; or
-- Use synchronization whenever accessing the state variable.
+- **Don't share** the state variable across threads;
+- Make the **state variable immutable**; or
+- Use **synchronization** whenever accessing the state variable.
+
+When designing threadͲsafe classes, good objectͲoriented techniques Ͳ encapsulation, immutability, and clear specification of invariantsͲare your best friends.
+
+- _invariant : n. 不变式/不变量 ; adj. 不变的/无变化的_
 
 TODO
