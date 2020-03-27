@@ -150,6 +150,23 @@ synchronized (lock) {
 
 **重入 Reentrancy**
 
--
+- Because intrinsic locks are **reentrant**, if a thread tries to acquire a lock that it already holds, the request succeeds.
+- Reentrancy means that locks are **acquired on a per-thread rather than per-invocation basis**.
+
+重入的实现 (Implement)
+
+- Components
+    - Reentrancy is implemented by associating with each lock **an acquisition count** and **an owning thread**.
+- Process
+    - When the count is zero, the lock is considered unheld.
+    - When a thread acquires a previously unheld lock, the JVM records the owner and sets the acquisition count to one.
+    - If that same thread acquires the lock again, the count is incremented, and when the owning thread exits the synchronized block, the count is decremented.
+    - When the count reaches zero, the lock is released.
+
+### Guarding State with Locks
+
+For each mutable state variable that may be accessed by more than one thread, all accesses to that variable must be performed with the same lock held.
+
+In this case, we say that the variable is guarded by that lock.
 
 TODO
