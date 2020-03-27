@@ -5,7 +5,7 @@ References
 - Book "Java Concurrency in Pratice"
     - ZH Ver. :《 Linux 并发编程实战 》
 
-## 简介 Introduction
+## Introduction
 
 Unknown Keywords
 
@@ -61,7 +61,9 @@ GUI 程序的运行方式
         - 例如, 无意中造成无限循环, 后续的代码无法继续执行
 - 性能 : 希望正确的事情尽快发生
 
-## 基础知识 Fundamentals
+## Fundamentals
+
+基础知识
 
 ### Thread Safety
 
@@ -185,5 +187,18 @@ There is frequently a tension between simplicity and performance. When implement
 Avoid holding locks during lengthy computations or operations at risk of not completing quickly such as network or console I/O.
 
 - 当执行 时间较长的计算 或者 无法快速完成的操作 时 (例如, 网络或控制台 I/O), 一定不要持有锁
+
+## Sharing Objects
+
+- 临界区 Critical Section : 访问共享资源的程序片段
+- 内存可见性 Memory Visibility
+
+### Visibility
+
+In general, there is no guarantee that the reading thread will see a value written by another thread on a timely basis, or even at all.
+
+In order to ensure **visibility of memory** writes across threads, you must use synchronization.
+
+---
 
 TODO
