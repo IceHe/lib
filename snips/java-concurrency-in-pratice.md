@@ -173,6 +173,17 @@ For every invariant (不变性条件) that involves more than one variable, all 
 
 ### Liveness & Performance
 
-详见原书
+_实例讨论略, 详见原书_
+
+- 例子 : 对已经使用了同步代码块来构造了 long 的原子操作, 就不要使用 AtomicLong 了
+    - 同时使用两种同步机制, 性能和安全性上都不好
+
+There is frequently a tension between simplicity and performance. When implementing a synchronization policy, resist the temptation to prematurely sacrifice simplicity (potentially compromising safety) for the sake of performance.
+
+- 不要盲目地为了性能而牺牲简单性 Simplicity
+
+Avoid holding locks during lengthy computations or operations at risk of not completing quickly such as network or console I/O.
+
+- 当执行 时间较长的计算 或者 无法快速完成的操作 时 (例如, 网络或控制台 I/O), 一定不要持有锁
 
 TODO
