@@ -857,4 +857,33 @@ HotSpot VM 提出了 统一垃圾收集器接口 Garbage Collector Interface
 
 ### ZGC 收集器
 
+Z Garbage Collector
+
+- 目标跟 Shenandoah 目标高度一致, 但实现思路有显著差异
+- _ZGC 更像是 PGC (Pauseless GC) 和 C4 (Concurrent Continuously Compacting Collector) 的同胞兄弟_
+- 特点
+    - 基于 Region 内存布局
+    - _( 暂时 )_ 不设分代
+    - 实现了可并发的 标记-整理算法
+        - 使用了 : 读屏障、染色指针 和 内存多重映射 等技术
+    - 以低延迟为首要目标
+
+Region 内存布局
+
+- ZGC 的 Region (跟 Shenandoah 相比) 具有动态性
+    - 动态创建和销毁
+    - 动态的区域容量大小
+        - x64 硬件平台下, 可以有大中小三类容量
+            - Small Region : 固定 2MB, 用于放置小于 256KB 的小对象
+            - Medium Region : 容量固定为 32MB, 用于放置大于等于 256KB 但小于 4MB 的对象
+            - Large Region : 容量不固定, 可以动态变化, 必须为 2MB 的整数倍
+                - 实际容量可能比 4MB 还小
+                - 在 ZGC 的视线中不会被 "重分配"
+- _ZGC 的 Region 被官方称为 Page 或 ZPage_
+
+染色指针 Colored Pointer
+
+- 它是 ZGC 的标志性技术
+    - _其它类似的技术可能称其为 Tag Pointer 或者 Version Pointer_
+
 TODO
