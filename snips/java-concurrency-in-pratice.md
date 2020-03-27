@@ -173,6 +173,6 @@ For every invariant (不变性条件) that involves more than one variable, all 
 
 ### Liveness & Performance
 
-
+详见原书
 
 TODO

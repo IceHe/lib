@@ -42,6 +42,7 @@ Reading
 
 - [Linux Kernel](/snips/linux.md) ( draft )
 - [JVM - Java Virtual Machine](/snips/jvm.md) ( draft )
+- [Java Concurrency in Pratice](/snips/java-concurrency-in-pratice.md) ( draft )
 
 Storage - Usage
 
