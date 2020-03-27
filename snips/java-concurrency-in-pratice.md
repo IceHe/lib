@@ -88,4 +88,10 @@ Primary Mechanism for Synchronization in Java
 - explicit locks
 - atomic variables
 
+If **multiple threads access the same mutable state variable without appropriate synchronization**, your program is broken. There are three ways to fix it:
+
+- Don't share the state variable across threads;
+- Make the state variable immutable; or
+- Use synchronization whenever accessing the state variable.
+
 TODO
