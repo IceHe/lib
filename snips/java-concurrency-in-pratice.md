@@ -44,7 +44,8 @@ GUI 程序的运行方式
 并发安全问题 Thread-safety
 
 - 竞态条件 Race Condition
-    - 在多线程环境下, getValue 是否会返回唯一的值, 取决于运行时, 各线程中操作的交替执行方式
+    - 由于不恰当的执行时序而出现不正确的结果
+    - _在多线程环境下, getValue 是否会返回唯一的值, 取决于运行时, 各线程中操作的交替执行方式_
 - 如果没有 "同步"
     - 无论是编译器、硬件还是运行时, 都可以随意安排操作的 执行时间 和 顺序
     - _例如, 对寄存器或处理器中的变量进行缓存, 而被缓存的变量对于其它线程来说暂时(甚至永久)不可见_
@@ -97,5 +98,58 @@ If **multiple threads access the same mutable state variable without appropriate
 When designing threadͲsafe classes, good objectͲoriented techniques Ͳ encapsulation, immutability, and clear specification of invariantsͲare your best friends.
 
 - _invariant : n. 不变式/不变量 ; adj. 不变的/无变化的_
+
+线程安全 Thread-Safety 的 (非标准) 定义
+
+- A class is **thread-safe** if it **behaves correctly** when accessed from multiple threads, regardless of the scheduling or interleaving of the execution of those threads by the runtime environment, and **with no additional synchronization or other coordination on the part of the calling code**.
+
+---
+
+**Stateless** objects are always thread-safe.
+
+### 原子性 Atomicity
+
+**竞态条件 Race Condition** (定义见上文) 常见类型
+
+- 先检查后执行 Check-Then-Act : 通过一个可能失效的观测结果来决定下一步的动作
+- 延迟初始化 Lazy Initialization : 将对象的初始化工作推迟到实际被使用时才进行, 同时要确保只被初始化一次
+
+如何解决?
+
+- **复合操作 Compound Actions** : 以原子方式确保线程安全性
+    - 加锁 Locking : 确保原子性的内置机制
+
+### 加锁机制 Locking
+
+- To **preserve state consistency**, update related state variables in a single atomic operation.
+
+**内置锁 Intrinsic Lock**
+
+- 同步代码块 (Synchronized Block)
+    - It has 2 parts :
+        - a reference to an object that will serve as the lock
+        - a block of code to be guarded by that lock
+- 以关键字 synchronized 来修饰的方法
+    - 横跨整个方法体的同步代码块
+    - 同步代码块的锁就是方法调用所在的对象
+- A `synchronized` method is shorthand for a synchronized block that spans an entire method body, and whose lock is the object on which the method is being invoked.
+    - (Static synchronized methods use the Class object for the lock.)
+
+```java
+synchronized (lock) {
+    // Access or modify shared state guarded by lock
+}
+```
+
+每个 Java 对象都可以用做一个实现同步的锁, 它们被称为
+
+- 内置锁 Intrinsic Lock 或 监视锁 Monitor Lock
+- **线程在进入同步代码块之前会自动获得锁; 并且在退出同步代码块时, 自动释放锁**
+- Java 的内置锁相当于一种 互斥体 mutex (或互斥锁 mutual exclusion lock)
+    - 最多只有一个线程能持有这种锁
+
+**重入 Reentrancy**
+
+-
 
 TODO
