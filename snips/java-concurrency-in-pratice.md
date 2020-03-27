@@ -165,8 +165,12 @@ synchronized (lock) {
 
 ### Guarding State with Locks
 
-For each mutable state variable that may be accessed by more than one thread, all accesses to that variable must be performed with the same lock held.
+For each mutable state variable that may be accessed by more than one thread, all accesses to that variable must be performed with the same lock held. _In this case, we say that the variable is guarded by that lock._
 
-In this case, we say that the variable is guarded by that lock.
+Every shared, mutable variable should be guarded by exactly one lock. _Make it clear to maintainers which lock that is._
+
+For every invariant (不变性条件) that involves more than one variable, all the variables involved in that invariant must be guarded by the same lock.
+
+### Liveness & Performance
 
 TODO
