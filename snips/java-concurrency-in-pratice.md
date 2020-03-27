@@ -201,4 +201,14 @@ In order to ensure **visibility of memory** writes across threads, you must use 
 
 ---
 
+In the absence of synchronization, the compiler, processor, and runtime can do some downright weird things to the order in which operations appear to execute.
+
+- 在没有同步的情况下, 编译器、处理器以及运行时等都可能对操作的执行顺序进行一些意想不到的调整 _( 不会瞎调整的吧? 会重排到什么程度呢? 没有深入的遭遇和体会 )_
+
+Attempts to reason about the order in which memory actions "must" happen in insufficiently synchronized multithreaded programs will almost certainly be incorrect.
+
+- 在缺乏足够同步的多线程程序中, 要想对内存操作的执行顺序进行判断, 几乎无法得出正确的结果
+
+失效数据 Stale Data
+
 TODO
