@@ -9,8 +9,8 @@ References
 
 Unknown Keywords
 
-- 活跃性
-- 竞态条件
+- 活跃性 liveness
+- 竞态条件 race condition
 - 复合操作
 - 内置锁
 - 重入
@@ -41,7 +41,7 @@ GUI 程序的运行方式
 - 主事件循环 Main Event Loop
 - 事件分发线程 EDT - Event Dispatch Thread _(用以代替主事件循环)_
 
-并发安全问题
+并发安全问题 Thread-safety
 
 - 竞态条件 Race Condition
     - 在多线程环境下, getValue 是否会返回唯一的值, 取决于运行时, 各线程中操作的交替执行方式
@@ -50,7 +50,7 @@ GUI 程序的运行方式
     - _例如, 对寄存器或处理器中的变量进行缓存, 而被缓存的变量对于其它线程来说暂时(甚至永久)不可见_
 - _注意 : 尽量不要破坏线程安全性 (自言自语)_
 
-活跃性
+活跃性 Liveness
 
 - 安全性 : 永远不发生糟糕的事情
     - Safety : nothing bad ever happens
@@ -63,5 +63,29 @@ GUI 程序的运行方式
 ## 基础知识 Fundamentals
 
 ### Thread Safety
+
+Writing thread-safe code is, at its core, about managing access to **state**, and in particular to **shared**, **mutable** state.
+
+- _线程安全的核心 : 对状态 (state) 访问操作进行管理, 特别是对共享的 (Shared) 和可变的 (Mutable) 状态的访问_
+
+Informally, an **object's state** (对象的状态) is its data, stored in state variables such as **instance or static fields**.
+
+- _对象的状态 : 存储在状态变量 (例如 实例或静态域) 中的数据_
+
+By **shared**, we mean that <u>a variable could be accessed by multiple threads</u>; by **mutable**, we mean that <u>its value could change during its lifetime</u>.
+
+- _共享 意味着 变量可以被多个线程同时访问_
+- _可变 意味着 变量的值在其生命周期内可以发生变化_
+
+Making an object **thread-safe** requires using **synchronization** to coordinate access to its mutable state.
+
+- _需要采取同步机制来协同 (coordinate) 这些线程对变量的访问_
+
+Primary Mechanism for Synchronization in Java
+
+- `synchronized` keyword
+- `volatile` variables
+- explicit locks
+- atomic variables
 
 TODO
