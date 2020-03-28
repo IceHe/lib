@@ -5,7 +5,7 @@ References
 - Book "Refactoring Improving the Design of Existing Code"
     - ZH Ver. :《 重构 改善既有代码的设计 》
 
-## Introduction
+## Preface
 
 > "if it works, don't fix it" ?
 
@@ -29,3 +29,28 @@ References
 Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure.
 
 - In essence when you refactor you are improving the design of the code after it has been written.
+
+## Bad Smell in Code
+
+- Deplicated Code 重复代码
+- Long Method
+- Large Class
+- Long Parameter List 过长参数列
+- Deivergent Change 发散式变化 (?)
+- Shotgun Surgery 霰弹式修改
+- Feature Envy 依恋情节 (?!)
+- Data Clumps 数据泥团 (?)
+- Primitive Obsesion 基础类型偏执 (?)
+- Switch Statements (?)
+- Parallel Inheritance Hierarchies 平行继承体系 (?)
+- Lazy Class 冗赘类 (?)
+- Speculative Generality 夸夸其谈未来性 (?!)
+- Temporary Field 令人迷惑的暂时字段 (?)
+- Message Chains 过度耦合的消息链 (?)
+- Middle Man 中间人 (?)
+- Inappropriate Intimacy 狎昵关系 (?)
+- Alternative Classes with Different Interfaces 异曲同工的类 (?!)
+- Incomplete Library Class 不完美的库类 (?)
+- Data Class 纯稚的数据类 (?)
+- Refused Bequest 被拒绝的遗赠 (?)
+- Comments 过多的注释
