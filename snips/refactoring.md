@@ -59,10 +59,10 @@ Refactoring is the process of changing a software system in such a way that it d
 
 ## Composing Methods
 
-重新组织函数
+重新组织方法
 
-- Extract Method 提炼函数
-- Inline Method 内联函数
+- Extract Method 提炼方法
+- Inline Method 内联方法
 - Inline Temp 内联临时变量
 - Replace Temp wtih Query 以查询取代临时变量
 - Introduce Explaining Variable 引入解释性变量
@@ -74,13 +74,13 @@ Refactoring is the process of changing a software system in such a way that it d
 
 在对象之间搬移特性
 
-- Move Method 搬移函数
+- Move Method 搬移方法
 - Move Field 搬移字段
 - Extract Class 提炼类
 - Inline Class 将类内联化
 - Hide Delegate 隐藏 "委托关系" (?)
 - Remove Middle Man 移除中间人 (?!)
-- Introduce Foreign Method 引入外加函数 (?)
+- Introduce Foreign Method 引入外加方法 (?)
 - Introduce Local Extension 引入本地拓展 (?)
 
 ## Organizing Data
@@ -100,3 +100,76 @@ Refactoring is the process of changing a software system in such a way that it d
 - Encapsulate Collection 封装集合 (?)
 - Replace Record with Data Class 以数据类取代记录 (?)
 - Replace Type Code with Class 以类取代类型码
+- Replace Type Code with SubClass 以子类取代类型码
+- Replace Type Code with State/Strategy 以 状态/策略 取代类型码
+- Replace Type Code with Fields 以字段取代类型码
+
+## Simplify Conditional Expressions
+
+简化条件表达式
+
+- Decompose Conditional 分解条件表达式
+- Consolidate Conditional Expression 合并条件表达式
+- Remove Control Flag 移除控制标记 (?)
+- Replace Nested Conditional with Guard Clauses 以卫语句取代嵌套条件表达式 (?)
+- Replace Condtional with Polymorphism 以多台取代条件表达式 (?)
+- Introduce Null Object 引入 Null 对象 (?)
+- Introduce Assertion 引入断言
+
+## Make Method Calls Simpler
+
+简化方法调用
+
+- Rename Method 方法改名
+- Add Parameter 添加参数
+- Remove Parameter 移除参数
+- Separate Query from Modifier 将查询方法和修改方法分离 (?)
+- Parameterize Method 令方法携带参数 (?)
+- Replace Parameter with Explicit Methods 以明确方法取代参数
+- Preserve Whole Object 保持对象完整 (?)
+- Remove Setting Method 移除设值方法 (?)
+- Hide Method 隐藏方法 (?!)
+- Replace Constructor with Factory Method 以工厂方法取代构造方法
+- Encapsulate Downcast 封装向下转型 (?)
+- Replace Error Code with Exception 以异常取代错误码
+- Replace Exception with Test 以测试取代异常 (?)
+
+## Dealing with Generalization
+
+处理概括(泛化?)关系
+
+- Pull Up Field 字段上移
+- Pull Up Method 方法上移
+- Pull Up Constructor Body 构造方法本地上移 (?)
+- Push Down Method 方法下移
+- Push Down Field 字段下移
+- Extact Subclass 提炼子类 (?)
+- Extract Superclass 提炼超类
+- Extract Interface 提炼接口
+- Collapse Hierarchy 折叠继承体系 (?)
+- Form Template Method 塑造模板方法 (?)
+- Replace Inheritance with Delegation 以委托取代继承 (?)
+- Replace Delegation with Inheritance 以继承取代委托 (?)
+
+## Big Refactoring
+
+大型重构
+
+- Tease Apart Inheritance 梳理并分解继承体系 (?)
+- Convert Procedural Design to Objects 将过程化设计转化为对象设计 (?)
+- Separate Domain from Presentation 将领域和表述/显示分离 (?)
+- Extract Hierarchy 提炼继承体系
+
+## Refactoring, Reuse, and Reality
+
+重构, 复用和现实
+
+- 为什么开发者不愿意重构他们的程序
+
+## Refatoring Tools
+
+重构工具
+
+## Putting It All Together
+
+总结
