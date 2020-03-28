@@ -32,6 +32,8 @@ Refactoring is the process of changing a software system in such a way that it d
 
 ## Bad Smell in Code
 
+代码的坏味道
+
 - Deplicated Code 重复代码
 - Long Method
 - Large Class
@@ -54,3 +56,47 @@ Refactoring is the process of changing a software system in such a way that it d
 - Data Class 纯稚的数据类 (?)
 - Refused Bequest 被拒绝的遗赠 (?)
 - Comments 过多的注释
+
+## Composing Methods
+
+重新组织函数
+
+- Extract Method 提炼函数
+- Inline Method 内联函数
+- Inline Temp 内联临时变量
+- Replace Temp wtih Query 以查询取代临时变量
+- Introduce Explaining Variable 引入解释性变量
+- Split Temporary Variable 分解临时变量 (?)
+- Remove Assignments to Parameters 移除对参数的赋值
+- Substitute Algorithm 替换算法 (?)
+
+## Moving Features Between Objects
+
+在对象之间搬移特性
+
+- Move Method 搬移函数
+- Move Field 搬移字段
+- Extract Class 提炼类
+- Inline Class 将类内联化
+- Hide Delegate 隐藏 "委托关系" (?)
+- Remove Middle Man 移除中间人 (?!)
+- Introduce Foreign Method 引入外加函数 (?)
+- Introduce Local Extension 引入本地拓展 (?)
+
+## Organizing Data
+
+重新组织数据
+
+- Self Encapsulate Field 自封装字段
+- Replace Data Value with Object 以对象取代数据值
+- Change Value to Reference 将值对象改为引用对象 (?)
+- Change Reference to Value 将引用对象改为值对象 (?)
+- Replace Array with Object 已对象取代数组
+- Duplicate Observed Data 复制 "被监视数据" (?)
+- Change Unidirectional Association to Bidirectional 将单向关联改为双向关联 (?)
+- Change Bidirectional Association to Unidirectional 将双向关联改为单向关联 (?)
+- Replace Magic Number with Symbolic Constant 以字面常量取代魔法数
+- Encapsulate Field 封装字段 (?)
+- Encapsulate Collection 封装集合 (?)
+- Replace Record with Data Class 以数据类取代记录 (?)
+- Replace Type Code with Class 以类取代类型码
