@@ -1,4 +1,4 @@
-# Refactor
+# Refactoring
 
 References
 
@@ -21,3 +21,5 @@ References
 - "不改变软件行为" 只是重构的最基本要求
 - 如何发挥重构的威力 : 必须做到 "不需要了解软件行为"
     - _如果一段代码能让你容易了解其行为, 证明它还不是那么迫切需要被重构_
+
+"if it works, don't fix it" ?
