@@ -30,6 +30,12 @@ Refactoring is the process of changing a software system in such a way that it d
 
 - In essence when you refactor you are improving the design of the code after it has been written.
 
+---
+
+It is essential for refactoring that you have good tests.
+
+- I'm going to be relying on the tests to tell me whether I introduce a bug.
+
 ## Bad Smell in Code
 
 代码的坏味道

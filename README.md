@@ -50,6 +50,7 @@ Storage - Usage
 - [MemcacheQ](/snips/storage/mcq.md)
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
+    - The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
 - [_Mongo_](/snips/storage/mongo.md) ( draft )
 
 Storage - Basic
@@ -294,9 +295,9 @@ Others
 
 Mine : [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
 
-- [lib](https://github.com/IceHe/lib) : library | wiki ( this website )
+- **[lib](https://github.com/IceHe/lib) : library | wiki ( this website )**
 - [blog](https://github.com/IceHe/blog) : prev tech blog ( archived )
-- [mac-conf](https://github.com/IceHe/mac-conf) : macOS config files ( @ home dir )
+- **[mac-conf](https://github.com/IceHe/mac-conf) : macOS config files ( @ home dir )**
 - [linux-conf](https://github.com/IceHe/linux-conf) : Linux config files ( @ home dir )
 - [applescript](https://github.com/IceHe/applescript) : to manipulate macOS
 - [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset) : ruleset for PHPCS 3.1.0
@@ -307,8 +308,7 @@ Recommendation
 
 - [Art of Command Line](https://github.com/jlevy/the-art-of-command-line) : Master the command line, in one page.
 - [Redis](https://github.com/antirez/redis) : An in-memory database that persists on disk.
-- [docsify](https://github.com/docsifyjs/docsify) : 🃏 A magical documentation site generator.
-    - The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
+- [docsify](https://github.com/docsifyjs/docsify) : A magical documentation site generator.
 
 ## Life
 
@@ -338,7 +338,7 @@ Recommendation
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
 - [What Why How](/snips/principles/what-why-how.md)
-- [How to Ask](/snips/principles/how-to-ask.md) JFGI & RTFM
+- [How to Ask](/snips/principles/how-to-ask.md)
     - JFGI : Just Fucking Google It
     - RTFM : Read The Fucking Manual
 - [SMART](/snips/principles/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
@@ -350,7 +350,7 @@ Newly
 
 - [PDCA](/snips/principles/pdca.md) : Plan → Do → Check → Act ( Adjust )
 - [AIDA](/snips/principles/aida.md) : Attention → Interest → Desire → Action
-- _FERI : Fact → Emotion ( Feel ) → Reflect → Improve ( Temporary Solution )_
+- _FERI : Fact → Emotion ( Feel ) → Reflect → Improve_
 
 ### Digest
 
@@ -380,6 +380,7 @@ Newly
     - It's the hardest part when memories remain.
 - [Anti-Fragile](/read/anti-fragile.md)
     / [_book_](https://item.jd.com/11364406.html)
+    - 一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的“统计置信度与日俱增”。
 - [VicodinXYZ's Life Beliefs](/read/life-beliefs.md)
 
 ### Past
