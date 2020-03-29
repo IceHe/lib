@@ -125,12 +125,37 @@ Refactoring and Performance
 end up with 90 percent of the optimizations wasted…
     - 大多数程序把大半时间耗费在一小半代码身上. 如果你一视同仁地优化所有代码, 90% 的优化工作都是白费劲的.
 
-## Bad Smell in Code
+## Bad Smells in Code
 
-代码的坏味道
+> 代码的坏味道
 
-- Deplicated Code 重复代码
-- Long Method
+Deplicated Code 重复代码
+
+- 个人见解 : 如果一个代码片段 比较短促 / 原子性比较强 ( 例如由数个库方法组合而成 ) / 还不难理解
+    - 那么保持原状
+        - 没必要勉为其难、强行使用不合适的 "锤子" ( extract / pull up ) 来复用这些代码片段
+    - 如果强行复用代码片段, 可能膨胀比率很高
+        - 本来就没几行代码, 结果又 pull up new class / extract new method, 基本的结构语法又花了好几行代码 …
+    - 如果复用场景实际没那么多, 而且复用性也没那么明显的话
+        - 其他开发人员很可能没能发现到你封装好的方法, 导致他们又重新自己写了一遍 …
+
+Long Method 过长的方法
+
+- Programmers new to objects often feel that no computation ever takes place, that object programs are endless sequences of delegation.
+    - 不熟悉面向对象技术的人, 常常觉得面向对象程序中只有无穷无尽的委托, 根本没有进行任何计划
+- All of the payoffs of indirection -- explanation, sharing, and choosing—are supported by little methods
+    - … "间接层" 所能带来的全部利益 -- 解释能力、共享能力、选择能力 …
+- Modern OO languages have pretty much eliminated that overhead for in-process calls.
+    - 现代面向对象语言几乎已经完全免除了进程内的方法调用开销.
+- A heuristic we follow is that whenever we feel the need to comment something, we write a method instead.
+    - **每当感觉需要以注释来说明点什么的时候, 我们就把需要说明的东西写进一个独立函数中, 并以其用途 (而非实现手法) 命名.**
+- We do this even if the method call is longer than the code it replaces, provided the method name explains the purpose of the code
+    - 哪怕替换后的方法调用动作比方法自身还长, 只要方法名称能够解释其用途, 我们也该毫不犹豫地这么做.
+- The key here is not method length but the semantic distance between what the method does and how it does it.
+    - 关键不在于方法的长度, 而在于方法 "做什么" 和 "如何做" 之间的语义距离.
+
+---
+
 - Large Class
 - Long Parameter List 过长参数列
 - Deivergent Change 发散式变化 (?)
