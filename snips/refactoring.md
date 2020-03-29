@@ -109,6 +109,21 @@ Problems with Refactoring
     - Object Model 和 DB Model 之间插入一个 separate layer 隔离两个模型各自的变化
     - 数据迁移 : 先运用访问方法, 造成 "数据已经转移" 的假象
 - Changing Interfaces
+    - "Don't publish interfaces prematurely. Modify your code ownership policies to smooth refactoring."
+        - 不要过早发布接口. 请修改你的代码所有权政策, 使重构更顺畅.
+
+Refactoring and Design
+
+- You build the simplest thing that can possibly work. As for the flexible, complex design, most of the time you aren't going to need it.
+    - 当下只管建造可运行的最简化系统, 至于灵活而复杂的设计, 唔, 多数时候你都不会需要它.
+- The lesson is: Even if you know exactly what is going on in your system, measure performance, don't speculate. You'll learn something, and nine times out of ten, it won't be that you were right!
+    - 教训 : 哪怕你完全了解系统, 也请实际度量它的性能, 不要臆测. 臆测会让你学到一些东西, 但十有八九你是错的.
+
+Refactoring and Performance
+
+- The interesting thing about performance is that if you analyze most programs, you find that they waste most of their time in a small fraction of the code. If you optimize all the code equally, you
+end up with 90 percent of the optimizations wasted…
+    - 大多数程序把大半时间耗费在一小半代码身上. 如果你一视同仁地优化所有代码, 90% 的优化工作都是白费劲的.
 
 ## Bad Smell in Code
 
