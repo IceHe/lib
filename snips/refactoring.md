@@ -50,6 +50,9 @@ It is essential for refactoring that you have good tests.
 - Data Clumps 数据泥团 (?)
 - Primitive Obsesion 基础类型偏执 (?)
 - Switch Statements (?)
+    - 最好不要在另一个对象的字段基础上运用 switch 语句
+        - 如果不得不使用, 也应该在对象自己的数据上使用
+        - _即是应该将该 swtich 语句相关逻辑尽可能挪到操作数据的对象上_
 - Parallel Inheritance Hierarchies 平行继承体系 (?)
 - Lazy Class 冗赘类 (?)
 - Speculative Generality 夸夸其谈未来性 (?!)
@@ -93,7 +96,7 @@ It is essential for refactoring that you have good tests.
 
 重新组织数据
 
-- Self Encapsulate Field 自封装字段
+- Self Encapsulate Field 自封装字段 (?)
 - Replace Data Value with Object 以对象取代数据值
 - Change Value to Reference 将值对象改为引用对象 (?)
 - Change Reference to Value 将引用对象改为值对象 (?)
@@ -108,6 +111,7 @@ It is essential for refactoring that you have good tests.
 - Replace Type Code with Class 以类取代类型码
 - Replace Type Code with SubClass 以子类取代类型码
 - Replace Type Code with State/Strategy 以 状态/策略 取代类型码
+    - _是 State 还是 Strategy? 设计时, 对于模式(与其名称)的选择, 取决于你结构的看法_
 - Replace Type Code with Fields 以字段取代类型码
 
 ## Simplify Conditional Expressions
