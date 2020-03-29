@@ -13,7 +13,7 @@ References
 
 - 保持代码易读、易修改的关键 -- 重构
 
-现象
+错误的想法?
 
 - _只要掌握重构的思想就够了, 没必要记住那些详细琐碎的重构手法_
 - _高擎 "重构" 大旗, 刀劈斧砍进行着令人触目惊心的大胆修改 -- 有些干脆就是在重做整个系统_
@@ -35,6 +35,80 @@ Refactoring is the process of changing a software system in such a way that it d
 It is essential for refactoring that you have good tests.
 
 - I'm going to be relying on the tests to tell me whether I introduce a bug.
+
+## Principles in Refactoring
+
+What is Refactoring?
+
+- A change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its observable behavior.
+- 对软件内部结构的一种调整, 目的是在不改变软件可观察行为的前提下, 提高其可理解性, 降低其修改成本
+
+The Two Hats
+
+- Adding function
+    - When you add function, you shouldn't be changing existing code; you are just adding new capabilities.
+    - You can measure your progress by adding tests and getting the tests to work.
+- Refactoring
+    - When you refactor, you make a point of not adding function; you only restructure the code.
+    - You don't add any tests (unless you find a case you missed earlier); you only restructure the code.
+- _You don't add any tests (unless you find a case you missed earlier); you only change tests when you absolutely need to in order to cope with a change in an interface._
+
+Why Should You Refactor?
+
+- **Improves Design** of Software
+    - As people change code -- changes to realize short-term goals or changes made without a full comprehension of the design of the code -- the code loses its structure.
+    - _It becomes harder to see the design by reading the code._
+    - _The harder it is to see the design in the code, the harder it is to preserve it…_
+    - Poorly designed code usually takes more code to do the same things, often because the code quite literally does the same thing in several places.
+    - Thus an important aspect of improving design is to **eliminate duplicate code**.
+    - By eliminating the duplicates, you ensure that the code says **everything once and only once**, which is the essence of good design.
+- Makes Software **Easier to Understand**
+    - _A little time spent refactoring can make the code better communicate its purpose._
+    - Programming in this mode is all about **saying exactly what you mean**. ( 准确说出我所要的 )
+    - _I use refactoring to help me understand unfamiliar code._
+- Helps You **Find Bugs**
+- Helps You **Program Faster**
+    - A good design is essential for rapid software development.
+    - _Without a good design, you can progress quickly for a while, but soon the poor design starts to slow you down._
+    - _You spend time finding and fixing bugs instead of adding new function._
+    - _Changes take longer as you try to understand the system and find the duplicate code._
+    - _New features need more coding as you patch over a patch that patches a patch on the original code base._
+
+When Should You Refactor?
+
+- **The Rule of Three**
+    - "**Three strikes and you refactor.**"
+- When You Add Function
+    - _Once I've refactored, adding the feature can go much more quickly and smoothly._
+- When You Need to Fix a Bug
+- As You Do a Code Review
+
+Why Refactoring Works?
+
+- Programs have two kinds of value:
+    - what they can do for you today
+    - and what they can do for you tomorrow.
+- Notice
+    - If you can get today's work done today, but you do it in such a way that you can't possibly get tomorrow's work done tomorrow, then you lose.
+
+Indirection ( 间接层 ) and Refactoring
+
+> Computer Science is the discipline that believes all problems can be solved with one more layer of indirection.
+> —— Dennis DeBruler
+>
+> "计算机科学是这样一门科学: 它相信所有问题都可以通过增加一个间接层来解决. "
+
+- To enable sharing of logic.
+- To **explain intention ( 意图 ) and implementation ( 实现 ) separately.**
+- To **isolate change ( 隔离变化 ) .**
+- To **encode conditional logic ( 封装条件逻辑 ) .**
+
+Problems with Refactoring
+
+- Database
+    - Object Model 和 DB Model 之间插入一个 separate layer 隔离两个模型各自的变化
+    - 数据迁移 : 先运用访问方法, 造成 "数据已经转移" 的假象
+- Changing Interfaces
 
 ## Bad Smell in Code
 
