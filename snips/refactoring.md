@@ -215,19 +215,57 @@ Feature Envy 依恋情结
 - 一个方法往往会用到几个类的功能, 那么它究竟该被置于何处?
     - 原则 : 判断哪个类拥有最多被此方法使用的数据
 
+Data Clumps 数据泥团
+
+- 例如, 两个类中相同的字段 / 许多方法签名中相同的参数
+    - Extract Class 将这些数据提炼到独立对象中
+- 优点
+    - 可以减少字段和参数的个数 : _简化 / 封装_
+    - 便于着手解决 Feature Envy : 将相关操作挪到合适的独立类对象中
+
+Primitive Obsesion 基础类型偏执
+
+- _对象技术的新手通常不愿意在小任务上运用小对象_
+
+Switch Statements
+
+- 面向对象 : 少用 switch 语句
+    - 问题在于 "重复"
+- 最好不要在另一个对象的字段基础上运用 switch 语句
+    - 如果不得不使用, 也应该在对象自己的数据上使用
+    - _即是应该将该 swtich 语句相关逻辑尽可能挪到操作数据的对象上_
+
+Parallel Inheritance Hierarchies 平行继承体系
+
+- 其实是 Shotgun Surgery 的特殊情况
+    - 每当你为某个类增加一个子类, 必须为另一个类相应增加一个子类
+    - _某个继承体系的类名称前缀, 跟另一个继承体系的类名称前缀完全相同, 那便是 "平行继承体系"_
+
+Lazy Class 冗赘类
+
+- 略
+
+Speculative Generality 夸夸其谈未来性
+
+- 有人说 : "我想我们总有一天需要做这事."
+    - _并企图以各式各样的钩子和特殊情况来处理一些非必要的事情_
+    - 造成系统更难理解和维护
+    - _如果所有装置都会被用到, 那么就值得; 如果用不到, 就删掉_
+
+Temporary Field 令人迷惑的暂时字段
+
+- 某个实例变量仅为某种特定情况而设
+    - 这样的代码让人不易理解, 因为你通常认为对象在所有时候都需要它的所有变量
+- 可用 Extract Class 手法, 给这样的变量及其相关代码创造合适的居所
+- 可用 Introduce Null Object 手法, 避免写出条件式代码 (?)
+
+Message Chains 过度耦合的消息链
+
+- 如果
+- _详见原文_
+
 ---
 
-- Data Clumps 数据泥团 (?)
-- Primitive Obsesion 基础类型偏执 (?)
-- Switch Statements (?)
-    - 最好不要在另一个对象的字段基础上运用 switch 语句
-        - 如果不得不使用, 也应该在对象自己的数据上使用
-        - _即是应该将该 swtich 语句相关逻辑尽可能挪到操作数据的对象上_
-- Parallel Inheritance Hierarchies 平行继承体系 (?)
-- Lazy Class 冗赘类 (?)
-- Speculative Generality 夸夸其谈未来性 (?!)
-- Temporary Field 令人迷惑的暂时字段 (?)
-- Message Chains 过度耦合的消息链 (?)
 - Middle Man 中间人 (?)
 - Inappropriate Intimacy 狎昵关系 (?)
 - Alternative Classes with Different Interfaces 异曲同工的类 (?!)
