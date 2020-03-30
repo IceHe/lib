@@ -129,6 +129,32 @@ end up with 90 percent of the optimizations wasted…
 
 > 代码的坏味道
 
+Index
+
+- Deplicated Code 重复代码
+- Long Method 过长的方法
+- Large Class 过大的类
+- Long Parameter List 过长参数列
+- Divergent Change 发散式变化
+- Shotgun Surgery 霰弹式修改
+- Feature Envy 依恋情结
+- Data Clumps 数据泥团
+- Primitive Obsesion 基础类型偏执
+- Switch Statements
+- Parallel Inheritance Hierarchies 平行继承体系
+- Lazy Class 冗赘类
+- Speculative Generality 夸夸其谈未来性
+- Temporary Field 令人迷惑的暂时字段
+- Message Chains 过度耦合的消息链
+- Middle Man 中间人
+- Inappropriate Intimacy 狎昵关系
+- Alternative Classes with Different Interfaces 异曲同工的类
+- Incomplete Library Class 不完美的库类
+- Data Class 纯稚的数据类
+- Refused Bequest 被拒绝的遗赠
+- Comments 过多的注释
+
+
 Deplicated Code 重复代码
 
 - 个人见解 : 如果一个代码片段 比较短促 / 原子性比较强 ( 例如由数个库方法组合而成 ) / 还不难理解
@@ -154,13 +180,43 @@ Long Method 过长的方法
 - The key here is not method length but the semantic distance between what the method does and how it does it.
     - 关键不在于方法的长度, 而在于方法 "做什么" 和 "如何做" 之间的语义距离.
 
+Large Class 过大的类
+
+- 略
+
+Long Parameter List 过长参数列
+
+- 面向对象 : 方法需要的东西多半应该放在方法的宿主类中, 以缩减参数列
+- Replace Parameter with Method : 向已有的对象发出一条请求取代一个参数
+
+Divergent Change 发散式变化
+
+- 使用 Extract Class 手法
+    - Any change to handle a variation should change a single class, and all the typing in the new class should express the variation.
+    - 针对某一外界变化的所有相应修改, 都只应该发生在单一类中, 而这个新类内的所有内容都应该反应此变化.
+
+Shotgun Surgery 霰弹式修改
+
+- _Shotgun Surgery 类似 Divergent Change_
+    - Divergent Change : one class that suffers many kinds of changes
+        - 一个类受多种变化的影响
+    - Shotgun Surgery :  one change that alters many classes
+        - 一种变化引发多个类的相应修改
+    - Either way you want to arrange things so that, ideally, there is **a one-to-one link between common changes and classes.
+        - 两种情况下, _都希望整理代码,_ 使 "外界变化" 与 "需要修改的类" 趋于一一对应.
+
+Feature Envy 依恋情结
+
+- The whole point of objects is that they are a technique to **package data with the processes used on that data**.
+    - 要点 : 将数据和对数据的操作行为包装在一起
+- A classic smell is a method that seems more interested in a class other than the one it actually is in.
+    - … 方法对某个类的兴趣高过对自己所处类的兴趣.
+        - _从另一个对象那调用过多不同的取值方法, 那么是不是该将这个方法直接移至该对象类?_
+- 一个方法往往会用到几个类的功能, 那么它究竟该被置于何处?
+    - 原则 : 判断哪个类拥有最多被此方法使用的数据
+
 ---
 
-- Large Class
-- Long Parameter List 过长参数列
-- Deivergent Change 发散式变化 (?)
-- Shotgun Surgery 霰弹式修改
-- Feature Envy 依恋情节 (?!)
 - Data Clumps 数据泥团 (?)
 - Primitive Obsesion 基础类型偏执 (?)
 - Switch Statements (?)
