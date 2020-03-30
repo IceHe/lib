@@ -154,6 +154,7 @@ Index
 - Refused Bequest 被拒绝的遗赠
 - Comments 过多的注释
 
+---
 
 Deplicated Code 重复代码
 
@@ -168,7 +169,7 @@ Deplicated Code 重复代码
 Long Method 过长的方法
 
 - Programmers new to objects often feel that no computation ever takes place, that object programs are endless sequences of delegation.
-    - 不熟悉面向对象技术的人, 常常觉得面向对象程序中只有无穷无尽的委托, 根本没有进行任何计划
+    - 不熟悉面向对象技术的人, 常常觉得面向对象程序中只有无穷无尽的委托, 根本没有进行任何运算
 - All of the payoffs of indirection -- explanation, sharing, and choosing—are supported by little methods
     - … "间接层" 所能带来的全部利益 -- 解释能力、共享能力、选择能力 …
 - Modern OO languages have pretty much eliminated that overhead for in-process calls.
@@ -187,7 +188,8 @@ Large Class 过大的类
 Long Parameter List 过长参数列
 
 - 面向对象 : 方法需要的东西多半应该放在方法的宿主类中, 以缩减参数列
-- Replace Parameter with Method : 向已有的对象发出一条请求取代一个参数
+- 使用 Replace Parameter with Method 手法
+    - 向已有的对象发出一条请求取代一个参数
 
 Divergent Change 发散式变化
 
@@ -261,18 +263,66 @@ Temporary Field 令人迷惑的暂时字段
 
 Message Chains 过度耦合的消息链
 
-- 如果
+- You see **message chains** when a client asks one object for another object, which the client then asks for yet another object, which the client then asks for yet another another object, and so on.
+    - 消息链 : 如果你看到用户向一个对象请求另一个对象, 然后再向后者请求另一个对象, 然后再请求另一个对象…
+- 可以使用 Hide Delegate 手法
+    - 把一系列对象 (intermediate object) 都变成 Middle Man
+- 可以使用 Extract Method 手法
+    - 先观察消息链最终得到的对象时用来干什么的, 然后决定是否把该对象的代码提炼到一个独立的方法上…
 - _详见原文_
 
----
+Middle Man 中间人
 
-- Middle Man 中间人 (?)
-- Inappropriate Intimacy 狎昵关系 (?)
-- Alternative Classes with Different Interfaces 异曲同工的类 (?!)
-- Incomplete Library Class 不完美的库类 (?)
-- Data Class 纯稚的数据类 (?)
-- Refused Bequest 被拒绝的遗赠 (?)
-- Comments 过多的注释
+- Encapsulation often comes with delegation.
+    - 封装往往伴随着委托
+- 可能过度运用委托, 例如某个类接口有一半的函数都委托给其他类
+- 可以使用 Remove Middle Man 手法 : 减少不干实事的类和方法
+
+Inappropriate Intimacy 狎昵关系
+
+- Sometimes classes become far too intimate and spend too much time delving in each others'private parts.
+    - 有时看到两个类太过亲密, 花费太多时间去探究彼此的 private 成分
+- 可以使用的手法
+    - Move Method & Move Field : _尽可能减少(过于亲密/紧密的)相互访问和调用_
+    - Change Bidirectional Association to Unidirectional : _让其中一个类对另一个类 "斩断情丝"_
+    - Extract Class : _将两者共同点提取出来_
+    - Hide Delegate : _让另一个类来代理访问 (?暂时想不到场景)_
+    - Replace Inheritance with Delegation : _如果子类过于依赖超类的话…  (?暂时想不到场景)_
+
+Alternative Classes with Different Interfaces 异曲同工的类
+
+- 如果两个方法做同一件事…
+
+Incomplete Library Class 不完美的库类
+
+- 库的设计和实现难以一步到位, 完全符合使用者的需求
+- 可以使用的改善手法
+    - Introduce Foreign Method _(?暂时还不懂含义)_
+    - Introduce Local Extension _(?暂时还不懂含义)_
+
+Data Class 纯稚的数据类
+
+- These are classes that have fields, getting and setting methods for the fields, and nothing else.
+
+Refused Bequest 被拒绝的遗赠
+
+- 子类继承超类的方法和字段, 实际上该子类只需要其中的一些 (而不是全部)
+    - 意味着, 继承体系设计的失误 ( The hierarchy is wrong. )
+- 可以使用的手法
+    - Push Down Medtho
+    - Push Down Field
+- 当然不必处处都这样做, 如果 bad smell 很淡, 那就没必要理睬
+    - 如果子类复用了超类的行为 (实现), 却又不愿意支持超类的接口, 那就必须得审视了
+
+Comments 过多的注释
+
+- _如果单纯只是把注释当做 "除臭剂" 使用, 那就很糟糕_
+    - _如果重构之后, 代码已经能自解释了, 注释自然会显得多余_
+- 注释 应多用于说明 "为什么做某事" 而非 "做了什么 / 怎么做"
+
+> When you feel the need to write a comment, first try to refactor the code so that any comment becomes superfluous
+>
+> 当你感觉需要撰写注释时, 请先尝试重构, 试着让所有注释都变得多余
 
 ## Composing Methods
 
