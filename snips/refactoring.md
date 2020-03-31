@@ -341,6 +341,18 @@ There's always a risk that I'll miss something, but it is better to **spend a re
 
 _A difference between test code and production code is that it is okay to copy and edit test code._
 
+## Toward a Catalog of Refactorings
+
+重构列表
+
+As I describe the refactorings in this and other chapters, I use a standard format. Each refactoring has five parts, as follows:
+
+- 名称 : I begin with a **name**. The name is important to building a vocabulary of refactorings.
+- 简短概要 : I follow the name with a short **summary** of the situation in which you need the refactoring and a summary of what the refactoring does.
+- 动机 : The **motivation** describes why the refactoring should be done and describes circumstances in which it shouldn't be done.
+- 做法 : The **mechanics** are a concise, step-by-step description of how to carry out the refactoring.
+- 范例 : The **examples** show a very simple use of the refactoring to illustrate how it works.
+
 ## Composing Methods
 
 重新组织方法
