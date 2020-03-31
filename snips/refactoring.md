@@ -30,8 +30,6 @@ Refactoring is the process of changing a software system in such a way that it d
 
 - In essence when you refactor you are improving the design of the code after it has been written.
 
----
-
 It is essential for refactoring that you have good tests.
 
 - I'm going to be relying on the tests to tell me whether I introduce a bug.
@@ -324,7 +322,7 @@ Comments 过多的注释
 >
 > 当你感觉需要撰写注释时, 请先尝试重构, 试着让所有注释都变得多余
 
-## Building Tests
+## _*Building Tests_
 
 Tips
 
@@ -341,7 +339,7 @@ There's always a risk that I'll miss something, but it is better to **spend a re
 
 _A difference between test code and production code is that it is okay to copy and edit test code._
 
-## Toward a Catalog of Refactorings
+## _*Toward a Catalog of Refactorings_
 
 重构列表
 
