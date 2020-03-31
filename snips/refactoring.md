@@ -324,6 +324,18 @@ Comments 过多的注释
 >
 > 当你感觉需要撰写注释时, 请先尝试重构, 试着让所有注释都变得多余
 
+## Building Tests
+
+Tips
+
+- Make sure all tests are **fully automatic** and that they check their own results.
+- _A suite of tests is a powerful bug detector that decapitates the time it takes to find bugs._
+- Run your tests **frequently**. Localize tests whenever you compile -- every test at least every day.
+- When you get a bug report, start by writing a unit test that **exposes the bug**.
+- <u>**It is better to write and run incomplete tests than not to run complete tests.**</u>
+- Think of the **boundary conditions** under which things might go wrong and concentrate your tests there.
+- Don't forget to **test that exceptions** are raised when things are expected to go wrong.
+
 ## Composing Methods
 
 重新组织方法
