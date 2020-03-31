@@ -335,6 +335,11 @@ Tips
 - <u>**It is better to write and run incomplete tests than not to run complete tests.**</u>
 - Think of the **boundary conditions** under which things might go wrong and concentrate your tests there.
 - Don't forget to **test that exceptions** are raised when things are expected to go wrong.
+- **Don't let the fear that testing can't catch all bugs stop you from writing the tests that will catch most bugs.**
+
+There's always a risk that I'll miss something, but it is better to **spend a reasonable time to catch most bugs** than to spend ages trying to catch them all.
+
+_A difference between test code and production code is that it is okay to copy and edit test code._
 
 ## Composing Methods
 
