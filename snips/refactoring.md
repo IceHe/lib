@@ -366,9 +366,17 @@ As I describe the refactorings in this and other chapters, I use a standard form
     - 临时变量只在所属方法中可见, 所以它们会驱使你写出更长的方法
         - _因为只有这样做才能访问到所需的临时变量_
 - Introduce Explaining Variable 引入解释性变量
-    - _通常难以使用 Extract Method 时, 才退而求其次用这个手法_
-- Split Temporary Variable 分解临时变量 (?)
+    - 适用的场景下, 尽量使用 Extract Method
+        - 只有难以使用 Extract Method 时, 才退而求其次用 Introduce Eplaining Variable
+- Split Temporary Variable 分解临时变量
+    - 当某个临时变量被赋值超过一次, 它既不是循环变量, 也不用于收集计算结果
+    - 针对每次赋值, 创造一个独立、对应的临时变量
 - Remove Assignments to Parameters 移除对参数的赋值
+    - 只以参数表示 "被传递进来的东西", 代码会清晰得多
+        - 因为这种用法在所有语言中都表现出相同语义
+- Replace Method with Method Ojbect 以方法对象取代方法
+    - 会将所有局部变量都变成方法对象的字段 (以 Constructor 构造方法方式传入)
+    - 然后就可以对这个新对象使用 Extract Method 创造出新方法, 从而将原本的大型函数拆解变短
 - Substitute Algorithm 替换算法 (?)
 
 ## Moving Features Between Objects
