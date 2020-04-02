@@ -357,9 +357,16 @@ As I describe the refactorings in this and other chapters, I use a standard form
 
 - Extract Method 提炼方法
 - Inline Method 内联方法
+    - 太多的间接层, 以及简单的委托, 需要简化
+    - _内联成一个大方法, 以便重新组织合理的小方法_
+    - _移动一个方法比移动多个方法方便_
 - Inline Temp 内联临时变量
+    - 当临时变量妨碍了其它重构手法, 例如 Extract Method 时, 应该内联化
 - Replace Temp wtih Query 以查询取代临时变量
+    - 临时变量只在所属方法中可见, 所以它们会驱使你写出更长的方法
+        - _因为只有这样做才能访问到所需的临时变量_
 - Introduce Explaining Variable 引入解释性变量
+    - _通常难以使用 Extract Method 时, 才退而求其次用这个手法_
 - Split Temporary Variable 分解临时变量 (?)
 - Remove Assignments to Parameters 移除对参数的赋值
 - Substitute Algorithm 替换算法 (?)
