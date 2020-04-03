@@ -398,10 +398,16 @@ As I describe the refactorings in this and other chapters, I use a standard form
     - 适用情况 : 客户需要通过一个委托类来调用另一个类
     - 做法 : 在服务类上建立客户所需的所有方法, 用以隐藏委托关系
     - 优点 : 即便将来发生委托关系上的变化, 变化也将被限制在服务对象中, 不会波及客户
-- Remove Middle Man 移除中间人 (?!)
-    - Hide Delegate 的反向操作?
-- Introduce Foreign Method 引入外加方法 (?)
-- Introduce Local Extension 引入本地拓展 (?)
+- Remove Middle Man 移除中间人
+    - _Hide Delegate 的反向操作_
+    - 适用情况 : 一个类做了过多的简单委托动作
+- Introduce Foreign Method 引入外加方法
+    - 适用情况 : 需要为提供服务的类增加一个方法, 但你无法修改这个类 _( 例如 Date )_
+    - _做法 : 建立一个方法, 传入该类的对象, 并在新方法内对其执行你所需要的额外处理_
+- Introduce Local Extension 引入本地拓展
+    - 适用情况 : 需要为提供服务的类增加多个方法, 但你无法修改这个类 _( 例如 Date )_
+    - 做法 : 建立一个新类, 使它包含这些额外方法
+        - 让这个拓展品成为源类的子类或包装类
 
 ## Organizing Data
 
