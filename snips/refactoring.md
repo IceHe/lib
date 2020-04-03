@@ -356,6 +356,7 @@ As I describe the refactorings in this and other chapters, I use a standard form
 重新组织方法
 
 - Extract Method 提炼方法
+    - 略
 - Inline Method 内联方法
     - 太多的间接层, 以及简单的委托, 需要简化
     - _内联成一个大方法, 以便重新组织合理的小方法_
@@ -377,15 +378,20 @@ As I describe the refactorings in this and other chapters, I use a standard form
 - Replace Method with Method Ojbect 以方法对象取代方法
     - 会将所有局部变量都变成方法对象的字段 (以 Constructor 构造方法方式传入)
     - 然后就可以对这个新对象使用 Extract Method 创造出新方法, 从而将原本的大型函数拆解变短
-- Substitute Algorithm 替换算法 (?)
+- Substitute Algorithm 替换算法
+    - 略
 
 ## Moving Features Between Objects
 
 在对象之间搬移特性
 
 - Move Method 搬移方法
+    - 适用情况 : 一个方法与其所驻类之外的另一个类进行更多交流, 调用后者, 或者被后者调用
 - Move Field 搬移字段
+    - 适用情况 : 一个字段被其所驻类之外的另一个类更多地用到
 - Extract Class 提炼类
+    - 适用情况 : 一个类做了应该由两个类做得事情
+        - 例如 一个类其中有两个字段, 它们其实应该单独抽象存放到一个新的类, 这样内聚性会更好
 - Inline Class 将类内联化
 - Hide Delegate 隐藏 "委托关系" (?)
 - Remove Middle Man 移除中间人 (?!)
