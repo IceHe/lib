@@ -393,8 +393,13 @@ As I describe the refactorings in this and other chapters, I use a standard form
     - 适用情况 : 一个类做了应该由两个类做得事情
         - 例如 一个类其中有两个字段, 它们其实应该单独抽象存放到一个新的类, 这样内聚性会更好
 - Inline Class 将类内联化
-- Hide Delegate 隐藏 "委托关系" (?)
+    - 略
+- Hide Delegate 隐藏 "委托关系"
+    - 适用情况 : 客户需要通过一个委托类来调用另一个类
+    - 做法 : 在服务类上建立客户所需的所有方法, 用以隐藏委托关系
+    - 优点 : 即便将来发生委托关系上的变化, 变化也将被限制在服务对象中, 不会波及客户
 - Remove Middle Man 移除中间人 (?!)
+    - Hide Delegate 的反向操作?
 - Introduce Foreign Method 引入外加方法 (?)
 - Introduce Local Extension 引入本地拓展 (?)
 
