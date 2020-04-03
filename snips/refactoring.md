@@ -358,20 +358,24 @@ As I describe the refactorings in this and other chapters, I use a standard form
 - Extract Method 提炼方法
     - 略
 - Inline Method 内联方法
-    - 太多的间接层, 以及简单的委托, 需要简化
+    - _I commonly use Inline Method when someone is using too much indirection and it seems that every method does simple delegation to another method, and I get lost in all the delegation._
+        - 太多的间接层, 以及简单的委托, 需要简化…
     - _内联成一个大方法, 以便重新组织合理的小方法_
     - _移动一个方法比移动多个方法方便_
 - Inline Temp 内联临时变量
-    - 当临时变量妨碍了其它重构手法, 例如 Extract Method 时, 应该内联化
+    - _If the temp is getting in the way of other refactorings, such as Extract Method, it's time to inline it._
+        - 当临时变量妨碍了其它重构手法, 例如 Extract Method 时, 应该内联化
+    - _Motivation : A method's body is just as clear as its name._
+    - _Mechanics : Put the method's body into the body of its callers and remove the method._
 - Replace Temp wtih Query 以查询取代临时变量
-    - 临时变量只在所属方法中可见, 所以它们会驱使你写出更长的方法
-        - _因为只有这样做才能访问到所需的临时变量_
+    - _Because they can be seen only in the context of the method in which they are used, temps tend to encourage longer methods, because that's the only way you can reach the temp._
+        - 临时变量只在所属方法中可见, 所以它们会驱使你写出更长的方法, _因为只有这样做才能访问到所需的临时变量_
 - Introduce Explaining Variable 引入解释性变量
     - 适用的场景下, 尽量使用 Extract Method
         - 只有难以使用 Extract Method 时, 才退而求其次用 Introduce Eplaining Variable
 - Split Temporary Variable 分解临时变量
-    - 当某个临时变量被赋值超过一次, 它既不是循环变量, 也不用于收集计算结果
-    - 针对每次赋值, 创造一个独立、对应的临时变量
+    - 适用情况 : 当某个临时变量被赋值超过一次, 它既不是循环变量, 也不用于收集计算结果
+    - 做法 : 针对每次赋值, 创造一个独立、对应的临时变量
 - Remove Assignments to Parameters 移除对参数的赋值
     - 只以参数表示 "被传递进来的东西", 代码会清晰得多
         - 因为这种用法在所有语言中都表现出相同语义
