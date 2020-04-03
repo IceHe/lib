@@ -377,8 +377,8 @@ As I describe the refactorings in this and other chapters, I use a standard form
     - 适用情况 : 当某个临时变量被赋值超过一次, 它既不是循环变量, 也不用于收集计算结果
     - 做法 : 针对每次赋值, 创造一个独立、对应的临时变量
 - Remove Assignments to Parameters 移除对参数的赋值
-    - 只以参数表示 "被传递进来的东西", 代码会清晰得多
-        - 因为这种用法在所有语言中都表现出相同语义
+    - _It is much clearer if you use only the parameter to represent what has been passed in, because that is a consistent usage_
+        - 只以参数表示 "被传递进来的东西", 代码会清晰得多 -- 因为这种用法在所有语言中都表现出相同语义
 - Replace Method with Method Ojbect 以方法对象取代方法
     - 会将所有局部变量都变成方法对象的字段 (以 Constructor 构造方法方式传入)
     - 然后就可以对这个新对象使用 Extract Method 创造出新方法, 从而将原本的大型函数拆解变短
@@ -390,28 +390,38 @@ As I describe the refactorings in this and other chapters, I use a standard form
 在对象之间搬移特性
 
 - Move Method 搬移方法
-    - 适用情况 : 一个方法与其所驻类之外的另一个类进行更多交流, 调用后者, 或者被后者调用
+    - _A method is, or will be, using or used by more features of another class than the class on which it is defined._
+        - 适用情况 : 一个方法与其所驻类之外的另一个类进行更多交流, 调用后者, 或者被后者调用
 - Move Field 搬移字段
-    - 适用情况 : 一个字段被其所驻类之外的另一个类更多地用到
+    - _A field is, or will be, used by another class more than the class on which it is defined._
+        - 适用情况 : 一个字段被其所驻类之外的另一个类更多地用到
 - Extract Class 提炼类
-    - 适用情况 : 一个类做了应该由两个类做得事情
-        - 例如 一个类其中有两个字段, 它们其实应该单独抽象存放到一个新的类, 这样内聚性会更好
+    - _You have one class doing work that should be done by two._
+        - 适用情况 : 一个类做了应该由两个类做得事情
+        - _例如 一个类其中有两个字段, 它们其实应该单独抽象存放到一个新的类, 这样内聚性会更好_
 - Inline Class 将类内联化
     - 略
 - Hide Delegate 隐藏 "委托关系"
-    - 适用情况 : 客户需要通过一个委托类来调用另一个类
-    - 做法 : 在服务类上建立客户所需的所有方法, 用以隐藏委托关系
-    - 优点 : 即便将来发生委托关系上的变化, 变化也将被限制在服务对象中, 不会波及客户
+    - _A client is calling a delegate class of an object._
+        - 适用情况 : 客户需要通过一个委托类来调用另一个类
+    - _Create methods on the server to hide the delegate._
+        - 做法 : 在服务类上建立客户所需的所有方法, 用以隐藏委托关系
+    - _You can remove this dependency by placing a simple delegating method on the server, which hides the delegate. Changes become limited to the server and don't propagate to the client._
+        - 优点 : 即便将来发生委托关系上的变化, 变化也将被限制在服务对象中, 不会波及客户
 - Remove Middle Man 移除中间人
     - _Hide Delegate 的反向操作_
-    - 适用情况 : 一个类做了过多的简单委托动作
+    - _A class is doing too much simple delegation._
+        - 适用情况 : 一个类做了过多的简单委托动作
 - Introduce Foreign Method 引入外加方法
-    - 适用情况 : 需要为提供服务的类增加一个方法, 但你无法修改这个类 _( 例如 Date )_
-    - _做法 : 建立一个方法, 传入该类的对象, 并在新方法内对其执行你所需要的额外处理_
+    - _A server class you are using needs an additional method, but you can't modify the class._
+        - 适用情况 : 需要为提供服务的类增加一个方法, 但你无法修改这个类 _( 例如 Date )_
+    - _Create a method in the client class with an instance of the server class as its first argument._
+        - _做法 : 建立一个方法, 传入该类的对象, 并在新方法内对其执行你所需要的额外处理_
 - Introduce Local Extension 引入本地拓展
-    - 适用情况 : 需要为提供服务的类增加多个方法, 但你无法修改这个类 _( 例如 Date )_
-    - 做法 : 建立一个新类, 使它包含这些额外方法
-        - 让这个拓展品成为源类的子类或包装类
+    - _A server class you are using needs several additional methods, but you can't modify the class._
+        - 适用情况 : 需要为提供服务的类增加多个方法, 但你无法修改这个类 _( 例如 Date )_
+    - _Create a new class that contains these extra methods. Make this extension class a subclass or a wrapper of the original._
+        - 做法 : 建立一个新类, 使它包含这些额外方法, 让这个拓展品成为源类的子类或包装类
 
 ## Organizing Data
 
