@@ -353,153 +353,278 @@ As I describe the refactorings in this and other chapters, I use a standard form
 
 ## Composing Methods
 
-重新组织方法
+> 重新组织方法
 
-- Extract Method 提炼方法
-    - 略
-- Inline Method 内联方法
-    - _I commonly use Inline Method when someone is using too much indirection and it seems that every method does simple delegation to another method, and I get lost in all the delegation._
-        - 太多的间接层, 以及简单的委托, 需要简化…
-    - _内联成一个大方法, 以便重新组织合理的小方法_
-    - _移动一个方法比移动多个方法方便_
-- Inline Temp 内联临时变量
-    - _If the temp is getting in the way of other refactorings, such as Extract Method, it's time to inline it._
-        - 当临时变量妨碍了其它重构手法, 例如 Extract Method 时, 应该内联化
-    - _Motivation : A method's body is just as clear as its name._
-    - _Mechanics : Put the method's body into the body of its callers and remove the method._
-- Replace Temp wtih Query 以查询取代临时变量
-    - _Because they can be seen only in the context of the method in which they are used, temps tend to encourage longer methods, because that's the only way you can reach the temp._
-        - 临时变量只在所属方法中可见, 所以它们会驱使你写出更长的方法, _因为只有这样做才能访问到所需的临时变量_
-- Introduce Explaining Variable 引入解释性变量
-    - 适用的场景下, 尽量使用 Extract Method
-        - 只有难以使用 Extract Method 时, 才退而求其次用 Introduce Eplaining Variable
-- Split Temporary Variable 分解临时变量
-    - 适用情况 : 当某个临时变量被赋值超过一次, 它既不是循环变量, 也不用于收集计算结果
-    - 做法 : 针对每次赋值, 创造一个独立、对应的临时变量
-- Remove Assignments to Parameters 移除对参数的赋值
-    - _It is much clearer if you use only the parameter to represent what has been passed in, because that is a consistent usage_
-        - 只以参数表示 "被传递进来的东西", 代码会清晰得多 -- 因为这种用法在所有语言中都表现出相同语义
-- Replace Method with Method Ojbect 以方法对象取代方法
-    - 会将所有局部变量都变成方法对象的字段 (以 Constructor 构造方法方式传入)
-    - 然后就可以对这个新对象使用 Extract Method 创造出新方法, 从而将原本的大型函数拆解变短
-- Substitute Algorithm 替换算法
-    - 略
+Extract Method 提炼方法
+
+- 略
+
+Inline Method 内联方法
+
+- _I commonly use Inline Method when someone is using too much indirection and it seems that every method does simple delegation to another method, and I get lost in all the delegation._
+    - 太多的间接层, 以及简单的委托, 需要简化…
+- _内联成一个大方法, 以便重新组织合理的小方法_
+- _移动一个方法比移动多个方法方便_
+
+Inline Temp 内联临时变量
+
+- _If the temp is getting in the way of other refactorings, such as Extract Method, it's time to inline it._
+    - 当临时变量妨碍了其它重构手法, 例如 Extract Method 时, 应该内联化
+- _Motivation : A method's body is just as clear as its name._
+- _Mechanics : Put the method's body into the body of its callers and remove the method._
+
+Replace Temp wtih Query 以查询取代临时变量
+
+- _Because they can be seen only in the context of the method in which they are used, temps tend to encourage longer methods, because that's the only way you can reach the temp._
+    - 临时变量只在所属方法中可见, 所以它们会驱使你写出更长的方法, _因为只有这样做才能访问到所需的临时变量_
+
+Introduce Explaining Variable 引入解释性变量
+
+- 适用的场景下, 尽量使用 Extract Method
+    - 只有难以使用 Extract Method 时, 才退而求其次用 Introduce Eplaining Variable
+
+Split Temporary Variable 分解临时变量
+
+- 适用情况 : 当某个临时变量被赋值超过一次, 它既不是循环变量, 也不用于收集计算结果
+- 做法 : 针对每次赋值, 创造一个独立、对应的临时变量
+
+Remove Assignments to Parameters 移除对参数的赋值
+
+- _It is much clearer if you use only the parameter to represent what has been passed in, because that is a consistent usage_
+    - 只以参数表示 "被传递进来的东西", 代码会清晰得多 -- 因为这种用法在所有语言中都表现出相同语义
+
+Replace Method with Method Ojbect 以方法对象取代方法
+
+- 会将所有局部变量都变成方法对象的字段 (以 Constructor 构造方法方式传入)
+- 然后就可以对这个新对象使用 Extract Method 创造出新方法, 从而将原本的大型函数拆解变短
+
+Substitute Algorithm 替换算法
+
+- 略
 
 ## Moving Features Between Objects
 
-在对象之间搬移特性
+> 在对象之间搬移特性
 
-- Move Method 搬移方法
-    - _A method is, or will be, using or used by more features of another class than the class on which it is defined._
-        - 适用情况 : 一个方法与其所驻类之外的另一个类进行更多交流, 调用后者, 或者被后者调用
-- Move Field 搬移字段
-    - _A field is, or will be, used by another class more than the class on which it is defined._
-        - 适用情况 : 一个字段被其所驻类之外的另一个类更多地用到
-- Extract Class 提炼类
-    - _You have one class doing work that should be done by two._
-        - 适用情况 : 一个类做了应该由两个类做得事情
-        - _例如 一个类其中有两个字段, 它们其实应该单独抽象存放到一个新的类, 这样内聚性会更好_
-- Inline Class 将类内联化
-    - 略
-- Hide Delegate 隐藏 "委托关系"
-    - _A client is calling a delegate class of an object._
-        - 适用情况 : 客户需要通过一个委托类来调用另一个类
-    - _Create methods on the server to hide the delegate._
-        - 做法 : 在服务类上建立客户所需的所有方法, 用以隐藏委托关系
-    - _You can remove this dependency by placing a simple delegating method on the server, which hides the delegate. Changes become limited to the server and don't propagate to the client._
-        - 优点 : 即便将来发生委托关系上的变化, 变化也将被限制在服务对象中, 不会波及客户
-- Remove Middle Man 移除中间人
-    - _Hide Delegate 的反向操作_
-    - _A class is doing too much simple delegation._
-        - 适用情况 : 一个类做了过多的简单委托动作
-- Introduce Foreign Method 引入外加方法
-    - _A server class you are using needs an additional method, but you can't modify the class._
-        - 适用情况 : 需要为提供服务的类增加一个方法, 但你无法修改这个类 _( 例如 Date )_
-    - _Create a method in the client class with an instance of the server class as its first argument._
-        - _做法 : 建立一个方法, 传入该类的对象, 并在新方法内对其执行你所需要的额外处理_
-- Introduce Local Extension 引入本地拓展
-    - _A server class you are using needs several additional methods, but you can't modify the class._
-        - 适用情况 : 需要为提供服务的类增加多个方法, 但你无法修改这个类 _( 例如 Date )_
-    - _Create a new class that contains these extra methods. Make this extension class a subclass or a wrapper of the original._
-        - 做法 : 建立一个新类, 使它包含这些额外方法, 让这个拓展品成为源类的子类或包装类
+Move Method 搬移方法
+
+- _A method is, or will be, using or used by more features of another class than the class on which it is defined._
+    - 适用情况 : 一个方法与其所驻类之外的另一个类进行更多交流, 调用后者, 或者被后者调用
+
+Move Field 搬移字段
+
+- _A field is, or will be, used by another class more than the class on which it is defined._
+    - 适用情况 : 一个字段被其所驻类之外的另一个类更多地用到
+
+Extract Class 提炼类
+
+- _You have one class doing work that should be done by two._
+    - 适用情况 : 一个类做了应该由两个类做得事情
+    - _例如 一个类其中有两个字段, 它们其实应该单独抽象存放到一个新的类, 这样内聚性会更好_
+
+Inline Class 将类内联化
+
+- 略
+
+Hide Delegate 隐藏 "委托关系"
+
+- _A client is calling a delegate class of an object._
+    - 适用情况 : 客户需要通过一个委托类来调用另一个类
+- _Create methods on the server to hide the delegate._
+    - 做法 : 在服务类上建立客户所需的所有方法, 用以隐藏委托关系
+- _You can remove this dependency by placing a simple delegating method on the server, which hides the delegate. Changes become limited to the server and don't propagate to the client._
+    - 优点 : 即便将来发生委托关系上的变化, 变化也将被限制在服务对象中, 不会波及客户
+
+Remove Middle Man 移除中间人
+
+- _Hide Delegate 的反向操作_
+- _A class is doing too much simple delegation._
+    - 适用情况 : 一个类做了过多的简单委托动作
+
+Introduce Foreign Method 引入外加方法
+
+- _A server class you are using needs an additional method, but you can't modify the class._
+    - 适用情况 : 需要为提供服务的类增加一个方法, 但你无法修改这个类 _( 例如 Date )_
+- _Create a method in the client class with an instance of the server class as its first argument._
+    - _做法 : 建立一个方法, 传入该类的对象, 并在新方法内对其执行你所需要的额外处理_
+
+Introduce Local Extension 引入本地拓展
+
+- _A server class you are using needs several additional methods, but you can't modify the class._
+    - 适用情况 : 需要为提供服务的类增加多个方法, 但你无法修改这个类 _( 例如 Date )_
+- _Create a new class that contains these extra methods. Make this extension class a subclass or a wrapper of the original._
+    - 做法 : 建立一个新类, 使它包含这些额外方法, 让这个拓展品成为源类的子类或包装类
 
 ## Organizing Data
 
-重新组织数据
+> 重新组织数据
 
-- Self Encapsulate Field 自封装字段 (?)
-- Replace Data Value with Object 以对象取代数据值
-- Change Value to Reference 将值对象改为引用对象 (?)
-- Change Reference to Value 将引用对象改为值对象 (?)
-- Replace Array with Object 已对象取代数组
-- Duplicate Observed Data 复制 "被监视数据" (?)
-- Change Unidirectional Association to Bidirectional 将单向关联改为双向关联 (?)
-- Change Bidirectional Association to Unidirectional 将双向关联改为单向关联 (?)
-- Replace Magic Number with Symbolic Constant 以字面常量取代魔法数
-- Encapsulate Field 封装字段 (?)
-- Encapsulate Collection 封装集合 (?)
-- Replace Record with Data Class 以数据类取代记录 (?)
-- Replace Type Code with Class 以类取代类型码
-- Replace Type Code with SubClass 以子类取代类型码
-- Replace Type Code with State/Strategy 以 状态/策略 取代类型码
-    - _是 State 还是 Strategy? 设计时, 对于模式(与其名称)的选择, 取决于你结构的看法_
-- Replace Type Code with Fields 以字段取代类型码
+Self Encapsulate Field 自封装字段
+
+- 例如 getter / setter
+- _You are accessing a field directly, but the coupling to the field is becoming awkward._
+    - 适用情况 : 你直接访问一个字段, 但与字段之间的耦合关系逐渐变得笨拙
+- _Create getting and setting methods for the field and use only those to access the field_
+    - 做法 : 为这个字段建立取值/设值方法, 并且 **只以这些函数访问字段**
+- _一开始写的时候, 可以先使用直接访问的方式, 直到需要使用取值/设值方法封装一些操作为止_
+- 在 constructor 中使用 setter ?
+    - 一般来说, setter 被认为应该在对象创建后使用, 所以初始化过程中的行为有可能与 setter 的行为不同
+    - 这种情况下, 也许在 constructor 中直接访问字段, 要不是就单独另建一个初始化方法
+
+Replace Data Value with Object 以对象取代数据值
+
+- _You have a data item that needs additional data or behavior._
+    - 适用情况 : 你有一个数据项, 需要与其它数据和行为一起使用才有意义 _(这种描述有点让人摸不着头脑…)_
+- _Turn the data item into an object._
+    - 做法 : 将类中的字段, 抽象到新的类对象中
+- _原来它们它们可能只是简单的数据项, 但是后来类中相关数据项和特殊行为变多_
+- _这时最好将它们封装到单独的类对象中, 以避免 Duplicate Code 和 Feature Envy 等 Bad Smells_
+
+Change Value to Reference 将值对象改为引用对象
+
+- _You have a class with many equal instances that you want to replace with a single object._
+    - 适用情况 : 从一个类衍生出许多彼此相等的实例, 希望它们替换为同一个对象
+- _Turn the object into a reference object._
+    - 做法 : 将这个值对象变成引用对象
+        - 具体手法 : Replace Constructor with Factory Method
+        - _详情见原书样例_
+
+Change Reference to Value 将引用对象改为值对象
+
+- _You have a reference object that is small, immutable, and awkward to manage._
+    - 适用情况 : 你有一个引用对象, 很小且不可变, 而且不易管理
+- _Turn it into a value object._
+    - 将它变成一个值对象
+- Value Object 值对象
+    - 特点 : immutable 不可变
+    - 改造方式 : 声明 final class/field 并 Remove Setting Method
+        - 注意建立 equals() 和 hashCode() 方法
+        - _( 通常可以使用 lombok 的 @Data 注解来简单解决 )_
+- Reference Object 引用对象
+    - 特点 : 必须被某种方式控制, 你必须向其控制者请求适当的引用对象
+    - 缺点 : 可能造成内存区域之前的错综复杂的关联
+- 在分布式和并发系统中, 如果使用 不可变的值对象, 则无需考虑它们同步的问题
+    - _( 因为它们是存在不同内存区域的多个独立副本 )_
+
+Replace Array with Object 以对象取代数组
+
+- _You have an array in which certain elements mean different things._
+    - 适用情况 : 你有一个数组, 其中的元素各自代表不同的东西
+    - _例如, ary[0] 代表姓名, ary[1] 代表年龄…_
+- _Replace the array with an object that has a field for each element._
+    - 做法 : 以对象替换数组, 对于数组中的每个元素, 都以一个字段来表示
+
+Duplicate Observed Data 复制 "被监视数据" (?)
+
+Change Unidirectional Association to Bidirectional 将单向关联改为双向关联 (?)
+
+Change Bidirectional Association to Unidirectional 将双向关联改为单向关联 (?)
+
+Replace Magic Number with Symbolic Constant 以字面常量取代魔法数
+
+Encapsulate Field 封装字段 (?)
+
+Encapsulate Collection 封装集合 (?)
+
+Replace Record with Data Class 以数据类取代记录 (?)
+
+Replace Type Code with Class 以类取代类型码
+
+Replace Type Code with SubClass 以子类取代类型码
+
+Replace Type Code with State/Strategy 以 状态/策略 取代类型码
+
+- _是 State 还是 Strategy? 设计时, 对于模式(与其名称)的选择, 取决于你结构的看法_
+
+Replace Type Code with Fields 以字段取代类型码
 
 ## Simplify Conditional Expressions
 
-简化条件表达式
+> 简化条件表达式
 
-- Decompose Conditional 分解条件表达式
-- Consolidate Conditional Expression 合并条件表达式
-- Remove Control Flag 移除控制标记 (?)
-- Replace Nested Conditional with Guard Clauses 以卫语句取代嵌套条件表达式 (?)
-- Replace Condtional with Polymorphism 以多台取代条件表达式 (?)
-- Introduce Null Object 引入 Null 对象 (?)
-- Introduce Assertion 引入断言
+Decompose Conditional 分解条件表达式
+
+Consolidate Conditional Expression 合并条件表达式
+
+Remove Control Flag 移除控制标记 (?)
+
+Replace Nested Conditional with Guard Clauses 以卫语句取代嵌套条件表达式 (?)
+
+Replace Condtional with Polymorphism 以多台取代条件表达式 (?)
+
+Introduce Null Object 引入 Null 对象 (?)
+
+Introduce Assertion 引入断言
 
 ## Make Method Calls Simpler
 
-简化方法调用
+> 简化方法调用
 
-- Rename Method 方法改名
-- Add Parameter 添加参数
-- Remove Parameter 移除参数
-- Separate Query from Modifier 将查询方法和修改方法分离 (?)
-- Parameterize Method 令方法携带参数 (?)
-- Replace Parameter with Explicit Methods 以明确方法取代参数
-- Preserve Whole Object 保持对象完整 (?)
-- Remove Setting Method 移除设值方法 (?)
-- Hide Method 隐藏方法 (?!)
-- Replace Constructor with Factory Method 以工厂方法取代构造方法
-- Encapsulate Downcast 封装向下转型 (?)
-- Replace Error Code with Exception 以异常取代错误码
-- Replace Exception with Test 以测试取代异常 (?)
+Rename Method 方法改名
+
+Add Parameter 添加参数
+
+Remove Parameter 移除参数
+
+Separate Query from Modifier 将查询方法和修改方法分离 (?)
+
+Parameterize Method 令方法携带参数 (?)
+
+Replace Parameter with Explicit Methods 以明确方法取代参数
+
+Preserve Whole Object 保持对象完整 (?)
+
+Remove Setting Method 移除设值方法 (?)
+
+Hide Method 隐藏方法 (?!)
+
+Replace Constructor with Factory Method 以工厂方法取代构造方法
+
+Encapsulate Downcast 封装向下转型 (?)
+
+Replace Error Code with Exception 以异常取代错误码
+
+Replace Exception with Test 以测试取代异常 (?)
 
 ## Dealing with Generalization
 
-处理概括(泛化?)关系
+> 处理概括(泛化?)关系
 
-- Pull Up Field 字段上移
-- Pull Up Method 方法上移
-- Pull Up Constructor Body 构造方法本地上移 (?)
-- Push Down Method 方法下移
-- Push Down Field 字段下移
-- Extact Subclass 提炼子类 (?)
-- Extract Superclass 提炼超类
-- Extract Interface 提炼接口
-- Collapse Hierarchy 折叠继承体系 (?)
-- Form Template Method 塑造模板方法 (?)
-- Replace Inheritance with Delegation 以委托取代继承 (?)
-- Replace Delegation with Inheritance 以继承取代委托 (?)
+Pull Up Field 字段上移
+
+Pull Up Method 方法上移
+
+Pull Up Constructor Body 构造方法本地上移 (?)
+
+Push Down Method 方法下移
+
+Push Down Field 字段下移
+
+Extact Subclass 提炼子类 (?)
+
+Extract Superclass 提炼超类
+
+Extract Interface 提炼接口
+
+Collapse Hierarchy 折叠继承体系 (?)
+
+Form Template Method 塑造模板方法 (?)
+
+Replace Inheritance with Delegation 以委托取代继承 (?)
+
+Replace Delegation with Inheritance 以继承取代委托 (?)
 
 ## Big Refactoring
 
-大型重构
+> 大型重构
 
-- Tease Apart Inheritance 梳理并分解继承体系 (?)
-- Convert Procedural Design to Objects 将过程化设计转化为对象设计 (?)
-- Separate Domain from Presentation 将领域和表述/显示分离 (?)
-- Extract Hierarchy 提炼继承体系
+Tease Apart Inheritance 梳理并分解继承体系 (?)
+
+Convert Procedural Design to Objects 将过程化设计转化为对象设计 (?)
+
+Separate Domain from Presentation 将领域和表述/显示分离 (?)
+
+Extract Hierarchy 提炼继承体系
 
 ## Refactoring, Reuse, and Reality
 
