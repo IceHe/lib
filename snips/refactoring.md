@@ -514,7 +514,19 @@ Replace Array with Object 以对象取代数组
 - _Replace the array with an object that has a field for each element._
     - 做法 : 以对象替换数组, 对于数组中的每个元素, 都以一个字段来表示
 
-Duplicate Observed Data 复制 "被监视数据" (?)
+Duplicate Observed Data 复制 "被监视数据"
+
+- _You have domain data available only in a GUI control, and domain methods need access._
+    - 适用情况 : 例如, 有一些领域数据置身于 GUI 控件中, 而领域方法需要访问这些数据
+- _Copy the data to a domain object. Set up an observer to synchronize the two pieces of data._
+    - 做法 : 将该数据复制到一个领域对象中; **建立一个 Observer 模式, 用以同步领域对象和 GUI 对象内的重复数据**
+- _不好解释清楚, 示例也较复杂, 详情见原书_
+    - _简而言之, 就是将存储层的领域对象 (数据及其处理), 跟展示层的 GUI 控件 (数据及其处理), 隔离开来/解耦_
+        - _( 以下尝试用自己的话来, 梳理思路 )_
+        - _有多个控件都关联同一个领域对象时, 这么做就特别有有意义_
+        - _领域对象 封装好以此为准的一份数据 (一致性) 及其处理_
+        - _控件只需要通过 Observer 模式订阅领域对象; 当领域对象发生变化时, 它会通知控件_
+        - _这时控件以领域对象的数据为准, 根据控件自身的情况, 作出相应处理_
 
 Change Unidirectional Association to Bidirectional 将单向关联改为双向关联 (?)
 
