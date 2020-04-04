@@ -38,7 +38,7 @@ rule "MD032" # Lists should be surrounded by blank lines
 # rule "MD033" # Inline HTML
 # rule "MD034" # Bare URL used
 rule "MD035" # Horizontal style
-rule "MD036" # Emphasis used instead of a header
+# rule "MD036" # Emphasis used instead of a header
 rule "MD037" # Spaces inside emphasis markers
 # rule "MD038" # Spaces inside code span elements
 rule "MD039" # Spaces inside link text

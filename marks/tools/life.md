@@ -207,7 +207,7 @@
 
 - 坐飞机看到旁边妹子背的这款包很好看. 也在考虑 [Backpack、Backpack Mini](https://www.rains.dk/collections/backpacks)
 
-**羽毛球包** ( 运动 )
+**羽毛球包**
 
 - 打球专包专用, 可以提早放好要用的装备, 方便出门打球
     - 出门打球时, 不用腾空有其它用途的背包来装打球的装备

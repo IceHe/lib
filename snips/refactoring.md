@@ -119,8 +119,7 @@ Refactoring and Design
 
 Refactoring and Performance
 
-- The interesting thing about performance is that if you analyze most programs, you find that they waste most of their time in a small fraction of the code. If you optimize all the code equally, you
-end up with 90 percent of the optimizations wasted…
+- The interesting thing about performance is that if you analyze most programs, you find that they waste most of their time in a small fraction of the code. If you optimize all the code equally, you end up with 90 percent of the optimizations wasted…
     - 大多数程序把大半时间耗费在一小半代码身上. 如果你一视同仁地优化所有代码, 90% 的优化工作都是白费劲的.
 
 ## Bad Smells in Code
