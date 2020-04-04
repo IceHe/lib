@@ -73,7 +73,7 @@ Web
 - How to build personal website
     - Powered by [docsify](/_docsify/README.md)
 
-_Others_
+Others
 
 - [_Go_](/snips/go.md) ( draft )
 - [_Chrome_](/snips/web/chrome.md) : clear cookie ( draft )
