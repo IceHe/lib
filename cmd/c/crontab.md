@@ -28,7 +28,6 @@ Notice
     - Cron Expression Generator & Explainer : https://www.freeformatter.com/cron-expression-generator-quartz.html
     - Cron Trigger Tutorial : http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
 
-
 ## Usage
 
 List current crontab
