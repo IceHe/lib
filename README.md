@@ -20,6 +20,13 @@
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
+Books
+
+- [Linux Kernel](/snips/books/linux.md) ( draft )
+- [JVM - Java Virtual Machine](/snips/books/jvm.md) ( draft )
+- [Java Concurrency in Pratice](/snips/books/java-concurrency-in-pratice.md) ( draft )
+- [Refactoring](/snips/books/refactoring.md) ( draft )
+
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
@@ -37,12 +44,6 @@ Markdown
 
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
-
-Reading
-
-- [Linux Kernel](/snips/linux.md) ( draft )
-- [JVM - Java Virtual Machine](/snips/jvm.md) ( draft )
-- [Java Concurrency in Pratice](/snips/java-concurrency-in-pratice.md) ( draft )
 
 Storage - Usage
 
