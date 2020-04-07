@@ -527,7 +527,12 @@ Duplicate Observed Data 复制 "被监视数据"
         - _控件只需要通过 Observer 模式订阅领域对象; 当领域对象发生变化时, 它会通知控件_
         - _这时控件以领域对象的数据为准, 根据控件自身的情况, 作出相应处理_
 
-Change Unidirectional Association to Bidirectional 将单向关联改为双向关联 (?)
+Change Unidirectional Association to Bidirectional 将单向关联改为双向关联
+
+- _You have two classes that need to use each other's features, but there is only a one-way link._
+    - 适用情况 : 两个类都需要使用对方特性, 但其间只有一条单向连接
+- _Add back pointers, and change modifiers to update both sets._
+    - 做法 : 添加一个反向指针, 并使修改方法能够同时更新两条连接
 
 Change Bidirectional Association to Unidirectional 将双向关联改为单向关联 (?)
 
