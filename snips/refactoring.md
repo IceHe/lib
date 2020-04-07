@@ -544,8 +544,8 @@ Change Bidirectional Association to Unidirectional 将双向关联改为单向�
 
 Replace Magic Number with Symbolic Constant 以字面常量取代魔法数
 
-- _You have a literal number with a particular meaning._
-- _Create a constant, name it after the meaning, and replace the number with it._
+- 适用情况 : _You have a literal number with a particular meaning._
+- 做法 : _Create a constant, name it after the meaning, and replace the number with it._
 
 Encapsulate Field 封装字段 (?)
 
