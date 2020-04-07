@@ -547,9 +547,17 @@ Replace Magic Number with Symbolic Constant 以字面常量取代魔法数
 - 适用情况 : _You have a literal number with a particular meaning._
 - 做法 : _Create a constant, name it after the meaning, and replace the number with it._
 
-Encapsulate Field 封装字段 (?)
+Encapsulate Field 封装字段
 
-Encapsulate Collection 封装集合 (?)
+- 适用情况 : _There is a public field._
+- 做法 : _Make it private and provide accessors._
+
+Encapsulate Collection 封装集合
+
+- _A method returns a collection._
+    - 适用情况 : 有个方法返回一个集合
+- _Make it return a read-only view and provide add/remove methods._
+    - 做法 : 让这个方法返回该集合的一个只读副本, 并在这个类中提供添加/移除集合元素的方法
 
 Replace Record with Data Class 以数据类取代记录 (?)
 
