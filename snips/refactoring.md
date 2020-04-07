@@ -534,9 +534,18 @@ Change Unidirectional Association to Bidirectional 将单向关联改为双向�
 - _Add back pointers, and change modifiers to update both sets._
     - 做法 : 添加一个反向指针, 并使修改方法能够同时更新两条连接
 
-Change Bidirectional Association to Unidirectional 将双向关联改为单向关联 (?)
+Change Bidirectional Association to Unidirectional 将双向关联改为单向关联
+
+- _Change Unidirectional Association to Bidirectional 的反向操作_
+- _You have a two-way association but one class no longer needs features from the other._
+    - 适用情况 : 两个类之间有双向关联, 但其中一个类如今不需要另一个类的特性
+- _Drop the unneeded end of the association._
+    - 做法 : 去除不必要的关联
 
 Replace Magic Number with Symbolic Constant 以字面常量取代魔法数
+
+- _You have a literal number with a particular meaning._
+- _Create a constant, name it after the meaning, and replace the number with it._
 
 Encapsulate Field 封装字段 (?)
 
