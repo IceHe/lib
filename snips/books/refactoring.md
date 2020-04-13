@@ -294,8 +294,8 @@ Incomplete Library Class 不完美的库类
 
 - 库的设计和实现难以一步到位, 完全符合使用者的需求
 - 可以使用的改善手法
-    - Introduce Foreign Method _(?暂时还不懂含义)_
-    - Introduce Local Extension _(?暂时还不懂含义)_
+    - Introduce Foreign Method 引入外加方法
+    - Introduce Local Extension 引入本地拓展
 
 Data Class 纯稚的数据类
 
@@ -306,7 +306,7 @@ Refused Bequest 被拒绝的遗赠
 - 子类继承超类的方法和字段, 实际上该子类只需要其中的一些 (而不是全部)
     - 意味着, 继承体系设计的失误 ( The hierarchy is wrong. )
 - 可以使用的手法
-    - Push Down Medtho
+    - Push Down Medthod
     - Push Down Field
 - 当然不必处处都这样做, 如果 bad smell 很淡, 那就没必要理睬
     - 如果子类复用了超类的行为 (实现), 却又不愿意支持超类的接口, 那就必须得审视了
@@ -476,7 +476,7 @@ Replace Data Value with Object 以对象取代数据值
     - 适用情况 : 你有一个数据项, 需要与其它数据和行为一起使用才有意义 _(这种描述有点让人摸不着头脑…)_
 - _Turn the data item into an object._
     - 做法 : 将类中的字段, 抽象到新的类对象中
-- _原来它们它们可能只是简单的数据项, 但是后来类中相关数据项和特殊行为变多_
+- _原来它们可能只是简单的数据项, 但是后来类中相关数据项和特殊行为变多_
 - _这时最好将它们封装到单独的类对象中, 以避免 Duplicate Code 和 Feature Envy 等 Bad Smells_
 
 Change Value to Reference 将值对象改为引用对象
@@ -521,7 +521,7 @@ Duplicate Observed Data 复制 "被监视数据"
     - 做法 : 将该数据复制到一个领域对象中; **建立一个 Observer 模式, 用以同步领域对象和 GUI 对象内的重复数据**
 - _不好解释清楚, 示例也较复杂, 详情见原书_
     - _简而言之, 就是将存储层的领域对象 (数据及其处理), 跟展示层的 GUI 控件 (数据及其处理), 隔离开来/解耦_
-        - _( 以下尝试用自己的话来, 梳理思路 )_
+        - _( 以下尝试用自己的话来梳理思路 )_
         - _有多个控件都关联同一个领域对象时, 这么做就特别有有意义_
         - _领域对象 封装好以此为准的一份数据 (一致性) 及其处理_
         - _控件只需要通过 Observer 模式订阅领域对象; 当领域对象发生变化时, 它会通知控件_
@@ -559,7 +559,13 @@ Encapsulate Collection 封装集合
 - _Make it return a read-only view and provide add/remove methods._
     - 做法 : 让这个方法返回该集合的一个只读副本, 并在这个类中提供添加/移除集合元素的方法
 
-Replace Record with Data Class 以数据类取代记录 (?)
+Replace Record with Data Class 以数据类取代记录
+
+- _You need to interface with a record structure in a traditional programming environment._
+    - 适用情况 : 需要面对传统变成环境中的结构数据
+- _Make a dumb data object for the record._
+    - 做法 : 为该记录创建一个 "哑" 数据对象
+        - 具体手法 : Replace Array with Object
 
 Replace Type Code with Class 以类取代类型码
 
