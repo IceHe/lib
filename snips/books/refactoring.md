@@ -574,11 +574,22 @@ Replace Record with Data Class 以数据类取代记录
 Replace Type Code with Enum 以枚举常量取代类型码
 
 - _A class has a numeric type code that does not affect its behavior._
-    - 适用情况 : 类之中有一个数值类型码, 但它并不影响类的行为
+    - 适用情况 : 类之中有一个数值类型码, 但它并 **不影响类的行为**
 - _Replace the number with a new Enum._
     - 做法 : 以一个新的枚举常量替换该数值类型码
 
 Replace Type Code with SubClass 以子类取代类型码
+
+- _You have an immutable type code that affects the behavior of a class._
+    - 适用情况 : 有一个不可变的类型码, 它会 **影响类的行为**
+- _Replace the type code with subclasses._
+    - 做法 : 以子类取代这个类型码
+    - 例如 switch 和 if-elseif-else 语句, 可使用 Replace Conditional with Polymorphism 重构
+        - **避免使用 switch 语句, 但是如果只有 Factory 工厂一处用到 (只用于决定创建何种对象), 就可以接受!**
+- 可用 Replace Type Code with SubClass 除非
+    - 1\. 类型码值在对象创建之后, 会发生改变
+    - 2\. 由于某些原因, 类型码宿主类已经有了子类
+- 这时适用 Replace Type Code with State/Strategy
 
 Replace Type Code with State/Strategy 以 状态/策略 取代类型码
 
