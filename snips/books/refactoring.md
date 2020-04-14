@@ -567,7 +567,16 @@ Replace Record with Data Class 以数据类取代记录
     - 做法 : 为该记录创建一个 "哑" 数据对象
         - 具体手法 : Replace Array with Object
 
-Replace Type Code with Class 以类取代类型码
+~~Replace Type Code with Class 以类取代类型码~~
+
+- _原书处于 Java 1.2 时代, 还没 enum 可用, 所以这里采用 class_
+
+Replace Type Code with Enum 以枚举常量取代类型码
+
+- _A class has a numeric type code that does not affect its behavior._
+    - 适用情况 : 类之中有一个数值类型码, 但它并不影响类的行为
+- _Replace the number with a new Enum._
+    - 做法 : 以一个新的枚举常量替换该数值类型码
 
 Replace Type Code with SubClass 以子类取代类型码
 
