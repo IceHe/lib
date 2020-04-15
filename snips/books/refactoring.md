@@ -5,6 +5,31 @@ References
 - Book "Refactoring Improving the Design of Existing Code"
     - ZH Ver. :《 重构 改善既有代码的设计 》
 
+Thoughts
+
+- 工作 "搬砖" 近五年, 已写下了不少代码, 只要平时会反复琢磨代码怎么写才能更 "优雅", 自然就会步入 "重构" 的领域
+    - _优雅 -- 简单直接 / 整洁 / 容易理解 / 方便维护 (拓展变更) / …_
+- 重读《重构》这本书, 发现现在没有了大二第一次读它时的烦躁
+    - 虽然当年读时, 多多少少能体会到其中一些重构手法的理由和做法
+    - 但是由于缺乏实践, 对大多数的重构手法的动机 (立足点/存在理由) 没有亲身的感受
+    - 即使原书给出了实例, 仍然会觉得费解不已, 读起来感觉无聊且琐碎, 最终没有读完
+    - 如今很轻松就能读明白, "啊哈, 这不就是我曾经琢磨并尝试过的做法嘛~"
+        - "原来这个代码坏味道/重构手法叫这个名字呀"
+            - Bad Smell : Feature Envy / Divergent Change / Shotgun Surgery / …
+            - 重构手法 : Introduce Foreign Method / Introduce Local Extension / …
+    - 四百多页的书, 也没有花太久就读完
+- 觉得《重构》这本书比较好的读法是
+    - 首先读前几章了解清楚 Refactoring 的 What & Why, 在心中形成并保有 "重构" 的思想和信念
+    - 然后在日常工作中多琢磨代码, 不断运用 IDE 的重构功能 (熟练运用快捷键) 多做实践
+    - 一开始觉得自己的代码写得不错, 之后每隔一小段时间再琢磨, 就能体会到自己之前写得真烂……
+        - 特别是在后续维护的时候 -- 自己或同事需要进行 bugfix / 拓展升级
+        - 可能会感受到 变更/拓展/bugfix 举步维艰的切肤之痛
+        - 不但同事当面吐槽你的代码, 连你自己都忍不住当场吐槽自己
+    - 很快就会意识到 "不错 -> 很烂 -> 不错" 这个循环似乎没有尽头, 没有最好的写法, 还有更好的写法
+    - 这个过程能不断打磨自己心目中的 "最佳实践", 然后形成一个属于自己的 "(相对)完美(的)范式"
+    - 然后再读《重构》发现它 (具体的手法) 也不过如此 -- 我自己也能琢磨出来
+    - 但 "重构" 的思想却是如此实在、富有意义, -- 有追求的 coder 绝不接受 "烂代码"! _( 除非死线压身, 来不及完成工作, 哈哈… )_
+
 ## Preface
 
 > "if it works, don't fix it" ?
@@ -630,15 +655,64 @@ Consolidate Conditional Expression 合并条件表达式
     - _某种情况下, 虽然返回相同的结果, 但是需要做额外的日志记录?_
         - _还是可以合并, 只是分支中得再内嵌一层检查, 然后在该种情况下进行记录日志_
 
-Remove Control Flag 移除控制标记 (?)
+Consolidate Duplicate Conditional Fragments 合并重复的条件片段
 
-Replace Nested Conditional with Guard Clauses 以卫语句取代嵌套条件表达式 (?)
+- _The same fragment of code is in all branches of a conditional expression._
+    - 适用情况 : 在条件表达式的每个分支上有着相同的一段代码
+- _Move it outside of the expression_
+    - 做法 : 将这段代码搬移到条件表达式之外
 
-Replace Condtional with Polymorphism 以多台取代条件表达式 (?)
+Remove Control Flag 移除控制标记
 
-Introduce Null Object 引入 Null 对象 (?)
+- _You have a variable that is acting as a control flag for a series of boolean expressions._
+    - 适用情况 : 在一系列布尔表达式中, 某个变量带有 "控制标记" (control flag) 的作用
+- _Use a break or return instead._
+    - 做法 : 以 break 或 return 语句取代控制标记
+- _I agree with (and modern languages enforce) **one entry point**, but the one exit point rule leads you to very convoluted conditionals with these awkward flags in the code._
+    - 赞同 "单一出口" 原则, 但是它会让人在代码中加入讨厌的控制标记, 大大降低条件表达式的可读性
+
+Replace Nested Conditional with Guard Clauses 以卫语句取代嵌套条件表达式
+
+- _A method has conditional behavior that does not make clear the normal path of execution._
+    - 适用情况 : 方法中的条件逻辑使人难以看清正常的执行路径
+- _Use guard clauses for all the special cases._
+    - 做法 : 适用卫语句 ( guard clauses ) 表现所有特殊情况
+        - Guard Clauses 的处理方式 : break / continue / return / throw exception
+- 具体做法建议
+    - 如果两条分支都是正常行为, 应该使用 if-else 条件表达式
+    - 如果某个条件极其罕见, 就应该单独检查该条件 (if 表达式), 为真时立即从方法中返回
+- 重要性权衡 : Guard Clauses (守卫语句) V.S. One Entry Point (单一出口)
+    - One Entry Point 其实并没有那么有用, **保持代码清晰才是最关键的**
+    - 除非 One Entry Point 能让代码更清晰, 否则用 Guard Clauses 才是最重要的
+
+Replace Condtional with Polymorphism 以多态取代条件表达式
+
+- _You have a conditional that chooses different behavior depending on the type of an object._
+    - 适用情况 : 有个条件表达式, 它根据对象类型的不同而选择不同的行为
+- _Move each leg of the conditional to an overriding method in a subclass. Make the original method abstract._
+    - 做法 : 将这个条件的每个分支放进一个子类内的覆写方法中, 然后将 (父类中的) 原始方法声明为抽象函数
+- _详例见原书_
+
+Introduce Null Object 引入 Null 对象
+
+- _You have repeated checks for a null value._
+    - 适用情况 : 需要再三检查某对象是否为 null
+- _Replace the null value with a null object_
+    - 做法 : 将 null 替换为 null 对象
+- 优劣
+    - 优点 : 抛弃大量类似 `if (null == obj)` 的过程化代码
+        - _将一些 null 情况下设置的默认值/处理搬到 NullObject 的方法里, 那么正常流程代码就被简化了_
+    - 缺点 : 有时会造成问题的侦测和查找上的困难 ( NPE 可以尽早暴露问题 )
 
 Introduce Assertion 引入断言
+
+- _A section of code assumes something about the state of the program._
+    - 适用情况 : 某一段代码需要对程序状态作出某种假设
+        - _例如, 我经常对方法入参添加 @NonNull 注解, 或者对变量使用 `Objects.requireNonNull(obj)` 方法, 提早进行进行 NPE 检查_
+        - _帮助 coder 理解/牢记 代码正常运行的必要条件_
+- _Make the assumption explicit with an assertion._
+    - 做法 : 以断言明确表现这种假设
+- _注意: 如果不满足断言的约束条件, 程序也可以正常运行, 那么该断言就是没有意义 (反而造成代码混乱, 妨碍后续的修改)_
 
 ## Make Method Calls Simpler
 
