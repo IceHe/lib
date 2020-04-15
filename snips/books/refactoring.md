@@ -748,12 +748,45 @@ Separate Query from Modifier 将查询方法和修改方法分离
     - 适用情况 : 某个方法既返回对象状态值, 又修改对象状态
 - _Create two methods, one for the query and one for the modification._
     - 做法 : 建立两个不同的方法, 其中一个负责查询, 另一个负责修改
+- _It is a good idea to clearly signal the difference between methods with side effects and those without._
+- _A good rule to follow is to say that **any method that returns a value should not have observable side effects**._
+    - _I'm not 100 percent pure on this (as on anything), but **I try to follow it** most of the time, and it has served me well._
 
-Parameterize Method 令方法携带参数 (?)
+Parameterize Method 令方法携带参数
+
+- _Several methods do similar things but with different values contained in the method body._
+    - 适用情况 : 若干方法做了类似的工作, 但在方法本体中却包含了不同的值
+    - _Motivation_
+        - _You may see a couple of methods that do similar things but vary depending on a few values._
+        - _In this case you can simplify matters by replacing the separate methods with a single method that handles the variations by parameters._
+- _Create one method that uses a parameter for the different values._
+    - 做法 : 建立单一方法, 以参数表达那些不同的值
+    - _Advantage_
+        - _Such a change removes duplicate code and increases flexibility, because you can deal with other variations by adding parameters._
 
 Replace Parameter with Explicit Methods 以明确方法取代参数
 
-Preserve Whole Object 保持对象完整 (?)
+- _You have a method that runs different code depending on the values of an enumerated parameter._
+    - 适用情况 : 有一个方法, 其中采取的不同行为, 完全取决于参数值
+- _Create a separate method for each value of the parameter._
+    - 做法 : 针对该参数的每一个可能值, 建立一个独立方法
+- _跟 Parameterize Method 相反_
+
+Preserve Whole Object 保持对象完整
+
+- _You are getting several values from an object and passing these values as parameters in a method call._
+    - 适用情况 : 从某个对象中取出若干值, 将它们作为某一次方法调用时的参数
+- _Send the whole object instead._
+    - 做法 : 改为传递整个对象
+
+```java
+// before
+int low = range.getLow();
+int high = range.getHigh();
+plan.withinRange(low, high);
+// after
+plan.withinRange(range);
+```
 
 Remove Setting Method 移除设值方法 (?)
 
