@@ -753,7 +753,7 @@ Separate Query from Modifier 将查询方法和修改方法分离
     - 适用情况 : 某个方法既返回对象状态值, 又修改对象状态
 - _Create two methods, one for the query and one for the modification._
     - 做法 : 建立两个不同的方法, 其中一个负责查询, 另一个负责修改
-- _It is a good idea to clearly signal the difference between methods with side effects and those without._
+- _It is a good idea to **clearly signal the difference between methods with side effects and those without**._
 - _A good rule to follow is to say that **any method that returns a value should not have observable side effects**._
     - _I'm not 100 percent pure on this (as on anything), but **I try to follow it** most of the time, and it has served me well._
 
@@ -783,15 +783,32 @@ Preserve Whole Object 保持对象完整
     - 适用情况 : 从某个对象中取出若干值, 将它们作为某一次方法调用时的参数
 - _Send the whole object instead._
     - 做法 : 改为传递整个对象
+- 优点
+    - 如果未来需要该对象的更多字段, 就不用再调整参数列了 (参数列更稳定/稳固)
+    - 参数列变短, 提高可读性; 还可以利用该对象的一些计算中间值的方法
+- 缺点
+    - 方法可能只依赖对象中的字段数值, 但完全不关注该对象的类和方法, 这样方法就多引入了一个类, 使依赖结构恶化
+- 讨论 : 如果被调用方法, 只需要参数对象的其中一个数值, 那么只传递这个数值会更好?
+    - 其实, 传递一个数值或传递一个对象, 其参数列一样多 (从参数数量来看, 代码清晰程度基本一致)
+    - 重点在于考虑 "对象之间的依赖关系"
+        - 如果一个方法依赖太多来自另一对象的数据, 那么该方法可能该搬到那些数据所属的对象中
 
 ```java
 // before
 int low = range.getLow();
 int high = range.getHigh();
 plan.withinRange(low, high);
+
 // after
 plan.withinRange(range);
 ```
+
+Replace Parameter with Method 以方法取代参数
+
+- _An object invokes a method, then passes the result as a parameter for a method. The receiver can also invoke this method._
+    - 适用情况 :
+- _Remove the parameter and let the receiver invoke the method._
+    - 做法 :
 
 Remove Setting Method 移除设值方法 (?)
 
