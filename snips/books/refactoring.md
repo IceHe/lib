@@ -205,7 +205,7 @@ Long Method 过长的方法
 
 Large Class 过大的类
 
-- 略
+- o'm
 
 Long Parameter List 过长参数列
 
@@ -267,7 +267,8 @@ Parallel Inheritance Hierarchies 平行继承体系
 
 Lazy Class 冗赘类
 
-- 略
+- _Each class you create costs money to maintain and understand._
+- _A class that isn't doing enough to pay for itself should be eliminated._
 
 Speculative Generality 夸夸其谈未来性
 
@@ -381,7 +382,8 @@ As I describe the refactorings in this and other chapters, I use a standard form
 
 Extract Method 提炼方法
 
-- 略
+- _You have a code fragment that can be grouped together._
+- _Turn the fragment into a method whose name explains the purpose of the method._
 
 Inline Method 内联方法
 
@@ -424,7 +426,8 @@ Replace Method with Method Ojbect 以方法对象取代方法
 
 Substitute Algorithm 替换算法
 
-- 略
+- _You want to replace an algorithm with one that is clearer._
+- _Replace the body of the method with the new algorithm_
 
 ## Moving Features Between Objects
 
@@ -448,7 +451,8 @@ Extract Class 提炼类
 
 Inline Class 将类内联化
 
-- 略
+- _A class isn't doing very much._
+- _Move all its features into another class and delete it._
 
 Hide Delegate 隐藏 "委托关系"
 
@@ -720,11 +724,30 @@ Introduce Assertion 引入断言
 
 Rename Method 方法改名
 
+- _The name of a method does not reveal its purpose._
+- _Change the name of the method._
+- _CAUTION_
+    - _In this situation you may well be tempted to leave it—after all it's only a name._
+    - _That is the work of the evil demon Obfuscatis; don't listen to him._
+    - _Take note of when you have spent ages trying to do something that would have been easier if a couple of methods had been better named._
+    - _Good naming is a skill that requires practice; improving this skill is the key to being a truly skillful programmer._
+
 Add Parameter 添加参数
+
+- _A method needs more information from its caller._
+- _Add a parameter for an object that can pass on this information._
 
 Remove Parameter 移除参数
 
-Separate Query from Modifier 将查询方法和修改方法分离 (?)
+- _A parameter is no longer used by the method body._
+- _Remove it._
+
+Separate Query from Modifier 将查询方法和修改方法分离
+
+- _You have a method that returns a value but also changes the state of an object._
+    - 适用情况 : 某个方法既返回对象状态值, 又修改对象状态
+- _Create two methods, one for the query and one for the modification._
+    - 做法 : 建立两个不同的方法, 其中一个负责查询, 另一个负责修改
 
 Parameterize Method 令方法携带参数 (?)
 
