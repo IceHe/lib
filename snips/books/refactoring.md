@@ -613,7 +613,22 @@ Replace Type Code with Fields 以字段取代类型码
 
 Decompose Conditional 分解条件表达式
 
+- _You have a complicated conditional (if-then-else) statement._
+    - 适用情况 : 有一个复杂的条件 (if-then-else) 语句
+- _Extract methods from the condition, then part, and else parts._
+    - 做法 : 从 if、then、else 三个段落中分别提炼出独立方法
+        - _用适当的方法名来表达代码的目的, 清晰而明白, 可读性好_
+
 Consolidate Conditional Expression 合并条件表达式
+
+- _You have a sequence of conditional tests with the same result._
+    - 适用情况 : 有一系列条件测试, 都得到相同结果
+- _Combine them into a single conditional expression and extract it._
+    - 做法 : 将这些测试合并为一个条件表达式, 并将这个条件表达式提炼为一个独立方法
+- _当然存在不宜合并的情况_
+    - _这些测试虽然返回相同结果, 但实际上相互独立, 只是恰好同时发生, 不应视为同一次检查, 就不要合并_
+    - _某种情况下, 虽然返回相同的结果, 但是需要做额外的日志记录?_
+        - _还是可以合并, 只是分支中得再内嵌一层检查, 然后在该种情况下进行记录日志_
 
 Remove Control Flag 移除控制标记 (?)
 
