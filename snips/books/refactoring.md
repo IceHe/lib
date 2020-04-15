@@ -623,13 +623,18 @@ Replace Type Code with SubClass 以子类取代类型码
 Replace Type Code with State/Strategy 以 状态/策略 取代类型码
 
 - _You have a type code that affects the behavior of a class, but you cannot use subclassing._
-    - 适用条件 : 有一个类型码, 它会影响类的行为, 但你无法通过集成手法消除它
+    - 适用情况 : 有一个类型码, 它会影响类的行为, 但你无法通过继承手法消除它
         - _具体什么情况下无法消除, 详见原书实例_
-- _Replace the type code with a state object (e.g. Enum)._
-    - 做法 : 以状态对象 (例如, 枚举常量) 取代类型码
+- _Replace the type code with a state object (e.g. Enum?)._
+    - 做法 : 以状态对象 _(我理解可以用 枚举常量)_ 取代类型码
 - _是 State 还是 Strategy? 设计时, 对于模式 (与其名称) 的选择, 取决于你结构的看法_
 
-Replace Type Code with Fields 以字段取代类型码
+Replace Type Code with Fields 以字段取代子类
+
+- _You have subclasses that vary only in methods that return constant data._
+    - 适用情况 : 各个子类的唯一区别只在 "返回常量数据" 的方法上
+- _Change the methods to superclass fields and eliminate the subclasses._
+    - 修改这些方法, 使它们返回超类中某个 (新增) 字段, 然后销毁子类
 
 - _You have subclasses that vary only in methods that return constant data._
     - 适用情况 : 各个子类的唯一区别只在 "返回常量数据" 的方法上
@@ -639,7 +644,7 @@ Replace Type Code with Fields 以字段取代类型码
 ## Simplify Conditional Expressions
 
 > 简化条件表达式
-
+c
 Decompose Conditional 分解条件表达式
 
 - _You have a complicated conditional (if-then-else) statement._
