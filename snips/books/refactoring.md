@@ -806,9 +806,9 @@ plan.withinRange(range);
 Replace Parameter with Method 以方法取代参数
 
 - _An object invokes a method, then passes the result as a parameter for a method. The receiver can also invoke this method._
-    - 适用情况 :
+    - 适用情况 : 对象调用某个方法, 并将所得结果作为参数, 传递给另一个方法; 而接受该参数的方法本身其实也能够调用前一方法
 - _Remove the parameter and let the receiver invoke the method._
-    - 做法 :
+    - 做法 : 让参数接受者去除该项参数, 并直接调用前一方法
 
 Remove Setting Method 移除设值方法 (?)
 
