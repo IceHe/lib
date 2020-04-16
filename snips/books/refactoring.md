@@ -724,8 +724,8 @@ Introduce Assertion 引入断言
 
 Rename Method 方法改名
 
-- _The name of a method does not reveal its purpose._
-- _Change the name of the method._
+- 适用情况 : _The name of a method does not reveal its purpose._
+- 做法 : _Change the name of the method._
 - _CAUTION_
     - _In this situation you may well be tempted to leave it—after all it's only a name._
     - _That is the work of the evil demon Obfuscatis; don't listen to him._
@@ -870,11 +870,21 @@ Replace Exception with Test 以测试取代异常
 
 ## Dealing with Generalization
 
-> 处理概括(泛化?)关系
+> 处理概括 (继承) 关系
 
 Pull Up Field 字段上移
 
+- _Two subclasses have the same field._
+    - 适用情况 : 两个子类拥有相同的字段
+- _Move the field to the superclass_
+    - 做法 : 将该字段移至超类
+
 Pull Up Method 方法上移
+
+- _You have methods with identical results on subclasses._
+    - 适用情况 : 有些方法, 在各个子类中产生完全相同的结果
+- _Move them to the superclass._
+    - 做法 : 将该方法移至超类
 
 Pull Up Constructor Body 构造方法本地上移 (?)
 
