@@ -197,7 +197,7 @@ Long Method 过长的方法
 - Modern OO languages have pretty much eliminated that overhead for in-process calls.
     - 现代面向对象语言几乎已经完全免除了进程内的方法调用开销.
 - A heuristic we follow is that whenever we feel the need to comment something, we write a method instead.
-    - **每当感觉需要以注释来说明点什么的时候, 我们就把需要说明的东西写进一个独立函数中, 并以其用途 (而非实现手法) 命名.**
+    - **每当感觉需要以注释来说明点什么的时候, 我们就把需要说明的东西写进一个独立方法中, 并以其用途 (而非实现手法) 命名.**
 - We do this even if the method call is longer than the code it replaces, provided the method name explains the purpose of the code
     - 哪怕替换后的方法调用动作比方法自身还长, 只要方法名称能够解释其用途, 我们也该毫不犹豫地这么做.
 - The key here is not method length but the semantic distance between what the method does and how it does it.
@@ -298,7 +298,7 @@ Middle Man 中间人
 
 - Encapsulation often comes with delegation.
     - 封装往往伴随着委托
-- 可能过度运用委托, 例如某个类接口有一半的函数都委托给其他类
+- 可能过度运用委托, 例如某个类接口有一半的方法都委托给其他类
 - 可以使用 Remove Middle Man 手法 : 减少不干实事的类和方法
 
 Inappropriate Intimacy 狎昵关系
@@ -422,7 +422,7 @@ Remove Assignments to Parameters 移除对参数的赋值
 Replace Method with Method Ojbect 以方法对象取代方法
 
 - 会将所有局部变量都变成方法对象的字段 (以 Constructor 构造方法方式传入)
-- 然后就可以对这个新对象使用 Extract Method 创造出新方法, 从而将原本的大型函数拆解变短
+- 然后就可以对这个新对象使用 Extract Method 创造出新方法, 从而将原本的大型方法拆解变短
 
 Substitute Algorithm 替换算法
 
@@ -451,8 +451,8 @@ Extract Class 提炼类
 
 Inline Class 将类内联化
 
-- _A class isn't doing very much._
-- _Move all its features into another class and delete it._
+- 适用情况 : _A class isn't doing very much._
+- 做法 : _Move all its features into another class and delete it._
 
 Hide Delegate 隐藏 "委托关系"
 
@@ -474,7 +474,7 @@ Introduce Foreign Method 引入外加方法
 - _A server class you are using needs an additional method, but you can't modify the class._
     - 适用情况 : 需要为提供服务的类增加一个方法, 但你无法修改这个类 _( 例如 Date )_
 - _Create a method in the client class with an instance of the server class as its first argument._
-    - _做法 : 建立一个方法, 传入该类的对象, 并在新方法内对其执行你所需要的额外处理_
+    - 做法 : 建立一个方法, 传入该类的对象, 并在新方法内对其执行你所需要的额外处理
 
 Introduce Local Extension 引入本地拓展
 
@@ -493,7 +493,7 @@ Self Encapsulate Field 自封装字段
 - _You are accessing a field directly, but the coupling to the field is becoming awkward._
     - 适用情况 : 你直接访问一个字段, 但与字段之间的耦合关系逐渐变得笨拙
 - _Create getting and setting methods for the field and use only those to access the field_
-    - 做法 : 为这个字段建立取值/设值方法, 并且 **只以这些函数访问字段**
+    - 做法 : 为这个字段建立取值/设值方法, 并且 **只以这些方法访问字段**
 - _一开始写的时候, 可以先使用直接访问的方式, 直到需要使用取值/设值方法封装一些操作为止_
 - 在 constructor 中使用 setter ?
     - 一般来说, setter 被认为应该在对象创建后使用, 所以初始化过程中的行为有可能与 setter 的行为不同
@@ -634,17 +634,12 @@ Replace Type Code with Fields 以字段取代子类
 - _You have subclasses that vary only in methods that return constant data._
     - 适用情况 : 各个子类的唯一区别只在 "返回常量数据" 的方法上
 - _Change the methods to superclass fields and eliminate the subclasses._
-    - 修改这些方法, 使它们返回超类中某个 (新增) 字段, 然后销毁子类
-
-- _You have subclasses that vary only in methods that return constant data._
-    - 适用情况 : 各个子类的唯一区别只在 "返回常量数据" 的方法上
-- _Change the methods to superclass fields and eliminate the subclasses._
     - 做法 : 修改这些方法, 使它们返回超类中的某个 (新增) 字段, 然后销毁子类
 
 ## Simplify Conditional Expressions
 
 > 简化条件表达式
-c
+
 Decompose Conditional 分解条件表达式
 
 - _You have a complicated conditional (if-then-else) statement._
@@ -699,7 +694,7 @@ Replace Condtional with Polymorphism 以多态取代条件表达式
 - _You have a conditional that chooses different behavior depending on the type of an object._
     - 适用情况 : 有个条件表达式, 它根据对象类型的不同而选择不同的行为
 - _Move each leg of the conditional to an overriding method in a subclass. Make the original method abstract._
-    - 做法 : 将这个条件的每个分支放进一个子类内的覆写方法中, 然后将 (父类中的) 原始方法声明为抽象函数
+    - 做法 : 将这个条件的每个分支放进一个子类内的覆写方法中, 然后将 (父类中的) 原始方法声明为抽象方法
 - _详例见原书_
 
 Introduce Null Object 引入 Null 对象
@@ -739,13 +734,13 @@ Rename Method 方法改名
 
 Add Parameter 添加参数
 
-- _A method needs more information from its caller._
-- _Add a parameter for an object that can pass on this information._
+- 适用情况 : _A method needs more information from its caller._
+- 做法 : _Add a parameter for an object that can pass on this information._
 
 Remove Parameter 移除参数
 
-- _A parameter is no longer used by the method body._
-- _Remove it._
+- 适用情况 : _A parameter is no longer used by the method body._
+- 做法 : _Remove it._
 
 Separate Query from Modifier 将查询方法和修改方法分离
 
@@ -809,18 +804,69 @@ Replace Parameter with Method 以方法取代参数
     - 适用情况 : 对象调用某个方法, 并将所得结果作为参数, 传递给另一个方法; 而接受该参数的方法本身其实也能够调用前一方法
 - _Remove the parameter and let the receiver invoke the method._
     - 做法 : 让参数接受者去除该项参数, 并直接调用前一方法
+- 如果方法可以通过其他途径获得参数值, 那么它就不应该通过参数获得该值
+    - 过长的参数列会增加程序阅读者的理解难度, _因此应该尽可能缩短参数列长度_
+- 稳定的接口确实很好, 但是被冻结在一个不良的接口上也是有问题的!
+    - _我倾向于这种做法 : 不合适/不好用的接口能改就改_
+    - _当然做法并不绝对, 取决于修改接口的代价/难度 ( 会产生多严重的后果 )_
 
-Remove Setting Method 移除设值方法 (?)
+Introduce Parameter Object 引入参数对象
 
-Hide Method 隐藏方法 (?!)
+- _You have a group of parameters that naturally go together._
+    - 适用情况 : 某些参数总是很自然地同时出现
+        - 即 Data Clumps 数据泥团
+- _Replace them with an object._
+    - 以一个对象取代这些参数
+        - 缩短了参数列
+
+Remove Setting Method 移除设值方法
+
+- _A field should be set at creation time and never altered._
+    - 适用情况 : 类中的某个字段应该在对象创建时被设值, 然后就不再改变
+- _Remove any setting method for that field._
+    - 做法 : 去掉该字段的所有设值方法 ( 并将字段设置为 final )
+
+Hide Method 隐藏方法 ( 设为私有 )
+
+- _A method is not used by any other class._
+    - 适用情况 : 一个方法, 从来没有被其它任何类用到
+- _Make the method private._
+    - 做法 : 将这个方法设置为 private
 
 Replace Constructor with Factory Method 以工厂方法取代构造方法
 
-Encapsulate Downcast 封装向下转型 (?)
+- _You want to do more than simple construction when you create an object._
+    - 适用情况 : 如果希望在创建对象时, 不仅仅进行简单的构建动作
+        - _例如, 根据条件 ( 例如 类型码 ) 创建不同子类对象_
+            - _毕竟用 new 只能简单返回单一类型的对象_
+        - _例如, 复用相同的对象 ( 例如 从连接池获取连接 )_
+- _Replace the constructor with a factory method._
+    - 做法 : 将构造方法替换为 ( 静态 ) 工厂方法
+
+Encapsulate Downcast 封装向下转型
+
+- _A method returns an object that needs to be downcasted by its callers._
+    - 适用情况 : 某个方法返回的对象, 需要由方法调用者执行向下转型 ( downcast )
+- _Move the downcast to within the method._
+    - 做法 : 将向下转型动作移到方法中
 
 Replace Error Code with Exception 以异常取代错误码
 
-Replace Exception with Test 以测试取代异常 (?)
+- 适用情况 : _A method returns a special code to indicate an error._
+- 做法 : _Throw an exception instead._
+- 考虑 : 抛出哪种异常 -- Checked Exception ( 受控异常 ) V.S. Unchecked Exception ( 非受控异常 )
+    - 调用者 **有责任 在调用前进行必要的检查** -> 出错时, 被调用的方法 抛出 **非受控异常** ( RuntimeException ) ( 属于编程错误 )
+    - 调用者 **没有责任** 在调用前进行必要的检查 -> 出错时, 被调用的方法 抛出 **受控异常** ( Exception )
+
+Replace Exception with Test 以测试取代异常
+
+- _You are throwing a checked exception on a condition the caller could have checked first._
+    - 适用情况 : 面对一个调用者可以预先检查的条件, 抛出了一个 ( 受查 ) 异常
+- _Change the caller to make the test first._
+    - 做法 : 修改调用者, 使它再调用方法之前先做检查
+- 目的 : 避免异常被滥用!
+    - 异常应该被用于异常的、罕见的行为 -- 意料之外的错误行为
+    - **"抛出异常" 不应该成为 "条件检查" 的的替代品!**
 
 ## Dealing with Generalization
 
