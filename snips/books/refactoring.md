@@ -946,9 +946,19 @@ Form Template Method 塑造模板方法
 - _Get the steps into methods with the same signature, so that the original methods become the same. Then you can pull them up._
     - 做法 : 将这些操作分别放进独立方法中, 并保持它们都有相同的签名, 于是原函数也就变得相同了. 然后将原方法函数上移到超类
 
-Replace Inheritance with Delegation 以委托取代继承 (?)
+Replace Inheritance with Delegation 以委托取代继承
+
+- _A subclass uses only part of a superclasses interface or does not want to inherit data._
+    - 适用情况 : 某个子类只使用超类接口中的一部分, 或是根本不需要继承而来的数据
+- _Create a field for the superclass, adjust methods to delegate to the superclass, and remove the subclassing._
+    - 做法 : 在子类中新建一个字段用以保存超类; 调整子类方法, 令它改而委托超类; 然后去掉两者之间的继承关系
 
 Replace Delegation with Inheritance 以继承取代委托 (?)
+
+- _You're using delegation and are often writing many simple delegations for the entire interface._
+    - 适用情况 :
+- _Make the delegating class a subclass of the delegate._
+    - 做法 :
 
 ## Big Refactoring
 
