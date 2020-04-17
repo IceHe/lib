@@ -886,17 +886,50 @@ Pull Up Method 方法上移
 - _Move them to the superclass._
     - 做法 : 将该方法移至超类
 
-Pull Up Constructor Body 构造方法本地上移 (?)
+Pull Up Constructor Body 构造方法本体上移
+
+- _You have constructors on subclasses with mostly identical bodies._
+    - 适用情况 : 在各个子类中拥有一些构造方法, 它们的本体几乎完全一致
+- _Create a superclass constructor; call this from the subclass methods._
+    - 做法 : 在超类中新建一个构造方法, 并在子类构造方法中调用它
+- _与 Pull Up Method 类似, 或者说是它的一种特例而已_
 
 Push Down Method 方法下移
 
+- _Behavior on a superclass is relevant only for some of its subclasses._
+    - 适用情况 : 超类中的几个方法只与部分 (而非全部) 子类有关
+- _Move it to those subclasses._
+    - 做法 : 将这个方法移到相关的那些子类去
+- _与 Pull Up Method 相反_
+
 Push Down Field 字段下移
 
-Extact Subclass 提炼子类 (?)
+- _A field is used only by some subclasses._
+    - 适用情况 : 超类中的某个字段只被部分 (而非全部) 子类用到
+- _Move the field to those subclasses_
+    - 做法 : 将这个字段移到需要它的那些子类去
+- _与 Pull Up Field 相反_
+
+Extact Subclass 提炼子类
+
+- _A class has features that are used only in some instances._
+    - 适用情况 : 类中的某些特性只被某些 (而非全部) 实例用到
+- _Create a subclass for that subset of features._
+    - 做法 : 新建一个子类, 将上面所说的那一部分特性移到子类中
 
 Extract Superclass 提炼超类
 
+- _You have two classes with similar features._
+    - 适用情况 : 两个类有相似特性
+- _Create a superclass and move the common features to the superclass._
+    - 做法 : 为这两个类建立一个超类, 将相同特性移至超类
+
 Extract Interface 提炼接口
+
+- _Several clients use the same subset of a class's interface, or two classes have part of their interfaces in common._
+    - 适用情况 : 若干客户使用类接口中的同一个子集, 或者两个类的接口有部分相同
+- _Extract the subset into an interface._
+    - 做法 : 将相同的子集提炼到一个独立接口中
 
 Collapse Hierarchy 折叠继承体系 (?)
 
