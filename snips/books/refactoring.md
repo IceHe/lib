@@ -931,9 +931,20 @@ Extract Interface 提炼接口
 - _Extract the subset into an interface._
     - 做法 : 将相同的子集提炼到一个独立接口中
 
-Collapse Hierarchy 折叠继承体系 (?)
+Collapse Hierarchy 折叠继承体系
 
-Form Template Method 塑造模板方法 (?)
+- _A superclass and subclass are not very different._
+    - 适用情况 : 超类和子类之间无太大关系
+- _Merge them together._
+    - 做法 : 将它们合为一体
+- _考虑 : 移除超类还是子类?_
+
+Form Template Method 塑造模板方法
+
+- _You have two methods in subclasses that perform similar steps in the same order, yet the steps are different._
+    - 适用情况 : 有一些子类, 其中相应的某些方法以相同顺序执行类似的操作, 但各个操作的细节上有所不同
+- _Get the steps into methods with the same signature, so that the original methods become the same. Then you can pull them up._
+    - 做法 : 将这些操作分别放进独立方法中, 并保持它们都有相同的签名, 于是原函数也就变得相同了. 然后将原方法函数上移到超类
 
 Replace Inheritance with Delegation 以委托取代继承 (?)
 
