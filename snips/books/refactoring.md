@@ -956,15 +956,20 @@ Replace Inheritance with Delegation 以委托取代继承
 Replace Delegation with Inheritance 以继承取代委托 (?)
 
 - _You're using delegation and are often writing many simple delegations for the entire interface._
-    - 适用情况 :
+    - 适用情况 : 在两个类之间使用委托关系, 并经常为整个接口编写许多极简单的委托方法
 - _Make the delegating class a subclass of the delegate._
-    - 做法 :
+    - 做法 : 让委托类继承受托类
 
 ## Big Refactoring
 
 > 大型重构
 
-Tease Apart Inheritance 梳理并分解继承体系 (?)
+Tease Apart Inheritance 梳理并分解继承体系
+
+- _You have an inheritance hierarchy that is doing two jobs at once._
+    - 适用情况 : 一个继承体系同时承担两项责任
+- _Create two hierarchies and use delegation to invoke one from the other._
+    - 做法 : 建立两个继承体系, 并通过委托关系让其中一个可以调用另一个
 
 Convert Procedural Design to Objects 将过程化设计转化为对象设计 (?)
 
