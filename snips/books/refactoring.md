@@ -970,12 +970,34 @@ Tease Apart Inheritance 梳理并分解继承体系
     - 适用情况 : 一个继承体系同时承担两项责任
 - _Create two hierarchies and use delegation to invoke one from the other._
     - 做法 : 建立两个继承体系, 并通过委托关系让其中一个可以调用另一个
+- _详见原书 UML 图例, 以便理解_
 
-Convert Procedural Design to Objects 将过程化设计转化为对象设计 (?)
+Convert Procedural Design to Objects 将过程化设计转化为对象设计
 
-Separate Domain from Presentation 将领域和表述/显示分离 (?)
+- _You have code written in a procedural style._
+    - 适用情况 : 有一些传统过程化风格的代码
+- _Turn the data records into objects, break up the behavior, and move the behavior to the objects._
+    - 做法 : 将数据记录变成对象, 将大块的行为分成小块
+
+Separate Domain from Presentation 将领域和表述/显示分离
+
+- _You have GUI classes that contain domain logic._
+    - 适用情况 : 某些 GUI 类之中包含了领域逻辑
+- _Separate the domain logic into separate domain classes._
+    - 做法 : 将领域逻辑分离出来, 为他们建立独立的领域类
+- _MVC : Model-View-Controller_
+    - _View : 视图 / 展现层_
+    - _Model : 模型 / 领域逻辑_
+    - 价值 : 将展现层和领域逻辑分离
+- _详见原书 UML 图例, 以便理解_
 
 Extract Hierarchy 提炼继承体系
+
+- _You have a class that is doing too much work, at least in part through many conditional statements._
+    - 适用情况 : 一个类做了太多工作, 其中一部分工作时以大量条件表达式完成的
+- _Create a hierarchy of classes in which each subclass represents a special case._
+    - 做法 : 建立继承体系, 以一个子类表示一种特殊情况
+- _详见原书 UML 图例, 以便理解_
 
 ## Refactoring, Reuse, and Reality
 
