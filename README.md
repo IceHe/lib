@@ -22,7 +22,7 @@
 
 Books
 
-- [Refactoring](/snips/books/refactoring.md) ( draft )
+- [Refactoring](/snips/books/refactoring.md)
 - [Linux Kernel](/snips/books/linux.md) ( draft )
 - [JVM - Java Virtual Machine](/snips/books/jvm.md) ( draft )
 - [Java Concurrency in Pratice](/snips/books/java-concurrency-in-pratice.md) ( draft )
