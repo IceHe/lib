@@ -1,4 +1,4 @@
-# 时间管理日志说明
+# 时间管理日志说明 ( archived )
 
 > Time Mgt.: Life Log Format 时间日志格式。
 >
