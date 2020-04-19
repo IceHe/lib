@@ -1,5 +1,7 @@
 # 生活指南
 
+2020-04-19 的回想 : 满篇 鸡血男 / "思想巨人" / "行动矮子" 的呓语 ( 黑历史 )
+
 > Personal Life Experience & Self-Help Manual.
 
 ---
