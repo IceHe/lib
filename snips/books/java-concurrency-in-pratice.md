@@ -51,7 +51,7 @@ GUI 程序的运行方式
     - _例如, 对寄存器或处理器中的变量进行缓存, 而被缓存的变量对于其它线程来说暂时(甚至永久)不可见_
 - _注意 : 尽量不要破坏线程安全性 (自言自语)_
 
-活跃性 Liveness
+安全性 Safety & 活跃性 Liveness
 
 - 安全性 : 永远不发生糟糕的事情
     - Safety : nothing bad ever happens
@@ -60,6 +60,7 @@ GUI 程序的运行方式
     - 当某个操作无法继续执行下去时, 就会发生 liveness failure
         - 例如, 无意中造成无限循环, 后续的代码无法继续执行
 - 性能 : 希望正确的事情尽快发生
+    - Performance : we want good things to happen quickly
 
 ## Fundamentals
 
@@ -97,7 +98,7 @@ If **multiple threads access the same mutable state variable without appropriate
 - Make the **state variable immutable**; or
 - Use **synchronization** whenever accessing the state variable.
 
-When designing threadͲsafe classes, good objectͲoriented techniques Ͳ encapsulation, immutability, and clear specification of invariantsͲare your best friends.
+When designing thread-safe classes, good object-oriented techniques - encapsulation, immutability, and clear specification of invariants - are your best friends.
 
 - _invariant : n. 不变式/不变量 ; adj. 不变的/无变化的_
 
@@ -123,11 +124,13 @@ When designing threadͲsafe classes, good objectͲoriented techniques Ͳ encapsu
 
 ### 加锁机制 Locking
 
+Atomic operation need locking.
+
 - To **preserve state consistency**, update related state variables in a single atomic operation.
 
 **内置锁 Intrinsic Lock**
 
-- 同步代码块 (Synchronized Block)
+- 同步代码块 ( Synchronized Block )
     - It has 2 parts :
         - a reference to an object that will serve as the lock
         - a block of code to be guarded by that lock
@@ -147,7 +150,7 @@ synchronized (lock) {
 
 - 内置锁 Intrinsic Lock 或 监视锁 Monitor Lock
 - **线程在进入同步代码块之前会自动获得锁; 并且在退出同步代码块时, 自动释放锁**
-- Java 的内置锁相当于一种 互斥体 mutex (或互斥锁 mutual exclusion lock)
+- Java 的内置锁相当于一种 互斥体 mutex ( 或互斥锁 mutual exclusion lock )
     - 最多只有一个线程能持有这种锁
 
 **重入 Reentrancy**
@@ -155,7 +158,7 @@ synchronized (lock) {
 - Because intrinsic locks are **reentrant**, if a thread tries to acquire a lock that it already holds, the request succeeds.
 - Reentrancy means that locks are **acquired on a per-thread rather than per-invocation basis**.
 
-重入的实现 (Implement)
+重入的实现 ( implement )
 
 - Components
     - Reentrancy is implemented by associating with each lock **an acquisition count** and **an owning thread**.
@@ -178,37 +181,57 @@ For every invariant (不变性条件) that involves more than one variable, all 
 _实例讨论略, 详见原书_
 
 - 例子 : 对已经使用了同步代码块来构造了 long 的原子操作, 就不要使用 AtomicLong 了
-    - 同时使用两种同步机制, 性能和安全性上都不好
+    - **同时使用两种同步机制, 性能和安全性上都不好**
 
-There is frequently a tension between simplicity and performance. When implementing a synchronization policy, resist the temptation to prematurely sacrifice simplicity (potentially compromising safety) for the sake of performance.
+There is frequently a tension between simplicity and performance. When implementing a synchronization policy, resist the temptation to prematurely sacrifice simplicity ( potentially compromising safety ) for the sake of performance.
 
-- 不要盲目地为了性能而牺牲简单性 Simplicity
+- 不要盲目地为了性能而牺牲简单性 ( simplicity )
 
 Avoid holding locks during lengthy computations or operations at risk of not completing quickly such as network or console I/O.
 
-- 当执行 时间较长的计算 或者 无法快速完成的操作 时 (例如, 网络或控制台 I/O), 一定不要持有锁
+- 当执行 时间较长的计算 或者 无法快速完成的操作 时 ( 例如, 网络或控制台 I/O ), 一定不要持有锁
 
 ## Sharing Objects
 
-- 临界区 Critical Section : 访问共享资源的程序片段
+- **临界区 Critical Section : 访问共享资源的程序片段**
 - 内存可见性 Memory Visibility
 
 ### Visibility
 
 In general, there is no guarantee that the reading thread will see a value written by another thread on a timely basis, or even at all.
 
+- 通常, 我们无法确保执行读操作的线程能适时地看到其他线程写入的值, 有时甚至是根本不可能的
+
 In order to ensure **visibility of memory** writes across threads, you must use synchronization.
+
+- 为了确保多个线程之间对内存写入草的可见性, 必须使用同步机制
 
 ---
 
 In the absence of synchronization, the compiler, processor, and runtime can do some downright weird things to the order in which operations appear to execute.
 
-- 在没有同步的情况下, 编译器、处理器以及运行时等都可能对操作的执行顺序进行一些意想不到的调整 _( 不会瞎调整的吧? 会重排到什么程度呢? 没有深入的遭遇和体会 )_
+- **在没有同步的情况下, 编译器、处理器以及运行时等都可能对操作的执行顺序进行一些意想不到的调整** _( 会重排到什么程度呢? 没有深入的遭遇和体会 )_
 
 Attempts to reason about the order in which memory actions "must" happen in insufficiently synchronized multithreaded programs will almost certainly be incorrect.
 
 - 在缺乏足够同步的多线程程序中, 要想对内存操作的执行顺序进行判断, 几乎无法得出正确的结果
 
+---
+
 失效数据 Stale Data
 
-TODO
+- 缺乏同步的程序中, 可能产生错误的结果, 其中一种情况是 -- 失效数据
+    - 查看某个变量时, 可能获得一个失效值
+    - 甚至 一个线程可能获得某个变量的最新值, 而获得另一个量的失效值
+
+非原子的 64 位操作
+
+- **最低安全性 ( out-of-thin-air safety )** : 适用于绝大多数变量
+    - 当线程在没有同步的情况下读取变量, 可能会得到一个失效值
+    - 但至少是由之前某个线程设置的值, 而不是一个随机值
+- _最低安全性的例外 : 非 volatile 类型的 64 位数值变量 ( long & double )_
+    - _Java 内存模型要求, 变量的读取操作和写入操作都必须是原子操作_
+    - _对非 volatile 类型的 long 和 double 变量, JVM 允许将 64 位的读操作或写操作分解为两个 32 位的操作!?_
+    - _当读取一个非 volatile 类型的 long 变量时, 如果对该变量的读操作和写操作在不同的线程中执行, 那么很可能会读到某个值的高 32 位和另一个值的低 32 位_
+
+volatile 变量
