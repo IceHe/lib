@@ -599,6 +599,7 @@ Reference : https://www.computerhope.com/keys.htm
 - regex : [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 - rem : remove
 - ren : rename
+- REPL : Read–Eval–Print Loop ( "读取 - 求值 - 输出" 循环 )
 - repo : repository
 - req : request | requirement
 - resp : response
