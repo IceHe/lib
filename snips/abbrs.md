@@ -440,6 +440,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ln : link
 - lnk : link
 - loc : location
+- LoD : Law of Demeter 德墨忒尔法则
 - lol : Laugh Out Loud
 - lru : least recently used ( TODO : add link )
 - ls : list
@@ -695,6 +696,7 @@ Reference : https://www.computerhope.com/keys.htm
 - tb : table ( for SQL )
 - TBD : [To Be Determinated](https://en.wikipedia.org/wiki/To_be_announced)
 - TCP : [Transmission Control Protocol](https://hit-alibaba.github.io/interview/basic/network/TCP.html)
+- TDA : tell-don't-ask 只管命令, 不要询问
 - tel : tell | telephone
 - temp : temporary
 - templ : template
