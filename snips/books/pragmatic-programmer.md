@@ -21,14 +21,22 @@ _1\. 人生是你的 ( It's Your Life )_
 - Tip 3 : 你有权选择 _( You Have Agency )_
     - **人生是自己的. 把握住人生, 让它如你所愿**
         - _工作内容无聊没有意思? 团队一团糟? "改变这个组织, 或者换一个组织"_
+            - _Does your work environment suck? Is your job boring? Try to fix it. But don’t try forever. As Martin Fowler says, "you can change your organization or change your organization."_
         - _担心自己掌握的技术过时? 安排时间学习看起来有趣的新技术_
             - _这是一种自我投资, **只有为此加班才是合理的**_
+            - _If technology seems to be passing you by, make time (in your own time) to study new stuff that looks interesting._
+                - _You’re investing in yourself, so doing it while you’re off-the-clock is only reasonable._
         - _不要期待事情自己变好, 而是考虑一下 : 自己行动起来_
+            - _Be proactive and take them._
 
 _2\. 我的源码被猫吃了 ( The Cat Ate My Source Code )_
 
 - Tip 4 : 提供选择, 别找借口 _( Provide Options, Don't Make Lame Excuses )_
     - **提供选择而不是去找理由. 不要只说做不到; 解释一下都能做到些什么**
+        - _英文原文 :_
+            - _Don’t blame someone or something else, or make up an excuse._
+            - _Don’t blame all the problems on a vendor, a programming language, management, or your coworkers._
+            - _Any and all of these may play a role, but it is up to you to provide solutions, not excuses._
 
 _3\. 软件的熵 ( Software Entropy )_
 
@@ -197,7 +205,7 @@ _20\. 调试 ( Debugging )_
 - Tip 33 : "select" 没出问题 _( "select" Isn't Broken )_
     - **在操作系统或编译器中发现 Bug 非常罕见**, 甚至在第三方产品或库中也是如此. Bug 大多出现在应用程序中
         - _怀疑操作系统/编译器/第三方库/中间件/数据库有问题? 还不如怀疑自己的应用程序有问题…_
-- Tip 34 : **不要假设, 要证明** _( Don't Assume It -- Prove It )_
+- Tip 34 : **不要假设, 要证明** _( Don't Assume It, Prove It )_
     - 在真实环境中证实你的假设 -- 要依赖真实的数据及边界条件
         - _除了 bugfix, 还需要 **确认为什么没有更早地发现这个错误?**_
             - _是否需要修改单元测试或其它测试, 以让这些测试能够捕获到它_
@@ -410,14 +418,14 @@ _36\. 黑板 ( Blackborads )_
 
 - Tip 60 : 使用黑板来协调工作流 _( Use Blackboards to Coordinate Workflow )_
     - 使用黑板来协调不相关的事实和代理人, 能同时保持参与者之间的独立性和孤立性
-        - _消息传递系统 就是一种黑板 ( 例如 Kafka / NATS (?) )_
+        - _**消息传递系统 就是一种黑板** ( 例如 Kafka / NATS (?) )_
             - _不但能传递消息, 还能持久化 ( 以时间日志的形式 )_
 
 ## While You Are Coding
 
 章 7 : 当你编码时 ( While You Are Coding )
 
-- _测试不是关于找 bug 的工作, 而是一个从代码中获取反馈的过程, 设计射击嗯方方面面, 以及 API、耦合度等_
+- _**测试不是关于找 bug 的工作, 而是一个从代码中获取反馈的过程, 设计涉及的方方面面, 以及 API、耦合度等**_
     - _这意味着, 测试的主要收益来自于你的思考和编写测试期间, 而不是运行测试那一刻_
 - _命名是软件开发中最困难的事情之一_
     - _不得不给很多东西起名字, 而我们的选择的名字在很多方面决定了所创造的最终是什么_
@@ -447,7 +455,7 @@ _38\. 巧合式编程 ( Programming by Coincidence )_
     - 只能依赖可靠的事物. 注意偶然事件的复杂性, 不要混淆快乐的巧合与有目的的计划
         - _因为靠运气和意外来获得成功是行不通的, 编程应该深思熟虑_
         - _人类天生就善于发现模式和归咎原因, 即使那些东西只是巧合_
-        - _不要假设, 要证明_
+        - _不要假设, 要证明 ( Don't assume it, prove it. )_
         - _找到恰好能用的答案和找到正确的答案不是一回事_
             - _( 但是为了应付工期紧迫的任务, 可能敷衍了事 )_
 
@@ -455,6 +463,7 @@ _39\. 算法速度 ( Algorithm Speed )_
 
 - Tip 63 : 评估算法的级别 _( Estimate the Order of Your Algorithms )_
     - 在开始编程前, 对这件事情大概会花多长时间要有概念
+        - _Estimate the resources that algorithms use : time, processor, memory and so on._
 - Tip 64 : 对估算做测试 _( Test Your Estimates )_
     - 针对算法的数学分析无法说明所有问题, 尝试在目标环境中测试一下执行代码的耗时
 
