@@ -464,8 +464,10 @@ _39\. 算法速度 ( Algorithm Speed )_
 - Tip 63 : 评估算法的级别 _( Estimate the Order of Your Algorithms )_
     - 在开始编程前, 对这件事情大概会花多长时间要有概念
         - _Estimate the resources that algorithms use : time, processor, memory and so on._
+        - _如果你有一个 O(n^2) 的算法, 试试寻找一个分治的方法把它降到 O(n*log(n))_
 - Tip 64 : 对估算做测试 _( Test Your Estimates )_
     - 针对算法的数学分析无法说明所有问题, 尝试在目标环境中测试一下执行代码的耗时
+        - _最好的不会永远最好 ( Best isn't always best. )_
 
 _40\. 重构 ( Refactoring )_
 
