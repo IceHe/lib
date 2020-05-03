@@ -528,25 +528,76 @@ _41\. 为编码测试 ( Test to Code )_
     - 写下代码之前先从测试角度思考
         - _需要从一开始就在软件中构建可测试性, 并在尝试将每个部分连接在一起之前, 对它们进行彻底的测试_
         - _**回归测试** : 与相同测试的前一次运行结果比较_
+        - _在调试完之后, 需要把这个临时测试正式化_
+            - _如果代码出过一次问题, 就有再出问题的可能性_
+            - _不要讲创建出来的测试扔掉, 把它添加到现有的单元测试库中_
+        - _一般来说, 可以留一个特性开关, 为特定用户或用户组启用额外的诊断信息 ( 详见原书例 )_
 - Tip 70 : 要对软件做测试, 否则只能留给用户去做 _( Test Your Software, or Your Users Will )_
     - 无情地测试, 不要等用户来帮你找 Bug
+        - _毫无疑问, 测试是编程的一部分, 不该留给其他部门的人去做_
+            - _测试, 设计, 编码 -- 都是在编程_
 
 _42\. 基于特性测试 ( Property-Based Testing )_
 
 - Tip 71 : 使用基于特性的测试来校验假设 _( Use Property-Based Tests to Validate Your Assumptions )_
     - 基于特性的测试将会进行你从未想过的尝试, 并会以你不曾打算采用的方式操练你的代码.
+        - _让计算机来做一些测试 -- 自动生成一些测试值_
+            - _基于契约式设计 : 当你的输入满足条件时, 它对输出做出一定的保证_
+            - _基于代码不变式 : 一个函数执行后, 某部分的状态保持为真_
+        - _( 详见原书例 )_
 
 _43\. 出门在外注意安全 ( Stay Safe Out There )_
 
 - Tip 72 : 保持代码简洁, 让攻击面最小 _( Keep It Simple and Minimize Attack Surfaces )_
     - 复杂的代码给 Bug 以滋生之沃土, 给攻击者以可趁之机
+        - _应该始终牢记的一些基本原则_
+            - _1\. 将攻击面的面积最小化 ( Minimize Attack Surface Area )_
+            - _2\. 最小特权原则 ( Principle of Least Privilege )_
+            - _3\. 安全的默认值 ( Secure Defaults )_
+            - _4\. 敏感数据要加密 ( Encrypt Sensitive Data )_
+            - _5\. 维护安全更新 ( Maintain Security Updates )_
+            - _( 详见原文讨论 )_
 - Tip 73 : 尽早打上安全补丁 _( Apply Security Patches Quickly )_
     - 攻击者会尽可能快地部署攻击, 你必须快上加快
+        - _**密码的反模式** : 好的安全性常常与尝试或管理背道而驰_
+        - _严格的密码策略实际上会降低安全性. 美国 NIST 的建议_
+            - _不要讲密码长度限制在 64 个字符以内 -- NIST 推荐 256 为最佳长度_
+            - _不要截断用户选择的密码_
+            - _**不要限制特殊字符 -- NIST 表示接受所有可打印的 ASCII 字符、空格和 Unicode**_
+            - _不要向未经身份认证的用户提供密码提示, 或提示输入特定类型的信息_
+                - _例如, 你的第一只宠物叫什么名字_
+            - _**不要禁用浏览器中的粘贴功能**_
+                - _破坏浏览器和密码管理器的功能, 并不能使系统更安全_
+                - _实际上, 它会促使用户创建更简单、更短、更容易破解的代码_
+                - _因此美国 NIST 和英国的国家网络安全中心都特别要求校验方允许粘贴功能_
+            - _**不要强加其它组合规则**_
+                - _例如, 不要强制要求任何特定的大小写混合、数字或特殊字符, 或禁止重复字符_
+            - _**不要蛮横地要求用户在一段时间后更改密码**_
+                - _只有在有正当理由的情况下才这样做. 例如, 系统遭到了破坏_
+        - _我们应该鼓励长的随机的密码, 因为它有更高程度的熵_
+            - _人为的限制局限了信息熵, 助长了使用糟糕密码的习惯, 让用户的账户更容易被接管_
 
 _44\. 事物命名 ( Naming Things )_
 
 - Tip 74 : 好好取名; 需要时更名 _( Name Well; Rename When Needed )_
     - 用名字向读者表达你的意图, 并且在意图改变时及时更名
+        - _**What’s in a name?** When we're programming, the answer is "**everything!**"_
+            - _We create names for applications, subsystems, modules, functions, variables -- we're constantly creating new things and bestowing names on them._
+            - _And those names are very, very important, because **they reveal a lot about your intent and belief**._
+        - _We believe that things should be named according to the role they play in your code._
+            - _This means that, whenever you create something, you need to pause and think "**what is my motivation to create this?**"_
+        - _This is a powerful question, because it takes you out of the immediate problem-solving mindset and makes you look at the bigger picture._
+            - _When you consider the role of a variable or function, you’re thinking about what is special about it, about what it can do, and what it interacts with._
+            - _Often, we find ourselves realizing that **what we were about to do made no sense, all because we couldn't come up with an appropriate name**._
+                - _( 一旦我们怎么都想不出一个适合它的名字, 旺旺就会幡然醒悟, 意识到这件事情其实毫无意义 )_
+        - _文字和颜色不匹配 : 读出文字 ( 例如, 红蓝黑白) / 读出字的颜色_
+            - _( 详见原书例, 是巧妙而恰当的举例 )_
+            - _**大脑很尊重书面问题 -- 我们需要确保使用的名字不辜负这一点**_
+        - _尊重文化 ( Honor the Culture )_
+            - _命名取决于特定编程语言或环境所处的文化氛围, 以及社区习惯_
+        - _一致性 : 保持对团队有特殊意义的术语的一贯性_
+            - _重要的是, 团队中的没一个人都知道这些词的意思, 并始终如一地使用它们_
+            - _使用项目术语表, 列出对团队有特殊意义的术语_
         - _命名是软件开发中最困难的事情之一_
             - _不得不给很多东西起名字, 而我们的选择的名字在很多方面决定了所创造的最终是什么_
             - _在编写代码时, 需要注意任何潜在的语义偏移_
