@@ -22,10 +22,11 @@
 
 Books
 
-- [Refactoring](/snips/books/refactoring.md)
 - [Linux Kernel](/snips/books/linux.md) ( draft )
 - [JVM - Java Virtual Machine](/snips/books/jvm.md) ( draft )
 - [Java Concurrency in Pratice](/snips/books/java-concurrency-in-pratice.md) ( draft )
+- [Refactoring](/snips/books/refactoring.md)
+- [Design Patterns](/snips/books/design-patterns.md) ( draft )
 - [Pragmatic Programmer](/snips/books/pragmatic-programmer.md)
     - _The Pragmatic Programmer : your journey to mastery ( 2nd Edition )_
 
