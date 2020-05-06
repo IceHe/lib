@@ -17,7 +17,7 @@ less file       # 1.`less` 2.press `-` 3.press `N`
 grep pattern file | less
 ```
 
-## Descriptions
+## Description
 
 ### more
 

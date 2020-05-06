@@ -16,7 +16,7 @@ jps -m
 jps -l
 ```
 
-## Descriptions
+## Description
 
 - The jps tool lists the instrumented HotSpot Java Virtual Machines (JVMs) on the target system.
 - If jps is run without specifying a hostid, it will look for instrumented JVMs on the local host.
