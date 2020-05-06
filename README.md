@@ -20,7 +20,7 @@
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
-Books
+Reading Books
 
 - [Linux Kernel](/snips/books/linux.md) ( draft )
 - [JVM - Java Virtual Machine](/snips/books/jvm.md) ( draft )
