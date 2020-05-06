@@ -104,6 +104,14 @@ _Others_
 - [Spock](/java/spock.md) : Unit Tests
 - ……
 
+Commands
+
+- [java](/java/cmd/java.md) ( TODO )
+- [javac](/java/cmd/javac.md) ( TODO )
+- [javap](/java/cmd/javap.md) ( TODO )
+- [jps](/java/cmd/jps.md) : process status tool
+- [jstat](/java/cmd/jstat.md) : statistics monitoring tool
+
 ### Git
 
 - [Commands](/git/README.md)
