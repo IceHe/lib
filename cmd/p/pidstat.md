@@ -17,8 +17,7 @@ The pidstat command is used for monitoring individual tasks currently being mana
 ### Default
 
 ```bash
-pidstat
-# output
+$ pidstat
 Linux 3.10.0-957.5.1.el7.x86_64 (icehe)         08/17/2019      _x86_64_        (1 CPU)
 
 09:42:13 AM   UID       PID    %usr %system  %guest    %CPU   CPU  Command
@@ -60,8 +59,7 @@ Linux 3.10.0-957.5.1.el7.x86_64 (icehe)         08/17/2019      _x86_64_        
 Display 5 reports of CPU statistics for every active task in the system at 2 second intervals.
 
 ```bash
-pidstat 2 5
-# output
+$ pidstat 2 5
 Linux 3.10.0-957.5.1.el7.x86_64 (icehe)         08/17/2019      _x86_64_        (1 CPU)
 
 10:25:29 AM   UID       PID    %usr %system  %guest    %CPU   CPU  Command
@@ -91,8 +89,7 @@ Average:        0     22086    0.00    0.20    0.00    0.20     -  pidstat
 Display 5 reports of page faults and memory statistics for PID 15920 at 2 second intervals.
 
 ```bash
-pidstat -r -p 15920 2 5
-# output
+$ pidstat -r -p 15920 2 5
 Linux 3.10.0-957.5.1.el7.x86_64 (icehe)         08/17/2019      _x86_64_        (1 CPU)
 
 10:29:04 AM   UID       PID  minflt/s  majflt/s     VSZ    RSS   %MEM  Command
@@ -109,8 +106,7 @@ Average:        0     15920      0.60      0.00  134088  17748   3.56  AliYunDun
 Display global page faults and memory statistics for all the processes whose command name includes the string "ali" or "bird".
 
 ```bash
-pidstat -C 'ali|pid' -r -p ALL
-# output
+$ pidstat -C 'ali|pid' -r -p ALL
 Linux 3.10.0-957.5.1.el7.x86_64 (icehe)         08/17/2019      _x86_64_        (1 CPU)
 
 10:32:06 AM   UID       PID  minflt/s  majflt/s     VSZ    RSS   %MEM  Command
@@ -125,8 +121,7 @@ Display 5 reports of page faults statistics at 2 second intervals for the child 
 Notice : Only child processes with non-zero statistics values are displayed.
 
 ```bash
-pidstat -T CHILD -r 2 5
-# output
+$ pidstat -T CHILD -r 2 5
 Linux 3.10.0-957.5.1.el7.x86_64 (icehe)         08/17/2019      _x86_64_        (1 CPU)
 
 10:34:41 AM   UID       PID minflt-nr majflt-nr  Command

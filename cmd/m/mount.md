@@ -40,13 +40,11 @@ mount -t type device dir
 
 ```bash
 # Unmount by name
-umount -v /dev/sda1
-## output
+$ umount -v /dev/sda1
 /dev/sda1 umounted
 
 # Unmount by mountpoint ( directory )
-umount -v /mnt/mymount/
-## output
+$ umount -v /mnt/mymount/
 /tmp/diskboot.img umounted
 
 # Common Options #
@@ -60,14 +58,12 @@ umount -v /mnt/mymount/
 # Troubleshooting #
 
 ## Failed to unmount
-umount -v /mnt/mymount/
-### output
+$ umount -v /mnt/mymount/
 /tmp/diskboot.img umounted
 
 ## Solution : Find who is using it
-lsof | grep mymount
-### output
+$ lsof | grep mymount
 bash   9341  francois  cwd   DIR   8,1   1024    2 /mnt/mymount
-## OR
-umount -lv /mnt/mymount/
+## IF exists
+$ umount -lv /mnt/mymount/
 ```
