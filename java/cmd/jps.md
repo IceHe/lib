@@ -27,16 +27,14 @@ LVMID - Local Virtual Machine Identifier
 Default
 
 ```bash
-jps
-# output
+$ jps
 56822 Launcher
 58326 Jps
 37199
 ```
 
 ```bash
-jps -l
-# output
+$ jps -l
 56822 org.jetbrains.jps.cmdline.Launcher
 58346 sun.tools.jps.Jps
 37199

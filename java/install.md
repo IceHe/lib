@@ -31,8 +31,7 @@ Get PATH to JDK
 /usr/libexec/java_home -v 1.8
 
 # (The actual version may vary, depending upon which version was installed.)
-# output e.g.
-/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
+# output e.g.: /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
 ```
 
 Set Environment Variable JAVA_HOME

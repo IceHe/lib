@@ -17,7 +17,6 @@ TODO
 
 ```bash
 $ top
-# output
 top - 18:51:50 up 119 days,  4:10,  1 user,  load average: 0.37, 0.51, 0.53
 Tasks: 381 total,   1 running, 376 sleeping,   4 stopped,   0 zombie
 %Cpu(s):  1.3 us,  0.9 sy,  0.0 ni, 97.8 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st
