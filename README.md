@@ -457,16 +457,16 @@ Previous Blog : 2015 ~ 2017
 ### Work
 
 > Don’t try, just do. Failure is not an option.
->
-> Get it / Make it without reason.
 
-<!--
+<!-- > Get it / Make it without reason. -->
+
+```quote
 请示工作说方案,
 布置工作说标准,
 汇报工作说结果,
 总结工作说流程,
-回顾工作说感受.
--->
+回顾工作说感受
+```
 
 ## End
 
