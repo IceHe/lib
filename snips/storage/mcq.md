@@ -24,8 +24,7 @@ Connected to 192.168.1.144.
 Escape character is '^]'.
 
 # interact with MCQ
-stats queue
-# output
+$ stats queue
 STAT 0 0/0
 STAT 5 0/0
 STAT common_export 1/1
@@ -47,8 +46,7 @@ value
 
 # e.g.
 # interact with MCQ
-set key 0 0 78
-# output
+$ set key 0 0 78
 {"type":"test","msg_time":1542126837}
 STORED
 ```
@@ -57,14 +55,12 @@ STORED
 
 ```bash
 # interact with MCQ
-get key
-# output
+$ get key
 VALUE key 0 37
 {"type":"test","msg_time":1542126837}
 END
 
 # interact with MCQ
-get three_d_object
-# output
+$ get three_d_object
 END
 ```

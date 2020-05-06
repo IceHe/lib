@@ -66,7 +66,6 @@ Note that
 $ ulimit -a
 # same as
 $ ulimit -a -S
-# output e.g.
 core file size          (blocks, -c) 0
 data seg size           (kbytes, -d) unlimited
 scheduling priority             (-e) 0
@@ -129,7 +128,6 @@ Soft Limit ( default )
 $ ulimit -a
 # same as
 $ ulimit -a -S
-# output e.g.
 -t: cpu time (seconds)              unlimited
 -f: file size (blocks)              unlimited
 -d: data seg size (kbytes)          unlimited
