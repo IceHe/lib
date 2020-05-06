@@ -27,7 +27,6 @@ readlink -f <file>
 $ realpath sub_dir
 # or
 $ readlink -f sub_dir
-# output
 /usr/home/icehe/dir/sub_dir
 
 # check

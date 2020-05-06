@@ -381,7 +381,7 @@ $ awk -F, '{print $2}' sample_comma
 $ awk -F , '{print $2}' sample_comma
 # same as
 $ awk -F',' '{print $2}' sample_comma
-# output
+
 Name
 tom
 jack

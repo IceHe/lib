@@ -35,7 +35,6 @@ List files' size in current directory
 $ du -hs *
 # or (a little different)
 $ du -h --max-depth=1
-# output
 4.0K    CNAME
  52K    LICENSE
  12K    README.md

@@ -121,7 +121,6 @@ Run Script
 ```bash
 $ bash t.sh a b c
 
-# output
 $_=/bin/bash
 $*=a b c
 $@=a b c

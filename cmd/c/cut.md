@@ -107,7 +107,6 @@ $ cut -f-2 -d' ' sample
 # or
 $ cut -f'-2' -d' ' sample
 
-# output
 No Name
 01 tom
 02 jack
@@ -125,7 +124,6 @@ $ cut -f3- -d' ' sample
 # or
 $ cut -f'3-' -d' ' sample
 
-# output
 Mark Remark
 59 AZ
 77 XP
@@ -143,7 +141,6 @@ $ cut -f2-3 -d' ' sample
 # or
 $ cut -f'2-3' -d' ' sample
 
-# output
 Name Mark
 tom 59
 jack 77
