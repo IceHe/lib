@@ -16,6 +16,13 @@ jps -m
 jps -l
 ```
 
+## Descriptions
+
+- The jps tool lists the instrumented HotSpot Java Virtual Machines (JVMs) on the target system.
+- If jps is run without specifying a hostid, it will look for instrumented JVMs on the local host.
+    - A jstatd process is assumed to be running on the target host.
+- …
+
 ## Options
 
 - `-q` _只输出 LVMID, 省略主类的名称._
