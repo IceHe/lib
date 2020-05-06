@@ -18,18 +18,18 @@ jps -l
 
 ## Options
 
-- `-q` 只输出 LVMID, 省略主类的名称.
-    - Suppress the output of the class name, JAR file name, and arguments passed to the main method, producing only a list of local VM identifiers.
+- `-q` _只输出 LVMID, 省略主类的名称._
+    - _Suppress the output of the class name, JAR file name, and arguments passed to the main method, producing only a list of local VM identifiers._
     - LVMID - Local Virtual Machine Identifier
 - `-m` Output the arguments passed to the main method.
     - _The output may be null for embedded JVMs._
 - `-l` Output the full package name for the application's main class or the full path name to the application's JAR file.
 - `-v` Output the arguments passed to the JVM.
-- `-V` Output the arguments passed to the JVM through the flags file
+- `-V` _Output the arguments passed to the JVM through the flags file_
     - _(the .hotspotrc file or the file specified by the -XX:Flags=<filename> argument)._
-- `-Joption` Pass option to the java launcher called by javac.
-    - For example, -J-Xms48m sets the startup memory to 48 megabytes.
-    - It is a common convention for -J to pass options to the underlying VM executing
+- `-Joption` _Pass option to the java launcher called by javac._
+    - _For example, -J-Xms48m sets the startup memory to 48 megabytes._
+    - _It is a common convention for -J to pass options to the underlying VM executing_
 
 ## Usage
 
