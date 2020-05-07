@@ -10,6 +10,8 @@ References
 ## Quickstart
 
 ```bash
+# Show arguments pased to JVM
+jps -v
 # Show arguments passed to main method
 jps -m
 # Show full package names or full path names
