@@ -61,24 +61,80 @@ Format Options
 
 ## Usage
 
-Show class loader behavior stats
+### Common
+
+Show class loader ( behavior stats )
 
 ```bash
-jstat -class 62858 1000
+# RemoteJdbcServer
+$ jstat -class 62858 1000
 Loaded  Bytes  Unloaded  Bytes     Time
   2508  5091.4      270   348.7       1.24
   2508  5091.4      270   348.7       1.24
 ……
+
+# IntelliJ IDEA
+$ jstat -class 37199 1000
+Loaded  Bytes  Unloaded  Bytes     Time
+ 83020 165861.6     7491 11190.1     164.60
+ 83020 165861.6     7491 11190.1     164.60
 ```
 
-Show JTT compiler behavior stats
+Show JTT compiler ( behavior stats )
 
 ```bash
-jstat -compiler 37199 1000
+# RemoteJdbcServer
+$ jstat -compiler 62858 1000
+Compiled Failed Invalid   Time   FailedType FailedMethod
+    2924      0       0    18.29          0
+    2924      0       0    18.29          0
+……
+
+# IntelliJ IDEA
+$ jstat -compiler 37199 1000
 Compiled Failed Invalid   Time   FailedType FailedMethod
   331093      5       0  9435.30          1 com/intellij/configurationStore/StoreUtilKt saveAllProjects
   331093      5       0  9435.30          1 com/intellij/configurationStore/StoreUtilKt saveAllProjects
+……
 ```
+
+Show garbage collected-heap
+
+```bash
+# RemoteJdbcServer
+$ jstat -gc 62858 1000
+ S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
+ 0.0   1024.0  0.0   1024.0  8192.0   4096.0    8192.0     4221.1   18304.0 17594.6 1920.0 1590.2     14    0.283  21      4.039    4.322
+ 0.0   1024.0  0.0   1024.0  8192.0   4096.0    8192.0     4221.1   18304.0 17594.6 1920.0 1590.2     14    0.283  21      4.039    4.322
+……
+
+# IntelliJ IDEA
+$ jstat -gc 37199 1000
+ S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
+34048.0 34048.0  0.0   19499.9 272640.0 212522.2  707840.0   632254.6  524960.0 504488.7 66204.0 58423.5   4610  232.564  39    286.399  518.963
+34048.0 34048.0  0.0   19499.9 272640.0 212551.8  707840.0   632254.6  524960.0 504488.7 66204.0 58423.5   4610  232.564  39    286.399  518.963
+……
+```
+
+Show capacity of generations
+
+```bash
+# RemoteJdbcServer
+$ jstat -gccapacity 62858 1000
+ NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC       MCMN     MCMX      MC     CCSMN    CCSMX     CCSC    YGC    FGC
+     0.0 2097152.0   8192.0    0.0    0.0   8192.0        0.0  2097152.0     9216.0     9216.0      0.0 1064960.0  18304.0      0.0 1048576.0   1920.0     14    22
+     0.0 2097152.0   8192.0    0.0    0.0   8192.0        0.0  2097152.0     9216.0     9216.0      0.0 1064960.0  18304.0      0.0 1048576.0   1920.0     14    22
+……
+
+# IntelliJ IDEA
+$ jstat -gccapacity 37199 1000
+ NGCMN    NGCMX     NGC     S0C   S1C       EC      OGCMN      OGCMX       OGC         OC       MCMN     MCMX      MC     CCSMN    CCSMX     CCSC    YGC    FGC
+   192.0 340736.0 340736.0 34048.0 34048.0 272640.0       64.0   707840.0   707840.0   707840.0      0.0 1509376.0 524960.0      0.0 1048576.0  66204.0   4610    39
+   192.0 340736.0 340736.0 34048.0 34048.0 272640.0       64.0   707840.0   707840.0   707840.0      0.0 1509376.0 524960.0      0.0 1048576.0  66204.0   4610    39
+……
+```
+
+### Others
 
 Show headers
 
