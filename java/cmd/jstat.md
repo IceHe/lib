@@ -159,8 +159,22 @@ $ jstat -gcnew 37199 1000
 Size of new generations
 
 ```bash
+# RemoteJdbcServer
+$ jstat -gcnewcapacity 62858 1000
+  NGCMN      NGCMX       NGC      S0CMX     S0C     S1CMX     S1C       ECMX        EC      YGC   FGC
+       0.0  2097152.0     8192.0      0.0      0.0 2097152.0      0.0  2097152.0     8192.0    14    22
+       0.0  2097152.0     8192.0      0.0      0.0 2097152.0      0.0  2097152.0     8192.0    14    22
+……
 
+# IntelliJ IDEA
+$ jstat -gcnewcapacity 37199 1000
+  NGCMN      NGCMX       NGC      S0CMX     S0C     S1CMX     S1C       ECMX        EC      YGC   FGC
+     192.0   340736.0   340736.0  34048.0  34048.0  34048.0  34048.0   272640.0   272640.0  4614    40
+     192.0   340736.0   340736.0  34048.0  34048.0  34048.0  34048.0   272640.0   272640.0  4614    40
+……
 ```
+
+Old Generation
 
 ### Others
 
