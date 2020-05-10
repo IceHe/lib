@@ -125,3 +125,71 @@ Design Pattern 设计模式
 - Consequence 效果
     - _描述模式应用的效果及使用模式应权衡的问题_
     - _理解使用模式的代价及好处 : 灵活性、扩充性或可移植性…_
+
+**Signature 型构**
+
+- 对象声明的每一个操作指定操作名 (方法名)、作为参数的对象和返回值, 这就是所谓的操作的 型构
+- _Every operation declared by an object specifies the operation's name, the objects it takes as parameters, and the operation's return value. This is known as the operation's signature._
+
+Interface 接口
+
+- _对象操作所定义的所有操作型构的集合被称为该对象的 interface 接口_
+
+Type 类型
+
+- 用来表示特定接口的名字
+- _对象接口的某部分可以用某个类型来刻画, 而其它部分则可用其它类型刻画_
+- _type 类型 / subtype 子类型 / supertype 超类型 : …_
+
+**Dynamic Binding 动态绑定**
+
+- _Different objects that support identical requests may have different implementations of the operations that fulfill these requests._
+- The run-time association of a request to an object and one of its operations is known as dynamic binding.
+- _Dynamic binding means that issuing a request doesn't commit you to a particular implementation until run-time._
+
+**Polymorphism 多态**
+
+- Dynamic binding lets you substitute objects that have identical interfaces for each other at run-time.
+- _This substitutability is known as polymorphism, and it's a key concept in object-oriented systems._
+
+**mixin class 混入类**
+
+- **它给其它类提供可选择的接口或功能的类**, 与抽象类一样不能实例化 _( 例如 PHP 的 trait 吧? )_
+- _它跟抽象类一样不能实例化_
+- _它需要 multple inheritance 多继承的特性支持_
+
+class 类
+
+- inintiating 实例化 / instance 实例 _/ instance variables 实例变量_
+- class inheritance 类继承 _/ subclass 子类 / parent class 父类_
+- abstract class 抽象类 / concrete class 具体类 / override 重定义、重写 、覆盖… _( 方法 )_
+
+class 跟 type 的区别 _( Difference between an object's class and its type )_
+
+- _对象的类定义了对象是怎样实现的, 同事也定义了对象的内部状态和操作的实现_
+- _An object's class defines how the object is implemented. The class defines the object's internal state and the implementation of its operations._
+- _但是对象的类型只与它的接口有关 -- 接口即对象能响应的请求的集合_
+- _In contrast, an object's type only refers to its interface -- the set of requests to which it can respond._
+- _一个对象可以有多个类型, 不同类的对象可以有相同的类型_
+- _An object can have many types, and objects of different classes can have the same type._
+
+**Program to an interface, not an implementation. 针对接口编程, 而不是针对实现编程**
+
+- _There are two benefits to manipulating objects solely in terms of the interface defined by abstract classes:_
+    - _1\. Clients remain unaware of the specific types of objects they use, as long as the objects adhere to the interface that clients expect._
+    - _2\. Clients remain unaware of the classes that implement these objects. Clients only know about the abstract class(es) defining the interface._
+- _This so greatly reduces implementation dependencies between subsystems that it leads to the following principle of reusable object-oriented design:_
+    - _"Program to an interface, not an implementation."_
+- 通过抽象对象的创建过程, 这些模式提供不同的方式以在实例化时建立接口和实现的透明连接
+    - 创建型模式确保你的系统是采用针对接口的方式, 而不是针对实现的方式而书写 _( 说得好 )_
+- _By abstracting the process of object creation, these patterns give you different ways to associate an interface with its implementation transparently at instantiation._
+    - _Creational patterns **ensure that your system is written in terms of interfaces, not implementations**._
+
+Inheritance versus Composition 继承和组合的比较
+
+- _**Class inheritance** lets you define the implementation of one class in terms of another's._
+    - _Reuse by subclassing is often referred to as **white-box reuse**._
+    - _The term "white-box" refers to visibility: With inheritance, **the internals of parent classes are often visible to subclasses**._
+- _**Object composition** is an alternative to class inheritance._
+    - _This style of reuse is called **black-box reuse**._
+    - _Because **no internal details of objects are visible**. Objects appear only as "black boxes."_
