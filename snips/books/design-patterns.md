@@ -193,3 +193,16 @@ Inheritance versus Composition 继承和组合的比较
 - _**Object composition** is an alternative to class inheritance._
     - _This style of reuse is called **black-box reuse**._
     - _Because **no internal details of objects are visible**. Objects appear only as "black boxes."_
+- _Inheritance exposes a subclass to details of its parent's implementation, it's often said that "**inheritance breaks encapsulation**"._
+    - _The implementation of a subclass becomes so bound up with the implementation of its parent class that **any change in the parent's implementation will force the subclass to change**._
+    - _Should any aspect of the inherited implementation not be appropriate for new problem domains, the parent class must be rewritten or replaced by something more appropriate._
+    - _This **dependency limits flexibility and ultimately reusability**._
+- _Object composition is defined dynamically at run-time through objects acquiring references to other objects._
+    - _Composition requires objects to respect each others' interfaces, which **in turn requires carefully designed interfaces** that don't stop you from using one object with many others._
+    - _Because objects are **accessed solely through their interfaces, we don't break encapsulation**._
+    - _Any object can be replaced at run-time by another as long as it has the same type._
+- **Favor object composition over class inheritance**.
+    - _Favoring object composition over class inheritance helps you keep each class encapsulated and focused on one task._
+    - _Nevertheless, our experience is that designers overuse inheritance as a reuse technique, and designs are often made more reusable (and simpler) by depending more on object composition._
+
+**Delegation 委托**
