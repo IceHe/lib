@@ -207,6 +207,19 @@ Inheritance versus Composition 继承和组合的比较
 
 **Delegation 委托**
 
+- _Delegation is a way of making composition as powerful for reuse as inheritance._
+- _Delegation has a disadvantage it shares with other techniques that make software **more flexible through object composition**: Dynamic, highly parameterized software is harder to understand than more static software._
+    - _There are also run-time inefficiencies, **but the human inefficiencies are more important in the long run**._
+
+Inheritance versus Parameterized Types 继承和参数化类型 (泛型) 的比较
+
+- _Another (not strictly object-oriented) technique for reusing functionality is through parameterized types, also known as **generics** (Ada, Eiffel) and templates (C++)._
+
+Designing for Change 设计应支持变化
+
+- _每一个设计模式允许系统结构的某个方面的变化独立于其他方面, 这样产生的系统对于某种特殊变化将更健壮_
+- _Each design pattern lets some aspect of system structure vary independently of other aspects, thereby making a system more robust to a particular kind of change._
+
 **Framework 框架**
 
 - _它是构成一类特定软件的可复用设计的一组相互协作的类_
