@@ -245,3 +245,8 @@ Inheritance versus Composition 继承和组合的比较
 ||Strategy|An algorithm<br/>算法|
 ||Template Method|steps of an algorithm<br/>算法中的某些步骤|
 ||Visitor|operations that can be applied to object(s) <br/>without changing their class(es)<br/>某些可作用于一个(组)对象上的操作, 但不修改这些对象的类|
+
+Trade-off 取舍
+
+- _通常通过引入额外的间接层次获得灵活性和可变性的同时, 也是设计变得更复杂和/或牺牲了一定的性能_
+- _一个设计模式只有当它的灵活性是真正需要的时候, 才有必要使用_
