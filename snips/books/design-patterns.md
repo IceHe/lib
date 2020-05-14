@@ -206,3 +206,42 @@ Inheritance versus Composition 继承和组合的比较
     - _Nevertheless, our experience is that designers overuse inheritance as a reuse technique, and designs are often made more reusable (and simpler) by depending more on object composition._
 
 **Delegation 委托**
+
+**Framework 框架**
+
+- _它是构成一类特定软件的可复用设计的一组相互协作的类_
+    - _规定了应用的体系结构 -- 定义了整体结构, 类和对象的划分, 各部分的主要责任, 类和对象怎么协作, 以及控制流程_
+    - _框架记录了其应用领域的共同的设计决策. 因而框架更强调 **设计复用**_
+- _好处_
+    - _不仅可以更快地建立应用, 而且应用还具有相似的结构_
+    - _它们容易维护, 而且用户看来也一致_
+- _限制_
+    - _你失去了一些表现创造性的自由, 因为许多设计决策无需你来做出_
+
+**Design aspects that design patterns let you vary 设计模式所支持的可变性**
+
+|Purpose|Design Pattern|Aspect(s) That Can Vary 可变的方面|
+|-|-|-|
+|Creational|Abstract Factory|families of product objects<br/>产品对象家族|
+||Builder|how a composite object gets created<br/>如何创建一个组合对象|
+||Factory Method|subclass of object that is instantiated<br/>被实例化的子类|
+||Prototype|class of object that is instantiated<br/>被实例化的类|
+||Singleton|the sole instance of a class<br/>类的唯一实例|
+|Structual|Adapter|interface to an object<br/>对象的接口|
+||Bridge|implementation of an object<br/>对象的实现|
+||Composite|structure and composition of an object<br/>对象的结构和组成|
+||Decorator|responsibilities of an object without subclassing<br/>对象的职责, 不生成子类 ( 不使用继承来拓展功能 )|
+||Facade|interface to a subsystem<br/>子系统的接口|
+||Flyweight|storage costs of objects<br/>对象的存储开销|
+||Proxy|how an object is accessed; its location<br/>如何访问一个对象; 改对象的位置|
+|Behavioral|Chain of Responsibility|object that can fulfill a request<br/>满足一个请求的对象 ( 谁来处理某个请求 )|
+||Command|when and how a request is fulfilled<br/>何时、如何满足一个请求|
+||Interpreter|grammar and interpretation of a language<br/>一个语言的文法和解释|
+||Iterator|how an aggregate's elements are accessed, traversed<br/>如何遍历、访问一个聚合的各元素|
+||Mediator|how and which objects interact with each other<br/>对象间怎样交互、和谁交互|
+||Memento|what private information is stored outside an object, and when<br/>一个对象中哪些私有信息存放在该对象之外,<br/>以及在什么时候进行存储|
+||Observer|number of objects that depend on another object;<br/>how the dependent objects stay up to date<br/>多个对象依赖于另一个对象, 而这些对象又如何保持一致|
+||State|states of an object<br/>对象的状态|
+||Strategy|An algorithm<br/>算法|
+||Template Method|steps of an algorithm<br/>算法中的某些步骤|
+||Visitor|operations that can be applied to object(s) <br/>without changing their class(es)<br/>某些可作用于一个(组)对象上的操作, 但不修改这些对象的类|
