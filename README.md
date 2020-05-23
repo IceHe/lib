@@ -396,6 +396,7 @@ Newly
     / [_book_](https://item.jd.com/11364406.html)
     - 一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的“统计置信度与日俱增”。
 - [VicodinXYZ's Life Beliefs](/read/life-beliefs.md)
+- [Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)
 
 ### Past
 
