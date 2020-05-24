@@ -35,8 +35,8 @@ Reading Books
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
-- [Cloud Utils](/snips/cloud/README.md) ( draft )
-- [Glossary](/snips/glossary.md) ( draft )
+- [_Cloud Utils_](/snips/cloud/README.md) ( draft )
+- [_Glossary_](/snips/glossary.md) ( draft )
 - [Regular Expression](/snips/regex.md)
 - [_Work Flow_](/snips/work-flow.md)
 
@@ -98,17 +98,22 @@ _Others_
 
 ### Java
 
-[Index](/java/README.md) ( Doing )
+[_Index_](/java/README.md) ( draft )
 
-- [Hello World](/java/hello-java.md) ( draft )
+- [_Hello World_](/java/hello-java.md) ( draft )
 - [Spock](/java/spock.md) : Unit Tests
 - ……
 
 Commands
 
+<!--
+
 - [java](/java/cmd/java.md) ( TODO )
 - [javac](/java/cmd/javac.md) ( TODO )
 - [javap](/java/cmd/javap.md) ( TODO )
+
+-->
+
 - [jps](/java/cmd/jps.md) : process status tool
 - [jstat](/java/cmd/jstat.md) : statistics monitoring tool
 
@@ -359,12 +364,10 @@ Recommendation
 - [STAR](/snips/principles/star.md) : Situation → Target → Action → Result
 - [SWOT](/snips/principles/swot.md) : Strengths / Weakness / Oppertunities / Threats
 - [GTD](/snips/principles/gtd.md) : Get Thing Done - Flow Chart ( [actual](/snips/principles/gtd-actual.md) )
-
-Newly
-
-- [PDCA](/snips/principles/pdca.md) : Plan → Do → Check → Act ( Adjust )
-- [AIDA](/snips/principles/aida.md) : Attention → Interest → Desire → Action
-- _FERI : Fact → Emotion ( Feel ) → Reflect → Improve_
+- _Newly_
+    - _[PDCA](/snips/principles/pdca.md) : Plan → Do → Check → Act ( Adjust )_
+    - _[AIDA](/snips/principles/aida.md) : Attention → Interest → Desire → Action_
+    - _FERI : Fact → Emotion ( Feel ) → Reflect → Improve_
 
 ### Digest
 
@@ -395,9 +398,9 @@ Newly
 - [Anti-Fragile](/read/anti-fragile.md)
     / [_book_](https://item.jd.com/11364406.html)
     - 一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的“统计置信度与日俱增”。
-- Newly
-    - [VicodinXYZ's Life Beliefs](/read/life-beliefs.md)
-    - [Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)
+- _Newly_
+    - _[VicodinXYZ's Life Beliefs](/read/life-beliefs.md)_
+    - _[Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)_
 
 ### Past
 
@@ -444,8 +447,9 @@ Timeline
 
 Nonsense
 
-- Time Mgt. : [Life Logs](/lifelogs/README.md) & [Log Format](/lifelogs/time-mgt.md)
-- Way of Life : [Self Manual](/lifelogs/life-manual.md)
+- Time Mgt. : [Life Logs](/lifelogs/README.md) & [Log Format](/lifelogs/time-mgt.md) _( <= 2016.10 )_
+- Way of Life : [Self Manual](/lifelogs/life-manual.md) _( <= 2017 )_
+- New Try : [Routine](/lifelogs/ROUTINE.md) & [TBC](/lifelogs/TBC.md) _( 2019 ~ 2020.04 )_
 
 Previous Blog : 2015 ~ 2017
 
