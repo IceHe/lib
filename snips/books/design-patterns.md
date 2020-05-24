@@ -274,45 +274,7 @@ Intent
 
 - Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-```plantuml
-@startuml
-object client
-object AbstractFactory
-object ConcreteFactoryA
-object ConcreteFactoryB
-object AbstractProduct1
-object ProductA1
-object ProductB1
-object AbstractProduct2
-object ProductA2
-object ProductB2
-
-'AbstractFactory <-- client
-'AbstractProduct1 <-- client
-'AbstractProduct2 <-- client
-
-AbstractFactory : createProduct1()
-AbstractFactory : createProduct2()
-ConcreteFactoryA : createProduct1()
-ConcreteFactoryA : createProduct2()
-ConcreteFactoryB : createProduct1()
-ConcreteFactoryB : createProduct2()
-
-AbstractFactory <|-- ConcreteFactoryA
-AbstractFactory <|-- ConcreteFactoryB
-
-AbstractProduct1 <|-- ProductA1
-AbstractProduct1 <|-- ProductB1
-
-AbstractProduct2 <|-- ProductA2
-AbstractProduct2 <|-- ProductB2
-
-ConcreteFactoryA .> ProductA1
-ConcreteFactoryA .> ProductA2
-ConcreteFactoryB .> ProductB1
-ConcreteFactoryB .> ProductB2
-@enduml
-```
+![abstract-factory.png](_images/abstract-factory.png)
 
 ### Builder
 
