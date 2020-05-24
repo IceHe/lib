@@ -263,3 +263,78 @@ Trade-off 取舍
 
 - _通常通过引入额外的间接层次获得灵活性和可变性的同时, 也是设计变得更复杂和/或牺牲了一定的性能_
 - _一个设计模式只有当它的灵活性是真正需要的时候, 才有必要使用_
+
+## Creational
+
+解释和示例详见原书
+
+### Abstract Factory
+
+Intent
+
+- Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+```plantuml
+@startuml
+object client
+object AbstractFactory
+object ConcreteFactoryA
+object ConcreteFactoryB
+object AbstractProduct1
+object ProductA1
+object ProductB1
+object AbstractProduct2
+object ProductA2
+object ProductB2
+
+'AbstractFactory <-- client
+'AbstractProduct1 <-- client
+'AbstractProduct2 <-- client
+
+AbstractFactory : createProduct1()
+AbstractFactory : createProduct2()
+ConcreteFactoryA : createProduct1()
+ConcreteFactoryA : createProduct2()
+ConcreteFactoryB : createProduct1()
+ConcreteFactoryB : createProduct2()
+
+AbstractFactory <|-- ConcreteFactoryA
+AbstractFactory <|-- ConcreteFactoryB
+
+AbstractProduct1 <|-- ProductA1
+AbstractProduct1 <|-- ProductB1
+
+AbstractProduct2 <|-- ProductA2
+AbstractProduct2 <|-- ProductB2
+
+ConcreteFactoryA .> ProductA1
+ConcreteFactoryA .> ProductA2
+ConcreteFactoryB .> ProductB1
+ConcreteFactoryB .> ProductB2
+@enduml
+```
+
+### Builder
+
+Intent
+
+- Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+
+```plantuml
+@startuml
+object Director
+object Builder
+object ConcreteBuilder
+object Product
+
+Director : constructor()
+Builder : buildPart()
+ConcreteBuilder : buildPart()
+ConcreteBuilder : getResult()
+
+Director o- Builder : builder
+Builder <|-- ConcreteBuilder
+ConcreteBuilder .> Product
+
+@enduml
+```
