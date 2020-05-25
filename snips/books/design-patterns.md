@@ -268,6 +268,11 @@ Trade-off 取舍
 
 解释和示例详见原书
 
+- 实际用法, 并没有想象中那么直观
+    - 由于受到 Lombok 中的 @Builder 注解用法的影响, 误解了 Builder 的实际场景和用法…
+        - Builder 的用法实际和 Abstract Factory 类似, 只是侧重点不同
+    - Factory Method 的情况也类似
+
 ### Abstract Factory
 
 Intent
@@ -311,3 +316,10 @@ Director .. N1
 
 @enduml
 ```
+
+### Factory Method
+
+Intent
+
+- Define an interface for creating an object, but let subclasses decide which class to instantiate.
+- Factory Method lets a class defer instantiation to subclasses.
