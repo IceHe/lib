@@ -317,6 +317,10 @@ Director .. N1
 @enduml
 ```
 
+- Director 控制 (复杂对象的) 构建过程
+- Builder 决定 (复杂对象的) 组成对象的实际类型
+    - 它的用途甚至并不限于此! _( 详见原书例 )_
+
 ### Factory Method
 
 Intent
