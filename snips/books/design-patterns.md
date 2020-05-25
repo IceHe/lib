@@ -282,6 +282,8 @@ Intent
 
 - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
 
+<!-- ![builder.png](_images/builder.png) -->
+
 ```plantuml
 @startuml
 object Director
@@ -289,7 +291,7 @@ object Builder
 object ConcreteBuilder
 object Product
 
-Director : constructor()
+Director : construct()
 Builder : buildPart()
 ConcreteBuilder : buildPart()
 ConcreteBuilder : getResult()
@@ -297,6 +299,15 @@ ConcreteBuilder : getResult()
 Director o- Builder : builder
 Builder <|-- ConcreteBuilder
 ConcreteBuilder .> Product
+
+note as N1
+construct() {
+    for all objs in structure {
+        builder->buildPart()
+    }
+}
+end note
+Director .. N1
 
 @enduml
 ```
