@@ -279,6 +279,17 @@ Intent
 
 - Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 
+<!--
+
+_Applicability_
+
+- _A system should be independent of how its products are created, composed, and represented._
+- _A system should be configured with one of multiple families of products._
+- _A family of related product objects is designed to be used together, and you need to enforce this constraint._
+- _You want to provide a class library of products, and you want to reveal just their interfaces, not their implementations._
+
+-->
+
 ![abstract-factory.png](_images/abstract-factory.png)
 
 ### Builder
@@ -286,6 +297,15 @@ Intent
 Intent
 
 - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+
+<!--
+
+_Applicability_
+
+- _The algorithm for creating a complex object should be independent of the parts that make up the object and how they're assembled._
+- _The construction process must allow different representations for the object that's constructed._
+
+-->
 
 <!-- ![builder.png](_images/builder.png) -->
 
@@ -327,3 +347,49 @@ Intent
 
 - Define an interface for creating an object, but let subclasses decide which class to instantiate.
 - Factory Method lets a class defer instantiation to subclasses.
+
+_Applicability_
+
+<!-- ![factory-method.png](_images/factory-method.png) -->
+
+```plantuml
+@startuml
+
+object Product
+object ConcreteProduct
+object Creator
+object ConcreteCreator
+
+Product <|-- ConcreteProduct
+Creator <|-- ConcreteCreator
+ConcreteProduct <. ConcreteCreator
+
+Creator : factoryMethod()
+Creator : anOperation()
+ConcreteCreator : factoryMethod()
+
+note as N1
+anOperation() {
+    …
+    product = factoryMethod()
+    …
+}
+end note
+
+note as N2
+factoryMethod() {
+    return new ConcreteProduct
+}
+end note
+
+Creator . N1
+ConcreteCreator . N2
+
+@enduml
+```
+
+## Prototype
+
+Intent
+
+- Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
