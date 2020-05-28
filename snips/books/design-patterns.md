@@ -393,3 +393,14 @@ ConcreteCreator . N2
 Intent
 
 - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+
+_Applicability_
+
+- _When a system should be independent of how its products are created, composed, and represented. and_
+    - _( 当一个系统应该独立于它的产品创建、构成和表示时 )_
+- _when the classes to instantiate are specified at run-time, for example, by dynamic loading; or_
+    - _( 当要实例化的类实在运行时指定时, 例如, 通过动态装载 )_
+- _to avoid building a class hierarchy of factories that parallels the class hierarchy of products; or_
+    - _( 为了避免创建一个与产品类层次平行的工厂类层次 )_
+- _when instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state._
+    - _( 当一个类的实例只能有几个不同状态组合中的一种时, 建立相应数目的原型并克隆它们, 可能比每次用合适的状态手工实例化该类更方便一些 )_
