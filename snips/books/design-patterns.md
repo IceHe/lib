@@ -307,8 +307,6 @@ _Applicability_
 
 -->
 
-<!-- ![builder.png](_images/builder.png) -->
-
 ```plantuml
 @startuml
 object Director
@@ -350,8 +348,6 @@ Intent
 
 _Applicability_
 
-<!-- ![factory-method.png](_images/factory-method.png) -->
-
 ```plantuml
 @startuml
 
@@ -388,7 +384,7 @@ ConcreteCreator . N2
 @enduml
 ```
 
-## Prototype
+### Prototype
 
 Intent
 
@@ -404,3 +400,85 @@ _Applicability_
     - _( 为了避免创建一个与产品类层次平行的工厂类层次 )_
 - _when instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state._
     - _( 当一个类的实例只能有几个不同状态组合中的一种时, 建立相应数目的原型并克隆它们, 可能比每次用合适的状态手工实例化该类更方便一些 )_
+
+```plantuml
+@startuml
+
+object Client
+object Prototype
+object ConcretePrototype1
+object ConcretePrototype2
+
+Client -> Prototype
+Prototype <|-- ConcretePrototype1
+Prototype <|-- ConcretePrototype2
+
+Client : operation()
+Prototype : clone()
+ConcretePrototype1 : clone()
+ConcretePrototype2 : clone()
+
+note as N0
+operation() {
+    …
+    p = prototype->clone()
+    …
+}
+end note
+
+note as N1
+clone() {
+    return copy of self
+}
+end note
+
+note as N2
+clone() {
+    return copy of self
+}
+end note
+
+Client .. N0
+ConcretePrototype1 .. N1
+ConcretePrototype2 .. N2
+
+@enduml
+```
+
+### Singleton
+
+Intent
+
+- Ensure a class only has one instance, and provide a global point of access to it.
+
+<!--
+
+_Applicability_
+
+- _There must be exactly one instance of a class, and it must be accessible to clients from a well-known access point._
+- _When the sole instance should be extensible by subclassing, and clients should be able to use an extended instance without modifying their code._ _( 这点的好处不是很明了 )_
+
+-->
+
+```plantuml
+@startuml
+
+class Singleton {
+    static instance()
+    singletonOperation()
+    getSingletonData()
+
+    static uniqueInstance
+    singtonData
+}
+
+note as N0
+static instance() {
+    return uniqueInstance
+}
+end note
+
+Singleton . N0
+
+@enduml
+```
