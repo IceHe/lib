@@ -1,4 +1,4 @@
-# Regular Expressions (WIP)
+# Regular Expressions (draft)
 
 Manual
 

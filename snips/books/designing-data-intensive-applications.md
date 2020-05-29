@@ -133,8 +133,8 @@ _Faults_
 - Load Parameters _( 负载参数 )_
     - Web server : Requests Per Second ( RPS ) _/ Queries Per Second ( QPS )_
     - Database : Ratio of reads to writes _( 写入比例 )_
-    - Chat room : Number of simultaneously active users
-    - Cache : Hit rate
+    - Chat room : Number of simultaneously active users _( 在线人数 )_
+    - Cache : Hit rate _( 命中率 )_
 - Example : Twitter
     - Main operations
         - Post tweet : avg rps 4.6k , peak rps 12k _( Nov 2012 )_
@@ -144,7 +144,7 @@ _Faults_
             - Pull _( 拉模型 )_
             - Push _( 推模型 )_
             - Push & Pull _( 推拉结合 )_
-    - ommitted … ( **重要! 详见原书例** )
+    - ommitted here … ( **重要! 详见原书例** )
 
 #### Describing Performance
 
@@ -174,6 +174,8 @@ _Random Additional Latency ( 每次请求的响应时间, 由于许多因素的�
 - _mechanical vibrations in the server rack ( 甚至是服务器支架的机械振动 )_
 - …
 
+##### Percentiles
+
 Response Time
 
 - _The mean is not a very good metric if you want to know your “typical” response time,_
@@ -182,21 +184,22 @@ Response Time
 - _And **median** response time : half your requests return in less than the median, and half your requests take longer than that._
     - _This makes the median a good metric if you want to know how long users typically have to wait…_
     - _The median is also known as the **50th percentile**, and sometimes abbreviated as **p50**._
-- _Strictly speaking, the term “**average**” doesn’t refer to any particular formula,_
+- _\* Strictly speaking, the term “**average**” doesn’t refer to any particular formula,_
     - _but in practice it is usually understood as the arithmetic mean: given n values, add up all the values, and divide by n._
 
 Percentiles _( 百分位数 )_
 
-- _Response time thresholds_
+- _Response time thresholds ( 响应时间阈值 )_
     - p95 : _e.g., **if the 95th percentile response time is 1.5 seconds, that means 95 out of 100 requests take less than 1.5 seconds, and 5 out of 100 requests take 1.5 seconds or more.**_
     - p99 / p999 / etc.
     - mean = p50
-- _High percentiles of response times, also known as **tail latencies**, are important because they directly affect users’ experience of the service._
+- _High percentiles of response times, also known as **tail latencies** ( 尾部延迟 / 长尾效应 ), are important because they directly affect users’ experience of the service._
 
-Service Level Agreements ( SLAs )
+Service Level Objectives ( SLOs ) _( 服务质量目标 )_ and
+Service Level Agreements ( SLAs ) _( 服务质量协议 )_
 
 - _Percentiles are often used in **service level objectives (SLOs)** and **service level agreements (SLAs)**, contracts that define the expected performance and availability of a service._
-- _e.g.: An SLA may state that the service is considered to be up if it has a median response time of less than 200 ms and a 99th percentile under 1 s ( if the response time is longer, it might as well be down ), and the service may be required to be up at least 99.9% of the time._
+    - _e.g.: An SLA may state that the service is considered to be up if it has a median response time of less than 200 ms and a 99th percentile under 1 s ( if the response time is longer, it might as well be down ), and the service may be required to be up at least 99.9% of the time._
 
 Queueing delays _( 排队延迟 )_
 
@@ -209,12 +212,22 @@ Queueing delays _( 排队延迟 )_
 _Percentiles in Practice_
 
 - _Even if you make the calls in parallel, the end-user request still needs to wait for the slowest of the parallel calls to complete._
-    - _It takes just one slow call to make the entire end-user request slow._
-- _Even if only a small percentage of backend calls are slow, the chance of getting a slow call increases if an end-user request requires multiple backend calls, and so a higher proportion of end-user requests end up being slow ( an effect known as **tail latency amplification** )._
+- _Even if only a small percentage of backend calls are slow, the chance of getting a slow call increases if an end-user request requires multiple backend calls, and so a higher proportion of end-user requests end up being slow ( an effect known as **tail latency amplification** ( 长尾效应 ) )._
+    - _( 即使只有很小百分比的请求缓慢, 如果某用户总是频繁产生这种调用, 最终总体变慢的概率就会增加, 即长尾效应 )_
 
-_Approaches for Coping with Load_
+##### Cope with Load
 
-- _People often talk of a dichotomy between_
-    - **scaling up (vertical scaling, moving to a more powerful machine)** and
-    - **scaling out (horizontal scaling, distributing the load across multiple smaller machines)**.
+_Approaches for Coping with Load ( 应对负载增加的方法 )_
+
+- _An architecture that is appropriate for one level of load is unlikely to cope with 10 times that load._
+- _People often talk of a dichotomy between ( 做取舍 )_
+    - **scaling up ( vertical scaling, moving to a more powerful machine )** and
+        - _垂直拓展 ( 即升级到更强大的机器 )_
+    - **scaling out ( horizontal scaling, distributing the load across multiple smaller machines )**.
+        - _水平拓展 ( 即将负载分布到多个更小的机器 )_
 - _Distributing load across multiple machines is also known as a **shared-nothing** architecture._
+    - _在多台机器上分配负载也被称为无共享体系结构_
+- _A system that can run on a single machine is often simpler, but high-end machines can become very expensive, so very intensive workloads often can’t avoid scaling out._
+    - _在单台机器上运行系统通常更简单, 然而高端机器可能非常昂贵, 且拓展水平有限, 最终往往还是无法避免需要水平拓展_
+- _In reality, good architectures usually involve a pragmatic mixture of approaches: for example, using several fairly powerful machines can still be simpler and cheaper than a large number of small virtual machines._
+    - _实际上, 好的架构通常要做些实际取舍. 例如, 使用几个强悍的服务器仍可以比大量的小型虚拟机来得更简单便宜_

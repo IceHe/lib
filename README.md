@@ -20,25 +20,19 @@
 
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
-Reading Books
+Reading - Basics
 
 - [Linux Kernel](/snips/books/linux.md) ( draft )
 - [JVM - Java Virtual Machine](/snips/books/jvm.md) ( draft )
 - [Java Concurrency in Pratice](/snips/books/java-concurrency-in-pratice.md) ( draft )
+- [Designing Data Intensive Applications](/snips/books/designing-data-intensive-applications.md) ( draft )
+
+Reading - Coding
+
 - [Refactoring](/snips/books/refactoring.md)
 - [Design Patterns](/snips/books/design-patterns.md) ( draft )
 - [Pragmatic Programmer](/snips/books/pragmatic-programmer.md)
     - _The Pragmatic Programmer : your journey to mastery ( 2nd Edition )_
-
-<!-- - [Design Patterns](/snips/books/design-patterns.md) ( todo ) -->
-
-Coding
-
-- [Abbreviations](/snips/abbrs.md)
-- [_Cloud Utils_](/snips/cloud/README.md) ( draft )
-- [_Glossary_](/snips/glossary.md) ( draft )
-- [Regular Expression](/snips/regex.md)
-- [_Work Flow_](/snips/work-flow.md)
 
 Docker
 
@@ -81,8 +75,14 @@ Web
 
 _Others_
 
-- [_Go_](/snips/go.md) ( draft )
-- [_Chrome_](/snips/web/chrome.md) : clear cookie ( draft )
+- [Abbreviations](/snips/abbrs.md)
+- [_Work Flow_](/snips/work-flow.md)
+- _Drafts_
+    - [_Cloud Utils_](/snips/cloud/README.md)
+    - [_Glossary_](/snips/glossary.md)
+    - [_Regular Expression_](/snips/regex.md)
+    - [_Chrome_](/snips/web/chrome.md) : clear cookie
+    - [_Go_](/snips/go.md)
 
 ### Mac
 
