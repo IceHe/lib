@@ -153,19 +153,19 @@ _Look at it in two ways:_
 - When you increase a load parameter and keep the system resources (CPU, mem‐ ory, network bandwidth, etc.) unchanged, how is the performance of your system affected?
 - When you increase a load parameter, how much do you need to increase the resources if you want to keep performance unchanged?
 
-Performance Numbers _( 性能指标 )_
+_Performance Numbers ( 性能指标 )_
 
 - Throughput _( 吞吐量 )_ : _The number of records we can process per second, or the total time it takes to run a job on a dataset of a certain size_
 - Response Time _( 响应时间 )_ : _The time between a client sending a request and receiving a response_
 
-_Differ latency from response time_
+Differ latency from response time
 
-- Response Time = Service Time + Network Delays + Queueing Delays
-    - _Service Time ( 服务时间 ) : the actual time to process the request_
-- Latency : The duration that a request is waiting to be handled
-    - _( during which it is latent, awaiting service )_
+- **Response Time = Service Time + Network Delays + Queueing Delays**
+    - Service Time ( 服务时间 ) : the actual time to process the request
+- **Latency : The duration that a request is waiting to be handled**
+    - during which it is latent, awaiting service
 
-Random Additional Latency _( 每次请求的响应时间, 由于许多因素的影响而不同 )_
+_Random Additional Latency ( 每次请求的响应时间, 由于许多因素的影响而不同 )_
 
 - _a context switch to a background process ( 上下文切换 进程调度  )_
 - _the loss of a network packet and TCP retransmission ( 网络数据包丢失和 TCP 重传 )_
@@ -178,15 +178,43 @@ Response Time
 
 - _The mean is not a very good metric if you want to know your “typical” response time,_
     - _because it doesn’t tell you how many users actually experienced that delay._
-    - _Usually it is better to use **percentiles**._
+    - _Usually it is better to use **percentiles** ( 百分位数 ) ._
 - _And **median** response time : half your requests return in less than the median, and half your requests take longer than that._
     - _This makes the median a good metric if you want to know how long users typically have to wait…_
     - _The median is also known as the **50th percentile**, and sometimes abbreviated as **p50**._
-- _Response time thresholds_ : **Percentiles** _( 百分位数 )_
-    - mean = p50 : 50% 的
-    - p95 / p99 / p999
-
-_Others_
-
 - _Strictly speaking, the term “**average**” doesn’t refer to any particular formula,_
     - _but in practice it is usually understood as the arithmetic mean: given n values, add up all the values, and divide by n._
+
+Percentiles _( 百分位数 )_
+
+- _Response time thresholds_
+    - p95 : _e.g., **if the 95th percentile response time is 1.5 seconds, that means 95 out of 100 requests take less than 1.5 seconds, and 5 out of 100 requests take 1.5 seconds or more.**_
+    - p99 / p999 / etc.
+    - mean = p50
+- _High percentiles of response times, also known as **tail latencies**, are important because they directly affect users’ experience of the service._
+
+Service Level Agreements ( SLAs )
+
+- _Percentiles are often used in **service level objectives (SLOs)** and **service level agreements (SLAs)**, contracts that define the expected performance and availability of a service._
+- _e.g.: An SLA may state that the service is considered to be up if it has a median response time of less than 200 ms and a 99th percentile under 1 s ( if the response time is longer, it might as well be down ), and the service may be required to be up at least 99.9% of the time._
+
+Queueing delays _( 排队延迟 )_
+
+- Queueing delays often account for a large part of the response time at high percentiles.
+- As a server can only process a small number of things in parallel ( limited, for example, by its number of CPU cores ),
+    - it only takes a small number of slow requests to hold up the processing of subsequent requests -- an effect sometimes known as **head-of-line blocking**.
+    - _Even if those subsequent requests are fast to process on the server, the client will see a slow overall response time due to the time waiting for the prior request to complete._
+- _Due to this effect, it is important to measure response times on the client side._
+
+_Percentiles in Practice_
+
+- _Even if you make the calls in parallel, the end-user request still needs to wait for the slowest of the parallel calls to complete._
+    - _It takes just one slow call to make the entire end-user request slow._
+- _Even if only a small percentage of backend calls are slow, the chance of getting a slow call increases if an end-user request requires multiple backend calls, and so a higher proportion of end-user requests end up being slow ( an effect known as **tail latency amplification** )._
+
+_Approaches for Coping with Load_
+
+- _People often talk of a dichotomy between_
+    - **scaling up (vertical scaling, moving to a more powerful machine)** and
+    - **scaling out (horizontal scaling, distributing the load across multiple smaller machines)**.
+- _Distributing load across multiple machines is also known as a **shared-nothing** architecture._
