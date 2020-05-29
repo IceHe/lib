@@ -288,6 +288,10 @@ _Applicability_
 - _A family of related product objects is designed to be used together, and you need to enforce this constraint._
 - _You want to provide a class library of products, and you want to reveal just their interfaces, not their implementations._
 
+_Also Known As_
+
+- _Kit_
+
 -->
 
 ![abstract-factory.png](_images/abstract-factory.png)
@@ -345,6 +349,10 @@ Intent
 
 - Define an interface for creating an object, but let subclasses decide which class to instantiate.
 - Factory Method lets a class defer instantiation to subclasses.
+
+_Also Known As_
+
+- _Virtual Constructor_
 
 ```plantuml
 @startuml
@@ -493,3 +501,67 @@ Intent
 
 - Convert the interface of a class into another interface clients expect.
     - Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
+
+_Also Known As_
+
+- _Wrapper_
+
+UML
+
+- Multiple Inheritance
+
+```plantuml
+@startuml
+
+object Client
+object Target
+object Adaptee
+object Adapter
+
+Target : request()
+Adapter : request()
+Adaptee : specificRequest()
+
+note as N0
+request() {
+    specificRequest()
+}
+end note
+
+Client -> Target
+Target <|-- Adapter
+Adaptee <|-- Adapter : <i>(implementation)</i>
+
+Adapter . N0
+
+@enduml
+```
+
+- Composition
+
+```plantuml
+@startuml
+
+object Client
+object Target
+object Adaptee
+object Adapter
+
+Target : request()
+Adapter : request()
+Adaptee : specificRequest()
+
+note as N0
+request() {
+    adaptee->specificRequest()
+}
+end note
+
+Client -> Target
+Target <|-- Adapter
+Adaptee <-- Adapter : adaptee
+
+Adapter . N0
+
+@enduml
+```
