@@ -217,7 +217,9 @@ _Percentiles in Practice_
 
 ##### Cope with Load
 
-_Approaches for Coping with Load ( 应对负载增加的方法 )_
+- _Approaches for Coping with Load ( 应对负载增加的方法 )_
+
+Scale Up & Scale Out
 
 - _An architecture that is appropriate for one level of load is unlikely to cope with 10 times that load._
 - _People often talk of a dichotomy between ( 做取舍 )_
@@ -231,3 +233,43 @@ _Approaches for Coping with Load ( 应对负载增加的方法 )_
     - _在单台机器上运行系统通常更简单, 然而高端机器可能非常昂贵, 且拓展水平有限, 最终往往还是无法避免需要水平拓展_
 - _In reality, good architectures usually involve a pragmatic mixture of approaches: for example, using several fairly powerful machines can still be simpler and cheaper than a large number of small virtual machines._
     - _实际上, 好的架构通常要做些实际取舍. 例如, 使用几个强悍的服务器仍可以比大量的小型虚拟机来得更简单便宜_
+
+Elastic _( 弹性 )_
+
+- Some systems are **elastic**, meaning that they can automatically add computing resources when they detect a load increase,
+    - _whereas other systems are scaled manually (a human analyzes the capacity and decides to add more machines to the system)._
+- _An elastic system can be useful if load is highly unpredictable, but manually scaled systems are simpler and may have fewer operational surprises._
+
+_Others_
+
+- Easy of use 易用性
+- _In an early-stage startup or an unproven product it’s usually more important to be able to iterate quickly on product features than it is to scale to some hypothetical future load._
+    - _( 对于初创公司或尚未定型的产品, 快速迭代推出产品功能, 往往比应对不可知的拓展性更为重要 )_
+
+### Mantainability
+
+- _It is well known that the majority of the cost of software is not in its initial development, but in its ongoing maintenance :_
+    - _fixing bugs,_
+    - _keeping its systems operational,_
+    - _investigating failures ( 故障排查 ) ,_
+    - _adapting it to new platforms,_
+    - _modifying it for new use cases,_
+    - _repaying technical debt ( 偿还技术债 ) ,_
+    - _and adding new features._
+- _We can and should design software in such a way that it will hopefully minimize pain during maintenance, and thus avoid creating legacy software ( 过时的系统 ) ourselves._
+    - _To this end, we will pay particular attention to **three design principles for software systems**…_
+
+**Operability** 可运维性
+
+- Make it easy for operations _( 运维 )_ teams to keep the system running smoothly _( 平稳运行 )_ .
+
+**Simplicity** 简单性
+
+- Make it easy for new engineers to understand the system, by removing as much complexity as possible from the system.
+    - _( Note this is not the same as simplicity of the user interface. 跟用户界面的简单性不一样 )_
+
+**Evolvability** 可演化性
+
+- Make it easy for engineers to make changes to the system in the future, adapting it for unanticipated use cases as requirements change.
+    - aka. **extensibility, modifiability, or plasticity**.
+    - _( 可延伸性, 易修改性, 可塑性 )_
