@@ -346,8 +346,6 @@ Intent
 - Define an interface for creating an object, but let subclasses decide which class to instantiate.
 - Factory Method lets a class defer instantiation to subclasses.
 
-_Applicability_
-
 ```plantuml
 @startuml
 
@@ -492,3 +490,6 @@ _Others_
 ### Adapter
 
 Intent
+
+- Convert the interface of a class into another interface clients expect.
+    - Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
