@@ -130,9 +130,19 @@ _Faults_
 
 Describing Load
 
-- Example : Twitter's main operations
-    - Post tweet
-    - Home timeline
-- **详见原书例!**
+- Load Parameters _( 负载参数 )_
+    - Web server : Requests Per Second ( RPS ) _/ Queries Per Second ( QPS )_
+    - Database : Ratio of reads to writes _( 写入比例 )_
+    - Chat room : Number of simultaneously active users
+    - Cache : Hit rate
+- Example : Twitter
+    - Main operations
+        - Post tweet : avg rps 4.6k , peak rps 12k _( Nov 2012 )_
+        - Home timeline : avg rps 300k
+    - Challenge : Fan-out _( 扇出 )_
+        - Implementation
+            - Pull _( 拉模型 )_
+            - Push _( 推模型 )_
+    - ommitted … ( **重要! 详见原书例** )
 
 Describing Performance

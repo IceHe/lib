@@ -565,3 +565,8 @@ Adapter . N0
 
 @enduml
 ```
+
+_Others_
+
+- _Two-way adapters : provide transparency_
+    - _( 双向适配器 : 提供透明操作 )_
