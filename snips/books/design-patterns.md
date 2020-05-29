@@ -482,3 +482,13 @@ Singleton . N0
 
 @enduml
 ```
+
+_Others_
+
+- _Registry of singleton 单件注册表 : 运行时才决定要使用的具体单件 ( 灵活的方法, 实现详见原书例 )_
+
+## Structural
+
+### Adapter
+
+Intent
