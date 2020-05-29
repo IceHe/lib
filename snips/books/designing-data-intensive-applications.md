@@ -128,7 +128,7 @@ _Faults_
 
 ### Scalability
 
-Describing Load
+#### Describing Load
 
 - Load Parameters _( 负载参数 )_
     - Web server : Requests Per Second ( RPS ) _/ Queries Per Second ( QPS )_
@@ -143,6 +143,50 @@ Describing Load
         - Implementation
             - Pull _( 拉模型 )_
             - Push _( 推模型 )_
+            - Push & Pull _( 推拉结合 )_
     - ommitted … ( **重要! 详见原书例** )
 
-Describing Performance
+#### Describing Performance
+
+_Look at it in two ways:_
+
+- When you increase a load parameter and keep the system resources (CPU, mem‐ ory, network bandwidth, etc.) unchanged, how is the performance of your system affected?
+- When you increase a load parameter, how much do you need to increase the resources if you want to keep performance unchanged?
+
+Performance Numbers _( 性能指标 )_
+
+- Throughput _( 吞吐量 )_ : _The number of records we can process per second, or the total time it takes to run a job on a dataset of a certain size_
+- Response Time _( 响应时间 )_ : _The time between a client sending a request and receiving a response_
+
+_Differ latency from response time_
+
+- Response Time = Service Time + Network Delays + Queueing Delays
+    - _Service Time ( 服务时间 ) : the actual time to process the request_
+- Latency : The duration that a request is waiting to be handled
+    - _( during which it is latent, awaiting service )_
+
+Random Additional Latency _( 每次请求的响应时间, 由于许多因素的影响而不同 )_
+
+- _a context switch to a background process ( 上下文切换 进程调度  )_
+- _the loss of a network packet and TCP retransmission ( 网络数据包丢失和 TCP 重传 )_
+- _a garbage collection pause ( 垃圾回收暂停 )_
+- _a page fault forcing a read from disk ( 缺页中断 磁盘IO )_
+- _mechanical vibrations in the server rack ( 甚至是服务器支架的机械振动 )_
+- …
+
+Response Time
+
+- _The mean is not a very good metric if you want to know your “typical” response time,_
+    - _because it doesn’t tell you how many users actually experienced that delay._
+    - _Usually it is better to use **percentiles**._
+- _And **median** response time : half your requests return in less than the median, and half your requests take longer than that._
+    - _This makes the median a good metric if you want to know how long users typically have to wait…_
+    - _The median is also known as the **50th percentile**, and sometimes abbreviated as **p50**._
+- _Response time thresholds_ : **Percentiles** _( 百分位数 )_
+    - mean = p50 : 50% 的
+    - p95 / p99 / p999
+
+_Others_
+
+- _Strictly speaking, the term “**average**” doesn’t refer to any particular formula,_
+    - _but in practice it is usually understood as the arithmetic mean: given n values, add up all the values, and divide by n._
