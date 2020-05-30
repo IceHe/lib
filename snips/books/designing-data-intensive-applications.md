@@ -179,12 +179,12 @@ _Random Additional Latency ( 每次请求的响应时间, 由于许多因素的�
 Response Time
 
 - _The mean is not a very good metric if you want to know your “typical” response time,_
-    - _because it doesn’t tell you how many users actually experienced that delay._
+    - _because it doesn't tell you how many users actually experienced that delay._
     - _Usually it is better to use **percentiles** ( 百分位数 ) ._
 - _And **median** response time : half your requests return in less than the median, and half your requests take longer than that._
     - _This makes the median a good metric if you want to know how long users typically have to wait…_
     - _The median is also known as the **50th percentile**, and sometimes abbreviated as **p50**._
-- _\* Strictly speaking, the term “**average**” doesn’t refer to any particular formula,_
+- _\* Strictly speaking, the term “**average**” doesn't refer to any particular formula,_
     - _but in practice it is usually understood as the arithmetic mean: given n values, add up all the values, and divide by n._
 
 Percentiles _( 百分位数 )_
@@ -193,7 +193,7 @@ Percentiles _( 百分位数 )_
     - p95 : _e.g., **if the 95th percentile response time is 1.5 seconds, that means 95 out of 100 requests take less than 1.5 seconds, and 5 out of 100 requests take 1.5 seconds or more.**_
     - p99 / p999 / etc.
     - mean = p50
-- _High percentiles of response times, also known as **tail latencies** ( 尾部延迟 / 长尾效应 ), are important because they directly affect users’ experience of the service._
+- _High percentiles of response times, also known as **tail latencies** ( 尾部延迟 / 长尾效应 ), are important because they directly affect users' experience of the service._
 
 Service Level Objectives ( SLOs ) _( 服务质量目标 )_ and
 Service Level Agreements ( SLAs ) _( 服务质量协议 )_
@@ -229,7 +229,7 @@ Scale Up & Scale Out
         - _水平拓展 ( 即将负载分布到多个更小的机器 )_
 - _Distributing load across multiple machines is also known as a **shared-nothing** architecture._
     - _在多台机器上分配负载也被称为无共享体系结构_
-- _A system that can run on a single machine is often simpler, but high-end machines can become very expensive, so very intensive workloads often can’t avoid scaling out._
+- _A system that can run on a single machine is often simpler, but high-end machines can become very expensive, so very intensive workloads often can't avoid scaling out._
     - _在单台机器上运行系统通常更简单, 然而高端机器可能非常昂贵, 且拓展水平有限, 最终往往还是无法避免需要水平拓展_
 - _In reality, good architectures usually involve a pragmatic mixture of approaches: for example, using several fairly powerful machines can still be simpler and cheaper than a large number of small virtual machines._
     - _实际上, 好的架构通常要做些实际取舍. 例如, 使用几个强悍的服务器仍可以比大量的小型虚拟机来得更简单便宜_
@@ -243,7 +243,7 @@ Elastic _( 弹性 )_
 _Others_
 
 - Easy of use 易用性
-- _In an early-stage startup or an unproven product it’s usually more important to be able to iterate quickly on product features than it is to scale to some hypothetical future load._
+- _In an early-stage startup or an unproven product it's usually more important to be able to iterate quickly on product features than it is to scale to some hypothetical future load._
     - _( 对于初创公司或尚未定型的产品, 快速迭代推出产品功能, 往往比应对不可知的拓展性更为重要 )_
 
 ### Mantainability
@@ -259,17 +259,98 @@ _Others_
 - _We can and should design software in such a way that it will hopefully minimize pain during maintenance, and thus avoid creating legacy software ( 过时的系统 ) ourselves._
     - _To this end, we will pay particular attention to **three design principles for software systems**…_
 
-**Operability** 可运维性
+**Operability** _可运维性 : Making Life Easy for Operations_
 
 - Make it easy for operations _( 运维 )_ teams to keep the system running smoothly _( 平稳运行 )_ .
 
-**Simplicity** 简单性
+**Simplicity** _简单性 : Managing Complexity_
 
 - Make it easy for new engineers to understand the system, by removing as much complexity as possible from the system.
     - _( Note this is not the same as simplicity of the user interface. 跟用户界面的简单性不一样 )_
 
-**Evolvability** 可演化性
+**Evolvability** _可演化性 : Making Change Easy_
 
 - Make it easy for engineers to make changes to the system in the future, adapting it for unanticipated use cases as requirements change.
     - aka. **extensibility, modifiability, or plasticity**.
     - _( 可延伸性, 易修改性, 可塑性 )_
+
+<!--
+
+#### Operability : Making Life Easy for Operations
+
+Making Life Easy for Operations _( 运维 )_
+
+- _While some aspects of operations can and should be automated, it is still up to humans to set up that automation in the first place and to make sure it's working correctly._
+- _A good operations team typically is responsible for the following, and more:_
+
+_Responsibility_
+
+- Monitoring the health of the system and quickly restoring service if it goes into a bad state
+- Tracking down _( 追踪 )_ the cause of problems, such as system failures or degraded performance _( 性能下降 )_
+- Keeping software and platforms up to date, including security patches
+- Keeping tabs on _( 密切注意 )_ how different systems affect each other, so that a problematic change can be avoided before it causes damage
+- Anticipating future problems and solving them before they occur (e.g., capacity planning)
+- Establishing good practices and tools for deployment, configuration management, and more
+- Performing complex maintenance tasks, such as moving an application from one platform to another
+- Maintaining the security of the system as configuration changes are made
+- Defining processes that make operations predictable and help keep the production environment stable
+- Preserving the organization's knowledge about the system, even as individual people come and go
+
+Good operability means making routine tasks easy, allowing the operations team to focus their efforts on high-value activities.
+
+_Data systems can do various things to make routine tasks easy, including:_
+
+- Providing visibility into the runtime behavior and internals of the system, with good monitoring
+- Providing good support for automation and integration with standard tools
+- Avoiding dependency on individual machines (allowing machines to be taken down for maintenance while the system as a whole continues running uninter‐ rupted)
+- Providing good documentation and an easy-to-understand operational model ( "If I do X, Y will happen" )
+- Providing good default behavior, but also giving administrators the freedom to override defaults when needed
+- Self-healing where appropriate, but also giving administrators manual control over the system state when needed
+- Exhibiting predictable behavior, minimizing surprises
+
+#### Simplicity : Making Change Easy
+
+- reason about 推出原因
+
+#### Evolvability : Making Change Easy
+
+- Agile 敏捷
+- TDD : Test-Driven Development
+- Refactoring 重构
+
+-->
+
+_Nonfunctional Requirements_
+
+- security 安全性
+- _reliability_
+- compliance 合规性
+- _scalability_
+- compatibility 兼容性
+- _mantainability 可运维性_
+
+## Data Models and Query Languages
+
+- Relational Model 关系模型
+- Document Model 文档模型
+- NoSQL : Not Only SQL
+- polyglot persistence _( 混合持久化 )_
+    - _use both relational and nonrelational datastores_
+
+_Driving forces behind the adoption of NoSQL databases_
+
+- A need for greater scalability than relational databases can easily achieve, including very large datasets or very high write throughput
+- _A widespread preference for free and open source software over commercial database products_
+- Specialized query operations that are not well supported by the relational model
+- Frustration with the restrictiveness of relational schemas, and a desire for a more dynamic and expressive data model
+
+_The Object-Relational Mismatch_ _( 对象-关系 不匹配 )_
+
+- ORM - Object-Relational Mapping
+
+_Schema flexibility in the document model_
+
+- _Most document databases, and the JSON support in relational databases, do not enforce any schema on the data in documents._
+- _XML support in relational databases usually comes with optional schema validation._
+- No schema _( 无模式 )_ means that arbitrary keys and values can be added to a document,
+    - and when reading, clients have no guarantees as to what fields the documents may contain.
