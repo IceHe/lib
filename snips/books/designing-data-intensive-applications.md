@@ -354,3 +354,31 @@ _Schema flexibility in the document model_
 - _XML support in relational databases usually comes with optional schema validation._
 - No schema _( 无模式 )_ means that arbitrary keys and values can be added to a document,
     - and when reading, clients have no guarantees as to what fields the documents may contain.
+
+_Many-to-One and Many-to-Many Relationships_
+
+- _个人简短总结_
+    - _一对多的关系, 在一些场景下, 还算适合使用 Document Model_
+    - _多对多的关系, 还是更适合使用 Relational Model_
+
+_Schema flexibility ( 模式灵活性 ) in the document model_
+
+- _Most document databases, and the JSON support in relational databases, do not enforce any schema on the data in documents._
+    - _XML support in relational databases usually comes with optional schema validation._
+- **No schema** means that arbitrary keys and values can be added to a document,
+    - and when reading, clients have no guarantees as to what fields the documents may contain.
+
+_Data locality for queries ( 查询的数据局部性 )_
+
+- _A document is usually stored as a single continuous string, encoded as JSON, XML, or a binary variant thereof (such as MongoDB’s BSON)._
+- If your application often needs to access the entire document (for example, to render it on a web page), there is a performance advantage to this **storage locality**.
+- _If data is split across multiple tables, multiple index lookups are required to retrieve it all, which may require more disk seeks and take more time._
+
+_Query Languages for Data_
+
+- Declarative _( 声明式 )_ : SQL
+    - Just specify the pattern of the data you want -- what conditions the results must meet, and how you want the data to be transformed (e.g., sorted, grouped, and aggregated) -- but not how to achieve that goal.
+    - It is up to the database system's query optimizer to decide which indexes and which join methods to use, and in which order to execute various parts of the query.
+- imperative _( 命令式 )_ : _IMS, CODASYL_
+    - Tells the computer to perform certain operations in a certain order.
+        - You can imagine stepping through the code line by line, evaluating conditions, updating variables, and deciding whether to go around the loop one more time.
