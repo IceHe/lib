@@ -357,9 +357,8 @@ _Schema flexibility in the document model_
 
 _Many-to-One and Many-to-Many Relationships_
 
-- _个人简短总结_
-    - _一对多的关系, 在一些场景下, 还算适合使用 Document Model_
-    - _多对多的关系, 还是更适合使用 Relational Model_
+- _If your application has mostly one-to-many rela‐ tionships (tree-structured data) or no relationships between records, the document model is appropriate._
+- _The relational model can handle simple cases of many-to-many relationships, …_
 
 _Schema flexibility ( 模式灵活性 ) in the document model_
 
@@ -376,9 +375,28 @@ _Data locality for queries ( 查询的数据局部性 )_
 
 _Query Languages for Data_
 
-- Declarative _( 声明式 )_ : SQL
-    - Just specify the pattern of the data you want -- what conditions the results must meet, and how you want the data to be transformed (e.g., sorted, grouped, and aggregated) -- but not how to achieve that goal.
-    - It is up to the database system's query optimizer to decide which indexes and which join methods to use, and in which order to execute various parts of the query.
-- imperative _( 命令式 )_ : _IMS, CODASYL_
-    - Tells the computer to perform certain operations in a certain order.
-        - You can imagine stepping through the code line by line, evaluating conditions, updating variables, and deciding whether to go around the loop one more time.
+- **Imperative** _( 命令式 )_ : _IMS, CODASYL_
+    - _Tells the computer to perform certain operations in a certain order._
+        - _You can imagine stepping through the code line by line, evaluating conditions, updating variables, and deciding whether to go around the loop one more time._
+- **Declarative** _( 声明式 )_ : SQL, CSS, XSL _( XPath expression )_
+    - _Just specify the pattern of the data you want -- what conditions the results must meet, and how you want the data to be transformed (e.g., sorted, grouped, and aggregated) -- but not how to achieve that goal._
+        - _It is up to the database system's query optimizer to decide which indexes and which join methods to use, and in which order to execute various parts of the query._
+    - _It is attractive because it is typically more concise and easier to work with than an imperative API._
+        - _But more importantly, it also hides implementation details of the database engine, which makes it possible for the database system to introduce performance improvements without requiring any changes to queries._
+
+MapReduce Querying
+
+- **MapReduce** is a programming model for processing large amounts of data in bulk across many machines, popularized by Google
+- _MapReduce is neither a declarative query language nor a fully imperative query API, but somewhere in between:_
+    - _the logic of the query is expressed with snippets of code, which are called repeatedly by the processing framework._
+- It is based on the **map** ( aka. collect ) and **reduce** ( aka. fold or inject ) functions that exist in many functional programming languages.
+- _MapReduce is a fairly low-level programming model for distributed execution on a cluster of machines._
+    - _Higher-level query languages like SQL can be implemented as a pipeline of MapReduce operations, but there are also many distributed implementations of SQL that don’t use MapReduce._
+
+Graph-Like Data Models _( 图状数据模型 )_
+
+- _The relational model can handle simple cases of many-to-many relationships,_
+    - but as the connections within your data become more complex, it becomes more natural to start modeling your data as a **graph**.
+- A graph consists of two kinds of objects: **vertices** ( aka. nodes or entities ) and **edges** ( aka. relationships or arcs ).
+
+Property Graphs _( 属性图 )_
