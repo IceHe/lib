@@ -400,3 +400,23 @@ Graph-Like Data Models _( 图状数据模型 )_
 - A graph consists of two kinds of objects: **vertices** ( aka. nodes or entities ) and **edges** ( aka. relationships or arcs ).
 
 Property Graphs _( 属性图 )_
+
+- _In the property graph model, each vertex consists of:_
+    - _A unique identifier_
+    - _A set of outgoing edges_
+    - _A set of incoming edges_
+    - _A collection of properties (key-value pairs)_
+- _Each edge consists of:_
+    - _A unique identifier_
+    - _The vertex at which the edge starts (the tail vertex)_
+    - _The vertex at which the edge ends (the head vertex)_
+    - _A label to describe the kind of relationship between the two vertices_
+    - _A collection of properties (key-value pairs)_
+- _Some important aspects of this model are:_
+    - _1\. Any vertex can have an edge connecting it with any other vertex. There is no schema that restricts which kinds of things can or cannot be associated._
+    - <i>2\. Given any vertex, you can efficiently find both its incoming and its outgoing edges, and thus traverse the graph -- i.e., follow a path through a chain of vertices -- both forward and backward. (That’s why Example 2-2 has indexes on both the tail_vertex and head_vertex columns.)</i>
+    - _3\. By using different labels for different kinds of relationships, you can store several different kinds of information in a single graph, while still maintaining a clean data model._
+- _The Cypher Query Language_
+    - _Cypher is a declarative query language for property graphs, created for the Neo4j graph database._
+- _Graph Queries in SQL_
+    - _可以用关系型数据库实现图查询; 但是查询语句较长, 也更难理解; 说明用关系型模型来实现图模型, 还是不太适合_
