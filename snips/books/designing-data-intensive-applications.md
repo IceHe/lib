@@ -438,3 +438,7 @@ _Triple-Stores and SPARQL ( 三元存储 … )_
 _The Foundation: Datalog_
 
 - _Omitted …_
+
+## Storage and Retrival
+
+- _数据存储于检索_
