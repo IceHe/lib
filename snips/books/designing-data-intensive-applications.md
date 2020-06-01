@@ -375,7 +375,7 @@ _Data locality for queries ( 查询的数据局部性 )_
 
 _Query Languages for Data_
 
-- **Imperative** _( 命令式 )_ : _IMS, CODASYL_
+- **Imperative** _( 命令式 )_ : _IMS, CODASYL ( Conference on Data System Languages )_
     - _Tells the computer to perform certain operations in a certain order._
         - _You can imagine stepping through the code line by line, evaluating conditions, updating variables, and deciding whether to go around the loop one more time._
 - **Declarative** _( 声明式 )_ : SQL, CSS, XSL _( XPath expression )_
@@ -420,3 +420,21 @@ Property Graphs _( 属性图 )_
     - _Cypher is a declarative query language for property graphs, created for the Neo4j graph database._
 - _Graph Queries in SQL_
     - _可以用关系型数据库实现图查询; 但是查询语句较长, 也更难理解; 说明用关系型模型来实现图模型, 还是不太适合_
+
+_Triple-Stores and SPARQL ( 三元存储 … )_
+
+- The triple-store model is mostly equivalent to the property graph model, using different words to describe the same ideas.
+    - _It is nevertheless worth discussing, because there are various tools and languages for triple-stores that can be valuable additions to your toolbox for building applications._
+- _Semantic web ( 语义网 )_
+    - _The semantic web is fundamentally a simple and reasonable idea_
+        - _websites already publish information as text and pictures for humans to read, so why don’t they also publish information as machine-readable data for computers to read?_
+- _RDF data model_
+    - _RDF - Resource Description Framework 资源描述框架_
+- _SPARQL query language_
+    - _SPARQL is a query language for triple-stores using the RDF data model._
+    - _( It is an acronym for SPARQL Protocol and RDF Query Language, pronounced “sparkle.” )_
+    - _It predates Cypher, and since Cypher’s pattern matching is borrowed from SPARQL, they look quite similar._
+
+_The Foundation: Datalog_
+
+- _Omitted …_
