@@ -568,3 +568,16 @@ _Avro_
         - _If the code reading the data encounters a field that appears in the writer’s schema but not in the reader’s schema, it is ignored._
         - _If the code reading the data expects some field, but the writer’s schema does not contain a field of that name, it is filled in with a default value declared in the reader’s schema._
 - _( 其它详见原书 )_
+
+### Modes of Dataflow
+
+_The most common ways how data flows between processes:_
+
+- Via databases
+- Via service calls _( REST and RPC )_
+- Via asynchronous message passing
+
+_Dataflow Through Services: REST and RPC_
+
+- _This approach is often used to decompose a large application into smaller services by area of functionality, such that one service makes a request to another when it requires some functionality or data from that other service._
+    - _This way of building applications has traditionally been called a_ **service-oriented architecture (SOA)**, _more recently refined and rebranded as_ **microservices architecture**.
