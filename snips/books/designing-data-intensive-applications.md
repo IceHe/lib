@@ -581,3 +581,7 @@ _Dataflow Through Services: REST and RPC_
 
 - _This approach is often used to decompose a large application into smaller services by area of functionality, such that one service makes a request to another when it requires some functionality or data from that other service._
     - _This way of building applications has traditionally been called a_ **service-oriented architecture (SOA)**, _more recently refined and rebranded as_ **microservices architecture**.
+- A key design goal of a service-oriented/microservices architecture is
+    - to make the application easier to change and maintain by making services independently deployable and evolvable.
+- _For example, each service should be owned by one team, and that team should be able to release new versions of the service frequently, without having to coordinate with other teams._
+- _In other words, we should expect old and new versions of servers and clients to be running at the same time, and so the data encoding used by servers and clients must be compatible across versions of the service API— precisely what we’ve been talking about in this chapter. ( icehe : 注意不要破坏兼容性 )_
