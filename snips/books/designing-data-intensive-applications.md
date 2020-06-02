@@ -531,3 +531,26 @@ Thrift and Protocol Buffers
     - _Protocol Buffers from Google_
     - _Thrift from Facebook_
 - Both Thrift and Protocol Buffers require a **schema** for any data that is encoded.
+    - Thrift : You would describe the schema in the **Thrift interface definition language ( IDL )**
+
+```cpp
+# Thrift interface definition language
+struct Person {
+    1: required string userName,
+    2: optional i64 favoriteNumber,
+    3: optional list<string> interests
+}
+
+# Protocol Buffers
+message Person {
+    required string user_name       = 1;
+    optional int64  favorite_number = 2;
+    repeated string interests       = 3;
+}
+```
+
+Confusingly, Thrift has 2 different binary encoding formats :
+
+- BinaryProtocol
+- CompactProtocol
+- _( DenseProtocol 只支持 C++ 实现, 没有跨语言实现 )_ …
