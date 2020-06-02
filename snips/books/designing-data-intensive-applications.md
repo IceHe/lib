@@ -530,3 +530,4 @@ Thrift and Protocol Buffers
 - **Apache Thrift** and **Protocol Buffers (protobuf)** are binary encoding libraries that are based on the same principle.
     - _Protocol Buffers from Google_
     - _Thrift from Facebook_
+- Both Thrift and Protocol Buffers require a **schema** for any data that is encoded.
