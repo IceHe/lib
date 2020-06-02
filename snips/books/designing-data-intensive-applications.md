@@ -549,8 +549,22 @@ message Person {
 }
 ```
 
-Confusingly, Thrift has 2 different binary encoding formats :
+_Confusingly, Thrift has 2 different binary encoding formats :_
 
-- BinaryProtocol
-- CompactProtocol
+- _BinaryProtocol_
+- _CompactProtocol_
 - _( DenseProtocol 只支持 C++ 实现, 没有跨语言实现 )_ …
+
+_Avro_
+
+- _Apache Avro is another binary encoding format that is interestingly different from Protocol Buffers and Thrift._
+- _It was started in 2009 as a subproject of Hadoop, as a result of Thrift not being a good fit for Hadoop’s use cases._
+- _Avro also uses a schema to specify the structure of the data being encoded._
+    - _It has two schema languages : one (Avro IDL) intended for human editing, and one (based on JSON) that is more easily machine-readable._
+- _The writer’s schema and the reader’s schema_
+    - The key idea with Avro is that the writer’s schema and the reader’s schema don’t have to be the same -- they only need to be compatible.
+    - _When data is decoded (read), the Avro library resolves the differences by looking at the writer’s schema and the reader’s schema side by side and translating the data from the writer’s schema into the reader’s schema._
+        - _If the writer’s schema and the reader’s schema have their fields in a different order, because the schema resolution matches up the fields by field name._
+        - _If the code reading the data encounters a field that appears in the writer’s schema but not in the reader’s schema, it is ignored._
+        - _If the code reading the data expects some field, but the writer’s schema does not contain a field of that name, it is filled in with a default value declared in the reader’s schema._
+- _( 其它详见原书 )_
