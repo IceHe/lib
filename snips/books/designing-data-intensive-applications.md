@@ -495,15 +495,38 @@ _Many programming languages come with_ built-in support for encoding in-memory o
 - Python : pickle
 - …
 
-_Some deep problems :_
+_Some deep problems of using programming language built-in encoding libraries : ( 详见原书, 以下简述 )_
 
-- _The encoding is often tied to a particular programming language, and reading the data in another language is very difficult._
-- _In order to restore data in the same object types, the decoding process needs to_ be able to instantiate arbitrary classes.
+- _数据编码跟编程语言绑定 : 一个编程语言难以解析另一个编程语言编码的数据_
+- _为了能够成功解码, 允许实例化任何类; 这可能导致允许执行任意代码, 破坏程序_
+    - _In order to restore data in the same object types, the decoding process needs to_ be able to instantiate arbitrary classes.
     - _This is frequently a source of security problems : if an attacker can get your application to decode an arbitrary byte sequence, they can instantiate arbitrary classes, which in turn often allows them to do terrible things such as remotely executing arbitrary code._
-- Versioning data is often an afterthought _in these libraries :_
-    - _as they are intended for quick and easy encoding of data,_
-    - _they often neglect the inconvenient problems of forward and backward compatibility._
+- _比起编码结构的兼容性, 更优先考虑编码过程的快速和简便_
+    - Versioning data is often an afterthought _in these libraries :_
+        - _as they are intended for quick and easy encoding of data,_
+        - _they often neglect the inconvenient problems of forward and backward compatibility._
 - Efficiency ( CPU time taken to encode or decode, and the size of the encoded structure ) is also often an afterthought.
     - _For example, Java’s built-in serialization is notorious for its bad performance and bloated encoding._
 
-## JSON, XML, and Binary Variants
+### JSON, XML, and Binary Variants
+
+_JSON, XML, and CSV are textual formats, and thus somewhat human-readable (although the syntax is a popular topic of debate). Besides the superficial syntactic issues, they also have some subtle problems : ( 详见原书, 以下简述 )_
+
+- _浮点数精度丢失问题 : JavaScript 的 Number 只支持 2^53 的精度_
+- _支持 Unicode, 但二进制编码只能转换为 Base64 的 ASCII 文本存储, 数据大小膨胀 33%_
+- _模式 ( schema ) 支持不够便捷, 需要硬编码适当的编码/解码逻辑_
+- _CSV 没有任何 schema, 语法较弱, 不是所有解析器都能正确处理转义符以及逗号的转义_
+
+_Binary encoding ( 二进制编码 )_
+
+- _JSON is less verbose than XML, but both still use a lot of space compared to binary formats._
+- _This observation led to the development of a profusion of binary encodings for JSON and for XML._
+    - JSON : MessagePack, BSON, BJSON, UBJSON, BISON, Smile / …
+    - XML : WBXML / Fast Infoset / …
+- _MessagePack format example ( 详见原书例 )_
+
+Thrift and Protocol Buffers
+
+- **Apache Thrift** and **Protocol Buffers (protobuf)** are binary encoding libraries that are based on the same principle.
+    - _Protocol Buffers from Google_
+    - _Thrift from Facebook_
