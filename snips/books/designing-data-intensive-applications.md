@@ -441,4 +441,69 @@ _The Foundation: Datalog_
 
 ## Storage and Retrival
 
-- _数据存储于检索_
+- _数据存储与检索_
+
+TODO
+
+Summary ( TODO )
+
+- OLTP
+    - 日志结构流派 : …
+    - 原地更新流派 : B-Tree
+- OLAP
+
+## Encoding and Evolution
+
+- _数据编码与演化_
+    - _REST - Representational State Transfer ( 具象状态传输 )_
+    - _RPC - Remote Procedure Calls ( 远程过程调用 )_
+
+_Old and new versions of the code, and old and new data formats, may potentially all coexist in the system at the same time._ In order for the system to continue running smoothly, we need to **maintain compatibility in both directions**:
+
+- **Backward compatibility** _( 向后兼容 / 向过去兼容 )_
+    - Newer code can read data that was written by older code.
+- **Forward compatibility** _( 向前兼容 / 向未来兼容 )_
+    - Older code can read data that was written by newer code.
+
+### Formats for Encoding Data
+
+_Programs usually work with data in (at least) two different representations:_
+
+- 1\. **In memory**, _data is kept in objects, structs, lists, arrays, hash tables, trees, and so on._
+    - _These data structures are optimized for efficient access and manipulation by the CPU ( typically using pointers )._
+- 2\. _When you want to write data to a file or send it over the network, you have to encode it as some kind of_ self-contained **sequence of bytes** _( for example, a JSON document )._
+
+_Representation Translation_
+
+- The translation from the in-memory representation to a byte sequence is called **encoding**
+    - ( aka. **serialization or marshalling** ),
+- and the reverse is called **decoding**
+    - ( aka. **parsing, deserialization, unmarshalling** ).
+
+_Terminology Clash_
+
+- **Serialization** _is unfortunately also used in the context of transactions, with a completely different meaning._
+- _To avoid overloading the word we’ll stick with **encoding** ( in this book ) , even though serialization is perhaps a more common term._
+
+### Language-Specific Formats
+
+_Many programming languages come with_ built-in support for encoding in-memory objects into byte sequences. _For example :_
+
+- Java : java.io.Serializable
+    - _Third-party : Kryo_
+- Ruby : Marshal
+- Python : pickle
+- …
+
+_Some deep problems :_
+
+- _The encoding is often tied to a particular programming language, and reading the data in another language is very difficult._
+- _In order to restore data in the same object types, the decoding process needs to_ be able to instantiate arbitrary classes.
+    - _This is frequently a source of security problems : if an attacker can get your application to decode an arbitrary byte sequence, they can instantiate arbitrary classes, which in turn often allows them to do terrible things such as remotely executing arbitrary code._
+- Versioning data is often an afterthought _in these libraries :_
+    - _as they are intended for quick and easy encoding of data,_
+    - _they often neglect the inconvenient problems of forward and backward compatibility._
+- Efficiency ( CPU time taken to encode or decode, and the size of the encoded structure ) is also often an afterthought.
+    - _For example, Java’s built-in serialization is notorious for its bad performance and bloated encoding._
+
+## JSON, XML, and Binary Variants
