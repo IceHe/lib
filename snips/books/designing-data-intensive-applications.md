@@ -585,3 +585,20 @@ _Dataflow Through Services: REST and RPC_
     - to make the application easier to change and maintain by making services independently deployable and evolvable.
 - _For example, each service should be owned by one team, and that team should be able to release new versions of the service frequently, without having to coordinate with other teams._
 - _In other words, we should expect old and new versions of servers and clients to be running at the same time, and so the data encoding used by servers and clients must be compatible across versions of the service API— precisely what we’ve been talking about in this chapter. ( icehe : 注意不要破坏兼容性 )_
+
+_The problems with remote procedure calls (RPCs)_
+
+- The RPC model tries to **make a request to a remote network service look the same as calling a function or method in your programming language, within the same process** ( this abstraction is called **flocation transparency** ).
+- _Although RPC seems convenient at first, the approach is fundamentally flawed._
+- _A network request is very different from a local function call:_
+    - A local function call is predictable and either succeeds or fails, depending only on parameters that are under your control. _( 不可预测 )_
+        - A network request is unpredictable: the request or response may be lost due to a network problem, or the remote machine may be slow or unavailable, and such problems are entirely outside of your control.
+        - _Network problems are common, so you have to anticipate them, for example by retrying a failed request._
+    - _A local function call either returns a result, or throws an exception, or never returns (because it goes into an infinite loop or the process crashes). ( icehe : 意外情况导致更多的返回结果类型, 例如超时失败 )_
+        - _A network request has another possible outcome: it may return without a result, due to a timeout._
+        - _In that case, you simply don’t know what happened: if you don’t get a response from the remote service, you have no way of knowing whether the request got through or not._
+    - If you retry a failed network request, it could happen that the requests are actually getting through, and only the responses are getting lost. _( 幂等性问题 )_
+        - In that case, retrying will cause the action to be performed multiple times, unless you build a mechanism for deduplication ( **idempotence** 幂等 ) into the protocol.
+        - _Local function calls don’t have this problem._
+    - _Every time you call a local function, it normally takes about the same time to execute. ( 不可控的响应时长 )_
+        - _A network request is much slower than a function call, and its latency is also wildly variable: at good times it may complete in less than a millisecond, but when the network is congested or the remote service is overloaded it may take many seconds to do exactly the same thing._
