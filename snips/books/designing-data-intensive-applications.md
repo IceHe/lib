@@ -620,7 +620,7 @@ _The most common ways how data flows between processes:_
 - Via service calls _( REST and RPC )_
 - Via asynchronous message passing
 
-_Dataflow Through Services: REST and RPC_
+#### Dataflow Through Services: REST and RPC
 
 - _This approach is often used to decompose a large application into smaller services by area of functionality, such that one service makes a request to another when it requires some functionality or data from that other service._
     - _This way of building applications has traditionally been called a_ **service-oriented architecture (SOA)**, _more recently refined and rebranded as_ **microservices architecture**.
@@ -633,15 +633,55 @@ _The problems with remote procedure calls (RPCs)_
 
 - The RPC model tries to **make a request to a remote network service look the same as calling a function or method in your programming language, within the same process** ( this abstraction is called **flocation transparency** ).
 - _Although RPC seems convenient at first, the approach is fundamentally flawed._
-- _A network request is very different from a local function call:_
-    - A local function call is predictable and either succeeds or fails, depending only on parameters that are under your control. _( 不可预测 )_
-        - A network request is unpredictable: the request or response may be lost due to a network problem, or the remote machine may be slow or unavailable, and such problems are entirely outside of your control.
-        - _Network problems are common, so you have to anticipate them, for example by retrying a failed request._
-    - _A local function call either returns a result, or throws an exception, or never returns (because it goes into an infinite loop or the process crashes). ( icehe : 意外情况导致更多的返回结果类型, 例如超时失败 )_
-        - _A network request has another possible outcome: it may return without a result, due to a timeout._
-        - _In that case, you simply don’t know what happened: if you don’t get a response from the remote service, you have no way of knowing whether the request got through or not._
-    - If you retry a failed network request, it could happen that the requests are actually getting through, and only the responses are getting lost. _( 幂等性问题 )_
-        - In that case, retrying will cause the action to be performed multiple times, unless you build a mechanism for deduplication ( **idempotence** 幂等 ) into the protocol.
-        - _Local function calls don’t have this problem._
-    - _Every time you call a local function, it normally takes about the same time to execute. ( 不可控的响应时长 )_
-        - _A network request is much slower than a function call, and its latency is also wildly variable: at good times it may complete in less than a millisecond, but when the network is congested or the remote service is overloaded it may take many seconds to do exactly the same thing._
+
+_A network request is very different from a local function call:_
+
+- A local function call is predictable and either succeeds or fails, depending only on parameters that are under your control. _( 不可预测 )_
+    - A network request is unpredictable: the request or response may be lost due to a network problem, or the remote machine may be slow or unavailable, and such problems are entirely outside of your control.
+    - _Network problems are common, so you have to anticipate them, for example by retrying a failed request._
+- _A local function call either returns a result, or throws an exception, or never returns (because it goes into an infinite loop or the process crashes). ( icehe : 意外情况导致更多的返回结果类型, 例如超时失败 )_
+    - _A network request has another possible outcome: it may return without a result, due to a timeout._
+    - _In that case, you simply don’t know what happened: if you don’t get a response from the remote service, you have no way of knowing whether the request got through or not._
+- If you retry a failed network request, it could happen that the requests are actually getting through, and only the responses are getting lost. _( 幂等性问题 )_
+    - In that case, retrying will cause the action to be performed multiple times, unless you build a mechanism for deduplication ( **idempotence** 幂等 ) into the protocol.
+    - _Local function calls don’t have this problem._
+- _Every time you call a local function, it normally takes about the same time to execute. ( 不可控的响应时长 )_
+    - _A network request is much slower than a function call, and its latency is also wildly variable: at good times it may complete in less than a millisecond, but when the network is congested or the remote service is overloaded it may take many seconds to do exactly the same thing._
+- When you call a local function, you can efficiently pass it references (pointers) to objects in local memory. _( 无法传指针; 可能要传递的参数是很大的对象 )_
+    - _When you make a network request, all those parameters need to be encoded into a sequence of bytes that can be sent over the network._
+    - _That’s okay if the parameters are primitives like numbers or strings, but quickly becomes problematic with larger objects._
+- _The client and the service may be implemented in different programming languages, so the RPC framework must translate datatypes from one language into another._
+    - _This can end up ugly, since not all languages have the same types -- recall JavaScript’s problems with numbers greater than 2^53, for example._
+        - _This problem doesn’t exist in a single process written in a single language._
+
+#### Message-Passing Dataflow
+
+**Asynchronous message-passing systems** _are somewhere between RPC and databases_
+
+- _They are similar to RPC in that_ a client’s request ( usually called a **message** ) is delivered to another process with low latency.
+- _They are similar to databases in that_ the message is not sent via a direct network connection, but goes via an intermediary called a **message broker** ( also called a **message queue** or **message-oriented middleware** ), which stores the message temporarily.
+
+_Using a message broker has several advantages compared to direct RPC :_
+
+- It can **act as a buffer** if the recipient is unavailable or overloaded,
+    - _and thus improve system reliability._
+- It can **automatically redeliver** messages to a process that has crashed,
+    - _and thus prevent messages from being lost._
+- _It avoids the sender needing to know the IP address and port number of the recipient_
+    - _( which is particularly useful in a cloud deployment where virtual machines often come and go )_.
+- It allows one message to be **sent to several recipients**.
+- It logically **decouples the sender from the recipient**
+    - _( the sender just publishes messages and doesn’t care who consumes them )._
+
+_Message brokers_
+
+- _omitted…_
+
+_Distributed **actor** frameworks_
+
+- The actor model is a programming model for concurrency in a single process.
+    - _Each actor typically represents one client or entity, it may have some local state ( which is not shared with any other actor ), and it communicates with other actors by sending and receiving asynchronous messages._
+    - _Message delivery is not guaranteed : in certain error scenarios, messages will be lost._
+    - _Since each actor processes only one message at a time, it doesn’t need to worry about threads, and each actor can be scheduled independently by the framework._
+- **Location transparency** _( 位置透明性 ) works better in the actor model than in RPC, because the actor model already assumes that_ messages may be lost, even within a single process.
+- _omitted…_

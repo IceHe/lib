@@ -570,3 +570,10 @@ _Others_
 
 - _Two-way adapters : provide transparency_
     - _( 双向适配器 : 提供透明操作 )_
+
+### Bridge
+
+Intent
+
+- Decouple an abstraction from its implementation so that the two can vary independently.
+
