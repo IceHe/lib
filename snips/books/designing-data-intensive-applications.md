@@ -443,14 +443,57 @@ _The Foundation: Datalog_
 
 - _数据存储与检索_
 
-TODO
+OLTP - Two families of storage engines :
 
-Summary ( TODO )
+- **log-structured** storage engines
+- **page-oriented** storage engines ( such as **B-trees** )
 
-- OLTP
-    - 日志结构流派 : …
-    - 原地更新流派 : B-Tree
-- OLAP
+### Data Structures That Power Your Database
+
+Log
+
+- _The word log is often used to refer to application logs, where an application outputs text that describes what’s happening._
+- _In this book, log is used in the more general sense:_ an append-only sequence of records.
+    - _It doesn’t have to be human-readable; it might be binary and intended only for other programs to read._
+
+#### Hash Indexes
+
+Possible Indexing Strategy
+
+- _Let’s say our data storage consists only of appending to a file._
+- Then the simplest possible indexing strategy is this: keep an in-memory hash map where every key is mapped to a byte offset in the data file -- the location at which the value can be found.
+- Whenever you append a new key-value pair to the file, you also update the hash map to reflect the offset of the data you just wrote (this works both for inserting new keys and for updating existing keys).
+- When you want to look up a value, use the hash map to find the offset in the data file, seek to that location, and read the value.
+
+Disk Space
+
+- … we only ever append to a file -- _so how do we avoid eventually running out of disk space?_
+- A good solution is to break the log into segments of a certain size by closing a segment file when it reaches a certain size, and making subsequent writes to a new segment file.
+
+Compaction
+
+- _… since compaction often makes segments much smaller (assuming that a key is overwritten several times on average within one segment), we can also merge several segments together at the same time as performing the compaction._
+- Segments are never modified after they have been written, so the merged segment is written to a new file.
+- The merging and compaction of frozen segments can be done in a background thread, and while it is going on, we can still continue to serve read and write requests as normal, using the old segment files.
+- After the merging process is complete, we switch read requests to using the new merged segment instead of the old segments -- and then the old segment files can simply be deleted.
+
+Each segment has its own in-memory hash table, _mapping keys to file offsets._
+
+- _In order to find the value for a key, we first check the most recent segment’s hash map; if the key is not present we check the second-most-recent segment, and so on._
+- _The merging process keeps the number of segments small, so lookups don’t need to check many hash maps._
+
+_Some of the_ issues that are important in a real implementation _are :_
+
+- File format
+    CSV is not the best format for a log. It’s faster and simpler to use a binary format that first encodes the length of a string in bytes, followed by the raw string (without need for escaping).
+- Deleting records
+    If you want to delete a key and its associated value, you have to append a special deletion record to the data file (sometimes called a tombstone). When log seg‐ ments are merged, the tombstone tells the merging process to discard any previ‐ ous values for the deleted key.
+- Crash recovery
+    If the database is restarted, the in-memory hash maps are lost. In principle, you can restore each segment’s hash map by reading the entire segment file from beginning to end and noting the offset of the most recent value for every key as you go along. However, that might take a long time if the segment files are large, which would make server restarts painful. Bitcask speeds up recovery by storing a snapshot of each segment’s hash map on disk, which can be loaded into mem‐ ory more quickly.
+- Partially written records
+    The database may crash at any time, including halfway through appending a record to the log. Bitcask files include checksums, allowing such corrupted parts of the log to be detected and ignored.
+- Concurrency control
+    As writes are appended to the log in a strictly sequential order, a common imple‐ mentation choice is to have only one writer thread. Data file segments are append-only and otherwise immutable, so they can be read concurrently by mul‐ tiple threads.
 
 ## Encoding and Evolution
 
