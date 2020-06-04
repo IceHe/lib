@@ -77,9 +77,9 @@ Behavioral Patterns 行为型
 分类
 
 - 目的准则 -- 模式是用来完成什么工作的 ( 详见上文 )
-    - 创建型
-    - 结构型
-    - 行为型
+    - 创建型 creational
+    - 结构型 structural
+    - 行为型 behavioral
 - 范围准则 -- 模式用于类还是对象
     - 类 : _处理类与子类之间的关系_
         - _类是静态的, 在编译时便确定下来了_
@@ -94,7 +94,7 @@ Behavioral Patterns 行为型
     - Interpreter
     - Template Method
 - 用于对象
-    - 其它
+    - 其它…
 
 ## Introduce
 
@@ -166,12 +166,12 @@ class 类
 
 class 跟 type 的区别 _( Difference between an object's class and its type )_
 
-- _对象的类定义了对象是怎样实现的, 同事也定义了对象的内部状态和操作的实现_
 - _An object's class defines how the object is implemented. The class defines the object's internal state and the implementation of its operations._
-- _但是对象的类型只与它的接口有关 -- 接口即对象能响应的请求的集合_
+    - _对象的类定义了对象是怎样实现的, 同时也定义了对象的内部状态和操事作的实现_
 - _In contrast, an object's type only refers to its interface -- the set of requests to which it can respond._
-- _一个对象可以有多个类型, 不同类的对象可以有相同的类型_
+    - _但是对象的类型只与它的接口有关 -- 接口即对象能响应的请求的集合_
 - _An object can have many types, and objects of different classes can have the same type._
+    - _一个对象可以有多个类型, 不同类的对象可以有相同的类型_
 
 **Program to an interface, not an implementation. 针对接口编程, 而不是针对实现编程**
 
@@ -180,10 +180,10 @@ class 跟 type 的区别 _( Difference between an object's class and its type )_
     - _2\. Clients remain unaware of the classes that implement these objects. Clients only know about the abstract class(es) defining the interface._
 - _This so greatly reduces implementation dependencies between subsystems that it leads to the following principle of reusable object-oriented design:_
     - _"Program to an interface, not an implementation."_
-- 通过抽象对象的创建过程, 这些模式提供不同的方式以在实例化时建立接口和实现的透明连接
-    - 创建型模式确保你的系统是采用针对接口的方式, 而不是针对实现的方式而书写 _( 说得好 )_
 - _By abstracting the process of object creation, these patterns give you different ways to associate an interface with its implementation transparently at instantiation._
     - _Creational patterns **ensure that your system is written in terms of interfaces, not implementations**._
+- 通过抽象对象的创建过程, 这些模式提供不同的方式以在实例化时建立接口和实现的透明连接
+    - 创建型模式确保你的系统是采用针对接口的方式, 而不是针对实现的方式而书写 _( 说得好 )_
 
 Inheritance versus Composition 继承和组合的比较
 
@@ -577,3 +577,6 @@ Intent
 
 - Decouple an abstraction from its implementation so that the two can vary independently.
 
+_Also known as_
+
+- _Handle / Body_
