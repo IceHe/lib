@@ -580,3 +580,33 @@ Intent
 _Also known as_
 
 - _Handle / Body_
+
+```plantuml
+@startuml
+object Client
+object Abstraction
+object RefinedAbstraction
+object Implementor
+object ConcreteImplementorA
+object ConcreteImplementorB
+
+note as N0
+operation() {
+    imp->operationImpl()
+}
+end note
+
+N0 --> Abstraction
+Client --> Abstraction
+Abstraction <|-- RefinedAbstraction
+Abstraction o-> Implementor : imp
+Implementor <|-- ConcreteImplementorA
+Implementor <|-- ConcreteImplementorB
+
+Abstraction : operation()
+Implementor : operationImpl()
+ConcreteImplementorA : operationImpl()
+ConcreteImplementorB : operationImpl()
+
+@enduml
+```
