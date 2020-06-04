@@ -265,6 +265,56 @@ References
 - Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
 - https://blog.csdn.net/wqh8522/article/details/79224290
 
+## Jackson Serializer
+
+References
+
+- Jackson Date | Baeldung : https://www.baeldung.com/jackson-serialize-dates#custom-serializer
+
+```java
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+
+/**
+ * 转换 LocalDateTime 为毫秒数的序列化器
+ */
+public class LocalDateTime2MillisSerializer extends StdSerializer<LocalDateTime> {
+
+    public LocalDateTime2MillisSerializer() {
+        this(null);
+    }
+
+    public LocalDateTime2MillisSerializer(Class<LocalDateTime> t) {
+        super(t);
+    }
+
+    @Override
+    public void serialize(
+            LocalDateTime localDateTime, JsonGenerator gen, SerializerProvider provider)
+            throws IOException {
+        if (null == localDateTime) {
+            gen.writeNull();
+            return;
+        }
+        ZoneId zoneId = ZoneId.systemDefault();
+        long millis = localDateTime.atZone(zoneId).toInstant().toEpochMilli();
+        gen.writeNumber(millis);
+    }
+}
+```
+
+```java
+public class TestDTO {
+    @JsonSerialize(using = LocalDateTime2MillisSerializer.class)
+    private LocalDateTime createdAt;
+}
+```
+
 # StringParsableUtils
 
 ```java
