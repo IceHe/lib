@@ -1,4 +1,4 @@
-# Maven
+# Maven (draft)
 
 Maven : https://maven.apache.org/
 
@@ -14,18 +14,22 @@ Related tool :
 
 - Gradle
 
-## Add Dependecy
+## Temp Notes
+
+### Add Dependecy
 
 - IntelliJ: `⌘ n` in file `pom.xml` >> choose `dependency`
 - Then, enable `Maven Auto Import`
 - `Topbar` (taskbar) >> `Code` >> `Generate…`
 
-## Config
+#### Config File
 
 - Config file : `.m2/settings.xml`
 - One of mirrors : https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.0.1.RELEASE
 
-## provided
+### Scope
+
+#### provided
 
 References
 
@@ -38,7 +42,11 @@ Differ `provided` from `compile`
 - provided scope is **only available on the compilation and test classpath**, whereas compile scope is available in all classpaths.
 - provided dependencies are **not packaged**
 
-### Differences
+##### Differences
+
+References
+
+- difference between maven compile and provided scope (Other Build Tools forum at Coderanch) : https://coderanch.com/t/502091/build-tools/difference-maven-compile-scope
 
 Compile means that you need the JAR for compiling and running the app. For a web application, as an example, the JAR will be placed in the WEB-INF/lib directory.
 
@@ -46,17 +54,40 @@ Provided means that you need the JAR for compiling, but at run time there is alr
 
 For a web app, if the app server already provides the JAR (or its functionality), then use "provided" otherwise use "compile".
 
-References
-
-- difference between maven compile and provided scope (Other Build Tools forum at Coderanch) : https://coderanch.com/t/502091/build-tools/difference-maven-compile-scope
-
-## Resolve Package Conflictions ( TODO )
+### Resolve Package Conflictions
 
 References
 
 - maven依赖jar包时版本冲突的解决 : https://blog.csdn.net/sinat_39789638/article/details/78005945
 
-## 试错经验
+### Install an Artifact to Local Repository
+
+References
+
+- How to add local jar files to a Maven project? - Stack Overflow : https://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-to-a-maven-project
+
+```bash
+mvn install:install-file \
+   -Dfile=<path-to-file> \
+   -DgroupId=<group-id> \
+   -DartifactId=<artifact-id> \
+   -Dversion=<version> \
+   -Dpackaging=<packaging> \
+   -DgeneratePom=true
+
+# e.g.
+mvn install:install-file \
+    -Dfile=icehe-sdk-1.0.0-20200604.105923-1.jar \
+    -DgroupId=xyz.icehe \
+    -DartifactId=icehe-sdk \
+    -Dversion=1.0.0-SNAPSHOT \
+    -Dpackaging=jar \
+    -DgeneratePom=true
+```
+
+### Others
+
+试错经验
 
 - 子模块不要写变量, 显式写明 version
 - plugin 写 deply `<configuration><deploy>true</deploy></configuration>` 结果跳过了部署……
