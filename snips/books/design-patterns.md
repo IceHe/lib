@@ -667,3 +667,5 @@ _Applicability_
 - You want to layer your subsystems.
     - Use a facade to define an entry point to each subsystem level.
     - If subsystems are dependent, then you can simplify the dependencies between them by making them communicate with each other solely through their facades.
+
+![facade](_images/facade.png)
