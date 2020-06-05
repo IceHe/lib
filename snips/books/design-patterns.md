@@ -669,3 +669,9 @@ _Applicability_
     - If subsystems are dependent, then you can simplify the dependencies between them by making them communicate with each other solely through their facades.
 
 ![facade](_images/facade.png)
+
+### Flyweight
+
+Intent
+
+- Use sharing to support large numbers of fine-grained _( 细粒度的 )_ objects efficiently.
