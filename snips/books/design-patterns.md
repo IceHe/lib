@@ -626,4 +626,44 @@ _Applicability_
 
 ![composite](_images/composite.png)
 
-<!-- ##  -->
+### Decorator
+
+Intent
+
+- Attach additional responsibilities to an object dynamically.
+- Decorators provide a flexible alternative to subclassing for extending functionality.
+
+_Also Known As_
+
+- _Wrapper_
+
+_Applicability_
+
+- To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects.
+- For responsibilities that can be withdrawn.
+- When extension by subclassing is impractical.
+    - Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination.
+    - Or a class definition may be hidden or otherwise unavailable for subclassing.
+
+![decorator](_images/decorator.png)
+
+### Facade
+
+Intent
+
+- Provide a unified interface to a set of interfaces in a subsystem.
+- Facade defines a higher-level interface that makes the subsystem easier to use.
+
+_Applicability_
+
+- You want to provide a simple interface to a complex subsystem.
+    - Subsystems often get more complex as they evolve.
+    - Most patterns, when applied, result in more and smaller classes.
+    - This makes the subsystem more reusable and easier to customize, but it also becomes harder to use for clients that don't need to customize it.
+    - A facade can provide a simple default view of the subsystem that is good enough for most clients.
+    - Only clients needing more customizability will need to look beyond the facade.
+- There are many dependencies between clients and the implementation classes of an abstraction.
+    - Introduce a facade to decouple the subsystem from clients and other subsystems, thereby promoting subsystem independence and portability _( 可移植性 )_ .
+- You want to layer your subsystems.
+    - Use a facade to define an entry point to each subsystem level.
+    - If subsystems are dependent, then you can simplify the dependencies between them by making them communicate with each other solely through their facades.
