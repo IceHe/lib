@@ -675,3 +675,16 @@ _Applicability_
 Intent
 
 - Use sharing to support large numbers of fine-grained _( 细粒度的 )_ objects efficiently.
+
+_Applicability_
+
+- The Flyweight pattern's effectiveness depends heavily on how and where it's used.
+- Apply the Flyweight pattern when all of the following are true:
+    - An application uses a large number of objects.
+    - Storage costs are high because of the sheer quantity of objects.
+    - Most object state can be made extrinsic _( 非固有的/外在的 )_.
+    - Many groups of objects may be replaced by relatively few shared objects once extrinsic state is removed.
+    - The application doesn't depend on object identity.
+        - Since flyweight objects may be shared, identity tests will return true for conceptually distinct objects.
+
+![flyweight](_images/flyweight.png)
