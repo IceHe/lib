@@ -688,3 +688,58 @@ _Applicability_
         - Since flyweight objects may be shared, identity tests will return true for conceptually distinct objects.
 
 ![flyweight](_images/flyweight.png)
+
+### Proxy
+
+Intent
+
+- Provide a surrogate or placeholder for another object to control access to it.
+
+_Also Known As_
+
+- _Surrogate ( 代理人 )_
+
+_Applicability_
+
+- Proxy is applicable whenever there is a need for a more versatile or sophisticated reference to an object than a simple pointer.
+- _Here are several common situations in which the Proxy pattern is applicable:_
+    - 1\. A **remote proxy** provides a local representative for an object in a different address space.
+    - 2\. A **virtual proxy** creates expensive objects on demand.
+    - 3\. A **protection proxy** controls access to the original object.
+        - Protection proxies are useful when objects should have different access rights.
+    - 4\. A **smart reference** is a replacement for a bare pointer that performs additional actions when an object is accessed. Typical uses include :
+        - counting the number of references to the real objects  that it can be freed automatically when there are no more references ( also called smart pointers ).
+        - loading a persistent object into memory when it's first referenced.
+        - checking that the real object is locked before it'saccessed to ensure that no other object can change it.
+
+![proxy](_images/proxy.png)
+
+### _Discussion_
+
+Adapter versus Bridge
+
+- Adapter focuses on **resolving incompatibilities between two existing interfaces**.
+    - _It doesn't focus on how those interfaces are implemented,nor does it consider how they might evolve independently._
+- Bridge, on the other hand, **bridges an abstraction and its ( potentially numerous ) implementations**.
+    - _Itprovides a stable interface to clients even as it lets you vary the classes that implement it._
+    - _It also accommodates new implementations as the system evolves._
+- _The Adapter pattern makes things work after they're designed; Bridge makes them work before they are._
+- A **facade defines a new interface**, whereas an adapterreuses an old interface.
+    - _Remember that an adapter makes two existing interfaces work together as opposed to defining an entirelynew one._
+
+Composite versus Decorator versus Proxy
+
+- Decorator is designed to let you **add responsibilities to objectswithout subclassing**.
+    - _It avoids the explosion of subclasses that can arise from trying to cover every combination of responsibilities statically._
+- Composite has a different intent.
+    - It focuses on structuring classes **so that many related objects can be treateduniformly, and multiple objects can be treated as one**.
+    - Its focus is not on embellishment but on representation.
+- Unlike Decorator, the Proxy pattern is not concerned with **attaching or detaching properties dynamically**, _and it's not designed for recursive composition._
+    - In the Proxy pattern, the subject **defines the key functionality, and the proxy provides ( or refuses ) access to it**.
+    - In Decorator, the component **provides only part of the functionality**, and one or more decorators furnish the rest.
+
+## Behavioral
+
+### Chain of Responsibility
+
+Intent
