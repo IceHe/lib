@@ -749,5 +749,22 @@ Intent
 
 ```plantuml
 @startuml
+object Client
+object Handler
+object ConcreteHandler1
+object ConcreteHandler2
+
+Client -> Handler
+Handler <- Handler : successor
+Handler <|-- ConcreteHandler1
+Handler <|-- ConcreteHandler2
+
+Handler : handleRequest()
+ConcreteHandler1 : handleRequest()
+ConcreteHandler2 : handleRequest()
 @enduml
 ```
+
+_A typical object structure might look like this:_
+
+![chain-of-responsibility.typical-object-structure](_images/chain-of-responsibility.typical-object-structure.png)
