@@ -768,3 +768,37 @@ ConcreteHandler2 : handleRequest()
 _A typical object structure might look like this:_
 
 ![chain-of-responsibility.typical-object-structure](_images/chain-of-responsibility.typical-object-structure.png)
+
+### Command
+
+Intent
+
+- Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+
+_Also Known As_
+
+- _Action 动作_
+- _Transaction 事务_
+
+_Applicability_
+
+- **Parameterize** objects by an action to perform.
+    - You can express such parameterization in a procedural language with a callback function, that is, a function that's registered somewhere to be called at a later point.
+    - _Commands are an object-oriented replacement for callbacks._
+- Specify, queue, and **execute requests at different times**.
+    - _A Command object can have a lifetime independent of the original request._
+    - If the receiver of a request can be represented in an address space-independent way, then you can transfer a command object for the request to a different process and fulfill the request there.
+- Support **undo**.
+    - The Command's Execute operation can store state for reversing its effects in the command itself.
+    - The Command interface must have an added Unexecute operation that reverses the effects of a previous call to Execute.
+    - _Executed commands are stored in a history list._
+    - _Unlimited-level undo and redo is achieved by traversing this list backwards and forwards calling Unexecute and Execute, respectively._
+- Support **logging changes** so that they can be reapplied in case of a system crash.
+    - By augmenting the Command interface with load and store operations, you can keep a persistent log of changes.
+    - Recovering from a crash involves reloading logged commands from disk and reexecuting them with the Execute operation.
+- Structure a system around high-level operations built on primitives operations.
+    - Such a structure is common in information systems that support **transactions**.
+    - A transaction encapsulates a set of changes to data.
+    - _The Command pattern offers a way to model transactions._
+    - _Commands have a common interface, letting you invoke all transactions the same way._
+    - _The pattern also makes it easy to extend the system with new transactions._
