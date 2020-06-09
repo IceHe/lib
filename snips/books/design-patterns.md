@@ -802,3 +802,31 @@ _Applicability_
     - _The Command pattern offers a way to model transactions._
     - _Commands have a common interface, letting you invoke all transactions the same way._
     - _The pattern also makes it easy to extend the system with new transactions._
+
+```plantuml
+@startuml
+object Client
+object Invoker
+object Receiver
+object Command
+object ConcreteCommand
+
+note as N0
+execute() {
+    receiver->action();
+}
+end note
+
+Client -> Receiver
+Invoker o-> Command
+Command <|-- ConcreteCommand
+Receiver <- ConcreteCommand : receiver
+Client .> ConcreteCommand
+ConcreteCommand . N0
+
+Command : execute()
+ConcreteCommand : execute()
+Receiver : action()
+@enduml
+```
+
