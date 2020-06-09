@@ -830,3 +830,7 @@ Receiver : action()
 @enduml
 ```
 
+```plantuml
+@startuml
+@enduml
+```
