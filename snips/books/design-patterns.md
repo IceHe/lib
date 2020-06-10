@@ -884,3 +884,5 @@ _Applicability_
         - The most efficient interpretersare usually not implemented by interpreting parse trees directly but by first translating them into another form.
         - _For example, regular expressions are often transformed into state machines._
         - _But even then, the translator can be implemented by the Interpreter pattern, so the pattern is still applicable._
+
+![interpreter](_images/interpreter.png)
