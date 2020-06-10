@@ -4,6 +4,7 @@ References
 
 - Book "Design Patterns : Elements of Reusable Object-Oriented Software"
     - ZH Ver. :《 设计模式 : 可复用面向对象软件的基础 》
+- _( UML类图的6种连线示意 : https://www.jianshu.com/p/48de81a8f0ab )_
 
 ## Index
 
@@ -697,7 +698,7 @@ Intent
 
 _Also Known As_
 
-- _Surrogate ( 代理人 )_
+- _Surrogate 代理人_
 
 _Applicability_
 
@@ -886,3 +887,22 @@ _Applicability_
         - _But even then, the translator can be implemented by the Interpreter pattern, so the pattern is still applicable._
 
 ![interpreter](_images/interpreter.png)
+
+_( 内容比较费解, 详见原书内容 )_
+
+### Iterator
+
+Intent
+
+- Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+    - _( 提供一种方法顺序访问一个聚合对象中的各个元素, 而又不需要暴露该对象的内部表示 )_
+
+_Also Known As_
+
+- _Cursor 游标_
+
+_Applicability_
+
+- to access an aggregate object's contents without exposing its internal representation.
+- to support multiple traversals of aggregate objects.
+- to provide a uniform interface for traversing different aggregatestructures ( that is, to support polymorphic iteration ).
