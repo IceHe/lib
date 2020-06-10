@@ -832,5 +832,26 @@ Receiver : action()
 
 ```plantuml
 @startuml
+participant aReceiver
+participant aClient
+participant aCommand
+participant anInvoker
+
+activate aClient
+aClient --> aCommand : new Command(aReceiver)
+activate aCommand
+deactivate aCommand
+aClient -> anInvoker : storeCommand(aCommand)
+deactivate aClient
+...
+
+aCommand <- anInvoker : execute()
+activate anInvoker
+deactivate anInvoker
+activate aCommand
+aReceiver <- aCommand : action()
+deactivate aCommand
+activate aReceiver
+deactivate aReceiver
 @enduml
 ```
