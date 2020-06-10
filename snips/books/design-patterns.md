@@ -855,3 +855,32 @@ activate aReceiver
 deactivate aReceiver
 @enduml
 ```
+
+### Interpreter
+
+Intent
+
+- Given a language, define a represention for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
+    - _( 给定一个语言, 定义它的文法的一种表示, 并定义一个解释器. 这个解释器使用该表示来解释语言中的句子 )_
+
+_Motivation_
+
+- If a particular kind of problem occurs often enough, then it might be worthwhile to express instances of the problem as sentences in a simple language.
+    - Then you can build an interpreter that solves the problem by interpreting these sentences.
+- For example, searching for strings that match a pattern is a common problem.
+    - **Regular expressions** are a standard language for specifying patterns of strings.
+    - Rather than building custom algorithms to match each pattern against strings, search algorithms could interpret aregular expression that specifies a set of strings to match.
+- The Interpreter pattern describes how to define a grammar for simple languages, represent sentences in the language, and interpret the sesentences.
+
+_Applicability_
+
+- Use the Interpreter pattern when there is a language to interpret, and you can represent statements in the language as **abstract syntax trees**.
+- The Interpreter pattern works best when
+    - the grammar is simple.
+        - For complex grammars, the class hierarchy for the grammar becomes large and unmanageable.
+        - _Tools such as parser generators are a better alternative in such cases._
+        - _They can interpret expressions without building abstract syntax trees, which can save space and possibly time._
+    - efficiency is not a critical concern.
+        - The most efficient interpretersare usually not implemented by interpreting parse trees directly but by first translating them into another form.
+        - _For example, regular expressions are often transformed into state machines._
+        - _But even then, the translator can be implemented by the Interpreter pattern, so the pattern is still applicable._
