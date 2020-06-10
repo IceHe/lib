@@ -906,3 +906,36 @@ _Applicability_
 - to access an aggregate object's contents without exposing its internal representation.
 - to support multiple traversals of aggregate objects.
 - to provide a uniform interface for traversing different aggregatestructures ( that is, to support polymorphic iteration ).
+
+```plantuml
+@startuml
+object Client
+object Aggregate
+object ConcreteAggregate
+object Iterator
+object ConcreteIterator
+
+note as N0
+createIterator() {
+    return new ConcreteIterator(this)
+}
+end note
+
+Aggregate <- Client
+Client -> Iterator
+Aggregate <|-- ConcreteAggregate
+Iterator <|-- ConcreteIterator
+ConcreteAggregate .> ConcreteIterator
+ConcreteAggregate <- ConcreteIterator
+
+ConcreteAggregate .. N0
+
+Aggregate : createIterator()
+ConcreteAggregate : createIterator()
+Iterator : first()
+Iterator : next()
+Iterator : isDone()
+Iterator : currentItem()
+ConcreteIterator : ...
+@enduml
+```
