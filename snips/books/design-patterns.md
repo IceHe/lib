@@ -946,3 +946,44 @@ Intent
 
 - Define an object that encapsulates how a set of objects interact.
     - Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+
+_Applicability_
+
+- A set of objects communicate in well-defined but complex ways.
+    - The resulting interdependencies _( 相关性 )_ are unstructured and difficult to understand.
+- Reusing an object is difficult because it refers to and communicates with many other objects.
+- A behavior that's distributed between several classes should be customizable without a lot of subclassing.
+
+```plantuml
+@startuml
+object Mediator
+object ConcreteMediator
+object Colleague
+object ConcreteColleague1
+object ConcreteColleague2
+
+Mediator <|-- ConcreteMediator
+Mediator <- Colleague : mediator
+Colleague <|-- ConcreteColleague1
+Colleague <|-- ConcreteColleague2
+@enduml
+```
+
+_A typical object structure might look like this:_
+
+![mediator.typical-ojbect-structure](_images/mediator.typical-ojbect-structure.png)
+
+### Memento
+
+Intent
+
+- Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.
+
+_Also Known As_
+
+- Token
+
+_Applicability_
+
+- A snapshot of ( some portion of ) an object's state must be saved so that it can be restored to that state later, and
+- A direct interface to obtaining the state would expose implementation details and break the object's encapsulation.
