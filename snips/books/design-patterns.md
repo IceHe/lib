@@ -295,6 +295,8 @@ _Also Known As_
 
 -->
 
+Structure
+
 ![abstract-factory.png](_images/abstract-factory.png)
 
 ### Builder
@@ -311,6 +313,8 @@ _Applicability_
 - _The construction process must allow different representations for the object that's constructed._
 
 -->
+
+Structure
 
 ```plantuml
 @startuml
@@ -354,6 +358,8 @@ Intent
 _Also Known As_
 
 - _Virtual Constructor_
+
+Structure
 
 ```plantuml
 @startuml
@@ -407,6 +413,8 @@ _Applicability_
     - _( 为了避免创建一个与产品类层次平行的工厂类层次 )_
 - _when instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state._
     - _( 当一个类的实例只能有几个不同状态组合中的一种时, 建立相应数目的原型并克隆它们, 可能比每次用合适的状态手工实例化该类更方便一些 )_
+
+Structure
 
 ```plantuml
 @startuml
@@ -467,6 +475,8 @@ _Applicability_
 
 -->
 
+Structure
+
 ```plantuml
 @startuml
 
@@ -507,7 +517,7 @@ _Also Known As_
 
 - _Wrapper_
 
-UML
+Structure
 
 - Multiple Inheritance
 
@@ -582,6 +592,8 @@ _Also known as_
 
 - _Handle / Body_
 
+Structure
+
 ```plantuml
 @startuml
 object Client
@@ -625,6 +637,8 @@ _Applicability_
 - You want clients to be able to ignore the difference between compositions of objects and individual objects.
     - Clients will treat all objects in the composite structure uniformly.
 
+Structure
+
 ![composite](_images/composite.png)
 
 ### Decorator
@@ -645,6 +659,8 @@ _Applicability_
 - When extension by subclassing is impractical.
     - Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination.
     - Or a class definition may be hidden or otherwise unavailable for subclassing.
+
+Structure
 
 ![decorator](_images/decorator.png)
 
@@ -669,6 +685,8 @@ _Applicability_
     - Use a facade to define an entry point to each subsystem level.
     - If subsystems are dependent, then you can simplify the dependencies between them by making them communicate with each other solely through their facades.
 
+Structure
+
 ![facade](_images/facade.png)
 
 ### Flyweight
@@ -687,6 +705,8 @@ _Applicability_
     - Many groups of objects may be replaced by relatively few shared objects once extrinsic state is removed.
     - The application doesn't depend on object identity.
         - Since flyweight objects may be shared, identity tests will return true for conceptually distinct objects.
+
+Structure
 
 ![flyweight](_images/flyweight.png)
 
@@ -712,6 +732,8 @@ _Applicability_
         - counting the number of references to the real objects  that it can be freed automatically when there are no more references ( also called smart pointers ).
         - loading a persistent object into memory when it's first referenced.
         - checking that the real object is locked before it'saccessed to ensure that no other object can change it.
+
+Structure
 
 ![proxy](_images/proxy.png)
 
@@ -747,6 +769,8 @@ Intent
 
 - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.
     - Chain the receiving objects and pass the request along the chain until an object handles it.
+
+Structure
 
 ```plantuml
 @startuml
@@ -804,6 +828,8 @@ _Applicability_
     - _Commands have a common interface, letting you invoke all transactions the same way._
     - _The pattern also makes it easy to extend the system with new transactions._
 
+Structure
+
 ```plantuml
 @startuml
 object Client
@@ -830,6 +856,8 @@ ConcreteCommand : execute()
 Receiver : action()
 @enduml
 ```
+
+Collabrations
 
 ```plantuml
 @startuml
@@ -886,6 +914,8 @@ _Applicability_
         - _For example, regular expressions are often transformed into state machines._
         - _But even then, the translator can be implemented by the Interpreter pattern, so the pattern is still applicable._
 
+Structure
+
 ![interpreter](_images/interpreter.png)
 
 _( 内容比较费解, 详见原书内容 )_
@@ -906,6 +936,8 @@ _Applicability_
 - to access an aggregate object's contents without exposing its internal representation.
 - to support multiple traversals of aggregate objects.
 - to provide a uniform interface for traversing different aggregatestructures ( that is, to support polymorphic iteration ).
+
+Structure
 
 ```plantuml
 @startuml
@@ -945,7 +977,18 @@ ConcreteIterator : ...
 Intent
 
 - Define an object that encapsulates how a set of objects interact.
-    - Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+    - _( 用一个中介对象封装一系列的对象交互 )_
+- Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+    - _( 中介者使各对象不需要显式地相互引用, 从而使其耦合松散, 而且可以独立地改变它们之间的交互 )_
+
+_Motivation_
+
+- Object-oriented design encourages the distribution of behavior among objects.
+    - Such distribution can result in an object structure with many connections between objects;
+    - in the worst case, every object ends up knowing about every other.
+- Though partitioning a system into many objects generally enhances reusability,
+    - proliferating interconnections tend to reduce it again.
+    - Lots of interconnections make it less likely that an object can work without the support of others -- the system acts as though _( 仿佛 )_ it were monolithic.
 
 _Applicability_
 
@@ -953,6 +996,8 @@ _Applicability_
     - The resulting interdependencies _( 相关性 )_ are unstructured and difficult to understand.
 - Reusing an object is difficult because it refers to and communicates with many other objects.
 - A behavior that's distributed between several classes should be customizable without a lot of subclassing.
+
+Structure
 
 ```plantuml
 @startuml
@@ -975,6 +1020,10 @@ _A typical object structure might look like this:_
 
 ### Memento
 
+- _Memento 备忘录_
+- _Originator 原发器_
+- _Caretaker 看管者 / 看门人_
+
 Intent
 
 - Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.
@@ -987,3 +1036,79 @@ _Applicability_
 
 - A snapshot of ( some portion of ) an object's state must be saved so that it can be restored to that state later, and
 - A direct interface to obtaining the state would expose implementation details and break the object's encapsulation.
+
+Structure
+
+```plantuml
+@startuml
+class Originator {
+    createMemento()
+    setMemento(Memento m)
+
+    state
+}
+class Memento {
+    getState()
+    setState(aState)
+
+    state
+}
+object Caretaker
+
+note as N0
+createMemento() {
+    return new Memento(state)
+}
+end note
+
+note as N1
+setMemento(Memento m) {
+    state = m->getState()
+}
+end note
+
+Originator .> Memento
+Memento <-o Caretaker : memento
+Originator .. N0
+Originator .. N1
+
+@enduml
+```
+
+Collaborations
+
+```plantuml
+@startuml
+participant aCaretaker
+participant anOriginator
+participant aMemento
+
+activate aCaretaker
+aCaretaker -> anOriginator : createMemento()
+
+activate anOriginator
+anOriginator --> aMemento : new Memento
+activate aMemento
+deactivate aMemento
+
+anOriginator -> aMemento : setState(aState)
+activate aMemento
+deactivate aMemento
+
+deactivate anOriginator
+deactivate aCaretaker
+...
+
+aCaretaker -> anOriginator : setMemento(aMemento)
+activate aCaretaker
+activate anOriginator
+
+anOriginator -> aMemento : getState()
+activate aMemento
+deactivate aMemento
+
+deactivate anOriginator
+deactivate aCaretaker
+
+@enduml
+```
