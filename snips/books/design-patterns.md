@@ -1189,7 +1189,15 @@ ConcreteObserver . N2
 Collaboration
 
 ```plantuml
-@stuartuml
+@startuml
+participant aConcreteSubject
+participant aConcreteObserver
+participant anotherConcreteObserver
 
+aConcreteSubject <- aConcreteObserver : setState()
+activate aConcreteObserver
+deactivate aConcreteObserver
+
+activate aConcreteSubject
 @enduml
 ```
