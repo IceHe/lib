@@ -1112,3 +1112,14 @@ deactivate aCaretaker
 
 @enduml
 ```
+
+### Observer
+
+Intent
+
+- Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updatedautomatically.
+
+_Also Known As_
+
+- _Dependents 依赖_
+- Publish-Subscribe 发布-订阅
