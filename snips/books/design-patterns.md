@@ -1042,16 +1042,14 @@ Structure
 ```plantuml
 @startuml
 class Originator {
+    state
     createMemento()
     setMemento(Memento m)
-
-    state
 }
 class Memento {
+    state
     getState()
     setState(aState)
-
-    state
 }
 object Caretaker
 
@@ -1131,3 +1129,67 @@ _Applicability_
 - When a change to one object requires changing others, and you don't know how many objects need to be changed.
 - When an object should be able to notify other objects without making assumptions about who these objects are.
     - In other words, you don't want these objects tightly coupled.
+
+Structure
+
+```plantuml
+@startuml
+class Subject {
+    attach(Observer)
+    detach(Observer)
+    notify()
+}
+
+class ConcreteSubject {
+    subjectState
+    getState()
+    setState(aState)
+}
+
+class Observer {
+    update()
+}
+
+class ConcreteObserver {
+    observerState
+    update()
+}
+
+note as N0
+    notify() {
+        for all o in observers {
+            o->update()
+        }
+    }
+end note
+
+note as N1
+getState() {
+    return subjectState
+}
+end note
+
+note as N2
+update() {
+    observerState = subject->getState()
+}
+end note
+
+Subject <|-- ConcreteSubject
+Subject -> Observer : observer
+Observer <|-- ConcreteObserver
+ConcreteSubject <- ConcreteObserver : subject
+
+N0 . Subject
+N1 . ConcreteSubject
+ConcreteObserver . N2
+@enduml
+```
+
+Collaboration
+
+```plantuml
+@stuartuml
+
+@enduml
+```
