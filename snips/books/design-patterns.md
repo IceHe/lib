@@ -1843,3 +1843,12 @@ ConcreteElementB .. N1
 
 @enduml
 ```
+
+Collaborations
+
+```plantuml
+@startuml
+anObjectStructure -> aConcreteElementA
+activate anObjectStructure
+@enduml
+```
