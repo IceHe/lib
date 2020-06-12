@@ -1227,7 +1227,6 @@ Consequences _效果/结果/后果_
 
 Implementation
 
-- _( 详见原书内容 : 有许多需要注意的点 )_
 - Mapping subjects to their observers
     - _subjects 持有大量 observers 引用的存储开销_
 - Observing more than one subject
@@ -1239,3 +1238,94 @@ Implementation
     - Observer : 有 observer ( 客户 ) 在适当的时机调用 notify()
         - _优点 : 客户可以在一系列的状态改变完成后, 一次性地触发更新, 效率较高_
         - _缺点 : 给客户增加了触发 notify() 的责任, 客户可能会忘记调用, 容易出错_
+- _Dangling references to deleted subjects_
+    - _subject 持有 observer 的引用, 注意不能随便 delete 它 ( C++ 有相关问题, Java 则不用担心 )_
+        - _因为恐怕还有其它 subject 还在引用同一个 observer …_
+- Making sure Subject state is self-consistent before notification
+    - _例如, 不要在还没修改好 subject 之前, 就调用 notify(), observer 会得到错误的数据_
+- Avoiding observer-specific update protocols : the **push and pull models**.
+    - _subject 需要广播关于其改变的一些信息, 这些信息可能很小, 但也可能很大 ( 传递开销大 ) . 如何传递改变的信息?_
+        - Push Model : _subject 向 observer 传递详细信息, 巨细无靡, 即使 observer 不关心其中的部分信息_
+            - _observer 被迫知道 subject 的更多它不关心的细节 ( 耦合 ) , 使其更难以实现和复用_
+        - Pull Model : subject 只向 observer 传递最小的通知信息, 之后需要 observer 自行显式查询具体细节, 效率较低
+- Specifying modifications of interest explicitly
+    - _subject 仅通知 observer 所关注特定方面 ( aspect ) 的变更, 但是 ( 注册观察者/广播通知的 ) 具体实现更加复杂_
+- Encapsulating complex update semantics
+    - _利用 Mediator 模式, 创建一个 ChangeManager 来间接维护 subject 跟 observer 的关联关系, 以及其更新策略与更新操作_
+- _Combining the Subject and Observer classes_
+    - _结合 subject 和 observer 的接口定义, 允许一个既是 subject 又是 observer 的 object_
+    - _甚至将其定义于根类 Object 中, 使得该特性对所有类都可用_
+
+```plantuml
+@startuml
+class Subject {
+    attach(Observer)
+    detach(Observer)
+    notify()
+}
+
+class Observer {
+    update(Subject)
+}
+
+class ChangeManager {
+    Subject-Observer Mapping
+    register(Subject, Observer)
+    unregister(Subject, Observer)
+    notify()
+}
+
+class SimpleChangeManager {
+    register(Subject, Observer)
+    unregister(Subject, Observer)
+    notify()
+}
+
+class DAGChangeManager {
+    register(Subject, Observer)
+    unregister(Subject, Observer)
+    notify()
+}
+
+note as N0
+    notify() {
+        chman->notify()
+    }
+end note
+
+note as N1
+    attach(Observer o) {
+        chman->register(this, o)
+    }
+end note
+
+note as N2
+    notify() {
+        forall s in subjects
+            forall o in s.observers
+                o->update(s)
+    }
+end note
+
+note as N3
+    notify() {
+        mark all observers to update
+        update all marked observers
+    }
+end note
+
+Subject <-o ChangeManager : subjects
+Subject -> ChangeManager : chman
+
+ChangeManager o-> Observer : observers
+ChangeManager <|-- SimpleChangeManager
+ChangeManager <|-- DAGChangeManager
+
+N0 . Subject
+Subject .. N1
+
+SimpleChangeManager .. N2
+DAGChangeManager .. N3
+
+@enduml
+```
