@@ -1848,7 +1848,67 @@ Collaborations
 
 ```plantuml
 @startuml
-anObjectStructure -> aConcreteElementA
+participant anObjectStructure
+participant aConcreteElementA
+participant aConcreteElementB
+participant aConcreteVisitor
+
 activate anObjectStructure
+anObjectStructure -> aConcreteElementA : aConcreteElementA->accept(aVisitor)
+activate aConcreteElementA
+
+aConcreteElementA -> aConcreteVisitor : aVisitor->visitElementA(this)
+activate aConcreteVisitor
+deactivate aConcreteElementA
+deactivate aConcreteElementA
+
+aConcreteElementA <- aConcreteVisitor : aConcreteElementA->operationA()
+activate aConcreteElementA
+deactivate aConcreteVisitor
+deactivate aConcreteElementA
+
+deactivate anObjectStructure
+
+anObjectStructure -> aConcreteElementB : aConcreteElementB->accept(aVisitor)
+activate anObjectStructure
+activate aConcreteElementB
+
+aConcreteElementB -> aConcreteVisitor : aVisitor->visitElementB(this)
+activate aConcreteVisitor
+deactivate aConcreteElementB
+
+aConcreteElementB <- aConcreteVisitor : aConcreteElementB->operationB()
+activate aConcreteElementB
+deactivate aConcreteElementB
+deactivate aConcreteVisitor
+
 @enduml
 ```
+
+Consequences
+
+- Visitor makes adding new operations easy.
+    - Visitors make it easy to add operations that depend on the components of complex objects.
+    - You can define a new operation over an object structure simply by adding a new visitor.
+    - _In contrast, if you spread functionality over many classes, then you must change each class to define a new operation. ( Shotgun Surgery 霰弹式修改 )_
+- A visitor gathers related operations and separates unrelated ones.
+    - Related behavior isn't spread over the classes defining the object structure; it's localized in a visitor.
+    - Unrelated sets of behavior are partitioned in their own visitor subclasses.
+    - That simplifies both the classes defining the elements and the algorithms defined in the visitors.
+    - _Any algorithm-specific data structures can be hidden in the visitor._
+- Adding new ConcreteElement classes is hard.
+    - The Visitor pattern makes it hard to add new subclasses of Element.
+        - Each new ConcreteElement gives rise to a new abstract operation on Visitor and a corresponding implementation in every ConcreteVisitor class.
+        - _Sometimes a default implementation can be provided in Visitor that can be inheritedby most of the ConcreteVisitors, but this is the exception rather than the rule._
+    - So the key consideration in applying the Visitor pattern is whether you are mostly likely to change the algorithm applied over an object structure or the classes of objects that make up the structure.
+        - The Visitor class hierarchy can be difficult to maintain when new ConcreteElement classes are added frequently.
+            - In such cases, it's probably easier just to define operations on the classes that make upthe structure.
+        - If the Element class hierarchy is stable, but you are continually adding operations or changing algorithms, then the Visitor pattern will help you manage the changes.
+- _Visiting across class hierarchies._
+    - _omitted…_
+- Accumulating state.
+    - Visitors can accumulate state as they visit each element in the object structure.
+    - _Without a visitor, this state would be passed as extra arguments to the operations that perform the traversal, or they might appear as global variables._
+- Breaking encapsulation.
+    - Visitor's approach assumes that the ConcreteElement interface is powerful enough to let visitors do their job.
+    - As a result, the pattern often forces you to provide public operations that access an element's internal state, which may compromise its encapsulation.
