@@ -918,6 +918,12 @@ Structure
 
 ![interpreter](_images/interpreter.png)
 
+```plantuml
+@startuml
+
+@enduml
+```
+
 _( 内容比较费解, 详见原书内容 )_
 
 ### Iterator
@@ -1016,7 +1022,43 @@ Colleague <|-- ConcreteColleague2
 
 _A typical object structure might look like this:_
 
-![mediator.typical-ojbect-structure](_images/mediator.typical-ojbect-structure.png)
+<!-- ![mediator.typical-ojbect-structure](_images/mediator.typical-ojbect-structure.png) -->
+
+```plantuml
+@startuml
+object aConcreteMediator
+
+object aColleague1
+aColleague1 : mediator
+object aColleague2
+aColleague2 : mediator
+object aColleague3
+aColleague3 : mediator
+object aColleague4
+aColleague4 : mediator
+object aColleague5
+aColleague5 : mediator
+
+aColleague1 <--* aConcreteMediator
+aConcreteMediator *-> aColleague2
+aConcreteMediator *--> aColleague3
+aConcreteMediator *--> aColleague4
+aColleague5 <-* aConcreteMediator
+
+aColleague1 ---> aConcreteMediator
+aConcreteMediator <-- aColleague2
+aConcreteMediator <--- aColleague3
+aConcreteMediator <--- aColleague4
+aColleague5 --> aConcreteMediator
+
+'aColleague1 <--> aConcreteMediator
+'aConcreteMediator <-> aColleague2
+'aConcreteMediator <--> aColleague3
+'aConcreteMediator <--> aColleague4
+'aColleague5 <-> aConcreteMediator
+@enduml
+```
+
 
 ### Memento
 
@@ -1476,3 +1518,83 @@ ConcreteClass : primitiveOperation2()
 ```
 
 - _primitive operation 原语操作 ( icehe : 类似于 原子操作 / 事务操作 )_
+
+### Visitor
+
+- _访问者_
+
+Intent
+
+- Represent an operation to be performed on the elements of an object structure.
+    - _( 表示一个作用于某对象结构的各元素的操作 )_
+    - Visitor lets you define a new operation without changing the classes of the elements on which it operates.
+        - _( 它使你可以在不改变各元素的类的前提下定义作用于这些元素的操作 )_
+
+_Applicability_
+
+- An object structure contains many classes of objects with differing interfaces, and you want to perform operations on these objects that depend on their concrete classes. _( icehe : 这句不太理解 )_
+- Many distinct and unrelated operations need to be performed on objects in an object structure, and you want to avoid "polluting" their classes with these operations.
+    - _( 例如, 每当需要添加新操作, 都要给对象类添加新的操作方法, 方法就越来越多了 )_
+    - Visitor lets you keep related operations together by defining them in one class.
+    - When the object structure is shared by many applications, use Visitor to put operations in just those applications that need them.
+- The classes defining the object structure rarely change, but you often want to define new operations over the structure.
+    - Changing the object structure classes requires redefining the interface to all visitors, which is potentially costly.
+    - _If the object structure classes change often, then it's probably better to define the operations in those classes._
+
+Structutre
+
+```plantuml
+@startuml
+object Client
+
+object Visitor
+Visitor : visitConcreteELementA(ConcreteElementA)
+Visitor : visitConcreteELementB(ConcreteElementB)
+
+object ConcreteVisitor1
+ConcreteVisitor1 : visitConcreteELementA(ConcreteElementA)
+ConcreteVisitor1 : visitConcreteELementB(ConcreteElementB)
+
+object ConcreteVisitor2
+ConcreteVisitor2 : visitConcreteELementA(ConcreteElementA)
+ConcreteVisitor2 : visitConcreteELementB(ConcreteElementB)
+
+object ObjectStructure
+
+object Element
+Element : accept(Visitor)
+
+object ConcreteElementA
+ConcreteElementA : accept(Visitor)
+ConcreteElementA : operationA()
+
+object ConcreteElementB
+ConcreteElementB : accept(Visitor)
+ConcreteElementB : operationB()
+
+note as N0
+    accept(Visitor v) {
+        v->visitConcreteElementA(this)
+    }
+end note
+
+note as N1
+    accept(Visitor v) {
+        v->visitConcreteElementB(this)
+    }
+end note
+
+Client -> Visitor
+Visitor <|-- ConcreteVisitor1
+Visitor <|-- ConcreteVisitor2
+
+Client ---> ObjectStructure
+ObjectStructure -> Element
+Element <|-- ConcreteElementA
+Element <|-- ConcreteElementB
+
+ConcreteElementA .. N0
+ConcreteElementB .. N1
+
+@enduml
+```
