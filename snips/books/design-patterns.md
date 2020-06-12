@@ -1199,5 +1199,43 @@ activate aConcreteObserver
 deactivate aConcreteObserver
 
 activate aConcreteSubject
+aConcreteSubject -> aConcreteSubject : notify()
+
+aConcreteSubject -> aConcreteObserver : update()
+activate aConcreteObserver
+aConcreteSubject <- aConcreteObserver : getState()
+deactivate aConcreteObserver
+
+aConcreteSubject -> anotherConcreteObserver : update()
+activate anotherConcreteObserver
+aConcreteSubject <- anotherConcreteObserver : getState()
+deactivate anotherConcreteObserver
 @enduml
 ```
+
+- _注意 : notify() 也可以由 observer 或其它对象调用_
+
+Consequences _效果/结果/后果_
+
+- **Abstract coupling** between Subject and Observer
+    - _将 subject ( publisher ) 跟 observer ( subscriber ) 解耦_
+- Support for **broadcast communication**
+    - _…_
+- Unexpected updates _( 缺点 )_
+    - _Because observers have no knowledge of each other's presence, they can be blind to the ultimate cost of changing the subject._
+    - _( icehe : 频繁的通知, 过多的观察者, 过重的更新操作… 想想 "惊群现象" )_
+
+Implementation
+
+- _( 详见原书内容 : 有许多需要注意的点 )_
+- Mapping subjects to their observers
+    - _subjects 持有大量 observers 引用的存储开销_
+- Observing more than one subject
+    - _一个 observer 可能观察多个 subject, 所以 subject 在 notify 时, 可能需要把自身作为参数传递给 observer, 以便 observer 根据通知源来区别处理_
+- Who triggers the update?
+    - Subject : 由 subject 的 state setter 自动调用 notify()
+        - _优点 : 不需要 observer ( 客户 ) 在修改 subject 后还有调用 notify(), 比较省心_
+        - _缺点 : 一系列连续的操作, 会触发不必要的频繁 notify(), 效率较低_
+    - Observer : 有 observer ( 客户 ) 在适当的时机调用 notify()
+        - _优点 : 客户可以在一系列的状态改变完成后, 一次性地触发更新, 效率较高_
+        - _缺点 : 给客户增加了触发 notify() 的责任, 客户可能会忘记调用, 容易出错_
