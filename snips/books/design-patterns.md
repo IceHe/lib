@@ -1256,8 +1256,11 @@ Implementation
     - _结合 subject 和 observer 的接口定义, 允许一个既是 subject 又是 observer 的 object_
     - _甚至将其定义于根类 Object 中, 使得该特性对所有类都可用_
 
+_Combine Observer with Mediator_
+
 ```plantuml
 @startuml
+
 class Subject {
     attach(Observer)
     detach(Observer)
@@ -1326,6 +1329,54 @@ Subject .. N1
 
 SimpleChangeManager .. N2
 DAGChangeManager .. N3
+
+@enduml
+```
+
+### State
+
+Intent
+
+- Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
+    - _( 允许一个对象在其内部状态改变时改变它的行为. 对象看起来似乎修改了它的类. )_
+
+_Also Known As_
+
+- Objects for states 状态对象 _( 例如 Enum )_
+
+_Applicability_
+
+- An object's behavior depends on its state, and it must change its behavior at run-time depending on that state.
+- Operations have large, multipart conditional statements that depend on the object's state.
+    - This state is usually represented by one or more enumerated constants.
+    - _Often, several operations will contain this same conditional structure._
+    - The State pattern puts each branch of the conditional in a separate class.
+    - This lets you treat the object's state as an object in its own right that can vary independently from other objects.
+
+Structure
+
+```plantuml
+@startuml
+object Context
+object State
+object ConcreteStateA
+object ConcreteStateB
+
+note as N0
+request() {
+    state->handle()
+}
+end note
+
+Context o-> State : state
+Context .. N0
+State <|-- ConcreteStateA
+State <|-- ConcreteStateB
+
+Context : request()
+State : handle()
+ConcreteStateA : handle()
+ConcreteStateB : handle()
 
 @enduml
 ```
