@@ -1427,3 +1427,52 @@ Strategy <|-- ConcreteStrategyC
 
 @enduml
 ```
+
+### Template Method
+
+Intent
+
+- Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.
+    - Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+_Applicability_
+
+- To implement the invariant parts of an algorithm once and leave it up to subclasses to implement the behavior that can vary.
+- When common behavior among subclasses should be factored and localizedin a common class to avoid code duplication.
+    - _This is a good example of "refactoring to generalize" as described by Opdyke andJohnson._
+    - You first identify the differences in the existing code and then separate the differences into new operations.
+    - Finally, you replace the differing code with a template method that calls one of these new operations.
+- To control subclasses extensions.
+    - You can define a template method that calls "hook" operations at specific points,thereby permitting extensions only at those points.
+
+Structure
+
+```plantuml
+@startuml
+object AbstractClass
+object ConcreteClass
+
+note as N0
+templateMethod() {
+    …
+    primitiveOperation1()
+    …
+    primitiveOperation2()
+    …
+}
+end note
+
+AbstractClass <|-- ConcreteClass
+AbstractClass . N0
+
+AbstractClass : templateMthod()
+AbstractClass : primitiveOperation1()
+AbstractClass : primitiveOperation2()
+
+ConcreteClass : primitiveOperation1()
+ConcreteClass : primitiveOperation2()
+
+@enduml
+```
+
+- _primitive operation 原语操作 ( icehe : 类似于 原子操作 / 事务操作 )_
