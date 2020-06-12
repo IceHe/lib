@@ -961,7 +961,7 @@ aProxy -> aRealSubject : realSubject
 @enduml
 ```
 
-### _Discussion_
+### _\* Discussion_
 
 Adapter versus Bridge
 
@@ -1912,3 +1912,12 @@ Consequences
 - Breaking encapsulation.
     - Visitor's approach assumes that the ConcreteElement interface is powerful enough to let visitors do their job.
     - As a result, the pattern often forces you to provide public operations that access an element's internal state, which may compromise its encapsulation.
+
+### _\* Discussion_
+
+_Applicability_
+
+- a Strategy object encapsulates an algorithm,
+- a State object encapsulates a state-dependent behavior,
+- a Mediator object encapsulates the protocol between objects, and
+- an Iterator object encapsulates the way you access and traverse the components of an aggregate object.

@@ -30,7 +30,7 @@ Reading - Basics
 Reading - Coding
 
 - [Refactoring](/snips/books/refactoring.md)
-- [Design Patterns](/snips/books/design-patterns.md) ( draft )
+- [Design Patterns](/snips/books/design-patterns.md)
 - [Pragmatic Programmer](/snips/books/pragmatic-programmer.md)
     - _The Pragmatic Programmer : your journey to mastery ( 2nd Edition )_
 
