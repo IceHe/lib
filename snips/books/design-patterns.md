@@ -297,7 +297,47 @@ _Also Known As_
 
 Structure
 
-![abstract-factory.png](_images/abstract-factory.png)
+<!-- ![abstract-factory.png](_images/abstract-factory.png) -->
+
+```plantuml
+@startuml
+object Client
+
+object AbstractFactory
+AbstractFactory : createProductA()
+AbstractFactory : createProductB()
+object ConcreteFactory1
+ConcreteFactory1 : createProductA()
+ConcreteFactory1 : createProductB()
+object ConcreteFactory2
+ConcreteFactory2 : createProductA()
+ConcreteFactory2 : createProductB()
+
+object AbstractProductA
+object ProductA1
+object ProductA2
+object AbstractProductB
+object ProductB1
+object ProductB2
+
+AbstractFactory <|-- ConcreteFactory1
+AbstractFactory <|-- ConcreteFactory2
+AbstractProductA <|-- ProductA1
+AbstractProductA <|-- ProductA2
+AbstractProductB <|-- ProductB1
+AbstractProductB <|-- ProductB2
+
+AbstractFactory <- Client
+Client ----> AbstractProductA
+Client ----> AbstractProductB
+
+ConcreteFactory1 ....> ProductA1
+ConcreteFactory1 ....> ProductB1
+ConcreteFactory2 ....> ProductA2
+ConcreteFactory2 ....> ProductB2
+
+@enduml
+```
 
 ### Builder
 
@@ -639,7 +679,38 @@ _Applicability_
 
 Structure
 
-![composite](_images/composite.png)
+<!-- ![composite](_images/composite.png) -->
+
+```plantuml
+@startuml
+object Client
+object Component
+Component : operation()
+Component : add(Component)
+Component : remove(Component)
+Component : getChild(int)
+object Leaf
+Leaf : operation()
+object Composite
+Composite : operation()
+Composite : add(Component)
+Composite : remove(Component)
+Composite : getChild(int)
+
+note as N0
+    operation() {
+        forall c in children
+            c.operation()
+    }
+end note
+
+Client -> Component
+Component <|-- Leaf
+Component <|-- Composite
+Composite o--> Component : children
+N0 .. Composite
+@enduml
+```
 
 ### Decorator
 
@@ -662,7 +733,50 @@ _Applicability_
 
 Structure
 
-![decorator](_images/decorator.png)
+<!-- ![decorator](_images/decorator.png) -->
+
+```plantuml
+@startuml
+class Component {
+    operation()
+}
+class ConcreteComponent {
+    operation()
+}
+class Decorator {
+    operation()
+}
+class ConcreteDecoratorA {
+    addedState
+    operation()
+}
+class ConcreteDecoratorB {
+    operation()
+    addedBehavior()
+}
+
+note as N0
+    operation() {
+        component->operation()
+    }
+end note
+
+note as N1
+    operation() {
+        Decorator::operation()
+        addedBehavior()
+    }
+end note
+
+Component <|-- ConcreteComponent
+Component <|-- Decorator
+Decorator o-up-> Component : component
+Decorator <|-- ConcreteDecoratorA
+Decorator <|-- ConcreteDecoratorB
+N0 . Decorator
+N1 .right. ConcreteDecoratorB
+@enduml
+```
 
 ### Facade
 
@@ -687,7 +801,33 @@ _Applicability_
 
 Structure
 
-![facade](_images/facade.png)
+<!-- ![facade](_images/facade.png) -->
+
+```plantuml
+@startuml
+actor User
+frame "subsystem classes" {
+    component Facade
+    rectangle A
+    rectangle A1
+    rectangle B
+    rectangle C
+    rectangle D
+    rectangle D1
+    rectangle D2
+}
+
+Facade <- User
+C <- Facade
+Facade ---> B
+Facade ----> A1
+Facade ----> D2
+A <|-- A1
+A -right- B
+D <|-- D1
+D <|-- D2
+@enduml
+```
 
 ### Flyweight
 
@@ -708,7 +848,47 @@ _Applicability_
 
 Structure
 
-![flyweight](_images/flyweight.png)
+<!-- ![flyweight](_images/flyweight.png) -->
+
+```plantuml
+@startuml
+object Client
+class FlyweightFactory {
+    getFlyweight(key)
+}
+class Flyweight {
+    operation(ExtrinsicState)
+}
+class ConcreteFlyweight {
+    intrinsicState
+    operation(ExtrinsicState)
+}
+class UnsharedConcreteFlyweight {
+    allState
+    operation(ExtrinsicState)
+}
+
+note as N0
+    getFlyweight(key) {
+        if (flyweights[key] exists) {
+            return flyweights[key]
+        } else {
+            create new flyweight
+            add it to pool of flyweights
+            return the new flyweight
+        }
+    }
+end note
+
+FlyweightFactory o-> Flyweight : flyweights
+FlyweightFactory <-- Client
+Flyweight <|-- ConcreteFlyweight
+Flyweight <|-- UnsharedConcreteFlyweight
+Client -> ConcreteFlyweight
+Client -> UnsharedConcreteFlyweight
+N0 . FlyweightFactory
+@enduml
+```
 
 ### Proxy
 
@@ -735,7 +915,51 @@ _Applicability_
 
 Structure
 
-![proxy](_images/proxy.png)
+<!-- ![proxy](_images/proxy.png) -->
+
+```plantuml
+@startuml
+object Client
+object Subject
+Subject : request()
+Subject : …
+object Proxy
+Proxy : request()
+Proxy : …
+object RealSubject
+RealSubject : request()
+RealSubject : …
+
+note as N0
+    request() {
+        …
+        realSubject->request()
+        …
+    }
+end note
+
+Client -> Subject
+Subject <|-- RealSubject
+Subject <|-- Proxy
+RealSubject <- Proxy : realSubject
+Proxy . N0
+@enduml
+```
+
+_A possible object diagram of a proxy structure at run-time_
+
+```plantuml
+@startuml
+object aClient
+aClient : subject
+object aProxy
+aProxy : realSubject
+object aRealSubject
+
+aClient -> aProxy : subject
+aProxy -> aRealSubject : realSubject
+@enduml
+```
 
 ### _Discussion_
 
@@ -792,7 +1016,21 @@ ConcreteHandler2 : handleRequest()
 
 _A typical object structure might look like this:_
 
-![chain-of-responsibility.typical-object-structure](_images/chain-of-responsibility.typical-object-structure.png)
+<!-- ![chain-of-responsibility.typical-object-structure](_images/chain-of-responsibility.typical-object-structure.png) -->
+
+```plantuml
+@startuml
+object aClient
+aClient : aHandler
+object aConcreteHandler1
+aConcreteHandler1 : successor
+object aConcreteHandler2
+aConcreteHandler2 : successor
+
+aClient -> aConcreteHandler1 : aHandler
+aConcreteHandler1 -> aConcreteHandler2 : succesor
+@enduml
+```
 
 ### Command
 
@@ -916,11 +1154,24 @@ _Applicability_
 
 Structure
 
-![interpreter](_images/interpreter.png)
+<!-- ![interpreter](_images/interpreter.png) -->
 
 ```plantuml
 @startuml
+object Client
+object Context
+object AbstractExpression
+AbstractExpression : interpret(Context)
+object TerminalExpression
+TerminalExpression : interpret(Context)
+object NonterminalExpression
+NonterminalExpression : interpret(Context)
 
+Client --> Context
+Client --> AbstractExpression
+AbstractExpression <|-- TerminalExpression
+AbstractExpression <|-- NonterminalExpression
+NonterminalExpression o--> AbstractExpression
 @enduml
 ```
 
@@ -1050,12 +1301,6 @@ aConcreteMediator <-- aColleague2
 aConcreteMediator <--- aColleague3
 aConcreteMediator <--- aColleague4
 aColleague5 --> aConcreteMediator
-
-'aColleague1 <--> aConcreteMediator
-'aConcreteMediator <-> aColleague2
-'aConcreteMediator <--> aColleague3
-'aConcreteMediator <--> aColleague4
-'aColleague5 <-> aConcreteMediator
 @enduml
 ```
 
