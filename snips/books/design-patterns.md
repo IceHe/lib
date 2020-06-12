@@ -1380,3 +1380,50 @@ ConcreteStateB : handle()
 
 @enduml
 ```
+
+### Strategy
+
+Intent
+
+- Define a family of algorithms, encapsulate each one, and make them interchangeable _( 可交换的 )_ .
+    - Strategy lets the algorithm vary independently from clients that use it.
+
+_Also Known As_
+
+- Policy 政策
+
+_Applicability_
+
+- Many related classes differ only in their behavior.
+    - Strategies provide a way to configure a class with one of many behaviors.
+- You need different variants of an algorithm.
+    - For example, you might define algorithms reflecting different space/time trade-offs.
+    - Strategies can be used when these variants are implemented as a class hierarchy of algorithms.
+- An algorithm uses data that clients shouldn't know about.
+    - Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
+- A class defines many behaviors, and these appear as multiple conditional statements in its operations.
+    - Instead of many conditionals, move related conditional branches into their own Strategy class.
+
+Structure
+
+```plantuml
+@startuml
+object Context
+object Strategy
+object ConcreteStrategyA
+object ConcreteStrategyB
+object ConcreteStrategyC
+
+Context : contextInterface()
+Strategy : algorithmInterface()
+ConcreteStrategyA : algorithmInterface()
+ConcreteStrategyB : algorithmInterface()
+ConcreteStrategyC : algorithmInterface()
+
+Context o-> Strategy : strategy
+Strategy <|-- ConcreteStrategyA
+Strategy <|-- ConcreteStrategyB
+Strategy <|-- ConcreteStrategyC
+
+@enduml
+```
