@@ -1915,9 +1915,17 @@ Consequences
 
 ### _\* Discussion_
 
-_Applicability_
+Encapsulating Variation
 
 - a Strategy object encapsulates an algorithm,
 - a State object encapsulates a state-dependent behavior,
 - a Mediator object encapsulates the protocol between objects, and
 - an Iterator object encapsulates the way you access and traverse the components of an aggregate object.
+
+Decoupling Senders and Receivers
+
+- _详细讨论见原书_
+    - Command
+    - Observer
+    - Mediator
+    - Chain of Responsibility
