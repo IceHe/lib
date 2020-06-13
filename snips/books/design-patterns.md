@@ -1306,7 +1306,6 @@ aColleague5 --> aConcreteMediator
 @enduml
 ```
 
-
 ### Memento
 
 - _Memento 备忘录_
@@ -1935,11 +1934,101 @@ Reference
 
 - UML类图的6种连线示意 : https://www.jianshu.com/p/48de81a8f0ab
 
-```plantuml
-@startuuml
+**Dependence 依赖**
 
+使用关系, 一个类的实现需要另一个类的协助
+
+- 一个类依赖于另一个类的定义
+    - 例如 : 局部变量 / 方法的形参 / 静态方法的调用
+- _带箭头的虚线指向被使用者_
+
+```plantuml
+@startuml
+object User
+object Object
+User .> Object
 @enduml
 ```
 
-```java
+**Association 关联**
+
+关联关系，使一个类知道另一个类的属性和方法
+
+- 关联关系一般使用成员变量来实现
+- _带箭头的实线指向被拥有者_
+    - _如果是双向关联就实现无箭头_
+
+```plantuml
+@startuml
+object Person
+object Passport
+Person -> Passport
+@enduml
+```
+
+_detailed_
+
+```plantuml
+@startuml
+object Person {
+    passport
+}
+object Passport
+Person -> Passport : passport
+@enduml
+```
+
+**Aggregation 聚合**
+
+- 聚合是关联关系的一种, 表示整体与部分的关系
+    - **部分可以离开整体而存在, 而整体离开部分也能独存**
+        - _关联关系所涉及的两个类是处在同一层次上的_
+    - _带空心菱形的实线指向整体_
+
+```plantuml
+@startuml
+object List
+object Object
+List o-> Object
+@enduml
+```
+
+**Composition 组合**
+
+- 组合是关联关系的一种, 表示整体与部分的关系
+    - **部分不能离开整体而存在, 整体离开了部分也不能独存**_
+    - _带实心菱形的实线指向整体_
+
+```plantuml
+@startuml
+object Person
+object Heart
+Person *-> Heart
+@enduml
+```
+
+**Generalization 泛化**
+
+- 继承关系
+    - _带三角形箭头的实线指向父类_
+
+```plantuml
+@startuml
+object ParentClass
+object SubClass
+ParentClass <|-- SubClass
+@enduml
+```
+
+**Realization 实现**
+
+- l类与接口的关系
+    - _带三角形箭头的虚线指向接口_
+
+```plantuml
+@startuml
+object Interface
+object Realization
+Interface <|.. Realization
+@enduml
 ```
