@@ -339,11 +339,13 @@ ConcreteFactory2 ....> ProductB2
 @enduml
 ```
 
+- _统一控制一组相关对象 ( 例如 "产品族" ) 的创建, 并且易于替换/变更_
+
 ### Builder
 
 Intent
 
-- Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+- **Separate the construction of a complex object from its representation** so that the same construction process can create different representations.
 
 <!--
 
@@ -392,8 +394,8 @@ Director .. N1
 
 Intent
 
-- Define an interface for creating an object, but let subclasses decide which class to instantiate.
-- Factory Method lets a class defer instantiation to subclasses.
+- Define an interface for creating an object, but let **subclasses decide which class to instantiate**.
+    - Factory Method lets a class defer instantiation to subclasses.
 
 _Also Known As_
 
@@ -441,7 +443,7 @@ ConcreteCreator . N2
 
 Intent
 
-- Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+- Specify the kinds of objects to create using a prototypical instance, and **create new objects by copying this prototype**.
 
 _Applicability_
 
@@ -504,7 +506,7 @@ ConcretePrototype2 .. N2
 
 Intent
 
-- Ensure a class only has one instance, and provide a global point of access to it.
+- **Ensure a class only has one instance**, and provide a global point of access to it.
 
 <!--
 
@@ -550,7 +552,7 @@ _Others_
 
 Intent
 
-- Convert the interface of a class into another interface clients expect.
+- **Convert the interface of a class into another interface clients expect**.
     - Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
 
 _Also Known As_
@@ -626,7 +628,7 @@ _Others_
 
 Intent
 
-- Decouple an abstraction from its implementation so that the two can vary independently.
+- **Decouple an abstraction from its implementation** so that the two can vary independently.
 
 _Also known as_
 
@@ -669,7 +671,7 @@ ConcreteImplementorB : operationImpl()
 Intent
 
 - Compose objects into tree structures to represent part-whole hierarchies.
-- Composite lets clients treat individual objects and compositions of objects uniformly.
+    - Composite lets clients **treat individual objects and compositions of objects uniformly**.
 
 _Applicability_
 
@@ -716,8 +718,8 @@ N0 .. Composite
 
 Intent
 
-- Attach additional responsibilities to an object dynamically.
-- Decorators provide a flexible alternative to subclassing for extending functionality.
+- **Attach additional responsibilities** to an object dynamically.
+    - Decorators provide a flexible alternative to subclassing for extending functionality.
 
 _Also Known As_
 
@@ -782,8 +784,8 @@ N1 .right. ConcreteDecoratorB
 
 Intent
 
-- Provide a unified interface to a set of interfaces in a subsystem.
-- Facade defines a higher-level interface that makes the subsystem easier to use.
+- **Provide a unified interface to a set of interfaces in a subsystem.**
+    - Facade defines a higher-level interface that makes the subsystem easier to use.
 
 _Applicability_
 
@@ -992,7 +994,7 @@ Composite versus Decorator versus Proxy
 Intent
 
 - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.
-    - Chain the receiving objects and pass the request along the chain until an object handles it.
+    - Chain the receiving objects and **pass the request along the chain until an object handles it**.
 
 Structure
 
@@ -1036,7 +1038,7 @@ aConcreteHandler1 -> aConcreteHandler2 : succesor
 
 Intent
 
-- Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+- Encapsulate a request as an object, thereby letting you **parameterize clients with different requests**, queue or log requests, and **support undoable operations**.
 
 _Also Known As_
 
@@ -1181,7 +1183,7 @@ _( 内容比较费解, 详见原书内容 )_
 
 Intent
 
-- Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+- Provide a way to **access the elements of an aggregate object sequentially without exposing its underlying representation**.
     - _( 提供一种方法顺序访问一个聚合对象中的各个元素, 而又不需要暴露该对象的内部表示 )_
 
 _Also Known As_
@@ -1235,8 +1237,8 @@ Intent
 
 - Define an object that encapsulates how a set of objects interact.
     - _( 用一个中介对象封装一系列的对象交互 )_
-- Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
-    - _( 中介者使各对象不需要显式地相互引用, 从而使其耦合松散, 而且可以独立地改变它们之间的交互 )_
+    - Mediator promotes loose coupling by **keeping objects from referring to each other explicitly**, and it lets you vary their interaction independently.
+        - _( 中介者使各对象不需要显式地相互引用, 从而使其耦合松散, 而且可以独立地改变它们之间的交互 )_
 
 _Motivation_
 
@@ -1313,7 +1315,7 @@ aColleague5 --> aConcreteMediator
 
 Intent
 
-- Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.
+- Without violating encapsulation, **capture and externalize an object's internal state so that the object can be restored to this state later**.
 
 _Also Known As_
 
@@ -1390,10 +1392,7 @@ activate anOriginator
 
 anOriginator -> aMemento : getState()
 activate aMemento
-deactivate aMemento
-
-deactivate anOriginator
-deactivate aCaretaker
+anOriginator -> anOriginator : restore state
 
 @enduml
 ```
@@ -1402,7 +1401,7 @@ deactivate aCaretaker
 
 Intent
 
-- Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updatedautomatically.
+- Define a one-to-many dependency between objects so that **when one object changes state, all its dependents are notified and updated automatically**.
 
 _Also Known As_
 
@@ -1624,12 +1623,12 @@ DAGChangeManager .. N3
 
 Intent
 
-- Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
-    - _( 允许一个对象在其内部状态改变时改变它的行为. 对象看起来似乎修改了它的类. )_
+- Allow an object to **alter its behavior when its internal state changes**. The object will appear to change its class.
+    - _( 允许一个对象在其内部状态改变时改变它的行为. 对象看起来似乎修改了它的类 )_
 
 _Also Known As_
 
-- Objects for states 状态对象 _( 例如 Enum )_
+- Objects for states 状态对象 _( 像 Enum )_
 
 _Applicability_
 
@@ -1673,7 +1672,7 @@ ConcreteStateB : handle()
 Intent
 
 - Define a family of algorithms, encapsulate each one, and make them interchangeable _( 可交换的 )_ .
-    - Strategy lets the algorithm vary independently from clients that use it.
+    - Strategy lets **the algorithm vary independently from clients that use it**.
 
 _Also Known As_
 
@@ -1720,7 +1719,7 @@ Strategy <|-- ConcreteStrategyC
 Intent
 
 - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.
-    - Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+    - Template Method lets subclasses **redefine certain steps of an algorithm without changing the algorithm's structure**.
 
 _Applicability_
 
@@ -1772,7 +1771,7 @@ Intent
 
 - Represent an operation to be performed on the elements of an object structure.
     - _( 表示一个作用于某对象结构的各元素的操作 )_
-    - Visitor lets you define a new operation without changing the classes of the elements on which it operates.
+    - Visitor lets you **define a new operation without changing the classes of the elements on which it operates**.
         - _( 它使你可以在不改变各元素的类的前提下定义作用于这些元素的操作 )_
 
 _Applicability_
@@ -1929,3 +1928,18 @@ Decoupling Senders and Receivers
     - Observer
     - Mediator
     - Chain of Responsibility
+
+## _UML Related_
+
+Reference
+
+- UML类图的6种连线示意 : https://www.jianshu.com/p/48de81a8f0ab
+
+```plantuml
+@startuuml
+
+@enduml
+```
+
+```java
+```
