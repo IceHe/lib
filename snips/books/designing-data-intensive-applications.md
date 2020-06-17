@@ -580,6 +580,71 @@ Downsides of LSM-trees
 
 #### Other Indexing Structures
 
+Storing values within the index
+
+- _The key in an index is the thing that queries search for, but the value can be one of two things :_ it could be the actual row (document, vertex) in question, or it could be **a reference to the row stored elsewhere**.
+    - In the latter case, the place where rows are stored is known as a **heap file**, and it stores data in no particular order _( it may be append-only, or it may keep track of deleted rows in order to overwrite them with new data later )._
+    - _The heap file approach is common because it_ avoids duplicating data when multiple secondary indexes are present : each index just references a location in the heap file, and the actual data is kept in one place.
+- _When updating a value without changing the key, the heap file approach can be quite efficient: the record can be overwritten in place, provided that the new value is not larger than the old value._
+    - _The situation is more complicated if the new value is larger, as it probably needs to be moved to a new location in the heap where there is enough space._
+    - In that case, either all indexes need to be updated to point at the new heap location of the record, or a forwarding pointer _( 间接指针 )_ is left behind in the old heap location.
+
+**Clustered Index** _( 聚集索引 )_
+
+- In some situations, the extra hop _( 跳转 )_ from the index to the heap file is too much of a performance penalty for reads, so it can be desirable to **store the indexed row directly within an index**.
+- For example, **in MySQL's InnoDB storage engine, the primary key of a table is always a clustered index, and secondary indexes refer to the primary key ( rather than _( 而不是 )_ a heap file location )
+
+**Covering Index** _( 覆盖索引 )_
+
+- A compromise between a clustered index ( storing all row data within the index ) and a **nonclustered index** ( storing only references to the data within the index ) is known as a **covering index** or index with included columns, which **stores some of a table’s columns within the index**.
+    - This allows some queries to be answered by using the index alone ( in which case, **the index is said to cover the query** ) .
+
+Multi-column indexes _( 多列索引 )_
+
+- _omitted…_
+
+Keeping everything in memory
+
+- _Products such as VoltDB, MemSQL, and Oracle TimesTen are in-memory databases with a relational model, and the vendors claim that they can offer big performance improvements by removing all the overheads associated with managing on-disk data structures._
+    - _RAMCloud is an open source, in-memory key-value store with durability ( using a log-structured approach for the data in memory as well as the data on disk ) ._
+    - Redis and Couchbase provide weak durability by writing to disk asynchronously.
+- Counterintuitively, the performance advantage of in-memory databases is not due to the fact that they don’t need to read from disk.
+    - Rather, they can be faster because they can **avoid the overheads of encoding in-memory data structures in a form that can be written to disk**.
+
+### Transaction Processing or Analytics?
+
+**Transaction** : referring to a group of reads and writes that form a logical unit.
+
+- _A transaction needn't necessarily have ACID (atomicity, consis‐ tency, isolation, and durability) properties._
+- _Transaction processing just means allowing clients to make low-latency reads and writes -- as opposed to batch processing jobs, which only run periodically (for example, once per day)._
+
+OLTP
+
+- _An application typically looks up a small number of records by some key, using an index. Records are inserted or updated based on the user's input._
+    - Because these applications are interactive, the access pattern became known as **online transaction processing ( OLTP )** .
+
+OLAP
+
+- _Queries for data analytics are often written by business analysts, and feed into reports that help the management of a company make better decisions (business intelligence)._
+    - In order to differentiate this pattern of using databases from transaction processing, it has been called **online analytic processing ( OLAP )** .
+
+|Property|Transaction processing systems (OLTP)|Analytic systems (OLAP)|
+|-|-|-|
+|Main read pattern|Small number of records per query, fetched by key|Aggregate over large number of records |
+|Main write pattern|Random-access, low-latency writes from user input|Bulk import (ETL) or event stream|
+|Primarily used by|End user/customer, via web application|Internal analyst, for decision support |
+|What data represents|Latest state of data (current point in time)|History of events that happened over time|
+|Dataset size|Gigabytes to terabytes (GB~TB)|Terabytes to petabytes (TB~PB)|
+
+#### Data Warehousing
+
+- These OLTP systems are usually expected to be highly available and to process transactions with low latency, since they are often critical to the operation of the business.
+    - They are usually reluctant _( 不情愿的 )_ to let business analysts run ad hoc analytic queries on an OLTP database, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.
+- A **data warehouse**, by contrast, is a separate database that analysts can query to their hearts' content, without affecting OLTP operations.
+    - The data warehouse contains a read-only copy of the data in all the various OLTP systems in the company.
+    - Data is extracted from OLTP databases (using either a periodic data dump or a continuous stream of updates), transformed into an analysis-friendly schema, cleaned up, and then loaded into the data warehouse.
+    - This process of getting data into the warehouse is known as **Extract–Transform–Load (ETL)**.
+
 ## Encoding and Evolution
 
 - _数据编码与演化_
