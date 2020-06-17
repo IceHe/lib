@@ -493,7 +493,39 @@ _Some of the_ issues that are important in a real implementation _are :_
 - Partially written records
     The database may crash at any time, including halfway through appending a record to the log. Bitcask files include checksums, allowing such corrupted parts of the log to be detected and ignored.
 - Concurrency control
-    As writes are appended to the log in a strictly sequential order, a common imple‐ mentation choice is to have only one writer thread. Data file segments are append-only and otherwise immutable, so they can be read concurrently by mul‐ tiple threads.
+    As writes are appended to the log in a strictly sequential order, a common imple‐ mentation choice is to have only one writer thread. Data file segments are append-only and otherwise immutable, so they can be read concurrently by multiple threads.
+
+_Why don’t you update the file in place, overwriting the old value with the new value? But_ an **append-only design** turns out to be good for several reasons:
+
+- Appending and segment merging are sequential write operations, which are generally much faster than random writes, especially on magnetic spinning-disk hard drives.
+- _Concurrency and crash recovery are much simpler if segment files are append-only or immutable._
+    - For example, you don't have to worry about the case where a crash happened while a value was being overwritten, leaving you with a file containing part of the old and part of the new value spliced together. _( 不用担心旧值和新值混杂在一起的文件 )_
+- Merging old segments avoids the problem of data files getting fragmented over time.
+
+Limitations of Hash Table Index
+
+- The hash table must fit in memory, so if you have a very large number of keys, you’re out of luck.
+    - In principle, you could maintain a hash map on disk, but unfortunately it is difficult to make an on-disk hash map perform well.
+    - It requires a lot of random access I/O, it is expensive to grow when it becomes full, and hash collisions require fiddly _( 要求高精度的/复杂的 )_ logic.
+- Range queries _( 范围查询 )_ are not efficient.
+
+#### SSTables and LSM-Trees
+
+SSTable : Sorted String Table
+
+- We also require that each key only appears once within each merged segment file ( the compaction process already ensures that ).
+
+SSTables have several big advantages over log segments with hash indexes:
+
+- Merging segments is simple and efficient, even if the files are bigger than the available memory.
+    - _( 方便使用归并算法, 将多个输入段并发合并 ( 成一个输出段 ) )_
+- In order to find a particular key in the file, you no longer need to keep an index of all the keys in memory.
+    - _( 有序的数据, 可以进行范围查询 )_
+- _Since read requests need to scan over several key-value pairs in the requested range anyway, it is possible to group those records into a block and compress it before writing it to disk._
+    - Each entry of the sparse _( 稀疏的 )_ in-memory index then points at the start of a compressed block.
+    - _Besides saving disk space, compression also reduces the I/O bandwidth use._
+
+
 
 ## Encoding and Evolution
 
