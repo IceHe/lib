@@ -525,7 +525,60 @@ SSTables have several big advantages over log segments with hash indexes:
     - Each entry of the sparse _( 稀疏的 )_ in-memory index then points at the start of a compressed block.
     - _Besides saving disk space, compression also reduces the I/O bandwidth use._
 
+Making an LSM-tree out of SSTables
 
+- Lucene, an indexing engine for full-text search used by Elasticsearch and Solr, uses a similar method for storing its term dictionary.
+    - _A full-text index is much more complex than a key-value index but is based on a similar idea : given a word in a search query, find all the documents (web pages, product descriptions, etc.) that mention the word._
+    - _This is implemented with a key-value structure where the key is a word (a term) and the value is the list of IDs of all the documents that contain the word (the postings list)._
+    - In Lucene, this mapping from term to postings list is kept in SSTable-like sorted files, which are merged in the background as needed.
+
+Performance optimizations
+
+- The LSM-tree algorithm can be slow when looking up keys that do not exist in the database : you have to check the memtable, then the segments all the way back to the oldest ( possibly having to read from disk for each one ) before you can be sure that the key does not exist.
+    - _In order to optimize this kind of access, storage engines often use additional_ **Bloom filters**.
+    - _( A Bloom filter is a memory-efficient data structure for approximating the contents of a set. It can tell you if a key does not appear in the database, and thus saves many unnecessary disk reads for nonexistent keys. )_
+- _There are also different strategies to determine the order and timing of how SSTables are compacted and merged._
+    - _The most common options are size-tiered and leveled compaction._
+    - _LevelDB and RocksDB use leveled compaction ( hence the name of LevelDB ), HBase uses size-tiered, and Cassandra supports both._
+    - In **size-tiered compaction**, newer and smaller SSTables are successively merged into older and larger SSTables.
+    - In **leveled compaction**, the key range is split up into smaller SSTables and older data is moved into separate "levels", which allows the compaction to proceed more incrementally and use less disk space.
+
+#### B-Tree
+
+- B-trees break the database down into fixed-size blocks or pages, traditionally 4 KB in size ( sometimes bigger ), and read or write one page at a time.
+    - _This design corresponds more closely to the underlying hardware, as disks are also arranged in fixed-size blocks._
+- _Each page can be identified using an address or location, which allows one page to refer to another -- similar to a pointer, but on disk instead of in memory._
+    - _We can use these page references to construct a tree of pages_
+- The number of references to child pages in one page of the B-tree is called the **branching factor**.
+    - _In practice, the branching factor depends on the amount of space required to store the page references and the range boundaries, but typically it is several hundred._
+
+#### Comparing B-Trees and LSM-Trees
+
+Advantages of LSM-trees
+
+- Log-structured indexes also rewrite data multiple times due to repeated compaction and merging of SSTables.
+    - This effect -- one write to the database resulting in multiple writes to the disk over the course of the database’s lifetime -- is known as **write amplification**.
+    - _It is of particular concern on SSDs, which can only overwrite blocks a limited number of times before wearing out._
+- _In write-heavy applications, the performance bottleneck might be the rate at which the database can write to disk._
+    - LSM-trees are typically able to sustain higher write throughput than B-trees, partly because they sometimes have lower write amplification ( although this depends on the storage engine configuration and workload ), and partly because they sequentially write compact SSTable files rather than having to overwrite several pages in the tree.
+    - _( 写入性能, 部分受制于 "写入放大" 的问题 )_
+
+Downsides of LSM-trees
+
+- The compaction process can sometimes interfere with the performance of ongoing reads and writes.
+    - _Even though storage engines try to perform compaction incrementally and without affecting concurrent access, disks have limited resources, so it can easily happen that_ a request needs to wait while the disk finishes an expensive compaction operation.
+    - The impact on throughput and average response time is usually small, but at higher percentiles the response time of queries to log-structured storage engines can sometimes be quite high, and B-trees can be more predictable.
+    - _( 压缩过程有时会干扰读写; LSM-Tree 写入速度通常很快, 但偶尔会很慢, 而 B-tree 速度更稳定可预测 )_
+- _The disk's finite write bandwidth needs to be shared between the initial write ( logging and flushing a memtable to disk ) and the compaction threads running in the background._
+    - _When writing to an empty database, the full disk bandwidth can be used for the initial write,_ but the bigger the database gets, the more disk bandwidth is required for compaction.
+    - _( 存储的数据越多, 压缩过程需要更多的磁盘I/O带宽, 会导致写入性能下降 )_
+- If write throughput is high and compaction is not configured carefully, it can happen that compaction cannot keep up with the rate of incoming writes.
+    - _( 压缩速度跟不上写速度 )_
+- _An advantage of B-trees is that each key exists in exactly one place in the index, whereas a log-structured storage engine may have multiple copies of the same key in different segments._
+    - This aspect makes B-trees attractive in databases that want to offer strong transactional semantics : in many relational databases, **transaction isolation is implemented using locks on ranges of keys**, and in a B-tree index, those locks can be directly attached to the tree.
+    - _( B-Tree 比 LSM-Tree 加锁更容易, 便于实现事务 )_
+
+#### Other Indexing Structures
 
 ## Encoding and Evolution
 
