@@ -645,6 +645,8 @@ OLAP
     - Data is extracted from OLTP databases (using either a periodic data dump or a continuous stream of updates), transformed into an analysis-friendly schema, cleaned up, and then loaded into the data warehouse.
     - This process of getting data into the warehouse is known as **Extract–Transform–Load (ETL)**.
 
+The divergence between OLTP databases and data warehouses
+
 ## Encoding and Evolution
 
 - _数据编码与演化_
