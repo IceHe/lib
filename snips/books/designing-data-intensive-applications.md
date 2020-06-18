@@ -647,6 +647,47 @@ OLAP
 
 The divergence between OLTP databases and data warehouses
 
+- The data model of a data warehouse is most commonly relational, because SQL is generally a good fit for analytic queries.
+    - _There are many graphical data analysis tools that generate SQL queries, visualize the results, and allow analysts to explore the data_ ( _through operations such as_ drill-down and slicing and dicing _( 向下钻取 / 切片 / 切丁 )_ ).
+- _On the surface, a data warehouse and a relational OLTP database look similar, because they both have a SQL query interface._
+    - _However, the internals of the systems can look quite different, because they are optimized for very different query patterns._
+    - Many database vendors now focus on supporting either transaction processing or analytics workloads, but not both.
+
+Stars and Snowflakes: Schemas for Analytics
+
+- Many data warehouses are used in a fairly formulaic _( 公式化的 )_ style, known as a **star schema** _( 星型模式 )_ ( also known as dimensional modeling _( 维度建模 )_ ).
+    - At the center of the schema is a so-called **fact table** _( 事实表 )_ .
+        - _Each row of the fact table represents_ an event that occurred at a particular time.
+        - _Usually, facts are captured as individual events, because this allows maximum flexibility of analysis later._
+        - _However, this means that the fact table can become extremely large._
+        - Some of the columns in the fact table are **attributes**.
+    - Other columns in the fact table are foreign key references to other tables, called **dimension tables** _( 维度表 )_.
+        - _As each row in the fact table represents an event,_ the dimensions represent the who, what, where, when, how, and why of the event.
+- A variation of this template is known as the **snowflake schema** _( 雪花模型 )_, where dimensions are further broken down into subdimensions.
+    - Snowflake schemas are more normalized _( 规范化的 )_ than star schemas, but star schemas are often preferred because they are simpler for analysts to work with.
+- In a typical data warehouse, tables are often very wide : fact tables often have over 100 columns, sometimes several hundred.
+    - Dimension tables can also be very wide, as they include all the metadata that may be relevant for analysis.
+
+### Column-Oriented Storage
+
+_( 列式存储 )_
+
+- If you have trillions of rows and petabytes of data in your fact tables, storing and querying them efficiently becomes a challenging problem.
+    - Dimension tables are usually much smaller ( millions of rows ), so in this section we will concentrate primarily on storage of facts.
+- Although fact tables are often over 100 columns wide, a typical data warehouse query only accesses 4 or 5 of them at one time ("SELECT *" queries are rarely needed for analytics).
+    - _( icehe : 例如 "外卖骑手群组" 的计算就可能需要超过 4~5 个维度 )_
+
+How can we execute the query efficiently?
+
+- In most OLTP databases, storage is laid out in a row-oriented fashion:
+    - all the values from one row of a table are stored next to each other.
+- Document databases are similar:
+    - an entire document is typically stored as one contiguous sequence of bytes.
+- The idea behind column-oriented storage is simple:
+    - don’t store all the values from one row together, but **store all the values from each column together instead**.
+- If each column is stored in a separate file, **a query only needs to read and parse those columns that are used in that query**, which can save a lot of work.
+- The column-oriented storage layout relies on **each column file containing the rows in the same order**.
+
 ## Encoding and Evolution
 
 - _数据编码与演化_
