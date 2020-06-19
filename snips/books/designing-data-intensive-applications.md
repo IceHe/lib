@@ -688,6 +688,53 @@ How can we execute the query efficiently?
 - If each column is stored in a separate file, **a query only needs to read and parse those columns that are used in that query**, which can save a lot of work.
 - The column-oriented storage layout relies on **each column file containing the rows in the same order**.
 
+Column Compression
+
+- Besides only loading those columns from disk that are required for a query, we can further reduce the demands on disk throughput by compressing data.
+    - _Fortunately, column-oriented storage often lends itself very well to compression._
+    - _One technique that is particularly effective in data warehouses is_ **bitmap encoding** _( 位图编码 )_ .
+- Often, the number of distinct values in a column is small compared to the number of rows.
+    - _( For example, a retailer may have billions of sales transactions, but only 100,000 distinct products )_.
+    - We can now take a column with n distinct values and turn it into n separate bitmaps :
+        - one bitmap for each distinct value, with one bit for each row.
+        - The bit is 1 if the row has that value, and 0 if not.
+- If n is very small _( for example, a country column may have approximately 200 distinct values )_, those bitmaps can be stored with one bit per row.
+    - But if n is bigger, there will be a lot of zeros in most of the bitmaps ( we say that they are sparse _( 稀疏的 )_ ). In that case, the bitmaps can additionally be **run-length encoded** _( 游程编码 )_.
+    - _This can make the encoding of a column remarkably compact._
+
+Column-oriented storage and column families _( 面向列的存储和列族 )_
+
+- Cassandra and HBase have a concept of **column families**, which they inherited from Bigtable.
+- _However, it is very misleading to call them column-oriented :_
+    - within each column family, they store all columns from a row together, along with a row key, and they do not use column compression.
+- Thus, the **Bigtable model is still mostly row-oriented**.
+
+<!--
+
+_Memory bandwidth and vectorized processing_ _( 矢量化处理 )_
+
+- _For data warehouse queries that need to scan over millions of rows,_ a big bottleneck is the bandwidth for getting data from disk into memory.
+- _Developers of analytical databases also worry about_ efficiently using the bandwidth from main memory into the CPU cache,
+    - avoiding branch mispredictions _( 分支错误预测 )_ and bubbles in the CPU instruction processing pipeline, and making use of **single-instruction-multi-data** ( SIMD ) _( 单指令多数据 )_ instructions in modern CPUs.
+- …
+
+-->
+
+_Sort Order in Column Storage_
+
+- _Note that it wouldn't make sense to sort each column independently, because then we would no longer know which items in the columns belong to the same row._
+    - _We can only reconstruct a row because we know that_ the kth item in one column belongs to the same row as the kth item in another column.
+- …
+
+_Writing to Column-Oriented Storage_
+
+- Most of the load consists of large read-only queries run by analysts.
+    - Column-oriented storage, compression, and sorting all help to make those read queries faster.
+    - _However, they have the downside of_ making writes more difficult.
+- An update-in-place approach, like B-trees use, is not possible with compressed columns.
+    - If you wanted to insert a row in the middle of a sorted table, you would most likely have to rewrite all the column files.
+    - As rows are identified by their position within a column, the insertion has to update all columns consistently.
+
 ## Encoding and Evolution
 
 - _数据编码与演化_
