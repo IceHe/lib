@@ -1223,7 +1223,7 @@ _In the example of the following image :_
 - The replication to follower 2 is **asynchronous**.
     - The leader sends the message, but doesn't wait for a response from the follower.
 
-![sync_n_async_replication.png](_images/sync_n_async_replication.png)
+![sync_n_async_replication.png](_images/designing-data-intensive-applications/sync_n_async_replication.png)
 
 _For that reason, it is impractical for all followers to be synchronous :_
 
@@ -1358,13 +1358,75 @@ The followers will eventually catch up and become consistent with the leader. Fo
 
 _( 读自己的写 )_
 
-TODO
+_( icehe : 很常见的解决思路/套路, 必须记住的常识 )_
+
+_If the user views the data shortly after making a write, the new data may not yet have reached the replica._
+
+- _To the user, it looks as though the data they submitted was lost, so they will be understandably unhappy._
+
+![read-your-own-writes.png](_images/designing-data-intensive-applications/read-your-own-writes.png)
+
+In this situation, we need **read-after-write consistency**, also known as **read-your-writes consistency**.
+
+- This is a guarantee that if the user reloads the page, they will always see any updates they submitted themselves.
+- It makes no promises about other users : other users' updates may not be visible until some later time.
+    - _However, it reassures the user that their own input has been saved correctly._
+
+_How can we implement read-after-write consistency in a system with leader-based replication?_
+
+- When reading something that the user may have modified, read it from the leader; otherwise, read it from a follower.
+    - _This requires that you have some way of knowing whether something might have been modified, without actually querying it._
+    - For example, user profile information on a social network is normally only editable by the owner of the profile, not by anybody else.
+        - Thus, a simple rule is : always read the user's own profile from the leader, and any other users' profiles from a follower.
+- If most things in the application are potentially editable by the user, that approach won't be effective, as most things would have to be read from the leader ( negating the benefit of read scaling ).
+    - _( 如果应用的大多数内容都可能被所有用户修改, 那么以上方法不太有效, 因为它将导致大部分内容都必须经由主节点. 这就丧失了读操作的伸缩性/拓展性 )_
+    - _In that case, other criteria may be used to decide whether to read from the leader._
+    - _For example, you could track the time of the last update and, for one minute after the last update, make all reads from the leader._
+        - _You could also monitor the replication lag on followers and prevent queries on any follower that is more than one minute behind the leader._
+- The client can remember the timestamp of its most recent write -- then the system can ensure that the replica serving any reads for that user reflects updates at least until that timestamp.
+    - _( 客户端可以记住最新更新时的时间戳, 并附在读请求中, 根据此信息, 系统可以确保对该用户提供都服务时, 都至少包含了该时间戳的更新 )_
+    - _If a replica is not sufficiently up to date, either the read can be handled by another replica or the query can wait until the replica has caught up._
+    - _The timestamp could be a logical timestamp ( something that indicates ordering of writes, such as the log sequence number ) or the actual system clock ( in which case clock synchronization becomes critical ) ._
+- _If your replicas are distributed across multiple datacenters ( for geographical proximity to users or for availability ), there is additional complexity._
+    - Any request that needs to be served by the leader must be routed to the datacenter that contains the leader.
+
+_Another complication arises_ when the same user is accessing your service from multiple devices, _for example a desktop web browser and a mobile app._
+
+In this case you may want to provide **cross-device read-after-write consistency** _( 跨越设备的 写后读 一致性 )_ :
+
+- if the user enters some information on one device and then views it on another device, they should see the information they just entered.
+
+_In this case, there are some additional issues to consider:_
+
+- _Approaches that require remembering the timestamp of the user's last update become more difficult, because the code running on one device doesn’t know what updates have happened on the other device._
+    - _This metadata will need to be centralized._
+- _If your replicas are distributed across different datacenters, there is no guarantee that connections from different devices will be routed to the same datacenter._
+    - _( For example, if the user's desktop computer uses the home broadband connection and their mobile device uses the cellular data network, the devices' network routes may be completely different. )_
+    - If your approach requires reading from the leader, you may first need to route requests from all of a user’s devices to the same datacenter.
+        - _( icehe : 使用用户 ID 来作为路由的依据, 以便路由到同一 数据中心/分片 )_
 
 #### Monotonic Reads
 
 _( 单调读 )_
 
+_( icehe : 保证连续读的情况下, 数据不会来回变化; 展示层常见的缺陷/bug )_
+
+A user first reads from a fresh replica, then from a stale _( 不新鲜的 )_ replica. Time appears to go backward.
+
+- To prevent this anomaly _( 异常/反常 )_ , we need **monotonic reads**.
+
+![monotonic-reads.png](_images/designing-data-intensive-applications/monotonic-reads.png)
+
+Monotonic reads is a guarantee that this kind of anomaly does not happen.
+
+- _It's a lesser guarantee than strong consistency, but a stronger guarantee than eventual consistency._
+- When you read data, you may see an old value; monotonic reads only means that if one user makes several reads in sequence, they will not see time go backward .
+    - _i.e., they will not read older data after having previously read newer data._
 
 #### Consistent Prefix Reads
 
 _( 前缀一致读 )_
+
+_( icehe : 即时通讯软件必须解决的问题! )_
+
+### Solutions for Replication Lag
