@@ -1323,3 +1323,16 @@ _How do you achieve high availability with leader-based replication?_
     - In the case of a log-structured storage engine, this log is the **main place for storage**.
         - Log segments are compacted and garbage-collected in the background.
     - In the case of a B-tree, which overwrites individual disk blocks, **every modification is first written to a write-ahead log so that the index can be restored to a consistent state after a crash**.
+- _The main disadvantage is that the log describes the data on a very low level : a WAL contains details of which bytes were changed in which disk blocks._
+    - _This makes replication closely coupled to the storage engine._
+    - If the database changes its storage format from one version to another, it is typically not possible to run different versions of the database software on the leader and the followers.
+
+**Logical (row-based) log replication** _( 基于行的逻辑日志复制 )_
+
+- _An alternative is to use different log formats for replication and for the storage engine, which_ allows the replication log to be decoupled from the storage engine internals.
+    - This kind of replication log is called a **logical log**, to distinguish it from the storage engine's ( physical ) data representation.
+- A logical log for a relational database is usually **a sequence of records describing writes to database tables at the granularity of a row** : _( 一系列记录来描述数据表行级别的请求 )_
+    - For an inserted row, the log contains the new values of all columns.
+    - For a deleted row, the log contains enough information to uniquely identify the row that was deleted.
+        - _Typically this would be the primary key, but if there is no primary key on the table, the old values of all columns need to be logged._
+    - For an updated row, the log contains enough information to uniquely identify the updated row, and the new values of all columns ( or at least the new values of all columns that changed ).
