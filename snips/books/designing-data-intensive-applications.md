@@ -1429,4 +1429,40 @@ _( 前缀一致读 )_
 
 _( icehe : 即时通讯软件必须解决的问题! )_
 
+The example of replication lag anomalies concerns violation of causality. _Imagine the following short dialog between Mr. Poons and Mrs. Cake :_
+
+```text
+- Mr. Poons : How far into the future can you see, Mrs. Cake?
+- Mrs. Cake : About ten seconds usually, Mr. Poons.
+```
+
+- _There is a causal dependency between those two sentences : Mrs. Cake heard Mr. Poons’s question and answered it._
+
+_Now, imagine a third person is listening to this conversation through followers._
+
+- _The things said by Mrs. Cake go through a follower with little lag, but the things said by Mr. Poons have a longer replication lag. This observer would hear the following :_
+
+```text
+- Mrs. Cake : About ten seconds usually, Mr. Poons.
+- Mr. Poons : How far into the future can you see, Mrs. Cake?
+```
+
+- _To the observer it looks as though Mrs. Cake is answering the question before Mr. Poons has even asked it. Such psychic powers are impressive, but very confusing._
+
+![consistent-prefix-reads.png](_images/designing-data-intensive-applications/consistent-prefix-reads.png)
+
+Preventing this kind of anomaly requires another type of guarantee : **consistent prefix reads**.
+
+- This guarantee says that **if a sequence of writes happens in a certain order, then anyone reading those writes will see them appear in the same order**.
+
+_This is a particular problem in partitioned ( sharded ) databases._
+
+- If the database always applies writes in the same order, reads always see a consistent prefix, so this anomaly cannot happen.
+- However, in many distributed databases, different partitions operate independently, so there is no global ordering of writes :
+    - _when a user reads from the database, they may see some parts of the database in an older state and some in a newer state._
+
+One solution is to make sure that **any writes that are causally related to each other are written to the same partition**  -- but in some applications that cannot be done efficiently.
+
+- _There are also algorithms that explicitly keep track of causal dependencies._
+
 ### Solutions for Replication Lag
