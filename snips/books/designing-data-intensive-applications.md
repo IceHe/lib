@@ -1243,4 +1243,59 @@ Often, leader-based replication is configured to be completely asynchronous.
 - _Weakening durability may sound like a bad trade-off,_
     - _but asynchronous replication is nevertheless widely used, especially if there are many followers or if they are geo‐ graphically distributed._
 
-#### Setting Up New Followers
+_Setting Up New Followers_
+
+- _omitted…_
+
+#### Handling Node Outages
+
+- _Any node in the system can go down, perhaps unexpectedly due to a fault, but just as likely due to planned maintenance._
+- _Our goal is to keep the system as a whole running despite individual node failures, and to keep the impact of a node outage as small as possible._
+
+_How do you achieve high availability with leader-based replication?_
+
+**Follower failure : Catch-up recovery** _( 从节点失效 : 追赶式恢复 )_
+
+- On its local disk, each follower keeps a log of the data changes it has received from the leader.
+- _If a follower crashes and is restarted, or if the network between the leader and the follower is temporarily interrupted, the follower can recover quite easily :_
+    - from its log, it knows the last transaction that was processed before the fault occurred.
+- Thus, the follower can connect to the leader and request all the data changes that occurred during the time when the follower was disconnected.
+    - _When it has applied these changes, it has caught up to the leader and can continue receiving a stream of data changes as before._
+
+**Leader failure : Failover** _( 主节点失效 : 节点切换 )_
+
+- **failover** : _Handling a failure of the leader is trickier ( 棘手的 ) :_
+    - one of the followers needs to be promoted to be the new leader,
+    - clients need to be reconfigured to send their writes to the new leader,
+    - and the other followers need to start consuming data changes from the new leader.
+- _Failover can happen manually or automatically. An automatic failover process usually consists of the following steps :_
+    - 1\. Determining that the leader has failed.
+        - There is no foolproof _( 万无一失的 )_ way of detecting what has gone wrong, so most systems simply use a timeout :
+            - nodes frequently bounce messages back and forth between each other,
+            - and if a node doesn’t respond for some period of time -- say, 30 seconds -- it is assumed to be dead.
+            - _( If the leader is deliberately taken down for planned maintenance, this doesn't apply. )_
+    - 2\. Choosing a new leader.
+        - This could be done through an election process ( where the leader is chosen by a majority of the remaining replicas ), or a new leader could be appointed by a previously elected controller node.
+        - The best candidate for leadership is usually the replica with the most up-to-date data changes from the old leader ( to minimize any data loss ).
+        - Getting all the nodes to agree on a new leader is a consensus problem.
+    - 3\. Reconfiguring the system to use the new leader.
+        - Clients now need to send their write requests to the new leader.
+        - If the old leader comes back, it might still believe that it is the leader, not realizing that the other replicas have forced it to step down.
+        - The system needs to ensure that the old leader becomes a follower and recognizes the new leader.
+- _Failover is fraught ( 忧虑的 ) with things that can go wrong: ( 充满很多变数 )_
+    - If asynchronous replication is used, the new leader may not have received all the writes from the old leader before it failed.
+        - If the former leader rejoins the cluster after a new leader has been chosen, what should happen to those writes?
+            - The new leader may have received conflicting writes in the meantime.
+        - The most common solution is for the old leader's unreplicated writes to simply be discarded, _which may violate clients' durability expectations._
+    - Discarding writes is especially dangerous if other storage systems outside of the database need to be coordinated with the database contents.
+        - _omitted…_
+    - In certain fault scenarios _( 情景 )_, it could happen that two nodes both believe that they are the leader.
+        - This situation is called **split brain** _( 脑裂 )_, and it is dangerous :
+            - if both leaders accept writes, and there is no process for resolving conflicts, data is likely to be lost or corrupted.
+        - As a safety catch, some systems have a mechanism to shut down one node if two leaders are detected.
+        - However, if this mechanism is not carefully designed, you can end up with both nodes being shut down.
+    - What is the right timeout before the leader is declared dead?
+        - A longer timeout means a longer time to recovery in the case where the leader fails.
+        - However, if the timeout is too short, there could be unnecessary failovers.
+            - _For example, a temporary load spike could cause a node's response time to increase above the timeout, or a network glitch could cause delayed packets._
+        - If the system is already struggling with high load or network problems, an unnecessary failover is likely to make the situation worse, not better.
