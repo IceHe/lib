@@ -1302,7 +1302,7 @@ _How do you achieve high availability with leader-based replication?_
 
 #### Implementation of Replication Logs
 
-**Statement-based** replication _( 基于语句的复制 )_
+**Statement-based replication** _( 基于语句的复制 )_
 
 - In the simplest case, the leader logs every write request ( statement ) that it executes and sends that statement log to its followers.
     - _For a relational database, this means that every INSERT, UPDATE, or DELETE statement is forwarded to followers, and each follower parses and executes that SQL statement as if it had been received from a client._
@@ -1316,3 +1316,10 @@ _How do you achieve high availability with leader-based replication?_
     - _However, because there are so many edge cases, other replication methods are now generally preferred._
 - Statement-based replication was used in MySQL before version 5.1.
     - It is still sometimes used today, as it is quite compact, but **by default MySQL now switches to row-based replication** if there is any nondeterminism in a statement.
+
+**Write-ahead log (WAL) shipping** _( 基于预写日志的传输 )_
+
+- _We found that_ **usually every write is appended to a log** :
+    - In the case of a log-structured storage engine, this log is the **main place for storage**.
+        - Log segments are compacted and garbage-collected in the background.
+    - In the case of a B-tree, which overwrites individual disk blocks, **every modification is first written to a write-ahead log so that the index can be restored to a consistent state after a crash**.
