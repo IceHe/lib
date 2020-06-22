@@ -1336,3 +1336,35 @@ _How do you achieve high availability with leader-based replication?_
     - For a deleted row, the log contains enough information to uniquely identify the row that was deleted.
         - _Typically this would be the primary key, but if there is no primary key on the table, the old values of all columns need to be logged._
     - For an updated row, the log contains enough information to uniquely identify the updated row, and the new values of all columns ( or at least the new values of all columns that changed ).
+- A transaction that modifies several rows generates several such log records, followed by a record indicating that the transaction was committed.
+    - _MySQL's **binlog** ( when configured to use row-based replication ) uses this approach._
+- _A logical log format is also easier for external applications to parse._
+    - _This aspect is useful if you want to send the contents of a database to an external system, such as a data warehouse for offline analysis, or for building custom indexes and caches._
+    - This technique is called **change data capture** _( 变更数据捕获 )_ .
+
+Trigger-based replication _( 基于触发器的复制 )_
+
+- _omitted…_
+
+### Problems with Replication Lag
+
+_( 复制滞后问题 )_
+
+The followers will eventually catch up and become consistent with the leader. For that reason, this effect is known as **eventual consistency** _( 最终一致性 )_ .
+
+- _When the lag is so large, the inconsistencies it introduces are not just a theoretical issue but a real problem for applications._
+
+#### Reading Your Own Writes
+
+_( 读自己的写 )_
+
+TODO
+
+#### Monotonic Reads
+
+_( 单调读 )_
+
+
+#### Consistent Prefix Reads
+
+_( 前缀一致读 )_
