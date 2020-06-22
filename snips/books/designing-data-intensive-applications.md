@@ -1135,8 +1135,8 @@ _There are various reasons why you might want to distribute a database across mu
 
 Scaling to Higher Load
 
-- **Shared-memory** architecture
-    - If all you need is to scale to higher load, the simplest approach is to buy a more powerful machine ( sometimes called **vertical scaling or scaling up** ).
+- **Shared-memory** Architecture _( 共享内存架构 )_
+    - If all you need is to scale to higher load, the simplest approach is to buy a more powerful machine ( sometimes called **vertical scaling or scaling up** ). _( 垂直拓展 )_
         - _Many CPUs, many RAM chips, and many disks can be joined together under one operating system, and a fast interconnect allows any CPU to access any part of the memory or disk._
         - In this kind of shared-memory architecture, all the components can be treated as a single machine.
     - _The problem with a shared-memory approach is that_ **the cost grows faster than linearly**.
@@ -1144,11 +1144,42 @@ Scaling to Higher Load
     - _A shared-memory architecture may offer_ limited fault tolerance.
         - _It is definitely_ limited to a single geographic location.
         - _( 局限于地理位置, 无法提供异地容错能力 )_
-- **Shared-disk** architecture
+- **Shared-disk** Architecture _( 共享存储架构 )_
     - It uses several machines with independent CPUs and RAM,
         - but stores data on an array of disks that is shared between the machines, which are connected via a fast network.
     - This architecture is used for some **data warehousing workloads**,
         - but contention and the overhead of locking limit the scalability of the shared-disk approach.
         - _( 资源竞争以及锁的开销限制了进一步的伸缩性/拓展性 )_
+- **Shared-Nothing** Architectures _( 无共享架构 )_
+    - It's sometimes called **horizontal scaling or scaling out**. _( 水平拓展 )_
+    - _In this approach, each machine or virtual machine running the database software is called a **node**._
+        - _Each node uses its CPUs, RAM, and disks independently._
+        - Any coordination between nodes is done at the software level, using a conventional network.
+    - _No special hardware is required by a shared-nothing system, so you can use whatever machines have the best price/performance ratio._
+        - You can potentially distribute data across multiple geographic regions, and thus reduce latency for users and potentially be able to survive the loss of an entire datacenter.
+        - _( icehe : 但实际上为了方便运维, 通常只提供少数几种标准配置类型的服务节点实例 : 存储型 / 计算型 / 内存型 / … )_
+    - _While a distributed shared-nothing architecture has many advantages,_
+        - _it usually also **incurs additional complexity** for applications and sometimes limits the expressiveness of the data models you can use._
 
-## TODO
+Replication Versus Partitioning
+
+- **Replication** _( 复制 )_
+    - **Keeping a copy of the same data on several different nodes**, _potentially in different locations._
+    - _Replication_ provides redundancy :
+        - if some nodes are unavailable, the data can still be served from the remaining nodes.
+    - _Replication can also help_ improve performance.
+- **Partitioning** _( 分区 )_
+    - Splitting a big database into smaller subsets called partitions
+        - so that different partitions can be assigned to different nodes ( also known as **sharding** ) _( 分片 )_ .
+
+## Replication
+
+Replication means
+
+- **keeping a copy of the same data on multiple machines that are connected via a network**.
+
+_There are several reasons why you might want to replicate data :_
+
+- To keep data geographically close to your users ( and thus **reduce latency** )
+- To allow the system to continue working even if some of its parts have failed ( and thus **increase availability** )
+- To scale out the number of machines that can serve read queries ( and thus increase **read throughput** )
