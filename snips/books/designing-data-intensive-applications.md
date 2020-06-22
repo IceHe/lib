@@ -1117,3 +1117,38 @@ _Distributed **actor** frameworks_
     - _Since each actor processes only one message at a time, it doesn’t need to worry about threads, and each actor can be scheduled independently by the framework._
 - **Location transparency** _( 位置透明性 ) works better in the actor model than in RPC, because the actor model already assumes that_ messages may be lost, even within a single process.
 - _omitted…_
+
+---
+
+> Part II. Distributed Data
+
+_There are various reasons why you might want to distribute a database across multiple machines:_
+
+- Scalability _( 可伸缩性 / 拓展性 )_
+    - If your data volume, read load, or write load grows bigger than a single machine can handle, you can potentially spread the load across multiple machines.
+- Fault tolerance / high availability _( 容错性 / 高可用性 )_
+    - If your application needs to continue working even if one machine (or several machines, or the network, or an entire datacenter) goes down, you can use multiple machines to give you redundancy.
+    - When one fails, another one can take over _( 接管 )_.
+- Latency _( 延迟 )_
+    - If you have users around the world, you might want to have servers at various locations worldwide so that each user can be served from a datacenter that is geographically close to them.
+    - That avoids the users having to wait for network packets to travel halfway around the world.
+
+Scaling to Higher Load
+
+- **Shared-memory** architecture
+    - If all you need is to scale to higher load, the simplest approach is to buy a more powerful machine ( sometimes called **vertical scaling or scaling up** ).
+        - _Many CPUs, many RAM chips, and many disks can be joined together under one operating system, and a fast interconnect allows any CPU to access any part of the memory or disk._
+        - In this kind of shared-memory architecture, all the components can be treated as a single machine.
+    - _The problem with a shared-memory approach is that_ **the cost grows faster than linearly**.
+        - _( 设备的性能提升, 不能一定能带来同样比例的负载提升 )_
+    - _A shared-memory architecture may offer_ limited fault tolerance.
+        - _It is definitely_ limited to a single geographic location.
+        - _( 局限于地理位置, 无法提供异地容错能力 )_
+- **Shared-disk** architecture
+    - It uses several machines with independent CPUs and RAM,
+        - but stores data on an array of disks that is shared between the machines, which are connected via a fast network.
+    - This architecture is used for some **data warehousing workloads**,
+        - but contention and the overhead of locking limit the scalability of the shared-disk approach.
+        - _( 资源竞争以及锁的开销限制了进一步的伸缩性/拓展性 )_
+
+## TODO

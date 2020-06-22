@@ -257,7 +257,7 @@ return wordCountMap.entrySet().stream()
 
 ```
 
-## executor ( TODO )
+## Executor
 
 References
 
@@ -265,7 +265,17 @@ References
 - Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
 - https://blog.csdn.net/wqh8522/article/details/79224290
 
-## Jackson LocalDateTime Serializer
+TODO : 暂时没有找到合适的样例
+
+### Future
+
+References : JFGI
+
+TODO : 暂时没有找到合适的样例
+
+## Jackson
+
+### LocalDateTime Serializer
 
 References
 
@@ -314,6 +324,72 @@ public class TestDTO {
     private LocalDateTime createdAt;
 }
 ```
+
+### LocalDateTime Deserializer
+
+```java
+import java.io.IOException;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+
+/**
+ * 转换毫秒数或字符串类型的时间戳转换为 LocalDateTime 的反序列化器
+ */
+public class MillisOrString2LocalDateTimeDeserializer extends StdDeserializer<Object> {
+
+    public MillisOrString2LocalDateTimeDeserializer() {
+        this(null);
+    }
+
+    public MillisOrString2LocalDateTimeDeserializer(Class<Object> t) {
+        super(t);
+    }
+
+    @Override
+    public Object deserialize(JsonParser p, DeserializationContext ctxt)
+            throws IOException, JsonProcessingException {
+
+        // 兼容毫秒数
+        try {
+            Long millis = p.readValueAs(Long.class);
+            LocalDateTime localDateTime =
+                    LocalDateTime.ofInstant(Instant.ofEpochMilli(millis), ZoneId.systemDefault());
+            return localDateTime;
+        } catch (IOException e) {
+            // do nothing
+        }
+
+        // 兼容毫秒数
+        try {
+            String dateTimeStr = p.readValueAs(String.class);
+            LocalDateTime localDateTime =
+                    LocalDateTime.parse(dateTimeStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            return localDateTime;
+        } catch (IOException e) {
+            // do nothing
+        }
+
+        return null;
+    }
+}
+```
+
+```java
+public class TestDTO {
+    @JsonSerialize(using = LocalDateTime2MillisSerializer.class)
+    @JsonDeserialize(using = MillisOrString2LocalDateTimeDeserializer.class)
+    private LocalDateTime createdAt;
+}
+```
+
+Reference
+
+- Custom JSON Deserialization with Jackson - Stack Overflow : https://stackoverflow.com/questions/19158345/custom-json-deserialization-with-jackson
 
 # StringParsableUtils
 
