@@ -1299,3 +1299,20 @@ _How do you achieve high availability with leader-based replication?_
         - However, if the timeout is too short, there could be unnecessary failovers.
             - _For example, a temporary load spike could cause a node's response time to increase above the timeout, or a network glitch could cause delayed packets._
         - If the system is already struggling with high load or network problems, an unnecessary failover is likely to make the situation worse, not better.
+
+#### Implementation of Replication Logs
+
+**Statement-based** replication _( 基于语句的复制 )_
+
+- In the simplest case, the leader logs every write request ( statement ) that it executes and sends that statement log to its followers.
+    - _For a relational database, this means that every INSERT, UPDATE, or DELETE statement is forwarded to followers, and each follower parses and executes that SQL statement as if it had been received from a client._
+- _Although this may sound reasonable, there are various ways in which_ this approach to replication can break down :
+    - _Any statement that calls a nondeterministic function, such as NOW() to get the current date and time or RAND() to get a random number, is likely to generate a different value on each replica._
+    - _If statements use an autoincrementing column, or if they depend on the existing data in the database ( e.g., UPDATE ... WHERE <some condition> ), they must be executed in exactly the same order on each replica, or else they may have a differ‐ ent effect._
+        - _This can be limiting when there are multiple concurrently executing transactions._
+    - _Statements that have side effects ( e.g., triggers, stored procedures, user-defined functions ) may result in different side effects occurring on each replica, unless the side effects are absolutely deterministic._
+- _It is possible to work around those issues._
+    - _For example,_ the leader can replace any nondeterministic function calls with a fixed return value when the statement is logged so that the followers all get the same value.
+    - _However, because there are so many edge cases, other replication methods are now generally preferred._
+- Statement-based replication was used in MySQL before version 5.1.
+    - It is still sometimes used today, as it is quite compact, but **by default MySQL now switches to row-based replication** if there is any nondeterminism in a statement.
