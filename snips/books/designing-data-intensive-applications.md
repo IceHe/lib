@@ -1183,3 +1183,17 @@ _There are several reasons why you might want to replicate data :_
 - To keep data geographically close to your users ( and thus **reduce latency** )
 - To allow the system to continue working even if some of its parts have failed ( and thus **increase availability** )
 - To scale out the number of machines that can serve read queries ( and thus increase **read throughput** )
+
+_Three popular algorithms for replicating changes between nodes :_
+
+- **Single-leader** replication _( 单主节点复制 -- 主从复制 )_
+- **Multi-leader** replication _( 多主节点复制 )_
+- **Leaderless** replication _( 无主节点复制 )_
+
+### Leaders and Followers
+
+_( 主节点与从节点 )_
+
+- Each node that stores a copy of the database is called a **replica**.
+
+How do we ensure that all the data ends up on all the replicas?
