@@ -1196,4 +1196,51 @@ _( 主节点与从节点 )_
 
 - Each node that stores a copy of the database is called a **replica**.
 
-How do we ensure that all the data ends up on all the replicas?
+_How do we ensure that all the data ends up on all the replicas?_
+
+- _Every write to the database needs to be processed by every replica._
+
+The most common solution for this is called **leader-based replication ( aka. active/passive or master–slave replication )** . It works as follows:
+
+- 1\. One of the replicas is designated the **leader ( aka. master or primary )** .
+    - When clients want to write to the database, they **must send their requests to the leader**, which first writes the new data to its local storage.
+- 2\. The other replicas are known as **followers ( read replicas, slaves, secondaries, or hot standbys )** .
+    - Whenever the leader writes new data to its local storage, it also sends the data change to all of its followers as part of a replication log or change stream.
+    - Each follower takes the log from the leader and updates its local copy of the database accordingly, by applying all **writes in the same order as they were processed on the leader**.
+- 3\. When a client wants to read from the database, it can query either the leader or any of the followers.
+    - However, writes are only accepted on the leader ( the followers are read-only from the client's point of view ).
+
+_This mode of replication is a built-in feature of many relational databases_
+
+#### Synchronous Versus Asynchronous Replication
+
+_( 同步复制与异步复制 )_
+
+_In the example of the following image :_
+
+- The replication to follower 1 is **synchronous**.
+    - The leader waits until follower 1 has confirmed that it received the write before reporting success to the user, and before making the write visible to other clients.
+- The replication to follower 2 is **asynchronous**.
+    - The leader sends the message, but doesn't wait for a response from the follower.
+
+![sync_n_async_replication.png](_images/sync_n_async_replication.png)
+
+_For that reason, it is impractical for all followers to be synchronous :_
+
+- _any one node outage would cause the whole system to grind to a halt._
+- In practice, if you enable synchronous replication on a database, it usually means that one of the followers is synchronous, and the others are asynchronous.
+    - If the synchronous follower becomes unavailable or slow, one of the asynchronous followers is made synchronous.
+    - This guarantees that you have an up-to-date copy of the data on at least two nodes : the leader and one synchronous follower.
+    - This configuration is sometimes also called **semi-synchronous**. _( 半同步 )_
+    - _( 保证主节点和其中一个从节点拥有最新的数据副本 )_
+
+Often, leader-based replication is configured to be completely asynchronous.
+
+- In this case, if the leader fails and is not recoverable, any writes that have not yet been replicated to followers are lost.
+    - This means that a write is not guaranteed to be durable, even if it has been confirmed to the client.
+    - However, a fully asynchronous configuration has the advantage that the leader can continue processing writes, even if all of its followers have fallen behind.
+    - _( 虽然无法保证数据的持久化, 但是写吞吐量更好 )_
+- _Weakening durability may sound like a bad trade-off,_
+    - _but asynchronous replication is nevertheless widely used, especially if there are many followers or if they are geo‐ graphically distributed._
+
+#### Setting Up New Followers
