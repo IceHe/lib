@@ -1576,3 +1576,27 @@ Synchronous versus asynchronous conflict detection
 ### Leaderless Replication
 
 _( 无主节点复制 )_
+
+TODO
+
+## Partitioning
+
+_( 数据分区 )_
+
+- _Replication -- that is, having multiple copies of the same data on different nodes._
+- For very large datasets, or very high query throughput, that is not sufficient :
+    - we need to break the data up into **partitions**, aka. **sharding**.
+- _Normally, partitions are defined in such a way that_ **each piece of data ( each record, row, or document ) belongs to exactly one partition**.
+- The main reason for wanting to partition data is **scalability**.
+    - _Different partitions can be placed on different nodes in a shared-nothing cluster._
+    - _Thus, a large dataset can be distributed across many disks, and the query load can be distributed across many processors._
+
+_Terminological confusion_
+
+- _What we call a partition here is called_
+    - a **shard** in MongoDB, Elasticsearch, and SolrCloud _; it’s known as_
+    - a **region** in HBase,
+    - a **tablet** in Bigtable,
+    - a **vnode** in Cassandra and Riak _, and_
+    - a **vBucket** in Couchbase.
+- _However, **partitioning** is the most established term, so we’ll stick with that._
