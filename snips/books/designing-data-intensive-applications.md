@@ -1504,3 +1504,24 @@ A natural extension of the leader-based replication model is to allow more than 
         - Traffic between datacenters usually goes over the public internet, which may be less reliable than the local network within a datacenter.
         - A single-leader configuration is very sensitive to problems in this inter-datacenter link, because writes are made synchronously over this link.
         - A multi-leader configuration with asynchronous replication can usually tolerate network problems better : a temporary network interruption does not prevent writes being processed.
+- _Although multi-leader replication has advantages, it also has a big downside :_ the same data may be concurrently modified in two different datacenters, and those write conflicts must be resolved.
+
+**Clients with offline operation** _( 离线客户端操作 )_
+
+- _Another situation in which multi-leader replication is appropriate is_ if you have an application that needs to continue to work while it is disconnected from the internet.
+    - Every device has a local database that acts as a leader ( it accepts write requests ), and there is an asynchronous multi-leader replication process ( sync ) between the replicas of your data on all of your devices.
+    - _The replication lag may be hours or even days, depending on when you have internet access available._
+- _From an architectural point of view, this setup is essentially the same as multi-leader replication between datacenters, taken to the extreme :_ each device is a "datacenter", and the network connection between them is extremely unreliable.
+    - _The multi-leader replication is a tricky thing to get right._
+
+**Collaborative editing** _( 协作编辑 )_
+
+- Real-time collaborative editing applications allow several people to edit a document simultaneously.
+    - _We don’t usually think of collaborative editing as a database replication problem, but it has a lot in common with the previously mentioned offline editing use case._
+- When one user edits a document, the changes are instantly applied to their local replica _( the state of the document in their web browser or client application )_ and asynchronously replicated to the server and any other users who are editing the same document.
+    - If you want to guarantee that there will be no editing conflicts, the application must obtain a lock on the document before a user can edit it.
+    - _If another user wants to edit the same document, they first have to wait until the first user has committed their changes and released the lock._
+    - This collaboration model is equivalent to single-leader replication with transactions on the leader.
+- However, for faster collaboration, you may want to **make the unit of change very small and avoid locking**.
+
+#### Handling Write Conflicts
