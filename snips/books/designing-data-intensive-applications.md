@@ -1525,3 +1525,54 @@ A natural extension of the leader-based replication model is to allow more than 
 - However, for faster collaboration, you may want to **make the unit of change very small and avoid locking**.
 
 #### Handling Write Conflicts
+
+Synchronous versus asynchronous conflict detection
+
+- _omitted…_
+
+**Conflict avoidance**
+
+- _The simplest strategy for dealing with conflicts is to avoid them :_ if the application can ensure that all writes for a particular record go through the same leader, then conflicts cannot occur.
+    - _Since many implementations of multi-leader replication handle conflicts quite poorly,_ avoiding conflicts is a frequently recommended approach.
+- _For example,_ in an application where a user can edit their own data, you can ensure that requests from a particular user are always routed to the same datacenter and use the leader in that datacenter for reading and writing.
+    - _Different users may have different "home" datacenters ( perhaps picked based on geographic proximity to the user ) ,_ but from any one user's point of view the configuration is essentially single-leader.
+- However, sometimes you might want to change the designated leader for a record --
+    - perhaps because one datacenter has failed and you need to reroute traffic to another datacenter, or
+    - perhaps because a user has moved to a different location and is now closer to a different datacenter.
+- In this situation, conflict avoidance breaks down, and you have to deal with the possibility of concurrent writes on different leaders.
+
+**Converging toward a consistent state** _( 收敛于一致状态 )_
+
+- A single-leader database applies writes in a sequential order : if there are several updates to the same field, the last write determines the final value of the field.
+- In a multi-leader configuration, there is no defined ordering of writes, so it's not clear what the final value should be.
+- _There are various ways of_ achieving convergent conflict resolution :
+    - Give each write a unique ID ( e.g., a timestamp, a long random number, a UUID, or a hash of the key and value ), pick the write with the highest ID as the winner, and throw away the other writes.
+        - If a timestamp is used, this technique is known as **last write wins (LWW)**.
+        - Although this approach is popular, it is dangerously prone to data loss.
+    - Give each replica a unique ID, and let writes that originated at a higher-numbered replica always take precedence over writes that originated at a lower-numbered replica.
+        - _This approach also implies data loss._
+    - Somehow **merge the values together**
+        - e.g., order them alphabetically and then concatenate them.
+    - **Record the conflict** in an explicit data structure that preserves all information, and write application code that **resolves the conflict** at some later time ( perhaps by prompting the user ).
+
+**Custom conflict resolution logic** _( 自定义冲突解决逻辑 )_
+
+- _As the most appropriate way of resolving a conflict may_ depend on the application, most multi-leader replication tools let you write conflict resolution logic using appli‐ cation code.
+- _That code may be executed on write or on read:_
+    - On write
+        - As soon as the database system detects a conflict in the log of replicated changes, it calls the conflict handler.
+    - On read
+        - When a conflict is detected, all the conflicting writes are stored.
+        - The next time the data is read, these multiple versions of the data are returned to the applica‐ tion.
+        - The application may prompt the user or automatically resolve the conflict, and write the result back to the database.
+
+#### Multi-Leader Replication Topologies
+
+- _omitted…_
+    - Circular topology 环形拓扑
+    - Star topology 星型拓扑
+    - All-to-all topology 全部至全部型拓扑
+
+### Leaderless Replication
+
+_( 无主节点复制 )_
