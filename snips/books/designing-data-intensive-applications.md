@@ -561,7 +561,7 @@ _Schema flexibility ( 模式灵活性 ) in the document model_
 
 _Data locality for queries ( 查询的数据局部性 )_
 
-- _A document is usually stored as a single continuous string, encoded as JSON, XML, or a binary variant thereof (such as MongoDB’s BSON)._
+- _A document is usually stored as a single continuous string, encoded as JSON, XML, or a binary variant thereof (such as MongoDB's BSON)._
 - If your application often needs to access the entire document (for example, to render it on a web page), there is a performance advantage to this **storage locality**.
 - _If data is split across multiple tables, multiple index lookups are required to retrieve it all, which may require more disk seeks and take more time._
 
@@ -583,7 +583,7 @@ MapReduce Querying
     - _the logic of the query is expressed with snippets of code, which are called repeatedly by the processing framework._
 - It is based on the **map** ( aka. collect ) and **reduce** ( aka. fold or inject ) functions that exist in many functional programming languages.
 - _MapReduce is a fairly low-level programming model for distributed execution on a cluster of machines._
-    - _Higher-level query languages like SQL can be implemented as a pipeline of MapReduce operations, but there are also many distributed implementations of SQL that don’t use MapReduce._
+    - _Higher-level query languages like SQL can be implemented as a pipeline of MapReduce operations, but there are also many distributed implementations of SQL that don't use MapReduce._
 
 Graph-Like Data Models _( 图状数据模型 )_
 
@@ -606,7 +606,7 @@ Property Graphs _( 属性图 )_
     - _A collection of properties (key-value pairs)_
 - _Some important aspects of this model are:_
     - _1\. Any vertex can have an edge connecting it with any other vertex. There is no schema that restricts which kinds of things can or cannot be associated._
-    - <i>2\. Given any vertex, you can efficiently find both its incoming and its outgoing edges, and thus traverse the graph -- i.e., follow a path through a chain of vertices -- both forward and backward. (That’s why Example 2-2 has indexes on both the tail_vertex and head_vertex columns.)</i>
+    - <i>2\. Given any vertex, you can efficiently find both its incoming and its outgoing edges, and thus traverse the graph -- i.e., follow a path through a chain of vertices -- both forward and backward. (That's why Example 2-2 has indexes on both the tail_vertex and head_vertex columns.)</i>
     - _3\. By using different labels for different kinds of relationships, you can store several different kinds of information in a single graph, while still maintaining a clean data model._
 - _The Cypher Query Language_
     - _Cypher is a declarative query language for property graphs, created for the Neo4j graph database._
@@ -619,13 +619,13 @@ _Triple-Stores and SPARQL ( 三元存储 … )_
     - _It is nevertheless worth discussing, because there are various tools and languages for triple-stores that can be valuable additions to your toolbox for building applications._
 - _Semantic web ( 语义网 )_
     - _The semantic web is fundamentally a simple and reasonable idea_
-        - _websites already publish information as text and pictures for humans to read, so why don’t they also publish information as machine-readable data for computers to read?_
+        - _websites already publish information as text and pictures for humans to read, so why don't they also publish information as machine-readable data for computers to read?_
 - _RDF data model_
     - _RDF - Resource Description Framework 资源描述框架_
 - _SPARQL query language_
     - _SPARQL is a query language for triple-stores using the RDF data model._
     - _( It is an acronym for SPARQL Protocol and RDF Query Language, pronounced “sparkle.” )_
-    - _It predates Cypher, and since Cypher’s pattern matching is borrowed from SPARQL, they look quite similar._
+    - _It predates Cypher, and since Cypher's pattern matching is borrowed from SPARQL, they look quite similar._
 
 _The Foundation: Datalog_
 
@@ -644,15 +644,15 @@ OLTP - Two families of storage engines :
 
 Log
 
-- _The word log is often used to refer to application logs, where an application outputs text that describes what’s happening._
+- _The word log is often used to refer to application logs, where an application outputs text that describes what's happening._
 - _In this book, log is used in the more general sense:_ an append-only sequence of records.
-    - _It doesn’t have to be human-readable; it might be binary and intended only for other programs to read._
+    - _It doesn't have to be human-readable; it might be binary and intended only for other programs to read._
 
 #### Hash Indexes
 
 Possible Indexing Strategy
 
-- _Let’s say our data storage consists only of appending to a file._
+- _Let's say our data storage consists only of appending to a file._
 - Then the simplest possible indexing strategy is this: keep an in-memory hash map where every key is mapped to a byte offset in the data file -- the location at which the value can be found.
 - Whenever you append a new key-value pair to the file, you also update the hash map to reflect the offset of the data you just wrote (this works both for inserting new keys and for updating existing keys).
 - When you want to look up a value, use the hash map to find the offset in the data file, seek to that location, and read the value.
@@ -671,23 +671,23 @@ Compaction
 
 Each segment has its own in-memory hash table, _mapping keys to file offsets._
 
-- _In order to find the value for a key, we first check the most recent segment’s hash map; if the key is not present we check the second-most-recent segment, and so on._
-- _The merging process keeps the number of segments small, so lookups don’t need to check many hash maps._
+- _In order to find the value for a key, we first check the most recent segment's hash map; if the key is not present we check the second-most-recent segment, and so on._
+- _The merging process keeps the number of segments small, so lookups don't need to check many hash maps._
 
 _Some of the_ issues that are important in a real implementation _are :_
 
 - File format
-    CSV is not the best format for a log. It’s faster and simpler to use a binary format that first encodes the length of a string in bytes, followed by the raw string (without need for escaping).
+    CSV is not the best format for a log. It's faster and simpler to use a binary format that first encodes the length of a string in bytes, followed by the raw string (without need for escaping).
 - Deleting records
     If you want to delete a key and its associated value, you have to append a special deletion record to the data file (sometimes called a tombstone). When log seg‐ ments are merged, the tombstone tells the merging process to discard any previ‐ ous values for the deleted key.
 - Crash recovery
-    If the database is restarted, the in-memory hash maps are lost. In principle, you can restore each segment’s hash map by reading the entire segment file from beginning to end and noting the offset of the most recent value for every key as you go along. However, that might take a long time if the segment files are large, which would make server restarts painful. Bitcask speeds up recovery by storing a snapshot of each segment’s hash map on disk, which can be loaded into mem‐ ory more quickly.
+    If the database is restarted, the in-memory hash maps are lost. In principle, you can restore each segment's hash map by reading the entire segment file from beginning to end and noting the offset of the most recent value for every key as you go along. However, that might take a long time if the segment files are large, which would make server restarts painful. Bitcask speeds up recovery by storing a snapshot of each segment's hash map on disk, which can be loaded into mem‐ ory more quickly.
 - Partially written records
     The database may crash at any time, including halfway through appending a record to the log. Bitcask files include checksums, allowing such corrupted parts of the log to be detected and ignored.
 - Concurrency control
     As writes are appended to the log in a strictly sequential order, a common imple‐ mentation choice is to have only one writer thread. Data file segments are append-only and otherwise immutable, so they can be read concurrently by multiple threads.
 
-_Why don’t you update the file in place, overwriting the old value with the new value? But_ an **append-only design** turns out to be good for several reasons:
+_Why don't you update the file in place, overwriting the old value with the new value? But_ an **append-only design** turns out to be good for several reasons:
 
 - Appending and segment merging are sequential write operations, which are generally much faster than random writes, especially on magnetic spinning-disk hard drives.
 - _Concurrency and crash recovery are much simpler if segment files are append-only or immutable._
@@ -696,7 +696,7 @@ _Why don’t you update the file in place, overwriting the old value with the ne
 
 Limitations of Hash Table Index
 
-- The hash table must fit in memory, so if you have a very large number of keys, you’re out of luck.
+- The hash table must fit in memory, so if you have a very large number of keys, you're out of luck.
     - In principle, you could maintain a hash map on disk, but unfortunately it is difficult to make an on-disk hash map perform well.
     - It requires a lot of random access I/O, it is expensive to grow when it becomes full, and hash collisions require fiddly _( 要求高精度的/复杂的 )_ logic.
 - Range queries _( 范围查询 )_ are not efficient.
@@ -749,7 +749,7 @@ Performance optimizations
 Advantages of LSM-trees
 
 - Log-structured indexes also rewrite data multiple times due to repeated compaction and merging of SSTables.
-    - This effect -- one write to the database resulting in multiple writes to the disk over the course of the database’s lifetime -- is known as **write amplification**.
+    - This effect -- one write to the database resulting in multiple writes to the disk over the course of the database's lifetime -- is known as **write amplification**.
     - _It is of particular concern on SSDs, which can only overwrite blocks a limited number of times before wearing out._
 - _In write-heavy applications, the performance bottleneck might be the rate at which the database can write to disk._
     - LSM-trees are typically able to sustain higher write throughput than B-trees, partly because they sometimes have lower write amplification ( although this depends on the storage engine configuration and workload ), and partly because they sequentially write compact SSTable files rather than having to overwrite several pages in the tree.
@@ -788,7 +788,7 @@ Storing values within the index
 
 **Covering Index** _( 覆盖索引 )_
 
-- A compromise between a clustered index ( storing all row data within the index ) and a **nonclustered index** ( storing only references to the data within the index ) is known as a **covering index** or index with included columns, which **stores some of a table’s columns within the index**.
+- A compromise between a clustered index ( storing all row data within the index ) and a **nonclustered index** ( storing only references to the data within the index ) is known as a **covering index** or index with included columns, which **stores some of a table's columns within the index**.
     - This allows some queries to be answered by using the index alone ( in which case, **the index is said to cover the query** ) .
 
 Multi-column indexes _( 多列索引 )_
@@ -800,7 +800,7 @@ Keeping everything in memory
 - _Products such as VoltDB, MemSQL, and Oracle TimesTen are in-memory databases with a relational model, and the vendors claim that they can offer big performance improvements by removing all the overheads associated with managing on-disk data structures._
     - _RAMCloud is an open source, in-memory key-value store with durability ( using a log-structured approach for the data in memory as well as the data on disk ) ._
     - Redis and Couchbase provide weak durability by writing to disk asynchronously.
-- Counterintuitively, the performance advantage of in-memory databases is not due to the fact that they don’t need to read from disk.
+- Counterintuitively, the performance advantage of in-memory databases is not due to the fact that they don't need to read from disk.
     - Rather, they can be faster because they can **avoid the overheads of encoding in-memory data structures in a form that can be written to disk**.
 
 ### Transaction Processing or Analytics?
@@ -876,7 +876,7 @@ How can we execute the query efficiently?
 - Document databases are similar:
     - an entire document is typically stored as one contiguous sequence of bytes.
 - The idea behind column-oriented storage is simple:
-    - don’t store all the values from one row together, but **store all the values from each column together instead**.
+    - don't store all the values from one row together, but **store all the values from each column together instead**.
 - If each column is stored in a separate file, **a query only needs to read and parse those columns that are used in that query**, which can save a lot of work.
 - The column-oriented storage layout relies on **each column file containing the rows in the same order**.
 
@@ -958,7 +958,7 @@ _Representation Translation_
 _Terminology Clash_
 
 - **Serialization** _is unfortunately also used in the context of transactions, with a completely different meaning._
-- _To avoid overloading the word we’ll stick with **encoding** ( in this book ) , even though serialization is perhaps a more common term._
+- _To avoid overloading the word we'll stick with **encoding** ( in this book ) , even though serialization is perhaps a more common term._
 
 ### Language-Specific Formats
 
@@ -981,7 +981,7 @@ _Some deep problems of using programming language built-in encoding libraries : 
         - _as they are intended for quick and easy encoding of data,_
         - _they often neglect the inconvenient problems of forward and backward compatibility._
 - Efficiency ( CPU time taken to encode or decode, and the size of the encoded structure ) is also often an afterthought.
-    - _For example, Java’s built-in serialization is notorious for its bad performance and bloated encoding._
+    - _For example, Java's built-in serialization is notorious for its bad performance and bloated encoding._
 
 ### JSON, XML, and Binary Variants
 
@@ -1033,15 +1033,15 @@ _Confusingly, Thrift has 2 different binary encoding formats :_
 _Avro_
 
 - _Apache Avro is another binary encoding format that is interestingly different from Protocol Buffers and Thrift._
-- _It was started in 2009 as a subproject of Hadoop, as a result of Thrift not being a good fit for Hadoop’s use cases._
+- _It was started in 2009 as a subproject of Hadoop, as a result of Thrift not being a good fit for Hadoop's use cases._
 - _Avro also uses a schema to specify the structure of the data being encoded._
     - _It has two schema languages : one (Avro IDL) intended for human editing, and one (based on JSON) that is more easily machine-readable._
-- _The writer’s schema and the reader’s schema_
-    - The key idea with Avro is that the writer’s schema and the reader’s schema don’t have to be the same -- they only need to be compatible.
-    - _When data is decoded (read), the Avro library resolves the differences by looking at the writer’s schema and the reader’s schema side by side and translating the data from the writer’s schema into the reader’s schema._
-        - _If the writer’s schema and the reader’s schema have their fields in a different order, because the schema resolution matches up the fields by field name._
-        - _If the code reading the data encounters a field that appears in the writer’s schema but not in the reader’s schema, it is ignored._
-        - _If the code reading the data expects some field, but the writer’s schema does not contain a field of that name, it is filled in with a default value declared in the reader’s schema._
+- _The writer's schema and the reader's schema_
+    - The key idea with Avro is that the writer's schema and the reader's schema don't have to be the same -- they only need to be compatible.
+    - _When data is decoded (read), the Avro library resolves the differences by looking at the writer's schema and the reader's schema side by side and translating the data from the writer's schema into the reader's schema._
+        - _If the writer's schema and the reader's schema have their fields in a different order, because the schema resolution matches up the fields by field name._
+        - _If the code reading the data encounters a field that appears in the writer's schema but not in the reader's schema, it is ignored._
+        - _If the code reading the data expects some field, but the writer's schema does not contain a field of that name, it is filled in with a default value declared in the reader's schema._
 - _( 其它详见原书 )_
 
 ### Modes of Dataflow
@@ -1059,7 +1059,7 @@ _The most common ways how data flows between processes:_
 - A key design goal of a service-oriented/microservices architecture is
     - to make the application easier to change and maintain by making services independently deployable and evolvable.
 - _For example, each service should be owned by one team, and that team should be able to release new versions of the service frequently, without having to coordinate with other teams._
-- _In other words, we should expect old and new versions of servers and clients to be running at the same time, and so the data encoding used by servers and clients must be compatible across versions of the service API— precisely what we’ve been talking about in this chapter. ( icehe : 注意不要破坏兼容性 )_
+- _In other words, we should expect old and new versions of servers and clients to be running at the same time, and so the data encoding used by servers and clients must be compatible across versions of the service API— precisely what we've been talking about in this chapter. ( icehe : 注意不要破坏兼容性 )_
 
 _The problems with remote procedure calls (RPCs)_
 
@@ -1073,24 +1073,24 @@ _A network request is very different from a local function call:_
     - _Network problems are common, so you have to anticipate them, for example by retrying a failed request._
 - _A local function call either returns a result, or throws an exception, or never returns (because it goes into an infinite loop or the process crashes). ( icehe : 意外情况导致更多的返回结果类型, 例如超时失败 )_
     - _A network request has another possible outcome: it may return without a result, due to a timeout._
-    - _In that case, you simply don’t know what happened: if you don’t get a response from the remote service, you have no way of knowing whether the request got through or not._
+    - _In that case, you simply don't know what happened: if you don't get a response from the remote service, you have no way of knowing whether the request got through or not._
 - If you retry a failed network request, it could happen that the requests are actually getting through, and only the responses are getting lost. _( 幂等性问题 )_
     - In that case, retrying will cause the action to be performed multiple times, unless you build a mechanism for deduplication ( **idempotence** 幂等 ) into the protocol.
-    - _Local function calls don’t have this problem._
+    - _Local function calls don't have this problem._
 - _Every time you call a local function, it normally takes about the same time to execute. ( 不可控的响应时长 )_
     - _A network request is much slower than a function call, and its latency is also wildly variable: at good times it may complete in less than a millisecond, but when the network is congested or the remote service is overloaded it may take many seconds to do exactly the same thing._
 - When you call a local function, you can efficiently pass it references (pointers) to objects in local memory. _( 无法传指针; 可能要传递的参数是很大的对象 )_
     - _When you make a network request, all those parameters need to be encoded into a sequence of bytes that can be sent over the network._
-    - _That’s okay if the parameters are primitives like numbers or strings, but quickly becomes problematic with larger objects._
+    - _That's okay if the parameters are primitives like numbers or strings, but quickly becomes problematic with larger objects._
 - _The client and the service may be implemented in different programming languages, so the RPC framework must translate datatypes from one language into another._
-    - _This can end up ugly, since not all languages have the same types -- recall JavaScript’s problems with numbers greater than 2^53, for example._
-        - _This problem doesn’t exist in a single process written in a single language._
+    - _This can end up ugly, since not all languages have the same types -- recall JavaScript's problems with numbers greater than 2^53, for example._
+        - _This problem doesn't exist in a single process written in a single language._
 
 #### Message-Passing Dataflow
 
 **Asynchronous message-passing systems** _are somewhere between RPC and databases_
 
-- _They are similar to RPC in that_ a client’s request ( usually called a **message** ) is delivered to another process with low latency.
+- _They are similar to RPC in that_ a client's request ( usually called a **message** ) is delivered to another process with low latency.
 - _They are similar to databases in that_ the message is not sent via a direct network connection, but goes via an intermediary called a **message broker** ( also called a **message queue** or **message-oriented middleware** ), which stores the message temporarily.
 
 _Using a message broker has several advantages compared to direct RPC :_
@@ -1103,7 +1103,7 @@ _Using a message broker has several advantages compared to direct RPC :_
     - _( which is particularly useful in a cloud deployment where virtual machines often come and go )_.
 - It allows one message to be **sent to several recipients**.
 - It logically **decouples the sender from the recipient**
-    - _( the sender just publishes messages and doesn’t care who consumes them )._
+    - _( the sender just publishes messages and doesn't care who consumes them )._
 
 _Message brokers_
 
@@ -1114,7 +1114,7 @@ _Distributed **actor** frameworks_
 - The actor model is a programming model for concurrency in a single process.
     - _Each actor typically represents one client or entity, it may have some local state ( which is not shared with any other actor ), and it communicates with other actors by sending and receiving asynchronous messages._
     - _Message delivery is not guaranteed : in certain error scenarios, messages will be lost._
-    - _Since each actor processes only one message at a time, it doesn’t need to worry about threads, and each actor can be scheduled independently by the framework._
+    - _Since each actor processes only one message at a time, it doesn't need to worry about threads, and each actor can be scheduled independently by the framework._
 - **Location transparency** _( 位置透明性 ) works better in the actor model than in RPC, because the actor model already assumes that_ messages may be lost, even within a single process.
 - _omitted…_
 
@@ -1272,7 +1272,7 @@ _How do you achieve high availability with leader-based replication?_
     - 1\. Determining that the leader has failed.
         - There is no foolproof _( 万无一失的 )_ way of detecting what has gone wrong, so most systems simply use a timeout :
             - nodes frequently bounce messages back and forth between each other,
-            - and if a node doesn’t respond for some period of time -- say, 30 seconds -- it is assumed to be dead.
+            - and if a node doesn't respond for some period of time -- say, 30 seconds -- it is assumed to be dead.
             - _( If the leader is deliberately taken down for planned maintenance, this doesn't apply. )_
     - 2\. Choosing a new leader.
         - This could be done through an election process ( where the leader is chosen by a majority of the remaining replicas ), or a new leader could be appointed by a previously elected controller node.
@@ -1398,11 +1398,11 @@ In this case you may want to provide **cross-device read-after-write consistency
 
 _In this case, there are some additional issues to consider:_
 
-- _Approaches that require remembering the timestamp of the user's last update become more difficult, because the code running on one device doesn’t know what updates have happened on the other device._
+- _Approaches that require remembering the timestamp of the user's last update become more difficult, because the code running on one device doesn't know what updates have happened on the other device._
     - _This metadata will need to be centralized._
 - _If your replicas are distributed across different datacenters, there is no guarantee that connections from different devices will be routed to the same datacenter._
     - _( For example, if the user's desktop computer uses the home broadband connection and their mobile device uses the cellular data network, the devices' network routes may be completely different. )_
-    - If your approach requires reading from the leader, you may first need to route requests from all of a user’s devices to the same datacenter.
+    - If your approach requires reading from the leader, you may first need to route requests from all of a user's devices to the same datacenter.
         - _( icehe : 使用用户 ID 来作为路由的依据, 以便路由到同一 数据中心/分片 )_
 
 #### Monotonic Reads
@@ -1436,7 +1436,7 @@ The example of replication lag anomalies concerns violation of causality. _Imagi
 - Mrs. Cake : About ten seconds usually, Mr. Poons.
 ```
 
-- _There is a causal dependency between those two sentences : Mrs. Cake heard Mr. Poons’s question and answered it._
+- _There is a causal dependency between those two sentences : Mrs. Cake heard Mr. Poons's question and answered it._
 
 _Now, imagine a third person is listening to this conversation through followers._
 
@@ -1473,7 +1473,7 @@ Solutions for Replication Lag
 
 Leader-based replication has one major downside : there is only one leader, and all writes must go through it.
 
-- If you can't connect to the leader for any reason, for example due to a network interruption between you and the leader, you can’t write to the database.
+- If you can't connect to the leader for any reason, for example due to a network interruption between you and the leader, you can't write to the database.
 
 A natural extension of the leader-based replication model is to allow more than one node to accept writes.
 
@@ -1517,7 +1517,7 @@ A natural extension of the leader-based replication model is to allow more than 
 **Collaborative editing** _( 协作编辑 )_
 
 - Real-time collaborative editing applications allow several people to edit a document simultaneously.
-    - _We don’t usually think of collaborative editing as a database replication problem, but it has a lot in common with the previously mentioned offline editing use case._
+    - _We don't usually think of collaborative editing as a database replication problem, but it has a lot in common with the previously mentioned offline editing use case._
 - When one user edits a document, the changes are instantly applied to their local replica _( the state of the document in their web browser or client application )_ and asynchronously replicated to the server and any other users who are editing the same document.
     - If you want to guarantee that there will be no editing conflicts, the application must obtain a lock on the document before a user can edit it.
     - _If another user wants to edit the same document, they first have to wait until the first user has committed their changes and released the lock._
@@ -1579,7 +1579,7 @@ _( 无主节点复制 )_
 
 Single-leader and multi-leader replication -- are based on the idea that a client sends a write request to one node (the leader), and the database system takes care of copying that write to the other replicas.
 
-- A leader determines the order in which writes should be processed, and followers apply the leader’s writes in the same order.
+- A leader determines the order in which writes should be processed, and followers apply the leader's writes in the same order.
 
 ## Partitioning
 
@@ -1596,12 +1596,12 @@ _( 数据分区 )_
 _Terminological confusion_
 
 - _What we call a partition here is called_
-    - a **shard** in MongoDB, Elasticsearch, and SolrCloud _; it’s known as_
+    - a **shard** in MongoDB, Elasticsearch, and SolrCloud _; it's known as_
     - a **region** in HBase,
     - a **tablet** in Bigtable,
     - a **vnode** in Cassandra and Riak _, and_
     - a **vBucket** in Couchbase.
-- _However, **partitioning** is the most established term, so we’ll stick with that._
+- _However, **partitioning** is the most established term, so we'll stick with that._
 
 ### Partitioning and Replication
 
