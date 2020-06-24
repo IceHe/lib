@@ -1766,8 +1766,29 @@ _If each node simply overwrote the value for a key whenever it received a write 
 - _LWW achieves the goal of eventual convergence, but at the cost of durability._
     - _There are some situations, such as caching, in which lost writes are perhaps acceptable._
     - _If losing data is not acceptable, LWW is a poor choice for conflict resolution._
+- _The only safe way of using a database with LWW is to ensure that_ a key is only written once and thereafter treated as immutable, thus avoiding any concurrent updates to the same key.
 
 **The "happens-before" relationship and concurrency**
+
+- _omitted…_
+
+**Capturing the happens-before relationship**
+
+- _( 比较复杂, 详情看原书, 而且有必要搞明白! )_
+    - _( icehe : 如何巧妙地靠同时保存一个 key 的多个版本 value, 以及版本号来处理多设备同步 value 并解决冲突的问题! ( 不过只是对一个数据集追加元素的操作场景 ) )_
+
+![capturing-causal-dependencies-between-2-clients-concurrently-editing-a-shopping-cart.png](_images/designing-data-intensive-applications/capturing-causal-dependencies-between-2-clients-concurrently-editing-a-shopping-cart.png)
+
+**Merging concurrently written values**
+
+- _( 比较复杂, 详情看原书, 而且有必要搞明白! )_
+    - _( icehe :不只是对一个数据集追加元素, 还得移除元素, 这时还需要 "A deletion marker is known as a **tombstone** ( 墓碑 ) ." )_
+
+**Version vectors** _( 版本矢量 )_
+
+- The collection of version numbers from all the replicas is called a version vector.
+    - Version vectors are sent from the database replicas to clients when values are read, and need to be sent back to the database when a value is subsequently written.
+- _( 详情看原书 )_
 
 <!--
 
