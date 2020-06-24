@@ -1902,3 +1902,8 @@ _Thus, if you want to search for something referring to secondary index,_ you **
 #### Partitioning Secondary Indexes by Term
 
  _( 基于词条的二级索引分区 )_
+
+Rather than each partition having its own secondary index ( a local index ), we can construct a **global index** that covers data in all partitions.
+
+- However, we can't just store that index on one node, since it would likely become a bottleneck and defeat the purpose of partitioning.
+- A global index **must also be partitioned**, but it can be partitioned differently from the primary key index.
