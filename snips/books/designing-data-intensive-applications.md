@@ -1861,3 +1861,44 @@ _Consistent Hashing_
     - Note that consistent here has nothing to do with _( 与…无关 )_ replica consistency or ACID consistency, but rather describes a particular approach to **rebalancing** _( 动态平衡 )_ .
     - This particular approach actually doesn't work very well for databases, so **it is rarely used in practice** _( the documentation of some databases still refers to consistent hashing, but it is often inaccurate )_ .
     - _Because this is so confusing, it’s best to_ avoid the term consistent hashing and just call it hash partitioning instead.
+
+A table in Cassandra can be declared with **a compound primary key ( 复合主键 ) consisting of several columns**.
+
+- Only the first part of that key is hashed to determine the partition, but the other columns are used as a concatenated index for sorting the data in Cassandra's SSTables.
+
+The **concatenated index** ( 组合索引 ) _approach enables an elegant data model for one-to-many relationships._
+
+- _For example, on a social media site, one user may post many updates._
+    - _If the primary key for updates is chosen to be `( user_id, update_timestamp )`, then you can efficiently retrieve all updates made by a particular user within some time interval, sorted by timestamp._
+    - _Different users may be stored on different partitions, but within each user, the updates are stored ordered by timestamp on a single partition._
+
+#### Skewed Workloads and Relieving Hot Spots
+
+_omitted…_
+
+### Partitioning and Secondary Indexes
+
+_( 分区与二级索引 )_
+
+- The problem with secondary indexes is that they don't map neatly to partitions.
+- There are two main approaches to partitioning a database with secondary indexes: **document-based partitioning** and **term-based partitioning**. _( 基于文档 / 基于词条 )_
+
+#### Partitioning Secondary Indexes by Document
+
+_( 基于文档分区的二级索引 )_
+
+Each partition is completely separate : each partition maintains its own secondary indexes, covering only the documents in that partition.
+
+- _It doesn't care what data is stored in other partitions._
+- Whenever you need to write to the database _-- to add, remove, or update a document --_ you only need to deal with the partition that contains the document ID that you are writing.
+- For that reason, a **document-partitioned index** is also known as a **local index** ( as opposed to a **global index** ) .
+
+_Thus, if you want to search for something referring to secondary index,_ you **need to send the query to all partitions, and combine all the results you get back**.
+
+- _This approach to querying a partitioned database is sometimes known as_ **scatter / gather** _( 分散 / 聚集 )_ , _and it can make read queries on secondary indexes quite expensive._
+- _Even if you query the partitions in parallel, scatter/gather is prone to tail latency amplification ( 长尾延迟放大 ) ._
+- Nevertheless, it is widely used : MongoDB, Riak, Cassandra, Elasticsearch, SolrCloud, and VoltDB all use document-partitioned secondary indexes.
+
+#### Partitioning Secondary Indexes by Term
+
+ _( 基于词条的二级索引分区 )_
