@@ -1577,7 +1577,9 @@ Synchronous versus asynchronous conflict detection
 
 _( 无主节点复制 )_
 
-TODO
+Single-leader and multi-leader replication -- are based on the idea that a client sends a write request to one node (the leader), and the database system takes care of copying that write to the other replicas.
+
+- A leader determines the order in which writes should be processed, and followers apply the leader’s writes in the same order.
 
 ## Partitioning
 
@@ -1600,3 +1602,14 @@ _Terminological confusion_
     - a **vnode** in Cassandra and Riak _, and_
     - a **vBucket** in Couchbase.
 - _However, **partitioning** is the most established term, so we’ll stick with that._
+
+### Partitioning and Replication
+
+Partitioning is usually combined with replication so that copies of each partition are stored on multiple nodes.
+
+- _This means that, even though each record belongs to exactly one partition, it may still be stored on several different nodes for fault tolerance._
+
+A node may store more than one partition.
+
+- _Each partition's leader is assigned to one node, and its followers are assigned to other nodes._
+- **Each node may be the leader for some partitions and a follower for other partitions.**
