@@ -1741,6 +1741,34 @@ _In systems with leaderless replication, there is no fixed order in which writes
     - but **the client usually only waits for acknowledgment from a quorum of nodes within its local datacenter** so that it is unaffected by delays and interruptions on the cross-datacenter link.
 - The higher-latency writes to other datacenters are often configured to happen asynchronously, _although there is some flexibility in the configuration._
 
+#### Detecting Concurrent Writes
+
+_( 检测并发写 )_
+
+Dynamo-style databases allow several clients to **concurrently write to the same key**, which means that conflicts will occur even if strict quorums are used.
+
+- _The situation is similar to multi-leader replication, although in Dynamo-style databases conflicts can also arise during read repair or hinted handoff._
+
+The problem is that **events may arrive in a different order at different nodes**, due to variable network delays and partial failures.
+
+![concurrent-writes-in-dynamo-style-datastore.png](_images/designing-data-intensive-applications/concurrent-writes-in-dynamo-style-datastore.png)
+
+_If each node simply overwrote the value for a key whenever it received a write request from a client, the nodes would become permanently inconsistent._
+
+**Last write wins ( discarding concurrent writes )** _( 最后写入者胜利 ( 丢弃并发写入 ) )_
+
+- One approach for achieving eventual convergence is to declare that **each replica need only store the most "recent" value and allow "older" values to be overwritten and discarded**.
+    - _Then, as long as we have some way of unambiguously determining which write is more "recent", and every write is eventually copied to every replica, the replicas will eventually converge to the same value._
+- As indicated by the quotes around “recent,” this idea is actually quite misleading.
+    - We say the writes are concurrent, so their order is undefined.
+    - We can **attach a timestamp to each write**, pick the biggest timestamp as the most "recent," and discard any writes with an earlier timestamp.
+    - This conflict resolution algorithm, called **last write wins (LWW)**.
+- _LWW achieves the goal of eventual convergence, but at the cost of durability._
+    - _There are some situations, such as caching, in which lost writes are perhaps acceptable._
+    - _If losing data is not acceptable, LWW is a poor choice for conflict resolution._
+
+**The "happens-before" relationship and concurrency**
+
 <!--
 
 ## Partitioning
