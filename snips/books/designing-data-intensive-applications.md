@@ -1882,6 +1882,8 @@ _( 分区与二级索引 )_
 
 - The problem with secondary indexes is that they don't map neatly to partitions.
 - There are two main approaches to partitioning a database with secondary indexes: **document-based partitioning** and **term-based partitioning**. _( 基于文档 / 基于词条 )_
+    - _document-partition index - local index_
+    - _term-partition index - global index_
 
 #### Partitioning Secondary Indexes by Document
 
@@ -1898,6 +1900,7 @@ _Thus, if you want to search for something referring to secondary index,_ you **
 - _This approach to querying a partitioned database is sometimes known as_ **scatter / gather** _( 分散 / 聚集 )_ , _and it can make read queries on secondary indexes quite expensive._
 - _Even if you query the partitions in parallel, scatter/gather is prone to tail latency amplification ( 长尾延迟放大 ) ._
 - Nevertheless, it is widely used : MongoDB, Riak, Cassandra, Elasticsearch, SolrCloud, and VoltDB all use document-partitioned secondary indexes.
+    - _( icehe : 大多数产品使用基于文档的二级索引 ( 本地索引 ) , 毕竟瓶颈通常在写入/更新, 而非查询 )_
 
 #### Partitioning Secondary Indexes by Term
 
@@ -1907,3 +1910,58 @@ Rather than each partition having its own secondary index ( a local index ), we 
 
 - However, we can't just store that index on one node, since it would likely become a bottleneck and defeat the purpose of partitioning.
 - A global index **must also be partitioned**, but it can be partitioned differently from the primary key index.
+
+We call this kind of index **term-partitioned** _( 词条分区 )_ , because the term we're looking for determines the partition of the index.
+
+- The name term comes from **full-text indexes** _( 全文索引 )_ ( a particular kind of secondary index ), where the **terms are all the words that occur in a document**.
+
+The advantage of a global ( term-partitioned ) index over a document-partitioned index is that it can make reads more efficient :
+
+- rather than doing scatter/gather over all partitions, a client only needs to make a request to the partition containing the term that it wants.
+
+However, the downside of a global index is that **writes are slower and more complicated**,
+
+- because a write to a single document may now affect multiple partitions of the index ( every term in the document might be on a different partition, on a different node ).
+
+In practice, updates to global secondary indexes are often asynchronous _( that is, if you read the index shortly after a write, the change you just made may not yet be reflected in the index )_ .
+
+### Rebalancing Partitions
+
+_( 分区再平衡 )_
+
+_Over time, things change in a database:_
+
+- _The query throughput increases, so you want to add more CPUs to handle the load._
+- _The dataset size increases, so you want to add more disks and RAM to store it._
+- _A machine fails, and other machines need to take over the failed machine’s responsibilities._
+
+_All of these changes call for data and requests to be moved from one node to another._
+
+- The process of moving load from one node in the cluster to another is called **rebalancing** _( 再平衡 / 动态平衡 )_ .
+
+_No matter which partitioning scheme is used, rebalancing is usually expected to meet some minimum requirements:_
+
+- _After rebalancing, the load ( data storage, read and write requests ) should be shared fairly between the nodes in the cluster._
+- _While rebalancing is happening, the database should continue accepting reads and writes._
+- _No more data than necessary should be moved between nodes, to make rebalancing fast and to minimize the network and disk I/O load._
+
+#### Strategies for Rebalancing
+
+**How not to do it: hash mod N** _( 取模 )_
+
+- _( icehe : 书中说该策略不合适的理由是, 频繁地增加新的节点时, 数据迁移成本很高 )_
+    - _( 实际实践中, "取模" 才是最常见的再平衡策略 )_
+    - _( 扩容 : 节点个数设置为 2 的幂次方, 然后每次扩容时翻倍 )_
+    - _( 故障转移 : 每个节点都至少有一个从节点作为备用, 故障时直接切换到备用节点即可 )_
+
+**Fixed number of partitions** _( 固定数量的分区 )_
+
+- Fortunately, there is a fairly simple solution :
+    - **create many more partitions than there are nodes, and assign several partitions to each node**.
+- For example, a database running on a cluster of 10 nodes may be split into 1,000 partitions from the outset so that approximately 100 partitions are assigned to each node.
+    - If a node is added to the cluster, the new node can steal a few partitions from every existing node until partitions are fairly distributed once again.
+    - _If a node is removed from the cluster, the same happens in reverse._
+
+![fixed-number-of-partitions.png](_images/designing-data-intensive-applications/fixed-number-of-partitions.png)
+
+**Dynamic partitioning**
