@@ -1821,3 +1821,21 @@ _Terminological confusion_
     - **Each node may be the leader for some partitions and a follower for other partitions.**
 
 ### Partitioning of Key-Value Data
+
+_( 键-值数据的分区 )_
+
+Our goal with partitioning is to **spread the data and the query load evenly across nodes**.
+
+If the partitioning is unfair, so that some partitions have more data or queries than others, we call it **skewed** _( 倾斜 )_ .
+
+- The presence of skew makes partitioning much less effective.
+    - In an extreme case, all the load could end up on one partition, so 9 out of 10 nodes are idle and your bottleneck is the single busy node.
+    - A partition with disproportionately _( 严重不成比例的 )_ high load is called a **hot spot** _( 热点 )_ .
+
+#### Partitioning by Key Range
+
+_( 基于键区间的分区 )_
+
+One way of partitioning is to **assign a continuous range of keys ( from some minimum to some maximum ) to each partition.**
+
+- _The ranges of keys are not necessarily evenly spaced ( 分布均匀 ) , because your data may not be evenly distributed._
