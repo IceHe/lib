@@ -54,7 +54,7 @@ GUI 程序的运行方式
 安全性 Safety & 活跃性 Liveness
 
 - 安全性 : 永远不发生糟糕的事情
-    - Safety : nothing bad ever happens
+    - Safety : nothing bad never happens
 - 活跃性 : 某件正确的事情最终会发生
     - Liveness : something good eventually happens
     - 当某个操作无法继续执行下去时, 就会发生 liveness failure
