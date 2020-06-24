@@ -1790,8 +1790,6 @@ _If each node simply overwrote the value for a key whenever it received a write 
     - Version vectors are sent from the database replicas to clients when values are read, and need to be sent back to the database when a value is subsequently written.
 - _( 详情看原书 )_
 
-<!--
-
 ## Partitioning
 
 _( 数据分区 )_
@@ -1814,13 +1812,12 @@ _Terminological confusion_
     - a **vBucket** in Couchbase.
 - _However, **partitioning** is the most established term, so we'll stick with that._
 
-### Partitioning and Replication
+**Partitioning and Replication**
 
-Partitioning is usually combined with replication so that copies of each partition are stored on multiple nodes.
+- Partitioning is usually combined with replication so that copies of each partition are stored on multiple nodes.
+    - _This means that, even though each record belongs to exactly one partition, it may still be stored on several different nodes for fault tolerance._
+- A node may store more than one partition.
+    - _Each partition's leader is assigned to one node, and its followers are assigned to other nodes._
+    - **Each node may be the leader for some partitions and a follower for other partitions.**
 
-- _This means that, even though each record belongs to exactly one partition, it may still be stored on several different nodes for fault tolerance._
-
-A node may store more than one partition.
-
-- _Each partition's leader is assigned to one node, and its followers are assigned to other nodes._
-- **Each node may be the leader for some partitions and a follower for other partitions.**
+### Partitioning of Key-Value Data
