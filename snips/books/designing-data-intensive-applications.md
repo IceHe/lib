@@ -1839,3 +1839,25 @@ _( 基于键区间的分区 )_
 One way of partitioning is to **assign a continuous range of keys ( from some minimum to some maximum ) to each partition.**
 
 - _The ranges of keys are not necessarily evenly spaced ( 分布均匀 ) , because your data may not be evenly distributed._
+
+_omitted…_
+
+#### Partitioning by Hash of Key
+
+_( 基于关键字哈希的分区 )_
+
+Because of this risk of skew and hot spots, many distributed datastores **use a hash function to determine the partition for a given key**.
+
+- This technique is good at distributing keys fairly among the partitions.
+- _The partition boundaries can be evenly spaced, or they can be_ chosen pseudorandomly _( 伪随机地选择 )_
+    - in which case the technique is sometimes known as **consistent hashing** _( 一致性哈希 )_ .
+- _Unfortunately however, by using the hash of the key for partitioning we_ lose a nice property of **key-range partitioning** : the ability to do efficient range queries.
+    - _Keys that were once adjacent are now scattered across all the partitions, so their sort order is lost._
+
+_Consistent Hashing_
+
+- Consistent hashing is a way of evenly distributing load across an internet-wide system of caches such as a content delivery network (CDN).
+    - It uses randomly chosen partition boundaries to avoid the need for central control or distributed consensus.
+    - Note that consistent here has nothing to do with _( 与…无关 )_ replica consistency or ACID consistency, but rather describes a particular approach to **rebalancing** _( 动态平衡 )_ .
+    - This particular approach actually doesn't work very well for databases, so **it is rarely used in practice** _( the documentation of some databases still refers to consistent hashing, but it is often inaccurate )_ .
+    - _Because this is so confusing, it’s best to_ avoid the term consistent hashing and just call it hash partitioning instead.
