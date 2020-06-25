@@ -303,7 +303,7 @@ _Faults_
     - _A service that the system depends on that slows down, becomes unresponsive, or starts returning corrupted responses._
     - _Cascading failures, where a small fault in one component triggers a fault in another component, which in turn triggers further faults._
 - _Human Errors_
-    - _Design systems in a way that minimizes opportunities for error. For example, well-designed abstractions, APIs, and admin interfaces make it easy to do “the right thing” and discourage “the wrong thing.”_
+    - _Design systems in a way that minimizes opportunities for error. For example, well-designed abstractions, APIs, and admin interfaces make it easy to do "the right thing" and discourage "the wrong thing."_
         - _However, if the interfaces are too restrictive people will work around them, negating their benefit, so this is a tricky balance to get right._
     - _Decouple the places where people make the most mistakes from the places where they can cause failures._
         - _In particular, provide fully featured non-production sandbox environments where people can explore and experiment safely, using real data, without affecting real users._
@@ -370,13 +370,13 @@ _Random Additional Latency ( 每次请求的响应时间, 由于许多因素的�
 
 Response Time
 
-- _The mean is not a very good metric if you want to know your “typical” response time,_
+- _The mean is not a very good metric if you want to know your "typical" response time,_
     - _because it doesn't tell you how many users actually experienced that delay._
     - _Usually it is better to use **percentiles** ( 百分位数 ) ._
 - _And **median** response time : half your requests return in less than the median, and half your requests take longer than that._
     - _This makes the median a good metric if you want to know how long users typically have to wait…_
     - _The median is also known as the **50th percentile**, and sometimes abbreviated as **p50**._
-- _\* Strictly speaking, the term “**average**” doesn't refer to any particular formula,_
+- _\* Strictly speaking, the term "**average**" doesn't refer to any particular formula,_
     - _but in practice it is usually understood as the arithmetic mean: given n values, add up all the values, and divide by n._
 
 Percentiles _( 百分位数 )_
@@ -624,7 +624,7 @@ _Triple-Stores and SPARQL ( 三元存储 … )_
     - _RDF - Resource Description Framework 资源描述框架_
 - _SPARQL query language_
     - _SPARQL is a query language for triple-stores using the RDF data model._
-    - _( It is an acronym for SPARQL Protocol and RDF Query Language, pronounced “sparkle.” )_
+    - _( It is an acronym for SPARQL Protocol and RDF Query Language, pronounced "sparkle." )_
     - _It predates Cypher, and since Cypher's pattern matching is borrowed from SPARQL, they look quite similar._
 
 _The Foundation: Datalog_
@@ -1759,7 +1759,7 @@ _If each node simply overwrote the value for a key whenever it received a write 
 
 - One approach for achieving eventual convergence is to declare that **each replica need only store the most "recent" value and allow "older" values to be overwritten and discarded**.
     - _Then, as long as we have some way of unambiguously determining which write is more "recent", and every write is eventually copied to every replica, the replicas will eventually converge to the same value._
-- As indicated by the quotes around “recent,” this idea is actually quite misleading.
+- As indicated by the quotes around "recent," this idea is actually quite misleading.
     - We say the writes are concurrent, so their order is undefined.
     - We can **attach a timestamp to each write**, pick the biggest timestamp as the most "recent," and discard any writes with an earlier timestamp.
     - This conflict resolution algorithm, called **last write wins (LWW)**.
@@ -2062,3 +2062,80 @@ _On a high level, there are a few different approaches to this problem :_
 ![routing-request-to-right-node.png](_images/designing-data-intensive-applications/routing-request-to-right-node.png)
 
 How does the component making the routing decision _( which may be one of the nodes, or the routing tier, or the client )_ learn about changes in the assignment of partitions to nodes?
+
+- Many distributed data systems rely on a separate coordination service such as **ZooKeeper** to keep track of this cluster metadata.
+    - Each node registers itself in ZooKeeper, and ZooKeeper maintains the authoritative mapping of partitions to nodes.
+    - Other actors, such as the routing tier or the partitioning-aware client, can subscribe to this information in ZooKeeper.
+    - Whenever a partition changes ownership, or a node is added or removed, ZooKeeper notifies the routing tier so that it can keep its routing information up to date.
+
+![zookeeper-keep-track-of-assignment-of-partitions-to-nodes.png](_images/designing-data-intensive-applications/zookeeper-keep-track-of-assignment-of-partitions-to-nodes.png)
+
+_When using a routing tier or when sending requests to a random node,_ clients still need to find the IP addresses to connect to.
+
+- _These are not as fast-changing as the assignment of partitions to nodes, so it is often sufficient to_ use DNS for this purpose.
+
+#### Parallel Query Execution
+
+_So far we have focused on very simple queries that read or write a single key ( plus scatter/gather queries in the case of document-partitioned secondary indexes ) ._
+
+- _This is about the level of access supported by most NoSQL distributed datastores._
+
+However, **massively parallel processing (MPP)** relational database products, often used for analytics, are much more sophisticated in the types of queries they support.
+
+- _A typical data warehouse query contains several join, filtering, grouping, and aggregation operations._
+- _The MPP query optimizer breaks this complex query into a number of execution stages and partitions, many of which can be executed in parallel on different nodes of the database cluster._
+- _Queries that involve scanning over large parts of the dataset particularly benefit from such parallel execution._
+
+_omitted…_
+
+## Transactions
+
+> Some authors have claimed that general two-phase commit is too expensive to support, because of the performance or availability problems that it brings.
+> We believe it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions.
+>
+> -- James Corbett et al., Spanner: Google’s Globally-Distributed Database (2012)
+
+_In the harsh reality of data systems, many things can go wrong:_
+
+- _The database software or hardware may fail at any time ( including in the middle of a write operation ) ._
+- _The application may crash at any time ( including halfway through a series of operations ) ._
+- _Interruptions in the network can unexpectedly cut off the application from the database, or one database node from another._
+- _Several clients may write to the database at the same time, overwriting each other's changes._
+- _A client may read data that doesn't make sense because it has only partially been updated._
+- _Race conditions between clients can cause surprising bugs._
+
+Ransactions have been the mechanism of choice for simplifying these issues.
+
+- A transaction is a way for an application to **group several reads and writes together into a logical unit.**
+    - Conceptually, all the reads and writes in a transaction are executed as one operation : **either the entire transaction succeeds (commit) or it fails ( abort, rollback )**.
+    - If it fails, the application can safely retry.
+- With transactions, error handling becomes much simpler for an application, because it doesn't need to worry about partial failure
+    - _i.e., the case where some operations succeed and some fail ( for whatever reason ) ._
+
+Transactions are not a law of nature; they were created with **a purpose, namely to simplify the programming model for applications accessing a database**.
+
+- _By using transactions, the application is free to ignore certain potential error scenarios and concurrency issues, because the database takes care of them instead ( we call these **safety guarantees** ( 安全性保证 ) )._
+
+_Not every application needs transactions, and sometimes there are advantages to weakening transactional guarantees or abandoning them entirely ( for example, to achieve higher performance or higher availability ) . Some safety properties can be achieved without transactions._
+
+### The Slippery Concept of a Transaction
+
+_( 深入理解事务 )_
+
+_( slippery : 狡猾的 / 不稳定的 / 不可靠的 / 难以捉摸的 )_
+
+#### The Meaning of ACID
+
+The **safety guarantees** provided by transactions are often described by the well-known acronym **ACID**, which stands for **Atomicity, Consistency, Isolation, and Durability**.
+
+- _It was coined ( 创造 (新词) ) in 1983 by Theo Härder and Andreas Reuter in an effort to_ establish precise terminology for **fault-tolerance mechanisms in databases**.
+- _As we shall see, there is a lot of ambiguity around the meaning of isolation._
+
+Systems that do not meet the ACID criteria are sometimes called **BASE**, which stands for **Basically Available, Soft state, and Eventual consistency**.
+
+- _This is even more vague than the definition of ACID._
+- It seems that the only sensible definition of BASE is "not ACID"; _i.e., it can mean almost anything you want ( 它没有承诺任何东西 ) ._
+
+**Atomicity** _( 原子性 )_
+
+
