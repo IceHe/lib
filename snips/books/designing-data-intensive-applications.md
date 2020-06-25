@@ -2138,4 +2138,10 @@ Systems that do not meet the ACID criteria are sometimes called **BASE**, which 
 
 **Atomicity** _( 原子性 )_
 
-
+- In general, atomic refers to something that cannot be broken down into smaller parts.
+    - The word means similar but subtly different things in different branches of computing.
+    - For example, in **multi-threaded programming** _( 多线程编程 )_ :
+        - If one thread executes an **atomic operation**, that means **there is no way that another thread could see the half-finished result of the operation**.
+        - The system can only be in the state it was before the operation or after the operation, not something in between.
+    - _By contrast,_ in the context of ACID, atomicity is not about concurrency.
+        - _It does not describe what happens if several processes try to access the same data at the same time,_ because that is covered under the letter I, for isolation.
