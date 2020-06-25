@@ -1964,4 +1964,101 @@ _No matter which partitioning scheme is used, rebalancing is usually expected to
 
 ![fixed-number-of-partitions.png](_images/designing-data-intensive-applications/fixed-number-of-partitions.png)
 
+- _In this configuration,_ **the number of partitions is usually fixed when the database is first set up and not changed afterward**.
+    - _Although in principle it's possible to split and merge partitions,_ a fixed number of partitions is operationally simpler, and **so many fixed-partition databases choose not to implement partition splitting**.
+    - _Thus, the number of partitions configured at the outset is the maximum number of nodes you can have,_ so you **need to choose it high enough to accommodate future growth**.
+    - _However, each partition also has management overhead, so it’s counterproductive to choose too high a number._
+- Choosing the right number of partitions is difficult if the total size of the dataset is highly variable ( for example, if it starts small but may grow much larger over time ).
+    - _Since each partition contains a fixed fraction of the total data, the size of each partition grows proportionally to the total amount of data in the cluster._
+    - If partitions are very large, rebalancing and recovery from node failures become expensive.
+    - But if partitions are too small, they incur too much overhead.
+    - _The best performance is achieved when the size of partitions is "just right," neither too big nor too small, which can be hard to achieve if the number of partitions is fixed but the dataset size varies._
+    - _( icehe : 因为超出预期的数据量级增长, 并不常见; 所以对于一般的场景, 这是一个非常好的再平衡策略! )_
+
 **Dynamic partitioning**
+
+- _For databases that use key range partitioning, a fixed number of partitions with fixed boundaries would be very inconvenient : if you got the boundaries wrong, you could end up with all of the data in one partition and all of the other partitions empty._
+    - _Reconfiguring the partition boundaries manually would be very tedious._
+- _For that reason, key range–partitioned databases such as_ HBase and RethinkDB create partitions dynamically.
+    - **When a partition grows to exceed a configured size** _( on HBase, the default is 10 GB )_, **it is split into two partitions** _so that approximately half of the data ends up on each side of the split_.
+    - Conversely, **if lots of data is deleted and a partition shrinks below some threshold, it can be merged with an adjacent partition**.
+    - This process is similar to what happens at the top level of a B-tree.
+- _Each partition is assigned to one node, and each node can handle multiple partitions, like in the case of a fixed number of partitions._
+    - In the case of HBase, **the transfer of partition files happens through HDFS**, the underlying distributed filesystem.
+- _An advantage of dynamic partitioning is that_ the number of partitions adapts to the total data volume.
+    - _If there is only a small amount of data, a small number of partitions is sufficient, so overheads are small;_
+    - _if there is a huge amount of data, the size of each individual partition is limited to a configurable maximum._
+- While the dataset is small -- until it hits the point at which the first partition is split -- all writes have to be processed by a single node while the other nodes sit idle.
+    - _To mitigate ( 试缓和 ) this issue, HBase and MongoDB_ allow an initial set of partitions to be configured on an empty database ( this is called **pre-splitting** _( 预分裂 )_ ).
+    - _In the case of key-range partitioning, pre-splitting requires that you already know what the key distribution is going to look like._
+- _Dynamic partitioning is not only suitable for key range–partitioned data, but can equally well be used with hash-partitioned data._
+
+**Partitioning proportionally to nodes** _( 按节点比例分区 )_
+
+- **With dynamic partitioning, the number of partitions is proportional to the size of the dataset**, since the splitting and merging processes **keep the size of each partition between some fixed minimum and maximum**.
+    - _On the other hand,_ **with a fixed number of partitions, the size of each partition is proportional to the size of the dataset**.
+    - _In both of these cases, the number of partitions is independent of the number of nodes._
+    - _( icehe : 这里只是为了说明之前的分区方式跟接下一个分区方式的异同; 接下来才介绍 "按节点比例分区" )_
+- _A third option,_ used by Cassandra and Ketama, is to **make the number of partitions proportional to the number of nodes** -- in other words, to **have a fixed number of partitions per node**.
+    - _In this case,_ the size of each partition grows proportionally to the dataset size while the number of nodes remains unchanged, but when you increase the number of nodes, the partitions become smaller again.
+    - _Since a larger data volume generally requires a larger number of nodes to store,_ this approach also **keeps the size of each partition fairly stable**.
+- When a new node joins the cluster, it randomly chooses a fixed number of existing partitions to split, and then takes ownership of one half of each of those split partitions while leaving the other half of each partition in place.
+    - The **randomization can produce unfair splits**, _but when averaged over a larger number of partitions ( in Cassandra, 256 partitions per node by default ) , the new node ends up taking a fair share of the load from the existing nodes._
+    - _Cassandra 3.0 introduced an alternative rebalancing algorithm that avoids unfair splits._
+- Picking partition boundaries randomly requires that hash-based partitioning is used _( so the boundaries can be picked from the range of numbers produced by the hash function )._
+    - _Indeed, this approach corresponds most closely to the original definition of consistent hashing._
+
+#### Operations: Automatic or Manual Rebalancing
+
+ _( 自动与手动再平衡操作 )_
+
+_Does the rebalancing happen automatically or manually?_
+
+- There is a gradient between
+    - **fully automatic rebalancing** ( the system decides automat‐ ically when to move partitions from one node to another, without any administrator interaction ) and
+    - **fully manual** ( the assignment of partitions to nodes is explicitly configured by an administrator, and only changes when the administrator explicitly reconfigures it ) .
+- _For example, Couchbase, Riak, and Voldemort generate a suggested partition assignment automatically, but require an administrator to commit it before it takes effect._
+
+Fully automated rebalancing can be convenient, _because there is less operational work to do for normal maintenance._
+
+- However, it can be **unpredictable**.
+- _Rebalancing is an expensive operation, because it requires rerouting requests and moving a large amount of data from one node to another._
+- _If it is not done carefully, this process can overload the network or the nodes and harm the performance of other requests while the rebalancing is in progress._
+
+_Such automation can be dangerous in combination with automatic failure detection._
+
+- _For example, say one node is overloaded and is temporarily slow to respond to requests._
+- _The other nodes conclude that the overloaded node is dead, and automatically rebalance the cluster to move load away from it._
+- _This puts additional load on the overloaded node, other nodes, and the network -- making the situation worse and potentially causing a cascading failure._
+
+For that reason, it can be a good thing to **have a human in the loop for rebalancing**.
+
+- It's slower than a fully automatic process, but it can help **prevent operational surprises**.
+- _( icehe : 实践中的取舍, 再平衡分区的操作频率不高, 即使要自动化, 也缺少实践演练, 还是人工操作更靠谱 )_
+
+### Request Routing
+
+_( 请求路由 )_
+
+When a client wants to make a request, how does it know which node to connect to?
+
+- As partitions are rebalanced, the assignment of partitions to nodes changes.
+- Somebody needs to stay on top of those changes in order to answer the question.
+
+This is an instance of a more general problem called **service discovery** _( 服务发现 )_ , _which isn't limited to just databases._
+
+- Any piece of software that is accessible over a network has this problem, especially if it is aiming for high availability ( running in a redundant configuration on multiple machines ).
+
+_On a high level, there are a few different approaches to this problem :_
+
+- 1\. Allow clients to contact any node ( e.g., via a round-robin load balancer ).
+    - If that node coincidentally owns the partition to which the request applies, it can handle the request directly;
+    - otherwise, it forwards the request to the appropriate node, receives the reply, and passes the reply along to the client.
+- 2\. Send all requests from clients to a **routing tier** _( 路由层 )_ first, which determines the node that should handle each request and forwards it accordingly.
+    - This routing tier does not itself handle any requests; it only acts as a partition-aware load balancer.
+- 3\. Require that clients be aware of the partitioning and the assignment of partitions to nodes.
+    - In this case, a client can connect directly to the appropriate node, without any intermediary.
+
+![routing-request-to-right-node.png](_images/designing-data-intensive-applications/routing-request-to-right-node.png)
+
+How does the component making the routing decision _( which may be one of the nodes, or the routing tier, or the client )_ learn about changes in the assignment of partitions to nodes?
