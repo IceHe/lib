@@ -2145,3 +2145,54 @@ Systems that do not meet the ACID criteria are sometimes called **BASE**, which 
         - The system can only be in the state it was before the operation or after the operation, not something in between.
     - _By contrast,_ in the context of ACID, atomicity is not about concurrency.
         - _It does not describe what happens if several processes try to access the same data at the same time,_ because that is covered under the letter I, for isolation.
+- _Rather, ACID atomicity describes what happens if a client wants to make several writes, but a fault occurs after some of the writes have been processed -- for example, a process crashes, a network connection is interrupted, a disk becomes full, or some integrity constraint is violated_.
+    - If the writes are grouped together into an atomic transaction, and the transaction cannot be completed (committed) due to a fault, then the transaction is aborted and the database must discard or undo any writes it has made so far in that transaction.
+- _Without atomicity, if an error occurs partway through making multiple changes, it's difficult to know which changes have taken effect and which haven’t._
+    - _The application could try again, but that risks making the same change twice, leading to duplicate or incorrect data._
+    - Atomicity simplifies this problem : if a transaction was aborted, the application can be sure that it didn’t change anything, so it can safely be retried.
+- The ability **to abort a transaction on error and have all writes from that transaction discarded** is the defining feature of **ACID atomicity**.
+    - _Perhaps abortability would have been a better term than atomicity, but we will stick with atomicity since that’s the usual word._
+
+**Consistency** _( 一致性 )_
+
+- The word **consistency** is terribly overloaded:
+    - In Chapter 5 we discussed replica consistency and the issue of **eventual consistency** that arises in asynchronously replicated systems.
+    - **Consistent hashing** is an approach to partitioning that some systems use for rebalancing.
+    - In the CAP theorem, the word consistency is used to mean **linearizability**.
+    - In the context of ACID, consistency refers to an application-specific notion of the database being in a "**good state**."
+    - _( It’s unfortunate that the same word is used with at least four different meanings. )_
+- _The idea of ACID consistency is that you have certain statements about your data (invariants) that must always be true._
+- However, this **idea of consistency depends on the application's notion of invariants, and it's the application's responsibility to define its transactions correctly so that they preserve consistency**.
+    - _This is not something that the database can guarantee : if you write bad data that violates your invariants, the database can't stop you._
+    - _( However, in general, the application defines what data is valid or invalid -- the database only stores it. )_
+- Atomicity, isolation, and durability are properties of the database, whereas **consistency ( in the ACID sense ) is a property of the application**.
+    - **The application may rely on the database's atomicity and isolation properties in order to achieve consistency**, but it's not up to the database alone.
+    - Thus, the letter C doesn't really belong in ACID.
+        - Joe Hellerstein has remarked that **the C in ACID was "tossed in to make the acronym work"** in Härder and Reuter’s paper, and that it wasn’t considered important at the time.
+
+**Isolation** _( 隔离性 )_
+
+- _Most databases are accessed by several clients at the same time._
+    - That is no problem if they are reading and writing different parts of the database, but if they are accessing the same database records, you can run into concurrency problems ( **race conditions** _( 竞态条件 )_ ).
+    - _( 竞态条件 : 不恰当的执行时序, 可能导致不正确的结果出现 )_
+- Isolation in the sense of ACID means that **concurrently executing transactions are isolated from each other** : they cannot step on each other's toes.
+    - The classic database textbooks formalize isolation as **serializability**  _( 可线性化 )_ , which means that each transaction can pretend that it is the only transaction running on the entire database.
+    - The database ensures that **when the transactions have committed, the result is the same as if they had run serially ( one after another ) , even though in reality they may have run concurrently**.
+- _However, in practice, serializable isolation is rarely used, because it carries a performance penalty._
+    - _Some popular databases, such as Oracle 11g, don't even implement it._
+    - _In Oracle there is an isolation level called "serializable," but it actually implements something called **snapshot isolation**, which is a weaker guarantee than serializability._
+
+![race-condition-between-2-clients-concurrently-incrementing-counter.png](_images/designing-data-intensive-applications/race-condition-between-2-clients-concurrently-incrementing-counter.png)
+
+**Durability** _( 持久性 )_
+
+- The purpose of a database system is to **provide a safe place where data can be stored without fear of losing it**.
+    - Durability is the promise that **once a transaction has committed successfully, any data it has written will not be forgotten, even if there is a hardware fault or the database crashes**.
+- In a single-node database, durability typically means that **the data has been written to nonvolatile storage** such as a hard drive or SSD.
+    - It usually also involves a **write-ahead log** or similar, which allows recovery in the event that the data structures on disk are corrupted.
+    - In a replicated database, durability may mean that the data has been successfully copied to some number of nodes.
+        - _In order to provide a durability guarantee,_ a database must **wait until these writes or replications are complete before reporting a transaction as successfully committed**.
+
+### Single-Object and Multi-Object Operations
+
+ _( 单对象与多对象事务操作 )_
