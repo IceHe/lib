@@ -2193,6 +2193,21 @@ Systems that do not meet the ACID criteria are sometimes called **BASE**, which 
     - In a replicated database, durability may mean that the data has been successfully copied to some number of nodes.
         - _In order to provide a durability guarantee,_ a database must **wait until these writes or replications are complete before reporting a transaction as successfully committed**.
 
-### Single-Object and Multi-Object Operations
+#### Single-Object and Multi-Object Operations
 
- _( 单对象与多对象事务操作 )_
+_( 单对象与多对象事务操作 )_
+
+_To recap, in ACID, atomicity and isolation describe what the database should do_ if a client makes several writes within the same transaction :
+
+- Atomicity
+    - If an error occurs halfway through a sequence of writes, the transaction should be aborted, and the writes made up to that point should be discarded.
+    - _In other words, the database saves you from having to worry about partial failure, by giving an all-or-nothing guarantee._
+- Isolation
+    - Concurrently running transactions shouldn't interfere with each other.
+    - _For example, if one transaction makes several writes, then another transaction should see either all or none of those writes, but not some subset._
+
+**Single-object write**
+
+- Storage engines almost universally aim to provide atomicity and isolation on the level of a single object ( such as a key-value pair ) on one node.
+
+**The need for multi-object transactions**
