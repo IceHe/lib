@@ -2266,3 +2266,51 @@ Databases have long tried to **hide concurrency issues from application develope
 
 - In theory, isolation should make your life easier by letting you **pretend that no concurrency is happening** :
     - **serializable isolation**  _( 串行化隔离 )_ means that the database **guarantees that transactions have the same effect as if they ran serially** _( i.e., one at a time, without any concurrency )_ .
+- Serializable isolation has a performance cost, and many databases don't want to pay that price.
+    - It's therefore common for systems to use **weaker levels of isolation**, which protect against some concurrency issues, but not all.
+    - _Those levels of isolation are much harder to understand, and they can lead to subtle bugs, but they are nevertheless used in practice._
+
+#### Read Committed
+
+ _( 读提交 )_
+
+The most basic level of transaction isolation is **read committed**. _It makes two guarantees:_
+
+1. When reading from the database, you will **only see data that has been committed** ( no **dirty reads** ) .
+2. When writing to the database, you will **only overwrite data that has been committed** ( no **dirty writes** ) .
+
+**No dirty reads**
+
+- _Imagine a transaction has written some data to the database, but the transaction has not yet committed or aborted._
+    - Can another transaction see that uncommitted data? If yes, that is called a dirty read.
+- _omitted…_
+
+**No dirty writes**
+
+- _What happens if two transactions concurrently try to update the same object in a database?_
+    - _We don't know in which order the writes will happen, but we normally assume that the later write overwrites the earlier write._
+    - _However, what happens if the earlier write is part of a transaction that has not yet committed,_ so the later write overwrites an uncommitted value? This is called a dirty write.
+- Transactions running at the read committed isolation level must prevent dirty writes, usually by **delaying the second write until the first write's transaction has committed or aborted**.
+
+**Implementing read committed**
+
+- Read committed is **the default setting** _in Oracle 11g, PostgreSQL, SQL Server 2012, MemSQL, and many other databases._
+- _Prevent dirty writes_
+    - Most commonly, databases prevent dirty writes by using **row-level locks** _( 行级锁 )_ :
+    - when a transaction wants to modify a particular object ( row or document ) , it must first acquire a lock on that object.
+    - It must then hold that lock until the transaction is committed or aborted.
+    - _Only one transaction can hold the lock for any given object;_
+        - _if another transaction wants to write to the same object, it must wait until the first transaction is committed or aborted before it can acquire the lock and continue._
+    - _This locking is done automatically by databases in read committed mode ( or stronger iso‐ lation levels ) ._
+- _Prevent dirty reads_
+    - _How do we prevent dirty reads? One option would be to_ use the same lock, and to require any transaction that wants to read an object to briefly acquire the lock and then release it again immediately after reading.
+        - _This would ensure that a read couldn't happen while an object has a dirty, uncommitted value ( because during that time the lock would be held by the transaction that has made the write ) ._
+        - _( icehe : 性能太差 -- 加大延迟, 降低吞吐 )_
+    - _For that reason, most databasesvi prevent dirty reads_ using the approach illustrated below  :
+        - for every object that is written, the database **remembers both the old committed value and the new value set by the transaction that currently holds the write lock**.
+        - While the transaction is ongoing, any other transactions that read the object are simply given the old value.
+        - Only when the new value is committed do transactions switch over to reading the new value.
+
+#### Snapshot Isolation and Repeatable Read
+
+_( 快照级别隔离与可重复读 )_
