@@ -2314,3 +2314,31 @@ The most basic level of transaction isolation is **read committed**. _It makes t
 #### Snapshot Isolation and Repeatable Read
 
 _( 快照级别隔离与可重复读 )_
+
+- _( 详见原文; 是重要的章节, 但简要复数比较麻烦 )_
+
+_Snapshot isolation is the most common solution to this problem._
+
+- The idea is that each transaction reads from a consistent snapshot of the database --
+    - that is, the transaction sees all the data that was committed in the database at the start of the transaction.
+- Even if the data is subsequently changed by another transaction,
+    - each transaction sees only the old data from that particular point in time.
+
+_Snapshot isolation is a boon ( 愉快/慷慨的 ) for long-running, read-only queries such as backups and analytics._
+
+- _It is very hard to reason about the meaning of a query if the data on which it operates is changing at the same time as the query is executing._
+- When a transaction can see a consistent snapshot of the database, frozen at a particular point in time, it is much easier to understand.
+
+_Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL with the InnoDB storage engine, Oracle, SQL Server, and others._
+
+**Implementing snapshot isolation**
+
+- The database must potentially **keep several different committed versions of an object**,
+    - _because various in-progress transactions may need to see the state of the database at different points in time._
+- _Because it maintains several versions of an object side by side, this technique is known as_ **multi-version concurrency control ( MVCC )** _( 多版本并发控制 )_ .
+    - _A typical approach is that_ read committed uses a separate snapshot for each query,
+    - while snapshot isolation uses the same snapshot for an entire transaction.
+- _When a transaction is started, it is given a unique, always-increasing_ **transaction ID ( txid )** .
+    - _Whenever a transaction writes anything to the database,_ **the data it writes is tagged with the transaction ID of the writer**.
+
+![snapshot-isolation-using-multi-objects.png](_images/designing-data-intensive-applications/snapshot-isolation-using-multi-objects.png)
