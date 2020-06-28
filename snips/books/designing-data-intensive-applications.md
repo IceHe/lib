@@ -2209,5 +2209,29 @@ _To recap, in ACID, atomicity and isolation describe what the database should do
 **Single-object write**
 
 - Storage engines almost universally aim to provide atomicity and isolation on the level of a single object ( such as a key-value pair ) on one node.
+    - Atomicity can be implemented using a log for crash recovery, and
+    - isolation can be implemented using a lock on each object ( allowing only one thread to access an object at any one time ) .
+- _Some databases also provide more complex atomic operations,_
+    - _such as an increment operation, which removes the need for a **read-modify-write** cycle._
+    - _Similarly popular is a **compare-and-set ( CAS )** operation, which allows a write to happen only if the value has not been concurrently changed by someone else._
+- _These single-object operations are useful, as they can prevent lost updates when several clients try to write to the same object concurrently._
+    - _However, they are not transactions in the usual sense of the word._
+    - Compare-and-set and other single-object operations have been dubbed _( 号称 )_ "lightweight transactions" or even "ACID" for marketing purposes, but that terminology is misleading.
+    - A transaction is usually understood as a mechanism for grouping multiple operations on multiple objects into one unit of execution.
 
 **The need for multi-object transactions**
+
+- Many distributed datastores have abandoned multi-object transactions because they are difficult to implement across partitions, and they can get in the way in some scenarios where very high availability or performance is required.
+- _In many other cases writes to several different objects need to be coordinated :_
+    - _In a relational data model, a row in one table often has a foreign key reference to a row in another table._
+        - _( Similarly, in a graph-like data model, a vertex has edges to other vertices. )_
+        - _Multi-object transactions allow you to ensure that these references remain valid : when inserting several records that refer to one another, the foreign keys have to be correct and up to date, or the data becomes nonsensical._
+    - In a document data model, the fields that need to be updated together are often within the same document, which is treated as a single object -- no multi-object transactions are needed when updating a single document.
+        - However, document databases lacking join functionality also encourage **denormalization**.
+        - When denormalized information needs to be updated, you need to update several documents in one go.
+        - _Transactions are very useful in this situation to prevent denormalized data from going out of sync._
+    - In databases with secondary indexes ( almost everything except pure key-value stores ), the indexes also need to be updated every time you change a value.
+        - _These indexes are different database objects from a transaction point of view :_
+            - _for example, without transaction isolation, it's possible for a record to appear in one index but not another, because the update to the second index hasn't happened yet._
+
+**Handling errors and aborts**
