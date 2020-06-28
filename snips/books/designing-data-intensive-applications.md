@@ -2315,7 +2315,7 @@ The most basic level of transaction isolation is **read committed**. _It makes t
 
 _( 快照级别隔离与可重复读 )_
 
-- _( 详见原文; 是重要的章节, 但简要复数比较麻烦 )_
+- _( 是重要的章节, 但简要复述比较麻烦, 所以详见原文 )_
 
 _Snapshot isolation is the most common solution to this problem._
 
@@ -2350,3 +2350,30 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
 - An update is internally translated into a delete and a create.
 
 **Visibility rules for observing a consistent snapshot** _( 一致性快照的可见性规则 )_
+
+- _When a transaction reads from the database,_ transaction IDs are used to decide which objects it can see and which are invisible.
+- _By carefully defining visibility rules, the database can present a consistent snapshot of the database to the application._ This works as follows:
+    1. At the start of each transaction, the database makes a list of all the other transactions that are in progress ( not yet committed or aborted ) at that time.
+        - Any writes that those transactions have made are ignored, even if the transactions subsequently commit.
+    2. Any writes made by aborted transactions are ignored.
+    3. Any writes made by transactions with a later transaction ID ( i.e., which started after the current transaction started ) are ignored, regardless of whether those transactions have committed.
+    4. All other writes are visible to the application’s queries.
+- _Put another way, an object is visible if both of the following conditions are true :_
+    - At the time when the reader's transaction started, the transaction that created the object had already committed.
+    - The object is not marked for deletion, or if it is, the transaction that requested deletion had not yet committed at the time when the reader's transaction started.
+
+**Indexes and snapshot isolation**
+
+- _How do indexes work in a multi-version database?_
+- A. One option is to have **the index simply point to all versions of an object and require an index query to filter out any object versions that are not visible to the current transaction**.
+    - _When garbage collection removes old object versions that are no longer visible to any transaction, the corresponding index entries can also be removed._
+- B. _Another approach is used in CouchDB, Datomic, and LMDB._
+    - Although they also use B-trees, they use an **append-only/copy-on-write** _( 追加/写时复制 )_ variant that does **not overwrite pages of the tree when they are updated, but instead creates a new copy of each modified page**.
+    - _Parent pages, up to the root of the tree, are copied and updated to point to the new versions of their child pages._
+    - _Any pages that are not affected by a write do not need to be copied, and remain immutable._
+- C. With append-only B-trees, every write transaction ( or batch of transactions ) **creates a new B-tree root, and a particular root is a consistent snapshot of the database at the point in time when it was created**.
+    - There is no need to filter out objects based on transaction IDs because subsequent writes cannot modify an existing B-tree; they can only create new tree roots.
+    - _However, this approach also requires a background process for compaction and garbage collection._
+- _( icehe : 看的还不是很明白 2020-06-28 )_
+
+**Repeatable read and naming confusion** _( 可重复读与命名混淆 )_
