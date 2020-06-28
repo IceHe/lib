@@ -2377,3 +2377,11 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
 - _( icehe : 看的还不是很明白 2020-06-28 )_
 
 **Repeatable read and naming confusion** _( 可重复读与命名混淆 )_
+
+- _Snapshot isolation is a useful isolation level, especially for read-only transactions._
+    - _However, many databases that implement it call it by different names._
+    - In Oracle it is called **serializable** _( 可串行化 )_ , and in PostgreSQL and MySQL it is called **repeatable read**.
+- _The reason for this naming confusion is that the_ SQL standard doesn't have the concept of snapshot isolation,
+    - _because the standard is based on System R's 1975 definition of isolation levels and snapshot isolation hadn’t yet been invented then._
+    - Instead, it defines repeatable read, which looks superficially similar to snapshot isolation.
+    - PostgreSQL and MySQL call their snapshot isolation level repeatable read because it meets the requirements of the standard, and so they can claim standards compliance.
