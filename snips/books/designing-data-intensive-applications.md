@@ -2241,12 +2241,28 @@ _To recap, in ACID, atomicity and isolation describe what the database should do
 - _Not all systems follow that philosophy, though._
     - In particular, **datastores with leader‐less replication work much more on a "best effort" basis**,
     - which could be summarized as "the database will do as much as it can, and if it runs into an error, it won't undo something it has already done" -- so it's the application's responsibility to recover from errors.
-- The whole point of aborts is to enable safe retries. _( 支持重试是中止流程的重点 )_
+- **The whole point of aborts is to enable safe retries.** _( 支持重试是中止流程的重点 )_
 - _Although retrying an aborted transaction is a simple and effective error handling mechanism, it isn't perfect :_
-    - If the transaction actually succeeded, but the network failed while the server tried to acknowledge the successful commit to the client ( so the client thinks it failed ),
+    - _If the transaction actually succeeded, but the network failed while the server tried to acknowledge the successful commit to the client ( so the client thinks it failed ),_
         - then retrying the transaction causes it to be performed twice -- unless you have an additional application-level deduplication mechanism in place.
-    - If the error is due to overload, retrying the transaction will make the problem worse, not better.
-        - To avoid such feedback cycles, you can limit the number of retries, use exponential backoff, and handle overload-related errors differently from other errors ( if possible ).
-    - It is only worth retrying after transient errors (for example due to deadlock, iso‐ lation violation, temporary network interruptions, and failover); after a perma‐ nent error (e.g., constraint violation) a retry would be pointless.
-    - If the transaction also has side effects outside of the database, those side effects may happen even if the transaction is aborted. For example, if you’re sending an email, you wouldn’t want to send the email again every time you retry the trans‐ action. If you want to make sure that several different systems either commit or abort together, two-phase commit can help (we will discuss this in “Atomic Commit and Two-Phase Commit (2PC)” on page 354).
-    - If the client process fails while retrying, any data it was trying to write to the database is lost.
+        - _( icehe : 重复执行, 可能导致冗余数据的问题 )_
+    - _If the error is due to overload, retrying the transaction will make the problem worse, not better._
+        - To avoid such feedback cycles, you can limit the number of retries, use **exponential backoff** _( 指数退避 )_ , and handle overload-related errors differently from other errors ( if possible ).
+        - _( icehe : 无脑重试, 可能导致服务雪崩的问题 )_
+    - _It is only worth retrying after transient errors ( for example due to deadlock, isolation violation, temporary network interruptions, and failover ) ;_
+        - after a permanent error ( e.g., constraint violation ) a retry would be pointless.
+        - _( icehe : 永久性故障, 不应该重试; 实践中图省事, 经常不区分失败的情况就进行重试 )_
+    - _If the transaction also has side effects outside of the database, those side effects may happen even if the transaction is aborted._
+        - _For example, if you're sending an email, you wouldn't want to send the email again every time you retry the transaction._
+        - If you want to make sure that several different systems either commit or abort together, **two-phase commit** _( 两阶段提交 )_ can help.
+        - _( icehe : 注意事务相关操作的副作用 -- 可能在事务前后进行一些其它操作, 例如发短信/邮件 )_
+    - _If the client process fails while retrying, any data it was trying to write to the database is lost._
+
+### Weak Isolation Levels
+
+ _( 弱隔离级别 )_
+
+Databases have long tried to **hide concurrency issues from application developers by providing transaction isolation**.
+
+- In theory, isolation should make your life easier by letting you **pretend that no concurrency is happening** :
+    - **serializable isolation**  _( 串行化隔离 )_ means that the database **guarantees that transactions have the same effect as if they ran serially** _( i.e., one at a time, without any concurrency )_ .
