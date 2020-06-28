@@ -2385,3 +2385,27 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
     - _because the standard is based on System R's 1975 definition of isolation levels and snapshot isolation hadn’t yet been invented then._
     - Instead, it defines repeatable read, which looks superficially similar to snapshot isolation.
     - PostgreSQL and MySQL call their snapshot isolation level repeatable read because it meets the requirements of the standard, and so they can claim standards compliance.
+
+#### Preventing Lost Updates
+
+**Atomic write operations** _( 原子写操作 )_
+
+- Many databases provide **atomic update operations**, which remove the need to implement **read-modify-write cycles** in application code.
+    - They are usually the **best solution if your code can be expressed in terms of those atomic operations**.
+- Atomic operations are usually implemented by taking an **exclusive lock** _( 排它锁 )_ on the object _when it is read so that no other transaction can read it until the update has been applied._
+    - This technique is sometimes known as **cursor stability** _( 游标稳定性 )_ .
+    - Another option is to simply **force all atomic operations to be executed on a single thread**.
+
+**Explicit locking** _( 显式加锁 )_
+
+- _Another option for preventing lost updates, if the database's built-in atomic operations don't provide the necessary functionality,_ is for the application to **explicitly lock objects that are going to be updated**.
+
+**Automatically detecting lost updates** _( 自动检测更新消失 )_
+
+- _An alternative is to_ allow them to execute in parallel and, if the transaction manager detects a lost update, abort the transaction and force it to retry its read-modify-write cycle.
+- _An advantage of this approach is that databases can perform this check efficiently in conjunction with snapshot isolation._
+    - Indeed, PostgreSQL's repeatable read, Oracle's serializable, and SQL Server's snapshot isolation levels automatically detect when a lost update has occurred and abort the offending transaction.
+    - However, **MySQL/ InnoDB's repeatable read does not detect lost updates**.
+    - _Some authors argue that a database must prevent lost updates in order to qualify as providing snapshot isolation, so MySQL does not provide snapshot isolation under this definition._
+
+**Compare-and-set** _( 原子比较与设置 )_
