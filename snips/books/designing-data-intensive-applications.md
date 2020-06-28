@@ -2342,3 +2342,11 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
     - _Whenever a transaction writes anything to the database,_ **the data it writes is tagged with the transaction ID of the writer**.
 
 ![snapshot-isolation-using-multi-objects.png](_images/designing-data-intensive-applications/snapshot-isolation-using-multi-objects.png)
+
+- Each row in a table has a **created_by** field, containing the ID of the transaction that inserted this row into the table.
+- Moreover, each row has a **deleted_by** field, which is initially empty.
+    - If a transaction deletes a row, the row isn't actually deleted from the database, but it is marked for deletion by setting the deleted_by field to the ID of the transaction that requested the deletion.
+    - _At some later time, when it is certain that no transaction can any longer access the deleted data, a garbage collection process in the database removes any rows marked for deletion and frees their space._
+- An update is internally translated into a delete and a create.
+
+**Visibility rules for observing a consistent snapshot** _( 一致性快照的可见性规则 )_
