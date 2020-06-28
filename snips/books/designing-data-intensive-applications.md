@@ -2235,3 +2235,18 @@ _To recap, in ACID, atomicity and isolation describe what the database should do
             - _for example, without transaction isolation, it's possible for a record to appear in one index but not another, because the update to the second index hasn't happened yet._
 
 **Handling errors and aborts**
+
+- _A key feature of a transaction is that_ it can be aborted and safely retried if an error occurred.
+    - _ACID databases are based on this philosophy :_ if the database is in danger of violating its guarantee of atomicity, isolation, or durability, it would rather abandon the transaction entirely than allow it to remain half-finished.
+- _Not all systems follow that philosophy, though._
+    - In particular, **datastores with leader‐less replication work much more on a "best effort" basis**,
+    - which could be summarized as "the database will do as much as it can, and if it runs into an error, it won't undo something it has already done" -- so it's the application's responsibility to recover from errors.
+- The whole point of aborts is to enable safe retries. _( 支持重试是中止流程的重点 )_
+- _Although retrying an aborted transaction is a simple and effective error handling mechanism, it isn't perfect :_
+    - If the transaction actually succeeded, but the network failed while the server tried to acknowledge the successful commit to the client ( so the client thinks it failed ),
+        - then retrying the transaction causes it to be performed twice -- unless you have an additional application-level deduplication mechanism in place.
+    - If the error is due to overload, retrying the transaction will make the problem worse, not better.
+        - To avoid such feedback cycles, you can limit the number of retries, use exponential backoff, and handle overload-related errors differently from other errors ( if possible ).
+    - It is only worth retrying after transient errors (for example due to deadlock, iso‐ lation violation, temporary network interruptions, and failover); after a perma‐ nent error (e.g., constraint violation) a retry would be pointless.
+    - If the transaction also has side effects outside of the database, those side effects may happen even if the transaction is aborted. For example, if you’re sending an email, you wouldn’t want to send the email again every time you retry the trans‐ action. If you want to make sure that several different systems either commit or abort together, two-phase commit can help (we will discuss this in “Atomic Commit and Two-Phase Commit (2PC)” on page 354).
+    - If the client process fails while retrying, any data it was trying to write to the database is lost.
