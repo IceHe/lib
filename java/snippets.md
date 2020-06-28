@@ -273,6 +273,25 @@ References : JFGI
 
 TODO : 暂时没有找到合适的样例
 
+## FastJson
+
+```java
+import java.util.Map;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+
+public class Test {
+    public static void main(String[] args) {
+        String jsonString =
+                "{\"aInt\":1,\"bStr\":\"boy\",\"cBool\":true,\"dNull\":null,\"eDouble\":3.14}";
+        Map<String, Object> map =
+                JSON.parseObject(jsonString, new TypeReference<Map<String, Object>>() {});
+        System.out.println(map);
+    }
+}
+
+```
+
 ## Jackson
 
 ### LocalDateTime Serializer
