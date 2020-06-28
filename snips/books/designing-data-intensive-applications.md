@@ -2409,3 +2409,16 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
     - _Some authors argue that a database must prevent lost updates in order to qualify as providing snapshot isolation, so MySQL does not provide snapshot isolation under this definition._
 
 **Compare-and-set** _( 原子比较与设置 )_
+
+- _In databases that don't provide transactions, you sometimes find an atomic compare-and-set operation._
+    - The purpose of this operation is to **avoid lost updates by allowing an update to happen only if the value has not changed since you last read it**.
+    - _If the current value does not match what you previously read, the update has no effect, and the read-modify-write cycle must be retried._
+
+**Conflict resolution and replication** _( 冲突解决复制 )_
+
+- Locks and compare-and-set operations assume that there is a single up-to-date copy of the data.
+    - However, databases with multi-leader or leaderless replication usually allow several writes to happen concurrently and replicate them asynchronously, so they cannot guarantee that there is a single up-to-date copy of the data.
+    - _Thus, techniques based on locks or compare-and-set do not apply in this context._
+- _A common approach in such replicated databases is to_ **allow concurrent writes to create several conflicting versions of a value ( also known as siblings ), and to use application code or special data structures to resolve and merge these versions after the fact**.
+- Atomic operations can work well in a replicated context, especially if they are com‐ mutative (i.e., you can apply them in a different order on different replicas, and still get the same result). For example, incrementing a counter or adding an element to a set are commutative operations. That is the idea behind Riak 2.0 datatypes, which prevent lost updates across replicas. When a value is concurrently updated by differ‐ ent clients, Riak automatically merges together the updates in such a way that no updates are lost [39].
+- On the other hand, the last write wins (LWW) conflict resolution method is prone to lost updates, as discussed in “Last write wins (discarding concurrent writes)” on page 186. Unfortunately, LWW is the default in many replicated databases.
