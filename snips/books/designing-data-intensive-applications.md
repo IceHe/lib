@@ -2466,3 +2466,7 @@ COMMIT;
 ```
 
 - As before, `FOR UPDATE` tells the database to lock all rows returned by this query.
+
+**More examples of write skew**
+
+- _( 详见原书 )_
