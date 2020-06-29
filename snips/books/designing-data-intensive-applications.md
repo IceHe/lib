@@ -2932,3 +2932,35 @@ _( 拜占庭故障 )_
 - A system is **Byzantine fault-tolerant** _( 拜占庭容错 )_ if it continues to operate correctly even if some of the nodes are malfunctioning and not obeying the protocol, or if malicious attackers are interfering with the network.
 
 **Weak forms of lying** _( 弱的谎言形式 )_
+
+- _Although we assume that nodes are generally honest, it can be worth adding mechanisms to software that guard against weak forms of "lying" -- for example, invalid messages due to hardware issues, software bugs, and misconfiguration._
+    - _Such protection mechanisms are not full-blown ( 成熟的 ) Byzantine fault tolerance, as they would not withstand ( 承受 ) a determined adversary, but they are nevertheless simple and pragmatic steps toward better reliability._
+
+#### System Model and Reality
+
+_( 系统模型和现实 )_
+
+With regard to **timing assumptions** _( 计时方面的假设 )_ , three system models are in common use:
+
+- **Synchronous model**
+    - The synchronous model assumes bounded network delay, bounded process pauses, and bounded clock error.
+    - _This does not imply exactly synchronized clocks or zero network delay; it just means you know that network delay, pauses, and clock drift will never exceed some fixed upper bound._
+    - The synchronous model is not a realistic model of most practical systems, because unbounded delays and pauses do occur.
+- **Partially synchronous model**
+    - Partial synchrony means that a system behaves like a synchronous system most of the time, but it sometimes exceeds the bounds for network delay, process pauses, and clock drift.
+    - This is a realistic model of many systems : most of the time, networks and processes are quite well behaved -- otherwise we would never be able to get anything done -- but we have to reckon with _( 处理/对付 )_ the fact that any timing assumptions may be shattered _( 损坏 )_ occasionally.
+    - _When this happens, network delay, pauses, and clock error may become arbitrarily large._
+- **Asynchronous model**
+    - In this model, an algorithm is not allowed to make any timing assumptions -- in fact, it does not even have a clock ( so it cannot use timeouts ) .
+    - Some algorithms can be designed for the asynchronous model, but it is very restrictive.
+
+Moreover, besides timing issues, we have to **consider node failures** _( 考虑节点失效 )_ . The three most common system models for nodes are:
+
+- **Crash-stop faults**
+    - _In the crash-stop model, an algorithm may assume that a node can fail in only one way, namely by crashing._
+    - This means that the node may suddenly stop responding at any moment, and thereafter that node is gone forever -- **it never comes back**.
+- **Crash-recovery faults**
+    - We assume that nodes may crash at any moment, and **perhaps start responding again after some unknown time**.
+    - _In the crash-recovery model, nodes are assumed to have stable storage ( i.e., nonvolatile disk storage ) that is preserved across crashes, while the in-memory state is assumed to be lost._
+- **Byzantine (arbitrary) faults**
+    - Nodes may do absolutely anything, including **trying to trick and deceive other nodes**.
