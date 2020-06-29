@@ -2722,3 +2722,31 @@ Note that
 
 - _The examples in this chapter_ used a relational data model.
 - _In this chapter, we explored ideas and algorithms mostly_ in the context of a database running on a single machine.
+    - _Transactions in distributed databases open a new set of difficult challenges._
+
+## The Trouble with Distributed Systems
+
+- We will now turn our pessimism to the maximum and assume that **anything that can go wrong will go wrong**.
+    - _Experienced systems operators will tell you **that is a reasonable assumption**._
+- We will look into problems with **networks**; **clocks and timing** issues; and we'll discuss to **what degree they are avoidable** _( 问题的可控程度 )_ .
+
+### Faults and Partial Failures
+
+_( 故障与部分失效 )_
+
+- _omitted…_
+
+#### Cloud Computing and Supercomputing
+
+_( 云计算和超算 )_
+
+- High-Performance Computing (HPC) _( 例如, 超级计算机 )_
+- _omitted…_
+
+If we want to make distributed systems work, we must accept the possibility of partial failure and build fault-tolerance mechanisms into the software.
+
+- In other words, we need to **build a reliable system from unreliable components**.
+- **There is no such thing as perfect reliability, so we'll need to understand the limits of what we can realistically promise**.
+- _( 世界上没有完美的可靠性, 我们需要的是现实可行的保证 )_
+
+### Unreliable Networks
