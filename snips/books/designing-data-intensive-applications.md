@@ -2659,3 +2659,66 @@ Are serializable isolation and good performance fundamentally at odds with each 
 - By **avoiding unnecessary aborts**, SSI preserves snapshot isolation's support for long-running reads from a consistent snapshot.
 
 **Detecting writes that affect prior reads** _( 检测写是否影响了之前的读 )_
+
+- _( 详情见原书, 不赘述例子, 但它值得温习 )_
+- When a transaction writes to the database, it must look in the indexes for any other transactions that have recently read the affected data.
+    - This process is similar to acquiring a write lock on the affected key range, but rather than blocking until the readers have committed, the lock acts as a tripwire _( 绊网 / 单绊线入侵检测? )_ :
+        - it simply notifies the transactions that the data they read may no longer be up to date.
+- _( icehe : 数据库检测到多个事务间可能存在的冲突时, (可能受影响的) 后提交的事务会被中止 )_
+
+**Performance of serializable snapshot isolation**_( 可串行化隔离的性能 )_
+
+- Compared to two-phase locking, the big advantage of serializable snapshot isolation is that **one transaction doesn't need to block waiting for locks held by another transaction**.
+    - _Like under snapshot isolation, writers don't block readers, and vice versa._
+    - This design principle makes query latency much more predictable and less variable.
+    - In particular, read-only queries can run on a consistent snapshot without requiring any locks, which is very appealing for read-heavy workloads.
+- _Compared to serial execution, serializable snapshot isolation is not limited to the throughput of a single CPU core :_
+    - _FoundationDB distributes the detection of serialization conflicts across multiple machines, allowing it to scale to very high throughput._
+    - _Even though data may be partitioned across multiple machines, transactions can read and write data in multiple partitions while ensuring serializable isolation._
+- The rate of aborts significantly affects the overall performance of SSI. _( 事务中止的比例显著影响 SSI 的性能表现 )_
+    - For example, a transaction that reads and writes data over a long period of time is likely to run into conflicts and abort,
+        - so SSI requires that read-write transactions be fairly short ( long-running read-only transactions may be okay ).
+    - _However, SSI is probably less sensitive to slow transactions than two-phase locking or serial execution._
+
+### Summary
+
+We characterized those isolation levels by discussing various examples of **race conditions** :
+
+- **Dirty reads**
+    - One client reads another client's writes before they have been committed.
+    - The read committed isolation level and stronger levels prevent dirty reads.
+- **Dirty writes**
+    - One client overwrites data that another client has written, but not yet committed.
+    - Almost all transaction implementations prevent dirty writes.
+- **Read skew ( nonrepeatable reads )**
+    - _( 在同一个事务内 )_ A client sees different parts of the database at different points in time.
+    - This issue is most commonly prevented with **snapshot isolation**, which allows a transaction to read from a consistent snapshot at one point in time.
+    - It is usually implemented with **multi-version concurrency control (MVCC)**.
+- **Lost updates**
+    - Two clients concurrently perform a read-modify-write cycle.
+    - One overwrites the other's write without incorporating its changes, so data is lost.
+    - Some implementations of snapshot isolation prevent this anomaly automatically, while others require a **manual lock ( SELECT FOR UPDATE )**.
+- **Write skew**
+    - A transaction reads something, makes a decision based on the value it saw, and writes the decision to the database.
+    - However, by the time the write is made, the premise of the decision is no longer true.
+    - Only **serializable isolation** prevents this anomaly.
+- **Phantom reads**
+    - A transaction reads objects that match some search condition.
+    - Another client makes a write that affects the results of that search.
+    - **Snapshot isolation** prevents straightforward phantom reads, but phantoms in the context of write skew require special treatment, such as **index-range locks**.
+
+We discussed three different approaches to implementing serializable transactions :
+
+- **Literally executing transactions in a serial order**
+    - If you can make each transaction very fast to execute, and the transaction throughput is low enough to process on a single CPU core, this is a simple and effective option.
+- **Two-phase locking**
+    - For decades this has been **the standard way of implementing serializability**, but many applications **avoid using it because of its performance characteristics**.
+- **Serializable snapshot isolation ( SSI )**
+    - _A fairly new algorithm that avoids most of the downsides of the previous approaches._
+    - It uses an optimistic approach, allowing transactions to proceed without blocking.
+    - When a transaction wants to commit, it is checked, and it is aborted if the execution was not serializable. _( icehe : 这里的总结太模糊, 详见上文/原书的例子 )_
+
+Note that
+
+- _The examples in this chapter_ used a relational data model.
+- _In this chapter, we explored ideas and algorithms mostly_ in the context of a database running on a single machine.
