@@ -2851,3 +2851,9 @@ _( 依赖同步的时钟 )_
 **Clock readings have a confidence interval** _( 时钟的置信区间 )_
 
 - _omitted…_
+- _An interesting exception is_ **Google's TrueTime API in Spanner**, which explicitly reports the confidence interval on the local clock.
+    - When you ask it for the current time, you get back two values : `[earliest, latest]` , which are the earliest possible and the latest possible timestamp.
+    - _Based on its uncertainty calculations, the clock knows that the actual current time is somewhere within that interval._
+    - _The width of the interval depends, among other things, on how long it has been since the local quartz clock ( 本地石英钟 ) was last synchronized with a more accurate clock source._
+
+**Synchronized clocks for global snapshots** _( 全局快照的同步时钟 )_
