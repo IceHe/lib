@@ -2864,3 +2864,71 @@ _( 依赖同步的时钟 )_
 - Can we **use the timestamps from synchronized time-of-day clocks as transaction IDs**?
     - If we could get the synchronization good enough, they would have the right properties : later transactions have a higher timestamp.
     - The problem, of course, is the **uncertainty about clock accuracy**.
+
+#### Process Pauses
+
+_( 进程暂停 )_
+
+- _omitted…_
+- A thread might be paused for long because of various reasons :
+    - Many programming language runtimes ( such as the Java Virtual Machine ) have a **garbage collector (GC)** that occasionally needs to stop all running threads.
+    - In **virtualized environments**, a virtual machine can be suspended ( pausing the execution of all processes and saving the contents of memory to disk ) and resumed ( restoring the contents of memory and continuing execution ) .
+    - On end-user devices such as laptops, execution may also be suspended and resumed arbitrarily,
+        - e.g., when the user closes the lid of their laptop _( 休眠 )_ .
+    - When the **operating system context-switches** to another thread, or when the **hypervisor switches to a different virtual machine** ( when running in a virtual machine ) , the currently running thread can be paused at any arbitrary point in the code.
+    - If the application performs synchronous disk access, a thread may be paused **waiting for a slow disk I/O operation to complete**.
+    - If the operating system is configured to allow swapping to disk (paging), a simple memory access may result in a **page fault** that requires a page from disk to be loaded into memory.
+    - A Unix process can be paused by sending it the **SIGSTOP signal**, for example by pressing Ctrl-Z in a shell.
+- _( 详情看原书 )_
+
+**Response time guarantees** _( 响应时间保证 )_
+
+- _omitted…_
+
+**Limiting the impact of garbage collection** _( 调整垃圾回收的影响 )_
+
+- _omitted…_
+
+### Knowledge, Truth, and Lies
+
+- _omitted…_
+
+#### The Truth Is Defined by the Majority
+
+ _( 真相由多数决定 )_
+
+- _omitted…_
+- **A node cannot necessarily trust its own judgment of a situation**.
+    - _A distributed system cannot exclusively rely on a single node, because a node may fail at any time, potentially leaving the system stuck and unable to recover._
+    - Instead, **many distributed algorithms rely on a quorum**, that is, voting among the nodes :
+        - _decisions require some minimum number of votes from several nodes in order to reduce the dependence on any one particular node._
+- That includes decisions about declaring nodes dead.
+    - If a quorum of nodes declares another node dead, then it must be considered dead, even if that node still very much feels alive.
+    - **The individual node must abide by the quorum decision and step down**.
+
+**The leader and the lock** _( 主节点与锁 )_
+
+- _omitted…_
+- If a node continues acting as the chosen one, even though the majority of nodes have declared it dead, _it could cause problems in a system that is not carefully designed._
+    - Such a node could send messages to other nodes in its self-appointed capacity _( 自以为正确 )_, and **if other nodes believe it, the system as a whole may do something incorrect**.
+
+**Fencing tokens** _( Fencing 令牌 )_
+
+- Let's assume that every time the lock server grants a lock or lease, it also returns a **fencing token, which is a number that increases every time a lock is granted** ( e.g., incremented by the lock service ) .
+    - We can then **require that every time a client sends a write request to the storage service, it must include its current fencing token**.
+- Checking a token on the server side may seem like a downside, but it is arguably a good thing : _it is unwise for a service to assume that its clients will always be well behaved._
+
+#### Byzantine Faults
+
+_( 拜占庭故障 )_
+
+- In this book we assume that **nodes are unreliable but honest** :
+    - they may be slow or never respond ( due to a fault ), and their state may be outdated ( due to a GC pause or network delays ) ,
+    - but we assume that **if a node does respond, it is telling the "truth"** :
+        - _to the best of its knowledge, it is playing by the rules of the protocol._
+- Distributed systems problems become much harder **if there is a risk that nodes may "lie"** ( send arbitrary faulty or corrupted responses ) --
+    - _for example, if a node may claim to have received a particular message when in fact it didn’t._
+    - Such behavior is known as a **Byzantine fault**, and the problem of reaching consensus _( 共识 )_ in this untrusting _( 不可信的 )_ environment is known as the **Byzantine Generals Problem** _( 拜占庭将军问题 )_.
+- A system is **Byzantine fault-tolerant** _( 拜占庭容错 )_ if it continues to operate correctly even if some of the nodes are malfunctioning and not obeying the protocol, or if malicious attackers are interfering with the network.
+
+**Weak forms of lying** _( 弱的谎言形式 )_
