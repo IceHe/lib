@@ -2470,3 +2470,43 @@ COMMIT;
 **More examples of write skew**
 
 - _( 详见原书 )_
+
+**Phantoms causing write skew** _( 幻读导致写倾斜 )_
+
+- This effect, where a write in one transaction changes the result of a search query in another transaction, is called a **phantom** _( 幻读 )_ .
+    - Snapshot isolation avoids phantoms in read-only queries, but in read-write transactions, phantoms can lead to particularly tricky cases of write skew.
+
+**Materializing conflicts** _( 实例化冲突 )_
+
+- _If the problem of phantoms is that there is no object to which we can attach the locks, perhaps we can artificially introduce a lock object into the database._
+- This approach is called **materializing conflicts**, because it takes a phantom and turns it into a lock conflict on a concrete set of rows that exist in the database.
+    - _Unfortunately, it can be hard and error-prone ( 容易出错 ) to figure out how to materialize conflicts, and it's ugly to let a concurrency control mechanism leak into the application data model._
+    - _For those reasons, materializing conflicts should be considered a last resort if no alternative is possible._
+    - **A serializable isolation level is much preferable in most cases**.
+
+### Serializability
+
+_( 串行化 )_
+
+Serializable isolation is usually regarded as the strongest isolation level.
+
+- It guarantees that **even though transactions may execute in parallel, the end result is the same as if they had executed one at a time, serially, without any concurrency**.
+- _Thus, the database guarantees that if the transactions behave correctly when run individually, they continue to be correct when run concurrently -- in other words, the database prevents all possible race conditions._
+
+_Most databases that provide serializability today use one of three techniques :_
+
+- Literally **executing transactions in a serial order** _( 严格按照串行顺序执行 )_ .
+- **Two-phase locking**, which for several decades was the only viable option.
+- **Optimistic concurrency control** techniques such as serializable snapshot isolation.
+
+#### Actual Serial Execution
+
+_( 实际串行执行 )_
+
+The simplest way of avoiding concurrency problems is to **remove the concurrency entirely** : to **execute only one transaction at a time, in serial order, on a single thread**.
+
+- _The approach of executing transactions serially is_ implemented in VoltDB/H-Store, Redis, and Datomic.
+- _A system designed for single-threaded execution can sometimes perform better than a system that supports concurrency,_ because it can avoid the coordination overhead of locking.
+- However, its throughput is limited to that of a single CPU core.
+
+**Encapsulating transactions in stored procedures**
