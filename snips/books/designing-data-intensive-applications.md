@@ -2604,3 +2604,40 @@ SELECT * FROM bookings
     - _If two-phase locking includes predicate locks, the database prevents all forms of write skew and other race conditions, and so its isolation becomes serializable._
 
 **Index-range locks** _( 索引区间锁 )_
+
+- _Unfortunately, predicate locks do not perform well : if there are many locks by active transactions, checking for matching locks becomes time-consuming._
+    - For that reason, **most databases with 2PL actually implement index-range locking** _( 索引区间锁 )_ ( aka. **next-key locking** ) , _which is a simplified approximation of predicate locking._
+- It's safe to **simplify a predicate by making it match a greater set of objects**.
+    - Either way, **an approximation of the search condition is attached to one of the indexes**.
+    - _Now, if another transaction wants to insert, update, or delete a booking for the same room and/or an overlapping time period, it will have to update the same part of the index._
+    - _In the process of doing so, it will encounter the shared lock, and it will be forced to wait until the lock is released._
+- _Index-range locks are not as precise as predicate locks would be_
+    - ( they **may lock a bigger range of objects than is strictly necessary to maintain serializability** ) ,
+    - but since **they have much lower overheads**, they are a good compromise.
+
+#### Serializable Snapshot Isolation (SSI)
+
+_( 可串行的快照隔离 )_
+
+Are serializable isolation and good performance fundamentally at odds with each other?
+
+- Perhaps not : an algorithm called **serializable snapshot isolation (SSI)** is very promising.
+    - _It provides full serializability, but has only a small performance penalty compared to snapshot isolation._
+    - _SSI is fairly new: it was first described in 2008._
+
+**Pessimistic versus optimistic concurrency control** _( 悲观与乐观并发控制 )_
+
+- **Two-phase locking is a so-called pessimistic concurrency control mechanism** :
+    - it is based on the principle that if anything might possibly go wrong ( as indicated by a lock held by another transaction ), it's better to wait until the situation is safe again before doing anything.
+    - _It is like mutual exclusion, which is used to protect data structures in multi-threaded programming._
+- **Serial execution is, in a sense, pessimistic to the extreme** :
+    - _it is essentially equivalent to each transaction having an exclusive lock on the entire database ( or one partition of the database ) for the duration of the transaction._
+    - _We compensate for the pessimism by making each transaction very fast to execute, so it only needs to hold the "lock" for a short time._
+- By contrast, **serializable snapshot isolation is an optimistic concurrency control technique**.
+    - _Optimistic in this context means that_ instead of blocking if something potentially dangerous happens, transactions continue anyway, in the hope that everything will turn out all right.
+    - When a transaction wants to commit, the database checks whether anything bad happened ( i.e., whether isolation was violated );
+        - if so, the transaction is aborted and has to be retried.
+    - _Only transactions that executed serializably are allowed to commit._
+- On top of snapshot isolation, **SSI adds an algorithm for detecting serialization conflicts among writes and determining which transactions to abort**.
+
+**Decisions based on an outdated premise** _( 基于过期的条件做决定 )_
