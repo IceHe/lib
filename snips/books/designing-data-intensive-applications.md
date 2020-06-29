@@ -2424,3 +2424,20 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
     - _For example, incrementing a counter or adding an element to a set are commutative operations._
 - _On the other hand, the last write wins (LWW) conflict resolution method is prone to lost updates._
     - _Unfortunately, LWW is the default in many replicated databases._
+
+#### Write Skew and Phantoms
+
+ _( 写倾斜和幻读 )_
+
+**Characterizing write skew**
+
+- _( icehe : "写倾斜" 跟 "脏写" 和 "更新丢失" 相比, 是更为微妙的写冲突现象, , 详见原书 )_
+
+![write-skew-example.png](_images/designing-data-intensive-applications/write-skew-example.png)
+
+- _Explain the example above :_
+    - _In each transaction, your application first checks that two or more doctors are currently on call; if yes, it assumes it's safe for one doctor to go off call._
+    - _Since the database is using snapshot isolation, both checks return 2, so both transactions proceed to the next stage._
+    - _Alice updates her own record to take herself off call, and Bob updates his own record likewise._
+    - _Both transactions commit, and now no doctor is on call._
+    - _Your requirement of having at least one doctor on call has been violated._
