@@ -2566,3 +2566,41 @@ As soon as anyone wants to write ( modify or delete ) an object, exclusive acces
 _In 2PL, writers don't just block other writers; they also block readers and vice versa._
 
 **Implementation of two-phase locking** _( 实现两阶段加锁 )_
+
+- _The blocking of readers and writers is implemented by a having a lock on each object in the database._
+- The lock can either be in **shared mode** or in **exclusive mode**. _The lock is used as follows :_
+    - If a transaction wants to **read an object, it must first acquire the lock in shared mode**.
+        - Several transactions are allowed to hold the lock in shared mode simultaneously, but if another transaction already has an exclusive lock on the object, these transactions must wait.
+    - If a transaction wants to **write to an object, it must first acquire the lock in exclusive mode**.
+        - No other transaction may hold the lock at the same time ( either in shared or in exclusive mode ), so if there is any existing lock on the object, the transaction must wait.
+    - If a transaction **first reads and then writes an object, it may upgrade its shared lock to an exclusive lock**.
+        - _The upgrade works the same as getting an exclusive lock directly._
+    - After a transaction has acquired the lock, it **must continue to hold the lock until the end of the transaction ( commit or abort )** .
+        - This is where the name "two-phase" comes from :
+            - **the first phase ( while the transaction is executing ) is when the locks are acquired**, and
+            - **the second phase ( at the end of the transaction ) is when all the locks are released**.
+- _Since so many locks are in use, it can happen quite easily that transaction A is stuck waiting for transaction B to release its lock, and vice versa._
+    - This situation is called **deadlock**.
+    - _The database automatically detects deadlocks between transactions and aborts one of them so that the others can make progress._
+    - _The aborted transaction needs to be retried by the application._
+
+**Performance of two-phase locking**
+
+- _( icehe : 反正就是容易导致 死锁产生 / 长时间等待 / 低吞吐量 / 长耗时 / 请求失败 / 服务停顿 … )_
+- _omitted…_
+
+**Predicate locks** _( 谓词锁 )_
+
+- _It works similarly to the shared/exclusive lock described earlier,_ but rather than belonging to a particular object ( e.g., one row in a table ), it belongs to all objects that match some search condition, _such as :_
+
+```sql
+SELECT * FROM bookings
+    WHERE room_id = 123 AND
+        end_time > '2018-01-01 12:00' AND
+        start_time < '2018-01-01 13:00';
+```
+
+- _The key idea here is that_ a predicate lock applies even to objects that do not yet exist in the database, but which might be added in the future ( phantoms ) .
+    - _If two-phase locking includes predicate locks, the database prevents all forms of write skew and other race conditions, and so its isolation becomes serializable._
+
+**Index-range locks** _( 索引区间锁 )_
