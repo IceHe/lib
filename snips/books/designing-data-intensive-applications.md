@@ -2750,3 +2750,79 @@ If we want to make distributed systems work, we must accept the possibility of p
 - _( 世界上没有完美的可靠性, 我们需要的是现实可行的保证 )_
 
 ### Unreliable Networks
+
+- _omitted…_
+- The usual way of handling this issue is a **timeout** :
+    - after some time you give up waiting and assume that the response is not going to arrive.
+
+#### Network Faults in Practice
+
+_( 现实中的网络故障 )_
+
+- _omitted…_
+
+#### Detecting Faults
+
+_( 检测故障 )_
+
+- _omitted…_
+
+#### Timeouts and Unbounded Delays
+
+_( 超时与无限期的延迟 )_
+
+- _omitted…_
+
+**Network congestion and queueing** _( 网络拥堵与排队 )_
+
+- _omitted…_
+
+#### Synchronous Versus Asynchronous Networks
+
+_( 同步与异步网络 )_
+
+**Can we not simply make network delays predictable?** _( 我们是否可以简单地保证延迟可控 )_
+
+- _omitted…_
+
+### Unreliable Clocks
+
+_( 不可靠的时钟 )_
+
+_Clocks and time are important._ Applications depend on clocks in various ways to answer questions like the following :
+
+1. Has this request timed out yet?
+2. What's the 99th percentile response time of this service?
+3. How many queries per second did this service handle on average in the last five minutes?
+4. How long did the user spend on our site?
+5. When was this article published?
+6. At what date and time should the reminder email be sent?
+7. When does this cache entry expire?
+8. What is the timestamp on this error message in the log file?
+
+#### Monotonic Versus Time-of-Day Clocks
+
+_( "单调时钟" 与 "墙上时钟" )_
+
+_Modern computers have at least two different kinds of clocks :_
+
+- a time-of-day clock _( 墙上时钟 / 钟表时间 )_ _and_
+- a monotonic clock _( 单调时钟 )_ .
+
+_Although they both measure time, it is important to distinguish the two, since they serve different purposes._
+
+**Time-of-day clocks** _( 墙上时钟 )_
+
+- A time-of-day clock does what you intuitively expect of a clock :
+    - it **returns the current date and time according to some calendar** ( aka. **wall-clock time** ).
+    - _For example, `clock_gettime(CLOCK_REALTIME)` on Linux and `System.currentTimeMillis()` in Java return the number of seconds (or milliseconds) since the epoch : midnight UTC on January 1, 1970, according to the Gregorian calendar, not counting leap seconds._
+- Time-of-day clocks are usually synchronized with **NTP**, which means that a timestamp from one machine (ideally) means the same as a timestamp on another machine.
+    - In particular, **if the local clock is too far ahead of the NTP server, it may be forcibly reset and appear to jump back to a previous point in time**.
+    - These jumps, as well as the fact that **they often ignore leap seconds _( 闰秒 )_ , make time-of-day clocks unsuitable for measuring elapsed time**.
+    - _( icehe : ( 可能因为出错或闰秒而 ) 时钟对齐时, 时间点会回跳或前跳, 那么用它来计算时间间隔就不靠谱了 )_
+
+**Monotonic clocks** _( 单调时钟 )_
+
+#### Clock Synchronization and Accuracy
+
+_( 时钟同步与准确性 )_
