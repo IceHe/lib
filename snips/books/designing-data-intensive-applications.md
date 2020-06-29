@@ -2964,3 +2964,30 @@ Moreover, besides timing issues, we have to **consider node failures** _( 考虑
     - _In the crash-recovery model, nodes are assumed to have stable storage ( i.e., nonvolatile disk storage ) that is preserved across crashes, while the in-memory state is assumed to be lost._
 - **Byzantine (arbitrary) faults**
     - Nodes may do absolutely anything, including **trying to trick and deceive other nodes**.
+
+**Correctness of an algorithm**
+
+- _omitted…_
+
+**Safety and liveness** _( 安全性与活跃性 (活性) )_
+
+- _omitted…_
+    - Safety : Nothing bad ever happens.
+    - Liveness : Something good eventually happens.
+
+**Mapping system models to the real world** _( 将系统模型映射到现实世界 )_
+
+- _Safety and liveness properties and system models are very useful for reasoning about the correctness of a distributed algorithm._
+    - _However, when implementing an algorithm in practice, the messy facts of reality come back to bite you again, and it becomes clear that the system model is a simplified abstraction of reality._
+    - _For example,_ algorithms in the crash-recovery model generally assume that data in stable storage survives crashes.
+        - However, what happens if the data on disk is corrupted, or the data is wiped out due to hardware error or misconfiguration?
+        - What happens if a server has a firmware bug and fails to recognize its hard drives on reboot, even though the drives are correctly attached to the server?
+- However, **a real implementation may still have to include code to handle the case where something happens that was assumed to be impossible**,
+    - even if that handling boils down to `printf("Sucks to be you")` and `exit(666)` --
+    - i.e., letting a human operator clean up the mess. _( 让操作人员清理最后的烂摊子 )_
+    - _( This is arguably the difference between computer science and software engineering. )_
+        - _( 这些错误处理很好地体现了计算机科学和软件工程质检的差异 )_
+
+## Consistency and Consensus
+
+_( 一致性与共识 )_
