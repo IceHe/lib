@@ -2419,6 +2419,8 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
 - Locks and compare-and-set operations assume that there is a single up-to-date copy of the data.
     - However, databases with multi-leader or leaderless replication usually allow several writes to happen concurrently and replicate them asynchronously, so they cannot guarantee that there is a single up-to-date copy of the data.
     - _Thus, techniques based on locks or compare-and-set do not apply in this context._
-- _A common approach in such replicated databases is to_ **allow concurrent writes to create several conflicting versions of a value ( also known as siblings ), and to use application code or special data structures to resolve and merge these versions after the fact**.
-- Atomic operations can work well in a replicated context, especially if they are com‐ mutative (i.e., you can apply them in a different order on different replicas, and still get the same result). For example, incrementing a counter or adding an element to a set are commutative operations. That is the idea behind Riak 2.0 datatypes, which prevent lost updates across replicas. When a value is concurrently updated by differ‐ ent clients, Riak automatically merges together the updates in such a way that no updates are lost [39].
-- On the other hand, the last write wins (LWW) conflict resolution method is prone to lost updates, as discussed in “Last write wins (discarding concurrent writes)” on page 186. Unfortunately, LWW is the default in many replicated databases.
+- _A common approach in such replicated databases is to_ **allow concurrent writes to create several conflicting versions of a value ( also known as siblings ) , and to use application code or special data structures to resolve and merge these versions after the fact**.
+- Atomic operations can work well in a replicated context, especially if they are **commutative** _( 可交换的 )_ ( i.e., you can **apply them in a different order on different replicas, and still get the same result** ) .
+    - _For example, incrementing a counter or adding an element to a set are commutative operations._
+- _On the other hand, the last write wins (LWW) conflict resolution method is prone to lost updates._
+    - _Unfortunately, LWW is the default in many replicated databases._
