@@ -2857,3 +2857,10 @@ _( 依赖同步的时钟 )_
     - _The width of the interval depends, among other things, on how long it has been since the local quartz clock ( 本地石英钟 ) was last synchronized with a more accurate clock source._
 
 **Synchronized clocks for global snapshots** _( 全局快照的同步时钟 )_
+
+- _However, when a database is distributed across many machines, potentially in multiple datacenters, a global, monotonically increasing transaction ID ( across all partitions ) is difficult to generate, because it requires coordination._
+    - **The transaction ID must reflect causality** _( 因果关系 )_ :
+        - _if transaction B reads a value that was written by transaction A, then B must have a higher transaction ID than A -- otherwise, the snapshot would not be consistent._
+- Can we **use the timestamps from synchronized time-of-day clocks as transaction IDs**?
+    - If we could get the synchronization good enough, they would have the right properties : later transactions have a higher timestamp.
+    - The problem, of course, is the **uncertainty about clock accuracy**.
