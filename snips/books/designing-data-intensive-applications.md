@@ -2823,6 +2823,31 @@ _Although they both measure time, it is important to distinguish the two, since 
 
 **Monotonic clocks** _( 单调时钟 )_
 
+- A monotonic clock is **suitable for measuring a duration (time interval)**, _such as a timeout or a service's response time :_
+    - `clock_gettime(CLOCK_MONOTONIC)` on Linux and `System.nanoTime()` in Java are monotonic clocks, for example.
+    - The name comes from the fact that they are guaranteed to always move forward ( whereas a time-of-day clock may **jump back** _( 回拨 )_ in time ).
+- _You can check the value of the monotonic clock at one point in time, do something, and then check the clock again at a later time._
+    - _The difference between the two values tells you how much time elapsed between the two checks._
+    - _However, the absolute value of the clock is meaningless : it might be the number of nanoseconds since the computer was started, or something similarly arbitrary._
+
 #### Clock Synchronization and Accuracy
 
 _( 时钟同步与准确性 )_
+
+Monotonic clocks don't need synchronization, but time-of-day clocks need to be set according to an NTP server or other external time source in order to be useful.
+
+- _omitted…_
+
+#### Relying on Synchronized Clocks
+
+_( 依赖同步的时钟 )_
+
+**Timestamps for ordering events** _( 时间戳与事件顺序 )_
+
+- _Let's consider one particular situation in which it is tempting, but dangerous, to rely on clocks :_ ordering of events across multiple nodes.
+    - _For example,_ if two clients write to a distributed database, who got there first? Which write is the more recent one?
+- _omitted…_
+
+**Clock readings have a confidence interval** _( 时钟的置信区间 )_
+
+- _omitted…_
