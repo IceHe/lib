@@ -2606,7 +2606,7 @@ SELECT * FROM bookings
 **Index-range locks** _( 索引区间锁 )_
 
 - _Unfortunately, predicate locks do not perform well : if there are many locks by active transactions, checking for matching locks becomes time-consuming._
-    - For that reason, **most databases with 2PL actually implement index-range locking** _( 索引区间锁 )_ ( aka. **next-key locking** ) , _which is a simplified approximation of predicate locking._
+    - For that reason, **most databases with 2PL actually implement index-range locking** _( 索引区间锁 )_ ( aka. **next-key locking** _( 间隙锁 )_ ) , _which is a simplified approximation of predicate locking._
 - It's safe to **simplify a predicate by making it match a greater set of objects**.
     - Either way, **an approximation of the search condition is attached to one of the indexes**.
     - _Now, if another transaction wants to insert, update, or delete a booking for the same room and/or an overlapping time period, it will have to update the same part of the index._
@@ -2641,3 +2641,21 @@ Are serializable isolation and good performance fundamentally at odds with each 
 - On top of snapshot isolation, **SSI adds an algorithm for detecting serialization conflicts among writes and determining which transactions to abort**.
 
 **Decisions based on an outdated premise** _( 基于过期的条件做决定 )_
+
+- _We observed a recurring pattern : a transaction reads some data from the database, examines the result of the query, and decides to take some action ( write to the database ) based on the result that it saw._
+- _To be safe,_ the database needs to assume that any change in the query result ( the premise ) means that writes in that transaction may be invalid.
+    - In order to provide serializable isolation, the database must **detect situations in which a transaction may have acted on an outdated premise _( 前提 )_ and abort the transaction in that case**.
+- _How does the database know if a query result might have changed? There are two cases to consider:_
+    - **Detecting reads of a stale MVCC object version ( uncommitted write occurred before the read )**
+    - **Detecting writes that affect prior reads ( the write occurs after the read )**
+
+**Detecting stale MVCC reads** _( 检测是否读取了过期的 MVCC 对象 )_
+
+- _Recall that_ snapshot isolation is usually implemented by **multi-version concurrency control (MVCC)** .
+- The database **needs to track when a transaction ignores another transaction's writes due to MVCC visibility rules**.
+    - **When the transaction wants to commit, the database checks whether any of the ignored writes have now been committed.**
+    - **If so, the transaction must be aborted.**
+- _omitted…_
+- By **avoiding unnecessary aborts**, SSI preserves snapshot isolation's support for long-running reads from a consistent snapshot.
+
+**Detecting writes that affect prior reads** _( 检测写是否影响了之前的读 )_
