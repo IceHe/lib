@@ -2509,4 +2509,60 @@ The simplest way of avoiding concurrency problems is to **remove the concurrency
 - _A system designed for single-threaded execution can sometimes perform better than a system that supports concurrency,_ because it can avoid the coordination overhead of locking.
 - However, its throughput is limited to that of a single CPU core.
 
-**Encapsulating transactions in stored procedures**
+**Encapsulating transactions in stored procedures** _( 采取存储过程封装事务 )_
+
+- _omitted…_
+- Systems with single-threaded serial transaction processing don't allow interactive multi-statement transactions.
+    - Instead, the application must submit the entire transaction code to the database ahead of time, as a stored procedure.
+    - Provided that all data required by a transaction is in memory, the stored procedure can execute very fast, without waiting for any network or disk I/O.
+
+**Pros and cons of stored procedures** _( 存储过程的优缺点 )_
+
+- _omitted…_
+- _Disadvantages :_
+    - Code running in a database is difficult to manage : compared to an application server, it's harder to debug, more awkward to keep in version control and deploy, trickier to test, and difficult to integrate with a metrics collection system for monitoring.
+    - A database is often much more performance-sensitive than an application server, because a single database instance is often shared by many application servers.
+        - A badly written stored procedure ( e.g., using a lot of memory or CPU time ) in a database can cause much more trouble than equivalent badly written code in an application server.
+- _Modern implementations of stored procedures have abandoned PL/SQL and use existing general-purpose programming languages instead :_
+    - _VoltDB uses Java or Groovy, Datomic uses Java or Clojure, and Redis uses Lua._
+
+**Partitioning**
+
+- Executing all transactions serially makes concurrency control much simpler, but limits the transaction throughput of the database to the speed of a single CPU core on a single machine.
+    - _Read-only transactions may execute elsewhere, using snapshot isolation, but for applications with high write throughput, the single-threaded transaction processor can become a serious bottleneck._
+- _In order to scale to multiple CPU cores, and multiple nodes, you can potentially partition your data._
+    - _If you can find a way of partitioning your dataset so that each transaction only needs to read and write data within a single partition, then each partition can have its own transaction processing thread running independently from the others._
+    - _In this case,_ you can give each CPU core its own partition, which allows your transaction throughput to scale linearly with the number of CPU cores.
+- _For any transaction that needs to access multiple partitions, the database must coordinate the transaction across all the partitions that it touches._
+    - The stored procedure needs to be performed in lock-step across all partitions to ensure serializability across the whole system.
+
+**Summary of serial execution**
+
+- _Serial execution of transactions has become a viable way of achieving serializable isolation within certain constraints :_
+    - Every transaction must be small and fast, because it takes only one slow transaction to stall all transaction processing.
+    - It is limited to use cases where the active dataset can fit in memory.
+        - Rarely accessed data could potentially be moved to disk, but if it needed to be accessed in a single-threaded transaction, the system would get very slow.
+        - **If a transaction needs to access data that's not in memory, the best solution may be to abort the transaction, asynchronously fetch the data into memory while continuing to process other transactions, and then restart the transaction when the data has been loaded**. This approach is known as **anti-caching** _( 反高速缓存 )_ .
+    - Write throughput must be low enough to be handled on a single CPU core, or else transactions need to be partitioned without requiring cross-partition coordination.
+    - Cross-partition transactions are possible, but there is a hard limit to the extent to which they can be used.
+
+#### Two-Phase Locking (2PL)
+
+ _( 两阶段加锁 )_
+
+_For around 30 years,_ there was **only one widely used algorithm for serializability in databases** : **two-phase locking (2PL)**.
+
+- **2PL is not 2PC**
+    - _Note that while two-phase locking (2PL) sounds very similar to **two-phase commit (2PC)**, they are completely different things._
+- Sometimes called **strong strict two-phase locking ( SS2PL )** to distinguish it from other variants of 2PL.
+
+As soon as anyone wants to write ( modify or delete ) an object, exclusive access is required :
+
+- If transaction A has read an object and transaction B wants to write to that object, B must wait until A commits or aborts before it can continue.
+    - _( This ensures that B can't change the object unexpectedly behind A's back. )_
+- If transaction A has written an object and transaction B wants to read that object, B must wait until A commits or aborts before it can continue.
+    - _( Reading an old version of the object, is not acceptable under 2PL. )_
+
+_In 2PL, writers don't just block other writers; they also block readers and vice versa._
+
+**Implementation of two-phase locking** _( 实现两阶段加锁 )_
