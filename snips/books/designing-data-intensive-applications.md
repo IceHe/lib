@@ -2441,3 +2441,28 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
     - _Alice updates her own record to take herself off call, and Bob updates his own record likewise._
     - _Both transactions commit, and now no doctor is on call._
     - _Your requirement of having at least one doctor on call has been violated._
+- _With write skew, our optional ways of preventing lost updates are more restricted:_
+    - _Atomic single-object operations don't help, as multiple objects are involved._
+    - The automatic detection of lost updates that you find in some implementations of snapshot isolation unfortunately doesn't help either :
+        - _write skew is not automatically detected in PostgreSQL's repeatable read, MySQL/InnoDB's repeatable read, Oracle's serializable, or SQL Server's snapshot isolation level._
+        - **Automatically preventing write skew requires true serializable isolation**.
+    - _Some databases allow you to configure constraints, which are then enforced by the database ( e.g., uniqueness, foreign key constraints, or restrictions on a particular value )._
+        - However, in order to specify that at least one doctor must be on call, you would need a constraint that involves multiple objects.
+        - Most databases do not have built-in support for such constraints, but you may be able to implement them with triggers or materialized views, depending on the database.
+    - If you can't use a serializable isolation level, the second-best option in this case is probably to **explicitly lock the rows that the transaction depends on**.
+        - _In the doctors example, you could write something like the following:_
+
+```sql
+BEGIN TRANSACTION;
+
+SELECT * FROM doctors
+    WHERE on_call = true
+    AND shift_id = 1234 FOR UPDATE;
+
+UPDATE doctors
+    SET on_call = false WHERE name = 'Alice' AND shift_id = 1234;
+
+COMMIT;
+```
+
+- As before, `FOR UPDATE` tells the database to lock all rows returned by this query.
