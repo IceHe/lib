@@ -3205,3 +3205,17 @@ _( 序列号排序 )_
 - The causality problems occur because these **sequence number generators do not correctly capture the ordering of operations across different nodes**.
 
 **Lamport timestamps**
+
+- **Each node has a unique identifier, and each node keeps a counter of the number of operations it has processed**.
+    - The Lamport timestamp is then simply a pair of `(counter, node ID)` .
+    - Two nodes may sometimes have the same counter value, but by including the node ID in the timestamp, each timestamp is made unique.
+- _A Lamport timestamp bears no relationship to a physical time-of-day clock, but it provides total ordering :_
+    - _if you have two timestamps, the one with a greater counter value is the greater timestamp;_
+    - _if the counter values are the same, the one with the greater node ID is the greater timestamp._
+- _When a node receives a request or response with a maximum counter value greater than its own counter value, it immediately increases its own counter to that maximum._
+- Lamport timestamps are sometimes confused with **version vectors**.
+    - _Although there are some similarities, they have a different purpose :_
+        - version vectors can distinguish whether two operations are concurrent or whether one is causally dependent on the other,
+        - whereas Lamport timestamps always enforce a total ordering.
+    - From the total ordering of Lamport timestamps, you cannot tell whether two operations are concurrent or whether they are causally dependent.
+    - _The advantage of Lamport timestamps over version vectors is that they are more compact._
