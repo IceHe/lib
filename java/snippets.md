@@ -294,6 +294,73 @@ public class Test {
 
 ## Jackson
 
+### JsonUtil
+
+```java
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.alibaba.common.lang.StringUtil;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonParser.Feature;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
+public class JsonUtil {
+
+    private final ObjectMapper mapper = new ObjectMapper();
+
+    static {
+        // 如果实体包含了意料之外的字段, 反序列化时不抛出异常
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        // 空的对象转换为 JSON 时不抛出错误
+        mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+
+        // 允许属性名称没有引号
+        mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+
+        // 允许单引号
+        mapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
+
+        // JsonInclude.Include.NON_EMPTY 属性为 空 ("") 或者为 null 时都不序列化，即返回的 json 没这个字段 ( 数据大小更小 )
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+
+        // LocalDateTime 的序列化 : 效果如 "2020-06-30T11:51:00.666"
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    }
+
+    public String toStr(Object object) {
+        try {
+            return mapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            return null;
+        }
+    }
+
+    public <T> T parse(String content, Class<T> valueType) {
+        if (StringUtil.isEmpty(content)) {
+            return null;
+        }
+        try {
+            return mapper.readValue(content, valueType);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public <T> List<T> parseList(String content, Class<T> valueType) throws IOException {
+        return mapper.readValue(content, new TypeReference<ArrayList<T>>() {});
+    }
+}
+```
+
 ### LocalDateTime Serializer
 
 References
@@ -409,6 +476,75 @@ public class TestDTO {
 Reference
 
 - Custom JSON Deserialization with Jackson - Stack Overflow : https://stackoverflow.com/questions/19158345/custom-json-deserialization-with-jackson
+
+### LocalDateTime
+
+```java
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+import lombok.experimental.UtilityClass;
+import me.ele.jarch.gzs.util.StringUtil;
+
+@UtilityClass
+public class LocalDateTimeUtils {
+
+    /** 默认的日期时间的格式化器 : 例如 "2019-08-13 17:54:30" */
+    public final DateTimeFormatter DEFAULT_DATETIME_FMT =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    public Date toDate(LocalDateTime localDateTime) {
+        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    public Long toMillis(LocalDateTime localDateTime) {
+        if (null == localDateTime) {
+            return null;
+        }
+        return localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+    }
+
+    public Long toSeconds(LocalDateTime localDateTime) {
+        if (null == localDateTime) {
+            return null;
+        }
+        return localDateTime.atZone(ZoneId.systemDefault()).toEpochSecond();
+    }
+
+    public LocalDateTime fromString(String str) {
+        if (StringUtil.isBlank(str)) {
+            return null;
+        }
+        try {
+            return LocalDateTime.parse(str, DEFAULT_DATETIME_FMT);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public LocalDateTime fromDate(Date date) {
+        if (null == date) {
+            return null;
+        }
+        return fromMillis(date.getTime());
+    }
+
+    public LocalDateTime fromMillis(Long millis) {
+        if (null == millis) {
+            return null;
+        }
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(millis), ZoneId.systemDefault());
+    }
+
+    public LocalDateTime fromSeconds(Long seconds) {
+        if (null == seconds) {
+            return null;
+        }
+        return LocalDateTime.ofInstant(Instant.ofEpochSecond(seconds), ZoneId.systemDefault());
+    }
+}
+```
 
 # StringParsableUtils
 
