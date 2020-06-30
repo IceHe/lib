@@ -3228,6 +3228,8 @@ _( 序列号排序 )_
 
 _( 全序关系广播 )_
 
+_( icehe : 从这里开始懵逼了, 看不懂了, 迷失方向了… TODO 需要重读以便理解 )_
+
 - _omitted…_
 
 **Using total order broadcast**
@@ -3235,5 +3237,61 @@ _( 全序关系广播 )_
 - _omitted…_
 
 **Implementing linearizable storage using total order broadcast**
+
+- _omitted…_
+
+**Implementing total order broadcast using linearizable storage**
+
+- _omitted…_
+
+### Distributed Transactions and Consensus
+
+_( 分布式事务与共识 )_
+
+- _omitted…_
+
+#### Atomic Commit and Two-Phase Commit (2PC)
+
+_( 原子提交与两阶段提交 )_
+
+- _omitted…_
+
+**From single-node to distributed atomic commit**
+
+- _omitted…_
+
+**Introduction to two-phase commit**
+
+- _omitted…_
+
+**A system of promises** _( 系统的承诺 )_
+
+- _omitted…_
+
+**Coordinator failure** _( 协调者发生故障 )_
+
+- _omitted…_
+
+**Three-phase commit** _( 三阶段提交 )_
+
+- _omitted…_
+
+#### Distributed Transactions in Practice
+
+_( 实践中的分布式事务 )_
+
+**Exactly-once message processing**
+
+- _omitted…_
+
+**XA transactions** _( XA 交易 )_
+
+- _omitted…_
+
+**Holding locks while in doubt** _( 停顿时仍持有锁 )_
+
+- _omitted…_
+
+**Recovering from coordinator failure**_( 从协调者故障中恢复 )_
 
 - _omitted…_
