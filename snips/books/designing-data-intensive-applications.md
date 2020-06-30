@@ -3325,3 +3325,15 @@ _( 支持容错的共识 )_
 #### Membership and Coordination Services
 
 _( 成员与协调服务 )_
+
+**Allocating work to nodes** _( 节点任务分配 )_
+
+- _omitted…_
+
+**Service discovery** _( 服务发现 )_
+
+- _omitted…_
+
+**Membership services** _( 成员服务 )_
+
+- _omitted…_
