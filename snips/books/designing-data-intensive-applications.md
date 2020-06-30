@@ -2991,3 +2991,47 @@ Moreover, besides timing issues, we have to **consider node failures** _( 考虑
 ## Consistency and Consensus
 
 _( 一致性与共识 )_
+
+The best way of building fault-tolerant systems is to **find some general-purpose abstractions with useful guarantees, implement them once, and then let applications rely on those guarantees**.
+
+- _This is the same approach as we used with transactions :_ by using a transaction,
+    - the application can pretend that there are no crashes (atomicity),
+    - that nobody else is concurrently accessing the database (isolation),
+    - and that storage devices are perfectly reliable (durability).
+- Even though crashes, race conditions, and disk failures do occur, the transaction abstraction hides those problems so that the application doesn't need to worry about them.
+
+We need to **understand the scope of what can and cannot be done** :
+
+- _in some situations, it's possible for the system to tolerate faults and continue working;_
+- _in other situations, that is not possible._
+
+### Consistency Guarantees
+
+_( 一致性保证 )_
+
+- _If you look at two database nodes at the same moment in time, you're likely to see different data on the two nodes, because write requests arrive on different nodes at different times._
+    - These **inconsistencies occur no matter what replication method the database uses ( single-leader, multi-leader, or leaderless replication )** .
+- Most replicated databases provide at least **eventual consistency** _( 最终一致性 )_ ,
+    - which means that if you stop writing to the database and wait for some unspecified length of time, then eventually all read requests will return the same value.
+    - _In other words, the inconsistency is temporary, and it eventually resolves itself ( assuming that any faults in the network are also eventually repaired ) ._
+    - A better name for eventual consistency may be **convergence** _( 收敛 )_ , as we expect all replicas to eventually converge to the same value.
+- However, this is a very weak guarantee -- _it doesn't say anything about when the replicas will converge._
+    - _Until the time of convergence, reads could return anything or nothing._
+- **Transaction isolation** is primarily about **avoiding race conditions due to concurrently executing transactions**,
+    - whereas **distributed consistency** _( 分布式一致性 )_ is mostly about **coordinating the state of replicas in the face of delays and faults**.
+- _This chapter covers a broad range of topics, but as we shall see, these areas are in fact deeply linked :_
+    - **linearizability** _( 可线性化 )_ : the strongest consistency models in common use.
+    - **Ordering events** _( 事件顺序 )_ in a distributed system : particularly around causality _( 因果性的 )_ and total _( 总体的 )_ ordering.
+    - Atomically commit a **distributed transaction**, which will finally lead us toward solutions for the consensus problem.
+
+### Linearizability
+
+_( 可线性化 )_
+
+- **Linearizability** is also known as **atomic consistency** _( 原子一致性 )_ , **strong consistency** _( 强一致性 )_ , **immediate consistency**, or **external consistency** _( 外部一致性 )_ .
+- But the basic idea is to **make a system appear as if there were only one copy of the data, and all operations on it are atomic**.
+    - _With this guarantee, even though there may be multiple replicas in reality, the application does not need to worry about them._
+
+#### What Makes a System Linearizable?
+
+_( 如何达到线性化 )_
