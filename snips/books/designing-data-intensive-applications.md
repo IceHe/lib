@@ -3058,3 +3058,68 @@ _( 如何达到线性化 )_
 #### Relying on Linearizability
 
 _( 可线性化的依赖条件 )_
+
+**Locking and leader election** _( 加锁与主节点选举 )_
+
+- A system that uses **single-leader replication** needs to **ensure that there is indeed only one leader**, not several ( **split brain** ) .
+    - One way of electing a leader is to use a lock :
+        - every node that starts up tries to acquire the lock, and the one that succeeds becomes the leader.
+    - _No matter how this lock is implemented, it must be linearizable :_ all nodes must agree which node owns the lock; _otherwise it is useless._
+- _Coordination services like **Apache ZooKeeper** and **etcd** are often used to implement distributed locks and leader election_.
+
+**Constraints and uniqueness guarantees** _( 约束与唯一性保证 )_
+
+- _omitted…_
+- A hard uniqueness constraint, such as the primary key you typically find in relational databases, requires linearizability.
+    - _Other kinds of constraints, such as foreign key or attribute constraints, can be implemented without requiring linearizability_
+
+**Cross-channel timing dependencies** _( 跨通道时序依赖 )_
+
+- _omitted…_
+
+#### Implementing Linearizable Systems
+
+_( 实现线性化系统 )_
+
+Since linearizability essentially means
+
+- "**behave as though there is only a single copy of the data, and all operations on it are atomic**", the simplest answer would be to really only use a single copy of the data.
+- _However, that approach would not be able to tolerate faults : if the node holding that one copy failed, the data would be lost, or at least inaccessible until the node was brought up again._
+- The most common approach to making a system fault-tolerant is to use replication.
+
+_Revisit the replication methods, and compare whether they can be made linearizable :_
+
+- **Single-leader replication ( potentially linearizable )**
+    - In a system with single-leader replication, the leader has the primary copy of the data that is used for writes, and the followers maintain backup copies of the data on other nodes.
+        - If you make reads from the leader, or from synchronously updated followers, they have the potential to be linearizable.
+        - However, not every single-leader database is actually linearizable, either by design ( e.g., because it uses snapshot isolation ) or due to concurrency bugs.
+    - _Using the leader for reads relies on the assumption that you know for sure who the leader is._
+        - It is quite possible for a node to think that it is the leader, when in fact it is not -- and if the delusional _( 妄想的 )_ leader continues to serve requests, it is likely to violate linearizability.
+        - _With asynchronous replication, failover may even lose committed writes, which violates both durability and linearizability._
+- **Consensus algorithms ( linearizable )**
+    - Some consensus algorithms, bear a resemblance _( 相似/形似 )_ to single-leader replication.
+    - However, consensus protocols contain measures to prevent split brain and stale replicas.
+    - _Thanks to these details, consensus algorithms can implement linearizable storage safely._
+        - _This is how ZooKeeper and etcd work, for example._
+- **Multi-leader replication ( not linearizable )**
+    - _Systems with multi-leader replication are generally not linearizable,_ because they concurrently process writes on multiple nodes and asynchronously replicate them to other nodes.
+- **Leaderless replication ( probably not linearizable )**
+    - For systems with leaderless replication ( Dynamo-style ) , people sometimes claim that you can obtain "strong consistency" by requiring quorum reads and writes ( w + r > n ) .
+        - _Depending on the exact configuration of the quorums, and depending on how you define strong consistency, this is not quite true._
+    - "Last write wins" conflict resolution methods based on time-of-day clocks are almost certainly nonlinearizable, because clock timestamps cannot be guaranteed to be consistent with actual event ordering due to clock skew.
+        - Sloppy quorums also ruin any chance of linearizability.
+        - Even with strict quorums, nonlinearizable behavior is possible.
+
+**Linearizability and quorums** _( 线性化与法定票数 )_
+
+- _( 详见原书例 )_
+- It is possible to **make Dynamo-style quorums linearizable at the cost of reduced performance** :
+    - a reader must **perform read repair synchronously**, before returning results to the application, and
+    - a writer must **read the latest state of a quorum of nodes** before sending its writes.
+- _However, Riak does not perform synchronous read repair due to the performance penalty._
+    - _Cassandra does wait for read repair to complete on quorum reads,_ but it loses linearizability _if there are multiple concurrent writes to the same key_, due to its use of last-write-wins conflict resolution.
+- _In summary,_ it is safest to assume that **a leaderless system with Dynamo-style replication does not provide linearizability**.
+
+#### The Cost of Linearizability
+
+_( 线性化的代价 )_
