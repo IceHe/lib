@@ -3219,3 +3219,21 @@ _( 序列号排序 )_
         - whereas Lamport timestamps always enforce a total ordering.
     - From the total ordering of Lamport timestamps, you cannot tell whether two operations are concurrent or whether they are causally dependent.
     - _The advantage of Lamport timestamps over version vectors is that they are more compact._
+
+**Timestamp ordering is not sufficient** _( 时间戳排序依然不够 )_
+
+- _omitted…_
+
+#### Total Order Broadcast
+
+_( 全序关系广播 )_
+
+- _omitted…_
+
+**Using total order broadcast**
+
+- _omitted…_
+
+**Implementing linearizable storage using total order broadcast**
+
+- _omitted…_
