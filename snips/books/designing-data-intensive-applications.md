@@ -3144,3 +3144,64 @@ _( 线性化的代价 )_
         - _All in all, there is a lot of misunderstanding and confusion around CAP, and it does not help us understand systems better, so CAP is best avoided._
 
 **Linearizability and network delays** _( 线性化与网络延迟 )_
+
+- Although linearizability is a useful guarantee, surprisingly few systems are actually linearizable in practice.
+    - For example, even **RAM on a modern multi-core CPU is not linearizable** : if a thread running on one CPU core writes to a memory address, and a thread on another CPU core reads the same address shortly afterward, it is not guaranteed to read the value written by the first thread ( unless a **memory barrier** or **fence** _( 内存屏障或 fence 指令 )_ is used ) .
+- **It makes no sense to use the CAP theorem to justify the multi-core memory consistency model** :
+    - _within one computer we usually assume reliable communication, and we don't expect one CPU core to be able to continue operating normally if it is disconnected from the rest of the computer._
+    - **The reason for dropping linearizability is performance, not fault tolerance.**
+- The same is true of many distributed databases that choose not to provide linearizable guarantees : they do so primarily to **increase performance, not so much for fault tolerance**.
+    - _Can’t we maybe find a more efficient implementation of linearizable storage? It seems the answer is no_ _( icehe : 目前是这样的 )_ .
+
+### Ordering Guarantees
+
+_( 顺序保证 )_
+
+#### Ordering and Causality
+
+_( 顺序保证与因果关系 )_
+
+- _omitted…_
+- If a system obeys the ordering imposed by causality, we say that it is **causally consistent** _( 因果一致性 )_ .
+    - For example, **snapshot isolation provides causal consistency** :
+        - _when you read from the database, and you see some piece of data, then you must also be able to see any data that causally precedes it ( assuming it has not been deleted in the meantime ) ._
+
+**The causal order is not a total order** _( 因果顺序并非全序 )_
+
+- _omitted…_
+
+**Linearizability is stronger than causal consistency**_( 可线性化强于因果一致性 )_
+
+- **Linearizability implies causality** : any system that is linearizable will preserve causality correctly.
+- Making a system linearizable can **harm its performance and availability**, especially if the system has significant network delays _( for example, if it's geographically distributed )_ .
+    - _For this reason, some distributed data systems have abandoned linearizability, which allows them to achieve better performance but can make them difficult to work with._
+- In fact, **causal consistency is the strongest possible consistency model that does not slow down due to network delays, and remains available in the face of network failures**.
+
+**Capturing causal dependencies** _( 捕获因果依赖关系 )_
+
+- _omitted…_
+
+#### Sequence Number Ordering
+
+_( 序列号排序 )_
+
+- _omitted…_
+- In a database with single-leader replication, the **replication log defines a total order of write operations** that is consistent with causality.
+    - The leader can simply **increment a counter for each operation, and thus assign a monotonically increasing sequence number to each operation in the replication log**.
+
+**Noncausal sequence number generators** _( 非因果序列发生器 )_
+
+- _If there is not a single leader ( perhaps because you are using a multi-leader or leader‐ less database, or because the database is partitioned ) , it is less clear how to generate sequence numbers for operations._
+- _Various methods are used in practice :_
+    - Each node can generate its own independent set of sequence numbers.
+        - _For example, if you have two nodes, one node can generate only odd numbers and the other only even numbers._
+        - In general, you could **reserve some bits in the binary representation of the sequence number to contain a unique node identifier**, _and this would ensure that two different nodes can never generate the same sequence number._
+    - You can **attach a timestamp from a time-of-day clock ( physical clock ) to each operation**.
+        - _Such timestamps are not sequential, but if they have sufficiently high resolution, they might be sufficient to totally order operations._
+        - _This fact is used in the last write wins conflict resolution method._
+    - You can **preallocate blocks of sequence numbers** _( 预先分配序列号的区间范围 )_ .
+        - _For example, node A might claim the block of sequence numbers from 1 to 1,000, and node B might claim the block from 1,001 to 2,000._
+        - _Then each node can independently assign sequence numbers from its block, and allocate a new block when its supply of sequence numbers begins to run low._
+- The causality problems occur because these **sequence number generators do not correctly capture the ordering of operations across different nodes**.
+
+**Lamport timestamps**
