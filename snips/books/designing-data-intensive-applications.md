@@ -3035,3 +3035,26 @@ _( 可线性化 )_
 #### What Makes a System Linearizable?
 
 _( 如何达到线性化 )_
+
+- _( 例子比较复杂微妙, 但很有必要理解清楚, 详情看原书 )_
+
+**Linearizability Versus Serializability**
+
+- Linearizability is easily confused with serializability, as both words seem to mean something like "can be arranged in a sequential order."
+- _However, they are two quite different guarantees, and it is important to distinguish between them :_
+    - **Serializability**
+        - Serializability is **an isolation property of transactions**, where every transaction may read and write multiple objects ( rows, documents, records ) .
+        - It guarantees that transactions behave the same as if they had executed in some serial order ( each transaction running to completion before the next transaction starts ) .
+        - _It is okay for that serial order to be different from the order in which transactions were actually run._
+    - **Linearizability**
+        - Linearizability is **a recency guarantee _( 最新值保证 )_ on reads and writes of a register ( an individual object )** .
+        - _It doesn't group operations together into transactions, so it does not prevent problems such as write skew, unless you take additional measures such as materializing conflicts._
+- A database may provide both serializability and linearizability, and this combination is known as **strict serializability** _( 严格的可串行化 )_ or **strong one-copy serializability (strong-1SR)** _( 强的单副本可串行化 )_ .
+    - Implementations of serializability based on two-phase locking  or actual serial execution are typically linearizable.
+- However, **serializable snapshot isolation is not linearizable** :
+    - by design, it makes reads from a consistent snapshot, to avoid lock contention between readers and writers.
+    - _The whole point of a consistent snapshot is that it does not include writes that are more recent than the snapshot, and thus reads from the snapshot are not linearizable._
+
+#### Relying on Linearizability
+
+_( 可线性化的依赖条件 )_
