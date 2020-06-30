@@ -3123,3 +3123,24 @@ _Revisit the replication methods, and compare whether they can be made lineariza
 #### The Cost of Linearizability
 
 _( 线性化的代价 )_
+
+- _( 详见原书例 )_
+- If clients can **connect directly to the leader datacenter**, _this is not a problem,_ since the application continues to work normally there.
+    - _But clients that can only reach a follower datacenter will experience an outage ( 断供 ) until the network link is repaired._
+
+**The CAP theorem**
+
+- The applications that don’t require linearizability can be more tolerant of network problems.
+    - _This insight is popularly known as the_ **CAP theorem**, _named by Eric Brewer in 2000._
+    - CAP was originally proposed as a rule of thumb _( 概测法 / 经验法则 )_ , without precise definitions, with the goal of starting a discussion about trade-offs in databases.
+- The Unhelpful CAP Theorem
+    - CAP is sometimes presented as **Consistency, Availability, Partition tolerance : pick 2 out of 3**.
+        - Unfortunately, putting it this way is misleading because **network partitions are a kind of fault**, _so they aren’t something about which you have a choice :_ **they will happen whether you like it or not**.
+    - **When a network fault occurs, you have to choose between either linearizability or total availability**.
+        - Thus, a better way of phrasing CAP would be **either Consistent or Available when Partitioned**.
+        - _A more reliable network needs to make this choice less often, but at some point the choice is inevitable._
+    - _In discussions of CAP there are several contradictory definitions of the term availability, and the formalization as a theorem does not match its usual meaning._
+        - _Many so-called "highly available" ( fault-tolerant ) systems actually do not meet CAP's idiosyncratic ( 特殊的 ) definition of availability._
+        - _All in all, there is a lot of misunderstanding and confusion around CAP, and it does not help us understand systems better, so CAP is best avoided._
+
+**Linearizability and network delays** _( 线性化与网络延迟 )_
