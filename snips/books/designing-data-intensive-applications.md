@@ -3295,3 +3295,33 @@ _( 实践中的分布式事务 )_
 **Recovering from coordinator failure**_( 从协调者故障中恢复 )_
 
 - _omitted…_
+
+**Limitations of distributed transactions** _( 分布式事务的限制 )_
+
+- _omitted…_
+
+#### Fault-Tolerant Consensus
+
+_( 支持容错的共识 )_
+
+- _omitted…_
+
+**Consensus algorithms and total order broadcast** _( 共识算法与全序广播 )_
+
+- _omitted…_
+
+**Single-leader replication and consensus**_( (单主节点) 主从复制与共识 )_
+
+- _omitted…_
+
+**Epoch numbering and quorums**
+
+- _omitted…_
+
+**Limitations of consensus** _( 共识的局限性 )_
+
+- _omitted…_
+
+#### Membership and Coordination Services
+
+_( 成员与协调服务 )_
