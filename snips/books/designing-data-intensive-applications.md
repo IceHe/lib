@@ -3701,3 +3701,24 @@ In general, a "**stream**" refers to **data that is incrementally made available
     - filesystem APIs ( such as Java's FileInputStream ) ,
     - TCP connections,
     - delivering audio and video over the internet, and so on.
+
+### Transmitting Event Streams
+
+_( 发送事件流 )_
+
+In a stream processing context, a record is more commonly known as an **event**, _but it is essentially the same thing :_
+
+- _a small, self-contained, immutable object containing the details of something that happened at some point in time._
+- _An event usually contains a timestamp indicating when it happened according to a time-of-day clock._
+
+_In batch processing, a file is written once and then potentially read by multiple jobs._
+
+- _Analogously ( 类似地 )_ , in streaming terminology,
+    - an event is generated once by a **producer** ( aka. a **publisher** or **sender** ) ,
+    - and then potentially processed by multiple **consumers** ( **subscribers** or **recipients** ) .
+- _In a filesystem, a filename identifies a set of related records;_
+    - in a streaming system, related events are usually grouped together into a **topic** or **stream** _( 主题 / 流 )_.
+
+#### Messaging Systems
+
+_( 消息系统 )_
