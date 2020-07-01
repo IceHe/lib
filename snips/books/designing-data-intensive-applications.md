@@ -3478,3 +3478,49 @@ _To create a MapReduce job, you need to_ implement two callback functions, the m
 - The **MapReduce scheduler** tries to run each mapper on one of the machines that stores a replica of the input file, provided that _( 假如/如果 )_ machine has enough spare RAM and CPU resources to run the map task.
     - This principle is known as **putting the computation near the data** :
         - _it saves copying the input file over the network, reducing network load and increasing locality ( 访问的局部性 ) ._
+- The `reduce` side of the computation is also partitioned.
+    - _While the number of map tasks is determined by the number of input file blocks, the number of reduce tasks is configured by the job author ( it can be different from the number of map tasks ) ._
+    - To ensure that **all key-value pairs with the same key end up at the same reducer**, the framework uses a hash of the key to determine which reduce task should receive a particular key-value pair.
+- _omitted…_
+
+**MapReduce workflows**
+
+- _omitted…_
+
+#### Reduce-Side Joins and Grouping
+
+_( Reduce 端的 join 和 group by 操作 )_
+
+**Example: analysis of user activity events**
+
+- _omitted…_
+
+**Sort-merge joins** _( 排序-合并 join )_
+
+- _omitted…_
+
+**Bringing related data together in the same place** _( 将相关数据放到一起 )_
+
+- _omitted…_
+
+**GROUP BY** _( 分组 )_
+
+- _omitted…_
+
+**Handling skew** _( 处理数据倾斜 )_
+
+- _omitted…_
+
+#### Map-Side Joins
+
+_( Map 端的 join 操作 )_
+
+_( icehe : 又开始看不太懂了 )_
+
+**Broadcast hash joins** _( 广播哈希 join )_
+
+- _omitted…_
+
+**Partitioned hash joins** _( 分区哈希 join )_
+
+- _omitted…_
