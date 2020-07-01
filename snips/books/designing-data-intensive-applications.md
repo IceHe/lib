@@ -3469,3 +3469,12 @@ _To create a MapReduce job, you need to_ implement two callback functions, the m
 - **Reducer**
     - The MapReduce framework takes the key-value pairs produced by the mappers, collects all the values belonging to the same key, and calls the reducer with an iterator over that collection of values.
     - The reducer can produce output records ( such as the number of occurrences of the same URL ) .
+
+**Distributed execution of MapReduce** _( MapReduce 的分布式执行 )_
+
+- Parallelization of Hadoop MapReduce jobs is based on **partitioning** :
+    - the input to a job is typically a directory in HDFS,
+    - and each file or file block within the input directory is considered to be a separate partition that can be processed by a separate map task.
+- The **MapReduce scheduler** tries to run each mapper on one of the machines that stores a replica of the input file, provided that _( 假如/如果 )_ machine has enough spare RAM and CPU resources to run the map task.
+    - This principle is known as **putting the computation near the data** :
+        - _it saves copying the input file over the network, reducing network load and increasing locality ( 访问的局部性 ) ._
