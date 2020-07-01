@@ -3682,3 +3682,22 @@ They also provide a good illustration of **how partitioned algorithms work** :
     - Thus, you can start a mapper for each partition of the large join input, load the hash table for the small input into each mapper, and then scan over the large input one record at a time, querying the hash table for each record.
 - **Partitioned hash joins**
     - If the two join inputs are partitioned in the same way ( using the same key, same hash function, and same number of partitions ) , then the hash table approach can be used independently for each partition.
+
+## Stream Processing
+
+_( 流处理系统 )_
+
+_One big assumption remained throughout Chapter 10 :_
+
+- namely, that the input is bounded -- _i.e., of a known and finite size_ -- so the batch process knows when it has finished reading its input.
+    - _For example, the **sorting operation** that is central to MapReduce must read its entire input before it can start producing output :_
+        - _it could happen that the very last input record is the one with the lowest key, and thus needs to be the very first output record, so starting the output early is not an option._
+
+In general, a "**stream**" refers to **data that is incrementally made available over time**.
+
+- _The concept appears in many places :_
+    - in the stdin and stdout of Unix,
+    - programming languages ( lazy lists ) ,
+    - filesystem APIs ( such as Java's FileInputStream ) ,
+    - TCP connections,
+    - delivering audio and video over the internet, and so on.
