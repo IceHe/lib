@@ -3608,3 +3608,77 @@ _( 中间状态实体化 )_
 - _omitted…_
 
 **Fault tolerance** _( 容错 )_
+
+- _omitted…_
+
+**Discussion of materialization** _( 关于实体化的讨论 )_
+
+- _Returning to the Unix analogy,_
+    - we saw that **MapReduce** is like writing the output of each command to a temporary file, whereas **dataflow engines look much more like Unix pipes**.
+- **Flink** especially is built around the idea of pipelined execution :
+    - that is, **incrementally passing the output of an operator to other operators**, and **not waiting for the input to be complete before starting to process it**.
+- _omitted…_
+
+#### Graphs and Iterative Processing
+
+_( 图与迭代处理 )_
+
+- _omitted…_
+
+**The Pregel processing model**
+
+- As an optimization for batch processing graphs, the **bulk synchronous parallel (BSP)** _( 批量同步并行 )_ model of computation has become popular.
+    - _Among others, it is implemented by Apache Giraph, Spark's GraphX API, and Flink's Gelly API._
+    - It is also known as the **Pregel model**, _as Google's Pregel paper popularized this approach for processing graphs._
+- _omitted…_
+
+**Fault tolerance** _( 容错 )_
+
+- _omitted…_
+
+**Parallel execution**
+
+- _omitted…_
+
+#### High-Level APIs and Languages
+
+- The higher-level languages and APIs such as Hive, Pig, Cascad‐ ing, and Crunch became popular because **programming MapReduce jobs by hand is quite laborious** _( 费力的 )_ .
+    - _As Tez emerged, these high-level languages had the additional benefit of being able to move to the new dataflow execution engine without the need to rewrite job code._
+    - _Spark and Flink also include their own high-level dataflow APIs, often taking inspiration from FlumeJava._
+- _omitted…_
+
+**The move toward declarative query languages** _( 转向声明式查询语言 )_
+
+- _omitted…_
+
+**Specialization for different domains** _( 不同领域的专业化 )_
+
+- _omitted…_
+
+### Summary
+
+_The two main problems that distributed batch processing frameworks need to solve are :_
+
+- **Partitioning**
+    - In MapReduce, mappers are partitioned according to input file blocks.
+    - The output of mappers is repartitioned, sorted, and merged into a configurable number of reducer partitions.
+    - The purpose of this process is to bring all the related data --  _e.g., all the records with the same key_  -- together in the same place.
+    - _Post-MapReduce dataflow engines try to avoid sorting unless it is required, but they otherwise take a broadly similar approach to partitioning._
+- **Fault tolerance**
+    - MapReduce frequently writes to disk, which makes it easy to recover from an individual failed task without restarting the entire job but slows down execution in the failure-free case.
+    - Dataflow engines perform less materialization of intermediate state and keep more in memory, which means that they need to recompute more data if a node fails.
+    - _Deterministic operators reduce the amount of data that needs to be recomputed. ( icehe : 不太懂这句的意思 )_
+
+_We discussed several join algorithms for MapReduce, most of which are also internally used in MPP databases and dataflow engines._
+
+They also provide a good illustration of **how partitioned algorithms work** :
+
+- **Sort-merge joins**
+    - Each of the inputs being joined goes through a mapper that extracts the join key.
+    - By partitioning, sorting, and merging, all the records with the same key end up going to the same call of the reducer.
+    - _This function can then output the joined records._
+- **Broadcast hash joins**
+    - One of the two join inputs is small, so it is not partitioned and it can be entirely loaded into a hash table.
+    - Thus, you can start a mapper for each partition of the large join input, load the hash table for the small input into each mapper, and then scan over the large input one record at a time, querying the hash table for each record.
+- **Partitioned hash joins**
+    - If the two join inputs are partitioned in the same way ( using the same key, same hash function, and same number of partitions ) , then the hash table approach can be used independently for each partition.
