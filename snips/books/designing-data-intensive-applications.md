@@ -3337,3 +3337,135 @@ _( 成员与协调服务 )_
 **Membership services** _( 成员服务 )_
 
 - _omitted…_
+
+## Batch Processing
+
+_( 批处理系统 )_
+
+_Let’s distinguish three different types of systems :_
+
+- **Services ( online systems )**
+    - A service waits for a request or instruction from a client to arrive.
+    - When one is received, the service tries to handle it as quickly as possible and sends a response back.
+    - Response time is usually the primary measure of performance of a service, and availability is often very important _( if the client can't reach the service, the user will probably get an error message )_ .
+- **Batch processing systems ( offline systems )**
+    - A batch processing system takes a large amount of input data, runs a job to process it, and produces some output data.
+    - _Jobs often take a while ( from a few minutes to several days ) , so there normally isn't a user waiting for the job to finish._
+    - _Instead, batch jobs are often scheduled to run periodically ( for example, once a day ) ._
+    - The primary performance measure of a batch job is usually throughput ( the time it takes to crunch through an input dataset of a certain size ) .
+- **Stream processing systems ( near-real-time systems )**
+    - Stream processing is somewhere between online and offline/batch processing ( so it is sometimes called near-real-time or nearline processing ) .
+    - Like a batch processing system, a stream processor consumes inputs and produces outputs _( rather than responding to requests )_ .
+    - _However, a stream job operates on events shortly after they happen, whereas a batch job operates on a fixed set of input data._
+    - _This difference allows stream processing systems to have lower latency than the equivalent batch systems._
+    - As stream processing builds upon batch processing.
+
+### Batch Processing with Unix Tools
+
+_( 使用 UNIX 工具进行批处理 )_
+
+#### Simple Log Analysis
+
+_( 简单日志分析 )_
+
+_For example, say you want to_ find the five most popular pages on your website.
+
+```bash
+cat /var/log/nginx/access.log |
+    awk '{print $7}' |
+    sort             |
+    uniq -c          |
+    sort -r -n       |
+    head -n 5
+```
+
+1. `cat` Read the log file.
+2. `awk` Split each line into fields by whitespace, and output only the seventh such field from each line, which happens to be the requested URL.
+3. `sort` Alphabetically sort the list of requested URLs.
+    - _If some URL has been requested n times, then after sorting, the file contains the same URL repeated n times in a row._
+4. `uniq -c` The uniq command filters out repeated lines in its input by checking whether two adjacent lines are the same.
+    - _The -c option tells it to also output a counter : for every distinct URL, it reports how many times that URL appeared in the input._
+5. `sort -r -n` The second sort sorts by the number (-n) at the start of each line, which is the number of times the URL was requested.
+    - _It then returns the results in reverse (-r) order, i.e. with the largest number first._
+6. `head -5` Finally, head outputs just the first five lines (-n 5) of input, and discards the rest.
+
+**Chain of commands versus custom program** _( 命名链与自定义程序 )_
+
+- _omitted…_
+
+**Sorting versus in-memory aggregation** _( (使用磁盘) 排序与内存中的聚合 )_
+
+- If the job's working set is larger than the available memory, **the sorting approach has the advantage that it can make efficient use of disks**.
+    - Chunks of data can be sorted in memory and written out to disk as segment files, and then multiple sorted segments can be merged into a larger sorted file.
+    - **Mergesort has sequential access patterns that perform well on disks.**
+- _The `sort` utility in GNU Coreutils (Linux) automatically handles larger-than-memory datasets by spilling to disk, and automatically parallelizes sorting across multiple CPU cores._
+
+#### The Unix Philosophy
+
+_( UNIX 设计哲学 )_
+
+The idea of **connecting programs with pipes** became part of what is now known as the **Unix philosophy**.
+
+_The philosophy was described in 1978 as follows :_
+
+1. Make each program do one thing well.
+    - To do a new job, build afresh _( adv. 重新 )_ rather than complicate old programs by adding new "features".
+2. Expect the output of every program to become the input to another, as yet unknown, program.
+    - Don't clutter output with extraneous _( 无关的 )_ information.
+    - Avoid stringently columnar _( 严格的表格 )_ or binary input formats.
+    - Don't insist on interactive input.
+3. Design and build software, even operating systems, to be tried early, ideally within weeks.
+    - Don't hesitate to throw away the clumsy ( 笨拙的 ) parts and rebuild them.
+4. Use tools in preference to _( 优先于… )_ unskilled _( 不熟练的 )_ help to lighten a programming task,
+    - even if you have to detour _( 绕道 )_ to build the tools and expect to throw some of them out after you've finished using them.
+
+**A uniform interface** _( 统一接口 )_
+
+- _If you expect the output of one program to become the input to another program, that means those programs must use the same data format -- in other words, a compatible interface._
+    - _If you want to be able to connect any program's output to any program's input, that means that all programs must use the same input/output interface._
+- **In Unix, that interface is a file ( or, more precisely, a file descriptor ) .**
+    - _A file is just an ordered sequence of bytes._
+
+**Separation of logic and wiring** _( 逻辑和布线的分离 )_
+
+- _Another characteristic feature of Unix tools is their_ use of standard input (stdin) and standard output (stdout).
+    - _If you run a program and don't specify anything else, stdin comes from the keyboard and stdout goes to the screen._
+- _There are limits to what you can do with stdin and stdout._
+    - Programs that need multiple inputs or outputs are possible but tricky.
+- You can't pipe a program's output into a network connection.
+    - _Except by using a separate tool, such as `netcat` or `curl`._
+    - Unix started out trying to represent everything as files, but the **BSD sockets API deviated from that convention**.
+    - _The research operating systems Plan 9 and Inferno are more consistent in their use of files : they represent a TCP connection as a file in /net/tcp._
+
+**Transparency and experimentation** _( 透明与测试 )_
+
+- _omitted…_
+- The biggest limitation of Unix tools is that they run only on a single machine --
+    - _and that’s where tools like Hadoop come in._
+
+### MapReduce and Distributed Filesystems
+
+- **MapReduce jobs read and write files on a distributed filesystem**.
+    - _In Hadoop's implementation of MapReduce,_ that filesystem is called **HDFS (Hadoop Distributed File System)**, an open source reimplementation of the Google File System (GFS).
+- HDFS is based on the **shared-nothing principle**, _in contrast to the **shared-disk** approach of Network Attached Storage (NAS) and Storage Area Network (SAN) architectures_.
+    - Shared-disk storage is implemented by a centralized storage appliance, _often using custom hardware and special network infrastructure such as Fibre Channel ( 光纤通信 ) ._
+    - _On the other hand,_ the shared-nothing approach requires no special hardware, _only computers connected by a conventional datacenter network._
+- _omitted…_
+
+#### MapReduce Job Execution
+
+_( MapReduce 作业执行 )_
+
+**MapReduce** is a programming framework with which you can write code to process large datasets in a distributed filesystem like HDFS.
+
+- The output from the **mapper** is always sorted before it is given to the **reducer**.
+
+_To create a MapReduce job, you need to_ implement two callback functions, the mapper and reducer, _which behave as follows :_
+
+- **Mapper**
+    - The mapper is **called once for every input record**, and its job is to extract the key and value from the input record.
+    - For each input, it may generate any number of key-value pairs (including none).
+    - _It does not keep any state from one input record to the next, so each record is handled independently._
+- **Reducer**
+    - The MapReduce framework takes the key-value pairs produced by the mappers, collects all the values belonging to the same key, and calls the reducer with an iterator over that collection of values.
+    - The reducer can produce output records ( such as the number of occurrences of the same URL ) .
