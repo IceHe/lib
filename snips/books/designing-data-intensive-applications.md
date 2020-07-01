@@ -3519,8 +3519,92 @@ _( icehe : 又开始看不太懂了 )_
 
 **Broadcast hash joins** _( 广播哈希 join )_
 
+- The simplest way of performing a map-side join applies in the case where **a large dataset is joined with a small dataset**.
 - _omitted…_
 
 **Partitioned hash joins** _( 分区哈希 join )_
 
 - _omitted…_
+- This approach only works if **both of the join's inputs have the same number of partitions**, with records assigned to partitions based on the same key and the same hash function.
+
+**Map-side merge joins**_( map 端的合并 join )_
+
+- Another variant of a map-side join applies if the input datasets are not only partitioned in the same way, but also **sorted based on the same key**.
+- _omitted…_
+
+**MapReduce workflows with map-side joins** _( 具有 map 端 join 的工作流 )_
+
+- _omitted…_
+
+#### The Output of Batch Workflows
+
+_( 批处理工作流的输出 )_
+
+- _omitted…_
+
+**Building search indexes** _( 生成搜索索引 )_
+
+- Google's original use of **MapReduce was to build indexes for its search engine**,
+    - which was implemented as a workflow of 5 to 10 MapReduce jobs.
+- _Although Google later moved away from using MapReduce for this purpose, it helps to understand MapReduce if you look at it through the lens of building a search index._
+    - _( Even today, Hadoop MapReduce remains a good way of building indexes for Lucene/Solr. )_
+- _If you need to perform a full-text search over a fixed set of documents,_
+    - _then a batch process is a very effective way of building the indexes :_
+        - the mappers partition the set of documents as needed,
+        - each reducer builds the index for its partition, and the index files are written to the distributed filesystem.
+    - _Building such document-partitioned indexes parallelizes very well._
+- Alternatively, it is possible to **build indexes incrementally**. If you want to add, remove, or update documents in an index,
+    - **Lucene** writes out new segment files and **asynchronously merges and compacts segment files in the background**.
+- _omitted…_
+
+**Key-value stores as batch process output**_( 批处理输出键值 )_
+
+- _omitted…_
+
+**Philosophy of batch process outputs** _( 批处理输出的哲学 )_
+
+- _omitted…_
+
+#### Comparing Hadoop to Distributed Databases
+
+_( 对比 Hadoop 与分布式数据库 )_
+
+**Diversity of storage** _( 存储多样性 )_
+
+- Databases require you to structure data according to a particular model ( e.g., relational or documents ),
+    - whereas files in a distributed filesystem are just byte sequences, which can be written using any data model and encoding.
+    - _They might be collections of database records, but they can equally well be text, images, videos, sensor readings, sparse matrices, feature vectors, genome sequences, or any other kind of data._
+- _omitted…_
+
+**Diversity of processing models** _( 处理模型的多样性 )_
+
+- _omitted…_
+- The Hadoop ecosystem includes both random-access OLTP databases _such as HBase_ and MPP-style analytic databases _such as Impala_.
+    - Neither HBase nor Impala uses MapReduce, but both use HDFS for storage.
+    - _They are very different approaches to accessing and processing data, but they can nevertheless coexist and be integrated in the same system._
+
+**Designing for frequent faults** _( 针对频繁故障的设计 )_
+
+- _omitted…_
+
+### Beyond MapReduce
+
+_( 超越 MapReduce )_
+
+- _omitted…_
+
+#### Materialization of Intermediate State
+
+_( 中间状态实体化 )_
+
+- _omitted…_
+
+**Dataflow engines** _( 数据流引擎 )_
+
+- _In order to fix these problems with MapReduce, several new execution engines for distributed batch computations were developed,_
+    - the most well known of which are **Spark**, **Tez**, and **Flink**.
+- _There are various differences in the way they are designed, but they have one thing in common :_
+    - they **handle an entire workflow as one job, rather than breaking it up into independent subjobs**.
+- _omitted…_
+
+**Fault tolerance** _( 容错 )_
