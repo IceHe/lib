@@ -3803,3 +3803,23 @@ _To differentiate the systems, it is particularly helpful to ask the following t
     - but within each group only one of the nodes receives each message.
 
 **Acknowledgments and redelivery** _( 确认与重新投递 )_
+
+- Consumers may crash at any time, so it could happen that a broker delivers a message to a consumer but the consumer never processes it, or only partially processes it before crashing.
+    - _In order to ensure that the message is not lost,_ message brokers use **acknowledgments** : a client must explicitly tell the broker when it has finished processing a message so that the broker can remove it from the queue.
+- If the connection to a client is closed or times out without the broker receiving an acknowledgment, _it assumes that the message was not processed, and therefore it delivers the message again to another consumer._
+    - ( Note that it could happen that the message actually was fully processed, but the acknowledgment was lost in the network. _Handling this case requires an atomic commit protocol._ )
+- When combined with load balancing, this redelivery behavior has an interesting effect on the **ordering of messages**.
+    - _The consumers generally process messages in the order they were sent by producers._
+    - _However, consumer 2 crashes while processing message m3, at the same time as consumer 1 is processing message m4._
+    - _The unacknowledged message m3 is subsequently redelivered to consumer 1, with the result that consumer 1 processes messages in the order m4, m3, m5._
+    - _Thus, m3 and m4 are not delivered in the same order as they were sent by producer 1._
+    - _( icehe : 如果应用层逻辑对收到的消息由因果/顺序方面的要求, 就很容易出问题 )_
+
+![ordering-of-messaging.png](_images/designing-data-intensive-applications/ordering-of-messaging.png)
+
+- _Even if the message broker otherwise tries to_ preserve the order of messages _( as required by both the JMS and AMQP standards )_ , the combination of load balancing with redelivery inevitably leads to messages being reordered.
+    - _To avoid this issue, you can use a separate queue per consumer ( i.e., not use the load balancing feature ) ._
+
+#### Partitioned Logs
+
+_( 分区日志 )_
