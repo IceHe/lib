@@ -3722,3 +3722,38 @@ _In batch processing, a file is written once and then potentially read by multip
 #### Messaging Systems
 
 _( 消息系统 )_
+
+_Within this **publish/subscribe** model, different systems take a wide range of approaches, and_ there is no one right answer for all purposes.
+
+_To differentiate the systems, it is particularly helpful to ask the following two questions :_
+
+1. What happens if **the producers send messages faster than the consumers can process** them?
+    - _Broadly speaking, there are three options :_
+        - the system can **drop messages**,
+        - **buffer messages** in a queue, or
+        - **apply backpressure** _( 背压 )_ ( also known as **flow control** ; i.e., blocking the producer from sending more messages).
+            - _For example, Unix pipes and TCP use backpressure : they have a small fixed-size buffer, and if it fills up, the sender is blocked until the recipient takes data out of the buffer._
+    - _If messages are buffered in a queue, it is important to understand what happens as that queue grows._
+        - _Does the system crash if the queue no longer fits in memory, or does it **write messages to disk?**_
+        - _If so, how does the disk access affect the performance of the messaging system?_
+2. What happens if nodes **crash or temporarily go offline** -- are any messages lost?
+    - As with databases, durability may require some combination of **writing to disk and/or replication**, which has a cost.
+    - _If you can afford to **sometimes lose messages**, you can probably **get higher throughput and lower latency** on the same hardware._
+
+**Direct messaging from producers to consumers** _( 生产者与消费者之间的直接消息传递 )_
+
+- _A number of messaging systems use direct network communication between producers and consumers without going via intermediary nodes:_
+    - **UDP multicast** _is widely used in the financial industry for streams such as stock market feeds,_ where low latency is important.
+        - Although UDP itself is unreliable, application-level protocols can recover lost packets _( the producer must remember packets it has sent so that it can retransmit them on demand )_ .
+    - **Brokerless messaging libraries** such as **ZeroMQ** and **nanomsg** _take a similar approach, implementing publish/subscribe messaging_ over TCP or IP multicast.
+    - **StatsD** and **Brubeck** use unreliable UDP messaging for collecting metrics from all machines on the network and monitoring them.
+        - _( In the StatsD protocol, counter metrics are only correct if all messages are received; using UDP makes the metrics at best approximate. )_
+    - If the **consumer exposes a service on the network**, producers can make a direct HTTP or RPC request to push messages to the consumer.
+        - This is the idea behind **webhooks**, a pattern in which a **callback URL of one service is registered with another service**, _and it makes a request to that URL whenever an event occurs._
+        - _( icehe : 消费者提供接口, 由生产者来调用 )_
+- _Although these direct messaging systems work well in the situations for which they are designed,_ they generally **require the application code to be aware of the possibility of message loss**.
+    - _The faults they can tolerate are quite limited :_ even if the protocols detect and retransmit packets that are lost in the network, they generally **assume that producers and consumers are constantly online**.
+- If a consumer is offline, it may miss messages that were sent while it is unreachable.
+    - Some protocols allow the producer to retry failed message deliveries, but this approach may break down if the producer crashes, losing the buffer of messages that it was supposed to retry.
+
+**Message brokers** _( 消息代理 )_
