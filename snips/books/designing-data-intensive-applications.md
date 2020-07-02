@@ -3757,3 +3757,27 @@ _To differentiate the systems, it is particularly helpful to ask the following t
     - Some protocols allow the producer to retry failed message deliveries, but this approach may break down if the producer crashes, losing the buffer of messages that it was supposed to retry.
 
 **Message brokers** _( 消息代理 )_
+
+- A widely used alternative is to send messages via a **message broker** ( aka. a **message queue** ) , which is essentially **a kind of database that is optimized for handling message streams**.
+    - _It runs as a server, with producers and consumers connecting to it as clients._
+    - _Producers write messages to the broker, and consumers receive them by reading them from the broker._
+- _By centralizing the data in the broker, these systems can more easily tolerate clients that come and go (connect, disconnect, and crash), and_ the question of durability is moved to the broker instead.
+    - _Some message brokers only keep messages in memory, while others ( depending on configuration ) write them to disk so that they are not lost in case of a broker crash._
+    - Faced with slow consumers, they generally **allow unbounded queueing ( as opposed to dropping messages or backpressure )**, _although this choice may also depend on the configuration._
+- _A consequence of queueing is also that consumers are generally asynchronous :_
+    - when a producer sends a message, it normally only waits for the broker to confirm that it has buffered the message _and does not wait for the message to be processed by consumers._
+    - The delivery to consumers will happen at some undetermined future point in time -- _often within a fraction of a second, but sometimes significantly later if there is a queue backlog._
+
+**Message brokers compared to databases**_( 消息代理与数据库的对比 )_
+
+- _Some message brokers can_ even participate in two-phase commit protocols using XA or JTA.
+- _This feature makes them quite similar in nature ( 实质上 ) to databases, although there are still important practical differences between message brokers and databases :_
+    - Databases **usually keep data until it is explicitly deleted**, _whereas most message brokers automatically delete a message when it has been successfully delivered to its consumers._
+        - _Such message brokers are not suitable for long-term data storage._
+    - _Since they quickly delete messages,_ most message brokers **assume that their working set is fairly small** -- _i.e., the queues are short._
+        - _If the broker needs to buffer a lot of messages because the consumers are slow ( perhaps spilling messages to disk if they no longer fit in memory ) , each individual message takes longer to process, and the overall throughput may degrade._
+    - _Databases often support secondary indexes and various ways of searching for data, while_ message brokers often support some way of **subscribing to a subset of topics matching some pattern**.
+        - _The mechanisms are different, but both are essentially ways for a client to select the portion of the data that it wants to know about._
+    - _When querying a database, the result is typically based on a point-in-time snapshot of the data;_
+        - _if another client subsequently writes something to the database that changes the query result, the first client does not find out that its prior result is now outdated ( unless it repeats the query, or polls for changes ) ._
+        - By contrast, message brokers **do not support arbitrary queries**, but they **do notify clients when data changes** _( i.e., when new messages become available )_.
