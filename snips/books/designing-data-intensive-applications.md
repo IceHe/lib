@@ -3841,3 +3841,5 @@ _( 分区日志 )_
     - _There is no ordering guarantee across different partitions._
 - **Apache Kafka**, Amazon Kinesis Streams, and Twitter's DistributedLog are **log-based message brokers**.
     - _Even though these message brokers write all messages to disk,_ they are able to achieve throughput of millions of messages per second **by partitioning across multiple machines**, and **fault tolerance by replicating messages**.
+
+**Logs compared to traditional messaging** _( 对比日志与传统消息系统 )_
