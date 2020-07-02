@@ -3823,3 +3823,21 @@ _To differentiate the systems, it is particularly helpful to ask the following t
 #### Partitioned Logs
 
 _( 分区日志 )_
+
+- _Even message brokers that_ durably write messages to disk quickly delete them again after they have been delivered to consumers, because they are built around a transient messaging mindset _( 瞬间的消息传递思维 )_ .
+- _Databases and filesystems take the opposite approach :_ everything that is written to a database or file is normally expected to be permanently recorded, at least until someone explicitly chooses to delete it again.
+- _Why can we not have a hybrid ( 混合使用 )_ , combining the durable storage approach of databases with the low-latency notification facilities of messaging? This is the idea behind **log-based message brokers**.
+
+**Using logs for message storage** _( 基于日志的消息存储 )_
+
+- _A log is simply an append-only sequence of records on disk._
+- _The same structure can be used to implement a message broker :_
+    - a producer sends a message by appending it to the end of the log, and a consumer receives messages by reading the log sequentially.
+    - If a consumer reaches the end of the log, it waits for a notification that a new message has been appended.
+    - _The Unix tool `tail -f`, which watches a file for data being appended, essentially works like this._
+- In order to scale to higher throughput _than a single disk can offer,_ **the log can be partitioned**.
+    - Within each partition, the broker assigns a **monotonically increasing sequence number, or offset**, _to every message._
+    - _Such a sequence number makes sense because a partition is append-only, so the messages within a partition are totally ordered._
+    - _There is no ordering guarantee across different partitions._
+- **Apache Kafka**, Amazon Kinesis Streams, and Twitter's DistributedLog are **log-based message brokers**.
+    - _Even though these message brokers write all messages to disk,_ they are able to achieve throughput of millions of messages per second **by partitioning across multiple machines**, and **fault tolerance by replicating messages**.
