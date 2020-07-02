@@ -3781,3 +3781,25 @@ _To differentiate the systems, it is particularly helpful to ask the following t
     - _When querying a database, the result is typically based on a point-in-time snapshot of the data;_
         - _if another client subsequently writes something to the database that changes the query result, the first client does not find out that its prior result is now outdated ( unless it repeats the query, or polls for changes ) ._
         - By contrast, message brokers **do not support arbitrary queries**, but they **do notify clients when data changes** _( i.e., when new messages become available )_.
+
+**Multiple consumers** _( 多个消费者 )_
+
+- When multiple consumers read messages in the same topic, _two main patterns of messaging are used :_
+    - **Load balancing** _( 负载均衡 )_
+        - **Each message is delivered to one of the consumers**, _so the consumers can share the work of processing the messages in the topic._
+        - _The broker may assign messages to consumers arbitrarily._
+        - _This pattern is useful when the messages are expensive to process, and so you want to be able to add consumers to parallelize the processing._
+            - _( In AMQP, you can implement load balancing by having multiple clients consuming from the same queue, and in JMS it is called a shared subscription (共享订阅) . )_
+    - **Fan-out** _( 扇出式 )_
+        - **Each message is delivered to all of the consumers**.
+        - Fan-out allows several independent consumers to each "tune in" _( 收听/收看 )_ to the same broadcast of messages, without affecting each other -- _the streaming equivalent of having several different batch jobs that read the same input file._
+        - _( This feature is provided by topic subscriptions in JMS, and exchange bindings in AMQP. )_
+
+![mq-load-balancing-n-fan-out.png](_images/designing-data-intensive-applications/mq-load-balancing-n-fan-out.png)
+
+- The two patterns can be combined : _for example,_
+    - two separate groups of consumers may each subscribe to a topic,
+        - _such that each group collectively receives all messages,_
+    - but within each group only one of the nodes receives each message.
+
+**Acknowledgments and redelivery** _( 确认与重新投递 )_
