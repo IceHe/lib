@@ -1596,7 +1596,7 @@ _( 节点失效时写入数据库 )_
     - It's sufficient for 2 out of 3 replicas to acknowledge the write :
         - after client has received 2 ok responses, we consider its write to be successful.
 - Read
-    - When a client reads from the database, it doesn’t just send its request to one replica :
+    - When a client reads from the database, it doesn't just send its request to one replica :
         - **read requests are also sent to several nodes in parallel**.
     - The client may get different responses from different nodes;
         - i.e., the up-to-date value from one node and a stale value from another.
@@ -1619,7 +1619,7 @@ _( 节点失效时写入数据库 )_
 **Quorums** for reading and writing _( 法定人数 / 法定票数 / 仲裁 )_
 
 - If there are **n replicas**, **every write must be confirmed by w nodes** to be considered successful, and we must **query at least r nodes for each read**.
-    - _( In our example, n = 3, w = 2, r = 2. )_ As long as **w + r > n**, _we expect to get an up-to-date value when reading, because_ at least one of the r nodes we’re reading from must be up to date.
+    - _( In our example, n = 3, w = 2, r = 2. )_ As long as **w + r > n**, _we expect to get an up-to-date value when reading, because_ at least one of the r nodes we're reading from must be up to date.
     - Reads and writes that obey these r and w values are called **quorum reads and writes** _( 法定票数读/仲裁读 , 法定票数写/仲裁写 )_ .
     - _You can think of r and w as the minimum number of votes required for the read or write to be valid._
 - _In Dynamo-style databases, the parameters n, w, and r are typically configurable._
@@ -1697,7 +1697,7 @@ _However, even with w + r > n, there are likely to be edge cases where stale val
 
 **Monitoring staleness** _( 监控旧值 )_
 
-From an operational perspective, it’s important to monitor whether your databases are returning up-to-date results.
+From an operational perspective, it's important to monitor whether your databases are returning up-to-date results.
 
 - _Even if your application can tolerate stale reads, you need to be aware of the health of your replication._
 - If it falls behind significantly, it should alert you so that you can investigate the cause
@@ -1860,7 +1860,7 @@ _Consistent Hashing_
     - It uses randomly chosen partition boundaries to avoid the need for central control or distributed consensus.
     - Note that consistent here has nothing to do with _( 与…无关 )_ replica consistency or ACID consistency, but rather describes a particular approach to **rebalancing** _( 动态平衡 )_ .
     - This particular approach actually doesn't work very well for databases, so **it is rarely used in practice** _( the documentation of some databases still refers to consistent hashing, but it is often inaccurate )_ .
-    - _Because this is so confusing, it’s best to_ avoid the term consistent hashing and just call it hash partitioning instead.
+    - _Because this is so confusing, it's best to_ avoid the term consistent hashing and just call it hash partitioning instead.
 
 A table in Cassandra can be declared with **a compound primary key ( 复合主键 ) consisting of several columns**.
 
@@ -1933,7 +1933,7 @@ _Over time, things change in a database:_
 
 - _The query throughput increases, so you want to add more CPUs to handle the load._
 - _The dataset size increases, so you want to add more disks and RAM to store it._
-- _A machine fails, and other machines need to take over the failed machine’s responsibilities._
+- _A machine fails, and other machines need to take over the failed machine's responsibilities._
 
 _All of these changes call for data and requests to be moved from one node to another._
 
@@ -1967,7 +1967,7 @@ _No matter which partitioning scheme is used, rebalancing is usually expected to
 - _In this configuration,_ **the number of partitions is usually fixed when the database is first set up and not changed afterward**.
     - _Although in principle it's possible to split and merge partitions,_ a fixed number of partitions is operationally simpler, and **so many fixed-partition databases choose not to implement partition splitting**.
     - _Thus, the number of partitions configured at the outset is the maximum number of nodes you can have,_ so you **need to choose it high enough to accommodate future growth**.
-    - _However, each partition also has management overhead, so it’s counterproductive to choose too high a number._
+    - _However, each partition also has management overhead, so it's counterproductive to choose too high a number._
 - Choosing the right number of partitions is difficult if the total size of the dataset is highly variable ( for example, if it starts small but may grow much larger over time ).
     - _Since each partition contains a fixed fraction of the total data, the size of each partition grows proportionally to the total amount of data in the cluster._
     - If partitions are very large, rebalancing and recovery from node failures become expensive.
@@ -2093,7 +2093,7 @@ _omitted…_
 > Some authors have claimed that general two-phase commit is too expensive to support, because of the performance or availability problems that it brings.
 > We believe it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions.
 >
-> -- James Corbett et al., Spanner: Google’s Globally-Distributed Database (2012)
+> -- James Corbett et al., Spanner: Google's Globally-Distributed Database (2012)
 
 _In the harsh reality of data systems, many things can go wrong:_
 
@@ -2147,11 +2147,11 @@ Systems that do not meet the ACID criteria are sometimes called **BASE**, which 
         - _It does not describe what happens if several processes try to access the same data at the same time,_ because that is covered under the letter I, for isolation.
 - _Rather, ACID atomicity describes what happens if a client wants to make several writes, but a fault occurs after some of the writes have been processed -- for example, a process crashes, a network connection is interrupted, a disk becomes full, or some integrity constraint is violated_.
     - If the writes are grouped together into an atomic transaction, and the transaction cannot be completed (committed) due to a fault, then the transaction is aborted and the database must discard or undo any writes it has made so far in that transaction.
-- _Without atomicity, if an error occurs partway through making multiple changes, it's difficult to know which changes have taken effect and which haven’t._
+- _Without atomicity, if an error occurs partway through making multiple changes, it's difficult to know which changes have taken effect and which haven't._
     - _The application could try again, but that risks making the same change twice, leading to duplicate or incorrect data._
-    - Atomicity simplifies this problem : if a transaction was aborted, the application can be sure that it didn’t change anything, so it can safely be retried.
+    - Atomicity simplifies this problem : if a transaction was aborted, the application can be sure that it didn't change anything, so it can safely be retried.
 - The ability **to abort a transaction on error and have all writes from that transaction discarded** is the defining feature of **ACID atomicity**.
-    - _Perhaps abortability would have been a better term than atomicity, but we will stick with atomicity since that’s the usual word._
+    - _Perhaps abortability would have been a better term than atomicity, but we will stick with atomicity since that's the usual word._
 
 **Consistency** _( 一致性 )_
 
@@ -2160,7 +2160,7 @@ Systems that do not meet the ACID criteria are sometimes called **BASE**, which 
     - **Consistent hashing** is an approach to partitioning that some systems use for rebalancing.
     - In the CAP theorem, the word consistency is used to mean **linearizability**.
     - In the context of ACID, consistency refers to an application-specific notion of the database being in a "**good state**."
-    - _( It’s unfortunate that the same word is used with at least four different meanings. )_
+    - _( It's unfortunate that the same word is used with at least four different meanings. )_
 - _The idea of ACID consistency is that you have certain statements about your data (invariants) that must always be true._
 - However, this **idea of consistency depends on the application's notion of invariants, and it's the application's responsibility to define its transactions correctly so that they preserve consistency**.
     - _This is not something that the database can guarantee : if you write bad data that violates your invariants, the database can't stop you._
@@ -2168,7 +2168,7 @@ Systems that do not meet the ACID criteria are sometimes called **BASE**, which 
 - Atomicity, isolation, and durability are properties of the database, whereas **consistency ( in the ACID sense ) is a property of the application**.
     - **The application may rely on the database's atomicity and isolation properties in order to achieve consistency**, but it's not up to the database alone.
     - Thus, the letter C doesn't really belong in ACID.
-        - Joe Hellerstein has remarked that **the C in ACID was "tossed in to make the acronym work"** in Härder and Reuter’s paper, and that it wasn’t considered important at the time.
+        - Joe Hellerstein has remarked that **the C in ACID was "tossed in to make the acronym work"** in Härder and Reuter's paper, and that it wasn't considered important at the time.
 
 **Isolation** _( 隔离性 )_
 
@@ -2357,7 +2357,7 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
         - Any writes that those transactions have made are ignored, even if the transactions subsequently commit.
     2. Any writes made by aborted transactions are ignored.
     3. Any writes made by transactions with a later transaction ID ( i.e., which started after the current transaction started ) are ignored, regardless of whether those transactions have committed.
-    4. All other writes are visible to the application’s queries.
+    4. All other writes are visible to the application's queries.
 - _Put another way, an object is visible if both of the following conditions are true :_
     - At the time when the reader's transaction started, the transaction that created the object had already committed.
     - The object is not marked for deletion, or if it is, the transaction that requested deletion had not yet committed at the time when the reader's transaction started.
@@ -2382,7 +2382,7 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
     - _However, many databases that implement it call it by different names._
     - In Oracle it is called **serializable** _( 可串行化 )_ , and in PostgreSQL and MySQL it is called **repeatable read**.
 - _The reason for this naming confusion is that the_ SQL standard doesn't have the concept of snapshot isolation,
-    - _because the standard is based on System R's 1975 definition of isolation levels and snapshot isolation hadn’t yet been invented then._
+    - _because the standard is based on System R's 1975 definition of isolation levels and snapshot isolation hadn't yet been invented then._
     - Instead, it defines repeatable read, which looks superficially similar to snapshot isolation.
     - PostgreSQL and MySQL call their snapshot isolation level repeatable read because it meets the requirements of the standard, and so they can claim standards compliance.
 
@@ -2927,7 +2927,7 @@ _( 拜占庭故障 )_
     - but we assume that **if a node does respond, it is telling the "truth"** :
         - _to the best of its knowledge, it is playing by the rules of the protocol._
 - Distributed systems problems become much harder **if there is a risk that nodes may "lie"** ( send arbitrary faulty or corrupted responses ) --
-    - _for example, if a node may claim to have received a particular message when in fact it didn’t._
+    - _for example, if a node may claim to have received a particular message when in fact it didn't._
     - Such behavior is known as a **Byzantine fault**, and the problem of reaching consensus _( 共识 )_ in this untrusting _( 不可信的 )_ environment is known as the **Byzantine Generals Problem** _( 拜占庭将军问题 )_.
 - A system is **Byzantine fault-tolerant** _( 拜占庭容错 )_ if it continues to operate correctly even if some of the nodes are malfunctioning and not obeying the protocol, or if malicious attackers are interfering with the network.
 
@@ -3130,12 +3130,12 @@ _( 线性化的代价 )_
 
 **The CAP theorem**
 
-- The applications that don’t require linearizability can be more tolerant of network problems.
+- The applications that don't require linearizability can be more tolerant of network problems.
     - _This insight is popularly known as the_ **CAP theorem**, _named by Eric Brewer in 2000._
     - CAP was originally proposed as a rule of thumb _( 概测法 / 经验法则 )_ , without precise definitions, with the goal of starting a discussion about trade-offs in databases.
 - The Unhelpful CAP Theorem
     - CAP is sometimes presented as **Consistency, Availability, Partition tolerance : pick 2 out of 3**.
-        - Unfortunately, putting it this way is misleading because **network partitions are a kind of fault**, _so they aren’t something about which you have a choice :_ **they will happen whether you like it or not**.
+        - Unfortunately, putting it this way is misleading because **network partitions are a kind of fault**, _so they aren't something about which you have a choice :_ **they will happen whether you like it or not**.
     - **When a network fault occurs, you have to choose between either linearizability or total availability**.
         - Thus, a better way of phrasing CAP would be **either Consistent or Available when Partitioned**.
         - _A more reliable network needs to make this choice less often, but at some point the choice is inevitable._
@@ -3151,7 +3151,7 @@ _( 线性化的代价 )_
     - _within one computer we usually assume reliable communication, and we don't expect one CPU core to be able to continue operating normally if it is disconnected from the rest of the computer._
     - **The reason for dropping linearizability is performance, not fault tolerance.**
 - The same is true of many distributed databases that choose not to provide linearizable guarantees : they do so primarily to **increase performance, not so much for fault tolerance**.
-    - _Can’t we maybe find a more efficient implementation of linearizable storage? It seems the answer is no_ _( icehe : 目前是这样的 )_ .
+    - _Can't we maybe find a more efficient implementation of linearizable storage? It seems the answer is no_ _( icehe : 目前是这样的 )_ .
 
 ### Ordering Guarantees
 
@@ -3342,7 +3342,7 @@ _( 成员与协调服务 )_
 
 _( 批处理系统 )_
 
-_Let’s distinguish three different types of systems :_
+_Let's distinguish three different types of systems :_
 
 - **Services ( online systems )**
     - A service waits for a request or instruction from a client to arrive.
@@ -3441,7 +3441,7 @@ _The philosophy was described in 1978 as follows :_
 
 - _omitted…_
 - The biggest limitation of Unix tools is that they run only on a single machine --
-    - _and that’s where tools like Hadoop come in._
+    - _and that's where tools like Hadoop come in._
 
 ### MapReduce and Distributed Filesystems
 
@@ -3909,3 +3909,56 @@ _( 保持系统同步 )_
 #### Change Data Capture
 
 _( 变更数据捕获 )_
+
+- _More recently, there has been growing interest in_ **change data capture (CDC)**, which is the process of **observing all data changes written to a database and extracting them in a form in which they can be replicated to other systems**.
+    - _CDC is especially interesting if **changes are made available as a stream**, immediately as they are written._
+- _For example, you can capture the changes in a database and continually apply the same changes to a search index._
+    - _If the log of changes is applied in the same order, you can expect the data in the search index to match the data in the database._
+    - _The search index and_ **any other derived data systems are just consumers of the change stream**.
+
+**Implementing change data capture** _( 实现数据捕获 )_
+
+- _Change data capture is a mechanism for_ ensuring that all changes made to the system of record are also reflected in the derived data systems so that the derived systems have an accurate copy of the data.
+- _Essentially, change data capture makes one database the leader ( the one from which the changes are captured ) , and turns the others into followers._
+    - _A log-based message broker is well suited for transporting the change events from the source database, since it preserves the ordering of messages._
+- **Database triggers** _can be used to implement change data capture by_ registering triggers that observe all changes to data tables and add corresponding entries to a changelog table.
+    - _However, they tend to be fragile and have_ significant performance overheads.
+    - **Parsing the replication log** can be a more robust approach, _although it also comes with challenges,_ such as handling schema changes.
+- _LinkedIn's Databus, Facebook's Wormhole, and Yahoo!'s Sherpa use this idea at large scale._
+    - _Bottled Water implements CDC for PostgreSQL using an API that **decodes the write-ahead** log,_
+    - _Maxwell and Debezium do something similar **for MySQL by parsing the binlog**,_
+    - _Mongoriver **reads the MongoDB oplog**, and_
+    - _GoldenGate provides similar facilities for Oracle._
+
+**Initial snapshot** _( 原始快照 )_
+
+- _If you have the log of all changes that were ever made to a database, you can reconstruct the entire state of the database by replaying the log._
+    - _However, in many cases, keeping all changes forever would require too much disk space, and replaying it would take too long, so the log needs to be truncated._
+- _Building a new full-text index, for example, requires a full copy of the entire database -- it is not sufficient to only apply a log of recent changes, since it would be missing items that were not recently updated._
+    - _Thus, if you don't have the entire log history, you need to start with a **consistent snapshot** ( 一致性快照 ) ._
+- _The snapshot of the database must correspond to a known position or offset in the change log, so that you know at which point to start applying changes after the snapshot has been processed._
+    - _Some CDC tools integrate this snapshot facility, while others leave it as a manual operation._
+
+**Log compaction** _( 日志压缩 )_
+
+- _If you can only keep a limited amount of log history, you need to go through the snapshot process every time you want to add a new derived data system._
+    - However, **log compaction** provides a good alternative.
+- _omitted…_
+- _This log compaction feature is supported by Apache Kafka._
+
+**API support for change streams** _( 对变更流的 API 支持 )_
+
+- Increasingly, databases are beginning to **support change streams as a first-class interface**, _rather than the typical retrofitted ( 花样翻新 ) and reverse-engineered ( 逆向工程的 ) CDC efforts._ _For example,_
+    - _RethinkDB allows queries to subscribe to notifications when the results of a query change,_
+    - _Firebase and CouchDB provide data synchronization based on a change feed that is also made available to applications, and_
+    - _Meteor uses the MongoDB oplog to subscribe to data changes and update the user interface._
+- _VoltDB allows transactions to continuously export data from a database in the form of a stream._
+    - _The database represents an output stream in the relational data model as a table into which transactions can insert tuples, but which cannot be queried._
+    - _The stream then consists of the log of tuples that committed transactions have written to this special table, in the order they were committed._
+    - _External consumers can asynchronously consume this log and use it to update derived data systems._
+- _Kafka Connect is an effort to integrate change data capture tools for a wide range of database systems with Kafka._
+    - _Once the stream of change events is in Kafka, it can be used to update derived data systems such as search indexes, and also feed into stream processing systems._
+
+#### Event Sourcing
+
+_( 事件溯源 )_
