@@ -3843,3 +3843,46 @@ _( 分区日志 )_
     - _Even though these message brokers write all messages to disk,_ they are able to achieve throughput of millions of messages per second **by partitioning across multiple machines**, and **fault tolerance by replicating messages**.
 
 **Logs compared to traditional messaging** _( 对比日志与传统消息系统 )_
+
+- The **log-based approach trivially supports fan-out messaging**, because several consumers can independently read the log without affecting each other -- reading a message does not delete it from the log.
+    - _To achieve load balancing across a group of consumers, instead of assigning individual messages to consumer clients,_ the broker can **assign entire partitions to nodes in the consumer group**.
+- Each client then consumes all the messages in the partitions it has been assigned.
+    - Typically, when a consumer has been assigned a log partition, it reads the messages in the partition sequentially, in a straightforward single-threaded manner.
+    - _This coarsegrained ( 粗粒度的 ) load balancing approach has some downsides :_
+        - The number of nodes sharing the work of consuming a topic can be at most the number of log partitions in that topic, _because messages within the same partition are delivered to the same node._
+        - If a single message is slow to process, it holds up _( 阻挡 )_ the processing of subsequent messages in that partition ( a form of **head-of-line blocking** ).
+- _Thus, in situations where_ messages may be expensive to process and you want to parallelize processing on a message-by-message basis, and where message ordering is not so important, the **JMS/AMQP** style of message broker is preferable.
+    - _On the other hand, in situations with_ high message throughput, where each message is fast to process and where message ordering is important, the **log-based** approach works very well.
+
+**Consumer offsets** _( 消费者偏移量 )_
+
+- _Consuming a partition sequentially makes it easy to tell which messages have been processed : all messages with an offset less than a consumer's current offset have already been processed, and all messages with a greater offset have not yet been seen._
+    - _Thus,_ the broker does not need to track acknowledgments for every single message -- it only needs to **periodically record the consumer offsets**.
+- _If a consumer node fails, another node in the consumer group is assigned the failed consumer's partitions, and it starts consuming messages at the last recorded offset._
+    - _If the consumer had processed subsequent messages but not yet recorded their offset, those messages will be processed a second time upon restart._
+    - _( icehe : 这个特性会导致没办法保证一个消息有且仅被消费一次? )_
+
+**Disk space usage** _( 磁盘空间使用 )_
+
+- _If a slow consumer cannot keep up with the rate of messages, and it falls so far behind that its consumer offset points to a deleted segment, it will miss some of the messages._
+    - Effectively, the log implements a **bounded-size buffer that discards old messages when it gets full** ( aka. **a circular buffer** or **ring buffer** ) _( 循环/环形缓冲区 )_ .
+    - _However, since that buffer is on disk, it can be quite large._
+
+**When consumers cannot keep up with producers** _( 当消费者跟不上生产者时 )_
+
+- _Three choices of what to do_ if a consumer cannot keep up with the rate at which producers are sending messages :
+    - dropping messages,
+    - buffering, or
+    - applying backpressure.
+- _In this taxonomy ( 分类系统 ) ,_ the log-based approach is a form of **buffering with a large but fixed-size buffer** _( limited by the available disk space )_ .
+- _You can_ **monitor how far a consumer is behind the head of the log**, and raise an alert if it falls behind significantly.
+    - _As the buffer is large, there is enough time for a human operator to fix the slow consumer and allow it to catch up before it starts missing messages._
+
+**Replaying old messages** _( 重新处理消息 )_
+
+- _We noted previously that_ with AMQP- and JMS-style message brokers, processing and acknowledging messages is a destructive operation, since it causes the messages to be deleted on the broker.
+    - _On the other hand,_ in a log-based message broker, consuming messages is more like reading from a file : _it is a read-only operation that does not change the log._
+
+### Databases and Streams
+
+_( 数据库与流 )_
