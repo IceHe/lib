@@ -4005,3 +4005,18 @@ _( 状态、流与不可变性 )_
 - _omitted…_
 
 **Deriving several views from the same event log** _( 相同的事件日志派生多个视图 )_
+
+- Having an explicit translation step from an event log to a database makes it easier to evolve your application over time :
+    - if you want to introduce a new feature that presents your existing data in some new way, you can **use the event log to build a separate read-optimized view** for the new feature, and **run it alongside the existing systems without having to modify them**.
+    - _Running old and new systems side by side is often easier than performing a complicated schema migration in an existing system._
+        - _Once the old system is no longer needed, you can simply shut it down and reclaim its resources._
+- _Storing data is normally quite straightforward if you don't have to worry about how it is going to be queried and accessed; many of the complexities of schema design, indexing, and storage engines are the result of wanting to support certain query and access patterns._
+    - _For this reason,_ you gain a lot of flexibility by separating the form in which data is written from the form it is read, and by allowing several different read views.
+    - _This idea is sometimes known as_ **command query responsibility segregation (CQRS)** _( 命令查询职责分离 )_ .
+- _The traditional approach to database and schema design is based on the fallacy ( 谬论 ) that data must be written in the same form as it will be queried._
+    - _Debates about normalization and denormalization become largely irrelevant_ if you can translate data from a write-optimized event log to read-optimized application state :
+        - it is entirely reasonable to **denormalize data in the read-optimized views, as the translation process gives you a mechanism for keeping it consistent with the event log**.
+
+**Concurrency control** _( 并发控制 )_
+
+**Limitations of immutability** _( 不变性的限制 )_
