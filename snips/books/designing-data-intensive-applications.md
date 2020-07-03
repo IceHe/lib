@@ -3999,3 +3999,9 @@ _( 状态、流与不可变性 )_
     - _Even as things are done and undone, the fact remains true that those events occurred._
     - The key idea is that mutable state and an append-only log of immutable events do not contradict each other: they are two sides of the same coin.
     - The log of all changes, the changelog, represents the evolution of state over time.
+
+**Advantages of immutable events** _( 不变事件的优势 )_
+
+- _omitted…_
+
+**Deriving several views from the same event log** _( 相同的事件日志派生多个视图 )_
