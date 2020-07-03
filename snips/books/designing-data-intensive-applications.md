@@ -3962,3 +3962,35 @@ _( 变更数据捕获 )_
 #### Event Sourcing
 
 _( 事件溯源 )_
+
+- Similarly to change data capture, **event sourcing** involves **storing all changes to the application state as a log of change events**.
+- _The biggest difference is that event sourcing applies_ the idea at a different level of abstraction :
+    - In change data capture, the application uses the database in a mutable way, updating and deleting records at will.
+        - The log of changes is extracted from the database at a low level _( e.g., by parsing the replication log )_ , _which ensures that the order of writes extracted from the database matches the order in which they were actually written, avoiding the race condition._
+        - _The application writing to the database does not need to be aware that CDC is occurring._
+    - In event sourcing, the application logic is explicitly built on the basis of immutable events that are written to an event log.
+        - In this case, the event store is appendonly, _and updates or deletes are discouraged or prohibited._
+        - **Events are designed to reflect things that happened at the application level, rather than low-level state changes.**
+- _Event sourcing is a powerful technique for data modeling :_
+    - from an application point of view it is more meaningful to record the user's actions as immutable events, rather than recording the effect of those actions on a mutable database.
+    - _Event sourcing makes it easier to evolve applications over time,_ helps with debugging by **making it easier to understand after the fact why something happened**, _and guards against application bugs._
+- _Event sourcing is similar to the **chronicle data model** ( 编年史数据模型 ) , and there are also similarities between an event log and the fact table that you find in a star schema._
+
+**Deriving current state from the event log**_( 通过事件日志导出当前状态 )_
+
+- _omitted…_
+
+**Commands and events** _( 命令和事件 )_
+
+- The event sourcing philosophy is careful to distinguish between **events** and **commands**.
+    - _When a request from a user first arrives, it is initially a command :_
+        - _at this point it may still fail, for example because some integrity condition is violated._
+    - The application must first validate that it can execute the command.
+        - **If the validation is successful and the command is accepted, it becomes an event**, which is durable and immutable.
+- A consumer of the event stream is not allowed to reject an event :
+    - _by the time the consumer sees the event, it is already an immutable part of the log, and it may have already been seen by other consumers._
+    - Thus, any validation of a command needs to happen synchronously, before it becomes an event.
+
+#### State, Streams, and Immutability
+
+_( 状态、流与不可变性 )_
