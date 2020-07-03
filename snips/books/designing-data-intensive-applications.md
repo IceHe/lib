@@ -3898,6 +3898,14 @@ _( 数据库与流 )_
 
 _( 保持系统同步 )_
 
+- As the same or related data appears in several different places, they need to be **kept in sync** with one another :
+    - _if an item is updated in the database, it also needs to be updated in the cache, search indexes, and data warehouse._
+    - _With data warehouses this synchronization is usually performed by ETL processes, often by taking a full copy of a database, transforming it, and bulk-loading it into the data warehouse -- in other words, a batch process._
+- If periodic full database dumps are too slow, an alternative that is sometimes used is **dual writes** _( 双重写入 )_ , in which the application code explicitly writes to each of the systems when data changes :
+    - _for example, first writing to the database, then updating the search index, then invalidating the cache entries ( or even performing those writes concurrently ) ._
+    - However, dual writes have some serious problems, one of which is a **race condition**.
+    - _( icehe : 此处不赘述, 其实就是并发写入导致竞态条件的问题 ( 多个不同的数据存储系统中的相关值被写成了不一致的值, 例如 DB 跟 Cache ) )_
+
 #### Change Data Capture
 
 _( 变更数据捕获 )_
