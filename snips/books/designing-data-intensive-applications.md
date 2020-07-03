@@ -3994,3 +3994,8 @@ _( 事件溯源 )_
 #### State, Streams, and Immutability
 
 _( 状态、流与不可变性 )_
+
+- No matter how the **state changes**, there was always **a sequence of events that caused those changes**.
+    - _Even as things are done and undone, the fact remains true that those events occurred._
+    - The key idea is that mutable state and an append-only log of immutable events do not contradict each other: they are two sides of the same coin.
+    - The log of all changes, the changelog, represents the evolution of state over time.
