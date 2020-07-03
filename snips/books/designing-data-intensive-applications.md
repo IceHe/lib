@@ -3886,3 +3886,18 @@ _( 分区日志 )_
 ### Databases and Streams
 
 _( 数据库与流 )_
+
+- In fact, **a replication log is a stream of database write events**, produced by the leader as it processes transactions.
+    - The followers apply that stream of writes to their own copy of the database and thus end up with an accurate copy of the same data.
+    - _The events in the replication log describe the data changes that occurred._
+- _We also came across_ the state machine replication principle in "Total Order Broadcast", which states :
+    - if every event represents a write to the database, and every replica processes the same events **in the same order**, then the replicas will all end up in the same final state.
+    - _( Processing an event is assumed to be a deterministic ( 确定性的 ) operation. )_
+
+#### Keeping Systems in Sync
+
+_( 保持系统同步 )_
+
+#### Change Data Capture
+
+_( 变更数据捕获 )_
