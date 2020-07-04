@@ -4269,4 +4269,4 @@ Compare two types of message brokers:
     - Parallelism is achieved through partitioning, and consumers track their progress by checkpointing the offset of the last message they have processed.
     - The broker retains messages on disk, so it is possible to jump back and reread old messages if necessary.
 
-##
+## The Future of Data Systems
