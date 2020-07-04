@@ -4261,6 +4261,12 @@ _Distinguish three different types of joins :_
 Compare two types of message brokers:
 
 - **AMQP/JMS-style message broker**
-    - The broker assigns individual messages to consumers, and consumers acknowl‐ edge individual messages when they have been successfully processed. Messages are deleted from the broker once they have been acknowledged. This approach is appropriate as an asynchronous form of RPC (see also “Message-Passing Data‐ flow” on page 136), for example in a task queue, where the exact order of mes‐ sage processing is not important and where there is no need to go back and read old messages again after they have been processed.
+    - The broker assigns individual messages to consumers, and consumers acknowledge individual messages when they have been successfully processed.
+    - Messages are deleted from the broker once they have been acknowledged.
+    - _This approach is appropriate as an asynchronous form of RPC, for example in a task queue, where the exact order of message processing is not important and where there is no need to go back and read old messages again after they have been processed._
 - **Log-based message broker**
-    -The broker assigns all messages in a partition to the same consumer node, and always delivers messages in the same order. Parallelism is achieved through par‐ titioning, and consumers track their progress by checkpointing the offset of the last message they have processed. The broker retains messages on disk, so it is possible to jump back and reread old messages if necessary.
+    - The broker assigns all messages in a partition to the same consumer node, and always delivers messages in the same order.
+    - Parallelism is achieved through partitioning, and consumers track their progress by checkpointing the offset of the last message they have processed.
+    - The broker retains messages on disk, so it is possible to jump back and reread old messages if necessary.
+
+##
