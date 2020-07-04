@@ -2353,11 +2353,11 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
 
 - _When a transaction reads from the database,_ transaction IDs are used to decide which objects it can see and which are invisible.
 - _By carefully defining visibility rules, the database can present a consistent snapshot of the database to the application._ This works as follows:
-    1. At the start of each transaction, the database makes a list of all the other transactions that are in progress ( not yet committed or aborted ) at that time.
+    - 1\. At the start of each transaction, the database makes a list of all the other transactions that are in progress ( not yet committed or aborted ) at that time.
         - Any writes that those transactions have made are ignored, even if the transactions subsequently commit.
-    2. Any writes made by aborted transactions are ignored.
-    3. Any writes made by transactions with a later transaction ID ( i.e., which started after the current transaction started ) are ignored, regardless of whether those transactions have committed.
-    4. All other writes are visible to the application's queries.
+    - 2\. Any writes made by aborted transactions are ignored.
+    - 3\. Any writes made by transactions with a later transaction ID ( i.e., which started after the current transaction started ) are ignored, regardless of whether those transactions have committed.
+    - 4\. All other writes are visible to the application's queries.
 - _Put another way, an object is visible if both of the following conditions are true :_
     - At the time when the reader's transaction started, the transaction that created the object had already committed.
     - The object is not marked for deletion, or if it is, the transaction that requested deletion had not yet committed at the time when the reader's transaction started.
@@ -4019,4 +4019,35 @@ _( 状态、流与不可变性 )_
 
 **Concurrency control** _( 并发控制 )_
 
+- _The biggest downside of event sourcing and change data capture is that the consumers of the event log are usually asynchronous,_
+    - so there is a possibility that a user may make a write to the log, then read from a log-derived view and find that their write has not yet been reflected in the read view.
+- _One solution would be to perform the **updates of the read view synchronously** with appending the event to the log._
+    - _This requires a transaction to combine the writes into an atomic unit, so either you need to keep the event log and the read view in the same storage system, or you need a distributed transaction across the different systems._
+- _omitted…_
+
 **Limitations of immutability** _( 不变性的限制 )_
+
+- _omitted…_
+
+### Processing Streams
+
+_( 流处理 )_
+
+_You can process one or more input streams to produce one or more output streams._
+
+- _Streams may go through a **pipeline** ( 流水线 ) consisting of several such processing stages before they eventually end up at an output._
+- _A piece of code that processes streams like this is known as an **operator** or a **job**._
+
+The one crucial difference to batch jobs is that **a stream never ends**.
+
+#### Uses of Stream Processing
+
+_( 流处理的适用场景 )_
+
+**Complex event processing** _( 复杂事件处理 )_
+
+- **Complex event processing (CEP)** is _an approach developed in the 1990s_ for analyzing event streams, _especially geared toward the kind of application that_ requires **searching for certain event patterns**.
+    - Similarly to the way that a **regular expression** allows you to search for certain patterns of characters in a string, **CEP** allows you to **specify rules to search for certain patterns of events in a stream**.
+- _omitted…_
+
+**Stream analytics** _( 流分析 )_
