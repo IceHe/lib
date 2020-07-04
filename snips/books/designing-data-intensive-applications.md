@@ -629,7 +629,7 @@ _Triple-Stores and SPARQL ( 三元存储 … )_
 
 _The Foundation: Datalog_
 
-- _Omitted …_
+- _omitted …_
 
 ## Storage and Retrival
 
@@ -4125,3 +4125,142 @@ _( 流的时间问题 )_
     - _The time at which the event was received by the server, according to the server clock_
 - By **subtracting the second timestamp from the third**, you can **estimate the offset between the device clock and the server clock** _( assuming the network delay is negligible compared to the required timestamp accuracy )_ .
     - _You can then apply that offset to the event timestamp, and thus estimate the true time at which the event actually occurred ( assuming the device clock offset did not change between the time the event occurred and the time it was sent to the server ) ._
+
+**Types of windows** _( 窗口类型 )_
+
+- Several types of windows are in common use :
+    - **Tumbling window** _( 轮转窗口 )_
+        - A tumbling window has a fixed length, and **every event belongs to exactly one window**.
+        - _For example, if you have a 1-minute tumbling window, all the events with timestamps between 10:03:00 and 10:03:59 are grouped into one window, events between 10:04:00 and 10:04:59 into the next window, and so on._
+    - **Hopping window** _( 跳跃窗口 )_
+        - A hopping window also has a fixed length, but **allows windows to overlap in order to provide some smoothing**.
+        - _For example, a 5-minute window with a hop size of 1 minute would contain the events between 10:03:00 and 10:07:59, then the next window would cover events between 10:04:00 and 10:08:59, and so on._
+        - _You can implement this hopping window by first calculating 1-minute tumbling windows, and then aggregating over several adjacent windows._
+    - **Sliding window** _( 滑动窗口 )_
+        - A sliding window **contains all the events that occur within some interval of each other**.
+        - _For example, a 5-minute sliding window would cover events at 10:03:39 and 10:08:12, because they are less than 5 minutes apart (note that tumbling and hopping 5-minute windows would not have put these two events in the same window, as they use fixed boundaries)._
+        - A sliding window can be implemented by **keeping a buffer of events sorted by time and removing old events when they expire from the window**.
+    - **Session window** _( 会话窗口 )_
+        - Unlike the other window types, a session window **has no fixed duration**.
+        - Instead, it is defined by **grouping together all events for the same user that occur closely together in time**, and
+            - the window **ends when the user has been inactive for some time** _( for example, if there have been no events for 30 minutes )_ .
+        - _**Sessionization** is a common requirement for website analytics._
+
+#### Stream Joins
+
+_( 流式 join )_
+
+_Distinguish three different types of joins :_
+
+- stream-stream joins,
+- stream-table joins, _and_
+- table-table joins.
+
+**Stream-stream join (window join)** _( 流和流 join ( 窗口 join ) )_
+
+- _To implement this type of join,_ a stream processor needs to maintain state :
+    - _for example, all the events that occurred in the last hour, indexed by session ID._
+- _Whenever a event, it is added to the appropriate index, and the stream processor also checks the other index to see if another event for the same session ID has already arrived._
+    - _If there is a matching event, you emit an event saying which search result was clicked._
+    - _If the search event expires without you seeing a matching click event, you emit an event saying which search results were not clicked._
+
+**Stream-table join (stream enrichment)** _( 流和表 join ( 流信息丰富 ) )_
+
+- _This process is sometimes known as_ enriching the activity events with information from the database.
+- _The database lookup could be implemented by querying a remote database;_
+    - _however, such remote queries are likely to be slow and risk overloading the database._
+    - _Another approach is to load a copy of the database into the stream processor so that it can be queried locally without a network round-trip. ( icehe : 当然这样一致性/时效性差, 需要及时同步更新 )_
+- _The difference to batch jobs is that_ **a batch job uses a point-in-time snapshot of the database as input**,
+    - _whereas a stream processor is long-running, and the contents of the database are likely to change over time,_ so **the stream processor's local copy of the database needs to be kept up to date**.
+- This issue can be **solved by change data capture** :
+    - _the stream processor can subscribe to a changelog of the user profile database as well as the stream of activity events._
+    - _When a profile is created or modified, the stream processor updates its local copy._
+- _Thus, we obtain a join between two streams : the activity events and the profile updates._
+    - _( icehe : 所以这时实质上类似于 stream-stream join )_
+    - _The biggest difference is that for the table changelog stream, the join uses a window that reaches back to the "beginning of time" ( a conceptually infinite window ) , with newer versions of records overwriting older ones._
+    - _For the stream input, the join might not maintain a window at all._
+    - _( icehe : 当然实际上是没法完全等价的, 因为对于数据库来说, 它的窗口是无限的 )_
+
+**Table-table join (materialized view maintenance)** _( 表和表 join ( 物化视图维护 ) )_
+
+- _( 详见原书例, 值得一看, 关于 Twitter 用户 Timeline 的处理 )_
+    - _( 视为用户两类行为的事件流的 join 及后续处理 : ( 发推, 删推 ) x ( 关注, 取消关注 ) )_
+- _omitted…_
+
+**Time-dependence of joins** _( join 的时间依赖性 )_
+
+- _In a partitioned log, the ordering of events within a single partition is preserved,_ but there is typically **no ordering guarantee across different streams or partitions**.
+- _If events on different streams happen around a similar time, in which order are they processed?_
+    - _…_
+    - _Such **time dependence** can occur in many places._
+- _If the ordering of events across streams is undetermined, the join becomes nondeterministic, which means you cannot rerun the same job on the same input and necessarily get the same result._
+- In data warehouses, this issue is known as a **slowly changing dimension (SCD)**  _( 缓慢变化的维度 )_ , and it is often **addressed by using a unique identifier for a particular version of the joined record**.
+    - _This change makes the join deterministic, but has the consequence that log compaction is not possible, since all versions of the records in the table need to be retained._
+
+#### Fault Tolerance
+
+ _( 流处理的容错 )_
+
+- The **batch** approach :
+    - _Although restarting tasks means that records may in fact be processed multiple times,_ **the visible effect in the output is as if they had only been processed once**.
+    - This principle is known as **exactly-once semantics**  _( 唯一一次的语义 )_, although **effectively-once** _( 有效一次 )_ _would be a more descriptive term._
+- The **stream** approach :
+    - _The same issue of fault tolerance arises in stream processing, but it is less straightforward to handle :_
+        - waiting until a task is finished before making its output visible is not an option, because a stream is infinite and so you can never finish processing it.
+
+**Microbatching and checkpointing** _( 微批处理和校验点 )_
+
+- One solution is to **break the stream into small blocks**, and **treat each block like a miniature _( 小规模的 )_ batch process**.
+    - _This approach is called_ **microbatching** _( 微批处理 )_ , _and it is used in **Spark Streaming**._
+    - _The batch size is typically around one second, which is the result of a performance compromise :_
+        - _smaller batches incur greater scheduling and coordination overhead,_
+        - _while larger batches mean a longer delay before results of the stream processor become visible._
+- _Microbatching also implicitly provides a **tumbling window** equal to the batch size ( windowed by processing time, not event timestamps ) ;_ any jobs that **require larger windows need to explicitly carry over state from one microbatch to the next**.
+- _A variant approach, used in **Apache Flink**,_ is to **periodically generate rolling checkpoints of state and write them to durable storage**.
+    - If a stream operator crashes, it can restart from its most recent checkpoint and discard any output generated between the last checkpoint and the crash.
+    - The **checkpoints are triggered by barriers in the message stream**, _similar to the boundaries between microbatches, but without forcing a particular window size._
+- _omitted …_
+
+**Atomic commit revisited** _( 重新审视原子提交 )_
+
+- _omitted …_
+- … Unlike XA, _these implementations_ **do not attempt to provide transactions across heterogeneous technologies**, _but instead keep them internal by managing both state changes and messaging within the stream processing framework._
+    - The overhead of the transaction protocol can be amortized _( 摊销 )_ by processing several input messages within a single transaction.
+
+**Idempotence** _( 幂等性 )_
+
+- Our goal is to **discard the partial output of any failed tasks so that they can be safely retried without taking effect twice**.
+    - **Distributed transactions** _are one way of achieving that goal, but another way is to rely on_ **idempotence**.
+- An idempotent operation is one that **you can perform multiple times, and it has the same effect as if you performed it only once**.
+- _Even if an operation is not naturally idempotent, it can often be made idempotent with a bit of extra metadata._
+    - _For example, when consuming messages from Kafka, **every message has a persistent, monotonically increasing offset**.
+    - _When writing a value to an external database, you can include the offset of the message that triggered the last write with the value._
+    - _Thus, you can_ **tell whether an update has already been applied, and avoid performing the same update again.**
+- _The state handling in Storm's Trident is based on a similar idea._
+    - Relying on idempotence implies several assumptions :
+        - restarting a failed task must replay the same messages in the same order _( a log-based message broker does this )_ ,
+        - the processing must be deterministic, _and_
+        - no other node may concurrently update the same value.
+- _Idempotent operations can be an effective way of achieving exactly-once semantics with only a small overhead._
+
+**Rebuilding state after a failure** _( 故障后重建状态 )_
+
+- Any stream process that requires state -- _for example,_ any windowed aggregations _( such as counters, averages, and histograms )_ and any tables and indexes used for joins -- must **ensure that this state can be recovered after a failure**.
+- _One option is to_ **keep the state in a remote datastore and replicate it**, _although having to query a remote database for each individual message can be slow._
+    - _An alternative is to_ **keep state local to the stream processor, and replicate it periodically**.
+    - _Then, when the stream processor is recovering from a failure, the new task can read the replicated state and resume processing without data loss._
+- _For example, Flink periodically captures snapshots of operator state and writes them to durable storage such as HDFS;_
+    - _Samza and Kafka Streams replicate state changes by sending them to a dedicated Kafka topic with log compaction, similar to change data capture._
+    - _VoltDB replicates state by redundantly processing each input message on several nodes._
+- _In some cases,_ it may not even be necessary to replicate the state, because it **can be rebuilt from the input streams**.
+    - _For example, if the state consists of aggregations over a fairly short window, it may be fast enough to simply replay the input events corresponding to that window._
+    - _If the state is a local replica of a database, maintained by change data capture, the database can also be rebuilt from the log-compacted change stream._
+
+### Summary
+
+Compare two types of message brokers:
+
+- **AMQP/JMS-style message broker**
+    - The broker assigns individual messages to consumers, and consumers acknowl‐ edge individual messages when they have been successfully processed. Messages are deleted from the broker once they have been acknowledged. This approach is appropriate as an asynchronous form of RPC (see also “Message-Passing Data‐ flow” on page 136), for example in a task queue, where the exact order of mes‐ sage processing is not important and where there is no need to go back and read old messages again after they have been processed.
+- **Log-based message broker**
+    -The broker assigns all messages in a partition to the same consumer node, and always delivers messages in the same order. Parallelism is achieved through par‐ titioning, and consumers track their progress by checkpointing the offset of the last message they have processed. The broker retains messages on disk, so it is possible to jump back and reread old messages if necessary.
