@@ -4051,3 +4051,77 @@ _( 流处理的适用场景 )_
 - _omitted…_
 
 **Stream analytics** _( 流分析 )_
+
+- _Analytics tends to be less interested in finding specific event sequences and is_ more oriented toward **aggregations and statistical metrics over a large number of events** -- _for example :_
+    - _Measuring the rate of some type of event ( how often it occurs per time interval )_
+    - _Calculating the rolling average of a value over some time period_
+    - _Comparing current statistics to previous time intervals_
+        - _( e.g., to detect trends or to alert on metrics that are unusually high or low compared to the same time last week )_
+- Such statistics are usually **computed over fixed time intervals**.
+    - The time interval over which you aggregate is known as a **window**  _( 窗口 )_ .
+- Stream analytics systems sometimes use **probabilistic algorithms** _( 概率算法 )_ , _such as **Bloom filters** for set membership, **HyperLogLog** for cardinality estimation ( 基数估计 ) , and various percentile estimation ( 百分比估计 ) algorithms._
+    - _Probabilistic algorithms produce approximate results, but have the advantage of_ requiring significantly less memory in the stream processor than exact algorithms.
+    - _This use of approximation algorithms sometimes leads people to believe that stream processing systems are always lossy and inexact, but that is wrong :_
+        - there is nothing inherently approximate about stream processing, and probabilistic algorithms are **merely an optimization**.
+- _Many open source distributed stream processing frameworks are designed with analytics in mind :_
+    - for example, Apache Storm, Spark Streaming, Flink, Concord, Samza, and Kafka Streams.
+    - _Hosted services include Google Cloud Dataflow and Azure Stream Analytics._
+
+**Maintaining materialized views** _( 维护物化视图 )_
+
+- _omitted…_
+
+**Search on streams** _( 在流上搜索 )_
+
+- _Besides CEP, which allows searching for patterns consisting of multiple events,_ there is also sometimes a **need to search for individual events based on complex criteria**, such as **full-text search queries**.
+    - The **percolator** _( 过滤器 )_ feature of **Elasticsearch** is one option for implementing this kind of **stream search**.
+- _Conventional search engines first index the documents and then run queries over the index._
+    - _By contrast, searching a stream turns the processing on its head :_
+        - the queries are stored, and the documents run past the queries, _like in CEP._
+        - _In the simplest case, you can test every document against every query, although this can get slow if you have a large number of queries._
+        - To optimize the process, it is possible to **index the queries as well as the documents**, and thus narrow down the set of queries that may match.
+
+**Message passing and RPC** _( 消息传递和 RPC )_
+
+- _omitted…_
+
+#### Reasoning About Time
+
+_( 流的时间问题 )_
+
+- _omitted…_
+
+**Event time versus processing time** _( 事件事件与处理时间 )_
+
+- _There are many reasons why processing may be delayed :_
+    - _queueing,_
+    - _network faults,_
+    - _a performance issue leading to contention in the message broker or processor,_
+    - _a restart of the stream consumer, or_
+    - _reprocessing of past events while recovering from a fault or after fixing a bug in the code._
+- _omitted…_
+
+**Knowing when you're ready** _( 了解什么时候准备就绪 )_
+
+- A tricky problem when defining windows in terms of event time is that **you can never be sure when you have received all of the events for a particular window, or whether there are some events still to come**.
+- You can **time out and declare a window ready after you have not seen any new events for a while**, but it could still happen that some events were buffered on another machine somewhere, delayed due to a network interruption.
+- _You need to be able to_ handle such straggler _( 掉队者 )_ events that arrive after the window has already been declared complete. _Broadly, you have two options :_
+    1. **Ignore the straggler events**, _as they are probably a small percentage of events in normal circumstances._
+        - _You can track the number of dropped events as a metric, and alert if you start dropping a significant amount of data._
+    2. **Publish a correction**, _an updated value for the window with stragglers included._
+        - _You may also need to retract the previous output._
+- _In some cases it is possible to_ **use a special message to indicate, "From now on there will be no more messages with a timestamp earlier than t,"** which can be used by consumers **to trigger windows**.
+    - _However, if several producers on different machines are generating events, each with their own minimum timestamp thresholds, the consumers need to keep track of each producer individually._
+    - _Adding and removing producers is trickier in this case.._
+
+**Whose clock are you using, anyway?** _( 你用谁的时钟? )_
+
+- _The timestamp on the events should really be the time at which the user interaction occurred, according to the mobile device's local clock._
+    - _However, the clock on a user-controlled device often cannot be trusted, as it may be accidentally or deliberately set to the wrong time._
+    - _The time at which the event was received by the server ( according to the server's clock ) is more likely to be accurate, since the server is under your control, but less meaningful in terms of describing the user interaction._
+- _To adjust for incorrect device clocks, one approach is to_ log three timestamps :
+    - _The time at which the event occurred, according to the device clock_
+    - _The time at which the event was sent to the server, according to the device clock_
+    - _The time at which the event was received by the server, according to the server clock_
+- By **subtracting the second timestamp from the third**, you can **estimate the offset between the device clock and the server clock** _( assuming the network delay is negligible compared to the required timestamp accuracy )_ .
+    - _You can then apply that offset to the event timestamp, and thus estimate the true time at which the event actually occurred ( assuming the device clock offset did not change between the time the event occurred and the time it was sent to the server ) ._
