@@ -4440,3 +4440,22 @@ _Various features provided by databases and how they work, including :_
         - **Event logs** provide an interface that is powerful enough to **capture fairly strong consistency properties** ( due to durability and ordering of events ) , but also general enough to be **applicable to almost any kind of data**.
 
 **Unbundled versus integrated systems** _( 分离式与集成式系统 )_
+
+- The goal of unbundling is **not to compete with individual databases on performance for particular workloads**;
+    - the goal is to allow you to **combine several different databases in order to achieve good performance for a much wider range of workloads than is possible with a single piece of software**.
+
+**What's missing?** _( 遗漏了什么 )_
+
+- _omitted …_
+
+#### Designing Applications Around Dataflow
+
+ _( 围绕数据流设计应用系统 )_
+
+- The approach of unbundling databases by **composing specialized storage and processing systems with application code** is also becoming known as the "**database inside-out**" approach _( 数据库由内向外 方法 )_ .
+
+**Application code as a derivation function** _( 应用程序代码作为派生函数 )_
+
+- _omitted …_
+
+**Separation of application code and state** _( 应用程序代码与状态分离 )_
