@@ -4106,9 +4106,9 @@ _( 流的时间问题 )_
 - A tricky problem when defining windows in terms of event time is that **you can never be sure when you have received all of the events for a particular window, or whether there are some events still to come**.
 - You can **time out and declare a window ready after you have not seen any new events for a while**, but it could still happen that some events were buffered on another machine somewhere, delayed due to a network interruption.
 - _You need to be able to_ handle such straggler _( 掉队者 )_ events that arrive after the window has already been declared complete. _Broadly, you have two options :_
-    1. **Ignore the straggler events**, _as they are probably a small percentage of events in normal circumstances._
+    - 1\. **Ignore the straggler events**, _as they are probably a small percentage of events in normal circumstances._
         - _You can track the number of dropped events as a metric, and alert if you start dropping a significant amount of data._
-    2. **Publish a correction**, _an updated value for the window with stragglers included._
+    - 2\. **Publish a correction**, _an updated value for the window with stragglers included._
         - _You may also need to retract the previous output._
 - _In some cases it is possible to_ **use a special message to indicate, "From now on there will be no more messages with a timestamp earlier than t,"** which can be used by consumers **to trigger windows**.
     - _However, if several producers on different machines are generating events, each with their own minimum timestamp thresholds, the consumers need to keep track of each producer individually._
@@ -4418,8 +4418,25 @@ _Various features provided by databases and how they work, including :_
             - _Applications that need a specialized data model or query interface can still access the underlying storage engines directly, while users who want to combine data from disparate places can do so easily through the federated interface._
         - _A federated query interface follows the relational tradition of a single integrated system with a high-level query language and elegant semantics, but a complicated implementation._
     - **Unbundled databases : unifying writes** _( 分布式数据库 : 统一写端 )_
-        - While federation addresses read-only querying across several different systems, it does not have a good answer to synchronizing writes across those systems.
-            - We said that within a single database, creating a consistent index is a built-in feature.
-            - When we compose several storage systems, we similarly need to ensure that all data changes end up in all the right places, even in the face of faults.
-            - Making it easier to reliably plug together storage systems (e.g., through change data capture and event logs) is like unbundling a database’s index-maintenance features in a way that can synchronize writes across disparate technologies.
-        - The unbundled approach follows the Unix tradition of small tools that do one thing well, that communicate through a uniform low-level API (pipes), and that can be composed using a higher-level language (the shell).
+        - _While federation addresses read-only querying across several different systems,_ it does not have a good answer to synchronizing writes across those systems.
+            - _We said that within a single database, creating a consistent index is a built-in feature._
+            - _When we compose several storage systems, we similarly need to ensure that all data changes end up in all the right places, even in the face of faults._
+            - Making it easier to reliably plug together storage systems _( e.g., through change data capture and event logs )_ is like unbundling a database's index-maintenance features in a way that can synchronize writes across disparate technologies.
+
+**Making unbundling work** _( 分离式如何工作 )_
+
+- The traditional approach to **synchronizing writes requires distributed transactions across heterogeneous _( 混杂的 )_ storage systems**, which I think **is the wrong solution**.
+    - _Transactions within a single storage or stream processing system are feasible,_ but when data crosses the boundary between different technologies, I believe that **an asynchronous event log with idempotent writes is a much more robust and practical approach**.
+- _For example, distributed transactions are used within some stream processors to achieve exactly-once semantics, and this can work quite well._
+    - _However, when a transaction would need to involve systems written by different groups of people ( e.g., when data is written from a stream processor to a distributed key-value store or search index ) , the lack of a standardized transaction protocol makes integration much harder._
+    - **An ordered log of events with idempotent consumers** is a much simpler abstraction, and thus much more feasible to implement across heterogeneous systems.
+- The big advantage of log-based integration is **loose coupling between the various components**, _which manifests ( 证明 ) itself in two ways :_
+    - 1\. At a system level, asynchronous event streams make the system as a whole **more robust to outages or performance degradation** of individual components.
+        - If a consumer runs slow or fails, the event log can buffer messages, allowing the producer and any other consumers to continue running unaffected.
+        - The faulty consumer can catch up when it is fixed, so it doesn't miss any data, and the fault is contained.
+        - _By contrast, the synchronous interaction of distributed transactions tends to escalate ( 逐步加强 ) local faults into large-scale failures._
+    - 2\. At a human level, unbundling data systems **allows different software components and services to be developed, improved, and maintained independently** from each other by different teams.
+        - _Specialization allows each team to focus on doing one thing well, with well-defined interfaces to other teams' systems._
+        - **Event logs** provide an interface that is powerful enough to **capture fairly strong consistency properties** ( due to durability and ordering of events ) , but also general enough to be **applicable to almost any kind of data**.
+
+**Unbundled versus integrated systems** _( 分离式与集成式系统 )_
