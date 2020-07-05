@@ -4270,3 +4270,156 @@ Compare two types of message brokers:
     - The broker retains messages on disk, so it is possible to jump back and reread old messages if necessary.
 
 ## The Future of Data Systems
+
+- Fault-tolerance algorithms that help improve reliability _( 可靠 )_
+- Partitioning to improve scalability _( 可伸缩 )_
+- Mechanisms for evolution _( 可演化 )_
+- Abstraction improves maintainability _( 可维护 )_
+
+### Data Integration
+
+_( 数据集成 )_
+
+_If you have a problem such as "I want to store some data and look it up again later," there is no one right solution, but many different approaches that are each appropriate in different circumstances._
+
+- A software implementation typically has to pick one particular approach.
+- **It's hard enough to get one code path robust and performing well** _( 功能健壮, 性能又好 )_ -- **trying to do everything in one piece of software almost guarantees that the implementation will be poor.**
+
+### Combining Specialized Tools by Deriving Data
+
+ _( 采用派生数据来组合工具 )_
+
+- _For example, it is common to need to integrate an OLTP database with a full-text search index in order to handle queries for arbitrary keywords._
+    - _Although some databases (such as PostgreSQL) include a full-text indexing feature, which can be sufficient for simple applications, more sophisticated search facilities require specialist information retrieval tools._
+    - _Conversely, search indexes are generally not very suitable as a durable system of record, and so many applications need to combine two different tools in order to satisfy all of the requirements._
+- _We touched on the issue of integrating data systems in "Keeping Systems in Sync"._
+    - _As the number of different representations of the data increases, the integration problem becomes harder._
+    - _Besides the database and the search index, perhaps you need to keep copies of the data in analytics systems ( data warehouses, or batch and stream processing systems ) ;_
+    - _maintain caches or denormalized versions of objects that were derived from the original data;_
+    - _pass the data through machine learning, classification, ranking, or recommendation systems;_
+    - _or send notifications based on changes to the data._
+
+**Reasoning about dataflows** _( 为何需要数据流 )_
+
+- _omitted …_
+
+**Derived data versus distributed transactions** _( 派生数据与分布式事务 )_
+
+- _The classic approach for keeping different data systems consistent with each other involves distributed transactions, such as "Atomic Commit and Two-Phase Commit (2PC)"._
+    - _How does the approach of using derived data systems fare in comparison to distributed transactions?_
+- _At an abstract level, they achieve a similar goal by different means._
+    - **Distributed transactions decide on an ordering of writes by using locks for mutual exclusion ( see "Two-Phase Locking (2PL)" ) , while CDC and event sourcing use a log for ordering.**
+    - **Distributed transactions use atomic commit to ensure that changes take effect exactly once, while log-based systems are often based on deterministic retry and idempotence _( 确定性重试和幂等性 )_ .**
+- The biggest difference is that transaction systems usually provide linearizability, _which implies useful guarantees such as reading your own writes._
+    - _On the other hand, derived data systems are often updated asynchronously, and so they do not by default offer the same timing guarantees._
+- _Within limited environments that are willing to pay the cost of distributed transactions, they have been used successfully._
+    - _However, I think that XA has poor fault tolerance and performance characteristics, which severely limit its usefulness._
+- In the absence of widespread support for a good distributed transaction protocol, _I believe that_ **log-based derived data is the most promising approach for integrating different data systems**  _( 当下的情况 )_ .
+
+**The limits of total ordering** _( 全序的局限 )_
+
+- With systems that are small enough, constructing a totally ordered event log is entirely feasible _( 可行的 )_ _( as demonstrated by the popularity of databases with single-leader replication, which construct precisely such a log )._
+- _However, as systems are scaled toward bigger and more complex workloads, limitations begin to emerge :_
+    - In most cases, constructing a totally ordered log requires all events to pass through a single leader node that decides on the ordering.
+        - _If the throughput of events is greater than a single machine can handle, you need to partition it across multiple machines._
+        - _The order of events in two different partitions is then ambiguous._
+    - _omitted …_
+
+**Ordering events to capture causality** _( 排序事件以捕获因果关系 )_
+
+- _omitted …_
+
+#### Batch and Stream Processing
+
+_( 批处理和流处理集成 )_
+
+- _I would say that_ the goal of data integration is to **make sure that data ends up in the right form in all the right places**.
+- _omitted …_
+- **Spark** performs **stream processing on top of a batch processing engine** by **breaking the stream into microbatches**,
+    - whereas Apache **Flink** performs **batch processing on top of a stream processing engine**.
+
+**Maintaining derived state** _( 保持派生状态 )_
+
+- **Batch processing** has a quite strong functional flavor _( 风味/风格 )_ _( even if the code is not written in a functional programming language )_ :
+    - it encourages deterministic, pure functions whose output depends only on the input and which have no side effects other than the explicit outputs, treating inputs as immutable and outputs as append-only.
+    - **Stream processing** _is similar, but it_ extends operators to allow managed, fault-tolerant state.
+- _omitted …_
+
+**Reprocessing data for application evolution** _( 为应用程序演化而重新处理数据 )_
+
+- _omitted …_
+
+**The lambda architecture** _( Lambda 架构 )_
+
+- If **batch processing is used to reprocess historical data, and stream processing is used to process recent updates**, _then how do you combine the two?_
+    - _The **lambda architecture** is a proposal in this area that has gained a lot of attention._
+- _The core idea of the lambda architecture is that_ incoming data should be recorded by appending immutable events to an always-growing dataset, similarly to event sourcing.
+    - _From these events, read-optimized views are derived._
+    - The lambda architecture proposes **running two different systems in parallel** :
+        - _a batch processing system such as Hadoop MapReduce, and_
+        - _a separate stream-processing system such as Storm._
+- In the lambda approach,
+    - **the stream processor consumes the events and quickly produces an approximate update to the view**;
+    - **the batch processor later consumes the same set of events and produces a corrected version of the derived view**.
+    - _The reasoning behind this design is that_ **batch processing is simpler and thus less prone to bugs**, while **stream processors are thought to be less reliable and harder to make fault-tolerant**.
+        - _Moreover, the stream process can use fast approximate algorithms while the batch process uses slower exact algorithms._
+- _However, I also think that it has a number of_ practical problems :
+    - Having to maintain the same logic to run both in a batch and in a stream processing framework is significant additional effort.
+        - _Although libraries such as Summingbird provide an abstraction for computations that can be run in either a batch or a streaming context,_ the operational complexity of debugging, tuning, and maintaining two different systems remains.
+        - _( icehe : 同时维护两套逻辑, 违反了简单性, 维护麻烦, 更容易出现人为的 bug )_
+    - 合并数据比较麻烦 : _omitted…_
+    - 在大型数据集中, 处理代价太高 : _omitted…_
+
+**Unifying batch and stream processing** _( 统一批处理与流处理 )_
+
+- _omitted …_
+
+### Unbundling Databases
+
+_( 分拆数据库 )_
+
+- At a most abstract level, databases, Hadoop, and operating systems all perform the same functions :
+    - **they store some data, and they allow you to process and query that data**.
+    - A database stores data in records of some data model ( rows in tables, documents, vertices in a graph, etc. ) while an operating system's filesystem stores data in files -- but at their core, both are "information management" systems.
+    - _The Hadoop ecosystem is somewhat like a distributed version of Unix._
+- _Unix and relational databases have approached the information management problem with very different philosophies._
+    - **Unix** viewed its purpose as **presenting programmers with a logical but fairly low-level hardware abstraction**,
+    - whereas **relational databases** wanted to **give application programmers a high-level abstraction that would hide the complexities of data structures on disk, concurrency, crash recovery, and so on**.
+    - _Unix developed pipes and files that are just sequences of bytes,_
+    - _whereas databases developed SQL and transactions._
+- _Which approach is better? Of course, it depends what you want._
+    - Unix is "simpler" in the sense that it is a fairly thin wrapper around hardware resources;
+    - relational databases are "simpler" in the sense that a short declarative query can draw on a lot of powerful infrastructure _( query optimization, indexes, join methods, concurrency control, replication, etc. )_ without the author of the query needing to understand the implementation details.
+
+#### Composing Data Storage Technologies
+
+_( 编排多种数据存储技术 )_
+
+_Various features provided by databases and how they work, including :_
+
+- **Secondary indexes**, which allow you to efficiently search for records based on the value of a field.
+- **Materialized views**, which are a kind of precomputed cache of query results
+- **Replication logs**, which keep copies of the data on other nodes up to date
+- **Full-text search indexes**, which allow keyword search in text and which are built into some relational databases.
+
+**Creating an index** _( 创建一个索引 )_
+
+- _Think about what happens when you run_ CREATE INDEX to create a new index in a relational database.
+    - The database has to **scan over a consistent snapshot of a table**, pick out all of the field values being indexed, sort them, and write out the index.
+    - Then it must **process the backlog of writes that have been made since the consistent snapshot was taken** _( assuming the table was not locked while creating the index, so writes could continue )_ .
+    - _Once that is done, the database must continue to keep the index up to date whenever a transaction writes to the table._
+
+**The meta-database of everything** _( 元数据库 )_
+
+- _If we start from the premise that_ there is no single data model or storage format that is suitable for all access patterns, _I speculate that_ there are two avenues _( 林荫道 )_ by which different storage and processing tools can nevertheless be composed into a cohesive system :
+    - **Federated _( 联合的 )_ databases : unifying reads** _( 联合数据库 : 统一读端 )_
+        - It is possible to provide a unified query interface to a wide variety of underlying storage engines and processing methods -- an approach known as **a federated database or polystore** _( 联合数据库 或 聚合存储 )_ .
+            - _For example, PostgreSQL's foreign data wrapper feature fits this pattern._
+            - _Applications that need a specialized data model or query interface can still access the underlying storage engines directly, while users who want to combine data from disparate places can do so easily through the federated interface._
+        - _A federated query interface follows the relational tradition of a single integrated system with a high-level query language and elegant semantics, but a complicated implementation._
+    - **Unbundled databases : unifying writes** _( 分布式数据库 : 统一写端 )_
+        - While federation addresses read-only querying across several different systems, it does not have a good answer to synchronizing writes across those systems.
+            - We said that within a single database, creating a consistent index is a built-in feature.
+            - When we compose several storage systems, we similarly need to ensure that all data changes end up in all the right places, even in the face of faults.
+            - Making it easier to reliably plug together storage systems (e.g., through change data capture and event logs) is like unbundling a database’s index-maintenance features in a way that can synchronize writes across disparate technologies.
+        - The unbundled approach follows the Unix tradition of small tools that do one thing well, that communicate through a uniform low-level API (pipes), and that can be composed using a higher-level language (the shell).
