@@ -4570,3 +4570,11 @@ _( 数据库端对端的争议 )_
     - _还有网络连接不稳定导致重复提交表单_
 
 **Operation identifiers** _( 操作标识符 )_
+
+- TODO
+
+**The end-to-end argument** _( 端到端的争论 )_
+
+- TODO
+
+**Applying end-to-end thinking in data systems** _( 在数据系统中采用端到端的思路 )_
