@@ -4459,3 +4459,40 @@ _Various features provided by databases and how they work, including :_
 - _omitted …_
 
 **Separation of application code and state** _( 应用程序代码与状态分离 )_
+
+- Deployment and cluster management tools such as **Mesos, YARN, Docker, Kubernetes**, and others are designed specifically for the purpose of running application code.
+- _Most web applications today are deployed as_ **stateless services**, _in which any user request can be routed to any application server, and the server forgets everything about the request once it has sent the response._
+    - _This style of deployment is convenient, as servers can be added or removed at will, but the state has to go somewhere : typically, a database._
+    - The trend has been to **keep stateless application logic separate from state management** _( databases ) : not putting application logic in the database and not putting persistent state in the application._
+
+**Dataflow : Interplay between state changes and application code**_( 数据流 : 状态变化和应用程序代码之间的相互影响 )_
+
+- _omitted …_
+- Stable message ordering and fault-tolerant message processing are quite stringent demands, _but they are much less expensive and more operationally robust than distributed transactions._
+
+**Stream processors and services** _( 流式处理与服务 )_
+
+- The currently trendy style of application development involves **breaking down functionality into a set of services that communicate via synchronous network requests** _such as REST APIs._
+    - The advantage of such a **service-oriented architecture** over a **single monolithic application** is primarily **organizational scalability _( 组织伸缩性 )_ through loose coupling _( 松散耦合 )_** :
+        - _different teams can work on different services, which reduces coordination effort between teams ( as long as the services can be deployed and updated independently ) ._
+- _omitted …_
+
+#### Observing Derived State
+
+_( 观察派生数据 )_
+
+- _omitted …_
+
+**Materialized views and caching** _( 实体化视图和缓存 )_
+
+- _A full-text search index is a good example :_ the write path updates the index, and the read path searches the index for keywords.
+    - _Both reads and writes need to do some work._
+        - _Writes need to update the index entries for all terms that appear in the document._
+        - _Reads need to search for each of the words in the query, and apply Boolean logic to find documents that contain all of the words in the query (an AND operator), or any synonym of each of the words (an OR operator)._
+- If you didn't have an index, a search query would have to scan over all documents (like grep), _which would get very expensive if you had a large number of documents._
+    - No index means less work on the write path (no index to update), but a lot more work on the read path.
+
+**Stateful, offline-capable clients** _( 有状态, 可离线客户端 )_
+
+- Do as much as possible using a local database on the same device, without requiring an internet connection, and sync with remote servers in the background when a network connection is available.
+    - _Since mobile devices often have slow and unreliable cellular internet connections, it's a big advantage for users if their user interface does not have to wait for synchronous network requests, and if apps mostly work offline._
