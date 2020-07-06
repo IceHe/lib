@@ -4519,4 +4519,48 @@ _( 观察派生数据 )_
 
 **Reads are events too** _( 读也是事件 )_
 
+- When a stream processor writes derived data to a store _( database, cache, or index )_ , and when user requests query that store, **the store acts as the boundary between the write path and the read path**.
+    - _The store allows random-access read queries to the data that would otherwise require scanning the whole event log._
+- _In many cases, the data storage is separate from the streaming system._
+    - _But recall that stream processors also need to maintain state to perform aggregations and joins._
+    - _This state is normally hidden inside the stream processor,_ but some frameworks allow it to also be queried by outside clients, turning the stream processor itself into a kind of simple database.
+- _The writes to the store go through an event log, while reads are transient ( 短暂的 ) network requests that go directly to the nodes that store the data being queried._
+    - _This is a reasonable design, but not the only possible one._
+    - _It is also possible to **represent read requests as streams of events**, and send both the read events and the write events through a stream processor;_
+        - _the processor responds to read events by emitting the result of the read to an output stream._
+- When both the writes and the reads are represented as events, _and routed to the same stream operator in order to be handled, we are in fact **performing a stream-table join between the stream of read queries and the database**._
+- Recording a log of read events potentially also has benefits with regard to tracking causal dependencies and data provenance across a system :
+    - _it would **allow you to reconstruct what the user saw before they made a particular decision**._
+
 **Multi-partition data processing** _( 多分区数据处理 )_
+
+- _For queries that only touch a single partition, the effort of_ sending queries through a stream and collecting a stream of responses _is perhaps overkill ( 过犹不及 / 大材小用 ) ._
+    - _However, this idea opens the possibility of_ distributed execution of complex queries that need to **combine data from several partitions, taking advantage of the infrastructure for message routing, partitioning, and joining** _that is already provided by stream processors._
+
+### Aiming for Correctness
+
+_( 端到端的正确性 )_
+
+- _omitted …_
+- _Even if infrastructure products like databases were free from problems,_ application code would still need to correctly use the features they provide, _which is error-prone if the configuration is hard to understand ( which is the case with weak isolation levels, quorum configurations, and so on ) ._
+
+#### The End-to-End Argument for Databases
+
+_( 数据库端对端的争议 )_
+
+- _omitted …_
+
+**Exactly-once execution of an operation** _( Exactly-once (有且仅有一次) 执行操作 )_
+
+- _An idea called **exactly-once** ( or **effectively-once** ) semantics_
+    - _If something goes wrong while processing a message, you can either give up ( drop the message -- i.e., incur data loss ) or try again._
+    - If you try again, there is **the risk that it actually succeeded the first time**, but you **just didn't find out about the success, and so the message ends up being processed twice**.
+    - _Processing twice is a form of data corruption._
+- _In this context,_ **exactly-once means arranging the computation such that the final effect is the same as if no faults had occurred**, even if the operation actually was retried due to some fault.
+- One of the most effective approaches is to **make the operation idempotent**;
+    - that is, to **ensure that it has the same effect, no matter whether it is executed once or multiple times**.
+    - _However, taking an operation that is not naturally idempotent and making it idempotent requires some effort and care : you may need to maintain some additional metadata ( such as the set of operation IDs that have updated a value ) , and ensure **fencing** when failing over from one node to another._
+
+**Duplicate suppression** _( 重复消除 )_
+
+**Operation identifiers** _( 操作标识符 )_
