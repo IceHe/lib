@@ -4496,3 +4496,14 @@ _( 观察派生数据 )_
 
 - Do as much as possible using a local database on the same device, without requiring an internet connection, and sync with remote servers in the background when a network connection is available.
     - _Since mobile devices often have slow and unreliable cellular internet connections, it's a big advantage for users if their user interface does not have to wait for synchronous network requests, and if apps mostly work offline._
+
+**Pushing state changes to clients** _( 状态变更推送至客户端 )_
+
+- _More recent protocols have moved beyond the basic request/response pattern of HTTP :_
+    - server-sent events _( the EventSource API )_ and **WebSockets** provide communication channels by which
+        - a web browser can keep an open TCP connection to a server, and the server can actively push messages to the browser as long as it remains connected.
+    - _This provides an opportunity for_ the server to actively inform the end-user client about any changes to the state it has stored locally, reducing the staleness of the client-side state.
+- _In terms of our_ **model of write path and read path**, actively pushing state changes all the way to client devices means **extending the write path all the way to the end user**.
+    - _When a client is first initialized, it would still need to use a read path to get its initial state, but thereafter it could rely on a stream of state changes sent by the server._
+
+**End-to-end event streams** _( 端到端的事件流 )_
