@@ -4507,3 +4507,16 @@ _( 观察派生数据 )_
     - _When a client is first initialized, it would still need to use a read path to get its initial state, but thereafter it could rely on a stream of state changes sent by the server._
 
 **End-to-end event streams** _( 端到端的事件流 )_
+
+- _It would be very natural to extend this programming model to also_ allow a server to push state-change events into this client-side event pipeline.
+    - Thus, state changes could flow through an **end-to-end** write path :
+        - _from the interaction on one device that triggers a state change,_
+        - _via event logs and through several derived data systems and stream processors, all the way to the user interface of a person observing the state on another device._
+    - _These state changes could be propagated with fairly low delay -- say, under one second end to end._
+- _In order to extend the write path all the way to the end user, we would need to fundamentally rethink the way we build many of these systems :_
+    - moving away from **request/response interaction** and toward **publish/subscribe dataflow**.
+    - _I think that the advantages of more responsive user interfaces and better offline support would make it worth the effort._
+
+**Reads are events too** _( 读也是事件 )_
+
+**Multi-partition data processing** _( 多分区数据处理 )_
