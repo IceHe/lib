@@ -4571,10 +4571,82 @@ _( 数据库端对端的争议 )_
 
 **Operation identifiers** _( 操作标识符 )_
 
-- TODO
+- _To make the **operation idempotent** through several hops of network communication,_
+    - _it is not sufficient to rely just on a transaction mechanism provided by a database -- you need to consider the end-to-end flow of the request._
+- _For example, you could_ **generate a unique identifier for an operation ( such as a UUID )** _and include it as a hidden form field in the client application,_ or **calculate a hash of all the relevant form fields to derive the operation ID**.
+    - _If the web browser submits the POST request twice, the two requests will have the same operation ID._
+    - _You can then pass that operation ID all the way through to the database and_ **check that you only ever execute one operation with a given ID**.
+
+```sql
+ALTER TABLE requests ADD UNIQUE (request_id);
+
+BEGIN TRANSACTION;
+
+INSERT INTO requests
+    (request_id, from_account, to_account, amount)
+    VALUES('0286FDB8-D7E1-423F-B40B-792B3608036C', 4321, 1234, 11.00);
+
+UPDATE accounts SET balance = balance + 11.00 WHERE account_id = 1234;
+UPDATE accounts SET balance = balance - 11.00 WHERE account_id = 4321;
+
+COMMIT;
+```
+
+- _The example above_ relies on a uniqueness constraint on the `request_id` column.
+    - If a transaction attempts to insert an ID that already exists, the INSERT fails and the transaction is aborted, preventing it from taking effect twice.
+    - Relational databases can generally maintain a uniqueness constraint correctly, even at weak isolation levels
+    - ( whereas an application-level check-then-insert may fail under nonserializable isolation. )
 
 **The end-to-end argument** _( 端到端的争论 )_
 
-- TODO
+- The function in question was **duplicate suppression** _( 重复消除 )_ .
+    - _We saw that TCP suppresses duplicate packets at the TCP connection level, and some stream processors provide so-called exactly-once semantics at the message processing level,_
+    - but that is **not enough to prevent a user from submitting a duplicate request** if the first one times out.
+    - By themselves, _TCP, database transactions, and stream processors_ cannot entirely rule out _( 排除 )_ these duplicates.
+    - Solving the problem **requires an end-to-end solution : a transaction identifier that is passed all the way from the end-user client to the database**.
+- _The end-to-end argument also applies to **checking the integrity of data** :_
+    - _omitted…_
+- _A similar argument applies with **encryption** :_
+    - _omitted…_
+- Although **the low-level features** _( TCP duplicate suppression ( 复制消除 ) , Ethernet checksums ( 校验和 ) , WiFi encryption ( 加密 ) )_ **cannot provide the desired end-to-end features by themselves**, _they are still useful,_ since they **reduce the probability of problems at the higher levels**.
 
 **Applying end-to-end thinking in data systems** _( 在数据系统中采用端到端的思路 )_
+
+- _An application uses a data system that provides comparatively strong safety properties, such as **serializable transactions**, that **does not mean the application is guaranteed to be free from data loss or corruption**._
+    - _The application itself needs to take end-to-end measures ( 措施 ) , such as duplicate suppression, as well._
+- The fault-tolerance mechanisms are hard to get right.
+    - _Low-level reliability mechanisms, such as those in TCP, work quite well, and so the remaining higher-level faults occur fairly rarely._
+    - _( 底层的可靠性机制没有问题, 由此已经降低了高层故障的发生概率 )_
+- Transactions have long been seen as a good abstraction, _and I do believe that they are useful._
+    - _They take a wide range of_ possible issues ( concurrent writes, constraint violations, crashes, network interruptions, disk failures ) and collapse them down to two possible outcomes : **commit or abort**.
+    - _That is a huge simplification of the programming model,_ but I fear that it is not enough.
+- _Transactions are expensive, especially when they involve heterogeneous ( 异构的 ) storage technologies._
+    - _When we refuse to use distributed transactions because they are too expensive, we end up having to reimplement fault-tolerance mechanisms in application code._
+    - _As numerous examples throughout this book have shown,_ reasoning about _( 推出结论 )_ concurrency and partial failure is difficult and counterintuitive _( 不够直观的 )_ , _and so I suspect that_ most application-level mechanisms do not work correctly.
+    - _The consequence is lost or corrupted data._
+
+#### Enforcing Constraints
+
+_( 强制约束 )_
+
+**Uniqueness constraints require consensus** _( 唯一性约束需要达成共识 )_
+
+- In a distributed setting, **enforcing _( 实施, 强制 )_ a uniqueness constraint requires consensus** :
+    - if there are several concurrent requests with the same value, the system somehow _( adv. 以某种方法 / 莫名其妙地 )_ needs to **decide which one of the conflicting operations is accepted, and reject the others as violations of the constraint**.
+- The most common way of achieving this consensus is to **make a single node the leader**, and put it in charge of making all the decisions.
+    - _If you need to tolerate the leader failing, you're back at the consensus problem again._
+- **Uniqueness checking can be scaled out by partitioning** _based on the value that needs to be unique._
+    - _For example, if you need to ensure uniqueness by request ID, you can ensure all requests with the same request ID are routed to the same partition._
+- _However, asynchronous multi-master replication is ruled out, because it could happen that different masters concurrently accept conflicting writes, and thus the values are no longer unique._
+    - _If you want to be able to_ immediately reject any writes that would violate the constraint, synchronous coordination is unavoidable.
+
+**Uniqueness in log-based messaging** _( 基于日志的消息传递唯一性 )_
+
+- The log ensures that all consumers see messages in the same order -- a guarantee that is formally known as **total order broadcast** and is equivalent to **consensus**.
+    - _In the unbundled database approach with log-based messaging, we can use a very similar approach to enforce uniqueness constraints._
+- _A stream processor consumes all the messages in a log partition sequentially on a single thread._
+    - Thus, if the log is partitioned based on the value that needs to be unique, a stream processor can unambiguously and deterministically decide which one of several conflicting operations came first.
+- _The approach works not only for uniqueness constraints, but also for many other kinds of constraints._
+    - Its fundamental principle is that **any writes that may conflict are routed to the same partition and processed sequentially**.
+
+**Multi-partition request processing** _( 多分区请求处理 )_
