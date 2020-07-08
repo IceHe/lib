@@ -4691,3 +4691,13 @@ _More generally, I think the term consistency conflates ( 合并 ) two different
     - _whereas_ **violations of integrity are "perpetual inconsistency."**
 
 **Correctness of dataflow systems** _( 数据流系统的正确性 )_
+
+- _The reliable stream processing systems can preserve integrity without requiring distributed transactions and an atomic commit protocol,_
+    - _which means they can potentially achieve comparable correctness with much better performance and operational robustness._
+- _We achieved this integrity through a combination of mechanisms:_
+    - Representing the content of the **write operation as a single message**, which **can easily be written atomically** -- _an approach that fits very well with event sourcing._
+    - **Deriving all other state updates from that single message using deterministic derivation functions**, _similarly to stored procedures._
+    - **Passing a client-generated request ID through all these levels of processing, enabling end-to-end duplicate suppression and idempotence.**
+    - **Making messages immutable and allowing derived data to be reprocessed from time to time**, _which makes it easier to recover from bugs._
+
+**Loosely interpreted constraints** _( 宽松的约束 )_
