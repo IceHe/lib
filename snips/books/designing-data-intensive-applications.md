@@ -4650,3 +4650,44 @@ _( 强制约束 )_
     - Its fundamental principle is that **any writes that may conflict are routed to the same partition and processed sequentially**.
 
 **Multi-partition request processing** _( 多分区请求处理 )_
+
+- _It turns out that_ **equivalent correctness can be achieved with partitioned logs, and without an atomic commit** :
+    - _( 使用分区日志是可以实现同等的正确性, 并且不需要原子提交 )_
+    - _1\. The request to transfer money from account A to account B is **given a unique request ID by the client, and appended to a log partition based on the request ID**._
+    - _2\. A stream processor reads the log of requests._
+        - _**For each request message it emits two messages to output streams** :_
+            - _a debit ( 记入借方 ) instruction to the payer account A (partitioned by A), and_
+            - _a credit ( 记入贷方 ) instruction to the payee account B (partitioned by B)._
+        - _The original request ID is included in those emitted messages._
+    - _3\. Further processors consume the streams of credit and debit instructions, **deduplicate ( 消除重复 ) by request ID**, and apply the changes to the account balances._
+- _Steps 1 and 2 are necessary because **if the client directly sent the credit and debit instructions, it would require an atomic commit across those two partitions to ensure that either both or neither happen**._
+    - **To avoid the need for a distributed transaction, we first durably log the request as a single message, and then derive the credit and debit instructions from that first message**.
+    - **Single-object writes are atomic in almost all data systems, and so the request either appears in the log or it doesn't**, without any need for a multi-partition atomic commit.
+- If the stream processor in step 2 crashes, it **resumes processing from its last checkpoint**.
+    - In doing so, **it does not skip any request messages, but it may process requests multiple times** and produce duplicate credit and debit instructions.
+    - _However, since it is deterministic, it will just produce the same instructions again, and the processors in step 3 can_ **easily deduplicate them using the end-to-end request ID**.
+
+#### Timeliness and Integrity
+
+_( 时效性与完整性 )_
+
+_More generally, I think the term consistency conflates ( 合并 ) two different requirements that are worth considering separately:_
+
+- **Timeliness** _( 时效性 )_
+    - _Timeliness means ensuring that users_ **observe the system in an up-to-date state**.
+        - _We saw previously that if a user reads from a stale copy of the data, they may observe it in an inconsistent state._
+        - _However, that inconsistency is temporary, and will eventually be resolved simply by waiting and trying again._
+    - **The CAP theorem uses consistency in the sense of linearizability**, _which is a strong way of achieving timeliness._
+        - _Weaker timeliness properties like read-after-write ( "read your own writes" ) consistency can also be useful._
+- **Integrity** _( 完整性 )_
+    - _Integrity means_ **absence of corruption**; i.e., no data loss, and no contradictory or false data.
+        - _In particular, if some derived dataset is maintained as a view onto some underlying data, the derivation must be correct._
+    - **If integrity is violated, the inconsistency is permanent** : _waiting and trying again is not going to fix database corruption in most cases._
+        - Instead, **explicit checking and repair is needed**.
+        - _In the context of ACID transactions, consistency is usually understood as some kind of application-specific notion of integrity._
+        - _**Atomicity** and **durability** are important tools for **preserving integrity**._
+- _In slogan form :_
+    - **violations of timeliness are "eventual consistency,"**
+    - _whereas_ **violations of integrity are "perpetual inconsistency."**
+
+**Correctness of dataflow systems** _( 数据流系统的正确性 )_
