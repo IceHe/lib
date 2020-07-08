@@ -4701,3 +4701,10 @@ _More generally, I think the term consistency conflates ( 合并 ) two different
     - **Making messages immutable and allowing derived data to be reprocessed from time to time**, _which makes it easier to recover from bugs._
 
 **Loosely interpreted constraints** _( 宽松的约束 )_
+
+- _Many real applications can **actually get away with much weaker notions of uniqueness** :_
+    - _If two people concurrently register the same username or book the same seat, you can send one of them a message to apologize, and ask them to choose a different one._
+        - _This kind of change to correct a mistake is called a **compensating transaction** ( 补偿性事务 ) ._
+    - _omitted…_
+
+**
