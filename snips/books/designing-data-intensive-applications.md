@@ -4783,3 +4783,57 @@ _( 信任, 但要确认 )_
 ### Doing the Right Thing
 
 _( 做正确的事情 )_
+
+- _omitted…_
+- _( icehe : 主要是隐私/道德方面的考量 )_
+
+#### Predictive Analytics
+
+_( 预测性分析 )_
+
+- _omitted…_
+
+**Bias and discrimination** _( 偏见与歧视 )_
+
+- _omitted…_
+
+**Responsibility and accountability** _( 责任与问责 )_
+
+- _omitted…_
+
+**Feedback loops** _( 反馈环路 )_
+
+- _omitted…_
+
+#### Privacy and Tracking
+
+_( 数据隐私与追踪 )_
+
+- _omitted…_
+
+**Surveillance** _( 监视 )_
+
+- _omitted…_
+
+**Consent and freedom of choice** _( 赞成与选择的自由 )_
+
+- _omitted…_
+
+**Privacy and use of data** _( 数据隐私和使用 )_
+
+- _Having privacy does not mean keeping everything secret;_ it means having **the freedom to choose which things to reveal to whom, what to make public, and what to keep secret**.
+    - **The right to privacy is a decision right** : it enables each person to decide where they want to be on the spectrum ( 范围/光谱 ) between secrecy and transparency in each situation.
+    - _It is an important aspect of a person's freedom and autonomy ( 自主 ) ._
+- _omitted…_
+
+**Data as assets and power** _( 数据作为资产和权力 )_
+
+- _omitted…_
+
+**Remembering the Industrial Revolution** _( 记住工业革命 )_
+
+- _omitted…_
+
+**Legislation and self-regulation** _( 立法与自律 )_
+
+- _omitted…_
