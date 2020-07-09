@@ -4704,7 +4704,52 @@ _More generally, I think the term consistency conflates ( 合并 ) two different
 
 - _Many real applications can **actually get away with much weaker notions of uniqueness** :_
     - _If two people concurrently register the same username or book the same seat, you can send one of them a message to apologize, and ask them to choose a different one._
-        - _This kind of change to correct a mistake is called a **compensating transaction** ( 补偿性事务 ) ._
+        - This kind of change to correct a mistake is called a **compensating transaction** _( 补偿性事务 )_ .
     - _omitted…_
 
-**
+**Coordination-avoiding data systems** _( 无协调的数据系统 )_
+
+- _We have now made two interesting observations :_
+    - 1\. Dataflow systems can maintain integrity guarantees on derived data without atomic commit, linearizability, or synchronous cross-partition coordination.
+    - 2\. Although strict uniqueness constraints require timeliness _( 时效性 )_ and coordination, many applications are actually fine with loose constraints that may be temporarily violated and fixed up later, as long as integrity is preserved throughout _( 自始至终 )_ .
+- _Taken together ( 总之 ) , these observations mean that_ dataflow systems can provide the data management services _for many applications_ without requiring coordination, while still giving strong integrity guarantees.
+    - _They can_ achieve better performance and fault tolerance than systems that need to perform synchronous coordination.
+- _For example, such a system could_ operate distributed across multiple datacenters in a multi-leader configuration, asynchronously replicating between regions.
+    - _Any one datacenter can_ continue operating independently from the others, because no synchronous cross-region coordination is required.
+    - _Such a system would have_ weak timeliness guarantees -- it **could not be linearizable without introducing coordination** -- but it can still have strong integrity guarantees.
+- Serializable transactions are still useful as part of maintaining derived state, _but they can be run at a small scope where they work well._
+    - Heterogeneous distributed transactions such as XA transactions are not required.
+    - Synchronous coordination can still be introduced in places where it is needed _( for example, to enforce strict constraints before an operation from which recovery is not possible )_ , but there is no need for everything to pay the cost of coordination _if only a small part of an application needs it._
+- _You can aim to_ find the best trade-off for your needs -- the sweet spot _( 最有效点 / 最佳击球位置 )_ where there are **neither too many inconsistencies nor too many availability problems**.
+
+#### Trust, but Verify
+
+_( 信任, 但要确认 )_
+
+- _All of our discussion of correctness, integrity, and fault-tolerance has been under the assumption that_ **certain things might go wrong, but other things won't.**
+    - _( … 基于某些假设 : 某些事情会出错, 而其它事情不会出错 )_
+    - _We call these assumptions our_ **system model** :
+        - _for example, we should assume that_
+            - processes can crash,
+            - machines can suddenly lose power, _and_
+            - the network can arbitrarily delay or drop messages.
+        - _But we might also assume that_
+            - data written to disk is not lost after `fsync`, that data in memory is not corrupted, _and that_
+            - the multiplication _( 乘法 )_ instruction of our CPU always returns the correct result.
+- These assumptions are quite reasonable, as they are true most of the time, and **it would be difficult to get anything done if we had to constantly worry about our computers making mistakes**.
+    - Traditionally, system models take a binary approach toward faults :
+        - we **assume that some things can happen, and other things can never happen**.
+    - In reality, it is more a question of probabilities :
+        - some things are more likely, other things less likely.
+    - The question is **whether violations of our assumptions happen often enough that we may encounter them in practice.**
+
+**Maintaining integrity in the face of software bugs** _( 软件缺陷时的完整性 )_
+
+- _omitted…_
+- _When it comes to application code, we have to assume many more bugs, since most applications don't receive anywhere near the amount of review and testing that database code does._
+
+**Don't just blindly trust what they promise** _( 不要盲目相信承诺 )_
+
+- _omitted…_
+
+**A culture of verification** _( 验证的文化 )_
