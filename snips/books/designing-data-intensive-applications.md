@@ -4753,3 +4753,33 @@ _( 信任, 但要确认 )_
 - _omitted…_
 
 **A culture of verification** _( 验证的文化 )_
+
+- _I hope that in the future we will see_ more self-validating or self-auditing systems that continually check their own integrity, rather than relying on blind trust.
+- Weaker consistency guarantees became the norm under the banner of NoSQL, and less mature storage technologies became widely used.
+    - _Yet,_ because the audit mechanisms had not been developed, we continued building applications on the basis of blind trust, _even though this approach had now become more dangerous._
+    - _Let's think for a moment about designing for **auditability** ( 可审计性 ) ._
+
+**Designing for auditability** _( 可审计性的设计 )_
+
+- Event-based systems can provide better auditability.
+    - _For the event log, we can use hashes to check that the event storage has not been corrupted._
+    - _For any derived state, we can rerun the batch and stream processors that derived it from the event log in order to check whether we get the same result, or even run a redundant derivation in parallel._
+
+**The end-to-end argument again** _( 端对端的论点再讨论 )_
+
+- If we cannot fully trust that every individual component of the system will be free from corruption -- that every piece of hardware is fault-free and that every piece of software is bug-free -- then we **must at least periodically check the integrity of our data**.
+    - _If we don't check, we won't find out about corruption until it is too late and it has caused some downstream damage, at which point it will be much harder and more expensive to track down the problem._
+
+**Tools for auditable data systems** _( 审计数据系统的工具 )_
+
+- _It would be interesting to_ use **cryptographic** ( 密码/加密 ) tools to prove the integrity of a system _in a way that is robust to a wide range of hardware and software issues, and even potentially malicious actions._
+    - _Cryptocurrencies ( 加密货币 ) , blockchains, and distributed ledger ( 账本 ) technologies such as Bitcoin, Ethereum, Ripple, Stellar, and various others  have sprung up to explore this area._
+- _Essentially,_ they are distributed databases, with a data model and transaction mechanism, in which different replicas can be hosted by mutually untrusting organizations.
+    - _The replicas continually check each other's integrity and use a consensus protocol to agree on the transactions that should be executed._
+- I am somewhat skeptical about the Byzantine fault tolerance aspects of these technologies, and I find **the technique of proof of work (e.g., Bitcoin mining) extraordinarily wasteful**.
+- Cryptographic auditing ( 密码审计 ) and integrity checking ( 完整性检查 ) often relies on **Merkle trees**, which are trees of hashes that can be used to efficiently prove that a record appears in some dataset (and a few other things).
+    - _Outside of the hype of cryptocurrencies,_ **certificate transparency** _( 证书透明性 )_ is a security technology that **relies on Merkle trees to check the validity of TLS/SSL certificates**.
+
+### Doing the Right Thing
+
+_( 做正确的事情 )_
