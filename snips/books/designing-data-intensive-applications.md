@@ -4837,3 +4837,59 @@ _( 数据隐私与追踪 )_
 **Legislation and self-regulation** _( 立法与自律 )_
 
 - _omitted…_
+
+## Glossary
+
+asynchronous 异步
+
+- Not waiting for something to complete _( e.g., sending data over the network to another node )_ , and not making any assumptions about how long it is going to take.
+
+atomic 原子性
+
+- 1\. In the context of concurrent operations :
+    - describing an operation that appears to take effect at a single point in time, so another concurrent process can never encounter the operation in a "half-finished" state.
+- 2\. In the context of transactions :
+    - grouping together a set of writes that must either all be committed or all be rolled back, even if faults occur.
+
+backpressure 背压
+
+- Forcing the sender of some data to slow down because the recipient cannot keep up with it.
+    - Also known as flow control.
+
+batch process 批处理
+
+- A computation that takes some fixed ( and usually large ) set of data as input and produces some other data as output, without modifying the input.
+
+bounded 有界
+
+- Having some known upper limit or size.
+    - Used for example in the context of network delay and datasets.
+
+Byzantine fault 拜占庭错误
+
+- A node that behaves incorrectly in some arbitrary way, for example by sending contradictory _( 矛盾的 )_ or malicious _( 恶意的 )_ messages to other nodes.
+
+cache 缓存
+
+- A component that remembers recently used data in order to speed up future reads of the same data.
+    - It is generally not complete _( 并非数据全集 )_ : thus, if some data is missing from the cache, it has to be fetched from some underlying, slower data storage system that has a complete copy of the data.
+
+CAP theorem _( 原理/原则 )_
+
+- A widely misunderstood theoretical result that is not useful in practice.
+
+causality 因果关系
+
+- The dependency between events that arises when one thing "happens before" another thing in a system.
+    - For example, a later event that is in response to an earlier event, or builds upon an earlier event, or should be understood in the light of an earlier event.
+
+consensus 共识
+
+- A fundamental problem in distributed computing, concerning getting several nodes to agree on something (for exam‐ ple, which node should be the leader for a database cluster). The problem is much harder than it seems at first glance.
+
+## 读者跋
+
+TODO
+
+- 系统系补全一些技术常识
+- 面对技术术语, 望文生义, 就敢开始高谈阔论, 胡诌
