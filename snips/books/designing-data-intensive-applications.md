@@ -4885,7 +4885,161 @@ causality 因果关系
 
 consensus 共识
 
-- A fundamental problem in distributed computing, concerning getting several nodes to agree on something (for exam‐ ple, which node should be the leader for a database cluster). The problem is much harder than it seems at first glance.
+- A fundamental problem in distributed computing, concerning getting several nodes to agree on something ( for example, which node should be the leader for a database cluster ) .
+    - The problem is much harder than it seems at first glance.
+
+data warehouse 数据仓库
+
+- A database in which data from several different OLTP systems has been combined and prepared to be used for analytics purposes.
+
+declarative 声明式
+
+- Describing the properties that something should have, but not the exact steps for how to achieve it.
+    - In the context of queries, a query optimizer takes a declarative query and decides how it should best be executed.
+
+denormalize 反规范化
+
+- To introduce some amount of redundancy or duplication in a normalized dataset, typically in the form of a cache or index, in order to speed up reads.
+    - A denormalized value is a kind of precomputed query result, similar to a materialized view.
+
+derived data 派生数据
+
+- A dataset that is created from some other data through a repeatable process, which you could run again if necessary.
+    - Usually, derived data is needed to speed up a particular kind of read access to the data.
+    - Indexes, caches, and materialized views are examples of derived data.
+
+deterministic 确定性
+
+- Describing a function that always produces the same output if you give it the same input.
+    - This means it cannot depend on random numbers, the time of day, network communication, or other unpredictable things.
+
+distributed 分布式
+
+- Running on several nodes connected by a network.
+    - Characterized by _( 以…为特征 )_ partial failures _( 部分失效 )_ : some part of the system may be broken while other parts are still working, and it is often impossible for the software to know what exactly is broken.
+
+durable 持久化
+
+- Storing data in a way such that you believe it will not be lost, even if various faults occur.
+
+ETL
+
+- Extract–Transform–Load.
+    - The process of extracting data from a source database, transforming it into a form that is more suitable for analytic queries, and loading it into a data warehouse or batch processing system.
+
+failover 切换
+
+- In systems that have a single leader, failover is the process of moving the leadership role from one node to another.
+
+fault-tolerant 容错
+
+- Able to recover automatically if something goes wrong ( e.g., if a machine crashes or a network link fails ) .
+
+flow control 流控 (流量控制)
+
+- See backpressure above.
+
+follower 从副本
+
+- A replica that does not directly accept any writes from clients, but only processes data changes that it receives from a leader.
+    - Also known as a secondary, slave, read replica, or hot standby.
+
+full-text search 全文检索
+
+- Searching text by arbitrary keywords, often with additional features such as matching similarly spelled words or synonyms.
+    - A full-text index is a kind of secondary index that supports such queries.
+
+graph 图
+
+- A data structure consisting of vertices ( things that you can refer to, also known as nodes or entities ) and edges ( connections from one vertex to another, also known as relationships or arcs ) .
+
+hash 哈希
+
+- A function that turns an input into a random-looking number.
+    - The same input always returns the same number as output.
+    - Two different inputs are very likely to have two different numbers as output, although it is possible that two different inputs produce the same output ( this is called a collision ) .
+
+idempotent 幂等
+
+- Describing an operation that can be safely retried; if it is executed more than once, it has the same effect as if it was only executed once.
+
+index 索引
+
+- A data structure that lets you efficiently search for all records that have a particular value in a particular field.
+
+isolation 隔离性
+
+- In the context of transactions, describing the degree to which concurrently executing transactions can interfere with each other.
+    - Serializable isolation provides the strongest guarantees, but weaker isolation levels are also used.
+
+join 联结
+
+- To bring together records that have something in common.
+    - Most commonly used in the case where one record has a reference to another ( a foreign key, a document reference, an edge in a graph ) and a query needs to get the record that the reference points to.
+
+leader 主节点, 主副本
+
+- When data or a service is replicated across several nodes, the leader is the designated replica that is allowed to make changes.
+    - A leader may be elected through some protocol, or manually chosen by an administrator.
+    - Also known as the primary or master.
+
+linearizable 线性化
+
+- Behaving as if there was only a single copy of data in the system, which is updated by atomic operations.
+
+locality 局部化
+
+- A performance optimization : putting several pieces of data in the same place if they are frequently needed at the same time.
+
+lock 锁
+
+- A mechanism to ensure that only one thread, node, or transaction can access something, and anyone else who wants to access the same thing must wait until the lock is released.
+
+log 日志
+
+- An append-only file for storing data.
+    - A write-ahead log is used to make a storage engine resilient against crashes,
+        - a log-structured storage engine uses logs as its primary storage format,
+        - a replication log is used to copy writes from a leader to followers, and
+        - an event log can represent a data stream.
+
+materialize 实体化, 物化
+
+- To perform a computation eagerly and write out its result, as opposed to calculating it on demand when requested.
+
+node 节点
+
+- An instance of some software running on a computer, which communicates with other nodes via a network in order to accomplish some task.
+
+normalized 规范化
+
+- Structured in such a way that there is no redundancy or duplication.
+    - In a normalized database, when some piece of data changes, you only need to change it in one place, not many copies in many different places.
+
+OLAP 联机分析处理
+
+- Online analytic processing.
+    - Access pattern characterized by aggregating ( e.g., count, sum, average ) over a large number of records.
+
+---
+
+OLTP
+
+- Online transaction processing.
+    - Access pattern characterized by fast queries that read or write a small number of records, usually indexed by key.
+
+partitioning
+
+- Splitting up a large dataset or computation that is too big for a single machine into smaller parts and spreading them across several machines.
+    - Also known as sharding.
+
+percentile
+
+- A way of measuring the distribution _( 分布 )_ of values by counting how many values are above or below some threshold.
+    - For example, the 95th percentile response time during some period is the time t such that 95% of requests in that period complete in less than t, and 5% take longer than t.
+
+
+<!--
 
 ## 读者跋
 
