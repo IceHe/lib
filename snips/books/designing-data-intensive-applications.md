@@ -3082,7 +3082,7 @@ _There are a few interesting details to point out in figure above :_
     - **Linearizability**
         - Linearizability is **a recency guarantee _( 最新值保证 )_ on reads and writes of a register ( an individual object )** .
         - _It doesn't group operations together into transactions, so it does not prevent problems such as write skew, unless you take additional measures such as materializing conflicts._
-- A database may provide both serializability and linearizability, and this combination is known as **strict serializability** _( 严格的可串行化 )_ or **strong one-copy serializability (strong-1SR)** _( 强的单副本可串行化 )_ .
+- A database may provide both serializability and linearizability, and this combination is known as **strict serializability** _( 严格的可串行化 )_ or **strong one-copy serializability ( strong-1SR )** _( 强的单副本可串行化 )_ .
     - Implementations of serializability based on two-phase locking  or actual serial execution are typically linearizable.
 - However, **serializable snapshot isolation is not linearizable** :
     - by design, it makes reads from a consistent snapshot, to avoid lock contention between readers and writers.
@@ -3108,6 +3108,9 @@ _( 可线性化的依赖条件 )_
 
 **Cross-channel timing dependencies** _( 跨通道时序依赖 )_
 
+- _If Alice hadn't exclaimed the game score, Bob wouldn't have known that the result of his query was stale._
+    - _He would have just refreshed the page again a few seconds later, and eventually seen the final score._
+    - _The linearizability violation was only noticed **because there was an additional communication channel in the system** ( Alice's voice to Bob's ears ) ._
 - _omitted…_
 
 #### Implementing Linearizable Systems
@@ -3158,6 +3161,7 @@ _Revisit the replication methods, and compare whether they can be made lineariza
 _( 线性化的代价 )_
 
 - _( 详见原书例 )_
+- A network interruption forces a choice between linearizability and availability.
 - If clients can **connect directly to the leader datacenter**, _this is not a problem,_ since the application continues to work normally there.
     - _But clients that can only reach a follower datacenter will experience an outage ( 断供 ) until the network link is repaired._
 
