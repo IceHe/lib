@@ -3000,6 +3000,10 @@ The best way of building fault-tolerant systems is to **find some general-purpos
     - and that storage devices are perfectly reliable (durability).
 - Even though crashes, race conditions, and disk failures do occur, the transaction abstraction hides those problems so that the application doesn't need to worry about them.
 
+One of the most important abstractions for distributed systems is **consensus** :
+
+- _that is,_ **getting all of the nodes to agree on something.**
+
 We need to **understand the scope of what can and cannot be done** :
 
 - _in some situations, it's possible for the system to tolerate faults and continue working;_
