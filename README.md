@@ -33,7 +33,7 @@ Reading - Basics
         - 8\. The Trouble with **Distributed Systems**
         - 9\. **Consistency** and **Consensus**
     - [Part III. Derived Data](/snips/books/designing-data-intensive-applications-p3.md)
-        - 10\. Batch Processing / 11\. Stream Processing / …
+        - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
 <!--
 
