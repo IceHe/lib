@@ -3377,9 +3377,23 @@ _( 原子提交与两阶段提交 )_
 
 - _There are a number of situations in which it is important for nodes to agree. For example :_
     - **Leader election** _( 主节点选举 )_
-        - In a database with single-leader replication, all nodes need to agree on which node is the leader. The leadership position might become contested if some nodes can’t communicate with others due to a network fault. In this case, con‐ sensus is important to avoid a bad failover, resulting in a split brain situation in which two nodes both believe themselves to be the leader (see “Handling Node Outages” on page 156). If there were two leaders, they would both accept writes and their data would diverge, leading to inconsistency and data loss.
+        - In a database with single-leader replication, all nodes need to agree on which node is the leader.
+        - The leadership position might become contested _( 受到争议的 )_ if some nodes can't communicate with others due to a network fault.
+        - _In this case, consensus is important to avoid a bad failover ( 失效备援/故障切换 ) ,_ resulting in a **split brain** situation in which two nodes both believe themselves to be the leader.
+        - If there were two leaders, they would both accept writes and their data would diverge _( 产生分歧 )_ , leading to inconsistency and data loss.
     - **Atomic commit** _( 原子事务提交 )_
-        - In a database that supports transactions spanning several nodes or partitions, we have the problem that a transaction may fail on some nodes but succeed on oth‐ ers. If we want to maintain transaction atomicity (in the sense of ACID; see “Atomicity” on page 223), we have to get all nodes to agree on the outcome of the transaction: either they all abort/roll back (if anything goes wrong) or they all commit (if nothing goes wrong). This instance of consensus is known as the atomic commit problem.
+        - In a database that supports transactions spanning several nodes or partitions, we have the problem that a transaction may fail on some nodes but succeed on others.
+        - _If we want to maintain transaction atomicity ( in the sense of ACID ) , we have to get all nodes to agree on the outcome of the transaction :_
+            - either they all abort/roll back ( if anything goes wrong ) or they all commit ( if nothing goes wrong ) .
+        - _This instance of consensus is known as the **atomic commit problem**._
+- _Atomic commit problem_
+    - **Atomic commit** _is formalized slightly differently from consensus :_
+        - an atomic transaction can **commit only if all participants vote to commit**, and **must abort if any participant needs to abort**.
+    - Consensus is allowed to decide on any value that is proposed by one of the participants.
+    - _However, atomic commit and consensus are reducible ( 可约的/可化简的 ) to each other._
+    - _Nonblocking atomic commit is harder than consensus -- see "Three-phase commit"._
+- It turns out that 2PC is a kind of consensus algorithm—but not a very good one [70, 71].
+By learning from 2PC we will then work our way toward better consensus algorithms, such as those used in ZooKeeper (Zab) and etcd (Raft).
 
 **From single-node to distributed atomic commit**
 
