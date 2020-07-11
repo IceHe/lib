@@ -3338,10 +3338,32 @@ _( 全序关系广播 )_
 - _Because log entries are delivered to all nodes in the same order,_ if there are several concurrent writes, **all nodes will agree on which one came first**.
     - _Choosing the first of the conflicting writes as the winner and aborting later ones ensures that all nodes agree on whether a write was committed or aborted._
     - _A similar approach can be used to implement serializable multi-object transactions on top of a log._
+- _While this procedure ensures **linearizable writes**, it doesn't guarantee **linearizable reads** --_
+    - if you read from a store that is asynchronously updated from the log, it may be stale.
+    - _( To be precise, the procedure described here provides sequential consistency, sometimes also known as **timeline consistency** ( 时间线一致性 ) , a slightly weaker guarantee than linearizability. )_
+    - _To make reads linearizable, there are a few options :_
+        - You can sequence reads through the log by appending a message, reading the log, and performing the actual read when the message is delivered back to you.
+            - _The message's position in the log thus defines the point in time at which the read happens._
+            - _( Quorum reads in etcd work somewhat like this. )_
+        - If the log allows you to fetch the position of the latest log message in a linearizable way, you can query that position, wait for all entries up to that position to be delivered to you, and then perform the read.
+            - _( This is the idea behind ZooKeeper's `sync()` operation. )
+        - You can make your read from a replica that is synchronously updated on writes, and is thus sure to be up to date.
+            - _( This technique is used in chain replication ( 链式复制 ) . )_
 
-**Implementing total order broadcast using linearizable storage**
+**Implementing total order broadcast using linearizable storage** _( 采用线性化存储实现全序关系广播 )_
 
-- _omitted…_
+- _Assume that we have linearizable storage, and show how to build total order broadcast from it._
+    - _The easiest way is to_ assume you have a linearizable register that stores an integer and that has an atomic increment-and-get operation.
+        - _Alternatively, an atomic compare-and-set operation would also do the job._
+    - _The algorithm is simple :_
+        - for every message you want to send through total order broadcast, you **increment-and-get the linearizable integer**, and then **attach the value you got from the register as a sequence number to the message**.
+        - You can then send the message to all nodes ( resending any lost messages ) , and the recipients will deliver the messages consecutively by sequence number.
+    - _Note that unlike Lamport timestamps, the numbers you get from incrementing the linearizable register form a sequence with no gaps._
+        - Thus, if a node has delivered message 4 and receives an incoming message with a sequence number of 6, it knows that it must wait for message 5 before it can deliver message 6.
+- _How hard could it be to make a linearizable integer with an atomic increment-and-get operation?_
+    - _The problem lies in handling the situation when network connections to that node are interrupted, and restoring the value when that node fails._
+    - _In general, if you think hard enough about linearizable sequence number generators, you inevitably end up with ( 以…告终 ) a consensus algorithm._
+- _This is no coincidence : it can be proved that_ **a linearizable compare-and-set ( or increment-and-get ) register and total order broadcast are both equivalent to consensus**.
 
 ### Distributed Transactions and Consensus
 
@@ -3353,7 +3375,11 @@ _( 分布式事务与共识 )_
 
 _( 原子提交与两阶段提交 )_
 
-- _omitted…_
+- _There are a number of situations in which it is important for nodes to agree. For example :_
+    - **Leader election** _( 主节点选举 )_
+        - In a database with single-leader replication, all nodes need to agree on which node is the leader. The leadership position might become contested if some nodes can’t communicate with others due to a network fault. In this case, con‐ sensus is important to avoid a bad failover, resulting in a split brain situation in which two nodes both believe themselves to be the leader (see “Handling Node Outages” on page 156). If there were two leaders, they would both accept writes and their data would diverge, leading to inconsistency and data loss.
+    - **Atomic commit** _( 原子事务提交 )_
+        - In a database that supports transactions spanning several nodes or partitions, we have the problem that a transaction may fail on some nodes but succeed on oth‐ ers. If we want to maintain transaction atomicity (in the sense of ACID; see “Atomicity” on page 223), we have to get all nodes to agree on the outcome of the transaction: either they all abort/roll back (if anything goes wrong) or they all commit (if nothing goes wrong). This instance of consensus is known as the atomic commit problem.
 
 **From single-node to distributed atomic commit**
 
