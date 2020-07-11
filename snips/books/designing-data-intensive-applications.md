@@ -2431,7 +2431,7 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
 
 **Characterizing write skew**
 
-- _( icehe : "写倾斜" 跟 "脏写" 和 "更新丢失" 相比, 是更为微妙的写冲突现象, , 详见原书 )_
+- _( icehe : "写倾斜" 跟 "脏写" 和 "更新丢失" 相比, 是更为微妙的写冲突现象, 详见原书 )_
 
 ![write-skew-example.png](_images/designing-data-intensive-applications/write-skew-example.png)
 
@@ -5169,3 +5169,12 @@ TODO
 
 - 系统系补全一些技术常识
 - 面对技术术语, 望文生义, 就敢开始高谈阔论, 胡诌
+    - 范规化 / 反规范化
+    - 一致性 & 可线性化
+    - 全序 / 偏序
+    - 流处理
+
+自己复数概念
+
+- 脏读 : 一个事务, 读到了另一个事务部分提交的数据写入
+- 脏写 : 一个事务, 覆盖了另一个事务部分提交的数据写入 ( 后写入的覆盖先写入的 )
