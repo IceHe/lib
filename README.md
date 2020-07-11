@@ -25,7 +25,57 @@ Reading - Basics
 - [Linux Kernel](/snips/books/linux.md) ( draft )
 - [JVM - Java Virtual Machine](/snips/books/jvm.md) ( draft )
 - [Java Concurrency in Pratice](/snips/books/java-concurrency-in-pratice.md) ( draft )
-- [Designing Data Intensive Applications](/snips/books/designing-data-intensive-applications.md) ( draft )
+- [Designing Data Intensive Applications](/snips/books/designing-data-intensive-applications-toc.md) ( Table Of Content )
+    - [Part I. Foundations of Data Systems](/snips/books/designing-data-intensive-applications-p1.md)
+        - 1\. Reliable, Scalable, and Maintainable Applications
+        - 2\. Data Models and Query Languages
+            - Relational Model / Document Model / NoSQL / …
+        - 3\. Storage and Retrieval
+            - Hash Indexes / SSTables and LSM-Trees / B-Trees / …
+            - Transaction Processing or Analytics / Data Warehousing  / …
+            - Column-Oriented Storage / Column Compression / …
+        - 4\. Encoding and Evolution
+            - Thrift / Protocol Buffers / …
+    - [Part II. Distributed Data](/snips/books/designing-data-intensive-applications-p2.md)
+        - 5\. Replication
+            - Leaders and Followers
+                - Sync V.S. Async Replication / Replication Logs
+                - Reading Your Own Writes / Monotonic Reads / Consistent Prefix Reads
+                - Multi-Leader Replication / Handling Write Conflicts
+            - Multi-Leader Replication Topologies
+                - Leaderless Replication / Writing to the Database When a Node Is Down
+                - Quorum Consistency / Sloppy Quorums / Detecting Concurrent Writes
+        - 6\. Partitioning
+            - Replication / Key-Value / Skewed Workloads / …
+            - Partitioning Secondary Indexes by Document or Term / …
+            - Rebalancing Partitions / Strategies for Rebalancing / Request Routing
+        - 7\. Transactions
+            - ACID / Single-Object and Multi-Object Operations / …
+            - Weak Isolation Levels :
+                - Read Committed
+                - Snapshot Isolation and Repeatable Read
+                - Preventing Lost Updates
+                - Write Skew and Phantoms
+            - Serializability :
+                - Two-Phase Locking (2PL) / Serializable Snapshot Isolation (SSI)
+        - 8\. The Trouble with Distributed Systems
+            - Timeouts and Unbounded Delays / Sync V.S. Async Networks / …
+            - Unreliable Clock
+                - Monotonic Versus Time-of-Day Clocks / Clock Synchronization and Accuracy / Process Pauses
+                - The Truth Is Defined by the Majority / Byzantine Faults
+        - 9\. Consistency and Consensus
+            - Consistency Guarantees : Linearizability / …
+            - Ordering Guarantees : Ordering and Causality / Sequence Number Ordering / Total Order Broadcast
+            - Distributed Transactions and Consensus
+                - Atomic Commit and Two-Phase Commit (2PC)
+                - Fault-Tolerant Consensus
+                - Membership and Coordination Services
+    - [Part III. Derived Data](/snips/books/designing-data-intensive-applications-p3.md)
+        - 10\. Batch Processing
+            - MapReduce and Distributed Filesystems / …
+        - 11\. Stream Processing
+            - Messaging Systems / Partitioned Logs / …
+        - …
 
 Reading - Coding
 

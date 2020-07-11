@@ -1,4 +1,6 @@
-# Designing Data-Intensive Applications
+# Designing Data-Intensive Applications ( Part 2 )
+
+> **Part II. Distributed Data**
 
 References
 
