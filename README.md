@@ -12,32 +12,28 @@
 
 <!-- - "真正的简约不是删繁就简, 而是纷繁中建立秩序." —— Jony Ivy -->
 
-### Snips
+### Books
 
-<!-- Algorithms - Basic -->
+Basics
 
-<!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
-
-Reading - Basics
-
-- [Linux Kernel](/snips/books/linux.md) ( draft )
-- [JVM - Java Virtual Machine](/snips/books/jvm.md) ( draft )
-- [Java Concurrency in Pratice](/snips/books/java-concurrency-in-pratice.md) ( draft )
-- [Designing Data Intensive Applications](/snips/books/designing-data-intensive-applications-toc.md) Table Of Content
-    - [Part I. Foundations of Data Systems](/snips/books/designing-data-intensive-applications-p1.md)
+- [Linux Kernel](/books/linux.md) ( draft )
+- [JVM - Java Virtual Machine](/books/jvm.md) ( draft )
+- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( draft )
+- [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) _( Table Of Content )_
+    - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
         - 1\. **Reliable**, **Scalable**, and Maintainable Applications
         - 2\. **Data Models** and Query Languages
         - 3\. **Storage and Retrieval** / 4\. **Encoding** and Evolution
-    - [Part II. Distributed Data](/snips/books/designing-data-intensive-applications-p2.md)
+    - [Part II. Distributed Data](/books/designing-data-intensive-applications-p2.md)
         - 5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
         - 8\. The Trouble with **Distributed Systems**
         - 9\. **Consistency** and **Consensus**
-    - [Part III. Derived Data](/snips/books/designing-data-intensive-applications-p3.md)
+    - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
         - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
 <!--
 
-    - [Part I. Foundations of Data Systems](/snips/books/designing-data-intensive-applications-p1.md)
+    - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
         - 1\. Reliable, Scalable, and Maintainable Applications
         - 2\. Data Models and Query Languages : Relational Model / Document Model / NoSQL / …
         - 3\. Storage and Retrieval
@@ -45,7 +41,7 @@ Reading - Basics
             - Transaction Processing or Analytics / Data Warehousing  / …
             - Column-Oriented Storage / Column Compression / …
         - 4\. Encoding and Evolution : Thrift / Protocol Buffers / …
-    - [Part II. Distributed Data](/snips/books/designing-data-intensive-applications-p2.md)
+    - [Part II. Distributed Data](/books/designing-data-intensive-applications-p2.md)
         - 5\. Replication
             - Leaders and Followers
                 - Sync V.S. Async Replication / Replication Logs
@@ -71,18 +67,24 @@ Reading - Basics
             - Consistency Guarantees : Linearizability / …
             - Ordering and Causality / Total Order Broadcast
             - Distributed Transactions and Consensus : 2PC / Coordination / …
-    - [Part III. Derived Data](/snips/books/designing-data-intensive-applications-p3.md)
+    - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
         - 10\. Batch Processing : MapReduce and Distributed Filesystems / …
         - 11\. Stream Processing : Messaging Systems / Partitioned Logs / …
 
 -->
 
-Reading - Coding
+Coding
 
-- [Refactoring](/snips/books/refactoring.md)
-- [Design Patterns](/snips/books/design-patterns.md)
-- [Pragmatic Programmer](/snips/books/pragmatic-programmer.md)
+- [Refactoring](/books/refactoring.md)
+- [Design Patterns](/books/design-patterns.md)
+- [Pragmatic Programmer](/books/pragmatic-programmer.md)
     - _The Pragmatic Programmer : your journey to mastery ( 2nd Edition )_
+
+### Snips
+
+<!-- Algorithms - Basic -->
+
+<!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
 Docker
 
