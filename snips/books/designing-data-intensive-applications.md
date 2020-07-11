@@ -2306,7 +2306,11 @@ The most basic level of transaction isolation is **read committed**. _It makes t
     - _How do we prevent dirty reads? One option would be to_ use the same lock, and to require any transaction that wants to read an object to briefly acquire the lock and then release it again immediately after reading.
         - _This would ensure that a read couldn't happen while an object has a dirty, uncommitted value ( because during that time the lock would be held by the transaction that has made the write ) ._
         - _( icehe : 性能太差 -- 加大延迟, 降低吞吐 )_
-    - _For that reason, most databasesvi prevent dirty reads_ using the approach illustrated below  :
+    - _However, the approach of requiring read locks does not work well in practice,_
+        - because one long-running write transaction can force many read-only transactions to wait until the long-running transaction has completed.
+        - _This harms the response time of read-only transactions and is bad for operability :_
+            - a slowdown in one part of an application can have a knock-on ( 使产生连锁反应的 ) effect in a completely different part of the applica‐ tion, due to waiting for locks.
+    - _For that reason, most databases prevent dirty reads_ using the approach illustrated below  :
         - for every object that is written, the database **remembers both the old committed value and the new value set by the transaction that currently holds the write lock**.
         - While the transaction is ongoing, any other transactions that read the object are simply given the old value.
         - Only when the new value is committed do transactions switch over to reading the new value.
@@ -2315,7 +2319,13 @@ The most basic level of transaction isolation is **read committed**. _It makes t
 
 _( 快照级别隔离与可重复读 )_
 
-- _( 是重要的章节, 但简要复述比较麻烦, 所以详见原文 )_
+![non-repeatable-read-example.png](_images/designing-data-intensive-applications/non-repeatable-read-example.png)
+
+- _Say Alice has $1,000 of savings at a bank, split across two accounts with $500 each._
+    - _Now a transaction transfers $100 from one of her accounts to the other._
+    - _If she is unlucky enough to look at her list of account balances in the same moment as that transaction is being processed, she may see one account balance at a time before the incoming payment has arrived ( with a balance of $500 ) , and the other account after the outgoing transfer has been made ( the new balance being $400 ) ._
+    - _To Alice it now appears as though she only has a total of $900 in her accounts -- it seems that $100 has vanished into thin air._
+- This anomaly is called a **nonrepeatable read** or **read skew** _( 不可重复读 或 读倾斜 )_.
 
 _Snapshot isolation is the most common solution to this problem._
 
@@ -3205,7 +3215,21 @@ _( 顺序保证与因果关系 )_
 
 **The causal order is not a total order** _( 因果顺序并非全序 )_
 
-- _omitted…_
+- A **total order** _( 全序 )_ allows any two elements to be compared,
+    - so if you have two elements, you can always say which one is greater and which one is smaller.
+    - _For example, natural numbers are totally ordered : if I give you any two numbers, say 5 and 13, you can tell me that 13 is greater than 5._
+- The difference between a total order and a partial order is reflected in different data‐ base consistency models:
+    - **Linearizability** _( 可线性化 )_
+        - In a linearizable system, we have a total order of operations :
+            - _if the system behaves as if there is only a single copy of the data, and every operation is atomic, this means that for any two operations we can always say which one happened first._
+    - **Causality** _( 因果关系 )_
+        - Two operations are **concurrent** if neither happened before the other.
+        - _Put another way, two events are ordered if they are causally related ( one happened before the other ) , but they are incomparable if they are concurrent._
+        - _This means that_ causality defines a partial order _( 偏序 )_ , not a total order :
+            - _some operations are ordered with respect to each other, but some are incomparable._
+- _Therefore, according to this definition,_ there are no concurrent operations in a linearizable datastore :
+    - there must be a single timeline along which all operations are totally ordered.
+    - _There might be several requests waiting to be handled, but the datastore ensures that every request is handled atomically at a single point in time, acting on a single copy of the data, along a single timeline, without any concurrency._
 
 **Linearizability is stronger than causal consistency**_( 可线性化强于因果一致性 )_
 
