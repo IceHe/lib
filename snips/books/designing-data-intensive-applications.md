@@ -2926,7 +2926,7 @@ _( 进程暂停 )_
 
 - Let's assume that every time the lock server grants a lock or lease, it also returns a **fencing token, which is a number that increases every time a lock is granted** ( e.g., incremented by the lock service ) .
     - We can then **require that every time a client sends a write request to the storage service, it must include its current fencing token**.
-- Checking a token on the server side may seem like a downside, but it is arguably a good thing : _it is unwise for a service to assume that its clients will always be well behaved._
+- Checking a token on the server side may seem like a downside, but it is arguably _( 可论证地 )_ a good thing : _it is unwise for a service to assume that its clients will always be well behaved._
 
 #### Byzantine Faults
 
@@ -3289,17 +3289,55 @@ _( 序列号排序 )_
 
 _( 全序关系广播 )_
 
-_( icehe : 从这里开始懵逼了, 看不懂了, 迷失方向了… TODO 需要重读以便理解 )_
+- Single-leader replication determines a total order of operations by choosing one node as the leader and sequencing all operations on a single CPU core on the leader.
+    - _The challenge then is_ how to scale the system if the throughput is greater than a single leader can handle, and also how to handle failover if the leader fails.
+    - _In the distributed systems literature ( 研究文献 ) , this problem is known as_ **total order broadcast** or **atomic broadcast**.
+- _Scope of ordering guarantee_
+    - Partitioned databases with a single leader per partition often maintain ordering only per partition,
+        - _which means they cannot offer consistency guarantees ( e.g., consistent snapshots, foreign key references ) across partitions._
+        - _Total ordering across all partitions is possible, but requires additional coordination._
+- _**Total order broadcast** is usually described as a protocol for exchanging messages between nodes._
+    - _Informally ( 非正式地 ) , it requires that two safety properties always be satisfied:_
+        - **Reliable delivery** _( 可靠发送 )_
+            - No messages are lost : if a message is delivered to one node, it is delivered to all nodes.
+        - **Totally ordered delivery**
+            - Messages are delivered to every node in the same order.
+- _Of course, messages will not be delivered while the network is interrupted,_
+    - _but an algorithm can_ **keep retrying so that the messages get through when the network is eventually repaired ( and then they must still be delivered in the correct order )** .
 
-- _omitted…_
+**Using total order broadcast** _( 使用全序关系广播 )_
 
-**Using total order broadcast**
+- Consensus services such as **ZooKeeper** and **etcd** actually implement total order broadcast.
+- Total order broadcast is exactly what you need for database replication :
+    - if every message represents a write to the database, and every replica processes the same writes in the same order, then the replicas will remain consistent with each other ( aside from _( 除…之外 )_ any temporary replication lag ) .
+    - _This principle is known as **state machine replication** ( 状态机复制 ) ._
+- _Another way of looking at total order broadcast is that it is a way of creating a log ( as in a replication log, transaction log, or write-ahead log ) : delivering a message is like appending to the log._
+    - _Since all nodes must deliver the same messages in the same order, all nodes can read the log and see the same sequence of messages._
+- _Total order broadcast is also useful for implementing a lock service that provides **fencing tokens** ( icehe : 就像是 tcp 交互时的 seq num ) ._
+    - _Every request to acquire the lock is appended as a message to the log, and all messages are sequentially numbered in the order they appear in the log._
+    - _The **sequence number** can then serve as a fencing token, because it is monotonically increasing._
+        - _In ZooKeeper, this sequence number is called `zxid`._
 
-- _omitted…_
+**Implementing linearizable storage using total order broadcast** _( 采用全序关系广播实现线性化存储 )_
 
-**Implementing linearizable storage using total order broadcast**
-
-- _omitted…_
+- Total order broadcast is asynchronous : messages are guaranteed to be delivered reliably in a fixed order, but there is **no guarantee about when a message will be delivered** _( so one recipient ( 接收者 ) may lag behind the others )_ .
+    - By contrast, linearizability is a recency guarantee _( ( 时效上的 ) 就近保证 )_ : a read is guaranteed to see the latest value written.
+- However, if you have total order broadcast, you can build linearizable storage on top of it.
+    - _For example, you can ensure that usernames uniquely identify user accounts._
+- _Imagine that for every possible username, you can have a linearizable register with an atomic compare-and-set operation._
+    - _Every register initially has the value null ( indicating that the username is not taken ) ._
+    - _When a user wants to create a username, you execute a compare-and-set operation on the register for that username, setting it to the user account ID, under the condition that the previous register value is null._
+    - _If multiple users try to concurrently grab the same username, only one of the compare-and-set operations will succeed, because the others will see a value other than null ( due to linearizability ) ._
+- _You can_ implement such a linearizable compare-and-set operation as follows by using total order broadcast as an append-only log :
+    - 1\. Append a message to the log, tentatively _( 暂时地/实验性地 )_ indicating the username you want to claim.
+    - 2\. Read the log, and wait for the message you appended to be delivered back to you.
+    - 3\. Check for any messages claiming the username that you want.
+        - **If the first message for your desired username is your own message, then you are successful** :
+            - you can commit the username claim _( perhaps by appending another message to the log )_ and acknowledge it to the client.
+        - If the first message for your desired username is from another user, you abort the operation.
+- _Because log entries are delivered to all nodes in the same order,_ if there are several concurrent writes, **all nodes will agree on which one came first**.
+    - _Choosing the first of the conflicting writes as the winner and aborting later ones ensures that all nodes agree on whether a write was committed or aborted._
+    - _A similar approach can be used to implement serializable multi-object transactions on top of a log._
 
 **Implementing total order broadcast using linearizable storage**
 

@@ -217,6 +217,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cmt : comment
 - cnt : count
 - conf : configuration
+- conj. : conjunction [语] 连接词; 结合; 同时发生
 - conn : connect, connection
 - const : constant
 - constr : [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
@@ -283,6 +284,7 @@ Reference : https://www.computerhope.com/keys.htm
 - edt : edit
 - elem : element
 - ELK : [ELK Stack : Elasticsearch Logstash Kibana](https://www.elastic.co/cn/elk-stack)
+- em : them ( pron. )
 - 'em : [them](https://www.urbandictionary.com/define.php?term=%27em)
 - EMERG : emergency ( for Linux )
     - Linux Kerner
@@ -557,6 +559,7 @@ Reference : https://www.computerhope.com/keys.htm
 - [primitive](https://en.wikipedia.org/wiki/Language_primitive) : atomic element / operation
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
+- pron. : pronoun 代词
 - prop : property
 - prt : print
 - ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
