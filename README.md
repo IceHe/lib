@@ -16,8 +16,6 @@
 
 <!-- Algorithms - Basic -->
 
-<!-- - [README](/snips/README.md) -->
-
 <!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
 
 Reading - Basics
@@ -180,8 +178,6 @@ Commands
 > Commands & CLI ( Command-Line Interface )
 
 [Index](/cmd/README.md)
-
-<!-- ( too long so moved to _cmd/README.md ) -->
 
 - [awk](/cmd/a/awk.md) : pattern scanning and processing language
 - [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell ( draft )
@@ -395,14 +391,12 @@ Recommendation
 > Get busy living or get busy dying.
 
 - [Bio](/marks/bio.md) ：Skills / Exp / Edu
+    - 饿了么 / 北京物流 - 众包运营 & 数据组 -> 蜂鸟跑腿 ( Java )
+    - 微博 / 移动应用服务 ( PHP ) -> 视频平台 ( Java )
+    - 华南理工 / 软件工程 / 本科
 - [Favorites](/marks/favourites.md) : ACGMN
 - [Technology Bookmarks](/marks/tech.md)
 - [Reading Bookmarks](/marks/read.md)
-
-<!--     - 饿了么北京物流众包运营 / 服务端 / Java -->
-<!--     - 微博视频平台 / 服务端 / Java -->
-<!--     - 微博移动应用服务 / 服务端 / PHP -->
-<!--     - 华南理工 / 软件工程 / 本科 -->
 
 ### Principles
 
@@ -469,20 +463,6 @@ Recommendation
 只剩下垂老的身躯，
 我得接受现实。
 ```
-
-<!--
-> 我没有一天不后悔。<br/>
-> 并非受到惩罚才感到后悔。<br/>
-> 回首往事，<br/>
-> 那个愚钝的年轻笨蛋，<br/>
-> 想跟他谈谈，<br/>
-> 想要跟他讲道理，<br/>
-> 想让他明白，<br/>
-> 但是办不到。<br/>
-> 那个少年早就不见了，<br/>
-> 只剩下垂老的身躯，<br/>
-> 我得接受现实。<br/>
--->
 
 Timeline
 

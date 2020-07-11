@@ -2227,8 +2227,8 @@ _( 原子提交与两阶段提交 )_
     - Consensus is allowed to decide on any value that is proposed by one of the participants.
     - _However, atomic commit and consensus are reducible ( 可约的/可化简的 ) to each other._
     - _Nonblocking atomic commit is harder than consensus -- see "Three-phase commit"._
-- It turns out that 2PC is a kind of consensus algorithm—but not a very good one [70, 71].
-By learning from 2PC we will then work our way toward better consensus algorithms, such as those used in ZooKeeper (Zab) and etcd (Raft).
+- It turns out that 2PC is a kind of consensus algorithm—but not a very good one .
+    - By learning from 2PC we will then work our way toward better consensus algorithms, such as those used in ZooKeeper (Zab) and etcd (Raft).
 
 **From single-node to distributed atomic commit**
 
