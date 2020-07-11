@@ -7,6 +7,8 @@ References
 
 ## Replication
 
+_( 数据复制 )_
+
 Replication means
 
 - **keeping a copy of the same data on multiple machines that are connected via a network**.

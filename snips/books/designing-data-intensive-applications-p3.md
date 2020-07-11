@@ -1,6 +1,4 @@
-# Part I. Foundations of Data Systems
-
-> ****
+# Part III. Derived Data
 
 References
 
