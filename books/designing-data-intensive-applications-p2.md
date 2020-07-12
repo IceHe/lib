@@ -2269,9 +2269,51 @@ _( 原子提交与两阶段提交 )_
 
 ![2pc-two-phase-commit.png](_images/designing-data-intensive-applications/2pc-two-phase-commit.png)
 
+- _Don't confuse 2PC and 2PL_
+    - _Two-phase commit (2PC) and two-phase locking are two very different things._
+    - 2PC provides atomic commit in a distributed database,
+        - whereas 2PL provides serializable isolation.
+    - _To avoid confusion, it's best to think of them as entirely separate concepts and to ignore the unfortunate similarity in the names._
+- _2PC uses a new component that does not normally appear in single-node transactions :_ a **coordinator** ( aka. **transaction manager** ) .
+    - The coordinator is often implemented as
+        - a library within the same application process _that is requesting the transaction_
+            - _( e.g., embedded in a Java EE container ) ,_
+        - but it can also be a separate process or service.
+- A **2PC transaction begins with** the application reading and **<u>writing data on multiple database nodes</u>**, _as normal._
+    - _( We call these database nodes **participants** in the transaction. )_
+    - When the application is ready to commit, **the coordinator begins phase 1 : it sends a <u>prepare request</u> to each of the nodes**, asking them whether they are able to commit.
+    - The coordinator then tracks the responses from the participants :
+        - **If all participants reply "yes,"** indicating they are ready to commit, then **the coordinator sends out a <u>commit request</u> in phase 2**, and the commit actually takes place _( 发生/举行 )_ .
+        - **If any of the participants replies "no," the coordinator sends an <u>abort request</u> to all nodes in phase 2.**
+
 **A system of promises** _( 系统的承诺 )_
 
-- _omitted…_
+- _Surely the prepare and commit requests can just as easily be lost in the two-phase case. What makes 2PC different?_
+- _To understand why it works, we have to break down the process in a bit more detail :_
+    - 1. When the application wants to begin a distributed transaction, it **requests a transaction ID from the coordinator**.
+        - _This transaction ID is_ globally unique.
+    - 2\. **The application begins a single-node transaction on each of the participants**,
+        - and attaches the globally unique transaction ID to the single-node transaction.
+        - All reads and writes are done in one of these single-node transactions.
+        - If anything goes wrong at this stage _( for example, a node crashes or a request times out )_ , the coordinator or any of the participants can abort.
+    - 3\. **When the application is ready to commit, the coordinator sends a prepare request to all participants**, tagged with the global transaction ID.
+        - If any of these requests fails or times out, the coordinator sends an abort request for that transaction ID to all participants.
+    - 4\. **When a participant receives the prepare request, it makes sure that it can definitely commit the transaction** under all circumstances.
+        - This includes writing all transaction data to disk ( a crash, a power failure, or running out of disk space is not an acceptable excuse for refusing to commit later ) , and checking for any conflicts or constraint violations.
+        - By replying "yes" to the coordinator, the node promises to commit the transaction without error if requested.
+        - _In other words, the participant surrenders ( 放弃 ) the right to abort the transaction, but without actually committing it._
+    - 5\. **When the coordinator has received responses to all prepare requests, it makes a definitive decision on whether to commit or abort the transaction** ( committing only if all participants voted "yes" ) .
+        - **The coordinator must write that decision to its transaction log on disk** so that it knows which way it decided in case it subsequently crashes.
+        - This is called the **commit point** _( 提交点 )_ .
+    - 6\. **Once the coordinator's decision has been written to disk, the commit or abort request is sent to all participants.**
+        - **If this request fails or times out, the coordinator must retry forever until it succeeds.**
+        - There is no more going back : if the decision was to commit, that decision must be enforced, no matter how many retries it takes.
+        - _If a participant has crashed in the meantime, the transaction will be committed when it recovers -- since the participant voted "yes," it cannot refuse to commit when it recovers._
+- _Thus, the protocol contains two crucial_ "**points of no return**" _( 不归路 )_ :
+    - **when a participant votes "yes,"** it promises that it will definitely be able to commit later
+        - _( although the coordinator may still choose to abort )_ ;
+    - and **once the coordinator decides**, that decision is irrevocable.
+- _Those promises ensure the atomicity of 2PC._
 
 **Coordinator failure** _( 协调者发生故障 )_
 
