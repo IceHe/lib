@@ -2204,12 +2204,6 @@ _( 全序关系广播 )_
 
 _( 分布式事务与共识 )_
 
-- _omitted…_
-
-#### Atomic Commit and Two-Phase Commit (2PC)
-
-_( 原子提交与两阶段提交 )_
-
 - _There are a number of situations in which it is important for nodes to agree. For example :_
     - **Leader election** _( 主节点选举 )_
         - In a database with single-leader replication, all nodes need to agree on which node is the leader.
@@ -2227,16 +2221,53 @@ _( 原子提交与两阶段提交 )_
     - Consensus is allowed to decide on any value that is proposed by one of the participants.
     - _However, atomic commit and consensus are reducible ( 可约的/可化简的 ) to each other._
     - _Nonblocking atomic commit is harder than consensus -- see "Three-phase commit"._
-- It turns out that 2PC is a kind of consensus algorithm—but not a very good one .
-    - By learning from 2PC we will then work our way toward better consensus algorithms, such as those used in ZooKeeper (Zab) and etcd (Raft).
+- _It turns out that **2PC** is a kind of **consensus algorithm** -- but not a very good one._
+    - _By learning from 2PC we will then work our way toward better consensus algorithms, such as those used in **ZooKeeper (Zab)** and **etcd (Raft)**._
 
-**From single-node to distributed atomic commit**
+#### Atomic Commit and Two-Phase Commit (2PC)
 
-- _omitted…_
+_( 原子提交与两阶段提交 )_
 
-**Introduction to two-phase commit**
+- The purpose of **transaction atomicity** _( 事务原子性 )_ is to **provide simple semantics in the case where something goes wrong in the middle of making several writes**.
+    - _The outcome of a transaction is either a successful commit, in which case all of the transaction's writes are made durable,_
+    - _or an abort, in which case all of the transaction's writes are rolled back ( i.e., undone or discarded ) ._
+- Atomicity prevents failed transactions from littering _( 乱丢/把…弄得乱七八糟 )_ the database with half-finished results and half-updated state.
+    - _This is especially important for multi-object transactions and databases that maintain secondary indexes._
+    - Each secondary index is a separate data structure from the primary data -- thus, if you modify some data, the corresponding change needs to also be made in the secondary index.
+    - Atomicity ensures that the secondary index stays consistent with the primary data _( if the index became inconsistent with the primary data, it would not be very useful )_ .
 
-- _omitted…_
+**From single-node to distributed atomic commit** _( 从单节点到分布式的原子提交 )_
+
+- For transactions that execute at a single database node, atomicity is commonly implemented by the storage engine.
+    - _When the client asks the database node to commit the transaction,_ the **database makes the transaction's writes durable ( typically in a write-ahead log (WAL) ) and then appends a commit record to the log on disk**.
+    - _If the database crashes in the middle of this process, the transaction is recovered from the log when the node restarts :_
+        - _if the commit record was successfully written to disk before the crash, the transaction is considered committed;_
+        - _if not, any writes from that transaction are rolled back._
+- _Thus, on a single node, transaction commitment crucially depends on the order in which data is durably written to disk :_ first the data, then the commit record.
+    - _The key deciding moment for whether the transaction commits or aborts is the moment at which the disk finishes writing the commit record :_
+        - _before that moment, it is still possible to abort ( due to a crash ) ,_
+        - _but after that moment, the transaction is committed ( even if the database crashes ) ._
+- What if multiple nodes are involved in a transaction?
+    - It is not sufficient to simply send a commit request to all of the nodes _and independently commit the transaction on each one._
+    - _In doing so, it could easily happen that_ **the commit succeeds on some nodes and fails on other nodes**, _which would violate the atomicity guarantee :_
+        - _Some nodes may detect a constraint violation or conflict, making an abort necessary, while other nodes are successfully able to commit._
+        - _Some of the commit requests might be lost in the network, eventually aborting due to a timeout, while other commit requests get through._
+        - _Some nodes may crash before the commit record is fully written and roll back on recovery, while others successfully commit._
+- _If some nodes commit the transaction but others abort it, the nodes become inconsistent with each other._
+    - _And_ **once a transaction has been committed on one node, it cannot be retracted again** _if it later turns out that it was aborted on another node._
+    - _For this reason, a node must only commit once it is certain that all other nodes in the transaction are also going to commit._
+- **A transaction commit must be irrevocable** _( 不可撤销的 )_ -- _you are not allowed to retroactively ( 追溯地 ) abort a transaction after it has been committed._
+    - _The reason for this rule is that_ **once data has been committed, it becomes visible to other transactions**, _and thus other clients may start relying on that data; …_
+- It is possible for **the effects of a committed transaction to later be undone by another**, **compensating transaction** _( 补偿性事务 )_ .
+    - _However, from the database's point of view this is a separate transaction, and thus any_ **cross-transaction correctness requirements are the application's problem**.
+
+**Introduction to two-phase commit** _( 两阶段提交 )_
+
+- **Two-phase commit** is an algorithm for achieving **atomic transaction commit across multiple nodes** -- i.e., to ensure that either all nodes commit or all nodes abort.
+    - _It is a classic algorithm in distributed databases._
+    - _2PC is used internally in some databases and also_ made available to applications in the form of **XA transactions** _( which are supported by the Java Transaction API, for example )_ or via **WS-AtomicTransaction** for SOAP web services.
+
+![2pc-two-phase-commit.png](_images/designing-data-intensive-applications/2pc-two-phase-commit.png)
 
 **A system of promises** _( 系统的承诺 )_
 
