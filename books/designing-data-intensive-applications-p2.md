@@ -2317,41 +2317,145 @@ _( 原子提交与两阶段提交 )_
 
 **Coordinator failure** _( 协调者发生故障 )_
 
-- _omitted…_
+- If the coordinator fails before sending the prepare requests, a participant can safely abort the transaction.
+    - But once the participant has received a prepare request and voted "yes," it can no longer abort unilaterally _( 单方面地 )_ --
+        - it must wait to hear back from the coordinator whether the transaction was committed or aborted.
+    - _If the coordinator crashes or the network fails at this point,_ the participant can do nothing but wait.
+    - _A participant's transaction in this state is called in doubt or uncertain._
+- Without hearing from the coordinator, the participant has no way of knowing whether to commit or abort.
+- The only way 2PC can complete is by waiting for the coordinator to recover.
+    - This is why the coordinator must write its commit or abort decision to a transaction log on disk before sending commit or abort requests to participants :
+        - when the coordinator recovers, it determines the status of all in-doubt transactions by reading its transaction log.
+    - Any transactions that don't have a commit record in the coordinator's log are aborted.
+    - _Thus, the commit point of 2PC comes down to a regular single-node atomic commit on the coordinator._
 
 **Three-phase commit** _( 三阶段提交 )_
 
-- _omitted…_
+- Two-phase commit is called a **blocking atomic commit protocol** _( 阻塞式原子提交协议 )_ due to the fact that 2PC can become stuck waiting for the coordinator to recover.
+    - In theory, it is possible to make an atomic commit protocol nonblocking, so that it does not get stuck if a node fails.
+- As an alternative to 2PC, an algorithm called **three-phase commit (3PC)** has been proposed.
+    - However, 3PC **assumes a network with bounded delay and nodes with bounded response times**;
+        - (but) in most practical systems **with <u>unbounded</u> network delay and process pauses**, it **cannot guarantee atomicity**.
+- _In general,_ **nonblocking atomic commit requires a perfect failure detector** -- i.e., a reliable mechanism for telling whether a node has crashed or not.
+    - **In a network with unbounded delay a timeout is not a reliable failure detector, because a request may time out due to a network problem even if no node has crashed**.
+    - _For this reason,_ 2PC continues to be used, despite the known problem with coordinator failure.
 
 #### Distributed Transactions in Practice
 
 _( 实践中的分布式事务 )_
 
+- _Distributed transactions, especially those implemented with two-phase commit, have a mixed reputation._
+    - _On the one hand,_ they are seen as **providing an important safety guarantee** that would be hard to achieve otherwise _( 其它方案难以企及的 )_ ;
+    - on the other hand, they are criticized for **causing operational problems, killing performance, and promising more than they can deliver**.
+    - _Many cloud services choose not to implement distributed transactions due to the operational problems they engender ( 使产生/造成 ) ._
+- _Some implementations of distributed transactions carry a heavy performance penalty --_
+    - for example, distributed transactions in MySQL are reported to be over 10 times slower than single-node transactions, _so it is not surprising when people advise against using them._
+    - **Much of the performance cost inherent in two-phase commit is due to the additional disk forcing (`fsync`) that is required for crash recovery, and the additional network round-trips.**
+
 **Exactly-once message processing**
 
-- _omitted…_
+- _For example, a message from a message queue can be acknowledged as processed if and only if the database transaction for processing the message was successfully committed._
+    - This is **implemented by atomically committing the message acknowledgment _( 自动提交消息确认 )_ _and_ the database writes in a single transaction _( 数据库 (单个事务) 的写入 )_** .
+    - _With distributed transaction support,_ this is possible, even if the message broker and the database are two unrelated technologies running on different machines.
+- _If either the message delivery or the database transaction fails, both are aborted, and so the message broker may safely redeliver the message later._
+    - Thus, by atomically committing the message and the side effects of its processing, we can ensure that the message is effectively processed exactly once, even if it required a few retries before it succeeded.
+    - _The abort discards any side effects of the partially completed transaction._
+- _Such a distributed transaction is_ **only possible if all systems affected by the transaction are able to use the same atomic commit protocol**, _however._
+    - _For example, say a side effect of processing a message is to send an email, and the email server does not support two-phase commit :_
+        - _it could happen that the email is sent two or more times if message processing fails and is retried._
+    - But if all side effects of processing a message are rolled back on transaction abort, then the processing step can safely be retried as if nothing had happened.
 
 **XA transactions** _( XA 交易 )_
 
-- _omitted…_
+- **X/Open XA** _( short for **eXtended Architecture** )_ is a standard for implementing two-phase commit across heterogeneous technologies.
+    - _It was introduced in 1991 and has been widely implemented :_ XA is supported by
+        - many traditional relational databases _( including PostgreSQL, MySQL, DB2, SQL Server, and Oracle )_ _and_
+        - message brokers _( including ActiveMQ, HornetQ, MSMQ, and IBM MQ )_ .
+- XA is not a network protocol -- **it is merely a C API for interfacing with a transaction coordinator**.
+    - _Bindings for this API exist in other languages; for example, in the world of Java EE applications, XA transactions are implemented using the Java Transaction API (JTA), which in turn is supported by many drivers for databases using Java Database Connectivity (JDBC) and drivers for message brokers using the Java Message Service (JMS) APIs._
+- XA assumes that your application uses a network driver or client library to communicate with the participant databases or messaging services.
+    - If the driver supports XA, that means it calls the XA API to find out whether an operation should be part of a distributed transaction -- and if so, it sends the necessary information to the database server.
+    - The driver also exposes callbacks through which the coordinator can ask the participant to prepare, commit, or abort.
+- The transaction coordinator implements the XA API.
+    - _The standard does not specify how it should be implemented,_ but in practice the coordinator is often simply a library that is loaded into the same process as the application issuing the transaction _( not a separate service )_ .
+    - _It keeps track of the participants in a transaction, collects partipants' responses after asking them to prepare ( via a callback into the driver ) , and uses a log on the local disk to keep track of the commit/abort decision for each transaction._
+- If the application process crashes, or the machine on which the application is running dies, the coordinator goes with it.
+    - _Any participants with prepared but uncommitted transactions are then stuck in doubt._
+    - Since the coordinator's log is on the application server's local disk, that server must be restarted, and the coordinator library must read the log to recover the commit/abort outcome of each transaction.
+    - Only then can the coordinator use the database driver's XA callbacks to ask participants to commit or abort, as appropriate.
+    - _The database server cannot contact the coordinator directly, since all communication must go via its client library._
 
 **Holding locks while in doubt** _( 停顿时仍持有锁 )_
 
-- _omitted…_
+- _Why do we care so much about a transaction being stuck in doubt?_ The problem is with **locking**.
+    - Database transactions usually take a row-level exclusive lock on any rows they modify, to prevent dirty writes.
+    - In addition, if you want serializable isolation, a database using two-phase locking would also have to take a shared lock on any rows read by the transaction.
+- The database cannot release those locks until the transaction commits or aborts.
+    - Therefore, when using two-phase commit, a transaction must hold onto the locks throughout the time it is in doubt.
+    - **If the coordinator's log is entirely lost for some reason, those locks will be held forever** -- _or at least until the situation is manually resolved by an administrator._
+- While those locks are held, no other transaction can modify those rows.
+    - Depending on the database, other transactions may even be blocked from reading those rows.
+    - This can **cause large parts of your application to become unavailable until the in-doubt transaction is resolved**.
 
 **Recovering from coordinator failure**_( 从协调者故障中恢复 )_
 
-- _omitted…_
+- However, in practice, orphaned _( 孤儿 )_ in-doubt transactions do occur  -- that is, transactions for which the coordinator cannot decide the outcome for whatever reason _( e.g., **because the transaction log has been lost** or **corrupted due to a software bug** )_ .
+    - These transactions cannot be resolved automatically, so they sit forever in the database, holding locks and blocking other transactions.
+- _Even rebooting your database servers will not fix this problem, since a correct implementation of 2PC must preserve the locks of an in-doubt transaction even across restarts ( otherwise it would risk violating the atomicity guarantee ) ._
+- The only way out is for an administrator to manually decide whether to commit or roll back the transactions.
+    - _The administrator must examine the participants of each in-doubt transaction, determine whether any participant has committed or aborted already, and then apply the same outcome to the other participants._
+    - _Resolving the problem potentially requires a lot of manual effort, and most likely needs to be done under high stress and time pressure during a serious production outage._
+- Many XA implementations have an **emergency escape** _( 紧急避险 )_ hatch called **heuristic decisions** _( 启发式决策 )_ :
+    - allowing a participant to unilaterally decide to abort or commit an in-doubt transaction without a definitive decision from the coordinator.
+    - To be clear, heuristic here is a euphemism for probably breaking atomicity, since it violates the system of promises in two-phase commit.
+    - Thus, **heuristic decisions are intended only for getting out of catastrophic situations, and not for regular use**.
 
 **Limitations of distributed transactions** _( 分布式事务的限制 )_
 
-- _omitted…_
+- _XA transactions solve the real and important problem of keeping several participant data systems consistent with each other, but as we have seen,_ they also introduce major operational problems.
+- In particular, the key realization is that the transaction coordinator is itself a kind of database ( in which transaction outcomes are stored ) , and so it needs to be approached with the same care as any other important database:
+    - If the coordinator is not replicated but runs only on a single machine, it is **a single point of failure** for the entire system ( since its failure causes other application servers to block on locks held by in-doubt transactions ) .
+        - Surprisingly, many coordinator implementations are **not highly available by default**, or have only rudimentary _( 初步的, 基本的 )_ replication support.
+    - Many server-side applications are developed in a stateless model ( as favored by HTTP ) , with all persistent state stored in a database, which has the advantage that application servers can be added and removed at will.
+        - _However, when the coordinator is part of the application server, it changes the nature of the deployment._
+        - Suddenly, the coordinator's logs become a crucial part of the durable system state -- as important as the databases themselves, since the coordinator logs are required in order to recover in-doubt transactions after a crash.
+        - Such application servers are no longer stateless.
+    - Since XA needs to be compatible with a wide range of data systems, it is necessarily a lowest common denominator _( 最小公分母 )_ .
+        - For example, it cannot detect deadlocks across different systems ( since that would require a standardized protocol for systems to exchange information on the locks that each transaction is waiting for ) , and it does not work with SSI ( see "Serializable Snapshot Isolation" ) , since that would require a protocol for identifying conflicts across different systems.
+    - For database-internal distributed transactions ( not XA ) , the limitations are not so great -- for example, a distributed version of SSI is possible.
+        - However, there remains the problem that for 2PC to successfully commit a transaction, all participants must respond.
+        - Consequently, if any part of the system is broken, the transaction also fails.
+        - Distributed transactions thus have a tendency of amplifying failures, which runs counter to our goal of building fault-tolerant systems.
 
 #### Fault-Tolerant Consensus
 
 _( 支持容错的共识 )_
 
-- _omitted…_
+- Informally, consensus means **getting several nodes to agree on something**.
+    - _For example, if several people concurrently try to book the last seat on an airplane, or the same seat in a theater, or try to register an account with the same username,_
+    - then a consensus algorithm could be used to determine which one of these mutually incompatible operations should be the winner.
+- _The consensus problem is normally formalized as follows :_
+    - one or more nodes may **propose** values, and the consensus algorithm **decides** on one of those values.
+- _In this formalism ( 形式体系 ) , a consensus algorithm must satisfy the following properties :_
+    - **Uniform agreement** _( 协商一致性 )_
+        - No two nodes decide differently. _( 都接受相同的决议 )_
+    - **Integrity** _( 诚实性 )_
+        - No node decides twice. _( 决定不能反悔 )_
+    - **Validity** _( 合法性 )_
+        - If a node decides value v, then v was proposed by some node.
+    - **Termination** _( 可终止性 )_
+        - Every node that does not crash eventually decides some value. _( 所有节点如果不崩溃, 则最终一定可以达成决议 )_
+- The uniform agreement and integrity properties define the core idea of consensus : **everyone decides on the same outcome, and once you have decided, you cannot change your mind**.
+    - The **validity** property exists mostly to **rule out _( 排除 )_ trivial solutions** _( 不重要的/琐碎的 → 无意义的 )_ .
+    - The **termination** property formalizes _( 使形式化 → 引入了 )_ the idea of fault tolerance.
+        - _In particular, 2PC does not meet the requirements for termination._
+- _There is a limit to the number of failures that an algorithm can tolerate :_
+    - _in fact, it can be proved that_ **any consensus algorithm requires at least a majority of nodes to be functioning correctly in order to assure termination.**
+    - That majority can safely form a **quorum**.
+- Thus, the **termination** property is subject to the assumption that **fewer than half of the nodes are crashed or unreachable**.
+- **Most consensus algorithms assume that there are <u>no Byzantine faults</u>**.
+    - _That is, if a node does not correctly follow the protocol ( for example, if it sends contradictory messages to different nodes ) , it may break the safety properties of the protocol._
+    - It is possible to **make consensus robust against Byzantine faults as long as fewer than one-third of the nodes** are **Byzantine-faulty**.
 
 **Consensus algorithms and total order broadcast** _( 共识算法与全序广播 )_
 
