@@ -2459,7 +2459,20 @@ _( 支持容错的共识 )_
 
 **Consensus algorithms and total order broadcast** _( 共识算法与全序广播 )_
 
-- _omitted…_
+- The best-known fault-tolerant consensus algorithms are **Viewstamped Replication (VSR)**, **Paxos**, **Raft**, and **Zab**.
+- Most of these algorithms actually don't directly use the formal model described here _( proposing and deciding on a single value, while satisfying the agreement, integrity, validity, and termination properties )_ .
+    - Instead, they **decide on a sequence of values, which makes them total order broadcast algorithms.**
+- Remember that total order broadcast requires messages to be delivered exactly once, in the same order, to all nodes.
+    - _If you think about it, this is equivalent to performing several rounds of consensus :_
+        - in each round, nodes propose the message that they want to send next,
+        - and then decide on the next message to be delivered in the total order.
+- So, **total order broadcast is equivalent to repeated rounds of consensus** _( each consensus decision corresponding to one message delivery )_ :
+    - _Due to the **agreement** property of consensus,_ all nodes decide to deliver the same messages in the same order.
+    - _Due to the **integrity** property,_ messages are not duplicated.
+    - _Due to the **validity** property,_ messages are not corrupted and not fabricated out of thin air _( 凭空伪造 )_ .
+    - _Due to the **termination** property,_ messages are not lost.
+- _Viewstamped Replication, Raft, and Zab implement total order broadcast directly,_ because that is more efficient than doing repeated rounds of one-value-at-a-time consensus.
+    - _In the case of Paxos, this optimization is known as **Multi-Paxos._
 
 **Single-leader replication and consensus**_( (单主节点) 主从复制与共识 )_
 
