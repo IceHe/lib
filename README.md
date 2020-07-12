@@ -14,6 +14,9 @@
 
 ### Books
 
+> 书山有路勤为径, 学海无涯苦作舟.
+> —— 韩愈《增广贤文》
+
 Basics
 
 - [Linux Kernel](/books/linux.md) ( draft )
@@ -79,6 +82,10 @@ Coding
 - [Design Patterns](/books/design-patterns.md)
 - [Pragmatic Programmer](/books/pragmatic-programmer.md)
     - _The Pragmatic Programmer : your journey to mastery ( 2nd Edition )_
+
+Others
+
+- [Books Ever Read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 
 ### Snips
 
@@ -393,8 +400,8 @@ Recommendation
 > Get busy living or get busy dying.
 
 - [Bio](/marks/bio.md) ：Skills / Exp / Edu
-    - 饿了么 / 北京物流 - 众包运营 & 数据组 -> 蜂鸟跑腿 ( Java )
-    - 微博 / 移动应用服务 ( PHP ) -> 视频平台 ( Java )
+    - 饿了么 / 北京物流 - 众包运营 & 数据组 → 蜂鸟跑腿 ( Java )
+    - 微博 / 移动应用服务 ( PHP ) → 视频平台 ( Java )
     - 华南理工 / 软件工程 / 本科
 - [Favorites](/marks/favourites.md) : ACGMN
 - [Technology Bookmarks](/marks/tech.md)
