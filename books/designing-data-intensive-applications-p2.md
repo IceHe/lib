@@ -2290,7 +2290,7 @@ _( 原子提交与两阶段提交 )_
 
 - _Surely the prepare and commit requests can just as easily be lost in the two-phase case. What makes 2PC different?_
 - _To understand why it works, we have to break down the process in a bit more detail :_
-    - 1. When the application wants to begin a distributed transaction, it **requests a transaction ID from the coordinator**.
+    - 1\. When the application wants to begin a distributed transaction, it **requests a transaction ID from the coordinator**.
         - _This transaction ID is_ globally unique.
     - 2\. **The application begins a single-node transaction on each of the participants**,
         - and attaches the globally unique transaction ID to the single-node transaction.
