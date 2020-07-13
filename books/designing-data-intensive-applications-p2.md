@@ -2473,6 +2473,7 @@ _( 支持容错的共识 )_
     - _Due to the **termination** property,_ messages are not lost.
 - _Viewstamped Replication, Raft, and Zab implement total order broadcast directly,_ because that is more efficient than doing repeated rounds of one-value-at-a-time consensus.
     - _In the case of Paxos, this optimization is known as **Multi-Paxos._
+    - _( [Raft 算法动画演示 - 中文版 ](http://www.kailing.pub/raft/index.html) )_
 
 **Single-leader replication and consensus**_( (单主节点) 主从复制与共识 )_
 
