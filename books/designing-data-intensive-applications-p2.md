@@ -2477,7 +2477,13 @@ _( 支持容错的共识 )_
 
 **Single-leader replication and consensus**_( (单主节点) 主从复制与共识 )_
 
-- _omitted…_
+- _Single-leader replication takes all the writes to the leader and applies them to the followers in the same order, thus keeping replicas up to date._
+    - Isn't this essentially total order broadcast? How come we didn't have to worry about consensus?
+- The answer comes down to how the leader is chosen.
+    - If the leader is manually chosen and configured by the humans in your operations team, you essentially have a "consensus algorithm" of the dictatorial _( 独裁的 )_ variety :
+        - only one node is allowed to accept writes _( i.e., make decisions about the order of writes in the replication log )_ ,
+        - and if that (leader) node goes down, the system becomes unavailable for writes _until the operators manually configure a different node to be the leader._
+    - _Such a system can work well in practice,_ but **it does not satisfy the termination property of consensus** because it requires human intervention in order to make progress.
 
 **Epoch numbering and quorums**
 
