@@ -2487,19 +2487,100 @@ _( 支持容错的共识 )_
 
 **Epoch numbering and quorums**
 
-- _omitted…_
+- _All of the consensus protocols discussed so far_ **internally use a leader in some form or another**, _but they don't guarantee that the leader is unique._
+    - _Instead, they can make a weaker guarantee :_ **the protocols define an <u>epoch number</u>** _( 世代编号 )_
+        - ( called the **ballot number** in Paxos, **view number** in Viewstamped Replication, and **term number** in Raft )
+    - and **guarantee that within each epoch, the leader is unique**.
+- Every time the current leader is thought to be dead, a vote is started among the nodes to elect a new leader.
+    - This election is given an incremented epoch number, and thus epoch numbers are totally ordered and monotonically increasing.
+    - **If there is a conflict between two different leaders in two different epochs** _( perhaps because the previous leader actually wasn't dead after all )_ , then **the leader with the higher epoch number prevails** _( 获胜 )_ .
+- Before a leader is allowed to decide anything, it must first check that there isn't some other leader with a higher epoch number _which might take a conflicting decision._
+    - _How does a leader know that it hasn't been ousted ( 剥夺/驱逐/取代 ) by another node?_
+    - "The Truth Is Defined by the Majority" : a node cannot necessarily trust its own judgment -- just because a node thinks that it is the leader, that does not necessarily mean the other nodes accept it as their leader.
+- Instead, it must collect votes from a quorum of nodes.
+    - For every decision that a leader wants to make, it must send the proposed value to the other nodes and wait for a quorum of nodes to respond in favor of the proposal.
+    - _The quorum typically, but not always, consists of a majority of nodes._
+    - **A node votes in favor of a proposal only if it is not aware of any other leader with a higher epoch.**
+- _Thus, we have two rounds of voting :_ **once to choose a leader, and a second time to vote on a leader’s proposal.**
+    - The key insight is that **the quorums for those two votes must overlap** :
+        - **if a vote on a proposal succeeds, at least one of the nodes that voted for it must have also participated in the most recent leader election.**
+    - Thus, if the vote on a proposal does not reveal any higher-numbered epoch, the current leader can conclude that no leader election with a higher epoch number has happened, and therefore be sure that it still holds the leadership.
+        - It can then safely decide the proposed value.
+- This voting process looks superficially similar to two-phase commit.
+    - The biggest differences are that in 2PC the coordinator is not elected, and that **fault-tolerant consensus algorithms only require votes from a majority of nodes**, whereas **2PC requires a "yes" vote from every participant.**
+    - Moreover, **consensus algorithms define a recovery process by which nodes can get into a consistent state after a new leader is elected**, ensuring that the **safety** properties are always met.
 
 **Limitations of consensus** _( 共识的局限性 )_
 
-- _omitted…_
+- _Consensus algorithms are a huge breakthrough for distributed systems :_
+    - _they bring concrete safety properties ( agreement, integrity, and validity ) to systems where everything else is uncertain, and they nevertheless remain fault-tolerant ( able to make progress as long as a majority of nodes are working and reachable ) ._
+    - _They provide total order broadcast, and therefore they can also implement linearizable atomic operations in a fault-tolerant way._
+- _Nevertheless, they are not used everywhere, because_ **the benefits come at a cost.**
+- The process by which nodes vote on proposals before they are decided is a kind of synchronous replication.
+    - **Databases are often configured to use asynchronous replication.**
+    - In this configuration, **some committed data can potentially be lost on failover -- but many people choose to <u>accept this risk for the sake of better performance</u>.**
+- **Consensus systems always require a strict majority to operate**.
+    - _This means you need a minimum of 3 nodes in order to tolerate 1 failure ( the remaining 2 out of 3 form a majority ) , or a minimum of 5 nodes to tolerate 2 failures ( the remaining 3 out of 5 form a majority ) ._
+    - **If a network failure cuts off some nodes from the rest, <u>only the majority portion of the network can make progress</u>, and the rest is blocked**.
+- Most consensus algorithms assume a fixed set of nodes that participate in voting, _which means that you can't just add or remove nodes in the cluster._
+    - _Dynamic membership extensions to consensus algorithms allow the set of nodes in the cluster to change over time, but they are much less well understood than static membership algorithms._
+- **Consensus systems generally rely on <u>timeouts</u> to detect failed nodes.**
+    - In environments with highly variable network delays, especially geographically distributed systems, it often happens that a node falsely believes the leader to have failed due to a transient network issue.
+    - Although this error does not harm the safety properties, **frequent leader elections result in terrible performance because the system can end up spending more time choosing a leader than doing any useful work.**
+- _Sometimes, consensus algorithms are particularly sensitive to network problems._
+    - _For example, Raft has been shown to have unpleasant edge cases :_
+        - if the entire network is working correctly except for one particular network link that is consistently unreliable,
+        - Raft can get into situations where leadership continually bounces _( 弹回/蹦跳 )_ between two nodes,
+        - or the current leader is continually forced to resign, so the system effectively never makes progress.
 
 #### Membership and Coordination Services
 
 _( 成员与协调服务 )_
 
+- Projects like **ZooKeeper** or **etcd** are often described as "**distributed key-value stores**" or "**coordination and configuration services**."
+    - _The API of such a service looks pretty much like that of a database : you can read and write the value for a given key, and iterate over keys._
+    - _So if they're basically databases, why do they go to all the effort of implementing a consensus algorithm?_ What makes them different from any other kind of database?
+- _As an application developer, you will rarely need to use ZooKeeper directly, because it is actually not well suited as a general-purpose database._
+    - _It is more likely that you will end up relying on it indirectly via some other project : for example, HBase, Hadoop YARN, OpenStack Nova, and Kafka all rely on ZooKeeper running in the background._
+- **ZooKeeper and etcd are designed to hold small amounts of data that can fit entirely in memory** _( although they still write to disk for durability )_ -- _so you wouldn't want to store all of your application's data here._
+    - That small amount of data is replicated across all the nodes using a fault-tolerant total order broadcast algorithm.
+- ZooKeeper is modeled after _( 模仿/仿造 )_ Google's Chubby lock service, implementing not only total order broadcast ( and hence consensus ) , but also _an interesting set of_ other features _that turn out to be particularly useful when building distributed systems :_
+    - **Linearizable atomic operations**
+        - Using an atomic compare-and-set operation, you can implement a lock : if several nodes concurrently try to perform the same operation, only one of them will succeed.
+        - The consensus protocol guarantees that the operation will be atomic and linearizable, even if a node fails or the network is interrupted at any point.
+        - **A distributed lock is usually implemented as a <u>lease</u>** _( 租约 )_ , which has an expiry time so that it is eventually released in case the client fails.
+    - **Total ordering of operations**
+        - When some resource is protected by a lock or lease, you need a **fencing token** to prevent clients from conflicting with each other in the case of a process pause.
+        - The fencing token is some number that monotonically increases every time the lock is acquired.
+        - **ZooKeeper** provides this by totally ordering all operations and giving each operation a monotonically increasing **transaction ID** (`zxid`) and **version number** (`cversion`).
+    - **Failure detection**
+        - Clients maintain a long-lived session on ZooKeeper servers, and **the client and server periodically exchange heartbeats to check that the other node is still alive**.
+        - Even if the connection is temporarily interrupted, or a ZooKeeper node fails, the session remains active.
+        - However, **if the heartbeats cease for a duration that is longer than the session timeout, ZooKeeper declares the session to be dead.**
+        - Any locks held by a session can be configured to be automatically released when the session times out ( ZooKeeper calls these **ephemeral _( 短暂的/瞬息的 )_ nodes** ).
+    - **Change notifications**
+        - Not only can one client read locks and values that were created by another client, but it can also watch them for changes.
+        - Thus, **a client can find out when another client joins the cluster ( based on the value it writes to ZooKeeper ), or if another client fails ( because its session times out and its ephemeral nodes disappear ) .**
+        - By subscribing to notifications, a client avoids having to frequently poll to find out about changes.
+
 **Allocating work to nodes** _( 节点任务分配 )_
 
-- _omitted…_
+- One example in which the ZooKeeper/Chubby model works well is **if you have several instances of a process or service, and one of them needs to be chosen as leader or primary.**
+    - If the leader fails, one of the other nodes should take over.
+    - _This is of course useful for single-leader databases, but it's also useful for job schedulers and similar stateful systems._
+- Another example arises **when you have some partitioned resource _( database, message streams, file storage, distributed actor system, etc. )_ and need to decide which partition to assign to which node**.
+    - As new nodes join the cluster, some of the partitions need to be moved from existing nodes to the new nodes in order to rebalance the load.
+    - As nodes are removed or fail, other nodes need to take over the failed nodes' work.
+- _These kinds of tasks can be achieved by judicious ( 明智的 ) use of **atomic operations**, **ephemeral nodes**, and **notifications** in **ZooKeeper**._
+    - _If done correctly, this approach allows the application to automatically recover from faults without human intervention._
+- _An application may initially run only on a single node, but eventually may grow to thousands of nodes._
+    - _Trying to perform majority votes over so many nodes would be terribly inefficient._
+    - Instead, **ZooKeeper runs on a fixed number of nodes ( usually three or five )** and performs its majority votes _among those nodes while supporting a potentially large number of clients._
+    - Thus, **ZooKeeper provides a way of "outsourcing" _( 外包 )_ some of the work of coordinating nodes ( consensus, operation ordering, and failure detection )** to an external service.
+- Normally, the kind of data managed by ZooKeeper is quite slow-changing _( 变化缓慢 )_ :
+    - it represents information like "the node running on 10.1.1.23 is the leader for partition 7," which may change on a timescale of minutes or hours.
+    - It is not intended for storing the runtime state of the application, which may change thousands or even millions of times per second.
+    - _If application state needs to be replicated from one node to another, other tools ( such as Apache BookKeeper ) can be used._
 
 **Service discovery** _( 服务发现 )_
 
