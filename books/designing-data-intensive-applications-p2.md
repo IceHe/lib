@@ -2584,8 +2584,54 @@ _( 成员与协调服务 )_
 
 **Service discovery** _( 服务发现 )_
 
-- _omitted…_
+- ZooKeeper, etcd, and Consul are also often used for **service discovery** -- that is, to **find out which IP address you need to connect to in order to reach a particular service.**
+    - In cloud datacenter environments, where it is common for virtual machines to continually come and go, you often don't know the IP addresses of your services ahead of time.
+    - Instead, you can configure your services such that when they start up they register their network endpoints in a **service registry**, where they can then be found by other services.
+- _However, it is less clear whether service discovery actually requires consensus._
+    - _DNS is the traditional way of looking up the IP address for a service name, and it uses multiple layers of caching to achieve good performance and availability._
+    - _Reads from DNS are absolutely not linearizable, and it is usually not considered problematic if the results from a DNS query are a little stale._
+    - It is more important that DNS is reliably available and robust to network interruptions.
 
 **Membership services** _( 成员服务 )_
 
-- _omitted…_
+- **A membership service determines which nodes are currently active and live members of a cluster.**
+    - Due to unbounded network delays it's not possible to reliably detect whether another node has failed.
+    - However, if you **couple failure detection with consensus, nodes can come to an agreement about which nodes should be considered alive or not.**
+- _It could still happen that a node is incorrectly declared dead by consensus, even though it is actually alive._
+    - But it is nevertheless very useful for a system to have agreement on which nodes constitute _( 构成/组成 )_ the current membership.
+    - _For example, choosing a leader could mean simply choosing the lowest-numbered among the current members, but this approach would not work if different nodes have divergent opinions on who the current members are._
+
+### Summary
+
+- We looked in depth at **linearizability**, a popular consistency model :
+    - its goal is to **make replicated data appear as though there were only a single copy, and to make all operations act on it atomically.**
+    - _Although linearizability is appealing because it is easy to understand_ -- it makes a database behave like a variable in a single-threaded program -- _it has the downside of being slow, especially in environments with large network delays._
+- We saw that achieving **consensus** means **deciding something in such a way that all nodes agree on what was decided, and such that the decision is irrevocable.**
+    - With some digging, it turns out that **a wide range of problems are actually reducible to consensus and are equivalent to each other** _( in the sense that if you have a solution for one of them, you can easily transform it into a solution for one of the others )_ .
+- _Such equivalent problems include :_
+    - **Linearizable compare-and-set registers**
+        - The register needs to atomically decide whether to set its value, based on whether its current value equals the parameter given in the operation.
+    - **Atomic transaction commit**
+        - A database must decide whether to commit or abort a distributed transaction.
+    - **Total order broadcast**
+        - The messaging system must decide on the order in which to deliver messages.
+    - **Locks and leases**
+        - When several clients are racing to grab a lock or lease, the lock decides which one successfully acquired it.
+    - **Membership/coordination service**
+        - Given a failure detector (e.g., timeouts), the system must decide which nodes are alive, and which should be considered dead because their sessions timed out.
+    - **Uniqueness constraint**
+        - When several transactions concurrently try to create conflicting records with the same key, the constraint must decide which one to allow and which should fail with a constraint violation.
+- If that single leader fails, or if a network interruption makes the leader unreachable, such a system becomes unable to make any progress. _There are three ways of handling that situation:_
+    - 1\. **Wait for the leader to recover**, and accept that the system will be blocked in the meantime.
+        - _Many **XA/JTA** transaction coordinators choose this option._
+        - This approach does not fully solve consensus because it does not satisfy the **termination** property : **if the leader does not recover, the system can be blocked forever.**
+    - 2\. **Manually fail over** by getting humans to choose a new leader node and reconfigure the system to use it.
+        - _Many relational databases take this approach._
+        - _It is a kind of consensus by "act of God" -- the human operator, outside of the computer system, makes the decision._
+        - _The speed of failover is limited by the speed at which humans can act, which is generally slower than computers._
+    - 3\. **Use an algorithm to automatically choose a new leader.**
+        - This approach **requires a consensus algorithm**, and it is advisable to use a proven algorithm that correctly handles adverse network conditions.
+- Tools like **ZooKeeper** play an important role in **providing an "outsourced" _( 外包的 )_ consensus, failure detection, and membership service** that applications can use.
+    - _It's not easy to use, but it is much better than trying to develop your own algorithms that can withstand ( 经受/承受 ) many problems._
+- Not every system necessarily requires consensus : _for example,_ leaderless and multi-leader replication systems typically do not use global consensus.
+    - _The conflicts that occur in these systems are a consequence of not having consensus across different leaders, but_ maybe that's okay : maybe we simply need to cope without linearizability and learn to work better with data that has branching and merging version histories.
