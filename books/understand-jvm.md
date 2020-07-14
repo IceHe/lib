@@ -186,6 +186,75 @@ Source Code
 
 - OpenJDK Mercurial Repositories : https://hg.openjdk.java.net/jdk
 
+```bash
+# On macOS
+
+# 1. Install Xcode
+#    (omitted…)
+
+# 2. Select Xcode
+$ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+
+# 3. Configure : 依赖项检查 / 参数配置 / 构建输出目录结构 / …
+$ bash configure --enable-debug --with-jvm-variants=server
+# output
+(omitted…)
+====================================================
+A new configuration has been successfully created in
+/Users/IceHe/Documents/jdk12-06222165c35f/build/macosx-x86_64-server-fastdebug
+using configure arguments '--enable-debug --with-jvm-variants=server'.
+
+Configuration summary:
+* Debug level:    fastdebug
+* HS debug level: fastdebug
+* JVM variants:   server
+* JVM features:   server: 'aot cds cmsgc compiler1 compiler2 dtrace epsilongc g1gc graal jfr jni-check jvmci jvmti management nmt parallelgc serialgc services shenandoahgc vm-structs'
+* OpenJDK target: OS: macosx, CPU architecture: x86, address length: 64
+* Version string: 12-internal+0-adhoc.mac.jdk12-06222165c35f (12-internal)
+
+Tools summary:
+* Boot JDK:       openjdk version "12.0.1" 2019-04-16 OpenJDK Runtime Environment (build 12.0.1+12) OpenJDK 64-Bit Server VM (build 12.0.1+12, mixed mode, sharing)  (at /Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home)
+* Toolchain:      clang (clang/LLVM from Xcode 9.4.1)
+* C Compiler:     Version 9.1.0 (at /usr/bin/clang)
+* C++ Compiler:   Version 9.1.0 (at /usr/bin/clang++)
+
+Build performance summary:
+* Cores to use:   4
+* Memory limit:   8192 MB
+
+# 4. Compile OpenJDK
+$ make images
+# 如果多次编译, 或者目录结构成功产生后又再次修改了配置,
+# 必须先使用 `make clean` 和 `make dist-clean` 命令清理目录，
+# 才能确保新的配置生效.
+
+# Other reference
+# - 优雅地在 Mac OS Catalina 下 编译 Open JDK 13 : https://cloud.tencent.com/developer/article/1522903
+```
+
+_在 `configure` 命令以及后面的 make 命令的执行过程中, 会在 "build/配置名称" 目录下产生如下目录结构_
+
+- _`buildtools/` : 用于生成、存放编译过程中用到的工具_
+- _`hotspot/` : HotSpot 虚拟机编译的中间文件_
+- _`images/` : 使用 `make *-image` 产生的镜像存放在这里_
+- _`jak/` : 编译后产生的 JDK 就放在这里_
+- _`support/` : 存放编译时产生的中间文件_
+- _`test-results/` : 存放编译后的自动化测试结果_
+- _`configure-support/` : 这三个目录是存放执行 `configure`、`make` 和 `test` 的临时文件_
+- _`make-supPort/`_
+- _`test-supPort/`_
+
+_依赖检查通过后便可以输入 `make images` 执行整个 OpenJDK 编译了, 这里 `imasges` 是 `product-images` 编译目标 (Target) 的简写别名, 这个目标的作用是编译出整个 JDK 镜像. 其它编译目标还有 :_
+
+- _`hotspot` : 只编译 HotSpot 虚拟机_
+- _`hotspot-<variant>` : 只编译特定模式的 HotSpot 虚拟机_
+- _`docs-image` : 产生 JDK 的文档镜像_
+- _`test-image` : 产生 JDK 的测试镜像_
+- _`al1-images` : 相当于连续调用 `product`、`docs`、`test` 三个编译目标_
+- _`bootcycle-images` : 编译两次 JDK, 其中第二次使用第一次的编译结果作为Bootstrap JDK_
+- _`clean` : 清理 `make` 命令产生的临时文件_
+- _`dist-clean` : 清理 `make` 和 `configure` 命令产生的临时文件_
+
 ## 内存区域 & 内存溢出异常
 
 ### 运行时数据区
