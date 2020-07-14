@@ -159,6 +159,8 @@ VM 发展
         - 将不同语言的源码, 编译成中间格式 _( 例如 LLVM 字节码 )_
         - 通过解释器转换为能被 Graal VM 接受的中间表示 _( IR - Intermediate Representation )_
 
+![grall-vm-intro.png](_images/understand-jvm/grall-vm-intro.png)
+
 即时编译器
 
 - _对需要长时间运行的应用来说，由于经过充分预热，热点代码会被 HotSpot 的探测机制准确定位捕获，并将其编译为物理硬件可直接执行的机器码_
