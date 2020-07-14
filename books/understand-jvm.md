@@ -182,6 +182,10 @@ VM 发展
         - 不同的硬件和操作系统需要不同的发行包
 - _"向 Native 迈进" , 性能更好, 内存占用更小, 运行时环境更小_
 
+Source Code
+
+- OpenJDK Mercurial Repositories : https://hg.openjdk.java.net/jdk
+
 ## 内存区域 & 内存溢出异常
 
 ### 运行时数据区
