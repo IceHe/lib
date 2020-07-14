@@ -308,15 +308,15 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 **Native Method Stack** _( 本地方法栈 )_
 
 - 跟虚拟机栈的区别
-    - 虚拟机栈 : 为虚拟机执行 Java 方法 ( 也就是字节码 ) 服务
-    - 本地方法栈 : 为虚拟机使用到的本地 ( Native ) 方法服务
-        - _? 字节码 和 Native 方法的区别 ?_
+    - **虚拟机栈 : 为虚拟机执行 Java 方法 ( 也就是字节码 ) 服务**
+    - **本地方法栈 : 为虚拟机使用到的本地 ( Native ) 方法服务**
+        - _? Java 方法 ( 字节码 ) 和 Native 方法的区别 ?_
 - 有的虚拟机如 HotSpot VM 直接把 VM Stack 和 Native Method Stack 合二为一
 
 **Java Heap** _( Java 堆 )_
 
 - 所有线程共享的一块内存区域, VM 启动时创建
-- 所有的对象实例以及数组都应当在对上分配
+- **所有的对象实例以及数组都应当在对上分配**
 - 垃圾收集器管理 Java Heap, 也被成为 GC 堆 ( Garbage Collected Heap )
     - 从回收内存的角度看, 现代垃圾收集器 大部分都基于 **分代收集理论设计**
     - 从分配内存的角度看, 所有线程共享的 Java 堆 可以划分出多个线程私有的分配缓冲区, 以提升分配效率
@@ -328,27 +328,27 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 **Method Area** _( 方法区  )_
 
 - _各个线程共享的内存区域_
-- 存储 已被虚拟机加载的类型信息 / 常量 / 静态变量 / 即时编译器编译后的代码缓存 / …
+- **存储 已被虚拟机加载的类型信息 / 常量 / 静态变量 / 即时编译器编译后的代码缓存 / …**
 - _本质上, 永久代 ( Permanent Generation ) 和方法区并不是等价的_
     - 因为仅仅是当时的 HotSpot 虚拟机设计团队选择把收集器的分代设计扩展至方法区, 或者说使用永久代来实现方法区而已
     - _这样使得 HotSpot 的垃圾收集器能够像管理 Java8 一样管理这部分内存, 省去专门为方法区编写内存管理代码的工作_
     - _但是对于其它虚拟机实现, 譬如 BEA JRockit、IBM J9 等来说, 是不存在永久代的概念的_
+    - 到了 JDK 8 完全废弃了永久代的概念, _改用与 JRockit、J9 一样_ 在本地内存中实现的 **Metaspace 元空间** 来代替方法区
 
 **Runtime Constant Pool** _( 运行时常量池 )_
 
 - 是 Method Area 的一部分
-- 常量池表 Constant Pool Table : 存放编译器生成的各种字面量与符号引用
+- 常量池表 **Constant Pool Table : 存放编译器生成的各种字面量与符号引用**
     - 它们在类加载后, 存放到方法区的运行时常量池中
 
 **Direct Memory** _( 直接内存 )_
 
 - 并不是虚拟机运行时数据区的一部分, 也不是 JVM 规范中定义的内存区域
-- JDK 1.4 加入 NIO ( New Input/Output )
+- JDK 1.4 加入 **NIO ( New Input/Output )**
     - 引入基于通道 Channel 与缓冲区 Buffer 的 I/O 方式
-    - 可以使用 Native 函数直接分配对外内存 _( 容易内存溢出 )_
+    - **可以使用 Native 函数直接分配 <u>堆外内存</u>** _( 容易内存溢出 )_
     - 然后通过一个存储在 Java Heap 里的 DirectByteBuffer 对象作为这块内存的引用进行操作
-    - ? 显著提高性能, 因为避免了在 Java Heap 和 Native Heap 中来回复制数据
-- 用途/原因, 详见
+    - _? 显著提高性能, 因为避免了在 Java Heap 和 Native Heap 中来回复制数据 ?_
 
 ### HotSpot VM 的对象和内存
 
