@@ -23,7 +23,7 @@
 Basics
 
 - [Linux Kernel](/books/linux.md) ( draft )
-- [JVM - Java Virtual Machine](/books/jvm.md) ( draft )
+- [JVM - Java Virtual Machine](/books/understand-jvm.md) ( draft )
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( draft )
 - [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) ( TOC )
     - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
