@@ -297,7 +297,7 @@ _Also Known As_
 
 Structure
 
-<!-- ![abstract-factory.png](_images/abstract-factory.png) -->
+<!-- ![abstract-factory.png](_images/design-patterns/abstract-factory.png) -->
 
 ```plantuml
 @startuml
@@ -681,7 +681,7 @@ _Applicability_
 
 Structure
 
-<!-- ![composite](_images/composite.png) -->
+<!-- ![composite](_images/design-patterns/composite.png) -->
 
 ```plantuml
 @startuml
@@ -735,7 +735,7 @@ _Applicability_
 
 Structure
 
-<!-- ![decorator](_images/decorator.png) -->
+<!-- ![decorator](_images/design-patterns/decorator.png) -->
 
 ```plantuml
 @startuml
@@ -803,7 +803,7 @@ _Applicability_
 
 Structure
 
-<!-- ![facade](_images/facade.png) -->
+<!-- ![facade](_images/design-patterns/facade.png) -->
 
 ```plantuml
 @startuml
@@ -850,7 +850,7 @@ _Applicability_
 
 Structure
 
-<!-- ![flyweight](_images/flyweight.png) -->
+<!-- ![flyweight](_images/design-patterns/flyweight.png) -->
 
 ```plantuml
 @startuml
@@ -917,7 +917,7 @@ _Applicability_
 
 Structure
 
-<!-- ![proxy](_images/proxy.png) -->
+<!-- ![proxy](_images/design-patterns/proxy.png) -->
 
 ```plantuml
 @startuml
@@ -1018,7 +1018,7 @@ ConcreteHandler2 : handleRequest()
 
 _A typical object structure might look like this:_
 
-<!-- ![chain-of-responsibility.typical-object-structure](_images/chain-of-responsibility.typical-object-structure.png) -->
+<!-- ![chain-of-responsibility.typical-object-structure](_images/design-patterns/chain-of-responsibility.typical-object-structure.png) -->
 
 ```plantuml
 @startuml
@@ -1156,7 +1156,7 @@ _Applicability_
 
 Structure
 
-<!-- ![interpreter](_images/interpreter.png) -->
+<!-- ![interpreter](_images/design-patterns/interpreter.png) -->
 
 ```plantuml
 @startuml
@@ -1275,7 +1275,7 @@ Colleague <|-- ConcreteColleague2
 
 _A typical object structure might look like this:_
 
-<!-- ![mediator.typical-ojbect-structure](_images/mediator.typical-ojbect-structure.png) -->
+<!-- ![mediator.typical-ojbect-structure](_images/design-patterns/mediator.typical-ojbect-structure.png) -->
 
 ```plantuml
 @startuml
