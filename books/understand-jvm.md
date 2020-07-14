@@ -190,6 +190,8 @@ Source Code
 
 ### 运行时数据区
 
+![jvm-runtime-data-area.png](_images/understand-jvm/jvm-runtime-data-area.png)
+
 JVM 运行时数据区 Runtime Data Area
 
 - 方法区 Method Area ( 有所有线程共享的数据区, 以下简称 共享 )
