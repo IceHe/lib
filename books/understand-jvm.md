@@ -190,23 +190,9 @@ Source Code
 
 ### 运行时数据区
 
-![jvm-runtime-data-area.png](_images/understand-jvm/jvm-runtime-data-area.png)
-
 JVM 运行时数据区 Runtime Data Area
 
-- 方法区 Method Area ( 有所有线程共享的数据区, 以下简称 共享 )
-- 堆 Heap ( 共享 )
-- 虚拟机栈 VM Stack ( 线程隔离的数据区, 以下简称 私有 )
-- 本地方法栈 Native Method Stack ( 私有 )
-- 程序计数器 Program Counter Register ( 私有 )
-
-其它相关部分
-
-- 执行引擎 ( 共享 )
-- 本地库接口 ( 共享 )
-- 本地方法库 ( 未知 )
-
-_以上详情看原书 图2-1 Java虚拟机运行时数据区_
+![jvm-runtime-data-area.png](_images/understand-jvm/jvm-runtime-data-area.png)
 
 程序计数器 Program Counter Register
 
