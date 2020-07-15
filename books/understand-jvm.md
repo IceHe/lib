@@ -193,21 +193,28 @@ _BEA Liquid VM / Azul VM_
 
 ### 源码调试入门
 
+References :
+
 - OpenJDK Mercurial Repositories : https://hg.openjdk.java.net/jdk
+- <i>优雅地在 Mac OS Catalina 下 编译 Open JDK 13 : https://cloud.tencent.com/developer/article/1522903 </i>
+
+**On macOS**
+
+- 1\. Install Xcode
+    - _omitted…_
+- 2\. Select Xcode
 
 ```bash
-# On macOS
-
-# 1. Install Xcode
-#    (omitted…)
-
-# 2. Select Xcode
 $ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+```
 
-# 3. Configure : 依赖项检查 / 参数配置 / 构建输出目录结构 / …
+- 3\. Configure : 依赖项检查 / 参数配置 / 构建输出目录结构 / …
+
+```bash
 $ bash configure --enable-debug --with-jvm-variants=server
 # or
 $ bash configure
+
 # output
 (omitted…)
 ====================================================
@@ -232,24 +239,28 @@ Tools summary:
 Build performance summary:
 * Cores to use:   4
 * Memory limit:   8192 MB
+```
 
-# 4. Compile OpenJDK
+- 4\. Compile OpenJDK
+    - _如果多次编译, 或者目录结构成功产生后又再次修改了配置,_
+    - _必须先使用 `make clean` 和 `make dist-clean` 命令清理目录, 才能确保新的配置生效_
+
+```bash
 $ make images
-# 如果多次编译, 或者目录结构成功产生后又再次修改了配置,
-# 必须先使用 `make clean` 和 `make dist-clean` 命令清理目录，
-# 才能确保新的配置生效.
+```
 
-# 5. Test java
+- 5\. Test java
+
+```bash
 $ cd build/[config_name]/jdk
 # e.g. `cd build/macosx-x86_64-server-fastdebug/jdk/`
+
 $ ./bin/java -version
+
 # output
 openjdk version "12-internal" 2019-03-19
 OpenJDK Runtime Environment (fastdebug build 12-internal+0-adhoc.mac.jdk12-06222165c35f)
 OpenJDK 64-Bit Server VM (fastdebug build 12-internal+0-adhoc.mac.jdk12-06222165c35f, mixed mode)
-
-# Other reference
-# - 优雅地在 Mac OS Catalina 下 编译 Open JDK 13 : https://cloud.tencent.com/developer/article/1522903
 ```
 
 _在 `configure` 命令以及后面的 make 命令的执行过程中, 会在 "build/配置名称" 目录下产生如下目录结构_
@@ -319,20 +330,20 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 - 跟虚拟机栈的区别
     - **虚拟机栈 : 为虚拟机执行 Java 方法 ( 也就是字节码 ) 服务**
     - **本地方法栈 : 为虚拟机使用到的本地 ( Native ) 方法服务**
-        - _? Java 方法 ( 字节码 ) 和 Native 方法的区别 ?_
+        - _? Java 方法 ( 字节码 ) 和 Native 方法的区别 ( 书后面应该会说 ) ?_
 - 有的虚拟机如 HotSpot VM 直接把 VM Stack 和 Native Method Stack 合二为一
 
 **Java Heap** _( Java 堆 )_
 
 - 所有线程共享的一块内存区域, VM 启动时创建
-- **所有的对象实例以及数组都应当在对上分配**
+- **所有的对象实例以及数组都应当在堆上分配**
 - 垃圾收集器管理 Java Heap, 也被成为 GC 堆 ( Garbage Collected Heap )
     - 从回收内存的角度看, 现代垃圾收集器 大部分都基于 **分代收集理论设计**
     - 从分配内存的角度看, 所有线程共享的 Java 堆 可以划分出多个线程私有的分配缓冲区, 以提升分配效率
         - 线程私有分配缓冲区 **TLAB - Thread Local AllocationBuffer**
 - Java Heap 可以处于物理上不连续的内存空间中 _( 虚拟内存空间? )_
 - Java Heap 既可以被实现为 固定大小的, 也可以是 可拓展的
-    - 主流都是 可拓展的 ( 通过参数 -Xmx 和 -Xms 设定 )
+    - 主流都是 可拓展的 ( 通过参数 `-Xmx` 和 `-Xms` 设定 )
 
 **Method Area** _( 方法区  )_
 
@@ -355,13 +366,14 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 - 并不是虚拟机运行时数据区的一部分, 也不是 JVM 规范中定义的内存区域
 - JDK 1.4 加入 **NIO ( New Input/Output )**
     - 引入基于通道 Channel 与缓冲区 Buffer 的 I/O 方式
-    - **可以使用 Native 函数直接分配 <u>堆外内存</u>** _( 容易内存溢出 )_
+    - **可以使用 Native 函数直接分配 (Java) <u>堆外内存</u>**
+        - _直接内存的分配不会受到 Java 堆大小的限制, 但毕竟本机物理内存有限, 小心内存溢出_
     - 然后通过一个存储在 Java Heap 里的 DirectByteBuffer 对象作为这块内存的引用进行操作
-    - _? 显著提高性能, 因为避免了在 Java Heap 和 Native Heap 中来回复制数据 ?_
+    - _显著提高性能, 因为避免了在 Java Heap 和 Native Heap 中来回复制数据_
 
 ### HotSpot VM 的对象和内存
 
-对象的创建
+#### 对象的创建
 
 - **new** 指令 -> 检查指令的参数是否能在 **常量池** 中定位到一个类的 **符号引用**
 - 并且检查这个 符号引用 代表的类是否已被 **加载**、**解析** 和 **初始化** 过
@@ -372,65 +384,98 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 
 内存分配
 
-- 指针碰撞 Bump The Pointer
-    - 假设 Java 堆中内存是绝对规整的, 所有被使用过的内存都存放在一边, 空闲的内存被放在另一边, 中间放着一个指针作为分界点的指示器, 那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离, 这种分配方式称为 "指针碰撞" ( Bump The Pointer ) .
-- 空间列表 Free List
-    - 但如果 Java 堆中的内存并不是规整的, 已被使用的内存和空闲的内存相互交错在一起, 那就没有办法简单地进行指针碰撞了, 虚拟机就必须维护一个列表, 记录上哪些内存块是可用的, 在分配的时候从列表中找到一块足够大的空间划分给对象实例, 并更新列表上的记录, 这种分配方式称为 "空闲列表" ( Free List ) .
-- 空间压缩整理 Compact
+- **指针碰撞 Bump The Pointer**
+    - 假设 Java 堆中内存是绝对规整的, 所有被使用过的内存都存放在一边, 空闲的内存被放在另一边, 中间放着一个指针作为分界点的指示器
+    - 分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离, 这种分配方式称为 "指针碰撞" ( Bump The Pointer ) .
+- **空间列表 Free List**
+    - 但如果 Java 堆中的内存并不是规整的, 已被使用的内存和空闲的内存相互交错在一起, 那就没有办法简单地进行指针碰撞了; 虚拟机就必须维护一个列表, 记录上哪些内存块是可用的
+    - 在分配的时候从列表中找到一块足够大的空间划分给对象实例, 并更新列表上的记录, 这种分配方式称为 "空闲列表" ( Free List )
+- **空间压缩整理 Compact**
     - 选择哪种分配方式由Java堆是否规整决定, 而 Java 堆是否规整又由所采用的垃圾收集器是否带有 "空间压缩整理" ( Compact ) 的能力决定
-- 清除 Sweep
-    - 因此，当使用 Serial、ParNew 等带压缩整理过程的收集器时，系统采用的分配算法是指针碰撞，既简单又高效，而当使用 CMS 这种基于清除 ( Sweep ) 算法的收集器时, 理论上就只能采用较为复杂的空闲列表来分配内存 .
+- **清除 Sweep**
+    - 因此, 当使用 Serial、ParNew 等带压缩整理过程的收集器时, 系统采用的分配算法是指针碰撞, 既简单又高效
+    - 而当使用 CMS 这种基于清除 ( Sweep ) 算法的收集器时, 理论上就只能采用较为复杂的空闲列表来分配内存
 - 对象头 Object Header : 对象相关的信息存放处
 
 如何保证能成功地并发分配内存
 
-- _对象创建在虚拟机中是非常频繁的行为, 即使仅仅修改一个指针所指向的位置, 在并发情况下也并不是线程安全的, 可能出现正在给对象 A 分配内存, 指针还没来得及修改，对象 B 又同时使用了原来的指针来分配内存的情况. 有两个可选的解决方案 :_
-- A. 对分配内存空间的动作进行同步处理
-    - 采用 CAS 配上失败重试的方式保证更新操作的原子性
-- B. 把内存分配的动作按照线程划分在不同的空间之中进行
-    - 即每个线程在 Java 堆中预先分配一小块内存, 称为 本地线程分配缓存 **TLAB - Thread Local Allocation Buffer**
-    - 那个线程要分配内存, 就在那个线程的 TLAB 分配
-    - 等 TLAB 用完了, 分配新的缓存区时, 才需要同步锁定
-        - _通过 `-XX:+/-UseTLAB` 参数来设定虚拟机是否启用 TLAB_
+- _对象创建 在虚拟机中是非常频繁的行为, 即使仅仅修改一个指针所指向的位置, 在并发情况下也并不是线程安全的_
+- _可能出现正在给对象 A 分配内存, 指针还没来得及修改，对象 B 又同时使用了原来的指针来分配内存的情况_
+- _有以下两个可选的解决方案 :_
+    - A. 对分配内存空间的动作进行同步处理
+        - 采用 **CAS 配上失败重试** 的方式保证更新操作的原子性
+    - B. 把内存分配的动作按照线程划分在不同的空间之中进行
+        - 即每个线程在 Java 堆中预先分配一小块内存, 称为 本地线程分配缓存 **TLAB - Thread Local Allocation Buffer**
+        - 那个线程要分配内存, 就在那个线程的 TLAB 分配
+        - 等 TLAB 用完了, 分配新的缓存区时, 才需要同步锁定
+            - _通过 `-XX:+/-UseTLAB` 参数来设定虚拟机是否启用 TLAB_
 
 内存的初始化
 
 - 内存分配完成之后, 虚拟机必须将分配到的内存空间 ( 但不包括对象头 ) 都初始化为 0 值
 - 如果使用了 TLAB 的话, 这一项工作也可以提前至 TLAB 分配时顺便进行
-- 这步操作保证了对象的实例字段在 Java 代码中可以不赋初始值就直接使用, 使程序能访问到这些字段的数据类型所对应的 0 值
+- 这步操作保证了对象的实例字段在 Java 代码中可以不赋初始值就直接使用
+    - _使程序能访问到这些字段的数据类型所对应的 0 值_
 
-对象的内存布局
+#### 对象的内存布局
 
 - 在 HotSpot 虚拟机里, 对象在堆内存中的存储布局可以划分为
-    - 对象头 Header
-    - 实例数据 Instance Data
-    - 对齐填充 Padding
+    - 1\. **Header** 对象头
+        - Mark Word
+        - 类型指针
+    - 2\. **Instance Data** 实例数据
+    - 3\. **Padding** 对齐填充
 
-对象头 Object Header
+1\. **Object Header** 对象头
 
 - HotSpot VM 里, 对象头包括两类信息 :
-    - 1\. 存储对象自身的运行时数据
+    - 1\. **Mark Word** : 存储对象自身的运行时数据 _( 使用 bitmap 方式存储 )_
         - HashCode
         - GC 分代年龄
-        - ? 锁状态标志
-        - ? 线程持有的锁
-        - ? 偏向进程 ID
-        - ? 偏向时间戳
+        - _? 锁状态标志_
+        - _? 线程持有的锁_
+        - _? 偏向进程 ID_
+        - _? 偏向时间戳_
     - 2\. 类型指针
         - 即对象指向它的类型元数据的指针
         - JVM 通过它来确定该对象是哪个类的实例
         - _不是所有 VM 实现都必须在对象数据上保留类型指针_
         - 如果对象是一个 Java 数组, 还必须有一块用于记录数据长度的数据
+            - _因为虚拟机可以通过普通 Java 对象的元数据确定 Java 对象的大小_
+            - _但是如果是数组的话, 将无法通过类型元数据中的信息推断出数组的大小_
     - 3\. 对齐填充
         - HotSpot VM 的自动内存管理系统, 要求对象起始地址必须是 8 bytes 的整数倍
 
-对象自身的运行时数据
+_对象自身的运行时数据_
 
-- 存储这些信息的长度在 32 位和 64 位的 VM (未开启压缩指针) 分别为 32 bits 和 64 bits, 官方称为 Mark Word
+- 存储的这些信息, 长度在 32 位和 64 位的 VM ( 未开启压缩指针 ) 分别为 32 bits 和 64 bits -- 官方称为 **Mark Word**
 - 考虑到 VM 的空间效率, 它是一个动态定义的数据结构
-    - 在极小的空间内存储尽可能多的数据, 根据对象的状态复用自己的存储空间 -- 按位存储 _(布局 & 每位的含义等详见原书)_
+    - 在极小的空间内存储尽可能多的数据, 根据对象的状态复用自己的存储空间 -- 按位存储
+        - _Mark Work 布局 & 每位的含义 : 32 位虚拟机的存储布局情况如下_
 
-OOPs - Ordinary Object Pointers
+```cpp
+// Bit-format of an object header (most significant first，big endian layout below) :
+//
+// 32 bitst
+// hash:25 ------------>| age:4    biased_lock:1 lock:2 (normal object)
+// JavaThread*:23 epoch:2 age:4    biased_lock:1 lock:2 (biased object)
+// size:32 ------------------------------------------>| (CMS free block)
+// PromotedObjecty:29 ---------->| promo_bits:3 ----->| (CMS promoted object)
+```
+
+_2\. **Instance Data** 实例数据_
+
+- _实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来_
+- _这部分的存储顺序会受到虚拟机分配策略参数 ( `-XX: FieldsAllocationStyle` 参数 ) 和字段在 Java 源码中定义顺序的影响_
+- HotSpot 虚拟机默认的分配顺序为 longs/doubles, ints, shorts/chars, bytes/booleans, oops (Ordinary Object Pointers，OOPs) , 从以上默认的分配策略中可以看到, 相同宽度的字段总是被分配到一起存放, 在满足这个前提条件的情况下, 在父类中定义的变量会出现在子类之前
+- _如果 HotSpot 虚拟机的 `+XX: CompactFields` 参数值为 true ( 默认就为true ) , 那子类之中较窄的变量也允许插入父类变量的空隙之中, 以节省出一点占空间_
+
+_3\. **Padding** 对齐填充_
+
+- _对象的第三部分是对齐填充, 这并不是必然存在的, 也没有特别的含义, 仅起着占位符的作用_
+- _由于 HotSpot 虚拟机的自动内存管理系统要求对象起始地址必须是 8 字节的整数倍, 换句话说就是任何对象的大小都必须是 8 字节的整数倍_
+- _对象头部分已经被精心设计成正好是 8 字节的倍数 (1倍或者2倍) , 因此如果对象实例数据部分没有对齐的话, 就需要通过对齐填充来补全_
+
 
 对象的访问定位
 
