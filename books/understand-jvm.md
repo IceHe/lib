@@ -478,7 +478,7 @@ _3\. **Padding** 对齐填充_
 
 对象的访问定位
 
-- Java 程序通过栈上的 reference 数据来操作 heap 上的具体 object
+- Java 程序通过 stack 上的 reference 数据来操作 heap 上的具体 object
 - VM 规范中没有规定 reference 应该通过什么方式来定位和访问
 - 主流方式有 :
     - A. 句柄 handle
