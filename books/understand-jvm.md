@@ -559,6 +559,12 @@ Exception in thread "main" java.lang.StackOverflowError
 
 [File : JavaVMStackOOM.java](../java/src/JavaVMStackOOM.java ':include :type=code java')
 
+**Direct Memory OutOfMemoryError**
+
+- TODO : `-XX:MaxDirectMemorySize`
+
+[File : JavaVMStackOOM.java](../java/src/JavaVMStackOOM.java ':include :type=code java')
+
 ## 垃圾收集器 & 内存分配策略
 
 "Java 与 C++ 之间有一堵由动态内存分配和垃圾收集技术所围成的高墙, 墙外的人想进去, 墙里面的人却想出来." 感觉大多数人跨过这堵墙之后就不想出来了.
