@@ -19,6 +19,4 @@ Reference : [How do I create a service for a shell script so I can start and sto
 
 ### HTTP Service
 
-File : simple-http-service
-
-[simple-http-service](simple-http-service ':include :type=code bash')
+[File : simple-http-service](simple-http-service ':include :type=code bash')

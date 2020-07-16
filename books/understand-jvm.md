@@ -483,18 +483,23 @@ _3\. **Padding** 对齐填充_
 - 主流方式有 :
     - A. 句柄 handle
         - Java Heap 中划分出句柄池, reference 中存储的就是对象的句柄地址
-        - 句柄中包含 : _(详见原书图2-2)_
+        - 句柄中包含 : _( 见下图 1 )_
             - **对象实例数据的 指针**
             - 类型数据的指针 _(指出各实例数据的数据类型)_
         - 优点 : reference 存储稳定的句柄地址
             - 对象被移动时 _(垃圾收集时会异动对象)_ , 只需要改变句柄中的 实例数据指针, 不需要修改 reference 本身
     - B. 直接指针 direct pointer
         - reference 中直接存储 对象地址
-        - 地址所指的数据 包含 : _(详见原书图2-3)_
+        - 地址所指的数据 包含 : _( 见下图 2 )_
             - **对象实例数据**
             - 类型数据的指针
         - 优点 : 速度更快, 节省一次指针定位的时间
     - HotSpot VM 主要使用 direct pointer 的方式访问对象 _(当然也有例外情况)_
+
+![object-handle-pool.png](_images/understand-jvm/object-handle-pool.png)
+![object-direct-pointer.png](_images/understand-jvm/object-direct-pointer.png)
+
+### 实战 : OutOfMemeoryError
 
 概念区分
 
@@ -511,6 +516,48 @@ JVM 参数
             - Linux 228K
             - Windows 180K
 - `-Xoss` 设置 本地方法栈容量
+
+**Java Heap OverflowError**
+
+[File : HeapOOM.java](../java/src/HeapOOM.java ':include :type=code java')
+
+_output :_
+
+[File : HeapOOM.out](../java/src/HeapOOM.out ':include :type=code bash')
+
+**VM Stack and Native Method StackOverflowError**
+
+[File : JavaVMStackSOF.java](../java/src/JavaVMStackSOF.java ':include :type=code java')
+
+_output :_
+
+```bash
+stack length:18606
+Exception in thread "main" java.lang.StackOverflowError
+	at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
+	at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
+	at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
+	…(省略后续1021行)…
+```
+
+Another example
+
+[File : JavaVMStackSOF2.java](../java/src/JavaVMStackSOF2.java ':include :type=code java')
+
+_output :_
+
+```bash
+stack length:4684
+Exception in thread "main" java.lang.StackOverflowError
+	at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
+	at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
+	at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
+	…(省略后续1021行)…
+```
+
+**VM Stack OutOfMemoryERROR**
+
+[File : JavaVMStackOOM.java](../java/src/JavaVMStackOOM.java ':include :type=code java')
 
 ## 垃圾收集器 & 内存分配策略
 
