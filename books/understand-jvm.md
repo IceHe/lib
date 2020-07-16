@@ -27,7 +27,7 @@ Keywords
 - 线程安全
 - …
 
-优点
+#### 优点
 
 - 一次编译, 到处(随处)运行. Write Once, Run Anywhere.
 - 相对安全的内存管理和访问机制
@@ -43,7 +43,7 @@ Keywords
 - Groovy
 - …
 
-JDK 特性
+#### JDK 特性
 
 - JDK 1.1
     - JAR 文件格式
@@ -141,19 +141,19 @@ Exact VM
     - aka. Non-Conservative/Accurate Mem. Mgt.
     - 指 **VM 可以知道某个位置数据的类型**, 例如 整数 12345
 
-**HotSpot VM**
+_BEA Liquid VM / Azul VM_
+
+- _针对特定架构的硬件, 进行优化, 充分发挥硬件性能_
+    - 自带操作系统/越过操作系统, 不需要再进行内核态/用户态的切换, 直接控制硬件…… 等
+
+#### HotSpot VM
 
 - 默认的 JVM
 - _(也有)_ **准确式内存管理**
 - **热点探测技术** _( 通过执行计数器, 找到最具编译价值的代码 )_
     - **即时编译** 或 栈上替换编译 OSR ( On-Stack Replacement )
 
-_BEA Liquid VM / Azul VM_
-
-- _针对特定架构的硬件, 进行优化, 充分发挥硬件性能_
-    - 自带操作系统/越过操作系统, 不需要再进行内核态/用户态的切换, 直接控制硬件…… 等
-
-**Graal VM**
+#### Graal VM
 
 - **无语言倾向 : "Run Programs Faster Anywhere."**
 - 在 HotSpot VM 的基础上, 增强成跨语言全栈虚拟机
@@ -170,7 +170,7 @@ _BEA Liquid VM / Azul VM_
 
 ![grall-vm-intro.png](_images/understand-jvm/grall-vm-intro.png)
 
-即时编译器
+#### 即时编译器
 
 - _对需要长时间运行的应用来说，由于经过充分预热，热点代码会被 HotSpot 的探测机制准确定位捕获，并将其编译为物理硬件可直接执行的机器码_
     - _在这类应用中 Java 的运行效率很大程度上取决于即时编译器所输出的代码质量_
@@ -197,6 +197,8 @@ References :
 
 - OpenJDK Mercurial Repositories : https://hg.openjdk.java.net/jdk
 - <i>优雅地在 Mac OS Catalina 下 编译 Open JDK 13 : https://cloud.tencent.com/developer/article/1522903 </i>
+
+#### 安装与编译
 
 **On macOS**
 
@@ -286,6 +288,8 @@ _依赖检查通过后便可以输入 `make images` 执行整个 OpenJDK 编译�
 - _`clean` : 清理 `make` 命令产生的临时文件_
 - _`dist-clean` : 清理 `make` 和 `configure` 命令产生的临时文件_
 
+#### IDE 调试
+
 IDE Debug
 
 - Build JDK as above
@@ -303,12 +307,16 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 
 ![jvm-runtime-data-area.png](_images/understand-jvm/jvm-runtime-data-area.png)
 
+#### 程序计数器
+
 **Program Counter Register** _( 程序计数器 )_
 
 - 当前线程所执行的字节码的行号指示器 _( 跟软硬件/操作系统的体系结构类似 )_
 - **字节码解释器工作时, 通过改变该计数器来选取下一条需要执行的字节码指令**
 - 即 程序控制流的指示器 -- 分支/循环/跳转/错误处理/线程恢复 均依赖它
 - JVM 多线程, 每个线程都需要独立的程序计数器, 所以它是 线程私有的内存数据
+
+#### 虚拟机栈
 
 **Java Virtual Machine Stack** _( Java 虚拟机栈 )_
 
@@ -325,6 +333,8 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
         - 除了 long 和 double 用 2 个变量槽, 其它类型只用 1 个
         - 变量槽 slot 实际多大, 由 JVM 具体的实现来决定
 
+#### 本地方法栈
+
 **Native Method Stack** _( 本地方法栈 )_
 
 - 跟虚拟机栈的区别
@@ -332,6 +342,8 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
     - **本地方法栈 : 为虚拟机使用到的本地 ( Native ) 方法服务**
         - _? Java 方法 ( 字节码 ) 和 Native 方法的区别 ( 书后面应该会说 ) ?_
 - 有的虚拟机如 HotSpot VM 直接把 VM Stack 和 Native Method Stack 合二为一
+
+#### Java 堆
 
 **Java Heap** _( Java 堆 )_
 
@@ -345,6 +357,8 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 - Java Heap 既可以被实现为 固定大小的, 也可以是 可拓展的
     - 主流都是 可拓展的 ( 通过参数 `-Xmx` 和 `-Xms` 设定 )
 
+#### 方法区
+
 **Method Area** _( 方法区  )_
 
 - _各个线程共享的内存区域_
@@ -355,11 +369,15 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
     - _但是对于其它虚拟机实现, 譬如 BEA JRockit、IBM J9 等来说, 是不存在永久代的概念的_
     - 到了 JDK 8 完全废弃了永久代的概念, _改用与 JRockit、J9 一样_ 在本地内存中实现的 **Metaspace 元空间** 来代替方法区
 
+##### 运行时常量池
+
 **Runtime Constant Pool** _( 运行时常量池 )_
 
 - 是 Method Area 的一部分
 - 常量池表 **Constant Pool Table : 存放编译器生成的各种字面量与符号引用**
     - 它们在类加载后, 存放到方法区的运行时常量池中
+
+#### 直接内存
 
 **Direct Memory** _( 直接内存 )_
 
@@ -382,7 +400,7 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
     - 内存大小在类加载后可以完全确定
 - 执行 构造函数, 即 Class 文件中的 `<init>()` 方法
 
-内存分配
+#### 内存分配
 
 - **指针碰撞 Bump The Pointer**
     - 假设 Java 堆中内存是绝对规整的, 所有被使用过的内存都存放在一边, 空闲的内存被放在另一边, 中间放着一个指针作为分界点的指示器
@@ -410,7 +428,7 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
         - 等 TLAB 用完了, 分配新的缓存区时, 才需要同步锁定
             - _通过 `-XX:+/-UseTLAB` 参数来设定虚拟机是否启用 TLAB_
 
-内存的初始化
+**内存的初始化**
 
 - 内存分配完成之后, 虚拟机必须将分配到的内存空间 ( 但不包括对象头 ) 都初始化为 0 值
 - 如果使用了 TLAB 的话, 这一项工作也可以提前至 TLAB 分配时顺便进行
@@ -423,10 +441,12 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
     - 1\. **Header** 对象头
         - Mark Word
         - 类型指针
-    - 2\. **Instance Data** 实例数据
-    - 3\. **Padding** 对齐填充
+    - 2\. **Instance Data** _( 实例数据 )_
+    - 3\. **Padding** _( 对齐填充 )_
 
-1\. **Object Header** 对象头
+##### 对象头
+
+1\. **Object Header** _( 对象头 )_
 
 - HotSpot VM 里, 对象头包括两类信息 :
     - 1\. **Mark Word** : 存储对象自身的运行时数据 _( 使用 bitmap 方式存储 )_
@@ -443,7 +463,7 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
         - 如果对象是一个 Java 数组, 还必须有一块用于记录数据长度的数据
             - _因为虚拟机可以通过普通 Java 对象的元数据确定 Java 对象的大小_
             - _但是如果是数组的话, 将无法通过类型元数据中的信息推断出数组的大小_
-    - 3\. 对齐填充
+    - 3\. Padding 对齐填充
         - HotSpot VM 的自动内存管理系统, 要求对象起始地址必须是 8 bytes 的整数倍
 
 _对象自身的运行时数据_
@@ -463,20 +483,24 @@ _对象自身的运行时数据_
 // PromotedObjecty:29 ---------->| promo_bits:3 ----->| (CMS promoted object)
 ```
 
-_2\. **Instance Data** 实例数据_
+##### 实例数据
+
+_2\. **Instance Data** ( 实例数据 )_
 
 - _实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来_
 - _这部分的存储顺序会受到虚拟机分配策略参数 ( `-XX: FieldsAllocationStyle` 参数 ) 和字段在 Java 源码中定义顺序的影响_
 - HotSpot 虚拟机默认的分配顺序为 longs/doubles, ints, shorts/chars, bytes/booleans, oops (Ordinary Object Pointers，OOPs) , 从以上默认的分配策略中可以看到, 相同宽度的字段总是被分配到一起存放, 在满足这个前提条件的情况下, 在父类中定义的变量会出现在子类之前
 - _如果 HotSpot 虚拟机的 `+XX: CompactFields` 参数值为 true ( 默认就为true ) , 那子类之中较窄的变量也允许插入父类变量的空隙之中, 以节省出一点占空间_
 
-_3\. **Padding** 对齐填充_
+##### 对齐填充
+
+_3\. **Padding** ( 对齐填充 )_
 
 - _对象的第三部分是对齐填充, 这并不是必然存在的, 也没有特别的含义, 仅起着占位符的作用_
 - _由于 HotSpot 虚拟机的自动内存管理系统要求对象起始地址必须是 8 字节的整数倍, 换句话说就是任何对象的大小都必须是 8 字节的整数倍_
 - _对象头部分已经被精心设计成正好是 8 字节的倍数 (1倍或者2倍) , 因此如果对象实例数据部分没有对齐的话, 就需要通过对齐填充来补全_
 
-对象的访问定位
+#### 对象的访问定位
 
 - Java 程序通过 stack 上的 reference 数据来操作 heap 上的具体 object
 - VM 规范中没有规定 reference 应该通过什么方式来定位和访问
@@ -517,6 +541,8 @@ JVM 参数
             - Windows 180K
 - `-Xoss` 设置 本地方法栈容量
 
+#### Java 堆溢出
+
 **Java Heap OverflowError**
 
 [File : HeapOOM.java](src/understand-jvm/HeapOOM.java ':include :type=code java')
@@ -524,6 +550,8 @@ JVM 参数
 _output :_
 
 [File : HeapOOM.out](src/understand-jvm/HeapOOM.out ':include :type=code bash')
+
+#### 虚拟机栈和本地方法栈溢出
 
 **VM Stack and Native Method StackOverflowError**
 
@@ -555,11 +583,15 @@ Exception in thread "main" java.lang.StackOverflowError
     …(省略后续1021行)…
 ```
 
+#### 虚拟机栈内存不足
+
 **VM Stack OutOfMemoryERROR**
 
 [File : JavaVMStackOOM.java](src/understand-jvm/JavaVMStackOOM.java ':include :type=code java')
 
-**Direct Memory OutOfMemoryError**
+#### 直接内存不足
+
+Direct Memory OutOfMemoryError
 
 - 直接内存 ( Direct Memory ) 的容量大小可通过 `-XX:MaxDirectMemorySize` 参数来指定
     - 如果不指定, 则默认与 Java Heap 最大值 ( 由 `-Xmx` 指定` ) 一致
@@ -589,6 +621,8 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
 
 ### 对象是否存活
 
+#### 引用计数
+
 **Reference Counting** _( 引用计数算法 )_
 
 - 占用额外的内存来进行计数
@@ -596,6 +630,8 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
 - 主流 JVM 没有选用 引用计数算法 来管理内存
     - 主要原因 : 有许多例外情况要考虑, 需要大量额外的处理
         - 例如, 引用计数很难解决对象之间相互引用的问题
+
+#### 可达性分析
 
 **Reachability Analysis** _( 可达性分析算法 )_
 
@@ -606,6 +642,8 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
         - 或者用图论的话来说, 就是从 GC Roots 到这个对象不可达时, 则证明此对象是不可能再被使用的
 
 ![reachability-analysis.png](_images/understand-jvm/reachability-analysis.png)
+
+#### GC Roots
 
 **固定可作为 <u>GC Roots</u> 的对象**
 
@@ -641,6 +679,8 @@ _所以, 要扩充 reference 的概念 (以便描述某类对象)_
     - 无法通过它取得对象实例
     - 设置它的 唯一目的 : 能在对象被收集器回收时, 收到一个系统通知 _( 详情? )_
 
+#### 回收的判断过程
+
 **对象是否回收的判断过程 : 两次标记过程**
 
 - 如果对象 Reachability Analysis 后发现没有与 GC Roots 相连接的 Reference Chain -- 第一次被标记
@@ -668,7 +708,7 @@ _@Deprecated : 避免使用 finalize()_
 - 缺点 : 运行代码高昂, 不确定性大, 无法保证各个对象的调用顺序
 - 例如 关闭外部资源 ( close file ), 用 try-finally 比使用 finallize() 更及时合理
 
-方法区 回收内存
+#### 方法区回收内存
 
 - 主要回收 : 废弃的常量 & 不再使用的类型
 - _方法区垃圾收集的 "性价比" 通常比较低_
@@ -687,18 +727,20 @@ _@Deprecated : 避免使用 finalize()_
 
 ### 垃圾收集算法
 
-垃圾收集算法
+Garbage Collection Algorithm _( 垃圾收集算法 )_
 
 - 从如何判定对象消亡的角度出发, 可以划分
-    - 引用计数式垃圾收集 Reference Counting GC -- 直接垃圾收集
-    - 追踪式垃圾收集 Tracing GC -- 间接垃圾收集 (主流)
+    - **Reference Counting GC** 引用计数式垃圾收集 -- 直接垃圾收集
+    - **Tracing GC** 追踪式垃圾收集 -- 间接垃圾收集 ( 主流 )
 
-分代收集理论 Generational Collection
+#### 分代收集理论
 
-- 符合大多数程序运行实际情况的经验法则 (分代假说在此之上建立)
-    - 弱分代假说 Weak Generational Hypothesis : 绝大多数对象都是朝生夕灭的
-    - 强分代假说 Strong Generational Hypothesis : 熬过越多次垃圾收集过程的对象就越难以消亡
-    - 跨代引用假说 Intergenerational Reference Hypothesis : 跨代引用相对于同代引用来说仅占极小数
+Generational Collection _( 分代收集理论 )_
+
+- 符合大多数程序运行实际情况的经验法则 ( 分代假说在此之上建立 )
+    - **Weak Generational Hypothesis** 弱分代假说 : 绝大多数对象都是朝生夕灭的
+    - **Strong Generational Hypothesis** 强分代假说 : 熬过越多次垃圾收集过程的对象就越难以消亡
+    - **Intergenerational Reference Hypothesis** 跨代引用假说 : 跨代引用相对于同代引用来说仅占极小数
 - 垃圾收集器的设计原则 :
     - 应该将 Java 堆划分出不同的区域, 然后将回收对象依据其年龄, 分配到不同的区域中存储
         - **年龄 : 即熬过垃圾收集过程的次数**
