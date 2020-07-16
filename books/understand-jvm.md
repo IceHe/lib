@@ -589,7 +589,7 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
 
 ### 对象是否存活
 
-引用计数算法 Reference Counting
+**Reference Counting** _( 引用计数算法 )_
 
 - 占用额外的内存来进行计数
     - 优点 : 原理简单, 判定效率高
@@ -597,7 +597,7 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
     - 主要原因 : 有许多例外情况要考虑, 需要大量额外的处理
         - 例如, 引用计数很难解决对象之间相互引用的问题
 
-可达性分析算法 Reachability Analysis
+**Reachability Analysis** _( 可达性分析算法 )_
 
 - 基本思路
     - 通过一系列称为 GC Roots 的根对象作为起始节点集
@@ -605,43 +605,45 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
     - 如果某个对象到 GC Roots 间没有任何引用相连
         - 或者用图论的话来说, 就是从 GC Roots 到这个对象不可达时, 则证明此对象是不可能再被使用的
 
-固定可作为 GC Roots 的对象包括
+![reachability-analysis.png](_images/understand-jvm/reachability-analysis.png)
 
-- VM Stack (栈帧中的本地变量表) 中引用的对象
-    - 例如, 各个线程被调用的方法堆栈中使用的参数、局部变量、临时变量等
+**固定可作为 <u>GC Roots</u> 的对象**
+
+- VM Stack ( 栈帧中的本地变量表 ) 中引用的对象
+    - _例如, 各个线程被调用的方法堆栈中使用的参数、局部变量、临时变量等_
 - Method Area 中静态属性引用的对象
-    - 例如 Java 类的引用类型静态变量
+    - _例如 Java 类的引用类型静态变量_
 - Method Area 中常量引用的对象
-    - 例如 字符串常量池 String Table 中的引用
-- Native Method Stack 中 JNI (即通常所说的 Native 方法) 引用的对象
-- JVM 内部的引用
-    - 例如, 基本数据类型对应的 Class 对象,
+    - _例如 字符串常量池 String Table 中的引用_
+- Native Method Stack 中 JNI ( 即通常所说的 Native 方法 ) 引用的对象
+- JVM 内部的引用 _例如 :_
+    - 基本数据类型对应的 Class 对象
     - 一些常驻的异常对象 NullPointerException、OutOfMemoryError 等
     - 系统类加载器
-- 所有被同步锁 (synchronized 关键字) 持有的对象
+- 所有被同步锁 ( synchronized 关键字 ) 持有的对象
 - 反应 JVM 内部情况的 JMXBean、JVMTI 中注册的回调、本地代码缓存等
 
-某类 "食之无味弃之可惜" 的对象
+_某类 "食之无味弃之可惜" 的对象_
 
 - 当内存空间还够用时, 能保存在内存中
 - 如果内存空间在 GC 后仍然紧张, 这些对象就会被抛弃
 
-所以, 要扩充 reference 的概念 (以便描述某类对象)
+_所以, 要扩充 reference 的概念 (以便描述某类对象)_
 
-- 强引用 Strongly Reference : 对应传统 "引用" 的定义
-- 软引用 Soft Reference : 还有用但非必须的对象
+- Strongly Reference 强引用 : 对应传统 "引用" 的定义
+- Soft Reference 软引用 : 还有用但非必须的对象
     - 在系统发生内存溢出异常前, 对这些对象进行第二次回收
-    - 如果还没有足够的内存, 才会抛 StackOverflowError
-- 弱引用 Weak Reference : 非必须的对象, 比软引用更弱
+    - 如果内存还是不足, 才会抛 StackOverflowError
+- Weak Reference 弱引用 : 非必须的对象, 比软引用更弱
     - 只能生存到下一次垃圾收集发生为止
-- 虚引用 Phantom Reference : 幽灵引用 / 幻影引用 -- 最弱的引用
+- Phantom Reference 虚引用 : 幽灵引用 / 幻影引用 -- 最弱的引用
     - 一个对象是否拥有虚引用, 完全不会对其生存期构成影响
     - 无法通过它取得对象实例
-    - 设置它的 唯一目的 : 能在对象被收集器回收时, 收到一个系统通知 (详情?)
+    - 设置它的 唯一目的 : 能在对象被收集器回收时, 收到一个系统通知 _( 详情? )_
 
-对象是否回收的判断过程 : 两次标记过程
+**对象是否回收的判断过程 : 两次标记过程**
 
-- 如果对象 Reachability Analysis 后发现没有与 GC Roots 相连接的引用链 -- 第一次被标记
+- 如果对象 Reachability Analysis 后发现没有与 GC Roots 相连接的 Reference Chain -- 第一次被标记
 - 随后进行一次筛选, 条件是此对象是否有必要执行 finalized() 方法
     - 如果对象没有覆盖 (自定义的) 的 finalize() 方法
     - 或者 finalize() 已经被 VM 调用过
@@ -649,18 +651,39 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
 - 如有必要, 执行 finalize()
     - 对象被放置到 F-Queue 队列中
     - 稍候有 VM 自动建立、低调度优先级的 Finalizer 线程去执行它们的 finalize() 方法
-    - 稍后收集器将对 F-Queue 中的对象进行第二次 小规模(?) 的标记
+    - 稍后收集器将对 F-Queue 中的对象进行第二次 小规模的标记
         - 如果此时, 对象将 this 重新与引用连上的任何一个对象, 就可以暂时免除被回收 (死亡), 可以继续存活
 
-@Deprecated : 避免使用 finalize()
+_示例 : 对象在 finalize() 中拯救自己 -- 重新与引用链上的任何一个对象建立关联_
 
-- finalize() 脱胎于 C++ 的析构函数 (妥协, 让 C/C++ 程序员更容易接受 Java)
+[File : FinalizeEscapeGC.java](src/understand-jvm/FinalizeEscapeGC.java ':include :type=code java')
+
+_output :_
+
+[File : FinalizeEscapeGC.out](src/understand-jvm/FinalizeEscapeGC.out ':include :type=code bash')
+
+_@Deprecated : 避免使用 finalize()_
+
+- finalize() 脱胎于 C++ 的析构函数 ( 妥协, 让 C/C++ 程序员更容易接受 Java )
 - 缺点 : 运行代码高昂, 不确定性大, 无法保证各个对象的调用顺序
-- 例如 关闭外部资源 (close file), 用 try-finally 比使用 finallize() 更及时合理
+- 例如 关闭外部资源 ( close file ), 用 try-finally 比使用 finallize() 更及时合理
 
 方法区 回收内存
 
 - 主要回收 : 废弃的常量 & 不再使用的类型
+- _方法区垃圾收集的 "性价比" 通常比较低_
+    - _在 Java 8 中, 尤其是在新生代中, 对常规应用进行一次垃圾收集通常可以回收 70% ~ 99% 的内存空间_
+    - _相比之下, 方法区回收过于苛刻的判定条件，其区域垃圾收集的回收成果往往远低于此_
+    - _存在实现方法区类型卸载的收集器 ( 如 JDK 11 时期的 ZGC 收集器就不支持类卸载 )_
+- 判定一个常量是否 "废弃" 还是相对简单, 而要判定一个类型是否属于 "不再被使用的类" 的条件就比较苛刻了. 需要同时满足下面三个条件:
+    - 该类所有的实例都已经被回收
+        - 也就是 Java 堆中不存在该类及其任何派生子类的实例
+    - 加载该类的类加载器已经被回收
+        - 这个条件除非是经过精心设计的可替换类加载器的场景
+        - 如 OSGi、JSP 的重加载等，否则通常是很难达成的
+    - 该类对应的 java.lang.Class 对象没有在任何地方被引用, 无法在任何地方通过反射访问该类的方法
+- 在大量使用反射、动态代理、CGLib 等字节码框架, 动态生成 JSP 以及 OSGi 这类频繁自定义类加载器的场景中
+    - 通常都需要 Java 虚拟机具备类型卸载的能力, 以保证不会对方法区造成过大的内存压力
 
 ### 垃圾收集算法
 
