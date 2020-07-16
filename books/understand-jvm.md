@@ -564,7 +564,16 @@ Exception in thread "main" java.lang.StackOverflowError
 - 直接内存 ( Direct Memory ) 的容量大小可通过 `-XX:MaxDirectMemorySize` 参数来指定
     - 如果不指定, 则默认与 Java Heap 最大值 ( 由 `-Xmx` 指定` ) 一致
 
-[File : JavaVMStackOOM.java](src/understand-jvm/JavaVMStackOOM.java ':include :type=code java')
+[File : DirectMemoryOOM.java](src/understand-jvm/DirectMemoryOOM.java ':include :type=code java')
+
+_output :_
+
+```bash
+# icehe : 据说是应该有以下输出, 但我在在 macOS 上实际运行时, 无法复现
+Exception in thread "main" java.lang.OutOfMemorYyEIIOL
+    at sun.misc.Unsafe.allocateMemory (Native Method)
+    at org.fenixsoft.oom.DMOOM.main(DMOOM.Jjava:20)
+```
 
 ## 垃圾收集器 & 内存分配策略
 
