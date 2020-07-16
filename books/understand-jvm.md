@@ -735,7 +735,7 @@ Garbage Collection Algorithm _( 垃圾收集算法 )_
 
 #### 分代收集理论
 
-Generational Collection _( 分代收集理论 )_
+**Generational Collection** _( 分代收集理论 )_
 
 - 符合大多数程序运行实际情况的经验法则 ( 分代假说在此之上建立 )
     - **Weak Generational Hypothesis** 弱分代假说 : 绝大多数对象都是朝生夕灭的
