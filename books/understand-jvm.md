@@ -519,51 +519,52 @@ JVM 参数
 
 **Java Heap OverflowError**
 
-[File : HeapOOM.java](../java/src/HeapOOM.java ':include :type=code java')
+[File : HeapOOM.java](src/understand-jvm/HeapOOM.java ':include :type=code java')
 
 _output :_
 
-[File : HeapOOM.out](../java/src/HeapOOM.out ':include :type=code bash')
+[File : HeapOOM.out](src/understand-jvm/HeapOOM.out ':include :type=code bash')
 
 **VM Stack and Native Method StackOverflowError**
 
-[File : JavaVMStackSOF.java](../java/src/JavaVMStackSOF.java ':include :type=code java')
+[File : JavaVMStackSOF.java](src/understand-jvm/JavaVMStackSOF.java ':include :type=code java')
 
 _output :_
 
 ```bash
 stack length:18606
 Exception in thread "main" java.lang.StackOverflowError
-	at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
-	at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
-	at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
-	…(省略后续1021行)…
+    at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
+    at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
+    at JavaVMStackSOF.stackLeak(JavaVMStackSOF.java:17)
+    …(省略后续1021行)…
 ```
 
 Another example
 
-[File : JavaVMStackSOF2.java](../java/src/JavaVMStackSOF2.java ':include :type=code java')
+[File : JavaVMStackSOF2.java](src/understand-jvm/JavaVMStackSOF2.java ':include :type=code java')
 
 _output :_
 
 ```bash
 stack length:4684
 Exception in thread "main" java.lang.StackOverflowError
-	at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
-	at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
-	at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
-	…(省略后续1021行)…
+    at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
+    at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
+    at JavaVMStackSOF2.test(JavaVMStackSOF2.java:117)
+    …(省略后续1021行)…
 ```
 
 **VM Stack OutOfMemoryERROR**
 
-[File : JavaVMStackOOM.java](../java/src/JavaVMStackOOM.java ':include :type=code java')
+[File : JavaVMStackOOM.java](src/understand-jvm/JavaVMStackOOM.java ':include :type=code java')
 
 **Direct Memory OutOfMemoryError**
 
-- TODO : `-XX:MaxDirectMemorySize`
+- 直接内存 ( Direct Memory ) 的容量大小可通过 `-XX:MaxDirectMemorySize` 参数来指定
+    - 如果不指定, 则默认与 Java Heap 最大值 ( 由 `-Xmx` 指定` ) 一致
 
-[File : JavaVMStackOOM.java](../java/src/JavaVMStackOOM.java ':include :type=code java')
+[File : JavaVMStackOOM.java](src/understand-jvm/JavaVMStackOOM.java ':include :type=code java')
 
 ## 垃圾收集器 & 内存分配策略
 

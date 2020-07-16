@@ -38,4 +38,3 @@ File : proxy_pass.conf
 [proxy_pass.conf](./proxy_pass.conf ':include :type=code nginx')
 
 ## Basic
-
