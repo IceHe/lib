@@ -408,7 +408,7 @@ Recommendation
 > Get busy living or get busy dying.
 
 - [Bio](/marks/bio.md) ：Skills / Exp / Edu
-    - 饿了么 / 北京物流 - 众包运营 & 数据组 → 蜂鸟跑腿 ( Java )
+    - 阿里巴巴本地生活 / 北京物流 - 众包运营 & 数据组 → 蜂鸟跑腿 ( Java )
     - 微博 / 移动应用服务 ( PHP ) → 视频平台 ( Java )
     - 华南理工 / 软件工程 / 本科
 - [Favorites](/marks/favourites.md) : ACGMN
