@@ -36,7 +36,8 @@ Basics
         - 9\. **Consistency** and **Consensus**
     - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
         - 10\. **Batch** Processing / 11\. **Stream** Processing / …
-- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols.md) ( to read )_
+<!-- - _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
+<!--     - _* [Part 1](/books/tcp-ip-illustracted-protocols-p1.md) ( to read )_ -->
 
 Coding
 
