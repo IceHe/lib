@@ -14,17 +14,17 @@
 
 ### Books
 
-<!-- > 书山有路勤为径, 学海无涯苦作舟. -->
-<!-- > —— 韩愈《增广贤文》 -->
-
 > 纸上得来终觉浅，绝知此事要躬行。
 > —— 陆游《冬夜读书示子聿》
 
+<!-- > 书山有路勤为径, 学海无涯苦作舟. -->
+<!-- > —— 韩愈《增广贤文》 -->
+
 Basics
 
-- [Linux Kernel](/books/linux.md) ( draft )
-- [JVM - Java Virtual Machine](/books/understand-jvm.md) ( draft )
-- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( draft )
+- _[Linux Kernel](/books/linux.md) ( draft )_
+- _[JVM - Java Virtual Machine](/books/understand-jvm.md) ( draft )_
+- _[Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( draft )_
 - [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) ( TOC )
     - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
         - 1\. **Reliable**, **Scalable**, and Maintainable Applications
@@ -36,48 +36,6 @@ Basics
         - 9\. **Consistency** and **Consensus**
     - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
         - 10\. **Batch** Processing / 11\. **Stream** Processing / …
-
-<!--
-
-    - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
-        - 1\. Reliable, Scalable, and Maintainable Applications
-        - 2\. Data Models and Query Languages : Relational Model / Document Model / NoSQL / …
-        - 3\. Storage and Retrieval
-            - Hash Indexes / SSTables and LSM-Trees / B-Trees / …
-            - Transaction Processing or Analytics / Data Warehousing  / …
-            - Column-Oriented Storage / Column Compression / …
-        - 4\. Encoding and Evolution : Thrift / Protocol Buffers / …
-    - [Part II. Distributed Data](/books/designing-data-intensive-applications-p2.md)
-        - 5\. Replication
-            - Leaders and Followers
-                - Sync V.S. Async Replication / Replication Logs
-                - Reading Your Own Writes / Monotonic Reads / Consistent Prefix Reads
-                - Multi-Leader Replication / Handling Write Conflicts
-            - Leaderless Replication / Writing to the Database When a Node Is Down
-            - Quorum Consistency / Sloppy Quorums / Detecting Concurrent Writes
-        - 6\. Partitioning
-            - Replication / Key-Value / Skewed Workloads / …
-            - Partitioning Secondary Indexes by Document or Term / …
-            - Rebalancing Partitions / Strategies for Rebalancing / Request Routing
-        - 7\. Transactions
-            - ACID / Single-Object and Multi-Object Operations / …
-            - Weak Isolation Levels :
-                - Read Committed / Snapshot Isolation and Repeatable Read
-                - Preventing Lost Updates / Write Skew and Phantoms
-            - Serializability : Two-Phase Locking (2PL) / Serializable Snapshot Isolation (SSI)
-        - 8\. The Trouble with Distributed Systems
-            - Timeouts and Unbounded Delays / Sync V.S. Async Networks / …
-            - Monotonic Versus Time-of-Day Clocks / Clock Synchronization and Accuracy / Process Pauses
-            - The Truth Is Defined by the Majority / Byzantine Faults
-        - 9\. Consistency and Consensus
-            - Consistency Guarantees : Linearizability / …
-            - Ordering and Causality / Total Order Broadcast
-            - Distributed Transactions and Consensus : 2PC / Coordination / …
-    - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
-        - 10\. Batch Processing : MapReduce and Distributed Filesystems / …
-        - 11\. Stream Processing : Messaging Systems / Partitioned Logs / …
-
--->
 
 Coding
 
