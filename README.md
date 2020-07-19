@@ -22,10 +22,10 @@
 
 Basics
 
-- _[Linux Kernel](/books/linux.md) ( draft )_
-- _[JVM - Java Virtual Machine](/books/understand-jvm.md) ( draft )_
-- _[Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( draft )_
-- [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) ( TOC )
+- _* [Linux Kernel](/books/linux.md) ( note-taking )_
+- _* [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( to read )_
+- [JVM - Java Virtual Machine](/books/understand-jvm.md) ( READING )
+- [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) - TOC
     - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
         - 1\. **Reliable**, **Scalable**, and Maintainable Applications
         - 2\. **Data Models** and Query Languages
@@ -36,6 +36,7 @@ Basics
         - 9\. **Consistency** and **Consensus**
     - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
         - 10\. **Batch** Processing / 11\. **Stream** Processing / …
+- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols.md) ( to read )_
 
 Coding
 
