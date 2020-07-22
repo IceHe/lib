@@ -352,7 +352,7 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 - 垃圾收集器管理 Java Heap, 也被成为 GC 堆 ( Garbage Collected Heap )
     - 从回收内存的角度看, 现代垃圾收集器 大部分都基于 **分代收集理论设计**
     - 从分配内存的角度看, 所有线程共享的 Java 堆 可以划分出多个线程私有的分配缓冲区, 以提升分配效率
-        - **TLAB - Thread Local AllocationBuffer** 线程私有分配缓冲区
+        - **TLAB - Thread Local AllocationBuffer 线程私有分配缓冲区**
 - Java Heap 可以处于物理上不连续的内存空间中 _( 虚拟内存空间? )_
 - Java Heap 既可以被实现为 固定大小的, 也可以是 可拓展的
     - 主流都是 可拓展的 ( 通过参数 `-Xmx` 和 `-Xms` 设定 )
@@ -503,14 +503,14 @@ _3\. **Padding** ( 对齐填充 )_
 - Java 程序通过 stack 上的 reference 数据来操作 heap 上的具体 object
 - VM 规范中没有规定 reference 应该通过什么方式来定位和访问
 - 主流方式有 :
-    - A. 句柄 handle
+    - A. **handle 句柄**
         - Java Heap 中划分出句柄池, reference 中存储的就是对象的句柄地址
         - 句柄中包含 : _( 见下图 1 )_
             - **对象实例数据的 指针**
             - 类型数据的指针 _(指出各实例数据的数据类型)_
         - 优点 : reference 存储稳定的句柄地址
             - 对象被移动时 _(垃圾收集时会异动对象)_ , 只需要改变句柄中的 实例数据指针, 不需要修改 reference 本身
-    - B. 直接指针 direct pointer
+    - B. **direct pointer 直接指针**
         - reference 中直接存储 对象地址
         - 地址所指的数据 包含 : _( 见下图 2 )_
             - **对象实例数据**
@@ -635,7 +635,7 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
 
 - 基本思路
     - 通过一系列称为 GC Roots 的根对象作为起始节点集
-    - 从这些节点开始, 根据引用关系向下搜索, 搜索过程所走过的路径称为 引用链 Reference Chain
+    - 从这些节点开始, 根据引用关系向下搜索, 搜索过程所走过的路径称为 **Reference Chain 引用链**
     - 如果某个对象到 GC Roots 间没有任何引用相连
         - 或者用图论的话来说, 就是从 GC Roots 到这个对象不可达时, 则证明此对象是不可能再被使用的
 
@@ -728,17 +728,17 @@ _@Deprecated : 避免使用 finalize()_
 Garbage Collection Algorithm _( 垃圾收集算法 )_
 
 - 从如何判定对象消亡的角度出发, 可以划分
-    - **Reference Counting GC** 引用计数式垃圾收集 -- 直接垃圾收集
-    - **Tracing GC** 追踪式垃圾收集 -- 间接垃圾收集 ( 主流 )
+    - **Reference Counting GC 引用计数式垃圾收集** -- 直接垃圾收集
+    - **Tracing GC 追踪式垃圾收集** -- 间接垃圾收集 ( 主流 )
 
 #### 分代收集理论
 
 **Generational Collection** _( 分代收集理论 )_
 
 - 符合大多数程序运行实际情况的经验法则 ( 分代假说在此之上建立 )
-    - **Weak Generational Hypothesis** 弱分代假说 : 绝大多数对象都是朝生夕灭的
-    - **Strong Generational Hypothesis** 强分代假说 : 熬过越多次垃圾收集过程的对象就越难以消亡
-    - **Intergenerational Reference Hypothesis** 跨代引用假说 : 跨代引用相对于同代引用来说仅占极小数
+    - **Weak Generational Hypothesis 弱分代假说** : 绝大多数对象都是朝生夕灭的
+    - **Strong Generational Hypothesis 强分代假说** : 熬过越多次垃圾收集过程的对象就越难以消亡
+    - **Intergenerational Reference Hypothesis 跨代引用假说** : 跨代引用相对于同代引用来说仅占极小数
 - 垃圾收集器的设计原则 :
     - 应该 **将 Java 堆划分出不同的区域, 然后将回收对象依据其年龄, 分配到不同的区域中存储**
         - **Age 年龄 : 即熬过垃圾收集过程的次数**
@@ -770,7 +770,7 @@ Java Heap 区域的划分
 
 跨代引用的新生代对象的回收
 
-- 在新生代上建立一个全局的数据结构 ( 被称为 **Remembered Set** 记忆集 )
+- 在新生代上建立一个全局的数据结构 ( 被称为 **Remembered Set 记忆集** )
 - 这个结构把老年代划分为若干小块, 标识出老年代的哪一块内存会存在跨代引用
 - 此后发生 Minor GC 时, 只有包含了跨代引用的小块内存里的对象才会被加入到 GC Roots 进行扫描
 
@@ -856,59 +856,76 @@ Java Heap 区域的划分
         - 因为根节点集合的引用关系在这个过程中一旦变化, 分析结果就保证不了正确
 - HotSpot VM 使用一组成为 **OopMap ( Oridinary Object Pointer Map )** 来达到检查执行上下文的引用位置
     - _一旦类加载动作完成时, HotSpot 就会把对象内什么偏移量上是什么类型的数据计算出来_
-    - _在即时编译 ( JIT ) 过程中，也会在特定的位置记录下 栈里和寄存器里 哪些位置是引用_
+    - _在即时编译 ( JIT ) 过程中，也会在特定的位置记录下 栈里和寄存器里 哪些位置是引用 ( OOP )_
     - _这样收集器在扫描时就可以直接得知这些信息了，并不需要真正一个不漏地从方法区等 GC Roots 开始查找_
 
 **Safepoint** _( 安全点 )_
 
 - 可能导致引用关系变化, 或者说导致 OopMap 内容变化的指令很多
     - 不可能为每一条指令都声称对应的 OopMap, 会耗费过多的内存
-    - 所以只在特定的位置生成 OopMap, 这些位置成为 安全点 Safepoint
-    - _( 这部分原书详见原书分析 )_
+    - 所以只在特定的位置生成 OopMap, 这些位置成为 **Safepoint 安全点**
+- 设定 safepoint 的意义!
+    - _用户程序执行时, 并非在代码指令流的任意位置都能停顿下来开始垃圾收集_
+    - _而是强制要求必须执行到达 safepoint 之后才能暂停用户线程 ( Stop The World )_
+- 如何选取 safepoint
+    - _以 "是否具有让程序长时间执行的特征" 为标准来选定_
+    - _最明显满足该标准的地方就是 "指令序列复用的地方"_
+        - _例如 : 方法调用 / 循环跳转 / 异常跳转 等_
 - 如何在垃圾收集时, 让所有线程都跑到最近的命令点
-    - _**Preemptive Suspension** 抢先式中断_
+    - _**Preemptive Suspension 抢先式中断**_
         - _先把所有用户线程全部中断_
         - _如果有用户线程中断的地方不在安全点上, 就恢复它的执行, 让它一会再重新中断, 直到跑到安全点上_
-        - _(现在几乎没有 VM 实现采用它来响应 GC 事件)_
-    - **Voluntary Suspension** 主动式中断
+        - _( 现在几乎没有 VM 实现采用它来响应 GC 事件 )_
+    - **Voluntary Suspension 主动式中断**
         - 不直接对线程操作, 仅仅设置一个标志位
         - 各个线程执行过程时会不断地主动去轮询这个标志
         - 一旦发现中断标志为真时, 就自己再最近的安全点上主动中断挂起
+- 执行 "轮询标志位" 代码的地方, 跟 safepoint 所在的地方是重合的!
+    - _( icehe : 之前看了好几遍, 都看不懂原书这段话… )_
+    - 而且执行 "创建对象" 代码以及其它需要在 Java 堆上分配内存的地方也是 _( 跟 safepoint 所在的地方重合 )_
+    - _这是为了及时检查是否即将要发生垃圾收集, 避免内存不足以分配新对象的情况_
 
 **Safe Region** _( 安全区域 )_
 
-- TODO : 说明出现 安全区域 的原因
-- 用户线程执行到安全区域的代码时, 首先会表示自己已经进入了安全区域
-    - 那么 VM 发起垃圾收集时就不必管这些已声明自己再安全区域内的线程
-- 当前程离开安全区域时, 要检查 VM 是否已经完成根节点枚举
-    - _( 或者垃圾收集过程中其他需要暂停用户线程的阶段 )_
-- 如果完成了, 线程就可以继续执行, 否则就必须一直等待, 知道收到可以离开安全区的信号为止
+- _Safepoint 机制保证了程序执行时, 在不太长的时间内就能遇到进入 GC 过程的 safepoint_
+    - _但是 "程序不执行时" 即程序没分配到 CPU 时间的时候, 相关线程无法响应 VM 的中断请求_
+        - _( 例如, 用户线程处于 sleep 或 blocked 状态 )_
+    - _而且它们此时无法走到安全的地方去中断挂起自己, VM 也显然不能持续等待它们重新被激活 ( 分配到 CPU 时间 )_
+    - _所以这时必须引入_ **Safe Region 安全区域**
+    - _它指能够在某一段代码片段中, 引用关系不会发生变化, 在这个区域中任意地方开始 GC 都是安全的_
+- 用户线程执行到 safe region 的代码时, 首先会表示自己已经进入了 safe region
+    - 那么 VM 发起 GC 时就不必管这些已声明自己在 safe region 内的线程
+- **当线程离开 safe region 时, 要检查 VM 是否已经完成 GC Roots 的枚举**
+    - _( 或者垃圾收集过程中其它需要暂停用户线程的阶段 )_
+- **如果完成了, 线程就可以继续执行, 否则就必须一直等待, 直到收到可以离开安全区的信号为止**
 
-**Remembered Set & Card Table** _( 记忆集与卡集 )_
+**Remembered Set & Card Table** _( 记忆集与卡表 )_
 
-- 由于跨代引用的问题, 新生代垃圾收集时, 用 Remembered Set 避免把整个老年代加进 GC Roots 扫描范围
+- 由于跨代引用的问题, 新生代 GC 时, 用 Remembered Set 避免把整个 Old Generation 加进 GC Roots 扫描范围
 - 记录精度 : 调整记录精度以降低 Remembered Set 的存储和维护成本
-    - 字长精度 : 每个记录精确到一个机器字长, 寻址位数 (32 or 64), 包含的是跨代指针
-    - 对象精度 : 每个记录精确到一个对象, 该对象里有字段含有跨代指针
+    - 字长精度 : 每个记录精确到一个 **machine word length 机器字长**, 寻址位数 ( 32 or 64 ), 包含的是跨代指针
+    - 对象精度 : 每个记录精确到一个 object , 该 object 里有字段含有 **cross-generational pointers 跨代指针**
     - 卡精度 : 每个记录精确到一块内存区域, 改区域内有对象含有跨代指针
         - 使用 Card Table 的方式来实现 Remembered Set
         - `CARD_TABLE[this address >> 9] = 0;`
-        - 每个卡页 Card Page 是 2 ^ 9 = 512 bytes
-- 如果记忆集/卡表的数组元素值标识为 1, 表示指定的 引用指针/对象/卡页 存在着跨代指针
+        - 每个 **Card Page 卡页** 是 2 ^ 9 = 512 bytes
+- 如果记忆集/卡表的数组元素值标识为 1, 表示指定的 引用指针/对象/卡页 存在着跨代指针, _称为这个元素变脏 ( dirty )_
 
-**Write Barrier** 写屏障
+**Write Barrier** _( 写屏障 )_
 
-- _它跟 内存屏障 没有关系_
+- _它跟 内存屏障 没有关系!_
+- 问题 : 如何维护 card table 元素 ? _如何变脏 ? 谁把它们变脏 ?_
 - 可以看作是 VM 层面的 AOP 切面
-    - 读屏障 Read Barrier
-    - 写屏障 Write Barrier
-        - 写前屏障 Pre-Write Barrier
-        - 写后屏障 Post-Write Barrier
+    - **Read Barrier 读屏障**
+    - **Write Barrier 写屏障**
+        - Pre-Write Barrier 写前屏障
+        - Post-Write Barrier 写后屏障
             - 此时更新 记忆集/卡表 的状态
+- TODO : 详解
 
 并发的可达性分析
 
-- 略 _(详见原文, 暂时还不是特别懂)_
+- 略 _( 详见原文, 暂时还不是特别懂 )_
 
 ### 经典垃圾收集
 
