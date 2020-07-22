@@ -914,17 +914,21 @@ Java Heap 区域的划分
 **Write Barrier** _( 写屏障 )_
 
 - _它跟 内存屏障 没有关系!_
-- 问题 : 如何维护 card table 元素 ? _如何变脏 ? 谁把它们变脏 ?_
-- 可以看作是 VM 层面的 AOP 切面
+- 问题 : 如何维护 card table 的元素 ? _如何变脏 ? 谁把它们变脏 ?_
+    - 写屏障可以看作是 VM 层面的 **AOP 切面**
+        - 在引用对象赋值时产生一个 **Around 环形通知**, 供程序执行额外的操作
+- _屏障分类_
     - **Read Barrier 读屏障**
     - **Write Barrier 写屏障**
         - Pre-Write Barrier 写前屏障
         - Post-Write Barrier 写后屏障
             - 此时更新 记忆集/卡表 的状态
-- TODO : 详解
+    - _( 详情见原文 )_
+- _AOP - Aspect Oriented Programming 面向切面编程_
 
 并发的可达性分析
 
+- TODO : 重读后做笔记
 - 略 _( 详见原文, 暂时还不是特别懂 )_
 
 ### 经典垃圾收集
