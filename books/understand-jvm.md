@@ -847,7 +847,9 @@ Java Heap 区域的划分
 
 ### HotSpot 的算法细节实现
 
-根节点 GC Roots 枚举
+#### 根节点枚举
+
+GC Roots 枚举
 
 - 以 Reachability Analysis 算法中从 GC Roots 集合找引用链的操作, 需要高效
 - 迄今为止, 所有 collectors 在进行 GC Roots 枚举这一步骤时, 都必须暂停用户线程 ( Stop The World )
@@ -858,6 +860,8 @@ Java Heap 区域的划分
     - _一旦类加载动作完成时, HotSpot 就会把对象内什么偏移量上是什么类型的数据计算出来_
     - _在即时编译 ( JIT ) 过程中，也会在特定的位置记录下 栈里和寄存器里 哪些位置是引用 ( OOP )_
     - _这样收集器在扫描时就可以直接得知这些信息了，并不需要真正一个不漏地从方法区等 GC Roots 开始查找_
+
+#### 安全点
 
 **Safepoint** _( 安全点 )_
 
@@ -885,6 +889,8 @@ Java Heap 区域的划分
     - 而且执行 "创建对象" 代码以及其它需要在 Java 堆上分配内存的地方也是 _( 跟 safepoint 所在的地方重合 )_
     - _这是为了及时检查是否即将要发生垃圾收集, 避免内存不足以分配新对象的情况_
 
+#### 安全区域
+
 **Safe Region** _( 安全区域 )_
 
 - _Safepoint 机制保证了程序执行时, 在不太长的时间内就能遇到进入 GC 过程的 safepoint_
@@ -899,6 +905,8 @@ Java Heap 区域的划分
     - _( 或者垃圾收集过程中其它需要暂停用户线程的阶段 )_
 - **如果完成了, 线程就可以继续执行, 否则就必须一直等待, 直到收到可以离开安全区的信号为止**
 
+#### 记忆集与卡表
+
 **Remembered Set & Card Table** _( 记忆集与卡表 )_
 
 - 由于跨代引用的问题, 新生代 GC 时, 用 Remembered Set 避免把整个 Old Generation 加进 GC Roots 扫描范围
@@ -910,6 +918,8 @@ Java Heap 区域的划分
         - `CARD_TABLE[this address >> 9] = 0;`
         - 每个 **Card Page 卡页** 是 2 ^ 9 = 512 bytes
 - 如果记忆集/卡表的数组元素值标识为 1, 表示指定的 引用指针/对象/卡页 存在着跨代指针, _称为这个元素变脏 ( dirty )_
+
+#### 写屏障
 
 **Write Barrier** _( 写屏障 )_
 
@@ -926,11 +936,25 @@ Java Heap 区域的划分
     - _( 详情见原文 )_
 - _AOP - Aspect Oriented Programming 面向切面编程_
 
-并发的可达性分析
+#### 并发的可达性分析
 
 - _在 GC Roots 枚举的步骤中, 由于 GC Roots 相比起整个 Java Heap 中全部的对象毕竟还算是极少数_
-- _且在各种优化技巧 ( 例如 OopMap ) 的加持中, 它带来的停顿已经非常短暂且相对固定 ( 不随 Heap 容量而增长了 )_
-- 可是从 GC Roots 再继续往下遍历对象图, 这一步骤的停顿时间就必定会与 Java Heap 容量直接成正比例关系了
+    - _且在各种优化技巧 ( 例如 OopMap ) 的加持下, 它带来的停顿已经非常短暂且相对固定 ( 不随 Heap 容量而增长了 )_
+    - _可是从 GC Roots 再继续往下遍历对象图, 这一步骤的停顿时间就必定会与 Java Heap 容量直接成正比例关系_
+    - 为了降低用户线程的停顿, 必须在一致性的 snapshot 上进行对象图的遍历
+- 按照 "是否访问过" 将对象标记为一下三种颜色 :
+    - 白色 : 表示对象尚未被垃圾收集器访问过 _( 在分析结束的阶段仍为白色的对象, 就是不可达的 )_
+    - 黑色 : 表示对象已经被垃圾收集器访问过, 且对象的所有引用都已经被扫描过 _( 就是安全存活的对象 )_
+    - 灰色 : 表示对象已经被垃圾收集器访问过, 但这个对象上至少存在一个引用还没被扫描过
+
+![object-disappear.png](_images/understand-jvm/object-disappear.png)
+
+- _"对象消失" 的问题 -- 即本应该是黑色的对象被误标为白色
+    - 赋值器插入了一条或多条从黑色对象到白色对象的新引用
+    - 赋值器删除了全部从灰色对象到该白色对象的直接或间接引用
+- "对象消失" 的解决方案 -- 破坏以上两个条件的任意一个即可
+    - **Incremental Update 增量更新**
+    - **Snapshot At The Beginning (SATB) 原始快照**
 
 ### 经典垃圾收集
 
@@ -952,6 +976,8 @@ Java Heap 区域的划分
 - Both
     - G1 - Garbage First
 
+#### Serial
+
 Serial 收集器 (新生代用)
 
 - _最基础, 历史最悠久_
@@ -960,12 +986,16 @@ Serial 收集器 (新生代用)
 - 迄今为止, 依然是 HotSpot VM 运行在客户端模式下的默认新生代收集器
 - 优点 : 简单高效, 所有收集器里额外内存消耗 (Memory Footprint) 最小的
 
+#### ParNew
+
 ParNew 收集器 (新生代用)
 
 - 它实质上是 Serial 收集器的多线程并行版本
     - JDK 7 前的首选新生代收集器, 适宜运行在服务端模式下的 HotSpot 虚拟机
     - 只有 Serial 和 ParNew (新生代) 能与 CMS 收集器 (老年代) 配合工作
         - _CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器_
+
+#### Parallel Scavenge
 
 Parallel Scavenge 收集器 (新生代用)
 
@@ -981,6 +1011,8 @@ Parallel Scavenge 收集器 (新生代用)
         - Eden 与 Survivor 区的比例 (-XX:SurvivorRatio)
         - 晋升老年代对象的大小 (-XX:PretenureSizeThreshold)
 
+#### Serial Old
+
 Serial Old 收集器 (老年代用)
 
 - 它是 Serial 收集器的老年代版本 -- 单线程的老年代收集器
@@ -990,10 +1022,14 @@ Serial Old 收集器 (老年代用)
     - A. JDK 5 及之前, 与 Parallel Scavenge 收集器搭配使用
     - B. 作为 CMS 收集器发生失败时的后备预案, _在并发手机发生 Concurrent ModeFailure 时使用 (?)_
 
+#### Parallel Old
+
 Parallel Old 收集器 (老年代用)
 
 - 它是 Parallel Scavenge 收集器的老年代版本, 支持多线程并发收集, 基于 Mark-Compact 算法实现
     - 与新生代用的 Parallel Scavenge 收集器搭配使用
+
+#### Cocurrent Mark Sweep
 
 CMS - Cocurrent Mark Sweep 收集器 (老年代用)
 
@@ -1024,7 +1060,9 @@ CMS - Cocurrent Mark Sweep 收集器 (老年代用)
             - 用户程序自然产生新的垃圾对象, 它们出现在标记过程结束之后, 无法在当次收集中处理掉它们, 只能等下一次垃圾收集来处理
     - Mark-Sweep 算法本身就会使内存空间碎片化, 碎片过多时, 也会提前触发 Full GC
 
-### Garbage First 收集器
+#### Garbage First
+
+Garbage First 收集器
 
 - 简称 G1
     - 被 Oracle 官方称为 全功能的垃圾收集器 Fully-Featured Garbage Collector (同时能用在新生代 & 老年代)
@@ -1036,6 +1074,8 @@ CMS - Cocurrent Mark Sweep 收集器 (老年代用)
     - Pause Prediction Model : 支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标
     - 算是 实时 Java (RTSJ) 的中断实时垃圾收集器 的特征
 
+#### 新的设计思路 (RENAME?)
+
 HotSpot VM 提出了 统一垃圾收集器接口 Garbage Collector Interface
 
 - 将内存回收的 行为与实现分离 (职责分离的设计原则)
@@ -1045,7 +1085,7 @@ HotSpot VM 提出了 统一垃圾收集器接口 Garbage Collector Interface
 
 - 简称 CSet
 - Mixed GC 模式 : 面向堆内存任何部分来组成 回收集 CSet
-    - 衡量标准不再是属于哪个分代 (新生代/老年代)
+    - 衡量标准不再是属于哪个分代 ( 新生代/老年代 )
     - 而是哪块内存中存放的垃圾数量最多, 回收收益最大
 
 基于 Region 的堆内存布局
