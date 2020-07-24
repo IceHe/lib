@@ -946,9 +946,6 @@ GC Roots 枚举
     - 白色 : 表示对象尚未被垃圾收集器访问过 _( 在分析结束的阶段仍为白色的对象, 就是不可达的 )_
     - 黑色 : 表示对象已经被垃圾收集器访问过, 且对象的所有引用都已经被扫描过 _( 就是安全存活的对象 )_
     - 灰色 : 表示对象已经被垃圾收集器访问过, 但这个对象上至少存在一个引用还没被扫描过
-
-![object-disappear.png](_images/understand-jvm/object-disappear.png)
-
 - "对象消失" 的问题 -- 即本应该是黑色的对象被误标为白色 _( 导致原本应该存活的对象标为已消亡  )_
     - 赋值器插入了一条或多条从黑色对象到白色对象的新引用
     - 赋值器删除了全部从灰色对象到该白色对象的直接或间接引用
@@ -961,6 +958,8 @@ GC Roots 枚举
         - 当灰色对象要删除指向白色对象的引用时, 就将这个要删除的引用记录下来
         - 等并发扫描结束之后, 再将这些记录过的引用关系中的灰色对象为根, 重新扫描一次
 
+![object-disappear.png](_images/understand-jvm/object-disappear.png)
+
 ### 经典垃圾收集
 
 _何谓 "经典"_
@@ -968,9 +967,7 @@ _何谓 "经典"_
 - _"经典" 一词是为了跟目前几款仍处于试验状态但执行效果上有革命性改进的高性能低延迟收集器区分开来_
 - _经典的垃圾收集器 千锤百炼, 足够成熟_
 
-经典垃圾收集器的关系图
-
-![classical-gc.png](_images/understand-jvm/classical-gc.png)
+经典垃圾收集器的关系
 
 - Young Generation
     - Serial
@@ -982,6 +979,8 @@ _何谓 "经典"_
     - Parallele Old
 - Both
     - G1 - Garbage First
+
+![classical-gc.png](_images/understand-jvm/classical-gc.png)
 
 #### Serial
 
