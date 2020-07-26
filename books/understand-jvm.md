@@ -971,35 +971,55 @@ _何谓 "经典"_
 
 - Young Generation
     - Serial
+        - _Mark-Copy & Single-thread_
     - ParNew
+        - _Mark-Copy & Parallel_
     - Parallel Scavenge
+        - _?_
 - Tenured Generation
-    - CMS - Concurrent Mark Sweep
-    - Serial Old (MSC)
+    - CMS - _Concurrent Mark Sweep_
+        - _Mark-Sweep & Parallel_
+        - _保底/降级时使用 Serial Old ?_
+    - Serial Old ( MSC )
+        - _Mark-Compact & Single-thread_
     - Parallele Old
+        - _Mark-Compact & Partial Parallel_
 - Both
-    - G1 - Garbage First
+    - G1 - _Garbage First_
+        - _? & Mostly Concurrent_
+    - ZGC
+        - _?_
+
+#### 收集器关系
+
+_如果 ( 下图的 ) 两个收集器之间存在连线, 就说明它们可以搭配使用_
 
 ![classical-gc.png](_images/understand-jvm/classical-gc.png)
 
 #### Serial
 
-Serial 收集器 (新生代用)
+Serial 收集器
 
 - _最基础, 历史最悠久_
-- "单线程" 工作的新生代收集器, 必须暂停其他所有工作线程 (Stop The World) , 直到收集结束
-    - Young Generation : 采用 Mark-Copy 算法
-- 迄今为止, 依然是 HotSpot VM 运行在客户端模式下的默认新生代收集器
-- 优点 : 简单高效, 所有收集器里额外内存消耗 (Memory Footprint) 最小的
+- Features : **Young Generation, Mark-Copy & Single-thread**
+    - 必须 Stop The World _( 暂停用户线程 )_ , 直到收集结束
+- Advantage : 简单高效, **所有收集器里额外 Memory Footprint** _( 内存占用 )_ 最小的**
+    - 迄今为止, 依然是 HotSpot VM 运行在 **客户端模式下的默认新生代收集器**
+
+_Serial / Serial Old 收集器运行示意图_
+
+![serial-n-serial-old-collector-running.png](_images/understand-jvm/serial-n-serial-old-collector-running.png)
 
 #### ParNew
 
-ParNew 收集器 (新生代用)
+ParNew 收集器
 
-- 它实质上是 Serial 收集器的多线程并行版本
-    - JDK 7 前的首选新生代收集器, 适宜运行在服务端模式下的 HotSpot 虚拟机
-    - 只有 Serial 和 ParNew (新生代) 能与 CMS 收集器 (老年代) 配合工作
+- _它实质上是 Serial 收集器的多线程并行版本_
+- Features : **Young Generation, Mark-Copy & Concurrent**
+    - JDK 7 前的首选新生代收集器, **适宜运行在服务端模式下的 HotSpot VM**
+    - 只有 ( 新生代的 ) Serial 和 ParNew 能与 ( 老年代的 ) CMS 收集器 配合工作
         - _CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器_
+- _可以使用 `-XX:+UseParNewGC` 参数来限制垃圾收集的线程数_
 
 #### Parallel Scavenge
 
