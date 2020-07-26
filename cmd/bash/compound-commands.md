@@ -1,4 +1,4 @@
-# Compound Commands (WIP)
+# Compound Commands ( TODO )
 
 - Control Structures
 - Syntactic Sugar

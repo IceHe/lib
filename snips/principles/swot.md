@@ -1,4 +1,4 @@
-# SWOT 分析法 (WIP)
+# SWOT 分析法 ( TODO )
 
 Reference
 

@@ -1,4 +1,4 @@
-# Plan (WIP)
+# Plan ( TODO )
 
 ## Initial Stage
 

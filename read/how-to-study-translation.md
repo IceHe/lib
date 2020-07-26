@@ -1,4 +1,4 @@
-# 如何学习 (WIP)
+# 如何学习 ( TODO )
 
 > 《How to Study: A Brief Guide》的译文，将在（有生之年）持续施工。
 

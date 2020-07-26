@@ -1,4 +1,4 @@
-# Sorting Algorithm (WIP)
+# Sorting Algorithm ( TODO )
 
 References
 

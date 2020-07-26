@@ -1,4 +1,4 @@
-# How to Study (WIP)
+# How to Study ( TODO )
 
 - Created on 2016-06-24
 

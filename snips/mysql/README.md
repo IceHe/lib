@@ -1,4 +1,4 @@
-# MySQL (WIP)
+# MySQL ( TODO )
 
 暂时觉得比较好的付费课程
 
