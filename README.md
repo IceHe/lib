@@ -73,14 +73,19 @@ Markdown
 - [Style Guide](/snips/markdown/README.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
+Message Queues
+
+- [MemcacheQ](/snips/message-queues/mcq.md)
+- [RabbitMQ](/snips/message-queues/rabbit-mq.md) ( TODO )
+- [Kafka](/snips/message-queues/kafka.md) ( TODO )
+
 Storage - Usage
 
 - [Elasticsearch](/snips/storage/elasticsearch.md)
-- [MemcacheQ](/snips/storage/mcq.md)
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
     - The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
-- [_Mongo_](/snips/storage/mongo.md) ( draft )
+- [_Mongo_](/snips/tmp/mongo.md) ( draft )
 
 Storage - Basic
 
