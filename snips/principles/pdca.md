@@ -1,4 +1,4 @@
-# PDCA (draft)
+# PDCA ( draft )
 
 > Deming cicle/cycle/wheel : Plan → Do → Check → Act
 
