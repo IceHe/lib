@@ -107,7 +107,7 @@ _Others_
 - [Abbreviations](/snips/abbrs.md)
 - [_Work Flow_](/snips/work-flow.md)
 - _Drafts_
-    - [_Cloud Utils_](/snips/cloud/README.md)
+    - [_Intro to Common Tech Products_](/snips/tmp/intro-to-comm-tech-prod.md)
     - [_Glossary_](/snips/glossary.md)
     - [_Regular Expression_](/snips/regex.md)
     - [_Chrome_](/snips/web/chrome.md) : clear cookie

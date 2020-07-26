@@ -1,4 +1,4 @@
-# Cloud (draft)
+# Intro to Common Tech Products (draft)
 
 ## SRE
 
@@ -209,6 +209,7 @@ References
 - https://blog.csdn.net/suifeng3051/article/details/48053965
 
 > 使用 __消息系统__ 的好处：
+>
 > 1. 解耦：
 >   允许你独立的扩展或修改两边的处理过程，只要确保它们遵守同样的接口约束。
 > 2. 冗余：
@@ -227,6 +228,7 @@ References
 >   很多时候，用户不想也不需要立即处理消息。消息队列提供了异步处理机制，允许用户把一个消息放入队列，但并不立即处理它。想向队列中放入多少消息就放多少，然后在需要的时候再去处理它们。
 >
 > kafka 相关术语：
+>
 > 1. producer：
 >   消息生产者，发布消息到 kafka 集群的终端或服务。
 > 2. broker：
