@@ -105,12 +105,12 @@ Web
 _Others_
 
 - [Abbreviations](/snips/abbrs.md)
-- [_Work Flow_](/snips/tmp/work-flow.md)
-- _Drafts_
-    - [_Glossary_](/snips/glossary.md) _& Intro to Common Tech Products_
-    - [_Regular Expression_](/snips/regex.md)
-    - [_Chrome & Postman_](/snips/web/chrome-n-postman.md) _: clear cookie_
+- [_Glossary_](/snips/glossary.md) _& Intro to Common Tech Products_
+- [_Chrome & Postman_](/snips/web/chrome-n-postman.md)
+- [_Regular Expression_](/snips/regex.md)
+- _Temp_
     - [_Go_](/snips/tmp/go.md)
+    - [_Work Flow_](/snips/tmp/work-flow.md)
 
 ### Mac
 
