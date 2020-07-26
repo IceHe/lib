@@ -23,7 +23,7 @@ Common
 Seldom
 
 - `-d, --dictionary-order` Consider only blanks and alphanumeric characters
-- `-g, --general-numeric-sort` _Compare according to general numerical value_ ( TODO )
+- `-g, --general-numeric-sort` _Compare according to general numerical value_
 - `-i, --ignore-nonprinting` Consider only printable characters
 - `--random-source=FILE` _Get random bytes from FILE_
 - `--sort=WORD` _Sort according to WORD: general-numeric -g, human-numeric -h, month -M, numeric -n, random -R, version -V_

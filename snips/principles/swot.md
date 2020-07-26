@@ -1,4 +1,4 @@
-# SWOT 分析法 ( TODO )
+# SWOT 分析法
 
 Reference
 
@@ -8,10 +8,10 @@ Meaning
 
 - Strengths 优势
 - Weaknesses 劣势
-- Opportunities 机会（机遇）
+- Opportunities 机会 ( 机遇 )
 - Threats 威胁
 
-整体分析：从整体上看，SWOT可以分为两部分
+整体分析 : 从整体上看, SWOT 可以分为两部分
 
-- 第一部分为 SW，主要用来分析「内部条件」
-- 第二部分为 OT，主要用来分析「外部条件」
+- 第一部分为 SW , 主要用来分析 "内部条件"
+- 第二部分为 OT , 主要用来分析 "外部条件"
