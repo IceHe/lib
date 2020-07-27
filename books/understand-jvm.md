@@ -973,9 +973,9 @@ _何谓 "经典"_
     - Serial
         - _Mark-Copy & Single-thread_
     - ParNew
-        - _Mark-Copy & Partial Parallel_
+        - _Mark-Copy & Parallel_
     - Parallel Scavenge
-        - _Mark-Copy & Partial Parallel_
+        - _Mark-Copy & Parallel_
 - Tenured Generation
     - CMS - _Concurrent Mark Sweep_
         - _Mark-Sweep & Parallel_
@@ -983,7 +983,7 @@ _何谓 "经典"_
     - Serial Old ( MSC )
         - _Mark-Compact & Single-thread_
     - Parallele Old
-        - _Mark-Compact & Partial Parallel_
+        - _Mark-Compact & Parallel_
 - Both
     - G1 - _Garbage First_
         - _? & Mostly Concurrent_
@@ -1003,7 +1003,7 @@ Serial 收集器
 - _最基础, 历史最悠久_
 - Features : **Young Generation, Mark-Copy & Single-thread**
     - 必须 Stop The World _( 暂停用户线程 )_ , 直到收集结束
-- Advantage : 简单高效, **所有收集器里额外 Memory Footprint** _( 内存占用 )_ 最小的**
+- Advantage : 简单高效, **所有收集器里额外 Memory Footprint _( 内存占用 )_ 最小的**
     - 迄今为止, 依然是 HotSpot VM 运行在 **客户端模式下的默认新生代收集器**
 
 _Serial / Serial Old 收集器运行示意图_
@@ -1015,11 +1015,13 @@ _Serial / Serial Old 收集器运行示意图_
 ParNew 收集器
 
 - _ParNew 实质上是 Serial 收集器的多线程并行版本_
-- Features : **Young Generation, Mark-Copy & Partial Parallel**
+- Features : **Young Generation, Mark-Copy & Parallel**
     - JDK 7 前的首选新生代收集器, **适宜运行在服务端模式下的 HotSpot VM**
     - 只有 ( 新生代的 ) Serial 和 ParNew 能与 ( 老年代的 ) CMS 收集器 配合工作
         - _CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器_
 - _可用参数 : `-XX:+UseParNewGC` 来限制垃圾收集的线程数_
+
+_ParNew / Serial Old 收集器运行示意图_
 
 ![par-new-n-serial-old-collector-running.png](_images/understand-jvm/par-new-n-serial-old-collector-running.png)
 
@@ -1027,11 +1029,11 @@ ParNew 收集器
 
 Parallel Scavenge 收集器
 
-- _Parallel Scavenge 也称为 "吞吐量优先收集器"_
-- Features : **Young Generation, Mark-Copy, Partial Parallel**
+- _表面上和 ParNew 很类似, 特别之处在于 -- Parallel Scavenge 也称为 "吞吐量优先收集器"_
+- Features : **Young Generation, Mark-Copy, Parallel**
 - _目标区别 : Differ CMS from Parallel Scavenge_
     - CMS 收集器 : 尽可能缩短 ( GC 时 用户线程的 ) pause time  _( 停顿时间 )_
-    - Parallel Scavenge 收集器 : 达到一个可控制的 throughput _( 吞吐量 )_
+    - Parallel Scavenge 收集器 : **达到一个可控制的 throughput** _( 吞吐量 )_
         - 吞吐量 = 运行用户代码的时间 / ( 运行用户代码的时间 + 运行垃圾收集的时间 )
             - 处理器总消耗时间 = 运行用户代码的时间 + 运行垃圾收集的时间
 - _可用参数 :_
@@ -1054,55 +1056,76 @@ Serial Old 收集器
 
 - _Serial Old 是 Serial 收集器的老年代版本_
 - Features : **Old Generation, Mark-Compact, Single-thread**
-    - 主要存在意义 : 供客户端模式下的 HotSpot VM 使用
+    - 主要存在意义 : **供客户端模式下的 HotSpot VM 使用**
 - 服务器模式下的 主要用途
     - A. JDK 5 及之前, 与 Parallel Scavenge 收集器搭配使用
-    - B. 作为 CMS 收集器发生失败时的后备预案, _在并发手机发生 Concurrent ModeFailure 时使用_
+    - B. **作为 CMS 收集器发生失败时的后备预案**, 在并发收集发生 **Concurrent Mode Failure** 时使用
+
+_Serial / Serial Old 收集器运行示意图_
+
+![serial-n-serial-old-collector-running.png](_images/understand-jvm/serial-n-serial-old-collector-running.png)
 
 #### Parallel Old
 
-Parallel Old 收集器 (老年代用)
+Parallel Old 收集器
 
-- 它是 Parallel Scavenge 收集器的老年代版本, 支持多线程并发收集, 基于 Mark-Compact 算法实现
-    - 与新生代用的 Parallel Scavenge 收集器搭配使用
+- _Parallel Old 是 **Parallel Scavenge 收集器的老年代版本**_
+- Features : **Old Generation, Mark-Compact, Parallel**
+    - _与新生代用的 Parallel Scavenge 收集器搭配使用_
+
+_Parallel Scavenge / Parallel Old 收集器运行示意图_
+
+![parallel-scavenge-n-parallel-old-collector-running.png](_images/understand-jvm/parallel-scavenge-n-parallel-old-collector-running.png)
 
 #### Cocurrent Mark Sweep
 
-CMS - Cocurrent Mark Sweep 收集器 (老年代用)
+CMS - Cocurrent Mark Sweep 收集器
 
-- 目标 : 获取最短回收停顿时间
+- 目标 : **获取最短回收停顿时间**
     - _B/S 架构系统的服务端上, 重视响应速度, 给用户更好的交互体验_
-- 运作过程 :
-    - 1\. 初始标记 CMS initial mark
-        - 仅仅只是标记一下 GC Roots 能直接关联到的对象， 速度很快
-    - 2\. 并发标记 CMS concurrent mark
-        - 从 GC Roots 的直接关联对象开始遍历整个对象图的过程
-        - 耗时较长但不需要停顿用户线程, 可以与垃圾收集线程一起并发
-    - 3\. 重新标记 CMS remark
-        - 为了修正并发标记期间, 因用户程序继续运作而导致标记产生变化的那一部分对象的标记记录
-        - 停顿时间比初始标记阶段稍长, 但远比并发标记时间短
-    - 4\. 并发清除 CMS concurrent sweep
-        - 清理删除掉标记阶段判断的已经死亡的对象
-        - 可以与用户线程一起并发
-    - 其中 初始标记、重新标记 仍然需要 Stop The World
-- 特点 : 并发收集、低停顿, 也被称为 "并发低停顿收集器" Concurrent Low Pause Collector
-- 缺点 :
-    - 对处理器资源十分敏感 _(面向并发设计的程序都对处理器资源敏感)_
-        - 默认启动的回收线程数 = (处理器核心数 + 3) / 4
-            - 处理器核心 >= 4 时, 只占用 < 25% 的处理器运算资源
-            - 处理器核心 < 4 时, 对用户程序的影响就比较大
-    - 无法处理 "浮动垃圾" Floating Garbage
-        - 有可能出现 Concurrent Mode Failure 失败进而导致另一次 Stop The World 的 Full GC 产生
-        - Floating Garbage : 在 CMS 并发标记和并发清理阶段, 用户进程继续运行
-            - 用户程序自然产生新的垃圾对象, 它们出现在标记过程结束之后, 无法在当次收集中处理掉它们, 只能等下一次垃圾收集来处理
-    - Mark-Sweep 算法本身就会使内存空间碎片化, 碎片过多时, 也会提前触发 Full GC
+- Features : **Old Generation, Mark-Sweep, Parallel**
+    - 并发收集、**低停顿**, 也被称为 **Concurrent Low Pause Collector** "并发低停顿收集器"
+
+_CMS 收集器运行示意图_
+
+![concurrent-mark-sweep-collector-running.png](_images/understand-jvm/concurrent-mark-sweep-collector-running.png)
+
+##### 运作过程
+
+- 1\. **CMS initial mark** 初始标记
+    - 仅仅只是标记一下 GC Roots 能直接关联到的对象, 速度很快
+- 2\. **CMS concurrent mark** 并发标记
+    - 从 GC Roots 的直接关联对象开始遍历整个对象图的过程
+    - 耗时较长但不需要停顿用户线程, 可以与垃圾收集线程一起并发
+- 3\. **CMS remark** 重新标记
+    - 为了修正并发标记期间, 因用户程序继续运作而导致标记产生变化的那一部分对象的标记记录
+    - 停顿时间比初始标记阶段稍长, 但远比并发标记时间短
+- 4\. **CMS concurrent sweep** 并发清除
+    - 清理删除掉标记阶段判断的已经死亡的对象
+    - 可以与用户线程一起并发
+- 其中 initial mark、remark 仍然需要 Stop The World
+
+##### 缺点
+
+- 对处理器资源十分敏感 _( 面向并发设计的程序都对处理器资源敏感 )_
+    - 默认启动的回收线程数 = ( 处理器核心数 + 3 ) / 4
+        - 处理器核心 >= 4 时, 只占用 < 25% 的处理器运算资源
+        - 处理器核心 < 4 时, 对用户程序的影响就比较大
+- 无法处理 **Floating Garbage** "浮动垃圾"
+    - Floating Garbage : 在 CMS 并发标记和并发清理阶段, 用户进程继续运行
+        - 用户程序自然产生新的垃圾对象, 它们出现在标记过程结束之后, 无法在当次收集中处理掉它们, 只能等下一次垃圾收集来处理
+    - 由于在 GC 阶段用户线程还需要持续运行, 就需要预留足够的内存空间提供给用户线程使用
+        - _所以它不能像其它收集器那样等到老年代几乎填满了再收集_
+        - 要是 CMS 运行期间预留的内存无法满足程序分配新对象的需要, 就会出现 Concurrent Mode Failure "并发失败"
+        - 此时 VM 不得不启动后备预案 : Stop The World 冻结用户线程的执行, 临时启用 Serial Old 收集器进行 Full GC
+- Mark-Sweep 算法本身就会使内存空间碎片化, 碎片过多时, 也会提前触发 Full GC
 
 #### Garbage First
 
 Garbage First 收集器
 
 - 简称 G1
-    - 被 Oracle 官方称为 全功能的垃圾收集器 Fully-Featured Garbage Collector (同时能用在新生代 & 老年代)
+    - 被 Oracle 官方称为 全功能的垃圾收集器 Fully-Featured Garbage Collector ( 同时能用在新生代 & 老年代 )
     - 主要面向 服务端应用, 旨在替换 CMS 收集器
         - JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器
             - 它取代了 Parallel Scavenge & Parallel Old 组合
