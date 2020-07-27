@@ -973,9 +973,9 @@ _何谓 "经典"_
     - Serial
         - _Mark-Copy & Single-thread_
     - ParNew
-        - _Mark-Copy & Parallel_
+        - _Mark-Copy & Partial Parallel_
     - Parallel Scavenge
-        - _?_
+        - _Mark-Copy & Partial Parallel_
 - Tenured Generation
     - CMS - _Concurrent Mark Sweep_
         - _Mark-Sweep & Parallel_
@@ -1015,20 +1015,23 @@ _Serial / Serial Old 收集器运行示意图_
 ParNew 收集器
 
 - _它实质上是 Serial 收集器的多线程并行版本_
-- Features : **Young Generation, Mark-Copy & Concurrent**
+- Features : **Young Generation, Mark-Copy & Partial Parallel**
     - JDK 7 前的首选新生代收集器, **适宜运行在服务端模式下的 HotSpot VM**
     - 只有 ( 新生代的 ) Serial 和 ParNew 能与 ( 老年代的 ) CMS 收集器 配合工作
         - _CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器_
 - _可以使用 `-XX:+UseParNewGC` 参数来限制垃圾收集的线程数_
 
+![par-new-n-serial-old-collector-running.png](_images/understand-jvm/par-new-n-serial-old-collector-running.png)
+
 #### Parallel Scavenge
 
-Parallel Scavenge 收集器 (新生代用)
+Parallel Scavenge 收集器
 
-- 新生代收集器, 基于 Mark-Copy 算法实现, 也称为 "吞吐量优先收集器"
+- Features : **Young Generation, Mark-Copy, Partial Parallel**
+    - _也称为 "吞吐量优先收集器"_
 - 目标区别
-    - CMS 收集器 : 尽可能缩短垃圾收集时, 用户线程的停顿时间
-    - Parallel Scavenge 收集器 : 达到一个可控制的吞吐量 (Throughput)
+    - CMS 收集器 : 尽可能缩短 GC 时 用户线程的 pause time  _( 停顿时间 )_
+    - Parallel Scavenge 收集器 : 达到一个可控制的 throughput _( 吞吐量 )_
         - 吞吐量 : 运行用户代码的时间 与 处理器总消耗时间 的比值
         - 处理器总消耗时间 = 运行用户代码的时间 + 运行垃圾收集的时间
 - 参数 `+XX:+UseAdaptiveSizePolicy` 激活 垃圾收集的自适应的调节策略 (GC Ergonomics)
