@@ -1014,12 +1014,12 @@ _Serial / Serial Old 收集器运行示意图_
 
 ParNew 收集器
 
-- _它实质上是 Serial 收集器的多线程并行版本_
+- _ParNew 实质上是 Serial 收集器的多线程并行版本_
 - Features : **Young Generation, Mark-Copy & Partial Parallel**
     - JDK 7 前的首选新生代收集器, **适宜运行在服务端模式下的 HotSpot VM**
     - 只有 ( 新生代的 ) Serial 和 ParNew 能与 ( 老年代的 ) CMS 收集器 配合工作
         - _CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器_
-- _可以使用 `-XX:+UseParNewGC` 参数来限制垃圾收集的线程数_
+- _可用参数 : `-XX:+UseParNewGC` 来限制垃圾收集的线程数_
 
 ![par-new-n-serial-old-collector-running.png](_images/understand-jvm/par-new-n-serial-old-collector-running.png)
 
@@ -1027,29 +1027,37 @@ ParNew 收集器
 
 Parallel Scavenge 收集器
 
+- _Parallel Scavenge 也称为 "吞吐量优先收集器"_
 - Features : **Young Generation, Mark-Copy, Partial Parallel**
-    - _也称为 "吞吐量优先收集器"_
-- 目标区别
-    - CMS 收集器 : 尽可能缩短 GC 时 用户线程的 pause time  _( 停顿时间 )_
+- _目标区别 : Differ CMS from Parallel Scavenge_
+    - CMS 收集器 : 尽可能缩短 ( GC 时 用户线程的 ) pause time  _( 停顿时间 )_
     - Parallel Scavenge 收集器 : 达到一个可控制的 throughput _( 吞吐量 )_
-        - 吞吐量 : 运行用户代码的时间 与 处理器总消耗时间 的比值
-        - 处理器总消耗时间 = 运行用户代码的时间 + 运行垃圾收集的时间
-- 参数 `+XX:+UseAdaptiveSizePolicy` 激活 垃圾收集的自适应的调节策略 (GC Ergonomics)
-    - 不需要手动调节细节参数
-        - 新生代的大小 (-Xmn)
-        - Eden 与 Survivor 区的比例 (-XX:SurvivorRatio)
-        - 晋升老年代对象的大小 (-XX:PretenureSizeThreshold)
+        - 吞吐量 = 运行用户代码的时间 / ( 运行用户代码的时间 + 运行垃圾收集的时间 )
+            - 处理器总消耗时间 = 运行用户代码的时间 + 运行垃圾收集的时间
+- _可用参数 :_
+    - 精确控制吞吐量
+        - `-XX:MaxGCPauseMillis` 最大垃圾收集停顿时间
+            - 取值 > 0 , 尽力保证不超过用户的设定值
+            - _应该取恰当的值, 避免总体性能 ( 吞吐量过度下降 )_
+        - `-XX:GCTimeRatio` GC 时间占总时间的比率 → 吞吐量大小 _( 吞吐量的倒数 )_
+            - 取值 0 < n < 100, 默认值 99
+            - _例如, 取值 19 则最大 GC 时间占总时间的 5% = 1 / ( 1 + 19 )_
+    - `+XX:+UseAdaptiveSizePolicy` 垃圾收集的自适应的调节策略 ( GC Ergonomics )
+        - 不需要手动调节细节参数
+            - `-Xmn` 新生代的大小
+            - `-XX:SurvivorRatio` Eden 与 Survivor 区的比例
+            - `-XX:PretenureSizeThreshold` 晋升老年代对象的大小
 
 #### Serial Old
 
-Serial Old 收集器 (老年代用)
+Serial Old 收集器
 
-- 它是 Serial 收集器的老年代版本 -- 单线程的老年代收集器
-    - Old Generation : 采用 Mark-Compact 算法
-- 主要存在意义 : 供客户端模式下的 HotSpot VM 使用
+- _Serial Old 是 Serial 收集器的老年代版本_
+- Features : **Old Generation, Mark-Compact, Single-thread**
+    - 主要存在意义 : 供客户端模式下的 HotSpot VM 使用
 - 服务器模式下的 主要用途
     - A. JDK 5 及之前, 与 Parallel Scavenge 收集器搭配使用
-    - B. 作为 CMS 收集器发生失败时的后备预案, _在并发手机发生 Concurrent ModeFailure 时使用 (?)_
+    - B. 作为 CMS 收集器发生失败时的后备预案, _在并发手机发生 Concurrent ModeFailure 时使用_
 
 #### Parallel Old
 
