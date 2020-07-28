@@ -973,12 +973,18 @@ Snapshot At The Beginning (SATB) _( 原始快照 )_
 
 ![snapshot-at-the-beginning.gif](_images/understand-jvm/snapshot-at-the-beginning.gif)
 
+_Reference :_
+
+- _面试官 : 你说你熟悉 JVM ? 那你讲一下并发的可达性分析 - 知乎 :_ https://zhuanlan.zhihu.com/p/108706654
+
 ### 经典垃圾收集
 
 _何谓 "经典"_
 
 - _"经典" 一词是为了跟目前几款仍处于试验状态但执行效果上有革命性改进的高性能低延迟收集器区分开来_
 - _经典的垃圾收集器 千锤百炼, 足够成熟_
+
+#### 收集器关系
 
 经典垃圾收集器的关系
 
@@ -1002,8 +1008,6 @@ _何谓 "经典"_
         - _? & Mostly Concurrent_
     - ZGC
         - _?_
-
-#### 收集器关系
 
 _如果 ( 下图的 ) 两个收集器之间存在连线, 就说明它们可以搭配使用_
 
