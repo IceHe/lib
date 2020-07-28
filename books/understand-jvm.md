@@ -1253,7 +1253,8 @@ G1 为了 GC 产生的内存 Footprint _( 占用 )_ 还是程序运行时的额�
 
 ### 低延迟垃圾收集器
 
-- **Low-Pause-Time Garbage Collector** _( 低延迟垃圾收集器 )_
+- **Low-Latency Garbage Collector** _( 低延迟垃圾收集器 )_
+- aka. **Low-Pause-Time Garbage Collector** _( 低停顿垃圾收集器 )_
 
 衡量垃圾收集器的最重要 3 项指标 -- 不可能三角
 
@@ -1275,28 +1276,44 @@ G1 为了 GC 产生的内存 Footprint _( 占用 )_ 还是程序运行时的额�
 
 ### Shenandoah 收集器
 
+Features
+
+- _New & Old Generation_
+- 面向局部回收 & Region 堆内存布局 _( like G1 )_
+    - 支持 **并发整理** 算法
+    - 默认 **不使用分代收集**
+    - 用 Connection Matrix _( 连接矩阵 )_ 记录跨 Region 引用关系
+- _Parallel_
+
 目标
 
-- 能在任何堆内存大小下, 都可以把垃圾收集的停顿时间限制在 10ms 以内
+- **能在任何 Heap 内存大小下, 都可以把 GC 的 Pause Time 限制在 10ms 以内**
 
-渊源
+_渊源_
 
-- 非 Oracle 官方领导开发的垃圾收集器
+- _非 Oracle 官方的 RedHat 公司独立发展的垃圾收集器_
 - 比 ZGC 更像是 G1 收集器的继承者
     - 相似的堆内存布局
     - 初始标记、并发标记等许多阶段的处理思路一致
 
+#### 与 G1 的不同
+
 与 G1 的三处明显不同
 
-- 支持并发整理算法
+- 支持 **并发整理** 算法
     - G1 在回收阶段支持多线程并行, 但不能与用户线程并行, 而 Shenandoah 可以
-- 默认不使用分代收集 : _基于性价比权衡, 分代收集的优先级较低_
-- 摒弃了 G1 收集器中耗费大量内存和计算资源去维护的记忆集
-    - Shenandoah 改用 连接矩阵 Connection Matrix 的全局数据结构来记录跨 Region 关系
-        - 可以理解为 一张二维表格, Region M 有对象指向 Region N 就在 N 行 M 列中打上标记 (简述)
-    - 降低了处理跨代指针时, 记忆集的维护消耗, 也降低了为伪共享问题 _(这个不太记得了…)_
+- 默认 **不使用分代收集**
+    - _基于性价比权衡, 分代收集的优先级较低_
+- 改用 **Connection Matrix 连接矩阵** 的全局数据结构来记录跨 Region 关系
+    - _摒弃了 G1 收集器中耗费大量内存和计算资源去维护的 Remembered Set_
+    - 可以理解为 **一张二维表格, Region M 有对象指向 Region N 就在 N 行 M 列中打上标记**
+    - 降低了处理跨 Region 指针时, Remembered Set 的维护消耗, 也降低了为伪共享问题 _(这个不太记得了…)_
 
-工作过程 : 可参考原书图3-16
+![shenandoah-connection-matrix.png](_images/understand-jvm/shenandoah-connection-matrix.png)
+
+#### 运作过程
+
+_可参考原书图 3-16_
 
 - 初始标记 Initial Marking
 - 并发标记 Concurrent Marking
