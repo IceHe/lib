@@ -1085,6 +1085,9 @@ CMS - Cocurrent Mark Sweep 收集器
     - _B/S 架构系统的服务端上, 重视响应速度, 给用户更好的交互体验_
 - Features : **Old Generation, Mark-Sweep, Parallel**
     - 并发收集、**低停顿**, 也被称为 **Concurrent Low Pause Collector** "并发低停顿收集器"
+- _可用参数 :_
+    - `-XX:CMSInitiatingOccupancyFraction` 调整 CMS 的触发百分比
+        - _JDK 5 时, 使用偏保守的 68% ; JDK 6 时, 已经默认提升至 92%_
 
 _CMS 收集器运行示意图_
 
@@ -1112,67 +1115,79 @@ _CMS 收集器运行示意图_
         - 处理器核心 >= 4 时, 只占用 < 25% 的处理器运算资源
         - 处理器核心 < 4 时, 对用户程序的影响就比较大
 - 无法处理 **Floating Garbage** "浮动垃圾"
-    - Floating Garbage : 在 CMS 并发标记和并发清理阶段, 用户进程继续运行
-        - 用户程序自然产生新的垃圾对象, 它们出现在标记过程结束之后, 无法在当次收集中处理掉它们, 只能等下一次垃圾收集来处理
+    - Floating Garbage : 在 CMS 并发标记和并发清理阶段, 用户进程继续运行; 用户程序自然产生新的垃圾对象, 它们出现在标记过程结束之后, 无法在当次收集中处理掉它们, 只能等下一次垃圾收集来处理
     - 由于在 GC 阶段用户线程还需要持续运行, 就需要预留足够的内存空间提供给用户线程使用
         - _所以它不能像其它收集器那样等到老年代几乎填满了再收集_
         - 要是 CMS 运行期间预留的内存无法满足程序分配新对象的需要, 就会出现 Concurrent Mode Failure "并发失败"
         - 此时 VM 不得不启动后备预案 : Stop The World 冻结用户线程的执行, 临时启用 Serial Old 收集器进行 Full GC
-- Mark-Sweep 算法本身就会使内存空间碎片化, 碎片过多时, 也会提前触发 Full GC
+- _Mark-Sweep 算法本身就会使内存空间碎片化, 碎片过多时, 也会提前触发 Full GC_
 
 #### Garbage First
 
 Garbage First 收集器
 
-- Features : **New & Old Generation, 面向局部回收, Parallel**
-- 简称 G1, 被 Oracle 官方称为 全功能的垃圾收集器 **Fully-Featured Garbage Collector** _( 同时能用在新生代 & 老年代 )_
-    - 主要面向 服务端应用, 旨在替换 CMS 收集器
-        - **JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器**
-        - _取代了 Parallel Scavenge & Parallel Old 组合_
-- 开创了 面向局部回收的设计思路 和 基于 Region 的内存布局形式
-- 作为 CMS 收集器的替代者和继承者, 希望建立起 停顿时间模型 Pause Prediction Model 的收集器
-    - Pause Prediction Model : 支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标
+- Features : **New & Old Generation, 面向局部回收 & Region 内存布局, Parallel**
+    - 简称 G1, _开创了 面向局部回收的设计思路 & 基于 Region 的内存布局形式_
+    - 被 Oracle 官方称为 全功能的垃圾收集器 **Fully-Featured Garbage Collector** _( 同时能用在新生代 & 老年代 )_
+- 主要面向 服务端应用, 旨在替换 CMS 收集器
+    - **JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器**
+    - _取代了 Parallel Scavenge & Parallel Old 组合_
+- 作为 CMS 收集器的替代者和继承者, 希望建立起 **Pause Prediction Model 停顿时间模型** 的收集器
+    - Pause Prediction Model : **支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标**
     - 算是 实时 Java ( RTSJ ) 的中断实时垃圾收集器 的特征
+- _可用参数 :_
+    - `-XX:G1HeapRegionSize` 设定 Region 的大小 ( 1 MB ~ 32 MB , 应为 2 的 N 次幂 )
 
-#### 新的设计思路 (RENAME?)
+_JDK 10 统一 GC 接口_
 
-HotSpot VM 提出了 统一垃圾收集器接口 Garbage Collector Interface
+- HotSpot VM 统一垃圾收集器接口 Garbage Collector Interface
+    - 将内存回收的 行为与实现分离 ( 职责分离的设计原则 )
+    - _以此为基础移除或加入一款收集器更容易, 易于控制风险_
 
-- 将内存回收的 行为与实现分离 (职责分离的设计原则)
-- _以此为基础移除或加入一款收集器更容易, 易于控制风险_
+##### Collection Set
 
-回收集 Collection Set
+Collection Set _( 回收集 )_
 
-- 简称 CSet
-- Mixed GC 模式 : 面向堆内存任何部分来组成 回收集 CSet
-    - 衡量标准不再是属于哪个分代 ( 新生代/老年代 )
+- _简称 CSet_
+- Mixed GC 模式 : 面向 Heap 内存的任何部分来组成 CSet ( 回收集 )
+    - 衡量标准不再是属于哪个分代 ( 新生代 / 老年代 )
     - 而是哪块内存中存放的垃圾数量最多, 回收收益最大
+
+##### Region 内存布局
 
 基于 Region 的堆内存布局
 
-- 遵循分代收集理论设计
-- 把连续的 Java 堆划分为多个大小相等的独立区域 Region
-    - _不再坚持固定大小以及固定数量的分代区域划分_
-    - 每个 Region 都可以根据需要, 扮演新生代的 Eden 空间、Survivor 空间或者老年代空间
+- 把连续的 Java 堆划分为多个 大小相等 的独立区域 **Region**
+    - _不再坚持 固定大小 & 固定数量 的分代区域划分_
+    - 每个 Region 都可以根据需要, 扮演新生代的 Eden 空间 / Survivor 空间 / 老年代空间
         - 对扮演不同角色的 Region 采用不同的策略处理
-        - Region 大小取值范围 : 1MB ~ 32MB, 且应为 2 的 N 次幂
-        - _Humongous 区域 : 专门用来存储 大对象 -- 超过一个 Region 容量一半的对象_
+    - Region 大小取值范围 : 1MB ~ 32MB, 且应为 2 的 N 次幂
+        - Humongous 区域 : 专门用来存储 大对象
+            - 大对象 : 超过一个 Region 容量一半的对象
+            - 如果实在太大, 就存放在连续的 N 个 Humongous Region 中
+- 遵循分代收集理论设计
+    - _新生代 & 老年代不再固定, 都是一系列 Region 的动态集合_
 
 处理思路
 
-- 将 Region 作为单词回收的最小单元 → 能够建立可预测的停顿时间模型
+- **将 Region 作为单次回收的最小单元** → 能够建立可预测的停顿时间模型
     - 有计划地避免在整个 Java 堆中进行全区域的垃圾收集
 - G1 收集器跟踪各个 Region 里面的垃圾堆积的 "价值" 大小
     - 即 回收所获得的空间大小 以及回收所需时间 的经验值
-- 维护一个优先级列表, 根据用设定允许的停顿时间, 优先回收价值收益最大的 Region
+- **维护一个优先级列表, 根据用设定允许的停顿时间, 优先回收价值收益最大的 Region**
+    - _`-XX:MaxGCPauseMillis` 指定停顿时间, 默认 200 ms_
 
-实现细节 : 暂略 (看原书), 以下为部分名词摘录
+##### 实现细节
 
-- 解决多个独立 Region 间跨 Region 引用的对象的问题?
+_详见原书, 以下为部分摘录_
+
+- 解决多个独立 Region 间跨 Region 引用对象的问题?
     - 使用更复杂的记忆集避免全堆做 GC Roots 扫描
     - 每个 Region 都有自己的 Remembered Set
-    - 细节暂略, 但内存占用较高, 甚至能达到整个堆容量的 20%
-- 解决用户线程改变对象引用时, 保证不能打破原本的对象图结构的问题?
+        - 记录下别的 Region 指向自己的指针, 并标记这些指针分别在哪些卡页的范围内
+        - 这是双向的卡表结构 : 记录了 "我指向谁", 还记录了 "谁指向我"
+    - G1 内存占用较高, 甚至能达到整个堆容量的 20%
+- 解决用户线程改变对象引用时, 保证不能打破原本的对象图结构的问题? _否则标记结果错误_
     - CMS 采用 增量更新算法 实现
     - G1 采用 原始快照 SATB - Snapshot At The Beginning 算法
         - _(详见原书前文铺垫的解释, 不在这一节)_
