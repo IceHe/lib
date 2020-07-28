@@ -1124,15 +1124,15 @@ _CMS 收集器运行示意图_
 
 Garbage First 收集器
 
-- 简称 G1
-    - 被 Oracle 官方称为 全功能的垃圾收集器 Fully-Featured Garbage Collector ( 同时能用在新生代 & 老年代 )
+- Features : **New & Old Generation, 面向局部回收, Parallel**
+- 简称 G1, 被 Oracle 官方称为 全功能的垃圾收集器 **Fully-Featured Garbage Collector** _( 同时能用在新生代 & 老年代 )_
     - 主要面向 服务端应用, 旨在替换 CMS 收集器
-        - JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器
-            - 它取代了 Parallel Scavenge & Parallel Old 组合
-- 开创了 面向局部收的设计思路 和 基于 Region 的内存布局形式
+        - **JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器**
+        - _取代了 Parallel Scavenge & Parallel Old 组合_
+- 开创了 面向局部回收的设计思路 和 基于 Region 的内存布局形式
 - 作为 CMS 收集器的替代者和继承者, 希望建立起 停顿时间模型 Pause Prediction Model 的收集器
     - Pause Prediction Model : 支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标
-    - 算是 实时 Java (RTSJ) 的中断实时垃圾收集器 的特征
+    - 算是 实时 Java ( RTSJ ) 的中断实时垃圾收集器 的特征
 
 #### 新的设计思路 (RENAME?)
 
