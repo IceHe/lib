@@ -973,6 +973,9 @@ Snapshot At The Beginning (SATB) _( 原始快照 )_
 
 ![snapshot-at-the-beginning.gif](_images/understand-jvm/snapshot-at-the-beginning.gif)
 
+- 增量更新 <!-- ( Incremental Update ) --> 用的是 写后屏障 ( Post-Write Barrier ) , 记录了所有新增的引用关系
+- 原始快照 <!-- ( Snapshot At The Beginning ) --> 用的是 写前屏障 ( Pre-Write Barrier ) , 将所有即将被删除的引用关系的旧引用记录下来
+
 _Reference :_
 
 - _面试官 : 你说你熟悉 JVM ? 那你讲一下并发的可达性分析 - 知乎 :_ https://zhuanlan.zhihu.com/p/108706654
