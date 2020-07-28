@@ -1229,28 +1229,38 @@ _详见原书, 以下为部分摘录_
         - 再清理掉整个旧 Region 中的全部空间
     - _整个过程涉及存活对象的移动, 必须暂停用户线程, 由多条收集器线程并行完成_
 
+![garbage-first-collector-running.png](_images/understand-jvm/garbage-first-collector-running.png)
+
 ##### 缺点
 
-- G1 为了 GC 产生的内存 Footprint _( 占用 )_ 还是程序运行时的额外执行 Load _( 负载 )_ 都要比 CMS 要高
-    - Memory Footprint 内存占用 :
-        - G1 : 堆中每一个 Region 都必须有一份 Card Table
-            - 导致其 Remembered Set 可能会占整个 Heap 容量的 20% 甚至更高
-        - CMS : 其 Card Table 全局只有唯一一份
-            - 而且只需要处理 Old Generation 到 Young Generation 的引用, 反过来不需要
-    - Execution Load 执行负载 :
-        - CMS : 使用 Post-Write Barrier 更新 Card Table
-        - G1 : 除了使用 Post-Write Barrier ( 由于其 Card Table 更复杂, 操作更繁琐 )
-            - 为了实现 STAB _( 原始快照 )_ 搜索算法, 还需要 Pre-Write Barrier 来跟踪并发时的指针变化情况 _( icehe : 哪些变化情况? )_
+G1 为了 GC 产生的内存 Footprint _( 占用 )_ 还是程序运行时的额外执行 Load _( 负载 )_ 都要比 CMS 要高
 
-### 低延迟垃圾收集器 Low-Latency Garbage Collector
+- Memory Footprint 内存占用 :
+    - G1 : 堆中每一个 Region 都必须有一份 Card Table
+        - 导致其 Remembered Set 可能会占整个 Heap 容量的 20% 甚至更高
+    - CMS : 其 Card Table 全局只有唯一一份
+        - 而且只需要处理 Old Generation 到 Young Generation 的引用, 反过来不需要
+- Execution Load 执行负载 :
+    - CMS : 使用 Post-Write Barrier 同步更新 Card Table
+    - G1 : 除了使用 Post-Write Barrier 异步处理 _( 由于其 Card Table 更复杂, 操作更繁琐 )_
+        - 为了实现 STAB ( 原始快照 ) 搜索算法, 还要 Pre-Write Barrier 来跟踪并发时的指针变化情况
+            - _( icehe : 哪些变化情况? )_
+        - _因为比 CMS 消耗更多计算资源, G1 不得不将其实现为类似消息队列的结构_
+            - _把 Pre-Write Barrier 和 Post-Write Barrier 中要做的事放到队列中, 再异步处理_
+- _目前在小内存应用上 CMS 的表现大概率仍然优于 G1_
+    - _而在大内存应用上 G1 则大多能发挥其优势_
+    - _这个优劣势的 Java Heap 容量平衡点通常在 6 GB ~ 8 GB 之间_
 
-- aka. Low-Pause-Time Garbage Collector
+### 低延迟垃圾收集器
 
-衡量垃圾收集器的最重要3项指标 (不可能三角)
+- **Low-Pause-Time Garbage Collector** _( 低延迟垃圾收集器 )_
 
-- 内存占用 Memory Footprint (->低)
-- 吞吐量 Throughput (->大)
-- 延迟 Latency (->低)
+衡量垃圾收集器的最重要 3 项指标 -- 不可能三角
+
+- Memory Footprint 内存占用 ( → 低 )
+- Throughput 吞吐量 ( → 大 )
+- Latency 延迟 ( → 低 )
+    - _现在硬件廉价了, 可用的内存越来越大, 但是随着堆内存越大, GC 所需时间也越长_
 
 指标取舍
 
@@ -1259,7 +1269,9 @@ _详见原书, 以下为部分摘录_
 
 各款收集器的并发情况
 
-- 详见原书图3-14
+- _( icehe : G1 在 Finish Mark 之后那部分是标错了吗? )_
+
+![gc-collectors-concurrency.png](_images/understand-jvm/gc-collectors-concurrency.png)
 
 ### Shenandoah 收集器
 
