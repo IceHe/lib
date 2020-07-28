@@ -1127,14 +1127,21 @@ _CMS 收集器运行示意图_
 Garbage First 收集器
 
 - Features : **New & Old Generation, 面向局部回收 & Region 内存布局, Parallel**
-    - 简称 G1, _开创了 面向局部回收的设计思路 & 基于 Region 的内存布局形式_
-    - 被 Oracle 官方称为 全功能的垃圾收集器 **Fully-Featured Garbage Collector** _( 同时能用在新生代 & 老年代 )_
+    - 简称 G1, 开创了 面向局部回收的设计思路 & 基于 Region 的内存布局形式
+    - 被 Oracle 官方称为 全功能的垃圾收集器 **Fully-Featured Garbage Collector**
+        - _( 同时能用在新生代 & 老年代 )_
+    - _G1 和 CMS 收集器被官方并称为 The Mostly Concurrent Collectors_
 - 主要面向 服务端应用, 旨在替换 CMS 收集器
     - **JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器**
     - _取代了 Parallel Scavenge & Parallel Old 组合_
 - 作为 CMS 收集器的替代者和继承者, 希望建立起 **Pause Prediction Model 停顿时间模型** 的收集器
     - Pause Prediction Model : **支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标**
     - 算是 实时 Java ( RTSJ ) 的中断实时垃圾收集器 的特征
+- 实现目标 :
+    - _并非纯粹追求 低延迟_, 而在延迟可控的情况下, 获得尽可能高的吞吐量
+        - 默认的停顿目标 200 ms, 合理范围 100ms ~ 300ms
+- 设计导向 : _( 从 G1 开始 )_
+    - 追求能够应付应用的内存 Allocation Rate 分配速率, 不追求一次把整个 Java 堆全部清理干净
 - _可用参数 :_
     - `-XX:G1HeapRegionSize` 设定 Region 的大小 ( 1 MB ~ 32 MB , 应为 2 的 N 次幂 )
 
@@ -1168,7 +1175,7 @@ Collection Set _( 回收集 )_
 - 遵循分代收集理论设计
     - _新生代 & 老年代不再固定, 都是一系列 Region 的动态集合_
 
-处理思路
+整体处理的做法
 
 - **将 Region 作为单次回收的最小单元** → 能够建立可预测的停顿时间模型
     - 有计划地避免在整个 Java 堆中进行全区域的垃圾收集
@@ -1177,7 +1184,7 @@ Collection Set _( 回收集 )_
 - **维护一个优先级列表, 根据用设定允许的停顿时间, 优先回收价值收益最大的 Region**
     - _`-XX:MaxGCPauseMillis` 指定停顿时间, 默认 200 ms_
 
-##### 实现细节
+##### 细节问题
 
 _详见原书, 以下为部分摘录_
 
@@ -1189,42 +1196,51 @@ _详见原书, 以下为部分摘录_
     - G1 内存占用较高, 甚至能达到整个堆容量的 20%
 - 解决用户线程改变对象引用时, 保证不能打破原本的对象图结构的问题? _否则标记结果错误_
     - CMS 采用 增量更新算法 实现
-    - G1 采用 原始快照 SATB - Snapshot At The Beginning 算法
-        - _(详见原书前文铺垫的解释, 不在这一节)_
-- TAMS - Top at Mark Start 指针 : 划分出 并发回收过程中的新对象分配, 必须要在两个这样的指针位置以上
-    - 这些位置的对象被隐式标记为存活, 不纳入回收范围
+    - G1 采用 原始快照 SATB ( Snapshot At The Beginning ) 算法
+    - TAMS ( Top at Mark Start ) 指针
+        - 并发回收过程中的新对象分配内存的区域, 必须要在两个这样的指针位置以上
+        - 这些位置的对象被隐式标记为存活, 不纳入回收范围
+- 怎样建立可靠的停顿预测模型?
+    - G1 收集器以 **Decaying Average 衰减均值** 为理论基础来实现
+        - Decaying Average : 指比普通的平均值更容易受到新数据的影响
+    - _GC 过程中, G1 会记录每个 Region 的回收耗时、每个 Region 记忆集里的脏卡数量 等各个可测量的步骤花费的成本_
+        - _并分析得出平均值、标准偏差、置信度等统计信息_
 
-运作过程 : 细节略
+##### 运作过程
 
-- 初始标记 Initial Marking
+- **Initial Marking 初始标记**
     - 仅仅标记一下 GC Roots 能直接关联到的对象
-    - 并修改 TAMS (Top at Mark Start) 指针的值
+    - 并修改 TAMS ( Top at Mark Start ) 指针的值
         - 让下一阶段用户线程并发运行时, 能正确地在可用的 Region 中分配新对象
     - _本阶段需要停顿, 但耗时很短, 而且借用进行 Minor GC 的时候同步完成_
-        - _所以 G1 Collector 这阶段实际并没有额外的停顿 (?现在还不太理解)_
-- 并发标记 Concurrent Marking
-    - 从 GC Roots 开始对对重的对象进行可达性分析, 递归扫描整个堆里的对象图, 找出要回收的对象
+        - _所以 G1 Collector 这阶段实际并没有额外的停顿 ( ?现在还不太理解为啥这里没停顿? )_
+- **Concurrent Marking 并发标记**
+    - 从 GC Roots 开始对 Heap 中的对象进行可达性分析, 递归扫描整个 Heap 里的对象图, 找出要回收的对象
         - _耗时较长, 但可与用户线程并发执行_
-    - 当对象图扫描完成以后, 还要重新处理 SATB 记录下的在并发UI有引用变动的对象
-- 最终标记 Final Marking
+    - 当对象图扫描完成以后, 还要重新处理 SATB ( Snapshot At The Beginning ) 记录下的在并发UI有引用变动的对象
+- **Final Marking 最终标记**
     - 对用户线程做另一个短暂的暂停, 用于处理并发阶段结束后仍遗留下来的最后那少量的 SATB 记录
-- 筛选回收 Live Data Counting and Evacuation
-    - 负责更新 Region 的统计数据, 对各个 Region 的回收价值和成本进行排序
-    - 根据用户所期望的停顿时间来执行回收计划, 可以自由选择任意多个 Region 构成回收集
-    - 把决定回收的那一部分 Region 的存活对象复制到空的 Region 中
-    - 再清理掉整个旧 Region 中的全部空间
+- **Live Data Counting and Evacuation 筛选回收**
+    - 整体来看基于 Mark-Sweep
+        - 负责更新 Region 的统计数据, 对各个 Region 的回收价值和成本进行排序
+        - 根据用户所期望的停顿时间来执行回收计划, 可以自由选择任意多个 Region 构成回收集
+    - 局部上看基于 Mark-Copy
+        - 把决定回收的那一部分 Region 的存活对象复制到空的 Region 中
+        - 再清理掉整个旧 Region 中的全部空间
     - _整个过程涉及存活对象的移动, 必须暂停用户线程, 由多条收集器线程并行完成_
 
-目标
+##### 缺点
 
-- _并非纯粹追求 低延迟_
-- 在延迟可控的情况下, 获得尽可能高的吞吐量
-    - 默认的停顿目标 200ms, 合理范围 100~300ms
-
-设计导向 _(从G1开始)_
-
-- 追求能够应付应用的内存分配速率 Allocation Rate
-- 不追求一次把整个 Java 堆全部清理干净
+- G1 为了 GC 产生的内存 Footprint _( 占用 )_ 还是程序运行时的额外执行 Load _( 负载 )_ 都要比 CMS 要高
+    - Memory Footprint 内存占用 :
+        - G1 : 堆中每一个 Region 都必须有一份 Card Table
+            - 导致其 Remembered Set 可能会占整个 Heap 容量的 20% 甚至更高
+        - CMS : 其 Card Table 全局只有唯一一份
+            - 而且只需要处理 Old Generation 到 Young Generation 的引用, 反过来不需要
+    - Execution Load 执行负载 :
+        - CMS : 使用 Post-Write Barrier 更新 Card Table
+        - G1 : 除了使用 Post-Write Barrier ( 由于其 Card Table 更复杂, 操作更繁琐 )
+            - 为了实现 STAB _( 原始快照 )_ 搜索算法, 还需要 Pre-Write Barrier 来跟踪并发时的指针变化情况 _( icehe : 哪些变化情况? )_
 
 ### 低延迟垃圾收集器 Low-Latency Garbage Collector
 
