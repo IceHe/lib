@@ -949,16 +949,29 @@ GC Roots 枚举
 - "对象消失" 的问题 -- 即本应该是黑色的对象被误标为白色 _( 导致原本应该存活的对象标为已消亡  )_
     - 赋值器插入了一条或多条从黑色对象到白色对象的新引用
     - 赋值器删除了全部从灰色对象到该白色对象的直接或间接引用
-        - _( icehe : 一时没看懂这样做有什么影响, 好像并没有导致什么问题? 以后重读一下 )_
 - "对象消失" 的解决方案 -- 破坏以上两个条件的任意一个即可
     - **Incremental Update 增量更新**
-        - 当黑色对象插入新的指向白色对象的引用关系时, 就将这个新插入的引用记录下来
-        - 等并发扫描结束之后, 再将这些记录过的引用关系中的黑色对象为根, 重新扫描一次
     - **Snapshot At The Beginning (SATB) 原始快照**
-        - 当灰色对象要删除指向白色对象的引用时, 就将这个要删除的引用记录下来
-        - 等并发扫描结束之后, 再将这些记录过的引用关系中的灰色对象为根, 重新扫描一次
 
 ![object-disappear.png](_images/understand-jvm/object-disappear.png)
+
+#### 增量更新
+
+Incremental Update _( 增量更新 )_
+
+- 当黑色对象插入新的指向白色对象的引用关系时, 就将这个新插入的引用记录下来
+- 等并发扫描结束之后, 再将这些记录过的引用关系中的黑色对象为根, 重新扫描一次
+
+![increamental-update.gif](_images/understand-jvm/increamental-update.gif)
+
+#### 原始快照
+
+Snapshot At The Beginning (SATB) _( 原始快照 )_
+
+- 当灰色对象要删除指向白色对象的引用时, 就将这个要删除的引用记录下来
+- 等并发扫描结束之后, 再将这些记录过的引用关系中的灰色对象为根, 重新扫描一次
+
+![snapshot-at-the-beginning.gif](_images/understand-jvm/snapshot-at-the-beginning.gif)
 
 ### 经典垃圾收集
 
