@@ -124,6 +124,8 @@ git log
 
 git reflog
 
+git show COMMIT_ID1 COMMIT_ID2 …
+
 git reset
 
     --hard
@@ -135,7 +137,7 @@ git clean
     # remove whole directories
     -d
 
-git cherry-pick COMMIT_ID
+git cherry-pick COMMIT_ID1 COMMIT_ID2 …
 
 git rebase
 
@@ -155,6 +157,7 @@ Commit 提交
 - `git log --oneline` 查看提交日志（以短格式）
 - `git log -p -2` - `-p` 用来显示每次提交的内容差异；加上 `-2` 以便仅显示最近两次提交
 - `git reflog` 最近的 Git 操作历史
+- `git show <commit_id1> <commit_id2> …` 查看某些 commit 的变更内容
 
 File 文件
 
@@ -207,14 +210,14 @@ git log --pretty="%H" --author="authorname" | while read commit_hash; do git sho
 
 选取部分有用的变更，应用到另一分支上
 
-- `git cherry-pick <commit_id>` 将另一分支的某一个 commit 的修改，应用到当前的分支来
+- `git cherry-pick <commit_id1> <commit_id2> …` 将 ( 另一分支的 ) 某些 commit 的修改，应用到当前的分支来
 - 当某个分支将要被删除，但其中某些 commit 的修改是有用的，于是将其单独取出来
     - `git cherry-pick <commit_id> -e` 提交前，需要重新编辑其提交说明
     - `git cherry-pick <commit_id> -n` 执行 cherry-pick 操作，只为套用该 commit 修改，但不会自动提交。以便在进行一些其它修改后，再一并提交
 
 变更已经被提交到远端服务器后，回滚该变更：
 
-- `git revert commit_id` 撤销某个 commit 的修改（以新建一个提交的方式）。一般在需要撤销的 commit 已经被 push 到远端服务器时，需要这么做。
+- `git revert <commit_id1> <commit_id2> …` 撤销某些 commit 的修改 ( 以新建 commit 的方式 ). 一般在需要撤销的 commit 已经被 push 到远端服务器时, 需要这么做
 
 不慎 revert 了某次 commit 后，又反悔了，想恢复原来的状态，取消刚才的操作：
 
