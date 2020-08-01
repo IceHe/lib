@@ -1315,6 +1315,7 @@ _渊源_
 - 比 ZGC 更像是 G1 收集器的继承者
     - 相似的堆内存布局
     - 初始标记、并发标记等许多阶段的处理思路一致
+    - _甚至共享了一部分实现代码_
 
 #### 与 G1 的不同
 
@@ -1327,38 +1328,44 @@ _渊源_
 - 改用 **Connection Matrix 连接矩阵** 的全局数据结构来记录跨 Region 关系
     - _摒弃了 G1 收集器中耗费大量内存和计算资源去维护的 Remembered Set_
     - 可以理解为 **一张二维表格, Region M 有对象指向 Region N 就在 N 行 M 列中打上标记**
-    - 降低了处理跨 Region 指针时, Remembered Set 的维护消耗, 也降低了为伪共享问题 _(这个不太记得了…)_
+    - 降低了处理跨 Region 指针时, Remembered Set 的维护消耗, 也降低了为 "伪共享问题" 的发生概率
+        - _( icehe : 看过原书的对应小节, 还是没找到 "伪共享问题" 是啥问题 )_
 
 ![shenandoah-connection-matrix.png](_images/understand-jvm/shenandoah-connection-matrix.png)
 
 #### 运作过程
 
-_可参考原书图 3-16_
+- **Initial Marking** 初始标记 _( 与 G1 一样 )_
+    - "Stop The World"
+    - 标记与 GC Roots 直接关联的 objects
+- **Concurrent Marking** 并发标记 _( 与 G1 一样 )_
+    - 与用户线程并发
+    - _遍历对象图,_ 标记出全部可达的对象
+- **Final Marking** 最终标记 _( 与 G1 一样 )_
+    - 处理剩余的 STAB 扫描
+    - 并在这个阶段统计出回收价值更高的 Region, _它们将构成 CSet ( 回收集 ), 有一小段短暂的暂停_
+- **Concurrent Cleanup** 并发清理
+    - 清理 **Immediate Garbage Region** ( 整个区域连一个存活对象也没有的 Region )
+- **Concurrent Evacuation** 并发回收 _( 核心差异点 )_
+    - 先将存活 objects 复制到其他未使用的 Region 时, 如果要和用户线程一起并发, 会导致 :
+        - 移动后的 object , 内存中的 reference 还指向旧 object 的 address, 没法一瞬间改过来
+        - _用户线程这时读写内存中的这些移动中的 objects, 要保证不出错, 实现会比较复杂_
+    - 通过 **Read Barrier** 和称为 **Brooks Pointers** 的指针转发 来解决 _( 后文详述 )_
+- **Initial Update Reference** 初始引用更新
+    - Concurrent Evacuation 阶段复制对象结束后, 还需要把 Heap 中所有指向旧 object 的 reference , 修正为复制后的新 address !
+    - **该阶段只为了建立一个线程集合点**, 确保所有并发回收阶段中进行的收集器线程都完成了存活对象的移动任务
+- **Concurrent Update Reference** 并发引用更新
+    - 与用户线程并发
+    - 真正开始进行 Update Reference 操作
+- **Final Update Reference** 最终引用更新
+    - 完成 Heap 中对象的 Update Reference 后, 还要修正存在于 GC Roots 中的 reference
+- **Concurrent Cleanup** 并发清理 _( 第二次 )_
+    - 经过 Concurrent Evacuation 和 Update Reference 之后, 整个 CSet ( 回收集 ) 中所有 Region 再无存活对象
+    - _回收这些 Region 的内存空间_
 
-- 初始标记 Initial Marking
-- 并发标记 Concurrent Marking
-- 最终标记 Final Marking
-- 并发清理 Concurrent Cleanup
-    - 清理那些整个区域连一个存活对象也没有的 Region
-        - 这种 Region 一般被称为 Immediate Garbage Region
-- 并发收集 Concurrent Evacuation _(核心差异点)_
-    - 先将存活对象复制到其他未使用的 Region 时, 如果要和用户线程一起并发, 会导致
-        - 移动后的对象, 内存中的引用还指向旧对象的地址, 没法一瞬间改过来
-        - _用户线程这时使用内存中的这些引用, 就会出错_
-    - 通过 "读屏障" 和称为 Brooks Pointers 的指针转发 来解决 (后文再详述)
-- 初始引用更新 Initial Update Reference
-    - 并发回收阶段复制对象结束后, 还需要把堆中所有指向就对象的引用, 修正为复制后的新地址!
-    - 该阶段只为了建立一个线程集合点, 确保所有并发回收阶段中进行的收集器线程都完成了存活对象的移动任务
-- 并发引用更新 Concurrent Update Reference
-    - 真正开始进行 引用更新操作
-    - 与用户线程一起并发
-- 最终引用更新 Final Update Reference
-    - 解决对堆中的引用更新后, 还要修正存在于 GC Roots 中的引用
-- 并发清理 Concurrent Cleanup
-    - 经过并发回收和引用更新之后, 整个回收集中所有 Region 再无存活对象
-    - 然后其它同上文中的 并发清理
+![shenandoah-collector-running.png](_images/understand-jvm/shenandoah-collector-running.png)
 
-**Brooks Pointer**
+#### Brooks Pointer
 
 - 详见原书 _内容偏向底层实现, 不想记那么多细节_
 
@@ -1369,8 +1376,7 @@ Z Garbage Collector
 - 目标跟 Shenandoah 目标高度一致, 但实现思路有显著差异
 - _ZGC 更像是 PGC (Pauseless GC) 和 C4 (Concurrent Continuously Compacting Collector) 的同胞兄弟_
 - 特点
-    - 基于 Region 内存布局
-    - _( 暂时 )_ 不设分代
+    - 基于 Region 内存布局 - _( 暂时 )_ 不设分代
     - 实现了可并发的 标记-整理算法
         - 使用了 : 读屏障、染色指针 和 内存多重映射 等技术
     - 以低延迟为首要目标

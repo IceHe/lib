@@ -4,6 +4,7 @@
 
 References
 
+- RabbitMQ 总结 : https://cloud.tencent.com/developer/article/1654903
 - RabbitMQ 的应用场景以及基本原理介绍 | Laravel China 社区  : https://learnku.com/articles/27446
 - 官网 : Messaging that just works - RabbitMQ : https://www.rabbitmq.com/
 
