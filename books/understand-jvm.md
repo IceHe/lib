@@ -1367,9 +1367,19 @@ _渊源_
 
 #### Brooks Pointer
 
-- TODO
+- Rodney A. Brooks 使用 **Forwarding Pointer** _( 转发指针, aka. Indirection Pointer )_ 来实现对象移动与用户程序并发的一种解决方案
+    - 在原有对象布局结构的 ( Object Header ) 最前面统一增加一个新的引用字段 Forwarding Pointer
+    - 在正常不处于并发移动的情况下，该引用指向对象自己 _( 见下图 )_
+- _从结构上来看, Brooks 提出的转发指针与某些早期 Java VM 使用过的 Handle 定位有一些相似之处, 两者都是一种间接性的对象访问方式_
+    - _差别是 Handle 通常会统一存储在专门的 **Handle Pool ( 句柄池 )** 中, 而 Forwarding Pointer 分散存放在每个 Object Header 前面_
+    - _所有间接对象访问技术的缺点都是相同的, 也是非常显著的 --_ 每次对象访问会带来一次额外的转向开销, _尽管这个开销已经被优化到只有一行汇编指令的程度_
+- _此前, 要做类似的并发操作, 通常是在被移动对象原有的内存上设置 **Memory Protection Trap ( 保护陷阱 )**_
+    - _一旦用户程序访问到归属于旧对象的内存空间就会产生 "自陷中断", 进入预设好的 "异常处理器" 中, 再由其中的代码逻辑把访问转发到复制后的新对象上_
+    - _虽然确实能够实现对象移动与用户线程并发, 但是如果没有操作系统层面的直接支持, 这种方案将导致用户态频繁切换到核心态, 代价是非常大的, 不能频繁使用_
 
-![shenandoah-collector-running.png](_images/understand-jvm/shenandoah-collector-running.png)
+![brooks-pointer-1.png](_images/understand-jvm/brooks-pointer-1.png)
+
+![brooks-pointer-2.png](_images/understand-jvm/brooks-pointer-2.png)
 
 ### ZGC 收集器
 
