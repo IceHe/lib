@@ -1367,7 +1367,9 @@ _渊源_
 
 #### Brooks Pointer
 
-- 详见原书 _内容偏向底层实现, 不想记那么多细节_
+- TODO
+
+![shenandoah-collector-running.png](_images/understand-jvm/shenandoah-collector-running.png)
 
 ### ZGC 收集器
 
