@@ -47,11 +47,17 @@ Coding
 - [Pragmatic Programmer](/books/pragmatic-programmer.md)
     - _The Pragmatic Programmer : your journey to mastery ( 2nd Edition )_
 
+<!-- - [剑指 Offer](/books/jz-offer.md) -->
+
+<!--
+
 Tools
 
 - Wireshark
     - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( to read )_
     - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( to read )_
+
+-->
 
 Others
 
