@@ -29,7 +29,7 @@ Style Guide
 
 Coding
 
-- [Snippets](/java/snippets.md)
+- [Snippets](/java/code-snippets/README.md)
 - [Notices](/java/notices.md)
 
 Command Line Tools
