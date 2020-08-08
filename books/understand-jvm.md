@@ -1416,6 +1416,13 @@ Forwarding Pointer 的执行效率
     - _弱项 : Lower Throughput_ _( 高运行负担使得吞吐量下降 )_
     - _强项 : Low Pause Time_
 
+|收集器|运行时间|最大停顿|平均停顿|
+|-|-|-|-|
+|**Shenandoah**|_2016 :_ _387.602 s_<br/> _2017 :_ **335 s**|**320 ms**|**89.79 ms**|**53.01 ms**|
+|G1|312.052 s|11.7 s|1.24 s|450.12 ms|
+|CMS|285.264 s|12.78 s|4.39 s|852.26 ms|
+|Parallel Scavenge|260.092 s|6.59 s|3.04 s|823.75 ms|
+
 ### ZGC 收集器
 
 Z Garbage Collector
