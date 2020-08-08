@@ -1039,7 +1039,7 @@ ParNew 收集器
     - JDK 7 前的首选新生代收集器, **适宜运行在服务端模式下的 HotSpot VM**
     - 只有 ( 新生代的 ) Serial 和 ParNew 能与 ( 老年代的 ) CMS 收集器 配合工作
         - _CMS - Concurrent Mark Sweep 收集器 第一款真正意义上的 支持并发的垃圾收集器_
-- _可用参数 : `-XX:+UseParNewGC` 来限制垃圾收集的线程数_
+- _Options : `-XX:+UseParNewGC` 来限制垃圾收集的线程数_
 
 _ParNew / Serial Old 收集器运行示意图_
 
@@ -1051,12 +1051,12 @@ Parallel Scavenge 收集器
 
 - _表面上和 ParNew 很类似, 特别之处在于 -- Parallel Scavenge 也称为 "吞吐量优先收集器"_
 - Features : **Young Generation, Mark-Copy, Parallel**
-- _目标区别 : Differ CMS from Parallel Scavenge_
+- Target : _Differ CMS from Parallel Scavenge_
     - CMS 收集器 : 尽可能缩短 ( GC 时 用户线程的 ) pause time  _( 停顿时间 )_
     - Parallel Scavenge 收集器 : **达到一个可控制的 throughput** _( 吞吐量 )_
         - 吞吐量 = 运行用户代码的时间 / ( 运行用户代码的时间 + 运行垃圾收集的时间 )
             - 处理器总消耗时间 = 运行用户代码的时间 + 运行垃圾收集的时间
-- _可用参数 :_
+- _Options :_
     - 精确控制吞吐量
         - `-XX:MaxGCPauseMillis` 最大垃圾收集停顿时间
             - 取值 > 0 , 尽力保证不超过用户的设定值
@@ -1077,7 +1077,7 @@ Serial Old 收集器
 - _Serial Old 是 Serial 收集器的老年代版本_
 - Features : **Old Generation, Mark-Compact, Single-thread**
     - 主要存在意义 : **供客户端模式下的 HotSpot VM 使用**
-- 服务器模式下的 主要用途
+- Usage : 服务器模式下的 主要用途
     - A. JDK 5 及之前, 与 Parallel Scavenge 收集器搭配使用
     - B. **作为 CMS 收集器发生失败时的后备预案**, 在并发收集发生 **Concurrent Mode Failure** 时使用
 
@@ -1101,11 +1101,11 @@ _Parallel Scavenge / Parallel Old 收集器运行示意图_
 
 CMS - Cocurrent Mark Sweep 收集器
 
-- 目标 : **获取最短回收停顿时间**
+- Target : **获取最短回收停顿时间**
     - _B/S 架构系统的服务端上, 重视响应速度, 给用户更好的交互体验_
 - Features : **Old Generation, Mark-Sweep, Parallel**
     - 并发收集、**低停顿**, 也被称为 **Concurrent Low Pause Collector** "并发低停顿收集器"
-- _可用参数 :_
+- _Options :_
     - `-XX:CMSInitiatingOccupancyFraction` 调整 CMS 的触发百分比
         - _JDK 5 时, 使用偏保守的 68% ; JDK 6 时, 已经默认提升至 92%_
 
@@ -1151,18 +1151,18 @@ Garbage First 收集器
     - 被 Oracle 官方称为 全功能的垃圾收集器 **Fully-Featured Garbage Collector**
         - _( 同时能用在新生代 & 老年代 )_
     - _G1 和 CMS 收集器被官方并称为 The Mostly Concurrent Collectors_
-- 主要面向 服务端应用, 旨在替换 CMS 收集器
+- Usage : 主要面向 服务端应用, 旨在替换 CMS 收集器
     - **JDK 9 及以上版本的 HotSpot VM, 默认在服务端模式下使用 G1 收集器**
     - _取代了 Parallel Scavenge & Parallel Old 组合_
-- 作为 CMS 收集器的替代者和继承者, 希望建立起 **Pause Prediction Model 停顿时间模型** 的收集器
+- History : 作为 CMS 收集器的替代者和继承者, 希望建立起 **Pause Prediction Model 停顿时间模型** 的收集器
     - Pause Prediction Model : **支持指定在一个长度为 M 毫秒的时间片段内, 消耗在垃圾收集上的时间大概率不会超过 N 毫秒的目标**
     - 算是 实时 Java ( RTSJ ) 的中断实时垃圾收集器 的特征
-- 实现目标 :
+- Target :
     - _并非纯粹追求 低延迟_, 而在延迟可控的情况下, 获得尽可能高的吞吐量
         - 默认的停顿目标 200 ms, 合理范围 100ms ~ 300ms
-- 设计导向 : _( 从 G1 开始 )_
+- Design : 设计导向 _( 从 G1 开始 )_
     - 追求能够应付应用的内存 Allocation Rate 分配速率, 不追求一次把整个 Java 堆全部清理干净
-- _可用参数 :_
+- _Options :_
     - `-XX:G1HeapRegionSize` 设定 Region 的大小 ( 1 MB ~ 32 MB , 应为 2 的 N 次幂 )
 
 _JDK 10 统一 GC 接口_
@@ -1283,7 +1283,7 @@ G1 为了 GC 产生的内存 Footprint _( 占用 )_ 还是程序运行时的额�
 - Latency 延迟 ( → 低 )
     - _现在硬件廉价了, 可用的内存越来越大, 但是随着堆内存越大, GC 所需时间也越长_
 
-指标取舍
+Trade-off : 指标取舍
 
 - 能容忍多占用一些内存
 - 但是都追求 "低延迟"
@@ -1305,11 +1305,11 @@ Features
     - 用 Connection Matrix _( 连接矩阵 )_ 记录跨 Region 引用关系
 - _Parallel_
 
-目标
+Target
 
 - **能在任何 Heap 内存大小下, 都可以把 GC 的 Pause Time 限制在 10ms 以内**
 
-_渊源_
+_History_
 
 - _非 Oracle 官方的 RedHat 公司独立发展的垃圾收集器_
 - 比 ZGC 更像是 G1 收集器的继承者
@@ -1425,28 +1425,44 @@ Forwarding Pointer 的执行效率
 
 ### ZGC 收集器
 
-Z Garbage Collector
+> Z Garbage Collector
+
+Target
 
 - 目标跟 Shenandoah 目标高度一致, 但实现思路有显著差异
-- _ZGC 更像是 PGC (Pauseless GC) 和 C4 (Concurrent Continuously Compacting Collector) 的同胞兄弟_
-- 特点
-    - 基于 Region 内存布局 - _( 暂时 )_ 不设分代
-    - 实现了可并发的 标记-整理算法
-        - 使用了 : 读屏障、染色指针 和 内存多重映射 等技术
-    - 以低延迟为首要目标
+    - _尽可能对 Throughput 影响不大的前提下, 实现在任意 Heap 内存大小下都可以把 GC Pause Time 限制在 10 ms 内的 Low Latency_
 
-Region 内存布局
+_History_
 
-- ZGC 的 Region (跟 Shenandoah 相比) 具有动态性
+- _ZGC 更像是 PGC ( Pauseless GC ) 和 C4 ( Concurrent Continuously Compacting Collector ) 的同胞兄弟_
+
+Features
+
+- Region 堆内存布局
+    - _( 暂时 )_ **不设分代**
+    - 支持 **并发整理** 算法
+        - 使用了 **Read Barrier** _( 读屏障 )_ , **Colored Pointer** _( 染色指针 )_ & **内存多重映射** 等技术
+- 以低延迟为首要目标
+- Parallel
+
+#### 内存布局
+
+ZGC 的 Region 内存布局
+
+- ZGC 的 Region _( 跟 Shenandoah 相比 )_ 具有动态性
     - 动态创建和销毁
     - 动态的区域容量大小
-        - x64 硬件平台下, 可以有大中小三类容量
-            - Small Region : 固定 2MB, 用于放置小于 256KB 的小对象
-            - Medium Region : 容量固定为 32MB, 用于放置大于等于 256KB 但小于 4MB 的对象
-            - Large Region : 容量不固定, 可以动态变化, 必须为 2MB 的整数倍
+        - _x64 硬件平台下, 可以有大中小三类容量_
+            - **Small Region : 固定 2MB, 用于放置小于 256KB 的小对象**
+            - **Medium Region : 容量固定为 32MB, 用于放置大于等于 256KB 但小于 4MB 的对象**
+            - **Large Region : 容量不固定, 可以动态变化, 必须为 2MB 的整数倍**
                 - 实际容量可能比 4MB 还小
-                - 在 ZGC 的视线中不会被 "重分配"
+                - 在 ZGC 的实现中不会被 reallocate _( 重分配 )_
 - _ZGC 的 Region 被官方称为 Page 或 ZPage_
+
+![zgc-memory-layout.png](_images/understand-jvm/zgc-memory-layout.png)
+
+#### 染色指针
 
 染色指针 Colored Pointer
 
