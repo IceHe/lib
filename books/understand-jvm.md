@@ -1367,6 +1367,8 @@ _渊源_
 
 #### Brooks Pointer
 
+##### 实现方式
+
 - Rodney A. Brooks 使用 **Forwarding Pointer** _( 转发指针, aka. Indirection Pointer )_ 来实现对象移动与用户程序并发的一种解决方案
     - 在原有对象布局结构的 ( Object Header ) 最前面统一增加一个新的引用字段 Forwarding Pointer
     - 在正常不处于并发移动的情况下，该引用指向对象自己 _( 见下图 )_
@@ -1380,6 +1382,39 @@ _渊源_
 ![brooks-pointer-1.png](_images/understand-jvm/brooks-pointer-1.png)
 
 ![brooks-pointer-2.png](_images/understand-jvm/brooks-pointer-2.png)
+
+##### 并行读写
+
+_假设以下 3 件事情同时并行进行_
+
+- 1\. 收集器线程复制了新的对象副本
+- 2\. 用户线程更新对象的某个字段
+- 3\. 收集器线程更新转发指针的引用值为新副本地址
+
+_如果事件 2 在事件 1 和 3 之间发生, 将导致用户线程对 object 的变更发生在旧 object 中_
+
+- Shenandoah 的解决方式 : 通过 **CAS ( Comapre And Swap )** 操作来保证并发时 object 的访问正确性
+    - _( icehe : 对比的应该是对象的实际地址 )_
+- CAS - Comapre And Swap : 通过将内存中的值与指定值进行比较, 当数值一样时将内存中的值替换为新的值
+    - _可用于在多线程编程中实现不被打断的数据交换操作, 从而避免多线程同时改写某一数据时由于执行顺序不确定性以及中断的不可预知性产生的数据不一致问题_
+
+![brooks-pointer-3.png](_images/understand-jvm/brooks-pointer-3.png)
+
+##### 执行效率
+
+Forwarding Pointer 的执行效率
+
+- 实现 Brooks Pointer 需要覆盖全部的对象访问操作, Shenandoah 不得不 **同时设置 Write & Read Barrier, 拦截并加入额外的转发处理**
+    - _代码里对象读取的频率要比对象写入的频率高很多, Read Barrier 数量自然也要比 Write Barrier 多得多, 所以 Write Barrier 的使用必须更加谨慎, 不允许任何的重量级操作_
+- 计划在 JDK 13 中将 Shenandoah 的 **内存屏障模型改进为基于 Load Reference Barrier** _( 引用访问屏障 )_ 的实现
+    - 所谓 Load Reference Barrier 是指 **内存屏障只拦截对象中数据类型为引用 _( reference )_ 类型的读写操作, 而不去管原生  _( native )_ 数据类型等其他非引用字段的读写**
+    - _能够省去大量对 原生类型、对象比较、对象加锁 等场景中设置内存屏障所带来的消耗_
+- _RedHat 官方在 2016 年所发表的 Shenandoah 实现论文中给出的应用实测数据_ _( 见下图 )_
+    - 测试内容 : **使用 ElasticSearch 对 200GB 的维基百科数据进行索引**
+        - _测试时 Pause Time 比其他几款收集器确实有了质的飞跃, 但也并未实现 Max Pause Time 控制在 10 ms 以内的目标_
+        - _而吞吐量方面则出现了很明显的下降, 其总运行时间是所有测试收集器中最长的_
+    - _弱项 : Lower Throughput_ _( 高运行负担使得吞吐量下降 )_
+    - _强项 : Low Pause Time_
 
 ### ZGC 收集器
 
