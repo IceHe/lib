@@ -1263,7 +1263,7 @@ G1 为了 GC 产生的内存 Footprint _( 占用 )_ 还是程序运行时的额�
 - Execution Load 执行负载 :
     - CMS : 使用 Post-Write Barrier 同步更新 Card Table
     - G1 : 除了使用 Post-Write Barrier 异步处理 _( 由于其 Card Table 更复杂, 操作更繁琐 )_
-        - 为了实现 STAB ( 原始快照 ) 搜索算法, 还要 Pre-Write Barrier 来跟踪并发时的指针变化情况
+        - 为了实现 SATB ( 原始快照 ) 搜索算法, 还要 Pre-Write Barrier 来跟踪并发时的指针变化情况
             - _( icehe : 哪些变化情况? )_
         - _因为比 CMS 消耗更多计算资源, G1 不得不将其实现为类似消息队列的结构_
             - _把 Pre-Write Barrier 和 Post-Write Barrier 中要做的事放到队列中, 再异步处理_
@@ -1342,7 +1342,7 @@ _History_
     - 与用户线程并发
     - _遍历对象图,_ 标记出全部可达的对象
 - **Final Marking** 最终标记 _( 与 G1 一样 )_
-    - 处理剩余的 STAB 扫描
+    - 处理剩余的 SATB 扫描
     - 并在这个阶段统计出回收价值更高的 Region, _它们将构成 CSet ( 回收集 ), 有一小段短暂的暂停_
 - **Concurrent Cleanup** 并发清理
     - 清理 **Immediate Garbage Region** ( 整个区域连一个存活对象也没有的 Region )
@@ -1360,7 +1360,7 @@ _History_
 - **Final Update Reference** 最终引用更新
     - 完成 Heap 中对象的 Update Reference 后, 还要修正存在于 GC Roots 中的 reference
 - **Concurrent Cleanup** 并发清理 _( 第二次 )_
-    - 经过 Concurrent Evacuation 和 Update Reference 之后, 整个 CSet ( 回收集 ) 中所有 Region 再无存活对象
+- 经过 Concurrent Evacuation 和 Update Reference 之后, 整个 CSet ( 回收集 ) 中所有 Region 再无存活对象
     - _回收这些 Region 的内存空间_
 
 ![shenandoah-collector-running.png](_images/understand-jvm/shenandoah-collector-running.png)
@@ -1549,16 +1549,136 @@ _Colored Pointer 是一种直接将少量额外的信息存储在 Pointer 上的
     - _如果开发了这 18 位, 既可以腾出已用的 4 个标志位, 将 ZGC 可支持的最大 Heap 内存从 4 TB 拓展到 64 TB, 也可以利用其余位置再存储更多的标志_
         - _譬如, 存储一些追踪信息来让垃圾收集器在移动 Object 时能将低频次使用的 Object 移动到不常访问的内存区域。_
 
-硬件限制
+##### 底层实现
 
-不过，要顺利应用染色指针有一个必须解决的前置问题:Java虚拟机作为-个普普通通的进程,
-这样随意重新定义内存中某些指针的其中几位，操作系统是否支持?处理器是否支持?这是很现实的
-问题，无论中间过程如何，程序代码最终都要转换为机器指令流交付给处理器去执行，处理器可不会
-管指令流中的指针哪部分存的是标志位，哪部分才是真正的寻址地址，只会把整个指针都视作- -个内
-存地址来对待。这个问题在Solaris/SPARC平台上比较容易解决，因为SPARC硬件层面本身就支持虚拟
-地址掩码，设置之后其机器指令直接就可以忽略掉染色指针中的标志位。但在x86-64平台 上并没有提
-供类似的黑科技，ZGC设计者就只能采取其他的补救措施了，这里面的解决方案要涉及虛拟内存映射
-技术，让我们先来复习- -下这个x86计算机体系中的经典设计。
+_要顺利应用 Colored Pointer 有一个必须解决的前置问题 :_
+
+- JVM 作为一个普通的进程, 这样随意重新定义内存中某些指针的其中几位, OS 是否支持? 处理器是否支持?
+
+_无论中间过程如何, 程序代码最终都要转换为机器指令流交付给处理器去执行_
+
+- 处理器可不会管指令流中的指针哪部分存的是标志位, 哪部分才是真正的寻址地址, 只会把整个指针都视作一个内存地址来对待
+    - _这个问题在 Solaris/SPARC 平台上比较容易解决, 因为 SPARC 硬件层面本身就支持_ **虚拟地址掩码**, 设置之后其机器指令直接就可以忽略掉染色指针中的标志位
+    - 但在 x86-64 平台上并没有提供类似的黑科技, ZGC 设计者就只能采取其它的补救措施了, 这里面的解决方案要涉及 **虛拟内存映射技术**
+
+虛拟内存映射技术 _是 x86 计算机体系中的经典设计_
+
+- 处理器会使用 Paging Management Mechanism _( 分页管理机制 )_ 把 Linear Address Space _( 线性地址空间 )_ 和 Physical Address Space _( 物理地址空间 )_ 分别划分为大小相同的块, 这样的内存块被称为 Page _( 页 )_
+- 通过在 Linear Address Space 的 Page 与 Physical Address Space 的 Page 之间建立的 mapping 表, Paging Management Mechanism 会进行 Linear Address Space 到 Physical Address Space 的 Mapping，完成 Linear Address 到 Physical Address 的转换
+
+ZGC 的 Colored Pointer 在 Linux / x86-64 平台下的底层实现
+
+- 使用了 **Multi-Mapping** _( 多重映射 )_ **将多个不同的 Virtual Memory Address 映射到同一个 Physical Memory Address 上**
+    - _这是一种 "many-to-one mapping", 意味着 ZGC 在 Virtual Memory 中看到的 Address Space 要比实际的 Heap 内存容量来得更大_
+    - 把 Colored Pointer 中的标志位看作是 Address 的分段符, 那只要将这些不同的地址段都映射到同一个 Physical Memory Space
+    - _经过 Multi-Mapping 转换后，就可以使用 Colored Pointer 正常进行 addressing 了,_ _效果见下图_
+
+![multi-mapping.png](_images/understand-jvm/multi-mapping.png)
+
+#### 运作过程
+
+_ZGC 的运作过程大致可划分为 4 个大的阶段_
+
+- _全部 4 个阶段都可以并发执行, 仅在 2 个阶段中间会存在短暂的停顿小阶段_
+- 这些停顿的小阶段, 譬如初始化 GC Root 直接关联对象的 Mark Start, 与之前 G1 和 Shenandoah 的 Initial Mark 阶段并没有什么差异
+
+ZGC 运作过程
+
+- **Pause Mark Start** _( 短暂停顿的 "初始标记" )_
+    - _同 G1 & Shenandoah 的 Initial Marking,_ 初始化 GC Root
+- **Concurrent Mark** _( 并行标记 )_
+    - 遍历 Object Graph 做 Reachability Analysis
+    - _与 G1 & Shenandoah 不同的是 :_ ZGC 的 Marks 是在 Pointer 上而不是在 Object 上进行的
+        - **更新 Colored Pointer 中的 Marked 0 & Marked 1 标志位**
+- **Pause Mark End** _( 短暂停顿的 "最终标记" )_
+    - _同 G1 & Shenandoah 的 Final Marking,_ 处理剩余的 SATB 扫描
+- **Concurrent Prepare for Relocate** _( 并发预备重分配 )_
+    - **需要根据特定的查询条件统计得出本次收集过程要清理哪些 Region, 将这些 Region 组成 Relocation Set _( 重分配集 )_**
+    - _ZGC 的 Relocation Set 与 G1 Collecotr 的 Collection Set 还是有区别的_
+        - _ZGC 划分 Region 的目的并非为了像 G1 那样做收益优先的增量回收_
+        - _相反,_ **ZGC 每次回收都会扫描所有的 Region, 用范围更大的扫描成本换取省去 G1 中记忆集的维护成本**
+    - _因此,_ ZGC 的 Relocation Set 只是决定了里面的存活 Object 会被重新复制到其它的 Region 中, 里面的 Region 会被释放
+        - 而并不能说回收行为就只是针对这个集合里面的 Region 进行, 因为标记过程是针对全堆的
+        - _( icehe : Marking 是针对全 Heap 进行的操作; Relocation Set 只是决定将哪些 Region 中的存活 Object 复制到其它 Region, 然后再释放这些 Region )_
+        - _此外，在 JDK 12 的 ZGC 中开始支持的类卸载以及弱引用的处理, 也是在这个阶段中完成的_
+- **Pause Relocate Start** _( 短暂停顿的 "初始重分配" )_
+    - icehe : 应该类似于 G1 & Shenandoah 的 Initial Update Reference _( 初始引用更新 )_ 阶段?
+- **Concurrent Relocate** _( 并发重分配 )_
+    - _Relocate 是 ZGC 执行过程中的核心阶段_
+    - **要把 Relocation Set 中的存活的 Object 复制到新的 Region 上**
+        - **并为 Relocation Set 中的每个 Region 维护一个 <u>Forward Table _( 转发表 )_</u> , 记录从旧 Object 到新 Object 的转向关系**
+    - 得益于 Colored Pointer 的支持，ZGC 收集器能仅从 Reference 上就明确得知一个 Object 是否处于 Relocation Set 之中
+        - ZGC 的 Pointer **Self-Healing _( 自愈 )_** 能力
+            - **如果用户线程此时并发访问了位于 Relocation Set 中的对象, 这次访问将会被预置的 Memory Barrier 所截获**
+            - **然后立即根据 Region 上的 Forward Table 记录将访问转发到新复制的 Object 上**
+            - **并同时修正更新该引用的值, 使其直接指向新对象**
+        - Self-Healing 优点 : **只有第一次访问旧 Object 会陷入 Forwarding, 也就是只慢一次**
+            - 对比 Shenandoah 的 Brooks Pointer, 则是每次对象访问都必须付出的固定开销, 简单地说就是每次都慢
+            - _因此 ZGC 对用户程序的 Runtime Load 要比 Shenandoah 来得更低一些些_
+        - _另外一个直接的好处 : 由于染色指针的存在,_ **一旦 Relocation Set 中某个 Region 的存活 Object 都复制完毕后, 这个 Regon 就可以立即释放, 然后用于新 Object 的 Allocation ( 但是转发表还得留着不能释放掉 )**
+            - _哪怕堆中还有很多指向这个 Object 的未更新 Pointer 也没有关系, 这些旧 Pointer 一旦被使用, 它们都是可以 Self-Healing 的_
+- **Concurrent Remap** _( 并发重映射 )_
+    - **修正整个 Heap 中指向 Relocation Set 中旧 Object 的所有 Reference**
+    - _这一点从目标角度看是与 Shenandoah 的 Concurrent Update Reference 阶段一样的, 但是 ZGC 的 Concurrent Remap 并不是一个必须要 "迫切" 去完成的任务_
+        - _因为即使是旧 Reference, 它也是可以 Self-Healing 的, 最多只是第一次使用时多一次 Forwarding 和 Correction 操作_
+        - Remap 清理这些旧 Reference 的主要目的是为了不变慢 _( 还有清理结束后可以释放 Forward Table 这样的附带收益 )_
+    - **ZGC 很巧妙地把 Concurrent Remap 阶段要做的工作, 合并到了下一次 GC 循环中的 Concurrent Mark 阶段里去完成**
+        - 反正它们都是要遍历所有 Object 的, 这样合并就节省了一次遍历 Object Graph 的开销
+        - **一旦所有 Pointer 都被修正之后，原来记录新旧 Object 关系的 Forward Table 就可以释放掉了**
+
+![zgc-running.png](_images/understand-jvm/zgc-running.png)
+
+#### 缺点
+
+缺点
+
+- ZGC 以上的选择也限制了它 : **能承受的 Object Alloction Rate 不会太高**
+- _可以想象以下场景来理解 ZGC 的这个劣势_
+    - ZGC 准备要对一个很大的 Heap 做一次完整的并发 GC, 假设其全过程要持续 10 min 以上
+        - _( 切勿混淆 Concurrent Time 与 Pause Time, ZGC 立的 Flag 是 Pause Time 不超过 10 ms )_
+    - 在这段时间里, 由于应用的 **Object Allocation Rate** 很高, 将创造大量的新 Object
+        - 这些新 Object 很难进入当次 GC 的标记范围, 通常就只能全部当作存活 Object 来看待
+        - 尽管其中绝大部分 Object 都是朝生夕灭的, 这就产生了大量的 **Floating Garbage**
+    - 如果这种高速 Allocation 持续维持的话, 每一次完整的并发 GC 周期都会很长
+        - 回收到的 Memory Spage 持续小于期间并发产生的 Floating Garbage 所占的空间, Heap 中剩余可腾挪的空间就越来越小了
+
+解决办法
+
+- _目前唯一的办法 :_ **尽可能地增加 Heap 容量大小，获得更多喘息的时间**
+
+改进方向
+
+- 但是若要从根本上提升 ZGC 能够应对的 Object Allocation Rate, 还是需要引入 **Generational Collection** _( 分代收集 )_
+    - 让新生 Object 都在一个专门的 Region 中创建
+    - 然后专门针对这个 Region 进行更频繁、更快的 GC
+- _Azul 的 C4 收集器实现了 Generational Collections 后, 能够应对的 Object Allocation Rate 就比不分代的PGC 收集器提升了 10 倍之多_
+
+#### 性能
+
+_其它优点_
+
+- _ZGC 还有一个常在技术资料上被提及的优点 :_ 支持 **NUMA-Aware 的内存分配**
+    - **NUMA ( Non-Uniform Memory Access, 非统一内存访问架构 )** _是一种为多处理器或者多核处理器的计算机所设计的内存架构_
+    - _由于摩尔定律逐渐失效, 现代处理器因频率发展受限转而向多核方向发展_
+    - _以前原本在北桥芯片中的内存控制器也被集成到了处理器内核中, 这样每个处理器核心所在的裸晶 ( DIE, 集成电路? ) 都有属于自己内存管理器所管理的内存_
+    - _如果要访问被其他处理器核心管理的内存，就必须通过 Inter-Connect 通道来完成，这要比访问处理器的本地内存慢得多_
+    - **在 NUMA 架构下, ZGC 收集器会优先尝试在请求线程当前所处的处理器的本地内存上分配对象, 以保证高效内存访问**
+    - _在 ZGC 之前的收集器就只有针对吞吐量设计的 Parallel Scavenge 支持 NUMA 内存分配_
+
+_从官方给出的测试结果来看, 用 "令人震惊的、革命性的 ZGC" 来形容都不为过_
+
+- _以下两图是 ZGC 与 Pallel Scavenge、G1 三款收集器通过 SPECjbb 2015 的测试结果_
+    - 在 ZGC 的 "弱项" Throughput 方面, 以 Low Pause 为首要目标的 **ZGC 已经达到了以高吞吐量为目标 Parallel Scavenge 的 99% , 直接超越了 G1**
+        - 如果将 Throughput 测试设定为面向 SLA ( Service Level Ageements ) 应用的 "Critical Throughput" 的话, ZGC 的表现甚至还反超了 Parallel Scavenge 收集器
+    - 而在 ZGC 的强项 Pause Time 测试上，它就毫不留情地 **与 Parlel Scavenge、G1 拉开了两个数量级的差距**
+    - 不论是平均停顿，还是 95% Pause 、99% Pause 、 99.9% Pause , 抑或是 Max Pause Time , ZGC 均能毫不费劲地控制在 10 ms 之内
+        - _以至于把它和另外两款停顿数百近千毫秒的收集器放到一起对比, 就几乎显示不了 ZGC 的柱状条, 必须把结果的纵坐标从线性尺度调整成对数尺度 ( 纵坐标轴的尺度是对数增长的 ) 才能观察到 ZGC 的测试结果_
+
+![zgc-throughput-test.png](_images/understand-jvm/zgc-throughput-test.png)
+
+![zgc-pause-time-test.png](_images/understand-jvm/zgc-pause-time-test.png)
+
+### 其它收集器
 
 Epsilon 收集器
 
