@@ -405,6 +405,7 @@ Reference : https://www.computerhope.com/keys.htm
 - j : jump | bzip2 ( for CLI )
 - jar : [Java Archive file](https://en.wikipedia.org/wiki/JAR_(file_format))
 - jd : job description
+- JEP : [JDK Enhancement-Proposal](http://openjdk.java.net/jeps/0)
 - JFGI : Just Fucking Google It
 - JNI : Java Native Interface ?
 - jr : job requirement
@@ -540,6 +541,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pct : percent ( for MySQL )
 - PDCA : [Plan-Do-Check-Act](https://en.wikipedia.org/wiki/PDCA)
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
+- PEP : [Python Enhancement Proposals](https://www.python.org/dev/peps/)
 - P13N : personalization
 - pf : prefix | process flags ( for kernel )
 - PFAIL : Possibly Fail ( for Redis Cluster )
