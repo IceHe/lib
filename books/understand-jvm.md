@@ -1,4 +1,4 @@
-# Understanding Java Virtual Machine ( WIP )
+# Understanding Java Virtual Machine ( Part 1 )
 
 References
 
