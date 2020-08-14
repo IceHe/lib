@@ -1810,6 +1810,43 @@ _在 JDK 9 统一日志框架前后是如何获得垃圾收集器过程的相关
 - JDK 9 前 `-XX:+PrintTenuringDistribution`
 - JDK 9 后 **`-Xlog:gc+age*=trace`**
 
+JDK 9 前后日志参数变化
+
+|JDK 9 前日志参数|JDK 9 后配置形式|
+|-|-|
+|-XX:+G1PrintHeapRegions|-Xlog:gc+region=trace|
+|-XX:+G1PrintRegionLivenessInfo|-Xlog:gc+liveness=trace|
+|-XX:+GlSummarizeConcMark|-Xlog:gc+marking=trace|
+|-XX:+GlSummarizeRSetStats|-Xlog:gc+remset#=trace|
+|-XX:+GCLogFileSize-, NumberOfGCLogFiles, UseGCLogFileRotation|Xlog:gc*:file=\<file\>::filecount=\<count\>,filesize=\<file size in kb\>|
+|-XX:+PrintAdaptiveSizePolicy|-Xlog:gc+ergo*y=trace|
+|-XX:+PrintClassHistogramAfterFullGC|-Xlog:classhisto*=trace|
+|-XX:+PrintClassHistogramBeforeFullGC|-Xlog:classhisto*=trace|
+|-XX:+PrintGCApplicationConcurrentTime|-Xlog:safepoint|
+|-XX:+PrintGCApplicationStoppedTime|-Xlog:safepoint|
+|-XX:+PrintGCDateStamps|使用 time 修饰器|
+|-XX:+PrintGCTaskTimeStamps|-Xlog:gc+task=trace|
+|-XX:+PrintGCTimeStamps|使用 uptime 修饰器|
+|-XX:+PrintHeapAtGC|-Xlog:gc+heap=debug|
+|-XX:+PrintHeapAtGCExtended|-Xlog:gc+heap=trace|
+|-XX:+PrintJNIGCStalls|-XIog:gc+jni=debug|
+|-XX:+PrintOlIdPLAB|-Xlog:gc+plab=trace|
+|-XX:+PrintParallelOldGCPhaseTimes|-Xlog:gc+phases=trace|
+|-XX:+PrintPLAB|-Xlog:gc+plab=trace|
+|-XX:+PrintPromotionFailure|-Xlog:gc+promotion=debug|
+|-XX:+PrintReferenceGC|-Xlog:gc+ref=debug|
+|-XX:+PrintStringDeduplicationStatistics|-Xlog:gc+stringdedup|
+|-XX:+PrintTaskqueue|-Xlog:gc+task+stats=trace|
+|-XX:+PrintTenuringDistribution|-XIlog:gc+age=trace|
+|-XX:+PrintTerminationStats|-Xlog:gc+task+stats=debug|
+|-XX:+PrintTLAB|-Xlog:gc+tlab=trace|
+|-XX:+TraceAdaptiveGCBoundary|-Xlog:heap+ergo=debug|
+|-XX:+TraceDynamicGCThreads|-XIog:gc+task=trace|
+|-XX:+TraceMetadataHumongousAllocation|-Xlog:gc+metaspace+alloc=debug|
+|-XX:+G1TraceConcRefinement|-Xlog:gc+refine=debug|
+|-XX:+G1TraceEagerReclaimHumongousObjects|-Xlog:gc+humongous=debug|
+|-XX:+G1TraceStringSymbolTableScrubbing|-Xlog:gc+stringtable=trace|
+
 ## 虚拟机性能监控、故障处理工具
 
 - jps
