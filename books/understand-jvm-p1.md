@@ -1876,7 +1876,7 @@ JDK 9 前后日志参数变化
 |**ConcGCThreads=n**|**并发标记、并发整理的执行线程数**,<br/>对不同的收集器, 根据其能够并发的阶段, 有不同的含义|
 |**InitiatingHeapOccupancyPercent**|**设置触发标记周期的 Java 堆占用率阈值. 默认值是 45%**.<br/>这里的 java 堆占比指 non_young_capacity_bytes, 包括 old+humongous|
 
-|UseShenandoahGC|**使用 Shenandoah 收集器**.<br/>这个选项在OracleJDK中不被支持，只能在
+|UseShenandoahGC|**使用 Shenandoah 收集器**.<br/>这个选项在OracleJDK中不被支持, 只能在
 OpenJDK 12 或者某些支持Shenandoah的Backport发行版本使用。目前仍
 然要配合-XX:+Unlock ExperimentalVMOptions使用
 Shenandoah何时启动一次GC过程，其可选值有adaptive、static 、compact.
@@ -1888,7 +1888,6 @@ UseZGC
 启用NUMA内存分配支持，目前只有Parallel和ZGC支持，以后G1收
 UseNUMA
 集器可能也会支持该选项
-
 
 ## 虚拟机性能监控、故障处理工具
 
