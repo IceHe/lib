@@ -1861,37 +1861,22 @@ JDK 9 前后日志参数变化
 |MaxTenuringThreshold|**晋升到老年代的对象年龄**.<br/>每个对象在坚持过一次 Minor GC 之后, 年龄就增加 1 ,<br/>当超过这个参数值时就进入老年代|
 |UseAdaptiveSizePolicy|**动态调整 Java 堆中各个区域的大小以及进入老年代的年龄**|
 |HandlePromotionFailure|**是否允许分配担保失败**,<br/>即老年代的剩余空间不足以应付新生代的<br/>整个 Eden 和 Survivor 区的所有对象都存活的极端情况|
-|ParallelGCThreads|**设置并行 GC 时进行内存回收的线程数**|
-|GCTimeRatio|**GC 时间占总时间的比率, 默认值为 99**, 即允许 1% 的 GC 时间.<br/>仅在使用 Parallel Scavenge 收集器时生效|
-|MaxGCPauseMillis|**设置 GC 的最大停顿时间**.<br/>仅在使用 Parallel Scavenge 收集器时生效|
-|CMSInitiatingOccupancyFraction|**设置 CMS 收集器在老年代空间被使用多少后触发垃圾收集**.<br/>默认值为 68% , 仅在使用 CMS 收集器时生效|
+|ParallelGCThreads|_设置并行 GC 时进行内存回收的线程数_|
+|GCTimeRatio|_GC 时间占总时间的比率, 默认值为 99, 即允许 1% 的 GC 时间.<br/>仅在使用 Parallel Scavenge 收集器时生效_|
+|MaxGCPauseMillis|_设置 GC 的最大停顿时间.<br/>仅在使用 Parallel Scavenge 收集器时生效_|
+|CMSInitiatingOccupancyFraction|_设置 CMS 收集器在老年代空间被使用多少后触发垃圾收集**.<br/>默认值为 68% , 仅在使用 CMS 收集器时生效_|
+|UseCMSCompactAtFullCollection|_设置 CMS 收集器在完成垃圾收集后是否要进行一次内存碎片整理.<br/>仅在使用 CMS 收集器时生效, 此参数从 JDK 9 开始废弃_|
+|CMSFullGCsBeforeCompaction|_设置 CMS 收集器在进行若干次垃圾收集后再启动一次内存碎片整理.<br/>仅在使用CMS收集器时生效，此参数从JDK 9开始废弃_|
+|**UseG1GC**|**使用 G1 收集器, JDK 9 后的 Server 模式默认值**|
+|**G1HeapRegionSize=n**|**设置 Region 大小**, 并非最终值|
+|**MaxGCPauseMillis**|**设置 G1 收集过程目标时间, 默认值是 200ms**, 不是硬性条件|
+|**G1NewSizePercent**|**新生代最小值, 默认值是 5%**|
+|**G1MaxNewSizePercent**|**新生代最大值, 默认值是 60%**|
+|**ParallelGCThreads**|**用户线程冻结期间并行执行的收集器线程数**|
+|**ConcGCThreads=n**|**并发标记、并发整理的执行线程数**,<br/>对不同的收集器, 根据其能够并发的阶段, 有不同的含义|
+|**InitiatingHeapOccupancyPercent**|**设置触发标记周期的 Java 堆占用率阈值. 默认值是 45%**.<br/>这里的 java 堆占比指 non_young_capacity_bytes, 包括 old+humongous|
 
-UseCMSCompactAfulollection
-设置CMS收集器在完成垃圾收集后是否要进行一- 次内存碎片整理。仅在
-使用CMS收集器时生效，此参数从JDK 9开始废弃
-设置CMS收集器在进行若干次垃圾收集后再启动-一次内存碎片整理。仪
-CMSFullGCsBeforeCompaction
-在使用CMS收集器时生效，此参数从JDK 9开始废弃
-UseG1GC
-使用G1收集器，这个是JDK 9后的Server模式默认值
-GIHeapRegionSize=n
-设置Region大小，并非最终值
-MaxGCPauseMillis
-设置G1收集过程目标时间，默认值是200ms，不是硬性条件
-GINewSizePercent
-新生代最小值，默认值是5%
-GIMaxNewSizePercent
-新生代最大值，默认值是60%
-ParallelGCThreads
-用户线程冻结期间并行执行的收集器线程数
-并发标记、并发整理的执行线程数，对不同的收集器，根据其能够并发的
-ConcGCThreads=n
-阶段，有不同的含义
-设置触发标记周期的Java堆占用率阈值。默认值是45%。这里的java堆
-InitiatingHeapOccupancy Percent
-占比指的是non_ young_ capacity_ _bytes, 包括old+humongous
-使用Shenandoah收集器。这个选项在OracleJDK中不被支持，只能在
-UseShenandoahGC
+|UseShenandoahGC|**使用 Shenandoah 收集器**.<br/>这个选项在OracleJDK中不被支持，只能在
 OpenJDK 12 或者某些支持Shenandoah的Backport发行版本使用。目前仍
 然要配合-XX:+Unlock ExperimentalVMOptions使用
 Shenandoah何时启动一次GC过程，其可选值有adaptive、static 、compact.
