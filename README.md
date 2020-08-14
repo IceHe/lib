@@ -1,6 +1,6 @@
 # IceHe's Lib
 
-> [Welcome](/blog/welcome.md) - What is my Lib? Why I build?
+> [Welcome!](/blog/welcome.md) Here is my Library.
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
 - Author : [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
@@ -22,9 +22,9 @@
 
 Basics
 
-- _* [Linux Kernel](/books/linux.md) ( note-taking )_
-- _* [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( to read )_
-- [JVM - Java Virtual Machine](/books/understand-jvm.md) ( READING )
+- [JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC
+    - [Part I](/books/understand-jvm-p1.md) _( reading )_
+    - Part II _( to read )_ <!-- - [Part II](/books/understand-jvm-p2.md) -->
 - [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) - TOC
     - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
         - 1\. **Reliable**, **Scalable**, and Maintainable Applications
@@ -36,6 +36,8 @@ Basics
         - 9\. **Consistency** and **Consensus**
     - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
         - 10\. **Batch** Processing / 11\. **Stream** Processing / …
+- _* [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( to read )_
+- _* [Linux Kernel](/books/linux.md) ( note-taking )_
 
 <!-- - _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--     - _* [Part 1](/books/tcp-ip-illustracted-protocols-p1.md) ( to read )_ -->
@@ -486,7 +488,7 @@ Previous Blog : 2015 ~ 2017
 - [Jan Fan](http://janfan.cn/) : Good student / Tencent / Study @ Sweden
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent / Tubi
-- Me : A fool / Web Backend / Sina Weibo / Alibaba Local Life
+- Me : A fool / Java Backend / Sina Weibo / Alibaba Local Life
     <!-- - 思想上的巨人, 行动上的矮子 -->
 
 <!-- - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile -->
