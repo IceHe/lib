@@ -130,8 +130,8 @@ Keywords
 
 题外话 : **JVM 的 GC 释放的内存会还给操作系统吗？**
 
-- GC 后的内存如何处置，其实是取决于不同的垃圾回收器的。**因为把内存还给 OS，意味着要调整 JVM 的堆大小，这个过程是比较耗费资源的。**
-- 在 JDK 11 中，Java 引入了 ZGC，这是一款可伸缩的低延迟垃圾收集器，但是当时只是实验性的。并且，**ZGC 释放的内存是不会还给操作系统的。**
+- GC 后的内存如何处置, 其实是取决于不同的垃圾回收器的。**因为把内存还给 OS, 意味着要调整 JVM 的堆大小, 这个过程是比较耗费资源的。**
+- 在 JDK 11 中, Java 引入了 ZGC, 这是一款可伸缩的低延迟垃圾收集器, 但是当时只是实验性的。并且, **ZGC 释放的内存是不会还给操作系统的。**
 
 ### JVM 发展
 
@@ -172,7 +172,7 @@ _BEA Liquid VM / Azul VM_
 
 #### 即时编译器
 
-- _对需要长时间运行的应用来说，由于经过充分预热，热点代码会被 HotSpot 的探测机制准确定位捕获，并将其编译为物理硬件可直接执行的机器码_
+- _对需要长时间运行的应用来说, 由于经过充分预热, 热点代码会被 HotSpot 的探测机制准确定位捕获, 并将其编译为物理硬件可直接执行的机器码_
     - _在这类应用中 Java 的运行效率很大程度上取决于即时编译器所输出的代码质量_
 - **C1 编译器** : 编译时间短, 代码优化程度低 -- 客户端编译器
 - **C2 编译器** : 编译时间长, 代码优化程度高 -- 服务器编译器
@@ -416,7 +416,7 @@ JVM Runtime Data Area _( JVM 运行时数据区 )_
 如何保证能成功地并发分配内存
 
 - _对象创建 在虚拟机中是非常频繁的行为, 即使仅仅修改一个指针所指向的位置, 在并发情况下也并不是线程安全的_
-- _可能出现正在给对象 A 分配内存, 指针还没来得及修改，对象 B 又同时使用了原来的指针来分配内存的情况_
+- _可能出现正在给对象 A 分配内存, 指针还没来得及修改, 对象 B 又同时使用了原来的指针来分配内存的情况_
 - _有以下两个可选的解决方案 :_
     - A. 对分配内存空间的动作进行同步处理
         - 采用 **CAS 配上失败重试** 的方式保证更新操作的原子性
@@ -472,7 +472,7 @@ _对象自身的运行时数据_
         - _Mark Work 布局 & 每位的含义 : 32 位虚拟机的存储布局情况如下_
 
 ```cpp
-// Bit-format of an object header (most significant first，big endian layout below) :
+// Bit-format of an object header (most significant first, big endian layout below) :
 //
 // 32 bitst
 // hash:25 ------------>| age:4    biased_lock:1 lock:2 (normal object)
@@ -485,9 +485,9 @@ _对象自身的运行时数据_
 
 _2\. **Instance Data** ( 实例数据 )_
 
-- _实例数据部分是对象真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来_
+- _实例数据部分是对象真正存储的有效信息, 即我们在程序代码里面所定义的各种类型的字段内容, 无论是从父类继承下来的, 还是在子类中定义的字段都必须记录起来_
 - _这部分的存储顺序会受到虚拟机分配策略参数 ( `-XX: FieldsAllocationStyle` 参数 ) 和字段在 Java 源码中定义顺序的影响_
-- HotSpot 虚拟机默认的分配顺序为 longs/doubles, ints, shorts/chars, bytes/booleans, oops (Ordinary Object Pointers，OOPs) , 从以上默认的分配策略中可以看到, 相同宽度的字段总是被分配到一起存放, 在满足这个前提条件的情况下, 在父类中定义的变量会出现在子类之前
+- HotSpot 虚拟机默认的分配顺序为 longs/doubles, ints, shorts/chars, bytes/booleans, oops (Ordinary Object Pointers, OOPs) , 从以上默认的分配策略中可以看到, 相同宽度的字段总是被分配到一起存放, 在满足这个前提条件的情况下, 在父类中定义的变量会出现在子类之前
 - _如果 HotSpot 虚拟机的 `+XX: CompactFields` 参数值为 true ( 默认就为true ) , 那子类之中较窄的变量也允许插入父类变量的空隙之中, 以节省出一点占空间_
 
 ##### 对齐填充
@@ -711,14 +711,14 @@ _@Deprecated : 避免使用 finalize()_
 - 主要回收 : 废弃的常量 & 不再使用的类型
 - _方法区垃圾收集的 "性价比" 通常比较低_
     - _在 Java 8 中, 尤其是在新生代中, 对常规应用进行一次垃圾收集通常可以回收 70% ~ 99% 的内存空间_
-    - _相比之下, 方法区回收过于苛刻的判定条件，其区域垃圾收集的回收成果往往远低于此_
+    - _相比之下, 方法区回收过于苛刻的判定条件, 其区域垃圾收集的回收成果往往远低于此_
     - _存在实现方法区类型卸载的收集器 ( 如 JDK 11 时期的 ZGC 收集器就不支持类卸载 )_
 - 判定一个常量是否 "废弃" 还是相对简单, 而要判定一个类型是否属于 "不再被使用的类" 的条件就比较苛刻了. 需要同时满足下面三个条件:
     - 该类所有的实例都已经被回收
         - 也就是 Java 堆中不存在该类及其任何派生子类的实例
     - 加载该类的类加载器已经被回收
         - 这个条件除非是经过精心设计的可替换类加载器的场景
-        - 如 OSGi、JSP 的重加载等，否则通常是很难达成的
+        - 如 OSGi、JSP 的重加载等, 否则通常是很难达成的
     - 该类对应的 java.lang.Class 对象没有在任何地方被引用, 无法在任何地方通过反射访问该类的方法
 - 在大量使用反射、动态代理、CGLib 等字节码框架, 动态生成 JSP 以及 OSGi 这类频繁自定义类加载器的场景中
     - 通常都需要 Java 虚拟机具备类型卸载的能力, 以保证不会对方法区造成过大的内存压力
@@ -858,8 +858,8 @@ GC Roots 枚举
         - 因为根节点集合的引用关系在这个过程中一旦变化, 分析结果就保证不了正确
 - HotSpot VM 使用一组成为 **OopMap ( Oridinary Object Pointer Map )** 来达到检查执行上下文的引用位置
     - _一旦类加载动作完成时, HotSpot 就会把对象内什么偏移量上是什么类型的数据计算出来_
-    - _在即时编译 ( JIT ) 过程中，也会在特定的位置记录下 栈里和寄存器里 哪些位置是引用 ( OOP )_
-    - _这样收集器在扫描时就可以直接得知这些信息了，并不需要真正一个不漏地从方法区等 GC Roots 开始查找_
+    - _在即时编译 ( JIT ) 过程中, 也会在特定的位置记录下 栈里和寄存器里 哪些位置是引用 ( OOP )_
+    - _这样收集器在扫描时就可以直接得知这些信息了, 并不需要真正一个不漏地从方法区等 GC Roots 开始查找_
 
 #### 安全点
 
@@ -1371,7 +1371,7 @@ _History_
 
 - Rodney A. Brooks 使用 **Forwarding Pointer** _( 转发指针, aka. Indirection Pointer )_ 来实现对象移动与用户程序并发的一种解决方案
     - 在原有对象布局结构的 ( Object Header ) 最前面统一增加一个新的引用字段 Forwarding Pointer
-    - 在正常不处于并发移动的情况下，该引用指向对象自己 _( 见下图 )_
+    - 在正常不处于并发移动的情况下, 该引用指向对象自己 _( 见下图 )_
 - _从结构上来看, Brooks 提出的转发指针与某些早期 Java VM 使用过的 Handle 定位有一些相似之处, 两者都是一种间接性的对象访问方式_
     - _差别是 Handle 通常会统一存储在专门的 **Handle Pool ( 句柄池 )** 中, 而 Forwarding Pointer 分散存放在每个 Object Header 前面_
     - _所有间接对象访问技术的缺点都是相同的, 也是非常显著的 --_ 每次对象访问会带来一次额外的转向开销, _尽管这个开销已经被优化到只有一行汇编指令的程度_
@@ -1496,7 +1496,7 @@ HotSpot VM 的几种收集器有不同的标记实现方案
 - 有的把 Marks 直接记录在 Object Header 上
     - 例如 Serial Collector
 - 有的把 Marks 记录在与 Object 相互独立的数据结构上
-    - 例如 G1 & Shenandoah 使用了一种相当于堆内存的 1/64 大小的，称为BitMap 的结构来记录标记信息
+    - 例如 G1 & Shenandoah 使用了一种相当于堆内存的 1/64 大小的, 称为BitMap 的结构来记录标记信息
 - 而 ZGC 的 Colored Pointer 是最直接的、最纯粹的, 它 **直接把标记信息记在引用对象的 Pointer 上**
     - 这时, 与其说可达性分析是遍历对象图来标记对象, 还不如说是 **遍历 Reference Graph 来标记 Reference 了**
 
@@ -1544,7 +1544,7 @@ _Colored Pointer 是一种直接将少量额外的信息存储在 Pointer 上的
     - _如果将这些信息直接维护到指针中, 显然就可以省去一些专门的记录操作_
     - _目前为止, ZGC 都并未使用任何 Write Barrier, 只使用了 Read Barrier_
         - _不只因为 Colored Pointer, 还因为 ZGC 暂不支持分代收集, 所以没有跨代收集的问题_
-- 可以作为一种可拓展的存储结构用来记录更多与对象标记、重定位过程相关的数据，以便日后进一步提高性能
+- 可以作为一种可拓展的存储结构用来记录更多与对象标记、重定位过程相关的数据, 以便日后进一步提高性能
     - _现在 Linux 下的 64 位指针还有前 18 位并未使用, 它们虽然不能用来寻址, 却可以通过其它手段用于信息记录_
     - _如果开发了这 18 位, 既可以腾出已用的 4 个标志位, 将 ZGC 可支持的最大 Heap 内存从 4 TB 拓展到 64 TB, 也可以利用其余位置再存储更多的标志_
         - _譬如, 存储一些追踪信息来让垃圾收集器在移动 Object 时能将低频次使用的 Object 移动到不常访问的内存区域。_
@@ -1564,14 +1564,14 @@ _无论中间过程如何, 程序代码最终都要转换为机器指令流交�
 虛拟内存映射技术 _是 x86 计算机体系中的经典设计_
 
 - 处理器会使用 Paging Management Mechanism _( 分页管理机制 )_ 把 Linear Address Space _( 线性地址空间 )_ 和 Physical Address Space _( 物理地址空间 )_ 分别划分为大小相同的块, 这样的内存块被称为 Page _( 页 )_
-- 通过在 Linear Address Space 的 Page 与 Physical Address Space 的 Page 之间建立的 mapping 表, Paging Management Mechanism 会进行 Linear Address Space 到 Physical Address Space 的 Mapping，完成 Linear Address 到 Physical Address 的转换
+- 通过在 Linear Address Space 的 Page 与 Physical Address Space 的 Page 之间建立的 mapping 表, Paging Management Mechanism 会进行 Linear Address Space 到 Physical Address Space 的 Mapping, 完成 Linear Address 到 Physical Address 的转换
 
 ZGC 的 Colored Pointer 在 Linux / x86-64 平台下的底层实现
 
 - 使用了 **Multi-Mapping** _( 多重映射 )_ **将多个不同的 Virtual Memory Address 映射到同一个 Physical Memory Address 上**
     - _这是一种 "many-to-one mapping", 意味着 ZGC 在 Virtual Memory 中看到的 Address Space 要比实际的 Heap 内存容量来得更大_
     - 把 Colored Pointer 中的标志位看作是 Address 的分段符, 那只要将这些不同的地址段都映射到同一个 Physical Memory Space
-    - _经过 Multi-Mapping 转换后，就可以使用 Colored Pointer 正常进行 addressing 了,_ _效果见下图_
+    - _经过 Multi-Mapping 转换后, 就可以使用 Colored Pointer 正常进行 addressing 了,_ _效果见下图_
 
 ![multi-mapping.png](_images/understand-jvm/multi-mapping.png)
 
@@ -1600,14 +1600,14 @@ ZGC 运作过程
     - _因此,_ ZGC 的 Relocation Set 只是决定了里面的存活 Object 会被重新复制到其它的 Region 中, 里面的 Region 会被释放
         - 而并不能说回收行为就只是针对这个集合里面的 Region 进行, 因为标记过程是针对全堆的
         - _( icehe : Marking 是针对全 Heap 进行的操作; Relocation Set 只是决定将哪些 Region 中的存活 Object 复制到其它 Region, 然后再释放这些 Region )_
-        - _此外，在 JDK 12 的 ZGC 中开始支持的类卸载以及弱引用的处理, 也是在这个阶段中完成的_
+        - _此外, 在 JDK 12 的 ZGC 中开始支持的类卸载以及弱引用的处理, 也是在这个阶段中完成的_
 - **Pause Relocate Start** _( 短暂停顿的 "初始重分配" )_
     - icehe : 应该类似于 G1 & Shenandoah 的 Initial Update Reference _( 初始引用更新 )_ 阶段?
 - **Concurrent Relocate** _( 并发重分配 )_
     - _Relocate 是 ZGC 执行过程中的核心阶段_
     - **要把 Relocation Set 中的存活的 Object 复制到新的 Region 上**
         - **并为 Relocation Set 中的每个 Region 维护一个 <u>Forward Table _( 转发表 )_</u> , 记录从旧 Object 到新 Object 的转向关系**
-    - 得益于 Colored Pointer 的支持，ZGC 收集器能仅从 Reference 上就明确得知一个 Object 是否处于 Relocation Set 之中
+    - 得益于 Colored Pointer 的支持, ZGC 收集器能仅从 Reference 上就明确得知一个 Object 是否处于 Relocation Set 之中
         - ZGC 的 Pointer **Self-Healing _( 自愈 )_** 能力
             - **如果用户线程此时并发访问了位于 Relocation Set 中的对象, 这次访问将会被预置的 Memory Barrier 所截获**
             - **然后立即根据 Region 上的 Forward Table 记录将访问转发到新复制的 Object 上**
@@ -1624,7 +1624,7 @@ ZGC 运作过程
         - Remap 清理这些旧 Reference 的主要目的是为了不变慢 _( 还有清理结束后可以释放 Forward Table 这样的附带收益 )_
     - **ZGC 很巧妙地把 Concurrent Remap 阶段要做的工作, 合并到了下一次 GC 循环中的 Concurrent Mark 阶段里去完成**
         - 反正它们都是要遍历所有 Object 的, 这样合并就节省了一次遍历 Object Graph 的开销
-        - **一旦所有 Pointer 都被修正之后，原来记录新旧 Object 关系的 Forward Table 就可以释放掉了**
+        - **一旦所有 Pointer 都被修正之后, 原来记录新旧 Object 关系的 Forward Table 就可以释放掉了**
 
 ![zgc-running.png](_images/understand-jvm/zgc-running.png)
 
@@ -1644,7 +1644,7 @@ ZGC 运作过程
 
 解决办法
 
-- _目前唯一的办法 :_ **尽可能地增加 Heap 容量大小，获得更多喘息的时间**
+- _目前唯一的办法 :_ **尽可能地增加 Heap 容量大小, 获得更多喘息的时间**
 
 改进方向
 
@@ -1661,7 +1661,7 @@ _其它优点_
     - **NUMA ( Non-Uniform Memory Access, 非统一内存访问架构 )** _是一种为多处理器或者多核处理器的计算机所设计的内存架构_
     - _由于摩尔定律逐渐失效, 现代处理器因频率发展受限转而向多核方向发展_
     - _以前原本在北桥芯片中的内存控制器也被集成到了处理器内核中, 这样每个处理器核心所在的裸晶 ( DIE, 集成电路? ) 都有属于自己内存管理器所管理的内存_
-    - _如果要访问被其他处理器核心管理的内存，就必须通过 Inter-Connect 通道来完成，这要比访问处理器的本地内存慢得多_
+    - _如果要访问被其他处理器核心管理的内存, 就必须通过 Inter-Connect 通道来完成, 这要比访问处理器的本地内存慢得多_
     - **在 NUMA 架构下, ZGC 收集器会优先尝试在请求线程当前所处的处理器的本地内存上分配对象, 以保证高效内存访问**
     - _在 ZGC 之前的收集器就只有针对吞吐量设计的 Parallel Scavenge 支持 NUMA 内存分配_
 
@@ -1670,8 +1670,8 @@ _从官方给出的测试结果来看, 用 "令人震惊的、革命性的 ZGC" 
 - _以下两图是 ZGC 与 Pallel Scavenge、G1 三款收集器通过 SPECjbb 2015 的测试结果_
     - 在 ZGC 的 "弱项" Throughput 方面, 以 Low Pause 为首要目标的 **ZGC 已经达到了以高吞吐量为目标 Parallel Scavenge 的 99% , 直接超越了 G1**
         - 如果将 Throughput 测试设定为面向 SLA ( Service Level Ageements ) 应用的 "Critical Throughput" 的话, ZGC 的表现甚至还反超了 Parallel Scavenge 收集器
-    - 而在 ZGC 的强项 Pause Time 测试上，它就毫不留情地 **与 Parlel Scavenge、G1 拉开了两个数量级的差距**
-    - 不论是平均停顿，还是 95% Pause 、99% Pause 、 99.9% Pause , 抑或是 Max Pause Time , ZGC 均能毫不费劲地控制在 10 ms 之内
+    - 而在 ZGC 的强项 Pause Time 测试上, 它就毫不留情地 **与 Parlel Scavenge、G1 拉开了两个数量级的差距**
+    - 不论是平均停顿, 还是 95% Pause 、99% Pause 、 99.9% Pause , 抑或是 Max Pause Time , ZGC 均能毫不费劲地控制在 10 ms 之内
         - _以至于把它和另外两款停顿数百近千毫秒的收集器放到一起对比, 就几乎显示不了 ZGC 的柱状条, 必须把结果的纵坐标从线性尺度调整成对数尺度 ( 纵坐标轴的尺度是对数增长的 ) 才能观察到 ZGC 的测试结果_
 
 ![zgc-throughput-test.png](_images/understand-jvm/zgc-throughput-test.png)
@@ -1690,7 +1690,7 @@ Situation
 
 - 很长一段时间以来, Java 技术体系的发展重心都在面向 **长时间、大规模的企业级应用和服务端应用**
     - _可是近年来大型系统从传统单体应用向微服务化、无服务化方向发展的趋势已越发明显_
-    - _Java 在这方面比起 Golang 等后起之秀来确实有一些先天不足，使用率正渐渐下降_
+    - _Java 在这方面比起 Golang 等后起之秀来确实有一些先天不足, 使用率正渐渐下降_
 - 传统 Java 有着 **内存占用较大, 在容器中启动时间长, 即时编译需要缓慢优化** 等特点
     - _这对大型应用来说并不是什么太大的问题, 但对短时间、小规模的服务形式就有诸多不适_
     - _为了应对新的技术潮流, 最近几个版本的 JDK 逐渐加入了 **提前编译、面向应用的类数据共享** 等支持_
@@ -1727,11 +1727,26 @@ _使用 JDK 的发行商是什么? 版本号 是多少_
     - 那 ZGC 就无缘了, 试试 **Shenandoah** 吧
 - 如果接手的是遗留系统, **软硬件基础设施和 JDK 版本都比较落后**, 那就根据内存规模衡量一下
     - 对于大概 **4GB 到 6GB 以下的 Heap 内存**, **CMS** 一般能处理得比较好
-    - **而对于更大的堆内存**，可重点考察一下 **G1**
+    - **而对于更大的堆内存**, 可重点考察一下 **G1**
 
 #### VM & GC Log
 
-- 略
+_直到 JDK 9 ,_ HotSpot VM 所有功能的日志都收归到了 `-Xlog` 参数上
+
+```bash
+-Xlog[:[selector][:[output][:[decorators] [:output-options]]]]
+```
+
+命令行中最关键的参数是选择器 `[Selector]` , 它由 **Tag** ( 标签 ) 和 **Level** ( 日志级别 ) 共同组成
+
+- Tag : 可理解为虚拟机中某个功能模块的名字, 它告诉日志框架用户希望得到虚拟机哪些功能的日志输出
+    - 垃圾收集器的标签名称为 `gg` , 垃圾收集器日志只是 HotSpot 众多功能日志的其中一项
+    - 全部支持的功能模块标签名如下所示:
+
+```bash
+add, age, alloc, annotation, aot, arguments, attach, barrier, biasedlocking, blocks, bot, breakpoint, …, gc, …
+```
+
 
 ## 虚拟机性能监控、故障处理工具
 
