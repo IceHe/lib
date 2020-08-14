@@ -1854,27 +1854,18 @@ JDK 9 前后日志参数变化
 |UseSerialGC|使用 **Serial + Serial Old** 的收集器组合进行内存回收,<br/>**VM 运行在 Client 模式下的默认值**|
 |_UseParNewGC_|_使用 ParNew + Serial Old 的收集器组合进行内存回收,<br/>在 JDK 9 后不再支持_|
 |UseConcMarkSweepGC|使用 **ParNew + CMS + Serial Old** 的收集器组合进行内存回收,<br/>Serial Old 收集器将作为 CMS 收集器出现<br/>"Concurrent Mode Failure" 失败后的后备收集器使用|
-|UseParallelGC|使用 **Parallel Scavenge + Serial Old ( PS MarkSweep )** 的收集器组合进行内存回收,<br/>**JDK 9 之前 VM 运行在 Server 模式下的默认值**|
+|UseParallelGC|使用 **Parallel Scavenge + Serial Old ( PS MarkSweep )**<br/>的收集器组合进行内存回收,<br/>**JDK 9 之前 VM 运行在 Server 模式下的默认值**|
 |UseParallelOldGC|使用 **Parallel Scavenge + Parallel Old** 的收集器组合进行内存回收|
-|SurvivorRatio|**新生代中 Eden 区域与 Suvivor 区域的容量比值**,<br/>默认为 8 , 代表 Eden : Survivor = 8 : 1|
+|SurvivorRatio|**新生代中 Eden 区域与 Suvivor 区域的容量比值**,<br/>**默认为 8** , 代表 Eden : Survivor = 8 : 1|
 |PretenureSizeThreshold|**直接晋升到老年代的对象大小**.<br/>设置这个参数后, 大于该参数的对象将直接在老年代分配|
-|MaxTenuringThreshold|**晋升到老年代的对象年龄**.<br/>每个对象在坚持过一次 Minor GC 之后, 年龄就增加1, 当超过这个参数值时就进入老年代|
+|MaxTenuringThreshold|**晋升到老年代的对象年龄**.<br/>每个对象在坚持过一次 Minor GC 之后, 年龄就增加 1 ,<br/>当超过这个参数值时就进入老年代|
+|UseAdaptiveSizePolicy|**动态调整 Java 堆中各个区域的大小以及进入老年代的年龄**|
+|HandlePromotionFailure|**是否允许分配担保失败**,<br/>即老年代的剩余空间不足以应付新生代的<br/>整个 Eden 和 Survivor 区的所有对象都存活的极端情况|
+|ParallelGCThreads|**设置并行 GC 时进行内存回收的线程数**|
+|GCTimeRatio|**GC 时间占总时间的比率, 默认值为 99**, 即允许 1% 的 GC 时间.<br/>仅在使用 Parallel Scavenge 收集器时生效|
+|MaxGCPauseMillis|**设置 GC 的最大停顿时间**.<br/>仅在使用 Parallel Scavenge 收集器时生效|
+|CMSInitiatingOccupancyFraction|**设置 CMS 收集器在老年代空间被使用多少后触发垃圾收集**.<br/>默认值为 68% , 仅在使用 CMS 收集器时生效|
 
-UseAdaptiveSizePolicy
-动态调整Java堆中各个区域的大小以及进人老年代的年龄
-是否允许分配担保失败，即老年代的剩余空间不足以应付新生代的整个
-HandlePromotionF ailure
-Eden和Survivor区的所有对象都存活的极端情况
-ParallelGCThreads
-设置并行GC时进行内存回收的线程数
-GC时间占总时间的比率，默认值为99，即允许1%的GC时间。仅在使
-GCTimeRatio
-用Parallel Scavenge收集器时生效
-MaxGCPauseMillis
-设置GC的最大停顿时间。仅在使用Parallel Scavenge收集器时生效
-CMSInitiatingOccupancyF raction
-设置CMS收集器在老年代空间被使用多少后触发垃圾收集。默认值为
-68%，仅在使用CMS收集器时生效
 UseCMSCompactAfulollection
 设置CMS收集器在完成垃圾收集后是否要进行一- 次内存碎片整理。仅在
 使用CMS收集器时生效，此参数从JDK 9开始废弃
