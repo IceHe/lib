@@ -1731,22 +1731,84 @@ _使用 JDK 的发行商是什么? 版本号 是多少_
 
 #### VM & GC Log
 
+##### Basics
+
 _直到 JDK 9 ,_ HotSpot VM 所有功能的日志都收归到了 `-Xlog` 参数上
 
 ```bash
 -Xlog[:[selector][:[output][:[decorators] [:output-options]]]]
 ```
 
-命令行中最关键的参数是选择器 `[Selector]` , 它由 **Tag** ( 标签 ) 和 **Level** ( 日志级别 ) 共同组成
+_命令行中最关键的参数是选择器 `[Selector]` , 它由 **Tag** ( 标签 ) 和 **Level** ( 日志级别 ) 共同组成_
 
 - Tag : 可理解为虚拟机中某个功能模块的名字, 它告诉日志框架用户希望得到虚拟机哪些功能的日志输出
-    - 垃圾收集器的标签名称为 `gg` , 垃圾收集器日志只是 HotSpot 众多功能日志的其中一项
-    - 全部支持的功能模块标签名如下所示:
+    - _垃圾收集器的标签名称为 `gg` , 垃圾收集器日志只是 HotSpot 众多功能日志的其中一项_
+    - _全部支持的功能模块标签名如下所示 :_
 
 ```bash
 add, age, alloc, annotation, aot, arguments, attach, barrier, biasedlocking, blocks, bot, breakpoint, …, gc, …
 ```
 
+- Level : 日志级别从低到高, 共有 **Trace, Debug, Info, Warning, Error, Off** 等 6 种级别
+    - _日志级别决定了输出信息的详细程度,_ **默认级别为 Info**
+    - _HotSpot 的日志规则与 Log4j、SLF4j 这类 Java 日志框架大体上一致_
+    - 另外, 还可以使用 **Decorator ( 修饰器 ) 来要求每行日志输出都附加上额外的内容**, _支持附在日志行上的信息包括:_
+        - **time : 当前日期和时间**
+        - uptime : VM 启动到现在经过的时间, 以秒为单位
+        - _timemillis : 当前时间的毫秒数, 相当于 `System.currentTimeMillis()` 的输出_
+        - _uptimemillis : 虚拟机启动到现在经过的毫秒数_
+        - _timenanos: 当前时间的纳秒数, 相当于 `System.nanoTime()` 的输出_
+        - _uptimenanos : 虚拟机启动到现在经过的纳秒数_
+        - pid : 进程 ID
+        - tid : 线程 ID
+        - **level : 日志级别**
+        - tags : 日志输出的标签集
+    - 如果不指定, 默认值是 **uptime、level、tag** 这三个, _此时日志输出类似于以下形式:_
+
+```bash
+[3.080s] [info] [gc,cpu] gc(5) user=0.03s sys=0.00s real=0.01s
+```
+
+##### GC Log
+
+_在 JDK 9 统一日志框架前后是如何获得垃圾收集器过程的相关信息?_
+
+- _以下均以 JDK 9 的 G1 收集器为例_
+    - **JDK 9 下默认收集器就是 G1**, _所以命令行中没有指定收集器_
+- _命令行输出示例 : 以下暂略_
+
+查看 **GC 基本信息**
+
+- JDK 9 前 `-XX:+PrintGC`
+- JDK 9 后 **`-Xlog:gc`**
+
+查看 **GC 详细信息**
+
+- JDK 9 前 `-XX:+PrintGCDetails`
+- JDK 9 后 **`-Xlog:gc*`**
+    - 用通配符 `*` 将 GC Tag 下所有细分过程都打印出来
+    - _如果把日志级别调整到 Debug 或者 Trace, 还将获得更多细节信息_
+
+查看 **GC 前后的 Heap & Method Area 可用容量变化**
+
+- JDK 9 前 `-XX:+PrintHeapAtGC`
+- JDK 9 后 **`-Xlog:gc+heap=debug`**
+
+查看 **GC 过程中用户线程 Concurrent Time _( 并行时间 )_ 以及 Pause Time**
+
+- JDK 9 前 `-XX:+PrintApplicationConcurrentTime` & `-XX:+PrintGCApplicationStoppedTime`
+- JDK 9 后 **`-Xlog:Safepoint`**
+
+查看 **收集器 Ergonomics 机制自动调节的相关信息**
+
+- JDK 9 前 `-XX:+PrintAdaptiveSizePolicy`
+- JDK 9 后 **`-Xlog:gc+ergo*=trace`**
+    - _**Ergonomics 机制 : 自动设置堆空间各分代区域大小、收集目标等内容**, 从 Parallel 收集器开始支持_
+
+查看 熬过 GC 后剩余对象的年龄分布信息
+
+- JDK 9 前 `-XX:+PrintTenuringDistribution`
+- JDK 9 后 **`-Xlog:gc+age*=trace`**
 
 ## 虚拟机性能监控、故障处理工具
 
