@@ -1864,7 +1864,7 @@ JDK 9 前后日志参数变化
 |ParallelGCThreads|_设置并行 GC 时进行内存回收的线程数_|
 |GCTimeRatio|_GC 时间占总时间的比率, 默认值为 99, 即允许 1% 的 GC 时间.<br/>仅在使用 Parallel Scavenge 收集器时生效_|
 |MaxGCPauseMillis|_设置 GC 的最大停顿时间.<br/>仅在使用 Parallel Scavenge 收集器时生效_|
-|CMSInitiatingOccupancyFraction|_设置 CMS 收集器在老年代空间被使用多少后触发垃圾收集**.<br/>默认值为 68% , 仅在使用 CMS 收集器时生效_|
+|CMSInitiatingOccupancyFraction|_**设置 CMS 收集器在老年代空间被使用多少后触发垃圾收集**.<br/>默认值为 68% , 仅在使用 CMS 收集器时生效_|
 |UseCMSCompactAtFullCollection|_设置 CMS 收集器在完成垃圾收集后是否要进行一次内存碎片整理.<br/>仅在使用 CMS 收集器时生效, 此参数从 JDK 9 开始废弃_|
 |CMSFullGCsBeforeCompaction|_设置 CMS 收集器在进行若干次垃圾收集后再启动一次内存碎片整理.<br/>仅在使用CMS收集器时生效，此参数从JDK 9开始废弃_|
 |**UseG1GC**|**使用 G1 收集器, JDK 9 后的 Server 模式默认值**|
@@ -1875,19 +1875,10 @@ JDK 9 前后日志参数变化
 |**ParallelGCThreads**|**用户线程冻结期间并行执行的收集器线程数**|
 |**ConcGCThreads=n**|**并发标记、并发整理的执行线程数**,<br/>对不同的收集器, 根据其能够并发的阶段, 有不同的含义|
 |**InitiatingHeapOccupancyPercent**|**设置触发标记周期的 Java 堆占用率阈值. 默认值是 45%**.<br/>这里的 java 堆占比指 non_young_capacity_bytes, 包括 old+humongous|
-
-|UseShenandoahGC|**使用 Shenandoah 收集器**.<br/>这个选项在OracleJDK中不被支持, 只能在
-OpenJDK 12 或者某些支持Shenandoah的Backport发行版本使用。目前仍
-然要配合-XX:+Unlock ExperimentalVMOptions使用
-Shenandoah何时启动一次GC过程，其可选值有adaptive、static 、compact.
-ShenandoahGCHeuristics
-passive、aggressive
-使用ZGC收集器，目前仍然要配合-Xx:+UnlockExperimentalVMOptions
-UseZGC
-使用
-启用NUMA内存分配支持，目前只有Parallel和ZGC支持，以后G1收
-UseNUMA
-集器可能也会支持该选项
+|UseShenandoahGC|**使用 Shenandoah 收集器**.<br/>该选项在 OracleJDK 中不被支持, 只能在 OpenJDK 12<br/>_或者某些支持 Shenandoah 的 Backport 发行版本使用._<br/>_目前仍然要配合 `-XX:+UnlockExperimentalVMOptions` 使用_|
+|ShenandoahGCHeuristics|Shenandoah 何时启动一次 GC 过程,<br/>其可选值有 adaptive / static / compact / passive / aggressive|
+|**UseZGC**|**使用 ZGC 收集器**,<br/>目前仍然要配合 `-XX:+UnlockExperimentalVMOptions` 使用|
+|**UseNUMA**|**启用 NUMA 内存分配支持**,<br/>目前只有 Parallel 和 ZGC 支持, _以后 G1 收集器可能也会支持该选项_|
 
 ## 虚拟机性能监控、故障处理工具
 
