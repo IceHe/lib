@@ -1880,6 +1880,10 @@ JDK 9 前后日志参数变化
 |**UseZGC**|**使用 ZGC 收集器**,<br/>目前仍然要配合 `-XX:+UnlockExperimentalVMOptions` 使用|
 |**UseNUMA**|**启用 NUMA 内存分配支持**,<br/>目前只有 Parallel 和 ZGC 支持, _以后 G1 收集器可能也会支持该选项_|
 
+### 实战 : 内存分配与回收策略
+
+TODO
+
 ## 虚拟机性能监控、故障处理工具
 
 - jps
