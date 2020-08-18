@@ -1911,7 +1911,7 @@ Analysis
     - **所以只好通过分配担保机制提前转移到老年代去**
 - 这次收集结束后, 4MB 的 allocation4 对象顺利分配在 Eden 中
     - 因此程序执行完的结果是 Eden 占用 4MB ( 被 allocation4 占用 ) , Survivor 空闲, 老年代被占用 6MB (被allocation1、2、3占用)
-    - 通过 GC 日志可以证实这一点
+    - _通过以上 GC 日志可以证实这一点_
 
 #### TODO
 
