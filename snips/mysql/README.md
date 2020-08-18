@@ -74,6 +74,30 @@ Sth. was moved to [init.md](/snips/mysql/init.md).
 
 ### Interact
 
+#### Info
+
+Version
+
+```bash
+show variables like '%version%'
+```
+
+_Output_
+
+|innodb_version|5.6.16|
+|-|-|
+|protocol_version|10|
+|slave_type_conversions|""|
+|tls_version|"TLSv1,TLSv1.1,TLSv1.2"|
+|tokudb_version|7.5.6|
+|version|5.6.16-log|
+|version_comment|Source distribution|
+|version_compile_compiler|GNU|
+|version_compile_compiler_major|4|
+|version_compile_compiler_minor|8|
+|version_compile_machine|x86_64|
+|version_compile_os|Linux|
+
 #### Databases
 
 Show
