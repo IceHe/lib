@@ -1894,6 +1894,25 @@ _output :_
 
 [File : NewGenerationMinorGC.out](src/understand-jvm/NewGenerationMinorGC.out ':include :type=code bash')
 
+Analysis
+
+- 目标 : 尝试分配 3 个 2MB 大小和 1 个 4MB 大小的对象
+- 在运行时通过 `-Xms20M  -Xmx20M -Xmn10M` 这些参数限制了 Java 堆大小为 20MB , 不可扩展
+    - **其中 10MB 分配给新生代, 剩下的 10MB 分配给老年代**
+- `-XX:SurvivorRatio=8` 决定了新生代中 Eden 区与 1 个 Survivor 区的空间比例是 8 : 1
+    - 从输出的结果也清晰地看到 `eden space 8192K, from space 1024K, to space 1024K` 的信息
+    - **新生代总可用空间为 9216KB ( 1 个 Eden 区 + 1 个 Survivor 区的总容量 )**
+- 执行中分配 allocation4 对象的语句时会发生一次 Minor GC
+    - 这次回收的结果是新生代从 6MB 左右变为 1MB 不到，而总内存占用量则几乎没有减少
+    - 因为 allocation1、2、3 等 3 个对象都是存活的, 虚拟机几乎没有找到可回收的对象
+- 产生这次 GC 的原因是为 allocation4 分配内存时新生代内存不足
+    - **Eden 已经被占用了 6MB , 剩余空间已不足以分配 allocation4 所需的 4MB 内存, 因此发生 Minor GC**
+    - 垃圾收集期间虚拟机又发现 **已有的 3 个 2MB 大小的对象全部无法放入 Survivor 空间 ( Survivor 空间只有 1MB 大小 )**
+    - **所以只好通过分配担保机制提前转移到老年代去**
+- 这次收集结束后, 4MB 的 allocation4 对象顺利分配在 Eden 中
+    - 因此程序执行完的结果是 Eden 占用 4MB ( 被 allocation4 占用 ) , Survivor 空闲, 老年代被占用 6MB (被allocation1、2、3占用)
+    - 通过 GC 日志可以证实这一点
+
 #### TODO
 
 ## 虚拟机性能监控、故障处理工具
