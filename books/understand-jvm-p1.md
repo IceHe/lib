@@ -532,6 +532,7 @@ JVM 参数
 
 - `-Xms` 设置 堆的最小值, 例如 -Xms20m
 - `-Xmx` 设置 堆的最大值, 例如 -Xmx4g
+- `-Xmn` 设置 新生代的大小
 - `-Xss` 设置 栈容量, 例如 -Xss128k
     - 不同版本的 JVM 和操作系统, 栈容量最小值限制有所不同
         - JDK 11
@@ -1882,7 +1883,18 @@ JDK 9 前后日志参数变化
 
 ### 实战 : 内存分配与回收策略
 
-TODO
+- 本节出现的代码如无特别说明, 均使用 HotSpot VM, 以客户端模式运行
+- 本节验证的实际是使用 Serial + Serial Old 客户端默认收集器组合下的内存分配和回收的策略
+
+#### 对象优先在 Eden 分配
+
+[File : NewGenerationMinorGC.java](src/understand-jvm/NewGenerationMinorGC.java ':include :type=code java')
+
+_output :_
+
+[File : NewGenerationMinorGC.out](src/understand-jvm/NewGenerationMinorGC.out ':include :type=code bash')
+
+#### TODO
 
 ## 虚拟机性能监控、故障处理工具
 
