@@ -1917,6 +1917,14 @@ Analysis
 
 长期存活的对象将进入老年代
 
+- VM 给每个对象定义了一个对象年龄 ( Age ) 计数器, 存储在对象头中
+    - 对象通常在 Eden 区里诞生
+    - 如果经过第一次 Minor GC 后仍然存活, 并且能被 Survivor 容纳的话,
+    - 该对象会被移动到 Survivor 空间中, 并且将其对象年龄设为 1 岁
+- **对象在 Survivor 区中每熬过一次 Minor GC, 年龄就增加 1 岁**
+    - **当它的年龄增加到一定程度 ( 默认为 15 ) , 就会被晋升到老年代中**
+    - **通过参数 `-XX:MaxTenuringThreshold` 设置对象晋升老年代的年龄阈值**
+
 [File : New2OldGeneration.java](src/understand-jvm/New2OldGeneration.java ':include :type=code java')
 
 _output :_
@@ -1937,6 +1945,34 @@ Analysis
     - 新生代己使用的内存在 GC 以后非常干净地变成 0KB
 - 当 `-XX:MaxTenuringThreshold=15` 时
     - 第二次 GC 发生后, allocation1 对象则还留在新生代 Survivor 空间, 这时新生代仍然有 404KB 被占用。
+
+#### 动态对象年龄判断
+
+Sample 1
+
+[File : New2OldGenDynamicStd.java](src/understand-jvm/New2OldGenDynamicStd.java ':include :type=code java')
+
+_output :_
+
+[File : New2OldGenDynamicStd.out](src/understand-jvm/New2OldGenDynamicStd.out ':include :type=code bash')
+
+Sample 2
+
+[File : New2OldGenDynamicStd2.java](src/understand-jvm/New2OldGenDynamicStd2.java ':include :type=code java')
+
+_output :_
+
+[File : New2OldGenDynamicStd2.out](src/understand-jvm/New2OldGenDynamicStd2.out ':include :type=code bash')
+
+Analysis
+
+- _为了能更好地适应不同程序的内存状况, HotSpot VM 并不是永远要求对象的年龄必须达到 `-XX: MaxTenuringThreshold` 才能晋升老年代_
+- **如果在 Survivor 空间中相同年龄所有对象大小的总和大于 Survivor 空间的一半,**
+    - **年龄大于或等于该年龄的对象就可以直接进入老年代, 无须等到 `-XX:MaxTenuringThreshold` 中要求的年龄**
+- _执行以上代码发现运行结果中 Survivor 占用仍然为 0% , 而老年代比预期增加了 6%_
+    - _也就是说 allocation1 & allocation2 对象都直接进入了老年代, 并没有等到 15 岁的临界年龄_
+    - _因为这 2 个对象加起来已经到达了 512KB , 并且它们是同年龄的, 满足同年对象达到 Survivor 空间一半的规则_
+    - _只要注释掉其中一个对象的 new 操作, 就会发现另外一个就不会晋升到老年代了_
 
 
 ## 虚拟机性能监控、故障处理工具

@@ -10,7 +10,8 @@ public class New2OldGeneration {
     public static void main(String[] args) {
         byte[] allocation1, allocation2, allocation3;
         // 什么时候进入老年代取决于 `-XX:MaxTenuringThreshold` 的设置
-        allocation1 = new byte[_1MB / 8];
+        // ( icehe : 使用原书的值 _1MB / 4 时无法复现, 因为字节数组实际占用了比声明更多的内存吗? )
+        allocation1 = new byte[_1MB / 6];
         allocation2 = new byte[4 * _1MB];
         allocation3 = new byte[4 * _1MB];
         allocation3 = null;

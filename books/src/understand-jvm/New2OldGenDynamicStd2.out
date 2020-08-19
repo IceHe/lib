@@ -1,9 +1,15 @@
-[GC (Allocation Failure) [DefNew: 4938K->449K(9216K), 0.0032474 secs] 4938K->4545K(19456K), 0.0033163 secs] [Times: user=0.01 sys=0.01, real=0.01 secs] 
-[GC (Allocation Failure) [DefNew: 4545K->447K(9216K), 0.0007342 secs] 8641K->4543K(19456K), 0.0007829 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+[GC (Allocation Failure) [DefNew
+Desired survivor size 524288 bytes, new threshold 15 (max 15)
+- age   1:     460168 bytes,     460168 total
+: 4938K->449K(9216K), 0.0446802 secs] 4938K->4545K(19456K), 0.0586644 secs] [Times: user=0.00 sys=0.00, real=0.06 secs] 
+[GC (Allocation Failure) [DefNew
+Desired survivor size 524288 bytes, new threshold 15 (max 15)
+- age   2:     458448 bytes,     458448 total
+: 4545K->447K(9216K), 0.0008797 secs] 8641K->4543K(19456K), 0.0009386 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
 Heap
  def new generation   total 9216K, used 4789K [0x00000007bec00000, 0x00000007bf600000, 0x00000007bf600000)
   eden space 8192K,  53% used [0x00000007bec00000, 0x00000007bf03d8a0, 0x00000007bf400000)
-  from space 1024K,  43% used [0x00000007bf400000, 0x00000007bf46feb8, 0x00000007bf500000)
+  from space 1024K,  43% used [0x00000007bf400000, 0x00000007bf46fed0, 0x00000007bf500000)
   to   space 1024K,   0% used [0x00000007bf500000, 0x00000007bf500000, 0x00000007bf600000)
  tenured generation   total 10240K, used 4096K [0x00000007bf600000, 0x00000007c0000000, 0x00000007c0000000)
    the space 10240K,  40% used [0x00000007bf600000, 0x00000007bfa00010, 0x00000007bfa00200, 0x00000007c0000000)
