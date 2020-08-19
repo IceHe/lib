@@ -23,8 +23,8 @@
 Basics
 
 - [JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC
-    - [Part I](/books/understand-jvm-p1.md) _( reading )_
-    - Part II _( to read )_ <!-- - [Part II](/books/understand-jvm-p2.md) -->
+    - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md) _( reading )_
+    - Part III. Execution Engine _( to read )_ <!-- - [Part II](/books/understand-jvm-p2.md) -->
 - [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) - TOC
     - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
         - 1\. **Reliable**, **Scalable**, and Maintainable Applications

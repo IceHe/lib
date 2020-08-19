@@ -1,4 +1,6 @@
-# Understanding Java Virtual Machine ( Part 1 )
+# Understanding Java Virtual Machine ( Part 1 & 2 )
+
+> Automatic Memory Management
 
 References
 
