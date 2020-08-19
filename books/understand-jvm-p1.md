@@ -1974,6 +1974,32 @@ Analysis
     - _因为这 2 个对象加起来已经到达了 512KB , 并且它们是同年龄的, 满足同年对象达到 Survivor 空间一半的规则_
     - _只要注释掉其中一个对象的 new 操作, 就会发现另外一个就不会晋升到老年代了_
 
+#### _空间分配担保_
+
+[File : OldGenHandlePromotionFailure.java](src/understand-jvm/OldGenHandlePromotionFailure.java ':include :type=code java')
+
+_output :_
+
+[File : OldGenHandlePromotionFailureOff.out](src/understand-jvm/OldGenHandlePromotionFailureOff.out ':include :type=code bash')
+
+Analysis
+
+- _在发生 Minor GC 之前, VM 必须先检查老年代最大可用的连续空间是否大于新生代所有对象总空间_
+    - _如果这个条件成立, 那这一次 Minor GC 可以确保是安全的_
+    - _如果不成立, 则虚拟机会先查看 `-XX:HandlePromotionFailure` 参数的设置值是否允许担保失败 ( Handle Promotion Failure )_
+        - _如果人允许, 那会继续检查老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小_
+            - _如果大于, 将尝试进行一次 Minor GC, 尽管这次 Minor GC 是有风险的_
+            - _如果小于，或者 `-XX:HandlePromotionFailure` 设置不允许冒险, 那这时就要改为进行一次 Full GC_
+- _解释一下 "冒险" 是冒了什么风险_
+    - **新生代使用复制收集算法, 但为了内存利用率, 只使用其中一个 Survivor 空间来作为轮换备份**
+    - _因此当出现大量对象在 Minor GC 后仍然存活的情况, 最极端的情况就是内存回收后新生代中所有对象都存活_
+    - _这时需要老年代进行分配担保, 把 Survivor 无法容纳的对象直接送入老年代, 这与生活中贷款担保类似_
+    - _老年代要进行这样的担保, 前提是老年代本身还有容纳这些对象的剩余空间, 但一共有多少对象会在这次回收中活下来在实际完成内存回收之前是无法明确知道的_
+    - _所以只能取之前每一次回收晋升到老年代对象容量的平均大小作为经验值, 与老年代的剩余空间进行比较, 决定是否进行 Full GC 来让老年代腾出更多空间_
+- _"取历史平均值来比较" 其实仍然是一种赌概率的解决办法_
+    - _也就是说假如某次 Minor GC 存活后的对象突增, 远远高于历史平均值的话, 依然会导致担保失败_
+    - _如果出现了担保失败, 那就只好老老实实地重新发起一次 Full GC , 这样停顿时间就很长了_
+    - _虽然担保失败时绕的圈子是最大的，但通常情况下都还是会将 `-XX: HandlePromotionFailure` 开关打开, 避免 Full GC 过于频繁_
 
 ## 虚拟机性能监控、故障处理工具
 
