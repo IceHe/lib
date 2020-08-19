@@ -2005,5 +2005,46 @@ Analysis
 
 ## 虚拟机性能监控、故障处理工具
 
-- jps
-- jstat
+给一个系统定位问题的时候, 知识、经验是关键基础, 数据是依据，工具是运用知识处理数据的手段
+
+- 这里说的 "数据" 包括但不限于
+    - 异常堆栈
+    - 虚拟机运行日志 _( icehe : ? )_
+    - 垃圾收集器日志
+    - 线程快照 ( threaddump / javacore 文件 ) _( icehe : ? )_
+    - 堆转储快照 ( heapdump / hprof 文件 )_ 等
+
+_用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用性和授权的不同, 可以划分成 3 类 :_
+
+- 商业授权工具
+    - 主要是 **JMC ( Java Mission Control )** 及它要使用到的 **JFR ( Java Flight Recorder )**
+        - _JMC 在 JDK 11 之前都无须独立下载, 但是在商业环境中使用它则是要付费的_
+- 正式支持工具
+    - _这一类工具属于被长期支持的工具, 不同平台、不同版本的 JDK 之间, 这类工具可能会略有差异, 但是不会出现某一个工具突然消失的情况_
+- 实验性工具
+    - _这一类工具在它们的使用说明中被声明为 "没有技术支持, 并且是实验性质的" ( Unsupported and Experimental ) 产品_
+    - _日后可能会转正, 也可能会在某个 JDK 版本中无声无息地消失_
+    - 但事实上它们通常都非常稳定而且功能强大, 也能在处理应用程序性能问题、定位故障时发挥很大的作用
+
+### 基础故障处理工具
+
+#### jps : VM 进程状况
+
+**jps - JVM Process Status Tool**
+
+- _( JDK 的很多小工具的名字都参考了 UNIX 命令的命名方式 )_
+- _除了名字像 UNIX 的 `ps` 命令之外, 它的功能也和 `ps` 命令类似_
+    - 可以列出正在运行的 VM Processes
+    - 并显示 **VM 执行主类 ( Main Class, main() 函数所在的类 ) 名称**
+    - 以及这些进程的 **本地虚拟机唯一 ID ( LVMID, Local Virtual Machine Identifer )**
+- _其它的 JDK 工具大多需要输入它查询到的 LVMID 来确定要监控的是哪一个 VM Process_
+    - **对于 Local VM Process 来说, LVMID 与 OS 的进程 ID ( PID, Process Identifier )是一致的**
+    - _使用 Windows 的任务管理器或者 UNIX 的 `ps` 命令也可以查询到虛拟机进程的 LVMID_
+    - **但如果同时启动了多个 VM Processes, 无法根据进程名称定位时, 那就必须依赖 `jps` 命令显示主类的功能才能区分了**
+- 详见 : [java/cmd/jps](/java/cmd/jps.md)
+
+#### jstat : VM 统计信息监视
+
+**jstat - JVM Statistics Monitoring Tool**
+
+- 详见 : [java/cmd/jstat](/java/cmd/jstat.md)
