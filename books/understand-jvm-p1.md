@@ -1913,7 +1913,31 @@ Analysis
     - 因此程序执行完的结果是 Eden 占用 4MB ( 被 allocation4 占用 ) , Survivor 空闲, 老年代被占用 6MB (被allocation1、2、3占用)
     - _通过以上 GC 日志可以证实这一点_
 
-#### TODO
+#### 长期存活进入老年代
+
+长期存活的对象将进入老年代
+
+[File : New2OldGeneration.java](src/understand-jvm/New2OldGeneration.java ':include :type=code java')
+
+_output :_
+
+- `-XX:MaxTenuringThreshold=1`
+
+[File : New2OldGenerationAtAge1.out](src/understand-jvm/New2OldGenerationAtAge1.out ':include :type=code bash')
+
+- `-XX:MaxTenuringThreshold=15`
+
+[File : New2OldGenerationAtAge15.out](src/understand-jvm/New2OldGenerationAtAge15.out ':include :type=code bash')
+
+Analysis
+
+- 当 `-XX:MaxTenuringThreshold=1` 时
+    - allocation1 对象需要 256KB 内存, Survivor 空间可以容纳
+    - allocation1 对象在第二次 GC 发生时进入老年代
+    - 新生代己使用的内存在 GC 以后非常干净地变成 0KB
+- 当 `-XX:MaxTenuringThreshold=15` 时
+    - 第二次 GC 发生后, allocation1 对象则还留在新生代 Survivor 空间, 这时新生代仍然有 404KB 被占用。
+
 
 ## 虚拟机性能监控、故障处理工具
 

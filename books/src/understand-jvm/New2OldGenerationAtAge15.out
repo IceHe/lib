@@ -1,0 +1,11 @@
+[GC (Allocation Failure) [DefNew: 4895K->406K(9216K), 0.0033667 secs] 4895K->4502K(19456K), 0.0034414 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+[GC (Allocation Failure) [DefNew: 4502K->405K(9216K), 0.0005989 secs] 8598K->4501K(19456K), 0.0006402 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+Heap
+ def new generation   total 9216K, used 4747K [0x00000007bec00000, 0x00000007bf600000, 0x00000007bf600000)
+  eden space 8192K,  53% used [0x00000007bec00000, 0x00000007bf03d8a0, 0x00000007bf400000)
+  from space 1024K,  39% used [0x00000007bf400000, 0x00000007bf465408, 0x00000007bf500000)
+  to   space 1024K,   0% used [0x00000007bf500000, 0x00000007bf500000, 0x00000007bf600000)
+ tenured generation   total 10240K, used 4096K [0x00000007bf600000, 0x00000007c0000000, 0x00000007c0000000)
+   the space 10240K,  40% used [0x00000007bf600000, 0x00000007bfa00010, 0x00000007bfa00200, 0x00000007c0000000)
+ Metaspace       used 2658K, capacity 4486K, committed 4864K, reserved 1056768K
+  class space    used 287K, capacity 386K, committed 512K, reserved 1048576K
