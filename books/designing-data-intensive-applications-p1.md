@@ -1,4 +1,6 @@
-# Part I. Foundations of Data Systems
+# Foundations of Data Systems
+
+> Designing Data-Intensive Applications - Part I
 
 References
 
