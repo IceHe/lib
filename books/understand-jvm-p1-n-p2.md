@@ -2101,3 +2101,11 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
     - 使用这个方法可以通过简单的几行代码完成 jstack 的大部分功能
     - _在实际项目中不妨调用这个方法做个管理员页面, 可以随时使用浏览器来查看线程堆栈_
 - 详见 : [java/cmd/jstack](/java/cmd/jstack.md)
+
+#### 基础工具总结
+
+- 详见 :
+    - [jcmd](/java/cmd/jcmd.md)
+    - [jhsdb](/java/cmd/jhsdb.md)
+- **[jcmd](/java/cmd/jcmd.md)** : send diagnostic command requests to a running JVM
+- **[jhsdb](/java/cmd/jhsdb.md)** : attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM

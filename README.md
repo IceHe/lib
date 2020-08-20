@@ -158,12 +158,17 @@ Commands
 
 Command Tools
 
-- [jps](/java/cmd/jps.md) : JVM **process status** ( list the instrumented JVMs on the target system )
-- [jstat](/java/cmd/jstat.md) : monitor JVM **statistics**
-- [jinfo](/java/cmd/jinfo.md) : **configuration info** ( generate configuration info for a specified Java process )
-- [jmap](/java/cmd/jmap.md) : **memory map** ( print details of a specified process )
-- [jhat](/java/cmd/jhat.md) : Java **Heap Analysis Tool**
-- [jstack](/java/cmd/jstack.md) : **stack trace** ( print Java stack traces of Java threads for a specified Java process )
+- Classical
+    - **[jps](/java/cmd/jps.md)** : JVM **process status** ( list the instrumented JVMs on the target system )
+    - **[jstat](/java/cmd/jstat.md)** : monitor JVM **statistics**
+    - [jinfo](/java/cmd/jinfo.md) : **configuration info** ( generate configuration info for a specified Java process )
+    - [jmap](/java/cmd/jmap.md) : **memory map** ( print details of a specified process )
+    - ~~[jhat](/java/cmd/jhat.md) : Java **Heap Analysis Tool**~~ ( only available in JDK 8 ! )
+    - [jstack](/java/cmd/jstack.md) : **stack trace** ( print Java stack traces of Java threads for a specified Java process )
+- Better New
+    - **[jcmd](/java/cmd/jcmd.md)** : send diagnostic command requests to a running JVM
+    - **[jhsdb](/java/cmd/jhsdb.md)** : attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM
+
 
 ### Git
 
