@@ -5,7 +5,7 @@
 References
 
 - `man jhsdb`
-- https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jhsdb.html
+- https://docs.oracle.com/en/java/javase/14/docs/specs/man/jhsdb.html
 
 ## Quickstart
 
