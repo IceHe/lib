@@ -11,7 +11,14 @@ References
 ## Quickstart
 
 ```bash
+# Dump all objects
+jmap -dump:all,format=b,file=jmap-dump-all-12345.bin 12345
 
+# Dump live objects
+jmap -dump:live,format=b,file=jmap-dump-live-12345.bin 12345
+
+# Show class loader statistics
+jmap -clstats 12345
 ```
 
 ## Synopsis
