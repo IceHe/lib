@@ -158,9 +158,12 @@ Commands
 
 Command Tools
 
-- [jps](/java/cmd/jps.md) : list the instrumented JVMs on the target system
-- [jstat](/java/cmd/jstat.md) : monitor JVM statistics
-- [jinfo](/java/cmd/jinfo.md) : generate Java configuration infor for a specified Java process
+- [jps](/java/cmd/jps.md) : JVM **process status** ( list the instrumented JVMs on the target system )
+- [jstat](/java/cmd/jstat.md) : monitor JVM **statistics**
+- [jinfo](/java/cmd/jinfo.md) : **configuration info** ( generate configuration info for a specified Java process )
+- [jmap](/java/cmd/jmap.md) : **memory map** ( print details of a specified process )
+- [jhat](/java/cmd/jhat.md) : Java **Heap Analysis Tool**
+- [jstack](/java/cmd/jstack.md) : **stack trace** ( print Java stack traces of Java threads for a specified Java process )
 
 ### Git
 

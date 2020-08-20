@@ -1,8 +1,6 @@
 # jps
 
-> JVM Process Status Tool
-
-- list the instrumented JVMs on the target system
+> JVM Process Status Tool : list the instrumented JVMs on the target system
 
 References
 

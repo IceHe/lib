@@ -2059,3 +2059,5 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
         - 如果只限于 JDK 6 或以上版本的话, 使用 `java -XX:+PrintFlagsFinal` 查看参数默认值
     - `jinfo` 使用 `-sysprops` 选项可以把 VM 进程的 `System.getProperties()` 的内容打印出来
 - 详见 : [java/cmd/jinfo](/java/cmd/jinfo.md)
+
+#### jmap : Java 内存映像

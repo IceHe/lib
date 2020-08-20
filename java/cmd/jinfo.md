@@ -1,14 +1,12 @@
 # jinfo
 
-> generate Java configuration information for a specified Java process
-
-- Configuration Info for Java
+> Configuration Info for Java : generate Java configuration information for a specified Java process
 
 References
 
 - `man jinfo`
 - Understand the JVM - 2nd Edition - ZH Ver. - P143
-- https://docs.oracle.com/en/java/javase/14/docs/specs/man/jstat.html
+- https://docs.oracle.com/en/java/javase/14/docs/specs/man/jinfo.html
 
 ## Quickstart
 
