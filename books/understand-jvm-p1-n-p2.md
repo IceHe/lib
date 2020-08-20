@@ -2061,3 +2061,14 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 - 详见 : [java/cmd/jinfo](/java/cmd/jinfo.md)
 
 #### jmap : Java 内存映像
+
+- **jmap - Memory Map for Java**
+- 详见 : [java/cmd/jmap](/java/cmd/jmap.md)
+
+#### jhat : VM 堆转储快照分析
+
+- 详见 : [java/cmd/jhat](/java/cmd/jhat.md)
+
+#### jstack : 堆栈跟踪
+
+- 详见 : [java/cmd/jstack](/java/cmd/jstack.md)
