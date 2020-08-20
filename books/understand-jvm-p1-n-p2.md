@@ -2063,7 +2063,7 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 #### jmap : Java 内存映像
 
 - **jmap - Memory Map for Java**
-    - 用于生成堆转储快照 ( 一般称为 heapdump 或 dump 文件 )
+    - 用于生成 **堆转储快照 ( 一般称为 heapdump 或 dump 文件 )**
 - 如果不使用 `jmap` 命令, 要想获取 Java 推转储快照也还有一些比较 "暴力" 的手段 :
     - 使用 `-XX:+HeapDumpOnOutOfMemoryError` 参数, 可以让 VM 在内存溢出异常出现之后自动生成堆转储快照文件
     - 通过 `-XX:+HeapDumpOnCtrlBreak` 参数, 则可以使用 `[Ctr]+[Break]` 键让虚拟机生成堆转储快照文件
@@ -2091,4 +2091,13 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 
 #### jstack : 堆栈跟踪
 
+- **jstack  - Stack Trace for Java**
+    - 命令用于生成 VM 当前时刻的 **线程快照 ( 一般称为 threaddump 或者 javacore 文件 )**
+    - 线程快照就是当前 VM 内每一条线程正在执行的方法堆栈的集合
+- 生成线程快照的目的, 通常是 **定位线程出现长时间停顿的原因**
+    - 如 **线程间死锁、死循环、请求外部资源导致的长时间挂起** 等, 都是导致线程长时间停顿的常见原因
+    - _线程出现停顿时通过 `jstack` 来查看各个线程的调用堆栈, 就可以获知没有响应的线程到底在后台做些什么事情, 或者等待着什么资源_
+- 从 JDK 5 起, **java.lang.Thread 类新增了一个 `getAllStackTraces()` 方法用于获取虚拟机中所有线程的 StackTraceElement 对象**
+    - 使用这个方法可以通过简单的几行代码完成 jstack 的大部分功能
+    - _在实际项目中不妨调用这个方法做个管理员页面, 可以随时使用浏览器来查看线程堆栈_
 - 详见 : [java/cmd/jstack](/java/cmd/jstack.md)
