@@ -2063,6 +2063,14 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 #### jmap : Java 内存映像
 
 - **jmap - Memory Map for Java**
+    - 用于生成堆转储快照 ( 一般称为 heapdump 或 dump 文件 )
+- 如果不使用 `jmap` 命令, 要想获取 Java 推转储快照也还有一些比较 "暴力" 的手段 :
+    - 使用 `-XX:+HeapDumpOnOutOfMemoryError` 参数, 可以让 VM 在内存溢出异常出现之后自动生成堆转储快照文件
+    - 通过 `-XX:+HeapDumpOnCtrlBreak` 参数, 则可以使用 `[Ctr]+[Break]` 键让虚拟机生成堆转储快照文件
+    - 又或者在 Linux 系统下通过 `kill -3` 命令发送进程退出信号 "恐吓" 一下 VM , 也能顺利拿到堆转储快照
+- `jmap` 的作用并不仅仅是为了获取堆转储快照
+    - 它还可以查询 finalize 执行队列、Java Heap 和 Method Area 的详细信息
+        - 例如, 空间使用率、当前用的是哪种收集器等
 - 详见 : [java/cmd/jmap](/java/cmd/jmap.md)
 
 #### jhat : VM 堆转储快照分析
