@@ -2030,9 +2030,8 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 
 #### jps : VM 进程状况
 
-**jps - JVM Process Status Tool**
-
-- _( JDK 的很多小工具的名字都参考了 UNIX 命令的命名方式 )_
+- **jps - JVM Process Status Tool**
+    - _( JDK 的很多小工具的名字都参考了 UNIX 命令的命名方式 )_
 - _除了名字像 UNIX 的 `ps` 命令之外, 它的功能也和 `ps` 命令类似_
     - 可以列出正在运行的 VM Processes
     - 并显示 **VM 执行主类 ( Main Class, main() 函数所在的类 ) 名称**
@@ -2045,6 +2044,18 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 
 #### jstat : VM 统计信息监视
 
-**jstat - JVM Statistics Monitoring Tool**
-
+- **jstat - JVM Statistics Monitoring Tool**
+    - 用于监视 VM 各种运行状态信息的命令行工具
+    - 可以显示本地或者远程 VM 进程中的类加载、内存、垃圾收集、即时编译等运行时数据
+    - _在没有 GUI 图形界面、只提供了纯文本控制台环境的服务器上, 它将是运行期定位虚拟机性能问题的常用工具_
 - 详见 : [java/cmd/jstat](/java/cmd/jstat.md)
+
+#### jinfo : Java 配置信息
+
+- **jinfo - Configuration Info for Java**
+    - 实时查看和调整 VM 各项参数
+    - 使用 `jps` 命令的 `-v` 参数可以查看 VM 启动时显式指定的参数列表
+        - 但如果想知道未被显式指定的参数的系统默认值, 除了去找资料外, 就只能使用`jinfo` 的 `-flag` 选项进行查询
+        - 如果只限于 JDK 6 或以上版本的话, 使用 `java -XX:+PrintFlagsFinal` 查看参数默认值
+    - `jinfo` 使用 `-sysprops` 选项可以把 VM 进程的 `System.getProperties()` 的内容打印出来
+- 详见 : [java/cmd/jinfo](/java/cmd/jinfo.md)

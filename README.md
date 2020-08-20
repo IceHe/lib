@@ -158,8 +158,9 @@ Commands
 
 Command Tools
 
-- [jps](/java/cmd/jps.md) : process status tool
-- [jstat](/java/cmd/jstat.md) : statistics monitoring tool
+- [jps](/java/cmd/jps.md) : list the instrumented JVMs on the target system
+- [jstat](/java/cmd/jstat.md) : monitor JVM statistics
+- [jinfo](/java/cmd/jinfo.md) : generate Java configuration infor for a specified Java process
 
 ### Git
 
