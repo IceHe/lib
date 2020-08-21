@@ -221,7 +221,7 @@ $ jhsdb jsnap --help
 - `--sysprops` Prints the Java system properties.
 - `no option` : Prints the VM flags and the Java system properties.
 
-### jstack
+### jmap
 
 - `no option` Prints the same information as Solaris pmap.
 - `--heap` Prints the java heap summary.
@@ -231,8 +231,15 @@ $ jhsdb jsnap --help
 - `--clstats` Prints the class loader statistics.
 - `--finalizerinfo` Prints the information on objects awaiting finalization.
 
+### jstack
+
+- `--locks` Prints the java.util.concurrent locks information.
+- `--mixed` Attempts to print both java and native frames if the platform allows it.
+
 ### jsnap
+
+- `--all` Prints all performance counters.
 
 ## Usage
 
-### Help
+- 暂略
