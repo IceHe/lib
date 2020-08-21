@@ -166,8 +166,9 @@ Command Tools
     - ~~[jhat](/java/cmd/jhat.md) : Java **Heap Analysis Tool**~~ ( only available in JDK 8 ! )
     - [jstack](/java/cmd/jstack.md) : **stack trace** ( print Java stack traces of Java threads for a specified Java process )
 - Better New
-    - **[jcmd](/java/cmd/jcmd.md)** : send diagnostic command requests to a running JVM
-    - **[jhsdb](/java/cmd/jhsdb.md)** : attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM
+    - **[jcmd](/java/cmd/jcmd.md)** : send diagnostic **command** requests to a running JVM
+    - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger** ( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )
+        - _Available after JDK 9_
 
 
 ### Git
