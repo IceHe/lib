@@ -8,6 +8,7 @@ References
 
 - `man jhsdb`
 - https://docs.oracle.com/en/java/javase/14/docs/specs/man/jhsdb.html
+- Talk about openjdk's jhsdb tool - Programmer Sought : https://www.programmersought.com/article/32321720601/
 
 ## Quickstart
 
