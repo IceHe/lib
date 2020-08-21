@@ -2282,4 +2282,4 @@ JHSDB 是一款基于 **服务性代理 ( Serviceability Agent，SA )** 实现�
     - 或者从HotSpot VM 进程内存中 dump 出来的转储快照里还原出它的运行状态细节
 - **服务性代理的工作原理跟 Linux 上的 GDB 或者 Windows 上的 Windbg 是相似的**
 
-通过实验来回答一个简单问题 : staticObj、instanceObj、localObj 这三个变量本身 ( 而不是它们所指向的对象 ) 存放在哪里?
+通过实验来回答一个简单问题 : **staticObj、instanceObj、localObj 这三个变量本身 ( 而不是它们所指向的对象 ) 存放在哪里?**

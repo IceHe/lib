@@ -1,0 +1,16 @@
+[GC (Allocation Failure) [DefNew
+Desired survivor size 524288 bytes, new threshold 1 (max 15)
+- age   1:     634928 bytes,     634928 total
+: 5108K->620K(9216K), 0.0079368 secs] 5108K->4716K(19456K), 0.0080249 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+[GC (Allocation Failure) [DefNew
+Desired survivor size 524288 bytes, new threshold 15 (max 15)
+: 4716K->0K(9216K), 0.0007798 secs] 8812K->4716K(19456K), 0.0008138 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+Heap
+ def new generation   total 9216K, used 4178K [0x00000007bec00000, 0x00000007bf600000, 0x00000007bf600000)
+  eden space 8192K,  51% used [0x00000007bec00000, 0x00000007bf014930, 0x00000007bf400000)
+  from space 1024K,   0% used [0x00000007bf400000, 0x00000007bf400000, 0x00000007bf500000)
+  to   space 1024K,   0% used [0x00000007bf500000, 0x00000007bf500000, 0x00000007bf600000)
+ tenured generation   total 10240K, used 4716K [0x00000007bf600000, 0x00000007c0000000, 0x00000007c0000000)
+   the space 10240K,  46% used [0x00000007bf600000, 0x00000007bfa9b040, 0x00000007bfa9b200, 0x00000007c0000000)
+ Metaspace       used 2658K, capacity 4486K, committed 4864K, reserved 1056768K
+  class space    used 287K, capacity 386K, committed 512K, reserved 1048576K
