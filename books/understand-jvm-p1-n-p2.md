@@ -2257,3 +2257,29 @@ Java Mission Control
     - _而在 JDK 11 以前, JFR 的开启必须解锁 OracleJDK 的商业特性支持 ( 使用 JCMD 的 `VM.unlock_commercial_features` 或启动时加入 `-XX:+UnlockCommercialFeatures` 参数 ) ，所以这项功能在生产环境中仍然是需要付费才能使用的商业特性_
 
 #### JHSDB : 基于服务性代理的调试工具
+
+JDK 中提供了 JCMD 和 JHSDB 两个集成式的多功能工具箱
+
+- 它们不仅整合了上一节介绍到的所有基础工具所能提供的专项功能
+- 而且由于有着 "后发优势", 能够做得往往比之前的老工具们更好、更强大
+
+JCMD、JHSDB 和基础工具的对比
+
+|基础工具|JCMD|JHSDB|
+|-|-|-|
+|jps -lm|jcmd|N/A|
+|jmap -dump \<pid\>|jcmd \<pid\> GC.heap_dump|jhsdb jmap --binaryheap|
+|jmap -histo \<pid\>|jcmd \<pid\> GC.class_histogram|jhsdb jmap --histo|
+|jstack \<pid\>|jcmd \<pid\> Thread.print|jhsdb jstack --locks|
+|jinfo -sysprops \<pid\>|jcmd \<pid\> VM.system_properties|jhsdb info --sysprops|
+|jinfo -flags \<pid\>|jcmd \<pid\> VM.flags|jhsdb jinfo --flags|
+
+JHSDB 是一款基于 **服务性代理 ( Serviceability Agent，SA )** 实现的进程外调试工具
+
+- 服务性代理是 HotSpot VM 中一组用于映射 JVM 运行信息的、主要基于 Java 语言 ( 含少量 JNI 代码 ) 实现的 API 集合
+    - 服务性代理以 HotSpot 内部的数据结构为参照物进行设计, 把这些 C++ 的数据抽象出 Java 模型对象, 相当于 HotSpot 的 C++ 代码的一个镜像
+- 通过服务性代理的 API, 可以在一个独立的 JVM 的进程里分析其他 HotSpot VM 的内部数据
+    - 或者从HotSpot VM 进程内存中 dump 出来的转储快照里还原出它的运行状态细节
+- **服务性代理的工作原理跟 Linux 上的 GDB 或者 Windows 上的 Windbg 是相似的**
+
+通过实验来回答一个简单问题 : staticObj、instanceObj、localObj 这三个变量本身 ( 而不是它们所指向的对象 ) 存放在哪里?
