@@ -2111,7 +2111,7 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
     - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger** ( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )
         - _Available after JDK 9_
 
-基础工具
+##### 基础工具
 
 - 用于支持基本的程序创建和运行
 
@@ -2119,108 +2119,141 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 |-|-|
 |~~appletviewer~~|~~在不使用 Web 浏览器的情况下运行和调试 Applet, JDK 11 中被移除~~|
 |~~extcheck~~|~~检查 JAR 冲突的工具，从 JDK 9 中被移除~~|
-|jar|创建和管理 JAR 文件|
-|java|Java 运行工具, 用于运行 Class 文件或 JAR 文件|
-|javac|用于 Java 编程语言的编译器|
-|javadoc|Java 的 API 文档生成器|
+|**jar**|创建和管理 JAR 文件|
+|**java**|Java 运行工具, 用于运行 Class 文件或 JAR 文件|
+|**javac**|用于 Java 编程语言的编译器|
+|_javadoc_|Java 的 API 文档生成器|
 |javah|C 语言头文件和 Stub 函数生成器, 用于编写 JNI 方法|
-|javap|Java 字节码分析工具|
+|**javap**|Java 字节码分析工具|
 |jlink|将 Module 和它的依赖打包成一个运行时镜像文件|
-|jdb|基于 JPDA 协议的调试器, 以类似于 GDB 的方式进行调试 Java 代码|
+|**jdb**|基于 JPDA 协议的调试器, 以类似于 GDB 的方式进行调试 Java 代码|
 |jdeps|Java 类依赖性分析器|
-|jdeprscan|用于搜索 JAR 包中使用了“deprecated”的类, 从JDK 9 开始提供|
+|_jdeprscan_|用于搜索 JAR 包中使用了“deprecated”的类, 从JDK 9 开始提供|
 
-安全
-
-- 用于程序签名、设置安全测试等
-
-|名称|主要作用|
-|-|-|
-|keytool|管理密钥库和证书.<br/>主要用于获取或缓存 Kerberos 协议的票据授权票据.<br/>允许用户查看本地任据缓存和密钥表中的条目 ( 用于 Kerberos 协议 )|
-|jarsigner|生成并验证 JAR 签名|
-|policytool|管理策略文件的 GUI 工具,<br/>用于管理用户策略文件 ( .java.policy )<br/>在 JDK 10 中被移除|
-
-国际化
-
-- 用于创建本地语言文件
-
-|名称|主要作用|
-|-|-|
-|native2ascii|本地编码到 ASCII 编码的转换器 ( Native-to-ASCII Converter ) ,<br/>用于 "任意受支持的字符编码"和与之对应的 "ASCII 编码和 Unicode 转义" 之间的相互转换
-
-远程方法调用
-
-- 用于跨 Web 或网络的服务交互
-
-|名称|主要作用|
-|-|-|
-|rmic|Java RMI 编译器，为使用 了 JRMP 或 IIOP 协议的远程对象生成 Stub、Skeleton 和 Tie 类, 也用于生成 OMG IDL|
-|rmiregistry|远程对象注册表服务, 用于在当前主机的指定端口上创建并启动一个远程对象注册表|
-|rmid|启动激活系统守护进程, 允许在虚拟机中注册或激活对象|
-|serialver|生成并返回指定类的序列化版本 ID|
-
-Java IDL & RMI-IIOP
-
-- 在 JDK 11 中结束了十余年的 CORBA 支持这些工具不在提供
-
-|名称|主要作用|
-|-|-|
-|tnameserv|提供对命名服务的访问
-|idlj|IDL 转 Java 编译器 ( IDL-to-Java Compiler ) , 生成映射 OMG IDL 接口的 Java 源文件,<br/>并启用以 Java 编程语言编写的使用 CORBA 功能的应用程序的 Java 源文件.<br/>IDL 意即接口定义语言 ( Interface Definition Language )|
-|orbd|对象请求代理守护进程 ( Object Request Broker Daemon ) ,<br/>提供从客户端查找和调用 CORBA 环境服务端上的持久化对象的功能.<br/>使用 ORBD 代替瞬态命名服务 mameserv.<br/>ORBD 包括瞬态命名服务和持久命名服务.<br/>ORBD 工具集成了服务器管理器、互操作命名服务和引导名称服务器的功能.<br/>当客户端想进行服务器时定位、注册和激活功能时, 可以与 servertool 一起使用|
-|servertool|为应用程序注册、注销、启动和关闭服务器提供易用的接口|
-
-部署工具
-
-- 用于程序打包、发布和部署
-
-|名称|主要作用|
-|-|-|
-|~~javapackager~~|~~打包、签名 Java 和 JavaFX 应用程序, 在 JDK 11 中被移除~~|
-|pack200|使用 Java GZIP 压缩器将 JAR 文件转换为压缩的 Pack200 文件.<br/>压缩的压缩文件是高度压缩下的 JAR, 可以直接部署, 节省带宽并减少下载时间|
-|unpack200|将 Pack200 生成的打包文件解压提取为 JAR 文件|
-
-Java Web Start
-
-|名称|主要作用|
-|-|-|
-|~~javaws~~|~~启动 Java Web Start 并设置各种选项的工具, 在 JDK 11 中被移除~~|
-
-性能监控和故障处理
+##### 性能监控和故障处理
 
 - 用于监控分析 Java VM 运行信息, 排查问题
 
 |名称|主要作用|
 |-|-|
-|jps|JVM Process Status Tool, 显示指定系统内所有的 HotSpot 虚拟机进程|
-|jstat|JVM Statistics Monitoring Tool, 用于收集 Hotspot 虚拟机各方面的运行数据|
-|jstatd|JVM Statistics Monitoring Tool Daemon , jstat 的守护程序, 局动一个 RMI 服务器应用程序,<br/>用于监视测试的 HotSpot 虚拟机的创建和终止, 并提供一个界面, 允许远程监控工具附加到在本地系统上运行的虚拟机.<br/>在 JDK 9 中集成到了 JHSDB 中|
-|jinfo|Configuration Info for Java, 显示虚拟机配置信息.<br/>在 JDK 9 中集成到了 JHSDB 中
-|Jmap|Memory Map for Java, 生成虚拟机的内存转储快照 ( heapdump 文件 ).<br/>在 JDK 9 中集成到了 JHSDB 中|
+|**jps**|JVM Process Status Tool, 显示指定系统内所有的 HotSpot 虚拟机进程|
+|**jstat**|JVM Statistics Monitoring Tool, 用于收集 Hotspot 虚拟机各方面的运行数据|
+|**jstatd**|JVM Statistics Monitoring Tool Daemon , jstat 的守护程序, 局动一个 RMI 服务器应用程序,<br/>用于监视测试的 HotSpot 虚拟机的创建和终止, 并提供一个界面, 允许远程监控工具附加到在本地系统上运行的虚拟机.<br/>在 JDK 9 中集成到了 JHSDB 中|
+|**jinfo**|Configuration Info for Java, 显示虚拟机配置信息.<br/>在 JDK 9 中集成到了 JHSDB 中
+|**jmap**|Memory Map for Java, 生成虚拟机的内存转储快照 ( heapdump 文件 ).<br/>在 JDK 9 中集成到了 JHSDB 中|
 |jhat|JVM Heap Analysis Tool, 用于分析堆转储快照,<br/>它会建立一个 HTTP/Web 服务器，让用户可以在浏览器上查看分析结果.<br/>在 JDK 9 中被 JHSDB 代替|
-|jstack|Stack Trace for Java, 显示虚拟机的线程快照.<br/>在 JDK 9 中集成到了 JHSDB 中|
-|jhsdb|Java HotSpot Debugger, 一个基于 Serviceability Agent 的 HotSpot 进程调试器,<br/>从 JDK 9 开始提供|
+|**jstack**|Stack Trace for Java, 显示虚拟机的线程快照.<br/>在 JDK 9 中集成到了 JHSDB 中|
+|**jhsdb**|Java HotSpot Debugger, 一个基于 Serviceability Agent 的 HotSpot 进程调试器,<br/>从 JDK 9 开始提供|
 |jsadebugd|Java Serviceability Agent Debug Daemon, 适用于 Java 的可维护性代理调试守护程序,<br>主要用于附加到指定的 Java 进程、核心文件，或充当一个调试服务器|
-|jcmd|JVM Command, 虚拟机诊断命令工具, 将诊断命令请求发送到正在运行的 Java 虚拟机.<br/>从 JDK 7 开始提供|
-|jconsole|Java Console, 用于监控 Java 虚拟机的使用 JMX 规范的图形工具.<br/>它可以监控本地和远程和 JVM, 还可以监控和管理应用程序|
-|jmc|Java Mission Control, 包含用于监控和管理 Java 应用程序的工具,<br/>而不会引入与这些工具相关联的性能开销.<br/>开发者可以使用 jmc 命令来创建 JMC 工具, 从 JDK 7 Update 40 开始集成到 OracleJDK 中|
+|**jcmd**|JVM Command, 虚拟机诊断命令工具, 将诊断命令请求发送到正在运行的 Java 虚拟机.<br/>从 JDK 7 开始提供|
+|**jconsole**|Java Console, 用于监控 Java 虚拟机的使用 JMX 规范的图形工具.<br/>它可以监控本地和远程和 JVM, 还可以监控和管理应用程序|
+|**jmc**|Java Mission Control, 包含用于监控和管理 Java 应用程序的工具,<br/>而不会引入与这些工具相关联的性能开销.<br/>开发者可以使用 jmc 命令来创建 JMC 工具, 从 JDK 7 Update 40 开始集成到 OracleJDK 中|
 |jvisualvm|Java VisualVM, 一种图形化工具, 可在 JVM 中运行时提供有关基于 Java 技术的应用程序 ( Java 应用程序 ) 的详细信息.<br/>Java VisualVM 提供内存和 CPU 分析、堆转储分析、内存泄漏检测、MBean 访问和垃圾收集.<br/>从JDK 6 Update 7 开始提供; 从JDK 9 开始不再打包入 JDK 中, 但仍保持更新发展, 可以独立下载|
 
-Web Service 工具
+##### 其它
 
-- 与 CORBA 一起在 JDK 11 中被移除
+_安全_
 
-|名称|主要作用|
-|-|-|
-|schemagen|用于 XML 绑定的 Schema 生成器, 用于生成 XML Schema 文件|
-|wsgen|XML Web Service 2.0 的 Java API, 生成用于 JAX-WS Web Service 的 JAX-WS 便携式产物|
-|wsimport|XML Web Service 2.0 的 Java API, 主要用于根据服务端发布的 WSDL 文件生成客户端|
-|xjc|主要用于根据 XML Schema 文件生成对应的 Java 类|
-
-REPL & 脚本工具
+- _用于程序签名、设置安全测试等_
 
 |名称|主要作用|
 |-|-|
-|jshell|基于 Java 的 Shell REPL ( Read-Eval-Print Loop ) 交互工具|
-|jjs|对 Nashorn 引擎的调用入口.<br/>Nashorn 是基于 Java 实现的一个轻量级高性能 JavaScript 运行环境|
-|jrunscript|Java 命令行脚本外壳工具 ( Command Line Script Shell ) ,<br/>主要用于解释执行 JavaScript、Groovy、Ruby 等脚本语言|
+|_keytool_|管理密钥库和证书.<br/>主要用于获取或缓存 Kerberos 协议的票据授权票据.<br/>允许用户查看本地任据缓存和密钥表中的条目 ( 用于 Kerberos 协议 )|
+|_jarsigner_|生成并验证 JAR 签名|
+|_policytool_|管理策略文件的 GUI 工具,<br/>用于管理用户策略文件 ( .java.policy )<br/>在 JDK 10 中被移除|
+
+_国际化_
+
+- _用于创建本地语言文件_
+
+|名称|主要作用|
+|-|-|
+|_native2ascii_|本地编码到 ASCII 编码的转换器 ( Native-to-ASCII Converter ) ,<br/>用于 "任意受支持的字符编码"和与之对应的 "ASCII 编码和 Unicode 转义" 之间的相互转换
+
+_远程方法调用_
+
+- _用于跨 Web 或网络的服务交互_
+
+|名称|主要作用|
+|-|-|
+|_rmic_|Java RMI 编译器，为使用 了 JRMP 或 IIOP 协议的远程对象生成 Stub、Skeleton 和 Tie 类, 也用于生成 OMG IDL|
+|_rmiregistry_|远程对象注册表服务, 用于在当前主机的指定端口上创建并启动一个远程对象注册表|
+|_rmid_|启动激活系统守护进程, 允许在虚拟机中注册或激活对象|
+|_serialver_|生成并返回指定类的序列化版本 ID|
+
+_Java IDL & RMI-IIOP_
+
+- _在 JDK 11 中结束了十余年的 CORBA 支持这些工具不在提供_
+
+|名称|主要作用|
+|-|-|
+|_tnameserv_|提供对命名服务的访问
+|_idlj_|IDL 转 Java 编译器 ( IDL-to-Java Compiler ) , 生成映射 OMG IDL 接口的 Java 源文件,<br/>并启用以 Java 编程语言编写的使用 CORBA 功能的应用程序的 Java 源文件.<br/>IDL 意即接口定义语言 ( Interface Definition Language )|
+|_orbd_|对象请求代理守护进程 ( Object Request Broker Daemon ) ,<br/>提供从客户端查找和调用 CORBA 环境服务端上的持久化对象的功能.<br/>使用 ORBD 代替瞬态命名服务 mameserv.<br/>ORBD 包括瞬态命名服务和持久命名服务.<br/>ORBD 工具集成了服务器管理器、互操作命名服务和引导名称服务器的功能.<br/>当客户端想进行服务器时定位、注册和激活功能时, 可以与 servertool 一起使用|
+|_servertool_|为应用程序注册、注销、启动和关闭服务器提供易用的接口|
+
+_部署工具_
+
+- _用于程序打包、发布和部署_
+
+|名称|主要作用|
+|-|-|
+|~~javapackager~~|~~打包、签名 Java 和 JavaFX 应用程序, 在 JDK 11 中被移除~~|
+|_pack200_|使用 Java GZIP 压缩器将 JAR 文件转换为压缩的 Pack200 文件.<br/>压缩的压缩文件是高度压缩下的 JAR, 可以直接部署, 节省带宽并减少下载时间|
+|_unpack200_|将 Pack200 生成的打包文件解压提取为 JAR 文件|
+
+_Java Web Start_
+
+|名称|主要作用|
+|-|-|
+|~~javaws~~|~~启动 Java Web Start 并设置各种选项的工具, 在 JDK 11 中被移除~~|
+
+_Web Service 工具_
+
+- _与 CORBA 一起在 JDK 11 中被移除_
+
+|名称|主要作用|
+|-|-|
+|_schemagen_|用于 XML 绑定的 Schema 生成器, 用于生成 XML Schema 文件|
+|_wsgen_|XML Web Service 2.0 的 Java API, 生成用于 JAX-WS Web Service 的 JAX-WS 便携式产物|
+|_wsimport_|XML Web Service 2.0 的 Java API, 主要用于根据服务端发布的 WSDL 文件生成客户端|
+|_xjc_|主要用于根据 XML Schema 文件生成对应的 Java 类|
+
+_REPL & 脚本工具_
+
+|名称|主要作用|
+|-|-|
+|_jshell_|基于 Java 的 Shell REPL ( Read-Eval-Print Loop ) 交互工具|
+|_jjs_|对 Nashorn 引擎的调用入口.<br/>Nashorn 是基于 Java 实现的一个轻量级高性能 JavaScript 运行环境|
+|_jrunscript_|Java 命令行脚本外壳工具 ( Command Line Script Shell ) ,<br/>主要用于解释执行 JavaScript、Groovy、Ruby 等脚本语言|
+
+### 可视化故障处理工具
+
+- 可视化工具以更加便捷的方式进行进程故障诊断和调试工作. 主要包括 4 个 :
+    - JConsole
+    - JHSDB
+    - VisualVM
+    - JMC
+
+JConsole & JHSDB
+
+- _其中, JConsole 是最古老, 早在 JDK 5 时期就已经存在的虚拟机监控工具
+- 而 JHSDB 虽然名义上是 JDK 9 中才正式提供_
+
+_VisualVM_
+
+- _在 JDK 6 Update 7 中首次发布_
+    - _直到 JRockit Mission Control 与 OracleJDK 的融合工作完成之前, 它都曾是 Oracle 主力推动的多合一故障处理工具_
+- _现在它已经从 OracleJDK 中分离出来, 成为一个独立发展的开源项目_
+    - _VisualVM 已不是 JDK 中的正式成员, 但仍是可以免费下载、使用的_
+
+Java Mission Control
+
+- _曾经是大名易易的来自 BEA 公司的图形化诊断工具_
+- _随着 BEA 公司被 Oracle 收购, 它便被融合进 OracleJDK 之中, 在 JDK 7 Update 40 时开始随 JDK 一起发布_
+    - _后来 Java SE Advanced 产品线建立, Oracle 明确区分了 Oracle OpenJDK 和 OracleJDK 的差别, JMC 从JDK 11 开始又 被移除出 JDK_
+- _虽然在 2018 年 Oracle 将 JMC 开源并交付给 OpenJDK 组织进行管理, 但开源并不意味着免费使用_
+    - _JMC 需要与 HotSpot 内部的 **"飞行记录仪" ( Java Flight Recorder，JFR )** 配合才能工作_
+    - _而在 JDK 11 以前, JFR 的开启必须解锁 OracleJDK 的商业特性支持 ( 使用 JCMD 的 `VM.unlock_commercial_features` 或启动时加入 `-XX:+UnlockCommercialFeatures` 参数 ) ，所以这项功能在生产环境中仍然是需要付费才能使用的商业特性_
+
+#### JHSDB : 基于服务性代理的调试工具
