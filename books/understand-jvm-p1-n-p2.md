@@ -2283,3 +2283,15 @@ JHSDB 是一款基于 **服务性代理 ( Serviceability Agent，SA )** 实现�
 - **服务性代理的工作原理跟 Linux 上的 GDB 或者 Windows 上的 Windbg 是相似的**
 
 通过实验来回答一个简单问题 : **staticObj、instanceObj、localObj 这三个变量本身 ( 而不是它们所指向的对象 ) 存放在哪里?**
+
+- 答案 :
+    - staticObj 随着 Test 的类型信息存放在 **Method Area**
+    - instanceObj 随着 Test 的对象实例存放在 **Java Heap**
+    - localObject 则是存放在 foo() **方法栈帧的局部变量表中**
+- _通过理论知识得出的结论, 通过 JHSDB 来实践验证_
+
+[File : JhsdbTestCase.java](src/understand-jvm/JhsdbTestCase.java ':include :type=code java')
+
+_output :_
+
+<!-- [File : JhsdbTestCase.out](src/understand-jvm/JhsdbTestCase.out ':include :type=code bash') -->

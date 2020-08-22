@@ -1,5 +1,8 @@
 /**
- * staticObj, instanceObj, localObj 存在放在哪里?
+ * 问题 : staticObj, instanceObj, localObj 存在放在哪里?
+ * 运行 :
+ * javac JhsdbTestCase.java
+ * java -Xmx10M -XX:+UseSerialGC -XX:-UseCompressedOops JhsdbTestCase
  */
 public class JhsdbTestCase {
 
