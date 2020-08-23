@@ -2303,6 +2303,8 @@ _Analysis_
 
 #### JConsole : Java 监视与管理控制台
 
+##### 简介
+
 **JConsole - Java Monitoring and Management Console**
 
 - 一款基于 **JMX ( Java Management Extensions )** 的可视化监视、管理工具
@@ -2319,7 +2321,19 @@ _Analysis_
 $ jconsole
 ```
 
-- _"Memory" Tab 的作用相当于可视化的 `jstat` 命令, 用于监视被收集器管理的 VM Memory ( 被收集器直接管理的 Java Heap 和被间接管理的 Method Area ) 的变化趋势_
+- "Memory" Tab 的作用相当于可视化的 `jstat` 命令
+    - 用于监视被收集器管理的 VM Memory ( 被收集器直接管理的 Java Heap 和被间接管理的 Method Area ) 的变化趋势
+- "Threads" Tab 的功能就相当于可视化的 `jstack` 命令
+    - 遇到线程停顿的时候可以使用它的功能进行分析
+    - "线程长时间停顿" 的主要原因 :
+        - Wait for Resourses _( 等待外部资源 )_
+            - DB Connection _( 数据库连接 )_
+            - Network Resourses _( 网络资源 )_
+            - Equipment Resources _( 设备资源 )_
+        - Infinite Loop _( or Endless Loop )_ _( 死循环 )_
+        - Lock-Wait _( 锁等待 )_
+
+##### 监视内存
 
 **Memory Monitoring**
 
@@ -2345,5 +2359,7 @@ Analysis
 - 这段代码的作用是以 64KB / 50ms 的速度向 Java Heap 中填充数据, 一共填充 1000 次
 - 使用 JConsole 的 "Memory" Tab 进行监视, 观察曲线和柱状指示图的变化
 - _omitted ( icehe : 其它详见原书 )_
+
+##### 监视线程
 
 **Thread Monitoring**

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 目标 : Test JConsole Monitoring
+ * 目标 : Test JConsole Monitoring Memory
  * 运行 :
- * javac JConsoleMonitoringTest.java
- * java -Xms100m -Xmx100m -XX:+UseSerialGC JConsoleMonitoringTest
+ * javac JConsoleMonitoringMemory.java
+ * java -Xms100m -Xmx100m -XX:+UseSerialGC JConsoleMonitoringMemory
  */
-public class JConsoleMonitoringTest {
+public class JConsoleMonitoringMemory {
 
     public static void fillHeap(int num) throws InterruptedException {
         List<OOMObject> list = new ArrayList<>();
