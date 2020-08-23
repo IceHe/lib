@@ -548,7 +548,7 @@ JVM 参数
 
 [File : HeapOOM.java](src/understand-jvm/HeapOOM.java ':include :type=code java')
 
-_output :_
+_Output_
 
 [File : HeapOOM.out](src/understand-jvm/HeapOOM.out ':include :type=code bash')
 
@@ -558,7 +558,7 @@ _output :_
 
 [File : JavaVMStackSOF.java](src/understand-jvm/JavaVMStackSOF.java ':include :type=code java')
 
-_output :_
+_Output_
 
 ```bash
 stack length:18606
@@ -573,7 +573,7 @@ Another example
 
 [File : JavaVMStackSOF2.java](src/understand-jvm/JavaVMStackSOF2.java ':include :type=code java')
 
-_output :_
+_Output_
 
 ```bash
 stack length:4684
@@ -599,7 +599,7 @@ Direct Memory OutOfMemoryError
 
 [File : DirectMemoryOOM.java](src/understand-jvm/DirectMemoryOOM.java ':include :type=code java')
 
-_output :_
+_Output_
 
 ```bash
 # icehe : 据说是应该有以下输出, 但我在在 macOS 上实际运行时, 无法复现
@@ -699,7 +699,7 @@ _示例 : 对象在 finalize() 中拯救自己 -- 重新与引用链上的任何
 
 [File : FinalizeEscapeGC.java](src/understand-jvm/FinalizeEscapeGC.java ':include :type=code java')
 
-_output :_
+_Output_
 
 [File : FinalizeEscapeGC.out](src/understand-jvm/FinalizeEscapeGC.out ':include :type=code bash')
 
@@ -1892,7 +1892,7 @@ JDK 9 前后日志参数变化
 
 [File : NewGenerationMinorGC.java](src/understand-jvm/NewGenerationMinorGC.java ':include :type=code java')
 
-_output :_
+_Output_
 
 [File : NewGenerationMinorGC.out](src/understand-jvm/NewGenerationMinorGC.out ':include :type=code bash')
 
@@ -1929,7 +1929,7 @@ Analysis
 
 [File : New2OldGeneration.java](src/understand-jvm/New2OldGeneration.java ':include :type=code java')
 
-_output :_
+_Output_
 
 - `-XX:MaxTenuringThreshold=1`
 
@@ -1954,7 +1954,7 @@ Sample 1
 
 [File : New2OldGenDynamicStd.java](src/understand-jvm/New2OldGenDynamicStd.java ':include :type=code java')
 
-_output :_
+_Output_
 
 [File : New2OldGenDynamicStd.out](src/understand-jvm/New2OldGenDynamicStd.out ':include :type=code bash')
 
@@ -1962,7 +1962,7 @@ Sample 2
 
 [File : New2OldGenDynamicStd2.java](src/understand-jvm/New2OldGenDynamicStd2.java ':include :type=code java')
 
-_output :_
+_Output_
 
 [File : New2OldGenDynamicStd2.out](src/understand-jvm/New2OldGenDynamicStd2.out ':include :type=code bash')
 
@@ -1980,7 +1980,7 @@ Analysis
 
 [File : OldGenHandlePromotionFailure.java](src/understand-jvm/OldGenHandlePromotionFailure.java ':include :type=code java')
 
-_output :_
+_Output_
 
 [File : OldGenHandlePromotionFailureOff.out](src/understand-jvm/OldGenHandlePromotionFailureOff.out ':include :type=code bash')
 
@@ -2292,6 +2292,10 @@ JHSDB 是一款基于 **服务性代理 ( Serviceability Agent，SA )** 实现�
 
 [File : JhsdbTestCase.java](src/understand-jvm/JhsdbTestCase.java ':include :type=code java')
 
-_output :_
+_Output_
 
-<!-- [File : JhsdbTestCase.out](src/understand-jvm/JhsdbTestCase.out ':include :type=code bash') -->
+- ommitted
+
+_Analysis_
+
+- ommitted : 无法使用, 详见原书
