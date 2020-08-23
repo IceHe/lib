@@ -2298,4 +2298,44 @@ _Output_
 
 _Analysis_
 
-- ommitted : 无法使用, 详见原书
+- ommitted : 详见原书
+    - ( icehe : 由于在 macOS 10.14.6 使用 Java 8 & 14 均无法实操, 所以跳过 )
+
+#### JConsole : Java 监视与管理控制台
+
+**JConsole - Java Monitoring and Management Console**
+
+- 一款基于 **JMX ( Java Management Extensions )** 的可视化监视、管理工具
+- 主要功能是通过 JMX 的 **MBean ( Managed Bean )** 对系统进行信息收集和参数动态调整
+- _JMX 是一种开放性的技术, 不仅可以用在虚拟机本身的管理上, 还可以运行于 VM 之上的软件中_
+    - **典型的如中间件大多也基于 JMX 来实现管理与监控**
+- **VM 对 JMX MBean 的访问也是完全开放的**
+    - _可以使用代码调用 API、支持 JMX 协议的管理控制台, 或者其他符合 JMX 规范的软件进行访问_
+
+启动 JConsole
+
+```bash
+# macOS
+$ jconsole
+```
+
+- _"Memory" Tab 的作用相当于可视化的 `jstat` 命令, 用于监视被收集器管理的 VM Memory ( 被收集器直接管理的 Java Heap 和被间接管理的 Method Area ) 的变化趋势_
+
+[File : JConsoleMonitoringTest.java](src/understand-jvm/JConsoleMonitoringTest.java ':include :type=code java')
+
+_Output_
+
+```bash
+$ java -Xms100m -Xmx100m -XX:+UseSerialGC JConsoleMonitoringTest
+started at 2020-08-23T15:20:46.436851
+finished at 2020-08-23T15:21:38.570885
+duration = 52134 ms
+```
+
+![jconsole-monitoring-overview.png](_images/understand-jvm/jconsole-monitoring-overview.png)
+
+![jconsole-monitoring-memory-eden-space.png](_images/understand-jvm/jconsole-monitoring-memory-eden-space.png)
+
+![jconsole-monitoring-memory-tenured-gen.png](_images/understand-jvm/jconsole-monitoring-memory-tenured-gen.png)
+
+Analysis
