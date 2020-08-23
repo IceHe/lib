@@ -2337,7 +2337,7 @@ $ jconsole
 
 **Memory Monitoring**
 
-[File : JConsoleMonitoringTest.java](src/understand-jvm/JConsoleMonitoringTest.java ':include :type=code java')
+[File : JConsoleMonitoringMemory.java](src/understand-jvm/JConsoleMonitoringMemory.java ':include :type=code java')
 
 _Output_
 
@@ -2363,3 +2363,16 @@ Analysis
 ##### 监视线程
 
 **Thread Monitoring**
+
+[File : JConsoleMonitoringThreadWait.java](src/understand-jvm/JConsoleMonitoringThreadWait.java ':include :type=code java')
+
+_Output_
+
+```bash
+$ java -Xms100m -Xmx100m -XX:+UseSerialGC JConsoleMonitoringThreadWait
+started at 2020-08-23T15:20:46.436851
+finished at 2020-08-23T15:21:38.570885
+duration = 52134 ms
+```
+
+Analysis
