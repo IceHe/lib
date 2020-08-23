@@ -2333,7 +2333,7 @@ $ jconsole
         - Infinite Loop _( or Endless Loop )_ _( 死循环 )_
         - Lock-Wait _( 锁等待 )_
 
-##### 监视内存
+##### 内存监视
 
 **Memory Monitoring**
 
@@ -2360,19 +2360,69 @@ Analysis
 - 使用 JConsole 的 "Memory" Tab 进行监视, 观察曲线和柱状指示图的变化
 - _omitted ( icehe : 其它详见原书 )_
 
-##### 监视线程
+##### 线程监视
 
 **Thread Monitoring**
+
+###### 线程等待
 
 [File : JConsoleMonitoringThreadWait.java](src/understand-jvm/JConsoleMonitoringThreadWait.java ':include :type=code java')
 
 _Output_
 
 ```bash
-$ java -Xms100m -Xmx100m -XX:+UseSerialGC JConsoleMonitoringThreadWait
-started at 2020-08-23T15:20:46.436851
-finished at 2020-08-23T15:21:38.570885
-duration = 52134 ms
+$ java JConsoleMonitoringThreadWait
+started at 2020-08-23T16:53:55.396
+input 1st
+input 2nd
+finished at 2020-08-23T16:54:03.965
+duration = 8569 ms
+```
+
+Analysis
+
+- Before input 1st
+    - 程序运行后, 首先在 "Threads" Tab 中选择 main Thread ( 如下图所示 )
+    - 堆栈追踪显示 BufferedReader 的 `readBytes()` 方法正在等待 System.in 的键盘输入
+    - 这时候线程为 Runnable 状态, Runnable 状态的线程仍会被分配运行时间
+    - 但 `readBytes()` 方法检查到流没有更新就会立刻归还执行令牌给操作系统
+    - 这种等待只消耗很小的处理器资源
+
+![jconsole-monitoring-thread-wait-before-input-1st.png](_images/understand-jvm/jconsole-monitoring-thread-wait-before-input-1st.png)
+
+- Before input 2nd
+    - 接着监控 testBusyThread 线程 ( 如下图所示 )
+    - testBusyThread 线程一直在执行空循环
+    - 从堆栈追踪中看到一直在 MonitoringTest.java 代码的 21 行停留, 21 行的代码为 `while(true)`
+    - 这时候线程为 Runnable 状态, 而且没有归还线程执行令牌的动作
+    - 所以会在空循环耗尽操作系统分配给它的执行时间, 直到线程切换为止
+    - 这种等待会消耗大量的处理器资源
+
+
+![jconsole-monitoring-thread-wait-before-input-2nd.png](_images/understand-jvm/jconsole-monitoring-thread-wait-before-input-2nd.png)
+
+- After input 2nd
+    - 下图的 testLockThread 线程正处于正常的 **活锁等待** 中
+        - 即等待 lock 对象的 `notify()` 或 `notifyAll()` 方法的出现
+    - 线程这时候处于 WAITING 状态, 在重新唤醒前不会被分配执行时间, 这个线程便能激活继续执行
+
+![jconsole-monitoring-thread-wait-after-input-2nd.png](_images/understand-jvm/jconsole-monitoring-thread-wait-after-input-2nd.png)
+
+##### 线程死锁
+
+一个无法再被激活的死锁等待
+
+[File : JConsoleMonitoringDeadLock.java](src/understand-jvm/JConsoleMonitoringDeadLock.java ':include :type=code java')
+
+_Output_
+
+```bash
+$ java JConsoleMonitoringDeadLock
+started at 2020-08-23T16:53:55.396
+input 1st
+input 2nd
+finished at 2020-08-23T16:54:03.965
+duration = 8569 ms
 ```
 
 Analysis

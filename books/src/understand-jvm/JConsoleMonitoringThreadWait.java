@@ -4,10 +4,10 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
- * 目标 : Test JConsole Monitoring Dead Lock
+ * 目标 : Test JConsole Monitoring Thread-Wait
  * 运行 :
- * javac JConsoleMonitoringDeadLock.java
- * java -Xms100m -Xmx100m -XX:+UseSerialGC JConsoleMonitoringDeadLock
+ * javac JConsoleMonitoringThreadWait.java
+ * java JConsoleMonitoringThreadWait
  */
 public class JConsoleMonitoringThreadWait {
 
@@ -47,7 +47,7 @@ public class JConsoleMonitoringThreadWait {
     }
 
     public static void main(String[] args) throws Exception {
-        Thread.sleep(5000L);
+        Thread.sleep(10000L);
 
         LocalDateTime startedAt = LocalDateTime.now();
         System.out.println("started at " + startedAt);
@@ -55,6 +55,8 @@ public class JConsoleMonitoringThreadWait {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         br.readLine();
         createBusyThread();
+
+        br.readLine();
         Object obj = new Object();
         createLockThread(obj);
 
