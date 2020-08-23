@@ -2321,6 +2321,8 @@ $ jconsole
 
 - _"Memory" Tab 的作用相当于可视化的 `jstat` 命令, 用于监视被收集器管理的 VM Memory ( 被收集器直接管理的 Java Heap 和被间接管理的 Method Area ) 的变化趋势_
 
+**Memory Monitoring**
+
 [File : JConsoleMonitoringTest.java](src/understand-jvm/JConsoleMonitoringTest.java ':include :type=code java')
 
 _Output_
@@ -2339,3 +2341,9 @@ duration = 52134 ms
 ![jconsole-monitoring-memory-tenured-gen.png](_images/understand-jvm/jconsole-monitoring-memory-tenured-gen.png)
 
 Analysis
+
+- 这段代码的作用是以 64KB / 50ms 的速度向 Java Heap 中填充数据, 一共填充 1000 次
+- 使用 JConsole 的 "Memory" Tab 进行监视, 观察曲线和柱状指示图的变化
+- _omitted ( icehe : 其它详见原书 )_
+
+**Thread Monitoring**
