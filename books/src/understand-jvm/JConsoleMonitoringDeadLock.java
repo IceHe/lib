@@ -33,16 +33,19 @@ public class JConsoleMonitoringDeadLock {
     }
 
     public static void main(String[] args) throws Exception {
-        Thread.sleep(10000L);
 
         LocalDateTime startedAt = LocalDateTime.now();
         System.out.println("started at " + startedAt);
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        br.readLine();
 
         for (int i = 0; i < 100; i++) {
             new Thread(new SynAddRunnable(1, 2)).start();
             new Thread(new SynAddRunnable(2, 1)).start();
         }
 
+        br.readLine();
         LocalDateTime finishedAt = LocalDateTime.now();
         System.out.println("finished at " + finishedAt);
         System.out.println("duration = " + Duration.between(startedAt, finishedAt).toMillis() + " ms");

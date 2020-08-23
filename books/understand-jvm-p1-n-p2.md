@@ -2398,7 +2398,6 @@ Analysis
     - 所以会在空循环耗尽操作系统分配给它的执行时间, 直到线程切换为止
     - 这种等待会消耗大量的处理器资源
 
-
 ![jconsole-monitoring-thread-wait-before-input-2nd.png](_images/understand-jvm/jconsole-monitoring-thread-wait-before-input-2nd.png)
 
 - After input 2nd
@@ -2408,7 +2407,7 @@ Analysis
 
 ![jconsole-monitoring-thread-wait-after-input-2nd.png](_images/understand-jvm/jconsole-monitoring-thread-wait-after-input-2nd.png)
 
-##### 线程死锁
+###### 线程死锁
 
 一个无法再被激活的死锁等待
 
@@ -2418,11 +2417,19 @@ _Output_
 
 ```bash
 $ java JConsoleMonitoringDeadLock
-started at 2020-08-23T16:53:55.396
-input 1st
-input 2nd
-finished at 2020-08-23T16:54:03.965
-duration = 8569 ms
+started at 2020-08-23T17:18:12.179
+start
+3
+3
+3
+…… ( icehe : 跳过后续重复的 30 行 )
+end
+finished at 2020-08-23T17:20:31.215
+duration = 139036 ms
 ```
+
+![jconsole-monitoring-dead-lock-threads.png](_images/understand-jvm/jconsole-monitoring-dead-lock-threads.png)
+
+![jconsole-monitoring-dead-lock-detect-deadlock.png](_images/understand-jvm/jconsole-monitoring-dead-lock-detect-deadlock.png)
 
 Analysis
