@@ -2428,8 +2428,38 @@ finished at 2020-08-23T17:20:31.215
 duration = 139036 ms
 ```
 
+Analysis
+
+- _代码开了 200 个线程去分别计算 1+2 以及 2+1 的值_
+- 理论上 for 循环都是可省略的, 两个线程也可能会导致死锁
+    - 不过那样概率太小, 需要尝试运行很多次才能看到死锁的效果
+    - 如果运气不是特别差的话, 上面带 for 循环的版本最多运行两三次就会遇到线程死锁, 程序无法结束
+- 造成死锁的根本原因 :
+    - **`Integer.valueOf()` 方法出于减少对象创建次数和节省内存的考虑, 会对数值为 -128~127 之间的 Integer 对象进行缓存**
+    - 如果 `valueOf()` 方法传入的参数在这个范围之内, 就直接返回缓存中的对象
+- 也就是说代码中尽管调用了 200 次 `Integer.valueOf()` 方法, 但一共只返回了两个不同的 Integer 对象
+- 假如某个线程的两个 `synchronized` 块之间发生了一次线程切换
+    - 那就会出现线程 A 在等待被线程 B 持有的 `Integer.valueOf(1)`
+    - 线程 B 又在等待被线程 A 持有的 `Integer.valueOf(2)`
+    - 结果大家都跑不下去的情况
+
 ![jconsole-monitoring-dead-lock-threads.png](_images/understand-jvm/jconsole-monitoring-dead-lock-threads.png)
+
+- 出现线程死锁之后, 点击 JConsole "Threads" 面板的 "Detect DeadLock" 按钮，将出现一个新的 "Deadlock" Tab
 
 ![jconsole-monitoring-dead-lock-detect-deadlock.png](_images/understand-jvm/jconsole-monitoring-dead-lock-detect-deadlock.png)
 
-Analysis
+### VisualVM : 多合-故障处理工具
+
+**VisualVM - All-in-One Java Troubleshooting Tool**
+
+- 功能最强大的运行监视和故障处理程序之一
+- _曾经在很长一段时间内是 Oracle 官方主力发展的 VM 故障处理工具_
+
+_Oracle 曾在 VisualVM 的软件说明中写上了 "Al-in-One" 的字样, 预示着它除了常规的运行监视、故障处理外, 还将提供其他方面的能力, 例如 :_
+
+- Profiling _( 性能分析 )_
+    - _VisualVM 的性能分析功能比起 JProfiler、YourKit 等专业且收费的 Profiling 工具都不遑多让_
+    - 而且相比这些第三方工具, VisualVM 还有一个很大的优点 :
+        - 不需要被监视的程序基于特殊 Agent 去运行, 因此它的通用性很强, 对应用程序实际性能的影响也较小, 使得它可以直接应用在生产环境中
+    - _这个优点是 JProfiler、YourKit 等工具无法与之媲美的_
