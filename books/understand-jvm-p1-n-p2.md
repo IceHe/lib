@@ -2453,6 +2453,7 @@ Analysis
 
 **VisualVM - All-in-One Java Troubleshooting Tool**
 
+- https://visualvm.github.io
 - 功能最强大的运行监视和故障处理程序之一
 - _曾经在很长一段时间内是 Oracle 官方主力发展的 VM 故障处理工具_
 
@@ -2463,3 +2464,20 @@ _Oracle 曾在 VisualVM 的软件说明中写上了 "Al-in-One" 的字样, 预�
     - 而且相比这些第三方工具, VisualVM 还有一个很大的优点 :
         - 不需要被监视的程序基于特殊 Agent 去运行, 因此它的通用性很强, 对应用程序实际性能的影响也较小, 使得它可以直接应用在生产环境中
     - _这个优点是 JProfiler、YourKit 等工具无法与之媲美的_
+
+_VisualVM 基于 NetBeans 平台开发工具, 所以一开始它就具备了通过插件扩展功能的能力, 有了插件扩展支持, VisualVM 可以做到_
+
+- _显示 VM 进程以及进程的配置、环境信息 ( `jps` , `jinfo` )_
+- _监视应用程序的 处理器, GC, Heap, Method Area, Threads ( `jstat` , `jstack` )_
+- _dump 以及分析堆转储快照 ( `jmap` , `jhat` )_
+- 方法级的程序运行性能分析, 找出被调用最多、运行时间最长的方法
+- 离线程序快照 : 收集程序的运行时配置、线程 dump、内存 dump 等信息建立一个快照, _可以将快照发送开发者处进行 Bug 反馈_
+- _其他插件带来的无限可能性_
+
+启动 Visualvm
+
+```bash
+$ jvisualvm
+```
+
+![jvisualvm-startup-n-plugins.png](_images/understand-jvm/jvisualvm-startup-n-plugins.png)
