@@ -2529,3 +2529,35 @@ $ jvisualvm
 - 做 Profiling 分析肯定会对程序运行性能有比较大的影响, 所以一般不在生产环境使用这项功能
     - 或者改用 **JMC** 来完成, JMC 的 Profiling 能力更强, 对应用的影响非常轻微
 - _其它略, 详见原书_
+
+### Java Mission Control : 可持续在线的监控工具
+
+- _BTrace 它本身也是一个可运行的独立程序_
+    - BTrace 的作用是在不中断目标程序运行的前提下, 通过 HotSpot VM 的 Instrument 功能, 动态加入原本并不存在的调试代码
+- _这项功能对实际生产中的程序很有意义 :_
+    - _如当程序出现问题时，排查错误的一些必要信息时 ( 譬如, 方法参数、返回值等 )_
+    - _在开发时并没有打印到日志之中以至于不得不停掉服务时, 都可以通 过调试增量来加入日志代码以解决问题_
+    - _( icehe : 实际试用感觉还是不够方便 )_
+- _用法 : 在应用程序面板中_
+    - _右击要调试的程序, 会出现 "Trace Application…" 菜单_
+    - _点击将进入 BTrace 面板_
+
+**Tracing application…**
+
+- BTraceTest.java
+
+[File : BTraceTest.java](src/understand-jvm/BTraceTest.java ':include :type=code java')
+
+- BTraceTestTracingScript.java
+
+[File : BTraceTestTracingScript.java](src/understand-jvm/BTraceTestTracingScript.java ':include :type=code java')
+
+_Output_
+
+```bash
+$ java BTraceTest
+e
+1000
+```
+
+![jvisualvm-tracing-application.png](_images/understand-jvm/jvisualvm-tracing-application.png)
