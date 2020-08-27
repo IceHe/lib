@@ -2530,8 +2530,6 @@ $ jvisualvm
     - 或者改用 **JMC** 来完成, JMC 的 Profiling 能力更强, 对应用的影响非常轻微
 - _其它略, 详见原书_
 
-### Java Mission Control : 可持续在线的监控工具
-
 - _BTrace 它本身也是一个可运行的独立程序_
     - BTrace 的作用是在不中断目标程序运行的前提下, 通过 HotSpot VM 的 Instrument 功能, 动态加入原本并不存在的调试代码
 - _这项功能对实际生产中的程序很有意义 :_
@@ -2561,3 +2559,5 @@ e
 ```
 
 ![jvisualvm-tracing-application.png](_images/understand-jvm/jvisualvm-tracing-application.png)
+
+### Java Mission Control : 可持续在线的监控工具
