@@ -2483,7 +2483,7 @@ _VisualVM 基于 NetBeans 平台开发工具, 所以一开始它就具备了通�
 $ jvisualvm
 ```
 
-#### GUI
+#### 功能列举
 
 - 主页 & 插件页
 
@@ -2493,30 +2493,39 @@ $ jvisualvm
 
 - Overview
 
-![jvisualvm-visualvm-overview.png](_images/understand-jvm/jvisualvm-visualvm-overview.png)
+![jvisualvm-overview.png](_images/understand-jvm/jvisualvm-visualvm-overview.png)
 
 - Monitor
 
-![jvisualvm-visualvm-monitor.png](_images/understand-jvm/jvisualvm-visualvm-monitor.png)
+![jvisualvm-monitor.png](_images/understand-jvm/jvisualvm-visualvm-monitor.png)
 
 - Threads
 
-![jvisualvm-visualvm-threads.png](_images/understand-jvm/jvisualvm-visualvm-threads.png)
+![jvisualvm-threads.png](_images/understand-jvm/jvisualvm-visualvm-threads.png)
 
 - Sampler - CPU
 
-![jvisualvm-visualvm-sampler-cpu.png](_images/understand-jvm/jvisualvm-visualvm-sampler-cpu.png)
+![jvisualvm-sampler-cpu.png](_images/understand-jvm/jvisualvm-visualvm-sampler-cpu.png)
 
 - Sampler - Memory
 
-![jvisualvm-visualvm-sampler-memory.png](_images/understand-jvm/jvisualvm-visualvm-sampler-memory.png)
+![jvisualvm-sampler-memory.png](_images/understand-jvm/jvisualvm-visualvm-sampler-memory.png)
 
 - Visual GC
 
-![jvisualvm-visualvm-visual-gc.png](_images/understand-jvm/jvisualvm-visualvm-visual-gc.png)
+![jvisualvm-visual-gc.png](_images/understand-jvm/jvisualvm-visualvm-visual-gc.png)
+
+- Tracer
+
+![jvisualvm-tracer.png](_images/understand-jvm/jvisualvm-tracer.png)
 
 #### 生成 & 浏览堆转储快照
 
-- 略
+- _略, 详见原书_
 
 #### 分析程序性能
+
+- 在 "Profiler" Tab 中, VisualVM 提供了程序运行期间方法级的处理器执行时间分析以及内存分析
+- 做 Profiling 分析肯定会对程序运行性能有比较大的影响, 所以一般不在生产环境使用这项功能
+    - 或者改用 **JMC** 来完成, JMC 的 Profiling 能力更强, 对应用的影响非常轻微
+- _其它略, 详见原书_
