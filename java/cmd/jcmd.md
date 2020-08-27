@@ -560,142 +560,142 @@ jcmd -h
 $ jcmd 581 help -all
 581:
 Compiler.CodeHeap_Analytics
-	Print CodeHeap analytics
+    Print CodeHeap analytics
 
 Compiler.codecache
-	Print code cache layout and bounds.
+    Print code cache layout and bounds.
 
 Compiler.codelist
-	Print all compiled methods in code cache that are alive
+    Print all compiled methods in code cache that are alive
 
 Compiler.directives_add
-	Add compiler directives from file.
+    Add compiler directives from file.
 
 Compiler.directives_clear
-	Remove all compiler directives.
+    Remove all compiler directives.
 
 Compiler.directives_print
-	Print all active compiler directives.
+    Print all active compiler directives.
 
 Compiler.directives_remove
-	Remove latest added compiler directive.
+    Remove latest added compiler directive.
 
 Compiler.queue
-	Print methods queued for compilation.
+    Print methods queued for compilation.
 
 GC.class_histogram
-	Provide statistics about the Java heap usage.
+    Provide statistics about the Java heap usage.
 
 GC.class_stats
-	Provide statistics about Java class meta data.
+    Provide statistics about Java class meta data.
 
 GC.finalizer_info
-	Provide information about Java finalization queue.
+    Provide information about Java finalization queue.
 
 GC.heap_dump
-	Generate a HPROF format dump of the Java heap.
+    Generate a HPROF format dump of the Java heap.
 
 GC.heap_info
-	Provide generic Java heap information.
+    Provide generic Java heap information.
 
 GC.run
-	Call java.lang.System.gc().
+    Call java.lang.System.gc().
 
 GC.run_finalization
-	Call java.lang.System.runFinalization().
+    Call java.lang.System.runFinalization().
 
 JFR.check
-	Checks running JFR recording(s)
+    Checks running JFR recording(s)
 
 JFR.configure
-	Configure JFR
+    Configure JFR
 
 JFR.dump
-	Copies contents of a JFR recording to file. Either the name or the recording id must be specified.
+    Copies contents of a JFR recording to file. Either the name or the recording id must be specified.
 
 JFR.start
-	Starts a new JFR recording
+    Starts a new JFR recording
 
 JFR.stop
-	Stops a JFR recording
+    Stops a JFR recording
 
 JVMTI.agent_load
-	Load JVMTI native agent.
+    Load JVMTI native agent.
 
 JVMTI.data_dump
-	Signal the JVM to do a data-dump request for JVMTI.
+    Signal the JVM to do a data-dump request for JVMTI.
 
 ManagementAgent.start
-	Start remote management agent.
+    Start remote management agent.
 
 ManagementAgent.start_local
-	Start local management agent.
+    Start local management agent.
 
 ManagementAgent.status
-	Print the management agent status.
+    Print the management agent status.
 
 ManagementAgent.stop
-	Stop remote management agent.
+    Stop remote management agent.
 
 Thread.print
-	Print all threads with stacktraces.
+    Print all threads with stacktraces.
 
 VM.class_hierarchy
-	Print a list of all loaded classes, indented to show the class hiearchy. The name of each class is followed by the ClassLoaderData* of its ClassLoader, or "null" if loaded by the bootstrap class loader.
+    Print a list of all loaded classes, indented to show the class hiearchy. The name of each class is followed by the ClassLoaderData* of its ClassLoader, or "null" if loaded by the bootstrap class loader.
 
 VM.classloader_stats
-	Print statistics about all ClassLoaders.
+    Print statistics about all ClassLoaders.
 
 VM.classloaders
-	Prints classloader hierarchy.
+    Prints classloader hierarchy.
 
 VM.command_line
-	Print the command line used to start this VM instance.
+    Print the command line used to start this VM instance.
 
 VM.dynlibs
-	Print loaded dynamic libraries.
+    Print loaded dynamic libraries.
 
 VM.flags
-	Print VM flag options and their current values.
+    Print VM flag options and their current values.
 
 VM.info
-	Print information about JVM environment and status.
+    Print information about JVM environment and status.
 
 VM.log
-	Lists current log configuration, enables/disables/configures a log output, or rotates all logs.
+    Lists current log configuration, enables/disables/configures a log output, or rotates all logs.
 
 VM.metaspace
-	Prints the statistics for the metaspace
+    Prints the statistics for the metaspace
 
 VM.native_memory
-	Print native memory usage
+    Print native memory usage
 
 VM.print_touched_methods
-	Print all methods that have ever been touched during the lifetime of this JVM.
+    Print all methods that have ever been touched during the lifetime of this JVM.
 
 VM.set_flag
-	Sets VM flag option using the provided value.
+    Sets VM flag option using the provided value.
 
 VM.stringtable
-	Dump string table.
+    Dump string table.
 
 VM.symboltable
-	Dump symbol table.
+    Dump symbol table.
 
 VM.system_properties
-	Print system properties.
+    Print system properties.
 
 VM.systemdictionary
-	Prints the statistics for dictionary hashtable sizes and bucket length
+    Prints the statistics for dictionary hashtable sizes and bucket length
 
 VM.uptime
-	Print VM uptime.
+    Print VM uptime.
 
 VM.version
-	Print JVM version information.
+    Print JVM version information.
 
 help
-	For more information about a specific command use 'help <command>'. With no argument this will show a list of available commands. 'help all' will show help for all commands.
+    For more information about a specific command use 'help <command>'. With no argument this will show a list of available commands. 'help all' will show help for all commands.
 ```
 
 ### VM
