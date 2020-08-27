@@ -170,7 +170,6 @@ Command Tools
     - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger** ( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )
         - _Available after JDK 9_
 
-
 ### Git
 
 - [Commands](/git/README.md)
