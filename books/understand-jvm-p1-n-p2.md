@@ -2456,6 +2456,7 @@ Analysis
 - https://visualvm.github.io
 - 功能最强大的运行监视和故障处理程序之一
 - _曾经在很长一段时间内是 Oracle 官方主力发展的 VM 故障处理工具_
+    - _JDK 9 之前自带_
 
 _Oracle 曾在 VisualVM 的软件说明中写上了 "Al-in-One" 的字样, 预示着它除了常规的运行监视、故障处理外, 还将提供其他方面的能力, 例如 :_
 
@@ -2464,6 +2465,8 @@ _Oracle 曾在 VisualVM 的软件说明中写上了 "Al-in-One" 的字样, 预�
     - 而且相比这些第三方工具, VisualVM 还有一个很大的优点 :
         - 不需要被监视的程序基于特殊 Agent 去运行, 因此它的通用性很强, 对应用程序实际性能的影响也较小, 使得它可以直接应用在生产环境中
     - _这个优点是 JProfiler、YourKit 等工具无法与之媲美的_
+
+#### 兼容范围 & 插件安装
 
 _VisualVM 基于 NetBeans 平台开发工具, 所以一开始它就具备了通过插件扩展功能的能力, 有了插件扩展支持, VisualVM 可以做到_
 
@@ -2480,4 +2483,40 @@ _VisualVM 基于 NetBeans 平台开发工具, 所以一开始它就具备了通�
 $ jvisualvm
 ```
 
+#### GUI
+
+- 主页 & 插件页
+
 ![jvisualvm-startup-n-plugins.png](_images/understand-jvm/jvisualvm-startup-n-plugins.png)
+
+> 双击 `VisualVM` 后
+
+- Overview
+
+![jvisualvm-visualvm-overview.png](_images/understand-jvm/jvisualvm-visualvm-overview.png)
+
+- Monitor
+
+![jvisualvm-visualvm-monitor.png](_images/understand-jvm/jvisualvm-visualvm-monitor.png)
+
+- Threads
+
+![jvisualvm-visualvm-threads.png](_images/understand-jvm/jvisualvm-visualvm-threads.png)
+
+- Sampler - CPU
+
+![jvisualvm-visualvm-sampler-cpu.png](_images/understand-jvm/jvisualvm-visualvm-sampler-cpu.png)
+
+- Sampler - Memory
+
+![jvisualvm-visualvm-sampler-memory.png](_images/understand-jvm/jvisualvm-visualvm-sampler-memory.png)
+
+- Visual GC
+
+![jvisualvm-visualvm-visual-gc.png](_images/understand-jvm/jvisualvm-visualvm-visual-gc.png)
+
+#### 生成 & 浏览堆转储快照
+
+- 略
+
+#### 分析程序性能
