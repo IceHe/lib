@@ -2563,3 +2563,19 @@ e
 ![jvisualvm-tracing-application.png](_images/understand-jvm/jvisualvm-tracing-application.png)
 
 ### Java Mission Control : 可持续在线的监控工具
+
+除了大家熟知的面向通用计算 ( General Purpose Computing ) 可免费使用的 Java SE 外, Oracle 公司还开辟过带商业技术支持的 Oracle Java SE Support 和面向独立软件供应商 ( ISV ) 的 Oracle Java SE Advanced & Suite 产品线
+
+除去带有 7x24 小时的技术支持以及可以为企业专门定制安装包这些非技术类的增强服务外, Oracle Java SE Advanced & Suite 与普通 Oracle Java SE 在功能上的主要差别是前者包含了一系列的监控、管理工具, 璧如用于企业 JRE 定制管理的 AMC ( Java Advanced Management Console ) 控制台、JUT ( Java Usage Tracker ) 跟踪系统, 用于持续收集数据的 JFR ( Java Flight Recorder ) 飞行记录仪和用于监控 Java VM 的JMC ( Java Mission Control )
+这些功能全部都是需要商业授权才能在生产环境中使用, 但根据 Oracle Binary Code 协议, 在个人开发环境中, 人允许免费使用 JIMC 和 JFR , 本节笔者将简要介绍它们的原理和使用
+
+JFR 是一套内建在 HotSpot VM 里面的监控和基于事件的信息搜集框架, 与其他的监控工具 ( 如 JProfiling ) 相比, Oracle特别强调它“可持续在线”(Always-On) 的特性。JFR在生产环境中对吞吐量
+的影响一般不会高于1% (甚至号称是Zero Performance Overhead) ，而且JFR监控过程的开始、停止都
+是完全可动态的，即不需要重启应用。JFR的监控对应用也是完全透明的，即不需要对应用程序的源
+码做任何修改，或者基于特定的代理来运行。
+
+JMC最初是BEA公司的产品，因此并没有像VisualVM那样一开始就基于自家的Net-Beans平台来开
+发，而是选择了由IBM捐赠的EclipseRCP作为基础框架，现在的JMC不仅可以下载到独立程序，更常
+见的是作为Eclipse的插件来使用。JMC与虚拟机之间同样采取JMX协议进行通信，JMC一方面作为
+JMX控制台，显示来自虚拟机MBean提供的数据;另一方面作为JFR的分析工具，展示来自JFR的数
+据。局动后JMC的主界面如图4-24所示。
