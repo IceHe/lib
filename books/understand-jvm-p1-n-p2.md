@@ -2493,27 +2493,27 @@ $ jvisualvm
 
 - Overview
 
-![jvisualvm-overview.png](_images/understand-jvm/jvisualvm-visualvm-overview.png)
+![jvisualvm-overview.png](_images/understand-jvm/jvisualvm-overview.png)
 
 - Monitor
 
-![jvisualvm-monitor.png](_images/understand-jvm/jvisualvm-visualvm-monitor.png)
+![jvisualvm-monitor.png](_images/understand-jvm/jvisualvm-monitor.png)
 
 - Threads
 
-![jvisualvm-threads.png](_images/understand-jvm/jvisualvm-visualvm-threads.png)
+![jvisualvm-threads.png](_images/understand-jvm/jvisualvm-threads.png)
 
 - Sampler - CPU
 
-![jvisualvm-sampler-cpu.png](_images/understand-jvm/jvisualvm-visualvm-sampler-cpu.png)
+![jvisualvm-sampler-cpu.png](_images/understand-jvm/jvisualvm-sampler-cpu.png)
 
 - Sampler - Memory
 
-![jvisualvm-sampler-memory.png](_images/understand-jvm/jvisualvm-visualvm-sampler-memory.png)
+![jvisualvm-sampler-memory.png](_images/understand-jvm/jvisualvm-sampler-memory.png)
 
 - Visual GC
 
-![jvisualvm-visual-gc.png](_images/understand-jvm/jvisualvm-visualvm-visual-gc.png)
+![jvisualvm-visual-gc.png](_images/understand-jvm/jvisualvm-visual-gc.png)
 
 - Tracer
 
@@ -2564,18 +2564,85 @@ e
 
 ### Java Mission Control : 可持续在线的监控工具
 
-除了大家熟知的面向通用计算 ( General Purpose Computing ) 可免费使用的 Java SE 外, Oracle 公司还开辟过带商业技术支持的 Oracle Java SE Support 和面向独立软件供应商 ( ISV ) 的 Oracle Java SE Advanced & Suite 产品线
+_Oracle Java SE Advanced & Suite 与普通 Oracle Java SE 在功能上的主要差别是前者包含了一系列的监控、管理工具, 譬如 :_
 
-除去带有 7x24 小时的技术支持以及可以为企业专门定制安装包这些非技术类的增强服务外, Oracle Java SE Advanced & Suite 与普通 Oracle Java SE 在功能上的主要差别是前者包含了一系列的监控、管理工具, 璧如用于企业 JRE 定制管理的 AMC ( Java Advanced Management Console ) 控制台、JUT ( Java Usage Tracker ) 跟踪系统, 用于持续收集数据的 JFR ( Java Flight Recorder ) 飞行记录仪和用于监控 Java VM 的JMC ( Java Mission Control )
-这些功能全部都是需要商业授权才能在生产环境中使用, 但根据 Oracle Binary Code 协议, 在个人开发环境中, 人允许免费使用 JIMC 和 JFR , 本节笔者将简要介绍它们的原理和使用
+- 用于企业 JRE 定制管理的 **AMC ( Java Advanced Management Console )** 控制台、**JUT ( Java Usage Tracker )** 跟踪系统
+- 用于持续收集数据的 **JFR ( Java Flight Recorder )** 飞行记录仪和用于监控 Java VM 的 **JMC ( Java Mission Control )**
 
-JFR 是一套内建在 HotSpot VM 里面的监控和基于事件的信息搜集框架, 与其他的监控工具 ( 如 JProfiling ) 相比, Oracle特别强调它“可持续在线”(Always-On) 的特性。JFR在生产环境中对吞吐量
-的影响一般不会高于1% (甚至号称是Zero Performance Overhead) ，而且JFR监控过程的开始、停止都
-是完全可动态的，即不需要重启应用。JFR的监控对应用也是完全透明的，即不需要对应用程序的源
-码做任何修改，或者基于特定的代理来运行。
+_这些功能全部都是需要商业授权才能在生产环境中使用, 但根据 Oracle Binary Code 协议,_ 在个人开发环境中, 人允许免费使用 JIMC 和 JFR
 
-JMC最初是BEA公司的产品，因此并没有像VisualVM那样一开始就基于自家的Net-Beans平台来开
-发，而是选择了由IBM捐赠的EclipseRCP作为基础框架，现在的JMC不仅可以下载到独立程序，更常
-见的是作为Eclipse的插件来使用。JMC与虚拟机之间同样采取JMX协议进行通信，JMC一方面作为
-JMX控制台，显示来自虚拟机MBean提供的数据;另一方面作为JFR的分析工具，展示来自JFR的数
-据。局动后JMC的主界面如图4-24所示。
+- **JFR 是一套内建在 HotSpot VM 里面的监控和基于事件的信息搜集框架**
+    - 与其他的监控工具 ( 如 JProfiling ) 相比, Oracle 特别强调它 **"可持续在线" (Always-On)** 的特性
+    - JFR 在生产环境中对吞吐量的影响一般不会高于 1% ( 甚至号称是 Zero Performance Overhead )
+    - 而且 JFR 监控过程的开始、停止都是完全可动态的, 即不需要重启应用
+    - JFR的监控对应用也是完全透明的, 即不需要对应用程序的源码做任何修改, 或者基于特定的代理来运行
+- **JMC** _最初是 BEA 公司的产品_
+    - JMC 与虚拟机之间同样采取 JMX 协议进行通信
+        - JMC 一方面作为 JMX 控制台, 显示来自虚拟机 MBean 提供的数据
+        - 另一方面作为 JFR 的分析工具, 展示来自 JFR 的数据
+
+启动 JMC
+
+- 启动 JDK 自带的 JMC
+
+```bash
+$ jmc
+```
+
+- 或者下载独立安装的 JMC 后启动
+    - JDK Mission Control (JMC) 7  Downloads : https://www.oracle.com/java/technologies/javase/products-jmc7-downloads.html
+
+JMC 7 的 GUI
+
+- MBean Server
+
+![jmc-mbean-server.png](_images/understand-jvm/jmc-mbean-server.png)
+
+- 在左侧的 "JVM Browser" Panel 中自动显示了通过 **JDP 协议 ( Java Discovery Protocol )** 找到的本机正在运行的 HotSpot VM 进程
+- 如果需要监控其它服务器上的 JVM, 可在 "File → Connect…" 菜单中创建远程连接
+
+![jmc-connect-remote-jvm.png](_images/understand-jvm/jmc-connect-remote-jvm.png)
+
+要填写的信息应该在被监控 JVM 进程启动的时候以 VM 参数的形式指定, _以下是一份被监控端的启动参数样例 :_
+
+```bash
+-Dcom.sun.management.jmxremote.port=9999
+-Dcom.sun.management.jmxremote.ssl=false
+-Dcom.sun.management.jmxremote.authenticate=false
+-Djava.rmi.server.hostname=192.168.31.4
+-XX:+UnlockCommercialFeatures -XX:+FlightRecorder
+```
+
+![jmc-start-flight-recording.png](_images/understand-jvm/jmc-start-flight-recording.png)
+
+- 此处略, 详见原书
+
+### HotSpot VM 插件及工具
+
+_开发团队曾经编写 ( 或者收集 ) 过不少虚拟机的插件和辅助工具, 它们存放在 HotSpot 源码 hotspot/src/share/tools 目录下, 包括 ( 含曾经有过但新版本中已被移除的 ) :_
+
+- **Ideal Graph Visualizer** : 用于可视化展示 C2 即时编译器是如何将字节码转化为理想图, 然后转化为机器码的
+- **Client Compiler Visualizer** : 用于查看 C1 即时编译器生成高级中间表示 ( HIR ) , 转换成低级中间表示 ( LIR ) 和做物理寄存器分配的过程
+- _MakeDeps : 帮助处理 HotSpot 的编译依赖的工具_
+- _Project Creator : 帮忙生成 Visual Studio 的 .project 文件的工具_
+- _LogCompilation : 将 `-XX:+LogCompilation` 输出的日志整理成更容易阅读的格式的工具_
+- **HSDIS : 即时编译器的反汇编插件**
+
+#### HSDIS : JIT 生成代码反编译
+
+_在《Java 虚拟机规范》里详细定义了 VM 指令集中每条指令的语义, 尤其是执行过程前后对操作数栈、局部变量表的影响_
+
+- _这些细节描述与早期 Java VM ( Sun Classic VM ) 高度吻合, 但随着技术的发展, 高性能 VM 真正的细节实现方式已经渐渐与《Java虚拟机规范》所描述的内容产生越来越大的偏差_
+
+《Java 虛拟机规范》中的规定逐渐成为 Java VM 实现的 "概念模型", 即实现只保证与规范描述等效 , 而不一定是按照规范描述去执行
+
+- _由于这个原因, 我们在讨论程序的执行语义问题 ( 虚拟机做了什么 ) 时, 在字节码层面上分析完全可行_
+- _但讨论程序的执行行为问题 ( 虚拟机是怎样做的、性能如何 ) 时, 在字节码层面上分析就没有什么意义了, 必须通过其他途径解决_
+
+至于分析程序如何执行, 使用软件调试工具 ( GDB、Windbg 等 ) 来进行断点调试是一种常见的方式
+
+- _但是这样的调试方式在 Java VM 中也遇到了很大麻烦_
+    - 因为大量执行代码是通过即时编译器动态生成到代码缓存中的, 并没有特别简单的手段来处理这种混合模式的调试不得不通过一些曲线的间接方法来解决问题
+- _在这样的背景下，本节的主角 HSDIS 插件就正式登场了_
+
+_HSDIS 是一个被官方推荐的 HotSpot VM 即时编译代码的反汇编插件_
