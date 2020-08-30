@@ -2675,7 +2675,7 @@ $ sudo cp build/macosx-amd64/hsdis-amd64.dylib /Library/Java/JavaVirtualMachines
 # Directory path of `jdk1.8.0_172.jdk` above should be replaced with the actiual value.
 ```
 
-_Output_
+Execute
 
 - Options
     - `-Xcomp`
@@ -2694,6 +2694,82 @@ $ java -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -Xcomp \
     HsdisTest | tee -a HsdisTest.out
 ```
 
+_Output_
+
 [File : HsdisTest.out](src/understand-jvm/HsdisTest.out ':include :type=code bash')
+
+- Key parts of output
+
+```bash
+[Disassembling for mach='i386:x86-64']
+[Entry Point]
+[Constants]
+  # {method} {0x000000011171c2a0} 'sum' '(I)I' in 'HsdisTest'
+  # this:     rsi:rsi   = 'HsdisTest'
+  # parm0:    rdx       = int
+  #           [sp+0x40]  (sp of caller)
+……
+[Verified Entry Point]
+  0x0000000114c41300: mov    %eax,-0x14000(%rsp)
+  0x0000000114c41307: push   %rbp
+  0x0000000114c41308: sub    $0x30,%rsp         ;*aload_0
+                                                ; - HsdisTest::sum@0 (line 10)
+
+  0x0000000114c4130c: mov    0xc(%rsi),%eax     ;*getfield a
+                                                ; - HsdisTest::sum@1 (line 10)
+
+  0x0000000114c4130f: movabs $0x76ab71488,%rsi  ;   {oop(a 'java/lang/Class' = 'HsdisTest')}
+  0x0000000114c41319: mov    0x68(%rsi),%esi    ;*getstatic b
+                                                ; - HsdisTest::sum@4 (line 10)
+
+  0x0000000114c4131c: add    %esi,%eax
+  0x0000000114c4131e: add    %edx,%eax
+  0x0000000114c41320: add    $0x30,%rsp
+  0x0000000114c41324: pop    %rbp
+  0x0000000114c41325: test   %eax,-0xeac722b(%rip)        # 0x000000010617a100
+                                                ;   {poll_return}
+  0x0000000114c4132b: retq
+……
+```
+
+Analysis
+
+- `mov %eax, -0x14000(%rsp)` 检查栈溢
+- `push %rbp` 保存上一栈帧基址
+- `sub $0x30, %rsp` 给新帧分配空间
+- `mov 0xc(%rsi), %eax` 取实例变量 `a` , 这里 `0xc(%rsi)` 就是 `rsi+0xc` 的意思
+    - 前面代码片段 `[Constants]` 中提示了 `this: rsi:rsi = 'HsdisTest'` , 即 rsi 寄存器中放的就是 this 对象的地址
+    - 偏移 0xc 是越过 this 对象的 Object Header, 之后就是实例变量 `a` 的内存位置
+    - 这次是访问 Java Heap 中的数据
+- `mov $0x76ab71488, %rsi` 取 HsdisTest 在 Method Area 的 Pointer
+- `mov 0x68(%rsi), %esi`  取类变量 `b` , 这次是访问 Method Area 中的数据
+- `add %esi, %eax` `add %edx, %eax` 做 2 次加法, 求 a+b+c 的值
+    - 前面的代码把 a 放在 eax 中, 把 b 放在 esi 中
+    - 而 c 在 `[Constants]` 中提示了, `parm0: rdx = int` , 说明 c 在 rdx 中 ( ??? )
+        - _( icehe : 那么 rdx 里的 c 什么时候复制到 edx 里了? )_
+- `add $0x30, %rsp` 撤销栈帧
+- `pop %rbp` 恢复上一栈帧
+- `test %eax, -0xeac722b(%rip)` 轮询方法返回处的 SafePoint
+- `ret` 方法返回
+
+JITWatch 可视化的编译日志分析工具
+
+- 在这个例子中测试代码比较简单, 肉眼直接看日志中的汇编输出是可行的
+    - 但在正式环境中 `-XX:+PrintAssembly` 的日志输出量巨大, 且难以和代码对应起来, 这就必须使用工具来辅助了
+    - **JITWatch 是 HSDIS 经常搭配使用的可视化的编译日志分析工具**
+- 为便于在 JITWatch 中读取, 可使用以下参数把日志输出到 logfile 文件 :
+
+```bash
+-XX:+UnlockDiagnosticVMOptions
+-XX:+TraceClassLoading
+-XX:+LogCompilation
+-XX:LogFile=/tmp/logfile.log
+-XX:+PrintAssembly
+-XX:+TraceClassLoading
+```
+
+- JITWatch 加载日志, 可以看见执行期间使用过的各种对象类型和对应调用过的方法了
+- 此处图略, 详见原书
+    - _( icehe : JITWtach 没有编译成功, 该内容不重要, 懒得体验, 暂且跳过 )_
 
 ## 调优案例分析与实战
