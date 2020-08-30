@@ -2630,6 +2630,8 @@ _开发团队曾经编写 ( 或者收集 ) 过不少虚拟机的插件和辅助�
 
 #### HSDIS : JIT 生成代码反编译
 
+##### 简介
+
 _在《Java 虚拟机规范》里详细定义了 VM 指令集中每条指令的语义, 尤其是执行过程前后对操作数栈、局部变量表的影响_
 
 - _这些细节描述与早期 Java VM ( Sun Classic VM ) 高度吻合, 但随着技术的发展, 高性能 VM 真正的细节实现方式已经渐渐与《Java虚拟机规范》所描述的内容产生越来越大的偏差_
@@ -2647,6 +2649,51 @@ _在《Java 虚拟机规范》里详细定义了 VM 指令集中每条指令的�
 
 _HSDIS 是一个被官方推荐的 HotSpot VM 即时编译代码的反汇编插件_
 
-- TODO
+- HSDIS 插件的作用是让 HotSpot 的 `-XX:+PrintAssembly` 指令调用它来把即时编译器动态生成的本地代码还原为汇编代码输出
+    - 同时还会自动产生大量非常有价值的注释, 这样我们就可以通过输出的汇编代码来从最本质的角度分析问题
+- _可以根据自己的操作系统和处理器型号, 从网上直接搜索、下载编译好的插件，直接放到 JDK_HOM E/jre/bin/server 目录 ( JDK 9 以下 ) 或 JDK_HOME/lib/amd64/server ( JDK 9 或以上 ) 中即可使用_
+    - _如果读者确实没有找到所采用操作系统的对应编译成品, 那就自己用源码编译一遍_
+- _另外还有一点需要注意, 如果使用的是 SlowDebug 或者 FastDebug 版的 HotSpot , 那可以直接通过 `-XX:+PrintAssembly` 指令使用的插件_
+    - _如果读者使用的是 Product 版的 HotSpot , 则还要额外加入一个 `-XX: +UnlockDiagnosticVMOptions` 参数才可以工作_
+
+##### 测试样例
+
+[File : HsdisTest.java](src/understand-jvm/HsdisTest.java ':include :type=code java')
+
+_Prepare_
+
+- _安装 HSDIS 插件 ( on macOS )_
+    - https://github.com/liuzhengyang/hsdis#usage
+
+```bash
+# output omitted
+$ git clone https://github.com/liuzhengyang/hsdis
+$ cd hsdis
+$ tar -zxvf binutils-2.26.tar.gz
+$ make BINUTILS=binutils-2.26 ARCH=amd64
+$ sudo cp build/macosx-amd64/hsdis-amd64.dylib /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/server/
+# Directory path of `jdk1.8.0_172.jdk` above should be replaced with the actiual value.
+```
+
+_Output_
+
+- Options
+    - `-Xcomp`
+        - 让 VM 以编译模式执行代码, 这样不需要执行足够次数来预热就能触发即时编译
+    - `-XX:CompileCommand`
+        - `-XX:CompileCommand=dontinline,HsdisTest.sum` 让编译器不要内联 sum()
+        - `-XX:CompileCommand=compileonly,HsdisTest.sum` 让编译器只编译 sum()
+    - `-XX:+PrintAssembly`
+        - 输出反汇编内容
+
+```bash
+$ javac Bar.java
+$ java -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -Xcomp \
+    -XX:CompileCommand=dontinline,HsdisTest.sum \
+    -XX:CompileCommand=compileonly,HsdisTest.sum \
+    HsdisTest | tee -a HsdisTest.out
+```
+
+[File : HsdisTest.out](src/understand-jvm/HsdisTest.out ':include :type=code bash')
 
 ## 调优案例分析与实战

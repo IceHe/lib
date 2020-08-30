@@ -1,0 +1,464 @@
+CompilerOracle: dontinline Bar.sum
+CompilerOracle: compileonly Bar.sum
+Loaded disassembler from /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/server/hsdis-amd64.dylib
+Decoding compiled method 0x00000001110b81d0:
+Code:
+[Disassembling for mach='i386:x86-64']
+[Entry Point]
+[Constants]
+  # {method} {0x000000012990c2a0} 'sum' '(I)I' in 'Bar'
+  # this:     rsi:rsi   = 'Bar'
+  # parm0:    rdx       = int
+  #           [sp+0x40]  (sp of caller)
+  0x00000001110b8340: mov    0x8(%rsi),%r10d
+  0x00000001110b8344: shl    $0x3,%r10
+  0x00000001110b8348: cmp    %rax,%r10
+  0x00000001110b834b: jne    0x0000000110ffae60  ;   {runtime_call}
+  0x00000001110b8351: data16 data16 nopw 0x0(%rax,%rax,1)
+  0x00000001110b835c: data16 data16 xchg %ax,%ax
+[Verified Entry Point]
+  0x00000001110b8360: mov    %eax,-0x14000(%rsp)
+  0x00000001110b8367: push   %rbp
+  0x00000001110b8368: sub    $0x30,%rsp
+  0x00000001110b836c: movabs $0x12990c558,%rax  ;   {metadata(method data for {method} {0x000000012990c2a0} 'sum' '(I)I' in 'Bar')}
+  0x00000001110b8376: mov    0xdc(%rax),%edi
+  0x00000001110b837c: add    $0x8,%edi
+  0x00000001110b837f: mov    %edi,0xdc(%rax)
+  0x00000001110b8385: movabs $0x12990c2a0,%rax  ;   {metadata({method} {0x000000012990c2a0} 'sum' '(I)I' in 'Bar')}
+  0x00000001110b838f: and    $0x0,%edi
+  0x00000001110b8392: cmp    $0x0,%edi
+  0x00000001110b8395: je     0x00000001110b83bb  ;*aload_0
+                                                ; - Bar::sum@0 (line 9)
+
+  0x00000001110b839b: mov    0xc(%rsi),%eax     ;*getfield a
+                                                ; - Bar::sum@1 (line 9)
+
+  0x00000001110b839e: movabs $0x76ab71370,%rsi  ;   {oop(a 'java/lang/Class' = 'Bar')}
+  0x00000001110b83a8: mov    0x68(%rsi),%esi    ;*getstatic b
+                                                ; - Bar::sum@4 (line 9)
+
+  0x00000001110b83ab: add    %esi,%eax
+  0x00000001110b83ad: add    %edx,%eax
+  0x00000001110b83af: add    $0x30,%rsp
+  0x00000001110b83b3: pop    %rbp
+  0x00000001110b83b4: test   %eax,-0x221a2ba(%rip)        # 0x000000010ee9e100
+                                                ;   {poll_return}
+  0x00000001110b83ba: retq   
+  0x00000001110b83bb: mov    %rax,0x8(%rsp)
+  0x00000001110b83c0: movq   $0xffffffffffffffff,(%rsp)
+  0x00000001110b83c8: callq  0x00000001110b32e0  ; OopMap{rsi=Oop off=141}
+                                                ;*synchronization entry
+                                                ; - Bar::sum@-1 (line 9)
+                                                ;   {runtime_call}
+  0x00000001110b83cd: jmp    0x00000001110b839b
+  0x00000001110b83cf: nop
+  0x00000001110b83d0: nop
+  0x00000001110b83d1: mov    0x2a8(%r15),%rax
+  0x00000001110b83d8: movabs $0x0,%r10
+  0x00000001110b83e2: mov    %r10,0x2a8(%r15)
+  0x00000001110b83e9: movabs $0x0,%r10
+  0x00000001110b83f3: mov    %r10,0x2b0(%r15)
+  0x00000001110b83fa: add    $0x30,%rsp
+  0x00000001110b83fe: pop    %rbp
+  0x00000001110b83ff: jmpq   0x00000001110ae420  ;   {runtime_call}
+  0x00000001110b8404: hlt    
+  0x00000001110b8405: hlt    
+  0x00000001110b8406: hlt    
+  0x00000001110b8407: hlt    
+  0x00000001110b8408: hlt    
+  0x00000001110b8409: hlt    
+  0x00000001110b840a: hlt    
+  0x00000001110b840b: hlt    
+  0x00000001110b840c: hlt    
+  0x00000001110b840d: hlt    
+  0x00000001110b840e: hlt    
+  0x00000001110b840f: hlt    
+  0x00000001110b8410: hlt    
+  0x00000001110b8411: hlt    
+  0x00000001110b8412: hlt    
+  0x00000001110b8413: hlt    
+  0x00000001110b8414: hlt    
+  0x00000001110b8415: hlt    
+  0x00000001110b8416: hlt    
+  0x00000001110b8417: hlt    
+  0x00000001110b8418: hlt    
+  0x00000001110b8419: hlt    
+  0x00000001110b841a: hlt    
+  0x00000001110b841b: hlt    
+  0x00000001110b841c: hlt    
+  0x00000001110b841d: hlt    
+  0x00000001110b841e: hlt    
+  0x00000001110b841f: hlt    
+[Exception Handler]
+[Stub Code]
+  0x00000001110b8420: callq  0x00000001110b0b20  ;   {no_reloc}
+  0x00000001110b8425: mov    %rsp,-0x28(%rsp)
+  0x00000001110b842a: sub    $0x80,%rsp
+  0x00000001110b8431: mov    %rax,0x78(%rsp)
+  0x00000001110b8436: mov    %rcx,0x70(%rsp)
+  0x00000001110b843b: mov    %rdx,0x68(%rsp)
+  0x00000001110b8440: mov    %rbx,0x60(%rsp)
+  0x00000001110b8445: mov    %rbp,0x50(%rsp)
+  0x00000001110b844a: mov    %rsi,0x48(%rsp)
+  0x00000001110b844f: mov    %rdi,0x40(%rsp)
+  0x00000001110b8454: mov    %r8,0x38(%rsp)
+  0x00000001110b8459: mov    %r9,0x30(%rsp)
+  0x00000001110b845e: mov    %r10,0x28(%rsp)
+  0x00000001110b8463: mov    %r11,0x20(%rsp)
+  0x00000001110b8468: mov    %r12,0x18(%rsp)
+  0x00000001110b846d: mov    %r13,0x10(%rsp)
+  0x00000001110b8472: mov    %r14,0x8(%rsp)
+  0x00000001110b8477: mov    %r15,(%rsp)
+  0x00000001110b847b: movabs $0x1105de348,%rdi  ;   {external_word}
+  0x00000001110b8485: movabs $0x1110b8425,%rsi  ;   {internal_word}
+  0x00000001110b848f: mov    %rsp,%rdx
+  0x00000001110b8492: and    $0xfffffffffffffff0,%rsp
+  0x00000001110b8496: callq  0x0000000110407426  ;   {runtime_call}
+  0x00000001110b849b: hlt    
+[Deopt Handler Code]
+  0x00000001110b849c: movabs $0x1110b849c,%r10  ;   {section_word}
+  0x00000001110b84a6: push   %r10
+  0x00000001110b84a8: jmpq   0x0000000110ffc500  ;   {runtime_call}
+  0x00000001110b84ad: hlt    
+  0x00000001110b84ae: hlt    
+  0x00000001110b84af: hlt    
+Decoding compiled method 0x00000001110b7e90:
+Code:
+[Entry Point]
+[Constants]
+  # {method} {0x000000012990c2a0} 'sum' '(I)I' in 'Bar'
+  # this:     rsi:rsi   = 'Bar'
+  # parm0:    rdx       = int
+  #           [sp+0x40]  (sp of caller)
+  0x00000001110b7fe0: mov    0x8(%rsi),%r10d
+  0x00000001110b7fe4: shl    $0x3,%r10
+  0x00000001110b7fe8: cmp    %rax,%r10
+  0x00000001110b7feb: jne    0x0000000110ffae60  ;   {runtime_call}
+  0x00000001110b7ff1: data16 data16 nopw 0x0(%rax,%rax,1)
+  0x00000001110b7ffc: data16 data16 xchg %ax,%ax
+[Verified Entry Point]
+  0x00000001110b8000: mov    %eax,-0x14000(%rsp)
+  0x00000001110b8007: push   %rbp
+  0x00000001110b8008: sub    $0x30,%rsp         ;*aload_0
+                                                ; - Bar::sum@0 (line 9)
+
+  0x00000001110b800c: mov    0xc(%rsi),%eax     ;*getfield a
+                                                ; - Bar::sum@1 (line 9)
+
+  0x00000001110b800f: movabs $0x76ab71370,%rsi  ;   {oop(a 'java/lang/Class' = 'Bar')}
+  0x00000001110b8019: mov    0x68(%rsi),%esi    ;*getstatic b
+                                                ; - Bar::sum@4 (line 9)
+
+  0x00000001110b801c: add    %esi,%eax
+  0x00000001110b801e: add    %edx,%eax
+  0x00000001110b8020: add    $0x30,%rsp
+  0x00000001110b8024: pop    %rbp
+  0x00000001110b8025: test   %eax,-0x2219f2b(%rip)        # 0x000000010ee9e100
+                                                ;   {poll_return}
+  0x00000001110b802b: retq   
+  0x00000001110b802c: nop
+  0x00000001110b802d: nop
+  0x00000001110b802e: mov    0x2a8(%r15),%rax
+  0x00000001110b8035: movabs $0x0,%r10
+  0x00000001110b803f: mov    %r10,0x2a8(%r15)
+  0x00000001110b8046: movabs $0x0,%r10
+  0x00000001110b8050: mov    %r10,0x2b0(%r15)
+  0x00000001110b8057: add    $0x30,%rsp
+  0x00000001110b805b: pop    %rbp
+  0x00000001110b805c: jmpq   0x00000001110ae420  ;   {runtime_call}
+  0x00000001110b8061: hlt    
+  0x00000001110b8062: hlt    
+  0x00000001110b8063: hlt    
+  0x00000001110b8064: hlt    
+  0x00000001110b8065: hlt    
+  0x00000001110b8066: hlt    
+  0x00000001110b8067: hlt    
+  0x00000001110b8068: hlt    
+  0x00000001110b8069: hlt    
+  0x00000001110b806a: hlt    
+  0x00000001110b806b: hlt    
+  0x00000001110b806c: hlt    
+  0x00000001110b806d: hlt    
+  0x00000001110b806e: hlt    
+  0x00000001110b806f: hlt    
+  0x00000001110b8070: hlt    
+  0x00000001110b8071: hlt    
+  0x00000001110b8072: hlt    
+  0x00000001110b8073: hlt    
+  0x00000001110b8074: hlt    
+  0x00000001110b8075: hlt    
+  0x00000001110b8076: hlt    
+  0x00000001110b8077: hlt    
+  0x00000001110b8078: hlt    
+  0x00000001110b8079: hlt    
+  0x00000001110b807a: hlt    
+  0x00000001110b807b: hlt    
+  0x00000001110b807c: hlt    
+  0x00000001110b807d: hlt    
+  0x00000001110b807e: hlt    
+  0x00000001110b807f: hlt    
+[Exception Handler]
+[Stub Code]
+  0x00000001110b8080: callq  0x00000001110b0b20  ;   {no_reloc}
+  0x00000001110b8085: mov    %rsp,-0x28(%rsp)
+  0x00000001110b808a: sub    $0x80,%rsp
+  0x00000001110b8091: mov    %rax,0x78(%rsp)
+  0x00000001110b8096: mov    %rcx,0x70(%rsp)
+  0x00000001110b809b: mov    %rdx,0x68(%rsp)
+  0x00000001110b80a0: mov    %rbx,0x60(%rsp)
+  0x00000001110b80a5: mov    %rbp,0x50(%rsp)
+  0x00000001110b80aa: mov    %rsi,0x48(%rsp)
+  0x00000001110b80af: mov    %rdi,0x40(%rsp)
+  0x00000001110b80b4: mov    %r8,0x38(%rsp)
+  0x00000001110b80b9: mov    %r9,0x30(%rsp)
+  0x00000001110b80be: mov    %r10,0x28(%rsp)
+  0x00000001110b80c3: mov    %r11,0x20(%rsp)
+  0x00000001110b80c8: mov    %r12,0x18(%rsp)
+  0x00000001110b80cd: mov    %r13,0x10(%rsp)
+  0x00000001110b80d2: mov    %r14,0x8(%rsp)
+  0x00000001110b80d7: mov    %r15,(%rsp)
+  0x00000001110b80db: movabs $0x1105de348,%rdi  ;   {external_word}
+  0x00000001110b80e5: movabs $0x1110b8085,%rsi  ;   {internal_word}
+  0x00000001110b80ef: mov    %rsp,%rdx
+  0x00000001110b80f2: and    $0xfffffffffffffff0,%rsp
+  0x00000001110b80f6: callq  0x0000000110407426  ;   {runtime_call}
+  0x00000001110b80fb: hlt    
+[Deopt Handler Code]
+  0x00000001110b80fc: movabs $0x1110b80fc,%r10  ;   {section_word}
+  0x00000001110b8106: push   %r10
+  0x00000001110b8108: jmpq   0x0000000110ffc500  ;   {runtime_call}
+  0x00000001110b810d: hlt    
+  0x00000001110b810e: hlt    
+  0x00000001110b810f: hlt    
+CompilerOracle: dontinline HsdisTest.sum
+CompilerOracle: compileonly HsdisTest.sum
+Loaded disassembler from /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/server/hsdis-amd64.dylib
+Decoding compiled method 0x00000001172b3fd0:
+Code:
+[Disassembling for mach='i386:x86-64']
+[Entry Point]
+[Constants]
+  # {method} {0x000000011011c2a0} 'sum' '(I)I' in 'HsdisTest'
+  # this:     rsi:rsi   = 'HsdisTest'
+  # parm0:    rdx       = int
+  #           [sp+0x40]  (sp of caller)
+  0x00000001172b4140: mov    0x8(%rsi),%r10d
+  0x00000001172b4144: shl    $0x3,%r10
+  0x00000001172b4148: cmp    %rax,%r10
+  0x00000001172b414b: jne    0x00000001171f8e60  ;   {runtime_call}
+  0x00000001172b4151: data16 data16 nopw 0x0(%rax,%rax,1)
+  0x00000001172b415c: data16 data16 xchg %ax,%ax
+[Verified Entry Point]
+  0x00000001172b4160: mov    %eax,-0x14000(%rsp)
+  0x00000001172b4167: push   %rbp
+  0x00000001172b4168: sub    $0x30,%rsp
+  0x00000001172b416c: movabs $0x11011c558,%rax  ;   {metadata(method data for {method} {0x000000011011c2a0} 'sum' '(I)I' in 'HsdisTest')}
+  0x00000001172b4176: mov    0xdc(%rax),%edi
+  0x00000001172b417c: add    $0x8,%edi
+  0x00000001172b417f: mov    %edi,0xdc(%rax)
+  0x00000001172b4185: movabs $0x11011c2a0,%rax  ;   {metadata({method} {0x000000011011c2a0} 'sum' '(I)I' in 'HsdisTest')}
+  0x00000001172b418f: and    $0x0,%edi
+  0x00000001172b4192: cmp    $0x0,%edi
+  0x00000001172b4195: je     0x00000001172b41bb  ;*aload_0
+                                                ; - HsdisTest::sum@0 (line 10)
+
+  0x00000001172b419b: mov    0xc(%rsi),%eax     ;*getfield a
+                                                ; - HsdisTest::sum@1 (line 10)
+
+  0x00000001172b419e: movabs $0x76ab71488,%rsi  ;   {oop(a 'java/lang/Class' = 'HsdisTest')}
+  0x00000001172b41a8: mov    0x68(%rsi),%esi    ;*getstatic b
+                                                ; - HsdisTest::sum@4 (line 10)
+
+  0x00000001172b41ab: add    %esi,%eax
+  0x00000001172b41ad: add    %edx,%eax
+  0x00000001172b41af: add    $0x30,%rsp
+  0x00000001172b41b3: pop    %rbp
+  0x00000001172b41b4: test   %eax,-0xa7180ba(%rip)        # 0x000000010cb9c100
+                                                ;   {poll_return}
+  0x00000001172b41ba: retq   
+  0x00000001172b41bb: mov    %rax,0x8(%rsp)
+  0x00000001172b41c0: movq   $0xffffffffffffffff,(%rsp)
+  0x00000001172b41c8: callq  0x00000001172b12e0  ; OopMap{rsi=Oop off=141}
+                                                ;*synchronization entry
+                                                ; - HsdisTest::sum@-1 (line 10)
+                                                ;   {runtime_call}
+  0x00000001172b41cd: jmp    0x00000001172b419b
+  0x00000001172b41cf: nop
+  0x00000001172b41d0: nop
+  0x00000001172b41d1: mov    0x2a8(%r15),%rax
+  0x00000001172b41d8: movabs $0x0,%r10
+  0x00000001172b41e2: mov    %r10,0x2a8(%r15)
+  0x00000001172b41e9: movabs $0x0,%r10
+  0x00000001172b41f3: mov    %r10,0x2b0(%r15)
+  0x00000001172b41fa: add    $0x30,%rsp
+  0x00000001172b41fe: pop    %rbp
+  0x00000001172b41ff: jmpq   0x000000011721f6e0  ;   {runtime_call}
+  0x00000001172b4204: hlt    
+  0x00000001172b4205: hlt    
+  0x00000001172b4206: hlt    
+  0x00000001172b4207: hlt    
+  0x00000001172b4208: hlt    
+  0x00000001172b4209: hlt    
+  0x00000001172b420a: hlt    
+  0x00000001172b420b: hlt    
+  0x00000001172b420c: hlt    
+  0x00000001172b420d: hlt    
+  0x00000001172b420e: hlt    
+  0x00000001172b420f: hlt    
+  0x00000001172b4210: hlt    
+  0x00000001172b4211: hlt    
+  0x00000001172b4212: hlt    
+  0x00000001172b4213: hlt    
+  0x00000001172b4214: hlt    
+  0x00000001172b4215: hlt    
+  0x00000001172b4216: hlt    
+  0x00000001172b4217: hlt    
+  0x00000001172b4218: hlt    
+  0x00000001172b4219: hlt    
+  0x00000001172b421a: hlt    
+  0x00000001172b421b: hlt    
+  0x00000001172b421c: hlt    
+  0x00000001172b421d: hlt    
+  0x00000001172b421e: hlt    
+  0x00000001172b421f: hlt    
+[Exception Handler]
+[Stub Code]
+  0x00000001172b4220: callq  0x00000001172aeb20  ;   {no_reloc}
+  0x00000001172b4225: mov    %rsp,-0x28(%rsp)
+  0x00000001172b422a: sub    $0x80,%rsp
+  0x00000001172b4231: mov    %rax,0x78(%rsp)
+  0x00000001172b4236: mov    %rcx,0x70(%rsp)
+  0x00000001172b423b: mov    %rdx,0x68(%rsp)
+  0x00000001172b4240: mov    %rbx,0x60(%rsp)
+  0x00000001172b4245: mov    %rbp,0x50(%rsp)
+  0x00000001172b424a: mov    %rsi,0x48(%rsp)
+  0x00000001172b424f: mov    %rdi,0x40(%rsp)
+  0x00000001172b4254: mov    %r8,0x38(%rsp)
+  0x00000001172b4259: mov    %r9,0x30(%rsp)
+  0x00000001172b425e: mov    %r10,0x28(%rsp)
+  0x00000001172b4263: mov    %r11,0x20(%rsp)
+  0x00000001172b4268: mov    %r12,0x18(%rsp)
+  0x00000001172b426d: mov    %r13,0x10(%rsp)
+  0x00000001172b4272: mov    %r14,0x8(%rsp)
+  0x00000001172b4277: mov    %r15,(%rsp)
+  0x00000001172b427b: movabs $0x10d9de348,%rdi  ;   {external_word}
+  0x00000001172b4285: movabs $0x1172b4225,%rsi  ;   {internal_word}
+  0x00000001172b428f: mov    %rsp,%rdx
+  0x00000001172b4292: and    $0xfffffffffffffff0,%rsp
+  0x00000001172b4296: callq  0x000000010d807426  ;   {runtime_call}
+  0x00000001172b429b: hlt    
+[Deopt Handler Code]
+  0x00000001172b429c: movabs $0x1172b429c,%r10  ;   {section_word}
+  0x00000001172b42a6: push   %r10
+  0x00000001172b42a8: jmpq   0x00000001171fa500  ;   {runtime_call}
+  0x00000001172b42ad: hlt    
+  0x00000001172b42ae: hlt    
+  0x00000001172b42af: hlt    
+Decoding compiled method 0x00000001172b3c90:
+Code:
+[Entry Point]
+[Constants]
+  # {method} {0x000000011011c2a0} 'sum' '(I)I' in 'HsdisTest'
+  # this:     rsi:rsi   = 'HsdisTest'
+  # parm0:    rdx       = int
+  #           [sp+0x40]  (sp of caller)
+  0x00000001172b3de0: mov    0x8(%rsi),%r10d
+  0x00000001172b3de4: shl    $0x3,%r10
+  0x00000001172b3de8: cmp    %rax,%r10
+  0x00000001172b3deb: jne    0x00000001171f8e60  ;   {runtime_call}
+  0x00000001172b3df1: data16 data16 nopw 0x0(%rax,%rax,1)
+  0x00000001172b3dfc: data16 data16 xchg %ax,%ax
+[Verified Entry Point]
+  0x00000001172b3e00: mov    %eax,-0x14000(%rsp)
+  0x00000001172b3e07: push   %rbp
+  0x00000001172b3e08: sub    $0x30,%rsp         ;*aload_0
+                                                ; - HsdisTest::sum@0 (line 10)
+
+  0x00000001172b3e0c: mov    0xc(%rsi),%eax     ;*getfield a
+                                                ; - HsdisTest::sum@1 (line 10)
+
+  0x00000001172b3e0f: movabs $0x76ab71488,%rsi  ;   {oop(a 'java/lang/Class' = 'HsdisTest')}
+  0x00000001172b3e19: mov    0x68(%rsi),%esi    ;*getstatic b
+                                                ; - HsdisTest::sum@4 (line 10)
+
+  0x00000001172b3e1c: add    %esi,%eax
+  0x00000001172b3e1e: add    %edx,%eax
+  0x00000001172b3e20: add    $0x30,%rsp
+  0x00000001172b3e24: pop    %rbp
+  0x00000001172b3e25: test   %eax,-0xa717d2b(%rip)        # 0x000000010cb9c100
+                                                ;   {poll_return}
+  0x00000001172b3e2b: retq   
+  0x00000001172b3e2c: nop
+  0x00000001172b3e2d: nop
+  0x00000001172b3e2e: mov    0x2a8(%r15),%rax
+  0x00000001172b3e35: movabs $0x0,%r10
+  0x00000001172b3e3f: mov    %r10,0x2a8(%r15)
+  0x00000001172b3e46: movabs $0x0,%r10
+  0x00000001172b3e50: mov    %r10,0x2b0(%r15)
+  0x00000001172b3e57: add    $0x30,%rsp
+  0x00000001172b3e5b: pop    %rbp
+  0x00000001172b3e5c: jmpq   0x000000011721f6e0  ;   {runtime_call}
+  0x00000001172b3e61: hlt    
+  0x00000001172b3e62: hlt    
+  0x00000001172b3e63: hlt    
+  0x00000001172b3e64: hlt    
+  0x00000001172b3e65: hlt    
+  0x00000001172b3e66: hlt    
+  0x00000001172b3e67: hlt    
+  0x00000001172b3e68: hlt    
+  0x00000001172b3e69: hlt    
+  0x00000001172b3e6a: hlt    
+  0x00000001172b3e6b: hlt    
+  0x00000001172b3e6c: hlt    
+  0x00000001172b3e6d: hlt    
+  0x00000001172b3e6e: hlt    
+  0x00000001172b3e6f: hlt    
+  0x00000001172b3e70: hlt    
+  0x00000001172b3e71: hlt    
+  0x00000001172b3e72: hlt    
+  0x00000001172b3e73: hlt    
+  0x00000001172b3e74: hlt    
+  0x00000001172b3e75: hlt    
+  0x00000001172b3e76: hlt    
+  0x00000001172b3e77: hlt    
+  0x00000001172b3e78: hlt    
+  0x00000001172b3e79: hlt    
+  0x00000001172b3e7a: hlt    
+  0x00000001172b3e7b: hlt    
+  0x00000001172b3e7c: hlt    
+  0x00000001172b3e7d: hlt    
+  0x00000001172b3e7e: hlt    
+  0x00000001172b3e7f: hlt    
+[Exception Handler]
+[Stub Code]
+  0x00000001172b3e80: callq  0x00000001172aeb20  ;   {no_reloc}
+  0x00000001172b3e85: mov    %rsp,-0x28(%rsp)
+  0x00000001172b3e8a: sub    $0x80,%rsp
+  0x00000001172b3e91: mov    %rax,0x78(%rsp)
+  0x00000001172b3e96: mov    %rcx,0x70(%rsp)
+  0x00000001172b3e9b: mov    %rdx,0x68(%rsp)
+  0x00000001172b3ea0: mov    %rbx,0x60(%rsp)
+  0x00000001172b3ea5: mov    %rbp,0x50(%rsp)
+  0x00000001172b3eaa: mov    %rsi,0x48(%rsp)
+  0x00000001172b3eaf: mov    %rdi,0x40(%rsp)
+  0x00000001172b3eb4: mov    %r8,0x38(%rsp)
+  0x00000001172b3eb9: mov    %r9,0x30(%rsp)
+  0x00000001172b3ebe: mov    %r10,0x28(%rsp)
+  0x00000001172b3ec3: mov    %r11,0x20(%rsp)
+  0x00000001172b3ec8: mov    %r12,0x18(%rsp)
+  0x00000001172b3ecd: mov    %r13,0x10(%rsp)
+  0x00000001172b3ed2: mov    %r14,0x8(%rsp)
+  0x00000001172b3ed7: mov    %r15,(%rsp)
+  0x00000001172b3edb: movabs $0x10d9de348,%rdi  ;   {external_word}
+  0x00000001172b3ee5: movabs $0x1172b3e85,%rsi  ;   {internal_word}
+  0x00000001172b3eef: mov    %rsp,%rdx
+  0x00000001172b3ef2: and    $0xfffffffffffffff0,%rsp
+  0x00000001172b3ef6: callq  0x000000010d807426  ;   {runtime_call}
+  0x00000001172b3efb: hlt    
+[Deopt Handler Code]
+  0x00000001172b3efc: movabs $0x1172b3efc,%r10  ;   {section_word}
+  0x00000001172b3f06: push   %r10
+  0x00000001172b3f08: jmpq   0x00000001171fa500  ;   {runtime_call}
+  0x00000001172b3f0d: hlt    
+  0x00000001172b3f0e: hlt    
+  0x00000001172b3f0f: hlt    
