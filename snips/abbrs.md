@@ -468,6 +468,7 @@ Reference : https://www.computerhope.com/keys.htm
     - pico-\* 10^-12
     - femto-\* 10^-15
 - mgr : manager
+- MIS : [Management Information System](https://en.wikipedia.org/wiki/Management_information_system)
 - mk : [make](https://en.wikipedia.org/wiki/Make_(software)) ( for CLI )
 - mm : [memory management](https://en.wikipedia.org/wiki/Memory_management)
 - mod : modify | mode
@@ -541,7 +542,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pct : percent ( for MySQL )
 - PDCA : [Plan-Do-Check-Act](https://en.wikipedia.org/wiki/PDCA)
 - PE : [Private Equity](https://en.wikipedia.org/wiki/Private_equity)
-- PEP : [Python Enhancement Proposals](https://www.python.org/dev/peps/)
+- PEP : [Python Enhancement Proposals](https://www.python.org/dev/peps)
 - P13N : personalization
 - pf : prefix | process flags ( for kernel )
 - PFAIL : Possibly Fail ( for Redis Cluster )
