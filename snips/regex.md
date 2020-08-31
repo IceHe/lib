@@ -21,7 +21,7 @@ Since the 1980s, different syntaxes for writing regular expressions exist, one b
 Add whitespaces between Chinese & English words ( imperfect )
 
 ```bash
-([^a-zA-Z0-9`'"_\- \(\),.#\[\]=?{}/*@:])([a-zA-Z0-9`'"_\-\(\),.#\[\]=?{}/*@:]+)([^a-zA-Z0-9`'"_\- \(\),.#\[\]=?{}/*@:])
+([^a-zA-Z0-9`'"_\-\s\(\),\.#\[\]=?{}/*@:])([a-zA-Z0-9`'"_\-\(\),\.#\[\]=?{}/*@:]+)([^a-zA-Z0-9`'"_\-\s\(\),\.#\[\]=?{}/*@:])
 $1 $2 $3
 ```
 
