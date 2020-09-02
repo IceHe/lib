@@ -2917,7 +2917,11 @@ Dignosis 诊断
 
 Backgroup Knowledge 背景知识
 
-- WebLogic : TODO?
+- **WebLogic** ( Application Server )
+    - Oracle WebLogic Server is a Java EE application server currently developed by Oracle Corporation.
+    - References
+        - Oracle WebLogic Server - Wikipedia : https://en.wikipedia.org/wiki/Oracle_WebLogic_Server
+        - WebLogic - 百度百科 : https://baike.baidu.com/item/weblogic/451978
 - **亲和式集群**
     - 由于 HTTP 请求是无状态的, 那么对于会话级别的事务, 如何保持用户的状态?
         - 在单个服务器中, 提供了 session-sessionID 的机制来保存用户的状态
@@ -2928,7 +2932,8 @@ Backgroup Knowledge 背景知识
         - 这种方式也被称为 **亲和式集群**, 给 session 创造粘性, 意思是 **让用户每次都访问的同一个应用服务器**
         - _这样就要在前端服务器 Apache ( 反向代理 ) 中记录下用户首次访问的是哪个 Tomcat ( HTTP 服务器 ) , 将用户后续发送的请求都发送到这个 Tomcat 上_
         - _带来的影响 : 各个服务器负载不均衡, 因为只在用户首次访问的时候, 采用了负载均衡分发, 但是这个影响也不会那么明显_
-    - 参考 : web服务器集群 ( 亲和式集群, 集群中保持用户状态 ) : https://blog.csdn.net/liao0801_123/article/details/85042090
+    - References
+        - Web 服务器集群 ( 亲和式集群, 集群中保持用户状态 ) : https://blog.csdn.net/liao0801_123/article/details/85042090
 - JBossCache : TODO?
 
 ### 实战 : Eclipse 运行速度调优
