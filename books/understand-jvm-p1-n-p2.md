@@ -2974,11 +2974,16 @@ Backgroup Knowledge 背景知识
         - _The Comet approach differs from the original model of the web, in which a browser requests a complete web page at a time._
     - _The use of Comet techniques in web development predates the use of the word Comet as a neologism for the collective techniques._
         - Comet is **known by several other names, including Ajax Push, Reverse Ajax, Two-way-web, HTTP Streaming, and HTTP server push** among others.
+        - _The term Comet is not an acronym, but was coined by Alex Russell in his 2006 blog post Comet: Low Latency Data for the Browser._
     - In recent years, **the standardisation and widespread support of WebSocket and Server-sent events has rendered the Comet model obsolete.** _( 使 … 过时 )_
     - References
         - Comet (programming) - Wikipedia : https://en.wikipedia.org/wiki/Comet_(programming)
         - _反向 Ajax，第 1 部分: Comet 简介 :_ https://www.ibm.com/developerworks/cn/web/wa-reverseajax1/index.html
 - **CometD**
+    - CometD is **a scalable WebSocket and HTTP based event and message routing bus.**
+    - CometD makes use of WebSocket and HTTP push technologies known as **Comet** to provide low-latency data from the server to browsers and client applications.
+    - _CometD defines a transport-agnostic protocol called **Bayeux**, and provides libraries in Java and JavaScript that implement this protocol._
+    - _Applications can use the CometD libraries to write transport-independent applications, and CometD will take care of the transport details._
     - References
         - CometD – Highly Scalable Clustered Web Messaging : https://cometd.org/
 - **Jetty**
