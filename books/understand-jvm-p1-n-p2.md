@@ -2986,6 +2986,17 @@ Backgroup Knowledge 背景知识
     - _Applications can use the CometD libraries to write transport-independent applications, and CometD will take care of the transport details._
     - References
         - CometD – Highly Scalable Clustered Web Messaging : https://cometd.org/
-- **Jetty**
+- Eclipse **Jetty**
+    - Eclipse Jetty Web Server **provides an HTTP server and Servlet container capable of serving static and dynamic content either from a standalone or embedded instantiations**.
+    - The project provides :
+        - Asynchronous HTTP Server
+        - Standards based Servlet Container
+        - websocket server
+        - http/2 server
+        - Asynchronous Client (http/1.1, http/2, websocket)
+        - OSGI, JNDI, JMX, JASPI, AJP support
+    - References
+        - Jetty - Servlet Engine and Http Server : https://www.eclipse.org/jetty/about.html
+        - Jetty (web server) - Wikipedia : https://en.wikipedia.org/wiki/Jetty_(web_server)
 
 ### 实战 : Eclipse 运行速度调优
