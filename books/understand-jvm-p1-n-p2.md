@@ -2946,4 +2946,41 @@ Backgroup Knowledge 背景知识
     - References
         - JBoss Cache : https://jbosscache.jboss.org
 
+#### 堆外内存导致的溢出错误
+
+Situation 背景
+
+这是一个学校的小型项目: 基于B/S的电子考试系统，为了实现客户端能实时地从服务器端接收考
+试数据，系统使用了逆向AJAX技术〈也称为Comet或者Server Side Push) ，选用CometD 1.1.1作为服
+务端推送框架，服务器是Jetty 7.1.4，硬件为一台很普通PC机，Core is CPU，4GB内存，运行32位
+Windows操作系统。
+
+测试期间发现服务端不定时抛出内存溢出异常，服务不一定每次都出现异常，但假如正式考试时
+朋溃一次，那估计整场电子考试都会乱套。网站管理员尝试过把堆内存调到最大，32位系统最多到
+1.6GB基本无法再加大了，而且开大了基本没效果，抛出内存溢出异常好像还更加频繁。加入-XX;
++HeapDumpOnOutOfMemoryError参数，居然也没有任何反应，抛出内存浇出异常时什么文件都没有
+产生。无奈之下只好挂着jstat紧盯屏幕，发现垃圾收集并不频繁，Eden区、Survivor区、老年代以及方
+法区的内存全部都很稳定，压力并不大，但就是照样不停抛出内存溢出异常。最后，在内存溢出后从
+系统日志中找到异常堆栈如代码清单5S-1所示。
+
+Diagnosis 诊断
+
+Backgroup Knowledge 背景知识
+
+- **Reverse Ajax** ( 反向 AJAX, 也称为 Comet / Server Side Push )
+    - Comet is **a web application model in which a long-held HTTPS request allows a web server to push data to a browser**, without the browser explicitly requesting it.
+        - _Comet is an umbrella term, encompassing multiple techniques for achieving this interaction._
+        - _All these methods rely on features included by default in browsers, such as JavaScript, rather than on non-default plugins._
+        - _The Comet approach differs from the original model of the web, in which a browser requests a complete web page at a time._
+    - _The use of Comet techniques in web development predates the use of the word Comet as a neologism for the collective techniques._
+        - Comet is **known by several other names, including Ajax Push, Reverse Ajax, Two-way-web, HTTP Streaming, and HTTP server push** among others.
+    - In recent years, **the standardisation and widespread support of WebSocket and Server-sent events has rendered the Comet model obsolete.** _( 使 … 过时 )_
+    - References
+        - Comet (programming) - Wikipedia : https://en.wikipedia.org/wiki/Comet_(programming)
+        - _反向 Ajax，第 1 部分: Comet 简介 :_ https://www.ibm.com/developerworks/cn/web/wa-reverseajax1/index.html
+- **CometD**
+    - References
+        - CometD – Highly Scalable Clustered Web Messaging : https://cometd.org/
+- **Jetty**
+
 ### 实战 : Eclipse 运行速度调优
