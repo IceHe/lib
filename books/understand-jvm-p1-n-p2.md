@@ -2950,22 +2950,58 @@ Backgroup Knowledge 背景知识
 
 Situation 背景
 
-这是一个学校的小型项目: 基于B/S的电子考试系统，为了实现客户端能实时地从服务器端接收考
-试数据，系统使用了逆向AJAX技术〈也称为Comet或者Server Side Push) ，选用CometD 1.1.1作为服
-务端推送框架，服务器是Jetty 7.1.4，硬件为一台很普通PC机，Core is CPU，4GB内存，运行32位
-Windows操作系统。
+- 一个学校的小型项目, 基于 B/S 的电子考试系统
+    - 为了实现 **客户端能实时地从服务器端接收考试数据**
+    - 系统使用了 **反向 AJAX** 技术 ( 也称为 Comet 或者 Server Side Push ) , 选用 **CometD** 1.1.1 作为服务端推送框架
+    - 服务器是Jetty 7.1.4, 硬件为一台很普通 PC 机, Core i5 CPU, 4GB 内存, 运行 32 位 Windows 操作系统
+- 测试期间发现服务端 **不定时抛出内存溢出异常**
+    - 服务不一定每次都出现异常, 但假如正式考试时崩溃一次, 那估计整场电子考试都会乱套
+- 网站管理员尝试过 **把堆内存调到最大**
+    - 32 位系统最多到 1.6GB 基本无法再加大了
+    - 而且 **开大了基本没效果, 抛出内存溢出异常好像还更加频繁**
+- **加入 `-XX:+HeapDumpOnOutOfMemoryError` 参数**
+    - **居然也没有任何反应, 抛出内存溢出异常时什么文件都没有产生**
+- 无奈之下只好挂着 **jstat** 紧盯屏幕
+    - 发现 **垃圾收集并不频繁, Eden 区、Survivor 区、老年代以及方法区的内存全部都很稳定, 压力并不大**
+    - 但就是 **照样不停抛出内存溢出异常**
+- 最后, 在内存溢出后从系统日志中找到异常堆栈如下 :
 
-测试期间发现服务端不定时抛出内存溢出异常，服务不一定每次都出现异常，但假如正式考试时
-朋溃一次，那估计整场电子考试都会乱套。网站管理员尝试过把堆内存调到最大，32位系统最多到
-1.6GB基本无法再加大了，而且开大了基本没效果，抛出内存溢出异常好像还更加频繁。加入-XX;
-+HeapDumpOnOutOfMemoryError参数，居然也没有任何反应，抛出内存浇出异常时什么文件都没有
-产生。无奈之下只好挂着jstat紧盯屏幕，发现垃圾收集并不频繁，Eden区、Survivor区、老年代以及方
-法区的内存全部都很稳定，压力并不大，但就是照样不停抛出内存溢出异常。最后，在内存溢出后从
-系统日志中找到异常堆栈如代码清单5S-1所示。
+```bash
+[org.eclipse.jetty.util.log] handle failed java. lang.OutOfMemoryError: null
+at sun.misc.Unsafe.allocateMemory(Native Method)
+at java.nio.DirectByteBuffer.<init>(DirectByteBuffer.java:99)
+at java.nio.ByteBuffer.allocateDirect(ByteBuffer.java:288)
+at org.eclipse.jetty.io.nio.DirectNIOBuffer.<init>
+……
+```
 
 Diagnosis 诊断
 
-- TODO
+- _如果认真阅读过本书第 2 章, 看到异常堆栈应该就清楚这个抛出内存溢出异常是怎么回事了_
+- 操作系统对每个进程能管理的内存是有限制的
+    - 这台服务器使用的 32 位 Windows 平台的限制是 2GB
+    - 其中划了 1.6GB 给 Java Heap , 而 Direct Memory 耗用的内存并不算入这 1.6GB 的堆之内
+    - 因此它最大也只能在剩余的 0.4GB 空间中再分出一部分而己
+- 在此应用中导致溢出的关键是垃圾收集进行时, 虚拟机虽然会对直接内存进行回收
+    - 但是直接内存却不能像新生代、老年代那样, 发现空间不足了就主动通知收集器进行垃圾回收
+    - 它只能等待老年代满后 Full GC 出现后, "顺便" 帮它清理掉内存的废弃对象
+    - 否则就不得不一直等到抛出内存溢出异常时, 先捕获到异常, 再在 Catch 块里面通过 System.gc() 命令来触发垃圾收集
+    - 但如果 JVM 再打开了 `-XX:+DisableExplicitGC` 开关, 禁止了人工触发垃圾收集的话, 那就只能眼睁睁看着堆中还有许多空闲内存, 自己却不得不抛出内存溢出异常了
+- 而本案例中使用的 CometD 1.1.1 框架, 正好有大量的 NIO 操作需要使用到直接内存
+- 从实践经验的角度出发, 在处理小内存或者 32 位的应用问题时, 除了 Java Heap 和 Method Area 之外，我们注意到下面这些区域还会占用较多的内存, 这里所有的内存总和受到操作系统进程最大内存的限制 :
+    - 直接内存 :
+        - 可通过 `-XX:MaxDirectMemorySize` 调整大小
+        - 内存不足时抛出 OutOfMemory Error 或者 OutOfMemoryError: Direct buffer memory
+    - 线程堆栈 :
+        - 可通过 `-Xss` 调整大小
+        - 内存不足时拋出 StackOverflowError ( 如果线程请求的栈深度大于虚拟机所允许的深度 ) 或者 OutOfMemoryError ( 如果 Java 虚拟机栈容量可以动态扩展, 当栈扩展时无法申请到足够的内存 )
+    - Socket 缓存区 :
+        - 每个 Socket 连接都有 Receive 和 Send 两个缓存区, 分别占大约 37KB 和 25KB 内存, 连接多的话这块内存占用也比较可观
+        - 如果无法分配, 可能会抛出 IOException: Too many open files 异常
+    - JNI 代码 :
+        - 如果代码中使用了 JNI 调用本地库, 那本地库使用的内存也不在堆中, 而是占用Java虛拟机的本地方法栈和本地内存的
+    - 虚拟机和垃圾收集器 :
+        - 虚拟机、垃圾收集器的工作也是要消耗一定数量的内存的
 
 Backgroup Knowledge 背景知识
 
