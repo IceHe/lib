@@ -3068,7 +3068,9 @@ Solution 解决方案
 
 Backgroud Knowledge 背景知识
 
-- GlassFish
+- **GlassFish**
+    - References
+        - GlassFish : https://javaee.github.io/glassfish/
 
 #### 服务器虚拟机进程崩溃
 
