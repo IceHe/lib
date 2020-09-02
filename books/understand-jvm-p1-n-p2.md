@@ -2934,6 +2934,16 @@ Backgroup Knowledge 背景知识
         - _带来的影响 : 各个服务器负载不均衡, 因为只在用户首次访问的时候, 采用了负载均衡分发, 但是这个影响也不会那么明显_
     - References
         - Web 服务器集群 ( 亲和式集群, 集群中保持用户状态 ) : https://blog.csdn.net/liao0801_123/article/details/85042090
-- JBossCache : TODO?
+- **JBoss Cache**
+    - Clustering for high availability
+        - Since JBoss Cache is a replicated cache, state is always kept in sync with other servers in the cluster.
+        - This makes any state stored in JBoss Cache resilient to server crashes or restarts, achieving high availability.
+    - Clustered caching to remove bottlenecks
+        - JBoss Cache still is, as it's name suggests, a cache.
+        - It is a product designed to cache frequently accessed Java objects in order to dramatically improve the performance of applications.
+        - This makes it easy to remove data access bottlenecks - such as connecting to a database.
+        - And unlike non-cluster-aware caches which may go out of sync when there are concurrent updates, each JBoss Cache instance is aware of remote cache updates and can either invalidate or update it's state.
+    - References
+        - JBoss Cache : https://jbosscache.jboss.org
 
 ### 实战 : Eclipse 运行速度调优
