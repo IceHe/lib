@@ -3116,9 +3116,64 @@ Solution 解决方案
 
 Situation 背景
 
+- 一个后台 RPC 服务器
+    - 使用 64 位 JVM , 内存配置为 `-Xms4g -Xmx8g -Xmn1g` , 使用 ParNew 加 CMS 的收集器组合
+- 平时对外服务的 Minor GC 时间约在 30ms 以内, 完全可以接受
+    - 但业务上需要每 10min 加载一个约 80MB 的数据文件到内存进行数据分析
+    - 这些数据会在内存中形成超过 100 万个 HashMap<Long，Long> 的 Entry
+- 在这段时间里面 Minor GC 就会造成超过 500ms 的停顿
+    - 对于这种长度的停顿时间就接受不了了, 有具体情况如下面的收集器日志所示
+
+```bash
+{Heap before GC invocations=95 (full 4):
+ par new generation   total 903168K, used 803142K [0x00002aaaae770000，0x00002aaaebb70000，0x00002aaaebb
+    eden space 802816K, 100% used [0x00002aaaae770000，0x00002aaadf770000, 0x00002aaadf770000)
+    from space 100352K,   0% used [0x00002aaae5970000，0x00002aaae59c1910, 0x00002aaaebb70000)
+    to   space 100352K，  0% used [0x00002aaadf770000，0x00002aaadf770000，0x00002aaae5970000)
+concurrent mark-sweep generation total 5845540K, used 3898978K [0x00002aaaebb70000，0x00002aac507f9000,
+Concurrent-mark-sweep perm gen total 65536K, used 40333K [0x00002aacae770000，0x00002aacb2770000，0x000(
+2011-10-28T11:40:45.162+0800: 226.504: [GC 226.504: [ParNew: 803142K-> 100352K(903168K)，0.5995670 secs]
+Heap after GC invocations=96 (full 4):
+ par new generation   total 903168K, used 100352K [0x00002aaaae770000，0x00002-aaaebb70000，0x00002aaaebr
+    eden space 802816K,   0% used [0x00002aaaae770000，0x00002aaaae770000，0x00002aaadf770000)
+    from space 100352K, 100% used [0x00002aaadf770000，0x00002aaae5970000，0x00002aaae5970000)
+    to   space 100352K,   0% used [0x00002aaae5970000，0x00002aaae5970000，0x00002aaaebb70000)
+concurrent mark-sweep generation total 5845540K, used 3955980K [0x00002aaaebb70000，0x00002aac507f9000，
+concurrent-mark-sweep perm gen total 65536K, used 40333K [0x00002aacae770000，0x00002aacb2770000，0x000(
+Total time for which application threads were stopped: 0.6070570 seconds
+```
+
 Diagnosis 诊断
 
+- 观察这个案例的日志, 平时 Minor GC 时间很短
+    - 原因是新生代的绝大部分对象都是可清除的, 在 Minor GC 之后 Eden 和Survivor 基本上处于完全空闲的状态
+- 但是在 **分析数据文件期间, 800MB 的 Eden 空间很快被填满引发垃圾收集**
+    - 但 **Minor GC 之后, 新生代中绝大部分对象依然是存活的**
+- 我们知道 **ParNew 收集器使用的是复制算法**
+    - 这个算法的高效是建立在大部分对象都 "朝生夕灭" 的特性上的
+    - **如果存活对象过多, 把这些对象复制到 Survivor 并维持这些对象引用的正确性就成为一个沉重的负担**
+    - 因此导致垃圾收集的暂停时间明显变长
+
 Solution 解决方案
+
+- 如果不修改程序, 仅从 GC 调优的角度去解决这个问题
+    - 可以 **考虑直接将 Survivor 空间去掉 ( 加入参数 `-XX:SurvivorRatio=65536` `-XX:MaxTenuringThreshold=0` 或者 `-XX: +AlwaysTenure` )**
+    - **让新生代中存活的对象在第一次 Minor GC 后立即进入老年代, 等到 Major GC 的时候再去清理它们**
+- 这种措施可以治标, 但也有很大副作用, 治本的方案必须要修改程序
+    - 因为这里产生问题的 **根本原因是用 `HashMap<Long，Long>` 们结构来存储数据文件空间效率太低了**
+
+Root Cause 根本原因
+
+- 具体分析一下 HashMap 空间效率
+    - 在 `HashMap<Long，Long>` 结构中, 只有 Key 和 Value 所存放的两个长整型数据是 **有效数据, 共 16 B ( 2 x 8 B )**
+    - 这两个长整型数据 **包装成 java.lang.Long 对象** 之后, 就分别具有 **8 B 的 Mark Word、8 B 的 Klass 指针, 再加 8 B 存储数据的 long 值**
+    - 然后这 2 个 Long 对象组成 **Map.Entry** 之后, 又多了 **16 B 的 Object Header**
+    - 然后一个 **8 B 的 next 字段** 和 **4 B 的 int 型的 hash 字段**
+    - 为了 **对齐**, 还必须添加 **4 B 的空白填充**
+    - 最后还有 **HashMap 中对这个 Entry 的 8 B 的引用**
+- 这样增加 2 个 Long 型数字, 实际耗费的内存为
+    - **( Long ( 24 B ) x 2 ) + Entry ( 32 B ) + HashMap Ref ( 8 B ) = 88 Bytes**
+    - **空间效率** 为有效数据除以全部内存空间, 即 **16 Bytes / 88 Bytes = 18%** 太低了
 
 #### 由 Windows 虚拟内存导致的长时间停顿
 
