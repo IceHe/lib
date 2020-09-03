@@ -133,7 +133,7 @@ Keywords
 题外话 : **JVM 的 GC 释放的内存会还给操作系统吗?**
 
 - GC 后的内存如何处置, 其实是取决于不同的垃圾回收器的. **因为把内存还给 OS, 意味着要调整 JVM 的堆大小, 这个过程是比较耗费资源的**
-- 在 JDK 11 中, Java 引入了 ZGC, 这是一款可伸缩的低延迟垃圾收集器, 但是当时只是实验性的。并且, **ZGC 释放的内存是不会还给操作系统的。**
+- 在 JDK 11 中, Java 引入了 ZGC, 这是一款可伸缩的低延迟垃圾收集器, 但是当时只是实验性的. 并且, **ZGC 释放的内存是不会还给操作系统的. **
 
 ### JVM 发展
 
@@ -1550,7 +1550,7 @@ _Colored Pointer 是一种直接将少量额外的信息存储在 Pointer 上的
 - 可以作为一种可拓展的存储结构用来记录更多与对象标记、重定位过程相关的数据, 以便日后进一步提高性能
     - _现在 Linux 下的 64 位指针还有前 18 位并未使用, 它们虽然不能用来寻址, 却可以通过其它手段用于信息记录_
     - _如果开发了这 18 位, 既可以腾出已用的 4 个标志位, 将 ZGC 可支持的最大 Heap 内存从 4 TB 拓展到 64 TB, 也可以利用其余位置再存储更多的标志_
-        - _譬如, 存储一些追踪信息来让垃圾收集器在移动 Object 时能将低频次使用的 Object 移动到不常访问的内存区域。_
+        - _譬如, 存储一些追踪信息来让垃圾收集器在移动 Object 时能将低频次使用的 Object 移动到不常访问的内存区域. _
 
 ##### 底层实现
 
@@ -1905,7 +1905,7 @@ Analysis
     - 从输出的结果也清晰地看到 `eden space 8192K, from space 1024K, to space 1024K` 的信息
     - **新生代总可用空间为 9216KB ( 1 个 Eden 区 + 1 个 Survivor 区的总容量 )**
 - 执行中分配 allocation4 对象的语句时会发生一次 Minor GC
-    - 这次回收的结果是新生代从 6MB 左右变为 1MB 不到，而总内存占用量则几乎没有减少
+    - 这次回收的结果是新生代从 6MB 左右变为 1MB 不到, 而总内存占用量则几乎没有减少
     - 因为 allocation1、2、3 等 3 个对象都是存活的, 虚拟机几乎没有找到可回收的对象
 - 产生这次 GC 的原因是为 allocation4 分配内存时新生代内存不足
     - **Eden 已经被占用了 6MB , 剩余空间已不足以分配 allocation4 所需的 4MB 内存, 因此发生 Minor GC**
@@ -1946,7 +1946,7 @@ Analysis
     - allocation1 对象在第二次 GC 发生时进入老年代
     - 新生代己使用的内存在 GC 以后非常干净地变成 0KB
 - 当 `-XX:MaxTenuringThreshold=15` 时
-    - 第二次 GC 发生后, allocation1 对象则还留在新生代 Survivor 空间, 这时新生代仍然有 404KB 被占用。
+    - 第二次 GC 发生后, allocation1 对象则还留在新生代 Survivor 空间, 这时新生代仍然有 404KB 被占用
 
 #### 动态对象年龄判断
 
@@ -1991,7 +1991,7 @@ Analysis
     - _如果不成立, 则虚拟机会先查看 `-XX:HandlePromotionFailure` 参数的设置值是否允许担保失败 ( Handle Promotion Failure )_
         - _如果人允许, 那会继续检查老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小_
             - _如果大于, 将尝试进行一次 Minor GC, 尽管这次 Minor GC 是有风险的_
-            - _如果小于，或者 `-XX:HandlePromotionFailure` 设置不允许冒险, 那这时就要改为进行一次 Full GC_
+            - _如果小于, 或者 `-XX:HandlePromotionFailure` 设置不允许冒险, 那这时就要改为进行一次 Full GC_
 - _解释一下 "冒险" 是冒了什么风险_
     - **新生代使用复制收集算法, 但为了内存利用率, 只使用其中一个 Survivor 空间来作为轮换备份**
     - _因此当出现大量对象在 Minor GC 后仍然存活的情况, 最极端的情况就是内存回收后新生代中所有对象都存活_
@@ -2001,11 +2001,11 @@ Analysis
 - _"取历史平均值来比较" 其实仍然是一种赌概率的解决办法_
     - _也就是说假如某次 Minor GC 存活后的对象突增, 远远高于历史平均值的话, 依然会导致担保失败_
     - _如果出现了担保失败, 那就只好老老实实地重新发起一次 Full GC , 这样停顿时间就很长了_
-    - _虽然担保失败时绕的圈子是最大的，但通常情况下都还是会将 `-XX: HandlePromotionFailure` 开关打开, 避免 Full GC 过于频繁_
+    - _虽然担保失败时绕的圈子是最大的, 但通常情况下都还是会将 `-XX: HandlePromotionFailure` 开关打开, 避免 Full GC 过于频繁_
 
 ## 虚拟机性能监控、故障处理工具
 
-给一个系统定位问题的时候, 知识、经验是关键基础, 数据是依据，工具是运用知识处理数据的手段
+给一个系统定位问题的时候, 知识、经验是关键基础, 数据是依据, 工具是运用知识处理数据的手段
 
 - 这里说的 "数据" 包括但不限于
     - 异常堆栈
@@ -2118,7 +2118,7 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 |名称|主要作用|
 |-|-|
 |~~appletviewer~~|~~在不使用 Web 浏览器的情况下运行和调试 Applet, JDK 11 中被移除~~|
-|~~extcheck~~|~~检查 JAR 冲突的工具，从 JDK 9 中被移除~~|
+|~~extcheck~~|~~检查 JAR 冲突的工具, 从 JDK 9 中被移除~~|
 |**jar**|创建和管理 JAR 文件|
 |**java**|Java 运行工具, 用于运行 Class 文件或 JAR 文件|
 |**javac**|用于 Java 编程语言的编译器|
@@ -2141,10 +2141,10 @@ _用于监视 VM 运行状态和进行故障处理的工具, 根据软件可用�
 |**jstatd**|JVM Statistics Monitoring Tool Daemon , jstat 的守护程序, 局动一个 RMI 服务器应用程序,<br/>用于监视测试的 HotSpot 虚拟机的创建和终止, 并提供一个界面, 允许远程监控工具附加到在本地系统上运行的虚拟机.<br/>在 JDK 9 中集成到了 JHSDB 中|
 |**jinfo**|Configuration Info for Java, 显示虚拟机配置信息.<br/>在 JDK 9 中集成到了 JHSDB 中
 |**jmap**|Memory Map for Java, 生成虚拟机的内存转储快照 ( heapdump 文件 ).<br/>在 JDK 9 中集成到了 JHSDB 中|
-|jhat|JVM Heap Analysis Tool, 用于分析堆转储快照,<br/>它会建立一个 HTTP/Web 服务器，让用户可以在浏览器上查看分析结果.<br/>在 JDK 9 中被 JHSDB 代替|
+|jhat|JVM Heap Analysis Tool, 用于分析堆转储快照,<br/>它会建立一个 HTTP/Web 服务器, 让用户可以在浏览器上查看分析结果.<br/>在 JDK 9 中被 JHSDB 代替|
 |**jstack**|Stack Trace for Java, 显示虚拟机的线程快照.<br/>在 JDK 9 中集成到了 JHSDB 中|
 |**jhsdb**|Java HotSpot Debugger, 一个基于 Serviceability Agent 的 HotSpot 进程调试器,<br/>从 JDK 9 开始提供|
-|jsadebugd|Java Serviceability Agent Debug Daemon, 适用于 Java 的可维护性代理调试守护程序,<br>主要用于附加到指定的 Java 进程、核心文件，或充当一个调试服务器|
+|jsadebugd|Java Serviceability Agent Debug Daemon, 适用于 Java 的可维护性代理调试守护程序,<br>主要用于附加到指定的 Java 进程、核心文件, 或充当一个调试服务器|
 |**jcmd**|JVM Command, 虚拟机诊断命令工具, 将诊断命令请求发送到正在运行的 Java 虚拟机.<br/>从 JDK 7 开始提供|
 |**jconsole**|Java Console, 用于监控 Java 虚拟机的使用 JMX 规范的图形工具.<br/>它可以监控本地和远程和 JVM, 还可以监控和管理应用程序|
 |**jmc**|Java Mission Control, 包含用于监控和管理 Java 应用程序的工具,<br/>而不会引入与这些工具相关联的性能开销.<br/>开发者可以使用 jmc 命令来创建 JMC 工具, 从 JDK 7 Update 40 开始集成到 OracleJDK 中|
@@ -2176,7 +2176,7 @@ _远程方法调用_
 
 |名称|主要作用|
 |-|-|
-|_rmic_|Java RMI 编译器，为使用 了 JRMP 或 IIOP 协议的远程对象生成 Stub、Skeleton 和 Tie 类, 也用于生成 OMG IDL|
+|_rmic_|Java RMI 编译器, 为使用 了 JRMP 或 IIOP 协议的远程对象生成 Stub、Skeleton 和 Tie 类, 也用于生成 OMG IDL|
 |_rmiregistry_|远程对象注册表服务, 用于在当前主机的指定端口上创建并启动一个远程对象注册表|
 |_rmid_|启动激活系统守护进程, 允许在虚拟机中注册或激活对象|
 |_serialver_|生成并返回指定类的序列化版本 ID|
@@ -2253,8 +2253,8 @@ Java Mission Control
 - _随着 BEA 公司被 Oracle 收购, 它便被融合进 OracleJDK 之中, 在 JDK 7 Update 40 时开始随 JDK 一起发布_
     - _后来 Java SE Advanced 产品线建立, Oracle 明确区分了 Oracle OpenJDK 和 OracleJDK 的差别, JMC 从JDK 11 开始又 被移除出 JDK_
 - _虽然在 2018 年 Oracle 将 JMC 开源并交付给 OpenJDK 组织进行管理, 但开源并不意味着免费使用_
-    - _JMC 需要与 HotSpot 内部的 **"飞行记录仪" ( Java Flight Recorder，JFR )** 配合才能工作_
-    - _而在 JDK 11 以前, JFR 的开启必须解锁 OracleJDK 的商业特性支持 ( 使用 JCMD 的 `VM.unlock_commercial_features` 或启动时加入 `-XX:+UnlockCommercialFeatures` 参数 ) ，所以这项功能在生产环境中仍然是需要付费才能使用的商业特性_
+    - _JMC 需要与 HotSpot 内部的 **"飞行记录仪" ( Java Flight Recorder, JFR )** 配合才能工作_
+    - _而在 JDK 11 以前, JFR 的开启必须解锁 OracleJDK 的商业特性支持 ( 使用 JCMD 的 `VM.unlock_commercial_features` 或启动时加入 `-XX:+UnlockCommercialFeatures` 参数 ) , 所以这项功能在生产环境中仍然是需要付费才能使用的商业特性_
 
 #### JHSDB : 基于服务性代理的调试工具
 
@@ -2274,7 +2274,7 @@ JCMD、JHSDB 和基础工具的对比
 |jinfo -sysprops \<pid\>|jcmd \<pid\> VM.system_properties|jhsdb info --sysprops|
 |jinfo -flags \<pid\>|jcmd \<pid\> VM.flags|jhsdb jinfo --flags|
 
-JHSDB 是一款基于 **服务性代理 ( Serviceability Agent，SA )** 实现的进程外调试工具
+JHSDB 是一款基于 **服务性代理 ( Serviceability Agent, SA )** 实现的进程外调试工具
 
 - 服务性代理是 HotSpot VM 中一组用于映射 JVM 运行信息的、主要基于 Java 语言 ( 含少量 JNI 代码 ) 实现的 API 集合
     - 服务性代理以 HotSpot 内部的数据结构为参照物进行设计, 把这些 C++ 的数据抽象出 Java 模型对象, 相当于 HotSpot 的 C++ 代码的一个镜像
@@ -2445,7 +2445,7 @@ Analysis
 
 ![jconsole-monitoring-dead-lock-threads.png](_images/understand-jvm/jconsole-monitoring-dead-lock-threads.png)
 
-- 出现线程死锁之后, 点击 JConsole "Threads" 面板的 "Detect DeadLock" 按钮，将出现一个新的 "Deadlock" Tab
+- 出现线程死锁之后, 点击 JConsole "Threads" 面板的 "Detect DeadLock" 按钮, 将出现一个新的 "Deadlock" Tab
 
 ![jconsole-monitoring-dead-lock-detect-deadlock.png](_images/understand-jvm/jconsole-monitoring-dead-lock-detect-deadlock.png)
 
@@ -2535,7 +2535,7 @@ $ jvisualvm
 - _BTrace 它本身也是一个可运行的独立程序_
     - BTrace 的作用是在不中断目标程序运行的前提下, 通过 HotSpot VM 的 Instrument 功能, 动态加入原本并不存在的调试代码
 - _这项功能对实际生产中的程序很有意义 :_
-    - _如当程序出现问题时，排查错误的一些必要信息时 ( 譬如, 方法参数、返回值等 )_
+    - _如当程序出现问题时, 排查错误的一些必要信息时 ( 譬如, 方法参数、返回值等 )_
     - _在开发时并没有打印到日志之中以至于不得不停掉服务时, 都可以通 过调试增量来加入日志代码以解决问题_
     - _( icehe : 实际试用感觉还是不够方便 )_
 - _用法 : 在应用程序面板中_
@@ -2645,7 +2645,7 @@ _在《Java 虚拟机规范》里详细定义了 VM 指令集中每条指令的�
 
 - _但是这样的调试方式在 Java VM 中也遇到了很大麻烦_
     - 因为大量执行代码是通过即时编译器动态生成到代码缓存中的, 并没有特别简单的手段来处理这种混合模式的调试不得不通过一些曲线的间接方法来解决问题
-- _在这样的背景下，本节的主角 HSDIS 插件就正式登场了_
+- _在这样的背景下, 本节的主角 HSDIS 插件就正式登场了_
 
 _HSDIS 是一个被官方推荐的 HotSpot VM 即时编译代码的反汇编插件_
 
@@ -3179,17 +3179,144 @@ Root Cause 根本原因
 
 Situation 背景
 
+- 有一个带心跳检测功能的 GUI 桌面程序
+    - 每 15 秒会发送一次心跳检测信号
+    - 如果对方 30 秒以内都没有信号返回, 那就认为和对方程序的连接已经断开
+- 程序上线后发现心跳检测有误报的可能
+    - 查询日志发现误报的原因是 **程序会偶尔出现间隔约 1 分钟的时间完全无日志输出, 处于停顿状态**
+
 Diagnosis 诊断
 
+- 因为是桌面程序, 所需的内存并不大 `-Xmx256m`, 所以开始并没有想到是垃圾收集导致的程序停顿
+    - 但是加入参数 `-XX:+PrintGCApplicationStoppedTime` `-XX:+PrintGCDateStamps` `-Xlogsc:gclog.log` 后, 从收集器日志文件中确认了停顿确实是由垃圾收集导致的
+    - 大部分收集时间都控制在 100 ms 以内, 但偶尔就出现一次接近 1 分钟的长时间收集过程
+
+```bash
+Total time for which application threads were stopped:  0.0112389 seconds
+Total time for which application threads were stopped:  0.0001335 seconds
+Total time for which application threads were stopped:  0.0003246 seconds
+Total time for which application threads were stopped: 41.4731411 seconds
+Total time for which application threads were stopped:  0.0489481 seconds
+Total time for which application threads were stopped:  0.1110761 seconds
+Total time for which application threads were stopped:  0.0007286 seconds
+Total time for which application threads were stopped:  0.0001268 seconds
+```
+
+- 从收集器日志中找到长时间停顿的具体日志信息 ( 再添加了`-XX:+PrintReferenceGC` 参数 ) , 找到的日志片段如下所示
+    - 从日志中看到, 真正执行垃圾收集动作的时间不是很长
+    - 但从准备开始收集, 到真正开始收集之间所消耗的时间却占了绝大部分
+
+```bash
+2012-08-29T19:14:30.968+0800: 10069.800: [GC10099.225: [SoftReference，0 refs，0.0000109 secs]10099.226:……
+# ( icehe : 日志内容太长了, 详见原书 )
+```
+
+- 除收集器日志之外, 还观察到这个 GUI 程序内存变化的一个特点
+    - **当它最小化的时候, 资源管理中显示的占用内存大幅度减小, 但是虚拟内存则没有变化**
+    - 因此怀疑 **程序在最小化时它的工作内存被自动交换到磁盘的页面文件之中了**
+    - 这样发生垃圾收集时就有 **可能因为恢复页面文件的操作导致不正常的垃圾收集停顿**
+
 Solution 解决方案
+
+- _在 MSDN 上查证确认了这种猜想_
+    - 在 Java 的 GUI 程序中要避免这种现象, 可以 **加入参数 `-Dsun.awt.keep WorkingSetOnMinimize=true`** 来解决
+- _这个参数在许多 AWT 的程序上都有应用_
+    - _例如 JDK ( 曾经 ) 自带的 VisualVM,_ 启动配置文件中就有这个参数, 保证程序在恢复最小化时能够立即响应
+- _在这个案例中加入该参数, 问题马上得到解决_
+    - 本案例来源于 ITEye HLLVM 和群组的讨论 : http://hllvm.group.iteye.com/group/topic/28745
+    - http://support.microsoft.comy/default.aspx?scid=kb;en-us;293215
 
 #### 由安全点导致长时间停顿
 
 Situation 背景
 
+- 有一个比较大的 **承担公共计算任务的离线 HBase 集群**
+    - 运行在 JDK 8 上, 使用 G1 收集器
+- **每天都有大量的 MapReduce 或 Spark 离线分析任务** 对其进行访问
+    - 同时 **有很多其他在线集群 Replication 过来的数据写入**
+    - 因为集群读写压力较大, 而离线分析任务对延迟又不会特别敏感
+    - 所以将 **`-XX:MaxGCPauseMillis` 参数设置到了 500 ms**
+- 不过运行一段时间后发现 **垃圾收集的停顿经常达到 3 秒以上**
+    - 而且 **实际垃圾收集器进行回收的动作就只占其中的几百毫秒**, 现象如以下日志所示
+
+```bash
+[Times: user=1.51 sys=0.671，real=0.14 secs]
+2019-06-25T 12:12:43.376+0800: 3448319.277: Total time for which application threads were stopped: 2.2645818 seconds
+```
+
 Diagnosis 诊断
 
+- 考虑到不是所有读者都了解计算机体系和操作系统原理
+    - 笔者先解释一下 user、sys、real 这三个时间的概念 :
+        - **user** : 进程执行 **用户态** 代码所耗费的 **处理器时间**
+        - **sys** : 进程执行 **核心态** 代码所耗费的 **处理器时间**
+        - **real** : 执行动作 **从开始到结束** 耗费的 **时钟时间**
+    - 请注意, 前面两个是处理器时间, 而最后一个是时钟时间
+        - 它们的区别是 处理器时间代表的是线程占用处理器一个核心的耗时计数, 而时钟时间就是现实世界中的时间计数
+        - 如果是单核单线程的场景下, 这两者可以认为是等价的
+        - 但如果是 **多核环境下, 同一个时钟时间内有多少处理器核心正在工作, 就会有多少倍的处理器时间被消耗和记录下来**
+- **在垃圾收集调优时, 主要依据 real 时间为目标来优化程序**
+    - 因为最终用户只关心发出请求到得到响应所花费的时间, 也就是响应速度, 而不太关心程序到底使用了多少个线程或者处理器来完成任务
+    - 日志显示这次垃圾收集一共花费了 0.14 秒, 但其中用户线程却足足停顿了有 2.26 秒
+    - 两者差距已经远远超出了正常的 **TTSP ( Time To Safepoint )** 耗时的范畴
+- 所以先加入 **参数 `-XX:+PrintSafepointStatistics` 和 `-XX: PrintSafepointStatisticsCount=1` 去查看安全点日志**
+    - 具体如下所示 :
+
+```bash
+vmop    [threads: total initially_running wait_to_block]
+65968.203: ForceAsyncSafepoint [931   1   2]
+[time: spin block sync cleanup vmop] page_trap_count
+[2255  0  2255 11  0]  1
+```
+
+- 日志显示当前虚拟机的操作 **( VM Operation, VMOP ) 是等待所有用户线程进入到安全点**
+    - 但是 **有 2 个线程特别慢, 导致发生了很长时间的自旋等待**
+- 日志中的 **2255 毫秒自旋 ( Spin ) 时间就是指由于部分线程已经走到了安全点**
+    - 但是 **还有一些特别慢的线程并没有到, 所以垃圾收集线程无法开始工作, 只能空转 ( 自旋 ) 等待**
+- 解决问题的第一步是把这两个特别慢的线程给找出来, _这个倒不困难_
+    - 添加 **`-XX:+SafepointTimeout`** 和 **`-XX:SafepointTimeoutDelay=2000`** 两个参数
+    - **让 JVM 在等到线程进入安全点的时间超过 2000 毫秒时就认定为超时**
+    - 这样就会输出导致问题的线程名称, 得到的日志如下所示 :
+
+```bash
+# SafepointSynchronize::begin: Timeout detected:
+# SafepointSynchronize::begin: Timed out while spinning to reach a safepoint.
+# SafepointSynchronize::begin: Threads which did not reach the safepoint:
+# "RpcServer.listener,port=24600" #32 daemon Prio=5 os_prio=0 tid=0x00007f4c14b22840
+  nid=0xa621 runnable [0x00000000000000001]
+java.lang.Thread.State: RUNNRBLE
+# SafepointSynchronize::begin: (End of list)
+```
+
+- 从错误日志中顺利得到了导致问题的线程名称为 "RpcServer.listener,port=24600" 但是为什么它们会出问题呢?
+    - 有什么因素可以阻止线程进入安全点?
+- _在第 3 章关于安全点的介绍中, 已经知道_ 安全点是以 "是否具有让程序长时间执行的特征" 为原则进行选定的
+    - 所以方法调用、循环跳转、异常跳转这些位置都可能会设置有安全点
+- 但是 **HotSpot 虚拟机为了避免安全点过多带来过重的负担**, 对循环还有一项优化措施
+    - 认为 **循环次数较少的话, 执行时间应该也不会太长**
+    - 所以 **使用 int 类型或范围更小的数据类型作为索引值的循环默认是不会被放置安全点的**
+    - 这种循环被称为 **可数循环 ( Counted Loop )**
+    - 相对应地, **使用 long 或者范围更大的数据类型作为索引值的循环** 就被称为 **不可数循环 ( Uncounted Loop )** , 将会被放置安全点
+- 通常情况下这个优化措施是可行的, 但循环执行的时间不单单是由其次数决定
+    - **如果循环体单次执行就特别慢, 那即使是可数循环也可能会耗费很多的时间**
+
 Solution 解决方案
+
+- HotSpot 原本提供了 `-XX:+UseCountedLoopSafepoints` 参数去强制在可数循环中也放置安全点
+    - 不过这个参数在 JDK 8 下有Bug, 有导致虚拟机崩溃的风险
+    - 所以就不得不找到RpcServer线程里面的缓慢代码来进行修改
+- 最终查明导致这个问题是 **HBase 中一个连接超时清理的函数**
+    - 由于集群会有多个 MapReduce 或 Spark 任务进行访问
+    - 而每个任务又会同时起多个 MapperReducerExecuter, 其每一个都会作为一个 HBase 的客户端, 这就导致了同时连接的数量会非常多
+- 更为关键的是, **清理连接的索引值就是 int 类型**
+    - 所以 **这是一个可数循环, HotSpot 不会在循环中插入安全点**.
+- 当垃圾收集发生时, **如果 RpcServer 的 Listener 线程刚好执行到该函数里的可数循环时, 则必须等循环全部跑完才能进入安全点**
+    - 此时 **其他线程也必须一起等着, 所以从现象上看就是长时间的停顿**
+- _找到了问题, 解决起来就非常简单了_
+    - **把循环索引的数据类型从 int 改为 long 即可**
+    - 但如果不具备安全点和垃圾收集的知识, 这种问题是很难处理的
+- 原始案例来自 "小米云技术" 公众号, 原文地址 : https://juejin.im/post/5d1b1fc46fb9a07ef7108d82 笔者做了一些改动
+    - https://bugs.openjdk.java.net/browse/JDK-8161147
 
 ### 实战 : Eclipse 运行速度调优
 
