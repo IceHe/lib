@@ -3075,11 +3075,66 @@ Backgroud Knowledge 背景知识
 
 #### 服务器虚拟机进程崩溃
 
+Situation 背景
+
+- 一个基于 B/S 的 MIS 系统
+    - 硬件为两台双路处理器、8GB 内存的 HP 系统
+    - 服务器是 WebLogic 9.2 ( 与第二个案例中那套是同一个系统 )
+- 正常运行一段时间后, 最近发现在 **运行期间频繁出现集群节点的虚拟机进程自动关闭的现象**
+    - 留下了一个 `hs_err_pid###.log` 文件后, 虚拟机进程就消失了
+    - 两台物理机器里的每个节点都出现过进程崩溃的现象
+- 从系统日志中注意到, **每个节点的虚拟机进程在崩溃之前, 都发生过大量相同的异常**
+    - 详见以下异常堆栈
+
+```bash
+java.net.SocketException: Connection reset
+at java.net.SocketInputStream.read(SocketInputStream.java:168)
+at java.io.BufferedInputStream.fill(BufferedInputStream.java:218)
+at java.io.BufferedInputStream.read(BufferedInputStream.java:235)
+at org.apache.axis.transport.http.HTTPSender.readHeadersFromSocket (HTTPSender.java:583)
+at org.apache.axis.transport.http.HTTPSender.invoke(HTTPSender.java:143)
+... 99 more
+```
+
+Diagnosis 诊断
+
+- 这是一个 **远端断开连接的异常**
+    - 通过系统管理员了解到系统最近与一个 OA 门户做了集成
+    - 在 MIS 系统工作流的待办事项变化时, 要通过 Web 服务通知 OA 门户系统, 把待办事项的变化同步到 OA 门户之中
+- 通过 SoapUI 测试了一下同步待办事项的几个 Web 服务
+    - 发现调用后竟然需要长达 3 分钟才能返回, 并且返回结果都是超时导致的连接中断
+- 由于 MIS 系统的用户多, 待办事项变化很快, 为了不被 OA 系统速度拖累，**使用了异步的方式调用 Web 服务**
+    - 但由于 **两边服务速度的完全不对等, 时间越长就紧积了越多 Web 服务没有调用完成**
+    - 导致 **在等待的线程和 Socket 连接越来越多, 最终超过虚拟机的承受能力后导致虚拟机进程崩溃**
+
+Solution 解决方案
+
+- 通知 OA 门户方 **修复无法使用的集成接口**
+- 并 **将异步调用改为生产者/消费者模式的消息队列实现** 后, 系统恢复正常
+
 #### 不恰当数据结构导致内存占用过大
+
+Situation 背景
+
+Diagnosis 诊断
+
+Solution 解决方案
 
 #### 由 Windows 虚拟内存导致的长时间停顿
 
+Situation 背景
+
+Diagnosis 诊断
+
+Solution 解决方案
+
 #### 由安全点导致长时间停顿
+
+Situation 背景
+
+Diagnosis 诊断
+
+Solution 解决方案
 
 ### 实战 : Eclipse 运行速度调优
 
