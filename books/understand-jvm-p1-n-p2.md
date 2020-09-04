@@ -1869,7 +1869,7 @@ JDK 9 前后日志参数变化
 |MaxGCPauseMillis|_设置 GC 的最大停顿时间.<br/>仅在使用 Parallel Scavenge 收集器时生效_|
 |CMSInitiatingOccupancyFraction|_**设置 CMS 收集器在老年代空间被使用多少后触发垃圾收集**.<br/>默认值为 68% , 仅在使用 CMS 收集器时生效_|
 |UseCMSCompactAtFullCollection|_设置 CMS 收集器在完成垃圾收集后是否要进行一次内存碎片整理.<br/>仅在使用 CMS 收集器时生效, 此参数从 JDK 9 开始废弃_|
-|CMSFullGCsBeforeCompaction|_设置 CMS 收集器在进行若干次垃圾收集后再启动一次内存碎片整理.<br/>仅在使用CMS收集器时生效，此参数从JDK 9开始废弃_|
+|CMSFullGCsBeforeCompaction|_设置 CMS 收集器在进行若干次垃圾收集后再启动一次内存碎片整理.<br/>仅在使用CMS收集器时生效, 此参数从JDK 9开始废弃_|
 |**UseG1GC**|**使用 G1 收集器, JDK 9 后的 Server 模式默认值**|
 |**G1HeapRegionSize=n**|**设置 Region 大小**, 并非最终值|
 |**MaxGCPauseMillis**|**设置 G1 收集过程目标时间, 默认值是 200ms**, 不是硬性条件|
@@ -2651,7 +2651,7 @@ _HSDIS 是一个被官方推荐的 HotSpot VM 即时编译代码的反汇编插�
 
 - HSDIS 插件的作用是让 HotSpot 的 `-XX:+PrintAssembly` 指令调用它来把即时编译器动态生成的本地代码还原为汇编代码输出
     - 同时还会自动产生大量非常有价值的注释, 这样我们就可以通过输出的汇编代码来从最本质的角度分析问题
-- _可以根据自己的操作系统和处理器型号, 从网上直接搜索、下载编译好的插件，直接放到 JDK_HOM E/jre/bin/server 目录 ( JDK 9 以下 ) 或 JDK_HOME/lib/amd64/server ( JDK 9 或以上 ) 中即可使用_
+- _可以根据自己的操作系统和处理器型号, 从网上直接搜索、下载编译好的插件, 直接放到 JDK_HOM E/jre/bin/server 目录 ( JDK 9 以下 ) 或 JDK_HOME/lib/amd64/server ( JDK 9 或以上 ) 中即可使用_
     - _如果读者确实没有找到所采用操作系统的对应编译成品, 那就自己用源码编译一遍_
 - _另外还有一点需要注意, 如果使用的是 SlowDebug 或者 FastDebug 版的 HotSpot , 那可以直接通过 `-XX:+PrintAssembly` 指令使用的插件_
     - _如果读者使用的是 Product 版的 HotSpot , 则还要额外加入一个 `-XX: +UnlockDiagnosticVMOptions` 参数才可以工作_
@@ -2822,7 +2822,7 @@ Analysis 分析
     - **A. 通过一个单独的 JVM 实例来管理大量的 Java Heap 内存**
     - **B. 同时使用若干个 JVM , 建立逻辑集群来利用硬件资源**
 - 此案例中的管理员采用了第一种部署方式
-    - **对于用户交互性强、对停顿时间敏感、内存又较大的系统，并不是一定要使用 Shenandoah、ZGC 这些明确以控制延迟为目标的垃圾收集器才能解决问题**
+    - **对于用户交互性强、对停顿时间敏感、内存又较大的系统, 并不是一定要使用 Shenandoah、ZGC 这些明确以控制延迟为目标的垃圾收集器才能解决问题**
         - ( 当然不可否认, 如果情况允许的话, 这是最值得考虑的方案 )
 - 使用 Parallel Scavenge / Old 收集器, 并且给 JVM 分配较大的堆内存也是有很多运行得很成功的案例的
     - 但前提是 **必须把应用的 Full GC 频率控制得足够低, 至少要低到不会在用户使用过程中发生, 譬如十几个小时乃至一整天都不出现一次 Full GC**
@@ -2831,7 +2831,7 @@ Analysis 分析
     - 这主要取决于 **应用中绝大多数对象能否符合 "朝生夕灭" 的原则, 即大多数对象的生存时间不应当太长**
     - **尤其是不能有成批量的、长生存时间的大对象产生, 这样才能保障老年代空间的稳定**
 - 在许多网站和 B/S 形式的应用里, 多数对象的生存周期都应该是请求级或者页面级的, 会话级和全局级的长生命对象相对较少
-    - _只要代码写得合理，实现在超大堆中正常使用没有 Full GC 应当并不困难, 这样的话, 使用超大堆内存时, 应用响应速度才可能会有所保证_
+    - _只要代码写得合理, 实现在超大堆中正常使用没有 Full GC 应当并不困难, 这样的话, 使用超大堆内存时, 应用响应速度才可能会有所保证_
 - _除此之外,_ 如果读者计划使用单个 JVM 实例来管理大内存, 还需要考虑下面可能面临的问题 :
     - **回收大块堆内存而导致的长时间停顿**, 自从 G1 收集器的出现, 增量回收得到比较好的应用, 这个问题有所缓解
         - 但要 **到 ZGC 和 Shenandoah 收集器成熟之后才得到相对彻底地解决**
@@ -2856,7 +2856,7 @@ Analysis 分析
     - 因此使用 **无 Session 复制的亲合式集群** 是一一个相当合适的选择
         - 仅仅需要保障集群具备亲合性, 也就是均衡器按一定的规则算法 ( 譬如根据 Session ID 分配 ) 将一个固定的用户请求永远分配到一个固定的集群节点进行处理即可
         - _这样程序开发阶段就几乎不必为集群环境做任何特别的考虑_
-- _当然，第二种部署方案也不是没有缺点的,_ 如果使用逻辑集群的方式来部署程序, 可能会遇到下面这些问题 :
+- _当然, 第二种部署方案也不是没有缺点的,_ 如果使用逻辑集群的方式来部署程序, 可能会遇到下面这些问题 :
     - **节点竞争全局的资源**
         - **最典型的就是磁盘竞争, 各个节点如果同时访问某个磁盘文件的话 _( 尤其是并发写操作容易出现问题 )_ , 很容易导致 I/O 异常**
     - **很难最高效率地利用某些资源池**
@@ -2864,7 +2864,7 @@ Analysis 分析
             - _这样有可能导致一些节点的连接池已经满了, 而另外一些节点仍有较多空余_
         - _尽管可以使用集中式的 JNDI 来解决, 但这个方案有一定复杂性并且可能带来额外的性能代价_
     - **如果使用 32 位 JVM 作为集群节点的话, _各个节点仍然不可避免地_ 受到 32 位的内存限制**
-        - _在 32 位 Windows 平台中每个进程只能使用 2GB 的内存, 考虑到堆以外的内存开销，堆最多一般只能开到 1.5GB_
+        - _在 32 位 Windows 平台中每个进程只能使用 2GB 的内存, 考虑到堆以外的内存开销, 堆最多一般只能开到 1.5GB_
         - _在某些 Linux 或 UNIX 系统 ( 如Solaris ) 中, 可以提升到 3GB 乃至接近 4GB 的内存, 但 32 位中仍然受最高 4GB ( 2 的 32 次幂 ) 内存的限制_
     - **大量使用本地缓存 _( 如大量使用 HashMap 作为 K/V 缓存 )_ 的应用, 在逻辑集群中会造成较大的内存浪费**
         - 因为每个逻辑节点上都有一份缓存, 这时候可以考虑把本地缓存改为集中式缓存
@@ -2925,7 +2925,7 @@ Backgroup Knowledge 背景知识
 - **亲和式集群**
     - 由于 HTTP 请求是无状态的, 那么对于会话级别的事务, 如何保持用户的状态?
         - 在单个服务器中, 提供了 session-sessionID 的机制来保存用户的状态
-        - 如果有多台服务器，如何记录用户的状态? 有两个大方向 :
+        - 如果有多台服务器, 如何记录用户的状态? 有两个大方向 :
             - A. session 粘性
             - B. 共享 session
     - **session 粘性**
@@ -2988,7 +2988,7 @@ Diagnosis 诊断
     - 否则就不得不一直等到抛出内存溢出异常时, 先捕获到异常, 再在 Catch 块里面通过 System.gc() 命令来触发垃圾收集
     - 但如果 JVM 再打开了 `-XX:+DisableExplicitGC` 开关, 禁止了人工触发垃圾收集的话, 那就只能眼睁睁看着堆中还有许多空闲内存, 自己却不得不抛出内存溢出异常了
 - 而本案例中使用的 **CometD 1.1.1 框架, 正好有大量的 NIO 操作需要使用到直接内存**
-- 从实践经验的角度出发, 在处理小内存或者 32 位的应用问题时, 除了 Java Heap 和 Method Area 之外，我们注意到下面这些区域还会占用较多的内存, 这里所有的内存总和受到操作系统进程最大内存的限制 :
+- 从实践经验的角度出发, 在处理小内存或者 32 位的应用问题时, 除了 Java Heap 和 Method Area 之外, 我们注意到下面这些区域还会占用较多的内存, 这里所有的内存总和受到操作系统进程最大内存的限制 :
     - Direct Memory _( 直接内存 )_
         - 可通过 `-XX:MaxDirectMemorySize` 调整大小
         - 内存不足时抛出 OutOfMemory Error 或者 OutOfMemoryError: Direct buffer memory
@@ -3016,7 +3016,7 @@ Backgroup Knowledge 背景知识
     - In recent years, **the standardisation and widespread support of WebSocket and Server-sent events has rendered the Comet model obsolete.** _( 使 … 过时 )_
     - References
         - Comet (programming) - Wikipedia : https://en.wikipedia.org/wiki/Comet_(programming)
-        - _反向 Ajax，第 1 部分: Comet 简介 :_ https://www.ibm.com/developerworks/cn/web/wa-reverseajax1/index.html
+        - _反向 Ajax, 第 1 部分: Comet 简介 :_ https://www.ibm.com/developerworks/cn/web/wa-reverseajax1/index.html
 - **CometD**
     - CometD is **a scalable WebSocket and HTTP based event and message routing bus.**
     - CometD makes use of WebSocket and HTTP push technologies known as **Comet** to provide low-latency data from the server to browsers and client applications.
@@ -3044,8 +3044,8 @@ Situation 背景
 - 一个数字校园应用系统
     - 运行在一台四路处理器的 Solaris 10 操作系统上
     - 中间件为 GlassFish 服务器
-- 系统在做 **大并发压力测试的时候，发现请求响应时间比较慢**
-    - 通过操作系统的 `mpstat` 工具发现 **处理器使用率很高，但是系统中占用绝大多数处理器资源的程序并不是该应用本身**
+- 系统在做 **大并发压力测试的时候, 发现请求响应时间比较慢**
+    - 通过操作系统的 `mpstat` 工具发现 **处理器使用率很高, 但是系统中占用绝大多数处理器资源的程序并不是该应用本身**
 - 这是个不正常的现象, **通常情况下用户应用的处理器占用率应该占主要地位**, 才能说明系统是在正常工作
     - 通过 Solaris 10 的 **`dtrace` 脚本可以查看当前情况下哪些系统调用花费了最多的处理器资源**
     - dtrace 运行后发现 **最消耗处理器资源的竟然是 "fork" 系统调用**
@@ -3103,7 +3103,7 @@ Diagnosis 诊断
     - 在 MIS 系统工作流的待办事项变化时, 要通过 Web 服务通知 OA 门户系统, 把待办事项的变化同步到 OA 门户之中
 - 通过 SoapUI 测试了一下同步待办事项的几个 Web 服务
     - 发现调用后竟然需要长达 3 分钟才能返回, 并且返回结果都是超时导致的连接中断
-- 由于 MIS 系统的用户多, 待办事项变化很快, 为了不被 OA 系统速度拖累，**使用了异步的方式调用 Web 服务**
+- 由于 MIS 系统的用户多, 待办事项变化很快, 为了不被 OA 系统速度拖累, **使用了异步的方式调用 Web 服务**
     - 但由于 **两边服务速度的完全不对等, 时间越长就紧积了越多 Web 服务没有调用完成**
     - 导致 **在等待的线程和 Socket 连接越来越多, 最终超过虚拟机的承受能力后导致虚拟机进程崩溃**
 
@@ -3120,26 +3120,26 @@ Situation 背景
     - 使用 64 位 JVM , 内存配置为 `-Xms4g -Xmx8g -Xmn1g` , 使用 ParNew 加 CMS 的收集器组合
 - 平时对外服务的 Minor GC 时间约在 30ms 以内, 完全可以接受
     - 但业务上需要每 10min 加载一个约 80MB 的数据文件到内存进行数据分析
-    - 这些数据会在内存中形成超过 100 万个 HashMap<Long，Long> 的 Entry
+    - 这些数据会在内存中形成超过 100 万个 HashMap<Long, Long> 的 Entry
 - 在这段时间里面 Minor GC 就会造成超过 500ms 的停顿
     - 对于这种长度的停顿时间就接受不了了, 有具体情况如下面的收集器日志所示
 
 ```bash
 {Heap before GC invocations=95 (full 4):
- par new generation   total 903168K, used 803142K [0x00002aaaae770000，0x00002aaaebb70000，0x00002aaaebb
-    eden space 802816K, 100% used [0x00002aaaae770000，0x00002aaadf770000, 0x00002aaadf770000)
-    from space 100352K,   0% used [0x00002aaae5970000，0x00002aaae59c1910, 0x00002aaaebb70000)
-    to   space 100352K，  0% used [0x00002aaadf770000，0x00002aaadf770000，0x00002aaae5970000)
-concurrent mark-sweep generation total 5845540K, used 3898978K [0x00002aaaebb70000，0x00002aac507f9000,
-Concurrent-mark-sweep perm gen total 65536K, used 40333K [0x00002aacae770000，0x00002aacb2770000，0x000(
-2011-10-28T11:40:45.162+0800: 226.504: [GC 226.504: [ParNew: 803142K-> 100352K(903168K)，0.5995670 secs]
+ par new generation   total 903168K, used 803142K [0x00002aaaae770000, 0x00002aaaebb70000, 0x00002aaaebb
+    eden space 802816K, 100% used [0x00002aaaae770000, 0x00002aaadf770000, 0x00002aaadf770000)
+    from space 100352K,   0% used [0x00002aaae5970000, 0x00002aaae59c1910, 0x00002aaaebb70000)
+    to   space 100352K,   0% used [0x00002aaadf770000, 0x00002aaadf770000, 0x00002aaae5970000)
+concurrent mark-sweep generation total 5845540K, used 3898978K [0x00002aaaebb70000, 0x00002aac507f9000,
+Concurrent-mark-sweep perm gen total 65536K, used 40333K [0x00002aacae770000, 0x00002aacb2770000, 0x000(
+2011-10-28T11:40:45.162+0800: 226.504: [GC 226.504: [ParNew: 803142K-> 100352K(903168K), 0.5995670 secs]
 Heap after GC invocations=96 (full 4):
- par new generation   total 903168K, used 100352K [0x00002aaaae770000，0x00002-aaaebb70000，0x00002aaaebr
-    eden space 802816K,   0% used [0x00002aaaae770000，0x00002aaaae770000，0x00002aaadf770000)
-    from space 100352K, 100% used [0x00002aaadf770000，0x00002aaae5970000，0x00002aaae5970000)
-    to   space 100352K,   0% used [0x00002aaae5970000，0x00002aaae5970000，0x00002aaaebb70000)
-concurrent mark-sweep generation total 5845540K, used 3955980K [0x00002aaaebb70000，0x00002aac507f9000，
-concurrent-mark-sweep perm gen total 65536K, used 40333K [0x00002aacae770000，0x00002aacb2770000，0x000(
+ par new generation   total 903168K, used 100352K [0x00002aaaae770000, 0x00002-aaaebb70000, 0x00002aaaebr
+    eden space 802816K,   0% used [0x00002aaaae770000, 0x00002aaaae770000, 0x00002aaadf770000)
+    from space 100352K, 100% used [0x00002aaadf770000, 0x00002aaae5970000, 0x00002aaae5970000)
+    to   space 100352K,   0% used [0x00002aaae5970000, 0x00002aaae5970000, 0x00002aaaebb70000)
+concurrent mark-sweep generation total 5845540K, used 3955980K [0x00002aaaebb70000, 0x00002aac507f9000,
+concurrent-mark-sweep perm gen total 65536K, used 40333K [0x00002aacae770000, 0x00002aacb2770000, 0x000(
 Total time for which application threads were stopped: 0.6070570 seconds
 ```
 
@@ -3160,12 +3160,12 @@ Solution 解决方案
     - 可以 **考虑直接将 Survivor 空间去掉 ( 加入参数 `-XX:SurvivorRatio=65536` `-XX:MaxTenuringThreshold=0` 或者 `-XX: +AlwaysTenure` )**
     - **让新生代中存活的对象在第一次 Minor GC 后立即进入老年代, 等到 Major GC 的时候再去清理它们**
 - 这种措施可以治标, 但也有很大副作用, 治本的方案必须要修改程序
-    - 因为这里产生问题的 **根本原因是用 `HashMap<Long，Long>` 们结构来存储数据文件空间效率太低了**
+    - 因为这里产生问题的 **根本原因是用 `HashMap<Long, Long>` 们结构来存储数据文件空间效率太低了**
 
 Root Cause 根本原因
 
 - 具体分析一下 HashMap 空间效率
-    - 在 `HashMap<Long，Long>` 结构中, 只有 Key 和 Value 所存放的两个长整型数据是 **有效数据, 共 16 B ( 2 x 8 B )**
+    - 在 `HashMap<Long, Long>` 结构中, 只有 Key 和 Value 所存放的两个长整型数据是 **有效数据, 共 16 B ( 2 x 8 B )**
     - 这两个长整型数据 **包装成 java.lang.Long 对象** 之后, 就分别具有 **8 B 的 Mark Word、8 B 的 Klass 指针, 再加 8 B 存储数据的 long 值**
     - 然后这 2 个 Long 对象组成 **Map.Entry** 之后, 又多了 **16 B 的 Object Header**
     - 然后一个 **8 B 的 next 字段** 和 **4 B 的 int 型的 hash 字段**
@@ -3207,7 +3207,7 @@ Total time for which application threads were stopped:  0.0001268 seconds
     - 但从准备开始收集, 到真正开始收集之间所消耗的时间却占了绝大部分
 
 ```bash
-2012-08-29T19:14:30.968+0800: 10069.800: [GC10099.225: [SoftReference，0 refs，0.0000109 secs]10099.226:……
+2012-08-29T19:14:30.968+0800: 10069.800: [GC10099.225: [SoftReference, 0 refs, 0.0000109 secs]10099.226:……
 # ( icehe : 日志内容太长了, 详见原书 )
 ```
 
@@ -3240,7 +3240,7 @@ Situation 背景
     - 而且 **实际垃圾收集器进行回收的动作就只占其中的几百毫秒**, 现象如以下日志所示
 
 ```bash
-[Times: user=1.51 sys=0.671，real=0.14 secs]
+[Times: user=1.51 sys=0.671, real=0.14 secs]
 2019-06-25T 12:12:43.376+0800: 3448319.277: Total time for which application threads were stopped: 2.2645818 seconds
 ```
 
@@ -3322,8 +3322,8 @@ Solution 解决方案
 ### 实战 : Eclipse 运行速度调优
 
 - _很多 Java 开发人员都有一种错觉, 认为系统调优的工作都是针对服务端应用的, 规横越大的系统, 就需要越专业的调优运维团队参与_
-    - _这个观点不能说不对，只是有点狭隘了_
-- _上一节中笔者所列举的案例确实大多是服务端运维、调优的例子, 但不只服务端需要调优，其他应用类型也是需要_
+    - _这个观点不能说不对, 只是有点狭隘了_
+- _上一节中笔者所列举的案例确实大多是服务端运维、调优的例子, 但不只服务端需要调优, 其他应用类型也是需要_
     - _作为一个普通的 Java 开发人员, 学习到的各种虚拟机的原理和最佳实践方法距离我们并不遥远, 开发者身边就有很多场景可以使用上这些知识_
 - _下面就通过一个普通程序员日常工作中可以随时接触到的开发工具开始这次实战_
     - _此实战是本书第 2 版时编写的内容, 今天看来里面的 Eclipse 和 HotSpot 版本已经较旧_
@@ -3340,10 +3340,25 @@ Solution 解决方案
 
 #### 编译时间和类加载时间的优化
 
+- 可以通过参数 `-Xverify:none` 禁止掉字节码验证过程
 - 略, 详见原书
 
 #### 调整内存设置控制垃圾收集频率
 
+**Complile Time 编译时间**
+
+- **编译时间 ( Compile Time ) 指虚拟机的即时编译器 ( Just In Time Compiler ) 编译热点代码 ( Hot Spot Code ) 的耗时**
+- Java 语言为了实现跨平台的特性, **Java 代码编译出来后形成 Class 文件中储存的是字节码 ( Byte Code ) , 虚拟机通过解释方式执行字节码命令**
+    - _比起 C/C++ 编译成本地二进制代码来说, 速度要慢不少_
+- _为了解决程序解释执行的速度问题, JDK 1.2 以后, HotSpot VM 内置了两个即时编译器_
+    - **如果一段 Java 方法被调用次数到达一定程度, 就会被判定为热代码交给即时编译器即时编译为本地代码, 提高运行速度 ( 这就是 HotSpot VM 名字的来由! )**
+- _而且完全有可能在运行期动态编译比 C/C++ 的编译期静态编译出来的结果要更加优秀_
+    - 因为 **运行期的编译器可以收集很多静态编译器无法得知的信息, 也可以采用一些激进的优化手段**, _针对 "大多数情况" 而忽略 "极端情况" 进行假设优化_
+    - 当优化条件不成立的时候再逆优化退回到解释状态或者重新编译执行
+- _所以 Java 程序只要代码编写没有问题 ( 典型的是各种泄漏问题, 如内存泄漏、连接泄漏 )_
+    - 随着运行时间增长, 代码被编译得越来越彻底, 运行速度应当是越运行越快的
+- 不过, Java 的运行期编译的一大缺点就是
+    - **进行编译需要消耗机器的计算资源, 影响程序正常的运行时间, 这也就是上面所说的 "编译时间"**
 - 略, 详见原书
 
 #### 选择收集器降低延迟
