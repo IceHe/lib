@@ -31,6 +31,61 @@ References
 
 ![jvm-language-independency.png](_images/understand-jvm/jvm-language-independency.png)
 
+### Class 类文件的结构
+
+- Java 技术能够一直保持着非常良好的向后兼容性, Class 文件结构的稳定功不可没
+    - _任何一门程序语言能够获得商业上的成功, 都不可能去做升级版本后, 旧版本编译的产品就不再能够运行这种事情_
+- _本章所讲述的_ 关于 Class 文件结构的内容, 绝大部分都是在第一版的《Java虚拟机规范》( 1997 年发布, 对应于 JDK 1.2 时代的 JVM ) 中就已经定义好的
+    - _内容虽然古老，但时至今日，Java 发展经历了十余个大版本、无数小更新, 那时定义的_ Class 文件格式的各项细节几乎没有出现任何改变
+    - _尽管不同版本的《Java虚拟机规范》对 Class 文件格式进行了几次更新, 但基本上_ 只是在原有结构基础上新增内容、扩充功能, 并未对已定义的内容做出修改
+- **Class 文件是一组以 8 Bytes 为基础单位的二进制流**
+    - 各个数据项目严格按照顺序紧凑地排列在文件之中, 中间没有添加任何分隔符
+        - _这使得整个 Class 文件中存储的内容几乎全部是程序运行的必要数据, 没有空隙存在_
+    - **当遇到需要占用 8 Bytes 以上空间的数据项时, 则会按照高位在前的方式, 分割成若干个 8 Bytes 进行存储**
+- _根据《Java虚拟机规范》的规定,_ **Class 文件格式采用一种类似于 C 语言结构体的伪结构来存储数据, 这种伪结构中只有两种数据类型 : "无符号数" 和 "表"**
+    - **无符号数** : **基本的数据类型**
+        - 以 **u1 、u2 、u4、u8** 来分别代表 1 Byte、2 Bytes、4 Bytes 和 8 Bytes 的无符号数
+        - 可以用来 **描述数字、索引引用、数量值或者按照 UTF-8 编码构成字符串值**
+    - **表** : 由多个无符号数或者其他表作为数据项构成的 **复合数据类型**
+        - 为了便于区分, **所有表的命名都习惯性地以 "info" 结尾**
+        - 用于 **描述有层次关系的复合结构的数据**, 整个 Class 文件本质上也可以视作是一张表
+        - 这张 "表" 由下表所示的数据项按严格顺序排列构成
+
+|类型|名称|数量|
+|-|-|-|
+|u4|magic|1|
+|u2|minor_version|1|
+|u2|major_version|1|
+|u2|constant_pool_count|1|
+|cp_info|constant_pool|constant_pool_count - 1|
+|u2|access_flags|1|
+|u2|this_class|1|
+|u2|super_class|1|
+|u2|interfaces_count|1|
+|u2|interfaces|interfaces_count|
+|u2|fields_count|1|
+|field_info|fields|fields_count|
+|u2|methods_count|1|
+|method_info|methods|methods_count|
+|u2|attributes_count|1
+|attribute_info|attributes|attributes_count|
+
+无论是无符号数还是表，当需要描述同一类型但数量不定的多个数据时，经常会使用一个前置的
+容量计数器加若干个连续的数据项的形式，这时候称这一系列连续的某一类型的数据为某一类型的“集
+AAA
+
+本节结束之前，笔者需要再强调一次，Class的结构不像XMEL等描述语言，由于它没有任何分隔符
+号，所以在表6-1中的数据项，无论是顺序还是数量，甚至于数据存储的字节序 (Byte Ordering，Class
+文件中字节序为Bi加Endian) 这样的细节，都是被严格限定的，哪个字节代表什么含义，长度是多少，
+先后顺序如何，全部都不多许改变。接下来，我们将一起看看这个表中各个数据项的具体含义。
+
+[1] 其实也有反例，璧如package-info.class、module-info.class这些文件就属于完全描述性的。
+
+D] 这种顺序称为"Bi略Endian”，有具体顺序是指按高位字节在地址最低位，最低字节在地址最高位来存
+储数据，它是SPARC、PowerPC等处理器的默认多字节存储顺序，而x86等处理器则是使用了相反
+
+的“Little-Endian”顺序来存储数据。
+
 ## 虚拟机类加载机制
 
 ## 虚拟机字节码执行引擎
