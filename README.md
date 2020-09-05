@@ -94,7 +94,8 @@ Storage - Usage
 - [Elasticsearch](/snips/storage/elasticsearch.md)
 - [MySQL](/snips/mysql/README.md)
 - [Redis](/snips/redis/README.md)
-    - The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
+    - The data model is key-value, but many different kind of values are supported :
+        - Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
 - [_Mongo_](/snips/tmp/mongo.md) ( draft )
 
 Storage - Basic
@@ -138,6 +139,8 @@ _Others_
 - [Efficiency](/mac/efficiency.md) : 效率指南
 - [Shortcuts](/mac/shortcuts/README.md) : 快捷键
 - [Initialize](/mac/initialize.md) : 系统初始化
+- [JVM Options Optimaization](/mac/jetbrains/README.md)
+    - _e.g. JetBrains IDE - IntelliJ IDEA_
 
 ### Java
 
@@ -168,7 +171,8 @@ Command Tools
     - [jstack](/java/cmd/jstack.md) : **stack trace** ( print Java stack traces of Java threads for a specified Java process )
 - Better New
     - **[jcmd](/java/cmd/jcmd.md)** : send diagnostic **command** requests to a running JVM
-    - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger** ( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )
+    - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger**
+        - ( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )
         - _Available after JDK 9_
 
 ### Git

@@ -9,15 +9,22 @@
 
 我是
 
-- IceHe ( 冰何 ) : 广州人在北京
-- [GitHub](https://github.com/IceHe) : Tools & Configs
+- IceHe : GZer @ BJ 5yrs+ _( 花名 : 冰何 )_
 - 技术博客 : [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
-- 生活微博 : [@\_IceHe\_](http://weibo.com/icedes)
+- 生活琐碎 : [weibo.com](http://weibo.com/icedes) @\_IceHe\_
 
 联络
 
-- [icehe.me@qq.com](mailto:icehe.me@qq.com)
+- GitHub : [IceHe](https://github.com/IceHe)
+- 邮箱 : [icehe.me@qq.com](mailto:icehe.me@qq.com)
 - 微信 : IceHooo
+
+<details>
+<summary>WeChat QRCode <i>( click to show )</i></summary>
+
+![](https://img.icehe.xyz/about_original/qrcode_01.jpg)
+
+</details>
 
 经历
 
@@ -75,14 +82,14 @@ Web
 
 ## 经历
 
-**阿里巴巴本地生活 - 众包物流 - 运营 & 数据 - Java 服务端研发** _2019.03 ~ Now_
+**阿里巴巴本地生活 - 众包物流运营&数据 → 蜂鸟跑腿 - Java 服务端研发**
 
-- 骑手 CRM / 群组 / 培训 / 秒送 & 优选 / …
+- 骑手 CRM / 骑手群组 / 骑手培训 / 秒送 & 优选骑手 / 蜂鸟跑腿 / …
 - _Java 8 , Spring Boot , MySQL , Redis, MaxCompute (ODPS)_
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.05 ~ 2019.02_
 
-- 媒体库 / 探测报警 / 视频墙 / 文档库 / partial request
+- 媒体库 / 探测报警 / 视频墙 / 文档库 / Partial request
 - _Java 8 , Spring Boot , MySQL , Redis , Memcached , Docker , CentOS 7_
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端研发** _2015.07 ~ 2018.03_
@@ -101,7 +108,7 @@ Web
         - CI 优化 : 定制项目专用的执行 CI 的 Docker 镜像，调整 runner 的配置项，精简 stage & job，尽量并行运行 job，缩短 CI 周期
         - 异常处理 : 自动重试因 Runner 'System Failed' 异常而失败的 CI Job ( Event, Webhook )
 - 2016.04 ~ 2016.08 开发与维护「[微博头条](https://itunes.apple.com/cn/app/wei-bo-tou-tiao/id713957166)」的服务端 API 及其 CMS 后台
-- _PHP 7 , GitLab , Docker , Yaf , Lavarel , CentOS_
+- _PHP 7 , GitLab , Docker , Yaf , CentOS_
 
 ---
 
