@@ -9,7 +9,7 @@
 
 我是
 
-- IceHe : GZer @ BJ 5yrs+ _( 花名 : 冰何 )_
+- IceHe : 广州人在北京 _( 花名 : 冰何 )_
 - 技术博客 : [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
 - 生活琐碎 : [weibo.com](http://weibo.com/icedes) @\_IceHe\_
 
