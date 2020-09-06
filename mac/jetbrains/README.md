@@ -8,10 +8,13 @@ IDEs
 - PyCharm
 - ……
 
-- How to Edit
-    - `Menu Bar` → `Help` → `Edit Custom VM Options…`
-- File Path
-    - IntelliJ IDEA : `/Users/[USERNAME]/Library/Application Support/JetBrains/IntelliJIdea2020.1/idea.vmoptions`
+How to Edit
+
+- `Menu Bar` → `Help` → `Edit Custom VM Options…`
+
+File Path
+
+- IntelliJ IDEA : `/Users/[USERNAME]/Library/Application Support/JetBrains/IntelliJIdea2020.1/idea.vmoptions`
 
 ## References
 
@@ -62,8 +65,10 @@ IDEs
 - `-XX:CICompilerCount=threads` Sets the **number of compiler threads to use for compilation**.
     - By default, the number of threads is set to 2 for the server JVM, to 1 for the client JVM, and it scales to the number of cores if **tiered compilation** _( 分层编译 )_ is used.
     - _The following example shows how to set the number of threads to 2 : `-XX:CICompilerCount=2`_
-- `-XX:ErrorFile=filename`
-Specifies the path and file name to which error data is written when an irrecoverable error occurs. By default, this file is created in the current working directory and named hs_err_pidpid.log where pid is the identifier of the process that caused the error.
+- `-XX:ErrorFile=filename` Specifies the **path and file name to which error data is written when an irrecoverable error occurs**.
+    - By default, this file is created in the current working directory and named `hs_err_pidpid.log` where pid is the identifier of the process that caused the error.
+- `-XX:ReservedCodeCacheSize=size`
+Sets the maximum code cache size (in bytes) for JIT-compiled code. Append the letter k or K to indicate kilobytes, m or M to indicate megabytes, and g or G to indicate gigabytes. The default maximum code cache size is 240 MB, unless you disable tiered compilation with the option -XX:-TieredCompilation, then the default size is 48 MB. This option has a limit of 2 GB; otherwise, an error is generated. The maximum code cache size shouldn’t be less than the initial code cache size. See the option -XX:InitialCodeCacheSize.
 
 ## Versions
 
