@@ -86,6 +86,48 @@ File Path
 - `-Dfile.encoding=UTF-8`
     - References :
         - OpenJ9 :  https://www.eclipse.org/openj9/docs/dfileencoding/
+- `-Djava.net.preferIPv4Stack=true` To **enforce IPv4 preference over IPv6**.
+    - _IPv4 is required by Oracle Identity Analytics for network communication._
+    - _Refer to the operating system documentation for instructions to enable IPv4 stack._
+    - References :
+        - Oracle : https://docs.oracle.com/cd/E27119_01/doc.11113/e23126/installationandupgradeguideprintable36.html
+        - IBM : https://www.ibm.com/support/pages/ipv6-can-cause-poor-java-performance
+- `-Djdk.attach.allowAttachSelf`
+    - _( icehe : 对这个参数搞得还不是很清楚, 不折腾了 )_
+    - References :
+        - Stack Overflow : https://stackoverflow.com/questions/47522449/jmockit-error-on-initialization-java-lang-illegalstateexception-running-on-jdk/47522648#47522648
+        - ROOKOUT Documentation : https://docs.rookout.com/docs/jvm-setup/
+        - Oracle : https://www.oracle.com/java/technologies/javase/9-notes.html
+- `-Djdk.http.auth.tunneling.disabledSchemes=""` To re-enable **basic authentication for Proxy**.
+    - Cause : **In Java 8u111, Basic authentication for HTTPS tunneling was disabled by default**.
+    - References :
+        - Basic authentication fails for outgoing proxy in Java 8u111 - Atlassian Documentation : https://confluence.atlassian.com/kb/basic-authentication-fails-for-outgoing-proxy-in-java-8u111-909643110.html
+- `-Dkotlinx.coroutines.debug=off`
+    - _( icehe : 对这个参数搞得还不是很清楚, 应该就是 "关闭对 Kotlin 语言 coroutines 的 debug 功能" )_
+    - References :
+        - Kotlin : https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-debug/
+- `-Dsun.io.useCanonPrefixCache=false` **Disable Java's canonicalization cache**.
+    - _This can be done by setting the system properties `sun.io.useCanonCaches` and `sun.io.useCanonPrefixCache` to false._
+    - _By default, canonical file names are cached for 30 seconds ( read from source [here](http://www.docjar.com/html/api/java/io/ExpiringCache.java.html) ) ._
+    - References :
+        - Stack Overflow : https://stackoverflow.com/questions/7479198/canonical-file-path-in-java-optimization-problem
+        - Coder Work : https://www.coder.work/article/860466
+- `-ea` **Enables assertions**.
+    - Synopsis : `-enableassertions[:[packagename]...|:classname] or -ea[:[packagename]...|:classname]`
+        - By default, assertions are disabled in all packages and classes.
+        - With no arguments, `-enableassertions` (-ea) enables assertions in all packages and classes.
+        - _With the packagename argument ending in ..., the switch enables assertions in the specified package and any subpackages._
+        - _If the argument is simply ..., then the switch enables assertions in the unnamed package in the current working directory._
+        - _With the classname argument, the switch enables assertions in the specified class._
+    - _The `-enableassertions` (-ea) option applies to all class loaders and to system classes (which don't have a class loader)._
+        - _There's one exception to this rule :_
+            - _If the option is provided with no arguments, then it doesn't apply to system classes._
+        - _This makes it easy to enable assertions in all classes except for system classes._
+        - _The `-enablesystemassertions` option provides a separate switch to enable assertions in all system classes._
+        - _To explicitly disable assertions in specific packages or classes, use the `-disableassertions` (-da) option._
+        - _If a single command contains multiple instances of these switches, then they're processed in order, before loading any classes._
+    - _For example, to run the MyClass application with assertions enabled only in the package com.wombat.fruitbat (and any subpackages) but disabled in the class com.wombat.fruitbat.Brickbat, use the following command:_
+        - `java -ea:com.wombat.fruitbat... -da:com.wombat.fruitbat.Brickbat MyClass`
 
 ## Versions
 
