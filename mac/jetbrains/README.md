@@ -67,8 +67,25 @@ File Path
     - _The following example shows how to set the number of threads to 2 : `-XX:CICompilerCount=2`_
 - `-XX:ErrorFile=filename` Specifies the **path and file name to which error data is written when an irrecoverable error occurs**.
     - By default, this file is created in the current working directory and named `hs_err_pidpid.log` where pid is the identifier of the process that caused the error.
-- `-XX:ReservedCodeCacheSize=size`
-Sets the maximum code cache size (in bytes) for JIT-compiled code. Append the letter k or K to indicate kilobytes, m or M to indicate megabytes, and g or G to indicate gigabytes. The default maximum code cache size is 240 MB, unless you disable tiered compilation with the option -XX:-TieredCompilation, then the default size is 48 MB. This option has a limit of 2 GB; otherwise, an error is generated. The maximum code cache size shouldn’t be less than the initial code cache size. See the option -XX:InitialCodeCacheSize.
+- `-XX:ReservedCodeCacheSize=size` Sets the **maximum code cache size (in bytes) for JIT-compiled code**.
+    - _The default maximum code cache size is 240 MB, unless you disable tiered compilation with the option `-XX:-TieredCompilation`, then the default size is 48 MB._
+    - This option has a **limit of 2 GB**; otherwise, an error is generated.
+    - The maximum code cache size shouldn't be less than the initial code cache size.
+    - _See the option `-XX:InitialCodeCacheSize`._
+- `-XX:SoftRefLRUPolicyMSPerMB=time` Sets the **amount of time (in milliseconds) a softly reachable object is kept active on the heap** after the last time it was referenced.
+    - The default value is one second of lifetime per free megabyte in the heap.
+    - The `-XX:SoftRefLRUPolicyMSPerMB` option accepts integer values representing milliseconds per one megabyte of the current heap size (for Java HotSpot Client VM) or the maximum possible heap size (for Java HotSpot Server VM).
+    - This difference means that the Client VM tends to flush soft references rather than grow the heap, whereas the Server VM tends to grow the heap rather than flush soft references.
+    - In the latter case, the value of the `-Xmx` option has a significant effect on how quickly soft references are garbage collected.
+- `-Xverify:none` Disables the verifier.
+    - Note: This is not a supported configuration and, as noted, was **deprecated from Java 13**.
+    - _If you encounter problems with the verifier turned off, remove this option and try to reproduce the problem._
+    - References :
+        - Java 8 : https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html
+        - OpenJ9 : https://www.eclipse.org/openj9/docs/xverify/
+- `-Dfile.encoding=UTF-8`
+    - References :
+        - OpenJ9 :  https://www.eclipse.org/openj9/docs/dfileencoding/
 
 ## Versions
 
