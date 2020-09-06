@@ -30,6 +30,40 @@ IDEs
     - _It is equivalent to `-XX:MaxHeapSize`._
     - _The default value is chosen at runtime based on system configuration._
     - **For server deployments, `-Xms` and `-Xmx` are often set to the same value.**
+- `-XX:+UseConcMarkSweepGC` Enables the use of the **CMS garbage collector for the old generation**.
+    - CMS is an alternative to the default garbage collector (G1), which also focuses on meeting application latency requirements.
+    - _By default, this option is disabled and the collector is selected automatically based on the configuration of the machine and type of the JVM._
+    - _The CMS garbage collector is **deprecated**._
+- `-XX:+UseParNewGC` Enables the use of **parallel threads for collection in the young generation**.
+    - _By default, this option is disabled._
+    - It's **automatically enabled when you set the `-XX:+UseConcMarkSweepGC` option**.
+    - _Using the `-XX:+UseParNewGC` option without the `-XX:+UseConcMarkSweepGC` option was **deprecated** in JDK 8._
+    - _All uses of the `-XX:+UseParNewGC` option are **deprecated**._
+    - Using the option without `-XX:+UseConcMarkSweepGC` isn't possible.
+- `-XX:+UseCompressedOops` Enable the use of **compressed pointers**.
+    - _By default, this option is enabled, and compressed pointers are used when Java heap sizes are less than 32 GB._
+    - When this option is enabled, **object references are represented as 32-bit offsets instead of 64-bit pointers, which typically increases performance when running the application with Java heap sizes of less than 32 GB**.
+    - This option works **only for 64-bit JVMs**.
+- `-XX:+HeapDumpOnOutOfMemoryError` Enables **dumping the Java heap** to a file in the current directory by **using the heap profiler (HPROF) when a `java.lang.OutOfMemoryError` exception is thrown**.
+    - _You can explicitly set the heap dump file path and name using the `-XX:HeapDumpPath` option._
+    - _By default, this option is disabled and the heap isn't dumped when an OutOfMemoryError exception is thrown._
+- `-XX:HeapDumpPath=path` **Sets the path and file name for writing the heap dump** provided by the heap profiler (HPROF) when the `-XX:+HeapDumpOnOutOfMemoryError` option is set.
+    - By default, the file is created in the current working directory, and it's named `java_pid<pid>.hprof` where \<pid\> is the identifier of the process that caused the error.
+    - _The following example shows how to set the default file explicitly ( **%p represents the current process identifier** ) :_
+        - `-XX:HeapDumpPath=./java_pid%p.hprof`
+- `-XX:-OmitStackTraceInFastThrow`
+    - The compiler in the server VM now provides correct stack backtraces for all "cold" built-in exceptions.
+    - For performance purposes, when such an exception is thrown a few times, the method may be recompiled.
+    - After recompilation, the compiler may choose a faster tactic using preallocated exceptions that do not provide a stack trace.
+    - To **disable completely the use of preallocated exceptions**, use this new flag: `-XX:-OmitStackTraceInFastThrow`.
+    - References :
+        - https://stackoverflow.com/questions/2411487/nullpointerexception-in-java-with-no-stacktrace
+        - https://www.oracle.com/java/technologies/javase/release-notes-Introduction.html#vm
+- `-XX:CICompilerCount=threads` Sets the **number of compiler threads to use for compilation**.
+    - By default, the number of threads is set to 2 for the server JVM, to 1 for the client JVM, and it scales to the number of cores if **tiered compilation** _( 分层编译 )_ is used.
+    - _The following example shows how to set the number of threads to 2 : `-XX:CICompilerCount=2`_
+- `-XX:ErrorFile=filename`
+Specifies the path and file name to which error data is written when an irrecoverable error occurs. By default, this file is created in the current working directory and named hs_err_pidpid.log where pid is the identifier of the process that caused the error.
 
 ## Versions
 
