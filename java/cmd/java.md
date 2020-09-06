@@ -177,43 +177,43 @@ These are the most commonly used options **supported by all implementations of t
 
 _`--disable-@files`_
 
-- Can be used anywhere on the command line, including in an argument file, to **prevent further `@filename` expansion**.
-    - This option stops expanding `@-argfiles` after the option.
+- _Can be used anywhere on the command line, including in an argument file, to **prevent further `@filename` expansion**._
+    - _This option stops expanding `@-argfiles` after the option._
 
 _`--enable-preview`_
 
-- Allows classes to depend on preview features of the release.
+- _Allows classes to depend on preview features of the release._
 
 _`--module-path modulepath...` or `-p modulepath`_
 
-- A semicolon (`;`) separated list of directories in which each directory is a directory of modules.
+- _A semicolon (`;`) separated list of directories in which each directory is a directory of modules._
 
 _`--upgrade-module-path modulepath...`_
 
-- A semicolon (`;`) separated list of directories in which each directory is a directory of modules that replace upgradeable modules in the runtime image.
+- _A semicolon (`;`) separated list of directories in which each directory is a directory of modules that replace upgradeable modules in the runtime image._
 
 _`--add-modules module[,module...]`_
 
-- Specifies the **root modules to resolve in addition to the initial module**.
-    - `module` also can be `ALL-DEFAULT`, `ALL-SYSTEM`, and `ALL-MODULE-PATH`.
+- _Specifies the **root modules to resolve in addition to the initial module**._
+    - _`module` also can be `ALL-DEFAULT`, `ALL-SYSTEM`, and `ALL-MODULE-PATH`._
 
 _`--list-modules`_
 
-- Lists the observable modules and then exits.
+- _Lists the observable modules and then exits._
 
 _`-d module name` or `--describe-module module_name`_
 
-- Describes a specified module and then exits.
+- _Describes a specified module and then exits._
 
 **`--dry-run`**
 
-- **Creates the VM but doesn’t execute the main method.**
-    - This `--dry-run` option might be useful for validating the command-line options such as the module system configuration.
+- _**Creates the VM but doesn’t execute the main method.**_
+    - _This `--dry-run` option might be useful for validating the command-line options such as the module system configuration._
 
 _`--validate-modules`_
 
-- Validates all modules and exits.
-    - This option is helpful for finding conflicts and other errors with modules on the module path.
+- _Validates all modules and exits._
+    - _This option is helpful for finding conflicts and other errors with modules on the module path._
 
 **`-Dproperty=value`**
 
@@ -242,49 +242,49 @@ _`-disableassertions[:[packagename]...|:classname]` or `-da[:[packagename]...|:c
 
 _`-disablesystemassertions` or `-dsa`_
 
-- Disables assertions in all system classes.
+- _Disables assertions in all system classes._
 
 _`-enableassertions[:[packagename]...|:classname]` or `-ea[:[packagename]...|:classname]`_
 
-- **Enables assertions.**
-    - It's the opposite of `-disableassertions`
+- _**Enables assertions.**_
+    - _It's the opposite of `-disableassertions`_
 
 _`-enablesystemassertions` or `-esa`_
 
-- Enables assertions in all system classes.
+- _Enables assertions in all system classes._
 
 _`-help`, `-h`, or `-?`_
 
-- Prints the help message to the error stream.
+- _Prints the help message to the error stream._
 
 _`--help`_
 
-- Prints the help message to the output stream.
+- _Prints the help message to the output stream._
 
 _`-javaagent:jarpath[=options]`_
 
-- Loads the specified Java programming language agent.
+- _Loads the specified Java programming language agent._
 
 _`--show-version`_
 
-- Prints the product version to the output stream and continues.
+- _Prints the product version to the output stream and continues._
 
 _`-showversion`_
 
-- Prints the product version to the error stream and continues.
+- _Prints the product version to the error stream and continues._
 
 _`--show-module-resolution`_
 
-- Shows module resolution output during startup.
+- _Shows module resolution output during startup._
 
 _`-splash:imagepath`_
 
-- Shows the splash screen with the image specified by imagepath.
-    - HiDPI scaled images are automatically supported and used if available.
-    - The unscaled image file name, such as `image.ext`, should always be passed as the argument to the `-splash` option.
-    - The most appropriate scaled image provided is picked up automatically.
-- For example, to show the `splash.gif` file from the images directory when starting your application, use the following option:
-    - `-splash:images/splash.gif`
+- _Shows the splash screen with the image specified by imagepath._
+    - _HiDPI scaled images are automatically supported and used if available._
+    - _The unscaled image file name, such as `image.ext`, should always be passed as the argument to the `-splash` option._
+    - _The most appropriate scaled image provided is picked up automatically._
+- _For example, to show the `splash.gif` file from the images directory when starting your application, use the following option:_
+    - _`-splash:images/splash.gif`_
 - _See the SplashScreen API documentation for more information._
 
 **`-verbose:class`**
@@ -334,20 +334,20 @@ These are general purpose options that are **specific to the Java HotSpot Virtua
 
 _`-Xbatch`_
 
-- **Disables background compilation.**
-    - By default, the JVM compiles the method as a background task, running the method in interpreter mode until the background compilation is finished.
-    - The `-Xbatch` flag disables background compilation so that compilation of all methods proceeds as a foreground task until completed.
-    - This option is equivalent to `-XX:-BackgroundCompilation`.
+- _**Disables background compilation.**_
+    - _By default, the JVM compiles the method as a background task, running the method in interpreter mode until the background compilation is finished._
+    - _The `-Xbatch` flag disables background compilation so that compilation of all methods proceeds as a foreground task until completed._
+    - _This option is equivalent to `-XX:-BackgroundCompilation`._
 
 _`-Xbootclasspath/a:directories|zip|JAR-files`_
 
-- **Specifies a list of directories, JAR files, and ZIP archives to append to the end of the default bootstrap class path**.
+- _**Specifies a list of directories, JAR files, and ZIP archives to append to the end of the default bootstrap class path**._
 - _Oracle Solaris, Linux, and macOS : Colons (`:`) separate entities in this list._
 - _Windows : Semicolons (`;`) separate entities in this list._
 
 _`-Xcheck:jni`_
 
-- Performs additional checks for Java Native Interface (JNI) functions.
+- _Performs additional checks for Java Native Interface (JNI) functions._
     - _Specifically, it validates the parameters passed to the JNI function and the runtime environment data before processing the JNI request._
     - _It also checks for pending exceptions between JNI calls._
     - _Any invalid data encountered indicates a problem in the native code, and the JVM terminates with an irrecoverable error in such cases._
@@ -382,7 +382,7 @@ _`-Xcheck:jni`_
 
 _`-Xinternalversion`_
 
-- Displays more detailed JVM version information than the `-version option`, and then exits.
+- _Displays more detailed JVM version information than the `-version option`, and then exits._
 
 **`-Xloggc:option`**
 
@@ -457,28 +457,28 @@ _`-Xinternalversion`_
 _`-Xshare:mode`_
 
 - **Sets the class data sharing (CDS) mode.**
-- Possible mode arguments for this option include the following:
-    - `auto` Uses CDS if possible.
-        - This is the default value for Java HotSpot 32-Bit Client VM.
-    - `on` Requires the use of CDS.
-        - This option prints an error message and exits if class data sharing can’t be used.
-    - `off` Instructs not to use CDS.
-- Note : **`-Xshare:on` is used for testing purposes only and can cause intermittent failures due to the use of address space layout randomization by the operation system.**
-    - This option should **not be used in production environments.**
+- _Possible mode arguments for this option include the following:_
+    - _`auto` Uses CDS if possible._
+        - _This is the default value for Java HotSpot 32-Bit Client VM._
+    - _`on` Requires the use of CDS._
+        - _This option prints an error message and exits if class data sharing can’t be used._
+    - _`off` Instructs not to use CDS._
+- _Note : **`-Xshare:on` is used for testing purposes only and can cause intermittent failures due to the use of address space layout randomization by the operation system.**_
+    - _This option should **not be used in production environments.**_
 
 _`-XshowSettings`_
 
-- Shows all settings and then continues.
+- _Shows all settings and then continues._
 
 _`-XshowSettings:category`_
 
-- **Shows settings and continues**.
-- Possible category arguments for this option include the following:
-    - `all` Shows all categories of settings. This is the default value.
-    - `locale` Shows settings related to locale.
-    - `properties` Shows settings related to system properties.
-    - `vm` Shows the settings of the JVM.
-    - `system` Linux : Shows host system or container configuration and continues.
+- _**Shows settings and continues.**_
+- _Possible category arguments for this option include the following:_
+    - _`all` Shows all categories of settings. This is the default value._
+    - _`locale` Shows settings related to locale._
+    - _`properties` Shows settings related to system properties._
+    - _`vm` Shows the settings of the JVM._
+    - _`system` Linux : Shows host system or container configuration and continues._
 
 **`-Xss size`**
 
@@ -492,39 +492,55 @@ _`-XshowSettings:category`_
 
 _`--add-reads module=target-module(,target-module)*`_
 
-- Updates module to read the target-module, regardless of the module declaration.
+- _Updates module to read the target-module, regardless of the module declaration._
     - _`target-module` can be all unnamed to read all unnamed modules._
 
 _`--add-exports module/package=target-module(,target-module)*`_
 
-- Updates module to export package to target-module, regardless of module declaration.
+- _Updates module to export package to target-module, regardless of module declaration._
     - _The target-module can be all unnamed to export to all unnamed modules._
 
 _`--add-opens module/package=target-module(,target-module)*`_
 
-- Updates module to open package to target-module, regardless of module declaration.
+- _Updates module to open package to target-module, regardless of module declaration._
 
 ~~`--illegal-access=parameter`~~
 
-- Note : This option will be removed in a future release.
+- _Note : This option will be removed in a future release._
 - _omitted…_
 
 _`--limit-modules module[,module...]`_
 
-- Specifies the limit of the universe of observable modules.
+- _Specifies the limit of the universe of observable modules._
 
 _`--patch-module module=file(;file)*`_
 
-- Overrides or augments a module with classes and resources in JAR files or directories.
+- _Overrides or augments a module with classes and resources in JAR files or directories._
 
 _`--disable-@files`_
 
-- Can be used anywhere on the command line, including in an argument file, to prevent further `@filename` expansion.
-    - This option stops expanding `@-argfiles` after the option.
+- _Can be used anywhere on the command line, including in an argument file, to prevent further `@filename` expansion._
+    - _This option stops expanding `@-argfiles` after the option._
 
 `--source version`
 
 - Sets the version of the source in source-file mode.
+
+> Extra Options for macOS
+
+_The following extra options are macOS-specific._
+
+_`-XstartOnFirstThread`_
+
+- _Runs the `main()` method on the first (AppKit) thread._
+
+_`-Xdock:name=application_name`_
+
+- _Overrides the default application name displayed in dock._
+
+_`-Xdock:icon=path_to_icon_file`_
+
+- _Overrides the default icon displayed in dock._
 
 ### Advanced Options
 
