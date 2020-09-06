@@ -210,3 +210,9 @@ File Path
 -Dsun.io.useCanonPrefixCache=false
 -ea
 ```
+
+### Current
+
+- Same as above on 2020-09-06
+
+[File : .idea.vmoptions](.idea.vmoptions ':include :type=code java')
