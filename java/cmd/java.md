@@ -544,4 +544,43 @@ _`-Xdock:icon=path_to_icon_file`_
 
 ### Advanced Options
 
+They control the runtime behavior of the Java HotSpot VM.
+
+-XX:ActiveProcessorCount=x
+Overrides the number of CPUs that the VM will use to calculate the size of thread pools it will use for various operations such as Garbage Collection and ForkJoinPool.
+
+The VM normally determines the number of available processors from the operating system. This flag can be useful for partitioning CPU resources when running multiple Java processes in docker containers. This flag is honored even if UseContainerSupport is not enabled. See -XX:-UseContainerSupport for a description of enabling and disabling container support.
+
+-XteHeX:AllocaapAt=path
+Takes a path to the file system and uses memory mapping to allocate the object heap on the memory device. Using this option enables the HotSpot VM to allocate the Java object heap on an alternative memory device, such as an NV-DIMM, specified by the user.
+
+Alternative memory devices that have the same semantics as DRAM, including the semantics of atomic operations, can be used instead of DRAM for the object heap without changing the existing application code. All other memory structures (such as the code heap, metaspace, and thread stacks) continue to reside in DRAM.
+
+Some operating systems expose non-DRAM memory through the file system. Memory-mapped files in these file systems bypass the page cache and provide a direct mapping of virtual memory to the physical memory on the device. The existing heap related flags (such as -Xmx and -Xms) and garbage-collection related flags continue to work as before.
+
+-XX:-CompactStrings
+Disables the Compact Strings feature. By default, this option is enabled. When this option is enabled, Java Strings containing only single-byte characters are internally represented and stored as single-byte-per-character Strings using ISO-8859-1 / Latin-1 encoding. This reduces, by 50%, the amount of space required for Strings containing only single-byte characters. For Java Strings containing at least one multibyte character: these are represented and stored as 2 bytes per character using UTF-16 encoding. Disabling the Compact Strings feature forces the use of UTF-16 encoding as the internal representation for all Java Strings.
+
+Cases where it may be beneficial to disable Compact Strings include the following:
+
+When it’s known that an application overwhelmingly will be allocating multibyte character Strings
+
+In the unexpected event where a performance regression is observed in migrating from Java SE 8 to Java SE 9 or later and an analysis shows that Compact Strings introduces the regression
+
+In both of these scenarios, disabling Compact Strings makes sense.
+
+-XX:CompilerDirectivesFile=file
+Adds directives from a file to the directives stack when a program starts. See Compiler Directives and the Command Line.
+
+-XX:CompilerDirectivesPrint
+Prints the directives stack when the program starts or when a new directive is added..
+
+-XX:ConcGCThreads=n
+Sets the number of parallel marking threads. Sets n to approximately 1/4 of the number of parallel garbage collection threads (ParallelGCThreads).
+
+-XX:+DisableAttachMechanism
+Disables the mechanism that lets tools attach to the JVM. By default, this option is disabled, meaning that the attach mechanism is enabled and you can use diagnostics and troubleshooting tools such as jcmd, jstack, jmap, and jinfo.
+
+Note:The tools such as jcmd, jinfo, jmap, and jstack shipped with the JDK aren’t supported when using the tools from one JDK version to troubleshoot a different JDK version.
+
 ## Usage
