@@ -552,9 +552,9 @@ _`-Xdock:icon=path_to_icon_file`_
 
 ### Advanced Options
 
-They **control the runtime behavior of the Java HotSpot VM.**
-
 #### Runtime
+
+They **control the runtime behavior of the Java HotSpot VM.**
 
 `-XX:ActiveProcessorCount=x`
 
@@ -970,6 +970,119 @@ _`-XX:+UseTransparentHugePages`_
     - For example, `java -XX:VMOptionsFile=/var/my_vm_options HelloWorld`.
 
 #### JIT Compiler
+
+These java options **control the dynamic just-in-time (JIT) compilation performed by the Java HotSpot VM.**
+
+`-XX:AllocateInstancePrefetchLines=lines`
+
+- Sets the **number of lines to prefetch ahead of the instance allocation pointer.**
+    - By default, the number of lines to prefetch is set to **1**.
+
+`-XX:AllocatePrefetchDistance=size`
+
+- Sets the **size (in bytes) of the prefetch distance for object allocation.**
+    - Memory about to be written with the value of new objects is prefetched up to this distance starting from the address of the last allocated object.
+    - Each Java thread has its own allocation point.
+- Negative values denote that prefetch distance is chosen based on the platform.
+    - Positive values are bytes to prefetch.
+    - The default value is set to **-1**.
+
+`-XX:AllocatePrefetchInstr=instruction`
+
+- Sets the **prefetch instruction to prefetch ahead of the allocation pointer.**
+    - Possible values are from 0 to 3.
+    - The actual instructions behind the values depend on the platform.
+    - By default, the prefetch instruction is set to **0**.
+
+`-XX:AllocatePrefetchLines=lines`
+
+- Sets the **number of cache lines to load after the last object allocation by using the prefetch instructions generated in compiled code.**
+    - The default value is **1** if the last allocated object was an instance, and 3 if it was an array.
+
+`-XX:AllocatePrefetchStepSize=size`
+
+- Sets the **step size (in bytes) for sequential prefetch instructions.**
+    - By default, the step size is set to **16 bytes**.
+
+`-XX:AllocatePrefetchStyle=style`
+
+- Sets the generated code style for prefetch instructions.
+- The style argument is an integer from 0 to 3:
+    - `0` Don’t generate prefetch instructions.
+    - `1` Execute prefetch instructions after each allocation.
+        - This is the default parameter.
+    - `2` Use the thread-local allocation block (TLAB) watermark pointer to determine when prefetch instructions are executed.
+    - `3` Use BIS instruction on SPARC for allocation prefetch.
+
+**`-XX:+BackgroundCompilation`**
+
+- Enables **background compilation.**
+    - This option is enabled by default.
+    - To disable background compilation, specify `-XX:-BackgroundCompilation` ( this is equivalent to specifying `-Xbatch` ) .
+
+**`-XX:CICompilerCount=threads`**
+
+- Sets the **number of compiler threads to use for compilation.**
+    - By default, the number of threads is set
+        - to **2 for the server JVM**,
+        - to **1 for the client JVM**, and
+        - it scales to the number of cores if tiered compilation is used.
+
+-XX:CompileCommand=command,method[,option]
+Specifies a command to perform on a method. For example, to exclude the indexOf() method of the String class from being compiled, use the following:
+
+Copy-XX:CompileCommand=exclude,java/lang/String.indexOf
+Note that the full class name is specified, including all packages and subpackages separated by a slash (/). For easier cut-and-paste operations, it’s also possible to use the method name format produced by the -XX:+PrintCompilation and -XX:+LogCompilation options:
+
+Copy-XX:CompileCommand=exclude,java.lang.String::indexOf
+If the method is specified without the signature, then the command is applied to all methods with the specified name. However, you can also specify the signature of the method in the class file format. In this case, you should enclose the arguments in quotation marks, otherwise the shell treats the semicolon as a command end. For example, if you want to exclude only the indexOf(String) method of the String class from being compiled, use the following:
+
+Copy-XX:CompileCommand="exclude,java/lang/String.indexOf,(Ljava/lang/String;)I"
+You can also use the asterisk (*) as a wildcard for class and method names. For example, to exclude all indexOf() methods in all classes from being compiled, use the following:
+
+Copy-XX:CompileCommand=exclude,*.indexOf
+The commas and periods are aliases for spaces, making it easier to pass compiler commands through a shell. You can pass arguments to -XX:CompileCommand using spaces as separators by enclosing the argument in quotation marks:
+
+Copy-XX:CompileCommand="exclude java/lang/String indexOf"
+Note that after parsing the commands passed on the command line using the -XX:CompileCommand options, the JIT compiler then reads commands from the .hotspot_compiler file. You can add commands to this file or specify a different file by using the -XX:CompileCommandFile option.
+
+To add several commands, either specify the -XX:CompileCommand option multiple times, or separate each argument with the new line separator (\n). The following commands are available:
+
+break
+Sets a breakpoint when debugging the JVM to stop at the beginning of compilation of the specified method.
+
+compileonly
+Excludes all methods from compilation except for the specified method. As an alternative, you can use the -XX:CompileOnly option, which lets you specify several methods.
+
+dontinline
+Prevents inlining of the specified method.
+
+exclude
+Excludes the specified method from compilation.
+
+help
+Prints a help message for the -XX:CompileCommand option.
+
+inline
+Attempts to inline the specified method.
+
+log
+Excludes compilation logging (with the -XX:+LogCompilation option) for all methods except for the specified method. By default, logging is performed for all compiled methods.
+
+option
+Passes a JIT compilation option to the specified method in place of the last argument (option). The compilation option is set at the end, after the method name. For example, to enable the BlockLayoutByFrequency option for the append() method of the StringBuffer class, use the following:
+
+Copy-XX:CompileCommand=option,java/lang/StringBuffer.append,BlockLayoutByFrequency
+You can specify multiple compilation options, separated by commas or spaces.
+
+print
+Prints generated assembler code after compilation of the specified method.
+
+quiet
+Instructs not to print the compile commands. By default, the commands that you specify with the -XX:CompileCommand option are printed. For example, if you exclude from compilation the indexOf() method of the String class, then the following is printed to standard output:
+
+CopyCompilerOracle: exclude java/lang/String.indexOf
+You can suppress this by specifying the -XX:CompileCommand=quiet option before other -XX:CompileCommand options.
 
 #### Serviceability
 
