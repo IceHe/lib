@@ -15,7 +15,15 @@ On Windows OS
 
 ## Quickstart
 
-- TODO
+```bash
+# TODO
+
+# Run class
+
+# Run jar
+
+# Common Options
+```
 
 ## Desription
 

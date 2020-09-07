@@ -17,6 +17,7 @@ Spock
     - **Data Driven Testing** : http://spockframework.org/spock/docs/1.1/data_driven_testing.html
     - Interaction Based Testing : http://spockframework.org/spock/docs/1.1/interaction_based_testing.html
     - Extensions : http://spockframework.org/spock/docs/1.1/extensions.html
+- IntelliJ IDEA : https://www.jetbrains.com/help/idea/getting-started-with-groovy.html
 
 Groovy
 
