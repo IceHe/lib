@@ -579,18 +579,24 @@ _`-XteHeX:AllocaapAt=path`_
 - References
     - Compact Strings in Java 9 : https://www.baeldung.com/java-9-compact-string
 
--XX:CompilerDirectivesFile=file
-Adds directives from a file to the directives stack when a program starts. See Compiler Directives and the Command Line.
+_`-XX:CompilerDirectivesFile=file`_
 
--XX:CompilerDirectivesPrint
-Prints the directives stack when the program starts or when a new directive is added..
+- _Adds directives ( 指令 ) from a file to the directives stack when a program starts._
+    - _See "Compiler Directives and the Command Line"._
 
--XX:ConcGCThreads=n
-Sets the number of parallel marking threads. Sets n to approximately 1/4 of the number of parallel garbage collection threads (ParallelGCThreads).
+_`-XX:CompilerDirectivesPrint`_
 
--XX:+DisableAttachMechanism
-Disables the mechanism that lets tools attach to the JVM. By default, this option is disabled, meaning that the attach mechanism is enabled and you can use diagnostics and troubleshooting tools such as jcmd, jstack, jmap, and jinfo.
+- _Prints the directives stack when the program starts or when a new directive is added._
 
-Note:The tools such as jcmd, jinfo, jmap, and jstack shipped with the JDK aren’t supported when using the tools from one JDK version to troubleshoot a different JDK version.
+**`-XX:ConcGCThreads=n`**
+
+- **Sets the number of parallel marking threads.**
+    - Sets n to approximately 1/4 of the number of parallel garbage collection threads (ParallelGCThreads).
+
+**`-XX:+DisableAttachMechanism`**
+
+- **Disables the mechanism that lets tools attach to the JVM.**
+    - By default, this option is disabled, meaning that the attach mechanism is enabled and you can use diagnostics and troubleshooting tools such as `jcmd`, `jstack`, `jmap`, and `jinfo`.
+- Note : The tools such as `jcmd`, `jinfo`, `jmap`, and `jstack` shipped with the JDK aren’t supported when using the tools from one JDK version to troubleshoot a different JDK version.
 
 ## Usage
