@@ -872,73 +872,102 @@ hello/Main
             - Use this configuration for short periods of time when more information is needed.
         - You can specify values for multiple parameters by separating them with a comma.
 
--XX:ThreadStackSize=size
-Sets the Java thread stack size (in kilobytes). Use of a scaling suffix, such as k, results in the scaling of the kilobytes value so that -XX:ThreadStackSize=1k sets the Java thread stack size to 1024*1024 bytes or 1 megabyte. The default value depends on the platform:
+**`-XX:ThreadStackSize=size`**
 
-Linux: 1024 KB
+- Sets the Java **thread stack size (in kilobytes).**
+    - Use of a scaling suffix, such as k, results in the scaling of the kilobytes value so that `-XX:ThreadStackSize=1k` sets the Java thread stack size to 1024*1024 bytes or 1 megabyte.
+    - The default value depends on the platform:
+        - Linux: 1024 KB
+        - macOS: 1024 KB
+        - Oracle Solaris: 1024 KB
+        - Windows: The default value depends on the virtual memory.
 
-macOS: 1024 KB
+**`-XX:-UseBiasedLocking`**
 
-Oracle Solaris: 1024 KB
+- Disables the **use of biased locking.**
+    - Some applications with significant amounts of uncontended synchronization may attain significant speedups with this flag enabled, but applications with certain patterns of locking may see slowdowns.
+    - By default, this option is enabled.
 
-Windows: The default value depends on the virtual memory.
+**`-XX:-UseCompressedOops`**
 
-The following examples show how to set the thread stack size to 1 megabyte in different units:
+- Disables the **use of compressed pointers.**
+    - By default, this option is enabled, and compressed pointers are used when Java heap sizes are less than 32 GB.
+    - When this option is enabled, object references are represented as 32-bit offsets instead of 64-bit pointers, which typically increases performance when running the application with Java heap sizes of less than 32 GB.
+    - This option works only for 64-bit JVMs.
+- It’s also possible to use compressed pointers when Java heap sizes are greater than 32 GB.
+    - See the `-XX:ObjectAlignmentInBytes` option.
 
-Copy-XX:ThreadStackSize=1k
--XX:ThreadStackSize=1024
-This option is similar to -Xss.
+**`-XX:-UseContainerSupport`**
 
--XX:-UseBiasedLocking
-Disables the use of biased locking. Some applications with significant amounts of uncontended synchronization may attain significant speedups with this flag enabled, but applications with certain patterns of locking may see slowdowns.
+- The VM now provides **automatic container detection support**,
+    - which **allows the VM to determine the amount of memory and number of processors that are available to a Java process running in docker containers.**
+    - It uses this information to allocate system resources.
+    - This support is only available on Linux x64 platforms.
+    - If supported, the default for this flag is true, and container support is enabled by default.
+    - It can be disabled with `-XX:-UseContainerSupport`.
+- Unified Logging is available to help diagnose issues related to this support.
+    - Use `-Xlog:os+container=trace` for maximum logging of container information.
+    - _See "Enable Logging with the JVM Unified Logging Framework for a description of using Unified Logging"._
 
-By default, this option is enabled.
+**`XX:+UseGCLogRotation`**
 
--XX:-UseCompressedOops
-Disables the use of compressed pointers. By default, this option is enabled, and compressed pointers are used when Java heap sizes are less than 32 GB. When this option is enabled, object references are represented as 32-bit offsets instead of 64-bit pointers, which typically increases performance when running the application with Java heap sizes of less than 32 GB. This option works only for 64-bit JVMs.
+- **Handles large log files.**
+    - This option must be used with `-Xloggc:filename`.
 
-It’s also possible to use compressed pointers when Java heap sizes are greater than 32 GB. See the -XX:ObjectAlignmentInBytes option.
+`-XX:NumberOfGClogFiles=number_of_files`
 
--XX:-UseContainerSupport
-The VM now provides automatic container detection support, which allows the VM to determine the amount of memory and number of processors that are available to a Java process running in docker containers. It uses this information to allocate system resources. This support is only available on Linux x64 platforms. If supported, the default for this flag is true, and container support is enabled by default. It can be disabled with -XX:-UseContainerSupport.
+- Handles large log files.
+    - The `number_of_files` must be greater than or equal to 1.
+    - The default is 1.
 
-Unified Logging is available to help diagnose issues related to this support.
+`-XX:GCLogFileSize=number`
 
-Use -Xlog:os+container=trace for maximum logging of container information. See Enable Logging with the JVM Unified Logging Framework for a description of using Unified Logging.
+- Handles large log files.
+    - The number can be in the form of `numberM` or `numberK`.
+    - The default is set to 512K.
 
-XX:+UseGCLogRotation
-Handles large log files. This option must be used with -Xloggc:filename.
+_`-XX:+UseHugeTLBFS`_
 
--XX:NumberOfGClogFiles=number_of_files
-Handles large log files. The number_of_files must be greater than or equal to 1. The default is 1.
+- _**Linux only** : This option is the **equivalent of specifying `-XX:+UseLargePages`.**_
+    - _This option is disabled by default._
+    - _This option pre-allocates all large pages up-front, when memory is reserved; consequently the JVM can’t dynamically grow or shrink large pages memory areas._
+    - _See `-XX:UseTransparentHugePages` if you want this behavior._
+    - _See "Large Pages"._
 
--XX:GCLogFileSize=number
-Handles large log files. The number can be in the form of numberM or numberK. The default is set to 512K.
+_`-XX:+UseLargePages`_
 
--XX:+UseHugeTLBFS
-Linux only: This option is the equivalent of specifying -XX:+UseLargePages. This option is disabled by default. This option pre-allocates all large pages up-front, when memory is reserved; consequently the JVM can’t dynamically grow or shrink large pages memory areas. See -XX:UseTransparentHugePages if you want this behavior.
+- _Enables the **use of large page memory**._
+    - _By default, this option is disabled and large page memory isn’t used._
+    - _See "Large Pages"._
 
-See Large Pages.
+_`-XX:+UseMembar`_
 
--XX:+UseLargePages
-Enables the use of large page memory. By default, this option is disabled and large page memory isn’t used.
+- _Enables **issuing of membars on thread-state transitions.**_
+    - _This option is disabled by default on all platforms except ARM servers, where it’s enabled._
+    - _(It’s recommended that you don’t disable this option on ARM servers.)_
 
-See Large Pages.
+`-XX:+UsePerfData`
 
--XX:+UseMembar
-Enables issuing of membars on thread-state transitions. This option is disabled by default on all platforms except ARM servers, where it’s enabled. (It’s recommended that you don’t disable this option on ARM servers.)
+- Enables the **perfdata feature.**
+    - This option is enabled by default to allow JVM monitoring and performance testing.
+    - Disabling it suppresses the creation of the `hsperfdata_userid` directories.
+    - To disable the perfdata feature, specify `-XX:-UsePerfData`.
 
--XX:+UsePerfData
-Enables the perfdata feature. This option is enabled by default to allow JVM monitoring and performance testing. Disabling it suppresses the creation of the hsperfdata_userid directories. To disable the perfdata feature, specify -XX:-UsePerfData.
+_`-XX:+UseTransparentHugePages`_
 
--XX:+UseTransparentHugePages
-Linux only: Enables the use of large pages that can dynamically grow or shrink. This option is disabled by default. You may encounter performance problems with transparent huge pages as the OS moves other pages around to create huge pages; this option is made available for experimentation.
+- _**Linux only** : Enables the use of large pages that can dynamically grow or shrink._
+    - _This option is disabled by default._
+    - _You may encounter performance problems with transparent huge pages as the OS moves other pages around to create huge pages; this option is made available for experimentation._
 
--XX:+AllowUserSignalHandlers
-Enables installation of signal handlers by the application. By default, this option is disabled and the application isn’t allowed to install signal handlers.
+`-XX:+AllowUserSignalHandlers`
 
--XX:VMOptionsFile=filename
-Allows user to specify VM options in a file, for example, java -XX:VMOptionsFile=/var/my_vm_options HelloWorld.
+- Enables **installation of signal handlers by the application.**
+    - By default, this option is disabled and the application isn’t allowed to install signal handlers.
+
+**`-XX:VMOptionsFile=filename`**
+
+- Allows user to **specify VM options in a file**.
+    - For example, `java -XX:VMOptionsFile=/var/my_vm_options HelloWorld`.
 
 #### JIT Compiler
 
