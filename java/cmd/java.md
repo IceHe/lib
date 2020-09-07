@@ -1379,41 +1379,48 @@ These java options **provide the ability to gather system information and perfor
 
 `-XX:HeapDumpPath=path`
 
-- Sets the path and file name for writing the heap dump provided by the heap profiler (HPROF) when the `-XX:+HeapDumpOnOutOfMemoryError` option is set.
-    - By default, the file is created in the current working directory, and it’s named `java_pid<pid>.hprof` where `<pid>` is the identifier of the process that caused the error. The following example shows how to set the default file explicitly (%p represents the current process identifier):
+- Sets the **path and file name for writing the heap dump provided by the heap profiler (HPROF) when the `-XX:+HeapDumpOnOutOfMemoryError` option is set.**
+    - By default, the file is created in the current working directory, and it’s named `java_pid<pid>.hprof` where `<pid>` is the identifier of the process that caused the error.
+    - The following example shows how to set the default file explicitly (`%p` represents the current process identifier):
         - `-XX:HeapDumpPath=./java_pid%p.hprof`
-        - Oracle Solaris, Linux, and macOS: The following example shows how to set the heap dump file to /var/log/java/java_heapdump.hprof:
+        - Oracle Solaris, Linux, and macOS : The following example shows how to set the heap dump file to `/var/log/java/java_heapdump.hprof` :
             - `-XX:HeapDumpPath=/var/log/java/java_heapdump.hprof`
 
 `-XX:LogFile=path`
-Sets the path and file name to where log data is written. By default, the file is created in the current working directory, and it’s named hotspot.log.
-- Oracle Solaris, Linux, and macOS: The following example shows how to set the log file to /var/log/java/hotspot.log:
-    - `-XX:LogFile=/var/log/java/hotspot.log`
+
+- Sets the **path and file name to where log data is written.**
+    - By default, the file is created in the current working directory, and it’s named hotspot.log.
+- _Oracle Solaris, Linux, and macOS: The following example shows how to set the log file to `/var/log/java/hotspot.log` :_
+    - _`-XX:LogFile=/var/log/java/hotspot.log`_
 
 `-XX:+PrintClassHistogram`
 
-- Enables printing a class instance histogram after one of the following events:
-    - Oracle Solaris, Linux, and macOS: Control+Break
-    - Windows: Control+C (SIGTERM)
+- Enables **printing a class instance histogram after one of the following events:**
+    - Oracle Solaris, Linux, and macOS : `Control+Break`
+    - Windows : `Control+C (SIGTERM)`
 - By default, this option is disabled.
-- Setting this option is equivalent to running the jmap -histo command, or the jcmd pid GC.lass_histogram command, where pid is the current Java process identifier.
+- Setting this option is equivalent to running the jmap `-histo` command, or the `jcmd pid GC.lass_histogram` command, where pid is the current Java process identifier.
 
 `-XX:+PrintConcurrentLocks`
 
-- Enables printing of java.util.concurrent locks after one of the following events:
-    - Oracle Solaris, Linux, and macOS: Control+Break
-    - Windows: Control+C (SIGTERM)
+- Enables **printing of `java.util.concurrent` locks after one of the following events:**
+    - Oracle Solaris, Linux, and macOS :`Control+Break`
+    - Windows :`Control+C (SIGTERM)`
 - By default, this option is disabled.
-- Setting this option is equivalent to running the jstack -l command or thejcmd pid Thread.print -l command, where pid is the current Java process identifier.
+- Setting this option is equivalent to running the `jstack -l command` or `thejcmd pid Thread.print -l` command, where pid is the current Java process identifier.
 
 `-XX:+PrintFlagsRanges`
 
-Prints the range specified and allows automatic testing of the values. See Validate Java Virtual Machine Flag Arguments.
+- _Prints the range specified and allows automatic testing of the values._
+    - _See "Validate Java Virtual Machine Flag Arguments"._
 
-`-XX:+UnlockDiagnosticVMOptions`
+**`-XX:+UnlockDiagnosticVMOptions`**
 
-Unlocks the options intended for diagnosing the JVM. By default, this option is disabled and diagnostic options aren’t available.
+- **Unlocks the options intended for diagnosing the JVM.**
+    - By default, this option is disabled and diagnostic options aren’t available.
 
 #### Garbage Collection
+
+These java options **control how garbage collection (GC) is performed by the Java HotSpot VM.**
 
 ## Usage
