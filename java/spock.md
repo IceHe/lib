@@ -17,7 +17,6 @@ Spock
     - **Data Driven Testing** : http://spockframework.org/spock/docs/1.1/data_driven_testing.html
     - Interaction Based Testing : http://spockframework.org/spock/docs/1.1/interaction_based_testing.html
     - Extensions : http://spockframework.org/spock/docs/1.1/extensions.html
-- IntelliJ IDEA : https://www.jetbrains.com/help/idea/getting-started-with-groovy.html
 
 Groovy
 
@@ -390,9 +389,8 @@ Maven
 - pom.xml ( for reference only )
 
 ```xml
-……
 <dependencies>
-    ……
+
     <dependency>
         <groupId>org.spockframework</groupId>
         <artifactId>spock-core</artifactId>
@@ -413,7 +411,31 @@ Maven
         <version>2.4.7</version>
         <scope>test</scope>
     </dependency>
-    ……
+
+    <!-- Enables mocking of classes (in addition to interfaces) -->
+    <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib-nodep</artifactId>
+        <version>3.2.10</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Enables mocking of classes without default constructor (together with CGLIB) -->
+    <dependency>
+        <groupId>org.objenesis</groupId>
+        <artifactId>objenesis</artifactId>
+        <version>3.0.1</version>
+        <scope>test</scope>
+    </dependency>
+
 </dependencies>
-……
 ```
+
+IntelliJ IDEA
+
+- https://www.jetbrains.com/help/idea/getting-started-with-groovy.html
+    - _( icehe : 要是 project 的 `Add Framework Support` 没有 Groovy 选项, 可以在各个 module 分别试试 )_
+
+![intellij-idea-project-right-click-menu.png](_images/intellij-idea-project-right-click-menu.png)
+
+![intellij-idea-proejct-add-frameworks-support.png](_images/intellij-idea-proejct-add-frameworks-support.png)
