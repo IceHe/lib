@@ -548,7 +548,7 @@ They **control the runtime behavior of the Java HotSpot VM.**
 
 `-XX:ActiveProcessorCount=x`
 
-- Overrides **the number of CPUs that the VM will use to calculate the size of thread pools** it will use for various operations such as **Garbage Collection** and **ForkJoinPool**.
+- Overrides the **number of CPUs that the VM will use to calculate the size of thread pools** it will use for various operations such as **Garbage Collection** and **ForkJoinPool**.
 - The VM normally determines the number of available processors from the operating system.
     - This flag can be useful for partitioning CPU resources when running multiple Java processes in docker containers.
     - This flag is honored even if UseContainerSupport is not enabled.
@@ -566,7 +566,7 @@ _`-XteHeX:AllocaapAt=path`_
 
 `-XX:-CompactStrings`
 
-- **Disables the Compact Strings feature.**
+- Disables the **Compact Strings feature.**
     - By default, this option is enabled.
         - **When this option is enabled, Java Strings containing only single-byte characters are internally represented and stored as single-byte-per-character Strings using ISO-8859-1 / Latin-1 encoding.**
         - This reduces, by 50%, the amount of space required for Strings containing only single-byte characters.
@@ -590,7 +590,7 @@ _`-XX:CompilerDirectivesPrint`_
 
 **`-XX:ConcGCThreads=n`**
 
-- **Sets the number of parallel marking threads.**
+- Sets the **number of parallel marking threads.**
     - Sets n to approximately 1/4 of the number of parallel garbage collection threads (ParallelGCThreads).
 
 **`-XX:+DisableAttachMechanism`**
@@ -598,5 +598,183 @@ _`-XX:CompilerDirectivesPrint`_
 - **Disables the mechanism that lets tools attach to the JVM.**
     - By default, this option is disabled, meaning that the attach mechanism is enabled and you can use diagnostics and troubleshooting tools such as `jcmd`, `jstack`, `jmap`, and `jinfo`.
 - Note : The tools such as `jcmd`, `jinfo`, `jmap`, and `jstack` shipped with the JDK aren’t supported when using the tools from one JDK version to troubleshoot a different JDK version.
+
+**`-XX:ErrorFile=filename`**
+
+- Specifies the **path and file name to which error data is written when an irrecoverable error occurs**.
+    - By default, this file is created in the current working directory and named `hs_err_pidpid.log` where pid is the identifier of the process that caused the error.
+- _The following example shows how to set the default log file (note that the identifier of the process is specified as `%p`) :_
+    - `-XX :ErrorFile=./hs_err_pid%p.log`
+- If the file can’t be created in the specified directory (due to insufficient space, a permission problem, or another issue),
+    - then the file is created in the temporary directory for the operating system :
+        - Oracle Solaris, Linux, and macOS : The temporary directory is `/tmp`.
+
+`-XX:+ExtensiveErrorReports`
+
+- Enables the **reporting of more extensive error information in the ErrorFile.**
+    - This option can be turned on in environments where maximal information is desired - even if the resulting logs may be quite large and/or contain information that might be considered sensitive.
+    - The information can vary from release to release, and across different platforms. By default this option is disabled.
+
+_`-XX:+FailOverToOldVerifier`_
+
+- _Enables automatic failover to the old verifier when the new type checker fails._
+    - _By default, this option is disabled and it’s ignored (that is, treated as disabled) for classes with a recent bytecode version._
+    - _You can enable it for classes with older versions of the bytecode._
+
+_`-XX:+FlightRecorder`_
+
+- _Enables the **use of Java Flight Recorder (JFR) during the runtime of the application.**_
+- _Note : The `-XX:+FlightRecorder` option is no longer required to use JFR._
+    - _This was a change made in JDK 8u40._
+
+`-XX:FlightRecorderOptions=parameter=value`
+
+- Sets the **parameters that control the behavior of JFR.**
+- The following list contains the available JFR `parameter=value` entries :
+    - `allow_threadbuffers_to_disk={true|false}`
+        - Specifies whether thread buffers are written directly to disk if the buffer thread is blocked.
+            - By default, this parameter is disabled.
+    - `globalbuffersize=size`
+        - Specifies the total amount of primary memory used for data retention.
+            - The default value is based on the value specified for memorysize.
+            - _Change the memorysize parameter to alter the size of global buffers._
+    - `maxchunksize=size`
+        - Specifies the maximum size (in bytes) of the data chunks in a recording.
+            - By default, the maximum size of data chunks is set to 12 MB.
+            - The minimum allowed is 1 MB.
+    - `memorysize=size`
+        - Determines how much buffer memory should be used, and sets the globalbuffersize and numglobalbuffers parameters based on the size specified.
+            - By default, the memory size is set to 10 MB.
+    - `numglobalbuffers`
+        - Specifies the number of global buffers used.
+            - The default value is based on the memory size specified.
+            - _Change the memorysize parameter to alter the number of global buffers._
+    - `old-object-queue-size=number-of-objects`
+        - Maximum number of old objects to track.
+            - By default, the number of objects is set to 256.
+    - `repository=path`
+        - Specifies the repository (a directory) for temporary disk storage.
+            - By default, the system's temporary directory is used.
+    - `retransform={true|false}`
+        - Specifies whether event classes should be retransformed using JVMTI.
+            - If false, instrumentation is added when event classes are loaded.
+            - By default, this parameter is enabled.
+    - `samplethreads={true|false}`
+        - Specifies whether thread sampling is enabled.
+            - Thread sampling occurs only if the sampling event is enabled along with this parameter.
+            - By default, this parameter is enabled.
+    - `stackdepth=depth`
+        - Stack depth for stack traces.
+            - By default, the depth is set to 64 method calls.
+            - The maximum is 2048.
+            - Values greater than 64 could create significant overhead and reduce performance.
+    - `threadbuffersize=size`
+        - Specifies the per-thread local buffer size (in bytes).
+            - By default, the local buffer size is set to 8 kilobytes.
+            - Overriding this parameter could reduce performance and is not recommended.
+- You can specify values for multiple parameters by separating them with a comma.
+
+**`-XX:InitiatingHeapOccupancyPercent=n`**
+
+- Sets the **Java heap occupancy threshold that triggers a marking cycle.**
+    - The **default occupancy** is **45%** of the entire Java heap.
+
+`-XX:LargePageSizeInBytes=size`
+
+- Oracle Solaris : Sets the **maximum size (in bytes) for large pages used for the Java heap.**
+    - The size argument **must be a power of 2 (2, 4, 8, 16, and so on).**
+    - By default, the size is set to 0, meaning that the JVM chooses the size for large pages automatically.
+    - _See "Large Pages"._
+
+**`-XX:MaxDirectMemorySize=size`**
+
+- Sets the **maximum total size (in bytes) of the `java.nio` package, direct-buffer allocations.**
+    - By default, the size is set to 0, meaning that the JVM chooses the size for NIO direct-buffer allocations automatically.
+
+**`-XX:-MaxFDLimit`**
+
+- Disables the attempt to set the **soft limit for the number of open file descriptors to the hard limit.**
+    - By default, this option is enabled on all platforms, but is ignored on Windows.
+    - The only time that you may need to disable this is on Mac OS, where its use imposes a maximum of 10240, which is lower than the actual system maximum.
+
+**`-XX:MaxGCPauseMillis=ms`**
+
+- Sets a **target value for the desired maximum pause time.**
+    - The **default** value is **200 milliseconds.**
+    - The specified value doesn’t adapt to your heap size.
+
+`-XX:NativeMemoryTracking=mode`
+
+- Specifies the **mode for tracking JVM native memory usage.**
+- Possible mode arguments for this option include the following:
+    - `off`
+        - Instructs not to track JVM native memory usage.
+        - This is the default behavior if you don’t specify the `-XX:NativeMemoryTracking` option.
+    - `summary`
+        - Tracks memory usage only by JVM subsystems, such as Java heap, class, code, and thread.
+    - `detail`
+        In addition to tracking memory usage by JVM subsystems, track memory usage by individual CallSite, individual virtual memory region and its committed regions.
+
+`-XX:ObjectAlignmentInBytes=alignment`
+
+- Sets the **memory alignment of Java objects (in bytes).**
+    - By default, the value is set to 8 bytes.
+    - The specified value should be a power of 2, and must be within the range of 8 and 256 (inclusive).
+    - This option makes it possible to use compressed pointers with large Java heap sizes.
+- The heap size limit in bytes is calculated as: `4GB * ObjectAlignmentInBytes`
+- Note : As the alignment value increases, the unused space between objects also increases.
+    - As a result, you may not realize any benefits from using compressed pointers with large Java heap sizes.
+
+**`-XX:OnError=string`**
+
+- Sets a **custom command or a series of semicolon-separated commands to run when an irrecoverable error occurs.**
+    - If the string contains spaces, then it must be enclosed in quotation marks.
+- Oracle Solaris, Linux, and macOS : The following example shows how the `-XX:OnError` option can be used to run the `gcore` command to create the core image, and the debugger is started to attach to the process in case of an irrecoverable error (the `%p` designates the current process):
+    - `-XX:OnError="gcore %p;dbx - %p"`
+
+`-XX:OnOutOfMemoryError=string`
+
+- Sets a **custom command or a series of semicolon-separated commands to run when an OutOfMemoryError exception is first thrown.**
+    - If the string contains spaces, then it must be enclosed in quotation marks.
+    - For an example of a command string, see the description of the `-XX:OnError` option.
+
+**`-XX:ParallelGCThreads=n`**
+
+- Sets the **value of the STW worker threads.**
+    - Sets the value of n to the number of logical processors.
+    - The value of n is the same as the number of logical processors up to a value of 8.
+    - If there are more than 8 logical processors, then this option sets the value of n to approximately 5/8 of the logical processors.
+    - This works in most cases except for larger SPARC systems where the value of n can be approximately 5/16 of the logical processors.
+
+`-XX:+PerfDataSaveToFile`
+
+- If enabled, saves `jstat` binary data when the Java application exits.
+    - This binary data is saved in a file named `hsperfdata_pid`, where pid is the process identifier of the Java application that you ran.
+    - Use thejstat command to display the performance data contained in this file as follows:
+
+```bash
+jstat -class file:///path/hsperfdata_pid
+jstat -gc file:///path/hsperfdata_pid
+```
+
+-XX:+PrintCommandLineFlags
+Enables printing of ergonomically selected JVM flags that appeared on the command line. It can be useful to know the ergonomic values set by the JVM, such as the heap space size and the selected garbage collector. By default, this option is disabled and flags aren’t printed.
+
+-XX:+PreserveFramePointer
+Selects between using the RBP register as a general purpose register (-XX:-PreserveFramePointer) and using the RBP register to hold the frame pointer of the currently executing method (-XX:+PreserveFramePointer). If the frame pointer is available, then external profiling tools (for example, Linux perf) can construct more accurate stack traces.
+
+-XX:+PrintNMTStatistics
+Enables printing of collected native memory tracking data at JVM exit when native memory tracking is enabled (see -XX:NativeMemoryTracking). By default, this option is disabled and native memory tracking data isn’t printed.
+
+-XX:+RelaxAccessControlCheck
+Decreases the amount of access control checks in the verifier. By default, this option is disabled, and it’s ignored (that is, treated as disabled) for classes with a recent bytecode version. You can enable it for classes with older versions of the bytecode.
+
+-XX:SharedArchiveFile=path
+Specifies the path and name of the class data sharing (CDS) archive file
+
+See Application Class Data Sharing.
+
+-XX:SharedArchiveConfigFile=shared_config_file
+Specifies additional shared data added to the archive file.
 
 ## Usage
