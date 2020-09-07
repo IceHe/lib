@@ -756,7 +756,7 @@ _`-XX:+FlightRecorder`_
 
 `-XX:+PerfDataSaveToFile`
 
-- If enabled, saves `jstat` binary data when the Java application exits.
+- If enabled, **saves `jstat` binary data when the Java application exits.**
     - This binary data is saved in a file named `hsperfdata_pid`, where pid is the process identifier of the Java application that you ran.
     - Use thejstat command to display the performance data contained in this file as follows:
 
@@ -765,24 +765,98 @@ jstat -class file:///path/hsperfdata_pid
 jstat -gc file:///path/hsperfdata_pid
 ```
 
--XX:+PrintCommandLineFlags
-Enables printing of ergonomically selected JVM flags that appeared on the command line. It can be useful to know the ergonomic values set by the JVM, such as the heap space size and the selected garbage collector. By default, this option is disabled and flags aren’t printed.
+`-XX:+PrintCommandLineFlags`
 
--XX:+PreserveFramePointer
-Selects between using the RBP register as a general purpose register (-XX:-PreserveFramePointer) and using the RBP register to hold the frame pointer of the currently executing method (-XX:+PreserveFramePointer). If the frame pointer is available, then external profiling tools (for example, Linux perf) can construct more accurate stack traces.
+- Enables **printing of ergonomically selected JVM flags that appeared on the command line.**
+    - It can be useful to know the ergonomic values set by the JVM, such as the heap space size and the selected garbage collector.
+    - By default, this option is disabled and flags aren’t printed.
 
--XX:+PrintNMTStatistics
-Enables printing of collected native memory tracking data at JVM exit when native memory tracking is enabled (see -XX:NativeMemoryTracking). By default, this option is disabled and native memory tracking data isn’t printed.
+_`-XX:+PreserveFramePointer`_
 
--XX:+RelaxAccessControlCheck
-Decreases the amount of access control checks in the verifier. By default, this option is disabled, and it’s ignored (that is, treated as disabled) for classes with a recent bytecode version. You can enable it for classes with older versions of the bytecode.
+- _Selects between **using the RBP register as a general purpose register ( `-XX:-PreserveFramePointer` ) and using the RBP register to hold the frame pointer of the currently executing method ( `-XX:+PreserveFramePointer` )**._
+    - _If the frame pointer is available, then external profiling tools ( for example, Linux `perf` ) can construct more accurate stack traces._
 
--XX:SharedArchiveFile=path
-Specifies the path and name of the class data sharing (CDS) archive file
+_`-XX:+PrintNMTStatistics`_
 
-See Application Class Data Sharing.
+- _Enables **printing of collected native memory tracking data** at JVM exit when native memory tracking is enabled ( see `-XX:NativeMemoryTracking` ) ._
+    - _By default, this option is disabled and native memory tracking data isn’t printed._
 
--XX:SharedArchiveConfigFile=shared_config_file
-Specifies additional shared data added to the archive file.
+`-XX:+RelaxAccessControlCheck`
+
+- Decreases the amount of access control checks in the verifier.
+    - By default, this option is disabled, and it’s ignored (that is, treated as disabled) for classes with a recent bytecode version.
+    - You can enable it for classes with older versions of the bytecode.
+
+_`-XX:SharedArchiveFile=path`_
+
+- _Specifies the path and name of the class data sharing (CDS) archive file_
+- _See "Application Class Data Sharing"._
+
+_`-XX:SharedArchiveConfigFile=shared_config_file`_
+
+- _Specifies additional shared data added to the archive file._
+
+_`-XX:SharedClassListFile=file_name`_
+
+- _Specifies the **text file that contains the names of the classes to store in the class data sharing (CDS) archive.**_
+    - _This file contains the full name of one class per line, except slashes (`/`) replace dots (`.`)._
+    - _For example, to specify the classes `java.lang.Object` and `hello.Main`, create a text file that contains the following two lines:_
+
+```bash
+java/lang/Object
+hello/Main
+```
+
+- _The classes that you specify in this text file should include the classes that are commonly used by the application._
+    - _They may include any classes from the application, extension, or bootstrap class paths._
+- See "Application Class Data Sharing".
+
+**`-XX:+ShowMessageBoxOnError`**
+
+- Enables the **display of a dialog box when the JVM experiences an irrecoverable error.**
+    - This **prevents the JVM from exiting and keeps the process active so that you can attach a debugger to it to investigate the cause of the error.**
+    - By default, this option is disabled.
+
+-XX:StartFlightRecording=parameter=value
+Starts a JFR recording for the Java application. This option is equivalent to the JFR.start diagnostic command that starts a recording during runtime. You can set the following parameter=value entries when starting a JFR recording:
+
+delay=time
+Specifies the delay between the Java application launch time and the start of the recording. Append s to specify the time in seconds, m for minutes, h for hours, and d for days. For example, specifying 10m means 10 minutes. By default, there’s no delay, and this parameter is set to 0.
+
+disk={true|false}
+Specifies whether to write data to disk while recording. By default, this parameter is enabled.
+
+dumponexit={true|false}
+Specifies if the running recording is dumped when the JVM shuts down. If enabled and a filename is not entered, the recording is written to a file in the directory where the process was started. The file name is a system-generated name that contains the process ID, recording ID, and current timestamp, similar to hotspot-pid-47496-id-1-2018_01_25_19_10_41.jfr. By default, this parameter is disabled.
+
+duration=time
+Specifies the duration of the recording. Append s to specify the time in seconds, m for minutes, h for hours, and d for days. For example, specifying 5h means 5 hours. By default, the duration isn’t limited, and this parameter is set to 0.
+
+filename=path
+Specifies the path and name of the file to which the recording is written when the recording is stopped, for example:
+
+recording.jfr
+/home/user/recordings/recording.jfr
+c:\recordings\recording.jfr
+name=identifier
+Takes both the name and the identifier of a recording.
+
+maxage=time
+Specifies the maximum age of disk data to keep for the recording. This parameter is valid only when the disk parameter is set to true. Append s to specify the time in seconds, m for minutes, h for hours, and d for days. For example, specifying 30s means 30 seconds. By default, the maximum age isn’t limited, and this parameter is set to 0s.
+
+maxsize=size
+Specifies the maximum size (in bytes) of disk data to keep for the recording. This parameter is valid only when the disk parameter is set to true. The value must not be less than the value for the maxchunksize parameter set with -XX:FlightRecorderOptions. Append m or M to specify the size in megabytes, and g or G to specify the size in gigabytes. By default, the maximum size of disk data isn’t limited, and this parameter is set to 0.
+
+path-to-gc-roots={true|false}
+Specifies whether to collect the path to garbage collection (GC) roots at the end of a recording. By default, this parameter is disabled.
+
+The path to GC roots is useful for finding memory leaks, but collecting it is time-consuming. Enable this option only when you start a recording for an application that you suspect has a memory leak. If the settings parameter is set to profile, the stack trace from where the potential leaking object was allocated is included in the information collected.
+
+settings=path
+Specifies the path and name of the event settings file (of type JFC). By default, the default.jfc file is used, which is located in JRE_HOME/lib/jfr. This default settings file collects a predefined set of information with low overhead, so it has minimal impact on performance and can be used with recordings that run continuously.
+
+A second settings file is also provided, profile.jfc, which provides more data than the default configuration, but can have more overhead and impact performance. Use this configuration for short periods of time when more information is needed.
+
+You can specify values for multiple parameters by separating them with a comma.
 
 ## Usage
