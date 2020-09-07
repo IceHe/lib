@@ -1423,4 +1423,116 @@ These java options **provide the ability to gather system information and perfor
 
 These java options **control how garbage collection (GC) is performed by the Java HotSpot VM.**
 
+**`-XX:+AggressiveHeap`**
+
+- Enables **Java heap optimization.**
+    - This sets various parameters to be **optimal for long-running jobs with intensive memory allocation, based on the configuration of the computer (RAM and CPU).**
+    - By default, the option is disabled and the heap isn’t optimized.
+
+_`-XX:+AlwaysPreTouch`_
+
+- _Enables **touching of every page on the Java heap during JVM initialization.**_
+    - _This gets all pages into memory before entering the `main()` method._
+    - _The option can be used in testing to simulate a long-running system with all virtual memory mapped to physical memory._
+    - _By default, this option is disabled and all pages are committed as JVM heap space fills._
+
+_`-XX:+CMSClassUnloadingEnabled`_
+
+- _Enables **class unloading when using the concurrent mark-sweep (CMS) garbage collector.**_
+    - _This option is enabled by default._
+    - _To disable class unloading for the CMS garbage collector, specify `-XX:-CMSClassUnloadingEnabled`._
+
+_`-XX:CMSExpAvgFactor=percent`_
+
+- _Sets the percentage of time (0 to 100) used to weight the current sample when computing exponential averages for the concurrent collection statistics._
+    - _By default, the exponential averages factor is set to **25%**._
+
+_`-XX:CMSIncrementalDutySafetyFactor=percent`_
+
+- _Sets the percentage (0 to 100) used to add conservatism when computing the **duty cycle** ( 占空比, 忙闲度 ) ._
+    - _The default value is **10**._
+
+_`-XX:+CMSScavengeBeforeRemark`_
+
+- _Enables scavenging attempts before the CMS remark step._
+    - _By default, this option is disabled._
+
+_`-XX:CMSTriggerRatio=percent`_
+
+- _Sets the percentage (0 to 100) of the value specified by the option `-XX:MinHeapFreeRatio` that’s allocated before a CMS collection cycle commences._
+    - _The default value is set to **80%**._
+
+**`-XX:ConcGCThreads=threads`**
+
+- Sets the **number of threads used for concurrent GC.*
+    - Sets threads to approximately **1/4 of the number of parallel garbage collection threads.**
+    - The **default value** depends on the **number of CPUs available to the JVM.**
+
+**`-XX:+DisableExplicitGC`**
+
+- Enables the option that **disables processing of calls to the `System.gc()` method.**
+    - This option is disabled by default, meaning that calls to `System.gc()` are processed.
+    - If processing calls to `System.gc()` is disabled, then the JVM still performs GC when necessary.
+
+**`-XX:+ExplicitGCInvokesConcurrent`**
+
+- Enables **invoking of concurrent GC by using the `System.gc()` request.**
+    - This option is disabled by default and can be enabled only with the deprecated `-XX:+UseConcMarkSweepGC` option and the `-XX:+UseG1GC` option.
+
+`-XX:+ExplicitGCInvokesConcurrentAndUnloadsClasses`
+
+- Enables **invoking concurrent GC by using the `System.gc()` request and unloading classes during the concurrent GC cycle.**
+    - This option is disabled by default and can be enabled only with the deprecated `-XX:+UseConcMarkSweepGC` option.
+
+**`-XX:G1HeapRegionSize=size`**
+
+- Sets the **size of the regions into which the Java heap is subdivided when using the garbage-first (G1) collector.**
+    - The value is **a power of 2 and can range from 1 MB to 32 MB**.
+    - The goal is to have around 2048 regions based on the minimum Java heap size.
+    - The **default region size is determined ergonomically based on the heap size**.
+
+`-XX:G1HeapWastePercent=percent`
+
+- Sets the **percentage of heap that you’re willing to waste.**
+    - The Java HotSpot VM doesn’t initiate the mixed garbage collection cycle when the reclaimable percentage is less than the heap waste percentage.
+    - The default is **5%**.
+
+**`-XX:G1MaxNewSizePercent=percent`**
+
+- Sets the **percentage of the heap size to use as the maximum for the young generation size.**
+    - The default value is 60 percent of your Java heap.
+- This is an experimental flag.
+    - This setting replaces the `-XX:DefaultMaxNewGenPercent` setting.
+- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+
+`-XX:G1MixedGCCountTarget=number`
+
+- Sets the **target number of mixed garbage collections after a marking cycle to collect old regions with at most `G1MixedGCLIveThresholdPercent` live data.**
+    - The default is 8 mixed garbage collections.
+    - The goal for mixed collections is to be within this target number.
+- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+
+`-XX:G1MixedGCLiveThresholdPercent=percent`
+
+- Sets the occupancy threshold for an old region to be included in a mixed garbage collection cycle. The default occupancy is 85 percent.
+- This is an experimental flag.
+    - This setting replaces the `-XX:G1OldCSetRegionLiveThresholdPercent` setting.
+- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+
+`-XX:G1NewSizePercent=percent`
+
+- Sets the percentage of the heap to use as the minimum for the young generation size.
+    - The default value is **5** percent of your Java heap.
+- This is an experimental flag.
+    - This setting replaces the -XX:DefaultMinNewGenPercent setting.
+- This setting isn’t available in Java HotSpot VM build 23 or earlier.
+
+-XX:G1OldCSetRegionThresholdPercent=percent
+Sets an upper limit on the number of old regions to be collected during a mixed garbage collection cycle. The default is 10 percent of the Java heap.
+
+This setting isn’t available in Java HotSpot VM build 23 or earlier.
+
+-XX:G1ReservePercent=percent
+Sets the percentage of the heap (0 to 50) that’s reserved as a false ceiling to reduce the possibility of promotion failure for the G1 collector. When you increase or decrease the percentage, ensure that you adjust the total Java heap by the same amount. By default, this option is set to 10%.
+
 ## Usage
