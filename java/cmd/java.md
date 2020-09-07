@@ -554,6 +554,8 @@ _`-Xdock:icon=path_to_icon_file`_
 
 They **control the runtime behavior of the Java HotSpot VM.**
 
+#### Runtime
+
 `-XX:ActiveProcessorCount=x`
 
 - Overrides the **number of CPUs that the VM will use to calculate the size of thread pools** it will use for various operations such as **Garbage Collection** and **ForkJoinPool**.
@@ -817,46 +819,131 @@ hello/Main
     - This **prevents the JVM from exiting and keeps the process active so that you can attach a debugger to it to investigate the cause of the error.**
     - By default, this option is disabled.
 
--XX:StartFlightRecording=parameter=value
-Starts a JFR recording for the Java application. This option is equivalent to the JFR.start diagnostic command that starts a recording during runtime. You can set the following parameter=value entries when starting a JFR recording:
+**`-XX:StartFlightRecording=parameter=value`**
 
-delay=time
-Specifies the delay between the Java application launch time and the start of the recording. Append s to specify the time in seconds, m for minutes, h for hours, and d for days. For example, specifying 10m means 10 minutes. By default, there’s no delay, and this parameter is set to 0.
+- **Starts a JFR recording for the Java application.**
+    - This option is equivalent to the `JFR.start` diagnostic command that starts a recording during runtime.
+- You can set the following `parameter=value` entries when starting a JFR recording:
+    - `delay=time`
+        - Specifies the delay between the Java application launch time and the start of the recording.
+        - Append `s` to specify the time in seconds, `m` for minutes, h for hours, and `d` for days.
+            - For example, specifying 10m means 10 minutes.
+        - By default, there’s no delay, and this parameter is set to 0.
+    - `disk={true|false}`
+        - Specifies whether to write data to disk while recording.
+        - By default, this parameter is enabled.
+    - `dumponexit={true|false}`
+        - Specifies if the running recording is dumped when the JVM shuts down.
+            - If enabled and a filename is not entered, the recording is written to a file in the directory where the process was started.
+            - The file name is a system-generated name that contains the process ID, recording ID, and current timestamp, similar to `hotspot-pid-47496-id-1-2018_01_25_19_10_41.jfr`.
+            - By default, this parameter is disabled.
+    - `duration=time`
+        - Specifies the duration of the recording.
+            - By default, the duration isn’t limited, and this parameter is set to 0.
+    - `filename=path`
+        - Specifies the path and name of the file to which the recording is written when the recording is stopped, for example:
+            - `recording.jfr`
+            - `/home/user/recordings/recording.jfr`
+            - `c:\recordings\recording.jfr`
+    - `name=identifier`
+        - Takes both the name and the identifier of a recording.
+    - `maxage=time`
+        - Specifies the maximum age of disk data to keep for the recording.
+            - This parameter is valid only when the disk parameter is set to true.
+            - Append s to specify the time in seconds, m for minutes, h for hours, and d for days.
+            - For example, specifying 30s means 30 seconds.
+            - By default, the maximum age isn’t limited, and this parameter is set to 0s.
+    - `maxsize=size`
+        - Specifies the maximum size (in bytes) of disk data to keep for the recording.
+            - This parameter is valid only when the disk parameter is set to true.
+            - The value must not be less than the value for the maxchunksize parameter set with `-XX:FlightRecorderOptions`.
+            - By default, the maximum size of disk data isn’t limited, and this parameter is set to 0.
+    - `path-to-gc-roots={true|false}`
+        - Specifies whether to collect the path to garbage collection (GC) roots at the end of a recording.
+            - By default, this parameter is disabled.
+        - The path to GC roots is useful for finding memory leaks, but collecting it is time-consuming.
+            - **Enable this option only when you start a recording for an application that you suspect has a memory leak.**
+            - If the settings parameter is set to profile, the stack trace from where the potential leaking object was allocated is included in the information collected.
+    - `settings=path`
+        - Specifies the path and name of the event settings file (of type JFC).
+            - By default, the `default.jfc` file is used, which is located in `JRE_HOME/lib/jfr`.
+            - This default settings file collects a predefined set of information with low overhead, so it has minimal impact on performance and can be used with recordings that run continuously.
+        - A second settings file is also provided, `profile.jfc`, which provides more data than the default configuration, but can have more overhead and impact performance.
+            - Use this configuration for short periods of time when more information is needed.
+        - You can specify values for multiple parameters by separating them with a comma.
 
-disk={true|false}
-Specifies whether to write data to disk while recording. By default, this parameter is enabled.
+-XX:ThreadStackSize=size
+Sets the Java thread stack size (in kilobytes). Use of a scaling suffix, such as k, results in the scaling of the kilobytes value so that -XX:ThreadStackSize=1k sets the Java thread stack size to 1024*1024 bytes or 1 megabyte. The default value depends on the platform:
 
-dumponexit={true|false}
-Specifies if the running recording is dumped when the JVM shuts down. If enabled and a filename is not entered, the recording is written to a file in the directory where the process was started. The file name is a system-generated name that contains the process ID, recording ID, and current timestamp, similar to hotspot-pid-47496-id-1-2018_01_25_19_10_41.jfr. By default, this parameter is disabled.
+Linux: 1024 KB
 
-duration=time
-Specifies the duration of the recording. Append s to specify the time in seconds, m for minutes, h for hours, and d for days. For example, specifying 5h means 5 hours. By default, the duration isn’t limited, and this parameter is set to 0.
+macOS: 1024 KB
 
-filename=path
-Specifies the path and name of the file to which the recording is written when the recording is stopped, for example:
+Oracle Solaris: 1024 KB
 
-recording.jfr
-/home/user/recordings/recording.jfr
-c:\recordings\recording.jfr
-name=identifier
-Takes both the name and the identifier of a recording.
+Windows: The default value depends on the virtual memory.
 
-maxage=time
-Specifies the maximum age of disk data to keep for the recording. This parameter is valid only when the disk parameter is set to true. Append s to specify the time in seconds, m for minutes, h for hours, and d for days. For example, specifying 30s means 30 seconds. By default, the maximum age isn’t limited, and this parameter is set to 0s.
+The following examples show how to set the thread stack size to 1 megabyte in different units:
 
-maxsize=size
-Specifies the maximum size (in bytes) of disk data to keep for the recording. This parameter is valid only when the disk parameter is set to true. The value must not be less than the value for the maxchunksize parameter set with -XX:FlightRecorderOptions. Append m or M to specify the size in megabytes, and g or G to specify the size in gigabytes. By default, the maximum size of disk data isn’t limited, and this parameter is set to 0.
+Copy-XX:ThreadStackSize=1k
+-XX:ThreadStackSize=1024
+This option is similar to -Xss.
 
-path-to-gc-roots={true|false}
-Specifies whether to collect the path to garbage collection (GC) roots at the end of a recording. By default, this parameter is disabled.
+-XX:-UseBiasedLocking
+Disables the use of biased locking. Some applications with significant amounts of uncontended synchronization may attain significant speedups with this flag enabled, but applications with certain patterns of locking may see slowdowns.
 
-The path to GC roots is useful for finding memory leaks, but collecting it is time-consuming. Enable this option only when you start a recording for an application that you suspect has a memory leak. If the settings parameter is set to profile, the stack trace from where the potential leaking object was allocated is included in the information collected.
+By default, this option is enabled.
 
-settings=path
-Specifies the path and name of the event settings file (of type JFC). By default, the default.jfc file is used, which is located in JRE_HOME/lib/jfr. This default settings file collects a predefined set of information with low overhead, so it has minimal impact on performance and can be used with recordings that run continuously.
+-XX:-UseCompressedOops
+Disables the use of compressed pointers. By default, this option is enabled, and compressed pointers are used when Java heap sizes are less than 32 GB. When this option is enabled, object references are represented as 32-bit offsets instead of 64-bit pointers, which typically increases performance when running the application with Java heap sizes of less than 32 GB. This option works only for 64-bit JVMs.
 
-A second settings file is also provided, profile.jfc, which provides more data than the default configuration, but can have more overhead and impact performance. Use this configuration for short periods of time when more information is needed.
+It’s also possible to use compressed pointers when Java heap sizes are greater than 32 GB. See the -XX:ObjectAlignmentInBytes option.
 
-You can specify values for multiple parameters by separating them with a comma.
+-XX:-UseContainerSupport
+The VM now provides automatic container detection support, which allows the VM to determine the amount of memory and number of processors that are available to a Java process running in docker containers. It uses this information to allocate system resources. This support is only available on Linux x64 platforms. If supported, the default for this flag is true, and container support is enabled by default. It can be disabled with -XX:-UseContainerSupport.
+
+Unified Logging is available to help diagnose issues related to this support.
+
+Use -Xlog:os+container=trace for maximum logging of container information. See Enable Logging with the JVM Unified Logging Framework for a description of using Unified Logging.
+
+XX:+UseGCLogRotation
+Handles large log files. This option must be used with -Xloggc:filename.
+
+-XX:NumberOfGClogFiles=number_of_files
+Handles large log files. The number_of_files must be greater than or equal to 1. The default is 1.
+
+-XX:GCLogFileSize=number
+Handles large log files. The number can be in the form of numberM or numberK. The default is set to 512K.
+
+-XX:+UseHugeTLBFS
+Linux only: This option is the equivalent of specifying -XX:+UseLargePages. This option is disabled by default. This option pre-allocates all large pages up-front, when memory is reserved; consequently the JVM can’t dynamically grow or shrink large pages memory areas. See -XX:UseTransparentHugePages if you want this behavior.
+
+See Large Pages.
+
+-XX:+UseLargePages
+Enables the use of large page memory. By default, this option is disabled and large page memory isn’t used.
+
+See Large Pages.
+
+-XX:+UseMembar
+Enables issuing of membars on thread-state transitions. This option is disabled by default on all platforms except ARM servers, where it’s enabled. (It’s recommended that you don’t disable this option on ARM servers.)
+
+-XX:+UsePerfData
+Enables the perfdata feature. This option is enabled by default to allow JVM monitoring and performance testing. Disabling it suppresses the creation of the hsperfdata_userid directories. To disable the perfdata feature, specify -XX:-UsePerfData.
+
+-XX:+UseTransparentHugePages
+Linux only: Enables the use of large pages that can dynamically grow or shrink. This option is disabled by default. You may encounter performance problems with transparent huge pages as the OS moves other pages around to create huge pages; this option is made available for experimentation.
+
+-XX:+AllowUserSignalHandlers
+Enables installation of signal handlers by the application. By default, this option is disabled and the application isn’t allowed to install signal handlers.
+
+-XX:VMOptionsFile=filename
+Allows user to specify VM options in a file, for example, java -XX:VMOptionsFile=/var/my_vm_options HelloWorld.
+
+#### JIT Compiler
+
+#### Serviceability
+
+#### Garbage Collection
 
 ## Usage
