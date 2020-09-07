@@ -914,17 +914,17 @@ hello/Main
 - **Handles large log files.**
     - This option must be used with `-Xloggc:filename`.
 
-`-XX:NumberOfGClogFiles=number_of_files`
+_`-XX:NumberOfGClogFiles=number_of_files`_
 
-- Handles large log files.
-    - The `number_of_files` must be greater than or equal to 1.
-    - The default is 1.
+- _Handles large log files._
+    - _The `number_of_files` must be greater than or equal to 1._
+    - _The default is 1._
 
-`-XX:GCLogFileSize=number`
+_`-XX:GCLogFileSize=number`_
 
-- Handles large log files.
-    - The number can be in the form of `numberM` or `numberK`.
-    - The default is set to 512K.
+- _Handles large log files._
+    - _The number can be in the form of `numberM` or `numberK`._
+    - _The default is set to 512K._
 
 _`-XX:+UseHugeTLBFS`_
 
@@ -951,7 +951,6 @@ _`-XX:+UseMembar`_
 - Enables the **perfdata feature.**
     - This option is enabled by default to allow JVM monitoring and performance testing.
     - Disabling it suppresses the creation of the `hsperfdata_userid` directories.
-    - To disable the perfdata feature, specify `-XX:-UsePerfData`.
 
 _`-XX:+UseTransparentHugePages`_
 
@@ -959,10 +958,10 @@ _`-XX:+UseTransparentHugePages`_
     - _This option is disabled by default._
     - _You may encounter performance problems with transparent huge pages as the OS moves other pages around to create huge pages; this option is made available for experimentation._
 
-`-XX:+AllowUserSignalHandlers`
+_`-XX:+AllowUserSignalHandlers`_
 
-- Enables **installation of signal handlers by the application.**
-    - By default, this option is disabled and the application isn’t allowed to install signal handlers.
+- _Enables **installation of signal handlers by the application.**_
+    - _By default, this option is disabled and the application isn’t allowed to install signal handlers._
 
 **`-XX:VMOptionsFile=filename`**
 
@@ -973,46 +972,46 @@ _`-XX:+UseTransparentHugePages`_
 
 These java options **control the dynamic just-in-time (JIT) compilation performed by the Java HotSpot VM.**
 
-`-XX:AllocateInstancePrefetchLines=lines`
+_`-XX:AllocateInstancePrefetchLines=lines`_
 
-- Sets the **number of lines to prefetch ahead of the instance allocation pointer.**
+- Sets the number of lines to prefetch ahead of the instance allocation pointer.
     - By default, the number of lines to prefetch is set to **1**.
 
-`-XX:AllocatePrefetchDistance=size`
+_`-XX:AllocatePrefetchDistance=size`_
 
-- Sets the **size (in bytes) of the prefetch distance for object allocation.**
-    - Memory about to be written with the value of new objects is prefetched up to this distance starting from the address of the last allocated object.
-    - Each Java thread has its own allocation point.
-- Negative values denote that prefetch distance is chosen based on the platform.
-    - Positive values are bytes to prefetch.
-    - The default value is set to **-1**.
+- _Sets the size (in bytes) of the prefetch distance for object allocation._
+    - _Memory about to be written with the value of new objects is prefetched up to this distance starting from the address of the last allocated object._
+    - _Each Java thread has its own allocation point._
+- _Negative values denote that prefetch distance is chosen based on the platform._
+    - _Positive values are bytes to prefetch._
+    - _The default value is set to **-1**._
 
-`-XX:AllocatePrefetchInstr=instruction`
+_`-XX:AllocatePrefetchInstr=instruction`_
 
-- Sets the **prefetch instruction to prefetch ahead of the allocation pointer.**
-    - Possible values are from 0 to 3.
-    - The actual instructions behind the values depend on the platform.
-    - By default, the prefetch instruction is set to **0**.
+- _Sets the prefetch instruction to prefetch ahead of the allocation pointer._
+    - _Possible values are from 0 to 3._
+    - _The actual instructions behind the values depend on the platform._
+    - _By default, the prefetch instruction is set to **0**._
 
-`-XX:AllocatePrefetchLines=lines`
+_`-XX:AllocatePrefetchLines=lines`_
 
-- Sets the **number of cache lines to load after the last object allocation by using the prefetch instructions generated in compiled code.**
-    - The default value is **1** if the last allocated object was an instance, and 3 if it was an array.
+- _Sets the number of cache lines to load after the last object allocation by using the prefetch instructions generated in compiled code._
+    - _The default value is **1** if the last allocated object was an instance, and 3 if it was an array._
 
-`-XX:AllocatePrefetchStepSize=size`
+_`-XX:AllocatePrefetchStepSize=size`_
 
-- Sets the **step size (in bytes) for sequential prefetch instructions.**
-    - By default, the step size is set to **16 bytes**.
+- _Sets the step size (in bytes) for sequential prefetch instructions._
+    - _By default, the step size is set to **16 bytes**._
 
-`-XX:AllocatePrefetchStyle=style`
+_`-XX:AllocatePrefetchStyle=style`_
 
-- Sets the generated code style for prefetch instructions.
-- The style argument is an integer from 0 to 3:
-    - `0` Don’t generate prefetch instructions.
-    - `1` Execute prefetch instructions after each allocation.
-        - This is the default parameter.
-    - `2` Use the thread-local allocation block (TLAB) watermark pointer to determine when prefetch instructions are executed.
-    - `3` Use BIS instruction on SPARC for allocation prefetch.
+- _Sets the generated code style for prefetch instructions._
+- _The style argument is an integer from 0 to 3:_
+    - _`0` Don’t generate prefetch instructions._
+    - _`1` Execute prefetch instructions after each allocation._
+        - _This is the default parameter._
+    - _`2` Use the thread-local allocation block (TLAB) watermark pointer to determine when prefetch instructions are executed._
+    - _`3` Use BIS instruction on SPARC for allocation prefetch._
 
 **`-XX:+BackgroundCompilation`**
 
@@ -1028,63 +1027,392 @@ These java options **control the dynamic just-in-time (JIT) compilation performe
         - to **1 for the client JVM**, and
         - it scales to the number of cores if tiered compilation is used.
 
--XX:CompileCommand=command,method[,option]
-Specifies a command to perform on a method. For example, to exclude the indexOf() method of the String class from being compiled, use the following:
+**`-XX:CompileCommand=command,method[,option]`*
 
-Copy-XX:CompileCommand=exclude,java/lang/String.indexOf
-Note that the full class name is specified, including all packages and subpackages separated by a slash (/). For easier cut-and-paste operations, it’s also possible to use the method name format produced by the -XX:+PrintCompilation and -XX:+LogCompilation options:
+- **Specifies a command to perform on a method.**
+    - For example, to exclude the `indexOf()` method of the String class from being compiled, use the following:
+        - `-XX:CompileCommand=exclude,java/lang/String.indexOf`
+    - _Note that the full class name is specified, including all packages and subpackages separated by a slash (`/`)._
+        - _For easier cut-and-paste operations, it’s also possible to use the method name format produced by the `-XX:+PrintCompilation` and `-XX:+LogCompilation options:_
+            - _`-XX:CompileCommand=exclude,java.lang.String.indexOf`_
+- If the method is specified without the signature, then the command is applied to all methods with the specified name.
+    - However, you can also specify the signature of the method in the class file format.
+    - In this case, you should enclose the arguments in quotation marks, otherwise the shell treats the semicolon as a command end.
+    - For example, if you want to exclude only the `indexOf(String)` method of the String class from being compiled, use the following:
+        - `-XX:CompileCommand="exclude,java/lang/String.indexOf,(Ljava/lang/String;)I"`
+    - You can also use the asterisk (`*`) as a wildcard for class and method names.
+    - For example, to exclude all indexOf() methods in all classes from being compiled, use the following:
+    - `-XX:CompileCommand=exclude,*.indexOf`
+- The commas and periods are aliases for spaces, making it easier to pass compiler commands through a shell.
+    - You can pass arguments to `-XX:CompileCommand` using spaces as separators by enclosing the argument in quotation marks:
+        - `-XX:CompileCommand="exclude java/lang/String indexOf"`
+- Note that after parsing the commands passed on the command line using the `-XX:CompileCommand` options, the JIT compiler then reads commands from the `.hotspot_compiler file`.
+    - You can add commands to this file or specify a different file by using the `-XX:CompileCommandFile` option.
+- To add several commands, either specify the `-XX:CompileCommand` option multiple times, or separate each argument with the new line separator (`\n`).
+- The following commands are available:
+    - `break`
+        - Sets a breakpoint when debugging the JVM to stop at the beginning of compilation of the specified method.
+    - `compileonly`
+        -Excludes all methods from compilation except for the specified method.
+            - As an alternative, you can use the `-XX:CompileOnly` option, which lets you specify several methods.
+    - `dontinline`
+        - Prevents inlining of the specified method.
+    - `exclude`
+        - Excludes the specified method from compilation.
+    - `help`
+        - Prints a help message for the -XX:CompileCommand option.
+    - `inline`
+        - Attempts to inline the specified method.
+    - `log`
+        - Excludes compilation logging (with the `-XX:+LogCompilation` option) for all methods except for the specified method.
+            - By default, logging is performed for all compiled methods.
+    - `option`
+        - Passes a JIT compilation option to the specified method in place of the last argument (option).
+            - The compilation option is set at the end, after the method name.
+            - For example, to enable the `BlockLayoutByFrequency` option for the `append()` method of the StringBuffer class, use the following:
+                - `-XX:CompileCommand=option,java/lang/StringBuffer.append,BlockLayoutByFrequency`
+        - You can specify multiple compilation options, separated by commas or spaces.
+    - `print`
+        - Prints generated assembler code after compilation of the specified method.
+    - `quiet`
+        - Instructs not to print the compile commands.
+            - By default, the commands that you specify with the `-XX:CompileCommand` option are printed.
+            - For example, if you exclude from compilation the `indexOf()` method of the String class, then the following is printed to standard output:
+                - `CompilerOracle: exclude java/lang/String.indexOf`
+        - You can suppress this by specifying the `-XX:CompileCommand=quiet` option before other `-XX:CompileCommand` options.
 
-Copy-XX:CompileCommand=exclude,java.lang.String::indexOf
-If the method is specified without the signature, then the command is applied to all methods with the specified name. However, you can also specify the signature of the method in the class file format. In this case, you should enclose the arguments in quotation marks, otherwise the shell treats the semicolon as a command end. For example, if you want to exclude only the indexOf(String) method of the String class from being compiled, use the following:
+`-XX:CompileCommandFile=filename`
 
-Copy-XX:CompileCommand="exclude,java/lang/String.indexOf,(Ljava/lang/String;)I"
-You can also use the asterisk (*) as a wildcard for class and method names. For example, to exclude all indexOf() methods in all classes from being compiled, use the following:
+- **Sets the file from which JIT compiler commands are read.**
+    - By default, the `.hotspot_compiler` file is used to store commands performed by the JIT compiler.
+    - Each line in the command file represents a command, a class name, and a method name for which the command is used.
+    - For example, this line prints assembly code for the `toString()` method of the String class:
+        - `print java/lang/String toString`
+- If you’re using commands for the JIT compiler to perform on methods, then see the `-XX:CompileCommand` option.
 
-Copy-XX:CompileCommand=exclude,*.indexOf
-The commas and periods are aliases for spaces, making it easier to pass compiler commands through a shell. You can pass arguments to -XX:CompileCommand using spaces as separators by enclosing the argument in quotation marks:
+`-XX:CompileOnly=methods`
 
-Copy-XX:CompileCommand="exclude java/lang/String indexOf"
-Note that after parsing the commands passed on the command line using the -XX:CompileCommand options, the JIT compiler then reads commands from the .hotspot_compiler file. You can add commands to this file or specify a different file by using the -XX:CompileCommandFile option.
+- **Sets the list of methods (separated by commas) to which compilation should be restricted.**
+    - Only the specified methods are compiled.
+    - Specify each method with the full class name (including the packages and subpackages).
+    - For example, to compile only the `length()` method of the String class and the `size()` method of the List class, use the following:
+        - `-XX:CompileOnly=java/lang/String.length,java/util/List.size`
+    - _Note that the full class name is specified, including all packages and subpackages separated by a slash (`/`)._
+        - _For easier cut and paste operations, it’s also possible to use the method name format produced by the `-XX:+PrintCompilation` and `-XX:+LogCompilation` options:_
+            - _`-XX:CompileOnly=java.lang.String::length,java.util.List::size`_
+- Although wildcards aren’t supported, you can specify only the class or package name to compile all methods in that class or package, as well as specify just the method to compile the methods with this name in any class:
 
-To add several commands, either specify the -XX:CompileCommand option multiple times, or separate each argument with the new line separator (\n). The following commands are available:
+```bash
+-XX:CompileOnly=java/lang/String
+-XX:CompileOnly=java/lang
+-XX:CompileOnly=.length
+```
 
-break
-Sets a breakpoint when debugging the JVM to stop at the beginning of compilation of the specified method.
+_`-XX:CompileThreshold=invocations`_
 
-compileonly
-Excludes all methods from compilation except for the specified method. As an alternative, you can use the -XX:CompileOnly option, which lets you specify several methods.
+- _Sets the **number of interpreted method invocations before compilation.**_
+    - _By default, in the server JVM, the **JIT compiler performs 10,000 interpreted method invocations to gather information for efficient compilation.**_
+    - _For the client JVM, the default setting is **1,500 invocations**._
+    - _This option is ignored when tiered compilation is enabled._
+    - _See the option `-XX:-TieredCompilation`._
+- _You can completely disable interpretation of Java methods before compilation by specifying the `-Xcomp` option._
 
-dontinline
-Prevents inlining of the specified method.
+_`-XX:CompileThresholdScaling=scale`_
 
-exclude
-Excludes the specified method from compilation.
+- _Provides **unified control of first compilation.**_
+    - _This option controls when methods are first compiled for both the tiered and the nontiered modes of operation._
+    - _The `CompileThresholdScaling` option has an integer value between `0` and `+Inf` and scales the thresholds corresponding to the current mode of operation (both tiered and nontiered)._
+    - _Setting `CompileThresholdScaling` to a value less than 1.0 results in earlier compilation while values greater than 1.0 delay compilation._
+    - _Setting `CompileThresholdScaling` to 0 is equivalent to disabling compilation._
 
-help
-Prints a help message for the -XX:CompileCommand option.
+**`-XX:+DoEscapeAnalysis`**
 
-inline
-Attempts to inline the specified method.
+- Enables the use of **escape analysis.**
+    - This option is enabled by default.
 
-log
-Excludes compilation logging (with the -XX:+LogCompilation option) for all methods except for the specified method. By default, logging is performed for all compiled methods.
+**`-XX:InitialCodeCacheSize=size`**
 
-option
-Passes a JIT compilation option to the specified method in place of the last argument (option). The compilation option is set at the end, after the method name. For example, to enable the BlockLayoutByFrequency option for the append() method of the StringBuffer class, use the following:
+- Sets the **initial code cache size (in bytes).**
+    - The default value is set to **500 KB**.
+    - The initial code cache size shouldn’t be less than the system's minimal memory page size.
 
-Copy-XX:CompileCommand=option,java/lang/StringBuffer.append,BlockLayoutByFrequency
-You can specify multiple compilation options, separated by commas or spaces.
+**`-XX:+Inline`**
 
-print
-Prints generated assembler code after compilation of the specified method.
+- Enables **method inlining.**
+    - This option is **enabled by default to increase performance.**
 
-quiet
-Instructs not to print the compile commands. By default, the commands that you specify with the -XX:CompileCommand option are printed. For example, if you exclude from compilation the indexOf() method of the String class, then the following is printed to standard output:
+_`-XX:InlineSmallCode=size`_
 
-CopyCompilerOracle: exclude java/lang/String.indexOf
-You can suppress this by specifying the -XX:CompileCommand=quiet option before other -XX:CompileCommand options.
+- _Sets the **maximum code size (in bytes) for compiled methods that should be inlined.**_
+    - _**Only compiled methods with the size smaller than the specified size is inlined.**_
+    - _By default, the maximum code size is set to **1000 bytes**._
+
+**`-XX:+LogCompilation`**
+
+- Enables **logging of compilation activity** to a file named `hotspot.log` in the current working directory.
+    - You can specify a different log file path and name using the `-XX:LogFile` option.
+- By default, this option is disabled and compilation activity isn’t logged.
+    - The `-XX:+LogCompilation` option has to be used together with the `-XX:UnlockDiagnosticVMOptions` option that unlocks diagnostic JVM options.
+- You can enable verbose diagnostic output with a message printed to the console every time a method is compiled by using the -XX:+PrintCompilation option.
+
+_`-XX:MaxInlineSize=size`_
+
+- _Sets the maximum bytecode size (in bytes) of a method to be inlined._
+    - _By default, the maximum bytecode size is set to **35 bytes**._
+
+_`-XX:MaxNodeLimit=nodes`_
+
+- _Sets the maximum number of nodes to be used during single method compilation._
+    - _By default, the maximum number of nodes is set to **65,000**._
+
+_`-XX:NonNMethodCodeHeapSize=size`_
+
+- _Sets the size in bytes of the code segment containing nonmethod code._
+- _A nonmethod code segment containing nonmethod code, such as compiler buffers and the bytecode interpreter._
+    - _This code type stays in the code cache forever._
+    - _This flag is used only if `-XX:SegmentedCodeCache` is enabled._
+
+_`—XX:NonProfiledCodeHeapSize=size`_
+
+- _Sets the size in bytes of the code segment containing nonprofiled methods._
+    - _This flag is used only if `—XX:SegmentedCodeCache` is enabled._
+
+_`-XX:MaxTrivialSize=size`_
+
+- _Sets the maximum bytecode size (in bytes) of a trivial method to be inlined._
+    - _By default, the maximum bytecode size of a trivial method is set to **6 bytes**._
+
+`-XX:+OptimizeStringConcat`
+
+- _Enables the **optimization of String concatenation operations.**_
+    - _This option is enabled by default._
+
+`-XX:+PrintAssembly`
+
+- Enables **printing of assembly code for bytecoded and native methods** by using the external `hsdis-<arch>.so` or `.dll` library.
+    - For 64-bit VM on Windows, it’s `hsdis-amd64.dll`.
+    - This lets you to see the generated code, which may help you diagnose performance issues.
+- By default, this option is disabled and assembly code isn’t printed.
+    - The `-XX:+PrintAssembly` option has to be used together with the `-XX:UnlockDiagnosticVMOptions` option that unlocks diagnostic JVM options.
+
+_`-XX:ProfiledCodeHeapSize=size`_
+
+- _Sets the size in bytes of the code segment containing profiled methods._
+    - _This flag is used only if `-XX:SegmentedCodeCache` is enabled._
+
+`-XX:+PrintCompilation`
+
+- Enables **verbose diagnostic output from the JVM by printing a message to the console every time a method is compiled.**
+    - This lets you see which methods actually get compiled.
+    - By default, this option is disabled and diagnostic output isn’t printed.
+- You can also log compilation activity to a file by using the `-XX:+LogCompilation` option.
+
+_`-XX:+PrintInlining`_
+
+- _Enables **printing of inlining decisions.**_
+    - _This let’s you see which methods are getting inlined._
+- _By default, this option is disabled and inlining information isn’t printed._
+    - _The `-XX:+PrintInlining` option has to be used together with the `-XX:+UnlockDiagnosticVMOptions` option that unlocks diagnostic JVM options._
+
+`-XX:ReservedCodeCacheSize=size`
+
+- Sets the **maximum code cache size (in bytes) for JIT-compiled code.**
+    - The default maximum code cache size is **240 MB**, unless you disable tiered compilation with the option `-XX:-TieredCompilation`, then the default size is **48 MB**.
+    - This option has a **limit of 2 GB**; otherwise, an error is generated.
+    - The maximum code cache size shouldn’t be less than the initial code cache size.
+    - See the option `-XX:InitialCodeCacheSize`.
+
+_`-XX:RTMAbortRatio=abort_ratio`_
+
+- _Specifies the RTM abort ratio as a percentage (`%`) of all executed RTM transactions._
+    - _If a number of aborted transactions becomes greater than this ratio, then the compiled code is deoptimized._
+    - _This ratio is used when the `-XX:+UseRTMDeopt` option is enabled._
+    - _The default value of this option is **50**._
+    - _This means that the compiled code is deoptimized if 50% of all transactions are aborted._
+
+_`-XX:+SegmentedCodeCache`_
+
+- _Enables segmentation of the code cache._
+    - _Without the `-XX:+SegmentedCodeCache`, the code cache consists of one large segment._
+    - _With `-XX:+SegmentedCodeCache`, we have separate segments for nonmethod, profiled method, and nonprofiled method code._
+    - _These segments aren’t resized at runtime._
+    - _The feature is enabled by default if tiered compilation is enabled (`-XX:+TieredCompilation`) and `-XX:ReservedCodeCacheSize` >= 240 MB._
+    - _The advantages are better control of the memory footprint, reduced code fragmentation, and better iTLB/iCache behavior due to improved locality._
+    - _iTLB/iCache is a CPU-specific term meaning Instruction Translation Lookaside Buffer (ITLB)._
+    - _ICache is an instruction cache in the CPU._
+    - _The implementation of the code cache can be found in the file: `/share/vm/code/codeCache.cpp`._
+
+**`-XX:StartAggressiveSweepingAt=percent`**
+
+- **Forces stack scanning of active methods to aggressively remove unused code when only the given percentage of the code cache is free.**
+    - The default value is **10%**.
+
+_`-XX:RTMRetryCount=number_of_retries`_
+
+- _Specifies the number of times that the RTM locking code is retried, when it is aborted or busy, before falling back to the normal locking mechanism._
+    - _The default value for this option is **5**._
+    - _The `-XX:UseRTMLocking` option must be enabled._
+
+**`-XX:-TieredCompilation`**
+
+- Disables the **use of tiered compilation.**
+    - By default, this option is enabled.
+
+_`-XX:+UseAES`_
+
+- _Enables hardware-based AES intrinsics for Intel, AMD, and SPARC hardware._
+    - _Intel Westmere (2010 and newer), AMD Bulldozer (2011 and newer), and SPARC (T4 and newer) are the supported hardware._
+    - _The `-XX:+UseAES` is used in conjunction with UseAESIntrinsics._
+    - _Flags that control intrinsics now require the option `-XX:+UnlockDiagnosticVMOptions`._
+
+_`-XX:+UseAESIntrinsics`_
+
+- _Enables `-XX:+UseAES` and `-XX:+UseAESIntrinsics` flags by default and are supported only for the Java HotSpot Server VM._
+    - _To disable hardware-based AES intrinsics, specify `-XX:-UseAES -XX:-UseAESIntrinsics`._
+    - _For example, to enable hardware AES, use the following flags:_
+        - _`-XX:+UseAES -XX:+UseAESIntrinsics`_
+- _Flags that control intrinsics now require the option -XX:+UnlockDiagnosticVMOptions._
+    - _To support UseAES and UseAESIntrinsics flags, use the -server option to select the Java HotSpot Server VM._
+    - _These flags aren’t supported on Client VM._
+
+_`-XX:+UseCMoveUnconditionally`_
+
+- _Generates CMove (scalar and vector) instructions regardless of profitability analysis._
+
+_`-XX:+UseCodeCacheFlushing`_
+
+- _Enables flushing of the code cache before shutting down the compiler._
+    - _This option is enabled by default._
+    - _To disable flushing of the code cache before shutting down the compiler, specify `-XX:-UseCodeCacheFlushing`._
+
+`-XX:+UseCondCardMark`
+
+- Enables checking if the card is already marked before updating the card table.
+    - This option is disabled by default.
+    - It should be used only on machines with multiple sockets, where it increases the performance of Java applications that rely on concurrent operations.
+
+**`-XX:+UseCountedLoopSafepoints`**
+
+- **Keeps safepoints in counted loops.**
+    - Its default value is **false**.
+
+_`-XX:+UseFMA`_
+
+- _Enables hardware-based FMA intrinsics for hardware where FMA instructions are available (such as, Intel, SPARC, and ARM64)._
+    - _FMA intrinsics are generated for the `java.lang.Math.fma(a, b, c)` methods that calculate the value of `(a * b + c)` expressions._
+
+_`-XX:+UseRTMDeopt`_
+
+_- Autotunes RTM locking depending on the abort ratio._
+    - This ratio is specified by the `-XX:RTMAbortRatio` option.
+    - If the number of aborted transactions exceeds the abort ratio, then the method containing the lock is deoptimized and recompiled with all locks as normal locks.
+    - This option is disabled by default.
+    - The `-XX:+UseRTMLocking` option must be enabled.
+
+_`-XX:+UseRTMLocking`_
+
+- _Generates **Restricted Transactional Memory (RTM)** locking code for all inflated locks, with the normal locking mechanism as the fallback handler._
+    - _This option is disabled by default._
+    - _Options related to RTM are available only for the Java HotSpot Server VM on x86 CPUs that support Transactional Synchronization Extensions (TSX)._
+- _RTM is part of Intel's TSX, which is an x86 instruction set extension and facilitates the creation of multithreaded applications._
+    - _RTM introduces the new instructions `XBEGIN`, `XABORT`, `XEND`, and `XTEST`._
+    - _The `XBEGIN` and `XEND` instructions enclose a set of instructions to run as a transaction._
+    - _If no conflict is found when running the transaction, then the memory and register modifications are committed together at the `XEND` instruction._
+    - _The `XABORT` instruction can be used to explicitly abort a transaction and the `XEND` instruction checks if a set of instructions is being run in a transaction._
+- _A lock on a transaction is inflated when another thread tries to access the same transaction, thereby blocking the thread that didn’t originally request access to the transaction._
+    - _RTM requires that a fallback set of operations be specified in case a transaction aborts or fails._
+    - _An RTM lock is a lock that has been delegated to the TSX's system._
+- _RTM improves performance for highly contended locks with low conflict in a **critical region** (which is code that must not be accessed by more than one thread concurrently)._
+    - _RTM also improves the performance of coarse-grain locking, which typically doesn’t perform well in multithreaded applications._
+        - _(**Coarse-grain locking** is the strategy of holding locks for long periods to minimize the overhead of taking and releasing locks, while **fine-grained locking** is the strategy of trying to achieve maximum parallelism by locking only when necessary and unlocking as soon as possible._
+    - _Also, for lightly contended locks that are used by different threads, RTM can reduce false cache line sharing, also known as **cache line ping-pong**._
+    - _This occurs when multiple threads from different processors are accessing different resources, but the resources share the same cache line._
+    - _As a result, the processors repeatedly invalidate the cache lines of other processors, which forces them to read from main memory instead of their cache._
+
+_`-XX:+UseSHA`_
+
+- _Enables hardware-based intrinsics for SHA crypto hash functions for SPARC hardware._
+    - _The UseSHA option is used in conjunction with the `UseSHA1Intrinsics`, `UseSHA256Intrinsics`, and `UseSHA512Intrinsics` options._
+- _The `UseSHA` and `UseSHA*Intrinsics` flags are enabled by default, and are supported only for Java HotSpot Server VM 64-bit on SPARC T4 and newer._
+- _This feature is applicable only when using the `sun.ecurity.provider.Sun` provider for SHA operations._
+    - _Flags that control intrinsics now require the option `-XX:+UnlockDiagnosticVMOptions`._
+- _To disable all hardware-based SHA intrinsics, specify the `-XX:-UseSHA`._
+    - _To disable only a particular SHA intrinsic, use the appropriate corresponding option._
+    - _For example: `-XX:-UseSHA256Intrinsics`._
+
+_`-XX:+UseSHA1Intrinsics`_
+
+- _Enables intrinsics for SHA-1 crypto hash function._
+    - _Flags that control intrinsics now require the option `-XX:+UnlockDiagnosticVMOptions`._
+
+_`-XX:+UseSHA256Intrinsics`_
+
+- _Enables intrinsics for SHA-224 and SHA-256 crypto hash functions._
+    - _Flags that control intrinsics now require the option `-XX:+UnlockDiagnosticVMOptions`._
+
+_`-XX:+UseSHA512Intrinsics`_
+
+- _Enables intrinsics for SHA-384 and SHA-512 crypto hash functions._
+    - _Flags that control intrinsics now require the option `-XX:+UnlockDiagnosticVMOptions`._
+
+_`-XX:+UseSuperWord`_
+
+- _Enables the transformation of scalar operations into superword operations._
+    - _Superword is a vectorization optimization._
+    - _This option is enabled by default._
+    - _To disable the transformation of scalar operations into superword operations, specify `-XX:-UseSuperWord`._
 
 #### Serviceability
+
+These java options **provide the ability to gather system information and perform extensive debugging.**
+
+`-XX:+ExtendedDTraceProbes`
+
+- Oracle Solaris, Linux, and macOS : Enables **additional dtrace tool probes that affect performance.**
+    - By default, this option is disabled and dtrace performs only standard probes.
+
+**`-XX:+HeapDumpOnOutOfMemoryError`**
+
+- Enables **dumping the Java heap to a file in the current directory by using the heap profiler (HPROF) when a `java.ang.OutOfMemoryError` exception is thrown.**
+    - You can explicitly set the heap dump file path and name using the `-XX:HeapDumpPath` option.
+    - By default, this option is disabled and the heap isn’t dumped when an OutOfMemoryError exception is thrown.
+
+`-XX:HeapDumpPath=path`
+
+- Sets the path and file name for writing the heap dump provided by the heap profiler (HPROF) when the `-XX:+HeapDumpOnOutOfMemoryError` option is set.
+    - By default, the file is created in the current working directory, and it’s named `java_pid<pid>.hprof` where `<pid>` is the identifier of the process that caused the error. The following example shows how to set the default file explicitly (%p represents the current process identifier):
+        - `-XX:HeapDumpPath=./java_pid%p.hprof`
+        - Oracle Solaris, Linux, and macOS: The following example shows how to set the heap dump file to /var/log/java/java_heapdump.hprof:
+            - `-XX:HeapDumpPath=/var/log/java/java_heapdump.hprof`
+
+`-XX:LogFile=path`
+Sets the path and file name to where log data is written. By default, the file is created in the current working directory, and it’s named hotspot.log.
+- Oracle Solaris, Linux, and macOS: The following example shows how to set the log file to /var/log/java/hotspot.log:
+    - `-XX:LogFile=/var/log/java/hotspot.log`
+
+`-XX:+PrintClassHistogram`
+
+- Enables printing a class instance histogram after one of the following events:
+    - Oracle Solaris, Linux, and macOS: Control+Break
+    - Windows: Control+C (SIGTERM)
+- By default, this option is disabled.
+- Setting this option is equivalent to running the jmap -histo command, or the jcmd pid GC.lass_histogram command, where pid is the current Java process identifier.
+
+`-XX:+PrintConcurrentLocks`
+
+- Enables printing of java.util.concurrent locks after one of the following events:
+    - Oracle Solaris, Linux, and macOS: Control+Break
+    - Windows: Control+C (SIGTERM)
+- By default, this option is disabled.
+- Setting this option is equivalent to running the jstack -l command or thejcmd pid Thread.print -l command, where pid is the current Java process identifier.
+
+`-XX:+PrintFlagsRanges`
+
+Prints the range specified and allows automatic testing of the values. See Validate Java Virtual Machine Flag Arguments.
+
+`-XX:+UnlockDiagnosticVMOptions`
+
+Unlocks the options intended for diagnosing the JVM. By default, this option is disabled and diagnostic options aren’t available.
 
 #### Garbage Collection
 

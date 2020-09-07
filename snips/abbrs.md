@@ -561,6 +561,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pri : private | priority ( for CLI )
 - [primitive](https://en.wikipedia.org/wiki/Language_primitive) : atomic element / operation
 - proc : [process](https://en.wikipedia.org/wiki/Process_(computing))
+- prof : profiler ( 性能 ) 分析器
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
 - pron. : pronoun 代词
 - prop : property
