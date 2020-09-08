@@ -23,6 +23,8 @@ My config files
 
 - [.vimrc](https://github.com/IceHe/mac-conf/blob/master/.vimrc) : for **Vim & NeoVim** in terminal
 - [.cvimrc](https://github.com/IceHe/mac-conf/blob/master/.cvimrc) : for Chrome **'cVim'** Plugin
+    - How to Use : https://droidrant.com/using-cvim
+    - Source Code : https://github.com/1995eaton/chromium-vim
 - [.ideavimrc](https://github.com/IceHe/mac-conf/blob/master/.ideavimrc) : for JetBrains **'IdeaVim'** Plugin
 
 ## Move Cursor

@@ -15,8 +15,9 @@ https://portal.shadowsocks.to <sup>Ladder</sup>
 https://www.google.com/chrome <sup>Universal</sup>
 
 - 浏览器。
-- 配合 [cVim](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh) 拓展，可在浏览器内 **使用 Vim 键位** 浏览网页、操作浏览器！键盘党神器。
+- 配合 [cVim](https://droidrant.com/using-cvim) 拓展，可在浏览器内 **使用 Vim 键位** 浏览网页、操作浏览器！键盘党神器。
     - 可惜它无法在页面未加载完毕的情况下使用 Vim 键位，不够（[Firefox](http://www.firefox.com.cn/) + [VimFX](https://github.com/akhodakivskiy/VimFx)）极致！
+    - _Source Code :_ https://github.com/1995eaton/chromium-vim
 - 用 **Inspect Element**（审查元素）配合 **Postman** 等做 Web 开发、调试，比 Firefox 顺手。
 
 ## 常用

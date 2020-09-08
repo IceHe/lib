@@ -368,6 +368,8 @@ Chrome plugins
 - [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
 - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
 - [cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ) : Add Vim-like key-bindings to Chrome for faster operations
+    - How to Use : https://droidrant.com/using-cvim
+    - Source Code : https://github.com/1995eaton/chromium-vim
 
 Clipboard Management
 

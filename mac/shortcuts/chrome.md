@@ -34,10 +34,11 @@
 
 ### cVim
 
-[in Web Store](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh?hl=en)
+[How to Install](https://droidrant.com/using-cvim)
 
-- It is a Vim-Emulator extension in Firefox.
+- It is a Vim-Emulator extension.
 - My config file [__.cvimrc__](https://github.com/IceHe/macos-home-conf/blob/master/.cvimrc)
+- _Source Code :_ https://github.com/1995eaton/chromium-vim
 
 Link
 

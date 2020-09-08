@@ -343,13 +343,14 @@ Spotlight
 
 ### 进阶 Vim 式插件
 
-> Chrome + [cVim](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh) | [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+> Chrome + [cVim](https://droidrant.com/using-cvim) | [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
 
 配合拓展，可在浏览器内使用 Vim 键位浏览网页、操作浏览器！
 
 - 但这些拓展无法在页面未加载完毕的情况下使用，不够极致
 - FireFox + [VimFX](https://github.com/akhodakivskiy/VimFx) 能够浏览器内全局随时使用，但新版 FireFox 的 VimFX 暂未恢复支持
 - 只要入门其中常用的基本操作，就能感觉到效率的大大提升。能用一个指头按就不要用两个指头，指头在越靠近键盘中心区的地方按就越省力
+- _Source Code :_ https://github.com/1995eaton/chromium-vim
 
 默认的键位排布跟 Vim 有一定关联，但不全有
 
@@ -368,6 +369,9 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 
 - 但需要编辑类似 .vimrc 的配置文件来进行配置，不够用户友好
 - 我的配置：[.cvimrc](https://github.com/IceHe/mac-conf/blob/master/.cvimrc)
+- References
+    - How to Use : https://droidrant.com/using-cvim
+    - Source Code : https://github.com/1995eaton/chromium-vim
 
 ### 其它插件
 

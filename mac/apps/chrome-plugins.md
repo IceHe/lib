@@ -10,11 +10,12 @@ https://agilebits.com/onepassword <sup>Pwd Security</sup>
 
 ## cVim
 
-https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh?hl=en <sup>Powerful</sup>
+https://droidrant.com/using-cvim <sup>Powerful</sup>
 
 - 用 Vim 的键位去浏览、导航网页，减少使用鼠标的使用，键盘党神器！（~~[Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)~~ <sup>备选</sup>）
 - 功能强大丰富，通过修改类似 `.vimrc` 的配置文件来设置功能（比较麻烦）。
 - 我的配置 [.cvimrc](https://github.com/IceHe/mac-conf/blob/master/.cvimrc)
+- _Source Code :_ https://github.com/1995eaton/chromium-vim
 
 ## Chrono Download Manager
 

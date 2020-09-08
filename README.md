@@ -144,11 +144,9 @@ _Others_
 
 ### Java
 
-[_Index_](/java/README.md) ( draft )
+[Index](/java/README.md) ( draft )
 
-- [_Hello World_](/java/hello-java.md) ( draft )
 - [Spock](/java/spock.md) : Unit Tests
-- ……
 
 <!--
 
