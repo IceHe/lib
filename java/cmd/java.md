@@ -429,7 +429,7 @@ _`-Xinternalversion`_
 
 - Sets the **initial size (in bytes) of the heap.**
     - If you don't set this option, then the initial size is set as the sum of the sizes allocated for the old generation and the young generation.
-    - The initial size of the heap for the young generation can be set by using the -Xmn option or the -XX:NewSize option.
+    - The initial size of the heap for the young generation can be set by using the -Xmn option or the `-XX:NewSize` option.
 
 **`-Xmx size`**
 
@@ -1484,14 +1484,14 @@ _`-XX:CMSTriggerRatio=percent`_
 - Enables **invoking concurrent GC by using the `System.gc()` request and unloading classes during the concurrent GC cycle.**
     - This option is disabled by default and can be enabled only with the deprecated `-XX:+UseConcMarkSweepGC` option.
 
-**`-XX:G1HeapRegionSize=size`**
+`-XX:G1HeapRegionSize=size`
 
 - Sets the **size of the regions into which the Java heap is subdivided when using the garbage-first (G1) collector.**
     - The value is **a power of 2 and can range from 1 MB to 32 MB**.
     - The goal is to have around 2048 regions based on the minimum Java heap size.
     - The **default region size is determined ergonomically based on the heap size**.
 
-`-XX:G1HeapWastePercent=percent`
+**`-XX:G1HeapWastePercent=percent`**
 
 - Sets the **percentage of heap that you’re willing to waste.**
     - The Java HotSpot VM doesn’t initiate the mixed garbage collection cycle when the reclaimable percentage is less than the heap waste percentage.
@@ -1519,20 +1519,48 @@ _`-XX:CMSTriggerRatio=percent`_
     - This setting replaces the `-XX:G1OldCSetRegionLiveThresholdPercent` setting.
 - _This setting isn’t available in Java HotSpot VM build 23 or earlier._
 
-`-XX:G1NewSizePercent=percent`
+**`-XX:G1NewSizePercent=percent`**
 
-- Sets the percentage of the heap to use as the minimum for the young generation size.
+- Sets the **percentage of the heap to use as the minimum for the young generation size.**
     - The default value is **5** percent of your Java heap.
 - This is an experimental flag.
     - This setting replaces the -XX:DefaultMinNewGenPercent setting.
-- This setting isn’t available in Java HotSpot VM build 23 or earlier.
+- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
 
--XX:G1OldCSetRegionThresholdPercent=percent
-Sets an upper limit on the number of old regions to be collected during a mixed garbage collection cycle. The default is 10 percent of the Java heap.
+`-XX:G1OldCSetRegionThresholdPercent=percent`
 
-This setting isn’t available in Java HotSpot VM build 23 or earlier.
+- Sets an **upper limit on the number of old regions to be collected** during a mixed garbage collection cycle.
+    - The default is **10 percent** of the Java heap.
+- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
 
--XX:G1ReservePercent=percent
-Sets the percentage of the heap (0 to 50) that’s reserved as a false ceiling to reduce the possibility of promotion failure for the G1 collector. When you increase or decrease the percentage, ensure that you adjust the total Java heap by the same amount. By default, this option is set to 10%.
+`-XX:G1ReservePercent=percent`
+
+- Sets the **percentage of the heap (0 to 50) that’s reserved as a false ceiling to reduce the possibility of promotion failure for the G1 collector.**
+    - **When you increase or decrease the percentage, ensure that you adjust the total Java heap by the same amount.**
+- By default, this option is set to **10%**.
+
+**`-XX:InitialHeapOccupancyPercent=percent`**
+
+- Sets the Java heap occupancy threshold that triggers a marking cycle.
+    - The **default occupancy** is **45 percent** of the entire Java heap.
+
+**`-XX:InitialHeapSize=size`**
+
+- Sets the **initial size (in bytes) of the memory allocation pool.**
+    - This value must be **either 0, or a multiple of 1024 and greater than 1 MB.**
+    - The default value is selected at run time based on the system configuration.
+- **If you set this option to 0, then the initial size is set as the sum of the sizes allocated for the old generation and the young generation.**
+    - The size of the heap for the young generation can be set using the `-XX:NewSize` option.
+
+`-XX:InitialSurvivorRatio=ratio`
+
+- Sets the **initial survivor space ratio used by the throughput garbage collector**
+    - ( which is enabled by the `-XX:+UseParallelGC` and/or `-XX:+UseParallelOldGC` options ) .
+    - Adaptive sizing is enabled by default with the throughput garbage collector by using the `-XX:+UseParallelGC` and `-XX:+UseParallelOldGC` options, and the survivor space is resized according to the application behavior, starting with the initial value.
+    - If adaptive sizing is disabled (using the `-XX:-UseAdaptiveSizePolicy` option), then the `-XX:SurvivorRatio` option should be used to set the size of the survivor space for the entire execution of the application.
+- The following formula can be used to calculate the initial size of survivor space (`S`) based on the size of the young generation (`Y`), and the initial survivor space ratio (`R`) : `S=Y/(R+2)`
+    - The **2** in the equation denotes two survivor spaces.
+    - The larger the value specified as the initial survivor space ratio, the smaller the initial survivor space size.
+- By default, the initial survivor space ratio is set to **8**.
 
 ## Usage
