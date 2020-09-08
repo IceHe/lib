@@ -1552,7 +1552,7 @@ _`-XX:CMSTriggerRatio=percent`_
 - **If you set this option to 0, then the initial size is set as the sum of the sizes allocated for the old generation and the young generation.**
     - The size of the heap for the young generation can be set using the `-XX:NewSize` option.
 
-`-XX:InitialSurvivorRatio=ratio`
+**`-XX:InitialSurvivorRatio=ratio`**
 
 - Sets the **initial survivor space ratio used by the throughput garbage collector**
     - ( which is enabled by the `-XX:+UseParallelGC` and/or `-XX:+UseParallelOldGC` options ) .
