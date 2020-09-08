@@ -144,10 +144,6 @@ _Others_
 
 ### Java
 
-[Index](/java/README.md) ( draft )
-
-- [Spock](/java/spock.md) : Unit Tests
-
 <!--
 
 - [javac](/java/cmd/javac.md) ( TODO )
@@ -170,6 +166,11 @@ Command Tools
     - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger**
         - ( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )
         - _Available after JDK 9_
+
+Others
+
+- [Notes](/java/README.md) ( draft )
+- [Spock](/java/spock.md) : Unit Tests
 
 ### Git
 

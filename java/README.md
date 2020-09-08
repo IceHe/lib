@@ -1,6 +1,6 @@
-# Java ( draft )
+# Java Notes ( draft )
 
-## Intro
+## Basics
 
 Install
 
