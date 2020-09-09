@@ -151,7 +151,7 @@ _The java command supports a wide range of options in the following categories :
     - **Advanced Garbage Collection Options**
         - Control how garbage collection (GC) is performed by the Java HotSpot
 
-### Standard Options
+### Standard
 
 These are the most commonly used options **supported by all implementations of the JVM**.
 
@@ -336,7 +336,7 @@ _`-splash:imagepath`_
 - The argument files **can also contain the main class name and all options.**
     - If an argument file contains all of the options required by the java command, then the command line could simply be : `java @argfile`
 
-### Extra Options
+### Extra
 
 These are general purpose options that are **specific to the Java HotSpot Virtual Machine**.
 
@@ -550,7 +550,7 @@ _`-Xdock:icon=path_to_icon_file`_
 
 - _Overrides the default icon displayed in dock._
 
-### Advanced Options
+### Advanced
 
 #### Runtime
 
@@ -1776,5 +1776,10 @@ _`-XX:+UseNUMA`_
 
 - Enables the **use of thread-local allocation blocks (TLABs) in the young generation space.**
     - This option is enabled by default.
+
+### Deprecated
+
+- These java options are deprecated and **might be removed in a future JDK release.**
+- They’re **still accepted and acted upon, but a warning is issued when they’re used.**
 
 ## Usage
