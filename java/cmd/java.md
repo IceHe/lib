@@ -1600,4 +1600,140 @@ _`-XX:CMSTriggerRatio=percent`_
 - Customers trying to keep the heap small should also add the option `-XX:-ShrinkHeapInSteps`.
     - See Performance Tuning Examples for a description of using this option to keep the Java heap small by reducing the dynamic footprint for embedded applications.
 
+**`-XX:MaxMetaspaceSize=size`**
+
+- Sets the **maximum amount of native memory that can be allocated for class metadata.**
+    - By default, the size isn’t limited.
+    - The amount of metadata for an application depends on the application itself, other running applications, and the amount of memory available on the system.
+
+**`-XX:MaxNewSize=size`**
+
+- Sets the **maximum size (in bytes) of the heap for the young generation (nursery).**
+    - The default value is set ergonomically.
+
+**`-XX:MaxTenuringThreshold=threshold`**
+
+- Sets the **maximum tenuring threshold for use in adaptive GC sizing.**
+    - The **largest** value is **15**.
+    - The **default** value is **15** for the parallel (throughput) collector, and 6 for the CMS collector.
+
+**`-XX:MetaspaceSize=size`**
+
+- Sets the **size of the allocated class metadata space that triggers a garbage collection the first time it’s exceeded.**
+    - This threshold for a garbage collection is increased or decreased depending on the amount of metadata used.
+    - The default size depends on the platform.
+
+**`-XX:MinHeapFreeRatio=percent`**
+
+- Sets the **minimum allowed percentage of free heap space (0 to 100) after a GC event.**
+    - **If free heap space falls below this value, then the heap is expanded.**
+    - By default, this value is set to **40%**.
+- Minimize Java heap size by lowering the values of the parameters `MaxHeapFreeRatio` (default value is **70%**) and `MinHeapFreeRatio` (default value is **40%**) with the command-line options `-XX:MaxHeapFreeRatio` and `-XX:MinHeapFreeRatio`.
+    - **Lowering MaxHeapFreeRatio to as low as 10% and MinHeapFreeRatio to 5% has successfully reduced the heap size without too much performance regression; however, results may vary greatly depending on your application.**
+    - Try different values for these parameters until they’re as low as possible, yet still retain acceptable performance.
+        - `-XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5`
+- Customers trying to keep the heap small should also add the option `-XX:-ShrinkHeapInSteps`.
+    - See "Performance Tuning Examples" for a description of using this option to keep the Java heap small by reducing the dynamic footprint for embedded applications
+
+**`-XX:NewRatio=ratio`**
+
+- Sets the **ratio between young and old generation sizes.**
+    - By default, this option is set to **2**.
+
+**`-XX:NewSize=size`**
+
+- Sets the **initial size (in bytes) of the heap for the young generation (nursery).**
+    - The young generation region of the heap is used for new objects.
+    - GC is performed in this region more often than in other regions.
+    - If the **size for the young generation is too low, then a large number of minor GCs are performed.**
+    - If the **size is too high, then only full GCs are performed, which can take a long time to complete.**
+    - **Oracle recommends that you keep the size for the young generation greater than 25% and less than 50% of the overall heap size.**
+- It is equivalent to `-Xmn`.
+
+**`-XX:ParallelGCThreads=threads`**
+
+- Sets the value of the stop-the-world (STW) worker threads.
+    - This option sets the value of threads to the number of logical processors.
+    - The value of threads is the same as the number of logical processors up to a value of 8.
+
+If there are more than 8 logical processors, then this option sets the value of threads to approximately 5/8 of the logical processors. This works in most cases except for larger SPARC systems where the value of threads can be approximately 5/16 of the logical processors.
+
+The default value depends on the number of CPUs available to the JVM.
+
+For example, to set the number of threads for parallel GC to 2, specify the following option:
+
+Copy-XX:ParallelGCThreads=2
+-XX:+ParallelRefProcEnabled
+Enables parallel reference processing. By default, this option is disabled.
+
+-XX:+PrintAdaptiveSizePolicy
+Enables printing of information about adaptive-generation sizing. By default, this option is disabled.
+
+-XX:+ScavengeBeforeFullGC
+Enables GC of the young generation before each full GC. This option is enabled by default. Oracle recommends that you don’t disable it, because scavenging the young generation before a full GC can reduce the number of objects reachable from the old generation space into the young generation space. To disable GC of the young generation before each full GC, specify the option -XX:-ScavengeBeforeFullGC.
+
+-XX:-ShrinkHeapInSteps
+Incrementally reduces the Java heap to the target size, specified by the option –XX:MaxHeapFreeRatio. This option is enabled by default. If disabled, then it immediately reduces the Java heap to the target size instead of requiring multiple garbage collection cycles. Disable this option if you want to minimize the Java heap size. You will likely encounter performance degradation when this option is disabled.
+
+See Performance Tuning Examples for a description of using the MaxHeapFreeRatio option to keep the Java heap small by reducing the dynamic footprint for embedded applications.
+
+–XX:StringDeduplicationAgeThreshold=threshold
+Identifies String objects reaching the specified age that are considered candidates for deduplication. An object's age is a measure of how many times it has survived garbage collection. This is sometimes referred to as tenuring. See the deprecated -XX:+PrintTenuringDistribution option.
+
+Note:String objects that are promoted to an old heap region before this age has been reached are always considered candidates for deduplication. The default value for this option is 3. See the -XX:+UseStringDeduplication option.
+-XX:SurvivorRatio=ratio
+Sets the ratio between eden space size and survivor space size. By default, this option is set to 8. The following example shows how to set the eden/survivor space ratio to 4:
+
+Copy-XX:SurvivorRatio=4
+-XX:TargetSurvivorRatio=percent
+Sets the desired percentage of survivor space (0 to 100) used after young garbage collection. By default, this option is set to 50%.
+
+The following example shows how to set the target survivor space ratio to 30%:
+
+Copy-XX:TargetSurvivorRatio=30
+-XX:TLABSize=size
+Sets the initial size (in bytes) of a thread-local allocation buffer (TLAB). Append the letter k or K to indicate kilobytes, m or M to indicate megabytes, and g or G to indicate gigabytes. If this option is set to 0, then the JVM selects the initial size automatically.
+
+The following example shows how to set the initial TLAB size to 512 KB:
+
+Copy-XX:TLABSize=512k
+-XX:+UseAdaptiveSizePolicy
+Enables the use of adaptive generation sizing. This option is enabled by default. To disable adaptive generation sizing, specify -XX:-UseAdaptiveSizePolicy and set the size of the memory allocation pool explicitly. See the -XX:SurvivorRatio option.
+
+-XX:+UseCMSInitiatingOccupancyOnly
+Enables the use of the occupancy value as the only criterion for initiating the CMS collector. By default, this option is disabled and other criteria may be used.
+
+-XX:+UseG1GC
+Enables the use of the garbage-first (G1) garbage collector. It’s a server-style garbage collector, targeted for multiprocessor machines with a large amount of RAM. This option meets GC pause time goals with high probability, while maintaining good throughput. The G1 collector is recommended for applications requiring large heaps (sizes of around 6 GB or larger) with limited GC latency requirements (a stable and predictable pause time below 0.5 seconds). By default, this option is enabled and G1 is used as the default garbage collector.
+
+-XX:+UseGCOverheadLimit
+Enables the use of a policy that limits the proportion of time spent by the JVM on GC before an OutOfMemoryError exception is thrown. This option is enabled, by default, and the parallel GC will throw an OutOfMemoryError if more than 98% of the total time is spent on garbage collection and less than 2% of the heap is recovered. When the heap is small, this feature can be used to prevent applications from running for long periods of time with little or no progress. To disable this option, specify the option -XX:-UseGCOverheadLimit.
+
+-XX:+UseNUMA
+Enables performance optimization of an application on a machine with nonuniform memory architecture (NUMA) by increasing the application's use of lower latency memory. By default, this option is disabled and no optimization for NUMA is made. The option is available only when the parallel garbage collector is used (-XX:+UseParallelGC).
+
+-XX:+UseParallelGC
+Enables the use of the parallel scavenge garbage collector (also known as the throughput collector) to improve the performance of your application by leveraging multiple processors.
+
+By default, this option is disabled and the collector is chosen automatically based on the configuration of the machine and type of the JVM. If it’s enabled, then the -XX:+UseParallelOldGC option is automatically enabled, unless you explicitly disable it.
+
+-XX:+UseParallelOldGC
+Enables the use of the parallel garbage collector for full GCs. By default, this option is disabled. Enabling it automatically enables the -XX:+UseParallelGC option.
+
+-XX:+UseSerialGC
+Enables the use of the serial garbage collector. This is generally the best choice for small and simple applications that don’t require any special functionality from garbage collection. By default, this option is disabled and the collector is selected automatically based on the configuration of the machine and type of the JVM.
+
+-XX:+UseSHM
+Linux only: Enables the JVM to use shared memory to set up large pages.
+
+See Large Pages for setting up large pages.
+
+-XX:+UseStringDeduplication
+Enables string deduplication. By default, this option is disabled. To use this option, you must enable the garbage-first (G1) garbage collector.
+
+String deduplication reduces the memory footprint of String objects on the Java heap by taking advantage of the fact that many String objects are identical. Instead of each String object pointing to its own character array, identical String objects can point to and share the same character array.
+
+-XX:+UseTLAB
+Enables the use of thread-local allocation blocks (TLABs) in the young generation space. This option is enabled by default. To disable the use of TLABs, specify the option -XX:-UseTLAB.
+
 ## Usage
