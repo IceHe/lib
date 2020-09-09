@@ -220,6 +220,8 @@ Custom
     - `g` replace __globally__
     - `c` ask for __confirmation__
     - `i` __case insensitive__ , `I` case __sensitive__
+- `:s/foo/bar/`
+    - On each line, **replace the first occurrence** of "foo" with "bar".
 - `:'<,'>s/foo/bar/g`
     - `'<,'>` replace __within a visual selection__ (when compiled with +visual)
 - `:5,12$/foo/bar/g`
