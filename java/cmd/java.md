@@ -1563,16 +1563,18 @@ _`-XX:CMSTriggerRatio=percent`_
     - The larger the value specified as the initial survivor space ratio, the smaller the initial survivor space size.
 - By default, the initial survivor space ratio is set to **8**.
 
-`-XX:InitiatingHeapOccupancyPercent=percent`
+**`-XX:InitiatingHeapOccupancyPercent=percent`**
 
-Sets the percentage of the heap occupancy (0 to 100) at which to start a concurrent GC cycle. It’s used by garbage collectors that trigger a concurrent GC cycle based on the occupancy of the entire heap, not just one of the generations (for example, the G1 garbage collector).
+- Sets the **percentage of the heap occupancy (0 to 100) at which to start a concurrent GC cycle.**
+    - It’s used by garbage collectors that **trigger a concurrent GC cycle based on the occupancy of the entire heap, not just one of the generations** (for example, the G1 garbage collector).
+- By default, the initiating value is set to **45%**.
+    - A value of **0 implies nonstop GC cycles**.
 
-By default, the initiating value is set to 45%. A value of 0 implies nonstop GC cycles.
+**`-XX:MaxGCPauseMillis=time`**
 
-`-XX:MaxGCPauseMillis=time`
-
-Sets a target for the maximum GC pause time (in milliseconds). This is a soft goal, and the JVM will make its best effort to achieve it. The specified value doesn’t adapt to your heap size. By default, there’s no maximum pause time value.
-
-
+- Sets a **target for the maximum GC pause time (in milliseconds).**
+    - This is a **soft goal, and the JVM will make its best effort to achieve it.**
+    - The **specified value doesn’t adapt to your heap size.**
+    - By **default**, there’s **no maximum pause time value.**
 
 ## Usage
