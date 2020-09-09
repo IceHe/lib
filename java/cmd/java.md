@@ -1577,105 +1577,27 @@ _`-XX:CMSTriggerRatio=percent`_
     - The **specified value doesn’t adapt to your heap size.**
     - By **default**, there’s **no maximum pause time value.**
 
-`-XX:NativeMemoryTracking=mode`
+**`-XX:MaxHeapSize=size`**
 
-- Specifies the **mode for tracking JVM native memory usage.**
-- Possible mode arguments for this option include the following:
-    - `off`
-        - Instructs not to track JVM native memory usage.
-        - This is the default behavior if you don’t specify the `-XX:NativeMemoryTracking` option.
-    - `summary`
-        - Tracks memory usage only by JVM subsystems, such as Java heap, class, code, and thread.
-    - `detail`
-        - In addition to tracking memory usage by JVM subsystems, track memory usage by individual `CallSite`, individual virtual memory region and its committed regions.
+- Sets the **maximum size (in byes) of the memory allocation pool.**
+    - This value **must be a multiple of 1024 and greater than 2 MB.**
+    - The default value is selected at run time based on the system configuration.
+    - **For server deployments, the options `-XX:InitialHeapSize` and `-XX:MaxHeapSize` are often set to the same value.**
+- On Oracle Solaris 7 and Oracle Solaris 8 SPARC platforms, the upper limit for this value is approximately 4,000 MB minus overhead amounts.
+    - On Oracle Solaris 2.6 and x86 platforms, the upper limit is approximately 2,000 MB minus overhead amounts.
+    - **On Linux platforms, the upper limit is approximately 2,000 MB minus overhead amounts.**
+- It is equivalent to `-Xmx`.
 
-_`-XX:ObjectAlignmentInBytes=alignment`_
+**`-XX:MaxHeapFreeRatio=percent`**
 
-- _Sets the **memory alignment of Java objects (in bytes).**_
-    - _By default, the value is set to **8 bytes**._
-    - _The specified value should be a power of 2, and must be within the range of 8 and 256 (inclusive)._
-    - _This option makes it possible to use compressed pointers with large Java heap sizes._
-- _The heap size limit in bytes is calculated as: `4GB * ObjectAlignmentInBytes`_
-- _Note : As the alignment value increases, the unused space between objects also increases._
-    - _As a result, you may not realize any benefits from using compressed pointers with large Java heap sizes._
-
-**`-XX:OnError=string`**
-
-- Sets a **custom command or a series of semicolon-separated commands to run when an irrecoverable error occurs.**
-    - If the string contains spaces, then it must be **enclosed in quotation marks.**
-- Oracle Solaris, Linux, and macOS :
-    - The following example shows how the `-XX:OnError` option can be used to **run the `gcore` command to create the core image, and the debugger is started to attach to the process in case of an irrecoverable error** (the `%p` designates the current process):
-        - `-XX:OnError="gcore %p;dbx - %p"`
-
-**`-XX:OnOutOfMemoryError=string`**
-
-- Sets a **custom command or a series of semicolon-separated commands to run when an OutOfMemoryError exception is first thrown.**
-    - If the string contains spaces, then it must be **enclosed in quotation marks.**
-    - For an example of a command string, see the description of the `-XX:OnError` option.
-
-**`-XX:ParallelGCThreads=n`**
-
-- Sets the **value of the STW worker threads.**
-    - Sets the value of `n` to the **number of logical processors.**
-    - The value of `n` is the same as the number of logical processors up to a value of 8.
-    - If there are more than 8 logical processors, then this option sets the value of n to approximately `5/8` of the logical processors.
-    - _This works in most cases except for larger SPARC systems where the value of n can be approximately `5/16` of the logical processors._
-
-**`-XX:+PerfDataSaveToFile`**
-
-- If enabled, **saves `jstat` binary data when the Java application exits.**
-    - This binary data is saved in a file named `hsperfdata_pid`, where pid is the process identifier of the Java application that you ran.
-    - Use the `jstat` command to display the performance data contained in this file as follows:
-
-```bash
-jstat -class file:///path/hsperfdata_pid
-jstat -gc file:///path/hsperfdata_pid
-```
-
-**`-XX:+PrintCommandLineFlags`**
-
-- Enables **printing of ergonomically selected JVM flags that appeared on the command line.**
-    - It can be useful to know the ergonomic values set by the JVM, such as the heap space size and the selected garbage collector.
-    - By default, this option is disabled and flags aren’t printed.
-
-`-XX:+PreserveFramePointer`
-
-- Selects between using the RBP register as a general purpose register (`-XX:-PreserveFramePointer`) and using the RBP register to hold the frame pointer of the currently executing method (`-XX:+PreserveFramePointer`).
-    - If the frame pointer is available, then external profiling tools (for example, Linux perf) can construct more accurate stack traces.
-
-`-XX:+PrintNMTStatistics`
-
-- Enables printing of collected native memory tracking data at JVM exit when native memory tracking is enabled (see -XX:NativeMemoryTracking).
-    - By default, this option is disabled and native memory tracking data isn’t printed.
-
-`-XX:+RelaxAccessControlCheck`
-
-- Decreases the amount of access control checks in the verifier.
-    - By default, this option is disabled, and it’s ignored (that is, treated as disabled) for classes with a recent bytecode version.
-    - You can enable it for classes with older versions of the bytecode.
-
-`-XX:SharedArchiveFile=path`
-
-- Specifies the **path and name of the class data sharing (CDS) archive file.**
-- _See "Application Class Data Sharing"._
-
-`-XX:SharedArchiveConfigFile=shared_config_file`
-
-- Specifies additional shared data added to the archive file.
-
-`-XX:SharedClassListFile=file_name`
-
-- Specifies the text file that contains the names of the classes to store in the class data sharing (CDS) archive.
-- This file contains the full name of one class per line, except slashes (/) replace dots (`.`).
-    - For example, to specify the classes java.lang.Object and hello.Main, create a text file that contains the following two lines:
-
-```bash
-java/lang/Object
-hello/Main
-```
-
-- The classes that you specify in this text file should include the classes that are commonly used by the application.
-    - They may include any classes from the application, extension, or bootstrap class paths.
-- _See "Application Class Data Sharing"._
+- Sets the **maximum allowed percentage of free heap space (0 to 100) after a GC event.**
+    - **If free heap space expands above this value, then the heap is shrunk.**
+    - By default, this value is set to **70%**.
+- Minimize the Java heap size by lowering the values of the parameters `MaxHeapFreeRatio` (default value is `70%`) and `MinHeapFreeRatio` (default value is `40%`) with the command-line options `-XX:MaxHeapFreeRatio` and `-XX:MinHeapFreeRatio`.
+    - Lowering MaxHeapFreeRatio to as low as 10% and MinHeapFreeRatio to 5% has successfully reduced the heap size without too much performance regression; however, results may vary greatly depending on your application.
+    - Try different values for these parameters until they’re as low as possible yet still retain acceptable performance.
+        - `-XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5`
+- Customers trying to keep the heap small should also add the option `-XX:-ShrinkHeapInSteps`.
+    - See Performance Tuning Examples for a description of using this option to keep the Java heap small by reducing the dynamic footprint for embedded applications.
 
 ## Usage
