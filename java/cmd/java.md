@@ -1500,7 +1500,7 @@ _`-XX:CMSTriggerRatio=percent`_
 **`-XX:G1MaxNewSizePercent=percent`**
 
 - Sets the **percentage of the heap size to use as the maximum for the young generation size.**
-    - The default value is 60 percent of your Java heap.
+    - The default value is **60** percent of your Java heap.
 - This is an experimental flag.
     - This setting replaces the `-XX:DefaultMaxNewGenPercent` setting.
 - _This setting isn’t available in Java HotSpot VM build 23 or earlier._
@@ -1508,7 +1508,7 @@ _`-XX:CMSTriggerRatio=percent`_
 `-XX:G1MixedGCCountTarget=number`
 
 - Sets the **target number of mixed garbage collections after a marking cycle to collect old regions with at most `G1MixedGCLIveThresholdPercent` live data.**
-    - The default is 8 mixed garbage collections.
+    - The default is **8** mixed garbage collections.
     - The goal for mixed collections is to be within this target number.
 - _This setting isn’t available in Java HotSpot VM build 23 or earlier._
 
@@ -1652,88 +1652,129 @@ _`-XX:CMSTriggerRatio=percent`_
 
 **`-XX:ParallelGCThreads=threads`**
 
-- Sets the value of the stop-the-world (STW) worker threads.
-    - This option sets the value of threads to the number of logical processors.
-    - The value of threads is the same as the number of logical processors up to a value of 8.
+- Sets the **value of the stop-the-world (STW) worker threads.**
+    - This option **sets the value of threads to the number of logical processors.**
+    - _The value of threads is the same as the number of logical processors up to a value of 8._
+- If there are **more than 8 logical processors**, then this option **sets the value of threads to approximately 5/8 of the logical processors**.
+    - _This works in most cases except for larger SPARC systems where the value of threads can be approximately 5/16 of the logical processors._
+- The **default** value depends on the **number of CPUs available to the JVM.**
 
-If there are more than 8 logical processors, then this option sets the value of threads to approximately 5/8 of the logical processors. This works in most cases except for larger SPARC systems where the value of threads can be approximately 5/16 of the logical processors.
+`-XX:+ParallelRefProcEnabled`
 
-The default value depends on the number of CPUs available to the JVM.
+- Enables **parallel reference processing.**
+    - By default, this option is disabled.
 
-For example, to set the number of threads for parallel GC to 2, specify the following option:
+**`-XX:+PrintAdaptiveSizePolicy`**
 
-Copy-XX:ParallelGCThreads=2
--XX:+ParallelRefProcEnabled
-Enables parallel reference processing. By default, this option is disabled.
+- Enables **printing of information about adaptive-generation sizing.**
+    - By default, this option is disabled.
 
--XX:+PrintAdaptiveSizePolicy
-Enables printing of information about adaptive-generation sizing. By default, this option is disabled.
+**`-XX:+ScavengeBeforeFullGC`**
 
--XX:+ScavengeBeforeFullGC
-Enables GC of the young generation before each full GC. This option is enabled by default. Oracle recommends that you don’t disable it, because scavenging the young generation before a full GC can reduce the number of objects reachable from the old generation space into the young generation space. To disable GC of the young generation before each full GC, specify the option -XX:-ScavengeBeforeFullGC.
+- Enables **GC of the young generation before each full GC.**
+    - This option is enabled by default.
+     Oracle recommends that you don’t disable it, because scavenging the young generation before a full GC can reduce the number of objects reachable from the old generation space into the young generation space. To disable GC of the young generation before each full GC, specify the option -XX:-ScavengeBeforeFullGC.
 
--XX:-ShrinkHeapInSteps
-Incrementally reduces the Java heap to the target size, specified by the option –XX:MaxHeapFreeRatio. This option is enabled by default. If disabled, then it immediately reduces the Java heap to the target size instead of requiring multiple garbage collection cycles. Disable this option if you want to minimize the Java heap size. You will likely encounter performance degradation when this option is disabled.
+`-XX:-ShrinkHeapInSteps`
 
-See Performance Tuning Examples for a description of using the MaxHeapFreeRatio option to keep the Java heap small by reducing the dynamic footprint for embedded applications.
+- **Incrementally reduces the Java heap to the target size, specified by the option `-XX:MaxHeapFreeRatio`.**
+    - This option is enabled by default.
+    - If disabled, then it immediately reduces the Java heap to the target size instead of requiring multiple garbage collection cycles.
+    - Disable this option if you want to minimize the Java heap size.
+    - You will likely encounter performance degradation when this option is disabled.
+- See "Performance Tuning Examples" for a description of using the `MaxHeapFreeRatio` option to keep the Java heap small by reducing the dynamic footprint for embedded applications.
 
-–XX:StringDeduplicationAgeThreshold=threshold
-Identifies String objects reaching the specified age that are considered candidates for deduplication. An object's age is a measure of how many times it has survived garbage collection. This is sometimes referred to as tenuring. See the deprecated -XX:+PrintTenuringDistribution option.
+**`–XX:StringDeduplicationAgeThreshold=threshold`**
 
-Note:String objects that are promoted to an old heap region before this age has been reached are always considered candidates for deduplication. The default value for this option is 3. See the -XX:+UseStringDeduplication option.
--XX:SurvivorRatio=ratio
-Sets the ratio between eden space size and survivor space size. By default, this option is set to 8. The following example shows how to set the eden/survivor space ratio to 4:
+- _Identifies String objects reaching the specified age that are considered candidates for deduplication._
+    - _An object's age is a measure of how many times it has survived garbage collection._
+    - _This is sometimes referred to as tenuring._
+    - _See the deprecated `-XX:+PrintTenuringDistribution` option._
+- _Note:String objects that are promoted to an old heap region before this age has been reached are always considered candidates for deduplication._
+    - _The default value for this option is **3**._
+    - _See the `-XX:+UseStringDeduplication` option._
 
-Copy-XX:SurvivorRatio=4
--XX:TargetSurvivorRatio=percent
-Sets the desired percentage of survivor space (0 to 100) used after young garbage collection. By default, this option is set to 50%.
+**`-XX:SurvivorRatio=ratio`**
 
-The following example shows how to set the target survivor space ratio to 30%:
+- Sets the **ratio between eden space size and survivor space size.**
+    - By default, this option is set to **8**.
 
-Copy-XX:TargetSurvivorRatio=30
--XX:TLABSize=size
-Sets the initial size (in bytes) of a thread-local allocation buffer (TLAB). Append the letter k or K to indicate kilobytes, m or M to indicate megabytes, and g or G to indicate gigabytes. If this option is set to 0, then the JVM selects the initial size automatically.
+`-XX:TargetSurvivorRatio=percent`
 
-The following example shows how to set the initial TLAB size to 512 KB:
+- Sets the **desired percentage of survivor space (0 to 100) used after young garbage collection.**
+    - By default, this option is set to **50%**.
 
-Copy-XX:TLABSize=512k
--XX:+UseAdaptiveSizePolicy
-Enables the use of adaptive generation sizing. This option is enabled by default. To disable adaptive generation sizing, specify -XX:-UseAdaptiveSizePolicy and set the size of the memory allocation pool explicitly. See the -XX:SurvivorRatio option.
+**`-XX:TLABSize=size`**
 
--XX:+UseCMSInitiatingOccupancyOnly
-Enables the use of the occupancy value as the only criterion for initiating the CMS collector. By default, this option is disabled and other criteria may be used.
+- Sets the initial size (in bytes) of a thread-local allocation buffer (TLAB).
+    - If this option is set to 0, then the JVM selects the initial size automatically.
 
--XX:+UseG1GC
-Enables the use of the garbage-first (G1) garbage collector. It’s a server-style garbage collector, targeted for multiprocessor machines with a large amount of RAM. This option meets GC pause time goals with high probability, while maintaining good throughput. The G1 collector is recommended for applications requiring large heaps (sizes of around 6 GB or larger) with limited GC latency requirements (a stable and predictable pause time below 0.5 seconds). By default, this option is enabled and G1 is used as the default garbage collector.
+**`-XX:+UseAdaptiveSizePolicy`**
 
--XX:+UseGCOverheadLimit
-Enables the use of a policy that limits the proportion of time spent by the JVM on GC before an OutOfMemoryError exception is thrown. This option is enabled, by default, and the parallel GC will throw an OutOfMemoryError if more than 98% of the total time is spent on garbage collection and less than 2% of the heap is recovered. When the heap is small, this feature can be used to prevent applications from running for long periods of time with little or no progress. To disable this option, specify the option -XX:-UseGCOverheadLimit.
+- Enables the **use of adaptive generation sizing.**
+    - This option is enabled by default.
+    - To disable adaptive generation sizing, specify `-XX:-UseAdaptiveSizePolicy` and set the size of the memory allocation pool explicitly.
+    - _See the `-XX:SurvivorRatio` option._
 
--XX:+UseNUMA
-Enables performance optimization of an application on a machine with nonuniform memory architecture (NUMA) by increasing the application's use of lower latency memory. By default, this option is disabled and no optimization for NUMA is made. The option is available only when the parallel garbage collector is used (-XX:+UseParallelGC).
+`-XX:+UseCMSInitiatingOccupancyOnly`
 
--XX:+UseParallelGC
-Enables the use of the parallel scavenge garbage collector (also known as the throughput collector) to improve the performance of your application by leveraging multiple processors.
+- Enables the **use of the occupancy value as the only criterion for initiating the CMS collector.**
+    - By default, this option is disabled and other criteria may be used.
 
-By default, this option is disabled and the collector is chosen automatically based on the configuration of the machine and type of the JVM. If it’s enabled, then the -XX:+UseParallelOldGC option is automatically enabled, unless you explicitly disable it.
+**`-XX:+UseG1GC`**
 
--XX:+UseParallelOldGC
-Enables the use of the parallel garbage collector for full GCs. By default, this option is disabled. Enabling it automatically enables the -XX:+UseParallelGC option.
+- Enables the **use of the garbage-first (G1) garbage collector.**
+    - It’s a server-style garbage collector, **targeted for multiprocessor machines with a large amount of RAM.**
+    - This option **meets GC pause time goals with high probability, while maintaining good throughput.**
+    - The G1 collector is **recommended for applications requiring large heaps (sizes of around 6 GB or larger) with limited GC latency requirements (a stable and predictable pause time below 0.5 seconds).**
+    - By default, this option is enabled and G1 is used as the default garbage collector.
 
--XX:+UseSerialGC
-Enables the use of the serial garbage collector. This is generally the best choice for small and simple applications that don’t require any special functionality from garbage collection. By default, this option is disabled and the collector is selected automatically based on the configuration of the machine and type of the JVM.
+`-XX:+UseGCOverheadLimit`
 
--XX:+UseSHM
-Linux only: Enables the JVM to use shared memory to set up large pages.
+- Enables the **use of a policy that limits the proportion of time spent by the JVM on GC before an OutOfMemoryError exception is thrown.**
+    - This option is enabled, by default, and the **parallel GC will throw an OutOfMemoryError if more than 98% of the total time is spent on garbage collection and less than 2% of the heap is recovered.**
+    - When the heap is small, this feature can be used to **prevent applications from running for long periods of time with little or no progress.**
 
-See Large Pages for setting up large pages.
+_`-XX:+UseNUMA`_
 
--XX:+UseStringDeduplication
-Enables string deduplication. By default, this option is disabled. To use this option, you must enable the garbage-first (G1) garbage collector.
+- Enables **performance optimization of an application on a machine with nonuniform memory architecture (NUMA) by increasing the application's use of lower latency memory.**
+    - By default, this option is disabled and no optimization for NUMA is made.
+    - The option is available only when the parallel garbage collector is used (`-XX:+UseParallelGC`).
 
-String deduplication reduces the memory footprint of String objects on the Java heap by taking advantage of the fact that many String objects are identical. Instead of each String object pointing to its own character array, identical String objects can point to and share the same character array.
+**`-XX:+UseParallelGC`**
 
--XX:+UseTLAB
-Enables the use of thread-local allocation blocks (TLABs) in the young generation space. This option is enabled by default. To disable the use of TLABs, specify the option -XX:-UseTLAB.
+- Enables the use of the **parallel scavenge garbage collector (also known as the throughput collector) to improve the performance of your application by leveraging multiple processors.**
+- By default, this option is disabled and the collector is chosen automatically based on the configuration of the machine and type of the JVM.
+    - If it’s enabled, then the `-XX:+UseParallelOldGC` option is automatically enabled, unless you explicitly disable it.
+
+**`-XX:+UseParallelOldGC`**
+
+- Enables the **use of the parallel garbage collector for full GCs.**
+    - By default, this option is disabled.
+    - Enabling it automatically enables the `-XX:+UseParallelGC` option.
+
+**`-XX:+UseSerialGC`**
+
+- Enables the **use of the serial garbage collector.**
+    - This is generally the **best choice for small and simple applications that don’t require any special functionality from garbage collection.**
+    - By default, this option is disabled and the collector is selected automatically based on the configuration of the machine and type of the JVM.
+
+`-XX:+UseSHM`
+
+- Linux only : Enables the JVM to **use shared memory to set up large pages.**
+    - See "Large Pages" for setting up large pages.
+
+**`-XX:+UseStringDeduplication`**
+
+- Enables **string deduplication.**
+    - By default, this option is disabled.
+    - To use this option, you **must enable the garbage-first (G1) garbage collector.**
+- String deduplication **reduces the memory footprint of String objects on the Java heap by taking advantage of the fact that many String objects are identical.**
+    - Instead of each String object pointing to its own character array, identical String objects can point to and share the same character array.
+
+**`-XX:+UseTLAB`**
+
+- Enables the **use of thread-local allocation blocks (TLABs) in the young generation space.**
+    - This option is enabled by default.
 
 ## Usage
