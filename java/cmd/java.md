@@ -16,13 +16,18 @@ On Windows OS
 ## Quickstart
 
 ```bash
-# TODO
-
 # Run class
+java FooBar
+# or
+java FooBar.class
 
 # Run jar
+java -jar foobar.jar
 
-# Common Options
+# Run with system property
+java -Dproperty=value …
+# e.g.
+java -Dlogging.config=/path/to/logback.xml springboot-app.jar
 ```
 
 ## Desription
@@ -1920,3 +1925,43 @@ These java options are **still accepted but ignored**, and a warning is issued w
     - _`Java HotSpot(TM) 64-Bit Server VM warning: Ignoring obsolete option UseAppCDS; AppCDS is automatically enabled`_
 
 ## Usage
+
+### Performance Tuning Examples
+
+- https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-EE6BD9FA-EF6D-4C3E-AC5C-30B8762CDC1B
+
+Tuning for Higher Throughput
+
+```bash
+java -server -XX:+UseParallelGC -XX:+UseLargePages -Xmn10g -Xms26g -Xmx26g
+```
+
+Tuning for Lower Response Time
+
+```bash
+java -XX:+UseG1GC -Xms26g Xmx26g -XX:MaxGCPauseMillis=500 -XX:+PrintGCTimeStamp
+```
+
+Keeping the Java Heap Small and Reducing the Dynamic Footprint of Embedded Applications
+
+```bash
+-XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5
+```
+
+### Others
+
+**Code Heap State Analytics**
+
+- https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-7F6FB589-CB59-4B94-BE01-02F48C400243
+
+**Enable Logging with the JVM Unified Logging Framework**
+
+- https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-BE93ABDC-999C-4CB5-A88B-1994AAAC74D5
+
+**Validate Java Virtual Machine Flag Arguments**
+
+- https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-9569449C-525F-4474-972C-4C1F63D5C357
+
+**Large Pages**
+
+- https://docs.oracle.com/en/java/javase/11/tools/java.html#GUID-7BE7CD55-3AC3-4A96-BBDD-E4D9FC4FCCCB
