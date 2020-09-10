@@ -1777,111 +1777,146 @@ _`-XX:+UseNUMA`_
 - Enables the **use of thread-local allocation blocks (TLABs) in the young generation space.**
     - This option is enabled by default.
 
-### Deprecated
+#### Deprecated
 
 - These java options are deprecated and **might be removed in a future JDK release.**
 - They’re **still accepted and acted upon, but a warning is issued when they’re used.**
 
 _`-Xloggc:filename`_
 
-- Sets the file to which verbose GC events information should be redirected for logging.
-    - The information written to this file is similar to the output of `-verbose:gc` with the time elapsed since the first GC event preceding each logged event.
-    - The `-Xloggc` option overrides `-verbose:gc` if `both` are given with the same java command.
-- Example: `-Xlog:gc:garbage-collection.log`
+- _Sets the **file to which verbose GC events information should be redirected for logging**._
+    - _The information written to this file is similar to the output of `-verbose:gc` with the time elapsed since the first GC event preceding each logged event._
+    - _The `-Xloggc` option overrides `-verbose:gc` if `both` are given with the same java command._
+- _Example: `-Xlog:gc:garbage-collection.log`_
 
 _`-XX:CMSInitiatingOccupancyFraction=percent`_
 
-- _Sets the percentage of the old generation occupancy (0 to 100) at which to start a CMS collection cycle._
-    - The default value is set to -1.
-    - Any negative value (including the default) implies that the option `-XX:CMSTriggerRatio` is used to define the value of the initiating occupancy fraction.
+- _Sets the **percentage of the old generation occupancy (0 to 100) at which to start a CMS collection cycle.**_
+    - _The default value is set to **-1**._
+    - _Any negative value (including the default) implies that the option `-XX:CMSTriggerRatio` is used to define the value of the initiating occupancy fraction._
 
 _`-XX:CMSInitiatingPermOccupancyFraction=percent`_
 
-- Sets the percentage of the permanent generation occupancy (0 to 100) at which to start a GC.
-    - This option was deprecated in JDK 8 with no replacement.
+- _Sets the **percentage of the permanent generation occupancy (0 to 100) at which to start a GC.**_
+    - _This option was **deprecated in JDK 8 with no replacement.**_
 
+_`-XX:+PrintStringDeduplicationStatistics`_
 
--XX:+PrintStringDeduplicationStatistics
-Printed detailed deduplication statistics. By default, this option is disabled. See the -XX:+UseStringDeduplication option.
+- **Printed detailed deduplication statistics.**
+    - _By default, this option is disabled._
+    - _See the `-XX:+UseStringDeduplication` option._
 
--XX:+PrintTenuringDistribution
-Enables printing of tenuring age information. The following is an example of the output:
+`-XX:+PrintTenuringDistribution`
 
-CopyDesired survivor size 48286924 bytes, new threshold 10 (max 10)
+- _Enables **printing of tenuring age information.**_
+    - _The following is an example of the output:_
+
+```bash
+Desired survivor size 48286924 bytes, new threshold 10 (max 10)
 - age 1: 28992024 bytes, 28992024 total
 - age 2: 1366864 bytes, 30358888 total
 - age 3: 1425912 bytes, 31784800 total
 ...
-Age 1 objects are the youngest survivors (they were created after the previous scavenge, survived the latest scavenge, and moved from eden to survivor space). Age 2 objects have survived two scavenges (during the second scavenge they were copied from one survivor space to the next). This pattern is repeated for all objects in the output.
+```
 
-In the preceding example, 28,992,024bytes survived one scavenge and were copied from eden to survivor space, 1,366,864 bytes are occupied by age 2 objects, and so on. The third value in each row is the cumulative size of objects of age n or less.
+- _Age 1 objects are the youngest survivors (they were created after the previous scavenge, survived the latest scavenge, and moved from eden to survivor space)._
+    - _Age 2 objects have survived two scavenges (during the second scavenge they were copied from one survivor space to the next)._
+    - _This pattern is repeated for all objects in the output._
+- _In the preceding example, 28,992,024bytes survived one scavenge and were copied from eden to survivor space, 1,366,864 bytes are occupied by age 2 objects, and so on._
+    - _The third value in each row is the cumulative size of objects of age n or less._
+- _By default, this option is disabled._
 
-By default, this option is disabled.
+_`-XX:SoftRefLRUPolicyMSPerMB=time`_
 
--XX:SoftRefLRUPolicyMSPerMB=time
-Sets the amount of time (in milliseconds) a softly reachable object is kept active on the heap after the last time it was referenced. The default value is one second of lifetime per free megabyte in the heap. The -XX:SoftRefLRUPolicyMSPerMB option accepts integer values representing milliseconds per one megabyte of the current heap size (for Java HotSpot Client VM) or the maximum possible heap size (for Java HotSpot Server VM). This difference means that the Client VM tends to flush soft references rather than grow the heap, whereas the Server VM tends to grow the heap rather than flush soft references. In the latter case, the value of the -Xmx option has a significant effect on how quickly soft references are garbage collected.
+- _Sets the amount of time (in milliseconds) a softly reachable object is kept active on the heap after the last time it was referenced._
+    - _The default value is one second of lifetime per free megabyte in the heap._
+    - _The `-XX:SoftRefLRUPolicyMSPerMB` option accepts integer values representing milliseconds per one megabyte of the current heap size (for Java HotSpot Client VM) or the maximum possible heap size (for Java HotSpot Server VM)._
+    - _This difference means that the Client VM tends to flush soft references rather than grow the heap, whereas the Server VM tends to grow the heap rather than flush soft references._
+    - _In the latter case, the value of the `-Xmx` option has a significant effect on how quickly soft references are garbage collected._
 
-The following example shows how to set the value to 2.5 seconds:
+_`-XX:+TraceClassLoading`_
 
-Copy-XX:SoftRefLRUPolicyMSPerMB=2500
--XX:+TraceClassLoading
-Enables tracing of classes as they are loaded. By default, this option is disabled and classes aren’t traced.
+- _Enables **tracing of classes as they are loaded.**_
+    - _By default, this option is disabled and classes aren’t traced._
+- The replacement Unified Logging syntax is `-Xlog:class+load=level`.
+    - _See "Enable Logging with the JVM Unified Logging Framework"_
+- _Use `level=info` for regular information, or `level=debug` for additional information._
+    - _In Unified Logging syntax, `-verbose:class` equals `-Xlog:class+load=info,class+unload=info`._
 
-The replacement Unified Logging syntax is -Xlog:class+load=level. See Enable Logging with the JVM Unified Logging Framework
+_`-XX:+TraceClassLoadingPreorder`_
 
-Use level=info for regular information, or level=debug for additional information. In Unified Logging syntax, -verbose:class equals -Xlog:class+load=info,class+unload=info..
+- _Enables **tracing of all loaded classes in the order in which they’re referenced.**_
+    - _By default, this option is disabled and classes aren’t traced._
+- The replacement Unified Logging syntax is `-Xlog:class+preorder=debug`.
+    - _See "Enable Logging with the JVM Unified Logging Framework"._
 
--XX:+TraceClassLoadingPreorder
-Enables tracing of all loaded classes in the order in which they’re referenced. By default, this option is disabled and classes aren’t traced.
+_`-XX:+TraceClassResolution`_
 
-The replacement Unified Logging syntax is -Xlog:class+preorder=debug. See Enable Logging with the JVM Unified Logging Framework.
+- _Enables **tracing of constant pool resolutions.**_
+    - _By default, this option is disabled and constant pool resolutions aren’t traced._
+- The replacement Unified Logging syntax is `-Xlog:class+resolve=debug`.
+    - _See "Enable Logging with the JVM Unified Logging Framework"._
 
--XX:+TraceClassResolution
-Enables tracing of constant pool resolutions. By default, this option is disabled and constant pool resolutions aren’t traced.
+_`-XX:+TraceLoaderConstraints`_
 
-The replacement Unified Logging syntax is -Xlog:class+resolve=debug. See Enable Logging with the JVM Unified Logging Framework.
+- _Enables **tracing of the loader constraints recording.**_
+    - _By default, this option is disabled and loader constraints recording isn’t traced._
+- The replacement Unified Logging syntax is `-Xlog:class+loader+constraints=info`.
+    - _See "Enable Logging with the JVM Unified Logging Framework"._
 
--XX:+TraceLoaderConstraints
-Enables tracing of the loader constraints recording. By default, this option is disabled and loader constraints recording isn’t traced.
+_`-XX:+UseConcMarkSweepGC`_
 
-The replacement Unified Logging syntax is -Xlog:class+loader+constraints=info. See Enable Logging with the JVM Unified Logging Framework.
+- Enables the **use of the CMS garbage collector for the old generation.**
+    - CMS is an alternative to the default garbage collector (G1), which also focuses on meeting application latency requirements.
+    - _By default, this option is disabled and the collector is selected automatically based on the configuration of the machine and type of the JVM._
+    - _The CMS garbage collector is deprecated._
 
--XX:+UseConcMarkSweepGC
-Enables the use of the CMS garbage collector for the old generation. CMS is an alternative to the default garbage collector (G1), which also focuses on meeting application latency requirements. By default, this option is disabled and the collector is selected automatically based on the configuration of the machine and type of the JVM. The CMS garbage collector is deprecated.
+_`-XX:+UseParNewGC`_
 
--XX:+UseParNewGC
-Enables the use of parallel threads for collection in the young generation. By default, this option is disabled. It’s automatically enabled when you set the -XX:+UseConcMarkSweepGC option. Using the -XX:+UseParNewGC option without the -XX:+UseConcMarkSweepGC option was deprecated in JDK 8. All uses of the -XX:+UseParNewGC option are deprecated. Using the option without -XX:+UseConcMarkSweepGC isn’t possible.
+- _Enables the **use of parallel threads for collection in the young generation.**_
+    - _By default, this option is disabled._
+    - _It’s automatically enabled when you set the `-XX:+UseConcMarkSweepGC` option._
+    - _Using the `-XX:+UseParNewGC` option without the `-XX:+UseConcMarkSweepGC` option was **deprecated in JDK 8.**_
+    - _All uses of the `-XX:+UseParNewGC` option are deprecated._
+    - _Using the option without `-XX:+UseConcMarkSweepGC` isn’t possible._
 
--XX:+UseSplitVerifier
-Enables splitting the verification process. By default, this option was enabled in the previous releases, and verification was split into two phases: type referencing (performed by the compiler) and type checking (performed by the JVM runtime). Verification is now split by default without a way to disable it.
+_`-XX:+UseSplitVerifier`_
 
-Obsolete Java Options
+- _Enables splitting the verification process._
+    - _By default, this option was enabled in the previous releases, and verification was split into two phases: type referencing (performed by the compiler) and type checking (performed by the JVM runtime)._
+    - _Verification is now split by default without a way to disable it._
 
-These java options are still accepted but ignored, and a warning is issued when they’re used.
+#### Obsolete Java Options
 
--XX:+AggressiveOpts
-Enables the use of aggressive performance optimization features, which are expected to become default in upcoming releases. By default, this option is disabled and experimental performance features are not used.
+These java options are **still accepted but ignored**, and a warning is issued when they’re used.
 
--XX:+CheckEndorsedAndExtDirs
-Enabled the option to prevent the java command from running a Java application if any of the following directories existed and wasn't empty:
+~~`-XX:+AggressiveOpts`~~
 
-lib/endorsed
+- _Enables the use of aggressive performance optimization features, which are expected to become default in upcoming releases._
+    - _By default, this option is disabled and experimental performance features are not used._
 
-lib/ext
+~~`-XX:+CheckEndorsedAndExtDirs`~~
 
-The systemwide platform-specific extension directory
+- _Enabled the option to prevent the java command from running a Java application if any of the following directories existed and wasn't empty:_
+    - _`lib/endorsed`_
+    - _`lib/ext`_
+    - _The systemwide platform-specific extension directory_
+- _The endorsed standards override mechanism and the extension mechanism are no longer supported._
 
-The endorsed standards override mechanism and the extension mechanism are no longer supported.
+~~`-XX:MaxPermSize=size`~~
 
--XX:MaxPermSize=size
-Sets the maximum permanent generation space size (in bytes). This option was deprecated in JDK 8 and superseded by the -XX:MaxMetaspaceSize option.
+- _Sets the **maximum permanent generation space size (in bytes).**_
+- _This option was deprecated in JDK 8 and superseded by the `-XX:MaxMetaspaceSize` option._
 
--XX:PermSize=size
-Sets the space (in bytes) allocated to the permanent generation that triggers a garbage collection if it’s exceeded. This option was deprecated in JDK 8 and superseded by the -XX:MetaspaceSize option.
+~~`-XX:PermSize=size`~~
 
--XX:+UseAppCDS
-Support for archiving and sharing non-system classes is now enabled automatically if the application classes or platform classes are present in the classlist and the shared archive is generated with -Xshare:dump/auto/on. The following customized warning message is issued, which differs slightly from the standard warning used for an obsolete flag:
+- _Sets the **space (in bytes) allocated to the permanent generation that triggers a garbage collection if it’s exceeded.**_
+    - _This option was deprecated in JDK 8 and superseded by the `-XX:MetaspaceSize` option._
 
-Java HotSpot(TM) 64-Bit Server VM warning: Ignoring obsolete option UseAppCDS; AppCDS is automatically enabled
+~~`-XX:+UseAppCDS`~~
+
+- _Support for archiving and sharing non-system classes is now enabled automatically if the application classes or platform classes are present in the classlist and the shared archive is generated with `-Xshare:dump/auto/on`._
+- _The following customized warning message is issued, which differs slightly from the standard warning used for an obsolete flag:_
+    - _`Java HotSpot(TM) 64-Bit Server VM warning: Ignoring obsolete option UseAppCDS; AppCDS is automatically enabled`_
 
 ## Usage
