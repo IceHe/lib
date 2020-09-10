@@ -146,7 +146,6 @@ _Others_
 
 <!--
 
-- [javac](/java/cmd/javac.md) ( TODO )
 - [javap](/java/cmd/javap.md) ( TODO )
 
 -->
@@ -155,6 +154,7 @@ Command Tools
 
 - Classical
     - **[java](/java/cmd/java.md)** : Java **application launcher**
+    - [javac](/java/cmd/javac.md) ( TODO )
     - **[jps](/java/cmd/jps.md)** : JVM **process status** ( list the instrumented JVMs on the target system )
     - **[jstat](/java/cmd/jstat.md)** : monitor JVM **statistics**
     - [jinfo](/java/cmd/jinfo.md) : **configuration info** ( generate configuration info for a specified Java process )
