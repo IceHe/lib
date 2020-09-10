@@ -1308,11 +1308,11 @@ _`-XX:+UseFMA`_
 
 _`-XX:+UseRTMDeopt`_
 
-_- Autotunes RTM locking depending on the abort ratio._
-    - This ratio is specified by the `-XX:RTMAbortRatio` option.
-    - If the number of aborted transactions exceeds the abort ratio, then the method containing the lock is deoptimized and recompiled with all locks as normal locks.
-    - This option is disabled by default.
-    - The `-XX:+UseRTMLocking` option must be enabled.
+- _Autotunes RTM locking depending on the abort ratio._
+    - _This ratio is specified by the `-XX:RTMAbortRatio` option._
+    - _If the number of aborted transactions exceeds the abort ratio, then the method containing the lock is deoptimized and recompiled with all locks as normal locks._
+    - _This option is disabled by default._
+    - _The `-XX:+UseRTMLocking` option must be enabled._
 
 _`-XX:+UseRTMLocking`_
 
