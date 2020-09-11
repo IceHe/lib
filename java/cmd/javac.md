@@ -471,7 +471,7 @@ Two Argument Files
 
 - You can create two argument files : one for the javac options and the other for the source file names.
     - Note that the following lists have no line-continuation characters.
-- Create a file named options that contains the following:
+- Create a file named `options` that contains the following:
     - Oracle Solaris, Linux, and macOS:
 
 ```bash
@@ -480,7 +480,7 @@ Two Argument Files
 -sourcepath /java/pubs/ws/1.3/src/share/classes
 ```
 
-- Create a file named classes that contains the following:
+- Create a file named `classes` that contains the following:
 
 ```bash
 MyClass1.java
@@ -488,8 +488,392 @@ MyClass2.java
 MyClass3.java
 ```
 
-- Then, run the javac command as follows:
+- Then, run the `javac` command as follows:
 
 ```bash
 javac @options @classes
 ```
+
+Argument Files with Paths
+
+- The argument files can have paths, but any file names inside the files are relative to the current working directory (not `path1` or `path2`):
+
+```bash
+javac @path1/options @path2/classes
+```
+
+### `-Xlint` keys
+
+**`cast`**
+
+- Warns about **unnecessary and redundant casts**, for example:
+
+```java
+String s = (String) "Hello!"
+```
+
+`classfile`
+
+- Warns about **issues related to class file contents**.
+
+**`deprecation`**
+
+- Warns about the **use of deprecated items**. For example:
+    - The method `java.util.Date.getDay` has been deprecated since JDK 1.1.
+
+```bash
+java.util.Date myDate = new java.util.Date();
+int currentDay = myDate.getDay();
+```
+
+**`dep-ann`**
+
+- Warns about **items that are documented with the `@deprecated` Javadoc comment**, but don’t have the `@Deprecated` annotation, for example:
+
+```bash
+/**
+  * @deprecated As of Java SE 7, replaced by {@link #newMethod()}
+  */
+public static void deprecatedMethod() { }
+public static void newMethod() { }
+```
+
+`divzero`
+
+- Warns about **division by the constant integer 0**, for example:
+
+```java
+int divideByZero = 42 / 0;
+```
+
+`empty`
+
+- Warns about **empty statements after if statements**, for example:
+
+```java
+class E {
+    void m() {
+         if (true) ;
+    }
+}
+```
+
+`fallthrough`
+
+- **Checks the switch blocks for fall-through cases** and provides a warning message for any that are found.
+    - Fall-through cases are cases in a switch block, other than the last case in the block, whose code doesn’t include a break statement, allowing code execution to fall through from that case to the next case.
+- For example, the code following the case 1 label in this switch block doesn’t end with a break statement:
+
+```java
+witch (x) {
+case 1:
+    System.out.println("1");
+    // No break statement here.
+case 2:
+    System.out.println("2");
+}
+```
+
+- If the `-Xlint:fallthrough` option was used when compiling this code, then the compiler emits a warning about possible fall-through into case, with the line number of the case in question.
+
+`finally`
+
+- Warns about **finally clauses that can’t be completed normally**, for example:
+
+```java
+public static int m() {
+    try {
+        throw new NullPointerException();
+    } catch (NullPointerException(); {
+        System.err.println("Caught NullPointerException.");
+        return 1;
+    } finally {
+        return 0;
+    }
+}
+```
+
+- The compiler generates a warning for the finally block in this example.
+    - When the int method is called, it returns a value of 0.
+    - A finally block executes when the try block exits.
+    - In this example, when control is transferred to the catch block, the int method exits.
+    - However, the finally block must execute, so it’s executed, even though control was transferred outside the method.
+
+`options`
+
+- Warns about **issues that related to the use of command-line options.**
+    - See "Cross-Compilation Options" for `javac`.
+
+`overrides`
+
+- Warns about **issues related to method overrides.**
+- _For example, consider the following two classes:_
+
+```java
+public class ClassWithVarargsMethod {
+  void varargsMethod(String... s) { }
+}
+
+public class ClassWithOverridingMethod extends ClassWithVarargsMethod {
+   @Override
+   void varargsMethod(String[] s) { }
+}
+```
+
+- The compiler generates a warning similar to the following:.
+
+```bash
+warning: [override] varargsMethod(String[]) in ClassWithOverridingMethod
+overrides varargsMethod(String...) in ClassWithVarargsMethod; overriding
+method is missing '...'
+```
+
+- When the compiler encounters a `varargs` method, it translates the `varargs` formal parameter into an array.
+- In the method `ClassWithVarargsMethod.varargsMethod`, the compiler translates the `varargs` formal parameter `String... s` to the formal parameter `String[] s`, an array that matches the formal parameter of the method `ClassWithOverridingMethod.varargsMethod`.
+    - Consequently, this example compiles.
+
+`path`
+
+- Warns about **invalid path elements and nonexistent path directories on the command line** (with regard to the class path, the source path, and other paths).
+    - Such warnings can’t be suppressed with the @SuppressWarnings annotation.
+- _For example:_
+    - _Oracle Solaris, Linux, and macOS : `javac -Xlint:path -classpath /nonexistentpath Example.java`_
+
+`processing`
+
+- Warns about **issues related to annotation processing.**
+    - The compiler generates this warning when you have a class that has an annotation, and you use an annotation processor that can’t handle that type of exception.
+- For example, the following is a simple annotation processor:
+- Source file `AnnocProc.java` :
+
+```java
+import java.util.*;
+import javax.annotation.processing.*;
+import javax.lang.model.*;
+import javaz.lang.model.element.*;
+
+@SupportedAnnotationTypes("NotAnno")
+public class AnnoProc extends AbstractProcessor {
+  public boolean process(Set<? extends TypeElement> elems, RoundEnvironment renv){
+     return true;
+  }
+
+  public SourceVersion getSupportedSourceVersion() {
+     return SourceVersion.latest();
+   }
+}
+```
+
+- Source file `AnnosWithoutProcessors.java` :
+
+```java
+@interface Anno { }
+
+@Anno
+class AnnosWithoutProcessors { }
+```
+
+- The following commands compile the annotation processor `AnnoProc`, then run this annotation processor against the source file `AnnosWithoutProcessors.java` :
+
+```bash
+javac AnnoProc.java
+javac -cp . -Xlint:processing -processor AnnoProc -proc:only AnnosWithoutProcessors.java
+```
+
+- When the compiler runs the annotation processor against the source file `AnnosWithoutProcessors.java`, it generates the following warning:
+
+```bash
+warning: [processing] No processor claimed any of these annotations: Anno
+```
+
+- To resolve this issue, you can rename the annotation defined and used in the class `AnnosWithoutProcessors` from `Anno` to `NotAnno`.
+
+`rawtypes`
+
+- Warns about **unchecked operations on raw types.**
+- The following statement generates a `rawtypes` warning:
+
+```java
+void countElements(List l) { ... }
+```
+
+- The following example doesn’t generate a `rawtypes` warning:
+
+```java
+void countElements(List<?> l) { ... }
+```
+
+- `List` is a raw type.
+    - However, `List<?>` is an unbounded wildcard parameterized type.
+    - Because `List` is a parameterized interface, always specify its type argument.
+    - In this example, the `List` formal argument is specified with an unbounded wildcard (`?`) as its formal type parameter, which means that the countElements method can accept any instantiation of the `List` interface.
+
+`serial`
+
+- Warns about missing serialVersionUID definitions on serializable classes.
+- _For example:_
+
+```bash
+public class PersistentTime implements Serializable
+{
+    private Date time;
+
+    public PersistentTime() {
+        time = Calendar.getInstance().getTime();
+    }
+
+    public Date getTime() {
+        return time;
+    }
+}
+```
+
+- The compiler generates the following warning:
+
+```bash
+warning: [serial] serializable class PersistentTime has no definition of serialVersionUID
+```
+
+- If a serializable class doesn’t explicitly declare a field named `serialVersionUID`, then the serialization runtime environment calculates a default `serialVersionUID` value for that class based on various aspects of the class, as described in the Java Object Serialization Specification.
+    - However, it’s strongly recommended that all serializable classes explicitly declare `serialVersionUID` values because the default process of computing `serialVersionUID` values is highly sensitive to class details that can vary depending on compiler implementations.
+    - As a result, this might cause an unexpected InvalidClassExceptions during deserialization.
+    - To guarantee a consistent `serialVersionUID` value across different Java compiler implementations, a serializable class must declare an explicit `serialVersionUID` value.
+
+`static`
+
+- Warns about **issues relating to the use of static variables**, for example:
+
+```java
+class XLintStatic {
+    static void m1() { }
+    void m2() { this.m1(); }
+}
+```
+
+- The compiler generates the following warning:
+
+```bash
+warning: [static] static method should be qualified by type name,
+XLintStatic, instead of by an expression
+```
+
+- To resolve this issue, you can call the `static` method `m1` as follows:
+
+```java
+XLintStatic.m1();
+```
+
+- Alternately, you can remove the `static` keyword from the declaration of the method `m1`.
+
+`try`
+
+- Warns about **issues relating to the use of `try` blocks**, including try-with-resources statements.
+    - For example, a warning is generated for the following statement because the resource ac declared in the try block isn’t used:
+
+```java
+try (AutoCloseable ac = getResource()) {
+    // do nothing
+}
+```
+
+`unchecked`
+
+- Gives **more detail for unchecked conversion warnings that are mandated by the Java Language Specification**, for example :
+
+```java
+List l = new ArrayList<Number>();
+List<String> ls = l; // unchecked warning
+```
+
+- During type erasure, the types `ArrayList<Number>` and `List<String>` become `ArrayList` and `List`, respectively.
+- The `ls` command has the parameterized type `List<String>`.
+    - When the `List` referenced by `l` is assigned to `ls`, the compiler generates an unchecked warning.
+    - At compile time, the compiler and JVM can’t determine whether `l` refers to a `List<String>` type.
+    - In this case, `l` doesn’t refer to a `List<String>` type.
+    - As a result, heap pollution occurs.
+- A heap pollution situation occurs when the `List` object `l`, whose static type is `List<Number>`, is assigned to another `List` object, ls, that has a different static type, `List<String>`.
+    - However, the compiler still allows this assignment.
+    - It must allow this assignment to preserve backward compatibility with releases of Java SE that don’t support generics.
+    - Because of type erasure, `List<Number>` and `List<String>` both become `List`.
+    - Consequently, the compiler allows the assignment of the object l, which has a raw type of `List`, to the object `ls`.
+
+`varargs`
+
+- Warns about **unsafe use of variable arguments (`varargs`) methods**, in particular, those that contain non-reifiable arguments, for example:
+
+```java
+public class ArrayBuilder {
+    public static <T> void addToList (List<T> listArg, T... elements) {
+        for (T x : elements) {
+            listArg.add(x);
+        }
+    }
+}
+```
+
+- A non-reifiable type is a type whose type information isn’t fully available at runtime.
+- The compiler generates the following warning for the definition of the method `ArrayBuilder.addToList` :
+
+```bash
+warning: [varargs] Possible heap pollution from parameterized vararg type T
+```
+
+- When the compiler encounters a varargs method, it translates the varargs formal parameter into an array.
+    - However, the Java programming language doesn’t permit the creation of arrays of parameterized types.
+    - In the method `ArrayBuilder.addToList`, the compiler translates the varargs formal parameter `T...` elements to the formal parameter `T[]` elements, an array.
+    - However, because of type erasure, the compiler converts the `varargs` formal parameter to `Object[]` elements.
+    - Consequently, there’s a possibility of heap pollution.
+
+## Others
+
+### Annotation Processing
+
+- The `javac` command provides direct support for annotation processing, superseding the need for the separate annotation processing command, `apt`.
+- The API for annotation processors is defined in the `javax.annotation.processing` and `javax.lang.model` packages and subpackages.
+
+How Annotation Processing Works
+
+- Unless annotation processing is disabled with the -proc:none option, the compiler searches for any annotation processors that are available.
+    - The search path can be specified with the -processorpath option.
+    - If no path is specified, then the user class path is used.
+    - Processors are located by means of service provider-configuration files named `META-INF/services/javax.annotation.processing`.
+    - Processor on the search path.
+    - Such files should contain the names of any annotation processors to be used, listed one per line.
+    - Alternatively, processors can be specified explicitly, using the `-processor` option.
+- After scanning the source files and classes on the command line to determine what annotations are present, the compiler queries the processors to determine what annotations they process.
+    - When a match is found, the processor is called.
+    - A processor can claim the annotations it processes, in which case no further attempt is made to find any processors for those annotations.
+    - After all of the annotations are claimed, the compiler does not search for additional processors.
+- If any processors generate new source files, then another round of annotation processing occurs: Any newly generated source files are scanned, and the annotations processed as before.
+    - Any processors called on previous rounds are also called on all subsequent rounds.
+    - This continues until no new source files are generated.
+- After a round occurs where no new source files are generated, the annotation processors are called one last time, to give them a chance to complete any remaining work.
+    - Finally, unless the -proc:only option is used, the compiler compiles the original and all generated source files.
+
+### Searching for Types
+
+- To compile a source file, the compiler often needs information about a type, but the type definition is not in the source files specified on the command line.
+- The compiler needs type information for every class or interface used, extended, or implemented in the source file.
+    - This includes classes and interfaces not explicitly mentioned in the source file, but that provide information through inheritance.
+- For example, when you create a subclass of `java.awt.Window`, you are also using the ancestor classes of Window: `java.awt.Container`, `java.awt.Component`, and `java.lang.Object`.
+- When the compiler needs type information, it searches for a source file or class file that defines the type.
+    - The compiler searches for class files first in the bootstrap and extension classes, then in the user class path (which by default is the current directory).
+    - The user class path is defined by setting the CLASSPATH environment variable or by using the `-classpath` option.
+- If you set the -sourcepath option, then the compiler searches the indicated path for source files.
+    - Otherwise, the compiler searches the user class path for both class files and source files.
+- You can specify different bootstrap or extension classes with the `-bootclasspath` and the `-extdirs` options.
+- _See "Cross-Compilation Options" for `javac`._
+- A successful type search may produce a class file, a source file, or both.
+    - If both are found, then you can use the `-Xprefer` option to instruct the compiler which to use.
+    - If `newer` is specified, then the compiler uses the newer of the two files.
+    - If `source` is specified, the compiler uses the source file.
+    - The default is `newer`.
+- If a type search finds a source file for a required type, either by itself, or as a result of the setting for the `-Xprefer` option, then the compiler reads the source file to get the information it needs.
+    - By default the compiler also compiles the source file.
+    - You can use the `-implicit` option to specify the behavior.
+    - If none is specified, then no class files are generated for the source file.
+    - If `class` is specified, then class files are generated for the source file.
+- The compiler might not discover the need for some type information until after annotation processing completes.
+    - When the type information is found in a source file and no `-implicit` option is specified, the compiler gives a warning that the file is being compiled without being subject to annotation processing.
+    - To disable the warning, either specify the file on the command line (so that it will be subject to annotation processing) or use the `-implicit` option to specify whether or not class files should be generated for such source files.
+
