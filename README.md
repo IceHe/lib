@@ -147,9 +147,11 @@ _Others_
 Command Tools
 
 - Classical
+    - **[jar](/java/cmd/jar.md)** : Java **archive tool**
     - **[java](/java/cmd/java.md)** : Java **application launcher**
     - **[javac](/java/cmd/javac.md)** : Java **compiler**
     - **[javap](/java/cmd/javap.md)** : Java **class file disassembler**
+    - _[javadoc](/java/cmd/javadoc.md) : Java API documentation generator_
     - **[jps](/java/cmd/jps.md)** : JVM **process status** ( list the instrumented JVMs on the target system )
     - **[jstat](/java/cmd/jstat.md)** : monitor JVM **statistics**
     - [jinfo](/java/cmd/jinfo.md) : **configuration info** ( generate configuration info for a specified Java process )
@@ -157,7 +159,7 @@ Command Tools
     - ~~[jhat](/java/cmd/jhat.md) : Java **Heap Analysis Tool**~~ ( only available in JDK 8 ! )
     - [jstack](/java/cmd/jstack.md) : **stack trace** ( print Java stack traces of Java threads for a specified Java process )
 - Better New
-    - **[jcmd](/java/cmd/jcmd.md)** : send diagnostic **command** requests to a running JVM
+    - **[jcmd](/java/cmd/jcmd.md)** : **send diagnostic command** requests to a running JVM
     - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger**
         - ( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )
         - _Available after JDK 9_
