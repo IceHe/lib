@@ -133,19 +133,19 @@ _The java command supports a wide range of options in the following categories :
 **Standard Options**
 
 - Options **guaranteed to be supported by all implementations of the Java Virtual Machine (JVM)**.
-- _They’re used for common actions, such as checking the version of the JRE, setting the class path, enabling verbose output, and so on._
+- _They're used for common actions, such as checking the version of the JRE, setting the class path, enabling verbose output, and so on._
 
 **Extra Options**
 
 - **General purpose options that are specific to the Java HotSpot Virtual Machine.**
-- _They aren’t guaranteed to be supported by all JVM implementations, and are subject to change._
+- _They aren't guaranteed to be supported by all JVM implementations, and are subject to change._
 - These options start with `-X`.
 
 **Advanced Options**
 
-- _The advanced options aren’t recommended for casual use._
+- _The advanced options aren't recommended for casual use._
 - These are **developer options used for tuning specific areas of the Java HotSpot Virtual Machine operation that often have specific system requirements** _and may require privileged access to system configuration parameters._
-- _These options aren’t guaranteed to be supported by all JVM implementations and are subject to change._
+- _These options aren't guaranteed to be supported by all JVM implementations and are subject to change._
 - Advanced options start with `-XX`.
     - **Advanced Runtime Options**
         - Control the runtime behavior of the Java HotSpot VM.
@@ -178,15 +178,15 @@ These are the most commonly used options **supported by all implementations of t
 
 - A semicolon (`;`) separated list of directories, JAR archives, and ZIP archives to search for class files.
 - Specifying classpath overrides any setting of the `CLASSPATH` environment variable.
-    - If the class path option isn’t used and classpath isn’t set, then the user class path consists of the current directory (`.`).
+    - If the class path option isn't used and classpath isn't set, then the user class path consists of the current directory (`.`).
 - As a special convenience, a class path element that contains a base name of an asterisk (`*`) is considered equivalent to specifying a list of all the files in the directory with the extension `.jar` or `.JAR`.
-    - _A Java program can’t tell the difference between the two invocations._
+    - _A Java program can't tell the difference between the two invocations._
     - For example, if the directory `mydir` contains `a.jar` and `b.JAR`, then the class path element `mydir/*` is expanded to `a.jar:b.JAR`, except that the order of JAR files is unspecified.
     - All `.jar` files in the specified directory, even hidden ones, are included in the list.
     - A class path entry consisting of an asterisk (`*`) expands to a list of all the jar files in the current directory.
     - The `CLASSPATH` environment variable, where defined, is similarly expanded.
     - _Any class path wildcard expansion occurs before the Java VM is started._
-    - _Java programs never see wildcards that aren’t expanded except by querying the environment, such as by calling `System.getenv("CLASSPATH")`._
+    - _Java programs never see wildcards that aren't expanded except by querying the environment, such as by calling `System.getenv("CLASSPATH")`._
 
 _`--disable-@files`_
 
@@ -220,7 +220,7 @@ _`-d module name` or `--describe-module module_name`_
 
 **`--dry-run`**
 
-- _**Creates the VM but doesn’t execute the main method.**_
+- _**Creates the VM but doesn't execute the main method.**_
     - _This `--dry-run` option might be useful for validating the command-line options such as the module system configuration._
 
 _`--validate-modules`_
@@ -243,9 +243,9 @@ _`-disableassertions[:[packagename]...|:classname]` or `-da[:[packagename]...|:c
     - _With the packagename argument ending in `..., the switch disables assertions in the specified package and any subpackages._
     - _If the argument is simply `...`, then the switch disables assertions in the unnamed package in the current working directory._
     - _With the classname argument, the switch disables assertions in the specified class._
-- The `-disableassertions` (`-da`) option applies to all class loaders and to system classes (which don’t have a class loader).
-    - _There’s one exception to this rule :_
-        - _If the option is provided with no arguments, then it doesn’t apply to system classes._
+- The `-disableassertions` (`-da`) option applies to all class loaders and to system classes (which don't have a class loader).
+    - _There's one exception to this rule :_
+        - _If the option is provided with no arguments, then it doesn't apply to system classes._
     - _This makes it easy to disable assertions in all classes except for system classes._
     - _The `-disablesystemassertions` option enables you to disable assertions in all system classes._
     - _To explicitly enable assertions in specific packages or classes, use the `-enableassertions` (`-ea`) option._
@@ -335,7 +335,7 @@ _`-splash:imagepath`_
 **`@argfile`**
 
 - **Specifies one or more argument files prefixed by `@` used by the java command.**
-    - It isn’t uncommon for the java command line to be very long because of the `.jar` files needed in the classpath.
+    - It isn't uncommon for the java command line to be very long because of the `.jar` files needed in the classpath.
     - The `@argfile` option **overcomes command-line length limitations** by enabling the launcher to expand the contents of argument files after shell expansion, but before argument processing.
     - Contents in the argument files are expanded because otherwise, they would be specified on the command line until the `-Xdisable-@files` option was encountered.
 - The argument files **can also contain the main class name and all options.**
@@ -391,7 +391,7 @@ _`-Xcheck:jni`_
 
 - **Runs the application in interpreted-only mode.**
     - Compilation to native code is disabled, and all bytecode is executed by the interpreter.
-    - _The performance benefits offered by the just-in-time (JIT) compiler aren’t present in this mode._
+    - _The performance benefits offered by the just-in-time (JIT) compiler aren't present in this mode._
 
 _`-Xinternalversion`_
 
@@ -459,12 +459,12 @@ _`-Xinternalversion`_
         - The JVM uses `SIGHUP`, `SIGINT`, and `SIGTERM` to initiate the running of shutdown hooks.
     - Applications embedding the JVM frequently need to trap signals such as `SIGINT` or `SIGTERM`, which can lead to interference with the JVM signal handlers.
         - The `-Xrs` option is available to address this issue.
-        - When `-Xrs` is used, the signal masks for `SIGINT`, `SIGTERM`, `SIGHUP`, and `SIGQUIT` aren’t changed by the JVM, and signal handlers for these signals aren’t installed.
+        - When `-Xrs` is used, the signal masks for `SIGINT`, `SIGTERM`, `SIGHUP`, and `SIGQUIT` aren't changed by the JVM, and signal handlers for these signals aren't installed.
 - Windows:
     - _omitted…_
 - _There are two consequences of specifying `-Xrs` :_
-    - Oracle Solaris, Linux, and macOS : **SIGQUIT thread dumps aren’t available.**
-    - _Windows : Ctrl + Break thread dumps aren’t available._
+    - Oracle Solaris, Linux, and macOS : **SIGQUIT thread dumps aren't available.**
+    - _Windows : Ctrl + Break thread dumps aren't available._
 - User code is responsible for causing shutdown hooks to run, for example, by calling the `System.exit()` when the JVM is to be terminated.
 
 _`-Xshare:mode`_
@@ -474,7 +474,7 @@ _`-Xshare:mode`_
     - _`auto` Uses CDS if possible._
         - _This is the default value for Java HotSpot 32-Bit Client VM._
     - _`on` Requires the use of CDS._
-        - _This option prints an error message and exits if class data sharing can’t be used._
+        - _This option prints an error message and exits if class data sharing can't be used._
     - _`off` Instructs not to use CDS._
 - _Note : **`-Xshare:on` is used for testing purposes only and can cause intermittent failures due to the use of address space layout randomization by the operation system.**_
     - _This option should **not be used in production environments.**_
@@ -588,7 +588,7 @@ _`-XteHeX:AllocaapAt=path`_
         - For Java Strings containing at least one multibyte character : these are represented and stored as 2 bytes per character using UTF-16 encoding.
         - **Disabling the Compact Strings feature forces the use of UTF-16 encoding as the internal representation for all Java Strings.**
 - **Cases where it may be beneficial to disable Compact Strings** include the following :
-    - When it’s known that an application overwhelmingly will be allocating multibyte character Strings
+    - When it's known that an application overwhelmingly will be allocating multibyte character Strings
     - In the unexpected event where a performance regression is observed in migrating from Java SE 8 to Java SE 9 or later and an analysis shows that Compact Strings introduces the regression
 - _In both of these scenarios, disabling Compact Strings makes sense._
 - References
@@ -612,7 +612,7 @@ _`-XX:CompilerDirectivesPrint`_
 
 - **Disables the mechanism that lets tools attach to the JVM.**
     - By default, this option is disabled, meaning that the attach mechanism is enabled and you can use diagnostics and troubleshooting tools such as `jcmd`, `jstack`, `jmap`, and `jinfo`.
-- Note : The tools such as `jcmd`, `jinfo`, `jmap`, and `jstack` shipped with the JDK aren’t supported when using the tools from one JDK version to troubleshoot a different JDK version.
+- Note : The tools such as `jcmd`, `jinfo`, `jmap`, and `jstack` shipped with the JDK aren't supported when using the tools from one JDK version to troubleshoot a different JDK version.
 
 **`-XX:ErrorFile=filename`**
 
@@ -620,7 +620,7 @@ _`-XX:CompilerDirectivesPrint`_
     - By default, this file is created in the current working directory and named `hs_err_pidpid.log` where pid is the identifier of the process that caused the error.
 - _The following example shows how to set the default log file (note that the identifier of the process is specified as `%p`) :_
     - `-XX :ErrorFile=./hs_err_pid%p.log`
-- If the file can’t be created in the specified directory (due to insufficient space, a permission problem, or another issue),
+- If the file can't be created in the specified directory (due to insufficient space, a permission problem, or another issue),
     - then the file is created in the temporary directory for the operating system :
         - Oracle Solaris, Linux, and macOS : The temporary directory is `/tmp`.
 
@@ -633,7 +633,7 @@ _`-XX:CompilerDirectivesPrint`_
 _`-XX:+FailOverToOldVerifier`_
 
 - _Enables automatic failover to the old verifier when the new type checker fails._
-    - _By default, this option is disabled and it’s ignored (that is, treated as disabled) for classes with a recent bytecode version._
+    - _By default, this option is disabled and it's ignored (that is, treated as disabled) for classes with a recent bytecode version._
     - _You can enable it for classes with older versions of the bytecode._
 
 _`-XX:+FlightRecorder`_
@@ -716,7 +716,7 @@ _`-XX:+FlightRecorder`_
 
 - Sets a **target value for the desired maximum pause time.**
     - The **default** value is **200 milliseconds.**
-    - The specified value doesn’t adapt to your heap size.
+    - The specified value doesn't adapt to your heap size.
 
 `-XX:NativeMemoryTracking=mode`
 
@@ -724,7 +724,7 @@ _`-XX:+FlightRecorder`_
 - Possible mode arguments for this option include the following:
     - `off`
         - Instructs not to track JVM native memory usage.
-        - This is the default behavior if you don’t specify the `-XX:NativeMemoryTracking` option.
+        - This is the default behavior if you don't specify the `-XX:NativeMemoryTracking` option.
     - `summary`
         - Tracks memory usage only by JVM subsystems, such as Java heap, class, code, and thread.
     - `detail`
@@ -776,7 +776,7 @@ jstat -gc file:///path/hsperfdata_pid
 
 - Enables **printing of ergonomically selected JVM flags that appeared on the command line.**
     - It can be useful to know the ergonomic values set by the JVM, such as the heap space size and the selected garbage collector.
-    - By default, this option is disabled and flags aren’t printed.
+    - By default, this option is disabled and flags aren't printed.
 
 _`-XX:+PreserveFramePointer`_
 
@@ -786,12 +786,12 @@ _`-XX:+PreserveFramePointer`_
 _`-XX:+PrintNMTStatistics`_
 
 - _Enables **printing of collected native memory tracking data** at JVM exit when native memory tracking is enabled ( see `-XX:NativeMemoryTracking` ) ._
-    - _By default, this option is disabled and native memory tracking data isn’t printed._
+    - _By default, this option is disabled and native memory tracking data isn't printed._
 
 `-XX:+RelaxAccessControlCheck`
 
 - Decreases the amount of access control checks in the verifier.
-    - By default, this option is disabled, and it’s ignored (that is, treated as disabled) for classes with a recent bytecode version.
+    - By default, this option is disabled, and it's ignored (that is, treated as disabled) for classes with a recent bytecode version.
     - You can enable it for classes with older versions of the bytecode.
 
 _`-XX:SharedArchiveFile=path`_
@@ -833,7 +833,7 @@ hello/Main
         - Specifies the delay between the Java application launch time and the start of the recording.
         - Append `s` to specify the time in seconds, `m` for minutes, h for hours, and `d` for days.
             - For example, specifying 10m means 10 minutes.
-        - By default, there’s no delay, and this parameter is set to 0.
+        - By default, there's no delay, and this parameter is set to 0.
     - `disk={true|false}`
         - Specifies whether to write data to disk while recording.
         - By default, this parameter is enabled.
@@ -844,7 +844,7 @@ hello/Main
             - By default, this parameter is disabled.
     - `duration=time`
         - Specifies the duration of the recording.
-            - By default, the duration isn’t limited, and this parameter is set to 0.
+            - By default, the duration isn't limited, and this parameter is set to 0.
     - `filename=path`
         - Specifies the path and name of the file to which the recording is written when the recording is stopped, for example:
             - `recording.jfr`
@@ -857,12 +857,12 @@ hello/Main
             - This parameter is valid only when the disk parameter is set to true.
             - Append s to specify the time in seconds, m for minutes, h for hours, and d for days.
             - For example, specifying 30s means 30 seconds.
-            - By default, the maximum age isn’t limited, and this parameter is set to 0s.
+            - By default, the maximum age isn't limited, and this parameter is set to 0s.
     - `maxsize=size`
         - Specifies the maximum size (in bytes) of disk data to keep for the recording.
             - This parameter is valid only when the disk parameter is set to true.
             - The value must not be less than the value for the maxchunksize parameter set with `-XX:FlightRecorderOptions`.
-            - By default, the maximum size of disk data isn’t limited, and this parameter is set to 0.
+            - By default, the maximum size of disk data isn't limited, and this parameter is set to 0.
     - `path-to-gc-roots={true|false}`
         - Specifies whether to collect the path to garbage collection (GC) roots at the end of a recording.
             - By default, this parameter is disabled.
@@ -899,7 +899,7 @@ hello/Main
     - By default, this option is enabled, and compressed pointers are used when Java heap sizes are less than 32 GB.
     - When this option is enabled, object references are represented as 32-bit offsets instead of 64-bit pointers, which typically increases performance when running the application with Java heap sizes of less than 32 GB.
     - This option works only for 64-bit JVMs.
-- It’s also possible to use compressed pointers when Java heap sizes are greater than 32 GB.
+- It's also possible to use compressed pointers when Java heap sizes are greater than 32 GB.
     - See the `-XX:ObjectAlignmentInBytes` option.
 
 **`-XX:-UseContainerSupport`**
@@ -935,21 +935,21 @@ _`-XX:+UseHugeTLBFS`_
 
 - _**Linux only** : This option is the **equivalent of specifying `-XX:+UseLargePages`.**_
     - _This option is disabled by default._
-    - _This option pre-allocates all large pages up-front, when memory is reserved; consequently the JVM can’t dynamically grow or shrink large pages memory areas._
+    - _This option pre-allocates all large pages up-front, when memory is reserved; consequently the JVM can't dynamically grow or shrink large pages memory areas._
     - _See `-XX:UseTransparentHugePages` if you want this behavior._
     - _See "Large Pages"._
 
 _`-XX:+UseLargePages`_
 
 - _Enables the **use of large page memory**._
-    - _By default, this option is disabled and large page memory isn’t used._
+    - _By default, this option is disabled and large page memory isn't used._
     - _See "Large Pages"._
 
 _`-XX:+UseMembar`_
 
 - _Enables **issuing of membars on thread-state transitions.**_
-    - _This option is disabled by default on all platforms except ARM servers, where it’s enabled._
-    - _(It’s recommended that you don’t disable this option on ARM servers.)_
+    - _This option is disabled by default on all platforms except ARM servers, where it's enabled._
+    - _(It's recommended that you don't disable this option on ARM servers.)_
 
 `-XX:+UsePerfData`
 
@@ -966,7 +966,7 @@ _`-XX:+UseTransparentHugePages`_
 _`-XX:+AllowUserSignalHandlers`_
 
 - _Enables **installation of signal handlers by the application.**_
-    - _By default, this option is disabled and the application isn’t allowed to install signal handlers._
+    - _By default, this option is disabled and the application isn't allowed to install signal handlers._
 
 **`-XX:VMOptionsFile=filename`**
 
@@ -1012,7 +1012,7 @@ _`-XX:AllocatePrefetchStyle=style`_
 
 - _Sets the generated code style for prefetch instructions._
 - _The style argument is an integer from 0 to 3:_
-    - _`0` Don’t generate prefetch instructions._
+    - _`0` Don't generate prefetch instructions._
     - _`1` Execute prefetch instructions after each allocation._
         - _This is the default parameter._
     - _`2` Use the thread-local allocation block (TLAB) watermark pointer to determine when prefetch instructions are executed._
@@ -1038,7 +1038,7 @@ _`-XX:AllocatePrefetchStyle=style`_
     - For example, to exclude the `indexOf()` method of the String class from being compiled, use the following:
         - `-XX:CompileCommand=exclude,java/lang/String.indexOf`
     - _Note that the full class name is specified, including all packages and subpackages separated by a slash (`/`)._
-        - _For easier cut-and-paste operations, it’s also possible to use the method name format produced by the `-XX:+PrintCompilation` and `-XX:+LogCompilation options:_
+        - _For easier cut-and-paste operations, it's also possible to use the method name format produced by the `-XX:+PrintCompilation` and `-XX:+LogCompilation options:_
             - _`-XX:CompileCommand=exclude,java.lang.String.indexOf`_
 - If the method is specified without the signature, then the command is applied to all methods with the specified name.
     - However, you can also specify the signature of the method in the class file format.
@@ -1093,7 +1093,7 @@ _`-XX:AllocatePrefetchStyle=style`_
     - Each line in the command file represents a command, a class name, and a method name for which the command is used.
     - For example, this line prints assembly code for the `toString()` method of the String class:
         - `print java/lang/String toString`
-- If you’re using commands for the JIT compiler to perform on methods, then see the `-XX:CompileCommand` option.
+- If you're using commands for the JIT compiler to perform on methods, then see the `-XX:CompileCommand` option.
 
 `-XX:CompileOnly=methods`
 
@@ -1103,9 +1103,9 @@ _`-XX:AllocatePrefetchStyle=style`_
     - For example, to compile only the `length()` method of the String class and the `size()` method of the List class, use the following:
         - `-XX:CompileOnly=java/lang/String.length,java/util/List.size`
     - _Note that the full class name is specified, including all packages and subpackages separated by a slash (`/`)._
-        - _For easier cut and paste operations, it’s also possible to use the method name format produced by the `-XX:+PrintCompilation` and `-XX:+LogCompilation` options:_
+        - _For easier cut and paste operations, it's also possible to use the method name format produced by the `-XX:+PrintCompilation` and `-XX:+LogCompilation` options:_
             - _`-XX:CompileOnly=java.lang.String::length,java.util.List::size`_
-- Although wildcards aren’t supported, you can specify only the class or package name to compile all methods in that class or package, as well as specify just the method to compile the methods with this name in any class:
+- Although wildcards aren't supported, you can specify only the class or package name to compile all methods in that class or package, as well as specify just the method to compile the methods with this name in any class:
 
 ```bash
 -XX:CompileOnly=java/lang/String
@@ -1139,7 +1139,7 @@ _`-XX:CompileThresholdScaling=scale`_
 
 - Sets the **initial code cache size (in bytes).**
     - The default value is set to **500 KB**.
-    - The initial code cache size shouldn’t be less than the system's minimal memory page size.
+    - The initial code cache size shouldn't be less than the system's minimal memory page size.
 
 **`-XX:+Inline`**
 
@@ -1156,7 +1156,7 @@ _`-XX:InlineSmallCode=size`_
 
 - Enables **logging of compilation activity** to a file named `hotspot.log` in the current working directory.
     - You can specify a different log file path and name using the `-XX:LogFile` option.
-- By default, this option is disabled and compilation activity isn’t logged.
+- By default, this option is disabled and compilation activity isn't logged.
     - The `-XX:+LogCompilation` option has to be used together with the `-XX:UnlockDiagnosticVMOptions` option that unlocks diagnostic JVM options.
 - You can enable verbose diagnostic output with a message printed to the console every time a method is compiled by using the -XX:+PrintCompilation option.
 
@@ -1195,9 +1195,9 @@ _`-XX:MaxTrivialSize=size`_
 `-XX:+PrintAssembly`
 
 - Enables **printing of assembly code for bytecoded and native methods** by using the external `hsdis-<arch>.so` or `.dll` library.
-    - For 64-bit VM on Windows, it’s `hsdis-amd64.dll`.
+    - For 64-bit VM on Windows, it's `hsdis-amd64.dll`.
     - This lets you to see the generated code, which may help you diagnose performance issues.
-- By default, this option is disabled and assembly code isn’t printed.
+- By default, this option is disabled and assembly code isn't printed.
     - The `-XX:+PrintAssembly` option has to be used together with the `-XX:UnlockDiagnosticVMOptions` option that unlocks diagnostic JVM options.
 
 _`-XX:ProfiledCodeHeapSize=size`_
@@ -1209,14 +1209,14 @@ _`-XX:ProfiledCodeHeapSize=size`_
 
 - Enables **verbose diagnostic output from the JVM by printing a message to the console every time a method is compiled.**
     - This lets you see which methods actually get compiled.
-    - By default, this option is disabled and diagnostic output isn’t printed.
+    - By default, this option is disabled and diagnostic output isn't printed.
 - You can also log compilation activity to a file by using the `-XX:+LogCompilation` option.
 
 _`-XX:+PrintInlining`_
 
 - _Enables **printing of inlining decisions.**_
-    - _This let’s you see which methods are getting inlined._
-- _By default, this option is disabled and inlining information isn’t printed._
+    - _This let's you see which methods are getting inlined._
+- _By default, this option is disabled and inlining information isn't printed._
     - _The `-XX:+PrintInlining` option has to be used together with the `-XX:+UnlockDiagnosticVMOptions` option that unlocks diagnostic JVM options._
 
 `-XX:ReservedCodeCacheSize=size`
@@ -1224,7 +1224,7 @@ _`-XX:+PrintInlining`_
 - Sets the **maximum code cache size (in bytes) for JIT-compiled code.**
     - The default maximum code cache size is **240 MB**, unless you disable tiered compilation with the option `-XX:-TieredCompilation`, then the default size is **48 MB**.
     - This option has a **limit of 2 GB**; otherwise, an error is generated.
-    - The maximum code cache size shouldn’t be less than the initial code cache size.
+    - The maximum code cache size shouldn't be less than the initial code cache size.
     - See the option `-XX:InitialCodeCacheSize`.
 
 _`-XX:RTMAbortRatio=abort_ratio`_
@@ -1240,7 +1240,7 @@ _`-XX:+SegmentedCodeCache`_
 - _Enables segmentation of the code cache._
     - _Without the `-XX:+SegmentedCodeCache`, the code cache consists of one large segment._
     - _With `-XX:+SegmentedCodeCache`, we have separate segments for nonmethod, profiled method, and nonprofiled method code._
-    - _These segments aren’t resized at runtime._
+    - _These segments aren't resized at runtime._
     - _The feature is enabled by default if tiered compilation is enabled (`-XX:+TieredCompilation`) and `-XX:ReservedCodeCacheSize` >= 240 MB._
     - _The advantages are better control of the memory footprint, reduced code fragmentation, and better iTLB/iCache behavior due to improved locality._
     - _iTLB/iCache is a CPU-specific term meaning Instruction Translation Lookaside Buffer (ITLB)._
@@ -1278,7 +1278,7 @@ _`-XX:+UseAESIntrinsics`_
         - _`-XX:+UseAES -XX:+UseAESIntrinsics`_
 - _Flags that control intrinsics now require the option -XX:+UnlockDiagnosticVMOptions._
     - _To support UseAES and UseAESIntrinsics flags, use the -server option to select the Java HotSpot Server VM._
-    - _These flags aren’t supported on Client VM._
+    - _These flags aren't supported on Client VM._
 
 _`-XX:+UseCMoveUnconditionally`_
 
@@ -1324,11 +1324,11 @@ _`-XX:+UseRTMLocking`_
     - _The `XBEGIN` and `XEND` instructions enclose a set of instructions to run as a transaction._
     - _If no conflict is found when running the transaction, then the memory and register modifications are committed together at the `XEND` instruction._
     - _The `XABORT` instruction can be used to explicitly abort a transaction and the `XEND` instruction checks if a set of instructions is being run in a transaction._
-- _A lock on a transaction is inflated when another thread tries to access the same transaction, thereby blocking the thread that didn’t originally request access to the transaction._
+- _A lock on a transaction is inflated when another thread tries to access the same transaction, thereby blocking the thread that didn't originally request access to the transaction._
     - _RTM requires that a fallback set of operations be specified in case a transaction aborts or fails._
     - _An RTM lock is a lock that has been delegated to the TSX's system._
 - _RTM improves performance for highly contended locks with low conflict in a **critical region** (which is code that must not be accessed by more than one thread concurrently)._
-    - _RTM also improves the performance of coarse-grain locking, which typically doesn’t perform well in multithreaded applications._
+    - _RTM also improves the performance of coarse-grain locking, which typically doesn't perform well in multithreaded applications._
         - _(**Coarse-grain locking** is the strategy of holding locks for long periods to minimize the overhead of taking and releasing locks, while **fine-grained locking** is the strategy of trying to achieve maximum parallelism by locking only when necessary and unlocking as soon as possible._
     - _Also, for lightly contended locks that are used by different threads, RTM can reduce false cache line sharing, also known as **cache line ping-pong**._
     - _This occurs when multiple threads from different processors are accessing different resources, but the resources share the same cache line._
@@ -1380,12 +1380,12 @@ These java options **provide the ability to gather system information and perfor
 
 - Enables **dumping the Java heap to a file in the current directory by using the heap profiler (HPROF) when a `java.ang.OutOfMemoryError` exception is thrown.**
     - You can explicitly set the heap dump file path and name using the `-XX:HeapDumpPath` option.
-    - By default, this option is disabled and the heap isn’t dumped when an OutOfMemoryError exception is thrown.
+    - By default, this option is disabled and the heap isn't dumped when an OutOfMemoryError exception is thrown.
 
 `-XX:HeapDumpPath=path`
 
 - Sets the **path and file name for writing the heap dump provided by the heap profiler (HPROF) when the `-XX:+HeapDumpOnOutOfMemoryError` option is set.**
-    - By default, the file is created in the current working directory, and it’s named `java_pid<pid>.hprof` where `<pid>` is the identifier of the process that caused the error.
+    - By default, the file is created in the current working directory, and it's named `java_pid<pid>.hprof` where `<pid>` is the identifier of the process that caused the error.
     - The following example shows how to set the default file explicitly (`%p` represents the current process identifier):
         - `-XX:HeapDumpPath=./java_pid%p.hprof`
         - Oracle Solaris, Linux, and macOS : The following example shows how to set the heap dump file to `/var/log/java/java_heapdump.hprof` :
@@ -1394,7 +1394,7 @@ These java options **provide the ability to gather system information and perfor
 `-XX:LogFile=path`
 
 - Sets the **path and file name to where log data is written.**
-    - By default, the file is created in the current working directory, and it’s named hotspot.log.
+    - By default, the file is created in the current working directory, and it's named hotspot.log.
 - _Oracle Solaris, Linux, and macOS: The following example shows how to set the log file to `/var/log/java/hotspot.log` :_
     - _`-XX:LogFile=/var/log/java/hotspot.log`_
 
@@ -1422,7 +1422,7 @@ These java options **provide the ability to gather system information and perfor
 **`-XX:+UnlockDiagnosticVMOptions`**
 
 - **Unlocks the options intended for diagnosing the JVM.**
-    - By default, this option is disabled and diagnostic options aren’t available.
+    - By default, this option is disabled and diagnostic options aren't available.
 
 #### Garbage Collection
 
@@ -1432,7 +1432,7 @@ These java options **control how garbage collection (GC) is performed by the Jav
 
 - Enables **Java heap optimization.**
     - This sets various parameters to be **optimal for long-running jobs with intensive memory allocation, based on the configuration of the computer (RAM and CPU).**
-    - By default, the option is disabled and the heap isn’t optimized.
+    - By default, the option is disabled and the heap isn't optimized.
 
 _`-XX:+AlwaysPreTouch`_
 
@@ -1464,7 +1464,7 @@ _`-XX:+CMSScavengeBeforeRemark`_
 
 _`-XX:CMSTriggerRatio=percent`_
 
-- _Sets the percentage (0 to 100) of the value specified by the option `-XX:MinHeapFreeRatio` that’s allocated before a CMS collection cycle commences._
+- _Sets the percentage (0 to 100) of the value specified by the option `-XX:MinHeapFreeRatio` that's allocated before a CMS collection cycle commences._
     - _The default value is set to **80%**._
 
 **`-XX:ConcGCThreads=threads`**
@@ -1498,8 +1498,8 @@ _`-XX:CMSTriggerRatio=percent`_
 
 **`-XX:G1HeapWastePercent=percent`**
 
-- Sets the **percentage of heap that you’re willing to waste.**
-    - The Java HotSpot VM doesn’t initiate the mixed garbage collection cycle when the reclaimable percentage is less than the heap waste percentage.
+- Sets the **percentage of heap that you're willing to waste.**
+    - The Java HotSpot VM doesn't initiate the mixed garbage collection cycle when the reclaimable percentage is less than the heap waste percentage.
     - The default is **5%**.
 
 **`-XX:G1MaxNewSizePercent=percent`**
@@ -1508,21 +1508,21 @@ _`-XX:CMSTriggerRatio=percent`_
     - The default value is **60** percent of your Java heap.
 - This is an experimental flag.
     - This setting replaces the `-XX:DefaultMaxNewGenPercent` setting.
-- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+- _This setting isn't available in Java HotSpot VM build 23 or earlier._
 
 `-XX:G1MixedGCCountTarget=number`
 
 - Sets the **target number of mixed garbage collections after a marking cycle to collect old regions with at most `G1MixedGCLIveThresholdPercent` live data.**
     - The default is **8** mixed garbage collections.
     - The goal for mixed collections is to be within this target number.
-- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+- _This setting isn't available in Java HotSpot VM build 23 or earlier._
 
 `-XX:G1MixedGCLiveThresholdPercent=percent`
 
 - Sets the occupancy threshold for an old region to be included in a mixed garbage collection cycle. The default occupancy is 85 percent.
 - This is an experimental flag.
     - This setting replaces the `-XX:G1OldCSetRegionLiveThresholdPercent` setting.
-- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+- _This setting isn't available in Java HotSpot VM build 23 or earlier._
 
 **`-XX:G1NewSizePercent=percent`**
 
@@ -1530,17 +1530,17 @@ _`-XX:CMSTriggerRatio=percent`_
     - The default value is **5** percent of your Java heap.
 - This is an experimental flag.
     - This setting replaces the -XX:DefaultMinNewGenPercent setting.
-- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+- _This setting isn't available in Java HotSpot VM build 23 or earlier._
 
 `-XX:G1OldCSetRegionThresholdPercent=percent`
 
 - Sets an **upper limit on the number of old regions to be collected** during a mixed garbage collection cycle.
     - The default is **10 percent** of the Java heap.
-- _This setting isn’t available in Java HotSpot VM build 23 or earlier._
+- _This setting isn't available in Java HotSpot VM build 23 or earlier._
 
 `-XX:G1ReservePercent=percent`
 
-- Sets the **percentage of the heap (0 to 50) that’s reserved as a false ceiling to reduce the possibility of promotion failure for the G1 collector.**
+- Sets the **percentage of the heap (0 to 50) that's reserved as a false ceiling to reduce the possibility of promotion failure for the G1 collector.**
     - **When you increase or decrease the percentage, ensure that you adjust the total Java heap by the same amount.**
 - By default, this option is set to **10%**.
 
@@ -1571,7 +1571,7 @@ _`-XX:CMSTriggerRatio=percent`_
 **`-XX:InitiatingHeapOccupancyPercent=percent`**
 
 - Sets the **percentage of the heap occupancy (0 to 100) at which to start a concurrent GC cycle.**
-    - It’s used by garbage collectors that **trigger a concurrent GC cycle based on the occupancy of the entire heap, not just one of the generations** (for example, the G1 garbage collector).
+    - It's used by garbage collectors that **trigger a concurrent GC cycle based on the occupancy of the entire heap, not just one of the generations** (for example, the G1 garbage collector).
 - By default, the initiating value is set to **45%**.
     - A value of **0 implies nonstop GC cycles**.
 
@@ -1579,8 +1579,8 @@ _`-XX:CMSTriggerRatio=percent`_
 
 - Sets a **target for the maximum GC pause time (in milliseconds).**
     - This is a **soft goal, and the JVM will make its best effort to achieve it.**
-    - The **specified value doesn’t adapt to your heap size.**
-    - By **default**, there’s **no maximum pause time value.**
+    - The **specified value doesn't adapt to your heap size.**
+    - By **default**, there's **no maximum pause time value.**
 
 **`-XX:MaxHeapSize=size`**
 
@@ -1600,7 +1600,7 @@ _`-XX:CMSTriggerRatio=percent`_
     - By default, this value is set to **70%**.
 - Minimize the Java heap size by lowering the values of the parameters `MaxHeapFreeRatio` (default value is `70%`) and `MinHeapFreeRatio` (default value is `40%`) with the command-line options `-XX:MaxHeapFreeRatio` and `-XX:MinHeapFreeRatio`.
     - Lowering MaxHeapFreeRatio to as low as 10% and MinHeapFreeRatio to 5% has successfully reduced the heap size without too much performance regression; however, results may vary greatly depending on your application.
-    - Try different values for these parameters until they’re as low as possible yet still retain acceptable performance.
+    - Try different values for these parameters until they're as low as possible yet still retain acceptable performance.
         - `-XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5`
 - Customers trying to keep the heap small should also add the option `-XX:-ShrinkHeapInSteps`.
     - See Performance Tuning Examples for a description of using this option to keep the Java heap small by reducing the dynamic footprint for embedded applications.
@@ -1608,7 +1608,7 @@ _`-XX:CMSTriggerRatio=percent`_
 **`-XX:MaxMetaspaceSize=size`**
 
 - Sets the **maximum amount of native memory that can be allocated for class metadata.**
-    - By default, the size isn’t limited.
+    - By default, the size isn't limited.
     - The amount of metadata for an application depends on the application itself, other running applications, and the amount of memory available on the system.
 
 **`-XX:MaxNewSize=size`**
@@ -1624,7 +1624,7 @@ _`-XX:CMSTriggerRatio=percent`_
 
 **`-XX:MetaspaceSize=size`**
 
-- Sets the **size of the allocated class metadata space that triggers a garbage collection the first time it’s exceeded.**
+- Sets the **size of the allocated class metadata space that triggers a garbage collection the first time it's exceeded.**
     - This threshold for a garbage collection is increased or decreased depending on the amount of metadata used.
     - The default size depends on the platform.
 
@@ -1635,7 +1635,7 @@ _`-XX:CMSTriggerRatio=percent`_
     - By default, this value is set to **40%**.
 - Minimize Java heap size by lowering the values of the parameters `MaxHeapFreeRatio` (default value is **70%**) and `MinHeapFreeRatio` (default value is **40%**) with the command-line options `-XX:MaxHeapFreeRatio` and `-XX:MinHeapFreeRatio`.
     - **Lowering MaxHeapFreeRatio to as low as 10% and MinHeapFreeRatio to 5% has successfully reduced the heap size without too much performance regression; however, results may vary greatly depending on your application.**
-    - Try different values for these parameters until they’re as low as possible, yet still retain acceptable performance.
+    - Try different values for these parameters until they're as low as possible, yet still retain acceptable performance.
         - `-XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5`
 - Customers trying to keep the heap small should also add the option `-XX:-ShrinkHeapInSteps`.
     - See "Performance Tuning Examples" for a description of using this option to keep the Java heap small by reducing the dynamic footprint for embedded applications
@@ -1678,7 +1678,7 @@ _`-XX:CMSTriggerRatio=percent`_
 
 - Enables **GC of the young generation before each full GC.**
     - This option is enabled by default.
-     Oracle recommends that you don’t disable it, because scavenging the young generation before a full GC can reduce the number of objects reachable from the old generation space into the young generation space. To disable GC of the young generation before each full GC, specify the option -XX:-ScavengeBeforeFullGC.
+     Oracle recommends that you don't disable it, because scavenging the young generation before a full GC can reduce the number of objects reachable from the old generation space into the young generation space. To disable GC of the young generation before each full GC, specify the option -XX:-ScavengeBeforeFullGC.
 
 `-XX:-ShrinkHeapInSteps`
 
@@ -1729,7 +1729,7 @@ _`-XX:CMSTriggerRatio=percent`_
 **`-XX:+UseG1GC`**
 
 - Enables the **use of the garbage-first (G1) garbage collector.**
-    - It’s a server-style garbage collector, **targeted for multiprocessor machines with a large amount of RAM.**
+    - It's a server-style garbage collector, **targeted for multiprocessor machines with a large amount of RAM.**
     - This option **meets GC pause time goals with high probability, while maintaining good throughput.**
     - The G1 collector is **recommended for applications requiring large heaps (sizes of around 6 GB or larger) with limited GC latency requirements (a stable and predictable pause time below 0.5 seconds).**
     - By default, this option is enabled and G1 is used as the default garbage collector.
@@ -1750,7 +1750,7 @@ _`-XX:+UseNUMA`_
 
 - Enables the use of the **parallel scavenge garbage collector (also known as the throughput collector) to improve the performance of your application by leveraging multiple processors.**
 - By default, this option is disabled and the collector is chosen automatically based on the configuration of the machine and type of the JVM.
-    - If it’s enabled, then the `-XX:+UseParallelOldGC` option is automatically enabled, unless you explicitly disable it.
+    - If it's enabled, then the `-XX:+UseParallelOldGC` option is automatically enabled, unless you explicitly disable it.
 
 **`-XX:+UseParallelOldGC`**
 
@@ -1761,7 +1761,7 @@ _`-XX:+UseNUMA`_
 **`-XX:+UseSerialGC`**
 
 - Enables the **use of the serial garbage collector.**
-    - This is generally the **best choice for small and simple applications that don’t require any special functionality from garbage collection.**
+    - This is generally the **best choice for small and simple applications that don't require any special functionality from garbage collection.**
     - By default, this option is disabled and the collector is selected automatically based on the configuration of the machine and type of the JVM.
 
 `-XX:+UseSHM`
@@ -1785,7 +1785,7 @@ _`-XX:+UseNUMA`_
 #### Deprecated
 
 - These java options are deprecated and **might be removed in a future JDK release.**
-- They’re **still accepted and acted upon, but a warning is issued when they’re used.**
+- They're **still accepted and acted upon, but a warning is issued when they're used.**
 
 _`-Xloggc:filename`_
 
@@ -1842,7 +1842,7 @@ _`-XX:SoftRefLRUPolicyMSPerMB=time`_
 _`-XX:+TraceClassLoading`_
 
 - _Enables **tracing of classes as they are loaded.**_
-    - _By default, this option is disabled and classes aren’t traced._
+    - _By default, this option is disabled and classes aren't traced._
 - The replacement Unified Logging syntax is `-Xlog:class+load=level`.
     - _See "Enable Logging with the JVM Unified Logging Framework"_
 - _Use `level=info` for regular information, or `level=debug` for additional information._
@@ -1850,22 +1850,22 @@ _`-XX:+TraceClassLoading`_
 
 _`-XX:+TraceClassLoadingPreorder`_
 
-- _Enables **tracing of all loaded classes in the order in which they’re referenced.**_
-    - _By default, this option is disabled and classes aren’t traced._
+- _Enables **tracing of all loaded classes in the order in which they're referenced.**_
+    - _By default, this option is disabled and classes aren't traced._
 - The replacement Unified Logging syntax is `-Xlog:class+preorder=debug`.
     - _See "Enable Logging with the JVM Unified Logging Framework"._
 
 _`-XX:+TraceClassResolution`_
 
 - _Enables **tracing of constant pool resolutions.**_
-    - _By default, this option is disabled and constant pool resolutions aren’t traced._
+    - _By default, this option is disabled and constant pool resolutions aren't traced._
 - The replacement Unified Logging syntax is `-Xlog:class+resolve=debug`.
     - _See "Enable Logging with the JVM Unified Logging Framework"._
 
 _`-XX:+TraceLoaderConstraints`_
 
 - _Enables **tracing of the loader constraints recording.**_
-    - _By default, this option is disabled and loader constraints recording isn’t traced._
+    - _By default, this option is disabled and loader constraints recording isn't traced._
 - The replacement Unified Logging syntax is `-Xlog:class+loader+constraints=info`.
     - _See "Enable Logging with the JVM Unified Logging Framework"._
 
@@ -1880,10 +1880,10 @@ _`-XX:+UseParNewGC`_
 
 - _Enables the **use of parallel threads for collection in the young generation.**_
     - _By default, this option is disabled._
-    - _It’s automatically enabled when you set the `-XX:+UseConcMarkSweepGC` option._
+    - _It's automatically enabled when you set the `-XX:+UseConcMarkSweepGC` option._
     - _Using the `-XX:+UseParNewGC` option without the `-XX:+UseConcMarkSweepGC` option was **deprecated in JDK 8.**_
     - _All uses of the `-XX:+UseParNewGC` option are deprecated._
-    - _Using the option without `-XX:+UseConcMarkSweepGC` isn’t possible._
+    - _Using the option without `-XX:+UseConcMarkSweepGC` isn't possible._
 
 _`-XX:+UseSplitVerifier`_
 
@@ -1893,7 +1893,7 @@ _`-XX:+UseSplitVerifier`_
 
 #### Obsolete Java Options
 
-These java options are **still accepted but ignored**, and a warning is issued when they’re used.
+These java options are **still accepted but ignored**, and a warning is issued when they're used.
 
 ~~`-XX:+AggressiveOpts`~~
 
@@ -1915,7 +1915,7 @@ These java options are **still accepted but ignored**, and a warning is issued w
 
 ~~`-XX:PermSize=size`~~
 
-- _Sets the **space (in bytes) allocated to the permanent generation that triggers a garbage collection if it’s exceeded.**_
+- _Sets the **space (in bytes) allocated to the permanent generation that triggers a garbage collection if it's exceeded.**_
     - _This option was deprecated in JDK 8 and superseded by the `-XX:MetaspaceSize` option._
 
 ~~`-XX:+UseAppCDS`~~
