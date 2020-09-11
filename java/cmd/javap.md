@@ -21,7 +21,7 @@ javap HelloWorld.class
 javap -c HelloWorld
 ```
 
-Synopsis
+## Synopsis
 
 ```bash
 javap [options] classes...
@@ -34,7 +34,7 @@ javap [options] classes...
     - `jar:file:///path/to/MyJar.jar!/mypkg/MyClass.class`
     - `java.lang.Object`
 
-Description
+## Description
 
 - The `javap` command **disassembles one or more class files**.
     - When no options are used, the javap command prints the protected and public fields, and methods of the classes passed to it.

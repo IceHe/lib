@@ -9,9 +9,7 @@ References
 - `man jar`
 - Java SE 11 Docs - Tools References - `jar` : https://docs.oracle.com/en/java/javase/11/tools/jar.html
 
-## Quickstart
-
-Synopsis
+## Synopsis
 
 ```bash
 jar [OPTION...] [ [--release VERSION] [-C dir] files] ...
@@ -44,7 +42,7 @@ jar t[v] [ inputfiles ] [ -Joption ]
 jar i jarfile [ -Joption ]
 ```
 
-Description
+## Description
 
 - The `jar` command is a general-purpose archiving and compression tool, based on the ZIP and ZLIB compression formats.
     - Initially, the `jar` command was **designed to package Java applets (not supported since JDK 11) or applications**; however, beginning with JDK 9, users can use the `jar` command to create modular JARs.

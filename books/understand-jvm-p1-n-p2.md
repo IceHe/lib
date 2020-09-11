@@ -2237,8 +2237,9 @@ _REPL & 脚本工具_
 
 JConsole & JHSDB
 
-- _其中, JConsole 是最古老, 早在 JDK 5 时期就已经存在的虚拟机监控工具
-- 而 JHSDB 虽然名义上是 JDK 9 中才正式提供_
+- _其中, JConsole 是最古老, 早在 JDK 5 时期就已经存在的虚拟机监控工具_
+    - Java SE 11 Docs - Tools References - `jconsole` : https://docs.oracle.com/en/java/javase/11/tools/jconsole.html
+- _而 JHSDB 虽然名义上是 JDK 9 中才正式提供_
 
 _VisualVM_
 

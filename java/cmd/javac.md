@@ -7,9 +7,7 @@ References
 - `man javac`
 - Java SE 11 Docs - Tools References - `javac` : https://docs.oracle.com/en/java/javase/11/tools/javac.html
 
-## Quickstart
-
-Synopsis
+## Synopsis
 
 ```bash
 javac [ options ] [ sourcefiles ] [ @argfiles ]
@@ -20,7 +18,7 @@ javac [ options ] [ sourcefiles ] [ @argfiles ]
 - `@argfiles` One or more files that list source files.
     -The `-J` options are not allowed in these files.
 
-Description
+## Description
 
 - The javac command reads class and interface definitions, written in the Java programming language, and compiles them into bytecode class files.
     - The javac command can also process annotations in Java source files and classes.

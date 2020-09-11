@@ -6,7 +6,7 @@ References
 
 - `man jinfo`
 - Understand the JVM - 2nd Edition - ZH Ver. - P143
-- https://docs.oracle.com/en/java/javase/14/docs/specs/man/jinfo.html
+- Java SE 14 Docs - Tools References - `jinfo` : https://docs.oracle.com/en/java/javase/14/docs/specs/man/jinfo.html
 
 ## Quickstart
 

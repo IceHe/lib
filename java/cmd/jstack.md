@@ -6,7 +6,7 @@ References
 
 - `man jstack`
 - Understand the JVM - 2nd Edition - ZH Ver. - P146
-- https://docs.oracle.com/en/java/javase/14/docs/specs/man/jstack.html
+- Java SE 14 Docs - Tools References - `jstack` : https://docs.oracle.com/en/java/javase/14/docs/specs/man/jstack.html
 
 ## Quickstart
 

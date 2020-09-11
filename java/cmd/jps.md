@@ -6,6 +6,7 @@ References
 
 - `man jps`
 - Understand the JVM - 2nd Edition - ZH Ver. - P141
+- Java SE 11 Docs - Tools References - `jps` : https://docs.oracle.com/en/java/javase/11/tools/jps.html
 
 ## Quickstart
 

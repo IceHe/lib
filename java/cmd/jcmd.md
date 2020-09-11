@@ -5,7 +5,7 @@
 References
 
 - `man jcmd`
-- https://docs.oracle.com/en/java/javase/14/docs/specs/man/jcmd.html
+- Java SE 14 Docs - Tools References - `jcmd` :  https://docs.oracle.com/en/java/javase/14/docs/specs/man/jcmd.html
 
 ## Quickstart
 
