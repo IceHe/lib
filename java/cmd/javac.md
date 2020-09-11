@@ -41,7 +41,7 @@ Description
 `-Akey[=value]`
 
 - Specifies **options to pass to annotation processors.**
-    - These options aren’t interpreted by `javac` directly, but are made available for use by individual processors.
+    - These options aren't interpreted by `javac` directly, but are made available for use by individual processors.
     - The key value should be one or more identifiers separated by a dot (`.`).
 
 `--add-modules module,module`
@@ -58,9 +58,9 @@ Description
 
 - Specifies **where to find user class files and annotation processors.**
 - This class path overrides the user class path in the CLASSPATH environment variable.
-    - If `--class-path`, `-classpath`, or `-cp` aren’t specified, then the user class path is the current directory.
-    - If the `-sourcepath` option isn’t specified, then the user class path is also searched for source files.
-    - If the `-processorpath` option isn’t specified, then the class path is also searched for annotation processors.
+    - If `--class-path`, `-classpath`, or `-cp` aren't specified, then the user class path is the current directory.
+    - If the `-sourcepath` option isn't specified, then the user class path is also searched for source files.
+    - If the `-processorpath` option isn't specified, then the class path is also searched for annotation processors.
 
 `-d directory`
 
@@ -68,8 +68,8 @@ Description
     - If a class is part of a package, then `javac` puts the class file in a subdirectory that reflects the package name and creates directories as needed.
     - For example:
         - Oracle Solaris, Linux, and macOS : If you specify `-d /home/myclasses` and the class is called `com.mypackage.MyClass`, then the class file is `/home/myclasses/com/mypackage/MyClass.class`.
-- If the `-d` option isn’t specified, then `javac` puts each class file in the same directory as the source file from which it was generated.
-    - Note : The directory specified by the -d option isn’t automatically added to your user class path.
+- If the `-d` option isn't specified, then `javac` puts each class file in the same directory as the source file from which it was generated.
+    - Note : The directory specified by the -d option isn't automatically added to your user class path.
 
 `-deprecation`
 
@@ -85,7 +85,7 @@ Description
 `-encoding encoding`
 
 - Specifies **character encoding used by source files, such as EUC-JP and UTF-8.**
-    - If the `-encoding` option isn’t specified, then the platform default encoding is used.
+    - If the `-encoding` option isn't specified, then the platform default encoding is used.
 
 `-endorseddirs directories`
 
@@ -119,7 +119,7 @@ Description
 
 **`-g:none`**
 
-- Doesn’t generate debugging information.
+- Doesn't generate debugging information.
 
 `-h directory`
 
@@ -140,17 +140,17 @@ Description
 - Specifies **whether or not to generate class files for implicitly referenced files:**
     - `-implicit:class` — Automatically generates class files.
     - `-implicit:none` — Suppresses class file generation.
-- If this option isn’t specified, then the default automatically generates class files.
+- If this option isn't specified, then the default automatically generates class files.
     - In this case, the compiler issues a warning if any class files are generated when also doing annotation processing.
-    - The warning isn’t issued when the -implicit option is explicitly set.
+    - The warning isn't issued when the -implicit option is explicitly set.
     - See Searching for Types.
 
 **`-Joption`**
 
 - **Passes option to the runtime system**, where option is one of the Java **options described on `java` command**.
     - For example, `-J-Xms48m` sets the startup memory to 48 MB.
-- Note : The `CLASSPATH` environment variable, `-classpath` option, `-bootclasspath` option, and `-extdirs` option don’t specify the classes used to run `javac`.
-    - Trying to customize the compiler implementation with these options and variables is risky and often doesn’t accomplish what you want.
+- Note : The `CLASSPATH` environment variable, `-classpath` option, `-bootclasspath` option, and `-extdirs` option don't specify the classes used to run `javac`.
+    - Trying to customize the compiler implementation with these options and variables is risky and often doesn't accomplish what you want.
     - If you must customize the complier implementation, then use the `-J` option to pass options through to the underlying Java launcher.
 
 `--limit-modules module,module*`
@@ -201,7 +201,7 @@ _`--processor-module-path path`_
 _`--processor-path path` or `-processorpath path`_
 
 - Specifies where to find annotation processors.
-    - If this option isn’t used, then the class path is searched for processors.
+    - If this option isn't used, then the class path is searched for processors.
 
 **`-profile profile`**
 
@@ -213,7 +213,7 @@ _`--processor-path path` or `-processorpath path`_
 
 - **Compiles against the public, supported and documented API for a specific VM version.**
     - Supported release targets are 6, 7, 8, 9, 10, and 11.
-- Note:When using `--release` for a version of the Java Platform that supports modules, you can’t use `--add-modules` to access internal JDK modules, nor can you use `--add-exports` to access internal JDK APIs in the modules.
+- Note:When using `--release` for a version of the Java Platform that supports modules, you can't use `--add-modules` to access internal JDK modules, nor can you use `--add-exports` to access internal JDK APIs in the modules.
 
 `-s directory`
 
@@ -355,7 +355,7 @@ _`--processor-path path` or `-processorpath path`_
     - _The `-Xdoclint` option is disabled by default in the `javac` command._
 - _For example, the following option checks classes and members (with all groups of checks) that have the access level of protected and higher (which includes protected and public):_
     - _`-Xdoclint:all/protected`_
-- _The following option enables all groups of checks for all access levels, except it won’t check for HTML errors for classes and members that have the access level of package and higher (which includes package, protected, and public):_
+- _The following option enables all groups of checks for all access levels, except it won't check for HTML errors for classes and members that have the access level of package and higher (which includes package, protected, and public):_
     - _`-Xdoclint:all,-html/package`_
 
 `-Xdoclint/package:[-]packages(,[-]package)*`
@@ -375,7 +375,7 @@ _`--processor-path path` or `-processorpath path`_
     - Precede a key by a hyphen (`-`) to disable the specified warning.
 - Supported values for key are:
     - `all` : Enables all warnings.
-    - `auxiliaryclass` : Warns about an auxiliary class that’s hidden in a source file, and is used from other files.
+    - `auxiliaryclass` : Warns about an auxiliary class that's hidden in a source file, and is used from other files.
     - `cast` : Warns about the use of unnecessary casts.
     - `classfile` : Warns about the issues related to classfile contents.
     - `deprecation` : Warns about the use of deprecated items.
@@ -384,7 +384,7 @@ _`--processor-path path` or `-processorpath path`_
     - `empty` : Warns about an empty statement after if.
     - `exports` : Warns about the issues regarding module exports.
     - `fallthrough` : Warns about the falling through from one case of a switch statement to the next.
-    - `finally` : Warns about finally clauses that don’t terminate normally.
+    - `finally` : Warns about finally clauses that don't terminate normally.
     - `module` : Warns about the module system-related issues.
     - `opens` : Warns about the issues related to module opens.
     - `options` : Warns about the issues relating to use of command line options.
@@ -396,7 +396,7 @@ _`--processor-path path` or `-processorpath path`_
     - `removal` : Warns about the use of an API that has been marked for removal.
     - `requires-automatic` : Warns developers about the use of automatic modules in requires clauses.
     - `requires-transitive-automatic` : Warns about automatic modules in requires transitive.
-    - `serial` : Warns about the serializable classes that don’t provide a serial version ID. Also warns about access to non-public members from a serializable element.
+    - `serial` : Warns about the serializable classes that don't provide a serial version ID. Also warns about access to non-public members from a serializable element.
     - `static` : Warns about accessing a static member using an instance.
     - `try` : Warns about the issues relating to the use of try blocks (that is, try-with-resources).
     - `unchecked` : Warns about the unchecked operations.
@@ -437,7 +437,7 @@ _`--processor-path path` or `-processorpath path`_
 `-Xprint`
 
 - Prints a **textual representation of specified types for debugging purposes.**
-    - This doesn’t perform annotation processing or compilation.
+    - This doesn't perform annotation processing or compilation.
     - The format of the output could change.
 
 `-XprintProcessorInfo`
@@ -528,7 +528,7 @@ int currentDay = myDate.getDay();
 
 **`dep-ann`**
 
-- Warns about **items that are documented with the `@deprecated` Javadoc comment**, but don’t have the `@Deprecated` annotation, for example:
+- Warns about **items that are documented with the `@deprecated` Javadoc comment**, but don't have the `@Deprecated` annotation, for example:
 
 ```bash
 /**
@@ -561,8 +561,8 @@ class E {
 `fallthrough`
 
 - **Checks the switch blocks for fall-through cases** and provides a warning message for any that are found.
-    - Fall-through cases are cases in a switch block, other than the last case in the block, whose code doesn’t include a break statement, allowing code execution to fall through from that case to the next case.
-- For example, the code following the case 1 label in this switch block doesn’t end with a break statement:
+    - Fall-through cases are cases in a switch block, other than the last case in the block, whose code doesn't include a break statement, allowing code execution to fall through from that case to the next case.
+- For example, the code following the case 1 label in this switch block doesn't end with a break statement:
 
 ```java
 witch (x) {
@@ -578,7 +578,7 @@ case 2:
 
 `finally`
 
-- Warns about **finally clauses that can’t be completed normally**, for example:
+- Warns about **finally clauses that can't be completed normally**, for example:
 
 ```java
 public static int m() {
@@ -597,7 +597,7 @@ public static int m() {
     - When the int method is called, it returns a value of 0.
     - A finally block executes when the try block exits.
     - In this example, when control is transferred to the catch block, the int method exits.
-    - However, the finally block must execute, so it’s executed, even though control was transferred outside the method.
+    - However, the finally block must execute, so it's executed, even though control was transferred outside the method.
 
 `options`
 
@@ -635,14 +635,14 @@ method is missing '...'
 `path`
 
 - Warns about **invalid path elements and nonexistent path directories on the command line** (with regard to the class path, the source path, and other paths).
-    - Such warnings can’t be suppressed with the @SuppressWarnings annotation.
+    - Such warnings can't be suppressed with the @SuppressWarnings annotation.
 - _For example:_
     - _Oracle Solaris, Linux, and macOS : `javac -Xlint:path -classpath /nonexistentpath Example.java`_
 
 `processing`
 
 - Warns about **issues related to annotation processing.**
-    - The compiler generates this warning when you have a class that has an annotation, and you use an annotation processor that can’t handle that type of exception.
+    - The compiler generates this warning when you have a class that has an annotation, and you use an annotation processor that can't handle that type of exception.
 - For example, the following is a simple annotation processor:
 - Source file `AnnocProc.java` :
 
@@ -697,7 +697,7 @@ warning: [processing] No processor claimed any of these annotations: Anno
 void countElements(List l) { ... }
 ```
 
-- The following example doesn’t generate a `rawtypes` warning:
+- The following example doesn't generate a `rawtypes` warning:
 
 ```java
 void countElements(List<?> l) { ... }
@@ -734,8 +734,8 @@ public class PersistentTime implements Serializable
 warning: [serial] serializable class PersistentTime has no definition of serialVersionUID
 ```
 
-- If a serializable class doesn’t explicitly declare a field named `serialVersionUID`, then the serialization runtime environment calculates a default `serialVersionUID` value for that class based on various aspects of the class, as described in the Java Object Serialization Specification.
-    - However, it’s strongly recommended that all serializable classes explicitly declare `serialVersionUID` values because the default process of computing `serialVersionUID` values is highly sensitive to class details that can vary depending on compiler implementations.
+- If a serializable class doesn't explicitly declare a field named `serialVersionUID`, then the serialization runtime environment calculates a default `serialVersionUID` value for that class based on various aspects of the class, as described in the Java Object Serialization Specification.
+    - However, it's strongly recommended that all serializable classes explicitly declare `serialVersionUID` values because the default process of computing `serialVersionUID` values is highly sensitive to class details that can vary depending on compiler implementations.
     - As a result, this might cause an unexpected InvalidClassExceptions during deserialization.
     - To guarantee a consistent `serialVersionUID` value across different Java compiler implementations, a serializable class must declare an explicit `serialVersionUID` value.
 
@@ -768,7 +768,7 @@ XLintStatic.m1();
 `try`
 
 - Warns about **issues relating to the use of `try` blocks**, including try-with-resources statements.
-    - For example, a warning is generated for the following statement because the resource ac declared in the try block isn’t used:
+    - For example, a warning is generated for the following statement because the resource ac declared in the try block isn't used:
 
 ```java
 try (AutoCloseable ac = getResource()) {
@@ -788,12 +788,12 @@ List<String> ls = l; // unchecked warning
 - During type erasure, the types `ArrayList<Number>` and `List<String>` become `ArrayList` and `List`, respectively.
 - The `ls` command has the parameterized type `List<String>`.
     - When the `List` referenced by `l` is assigned to `ls`, the compiler generates an unchecked warning.
-    - At compile time, the compiler and JVM can’t determine whether `l` refers to a `List<String>` type.
-    - In this case, `l` doesn’t refer to a `List<String>` type.
+    - At compile time, the compiler and JVM can't determine whether `l` refers to a `List<String>` type.
+    - In this case, `l` doesn't refer to a `List<String>` type.
     - As a result, heap pollution occurs.
 - A heap pollution situation occurs when the `List` object `l`, whose static type is `List<Number>`, is assigned to another `List` object, ls, that has a different static type, `List<String>`.
     - However, the compiler still allows this assignment.
-    - It must allow this assignment to preserve backward compatibility with releases of Java SE that don’t support generics.
+    - It must allow this assignment to preserve backward compatibility with releases of Java SE that don't support generics.
     - Because of type erasure, `List<Number>` and `List<String>` both become `List`.
     - Consequently, the compiler allows the assignment of the object l, which has a raw type of `List`, to the object `ls`.
 
@@ -811,7 +811,7 @@ public class ArrayBuilder {
 }
 ```
 
-- A non-reifiable type is a type whose type information isn’t fully available at runtime.
+- A non-reifiable type is a type whose type information isn't fully available at runtime.
 - The compiler generates the following warning for the definition of the method `ArrayBuilder.addToList` :
 
 ```bash
@@ -819,10 +819,10 @@ warning: [varargs] Possible heap pollution from parameterized vararg type T
 ```
 
 - When the compiler encounters a varargs method, it translates the varargs formal parameter into an array.
-    - However, the Java programming language doesn’t permit the creation of arrays of parameterized types.
+    - However, the Java programming language doesn't permit the creation of arrays of parameterized types.
     - In the method `ArrayBuilder.addToList`, the compiler translates the varargs formal parameter `T...` elements to the formal parameter `T[]` elements, an array.
     - However, because of type erasure, the compiler converts the `varargs` formal parameter to `Object[]` elements.
-    - Consequently, there’s a possibility of heap pollution.
+    - Consequently, there's a possibility of heap pollution.
 
 ## Others
 
