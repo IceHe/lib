@@ -454,3 +454,42 @@ _`--processor-path path` or `-processorpath path`_
     - By default, compiler messages go to `System.err`.
 
 ## Usage
+
+### @filename
+
+Single Argument File
+
+- You could use a single argument file named argfile to hold all javac arguments:
+
+```bash
+javac @argfile
+```
+
+- This argument file could contain the contents of both files shown in the following "Two Argument Files" example.
+
+Two Argument Files
+
+- You can create two argument files : one for the javac options and the other for the source file names.
+    - Note that the following lists have no line-continuation characters.
+- Create a file named options that contains the following:
+    - Oracle Solaris, Linux, and macOS:
+
+```bash
+-d classes
+-g
+-sourcepath /java/pubs/ws/1.3/src/share/classes
+```
+
+- Create a file named classes that contains the following:
+
+```bash
+MyClass1.java
+MyClass2.java
+MyClass3.java
+```
+
+- Then, run the javac command as follows:
+
+```bash
+javac @options @classes
+```
