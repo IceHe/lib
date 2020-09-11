@@ -9,6 +9,18 @@ References
 
 ## Quickstart
 
+```bash
+# Default
+javap HelloWorld
+# or
+javap HelloWorld.class
+
+# With disassembled code
+# - e.g. the instructions that comprise the Java bytecodes,
+#   for each of the methods in the class.
+javap -c HelloWorld
+```
+
 Synopsis
 
 ```bash
@@ -68,7 +80,7 @@ Description
 
 **`-c`**
 
-- Prints **disassembled code**, for example, the instructions that comprise the Java bytecodes, for each of the methods in the class.
+- Prints **disassembled code**, for example, **the instructions that comprise the Java bytecodes, for each of the methods in the class.**
 
 `-s`
 
@@ -109,5 +121,101 @@ Description
 - For example:
     - `javap -J-version`
     - `javap -J-Djava.security.manager -J-Djava.security.policy=MyPolicy MyClassName`
+- See Overview of Java Options.
 
 ## Usage
+
+HelloWorldFrame.java
+
+```bash
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class HelloWorldFrame extends JFrame {
+
+   String message = "Hello World!";
+
+   public HelloWorldFrame(){
+        setContentPane(new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                g.drawString(message ,15, 30);
+            }
+        });
+        setSize(100,100);
+    }
+    public static void main(String[] args) {
+        HelloWorldFrame frame = new HelloWorldFrame();
+        frame.setVisible(true);
+    }
+}
+```
+
+Compile
+
+```bash
+# Prepare
+$ javac HelloWorldFrame.java
+```
+
+Disassemble
+
+```bash
+$ javap HelloWorldFrame.class
+# or
+$ javap HelloWorldFrame
+
+# output
+Compiled from "HelloWorldFrame.java"
+public class HelloWorldFrame extends javax.swing.JFrame {
+  java.lang.String message;
+  public HelloWorldFrame();
+  public static void main(java.lang.String[]);
+}
+```
+
+Disassemble
+
+- with disassembled code
+    - e.g. the instructions that comprise the Java bytecodes, for each of the methods in the class.
+
+```bash
+$ javap -c HelloWorldFrame
+# output
+Compiled from "HelloWorldFrame.java"
+public class HelloWorldFrame extends javax.swing.JFrame {
+  java.lang.String message;
+
+  public HelloWorldFrame();
+    Code:
+       0: aload_0
+       1: invokespecial #1        // Method javax/swing/JFrame."<init>":()V
+       4: aload_0
+       5: ldc           #2        // String Hello World!
+       7: putfield      #3        // Field message:Ljava/lang/String;
+      10: aload_0
+      11: new           #4        // class HelloWorldFrame$1
+      14: dup
+      15: aload_0
+      16: invokespecial #5        // Method HelloWorldFrame$1."<init>":(LHelloWorldFrame;)V
+      19: invokevirtual #6        // Method setContentPane:(Ljava/awt/Container;)V
+      22: aload_0
+      23: bipush        100
+      25: bipush        100
+      27: invokevirtual #7        // Method setSize:(II)V
+      30: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #8        // class HelloWorldFrame
+       3: dup
+       4: invokespecial #9        // Method "<init>":()V
+       7: astore_1
+       8: aload_1
+       9: iconst_1
+      10: invokevirtual #10       // Method setVisible:(Z)V
+      13: return
+}
+```
