@@ -374,76 +374,83 @@ _`--processor-path path` or `-processorpath path`_
 - **Supplies warnings to enable or disable, separated by a comma (`,`).**
     - Precede a key by a hyphen (`-`) to disable the specified warning.
 - Supported values for key are:
-     - `all` : Enables all warnings.
-     - `auxiliaryclass` : Warns about an auxiliary class that’s hidden in a source file, and is used from other files.
-     - `cast` : Warns about the use of unnecessary casts.
-     - `classfile` : Warns about the issues related to classfile contents.
-     - `deprecation` : Warns about the use of deprecated items.
-     - `dep-ann` : Warns about the items marked as deprecated in javadoc but without the @Deprecated annotation.
-     - `divzero` : Warns about the division by the constant integer 0.
-     - `empty` : Warns about an empty statement after if.
-     - `exports` : Warns about the issues regarding module exports.
-     - `fallthrough` : Warns about the falling through from one case of a switch statement to the next.
-     - `finally` : Warns about finally clauses that don’t terminate normally.
-     - `module` : Warns about the module system-related issues.
-     - `opens` : Warns about the issues related to module opens.
-     - `options` : Warns about the issues relating to use of command line options.
-     - `overloads` : Warns about the issues related to method overloads.
-     - `overrides` : Warns about the issues related to method overrides.
-     - `path` : Warns about the invalid path elements on the command line.
-     - `processing` : Warns about the issues related to annotation processing.
-     - `rawtypes` : Warns about the use of raw types.
-     - `removal` : Warns about the use of an API that has been marked for removal.
-     - `requires-automatic` : Warns developers about the use of automatic modules in requires clauses.
-     - `requires-transitive-automatic` : Warns about automatic modules in requires transitive.
-     - `serial` : Warns about the serializable classes that don’t provide a serial version ID. Also warns about access to non-public members from a serializable element.
-     - `static` : Warns about accessing a static member using an instance.
-     - `try` : Warns about the issues relating to the use of try blocks (that is, try-with-resources).
-     - `unchecked` : Warns about the unchecked operations.
-     - `varargs` : Warns about the potentially unsafe vararg methods.
-     - `none` : Disables all warnings.
+    - `all` : Enables all warnings.
+    - `auxiliaryclass` : Warns about an auxiliary class that’s hidden in a source file, and is used from other files.
+    - `cast` : Warns about the use of unnecessary casts.
+    - `classfile` : Warns about the issues related to classfile contents.
+    - `deprecation` : Warns about the use of deprecated items.
+    - `dep-ann` : Warns about the items marked as deprecated in javadoc but without the @Deprecated annotation.
+    - `divzero` : Warns about the division by the constant integer 0.
+    - `empty` : Warns about an empty statement after if.
+    - `exports` : Warns about the issues regarding module exports.
+    - `fallthrough` : Warns about the falling through from one case of a switch statement to the next.
+    - `finally` : Warns about finally clauses that don’t terminate normally.
+    - `module` : Warns about the module system-related issues.
+    - `opens` : Warns about the issues related to module opens.
+    - `options` : Warns about the issues relating to use of command line options.
+    - `overloads` : Warns about the issues related to method overloads.
+    - `overrides` : Warns about the issues related to method overrides.
+    - `path` : Warns about the invalid path elements on the command line.
+    - `processing` : Warns about the issues related to annotation processing.
+    - `rawtypes` : Warns about the use of raw types.
+    - `removal` : Warns about the use of an API that has been marked for removal.
+    - `requires-automatic` : Warns developers about the use of automatic modules in requires clauses.
+    - `requires-transitive-automatic` : Warns about automatic modules in requires transitive.
+    - `serial` : Warns about the serializable classes that don’t provide a serial version ID. Also warns about access to non-public members from a serializable element.
+    - `static` : Warns about accessing a static member using an instance.
+    - `try` : Warns about the issues relating to the use of try blocks (that is, try-with-resources).
+    - `unchecked` : Warns about the unchecked operations.
+    - `varargs` : Warns about the potentially unsafe vararg methods.
+    - `none` : Disables all warnings.
+- _See Examples of Using `-Xlint` keys._
 
-See Examples of Using -Xlint keys.
+`-Xmaxerrs number`
 
--Xmaxerrs number
-Sets the maximum number of errors to print.
+- Sets the **maximum number of errors to print.**
 
--Xmaxwarns number
-Sets the maximum number of warnings to print.
+`-Xmaxwarns number`
 
--Xpkginfo:[always, legacy, nonempty]
-Specifies when and how the javac command generates package-info.class files from package-info.java files using one of the following options:
+- Sets the **maximum number of warnings to print.**
 
-always
-Generates a package-info.class file for every package-info.java file. This option may be useful if you use a build system such as Ant, which checks that each .java file has a corresponding .class file.
+`-Xpkginfo:[always, legacy, nonempty]`
 
-legacy
-Generates a package-info.class file only if package-info.java contains annotations. This option doesn't generate a package-info.class file if package-info.java contains only comments.
+- Specifies **when and how the `javac` command generates `package-info.class` files from `package-info.java` files using one of the following options :**
+    - `always` Generates a `package-info.class` file for every `package-info.java` file.
+        - This option may be useful if you use a build system such as Ant, which checks that each `.java` file has a corresponding `.class` file.
+    - `legacy` Generates a `package-info.class` file only if `package-info.java` contains annotations.
+        - This option doesn't generate a `package-info.class` file if `package-info.java` contains only comments.
+        - Note : A `package-info.class` file might be generated but be empty if all the annotations in the `package-info.java` file have `RetentionPolicy.SOURCE`.
+    - `nonempty` Generates a `package-info.class` file only if `package-info.java` contains annotations with `RetentionPolicy.CLASS` or `RetentionPolicy.RUNTIME`.
 
-Note:A package-info.class file might be generated but be empty if all the annotations in the package-info.java file have RetentionPolicy.SOURCE.
-nonempty
-Generates a package-info.class file only if package-info.java contains annotations with RetentionPolicy.CLASS or RetentionPolicy.RUNTIME.
+`-Xplugin:name args`
 
--Xplugin:name args
-Specifies the name and optional arguments for a plug-in to be run.
+- Specifies the name and optional arguments for a plug-in to be run.
 
--Xprefer:[source, newer]
-Specifies which file to read when both a source file and class file are found for an implicitly compiled class using one of the following options. See Searching for Types.
+`-Xprefer:[source, newer]`
 
--Xprefer:newer: Reads the newer of the source or class files for a type (default).
+- Specifies **which file to read when both a source file and class file are found for an implicitly compiled class using one of the following options.**
+- _See "Searching for Types"._
+    - `-Xprefer:newer` : Reads the newer of the source or class files for a type (**default**).
+    - `-Xprefer:source` : Reads the source file.
+        - Use `-Xprefer:source` when you want to be sure that any annotation processors can access annotations declared with a retention policy of `SOURCE`.
 
--Xprefer:source: Reads the source file. Use -Xprefer:source when you want to be sure that any annotation processors can access annotations declared with a retention policy of SOURCE.
+`-Xprint`
 
--Xprint
-Prints a textual representation of specified types for debugging purposes. This doesn’t perform annotation processing or compilation. The format of the output could change.
+- Prints a **textual representation of specified types for debugging purposes.**
+    - This doesn’t perform annotation processing or compilation.
+    - The format of the output could change.
 
--XprintProcessorInfo
-Prints information about which annotations a processor is asked to process.
+`-XprintProcessorInfo`
 
--XprintRounds
-Prints information about initial and subsequent annotation processing rounds.
+- Prints information about which annotations a processor is asked to process.
 
--Xstdout filename
-Sends compiler messages to the named file. By default, compiler messages go to System.err.
+`-XprintRounds`
+
+- Prints information about initial and subsequent annotation processing rounds.
+
+**`-Xstdout filename`**
+
+- **Sends compiler messages to the named file.**
+    - By default, compiler messages go to `System.err`.
 
 ## Usage
