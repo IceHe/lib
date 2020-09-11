@@ -833,8 +833,8 @@ warning: [varargs] Possible heap pollution from parameterized vararg type T
 
 How Annotation Processing Works
 
-- Unless annotation processing is disabled with the -proc:none option, the compiler searches for any annotation processors that are available.
-    - The search path can be specified with the -processorpath option.
+- Unless annotation processing is disabled with the `-proc:none` option, the compiler searches for any annotation processors that are available.
+    - The search path can be specified with the `-processorpath` option.
     - If no path is specified, then the user class path is used.
     - Processors are located by means of service provider-configuration files named `META-INF/services/javax.annotation.processing`.
     - Processor on the search path.
@@ -876,4 +876,3 @@ How Annotation Processing Works
 - The compiler might not discover the need for some type information until after annotation processing completes.
     - When the type information is found in a source file and no `-implicit` option is specified, the compiler gives a warning that the file is being compiled without being subject to annotation processing.
     - To disable the warning, either specify the file on the command line (so that it will be subject to annotation processing) or use the `-implicit` option to specify whether or not class files should be generated for such source files.
-
