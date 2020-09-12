@@ -265,7 +265,7 @@ Others
 - [stat](/cmd/s/stat.md) : display file or file system status
 - [su](/cmd/s/su.md) : run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
-- [sysctl](/cmd/s/sysctl.md) : configure kernel parameters at runtime
+- _[sysctl](/cmd/s/sysctl.md) : configure kernel parameters at runtime_
 - [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
 - [tac](/cmd/t/tac.md) : concatenate and print files in reverse
 - [tail](/cmd/t/tail.md) : output the last part of files
@@ -276,18 +276,19 @@ Others
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
 - [touch](/cmd/t/touch.md) : change file access & modification times
 - [tr](/cmd/t/tr.md) : translate or delete characters
-- [ulimit](/cmd/u/ulimit.md) : system resource limit to shell
-- [uname](/cmd/u/uname.md) : print system information
+- _[ulimit](/cmd/u/ulimit.md) : system resource limit to shell_
+- _[uname](/cmd/u/uname.md) : print system information_
 - [uniq](/cmd/u/uniq.md) : report or omit repeated lines
-- [uptime](/cmd/u/uptime.md) : show how long system has been running
+- _[uptime](/cmd/u/uptime.md) : show how long system has been running_
 - [vim](/cmd/v/vim.md) : terminal text editor
 - [visudo](/cmd/v/visudo.md) : edit the sudoers file
-- [w](/cmd/w/w.md) : show who is logged on & what they are doing
+- _[w](/cmd/w/w.md) : show who is logged on & what they are doing_
 - [wc](/cmd/w/wc.md) : print newline, word, & byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
-- [whoami](/cmd/w/whoami.md) : print effective userid
+- _[whoami](/cmd/w/whoami.md) : print effective userid_
 - [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
+- _[xxd](/cmd/x/xxd.md) : make a hexdump or do the reverse_
 - [zsh](/cmd/z/zsh.md) : one of shells
 
 Scenes
@@ -301,9 +302,9 @@ Scenes
 - __string process__ :
     - awk, column, comm, cut, grep,
     - join, paste, sed, sort, tr,
-    - uniq, wc, ……
+    - uniq, wc, …
 - __transfer data__ : ftp, nc, rsync, scp
-- __write file__ : tee, `>`
+- __write file__ : tee, `>`, `2>&1`
 - ……
 
 > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
