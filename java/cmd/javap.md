@@ -38,7 +38,7 @@ javap [options] classes...
 
 - The `javap` command **disassembles one or more class files**.
     - When no options are used, the javap command prints the protected and public fields, and methods of the classes passed to it.
-- The `javap` command isn’t multirelease `JAR` aware.
+- The `javap` command isn't multirelease `JAR` aware.
     - Using the class path form of the command results in viewing the base entry in all `JAR` files, multirelease or not.
     - Using the URL form, you can use the URL form of an argument to specify a specific version of a class to be disassembled.
 - The `javap` command prints its output to `stdout`.
@@ -109,7 +109,7 @@ javap [options] classes...
 `--class-path path`, `-classpath path`, or `-cp path`
 
 - Specifies the **path that the javap command uses to find user class files.**
-    - It overrides the default or the CLASSPATH environment variable when it’s set.
+    - It overrides the default or the CLASSPATH environment variable when it's set.
 
 `-bootclasspath path`
 
