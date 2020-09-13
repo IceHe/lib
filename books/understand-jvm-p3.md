@@ -138,8 +138,72 @@ $ xxd HsdIsTest.class
 - 紧接着主、次版本号之后的是 **常量池入口**
     - 常量池可以比喻为 Class 文件里的资源仓库，它是 Class 文件结构中与其他项目关联最多的数据
     - 通常也是占用 Class 文件空间最大的数据项目之一
+
+常量计数
+
 - 由于常量池中 **常量的数量是不固定的**，所以在常量池的入口需要放置一项 u2 类型的数据，代表常量池容量计数值 ( `constant_pool_count` )
-    - **这个容量计数是从 1 而不是 0 开始**
+    - **`constant_pool_count` 是从 1 而不是 0 开始**
+- 在 Class 文件格式规范制定之时，**设计者将第 0 项常量空出来是有特殊考虑的**
+    - 目的在于，**如果后面某些指向常量池的索引值的数据在特定情况下需要表达 "不引用任何一个常量池项目" 的含义，可以把索引值设置为 0 来表示**
+    - **Class 文件结构中只有常量池的容量计数是从 1 开始**
+        - **对于其他集合类型，包括接口索引集合、字段表集合、方法表集合等的容量计数都与-般习惯相同，是从 0 开始**
+
+常量分类
+
+- 常量池中主要存放 **两大类常量** :
+    - 字面量 ( **Literal** )
+    - 符号引用 ( **Symbolic References** )
+- 字面量 ( Literal ) **比较接近于 Java 语言层面的常量概念，如文本字符串、被声明为 final 的常量值等**
+- 而符号引用则属于编译原理方面的概念，主要包括下面几类常量:
+    - 被模块导出或者开放的包 ( Package )
+    - 类和接口的全限定名 ( **Fully Qualified Name** )
+    - 字段的名称和描述符 ( **Descriptor** )
+    - 方法的名称和描述符
+    - 方法句柄和方法类型 ( **Method Handle**、**Method Type**、**Invoke Dynamic** )
+    - 动态调用点和动态常量 ( **Dynamically-Computed Call Site**、**Dynamically-Computed Constant** )
+
+TODO
+
+- Java 代码在进行 `javac` 编译的时候，并不像 C 和 C++ 那样有 "连接" ( `link` ) 这一步骤，而是 **在 VM 加载 Class 文件的时候进行动态连接**
+    - 也就是说，**在 Class 文件中不会保存各个方法、字段最终在内存中的布局信息**
+    - 这些 **字段、方法的符号引用不经过 VM 在运行期转换的话是无法得到真正的内存入口地址**，也就无法直接被 VM 使用的
+    - **当 VM 做类加载时，将会从 Constant Pool 获得对应的 Symbolic References, 再在类创建时或运行时解析、翻译到具体的内存地址之中
+- **Constant Pool 中每一项常量都是一个 <u>表</u>**
+    - 最初常量表中共有 11 种结构各不相同的表结构数据
+    - 后来为了更好地支持动态语言调用，额外增加了 4 种动态语言相关的常量
+    - 为了支持 Java 模块化系统 ( Jigsaw ) , 又加入了CONSTANT_Module_info 和 CONSTANT_Package_info 两个常量
+    - 所以截至 JDK 13，常量表中分别有 17 种不同类型的常量
+- 这 17 类表都有一个共同的特点
+    - **表结构起始的第一位是个 u1 类型的标志位 ( tag ) 代表着当前常量属于哪种常量类型**
+
+|类型|标志|描述|
+|-|-|-|
+|CONSTANT_Utf8_info|1|UTF-8编码的字符串|
+|CONSTANT_Integer_info|3|整型字面量|
+|CONSTANT_Float_info|4|浮点型字面量|
+|CONSTANT_Long_info|5|长整型字面量|
+|CONSTANT_Double_info|6|双精度浮点型字面量|
+|CONSTANT_Class_info|7|类或接口的符号引用|
+|CONSTANT_String_info|8|字符串类型字面量|
+|CONSTANT_Fieldref_info|9|字段的符号引用|
+|CONSTANT_Methodref_info|10|类中方法的符号引用|
+|CONSTANT_InterfaceMethodref_info|11|接口中方法的符号引用|
+|CONSTANT_NameAndType_info|12|字段或方法的部分符号引用|
+|CONSTANT_MethodHandle_info|15|表示方法句柄|
+|CONSTANT_MethodType_info|16|表示方法类型|
+|CONSTANT_Dynamic_info|17|表示一个动态计算常量|
+|CONSTANT_InvokeDynamic_info|18|表示一个动态方法调用点|
+|CONSTANT_Module_info|19|表示一个模块|
+|CONSTANT_Package_info|20|表示一个模块中开放或者导出的包|
+
+- 之所以说常量池是最烦琐的数据，是因为这17种常量类型各自有着完全独立的数据结构，两两之间并没有什么共性和联系，因此只能逐项进行讲解
+
+CONSTANT_Class_info 的结构
+
+|类型|名称|数量|
+|-|-|-|
+|u1|tag|1|
+|u2|name|index|
 
 ## 虚拟机类加载机制
 
