@@ -162,12 +162,15 @@ $ xxd HsdIsTest.class
     - 方法句柄和方法类型 ( **Method Handle**、**Method Type**、**Invoke Dynamic** )
     - 动态调用点和动态常量 ( **Dynamically-Computed Call Site**、**Dynamically-Computed Constant** )
 
-TODO
+用途
 
 - Java 代码在进行 `javac` 编译的时候，并不像 C 和 C++ 那样有 "连接" ( `link` ) 这一步骤，而是 **在 VM 加载 Class 文件的时候进行动态连接**
     - 也就是说，**在 Class 文件中不会保存各个方法、字段最终在内存中的布局信息**
     - 这些 **字段、方法的符号引用不经过 VM 在运行期转换的话是无法得到真正的内存入口地址**，也就无法直接被 VM 使用的
-    - **当 VM 做类加载时，将会从 Constant Pool 获得对应的 Symbolic References, 再在类创建时或运行时解析、翻译到具体的内存地址之中
+    - **当 VM 做类加载时，将会从 Constant Pool 获得对应的 Symbolic References, 再在类创建时或运行时解析、翻译到具体的内存地址之中**
+
+#### 常量类型
+
 - **Constant Pool 中每一项常量都是一个 <u>表</u>**
     - 最初常量表中共有 11 种结构各不相同的表结构数据
     - 后来为了更好地支持动态语言调用，额外增加了 4 种动态语言相关的常量
@@ -198,12 +201,31 @@ TODO
 
 - 之所以说常量池是最烦琐的数据，是因为这17种常量类型各自有着完全独立的数据结构，两两之间并没有什么共性和联系，因此只能逐项进行讲解
 
-- CONSTANT_Class_info 的结构
+**CONSTANT_Class_info** 型常量的结构
 
 |类型|名称|数量|
 |-|-|-|
 |u1|tag|1|
-|u2|name|index|
+|u2|name_index|1|
+
+- tag 是标志位，它用于区分常量类型
+- name_index 是常量池的索引值
+    - 它指向常量池中一个 CONSTANT_Utf8_info 类型常量，此常量代表了这个类 ( 或者接口 ) 的全限定名
+
+**CONSTANT_Utf8_info** 型常量的结构
+
+|类型|名称|数量|
+|-|-|-|
+|u1|tag|1|
+|u2|length|1|
+|u1|bytes|length|
+
+- length 值说明了这个 UTF-8 编码的字符串长度是多少字节
+- 它后面紧跟着的长度为 length 字节的连续数据是一个使用 **UTF-8 缩略编码** 表示的字符串
+    - UTF-8 缩略编码与普通 UTF-8 编码的区别是:
+        - 从 `\u0001` 到 `\u007f` 之间的字符 ( 相当于 1~127 的 ASCII 码 ) 的缩略编码使用 1 个字节表示
+        - 从 `\u0080` 到 `\u07ff` 之间的所有字符的缩略编码用 2 个字节表示
+        - 从 `\u0800` 开始到 `\uffff` 之间的所有字符的缩略编码就按照普通 UTF-8 编码规则使用 3 个字节表示
 
 ## 虚拟机类加载机制
 
