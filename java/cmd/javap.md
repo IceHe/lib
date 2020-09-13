@@ -19,6 +19,11 @@ javap HelloWorld.class
 # - e.g. the instructions that comprise the Java bytecodes,
 #   for each of the methods in the class.
 javap -c HelloWorld
+
+# Verbose
+javap -v HelloWorld
+# or
+javap -verbose HelloWorld
 ```
 
 ## Synopsis
@@ -218,4 +223,124 @@ public class HelloWorldFrame extends javax.swing.JFrame {
       10: invokevirtual #10       // Method setVisible:(Z)V
       13: return
 }
+```
+
+Verbose
+
+- Prints **additional information about the selected class.**
+
+```bash
+$ javap -v HelloWorldFrame
+# or
+$ javap -verbose HelloWorldFrame
+
+# output
+Classfile /Users/IceHe/Documents/lib/books/src/understand-jvm/HelloWorldFrame.class
+  Last modified Sep 13, 2020; size 634 bytes
+  SHA-256 checksum b9b067c99e296a1ca6e5054ee9ec0e98d753ad68cd8cd5ae718c30ed351f4e67
+  Compiled from "HelloWorldFrame.java"
+public class HelloWorldFrame extends javax.swing.JFrame
+  minor version: 0
+  major version: 58
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #10                         // HelloWorldFrame
+  super_class: #2                         // javax/swing/JFrame
+  interfaces: 0, fields: 1, methods: 2, attributes: 3
+Constant pool:
+   #1 = Methodref          #2.#3          // javax/swing/JFrame."<init>":()V
+   #2 = Class              #4             // javax/swing/JFrame
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               javax/swing/JFrame
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = String             #8             // Hello World!
+   #8 = Utf8               Hello World!
+   #9 = Fieldref           #10.#11        // HelloWorldFrame.message:Ljava/lang/String;
+  #10 = Class              #12            // HelloWorldFrame
+  #11 = NameAndType        #13:#14        // message:Ljava/lang/String;
+  #12 = Utf8               HelloWorldFrame
+  #13 = Utf8               message
+  #14 = Utf8               Ljava/lang/String;
+  #15 = Class              #16            // HelloWorldFrame$1
+  #16 = Utf8               HelloWorldFrame$1
+  #17 = Methodref          #15.#18        // HelloWorldFrame$1."<init>":(LHelloWorldFrame;)V
+  #18 = NameAndType        #5:#19         // "<init>":(LHelloWorldFrame;)V
+  #19 = Utf8               (LHelloWorldFrame;)V
+  #20 = Methodref          #10.#21        // HelloWorldFrame.setContentPane:(Ljava/awt/Container;)V
+  #21 = NameAndType        #22:#23        // setContentPane:(Ljava/awt/Container;)V
+  #22 = Utf8               setContentPane
+  #23 = Utf8               (Ljava/awt/Container;)V
+  #24 = Methodref          #10.#25        // HelloWorldFrame.setSize:(II)V
+  #25 = NameAndType        #26:#27        // setSize:(II)V
+  #26 = Utf8               setSize
+  #27 = Utf8               (II)V
+  #28 = Methodref          #10.#3         // HelloWorldFrame."<init>":()V
+  #29 = Methodref          #10.#30        // HelloWorldFrame.setVisible:(Z)V
+  #30 = NameAndType        #31:#32        // setVisible:(Z)V
+  #31 = Utf8               setVisible
+  #32 = Utf8               (Z)V
+  #33 = Utf8               Code
+  #34 = Utf8               LineNumberTable
+  #35 = Utf8               main
+  #36 = Utf8               ([Ljava/lang/String;)V
+  #37 = Utf8               SourceFile
+  #38 = Utf8               HelloWorldFrame.java
+  #39 = Utf8               NestMembers
+  #40 = Utf8               InnerClasses
+{
+  java.lang.String message;
+    descriptor: Ljava/lang/String;
+    flags: (0x0000)
+
+  public HelloWorldFrame();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method javax/swing/JFrame."<init>":()V
+         4: aload_0
+         5: ldc           #7                  // String Hello World!
+         7: putfield      #9                  // Field message:Ljava/lang/String;
+        10: aload_0
+        11: new           #15                 // class HelloWorldFrame$1
+        14: dup
+        15: aload_0
+        16: invokespecial #17                 // Method HelloWorldFrame$1."<init>":(LHelloWorldFrame;)V
+        19: invokevirtual #20                 // Method setContentPane:(Ljava/awt/Container;)V
+        22: aload_0
+        23: bipush        100
+        25: bipush        100
+        27: invokevirtual #24                 // Method setSize:(II)V
+        30: return
+      LineNumberTable:
+        line 10: 0
+        line 8: 4
+        line 11: 10
+        line 17: 22
+        line 18: 30
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: new           #10                 // class HelloWorldFrame
+         3: dup
+         4: invokespecial #28                 // Method "<init>":()V
+         7: astore_1
+         8: aload_1
+         9: iconst_1
+        10: invokevirtual #29                 // Method setVisible:(Z)V
+        13: return
+      LineNumberTable:
+        line 20: 0
+        line 21: 8
+        line 22: 13
+}
+SourceFile: "HelloWorldFrame.java"
+NestMembers:
+  HelloWorldFrame$1
+InnerClasses:
+  #15;                                    // class HelloWorldFrame$1
 ```
