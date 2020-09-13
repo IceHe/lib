@@ -431,6 +431,78 @@ Class 文件中由以下 3 项数据来确定该类型的继承关系
 
 ![this-class-fully-qualified-name.png](_images/understand-jvm/this-class-fully-qualified-name.png)
 
+### 字段表集合
+
+- 字段表 ( **field_info** ) 用于描述接口或者类中声明的变量
+    - Java语言中的 "字段" ( **Field** ) 包括类级变量以及实例级变量
+    - 但不包括在方法内部声明的局部变量
+- 在 Java 语言中描述一个字段可以包含哪些信息?
+    - 修饰符有字段的作用域 ( public , private , protected 修饰符 )
+    - 实例变量还是类变量 ( static 修饰符 )
+    - 可变性 ( final )
+    - 并发可见性 ( volatile 修饰符, 是否强制从主内存读写 )
+    - 可否被序列化 ( transient 修饰符 )
+    - 字段数据类型 ( 基本类型, 对象, 数组 )
+    - 字段名称
+- 上述这些信息中, 各个修饰符都是布尔值，要么有某个修饰符，要么没有，很适合使用标志位来表示
+    - 而字段叫做什么名字、字段被定义为什么数据类型，这些都是无法固定的，只能引用常量池中的常量来描述
+
+字段表结构
+
+#
+4!
+Z
+FfjR
+#
+u2
+access_ flags
+1
+u2
+name index
+1
+u2
+descriptor_ index
+1
+u2
+attributes_ count
+attribute info
+attributes
+attributes count
+
+字段访问标志 ( access_flags )
+
+标志名称
+标志值
+含
+义
+ACC PUBLIC
+0x0001
+字段是否public
+ACC_ PRIVATE
+0x0002
+字段是否private
+ACC PROTECTED
+0x0004
+字段是否protected
+ACC_ STATIC
+0x0008
+字段是否static
+ACC_ FINAL
+0x0010
+字段是否final
+ACC_ VOLATILE
+0x0040
+S lk È 2 volatile
+ACC TR ANSIENT
+0x0080
+S ÉT .Ê 2 transient
+ACC_ SYNTHETIC
+0x1000
+zj*4:
+ACC_ ENUM
+0x4000
+7la 7 enum
+
 ## 虚拟机类加载机制
 
 ## 虚拟机字节码执行引擎
