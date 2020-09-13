@@ -248,3 +248,14 @@ Custom
 - `,`, `h` = `:set noh<CR>` Deactivate Highlighted
 - `,`, `n` = `:set nu!<CR>` Toggle Absolute Line Number
 - `,`, `r` = `:set rnu!<CR>` Toggle Relative Line Number
+
+### .vimrc
+
+- Save all the current `:map` and `:set` settings to a file.
+    - See `:help mkexrc` for details.
+
+```bash
+:mkvimrc
+# or
+:mkexrc
+```
