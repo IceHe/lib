@@ -44,7 +44,7 @@ References
     - **当遇到需要占用 8 Bytes 以上空间的数据项时, 则会按照高位在前的方式, 分割成若干个 8 Bytes 进行存储**
 - _根据《Java虚拟机规范》的规定,_ **Class 文件格式采用一种类似于 C 语言结构体的伪结构来存储数据, 这种伪结构中只有两种数据类型 : "无符号数" 和 "表"**
     - **无符号数** : **基本的数据类型**
-        - 以 **u1 、u2 、u4、u8** 来分别代表 1 Byte、2 Bytes、4 Bytes 和 8 Bytes 的无符号数
+        - 以 **u1, u2, u4, u8** 来分别代表 1 Byte, 2 Bytes, 4 Bytes 和 8 Bytes 的无符号数
         - 可以用来 **描述数字、索引引用、数量值或者按照 UTF-8 编码构成字符串值**
     - **表** : 由多个无符号数或者其他表作为数据项构成的 **复合数据类型**
         - 为了便于区分, **所有表的命名都习惯性地以 "info" 结尾**
@@ -133,6 +133,8 @@ $ xxd HsdIsTest.class
 
 ### 常量池
 
+#### 简介
+
 > Constant Pool
 
 - 紧接着主、次版本号之后的是 **常量池入口**
@@ -159,8 +161,8 @@ $ xxd HsdIsTest.class
     - 类和接口的全限定名 ( **Fully Qualified Name** )
     - 字段的名称和描述符 ( **Descriptor** )
     - 方法的名称和描述符
-    - 方法句柄和方法类型 ( **Method Handle**、**Method Type**、**Invoke Dynamic** )
-    - 动态调用点和动态常量 ( **Dynamically-Computed Call Site**、**Dynamically-Computed Constant** )
+    - 方法句柄和方法类型 ( **Method Handle**, **Method Type**, **Invoke Dynamic** )
+    - 动态调用点和动态常量 ( **Dynamically-Computed Call Site**, **Dynamically-Computed Constant** )
 
 用途
 
@@ -226,6 +228,208 @@ $ xxd HsdIsTest.class
         - 从 `\u0001` 到 `\u007f` 之间的字符 ( 相当于 1~127 的 ASCII 码 ) 的缩略编码使用 1 个字节表示
         - 从 `\u0080` 到 `\u07ff` 之间的所有字符的缩略编码用 2 个字节表示
         - 从 `\u0800` 开始到 `\uffff` 之间的所有字符的缩略编码就按照普通 UTF-8 编码规则使用 3 个字节表示
+- 在 JDK 的 bin 目录中，Oracle 公司已经为我们准备好一个 **专门用于分析 Class 文件字节码** 的工具 `javap`
+    - 参数输出的 TestClass.class 文件字节码内容 ( 为节省篇幅，此清单中省略了常量池以外的信息 )
+
+```java
+// TestClass.java
+package org.fenixsoft.clazz;
+
+public class TestClass {
+
+    private int m;
+
+    public int inc() {
+        return m + 1;
+    }
+}
+```
+
+```bash
+# Prepare
+$ javac TestClass.java
+
+# Disassemble
+$ javap -v TestClass
+# or
+$ javap -verbose TestClass
+
+# output
+Classfile /Users/IceHe/Documents/lib/books/src/understand-jvm/TestClass.class
+  Last modified Sep 13, 2020; size 295 bytes
+  SHA-256 checksum 080cab5c3401acf642960a2bf3c882b9b4d32eda4f94d79e95d9db856a5c50a4
+  Compiled from "TestClass.java"
+public class org.fenixsoft.clazz.TestClass
+  minor version: 0
+  major version: 58
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #8                          // org/fenixsoft/clazz/TestClass
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 2, attributes: 1
+Constant pool:
+   #1 = Methodref          #2.#3          // java/lang/Object."<init>":()V
+   #2 = Class              #4             // java/lang/Object
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Fieldref           #8.#9          // org/fenixsoft/clazz/TestClass.m:I
+   #8 = Class              #10            // org/fenixsoft/clazz/TestClass
+   #9 = NameAndType        #11:#12        // m:I
+  #10 = Utf8               org/fenixsoft/clazz/TestClass
+  #11 = Utf8               m
+  #12 = Utf8               I
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               inc
+  #16 = Utf8               ()I
+  #17 = Utf8               SourceFile
+  #18 = Utf8               TestClass.java
+{
+  public org.fenixsoft.clazz.TestClass();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+
+  public int inc();
+    descriptor: ()I
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #7                  // Field m:I
+         4: iconst_1
+         5: iadd
+         6: ireturn
+      LineNumberTable:
+        line 8: 0
+}
+SourceFile: "TestClass.java"
+```
+
+#### 常量类型结构
+
+- 因为 Java 中的 "类" 是无穷无尽的，无法通过简单的无符号数来描述一个方法用到了什么类
+    - 因此在描述方法的这些信息时，需要引用 Constant Pool 中的 Symbolic Reference 进行表达
+
+17 种常量项的结构定义
+
+|常量|项目|类型|描述|
+|-|-|-|-|
+|CONSTANT_Utf8_info|tag|u1|值为 1|
+||length|u2|UTF-8 编码的字符串占用了字节数|
+||bytes|u1|长度为 length 的 UTF-8 编码的字符串|
+|CONSTANT_Integer_info|tag|u1|值为 3|
+||bytes|u4|按照高位在前存储的 int 值|
+|CONSTANT_Float_info|tag|u1|值为 4|
+||bytes|u4|按照高位在前存储的float值|
+|CONSTANT_Long_info|tag|u1|值为 5|
+||bytes|u8|按照高位在前存储的 long 值|
+|CONSTANT_Double_info|tag|u1|值为 6|
+||bytes|u8|按照高位在前存储的 double 值|
+|CONSTANT_Class_info|tag|u1|值为 7|
+||index|u2|指向全限定名常量项的索引|
+|CONSTANT_String_info|tag|u1|值为 8|
+||index|u2|指向字符串字面量的索引|
+|CONSTANT_Fieldref_info|tag|u1|值为 9|
+||index|u2|指向声明字段所属的类或者接口描述符<br/> CONSTANT_Class_info 的索引项|
+||index|u2|指向字段描述符<br/> CONSTANT_NameAndType 的索引项|
+|CONSTANT<br/>_Methodref_info|tag|u1|值为 10|
+||index|u2|指向声明方法所属的类描述符<br/> CONSTANT_Class_info 的索引项|
+||index|u2|指向名称及类型描述符<br/> CONSTANT_NameAndType_info 的索引项|
+|CONSTANT<br/>_InterfaceMethodref_info|tag|u1|值为 11|
+||index|u2|指向声明方法所属的接口描述符<br/> CONSTANT_Class_info 的索引项|
+||index|u2|指向名称及类型描述符<br/> CONSTANT_NameAndType_info 的索引项
+|CONSTANT<br/>_NameAndType_info|tag|u1|值为 12|
+||index|u2|指向该字段或方法名称常量项的索引|
+||index|u2|指向该字段或方法描述符常量项的索引|
+|CONSTANT<br/>_MethodHandle_info|tag|u1|值为 15|
+||reference_kind|u1|值必须在 1 至 9 之间 ( 包括 1 和 9 ) ,<br/> 它决定了方法句柄的类型.<br/> 方法句柄类型的值表示方法句柄的字节码行为|
+||reference_index|u2|值必须是对常量池的有效索引|
+|CONSTANT<br/>_MethodType_info|tag|u1|值为 16|
+||descriptor_index|u2|值必须是对常量池的有效索引,<br/> 常量池在该索引处的项必须是<br/> CONSTANT_Utf8_info 结构,<br/> 表示方法的描述符|
+|CONSTANT<br/>_Dynamic_info|tag|u1|值为 17|
+||bootstrap_method<br/>_attr_index|u2|值必须是对当前 Class 文件中引导方法表的<br/> botstrap_methods[] 数组的有效索引|
+||name_and<br/>_type_index|u2|值必须是对当前常量池的有效索引,<br/> 常量池在该索引处的项必须是 CONSTANT_NameAndType_info 结构,<br/> 表示方法名和方法描述符|
+|CONSTANT<br/>_InvokeDynamic_info|tag|u1|值为 18|
+||bootstrap_method<br/>_attr_index|u2|值必须是对当前 Class 文件中引导方法 :<br/> 表的bootstrap_ methods[] 数组的有效索引|
+||name_and<br/>_type_index|u2|值必须是对当前常量池的有效索引,<br/> 常量池在该索引处的项必须是<br/> CONSTANT_NameAndType_info 结构,<br/> 表示方法名和方法描述符|
+|CONSTANT_Module_info|tag|u1|值为 19|
+||name_index|u2|值必须是对常量池的有效索引,<br/> 常量池在该索引处的项必须是<br/> CONSTANT_Uf8_info 结构,<br/> 表示模块名字|
+|CONSTANT_Package_info|tag|u1|值为 20|
+||name_index|u2|值必须是对常量池的有效索引,<br/> 常量池在该索引处的项必须是<br/> CONSTANT_Utf8_info 结构,<br/> 表示包名称|
+
+### 访问标志
+
+> Access Flags
+
+- 在常量池结束之后，紧接着的 2 个字节代表访问标志 ( **access_flags** )
+    - 这个标志用于识别一些类或者接口层次的访问信息, 包括 :
+        - 这个 Class 是类还是接口
+        - 是否定义为 public 类型
+        - 是否定义为 abstract 类型
+        - 如果是类的话, 是否被声明为 final
+        - ……
+- access_flags 中一共有 16 个标志位可以使用
+    - 当前只定义了其中 9 个
+    - 没有使用到的标志位要求一律为 0
+
+具体的标志位以及标志的含义
+
+|标志名称|标志值|含义|
+|-|-|-|
+|ACC_PUBLIC|0x0001|是否为 public 类型|
+|ACC_FINAL|0x0010|是否被声明为 final, 只有类可设置|
+|ACC_SUPER|0x0020|是否允许使用 invokespecial 字节码指令的新语义,<br/> invokespecial 指令的语义在 JDK 1.0.2 发生过改变,<br/> 为了区别这条指令使用哪种语义,<br/> JDK 1.0.2 之后编译出来的类的这个标志都必须为真|
+|ACC_INTERFACE|0x0200|标识这是一个接口|
+|ACC_ABSTRACT|0x0400|是否为abstract类型, 对于接口或者抽象类来说,<br/> 此标志值为真, 其他类型值为假|
+|ACC_SYNTHETIC|0x1000|标识这个类并非由用户代码产生的|
+|ACC_ANNOTATION|0x2000|标识这是一个注解|
+|ACC_ENUM|0x4000|标识这是一个枚举|
+|ACC_MODULE|0x8000|标识这是一个模块|
+
+- _以 TestClass 为例, 一个普通 Java 类_
+    - _不是接口、枚举、注解或者模块_
+    - _被 `public` 关键字修饰但没有被声明为 `final` 和 `abstract`_
+    - _并且它使用了 JDK 1.2 之后的编译器进行编译_
+- _因此它的 `ACC_PUBLIC, ACC_SUPER` 标志应当为真_
+    - _而 `ACC_FINAL, ACC_NTERFACE, ACC_ABSTRACT, ACC_SYNTHETIC, ACC_ANNOTATION, ACC_ENUM, ACC_MODULE` 这七个标志应当为假_
+- _因此它的 `access_flags` 的值应为 : `0x0001 | 0x0020 = 0x0021`_
+
+### 类索引、父类索引与接口索引集合
+
+Class 文件中由以下 3 项数据来确定该类型的继承关系
+
+- 类索引 `this_class`
+- 父类索引 `super_class`
+- 接口索引 `interfaces`
+
+索引的数据类型
+
+- 类索引 ( `this_class` ) 和父类索引 ( `super_class` ) 都是一个 u2 类型的数据
+- 而接口索引集合 ( `interfaces` ) 是一组 u2 类型的数据的集合
+
+索引的数据内容
+
+- 类索引 : 确定这个类的全限定名
+- 父类索引 : 确定这个类的父类的全限定名
+    - 由于 Java 语言不允许多重继承, 所以 **父类索引只有 1 个**
+        - 除了 java.lang.Object 之外，所有的 Java 类都有父类
+        - 因此除了 java.lang.Object 外，所有 Java 类的父类索引都不为 0
+- 接口索引集合 : 描述这个类实现了哪些接口
+    - 这些被实现的接口将按 implements 关键字后的接口顺序从左到右排列在接口索引集合中
+        - _( 如果这个 Class 文件表示的是一个接口, 则应当是 extends 关键字 )_
+- 类索引、父类索引和接口索引集合都按顺序排列在访问标志之后
+    - 类索引和父类索引用两个 u2 类型的索引值表示，它们各自指向一个类型为 CONSTANT_Class_ info的类描述符常量
+    - 通过 CONSTANT_Class_info 类型的常量中的索引值可以找到定义在 CONSTANT_Utf8_info 类型的常量中的全限定名字符串
+
+![this-class-fully-qualified-name.png](_images/understand-jvm/this-class-fully-qualified-name.png)
 
 ## 虚拟机类加载机制
 
