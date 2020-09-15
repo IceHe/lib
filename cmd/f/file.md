@@ -2,6 +2,10 @@
 
 > determine file type
 
+References
+
+- `man file`
+
 ## Quickstart
 
 ```bash

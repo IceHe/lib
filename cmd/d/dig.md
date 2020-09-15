@@ -2,6 +2,10 @@
 
 > DNS lookup utility
 
+References
+
+- `man dig`
+
 ## Quickstart
 
 ```bash

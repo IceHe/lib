@@ -2,6 +2,10 @@
 
 > report or omit repeated lines
 
+References
+
+- `man uniq`
+
 ## Options
 
 ### Common

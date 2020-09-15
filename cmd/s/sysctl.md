@@ -2,6 +2,10 @@
 
 > configure kernel parameters at runtime
 
+References
+
+- `man sysctl`
+
 ## Options
 
 - `-a, --all` Display all values currently available.

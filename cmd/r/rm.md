@@ -2,6 +2,10 @@
 
 > remove files or directories
 
+References
+
+- `man rm`
+
 ## Notice
 
 ### Remove Directory

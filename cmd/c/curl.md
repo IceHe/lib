@@ -4,6 +4,7 @@
 
 References
 
+- `man curl`
 - https://curl.haxx.se/docs/
     - https://curl.haxx.se/docs/manpage.html
 

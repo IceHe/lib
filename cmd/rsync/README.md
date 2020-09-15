@@ -1,6 +1,6 @@
 # Rsync
 
-rysnc
+`rsync`
 
 - On Linux
 
@@ -10,7 +10,7 @@ rysnc
 
 > faster, flexible replacement for rcp
 
-rcp
+`rcp`
 
 > remote file copy
 
@@ -22,6 +22,10 @@ rcp
 ```bash
 rsync -chavzP --stats user@remote.host:/path/to/copy /path/to/local/storage
 ```
+
+References
+
+- `man rsync`
 
 ## Usage
 

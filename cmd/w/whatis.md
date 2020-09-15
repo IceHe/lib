@@ -2,6 +2,10 @@
 
 > display manual page descriptions
 
+References
+
+- `man whatis`
+
 ## Options
 
 - `-w, --wildcard`

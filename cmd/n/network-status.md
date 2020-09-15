@@ -13,6 +13,7 @@ On BSD
 
 Reference
 
+- `man netstat`
 - [netstat 的 10 个基本用法](https://linux.cn/article-2434-1.html)
 
 ## Quickstart

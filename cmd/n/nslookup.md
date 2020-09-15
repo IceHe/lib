@@ -2,6 +2,10 @@
 
 > query Internet name servers interactively
 
+References
+
+- `man nslookup`
+
 Synopsis
 
 ```bash

@@ -2,6 +2,10 @@
 
 > output the last part of files
 
+References
+
+- `man tail`
+
 Sysnopsis
 
 ```bash

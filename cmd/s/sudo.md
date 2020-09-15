@@ -2,7 +2,9 @@
 
 > sudo, sudoedit - execute a command as another user
 
-See `man sudo` for more.
+References
+
+- `man sudo`
 
 ## Synopsis
 

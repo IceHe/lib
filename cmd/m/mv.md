@@ -2,6 +2,10 @@
 
 > move (rename) files
 
+References
+
+- `man mv`
+
 ## Quickstart
 
 ```bash

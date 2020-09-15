@@ -2,6 +2,10 @@
 
 > mount a filesystem
 
+References
+
+- `man mount`
+
 ## Quickstart
 
 ```bash

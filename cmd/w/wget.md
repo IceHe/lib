@@ -5,6 +5,10 @@
 - GNU Wget is a free utility for non-interactive download of files from the Web.
 - It supports **HTTP**, **HTTPS**, and **FTP** protocols, as well as retrieval through HTTP proxies.
 
+References
+
+- `man wget`
+
 ## Options
 
 - `-O file` | `--output-document=file` written to "file"

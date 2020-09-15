@@ -5,7 +5,8 @@
 
 References
 
-- https://www.jianshu.com/p/a0a7645a2c2e
+- `man passwd`
+- Linux 管理员修改和查看普通用户密码 - 简书 : https://www.jianshu.com/p/a0a7645a2c2e
 
 Synopsis
 

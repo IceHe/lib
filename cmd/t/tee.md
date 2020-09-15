@@ -2,6 +2,10 @@
 
 > Read from standard input and write to standard output and files
 
+References
+
+- `man tee`
+
 Synopsis
 
 ```bash

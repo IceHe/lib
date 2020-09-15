@@ -2,6 +2,10 @@
 
 > change file owner and group
 
+References
+
+- `man chown`
+
 ## Quickstart
 
 ```bash

@@ -2,6 +2,10 @@
 
 > concatenate and print files in reverse
 
+References
+
+- `man tac`
+
 ## Quickstart
 
 ```bash

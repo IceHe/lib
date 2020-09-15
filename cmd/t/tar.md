@@ -2,6 +2,10 @@
 
 > manipulate tap archives
 
+References
+
+- `man tar`
+
 ## Options
 
 ### Operation Modes

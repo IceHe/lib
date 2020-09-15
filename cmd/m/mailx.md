@@ -2,6 +2,7 @@
 
 References
 
+- `man mailx`
 - Centos 配置mailx使用外部smtp发送邮件 : https://blog.csdn.net/qq_25551295/article/details/51803942
 
 ## mailx

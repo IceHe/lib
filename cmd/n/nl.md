@@ -2,6 +2,10 @@
 
 > number lines of files
 
+References
+
+- `man nl`
+
 ## Synopsis
 
 ```bash

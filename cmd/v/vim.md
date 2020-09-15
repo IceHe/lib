@@ -8,6 +8,7 @@ Purpose
 
 Offical Website
 
+- `man vim`
 - Home : http://www.vim.org/
 - Docs : http://www.vim.org/docs.php
 - Vim documentation: help : http://vimdoc.sourceforge.net/htmldoc/

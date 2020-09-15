@@ -2,6 +2,10 @@
 
 > an interface to the on-line reference **manuals**
 
+References
+
+- `man man`
+
 ## Quickstart
 
 ```bash

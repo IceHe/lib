@@ -2,6 +2,10 @@
 
 > shows the full path of (shell) commands
 
+References
+
+- `man which`
+
 ## Options
 
 - `-a, --all` Print all matching executables in PATH, not just the first

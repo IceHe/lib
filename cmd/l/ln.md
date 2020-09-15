@@ -2,8 +2,9 @@
 
 > make links between files
 
-Reference
+References
 
+- `man ln`
 - GNU Coreutils : https://www.gnu.org/software/coreutils/manual/html_node/ln-invocation.html
 
 ## Quickstart

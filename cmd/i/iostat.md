@@ -7,6 +7,10 @@
 - See `man iostat` for more.
 - Recommend to use [`dstat`](/cmd/d/dstat.md).
 
+References
+
+- `man iostat`
+
 ## Quickstart
 
 ```bash

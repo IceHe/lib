@@ -2,6 +2,10 @@
 
 > delay for a specified amount of time
 
+References
+
+- `man sleep`
+
 ## Synopsis
 
 ```bash

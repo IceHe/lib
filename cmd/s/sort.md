@@ -4,6 +4,7 @@
 
 Reference
 
+- `man sort`
 - GNU Coreutils : https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html
 
 ## Options

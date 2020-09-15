@@ -8,6 +8,10 @@ On BSD
 
 > **process status**
 
+References
+
+- `man ps`
+
 ## Options
 
 ### Unix

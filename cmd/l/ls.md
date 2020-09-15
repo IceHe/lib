@@ -2,8 +2,9 @@
 
 > **list** directory contents
 
-Reference
+References
 
+- `man ls`
 - Unix LS Command: 15 Practical Examples : https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/
 
 ## Quickstart

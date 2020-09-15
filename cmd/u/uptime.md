@@ -8,6 +8,10 @@ BSD
 
 > show how long system has been running
 
+References
+
+- `man uptime`
+
 ## Options
 
 Linux

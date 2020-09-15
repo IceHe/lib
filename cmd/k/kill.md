@@ -2,8 +2,9 @@
 
 > terminate or signal a process
 
-Reference
+References
 
+- `man kill`
 - [Differences between `kill <pid>` & `kill -9 <pid>`](https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process)
 
 ## Quickstart

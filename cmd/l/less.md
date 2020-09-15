@@ -2,6 +2,10 @@
 
 > opposite of more
 
+References
+
+- `man less`
+
 ## Quickstart
 
 ```bash

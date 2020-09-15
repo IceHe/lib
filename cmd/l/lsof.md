@@ -4,6 +4,7 @@
 
 References
 
+- `man lsof`
 - 15 Linux lsof Command Examples (Identify Open Files) : https://www.thegeekstuff.com/2012/08/lsof-command-examples/
 
 ## Quickstart

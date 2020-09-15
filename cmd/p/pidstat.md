@@ -12,6 +12,10 @@ The pidstat command is used for monitoring individual tasks currently being mana
 >
 > From : https://weibo.com/1642628345/I1zCoaD1I
 
+References
+
+- `man pidstat`
+
 ## Quickstart
 
 ### Default

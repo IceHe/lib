@@ -2,6 +2,10 @@
 
 > compare two sorted files line by line
 
+References
+
+- `man comm`
+
 ## Quickstart
 
 ```bash

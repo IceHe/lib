@@ -2,6 +2,10 @@
 
 > secure copy (remote file copy program)
 
+References
+
+- `man scp`
+
 ## Synopsis
 
 ```bash

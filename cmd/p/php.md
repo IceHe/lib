@@ -2,6 +2,10 @@
 
 > PHP Command Line Interface
 
+References
+
+- `man php`
+
 ## Synopsis
 
 ### Run

@@ -2,6 +2,10 @@
 
 > print a sequence of numbers
 
+References
+
+- `man seq`
+
 ## Synopsis
 
 ```bash

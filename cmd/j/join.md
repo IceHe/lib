@@ -2,6 +2,10 @@
 
 > join lines of two files on a common field
 
+References
+
+- `man join`
+
 ## Synopsis
 
 ```bash

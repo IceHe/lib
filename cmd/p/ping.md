@@ -2,6 +2,10 @@
 
 > send ICMP ECHO_REQUEST to network hosts
 
+References
+
+- `man ping`
+
 ## Synopsis
 
 ```bash

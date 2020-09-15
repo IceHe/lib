@@ -2,6 +2,7 @@
 
 Offical
 
+- `man zsh`
 - Zsh : http://zsh.sourceforge.net/
     - Guide : http://zsh.sourceforge.net/Guide/
     - Doc : http://zsh.sourceforge.net/Doc/

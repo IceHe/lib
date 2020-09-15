@@ -2,6 +2,10 @@
 
 > The missing package manager for macOS
 
+References
+
+- `man brew`
+
 ## Quickstart
 
 ```bash

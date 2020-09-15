@@ -2,7 +2,10 @@
 
 > versatile tool for generating system resource statistics
 
-Reference : https://linux.cn/article-3215-1.html
+References
+
+- `man dstat`
+- Linux 终端下 dstat 监控工具 - Linux 中国 : https://linux.cn/article-3215-1.html
 
 ## Quickstart
 
