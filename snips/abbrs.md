@@ -521,6 +521,7 @@ Reference : https://www.computerhope.com/keys.htm
 - op : operation | option
 - ops : operations
 - opt : option
+- org : organization
 - ori : original
 - ORM : [Object Relational Mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
 - OSPF : Open Shortest Path First 开放最短链路优先
