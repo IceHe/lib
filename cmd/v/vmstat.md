@@ -6,6 +6,10 @@
 - See `man vmstat` for more.
 - Recommend to use [`dstat`](/cmd/d/dstat.md).
 
+References
+
+- `man vmstat`
+
 ## Synopsis
 
 ```bash

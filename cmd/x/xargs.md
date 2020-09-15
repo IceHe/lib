@@ -2,6 +2,10 @@
 
 > build and execute command lines from standard input
 
+References
+
+- `man xargs`
+
 ## Synopsis
 
 ```bash

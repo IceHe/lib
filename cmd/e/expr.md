@@ -2,6 +2,10 @@
 
 > evaluate expressions
 
+References
+
+- `man expr`
+
 ## Quickstart
 
 ```bash

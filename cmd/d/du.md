@@ -8,6 +8,10 @@ On BSD
 
 > display **disk usage** statistics
 
+References
+
+- `man du`
+
 ## Quickstart
 
 ```bash

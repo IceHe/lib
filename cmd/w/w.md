@@ -2,6 +2,10 @@
 
 > Show **who** is logged on and what they are doing
 
+References
+
+- `man w`
+
 ## Options
 
 - `-u, --no-current` Ignores the username while figuring out the current process and cpu times.

@@ -5,6 +5,10 @@
 ^d
 ```
 
+Bash Built-in Command
+
+- see `man bash`
+
 ## SIGNALS
 
 - When bash is interactive, in the absence of any traps, it ignores SIGTERM (so that kill 0 does not kill an  interactive shell),  and  SIGINT  is  caught  and  handled (so that the wait builtin is interruptible).

@@ -2,6 +2,10 @@
 
 > make directories
 
+References
+
+- `man mkdir`
+
 ## Quickstart
 
 ```bash

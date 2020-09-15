@@ -2,6 +2,10 @@
 
 > an interpreted, interactive, object-oriented programming language
 
+References
+
+- `man python`
+
 ## Options
 
 - `-m module-name` Searches sys.path for the named module and runs the corresponding .py file as a script.

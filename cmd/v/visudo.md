@@ -2,6 +2,10 @@
 
 > edit the sudoers file
 
+References
+
+- `man visudo`
+
 ## Synopsis
 
 ```bash

@@ -2,6 +2,10 @@
 
 > search possibly compressed files for a regular expression
 
+References
+
+- `man zgrep`
+
 ## Synopsis
 
 ```bash

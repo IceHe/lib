@@ -2,6 +2,10 @@
 
 > grep, egrep, fgrep - print lines matching a pattern
 
+References
+
+- `man grep`
+
 ## Quickstart
 
 ```bash

@@ -8,6 +8,10 @@ On BSD
 
 > change file access and modification times
 
+References
+
+- `man touch`
+
 ## Synopsis
 
 ```bash

@@ -8,3 +8,7 @@
     - Option `-B` : Display bandwidth rates in **bytes/sec** rather than **bits/sec**.
     - ……
 - Recommend to use [`dstat`](/cmd/d/dstat.md).
+
+References
+
+- `man iftop`

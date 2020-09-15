@@ -6,6 +6,9 @@ On Linux
 >
 > - Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat.
 
+References
+
+- `man nc`
 - https://nmap.org/ncat/
 
 On BSD

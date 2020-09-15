@@ -2,6 +2,10 @@
 
 > search for files in a directory hierarchy
 
+References
+
+- `man find`
+
 ## Quickstart
 
 ```bash

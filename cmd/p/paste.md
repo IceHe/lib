@@ -2,6 +2,10 @@
 
 > merge lines of files
 
+References
+
+- `man paste`
+
 ## Synopsis
 
 ```bash

@@ -4,6 +4,7 @@
 
 Reference
 
+- `man stat`
 - stat-invocation : https://www.gnu.org/software/coreutils/manual/html_node/stat-invocation.html
 
 ## Options

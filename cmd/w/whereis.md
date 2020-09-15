@@ -2,6 +2,10 @@
 
 > locate the binary, source, and manual page files for a command
 
+References
+
+- `man whereis`
+
 ## Options
 
 - `-b` Search only for binaries

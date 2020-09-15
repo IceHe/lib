@@ -6,6 +6,10 @@ In short
 
 > **word count**
 
+References
+
+- `man wc`
+
 ## Options
 
 - `-c, --bytes` print byte counts

@@ -2,6 +2,10 @@
 
 > print system information
 
+References
+
+- `man uname`
+
 ## Options
 
 Linux

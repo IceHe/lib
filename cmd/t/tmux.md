@@ -2,6 +2,7 @@
 
 > terminal multiplexer
 
+- `man tmux`
 - Home : https://tmux.github.io/
 - Manual : http://man.openbsd.org/OpenBSD-current/man1/tmux.1
 - My config files :

@@ -2,6 +2,10 @@
 
 > columnate lists
 
+References
+
+- `man column`
+
 ## Quickstart
 
 ```bash

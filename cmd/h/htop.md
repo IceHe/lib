@@ -2,6 +2,10 @@
 
 > interactive process viewer
 
+References
+
+- `man htop`
+
 ## Quickstart
 
 ```bash

@@ -2,6 +2,10 @@
 
 > run a command with a time limit
 
+References
+
+- `man timeout`
+
 ## Synopsis
 
 ```bash

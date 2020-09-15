@@ -2,6 +2,10 @@
 
 > run a command with substitute user and group ID
 
+References
+
+- `man su`
+
 ## Synopsis
 
 ```bash

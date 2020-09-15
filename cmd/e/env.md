@@ -2,6 +2,10 @@
 
 > run a program in a (temporary) modified environment
 
+References
+
+- `man env`
+
 ## Quickstart
 
 ```bash

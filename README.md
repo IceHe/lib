@@ -222,6 +222,7 @@ Others
 - [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
     - stop (suspend) the execution of processes & continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
+- [jq](/cmd/j/jq.md) : ( TODO )
 - [kill](/cmd/k/kill.md) : terminate or signal a process
     - [killall](/cmd/k/killall.md) : kill processes by name
 - [last](/cmd/l/last.md) : show listing of last logged in users
@@ -243,7 +244,7 @@ Others
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [passwd](/cmd/p/passwd.md) : modify a user's password
 - [paste](/cmd/p/paste.md) : merge lines of files
-- [perf](/cmd/p/perf.md) : performance analysis tools for Linux
+- [perf](/cmd/p/perf.md) : performance analysis tools for Linux ( TODO )
 - [php](/cmd/p/php.md) : PHP Command Line Interface
 - [pidstat](/cmd/p/pidstat.md) : report statistics for Linux tasks
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts

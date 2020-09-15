@@ -8,6 +8,10 @@ On BSD
 
 > **display free disk** space
 
+References
+
+- `man df`
+
 ## Quickstart
 
 ```bash

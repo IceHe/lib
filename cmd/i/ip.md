@@ -2,6 +2,10 @@
 
 > show / manipulate routing, devices, policy routing and tunnels
 
+References
+
+- `man ip`
+
 ## Quickstart
 
 ```bash

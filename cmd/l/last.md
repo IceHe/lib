@@ -1,6 +1,10 @@
 # last
 
-> last, lastb - show listing of last logged in users
+> last, lastb - show list
+
+References
+
+- `man last`
 
 ## Quickstart
 

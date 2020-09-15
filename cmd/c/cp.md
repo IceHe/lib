@@ -2,6 +2,10 @@
 
 > copy files and directories
 
+References
+
+- `man cp`
+
 ## Quickstart
 
 ```bash

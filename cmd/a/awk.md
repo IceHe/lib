@@ -4,6 +4,7 @@
 
 References
 
+- `man awk`
 - http://www.runoob.com
     - Command : http://www.runoob.com/linux/linux-comm-awk.html
     - Work Principles : http://www.runoob.com/w3cnote/awk-work-principle.html

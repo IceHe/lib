@@ -4,6 +4,7 @@
 
 References
 
+- `man sed`
 - StackOverflow : https://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-contain-a-specific-string
 - Basic : http://www.runoob.com/linux/linux-comm-sed.html
 - Advanced : http://www.theunixschool.com/2012/06/sed-25-examples-to-delete-line-or.html

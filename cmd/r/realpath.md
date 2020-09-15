@@ -4,6 +4,10 @@
 
 Get **absolute path to file** !
 
+References
+
+- `man realpath`
+
 ## Options
 
 - `-L, --logical` Resolve '..' components before symlinks

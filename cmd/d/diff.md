@@ -2,6 +2,10 @@
 
 > compare files line by line
 
+References
+
+- `man diff`
+
 ## Quickstart
 
 ```bash

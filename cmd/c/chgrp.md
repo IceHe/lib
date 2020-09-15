@@ -2,6 +2,10 @@
 
 > change group ownership
 
+References
+
+- `man chgrp`
+
 ## Quickstart
 
 ```bash

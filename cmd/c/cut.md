@@ -2,6 +2,10 @@
 
 > remove sections from each line of files
 
+References
+
+- `man cut`
+
 ## Quickstart
 
 ```bash

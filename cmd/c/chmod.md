@@ -2,6 +2,10 @@
 
 > change file mode bits
 
+References
+
+- `man chmod`
+
 ## Quickstart
 
 ```bash

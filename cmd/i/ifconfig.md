@@ -2,7 +2,10 @@
 
 > configure a network interface
 
-Reference : http://man.linuxde.net/ifconfig
+References
+
+- `man ifconfig`
+- Linux 命令大全 : http://man.linuxde.net/ifconfig
 
 ## Quickstart
 

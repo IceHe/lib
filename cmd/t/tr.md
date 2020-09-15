@@ -2,6 +2,10 @@
 
 > translate or delete characters
 
+References
+
+- `man tr`
+
 Synopsis
 
 ```bash

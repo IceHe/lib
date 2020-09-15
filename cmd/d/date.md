@@ -2,6 +2,10 @@
 
 > display or set the system date and time
 
+References
+
+- `man date`
+
 ## Quickstart
 
 ```bash

@@ -2,6 +2,10 @@
 
 > output the first part of files
 
+References
+
+- `man head`
+
 Sysnopsis
 
 ```bash

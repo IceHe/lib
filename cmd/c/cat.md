@@ -2,6 +2,10 @@
 
 > concatenate files and print on the standard output
 
+References
+
+- `man cat`
+
 ## Quickstart
 
 ```bash
