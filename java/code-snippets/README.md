@@ -191,6 +191,21 @@ List Partion
 List<List<String>> listPartions = Lists.partition(list, 50);
 ```
 
+## Regex
+
+- http://tutorials.jenkov.com/java-regex/matcher.html
+
+```java
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+// 正则匹配模式 : 中英文混合内容
+Pattern mixedZhEnParttern = Pattern.compile("^[\\s\\da-zA-Z\\u4E00-\\u9FA5]+");
+Matcher mixedZhEnMatcher = mixedZhEnParttern.matcher(fuzzyKeyword);
+boolean likeMixedZhEn = mixedZhEnMatcher.find();
+
+```
+
 ## sql
 
 ### query count
