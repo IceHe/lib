@@ -178,7 +178,7 @@ Others
 > Commands & CLI ( Command-Line Interface )
 
 - [awk](/cmd/a/awk.md) : pattern scanning and processing language
-- [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell ( draft )
+- [bash](/cmd/bash/bash.md) : GNU Bourne-Again SHell ( draft )
     - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
     - [shell variables](/cmd/bash/shell-variables.md) : variables are set by the shell
 - [brew](/cmd/b/brew.md) : the missing package manager for macOS
