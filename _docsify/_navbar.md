@@ -1,12 +1,5 @@
-- [Home](/)
-- [About](/marks/bio.md)
+# \_navbar
 
-<!-- - [Message](https://github.com/IceHe/lib/issues) -->
-<!-- - External -->
-<!--     - [Blog](https://icehe.me) -->
-<!--     - [GitHub](https://github.com/IceHe) -->
-<!--     - [GitLab](https://gitlab.com/IceHe) -->
-<!--     - [Weibo](https://weibo.com/icedes) -->
-<!--     - [Repo](https://github.com/IceHe/IceHe) -->
+* [Home](../)
+* [About](../marks/bio.md)
 
-<!-- Ref : https://docsify.js.org/#/custom-navbar?id=markdown -->

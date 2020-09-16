@@ -4,7 +4,7 @@
 
 References
 
-- `man column`
+* `man column`
 
 ## Quickstart
 
@@ -24,26 +24,26 @@ sed 's/#.*//' /etc/group | column -s ':' -t -o '|'
 column [options] file...
 ```
 
-- The column utility formats its input into multiple columns.
-- Rows are filled before columns.
-- Input is taken from file or, by default, from standard input.
-- Empty lines are ignored.
+* The column utility formats its input into multiple columns.
+* Rows are filled before columns.
+* Input is taken from file or, by default, from standard input.
+* Empty lines are ignored.
 
 ## Options
 
-- `-c, --columns width` Output is formatted to a width specified as number of characters.
-- `-t, --table` Determine the number of columns the input contains and create a table.
-    - Columns are delimited  with  whitespace, by default, or with the characters supplied using the separator.
-    - Table output is useful for pretty-printing.
-- `-s, --separator separators` Specify possible table delimiters (default is whitespace).
-- `-o, --output-separator separators` Specify table output delimiter (default is two whitespaces).
-- `-x, --fillrows` Fill columns before filling rows.
+* `-c, --columns width` Output is formatted to a width specified as number of characters.
+* `-t, --table` Determine the number of columns the input contains and create a table.
+  * Columns are delimited  with  whitespace, by default, or with the characters supplied using the separator.
+  * Table output is useful for pretty-printing.
+* `-s, --separator separators` Specify possible table delimiters \(default is whitespace\).
+* `-o, --output-separator separators` Specify table output delimiter \(default is two whitespaces\).
+* `-x, --fillrows` Fill columns before filling rows.
 
 ## Usage
 
 ### Table
 
-- Original content
+* Original content
 
 ```bash
 $ cat /etc/fstab
@@ -63,7 +63,7 @@ UUID=d767dba5-ea15-45ce-8c6c-4f3b0413f871 swap                    swap    defaul
 UUID=ff588a96-da99-4bd8-9938-bf8d699e9eb8  /data0                  ext4    defaults        0 0
 ```
 
-- After `sed`
+* After `sed`
 
 ```bash
 $ sed 's/#.*//' /etc/fstab
@@ -83,7 +83,7 @@ UUID=d767dba5-ea15-45ce-8c6c-4f3b0413f871 swap                    swap    defaul
 UUID=ff588a96-da99-4bd8-9938-bf8d699e9eb8  /data0                  ext4    defaults        0 0
 ```
 
-- After `sed` | `column`
+* After `sed` \| `column`
 
 ```bash
 $ sed 's/#.*//' /etc/fstab | column -t
@@ -94,6 +94,7 @@ UUID=f8b0c023-f575-4825-abb0-ab5543b350e6  /var    ext4  defaults  1  2
 UUID=d767dba5-ea15-45ce-8c6c-4f3b0413f871  swap    swap  defaults  0  0
 UUID=ff588a96-da99-4bd8-9938-bf8d699e9eb8  /data0  ext4  defaults  0  0
 ```
+
 ### Separator
 
 Sample
@@ -142,3 +143,4 @@ UUID=f8b0c023-f575-4825-abb0-ab5543b350e6 | /var   | ext4 | defaults | 1 | 2
 UUID=d767dba5-ea15-45ce-8c6c-4f3b0413f871 | swap   | swap | defaults | 0 | 0
 UUID=ff588a96-da99-4bd8-9938-bf8d699e9eb8 | /data0 | ext4 | defaults | 0 | 0
 ```
+

@@ -8,13 +8,13 @@ TODO
 
 References
 
-- Java Performace - JMH : http://tutorials.jenkov.com/java-performance/jmh.html
-- Code Tools - jmh : http://openjdk.java.net/projects/code-tools/jmh/
-- 使用JMH实现性能测试 : https://xnslong.github.io/blog/#/tools/java/JMH-benchmarking
+* Java Performace - JMH : [http://tutorials.jenkov.com/java-performance/jmh.html](http://tutorials.jenkov.com/java-performance/jmh.html)
+* Code Tools - jmh : [http://openjdk.java.net/projects/code-tools/jmh/](http://openjdk.java.net/projects/code-tools/jmh/)
+* 使用JMH实现性能测试 : [https://xnslong.github.io/blog/\#/tools/java/JMH-benchmarking](https://xnslong.github.io/blog/#/tools/java/JMH-benchmarking)
 
 Others
 
-- 接口性能测试方案 白皮书 V1.0 : https://blog.csdn.net/hexieshangwang/article/details/47186507
+* 接口性能测试方案 白皮书 V1.0 : [https://blog.csdn.net/hexieshangwang/article/details/47186507](https://blog.csdn.net/hexieshangwang/article/details/47186507)
 
 ## Usage
 
@@ -36,3 +36,4 @@ mvn clean install
 # Run
 java -jar target/benchmarks.jar
 ```
+

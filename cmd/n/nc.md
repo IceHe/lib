@@ -4,18 +4,18 @@ On Linux
 
 > **ncat** - Concatenate and redirect sockets
 >
-> - Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat.
+> * Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat.
 
 References
 
-- `man nc`
-- https://nmap.org/ncat/
+* `man nc`
+* [https://nmap.org/ncat/](https://nmap.org/ncat/)
 
 On BSD
 
 > **netcat** - arbitrary TCP and UDP connections and listens
 
-- [Linux Netcat 命令——网络工具中的瑞士军刀](https://www.oschina.net/translate/linux-netcat-command)
+* [Linux Netcat 命令——网络工具中的瑞士军刀](https://www.oschina.net/translate/linux-netcat-command)
 
 ## Quickstart
 
@@ -35,15 +35,15 @@ nc -n 10.1.2.3 | tar xzvf -
 
 ## Options
 
-- `-4` Use **IPV4 only** : Forces nc to use IPv4 addresses only.
-- `-6` Use **IPV6 only** : …
-- `-l, --listen` **Listen** for an incoming connection rather than initiate a connection to a remote host.
-- `-n, --nodns` **No DNS lookups**
-    - Do not do any DNS or service lookups on any specified addresses, hostnames or ports.
-- `-c, --sh-exec <command>` Executes the given command via /bin/sh
-- `-e, --exec <command>` Executes the given command
-- `-u, --udp` Use UDP instead of default TCP
-- `--sctp` Use SCTP instead of default TCP
+* `-4` Use **IPV4 only** : Forces nc to use IPv4 addresses only.
+* `-6` Use **IPV6 only** : …
+* `-l, --listen` **Listen** for an incoming connection rather than initiate a connection to a remote host.
+* `-n, --nodns` **No DNS lookups**
+  * Do not do any DNS or service lookups on any specified addresses, hostnames or ports.
+* `-c, --sh-exec <command>` Executes the given command via /bin/sh
+* `-e, --exec <command>` Executes the given command
+* `-u, --udp` Use UDP instead of default TCP
+* `--sctp` Use SCTP instead of default TCP
 
 ## Scan Ports
 
@@ -66,7 +66,7 @@ found 1 connections:
 Connection to baidu.com port 80 [tcp/http] succeeded!
 ```
 
-Multiple Ports ( Range )
+Multiple Ports \( Range \)
 
 ```bash
 nc -v -z -n <host_name> <min_port>-<max_port>
@@ -102,10 +102,10 @@ nc 10.1.2.3 8888
 
 Assume
 
-- Both of them are in the same network.
-- Hosts : ( IP or domain name )
-    - Local IP : 10.1.2.3
-    - Remote IP : 10.4.5.6
+* Both of them are in the same network.
+* Hosts : \( IP or domain name \)
+  * Local IP : 10.1.2.3
+  * Remote IP : 10.4.5.6
 
 ### Remote as Server
 
@@ -189,7 +189,7 @@ a839fce6688124b38eca3c42d2d59b10  file
 
 Assume
 
-- Same as 'Transfer File' above
+* Same as 'Transfer File' above
 
 ### Local as Server
 
@@ -203,7 +203,7 @@ tar czvf - logs | nc -l 8888
 
 **Remote** : Client to Connect
 
-- The last `-` means using the original directory name
+* The last `-` means using the original directory name
 
 ```bash
 nc -n <local_host> <port> | tar xzvf -
@@ -215,7 +215,7 @@ nc -n 10.1.2.3 8888 | tar xzvf -
 
 Packed by `tar` & Compressed by **`bzip2`**
 
-- `*.tar.gz` is larger than `*.tbz2`
+* `*.tar.gz` is larger than `*.tbz2`
 
 Local
 
@@ -230,3 +230,4 @@ Remote
 ```bash
 nc -n <remote_host> <port> | bzip2 -d | tar cvf -
 ```
+

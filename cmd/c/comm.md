@@ -4,7 +4,7 @@
 
 References
 
-- `man comm`
+* `man comm`
 
 ## Quickstart
 
@@ -21,22 +21,22 @@ comm -13 file1 file2    # Lines unique to file2
 
 Meanings of Column N to FILE N
 
-- Column 1 contains lines unique to FILE1.
-- Column 2 contains lines unique to FILE2.
-- Column 3 contains lines common to both files.
+* Column 1 contains lines unique to FILE1.
+* Column 2 contains lines unique to FILE2.
+* Column 3 contains lines common to both files.
 
 How to use options `-1, -2, -3` ?
 
-- `-1` suppress column 1 (lines unique to FILE1)
-- `-2` suppress column 2 (lines unique to FILE2)
-- `-3` suppress column 3 (lines that appear in both files)
-- With no options, produce three-column output.
+* `-1` suppress column 1 \(lines unique to FILE1\)
+* `-2` suppress column 2 \(lines unique to FILE2\)
+* `-3` suppress column 3 \(lines that appear in both files\)
+* With no options, produce three-column output.
 
 ### Others
 
-- `--check-order` check that the input is correctly sorted, even if all input lines are pairable
-- `--nocheck-order` do not check that the input is correctly sorted
-- `--output-delimiter=STR` separate columns with STR
+* `--check-order` check that the input is correctly sorted, even if all input lines are pairable
+* `--nocheck-order` do not check that the input is correctly sorted
+* `--output-delimiter=STR` separate columns with STR
 
 ## Usage
 
@@ -119,16 +119,17 @@ $ comm -12 file1 file2
 
 #### Difference Set
 
-##### File1 - File2
+**File1 - File2**
 
 ```bash
 $ comm -23 file1 file2
 1
 ```
 
-##### File2 - File1
+**File2 - File1**
 
 ```bash
 $ comm -13 file1 file2
 4
 ```
+

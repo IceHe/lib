@@ -4,13 +4,13 @@
 
 **NOTE** !!!
 
-- **This is beta software. TEST IT BEFORE RELYING ON IT.**
+* **This is beta software. TEST IT BEFORE RELYING ON IT.**
 
 References
 
-- 几种redis数据导出导入方式 : https://www.cnblogs.com/hjfeng1988/p/7146009.html
-- GitHub : https://github.com/delano/redis-dump
-- Redis-Dump v0.4 BETA : http://delanotes.com/redis-dump/
+* 几种redis数据导出导入方式 : [https://www.cnblogs.com/hjfeng1988/p/7146009.html](https://www.cnblogs.com/hjfeng1988/p/7146009.html)
+* GitHub : [https://github.com/delano/redis-dump](https://github.com/delano/redis-dump)
+* Redis-Dump v0.4 BETA : [http://delanotes.com/redis-dump/](http://delanotes.com/redis-dump/)
 
 ## Install
 
@@ -81,3 +81,4 @@ Usage: /usr/local/bin/redis-load [global options] COMMAND [command options]
     -D, --debug
         --nosafe
 ```
+

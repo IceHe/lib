@@ -4,36 +4,36 @@
 
 Spock
 
-> - Spock is a testing and specification framework for Java and Groovy applications.
-> - What makes it stand out from the crowd is its beautiful and highly expressive specification language.
-> - Thanks to its JUnit runner, Spock is compatible with most IDEs, build tools, and continuous integration servers.
+> * Spock is a testing and specification framework for Java and Groovy applications.
+> * What makes it stand out from the crowd is its beautiful and highly expressive specification language.
+> * Thanks to its JUnit runner, Spock is compatible with most IDEs, build tools, and continuous integration servers.
 
-- Intro : 使用Spock框架进行单元测试 : http://blog.2baxb.me/archives/1398
-- Home Page : http://spockframework.org/
-- GitHub : https://github.com/spockframework/spock
-- Docs Index : http://spockframework.org/spock/docs/1.1/index.html
-    - Single Page Docs ( all in one ) : http://spockframework.org/spock/docs/1.1/all_in_one.html
-    - **Primer** ( quickstart ) : http://spockframework.org/spock/docs/1.1/spock_primer.html
-    - **Data Driven Testing** : http://spockframework.org/spock/docs/1.1/data_driven_testing.html
-    - Interaction Based Testing : http://spockframework.org/spock/docs/1.1/interaction_based_testing.html
-    - Extensions : http://spockframework.org/spock/docs/1.1/extensions.html
+* Intro : 使用Spock框架进行单元测试 : [http://blog.2baxb.me/archives/1398](http://blog.2baxb.me/archives/1398)
+* Home Page : [http://spockframework.org/](http://spockframework.org/)
+* GitHub : [https://github.com/spockframework/spock](https://github.com/spockframework/spock)
+* Docs Index : [http://spockframework.org/spock/docs/1.1/index.html](http://spockframework.org/spock/docs/1.1/index.html)
+  * Single Page Docs \( all in one \) : [http://spockframework.org/spock/docs/1.1/all\_in\_one.html](http://spockframework.org/spock/docs/1.1/all_in_one.html)
+  * **Primer** \( quickstart \) : [http://spockframework.org/spock/docs/1.1/spock\_primer.html](http://spockframework.org/spock/docs/1.1/spock_primer.html)
+  * **Data Driven Testing** : [http://spockframework.org/spock/docs/1.1/data\_driven\_testing.html](http://spockframework.org/spock/docs/1.1/data_driven_testing.html)
+  * Interaction Based Testing : [http://spockframework.org/spock/docs/1.1/interaction\_based\_testing.html](http://spockframework.org/spock/docs/1.1/interaction_based_testing.html)
+  * Extensions : [http://spockframework.org/spock/docs/1.1/extensions.html](http://spockframework.org/spock/docs/1.1/extensions.html)
 
 Groovy
 
-- Testing with spock : http://groovy-lang.org/testing.html#_testing_with_spock
+* Testing with spock : [http://groovy-lang.org/testing.html\#\_testing\_with\_spock](http://groovy-lang.org/testing.html#_testing_with_spock)
 
-~~Mockito~~ ( deprecated! )
+~~Mockito~~ \( deprecated! \)
 
-- Brief Intro
-    - Tasty mocking framework for unit tests in Java
-- **Reasons for Deprecation**
-    - Spock is powerful enough.
-    - It is too complicated to use Mockito when your code is complicated.
-- References
-    - Home Page : https://site.mockito.org/
-    - How-to : https://site.mockito.org/#how
-- Related Tool
-    - TestMe - Plugin of IntelliJ IDEA : https://plugins.jetbrains.com/plugin/9471-testme
+* Brief Intro
+  * Tasty mocking framework for unit tests in Java
+* **Reasons for Deprecation**
+  * Spock is powerful enough.
+  * It is too complicated to use Mockito when your code is complicated.
+* References
+  * Home Page : [https://site.mockito.org/](https://site.mockito.org/)
+  * How-to : [https://site.mockito.org/\#how](https://site.mockito.org/#how)
+* Related Tool
+  * TestMe - Plugin of IntelliJ IDEA : [https://plugins.jetbrains.com/plugin/9471-testme](https://plugins.jetbrains.com/plugin/9471-testme)
 
 ## Must READ
 
@@ -41,34 +41,34 @@ Quickstart
 
 ### Groovy
 
-- Syntax : http://groovy-lang.org/syntax.html
-- Operator : http://groovy-lang.org/operators.html
-- Control Structure : http://groovy-lang.org/structure.html
-- Closures : http://groovy-lang.org/closures.html
+* Syntax : [http://groovy-lang.org/syntax.html](http://groovy-lang.org/syntax.html)
+* Operator : [http://groovy-lang.org/operators.html](http://groovy-lang.org/operators.html)
+* Control Structure : [http://groovy-lang.org/structure.html](http://groovy-lang.org/structure.html)
+* Closures : [http://groovy-lang.org/closures.html](http://groovy-lang.org/closures.html)
 
 ### Spock
 
-- Primer : http://spockframework.org/spock/docs/1.1/spock_primer.html
-- Data Driven Testing : http://spockframework.org/spock/docs/1.1/data_driven_testing.html
+* Primer : [http://spockframework.org/spock/docs/1.1/spock\_primer.html](http://spockframework.org/spock/docs/1.1/spock_primer.html)
+* Data Driven Testing : [http://spockframework.org/spock/docs/1.1/data\_driven\_testing.html](http://spockframework.org/spock/docs/1.1/data_driven_testing.html)
 
 #### Blocks
 
-- Ref : http://spockframework.org/spock/docs/1.1/all_in_one.html#_feature_methods
+* Ref : [http://spockframework.org/spock/docs/1.1/all\_in\_one.html\#\_feature\_methods](http://spockframework.org/spock/docs/1.1/all_in_one.html#_feature_methods)
 
 Unit Test
 
-- setup / prepare
-- stimulus / run
-- response / judge
-- cleanup / tear down
-    - usually unnecessary in Java
-    - unless open files or connect to network
+* setup / prepare
+* stimulus / run
+* response / judge
+* cleanup / tear down
+  * usually unnecessary in Java
+  * unless open files or connect to network
 
 Blocks to Phases
 
 ![](http://spockframework.org/spock/docs/1.1/images/Blocks2Phases.png)
 
-##### setup
+**setup**
 
 `setup` is an alias of `given`.
 
@@ -93,7 +93,7 @@ def 'SampleController.addJob()'() {
 }
 ```
 
-##### expect
+**expect**
 
 when & then & expect
 
@@ -122,10 +122,10 @@ def 'unit test'() {
 }
 ```
 
-##### where
+**where**
 
-- Usually use with Data Tables or Data Pipes.
-- Simplify duplicated code.
+* Usually use with Data Tables or Data Pipes.
+* Simplify duplicated code.
 
 ## Usage
 
@@ -133,8 +133,8 @@ def 'unit test'() {
 
 Spock Framework Enhancements
 
-- IntelliJ IDEA ( IDE ) 插件
-- https://plugins.jetbrains.com/plugin/7114-spock-framework-enhancements
+* IntelliJ IDEA \( IDE \) 插件
+* [https://plugins.jetbrains.com/plugin/7114-spock-framework-enhancements](https://plugins.jetbrains.com/plugin/7114-spock-framework-enhancements)
 
 ### Samples
 
@@ -228,7 +228,7 @@ class SampleControllerTest extends Specification {
 
 #### Service
 
-- Omit part of code
+* Omit part of code
 
 ```java
 ……
@@ -377,18 +377,18 @@ class SampleServiceImplTest extends Specification {
 
 ## Dependency
 
-- See modules : https://github.com/spockframework/spock#modules
+* See modules : [https://github.com/spockframework/spock\#modules](https://github.com/spockframework/spock#modules)
 
 Gradle
 
-- Ad-Hoc Intermediate Releases : https://github.com/spockframework/spock#ad-hoc-intermediate-releases
-- Building : https://github.com/spockframework/spock#building
+* Ad-Hoc Intermediate Releases : [https://github.com/spockframework/spock\#ad-hoc-intermediate-releases](https://github.com/spockframework/spock#ad-hoc-intermediate-releases)
+* Building : [https://github.com/spockframework/spock\#building](https://github.com/spockframework/spock#building)
 
 Maven
 
-- pom.xml ( for reference only )
+* pom.xml \( for reference only \)
 
-```xml
+```markup
 <dependencies>
 
     <dependency>
@@ -433,9 +433,10 @@ Maven
 
 IntelliJ IDEA
 
-- https://www.jetbrains.com/help/idea/getting-started-with-groovy.html
-    - _( icehe : 要是 project 的 `Add Framework Support` 没有 Groovy 选项, 可以在各个 module 分别试试 )_
+* [https://www.jetbrains.com/help/idea/getting-started-with-groovy.html](https://www.jetbrains.com/help/idea/getting-started-with-groovy.html)
+  * _\( icehe : 要是 project 的 `Add Framework Support` 没有 Groovy 选项, 可以在各个 module 分别试试 \)_
 
-![intellij-idea-project-right-click-menu.png](_images/intellij-idea-project-right-click-menu.png)
+![intellij-idea-project-right-click-menu.png](../.gitbook/assets/intellij-idea-project-right-click-menu.png)
 
-![intellij-idea-proejct-add-frameworks-support.png](_images/intellij-idea-proejct-add-frameworks-support.png)
+![intellij-idea-proejct-add-frameworks-support.png](../.gitbook/assets/intellij-idea-proejct-add-frameworks-support.png)
+

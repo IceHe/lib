@@ -4,9 +4,10 @@
 
 References
 
-- `man whoami`
+* `man whoami`
 
 ```bash
 $ whoami
 icehe
 ```
+

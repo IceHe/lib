@@ -4,7 +4,7 @@
 
 References
 
-- `man rm`
+* `man rm`
 
 ## Notice
 
@@ -12,7 +12,7 @@ References
 
 By default, it does not remove directories.
 
-Use the `--recursive` (`-r` or `-R`) option to remove each listed directory, too, along with all of its contents.
+Use the `--recursive` \(`-r` or `-R`\) option to remove each listed directory, too, along with all of its contents.
 
 ### Filename with prefix `-`
 
@@ -33,22 +33,22 @@ For greater assurance that the contents are truly unrecoverable, consider using 
 
 ### Directory
 
-- `-r, -R, --recursive` Remove directories and their contents recursively
-- `-d, --dir` _Remove empty directories_
+* `-r, -R, --recursive` Remove directories and their contents recursively
+* `-d, --dir` _Remove empty directories_
 
 ### Prompt
 
-- `-f, --force` Ignore nonexistent files and arguments, never prompt
-- `-i` Prompt before every removal
-- `-I` _Prompt once before removing more than three files, or when removing recursively;_
-    - _less intrusive than `-i`, while still giving protection against most mistakes_
-- `--interactive[=WHEN]` _Prompt according to WHEN: never, once (`-I`), or always (`-i`); without WHEN, prompt always_
+* `-f, --force` Ignore nonexistent files and arguments, never prompt
+* `-i` Prompt before every removal
+* `-I` _Prompt once before removing more than three files, or when removing recursively;_
+  * _less intrusive than `-i`, while still giving protection against most mistakes_
+* `--interactive[=WHEN]` _Prompt according to WHEN: never, once \(`-I`\), or always \(`-i`\); without WHEN, prompt always_
 
 ### Protection
 
-- `--preserve-root` Do not remove '/' (default)
-- `--no-preserve-root` _Do not treat '/' specially_
-- `--one-file-system` _When removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument
+* `--preserve-root` Do not remove '/' \(default\)
+* `--no-preserve-root` _Do not treat '/' specially_
+* `--one-file-system` \_When removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument
 
 ## Usage
 
@@ -76,10 +76,11 @@ rm: remove regular file ‘txt’? y
 
 Forcedly & Recursively
 
-- It can applied to directory.
+* It can applied to directory.
 
 ```bash
 rm -rf <file_or_dir>
 # e.g.
 rm -rf path/to/directory
 ```
+

@@ -2,8 +2,8 @@
 
 > ASM - Note: Intel 系列微处理器的 3 种工作模式。汇编编译器（masm.exe）对jmp的相关处理，编译器中的地址计数器（AC），对伪操作指令的处理。用栈传递参数。无溢出除法的公式证明。
 
-- Created on 2014-11
-- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
+* Created on 2014-11
+* 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 ## 附注1 Intel系列微处理器的3种工作模式
 
@@ -13,17 +13,17 @@
 
 它可以在以下3个模式下工作：
 
-- 实模式：工作方式相当于一个8086
-- 保护模式：提供支持多任务环境的工作方式，建立爆出机制（这与VAX等小型机类似）。
-- 模拟8086模式：可从保护模式切换至其中的一种8086工作方式。
-    - 这种方式的提供使用户可以方便地在保护模式下运行一个或多个原8086程序。
+* 实模式：工作方式相当于一个8086
+* 保护模式：提供支持多任务环境的工作方式，建立爆出机制（这与VAX等小型机类似）。
+* 模拟8086模式：可从保护模式切换至其中的一种8086工作方式。
+  * 这种方式的提供使用户可以方便地在保护模式下运行一个或多个原8086程序。
 
 模式切换
 
-- PC一开机，处于实模式。DOS处于实模式。
-- Windows系统在加载后，会将CPU切换到保护模式。
-- 在Windows下运行一个DOS下的程序，CPU切换至
-- 模拟8086模式下运行该程序。
+* PC一开机，处于实模式。DOS处于实模式。
+* Windows系统在加载后，会将CPU切换到保护模式。
+* 在Windows下运行一个DOS下的程序，CPU切换至
+* 模拟8086模式下运行该程序。
 
 ## 附注2 补码
 
@@ -35,60 +35,61 @@
 
 先读到标号，后读到jmp指令
 
-```nasm
+```text
 s:  ...
     ...
     jmp s（jmp short s / jmp near ptr s / jmp far ptr s）
 ```
 
-- 编译器中有一个地址计数器（AC），编译过程中，每读到一字节，AC+=1。
-- 当编译器遇到一些伪操作时，如db / dw等，会根据实际情况使AC增加。
-- 向前转移时，complier读到 标号s 后，
-    - 记下此时AC的值为 as（annotation start？），
-    - 在读到 jmp  ... s 后，记下此时AC的值为 aj（annotation jmp？）。
-- 那么可以通过 as - aj 算出位移值 disp。
-- 若disp属于[-128, 127]，这不管汇编指令格式是：
-    - jmp s / jmp short s / jmp near ptr s / jmp far ptr s
-    - 它们都会转变为 jmp short s 所对应的机器码：`EB disp`（占 2 Bytes）；
-- 若disp属于[-32768, 32767]，则：
-    - 对于 jmp short 将产生编译错误；
-    - 对于 jmp s、jmp near ptr s，将产生jmp near ptr s 所对应的机器码：`E9 disp`（占 3 Bytes）；
-    - 对于 jmp far ptr s，将产生对应的机器码：`EA [偏移地址] [段地址]`（占 5 Bytes）。
+* 编译器中有一个地址计数器（AC），编译过程中，每读到一字节，AC+=1。
+* 当编译器遇到一些伪操作时，如db / dw等，会根据实际情况使AC增加。
+* 向前转移时，complier读到 标号s 后，
+  * 记下此时AC的值为 as（annotation start？），
+  * 在读到 jmp  ... s 后，记下此时AC的值为 aj（annotation jmp？）。
+* 那么可以通过 as - aj 算出位移值 disp。
+* 若disp属于\[-128, 127\]，这不管汇编指令格式是：
+  * jmp s / jmp short s / jmp near ptr s / jmp far ptr s
+  * 它们都会转变为 jmp short s 所对应的机器码：`EB disp`（占 2 Bytes）；
+* 若disp属于\[-32768, 32767\]，则：
+  * 对于 jmp short 将产生编译错误；
+  * 对于 jmp s、jmp near ptr s，将产生jmp near ptr s 所对应的机器码：`E9 disp`（占 3 Bytes）；
+  * 对于 jmp far ptr s，将产生对应的机器码：`EA [偏移地址] [段地址]`（占 5 Bytes）。
 
 ### 2.向后转移：
 
 先读到jmp指令，后读到标号
 
-```nasm
+```text
     jmp s（jmp short s / jmp near ptr s / jmp far ptr s）
     ...
 s:  ...
 ```
 
-- 在此情况下，complier先读到 jmp ... s 指令，
-    - 由于还没读到 标号s，所以不能确定 其位置的AC值，即不能确定 disp 值。
-- 此时，complier将 jmp ... s 都当作 jmp short s 来读取，
-    - 记下jmp指令的位置和AC的值作为 aj（annotation jmp？），
-    - 并作以下处理：
-        - a. 对于 jmp short s，complier生成 EB 和 一个 nop 指令，
-            - 即用 nop 预留 1 Byte 空间，存放 8 bits 的disp。
-        - b. 对于 jmp s 和 jmp near ptr s，生成 E9 和 两个 nop 指令，
-            - 即 预留 2 Bytes，放 16 bits 的disp。
-        - c. 对于 jmp far ptr s， 生成 EA 和 四个 nop 指令，
-            - 即 预留 4 Bytes，放 段地址 和 段地址。
-- 以上处理完后，当向后读到 标号s 时，
-    - 记下此时AC的值作为 as（annotation start？），
-    - 并计算出转移的位移量：disp = as - aj（公式与向前转移相同）。
-- 若disp属于[-128, 127]，这不管汇编指令格式是：
-    - jmp s / jmp short s / jmp near ptr s / jmp far ptr s
-    - 它们都在前面记下的 jmp ... s 指令位置处添上 jmp short s对应的机器码：`EB disp`
-        - 此时，对于 jmp s 和 jmp near ptr s 格式，在机器码 EB disp 后还有 1 条 nop 指令（空着）；
-        对于jmp far ptr s，在机器码EB disp后还有3条nop指令（空着）。
-- 若disp属于[-32768, 32767]，则：
-    - 对于 jmp short 将产生编译错误；
-    - 对于 jmp s、jmp near ptr s，
-        - 在前面记下的 jmp ... s 指令位置处添上 jmp near ptr s对应的机器码：`E9 disp`（占 3 Bytes）；
-    - 对于 jmp far ptr s，在前面记下的 jmp ... s 指令位置处添上 `EA [偏移地址] [段地]`址（占 5 Bytes）。
+* 在此情况下，complier先读到 jmp ... s 指令，
+  * 由于还没读到 标号s，所以不能确定 其位置的AC值，即不能确定 disp 值。
+* 此时，complier将 jmp ... s 都当作 jmp short s 来读取，
+  * 记下jmp指令的位置和AC的值作为 aj（annotation jmp？），
+  * 并作以下处理：
+    * a. 对于 jmp short s，complier生成 EB 和 一个 nop 指令，
+      * 即用 nop 预留 1 Byte 空间，存放 8 bits 的disp。
+    * b. 对于 jmp s 和 jmp near ptr s，生成 E9 和 两个 nop 指令，
+      * 即 预留 2 Bytes，放 16 bits 的disp。
+    * c. 对于 jmp far ptr s， 生成 EA 和 四个 nop 指令，
+      * 即 预留 4 Bytes，放 段地址 和 段地址。
+* 以上处理完后，当向后读到 标号s 时，
+  * 记下此时AC的值作为 as（annotation start？），
+  * 并计算出转移的位移量：disp = as - aj（公式与向前转移相同）。
+* 若disp属于\[-128, 127\]，这不管汇编指令格式是：
+  * jmp s / jmp short s / jmp near ptr s / jmp far ptr s
+  * 它们都在前面记下的 jmp ... s 指令位置处添上 jmp short s对应的机器码：`EB disp`
+    * 此时，对于 jmp s 和 jmp near ptr s 格式，在机器码 EB disp 后还有 1 条 nop 指令（空着）；
+
+      对于jmp far ptr s，在机器码EB disp后还有3条nop指令（空着）。
+* 若disp属于\[-32768, 32767\]，则：
+  * 对于 jmp short 将产生编译错误；
+  * 对于 jmp s、jmp near ptr s，
+    * 在前面记下的 jmp ... s 指令位置处添上 jmp near ptr s对应的机器码：`E9 disp`（占 3 Bytes）；
+  * 对于 jmp far ptr s，在前面记下的 jmp ... s 指令位置处添上 `EA [偏移地址] [段地]`址（占 5 Bytes）。
 
 ## 附注4 用栈传递参数
 
@@ -96,11 +97,11 @@ s:  ...
 
 栈传递参数原理：
 
-- 由调用者将需要传递给子程序的参数压入栈中，子程序从栈中去取得参数。
+* 由调用者将需要传递给子程序的参数压入栈中，子程序从栈中去取得参数。
 
 示例
 
-```nasm
+```text
 ;说明：计算(a-b)^3，a、b为字型数据
 ;参数：进入子程序时，栈顶存放IP，后面依次存放a、b
 ;结果：(dx:ax)=(a-b)^3
@@ -119,17 +120,17 @@ dif_cube:
 
 一个子程序结尾有：ret n
 
-- n为整数，意思是，将栈顶指针修改为调用前的值。
-- `ret n` 功能等于
+* n为整数，意思是，将栈顶指针修改为调用前的值。
+* `ret n` 功能等于
 
-```nasm
+```text
 pop ip
 add sp, n
 ```
 
-调用 dif_cube 程序的代码如下：
+调用 dif\_cube 程序的代码如下：
 
-```nasm
+```text
 mov ax, 1     ;b
 push ax
 mov ax, 3     ;a
@@ -137,32 +138,32 @@ push ax
 call diff_cube     ;注意参数压栈的顺序
 ```
 
-> 语句call diff_cube后，栈的情况：
+> 语句call diff\_cube后，栈的情况：
 
-IP      a        b
+IP a b
 
-1000:0000     00 00 00 00 00 00 00 00 | **0**0 00 XX XX 03 00 01 00
-
-ss:sp 指向上一行加粗的 0 的位置
-
-> dif_cube执行第1句push bp后：               bp
-
-IP       a       b
-
-1000:0000     00 00 00 00 00 00 0**0** 00 | ZZ ZZ XX XX 03 00 01 00
+1000:0000 00 00 00 00 00 00 00 00 \| **0**0 00 XX XX 03 00 01 00
 
 ss:sp 指向上一行加粗的 0 的位置
 
-> 所以，dif_cube 子程序以下语句中的 [bp + 4]指 a，[bp + 6]指 b。
+> dif\_cube执行第1句push bp后： bp
 
-```nasm
+IP a b
+
+1000:0000 00 00 00 00 00 00 0**0** 00 \| ZZ ZZ XX XX 03 00 01 00
+
+ss:sp 指向上一行加粗的 0 的位置
+
+> 所以，dif\_cube 子程序以下语句中的 \[bp + 4\]指 a，\[bp + 6\]指 b。
+
+```text
 mov ax, [bp + 4]     ;后入栈的是a
 sub ax, [bp + 6]     ;先入栈的是b
 ```
 
 利用C程序，了解栈在参数传递中的应用：
 
-- 注意：在C语言中，局部变量也在栈中存储。
+* 注意：在C语言中，局部变量也在栈中存储。
 
 ```c
 void add(int, int, int);
@@ -182,7 +183,7 @@ void add(int a, int b, int c){
 
 编译后的汇编程序：
 
-```nasm
+```text
 mov bp, sp     ;bp = 原栈顶位置 sp
 sub sp, 6     ;栈顶sp - 6，留出空间存放数据段？
 
@@ -220,15 +221,14 @@ ADDR:
 
 无溢出除法公式：
 
-- H：x的高16位
-- L：x的低16位
-- int()：取商
-- rem()：取余
+* H：x的高16位
+* L：x的低16位
+* int\(\)：取商
+* rem\(\)：取余
+* H = int\( x / 65536\) ; 即 H = x / 0FFFFH
+* L = rem\( x / 65536\)     ; 即 L = x % 0FFFFH
 
-- H = int( x / 65536)     ; 即 H = x / 0FFFFH
-- L = rem( x / 65536)     ; 即 L = x % 0FFFFH
-
-```nasm
+```text
 X / n = int(H / n) * 65536 + [rem(H / n) * 65536 + L] / n
 ; 乘以65536，等于左移16位
 ; 1. 被除数x的高16位，除以除数n得到，x/n的商的高16位；
@@ -240,8 +240,9 @@ X / n = int(H / n) * 65536 + [rem(H / n) * 65536 + L] / n
 
 因为寻找适用的tc.exe无果，此部分暂且放弃
 
-- 研究实验1 搭建一个精简的C语言开发环境
-- 研究实验2 使用寄存器
-- 研究实验3 使用内存空间
-- 研究实验4 不用main函数编程
-- 研究实验5 函数如何接收
+* 研究实验1 搭建一个精简的C语言开发环境
+* 研究实验2 使用寄存器
+* 研究实验3 使用内存空间
+* 研究实验4 不用main函数编程
+* 研究实验5 函数如何接收
+

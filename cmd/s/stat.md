@@ -4,93 +4,93 @@
 
 Reference
 
-- `man stat`
-- stat-invocation : https://www.gnu.org/software/coreutils/manual/html_node/stat-invocation.html
+* `man stat`
+* stat-invocation : [https://www.gnu.org/software/coreutils/manual/html\_node/stat-invocation.html](https://www.gnu.org/software/coreutils/manual/html_node/stat-invocation.html)
 
 ## Options
 
-- `-L, --dereference` Follow links
-- `-f, --file-system` Display file system status instead of file status
-- `-t, --terse` Print the information in terse form
+* `-L, --dereference` Follow links
+* `-f, --file-system` Display file system status instead of file status
+* `-t, --terse` Print the information in terse form
 
 ### Format
 
-- `-c  --format=FORMAT` Use the specified FORMAT instead of the default; output a newline after each use of FORMAT
-- `--printf=FORMAT` Like `--format`, but interpret backslash escapes, and do not output a mandatory trailing newline; if you want a newline, include \n in FORMAT
+* `-c  --format=FORMAT` Use the specified FORMAT instead of the default; output a newline after each use of FORMAT
+* `--printf=FORMAT` Like `--format`, but interpret backslash escapes, and do not output a mandatory trailing newline; if you want a newline, include \n in FORMAT
 
 Notice
 
-- Your shell may have its own version of stat, which usually supersedes the version described here.
-- Please  refer to your shell's documentation for details about the options it supports.
+* Your shell may have its own version of stat, which usually supersedes the version described here.
+* Please  refer to your shell's documentation for details about the options it supports.
 
 #### Files
 
-> The valid format sequences for files (without --file-system)
+> The valid format sequences for files \(without --file-system\)
 
 Type & Name
 
-- `%F` file type
-- `%n` file name
-- `%N` _quoted file name with dereference if symbolic link_
+* `%F` file type
+* `%n` file name
+* `%N` _quoted file name with dereference if symbolic link_
 
 Size
 
-- `%s` total size, in bytes
+* `%s` total size, in bytes
 
 Permissions
 
-- `%a` access rights in octal
-- `%A` access rights in human readable form
+* `%a` access rights in octal
+* `%A` access rights in human readable form
 
 Owner
 
-- `%g` group ID of owner
-- `%G` group name of owner
-- `%u` user ID of owner
-- `%U` user name of owner
+* `%g` group ID of owner
+* `%G` group name of owner
+* `%u` user ID of owner
+* `%U` user name of owner
 
 Timestamps
 
-- `%w` time of file birth, human-readable; show '-' if unknown
-- `%W` time of file birth, seconds since Epoch; show '0' if unknown
-- `%x` time of last access, human-readable
-- `%X` time of last access, seconds since Epoch
-- `%y` time of last modification, human-readable
-- `%Y` time of last modification, seconds since Epoch
-- `%z` time of last change, human-readable
-- `%Z` time of last change, seconds since Epoch
+* `%w` time of file birth, human-readable; show '-' if unknown
+* `%W` time of file birth, seconds since Epoch; show '0' if unknown
+* `%x` time of last access, human-readable
+* `%X` time of last access, seconds since Epoch
+* `%y` time of last modification, human-readable
+* `%Y` time of last modification, seconds since Epoch
+* `%z` time of last change, human-readable
+* `%Z` time of last change, seconds since Epoch
 
 Seldom
 
-- `%b` Number of blocks allocated (see %B)
-- `%B` The size in bytes of each block reported by %b
-- `%C` SELinux security context string
-- `%d` device number in decimal
-- `%D` device number in hex
-- `%f` raw mode in hex
-- `%h` number of hard links
-- `%i` inode number
-- `%m` mount point
-- `%o` optimal I/O transfer size hint
-- `%t` major device type in hex, for character/block device special files
-- `%T` minor device type in hex, for character/block device special files
+* `%b` Number of blocks allocated \(see %B\)
+* `%B` The size in bytes of each block reported by %b
+* `%C` SELinux security context string
+* `%d` device number in decimal
+* `%D` device number in hex
+* `%f` raw mode in hex
+* `%h` number of hard links
+* `%i` inode number
+* `%m` mount point
+* `%o` optimal I/O transfer size hint
+* `%t` major device type in hex, for character/block device special files
+* `%T` minor device type in hex, for character/block device special files
 
 #### _File Systems_
 
 > _Valid format sequences for file systems_
 
-- `%a` free blocks available to non-superuser
-- `%b` total data blocks in file system
-- `%c` total file nodes in file system
-- `%d` free file nodes in file system
-- `%f` free blocks in file system
-- `%i` file system ID in hex
-- `%l` maximum length of filenames
-- `%n` file name
-- `%s` block size (for faster transfers)
-- `%S` fundamental block size (for block counts)
-- `%t` file system type in hex
-- `%T` file system type in human readable form
+* `%a` free blocks available to non-superuser
+* `%b` total data blocks in file system
+* `%c` total file nodes in file system
+* `%d` free file nodes in file system
+* `%f` free blocks in file system
+* `%i` file system ID in hex
+* `%l` maximum length of filenames
+* `%n` file name
+* `%s` block size \(for faster transfers\)
+* `%S` fundamental block size \(for block counts\)
+* `%t` file system type in hex
+* `%T` file system type in human readable form
 
 ## Usage
 
@@ -163,3 +163,4 @@ $ stat --printf='%w %W \n%x %X \n%y %Y \n%z %Z \n' file_name
 2018-11-05 12:43:30.979879607 +0800 1541393010
 2018-11-05 12:43:30.979879607 +0800 1541393010
 ```
+

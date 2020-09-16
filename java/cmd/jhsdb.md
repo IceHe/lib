@@ -2,17 +2,18 @@
 
 > Java HotSpot : attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM
 
-- Available after JDK 9
+* Available after JDK 9
 
 References
 
-- `man jhsdb`
-- Java SE 14 Docs - Tools References - `jhsdb` : https://docs.oracle.com/en/java/javase/14/docs/specs/man/jhsdb.html
-- Talk about openjdk's jhsdb tool - Programmer Sought : https://www.programmersought.com/article/32321720601/
+* `man jhsdb`
+* Java SE 14 Docs - Tools References - `jhsdb` : [https://docs.oracle.com/en/java/javase/14/docs/specs/man/jhsdb.html](https://docs.oracle.com/en/java/javase/14/docs/specs/man/jhsdb.html)
+* Talk about openjdk's jhsdb tool - Programmer Sought : [https://www.programmersought.com/article/32321720601/](https://www.programmersought.com/article/32321720601/)
 
 ## Quickstart
 
 ```bash
+
 ```
 
 ## Synopsis
@@ -27,14 +28,14 @@ jhsdb jinfo (--pid pid | --exe executable --core coredump | --connect [server-id
 jhsdb jsnap (--pid pid | --exe executable --core coredump | --connect [server-id@]debugd-host) [options]
 ```
 
-- `jhsdb clhsdb` Starts the interactive **command-line debugger**.
-- `jhsdb hsdb` Starts the interactive **GUI debugger**.
-- `jhsdb debugd` Starts the **remote debug server**.
-- `jhsdb jstack` Prints **stack and locks info**.
-- `jhsdb jmap` Prints **heap info**.
-- `jhsdb jinfo` Prints basic **JVM info**.
-- `jhsdb jsnap` Prints **performance counter info**.
-- `jhsdb command --help` Displays the **options available** for the command.
+* `jhsdb clhsdb` Starts the interactive **command-line debugger**.
+* `jhsdb hsdb` Starts the interactive **GUI debugger**.
+* `jhsdb debugd` Starts the **remote debug server**.
+* `jhsdb jstack` Prints **stack and locks info**.
+* `jhsdb jmap` Prints **heap info**.
+* `jhsdb jinfo` Prints basic **JVM info**.
+* `jhsdb jsnap` Prints **performance counter info**.
+* `jhsdb command --help` Displays the **options available** for the command.
 
 ## Description
 
@@ -207,40 +208,41 @@ $ jhsdb jsnap --help
           or  jhsdb jsnap --connect id@debugserver
 ```
 
-- _( icehe : 不像以上的几个命令, 这个没有独立的命令行命令 )_
+* _\( icehe : 不像以上的几个命令, 这个没有独立的命令行命令 \)_
 
 ## Options
 
 ### debugd
 
-- `--serverid server-id` An optional unique ID for this debug server.
-    - _This is required if multiple debug servers are run on the same machine._
+* `--serverid server-id` An optional unique ID for this debug server.
+  * _This is required if multiple debug servers are run on the same machine._
 
 ### jinfo
 
-- `--flags` Prints the VM flags.
-- `--sysprops` Prints the Java system properties.
-- `no option` : Prints the VM flags and the Java system properties.
+* `--flags` Prints the VM flags.
+* `--sysprops` Prints the Java system properties.
+* `no option` : Prints the VM flags and the Java system properties.
 
 ### jmap
 
-- `no option` Prints the same information as Solaris pmap.
-- `--heap` Prints the java heap summary.
-- `--binaryheap` Dumps the java heap in hprof binary format.
-- `--dumpfile name` The name of the dumpfile.
-- `--histo` Prints the histogram of java object heap.
-- `--clstats` Prints the class loader statistics.
-- `--finalizerinfo` Prints the information on objects awaiting finalization.
+* `no option` Prints the same information as Solaris pmap.
+* `--heap` Prints the java heap summary.
+* `--binaryheap` Dumps the java heap in hprof binary format.
+* `--dumpfile name` The name of the dumpfile.
+* `--histo` Prints the histogram of java object heap.
+* `--clstats` Prints the class loader statistics.
+* `--finalizerinfo` Prints the information on objects awaiting finalization.
 
 ### jstack
 
-- `--locks` Prints the java.util.concurrent locks information.
-- `--mixed` Attempts to print both java and native frames if the platform allows it.
+* `--locks` Prints the java.util.concurrent locks information.
+* `--mixed` Attempts to print both java and native frames if the platform allows it.
 
 ### jsnap
 
-- `--all` Prints all performance counters.
+* `--all` Prints all performance counters.
 
 ## Usage
 
-- 暂略
+* 暂略
+

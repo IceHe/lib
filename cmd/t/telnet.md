@@ -1,11 +1,12 @@
-# telnet ( TODO )
+# telnet \( TODO \)
 
 > user interface to the TELNET protocol
 
 References
 
-- `man telnet`
+* `man telnet`
 
 ## Options
 
 ## Usage
+

@@ -1,13 +1,15 @@
 # kill
 
+## kill
+
 > terminate or signal a process
 
 References
 
-- `man kill`
-- [Differences between `kill <pid>` & `kill -9 <pid>`](https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process)
+* `man kill`
+* [Differences between `kill <pid>` & `kill -9 <pid>`](https://unix.stackexchange.com/questions/8916/when-should-i-not-kill-9-a-process)
 
-## Quickstart
+### Quickstart
 
 ```bash
 # Get PID of process
@@ -28,23 +30,22 @@ $ pidof nginx
 $ kill -1 507 541
 # or
 $ pkill -HUP nginx
-
 ```
 
-## Options
+### Options
 
-- `-s, --signal <signal>` Specify the signal to send.
-    - The signal may be given as a signal name or number.
-- `-l, --list <signal>` Print a list of signal names, or convert signal given as argument to a name.
-    - The signals are found in /usr/include/linux/signal.h
+* `-s, --signal <signal>` Specify the signal to send.
+  * The signal may be given as a signal name or number.
+* `-l, --list <signal>` Print a list of signal names, or convert signal given as argument to a name.
+  * The signals are found in /usr/include/linux/signal.h
 
-## Usage
+### Usage
 
-### Common
+#### Common
 
 Process ID `<pid>`
 
-- How to get
+* How to get
 
 ```bash
 pidof <process_name>
@@ -56,8 +57,8 @@ ps -ef | grep <process_name>
 
 Kill process
 
-- give the target process a chance to clean up
-    - terminal sub-process
+* give the target process a chance to clean up
+  * terminal sub-process
 
 ```bash
 kill <pid>
@@ -71,7 +72,7 @@ kill -s SIGTERM <pid>
 
 Force to kill process
 
-- sub-processes may not be killed
+* sub-processes may not be killed
 
 ```bash
 kill -9 <pid>
@@ -91,7 +92,7 @@ kill -s HUP <pid>
 kill -s SIGHUP <pid>
 ```
 
-### List Signals
+#### List Signals
 
 ```bash
 $ kill -l
@@ -110,17 +111,17 @@ $ kill -l
 63)  SIGRTMAX-1  64) SIGRTMAX
 ```
 
-## Related
+### Related
 
-- [`killall`](/cmd/k/killall.md) Kill processes by name
-- `pgrep` Find processes by name
-- `pkill` Signal processes by name
+* [`killall`](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/cmd/k/killall.md) Kill processes by name
+* `pgrep` Find processes by name
+* `pkill` Signal processes by name
 
-# killall
+## killall
 
 > kill processes by name
 
-## Usage
+### Usage
 
 Kill processes by name
 
@@ -140,8 +141,9 @@ Only returns after the process dies
 killall -w <process_name>
 ```
 
-## Options
+### Options
 
-- `-u <username>` Limit potentially matching processes to those belonging to the specified user
-- `-w` | `--wait` Wait for all killed processes to die
-    - Note that killall may wait forever if the signal was ignored, had no effect, or if the process stays in zombie state.
+* `-u <username>` Limit potentially matching processes to those belonging to the specified user
+* `-w` \| `--wait` Wait for all killed processes to die
+  * Note that killall may wait forever if the signal was ignored, had no effect, or if the process stays in zombie state.
+

@@ -2,9 +2,9 @@
 
 References
 
-- How To Ask Questions The Smart Way : http://www.catb.org/~esr/faqs/smart-questions.html ( 原文 )
-- 繁体中文译文 : https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way
-    - 简体 : https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md
+* How To Ask Questions The Smart Way : [http://www.catb.org/~esr/faqs/smart-questions.html](http://www.catb.org/~esr/faqs/smart-questions.html) \( 原文 \)
+* 繁体中文译文 : [https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)
+  * 简体 : [https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh\_CN.md](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)
 
 ## 请多思考
 
@@ -17,15 +17,15 @@ References
 ## 提问之前
 
 1. JFGI : Just Fucking Google It
-    - 所有相关的错误信息
-    - 相关关键词
-    - 近义词 STFW : Search The Fucking Web
+   * 所有相关的错误信息
+   * 相关关键词
+   * 近义词 STFW : Search The Fucking Web
 2. RTFM : Read The Fucking Manual
-    - `man top`
-    - Official Docs Page
-3. Find FAQs ( Frequestly Aasked Qustions )
+   * `man top`
+   * Official Docs Page
+3. Find FAQs \( Frequestly Aasked Qustions \)
 4. Self Check : 避免低级错误
-    - 小黄鸭测试法
+   * 小黄鸭测试法
 5. Read Source Code
 6. 先问身边的强人朋友
 
@@ -37,13 +37,13 @@ References
 
 说明
 
-- 背景
-- 问题
-    - 先列举出所有的问题（包括延展问题）
-- 进一步
-    - 自己的解决方案和思路（提供选项）
-        - 证明自己并非伸手党，有好好思考过
-        - 包括你找到的参考资料？
+* 背景
+* 问题
+  * 先列举出所有的问题（包括延展问题）
+* 进一步
+  * 自己的解决方案和思路（提供选项）
+    * 证明自己并非伸手党，有好好思考过
+    * 包括你找到的参考资料？
 
 （伸手党：不劳而获，浪费别人时间的提问者）
 
@@ -57,11 +57,11 @@ References
 
 仔细、清楚地描述你的问题或 Bug 的症状。
 
-- 描述问题发生的环境（机器配置、操作系统、应用程序、以及相关的信息），提供经销商的发行版和版本号（如：Fedora Core 4、Slackware 9.1等）。
-- 描述在提问前你是怎样去研究和理解这个问题的。
-- 描述在提问前为确定问题而采取的诊断步骤。
-- 描述最近做过什么可能相关的硬件或软件变更。
-- 尽可能的提供一个可以重现这个问题的可控环境的方法。
+* 描述问题发生的环境（机器配置、操作系统、应用程序、以及相关的信息），提供经销商的发行版和版本号（如：Fedora Core 4、Slackware 9.1等）。
+* 描述在提问前你是怎样去研究和理解这个问题的。
+* 描述在提问前为确定问题而采取的诊断步骤。
+* 描述最近做过什么可能相关的硬件或软件变更。
+* 尽可能的提供一个可以重现这个问题的可控环境的方法。
 
 尽量去揣测一个黑客会怎样反问你，在你提问之前预先将黑客们可能遇到的问题回答一遍。
 
@@ -75,9 +75,9 @@ References
 
 这样做的用处至少有三点。
 
-- 第一，表现出你为简化问题付出了努力，这可以使你得到回答的机会增加；
-- 第二，简化问题使你更有可能得到有用的答案；
-- 第三，在精炼你的 bug 报告的过程中，你很可能就自己找到了解决方法或权宜之计。
+* 第一，表现出你为简化问题付出了努力，这可以使你得到回答的机会增加；
+* 第二，简化问题使你更有可能得到有用的答案；
+* 第三，在精炼你的 bug 报告的过程中，你很可能就自己找到了解决方法或权宜之计。
 
 ## _不必低声下气_
 
@@ -153,12 +153,13 @@ References
 >
 > 回答：这不算是问题吧，我对要我问你二十个问题才找得出你真正问题的问题没兴趣 —— 我有更有意思的事要做呢。在看到这类问题的时候，我的反应通常不外如下三种
 >
-> - 你还有什么要补充的吗？
-> - 真糟糕，希望你能搞定。
-> - 这关我有什么屁事？
+> * 你还有什么要补充的吗？
+> * 真糟糕，希望你能搞定。
+> * 这关我有什么屁事？
 
 对回答者，给出了错误的引导
 
 > 问题：我怎样用 X 做 Y？
 >
 > 回答：如果你想解决的是 Y ，提问时别给出可能并不恰当的方法。这种问题说明提问者不但对 X 完全无知，也对 Y 要解决的问题糊涂，还被特定形势禁锢了思维。最好忽略这种人，等他们把问题搞清楚了再说。
+

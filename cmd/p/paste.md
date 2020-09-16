@@ -4,7 +4,7 @@
 
 References
 
-- `man paste`
+* `man paste`
 
 ## Synopsis
 
@@ -12,13 +12,13 @@ References
 paste [OPTION]... [FILE]...
 ```
 
-- Write lines consisting of the sequentially corresponding lines from each FILE, separated by TABs, to standard output.
-- With no FILE, or when FILE is `-`, read standard input.
+* Write lines consisting of the sequentially corresponding lines from each FILE, separated by TABs, to standard output.
+* With no FILE, or when FILE is `-`, read standard input.
 
 ## Options
 
-- `-d, --delimiters=LIST` reuse characters from LIST instead of TABs
-- `-s, --serial` paste one file at a time instead of in parallel
+* `-d, --delimiters=LIST` reuse characters from LIST instead of TABs
+* `-s, --serial` paste one file at a time instead of in parallel
 
 ## Usage
 
@@ -93,3 +93,4 @@ $ paste -d':||' file1 file2 file3 file1
 2:US|North America|2
 3:UK|Europe|3
 ```
+

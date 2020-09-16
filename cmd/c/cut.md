@@ -4,7 +4,7 @@
 
 References
 
-- `man cut`
+* `man cut`
 
 ## Quickstart
 
@@ -33,30 +33,30 @@ With no FILE, or when FILE is -, read standard input.
 
 Split
 
-- `-b, --bytes=LIST` Select only these bytes
-    - `-n` With `-b`: Don't split multibyte characters
-- `-c, --characters=LIST` Select only these characters
-- `-f, --fields=LIST` Select only these fields; also print any line that contains no delimiter character, unless the -s option is specified
-    - `-d, --delimiter=DELIM` Use DELIM instead of TAB for field delimiter
-- `--complement` Complement the set of selected bytes, characters or fields
+* `-b, --bytes=LIST` Select only these bytes
+  * `-n` With `-b`: Don't split multibyte characters
+* `-c, --characters=LIST` Select only these characters
+* `-f, --fields=LIST` Select only these fields; also print any line that contains no delimiter character, unless the -s option is specified
+  * `-d, --delimiter=DELIM` Use DELIM instead of TAB for field delimiter
+* `--complement` Complement the set of selected bytes, characters or fields
 
 Output
 
-- `--output-delimiter=STRING` use STRING as the output delimiter the default is to use the input delimiter
-- `-s, --only-delimited` Do not print lines not containing delimiters
+* `--output-delimiter=STRING` use STRING as the output delimiter the default is to use the input delimiter
+* `-s, --only-delimited` Do not print lines not containing delimiters
 
 LIST
 
-- Use one, and only one of `-b`, `-c` or `-f`.
-- Each LIST is made up of one range, or many ranges separated by commas.
-- Selected input is written in the same order that it is read, and is written exactly once.
+* Use one, and only one of `-b`, `-c` or `-f`.
+* Each LIST is made up of one range, or many ranges separated by commas.
+* Selected input is written in the same order that it is read, and is written exactly once.
 
 Each range is one of:
 
-- `N` N'th byte, character or field, counted from 1
-- `N-` From N'th byte, character or field, to end of line
-- `N-M` From N'th to M'th (included) byte, character or field
-- `-M` From first to M'th (included) byte, character or field
+* `N` N'th byte, character or field, counted from 1
+* `N-` From N'th byte, character or field, to end of line
+* `N-M` From N'th to M'th \(included\) byte, character or field
+* `-M` From first to M'th \(included\) byte, character or field
 
 ## Usage
 
@@ -64,7 +64,7 @@ Each range is one of:
 
 Default delimiter : TAB
 
-- Option `=d' '` : Set DELIMITER to WHITE_SPACE below
+* Option `=d' '` : Set DELIMITER to WHITE\_SPACE below
 
 ### Fields
 
@@ -100,7 +100,7 @@ alex CC
 
 #### Range
 
-##### -M
+**-M**
 
 From first to M
 
@@ -117,7 +117,7 @@ No Name
 03 alex
 ```
 
-##### N-
+**N-**
 
 From N to last
 
@@ -134,7 +134,7 @@ Mark Remark
 97 CC
 ```
 
-##### N-M
+**N-M**
 
 From N to M
 
@@ -201,9 +201,6 @@ Notice : something wrong!
 ```bash
 $ cut -b 4 sample2
 N
-
-
-
 ```
 
 Option `-b` with `-n` : Don't split multibyte characters
@@ -250,3 +247,4 @@ No Name Mark Remark
 02 字节 77 XP
 03 数量 97 CC
 ```
+

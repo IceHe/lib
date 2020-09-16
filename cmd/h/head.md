@@ -4,7 +4,7 @@
 
 References
 
-- `man head`
+* `man head`
 
 Sysnopsis
 
@@ -24,26 +24,26 @@ head -n -5 file # Print all but last 5 lines
 
 ### Amount
 
-- `-n, --lines=[-]K` Print the first K lines instead of the first 10;
-    - with the leading '-' ( e.g. `-n -5K` ), print all but the last K lines of each file
-- `-c, --bytes=[-]K` Print the first K bytes of each file;
-    - with the leading '-' ( e.g. `-n -7K` ), print all but the last K bytes of each file
+* `-n, --lines=[-]K` Print the first K lines instead of the first 10;
+  * with the leading '-' \( e.g. `-n -5K` \), print all but the last K lines of each file
+* `-c, --bytes=[-]K` Print the first K bytes of each file;
+  * with the leading '-' \( e.g. `-n -7K` \), print all but the last K bytes of each file
 
 K may have a multiplier suffix:
 
-- b : 512
-- kB : 1000
-- K : 1024
-- MB : 1000\*1000
-- M : 1024\*1024
-- GB : 1000\*1000\*1000
-- G : 1024\*1024\*1024
-- and so on for T, P, E, Z, Y.
+* b : 512
+* kB : 1000
+* K : 1024
+* MB : 1000\*1000
+* M : 1024\*1024
+* GB : 1000\*1000\*1000
+* G : 1024\*1024\*1024
+* and so on for T, P, E, Z, Y.
 
 ### Print
 
-- `-q, --quiet, --silent` Never print headers giving file names
-- `-v, --verbose` Always print headers giving file names
+* `-q, --quiet, --silent` Never print headers giving file names
+* `-v, --verbose` Always print headers giving file names
 
 ## Usage
 
@@ -116,3 +116,4 @@ $ head -1v script.sh temp.txt
 ==> temp.txt <==
 haha
 ```
+

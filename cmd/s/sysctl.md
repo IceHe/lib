@@ -4,20 +4,20 @@
 
 References
 
-- `man sysctl`
+* `man sysctl`
 
 ## Options
 
-- `-a, --all` Display all values currently available.
-- `-w, --write` Use this option when you want to change a sysctl setting.
-- `-p[FILE], --load[=FILE]` Load in sysctl settings from the file specified or `/etc/sysctl.conf` if none given.
-    - Specifying as filename means reading data from standard input.
-    - Using this option will mean arguments to sysctl are files, which are read in the order they are specified.
-    - The file argument may be specified as regular expression.
-- `-n, --values` Use this option to disable printing of the key name when printing values.
-- `-e, --ignore` Use this option to ignore errors about unknown keys.
-- `-N, --names` Use this option to only print the names.
-    - It may be useful with shells that have programmable completion.
+* `-a, --all` Display all values currently available.
+* `-w, --write` Use this option when you want to change a sysctl setting.
+* `-p[FILE], --load[=FILE]` Load in sysctl settings from the file specified or `/etc/sysctl.conf` if none given.
+  * Specifying as filename means reading data from standard input.
+  * Using this option will mean arguments to sysctl are files, which are read in the order they are specified.
+  * The file argument may be specified as regular expression.
+* `-n, --values` Use this option to disable printing of the key name when printing values.
+* `-e, --ignore` Use this option to ignore errors about unknown keys.
+* `-N, --names` Use this option to only print the names.
+  * It may be useful with shells that have programmable completion.
 
 ## Config File
 
@@ -109,8 +109,8 @@ $ sysctl -w net.ipv4.icmp_echo_ignore_all=0
 
 Disable / Enable
 
-- Append content below to `/etc/sysctl.conf`
-    - or modify configuration `net.ipv4.icmp_echo_ignore_all` in it
+* Append content below to `/etc/sysctl.conf`
+  * or modify configuration `net.ipv4.icmp_echo_ignore_all` in it
 
 ```bash
 # Disable/Enable ping requests
@@ -119,8 +119,9 @@ net.ipv4.icmp_echo_ignore_all = 1 # disabled
 net.ipv4.icmp_echo_ignore_all = 0 # enabled
 ```
 
-- Bring configs into effect
+* Bring configs into effect
 
 ```bash
 $ sysctl -p
 ```
+

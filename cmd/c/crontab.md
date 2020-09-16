@@ -10,24 +10,24 @@ On BSD
 
 References
 
-- `man crontab`
-- Manual : http://crontab.org
-- Wikipedia : https://en.wikipedia.org/wiki/Cron
+* `man crontab`
+* Manual : [http://crontab.org](http://crontab.org)
+* Wikipedia : [https://en.wikipedia.org/wiki/Cron](https://en.wikipedia.org/wiki/Cron)
 
 Related Command
 
-- `crontab` : maintain crontab files for individual users
+* `crontab` : maintain crontab files for individual users
 
 Assume
 
-- on Linux ( CentOS 7 )
-    - Cron doesn't work on macOS & etc.
+* on Linux \( CentOS 7 \)
+  * Cron doesn't work on macOS & etc.
 
 Notice
 
-- **`cron`** is different from `crontab`
-    - Cron Expression Generator & Explainer : https://www.freeformatter.com/cron-expression-generator-quartz.html
-    - Cron Trigger Tutorial : http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
+* **`cron`** is different from `crontab`
+  * Cron Expression Generator & Explainer : [https://www.freeformatter.com/cron-expression-generator-quartz.html](https://www.freeformatter.com/cron-expression-generator-quartz.html)
+  * Cron Trigger Tutorial : [http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html)
 
 ## Usage
 
@@ -77,14 +77,14 @@ $ tree /var/spool/cron
 
 Files & Direcotries
 
-- /etc/crontab ( file )
-- /etc/cron.d/*
-- /etc/cron.daily/*
-- /etc/cron.hourly/*
-- /etc/cron.monthly/*
-- /etc/cron.weekly/*
+* /etc/crontab \( file \)
+* /etc/cron.d/\*
+* /etc/cron.daily/\*
+* /etc/cron.hourly/\*
+* /etc/cron.monthly/\*
+* /etc/cron.weekly/\*
 
-/etc/crontab ( just a template )
+/etc/crontab \( just a template \)
 
 ```bash
 SHELL=/bin/bash
@@ -117,9 +117,9 @@ e_agent.log 2>&1
 
 ### Timing
 
-crontab guru : <https://crontab.guru/#0_*_*_*_*>
+crontab guru : [https://crontab.guru/\#0\_\*\_\*\_\*\_\*](https://crontab.guru/#0_*_*_*_*)
 
-- The quick and simple editor for cron schedule expressions
+* The quick and simple editor for cron schedule expressions
 
 ## Debug
 
@@ -127,13 +127,13 @@ crontab guru : <https://crontab.guru/#0_*_*_*_*>
 
 Log files
 
-- /var/log/cron
-- /var/log/cron-[YYYYMMdd]
-- /var/log/cron-[YYYYMMdd].gz
+* /var/log/cron
+* /var/log/cron-\[YYYYMMdd\]
+* /var/log/cron-\[YYYYMMdd\].gz
 
 /var/log/cron
 
-- Log content sample
+* Log content sample
 
 ```bash
 Sep  7 15:19:14 box029 crontab[17831]: (root) BEGIN EDIT (icehe)
@@ -150,7 +150,7 @@ Sep  7 16:01:01 box029 run-parts(/etc/cron.hourly)[23274]: finished mcelog.cron
 
 Log written by **rsyslog**.service
 
-- Start if it's off
+* Start if it's off
 
 ```bash
 # systemv
@@ -173,3 +173,4 @@ systemctl <status|start|stop|restart> crond
 # service
 service crond <status|start|stop|restart> crond
 ```
+

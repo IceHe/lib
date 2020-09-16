@@ -4,7 +4,7 @@
 
 References
 
-- `man cat`
+* `man cat`
 
 ## Quickstart
 
@@ -19,18 +19,18 @@ cat             # Copy standard input to standard output
 
 Format
 
-- **`-n, --number` Number all output lines**
-- `-b, --number-nonblank` Number nonempty output lines, overrides `-n`
-- _`-E, --show-ends` Display $ at end of each line_
-- `-s, --squeeze-blank` Suppress repeated empty output lines
-- _`-T, --show-tabs` Display TAB characters as ^I_
-- _`-v, --show-nonprinting` Use ^ and M-notation, except for LFD & TAB_
+* **`-n, --number` Number all output lines**
+* `-b, --number-nonblank` Number nonempty output lines, overrides `-n`
+* _`-E, --show-ends` Display $ at end of each line_
+* `-s, --squeeze-blank` Suppress repeated empty output lines
+* _`-T, --show-tabs` Display TAB characters as ^I_
+* _`-v, --show-nonprinting` Use ^ and M-notation, except for LFD & TAB_
 
 Combination
 
-- `-A, --show-all` equivalent to `-vET`
-- `-e` equivalent to `-vE`
-- `-t` equivalent to `-vT`
+* `-A, --show-all` equivalent to `-vET`
+* `-e` equivalent to `-vE`
+* `-t` equivalent to `-vT`
 
 ## Usage
 
@@ -108,3 +108,4 @@ $ cat
 icehe
 icehe
 ```
+

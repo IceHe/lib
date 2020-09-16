@@ -10,18 +10,18 @@ BSD
 
 References
 
-- `man uptime`
+* `man uptime`
 
 ## Options
 
 Linux
 
-- `-p, --pretty` Show uptime in pretty format
-- `-s, --since` System up since, in yyyy-mm-dd HH:MM:SS format
+* `-p, --pretty` Show uptime in pretty format
+* `-s, --since` System up since, in yyyy-mm-dd HH:MM:SS format
 
 BSD
 
-- None
+* None
 
 ## Usage
 
@@ -44,3 +44,4 @@ BSD
 $ uptime
 11:25  up 22 days, 21:09, 7 users, load averages: 2.82 3.19 3.22
 ```
+

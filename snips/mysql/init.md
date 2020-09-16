@@ -1,6 +1,6 @@
 # Test MySQL on macOS
 
-- Version : 8+
+* Version : 8+
 
 ## Install
 
@@ -12,13 +12,13 @@ brew install mysql
 
 Or using native packages
 
-- https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html
+* [https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html](https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html)
 
 ## Init
 
 References
 
-- Getting Started with MySQL : https://dev.mysql.com/doc/mysql-getting-started/en/
+* Getting Started with MySQL : [https://dev.mysql.com/doc/mysql-getting-started/en/](https://dev.mysql.com/doc/mysql-getting-started/en/)
 
 ### Connect
 
@@ -50,7 +50,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 #### Create User
 
-- 仅供参考
+* 仅供参考
 
 ```bash
 # login as root user
@@ -169,12 +169,12 @@ mysql> select USER();
 
 References
 
-- Dump Data : http://www.runoob.com/mysql/mysql-database-export.html
-- Import Data : http://www.runoob.com/mysql/mysql-database-import.html
+* Dump Data : [http://www.runoob.com/mysql/mysql-database-export.html](http://www.runoob.com/mysql/mysql-database-export.html)
+* Import Data : [http://www.runoob.com/mysql/mysql-database-import.html](http://www.runoob.com/mysql/mysql-database-import.html)
 
 Trouble-shooting
 
-- How should I tackle --secure-file-priv in MySQL? https://stackoverflow.com/a/40419548/5110899
+* How should I tackle --secure-file-priv in MySQL? [https://stackoverflow.com/a/40419548/5110899](https://stackoverflow.com/a/40419548/5110899)
 
 Dump
 
@@ -185,9 +185,10 @@ mysqldump -u USERNAME -p DATABASE | tee -a dump.sql
 
 Import
 
-- Read & Execute SQL
+* Read & Execute SQL
 
 ```bash
 mysql -u USERNAME -p DATABASE < dump.sql
 # then enter password
 ```
+

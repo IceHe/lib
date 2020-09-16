@@ -4,8 +4,8 @@
 
 References
 
-- `man dstat`
-- Linux 终端下 dstat 监控工具 - Linux 中国 : https://linux.cn/article-3215-1.html
+* `man dstat`
+* Linux 终端下 dstat 监控工具 - Linux 中国 : [https://linux.cn/article-3215-1.html](https://linux.cn/article-3215-1.html)
 
 ## Quickstart
 
@@ -28,11 +28,11 @@ usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
 
 Dstat is a versatile **replacement for `vmstat`, `iostat` and `ifstat`**.
 
-- [vmstat](/cmd/v/vmstat.md)
-- [iostat](/cmd/i/iostat.md)
-- [ifstat](/cmd/i/ifstat.md)
+* [vmstat](../v/vmstat.md)
+* [iostat](../i/iostat.md)
+* [ifstat](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/cmd/i/ifstat.md)
 
-Dstat allows you to view all of your system resources instantly, you can e.g. compare disk usage in combination with interrupts from your IDE controller, or **compare the network bandwidth numbers directly with the disk throughput (in the same interval)**.
+Dstat allows you to view all of your system resources instantly, you can e.g. compare disk usage in combination with interrupts from your IDE controller, or **compare the network bandwidth numbers directly with the disk throughput \(in the same interval\)**.
 
 Dstat also cleverly gives you the most detailed information in columns and clearly indicates in what magnitude and unit the output is displayed. Less confusion, less mistakes, more efficient.
 
@@ -42,67 +42,68 @@ Dstat is unique in letting you aggregate block device throughput for a certain d
 
 ### Default Output
 
-- `-a, --all` Equals `-cdngy` ( **default** )
-- `-c, --cpu` Enable cpu stats (system, user, idle, wait, hardware interrupt, software interrupt)
-- `-d, --disk` Enable disk stats (read, write)
-- `-n, --net` Enable network stats (receive, send)
-- `-g, --page` Enable page stats (page in, page out)
-- `-y, --sys` Enable system stats (interrupts, context switches)
+* `-a, --all` Equals `-cdngy` \( **default** \)
+* `-c, --cpu` Enable cpu stats \(system, user, idle, wait, hardware interrupt, software interrupt\)
+* `-d, --disk` Enable disk stats \(read, write\)
+* `-n, --net` Enable network stats \(receive, send\)
+* `-g, --page` Enable page stats \(page in, page out\)
+* `-y, --sys` Enable system stats \(interrupts, context switches\)
 
 ### Advanced Output
 
-- `-c, --cpu` Enable cpu stats (system, user, idle, wait, hardware interrupt, software interrupt)
-    - `-C 0,3,total` Include cpu0, cpu3 and total (when using -c/--cpu)
-- `-d, --disk` Enable disk stats (read, write)
-    - `-D total,hda` Include total and hda (when using -d/--disk)
-- `-i, --int` Enable interrupt stats
-    - `-I 5,10` Include interrupt 5 and 10 (when using -i/--int)
-- `-l, --load` Enable load average stats (1 min, 5 mins, 15mins)
-- `-m, --mem` Enable memory stats (used, buffers, cache, free)
-- `-n, --net` Enable network stats (receive, send)
-    - `-N eth1,total` Include eth1 and total (when using -n/--net)
-- `-p, --proc` Enable process stats (runnable, uninterruptible, new)
-- `-r, --io` Enable I/O request stats (read, write requests)
-- `-s, --swap` Enable swap stats (used, free)
-- `-S swap1,total` Include swap1 and total (when using -s/--swap)
-- `-t, --time` Enable time/date output
-    - `-T, --epoch` Enable time counter (seconds since epoch)
-- `--aio` Enable aio stats (asynchronous I/O)
-- `--fs, --filesystem` Enable filesystem stats (open files, inodes)
-- `--ipc` Enable ipc stats (message queue, semaphores, shared memory)
-- `--lock` Enable file lock stats (posix, flock, read, write)
-- `--raw` Enable raw stats (raw sockets)
-- `--socket` Enable socket stats (total, tcp, udp, raw, ip-fragments)
-- `--tcp` Enable tcp stats (listen, established, syn, time_wait, close)
-- `--udp` Enable udp stats (listen, active)
-- `--unix` Enable unix stats (datagram, stream, listen, active)
-- `--vm` Enable vm stats (hard pagefaults, soft pagefaults, allocated, free)
-- `--plugin-name` Enable (external) plugins by plugin name, see PLUGINS for options
+* `-c, --cpu` Enable cpu stats \(system, user, idle, wait, hardware interrupt, software interrupt\)
+  * `-C 0,3,total` Include cpu0, cpu3 and total \(when using -c/--cpu\)
+* `-d, --disk` Enable disk stats \(read, write\)
+  * `-D total,hda` Include total and hda \(when using -d/--disk\)
+* `-i, --int` Enable interrupt stats
+  * `-I 5,10` Include interrupt 5 and 10 \(when using -i/--int\)
+* `-l, --load` Enable load average stats \(1 min, 5 mins, 15mins\)
+* `-m, --mem` Enable memory stats \(used, buffers, cache, free\)
+* `-n, --net` Enable network stats \(receive, send\)
+  * `-N eth1,total` Include eth1 and total \(when using -n/--net\)
+* `-p, --proc` Enable process stats \(runnable, uninterruptible, new\)
+* `-r, --io` Enable I/O request stats \(read, write requests\)
+* `-s, --swap` Enable swap stats \(used, free\)
+* `-S swap1,total` Include swap1 and total \(when using -s/--swap\)
+* `-t, --time` Enable time/date output
+  * `-T, --epoch` Enable time counter \(seconds since epoch\)
+* `--aio` Enable aio stats \(asynchronous I/O\)
+* `--fs, --filesystem` Enable filesystem stats \(open files, inodes\)
+* `--ipc` Enable ipc stats \(message queue, semaphores, shared memory\)
+* `--lock` Enable file lock stats \(posix, flock, read, write\)
+* `--raw` Enable raw stats \(raw sockets\)
+* `--socket` Enable socket stats \(total, tcp, udp, raw, ip-fragments\)
+* `--tcp` Enable tcp stats \(listen, established, syn, time\_wait, close\)
+* `--udp` Enable udp stats \(listen, active\)
+* `--unix` Enable unix stats \(datagram, stream, listen, active\)
+* `--vm` Enable vm stats \(hard pagefaults, soft pagefaults, allocated, free\)
+* `--plugin-name` Enable \(external\) plugins by plugin name, see PLUGINS for options
 
 ### Others
 
-- `--list` List the internal and external plugin names
-- `-f, --full` Expand `-C, -D, -I, -N, -S` discovery lists
-- `-v, --vmstat` Equals `-pmgdsc -D total`
+* `--list` List the internal and external plugin names
+* `-f, --full` Expand `-C, -D, -I, -N, -S` discovery lists
+* `-v, --vmstat` Equals `-pmgdsc -D total`
 
 Values
 
-- `--bits` Force bits for values expressed in bytes
-- `--float` Force float values on screen (mutual exclusive with `--integer`)
-- `--integer` Force integer values on screen (mutual exclusive with --float)
+* `--bits` Force bits for values expressed in bytes
+* `--float` Force float values on screen \(mutual exclusive with `--integer`\)
+* `--integer` Force integer values on screen \(mutual exclusive with --float\)
 
 Colors
 
-- `--bw, --blackonwhite` Change colors for white background terminal
-- `--nocolor` Disable colors (implies --noupdate)
+* `--bw, --blackonwhite` Change colors for white background terminal
+* `--nocolor` Disable colors \(implies --noupdate\)
 
 Others
 
-- `--noheaders` Disable repetitive headers
-- `--noupdate` Disable intermediate updates when delay > 1
-- `--output file` Write CSV output to file
-- `--profile` Show profiling statistics when exiting dstat
+* `--noheaders` Disable repetitive headers
+* `--noupdate` Disable intermediate updates when delay &gt; 1
+* `--output file` Write CSV output to file
+* `--profile` Show profiling statistics when exiting dstat
 
 ### Plugins
 
 See `man dstat` section PLUGINS.
+

@@ -4,19 +4,19 @@ TODO
 
 > A multi-faceted language for the Java platform
 >
-> - Apache Groovy is a powerful, optionally typed and dynamic language, with static-typing and static compilation capabilities, for the Java platform aimed at improving developer productivity thanks to a concise, familiar and easy to learn syntax.
-> - It integrates smoothly with any Java program, and immediately delivers to your application powerful features, including scripting capabilities, Domain-Specific Language authoring, runtime and compile-time meta-programming and functional programming.
+> * Apache Groovy is a powerful, optionally typed and dynamic language, with static-typing and static compilation capabilities, for the Java platform aimed at improving developer productivity thanks to a concise, familiar and easy to learn syntax.
+> * It integrates smoothly with any Java program, and immediately delivers to your application powerful features, including scripting capabilities, Domain-Specific Language authoring, runtime and compile-time meta-programming and functional programming.
 
-- Home Page : http://groovy-lang.org/
-- Documentation : http://groovy-lang.org/documentation.html
-    - **Syntax** : http://groovy-lang.org/syntax.html
-    - **Operators** : http://groovy-lang.org/operators.html
-    - **Program Structure** http://groovy-lang.org/structure.html
-    - Object Orientation : http://groovy-lang.org/objectorientation.html
-    - **Closure** : http://groovy-lang.org/closures.html
-    - _Semantics_ : http://groovy-lang.org/semantics.html
-- Style Guide : http://groovy-lang.org/style-guide.html
-- Testing with spock : http://groovy-lang.org/testing.html#_testing_with_spock
+* Home Page : [http://groovy-lang.org/](http://groovy-lang.org/)
+* Documentation : [http://groovy-lang.org/documentation.html](http://groovy-lang.org/documentation.html)
+  * **Syntax** : [http://groovy-lang.org/syntax.html](http://groovy-lang.org/syntax.html)
+  * **Operators** : [http://groovy-lang.org/operators.html](http://groovy-lang.org/operators.html)
+  * **Program Structure** [http://groovy-lang.org/structure.html](http://groovy-lang.org/structure.html)
+  * Object Orientation : [http://groovy-lang.org/objectorientation.html](http://groovy-lang.org/objectorientation.html)
+  * **Closure** : [http://groovy-lang.org/closures.html](http://groovy-lang.org/closures.html)
+  * _Semantics_ : [http://groovy-lang.org/semantics.html](http://groovy-lang.org/semantics.html)
+* Style Guide : [http://groovy-lang.org/style-guide.html](http://groovy-lang.org/style-guide.html)
+* Testing with spock : [http://groovy-lang.org/testing.html\#\_testing\_with\_spock](http://groovy-lang.org/testing.html#_testing_with_spock)
 
 ## Quickstart
 
@@ -46,3 +46,4 @@ retry(3) {
     doSomething()
 }
 ```
+

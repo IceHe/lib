@@ -4,7 +4,7 @@
 
 References
 
-- `man dig`
+* `man dig`
 
 ## Quickstart
 
@@ -30,25 +30,25 @@ Options & More : see `man dig`
 
 ## Description
 
-- `dig` (**domain information groper**) is a flexible tool for interrogating DNS name servers.
-- It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried.
-- Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output.
-- Other lookup tools tend to have less functionality than `dig`.
+* `dig` \(**domain information groper**\) is a flexible tool for interrogating DNS name servers.
+* It performs DNS lookups and displays the answers that are returned from the name server\(s\) that were queried.
+* Most DNS administrators use dig to troubleshoot DNS problems because of its flexibility, ease of use and clarity of output.
+* Other lookup tools tend to have less functionality than `dig`.
 
 ## Query Options
 
-- `+[no]short` Provide a terse answer.
-    - The default is to print the answer in a verbose form.
-- `+[no]trace` Toggle tracing of the delegation path from the root name servers for the name being looked up.
-    - Tracing is disabled by default.
-    - When tracing is enabled, dig makes iterative queries to resolve the name being looked up.
-    - It will follow referrals from the root servers, showing the answer from each server that was used to resolve the lookup.
-    - `+dnssec` is also set when +trace is set to better emulate the default queries from a nameserver.
-- ……
+* `+[no]short` Provide a terse answer.
+  * The default is to print the answer in a verbose form.
+* `+[no]trace` Toggle tracing of the delegation path from the root name servers for the name being looked up.
+  * Tracing is disabled by default.
+  * When tracing is enabled, dig makes iterative queries to resolve the name being looked up.
+  * It will follow referrals from the root servers, showing the answer from each server that was used to resolve the lookup.
+  * `+dnssec` is also set when +trace is set to better emulate the default queries from a nameserver.
+* ……
 
 ## Usage
 
-DNS Records : see [nslookup](/cmd/n/nslookup.md#Records)
+DNS Records : see [nslookup](../n/nslookup.md#Records)
 
 ### Default
 
@@ -92,10 +92,10 @@ ns4.sina.com.cn.        55675   IN      A       121.14.1.22
 ;; MSG SIZE  rcvd: 290
 ```
 
-- QUESTION SECTION : 提问，查询的域名
-- ANSWER SECTION  : 答案，查询到的域名对应的 IP
-- AUTHORITY SECTION : 直接提供这个域名解析的 DNS 服务器，不包括更高级 DNS 服务器
-- ADDITIONAL SECTION : 直接提供解析的服务器的 IP 地址
+* QUESTION SECTION : 提问，查询的域名
+* ANSWER SECTION  : 答案，查询到的域名对应的 IP
+* AUTHORITY SECTION : 直接提供这个域名解析的 DNS 服务器，不包括更高级 DNS 服务器
+* ADDITIONAL SECTION : 直接提供解析的服务器的 IP 地址
 
 最后是一些统计信息，其中 SERVER 指的是直接为你服务的本地 DNS 服务器的 IP。
 
@@ -166,5 +166,5 @@ baidu.com.      86400   IN  NS  ns7.baidu.com.
 baidu.com.      86400   IN  NS  ns3.baidu.com.
 baidu.com.      86400   IN  NS  dns.baidu.com.
 ;; Received 240 bytes from 220.181.37.10#53(ns3.baidu.com) in 2 ms
-
 ```
+

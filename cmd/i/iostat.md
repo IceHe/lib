@@ -1,15 +1,15 @@
 # iostat
 
-> Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
+> Report Central Processing Unit \(CPU\) statistics and input/output statistics for devices and partitions.
 
-- The iostat command is used for monitoring system input/output device loading by observing the time the devices are active in relation to their average transfer rates.
-- The iostat command generates reports that can be used to change system configuration to better balance the input/output load between physical disks.
-- See `man iostat` for more.
-- Recommend to use [`dstat`](/cmd/d/dstat.md).
+* The iostat command is used for monitoring system input/output device loading by observing the time the devices are active in relation to their average transfer rates.
+* The iostat command generates reports that can be used to change system configuration to better balance the input/output load between physical disks.
+* See `man iostat` for more.
+* Recommend to use [`dstat`](../d/dstat.md).
 
 References
 
-- `man iostat`
+* `man iostat`
 
 ## Quickstart
 
@@ -40,15 +40,15 @@ iostat [ -c ] [ -d ] [ -h ] [ -k | -m ]
 
 Display
 
-- `-c` Display **CPU** utilization report
-- `-d` Display **device** utilization report
-- `-x` Display **extended statistics**
+* `-c` Display **CPU** utilization report
+* `-d` Display **device** utilization report
+* `-x` Display **extended statistics**
 
 Format
 
-- `-k` Display statistics in **kilobytes** per second
-- `-m` Display statistics in **megabytes** per second
-- `-t` Print **time** for each report displayed
+* `-k` Display statistics in **kilobytes** per second
+* `-m` Display statistics in **megabytes** per second
+* `-t` Print **time** for each report displayed
 
 ## Usage
 
@@ -102,7 +102,7 @@ sda               0.10     5.23    1.57    8.74   108.07   179.64    55.81     0
 
 ### Interval
 
-- 2 seconds
+* 2 seconds
 
 ```bash
 $ iostat 2
@@ -131,8 +131,8 @@ sda               2.50         0.00        30.00          0         60
 
 ### Count
 
-- 1 second
-- 3 times
+* 1 second
+* 3 times
 
 ```bash
 $ iostat 1 3
@@ -155,5 +155,5 @@ avg-cpu:  %user   %nice %system %iowait  %steal   %idle
 
 Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
 sda               0.00         0.00         0.00          0          0
-
 ```
+

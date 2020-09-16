@@ -4,9 +4,9 @@
 
 References
 
-- `man jmap`
-- Understand the JVM - 2nd Edition - ZH Ver. - P144
-- Java SE 14 Docs - Tools References - `jmap` : https://docs.oracle.com/en/java/javase/14/docs/specs/man/jmap.html
+* `man jmap`
+* Understand the JVM - 2nd Edition - ZH Ver. - P144
+* Java SE 14 Docs - Tools References - `jmap` : [https://docs.oracle.com/en/java/javase/14/docs/specs/man/jmap.html](https://docs.oracle.com/en/java/javase/14/docs/specs/man/jmap.html)
 
 ## Quickstart
 
@@ -31,16 +31,16 @@ jmap [ option ] [ server-id@ ] remote-hostname-or-IP
 
 ## Options
 
-- `-clstats pid` Connects to a running process and prints class loader statistics of Java heap.
-- `-finalizerinfo pid` Connects to a running process and prints information on objects awaiting finalization.
-- `-histo[:live] pid` Connects to a running process and prints a histogram of the Java object heap.
-    - If the live suboption is specified, it then counts only live objects.
-- `-dump:dump_options pid` Connects to a running process and dumps the Java heap.
-    - The dump_options include:
-        - `live` When specified, dumps only the live objects; if not specified, then dumps all objects in the heap.
-        - `format=b` Dumps the Java heap in hprof binary format
-        - `file=filename` Dumps the heap to filename
-    - Example: jmap -dump:live,format=b,file=heap.bin pid
+* `-clstats pid` Connects to a running process and prints class loader statistics of Java heap.
+* `-finalizerinfo pid` Connects to a running process and prints information on objects awaiting finalization.
+* `-histo[:live] pid` Connects to a running process and prints a histogram of the Java object heap.
+  * If the live suboption is specified, it then counts only live objects.
+* `-dump:dump_options pid` Connects to a running process and dumps the Java heap.
+  * The dump\_options include:
+    * `live` When specified, dumps only the live objects; if not specified, then dumps all objects in the heap.
+    * `format=b` Dumps the Java heap in hprof binary format
+    * `file=filename` Dumps the heap to filename
+  * Example: jmap -dump:live,format=b,file=heap.bin pid
 
 ## Usage
 
@@ -169,3 +169,4 @@ Dump only live objects
 $ jmap -dump:live,format=b,file=jmap-dump-all-581.bin 581
 Heap dump file created
 ```
+

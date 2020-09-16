@@ -4,9 +4,9 @@
 
 References
 
-- `man top`
-- 理解Linux系统负荷 : http://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html
-    - load average 有三个值，分别表示不同时长内的「系统负荷」采样值：1 分钟 / 5 分钟 / 15 分钟！
+* `man top`
+* 理解Linux系统负荷 : [http://www.ruanyifeng.com/blog/2011/07/linux\_load\_average\_explained.html](http://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html)
+  * load average 有三个值，分别表示不同时长内的「系统负荷」采样值：1 分钟 / 5 分钟 / 15 分钟！
 
 ## Usage
 
@@ -80,3 +80,4 @@ Window 1:Def: Cumulative mode Off.  System: Delay 3.0 secs; Secure mode Off.
 Press 'h' or '?' for help with Windows,
 Type 'q' or <Esc> to continue
 ```
+

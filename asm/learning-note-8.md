@@ -2,27 +2,27 @@
 
 > ASM - Note: 将第八章的实验 7 的公司数据按照（原书的）图示 10.2 的格式，在屏幕上显示出来。汇编语言第十章课程设计 1。
 
-- Created on 2014-10
-- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
+* Created on 2014-10
+* 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 ## 课程设计 1
 
-- 任务：将第八章的实验7的公司数据按照（原书的）图示10.2的格式，在屏幕上显示出来。
-- 参照：[Note 5 实验7](/asm/learning-note-5.md#实验7-寻址方式在结构化数据访问中的应用)
+* 任务：将第八章的实验7的公司数据按照（原书的）图示10.2的格式，在屏幕上显示出来。
+* 参照：[Note 5 实验7](learning-note-5.md#实验7-寻址方式在结构化数据访问中的应用)
 
 因为程序要显示的数据有些已经大于65535（16位word型能存的最大数），所以要编写一个新的数据转化为字符串的程序，dtoc的改进版，
 
-即 [Note 7 第十章实验 10.3 的数字显示](/asm/learning-note-7.md#_3数值显示)
+即 [Note 7 第十章实验 10.3 的数字显示](learning-note-7.md#_3数值显示)
 
-- 功能：
-    - 将dword型数据转变成为表示十进制数的字符串，字符串以0为结尾符。
-- 参数：
-    - (ax)=dword 型数据的低16位
-    - (dx)=dword 型数据的高16位
-    - ds:si 指向字符串的首地址
-- 返回：无
+* 功能：
+  * 将dword型数据转变成为表示十进制数的字符串，字符串以0为结尾符。
+* 参数：
+  * \(ax\)=dword 型数据的低16位
+  * \(dx\)=dword 型数据的高16位
+  * ds:si 指向字符串的首地址
+* 返回：无
 
-```nasm
+```text
 assume cs:code
 
 data segment
@@ -160,12 +160,11 @@ code ends
 end start
 ```
 
-Attachment 附件：[>汇编语言第十章实验10.3改进版.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207%20extra/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3%E6%94%B9%E8%BF%9B%E7%89%88.asm)
- </div>
+Attachment 附件：[&gt;汇编语言第十章实验10.3改进版.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207%20extra/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E5%AE%9E%E9%AA%8C10.3%E6%94%B9%E8%BF%9B%E7%89%88.asm) &lt;/div&gt;
 
 完整的解法：
 
-```nasm
+```text
 assume cs:code, ds:data
 
 data segment
@@ -529,3 +528,4 @@ end start
 ```
 
 Attachment 附件：[汇编语言第十章课程设计1.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%207%20extra/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E7%AB%A0%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A11.asm)
+

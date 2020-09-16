@@ -1,12 +1,14 @@
 # mount
 
+## mount
+
 > mount a filesystem
 
 References
 
-- `man mount`
+* `man mount`
 
-## Quickstart
+### Quickstart
 
 ```bash
 # Standard Form #
@@ -28,19 +30,19 @@ mount -t type device dir
 -o rw
 ```
 
-## Config Files
+### Config Files
 
-- /etc/fstab : filesystem table
-- /etc/mtab : table of mounted filesystems
-- /etc/mtab~ : lock file
-- /etc/mtab.tmp : temporary file
-- /etc/filesystems : a list of filesystem types to try
+* /etc/fstab : filesystem table
+* /etc/mtab : table of mounted filesystems
+* /etc/mtab~ : lock file
+* /etc/mtab.tmp : temporary file
+* /etc/filesystems : a list of filesystem types to try
 
-# umount
+## umount
 
 > unmount a filesystem
 
-## Quickstart
+### Quickstart
 
 ```bash
 # Unmount by name
@@ -71,3 +73,4 @@ bash   9341  francois  cwd   DIR   8,1   1024    2 /mnt/mymount
 ## IF exists
 $ umount -lv /mnt/mymount/
 ```
+

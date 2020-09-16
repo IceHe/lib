@@ -4,8 +4,8 @@ On Linux
 
 > Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
 
-- Here is intro to use `netstat` on Linux
-- Notice : It is different between macOS (FreeBSD) & Linux !
+* Here is intro to use `netstat` on Linux
+* Notice : It is different between macOS \(FreeBSD\) & Linux !
 
 On BSD
 
@@ -13,25 +13,26 @@ On BSD
 
 Reference
 
-- `man netstat`
-- [netstat 的 10 个基本用法](https://linux.cn/article-2434-1.html)
+* `man netstat`
+* [netstat 的 10 个基本用法](https://linux.cn/article-2434-1.html)
 
 ## Quickstart
 
 ```bash
+
 ```
 
 ## Options
 
-- `-a, --all` **All** sockets
-    - Both listening and non-listening sockets
-- `-l, --listening` Only **listening** sockets
-- `-n, --numeric` **Numerical addresses**
-    - Instead of trying to determine symbolic host, port or user names
-- `-p, --program` **PID & name of program**
-    - to which each socket belongs
-- `-t, --tcp` **TCP** only
-- `-u, --udp` **UDP** only
+* `-a, --all` **All** sockets
+  * Both listening and non-listening sockets
+* `-l, --listening` Only **listening** sockets
+* `-n, --numeric` **Numerical addresses**
+  * Instead of trying to determine symbolic host, port or user names
+* `-p, --program` **PID & name of program**
+  * to which each socket belongs
+* `-t, --tcp` **TCP** only
+* `-u, --udp` **UDP** only
 
 ## Usage
 
@@ -68,7 +69,7 @@ netstat -au
 
 TCP **with PID & program name**
 
-- `-p` option
+* `-p` option
 
 ```bash
 $ netstat -anpt
@@ -87,7 +88,7 @@ tcp        0      0 0.0.0.0:30008           0.0.0.0:*               LISTEN      
 
 TCP **listening** sockets with PID & program name
 
-- `-l` option
+* `-l` option
 
 ```bash
 netstat -alnpt
@@ -95,7 +96,7 @@ netstat -alnpt
 
 Show **active** sockets
 
-- ESTABLISHED means active.
+* ESTABLISHED means active.
 
 ```bash
 $ netstat -anpt | grep ESTA
@@ -110,17 +111,18 @@ tcp        0      0 10.77.120.249:22        10.55.21.212:40248      ESTABLISHED 
 
 Normally this can be one of several values as follow.
 
-|state|descript|
-|:-|:-|
-|ESTABLISHED|The socket has an established connection.|
-|SYN_SENT|The socket is actively attempting to establish a connection.|
-|SYN_RECV|A connection request has been received from the network.|
-|FIN_WAIT1|The socket is closed, and the connection is shutting down.|
-|FIN_WAIT2|Connection is closed, and the socket is waiting for a shutdown from the remote end.|
-|TIME_WAIT|The socket is waiting after close to handle packets still in the network.|
-|CLOSE|The socket is not being used.|
-|CLOSE_WAIT|The remote end has shut down, waiting for the socket to close.|
-|LAST_ACK|The remote end has shut down, and the socket is closed. <br/> Waiting for acknowledgement.|
-|LISTEN|The socket is listening for incoming connections. <br/> Such sockets are not included in the output <br/> unless you  specify the --listening (-l) or --all (-a) option.|
-|CLOSING|Both sockets are shut down but we still don't have all our data sent.|
-|UNKNOWN|The state of the socket is unknown.|
+| state | descript |
+| :--- | :--- |
+| ESTABLISHED | The socket has an established connection. |
+| SYN\_SENT | The socket is actively attempting to establish a connection. |
+| SYN\_RECV | A connection request has been received from the network. |
+| FIN\_WAIT1 | The socket is closed, and the connection is shutting down. |
+| FIN\_WAIT2 | Connection is closed, and the socket is waiting for a shutdown from the remote end. |
+| TIME\_WAIT | The socket is waiting after close to handle packets still in the network. |
+| CLOSE | The socket is not being used. |
+| CLOSE\_WAIT | The remote end has shut down, waiting for the socket to close. |
+| LAST\_ACK | The remote end has shut down, and the socket is closed.   Waiting for acknowledgement. |
+| LISTEN | The socket is listening for incoming connections.   Such sockets are not included in the output   unless you  specify the --listening \(-l\) or --all \(-a\) option. |
+| CLOSING | Both sockets are shut down but we still don't have all our data sent. |
+| UNKNOWN | The state of the socket is unknown. |
+

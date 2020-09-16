@@ -2,23 +2,23 @@
 
 ## Locale
 
-- for Chinese : zh_CN
+* for Chinese : zh\_CN
 
 ### CLI
 
 References
 
-- centos6.5版本改系统语言成中文简体 - CSDN博客 : https://blog.csdn.net/zk673820543/article/details/50190355
+* centos6.5版本改系统语言成中文简体 - CSDN博客 : [https://blog.csdn.net/zk673820543/article/details/50190355](https://blog.csdn.net/zk673820543/article/details/50190355)
 
 Solution
 
-- List available locales
+* List available locales
 
 ```bash
 $ locale -a
 ```
 
-- Modify i18n  config file
+* Modify i18n  config file
 
 ```bash
 $ vim /etc/sysconfig/i18n
@@ -32,7 +32,7 @@ SYSFONT="latarcyrheb-sun16"
 
 References
 
-- Centos 中 vim 中文乱码有关问题 - 开源中国 : https://my.oschina.net/bobwei/blog/798238
+* Centos 中 vim 中文乱码有关问题 - 开源中国 : [https://my.oschina.net/bobwei/blog/798238](https://my.oschina.net/bobwei/blog/798238)
 
 Append configs below to `/etc/vimrc`
 
@@ -42,3 +42,4 @@ set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 ```
+

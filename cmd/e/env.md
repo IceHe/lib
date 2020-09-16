@@ -1,10 +1,10 @@
 # env
 
-> run a program in a (temporary) modified environment
+> run a program in a \(temporary\) modified environment
 
 References
 
-- `man env`
+* `man env`
 
 ## Quickstart
 
@@ -22,8 +22,8 @@ env [OPTION]... [-] [NAME=VALUE]... [COMMAND [ARG]...]
 
 ## Options
 
-- `i, --ignore-environment` Start with an empty environment
-- `-u, --unset=NAME` Remove variable from the environment
+* `i, --ignore-environment` Start with an empty environment
+* `-u, --unset=NAME` Remove variable from the environment
 
 ## Usage
 
@@ -75,3 +75,4 @@ SUDO_GID=1131
 QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
 _=/bin/env
 ```
+

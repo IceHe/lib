@@ -4,7 +4,7 @@
 
 References
 
-- `man sleep`
+* `man sleep`
 
 ## Synopsis
 
@@ -14,21 +14,21 @@ sleep NUMBER[SUFFIX]...
 
 ### NUMBER
 
-- Pause for NUMBER seconds (default).
-- NUMBER may be
-    - an **integer**
-    - an arbitrary **floating point** number
+* Pause for NUMBER seconds \(default\).
+* NUMBER may be
+  * an **integer**
+  * an arbitrary **floating point** number
 
 Given two or more arguments!
 
-- Pause for the amount of time specified by the sum of their values.
+* Pause for the amount of time specified by the sum of their values.
 
 ### SUFFIX
 
-- `s` seconds (the default)
-- `m` minutes
-- `h` hours
-- `d` days.
+* `s` seconds \(the default\)
+* `m` minutes
+* `h` hours
+* `d` days.
 
 ## Usage
 
@@ -53,3 +53,4 @@ sleep 5d
 # sumation
 sleep 1d 2h 3m 4s
 ```
+

@@ -1,9 +1,9 @@
-# How to mail on macOS ( draft )
+# How to mail on macOS \( draft \)
 
 References
 
-- Mac OS X 下用命令行发送邮件 : https://my.oschina.net/uhziel/blog/186683
-- msmtp - documentation : https://marlam.de/msmtp/documentation
+* Mac OS X 下用命令行发送邮件 : [https://my.oschina.net/uhziel/blog/186683](https://my.oschina.net/uhziel/blog/186683)
+* msmtp - documentation : [https://marlam.de/msmtp/documentation](https://marlam.de/msmtp/documentation)
 
 ## msmtp
 
@@ -11,11 +11,9 @@ References
 
 See `man msmtp` for more
 
----
-
 **Notice : There is something wrong with setting QQMail in msmtp on macOS**!
 
-- **TODO : If I actually need to send email via command line on macOS, I will try it again.**
+* **TODO : If I actually need to send email via command line on macOS, I will try it again.**
 
 ### Install
 
@@ -33,8 +31,8 @@ set sendmail=/usr/local/bin/msmtp
 
 Create file `~/.msmtprc` & append configs to it as below
 
-- Replace PASSWORD with your real password
-- Replace icehe.me@qq.com with your real email address
+* Replace PASSWORD with your real password
+* Replace icehe.me@qq.com with your real email address
 
 ```bash
 # Use an external SMTP server with insecure authentication.
@@ -76,3 +74,4 @@ mail -s
 # or
 mail
 ```
+

@@ -4,7 +4,7 @@
 
 /etc/init.d
 
-- The directory containing System V init scripts.
+* The directory containing System V init scripts.
 
 Control services
 
@@ -26,3 +26,4 @@ nginx.service
    Loaded: not-found (Reason: No such file or directory)
    Active: inactive (dead)
 ```
+

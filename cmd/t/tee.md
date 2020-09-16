@@ -4,7 +4,7 @@
 
 References
 
-- `man tee`
+* `man tee`
 
 Synopsis
 
@@ -16,8 +16,8 @@ If a FILE is `-`, copy again to standard output
 
 ## Options
 
-- `-a, --append` Append to the given FILEs, do not overwrite
-- `-i, --ignore-interrupts` Ignore interrupt signals
+* `-a, --append` Append to the given FILEs, do not overwrite
+* `-i, --ignore-interrupts` Ignore interrupt signals
 
 ## Usage
 
@@ -37,10 +37,10 @@ Append to file
 cat file1 | tee -a file2
 ```
 
-### Differ \> and \>>
+### Differ &gt; and &gt;&gt;
 
-- `tee -a` : Write to both standard output and files
-- `>`, `>>` : Only write to files!
+* `tee -a` : Write to both standard output and files
+* `>`, `>>` : Only write to files!
 
 ```bash
 cat file1 | tee -a file2
@@ -49,3 +49,4 @@ cat file1 | tee file2
 cat file1 > file2
 cat file1 >> file2
 ```
+

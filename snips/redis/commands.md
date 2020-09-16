@@ -1,10 +1,10 @@
-# Redis ( draft )
+# Redis \( draft \)
 
 ## Commands
 
-- [redis-cli](/cmd/redis/redis-cli.md) : Redis client
-- [redis-server](/cmd/redis/redis-server.md) ( & redis-sentinel ) : Redis server
-- [redis-dump](/cmd/redis/redis-dump.md) : Backup & restore Redis data to and from JSON
+* [redis-cli](../../cmd/redis/redis-cli.md) : Redis client
+* [redis-server](../../cmd/redis/redis-server.md) \( & redis-sentinel \) : Redis server
+* [redis-dump](../../cmd/redis/redis-dump.md) : Backup & restore Redis data to and from JSON
 
 ## Prepare
 
@@ -20,7 +20,7 @@ brew install redis
 
 ### Start
 
-Service ( recommended )
+Service \( recommended \)
 
 ```bash
 systemctl [start|stop|restart|status] redis
@@ -28,13 +28,13 @@ systemctl [start|stop|restart|status] redis
 
 Manually
 
-- Default port : 6379
+* Default port : 6379
 
 ```bash
 redis-server
 ```
 
-- Others
+* Others
 
 ```bash
 # e.g.
@@ -45,12 +45,12 @@ redis-server -p 6378
 
 Config files
 
-- /etc/redis.conf
-- /etc/redis-sentinel.conf
+* /etc/redis.conf
+* /etc/redis-sentinel.conf
 
 #### redis.conf
 
-```properties
+```text
 # There are all default values below.
 
 # bind : listen to specified interfaces
@@ -73,7 +73,7 @@ requiredpass foobared
 
 ### Slaveof
 
-Reference : https://redis.io/commands/slaveof
+Reference : [https://redis.io/commands/slaveof](https://redis.io/commands/slaveof)
 
 ```bash
 # e.g.
@@ -86,23 +86,23 @@ OK
 
 ### redis-cli
 
-See command [redis-cli](/cmd/redis/redis-cli.md)
+See command [redis-cli](../../cmd/redis/redis-cli.md)
 
 ### redis-server
 
-See command [redis-server](/cmd/redis/redis-server.md)
+See command [redis-server](../../cmd/redis/redis-server.md)
 
 ### Interactive Commands
 
 References
 
-- Redis 运维手册 : http://shouce.jb51.net/redis-all-about/Intro/index.html
+* Redis 运维手册 : [http://shouce.jb51.net/redis-all-about/Intro/index.html](http://shouce.jb51.net/redis-all-about/Intro/index.html)
 
 #### debug
 
 hstats
 
-- 在 [美团针对Redis Rehash机制的探索和实践](https://mp.weixin.qq.com/s/ufoLJiXE0wU4Bc7ZbE9cDQ) 看到了查看 Redis 对象内部统计信息的图，由以下命令获得
+* 在 [美团针对Redis Rehash机制的探索和实践](https://mp.weixin.qq.com/s/ufoLJiXE0wU4Bc7ZbE9cDQ) 看到了查看 Redis 对象内部统计信息的图，由以下命令获得
 
 ```bash
 > 127.0.0.1:6379> DEBUG HTSTATS 0
@@ -129,3 +129,4 @@ Value at:0x7f8da6e1ca70 refcount:1 encoding:ziplist serializedlength:30 lru:5141
 ```
 
 #### info
+

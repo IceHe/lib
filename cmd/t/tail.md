@@ -4,7 +4,7 @@
 
 References
 
-- `man tail`
+* `man tail`
 
 Sysnopsis
 
@@ -16,31 +16,31 @@ tail [OPTION]... [FILE]...
 
 ### Amount
 
-- `-n, --lines=[-]K` Print the last K lines instead of the last 10;
-    - or use `-n +K` to output starting with the Kth
-- `-c, --bytes=[-]K` Print the last K bytes of each file;
-    - or use `-c +K` to output bytes starting with the Kth of each file
+* `-n, --lines=[-]K` Print the last K lines instead of the last 10;
+  * or use `-n +K` to output starting with the Kth
+* `-c, --bytes=[-]K` Print the last K bytes of each file;
+  * or use `-c +K` to output bytes starting with the Kth of each file
 
 K may have a multiplier suffix:
 
-- b : 512
-- kB : 1000
-- K : 1024
-- MB : 1000\*1000
-- M : 1024\*1024
-- GB : 1000\*1000\*1000
-- G : 1024\*1024\*1024
-- and so on for T, P, E, Z, Y.
+* b : 512
+* kB : 1000
+* K : 1024
+* MB : 1000\*1000
+* M : 1024\*1024
+* GB : 1000\*1000\*1000
+* G : 1024\*1024\*1024
+* and so on for T, P, E, Z, Y.
 
 ### Appended
 
-- `-f, --follow[={name|descriptor}]` Output appended data as the file grows
-- `-F` same as `--follow=name --retry`
-- `--retry` Keep trying to open a file if it is inaccessible
+* `-f, --follow[={name|descriptor}]` Output appended data as the file grows
+* `-F` same as `--follow=name --retry`
+* `--retry` Keep trying to open a file if it is inaccessible
 
 ### Others
 
-- `-pid=PID` With `-f`, terminate after process ID, PID dies
+* `-pid=PID` With `-f`, terminate after process ID, PID dies
 
 ## Usage
 
@@ -115,3 +115,4 @@ do_pressure_test 'seq 300 5 440' 'show'  'thrpt'
 do_pressure_test 'seq 300 5 440' 'show'  'avgt'
 do_pressure_test 'seq 300 5 440' 'show'  'sample'
 ```
+

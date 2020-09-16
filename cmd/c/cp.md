@@ -4,7 +4,7 @@
 
 References
 
-- `man cp`
+* `man cp`
 
 ## Quickstart
 
@@ -45,48 +45,48 @@ cp [OPTION]... SOURCE... DIRECTORY
 cp [OPTION]... -t DIRECTORY SOURCE...
 ```
 
-Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+Copy SOURCE to DEST, or multiple SOURCE\(s\) to DIRECTORY.
 
 ## Options
 
 ### Interact
 
-- `-f, --force` if an existing destination file cannot be opened, remove it and try again
-    - this option is ignored when the `-n` option is also used
-- `-i, --interactive` prompt before overwrite
-    - overrides a previous `-n` option
-- `-n, --no-clobber` do not overwrite an existing file
-    - overrides a previous `-i` option
+* `-f, --force` if an existing destination file cannot be opened, remove it and try again
+  * this option is ignored when the `-n` option is also used
+* `-i, --interactive` prompt before overwrite
+  * overrides a previous `-n` option
+* `-n, --no-clobber` do not overwrite an existing file
+  * overrides a previous `-i` option
 
 ### Common
 
-- `-p` same as `--preserve=mode,ownership,timestamps`
-- `-R, -r, --recursive` copy directories recursively
-- `-t, --target-directory=DIRECTORY` move all SOURCE arguments into DIRECTORY
-- `-u, --update` copy only when the SOURCE file is newer than the destination file
-    - or when the destination file is missing
+* `-p` same as `--preserve=mode,ownership,timestamps`
+* `-R, -r, --recursive` copy directories recursively
+* `-t, --target-directory=DIRECTORY` move all SOURCE arguments into DIRECTORY
+* `-u, --update` copy only when the SOURCE file is newer than the destination file
+  * or when the destination file is missing
 
 ### Link
 
-- `-l, --link` hard link files instead of copying
-- `-s, --symbolic-link` make symbolic links instead of copying
+* `-l, --link` hard link files instead of copying
+* `-s, --symbolic-link` make symbolic links instead of copying
 
 ### Others
 
-- `-a, --archive` same as `-dR --preserve=all` ( 归档文件夹，并保留现有的属性 )
-    - for archiving directory
-    - perserve links, file attributes (context, xattr) & content
-- `-b` like `--backup` but does not accept an argument
-- `--backup[=CONTROL]` make a backup of each existing destination file
-- _`-d` same as `--no-dereference --preserve=links`_
-    - _`-L, --dereference` always follow symbolic links in SOURCE_
-    - _`-P, --no-dereference` never follow symbolic links in SOURCE_
-- `--preserve[=ATTR_LIST]` preserve the specified attributes (default: mode,ownership,timestamps)
-    - if possible additional attributes: context, links, xattr, all
-    - _`--no-preserve=ATTR_LIST` don't preserve the specified attributes_
-- _`--remove-destination` remove each existing destination file before attempting to open it ( contrast with `--force` )_
-- `-x, --one-file-system` stay on this file system
-- ……
+* `-a, --archive` same as `-dR --preserve=all` \( 归档文件夹，并保留现有的属性 \)
+  * for archiving directory
+  * perserve links, file attributes \(context, xattr\) & content
+* `-b` like `--backup` but does not accept an argument
+* `--backup[=CONTROL]` make a backup of each existing destination file
+* _`-d` same as `--no-dereference --preserve=links`_
+  * _`-L, --dereference` always follow symbolic links in SOURCE_
+  * _`-P, --no-dereference` never follow symbolic links in SOURCE_
+* `--preserve[=ATTR_LIST]` preserve the specified attributes \(default: mode,ownership,timestamps\)
+  * if possible additional attributes: context, links, xattr, all
+  * _`--no-preserve=ATTR_LIST` don't preserve the specified attributes_
+* _`--remove-destination` remove each existing destination file before attempting to open it \( contrast with `--force` \)_
+* `-x, --one-file-system` stay on this file system
+* ……
 
 ## Usage
 
@@ -155,8 +155,8 @@ cp -a <source_dir> <destination_dir>
 
 ### Link
 
-- Use relative paths for relative links.
-- Use absolute paths for absolute links.
+* Use relative paths for relative links.
+* Use absolute paths for absolute links.
 
 #### Hard Link
 
@@ -175,3 +175,4 @@ cp -s <source> <destination>
 ```bash
 cp -LR <source_dir> <destination_dir>
 ```
+

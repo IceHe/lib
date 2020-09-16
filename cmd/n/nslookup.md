@@ -4,7 +4,7 @@
 
 References
 
-- `man nslookup`
+* `man nslookup`
 
 Synopsis
 
@@ -14,11 +14,11 @@ nslookup [-option] [name | -] [server]
 
 Options
 
-- See `man nslookup`
+* See `man nslookup`
 
 ## Usage
 
-### A (default)
+### A \(default\)
 
 ```bash
 $ nslookup weibo.com
@@ -106,68 +106,69 @@ Address: 119.23.141.248
 
 References
 
-- Wikipedia : https://en.wikipedia.org/wiki/List_of_DNS_record_types
-- DNS Record Viewer : http://dns-record-viewer.online-domain-tools.com/
-- _bluehost_ : https://my.bluehost.com/hosting/help/508
+* Wikipedia : [https://en.wikipedia.org/wiki/List\_of\_DNS\_record\_types](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+* DNS Record Viewer : [http://dns-record-viewer.online-domain-tools.com/](http://dns-record-viewer.online-domain-tools.com/)
+* _bluehost_ : [https://my.bluehost.com/hosting/help/508](https://my.bluehost.com/hosting/help/508)
 
-|Record|Description|
-|:-|:-|
-|CNAME|别名，用于将多个域名绑定到同一个IP地址上|
-|A|将域名或者子域名转换为一个32位的IP地址，也可以存储其他有价值的信息|
-|MX|将域名绑定到邮件服务器上|
+| Record | Description |
+| :--- | :--- |
+| CNAME | 别名，用于将多个域名绑定到同一个IP地址上 |
+| A | 将域名或者子域名转换为一个32位的IP地址，也可以存储其他有价值的信息 |
+| MX | 将域名绑定到邮件服务器上 |
 
 ### A
 
 Address record
 
-- The record A specifies IP address (IPv4) for given host.
-- A records are used for conversion of domain names to corresponding IP addresses.
+* The record A specifies IP address \(IPv4\) for given host.
+* A records are used for conversion of domain names to corresponding IP addresses.
 
 ### AAAA
 
 IPv6 address record
 
-- The record AAAA (also quad-A record) specifies IPv6 address for given host.
-- So it works the same way as the A record and the difference is the type of IP address.
+* The record AAAA \(also quad-A record\) specifies IPv6 address for given host.
+* So it works the same way as the A record and the difference is the type of IP address.
 
 ### CNAME
 
 Canonical Name record
 
-- The CNAME record specifies a domain name that has to be queried in order to resolve the original DNS query.
-- Therefore CNAME records are used for creating aliases of domain names.
-- CNAME records are truly useful when we want to alias our domain to an external domain.
-- In other cases we can remove CNAME records and replace them with A records and even decrease performance overhead.
-- 个人经验：用于设置子域名
+* The CNAME record specifies a domain name that has to be queried in order to resolve the original DNS query.
+* Therefore CNAME records are used for creating aliases of domain names.
+* CNAME records are truly useful when we want to alias our domain to an external domain.
+* In other cases we can remove CNAME records and replace them with A records and even decrease performance overhead.
+* 个人经验：用于设置子域名
 
 ### MX
 
 Mail exchanger record
 
-- Maps a domain name to a list of message transfer agents for that domain
-    - The MX resource record specifies a mail exchange server for a DNS domain name.
-    - The information is used by Simple Mail Transfer Protocol (SMTP) to route emails to proper hosts.
-    - Typically, there are more than one mail exchange server for a DNS domain and each of them have set priority.
+* Maps a domain name to a list of message transfer agents for that domain
+  * The MX resource record specifies a mail exchange server for a DNS domain name.
+  * The information is used by Simple Mail Transfer Protocol \(SMTP\) to route emails to proper hosts.
+  * Typically, there are more than one mail exchange server for a DNS domain and each of them have set priority.
 
 ### NS
 
 Name server record
 
-- Delegates a DNS zone to use the given authoritative name servers
-    - A **DNS zone** is any distinct, contiguous portion of the domain name space in the Domain Name System (DNS) for which administrative responsibility has been delegated to a single manager.
-    - An **authoritative name server** is a name server that gives answers in response to questions asked about names in a DNS zone.
+* Delegates a DNS zone to use the given authoritative name servers
+  * A **DNS zone** is any distinct, contiguous portion of the domain name space in the Domain Name System \(DNS\) for which administrative responsibility has been delegated to a single manager.
+  * An **authoritative name server** is a name server that gives answers in response to questions asked about names in a DNS zone.
 
 ### TXT
 
 Text record
 
-- Originally for arbitrary human-readable text in a DNS record.
-- Since the early 1990s, however, this record more often carries machine-readable data, such as specified by RFC 1464, opportunistic encryption, Sender Policy Framework, DKIM, DMARC, DNS-SD, etc.
+* Originally for arbitrary human-readable text in a DNS record.
+* Since the early 1990s, however, this record more often carries machine-readable data, such as specified by RFC 1464, opportunistic encryption, Sender Policy Framework, DKIM, DMARC, DNS-SD, etc.
 
 ### SRV
 
 Service locator
 
-- Generalized service location record, used for newer protocols instead of creating protocol-specific records such as MX.
-    - An SRV (Service) record points one domain to another domain name using a specific destination port.
-    - SRV records allow specific services, such as VOIP or IM, to be be directed to a separate location.
+* Generalized service location record, used for newer protocols instead of creating protocol-specific records such as MX.
+  * An SRV \(Service\) record points one domain to another domain name using a specific destination port.
+  * SRV records allow specific services, such as VOIP or IM, to be be directed to a separate location.
+

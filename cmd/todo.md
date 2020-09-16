@@ -1,21 +1,21 @@
-# Commands ( draft )
+# Commands \( draft \)
 
 Reference
 
-- Coreutils - GNU core utilities : https://www.gnu.org/software/coreutils/coreutils.html
-- URL Template as follow
+* Coreutils - GNU core utilities : [https://www.gnu.org/software/coreutils/coreutils.html](https://www.gnu.org/software/coreutils/coreutils.html)
+* URL Template as follow
 
-> www.gnu.org/software/coreutils/manual/html_node/**[COMMAND_NAME]**-invocation.html
+> www.gnu.org/software/coreutils/manual/html\_node/**\[COMMAND\_NAME\]**-invocation.html
 
 ## TODOs
 
-- [awk-sed-grep_tmp](awk-sed-grep_tmp.md)
+* [awk-sed-grep\_tmp](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/cmd/awk-sed-grep_tmp.md)
 
-https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
+[https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect\_10\_02.html](https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html)
 
 ## Temporary
 
-`tree` ( mock ) : list directory content
+`tree` \( mock \) : list directory content
 
 ```bash
 find <directory_path> | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
@@ -23,35 +23,35 @@ find <directory_path> | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1
 
 unix / linux 不同的程序仓库代表什么
 
-- /bin
-- /sbin
-- /usr/bin
-- /usr/sbin
-- /usr/local/bin
-- /usr/local/sbin
-- /usr/local/go/bin
-- /Users/USERNAME/.composer/vendor/bin
-- ……
+* /bin
+* /sbin
+* /usr/bin
+* /usr/sbin
+* /usr/local/bin
+* /usr/local/sbin
+* /usr/local/go/bin
+* /Users/USERNAME/.composer/vendor/bin
+* ……
 
 `jq`
 
 > Command-line JSON processor
 
-- `… | jq -r 'join(",")'`
-    - 原来错的命令行是 `… | jq -r '.[]|join(",")'`
-    - `.[]` 表达式，遍历显示所有 value！
-- `… | jq -r '.playlists | .[].id'`
-    - 将 playlists 数组中的每个元素的 id 提取出来
-- ref : http://hyperpolyglot.org/json
+* `… | jq -r 'join(",")'`
+  * 原来错的命令行是 `… | jq -r '.[]|join(",")'`
+  * `.[]` 表达式，遍历显示所有 value！
+* `… | jq -r '.playlists | .[].id'`
+  * 将 playlists 数组中的每个元素的 id 提取出来
+* ref : [http://hyperpolyglot.org/json](http://hyperpolyglot.org/json)
 
-`cat /etc/*-release` 查看 Linux ( Distribution ) 发行版
+`cat /etc/*-release` 查看 Linux \( Distribution \) 发行版
 
 测量整条命令的运行时间
 
-- 还是用 `perf stat -r N -d` 比较靠谱和精确
-- 用 bash 的 time 命令一来系统误差较大（可能高达 2 毫秒），二来精度不足，只到毫秒精度
-- 当然，perf stat 还能输出很多其他有用的信息
-    - 比如 dcache 命中率还有 branch misprediction 比例等很多方面的 CPU 统计信息
+* 还是用 `perf stat -r N -d` 比较靠谱和精确
+* 用 bash 的 time 命令一来系统误差较大（可能高达 2 毫秒），二来精度不足，只到毫秒精度
+* 当然，perf stat 还能输出很多其他有用的信息
+  * 比如 dcache 命中率还有 branch misprediction 比例等很多方面的 CPU 统计信息
 
 删除无用的 Docker containers
 
@@ -63,7 +63,7 @@ docker ps -a -q | xargs docker rm
 
 `mktemp` 创建临时文件
 
-- 那么 `mktemp || bail` 有什么用？
+* 那么 `mktemp || bail` 有什么用？
 
 重启 dockerd
 
@@ -83,16 +83,23 @@ sips -Z 640 *.jpg
 mogrify -format jpg *.png
 ```
 
-https://devhints.io
+[https://devhints.io](https://devhints.io)
 
-- 命令行输出
+* 命令行输出
+
     0 标准输入流 stdin
+
     1 标准输出流 stdout
+
     2 标准错误输出 stderr
-- `2>>/dev/null` 把错误流写进/dev/null中，
+
+* `2>>/dev/null` 把错误流写进/dev/null中，
+
     /dev/null是类Unix系统中的一个特殊文件设备，
+
     作用是接受一切输入它的数据，并丢弃这些数据
-- `$?` 上个命令的退出状态，或函数的返回值
+
+* `$?` 上个命令的退出状态，或函数的返回值
 
 `tcpdump`
 
@@ -100,7 +107,7 @@ https://devhints.io
 tcpdump -i any -nnX -w file_name
 ```
 
-解压缩 http://alex09.iteye.com/blog/647128
+解压缩 [http://alex09.iteye.com/blog/647128](http://alex09.iteye.com/blog/647128)
 
 ```bash
 # .gz
@@ -149,10 +156,10 @@ bash 脚本
 
 `bash -ex` 同 `set -ex`
 
-- `-e` 有命令执行错误就退出
-- `-x` 打印执行的命令行
+* `-e` 有命令执行错误就退出
+* `-x` 打印执行的命令行
 
-参考 https://www.peterbe.com/plog/set-ex
+参考 [https://www.peterbe.com/plog/set-ex](https://www.peterbe.com/plog/set-ex)
 
 [bash 的威力](https://zhuanlan.zhihu.com/p/31209138?group_id=915890535597486080)
 
@@ -185,27 +192,27 @@ done
 
 ### Process
 
-- ack
-- ag
-- awk
-- sed
-- xargs
+* ack
+* ag
+* awk
+* sed
+* xargs
 
 ### Others
 
-- export
-- gdb
-- make
-- rsync
+* export
+* gdb
+* make
+* rsync
 
 rsync -goDp
 
-- source
-- strace
-- ltrace
-- screen
-- top
-- z
+* source
+* strace
+* ltrace
+* screen
+* top
+* z
 
 ### lock
 
@@ -316,37 +323,37 @@ done
 
 References
 
-- Tutorial : https://www.tutorialspoint.com/apache_bench
+* Tutorial : [https://www.tutorialspoint.com/apache\_bench](https://www.tutorialspoint.com/apache_bench)
 
 Install
 
-https://blog.csdn.net/kingofworld/article/details/41774079
+[https://blog.csdn.net/kingofworld/article/details/41774079](https://blog.csdn.net/kingofworld/article/details/41774079)
 
 ### Usage
 
 Options
 
-- `-c` concurrent?
-- `-n` request times
-- `-t` duration second
-- `-g` output data
+* `-c` concurrent?
+* `-n` request times
+* `-t` duration second
+* `-g` output data
 
-### http_load
+### http\_load
 
 ## Bash
 
 > GNU Bourne-Again SHell
 
-Bash Cheatsheet https://devhints.io/bash
+Bash Cheatsheet [https://devhints.io/bash](https://devhints.io/bash)
 
 References
 
-- [Bash脚本](https://github.com/ruanyf/articles/blob/master/dev/linux/script.md)
-- <http://www.linux-sxs.org/programming/bashcheat.html>
-- <http://ahei.info/chinese-bash-man.htm>
-- <https://www.gnu.org/software/bash/manual/bashref.html>
-- <http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html>
-- <http://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/refcards.html>
+* [Bash脚本](https://github.com/ruanyf/articles/blob/master/dev/linux/script.md)
+* [http://www.linux-sxs.org/programming/bashcheat.html](http://www.linux-sxs.org/programming/bashcheat.html)
+* [http://ahei.info/chinese-bash-man.htm](http://ahei.info/chinese-bash-man.htm)
+* [https://www.gnu.org/software/bash/manual/bashref.html](https://www.gnu.org/software/bash/manual/bashref.html)
+* [http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html](http://tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
+* [http://www.linuxtopia.org/online\_books/advanced\_bash\_scripting\_guide/refcards.html](http://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/refcards.html)
 
 ### TEMP
 
@@ -366,3 +373,4 @@ else
     echo 'Invalid Input!'
 fi
 ```
+

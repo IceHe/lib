@@ -4,7 +4,7 @@
 
 References
 
-- `man brew`
+* `man brew`
 
 ## Quickstart
 
@@ -49,3 +49,4 @@ brew doctor     # Check potential problems
 brew outdated   # What's due for upgrades?
 brew home git   # Open homepage
 ```
+

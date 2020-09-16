@@ -4,9 +4,9 @@
 
 References
 
-- `man locale`
-- locale(1) - Linux manual page : http://man7.org/linux/man-pages/man1/locale.1.html
-- 解决 Mac Os X ssh LC_CTYPE 警告问题 : http://data4q.com/2018/01/06/%E8%A7%A3%E5%86%B3mac-os-x-ssh-lc_ctype%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/
+* `man locale`
+* locale\(1\) - Linux manual page : [http://man7.org/linux/man-pages/man1/locale.1.html](http://man7.org/linux/man-pages/man1/locale.1.html)
+* 解决 Mac Os X ssh LC\_CTYPE 警告问题 : [http://data4q.com/2018/01/06/%E8%A7%A3%E5%86%B3mac-os-x-ssh-lc\_ctype%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/](http://data4q.com/2018/01/06/%E8%A7%A3%E5%86%B3mac-os-x-ssh-lc_ctype%E8%AD%A6%E5%91%8A%E9%97%AE%E9%A2%98/)
 
 ## Quickstart
 
@@ -28,23 +28,23 @@ locale [option] name...
 
 Description
 
-- The locale command displays information about the current locale, or all locales, on standard output.
+* The locale command displays information about the current locale, or all locales, on standard output.
 
 ## Options
 
-- `-a, --all-locales` Display a list of all available locales.
-    - The -v option causes the LC_IDENTIFICATION metadata about each locale to be included in the output.
-- `-m, --charmaps` Display the available charmaps (character set description files).
-    - To display the current character set for the locale, use locale -c charmap.
+* `-a, --all-locales` Display a list of all available locales.
+  * The -v option causes the LC\_IDENTIFICATION metadata about each locale to be included in the output.
+* `-m, --charmaps` Display the available charmaps \(character set description files\).
+  * To display the current character set for the locale, use locale -c charmap.
 
 ## Bash Env Vars
 
-- `LANG` Used to determine the locale category for any category not specifically selected with a variable starting with `LC_`.
-- `LC_ALL` This variable overrides the value of LANG and any other LC_ variable specifying a locale category.
-- `LC_COLLATE` This  variable  determines the collation order used when sorting the results of pathname expansion, and determines the behavior of range expressions, equivalence classes, and collating sequences within pathname expansion and pattern matching.
-- `LC_CTYPE` This variable determines the interpretation of characters and the behavior of character classes within pathname expansion and pattern matching.
-- `LC_MESSAGES` This variable determines the locale used to translate double-quoted strings preceded by a \$.
-- `LC_NUMERIC` This variable determines the locale category used for number formatting.
+* `LANG` Used to determine the locale category for any category not specifically selected with a variable starting with `LC_`.
+* `LC_ALL` This variable overrides the value of LANG and any other LC\_ variable specifying a locale category.
+* `LC_COLLATE` This  variable  determines the collation order used when sorting the results of pathname expansion, and determines the behavior of range expressions, equivalence classes, and collating sequences within pathname expansion and pattern matching.
+* `LC_CTYPE` This variable determines the interpretation of characters and the behavior of character classes within pathname expansion and pattern matching.
+* `LC_MESSAGES` This variable determines the locale used to translate double-quoted strings preceded by a $.
+* `LC_NUMERIC` This variable determines the locale category used for number formatting.
 
 ## Usage
 
@@ -218,3 +218,4 @@ LATIN-GREEK-1
 UTF-8
 ……
 ```
+
