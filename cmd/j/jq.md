@@ -20,7 +20,7 @@ jq [options...] filter [files...]
 - The `options` are described in the `INVOKING JQ` section; they mostly concern input and output formatting.
     - The `filter` is written in the jq language and specifies how to transform the input file or document.
 
-## Filters
+**Filters**
 
 - **A jq program is a "filter" : it takes an input, and produces an output.**
     - There are a lot of builtin filters for extracting a particular field of an object, or converting a number to a string, or various other standard tasks.
@@ -35,7 +35,9 @@ jq [options...] filter [files...]
 - _But that's getting ahead of ourselves._
     - :) _Let's start with something simpler :_
 
-## Invoking JQ
+## Options
+
+> Invoking JQ
 
 `jq` filters run on a stream of JSON data.
 
@@ -193,20 +195,60 @@ _`--slurpfile variable-name filename`_
 
 `--jsonargs`
 
-           Remaining arguments are positional JSON text arguments. These  are  available  to  the  jq  program  as
-           $ARGS.positional[].
+- **Remaining arguments are positional JSON text arguments.**
+    - These are available to the jq program as `$ARGS.positional[]`.
 
-       o   --run-tests [filename]:
+`--run-tests [filename]`
 
-           Runs  the  tests  in  the given file or standard input. This must be the last option given and does not
-           honor all preceding options. The input consists of comment lines, empty lines, and program  lines  fol-
-           lowed  by  one  input line, as many lines of output as are expected (one per output), and a terminating
-           empty line. Compilation failure tests start with a line containing only "%%FAIL", then a line  contain-
-           ing the program to compile, then a line containing an error message to compare to the actual.
+- **Runs the tests in the given file or standard input.**
+    - This **must be the last option given** and does not honor all preceding options.
+    - The input consists of comment lines, empty lines, and program lines followed by one input line, as many lines of output as are expected (one per output), and a terminating empty line.
+    - Compilation failure tests start with a line containing only "%%FAIL", then a line containing the program to compile, then a line containing an error message to compare to the actual.
+- Be warned that this option can change backwards-incompatibly.
 
-           Be warned that this option can change backwards-incompatibly.
+## Basic Filters
 
-## Options
+### Identity `.`
+
+The absolute simplest filter is `.` .
+
+- This is a filter that takes its input and produces it unchanged as output.
+    - That is, this is the **identity operator**.
+    - Since jq by default pretty-prints all output, this trivial program can be a useful way of formatting JSON output from, say, curl.
+
+```bash
+$ echo '{}' | jq '.'
+{}
+```
+
+### Object Identifier-Index `.foo, .foo.bar`
+
+The simplest useful filter is .foo. When given a JSON object (aka dictionary or hash) as input, it produces
+the value at the key "foo", or null if there's none present.
+
+A filter of the form .foo.bar is equivalent to .foo|.bar.
+
+This syntax only works for simple, identifier-like keys, that is, keys that are all  made  of  alphanumeric
+characters and underscore, and which do not start with a digit.
+
+If  the  key contains special characters, you need to surround it with double quotes like this: ."foo$", or
+else .["foo$"].
+
+For  example  .["foo::bar"]  and  .["foo.bar"]  work  while  .foo::bar  does  not,   and   .foo.bar   means
+.["foo"].["bar"].
+
+
+jq '.foo'
+    {"foo": 42, "bar": "less interesting data"}
+=> 42
+
+jq '.foo'
+    {"notfoo": true, "alsonotfoo": false}
+=> null
+
+jq '.["foo"]'
+    {"foo": 42}
+=> 42
 
 ## Usage
 
