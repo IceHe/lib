@@ -132,7 +132,7 @@ _Others_
 
 > 君子性非异也，善假于物也。—— 荀子
 
-- [Tools](/marks/tools/README.md) : 利器 - 软件 / 物件的推荐
+- [Tools](/marks/tools/tools.md) : 利器 - 软件 / 物件的推荐
     - [Software](/marks/tools/README#软件) : 软件
     - [Hardware](/marks/tools/hardware) : 硬件
     - [Life](/marks/tools/life) : 生活
