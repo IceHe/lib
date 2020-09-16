@@ -237,7 +237,6 @@ else .["foo$"].
 For  example  .["foo::bar"]  and  .["foo.bar"]  work  while  .foo::bar  does  not,   and   .foo.bar   means
 .["foo"].["bar"].
 
-
 jq '.foo'
     {"foo": 42, "bar": "less interesting data"}
 => 42
