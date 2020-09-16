@@ -222,7 +222,7 @@ Others
 - [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
     - stop (suspend) the execution of processes & continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
-- [jq](/cmd/j/jq.md) : ( TODO )
+- [jq](/cmd/j/jq.md) : Command-line JSON processor
 - [kill](/cmd/k/kill.md) : terminate or signal a process
     - [killall](/cmd/k/killall.md) : kill processes by name
 - [last](/cmd/l/last.md) : show listing of last logged in users
@@ -302,8 +302,8 @@ Scenes
 - __string display__ : cat, head, less, tac, tail
 - __string process__ :
     - awk, column, comm, cut, grep,
-    - join, paste, sed, sort, tr,
-    - uniq, wc, …
+    - join, jq, paste, sed, sort,
+    - tr, uniq, wc, …
 - __transfer data__ : ftp, nc, rsync, scp
 - __write file__ : tee, `>`, `2>&1`
 - ……
