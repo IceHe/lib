@@ -4,7 +4,7 @@
 
 References
 
-* `man seq`
+- `man seq`
 
 ## Synopsis
 
@@ -16,19 +16,19 @@ seq [OPTION]... FIRST INCREMENT LAST
 
 Print numbers from FIRST to LAST, in steps of INCREMENT.
 
-* If FIRST or INCREMENT is omitted, it defaults to 1.
-* That is, an omitted INCREMENT defaults to 1 even when LAST is smaller than FIRST.
-* The sequence of numbers ends when the sum of the current number and INCREMENT would become greater than LAST.
-* FIRST, INCREMENT, and LAST are interpreted as floating point values.
-* INCREMENT is usually positive if FIRST is smaller than LAST, and INCREMENT is usually negative if FIRST is greater than LAST.
-* FORMAT must be suitable for printing one argument of type 'double';
-  * it defaults to `%.PRECf` if FIRST, INCREMENT, and LAST are all fixed point decimal numbers with maximum precision PREC, and to `%g` otherwise.
+- If FIRST or INCREMENT is omitted, it defaults to 1.
+- That is, an omitted INCREMENT defaults to 1 even when LAST is smaller than FIRST.
+- The sequence of numbers ends when the sum of the current number and INCREMENT would become greater than LAST.
+- FIRST, INCREMENT, and LAST are interpreted as floating point values.
+- INCREMENT is usually positive if FIRST is smaller than LAST, and INCREMENT is usually negative if FIRST is greater than LAST.
+- FORMAT must be suitable for printing one argument of type 'double';
+    - it defaults to `%.PRECf` if FIRST, INCREMENT, and LAST are all fixed point decimal numbers with maximum precision PREC, and to `%g` otherwise.
 
 ## Options
 
-* `-f, --format=FORMAT` use printf style floating-point FORMAT
-* `-s, --separator=STRING` use STRING to separate numbers \(default: \n\)
-* `-w, --equal-width` equalize width by padding with leading zeroes
+- `-f, --format=FORMAT` use printf style floating-point FORMAT
+- `-s, --separator=STRING` use STRING to separate numbers (default: \n)
+- `-w, --equal-width` equalize width by padding with leading zeroes
 
 ## Usage
 
@@ -99,4 +99,3 @@ prefix001
 prefix002
 prefix003
 ```
-

@@ -1,10 +1,8 @@
-# gtd-actual
+# Do Flow
 
-## Do Flow
+## Plan
 
-### Plan
-
-```text
+```plantuml
 @startuml
 start
 :Task / Thought / Memo]
@@ -45,9 +43,9 @@ end
 @enduml
 ```
 
-### Action
+## Action
 
-```text
+```plantuml
 @startuml
 start
 #white:Todo|
@@ -69,19 +67,27 @@ endif
 @enduml
 ```
 
-## References
+---
+
+<!-- ----------------------------------------------- -->
+
+# References
 
 > Image
 
-![GTD](../../.gitbook/assets/gtd%20%281%29.jpg)
+![GTD](_images/gtd.jpg)
 
-## History
+<!-- ----------------------------------------------- -->
+
+---
+
+# History
 
 > Archived
 
-### Plan
+## Plan
 
-```text
+```plantuml
 @startuml
 start
 :Task / Thought / Memo]
@@ -126,9 +132,9 @@ end
 @enduml
 ```
 
-### Action
+## Action
 
-```text
+```plantuml
 @startuml
 start
 #aqua:Todo|
@@ -158,9 +164,9 @@ endif
 @enduml
 ```
 
-### Reflect
+## Reflect
 
-```text
+```plantuml
 @startuml
 start
 fork
@@ -189,4 +195,3 @@ end fork
 stop
 @enduml
 ```
-

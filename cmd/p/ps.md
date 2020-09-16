@@ -10,49 +10,49 @@ On BSD
 
 References
 
-* `man ps`
+- `man ps`
 
 ## Options
 
 ### Unix
 
-* `-e` \| `-A` Select all processes
-* `-f` Do full-format listing
-  * This option can be combined with many other UNIX-style options to add additional columns.
-  * It also causes the command arguments to be printed.
-  * See the `c` option, the format keyword args, and the format keyword comm.
-* `-C cmdlist` Select by command name.
-  * This selects the processes whose executable name is given in cmdlist.
+- `-e` | `-A` Select all processes
+- `-f` Do full-format listing
+    - This option can be combined with many other UNIX-style options to add additional columns.
+    - It also causes the command arguments to be printed.
+    - See the `c` option, the format keyword args, and the format keyword comm.
+- `-C cmdlist` Select by command name.
+    - This selects the processes whose executable name is given in cmdlist.
 
 ### BSD
 
-They are imposed upon the set of all processes when some BSD-style \(without "-"\) options are used or when the ps personality setting is BSD-like.
+They are imposed upon the set of all processes when some BSD-style (without "-") options are used or when the ps personality setting is BSD-like.
 
 The set of processes selected in this manner is in addition to the set of processes selected by other means.
 
-* `a` Lift the BSD-style "only yourself" restriction
-  * An alternate description is that this option causes ps to list all processes with a terminal \(tty\), or to list all processes when used together with the `x` option.
-* `x` Lift the BSD-style "must have a tty" restriction
-  * An alternate description is that this option causes ps to list all processes owned by you \(same EUID as ps\), or to list all processes when used together with the `a` option.
-* `u` Display user-oriented format.
+- `a` Lift the BSD-style "only yourself" restriction
+    - An alternate description is that this option causes ps to list all processes with a terminal (tty), or to list all processes when used together with the `x` option.
+- `x` Lift the BSD-style "must have a tty" restriction
+    - An alternate description is that this option causes ps to list all processes owned by you (same EUID as ps), or to list all processes when used together with the `a` option.
+- `u` Display user-oriented format.
 
 ### Style
 
 Option Styles
 
-* BSD-style `v`
-* Unix-style `-v`
-* GNU-style `--version`
+- BSD-style `v`
+- Unix-style `-v`
+- GNU-style `--version`
 
 Reference
 
-* [https://unix.stackexchange.com/questions/78691/unix-bsd-gnu-options-in-linuxs-ps-command-where-are-they-from](https://unix.stackexchange.com/questions/78691/unix-bsd-gnu-options-in-linuxs-ps-command-where-are-they-from)
+- https://unix.stackexchange.com/questions/78691/unix-bsd-gnu-options-in-linuxs-ps-command-where-are-they-from
 
 ## Usage
 
 ### Common
 
-Standard syntax \( Unix-style \)
+Standard syntax ( Unix-style )
 
 ```bash
 $ ps -ef
@@ -73,7 +73,7 @@ root   5    2  0     0    0   0  2017 ?   00:00:00 [kworker/0:0H]
 ……
 ```
 
-BSD syntax \( BSD-style \)
+BSD syntax ( BSD-style )
 
 ```bash
 $ ps aux
@@ -181,7 +181,7 @@ $ ps axjf
  4801  4802  4802  4049 pts/10    4802 S+       0   0:01                  \_ /bin/bash
 ```
 
-Print every process running as root \(real & effective ID\) in user format
+Print every process running as root (real & effective ID) in user format
 
 ```bash
 $ ps -U root -u root u
@@ -219,19 +219,19 @@ ps -q 1 -o comm=
 
 The sum of these values is displayed in the "F" column, which is provided by the flags output specifier:
 
-* `1` forked but didn't exec
-* `4` used super-user privileges
+- `1` forked but didn't exec
+- `4` used super-user privileges
 
 ### State Codes
 
-Here are the different values that the s, stat and state output specifiers \(header "STAT" or "S"\) will display to describe the state of a process:
+Here are the different values that the s, stat and state output specifiers (header "STAT" or "S") will display to
+describe the state of a process:
 
-* `D` uninterruptible sleep \(usually IO\)
-* `R` running or runnable \(on run queue\)
-* `S` interruptible sleep \(waiting for an event to complete\)
-* `T` stopped by job control signal
-* `t` stopped by debugger during the tracing
-* `W` paging \(not valid since the 2.6.xx kernel\)
-* `X` dead \(should never be seen\)
-* `Z` defunct \("zombie"\) process, terminated but not reaped by its parent
-
+- `D` uninterruptible sleep (usually IO)
+- `R` running or runnable (on run queue)
+- `S` interruptible sleep (waiting for an event to complete)
+- `T` stopped by job control signal
+- `t` stopped by debugger during the tracing
+- `W` paging (not valid since the 2.6.xx kernel)
+- `X` dead (should never be seen)
+- `Z` defunct ("zombie") process, terminated but not reaped by its parent

@@ -1,14 +1,14 @@
-# awk \( TODO \)
+# awk ( TODO )
 
 > gawk - pattern scanning and processing language
 
 References
 
-* `man awk`
-* [http://www.runoob.com](http://www.runoob.com)
-  * Command : [http://www.runoob.com/linux/linux-comm-awk.html](http://www.runoob.com/linux/linux-comm-awk.html)
-  * Work Principles : [http://www.runoob.com/w3cnote/awk-work-principle.html](http://www.runoob.com/w3cnote/awk-work-principle.html)
-  * Built-in Functions : [http://www.runoob.com/w3cnote/awk-built-in-functions.html](http://www.runoob.com/w3cnote/awk-built-in-functions.html)
+- `man awk`
+- http://www.runoob.com
+    - Command : http://www.runoob.com/linux/linux-comm-awk.html
+    - Work Principles : http://www.runoob.com/w3cnote/awk-work-principle.html
+    - Built-in Functions : http://www.runoob.com/w3cnote/awk-built-in-functions.html
 
 ## Synopsis
 
@@ -24,120 +24,120 @@ dgawk [options] -f program-file [--] file ...
 
 Gawk is the GNU Project's implementation of the AWK programming language.
 
-* Gawk provides the additional features found in the current version of UNIX `awk` and a number of GNU-specific extensions.
+- Gawk provides the additional features found in the current version of UNIX `awk` and a number of GNU-specific extensions.
 
 Pgawk is the profiling version of gawk.
 
-* It is identical in every way to gawk, except that programs run more slowly, and it automatically produces an execution profile in the file awkprof.out when done.
-* See the `--profile` option.
+- It is identical in every way to gawk, except that programs run more slowly, and it automatically produces an execution profile in the file awkprof.out when done.
+- See the `--profile` option.
 
 Dgawk is an awk debugger.
 
-* Instead of running the program directly, it loads the AWK source code and then prompts for debugging commands.
-* Unlike gawk and pgawk, dgawk only processes AWK program source provided with the `-f` option.
-* The debugger is documented in GAWK: Effective AWK Programming.
+- Instead of running the program directly, it loads the AWK source code and then prompts for debugging commands.
+- Unlike gawk and pgawk, dgawk only processes AWK program source provided with the `-f` option.
+- The debugger is documented in GAWK: Effective AWK Programming.
 
 ### Records
 
-* Normally, records are separated by newline characters.
-* You can control how records are separated by assigning values to the built-in variable `RS`.
-* If `RS` is any single character, that character separates records.
-* Otherwise, `RS` is a regular expression.
-* Text in the input that matches this regular expression separates the record.
-* However, in compatibility mode, only the first character of its string value is used for separating records.
-* If `RS` is set to the null string, then records are separated by blank lines.
-* When `RS` is set to the null string, the newline character always acts as a field separator, in addition to whatever value FS may have.
+- Normally, records are separated by newline characters.
+- You can control how records are separated by assigning values to the built-in variable `RS`.
+- If `RS` is any single character, that character separates records.
+- Otherwise, `RS` is a regular expression.
+- Text in the input that matches this regular expression separates the record.
+- However, in compatibility mode, only the first character of its string value is used for separating records.
+- If `RS` is set to the null string, then records are separated by blank lines.
+- When `RS` is set to the null string, the newline character always acts as a field separator, in addition to whatever value FS may have.
 
 ### Fields
 
-* As each input record is read, gawk splits the record into fields, using the value of the `FS` variable as the field sepa rator.
-* If `FS` is a single character, fields are separated by that character.
-* If `FS` is the null string, then each individual character becomes a separate field.
-* Otherwise, `FS` is expected to be a full regular expression.
-* In the special case that `FS` is a single space, fields are separated by runs of spaces and/or tabs and/or newlines.
-  * \(But see the section POSIX COMPATIBILITY, below\).
-  * NOTE: The value of `IGNORECASE` \(see below\) also affects how fields are split when `FS` is a regular expression, and how records are separated when `RS` is a regular expression.
+- As each input record is read, gawk splits the record into fields, using the value of the `FS` variable as the field sepa rator.
+- If `FS` is a single character, fields are separated by that character.
+- If `FS` is the null string, then each individual character becomes a separate field.
+- Otherwise, `FS` is expected to be a full regular expression.
+- In the special case that `FS` is a single space, fields are separated by runs of spaces and/or tabs and/or newlines.
+    - (But see the section POSIX COMPATIBILITY, below).
+    - NOTE: The value of `IGNORECASE` (see below) also affects how fields are split when `FS` is a regular expression, and how records are separated when `RS` is a regular expression.
 
 ## Options
 
-* `-f program-file` `--file program-file` Read the AWK program source from the file program-file, instead of from the first command line argument.
-  * Multiple -f \(or --file\) options may be used.
-* **`-F fs` `--field-separator fs` Use fs for the input field separator** \(the value of the FS predefined variable\).
-* `-v var=val` `--assign var=val` Assign the value val to the variable var, before execution of the program begins.
-  * Such variable values are available to the BEGIN block of an AWK program.
-* ……
+- `-f program-file` `--file program-file` Read the AWK program source from the file program-file, instead of from the first command line argument.
+    - Multiple -f (or --file) options may be used.
+- **`-F fs` `--field-separator fs` Use fs for the input field separator** (the value of the FS predefined variable).
+- `-v var=val` `--assign var=val` Assign the value val to the variable var, before execution of the program begins.
+    - Such variable values are available to the BEGIN block of an AWK program.
+- ……
 
 ## Built-in Variables
 
-* `NF` The number of fields in the current input record.
-* `NR` The total number of input records seen so far.
-* `FNR` The input record number in the current input file.
-* `ARGC` The number of command line arguments \(does not include options to gawk, or the program source\).
-* `ARGV` Array of command line arguments.
-  * The array is indexed from 0 to ARGC - 1.
-  * Dynamically changing the contents of ARGV can control the files used for data.
-* `ARGIND` The index in ARGV of the current file being processed.
-* `FILENAME` The name of the current input file.
-  * If no files are specified on the command line, the value of FILENAME is “-”.
-  * However, FILENAME is undefined inside the BEGIN block \(unless set by getline\).
-* `IGNORECASE` Controls the case-sensitivity of all regular expression and string operations.
-  * If IGNORECASE has a non-zero value, then string comparisons and pattern matching in rules, field splitting with FS and FPAT, record separating with RS, regular expression matching with ~ and !~, and the gensub\(\), gsub\(\), index\(\), match\(\), patsplit\(\), split\(\), and sub\(\) built-in functions all ignore case when doing regular expression operations.
-  * NOTE: Array subscripting is not affected.
-  * However, the asort\(\) and asorti\(\) functions are affected.
-  * Thus, if IGNORECASE is not equal to zero, /aB/ matches all of the strings "ab", "aB", "Ab", and "AB".
-  * As with all AWK variables, the initial value of IGNORECASE is zero, so all regular expression and string operations are normally case-sensitive.
-* `CONVFMT` The conversion format for numbers, "%.6g", by default.
-* `ERRNO` If a system error occurs either doing a redirection for getline, during a read for getline, or during a close\(\), then ERRNO will contain a string describing the error.
-  * The value is subject to translation in non-English locales.
-* `FIELDWIDTHS` A whitespace separated list of field widths.
-  * When set, gawk parses the input into fields of fixed width, instead of using the value of the FS variable as the field separator.
-  * See Fields, above.
-* `FPAT` A regular expression describing the contents of the fields in a record.
-  * When set, gawk parses the input into fields, where the fields match the regular expression, instead of using the value of the FS variable as the field separator.
-  * See Fields, above.
-* `FS` The input field separator, a space by default.
-  * See Fields, above.
-* `OFMT` The output format for numbers, "%.6g", by default.
-* `OFS` The output field separator, a space by default.
-* `ORS` The output record separator, by default a newline.
-* `RS` The input record separator, by default a newline.
-* `RT` The record terminator.
-  * Gawk sets RT to the input text that matched the character or regular expression specified by RS.
-* `RSTART` The index of the first character matched by match\(\); 0 if no match.
-  * \(This implies that character indices start at one.\)
-* `RLENGTH` The length of the string matched by match\(\); -1 if no match.
-* `SUBSEP` The character used to separate multiple subscripts in array elements, by default "\034".
-* `TEXTDOMAIN` The text domain of the AWK program; used to find the localized translations for the program's strings.
-* `BINMODE` On non-POSIX systems, specifies use of “binary” mode for all file I/O.
-  * Numeric values of 1, 2, or 3, specify that input files, output files, or all files, respectively, should use binary I/O.
-  * String values of "r", or "w" specify that input files, or output files, respectively, should use binary I/O.
-  * String values of "rw" or "wr" specify that all files should use binary I/O.
-  * Any other string value is treated as "rw", but generates a warning message.
-* `PROCINFO` The elements of this array provide access to information about the running AWK program.
-  * On some systems, there may be elements in the array, "group1" through "groupn" for some n, which is the number of supplementary groups that the process has.
-  * Use the in operator to test for these elements. The following elements are guaranteed to be available:
-    * `PROCINFO["egid"]` the value of the getegid\(2\) system call.
-    * `PROCINFO["strftime"]` The default time format string for strftime\(\).
-    * `PROCINFO["euid"]` the value of the geteuid\(2\) system call.
-    * `PROCINFO["FS"]` "FS" if field splitting with FS is in effect, "FPAT" if field splitting with FPAT is in effect, or "FIELDWIDTHS" if field splitting with FIELDWIDTHS is in effect.
-    * `PROCINFO["gid"]` the value of the getgid\(2\) system call.
-    * `PROCINFO["pgrpid"]` the process group ID of the current process.
-    * `PROCINFO["pid"]` the process ID of the current process.
-    * `PROCINFO["ppid"]` the parent process ID of the current process.
-    * `PROCINFO["uid"]` the value of the getuid\(2\) system call.
-    * `PROCINFO["sorted_in"]` If this element exists in PROCINFO, then its value controls the order in which array elements are traversed in for loops.
-    * Supported values are "@ind\_str\_asc", "@ind\_num\_asc", "@val\_type\_asc", "@val\_str\_asc", "@val\_num\_asc", "@ind\_str\_desc", "@ind\_num\_desc", "@val\_type\_desc", "@val\_str\_desc", "@val\_num\_desc", and "@unsorted".
-    * The value can also be the name of any comparison function defined as follows: `function cmp_func(i1, v1, i2, v2)`
-    * where i1 and i2 are the indices, and v1 and v2 are the corresponding values of the two elements being compared.
-    * It should return a number less than, equal to, or greater than 0, depending on how the elements of the array are to be ordered.
-    * `PROCINFO["version"]` the version of gawk.
-* `ENVIRON` An array containing the values of the current environment.
-  * The array is indexed by the environment variables, each element being the value of that variable \(e.g., ENVIRON\["HOME"\] might be /home/arnold\).
-  * Changing this array does not affect the environment seen by programs which gawk spawns via redirection or the system\(\) function.
+- `NF` The number of fields in the current input record.
+- `NR` The total number of input records seen so far.
+- `FNR` The input record number in the current input file.
+- `ARGC` The number of command line arguments (does not include options to gawk, or the program source).
+- `ARGV` Array of command line arguments.
+    - The array is indexed from 0 to ARGC - 1.
+    - Dynamically changing the contents of ARGV can control the files used for data.
+- `ARGIND` The index in ARGV of the current file being processed.
+- `FILENAME` The name of the current input file.
+    - If no files are specified on the command line, the value of FILENAME is “-”.
+    - However, FILENAME is undefined inside the BEGIN block (unless set by getline).
+- `IGNORECASE` Controls the case-sensitivity of all regular expression and string operations.
+    - If IGNORECASE has a non-zero value, then string comparisons and pattern matching in rules, field splitting with FS and FPAT, record separating with RS, regular expression matching with ~ and !~, and the gensub(), gsub(), index(), match(), patsplit(), split(), and sub() built-in functions all ignore case when doing regular expression operations.
+    - NOTE: Array subscripting is not affected.
+    - However, the asort() and asorti() functions are affected.
+    - Thus, if IGNORECASE is not equal to zero, /aB/ matches all of the strings "ab", "aB", "Ab", and "AB".
+    - As with all AWK variables, the initial value of IGNORECASE is zero, so all regular expression and string operations are normally case-sensitive.
+- `CONVFMT` The conversion format for numbers, "%.6g", by default.
+- `ERRNO` If a system error occurs either doing a redirection for getline, during a read for getline, or during a close(), then ERRNO will contain a string describing the error.
+    - The value is subject to translation in non-English locales.
+- `FIELDWIDTHS` A whitespace separated list of field widths.
+    - When set, gawk parses the input into fields of fixed width, instead of using the value of the FS variable as the field separator.
+    - See Fields, above.
+- `FPAT` A regular expression describing the contents of the fields in a record.
+    - When set, gawk parses the input into fields, where the fields match the regular expression, instead of using the value of the FS variable as the field separator.
+    - See Fields, above.
+- `FS` The input field separator, a space by default.
+    - See Fields, above.
+- `OFMT` The output format for numbers, "%.6g", by default.
+- `OFS` The output field separator, a space by default.
+- `ORS` The output record separator, by default a newline.
+- `RS` The input record separator, by default a newline.
+- `RT` The record terminator.
+    - Gawk sets RT to the input text that matched the character or regular expression specified by RS.
+- `RSTART` The index of the first character matched by match(); 0 if no match.
+    - (This implies that character indices start at one.)
+- `RLENGTH` The length of the string matched by match(); -1 if no match.
+- `SUBSEP` The character used to separate multiple subscripts in array elements, by default "\034".
+- `TEXTDOMAIN` The text domain of the AWK program; used to find the localized translations for the program's strings.
+- `BINMODE` On non-POSIX systems, specifies use of “binary” mode for all file I/O.
+    - Numeric values of 1, 2, or 3, specify that input files, output files, or all files, respectively, should use binary I/O.
+    - String values of "r", or "w" specify that input files, or output files, respectively, should use binary I/O.
+    - String values of "rw" or "wr" specify that all files should use binary I/O.
+    - Any other string value is treated as "rw", but generates a warning message.
+- `PROCINFO` The elements of this array provide access to information about the running AWK program.
+    - On some systems, there may be elements in the array, "group1" through "groupn" for some n, which is the number of supplementary groups that the process has.
+    - Use the in operator to test for these elements. The following elements are guaranteed to be available:
+        - `PROCINFO["egid"]` the value of the getegid(2) system call.
+        - `PROCINFO["strftime"]` The default time format string for strftime().
+        - `PROCINFO["euid"]` the value of the geteuid(2) system call.
+        - `PROCINFO["FS"]` "FS" if field splitting with FS is in effect, "FPAT" if field splitting with FPAT is in effect, or "FIELDWIDTHS" if field splitting with FIELDWIDTHS is in effect.
+        - `PROCINFO["gid"]` the value of the getgid(2) system call.
+        - `PROCINFO["pgrpid"]` the process group ID of the current process.
+        - `PROCINFO["pid"]` the process ID of the current process.
+        - `PROCINFO["ppid"]` the parent process ID of the current process.
+        - `PROCINFO["uid"]` the value of the getuid(2) system call.
+        - `PROCINFO["sorted_in"]` If this element exists in PROCINFO, then its value controls the order in which array elements are traversed in for loops.
+        - Supported values are "@ind_str_asc", "@ind_num_asc", "@val_type_asc", "@val_str_asc", "@val_num_asc", "@ind_str_desc", "@ind_num_desc", "@val_type_desc", "@val_str_desc", "@val_num_desc", and "@unsorted".
+        - The value can also be the name of any comparison function defined as follows: `function cmp_func(i1, v1, i2, v2)`
+        - where i1 and i2 are the indices, and v1 and v2 are the corresponding values of the two elements being compared.
+        - It should return a number less than, equal to, or greater than 0, depending on how the elements of the array are to be ordered.
+        - `PROCINFO["version"]` the version of gawk.
+- `ENVIRON` An array containing the values of the current environment.
+    - The array is indexed by the environment variables, each element being the value of that variable (e.g., ENVIRON["HOME"] might be /home/arnold).
+    - Changing this array does not affect the environment seen by programs which gawk spawns via redirection or the system() function.
 
 ## Scripts Structure
 
-Reference : Work Principles [http://www.runoob.com/w3cnote/awk-work-principle.html](http://www.runoob.com/w3cnote/awk-work-principle.html)
+Reference : Work Principles http://www.runoob.com/w3cnote/awk-work-principle.html
 
 ```bash
 awk 'BEGIN{ commands } pattern{ commands } END{ commands }'
@@ -166,40 +166,40 @@ pattern1, pattern2
 
 BEGIN and END are two special kinds of patterns which are not tested against the input.
 
-* The action parts of all BEGIN patterns are merged as if all the statements had been written in a single BEGIN block.
-* They are executed before any of the  input is read.
-* Similarly, all the END blocks are merged, and executed when all the input is exhausted \(or when an exit statement is executed\).
-* BEGIN and END patterns cannot be combined with other  patterns  in  pattern  expressions.
-* BEGIN and END patterns cannot have missing action parts.
+- The action parts of all BEGIN patterns are merged as if all the statements had been written in a single BEGIN block.
+- They are executed before any of the  input is read.
+- Similarly, all the END blocks are merged, and executed when all the input is exhausted (or when an exit statement is executed).
+- BEGIN and END patterns cannot be combined with other  patterns  in  pattern  expressions.
+- BEGIN and END patterns cannot have missing action parts.
 
 ### Regular Expression
 
 For `/regular expression/` patterns, the associated statement is executed for each input record that matches the regular expression.
 
-* These  generally  test whether certain fields match certain regular expressions.
+- These  generally  test whether certain fields match certain regular expressions.
 
-Regular expressions are the same as those in egrep, and are summarized in section 'Regular Expressions' \( see `man awk` \).
+Regular expressions are the same as those in egrep, and are summarized in section 'Regular Expressions' ( see `man awk` ).
 
 ### Logical Operations
 
 The `&&`, `||`, and `!` operators are logical AND, logical OR, and logical NOT, respectively, as in C.
 
-* They do short-circuit evaluation, also as in C, and are used for combining more primitive pattern expressions.
-* As  in  most  languages, parentheses may be used to change the order of evaluation.
+- They do short-circuit evaluation, also as in C, and are used for combining more primitive pattern expressions.
+- As  in  most  languages, parentheses may be used to change the order of evaluation.
 
 The `?:` operator is like the same operator in C.
 
-* If the first pattern is true then the pattern used for testing is the second pattern, otherwise it is the third.
-* Only one of the second and third patterns is evaluated.
+- If the first pattern is true then the pattern used for testing is the second pattern, otherwise it is the third.
+- Only one of the second and third patterns is evaluated.
 
-A relational expression may use any of the operators defined below in the section on actions \( see `man awk` \).
+A relational expression may use any of the operators defined below in the section on actions ( see `man awk` ).
 
 ### Range
 
 The `pattern1, pattern2` form of an expression is called a range pattern.
 
-* It matches all input records starting with a record that matches pattern1, and continuing until a record that matches pattern2, inclusive.
-* It does not combine with any other sort of pattern expression.
+- It matches all input records starting with a record that matches pattern1, and continuing until a record that matches pattern2, inclusive.
+- It does not combine with any other sort of pattern expression.
 
 ## Statements
 
@@ -231,59 +231,59 @@ case value|regex : statement
 
 ### I/O
 
-* `close(file [, how])` Close  file,  pipe or co-process.
-  * The optional how should only be used when closing one end of a two-way pipe to a co-process.
-  * It must be a string value, either "to" or "from".
-* `getline` Set $0 from next input record; set NF, NR, FNR.
-* `getline <file` Set $0 from next record of file; set NF.
-* `getline var` Set var from next input record; set NR, FNR.
-* `getline var <file` Set var from next record of file.
-* `command | getline [var]` Run command piping the output either into $0 or var, as above.
-* `command |& getline [var]` Run command as a co-process piping the output either into $0 or var, as above.
-  * Co-processes are a gawk extension.
-  * \(command can also be a socket. See the subsection Special File Names, below.\)
-* `next` Stop processing the current input record.
-  * The next input record is read and processing starts over with the first pattern in the AWK program.
-  * If the end of the input data is reached, the END block\(s\), if any, are executed.
-* `nextfile` Stop processing the current input file.
-  * The next input record read comes from the next input file.
-  * FILENAME and ARGIND are updated, FNR is reset to 1, and processing starts  over  with  the first  pattern  in the AWK program.
-  * If the end of the input data is reached, the END block\(s\), if any, are executed.
-* `print` Print the current record.
-  * The output record is terminated with the value of the ORS variable.
-* `print expr-list` Print expressions.
-  * Each expression is separated by the value of the OFS  variable.
-  * The  output record is terminated with the value of the ORS variable.
-* `print expr-list >file` Print  expressions  on file.
-  * Each expression is separated by the value of the OFS variable.
-  * The output record is terminated with the value of the ORS variable.
-* `printf fmt, expr-list` Format and print.
-  * See The printf Statement, below.
-* `printf fmt, expr-list >file` Format and print on file.
-* `system(cmd-line)` Execute the command cmd-line, and return the exit status.
-  * \(This may not  be  available  on  non-POSIX systems.\)
-* `fflush([file])` Flush any buffers associated with the open output file or pipe file.
-  * If file is missing or if it is the null string, then flush all open output files and pipes.
+- `close(file [, how])` Close  file,  pipe or co-process.
+    - The optional how should only be used when closing one end of a two-way pipe to a co-process.
+    - It must be a string value, either "to" or "from".
+- `getline` Set $0 from next input record; set NF, NR, FNR.
+- `getline <file` Set $0 from next record of file; set NF.
+- `getline var` Set var from next input record; set NR, FNR.
+- `getline var <file` Set var from next record of file.
+- `command | getline [var]` Run command piping the output either into $0 or var, as above.
+- `command |& getline [var]` Run command as a co-process piping the output either into $0 or var, as above.
+    - Co-processes are a gawk extension.
+    - (command can also be a socket. See the subsection Special File Names, below.)
+- `next` Stop processing the current input record.
+    - The next input record is read and processing starts over with the first pattern in the AWK program.
+    - If the end of the input data is reached, the END block(s), if any, are executed.
+- `nextfile` Stop processing the current input file.
+    - The next input record read comes from the next input file.
+    - FILENAME and ARGIND are updated, FNR is reset to 1, and processing starts  over  with  the first  pattern  in the AWK program.
+    - If the end of the input data is reached, the END block(s), if any, are executed.
+- `print` Print the current record.
+    - The output record is terminated with the value of the ORS variable.
+- `print expr-list` Print expressions.
+    - Each expression is separated by the value of the OFS  variable.
+    - The  output record is terminated with the value of the ORS variable.
+- `print expr-list >file` Print  expressions  on file.
+    - Each expression is separated by the value of the OFS variable.
+    - The output record is terminated with the value of the ORS variable.
+- `printf fmt, expr-list` Format and print.
+    - See The printf Statement, below.
+- `printf fmt, expr-list >file` Format and print on file.
+- `system(cmd-line)` Execute the command cmd-line, and return the exit status.
+    - (This may not  be  available  on  non-POSIX systems.)
+- `fflush([file])` Flush any buffers associated with the open output file or pipe file.
+    - If file is missing or if it is the null string, then flush all open output files and pipes.
 
 Additional output redirections are allowed for print and printf.
 
-* `print ... >> file` Appends output to the file.
-* `print ... | command` Writes on a pipe.
-* `print ... |& command` Sends data to a co-process or socket.
-  * \(See also the subsection Special File Names, below.\)
+- `print ... >> file` Appends output to the file.
+- `print ... | command` Writes on a pipe.
+- `print ... |& command` Sends data to a co-process or socket.
+    - (See also the subsection Special File Names, below.)
 
 The getline command returns 1 on success, 0 on end of file, and -1 on an error.
 
-* Upon an error, ERRNO contains a string describing the problem.
+- Upon an error, ERRNO contains a string describing the problem.
 
 NOTE: Failure in opening a two-way socket will result in a non-fatal error being returned to the calling function.
 
-* If using a pipe, co-process, or socket to getline, or from print or printf within a loop, you must use close\(\)  to  create new  instances  of  the  command or socket.
-* AWK does not automatically close pipes, sockets, or co-processes when they return EOF.
+- If using a pipe, co-process, or socket to getline, or from print or printf within a loop, you must use close()  to  create new  instances  of  the  command or socket.
+- AWK does not automatically close pipes, sockets, or co-processes when they return EOF.
 
 The print Statment
 
-* See in `man awk`
+- See in `man awk`
 
 ## Functions
 
@@ -317,7 +317,7 @@ No Name Mark Remark
 
 #### $0 : Record
 
-Whole Record \(Line\)
+Whole Record (Line)
 
 ```bash
 $ awk '{print $0}' sample
@@ -329,7 +329,7 @@ No Name Mark Remark
 
 #### $1 : 1st Field
 
-First Field \(Column\)
+First Field (Column)
 
 ```bash
 $ awk '{print $1}' sample
@@ -368,6 +368,10 @@ Use Default Separator
 ```bash
 $ awk '{print $2}' sample_comma
 # output 4 blank lines
+
+
+
+
 ```
 
 Use Custom separator
@@ -715,4 +719,3 @@ $ awk 'BEGIN { if (1) { print ARGC } else { print ARGV[0], ARGV[1] } }' sample
 $ awk 'BEGIN { if (0) { print ARGC } else { print ARGV[0], ARGV[1] } }' sample
 awk sample
 ```
-

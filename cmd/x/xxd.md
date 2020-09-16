@@ -4,7 +4,7 @@
 
 Reference
 
-* `man xxd`
+- `man xxd`
 
 ## Quickstart
 
@@ -26,118 +26,117 @@ xxd -r[evert] [options] [infile [outfile]]
 
 ## Description
 
-* `xxd` **creates a hex dump of a given file or standard input.**
-* It can also convert a hex dump back to its original binary form.
-  * Like `uuencode` and `uudecode` it allows the transmission of binary data in a "mailsafe" ASCII representation, but has the advantage of decoding to standard output.
-  * Moreover, it can be used to perform binary file patching.
+- `xxd` **creates a hex dump of a given file or standard input.**
+- It can also convert a hex dump back to its original binary form.
+    - Like `uuencode` and `uudecode` it allows the transmission of binary data in a "mailsafe" ASCII representation, but has the advantage of decoding to standard output.
+    - Moreover, it can be used to perform binary file patching.
 
 ## Options
 
-* If no infile is given, standard input is read.
-  * If infile is specified as a `-` character,  then  input  is taken  from  standard input.
-  * If no outfile is given \(or a `-` character is in its place\), results are sent to standard output.
-* Note that a "lazy" parser is used which does not check for more than the first option  letter,  unless  the option  is  followed by a parameter.
-  * Spaces between a single option letter and its parameter are optional.
-  * Parameters to options can be specified in decimal, hexadecimal or octal notation.
-  * Thus -c8, -c 8,  -c  010 and -cols 8 are all equivalent.
+- If no infile is given, standard input is read.
+    - If infile is specified as a `-` character,  then  input  is taken  from  standard input.
+    - If no outfile is given (or a `-` character is in its place), results are sent to standard output.
+- Note that a "lazy" parser is used which does not check for more than the first option  letter,  unless  the option  is  followed by a parameter.
+    - Spaces between a single option letter and its parameter are optional.
+    - Parameters to options can be specified in decimal, hexadecimal or octal notation.
+    - Thus -c8, -c 8,  -c  010 and -cols 8 are all equivalent.
 
 _`-a | -autoskip`_
 
-* _Toggle autoskip: A single '\*' replaces nul-lines._
-  * _Default off._
+- _Toggle autoskip: A single '*' replaces nul-lines._
+    - _Default off._
 
 **`-b | -bits`**
 
-* Switch to **bits \(binary digits\) dump**, rather than hexdump.
-  * This option writes octets as eight digits "1"s and "0"s instead of a normal hexadecimal dump.
-  * Each line is preceded by a line number in  hexa-decimal and followed by an ascii \(or ebcdic\) representation.
-  * The command line switches `-r`, `-p`, `-i` do not work with this mode.
+- Switch to **bits (binary digits) dump**, rather than hexdump.
+    - This option writes octets as eight digits "1"s and "0"s instead of a normal hexadecimal dump.
+    - Each line is preceded by a line number in  hexa-decimal and followed by an ascii (or ebcdic) representation.
+    - The command line switches `-r`, `-p`, `-i` do not work with this mode.
 
 **`-c cols | -cols cols`**
 
-* **Format `<cols>` octets per line.**
-  * Default 16 \(-i: 12, -ps: 30, -b: 6\).
-  * Max 256.
+- **Format `<cols>` octets per line.**
+    - Default 16 (-i: 12, -ps: 30, -b: 6).
+    - Max 256.
 
 _`-C | -capitalize`_
 
-* _Capitalize variable names in C include file style, when using -i._
+- _Capitalize variable names in C include file style, when using -i._
 
 _`-E | -EBCDIC`_
 
-* _Change the character encoding in the righthand column from ASCII to EBCDIC._
-  * _This does not change the hexadecimal representation._
-  * _The option is meaningless in combinations with `-r`, `-p` or `-i`._
+- _Change the character encoding in the righthand column from ASCII to EBCDIC._
+    - _This does not change the hexadecimal representation._
+    - _The option is meaningless in combinations with `-r`, `-p` or `-i`._
 
 `-e`
 
-* Switch to **little-endian hexdump.**
-  * This option treats byte groups as words in little-endian byte order.
-  * The default grouping of 4 bytes may be changed using `-g`.
-  * This option only applies to hex-dump, leaving the ASCII \(or EBCDIC\) representation unchanged.
-  * The command line switches `-r`, `-p`, `-i` do not work with this mode.
+- Switch to **little-endian hexdump.**
+    - This option treats byte groups as words in little-endian byte order.
+    - The default grouping of 4 bytes may be changed using `-g`.
+    - This option only applies to hex-dump, leaving the ASCII (or EBCDIC) representation unchanged.
+    - The command line switches `-r`, `-p`, `-i` do not work with this mode.
 
 `-g bytes | -groupsize bytes`
 
-* Separate the output of every  bytes \(two hex characters or eight bit-digits each\) by a white-space.
-  * Specify `-g 0` to suppress grouping.
-  * `<Bytes>` defaults to 2 in normal mode, 4 in little-endian mode and 1 in bits mode.
-
-    Grouping does not apply to postscript or include style.
+- Separate the output of every <bytes> bytes (two hex characters or eight bit-digits each) by a white-space.
+    - Specify `-g 0` to suppress grouping.
+    - `<Bytes>` defaults to 2 in normal mode, 4 in little-endian mode and 1 in bits mode.
+      Grouping does not apply to postscript or include style.
 
 _`-h | -help`_
 
-* _Print a summary of available commands and exit._
-  * _No hex dumping is performed._
+- _Print a summary of available commands and exit._
+    - _No hex dumping is performed._
 
 **`-i | -include`**
 
-* **Output in C include file style.**
-  * A complete static array definition is written \(named after the input file\), unless xxd reads from stdin.
+- **Output in C include file style.**
+    - A complete static array definition is written (named after the input file), unless xxd reads from stdin.
 
 **`-l len | -len len`**
 
-* **Stop after writing `<len>` octets.**
+- **Stop after writing `<len>` octets.**
 
 _`-o offset`_
 
-* _Add `<offset>` to the displayed file position._
+- _Add `<offset>` to the displayed file position._
 
 `-p | -ps | -postscript | -plain`
 
-* **Output in postscript continuous hexdump style.**
-  * Also known as **plain hexdump style**.
+- **Output in postscript continuous hexdump style.**
+    - Also known as **plain hexdump style**.
 
 **`-r | -revert`**
 
-* Reverse operation : **convert \(or patch\) hexdump into binary.**
-  * If not writing to stdout, xxd writes into its output file without truncating it.
-  * Use the combination -r  -p  to  read  plain  hexadecimal dumps  without line number information and without a particular column layout.
-  * Additional Whitespace and line-breaks are allowed anywhere.
+- Reverse operation : **convert (or patch) hexdump into binary.**
+    - If not writing to stdout, xxd writes into its output file without truncating it.
+    - Use the combination -r  -p  to  read  plain  hexadecimal dumps  without line number information and without a particular column layout.
+    - Additional Whitespace and line-breaks are allowed anywhere.
 
 _`-seek offset`_
 
-* _When used after `-r` : revert with  added to file positions found in hexdump._
+- _When used after `-r` : revert with <offset> added to file positions found in hexdump._
 
 **`-s [+][-]seek`**
 
-* Start at `<seek>` bytes abs. \(or rel.\) infile offset.
-  * `+` indicates that the seek is  relative  to  the current  stdin  file  position \(meaningless when not reading from stdin\).
-  * `-` indicates that the seek should be that many characters from the end of the input \(or if combined with - `+` : before the  current stdin file position\).
-  * Without `-s` option, xxd starts at the current file position.
+- Start at `<seek>` bytes abs. (or rel.) infile offset.
+    - `+` indicates that the seek is  relative  to  the current  stdin  file  position (meaningless when not reading from stdin).
+    - `-` indicates that the seek should be that many characters from the end of the input (or if combined with - `+` : before the  current stdin file position).
+    - Without `-s` option, xxd starts at the current file position.
 
 _`-u`_
 
-* _Use upper case hex letters._
-  * _Default is lower case._
+- _Use upper case hex letters._
+    - _Default is lower case._
 
 _`-v | -version`_
 
-* _Show version string._
+- _Show version string._
 
 ## Usage
 
-### Hexdump \( Default \)
+### Hexdump ( Default )
 
 ```bash
 # on macOS
@@ -281,4 +280,3 @@ $ xxd -b HsdisTest.class
 000001c8: 00000111 00000000 00000001 00000000 00011010 00000000  ......
 000001ce: 00000000 00000000 00000010 00000000 00011011           .....
 ```
-

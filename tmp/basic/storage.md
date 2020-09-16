@@ -2,12 +2,12 @@
 
 ## ACID CAP
 
-Concepts : [http://www.mongodb.org.cn/tutorial/2.html](http://www.mongodb.org.cn/tutorial/2.html)
+Concepts : http://www.mongodb.org.cn/tutorial/2.html
 
-* ACID
-* BASE
-* CAP
-* NoSQL
+- ACID
+- BASE
+- CAP
+- NoSQL
 
 ## Column Family
 
@@ -26,10 +26,9 @@ HBase 中为什么要有 Column Family？
 
 Reference
 
-* 百度知道 :  [https://zhidao.baidu.com/question/873748003465757012.html](https://zhidao.baidu.com/question/873748003465757012.html)
+- 百度知道 :  https://zhidao.baidu.com/question/873748003465757012.html
 
 感想：
 
-* 对一个概念准确地下定义还算简单一点
-* 但是要通俗易懂、直击本质地说明它存在的理由却很不容易
-
+- 对一个概念准确地下定义还算简单一点
+- 但是要通俗易懂、直击本质地说明它存在的理由却很不容易

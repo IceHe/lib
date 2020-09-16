@@ -2,28 +2,28 @@
 
 External links
 
-* [docsify](https://docsify.js.org/)
-  * [Quickstart](https://docsify.js.org/#/quickstart)
-  * [Deploy](https://docsify.js.org/#/deploy)
+- [docsify](https://docsify.js.org/)
+    - [Quickstart](https://docsify.js.org/#/quickstart)
+    - [Deploy](https://docsify.js.org/#/deploy)
 
 ## Preview
 
 Require
 
-* npm
-* docsify
+- npm
+- docsify
 
 ### Install
 
 on macOS
 
-* Step 1
+- Step 1
 
 ```bash
 brew install npm
 ```
 
-* Step 2
+- Step 2
 
 ```bash
 npm i docsify-cli -g
@@ -55,9 +55,9 @@ docsify serve . -p 4000
 
 ### Visit
 
-[http://localhost:3000](http://localhost:3000)
+http://localhost:3000
 
-* Default port is 3000.
+- Default port is 3000.
 
 ## Build
 
@@ -91,18 +91,18 @@ find public | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|── \1/"
 
 Reference
 
-* [.gitlab-ci.yml](https://github.com/IceHe/lib/blob/master/.gitlab-ci.yml)
+- [.gitlab-ci.yml](https://github.com/IceHe/lib/blob/master/.gitlab-ci.yml)
 
 ### Speed Up
 
 Target
 
-* Speed Up Website Access
+- Speed Up Website Access
 
 How-to
 
-* Download remote resources
-* Rewrite links to resources in index.html
+- Download remote resources
+- Rewrite links to resources in index.html
 
 Steps
 
@@ -117,7 +117,7 @@ php path/to/download-n-rewrite-resources.php --download --rewrite
 
 Reference
 
-* [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/scripts/php/download-n-rewrite-resources.php)
+- [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/scripts/php/download-n-rewrite-resources.php)
 
 ## Deploy
 
@@ -125,15 +125,15 @@ Reference
 
 Configurated by
 
-* GitLab : Config file `.gitlab-ci.yml`
-* GitHub : Project Settings
-* Coding.net : Project Settings
+- GitLab : Config file `.gitlab-ci.yml`
+- GitHub : Project Settings
+- Coding.net : Project Settings
 
 #### GitLab CI
 
 File : .gitlab-ci.yml
 
-* build job definition as follow
+- build job definition as follow
 
 ```yaml
 # Deploy @ GitLab Pages
@@ -164,11 +164,10 @@ At first, send website files to specified remote directory.
 
 Recommended method
 
-[nginx/docsify.conf](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/_docsify/deploy/nginx/docsify.conf)
+[nginx/docsify.conf](deploy/nginx/docsify.conf ':include :type=code nginx')
 
 #### Service
 
 Optional method
 
-[service/docsify](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/_docsify/deploy/service/docsify/README.md)
-
+[service/docsify](deploy/service/docsify ':include :type=code bash')

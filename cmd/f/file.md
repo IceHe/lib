@@ -4,7 +4,7 @@
 
 References
 
-* `man file`
+- `man file`
 
 ## Quickstart
 
@@ -27,17 +27,17 @@ file [--help]
 
 ## Options
 
-* `-b, --brief` Do not prepend filenames to output lines \(brief mode\).
-* `-i, --mime` Causes the file command to output mime type strings rather than the more traditional human readable ones.
-  * Thus it may say ‘text/plain; charset=us-ascii’ rather than "ASCII text".
-* _`-k, --keep-going`_ Don't stop at the first match, keep going.
-  * Subsequent matches will be have the string ‘\012- ’ prepended.
-  * \(If you want a newline, see the -r option.\)
-* `-s, --special-files` Normally, file only attempts to read and determine the type of argument files which stat\(2\) reports are ordinary files.
-  * This prevents problems, because reading special files may have peculiar consequences.
-  * Specifying the -s option causes file to also read argument files which are block or character special files.
-  * This is useful for determining the filesystem types of the data in raw disk partitions, which are block special files.
-  * This option also causes file to disregard the file size as reported by stat\(2\) since on some systems it reports a zero size for raw disk partitions.
+- `-b, --brief` Do not prepend filenames to output lines (brief mode).
+- `-i, --mime` Causes the file command to output mime type strings rather than the more traditional human readable ones.
+    - Thus it may say ‘text/plain; charset=us-ascii’ rather than "ASCII text".
+- _`-k, --keep-going`_ Don't stop at the first match, keep going.
+    - Subsequent matches will be have the string ‘\012- ’ prepended.
+    - (If you want a newline, see the -r option.)
+- `-s, --special-files` Normally, file only attempts to read and determine the type of argument files which stat(2) reports are ordinary files.
+    - This prevents problems, because reading special files may have peculiar consequences.
+    - Specifying the -s option causes file to also read argument files which are block or character special files.
+    - This is useful for determining the filesystem types of the data in raw disk partitions, which are block special files.
+    - This option also causes file to disregard the file size as reported by stat(2) since on some systems it reports a zero size for raw disk partitions.
 
 ## Usage
 
@@ -107,4 +107,3 @@ $ file /dev/sda* -s
 /dev/sda6: Linux rev 1.0 ext4 filesystem data, UUID=f8b0c023-f575-4825-abb0-ab5543b350e6 (needs journal recovery) (extents) (64bit) (large files) (huge files)
 /dev/sda7: Linux rev 1.0 ext4 filesystem data, UUID=ff588a96-da99-4bd8-9938-bf8d699e9eb8 (needs journal recovery) (extents) (64bit) (large files) (huge files)
 ```
-

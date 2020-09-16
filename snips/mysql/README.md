@@ -1,8 +1,8 @@
-# MySQL \( TODO \)
+# MySQL ( TODO )
 
 暂时觉得比较好的付费课程
 
-* 极客时间 App → MySQL 的专栏
+- 极客时间 App → MySQL 的专栏
 
 ## Features
 
@@ -10,41 +10,41 @@
 
 References
 
-* 何登成的技术博客 » MySQL 加锁处理分析 : [http://hedengcheng.com/?p=771](http://hedengcheng.com/?p=771)
+- 何登成的技术博客 &raquo; MySQL 加锁处理分析 : http://hedengcheng.com/?p=771
 
 ### Replica
 
 一主多从的架构：写操作执行多次，**整个系统的性能取决于写入最慢的部分**。
 
-binlog \(binary log\)
+binlog (binary log)
 
-* 基于行的复制
-* 基于逻辑语句的复制
+- 基于行的复制
+- 基于逻辑语句的复制
 
 （复制不是备份，复制不能替代备份。）
 
 复制过程概述
 
-* 从库先与主库同步，IO 到本地 relay log 文件中
-  * relay log 中继日志
-* 再从 relay log 文件中获得事件，然后重放到从库
+- 从库先与主库同步，IO 到本地 relay log 文件中
+    - relay log 中继日志
+- 再从 relay log 文件中获得事件，然后重放到从库
 
 ## SQL
 
 References
 
-* [https://www.w3schools.com/sql/sql\_syntax.asp](https://www.w3schools.com/sql/sql_syntax.asp)
+- https://www.w3schools.com/sql/sql_syntax.asp
 
 ### Basic Grammar
 
 TODO : abstract
 
-* `LIMIT length`
-* `LIMIT offset, length` = `LIMIT length OFFSET offset`
+- `LIMIT length`
+- `LIMIT offset, length` = `LIMIT length OFFSET offset`
 
 ### ON DUPLICATE KEY UPDATE
 
-* Reference : [https://sql.sh/cours/insert-into/on-duplicate-key](https://sql.sh/cours/insert-into/on-duplicate-key)
+- Reference : https://sql.sh/cours/insert-into/on-duplicate-key
 
 ### Select
 
@@ -54,23 +54,23 @@ select * from table_name
 
 使用 `select *` 查询大量数据时
 
-* 如果表结构变更，可能导致 `table definition is not consistent` 错误（自己实验一下）
+- 如果表结构变更，可能导致 `table definition is not consistent` 错误（自己实验一下）
 
 ### SQL Injection
 
 避免 SQL 注入风险
 
-* 尽可能使用 ORM，减少代码层 SQL 语句的拼接
-* 显式地要查询的字段条件进行校验，避免 SQL 语法错误
-  * 包括：字段名、字段类型
-  * 字段名用反引号包围 ```field_name```
-    * 其它例如「表名」等也是如此
-* 显式类型转换
-  * 分页参数必须使用 intval 显式强制转换，「分页长度、页数」等条件容易招致「SQL 注入」风险
+- 尽可能使用 ORM，减少代码层 SQL 语句的拼接
+- 显式地要查询的字段条件进行校验，避免 SQL 语法错误
+    - 包括：字段名、字段类型
+    - 字段名用反引号包围 <code>\`field_name\`</code>
+        - 其它例如「表名」等也是如此
+- 显式类型转换
+    - 分页参数必须使用 intval 显式强制转换，「分页长度、页数」等条件容易招致「SQL 注入」风险
 
 ## CLI
 
-Sth. was moved to [init.md](init.md).
+Sth. was moved to [init.md](/snips/mysql/init.md).
 
 ### Interact
 
@@ -84,19 +84,19 @@ show variables like '%version%'
 
 _Output_
 
-| innodb\_version | 5.6.16 |
-| :--- | :--- |
-| protocol\_version | 10 |
-| slave\_type\_conversions | "" |
-| tls\_version | "TLSv1,TLSv1.1,TLSv1.2" |
-| tokudb\_version | 7.5.6 |
-| version | 5.6.16-log |
-| version\_comment | Source distribution |
-| version\_compile\_compiler | GNU |
-| version\_compile\_compiler\_major | 4 |
-| version\_compile\_compiler\_minor | 8 |
-| version\_compile\_machine | x86\_64 |
-| version\_compile\_os | Linux |
+|innodb_version|5.6.16|
+|-|-|
+|protocol_version|10|
+|slave_type_conversions|""|
+|tls_version|"TLSv1,TLSv1.1,TLSv1.2"|
+|tokudb_version|7.5.6|
+|version|5.6.16-log|
+|version_comment|Source distribution|
+|version_compile_compiler|GNU|
+|version_compile_compiler_major|4|
+|version_compile_compiler_minor|8|
+|version_compile_machine|x86_64|
+|version_compile_os|Linux|
 
 #### Databases
 
@@ -185,7 +185,7 @@ mysql> select @@global.tx_isolation,@@tx_isolation,version(),"custom content";
 
 #### Processlist
 
-Ref : MySQL慢查询&分析SQL执行效率浅谈 - 简书 : [https://www.jianshu.com/p/43091bfa8aa7](https://www.jianshu.com/p/43091bfa8aa7)
+Ref : MySQL慢查询&分析SQL执行效率浅谈 - 简书 : https://www.jianshu.com/p/43091bfa8aa7
 
 ```bash
 mysql> show processlist;
@@ -223,20 +223,20 @@ Current database: life_log
 
 References
 
-* 理解Mysql prepare预处理语句 : [https://www.cnblogs.com/simpman/p/6510604.html](https://www.cnblogs.com/simpman/p/6510604.html)
-* MySQL :: MySQL 8.0 Reference Manual :: 13.5 Prepared SQL Statement Syntax : [https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html](https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html)
+- 理解Mysql prepare预处理语句 : https://www.cnblogs.com/simpman/p/6510604.html
+- MySQL :: MySQL 8.0 Reference Manual :: 13.5 Prepared SQL Statement Syntax : https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html
 
 #### Explain
 
 References
 
-* MySQL 性能优化神器 Explain 使用分析 : [https://segmentfault.com/a/1190000008131735](https://segmentfault.com/a/1190000008131735)
+- MySQL 性能优化神器 Explain 使用分析 : https://segmentfault.com/a/1190000008131735
 
 #### Lock
 
 References
 
-* MySQL Transactional and Locking Commands - MySQL Reference Manual \[Book\] : [https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html](https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html)
+- MySQL Transactional and Locking Commands - MySQL Reference Manual [Book] : https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
 
 ```sql
 > lock table t write;
@@ -273,7 +273,7 @@ mysql> select @@global.tx_isolation;
 
 `SERIAL` SQL TYPE
 
-* an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
+- an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
 
 ### Troubleshooting
 
@@ -281,22 +281,22 @@ ERROR
 
 > MySql server startup error 'The server quit without updating PID file '
 
-* StackOverflow : [https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file](https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file)
+- StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
 
 ### Change Buffer
 
-* 从 Buffer Pool 中分配的
-* 只针对更新操作进行缓存，目的是：减少更新操作对磁盘的随机 IO，从而提高效率。
-  * 特别注意：它不是应用在读缓存的场景！
-  * 对于在 change buffer 的数据来说，对它们的读操作只会导致要先将 change buffer 回写到磁盘的数据页（merge 过程），然后再读取。
+- 从 Buffer Pool 中分配的
+- 只针对更新操作进行缓存，目的是：减少更新操作对磁盘的随机 IO，从而提高效率。
+    - 特别注意：它不是应用在读缓存的场景！
+    - 对于在 change buffer 的数据来说，对它们的读操作只会导致要先将 change buffer 回写到磁盘的数据页（merge 过程），然后再读取。
 
-> * 写唯一索引要检查记录是不是存在，所以在修改唯一索引之前，必须把修改的记录相关的索引页读出来才知道是不是唯一。
-> * 这样的话，Insert buffer 就没意义了，反正要读出来 \(读带来随机 IO\) ，所以只对非唯一索引有效。
+> - 写唯一索引要检查记录是不是存在，所以在修改唯一索引之前，必须把修改的记录相关的索引页读出来才知道是不是唯一。
+> - 这样的话，Insert buffer 就没意义了，反正要读出来 (读带来随机 IO) ，所以只对非唯一索引有效。
 
 对比
 
-* redo log : 提升对磁盘的顺序写的 IO 消耗
-* change buffer : 提升对磁盘的随机 IO 的消耗？（出发点不同）
+- redo log : 提升对磁盘的顺序写的 IO 消耗
+- change buffer : 提升对磁盘的随机 IO 的消耗？（出发点不同）
 
 ### Data Type
 
@@ -304,24 +304,24 @@ ERROR
 
 INT
 
-* tinyint 1
-* smallint 2
-* midiumint 3
-* int 4
-  * `INT(11)` 中的 11 表示显示宽度，使用了 zerofille\(0\) 后，未满的宽度会用 0 填充
-* bigint 8
+- tinyint 1
+- smallint 2
+- midiumint 3
+- int 4
+    - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
+- bigint 8
 
-### binlog\_row\_image
+### binlog_row_image
 
 References
 
-* MySQL 5.7贴心参数之binlog\_row\_image : [http://www.cnblogs.com/gomysql/p/6155160.html](http://www.cnblogs.com/gomysql/p/6155160.html)
+- MySQL 5.7贴心参数之binlog_row_image : http://www.cnblogs.com/gomysql/p/6155160.html
 
 ### \G \g
 
 References
 
-* MySQL :: MySQL 8.0 Reference Manual :: 4.5.1.2 mysql Client Commands : [https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html](https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html)
+- MySQL :: MySQL 8.0 Reference Manual :: 4.5.1.2 mysql Client Commands : https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html
 
 ```bash
 mysql> help
@@ -368,23 +368,23 @@ For server side help, type 'help contents'
 
 References
 
-* mysql中index和key的区别 : [https://blog.csdn.net/kusedexingfu/article/details/78347354](https://blog.csdn.net/kusedexingfu/article/details/78347354)
+- mysql中index和key的区别 : https://blog.csdn.net/kusedexingfu/article/details/78347354
 
-> KEY \| INDEX
+> KEY | INDEX
 >
-> * KEY is normally a synonym for INDEX. The key attribute PRIMARY KEY can also be specified as just KEY when given in a column definition. This was implemented for compatibility with other database systems.
+> - KEY is normally a synonym for INDEX. The key attribute PRIMARY KEY can also be specified as just KEY when given in a column definition. This was implemented for compatibility with other database systems.
 
 ### utf8 & utf8mb4
 
 References
 
-* 清官谈 MySQL 中 utf8 和 utf8mb4 区别 : [http://blogread.cn/it/article/7546?f=wb\_blogread](http://blogread.cn/it/article/7546?f=wb_blogread)
+- 清官谈 MySQL 中 utf8 和 utf8mb4 区别 : http://blogread.cn/it/article/7546?f=wb_blogread
 
 ### Binlog
 
 References
 
-* mysql中如何开启binlog? : [https://www.cnblogs.com/chuanzhang053/p/9335924.html](https://www.cnblogs.com/chuanzhang053/p/9335924.html)
+- mysql中如何开启binlog? : https://www.cnblogs.com/chuanzhang053/p/9335924.html
 
 ```bash
 # e.g.
@@ -415,7 +415,7 @@ mysql> show binlog events;
 $ mysqlbinlog -vv mysql-bin.000001 --start-position=2078
 ```
 
-### sql\_safe\_updates
+### sql_safe_updates
 
 ```bash
 mysql> set sql_safe_updates=1;
@@ -436,7 +436,7 @@ mysql> show variables like '%sql_safe_updates%';
 
 References
 
-* 35 \| join语句怎么优化？: [https://time.geekbang.org/column/article/80147](https://time.geekbang.org/column/article/80147)
+- 35 | join语句怎么优化？: https://time.geekbang.org/column/article/80147
 
 优化开启语句
 
@@ -458,11 +458,11 @@ mysql> explain select * from t1 where a>=1 and a<=100;
 
 References
 
-* 35 \| join语句怎么优化？: [https://time.geekbang.org/column/article/80147](https://time.geekbang.org/column/article/80147)
+- 35 | join语句怎么优化？: https://time.geekbang.org/column/article/80147
 
 优化算法，开启方法
 
-* 依赖 MRR
+- 依赖 MRR
 
 ```sql
 set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
@@ -470,10 +470,10 @@ set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
 
 ### Union
 
-* union : 去重
-* union all : 不去重
+- union : 去重
+- union all : 不去重
 
-### innodb\_lock\_wait\_timeout
+### innodb_lock_wait_timeout
 
 > 锁等待超时时间
 
@@ -485,15 +485,15 @@ set Innodb_lock_wait_timeout = 5;
 
 References
 
-* Avg\_row\_length是怎么计算的？: [https://www.cnblogs.com/sunss/p/6122997.html](https://www.cnblogs.com/sunss/p/6122997.html)
-* Q & A \( on MySQL Forums \)
-  * How Avg\_row\_length is calculated? : [https://forums.mysql.com/read.php?22,219129](https://forums.mysql.com/read.php?22,219129)
-  * Re: How Avg\_row\_length is calculated? : [https://forums.mysql.com/read.php?22,219129,224296\#msg-224296](https://forums.mysql.com/read.php?22,219129,224296#msg-224296)
+- Avg_row_length是怎么计算的？: https://www.cnblogs.com/sunss/p/6122997.html
+- Q & A ( on MySQL Forums )
+    - How Avg_row_length is calculated? : https://forums.mysql.com/read.php?22,219129
+    - Re: How Avg_row_length is calculated? : https://forums.mysql.com/read.php?22,219129,224296#msg-224296
 
 Command
 
-* Avg\_row\_length 顾名思义是：平均每行的长度
-  * e.g. 查询命令 & 输出，如下
+- Avg_row_length 顾名思义是：平均每行的长度
+    - e.g. 查询命令 & 输出，如下
 
 ```sql
 show table status like 'tb_name'\G
@@ -524,10 +524,9 @@ row in set (0.00 sec)
 
 该值是如何计算得出？
 
-* InnoDB 的行数是一个近似值
-* 平均每行长度 = 数据大小 / 行数
-* 大部分都是超过了每行的长度
-  * 因为在 InnoDB 的老版本中为了页对齐都自动的往上增加了
-  * 比如有一行行长 29 bytes 为了保证页对齐，往上加了 1 或 2 bytes
-* 在经历了多次块分裂后，认为「块」到达约 69% 满了
-
+- InnoDB 的行数是一个近似值
+- 平均每行长度 = 数据大小 / 行数
+- 大部分都是超过了每行的长度
+    - 因为在 InnoDB 的老版本中为了页对齐都自动的往上增加了
+    - 比如有一行行长 29 bytes 为了保证页对齐，往上加了 1 或 2 bytes
+- 在经历了多次块分裂后，认为「块」到达约 69% 满了

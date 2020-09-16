@@ -1,53 +1,5 @@
 # 2015/01 stu40 spo4 was3
 
-* Created on 2015-02-26 15:21:05
+- Created on 2015-02-26 15:21:05
 
-Week 115/12/29 ~ 15/01/04类，时，%  
-学22     19.6  
-动0  
-读47.5  42.4  
-乐29     25.9  
-必7         6.3  
-废6.5      5.8  
-总112  
-Week 215/01/05 ~ 15/01/11类，时，%  
-学43     38.2  
-动4         3.6  
-读23.5  20.9  
-乐34     30.2  
-必6         5.3  
-废2         1.8  
-总112.5  
-Week 315/01/12 ~ 15/01/18类，时，%  
-学45.5  40.1  
-动4         3.5  
-读29     25.6  
-乐25.5  22.5  
-必8         7.1  
-废1.5      1.3  
-总113.5  
-Week 415/01/19 ~ 15/01/25类，时，%  
-学58.5  49.4  
-动9         7.6  
-读15.5  13.1  
-乐25     21.1  
-必5         4.2  
-废5.5      4.6  
-总118.5  
-Week 515/01/26 ~ 15/02/01类，时，%  
-学59     50.2  
-动3         2.6  
-读18     15.3  
-乐29     24.7  
-必8         6.8  
-废0.5      0.4  
-总117.5  
-Monthly15/01类，时，%  
-学201.5  39.6  
-动19.5      3.8  
-读114.5  22.5  
-乐127     25.0  
-必30.5      6.0  
-废15.5      3.1  
-总508.5
-
+<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><div>Week 1</div><div>15/12/29 ~&nbsp;15/01/04</div><div>类，时，%<br/>学22 &nbsp; &nbsp; 19.6<br/>动0<br/>读47.5 &nbsp;42.4<br/>乐29 &nbsp; &nbsp; 25.9<br/>必7 &nbsp; &nbsp; &nbsp; &nbsp; 6.3<br/>废6.5 &nbsp; &nbsp; &nbsp;5.8<br/>总112</div><div><br/></div><div>Week&nbsp;2</div><div>15/01/05 ~&nbsp;15/01/11</div><div>类，时，%<br/>学43 &nbsp; &nbsp; 38.2<br/>动4 &nbsp; &nbsp; &nbsp; &nbsp; 3.6<br/>读23.5 &nbsp;20.9<br/>乐34 &nbsp; &nbsp; 30.2<br/>必6 &nbsp; &nbsp; &nbsp; &nbsp; 5.3<br/>废2 &nbsp; &nbsp; &nbsp; &nbsp; 1.8<br/>总112.5</div><div><br/></div><div>Week&nbsp;3</div><div>15/01/12 ~&nbsp;15/01/18</div><div>类，时，%<br/>学45.5 &nbsp;40.1<br/>动4 &nbsp; &nbsp; &nbsp; &nbsp; 3.5<br/>读29 &nbsp; &nbsp; 25.6<br/>乐25.5 &nbsp;22.5<br/>必8 &nbsp; &nbsp; &nbsp; &nbsp; 7.1<br/>废1.5 &nbsp; &nbsp; &nbsp;1.3<br/>总113.5</div><div><br/></div><div>Week&nbsp;4</div><div>15/01/19 ~&nbsp;15/01/25</div><div>类，时，%<br/>学58.5 &nbsp;49.4<br/>动9 &nbsp; &nbsp; &nbsp; &nbsp; 7.6<br/>读15.5 &nbsp;13.1<br/>乐25 &nbsp; &nbsp; 21.1<br/>必5 &nbsp; &nbsp; &nbsp; &nbsp; 4.2<br/>废5.5 &nbsp; &nbsp; &nbsp;4.6<br/>总118.5</div><div><br/></div><div>Week&nbsp;5</div><div>15/01/26 ~&nbsp;15/02/01</div><div>类，时，%<br/>学59 &nbsp; &nbsp; 50.2<br/>动3 &nbsp; &nbsp; &nbsp; &nbsp; 2.6<br/>读18 &nbsp; &nbsp; 15.3<br/>乐29 &nbsp; &nbsp; 24.7<br/>必8 &nbsp; &nbsp; &nbsp; &nbsp; 6.8<br/>废0.5 &nbsp; &nbsp; &nbsp;0.4<br/>总117.5</div><div><br/></div><div>Monthly</div><div>15/01</div><div>类，时，%<br/>学201.5 &nbsp;39.6<br/>动19.5 &nbsp; &nbsp; &nbsp;3.8<br/>读114.5 &nbsp;22.5<br/>乐127 &nbsp; &nbsp; 25.0<br/>必30.5 &nbsp; &nbsp; &nbsp;6.0<br/>废15.5 &nbsp; &nbsp; &nbsp;3.1<br/>总508.5</div></div>

@@ -4,8 +4,8 @@
 
 Reference
 
-* `man expect`
-* [expect 教程中文版](http://xstarcd.github.io/wiki/shell/expect_handbook.html)
+- `man expect`
+- [expect 教程中文版](http://xstarcd.github.io/wiki/shell/expect_handbook.html)
 
 ## Example
 
@@ -52,4 +52,3 @@ expect {
     }
 }
 ```
-

@@ -4,9 +4,9 @@
 
 References
 
-* `man jinfo`
-* Understand the JVM - 2nd Edition - ZH Ver. - P143
-* Java SE 14 Docs - Tools References - `jinfo` : [https://docs.oracle.com/en/java/javase/14/docs/specs/man/jinfo.html](https://docs.oracle.com/en/java/javase/14/docs/specs/man/jinfo.html)
+- `man jinfo`
+- Understand the JVM - 2nd Edition - ZH Ver. - P143
+- Java SE 14 Docs - Tools References - `jinfo` : https://docs.oracle.com/en/java/javase/14/docs/specs/man/jinfo.html
 
 ## Quickstart
 
@@ -32,11 +32,11 @@ jinfo [ option ] [ server-id@ ] remote-hostname-or-IP
 
 ## Options
 
-* `-flag name` Prints the name and value of the specified command-line flag.
-* `-flag [+|-]name` Enables or disables the specified Boolean command-line flag.
-* `-flag name=value` Sets the specified command-line flag to the specified value.
-* `-flags` Prints command-line flags passed to the JVM.
-* `-sysprops` Prints Java system properties as name-value pairs.
+- `-flag name` Prints the name and value of the specified command-line flag.
+- `-flag [+|-]name` Enables or disables the specified Boolean command-line flag.
+- `-flag name=value` Sets the specified command-line flag to the specified value.
+- `-flags` Prints command-line flags passed to the JVM.
+- `-sysprops` Prints Java system properties as name-value pairs.
 
 ## Usage
 
@@ -298,4 +298,3 @@ idea.max.content.load.filesize=20000
 apple.awt.UIElement=true
 java.class.version=55.0
 ```
-

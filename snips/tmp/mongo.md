@@ -1,9 +1,9 @@
-# MongoDB \( draft \)
+# MongoDB ( draft )
 
 References
 
-* Official Website : [https://www.mongodb.com/](https://www.mongodb.com/)
-* Guide - ZH Ver. : [http://www.mongodb.org.cn/tutorial/3.html](http://www.mongodb.org.cn/tutorial/3.html)
+- Official Website : https://www.mongodb.com/
+- Guide - ZH Ver. : http://www.mongodb.org.cn/tutorial/3.html
 
 ## Database
 
@@ -49,7 +49,7 @@ test
 
 > 备份与恢复
 
-* Reference : [http://www.mongodb.org.cn/tutorial/22.html](http://www.mongodb.org.cn/tutorial/22.html)
+- Reference : http://www.mongodb.org.cn/tutorial/22.html
 
 Dump
 
@@ -73,10 +73,10 @@ mongorestore -h <host> --port=<port> -d <db> \
 mongorestore -h 127.0.0.1 --port=27017 -d db_name dump/db_name
 ```
 
-* `<output_directory/db_name>` 备份数据所在位置
-  * 例如：/usr/home/icehe/dump/test（test 为 DB 名）
-* `--drop` 恢复的时候，先删除当前数据，然后恢复备份的数据
-  * 即恢复后，备份后添加修改的数据都会被删除。慎用！
+- `<output_directory/db_name>` 备份数据所在位置
+    - 例如：/usr/home/icehe/dump/test（test 为 DB 名）
+- `--drop` 恢复的时候，先删除当前数据，然后恢复备份的数据
+    - 即恢复后，备份后添加修改的数据都会被删除。慎用！
 
 ## Collection
 
@@ -98,7 +98,7 @@ mongorestore -h 127.0.0.1 --port=27017 -d db_name dump/db_name
 
 ### Update
 
-* Reference : [http://www.mongodb.org.cn/tutorial/11.html](http://www.mongodb.org.cn/tutorial/11.html)
+- Reference : http://www.mongodb.org.cn/tutorial/11.html
 
 ```bash
 > db.collection_name.update()
@@ -115,12 +115,12 @@ mongorestore -h 127.0.0.1 --port=27017 -d db_name dump/db_name
 
 ### Query
 
-* Reference
-  * where, and, or : [http://www.mongodb.org.cn/tutorial/13.html](http://www.mongodb.org.cn/tutorial/13.html)
-  * conditional : [http://www.mongodb.org.cn/tutorial/14.html](http://www.mongodb.org.cn/tutorial/14.html)
-  * $type : [http://www.mongodb.org.cn/tutorial/15.html](http://www.mongodb.org.cn/tutorial/15.html)
-  * limit, skip : [http://www.mongodb.org.cn/tutorial/16.html](http://www.mongodb.org.cn/tutorial/16.html)
-  * sort\(1/-1\) : [http://www.mongodb.org.cn/tutorial/17.html](http://www.mongodb.org.cn/tutorial/17.html)
+- Reference
+    - where, and, or : http://www.mongodb.org.cn/tutorial/13.html
+    - conditional : http://www.mongodb.org.cn/tutorial/14.html
+    - $type : http://www.mongodb.org.cn/tutorial/15.html
+    - limit, skip : http://www.mongodb.org.cn/tutorial/16.html
+    - sort(1/-1) : http://www.mongodb.org.cn/tutorial/17.html
 
 ```bash
 # 跳过前 m 个，最多 n 个，倒序列举
@@ -129,9 +129,9 @@ mongorestore -h 127.0.0.1 --port=27017 -d db_name dump/db_name
 
 ## Commands
 
-Monitor \( 监控 \)
+Monitor ( 监控 )
 
-* Reference : [http://www.mongodb.org.cn/tutorial/23.html](http://www.mongodb.org.cn/tutorial/23.html)
+- Reference : http://www.mongodb.org.cn/tutorial/23.html
 
 ```bash
 # 运行状态监测
@@ -144,9 +144,9 @@ mongotop
 
 ### 文档关系
 
-* 嵌入式关系
+- 嵌入式关系
 
-```javascript
+```json
 {
     "_id":ObjectId("52ffc33cd85242f436000001"),
     "contact": "987654321",
@@ -169,9 +169,9 @@ mongotop
 }
 ```
 
-* 引用式关系
+- 引用式关系
 
-```javascript
+```json
 {
     "_id":ObjectId("52ffc33cd85242f436000001"),
     "contact": "987654321",
@@ -184,31 +184,30 @@ mongotop
 }
 ```
 
-Ref : [http://www.mongodb.org.cn/tutorial/28.html](http://www.mongodb.org.cn/tutorial/28.html)
+Ref : http://www.mongodb.org.cn/tutorial/28.html
 
 ## Others
 
 覆盖索引查询
 
-* Ref : [http://www.mongodb.org.cn/tutorial/30.html](http://www.mongodb.org.cn/tutorial/30.html)
-* 概念
-* 建立索引
-* 查询
-* 分析查询：索引是否有效，性能如何？
-  * explain\(\)
-  * hint\(\)
-* 限制 : [http://www.mongodb.org.cn/tutorial/34.html](http://www.mongodb.org.cn/tutorial/34.html)
+- Ref : http://www.mongodb.org.cn/tutorial/30.html
+- 概念
+- 建立索引
+- 查询
+- 分析查询：索引是否有效，性能如何？
+    - explain()
+    - hint()
+- 限制 : http://www.mongodb.org.cn/tutorial/34.html
 
 原子操作
 
-* Ref : [http://www.mongodb.org.cn/tutorial/32.html](http://www.mongodb.org.cn/tutorial/32.html)
-* 常用命令
+- Ref : http://www.mongodb.org.cn/tutorial/32.html
+- 常用命令
 
 ObjectId
 
-* Ref : [http://www.mongodb.org.cn/tutorial/35.html](http://www.mongodb.org.cn/tutorial/35.html)
+- Ref : http://www.mongodb.org.cn/tutorial/35.html
 
 固定集合（Capped Collections）
 
-* Ref : [http://www.mongodb.org.cn/tutorial/41.html](http://www.mongodb.org.cn/tutorial/41.html)
-
+- Ref : http://www.mongodb.org.cn/tutorial/41.html

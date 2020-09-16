@@ -4,8 +4,8 @@
 
 Reference
 
-* `man sort`
-* GNU Coreutils : [https://www.gnu.org/software/coreutils/manual/html\_node/sort-invocation.html](https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html)
+- `man sort`
+- GNU Coreutils : https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html
 
 ## Options
 
@@ -13,41 +13,41 @@ Reference
 
 Common
 
-* `-b, --ignore-leading-blanks` Ignore leading blanks
-* `-f, --ignore-case` Fold lower case to upper case characters
-* `-n, --numeric-sort` Compare according to sTring numerical value
-* `-h, --human-numeric-sort` Compare human readable numbers \(e.g., 2K 1G\)
-* `-r, --reverse` Reverse the result of comparisons
-* `-R, --random-sort` Sort by random hash of keys
-* `-M, --month-sort` Compare \(unknown\) &lt; 'JAN' &lt; ... &lt; 'DEC'
+- `-b, --ignore-leading-blanks` Ignore leading blanks
+- `-f, --ignore-case` Fold lower case to upper case characters
+- `-n, --numeric-sort` Compare according to sTring numerical value
+- `-h, --human-numeric-sort` Compare human readable numbers (e.g., 2K 1G)
+- `-r, --reverse` Reverse the result of comparisons
+- `-R, --random-sort` Sort by random hash of keys
+- `-M, --month-sort` Compare (unknown) < 'JAN' < ... < 'DEC'
 
 Seldom
 
-* `-d, --dictionary-order` Consider only blanks and alphanumeric characters
-* `-g, --general-numeric-sort` _Compare according to general numerical value_
-* `-i, --ignore-nonprinting` Consider only printable characters
-* `--random-source=FILE` _Get random bytes from FILE_
-* `--sort=WORD` _Sort according to WORD: general-numeric -g, human-numeric -h, month -M, numeric -n, random -R, version -V_
-* `-V, --version-sort` Natural sort of \(version\) numbers within text
+- `-d, --dictionary-order` Consider only blanks and alphanumeric characters
+- `-g, --general-numeric-sort` _Compare according to general numerical value_
+- `-i, --ignore-nonprinting` Consider only printable characters
+- `--random-source=FILE` _Get random bytes from FILE_
+- `--sort=WORD` _Sort according to WORD: general-numeric -g, human-numeric -h, month -M, numeric -n, random -R, version -V_
+- `-V, --version-sort` Natural sort of (version) numbers within text
 
 ### Others
 
 Common
 
-* `-c, --check, --check=diagnose-first` Check for sorted input; do not sort
-* `-k, --key=KEYDEF` Sort via a key; KEYDEF gives location and type
-* `-o, --output=FILE` Write result to FILE instead of standard output
-* `-u, --unique` With `-c`, check for strict ordering; without `-c`, output only the first of an equal run
+- `-c, --check, --check=diagnose-first` Check for sorted input; do not sort
+- `-k, --key=KEYDEF` Sort via a key; KEYDEF gives location and type
+- `-o, --output=FILE` Write result to FILE instead of standard output
+- `-u, --unique` With `-c`, check for strict ordering; without `-c`, output only the first of an equal run
 
 Seldom
 
-* `-C, --check=quiet, --check=silent` Like `-c`, but do not report first bad line
-* `--compress-program=PROG` Compress temporaries with PROG; decompress them with PROG -d
-* `-m, --merge` Merge already sorted files; do not sort
-* `-s, --stable` Stabilize sort by disabling last-resort comparison
-* `-S, --buffer-size=SIZE` Use SIZE for main memory buffer
-* `-t, --field-separator=SEP` Use SEP instead of non-blank to blank transition
-* `--parallel=N` Change the number of sorts run concurrently to N
+- `-C, --check=quiet, --check=silent` Like `-c`, but do not report first bad line
+- `--compress-program=PROG` Compress temporaries with PROG; decompress them with PROG -d
+- `-m, --merge` Merge already sorted files; do not sort
+- `-s, --stable` Stabilize sort by disabling last-resort comparison
+- `-S, --buffer-size=SIZE` Use SIZE for main memory buffer
+- `-t, --field-separator=SEP` Use SEP instead of non-blank to blank transition
+- `--parallel=N` Change the number of sorts run concurrently to N
 
 ## Usage
 
@@ -158,7 +158,7 @@ tmpfs           1.6G     0  1.6G   0% /run/user/60422
 
 Sort by **Column** 3 **Human-Numerically** in **Reverse Order**
 
-* Human readable numbers : e.g. **999, 2K, 3M, 1G**
+- Human readable numbers : e.g. **999, 2K, 3M, 1G**
 
 ```bash
 $ df -h | head -11 | sed 1d | sort -k3hr
@@ -353,11 +353,11 @@ apple
 
 On CentOS 7
 
-* Option `-t` doesn't work!?
+- Option `-t` doesn't work!?
 
 On macOS
 
-* Default Sort
+- Default Sort
 
 ```bash
 $ sort leading-blanks
@@ -367,7 +367,7 @@ $ sort leading-blanks
 apple
 ```
 
-* Sort without **Leading Blanks**
+- Sort without **Leading Blanks**
 
 ```bash
 $ sort -b leading-blanks
@@ -393,11 +393,11 @@ $ cat dictionary
 
 On CentOS 7
 
-* Option `-d` doesn't work!?
+- Option `-d` doesn't work!?
 
 On macOS
 
-* Default Sort
+- Default Sort
 
 ```bash
 $ sort dictionary
@@ -409,7 +409,7 @@ $ sort dictionary
 @1d
 ```
 
-* Sort in **Dictionary Order**
+- Sort in **Dictionary Order**
 
 ```bash
 $ sort -d dictionary
@@ -435,11 +435,11 @@ $ cat nonprinting-chars
 
 On CentOS 7
 
-* Option `-d` doesn't work!?
+- Option `-d` doesn't work!?
 
 On macOS
 
-* Default Sort
+- Default Sort
 
 ```bash
 $ sort nonprinting-chars
@@ -449,7 +449,7 @@ b
 a
 ```
 
-* Sort without **Nonpriting Characters**
+- Sort without **Nonpriting Characters**
 
 ```bash
 $ sort -i nonprinting-chars
@@ -473,7 +473,7 @@ Dodge
 
 Check : whether sorted or not?
 
-* Note that If there is no output then the file is considered to be already sorted.
+- Note that If there is no output then the file is considered to be already sorted.
 
 ```bash
 $ sort -c input4
@@ -503,4 +503,3 @@ March
 August
 September
 ```
-

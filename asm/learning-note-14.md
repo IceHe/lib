@@ -1,19 +1,19 @@
 # ASM 汇编语言 14
 
-> ASM - Note: 直接定址表。数据标号、地址标号。在其它段中，使用数据标号。写子程序计算 sin\(x\)。实现子程序 setscreen，为显示输出提供指定功能。
+> ASM - Note: 直接定址表。数据标号、地址标号。在其它段中，使用数据标号。写子程序计算 sin(x)。实现子程序 setscreen，为显示输出提供指定功能。
 
-* Created on 2014-11
-* 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
+- Created on 2014-11
+- 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
 
 ## 章十六、直接定址表
 
 ### 16.1 描述了单元长度的标号——数据标号
 
-* 以下程序中，code、a、b、start、s（后面带冒号“:”）
+- 以下程序中，code、a、b、start、s（后面带冒号“:”）
 
 都是地址标号，仅表示内存单元的地址。
 
-```text
+```nasm
 assume cs:code
 
 code segment
@@ -40,7 +40,7 @@ code ends
 end start
 ```
 
-* 另一种——数据标号
+- 另一种——数据标号
 
 不但表示内存单元的地址，还表示其长度，
 
@@ -48,7 +48,7 @@ end start
 
 如以下程序中的a、b标号，后面没跟“:”冒号。
 
-```text
+```nasm
 assume cs:code
 
 code segment
@@ -75,7 +75,7 @@ end start
 
 以上a、b这种标号的使用示例如下：
 
-```text
+```nasm
 mov ax, b     =     mov ax, cs:[8]
 mov b, 2      =     mov word ptr cs:[8]
 inc b         =     inc word ptr cs:[8]
@@ -90,7 +90,7 @@ mov al, a[3]      =     mov al, cs:0[3]
 
 将a处的8个数据累加，结果存储到b处的双字中，补全程序。
 
-```text
+```nasm
 assume cs:code
 
 code segment
@@ -122,7 +122,7 @@ end start
 
 只能在代码段中使用，不能在其它段使用。
 
-> > assume的作用：
+     >>assume的作用：
 
 若想在代码段中直接用数据标号访问数据，
 
@@ -142,7 +142,7 @@ end start
 
 （例）
 
-```text
+```nasm
 assume cs:code, ds:data
 
 data segment
@@ -179,18 +179,18 @@ end start
 
 但是还要
 
-```text
+```nasm
 mov ax, data
 mov ds, ax
 ```
 
 然后以下就是assume ds:data对编译实际的影响：
 
-mov al, a\[si\] 编译为 mov al, \[si+0\]
+mov al, a[si] 编译为 mov al, [si+0]
 
 ![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2013/e8c800492bf9619ab7e61184592c770c.png)
 
-add b, ax 编译为 add \[8\], ax
+add b, ax 编译为 add [8], ax
 
 ![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2013/488a2b294983eb6c4dc88d71380790e8.png)
 
@@ -200,7 +200,7 @@ add b, ax 编译为 add \[8\], ax
 
 ![img](https://img.icehe.xyz/Assembly%20Language%20-%20Note%2013/18512c4d794b8a6c2c7ed46b68c9bcf7.png)
 
-t.asm\(14\)是这一句：mov al, a\[si\]
+t.asm(14)是这一句：mov al, a[si]
 
 编译程序不知道标号在哪里了！
 
@@ -208,15 +208,13 @@ t.asm\(14\)是这一句：mov al, a\[si\]
 
 就可顺利编译，但原理必须明白！：
 
-```text
- a db 1, 2, 3, 4, 5, 6, 7, 8
+     a db 1, 2, 3, 4, 5, 6, 7, 8
 
- b dw 0
-```
+     b dw 0
 
 标号可以作为数据来定义！
 
-```text
+```nasm
 data segment
 
      a db 1, 2, 3, 4, 5, 6, 7, 8
@@ -236,7 +234,7 @@ data ends
 
 实例如下：
 
-```text
+```nasm
 assume cs:code
 
 code segment
@@ -296,16 +294,18 @@ end start
 
 根据给出的数据，得到另一数据集对应的数据，目的是：
 
-* 为了算法的清晰和简洁；
-* 加快运算速度；
-* 使程序易于扩充。
+- 为了算法的清晰和简洁；
 
-编程：写一个子程序，计算sin\(x\)，
+- 加快运算速度；
 
-* x属于{0, 30, 60, 90, 120, 150, 180}集合（单位：度）。
-* 如，sin\(30\)结果显示为“0.5”。
+- 使程序易于扩充。
 
-```text
+编程：写一个子程序，计算sin(x)，
+
+- x属于{0, 30, 60, 90, 120, 150, 180}集合（单位：度）。
+- 如，sin(30)结果显示为“0.5”。
+
+```nasm
 assume cs:code
 
 code segment
@@ -384,29 +384,29 @@ Attachment 附件：[汇编语言第十六章16.3例.asm](https://att.icehe.xyz/
 
 编程：实现一个子程序setscreen，为显示输出提供如下功能：
 
-* 清屏；
-* 设置前景色；
-* 设置背景色；
-* 向上滚动一行。
+- 清屏；
+- 设置前景色；
+- 设置背景色；
+- 向上滚动一行。
 
 入口参数说明如下：
 
-* a. 用ah寄存器传递功能号：
-  * 0表示以上功能（1）清屏，
-  * 1表示（2），2表示（3），3表示（4）。
-* b. 对于功能（2）、（3），用al传递颜色值，
-  * \(al\)属于{0, 1, 2, 3, 4, 5, 6, 7}范围。
+- a. 用ah寄存器传递功能号：
+    - 0表示以上功能（1）清屏，
+    - 1表示（2），2表示（3），3表示（4）。
+- b. 对于功能（2）、（3），用al传递颜色值，
+    - (al)属于{0, 1, 2, 3, 4, 5, 6, 7}范围。
 
 下面是实现思路：
 
-* 清屏：将屏幕字符设置为空格；
-* 前景色：设置屏幕字符属性字节的第0、1、2位；
-* 背景色：设置屏幕字符属性字节的第4、5、6位；
-* 向上滚一行：依次将第n + 1行复制到第n行处，最后一行置空。
+- 清屏：将屏幕字符设置为空格；
+- 前景色：设置屏幕字符属性字节的第0、1、2位；
+- 背景色：设置屏幕字符属性字节的第4、5、6位；
+- 向上滚一行：依次将第n + 1行复制到第n行处，最后一行置空。
 
 源代码：
 
-```text
+```nasm
 assume cs:code
 
 code segment
@@ -563,22 +563,22 @@ Attachment 附件：[汇编语言第十六章16.4例.asm](https://att.icehe.xyz/
 
 功能：安装一个新的int 7ch 中断例程，为显示输出提供如下功能子程序：
 
-* 清屏；
-* 设置前景色；
-* 设置背景色；
-* 向上滚动一行。
+- 清屏；
+- 设置前景色；
+- 设置背景色；
+- 向上滚动一行。
 
 入口参数说明如下：
 
-* 用ah寄存器传递功能号：0表示清屏，
-  * 1表示设置前景色，2表示设置背景色，
-  * 3表示向上滚动一行；
-* 对于2、3号功能，用al传送颜色值，
-  * \(al\)属于{0,1,2,3,4,5,6,7}
+- 用ah寄存器传递功能号：0表示清屏，
+    - 1表示设置前景色，2表示设置背景色，
+    - 3表示向上滚动一行；
+- 对于2、3号功能，用al传送颜色值，
+    - (al)属于{0,1,2,3,4,5,6,7}
 
 代码：
 
-```text
+```nasm
 ;安装int 7ch中断例程
 
 assume cs:code
@@ -758,7 +758,7 @@ end start
 
 Attachment 附件：[汇编语言第十六章实验16.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16.asm)
 
-```text
+```nasm
 ;测试程序
 
 assume cs:code
@@ -780,7 +780,7 @@ end start
 
 Attachment 附件：[汇编语言第十六章实验16测试程序.asm](https://att.icehe.xyz//Assembly%20Language%20-%20Note%2013/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%AE%9E%E9%AA%8C16%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F.asm)
 
-```text
+```nasm
 ;sub3的更优写法：
 
 sub3:
@@ -816,4 +816,3 @@ sub3c1:
      pop cx
      ret
 ```
-

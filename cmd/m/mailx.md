@@ -2,8 +2,8 @@
 
 References
 
-* `man mailx`
-* Centos 配置mailx使用外部smtp发送邮件 : [https://blog.csdn.net/qq\_25551295/article/details/51803942](https://blog.csdn.net/qq_25551295/article/details/51803942)
+- `man mailx`
+- Centos 配置mailx使用外部smtp发送邮件 : https://blog.csdn.net/qq_25551295/article/details/51803942
 
 ## mailx
 
@@ -11,12 +11,12 @@ References
 
 Options
 
-* `-a file` Attach the given file to the message.
-* `-s subject` Specify subject on command line
-  * only the first argument after the `-s` flag is used as a subject;
-  * be careful to quote subjects containing spaces.
-* `-t` The message to be sent is expected to contain a message header with `To:`, `Cc:`, or `Bcc:` fields  giving  its recipients.
-  * Recipients specified on the command line are ignored.
+- `-a file` Attach the given file to the message.
+- `-s subject` Specify subject on command line
+    - only the first argument after the `-s` flag is used as a subject;
+    - be careful to quote subjects containing spaces.
+- `-t` The message to be sent is expected to contain a message header with `To:`, `Cc:`, or `Bcc:` fields  giving  its recipients.
+    - Recipients specified on the command line are ignored.
 
 See `man mailx` for more
 
@@ -36,8 +36,8 @@ vim /etc/mail.rc
 
 Append
 
-* Replace PASSWORD with your real password
-* Replace icehe.me@qq.com with your real email address
+- Replace PASSWORD with your real password
+- Replace icehe.me@qq.com with your real email address
 
 ```bash
 set from="icehe.me@qq.com"  # 邮箱
@@ -54,4 +54,3 @@ set smtp-auth-password=PASSWORD     # 密码
 echo "CONTENT" | mail -s "SUBJECT" 290841032@qq.com,fenggongweiye@163.com
 # or replace `mail` with `mailx`
 ```
-

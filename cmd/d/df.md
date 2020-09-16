@@ -10,7 +10,7 @@ On BSD
 
 References
 
-* `man df`
+- `man df`
 
 ## Quickstart
 
@@ -21,10 +21,10 @@ df -H   # Likewise, but use powers of 1000 not 1024
 
 ## Options
 
-* `-a, --all` Include dummy file systems
-* `-h, --human-readable` Print sizes in human readable format \(e.g., 1K 234M 2G\)
-* `-H, --si` Likewise, but use powers of 1000 not 1024
-* `-T, --print-type` Print file system type
+- `-a, --all` Include dummy file systems
+- `-h, --human-readable` Print sizes in human readable format (e.g., 1K 234M 2G)
+- `-H, --si` Likewise, but use powers of 1000 not 1024
+- `-T, --print-type` Print file system type
 
 ## Usage
 
@@ -77,44 +77,43 @@ shm        tmpfs     64M    0   64M   0% /data0/docker-1.13.1-fs/containers/dc50
 
 In short
 
-* `kilo-` = 1,000
-* `kibi-` = 1,024 = kilo binary
-* `mebi-` = 1,024 \* 1024 = mega binary
-* …
+- `kilo-` = 1,000
+- `kibi-` = 1,024 = kilo binary
+- `mebi-` = 1,024 * 1024 = mega binary
+- …
 
 Format
 
-* 10^3 means 103
-* \( 2^10 \)^3 means \(210\)3
+- 10^3 means 10<sup>3</sup>
+- ( 2^10 )^3 means (2<sup>10</sup>)<sup>3</sup>
 
 Derivations
 
-* kilo : \( 10^3 \)^1
-* mega : \( 10^3 \)^2
-* giga : \( 10^3 \)^3
-* tera : \( 10^3 \)^4
-* peta : \( 10^3 \)^5
-* exa : \( 10^3 \)^6
+- kilo : ( 10^3 )^1
+- mega : ( 10^3 )^2
+- giga : ( 10^3 )^3
+- tera : ( 10^3 )^4
+- peta : ( 10^3 )^5
+- exa : ( 10^3 )^6
 
 **SI** prefixes
 
-* 1 KB = 1,000 Byte = 10^3 Byte
-* 1 MB = 1,000 KB = 10^3 KB
-* 1 GB = 1,000 MB = 10^6 KB = 1,000,000 KB
-* 1 TB = 1,000 GB = 10^9 KB = 1,000,000,000 KB
-* …
+- 1 KB = 1,000 Byte = 10^3 Byte
+- 1 MB = 1,000 KB = 10^3 KB
+- 1 GB = 1,000 MB = 10^6 KB = 1,000,000 KB
+- 1 TB = 1,000 GB = 10^9 KB = 1,000,000,000 KB
+- …
 
 **IEC** prefixes
 
-* 1 KiB = 1,024 Byte = 2^10 Byte
-* 1 MiB = 1,024 KiB = 2^20 KB
-* 1 GiB = 1,024 MiB = 2^30 KB = 1,048,576 KiB
-* 1 TiB = 1,024 GiB = 2^40 KB = 1,073,741,824 KiB
-* …
+- 1 KiB = 1,024 Byte = 2^10 Byte
+- 1 MiB = 1,024 KiB = 2^20 KB
+- 1 GiB = 1,024 MiB = 2^30 KB = 1,048,576 KiB
+- 1 TiB = 1,024 GiB = 2^40 KB = 1,073,741,824 KiB
+- …
 
 References
 
-* [What is the difference between a kilobyte and a kibibyte?](https://www.quora.com/What-is-the-difference-between-a-kilobyte-and-a-kibibyte) - Quaro
-* [KB / KiB，MB / MiB，GB / GiB，… 的区别是什么？](https://www.zhihu.com/question/24601215) - 知乎
-* [Definitions of the SI units: The binary prefixes](https://physics.nist.gov/cuu/Units/binary.html)
-
+- [What is the difference between a kilobyte and a kibibyte?](https://www.quora.com/What-is-the-difference-between-a-kilobyte-and-a-kibibyte) - Quaro
+- [KB / KiB，MB / MiB，GB / GiB，… 的区别是什么？](https://www.zhihu.com/question/24601215) - 知乎
+- [Definitions of the SI units: The binary prefixes](https://physics.nist.gov/cuu/Units/binary.html)

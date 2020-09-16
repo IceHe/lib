@@ -4,14 +4,14 @@
 
 References
 
-* `man whereis`
+- `man whereis`
 
 ## Options
 
-* `-b` Search only for binaries
-* `-m` Search only for manuals
-* `-s` Search only for sources
-* `-l` Output list of effective lookup paths the `whereis` is using
+- `-b` Search only for binaries
+- `-m` Search only for manuals
+- `-s` Search only for sources
+- `-l` Output list of effective lookup paths the `whereis` is using
 
 ## Usage
 
@@ -101,4 +101,3 @@ src: /usr/src/debug
 src: /usr/src/kernels
 java: /usr/bin/java /usr/lib/java /etc/java /usr/share/java /usr/share/man/man1/java.1
 ```
-

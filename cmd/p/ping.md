@@ -1,10 +1,10 @@
 # ping
 
-> send ICMP ECHO\_REQUEST to network hosts
+> send ICMP ECHO_REQUEST to network hosts
 
 References
 
-* `man ping`
+- `man ping`
 
 ## Synopsis
 
@@ -24,15 +24,15 @@ ping  [-aAbBdDfhLnOqrRUvV46]
 
 ## Options
 
-* `-4` Use IPv4 only.
-* `-6` Use IPv6 only.
-* `-c count` Stop after sending count ECHO\_REQUEST packets.
-  * With deadline option, ping waits for count ECHO\_REPLY packets, until the timeout expires.
-* `-i interval` Wait interval seconds between sending each packet.
-  * The default is to wait for one second between each packet normally, or not to wait in flood mode.
-  * Only super-user may set interval to values less 0.2 seconds.
-* `-t ttl` Set the IP Time to Live
-* ……
+- `-4` Use IPv4 only.
+- `-6` Use IPv6 only.
+- `-c count` Stop after sending count ECHO_REQUEST packets.
+    - With deadline option, ping waits for count ECHO_REPLY packets, until the timeout expires.
+- `-i interval` Wait interval seconds between sending each packet.
+    - The default is to wait for one second between each packet normally, or not to wait in flood mode.
+    - Only super-user may set interval to values less 0.2 seconds.
+- `-t ttl` Set the IP Time to Live
+- ……
 
 More : see `man ping`
 

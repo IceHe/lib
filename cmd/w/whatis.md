@@ -4,11 +4,11 @@
 
 References
 
-* `man whatis`
+- `man whatis`
 
 ## Options
 
-* `-w, --wildcard`
+- `-w, --wildcard`
 
 ## Usage
 
@@ -20,4 +20,3 @@ $ whatis bash zsh
 zsh (1)              - the Z shell
 bash (1)             - GNU Bourne-Again SHell
 ```
-

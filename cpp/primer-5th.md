@@ -2,8 +2,8 @@
 
 > C++ Details - Note:《C++ Primer 5th》中文版及其它相关的手写笔记的图片存档。多图慎入！
 
-* Created on 2014-04
-* Download : [C++ Primer 5th.pdf](https://att.icehe.xyz//pdf%2FC%2B%2B%20Primer%205th.pdf)
+- Created on 2014-04
+- Download : [C++ Primer 5th.pdf](https://att.icehe.xyz//pdf%2FC%2B%2B%20Primer%205th.pdf)
 
 ![img](https://img.icehe.xyz/C%2B%2B%20Primer%205th/tech_book_note%20%281%29.jpg)
 
@@ -72,4 +72,3 @@
 ![img](https://img.icehe.xyz/C%2B%2B%20Primer%205th/tech_book_note%20%2833%29.jpg)
 
 ![img](https://img.icehe.xyz/C%2B%2B%20Primer%205th/tech_book_note%20%2834%29.jpg)
-

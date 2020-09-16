@@ -1,153 +1,153 @@
-# How to Study \( TODO \)
+# How to Study ( TODO )
 
-* Created on 2016-06-24
+- Created on 2016-06-24
 
 ## Studying
 
 ### Advices to self
 
-* Eat that frog
-* Pick the vital 20%
-* Breaking a job down makes it more achievable
-* WWSMAND?（这是啥）
+- Eat that frog
+- Pick the vital 20%
+- Breaking a job down makes it more achievable
+- WWSMAND?（这是啥）
 
 ## [How to Study: A Bried Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html)
 
-* 1. "Studying" is not the same thing as "doing homework"!
-* 2. Manage Your Time
-  * Priority: Your education should come first!
-  * Not Study Enough？
-    * Assume that your education is a full-time job, you should spend about 40 hours/week.
-* 3. Taking Notes in Class & Rewrite Them at Home
-  * 3.2. Take Complete Notes
-    * Reasons:
-      * It will force you to pay attention to what’s going on in class.
-      * It will keep you awake!
-      * There will be less that you’ll have remember.
-    * Should you concentrate on taking notes or understanding?
-      * Prefer taking notes! \(I’m surprised!\)
-      * Understanding can come later when you review your notes.
-      * Incomplete notes will make it hard to learn what you didn’t take notes on.
-  * 3.3. Use Abbreviations
-    * Make it easy to take complete notes.
-  * 3.4. Neatness Doesn’t Count
-    * Be legible enough to be able to read your notes a few hours later.
-    * Because you will rewrite notes in the evening or later.
-  * 3.5. Ask Questions & Make Comments
-    * Ask your question right now?
-    * You’d better jot it or comment down in notes.
-    * Because you won't forget it and can alway bring it up later.
-  * 3.6. Copy Your Notes at Home
-    * Just \(re-\)reading them is too passive, and won’t help.
-    * Study you notes by re-writing them.
-  * 3.7. Don’t Take Notes on a Computer
-    * Typing might disturbing to your fellow students.
-    * Have a firmer grashp of what I write if I handwrite it than I type it.
-    * You can re-write notes on a computer so that you can easy to search them.
-  * 3.8. Don’t Rely on the Instructor’s Lecture Notes
-    * Just reading it is passive.
-    * It’s beeter to re-writing them.
-    * Or compare it with yours.
-* 4. Studying Hard Subjects First & Study in a Quiet Place
-  * Do hard subjects first for which need you to be alert and energetic.
-  * Quiet: Do not listen to music for you can’t "multitasking"!
-  * When should you study?
-    * As soon as possible and !
-      * Make you have enough time to finish it.
-      * You might have little time to play. Don’t complainn!
-      * Take it serious! Assume that studying is a full time job!
-* 5. Read Texts Actively & Slowly, before & after Class
-  * 5.1. Read Actively, Not Passively
-    * Don’t read without thinking. Or you will fall asleep, ZZZ...
-  * 5.2. Read Slowly
-    * 「 An undeniable truth: that in the pursuit of knowledge, slower can be better. 」
-    * An algorithm for how to read:
-      * WHILE there is a next sentence to read, DO:
-        * Read it, SLOWLY
-        * IF you do not understand it, THEN:
-          * re-read the previous material, SLOWLY
-          * re-read the incommprehensible sentence, SLOWLY
-          * IF you still don’t understand it, THEN:
-            * ask a fellow student to explain it
-          * IF you still don’t understand it, THEN:
-            * ask your Teaching Assistant \(TA\) to explain it
-          * IF you still don’t understand it, THEN:
-            * Others
-          * IF you are in a upper-level course & still don’t understand it, THEN:
-            * write a paper about it \(!\)
-    * Why use it?
-      * It forces you to actively think about each sentence you read before you go on to the next on.
-      * It slows you down, so that you don’t read past the point at which you don’t understand.
-      * It can help you get help from your teacher, because you can show them where you get lost.
-      * An opportunity to interact with your instructors and fellow students!
-    * 「 How do you know whether you understand  what you’ve read? Easy: After each sentence, ask yourself "Why?" 」
-  * 5.3. Highlight the Text in the Margin
-    * Worst
-      * Use a yellow marker \(or any color you like\).
-      * You tend to find almost every sentence to be important or interesting.
-      * So if everything has been highlighted, then really nothing has been!
-        * Even destory your pages of your text.
-      * It's also bad to use a pen or a pencil to underline.
-    * Suggestion
-      * Draw a **vertical line** '\]' in the margin.
-        * So that you can re-read the text, highlight different passages each time.
-        * e.g.
+- 1\. "Studying" is not the same thing as "doing homework"!
+- 2\. Manage Your Time
+    - Priority: Your education should come first!
+    - Not Study Enough？
+        - Assume that your education is a full-time job, you should spend about 40 hours/week.
+- 3\. Taking Notes in Class & Rewrite Them at Home
+    - 3.2. Take Complete Notes
+        - Reasons:
+            - It will force you to pay attention to what’s going on in class.
+            - It will keep you awake!
+            - There will be less that you’ll have remember.
+        - Should you concentrate on taking notes or understanding?
+            - Prefer taking notes! (I’m surprised!)
+            - Understanding can come later when you review your notes.
+            - Incomplete notes will make it hard to learn what you didn’t take notes on.
+    - 3.3. Use Abbreviations
+        - Make it easy to take complete notes.
+    - 3.4. Neatness Doesn’t Count
+        - Be legible enough to be able to read your notes a few hours later.
+        - Because you will rewrite notes in the evening or later.
+    - 3.5. Ask Questions & Make Comments
+        - Ask your question right now?
+        - You’d better jot it or comment down in notes.
+        - Because you won't forget it and can alway bring it up later.
+    - 3.6. Copy Your Notes at Home
+        - Just (re-)reading them is too passive, and won’t help.
+        - Study you notes by re-writing them.
+    - 3.7. Don’t Take Notes on a Computer
+        - Typing might disturbing to your fellow students.
+        - Have a firmer grashp of what I write if I handwrite it than I type it.
+        - You can re-write notes on a computer so that you can easy to search them.
+    - 3.8. Don’t Rely on the Instructor’s Lecture Notes
+        - Just reading it is passive.
+        - It’s beeter to re-writing them.
+        - Or compare it with yours.
+- 4\. Studying Hard Subjects First & Study in a Quiet Place
+    - Do hard subjects first for which need you to be alert and energetic.
+    - Quiet: Do not listen to music for you can’t "multitasking"!
+    - When should you study?
+        - As soon as possible and !
+            - Make you have enough time to finish it.
+            - You might have little time to play. Don’t complainn!
+            - Take it serious! Assume that studying is a full time job!
+- 5\. Read Texts Actively & Slowly, before & after Class
+    - 5.1. Read Actively, Not Passively
+        - Don’t read without thinking. Or you will fall asleep, ZZZ...
+    - 5.2. Read Slowly
+        - 「 An undeniable truth: that in the pursuit of knowledge, slower can be better. 」
+        - An algorithm for how to read:
+            - WHILE there is a next sentence to read, DO:
+                - Read it, SLOWLY
+                - IF you do not understand it, THEN:
+                    - re-read the previous material, SLOWLY
+                    - re-read the incommprehensible sentence, SLOWLY
+                    - IF you still don’t understand it, THEN:
+                        - ask a fellow student to explain it
+                    - IF you still don’t understand it, THEN:
+                        - ask your Teaching Assistant (TA) to explain it
+                    - IF you still don’t understand it, THEN:
+                        - Others
+                    - IF you are in a upper-level course & still don’t understand it, THEN:
+                        - write a paper about it (!)
+        - Why use it?
+            - It forces you to actively think about each sentence you read before you go on to the next on.
+            - It slows you down, so that you don’t read past the point at which you don’t understand.
+            - It can help you get help from your teacher, because you can show them where you get lost.
+            - An opportunity to interact with your instructors and fellow students!
+        - 「 How do you know whether you understand  what you’ve read? Easy: After each sentence, ask yourself "Why?" 」
+    - 5.3. Highlight the Text in the Margin
+        - Worst
+            - Use a yellow marker (or any color you like).
+            - You tend to find almost every sentence to be important or interesting.
+            - So if everything has been highlighted, then really nothing has been!
+                - Even destory your pages of your text.
+            - It's also bad to use a pen or a pencil to underline.
+        - Suggestion
+            - Draw a __vertical line__ ']' in the margin.
+                - So that you can re-read the text, highlight different passages each time.
+                - e.g.
+                ![img](https://img.icehe.xyz/how_to_study/vertical_line_in_the_margin.jpg)
+            - Or use __a pair of small square brackets__ in the text.
+                - e.g. __[__ exactly where the highlighted passage begins or ends __]__
+        - This way
+            - Even if you've made a highlighting error, at least you haven't ruined the page.
+            - Moreover, when re-reading, you can use another technique to highlight more important passages.
+            - Or you will use double brackets in the margin for the second round of highlighting.
+    - 5.4. Make Notes in the Margin
+        - Put cross-references in the margin.
+            - e.g., if a passage on p. 20 reminds me in some way of passage on p. 10, I'll write `see p. 20` in the margin of p. 20, and `see p. 10` in the margin of p. 10. Or put some keywords in the margin, if a passage reminds me of some major idea.
+        - Make a index of my marginal comments, and add entries (e.g., Consciousness: 10, 20) to book's index
+            - Or use a blank page at the end of the book if it doesn't have an index.
+            - After a long time, you don't need to page through the book till you find something
+    - 5.5. Keep a NoteBook
+        - Disadvantages
+            - Highlighting leads you to highlight everything.
+            - Margins are often too small for making comments.
+        - Best
+            - A notebook with a full citation to the text for use in a bibligraphy.
+            - Write down:
+                - the page numbers of each message that you copy.
+                - your comments on the passage at length and in detail.
+            - Number you notes:
+                - Number each notebook page with a Roman numberal (I, II, etc)
+                - Number each quoted passage (or stand-alone comment) with an Arabic numeral (1, 2, etc.)
+                - Letter (a, b, etc.) each comment associated with a quoted passage (or stand-alone comment)
+                - Then you can refer to each passage with a identifer (like XIV-7-b, i.e., comments b about quotation 7, which comments is located on notebook page XIV)
+    - 5.6. Read Literature Quickly and Passively the First Time.
+        - An exception to this method of slow and active reading:
+            - If the text is a work is a work of literature (a story, novel, play, poem, etc.),
+            - it is often best to read it once all the way through without stopping, so that you get to know what it's about and can appreciated it.
+        - What about film or video version of a work of literature?
+            - No substitute for reading (The exception here is for plays).
+            - If you do decide to watch in addition to read, which should you do first?
+                - I prefer for watching first, reading afterwards.
+                - Because I have always been disappointed by film adaptations of favourite texts (because they don't match the mental images that I construct when I read)
+    - 5.7. Read Before and After Class
+        - Read Twice
+            - Read a text __before class__, perhaps quickly, so that you are familiar with its content.
+            - Then (re-)read it __after class__ using the __slow and active method__.
+        - If time permits, you can cut corners by only reading it - slowly and actively - after class.
+- 6\. Do Your Homework
+    - The reasons why are obvious.
+    - Do them on scrap paper, check them over, and then copy them neatly.
+        - In case the teacher loses it or doesn't give it back in time to use it for studying for an exam.
+    - Don't just write down answers.
+        - __Write down the problem__ and the complete solution __showing how you arrived at your answer__.
+- 7\. Study for Exams
+    - 7.1. Don't Study for Exams!
+        - You should study "__for learning and understanding__"
+        - But here are some suggestions if you want to study for exam.
+    - 7.2. Manage Your Time
+        - First Rule: __Don't Cram__
+            - Begin studying about 1 week before the week.
+            - Spend at least an hour each night (or day) studying for the exam in the manner described below.
+            - Try to Spend the entire night (and/or day) before the exam studying for it.
+            - If you have two exams on the same day, split the time in half.
 
-          ![img](https://img.icehe.xyz/how_to_study/vertical_line_in_the_margin.jpg)
-      * Or use **a pair of small square brackets** in the text.
-        * e.g. **\[** exactly where the highlighted passage begins or ends **\]**
-    * This way
-      * Even if you've made a highlighting error, at least you haven't ruined the page.
-      * Moreover, when re-reading, you can use another technique to highlight more important passages.
-      * Or you will use double brackets in the margin for the second round of highlighting.
-  * 5.4. Make Notes in the Margin
-    * Put cross-references in the margin.
-      * e.g., if a passage on p. 20 reminds me in some way of passage on p. 10, I'll write `see p. 20` in the margin of p. 20, and `see p. 10` in the margin of p. 10. Or put some keywords in the margin, if a passage reminds me of some major idea.
-    * Make a index of my marginal comments, and add entries \(e.g., Consciousness: 10, 20\) to book's index
-      * Or use a blank page at the end of the book if it doesn't have an index.
-      * After a long time, you don't need to page through the book till you find something
-  * 5.5. Keep a NoteBook
-    * Disadvantages
-      * Highlighting leads you to highlight everything.
-      * Margins are often too small for making comments.
-    * Best
-      * A notebook with a full citation to the text for use in a bibligraphy.
-      * Write down:
-        * the page numbers of each message that you copy.
-        * your comments on the passage at length and in detail.
-      * Number you notes:
-        * Number each notebook page with a Roman numberal \(I, II, etc\)
-        * Number each quoted passage \(or stand-alone comment\) with an Arabic numeral \(1, 2, etc.\)
-        * Letter \(a, b, etc.\) each comment associated with a quoted passage \(or stand-alone comment\)
-        * Then you can refer to each passage with a identifer \(like XIV-7-b, i.e., comments b about quotation 7, which comments is located on notebook page XIV\)
-  * 5.6. Read Literature Quickly and Passively the First Time.
-    * An exception to this method of slow and active reading:
-      * If the text is a work is a work of literature \(a story, novel, play, poem, etc.\),
-      * it is often best to read it once all the way through without stopping, so that you get to know what it's about and can appreciated it.
-    * What about film or video version of a work of literature?
-      * No substitute for reading \(The exception here is for plays\).
-      * If you do decide to watch in addition to read, which should you do first?
-        * I prefer for watching first, reading afterwards.
-        * Because I have always been disappointed by film adaptations of favourite texts \(because they don't match the mental images that I construct when I read\)
-  * 5.7. Read Before and After Class
-    * Read Twice
-      * Read a text **before class**, perhaps quickly, so that you are familiar with its content.
-      * Then \(re-\)read it **after class** using the **slow and active method**.
-    * If time permits, you can cut corners by only reading it - slowly and actively - after class.
-* 6. Do Your Homework
-  * The reasons why are obvious.
-  * Do them on scrap paper, check them over, and then copy them neatly.
-    * In case the teacher loses it or doesn't give it back in time to use it for studying for an exam.
-  * Don't just write down answers.
-    * **Write down the problem** and the complete solution **showing how you arrived at your answer**.
-* 7. Study for Exams
-  * 7.1. Don't Study for Exams!
-    * You should study "**for learning and understanding**"
-    * But here are some suggestions if you want to study for exam.
-  * 7.2. Manage Your Time
-    * First Rule: **Don't Cram**
-      * Begin studying about 1 week before the week.
-      * Spend at least an hour each night \(or day\) studying for the exam in the manner described below.
-      * Try to Spend the entire night \(and/or day\) before the exam studying for it.
-      * If you have two exams on the same day, split the time in half.
-
+---

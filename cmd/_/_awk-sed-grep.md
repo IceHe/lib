@@ -1,30 +1,31 @@
 # awk-sed-grep 应用
 
-* 获取测试数据：&lt;git clone ssh://git@git.intra.weibo.com:2222/im/workshop.git&gt;
+- 获取测试数据：<git clone ssh://git@git.intra.weibo.com:2222/im/workshop.git>
 
 ## 返回时间大于某值的日志
 
 获得大于返回时间 200ms 的日志
 
-* 返回时间在 `^.*cost=((\d+)\).*$`（正则表达式）
+- 返回时间在 `^.*cost=((\d+)\).*$`（正则表达式）
 
 ### 方案 Z
 
-```text
+``` shell
 awk -F '[=)]' '$2 > 200' access
 ```
 
-`-F` 分割符 `'[=)]'` 正则表达式，`=` 和 `)` 都能匹配
+`-F` 分割符
+`'[=)]'` 正则表达式，`=` 和 `)` 都能匹配
 
 ### 方案 C
 
-```text
+``` shell
 egrep 'cost=([2-9][0-9]{2,}|[0-9]{3,})' access
 ```
 
 ### 答案
 
-```text
+``` shell
 awk -F'cost=' 'int($2)>200' access
 ```
 
@@ -34,13 +35,13 @@ awk -F'cost=' 'int($2)>200' access
 
 ### 方案 Y
 
-```text
+``` shell
 awk '{print $2,$3,$12,$20}' content| awk -F '[=, ]' '{print $1,$2,$5,$8}'
 ```
 
 ### 方案 Z
 
-```text
+``` shell
 sed -E "s/.* ([0-9]{8} [0-9:.]{12}) .*uid=([0-9]+).*content='([^']+)'.*/\1 \2 \3/g" content
 ```
 
@@ -48,17 +49,20 @@ sed -E "s/.* ([0-9]{8} [0-9:.]{12}) .*uid=([0-9]+).*content='([^']+)'.*/\1 \2 \3
 
 ### 改良
 
-```text
+``` shell
 sed -E "s/.* ([0-9]{8} [0-9:.]{12}) .*uid=([0-9]+).*content='([^']*)'.*/\1 \2 \3/g" content
 ```
 
-test: sed -E "s/. _\d{4}\(\d{4} \[0-9:.\]{12}\) ._uid=\(\[0-9\]+\)._content='\(_\)'.\*/\1 \2 \3/g" content
+test:
+sed -E "s/.* \d{4}(\d{4} [0-9:.]{12}) .*uid=([0-9]+).*content='([^']*)'.*/\1 \2 \3/g" content
+
+---
 
 ## 每种状态的线程数量
 
 获取 jstack 的线程状态，统计每种状态有多少个线程
 
-```text
+``` shell
 grep 'java.lang.Thread.State' jstack | sort | uniq -c | sort
 ```
 
@@ -66,13 +70,13 @@ grep 'java.lang.Thread.State' jstack | sort | uniq -c | sort
 
 统计 catalina 线程池中占比最高的代码
 
-```text
+``` shell
 cat jstack| grep cata -A5  | sort | uniq -c | sort
 ```
 
 ### grep 的选项参数 -A
 
-```text
+``` man
 -A num, --after-context=num
         Print num lines of trailing context after each match.  See also the -B and -C options.
 ```
@@ -83,25 +87,25 @@ cat jstack| grep cata -A5  | sort | uniq -c | sort
 
 ### try
 
-* work partly
+- work partly
 
-```text
+``` shell
 head -n 1 client | jq '.'
 head -1 client | jq '.'
 head -1 client | jq '.medialive_qa_datas'
 head -1 client | jq -r .medialive_qa_datas
 ```
 
-* cannot work
+- cannot work
 
-```text
+``` shell
 sed -E "s/.* --([^-]*)--加入直播间成功.*/\1/g" client
 head client | egrep -o "--([^-]*)--加入直播间成功"
 ```
 
-### official try \(tips\)
+### official try (tips)
 
-```text
+``` shell
 #!/bin/bash
 
 #echo '…' | while read line; do
@@ -117,10 +121,9 @@ done
 
 ### 答案 Z
 
-```text
+``` shell
 cat client \
     | jq -r '.medialive_qa_uid as $uid | .medialive_qa_datas | split("\n") | .[] | $uid + " " + . ' \
     | grep '直播间成功' \
     | awk -F '[ -]+' '{print $1, $3, $5}'
 ```
-

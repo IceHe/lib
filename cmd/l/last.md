@@ -4,7 +4,7 @@
 
 References
 
-* `man last`
+- `man last`
 
 ## Quickstart
 
@@ -17,23 +17,21 @@ last -10 -w # Display full user & domain names
 
 `last`
 
-* Last searches back through the file /var/log/wtmp \(or the file designated by the -f flag\) and displays **a list of all users logged in \(and out\)** since that file was created.
+- Last searches back through the file /var/log/wtmp (or the file designated by the -f flag) and displays **a list of all users logged in (and out)** since that file was created.
 
 `lastb`
 
-* Lastb is the same as last, except that by default it shows a log of the file `/var/log/btmp`, which **contains all the bad login attempts**.
+- Lastb is the same as last, except that by default it shows a log of the file `/var/log/btmp`, which **contains all the bad login attempts**.
 
 ## Options
 
-* `-f file` Tells last to use a specific file instead of
-
-  `/var/log/wtmp`.
-
-* `-num` or This is a count telling last how many lines to show.
-* `-n num` The same.
-* `-t YYYYMMDDHHMMSS` Display the state of logins as of the specified time.
-  * This is useful, e.g., to determine easily who was logged in at a particular time -- specify that time with `-t` and look for "still logged in".
-* `-w` Display full user and domain names in the output.
+- `-f file` Tells last to use a specific file instead of
+ `/var/log/wtmp`.
+- `-num` or This is a count telling last how many lines to show.
+- `-n num` The same.
+- `-t YYYYMMDDHHMMSS` Display the state of logins as of the specified time.
+    - This is useful, e.g., to determine easily who was logged in at a particular time -- specify that time with `-t` and look for "still logged in".
+- `-w` Display full user and domain names in the output.
 
 ## Usage
 
@@ -89,7 +87,7 @@ icehe pts/12       10.2.3.4     Thu Jan 10 14:40 - 15:41  (01:01)
 
 ### Full Output
 
-* If username is too long, please use option `-w`.
+- If username is too long, please use option `-w`.
 
 ```bash
 $ last
@@ -106,4 +104,3 @@ icehe-xyz pts/12       10.2.3.4     Thu Jan 10 14:40 - 15:41  (01:01)
 icehe-xyz pts/12       10.2.3.4     Fri Jan  4 20:20 - 14:07 (5+17:46)
 ……
 ```
-

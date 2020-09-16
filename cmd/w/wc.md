@@ -8,15 +8,15 @@ In short
 
 References
 
-* `man wc`
+- `man wc`
 
 ## Options
 
-* `-c, --bytes` print byte counts
-* `-m, --chars` print character counts
-* **`-l, --lines` print newline counts**
-* `-L, --max-line-length` print length of the longest line
-* `-w, --words` print word counts
+- `-c, --bytes` print byte counts
+- `-m, --chars` print character counts
+- **`-l, --lines` print newline counts**
+- `-L, --max-line-length` print length of the longest line
+- `-w, --words` print word counts
 
 ## Usage
 
@@ -66,4 +66,3 @@ $ echo 123 | wc -c
 $ echo 123 | wc -m
 4
 ```
-

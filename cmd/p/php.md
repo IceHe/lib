@@ -4,7 +4,7 @@
 
 References
 
-* `man php`
+- `man php`
 
 ## Synopsis
 
@@ -16,8 +16,8 @@ Run Code
 php [options] -r code [[--] args...]
 ```
 
-* `--run code`, `-r code` Run PHP code without using script tags '&lt;?..?&gt;'
-* Using parameter `-r` you can directly execute PHP code simply as you would do inside a .php file when  using  the `eval()` function.
+- `--run code`, `-r code` Run PHP code without using script tags '<?..?>'
+- Using parameter `-r` you can directly execute PHP code simply as you would do inside a .php file when  using  the `eval()` function.
 
 ### Interactive
 
@@ -27,9 +27,9 @@ Run PHP Interactively
 php [options] -a
 ```
 
-* `--interactive, -a` Run PHP interactively.
-  * This lets you enter snippets of PHP code that directly get executed.
-  * When read‐line support is enabled you can edit the lines and also have history support.
+- `--interactive, -a` Run PHP interactively.
+    - This lets you enter snippets of PHP code that directly get executed.
+    - When read‐line support is enabled you can edit the lines and also have history support.
 
 ### Line Processor
 
@@ -40,10 +40,10 @@ php [options] [-B begin_code] -R code [-E end_code] [[--] args...]
 php [options] [-B begin_code] -F file [-E end_code] [[--] args...]
 ```
 
-* `--process-begin code`, `-B begin_code` Run PHP begin\_code before processing input lines
-* `--process-code code`, `-R code` Run PHP code for every input line
-* `--process-file file`, `-F file` Parse and execute file for every input line
-* `--process-end code`, `-E end_code` Run PHP end\_code after processing all input lines
+- `--process-begin code`, `-B begin_code` Run PHP begin_code before processing input lines
+- `--process-code code`, `-R code` Run PHP code for every input line
+- `--process-file file`, `-F file` Parse and execute file for every input line
+- `--process-end code`, `-E end_code` Run PHP end_code after processing all input lines
 
 ### Http Server
 
@@ -55,10 +55,10 @@ php [options] -S addr:port [-t docroot]
 
 ### Other Options
 
-* `--info, -i` PHP information and configuration
-* `--syntax-check, -l` Syntax check only \(lint\)
-* `--modules, -m` Show compiled in modules
-* `--ini` Show configuration file names
+- `--info, -i` PHP information and configuration
+- `--syntax-check, -l` Syntax check only (lint)
+- `--modules, -m` Show compiled in modules
+- `--ini` Show configuration file names
 
 ## Usage
 
@@ -188,4 +188,3 @@ Information
 $ php -i
 # same as code `phpinfo()`
 ```
-

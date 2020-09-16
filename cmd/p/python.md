@@ -4,11 +4,11 @@
 
 References
 
-* `man python`
+- `man python`
 
 ## Options
 
-* `-m module-name` Searches sys.path for the named module and runs the corresponding .py file as a script.
+- `-m module-name` Searches sys.path for the named module and runs the corresponding .py file as a script.
 
 ## Usage
 
@@ -36,4 +36,3 @@ harsh
 # Download
 $ curl -LO 10.2.3.4:30233/input1
 ```
-

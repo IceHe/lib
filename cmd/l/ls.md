@@ -4,8 +4,8 @@
 
 References
 
-* `man ls`
-* Unix LS Command: 15 Practical Examples : [https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/](https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/)
+- `man ls`
+- Unix LS Command: 15 Practical Examples : https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/
 
 ## Quickstart
 
@@ -45,83 +45,83 @@ ls -ltUr
 
 ### Filter
 
-* `-a, --all` Do not ignore entries starting with `.`
-* `-A, --almost-all` List all entries except for `.` and `..`
-* `-d, --directory` List directories themselves, not their contents
-* `--hide=PATTERN` Do not list implied entries matching shell PATTERN \(overridden by -a or -A\)
-* `-I, --ignore=PATTERN` Do not list implied entries matching shell PATTERN
+- `-a, --all` Do not ignore entries starting with `.`
+- `-A, --almost-all` List all entries except for `.` and `..`
+- `-d, --directory` List directories themselves, not their contents
+- `--hide=PATTERN` Do not list implied entries matching shell PATTERN (overridden by -a or -A)
+- `-I, --ignore=PATTERN` Do not list implied entries matching shell PATTERN
 
 ### Format
 
 Description
 
-* `-h, --human-readable` With `-l`, print sizes in human readable format \(e.g., 1K 234M 2G\)
-  * Use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of digits to three or less using base 2 for sizes.
-* `-l` List in long format
-  * If the output is to a terminal, a total sum for all the file sizes is output on a line before the long listing.
+- `-h, --human-readable` With `-l`, print sizes in human readable format (e.g., 1K 234M 2G)
+    - Use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of digits to three or less using base 2 for sizes.
+- `-l` List in long format
+    - If the output is to a terminal, a total sum for all the file sizes is output on a line before the long listing.
 
 Indicators
 
-* `--indicator-style=WORD` Append indicator with style WORD to entry names :
-  * none \( default \)
-  * slash \( same as `-p` \)
-  * file-type  \( same as `--file-type` \)
-  * classify \( same as `-F` \)
-* `-F, --classify` Append indicator \( one of `*/=>@|` \) to entries
-  * Indicators :
-    * `*` executable
-    * `/` directory
-    * `@` symbolic link \( or that the file has extended attributes \)
-    * `|` named pipe
-    * `=` socket
-    * `>` door
-* `--file-type` Likewise, except do not append `*`
-* `-p, --indicator-style=slash` Append `/` indicator to directories
+- `--indicator-style=WORD` Append indicator with style WORD to entry names :
+    - none ( default )
+    - slash ( same as `-p` )
+    - file-type  ( same as `--file-type` )
+    - classify ( same as `-F` )
+- `-F, --classify` Append indicator ( one of `*/=>@|` ) to entries
+    - Indicators :
+        - `*` executable
+        - `/` directory
+        - `@` symbolic link ( or that the file has extended attributes )
+        - `|` named pipe
+        - `=` socket
+        - `>` door
+- `--file-type` Likewise, except do not append `*`
+- `-p, --indicator-style=slash` Append `/` indicator to directories
 
 Seldom
 
-* `-k, --kibibytes` Default to 1024-byte blocks for disk usage
-* `--si` Likewise, but use powers of 1000 not 1024
-* `-1` List one file per line
-* `-x` List entries by lines instead of by columns
-* `-m` Fill width with a comma separated list of entries
-* `-L, --dereference` When showing file information for a symbolic link, show information for the file the link references rather than for the link itself.
-* `--quoting-style=WORD` Use quoting style WORD for entry names :
-  * literal ''
-  * locale ‘’ \( ZH \)
-  * shell \( none \)
-  * shell-always ''
-  * c ""
-  * escape \( ? \)
+- `-k, --kibibytes` Default to 1024-byte blocks for disk usage
+- `--si` Likewise, but use powers of 1000 not 1024
+- `-1` List one file per line
+- `-x` List entries by lines instead of by columns
+- `-m` Fill width with a comma separated list of entries
+- `-L, --dereference` When showing file information for a symbolic link, show information for the file the link references rather than for the link itself.
+- `--quoting-style=WORD` Use quoting style WORD for entry names :
+    - literal ''
+    - locale ‘’ ( ZH )
+    - shell ( none )
+    - shell-always ''
+    - c ""
+    - escape ( ? )
 
 ### Sort
 
 > Default File Timestamp : **Last Modification Time**
 
-* `-S` Sort by file size, largest first
-* `-t` Sort by time, newest first
-  * File Timestamps
-    * Default : mtime
-    * `-lt` mtime : last modification time \(content\)
-    * `-ltc` ctime : last changed time \(metadata\)
-    * `-ltu` atime : last access time
-    * `-ltU` creation time \( BSD only! \)
-  * _See details in section "Timestamps" below_
-* `-c` Sort by ctime \( \(metadata\) last changed time \)
-  * with `-lt` : sort by, and show, ctime;
-  * with `-l` : show ctime and sort by name;
-  * otherwise : sort by ctime.
-* `-u` Sort by atime \( last access time \)
-  * with `-lt` : sort by, and show, atime;
-  * with `-l` : show atime and sort by name;
-  * otherwise : sort by atime.
-* `-U` Differ on different OS
-  * On Linux : Do not sort; list entries in directory order
-  * On BSD : Sort by file creation time
-* `-r, --reverse` Reverse order
-* `-R, --recursive` List subdirectories recursively
-* `-v` Natural sort of \(version\) numbers within text
-* `-X` Sort alphabetically by entry extension
+- `-S` Sort by file size, largest first
+- `-t` Sort by time, newest first
+    - File Timestamps
+        - Default : mtime
+        - `-lt` mtime : last modification time (content)
+        - `-ltc` ctime : last changed time (metadata)
+        - `-ltu` atime : last access time
+        - `-ltU` creation time ( BSD only! )
+    - _See details in section "Timestamps" below_
+- `-c` Sort by ctime ( (metadata) last changed time )
+    - with `-lt` : sort by, and show, ctime;
+    - with `-l` : show ctime and sort by name;
+    - otherwise : sort by ctime.
+- `-u` Sort by atime ( last access time )
+    - with `-lt` : sort by, and show, atime;
+    - with `-l` : show atime and sort by name;
+    - otherwise : sort by atime.
+- `-U` Differ on different OS
+    - On Linux : Do not sort; list entries in directory order
+    - On BSD : Sort by file creation time
+- `-r, --reverse` Reverse order
+- `-R, --recursive` List subdirectories recursively
+- `-v` Natural sort of (version) numbers within text
+- `-X` Sort alphabetically by entry extension
 
 ## Usage
 
@@ -129,7 +129,7 @@ Seldom
 
 #### All
 
-List all \( except `.` & `..` \)
+List all ( except `.` & `..` )
 
 ```bash
 ls -A
@@ -150,7 +150,7 @@ VirtualBox VMs
 
 #### Details
 
-List with details \( human-readable \)
+List with details ( human-readable )
 
 ```bash
 $ ls -hl
@@ -197,7 +197,7 @@ bin    data0/  dev/  home/  lib64        media/  nonexistent/  proc/  run/  srv/
 boot/  data1/  etc/  lib    lost+found/  mnt/    opt/          root/  sbin  sys/  usr/
 ```
 
-Append indicator \( one of `*/=>@|` \) to entries
+Append indicator ( one of `*/=>@|` ) to entries
 
 ```bash
 $ ls -F
@@ -225,8 +225,8 @@ lrwxrwxrwx    1 root   root        9 Jul 11 19:37 lib64 -> usr/lib64
 
 Hide some files
 
-* `--hide`
-* `-I, --ignore`
+- `--hide`
+- `-I, --ignore`
 
 ```bash
 ls --hide=<shell_pattern>
@@ -295,12 +295,12 @@ dr-xr-xr-x.   2 root   root    20480 Sep 13 16:28 sbin
 
 `-r` options
 
-* Show the largest at last \( size \)
-* Show the newest at last \( time \)
+- Show the largest at last ( size )
+- Show the newest at last ( time )
 
 #### Size
 
-File Size \( largest first \)
+File Size ( largest first )
 
 ```bash
 $ ls -hlS
@@ -317,7 +317,7 @@ drwxr-xr-x   3 icehe  staff    96B Nov 23  2017 Applications
 -rw-r--r--   1 icehe  staff    70B Aug  5 14:44 README.md
 ```
 
-Size in Reverse Order \( smallest first \)
+Size in Reverse Order ( smallest first )
 
 ```bash
 $ ls -hlSr
@@ -336,9 +336,9 @@ drwx------+ 97 icehe  staff   3.0K Sep  2 16:00 Library
 
 #### Time
 
-**mtime**
+##### mtime
 
-Default : Modification Time \( newest first \)
+Default : Modification Time ( newest first )
 
 ```bash
 $ ls -hlt
@@ -355,7 +355,7 @@ drwx------+ 13 icehe  staff   416B Sep 11  2017 Music
 drwxr-xr-x+  5 icehe  staff   160B Oct 16  2015 Public
 ```
 
-Modification Time in Reverse Order \( oldest first \)
+Modification Time in Reverse Order ( oldest first )
 
 ```bash
 $ ls -hltr
@@ -372,7 +372,7 @@ drwx------+ 17 icehe  staff   544B Nov  2 16:20 Downloads
 drwx------+ 24 icehe  staff   768B Nov  3 17:11 Desktop
 ```
 
-**atime**
+##### atime
 
 Access Time
 
@@ -391,7 +391,7 @@ drwxr-xr-x+  5 icehe  staff   160B Aug 17 15:10 Public
 drwx------+  9 icehe  staff   288B Jun  8 13:52 Movies
 ```
 
-**ctime**
+##### ctime
 
 Changed Time
 
@@ -410,7 +410,7 @@ drwx------+ 13 icehe  staff   416B Sep 11  2017 Music
 drwxr-xr-x+  5 icehe  staff   160B Sep 12  2016 Public
 ```
 
-**creation**
+##### creation
 
 Creation Time
 
@@ -431,7 +431,7 @@ drwx------+ 97 icehe  staff   3.0K Mar  7  2015 Library
 
 ### Aliases
 
-Confis file : [https://github.com/IceHe/mac-conf/blob/master/.config/zsh/ls.zsh](https://github.com/IceHe/mac-conf/blob/master/.config/zsh/ls.zsh)
+Confis file : https://github.com/IceHe/mac-conf/blob/master/.config/zsh/ls.zsh
 
 ```bash
 ######
@@ -469,36 +469,36 @@ alias ltU='ls -AhltU'
 
 References
 
-* What does the second column in the output of 'ls -n' mean? [https://askubuntu.com/questions/19510/what-does-the-second-column-in-the-output-of-ls-n-mean/19513\#19513](https://askubuntu.com/questions/19510/what-does-the-second-column-in-the-output-of-ls-n-mean/19513#19513)
-* See `man ls`
+- What does the second column in the output of 'ls -n' mean? https://askubuntu.com/questions/19510/what-does-the-second-column-in-the-output-of-ls-n-mean/19513#19513
+- See `man ls`
 
 ### Description
 
 Description of Output Columns
 
-* 1 : Permissions \( access rights \)
-  * 1st character : File Type
-  * Next 9 characters : File Permissions
-* 2 : Count of Hard Links to the file
-* 3 : Owner User : UID \| username
-* 4 : Owner Group : GID \| group name
-* 5 : Size
-* 6 : Timestamps : mtime / atime / ctime \( see below \)
-* 7 : Name
+- 1 : Permissions ( access rights )
+    - 1st character : File Type
+    - Next 9 characters : File Permissions
+- 2 : Count of Hard Links to the file
+- 3 : Owner User : UID | username
+- 4 : Owner Group : GID | group name
+- 5 : Size
+- 6 : Timestamps : mtime / atime / ctime ( see below )
+- 7 : Name
 
 ### File Type
 
-* `-` Regular File
-* `d` Directory
-* `l` Symbolic Link
-* `s` Socket Link
-* `b` Block Special File
-* `c` Character pecial File
-* `p` FIFO
+- `-` Regular File
+- `d` Directory
+- `l` Symbolic Link
+- `s` Socket Link
+- `b` Block Special File
+- `c` Character pecial File
+- `p` FIFO
 
 ### Permission Characters
 
-* 9 characters specifies the file permissions
+- 9 characters specifies the file permissions
 
 ```bash
 # e.g.
@@ -508,47 +508,46 @@ r-xr-x---
 rwx------
 ```
 
-* Each 3 characters refers to permissions
-  * `r` read
-  * `w` write
-  * `x` execute
-* for
-  * `u` user
-  * `g` group
-  * `o` others
+- Each 3 characters refers to permissions
+    - `r` read
+    - `w` write
+    - `x` execute
+- for
+    - `u` user
+    - `g` group
+    - `o` others
 
 ## Timestamps
 
 Reference
 
-* atime, ctime and mtime in Unix filesystems : [https://www.unixtutorial.org/atime-ctime-mtime-in-unix-filesystems/](https://www.unixtutorial.org/atime-ctime-mtime-in-unix-filesystems/)
+- atime, ctime and mtime in Unix filesystems : https://www.unixtutorial.org/atime-ctime-mtime-in-unix-filesystems/
 
 Notice!
 
-* There's **no file creation timestamp** kept in most filesystems
-  * None on Linux…
-  * Exist on macOS!
-* When a new file or directory is created, usually all three times `atime, ctime and mtime` are configured to capture the current time.
+- There's **no file creation timestamp** kept in most filesystems
+    - None on Linux…
+    - Exist on macOS!
+- When a new file or directory is created, usually all three times `atime, ctime and mtime` are configured to capture the current time.
 
 ### atime
 
 Last Access Time
 
-* The last time the data from a file or directory was accessed.
-* Read by one of the Unix processes directly or through commands and scripts.
+- The last time the data from a file or directory was accessed.
+- Read by one of the Unix processes directly or through commands and scripts.
 
 ### mtime
 
 Last Modification Time
 
-* The Time of the last change to file's contents.
-* It does not change with owner or permission changes, and is therefore used for tracking the actual changes to data of the file itself.
+- The Time of the last change to file's contents.
+- It does not change with owner or permission changes, and is therefore used for tracking the actual changes to data of the file itself.
 
-### ctime  \(metadata\)
+### ctime  (metadata)
 
 Last Changed Time
 
-* When your file or directory got **metadata changes**
-  * typically that's **file ownership \(username and/or group\) and access permissions**,
-  * ctime will also get updated if the file contents got changed.
-
+- When your file or directory got **metadata changes**
+    - typically that's **file ownership (username and/or group) and access permissions**,
+    - ctime will also get updated if the file contents got changed.

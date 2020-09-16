@@ -1,8 +1,8 @@
-# Compound Commands \( TODO \)
+# Compound Commands ( TODO )
 
-* Control Structures
-* Syntactic Sugar
-* Operators
+- Control Structures
+- Syntactic Sugar
+- Operators
 
 ## Conditional
 
@@ -20,6 +20,5 @@
 
 ## Others
 
-* select
-* …
-
+- select
+- …

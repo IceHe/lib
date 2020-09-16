@@ -4,9 +4,9 @@
 
 References
 
-* `man curl`
-* [https://curl.haxx.se/docs/](https://curl.haxx.se/docs/)
-  * [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html)
+- `man curl`
+- https://curl.haxx.se/docs/
+    - https://curl.haxx.se/docs/manpage.html
 
 ## Quickstart
 
@@ -27,31 +27,31 @@ curl -LO https://getcomposer.org/composer.phar
 
 Header
 
-* `-I, --head` Fetch headers only! \( HTTP FTP FILE \)
-* `-i, --include` Include the HTTP-header in the output.
-* `-H, --header <header>` Extra header to include in the request
-  * when sending HTTP to a server \( HTTP \)
-  * e.g., `curl -H "X-First-Name: Joe" http://example.com/`
+- `-I, --head` Fetch headers only! ( HTTP FTP FILE )
+- `-i, --include` Include the HTTP-header in the output.
+- `-H, --header <header>` Extra header to include in the request
+    - when sending HTTP to a server ( HTTP )
+    - e.g., `curl -H "X-First-Name: Joe" http://example.com/`
 
 Method
 
-* `-X, --request <command>` Specify a custom request method to use
-  * when communicating with the HTTP server
-  * e.g., `curl -X HEAD http://example.com/`
+- `-X, --request <command>` Specify a custom request method to use
+    - when communicating with the HTTP server
+    - e.g., `curl -X HEAD http://example.com/`
 
 Display
 
-* `-s, --silent` Silent or quiet mode.
-  * Do not show progress meter or error messages.
-* `-S, --show-error` It makes curl show an error message if it fails.
-  * when used with `-s, --silent`
+- `-s, --silent` Silent or quiet mode.
+    - Do not show progress meter or error messages.
+- `-S, --show-error` It makes curl show an error message if it fails.
+    - when used with `-s, --silent`
 
 Download
 
-* `-L, --location` Enable redirect \( HTTP \) :
-  * If the server reports that requested page has moved to different location \(indicated with Location: header & 3XX response code\), it will make curl redo the request on the new place.
-* `-O, --remote-name` Write output to local file named like remote file.
-  * \(Only file part of remote file is used, path is cut off.\)
+- `-L, --location` Enable redirect ( HTTP ) :
+    - If the server reports that requested page has moved to different location (indicated with Location: header & 3XX response code), it will make curl redo the request on the new place.
+- `-O, --remote-name` Write output to local file named like remote file.
+    - (Only file part of remote file is used, path is cut off.)
 
 ## Usage
 
@@ -75,4 +75,3 @@ curl -X <http_method> <url> -H '<header_name>: <header_value>'
 # e.g.
 $ curl -X POST http://10.1.2.3:8888/comments -H 'Host: api.weibo.cn'
 ```
-

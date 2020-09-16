@@ -2,72 +2,23 @@
 
 > Batch Commands: echo, pause, nul, goto, call, choice, start, setlocal, endlocal, setx, pushd, popd, for /d /r /l /f, if, set。
 
-**Better Ref**: 《[Windows批处理\(cmd/bat\)常用命令小结](https://wsgzao.github.io/post/windows-batch/)》todo  
-  
-**bat资料from：**网页[**简明bat教程**](http://andylin02.iteye.com/blog/420598)本地[.bat批处理命令简明教程](evernote:///view/7264256/s33/0c948d72-4b32-4638-a112-ed24499339ab/0c948d72-4b32-4638-a112-ed24499339ab/)  
-简便句式cmd0 **&&** cmd\_suc **\|\|** cmd\_failedcmd0指令成功，则执行cmd\_suc，否则执行cmd\_failed。（例）call php x.php && echo suc. \|\| echo failed!  
-  
-**rem**     注释。（算是一条指令）可以作为空指令使用~**::**     注释。（纯粹的注释）  
-**@**     不显示当前行的指令  
-**echo on/off**     回显开关  
-**echo.**     显示空行（注意：指令最后带一个英文句号！）  
-**pause**     暂停执行，会显示 “按任意键退出”pause**&gt;nul**     将**显示的内容重定向到nul**，即不显示“按任意键退出”  
-**nul** 的官方解释是 "**空设备**"**&lt;nul     回车但不换行&gt;nul**     是**屏蔽命令的输出**内容  
-**goto** tag     跳转到标签位:tag     冒号后面跟着标签号  
-**call** bat\_file\_path     调用另一个批处理文件  
-**start**     调用外部程序  
-**choice** /c ync /d default\_choice /l limit\_time     提示用户输入字符，再据此决定下一步操作。  
-**%n**     调用.bat时的第n个参数，n为1~9（只能有9个）**shift**     偏移位置去获取其它参数在批处理文件中  
-**pushd     保存当前路径popd     恢复上一个路径mklink     添加符号连接或硬连接path     显示或\(暂时\)改变\(局部的\)环境变量pathsetx     \(长期\)设置环境变量**  
-**setlocal     在批处理文件中，开始将运行环境局部化endlocal     在批处理文件中结束对本地环境特征的修改**  
-**exit     退出exit %exitCode%     退出cmd.exe时，设置exitCode                                   为%exitCode%exit /b %ret%     退出并设置.bat文件的errorlevel                         （错误返回码）为%ret%**  
-**&gt;     FOR语句  
-for /d /r /l /f    即dir/recursive/file 等**  
-FOR {%variable\|%%variable} in \(set\) do command \[CommandLineOptions\]%variable 指定一个单一字母可替换的参数。  
- \(set\) 指定一个或一组文件。可以使用通配符。  
- command 指定对每个文件执行的命令。  
-  
-FOR /R \[\[drive:\]path\] %variable IN \(set\) DO command \[CommandLineOptions\]检查以 \[drive:\]path 为根的目录树，指向每个目录中的FOR 语句。如果在 /R 后没有指定目录，则使用当前目录。如果集仅为一个单点\(.\)字符，则枚举该目录树。  
-  
-FOR /L %variable IN \(start,step,end\) DO command \[command-param\]  
-FOR /F \["options"\] %variable IN **\(file-set\)** DO command     //注意：圆括号内的参数 **没**带**引号**！FOR /F \["options"\] %variable IN **\("string"\)** DO command     //注意：圆括号内的参数 带**双引号**！FOR /F \["options"\] %variable IN **\('command'\)** DO command     //注意：圆括号内的参数 带**单**引号！  
-**options中的设置：**eol=c - 指一个行注释字符的结尾\(就一个\)     如eol=;     即每个以分号开头的行将被忽略skip=n - 指在文件开始时忽略的行数。delims=xxx - 指分隔符集。这个替换了空格和跳格键的默认分隔符集。tokens=x,y,m-n,k\* - 指每行的哪一个符号被传递到每个迭代     如for /f "tokens=1,3 %%i ……     获取每行的第1、第3个     如for /f "tokens=2-4 %%i ……     获取每行的第2至第4个     如for /f "tokens=2\* %%i ……     第二个赋值给%%i，剩下的都赋值给%%jusebackq - 未查  
-**%%i变量的加强拓展：%cname:~0,1%     获取cname中的第0字符，到第1个字符结束**~I - 删除任何引号\("\)，扩充 %I%~fI - 将 %I 扩充到一个完全合格的路径名%~dI - 仅将 %I 扩充到一个驱动器号%~pI - 仅将 %I 扩充到一个路径%~nI - 仅将 %I 扩充到一个文件名%~xI - 仅将 %I 扩充到一个文件扩展名%~sI - 扩充的路径只含有短名%~aI - 将 %I 扩充到文件的文件属性%~tI - 将 %I 扩充到文件的最讨厌这话期/时间%~zI - 将 %I 扩充到文件的大小%~$PATH:I - 查找列在路径环境变量的目录，并将 %I 扩充到找到的第一个完全合格的名称。如果环境变量未被定义，或者没有找到文件，此组合键会扩充空字符串  
-**可以组合修饰符**来得到多重结果:%~dpI - 仅将 %I 扩充到一个驱动器号和路径%~nxI - 仅将 %I 扩充到一个文件名和扩展名%~fsI - 仅将 %I 扩充到一个带有短名的完整路径名%~dp$PATH:i - 查找列在路径环境变量的目录，并将 %I 扩充到找到的第一个驱动器号和路径。%~ftzaI - 将 %I 扩充到类似输出线路的 DIR  
-**（例）文件夹遍历**setlocal enabledelayedexpansion  
- FOR /R d: %%i IN \(.\) DO \(  
-      set dd=%%i  
-      set "dd=!dd:~0,-1!"  
-      echo !dd!  
- \)  
-其中，感叹号其实就是变量百分号\(%\)的强化版。之所以要用!而不用%，是因为在for循环中，当一个变量被多次赋值时，%dd%所获取的仅仅是dd第一次被赋予的值；要想刷新dd的值，就必须首先通过命令"setlocal enabledelayedexpansion"来开启延迟变量开关，然后用!dd!来获取dd的值。  
-  
-**&gt;     IF 语句**简便用的句式：if %var == val cmd1 && cmd2条件语句，true则执行cmd1，否则执行 cmd2。  
-**1.比较字符串**set /p PW=Please input password:  
- if **%PW%==str** \(  
-      echo YES!  
- \) ELSE \(  
-      echo NO!  
- \)  
-**2.比较数字**if not **%num1% LSS %num2%** \(     ...\) else if ...\(     ...\) else\(     ...\)  
-**比较运算符：**  
- EQU - 等于  
- NEQ - 不等于  
- LSS - 小于  
- LEQ - 小于或等于  
- GTR - 大于  
- GEQ - 大于或等于  
-**3.检测变量是否被定义**set var=xxxxx  
- if **defined var**\( ... \)  
-**4.判断返回值（ERRORLEVEL）**if **errorlevel n** \( ... \)  
-多组if errorlevel语句，要根据返回码n从大到小排，其原因类似于try...catch语句中的catch规则，具体自行详查。  
-批处理中的返回值一般表示了上个命令的执行结果\(成功/失败/等\)每个命令执行完毕后返回值，都会做相应的更改。一般返回值为0表示成功,1表示失败。  
-一些第三方的返回值比较特殊，如Choice、Tmos.exe、Cmos.exe，自行详查。  
-  
-if errorlevel n     条件功能：是否为返回码n。                         多组if errorlevel语句，根据返回码n从大到小排。                         因为其执行类似于switch。if exist file\_path     是否存在某文件  
-  
-**&gt;     SET 语句  
-set     显示、设置、去掉windows的环境变量**  
-1.给变量**赋值**     set str=something2.**等待**用户**输入**数据     set /p name=请输入你的名字：3.**计算**     set /a num=\(6\*2\)^2  
-**算式中的计算符：**\(\)     分组! ~ -         一元运算符\* / %       算数运算符+ -           算数运算符&lt;&lt; &gt;&gt;     逻辑移位&             按位“与”^             按位“异”\|              按位“或”= \*= /= %= += -=       赋值&= ^= \|= &lt;&lt;= &gt;&gt;=     移位,               表达式分隔符：     set /a支持多行表达式并列，比如set /a num1=1+1,num2+1+2,num3=1+3     并且set /a不需要扩展变量，比如set /a num=%num2%+%num3%          与set /a num=num2+num3等价
-
+<div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><b>Better Ref</b>: 《<a href="https://wsgzao.github.io/post/windows-batch/">Windows批处理(cmd/bat)常用命令小结</a>》<sup>todo</sup><br/><br/><div><strong>bat资料from：</strong></div><div>网页<strong><a href="http://andylin02.iteye.com/blog/420598">简明bat教程</a></strong></div><div>本地<a href="evernote:///view/7264256/s33/0c948d72-4b32-4638-a112-ed24499339ab/0c948d72-4b32-4638-a112-ed24499339ab/" style="color:rgb(105, 170, 53);">.bat批处理命令简明教程</a></div><div><br/></div><div>简便句式</div><div>cmd0 <b>&amp;&amp;</b> cmd_suc <b>||</b> cmd_failed</div><div>cmd0指令成功，则执行cmd_suc，否则执行cmd_failed。</div><div>（例）</div><div>call php x.php &amp;&amp; echo suc. || echo failed!</div><div><br/></div><div><br/></div><div><strong>rem &nbsp; &nbsp;</strong> 注释。（算是一条指令）可以作为空指令使用~</div><div><strong>::</strong>&nbsp; &nbsp; &nbsp;注释。（纯粹的注释）</div><div><br/></div><div><strong>&#64; &nbsp; &nbsp;</strong> 不显示当前行的指令</div><div><br/></div><div><strong>echo on/off</strong> &nbsp; &nbsp; 回显开关</div><div><br/></div><div><b>echo. &nbsp; &nbsp;</b> 显示空行（注意：指令最后带一个英文句号！）</div><div><br/></div><div><strong>pause &nbsp; &nbsp;</strong> 暂停执行，会显示 “按任意键退出”</div><div>pause<b>&gt;nul &nbsp; &nbsp;</b> 将<b>显示的内容重定向到nul</b>，即不显示“按任意键退出”</div><div><b><br/></b></div><div><b>nul</b>&nbsp;的官方解释是 &quot;<b>空设备</b>&quot;</div><div><b>&lt;nul &nbsp; &nbsp; 回车但不换行</b></div><div><b>&gt;nul</b> &nbsp; &nbsp; 是<b>屏蔽命令的输出</b>内容</div><div><br/></div><div><strong>goto</strong> tag &nbsp; &nbsp; 跳转到标签位</div><div>:tag &nbsp; &nbsp; 冒号后面跟着标签号</div><div><br/></div><div><strong>call</strong> bat_file_path &nbsp; &nbsp; 调用另一个批处理文件</div><div><br/></div><div><strong>start &nbsp; &nbsp;</strong> 调用外部程序</div><div><br/></div><div><strong>choice</strong> /c ync /d default_choice /l limit_time &nbsp; &nbsp; 提示用户输入字符，再据此决定下一步操作。</div><div><br/></div><div><strong>%n &nbsp;</strong> &nbsp; 调用.bat时的第n个参数，n为1~9（只能有9个）</div><div><strong>shift &nbsp; &nbsp;</strong> 偏移位置去获取其它参数在批处理文件中</div><div><br/></div><div><strong>pushd &nbsp; &nbsp; 保存当前路径</strong></div><div><strong>popd &nbsp; &nbsp; 恢复上一个路径</strong></div><div><strong>mklink &nbsp; &nbsp; 添加符号连接或硬连接</strong></div><div><strong>path &nbsp; &nbsp; 显示或(暂时)改变(局部的)环境变量</strong><strong>path</strong></div><div><b>setx &nbsp; &nbsp; (长期)设置环境变量</b></div><div><br/></div><div><strong>setlocal &nbsp; &nbsp; 在批处理文件中，开始将运行环境局部化</strong></div><div><strong>endlocal &nbsp; &nbsp; 在批处理文件中结束对本地环境特征的修改</strong></div><div><br/></div><div><b>exit &nbsp; &nbsp; 退出</b></div><div><b>exit&nbsp;</b><b>%exitCode% &nbsp; &nbsp; 退出cmd.exe时，设置exitCode</b></div><div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;为</b><b>%exitCode%</b></div><div><b>exit /b %ret% &nbsp; &nbsp; 退出并设置.bat文件的errorlevel</b></div><div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;（错误返回码）为%ret%</b></div><div><br/></div><div><b>&gt; &nbsp; &nbsp; FOR语句</b></div><div><b><br/></b></div><div><strong>for /d /r /l&nbsp;</strong><strong>/f</strong><strong>&nbsp; &nbsp; 即dir/recursive/file 等</strong></div><div><strong><br/></strong></div><div>FOR {%variable|%%variable} in (set) do command [CommandLineOptions]</div><div>%variable 指定一个单一字母可替换的参数。<br/>
+(set) 指定一个或一组文件。可以使用通配符。<br/>
+command 指定对每个文件执行的命令。<br/></div><div><br/></div><div>FOR /R [[drive:]path] %variable IN (set) DO command [CommandLineOptions]</div><div>检查以 [drive:]path 为根的目录树，指向每个目录中的FOR 语句。</div><div>如果在 /R 后没有指定目录，则使用当前目录。</div><div>如果集仅为一个单点(.)字符，则枚举该目录树。<br/></div><div><br/></div><div>FOR /L %variable IN (start,step,end) DO command [command-param]</div><div><br/></div><div>FOR /F [&quot;options&quot;] %variable IN <strong>(file-set)</strong> DO command</div><div>&nbsp; &nbsp; &nbsp;//注意：圆括号内的参数 <b>没</b>带<b>引号</b>！</div><div>FOR /F [&quot;options&quot;] %variable IN <strong>(&quot;string&quot;)</strong> DO command</div><div>&nbsp;&nbsp; &nbsp; //注意：圆括号内的参数 带<b>双引号</b>！</div><div>FOR /F [&quot;options&quot;] %variable IN <strong>(&apos;command&apos;)</strong> DO command</div><div>&nbsp;&nbsp; &nbsp; //注意：圆括号内的参数 带<b>单</b>引号！</div><div><br/></div><div><strong>options中的设置：</strong></div><div>eol=c - 指一个行注释字符的结尾(就一个)</div><div>&nbsp; &nbsp; &nbsp;如eol=; &nbsp; &nbsp; 即每个以分号开头的行将被忽略</div><div>skip=n - 指在文件开始时忽略的行数。</div><div>delims=xxx - 指分隔符集。这个替换了空格和跳格键的</div><div>默认分隔符集。</div><div>tokens=x,y,m-n,k* - 指每行的哪一个符号被传递到每个迭代</div><div>&nbsp; &nbsp; &nbsp;如for /f &quot;tokens=1,3 %%i …… &nbsp; &nbsp; 获取每行的第1、第3个</div><div>&nbsp; &nbsp; &nbsp;如for /f &quot;tokens=2-4 %%i …… &nbsp; &nbsp; 获取每行的第2至第4个</div><div>&nbsp; &nbsp; &nbsp;如for /f &quot;tokens=2* %%i …… &nbsp; &nbsp; 第二个赋值给%%i，剩下的都赋值给%%j</div><div>usebackq - 未查</div><div><br/></div><div><strong>%%i变量的加强拓展：</strong></div><div><b>%cname:~0,1% &nbsp; &nbsp; 获取cname中的第0字符，到第1个字符结束</b></div><div>~I - 删除任何引号(&quot;)，扩充 %I</div><div>%~fI - 将 %I 扩充到一个完全合格的路径名</div><div>%~dI - 仅将 %I 扩充到一个驱动器号</div><div>%~pI - 仅将 %I 扩充到一个路径</div><div>%~nI - 仅将 %I 扩充到一个文件名</div><div>%~xI - 仅将 %I 扩充到一个文件扩展名</div><div>%~sI - 扩充的路径只含有短名</div><div>%~aI - 将 %I 扩充到文件的文件属性</div><div>%~tI - 将 %I 扩充到文件的最讨厌这话期/时间</div><div>%~zI - 将 %I 扩充到文件的大小</div><div>%~$PATH:I - 查找列在路径环境变量的目录，并将 %I 扩充</div><div>到找到的第一个完全合格的名称。如果环境变量</div><div>未被定义，或者没有找到文件，此组合键会扩充</div><div>空字符串</div><div><br/></div><div><strong>可以组合修饰符</strong>来得到多重结果:</div><div>%~dpI - 仅将 %I 扩充到一个驱动器号和路径</div><div>%~nxI - 仅将 %I 扩充到一个文件名和扩展名</div><div>%~fsI - 仅将 %I 扩充到一个带有短名的完整路径名</div><div>%~dp$PATH:i - 查找列在路径环境变量的目录，并将 %I 扩充</div><div>到找到的第一个驱动器号和路径。</div><div>%~ftzaI - 将 %I 扩充到类似输出线路的 DIR</div><div><br/></div><div><b>（例）文件夹遍历</b></div><div>setlocal enabledelayedexpansion<br/>
+FOR /R d: %%i IN (.) DO (<br/>
+&nbsp; &nbsp; &nbsp;set dd=%%i<br/>
+&nbsp; &nbsp; &nbsp;set &quot;dd=!dd:~0,-1!&quot;<br/>
+&nbsp; &nbsp; &nbsp;echo !dd!<br/>
+)<br/></div><div>其中，感叹号其实就是变量百分号(%)的强化版。之所以要用!而不用%，是因为在for循环中，当一个变量被多次赋值时，%dd%所获取的仅仅是dd第一次被赋予的值；要想刷新dd的值，就必须首先通过命令&quot;setlocal enabledelayedexpansion&quot;来开启延迟变量开关，然后用!dd!来获取dd的值。</div><div><br/></div><div><br/></div><div><b>&gt; &nbsp; &nbsp; IF 语句</b></div><div>简便用的句式：if %var == val cmd1 &amp;&amp; cmd2</div><div>条件语句，true则执行cmd1，否则执行 cmd2。</div><div><b><br/></b></div><div><b>1.比较字符串</b></div><div>set /p PW=Please input password:<br/>
+if <b>%PW%==str</b>&nbsp;(<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; echo YES!<br/>
+) ELSE (<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; echo NO!<br/>
+)</div><div><br/></div><div><b>2.比较数字</b></div><div>if not <b>%num1% LSS %num2%</b> (</div><div>&nbsp; &nbsp; &nbsp;...</div><div>) else if ...(</div><div>&nbsp; &nbsp; &nbsp;...</div><div>) else(</div><div>&nbsp; &nbsp; &nbsp;...</div><div>)</div><div><b><br/></b></div><div><b>比较运算符：</b><br/>
+EQU - 等于<br/>
+NEQ - 不等于<br/>
+LSS - 小于<br/>
+LEQ - 小于或等于<br/>
+GTR - 大于<br/>
+GEQ - 大于或等于</div><div><br/></div><div><b>3.检测变量是否被定义</b></div><div>set var=xxxxx<br/>
+if <b>defined var</b>( ... )</div><div><br/></div><div><b>4.判断返回值（ERRORLEVEL）</b></div><div>if <b>errorlevel n</b>&nbsp;( ... )</div><div><br/></div><div>多组if errorlevel语句，要根据返回码n从大到小排，</div><div>其原因类似于try...catch语句中的catch规则，具体自行详查。</div><div><br/></div><div>批处理中的返回值一般表示了上个命令的执行结果(成功/失败/等)</div><div>每个命令执行完毕后返回值，都会做相应的更改。</div><div>一般返回值为0表示成功,1表示失败。</div><div><br/></div><div>一些第三方的返回值比较特殊，</div><div>如Choice、Tmos.exe、Cmos.exe，自行详查。</div><div><br/></div><div><br/></div><div>if errorlevel n &nbsp; &nbsp; 条件功能：是否为返回码n。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;多组if errorlevel语句，根据返回码n从大到小排。</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;因为其执行类似于switch。</div><div>if exist file_path &nbsp; &nbsp; 是否存在某文件</div><div><br/></div><div><br/></div><div><b>&gt; &nbsp; &nbsp; SET 语句</b></div><div><b><br/></b></div><div><strong>set &nbsp; &nbsp; 显示、设置、去掉windows的环境变量</strong></div><div><br/></div><div>1.给变量<b>赋值</b> &nbsp; &nbsp; set str=something</div><div>2.<b>等待</b>用户<b>输入</b>数据 &nbsp; &nbsp; set /p name=请输入你的名字：</div><div>3.<b>计算</b> &nbsp; &nbsp; set /a num=(6*2)^2</div><div><br/></div><div><b>算式中的计算符：</b></div><div>() &nbsp; &nbsp; 分组</div><div>! ~ - &nbsp; &nbsp; &nbsp; &nbsp; 一元运算符</div><div>* / % &nbsp; &nbsp; &nbsp; 算数运算符</div><div>+ - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 算数运算符</div><div>&lt;&lt; &gt;&gt; &nbsp; &nbsp; 逻辑移位</div><div>&amp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 按位“与”</div><div>^ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 按位“异”</div><div>| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按位“或”</div><div>= *= /= %= += -= &nbsp; &nbsp; &nbsp; 赋值</div><div>&amp;= ^= |= &lt;&lt;= &gt;&gt;= &nbsp; &nbsp; 移位</div><div>, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 表达式分隔符：</div><div>&nbsp; &nbsp; &nbsp;set /a支持多行表达式并列，比如set /a num1=1+1,num2+1+2,num3=1+3</div><div>&nbsp; &nbsp; &nbsp;并且set /a不需要扩展变量，比如set /a num=%num2%+%num3%</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 与set /a num=num2+num3等价</div></div>

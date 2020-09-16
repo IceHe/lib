@@ -4,15 +4,17 @@
 
 The pidstat command is used for monitoring individual tasks currently being managed by the Linux kernel.
 
-> `top` 能知道系统 CPU 高, `pidstat` 能找到对应哪个进程导致的 CPU 高, 最后 `perf` 能找到这个进程的哪些函数调用占用了 CPU，
+> `top` 能知道系统 CPU 高,
+> `pidstat` 能找到对应哪个进程导致的 CPU 高,
+> 最后 `perf` 能找到这个进程的哪些函数调用占用了 CPU，
 >
 > 这几个工具一个比一个看的更细节, 一般也是这个思路查 CPU 问题.
 >
-> From : [https://weibo.com/1642628345/I1zCoaD1I](https://weibo.com/1642628345/I1zCoaD1I)
+> From : https://weibo.com/1642628345/I1zCoaD1I
 
 References
 
-* `man pidstat`
+- `man pidstat`
 
 ## Quickstart
 
@@ -149,21 +151,20 @@ Average:        0     22094       156         0  pidstat
 
 ## Options
 
-* `-C comm` Display only tasks whose command name includes the string comm.
-  * This string can be a regular expression.
-* `-p { pid [,...] | SELF | ALL }` Select tasks \(processes\) for which statistics are to be reported.
-  * pid is the process identification number.
-* `-r` Report page faults and memory utilization.
-  * UID : The real user identification number of the task being monitored.
-  * USER : The name of the real user owning the task being monitored.
-  * PID : The identification number of the task being monitored.
-  * minflt/s : Total number of minor faults the task has made per second, those which have not required loading a memory page from disk.
-  * majflt/s : Total number of major faults the task has made per second, those which have required loading a memory page from disk.
-  * VSZ : Virtual Size - The virtual memory usage of entire task in kilobytes.
-  * RSS : Resident Set Size - The non-swapped physical memory used by the task in kilobytes.
-  * %MEM : The tasks's currently used share of available physical memory.
-  * Command : The command name of the task.
-* `-T { TASK | CHILD | ALL }`
-  * This option specifies what has to be monitored by the pidstat command.
-  * The TASK keyword indicates that statistics are to be reported for individual tasks \(this is the default option\) whereas the CHILD keyword indicates that statistics are to be globally reported for the selected tasks and all their children.
-
+- `-C comm` Display only tasks whose command name includes the string comm.
+    - This string can be a regular expression.
+- `-p { pid [,...] | SELF | ALL }` Select tasks (processes) for which statistics are to be reported.
+    - pid is the process identification number.
+- `-r` Report page faults and memory utilization.
+    - UID : The real user identification number of the task being monitored.
+    - USER : The name of the real user owning the task being monitored.
+    - PID : The identification number of the task being monitored.
+    - minflt/s : Total number of minor faults the task has made per second, those which have not required loading a memory page from disk.
+    - majflt/s : Total number of major faults the task has made per second, those which have required loading a memory page from disk.
+    - VSZ : Virtual Size - The virtual memory usage of entire task in kilobytes.
+    - RSS : Resident Set Size - The non-swapped physical memory used by the task in kilobytes.
+    - %MEM : The tasks's currently used share of available physical memory.
+    - Command : The command name of the task.
+- `-T { TASK | CHILD | ALL }`
+    - This option specifies what has to be monitored by the pidstat command.
+    - The TASK keyword indicates that statistics are to be reported for individual tasks (this is the default option) whereas the CHILD keyword indicates that statistics are to be globally reported for the selected tasks and all their children.

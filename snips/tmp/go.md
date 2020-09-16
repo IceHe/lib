@@ -1,26 +1,26 @@
-# Go \( draft \)
+# Go ( draft )
 
 Reference
 
-* Official Website : [https://golang.org/](https://golang.org/)
-* beego : [https://beego.me/](https://beego.me/)
+- Official Website : https://golang.org/
+- beego : https://beego.me/
 
 Guide
 
-* GO 语言学习资源整理 - 后端 - 掘金 : [https://juejin.im/entry/58bfa8d244d90400696bbf96](https://juejin.im/entry/58bfa8d244d90400696bbf96)
-  * Go 语言之旅 : [https://tour.go-zh.org/list](https://tour.go-zh.org/list)
-  * Go 入门指南 : [https://www.kancloud.cn/kancloud/the-way-to-go/72432](https://www.kancloud.cn/kancloud/the-way-to-go/72432)
+- GO 语言学习资源整理 - 后端 - 掘金 : https://juejin.im/entry/58bfa8d244d90400696bbf96
+    - Go 语言之旅 : https://tour.go-zh.org/list
+    - Go 入门指南 : https://www.kancloud.cn/kancloud/the-way-to-go/72432
 
 ## Install
 
 Reference
 
-* macOS : [http://sourabhbajaj.com/mac-setup/Go/README.html](http://sourabhbajaj.com/mac-setup/Go/README.html)
+- macOS : http://sourabhbajaj.com/mac-setup/Go/README.html
 
 Environment Variables
 
-* Append commands below to `.bashrc`, `.zshrc` or else.
-* Notice : Don't forget to change your path correctly!
+- Append commands below to `.bashrc`, `.zshrc` or else.
+- Notice : Don't forget to change your path correctly!
 
 ```bash
 ## Go
@@ -32,36 +32,38 @@ export PATH=$PATH:$GOROOT/bin
 export GOBIN=/Users/IceHe/go/bin
 ```
 
+---
+
 ## beego
 
 References
 
-* Official Website : [https://beego.me/](https://beego.me/)
+- Official Website : https://beego.me/
 
 ## Temp Notes
 
 当标识符（包括常量、变量、类型、函数名、结构字段等等）
 
-* 以一个大写字母开头，如：Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用（客户端程序需要先导入这个包）
-  * 这被称为导出（像面向对象语言中的 public）
-* 以小写字母开头，则对包外是不可见的
-  * 但是他们在整个包的内部是可见并且可用的（像面向对象语言中的 protected ）
+- 以一个大写字母开头，如：Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用（客户端程序需要先导入这个包）
+    - 这被称为导出（像面向对象语言中的 public）
+- 以小写字母开头，则对包外是不可见的
+    - 但是他们在整个包的内部是可见并且可用的（像面向对象语言中的 protected ）
 
 需要注意的是 `{` 不能单独放在一行
 
 Keywords
 
-* func
-* select
-* defer
-* go
-* map
-* chan
-* fallthrough
-* range
-* type
-* var
-* ……（其它跟 C 等编程语言差不多的关键字就不提了）
+- func
+- select
+- defer
+- go
+- map
+- chan
+- fallthrough
+- range
+- type
+- var
+- ……（其它跟 C 等编程语言差不多的关键字就不提了）
 
 变量声明
 
@@ -94,13 +96,13 @@ var (
 )
 ```
 
-* bool
+- bool
 
 ```go
 var b bool = true
 ```
 
-* 其它类型：TODO（bool，数据类型例如 int，派生类型 Map Chan…）
+- 其它类型：TODO（bool，数据类型例如 int，派生类型 Map Chan…）
 
 引用类型
 
@@ -130,7 +132,7 @@ const (
 )
 ```
 
-* 特殊变量 iota：使用之后，每过一行，自动加一（详情另查）
+- 特殊变量 iota：使用之后，每过一行，自动加一（详情另查）
 
 指针变量
 
@@ -148,8 +150,8 @@ fmt.Printf("%d\n", *ptr)
 
 case 语句
 
-* swith 后面不需括号，甚至无需跟变量
-* case 后面无需 break
+- swith 后面不需括号，甚至无需跟变量
+- case 后面无需 break
 
 ```go
 var grade string = "B"
@@ -177,7 +179,7 @@ switch {
 fmt.Printf("你的等级是 %s\n", grade );
 ```
 
-* Type Switch : 用于 type-switch 来判断某个 interface 变量中实际存储的变量类型
+- Type Switch : 用于 type-switch 来判断某个 interface 变量中实际存储的变量类型
 
 ```go
 var x interface{}
@@ -200,11 +202,11 @@ switch i := x.(type) {
 
 select 语句（暂略）
 
-* 跟 channel 有关
+- 跟 channel 有关
 
 if 语句
 
-* if 关键字后面的表达式不需要 `()` 包围
+- if 关键字后面的表达式不需要 `()` 包围
 
 goto 语句
 
@@ -259,7 +261,7 @@ func function_name( [parameter list] ) [return_types] {
 }
 ```
 
-* 返回函数的函数
+- 返回函数的函数
 
 ```go
 func function_name func() [return_type] {
@@ -284,7 +286,7 @@ func add(x1, x2 int) func(x3 int,x4 int)(int,int,int)  {
 }
 ```
 
-* Closure Example
+- Closure Example
 
 ```go
 package main
@@ -394,7 +396,7 @@ var balance = [5]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
 var balance = [...]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
 ```
 
-* 二维数组
+- 二维数组
 
 ```go
 a = [3][4]int{
@@ -411,7 +413,7 @@ a = [3][4]int{
 
 传递数组给函数
 
-* 实例中函数接收整型数组参数，另一个参数指定了数组元素的个数，并返回平均值
+- 实例中函数接收整型数组参数，另一个参数指定了数组元素的个数，并返回平均值
 
 ```go
 func getAverage(arr []int, size int) float32
@@ -439,20 +441,20 @@ var ip *int        /* 指向整型 */
 var fp *float32    /* 指向浮点型 */
 ```
 
-* 空指针判断
+- 空指针判断
 
 ```go
 if (ptr == nil) // 空指针
 if (ptr != nil) // 非空
 ```
 
-* 指针数组
+- 指针数组
 
 ```go
 var ptr [10]*int;
 ```
 
-* 指向指针的指针
+- 指向指针的指针
 
 ```go
 var a int
@@ -498,7 +500,7 @@ func main() {
 }
 ```
 
-* 输出
+- 输出
 
 ```bash
 {Go 语言 www.runoob.com Go 语言教程 6495407}
@@ -508,9 +510,9 @@ func main() {
 
 切片 Slice
 
-* Go 数组的长度不可改变，在特定场景中这样的集合就不太适用
-* Go 中提供了一种灵活，功能强悍的内置类型切片\("动态数组"\)，与数组相比切片的长度是不固定的
-* 可以追加元素，在追加时可能使切片的容量增大。
+- Go 数组的长度不可改变，在特定场景中这样的集合就不太适用
+- Go 中提供了一种灵活，功能强悍的内置类型切片("动态数组")，与数组相比切片的长度是不固定的
+- 可以追加元素，在追加时可能使切片的容量增大。
 
 ```go
 // 声明一个未指定大小的数组来定义切片
@@ -524,20 +526,20 @@ make([]T, length, capacity)
 s := make([]int, 3, 5)
 ```
 
-* 普通初始化
+- 普通初始化
 
 ```go
 s := [] int {1,2,3}
 ```
 
-* 纯引用
+- 纯引用
 
 ```go
 s := arr[:]
 ```
 
-* 范围切片
-  * 区间左闭右开，即不包含 endIndex
+- 范围切片
+    - 区间左闭右开，即不包含 endIndex
 
 ```go
 s := arr[startIndex:endIndex]
@@ -555,4 +557,3 @@ var count int = 5
 var mean float32
 mean = float32(sum)/float32(count)
 ```
-

@@ -4,7 +4,7 @@
 
 References
 
-* `man date`
+- `man date`
 
 ## Quickstart
 
@@ -24,21 +24,21 @@ date -d 2018-04-12\ 12:34:56    # specified date
 # Thu Apr 12 12:34:56 CST 2018 ( output )
 ```
 
-* PHP: date - Manual : [https://www.php.net/manual/en/function.date.php](https://www.php.net/manual/en/function.date.php)
-* DateTimeFormatter \(Java Platform SE 8 \) : [https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)
+- PHP: date - Manual : https://www.php.net/manual/en/function.date.php
+- DateTimeFormatter (Java Platform SE 8 ) : https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
 
 Notice
 
-* Differ `yyyy` and `YYYY` format : [https://stackoverflow.com/questions/15133549/difference-between-yyyy-and-yyyy-in-nsdateformatter](https://stackoverflow.com/questions/15133549/difference-between-yyyy-and-yyyy-in-nsdateformatter)
+- Differ `yyyy` and `YYYY` format : https://stackoverflow.com/questions/15133549/difference-between-yyyy-and-yyyy-in-nsdateformatter
 
 ## Options
 
-* `-d, --date=<STRING>` Display time described by STRING, not 'now'.
-* `-f, --file=<DATE_FILE>` Like `--date` once for each line of DATEFILE
-* `-R, --rfc-2822` Output date and time in RFC 2822 format.
-  * e.g.: Tue, 16 Oct 2018 16:35:45 +0800
-* `-s, --set=<DATE_STRING>` Set time described by STRING
-* `-u, --utc, --universal` Print or set Coordinated Universal Time \(UTC\)
+- `-d, --date=<STRING>` Display time described by STRING, not 'now'.
+- `-f, --file=<DATE_FILE>` Like `--date` once for each line of DATEFILE
+- `-R, --rfc-2822` Output date and time in RFC 2822 format.
+    - e.g.: Tue, 16 Oct 2018 16:35:45 +0800
+- `-s, --set=<DATE_STRING>` Set time described by STRING
+- `-u, --utc, --universal` Print or set Coordinated Universal Time (UTC)
 
 ## Format
 
@@ -48,76 +48,76 @@ See below for interpreted sequences.
 
 ### Common
 
-| Format | Explanation |
-| :--- | :--- |
-| %a | abbreviated weekday name \(e.g., Sun\) |
-| %A | full weekday name \(e.g., Sunday\) |
-| %b | abbreviated month name \(e.g., Jan\) |
-| %B | full month name \(e.g., January\) |
-| %d | day of month \(e.g., 01\) |
-| %D | date; same as %m/%d/%y |
-| %F | full date; same as %Y-%m-%d |
-| %g | last two digits of year of ISO \(see %G\) |
-| %H | hour \(00..23\) |
-| %m | month \(01..12\) |
-| %M | minute \(00..59\) |
-| %R | 24-hour hour and minute; same as %H:%M |
-| %S | second \(00..60\) |
-| %T | time; same as %H:%M:%S |
-| %V | ISO week number, with Monday as first day of week \(01..53\) |
-| %W | week number of year, with Monday as first day of week \(00..53\) |
-| %x | locale's date representation \(e.g., 12/31/99\) |
-| %X | locale's time representation \(e.g., 23:13:48\) |
-| %y | last two digits of year \(00..99\) |
-| %Y | year |
+|Format|Explanation|
+|:-|:-|
+|%a|abbreviated weekday name (e.g., Sun)|
+|%A|full weekday name (e.g., Sunday)|
+|%b|abbreviated month name (e.g., Jan)|
+|%B|full month name (e.g., January)|
+|%d|day of month (e.g., 01)|
+|%D|date; same as %m/%d/%y|
+|%F|full date; same as %Y-%m-%d|
+|%g|last two digits of year of ISO (see %G)|
+|%H|hour (00..23)|
+|%m|month (01..12)|
+|%M|minute (00..59)|
+|%R|24-hour hour and minute; same as %H:%M|
+|%S|second (00..60)|
+|%T|time; same as %H:%M:%S|
+|%V|ISO week number, with Monday as first day of week (01..53)|
+|%W|week number of year, with Monday as first day of week (00..53)|
+|%x|locale's date representation (e.g., 12/31/99)|
+|%X|locale's time representation (e.g., 23:13:48)|
+|%y|last two digits of year (00..99)|
+|%Y|year|
 
 ### Almost All
 
-| Format | Explanation |
-| :--- | :--- |
-| %% | a literal % |
-| %a | abbreviated weekday name \(e.g., Sun\) |
-| %A | full weekday name \(e.g., Sunday\) |
-| %b | abbreviated month name \(e.g., Jan\) |
-| %B | full month name \(e.g., January\) |
-| %c | date and time \(e.g., Thu Mar  3 23:05:25 2005\) |
-| %C | century; like %Y, except omit last two digits \(e.g., 20\) |
-| %d | day of month \(e.g., 01\) |
-| %D | date; same as %m/%d/%y |
-| %e | day of month, space padded; same as %\_d |
-| %F | full date; same as %Y-%m-%d |
-| %g | last two digits of year of ISO \(see %G\) |
-| %H | hour \(00..23\) |
-| %I | hour \(01..12\) |
-| %j | day of year \(001..366\) |
-| %k | hour, space padded \( 0..23\); same as %\_H |
-| %l | hour, space padded \( 1..12\); same as %\_I |
-| %m | month \(01..12\) |
-| %M | minute \(00..59\) |
-| %n | a newline |
-| %N | nanoseconds \(000000000..999999999\) |
-| %p | locale's equivalent of either AM or PM; blank if not known |
-| %P | like %p, but lower case |
-| %r | locale's 12-hour clock time \(e.g., 11:11:04 PM\) |
-| %R | 24-hour hour and minute; same as %H:%M |
-| %s | seconds since 1970-01-01 00:00:00 UTC |
-| %S | second \(00..60\) |
-| %t | a tab |
-| %T | time; same as %H:%M:%S |
-| %u | day of week \(1..7\); 1 is Monday |
-| %U | week number of year, with Sunday as first day of week \(00..53\) |
-| %V | ISO week number, with Monday as first day of week \(01..53\) |
-| %w | day of week \(0..6\); 0 is Sunday |
-| %W | week number of year, with Monday as first day of week \(00..53\) |
-| %x | locale's date representation \(e.g., 12/31/99\) |
-| %X | locale's |
-| %y | last two digits of year \(00..99\) |
-| %Y | year |
-| %z | +hhmm numeric time zone \(e.g., -0400\) |
-| %:z | +hh:mm numeric time zone \(e.g., -04:00\) |
-| %::z | +hh:mm:ss numeric time zone \(e.g., -04:00:00\) |
-| %:::z | numeric time zone with : to necessary precision \(e.g., -04, +05:30\) |
-| %Z | alphabetic time zone abbreviation \(e.g., EDT\) |
+|Format|Explanation|
+|:-|:-|
+|%%|a literal %|
+|%a|abbreviated weekday name (e.g., Sun)|
+|%A|full weekday name (e.g., Sunday)|
+|%b|abbreviated month name (e.g., Jan)|
+|%B|full month name (e.g., January)|
+|%c|date and time (e.g., Thu Mar  3 23:05:25 2005)|
+|%C|century; like %Y, except omit last two digits (e.g., 20)|
+|%d|day of month (e.g., 01)|
+|%D|date; same as %m/%d/%y|
+|%e|day of month, space padded; same as %_d|
+|%F|full date; same as %Y-%m-%d|
+|%g|last two digits of year of ISO (see %G)|
+|%H|hour (00..23)|
+|%I|hour (01..12)|
+|%j|day of year (001..366)|
+|%k|hour, space padded ( 0..23); same as %_H|
+|%l|hour, space padded ( 1..12); same as %_I|
+|%m|month (01..12)|
+|%M|minute (00..59)|
+|%n|a newline|
+|%N|nanoseconds (000000000..999999999)|
+|%p|locale's equivalent of either AM or PM; blank if not known|
+|%P|like %p, but lower case|
+|%r|locale's 12-hour clock time (e.g., 11:11:04 PM)|
+|%R|24-hour hour and minute; same as %H:%M|
+|%s|seconds since 1970-01-01 00:00:00 UTC|
+|%S|second (00..60)|
+|%t|a tab|
+|%T|time; same as %H:%M:%S|
+|%u|day of week (1..7); 1 is Monday|
+|%U|week number of year, with Sunday as first day of week (00..53)|
+|%V|ISO week number, with Monday as first day of week (01..53)|
+|%w|day of week (0..6); 0 is Sunday|
+|%W|week number of year, with Monday as first day of week (00..53)|
+|%x|locale's date representation (e.g., 12/31/99)|
+|%X|locale's
+|%y|last two digits of year (00..99)|
+|%Y|year|
+|%z|+hhmm numeric time zone (e.g., -0400)|
+|%:z|+hh:mm numeric time zone (e.g., -04:00)|
+|%::z|+hh:mm:ss numeric time zone (e.g., -04:00:00)|
+|%:::z|numeric time zone with : to necessary precision (e.g., -04, +05:30)|
+|%Z|alphabetic time zone abbreviation (e.g., EDT)|
 
 ## Usage
 
@@ -210,7 +210,7 @@ echo $difference seconds.
 
 Environment **TZ** : Specifies the timezone, unless overridden by command line parameters.
 
-* If neither is specified, the setting from /etc/localtime is used.
+- If neither is specified, the setting from /etc/localtime is used.
 
 ```bash
 # temporary
@@ -359,4 +359,3 @@ Here is that TZ value again, this time on standard output so that you
 can use the /bin/tzselect command in shell scripts:
 Asia/Shanghai
 ```
-

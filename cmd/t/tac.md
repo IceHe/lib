@@ -4,7 +4,7 @@
 
 References
 
-* `man tac`
+- `man tac`
 
 ## Quickstart
 
@@ -17,4 +17,3 @@ cat -n file     # With line numbers
 cat file1 file2 # Print files
 cat             # Copy standard input to standard output
 ```
-

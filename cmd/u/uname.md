@@ -4,31 +4,31 @@
 
 References
 
-* `man uname`
+- `man uname`
 
 ## Options
 
 Linux
 
-* `-a, --all` Print all information, in the following order, except omit `-p` & `-i` if unknown
-* `-s, --kernel-name` Kernel name
-* `-n, --nodename` Network node hostname
-* `-v, --kernel-version` Kernel version
-* `-m, --machine` Print the machine hardware name
-* `-p, --processor` Print the processor type or "unknown"
-* `-i, --hardware-platform` Print the hardware platform or "unknown"
-* `-o, --operating-system` Print the operating system
+- `-a, --all` Print all information, in the following order, except omit `-p` & `-i` if unknown
+- `-s, --kernel-name` Kernel name
+- `-n, --nodename` Network node hostname
+- `-v, --kernel-version` Kernel version
+- `-m, --machine` Print the machine hardware name
+- `-p, --processor` Print the processor type or "unknown"
+- `-i, --hardware-platform` Print the hardware platform or "unknown"
+- `-o, --operating-system` Print the operating system
 
 BSD
 
-* `-a` Behave as though all of the options -mnrsv were specified
-* `-m` Machine hardware name
-* `-n` Nodename
-  * The nodename may be a name that the system is known by to a communications network.
-* `-p` Machine processor architecture name
-* `-r` Operating system release
-* `-s` Operating system name
-* `-v` Operating system version
+- `-a` Behave as though all of the options -mnrsv were specified
+- `-m` Machine hardware name
+- `-n` Nodename
+    - The nodename may be a name that the system is known by to a communications network.
+- `-p` Machine processor architecture name
+- `-r` Operating system release
+- `-s` Operating system name
+- `-v` Operating system version
 
 ## Usage
 
@@ -98,4 +98,3 @@ Darwin
 $ uname -v
 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64
 ```
-

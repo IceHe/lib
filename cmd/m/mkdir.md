@@ -4,7 +4,7 @@
 
 References
 
-* `man mkdir`
+- `man mkdir`
 
 ## Quickstart
 
@@ -20,9 +20,9 @@ mkdir [-pv] [-m mode] directory_name ...
 
 ## Options
 
-* `-m <mode>` Set the file permission bits of the final created directory to the specified mode.
-* `-p` Create intermediate directories as required.
-* `-v` _Verbose output_
+- `-m <mode>` Set the file permission bits of the final created directory to the specified mode.
+- `-p` Create intermediate directories as required.
+- `-v` _Verbose output_
 
 ## Usage
 
@@ -53,11 +53,10 @@ $ tree foo
 foo
 └── bar
     ├── apple
-    │   └── boy
-    │       ├── cat
-    │       └── dog
+    │   └── boy
+    │       ├── cat
+    │       └── dog
     ├── egg
     └── fool
 7 directories, 0 files
 ```
-

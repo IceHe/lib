@@ -2,17 +2,17 @@
 
 > The non-interactive network downloader.
 
-* GNU Wget is a free utility for non-interactive download of files from the Web.
-* It supports **HTTP**, **HTTPS**, and **FTP** protocols, as well as retrieval through HTTP proxies.
+- GNU Wget is a free utility for non-interactive download of files from the Web.
+- It supports **HTTP**, **HTTPS**, and **FTP** protocols, as well as retrieval through HTTP proxies.
 
 References
 
-* `man wget`
+- `man wget`
 
 ## Options
 
-* `-O file` \| `--output-document=file` written to "file"
-* `--no-check-certificate` Don't check the server certificate
+- `-O file` | `--output-document=file` written to "file"
+- `--no-check-certificate` Don't check the server certificate
 
 ## Usage
 
@@ -43,4 +43,3 @@ Saving to: ‘_vimrc’
 
 2018-11-05 22:49:27 (23.5 MB/s) - ‘_vimrc’ saved [1954/1954]
 ```
-

@@ -4,7 +4,7 @@
 
 References
 
-* `man nl`
+- `man nl`
 
 ## Synopsis
 
@@ -12,8 +12,8 @@ References
 nl [OPTION]... [FILE]...
 ```
 
-* Write each FILE to standard output, with line numbers added.
-* With no FILE, or when FILE is `-`, read standard input.
+- Write each FILE to standard output, with line numbers added.
+- With no FILE, or when FILE is `-`, read standard input.
 
 ## Options
 
@@ -21,30 +21,30 @@ By default, selects `-v1 -i1 -l1 -sTAB -w6 -nrn -hn -bt -fn`.
 
 ### All Options
 
-* `-b, --body-numbering=STYLE` use STYLE for numbering body lines
-* `-d, --section-delimiter=CC` use CC for separating logical pages
-* `-f, --footer-numbering=STYLE` use STYLE for numbering footer lines
-* `-h, --header-numbering=STYLE` use STYLE for numbering header lines
-* `-i, --line-increment=NUMBER` line number increment at each line
-* `-l, --join-blank-lines=NUMBER` group of NUMBER empty lines counted as one
-* `-n, --number-format=FORMAT` insert line numbers according to FORMAT
-* `-p, --no-renumber` do not reset line numbers at logical pages
-* `-s, --number-separator=STRING` add STRING after \(possible\) line number
-* `-v, --starting-line-number=NUMBER` first line number on each logical page
-* `-w, --number-width=NUMBER` use NUMBER columns for line numbers
+- `-b, --body-numbering=STYLE` use STYLE for numbering body lines
+- `-d, --section-delimiter=CC` use CC for separating logical pages
+- `-f, --footer-numbering=STYLE` use STYLE for numbering footer lines
+- `-h, --header-numbering=STYLE` use STYLE for numbering header lines
+- `-i, --line-increment=NUMBER` line number increment at each line
+- `-l, --join-blank-lines=NUMBER` group of NUMBER empty lines counted as one
+- `-n, --number-format=FORMAT` insert line numbers according to FORMAT
+- `-p, --no-renumber` do not reset line numbers at logical pages
+- `-s, --number-separator=STRING` add STRING after (possible) line number
+- `-v, --starting-line-number=NUMBER` first line number on each logical page
+- `-w, --number-width=NUMBER` use NUMBER columns for line numbers
 
 ### Style
 
-* `a` number all lines
-* `t` number only nonempty lines
-* `n` number no lines
-* `pBRE` number only lines that contain a match for the basic regular expression \(BRE\)
+- `a` number all lines
+- `t` number only nonempty lines
+- `n` number no lines
+- `pBRE` number only lines that contain a match for the basic regular expression (BRE)
 
 ### Format
 
-* `ln` left justified, no leading zeros
-* `rn` right justified, no leading zeros
-* `rz` right justified, leading zeros
+- `ln` left justified, no leading zeros
+- `rn` right justified, no leading zeros
+- `rz` right justified, leading zeros
 
 ## Usage
 
@@ -146,4 +146,3 @@ $ nl -nrz input1
 000004  naveen
 000005  harsh
 ```
-

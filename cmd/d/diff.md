@@ -4,7 +4,7 @@
 
 References
 
-* `man diff`
+- `man diff`
 
 ## Quickstart
 
@@ -23,14 +23,14 @@ diff -y file1 file2 # Output in two columns
 
 ## Options
 
-* `-y, --side-by-side` output in two columns
-* `-i, --ignore-case` ignore case differences in file contents
-* `-E, --ignore-tab-expansion` ignore changes due to tab expansion
-* `-Z, --ignore-trailing-space` ignore white space at line end
-* `-b, --ignore-space-change` ignore changes in the amount of white space
-* `-w, --ignore-all-space` ignore all white space
-* `-B, --ignore-blank-lines` ignore changes where lines are all blank
-* ……
+- `-y, --side-by-side` output in two columns
+- `-i, --ignore-case` ignore case differences in file contents
+- `-E, --ignore-tab-expansion` ignore changes due to tab expansion
+- `-Z, --ignore-trailing-space` ignore white space at line end
+- `-b, --ignore-space-change` ignore changes in the amount of white space
+- `-w, --ignore-all-space` ignore all white space
+- `-B, --ignore-blank-lines` ignore changes where lines are all blank
+- ……
 
 ## Usage
 
@@ -60,8 +60,8 @@ $ diff file1 file2
 
 ### Side by Side
 
-* `%<` lines from FILE1
-* `%>` lines from FILE2
+- `%<` lines from FILE1
+- `%>` lines from FILE2
 
 ```bash
 $ diff -y file1 file2
@@ -78,4 +78,3 @@ $ diff -y file1 file2
 ```bash
 $ vimdiff file1 file2
 ```
-

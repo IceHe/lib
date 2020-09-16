@@ -4,20 +4,20 @@
 
 ## References
 
-* [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
-* **App's AppleScript Dictionary :**
-  * Open App `Script Editor` →  Enter `⌘ ⇧ o` →  Choose `app_name.app` \(if it supports AppleScript\)
-* My Github Repos:
-  * [AppleScript\_for\_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)
-  * [AppleScript\_for\_me](https://github.com/IceHe/AppleScript_for_me)
+- [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
+- __App's AppleScript Dictionary :__
+    - Open App `Script Editor` → &nbsp;Enter `⌘ ⇧ o` → &nbsp;Choose `app_name.app` (if it supports AppleScript)
+- My Github Repos:
+    - [AppleScript_for_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)
+    - [AppleScript_for_me](https://github.com/IceHe/AppleScript_for_me)
 
 ## Fundamentals
 
 Export `*.scpt` as a runable Application（导出为可运行程序）
 
-* Menu Bar `File` → `Export` → Choose Format `Application` → Click `Save`
+- Menu Bar `File` → `Export` → Choose Format `Application` → Click `Save`
 
-```text
+```applescript
 -- Comment
 
     -- line comment
@@ -32,7 +32,7 @@ Export `*.scpt` as a runable Application（导出为可运行程序）
 
 Types and their related operations.
 
-```text
+```applescript
 -- String
 
     "string"
@@ -73,11 +73,12 @@ Types and their related operations.
 -- Class & Other Objects
 
     # Ommited
+
 ```
 
 ### Basic Operations
 
-```text
+```applescript
 -- Assign Variable
 
     set myName to "John"
@@ -131,7 +132,7 @@ Types and their related operations.
 
 Src Code
 
-```text
+```applescript
 set today to current date
 log today
 
@@ -169,7 +170,7 @@ log "Countdown:" & y & " " & m & " " & d & " " & h & ":" & m & ":" & s
 
 Result
 
-```text
+```applescript
 (*date Saturday, September 19, 2015 at 16:50:34*)
 (*2015*)
 (*September*)
@@ -188,7 +189,7 @@ Result
 
 ### Conditional
 
-```text
+```applescript
 -- contains, is contained by
 
     { "this", "is", 1 + 1, "cool" } contains { "is", 2 }  # true
@@ -226,7 +227,7 @@ Result
 
 ### Control Statements
 
-```text
+```applescript
 -- Conditional 逻辑语句
 
     # if <expr> then
@@ -360,11 +361,12 @@ Result
 
     #!/usr/bin/osascript
     -- Beginning it with the following line and giving it execute permission
+
 ```
 
 ### Components
 
-```text
+```applescript
 -- log 历史记录
 
 log pi
@@ -442,11 +444,10 @@ log test
 
 ### Advanced
 
-* It is not the whole AppleScript above.
-* If you want know more in detail, please read [official documentations](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html).
+- It is not the whole AppleScript above.
+- If you want know more in detail, please read [official documentations](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html).
 
 Further use
 
-1. [用 AppleScript 操作 Evernote / macOS](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/scripts/applescript/scripts/applescript/evernote.md)
+1. [用 AppleScript 操作 Evernote / macOS](scripts/applescript/evernote.md)
 2. [A service to log Dictionary lookups](http://hints.macworld.com/article.php?story=20121106085330476)
-

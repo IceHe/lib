@@ -2,38 +2,34 @@
 
 > AppleScript Advanced: 检查控制 Wifi、蓝牙、硬盘、键盘输入，执行命令，操纵其它 App 等：如 Evernote 笔记的同步、检索、编辑、复制、删除、导入导出、重命名、移动笔记本、加标签…
 
-* I supposed that you have learned AppleScript, so I will not introduce it in detail.
-* You can learn AppleScript in practice or my [AppleScript Quick Start 快速入门](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/scripts/applescript/scripts/applescript/applescript.md).
+- I supposed that you have learned AppleScript, so I will not introduce it in detail.
+- You can learn AppleScript in practice or my [AppleScript Quick Start 快速入门](scripts/applescript/applescript.md).
 
 ## References
 
-* [AppleScript Quick Start 快速入门](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/scripts/applescript/scripts/applescript/applescript.md) - My Blog Article
-* [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
-* [Mac Wrangle Evernote with AppleScript](https://dev.evernote.com/doc/articles/applescript.php) / [通过 AppleScript 连接印象笔记](https://dev.yinxiang.com/doc/articles/applescript.php) - Evernote Official Docs
-* [Evernote Search Grammar](https://dev.evernote.com/doc/articles/search_grammar.php) / [搜索语法](https://dev.yinxiang.com/doc/articles/search_grammar.php) - How to Search Notes
-* **App's AppleScript Dictionary :** Open App `Script Editor` →  Enter `⌘ ⇧ o` →  Choose `app_name.app` \(if it supports AppleScript\)
-
-    **Evernote Dictionary :** … → Choose `Evernote.app`
-
-* My Github Repos:
-  1. [AppleScript\_for\_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)
-  2. [AppleScript\_for\_me](https://github.com/IceHe/AppleScript_for_me)
+- [AppleScript Quick Start 快速入门](scripts/applescript/applescript.md) - My Blog Article
+- [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
+- [Mac Wrangle Evernote with AppleScript](https://dev.evernote.com/doc/articles/applescript.php) / [通过 AppleScript 连接印象笔记](https://dev.yinxiang.com/doc/articles/applescript.php) - Evernote Official Docs
+- [Evernote Search Grammar](https://dev.evernote.com/doc/articles/search_grammar.php) / [搜索语法](https://dev.yinxiang.com/doc/articles/search_grammar.php) - How to Search Notes
+- __App's AppleScript Dictionary :__ Open App `Script Editor` → &nbsp;Enter `⌘ ⇧ o` → &nbsp;Choose `app_name.app` (if it supports AppleScript)
+    __Evernote Dictionary :__ … → Choose `Evernote.app`
+- My Github Repos:
+    1. [AppleScript_for_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)
+    2. [AppleScript_for_me](https://github.com/IceHe/AppleScript_for_me)
 
 ## Evernote
 
-* I just list the code that I use most frequently.
-* If you want further use of manipulating Evernote by AppleScript, you can read the official documentations from [Apple and Evernote](https://github.com/IceHe/lib/tree/4e6b7c73229e0e23ff9d6acf7f2ba61d9dacec30/scripts/applescript/scripts/applescript/evernote.md#References) and use other programming language to cooperate with AppleScript.
-* There is only some sample code, so it cannot run successfully in this order.
+- I just list the code that I use most frequently.
+- If you want further use of manipulating Evernote by AppleScript, you can read the official documentations from [Apple and Evernote](scripts/applescript/evernote.md#References) and use other programming language to cooperate with AppleScript.
+- There is only some sample code, so it cannot run successfully in this order.
 
-But you can learn how to manipulate Evernote with AppleScript from it.  
-  
-
+But you can learn how to manipulate Evernote with AppleScript from it.<br/><br/>
 
 ### Evernote
 
 Launch, Sync, Wait, Quit
 
-```text
+``` applescript
 -- Launch Evernote
 tell application "Evernote" to launch
 
@@ -64,7 +60,7 @@ end if
 
 Exist, Create, Rename, Delete
 
-```text
+``` applescript
 tell application "Evernote"
     set notebook_name to "nb_1"
 
@@ -115,7 +111,7 @@ end tell
 
 Exist, Find, Create, Import, Export, Read, Rename, Move, Delete
 
-```text
+``` applescript
 tell application "Evernote"
     set notebook_name to "nb_1"
     set enex_path to "path_1" # as Unix dir path
@@ -173,7 +169,7 @@ end tell
 
 Simplify Formating
 
-```text
+``` applescript
 tell application "Evernote"
 
     set t_note to (find notes ("intitle:\"" & note_name & "\""))
@@ -216,7 +212,7 @@ end tell
 
 Write Note content to Clipboard
 
-```text
+``` applescript
 tell application "Evernote"
 
     set t_note to (find notes ("intitle:\"" & note_name & "\""))
@@ -260,7 +256,7 @@ If your Mac does not have some commands as mentioned below, you can install them
 
 ### Is Mac on AC Power
 
-```text
+``` applescript
 set is_ac_power to do shell script "pmset -g batt | grep -q 'AC Power' && echo 1 || echo 0"
 
 return ("1" = is_ac_power)
@@ -268,7 +264,7 @@ return ("1" = is_ac_power)
 
 ### Is application running
 
-```text
+``` applescript
 set app_name to "app_x"
 
 tell application "System Events"
@@ -278,7 +274,7 @@ end tell
 
 ### Is application on Dock
 
-```text
+``` applescript
 set app_name to "app_x"
 
 tell application "System Events"
@@ -301,7 +297,7 @@ end tell
 
 ### Is network available
 
-```text
+``` applescript
 repeat with i from 1 to 5
 
     try
@@ -322,9 +318,10 @@ return true
 
 ### Switch Wi-fi
 
-You need to show Wi-Fi status in menu bar: `System Preferences` → `Network` → Check `Show Wi-Fi status in menu bar`.
+You need to show Wi-Fi status in menu bar:
+`System Preferences` → `Network` → Check `Show Wi-Fi status in menu bar`.
 
-```text
+``` applescript
 set flag to true
 
 tell application "System Events" to tell process "SystemUIServer"
@@ -355,9 +352,9 @@ return true
 
 ### Is Bluetooth ON
 
-You need to install the command `blueutil` \(through `Homebrew`\).
+You need to install the command `blueutil` (through `Homebrew`).
 
-```text
+``` applescript
 set is_bluetooth_on to do shell script "/usr/local/bin/blueutil power"
 
 return ("1" = is_bluetooth_on)
@@ -365,7 +362,7 @@ return ("1" = is_bluetooth_on)
 
 ### Swith Bluetooth
 
-```text
+``` applescript
 set flag to true
 
 tell application "System Preferences"
@@ -400,7 +397,7 @@ return true
 
 ### Input Key Code / Keystroke
 
-```text
+``` applescript
 set app_name to "app_1"
 set key_code to "key_1"
 set using_btn to "btn_1"
@@ -413,7 +410,7 @@ tell application "System Events" to tell process app_name
 end tell
 ```
 
-```text
+``` applescript
 set app_name to "app_1"
 set key_char to "key_1"
 set using_btn to "btn_1"
@@ -428,7 +425,7 @@ end tell
 
 ### Eject Disks
 
-```text
+``` applescript
 tell application "Finder"
 
     -- Specify a disk to eject
@@ -464,7 +461,7 @@ end tell
 
 The version of iTerm is beta 3.0.
 
-```text
+``` applescript
 set cmds to {"cmd_1", "cmd_2", "cmd_3"}
 
 set isOpenAlready to application "iTerm" is running
@@ -501,7 +498,7 @@ end tell
 
 ### Get local IP address
 
-```text
+``` applescript
 -- Physical: 物理网口的 IP
 set cur_ip to do shell script "/sbin/ifconfig en7|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d 'addr:'"
 
@@ -525,7 +522,7 @@ end if
 
 ### Startup Tasks
 
-```text
+``` applescript
 on run argv
 
     if script = class of argv then
@@ -594,4 +591,3 @@ on run argv
 
 end run
 ```
-

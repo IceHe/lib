@@ -1,10 +1,10 @@
 # mv
 
-> move \(rename\) files
+> move (rename) files
 
 References
 
-* `man mv`
+- `man mv`
 
 ## Quickstart
 
@@ -31,19 +31,19 @@ mv [OPTION]... -t DIRECTORY SOURCE...
 
 If you specify more than one of `-i, -f, -n`, only the final one takes effect.
 
-* `-f, --force` do not prompt before overwriting
-* `-i, --interactive` prompt before overwriting
-* `-n, --no-clobber` do not overwrite an existing file
+- `-f, --force` do not prompt before overwriting
+- `-i, --interactive` prompt before overwriting
+- `-n, --no-clobber` do not overwrite an existing file
 
 ### Common
 
-* `-t, --target-directory=DIRECTORY` move all SOURCE arguments into DIRECTORY
-* `-u, --update` move only when the SOURCE file is newer than the destination file or when the destination file is missing
+- `-t, --target-directory=DIRECTORY` move all SOURCE arguments into DIRECTORY
+- `-u, --update` move only when the SOURCE file is newer than the destination file or when the destination file is missing
 
 ### Others
 
-* `--backup[=CONTROL]` make a backup of each existing destination file
-* `-b` like `--backup` but does not accept an argument
+- `--backup[=CONTROL]` make a backup of each existing destination file
+- `-b` like `--backup` but does not accept an argument
 
 See `man mv` for more.
 
@@ -81,4 +81,3 @@ mv <source_file> <new_file_name>
 # e.g.
 mv tmp.log info.log
 ```
-

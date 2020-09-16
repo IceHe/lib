@@ -2,13 +2,13 @@
 
 > Report virtual memory statistics
 
-* It reports information about processes, memory, paging, block IO, traps, disks and cpu activity.
-* See `man vmstat` for more.
-* Recommend to use [`dstat`](../d/dstat.md).
+- It reports information about processes, memory, paging, block IO, traps, disks and cpu activity.
+- See `man vmstat` for more.
+- Recommend to use [`dstat`](/cmd/d/dstat.md).
 
 References
 
-* `man vmstat`
+- `man vmstat`
 
 ## Synopsis
 
@@ -16,31 +16,31 @@ References
 vmstat [options] [delay [count]]
 ```
 
-* `[delay]` The delay between updates in seconds.
-  * If no delay is specified, only one report is printed with the average values since boot.
-* `[count]` Number of updates.
-  * In absence of count, when delay is defined, default is infinite.
+- `[delay]` The delay between updates in seconds.
+    - If no delay is specified, only one report is printed with the average values since boot.
+- `[count]` Number of updates.
+    - In absence of count, when delay is defined, default is infinite.
 
 ## Options
 
-* `-a, --active` Display active and inactive memory, given a 2.5.41 kernel or better.
-* `-f, --forks` The `-f` switch displays the number of forks since boot.
-  * This includes the fork, vfork, and clone system calls, and is equivalent to the total number of tasks created.
-  * Each process is represented by one or more tasks, depending on thread usage.
-  * This display does not repeat.
-* `-m, --slabs` Displays slabinfo. \( [related](https://en.wikipedia.org/wiki/Slab_allocation) \)
-* `-n, --one-header` Display the header only once rather than periodically.
-* `-s, --stats` Displays a table of various event counters and memory statistics.
-  * This display does not repeat.
-* `-d, --disk` Report disk statistics \(2.5.70 or above required\).
-* `-D, --disk-sum` Report some summary statistics about disk activity.
-* `-p, --partition <device>` Detailed statistics about partition \(2.5.70 or above required\).
-* `-S, --unit <character>` Switches outputs between 1000 \(k\), 1024 \(K\), 1000000 \(m\), or 1048576 \(M\) bytes.
-  * Note this does not change the swap \(si/so\) or block \(bi/bo\) fields.
-* `-t, --timestamp` Append timestamp to each line
-* `-w, --wide` Wide output mode
-  * \(useful for systems with higher amount of memory, where the default output mode suffers from unwanted column breakage\).
-  * The output is wider than 80 characters per line.
+- `-a, --active` Display active and inactive memory, given a 2.5.41 kernel or better.
+- `-f, --forks` The `-f` switch displays the number of forks since boot.
+    - This includes the fork, vfork, and clone system calls, and is equivalent to the total number of tasks created.
+    - Each process is represented by one or more tasks, depending on thread usage.
+    - This display does not repeat.
+- `-m, --slabs` Displays slabinfo. ( [related](https://en.wikipedia.org/wiki/Slab_allocation) )
+- `-n, --one-header` Display the header only once rather than periodically.
+- `-s, --stats` Displays a table of various event counters and memory statistics.
+    - This display does not repeat.
+- `-d, --disk` Report disk statistics (2.5.70 or above required).
+- `-D, --disk-sum` Report some summary statistics about disk activity.
+- `-p, --partition <device>` Detailed statistics about partition (2.5.70 or above required).
+- `-S, --unit <character>` Switches outputs between 1000 (k), 1024 (K), 1000000 (m), or 1048576 (M) bytes.
+    - Note this does not change the swap (si/so) or block (bi/bo) fields.
+- `-t, --timestamp` Append timestamp to each line
+- `-w, --wide` Wide output mode
+    - (useful for systems with higher amount of memory, where the default output mode suffers from unwanted column breakage).
+    - The output is wider than 80 characters per line.
 
 ## Usage
 
@@ -62,7 +62,7 @@ $ vmstat -f
 
 ### Slab Info
 
-Reference - Wikipedia : [https://en.wikipedia.org/wiki/Slab\_allocation](https://en.wikipedia.org/wiki/Slab_allocation)
+Reference - Wikipedia : https://en.wikipedia.org/wiki/Slab_allocation
 
 ```bash
 $ vmstat -m
@@ -187,4 +187,3 @@ procs -----------------------memory---------------------- ---swap-- -----io---- 
  r  b         swpd         free         buff        cache   si   so    bi    bo   in   cs  us  sy  id  wa  st
  1  0       133632      4155796       505364      5839292    0    0     5     8    0    0   1   1  99   0   0
 ```
-

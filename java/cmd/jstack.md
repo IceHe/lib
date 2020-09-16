@@ -4,9 +4,9 @@
 
 References
 
-* `man jstack`
-* Understand the JVM - 2nd Edition - ZH Ver. - P146
-* Java SE 14 Docs - Tools References - `jstack` : [https://docs.oracle.com/en/java/javase/14/docs/specs/man/jstack.html](https://docs.oracle.com/en/java/javase/14/docs/specs/man/jstack.html)
+- `man jstack`
+- Understand the JVM - 2nd Edition - ZH Ver. - P146
+- Java SE 14 Docs - Tools References - `jstack` : https://docs.oracle.com/en/java/javase/14/docs/specs/man/jstack.html
 
 ## Quickstart
 
@@ -25,8 +25,8 @@ jstack [ option ] [server-id@]remote-hostname-or-IP
 
 ## Options
 
-* ~~`-m` prints mixed mode \( both Java and native C/C++ frames \) stack trace.~~
-* `-l` The long listing option prints additional information about locks.
+- ~~`-m` prints mixed mode ( both Java and native C/C++ frames ) stack trace.~~
+- `-l` The long listing option prints additional information about locks.
 
 ## Usage
 
@@ -823,5 +823,5 @@ _java_thread_list=0x0000600005112900, length=62, elements={
 "VM Periodic Task Thread" os_prio=31 cpu=24877.07ms elapsed=102473.79s tid=0x00007ff259048000 nid=0xa303 waiting on condition
 
 JNI global refs: 2495, weak refs: 2746
-```
 
+```

@@ -4,7 +4,7 @@
 
 References
 
-* `man sudo`
+- `man sudo`
 
 ## Synopsis
 
@@ -18,11 +18,11 @@ sudoedit [-AknS] [-a type] [-C num] [-c class] [-g group] [-h host] [-p prompt] 
 
 ## Options
 
-* `-l, --list` If no command is specified, list the allowed \(and forbidden\) commands for the invoking user \(or the user specified by the -U option\) on the current host.
-* `-s, --shell` Run the shell specified by the SHELL environment variable if it is set or the shell specified by the invoking user's password database entry.
-  * If a command is specified, it is passed to the shell for execution via the shell's -c option.
-  * If no command is specified, an interactive shell is executed.
-* ……
+- `-l, --list` If no command is specified, list the allowed (and forbidden) commands for the invoking user (or the user specified by the -U option) on the current host.
+- `-s, --shell` Run the shell specified by the SHELL environment variable if it is set or the shell specified by the invoking user's password database entry.
+    - If a command is specified, it is passed to the shell for execution via the shell's -c option.
+    - If no command is specified, an interactive shell is executed.
+- ……
 
 ## Usage
 
@@ -40,7 +40,7 @@ Switch to user 'root'
 sudo -s
 ```
 
-List the allowed \(& forbidden\) commands
+List the allowed (& forbidden) commands
 
 ```bash
 # run as root user
@@ -54,4 +54,3 @@ Matching Defaults entries for root on box029:
 User root may run the following commands on box029:
     (ALL) ALL
 ```
-

@@ -4,7 +4,7 @@
 
 References
 
-* `man ip`
+- `man ip`
 
 ## Quickstart
 
@@ -89,28 +89,27 @@ OPTIONS := { -V[ersion] | -h[uman-readable] |
         -n[etns] name | -a[ll] | -c[olor] }
 ```
 
-* More : see `man ip`
+- More : see `man ip`
 
 ## Objects
 
-| Object | Description |
-| :--- | :--- |
-| **address** | protocol \(IP or IPv6\) address on a device. |
-| addrlabel | label configuration for protocol address selection. |
-| l2tp | tunnel ethernet over IP \(L2TPv3\). |
-| link | network device. |
-| maddress | multicast address. |
-| monitor | watch for netlink messages. |
-| mroute | multicast routing cache entry. |
-| mrule | rule in multicast routing policy database. |
-| neighbour | manage ARP or NDISC cache entries. |
-| netns | manage network namespaces. |
-| ntable | manage the neighbor cache's operation. |
-| route | routing table entry. |
-| rule | rule in routing policy database. |
-| tcp\_metrics /tcpmetrics | manage TCP Metrics |
-| token | manage tokenized interface identifiers. |
-| tunnel | tunnel over IP. |
-| tuntap | manage TUN/TAP devices. |
-| xfrm | manage IPSec policies. |
-
+|Object|Description|
+|:-|:-|
+|**address**|protocol (IP or IPv6) address on a device.|
+|addrlabel|label configuration for protocol address selection.|
+|l2tp|tunnel ethernet over IP (L2TPv3).|
+|link|network device.|
+|maddress|multicast address.|
+|monitor|watch for netlink messages.|
+|mroute|multicast routing cache entry.|
+|mrule|rule in multicast routing policy database.|
+|neighbour|manage ARP or NDISC cache entries.|
+|netns|manage network namespaces.|
+|ntable|manage the neighbor cache's operation.|
+|route|routing table entry.|
+|rule|rule in routing policy database.|
+|tcp_metrics<br/>/tcpmetrics|manage TCP Metrics|
+|token|manage tokenized interface identifiers.|
+|tunnel|tunnel over IP.|
+|tuntap|manage TUN/TAP devices.|
+|xfrm|manage IPSec policies.|

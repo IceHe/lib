@@ -1,19 +1,19 @@
 # which
 
-> shows the full path of \(shell\) commands
+> shows the full path of (shell) commands
 
 References
 
-* `man which`
+- `man which`
 
 ## Options
 
-* `-a, --all` Print all matching executables in PATH, not just the first
-* `-i, --read-alias` Read aliases \(default\)
-* `--skip-alias` Ignore option `--read-alias`, if any.
-* `--read-functions` Read shell function definitions from stdin, reporting matching ones on stdout
-* `--skip-functions` Ignore option `--read-functions`, if any.
-* ……
+- `-a, --all` Print all matching executables in PATH, not just the first
+- `-i, --read-alias` Read aliases (default)
+- `--skip-alias` Ignore option `--read-alias`, if any.
+- `--read-functions` Read shell function definitions from stdin, reporting matching ones on stdout
+- `--skip-functions` Ignore option `--read-functions`, if any.
+- ……
 
 ## Usage
 
@@ -46,4 +46,3 @@ $ which php
 /usr/local/bin/php
 /usr/bin/php
 ```
-

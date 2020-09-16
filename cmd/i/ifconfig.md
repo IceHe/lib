@@ -4,8 +4,8 @@
 
 References
 
-* `man ifconfig`
-* Linux 命令大全 : [http://man.linuxde.net/ifconfig](http://man.linuxde.net/ifconfig)
+- `man ifconfig`
+- Linux 命令大全 : http://man.linuxde.net/ifconfig
 
 ## Quickstart
 
@@ -110,7 +110,7 @@ ifconfig eth0 mtu 1500
 
 ## Synopsis
 
-Ifconfig is used to configure the kernel-resident network interfaces.
+Ifconfig  is used to configure the kernel-resident network interfaces.
 
 ```bash
 ifconfig [-v] [-a] [-s] [interface]
@@ -119,29 +119,28 @@ ifconfig [-v] interface [aftype] options | address ...
 
 NOTE
 
-* This program is obsolete!
-* For replacement check ip addr and ip link.
-* For statistics use ip -s link.
+- This program is obsolete!
+- For replacement check ip addr and ip link.
+- For statistics use ip -s link.
 
 ## Options
 
-* `-a` Display all interfaces which are currently available, even if down
-* `-s` Display a short list \(like netstat -i\)
-* `-v` Be more verbose for some error conditions
-* `interface` The name of the interface.
-  * This is usually a driver name followed by a unit number, for example **eth0 for the first Ethernet interface**.
-  * If your kernel supports alias interfaces, you can specify them with **eth0:0 for the first alias of eth0**.
-  * You can use them to assign a second address.
-  * To delete an alias interface use `ifconfig eth0:0 down`.
-  * Note: for every scope \(i.e. same net with address/netmask combination\) all aliases are deleted, if you delete the first \(primary\).
-* **`up`** This flag causes the interface to be **activated**.
-  * It is implicitly specified if an address is assigned to the interface.
-* **`down`** This flag causes the driver for this interface to be **shut down**.
-* `[-]arp` Enable or disable the use of the ARP protocol on this interface.
-* `mtu N` This parameter sets the Maximum Transfer Unit \(MTU\) of an interface.
-* `add addr/prefixlen` Add an IPv6 address to an interface.
-* `del addr/prefixlen` Remove an IPv6 address from an interface.
-* ……
+- `-a` Display all interfaces which are currently available, even if down
+- `-s` Display a short list (like netstat -i)
+- `-v` Be more verbose for some error conditions
+- `interface` The name of the interface.
+    - This is usually a driver name followed by a unit number, for example **eth0 for the first Ethernet interface**.
+    - If your kernel supports alias interfaces, you can specify them with **eth0:0 for the first alias of eth0**.
+    - You can use them to assign a second address.
+    - To delete an alias interface use `ifconfig eth0:0 down`.
+    - Note: for every scope (i.e. same net with address/netmask combination) all aliases are deleted, if you delete the first (primary).
+- **`up`** This flag causes the interface to be **activated**.
+    - It is implicitly specified if an address is assigned to the interface.
+- **`down`** This flag causes the driver for this interface to be **shut down**.
+- `[-]arp` Enable or disable the use of the ARP protocol on this interface.
+- `mtu N` This parameter sets the Maximum Transfer Unit (MTU) of an interface.
+- `add addr/prefixlen` Add an IPv6 address to an interface.
+- `del addr/prefixlen` Remove an IPv6 address from an interface.
+- ……
 
 More : see `man ifconfig`
-
