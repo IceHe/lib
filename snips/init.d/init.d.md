@@ -1,4 +1,3 @@
-
 # init.d/service
 
 ## Simple HTTP Service

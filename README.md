@@ -108,7 +108,7 @@ Web
 - [IP Address](/snips/web/ip.md)
 - [URL Encoding](/snips/web/url-encoding.md)
 - Simple HTTP Service
-    - [init.d](/snips/init.d/README.md) with `php -S`
+    - [init.d](/snips/init.d/init.d.md) with `php -S`
     - [Nginx](/snips/nginx/nginx.md)
 - How to mail
     - [on CentOS](/cmd/m/mailx.md) : mailx
