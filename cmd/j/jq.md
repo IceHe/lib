@@ -214,18 +214,19 @@ The absolute simplest filter is `.` .
 
 - This is a filter that takes its input and produces it unchanged as output.
     - That is, this is the **identity operator**.
-    - Since jq by default pretty-prints all output, this trivial program can be a useful way of formatting JSON output from, say, curl.
+- Since jq by default pretty-prints all output, this trivial program can be a useful way of formatting JSON output from, say, curl.
 
 ```bash
 $ echo '{}' | jq '.'
 {}
 ```
 
-### Object Identifier-Index `.foo, .foo.bar`
+### Object Identifier-Index
 
-The simplest useful filter is `.foo`.
+`.foo, .foo.bar`
 
-- When given a JSON object (aka dictionary or hash) as input, it produces the value at the key "foo", or null if there's none present.
+- The simplest useful filter is `.foo`.
+    - When given a JSON object (aka dictionary or hash) as input, it produces the value at the key "foo", or null if there's none present.
 - A filter of the form `.foo.bar` is equivalent to `.foo|.bar`.
 - _This syntax only works for simple, identifier-like keys, that is, keys that are all  made of alphanumeric characters and underscore, and which do not start with a digit._
 - **If the key contains special characters**, you need to **surround it with double quotes** like this: `."foo$"`, or else `.["foo$"]`.
@@ -246,9 +247,11 @@ $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]'
 42
 ```
 
-### Optional Object Identifier-Index `.foo?`
+### Optional Object Identifier-Index
 
-Just like `.foo`, but **does not output even an error when `.` is not an array or an object.**
+`.foo?`
+
+- Just like `.foo`, but **does not output even an error when `.` is not an array or an object.**
 
 ```bash
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.foo?'
@@ -263,13 +266,180 @@ $  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"?'
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]?'
 42
 
-# Differ `.foo?` from `.foo`
+##############################
+# Differ `.foo?` from `.foo` #
+##############################
+
 $ echo '[1,2,3]' | jq '.foo'
 # output error
 jq: error (at <stdin>:1): Cannot index array with string "foo"
+
 $ echo '[1,2,3]' | jq '.foo?'
 # output nothing
 ```
+
+### _Generic Object Index_
+
+`.[<string>]`
+
+- You can also look up fields of an object using syntax like `.["foo"]` (`.foo` above is a shorthand version of this, but only for identifier-like strings).
+
+### Array Index
+
+`.[2]`
+
+- When the index value is an integer, **`.[<value>]` can index arrays.**
+    - **Arrays are zero-based, so `.[2]` returns the third element**.
+- Negative indices are allowed, with **`-1` referring to the last element**, `-2` referring to the next to last element, and so on.
+
+```bash
+$ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[0]'
+{
+  "name": "JSON",
+  "good": true
+}
+
+$ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[2]'
+null
+
+$ echo '[1,2,3]' | jq '.[-2]'
+2
+```
+
+### Array/String Slice
+
+`.[10:15]`
+
+- The `.[10:15]` syntax can be used to **return a subarray of an array or substring of a string.**
+    - The array returned by **`.[10:15]`** will be of **length 5, containing the elements from index 10 (inclusive) to index 15 (exclusive).**
+    - **Either index may be negative** ( in which case it **counts backwards from the end of the array** ) , or omitted (in which case it refers to the start or end of the array).
+
+```bash
+$ echo '[0,1,2,3,4]' | jq '.[2:4]'
+[
+  2,
+  3
+]
+
+$ echo '"01234"' | jq '.[2:4]'
+"23"
+
+$ echo '[0,1,2,3,4]' | jq '.[:2]'
+[
+  0,
+  1
+]
+
+$ echo '[0,1,2,3,4]' | jq '.[3:]'
+[
+  3,
+  4
+]
+
+$ echo '[0,1,2,3,4]' | jq '.[-2:]'
+[
+  3,
+  4
+]
+
+$ echo '[0,1,2,3,4]' | jq '.[-2:-1]'
+[
+  3
+]
+```
+
+### Array/Object Value Iterator
+
+`.[]`
+
+- If you use the .[index] syntax, but **omit the index entirely, it will return all of the elements of an array.**
+    - _Running `.[]` with the input `[1,2,3]` will produce the numbers as three separate results, rather than as a single array._
+- You can also use this on an object, and it will return all the values of the object.
+
+```bash
+$ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[]'
+{
+  "name": "JSON",
+  "good": true
+}
+{
+  "name": "XML",
+  "good": false
+}
+
+$ echo '[]' | jq '.[]'
+# output nothing
+
+$ echo '{"a":1, "b":2}' | jq '.[]'
+1
+2
+```
+
+### _`.[]?`_
+
+- Like `.[]`, but **no errors will be output if `.` is not an array or object.**
+
+### Comma
+
+`,`
+
+- **If two filters are separated by a comma, then the same input will be fed into both and the two filters' output value streams will be concatenated in order** :
+    - first, all of the outputs produced by the left expression,
+    - and then all of the outputs produced by the right.
+- For instance, filter `.foo`, `.bar`, produces both the "foo" fields and "bar" fields as separate outputs.
+
+```bash
+$ echo '{"foo": 42, "bar": "something else", "baz": true}' | jq '.foo, .bar'
+42
+"something else"
+
+$ echo '{"user":"stedolan", "projects": ["jq", "wikiflow"]}' | jq '.user, .projects[]'
+"stedolan"
+"jq"
+"wikiflow"
+
+$ echo '[0,1,2,3,4]' | jq '.[4, 2]'
+4
+2
+```
+
+### Pipe
+
+`|`
+
+- The `|` operator **combines two filters by feeding the output(s) of the one on the left into the input of the one on the right.**
+    - It's pretty much the same **as the Unix shell's pipe**, if you're used to that.
+- If the one on the left produces multiple results, the one on the right will be run for each of those results.
+    - So, the expression `.[] | .foo` retrieves the "foo" field of each element of the input array.
+- _Note that `.a.b.c` is the same as `.a | .b | .c`._
+- _Note too that `.` is the input value at the particular stage in a "pipeline", specifically: where the `.` expression appears._
+    - _Thus `.a | . | .b` is the same as `.a.b`, as the `.` in the middle refers to whatever value `.a` produced._
+
+```bash
+echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[] | .name'
+"JSON"
+"XML"
+```
+
+### Parenthesis
+
+`()`
+
+- Parenthesis work as a **grouping operator just as in any typical programming language.**
+
+```bash
+$ echo 1 | jq '(. + 2) * 5'
+15
+
+$ echo '[0,1,2]' | jq '.[2] | (. + 2) * 5'
+20
+```
+
+## Types and Values
+
+- jq supports the same set of datatypes as JSON - **numbers, strings, booleans, arrays, objects** (which in JSON-speak are hashes with only string keys), **and "null"**.
+- Booleans, null, strings and numbers are written the same way as in javascript.
+    - Just like everything else in jq, these simple values take an input and produce an output - 42 is a valid jq expression that takes an input, ignores it, and returns 42 instead.
 
 ## Usage
 
