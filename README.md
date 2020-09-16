@@ -1,4 +1,4 @@
-# IceHe's Lib
+# Table of Contents
 
 > [Welcome!](/blog/welcome.md) Here is my Library.
 
