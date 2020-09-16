@@ -223,8 +223,9 @@ $ echo '{}' | jq '.'
 
 ### Object Identifier-Index `.foo, .foo.bar`
 
-- The simplest useful filter is `.foo`.
-    - When given a JSON object (aka dictionary or hash) as input, it produces the value at the key "foo", or null if there's none present.
+The simplest useful filter is `.foo`.
+
+- When given a JSON object (aka dictionary or hash) as input, it produces the value at the key "foo", or null if there's none present.
 - A filter of the form `.foo.bar` is equivalent to `.foo|.bar`.
 - _This syntax only works for simple, identifier-like keys, that is, keys that are all  made of alphanumeric characters and underscore, and which do not start with a digit._
 - **If the key contains special characters**, you need to **surround it with double quotes** like this: `."foo$"`, or else `.["foo$"]`.
@@ -243,6 +244,31 @@ $  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"'
 
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]'
 42
+```
+
+### Optional Object Identifier-Index `.foo?`
+
+Just like `.foo`, but **does not output even an error when `.` is not an array or an object.**
+
+```bash
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.foo?'
+42
+
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.cat?'
+null
+
+$  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"?'
+42
+
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]?'
+42
+
+# Differ `.foo?` from `.foo`
+$ echo '[1,2,3]' | jq '.foo'
+# output error
+jq: error (at <stdin>:1): Cannot index array with string "foo"
+$ echo '[1,2,3]' | jq '.foo?'
+# output nothing
 ```
 
 ## Usage
