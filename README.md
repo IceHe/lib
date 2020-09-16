@@ -480,7 +480,7 @@ Timeline
 
 Nonsense
 
-- Time Mgt. : [Life Logs](/lifelogs/README.md) & [Log Format](/lifelogs/time-mgt.md) _( <= 2016.10 )_
+- Time Mgt. : [Life Logs](/lifelogs/time-mgt-log.md) & [Log Format](/lifelogs/time-mgt.md) _( <= 2016.10 )_
 - Way of Life : [Self Manual](/lifelogs/life-manual.md) _( <= 2017 )_
 - New Try : [Routine](/lifelogs/ROUTINE.md) & [TBC](/lifelogs/TBC.md) _( 2019 ~ 2020.04 )_
 
