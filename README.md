@@ -100,7 +100,7 @@ Storage - Usage
 
 Storage - Basic
 
-- [LSM Tree](/snips/lsm-tree/README.md) : Log-Structured Merge-Tree
+- [LSM Tree](/snips/lsm-tree/lsm-tree.md) : Log-Structured Merge-Tree
     - _Data structure related to LevelDB / RockDB_
 
 Web
