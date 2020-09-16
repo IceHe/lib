@@ -91,7 +91,7 @@
 4\. 搭建网站
 
 - 基于代码仓库的原始内容, 使用 [docsify](https://docsify.js.org/) 构建出 [SPA](https://en.wikipedia.org/wiki/Single-page_application) 式的个人网站
-    - 可以参考我的 [docsify](/_docsify/README.md) 建站参考文档
+    - 可以参考我的 [docsify](/_docsify/how-to-docsify.md) 建站参考文档
 
 ---
 

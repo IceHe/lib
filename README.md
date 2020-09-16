@@ -2,7 +2,7 @@
 
 > [Welcome!](/blog/welcome.md) Here is my Library.
 
-- Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/README.md)
+- Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
 - Author : [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
@@ -116,7 +116,7 @@ Web
 - How to estimate
     - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
 - How to build personal website
-    - Powered by [docsify](/_docsify/README.md)
+    - Powered by [docsify](/_docsify/how-to-docsify.md)
 
 _Others_
 
