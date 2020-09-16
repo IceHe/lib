@@ -93,7 +93,7 @@ Storage - Usage
 
 - [Elasticsearch](/snips/storage/elasticsearch.md)
 - [MySQL](/snips/mysql/mysql.md)
-- [Redis](/snips/redis/README.md)
+- [Redis](/snips/redis/redis.md)
     - The data model is key-value, but many different kind of values are supported :
         - Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
 - [_Mongo_](/snips/tmp/mongo.md) ( draft )
