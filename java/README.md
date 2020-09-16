@@ -1,4 +1,6 @@
-# Java Notes ( draft )
+# Java
+
+> Notes ( draft )
 
 ## Basics
 
