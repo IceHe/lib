@@ -92,7 +92,7 @@ Message Queues
 Storage - Usage
 
 - [Elasticsearch](/snips/storage/elasticsearch.md)
-- [MySQL](/snips/mysql/README.md)
+- [MySQL](/snips/mysql/mysql.md)
 - [Redis](/snips/redis/README.md)
     - The data model is key-value, but many different kind of values are supported :
         - Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
