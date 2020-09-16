@@ -355,7 +355,7 @@ Batch 批处理
 
 Others
 
-- PHP : [Functions & Scripts](/scripts/php/README.md)
+- PHP : [Functions & Scripts](/scripts/php/php.md)
 - Python 3 : [Quick Start](/scripts/python/quick-start.md)
 - JavaScript : [Optimize some code](/scripts/javascript/optimize-some-code.md)
 
