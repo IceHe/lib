@@ -223,31 +223,27 @@ $ echo '{}' | jq '.'
 
 ### Object Identifier-Index `.foo, .foo.bar`
 
-The simplest useful filter is .foo. When given a JSON object (aka dictionary or hash) as input, it produces
-the value at the key "foo", or null if there's none present.
-
-A filter of the form .foo.bar is equivalent to .foo|.bar.
-
-This syntax only works for simple, identifier-like keys, that is, keys that are all  made  of  alphanumeric
-characters and underscore, and which do not start with a digit.
-
-If  the  key contains special characters, you need to surround it with double quotes like this: ."foo$", or
-else .["foo$"].
-
-For  example  .["foo::bar"]  and  .["foo.bar"]  work  while  .foo::bar  does  not,   and   .foo.bar   means
+- The simplest useful filter is `.foo`.
+    - When given a JSON object (aka dictionary or hash) as input, it produces the value at the key "foo", or null if there's none present.
+- A filter of the form `.foo.bar` is equivalent to `.foo|.bar`.
+- _This syntax only works for simple, identifier-like keys, that is, keys that are all  made of alphanumeric characters and underscore, and which do not start with a digit._
+- **If the key contains special characters**, you need to **surround it with double quotes** like this: `."foo$"`, or else `.["foo$"]`.
+- For example `.["foo::bar"]` and `.["foo.bar"]` work while .foo::bar does not,  and  .foo.bar  means
 .["foo"].["bar"].
 
-jq '.foo'
-    {"foo": 42, "bar": "less interesting data"}
-=> 42
+```bash
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.foo'
+42
 
-jq '.foo'
-    {"notfoo": true, "alsonotfoo": false}
-=> null
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.cat'
+null
 
-jq '.["foo"]'
-    {"foo": 42}
-=> 42
+$  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"'
+42
+
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]'
+42
+```
 
 ## Usage
 
