@@ -109,7 +109,7 @@ Web
 - [URL Encoding](/snips/web/url-encoding.md)
 - Simple HTTP Service
     - [init.d](/snips/init.d/README.md) with `php -S`
-    - [Nginx](/snips/nginx/README.md)
+    - [Nginx](/snips/nginx/nginx.md)
 - How to mail
     - [on CentOS](/cmd/m/mailx.md) : mailx
     - [on macOS](/cmd/m/msmtp.md) : msmtp ( sth wrong? )
