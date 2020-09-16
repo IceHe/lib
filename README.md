@@ -451,18 +451,6 @@ Recommendation
 
 ### Past
 
-> 我没有一天不后悔。<br/>
-> 并非受到惩罚才感到后悔。<br/>
-> 回首往事，<br/>
-> 那个愚钝的年轻笨蛋，<br/>
-> 想跟他谈谈，<br/>
-> 想要跟他讲道理，<br/>
-> 想让他明白，<br/>
-> 但是办不到。<br/>
-> 那个少年早就不见了，<br/>
-> 只剩下垂老的身躯，<br/>
-> 我得接受现实。<br/>
-
 Timeline
 
 - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
@@ -488,6 +476,23 @@ Previous Blog : 2015 ~ 2017
 - [How to Build Blog](/blog/build.md) : 搭建博客
 - [Blog Changlogs](/blog/changelog.md) : 折腾博客
 
+<details>
+<summary>少不更事</summary>
+
+> 我没有一天不后悔。<br/>
+> 并非受到惩罚才感到后悔。<br/>
+> 回首往事，<br/>
+> 那个愚钝的年轻笨蛋，<br/>
+> 想跟他谈谈，<br/>
+> 想要跟他讲道理，<br/>
+> 想让他明白，<br/>
+> 但是办不到。<br/>
+> 那个少年早就不见了，<br/>
+> 只剩下垂老的身躯，<br/>
+> 我得接受现实。<br/>
+
+</details>
+
 ### Friends
 
 > To be a better man.
@@ -506,11 +511,11 @@ Previous Blog : 2015 ~ 2017
 
 <!-- > Get it / Make it without reason. -->
 
-> 请示工作说方案<br/>
-> 布置工作说标准<br/>
-> 汇报工作说结果<br/>
-> 总结工作说流程<br/>
-> 回顾工作说感受<br/>
+- 请示工作说方案
+- 布置工作说标准
+- 汇报工作说结果
+- 总结工作说流程
+- 回顾工作说感受
 
 ## End
 
