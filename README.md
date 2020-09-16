@@ -137,7 +137,7 @@ _Others_
     - [Hardware](/marks/tools/hardware) : 硬件
     - [Life](/marks/tools/life) : 生活
 - [Efficiency](/mac/efficiency.md) : 效率指南
-- [Shortcuts](/mac/shortcuts/README.md) : 快捷键
+- [Shortcuts](/mac/shortcuts/shortcuts.md) : 快捷键
 - [Initialize](/mac/initialize.md) : 系统初始化
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. JetBrains IDE - IntelliJ IDEA_

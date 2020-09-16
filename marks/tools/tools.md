@@ -66,7 +66,7 @@ Windows ( 可能已过时 )
 ### 参考阅读
 
 - [Mac 效率指南](/mac/efficiency.md) ( mine )
-- [Mac 快捷键](/mac/shortcuts/README.md) ( mine )
+- [Mac 快捷键](/mac/shortcuts/shortcuts.md) ( mine )
 - [少数派](http://sspai.com/) - 高质量 App 推荐媒体，关于 iOS、Mac、硬件。
 - [Best App](https://github.com/hzlzh/Best-App) - List in GitHub
 

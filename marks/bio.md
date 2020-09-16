@@ -36,7 +36,7 @@
 工具控
 
 - [我的利器](/marks/tools/tools.md) - Apps & 物件
-- [我的快捷键](/mac/shortcuts/README.md) - 默认 & 自定义
+- [我的快捷键](/mac/shortcuts/shortcuts.md) - 默认 & 自定义
 
 ---
 
