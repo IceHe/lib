@@ -70,7 +70,7 @@ Others
 
 <!-- Algorithms - Basic -->
 
-<!-- - [Sorting](/src/sort/README.md) : Insertion / Heap / Quick / … -->
+<!-- - [Sorting](/src/sort/notes.md) : Insertion / Heap / Quick / … -->
 
 Docker
 
@@ -253,7 +253,7 @@ Others
 - [redis-server](/cmd/redis/redis-server.md) ( & redis-sentinel ) : Redis server
 - [redis-dump](/cmd/redis/redis-dump.md) ( & redis-load ) : Backup & restore Redis data to and from JSON
 - [rm](/cmd/r/rm.md) : remove files or directories
-- [rsync](/cmd/rsync/README.md) : transfer files
+- [rsync](/cmd/rsync/rsync.md) : transfer files
 - [scp](/cmd/s/scp.md) : secure copy (remote file copy program)
 - [sed](/cmd/s/sed.md) : stream editor for filtering & transforming text
 - [seq](/cmd/s/seq.md) : print a sequence of numbers
