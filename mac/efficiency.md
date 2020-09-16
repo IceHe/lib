@@ -414,7 +414,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
     - 确认：^ h = ↩ 确认指令。
 - **命令别名**（Aliases）
     - 通常用来给常用命令指定一个「缩写」，一遍更便捷地输入长的命令组合。作为程序员，我的手速、输入准确率都一般，就特别喜欢输入缩写命令。
-        - 例如，我让 gs = git status，gp = git push 等（见 [Git Aliases](/git/README.md#Aliases-别名) ）。
+        - 例如，我让 gs = git status，gp = git push 等（见 [Git Aliases](/git/common-commands.md#Aliases-别名) ）。
     - alias 命令，列出所有的 aliases。
 - Zsh 还有许多好东西，在此暂略，可以根据自己的需求，自行查阅学习。
     - 可以简单参阅我的 [.zshrc](https://github.com/IceHe/mac-conf/blob/master/.zshrc) 配置。注意以上特性并不都是 Zsh 特有的，详看 [各种 Shell 的对比](https://en.wikipedia.org/wiki/Comparison_of_command_shells)。

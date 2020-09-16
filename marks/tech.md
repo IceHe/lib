@@ -25,7 +25,7 @@
 
 最好的习惯：查阅官方网站的文档。
 
-- [My Git Note](/git/README.md)
+- [My Git Note](/git/common-commands.md)
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Vim 键位操作总结图
 - [PHP.net](http://php.net) 官方文档
 - [PHP The Right Way](http://www.phptherightway.com/) <sup>_todo_</sup>

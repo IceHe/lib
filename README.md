@@ -164,12 +164,12 @@ Command Tools
 
 Others
 
-- [Notes](/java/README.md) ( draft )
+- [Notes](/java/notes.md) ( draft )
 - [Spock](/java/spock.md) : Unit Tests
 
 ### Git
 
-- [Commands](/git/README.md)
+- [Common Commands](/git/common-commands.md)
 - [Concepts & Theory](/git/concepts-n-theory.md)
 - [Docs Digest](/git/docs-digest.md)
 
