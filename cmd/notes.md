@@ -1,11 +1,19 @@
-# Commands ( draft )
+# CLI Notes ( draft )
 
-Reference
+> CLI : Command-Line Interface
+
+References
 
 - Coreutils - GNU core utilities : https://www.gnu.org/software/coreutils/coreutils.html
 - URL Template as follow
 
 > www.gnu.org/software/coreutils/manual/html_node/**[COMMAND_NAME]**-invocation.html
+
+Others
+
+- [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) / [中文版](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md) ( Recommended Guide! )
+- [快乐的 Linux 命令行](http://billie66.github.io/TLCL/index.html)
+- [Linux 需要掌握的一些命令 | 菜鸟教程](http://www.runoob.com/w3cnote/linux-useful-command.html)
 
 ## TODOs
 

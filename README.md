@@ -177,8 +177,6 @@ Others
 
 > Commands & CLI ( Command-Line Interface )
 
-[Index](/cmd/README.md)
-
 - [awk](/cmd/a/awk.md) : pattern scanning and processing language
 - [bash](/cmd/bash/README.md) : GNU Bourne-Again SHell ( draft )
     - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
@@ -291,6 +289,7 @@ Others
 - [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
 - _[xxd](/cmd/x/xxd.md) : make a hexdump or do the reverse_
 - [zsh](/cmd/z/zsh.md) : one of shells
+- _[CLI Notes](/cmd/notes.md) ( draft )_
 
 Scenes
 
