@@ -79,7 +79,7 @@ Docker
 
 Markdown
 
-- [Style Guide](/snips/markdown/README.md)
+- [Style Guide](/snips/markdown/markdown.md)
 - [Lint Tool : mdl](/snips/markdown/lint/README.md)
 
 Message Queues
