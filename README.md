@@ -74,7 +74,7 @@ Others
 
 Docker
 
-- [Docker](/snips/docker/README.md) : Command & Composor
+- [Docker](/snips/docker/docker.md) : Command & Composor
 - [Alpine Linux](/snips/docker/alpine/README.md) : minimal OS image
 
 Markdown
