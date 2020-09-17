@@ -956,7 +956,7 @@ $ echo '[[0, 1], ["a", "b", "c"]]' | jq 'map(has(3))'
 ]
 ```
 
-## In
+### In
 
 `in`
 
@@ -979,7 +979,7 @@ $ echo '[0, 2]' | jq 'map(in([0, 1]))'
 ]
 ```
 
-## Map and Map Values
+### Map and Map Values
 
 `map(x)`, `map_values(x)`
 
@@ -1071,6 +1071,109 @@ $ echo '{"a":{"b": true, "c": "cat"}}' | jq 'path(..|select(type=="string"))'
 ]
 ```
 
+### Del
+
+`del(path_expression)`
+
+- The builtin function `del` **removes a key and its corresponding value from an object.**
+
+```bash
+# del(.foo)
+$ echo '{"foo": 42, "bar": 9001, "baz": 42}' | jq 'del(.foo)'
+{
+  "bar": 9001,
+  "baz": 42
+}
+
+# del(.[1, 2])
+$ echo '["foo", "bar", "baz"]' | jq 'del(.[1, 2])'
+[
+  "foo"
+]
+```
+
+### Get Path
+
+`getpath(PATHS)`
+
+- The builtin function `getpath` **outputs the values in `.` found at each path in `PATHS`.**
+
+```bash
+# getpath(["a", "b"])
+$ echo null | jq 'getpath(["a", "b"])'
+null
+
+# getpath(["a", "b"], ["a", "c", "d"])
+$ echo '{"a":{"b":2, "c": {"d": 4}}}' | jq 'getpath(["a", "b"], ["a", "c", "d"])'
+2
+4
+```
+
+### Set Path
+
+`setpath(PATHS; VALUE)`
+
+- The builtin function `setpath` **sets the `PATHS` in `.` to `VALUE`.**
+
+```bash
+# setpath(["a", "b"]; 1)
+$ echo null | jq 'setpath(["a", "b"]; 1)'
+{
+  "a": {
+    "b": 1
+  }
+}
+
+# setpath(["a", "b"]; 1)
+$ echo '{"a": {"b": 0}}' | jq 'setpath(["a", "b"]; 1)'
+{
+  "a": {
+    "b": 1
+  }
+}
+
+# setpath([0, "a"]; 1)
+$ echo null | jq 'setpath([0, "a"]; 1)'
+[
+  {
+    "a": 1
+  }
+]
+
+# setpath([1, "a"]; 1)
+$ echo null | jq 'setpath([1, "a"]; 1)'
+[
+  null,
+  {
+    "a": 1
+  }
+]
+```
+
+### Del Paths
+
+`delpaths(PATHS)`
+
+- The builtin function `delpaths` **sets the `PATHS` in `.`.**
+    - `PATHS` must be an array of paths, where each path is an array of strings and numbers.
+
+```bash
+# delpaths(["a", "b"];)
+$ echo '{"a":{"b":1},"x":{"y":2}}' | jq 'delpaths(["a", "b"];)'
+jq: error: syntax error, unexpected ')' (Unix shell quoting issues?) at <top-level>, line 1:
+delpaths(["a", "b"];)
+jq: 1 compile error
+
+# delpaths([["a", "b"]])
+$ echo '{"a":{"b":1},"x":{"y":2}}' | jq 'delpaths([["a", "b"]])'
+{
+  "a": {},
+  "x": {
+    "y": 2
+  }
+}
+```
+
 ### TODO
 
 - TBC
@@ -1093,174 +1196,265 @@ TODO
 
 ### Math
 
-       jq currently only has IEEE754 double-precision (64-bit) floating point number support.
-
-       Besides simple arithmetic operators such as +, jq also has most standard math functions from the C math library. C  math  func-
-       tions  that  take a single input argument (e.g., sin()) are available as zero-argument jq functions. C math functions that take
-       two input arguments (e.g., pow()) are available as two-argument jq functions that ignore .. C math functions  that  take  three
-       input arguments are available as three-argument jq functions that ignore ..
-
-       Availability  of standard math functions depends on the availability of the corresponding math functions in your operating sys-
-       tem and C math library. Unavailable math functions will be defined but will raise an error.
-
-       One-input C math functions: acos acosh asin asinh atan atanh cbrt ceil cos cosh erf erfc exp exp10 exp2 expm1 fabs floor  gamma
-       j0 j1 lgamma log log10 log1p log2 logb nearbyint pow10 rint round significand sin sinh sqrt tan tanh tgamma trunc y0 y1.
-
-       Two-input  C math functions: atan2 copysign drem fdim fmax fmin fmod frexp hypot jn ldexp modf nextafter nexttoward pow remain-
-       der scalb scalbln yn.
-
-       Three-input C math functions: fma.
-
-       See your system's manual for more information on each of these.
-
-### I/O
-
-       At this time jq has minimal support for I/O, mostly in the form of control over when inputs are read.  Two  builtins  functions
-       are  provided  for this, input and inputs, that read from the same sources (e.g., stdin, files named on the command-line) as jq
-       itself. These two builtins, and jq's own reading actions, can be interleaved with each other.
-
-       Two builtins provide minimal output capabilities, debug, and stderr. (Recall that a jq program's output values are always  out-
-       put  as  JSON  texts on stdout.) The debug builtin can have application-specific behavior, such as for executables that use the
-       libjq C API but aren't the jq executable itself. The stderr builtin outputs its input in raw mode to stder with  no  additional
-       decoration, not even a newline.
-
-       Most  jq  builtins  are  referentially  transparent,  and  yield constant and repeatable value streams when applied to constant
-       inputs. This is not true of I/O builtins.
-
-   input
-       Outputs one new input.
-
-   inputs
-       Outputs all remaining inputs, one by one.
-
-       This is primarily useful for reductions over a program's inputs.
-
-   debug
-       Causes a debug message based on the input value to be produced. The  jq  executable  wraps  the  input  value  with  ["DEBUG:",
-       <input-value>] and prints that and a newline on stderr, compactly. This may change in the future.
-
-   stderr
-       Prints its input in raw and compact mode to stderr with no additional decoration, not even a newline.
-
-   input_filename
-       Returns the name of the file whose input is currently being filtered. Note that this will not work well unless jq is running in
-       a UTF-8 locale.
-
-   input_line_number
-       Returns the line number of the input currently being filtered.
-
-### Streaming
-
-       With the --stream option jq can parse input texts in a streaming fashion, allowing jq programs to start processing  large  JSON
-       texts  immediately rather than after the parse completes. If you have a single JSON text that is 1GB in size, streaming it will
-       allow you to process it much more quickly.
-
-       However, streaming isn't easy to deal with as the jq program will have [<path>,  <leaf-value>]  (and  a  few  other  forms)  as
-       inputs.
-
-       Several builtins are provided to make handling streams easier.
-
-       The examples below use the streamed form of [0,[1]], which is [[0],0],[[1,0],1],[[1,0]],[[1]].
-
-       Streaming  forms  include [<path>, <leaf-value>] (to indicate any scalar value, empty array, or empty object), and [<path>] (to
-       indicate the end of an array or object). Future versions of jq run with --stream and -seq may output additional forms  such  as
-       ["error message"] when an input text fails to parse.
-
-   truncate_stream(stream_expression)
-       Consumes  a  number  as input and truncates the corresponding number of path elements from the left of the outputs of the given
-       streaming expression.
-
-
-
-           jq '[1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]])]'
-              1
-           => [[[0],2],[[0]]]
-
-
-
-   fromstream(stream_expression)
-       Outputs values corresponding to the stream expression's outputs.
-
-
-
-           jq 'fromstream(1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]]))'
-              null
-           => [2]
-
-
-
-   tostream
-       The tostream builtin outputs the streamed form of its input.
-
-
-
-           jq '. as $dot|fromstream($dot|tostream)|.==$dot'
-              [0,[1,{"a":1},{"b":2}]]
-           => true
-
-### Colors
-
-       To configure alternative colors just set the JQ_COLORS environment variable to colon-delimited list of partial terminal  escape
-       sequences like "1;31", in this order:
-
-       o   color for null
-
-       o   color for false
-
-       o   color for true
-
-       o   color for numbers
-
-       o   color for strings
-
-       o   color for arrays
-
-       o   color for objects
-
-
-
-       The default color scheme is the same as setting "JQ_COLORS=1;30:0;39:0;39:0;39:0;32:1;39:1;39".
-
-       This  is  not  a manual for VT100/ANSI escapes. However, each of these color specifications should consist of two numbers sepa-
-       rated by a semi-colon, where the first number is one of these:
-
-       o   1 (bright)
-
-       o   2 (dim)
-
-       o   4 (underscore)
-
-       o   5 (blink)
-
-       o   7 (reverse)
-
-       o   8 (hidden)
-
-
-
-       and the second is one of these:
-
-       o   30 (black)
-
-       o   31 (red)
-
-       o   32 (green)
-
-       o   33 (yellow)
-
-       o   34 (blue)
-
-       o   35 (magenta)
-
-       o   36 (cyan)
-
-       o   37 (white)
+jq currently only has **IEEE754 double-precision (64-bit) floating point number support**.
+
+- Besides simple arithmetic operators such as `+`, jq also has most standard math functions from the C math library.
+    - C math functions that take a single input argument (e.g., `sin()`) are available as zero-argument jq functions.
+    - C math functions that take two input arguments (e.g., `pow()`) are available as two-argument jq functions that ignore `.`.
+    - C math functions that take three input arguments are available as three-argument jq functions that ignore `.`.
+- Availability of standard math functions depends on the availability of the corresponding math functions in your operating system and C math library.
+    - Unavailable math functions will be defined but will raise an error.
+- One-input C math functions :
+    - `acos acosh asin asinh atan atanh cbrt ceil cos cosh erf erfc exp exp10 exp2 expm1 fabs floor gamma j0 j1 lgamma log log10 log1p log2 logb nearbyint pow10 rint round significand sin sinh sqrt tan tanh tgamma trunc y0 y1`
+- Two-input C math functions :
+    - `atan2 copysign drem fdim fmax fmin fmod frexp hypot jn ldexp modf nextafter nexttoward pow remain der scalb scalbln yn`
+- Three-input C math functions :
+    - `fma`
+- See your system's manual for more information on each of these.
+
+_( icehe : 还算用得上, 至少得知道能做这些操作 )_
+
+- **Common Functions** : `ceil fabs floor round pow`
+
+
+### _I/O_
+
+_( icehe : 看起来用不着 )_
+
+- At this time jq has minimal support for I/O, mostly in the form of control over when inputs are read.
+    - Two builtins functions are provided for this, `input` and `inputs`, that read from the same sources (e.g., `stdin`, files named on the command-line) as jq itself.
+    - These two builtins, and jq's own reading actions, can be interleaved with each other.
+- Two builtins provide minimal output capabilities, `debug`, and `stderr`.
+    - (Recall that a jq program's output values are always output as JSON texts on stdout.)
+    - The debug builtin can have application-specific behavior, such as for executables that use the libjq C API but aren't the jq executable itself.
+    - The stderr builtin outputs its input in raw mode to stder with no additional decoration, not even a newline.
+- Most jq builtins are referentially transparent, and yield constant and repeatable value streams when applied to constant inputs.
+    - This is not true of I/O builtins.
+
+`input`
+
+- Outputs one new input.
+
+**`inputs`**
+
+- Outputs all remaining inputs, one by one.
+- This is primarily useful for reductions over a program's inputs.
+
+_`debug`_
+
+- Causes a debug message based on the input value to be produced.
+    - The jq executable wraps the input value with `["DEBUG:", <input-value>]` and prints that and a newline on stderr, compactly.
+    - _This may change in the future._
+
+_`stderr`_
+
+- Prints its input in raw and compact mode to stderr with no additional decoration, not even a newline.
+
+`input_filename`
+
+- Returns the name of the file whose input is currently being filtered.
+    - Note that this will not work well unless jq is running in a UTF-8 locale.
+
+`input_line_number`
+
+- Returns the line number of the input currently being filtered.
+
+### _Streaming_
+
+_( icehe : 有点迷糊, 看不太懂 )_
+
+- With the `--stream` option jq can parse input texts in a streaming fashion, allowing jq programs to start processing large JSON texts immediately rather than after the parse completes.
+    - If you have a single JSON text that is 1GB in size, streaming it will allow you to process it much more quickly.
+- _However, streaming isn't easy to deal with as the jq program will have `[<path>, <leaf-value>]` (and a few other forms) as inputs._
+- _Several builtins are provided to make handling streams easier._
+- _The examples below use the streamed form of `[0,[1]]`, which is `[[0],0],[[1,0],1],[[1,0]],[[1]]`._
+- Streaming forms include `[<path>, <leaf-value>]` (to indicate any scalar value, empty array, or empty object), and `[<path>]` (to indicate the end of an array or object).
+    - Future versions of jq run with `--stream` and `-seq` may output additional forms such as `["error message"]` when an input text fails to parse.
+
+`truncate_stream(stream_expression)`
+
+- Consumes a number as input and truncates the corresponding number of path elements from the left of the outputs of the given streaming expression.
+
+```bash
+$ echo '[ [[0],1],[[1,0],2],[[1,0]],[[1]] ]' | jq
+[
+  [
+    [
+      0
+    ],
+    1
+  ],
+  [
+    [
+      1,
+      0
+    ],
+    2
+  ],
+  [
+    [
+      1,
+      0
+    ]
+  ],
+  [
+    [
+      1
+    ]
+  ]
+]
+
+# [1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]])]
+$ echo null | jq '[1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]])]'
+[
+  [
+    [
+      0
+    ],
+    2
+  ],
+  [
+    [
+      0
+    ]
+  ]
+]
+```
+
+`fromstream(stream_expression)`
+
+- Outputs values corresponding to the stream expression's outputs.
+
+```bash
+# fromstream(1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]]))
+$ echo null | jq 'fromstream(1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]]))'
+[
+  2
+]
+# ( icehe : 这个例子没看懂… )
+```
+
+`tostream`
+
+- The tostream builtin outputs the streamed form of its input.
+
+```bash
+# . as $dot|fromstream($dot|tostream)|.==$dot
+$ echo '[0,[1,{"a":1},{"b":2}]]' | jq '. as $dot|fromstream($dot|tostream)|.==$dot'
+true
+# ( icehe : 这个例子至少看懂, 但是还是不懂 tostream 的操作… )
+```
+
+<!--
+
+### _Modules_
+
+_( icehe : 感觉这个 modules 没什么用 )_
+
+jq has a library/module system. Modules are files whose names end in `.jq`.
+
+- Modules imported by a program are searched for in a default search path (see below).
+    - The `import` and `include` directives allow the importer to alter this path.
+- Paths in the a search path are subject to various substitutions.
+- For paths starting with "~/", the user's home directory is substituted for "~".
+- For paths starting with "$ORIGIN/", the path of the jq executable is substituted for "$ORIGIN".
+- For paths starting with "./" or paths that are ".", the path of the including file is substituted for ".".
+    - For top-level programs given on the command-line, the current directory is used.
+- Import directives can optionally specify a search path to which the default is appended.
+- The default search path is the search path given to the `-L` command-line option, else `["~/.jq", "$ORIGIN/../lib/jq", "$ORIGIN/../lib"]`.
+- Null and empty string path elements terminate search path processing.
+- A dependency with relative path "foo/bar" would be searched for in "foo/bar.jq" and "foo/bar/bar.jq" in the given search path.
+    - This is intended to allow modules to be placed in a directory along with, for example, version control files, README files, and so on, but also to allow for single-file modules.
+- Consecutive components with the same name are not allowed to avoid ambiguities (e.g., "foo/foo").
+- For example, with `-L$HOME/.jq` a module foo can be found in `$HOME/.jq/foo.jq` and `$HOME/.jq/foo/foo.jq`.
+- If "$HOME/.jq" is a file, it is sourced into the main program.
+
+`import RelativePathString as NAME [<metadata>];`
+
+- Imports a module found at the given path relative to a directory in a search path.
+    - A ".jq" suffix will be added to the relative path string.
+    - The module's symbols are prefixed with "NAME::".
+- The optional metadata must be a constant jq expression.
+    - It should be an object with keys like "homepage" and so on.
+    - At this time jq only uses the "search" key/value of the metadata.
+    - The metadata is also made available to users via the `modulemeta` builtin.
+- The "search" key in the metadata, if present, should have a string or array value (array of strings);
+    - this is the search path to be prefixed to the top-level search path.
+
+`include RelativePathString [<metadata>];`
+
+- Imports a module found at the given path relative to a directory in a search path as if it were included in place.
+    - A ".jq" suffix will be added to the relative path string.
+    - The module's symbols are imported into the caller's namespace as if the module's content had been included directly.
+- The optional metadata must be a constant jq expression.
+    - It should be an object with keys like "homepage" and so on.
+    - At this time jq only uses the "search" key/value of the metadata.
+    - The metadata is also made available to users via the `modulemeta` builtin.
+
+`import RelativePathString as $NAME [<metadata>];`
+
+- Imports a JSON file found at the given path relative to a directory in a search path.
+    - A ".json" suffix will be added to the relative path string.
+    - The file's data will be available as `$NAME::NAME`.
+- The optional metadata must be a constant jq expression.
+    - It should be an object with keys like "homepage" and so on.
+    - At this time jq only uses the "search" key/value of the metadata.
+    - The metadata is also made available to users via the `modulemeta` builtin.
+- The "search" key in the metadata, if present, should have a string or array value (array of strings);
+    - this is the search path to be prefixed to the top-level search path.
+
+`module <metadata>;`
+
+- This directive is entirely optional.
+    - It's not required for proper operation.
+    - It serves only the purpose of providing metadata that can be read with the modulemeta builtin.
+- The metadata must be a constant jq expression.
+    - It should be an object with keys like "homepage".
+    - At this time jq doesn't use this metadata, but it is made available to users via the modulemeta builtin.
+
+`modulemeta`
+
+- Takes a module name as input and outputs the module's metadata as an object, with the module's imports (including metadata) as an array value for the "deps" key.
+- Programs can use this to query a module's metadata, which they could then use to, for example, search for, download, and install missing dependencies.
+
+-->
+
+### _Colors_
+
+_( icehe : 调整配色, 还算有点用 )_
+
+To configure alternative colors just set the `JQ_COLORS` environment variable to colon-delimited list of partial terminal escape sequences like `"1;31"`, in this order:
+
+- 1\. color for null
+- 2\. color for false
+- 3\. color for true
+- 4\. color for numbers
+- 5\. color for strings
+- 6\. color for arrays
+- 7\. color for objects
+
+The default color scheme is the same as setting `"JQ_COLORS=1;30:0;39:0;39:0;39:0;32:1;39:1;39"`.
+
+This is not a manual for VT100/ANSI escapes.
+
+- However, each of these color specifications should consist of two numbers separated by a semi-colon, where the first number is one of these:
+    - 1\. bright
+    - 2\. dim
+    - 4\. underscore
+    - 5\. blink
+    - 7\. reverse
+    - 8\. hidden
+- and the second is one of these:
+    - 30\. black
+    - 31\. red
+    - 32\. green
+    - 33\. yellow
+    - 34\. blue
+    - 35\. magenta
+    - 36\. cyan
+    - 37\. white
 
 ## ASSIGNMENT
-
-TODO
-
-## Modules
 
 TODO
 
