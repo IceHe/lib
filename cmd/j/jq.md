@@ -1180,7 +1180,9 @@ $ echo '{"a":{"b":1},"x":{"y":2}}' | jq 'delpaths([["a", "b"]])'
 
 ## Conditionals and Comparisons
 
-### `==`, `!=`
+### Equal and Unequal
+
+`==`, `!=`
 
 TODO
 
