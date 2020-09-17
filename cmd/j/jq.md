@@ -616,6 +616,54 @@ $ echo '{"user":"stedolan","titles":["JQ Primer", "More JQ"]}' | jq '{(.user): .
 }
 ```
 
+### Recursive Descent
+
+`..`
+
+- **Recursively descends `.`, producing every value.**
+    - This is the same as the **zero-argument `recurse` builtin** (see below).
+    - This is intended to resemble the XPath `//` operator.
+    - Note that `..a` does not work; use `..|.a` instead.
+    - In the example below we use `..|.a?` to find all the values of object keys "a" in any object found "below" `.`.
+- _This is particularly useful in conjunction with `path(EXP)` (also see below) and the `?` operator._
+
+```bash
+# ..
+$ echo '[[{"a":1}]]' | jq '..'
+[
+  [
+    {
+      "a": 1
+    }
+  ]
+]
+[
+  {
+    "a": 1
+  }
+]
+{
+  "a": 1
+}
+1
+
+# ..a
+$ echo '[[{"a":1}]]' | jq '..a'
+# output error
+jq: error: syntax error, unexpected IDENT, expecting $end (Unix shell quoting issues?) at <top-level>, line 1:
+..a
+jq: 1 compile error
+
+# ..|.a
+$ echo '[[{"a":1}]]' | jq '..|.a'
+# output error
+jq: error (at <stdin>:1): Cannot index array with string "a"
+
+# ..|.a?
+$ echo '[[{"a":1}]]' | jq '..|.a?'
+1
+```
+
 ## Usage
 
 ### Sort Keys
