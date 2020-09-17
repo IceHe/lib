@@ -172,9 +172,9 @@ _`-Ldirectory / -L directory`_
     - If you run jq with `--argjson foo 123`, then `$foo` is available in the program and has the value "123".
 
 ```bash
-$ echo '{}' | jq --arg foo '[]' '$foo'
+$ echo null | jq --arg foo '[]' '$foo'
 "[]"
-$ echo '{}' | jq --argjson foo '[]' '$foo'
+$ echo null | jq --argjson foo '[]' '$foo'
 []
 ```
 
@@ -664,11 +664,255 @@ $ echo '[[{"a":1}]]' | jq '..|.a?'
 1
 ```
 
+## Builtin Operators and Functions
+
+- Some jq operator (for instance, `+`) do different things depending on the type of their arguments (arrays, numbers, etc.).
+    - However, jq never does implicit type conversions.
+    - If you try to add a string to an object you'll get an error message and no result.
+
+### Addition
+
+`+`
+
+The operator `+` **takes two filters, applies them both to the same input, and adds the results together.**
+
+- What "adding" means depends on the types involved:
+    - **Numbers** are added by **normal arithmetic.**
+    - **Arrays** are added by being **concatenated into a larger array.**
+    - **Strings** are added by being **joined into a larger string.**
+    - **Objects** are added by merging, that is, **inserting all the key-value pairs from both objects into a single combined object.**
+        - If both objects contain a value for the **same key, the object on the right of the `+` wins.**
+        - (For recursive merge use the `*` operator.)
+    - `null` can be added to any value, and returns the other value unchanged.
+
+```bash
+# .a + 2
+$ echo '{"a": 1}' | jq '.a + 2'
+3
+
+# .a + 2.2
+$ echo '{"a": 1.1}' | jq '.a + 2.2'
+3.3000000000000003
+
+# .a + .b
+$ echo '{"a": [1, 2], "b": [3, 4]}' | jq '.a + .b'
+[
+  1,
+  2,
+  3,
+  4
+]
+
+# .a + [5, 6]
+$ echo '{"a": [1, 2], "b": [3, 4]}' | jq '.a + [5, 6]'
+[
+  1,
+  2,
+  5,
+  6
+]
+
+# .a + .b
+$ echo '{"a": "foo", "b": "bar"}' | jq '.a + .b'
+"foobar"
+
+# .a + "ple"
+$ echo '{"a": "app"}' | jq '.a + "ple"'
+"appple"
+
+# .a + .b
+$ echo '{"a": {"h": "haha", "k":"cool"}, "b": {"k":"kiss"}}' | jq '.a + .b'
+{
+  "h": "haha",
+  "k": "kiss"
+}
+
+# .a + null
+$ echo '{"a": 1}' | jq '.a + null'
+1
+```
+
+### Subtraction
+
+`-`
+
+- As well as **normal arithmetic subtraction on numbers**, the `-` operator can be **used on arrays to remove all occurrences of the second array's elements from the first array.**
+
+```bash
+# .a - 1
+$ echo '{"a": 3}' | jq '.a - 1'
+2
+
+# 4 - .a
+$ echo '{"a": 3}' | jq '4 - .a'
+1
+
+# . - ["a", "b"]
+$ echo '["a", "b", "c"]' | jq '. - ["a", "b"]'
+[
+  "c"
+]
+
+# ["a", "b", "c"] - .
+$ echo '["a", "b"]' | jq '["a", "b", "c"] - .'
+[
+  "c"
+]
+
+# ["a"] - .
+$ echo '["a", "b"]' | jq '["a"] - .'
+[]
+```
+
+### Multiplication, Division, Modulo
+
+`*`, `/`, and `%`
+
+- These infix operators behave as expected when given two numbers.
+    - Division by zero raises an error.
+    - `x % y` computes x modulo y.
+- **Multiplying a string by a number** produces **the concatenation of that string that many times.**
+    - `"x" * 0` produces `null`.
+- **Dividing a string by another splits the first using the second as separators**.
+- **Multiplying two objects** will **merge them recursively** :
+    - this works like addition but if both objects contain a value for the same key, and the values are objects, the two are merged with the same strategy.
+
+```bash
+# 10 / . * 3
+$ echo 5 | jq '10 / . * 3'
+6
+
+# . % 5
+echo 7 | jq '. % 5'
+2
+
+# . / ", "
+$ echo 'a, b,c,d, e' | jq '. / ", "'
+# output error
+parse error: Invalid numeric literal at line 1, column 2
+
+# . / ", "
+$ echo '"a, b,c,d, e"' | jq '. / ", "'
+[
+  "a",
+  "b,c,d",
+  "e"
+]
+
+# {"k": {"a": 1, "b": 2}} * {"k": {"a": 0,"c": 3}}
+$ echo null | jq '{"k": {"a": 1, "b": 2}} * {"k": {"a": 0,"c": 3}}'
+{
+  "k": {
+    "a": 0,
+    "b": 2,
+    "c": 3
+  }
+}
+
+# {"a": 1, "b": 2} * {"a": 0,"c": 3}
+$ echo null | jq '{"a": 1, "b": 2} * {"a": 0,"c": 3}'
+{
+  "a": 0,
+  "b": 2,
+  "c": 3
+}
+
+# .[] | (6 / .)
+$ echo '[2, 0, -3]' | jq '.[] | (6 / .)'
+3
+jq: error (at <stdin>:1): number (6) and number (0) cannot be divided because the divisor is zero
+
+# .[] | (6 / .)?
+$ echo '[2, 0, -3]' | jq '.[] | (6 / .)?'
+3
+-2
+
+# [.[] | (6 / .)?]
+$ echo '[2, 0, -3]' | jq '[.[] | (6 / .)?]'
+[
+  3,
+  -2
+]
+```
+
+### Length
+
+`length`
+
+- The builtin function `length` gets the length of various different types of value:
+    - The length of a string is the number of Unicode codepoints it contains (which will be the same as its  JSON-encoded  length in bytes if it's pure ASCII).
+    - The length of an array is the number of elements.
+    - The length of an object is the number of key-value pairs.
+    - The length of null is zero.
+
+```bash
+# [.[] | length]
+$ echo '[[1,2], "string", {"a":2}, null]' | jq '[.[] | length]'
+[
+  2,
+  6,
+  1,
+  0
+]
+```
+
+### UTF8 Byte Length
+
+`utf8bytelength`
+
+- The builtin function `utf8bytelength` outputs the **number of bytes used to encode a string in UTF-8.**
+
+```bash
+$ echo '"\u03bc"'
+"μ"
+
+# . | utf8bytelength
+$ echo '"\u03bc"' | jq '. | utf8bytelength'
+2
+```
+
+### Keys and Keys Unsorted
+
+`keys`, `keys_unsorted`
+
+- The builtin function `keys`, when **given an object, returns its keys in an array.**
+- The keys are **sorted "alphabetically", by unicode codepoint order.**
+    - This is not an order that makes particular sense in any particular language, but you can count on it being the same for any two objects with the same set of keys,  regardless  of  locale settings.
+- When `keys` is given an array, it returns the valid indices for that array: the integers from 0 to `length-1`.
+- The `keys_unsorted` function is just like keys, but if the input is an object then the keys will not be sorted, instead the keys will roughly be in insertion order.
+
+```bash
+# keys
+$ echo '{"app": 3, "boy": 5, "apple": 1}' | jq 'keys'
+[
+  "app",
+  "apple",
+  "boy"
+]
+
+# keys_unsorted
+$ echo '{"app": 3, "boy": 5, "apple": 1}' | jq 'keys_unsorted'
+[
+  "app",
+  "boy",
+  "apple"
+]
+
+# keys
+$ echo '[3, 5, 1]' | jq 'keys'
+[
+  0,
+  1,
+  2
+]
+```
+
 ## Usage
 
 ### Sort Keys
 
 ```bash
+# --sort-keys
 $ echo '{
     "b": "ice",
     "c": "bad",
