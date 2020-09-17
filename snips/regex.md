@@ -108,3 +108,16 @@ Replace "" with ''
 [WARN]
 [INFO]
 ```
+
+### Exact 2 Spaces Not at the Head of Line
+
+```bash
+# original
+(?<!^)  (?! )
+
+# improve 1
+(?<!^)\s{2}(?! )
+
+# improve 2
+(?<!^| )\s{2}(?! )
+```

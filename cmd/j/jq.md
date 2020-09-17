@@ -228,9 +228,9 @@ $ echo '{}' | jq '.'
 - The simplest useful filter is `.foo`.
     - When given a JSON object (aka dictionary or hash) as input, it produces the value at the key "foo", or null if there's none present.
 - A filter of the form `.foo.bar` is equivalent to `.foo|.bar`.
-- _This syntax only works for simple, identifier-like keys, that is, keys that are all  made of alphanumeric characters and underscore, and which do not start with a digit._
+- _This syntax only works for simple, identifier-like keys, that is, keys that are all made of alphanumeric characters and underscore, and which do not start with a digit._
 - **If the key contains special characters**, you need to **surround it with double quotes** like this: `."foo$"`, or else `.["foo$"]`.
-- For example `.["foo::bar"]` and `.["foo.bar"]` work while .foo::bar does not,  and  .foo.bar  means
+- For example `.["foo::bar"]` and `.["foo.bar"]` work while .foo::bar does not, and .foo.bar means
 .["foo"].["bar"].
 
 ```bash
@@ -243,7 +243,7 @@ $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.cat'
 null
 
 # ."foo"
-$  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"'
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"'
 42
 
 # .["foo"]
@@ -267,7 +267,7 @@ $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.cat?'
 null
 
 # ."foo"?
-$  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"?'
+$ echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"?'
 42
 
 # .["foo"]?
@@ -840,7 +840,7 @@ $ echo '[2, 0, -3]' | jq '[.[] | (6 / .)?]'
 `length`
 
 - The builtin function `length` gets the length of various different types of value:
-    - The length of a string is the number of Unicode codepoints it contains (which will be the same as its  JSON-encoded  length in bytes if it's pure ASCII).
+    - The length of a string is the number of Unicode codepoints it contains (which will be the same as its JSON-encoded length in bytes if it's pure ASCII).
     - The length of an array is the number of elements.
     - The length of an object is the number of key-value pairs.
     - The length of null is zero.
@@ -877,7 +877,7 @@ $ echo '"\u03bc"' | jq '. | utf8bytelength'
 
 - The builtin function `keys`, when **given an object, returns its keys in an array.**
 - The keys are **sorted "alphabetically", by unicode codepoint order.**
-    - This is not an order that makes particular sense in any particular language, but you can count on it being the same for any two objects with the same set of keys,  regardless  of  locale settings.
+    - This is not an order that makes particular sense in any particular language, but you can count on it being the same for any two objects with the same set of keys, regardless of locale settings.
 - When `keys` is given an array, it returns the valid indices for that array: the integers from 0 to `length-1`.
 - The `keys_unsorted` function is just like keys, but if the input is an object then the keys will not be sorted, instead the keys will roughly be in insertion order.
 
@@ -905,6 +905,114 @@ $ echo '[3, 5, 1]' | jq 'keys'
   1,
   2
 ]
+```
+
+### Has Key
+
+`has(key)`
+
+- The builtin function `has` **returns whether the input object has the <u>given key</u>, or the input array has an element at the <u>given index</u>.**
+- `has($key)` has the same effect as checking whether `$key` is a member of the array returned by keys, although has will be faster.
+
+```bash
+# has("foo")
+$ echo '{"foo": 42}' | jq 'has("foo")'
+true
+
+# [.[] | has("foo")]
+$ echo '[{"foo": 42}, {}]' | jq '[.[] | has("foo")]'
+[
+  true,
+  false
+]
+
+# map(has("foo"))
+$ echo '[{"foo": 42}, {}]' | jq 'map(has("foo"))'
+[
+  true,
+  false
+]
+
+# map(has(2))
+$ echo '[[0, 1], ["a", "b", "c"]]' | jq 'map(has(2))'
+[
+  false,
+  true
+]
+
+# map(has(1))
+$ echo '[[0, 1], ["a", "b", "c"]]' | jq 'map(has(1))'
+[
+  true,
+  true
+]
+
+
+# map(has(3))
+$ echo '[[0, 1], ["a", "b", "c"]]' | jq 'map(has(3))'
+[
+  false,
+  false
+]
+```
+
+## In
+
+`in`
+
+- The builtin function `in` **returns whether or not the input key is in the given object, or the input <u>index</u> corresponds to an element in the given array.**
+    - It is, essentially, an inversed version of `has`.
+
+```bash
+# [.[] | in({"foo": 42})]
+$ echo '["foo", "bar"]' | jq '[.[] | in({"foo": 42})]'
+[
+  true,
+  false
+]
+
+# map(in([0, 1]))
+$ echo '[0, 2]' | jq 'map(in([0, 1]))'
+[
+  true,
+  false
+]
+```
+
+## Map and Map Values
+
+`map(x)`, `map_values(x)`
+
+- For any filter `x`, `map(x)` will **run that filter for each element of the input array, and return the outputs in a new array.**
+    - `map(.+1)` will increment each element of an array of numbers.
+- Similarly, `map_values(x)` will run that filter for each element, but it will return an object when an object is passed.
+- `map(x)` is equivalent to `[.[] | x]`.
+    - In fact, this is how it's defined. Similarly, `map_values(x)` is defined as `.[] |= x`.
+
+```bash
+# map(. * 2)
+$ echo '[1, 2, 3]' | jq 'map(. * 2)'
+[
+  2,
+  4,
+  6
+]
+
+# map(. + 5)
+$ echo '{"a": 1, "b": 2, "c": 3}' | jq 'map(. + 5)'
+[
+  6,
+  7,
+  8
+]
+
+# map_values(. + 5)
+$ echo '{"a": 1, "b": 2, "c": 3}' | jq 'map_values(. + 5)'
+{
+  "a": 6,
+  "b": 7,
+  "c": 8
+}
 ```
 
 ## Usage
