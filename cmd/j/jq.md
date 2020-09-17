@@ -234,15 +234,19 @@ $ echo '{}' | jq '.'
 .["foo"].["bar"].
 
 ```bash
+# .foo
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.foo'
 42
 
+# .cat
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.cat'
 null
 
+# ."foo"
 $  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"'
 42
 
+# .["foo"]
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]'
 42
 ```
@@ -254,15 +258,19 @@ $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]'
 - Just like `.foo`, but **does not output even an error when `.` is not an array or an object.**
 
 ```bash
+# .foo?
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.foo?'
 42
 
+# .cat?
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.cat?'
 null
 
+# ."foo"?
 $  echo '{"foo": 42, "bar": "less interesting data"}' | jq '."foo"?'
 42
 
+# .["foo"]?
 $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]?'
 42
 
@@ -270,10 +278,12 @@ $ echo '{"foo": 42, "bar": "less interesting data"}' | jq '.["foo"]?'
 # Differ `.foo?` from `.foo` #
 ##############################
 
+# .foo
 $ echo '[1,2,3]' | jq '.foo'
 # output error
 jq: error (at <stdin>:1): Cannot index array with string "foo"
 
+# .foo?
 $ echo '[1,2,3]' | jq '.foo?'
 # output nothing
 ```
@@ -293,15 +303,18 @@ $ echo '[1,2,3]' | jq '.foo?'
 - Negative indices are allowed, with **`-1` referring to the last element**, `-2` referring to the next to last element, and so on.
 
 ```bash
+# .[0]
 $ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[0]'
 {
   "name": "JSON",
   "good": true
 }
 
+# .[2]
 $ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[2]'
 null
 
+# .[-2]
 $ echo '[1,2,3]' | jq '.[-2]'
 2
 ```
@@ -315,33 +328,39 @@ $ echo '[1,2,3]' | jq '.[-2]'
     - **Either index may be negative** ( in which case it **counts backwards from the end of the array** ) , or omitted (in which case it refers to the start or end of the array).
 
 ```bash
+# .[2:4]
 $ echo '[0,1,2,3,4]' | jq '.[2:4]'
 [
   2,
   3
 ]
 
+# .[2:4]
 $ echo '"01234"' | jq '.[2:4]'
 "23"
 
+# .[:2]
 $ echo '[0,1,2,3,4]' | jq '.[:2]'
 [
   0,
   1
 ]
 
+# .[3:]
 $ echo '[0,1,2,3,4]' | jq '.[3:]'
 [
   3,
   4
 ]
 
+# .[-2:]
 $ echo '[0,1,2,3,4]' | jq '.[-2:]'
 [
   3,
   4
 ]
 
+# .[-2:-1]
 $ echo '[0,1,2,3,4]' | jq '.[-2:-1]'
 [
   3
@@ -357,6 +376,7 @@ $ echo '[0,1,2,3,4]' | jq '.[-2:-1]'
 - You can also use this on an object, and it will return all the values of the object.
 
 ```bash
+# .[]
 $ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[]'
 {
   "name": "JSON",
@@ -389,15 +409,18 @@ $ echo '{"a":1, "b":2}' | jq '.[]'
 - For instance, filter `.foo`, `.bar`, produces both the "foo" fields and "bar" fields as separate outputs.
 
 ```bash
+# .foo, .bar
 $ echo '{"foo": 42, "bar": "something else", "baz": true}' | jq '.foo, .bar'
 42
 "something else"
 
+# .user, .projects[]
 $ echo '{"user":"stedolan", "projects": ["jq", "wikiflow"]}' | jq '.user, .projects[]'
 "stedolan"
 "jq"
 "wikiflow"
 
+# .[4, 2]
 $ echo '[0,1,2,3,4]' | jq '.[4, 2]'
 4
 2
@@ -428,9 +451,11 @@ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[] | 
 - Parenthesis work as a **grouping operator just as in any typical programming language.**
 
 ```bash
+# (. + 2) * 5
 $ echo 1 | jq '(. + 2) * 5'
 15
 
+# .[2] | (. + 2) * 5
 $ echo '[0,1,2]' | jq '.[2] | (. + 2) * 5'
 20
 ```
@@ -454,11 +479,13 @@ $ echo '[0,1,2]' | jq '.[2] | (. + 2) * 5'
 - If you have a filter `X` that produces **four results, then the expression `[X]` will produce a single result**, an array of four elements.
 
 ```bash
+# .foo, .baz, .bar
 $ echo '{"foo":123,"bar":true,"baz":"icehe"}' | jq '.foo, .baz, .bar'
 123
 "icehe"
 true
 
+# [.foo, .baz, .bar]
 $ echo '{"foo":123,"bar":true,"baz":"icehe"}' | jq '[.foo, .baz, .bar]'
 [
   123,
@@ -468,6 +495,7 @@ $ echo '{"foo":123,"bar":true,"baz":"icehe"}' | jq '[.foo, .baz, .bar]'
 ```
 
 ```bash
+# .items
 $ echo '{"items":[{"name":"app"},{"name":"boy"}]}' | jq '.items'
 [
   {
@@ -478,6 +506,7 @@ $ echo '{"items":[{"name":"app"},{"name":"boy"}]}' | jq '.items'
   }
 ]
 
+# .items[]
 $ echo '{"items":[{"name":"app"},{"name":"boy"}]}' | jq '.items[]'
 {
   "name": "app"
@@ -486,21 +515,24 @@ $ echo '{"items":[{"name":"app"},{"name":"boy"}]}' | jq '.items[]'
   "name": "boy"
 }
 
+# .items[.name]
 $ echo '{"items":[{"name":"app"},{"name":"boy"}]}' | jq '.items[.name]'
 jq: error (at <stdin>:1): Cannot index array with null
 
+# .items[].name
 $ echo '{"items":[{"name":"app"},{"name":"boy"}]}' | jq '.items[].name'
 "app"
 "boy"
 
+# [.items[].name]
 $ echo '{"items":[{"name":"app"},{"name":"boy"}]}' | jq '[.items[].name]'
 [
   "app",
   "boy"
 ]
 
-$ echo '{"owner":"cat","items":[{"name":"app"},{"name":"boy"}]}' \
-| jq '[.owner, .items[].name]'
+# [.owner, .items[].name]
+$ echo '{"owner":"cat","items":[{"name":"app"},{"name":"boy"}]}' | jq '[.owner, .items[].name]'
 # output
 [
   "cat",
@@ -508,7 +540,9 @@ $ echo '{"owner":"cat","items":[{"name":"app"},{"name":"boy"}]}' \
   "boy"
 ]
 
-$ echo '[1,2,3]' | jq '[.[] * 2]'                                                              [
+# [.[] * 2]
+$ echo '[1,2,3]' | jq '[.[] * 2]'
+[
   2,
   4,
   6
@@ -519,76 +553,69 @@ $ echo '[1,2,3]' | jq '[.[] * 2]'                                               
 
 `{}`
 
-- Like JSON, `{}` is for constructing objects (aka dictionaries or hashes), as in: `{"a": 42, "b": 17}`.
-If  the  keys are "identifier-like", then the quotes can be left off, as in {a:42, b:17}. Keys generated by
-       expressions need to be parenthesized, e.g., {("a"+"b"):59}.
+- Like JSON, `{}` is for **constructing objects (aka dictionaries or hashes)**, as in: `{"a": 42, "b": 17}`.
+    - If the keys are "identifier-like", then the quotes can be left off, as in `{a:42, b:17}`.
+    - **Keys generated by expressions need to be parenthesized**, e.g., `{("a"+"b"):59}`.
+- The value can be any expression (although you may need to wrap it in parentheses if it's a complicated one), which gets applied to the {} expression's input (remember, all filters have an input and an output).
 
-       The value can be any expression (although you may need to wrap it in  parentheses  if  it's  a  complicated
-       one),  which gets applied to the {} expression's input (remember, all filters have an input and an output).
+```bash
+# {foo: .bar}
+$ echo '{"bar":42, "baz":43}' | jq '{foo: .bar}'
+{
+  "foo": 42
+}
+```
 
+- You can use this to **select particular fields of an object** :
+    - if the input is an object with "user", "title", "id", and "content" fields and you just want "user" and "title".
+    - Because that is so common, there's a **shortcut syntax for it: `{user, title}`.**
 
+```bash
+# {user, title}
+$ echo '{"id":1,"user":"icehe","title":"vegetable","content":"nothing"}' | jq '{user, title}'
+{
+  "user": "icehe",
+  "title": "vegetable"
+}
+```
 
-           {foo: .bar}
+- If one of the expressions **produces multiple results**, multiple dictionaries will be produced.
 
+```bash
+# {user, title: .titles[]}
+$ echo '{"user":"stedolan","titles":["JQ Primer", "More JQ"]}' | jq '{user, title: .titles[]}'
+{
+  "user": "stedolan",
+  "title": "JQ Primer"
+}
+{
+  "user": "stedolan",
+  "title": "More JQ"
+}
+```
 
+- **Putting parentheses around the key means it will be evaluated as an expression**.
 
-       will produce the JSON object {"foo": 42} if given the JSON object {"bar":42, "baz":43} as  its  input.  You
-       can  use  this  to  select  particular fields of an object: if the input is an object with "user", "title",
-       "id", and "content" fields and you just want "user" and "title", you can write
+```bash
+# {(.user): .titles}
+$ echo '{"user":"stedolan","titles":["JQ Primer", "More JQ"]}' | jq '{(.user): .titles}'
+{
+  "stedolan": [
+    "JQ Primer",
+    "More JQ"
+  ]
+}
 
+# {(.user): .titles[]}
+$ echo '{"user":"stedolan","titles":["JQ Primer", "More JQ"]}' | jq '{(.user): .titles[]}'
+{
+  "stedolan": "JQ Primer"
+}
+{
+  "stedolan": "More JQ"
+}
+```
 
-
-           {user: .user, title: .title}
-
-
-
-       Because that is so common, there's a shortcut syntax for it: {user, title}.
-
-       If one of the expressions produces multiple results, multiple dictionaries will be produced. If the input's
-
-
-
-           {"user":"stedolan","titles":["JQ Primer", "More JQ"]}
-
-
-
-       then the expression
-
-
-
-           {user, title: .titles[]}
-
-will produce two outputs:
-
-
-
-           {"user":"stedolan", "title": "JQ Primer"}
-           {"user":"stedolan", "title": "More JQ"}
-
-
-
-       Putting  parentheses  around  the  key  means it will be evaluated as an expression. With the same input as
-       above,
-
-
-
-           {(.user): .titles}
-
-
-
-       produces
-
-
-
-           {"stedolan": ["JQ Primer", "More JQ"]}
-
-           jq '{user, title: .titles[]}'
-              {"user":"stedolan","titles":["JQ Primer", "More JQ"]}
-           => {"user":"stedolan", "title": "JQ Primer"}, {"user":"stedolan", "title": "More JQ"}
-
-           jq '{(.user): .titles}'
-              {"user":"stedolan","titles":["JQ Primer", "More JQ"]}
-           => {"stedolan": ["JQ Primer", "More JQ"]}
 ## Usage
 
 ### Sort Keys
