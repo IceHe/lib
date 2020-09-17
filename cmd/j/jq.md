@@ -1015,6 +1015,255 @@ $ echo '{"a": 1, "b": 2, "c": 3}' | jq 'map_values(. + 5)'
 }
 ```
 
+### Path
+
+`path(path_expression)`
+
+- **Outputs array representations of the given path expression** in `.`.
+    - The outputs are arrays of strings (object keys) and/or numbers (array indices).
+- Path expressions are jq expressions like `.a`, but also `.[]`.
+    - There are two types of path expressions : ones that can match exactly, and ones that cannot.
+    - For example, `.a.b.c` is an exact match path expression, while `.a[].b` is not.
+- `path(exact_path_expression)` will produce the array representation of the path expression even if it does not exist in `.`, if `.` is `null` or an array or an object.
+- `path(pattern)` will produce array representations of the paths matching `pattern` if the paths exist in `.`.
+- Note that the path expressions are not different from normal expressions.
+    - The expression `path(..|select(type=="boolean"))` outputs all the paths to boolean values in `.`, and only those paths.
+
+```bash
+# path(.a[0].b)
+$ echo null | jq 'path(.a[0].b)'
+[
+  "a",
+  0,
+  "b"
+]
+
+# path(..)
+$ echo '{"a":{"b":1}}' | jq 'path(..)'
+[]
+[
+  "a"
+]
+[
+  "a",
+  "b"
+]
+
+# path(..|select(type=="object"))
+$ echo '{"a":{"b": true, "c": "cat"}}' | jq 'path(..|select(type=="object"))'
+[]
+[
+  "a"
+]
+
+# path(..|select(type=="boolean"))
+$ echo '{"a":{"b": true, "c": "cat"}}' | jq 'path(..|select(type=="boolean"))'
+[
+  "a",
+  "b"
+]
+
+# path(..|select(type=="string"))
+$ echo '{"a":{"b": true, "c": "cat"}}' | jq 'path(..|select(type=="string"))'
+[
+  "a",
+  "c"
+]
+```
+
+### TODO
+
+- TBC
+
+## Conditionals and Comparisons
+
+### `==`, `!=`
+
+TODO
+
+## Regular Expressions ( PCRE )
+
+TODO
+
+## Advanced Features
+
+TODO
+
+## Others
+
+### Math
+
+       jq currently only has IEEE754 double-precision (64-bit) floating point number support.
+
+       Besides simple arithmetic operators such as +, jq also has most standard math functions from the C math library. C  math  func-
+       tions  that  take a single input argument (e.g., sin()) are available as zero-argument jq functions. C math functions that take
+       two input arguments (e.g., pow()) are available as two-argument jq functions that ignore .. C math functions  that  take  three
+       input arguments are available as three-argument jq functions that ignore ..
+
+       Availability  of standard math functions depends on the availability of the corresponding math functions in your operating sys-
+       tem and C math library. Unavailable math functions will be defined but will raise an error.
+
+       One-input C math functions: acos acosh asin asinh atan atanh cbrt ceil cos cosh erf erfc exp exp10 exp2 expm1 fabs floor  gamma
+       j0 j1 lgamma log log10 log1p log2 logb nearbyint pow10 rint round significand sin sinh sqrt tan tanh tgamma trunc y0 y1.
+
+       Two-input  C math functions: atan2 copysign drem fdim fmax fmin fmod frexp hypot jn ldexp modf nextafter nexttoward pow remain-
+       der scalb scalbln yn.
+
+       Three-input C math functions: fma.
+
+       See your system's manual for more information on each of these.
+
+### I/O
+
+       At this time jq has minimal support for I/O, mostly in the form of control over when inputs are read.  Two  builtins  functions
+       are  provided  for this, input and inputs, that read from the same sources (e.g., stdin, files named on the command-line) as jq
+       itself. These two builtins, and jq's own reading actions, can be interleaved with each other.
+
+       Two builtins provide minimal output capabilities, debug, and stderr. (Recall that a jq program's output values are always  out-
+       put  as  JSON  texts on stdout.) The debug builtin can have application-specific behavior, such as for executables that use the
+       libjq C API but aren't the jq executable itself. The stderr builtin outputs its input in raw mode to stder with  no  additional
+       decoration, not even a newline.
+
+       Most  jq  builtins  are  referentially  transparent,  and  yield constant and repeatable value streams when applied to constant
+       inputs. This is not true of I/O builtins.
+
+   input
+       Outputs one new input.
+
+   inputs
+       Outputs all remaining inputs, one by one.
+
+       This is primarily useful for reductions over a program's inputs.
+
+   debug
+       Causes a debug message based on the input value to be produced. The  jq  executable  wraps  the  input  value  with  ["DEBUG:",
+       <input-value>] and prints that and a newline on stderr, compactly. This may change in the future.
+
+   stderr
+       Prints its input in raw and compact mode to stderr with no additional decoration, not even a newline.
+
+   input_filename
+       Returns the name of the file whose input is currently being filtered. Note that this will not work well unless jq is running in
+       a UTF-8 locale.
+
+   input_line_number
+       Returns the line number of the input currently being filtered.
+
+### Streaming
+
+       With the --stream option jq can parse input texts in a streaming fashion, allowing jq programs to start processing  large  JSON
+       texts  immediately rather than after the parse completes. If you have a single JSON text that is 1GB in size, streaming it will
+       allow you to process it much more quickly.
+
+       However, streaming isn't easy to deal with as the jq program will have [<path>,  <leaf-value>]  (and  a  few  other  forms)  as
+       inputs.
+
+       Several builtins are provided to make handling streams easier.
+
+       The examples below use the streamed form of [0,[1]], which is [[0],0],[[1,0],1],[[1,0]],[[1]].
+
+       Streaming  forms  include [<path>, <leaf-value>] (to indicate any scalar value, empty array, or empty object), and [<path>] (to
+       indicate the end of an array or object). Future versions of jq run with --stream and -seq may output additional forms  such  as
+       ["error message"] when an input text fails to parse.
+
+   truncate_stream(stream_expression)
+       Consumes  a  number  as input and truncates the corresponding number of path elements from the left of the outputs of the given
+       streaming expression.
+
+
+
+           jq '[1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]])]'
+              1
+           => [[[0],2],[[0]]]
+
+
+
+   fromstream(stream_expression)
+       Outputs values corresponding to the stream expression's outputs.
+
+
+
+           jq 'fromstream(1|truncate_stream([[0],1],[[1,0],2],[[1,0]],[[1]]))'
+              null
+           => [2]
+
+
+
+   tostream
+       The tostream builtin outputs the streamed form of its input.
+
+
+
+           jq '. as $dot|fromstream($dot|tostream)|.==$dot'
+              [0,[1,{"a":1},{"b":2}]]
+           => true
+
+### Colors
+
+       To configure alternative colors just set the JQ_COLORS environment variable to colon-delimited list of partial terminal  escape
+       sequences like "1;31", in this order:
+
+       o   color for null
+
+       o   color for false
+
+       o   color for true
+
+       o   color for numbers
+
+       o   color for strings
+
+       o   color for arrays
+
+       o   color for objects
+
+
+
+       The default color scheme is the same as setting "JQ_COLORS=1;30:0;39:0;39:0;39:0;32:1;39:1;39".
+
+       This  is  not  a manual for VT100/ANSI escapes. However, each of these color specifications should consist of two numbers sepa-
+       rated by a semi-colon, where the first number is one of these:
+
+       o   1 (bright)
+
+       o   2 (dim)
+
+       o   4 (underscore)
+
+       o   5 (blink)
+
+       o   7 (reverse)
+
+       o   8 (hidden)
+
+
+
+       and the second is one of these:
+
+       o   30 (black)
+
+       o   31 (red)
+
+       o   32 (green)
+
+       o   33 (yellow)
+
+       o   34 (blue)
+
+       o   35 (magenta)
+
+       o   36 (cyan)
+
+       o   37 (white)
+
+## ASSIGNMENT
+
+TODO
+
+## Modules
+
+TODO
+
 ## Usage
 
 ### Sort Keys
