@@ -1961,6 +1961,40 @@ $ echo '[1,2,3,4]' | jq 'reverse'
 ]
 ```
 
+### Contains
+
+`contains(element)`
+
+- The filter `contains(b)` will **produce true if b is completely contained within the input.**
+    - A **string** B is contained in a string A if B is a **substring** of A.
+    - An **array** B is contained in an array A if all elements in B are contained in  any  element  in  A.
+    - An **object**  B is contained in object A if all of the values in B are **contained in the value in A with the same key**.
+    - All other types are assumed to be contained in each other if they are equal.
+
+```bash
+# contains("bar")
+$ echo '"foobar"' | jq 'contains("bar")'
+true
+
+# contains(["baz", "bar"])
+$ echo '["foobar", "foobaz", "blarp"]' | jq 'contains(["baz", "bar"])'
+true
+# _( icehe : 这个结果, 出乎我的意料, 我没准备理解… )_
+
+# contains(["bazz", "bar"])
+$ echo '["foobar", "foobaz", "blarp"]' | jq 'contains(["bazz", "bar"])'
+false
+
+# contains({foo: 12, bar: [{barp: 12}]})
+$ echo '{"foo": 12, "bar":[1,2,{"barp":12, "blip":13}]}' | jq 'contains({foo: 12, bar: [{barp: 12}]})'
+true
+
+# contains({foo: 12, bar: [{barp: 15}]})
+$ echo '{"foo": 12, "bar":[1,2,{"barp":12, "blip":13}]}' | jq 'contains({foo: 12, bar: [{barp: 15}]})'
+false
+
+```
+
 ### TODO
 
 - TBC
