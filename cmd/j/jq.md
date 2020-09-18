@@ -395,7 +395,9 @@ $ echo '{"a":1, "b":2}' | jq '.[]'
 2
 ```
 
-### _`.[]?`_
+### Optional Array/Object Value Iterator
+
+`.[]?`
 
 - Like `.[]`, but **no errors will be output if `.` is not an array or object.**
 
@@ -1174,6 +1176,791 @@ $ echo '{"a":{"b":1},"x":{"y":2}}' | jq 'delpaths([["a", "b"]])'
 }
 ```
 
+### Entries
+
+`to_entries`, `from_entries`, `with_entries`
+
+- These functions **convert between an object and an array of key-value pairs.**
+    - If **`to_entries` is passed an object, then for each `k:v` entry in the input, the output array includes `{"key": k, "value": v}`.**
+    - **`from_entries` does the opposite conversion**,
+    - and **`with_entries(foo)` is a shorthand for `to_entries | map(foo) | from_entries`**, useful for doing some operation to all keys and values of an object.
+    - `from_entries` accepts key, Key, name, Name, value and Value as keys.
+
+```bash
+# to_entries
+$ echo '{"a": 1, "b": 2}' | jq 'to_entries'
+[
+  {
+    "key": "a",
+    "value": 1
+  },
+  {
+    "key": "b",
+    "value": 2
+  }
+]
+
+# from_entries
+$ echo '[{"key":"a", "value":1}, {"key":"b", "value":2}]' | jq 'from_entries'
+{
+  "a": 1,
+  "b": 2
+}
+
+# with_entries(.key |= "KEY_" + .)
+$ echo '{"a": 1, "b": 2}' | jq 'with_entries(.key |= "KEY_" + .)'
+{
+  "KEY_a": 1,
+  "KEY_b": 2
+}
+
+# with_entries(.value |= . + 2)
+$ echo '{"a": 1, "b": 2}' | jq 'with_entries(.value |= . + 2)'
+{
+  "a": 3,
+  "b": 4
+}
+```
+
+### Select
+
+`select(boolean_expression)`
+
+- The function `select(foo)` produces its input unchanged if `foo` returns true for that input, and produces no output otherwise.
+    - It's useful for filtering lists: `[1,2,3] | map(select(. >= 2))` will give you `[2,3]`.
+
+```bash
+# map(select(. >= 3))
+$ echo '[1,5,3,0,7]' | jq 'map(select(. >= 3))'
+[
+  5,
+  3,
+  7
+]
+
+# map(select(.val < 2))
+$ echo '[{"id": "first", "val": 1}, {"id": "second", "val": 2}]' | jq 'map(select(.val < 2))'
+[
+  {
+    "id": "first",
+    "val": 1
+  }
+]
+```
+
+### Built-in Select
+
+`arrays`, `objects`, `iterables`, `booleans`, `numbers`, `normals`, `finites`, `strings`, `nulls`, `values`, `scalars`
+
+- These built-ins select only inputs that are arrays, objects, iterables (arrays or objects), booleans, numbers, normal numbers, finite numbers, strings, null, non-null values, and non-iterables, respectively.
+
+```bash
+# .[] | arrays
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | arrays'
+[]
+
+# .[] | objects
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | objects'
+{}
+
+# .[] | iterables
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | iterables'
+[]
+{}
+
+# .[] | booleans
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | booleans'
+true
+false
+
+# .[] | numbers
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | numbers'
+1
+
+# .[] | normals
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | normals'
+1
+
+# .[] | finites
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | finites'
+1
+
+# .[] | strings
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | strings'
+"foo"
+
+# .[] | nulls
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | nulls'
+null
+
+# .[] | values
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | values'
+[]
+{}
+1
+"foo"
+true
+false
+
+# .[] | scalars
+$ echo '[[],{},1,"foo",null,true,false]' | jq '.[] | scalars'
+1
+"foo"
+null
+true
+false
+```
+
+### Empty
+
+`empty`
+
+- `empty` returns no results.
+    - None at all.
+    - Not even null.
+- It's useful on occasion.
+    - You'll know if you need it :)
+
+```bash
+# 1, empty, 2
+$ echo null | jq '1, empty, 2'
+1
+2
+
+# [1, 2, empty, 3]
+$ echo null | jq '[1, 2, empty, 3]'
+[
+  1,
+  2,
+  3
+]
+```
+
+### Error Message
+
+`error(message)`
+
+- **Produces an error**, just like `.a` applied to values other than null and objects would, but with the given message as the error's value.
+    - Errors can be caught with try/catch; see below.
+
+```bash
+# error("some exception")
+$ echo null | jq 'error("some exception")'
+jq: error (at <stdin>:1): some exception
+
+# try error("some exception") catch .
+$ echo null | jq 'try error("some exception") catch .'
+"some exception"
+```
+
+### Halt
+
+`halt`
+
+- **Stops the jq program with no further outputs.**
+    - jq will exit with exit status `0`.
+
+`halt_error`, `halt_error(exit_code)`
+
+- **Stops the jq program with no further outputs.**
+    - The input will be printed on `stderr` as raw output (i.e., strings will not have double quotes) with no decoration, not even a newline.
+- The given `exit_code` (defaulting to `5`) will be jq's exit status.
+- For example, `"Error: somthing went wrong\n"|halt_error(1)`.
+
+### _Location_
+
+`$__loc__`
+
+- Produces an object with a "file" key and a "line" key, with the filename and line number where `$__loc__` occurs, as values.
+
+```bash
+# WRONG
+# try error("\($__loc__\)") catch .
+$ echo null | jq 'try error("\($__loc__\)") catch .'
+jq: error: syntax error, unexpected INVALID_CHARACTER (Unix shell quoting issues?) at <top-level>, line 1:
+try error("\($__loc__\)") catch .
+jq: 1 compile error
+
+# WRONG
+# try error("($__loc__)") catch .
+$ echo null | jq 'try error("($__loc__)") catch .'
+"($__loc__)"
+
+# CORRECT
+# try error("\($__loc__)") catch .
+$ echo null | jq 'try error("\($__loc__)") catch .'
+"{\"file\":\"<top-level>\",\"line\":1}"
+```
+
+- _( icehe : 用得不太明白 )_
+
+### Paths
+
+`paths`, `paths(node_filter)`, _`leaf_paths`_
+
+- **`paths` outputs the paths to all the elements in its input** (except it does not output the empty list, representing `. itself).`
+- **`paths(f)` outputs the paths to any values for which f is true.**
+    - That is, `paths(numbers)` outputs the paths to all numeric values.
+- _`leaf_paths` is an alias of `paths(scalars)`;_
+    - _`leaf_paths` is deprecated and will be removed in the next major release._
+
+```bash
+# paths
+$ echo '[1, [[], {"a": 2}]]' | jq 'paths'
+[
+  0
+]
+[
+  1
+]
+[
+  1,
+  0
+]
+[
+  1,
+  1
+]
+[
+  1,
+  1,
+  "a"
+]
+
+# paths(scalars)
+$ echo '[1,[[],{"a":2}]]' | jq 'paths(scalars)'
+[
+  0
+]
+[
+  1,
+  1,
+  "a"
+]
+```
+
+### Add
+
+`add`
+
+- The **filter `add` takes as input an array, and produces as output the elements of the array added together.**
+    - This might mean **summed, concatenated or merged depending on the types of the elements of the input array - the rules are the same as those for the `+` operator** (described above).
+- If the input is an empty array, add returns null.
+
+```bash
+# add
+$ echo '["a","b","c"]' | jq 'add'
+"abc"
+
+$ echo '[1, 2, 3]' | jq 'add'
+6
+
+$ echo '[]' | jq 'add'
+null
+
+$ echo '[1, 2, "c"]' | jq 'add'
+# throw error
+jq: error (at <stdin>:1): number (3) and string ("c") cannot be added
+```
+
+### Any
+
+`any`, `any(condition)`, `any(generator; condition)`
+
+- **The filter `any` takes as input an array of boolean values, and produces `true` as output if any of the elements of the array are `true`.**
+- If **the input is an empty array, `any` returns `false`.**
+- The **`any(condition)` form applies the given condition to the elements of the input array.**
+- The **`any(generator; condition)` form applies the given condition to all the outputs of the given generator.**
+
+```bash
+# any
+$ echo '[true, false]' | jq 'any'
+true
+
+$ echo '[false, false]' | jq 'any'
+false
+
+$ echo '[]' | jq 'any'
+false
+
+# any(. > 3)
+$ echo '[1, 2, 3]' | jq 'any(. > 3)'
+false
+
+# any(. > 2)
+$ echo '[1, 2, 3]' | jq 'any(. > 2)'
+true
+
+# _( icehe : 以下两个例子不知道用得对不对… )_
+
+# any((.[] | . * 2); . > 6)
+$ echo '[1, 2, 3]' | jq 'any((.[] | . * 2); . > 6)'
+false
+
+# any((.[] | . * 2); . > 5)
+$ echo '[1, 2, 3]' | jq 'any((.[] | . * 2); . > 5)'
+true
+```
+
+### All
+
+`all`, `all(condition)`, `all(generator; condition)`
+
+- **The filter `all` takes as input an array of boolean values, and produces true as output if all of the elements of the array are true.**
+- The **`all(condition)` form applies the given condition to the elements of the input array.**
+- The **`all(generator; condition)` form applies the given condition to all the outputs of the given generator.**
+    - If **the input is an empty array, all returns `true`.**
+
+```bash
+# all
+$ echo '[true, false]' | jq 'all'
+false
+
+$ echo '[true, true]' | jq 'all'
+true
+
+$ echo '[]' | jq 'all'
+true
+
+# all(. <= 2)
+$ echo '[1, 2, 3]' | jq 'all(. <= 2)'
+false
+
+# all(. <= 3)
+$ echo '[1, 2, 3]' | jq 'all(. <= 3)'
+true
+
+# _( icehe : 以下两个例子不知道用得对不对… )_
+
+# all((.[] | . * 2); . <= 5)
+$ echo '[1, 2, 3]' | jq 'all((.[] | . * 2); . <= 5)'
+false
+
+# all((.[] | . * 2); . <= 6)
+$ echo '[1, 2, 3]' | jq 'all((.[] | . * 2); . <= 6)'
+true
+```
+
+### Flatten
+
+`flatten`, `flatten(depth)`
+
+- The **filter `flatten` takes as input an array of nested arrays, and produces a flat array in which all arrays inside the original array have been recursively replaced by their values.**
+    - You can pass an argument to it to specify how many levels of nesting to flatten.
+- `flatten(2)` is like `flatten`, but going only up to two levels deep.
+
+```bash
+# flatten
+$ echo '[1, [2], [[3]]]' | jq 'flatten'
+[
+  1,
+  2,
+  3
+]
+
+# flatten(1)
+$ echo '[1, [2], [[3]]]' | jq 'flatten(1)'
+[
+  1,
+  2,
+  [
+    3
+  ]
+]
+
+# flatten
+$ echo '[[]]' | jq 'flatten'
+[]
+
+# flatten
+$ echo '[{"foo": "bar"}, [{"ice": "he"}]]' | jq 'flatten'
+[
+  {
+    "foo": "bar"
+  },
+  {
+    "ice": "he"
+  }
+]
+```
+
+### Range
+
+`range(upto)`, `range(from;upto)`, `range(from;upto;by)`
+
+- The function **`range` produces a range of numbers.**
+    - `range(4;10)` produces 6 numbers, from 4 (inclusive) to 10 (exclusive).
+    - The numbers are **produced as separate outputs.**
+    - Use **`[range(4;10)]` to get a range as an array.**
+- **The one argument form generates numbers from 0 to the given number**, with an increment of 1.
+- **The two argument form generates numbers from from to upto** with an increment of 1.
+- **The three argument form generates numbers from to upto with an increment of by.**
+
+```bash
+# range(1;3)
+$ echo null | jq 'range(1;3)'
+1
+2
+
+# [range(1;3)]
+$ echo null | jq '[range(1;3)]'
+[
+  1,
+  2
+]
+
+# [range(3)]
+$ echo null | jq '[range(3)]'
+[
+  0,
+  1,
+  2
+]
+
+# [range(0;10;3)]
+$ echo null | jq '[range(0;10;3)]'
+[
+  0,
+  3,
+  6,
+  9
+]
+
+# [range(0;10;-1)]
+$ echo null | jq '[range(0;10;-1)]'
+[]
+
+# [range(0;-5;-1)]
+$ echo null | jq '[range(0;-5;-1)]'
+[
+  0,
+  -1,
+  -2,
+  -3,
+  -4
+]
+```
+
+### Floor
+
+`floor`
+
+- The function **`floor` returns the floor of its numeric input.**
+
+```bash
+# floor
+$ echo '3.14159' | jq 'floor'
+3
+
+# ceil
+$ echo '3.14159' | jq 'ceil'
+4
+```
+
+### Sqrt
+
+`sqrt`
+
+- The function **`sqrt` returns the square root of its numeric input.**
+
+```bash
+# sqrt
+$ echo '9' | jq 'sqrt'
+3
+
+$ echo '2' | jq 'sqrt'
+1.4142135623730951
+
+$ echo '-3' | jq 'sqrt'
+null
+```
+
+### To Number
+
+`tonumber`
+
+- The   function **`tonumber` parses its input as a number.**
+    - It will **convert correctly-formatted strings to their numeric equivalent, leave numbers alone, and give an error on all other input.**
+
+```bash
+# map(tonumber)
+$ echo '[1, "2"]' | jq 'map(tonumber)'
+[
+  1,
+  2
+]
+
+# map(tonumber)
+$ echo '[null, 1, "2"]' | jq 'map(tonumber)'
+jq: error (at <stdin>:1): null (null) cannot be parsed as a number
+
+# map(tonumber?)
+$ echo '[null, 1, "2"]' | jq 'map(tonumber?)'
+[
+  1,
+  2
+]
+```
+
+### To String
+
+`tostring`
+
+- The function **`tostring` prints its input as a string.**
+    - **Strings are left unchanged, and all other values are JSON-encoded.**
+
+```bash
+# map(tostring)
+$ echo '[null, 1, "2", [3]]' | jq 'map(tostring)'
+[
+  "null",
+  "1",
+  "2",
+  "[3]"
+]
+```
+
+### Type
+
+`type`
+
+- The function **`type` returns the type of its argument as a string**, which is one of null, boolean, number, string, array or object.
+
+```bash
+# map(type)
+$ echo '[0, 3.14, false, [], {}, null, "hello"]' | jq 'map(type)'
+[
+  "number",
+  "number",
+  "boolean",
+  "array",
+  "object",
+  "null",
+  "string"
+]
+```
+
+### Infinite
+
+`infinite`, `nan`, `isinfinite`, `isnan`, `isfinite`, `isnormal`
+
+- Some arithmetic operations can **yield infinities and "not a number" (NaN)** values.
+    - The **`isinfinite` builtin returns true if its input is infinite.**
+    - The **`isnan` builtin returns true if its input is a NaN.**
+    - The **`infinite` builtin returns a positive infinite value.**
+    - The **`nan` builtin returns a NaN.**
+    - The **`isnormal` builtin returns true if its input is a normal number.**
+- Note that division by zero raises an error.
+- Currently most arithmetic operations operating on infinities, NaNs, and sub-normals do not raise errors.
+
+```bash
+# .[] | (infinite * .) < 0
+$ echo '[-1, 1]' | jq '.[] | (infinite * .) < 0'
+true
+false
+
+# [infinite, nan] | type
+$ echo null | jq '[infinite, nan] | type'
+"array"
+
+# infinite, nan | type
+$ echo null | jq 'infinite, nan | type'
+"number"
+"number"
+
+# infinite, nan | isinfinite
+$ echo null | jq 'infinite, nan | isinfinite'
+true
+false
+
+# infinite, nan | isnan
+$ echo null | jq 'infinite, nan | isnan'
+false
+true
+
+# infinite, nan | isnormal
+$ echo null | jq 'infinite, nan | isnormal'
+false
+false
+```
+
+### Sort By
+
+`sort`, `sort_by(path_expression)`
+
+- The **`sort` functions sorts its input, which must be an array.**
+- Values are sorted in the following order:
+    - null
+    - false
+    - true
+    - numbers
+    - strings, in alphabetical order (by unicode codepoint value)
+    - arrays, in lexical order
+    - objects
+- The ordering for objects is a little complex :
+    - first they're compared by comparing their sets of keys (as arrays in sorted order),
+    - and if their keys are equal then the values are compared key by key.
+- `sort` may be used to sort by a particular field of an object, or by applying any jq filter.
+- `sort_by(foo)` compares two elements by comparing the result of foo on each element.
+
+```bash
+# sort
+$ echo '[8,3,null,6]' | jq 'sort'
+[
+  null,
+  3,
+  6,
+  8
+]
+
+# sort_by(.foo)
+$ echo '[{"foo":2, "bar":8}, {"foo":1, "bar":100}, {"foo":3, "bar":99}]' | jq 'sort_by(.foo)'
+[
+  {
+    "foo": 1,
+    "bar": 100
+  },
+  {
+    "foo": 2,
+    "bar": 8
+  },
+  {
+    "foo": 3,
+    "bar": 99
+  }
+]
+```
+
+### Group By
+
+`group_by(path_expression)`
+
+- **`group_by(.foo)` takes as input an array, groups the elements having the same `.foo` field into separate arrays, and produces all of these arrays as elements of a larger array, sorted by the value of the `.foo` field.**
+- Any jq expression, not just a field access, may be used in place of `.foo`.
+    - The sorting order is the same as described in the sort function above.
+
+```bash
+# group_by(.foo)
+$ echo '[{"foo":1, "bar":6}, {"foo":3, "bar":77}, {"foo":1, "bar":888}]' | jq 'group_by(.foo)'
+[
+  [
+    {
+      "foo": 1,
+      "bar": 6
+    },
+    {
+      "foo": 1,
+      "bar": 888
+    }
+  ],
+  [
+    {
+      "foo": 3,
+      "bar": 77
+    }
+  ]
+]
+
+# group_by(.foo)[] | [{foo: .[0].foo, bar: map(.bar)}]
+echo '[{"foo":"a", "bar":50}, {"foo":"b", "bar":99}, {"foo":"a", "bar":100}]' | jq 'group_by(.foo) | .[] | [{foo: .[0].foo, bar:.[].bar}]'
+# same as
+echo '[{"foo":"a", "bar":50}, {"foo":"b", "bar":99}, {"foo":"a", "bar":100}]' | jq 'group_by(.foo)[] | [{foo: .[0].foo, bar: map(.bar)}]'
+[
+  {
+    "foo": "a",
+    "bar": [
+      50,
+      100
+    ]
+  }
+]
+[
+  {
+    "foo": "b",
+    "bar": [
+      99
+    ]
+  }
+]
+```
+
+### Min and Max
+
+`min`, `max`, `min_by(path_exp)`, `max_by(path_exp)`
+
+- **Find the minimum or maximum element of the input array.**
+- The `min_by(path_exp)` and `max_by(path_exp)` functions allow you to specify a particular field or property to examine, e.g. `min_by(.foo)` finds the object with the smallest `foo` field.
+
+```bash
+# min
+$ echo '[5,4,2,7]' | jq 'min'
+2
+
+# max_by(.bar)
+$ echo '[{"foo":1, "bar":14}, {"foo":2, "bar":3}]' | jq 'max_by(.bar)'
+{
+  "foo": 1,
+  "bar": 14
+}
+```
+
+### Uniq By
+
+`unique`, `unique_by(path_exp)`
+
+- The `unique` function **takes as input an array and produces an array of the same elements, in sorted order, with duplicates removed.**
+- The `unique_by(path_exp)` function will keep only one element for each value obtained by applying the argument.
+    - Think of it as making an array by taking one element out of every group produced by group.
+
+```bash
+# unique
+$ echo '[1,2,5,3,5,3,1,3]' | jq 'unique'
+[
+  1,
+  2,
+  3,
+  5
+]
+
+# unique_by(.foo)
+$ echo '[{"foo": 1, "bar": 2}, {"foo": 1, "bar": 3}, {"foo": 4, "bar": 5}]' | jq 'unique_by(.foo)'
+[
+  {
+    "foo": 1,
+    "bar": 2
+  },
+  {
+    "foo": 4,
+    "bar": 5
+  }
+]
+
+# unique_by(length)
+$ echo '["chunky", "bacon", "kitten", "cicada", "asparagus"]' | jq 'unique_by(length)'
+[
+  "bacon",
+  "chunky",
+  "asparagus"
+]
+```
+
+### Reverse
+
+`reverse`
+
+- This function **reverses an array.**
+
+```bash
+# reverse
+$ echo '[1,2,3,4]' | jq 'reverse'
+[
+  4,
+  3,
+  2,
+  1
+]
+```
+
 ### TODO
 
 - TBC
@@ -1185,6 +1972,86 @@ $ echo '{"a":{"b":1},"x":{"y":2}}' | jq 'delpaths([["a", "b"]])'
 `==`, `!=`
 
 TODO
+
+### try-catch
+
+- Errors can be caught by using `try EXP catch EXP`.
+    - The **first expression is executed, and if it fails then the second is executed with the error message.**
+    - The output of the handler, if any, is output as if it had been the output of the expression to try.
+- The **`try EXP` form uses `empty` as the exception handler.**
+
+```bash
+# try .a catch ".a is not an object"
+$ echo '{"a": 1}' | jq 'try .a catch ".a is not an object"'
+1
+
+# try .a catch ".a is not an object"
+$ echo '{}' | jq 'try .a catch ".a is not an object"'
+null
+
+# .[] | try .a
+$ echo '[{}, true, {"a": 1}]' | jq '.[] | try .a'
+null
+1
+
+# try error("some exception") catch .
+$ echo 'true' | jq 'try error("some exception") catch .'
+"some exception"
+```
+
+### Breaking out of control structures
+
+- A convenient use of try/catch is to break out of control structures like `reduce`, `foreach`, `while`, and so on.
+- For example:
+
+```bash
+# Repeat an expression until it raises "break" as an
+# error, then stop repeating without re-raising the error.
+# But if the error caught is not "break" then re-raise it.
+try repeat(exp) catch .=="break" then empty else error;
+```
+
+jq has a syntax for named lexical labels to "break" or "go (back) to":
+
+```bash
+label $out | ... break $out ...
+```
+
+- The `break $label_name` expression will cause the program to to act as though the nearest (to the left) `label $label_name` produced empty.
+- The relationship between the `break` and corresponding `label` is lexical: the label has to be "visible" from the break.
+- To break out of a reduce, for example:
+
+```bash
+label $out | reduce .[] as $item (null; if .==false then break $out else ... end)
+```
+
+The following jq program produces a syntax error:
+
+```bash
+break $out
+```
+
+- because no label `$out` is visible.
+
+### Error Suppression / Optional Operator
+
+`?`
+
+- The **`?` operator, used as `EXP?`, is shorthand for `try EXP`.**
+
+```bash
+# .[] | .a?
+$ echo '[{}, true, {"a":1}]' | jq '.[] | .a?'
+null
+1
+
+# map(.a?)
+$ echo '[{}, true, {"a":1}]' | jq 'map(.a?)'
+[
+  null,
+  1
+]
+```
 
 ## Regular Expressions ( PCRE )
 
@@ -1217,7 +2084,6 @@ jq currently only has **IEEE754 double-precision (64-bit) floating point number 
 _( icehe : 还算用得上, 至少得知道能做这些操作 )_
 
 - **Common Functions** : `ceil fabs floor round pow`
-
 
 ### _I/O_
 
