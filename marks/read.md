@@ -373,6 +373,7 @@
 - Not Mentioned Above.
     - [《The Power of Less》书摘](/read/power-of-less.md)
     - [《反脆弱》书摘](/read/anti-fragile.md)
+    - [Survive SJTU Manual](/read/survive-sjtu-manual.md)
 
 ## 后记
 
