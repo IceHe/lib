@@ -24,7 +24,7 @@
     - **客户合作** 高于 ~~合同谈判~~
     - **响应变化** 高于 ~~遵循计划~~
 
-> ### Manifesto for Agile Software Development
+> **Manifesto for Agile Software Development**
 >
 > We are uncovering better ways of developing
 > software by doing it and helping others do it.
@@ -124,7 +124,7 @@
 
 - _icehe : 在一般公司里这么干, 恐怕会被解雇…_
 
-### 业务实践
+### 第三章 业务实践
 
 三元分析
 
