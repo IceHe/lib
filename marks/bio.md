@@ -127,6 +127,8 @@ Web
 - 「华工教学云平台」Windows 客户端 ( C++ Qt GUI ) ，及 Linux 服务端的部分功能
 - _C , C++ , Qt Framework , CentOS 6.5_
 
+<!--
+
 **毕业设计 - [基于进程安全测量的安全管理](https://github.com/IceHe/secure-mgt-by-dyn-measuring)** _2015.03 ~ 2015.05_
 
 - 包括 : [安全测量模块](https://github.com/IceHe/dimm) ( Linux Loadable Kernel Module ) 、[安全管理器](https://github.com/IceHe/secure-monitor) ( Qt GUI )
@@ -134,6 +136,8 @@ Web
     - 得出定长的信息摘要作为特征值 ( 方便比对 ) ，去比对标准特征值，
     - 便可判断进程是否被篡改，或程序是否被替换
 - _C , C++ , Loadable Kernel Module , CentOS 7 , Qt Framework_
+
+-->
 
 ---
 
