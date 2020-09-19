@@ -622,6 +622,7 @@ Reference : https://www.computerhope.com/keys.htm
 - RISC : Reduced Instruction-Set Computer 精简指令集计算机
 - rm : remove
 - rn : rename
+- ROI : Return On Investment 投资回报率
 - rst : result | reset 重置 ( for TCP )
 - rsp : response
 - rt : realtime
