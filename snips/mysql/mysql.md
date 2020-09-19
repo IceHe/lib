@@ -142,7 +142,7 @@ e.g.
 mysql> set global slow_query_log=1;
 Query OK, 0 rows affected (0.00 sec)
 
-mysql> mysql> show variables like '%slow%';
+mysql> show variables like '%slow%';
 +---------------------------+--------------------------------------------+
 | Variable_name             | Value                                      |
 +---------------------------+--------------------------------------------+
