@@ -230,8 +230,7 @@ $ echo '{}' | jq '.'
 - A filter of the form `.foo.bar` is equivalent to `.foo|.bar`.
 - _This syntax only works for simple, identifier-like keys, that is, keys that are all made of alphanumeric characters and underscore, and which do not start with a digit._
 - **If the key contains special characters**, you need to **surround it with double quotes** like this: `."foo$"`, or else `.["foo$"]`.
-- For example `.["foo::bar"]` and `.["foo.bar"]` work while .foo::bar does not, and .foo.bar means
-.["foo"].["bar"].
+- For example `.["foo::bar"]` and `.["foo.bar"]` work while .foo::bar does not, and .foo.bar means .["foo"].["bar"].
 
 ```bash
 # .foo
