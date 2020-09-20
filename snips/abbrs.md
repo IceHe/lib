@@ -208,6 +208,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cb : char block? ( for Linux )
 - chan : channel ( for Go )
 - chk : check
+- CI/CD : Continuous Integration / Continuous Delivery (持续集成/持续交付)
 - CIP : Client IP
 - cjk : Chinese, Japenese and Korean languages (中日韩)
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
