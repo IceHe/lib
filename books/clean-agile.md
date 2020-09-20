@@ -245,6 +245,33 @@
 
 - _icehe : 有时负责别的服务的同事说我的接口行为有误, 我怎么找都找不着 bug; 后来只能 review 和测试提出问题的那个同事的项目代码, 才找到原因, bug 就在他那里…_
 
+站会
+
+> 多年来, 人们对 "每日 Scrum" ( Daily Scrum ) 或 "站会" 有很多困惑. 现在让我来消除所有的困惑.
+>
+> 以下内容对于站会都是成立的.
+>
+> - 该会议是可选的. 许多团队不开这个会也会过得挺好.
+> - 不一定每天都开. 选择合理的时间间隔.
+> - 即使是大型团队, 也只花 10 分钟左右.
+> - 改会议遵循一个简单的议程.
+>
+> 基本思路是团队成员站成一圈, 并回答 3 个问题 :
+>
+> - 1\. **上次会议之后我做了什么?**
+> - 2\. **下次会议之前我将做什么?**
+> - 3\. **什么阻碍了我?**
+>
+> **就这么多. 不要讨论, 不要装腔作势, 不要深入解释, 不要藏着掖着或带着情绪的表达, 也不要发牢骚或八卦. 每个人都有 30 秒左右的时间来回答这 3 个问题. 然后会议结束, 大家都回去干活.** 就这样结束了. 完事了. 懂了吗?
+>
+> 沃德的维基页面上的 ["Stand Up Meeting"](https://en.wikipedia.org/wiki/Stand-up_meeting) 词条可能是对站会的最佳描述
+
+- https://en.wikipedia.org/wiki/Stand-up_meeting
+
+> A **stand-up meeting** (or simply "stand-up") is a meeting in which attendees typically participate while standing. The **discomfort of standing for long periods is intended to <u>keep the meetings short</u>**.
+>
+>
+
 ## 读者跋
 
 - icehe : 有冲动想用 "敏捷" 的方式来管理个人生活.
