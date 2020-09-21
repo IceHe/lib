@@ -1991,12 +1991,723 @@ true
 # contains({foo: 12, bar: [{barp: 15}]})
 $ echo '{"foo": 12, "bar":[1,2,{"barp":12, "blip":13}]}' | jq 'contains({foo: 12, bar: [{barp: 15}]})'
 false
+```
+
+### Indices
+
+`indices(s)`
+
+- Outputs an **array containing the indices in `.` where `s` occurs.**
+    - The input may be an array, in which case if s is an array then the indices output will be those where all elements in `.` match those of `s`.
+
+```bash
+# indices(", ")
+$ echo '"a,b, cd, efg, hijk"' | jq 'indices(", ")'
+[
+  3,
+  7,
+  12
+]
+
+# indices(1)
+$ echo '[0,1,2,1,3,1,4]' | jq 'indices(1)'
+[
+  1,
+  3,
+  5
+]
+
+#  indices([1,2])
+$ echo '[0,1,2,3,1,4,2,5,1,2,6,7]' | jq 'indices([1,2])'
+[
+  1,
+  8
+]
+```
+
+### Index and Reverse Index
+
+`index(s)`, `rindex(s)`
+
+- Outputs the **index of the first (`index`) or last (`rindex`) occurrence of `s` in the input.**
+
+```bash
+# index(", ")
+$ echo '"a,b, cd, efg, hijk"' | jq 'index(", ")'
+3
+
+# rindex(", ")
+$ echo '"a,b, cd, efg, hijk"' | jq 'rindex(", ")'
+12
+```
+
+### Inside
+
+`inside`
+
+- The filter `inside(b)` will produce true **if the input is completely contained within `b`.**
+    - It is, essentially, an **inversed version of `contains`.**
+
+```bash
+# inside("foobar")
+$ echo '"bar"' | jq 'inside("foobar")'
+true
+
+# inside(["foobar", "foobaz", "blarp"])
+$ echo '["baz", "bar"]' | jq 'inside(["foobar", "foobaz", "blarp"])'
+true
+
+# inside(["foobar", "foobaz", "blarp"])
+$ echo '["bazzzzz", "bar"]' | jq 'inside(["foobar", "foobaz", "blarp"])'
+false
+
+# inside({"foo": 12, "bar":[1,2,{"barp":12, "blip":13}]})
+$ echo '{"foo": 12, "bar": [{"barp": 12}]}' | jq 'inside({"foo": 12, "bar":[1,2,{"barp":12, "blip":13}]})'
+true
+
+# inside({"foo": 12, "bar":[1,2,{"barp":12, "blip":13}]})
+$ echo '{"foo": 12, "bar": [{"barp": 15}]}' | jq 'inside({"foo": 12, "bar":[1,2,{"barp":12, "blip":13}]})'
+false
 
 ```
 
-### TODO
+### Starts With
 
-- TBC
+`startswith(str)`
+
+- Outputs true **if `.` starts with the given string argument.**
+
+```bash
+# map(startswith("foo"))
+$ echo '["fo", "foo", "barfoo", "foobar", "barfoob"]' | jq 'map(startswith("foo"))'
+[
+  false,
+  true,
+  false,
+  true,
+  false
+]
+```
+
+### Ends With
+
+`endswith(str)`
+
+- Outputs true **if `.` ends with the given string argument.**
+
+```bash
+# map(endswith("foo"))
+$ echo '["foobar", "barfoo"]' | jq 'map(endswith("foo"))'
+[
+  false,
+  true
+]
+```
+
+### Combinations
+
+`combinations`, `combinations(n)`
+
+- Outputs **all combinations of the elements of the arrays in the input array.**
+    - If given an argument `n`, it outputs **all  combinations of `n` repetitions of the input array.**
+
+```bash
+# combinations
+$ echo '[[1,2], [3, 4]]' | jq 'combinations'
+[
+  1,
+  3
+]
+[
+  1,
+  4
+]
+[
+  2,
+  3
+]
+[
+  2,
+  4
+]
+
+# combinations(2)
+$ echo '[0,1]' | jq 'combinations(2)'
+[
+  0,
+  0
+]
+[
+  0,
+  1
+]
+[
+  1,
+  0
+]
+[
+  1,
+  1
+]
+
+```
+
+### Left Trim
+
+`ltrimstr(str)`
+
+- Outputs its input with the **given prefix string removed, if it starts with it.**
+
+```bash
+# map(ltrimstr("foo"))
+$ echo '["fo", "foo", "barfoo", "foobar", "afoo"]' | jq 'map(ltrimstr("foo"))'
+[
+  "fo",
+  "",
+  "barfoo",
+  "bar",
+  "afoo"
+]
+```
+
+### Right Trim
+
+`rtrimstr(str)`
+
+- Outputs its input with the **given suffix string removed, if it ends with it.**
+
+```bash
+# map(rtrimstr("foo"))
+$ echo '["fo", "foo", "barfoo", "foobar", "foob"]' | jq 'map(rtrimstr("foo"))'
+[
+  "fo",
+  "",
+  "bar",
+  "foobar",
+  "foob"
+]
+```
+
+### Explode
+
+`explode`
+
+- **Converts an input string into an array of the string's codepoint numbers.**
+
+```bash
+# explode
+$ echo '"foobar"' | jq 'explode'
+[
+  102,
+  111,
+  111,
+  98,
+  97,
+  114
+]
+```
+
+### Implode
+
+`implode`
+
+- The **inverse of `explode`.**
+
+```bash
+# implode
+$ echo '[65, 66, 67]' | jq 'implode'
+"ABC"
+```
+
+### Split
+
+`split(str)`
+
+- **Splits an input string on the separator argument.**
+
+```bash
+# split(", ")
+$ echo '"a, b,c,d, e, "' | jq 'split(", ")'
+[
+  "a",
+  "b,c,d",
+  "e",
+  ""
+]
+```
+
+### Join
+
+`join(str)`
+
+- **Joins  the  array  of  elements  given  as input, using the argument as separator.**
+    - It is the **inverse of `split`** :
+        - that is, running `split("foo") | join("foo")` over any input string returns said input string.
+- Numbers and booleans in the input are converted to strings.
+    - Null values are treated as empty strings.
+    - Arrays and objects in the input are not supported.
+
+```bash
+# join(", ")
+$ echo '["a","b,c,d","e"]' | jq 'join(", ")'
+"a, b,c,d, e"
+
+# join(" ")
+$ echo '["a",1,2.3,true,null,false]' | jq 'join(" ")'
+"a 1 2.3 true  false"
+```
+
+### ASCII Downcase and Upcase
+
+`ascii_downcase`, `ascii_upcase`
+
+- **Emit a copy of the input string with its alphabetic characters (a-z and A-Z) converted to the specified case.**
+
+```bash
+# ascii_upcase
+$ echo '"cat"' | jq 'ascii_upcase'
+"CAT"
+
+# ascii_downcase
+$ echo '"ICE"' | jq 'ascii_downcase'
+"ice"
+```
+
+### While
+
+`while(cond; update)`
+
+- The `while(cond; update)` function allows you to **repeatedly apply an update to `.` until `cond` is false.**
+- Note  that  `while(cond; update)` is internally defined as a recursive jq function.
+    - Recursive calls within while will not consume additional memory if update produces at most one output for each input.
+    - See advanced topics below.
+
+```bash
+# while(. < 100; . * 2)
+$ echo '1' | jq 'while(.<100; .*2)'
+1
+2
+4
+8
+16
+32
+64
+```
+
+### Until
+
+`until(cond; next)`
+
+- The `until(cond; next)` function allows you to **repeatedly apply the expression next, initially to . then to its own output, until cond is true.**
+    - For example, this can be used to implement a factorial function (see below).
+- Note  that  `until(cond; next)` is internally defined as a recursive jq function.
+    - Recursive calls within until() will not consume additional memory if next produces at most one output for each input.
+    - See advanced topics below.
+
+```bash
+# [., 1] | until(.[0] < 1; [.[0] - 1, .[1] * .[0]]) | .[1]
+$ echo '4' | jq '[., 1] | until(.[0] < 1; [.[0] - 1, .[1] * .[0]]) | .[1]'
+24
+```
+
+### Recurse
+
+`recurse(f)`, `recurse`, `recurse(f; condition),` ~~`recurse_down`~~
+
+- The `recurse(f)` function allows you to **search through a recursive structure, and extract interesting data from all levels.**
+- Suppose your input represents a filesystem :
+
+```json
+{"name": "/", "children": [
+    {"name": "/bin", "children": [
+    {"name": "/bin/ls", "children": []},
+    {"name": "/bin/sh", "children": []}]},
+    {"name": "/home", "children": [
+    {"name": "/home/stephen", "children": [
+        {"name": "/home/stephen/jq", "children": []}]}]}]}
+```
+
+- Now suppose you want to extract all of the filenames present.
+    - You need to retrieve `.name`, `.children[].name`, `.children[].children[].name`, and so on.
+    - You can do this with:
+
+```bash
+# recurse(.children[]) | .name
+$ echo '{"name": "/", "children": [
+    {"name": "/bin", "children": [
+    {"name": "/bin/ls", "children": []},
+    {"name": "/bin/sh", "children": []}]},
+    {"name": "/home", "children": [
+    {"name": "/home/stephen", "children": [
+        {"name": "/home/stephen/jq", "children": []}]}]}]}' \
+    | jq 'recurse(.children[]) | .name'
+# output
+"/"
+"/bin"
+"/bin/ls"
+"/bin/sh"
+"/home"
+"/home/stephen"
+"/home/stephen/jq"
+```
+
+- When called without an argument, `recurse` is equivalent to `recurse(.[]?)`.
+- `recurse(f)` is identical to `recurse(f; . != null)` and can be used without concerns about recursion depth.
+- `recurse(f; condition)` is a generator which begins by emitting `.` and then emits in turn `.|f`, `.|f|f`, `.|f|f|f`, ... so long as  the computed  value  satisfies  the  condition.
+    - For  example, to generate all the integers, at least in principle, one could write `recurse(.+1; true)`.
+- ~~For legacy reasons, `recurse_down` exists as an alias to calling recurse without arguments.~~
+    - This alias is  considered  deprecated and will be removed in the next major release.
+- The `recursive` calls in recurse will not consume additional memory whenever f produces at most a single output for each input.
+
+```bash
+# recurse(.foo[])
+$ echo '{"foo":[{"foo": []}, {"foo":[{"foo":[]}]}]}' | jq 'recurse(.foo[])'
+{
+  "foo": [
+    {
+      "foo": []
+    },
+    {
+      "foo": [
+        {
+          "foo": []
+        }
+      ]
+    }
+  ]
+}
+{
+  "foo": []
+}
+{
+  "foo": [
+    {
+      "foo": []
+    }
+  ]
+}
+{
+  "foo": []
+}
+
+# recurse(. * .; . < 20)
+$ echo '2' | jq 'recurse(. * .; . < 20)'
+2
+4
+16
+```
+
+### Walk
+
+`walk(f)`
+
+- The  `walk(f)`  function  **applies  `f` recursively to every component of the input entity.**
+    - When an array is encountered, f is first applied to its elements and then to the array itself; when an object is encountered, f is first applied to all the  values  and then to the object.
+    - In practice, f will usually test the type of its input, as illustrated in the following examples.
+    - The first example highlights the usefulness of processing the elements of an array of arrays before processing the array itself.
+    - The second example shows how all the keys of all the objects within the input can be considered for alteration.
+
+```bash
+# walk(if type == "array" then sort else . end)
+$ echo '[[4, 1, 7], [8, 5, 2], [3, 6, 9], "a"]' | jq 'walk(if type == "array" then sort else . end)'
+[
+  "a",
+  [
+    1,
+    4,
+    7
+  ],
+  [
+    2,
+    5,
+    8
+  ],
+  [
+    3,
+    6,
+    9
+  ]
+]
+
+# walk(if type == "object" then with_entries(.key |= sub("^_+"; "")) else . end)
+$ echo '[ { "_a": { "__b": 2 } } ]' | jq 'walk(if type == "object" then with_entries(.key |= sub("^_+"; "")) else . end)'
+[
+  {
+    "a": {
+      "b": 2
+    }
+  }
+]
+```
+
+### Env
+
+`$ENV`, `env`
+
+- `$ENV` is an object representing the environment variables as set when the jq program started.
+    - `env` **outputs an object representing jq's current environment.**
+- At the moment there is no builtin for setting environment variables.
+
+```bash
+# $ENV.PAGER
+$ echo null | jq '$ENV.PAGER'
+"less"
+
+# env.PAGER
+$ echo null | jq 'env.PAGER'
+"less"
+```
+
+### Tranpose
+
+`transpose`
+
+- Transpose a possibly jagged matrix (an array of arrays).
+    - Rows are padded with nulls so the result is always rectangular.
+
+```bash
+# transpose
+$ echo '[[1], [2,3]]' | jq 'transpose'
+[
+  [
+    1,
+    2
+  ],
+  [
+    null,
+    3
+  ]
+]
+```
+
+### Binary Search
+
+`bsearch(x)`
+
+- `bsearch(x)`  conducts  a  binary  search  for  x in the input array.
+    - If the input is sorted and contains x, then bsearch(x) will return its index in the array; otherwise, if the array is sorted, it will return (-1 - ix) where ix is an insertion point  such that  the  array  would  still  be sorted after the insertion of x at ix.
+    - If the array is not sorted, bsearch(x) will return an integer that is probably of no interest.
+
+```bash
+# bsearch(4)
+$ echo '[1,2,3]' | jq 'bsearch(4)'
+-4
+
+# bsearch(4) as $ix | if $ix < 0 then .[-(1+$ix)] = 4 else . end
+$ echo '[1,2,3]' | jq 'bsearch(4) as $ix | if $ix < 0 then .[-(1+$ix)] = 4 else . end'
+[
+  1,
+  2,
+  3,
+  4
+]
+```
+
+###
+
+   String interpolation - \(foo)
+       Inside a string, you can put an expression inside parens after a backslash. Whatever the expression returns  will  be  interpo-
+       lated into the string.
+
+
+
+           jq '"The input was \(.), which is one less than \(.+1)"'
+              42
+           => "The input was 42, which is one less than 43"
+
+
+
+   Convert to/from JSON
+       The  tojson  and  fromjson builtins dump values as JSON texts or parse JSON texts into values, respectively. The tojson builtin
+       differs from tostring in that tostring returns strings unmodified, while tojson encodes strings as JSON strings.
+
+
+
+           jq '[.[]|tostring]'
+              [1, "foo", ["foo"]]
+           => ["1","foo","[\"foo\"]"]
+
+           jq '[.[]|tojson]'
+              [1, "foo", ["foo"]]
+           => ["1","\"foo\"","[\"foo\"]"]
+
+           jq '[.[]|tojson|fromjson]'
+              [1, "foo", ["foo"]]
+           => [1,"foo",["foo"]]
+
+
+
+   Format strings and escaping
+       The @foo syntax is used to format and escape strings, which is useful for building URLs, documents in a language like  HTML  or
+       XML, and so forth. @foo can be used as a filter on its own, the possible escapings are:
+
+       @text:
+
+              Calls tostring, see that function for details.
+
+       @json:
+
+              Serializes the input as JSON.
+
+       @html:
+
+              Applies  HTML/XML  escaping,  by  mapping  the  characters  <>&'" to their entity equivalents &lt;, &gt;, &amp;, &apos;,
+              &quot;.
+
+       @uri:
+
+              Applies percent-encoding, by mapping all reserved URI characters to a %XX sequence.
+
+       @csv:
+
+              The input must be an array, and it is rendered as CSV with double quotes for strings, and quotes escaped by  repetition.
+
+       @tsv:
+
+              The input must be an array, and it is rendered as TSV (tab-separated values). Each input array will be printed as a sin-
+              gle line. Fields are separated by a single tab (ascii 0x09). Input characters line-feed  (ascii  0x0a),  carriage-return
+              (ascii  0x0d),  tab  (ascii  0x09)  and backslash (ascii 0x5c) will be output as escape sequences \n, \r, \t, \\ respec-
+              tively.
+
+       @sh:
+
+              The input is escaped suitable for use in a command-line for a POSIX shell. If the input is an array, the output will  be
+              a series of space-separated strings.
+
+       @base64:
+
+              The input is converted to base64 as specified by RFC 4648.
+
+       @base64d:
+
+              The inverse of @base64, input is decoded as specified by RFC 4648. Note: If the decoded string is not UTF-8, the results
+              are undefined.
+
+       This syntax can be combined with string interpolation in a useful way. You can follow a @foo token with a string  literal.  The
+       contents  of  the  string  literal  will  not  be  escaped. However, all interpolations made inside that string literal will be
+       escaped. For instance,
+
+           @uri "https://www.google.com/search?q=\(.search)"
+
+
+
+       will produce the following output for the input {"search":"what is jq?"}:
+
+
+
+           "https://www.google.com/search?q=what%20is%20jq%3F"
+
+
+
+       Note that the slashes, question mark, etc. in the URL are not escaped, as they were part of the string literal.
+
+
+
+           jq '@html'
+              "This works if x < y"
+           => "This works if x &lt; y"
+
+           jq '@sh "echo \(.)"'
+              "O'Hara's Ale"
+           => "echo 'O'\\''Hara'\\''s Ale'"
+
+           jq '@base64'
+              "This is a message"
+           => "VGhpcyBpcyBhIG1lc3NhZ2U="
+
+           jq '@base64d'
+              "VGhpcyBpcyBhIG1lc3NhZ2U="
+           => "This is a message"
+
+
+
+   Dates
+       jq provides some basic date handling functionality, with some high-level and low-level builtins. In all  cases  these  builtins
+       deal exclusively with time in UTC.
+
+       The  fromdateiso8601  builtin  parses  datetimes  in  the  ISO  8601  format  to  a  number  of  seconds  since  the Unix epoch
+       (1970-01-01T00:00:00Z). The todateiso8601 builtin does the inverse.
+
+       The fromdate builtin parses datetime strings. Currently fromdate only supports ISO 8601 datetime strings, but in the future  it
+       will attempt to parse datetime strings in more formats.
+
+       The todate builtin is an alias for todateiso8601.
+
+       The now builtin outputs the current time, in seconds since the Unix epoch.
+
+       Low-level  jq  interfaces to the C-library time functions are also provided: strptime, strftime, strflocaltime, mktime, gmtime,
+       and localtime. Refer to your host operating system's documentation for the format strings used by strptime and strftime.  Note:
+       these are not necessarily stable interfaces in jq, particularly as to their localization functionality.
+
+       The  gmtime builtin consumes a number of seconds since the Unix epoch and outputs a "broken down time" representation of Green-
+       which Meridian time as an array of numbers representing (in this order): the year, the month (zero-based), the day of the month
+       (one-based),  the  hour  of  the day, the minute of the hour, the second of the minute, the day of the week, and the day of the
+       year -- all one-based unless otherwise stated. The day of the week number may be wrong on some systems for dates  before  March
+       1st 1900, or after December 31 2099.
+
+       The localtime builtin works like the gmtime builtin, but using the local timezone setting.
+
+       The mktime builtin consumes "broken down time" representations of time output by gmtime and strptime.
+
+       The  strptime(fmt)  builtin parses input strings matching the fmt argument. The output is in the "broken down time" representa-
+       tion consumed by gmtime and output by mktime.
+
+       The strftime(fmt) builtin formats a time (GMT) with the given format. The strflocaltime does the  same,  but  using  the  local
+       timezone setting.
+
+       The  format  strings for strptime and strftime are described in typical C library documentation. The format string for ISO 8601
+       datetime is "%Y-%m-%dT%H:%M:%SZ".
+
+       jq may not support some or all of this date functionality on some systems. In particular, the %u and %j  specifiers  for  strp-
+       time(fmt) are not supported on macOS.
+           jq 'fromdate'
+              "2015-03-05T23:51:47Z"
+           => 1425599507
+
+           jq 'strptime("%Y-%m-%dT%H:%M:%SZ")'
+              "2015-03-05T23:51:47Z"
+           => [2015,2,5,23,51,47,4,63]
+
+           jq 'strptime("%Y-%m-%dT%H:%M:%SZ")|mktime'
+              "2015-03-05T23:51:47Z"
+           => 1425599507
+
+
+
+   SQL-Style Operators
+       jq provides a few SQL-style operators.
+
+       INDEX(stream; index_expression):
+
+              This  builtin  produces  an  object whose keys are computed by the given index expression applied to each value from the
+              given stream.
+
+       JOIN($idx; stream; idx_expr; join_expr):
+
+              This builtin joins the values from the given stream to the given index. The index's keys are computed  by  applying  the
+              given  index  expression  to each value from the given stream. An array of the value in the stream and the corresponding
+              value from the index is fed to the given join expression to produce each result.
+
+       JOIN($idx; stream; idx_expr):
+
+              Same as JOIN($idx; stream; idx_expr; .).
+
+       JOIN($idx; idx_expr):
+
+              This builtin joins the input . to the given index, applying the given index expression to . to compute  the  index  key.
+              The join operation is as described above.
+
+       IN(s):
+
+              This builtin outputs true if . appears in the given stream, otherwise it outputs false.
+
+       IN(source; s):
+
+              This builtin outputs true if any value in the source stream appears in the second stream, otherwise it outputs false.
+
+   builtins
+       Returns  a list of all builtin functions in the format name/arity. Since functions with the same name but different arities are
+       considered separate functions, all/0, all/1, and all/2 would all be present in the list.
 
 ## Conditionals and Comparisons
 
