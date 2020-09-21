@@ -50,9 +50,9 @@ Coding
 - [Design Patterns](/books/design-patterns.md)
 - [Pragmatic Programmer](/books/pragmatic-programmer.md)
     - _The Pragmatic Programmer : your journey to mastery ( 2nd Edition )_
-- [Clean Agile: Back to Basics](/books/clean-agile.md) ( reading )
+- [Clean Agile: Back to Basics](/books/clean-agile.md)
 
-<!-- - [剑指 Offer](/books/jz-offer.md) -->
+<!-- - [JZ Offer](/books/jz-offer.md) -->
 
 <!--
 

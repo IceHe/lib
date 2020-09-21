@@ -2503,99 +2503,76 @@ $ echo '[1,2,3]' | jq 'bsearch(4) as $ix | if $ix < 0 then .[-(1+$ix)] = 4 else 
 ]
 ```
 
-###
+### String Interpolation
 
-   String interpolation - \(foo)
-       Inside a string, you can put an expression inside parens after a backslash. Whatever the expression returns  will  be  interpo-
-       lated into the string.
+`\(foo)`
 
+- Inside a string, you can **put an expression inside parens after a backslash.**
+    - Whatever the expression returns  will  be  interpolated into the string.
 
+```bash
+# \(.) \(.+1)
+$ echo '42' | jq '"The input was \(.), while is one less than \(.+1)"'
+"The input was 42, while is one less than 43"
+```
 
-           jq '"The input was \(.), which is one less than \(.+1)"'
-              42
-           => "The input was 42, which is one less than 43"
+### Convert to/From JSON
 
+- The  `tojson`  and  `fromjson` builtins **dump values as JSON texts or parse JSON texts into values, respectively.**
+    - The `tojson` builtin differs from `tostring` in that tostring returns strings unmodified, while `tojson` encodes strings as JSON strings.
 
+```bash
+# map(tostring)
+$ echo '[1, "foo", ["foo"]]' | jq 'map(tostring)'
+[
+  "1",
+  "foo",
+  "[\"foo\"]"
+]
 
-   Convert to/from JSON
-       The  tojson  and  fromjson builtins dump values as JSON texts or parse JSON texts into values, respectively. The tojson builtin
-       differs from tostring in that tostring returns strings unmodified, while tojson encodes strings as JSON strings.
+# map(tojson)
+$ echo '[1, "foo", ["foo"]]' | jq 'map(tojson)'
+[
+  "1",
+  "\"foo\"",
+  "[\"foo\"]"
+]
 
+# map(tojson|fromjson)
+$ echo '[1, "foo", ["foo"]]' | jq 'map(tojson|fromjson)'
+[
+  1,
+  "foo",
+  [
+    "foo"
+  ]
+]
+```
 
+### Format Strings and Escaping
 
-           jq '[.[]|tostring]'
-              [1, "foo", ["foo"]]
-           => ["1","foo","[\"foo\"]"]
-
-           jq '[.[]|tojson]'
-              [1, "foo", ["foo"]]
-           => ["1","\"foo\"","[\"foo\"]"]
-
-           jq '[.[]|tojson|fromjson]'
-              [1, "foo", ["foo"]]
-           => [1,"foo",["foo"]]
-
-
-
-   Format strings and escaping
-       The @foo syntax is used to format and escape strings, which is useful for building URLs, documents in a language like  HTML  or
-       XML, and so forth. @foo can be used as a filter on its own, the possible escapings are:
-
-       @text:
-
-              Calls tostring, see that function for details.
-
-       @json:
-
-              Serializes the input as JSON.
-
-       @html:
-
-              Applies  HTML/XML  escaping,  by  mapping  the  characters  <>&'" to their entity equivalents &lt;, &gt;, &amp;, &apos;,
-              &quot;.
-
-       @uri:
-
-              Applies percent-encoding, by mapping all reserved URI characters to a %XX sequence.
-
-       @csv:
-
-              The input must be an array, and it is rendered as CSV with double quotes for strings, and quotes escaped by  repetition.
-
-       @tsv:
-
-              The input must be an array, and it is rendered as TSV (tab-separated values). Each input array will be printed as a sin-
-              gle line. Fields are separated by a single tab (ascii 0x09). Input characters line-feed  (ascii  0x0a),  carriage-return
-              (ascii  0x0d),  tab  (ascii  0x09)  and backslash (ascii 0x5c) will be output as escape sequences \n, \r, \t, \\ respec-
-              tively.
-
-       @sh:
-
-              The input is escaped suitable for use in a command-line for a POSIX shell. If the input is an array, the output will  be
-              a series of space-separated strings.
-
-       @base64:
-
-              The input is converted to base64 as specified by RFC 4648.
-
-       @base64d:
-
-              The inverse of @base64, input is decoded as specified by RFC 4648. Note: If the decoded string is not UTF-8, the results
-              are undefined.
-
-       This syntax can be combined with string interpolation in a useful way. You can follow a @foo token with a string  literal.  The
-       contents  of  the  string  literal  will  not  be  escaped. However, all interpolations made inside that string literal will be
-       escaped. For instance,
-
-           @uri "https://www.google.com/search?q=\(.search)"
-
-
-
-       will produce the following output for the input {"search":"what is jq?"}:
-
-
-
-           "https://www.google.com/search?q=what%20is%20jq%3F"
+- The `@foo` syntax is used to **format and escape strings**, which is useful for building URLs, documents in a language like  HTML  or XML, and so forth.
+- @foo can be used as a filter on its own, the possible escapings are:
+    - `@text` : Calls `tostring`, see that function for details.
+    - `@json` : Serializes the input as JSON.
+    - `@html` : Applies  HTML/XML  escaping,  by  mapping  the  characters  `<>&'"` to their entity equivalents `&lt;`, `&gt;`, `&amp;`, `&apos;`, `&quot;`.
+    - `@uri` : Applies percent-encoding, by mapping all reserved URI characters to a `%XX` sequence.
+    - `@csv` : The input must be an array, and it is rendered as CSV with double quotes for strings, and quotes escaped by  repetition.
+    - `@tsv` : The input must be an array, and it is rendered as **TSV (tab-separated values)**.
+        - Each input array will be printed as a single line.
+        - Fields are separated by a single tab (ascii 0x09).
+        - Input characters line-feed  (ascii  0x0a),  carriage-return (ascii  0x0d),  tab  (ascii  0x09)  and backslash (ascii 0x5c) will be output as escape sequences `\n`, `\r`, `\t`, `\\` respectively.
+    - `@sh` : The input is escaped suitable for use in a command-line for a POSIX shell.
+        - If the input is an array, the output will  be a series of space-separated strings.
+    - `@base64` : The input is converted to base64 as specified by RFC 4648.
+    - `@base64d` : The inverse of @base64, input is decoded as specified by RFC 4648.
+        - Note: If the decoded string is not UTF-8, the results are undefined.
+- This syntax can be combined with string interpolation in a useful way.
+    - You can follow a `@foo` token with a string  literal.
+    - The contents  of  the  string  literal  will  not  be  escaped.
+    - However, all interpolations made inside that string literal will be escaped.
+    - For instance, `@uri "https://www.google.com/search?q=\(.search)"`
+       - will produce the following output for the input `{"search":"what is jq?"}` : `"https://www.google.com/search?q=what%20is%20jq%3F"`
 
 
 
