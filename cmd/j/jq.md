@@ -2553,10 +2553,10 @@ $ echo '[1, "foo", ["foo"]]' | jq 'map(tojson|fromjson)'
 
 - The `@foo` syntax is used to **format and escape strings**, which is useful for building URLs, documents in a language like  HTML  or XML, and so forth.
 - @foo can be used as a filter on its own, the possible escapings are:
-    - `@text` : Calls `tostring`, see that function for details.
-    - `@json` : Serializes the input as JSON.
-    - `@html` : Applies  HTML/XML  escaping,  by  mapping  the  characters  `<>&'"` to their entity equivalents `&lt;`, `&gt;`, `&amp;`, `&apos;`, `&quot;`.
-    - `@uri` : Applies percent-encoding, by mapping all reserved URI characters to a `%XX` sequence.
+    - **`@text` : Calls `tostring`, see that function for details.**
+    - **`@json` : Serializes the input as JSON.**
+    - **`@html` : Applies  HTML/XML  escaping**,  by  mapping  the  characters  `<>&'"` to their entity equivalents `&lt;`, `&gt;`, `&amp;`, `&apos;`, `&quot;`.
+    - **`@uri` : Applies percent-encoding**, by mapping all reserved URI characters to a `%XX` sequence.
     - `@csv` : The input must be an array, and it is rendered as CSV with double quotes for strings, and quotes escaped by  repetition.
     - `@tsv` : The input must be an array, and it is rendered as **TSV (tab-separated values)**.
         - Each input array will be printed as a single line.
@@ -2564,37 +2564,41 @@ $ echo '[1, "foo", ["foo"]]' | jq 'map(tojson|fromjson)'
         - Input characters line-feed  (ascii  0x0a),  carriage-return (ascii  0x0d),  tab  (ascii  0x09)  and backslash (ascii 0x5c) will be output as escape sequences `\n`, `\r`, `\t`, `\\` respectively.
     - `@sh` : The input is escaped suitable for use in a command-line for a POSIX shell.
         - If the input is an array, the output will  be a series of space-separated strings.
-    - `@base64` : The input is converted to base64 as specified by RFC 4648.
-    - `@base64d` : The inverse of @base64, input is decoded as specified by RFC 4648.
+    - **`@base64` : The input is converted to base64 as specified by RFC 4648.**
+    - **`@base64d` : The inverse of @base64, input is decoded as specified by RFC 4648.**
         - Note: If the decoded string is not UTF-8, the results are undefined.
 - This syntax can be combined with string interpolation in a useful way.
     - You can follow a `@foo` token with a string  literal.
     - The contents  of  the  string  literal  will  not  be  escaped.
     - However, all interpolations made inside that string literal will be escaped.
     - For instance, `@uri "https://www.google.com/search?q=\(.search)"`
-       - will produce the following output for the input `{"search":"what is jq?"}` : `"https://www.google.com/search?q=what%20is%20jq%3F"`
+        - will produce the following output for the input `{"search":"what is jq?"}` : `"https://www.google.com/search?q=what%20is%20jq%3F"`
 
+```bash
+# @uri "https://www.google.com/search?q=\(.search)"
+$ echo '{"search":"what is jq?"}' | jq '@uri "https://www.google.com/search?q=\(.search)"'
+"https://www.google.com/search?q=what%20is%20jq%3F"
+```
 
+- Note that the slashes, question mark, etc. in the URL are not escaped, as they were part of the string literal.
 
-       Note that the slashes, question mark, etc. in the URL are not escaped, as they were part of the string literal.
+```bash
+# @html
+$ echo '"This works if x < y"' | jq '@html'
+"This works if x &lt; y"
 
+# @base64
+$ echo '"This is a message"' | jq '@base64'
+"VGhpcyBpcyBhIG1lc3NhZ2U="
 
-
-           jq '@html'
-              "This works if x < y"
-           => "This works if x &lt; y"
+# @base64d
+$ echo '"VGhpcyBpcyBhIG1lc3NhZ2U="' | jq '@base64d'
+"This is a message"
+```
 
            jq '@sh "echo \(.)"'
               "O'Hara's Ale"
            => "echo 'O'\\''Hara'\\''s Ale'"
-
-           jq '@base64'
-              "This is a message"
-           => "VGhpcyBpcyBhIG1lc3NhZ2U="
-
-           jq '@base64d'
-              "VGhpcyBpcyBhIG1lc3NhZ2U="
-           => "This is a message"
 
 
 
