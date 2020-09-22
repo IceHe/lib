@@ -3293,22 +3293,27 @@ $ echo '"xyzzy-14"' | jq 'capture("(?<a>[a-z]+)-(?<n>[0-9]+)")'
 
    scan(regex), scan(regex; flags)
        Emit a stream of the non-overlapping substrings of the input that match the regex in accordance with the  flags,  if  any  have
-       been  specified.  If  there is no match, the stream is empty. To capture all the matches for each input string, use the idiom [
-       expr ], e.g. [ scan(regex) ].
+       been  specified.  If  there is no match, the stream is empty. To capture all the matches for each input string, use the idiom `[ expr ]`, e.g. `[ scan(regex) ]`.
+
+### split
 
    split(regex; flags)
-       For backwards compatibility, split splits on a string, not a regex.
+       For backwards compatibility, `split` splits on a string, not a regex.
+
+### splits
 
    splits(regex), splits(regex; flags)
-       These provide the same results as their split counterparts, but as a stream instead of an array.
+       These provide the same results as their `split` counterparts, but as a stream instead of an array.
+
+### sub
 
    sub(regex; tostring) sub(regex; string; flags)
-       Emit the string obtained by replacing the first match of regex in the input string with tostring, after interpolation. tostring
-       should  be  a  jq  string, and may contain references to named captures. The named captures are, in effect, presented as a JSON
-       object (as constructed by capture) to tostring, so a reference to a captured variable named "x" would take the form: "(.x)".
+       Emit the string obtained by replacing the first match of regex in the input string with `tostring`, after interpolation. `tostring` should  be  a  jq  string, and may contain references to named captures. The named captures are, in effect, presented as a JSON object (as constructed by `capture`) to `tostring`, so a reference to a captured variable named "x" would take the form: "(.x)".
+
+### gsub
 
    gsub(regex; string), gsub(regex; string; flags)
-       gsub is like sub but all the non-overlapping occurrences of the regex are replaced by the string, after interpolation.
+       `gsub` is like `sub` but all the non-overlapping occurrences of the regex are replaced by the string, after interpolation.
 
 ## Advanced Features
 
