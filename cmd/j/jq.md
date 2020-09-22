@@ -2642,10 +2642,10 @@ Low-level  jq  interfaces to the C-library time functions are also provided :
 
 `gmtime`
 
-- The  `gmtime` builtin consumes a number of seconds since the Unix epoch and outputs a "broken down time" representation of Greenwhich Meridian time as an array of numbers representing (in this order) :
+- **Consumes a number of seconds since the Unix epoch and outputs a "broken down time" representation of Greenwhich Meridian time as an array of numbers representing (in this order) :**
     - the year,
-    - the month (zero-based),
-    - the day of the month (one-based),
+    - the month **(zero-based)**,
+    - the day of the month **(one-based)**,
     - the  hour  of  the day,
     - the minute of the hour,
     - the second of the minute,
@@ -2683,6 +2683,10 @@ jq may not support some or all of this date functionality on some systems.
 - In particular, the `%u` and `%j` specifiers  for  `strptime(fmt)` are not supported on macOS.
 
 ```bash
+# now
+$ echo null | jq 'now'
+1600762696.01708
+
 # fromdate
 $ echo '"2015-03-05T23:51:47Z"' | jq 'fromdate'
 1425599507
@@ -2700,46 +2704,130 @@ $ echo '"2015-03-05T23:51:47Z"' | jq 'strptime("%Y-%m-%dT%H:%M:%SZ")'
   63
 ]
 
+# strptime("%Y-%m-%d") | mktime
+$ echo '"2020-09-22"' | jq 'strptime("%Y-%m-%d") | mktime'
+1600732800
+
 # strptime("%Y-%m-%dT%H:%M:%SZ") | mktime
 $ echo '"2015-03-05T23:51:47Z"' | jq 'strptime("%Y-%m-%dT%H:%M:%SZ") | mktime'
 1425599507
+
+# mktime
+$ echo '[1970,1,8,12,23,56,0,0]' | jq 'mktime'
+3327836
+
+# mktime | strftime("%Y-%m-%dT%H:%M:%SZ")
+$ echo '[1970,1,8,12,23,56,0,0]' | jq 'mktime | strftime("%Y-%m-%dT%H:%M:%SZ")'
+"1970-02-08T12:23:56Z"
+
 ```
 
 ### SQL-Style Operators
 
-       jq provides a few SQL-style operators.
+jq provides a few SQL-style operators.
 
-       INDEX(stream; index_expression):
+`INDEX(stream; index_expression)`
 
-              This  builtin  produces  an  object whose keys are computed by the given index expression applied to each value from the
-              given stream.
+- **Produces  an  object whose keys are computed by the given index expression applied to each value from the given stream.**
 
-       JOIN($idx; stream; idx_expr; join_expr):
+```bash
+# map(INDEX(.; "id"))
+$ echo '[1,2,3]' | jq 'map(INDEX(.; "id"))'
+[
+  {
+    "id": 1
+  },
+  {
+    "id": 2
+  },
+  {
+    "id": 3
+  }
+]
+```
 
-              This builtin joins the values from the given stream to the given index. The index's keys are computed  by  applying  the
-              given  index  expression  to each value from the given stream. An array of the value in the stream and the corresponding
-              value from the index is fed to the given join expression to produce each result.
+`JOIN($idx; stream; idx_expr; join_expr)`
 
-       JOIN($idx; stream; idx_expr):
+- **Joins the values from the given stream to the given index.**
+    - The index's keys are computed  by  applying  the given  index  expression  to each value from the given stream.
+    - An array of the value in the stream and the corresponding value from the index is fed to the given join expression to produce each result.
+- _( icehe : 没搞懂 JOIN 的用法… )_
 
-              Same as JOIN($idx; stream; idx_expr; .).
+`JOIN($idx; stream; idx_expr)`
 
-       JOIN($idx; idx_expr):
+- Same as `JOIN($idx; stream; idx_expr; .)`.
 
-              This builtin joins the input . to the given index, applying the given index expression to . to compute  the  index  key.
-              The join operation is as described above.
+`JOIN($idx; idx_expr)`
 
-       IN(s):
+- This builtin joins the input `.` to the given index, applying the given index expression to `.` to compute  the  index  key.
+    - The join operation is as described above.
 
-              This builtin outputs true if . appears in the given stream, otherwise it outputs false.
+```bash
+# JOIN(.; .)
+$ echo '[0,1,2]' | jq 'JOIN(.; .)'
+[
+  [
+    0,
+    0
+  ],
+  [
+    1,
+    1
+  ],
+  [
+    2,
+    2
+  ]
+]
 
-       IN(source; s):
+# JOIN(.; . + 1)
+$ echo '[0,1,2]' | jq 'JOIN(.; . + 1)'
+[
+  [
+    0,
+    1
+  ],
+  [
+    1,
+    2
+  ],
+  [
+    2,
+    null
+  ]
+]
+```
 
-              This builtin outputs true if any value in the source stream appears in the second stream, otherwise it outputs false.
+`IN(s)`
 
-   builtins
-       Returns  a list of all builtin functions in the format name/arity. Since functions with the same name but different arities are
-       considered separate functions, all/0, all/1, and all/2 would all be present in the list.
+- **Outputs true if `.` appears in the given stream, otherwise it outputs false.**
+
+`IN(source; s)`
+
+- **Outputs true if any value in the source stream appears in the second stream, otherwise it outputs false.**
+
+```bash
+# map(IN(1,2))
+$ echo '[1,2,3]' | jq 'map(IN(1,2))'
+[
+  true,
+  true,
+  false
+]
+
+# map(IN(. + 1; 1,2))
+$ echo '[1,2,3]' | jq 'map(IN(. + 1; 1,2))'
+[
+  true,
+  false,
+  false
+]
+```
+
+### Builtins
+
+- Returns  a list of all builtin functions in the format `name/arity`.
+    - Since functions with the same name but different arities are considered separate functions, `all/0`, `all/1`, and `all/2` would all be present in the list.
 
 ## Conditionals and Comparisons
 
@@ -2747,7 +2835,43 @@ $ echo '"2015-03-05T23:51:47Z"' | jq 'strptime("%Y-%m-%dT%H:%M:%SZ") | mktime'
 
 `==`, `!=`
 
-TODO
+- The expression 'a == b' will **produce 'true' if the result of a and b are equal (that is, if they represent equivalent JSON documents)**  and 'false' otherwise.
+    - In particular, **strings are never considered equal to numbers.**
+    - If you're coming from Javascript, jq's `==` is like Javascript's `===` -- **considering values equal only when they have the same type as well as the same value.**
+- `!=` is "not equal", and 'a != b' returns the opposite value of 'a == b'
+
+```bash
+# .[] == 1
+$ echo '[1, 1.0, "1", "ice"]' | jq '.[] == 1'
+true
+true
+false
+false
+
+# map(2 == .)
+$ echo '[1, 2, "2"]' | jq 'map(2 == .)'
+[
+  false,
+  true,
+  false
+]
+
+# map("2" == .)
+$ echo '[1, 2, "2"]' | jq 'map("2" == .)'
+[
+  false,
+  false,
+  true
+]
+
+# map("true" != .)
+$ echo '[null, true, "true"]' | jq 'map("true" != .)'
+[
+  true,
+  true,
+  false
+]
+```
 
 ### try-catch
 
