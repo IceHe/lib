@@ -2733,6 +2733,8 @@ jq provides a few SQL-style operators.
 ```bash
 # map(INDEX(.; "id"))
 $ echo '[1,2,3]' | jq 'map(INDEX(.; "id"))'
+# same as below
+$ echo '[1,2,3]' | jq 'map(INDEX("id"))'
 [
   {
     "id": 1
@@ -2744,6 +2746,29 @@ $ echo '[1,2,3]' | jq 'map(INDEX(.; "id"))'
     "id": 3
   }
 ]
+
+# map(INDEX(.; .id))
+$ echo '[{"id":1, "name": "app"}, {"id": 2, "name": "ice"}, {"id": 3, "name":"cat"}]' | jq 'map(INDEX(.; .id))'
+[
+  {
+    "1": {
+      "id": 1,
+      "name": "app"
+    }
+  },
+  {
+    "2": {
+      "id": 2,
+      "name": "ice"
+    }
+  },
+  {
+    "3": {
+      "id": 3,
+      "name": "cat"
+    }
+  }
+]
 ```
 
 `JOIN($idx; stream; idx_expr; join_expr)`
@@ -2751,7 +2776,9 @@ $ echo '[1,2,3]' | jq 'map(INDEX(.; "id"))'
 - **Joins the values from the given stream to the given index.**
     - The index's keys are computed  by  applying  the given  index  expression  to each value from the given stream.
     - An array of the value in the stream and the corresponding value from the index is fed to the given join expression to produce each result.
-- _( icehe : 没搞懂 JOIN 的用法… )_
+- _References_
+    - https://stackoverflow.com/questions/44856098/using-sql-style-join-operator-with-jq
+    - _( icehe : 没搞懂 JOIN 的用法… )_
 
 `JOIN($idx; stream; idx_expr)`
 
@@ -2873,6 +2900,109 @@ $ echo '[null, true, "true"]' | jq 'map("true" != .)'
 ]
 ```
 
+### if-then-else
+
+- `if A then B else C end` will act the same as `B` if `A` produces a value other than false or null, but act the same as `C`  otherwise.
+- Checking  for false or null is a simpler notion of "truthiness" than is found in Javascript or Python, but it means that you'll sometimes have to be more explicit about the condition you want :
+    - you can't test whether, e.g. a string is empty using `if  .name then A else B end`, you'll need something more like **`if (.name | length) > 0 then A else B end`** instead.
+- If  the  condition  `A`  produces  multiple results, then `B` is evaluated once for each result that is not false or null, and `C` is evaluated once for each false or null.
+- More cases can be added to an if using `elif A then B` syntax.
+
+```bash
+# if . == 0 then "yes" else "no" end
+$ echo '0' | jq 'if . == 0 then "yes" else "no" end'
+"yes"
+
+# if . == 0 then "yes" else "no" end
+$ echo '2' | jq 'if . == 0 then "yes" else "no" end'
+"no"
+
+# if . == 0 then "zero" elif . == 1 then "one" else "others" end
+$ echo '0' | jq 'if . == 0 then "zero" elif . == 1 then "one" else "others" end'
+"zero"
+
+$ echo '1' | jq 'if . == 0 then "zero" elif . == 1 then "one" else "others" end'
+"one"
+
+$ echo '2' | jq 'if . == 0 then "zero" elif . == 1 then "one" else "others" end'
+"others"
+```
+
+### gt, gte, lte, lt
+
+`>`, `>=`, `<=`, `<`
+
+- The comparison operators `>`, `>=`, `<=`, `<` return **whether their left argument is greater than, greater than or equal to,  less  than or equal to or less than their right argument (respectively).**
+- The ordering is the same as that described for sort, above.
+
+```bash
+# . < 5
+$ echo '2' | jq '. < 5'
+true
+
+```
+
+### and, or, not
+
+`and`, `or`, `not`
+
+- jq  supports  the  **normal Boolean operators** `and` / `or` / `not`.
+    - They have the same standard of truth as if expressions - **false and null are considered "false values", and anything else is a "true value".**
+- If an operand of one of these operators produces multiple results, the operator itself will produce a result for each input.
+- `not` is in fact a builtin function rather than an operator, so it is called as a filter to which things can be piped rather than with special syntax, as in `.foo and .bar | not`.
+- These  three only produce the values "true" and "false", and so are only useful for genuine Boolean operations, rather than the common Perl/Python/Ruby idiom of "value_that_may_be_null or default".
+    - If you want to use this form of "or", picking between two values rather than evaluating a condition, see the "//" operator below.
+
+```bash
+# 42 and "a string"
+$ echo null | jq '42 and "a string"'
+true
+
+# (true, false) or false
+$ echo null | jq '(true, false) or false'
+true
+false
+
+# (true, false) and (true, false)
+$ echo null | jq '(true, false) and (true, false)'
+true
+false
+false
+# ( icehe : ??? 不理解这个输出… )
+
+# (true, true) and (true, false)
+$ echo null | jq '(true, true) and (true, false)'
+true
+false
+true
+false
+
+# (true, false) | not
+$ echo null | jq '(true, false) | not'
+false
+true
+```
+
+### Alternative operator
+
+`//`
+
+- A  filter of the form `a // b` **produces the same results as a, if a produces results other than false and null.**
+    - Otherwise, `a // b` produces the same results as b.
+- This is **useful for providing defaults** :
+    - `.foo // 1` will evaluate to 1 if there's no `.foo` element in the input.
+    - It's  similar  to how `or` is sometimes used in Python (jq's `or` operator is reserved for strictly Boolean operations).
+
+```bash
+# .foo // 42
+$ echo '{"foo": 19}' | jq '.foo // 42'
+19
+
+# .foo // 42
+$ echo '{}' | jq '.foo // 42'
+42
+```
+
 ### try-catch
 
 - Errors can be caught by using `try EXP catch EXP`.
@@ -2955,7 +3085,153 @@ $ echo '[{}, true, {"a":1}]' | jq 'map(.a?)'
 
 ## Regular Expressions ( PCRE )
 
-TODO
+       jq  uses  the  Oniguruma regular expression library, as do php, ruby, TextMate, Sublime Text, etc, so the description here will
+       focus on jq specifics.
+
+       The jq regex filters are defined so that they can be used using one of these patterns:
+
+
+
+           STRING | FILTER( REGEX )
+           STRING | FILTER( REGEX; FLAGS )
+           STRING | FILTER( [REGEX] )
+           STRING | FILTER( [REGEX, FLAGS] )
+
+
+
+       where: * STRING, REGEX and FLAGS are jq strings and subject to jq string interpolation; * REGEX,  after  string  interpolation,
+       should be a valid PCRE regex; * FILTER is one of test, match, or capture, as described below.
+
+       FLAGS is a string consisting of one of more of the supported flags:
+
+       o   g - Global search (find all matches, not just the first)
+
+       o   i - Case insensitive search
+
+       o   m - Multi line mode ('.' will match newlines)
+
+       o   n - Ignore empty matches
+
+       o   p - Both s and m modes are enabled
+
+       o   s - Single line mode ('^' -> '\A', '$' -> '\Z')
+
+       o   l - Find longest possible matches
+
+       o   x - Extended regex format (ignore whitespace and comments)
+
+
+
+       To match whitespace in an x pattern use an escape such as \s, e.g.
+
+       o   test( "a\sb", "x" ).
+
+
+
+       Note that certain flags may also be specified within REGEX, e.g.
+
+       o   jq -n '("test", "TEst", "teST", "TEST") | test( "(?i)te(?-i)st" )'
+
+
+
+       evaluates to: true, true, false, false.
+
+   test(val), test(regex; flags)
+       Like match, but does not return match objects, only true or false for whether or not the regex matches the input.
+
+
+
+           jq 'test("foo")'
+              "foo"
+           => true
+
+           jq '.[] | test("a b c # spaces are ignored"; "ix")'
+              ["xabcd", "ABC"]
+           => true, true
+
+   match(val), match(regex; flags)
+       match outputs an object for each match it finds. Matches have the following fields:
+
+       o   offset - offset in UTF-8 codepoints from the beginning of the input
+
+       o   length - length in UTF-8 codepoints of the match
+
+       o   string - the string that it matched
+
+       o   captures - an array of objects representing capturing groups.
+
+
+
+       Capturing group objects have the following fields:
+
+       o   offset - offset in UTF-8 codepoints from the beginning of the input
+
+       o   length - length in UTF-8 codepoints of this capturing group
+
+       o   string - the string that was captured
+
+       o   name - the name of the capturing group (or null if it was unnamed)
+
+
+
+       Capturing groups that did not match anything return an offset of -1
+
+
+
+           jq 'match("(abc)+"; "g")'
+              "abc abc"
+           => {"offset": 0, "length": 3, "string": "abc", "captures": [{"offset": 0, "length": 3, "string": "abc", "name": null}]}, {"offset": 4, "le
+ngth": 3, "string": "abc", "captures": [{"offset": 4, "length": 3, "string": "abc", "name": null}]}
+
+           jq 'match("foo")'
+              "foo bar foo"
+           => {"offset": 0, "length": 3, "string": "foo", "captures": []}
+
+           jq 'match(["foo", "ig"])'
+              "foo bar FOO"
+           => {"offset": 0, "length": 3, "string": "foo", "captures": []}, {"offset": 8, "length": 3, "string": "FOO", "captures": []}
+
+           jq 'match("foo (?<bar123>bar)? foo"; "ig")'
+              "foo bar foo foo  foo"
+           => {"offset": 0, "length": 11, "string": "foo bar foo", "captures": [{"offset": 4, "length": 3, "string": "bar", "name": "bar123"}]}, {"of
+fset": 12, "length": 8, "string": "foo  foo", "captures": [{"offset": -1, "length": 0, "string": null, "name": "bar123"}]}
+
+           jq '[ match("."; "g")] | length'
+              "abc"
+           => 3
+
+
+
+   capture(val), capture(regex; flags)
+       Collects  the  named  captures in a JSON object, with the name of each capture as the key, and the matched string as the corre-
+       sponding value.
+
+
+
+           jq 'capture("(?<a>[a-z]+)-(?<n>[0-9]+)")'
+              "xyzzy-14"
+           => { "a": "xyzzy", "n": "14" }
+
+
+
+   scan(regex), scan(regex; flags)
+       Emit a stream of the non-overlapping substrings of the input that match the regex in accordance with the  flags,  if  any  have
+       been  specified.  If  there is no match, the stream is empty. To capture all the matches for each input string, use the idiom [
+       expr ], e.g. [ scan(regex) ].
+
+   split(regex; flags)
+       For backwards compatibility, split splits on a string, not a regex.
+
+   splits(regex), splits(regex; flags)
+       These provide the same results as their split counterparts, but as a stream instead of an array.
+
+   sub(regex; tostring) sub(regex; string; flags)
+       Emit the string obtained by replacing the first match of regex in the input string with tostring, after interpolation. tostring
+       should  be  a  jq  string, and may contain references to named captures. The named captures are, in effect, presented as a JSON
+       object (as constructed by capture) to tostring, so a reference to a captured variable named "x" would take the form: "(.x)".
+
+   gsub(regex; string), gsub(regex; string; flags)
+       gsub is like sub but all the non-overlapping occurrences of the regex are replaced by the string, after interpolation.
 
 ## Advanced Features
 
