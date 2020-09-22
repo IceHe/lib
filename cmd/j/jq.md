@@ -2596,66 +2596,117 @@ $ echo '"VGhpcyBpcyBhIG1lc3NhZ2U="' | jq '@base64d'
 "This is a message"
 ```
 
-           jq '@sh "echo \(.)"'
-              "O'Hara's Ale"
-           => "echo 'O'\\''Hara'\\''s Ale'"
+<!--
 
+```bash
+# 这个示例没有实验成功, 可能因为 zsh 么?
+jq '@sh "echo \(.)"'
+    "O'Hara's Ale"
+=> "echo 'O'\\''Hara'\\''s Ale'"
+```
 
+-->
 
-   Dates
-       jq provides some basic date handling functionality, with some high-level and low-level builtins. In all  cases  these  builtins
-       deal exclusively with time in UTC.
+### Dates
 
-       The  fromdateiso8601  builtin  parses  datetimes  in  the  ISO  8601  format  to  a  number  of  seconds  since  the Unix epoch
-       (1970-01-01T00:00:00Z). The todateiso8601 builtin does the inverse.
+jq provides some basic date handling functionality, with some high-level and low-level builtins.
 
-       The fromdate builtin parses datetime strings. Currently fromdate only supports ISO 8601 datetime strings, but in the future  it
-       will attempt to parse datetime strings in more formats.
+- In all  cases  these  builtins deal exclusively with time in UTC.
 
-       The todate builtin is an alias for todateiso8601.
+`fromdateiso8601`
 
-       The now builtin outputs the current time, in seconds since the Unix epoch.
+- **Parses  datetimes  in  the  ISO  8601  format  to  a  number  of  seconds  since  the Unix epoch (1970-01-01T00:00:00Z).**
 
-       Low-level  jq  interfaces to the C-library time functions are also provided: strptime, strftime, strflocaltime, mktime, gmtime,
-       and localtime. Refer to your host operating system's documentation for the format strings used by strptime and strftime.  Note:
-       these are not necessarily stable interfaces in jq, particularly as to their localization functionality.
+`todateiso8601`
 
-       The  gmtime builtin consumes a number of seconds since the Unix epoch and outputs a "broken down time" representation of Green-
-       which Meridian time as an array of numbers representing (in this order): the year, the month (zero-based), the day of the month
-       (one-based),  the  hour  of  the day, the minute of the hour, the second of the minute, the day of the week, and the day of the
-       year -- all one-based unless otherwise stated. The day of the week number may be wrong on some systems for dates  before  March
-       1st 1900, or after December 31 2099.
+- The inverse of `fromdateiso8601`.
 
-       The localtime builtin works like the gmtime builtin, but using the local timezone setting.
+`fromdate`
 
-       The mktime builtin consumes "broken down time" representations of time output by gmtime and strptime.
+- **Parses datetime strings.**
+    - Currently `fromdate` only supports ISO 8601 datetime strings, but in the future  it will attempt to parse datetime strings in more formats.
 
-       The  strptime(fmt)  builtin parses input strings matching the fmt argument. The output is in the "broken down time" representa-
-       tion consumed by gmtime and output by mktime.
+`todate`
 
-       The strftime(fmt) builtin formats a time (GMT) with the given format. The strflocaltime does the  same,  but  using  the  local
-       timezone setting.
+- An **alias for `todateiso8601`.**
 
-       The  format  strings for strptime and strftime are described in typical C library documentation. The format string for ISO 8601
-       datetime is "%Y-%m-%dT%H:%M:%SZ".
+`now`
 
-       jq may not support some or all of this date functionality on some systems. In particular, the %u and %j  specifiers  for  strp-
-       time(fmt) are not supported on macOS.
-           jq 'fromdate'
-              "2015-03-05T23:51:47Z"
-           => 1425599507
+- Outputs the **current time, in seconds since the Unix epoch.**
 
-           jq 'strptime("%Y-%m-%dT%H:%M:%SZ")'
-              "2015-03-05T23:51:47Z"
-           => [2015,2,5,23,51,47,4,63]
+Low-level  jq  interfaces to the C-library time functions are also provided :
 
-           jq 'strptime("%Y-%m-%dT%H:%M:%SZ")|mktime'
-              "2015-03-05T23:51:47Z"
-           => 1425599507
+- `strptime`, `strftime`, `strflocaltime`, `mktime`, `gmtime`, and `localtime`.
+- Refer to your host operating system's documentation for the format strings used by `strptime` and `strftime`.
+- Note: these are not necessarily stable interfaces in jq, particularly as to their localization functionality.
 
+`gmtime`
 
+- The  `gmtime` builtin consumes a number of seconds since the Unix epoch and outputs a "broken down time" representation of Greenwhich Meridian time as an array of numbers representing (in this order) :
+    - the year,
+    - the month (zero-based),
+    - the day of the month (one-based),
+    - the  hour  of  the day,
+    - the minute of the hour,
+    - the second of the minute,
+    - the day of the week,
+    - and the day of the year -- all one-based unless otherwise stated.
+- The day of the week number may be wrong on some systems for dates  before  March 1st 1900, or after December 31 2099.
 
-   SQL-Style Operators
+`localtime`
+
+- **Works like the `gmtime` builtin**, but **using the local timezone setting.**
+
+`mktime`
+
+- **Consumes "broken down time" representations of time output by `gmtime` and `strptime`.**
+
+`strptime(fmt)`
+
+- **Parses input strings matching the fmt argument.**
+    - The output is in the "broken down time" representation consumed by `gmtime` and output by `mktime`.
+
+`strftime(fmt)`
+
+- **Formats a time (GMT) with the given format.**
+
+`strflocaltime`
+
+- **Work like `strftime`**,  but  **using  the  local timezone setting.**
+
+The  format  strings for `strptime` and `strftime` are described in typical C library documentation.
+
+- The format string for ISO 8601 datetime is `"%Y-%m-%dT%H:%M:%SZ"`.
+
+jq may not support some or all of this date functionality on some systems.
+
+- In particular, the `%u` and `%j` specifiers  for  `strptime(fmt)` are not supported on macOS.
+
+```bash
+# fromdate
+$ echo '"2015-03-05T23:51:47Z"' | jq 'fromdate'
+1425599507
+
+# strptime("%Y-%m-%dT%H:%M:%SZ")
+$ echo '"2015-03-05T23:51:47Z"' | jq 'strptime("%Y-%m-%dT%H:%M:%SZ")'
+[
+  2015,
+  2,
+  5,
+  23,
+  51,
+  47,
+  4,
+  63
+]
+
+# strptime("%Y-%m-%dT%H:%M:%SZ") | mktime
+$ echo '"2015-03-05T23:51:47Z"' | jq 'strptime("%Y-%m-%dT%H:%M:%SZ") | mktime'
+1425599507
+```
+
+### SQL-Style Operators
+
        jq provides a few SQL-style operators.
 
        INDEX(stream; index_expression):
