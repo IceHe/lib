@@ -3085,134 +3085,211 @@ $ echo '[{}, true, {"a":1}]' | jq 'map(.a?)'
 
 ## Regular Expressions ( PCRE )
 
-       jq  uses  the  Oniguruma regular expression library, as do php, ruby, TextMate, Sublime Text, etc, so the description here will
-       focus on jq specifics.
+jq  uses  the  Oniguruma regular expression library, as do php, ruby, TextMate, Sublime Text, etc, so the description here will focus on jq specifics.
 
-       The jq regex filters are defined so that they can be used using one of these patterns:
+The jq regex filters are defined so that they can be used using one of these patterns:
 
+```bash
+STRING | FILTER( REGEX )
+STRING | FILTER( REGEX; FLAGS )
+STRING | FILTER( [REGEX] )
+STRING | FILTER( [REGEX, FLAGS] )
+```
 
+where :
 
-           STRING | FILTER( REGEX )
-           STRING | FILTER( REGEX; FLAGS )
-           STRING | FILTER( [REGEX] )
-           STRING | FILTER( [REGEX, FLAGS] )
+- `*` STRING, REGEX and FLAGS are jq strings and subject to jq string interpolation;
+- `*` REGEX,  after  string  interpolation, should be a valid PCRE regex;
+- `*` FILTER is one of `test`, `match`, or `capture`, as described below.
 
+FLAGS is a string consisting of one of more of the supported flags:
 
+- `g` - Global search (find all matches, not just the first)
+- `i` - Case insensitive search
+- `m` - Multi line mode ('.' will match newlines)
+- `n` - Ignore empty matches
+- `p` - Both s and m modes are enabled
+- `s` - Single line mode ('^' -> '\A', '$' -> '\Z')
+- `l` - Find longest possible matches
+- `x` - Extended regex format (ignore whitespace and comments)
 
-       where: * STRING, REGEX and FLAGS are jq strings and subject to jq string interpolation; * REGEX,  after  string  interpolation,
-       should be a valid PCRE regex; * FILTER is one of test, match, or capture, as described below.
+To match whitespace in an x pattern use an escape such as `\s`, e.g.
 
-       FLAGS is a string consisting of one of more of the supported flags:
+- `test( "a\sb", "x" )`
 
-       o   g - Global search (find all matches, not just the first)
+Note that certain flags may also be specified within REGEX, e.g.
 
-       o   i - Case insensitive search
+- `jq -n '("test", "TEst", "teST", "TEST") | test( "(?i)te(?-i)st" )'`
 
-       o   m - Multi line mode ('.' will match newlines)
+evaluates to: true, true, false, false.
 
-       o   n - Ignore empty matches
+### test
 
-       o   p - Both s and m modes are enabled
+`test(val)`, `test(regex; flags)`
 
-       o   s - Single line mode ('^' -> '\A', '$' -> '\Z')
+- **Like `match`, but does not return match objects, only `true` or `false`** for whether or not the regex matches the input.
 
-       o   l - Find longest possible matches
+```bash
+# test("foo")
+$ echo '"foo"' | jq 'test("foo")'
+true
 
-       o   x - Extended regex format (ignore whitespace and comments)
+# .[] | test("a b c # Both spaces and comments are ignored."; "ix")
+$ echo '["xabcd", "ABC"]' | jq '.[] | test("a b c # Both spaces and comments are ignored."; "ix")'
+true
+true
+```
 
+### match
 
+`match(val)`, `match(regex; flags)`
 
-       To match whitespace in an x pattern use an escape such as \s, e.g.
+- `match` **outputs an object for each match it finds.**
+    - Matches have the following fields:
+        - `offset` - offset in UTF-8 codepoints from the beginning of the input
+        - `length` - length in UTF-8 codepoints of the match
+        - `string` - the string that it matched
+        - `captures` - an array of objects representing capturing groups.
+    - Capturing group objects have the following fields:
+        - `offset` - offset in UTF-8 codepoints from the beginning of the input
+        - `length` - length in UTF-8 codepoints of this capturing group
+        - `string` - the string that was captured
+        - `name` - the name of the capturing group (or null if it was unnamed)
+    - Capturing groups that **did not match anything return an offset of -1**
 
-       o   test( "a\sb", "x" ).
+```bash
+# match("(abc)+"; "g")
+$ echo '"abc abc"' | jq 'match("(abc)+"; "g")'
+{
+  "offset": 0,
+  "length": 3,
+  "string": "abc",
+  "captures": [
+    {
+      "offset": 0,
+      "length": 3,
+      "string": "abc",
+      "name": null
+    }
+  ]
+}
+{
+  "offset": 4,
+  "length": 3,
+  "string": "abc",
+  "captures": [
+    {
+      "offset": 4,
+      "length": 3,
+      "string": "abc",
+      "name": null
+    }
+  ]
+}
 
+# match("foo")
+$ echo '"foo bar foo"' | jq 'match("foo")'
+{
+  "offset": 0,
+  "length": 3,
+  "string": "foo",
+  "captures": []
+}
 
+# match(["foo", "ig"])
+$ echo '"foo bar FOO"' | jq 'match(["foo", "ig"])'
+{
+  "offset": 0,
+  "length": 3,
+  "string": "foo",
+  "captures": []
+}
+{
+  "offset": 8,
+  "length": 3,
+  "string": "FOO",
+  "captures": []
+}
 
-       Note that certain flags may also be specified within REGEX, e.g.
+# match("foo (?<bar123>bar)? foo"; "ig")
+$ echo '"foo bar foo foo  foo"' | jq 'match("foo (?<bar123>bar)? foo"; "ig")'
+{
+  "offset": 0,
+  "length": 11,
+  "string": "foo bar foo",
+  "captures": [
+    {
+      "offset": 4,
+      "length": 3,
+      "string": "bar",
+      "name": "bar123"
+    }
+  ]
+}
+{
+  "offset": 12,
+  "length": 8,
+  "string": "foo  foo",
+  "captures": [
+    {
+      "offset": -1,
+      "string": null,
+      "length": 0,
+      "name": "bar123"
+    }
+  ]
+}
 
-       o   jq -n '("test", "TEst", "teST", "TEST") | test( "(?i)te(?-i)st" )'
+# match("foo (bar)? foo"; "ig")
+$ echo '"foo bar foo foo  foo"' | jq 'match("foo (bar)? foo"; "ig")'
+{
+  "offset": 0,
+  "length": 11,
+  "string": "foo bar foo",
+  "captures": [
+    {
+      "offset": 4,
+      "length": 3,
+      "string": "bar",
+      "name": null
+    }
+  ]
+}
+{
+  "offset": 12,
+  "length": 8,
+  "string": "foo  foo",
+  "captures": [
+    {
+      "offset": -1,
+      "string": null,
+      "length": 0,
+      "name": null
+    }
+  ]
+}
 
+# [match("a|b"; "g")] | length
+$ echo '"abc"' | jq '[match("a|b"; "g")] | length'
+2
+```
 
+### capture
 
-       evaluates to: true, true, false, false.
+`capture(val)`, `capture(regex; flags)`
 
-   test(val), test(regex; flags)
-       Like match, but does not return match objects, only true or false for whether or not the regex matches the input.
+- **Collects  the  named  captures in a JSON object, with the name of each capture as the key**, and the matched string as the corresponding value.
 
+```bash
+# capture("(?<a>[a-z]+)-(?<n>[0-9]+)")
+$ echo '"xyzzy-14"' | jq 'capture("(?<a>[a-z]+)-(?<n>[0-9]+)")'
+{
+  "a": "xyzzy",
+  "n": "14"
+}
+```
 
-
-           jq 'test("foo")'
-              "foo"
-           => true
-
-           jq '.[] | test("a b c # spaces are ignored"; "ix")'
-              ["xabcd", "ABC"]
-           => true, true
-
-   match(val), match(regex; flags)
-       match outputs an object for each match it finds. Matches have the following fields:
-
-       o   offset - offset in UTF-8 codepoints from the beginning of the input
-
-       o   length - length in UTF-8 codepoints of the match
-
-       o   string - the string that it matched
-
-       o   captures - an array of objects representing capturing groups.
-
-
-
-       Capturing group objects have the following fields:
-
-       o   offset - offset in UTF-8 codepoints from the beginning of the input
-
-       o   length - length in UTF-8 codepoints of this capturing group
-
-       o   string - the string that was captured
-
-       o   name - the name of the capturing group (or null if it was unnamed)
-
-
-
-       Capturing groups that did not match anything return an offset of -1
-
-
-
-           jq 'match("(abc)+"; "g")'
-              "abc abc"
-           => {"offset": 0, "length": 3, "string": "abc", "captures": [{"offset": 0, "length": 3, "string": "abc", "name": null}]}, {"offset": 4, "le
-ngth": 3, "string": "abc", "captures": [{"offset": 4, "length": 3, "string": "abc", "name": null}]}
-
-           jq 'match("foo")'
-              "foo bar foo"
-           => {"offset": 0, "length": 3, "string": "foo", "captures": []}
-
-           jq 'match(["foo", "ig"])'
-              "foo bar FOO"
-           => {"offset": 0, "length": 3, "string": "foo", "captures": []}, {"offset": 8, "length": 3, "string": "FOO", "captures": []}
-
-           jq 'match("foo (?<bar123>bar)? foo"; "ig")'
-              "foo bar foo foo  foo"
-           => {"offset": 0, "length": 11, "string": "foo bar foo", "captures": [{"offset": 4, "length": 3, "string": "bar", "name": "bar123"}]}, {"of
-fset": 12, "length": 8, "string": "foo  foo", "captures": [{"offset": -1, "length": 0, "string": null, "name": "bar123"}]}
-
-           jq '[ match("."; "g")] | length'
-              "abc"
-           => 3
-
-
-
-   capture(val), capture(regex; flags)
-       Collects  the  named  captures in a JSON object, with the name of each capture as the key, and the matched string as the corre-
-       sponding value.
-
-
-
-           jq 'capture("(?<a>[a-z]+)-(?<n>[0-9]+)")'
-              "xyzzy-14"
-           => { "a": "xyzzy", "n": "14" }
-
-
+### scan
 
    scan(regex), scan(regex; flags)
        Emit a stream of the non-overlapping substrings of the input that match the regex in accordance with the  flags,  if  any  have
