@@ -3291,29 +3291,71 @@ $ echo '"xyzzy-14"' | jq 'capture("(?<a>[a-z]+)-(?<n>[0-9]+)")'
 
 ### scan
 
-   scan(regex), scan(regex; flags)
-       Emit a stream of the non-overlapping substrings of the input that match the regex in accordance with the  flags,  if  any  have
-       been  specified.  If  there is no match, the stream is empty. To capture all the matches for each input string, use the idiom `[ expr ]`, e.g. `[ scan(regex) ]`.
+`scan(regex)`, `scan(regex; flags)`
 
-### split
+- Emit a stream of the non-overlapping substrings of the input that match the regex in accordance with the  flags,  if  any  have been  specified.
+    - If  there is no match, the stream is empty.
+    - To capture all the matches for each input string, use the idiom `[ expr ]`, e.g. `[ scan(regex) ]`.
 
-   split(regex; flags)
-       For backwards compatibility, `split` splits on a string, not a regex.
+```bash
+# [scan("\\d")]
+$ echo '"1a2bc3"' | jq '[scan("\\d")]'
+[
+  "1",
+  "2",
+  "3"
+]
+```
 
-### splits
+### split and splits
 
-   splits(regex), splits(regex; flags)
-       These provide the same results as their `split` counterparts, but as a stream instead of an array.
+`split(regex; flags)`
 
-### sub
+- For backwards compatibility, **`split` splits on a string, not a regex.**
 
-   sub(regex; tostring) sub(regex; string; flags)
-       Emit the string obtained by replacing the first match of regex in the input string with `tostring`, after interpolation. `tostring` should  be  a  jq  string, and may contain references to named captures. The named captures are, in effect, presented as a JSON object (as constructed by `capture`) to `tostring`, so a reference to a captured variable named "x" would take the form: "(.x)".
+`splits(regex)`, `splits(regex; flags)`
 
-### gsub
+- These **provide the same results as their `split` counterparts, but as a stream instead of an array.**
 
-   gsub(regex; string), gsub(regex; string; flags)
-       `gsub` is like `sub` but all the non-overlapping occurrences of the regex are replaced by the string, after interpolation.
+```bash
+# split("[a-zA-Z]+"; "g")
+$ echo '"1A2BC3"' | jq 'split("[a-zA-Z]+"; "g")'
+[
+  "1",
+  "2",
+  "3"
+]
+
+# [splits("[a-zA-Z]+"; "g")]
+$ echo '"1A2BC3"' | jq '[splits("[a-zA-Z]+"; "g")]'
+[
+  "1",
+  "2",
+  "3"
+]
+```
+
+### sub and gsub
+
+`sub(regex; tostring)`, `sub(regex; string; flags)`
+
+- **Emit the string obtained by replacing the first match of regex in the input string with `tostring`, after interpolation.**
+    - `tostring` should  be  a  jq  string, and may contain references to named captures.
+    - The named captures are, in effect, presented as a JSON object (as constructed by `capture`) to `tostring`, so a reference to a captured variable named "x" would take the form: "(.x)".
+
+`gsub(regex; string)`, `gsub(regex; string; flags)`
+
+- `gsub` is like `sub` but all the non-overlapping occurrences of the regex are replaced by the string, after interpolation.
+
+```bash
+# sub("[a-zA-Z]+"; " ")
+$ echo '"1A2BC3"' | jq 'sub("[a-zA-Z]+"; " ")'
+"1 2BC3"
+
+# gsub("[a-zA-Z]+"; " ")
+$ echo '"1A2BC3"' | jq 'gsub("[a-zA-Z]+"; " ")'
+"1 2 3"
+```
 
 ## Advanced Features
 
