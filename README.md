@@ -179,7 +179,8 @@ Others
 
 > Commands & CLI ( Command-Line Interface )
 
-- [awk](/cmd/a/awk.md) : pattern scanning and processing language
+- [awk](/cmd/a/awk.md) : pattern-directed scanning and processing language ( DOING )
+    - [gawk](/cmd/a/awk.md) : pattern scanning and processing language ( TODO )
 - [bash](/cmd/bash/bash.md) : GNU Bourne-Again SHell ( draft )
     - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
     - [shell variables](/cmd/bash/shell-variables.md) : variables are set by the shell

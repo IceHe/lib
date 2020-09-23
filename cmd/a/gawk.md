@@ -1,10 +1,10 @@
-# awk
+# gawk ( TODO )
 
-> awk - pattern-directed scanning and processing language
+> gawk - pattern scanning and processing language
 
 References
 
-- `man awk`
+- `man gawk`
 - http://www.runoob.com
     - Command : http://www.runoob.com/linux/linux-comm-awk.html
     - Work Principles : http://www.runoob.com/w3cnote/awk-work-principle.html
