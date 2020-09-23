@@ -3359,7 +3359,378 @@ $ echo '"1A2BC3"' | jq 'gsub("[a-zA-Z]+"; " ")'
 
 ## Advanced Features
 
-TODO
+- Variables are an absolute necessity in most programming languages, but they're relegated to an "advanced feature" in jq.
+- In most languages, variables are the only means of passing around data.
+    - If you calculate a value, and you want to use  it  more than  once, you'll need to store it in a variable.
+    - To pass a value to another part of the program, you'll need that part of the program to define a variable (as a function parameter, object member, or whatever) in which to place the data.
+- It is also possible to define functions in jq, although this is is a feature  whose  biggest  use  is  defining  jq's  standard library (many jq functions such as `map` and `find` are in fact written in jq).
+- jq  has  reduction operators, which are very powerful but a bit tricky.
+    - Again, these are mostly used internally, to define some useful bits of jq's standard library.
+- It may not be obvious at first, but jq is all about generators (yes, as often found in other  languages).
+    - Some  utilities  are provided to help deal with generators.
+    - Some minimal I/O support (besides reading JSON from standard input, and writing JSON to standard output) is available.
+- Finally, there is a module/library system.
+
+### Variable
+
+Variable / Symbolic Binding Operator: `... as $identifier | ...`
+
+- In jq, all filters have an input and an output, so manual plumbing is not necessary to pass a value from one part of a program to the next.
+    - Many expressions, for instance `a + b`, pass their input to two distinct subexpressions  (here  a  and  b  are  both passed the same input), so variables aren't usually necessary in order to use a value twice.
+- For instance, calculating the average value of an array of numbers requires a few variables in most languages - at least one to hold the array, perhaps one for each element or for a loop counter.
+    - In jq, it's simply `add / length` -  the  `add`  expression  is given the array and produces its sum, and the `length` expression is given the array and produces its length.
+- So,  there's generally a cleaner way to solve most problems in jq than defining variables.
+    - Still, sometimes they do make things easier, so jq lets you **define variables using `expression as $variable`.**
+    - **All variable names  start  with  `$`.**
+    - Here's  a  slightly uglier version of the array-averaging example:
+
+```bash
+# add / length
+$ echo '[2,6]' | jq 'add / length'
+4
+
+# length as $ary_len | add / $ary_len
+$ echo '[2,6]' | jq 'length as $ary_len | add / $ary_len'
+4
+```
+
+- We'll need a more complicated problem to find a situation where using variables actually makes our lives easier.
+- Suppose  we have an array of blog posts, with "author" and "title" fields, and another object which is used to map author usernames to real names. Our input looks like:
+
+```json
+{"posts": [{"title": "Frist psot", "author": "anon"},
+           {"title": "A well-written article", "author": "person1"}],
+ "realnames": {"anon": "Anonymous Coward",
+               "person1": "Person McPherson"}}
+```
+
+- We want to produce the posts with the author field containing a real name, as in:
+
+```json
+{"title": "Frist psot", "author": "Anonymous Coward"}
+{"title": "A well-written article", "author": "Person McPherson"}
+```
+
+- We use a variable, `$names`, to store the realnames object, so that we can refer to it later when looking up author usernames:
+
+```bash
+# .realnames as $names | .posts[] | {title, author: $names[.author]}
+$ echo '{
+    "posts": [
+        {"title": "Frist psot", "author": "anon"},
+        {"title": "A well-written article", "author": "person1"}
+    ],
+    "realnames": {
+        "anon": "Anonymous Coward",
+        "person1": "Person McPherson"
+    }
+}' | jq '.realnames as $names | .posts[] | {title, author: $names[.author]}'
+
+# output
+{
+  "title": "Frist psot",
+  "author": "Anonymous Coward"
+}
+{
+  "title": "A well-written article",
+  "author": "Person McPherson"
+}
+```
+
+- The expression `exp as $x | ...` means :
+    - for each value of expression exp, run the rest of the pipeline with the  entire  original input, and with `$x` set to that value.
+    - Thus as functions as something of a foreach loop.
+- Just as **`{foo}` is a handy way of writing `{foo: .foo}`, so `{$foo}` is a handy way of writing `{foo:$foo}`.**
+- Multiple  variables may be declared using a single as expression by providing a pattern that matches the structure of the input (this is known as "destructuring"):
+
+```bash
+. as {realnames: $names, posts: [$first, $second]} | ...
+```
+
+- The variable declarations in array patterns (e.g., `. as [$first, $second]`) bind to the elements of the array in from  the  element  at  index  zero  on up, in order.
+    - When there is no value at the index for an array pattern element, null is bound to that variable.
+- **Variables are scoped over the rest of the expression that defines them**,
+    - so `.realnames as $names | (.posts[] | {title, author: $names[.author]})` will work,
+    - but `(.realnames as $names | .posts[]) | {title, author: $names[.author]}` won't.
+- For programming language theorists, it's more accurate to say that **jq variables are lexically-scoped  bindings.**
+    - In  particular there's  no  way  to  change the value of a binding;
+    - **one can only setup a new binding with the same name, but which will not be visible where the old one was.**
+
+```bash
+# .bar + .foo
+$ echo '{"foo":10, "bar":200}' | jq '.bar + .foo'
+210
+
+# .bar as $x | .foo + $x
+$ echo '{"foo":10, "bar":200}' | jq '.bar as $x | .foo + $x'
+210
+
+# .bar as $x | .foo | . + $x
+$ echo '{"foo":10, "bar":200}' | jq '.bar as $x | .foo | . + $x'
+210
+
+# . as $i | [(. * 2 | . as $i | $i), $i]
+$ echo 5 | jq '. as $i | [(. * 2 | . as $i | $i), $i]'
+[
+  10,
+  5
+]
+
+# . as [$a, $b, {c: $c}] | $a + $b + $c
+$ echo '[2, 3, {"c": 4, "d": 5}]' | jq '. as [$a, $b, {c: $c}] | $a + $b + $c'
+9
+
+# .[] as [$a, $b] | {$a, $b}
+$ echo '[[0], [0, 1], [2, 1, 0]]' | jq '.[] as [$a, $b] | {$a, $b}'
+{
+  "a": 0,
+  "b": null
+}
+{
+  "a": 0,
+  "b": 1
+}
+{
+  "a": 2,
+  "b": 1
+}
+```
+
+### Defining Functions
+
+- You can give a filter a name using "def" syntax: `def increment: . + 1;`
+    - From then on, `increment` is usable as a filter **just like a builtin function** (in fact, this is  how  many  of  the  builtins  are defined).
+- A function may take arguments: `def map(f): [.[] | f];`
+    - **Arguments  are  passed  as  <u>filters</u>  (functions with no arguments), not as values.**
+    - The same argument may be referenced multiple times with different inputs (here `f` is run for each element of the input array).
+- **Arguments to a function work more  like  callbacks than like value arguments.**
+    - This is important to understand. Consider:
+
+```bash
+# def foo(f): f|f; foo(. * 2)
+$ echo 5 | jq 'def foo(f): f|f; foo(. * 2)'
+20
+
+# def foo(f): f|f|f; foo(. * 2)
+$ echo 5 | jq 'def foo(f): f|f|f; foo(. * 2)'
+40
+```
+
+- The  result will be 20 **because `f` is `. * 2`, and during the first invocation of `f .` will be 5, and the second time it will be 10 = (5 * 2), so the result will be 20.
+    - Function arguments are filters, and filters expect an input when invoked.
+- If you **want the value-argument behaviour for defining simple functions**, you can just use a variable:
+
+```bash
+# def addval(f): f as $f | map (. + $f); addval(3)
+$ echo '[1,2,3]' | jq 'def addval(f): f as $f | map (. + $f); addval(3)'
+[
+  4,
+  5,
+  6
+]
+
+# Or use the short-hand:
+
+# def addval($f): map (. + $f); addval(3)
+$ echo '[1,2,3]' | jq 'def addval($f): map (. + $f); addval(3)'
+[
+  4,
+  5,
+  6
+]
+```
+
+- With either definition, `addvalue(.foo)` will add the current input's `.foo` field to each element of the array.
+    - Do note that calling `addvalue(.[])` will cause the `map(. + $f)` part to be evaluated once per value in the value of `.` at the call site.
+- **Multiple definitions using the same function name are allowed.*
+    - Each re-definition replaces the previous one for the same number of function arguments, but only for references from functions (or main program) subsequent to the re-definition.
+    - See  also  the section below on scoping.
+
+```bash
+# def add_elem(f): . + [f]; map(add_elem(.[0]))
+$ echo '[[1,2],[10,20]]' | jq 'def add_elem(f): . + [f]; map(add_elem(.[0]))'
+[
+  [
+    1,
+    2,
+    1
+  ],
+  [
+    10,
+    20,
+    10
+  ]
+]
+
+# def add_elem($f): map(. + $f); add_elem(.[0])
+$ echo '[[1,2],[10,20]]' | jq 'def add_elem($f): map(. + $f); add_elem(.[0])'
+[
+  [
+    1,
+    2,
+    1,
+    2
+  ],
+  [
+    10,
+    20,
+    1,
+    2
+  ]
+]
+```
+
+### Scoping
+
+- There  are  two  types  of  symbols in jq: value bindings (a.k.a., "variables"), and functions.
+    - Both are scoped lexically, with
+       expressions being able to refer only to symbols that have been defined "to the left" of them. The only exception to  this  rule
+       is that functions can refer to themselves so as to be able to create recursive functions.
+
+       For  example, in the following expression there is a binding which is visible "to the right" of it, ... | .*3 as $times_three |
+       [. + $times_three] | ..., but not "to the left". Consider this expression now, ... | (.*3 as $times_three | [.+  $times_three])
+       | ...: here the binding $times_three is not visible past the closing parenthesis.
+
+   Reduce
+       The reduce syntax in jq allows you to combine all of the results of an expression by accumulating them into a single answer. As
+       an example, we'll pass [3,2,1] to this expression:
+
+
+
+           reduce .[] as $item (0; . + $item)
+
+       For each result that .[] produces, . + $item is run to accumulate a running total, starting from 0. In this example,  .[]  pro-
+       duces the results 3, 2, and 1, so the effect is similar to running something like this:
+
+
+
+           0 | (3 as $item | . + $item) |
+               (2 as $item | . + $item) |
+               (1 as $item | . + $item)
+
+           jq 'reduce .[] as $item (0; . + $item)'
+              [10,2,5,3]
+           => 20
+
+
+
+   isempty(exp)
+       Returns true if exp produces no outputs, false otherwise.
+
+
+
+           jq 'isempty(empty)'
+              null
+           => true
+
+
+
+   limit(n; exp)
+       The limit function extracts up to n outputs from exp.
+
+
+
+           jq '[limit(3;.[])]'
+              [0,1,2,3,4,5,6,7,8,9]
+           => [0,1,2]
+
+
+
+   first(expr), last(expr), nth(n; expr)
+       The first(expr) and last(expr) functions extract the first and last values from expr, respectively.
+
+       The  nth(n;  expr)  function  extracts the nth value output by expr. This can be defined as def nth(n; expr): last(limit(n + 1;
+       expr));. Note that nth(n; expr) doesn't support negative values of n.
+
+
+
+           jq '[first(range(.)), last(range(.)), nth(./2; range(.))]'
+              10
+           => [0,9,5]
+
+
+
+   first, last, nth(n)
+       The first and last functions extract the first and last values from any array at ..
+
+       The nth(n) function extracts the nth value of any array at ..
+
+
+
+           jq '[range(.)]|[first, last, nth(5)]'
+              10
+           => [0,9,5]
+
+   foreach
+       The foreach syntax is similar to reduce, but intended to allow the construction of limit and reducers that produce intermediate
+       results (see example).
+
+       The  form  is  foreach  EXP as $var (INIT; UPDATE; EXTRACT). Like reduce, INIT is evaluated once to produce a state value, then
+       each output of EXP is bound to $var, UPDATE is evaluated for each output of EXP with the current state and with  $var  visible.
+       Each  value output by UPDATE replaces the previous state. Finally, EXTRACT is evaluated for each new state to extract an output
+       of foreach.
+
+       This is mostly useful only for constructing reduce- and limit-like functions. But it is much more general,  as  it  allows  for
+       partial reductions (see the example below).
+
+
+
+           jq '[foreach .[] as $item ([[],[]]; if $item == null then [[],.[0]] else [(.[0] + [$item]),[]] end; if $item == null then .[1] else empty end)]'
+              [1,2,3,4,null,"a","b",null]
+           => [[1,2,3,4],["a","b"]]
+
+
+
+   Recursion
+       As  described  above,  recurse  uses  recursion, and any jq function can be recursive. The while builtin is also implemented in
+       terms of recursion.
+
+       Tail calls are optimized whenever the expression to the left of the recursive call outputs its last  value.  In  practice  this
+       means that the expression to the left of the recursive call should not produce more than one output for each input.
+
+       For example:
+
+
+
+           def recurse(f): def r: ., (f | select(. != null) | r); r;
+
+           def while(cond; update):
+             def _while:
+               if cond then ., (update | _while) else empty end;
+             _while;
+
+           def repeat(exp):
+             def _repeat:
+               exp, _repeat;
+             _repeat;
+
+
+
+   Generators and iterators
+       Some jq operators and functions are actually generators in that they can produce zero, one, or more values for each input, just
+       as one might expect in other programming languages that have generators. For example, .[] generates all the values in its input
+       (which must be an array or an object), range(0; 10) generates the integers between 0 and 10, and so on.
+
+       Even  the comma operator is a generator, generating first the values generated by the expression to the left of the comma, then
+       for each of those, the values generate by the expression on the right of the comma.
+
+       The empty builtin is the generator that produces zero outputs. The empty builtin backtracks to the preceding generator  expres-
+       sion.
+
+       All  jq  functions  can be generators just by using builtin generators. It is also possible to define new generators using only
+       recursion and the comma operator. If the recursive call(s) is(are) "in tail position" then the generator will be efficient.  In
+       the example below the recursive call by _range to itself is in tail position. The example shows off three advanced topics: tail
+       recursion, generator construction, and sub-functions.
+
+
+
+           jq 'def range(init; upto; by): def _range: if (by > 0 and . < upto) or (by < 0 and . > upto) then ., ((.+by)|_range) else . end; if by == 0 then init else init|_range end | select((by > 0 and . < upto) or (by < 0 and . > upto)); range(0; 10; 3)'
+              null
+           => 0, 3, 6, 9
+
+           jq 'def while(cond; update): def _while: if cond then ., (update | _while) else empty end; _while; [while(.<100; .*2)]'
+              1
+           => [1,2,4,8,16,32,64]
 
 ## Others
 
