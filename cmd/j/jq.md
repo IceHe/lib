@@ -1966,8 +1966,8 @@ $ echo '[1,2,3,4]' | jq 'reverse'
 
 - The filter `contains(b)` will **produce true if b is completely contained within the input.**
     - A **string** B is contained in a string A if B is a **substring** of A.
-    - An **array** B is contained in an array A if all elements in B are contained in  any  element  in  A.
-    - An **object**  B is contained in object A if all of the values in B are **contained in the value in A with the same key**.
+    - An **array** B is contained in an array A if all elements in B are contained in any element in A.
+    - An **object** B is contained in object A if all of the values in B are **contained in the value in A with the same key**.
     - All other types are assumed to be contained in each other if they are equal.
 
 ```bash
@@ -2017,7 +2017,7 @@ $ echo '[0,1,2,1,3,1,4]' | jq 'indices(1)'
   5
 ]
 
-#  indices([1,2])
+# indices([1,2])
 $ echo '[0,1,2,3,1,4,2,5,1,2,6,7]' | jq 'indices([1,2])'
 [
   1,
@@ -2109,7 +2109,7 @@ $ echo '["foobar", "barfoo"]' | jq 'map(endswith("foo"))'
 `combinations`, `combinations(n)`
 
 - Outputs **all combinations of the elements of the arrays in the input array.**
-    - If given an argument `n`, it outputs **all  combinations of `n` repetitions of the input array.**
+    - If given an argument `n`, it outputs **all combinations of `n` repetitions of the input array.**
 
 ```bash
 # combinations
@@ -2240,7 +2240,7 @@ $ echo '"a, b,c,d, e, "' | jq 'split(", ")'
 
 `join(str)`
 
-- **Joins  the  array  of  elements  given  as input, using the argument as separator.**
+- **Joins the array of elements given as input, using the argument as separator.**
     - It is the **inverse of `split`** :
         - that is, running `split("foo") | join("foo")` over any input string returns said input string.
 - Numbers and booleans in the input are converted to strings.
@@ -2254,7 +2254,7 @@ $ echo '["a","b,c,d","e"]' | jq 'join(", ")'
 
 # join(" ")
 $ echo '["a",1,2.3,true,null,false]' | jq 'join(" ")'
-"a 1 2.3 true  false"
+"a 1 2.3 true false"
 ```
 
 ### ASCII Downcase and Upcase
@@ -2278,7 +2278,7 @@ $ echo '"ICE"' | jq 'ascii_downcase'
 `while(cond; update)`
 
 - The `while(cond; update)` function allows you to **repeatedly apply an update to `.` until `cond` is false.**
-- Note  that  `while(cond; update)` is internally defined as a recursive jq function.
+- Note that `while(cond; update)` is internally defined as a recursive jq function.
     - Recursive calls within while will not consume additional memory if update produces at most one output for each input.
     - See advanced topics below.
 
@@ -2300,7 +2300,7 @@ $ echo '1' | jq 'while(.<100; .*2)'
 
 - The `until(cond; next)` function allows you to **repeatedly apply the expression next, initially to . then to its own output, until cond is true.**
     - For example, this can be used to implement a factorial function (see below).
-- Note  that  `until(cond; next)` is internally defined as a recursive jq function.
+- Note that `until(cond; next)` is internally defined as a recursive jq function.
     - Recursive calls within until() will not consume additional memory if next produces at most one output for each input.
     - See advanced topics below.
 
@@ -2353,10 +2353,10 @@ $ echo '{"name": "/", "children": [
 
 - When called without an argument, `recurse` is equivalent to `recurse(.[]?)`.
 - `recurse(f)` is identical to `recurse(f; . != null)` and can be used without concerns about recursion depth.
-- `recurse(f; condition)` is a generator which begins by emitting `.` and then emits in turn `.|f`, `.|f|f`, `.|f|f|f`, ... so long as  the computed  value  satisfies  the  condition.
-    - For  example, to generate all the integers, at least in principle, one could write `recurse(.+1; true)`.
+- `recurse(f; condition)` is a generator which begins by emitting `.` and then emits in turn `.|f`, `.|f|f`, `.|f|f|f`, ... so long as the computed value satisfies the condition.
+    - For example, to generate all the integers, at least in principle, one could write `recurse(.+1; true)`.
 - ~~For legacy reasons, `recurse_down` exists as an alias to calling recurse without arguments.~~
-    - This alias is  considered  deprecated and will be removed in the next major release.
+    - This alias is considered deprecated and will be removed in the next major release.
 - The `recursive` calls in recurse will not consume additional memory whenever f produces at most a single output for each input.
 
 ```bash
@@ -2401,8 +2401,8 @@ $ echo '2' | jq 'recurse(. * .; . < 20)'
 
 `walk(f)`
 
-- The  `walk(f)`  function  **applies  `f` recursively to every component of the input entity.**
-    - When an array is encountered, f is first applied to its elements and then to the array itself; when an object is encountered, f is first applied to all the  values  and then to the object.
+- The `walk(f)` function **applies `f` recursively to every component of the input entity.**
+    - When an array is encountered, f is first applied to its elements and then to the array itself; when an object is encountered, f is first applied to all the values and then to the object.
     - In practice, f will usually test the type of its input, as illustrated in the following examples.
     - The first example highlights the usefulness of processing the elements of an array of arrays before processing the array itself.
     - The second example shows how all the keys of all the objects within the input can be considered for alteration.
@@ -2484,8 +2484,8 @@ $ echo '[[1], [2,3]]' | jq 'transpose'
 
 `bsearch(x)`
 
-- `bsearch(x)`  conducts  a  binary  search  for  x in the input array.
-    - If the input is sorted and contains x, then bsearch(x) will return its index in the array; otherwise, if the array is sorted, it will return (-1 - ix) where ix is an insertion point  such that  the  array  would  still  be sorted after the insertion of x at ix.
+- `bsearch(x)` conducts a binary search for x in the input array.
+    - If the input is sorted and contains x, then bsearch(x) will return its index in the array; otherwise, if the array is sorted, it will return (-1 - ix) where ix is an insertion point such that the array would still be sorted after the insertion of x at ix.
     - If the array is not sorted, bsearch(x) will return an integer that is probably of no interest.
 
 ```bash
@@ -2508,7 +2508,7 @@ $ echo '[1,2,3]' | jq 'bsearch(4) as $ix | if $ix < 0 then .[-(1+$ix)] = 4 else 
 `\(foo)`
 
 - Inside a string, you can **put an expression inside parens after a backslash.**
-    - Whatever the expression returns  will  be  interpolated into the string.
+    - Whatever the expression returns will be interpolated into the string.
 
 ```bash
 # \(.) \(.+1)
@@ -2518,7 +2518,7 @@ $ echo '42' | jq '"The input was \(.), while is one less than \(.+1)"'
 
 ### Convert to/From JSON
 
-- The  `tojson`  and  `fromjson` builtins **dump values as JSON texts or parse JSON texts into values, respectively.**
+- The `tojson` and `fromjson` builtins **dump values as JSON texts or parse JSON texts into values, respectively.**
     - The `tojson` builtin differs from `tostring` in that tostring returns strings unmodified, while `tojson` encodes strings as JSON strings.
 
 ```bash
@@ -2551,25 +2551,25 @@ $ echo '[1, "foo", ["foo"]]' | jq 'map(tojson|fromjson)'
 
 ### Format Strings and Escaping
 
-- The `@foo` syntax is used to **format and escape strings**, which is useful for building URLs, documents in a language like  HTML  or XML, and so forth.
+- The `@foo` syntax is used to **format and escape strings**, which is useful for building URLs, documents in a language like HTML or XML, and so forth.
 - @foo can be used as a filter on its own, the possible escapings are:
     - **`@text` : Calls `tostring`, see that function for details.**
     - **`@json` : Serializes the input as JSON.**
-    - **`@html` : Applies  HTML/XML  escaping**,  by  mapping  the  characters  `<>&'"` to their entity equivalents `&lt;`, `&gt;`, `&amp;`, `&apos;`, `&quot;`.
+    - **`@html` : Applies HTML/XML escaping**, by mapping the characters `<>&'"` to their entity equivalents `&lt;`, `&gt;`, `&amp;`, `&apos;`, `&quot;`.
     - **`@uri` : Applies percent-encoding**, by mapping all reserved URI characters to a `%XX` sequence.
-    - `@csv` : The input must be an array, and it is rendered as CSV with double quotes for strings, and quotes escaped by  repetition.
+    - `@csv` : The input must be an array, and it is rendered as CSV with double quotes for strings, and quotes escaped by repetition.
     - `@tsv` : The input must be an array, and it is rendered as **TSV (tab-separated values)**.
         - Each input array will be printed as a single line.
         - Fields are separated by a single tab (ascii 0x09).
-        - Input characters line-feed  (ascii  0x0a),  carriage-return (ascii  0x0d),  tab  (ascii  0x09)  and backslash (ascii 0x5c) will be output as escape sequences `\n`, `\r`, `\t`, `\\` respectively.
+        - Input characters line-feed (ascii 0x0a), carriage-return (ascii 0x0d), tab (ascii 0x09) and backslash (ascii 0x5c) will be output as escape sequences `\n`, `\r`, `\t`, `\\` respectively.
     - `@sh` : The input is escaped suitable for use in a command-line for a POSIX shell.
-        - If the input is an array, the output will  be a series of space-separated strings.
+        - If the input is an array, the output will be a series of space-separated strings.
     - **`@base64` : The input is converted to base64 as specified by RFC 4648.**
     - **`@base64d` : The inverse of @base64, input is decoded as specified by RFC 4648.**
         - Note: If the decoded string is not UTF-8, the results are undefined.
 - This syntax can be combined with string interpolation in a useful way.
-    - You can follow a `@foo` token with a string  literal.
-    - The contents  of  the  string  literal  will  not  be  escaped.
+    - You can follow a `@foo` token with a string literal.
+    - The contents of the string literal will not be escaped.
     - However, all interpolations made inside that string literal will be escaped.
     - For instance, `@uri "https://www.google.com/search?q=\(.search)"`
         - will produce the following output for the input `{"search":"what is jq?"}` : `"https://www.google.com/search?q=what%20is%20jq%3F"`
@@ -2611,11 +2611,11 @@ jq '@sh "echo \(.)"'
 
 jq provides some basic date handling functionality, with some high-level and low-level builtins.
 
-- In all  cases  these  builtins deal exclusively with time in UTC.
+- In all cases these builtins deal exclusively with time in UTC.
 
 `fromdateiso8601`
 
-- **Parses  datetimes  in  the  ISO  8601  format  to  a  number  of  seconds  since  the Unix epoch (1970-01-01T00:00:00Z).**
+- **Parses datetimes in the ISO 8601 format to a number of seconds since the Unix epoch (1970-01-01T00:00:00Z).**
 
 `todateiso8601`
 
@@ -2624,7 +2624,7 @@ jq provides some basic date handling functionality, with some high-level and low
 `fromdate`
 
 - **Parses datetime strings.**
-    - Currently `fromdate` only supports ISO 8601 datetime strings, but in the future  it will attempt to parse datetime strings in more formats.
+    - Currently `fromdate` only supports ISO 8601 datetime strings, but in the future it will attempt to parse datetime strings in more formats.
 
 `todate`
 
@@ -2634,7 +2634,7 @@ jq provides some basic date handling functionality, with some high-level and low
 
 - Outputs the **current time, in seconds since the Unix epoch.**
 
-Low-level  jq  interfaces to the C-library time functions are also provided :
+Low-level jq interfaces to the C-library time functions are also provided :
 
 - `strptime`, `strftime`, `strflocaltime`, `mktime`, `gmtime`, and `localtime`.
 - Refer to your host operating system's documentation for the format strings used by `strptime` and `strftime`.
@@ -2646,12 +2646,12 @@ Low-level  jq  interfaces to the C-library time functions are also provided :
     - the year,
     - the month **(zero-based)**,
     - the day of the month **(one-based)**,
-    - the  hour  of  the day,
+    - the hour of the day,
     - the minute of the hour,
     - the second of the minute,
     - the day of the week,
     - and the day of the year -- all one-based unless otherwise stated.
-- The day of the week number may be wrong on some systems for dates  before  March 1st 1900, or after December 31 2099.
+- The day of the week number may be wrong on some systems for dates before March 1st 1900, or after December 31 2099.
 
 `localtime`
 
@@ -2672,15 +2672,15 @@ Low-level  jq  interfaces to the C-library time functions are also provided :
 
 `strflocaltime`
 
-- **Work like `strftime`**,  but  **using  the  local timezone setting.**
+- **Work like `strftime`**, but **using the local timezone setting.**
 
-The  format  strings for `strptime` and `strftime` are described in typical C library documentation.
+The format strings for `strptime` and `strftime` are described in typical C library documentation.
 
 - The format string for ISO 8601 datetime is `"%Y-%m-%dT%H:%M:%SZ"`.
 
 jq may not support some or all of this date functionality on some systems.
 
-- In particular, the `%u` and `%j` specifiers  for  `strptime(fmt)` are not supported on macOS.
+- In particular, the `%u` and `%j` specifiers for `strptime(fmt)` are not supported on macOS.
 
 ```bash
 # now
@@ -2728,7 +2728,7 @@ jq provides a few SQL-style operators.
 
 `INDEX(stream; index_expression)`
 
-- **Produces  an  object whose keys are computed by the given index expression applied to each value from the given stream.**
+- **Produces an object whose keys are computed by the given index expression applied to each value from the given stream.**
 
 ```bash
 # map(INDEX(.; "id"))
@@ -2774,7 +2774,7 @@ $ echo '[{"id":1, "name": "app"}, {"id": 2, "name": "ice"}, {"id": 3, "name":"ca
 `JOIN($idx; stream; idx_expr; join_expr)`
 
 - **Joins the values from the given stream to the given index.**
-    - The index's keys are computed  by  applying  the given  index  expression  to each value from the given stream.
+    - The index's keys are computed by applying the given index expression to each value from the given stream.
     - An array of the value in the stream and the corresponding value from the index is fed to the given join expression to produce each result.
 - _References_
     - https://stackoverflow.com/questions/44856098/using-sql-style-join-operator-with-jq
@@ -2786,7 +2786,7 @@ $ echo '[{"id":1, "name": "app"}, {"id": 2, "name": "ice"}, {"id": 3, "name":"ca
 
 `JOIN($idx; idx_expr)`
 
-- This builtin joins the input `.` to the given index, applying the given index expression to `.` to compute  the  index  key.
+- This builtin joins the input `.` to the given index, applying the given index expression to `.` to compute the index key.
     - The join operation is as described above.
 
 ```bash
@@ -2853,7 +2853,7 @@ $ echo '[1,2,3]' | jq 'map(IN(. + 1; 1,2))'
 
 ### Builtins
 
-- Returns  a list of all builtin functions in the format `name/arity`.
+- Returns a list of all builtin functions in the format `name/arity`.
     - Since functions with the same name but different arities are considered separate functions, `all/0`, `all/1`, and `all/2` would all be present in the list.
 
 ## Conditionals and Comparisons
@@ -2862,7 +2862,7 @@ $ echo '[1,2,3]' | jq 'map(IN(. + 1; 1,2))'
 
 `==`, `!=`
 
-- The expression 'a == b' will **produce 'true' if the result of a and b are equal (that is, if they represent equivalent JSON documents)**  and 'false' otherwise.
+- The expression 'a == b' will **produce 'true' if the result of a and b are equal (that is, if they represent equivalent JSON documents)** and 'false' otherwise.
     - In particular, **strings are never considered equal to numbers.**
     - If you're coming from Javascript, jq's `==` is like Javascript's `===` -- **considering values equal only when they have the same type as well as the same value.**
 - `!=` is "not equal", and 'a != b' returns the opposite value of 'a == b'
@@ -2902,10 +2902,10 @@ $ echo '[null, true, "true"]' | jq 'map("true" != .)'
 
 ### if-then-else
 
-- `if A then B else C end` will act the same as `B` if `A` produces a value other than false or null, but act the same as `C`  otherwise.
-- Checking  for false or null is a simpler notion of "truthiness" than is found in Javascript or Python, but it means that you'll sometimes have to be more explicit about the condition you want :
-    - you can't test whether, e.g. a string is empty using `if  .name then A else B end`, you'll need something more like **`if (.name | length) > 0 then A else B end`** instead.
-- If  the  condition  `A`  produces  multiple results, then `B` is evaluated once for each result that is not false or null, and `C` is evaluated once for each false or null.
+- `if A then B else C end` will act the same as `B` if `A` produces a value other than false or null, but act the same as `C` otherwise.
+- Checking for false or null is a simpler notion of "truthiness" than is found in Javascript or Python, but it means that you'll sometimes have to be more explicit about the condition you want :
+    - you can't test whether, e.g. a string is empty using `if .name then A else B end`, you'll need something more like **`if (.name | length) > 0 then A else B end`** instead.
+- If the condition `A` produces multiple results, then `B` is evaluated once for each result that is not false or null, and `C` is evaluated once for each false or null.
 - More cases can be added to an if using `elif A then B` syntax.
 
 ```bash
@@ -2932,7 +2932,7 @@ $ echo '2' | jq 'if . == 0 then "zero" elif . == 1 then "one" else "others" end'
 
 `>`, `>=`, `<=`, `<`
 
-- The comparison operators `>`, `>=`, `<=`, `<` return **whether their left argument is greater than, greater than or equal to,  less  than or equal to or less than their right argument (respectively).**
+- The comparison operators `>`, `>=`, `<=`, `<` return **whether their left argument is greater than, greater than or equal to, less than or equal to or less than their right argument (respectively).**
 - The ordering is the same as that described for sort, above.
 
 ```bash
@@ -2946,11 +2946,11 @@ true
 
 `and`, `or`, `not`
 
-- jq  supports  the  **normal Boolean operators** `and` / `or` / `not`.
+- jq supports the **normal Boolean operators** `and` / `or` / `not`.
     - They have the same standard of truth as if expressions - **false and null are considered "false values", and anything else is a "true value".**
 - If an operand of one of these operators produces multiple results, the operator itself will produce a result for each input.
 - `not` is in fact a builtin function rather than an operator, so it is called as a filter to which things can be piped rather than with special syntax, as in `.foo and .bar | not`.
-- These  three only produce the values "true" and "false", and so are only useful for genuine Boolean operations, rather than the common Perl/Python/Ruby idiom of "value_that_may_be_null or default".
+- These three only produce the values "true" and "false", and so are only useful for genuine Boolean operations, rather than the common Perl/Python/Ruby idiom of "value_that_may_be_null or default".
     - If you want to use this form of "or", picking between two values rather than evaluating a condition, see the "//" operator below.
 
 ```bash
@@ -2987,11 +2987,11 @@ true
 
 `//`
 
-- A  filter of the form `a // b` **produces the same results as a, if a produces results other than false and null.**
+- A filter of the form `a // b` **produces the same results as a, if a produces results other than false and null.**
     - Otherwise, `a // b` produces the same results as b.
 - This is **useful for providing defaults** :
     - `.foo // 1` will evaluate to 1 if there's no `.foo` element in the input.
-    - It's  similar  to how `or` is sometimes used in Python (jq's `or` operator is reserved for strictly Boolean operations).
+    - It's similar to how `or` is sometimes used in Python (jq's `or` operator is reserved for strictly Boolean operations).
 
 ```bash
 # .foo // 42
@@ -3085,7 +3085,7 @@ $ echo '[{}, true, {"a":1}]' | jq 'map(.a?)'
 
 ## Regular Expressions ( PCRE )
 
-jq  uses  the  Oniguruma regular expression library, as do php, ruby, TextMate, Sublime Text, etc, so the description here will focus on jq specifics.
+jq uses the Oniguruma regular expression library, as do php, ruby, TextMate, Sublime Text, etc, so the description here will focus on jq specifics.
 
 The jq regex filters are defined so that they can be used using one of these patterns:
 
@@ -3099,7 +3099,7 @@ STRING | FILTER( [REGEX, FLAGS] )
 where :
 
 - `*` STRING, REGEX and FLAGS are jq strings and subject to jq string interpolation;
-- `*` REGEX,  after  string  interpolation, should be a valid PCRE regex;
+- `*` REGEX, after string interpolation, should be a valid PCRE regex;
 - `*` FILTER is one of `test`, `match`, or `capture`, as described below.
 
 FLAGS is a string consisting of one of more of the supported flags:
@@ -3278,7 +3278,7 @@ $ echo '"abc"' | jq '[match("a|b"; "g")] | length'
 
 `capture(val)`, `capture(regex; flags)`
 
-- **Collects  the  named  captures in a JSON object, with the name of each capture as the key**, and the matched string as the corresponding value.
+- **Collects the named captures in a JSON object, with the name of each capture as the key**, and the matched string as the corresponding value.
 
 ```bash
 # capture("(?<a>[a-z]+)-(?<n>[0-9]+)")
@@ -3293,8 +3293,8 @@ $ echo '"xyzzy-14"' | jq 'capture("(?<a>[a-z]+)-(?<n>[0-9]+)")'
 
 `scan(regex)`, `scan(regex; flags)`
 
-- Emit a stream of the non-overlapping substrings of the input that match the regex in accordance with the  flags,  if  any  have been  specified.
-    - If  there is no match, the stream is empty.
+- Emit a stream of the non-overlapping substrings of the input that match the regex in accordance with the flags, if any have been specified.
+    - If there is no match, the stream is empty.
     - To capture all the matches for each input string, use the idiom `[ expr ]`, e.g. `[ scan(regex) ]`.
 
 ```bash
@@ -3340,7 +3340,7 @@ $ echo '"1A2BC3"' | jq '[splits("[a-zA-Z]+"; "g")]'
 `sub(regex; tostring)`, `sub(regex; string; flags)`
 
 - **Emit the string obtained by replacing the first match of regex in the input string with `tostring`, after interpolation.**
-    - `tostring` should  be  a  jq  string, and may contain references to named captures.
+    - `tostring` should be a jq string, and may contain references to named captures.
     - The named captures are, in effect, presented as a JSON object (as constructed by `capture`) to `tostring`, so a reference to a captured variable named "x" would take the form: "(.x)".
 
 `gsub(regex; string)`, `gsub(regex; string; flags)`
@@ -3361,13 +3361,13 @@ $ echo '"1A2BC3"' | jq 'gsub("[a-zA-Z]+"; " ")'
 
 - Variables are an absolute necessity in most programming languages, but they're relegated to an "advanced feature" in jq.
 - In most languages, variables are the only means of passing around data.
-    - If you calculate a value, and you want to use  it  more than  once, you'll need to store it in a variable.
+    - If you calculate a value, and you want to use it more than once, you'll need to store it in a variable.
     - To pass a value to another part of the program, you'll need that part of the program to define a variable (as a function parameter, object member, or whatever) in which to place the data.
-- It is also possible to define functions in jq, although this is is a feature  whose  biggest  use  is  defining  jq's  standard library (many jq functions such as `map` and `find` are in fact written in jq).
-- jq  has  reduction operators, which are very powerful but a bit tricky.
+- It is also possible to define functions in jq, although this is is a feature whose biggest use is defining jq's standard library (many jq functions such as `map` and `find` are in fact written in jq).
+- jq has reduction operators, which are very powerful but a bit tricky.
     - Again, these are mostly used internally, to define some useful bits of jq's standard library.
-- It may not be obvious at first, but jq is all about generators (yes, as often found in other  languages).
-    - Some  utilities  are provided to help deal with generators.
+- It may not be obvious at first, but jq is all about generators (yes, as often found in other languages).
+    - Some utilities are provided to help deal with generators.
     - Some minimal I/O support (besides reading JSON from standard input, and writing JSON to standard output) is available.
 - Finally, there is a module/library system.
 
@@ -3376,13 +3376,13 @@ $ echo '"1A2BC3"' | jq 'gsub("[a-zA-Z]+"; " ")'
 Variable / Symbolic Binding Operator: `... as $identifier | ...`
 
 - In jq, all filters have an input and an output, so manual plumbing is not necessary to pass a value from one part of a program to the next.
-    - Many expressions, for instance `a + b`, pass their input to two distinct subexpressions  (here  a  and  b  are  both passed the same input), so variables aren't usually necessary in order to use a value twice.
+    - Many expressions, for instance `a + b`, pass their input to two distinct subexpressions (here a and b are both passed the same input), so variables aren't usually necessary in order to use a value twice.
 - For instance, calculating the average value of an array of numbers requires a few variables in most languages - at least one to hold the array, perhaps one for each element or for a loop counter.
-    - In jq, it's simply `add / length` -  the  `add`  expression  is given the array and produces its sum, and the `length` expression is given the array and produces its length.
-- So,  there's generally a cleaner way to solve most problems in jq than defining variables.
+    - In jq, it's simply `add / length` - the `add` expression is given the array and produces its sum, and the `length` expression is given the array and produces its length.
+- So, there's generally a cleaner way to solve most problems in jq than defining variables.
     - Still, sometimes they do make things easier, so jq lets you **define variables using `expression as $variable`.**
-    - **All variable names  start  with  `$`.**
-    - Here's  a  slightly uglier version of the array-averaging example:
+    - **All variable names start with `$`.**
+    - Here's a slightly uglier version of the array-averaging example:
 
 ```bash
 # add / length
@@ -3395,7 +3395,7 @@ $ echo '[2,6]' | jq 'length as $ary_len | add / $ary_len'
 ```
 
 - We'll need a more complicated problem to find a situation where using variables actually makes our lives easier.
-- Suppose  we have an array of blog posts, with "author" and "title" fields, and another object which is used to map author usernames to real names. Our input looks like:
+- Suppose we have an array of blog posts, with "author" and "title" fields, and another object which is used to map author usernames to real names. Our input looks like:
 
 ```json
 {"posts": [{"title": "Frist psot", "author": "anon"},
@@ -3438,22 +3438,22 @@ $ echo '{
 ```
 
 - The expression `exp as $x | ...` means :
-    - for each value of expression exp, run the rest of the pipeline with the  entire  original input, and with `$x` set to that value.
+    - for each value of expression exp, run the rest of the pipeline with the entire original input, and with `$x` set to that value.
     - Thus as functions as something of a foreach loop.
 - Just as **`{foo}` is a handy way of writing `{foo: .foo}`, so `{$foo}` is a handy way of writing `{foo:$foo}`.**
-- Multiple  variables may be declared using a single as expression by providing a pattern that matches the structure of the input (this is known as "destructuring"):
+- Multiple variables may be declared using a single as expression by providing a pattern that matches the structure of the input (this is known as "destructuring"):
 
 ```bash
 . as {realnames: $names, posts: [$first, $second]} | ...
 ```
 
-- The variable declarations in array patterns (e.g., `. as [$first, $second]`) bind to the elements of the array in from  the  element  at  index  zero  on up, in order.
+- The variable declarations in array patterns (e.g., `. as [$first, $second]`) bind to the elements of the array in from the element at index zero on up, in order.
     - When there is no value at the index for an array pattern element, null is bound to that variable.
 - **Variables are scoped over the rest of the expression that defines them**,
     - so `.realnames as $names | (.posts[] | {title, author: $names[.author]})` will work,
     - but `(.realnames as $names | .posts[]) | {title, author: $names[.author]}` won't.
-- For programming language theorists, it's more accurate to say that **jq variables are lexically-scoped  bindings.**
-    - In  particular there's  no  way  to  change the value of a binding;
+- For programming language theorists, it's more accurate to say that **jq variables are lexically-scoped bindings.**
+    - In particular there's no way to change the value of a binding;
     - **one can only setup a new binding with the same name, but which will not be visible where the old one was.**
 
 ```bash
@@ -3499,11 +3499,11 @@ $ echo '[[0], [0, 1], [2, 1, 0]]' | jq '.[] as [$a, $b] | {$a, $b}'
 ### Defining Functions
 
 - You can give a filter a name using "def" syntax: `def increment: . + 1;`
-    - From then on, `increment` is usable as a filter **just like a builtin function** (in fact, this is  how  many  of  the  builtins  are defined).
+    - From then on, `increment` is usable as a filter **just like a builtin function** (in fact, this is how many of the builtins are defined).
 - A function may take arguments: `def map(f): [.[] | f];`
-    - **Arguments  are  passed  as  <u>filters</u>  (functions with no arguments), not as values.**
+    - **Arguments are passed as <u>filters</u> (functions with no arguments), not as values.**
     - The same argument may be referenced multiple times with different inputs (here `f` is run for each element of the input array).
-- **Arguments to a function work more  like  callbacks than like value arguments.**
+- **Arguments to a function work more like callbacks than like value arguments.**
     - This is important to understand. Consider:
 
 ```bash
@@ -3516,7 +3516,7 @@ $ echo 5 | jq 'def foo(f): f|f|f; foo(. * 2)'
 40
 ```
 
-- The  result will be 20 **because `f` is `. * 2`, and during the first invocation of `f .` will be 5, and the second time it will be 10 = (5 * 2), so the result will be 20.
+- The result will be 20 **because `f` is `. * 2`, and during the first invocation of `f .` will be 5, and the second time it will be 10 = (5 * 2), so the result will be 20.
     - Function arguments are filters, and filters expect an input when invoked.
 - If you **want the value-argument behaviour for defining simple functions**, you can just use a variable:
 
@@ -3544,7 +3544,7 @@ $ echo '[1,2,3]' | jq 'def addval($f): map (. + $f); addval(3)'
     - Do note that calling `addvalue(.[])` will cause the `map(. + $f)` part to be evaluated once per value in the value of `.` at the call site.
 - **Multiple definitions using the same function name are allowed.*
     - Each re-definition replaces the previous one for the same number of function arguments, but only for references from functions (or main program) subsequent to the re-definition.
-    - See  also  the section below on scoping.
+    - See also the section below on scoping.
 
 ```bash
 # def add_elem(f): . + [f]; map(add_elem(.[0]))
@@ -3582,155 +3582,245 @@ $ echo '[[1,2],[10,20]]' | jq 'def add_elem($f): map(. + $f); add_elem(.[0])'
 
 ### Scoping
 
-- There  are  two  types  of  symbols in jq: value bindings (a.k.a., "variables"), and functions.
-    - Both are scoped lexically, with
-       expressions being able to refer only to symbols that have been defined "to the left" of them. The only exception to  this  rule
-       is that functions can refer to themselves so as to be able to create recursive functions.
+- There are two types of symbols in jq:
+    - **value bindings** (a.k.a., "**variables**"), and
+    - **functions**.
+- Both are scoped lexically, with expressions being able to refer only to symbols that have been defined "to the left" of them.
+    - The only exception to this rule is that functions can refer to themselves so as to be able to create recursive functions.
+- For example, in the following expression there is a binding which is visible "to the right" of it, `... | .*3 as $times_three | [. + $times_three] | ...`, but not "to the left".
+    - Consider this expression now, `... | (.*3 as $times_three | [.+ $times_three]) | ...` : here the binding `$times_three` is not visible past the closing parenthesis.
 
-       For  example, in the following expression there is a binding which is visible "to the right" of it, ... | .*3 as $times_three |
-       [. + $times_three] | ..., but not "to the left". Consider this expression now, ... | (.*3 as $times_three | [.+  $times_three])
-       | ...: here the binding $times_three is not visible past the closing parenthesis.
+### Reduce
 
-   Reduce
-       The reduce syntax in jq allows you to combine all of the results of an expression by accumulating them into a single answer. As
-       an example, we'll pass [3,2,1] to this expression:
+- The `reduce` syntax in jq allows you to **combine all of the results of an expression by accumulating them into a single answer.**
+    - As an example, we'll pass `[1,2,3]` to this expression:
 
+```bash
+# reduce .[] as $item (0; . + $item)
+$ echo '[1,2,3]' | jq 'reduce .[] as $item (0; . + $item)'
+6
+```
 
+- **For each result that `.[]` produces, `. + $item` is run to accumulate a running total, starting from 0.**
+    - In this example, `.[]` produces the results 1, 2, and 3, so the effect is similar to running something like this:
 
-           reduce .[] as $item (0; . + $item)
+```bash
+$ echo null | jq '0 | (1 as $item | . + $item) |
+    (2 as $item | . + $item) |
+    (3 as $item | . + $item)'
+6
+```
 
-       For each result that .[] produces, . + $item is run to accumulate a running total, starting from 0. In this example,  .[]  pro-
-       duces the results 3, 2, and 1, so the effect is similar to running something like this:
+### isempty
 
+`isempty(exp)`
 
+- **Returns true if exp produces no outputs, false otherwise.**
 
-           0 | (3 as $item | . + $item) |
-               (2 as $item | . + $item) |
-               (1 as $item | . + $item)
+```bash
+# isempty(empty)
+$ echo null | jq 'isempty(empty)'
+true
 
-           jq 'reduce .[] as $item (0; . + $item)'
-              [10,2,5,3]
-           => 20
+# _( icehe : 搞不懂 isempty 的意义 )_
+$ echo null | jq 'isempty(.)'
+false
+$ echo null | jq 'isempty([])'
+false
+$ echo null | jq 'isempty([1])'
+false
+$ echo null | jq 'isempty("")'
+false
+$ echo '[]' | jq 'isempty(.)'
+false
+$ echo '{}' | jq 'isempty(.)'
+false
+```
 
+### limit
 
+`limit(n; exp)`
 
-   isempty(exp)
-       Returns true if exp produces no outputs, false otherwise.
+- The `limit` function **extracts up to `n` outputs from exp.**
 
+```bash
+# limit(3; .[])
+$ echo '[0,1,2,3,4,5,6,7,8,9]' | jq 'limit(3; .[])'
+0
+1
+2
+```
 
+### first, last, nth
 
-           jq 'isempty(empty)'
-              null
-           => true
+`first(expr)`, `last(expr)`, `nth(n; expr)`
 
+- The `first(expr)` and `last(expr)` functions **extract the first and last values from `expr`, respectively.**
+- The `nth(n; expr)` function extracts the nth value output by `expr`.
+    - This can be defined as `def nth(n; expr): last(limit(n + 1; expr));`.
+    - Note that `nth(n; expr)` doesn't support negative values of `n`.
 
+```bash
+# [first(range(.)), last(range(.)), nth(./2; range(.))]
+$ echo '10' | jq '[first(range(.)), last(range(.)), nth(./2; range(.))]'
+[
+  0,
+  9,
+  5
+]
+```
 
-   limit(n; exp)
-       The limit function extracts up to n outputs from exp.
+`first`, `last`, `nth(n)`
 
+- The `first` and `last` functions **extract the first and last values from any array at `.`.**
+- The `nth(n)` function extracts the nth value of any array at `.`.
 
+```bash
+# [range(.)] | [first, last, nth(5)]
+$ echo '10' | jq '[range(.)] | [first, last, nth(5)]'
+[
+  0,
+  9,
+  5
+]
+```
 
-           jq '[limit(3;.[])]'
-              [0,1,2,3,4,5,6,7,8,9]
-           => [0,1,2]
+### foreach
 
+- The `foreach` syntax is **similar to `reduce`, but intended to allow the construction of `limit` and reducers that produce intermediate results** (see example).
+- The form is `foreach EXP as $var (INIT; UPDATE; EXTRACT)`.
+    - Like `reduce`,
+        - `INIT` is evaluated once to produce a state value,
+        - then each output of `EXP` is bound to `$var`,
+        - `UPDATE` is evaluated for each output of `EXP` with the current state and with `$var` visible.
+    - Each value output by `UPDATE` replaces the previous state.
+    - Finally, `EXTRACT` is evaluated for each new state to extract an output of foreach.
+- This is mostly useful only for constructing `reduce`- and `limit`-like functions.
+    - But it is much more general, as it allows for partial reductions (see the example below).
 
+```bash
+# [foreach .[] as $item ([[],[]]; if $item == null then [[], .[0]] else [(.[0] + [$item]), []] end; if $item == null then .[1] else empty end)]
+$ echo '[1,2,3,4,null,"a","b",null]' | jq '[foreach .[] as $item ([[],[]]; if $item == null then [[], .[0]] else [(.[0] + [$item]), []] end; if $item == null then .[1] else empty end)]'
+[
+  [
+    1,
+    2,
+    3,
+    4
+  ],
+  [
+    "a",
+    "b"
+  ]
+]
+# icehe :
+# - UPDATE 语句块
+#     - 碰到非 null 的元素, 就将其写入 [[],[]] 的 .[0] 中
+#     - 碰到 null 的元素, 就将 [[],[]] 的 .[1] 设置为 .[0] 的值, 再将 .[0] 设置为 []
+# - EXTRACT 语句块
+#     - 碰到非 null 的元素, 就输出 empty (即无输出)
+#     - 碰到 null 的元素, 就输出 [[],[]] 中的 .[1]
+# - 其实初始 state 的数据 [[], []] 是为了保存两个临时变量
 
-   first(expr), last(expr), nth(n; expr)
-       The first(expr) and last(expr) functions extract the first and last values from expr, respectively.
+# [foreach .[] as $item ([]; .; if $item == null then empty else $item end)]
+$ echo '[1,2,3,4,null,"a","b",null]' | jq '[foreach .[] as $item ([]; .; if $item == null then empty else $item end)]'      [
+  1,
+  2,
+  3,
+  4,
+  "a",
+  "b"
+]
+```
 
-       The  nth(n;  expr)  function  extracts the nth value output by expr. This can be defined as def nth(n; expr): last(limit(n + 1;
-       expr));. Note that nth(n; expr) doesn't support negative values of n.
+### Recursion
 
+- As described above, `recurse` uses recursion, and **any jq function can be recursive.**
+    - The `while` builtin is also implemented in terms of recursion.
+- **Tail calls** _( 尾递归 )_ are optimized whenever the expression to the left of the recursive call outputs its last value.
+    - In practice this means that the expression to the left of the recursive call should not produce more than one output for each input.
+- For example:
 
+```bash
+def recurse(f): def r: ., (f | select(. != null) | r); r;
 
-           jq '[first(range(.)), last(range(.)), nth(./2; range(.))]'
-              10
-           => [0,9,5]
+def while(cond; update):
+  def _while:
+    if cond then ., (update | _while) else empty end;
+  _while;
 
+def repeat(exp):
+  def _repeat:
+    exp, _repeat;
+  _repeat;
+```
 
+- _( icehe : 没搞懂怎么用 )_
 
-   first, last, nth(n)
-       The first and last functions extract the first and last values from any array at ..
+### Generators and iterators
 
-       The nth(n) function extracts the nth value of any array at ..
+- Some jq operators and functions are actually generators in that they can produce zero, one, or more values for each input, just as one might expect in other programming languages that have generators.
+    - For example, `.[]` generates all the values in its input (which must be an array or an object), `range(0; 10)` generates the integers between 0 and 10, and so on.
+- Even the **comma operator is a generator,**
+    - generating first the values generated by the expression to the left of the comma,
+    - then for each of those, the values generate by the expression on the right of the comma.
+- The **`empty` builtin is the generator that produces zero outputs.**
+    - The `empty` builtin backtracks to the preceding generator expression.
+- All jq functions can be generators just by using builtin generators.
+    - It is also possible to define new generators using only recursion and the comma operator.
+    - If the recursive call(s) is(are) "in tail position" then the generator will be efficient.
+    - In the example below the recursive call by `_range` to itself is in tail position.
+    - The example shows off three advanced topics: **tail recursion, generator construction, and sub-functions.**
 
+```bash
+$ echo null | jq '
+    def range(init; upto; by):
+        def _range:
+            if (by > 0 and . < upto) or (by < 0 and . > upto) then
+                ., ((.+by)|_range)
+            else
+                .
+            end;
 
+        if by == 0 then
+            init
+        else
+            init|_range
+        end
+        | select(
+            (by > 0 and . < upto) or
+            (by < 0 and . > upto)
+        );
 
-           jq '[range(.)]|[first, last, nth(5)]'
-              10
-           => [0,9,5]
+    range(0; 10; 3)
+'
+0
+3
+6
+9
 
-   foreach
-       The foreach syntax is similar to reduce, but intended to allow the construction of limit and reducers that produce intermediate
-       results (see example).
+$ echo 1 | jq '
+    def while(cond; update):
+        def _while:
+            if cond then
+                ., (update | _while)
+            else
+                empty
+            end;
+        _while;
 
-       The  form  is  foreach  EXP as $var (INIT; UPDATE; EXTRACT). Like reduce, INIT is evaluated once to produce a state value, then
-       each output of EXP is bound to $var, UPDATE is evaluated for each output of EXP with the current state and with  $var  visible.
-       Each  value output by UPDATE replaces the previous state. Finally, EXTRACT is evaluated for each new state to extract an output
-       of foreach.
-
-       This is mostly useful only for constructing reduce- and limit-like functions. But it is much more general,  as  it  allows  for
-       partial reductions (see the example below).
-
-
-
-           jq '[foreach .[] as $item ([[],[]]; if $item == null then [[],.[0]] else [(.[0] + [$item]),[]] end; if $item == null then .[1] else empty end)]'
-              [1,2,3,4,null,"a","b",null]
-           => [[1,2,3,4],["a","b"]]
-
-
-
-   Recursion
-       As  described  above,  recurse  uses  recursion, and any jq function can be recursive. The while builtin is also implemented in
-       terms of recursion.
-
-       Tail calls are optimized whenever the expression to the left of the recursive call outputs its last  value.  In  practice  this
-       means that the expression to the left of the recursive call should not produce more than one output for each input.
-
-       For example:
-
-
-
-           def recurse(f): def r: ., (f | select(. != null) | r); r;
-
-           def while(cond; update):
-             def _while:
-               if cond then ., (update | _while) else empty end;
-             _while;
-
-           def repeat(exp):
-             def _repeat:
-               exp, _repeat;
-             _repeat;
-
-
-
-   Generators and iterators
-       Some jq operators and functions are actually generators in that they can produce zero, one, or more values for each input, just
-       as one might expect in other programming languages that have generators. For example, .[] generates all the values in its input
-       (which must be an array or an object), range(0; 10) generates the integers between 0 and 10, and so on.
-
-       Even  the comma operator is a generator, generating first the values generated by the expression to the left of the comma, then
-       for each of those, the values generate by the expression on the right of the comma.
-
-       The empty builtin is the generator that produces zero outputs. The empty builtin backtracks to the preceding generator  expres-
-       sion.
-
-       All  jq  functions  can be generators just by using builtin generators. It is also possible to define new generators using only
-       recursion and the comma operator. If the recursive call(s) is(are) "in tail position" then the generator will be efficient.  In
-       the example below the recursive call by _range to itself is in tail position. The example shows off three advanced topics: tail
-       recursion, generator construction, and sub-functions.
-
-
-
-           jq 'def range(init; upto; by): def _range: if (by > 0 and . < upto) or (by < 0 and . > upto) then ., ((.+by)|_range) else . end; if by == 0 then init else init|_range end | select((by > 0 and . < upto) or (by < 0 and . > upto)); range(0; 10; 3)'
-              null
-           => 0, 3, 6, 9
-
-           jq 'def while(cond; update): def _while: if cond then ., (update | _while) else empty end; _while; [while(.<100; .*2)]'
-              1
-           => [1,2,4,8,16,32,64]
+    [while(.<100; .*2)]
+'
+[
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64
+]
+```
 
 ## Others
 
@@ -3995,7 +4085,197 @@ This is not a manual for VT100/ANSI escapes.
 
 ## ASSIGNMENT
 
-TODO
+- Assignment works a little differently in jq than in most programming languages.
+    - jq doesn't distinguish between references to and copies of something - two objects or arrays are either equal or not equal, without any further notion of being "the same object" or "not the same object".
+- If an object has two fields which are arrays, `.foo` and `.bar`, and you append something to `.foo`, then `.bar` will not get bigger, even if you've previously set `.bar = .foo`.
+    - If you're used to programming in languages like Python, Java, Ruby, Javascript, etc. then you can think of it as though jq does a full deep copy of every object before it does the assignment (for performance it doesn't actually do that, but that's the general idea).
+- This means that **it's impossible to build circular values in jq** (such as an array whose first element is itself).
+    - This is quite **intentional** _( 故意的 )_, and ensures that anything a jq program can produce can be represented in JSON.
+- All the assignment operators in jq have path expressions on the left-hand side (**LHS**).
+    - The right-hand side (**RHS**) procides values to set to the paths named by the LHS path expressions.
+- **Values in jq are always immutable.**
+    - Internally, assignment works by using a reduction to compute new, replacement values for `.` that have had all the desired assignments applied to `.`, then outputting the modified value.
+    - This might be made clear by this example:
+        `{a:{b:{c:1}}} | (.a.b|=3), .`.
+    - This will output `{"a":{"b":3}}` and `{"a":{"b":{"c":1}}}` because the last sub-expression, `.`, sees the original value, not the modified value.
+- Most users will want to use modification assignment operators, such as `|=` or `+=`, rather than `=`.
+- Note that the LHS of assignment operators refers to a value in `.`.
+    - Thus `$var.foo = 1` won't work as expected (`$var.foo` is not a valid or useful path expression in `.`); use `$var | .foo = 1` instead.
+- Note too that `.a,.b=0` does not set `.a` and `.b`, but `(.a,.b)=0` sets both.
+
+### Update-assignment
+
+`|=`
+
+- It takes a filter on the right-hand side and works out the new value for the property of `.` being assigned to by running the old value through this expression.
+    - For instance, `(.foo, .bar) |= .+1` will build an object with
+       the "foo" field set to the input's "foo" plus 1, and the "bar" field set to the input's "bar" plus 1.
+- The left-hand side can be any general path expression; see `path()`.
+- Note that the left-hand side of '|=' refers to a value in `.`.
+    - Thus `$var.foo |= . + 1` won't work as expected (`$var.foo` is not a valid or useful path expression in `.`); use `$var | .foo |= . + 1` instead.
+- If the right-hand side outputs no values (i.e., `empty`), then the left-hand side path will be deleted, as with `del(path)`.
+- If the right-hand side outputs multiple values, only the first one will be used (COMPATIBILITY NOTE: in jq 1.5 and earlier releases, it used to be that only the last one was used).
+
+```bash
+# (..|select(type=="boolean")) |= if . then 1 else 0 end
+$ echo '[true,false,[5,true,[true,[false]],false]]' | jq '(..|select(type=="boolean")) |= if . then 1 else 0 end'
+[
+  1,
+  0,
+  [
+    5,
+    1,
+    [
+      1,
+      [
+        0
+      ]
+    ],
+    0
+  ]
+]
+```
+
+### Arithmetic update-assignment
+
+`+=`, `-=`, `*=`, `/=`, `%=`, `//=`
+
+- jq has a few operators of the form `a op= b`, which are all equivalent to `a |= . op b`.
+    - So, `+= 1` can be used to increment values, being the same as `|= . + 1`.
+
+```bash
+# .bar |= . * 2 + 4
+$ echo '{"bar":200}' | jq '.bar |= . * 2 + 4'
+{
+  "bar": 404
+}
+```
+
+### Plain assignment
+
+`=`
+
+- This is the **plain assignment operator.**
+    - Unlike the others, the input to the right-hand-side (RHS) is the same as the input to the left-hand-side (LHS) rather than the value at the LHS path, and all values output by the RHS will be used (as shown below).
+- If the RHS of '=' produces multiple values, then for each such value jq will set the paths on the left-hand side to the value and then it will output the modified `.`.
+    - For example, `(.a,.b)=range(2)` outputs `{"a":0,"b":0}`, then `{"a":1,"b":1}`.
+    - The "update" assignment forms (see above) do not do this.
+- This example should show the difference between '=' and '|=':
+    - Provide input `'{"a": {"b": 10}, "b": 20}'` to the programs:
+        - The former will set the "a" field of the input to the "b" field of the input, and produce the output `{"a": 20, "b": 20}`.
+        - The latter will set the "a" field of the input to the "a" field's "b" field, producing `{"a": 10, "b": 20}`.
+
+```bash
+# .a = .b
+$ echo '{"a":{"b":10},"b":20}' | jq '.a = .b'
+{
+  "a": 20,
+  "b": 20
+}
+
+# .a |= .b
+$ echo '{"a":{"b":10},"b":20}' | jq '.a |= .b'
+{
+  "a": 10,
+  "b": 20
+}
+```
+
+- Another example of the difference between '=' and '|=':
+
+```bash
+# (.a,.b)=range(3)
+$ echo null | jq '(.a,.b)=range(3)'
+{
+  "a": 0,
+  "b": 0
+}
+{
+  "a": 1,
+  "b": 1
+}
+{
+  "a": 2,
+  "b": 2
+}
+
+# (.a,.b)|=range(3)
+$ echo null | jq '(.a,.b)|=range(3)'
+{
+  "a": 0,
+  "b": 0
+}
+# _( icehe : 这个结果不是很理解 )_
+```
+
+### Complex assignments
+
+- Lots more things are allowed on the left-hand side of a jq assignment than in most languages.
+    - We've already seen simple field accesses on the left hand side, and it's no surprise that array accesses work just as well: `.posts[0].title = "JQ Manual"`
+- What may come as a surprise is that the expression on the left may produce multiple results, referring to different points in the input document: `.posts[].comments |= . + ["this is great"]`
+    - That example appends the string "this is great" to the "comments" array of each post in the input (where the input is an object with a field "posts" which is an array of posts).
+
+```bash
+# .posts[0].title
+$ echo '{"posts":[{"title":"foo"},{"title":"bar"}]}' | jq '.posts[0].title'
+"foo"
+
+# .posts[].title = . + ["this"]
+$ echo '{"posts":[{"comments":["foo","bar"]},{"comments":["baz"]}]}' | jq '.posts[].title = . + ["this"]'
+jq: error (at <stdin>:1): object ({"posts":[{...) and array (["this"]) cannot be added
+
+# .posts[].comments |= . + ["this"]
+$ echo '{"posts":[{"comments":["foo","bar"]},{"comments":["baz"]}]}' | jq '.posts[].comments |= . + ["this"]'
+{
+  "posts": [
+    {
+      "comments": [
+        "foo",
+        "bar",
+        "this"
+      ]
+    },
+    {
+      "comments": [
+        "baz",
+        "this"
+      ]
+    }
+  ]
+}
+```
+
+- When jq encounters an assignment like 'a = b', it records the "path" taken to select a part of the input document while executing a.
+    - This path is then used to find which part of the input to change while executing the assignment.
+    - Any filter may be used on the left-hand side of an equals - whichever paths it selects from the input will be where the assignment is performed.
+- This is a very powerful operation.
+    - Suppose we wanted to add a comment to blog posts, using the same "blog" input above.
+    - This time, we only want to comment on the posts written by "stedolan".
+    - We can find those posts using the "select" function described earlier:
+        - `.posts[] | select(.author == "stedolan")`
+- The paths provided by this operation point to each of the posts that "stedolan" wrote, and we can comment on each of them in the same way that we did before:
+    - `(.posts[] | select(.author == "stedolan") | .comments) |= . + ["terrible."]`
+
+```bash
+# .posts[] | select(.author == "ice")
+$ echo '{"posts":[{"author":"ice","comments":["foo"]},{"author":"bill","comments":["bar"]}]}' | jq '.posts[] | select(.author == "ice")'
+{
+  "author": "ice",
+  "comments": [
+    "foo"
+  ]
+}
+
+# .posts[] | select(.author == "ice") | .comments |= . + ["terrible."]
+$ echo '{"posts":[{"author":"ice","comments":["foo"]},{"author":"bill","comments":["bar"]}]}' | jq '.posts[] | select(.author == "ice") | .comments |= . + ["terrible."]'
+{
+  "author": "ice",
+  "comments": [
+    "foo",
+    "terrible."
+  ]
+}
+```
 
 ## Usage
 
