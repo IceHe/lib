@@ -2719,7 +2719,6 @@ $ echo '[1970,1,8,12,23,56,0,0]' | jq 'mktime'
 # mktime | strftime("%Y-%m-%dT%H:%M:%SZ")
 $ echo '[1970,1,8,12,23,56,0,0]' | jq 'mktime | strftime("%Y-%m-%dT%H:%M:%SZ")'
 "1970-02-08T12:23:56Z"
-
 ```
 
 ### SQL-Style Operators

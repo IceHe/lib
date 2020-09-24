@@ -12,6 +12,7 @@ References
 
 ```bash
 curl -I icehe.xyz   # Print only Headers
+curl -i icehe.xyz   # Print include Headers
 
 curl -s -X POST -H "Foo: bar" icehe.xyz
 # -s            : Do not show progress meter or error messages
