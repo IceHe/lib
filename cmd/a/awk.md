@@ -19,15 +19,27 @@ awk [ -F fs ] [ -v var=value ] [ 'prog' | -f progfile ] [ file ...  ]
 
 ## Description
 
-- Awk  scans  each  input  file for lines that match any of a set of patterns specified literally in prog or in one or more files specified as -f progfile.  With each pattern there can be an associated action that will be performed when a  line  of  a  file matches the pattern.  Each line is matched against the pattern portion of every pattern-action statement; the associated action is performed for each matched pattern.  The file name - means the standard input.  Any file of the form var=value is treated as an assignment, not a filename, and is executed at the time it would have been opened if it were a filename.  The option -v fol- lowed by var=value is an assignment to be done before prog is executed; any number of -v options may be  present.   The  -F  fs option defines the input field separator to be the regular expression fs.
+- `Awk`  scans  each  input  `file` for lines that match any of a set of patterns specified literally in `prog` or in one or more files specified as `-f progfile`.
+    - With each pattern there can be an associated action that will be performed when a  line  of  a  `file` matches the pattern.
+    - **Each line is matched against the pattern portion of every pattern-action statement;**
+        - **the associated action is performed for each matched pattern.**
+    - The **file name `-` means the standard input.**
+    - Any file of the form **`var=value` is treated as an assignment**, not a filename, and is executed at the time it would have been opened if it were a filename.
+    - The option `-v` followed by `var=value` is an assignment to be done before `prog` is executed; any number of `-v` options may be  present.
+    - The  **`-F fs` option defines the input field separator to be the regular expression `fs`.**
+- **An  input line is normally made up of fields separated by white space, or by regular expression `FS`.**
+    - **The fields are denoted `$1`, `$2`, ..., while `$0` refers to the entire line.**
+    - **If `FS` is null, the input line is split into one field per character.**
+- A **pattern-action statement** has the form :
 
-An  input line is normally made up of fields separated by white space, or by regular expression FS.  The fields are denoted $1, $2, ..., while $0 refers to the entire line.  If FS is null, the input line is split into one field per character.
+```bash
+pattern { action }
+```
 
-A pattern-action statement has the form `pattern { action }`
-
-A missing { action } means print the line; a missing pattern always matches.  Pattern-action statements are separated  by  newlines or semicolons.
-
-An action is a sequence of statements.  A statement can be one of the following:
+- **A missing `{ action }` means print the line; a missing pattern always matches.**
+    - **Pattern-action statements are separated  by  newlines or semicolons.**
+- An action is a sequence of statements.
+    - A statement can be one of the following:
 
 ```bash
 if( expression ) statement [ else statement ]
@@ -49,39 +61,49 @@ delete array            # delete all elements of array
 exit [ expression ]     # exit immediately; status is expression
 ```
 
-Statements  are  terminated by semicolons, newlines or right braces.  An empty expression-list stands for $0.  String constants are quoted " ", with the usual C escapes recognized within.  Expressions take on string or numeric values as  appropriate,  and are  built  using the operators + - * / % ^ (exponentiation), and concatenation (indicated by white space).  The operators ! ++ -- += -= *= /= %= ^= > >= < <= == != ?: are also available in expressions.  Variables may be scalars, array  elements  (denoted x[i])  or  fields.  Variables are initialized to the null string.  Array subscripts may be any string, not necessarily numeric; this allows for a form of associative memory.  Multiple subscripts such as [i,j,k] are permitted; the constituents are concatenated, separated by the value of SUBSEP.
+- Statements  are  terminated by semicolons, newlines or right braces.
+    - An empty expression-list stands for `$0`.
+    - String constants are quoted " ", with the usual C escapes recognized within.
+- Expressions take on string or numeric values as  appropriate _( 视情况而定 )_ ,  and are  built  using the operators `+ - * / % ^` (exponentiation), and concatenation (indicated by white space).
+    - The operators `! ++ -- += -= *= /= %= ^= > >= < <= == != ?:` are also available in expressions.
+    - Variables may be scalars, array  elements  (denoted `x[i]`)  or  fields.
+    - Variables are initialized to the null string.
+    - Array subscripts may be any string, not necessarily numeric; this allows for a form of associative memory.
+    - Multiple subscripts such as `[i,j,k]` are permitted; the constituents are concatenated, separated by the value of `SUBSEP`.
+- The  print  statement  prints  its arguments on the standard output (or on a file if `>file` or `>>file` is present or on a pipe if `|cmd` is present), separated by the current output field separator, and terminated by the output record separator.
+    - `file` and `cmd` may  be  literal names or parenthesized expressions; identical string values in different statements denote the same open file.
+    - The `printf` statement formats its expression list according to the format (see printf(3)).
+    - The  built-in  function  `close(expr)` closes the file or pipe `expr`.
+    - The built-in function `fflush(expr)` flushes any buffered output for the file or pipe `expr`.
+- The mathematical functions `exp`, `log`, `sqrt`, `sin`, `cos`, and `atan2` are built in. Other built-in functions:
 
-The  print  statement  prints  its arguments on the standard output (or on a file if >file or >>file is present or on a pipe if |cmd is present), separated by the current output field separator, and terminated by the output record separator.  file and cmd may  be  literal names or parenthesized expressions; identical string values in different statements denote the same open file. The printf statement formats its expression list according to the format (see printf(3)).  The  built-in  function  close(expr) closes the file or pipe expr.  The built-in function fflush(expr) flushes any buffered output for the file or pipe expr.
-
-The mathematical functions exp, log, sqrt, sin, cos, and atan2 are built in.  Other built-in functions:
-
-       length the length of its argument taken as a string, or of $0 if no argument.
-       rand   random number on (0,1)
-       srand  sets seed for rand and returns the previous seed.
-       int    truncates to an integer value
-       substr(s, m, n)
-              the n-character substring of s that begins at position m counted from 1.
-       index(s, t)
-              the position in s where the string t occurs, or 0 if it does not.
-       match(s, r)
-              the  position in s where the regular expression r occurs, or 0 if it does not.  The variables RSTART and RLENGTH are set
-              to the position and length of the matched string.
-       split(s, a, fs)
-              splits the string s into array elements a[1], a[2], ..., a[n], and returns n.  The separation is done with  the  regular
-              expression  fs  or with the field separator FS if fs is not given.  An empty string as field separator splits the string
-              into one array element per character.
-       sub(r, t, s)
-              substitutes t for the first occurrence of the regular expression r in the string s.  If s is not given, $0 is used.
-       gsub   same as sub except that all occurrences of the regular expression are replaced;  sub  and  gsub  return  the  number  of
-              replacements.
-       sprintf(fmt, expr, ... )
-              the string resulting from formatting expr ...  according to the printf(3) format fmt
-       system(cmd)
-              executes cmd and returns its exit status
-       tolower(str)
-              returns a copy of str with all upper-case characters translated to their corresponding lower-case equivalents.
-       toupper(str)
-              returns a copy of str with all lower-case characters translated to their corresponding upper-case equivalents.
+length the length of its argument taken as a string, or of $0 if no argument.
+rand   random number on (0,1)
+srand  sets seed for rand and returns the previous seed.
+int    truncates to an integer value
+substr(s, m, n)
+        the n-character substring of s that begins at position m counted from 1.
+index(s, t)
+        the position in s where the string t occurs, or 0 if it does not.
+match(s, r)
+        the  position in s where the regular expression r occurs, or 0 if it does not.  The variables RSTART and RLENGTH are set
+        to the position and length of the matched string.
+split(s, a, fs)
+        splits the string s into array elements a[1], a[2], ..., a[n], and returns n.  The separation is done with  the  regular
+        expression  fs  or with the field separator FS if fs is not given.  An empty string as field separator splits the string
+        into one array element per character.
+sub(r, t, s)
+        substitutes t for the first occurrence of the regular expression r in the string s.  If s is not given, $0 is used.
+gsub   same as sub except that all occurrences of the regular expression are replaced;  sub  and  gsub  return  the  number  of
+        replacements.
+sprintf(fmt, expr, ... )
+        the string resulting from formatting expr ...  according to the printf(3) format fmt
+system(cmd)
+        executes cmd and returns its exit status
+tolower(str)
+        returns a copy of str with all upper-case characters translated to their corresponding lower-case equivalents.
+toupper(str)
+        returns a copy of str with all lower-case characters translated to their corresponding upper-case equivalents.
 
 The ``function'' getline sets $0 to the next input record from the current input file; getline <file sets $0 to the next record from file.  getline x sets variable x instead.  Finally, cmd | getline pipes the output of cmd into getline; each call of  get- line  returns the next line of output from cmd.  In all cases, getline returns 1 for a successful input, 0 for end of file, and -1 for an error.
 
