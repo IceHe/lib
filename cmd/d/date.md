@@ -22,9 +22,11 @@ date -d "-1 day"    # yesterday
 # Thu May  2 19:05:08 CST 2019 ( output )
 date -d 2018-04-12\ 12:34:56    # specified date
 # Thu Apr 12 12:34:56 CST 2018 ( output )
+date -d @1601222400 # seconds since Epoch
+# Mon Sep 28 00:00:00 CST 2020 ( output )
 
 # Display seconds since Epoch
-date -d 2020-09-28\ 00:00:00 +%s
+date +%s -d 2020-09-28\ 00:00:00
 # 1601222400 ( output )
 
 # Days between two dates
