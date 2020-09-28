@@ -22,6 +22,14 @@ date -d "-1 day"    # yesterday
 # Thu May  2 19:05:08 CST 2019 ( output )
 date -d 2018-04-12\ 12:34:56    # specified date
 # Thu Apr 12 12:34:56 CST 2018 ( output )
+
+# Display seconds since Epoch
+date -d 2020-09-28\ 00:00:00 +%s
+# 1601222400 ( output )
+
+# Days between two dates
+echo $(( (`date -d 2020-09-28\ 00:00:00 +%s` - `date -d 2020-05-01\ 00:00:00 +%s`) / 86400 )) days
+# 150 days ( output )
 ```
 
 - PHP: date - Manual : https://www.php.net/manual/en/function.date.php
