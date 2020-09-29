@@ -86,7 +86,7 @@ exit [ expression ]     # exit immediately; status is expression
         - The variables `RSTART` and `RLENGTH` are set to the position and length of the matched string.
     - `split(s, a, fs)` splits the string s into array elements `a[1]`, `a[2]`, ..., `a[n]`, and returns `n`.
         - The separation is done with  the  regular expression  `fs`  or with the field separator `FS` if `fs` is not given.
-        -  An empty string as field separator splits the string into one array element per character.
+        - An empty string as field separator splits the string into one array element per character.
     - `sub(r, t, s)` substitutes t for the first occurrence of the regular expression r in the string s.
         - If s is not given, $0 is used.
     - `gsub` same as sub except that all occurrences of the regular expression are replaced;  sub  and  gsub  return  the  number  of
