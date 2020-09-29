@@ -53,7 +53,7 @@ search
 
 sort
 
-- _doc 除了是最有效的排序顺序没有真正的用例。所以如果你不关心文档返回的顺序，那么你应该按 _doc 排序。 这特别有助于滚动。
+- `_doc` 除了是最有效的排序顺序没有真正的用例。所以如果你不关心文档返回的顺序，那么你应该按 `_doc` 排序。 这特别有助于滚动。
 
 ## Jianshu QuickStart
 
@@ -346,7 +346,131 @@ $ elasticsearch-plugin install [PLUGIN_NAME]
 
 ### Manipulate
 
-TODO
+#### Mapping
+
+##### Get
+
+```bash
+curl -XGET "[host]:[port]/[index_name]/[type_name]/_mapping?pretty"
+```
+
+##### Create (PUT)
+
+```bash
+curl -XPUT "[host]:[port]/[index_name]?pretty" -H 'content-Type:application/json' -d '
+{
+    "aliases":{
+    },
+    "mappings":{
+        "[type_name]":{
+            "properties":{
+                "someId":{
+                    "type":"string",
+                    "index":"not_analyzed"
+                },
+                "someStatus":{
+                    "type":"integer"
+                },
+                "someName":{
+                    "type":"string",
+                    "analyzer":"ik_max_word"
+                },
+                "createdAt":{
+                    "type":"long"
+                },
+                "updatedAt":{
+                    "type":"long"
+                }
+            }
+        }
+    },
+    "settings":{
+        "index":{
+            "refresh_interval":"10s",
+            "number_of_shards":"6",
+            "max_result_window":"1500000",
+            "number_of_replicas":"1"
+        }
+    }
+}'
+
+```
+
+##### Update (POST)
+
+```bash
+
+curl -XPOST "[host]:[port]/[index_name]/[type_name]/_mapping?pretty" -H 'content-Type:application/json' -d '
+{
+     "[type_name]": {
+         "properties": {
+             "newField":{
+                 "type":"string",
+                 "index":"not_analyzed"
+             }
+         }
+     }
+}'
+
+
+```
+
+#### Document
+
+##### Search
+
+```bash
+curl '[host]:[port]/[index_name]/_search' -s -d '{
+  "query": {
+    "bool": {
+      "must": [],
+      "must_not": [],
+      "should": [
+        {
+          "match_all": {}
+        }
+      ]
+    }
+  },
+  "from": 0,
+  "size": 50,
+  "sort": [],
+  "aggs": {},
+  "version": true
+}' | jq
+
+```
+
+#### Get
+
+```bash
+curl -XGET '[host]:[port]/[index_name]/[type_name]/[_id]?pretty'
+```
+
+#### Update Partial (POST)
+
+```bash
+curl -X POST "10.104.112.235:8200/buyermall/order/287584189415899136/_update?pretty" -H 'Content-Type: application/json' -d'
+{
+    "doc" : {
+        "someNumber" : -1
+    }
+}'
+
+```
+
+#### Update Complete (POST)
+
+```bash
+curl -XPUT 'http://10.104.112.235:8200/buyermall/order/287584189415899136' -d '
+{
+    "accountId": 999,
+    "name": "icehe",
+	"createdAt": 1588306191000,
+	"updatedAt": 1589371768000
+}'
+
+```
 
 #### elasticdump
 
