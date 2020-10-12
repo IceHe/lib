@@ -11,6 +11,8 @@ On BSD
 References
 
 - `man crontab`
+- **Cheat Sheet** : https://crontab.guru/#0_*_*_*_*
+    - _The quick and simple editor for cron schedule expressions by Cronitor_
 - Manual : http://crontab.org
 - Wikipedia : https://en.wikipedia.org/wiki/Cron
 
@@ -21,7 +23,6 @@ Related Command
 Assume
 
 - on Linux ( CentOS 7 )
-    - Cron doesn't work on macOS & etc.
 
 Notice
 
@@ -173,3 +174,22 @@ systemctl <status|start|stop|restart> crond
 # service
 service crond <status|start|stop|restart> crond
 ```
+
+## On macOS
+
+1\. Open the Crontab config file
+
+```bash
+crontab -e
+```
+
+2\. Install / Edit a crontab
+
+```bash
+* * * * * /usr/local/bin/terminal-notifier -title "定时提醒" -message "测试每分钟弹浮窗" -ignoreDnD -group 1
+0,30 * * * * /usr/local/bin/terminal-notifier -title "定时提醒" -message "该喝水了～" -ignoreDnD -group 1
+10 */1 * * * /usr/local/bin/terminal-notifier -title "定时提醒" -message "该活动颈椎了～" -ignoreDnD -group 2 ​​​
+```
+
+- Prepare : `brew install terminal-notifier`
+- References : https://weibo.com/6067744410/JgC7UbZI5
