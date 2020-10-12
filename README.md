@@ -274,6 +274,7 @@ Others
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
 - [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol ( TODO )
+- [terminal-notifier](/cmd/t/terminal-notifier) : send macOS User Notifications
 - [timeout](/cmd/t/timeout.md) : run a command with a time limit
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
 - [touch](/cmd/t/touch.md) : change file access & modification times
@@ -308,6 +309,7 @@ Scenes
     - tr, uniq, wc, …
 - __transfer data__ : ftp, nc, rsync, scp
 - __write file__ : tee, `>`, `2>&1`
+- __notify__ : terminal-notifier
 - ……
 
 > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
@@ -356,12 +358,17 @@ Batch 批处理
 - [DOS Common Commands](/scripts/batch/dos-common-commands.md)
 - [DOS Environment Variables](/scripts/batch/dos-environment-variable.md)
 
+Shell
+
+- [Notes](/scripts/shell/notes.md)
+    - a bash script example
+- [Terminal Colors](/scripts/shell/terminal-colors.md)
+
 Others
 
 - PHP : [Functions & Scripts](/scripts/php/php.md)
 - Python 3 : [Quick Start](/scripts/python/quick-start.md)
 - JavaScript : [Optimize some code](/scripts/javascript/optimize-some-code.md)
-- Shell : [Terminal Colors](/scripts/shell/terminal-colors.md)
 
 ### Repos
 
