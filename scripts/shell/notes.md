@@ -2,6 +2,14 @@
 
 ## Example 1
 
+Prepare
+
+- on macOS
+
+```bash
+brew install terminal-notifier
+```
+
 File : example1.sh
 
 ```bash
@@ -87,7 +95,7 @@ if [ "$ids" != "[]" ]; then
         msg="Cookie 过期!"
         echo NOTIFY:
         echo $msg
-        /usr/local/bin/terminal-notifier \
+        terminal-notifier \
             -title "$terminal_notifier_title" \
             -message "$msg" -ignoreDnD -group 1
         echo
@@ -100,7 +108,7 @@ if [ "$ids" != "[]" ]; then
         msg="异常: $result_msg"
         echo NOTIFY:
         echo $msg
-        /usr/local/bin/terminal-notifier \
+        terminal-notifier \
             -title "$terminal_notifier_title" \
             -message "$msg" -ignoreDnD -group 1
         echo
@@ -122,6 +130,8 @@ echo ============FIN============
 echo
 
 ```
+
+Edit Crontab
 
 `crontab -e`
 
