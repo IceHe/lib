@@ -120,4 +120,7 @@ Replace "" with ''
 
 # improve 2
 (?<!^| )\s{2}(?! )
+
+# improve 3
+(?<!^|\s)\s{2}(?!\s)
 ```
