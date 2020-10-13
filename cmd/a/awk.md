@@ -159,35 +159,115 @@ Parameters are passed by value if scalar and by reference if array name; functio
 
 ## Examples
 
-`length($0) > 72`
+### Length
 
-- Print lines longer than 72 characters.
+Print lines longer than 72 characters.
 
-`{ print $2, $1 }`
+- `length($0) > 180`
 
-- Print first two fields in opposite order.
+```bash
+$ awk 'length($0) > 180' awk.md
+- Expressions take on string or numeric values as appropriate _( 视情况而定 )_ , and are built using the operators `+ - * / % ^` (exponentiation), and concatenation (indicated by white space).
+- The print statement prints its arguments on the standard output (or on a file if `>file` or `>>file` is present or on a pipe if `|cmd` is present), separated by the current output field separator, and terminated by the output record separator.
+    - `/re/` is a constant regular expression; any string (constant or variable) may be used as a regular expression, except in the position of an isolated regular expression in a pattern.
+```
+
+### Print Fields
+
+Print first three fields in opposite order.
+
+- `{ print $3, $2, $1 }`
+
+```bash
+$ cat awk-example-1.txt
+abc     1234    foo
+defe    456     bar
+icehe   777     xyz
+
+$ awk '{ print $3, $2, $1 }' awk-example-1.txt
+foo 1234 abc
+bar 456 defe
+xyz 777 icehe
+```
+
+### BEGIN Statement
+
+Same, with input fields separated by comma and/or blanks and tabs.
 
 ```bash
 BEGIN { FS = ",[ \t]*|[ \t]+" }
       { print $2, $1 }
 ```
 
-- Same, with input fields separated by comma and/or blanks and tabs.
+```bash
+$ awk '
+BEGIN { FS = ",[ \t]*|[ \t]+" }
+      { print $2, $1 }
+' awk-example-1.txt
+
+# output
+1234 abc
+456 defe
+777 icehe
+```
+
+### END Statement
+
+Add up first column, print sum and average.
 
 ```bash
-     { s += $1 }
+     { s += $2 }
 END  { print "sum is", s, " average is", s/NR }
 ```
 
-- Add up first column, print sum and average.
+```bash
+$ awk '
+     { s += $2 }
+END  { print "sum is", s, " average is", s/NR }
+' awk-example-1.txt
+
+# output
+sum is 2467  average is 616.75
+```
+
+### Unknown
+
+#### Print Pattern-Matches
+
+Print all lines between start/stop pairs.
 
 `/start/, /stop/`
 
-- Print all lines between start/stop pairs.
+```bash
+$ awk '/start/, /stop/' awk-example-1.txt
+# output nothing
+
+$ cat awk-example-2.txt
+start abc       1234    foo
+defe    456     bar
+end icehe       777     xyz
+
+$ awk '/start/, /stop/' awk-example-2.txt
+start abc       1234    foo
+defe    456     bar
+end icehe       777     xyz
+# _( icehe : 对这个结果不够理解… )_
+```
+
+#### For Loop Statement
 
 ```bash
 BEGIN     {    # Simulate echo(1)
      for (i = 1; i < ARGC; i++) printf "%s ", ARGV[i]
      printf "\n"
      exit }
+```
+
+```bash
+$ awk '
+BEGIN     {    # Simulate echo(1)
+     for (i = 1; i < ARGC; i++) printf "%s ", ARGV[i]
+     printf "\n"
+     exit }
+' awk-example-1.txt awk-example-2.txt
 ```
