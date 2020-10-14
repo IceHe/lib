@@ -375,7 +375,7 @@ public class JsonUtils {
 
 ```
 
-### Serializer
+### Serialize and Deserialize
 
 Example
 
@@ -431,8 +431,6 @@ public class Long2StringSerializer extends StdSerializer<Long> {
     }
 }
 ```
-
-### Deserializer
 
 - String2LongDeserializer.java
 
