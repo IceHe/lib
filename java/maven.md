@@ -1,6 +1,12 @@
 # Maven
 
-Maven : https://maven.apache.org/
+References
+
+- Official Website : https://maven.apache.org/
+    - **Maven in 5 Minutes** : http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+    - **POM Reference** : http://maven.apache.org/pom.html
+
+Maven
 
 - A software profject management & comprehension tool ( not Pacakge Management ! )
 - based on a POM (project object model)
