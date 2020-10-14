@@ -1,50 +1,6 @@
 # Java Notes ( draft )
 
-## Basics
-
-Install
-
-- [Install](/java/install.md)
-
-Basic
-
-- [Hello World](/java/hello-java.md) ( draft )
-- [Glossary](/java/glossary.md)
-
-Framework
-
-- [Spring](/java/spring.md) & Spring Boot
-
-<!-- Already moved to Home's README.md -->
-<!-- - [Spock](/java/spock.md) - Unit Tests -->
-
-Package Manager
-
-- [Maven](/java/maven.md)
-
-Style Guide
-
-- Alibaba : https://edu.aliyun.com/certification/cldt02
-- Google : https://google.github.io/styleguide/javaguide.html
-
-Coding
-
-- [Snippets](/java/code-snippets/code-snippets.md)
-- [Notices](/java/notices.md)
-
-Command Line Tools
-
-- jar : Java archive tool
-- java : Java application launcher
-- javac : Java compiler
-- javap : Java class file disassembler
-- jconsole : VM Performance Statistics
-- jmap : Stack & Heap
-- ……
-
-## Others
-
-### Some Refs
+## Startup
 
 IntelliJ IDEA Plugins
 
@@ -72,7 +28,7 @@ Basics
 - To Be Top Javaer - Java工程师成神之路 : https://github.com/hollischuang/toBeTopJavaer （内容好不好待验证）
     - HollisChuang's Blog-Java干货集散地 : https://www.hollischuang.com/
 
-### Coding
+## Coding
 
 Manipulate Excel File
 
@@ -113,7 +69,7 @@ Stream<Entry<String, List<Item>>> duplicates = merged
 
 - Intellij IDEA如何生成JavaDoc : https://www.jianshu.com/p/0ddb0864e499
 
-### Design Pattern
+## Design Pattern
 
 用 "静态工厂方法" 替代 "构造函数" 的优点
 
@@ -126,7 +82,7 @@ Stream<Entry<String, List<Item>>> duplicates = merged
 
 - Factory Chain: A Design Pattern for Factories with Generics by Hugo Troche - developer.*, Developer Dot Star : https://www.developerdotstar.com/mag/articles/troche_factorychain.html
 
-### Details
+## Details
 
 异常层次 ( 类父子关系 )
 
