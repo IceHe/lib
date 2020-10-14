@@ -307,7 +307,7 @@ public class Test {
 
 ## Jackson
 
-### JsonUtil
+### Utils
 
 ```java
 import java.io.IOException;
@@ -324,7 +324,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-public class JsonUtil {
+public class JsonUtils {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -372,9 +372,112 @@ public class JsonUtil {
         return mapper.readValue(content, new TypeReference<ArrayList<T>>() {});
     }
 }
+
 ```
 
-### LocalDateTime Serializer
+### Serializer
+
+Example
+
+- CompanyDTO.java
+
+```java
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CompanyDTO {
+    /** 公司 ID */
+    @JsonSerialize(using = Long2StringSerializer.class)
+    @JsonDeserialize(using = String2LongDeserializer.class)
+    private Long companyId;
+}
+```
+
+- Long2StringSerializer.java
+
+```java
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+
+/**
+ * 转换 Long 类型变量为字符串的序列化器
+ *
+ * @author icehe
+ * @since 2020/10/14
+ */
+public class Long2StringSerializer extends StdSerializer<Long> {
+
+    public Long2StringSerializer() {
+        this(null);
+    }
+
+    public Long2StringSerializer(Class<Long> t) {
+        super(t);
+    }
+
+    @Override
+    public void serialize(
+        Long longValue, JsonGenerator gen, SerializerProvider provider)
+        throws IOException {
+        if (null == longValue) {
+            gen.writeNull();
+            return;
+        }
+        gen.writeString(longValue.toString());
+    }
+}
+```
+
+### Deserializer
+
+- String2LongDeserializer.java
+
+```java
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+
+/**
+ * 转换毫秒数或字符串为 LocalDateTime 的反序列化器
+ *
+ * @author icehe
+ * @since 2020/10/14
+ */
+public class String2LongDeserializer extends StdDeserializer<Object> {
+
+    public String2LongDeserializer() {
+        this(null);
+    }
+
+    public String2LongDeserializer(Class<Object> t) {
+        super(t);
+    }
+
+    @Override
+    public Object deserialize(JsonParser p, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+        try {
+            return p.readValueAs(Long.class);
+        } catch (IOException e) {
+            // do nothing
+        }
+
+        return null;
+    }
+}
+
+```
+
+## LocalDateTime
+
+### Serializer
 
 References
 
@@ -415,6 +518,7 @@ public class LocalDateTime2MillisSerializer extends StdSerializer<LocalDateTime>
         gen.writeNumber(millis);
     }
 }
+
 ```
 
 ```java
@@ -424,7 +528,7 @@ public class TestDTO {
 }
 ```
 
-### LocalDateTime Deserializer
+### Deserializer
 
 ```java
 import java.io.IOException;
@@ -476,6 +580,7 @@ public class MillisOrString2LocalDateTimeDeserializer extends StdDeserializer<Ob
         return null;
     }
 }
+
 ```
 
 ```java
@@ -490,7 +595,7 @@ Reference
 
 - Custom JSON Deserialization with Jackson - Stack Overflow : https://stackoverflow.com/questions/19158345/custom-json-deserialization-with-jackson
 
-### LocalDateTime
+### Utils
 
 ```java
 import java.time.*;
@@ -559,7 +664,9 @@ public class LocalDateTimeUtils {
 }
 ```
 
-# StringParsableUtils
+## Other Utils
+
+### String Parse
 
 ```java
 
