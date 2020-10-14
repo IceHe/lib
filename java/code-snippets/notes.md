@@ -1,7 +1,5 @@
 # Java Snippets
 
-TODO
-
 ## cast
 
 to String
