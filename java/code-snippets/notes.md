@@ -77,11 +77,11 @@ public class StringSplitUtils {
 ### Join
 
 ```java
-import lombok.experimental.UtilityClass;
-import org.springframework.util.CollectionUtils;
-
 import java.util.Collection;
 import java.util.stream.Collectors;
+
+import lombok.experimental.UtilityClass;
+import org.springframework.util.CollectionUtils;
 
 /**
  * 字符串连接工具集
@@ -112,16 +112,15 @@ public class StringJoinUtils {
 ### Parse
 
 ```java
-package me.ele.lpd.cs.yunying.util.string;
-
-import lombok.experimental.UtilityClass;
-
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.function.Function;
+
+import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 字符串解析工具集
@@ -142,7 +141,7 @@ public class StringParseUtils {
     /** 将代表数字的字符串转换为数字对象 */
     public Number parseStrToNumber(String numberStr) {
 
-        if (StrUtils.isBlank(numberStr)) {
+        if (StringUtils.isBlank(numberStr)) {
             return null;
         }
 
@@ -217,6 +216,194 @@ public class StringParseUtils {
         } catch (Exception e) {
             return null;
         }
+    }
+}
+```
+
+## Enum
+
+### State Transfer
+
+ReviewState
+
+```java
+package xyz.icehe.enums;
+
+import java.util.EnumSet;
+import java.util.Set;
+import java.util.stream.Stream;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.google.common.collect.ImmutableSet;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+/**
+ * 审核状态
+ *
+ * @author icehey.xyz
+ * @since 2020/10/16
+ */
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public enum ReviewState {
+
+    /** 未申请 / 未被正确地初始化 */
+    NOT_APPLIED(0, "未申请"),
+    /** 已申请 */
+    APPLIED(1, "待审核"),
+    /** 最终审核结果 */
+    APPROVED(2, "通过"),
+    REJECTED(3, "驳回"),
+    /** 自动审核结果 * */
+    EXPIRE_REJECTED(4, "超时未通过，自动驳回"),
+    ;
+
+    /** 驳回状态的集合 */
+    private static final Set<ReviewState> REJECTED_STATES =
+            ImmutableSet.of(REJECTED, EXPIRE_REJECTED);
+
+    /** 不可修改 (正常情况下) 的状态的集合 */
+    private static final Set<ReviewState> UNMODIFIABLE_STATES =
+            ImmutableSet.of(REJECTED, EXPIRE_REJECTED);
+
+    /** 可修改的状态的集合 */
+    private static final Set<ReviewState> MODIFIABLE_STATES = ImmutableSet.of(APPLIED, APPROVED);
+
+    /** 码值 */
+    private final Integer code;
+
+    /** 说明 */
+    private final String desc;
+
+    /** 将码值转换为枚举常量 */
+    @JSONCreator
+    public static ReviewState codeOf(Integer code) {
+        return Stream.of(values()).filter(it -> it.equalsCode(code)).findFirst().orElse(null);
+    }
+
+    /** 将名称转换为枚举常量 */
+    @JSONCreator
+    public static ReviewState nameOf(String name) {
+        return Stream.of(values()).filter(it -> it.name().equals(name)).findFirst().orElse(null);
+    }
+
+    /** 全状态的集合 */
+    public static EnumSet<ReviewState> allStates() {
+        return EnumSet.allOf(ReviewState.class);
+    }
+
+    /** 除 "审核通过" 状态之外的集合 */
+    public static EnumSet<ReviewState> nonApprovedStates() {
+        return EnumSet.complementOf(EnumSet.of(ReviewState.APPROVED));
+    }
+
+    /** 驳回状态的集合 */
+    public static EnumSet<ReviewState> rejectedStates() {
+        return EnumSet.copyOf(REJECTED_STATES);
+    }
+
+    /** 驳回状态之外的集合 */
+    public static EnumSet<ReviewState> nonRejectedStates() {
+        return EnumSet.complementOf(EnumSet.copyOf(REJECTED_STATES));
+    }
+
+    /** 不可修改 (正常情况下) 的状态的集合 */
+    public static EnumSet<ReviewState> unmodifiableStates() {
+        return EnumSet.copyOf(UNMODIFIABLE_STATES);
+    }
+
+    /** 可修改的状态的集合 */
+    public static EnumSet<ReviewState> modifiableStates() {
+        return EnumSet.copyOf(MODIFIABLE_STATES);
+    }
+
+    /** 判断处理状态 (码值) 是否相等 */
+    public boolean equalsCode(Integer value) {
+        return getCode().equals(value);
+    }
+
+    /** 是否属于一种驳回状态 */
+    public boolean isRejection() {
+        return REJECTED_STATES.contains(this);
+    }
+}
+```
+
+ReviewOperationType
+
+```java
+package xyz.icehe.enums;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.google.common.collect.ImmutableMap;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import static xyz.icehe.enums.ReviewState.*;
+
+/**
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public enum ReviewOperationType {
+
+    /** 审核操作类型 */
+    REJECT("驳回", true,
+        ImmutableMap.<ReviewState, ReviewState>builder().put(APPLIED, REJECTED).build()),
+
+    EXPIRE_REJECT("过期自动驳回", true,
+        ImmutableMap.<ReviewState, ReviewState>builder().put(APPLIED, EXPIRE_REJECTED).build()),
+
+    FORCE_REJECT("强制驳回", true,
+        ImmutableMap.<ReviewState, ReviewState>builder().put(APPROVED, REJECTED).build()),
+
+    APPROVE("通过审核", true,
+        ImmutableMap.<ReviewState, ReviewState>builder().put(APPLIED, APPROVED).build()),
+    ;
+
+    /** 批量的更新操作类型 */
+    private static final Set<ReviewOperationType> BATCH_OPERATION_TYPE =
+        Stream.of(values())
+            .filter(ReviewOperationType::isBatchable)
+            .collect(Collectors.toSet());
+
+    /** 说明 */
+    private final String desc;
+
+    /** 是否支持批量操作 */
+    private final boolean batchable;
+
+    /** 状态转换表 */
+    private final Map<ReviewState, ReviewState> stateTransferMap;
+
+    /** 将名称转换为枚举常量 */
+    @JSONCreator
+    public static ReviewOperationType nameOf(String name) {
+        return Arrays.stream(values())
+            .filter(type -> type.name().equals(name))
+            .findFirst()
+            .orElse(null);
+    }
+
+    /** 允许对处于哪些状态的对象进行更新操作 */
+    public Set<ReviewState> fromStates() {
+        return stateTransferMap.keySet();
+    }
+
+    /** 更新操作的目标状态 */
+    public ReviewState toState(ReviewState fromState) {
+        return stateTransferMap.get(fromState);
     }
 }
 
@@ -330,60 +517,6 @@ StringUtils.isNotBlank(string)
 // Just care about length
 StringUtils.isEmpty(string)
 StringUtils.isNotEmpty(string)
-```
-
-## enum
-
-```java
-package xyz.icehe.type;
-
-import com.google.common.collect.ImmutableSet;
-import org.apache.commons.lang.StringUtils;
-
-import java.util.Set;
-
-public enum Young {
-
-    BOY("BOY"),
-    GIRL("GIRL"),
-    ;
-
-    public static final Set<Young> VALUES
-            = ImmutableSet.copyOf(values());
-
-    private String value;
-
-    Young(String value) {
-        this.value = value;
-    }
-
-    public static Young parse(String value) {
-        if (StringUtils.isBlank(value)) {
-            return null;
-        }
-
-        for (Young young : values()) {
-            if (young.equals(value)) {
-                return young;
-            }
-        }
-
-        return null;
-    }
-
-    public static boolean isValidYoung(String value) {
-        return null != parse(value);
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public String toString() {
-        return value;
-    }
-
-}
 ```
 
 ## new
