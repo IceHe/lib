@@ -35,6 +35,8 @@ String.format("%s, %s!", "Hello", "world");
 ### Split
 
 ```java
+package xyz.icehe.utils;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -77,6 +79,8 @@ public class StringSplitUtils {
 ### Join
 
 ```java
+package xyz.icehe.utils;
+
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -112,6 +116,8 @@ public class StringJoinUtils {
 ### Parse
 
 ```java
+package xyz.icehe.utils;
+
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -220,9 +226,73 @@ public class StringParseUtils {
 }
 ```
 
+## Collection
+
+### Conditional
+
+```java
+import org.springframework.util.CollectionUtils;
+
+CollectionUtils.isEmpty(collection)
+CollectionUtils.isNotEmpty(collection)
+```
+
+### Create
+
+#### Common
+
+```java
+// Java built-in
+import java.util.Arrays;
+// Guava
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+// ……
+
+List<Integer> integerList = Arrays.asList(1, 2, 3);
+List<Integer> integerList2 = Lists.newArrayList(4, 5, 6);
+Set<Integer> integerSet = Sets.newHashSet(1, 2, 3);
+// ……
+```
+
+#### Empty
+
+```java
+import java.util.Collections;
+
+Collections.emptyList();
+Collections.emptySet();
+Collections.emptyMap();
+
+// generic type
+Collections.<String>emptySet();
+```
+
+#### Immutable
+
+```java
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+
+public static final Set<String> STRING_SET = ImmutableSet.of("foo", "bar");
+public static final List<Integer> INTEGER_LISTRS = ImmutableList.of(1, 2, 3);
+public static final Map<String, String> NEXT_SUCCESS_STATUS_MAP =
+    ImmutableMap.<String, String>builder()
+        .put("INVALID", "INVALID")
+        .put("CREATED", "RUNNING")
+        .put("RUNNING", "SUCCEEDED")
+        .put("ABORTED", "RETRYING")
+        .put("RETRYING", "SUCCEEDED")
+        .put("FAILED", "FAILED")
+        .put("SUCCEEDED", "SUCCEEDED")
+        .build();
+```
+
 ## Enum
 
-### State Transfer
+### Transferable State Enum
 
 ReviewState
 
@@ -406,7 +476,509 @@ public enum ReviewOperationType {
         return stateTransferMap.get(fromState);
     }
 }
+```
 
+### EnumParsers
+
+Usage
+
+```java
+package xyz.icehe.enums;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import xyz.icehe.utils.EnumParsers;
+
+/**
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public enum BoolState {
+
+    /** "是/否" 状态 */
+    UNDEF(-1, "未知"),
+    NO(0, "否"),
+    YES(1, "是"),
+    ;
+
+    /** 码值 */
+    private final Integer code;
+
+    /** 描述 */
+    private final String desc;
+
+    /**
+     * 根据数值，获取对应枚举常量
+     *
+     * @param code {@link Integer}
+     * @return 枚举常量
+     */
+    public static BoolState of(Integer code) {
+        return EnumParsers.parserOf(BoolState.class, "getCode").apply(code);
+    }
+
+    /**
+     * 判断是否相等
+     *
+     * <p>兼容了对 Integer 类型变量的判断
+     *
+     * @param integer Integer
+     * @return boolean
+     */
+    public boolean equals(Integer integer) {
+        return getCode().equals(integer);
+    }
+}
+```
+
+Source Code
+
+```java
+package xyz.icehe.utils;
+
+import java.lang.reflect.Method;
+import java.util.EnumSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentMap;
+import java.util.function.Function;
+
+import com.google.common.collect.Maps;
+import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * 枚举常量解析器的静态工厂
+ *
+ * <p>枚举常量解析器: 将值转换为枚举常量
+ *
+ * <p>JAVA 中, 把基本类型转化为对象类型的方法, 通常命名为 {@code valueOf()}, 所以这里采用 {@code parserOf()} 方法命名.
+ *
+ * <p>不能用于解析可能值为 null 的 Enum 类型对象, 因为类内部实现使用了 {@link ConcurrentMap}, 所以无论键还是值都不能写入 null!
+ *
+ * <p>标准: 返回 null 用于表示 "解析失败" 的情况!
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@UtilityClass
+public class EnumParsers {
+
+    public final String ENUM_TYPE = "enumType";
+
+    /**
+     * 解析映射的 Key 的分隔符
+     */
+    private final String MAP_KEY_SEPARATOR = "#";
+
+    /**
+     * 保存各个枚举常量解析器的映射
+     *
+     * <p>用空间换时间, 用映射来提高枚举常量的解析速度.
+     *
+     * <p>映射 Key 通常为枚举类型的名称（包含包名）加上获取被解析对象的方法的名称.
+     *
+     * <p>每个枚举类可以拥有多个枚举常量解析器, 多个枚举常量解析器根据获取被解析对象的方法的名称来区分, 即是 {@link EnumParsers#parserOf} 方法的
+     * objGetterName 参数.
+     */
+    private final Map<String, Function<?, ? extends Enum<?>>> parserMap = Maps.newConcurrentMap();
+
+    /**
+     * 根据枚举类型以及获取解析值的方法的名称, 获取的枚举常量解析器
+     *
+     * @param targetEnumType   {@link Enum} 目标枚举类型
+     * @param srcObjGetterName 获取被解析对象的方法的名称
+     * @param <T>              {@link Class} 需要解析的对象的类型
+     * @param <E>              {@link Enum} 枚举常量的类型
+     * @return {@link Enum} 枚举常量
+     */
+    @SuppressWarnings("unchecked")
+    public <T, E extends Enum<E>> Function<T, E> parserOf(Class<E> targetEnumType, String srcObjGetterName) {
+
+        Objects.requireNonNull(targetEnumType, ENUM_TYPE + " 不能为 null");
+
+        if (StringUtils.isBlank(srcObjGetterName)) {
+            throw new RuntimeException("parsedValueGetterName" + " 不能为空字符串");
+        }
+
+        String parserKey = targetEnumType.getName() + MAP_KEY_SEPARATOR + srcObjGetterName;
+        Function<T, E> enumParser = (Function<T, E>)parserMap.get(parserKey);
+
+        if (null == enumParser) {
+            enumParser = generateEnumParser(targetEnumType, srcObjGetterName);
+            parserMap.put(parserKey, enumParser);
+        }
+
+        return enumParser;
+    }
+
+    /**
+     * 生成新的枚举常量解析器
+     *
+     * @param targetEnumType   {@link Enum} 目标枚举类型
+     * @param srcObjGetterName 获取被解析对象的方法名
+     * @param <T>              {@link Class} 需要解析的对象的类型
+     * @param <E>              {@link Enum} 枚举常量的类型
+     * @return {@link Function}
+     */
+    private static <T, E extends Enum<E>> Function<T, E> generateEnumParser(
+        Class<E> targetEnumType, String srcObjGetterName) {
+
+        EnumSet<E> allEnumSet = EnumSet.allOf(targetEnumType);
+        Function<E, T> sourceObjGetter = getSourceObjGetter(targetEnumType, srcObjGetterName);
+        Map<T, E> parsedValue2EnumMap = MapBuilders.buildMap(allEnumSet, sourceObjGetter);
+
+        return value -> (null == value) ? null : parsedValue2EnumMap.get(value);
+    }
+
+    /**
+     * 获取用于获取被解析对象的闭包
+     *
+     * @param targetEnumType   目标枚举类型
+     * @param srcObjGetterName 获取被解析对象的方法的名称
+     * @param <T>              {@link Class} 需要解析的对象的类型
+     * @param <E>              {@link Enum} 枚举常量的类型
+     * @return 获取被解析值的闭包 {@link Function}
+     */
+    @SuppressWarnings("unchecked")
+    private <T, E extends Enum<E>> Function<E, T> getSourceObjGetter(
+        Class<? extends E> targetEnumType, String srcObjGetterName) {
+
+        Method valueGetterMethod = getSourceObjGetterMethod(targetEnumType, srcObjGetterName);
+
+        return (E anEnum) -> {
+            try {
+                return (T)valueGetterMethod.invoke(anEnum);
+            } catch (Exception e) {
+                String format = "valueGetter not work : 获取枚举常量的解析值时, 出现异常, anEnum=%s, valueGetter=%s";
+                throw new RuntimeException(String.format(format, anEnum, valueGetterMethod), e);
+            }
+        };
+    }
+
+    /**
+     * 获取用于获取被解析对象的方法
+     *
+     * @param targetEnumType   {@link Class} 目标枚举类型
+     * @param srcObjGetterName 获取被解析对象的方法的名称
+     * @return {@link Method}
+     */
+    private Method getSourceObjGetterMethod(Class<? extends Enum<?>> targetEnumType, String srcObjGetterName) {
+
+        Method parsedValueGetter;
+        try {
+            // Get the method without parameters
+            parsedValueGetter = targetEnumType.getDeclaredMethod(srcObjGetterName);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (0 != parsedValueGetter.getParameterCount()) {
+            String format = "找到了指定名称的方法, 但参数数量不匹配 (必须没有参数), targetEnumType=%s, parsedValueGetter=%s";
+            throw new RuntimeException(String.format(format, targetEnumType, parsedValueGetter));
+        }
+
+        return parsedValueGetter;
+    }
+}
+
+```
+
+### \*EnumsParser
+
+```java
+package xyz.icehe.utils.parser;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import lombok.Getter;
+import org.springframework.util.CollectionUtils;
+
+/**
+ * 枚举常量集合的解析器
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Getter
+public class EnumsParser implements Function<Collection<?>, Map<?, Optional<Enum<?>>>> {
+
+    /**
+     * 目标枚举类型
+     */
+    private final Class<? extends Enum<?>> targetEnumClass;
+
+    /**
+     * 被解析对象的类型
+     */
+    private final Class<?> sourceObjType;
+
+    /**
+     * 将对象解析为枚举常量的静态方法
+     *
+     * <p>该方法必须为静态而且属于枚举类 {@link Method}
+     */
+    private Method parseMethod;
+
+    /**
+     * Constructor
+     *
+     * @param targetEnumClass {@link Class} 目标枚举类型
+     * @param sourceObjType   {@link Class} 被解析对象的类型
+     */
+    public EnumsParser(Class<? extends Enum<?>> targetEnumClass, Class<?> sourceObjType) {
+        this(targetEnumClass, sourceObjType, findParseMethodByType(targetEnumClass, sourceObjType));
+    }
+
+    /**
+     * Constructor
+     *
+     * @param targetEnumClass {@link Class} 目标枚举类型
+     * @param sourceObjType   {@link Class} 被解析对象的类型
+     * @param parseMethodName 解析方法的名称
+     */
+    public EnumsParser(Class<? extends Enum<?>> targetEnumClass, Class<?> sourceObjType, String parseMethodName) {
+        this(targetEnumClass, sourceObjType, findParseMethodByName(targetEnumClass, sourceObjType, parseMethodName));
+    }
+
+    /**
+     * Constructor
+     *
+     * @param targetEnumClass {@link Class} 目标枚举类型
+     * @param sourceObjType   {@link Class} 被解析对象的类型
+     * @param parseMethod     {@link Method} 将对象解析为枚举常量的静态方法
+     */
+    private EnumsParser(Class<? extends Enum<?>> targetEnumClass, Class<?> sourceObjType, Method parseMethod) {
+        this.targetEnumClass = targetEnumClass;
+        this.sourceObjType = sourceObjType;
+        this.parseMethod = parseMethod;
+    }
+
+    /**
+     * 获取用于将对象解析为枚举常量的静态方法
+     *
+     * @param targetEnumType {@link Class} 目标枚举类型
+     * @param sourceObjType  {@link Class} 被解析对象的类型
+     * @return {@link Method} 将对象解析为枚举常量的静态方法
+     */
+    private static Method findParseMethodByType(Class<? extends Enum<?>> targetEnumType, Class<?> sourceObjType) {
+        requireNonNull(targetEnumType, sourceObjType);
+        return Stream.of(targetEnumType.getDeclaredMethods())
+            .filter(method -> method.getReturnType().equals(targetEnumType))
+            .filter(method -> method.getParameterCount() == 1)
+            .filter(method -> method.getParameterTypes()[0].equals(sourceObjType))
+            .filter(method -> Modifier.isStatic(method.getModifiers()))
+            .filter(method -> Modifier.isPublic(method.getModifiers()))
+            .findFirst()
+            .orElseThrow(() -> {
+                String format = "找不到将值解析为枚举常量的静态公有方法, targetEnumType=%s, sourceObjType=%s";
+                return new RuntimeException(String.format(format, targetEnumType, sourceObjType));
+            });
+    }
+
+    /**
+     * 获取用于将对象解析为枚举常量的静态方法
+     *
+     * @param targetEnumType  {@link Class} 目标枚举类型
+     * @param sourceObjType   {@link Class} 被解析对象的类型
+     * @param parseMethodName {@link Class} 解析方法的名称
+     * @return {@link Method} 将对象解析为枚举常量的静态方法
+     */
+    private static Method findParseMethodByName(
+        Class<? extends Enum<?>> targetEnumType, Class<?> sourceObjType, String parseMethodName) {
+
+        requireNonNull(targetEnumType, sourceObjType);
+        Method parseMethod;
+        try {
+            parseMethod = targetEnumType.getDeclaredMethod(parseMethodName, String.class);
+        } catch (NoSuchMethodException e) {
+            String format = "找不到将值解析为枚举常量的方法, parseMethodName=%s";
+            throw new RuntimeException(String.format(format, parseMethodName), e);
+        }
+
+        checkParseMethod(targetEnumType, sourceObjType, parseMethod);
+        return parseMethod;
+    }
+
+    /**
+     * 检查目标枚举类型和被解析对象的类型是否非 null，否则抛出异常
+     *
+     * @param targetEnumType {@link Class} 目标枚举类型
+     * @param sourceObjType  {@link Class} 被解析对象的类型
+     * @throws NullPointerException 空指针错误
+     */
+    private static void requireNonNull(Class<? extends Enum<?>> targetEnumType, Class<?> sourceObjType) {
+        Objects.requireNonNull(targetEnumType, "targetEnumType" + " 不能为 null");
+        Objects.requireNonNull(sourceObjType, "sourceObjType" + " 不能为 null");
+    }
+
+    /**
+     * 检查用于将对象解析为枚举常量的静态方法
+     *
+     * @param returnType  {@link Class} 目标枚举类型
+     * @param paramType   {@link Class} 被解析对象的类型
+     * @param parseMethod {@link Method} 解析方法的名称
+     */
+    private static void checkParseMethod(Class<? extends Enum<?>> returnType, Class<?> paramType, Method parseMethod) {
+        Objects.requireNonNull(parseMethod, "parseMethod" + " 不能为 null");
+        String errorMsgFormat;
+
+        if (parseMethod.getParameterCount() != 1) {
+            errorMsgFormat = "找到可将值解析为枚举常量的方法, 但参数数量不匹配 (要求有且仅有一个), returnType=%s, parseMethod=%s";
+            throw new RuntimeException(String.format(errorMsgFormat, returnType, parseMethod));
+        }
+
+        if (!parseMethod.getParameterTypes()[0].equals(paramType)) {
+            errorMsgFormat = "找到可将值解析为枚举常量的方法, 但参数值类型不匹配, paramType=%s, parseMethod=%s";
+            throw new RuntimeException(String.format(errorMsgFormat, paramType, parseMethod));
+        }
+
+        if (!parseMethod.getReturnType().equals(returnType)) {
+            errorMsgFormat = "找到可将值解析为枚举常量的方法, 但返回值类型不匹配, returnType=%s, parseMethod=%s";
+            throw new RuntimeException(String.format(errorMsgFormat, returnType, parseMethod));
+        }
+
+        int modifiers = parseMethod.getModifiers();
+
+        if (!Modifier.isStatic(modifiers)) {
+            errorMsgFormat = "找到可将值解析为枚举常量的方法, 但不是静态方法 (static), parseMethod=%s";
+            throw new RuntimeException(String.format(errorMsgFormat, parseMethod));
+        }
+
+        if (!Modifier.isPublic(modifiers)) {
+            errorMsgFormat = "找到可将值解析为枚举常量的方法, 但不是公有方法 (public), parseMethod=%s";
+            throw new RuntimeException(String.format(errorMsgFormat, parseMethod));
+        }
+    }
+
+    /**
+     * 将值转换为值到枚举常量的映射
+     *
+     * @param values 值的集合
+     * @return 值到枚举常量的映射
+     */
+    @Override
+    public Map<?, Optional<Enum<?>>> apply(Collection<?> values) {
+        if (CollectionUtils.isEmpty(values)) {
+            return Collections.emptyMap();
+        }
+
+        return values.stream().collect(Collectors.toConcurrentMap(
+            Function.identity(),
+            val -> Optional.ofNullable(parseAnEnum(val))));
+    }
+
+    /**
+     * 将值解析为枚举常量
+     *
+     * @param value 被解析的值
+     * @return {@link Enum} 值对应的枚举常量
+     */
+    private Enum<?> parseAnEnum(Object value) {
+        try {
+            return (Enum<?>)parseMethod.invoke(null, value);
+
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            String format = "parseMethod not work : 调用将值转换为枚举常量时, 出现异常, value=%s, parseMethod=%s";
+            throw new RuntimeException(String.format(format, value, parseMethod), e);
+        }
+    }
+}
+```
+
+### \*EnumsParses
+
+```java
+package xyz.icehe.utils;
+
+import java.util.Map;
+
+import com.google.common.collect.Maps;
+import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.StringUtils;
+import xyz.icehe.utils.parser.EnumsParser;
+
+/**
+ * 枚举常量集合的解析器的静态工厂
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@UtilityClass
+public class EnumsParsers {
+
+    /**
+     * key 为 "枚举类名#转换对象类名"，value 为枚举常量集合解析器的映射
+     */
+    private final Map<String, EnumsParser> ENUM_VAL_2_PARSER_MAP = Maps.newConcurrentMap();
+
+    /**
+     * key 为 "枚举类名#转换对象类名#方法名"，value 为枚举常量集合解析器的映射
+     */
+    private final Map<String, EnumsParser> ENUM_VAL_GETTER_2_PARSER_MAP = Maps.newConcurrentMap();
+
+    /**
+     * 获取枚举常量解析器
+     *
+     * @param targetEnumType  {@link Class} 目标枚举类型
+     * @param sourceObjType   {@link Class} 被解析对象的类型
+     * @param parseMethodName 将对象解析为枚举常量的方法的名称
+     * @return {@link EnumsParser}
+     */
+    public EnumsParser parserOf(
+        Class<? extends Enum<?>> targetEnumType,
+        Class<?> sourceObjType,
+        String parseMethodName) {
+
+        if (StringUtils.isBlank(parseMethodName)) {
+            return parserOf(targetEnumType, sourceObjType);
+        }
+
+        String key = String.format("%s#%s#%s",
+                targetEnumType.getName(), sourceObjType.getName(), parseMethodName);
+        EnumsParser enumsParser = ENUM_VAL_GETTER_2_PARSER_MAP.get(key);
+
+        if (null == enumsParser) {
+            enumsParser = new EnumsParser(targetEnumType, sourceObjType, parseMethodName);
+            ENUM_VAL_GETTER_2_PARSER_MAP.put(key, enumsParser);
+        }
+
+        return enumsParser;
+    }
+
+    /**
+     * 获取枚举常量解析器
+     *
+     * @param targetEnumType {@link Class} 目标枚举类型
+     * @param sourceObjType  {@link Class} 被解析对象的类型
+     * @return {@link EnumsParser}
+     */
+    public EnumsParser parserOf(Class<? extends Enum<?>> targetEnumType, Class<?> sourceObjType) {
+
+        String key = String.format("%s#%s", targetEnumType.getName(), sourceObjType.getName());
+        EnumsParser enumsParser = ENUM_VAL_2_PARSER_MAP.get(key);
+
+        if (null == enumsParser) {
+            enumsParser = new EnumsParser(targetEnumType, sourceObjType);
+            ENUM_VAL_2_PARSER_MAP.put(key, enumsParser);
+        }
+
+        return enumsParser;
+    }
+}
 ```
 
 ## Stream
@@ -494,16 +1066,7 @@ Stream<Entry<String, List<Item>>> duplicates = merged
 
 ```
 
-## Conditional
-
-### CollectionUtils
-
-```java
-import org.springframework.util.CollectionUtils;
-
-CollectionUtils.isEmpty(collection)
-CollectionUtils.isNotEmpty(collection)
-```
+### StringUtils
 
 ```java
 import org.apache.commons.lang3.StringUtils;
@@ -519,41 +1082,344 @@ StringUtils.isEmpty(string)
 StringUtils.isNotEmpty(string)
 ```
 
-## new
+## Common DTO
 
-### List
+### PageCondition
 
 ```java
-import java.util.Arrays;
-List<Integer> intList = Arrays.asList(1, 2, 3);
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 翻页条件
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PageCondition {
+
+    /**
+     * 页码: 至少为 1
+     */
+    private Integer pageIndex;
+
+    /**
+     * 每页数据条数: 至少为 1
+     */
+    private Integer pageSize;
+
+    /**
+     * @return 获取查询偏移量
+     */
+    @JsonIgnore
+    public Integer getOffset() {
+        return (getPageIndex() - 1) * getPageSize();
+    }
+
+    /**
+     * @return 获取查询数量
+     */
+    @JsonIgnore
+    public Integer getLimit() {
+        return getPageSize();
+    }
+}
 ```
 
-### Set
-
-Set
+### PageDTO
 
 ```java
-import com.google.common.collect.Sets;
-Set<Integer> intSet = Sets.newHashSet(1, 2, 3);
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 可翻页数据
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PageDTO<T> {
+
+    /**
+     * 总页数
+     */
+    private Integer pageTotal;
+
+    /**
+     * 页码
+     */
+    private Integer pageIndex;
+
+    /**
+     * 每页数据条数
+     */
+    private Integer pageSize;
+
+    /**
+     * 数据总条数
+     */
+    private Integer itemTotal;
+
+    /**
+     * 数据
+     */
+    private List<T> items;
+}
 ```
 
-Immutable Set
+## Excel
+
+- How to Write to an Excel file in Java using Apache POI | CalliCoder : https://www.callicoder.com/java-write-excel-file-apache-poi/
+
+### Read from bytes
 
 ```java
-import com.google.common.collect.ImmutableSet;
-public static final Set<String> CONSTANTS = ImmutableSet.of(AAA, SSS);
+package xyz.icehe.utils;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import lombok.experimental.UtilityClass;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.data.util.StreamUtils;
+
+/**
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@UtilityClass
+public class ExcelUtils {
+
+    /**
+     * 将 Excel 文件数据 (字节数组) 转换为二维表格
+     *
+     * @param excelData
+     * @return sheet => [ row => [cell] ]
+     * @throws Exception
+     */
+    public List<List<String>> convertExcelData2Table(byte[] excelData) throws Exception {
+
+        List<List<String>> table;
+
+        try (ByteArrayInputStream byteInputStream = new ByteArrayInputStream(excelData);
+             BufferedInputStream bufferedInputStream = new BufferedInputStream(byteInputStream);
+             Workbook workbook = new XSSFWorkbook(bufferedInputStream)) {
+
+            Sheet sheet = extractFirstSheetFromWorkbook(workbook);
+            table = convertExcelSheet2Table(sheet);
+
+        } catch (IOException e) {
+            String msg =
+                String.format("cannot read or parse excel file, errorMsg=%s", e.getMessage());
+            throw new Exception(msg);
+        }
+
+        return table;
+    }
+
+    /**
+     * 提取 Excel 工作簿 {@link Workbook} 的第一个表单 {@link Sheet}
+     */
+    private Sheet extractFirstSheetFromWorkbook(Workbook workbook) throws Exception {
+        Sheet sheet = workbook.getSheetAt(0);
+        if (null == sheet) {
+            throw new Exception("Excel 文件中没有包含表单 (Sheet)");
+        }
+        return sheet;
+    }
+
+    /**
+     * 将 Excel 表格 {@link Sheet} 转换为二维表格
+     */
+    private List<List<String>> convertExcelSheet2Table(Sheet sheet) {
+        return StreamUtils.createStreamFromIterator(sheet.rowIterator())
+            .map(ExcelUtils::convertSheetRowToTableRow)
+            .collect(Collectors.toList());
+    }
+
+    /**
+     * 将 Excel 表格的一行 {@link Row}, 转换为二维表格的一行
+     */
+    private List<String> convertSheetRowToTableRow(Row row) {
+        return StreamUtils.createStreamFromIterator(row.cellIterator())
+            .map(ExcelUtils::convertRowCellToString)
+            .collect(Collectors.toList());
+    }
+
+    /**
+     * 将 Excel 表格行的一个单元格 {@link Cell}, 转换为字符串
+     */
+    private String convertRowCellToString(Cell cell) {
+        if (null == cell) {
+            return "";
+        }
+
+        switch (cell.getCellTypeEnum()) {
+            case NUMERIC:
+                return String.valueOf(cell.getNumericCellValue());
+            case STRING:
+                // fall through
+            default:
+                return cell.getStringCellValue();
+        }
+    }
+}
 ```
 
-### empty collections
+### Write to bytes
 
 ```java
-Collections.emptyList();
-Collections.emptySet();
-Collections.emptyMap();
+package xyz.icehe.utils;
 
-// generic type
-Collections.<String>emptySet();
-……
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.util.CollectionUtils;
+
+/**
+ * Excel 文件写入器
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Slf4j
+@UtilityClass
+public class ExcelWriter {
+
+    private final String EMPTY_TABLE_ERROR_MSG =
+        "ExcelWriter.writeExcel(), table must be non-empty";
+
+    /**
+     * 将表格写入到 Excel 文件的输出流中
+     *
+     * <p>第一行为表头
+     *
+     * @param table 二维表格
+     * @return {@link ByteArrayOutputStream}
+     * @throws Exception
+     * @see <a href="https://www.callicoder.com/java-write-excel-file-apache-poi">How to Write to an
+     * Excel file in Java using Apache POI</a>
+     */
+    public ByteArrayOutputStream writeExcelIntoOutputStream(List<? extends ArrayList<String>> table) throws Exception {
+
+        if (CollectionUtils.isEmpty(table)) {
+            log.warn(EMPTY_TABLE_ERROR_MSG);
+            throw new IllegalArgumentException(EMPTY_TABLE_ERROR_MSG);
+        }
+
+        // HSSFWorkbook for generating `.xls` file
+        try (Workbook workbook = new XSSFWorkbook()) {
+
+            Sheet sheet = workbook.createSheet("table");
+
+            // 去掉表头
+            List<String> headers = table.remove(0);
+
+            writeTableBody(sheet, table);
+
+            if (!CollectionUtils.isEmpty(headers)) {
+                writeTableHeaders(sheet, headers);
+
+                // Resize all columns to fit the content size
+                for (int i = 0; i < headers.size(); i++) {
+                    sheet.autoSizeColumn(i);
+                }
+            }
+
+            return toOutputStream(workbook);
+        } catch (Exception e) {
+            log.error("ExcelWriter.writeExcel()", e);
+            throw new Exception(e);
+        }
+    }
+
+    /**
+     * 写入表格内容
+     *
+     * @param sheet {@link Sheet} Excel 表单
+     * @param table 二维表格
+     */
+    private void writeTableBody(Sheet sheet, List<? extends ArrayList<String>> table) {
+        // 从第 1 行而非第 0 行开始，跳过了表头的初始化（由另一方法做）
+        int rowNum = 1;
+        for (List<String> rowFields : table) {
+            Row row = sheet.createRow(rowNum++);
+
+            if (CollectionUtils.isEmpty(rowFields)) {
+                continue;
+            }
+
+            int colNum = 0;
+            for (String field : rowFields) {
+                row.createCell(colNum++).setCellValue(field);
+            }
+        }
+    }
+
+    /**
+     * 写入表头
+     *
+     * @param sheet   {@link Sheet} Excel 表单
+     * @param headers 表头
+     */
+    private void writeTableHeaders(Sheet sheet, List<String> headers) {
+        Row headerRow = sheet.createRow(0);
+        int i = 0;
+        for (String columnName : headers) {
+            Cell cell = headerRow.createCell(i++);
+            cell.setCellValue(columnName);
+        }
+    }
+
+    /**
+     * 将表格写入到输出流中
+     *
+     * @param workbook {@link Workbook} Excel Workbook
+     * @return {@link ByteArrayOutputStream}
+     * @throws Exception
+     */
+    private ByteArrayOutputStream toOutputStream(Workbook workbook) throws Exception {
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            workbook.write(outputStream);
+            return outputStream;
+        } catch (IOException e) {
+            log.error("ExcelWriter.saveFile()", e);
+            throw new Exception(e);
+        }
+    }
+}
 ```
 
 ## optinal
@@ -667,6 +1533,78 @@ public class Test {
         Map<String, Object> map =
                 JSON.parseObject(jsonString, new TypeReference<Map<String, Object>>() {});
         System.out.println(map);
+    }
+}
+
+```
+
+## Aspect
+
+### JoinPointUtils
+
+```java
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import com.google.common.collect.Maps;
+import lombok.experimental.UtilityClass;
+import xyz.icehe.transport.UserAuthentication;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.reflect.MethodSignature;
+
+/**
+ * 连接点操作的辅助组件
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@UtilityClass
+public class JoinPointHelper {
+
+    private final String JOIN_POINT = "joinPoint";
+
+    /**
+     * 根据连接点提取出参数映射
+     *
+     * @param joinPoint {@link JoinPoint} 连接点
+     * @return 参数映射
+     */
+    public Map<String, Object> extractParamMap(JoinPoint joinPoint) {
+
+        Objects.requireNonNull(joinPoint, JOIN_POINT + " 不能为 null");
+
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+
+        String[] argNames = signature.getParameterNames();
+        Object[] args = joinPoint.getArgs();
+
+        /*
+         * 通过 stream 调用 .collect(Collectors.toMap(i -> argNames[i], i -> args[i])) 转换为 map 的方式，
+         * 并不允许 value 为 null，所以这里只好使用迭代的写法。
+         * 原因参考：https://stackoverflow.com/questions/698638/why-does-concurrenthashmap-prevent-null-keys-and-values
+         */
+        Map<String, Object> argMap = Maps.newHashMap();
+        IntStream.range(0, args.length).forEach(i -> argMap.put(argNames[i], args[i]));
+
+        return argMap;
+    }
+
+    /**
+     * 根据连接点提取出用户身份认证信息
+     *
+     * @param joinPoint {@link JoinPoint}
+     * @return {@link UserAuthentication}
+     */
+    public UserAuthentication extractUserAuth(JoinPoint joinPoint) {
+
+        Objects.requireNonNull(joinPoint, JOIN_POINT + " 不能为 null");
+
+        return (UserAuthentication) Stream.of(joinPoint.getArgs())
+            .filter(UserAuthentication.class::isInstance)
+            .findFirst()
+            .orElse(null);
     }
 }
 
@@ -841,6 +1779,12 @@ public class String2LongDeserializer extends StdDeserializer<Object> {
 ```
 
 ## LocalDateTime
+
+将字符串转换为日期对象
+
+- Java 8 - How to convert String to LocalDate : https://www.mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
+    - Java 应该用 LocalDate / LocalTime / LocalDateTime 保存时间
+    - 禁止使用 java.util.Date & java.text.SimpleDateFormat !
 
 ### Serializer
 
@@ -1215,6 +2159,459 @@ public class StringParsableUtils {
         } catch (Exception e) {
             return null;
         }
+    }
+}
+
+```
+
+## Spring ConstraintValidator
+
+约束校验器
+
+- JavaBean Validation - Object Association validation with @Valid
+  : https://www.logicbig.com/tutorials/java-ee-tutorial/bean-validation/cascaded-validation.html
+
+### AbstractValidator
+
+```java
+package xyz.icehe.validate.validator;
+
+import java.lang.annotation.Annotation;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * 抽象校验器
+ *
+ * <p>校验器：用于校验方法返回值、字段、参数
+ *
+ * @author icehe.xyz
+ * @see ConstraintValidator
+ * @see <a href="https://zhuanlan.zhihu.com/p/27643133">秒懂，Java 注解 （Annotation）你可以这样学 - 知乎</a>
+ * @see <a href="https://docs.jboss.org/hibernate/validator/4.2/reference/zh-CN/html/validator-customconstraints.html#validator-customconstraints-constraintannotation">创建自己的约束规则</a>
+ * @since 2020/10/16
+ */
+@Getter
+@Setter
+public abstract class AbstractValidator<A extends Annotation, T> implements ConstraintValidator<A, T> {
+
+    protected A annotation;
+
+    /**
+     * 追加约束违反的信息
+     *
+     * @param violationMessage 默认的约束违反信息
+     * @param context          {@link ConstraintValidatorContext}
+     * @return 是否成功追加约束违反
+     */
+    public static boolean appendViolation(
+        String violationMessage, ConstraintValidatorContext context) {
+
+        if (StringUtils.isBlank(violationMessage)) {
+            return false;
+        }
+
+        context.disableDefaultConstraintViolation();
+        context.buildConstraintViolationWithTemplate(violationMessage.trim())
+            .addConstraintViolation();
+        return true;
+    }
+
+    /**
+     * Initializes the validator in preparation for calls.
+     *
+     * <p>Just once
+     *
+     * @param constraintAnnotation annotation instance for a given constraint declaration
+     */
+    @Override
+    public void initialize(A constraintAnnotation) {
+        annotation = constraintAnnotation;
+    }
+}
+```
+
+### Double Percent
+
+Usage
+
+```java
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class SomeDTO {
+    @ValidPercent(maxScale = 2, message = "percent 参数必须为 0.00 ~ 100.00 的百分比数字, 或传空"
+    private Double percent;
+}
+```
+
+#### @ValidePercent
+
+```java
+package xyz.icehe.validate.annotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+
+import xyz.icehe.validate.validator.impl.DoublePercentValidator;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+
+/**
+ * 校验是否指定了正确的百分比 0~100
+ *
+ * <p>支持浮点数 Double
+ *
+ * <p>考虑添加对 Integer 和 String 等类型的校验支持, 有空或有必要时写.
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Documented
+@Target({FIELD, METHOD, PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = DoublePercentValidator.class)
+public @interface ValidPercent {
+
+    /**
+     * @return 保留小数点后数字的最大位数
+     */
+    int maxScale() default -1;
+
+    /**
+     * @return 百分数下限
+     */
+    double minPercent() default 0.0D;
+
+    /**
+     * @return 百分数上限
+     */
+    double maxPercent() default 100.0D;
+
+    /**
+     * @return 错误信息
+     */
+    String message() default "必须表示正确的百分比 0 ~ 100";
+
+    /**
+     * @return 所属的校验组
+     */
+    Class<?>[] groups() default {};
+
+    /**
+     * @return 约束条件的严重级别
+     */
+    Class<? extends Payload>[] payload() default {};
+}
+```
+
+#### DoublePercentValidator
+
+```java
+package xyz.icehe.validate.validator.impl;
+
+import java.math.BigDecimal;
+
+import javax.validation.ConstraintValidatorContext;
+
+import xyz.icehe.validate.annotation.ValidPercent;
+import xyz.icehe.validate.validator.AbstractValidator;
+
+/**
+ * 校验 Double 类型的值是否指定了正确的百分比
+ *
+ * <p>只精确到两位小数，后面的部分舍弃掉
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+public class DoublePercentValidator extends AbstractValidator<ValidPercent, Double> {
+
+    /**
+     * 校验值是否符合约束
+     *
+     * <p>意图：找出所有的错误，而不是只返回发现的第一个错误，以便调试（特别是参数较多的情况）
+     *
+     * @param percent 校验值
+     * @param context {@link ConstraintValidatorContext} context in which the constraint is
+     *     evaluated
+     * @return {@code false} if {@code value} does not pass the constraint
+     */
+    @Override
+    @SuppressWarnings("FeatureEnvy")
+    public boolean isValid(Double percent, ConstraintValidatorContext context) {
+
+        if (null == percent) {
+            return true;
+        }
+
+        String defaultMessage = annotation.message();
+
+        double minPercent = annotation.minPercent();
+        if (percent < minPercent) {
+            appendViolation(String.format("%s : 不能低于 %s!", defaultMessage, minPercent), context);
+            return false;
+        }
+
+        double maxPercent = annotation.maxPercent();
+        if (percent > maxPercent) {
+            appendViolation(String.format("%s : 不能超过 %s!", defaultMessage, maxPercent), context);
+            return false;
+        }
+
+        BigDecimal bigDecimal = new BigDecimal(String.valueOf(percent));
+
+        int maxScale = annotation.maxScale();
+        if (bigDecimal.scale() > maxScale) {
+            appendViolation(
+                    String.format("%s : 只能保留小数点后 %s 位!", defaultMessage, maxScale), context);
+            return false;
+        }
+
+        return true;
+    }
+}
+```
+
+### Enum Range
+
+Usage
+
+```java
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class SomeDTO {
+    @WithinEnum(
+            enumType = ReviewState.class,
+            objType = Integer.class,
+            message = "状态 只能为指定范围内的值, 或传空")
+    private Set<ReviewState> states;
+}
+```
+
+#### @WithinEnum
+
+```java
+package xyz.icehe.validate.annotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+
+import xyz.icehe.utils.parser.EnumsParser;
+import xyz.icehe.utils.EnumsParsers;
+import xyz.icehe.validate.validator.impl.WithinEnumValidator;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+
+/**
+ * 校验值是否在枚举常量型指定的范围内
+ *
+ * <p>支持单个值或集合
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Documented
+@Target({FIELD, METHOD, PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = WithinEnumValidator.class)
+public @interface WithinEnum {
+
+    /** @return 枚举类型 */
+    Class<? extends Enum<?>> enumType();
+
+    /**
+     * 通常枚举类型原生自带一个解析方法 {@link Enum#valueOf(Class, String)}
+     *
+     * <p>实际调用时，该静态方法的签名为 {@code valueOf(String)} ; 其唯一的参数的类型为 {@link String} ; 该参数的有效值范围为 枚举常量的名称
+     * {@link Enum#name()} ; 即这个默认的静态解析方法，可以将枚举常量的名称转换为枚举常量.
+     *
+     * <p>所以这里默认的校验对象的类型是 {@link String} ; {@link WithinEnumValidator} 用 {@link EnumsParsers} 获取
+     * {@link EnumsParser} 时, 若未指定 {@link WithinEnum#parseMethod()} , 就会用 {@link Enum#valueOf(Class,
+     * String)} 来解析校验对象.
+     *
+     * @return 校验对象的类型
+     */
+    Class<?> objType() default String.class;
+
+    /**
+     * @return 将校验值转换为枚举常量的静态方法的名称
+     *     <p>必须为枚举类拥有的静态方法
+     *     <p>不主动提供转换方法的名称时， 校验器会自动寻找枚举类中可用于将校验值转换枚举常量的方法。
+     */
+    String parseMethod() default "";
+
+    /** @return 错误信息 */
+    String message() default "集合中的值必须在枚举常量的范围内";
+
+    /** @return 所属的校验组 */
+    Class<?>[] groups() default {};
+
+    /** @return 约束条件的严重级别 */
+    Class<? extends Payload>[] payload() default {};
+}
+```
+
+#### WithinEnumValidator
+
+```java
+package xyz.icehe.validate.validator.impl;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import javax.validation.ConstraintValidatorContext;
+
+import com.google.common.collect.Sets;
+import xyz.icehe.parser.EnumsParser;
+import xyz.icehe.utils.EnumsParsers;
+import xyz.icehe.validate.annotation.WithinEnum;
+import xyz.icehe.validate.validator.AbstractValidator;
+import xyz.icehe.validate.violation.ViolationBuilder;
+import org.springframework.util.CollectionUtils;
+
+/**
+ * 校验一个集合的值是否在枚举类指定的范围内
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+public class WithinEnumValidator extends AbstractValidator<WithinEnum, Object> {
+
+    /**
+     * 校验对象是否符合约束
+     *
+     * <p>意图：找出所有的错误，而不是只返回发现的第一个错误，以便调试（特别是参数较多的情况）
+     *
+     * @param obj     校验对象
+     * @param context context in which the constraint is evaluated
+     * @return {@code false} if {@code obj} does not pass the constraint
+     */
+    @Override
+    @SuppressWarnings("FeatureEnvy")
+    public boolean isValid(Object obj, ConstraintValidatorContext context) {
+
+        if (null == obj) {
+            return true;
+        }
+
+        Collection<?> objs = convertSingleton2Collection(obj);
+
+        if (CollectionUtils.isEmpty(objs)) {
+            return true;
+        }
+
+        EnumsParser enumsParser =
+            EnumsParsers.parserOf(
+                annotation.enumType(), annotation.objType(), annotation.parseMethod());
+
+        Map<?, Optional<Enum<?>>> obj2EnumMap = enumsParser.parse(objs);
+
+        Set<?> invalidObjs = findInvalidObjects(obj2EnumMap);
+
+        Set<Enum<?>> duplicateEnums =
+            (objs instanceof Set) ? Collections.emptySet() : findDuplicateEnums(obj2EnumMap);
+
+        ViolationBuilder violationBuilder = new ViolationBuilder(annotation.message(), context);
+
+        if (!invalidObjs.isEmpty()) {
+            violationBuilder
+                .append("{ 不能包含无效值 : 无效值为 ")
+                .append(invalidObjs)
+                .append(" ; 可选有效值为 ")
+                .append(getOptionalEnums())
+                .append(" } ");
+            ;
+        }
+
+        if (!duplicateEnums.isEmpty()) {
+            violationBuilder.append("{ 不能包含重复值 : 重复值为 ").append(duplicateEnums).append(" } ");
+        }
+
+        return !violationBuilder.build();
+    }
+
+    /**
+     * 将单个对象转换到对象的集合
+     *
+     * <p>如果 obj 本身不是 Collection，就将它包装为 Collection.
+     *
+     * @param obj {@link Object}
+     * @return {@link Collection}
+     */
+    private Collection<?> convertSingleton2Collection(Object obj) {
+        return (obj instanceof Collection) ? (Collection<?>)obj : Sets.newHashSet(obj);
+    }
+
+    /**
+     * 找出无法转换为枚举常量的无效对象
+     *
+     * @param objEnumMap 值到枚举常量的映射
+     * @return 无效对象的集合
+     */
+    private Set<?> findInvalidObjects(Map<?, Optional<Enum<?>>> objEnumMap) {
+
+        return objEnumMap.entrySet().stream()
+            .filter(entry -> !entry.getValue().isPresent())
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toSet());
+    }
+
+    /**
+     * 找出重复的枚举常量
+     *
+     * @param objEnumMap 对象到枚举常量的映射
+     * @return 重复枚举常量的集合
+     */
+    private Set<Enum<?>> findDuplicateEnums(Map<?, Optional<Enum<?>>> objEnumMap) {
+
+        return objEnumMap.values().stream()
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .collect(Collectors.groupingByConcurrent(Function.identity(), Collectors.counting()))
+            .entrySet()
+            .stream()
+            .filter(enumCount -> 1 < enumCount.getValue())
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toSet());
+    }
+
+    /**
+     * 获取枚举类所有的枚举常量
+     *
+     * @return 枚举常量的集合
+     */
+    @SuppressWarnings("unchecked")
+    private EnumSet<?> getOptionalEnums() {
+        return EnumSet.allOf((Class<? extends Enum>)annotation.enumType());
     }
 }
 

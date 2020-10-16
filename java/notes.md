@@ -28,25 +28,6 @@ Basics
 
 ## Coding
 
-### Read and Write Excel File
-
-- How to Write to an Excel file in Java using Apache POI | CalliCoder : https://www.callicoder.com/java-write-excel-file-apache-poi/
-
-### Spring ConstraintValidator
-
-约束校验器
-
-- JavaBean Validation - Object Association validation with @Valid
-  : https://www.logicbig.com/tutorials/java-ee-tutorial/bean-validation/cascaded-validation.html
-
-### Convert String to LocalDateTime
-
-将字符串转换为日期对象
-
-- Java 8 - How to convert String to LocalDate : https://www.mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
-    - Java 应该用 LocalDate / LocalTime / LocalDateTime 保存时间
-    - 禁止使用 java.util.Date & java.text.SimpleDateFormat !
-
 ### Generate JavaDoc
 
 如何生成 JavaDoc
