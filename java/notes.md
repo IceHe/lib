@@ -7,13 +7,11 @@ IntelliJ IDEA Plugins
 - IntelliJ IDEA 18 周岁，吐血推进珍藏已久的必装插件 : https://www.hollischuang.com/archives/3220
     - Maven Helper
     - Lombok plugin
-    - FindBugs-IDEA
-    - 阿里巴巴代码规约检测
     - google-java-format
-    - GsonFormat
+    - _阿里巴巴代码规约检测_
     - String Manipulation
     - Key promoter X
-    - AceJump
+    - GsonFormat
     - …
 
 Hello World
@@ -30,23 +28,18 @@ Basics
 
 ## Coding
 
-Manipulate Excel File
+### Read and Write Excel File
 
 - How to Write to an Excel file in Java using Apache POI | CalliCoder : https://www.callicoder.com/java-write-excel-file-apache-poi/
 
-Java Spring ConstraintValidator ( 约束校验器 )
+### Spring ConstraintValidator
+
+约束校验器
 
 - JavaBean Validation - Object Association validation with @Valid
   : https://www.logicbig.com/tutorials/java-ee-tutorial/bean-validation/cascaded-validation.html
 
-Create new Map.Entry(key, velue) using \*Utils
-
-- How to create new Entry (key, value) - Stack Overflow : https://stackoverflow.com/questions/3110547/java-how-to-create-new-entry-key-value
-
-```java
-Map.Entry<String,Integer> entry =
-    new AbstractMap.SimpleEntry<String, Integer>("exmpleString", 42);
-```
+### Convert String to LocalDateTime
 
 将字符串转换为日期对象
 
@@ -54,16 +47,7 @@ Map.Entry<String,Integer> entry =
     - Java 应该用 LocalDate / LocalTime / LocalDateTime 保存时间
     - 禁止使用 java.util.Date & java.text.SimpleDateFormat !
 
-使用 Strean 找出重复的对象
-
-- Find duplicates using Java 8 lambda : https://carsten-luxig.de/find-duplicated-items-in-2-collections-with-lambda-expressions
-
-```java
-Stream<Entry<String, List<Item>>> duplicates = merged
-        .collect(Collectors.groupingBy(Item::getId)))
-        .entrySet().stream()
-        .filter(e -> e.getValue() > 1);
-```
+### Generate JavaDoc
 
 如何生成 JavaDoc
 
