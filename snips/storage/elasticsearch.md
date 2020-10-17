@@ -466,8 +466,8 @@ curl -XPUT 'http://10.104.112.235:8200/buyermall/order/287584189415899136' -d '
 {
     "accountId": 999,
     "name": "icehe",
-	"createdAt": 1588306191000,
-	"updatedAt": 1589371768000
+    "createdAt": 1588306191000,
+    "updatedAt": 1589371768000
 }'
 
 ```
