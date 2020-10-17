@@ -10,8 +10,26 @@
 我是
 
 - IceHe : 广州人在北京 _( 花名 : 冰何 )_
+
+动态
+
 - 技术博客 : [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
 - 生活琐碎 : [weibo.com](http://weibo.com/icedes) @\_IceHe\_
+
+经历
+
+- 阿里巴巴本地生活 - 前台研发部 (蜂鸟) 跑腿后端组 - Java _2020.04 ~ TBC_
+- 阿里巴巴本地生活 - 众包物流运营 & 数据组 - Java _2019.03 ~ 2020.03_
+- 新浪微博 - 视频平台 - Java 服务端 _2018.05 ~ 2019.02_
+- 新浪微博 - Mobile API - PHP 服务端 (应届) _2015.07 ~ 2018.04_
+- 新浪微博 - Mobile API - PHP 实习 _2014.12 ~ 2015.02_
+- 华为软件 - 电信软件定制部 - Java 实习 _2014.08 ~ 2014.10_
+- 华南理工大学 - 软件工程 - C++ 本科 _2011.09 ~ 2015.07_
+
+工具控
+
+- [我的利器](/marks/tools/tools.md) - Apps & 物件
+- [我的快捷键](/mac/shortcuts/shortcuts.md) - 默认 & 自定义
 
 联络
 
@@ -26,57 +44,49 @@
 
 </details>
 
-经历
-
-- 阿里巴巴本地生活 - 众包物流 Java 服务端 _2019.03 ~ Now_
-- 微博视频平台 - Java 服务端 _2018.05 ~ 2019.02_
-- 微博 Mobile API - PHP 服务端 _2014.12 ~ 2018.04_
-- 华南理工大学 - C++ 软件工程 本科 _2011.09 ~ 2015.07_
-
-工具控
-
-- [我的利器](/marks/tools/tools.md) - Apps & 物件
-- [我的快捷键](/mac/shortcuts/shortcuts.md) - 默认 & 自定义
-
 ---
 
 ## 技能
 
 技能级别
 
-- 精通 Proficient
-- 熟悉 Familiar
-- 胜任 Competent
-- 了解 Know
+- 精通 Proficient _: 运用自如, 极少需要文档_
+- 熟悉 Familiar _: 熟练使用, 偶尔查阅文档_
+- 胜任 Competent _: 能够使用, 经常查阅文档_
+- 了解 Know _: 了解基本原理_
 
 编程语言
 
-- 胜任 **Java , PHP** , C++
-- 了解 C , Python , JavaScript , ASM
+- 胜任 **[Java](https://go.java/?intcmp=gojava-banner-java-com) / [PHP](https://php.net/)**
+- 了解 [C](https://en.wikipedia.org/wiki/C_(programming_language)) / [C++](https://isocpp.org/) / [Python](https://www.python.org/) / [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) / [Assembly](https://en.wikipedia.org/wiki/Assembly_language)
+- Todo : [Go](https://pingcap.com/) / …
 
-存储缓存
+存储 / 缓存 / 队列
 
-- 胜任 **MySQL , Redis**
-- 了解 Memcached
+- 胜任 **[MySQL](https://www.mysql.com/) / [Redis](https://redis.io/) / [Elasticsearch](https://www.elastic.co/)**
+- 了解 [Memcached](https://memcached.org/) / [RabbitMQ](https://www.rabbitmq.com/) / [Kafaka](https://kafka.apache.org/)
+- Todo : [PostgreSQL](https://www.postgresql.org/) / [TiDB](https://pingcap.com/) / …
 
 Web
 
-- 胜任 Docker , HTML , CSS
+- 胜任 [Docker](https://www.docker.com/) / HTML / CSS / [jQuery](https://jquery.com/)
+- 了解 [Thrift](https://thrift.apache.org/) / [Protocol Buffers](https://developers.google.com/protocol-buffers)
+- Todo : [Vue.js](https://vuejs.org/) / …
 
 操作系统
 
 - 熟悉 macOS
-- 胜任 CentOS 7 , Ubuntu
+- 胜任 CentOS 7 / Ubuntu
 
 开发工具
 
-- 熟悉 Git , Vim , Zsh , IntelliJ IDEA , PhpStorm
-- 胜任 GitLab CI , Qt 4/5
+- 熟悉 **Git** / **Vim** / Bash / Zsh / IntelliJ IDEA / PhpStorm
+- 胜任 GitLab CI / Qt 4 & 5
 
-语言能力
+语言沟通
 
-- **英语** : 大学六级，技术内容的基本阅读 & 写作
-- **普通话、粤语**
+- 英语 : 大学六级, 技术内容的基本阅读 & 写作
+- 普通话、粤语
 
 ---
 

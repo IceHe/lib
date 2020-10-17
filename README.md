@@ -332,7 +332,7 @@ Scenes
 - [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
 - Effective C++ : [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
 
-### ASM
+### Assembly
 
 [Prepare on Windows 7](/asm/prepare-on-windows-7.md)
 
