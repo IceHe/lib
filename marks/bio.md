@@ -20,8 +20,8 @@
 
 - 阿里巴巴本地生活 - 前台研发部 (蜂鸟) 跑腿后端组 - Java _2020.04 ~ TBC_
 - 阿里巴巴本地生活 - 众包物流运营 & 数据组 - Java _2019.03 ~ 2020.03_
-- 新浪微博 - 视频平台 - Java 服务端 _2018.05 ~ 2019.02_
-- 新浪微博 - Mobile API - PHP 服务端 (应届) _2015.07 ~ 2018.04_
+- 新浪微博 - 视频平台 - Java 服务端 _2018.04 ~ 2019.02_
+- 新浪微博 - Mobile API - PHP 服务端 (应届) _2015.07 ~ 2018.03_
 - 新浪微博 - Mobile API - PHP 实习 _2014.12 ~ 2015.02_
 - 华为软件 - 电信软件定制部 - Java 实习 _2014.08 ~ 2014.10_
 - 华南理工大学 - 软件工程 - C++ 本科 _2011.09 ~ 2015.07_
@@ -37,12 +37,16 @@
 - 邮箱 : [icehe.me@qq.com](mailto:icehe.me@qq.com)
 - 微信 : IceHooo
 
+<!--
+
 <details>
 <summary>WeChat QRCode <i>( click to show )</i></summary>
 
 ![](https://img.icehe.xyz/about_original/qrcode_01.jpg)
 
 </details>
+
+-->
 
 ---
 
@@ -76,7 +80,7 @@ Web
 操作系统
 
 - 熟悉 macOS
-- 胜任 CentOS 7 / Ubuntu
+- 胜任 CentOS / Ubuntu
 
 开发工具
 
@@ -92,19 +96,25 @@ Web
 
 ## 经历
 
-**阿里巴巴本地生活 - 众包物流运营&数据 → 蜂鸟跑腿 - Java 服务端研发**
+**阿里巴巴本地生活 (原饿了么 & 口碑 & 百度外卖) - 前台研发部 - (蜂鸟) 跑腿后端组 - Java 服务端研发** _2019.04 ~ TBC_
 
-- 骑手 CRM / 骑手群组 / 骑手培训 / 秒送 & 优选骑手 / 蜂鸟跑腿 / …
-- _Java 8 , Spring Boot , MySQL , Redis, MaxCompute (ODPS)_
+- 堡主平台 : 订单 & 运单状态流转 / 订单列表 / 各种维度的订单计数 / 订单状态推送 / 订单搜索 & 导出 / …
+- AB业务融合 - 开放平台 : 开发者联调工具 – 订单&商户状态变化 – 主动调用查询 & 被动回调通知
+- _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / RabbitMQ_
 
-**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端研发** _2018.05 ~ 2019.02_
+**阿里巴巴本地生活 - 众包物流研发部 – 骑手运营 & 数据组 - Java 服务端** _2019.03 ~ 2020.03_
 
-- 媒体库 / 探测报警 / 视频墙 / 文档库 / Partial request
-- _Java 8 , Spring Boot , MySQL , Redis , Memcached , Docker , CentOS 7_
+- 骑手 CRM / 骑手群组计算 / 骑手培训中心 / 秒送 & 优选骑手运力运营 / …
+- _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / Kafka / Blink ( i.e. Flink ) / ODPS ( in Aliyun )_
 
-**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端研发** _2015.07 ~ 2018.03_
+**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端** _2018.04 ~ 2019.02_
 
-- 微博产品部 2017 年度优秀个人 ( MAPI 前 1/16，产品部 前 15/200+ )
+- 媒体库 / 探测报警 (API 健康) / 视频墙 (个人主页发布视频列表) / 文档库 / Partial request / …
+- _Java / Groovy / Spring Boot / MySQL / MyBatis / Redis / Memcached / Kafka / Docker / CentOS / Bash_
+
+**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端 (应届)** _2015.07 ~ 2018.03_
+
+- **微博产品部 2017 年度优秀个人 ( MAPI 前 1/16，产品部 前 15/200+ )**
 - MAPI 微博移动服务技术部 : 开发维护移动端 ( 主要指手机 [客户端](https://itunes.apple.com/cn/app/id350962117) 和 [H5](https://m.weibo.cn/) 页 ) 的 API 服务 及其 CMS 后台
     - 部门职责 : 在 [微博平台](http://open.weibo.com/)、各业务方与移动端间，进行数据整合、适配对接、快速实现需求
 - 重构部门主项目「微博移动端 API 服务」包括登录、HTTP 请求、日志记录等模块
@@ -117,25 +127,25 @@ Web
         - 项目工具 : 编写为项目定制的命令行工具 ( Symfony Console Command )
         - CI 优化 : 定制项目专用的执行 CI 的 Docker 镜像，调整 runner 的配置项，精简 stage & job，尽量并行运行 job，缩短 CI 周期
         - 异常处理 : 自动重试因 Runner 'System Failed' 异常而失败的 CI Job ( Event, Webhook )
-- 2016.04 ~ 2016.08 开发与维护「[微博头条](https://itunes.apple.com/cn/app/wei-bo-tou-tiao/id713957166)」的服务端 API 及其 CMS 后台
-- _PHP 7 , GitLab , Docker , Yaf , CentOS_
+- 2016.04 ~ 2016.08 开发与维护「微博头条」的服务端 API 及其 CMS 后台
+- _PHP 7 / Yaf / MySQL / Redis / Memcached / MCQ / Docker / CentOS / GitLab / Jenkins_
 
 ---
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端 实习** _2014.12 ~ 2015.02_
 
-- 「手机微博管理后台」v5 ( B/S ) - 开发「活动管理，常量管理，日程管理」等模块
-- _PHP 5.6 , HTML , CSS , JavaScript , jQuery , MySQL_
+- 「手机微博管理后台」v5 ( B/S ) - 开发「活动管理，常量管理」等模块
+- _PHP 5.6 / MySQL / HTML / CSS / JavaScript / jQuery / Bootstrap_
 
-**[华为软件](https://zh.wikipedia.org/wiki/%E5%8D%8E%E4%B8%BA) - Java 服务端 实习** _2014.07 ~ 2014.10_
+**[华为软件](https://zh.wikipedia.org/wiki/%E5%8D%8E%E4%B8%BA) - 电信软件定制部 - Java 服务端 实习** _2014.07 ~ 2014.10_
 
 - 「广东移动电子渠道项目」即 [官网](http://www.10086.cn/gd/index_200_200.html) 建设 - 开发「移动商城」、「我的移动」模块的部分需求
-- _Java , J2EE , Spring , Struct2 , MyBatis , OracleDB , JavaScript , jQuery_
+- _Java / JavaEE / Spring / Oracle / MyBastis / JSP / JavaScript / jQuery_
 
-**华南理工 IBM 实验室 - C++ 服务端 实习** _2013.03 ~ 2014.05_
+**华南理工大学 - IBM 实验室 - C++ 服务端 & PC端 实习** _2013.03 ~ 2014.05_
 
 - 「华工教学云平台」Windows 客户端 ( C++ Qt GUI ) ，及 Linux 服务端的部分功能
-- _C , C++ , Qt Framework , CentOS 6.5_
+- _C / C++ / Qt Framework（客户端）/ MySQL / CentOS_
 
 <!--
 
@@ -153,7 +163,7 @@ Web
 
 ## 教育
 
-**[华南理工大学](https://zh.wikipedia.org/wiki/%E5%8D%8E%E5%8D%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6) - 软件学院 - 软件工程 - 本科** _2011.09 ~ 2015.07_
+**[华南理工大学](https://zh.wikipedia.org/wiki/%E5%8D%8E%E5%8D%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6) ( 985 211 广东广州 ) - 软件学院 - 软件工程 - 本科** _2011.09 ~ 2015.07_
 
 <!--
 
