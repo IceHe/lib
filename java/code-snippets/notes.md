@@ -1467,6 +1467,76 @@ public class Test {
 
 ```
 
+### Gson
+
+#### Gson Utils
+
+```java
+package xyz.icehe.utils;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.Gson;
+import lombok.experimental.UtilityClass;
+
+/**
+ * Gson 序列化工具
+ *
+ * @author icehe.xyz
+ * @see com.google.gson.Gson
+ * @since 2020/10/19
+ */
+@UtilityClass
+public class GsonUtils {
+
+    private final Gson gson = new Gson();
+
+    /**
+     * Get internal Gson
+     *
+     * @return
+     */
+    public Gson gson() {
+        return gson;
+    }
+
+    /**
+     * Serialize Object into JSON String
+     *
+     * @param o
+     * @return
+     */
+    public String toJsonString(Object o) {
+        return gson.toJson(o);
+    }
+
+    /**
+     * Deserialize Object from JSON String
+     *
+     * @param json
+     * @param classOfT
+     * @param <T>
+     * @return
+     */
+    public <T> T fromJsonString(String json, Class<T> classOfT) {
+        return gson.fromJson(json, classOfT);
+    }
+
+    /**
+     * Deserialize Object from JSON String
+     *
+     * @param json
+     * @param typeOfT
+     * @param <T>
+     * @return
+     */
+    public <T> T fromJsonString(String json, Type typeOfT) {
+        return gson.fromJson(json, typeOfT);
+    }
+}
+
+```
+
 ## LocalDateTime
 
 将字符串转换为日期对象
