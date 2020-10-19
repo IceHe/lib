@@ -1,30 +1,28 @@
-# Java Notes ( TO REMOVE? )
+# Java Notes
 
-## Startup
+## Quickstart
 
-IntelliJ IDEA Plugins
+- 我的阿里之路+Java面经考点 : https://juejin.im/post/5aa4a2e35188255589496eb8
+- To Be Top Javaer - Java工程师成神之路 : https://github.com/hollischuang/toBeTopJavaer （内容好不好待验证）
+    - HollisChuang's Blog-Java干货集散地 : https://www.hollischuang.com/
 
-- IntelliJ IDEA 18 周岁，吐血推进珍藏已久的必装插件 : https://www.hollischuang.com/archives/3220
-    - Maven Helper
-    - Lombok plugin
-    - google-java-format
-    - _阿里巴巴代码规约检测_
-    - String Manipulation
-    - Key promoter X
-    - GsonFormat
-    - …
-
-Hello World
+## Spring Boot Demos
 
 - spring-boot-examples : https://github.com/ityouknow/spring-boot-examples
     - about learning Spring Boot via examples.
     - Spring Boot 教程、技术栈示例代码，快速简单上手教程
 
-Basics
+## IntelliJ IDEA Plugins
 
-- 我的阿里之路+Java面经考点 : https://juejin.im/post/5aa4a2e35188255589496eb8
-- To Be Top Javaer - Java工程师成神之路 : https://github.com/hollischuang/toBeTopJavaer （内容好不好待验证）
-    - HollisChuang's Blog-Java干货集散地 : https://www.hollischuang.com/
+IntelliJ IDEA 18 周岁，吐血推进珍藏已久的必装插件 : https://www.hollischuang.com/archives/3220
+
+- Maven Helper
+- Lombok plugin
+- google-java-format
+- String Manipulation
+- Key promoter X
+- GsonFormat
+- …
 
 ## Design Pattern
 
