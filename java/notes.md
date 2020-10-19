@@ -34,6 +34,14 @@ Basics
 
 - Intellij IDEA如何生成JavaDoc : https://www.jianshu.com/p/0ddb0864e499
 
+### readResolve
+
+为什么有的 Java 类写了一个 readResolve() 方法?
+
+- 从字节流序列化得到一个对象时, 相同的对象序列化为同一个单例对象!
+- Java serialization: readObject() vs. readResolve() - Stack Overflow : https://stackoverflow.com/questions/1168348/java-serialization-readobject-vs-readresolve
+- Java Object Serialization Specification: 3 - Object Input Classes : https://www.math.uni-hamburg.de/doc/java/jdk1.4.1/docs/guide/serialization/spec/input.doc7.html
+
 ## Design Pattern
 
 用 "静态工厂方法" 替代 "构造函数" 的优点
@@ -46,24 +54,6 @@ Basics
 泛型类对象的工厂 & 使用责任链削减分支数量
 
 - Factory Chain: A Design Pattern for Factories with Generics by Hugo Troche - developer.*, Developer Dot Star : https://www.developerdotstar.com/mag/articles/troche_factorychain.html
-
-## Details
-
-异常层次 ( 类父子关系 )
-
-- The Java Exception Class Hierarchy : https://airbrake.io/blog/java-exception-handling/the-java-exception-class-hierarchy
-    - 某类异常代表什么?
-        - Error 系统异常 : 不应捕获
-        - Exception : 可以捕获
-        - Throwable : 包含 Error 和 Exception, 因此不应捕获它
-        - RuntimeException : 非受查异常?
-    - 什么时候该用哪个异常类?
-
-为什么有的 Java 类写了一个 readResolve() 方法?
-
-- 从字节流序列化得到一个对象时, 相同的对象序列化为同一个单例对象!
-- Java serialization: readObject() vs. readResolve() - Stack Overflow : https://stackoverflow.com/questions/1168348/java-serialization-readobject-vs-readresolve
-- Java Object Serialization Specification: 3 - Object Input Classes : https://www.math.uni-hamburg.de/doc/java/jdk1.4.1/docs/guide/serialization/spec/input.doc7.html
 
 ## Notices
 

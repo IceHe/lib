@@ -1615,69 +1615,7 @@ public class JoinPointHelper {
 ### Utils
 
 ```java
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonParser.Feature;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import lombok.experimental.UtilityClass;
-import org.apache.commons.lang3.StringUtils;
-
-@UtilityClass
-public class JsonUtils {
-
-    private final ObjectMapper mapper = new ObjectMapper();
-
-    static {
-        // 如果实体包含了意料之外的字段, 反序列化时不抛出异常
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        // 空的对象转换为 JSON 时不抛出错误
-        mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
-
-        // 允许属性名称没有引号
-        mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
-
-        // 允许单引号
-        mapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
-
-        // JsonInclude.Include.NON_EMPTY 属性为 空 ("") 或者为 null 时都不序列化，即返回的 json 没这个字段 ( 数据大小更小 )
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
-
-        // LocalDateTime 的序列化 : 效果如 "2020-06-30T11:51:00.666"
-        mapper.registerModule(new JavaTimeModule());
-        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-    }
-
-    public String toStr(Object object) {
-        try {
-            return mapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            return null;
-        }
-    }
-
-    public <T> T parse(String content, Class<T> valueType) {
-        if (StringUtils.isBlank(content)) {
-            return null;
-        }
-        try {
-            return mapper.readValue(content, valueType);
-        } catch (IOException e) {
-            return null;
-        }
-    }
-
-    public <T> List<T> parseList(String content, Class<T> valueType) throws IOException {
-        return mapper.readValue(content, new TypeReference<ArrayList<T>>() {});
-    }
-}
-
+TODO
 ```
 
 ### Serialize and Deserialize
