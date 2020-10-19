@@ -2644,21 +2644,31 @@ import lombok.experimental.UtilityClass;
 public class HttpUtils {
 
     /**
-     * 是否为有效的 URI
+     * 获取有效的 URI
      *
-     * @param originalUrl
+     * @param originalUri
      * @return
      */
-    public boolean isValidUri(String originalUrl) {
-        if (StringUtils.isBlank(originalUrl)) {
-            return false;
+    public URI getCheckedURI(String originalUri) {
+        if (StringUtil.isBlank(originalUri)) {
+            return null;
         }
         try {
-            URI uri = new URI(originalUrl);
-            return true;
+            return new URI(originalUri);
         } catch (URISyntaxException e) {
-            return false;
+            return null;
         }
+    }
+
+    /**
+     * 是否为有效的 URI
+     *
+     * @param originalUri
+     * @return
+     * @throws ServiceException
+     */
+    public boolean iaValidUri(String originalUri) throws ServiceException {
+        return Objects.nonNull(getCheckedURI(originalUri));
     }
 }
 
