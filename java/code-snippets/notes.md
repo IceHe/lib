@@ -300,6 +300,22 @@ public static final Map<String, String> NEXT_SUCCESS_STATUS_MAP =
 
 ```
 
+### Manipulate
+
+#### split
+
+List Partion
+
+- https://stackoverflow.com/questions/2895342/java-how-can-i-split-an-arraylist-in-multiple-small-arraylists
+
+```java
+import com.google.common.collect.Lists;
+
+List<String> stringList = Lists.newArrayList(4, 5, 6); // given
+List<List<String>> stringListPartions = Lists.partition(stringList, 50);
+
+```
+
 ## Enum
 
 ### Transferable State Enum
@@ -1023,7 +1039,7 @@ String str = integerSet.stream()
 
 ### filter
 
-filter blank string
+Filter Blank Strings
 
 ```java
 import org.apache.commons.lang3.StringUtils;
@@ -1032,6 +1048,20 @@ List<String> strings = Arrays.asList("a", "", "b"); // given
 List<String> notBlankStrings = strings.stream()
     .filter(StringUtils::isNotBlank)
     .collect(Collectors.toList());
+
+```
+
+### sort
+
+Sort Integer List
+
+```java
+Map<String, List<Long>> keyValuesMap = getKeyValuesMap();
+
+// 返回结果是乱序的；
+// 需要根据输入参数 valueList 中 value 的原始顺序，重新排列好
+keyValuesMap.forEach((key, vals) ->
+    Collections.sort(vals, Comparator.comparingInt(val -> valueList.indexOf(val))));
 
 ```
 
@@ -1102,351 +1132,7 @@ StringUtils.isNotEmpty(string)
 
 ```
 
-## Common DTO
-
-### PageCondition
-
-```java
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-/**
- * 翻页条件
- *
- * @author icehe.xyz
- * @since 2020/10/16
- */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class PageCondition {
-
-    /**
-     * 页码: 至少为 1
-     */
-    private Integer pageIndex;
-
-    /**
-     * 每页数据条数: 至少为 1
-     */
-    private Integer pageSize;
-
-    /**
-     * @return 获取查询偏移量
-     */
-    @JsonIgnore
-    public Integer getOffset() {
-        return (getPageIndex() - 1) * getPageSize();
-    }
-
-    /**
-     * @return 获取查询数量
-     */
-    @JsonIgnore
-    public Integer getLimit() {
-        return getPageSize();
-    }
-}
-
-```
-
-### PageDTO
-
-```java
-import java.util.List;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-/**
- * 可翻页数据
- *
- * @author icehe.xyz
- * @since 2020/10/16
- */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class PageDTO<T> {
-
-    /**
-     * 总页数
-     */
-    private Integer pageTotal;
-
-    /**
-     * 页码
-     */
-    private Integer pageIndex;
-
-    /**
-     * 每页数据条数
-     */
-    private Integer pageSize;
-
-    /**
-     * 数据总条数
-     */
-    private Integer itemTotal;
-
-    /**
-     * 数据
-     */
-    private List<T> items;
-}
-
-```
-
-## Excel
-
-- How to Write to an Excel file in Java using Apache POI | CalliCoder : https://www.callicoder.com/java-write-excel-file-apache-poi/
-
-### Read from bytes
-
-```java
-package xyz.icehe.utils;
-
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import lombok.experimental.UtilityClass;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.data.util.StreamUtils;
-
-/**
- * @author icehe.xyz
- * @since 2020/10/16
- */
-@UtilityClass
-public class ExcelUtils {
-
-    /**
-     * 将 Excel 文件数据 (字节数组) 转换为二维表格
-     *
-     * @param excelData
-     * @return sheet => [ row => [cell] ]
-     * @throws Exception
-     */
-    public List<List<String>> convertExcelData2Table(byte[] excelData) throws Exception {
-
-        List<List<String>> table;
-
-        try (ByteArrayInputStream byteInputStream = new ByteArrayInputStream(excelData);
-             BufferedInputStream bufferedInputStream = new BufferedInputStream(byteInputStream);
-             Workbook workbook = new XSSFWorkbook(bufferedInputStream)) {
-
-            Sheet sheet = extractFirstSheetFromWorkbook(workbook);
-            table = convertExcelSheet2Table(sheet);
-
-        } catch (IOException e) {
-            String msg =
-                String.format("cannot read or parse excel file, errorMsg=%s", e.getMessage());
-            throw new Exception(msg);
-        }
-
-        return table;
-    }
-
-    /**
-     * 提取 Excel 工作簿 {@link Workbook} 的第一个表单 {@link Sheet}
-     */
-    private Sheet extractFirstSheetFromWorkbook(Workbook workbook) throws Exception {
-        Sheet sheet = workbook.getSheetAt(0);
-        if (null == sheet) {
-            throw new Exception("Excel 文件中没有包含表单 (Sheet)");
-        }
-        return sheet;
-    }
-
-    /**
-     * 将 Excel 表格 {@link Sheet} 转换为二维表格
-     */
-    private List<List<String>> convertExcelSheet2Table(Sheet sheet) {
-        return StreamUtils.createStreamFromIterator(sheet.rowIterator())
-            .map(ExcelUtils::convertSheetRowToTableRow)
-            .collect(Collectors.toList());
-    }
-
-    /**
-     * 将 Excel 表格的一行 {@link Row}, 转换为二维表格的一行
-     */
-    private List<String> convertSheetRowToTableRow(Row row) {
-        return StreamUtils.createStreamFromIterator(row.cellIterator())
-            .map(ExcelUtils::convertRowCellToString)
-            .collect(Collectors.toList());
-    }
-
-    /**
-     * 将 Excel 表格行的一个单元格 {@link Cell}, 转换为字符串
-     */
-    private String convertRowCellToString(Cell cell) {
-        if (null == cell) {
-            return "";
-        }
-
-        switch (cell.getCellTypeEnum()) {
-            case NUMERIC:
-                return String.valueOf(cell.getNumericCellValue());
-            case STRING:
-                // fall through
-            default:
-                return cell.getStringCellValue();
-        }
-    }
-}
-
-```
-
-### Write to bytes
-
-```java
-package xyz.icehe.utils;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.util.CollectionUtils;
-
-/**
- * Excel 文件写入器
- *
- * @author icehe.xyz
- * @since 2020/10/16
- */
-@Slf4j
-@UtilityClass
-public class ExcelWriter {
-
-    private final String EMPTY_TABLE_ERROR_MSG =
-        "ExcelWriter.writeExcel(), table must be non-empty";
-
-    /**
-     * 将表格写入到 Excel 文件的输出流中
-     *
-     * <p>第一行为表头
-     *
-     * @param table 二维表格
-     * @return {@link ByteArrayOutputStream}
-     * @throws Exception
-     * @see <a href="https://www.callicoder.com/java-write-excel-file-apache-poi">How to Write to an
-     * Excel file in Java using Apache POI</a>
-     */
-    public ByteArrayOutputStream writeExcelIntoOutputStream(List<? extends ArrayList<String>> table) throws Exception {
-
-        if (CollectionUtils.isEmpty(table)) {
-            log.warn(EMPTY_TABLE_ERROR_MSG);
-            throw new IllegalArgumentException(EMPTY_TABLE_ERROR_MSG);
-        }
-
-        // HSSFWorkbook for generating `.xls` file
-        try (Workbook workbook = new XSSFWorkbook()) {
-
-            Sheet sheet = workbook.createSheet("table");
-
-            // 去掉表头
-            List<String> headers = table.remove(0);
-
-            writeTableBody(sheet, table);
-
-            if (!CollectionUtils.isEmpty(headers)) {
-                writeTableHeaders(sheet, headers);
-
-                // Resize all columns to fit the content size
-                for (int i = 0; i < headers.size(); i++) {
-                    sheet.autoSizeColumn(i);
-                }
-            }
-
-            return toOutputStream(workbook);
-        } catch (Exception e) {
-            log.error("ExcelWriter.writeExcel()", e);
-            throw new Exception(e);
-        }
-    }
-
-    /**
-     * 写入表格内容
-     *
-     * @param sheet {@link Sheet} Excel 表单
-     * @param table 二维表格
-     */
-    private void writeTableBody(Sheet sheet, List<? extends ArrayList<String>> table) {
-        // 从第 1 行而非第 0 行开始，跳过了表头的初始化（由另一方法做）
-        int rowNum = 1;
-        for (List<String> rowFields : table) {
-            Row row = sheet.createRow(rowNum++);
-
-            if (CollectionUtils.isEmpty(rowFields)) {
-                continue;
-            }
-
-            int colNum = 0;
-            for (String field : rowFields) {
-                row.createCell(colNum++).setCellValue(field);
-            }
-        }
-    }
-
-    /**
-     * 写入表头
-     *
-     * @param sheet   {@link Sheet} Excel 表单
-     * @param headers 表头
-     */
-    private void writeTableHeaders(Sheet sheet, List<String> headers) {
-        Row headerRow = sheet.createRow(0);
-        int i = 0;
-        for (String columnName : headers) {
-            Cell cell = headerRow.createCell(i++);
-            cell.setCellValue(columnName);
-        }
-    }
-
-    /**
-     * 将表格写入到输出流中
-     *
-     * @param workbook {@link Workbook} Excel Workbook
-     * @return {@link ByteArrayOutputStream}
-     * @throws Exception
-     */
-    private ByteArrayOutputStream toOutputStream(Workbook workbook) throws Exception {
-        try {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            workbook.write(outputStream);
-            return outputStream;
-        } catch (IOException e) {
-            log.error("ExcelWriter.saveFile()", e);
-            throw new Exception(e);
-        }
-    }
-}
-
-```
-
-## optinal
+## Optinal
 
 Optional.ofNullable(…).ifPresent(…);
 
@@ -1456,171 +1142,7 @@ Optional.ofNullable(map.get("content"))
 
 ```
 
-## primitive types
-
-long & double
-
-```java
-// ……
-
-    public static void main(String[] args) {
-        long midL = 4305912891445794L; // 16 位数
-        double midD = (double) midL;
-        // long 范围 -9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807
-
-        double flags = 12;
-        while (flags > 1) {
-            flags /= 10;
-        }
-        double midWithFlagsD = midD + flags;
-        // 4305912891445794.12
-
-        System.out.println(midWithFlagsD);
-        // output 4.305912891445794E15
-        // double 有效位数为 15 位
-        // 新添加小数部分，被截断了
-        // 还是 4305912891445794
-    }
-
-// ……
-
-```
-
-## sort
-
-```java
-Map<String, List<Long>> keyValuesMap = getKeyValuesMap();
-
-// 返回结果是乱序的；
-// 需要根据输入参数 valueList 中 value 的原始顺序，重新排列好
-keyValuesMap.forEach((key, vals) -> Collections.
-        sort(vals, Comparator.comparingInt(val -> valueList.indexOf(val))));
-
-```
-
-## split
-
-List Partion
-
-- https://stackoverflow.com/questions/2895342/java-how-can-i-split-an-arraylist-in-multiple-small-arraylists
-
-```java
-List<List<String>> listPartions = Lists.partition(list, 50);
-
-```
-
-## Regex
-
-- http://tutorials.jenkov.com/java-regex/matcher.html
-
-```java
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-// 正则匹配模式 : 中英文混合内容
-Pattern mixedZhEnParttern = Pattern.compile("^[\\s\\da-zA-Z\\u4E00-\\u9FA5]+");
-Matcher mixedZhEnMatcher = mixedZhEnParttern.matcher(fuzzyKeyword);
-boolean likeMixedZhEn = mixedZhEnMatcher.find();
-
-```
-
-## sql
-
-### query count
-
-```java
-String sql = "SELECT count(*) FROM ? …";
-int count = jdbcInfo.getJdbcTemplate().queryForInt(sql, params);
-
-```
-
-## Executor
-
-References
-
-- https://blog.csdn.net/chzphoenix/article/details/78968075
-- Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
-- https://blog.csdn.net/wqh8522/article/details/79224290
-
-TODO : 暂时没有找到合适的样例
-
-### Future
-
-References : JFGI
-
-TODO : 暂时没有找到合适的样例
-
-## Aspect
-
-### JoinPointUtils
-
-```java
-import java.util.Map;
-import java.util.Objects;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
-import com.google.common.collect.Maps;
-import lombok.experimental.UtilityClass;
-import xyz.icehe.transport.UserAuthentication;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.reflect.MethodSignature;
-
-/**
- * 连接点操作的辅助组件
- *
- * @author icehe.xyz
- * @since 2020/10/16
- */
-@UtilityClass
-public class JoinPointHelper {
-
-    private final String JOIN_POINT = "joinPoint";
-
-    /**
-     * 根据连接点提取出参数映射
-     *
-     * @param joinPoint {@link JoinPoint} 连接点
-     * @return 参数映射
-     */
-    public Map<String, Object> extractParamMap(JoinPoint joinPoint) {
-
-        Objects.requireNonNull(joinPoint, JOIN_POINT + " 不能为 null");
-
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-
-        String[] argNames = signature.getParameterNames();
-        Object[] args = joinPoint.getArgs();
-
-        /*
-         * 通过 stream 调用 .collect(Collectors.toMap(i -> argNames[i], i -> args[i])) 转换为 map 的方式，
-         * 并不允许 value 为 null，所以这里只好使用迭代的写法。
-         * 原因参考：https://stackoverflow.com/questions/698638/why-does-concurrenthashmap-prevent-null-keys-and-values
-         */
-        Map<String, Object> argMap = Maps.newHashMap();
-        IntStream.range(0, args.length).forEach(i -> argMap.put(argNames[i], args[i]));
-
-        return argMap;
-    }
-
-    /**
-     * 根据连接点提取出用户身份认证信息
-     *
-     * @param joinPoint {@link JoinPoint}
-     * @return {@link UserAuthentication}
-     */
-    public UserAuthentication extractUserAuth(JoinPoint joinPoint) {
-
-        Objects.requireNonNull(joinPoint, JOIN_POINT + " 不能为 null");
-
-        return (UserAuthentication) Stream.of(joinPoint.getArgs())
-            .filter(UserAuthentication.class::isInstance)
-            .findFirst()
-            .orElse(null);
-    }
-}
-
-```
+### TODO
 
 ## JSON
 
@@ -1924,7 +1446,9 @@ public class String2LongDeserializer extends StdDeserializer<Object> {
 
 ```
 
-## FastJson
+### FastJson
+
+#### JSON String to Map
 
 ```java
 import java.util.Map;
@@ -2270,63 +1794,6 @@ public class LocalDates {
                 .boxed()
                 .map(dateFrom::plusDays)
                 .collect(Collectors.toList());
-    }
-}
-
-```
-
-## Other Utils
-
-### String Parse
-
-```java
-package xyz.icehe.response;
-
-import lombok.experimental.UtilityClass;
-
-import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.function.Function;
-import org.apache.commons.lang3.StringUtils;
-
-@UtilityClass
-public class StringParsableUtils {
-
-    public boolean isInteger(String string) {
-        return isStringParsable(string, Integer::parseInt);
-    }
-
-    public boolean isLong(String string) {
-        return isStringParsable(string, Long::parseLong);
-    }
-
-    public boolean isDouble(String string) {
-        return isStringParsable(string, Double::parseDouble);
-    }
-
-    public boolean isDateTime(String string) {
-        return isStringParsable(string, LocalDateTime::parse);
-    }
-
-    private <T> Boolean isStringParsable(
-            String string, Function<? super String, T> parsingFunction) {
-        return parseByFunction(string, parsingFunction) != null;
-    }
-
-    private <T> T parseByFunction(
-            String string, Function<? super String, T> parsingFunction) {
-
-        Objects.requireNonNull(parsingFunction, "parsingFunction must not be null";
-
-        if (StringUtils.isBlank(string)) {
-            return null;
-        }
-
-        try {
-            return parsingFunction.apply(string);
-        } catch (Exception e) {
-            return null;
-        }
     }
 }
 
@@ -2791,13 +2258,476 @@ public class WithinEnumValidator extends AbstractValidator<WithinEnum, Object> {
 
 ```
 
-### TODO
+### Interceptor
 
 - ServiceInterceptor and its Helpers
 
-## Utils
+#### Aspect
 
-### HTTP
+- TODO
+
+#### Helpers
+
+JoinPointUtils
+
+```java
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import com.google.common.collect.Maps;
+import lombok.experimental.UtilityClass;
+import xyz.icehe.transport.UserAuthentication;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.reflect.MethodSignature;
+
+/**
+ * 连接点操作的辅助组件
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@UtilityClass
+public class JoinPointHelper {
+
+    private final String JOIN_POINT = "joinPoint";
+
+    /**
+     * 根据连接点提取出参数映射
+     *
+     * @param joinPoint {@link JoinPoint} 连接点
+     * @return 参数映射
+     */
+    public Map<String, Object> extractParamMap(JoinPoint joinPoint) {
+
+        Objects.requireNonNull(joinPoint, JOIN_POINT + " 不能为 null");
+
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+
+        String[] argNames = signature.getParameterNames();
+        Object[] args = joinPoint.getArgs();
+
+        /*
+         * 通过 stream 调用 .collect(Collectors.toMap(i -> argNames[i], i -> args[i])) 转换为 map 的方式，
+         * 并不允许 value 为 null，所以这里只好使用迭代的写法。
+         * 原因参考：https://stackoverflow.com/questions/698638/why-does-concurrenthashmap-prevent-null-keys-and-values
+         */
+        Map<String, Object> argMap = Maps.newHashMap();
+        IntStream.range(0, args.length).forEach(i -> argMap.put(argNames[i], args[i]));
+
+        return argMap;
+    }
+
+    /**
+     * 根据连接点提取出用户身份认证信息
+     *
+     * @param joinPoint {@link JoinPoint}
+     * @return {@link UserAuthentication}
+     */
+    public UserAuthentication extractUserAuth(JoinPoint joinPoint) {
+
+        Objects.requireNonNull(joinPoint, JOIN_POINT + " 不能为 null");
+
+        return (UserAuthentication) Stream.of(joinPoint.getArgs())
+            .filter(UserAuthentication.class::isInstance)
+            .findFirst()
+            .orElse(null);
+    }
+}
+
+```
+
+## Common DTOs
+
+### PageCondition
+
+```java
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 翻页条件
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PageCondition {
+
+    /**
+     * 页码: 至少为 1
+     */
+    private Integer pageIndex;
+
+    /**
+     * 每页数据条数: 至少为 1
+     */
+    private Integer pageSize;
+
+    /**
+     * @return 获取查询偏移量
+     */
+    @JsonIgnore
+    public Integer getOffset() {
+        return (getPageIndex() - 1) * getPageSize();
+    }
+
+    /**
+     * @return 获取查询数量
+     */
+    @JsonIgnore
+    public Integer getLimit() {
+        return getPageSize();
+    }
+}
+
+```
+
+### PageDTO
+
+```java
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 可翻页数据
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PageDTO<T> {
+
+    /**
+     * 总页数
+     */
+    private Integer pageTotal;
+
+    /**
+     * 页码
+     */
+    private Integer pageIndex;
+
+    /**
+     * 每页数据条数
+     */
+    private Integer pageSize;
+
+    /**
+     * 数据总条数
+     */
+    private Integer itemTotal;
+
+    /**
+     * 数据
+     */
+    private List<T> items;
+}
+
+```
+
+## Excel
+
+- How to Write to an Excel file in Java using Apache POI | CalliCoder : https://www.callicoder.com/java-write-excel-file-apache-poi/
+
+### Read from bytes
+
+```java
+package xyz.icehe.utils;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import lombok.experimental.UtilityClass;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.data.util.StreamUtils;
+
+/**
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@UtilityClass
+public class ExcelUtils {
+
+    /**
+     * 将 Excel 文件数据 (字节数组) 转换为二维表格
+     *
+     * @param excelData
+     * @return sheet => [ row => [cell] ]
+     * @throws Exception
+     */
+    public List<List<String>> convertExcelData2Table(byte[] excelData) throws Exception {
+
+        List<List<String>> table;
+
+        try (ByteArrayInputStream byteInputStream = new ByteArrayInputStream(excelData);
+             BufferedInputStream bufferedInputStream = new BufferedInputStream(byteInputStream);
+             Workbook workbook = new XSSFWorkbook(bufferedInputStream)) {
+
+            Sheet sheet = extractFirstSheetFromWorkbook(workbook);
+            table = convertExcelSheet2Table(sheet);
+
+        } catch (IOException e) {
+            String msg =
+                String.format("cannot read or parse excel file, errorMsg=%s", e.getMessage());
+            throw new Exception(msg);
+        }
+
+        return table;
+    }
+
+    /**
+     * 提取 Excel 工作簿 {@link Workbook} 的第一个表单 {@link Sheet}
+     */
+    private Sheet extractFirstSheetFromWorkbook(Workbook workbook) throws Exception {
+        Sheet sheet = workbook.getSheetAt(0);
+        if (null == sheet) {
+            throw new Exception("Excel 文件中没有包含表单 (Sheet)");
+        }
+        return sheet;
+    }
+
+    /**
+     * 将 Excel 表格 {@link Sheet} 转换为二维表格
+     */
+    private List<List<String>> convertExcelSheet2Table(Sheet sheet) {
+        return StreamUtils.createStreamFromIterator(sheet.rowIterator())
+            .map(ExcelUtils::convertSheetRowToTableRow)
+            .collect(Collectors.toList());
+    }
+
+    /**
+     * 将 Excel 表格的一行 {@link Row}, 转换为二维表格的一行
+     */
+    private List<String> convertSheetRowToTableRow(Row row) {
+        return StreamUtils.createStreamFromIterator(row.cellIterator())
+            .map(ExcelUtils::convertRowCellToString)
+            .collect(Collectors.toList());
+    }
+
+    /**
+     * 将 Excel 表格行的一个单元格 {@link Cell}, 转换为字符串
+     */
+    private String convertRowCellToString(Cell cell) {
+        if (null == cell) {
+            return "";
+        }
+
+        switch (cell.getCellTypeEnum()) {
+            case NUMERIC:
+                return String.valueOf(cell.getNumericCellValue());
+            case STRING:
+                // fall through
+            default:
+                return cell.getStringCellValue();
+        }
+    }
+}
+
+```
+
+### Write to bytes
+
+```java
+package xyz.icehe.utils;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.util.CollectionUtils;
+
+/**
+ * Excel 文件写入器
+ *
+ * @author icehe.xyz
+ * @since 2020/10/16
+ */
+@Slf4j
+@UtilityClass
+public class ExcelWriter {
+
+    private final String EMPTY_TABLE_ERROR_MSG =
+        "ExcelWriter.writeExcel(), table must be non-empty";
+
+    /**
+     * 将表格写入到 Excel 文件的输出流中
+     *
+     * <p>第一行为表头
+     *
+     * @param table 二维表格
+     * @return {@link ByteArrayOutputStream}
+     * @throws Exception
+     * @see <a href="https://www.callicoder.com/java-write-excel-file-apache-poi">How to Write to an
+     * Excel file in Java using Apache POI</a>
+     */
+    public ByteArrayOutputStream writeExcelIntoOutputStream(List<? extends ArrayList<String>> table) throws Exception {
+
+        if (CollectionUtils.isEmpty(table)) {
+            log.warn(EMPTY_TABLE_ERROR_MSG);
+            throw new IllegalArgumentException(EMPTY_TABLE_ERROR_MSG);
+        }
+
+        // HSSFWorkbook for generating `.xls` file
+        try (Workbook workbook = new XSSFWorkbook()) {
+
+            Sheet sheet = workbook.createSheet("table");
+
+            // 去掉表头
+            List<String> headers = table.remove(0);
+
+            writeTableBody(sheet, table);
+
+            if (!CollectionUtils.isEmpty(headers)) {
+                writeTableHeaders(sheet, headers);
+
+                // Resize all columns to fit the content size
+                for (int i = 0; i < headers.size(); i++) {
+                    sheet.autoSizeColumn(i);
+                }
+            }
+
+            return toOutputStream(workbook);
+        } catch (Exception e) {
+            log.error("ExcelWriter.writeExcel()", e);
+            throw new Exception(e);
+        }
+    }
+
+    /**
+     * 写入表格内容
+     *
+     * @param sheet {@link Sheet} Excel 表单
+     * @param table 二维表格
+     */
+    private void writeTableBody(Sheet sheet, List<? extends ArrayList<String>> table) {
+        // 从第 1 行而非第 0 行开始，跳过了表头的初始化（由另一方法做）
+        int rowNum = 1;
+        for (List<String> rowFields : table) {
+            Row row = sheet.createRow(rowNum++);
+
+            if (CollectionUtils.isEmpty(rowFields)) {
+                continue;
+            }
+
+            int colNum = 0;
+            for (String field : rowFields) {
+                row.createCell(colNum++).setCellValue(field);
+            }
+        }
+    }
+
+    /**
+     * 写入表头
+     *
+     * @param sheet   {@link Sheet} Excel 表单
+     * @param headers 表头
+     */
+    private void writeTableHeaders(Sheet sheet, List<String> headers) {
+        Row headerRow = sheet.createRow(0);
+        int i = 0;
+        for (String columnName : headers) {
+            Cell cell = headerRow.createCell(i++);
+            cell.setCellValue(columnName);
+        }
+    }
+
+    /**
+     * 将表格写入到输出流中
+     *
+     * @param workbook {@link Workbook} Excel Workbook
+     * @return {@link ByteArrayOutputStream}
+     * @throws Exception
+     */
+    private ByteArrayOutputStream toOutputStream(Workbook workbook) throws Exception {
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            workbook.write(outputStream);
+            return outputStream;
+        } catch (IOException e) {
+            log.error("ExcelWriter.saveFile()", e);
+            throw new Exception(e);
+        }
+    }
+}
+
+```
+
+## Regex
+
+### Pattern and Matcher
+
+- http://tutorials.jenkov.com/java-regex/matcher.html
+
+```java
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+// 正则匹配模式 : 中英文混合内容
+Pattern mixedZhEnParttern = Pattern.compile("^[\\s\\da-zA-Z\\u4E00-\\u9FA5]+");
+Matcher mixedZhEnMatcher = mixedZhEnParttern.matcher(fuzzyKeyword);
+boolean likeMixedZhEn = mixedZhEnMatcher.find();
+
+```
+
+## JDBC
+
+### Query Count
+
+```java
+String sql = "SELECT count(*) FROM ? …";
+int count = jdbcInfo.getJdbcTemplate().queryForInt(sql, params);
+
+```
+
+## Executor
+
+References
+
+- https://blog.csdn.net/chzphoenix/article/details/78968075
+- Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
+- https://blog.csdn.net/wqh8522/article/details/79224290
+
+TODO : 暂时没有找到合适的样例
+
+### Future
+
+References : JFGI
+
+TODO : 暂时没有找到合适的样例
+
+## HTTP
+
+### URI Checker
 
 ```java
 package xyz.icehe.utils;
