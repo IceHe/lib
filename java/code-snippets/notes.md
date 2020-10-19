@@ -2779,22 +2779,6 @@ int count = jdbcInfo.getJdbcTemplate().queryForInt(sql, params);
 
 ```
 
-## Executor
-
-References
-
-- https://blog.csdn.net/chzphoenix/article/details/78968075
-- Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
-- https://blog.csdn.net/wqh8522/article/details/79224290
-
-TODO : 暂时没有找到合适的样例
-
-### Future
-
-References : JFGI
-
-TODO : 暂时没有找到合适的样例
-
 ## HTTP
 
 ### URI Checker
@@ -2847,3 +2831,69 @@ public class HttpUtils {
 }
 
 ```
+
+### IP Getter
+
+```java
+package xyz.icehe.utils;
+
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import lombok.experimental.UtilityClass;
+
+/**
+ * IP 工具集
+ *
+ * @author icehe.xyz
+ * @since 2020/10/19
+ */
+@UtilityClass
+public class IpUtils {
+
+    public List<String> getLocalIPs() {
+        try {
+            return Collections.list(NetworkInterface.getNetworkInterfaces())
+                .stream()
+                .map(tNetworkInterface -> Collections.list(tNetworkInterface.getInetAddresses()))
+                .flatMap(List::stream)
+                .filter(tInetAddress -> tInetAddress instanceof Inet4Address)
+                .map(InetAddress::getHostAddress)
+                .collect(Collectors.toList());
+        } catch (SocketException e) {
+            return Collections.emptyList();
+        }
+    }
+
+    public String getLocalIP() {
+        try {
+            return InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            return null;
+        }
+    }
+}
+
+```
+
+## Executor
+
+References
+
+- https://blog.csdn.net/chzphoenix/article/details/78968075
+- Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
+- https://blog.csdn.net/wqh8522/article/details/79224290
+
+TODO : 暂时没有找到合适的样例
+
+### Future
+
+References : JFGI
+
+TODO : 暂时没有找到合适的样例
