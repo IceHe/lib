@@ -7,6 +7,7 @@
 ```java
 String.valueOf(new Object());
 // e.g. "java.lang.Object@3bd40a57"
+
 ```
 
 - Object
@@ -24,12 +25,14 @@ String.valueOf(new Object());
 ```java
 Integer intVar = Integer.parseInt("11");
 Float floatVar = Float.parseFloat("1.2");
+
 ```
 
 ### Format
 
 ```java
 String.format("%s, %s!", "Hello", "world");
+
 ```
 
 ### Split
@@ -74,6 +77,7 @@ public class StringSplitUtils {
                 .collect(Collectors.toList());
     }
 }
+
 ```
 
 ### Join
@@ -111,6 +115,7 @@ public class StringJoinUtils {
         return objects.stream().map(String::valueOf).collect(Collectors.joining(separator));
     }
 }
+
 ```
 
 ### Parse
@@ -224,6 +229,7 @@ public class StringParseUtils {
         }
     }
 }
+
 ```
 
 ## Collection
@@ -235,6 +241,7 @@ import org.springframework.util.CollectionUtils;
 
 CollectionUtils.isEmpty(collection)
 CollectionUtils.isNotEmpty(collection)
+
 ```
 
 ### Create
@@ -254,6 +261,7 @@ List<Integer> integerList = Arrays.asList(1, 2, 3);
 List<Integer> integerList2 = Lists.newArrayList(4, 5, 6);
 Set<Integer> integerSet = Sets.newHashSet(1, 2, 3);
 // ……
+
 ```
 
 #### Empty
@@ -267,6 +275,7 @@ Collections.emptyMap();
 
 // generic type
 Collections.<String>emptySet();
+
 ```
 
 #### Immutable
@@ -288,6 +297,7 @@ public static final Map<String, String> NEXT_SUCCESS_STATUS_MAP =
         .put("FAILED", "FAILED")
         .put("SUCCEEDED", "SUCCEEDED")
         .build();
+
 ```
 
 ## Enum
@@ -399,6 +409,7 @@ public enum ReviewState {
         return REJECTED_STATES.contains(this);
     }
 }
+
 ```
 
 ReviewOperationType
@@ -476,6 +487,7 @@ public enum ReviewOperationType {
         return stateTransferMap.get(fromState);
     }
 }
+
 ```
 
 ### EnumParsers
@@ -532,6 +544,7 @@ public enum BoolState {
         return getCode().equals(integer);
     }
 }
+
 ```
 
 Source Code
@@ -897,6 +910,7 @@ public class EnumsParser implements Function<Collection<?>, Map<?, Optional<Enum
         }
     }
 }
+
 ```
 
 ### \*EnumsParses
@@ -979,6 +993,7 @@ public class EnumsParsers {
         return enumsParser;
     }
 }
+
 ```
 
 ## Stream
@@ -989,6 +1004,7 @@ public class EnumsParsers {
 List<Long> longList = Arrays.asList(1L, 2L); // given
 Map<Double, String> scoreValues = longList.stream()
     .collect(Collectors.toMap(Double::valueOf, String::valueOf));
+
 ```
 
 ### concat strings
@@ -1002,6 +1018,7 @@ Set<Integer> integerSet = Sets.newHashSet(1, 2, 3); // given
 String str = integerSet.stream()
     .map(String::valueOf) // cast Integer to String ( using method reference )
     .collect(Collectors.joining(",")); // concat with charactor ","
+
 ```
 
 ### filter
@@ -1015,6 +1032,7 @@ List<String> strings = Arrays.asList("a", "", "b"); // given
 List<String> notBlankStrings = strings.stream()
     .filter(StringUtils::isNotBlank)
     .collect(Collectors.toList());
+
 ```
 
 ### Collection toArray
@@ -1050,6 +1068,7 @@ import java.util.AbstractMap;
 
 Map.Entry<String,Integer> entry =
     new AbstractMap.SimpleEntry<String, Integer>("exmpleString", 42);
+
 ```
 
 ### Find Duplicate Objects
@@ -1080,6 +1099,7 @@ StringUtils.isNotBlank(string)
 // Just care about length
 StringUtils.isEmpty(string)
 StringUtils.isNotEmpty(string)
+
 ```
 
 ## Common DTO
@@ -1131,6 +1151,7 @@ public class PageCondition {
         return getPageSize();
     }
 }
+
 ```
 
 ### PageDTO
@@ -1180,6 +1201,7 @@ public class PageDTO<T> {
      */
     private List<T> items;
 }
+
 ```
 
 ## Excel
@@ -1286,6 +1308,7 @@ public class ExcelUtils {
         }
     }
 }
+
 ```
 
 ### Write to bytes
@@ -1420,6 +1443,7 @@ public class ExcelWriter {
         }
     }
 }
+
 ```
 
 ## optinal
@@ -1429,6 +1453,7 @@ Optional.ofNullable(…).ifPresent(…);
 ```java
 Optional.ofNullable(map.get("content"))
         .ifPresent(it -> doSomething.withContent((Map<String, Object>) content));
+
 ```
 
 ## primitive types
@@ -1436,7 +1461,8 @@ Optional.ofNullable(map.get("content"))
 long & double
 
 ```java
-……
+// ……
+
     public static void main(String[] args) {
         long midL = 4305912891445794L; // 16 位数
         double midD = (double) midL;
@@ -1455,7 +1481,9 @@ long & double
         // 新添加小数部分，被截断了
         // 还是 4305912891445794
     }
-……
+
+// ……
+
 ```
 
 ## sort
@@ -1467,6 +1495,7 @@ Map<String, List<Long>> keyValuesMap = getKeyValuesMap();
 // 需要根据输入参数 valueList 中 value 的原始顺序，重新排列好
 keyValuesMap.forEach((key, vals) -> Collections.
         sort(vals, Comparator.comparingInt(val -> valueList.indexOf(val))));
+
 ```
 
 ## split
@@ -1477,6 +1506,7 @@ List Partion
 
 ```java
 List<List<String>> listPartions = Lists.partition(list, 50);
+
 ```
 
 ## Regex
@@ -1501,6 +1531,7 @@ boolean likeMixedZhEn = mixedZhEnMatcher.find();
 ```java
 String sql = "SELECT count(*) FROM ? …";
 int count = jdbcInfo.getJdbcTemplate().queryForInt(sql, params);
+
 ```
 
 ## Executor
@@ -1518,25 +1549,6 @@ TODO : 暂时没有找到合适的样例
 References : JFGI
 
 TODO : 暂时没有找到合适的样例
-
-## FastJson
-
-```java
-import java.util.Map;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-
-public class Test {
-    public static void main(String[] args) {
-        String jsonString =
-                "{\"aInt\":1,\"bStr\":\"boy\",\"cBool\":true,\"dNull\":null,\"eDouble\":3.14}";
-        Map<String, Object> map =
-                JSON.parseObject(jsonString, new TypeReference<Map<String, Object>>() {});
-        System.out.println(map);
-    }
-}
-
-```
 
 ## Aspect
 
@@ -1610,15 +1622,209 @@ public class JoinPointHelper {
 
 ```
 
-## Jackson
+## JSON
 
-### Utils
+### Jackson
+
+#### JsonUtils
 
 ```java
-TODO
+package xyz.icehe.utils;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonParser.Feature;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * JSON 序列化工具
+ *
+ * @author icehe.xyz
+ * @see com.fasterxml.jackson.databind.ObjectMapper
+ * @since 2020/10/19
+ */
+@UtilityClass
+public class JsonUtils {
+
+    public final TypeReference<Map<String, Object>> MAP_TYPE_REF = new TypeReference<Map<String, Object>>() {};
+
+    private final ObjectMapper mapper = new ObjectMapper();
+
+    static {
+        // 解决实体未包含字段反序列化时抛出异常
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        // 对于空的对象转json的时候不抛出错误
+        mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+
+        // 允许属性名称没有引号
+        mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+
+        // 允许单引号
+        mapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
+
+        // Include.NON_EMPTY 属性为 空（""） 或者为 NULL 都不序列化, 则返回的 JSON 是没有这个字段的, 这样对移动端会更省流量
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+
+        // LocalDateTime 的序列化
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    }
+
+    /**
+     * Get internal Jackson ObjectMapper
+     *
+     * @return
+     */
+    public ObjectMapper mapper() {
+        return mapper;
+    }
+
+    /**
+     * Serialize Object into JSON String (without exceptions)
+     *
+     * @param object
+     * @return
+     */
+    public String toJsonString(Object object) {
+        if (null == object) {
+            return null;
+        }
+        try {
+            return mapper.writeValueAsString(object);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * Serialize Object into JSON String with exceptions
+     *
+     * @param object
+     * @return
+     * @throws JsonProcessingException
+     */
+    public String toJsonStringWithExceptions(Object object) throws JsonProcessingException {
+        if (null == object) {
+            return null;
+        }
+        return mapper.writeValueAsString(object);
+    }
+
+    /**
+     * Deserialize Object from JSON String (without exceptions)
+     *
+     * @param content
+     * @param valueType
+     * @param <T>
+     * @return
+     */
+    public <T> T fromJsonString(String content, Class<T> valueType) {
+        if (StringUtils.isBlank(content)) {
+            return null;
+        }
+        try {
+            return mapper.readValue(content, valueType);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    /**
+     * Deserialize Object from JSON String (without exceptions)
+     *
+     * @param content
+     * @param typeReference
+     * @param <T>
+     * @return
+     */
+    public <T> T fromJsonString(String content, TypeReference<T> typeReference) {
+        if (StringUtils.isBlank(content)) {
+            return null;
+        }
+        try {
+            return mapper.readValue(content, typeReference);
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    /**
+     * Deserialize Object from JSON String with exceptions
+     *
+     * @param content
+     * @param valueType
+     * @param <T>
+     * @return
+     * @throws IOException
+     */
+    public <T> T fromJsonStringWithExceptions(String content, Class<T> valueType) throws IOException {
+        if (StringUtils.isBlank(content)) {
+            return null;
+        }
+        return mapper.readValue(content, valueType);
+    }
+
+    /**
+     * Deserialize Object from JSON String with exceptions
+     *
+     * @param content
+     * @param typeReference
+     * @param <T>
+     * @return
+     * @throws IOException
+     */
+    public <T> T fromJsonStringWithExceptions(String content, TypeReference<T> typeReference) throws IOException {
+        if (StringUtils.isBlank(content)) {
+            return null;
+        }
+        return mapper.readValue(content, typeReference);
+    }
+
+    /**
+     * Convert Object to Map (without exceptions)
+     *
+     * @param object
+     * @return
+     */
+    public Map<String, Object> toMap(Object object) {
+        if (null == object) {
+            return Collections.emptyMap();
+        }
+        try {
+            return mapper.convertValue(object, MAP_TYPE_REF);
+        } catch (Exception e) {
+            return Collections.emptyMap();
+        }
+    }
+
+    /**
+     * Convert Object to Map with exceptions
+     *
+     * @param object
+     * @return
+     */
+    public Map<String, Object> toMapWithExceptions(Object object) throws IllegalArgumentException {
+        if (null == object) {
+            return Collections.emptyMap();
+        }
+        return mapper.convertValue(object, MAP_TYPE_REF);
+    }
+}
+
 ```
 
-### Serialize and Deserialize
+#### Serialize and Deserialize
 
 Example
 
@@ -1635,6 +1841,7 @@ public class CompanyDTO {
     @JsonDeserialize(using = String2LongDeserializer.class)
     private Long companyId;
 }
+
 ```
 
 - Long2StringSerializer.java
@@ -1673,6 +1880,7 @@ public class Long2StringSerializer extends StdSerializer<Long> {
         gen.writeString(longValue.toString());
     }
 }
+
 ```
 
 - String2LongDeserializer.java
@@ -1711,6 +1919,25 @@ public class String2LongDeserializer extends StdDeserializer<Object> {
         }
 
         return null;
+    }
+}
+
+```
+
+## FastJson
+
+```java
+import java.util.Map;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+
+public class Test {
+    public static void main(String[] args) {
+        String jsonString =
+                "{\"aInt\":1,\"bStr\":\"boy\",\"cBool\":true,\"dNull\":null,\"eDouble\":3.14}";
+        Map<String, Object> map =
+                JSON.parseObject(jsonString, new TypeReference<Map<String, Object>>() {});
+        System.out.println(map);
     }
 }
 
@@ -1773,6 +2000,7 @@ public class TestDTO {
     @JsonSerialize(using = LocalDateTime2MillisSerializer.class)
     private LocalDateTime createdAt;
 }
+
 ```
 
 ### Deserializer
@@ -1836,6 +2064,7 @@ public class TestDTO {
     @JsonDeserialize(using = MillisOrString2LocalDateTimeDeserializer.class)
     private LocalDateTime createdAt;
 }
+
 ```
 
 Reference
@@ -1952,6 +2181,7 @@ public class LocalDateTimeUtils {
         return localDateTime.atZone(ZoneId.systemDefault()).toEpochSecond();
     }
 }
+
 ```
 
 ### LocalDate
@@ -2172,6 +2402,7 @@ public abstract class AbstractValidator<A extends Annotation, T> implements Cons
         annotation = constraintAnnotation;
     }
 }
+
 ```
 
 ### Double Percent
@@ -2187,6 +2418,7 @@ public class SomeDTO {
     @ValidPercent(maxScale = 2, message = "percent 参数必须为 0.00 ~ 100.00 的百分比数字, 或传空"
     private Double percent;
 }
+
 ```
 
 #### @ValidePercent
@@ -2254,6 +2486,7 @@ public @interface ValidPercent {
      */
     Class<? extends Payload>[] payload() default {};
 }
+
 ```
 
 #### DoublePercentValidator
@@ -2322,6 +2555,7 @@ public class DoublePercentValidator extends AbstractValidator<ValidPercent, Doub
         return true;
     }
 }
+
 ```
 
 ### Enum Range
@@ -2340,6 +2574,7 @@ public class SomeDTO {
             message = "状态 只能为指定范围内的值, 或传空")
     private Set<ReviewState> states;
 }
+
 ```
 
 #### @WithinEnum
@@ -2410,6 +2645,7 @@ public @interface WithinEnum {
     /** @return 约束条件的严重级别 */
     Class<? extends Payload>[] payload() default {};
 }
+
 ```
 
 #### WithinEnumValidator

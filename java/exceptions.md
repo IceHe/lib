@@ -1,6 +1,5 @@
-# Java Exception Class Hierarchy
+# Java Exceptions
 
-> Java 异常类继承层次 ( 类父子关系 )
 
 References
 
@@ -19,13 +18,24 @@ Categories 分类
 
 Unchecked Exception 非受查异常
 
-- TODO
+- References
+    - Unchecked Exceptions - The Controversy - Oracle Docs : https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html
+
+## Class Hierarchy
 
 > 什么时候该用哪个异常类?
+>
+> - Java 异常类继承层次 ( 类父子关系 )
 
-## Throwable
+### Throwable
 
-### Error
+Differ Throwable and Exception
+
+- References
+    - 9 Best Practices to Handle Exceptions in Java : https://stackify.com/best-practices-exceptions-java/
+    - java - Difference between using Throwable and Exception in a try catch - Stack Overflow : https://stackoverflow.com/questions/2274102/difference-between-using-throwable-and-exception-in-a-try-catch
+
+#### _Error_
 
 - AssertionError
 - LinkageError
@@ -50,7 +60,7 @@ Unchecked Exception 非受查异常
     - StackOverflowError
     - UnknownError
 
-### Exception
+#### Exception
 
 - CloneNotSupportedException
 - InterruptedException
@@ -66,7 +76,7 @@ Unchecked Exception 非受查异常
     - InvocationTargetException
     - NoSuchFieldException
     - NoSuchMethodException
-- RuntimeException
+- RuntimeException _( Unchecked Exception )_
     - ArithmeticException
     - ArrayStoreException
     - ClassCastException

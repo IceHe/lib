@@ -157,10 +157,10 @@ Coding
 
 - [Notes](/java/notes.md)
 - [Snippets](/java/code-snippets/notes.md)
-- [Annotations](/java/annotations.md)
-    - Spring / Lombok / FastJson / Jackson / …
-- [Exception Class Hierarchy](/java/exception-hierarchy.md)
-- Unit Tests : [Spock](/java/spock.md) & JUnit
+- [Spock](/java/spock.md) / JUnit : Unit Tests
+- [IDE - IntelliJ IDEA](/java/intellij-idea.md) : usage / …
+- [Exceptions](/java/exceptions.md) : Exception Class Hierarchy / …
+- [Annotations](/java/annotations.md) : Spring / Lombok / FastJson / Jackson / …
 
 Command Line Tools
 

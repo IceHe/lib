@@ -1,4 +1,4 @@
-# Java Notes
+# Java Notes ( TO REMOVE? )
 
 ## Startup
 
@@ -26,22 +26,6 @@ Basics
 - To Be Top Javaer - Java工程师成神之路 : https://github.com/hollischuang/toBeTopJavaer （内容好不好待验证）
     - HollisChuang's Blog-Java干货集散地 : https://www.hollischuang.com/
 
-## Coding
-
-### Generate JavaDoc
-
-如何生成 JavaDoc
-
-- Intellij IDEA如何生成JavaDoc : https://www.jianshu.com/p/0ddb0864e499
-
-### readResolve
-
-为什么有的 Java 类写了一个 readResolve() 方法?
-
-- 从字节流序列化得到一个对象时, 相同的对象序列化为同一个单例对象!
-- Java serialization: readObject() vs. readResolve() - Stack Overflow : https://stackoverflow.com/questions/1168348/java-serialization-readobject-vs-readresolve
-- Java Object Serialization Specification: 3 - Object Input Classes : https://www.math.uni-hamburg.de/doc/java/jdk1.4.1/docs/guide/serialization/spec/input.doc7.html
-
 ## Design Pattern
 
 用 "静态工厂方法" 替代 "构造函数" 的优点
@@ -55,48 +39,10 @@ Basics
 
 - Factory Chain: A Design Pattern for Factories with Generics by Hugo Troche - developer.*, Developer Dot Star : https://www.developerdotstar.com/mag/articles/troche_factorychain.html
 
-## Notices
+## readResolve
 
-### Diff Throwable & Exception
+为什么有的 Java 类写了一个 readResolve() 方法?
 
-References
-
-- 9 Best Practices to Handle Exceptions in Java : https://stackify.com/best-practices-exceptions-java/
-- java - Difference between using Throwable and Exception in a try catch - Stack Overflow : https://stackoverflow.com/questions/2274102/difference-between-using-throwable-and-exception-in-a-try-catch
-
-决定
-
-- 不该去 catch Throwable !
-- 也不该去 catch Error 吧 ?
-
-### generate serial version uid in IDEA
-
-References
-
-- java generate serialVersionUID - Google Search : https://www.google.com/search?newwindow=1&ei=siS3XIKAGMqT0gL-x4ioDA&q=java+generate+serialVersionUID&oq=java+generate+serialVersionUID&gs_l=psy-ab.3..0i7i30l5j0i8i7i30l4.2820.298466..299489...1.0..0.2351.7704.3-3j0j3j3j9-1......0....1..gws-wiz.......0i71j35i39.Hgb0WkftIFI
-- SerialVersionUID in Java - GeeksforGeeks : https://www.geeksforgeeks.org/serialversionuid-in-java/
-- Java serialVersionUID - How to generate serialVersionUID : https://howtodoinjava.com/java/serialization/serialversionuid/
-- java - What is a serialVersionUID and why should I use it? - Stack Overflow : https://stackoverflow.com/questions/285793/what-is-a-serialversionuid-and-why-should-i-use-it
-- java - How to generate serial version UID in Intellij - Stack Overflow : https://stackoverflow.com/questions/24573643/how-to-generate-serial-version-uid-in-intellij/24573768
-
-### GsonFormat
-
-- GitHub - zzz40500/GsonFormat: 根据Gson库使用的要求,将JSONObject格式的String  解析成实体 : https://github.com/zzz40500/GsonFormat
-
-### Maven Dependencies Red Underlines
-
-- Maven Dependencies Red underlines - IDEs Support (IntelliJ Platform) | JetBrains : https://intellij-support.jetbrains.com/hc/en-us/community/posts/207369215-Maven-Dependencies-Red-underlines
-
-> **todd prickett** : _Created November 16, 2018 03:33_
->
-> I agree with all the suggestions to delete the .idea directory.
->
-> I tried a maven clean/compile from both inside and outside the IDE.  Both worked, but red squiggles remained.
->
-> I tried clean, reimport from the Maven directory.  No joy.
->
-> I tried restarting IntelliJ.  No joy.
->
-> I tried Invalidate Caches/Restart.  No joy.
->
-> Finally, I exited IntelliJ.  Deleted the .idea directory.  Imported a new project and chose the .pom file to import from.  Success.
+- 从字节流序列化得到一个对象时, 相同的对象序列化为同一个单例对象!
+- Java serialization: readObject() vs. readResolve() - Stack Overflow : https://stackoverflow.com/questions/1168348/java-serialization-readobject-vs-readresolve
+- Java Object Serialization Specification: 3 - Object Input Classes : https://www.math.uni-hamburg.de/doc/java/jdk1.4.1/docs/guide/serialization/spec/input.doc7.html
