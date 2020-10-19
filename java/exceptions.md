@@ -1,10 +1,5 @@
 # Java Exceptions
 
-
-References
-
-- The Java Exception Class Hierarchy : https://airbrake.io/blog/java-exception-handling/the-java-exception-class-hierarchy
-
 ## Introduction
 
 > 某类异常代表什么?
@@ -47,6 +42,10 @@ References
 >
 > - Java 异常类继承层次 ( 类父子关系 )
 
+References
+
+- The Java Exception Class Hierarchy : https://airbrake.io/blog/java-exception-handling/the-java-exception-class-hierarchy
+
 ### Throwable
 
 Differ Throwable and Exception
@@ -62,22 +61,22 @@ Differ Throwable and Exception
     - BootstrapMethodError
     - ClassCircularityError
     - ClassFormatError
-        - UnsupportedClassVersionError
-    - ExceptionInInitializerError
+        - [UnsupportedClassVersionError](https://airbrake.io/blog/java-exception-handling/unsupportedclassversionerror)
+    - [ExceptionInInitializerError](https://airbrake.io/blog/java-exception-handling/exceptionininitializererror)
     - IncompatibleClassChangeError
         - AbstractMethodError
         - IllegalAccessError
         - InstantiationError
         - NoSuchFieldError
         - NoSuchMethodError
-    - NoClassDefFoundError
-    - UnsatisfiedLinkError
+    - [NoClassDefFoundError](https://airbrake.io/blog/java-exception-handling/noclassdeffounderror)
+    - [UnsatisfiedLinkError](https://airbrake.io/blog/java-exception-handling/unsatisfiedlinkerror)
     - VerifyError
 - ~~ThreadDeath~~ _( deprecated )_
 - VirtualMachineError
     - InternalError
-    - OutOfMemoryError
-    - StackOverflowError
+    - [OutOfMemoryError](https://airbrake.io/blog/java-exception-handling/outofmemoryerror)
+    - [StackOverflowError](https://airbrake.io/blog/java-exception-handling/stackoverflowerror)
     - UnknownError
 
 #### Exception
@@ -85,33 +84,33 @@ Differ Throwable and Exception
 - CloneNotSupportedException
 - InterruptedException
 - IOException
-    - FileNotFoundException
+    - [FileNotFoundException](https://airbrake.io/blog/java-exception-handling/filenotfoundexception)
     - SocketException
-        - ConnectException
-    - UnknownHostException
+        - [ConnectException](https://airbrake.io/blog/java-exception-handling/connectexception)
+    - [UnknownHostException](https://airbrake.io/blog/java-exception-handling/unknownhostexception)
 - ReflectiveOperationException
-    - ClassNotFoundException
+    - [ClassNotFoundException](https://airbrake.io/blog/java-exception-handling/classnotfoundexception)
     - IllegalAccessException
     - InstantiationException
-    - InvocationTargetException
+    - [InvocationTargetException](https://airbrake.io/blog/java-exception-handling/invocationtargetexception)
     - NoSuchFieldException
-    - NoSuchMethodException
+    - [NoSuchMethodException](https://airbrake.io/blog/java-exception-handling/nosuchmethoderror)
 - RuntimeException _( Unchecked Exception )_
     - ArithmeticException
     - ArrayStoreException
-    - ClassCastException
+    - [ClassCastException](https://airbrake.io/blog/java-exception-handling/classcastexception)
     - ConcurrentModificationException
     - EnumConstantNotPresentException
-    - IllegalArgumentException
+    - [IllegalArgumentException](https://airbrake.io/blog/java-exception-handling/illegalargumentexception)
         - IllegalThreadStateException
-        - NumberFormatException
+        - [NumberFormatException](https://airbrake.io/blog/java-exception-handling/numberformatexception)
     - IllegalMonitorStateException
-    - IllegalStateException
-    - IndexOutOfBoundsException
-        - ArrayIndexOutOfBoundsException
+    - [IllegalStateException](https://airbrake.io/blog/java-exception-handling/illegalstateexception)
+    - [IndexOutOfBoundsException](https://airbrake.io/blog/java-exception-handling/indexoutofboundsexception)
+        - [ArrayIndexOutOfBoundsException](https://airbrake.io/blog/java-exception-handling/arrayindexoutofboundsexception)
         - StringIndexOutOfBoundsException
     - NegativeArraySizeException
-    - NullPointerException
+    - [NullPointerException](https://airbrake.io/blog/java-exception-handling/nullpointerexception)
     - SecurityException
     - TypeNotPresentException
     - UnsupportedOperationException
