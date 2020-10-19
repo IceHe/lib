@@ -2620,3 +2620,48 @@ public class WithinEnumValidator extends AbstractValidator<WithinEnum, Object> {
 ### TODO
 
 - ServiceInterceptor and its Helpers
+
+## Utils
+
+### HTTP
+
+```java
+package xyz.icehe.utils;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import com.aliyun.oss.ServiceException;
+import org.apache.commons.lang3.StringUtils;
+import lombok.experimental.UtilityClass;
+
+/**
+ * HTTP 工具集
+ *
+ * @author icehe.xyz
+ * @since 2020/10/19
+ */
+@UtilityClass
+public class HttpUtils {
+
+    /**
+     * 是否为有效的 URI
+     *
+     * @param originalUrl
+     * @return
+     * @throws ServiceException
+     */
+    public boolean iaValidUri(String originalUrl) throws ServiceException {
+        if (StringUtils.isBlank(originalUrl)) {
+            return false;
+        }
+        try {
+            URI uri = new URI(originalUrl);
+            return true;
+        } catch (URISyntaxException e) {
+            return false;
+        }
+    }
+}
+
+```
