@@ -1619,7 +1619,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.alibaba.common.lang.StringUtil;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser.Feature;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -1627,6 +1626,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.StringUtils;
 
 @UtilityClass
 public class JsonUtils {
@@ -1663,7 +1663,7 @@ public class JsonUtils {
     }
 
     public <T> T parse(String content, Class<T> valueType) {
-        if (StringUtil.isEmpty(content)) {
+        if (StringUtils.isBlank(content)) {
             return null;
         }
         try {
@@ -2631,7 +2631,6 @@ package xyz.icehe.utils;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import com.aliyun.oss.ServiceException;
 import org.apache.commons.lang3.StringUtils;
 import lombok.experimental.UtilityClass;
 
@@ -2649,9 +2648,8 @@ public class HttpUtils {
      *
      * @param originalUrl
      * @return
-     * @throws ServiceException
      */
-    public boolean iaValidUri(String originalUrl) throws ServiceException {
+    public boolean isValidUri(String originalUrl) {
         if (StringUtils.isBlank(originalUrl)) {
             return false;
         }
