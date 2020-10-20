@@ -381,6 +381,16 @@ List<List<String>> stringListPartions = Lists.partition(stringList, 50);
 
 ```
 
+#### Array to List
+
+```java
+import java.util.Arrays;
+
+int[] ints = {1, 2, 3}; // given
+Arrays.copyOf(ints, ints.length);
+
+```
+
 ## Enum
 
 ### Transferable State Enum
