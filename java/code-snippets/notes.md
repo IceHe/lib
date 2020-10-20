@@ -2397,13 +2397,9 @@ public class WithinEnumValidator extends AbstractValidator<WithinEnum, Object> {
 
 - ServiceInterceptor and its Helpers
 
-#### Aspect
-
-- TODO
-
 #### Helpers
 
-JoinPointUtils
+##### JoinPointHelper
 
 ```java
 import java.util.Map;
@@ -2472,6 +2468,16 @@ public class JoinPointHelper {
 }
 
 ```
+
+##### ParameterValidator
+
+```java
+
+```
+
+#### Aspect
+
+- TODO
 
 ## Common DTOs
 
