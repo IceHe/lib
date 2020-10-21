@@ -167,7 +167,9 @@ References
 
 - https://www.envoyproxy.io
 
-### Istios
+### Istio
+
+- https://istio.io/latest
 
 ### Thrift
 
