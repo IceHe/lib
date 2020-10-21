@@ -161,6 +161,14 @@ _你会在一个以人为本、充满好奇、紧跟业界一线技术实践的�
 
 ### Service Mesh
 
+References
+
+- https://www.google.com/search?q=service+mesh&oq=service+mesh
+    - https://www.infoq.com/articles/service-mesh-ultimate-guide
+    - https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
+    - https://www.nginx.com/blog/what-is-a-service-mesh
+    - https://www.thoughtworks.com/radar/techniques/service-mesh
+
 ### Envoy
 
 References
@@ -170,6 +178,7 @@ References
 ### Istio
 
 - https://istio.io/latest
+    - https://istio.io/latest/faq/
 
 ### Thrift
 
