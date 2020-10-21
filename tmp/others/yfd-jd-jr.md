@@ -159,40 +159,48 @@ _你会在一个以人为本、充满好奇、紧跟业界一线技术实践的�
 
 > 调研
 
-Service Mesh
+### Service Mesh
 
-Envoy
+### Envoy
 
-Istios
+References
 
-Thrift
+- https://www.envoyproxy.io
 
-Nginx
+### Istios
 
-OpenResty
+### Thrift
 
-Kubernetes
+### Nginx
 
-E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
+### OpenResty
 
-Gatling
+### Kubernetes
 
-APM / 监控告警系统
+### E2E and etc.
 
-Prometheus
+> E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
 
-Thanos
+### Gatling
 
-Sky Walking
+### APM
 
-ELK
+> APM / 监控告警系统
 
-Mock 平台
+### Prometheus
 
-CI/CD
+### Thanos
 
-Jenkins
+### Sky Walking
 
-GitHub Action
+### ELK
 
-Travis CI
+### Mock 平台
+
+### CI/CD
+
+### Jenkins
+
+### GitHub Action
+
+### Travis CI
