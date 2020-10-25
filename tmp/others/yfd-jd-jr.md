@@ -159,59 +159,22 @@ _你会在一个以人为本、充满好奇、紧跟业界一线技术实践的�
 
 > 调研
 
-### Service Mesh
-
-References
-
-- https://www.google.com/search?q=service+mesh&oq=service+mesh
-    - https://www.infoq.com/articles/service-mesh-ultimate-guide
-    - https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh
-    - https://www.nginx.com/blog/what-is-a-service-mesh
-    - https://www.thoughtworks.com/radar/techniques/service-mesh
-
-### Envoy
-
-References
-
-- https://www.envoyproxy.io
-
-### Istio
-
-- https://istio.io/latest
-    - https://istio.io/latest/faq/
-
-### Thrift
-
-### Nginx
-
-### OpenResty
-
-### Kubernetes
-
-### E2E and etc.
-
-> E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
-
-### Gatling
-
-### APM
-
-> APM / 监控告警系统
-
-### Prometheus
-
-### Thanos
-
-### Sky Walking
-
-### ELK
-
-### Mock 平台
-
-### CI/CD
-
-### Jenkins
-
-### GitHub Action
-
-### Travis CI
+- Service Mesh
+- Envoy
+- Istio
+- Thrift
+- Nginx
+- OpenResty
+- Kubernetes
+- E2E and etc. : E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
+- Gatling
+- APM / 监控告警系统
+- Prometheus
+- Thanos
+- Sky Walking
+- ELK
+- Mock 平台
+- CI/CD
+- Jenkins
+- GitHub Action
+- Travis CI
