@@ -501,6 +501,7 @@ Reference : https://www.computerhope.com/keys.htm
 - NPE : Null Pointer Exception ( Linux | java.lang.NullPointerException )
 - NRT : Near Realtime
 - ns : [namespace](https://en.wikipedia.org/wiki/Namespace)
+- NSFW : [Not Safe For Work](https://en.wikipedia.org/wiki/Not_safe_for_work)
 - NUL : null '\0' in string
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
