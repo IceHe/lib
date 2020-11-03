@@ -502,16 +502,16 @@ Read on 2020
     - **对于日常小决策, 决策速度大于决策质量, 不要拖; 对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对**
     - **不是生活中的每一个问题都要解决, 和问题共处是人生常态. 把精力用在重要的事情上**
     - _人们懂得很多道理但仍然无法改变, 是因为「大脑知道」和「身体知道」完全是两件事_
-- _[Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)_
-    - … blindly accept what they're given, and spend their free time disengaging ( 脱离 ) from reality. _( … 盲目地接受, 把空闲的时间花费在脱离现实上. )_
-    - Seth Godin once said, "The problem is that our culture has engaged in a Faustian bargain, in which we trade our genius and artistry for apparent stability." _( 我们的文化在进行一场浮士德式的交易, 在其中我们用我们的天赋和技巧, 来换取表面上的稳定. )_
-    - **You can't do many of the things you used to do.** _( 不能做很多你以前做的事情 )_
 - _[Sspai Time Mgt](/read/sspai-time-mgt.md)_
     - 提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。
     - **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
     - 在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：**精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**
     - 道理很简单，**「不做事」一定是最节省时间、最高效的做事方式，学会「做重要的事」才是掌控时间的终极法门。**
     - 何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
+- _[Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)_
+    - … blindly accept what they're given, and spend their free time disengaging ( 脱离 ) from reality. _( … 盲目地接受, 把空闲的时间花费在脱离现实上. )_
+    - Seth Godin once said, "The problem is that our culture has engaged in a Faustian bargain, in which we trade our genius and artistry for apparent stability." _( 我们的文化在进行一场浮士德式的交易, 在其中我们用我们的天赋和技巧, 来换取表面上的稳定. )_
+    - **You can't do many of the things you used to do.** _( 不能做很多你以前做的事情 )_
 
 ### Past
 
