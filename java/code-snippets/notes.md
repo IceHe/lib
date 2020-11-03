@@ -2917,7 +2917,7 @@ Reference
 
 
         <!--Mapper映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 -->
-        <sqlMapGenerator targetPackage="xyz.icehe.repository.mapper"
+        <sqlMapGenerator targetPackage="xyz.icehe.orm.mapper"
                          targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
@@ -2928,7 +2928,7 @@ Reference
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="xyz.icehe.repository.mapper"
+        <javaClientGenerator targetPackage="xyz.icehe.orm.mapper"
                              targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
@@ -2962,7 +2962,7 @@ jdbc.service_maxActive=16
 #### ConfigMapper.java
 
 ```java
-package xyz.icehe.mapper;
+package xyz.icehe.orm.mapper;
 
 import xyz.icehe.enums.ConfigState;
 import xyz.icehe.condition.ConfigCondition;
@@ -3070,7 +3070,7 @@ public interface ConfigMapper {
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.icehe.mapper.mapper.ConfigMapper">
+<mapper namespace="xyz.icehe.orm.mapper.ConfigMapper">
 
     <resultMap id="BaseResultMap" type="xyz.icehe.orm.po.ConfigPO">
         <constructor>
@@ -3351,6 +3351,392 @@ public class ConfigPO {
      * 修改时间
      */
     private LocalDateTime updatedAt;
+}
+
+```
+
+#### ConfigReposity.java
+
+```java
+package xyz.icehe.orm.repository;
+
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
+
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
+import xyz.icehe.enums.ConfigState;
+import xyz.icehe.condition.ConfigCondition;
+import xyz.icehe.orm.po.ConfigPO;
+import xyz.icehe.orm.mapper.ConfigMapper;
+import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
+
+/**
+ * 配置的存储仓库
+ *
+ * @author icehe.xyz
+ * @since 2020/11/03
+ */
+@Slf4j
+@Repository
+public class ConfigRepository {
+
+    @Autowired
+    private ConfigMapper configMapper;
+
+    /**
+     * 插入配置
+     */
+    public void insert(ConfigPO configPO) throws Exception {
+        if (configMapper.insert(configPO) == 0) {
+            String errorMsg =
+                String.format("ConfigRepository.insert failed, configPO=%s", configPO);
+            log.error(errorMsg);
+            throw new Exception(errorMsg);
+        }
+    }
+
+    /**
+     * 批量插入配置
+     */
+    public void batchInsert(List<ConfigPO> configDos) throws Exception {
+        if (CollectionUtils.isEmpty(configDos)) {
+            log.warn("OptimalRiderConfigRepository.batchInsert, configDos={}", configDos);
+            return;
+        }
+        if (configMapper.batchInsert(configDos) == 0) {
+            String errorMsg = String.format("cannot insert rider config records, configDos=%s", configDos);
+            log.error(errorMsg);
+            throw new Exception(errorMsg);
+        }
+    }
+
+    /**
+     * 根据 ID, 删除配置
+     */
+    public void deleteById(Long id) throws Exception {
+        if (configMapper.deleteById(id) == 0) {
+            String errorMsg = String.format("ConfigRepository.deleteById failed, id=%s", id);
+            log.error(errorMsg);
+            throw new Exception(errorMsg);
+        }
+    }
+
+    /**
+     * 根据 ID, 更新配置
+     */
+    public void update(ConfigPO configPO) throws Exception {
+        if (configMapper.update(configPO) == 0) {
+            String errorMsg = String.format("ConfigRepository.update failed, configPO=%s", configPO);
+            log.error(errorMsg);
+            throw new Exception(errorMsg);
+        }
+    }
+
+    /**
+     * 根据 ID 和状态, 批量更新配置的状态
+     *
+     * @param ids        ID 集合
+     * @param fromStates 允许从哪些状态
+     * @param toState    修改到哪个状态
+     * @throws Exception
+     */
+    public void batchUpdateStates(@NonNull Set<Long> ids, EnumSet<ConfigState> fromStates, ConfigState toState)
+        throws Exception {
+
+        if (CollectionUtils.isEmpty(ids)) {
+            return;
+        }
+        int effectedRowCount = configMapper.batchUpdateStates(ids, fromStates, toState);
+        if (effectedRowCount != ids.size()) {
+            log.warn(String.format("存在更新失败的配置, 可能该更新违反了约束条件, ids=%s, fromStates=%s, toState=%s",
+                ids, fromStates, toState));
+            throw new Exception("更新操作失败, 请重新查询以确认结果, 根据实际情况重试");
+        }
+    }
+
+    /**
+     * 根据配置 ID 集合, 将配置标识为 "已被删除" 的状态
+     */
+    public void markDeletedByIds(Set<Long> ids) throws Exception {
+        if (CollectionUtils.isEmpty(ids)) {
+            return;
+        }
+        try {
+            configMapper.markDeletedByIds(ids);
+        } catch (Exception e) {
+            String errorMsg = String.format("ConfigRepository.markDeletedByIds failed, ids=%s", ids);
+            log.error(errorMsg, e);
+            throw new Exception(errorMsg);
+        }
+    }
+
+    /**
+     * 列举配置 (不分页)
+     *
+     * @param conditions {@link ConfigCondition}
+     * @return {@link ConfigPO} {@link List} 按照 ID (近似于创建时间) 倒序排列
+     */
+    public List<ConfigPO> listByConditions(ConfigCondition conditions) {
+        return configMapper.selectByConditions(conditions);
+    }
+
+    /**
+     * 列举配置 (分页查询)
+     *
+     * @param conditions {@link ConfigCondition}
+     * @param rowBounds  {@link RowBounds} 行限制：包括查询偏移量、获取行数
+     * @return {@link ConfigPO} {@link List} 按照 ID (近似于创建时间) 倒序排列
+     */
+    public List<ConfigPO> listByConditions(
+        ConfigCondition conditions, RowBounds rowBounds) {
+        return configMapper.selectByConditions(conditions, rowBounds);
+    }
+
+    /**
+     * 获取符合条件的第一个配置
+     *
+     * @param conditions {@link ConfigCondition}
+     * @return {@link ConfigPO} {@link List} 按照 ID (近似于创建时间) 倒序排列, 获取 ID 最大的第一个
+     */
+    public ConfigPO getFirstByConditions(ConfigCondition conditions) {
+        List<ConfigPO> configDos = configMapper.selectByConditions(conditions, new RowBounds(0, 1));
+        return CollectionUtils.isEmpty(configDos) ? null : configDos.get(0);
+    }
+
+    /**
+     * 获取配置的数量
+     *
+     * @param conditions {@link ConfigCondition}
+     * @return 配置的数量
+     */
+    public int countByConditions(ConfigCondition conditions) {
+        return configMapper.countByConditions(conditions);
+    }
+}
+
+```
+
+#### ConfigCondition.java
+
+```java
+package xyz.icehe.condition;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.EnumSet;
+import java.util.Set;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import xyz.icehe.enums.ConfigState;
+
+/**
+ * 配置的查询条件
+ *
+ * @author icehe.xyz
+ * @since 2020/11/03
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ConfigCondition {
+
+    /**
+     * 配置ID集合
+     */
+    private Set<Long> ids;
+
+    /**
+     * 姓名
+     */
+    private String name;
+
+    /**
+     * 生效周期的 起始时间 集合
+     */
+    private Set<LocalDateTime> startTimes;
+
+    /**
+     * 生效周期: 起始时间 & 结束时间; 扩大时间范围后, 可查出多个生效周期的数据
+     */
+    private OptimalRiderPeriodDTO period;
+
+    /**
+     * 配置的状态
+     */
+    @Builder.Default
+    private Set<ConfigState> states = EnumSet.of(ConfigState.APPROVED);
+
+    /**
+     * 是否已被(软)删除
+     */
+    @Builder.Default
+    private Boolean isDeleted = false;
+
+    /**
+     * 创建时间的 查询范围的 起始日期 (闭区间)
+     */
+    private LocalDate createdAtDateFrom;
+
+    /**
+     * 创建时间的 查询范围的 结束日期 (闭区间)
+     */
+    private LocalDate createdAtDateTo;
+}
+
+```
+
+#### ConfigState.java
+
+```java
+package xyz.icehe.enums;
+
+import java.util.EnumSet;
+import java.util.Set;
+import java.util.stream.Stream;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.common.collect.ImmutableSet;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+/**
+ * @author icehe.xyz
+ * @since 2020/11/03
+ */
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public enum ConfigState {
+
+    /**
+     * 配置的状态
+     */
+    NOT_APPLIED(0, "未申请"),
+    APPLIED(1, "待培训"),
+    REJECTED(2, "审核驳回"),
+    APPROVED(3, "审核通过"),
+    EXPIRE_REJECTED(7, "超时未审核通过，自动驳回"),
+    ;
+
+    /**
+     * 驳回状态的集合
+     */
+    private static final Set<ConfigState> REJECTED_STATES =
+        ImmutableSet.of(REJECTED, EXPIRE_REJECTED);
+
+    /**
+     * 不可修改 (正常情况下) 的状态的集合
+     */
+    private static final Set<ConfigState> UNMODIFIABLE_STATES =
+        ImmutableSet.of(REJECTED, EXPIRE_REJECTED);
+
+    /**
+     * 可修改的状态的集合
+     */
+    private static final Set<ConfigState> MODIFIABLE_STATES =
+        ImmutableSet.of(NOT_APPLIED, APPLIED, APPROVED);
+
+    /**
+     * 码值
+     */
+    private final Integer code;
+
+    /**
+     * 说明
+     */
+    private final String desc;
+
+    /**
+     * 将码值转换为枚举常量
+     */
+    @JsonCreator
+    public static ConfigState codeOf(Integer code) {
+        return Stream.of(values()).filter(it -> it.equalsCode(code)).findFirst().orElse(null);
+    }
+
+    /**
+     * 将名称转换为枚举常量
+     */
+    @JsonCreator
+    public static ConfigState nameOf(String name) {
+        return Stream.of(values()).filter(it -> it.name().equals(name)).findFirst().orElse(null);
+    }
+
+    /**
+     * 全状态的集合
+     */
+    public static EnumSet<ConfigState> allStates() {
+        return EnumSet.allOf(ConfigState.class);
+    }
+
+    /**
+     * 除 "审核通过" 状态之外的集合
+     */
+    public static EnumSet<ConfigState> nonApprovedStates() {
+        return EnumSet.complementOf(EnumSet.of(ConfigState.APPROVED));
+    }
+
+    /**
+     * 驳回状态的集合
+     */
+    public static EnumSet<ConfigState> rejectedStates() {
+        return EnumSet.copyOf(REJECTED_STATES);
+    }
+
+    /**
+     * 驳回状态之外的集合
+     */
+    public static EnumSet<ConfigState> nonRejectedStates() {
+        return EnumSet.complementOf(EnumSet.copyOf(REJECTED_STATES));
+    }
+
+    /**
+     * 不可修改 (正常情况下) 的状态的集合
+     */
+    public static EnumSet<ConfigState> unmodifiableStates() {
+        return EnumSet.copyOf(UNMODIFIABLE_STATES);
+    }
+
+    /**
+     * 可修改的状态的集合
+     */
+    public static EnumSet<ConfigState> modifiableStates() {
+        return EnumSet.copyOf(MODIFIABLE_STATES);
+    }
+
+    /**
+     * 判断处理状态 (码值) 是否相等
+     */
+    public boolean equalsCode(Integer value) {
+        return getCode().equals(value);
+    }
+
+    /**
+     * 是否属于一种驳回状态
+     */
+    public boolean isRejection() {
+        return REJECTED_STATES.contains(this);
+    }
+
+    /**
+     * 获取码值
+     *
+     * @return
+     */
+    @JsonValue
+    public Integer getCode() {
+        return code;
+    }
 }
 
 ```
