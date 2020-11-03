@@ -501,7 +501,6 @@ Read on 2020
     - 决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结
     - **对于日常小决策, 决策速度大于决策质量, 不要拖; 对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对**
     - **不是生活中的每一个问题都要解决, 和问题共处是人生常态. 把精力用在重要的事情上**
-    - _人们懂得很多道理但仍然无法改变, 是因为「大脑知道」和「身体知道」完全是两件事_
 - _[Sspai Time Mgt](/read/sspai-time-mgt.md)_
     - 提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。
     - **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
@@ -564,7 +563,7 @@ Previous Blog : 2015 ~ 2017
 - [Jan Fan](http://janfan.cn/) : Good student / Tencent / Study @ Sweden
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent / Tubi
-- Me : A fool / Java Backend / Sina Weibo / Alibaba Local Life
+- IceHe ( myself ) : A fool / Java Backend / Sina Weibo / Alibaba Local Life
     <!-- - 思想上的巨人, 行动上的矮子 -->
 
 <!-- - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile -->
