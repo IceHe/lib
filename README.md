@@ -529,10 +529,10 @@ Timeline
 
 Nonsense
 
-- Time Mgt. : [Life Logs](/lifelogs/time-mgt-log.md) & [Log Format](/lifelogs/time-mgt.md) _(  ~ 2016.10 )_
+- Time Mgt. : [Life Logs](/lifelogs/time-mgt-log.md) & [Log Format](/lifelogs/time-mgt.md) _( until 2016.10 )_
 - Way of Life : [Self Manual](/lifelogs/life-manual.md) _( until 2017 )_
-- A Try : [Routine](/lifelogs/ROUTINE.md) & [TBC](/lifelogs/TBC.md) _( 2019 ~ 2020.04 )_
-- Anohter Try : [Daily Schedule](/lifelogs/daily-schedule.md) _( from 2020.11 )_
+- [Routine](/lifelogs/ROUTINE.md) & [TBC](/lifelogs/TBC.md) _( 2019 ~ 2020.04 )_
+- [Daily Schedule](/lifelogs/daily-schedule.md) _( from 2020.11 )_
 
 Previous Blog : 2015 ~ 2017
 
