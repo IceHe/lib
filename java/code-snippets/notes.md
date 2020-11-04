@@ -1217,7 +1217,35 @@ Optional.ofNullable(map.get("content"))
 
 ```
 
-### TODO
+Optional.ofNullable(…).orElseThrow(() -> new Exception());
+
+```java
+Optional.ofNullable(someObject)
+    .orElseThrow(() -> new NullPointerException("null object"));
+
+```
+
+Optional.ofNullable(…).filter(…).map(…).orElse(…)
+
+```java
+Optional.ofNullable(someObject)
+    .filter(Objects::nonNull)
+    // or
+    // .filter(t -> null != t)
+    .map(JsonUtil::toJsonString)
+    // or
+    // .map(t -> JsonUtil.toJsonString(t))
+    .orElse("");
+
+```
+
+Optional.of(…).….get()
+
+```java
+// if someObject must not be null
+Optional.of(someObject).map(t -> t.getSomeField()).get()
+
+```
 
 ## JSON
 
