@@ -2412,6 +2412,8 @@ public class WithinEnumValidator extends AbstractValidator<WithinEnum, Object> {
 ##### JoinPointHelper
 
 ```java
+package xyz.icehe.intercept;
+
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.IntStream;
@@ -2482,12 +2484,369 @@ public class JoinPointHelper {
 ##### ParameterValidator
 
 ```java
+package xyz.icehe.intercept;
+
+import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+import javax.validation.executable.ExecutableValidator;
+import javax.validation.groups.Default;
+
+import com.google.common.collect.Lists;
+import org.apache.commons.lang3.StringUtils;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+/**
+ * 参数校验器
+ *
+ * @author icehe.xyz
+ * @since 2020/11/04
+ */
+@Component
+public class ParameterValidator {
+
+    private static final String PARAMS_ERROR_MSG = "参数不符合要求";
+
+    private final LocalValidatorFactoryBean localValidatorFactoryBean;
+
+    /**
+     * 校验 bean 实例的校验器
+     *
+     * <p>通常通过 {@code Validation.buildDefaultValidatorFactory().getValidator()} 获得.
+     *
+     * <p>但是这样创建的 Validator 有个缺点, 它创建并调用的实现了接口 {@link ConstraintValidator} 的约束校验器, 无法直接使用注解 {@link
+     * Autowired} 注入 Spring 管理下的 bean.
+     *
+     * <p>因此采取 {@link LocalValidatorFactoryBean} 集中管理的方式.
+     */
+    private final Validator validator;
+
+    /**
+     * @see LocalValidatorFactoryBean class javadoc comments
+     */
+    private final ExecutableValidator executableValidator;
+
+    /**
+     * Constructor
+     *
+     * @param localValidatorFactoryBean {@link LocalValidatorFactoryBean}
+     */
+    @Autowired
+    public ParameterValidator(LocalValidatorFactoryBean localValidatorFactoryBean) {
+        this.localValidatorFactoryBean = localValidatorFactoryBean;
+        validator = localValidatorFactoryBean.getValidator();
+        executableValidator = validator.forExecutables();
+    }
+
+    /**
+     * 校验参数 (方法级别)
+     *
+     * <p>这里会将所有的参数异常都列出，而不是只返回发现的第一个错误，以便调试（特别是参数较多的情况）。
+     *
+     * <p>可能有多个参数违反约束，一个参数又可能违反多种约束， 所以设计通过 Throwable 的 suppressedExceptions 嵌套多个层次的异常。
+     *
+     * @param joinPoint {@link JoinPoint}
+     * @throws Exception 服务异常 参数违反约束的异常
+     */
+    public void validateParams(JoinPoint joinPoint) throws Exception {
+
+        Object target = joinPoint.getTarget();
+        Method method = ((MethodSignature)joinPoint.getSignature()).getMethod();
+        Object[] args = joinPoint.getArgs();
+
+        Set<ConstraintViolation<Object>> constraintViolations =
+            executableValidator.validateParameters(target, method, args);
+
+        List<Exception> paramExceptions =
+            constraintViolations.stream()
+                .map(this::violation2Exception)
+                .collect(Collectors.toList());
+
+        if (!paramExceptions.isEmpty()) {
+            throw buildParamsException(PARAMS_ERROR_MSG, paramExceptions);
+        }
+
+        validateParams(JoinPointHelper.extractParamMap(joinPoint));
+    }
+
+    /**
+     * 校验参数 (参数级别)
+     *
+     * <p>这里会将所有的参数异常都列出，而不是只返回发现的第一个错误，以便调试（特别是参数较多的情况）。
+     *
+     * <p>可能有多个参数违反约束，一个参数又可能违反多种约束， 所以设计通过 Throwable 的 suppressedExceptions 嵌套多个层次的异常。
+     *
+     * @param paramMap 参数的映射
+     * @throws Exception 服务异常 参数违反约束的异常
+     */
+    public void validateParams(Map<String, Object> paramMap) throws Exception {
+        // 校验参数
+        List<Throwable> throwables = paramMap.entrySet().stream()
+            .map(param -> validateParam(param.getKey(), param.getValue()))
+            .filter(Objects::nonNull)
+            .collect(Collectors.toList());
+
+        if (CollectionUtils.isEmpty(throwables)) {
+            return;
+        }
+
+        // 减少异常的嵌套层次：如果某个层次，只有一个异常，那么这时就没必要嵌套那么深了
+        while (1 == throwables.size()) {
+            Throwable exception = throwables.get(0);
+
+            if (null == exception) {
+                break;
+            }
+
+            if (0 == exception.getSuppressed().length) {
+                throw (Exception)exception;
+            }
+
+            throwables = Lists.newArrayList(exception.getSuppressed());
+        }
+
+        throw buildParamsException(PARAMS_ERROR_MSG, throwables);
+    }
+
+    /**
+     * 验证单个参数
+     *
+     * @param argName 参数名称
+     * @param arg     参数值
+     * @return {@link Exception} 参数正常时，返回 null
+     */
+    private Exception validateParam(String argName, Object arg) {
+        if (null == arg) {
+            return new Exception(String.format("[ 参数 %s%s ]", argName, " 不能为 null"));
+        }
+
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(arg, Default.class);
+        if (constraintViolations.isEmpty()) {
+            return null;
+        }
+
+        List<Exception> paramExceptions = constraintViolations.stream()
+            .map(this::violation2Exception)
+            .collect(Collectors.toList());
+        if (paramExceptions.isEmpty()) {
+            return null;
+        }
+
+        String errorMsg = String.format("参数 %s 不符合要求", argName);
+        return buildParamsException(errorMsg, paramExceptions);
+    }
+
+    /**
+     * 将参数违反的约束转换为参数异常
+     *
+     * @param violation {@link ConstraintViolation}
+     * @return {@link Exception}
+     */
+    private Exception violation2Exception(ConstraintViolation<Object> violation) {
+
+        String invalidField = violation.getPropertyPath().toString();
+        String invalidValue = Objects.toString(violation.getInvalidValue());
+        String violationMsg = violation.getMessage();
+
+        String errorMsg = String.format("[ %s : %s=%s ]", violationMsg, invalidField, invalidValue);
+        return new Exception(errorMsg);
+    }
+
+    /**
+     * 构建参数错误
+     *
+     * @param errorMsg        初始的错误信息
+     * @param paramThrowables 参数异常列表
+     * @return {@link Exception}
+     */
+    private Exception buildParamsException(
+        String errorMsg, List<? extends Throwable> paramThrowables) {
+
+        Object[] errorMsgArray = paramThrowables.stream().map(Throwable::getMessage).toArray();
+        String completeMsg = String.format("[ %s : %s ]", errorMsg, StringUtils.join(errorMsgArray, ", "));
+
+        Exception paramException = new Exception(completeMsg);
+        paramThrowables.forEach(paramException::addSuppressed);
+
+        return paramException;
+    }
+}
+
+```
+
+#####
+
+```java
+package xyz.icehe.transport;
+
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * Response 响应结果
+ *
+ * <p>Should use static factory methods {@link Responses#of} and so on instead of {@code new}
+ * constructor to of a response.
+ *
+ * @author icehe.xyz
+ * @since 2020/11/04
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Response<T> {
+
+    private static final long serialVersionUID = -2021643570873555043L;
+
+    /**
+     * Error Code 错误码
+     *
+     * <p>SerializerFeature.WriteNullStringAsEmpty : 当值为 null 时，输出空字符串 ""
+     */
+    @JSONField(serialzeFeatures = SerializerFeature.WriteNullStringAsEmpty)
+    protected String code;
+
+    /**
+     * Error Message 错误信息
+     */
+    @JSONField(serialzeFeatures = SerializerFeature.WriteNullStringAsEmpty)
+    protected String message;
+
+    /**
+     * Data 响应数据
+     *
+     * <p>T could be any jsonable object.
+     */
+    protected T data;
+}
 
 ```
 
 #### Aspect
 
-- TODO
+```java
+package xyz.icehe.intercept;
+
+import java.util.Map;
+
+import lombok.extern.slf4j.Slf4j;
+import xyz.icehe.intercept.JoinPointHelper;
+import xyz.icehe.intercept.ParameterValidator;
+import xyz.icehe.transport.Response;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+/**
+ * 服务统一切面拦截处理器
+ *
+ * <p><a href="https://www.mekau.com/4880.html">AspectJ切入点@Pointcut语法详解 &#8211; 不静之心</a>
+ *
+ * @author icehe.xyzj
+ * @since 2020/11/04
+ */
+@Slf4j
+@Aspect
+@Component
+@Order(10000)
+public class ServiceInterceptor {
+
+    @Autowired
+    private final ParameterValidator parameterValidator;
+
+    /**
+     * 轩辕服务统一切面
+     *
+     * <p>用户身份认证，请求参数校验，处理异常，记录日志
+     *
+     * @param joinPoint {@link ProceedingJoinPoint} 连接点
+     * @return 响应结果
+     * @throws Exception
+     */
+    @Around("execution(* xyz.icehe.service.*Service.*(..)) || execution(* xyz.icehe.api.task.*Service.*(..))")
+    public Object monitorXyService(ProceedingJoinPoint joinPoint) throws Exception {
+
+        long startTime = System.currentTimeMillis();
+        MethodSignature methodSignature = (MethodSignature)joinPoint.getSignature();
+        String methodName = getMethodName(methodSignature);
+
+        Object response;
+        try {
+            Map<String, Object> argMap = JoinPointHelper.extractParamMap(joinPoint);
+            log.info("{} 请求参数 request={}", methodName, JsonUtil.toJsonString(argMap));
+
+            validateUserAuthAndParams(joinPoint, argMap);
+
+            response = joinPoint.proceed();
+            log.info("{} 响应结果 response={}", methodName, JsonUtil.toJsonString(response));
+
+        } catch (RuntimeException e) {
+            log.error("{} 服务异常", methodName, e);
+            if (Response.class.isAssignableFrom(methodSignature.getReturnType())) {
+                return new Response<>("code", "message", null);
+            }
+            throw e;
+
+        } catch (Throwable e) {
+            log.error("{} 异常", methodName, e);
+            if (Response.class.isAssignableFrom(methodSignature.getReturnType())) {
+                return new Response<>("code", "message", null);
+            }
+            throw (Exception)e;
+
+        } finally {
+            long endTime = System.currentTimeMillis();
+            log.info("业务处理耗时 method={}, duration={}", methodName, (endTime - startTime) + "ms");
+        }
+
+        return response;
+    }
+
+    /**
+     * 根据连接点获取调用的方法名
+     *
+     * @param methodSignature {@link MethodSignature}
+     * @return String 调用的方法名
+     */
+    private String getMethodName(MethodSignature methodSignature) {
+        return String.format("%s.%s(…)",
+            methodSignature.getDeclaringType().getSimpleName(),
+            methodSignature.getMethod().getName());
+    }
+
+    /**
+     * @param joinPoint {@link ProceedingJoinPoint}
+     * @param argMap    参数映射
+     * @throws Exception
+     */
+    private void validateUserAuthAndParams(ProceedingJoinPoint joinPoint, Map<String, Object> argMap)
+        throws Exception {
+        parameterValidator.validateParams(argMap);
+    }
+}
+```
 
 ## Common DTOs
 
