@@ -8,9 +8,46 @@ References
 - RabbitMQ 的应用场景以及基本原理介绍 | Laravel China 社区  : https://learnku.com/articles/27446
 - 官网 : Messaging that just works - RabbitMQ : https://www.rabbitmq.com/
 
-## Intro
+## 应用场景以及基本原理介绍
 
-- RabbitMQ : 一个由 erlang 开发的 AMQP ( Advanced Message Queuing Protocol ) 的开源实现
+Reference
+
+- RabbitMQ 的应用场景以及基本原理介绍 | Laravel China 社区  : https://learnku.com/articles/27446
+
+AMQP 协议
+
+- Advanced Message Queuing Protocol
+
+### 核心概念
+
+- **Server : 又称 Broker** _( 掮客 )_ , 接受客户端连接, 实现 AMQP 实体服务
+- **Connection** : 与具体 Broker 网络连接
+- **Channel** : 网络信道, 几乎所有操作都在 Channel 中进行, Channel 是消息读写的通道
+    - **客户端可以建立多个 Channel, 每个 Channel 表示一个会话任务**
+- Message : 消息, 服务器和应用程序之间传递的数据, **由 Properties 和 Body 组成**
+    - **Properties 可以对消息进行修饰, 比如消息的优先级, 延迟等高级特性**
+    - Body 是消息实体内容
+- **Virtual Host** : 虚拟主机, 用于逻辑隔离, 最上层消息的路由
+    - 一个 Virtual Host 可以若干个 Exchange 和 Queue
+    - 同一个 Virtual Host 不能有同名的 Exchange 或 Queue
+- **Exchange : 交换机, 接受消息，根据路由键转发消息到绑定的队列上**
+- **Binding : Exchange 和 Queue 之间的虚拟连接, binding 中可以包括 routing key**
+- **Routing Key : 一个路由规则, 虚拟机根据他来确定如何路由一条消息**
+- Queue : 消息队列, 用来存放消息的队列
+
+### Exchange
+
+![rabbit-mq-exchange.jpeg](_images/rabbit-mq-exchange.jpeg)
+
+## 总结
+
+Reference
+
+- RabbitMQ 总结 : https://cloud.tencent.com/developer/article/1654903
+
+### Intro
+
+- RabbitMQ : 一个由 erlang 开发的 **AMQP ( Advanced Message Queuing Protocol )** 的开源实现
     - _最初起源于金融系统, 用于在分布式系统中存储转发消息, 在易用性 / 扩展性 / 高可用性 等方面表现不俗_
 - AMQP : 高级消息队列协议, 是应用层协议的一个开放标准, 为面向消息的中间件设计
     - _消息中间件主要用于组件之间的解耦, 消息的发送者无需知道消息使用者的存在, 反之亦然_
