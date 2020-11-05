@@ -39,6 +39,22 @@ AMQP 协议
 
 ![rabbit-mq-exchange.jpeg](_images/rabbit-mq-exchange.jpeg)
 
+#### 类型
+
+- **Direct Exchange : 所有发送到 Direct Exchange 的消息被转发到 Routing Key 中指定的 Queue**
+    - Direct Exchange 可以使用 default Exchange
+    - 默认的 Exchange 会绑定所有的队列, 所以 Direct 可以直接使用 Queue 名 ( 作为 Routing Key ) 绑定
+    - 或者消费者和生产者的 Routing Key 完全匹配
+- Topic Exchange : 发送到 Topic Exchange 的消息被转发到所有关心的 Routing Key 中指定 Topic 的 Queue 上
+    - Exchange 将routing key和某Topic进行模糊匹配，此时队列需要绑定一个topic。所谓模糊匹配就是可以使用通配符，“#”可以匹配一个或多个词，“”只匹配一个词比如“log.#”可以匹配“log.info.test” "log. "就只能匹配log.error。
+- Fanout Exchange:不处理路由键，只需简单的将队列绑定到交换机上。发送到改交换机上的消息都会被发送到与该交换机绑定的队列上。Fanout转发是最快的。
+- Headers Exchange : TODO
+
+其它配置
+
+- durability : 是否需要持久化, true 为需要
+- auto delete : 当最后一个绑定 Exchange 上的队列被删除时, 该 Exchange 也会被删除
+
 ## 总结
 
 Reference
