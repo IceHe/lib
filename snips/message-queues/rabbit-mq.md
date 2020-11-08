@@ -39,21 +39,104 @@ AMQP 协议
 
 ![rabbit-mq-exchange.jpeg](_images/rabbit-mq-exchange.jpeg)
 
-#### 类型
+**Exchange 类型**
+
+![rabbit-mq-direct-exchange.png](_images/rabbit-mq-direct-exchange.png)
 
 - **Direct Exchange : 所有发送到 Direct Exchange 的消息被转发到 Routing Key 中指定的 Queue**
     - Direct Exchange 可以使用 default Exchange
     - 默认的 Exchange 会绑定所有的队列, 所以 Direct 可以直接使用 Queue 名 ( 作为 Routing Key ) 绑定
     - 或者消费者和生产者的 Routing Key 完全匹配
-- Topic Exchange : 发送到 Topic Exchange 的消息被转发到所有关心的 Routing Key 中指定 Topic 的 Queue 上
-    - Exchange 将routing key和某Topic进行模糊匹配，此时队列需要绑定一个topic。所谓模糊匹配就是可以使用通配符，“#”可以匹配一个或多个词，“”只匹配一个词比如“log.#”可以匹配“log.info.test” "log. "就只能匹配log.error。
-- Fanout Exchange:不处理路由键，只需简单的将队列绑定到交换机上。发送到改交换机上的消息都会被发送到与该交换机绑定的队列上。Fanout转发是最快的。
-- Headers Exchange : TODO
+
+![rabbit-mq-topic-exchange.png](_images/rabbit-mq-topic-exchange.png)
+
+- **Topic Exchange : 发送到 Topic Exchange 的消息被转发到所有关心的 Routing Key 中指定 Topic 的 Queue 上**
+    - Exchange 将 Routing Key 和某 Topic 进行模糊匹配, 此时队列需要绑定一个 Topic
+    - 所谓模糊匹配就是可以使用通配符, `#` 可以匹配一个或多个词, 只匹配一个词比如 `log.#` 可以匹配 `log.info.test` `log.` 就只能匹配 `log.error`
+
+![rabbit-mq-fanout-exchange.png](_images/rabbit-mq-fanout-exchange.png)
+
+- **Fanout Exchange : 不处理路由键, 只需简单的将队列绑定到交换机上**
+    - 发送到改 Exchange 上的消息都会被发送到与该 Exchange 绑定的 queues 上
+    - Fanout 转发是最快的
+
+- _Headers Exchange : 允许你匹配 AMQP 消息的 headers 而非路由键_
+    - _除此之外, Headers Excahnge 和 Direct Exchange 完全一致, 但性能会差很多_
+    - 因此它 **并不太实用，而且几乎再也用不到了**
 
 其它配置
 
 - durability : 是否需要持久化, true 为需要
 - auto delete : 当最后一个绑定 Exchange 上的队列被删除时, 该 Exchange 也会被删除
+
+### 保证消息 100% 投递
+
+什么是生产端的可靠性投递？
+
+- 保证消息的成功发出
+- 保证 MQ 节点的成功接收
+- 发送端 MQ 节点 ( broker ) 收到消息确认应答
+- 完善消息进行补偿机制
+
+#### 可靠性投递保障方案
+
+- A. 消息落库, 对消息进行打标
+
+![rabbit-mq-save-msgs.jpeg](_images/rabbit-mq-save-msgs.jpeg)
+
+- B. 消息的延迟投递
+    - 在高并发场景下，每次进行 DB 的操作都是每场消耗性能的
+    - 使用延迟队列来减少一次数据库的操作
+    - _( icehe : 这里看图不太理解 )_
+
+![rabbit-mq-deferred-delivery.jpeg](_images/rabbit-mq-deferred-delivery.jpeg)
+
+#### 消息幂等性
+
+- 对一个动作进行操作, 肯定要能执行 100次 甚至 1000 次, 对于这 1000 次执行的结果都必须一样的
+    - 例如, 单线程方式下执行 `update count - 1` 的操作执行 1000 次结果都是一样的, 这时这个更新操作就是幂等的
+    - 如果是在并发不做线程安全的处理的情况下 update 一千次操作结果可能就不是一样的, 这时并发情况下的 update 操作就不是幂等的
+    - 对应到消息队列上来, 就是 **即使受到了多条一样的消息, 也和消费一条消息效果是一样的**
+
+_( icehe : 意思是可以能够去重么? 是不是也允许重复给同一个消费者投递相同的消息多次? 感觉有点歧义 )_
+
+#### 高并发的情况下避免消息重复消费
+
+- A. 唯一ID + 加指纹码, 利用数据库主键去重
+    - 优点 : 实现简单
+    - 缺点 : 高并发下有数据写入瓶颈
+- B. 利用 Redis 的原子性来实现去重
+    - 使用 Redis 进行幂等是需要考虑的问题
+
+其它问题
+
+- 是否 DB 落库, 落库后 DB 和 Cache 如何做到保证幂等 ( Redis 和 DB 如何同时成功同时失败 ) ?
+- 如果不 DB 落库, 都放在 Redis 中, 如何实现 Redis 和 DB 的数据同步策略? 还有放在缓存中就能百分之百的成功吗?
+
+#### Confirm 确认消息 Return 返回消息
+
+Confirm 消息确认机制
+
+- 消息的确认, 指生产者收到投递消息后, 如果 Broker 收到消息就会给生产者一个应答, 生产者接受应答来确认 Broker 是否收到消息
+
+如何实现 Confirm 确认消息?
+
+- 在 Channel 上开启确认模式 : `channel.confirmSelect()`
+- 在 Channel 上添加监听者 : `addConfirmListener` , 根据监听成功和失败的结果, 决定重新发送消息或者记录日志
+
+Return 消息返回机制
+
+- **Return 消息机制处理一些不可路由的消息, 生产者通过指定一个 Exchange 和Routing Key, 把消息送达到某一个队列中去, 然后消费者监听该队列进行消费处理!**
+    - _( icehe : Dead Message Queue 死信队列? )_
+- 在某些情况下，如果在发送消息的时候当 Exchange 不存在或者指定的 Routing Key 路由找不到, 这个时候如果需要监听这种不可到达的消息, 就要使用 **Return Listener** !
+- Mandatory 设置为 true 则会监听器会接受到路由不可达的消息, 然后处理
+    - 如果设置为 false, Broker 将会自动删除该消息
+
+#### 消费端限流
+
+假设我们有个场景，首先，我们有个rabbitMQ服务器上有上万条消息未消费，然后我们随便打开一个消费者客户端，会出现：巨量的消息瞬间推送过来，但是我们的消费端无法同时处理这么多数据。
+
+这时就会导致你的服务崩溃。其他情况也会出现问题，比如你的生产者与消费者能力不匹配，在高并发的情况下生产端产生大量消息，消费端无法消费那么多消息。
 
 ## 总结
 
