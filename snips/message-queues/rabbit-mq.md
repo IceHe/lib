@@ -59,15 +59,14 @@ AMQP 协议
 - **Fanout Exchange : 不处理路由键, 只需简单的将队列绑定到交换机上**
     - 发送到改 Exchange 上的消息都会被发送到与该 Exchange 绑定的 queues 上
     - Fanout 转发是最快的
-
 - _Headers Exchange : 允许你匹配 AMQP 消息的 headers 而非路由键_
     - _除此之外, Headers Excahnge 和 Direct Exchange 完全一致, 但性能会差很多_
     - 因此它 **并不太实用，而且几乎再也用不到了**
 
 其它配置
 
-- durability : 是否需要持久化, true 为需要
-- auto delete : 当最后一个绑定 Exchange 上的队列被删除时, 该 Exchange 也会被删除
+- Durability : 是否需要持久化, true 为需要
+- Auto Delete : 当最后一个绑定 Exchange 上的队列被删除时, 该 Exchange 也会被删除
 
 ### 保证消息 100% 投递
 
@@ -126,17 +125,90 @@ Confirm 消息确认机制
 
 Return 消息返回机制
 
-- **Return 消息机制处理一些不可路由的消息, 生产者通过指定一个 Exchange 和Routing Key, 把消息送达到某一个队列中去, 然后消费者监听该队列进行消费处理!**
-    - _( icehe : Dead Message Queue 死信队列? )_
+- **Return 消息机制处理一些不可路由的消息, 生产者通过指定一个 Exchange 和 Routing Key, 把消息送达到某一个队列中去, 然后消费者监听该队列进行消费处理!**
+    - _( icehe : Dead Latter Exchange 死信队列? 应该不是 )_
 - 在某些情况下，如果在发送消息的时候当 Exchange 不存在或者指定的 Routing Key 路由找不到, 这个时候如果需要监听这种不可到达的消息, 就要使用 **Return Listener** !
 - Mandatory 设置为 true 则会监听器会接受到路由不可达的消息, 然后处理
     - 如果设置为 false, Broker 将会自动删除该消息
 
 #### 消费端限流
 
-假设我们有个场景，首先，我们有个rabbitMQ服务器上有上万条消息未消费，然后我们随便打开一个消费者客户端，会出现：巨量的消息瞬间推送过来，但是我们的消费端无法同时处理这么多数据。
+假设一个场景, 有个 RabbitMQ 服务器上有上万条消息未消费, 然后随便打开一个消费者客户端, 会出现 : 巨量的消息瞬间推送过来, 但是消费端无法同时处理这么多数据.
 
-这时就会导致你的服务崩溃。其他情况也会出现问题，比如你的生产者与消费者能力不匹配，在高并发的情况下生产端产生大量消息，消费端无法消费那么多消息。
+这时就会导致你的服务崩溃. 其他情况也会出现问题, 例如生产者与消费者能力不匹配, 在高并发的情况下生产端产生大量消息, 消费端无法消费那么多消息.
+
+RabbitMQ 提供了一种 QoS ( 服务质量保证 ) 的功能, 即非自动确认消息的前提下, 如果有一定数目的消息 ( 通过 Consumer 或者 Channel 设置 QoS ) 未被确认, 不进行新的消费
+
+```cpp
+void basicQOS(unit prefetchSize, ushort prefetchCount, Boolean global)
+```
+
+- prefetchSize : 单条消息的大小限制, 0 就是不限制; 默认值为 0, 即不限制
+- prefetchCount : 设置一个固定的值, 告诉 RabbitMQ 不要同时给一个消费者推送多于 N 个消息, 即一旦有 N 个消息还没有 ACK, 则 Consumer 将 Block 掉, 直到有消息 ACK
+- global : 是否将上面的设置用于 Channel, 也是就是说上面设置的限制是用于 Channel 级别的还是 Consumer 级别
+
+#### 消费端 ACK 与重回队列
+
+消费端 ACK
+
+- 消费端进行消费的时候, **如果消费端碰到业务异常, 可以进行日志的记录, 然后进行补偿 ( 也可以加上最大努力次数的尝试 )**
+- **如果碰到服务器宕机等严重问题, 那就需要手动进行 ACK 保证消费端的消费成功!**
+
+消息重回队列
+
+- **重回队列 : 把没有处理成功的消息重新投递给 Broker**
+- 实际应用中 **一般都不开启重回队列**
+
+#### TTL 队列 / 消息
+
+> TTL : Time To Live 生存时间
+
+- 支持 **消息的过期时间**, 在消息发送时可以指定
+- 支持 **队列过期时间**, 在消息入队列开始计算时间, 只要超过了队列的超时时间配置, 那么消息就会自动的清除
+
+#### 死信队列
+
+> DLX : Dead-Letter-Exchange 死信队列
+
+利用 DLX, 当消息在一个队列中变成死信 ( Dead Message, 就是没有任何消费者消费 ) 之后, 他能被重新 publish 到另一个 Exchange, 这个 Exchange 就是 DLX
+
+消息变为死信的几种情况
+
+- 1\. 消息被拒绝 ( basic.reject / basic.nack ) 同时 requeue=false ( 不重回队列 )
+- 2\. TTL 过期
+- 3\. 队列达到最大长度
+
+DLX 也是一个正常的 Exchange
+
+- 和一般的 Exchange 没有任何的区别, 它能在任何的队列上被指定, 实际上就是设置某个队列的属性
+- 当这个队列出现死信的时候, RabbitMQ 就会自动将这条消息重新发布到该 Exchange 上去, 进而被路由到另一个队列
+- 可以监听这个队列中的消息作相应的处理, 这个特性可以弥补 RabbitMQ 以前支持的 immediate 参数的功能
+
+死信队列的设置
+
+- 设置 Exchange 和 Queue, 然后进行绑定
+    - Exchange :  dlx.exchange _( 自定义的名字 )_
+    - Queue : dlx.queue _( 自定义的名字 )_
+    - Routing Key : `#` _( `#` 表示任何 Routing Key 出现死信都会被路由过来 )_
+
+然后在正常的声明 Exchange、Queue、Binding, 只需要我们在 Queue 加上以下参数即可 :
+
+```c
+arguments.put("x-dead-letter-exchange","dlx.exchange");
+```
+
+### 集群模式
+
+- 主备模式 : 实现 RabbitMQ 高可用集群, 一般在并发量和数据不大的情况下
+    - 这种模式好用简单, 又称 warren 模式
+    - _( 区别于主从模式, 主从模式主节点提供写操作, 从节点提供读操作 )_
+    - _( 主备模式从节点不提供任何读写操作, 只做备份 )_
+    - 如果主节点宕机备份从节点会自动切换成主节点, 提供服务
+- 集群模式 : 经典方式就是 Mirror 模式, 保证 100% 数据不丢失, 实现起来也是比较简单
+
+其它
+
+TODO
 
 ## 总结
 
