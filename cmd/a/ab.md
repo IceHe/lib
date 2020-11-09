@@ -9,11 +9,28 @@
 References
 
 - `man ab` on macOS
+- Using Apache Bench for simple load testing : https://vyspiansky.github.io/2019/12/02/apache-bench-for-load-testing
 
 ## Quickstart
 
 ```bash
+# Append extra headers to the request
+ab -n 100 -c 10 -H "Accept-Encoding: gzip,deflate" http://example.com/
 
+# Don’t exit if it gets an error
+ab -n 100 -c 10 -r http://example.com/
+
+# To make POST requests with a specific file used as the POST data
+ab -n 100 -c 10 -p data.json -T application/json http://example.com/
+
+########################################
+
+# Use watch to keep on firing ab requests at an endpoint.
+# ( Notice that watch isn’t available by default on macOS,
+#   but can be easily installed with Homebrew. )
+brew install watch
+# and then run
+watch -n 1 ab -n 100 -c 10 http://example.com/
 ```
 
 ## Synopsis
@@ -88,7 +105,7 @@ _`-B local-address`_
 
 **`-e csv-file`**
 
-- **Write a Comma separated value (CSV) file which contains for each percentage (from 1% to 100%) the time (in milliseconds) it  took  to  serve that percentage of the requests.**
+- **Write a Comma separated value (CSV) file which contains for each percentage (from 1% to 100%) the time (in milliseconds) it took to serve that percentage of the requests.**
     - This is usually more useful than the 'gnuplot' file; as the results are already 'binned'.
 
 _`-f protocol`_
@@ -98,7 +115,7 @@ _`-f protocol`_
 
 **`-g gnuplot-file`
 
-- **Write  all  measured  values out as a 'gnuplot' or TSV (Tab separate values) file.**
+- **Write all measured values out as a 'gnuplot' or TSV (Tab separate values) file.**
     - This file can easily be imported into packages like Gnuplot, IDL, Mathematica, Igor or even Excel.
     - The labels are on the first line of the file.
 
@@ -109,7 +126,7 @@ _`-h`_
 **`-H custom-header`**
 
 - **Append extra headers to the request.**
-    - The argument is typically in the form of a valid header line, containing  a  colon-separated field-value pair (i.e., "Accept-Encoding: zip/zop;8bit").
+    - The argument is typically in the form of a valid header line, containing a colon-separated field-value pair (i.e., "Accept-Encoding: zip/zop;8bit").
 
 _`-i`_
 
@@ -122,7 +139,7 @@ _`-i`_
 
 _`-l`_
 
-- _Do  not report errors if the length of the responses is not constant._
+- _Do not report errors if the length of the responses is not constant._
     - _This can be useful for dynamic pages._
     - _Available in 2.4.7 and later._
 
@@ -134,7 +151,7 @@ _`-l`_
 **`-n requests`**
 
 - **Number of requests to perform for the benchmarking session.**
-    - **The default is to just perform a single request  which  usually leads to non-representative benchmarking results.**
+    - **The default is to just perform a single request which usually leads to non-representative benchmarking results.**
 
 **`-p POST-file`**
 
@@ -143,13 +160,13 @@ _`-l`_
 
 _`-P proxy-auth-username:password`_
 
-- _Supply  BASIC  Authentication credentials to a proxy en-route._
+- _Supply BASIC Authentication credentials to a proxy en-route._
     - _The username and password are separated by a single : and sent on the wire base64 encoded._
-    - _The string is sent regardless of whether the proxy needs it  (i.e.,  has  sent  an  407 proxy authentication needed)._
+    - _The string is sent regardless of whether the proxy needs it (i.e., has sent an 407 proxy authentication needed)._
 
 **`-q`**
 
-- **When  processing  more  than 150 requests, ab outputs a progress count on stderr every 10% or 100 requests or so.**
+- **When processing more than 150 requests, ab outputs a progress count on stderr every 10% or 100 requests or so.**
     - The `-q` flag will suppress these messages.
     - _( icehe : 没太看懂这个选项的用途, 在错误输出流中输出有用的参考信息么? )_
 
@@ -165,14 +182,14 @@ _`-P proxy-auth-username:password`_
 
 **`-S`**
 
-- **Do not display the median and standard deviation values, nor display the warning/error messages  when  the  average  and median  are more than one or two times the standard deviation apart.**
+- **Do not display the median and standard deviation values, nor display the warning/error messages when the average and median are more than one or two times the standard deviation apart.**
     - **And default to the min/avg/max values.** (legacy support).
 
 **`-t timelimit`**
 
 - **Maximum number of seconds to spend for benchmarking.**
-    - This **implies a `-n 50000`  internally.**
-    - Use  this  to  **benchmark  the server within a fixed total amount of time.**
+    - This **implies a `-n 50000` internally.**
+    - Use this to **benchmark the server within a fixed total amount of time.**
     - **Per default there is no timelimit.**
 
 **`-T content-type`**
@@ -187,7 +204,7 @@ _`-P proxy-auth-username:password`_
 
 **`-v verbosity`**
 
-- **Set  verbosity  level - 4 and above prints information on headers, 3 and above prints response codes (404, 200, etc.), 2 and above prints warnings and info.**
+- **Set verbosity level - 4 and above prints information on headers, 3 and above prints response codes (404, 200, etc.), 2 and above prints warnings and info.**
 
 `-V`
 
@@ -226,7 +243,7 @@ The following list describes the values returned by ab:
 Server Software
 
 - The value, if any, returned in the server HTTP header of the first successful response.
-    - This includes all characters  in the  header  from  beginning  to  the  point  a  character  with decimal value of 32 (most notably: a space or CR/LF) is detected.
+    - This includes all characters in the header from beginning to the point a character with decimal value of 32 (most notably: a space or CR/LF) is detected.
 
 Server Hostname
 
@@ -235,7 +252,7 @@ Server Hostname
 Server Port
 
 - The port to which ab is connecting.
-    - If no port is given on the command line, this will default to 80 for  http  and  443 for https.
+    - If no port is given on the command line, this will default to 80 for http and 443 for https.
 
 SSL/TLS Protocol
 
@@ -248,7 +265,7 @@ Document Path
 
 Document Length
 
-- This  is  the  size in bytes of the first successfully returned document.
+- This is the size in bytes of the first successfully returned document.
     - If the document length changes during testing, the response is considered an error.
 
 **Concurrency Level**
@@ -257,7 +274,7 @@ Document Length
 
 **Time taken for tests**
 
-- This is **the time taken from the moment the first socket connection is  created  to  the  moment  the  last  response  is received**
+- This is **the time taken from the moment the first socket connection is created to the moment the last response is received**
 
 Complete requests
 
@@ -265,7 +282,7 @@ Complete requests
 
 Failed requests
 
-- The  number of requests that were considered a failure.
+- The number of requests that were considered a failure.
     - If the number is greater than zero, another line will be printed showing the number of requests that failed due to connecting, reading, incorrect content length, or exceptions.
 
 Write errors
@@ -275,7 +292,7 @@ Write errors
 **Non-2xx responses**
 
 - **The number of responses that were not in the 200 series of response codes.**
-    - If all responses were 200, this field is  not printed.
+    - If all responses were 200, this field is not printed.
 
 **Keep-Alive requests**
 
@@ -283,7 +300,7 @@ Write errors
 
 Total body sent
 
-- If  configured  to send data as part of the test, this is the total number of bytes sent during the tests.
+- If configured to send data as part of the test, this is the total number of bytes sent during the tests.
     - This field is omitted if the test did not include a body to send.
 
 Total transferred
@@ -334,7 +351,6 @@ Completed 800 requests
 Completed 900 requests
 Completed 1000 requests
 Finished 1000 requests
-
 
 Server Software:        nginx/1.19.4
 Server Hostname:        localhost

@@ -324,6 +324,7 @@ Command Line Tools
 - [vim](/cmd/v/vim.md) : terminal text editor
 - [visudo](/cmd/v/visudo.md) : edit the sudoers file
 - _[w](/cmd/w/w.md) : show who is logged on & what they are doing_
+- [watch](/cmd/w/watch.md) :  execute a program periodically, showing output fullscreen
 - [wc](/cmd/w/wc.md) : print newline, word, & byte counts for each file
 - [wget](/cmd/w/wget.md) : network downloader
 - [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
@@ -348,6 +349,8 @@ Scenes
 - __transfer data__ : ftp, nc, rsync, scp
 - __write file__ : tee, `>`, `2>&1`
 - __notify__ : terminal-notifier
+- __http benchmark__ : ab, watch
+- __differ output__ : comm, diff, vimdiff, watch
 - ……
 
 > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
