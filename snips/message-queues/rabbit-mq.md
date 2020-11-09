@@ -44,8 +44,8 @@ AMQP 协议
 ![rabbit-mq-direct-exchange.png](_images/rabbit-mq-direct-exchange.png)
 
 - **Direct Exchange : 所有发送到 Direct Exchange 的消息被转发到 Routing Key 中指定的 Queue**
-    - Direct Exchange 可以使用 default Exchange
-    - 默认的 Exchange 会绑定所有的队列, 所以 Direct 可以直接使用 Queue 名 ( 作为 Routing Key ) 绑定
+    - Direct Exchange 可以使用默认的 Exchange
+    - 默认的 Exchange 会绑定所有的队列, 所以 Direct 可以直接使用 Queue 名 ( 作为 Routing Key ) 绑定 _( icehe : 要实际使用一下来理解 )_
     - 或者消费者和生产者的 Routing Key 完全匹配
 
 ![rabbit-mq-topic-exchange.png](_images/rabbit-mq-topic-exchange.png)
