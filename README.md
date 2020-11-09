@@ -109,8 +109,7 @@ Markdown
 Message Queues
 
 - [MemcacheQ](/snips/message-queues/mcq.md)
-
-<!-- - [RabbitMQ](/snips/message-queues/rabbit-mq.md) ( TODO ) -->
+- [RabbitMQ](/snips/message-queues/rabbit-mq.md)
 <!-- - [Kafka](/snips/message-queues/kafka.md) ( TODO ) -->
 
 Storage - Usage
