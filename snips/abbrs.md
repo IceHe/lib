@@ -266,6 +266,7 @@ Reference : https://www.computerhope.com/keys.htm
 - DIP : Director IP 转发地址
 - dir : directory
 - dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
+- DMA : [Direct Memory Access](https://en.wikipedia.org/wiki/Direct_memory_access)
 - dmg : [Apple Disk Image](https://en.wikipedia.org/wiki/Apple_Disk_Image)
 - DML : [Data Manipulation Language](https://en.wikipedia.org/wiki/Data_manipulation_language)
 - dn : down

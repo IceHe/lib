@@ -1,11 +1,11 @@
 # Message Queues ( TODO )
 
 - [x] MCQ
-- [ ] **RabbitMQ**
+- [x] **RabbitMQ**
 - [ ] **Kafka**
 - [ ] ActiveMQ
 - [ ] RocketMQ
-- [ ] ZereMQ ?
+- [ ] ZereMQ
 
 References
 
