@@ -12,7 +12,7 @@ References
 
 Reference
 
-- RabbitMQ 的应用场景以及基本原理介绍 | Laravel China 社区  : https://learnku.com/articles/27446
+- RabbitMQ 总结 : https://cloud.tencent.com/developer/article/1654903
 
 AMQP 协议
 
@@ -177,7 +177,7 @@ void basicQOS(unit prefetchSize, ushort prefetchCount, Boolean global)
 - 1\. 消息被拒绝 ( basic.reject / basic.nack ) 同时 requeue=false ( 不重回队列 )
 - 2\. TTL 过期
 - 3\. 队列达到最大长度
-
+，
 DLX 也是一个正常的 Exchange
 
 - 和一般的 Exchange 没有任何的区别, 它能在任何的队列上被指定, 实际上就是设置某个队列的属性
@@ -206,15 +206,83 @@ arguments.put("x-dead-letter-exchange","dlx.exchange");
     - 如果主节点宕机备份从节点会自动切换成主节点, 提供服务
 - 集群模式 : 经典方式就是 Mirror 模式, 保证 100% 数据不丢失, 实现起来也是比较简单
 
-其它
+Mirror Queue 镜像队列
 
-TODO
+![active-mq-cluster.jpeg](_images/active-mq-cluster.jpeg)
+
+- **镜像队列, 是 RabbitMQ 数据高可用的解决方案**
+    - 主要实现数据同步, **一般来说是由 2~3节 点实现数据同步, ( 对于 100% 消息可靠性解决方案一般是 3 个节点 )**
+
+多活模式
+
+- **多活模式** : 也是实现 **异地数据复制的主流模式**
+    - _因为 Shovel 模式配置相对复杂, 所以一般来说实现异地集群都是使用这种双活模式_
+    - _多活模式需要依赖 RabbitMQ 的 federation 插件, 可以实现持续可靠的 AMQP 数据_
+- RabbitMQ 部署架构采用双中心模式 ( 多中心 ) 在两套 ( 或多套 ) 数据中心个部署一套 RabbitMQ 集群
+    - 各中心的 RabbitMQ 服务需要为提供正常的消息业务外, **数据中心之间还需要实现部分队列消息共享**
+
+![rabbit-mq-multiple-data-center-architecture.jpeg](_images/rabbit-mq-multiple-data-center-architecture.jpeg)
+
+> Federation 插件是一个不需要构建 Cluster, 而在 Brokers 之间传输消息的高性能插件,
+> Federation 可以在 Brokers 或者 Cluster 之间传输消息,
+> 连接的双方可以使用不同的 Users 或者 Virtual Host,
+> 双方也可以使用不同版本的 Erlang 或者 RabbitMQ 版本.
+> Federation 插件可以使用 AMQP 协议作为通讯协议, 可以接受不连续的传输.
+
+![rabbit-mq-federation-exchanges.jpeg](_images/rabbit-mq-federation-exchanges.jpeg)
+
+- **Federation Exchanges**, 可以看成 Downstream 从 Upstream 主动拉取消息
+    - 但并不是拉取所有消息, 必须是在 Downstream 上已经明确定义 Bindings 关系的 Exchange
+    - 也就是有实际的物理 Que ue来接收消息, 才会从 Upstream 拉取消息到 Downstream
+- 使用 AMQP 协议实施代理间通信, Downstream 会将绑定关系组合在一起, 绑定/解除绑定命令将发送到 Upstream 交换机
+- 因此, Federation Exchange 只接收订阅的消息
+
+### 高性能的 HAProxy
+
+> HAProxy 是一款提供高可用性、负载均衡
+> 以及基于 TCP ( 第四层 ) 和 HTTP ( 第七层 ) 应用的代理软件,
+> 支持虚拟主机 ( Virtual Host ), 它是免费、快速并且可靠的一种解决方案.
+> HAProxy 特别适用于那些负载特大的 Web 站点, 这些站点通常又需要会话保持或七层处理.
+> HAProxy 运行在时下的硬件上, 完全可以支持数以万计的并发连接.
+> 并且它的运行模式使得它可以很简单安全的整合进您当前的架构中,
+> 同时可以保护你的 Web 服务器不被暴露到网络上.
+
+HAProxy 为何性能好?
+
+- **单进程、事件驱动模型** 显著降低了上下文切换的开销及内存占用.
+- 在任何可用的情况下, 单缓冲 ( **single buffering** ) 机制能 **以不复制任何数据的方式完成读写操作**, 这会节约大量的 CPU 时钟周期及内存带宽.
+- 借助于 Linux 2.6 ( >= 2.6.27.19 ) 上的 `splice()` 系统调用, HAProxy 可以实现 **零复制转发** ( **Zero-copy forwarding** ) , 在 Linux 3.5 及以上的 OS 中还可以实现 **零复制启动** ( **zero-starting** )
+- **内存分配器在固定大小的内存池中可实现即时内存分配**, 这能够显著减少创建一个会话的时长.
+- **树型存储** : 侧重于使用 RabbitMQ 作者多年前开发的弹性二叉树, 实现了以 O(log(N)) 的低开销来保持计时器命令、保持运行队列命令及管理轮询及最少连接队列
+
+#### KeepAlived
+
+> **KeepAlived 软件主要是通过 VRRP 协议来实现高可用功能.**
+> **VRRP : Virtual Router RedundancyProtocol ( 虚拟路由器冗余协议 )**.
+> **VRRP 出现的目的就是为了解决静态路由单点故障问题的**,
+> 它能够保证当个别节点宕机时, 整个网络可以不间断地运行,
+> 所以 Keepalived 一方面具有配置管理 LVS 的功能,
+> 同时还具有对 LVS 下面节点进行健康检查的功能,
+> 另一方面也可实现系统网络服务的高可用功能.
+
+KeepAlived 的作用
+
+- 管理 LVS 负载均衡软件
+- 实现 LVS 集群节点的健康检查
+- 作为系统网络服务的高可用性保证? ( failover )
+
+KeepAlived 如何实现高可用?
+
+- Keepalived 高可用服务对之间的故障切换转移, 是通过 VRRP ( Virtual Router Redundancy Protocol 虚拟路由器冗余协议 ) 来实现的
+    - 在 Keepalived 服务正常工作时, 主 Master 节点会不断地向备节点发送 ( 多播的方式 ) 心跳消息, 用以告诉备 Backup 节点自己还活看
+    - 当主Master节点发生故障时, 就无法发送心跳消息, 备节点也就因此无法继续检测到来自主 Master 节点的心跳了, 于是调用自身的接管程序, 接管主 Master 节点的 IP 资源及服务.
+    - 而当主 Master 节点恢复时备 Backup 节点又会释放主节点故障时自身接管的 IP 资源及服务, 恢复到原来的备用角色.
 
 ## 总结
 
 Reference
 
-- RabbitMQ 总结 : https://cloud.tencent.com/developer/article/1654903
+- RabbitMQ 的应用场景以及基本原理介绍 | Laravel China 社区  : https://learnku.com/articles/27446
 
 ### Intro
 

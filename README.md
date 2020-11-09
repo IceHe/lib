@@ -216,6 +216,7 @@ Command Line Tools
 
 > Commands & CLI ( Command-Line Interface )
 
+- [ab](/cmd/a/ab.md) : Apache HTTP server benchmarking tool
 - [awk](/cmd/a/awk.md) : pattern-directed scanning and processing language
     - [gawk](/cmd/a/awk.md) : pattern scanning and processing language ( TODO )
 - [bash](/cmd/bash/bash.md) : GNU Bourne-Again SHell ( draft )
