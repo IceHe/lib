@@ -113,19 +113,30 @@ Message Queues
 - [ActiveMQ](/snips/message-queues/active-mq.md)
 - [_MemcacheQ_](/snips/message-queues/mcq.md)
 
-Storage - Usage
-
-- [Elasticsearch](/snips/storage/elasticsearch.md)
-- [MySQL](/snips/mysql/mysql.md)
-- [Redis](/snips/redis/redis.md)
-    - The data model is key-value, but many different kind of values are supported :
-        - Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
-- [_Mongo_](/snips/tmp/mongo.md) ( draft )
-
-Storage - Basic
+Storage
 
 - [LSM Tree](/snips/lsm-tree/lsm-tree.md) : Log-Structured Merge-Tree
-    - _Data structure related to LevelDB / RockDB_
+    - Data structure related to LevelDB / RocksDB
+- Elasticsearch : for search ( and analysis )
+    - Basics ( TODO ) : https://www.elastic.co
+        - What is Elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
+        - Getting started with the Elastic Stack : https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html
+    - [Usage](/snips/storage/elasticsearch.md)
+- MySQL : robust SQL database server
+    - Basics ( TODO ) : https://www.mysql.com
+        - https://dev.mysql.com/doc/
+            - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
+    - [Usage](/snips/mysql/mysql-usage.md)
+- Redis : in-memory data structure store
+    - _used as a database, cache and message broker_
+    - [Basics](/snips/redis/redis.md) : http://redis.io
+    - Usage ( TODO ) : https://redis.io/commands
+- [_Mongo_](/snips/tmp/mongo.md) _( draft )_
+
+<!--
+        - The data model is key-value, but many different kind of values are supported.
+        - e.g. Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
+-->
 
 Web
 
