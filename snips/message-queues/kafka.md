@@ -205,14 +205,14 @@ Reference
 - Furthermore, we are building on top of the JVM, and anyone who has spent any time with Java memory usage knows two things:
     - 1\. The memory overhead of objects is very high, often doubling the size of the data stored (or worse).
     - 2\. Java garbage collection becomes increasingly fiddly and slow as the in-heap data increases.
-- As a result of these factors using the filesystem and relying on pagecache is superior to maintaining an in-memory cache or other structure -- we at least double the available cache by having automatic access to all free memory, and likely double again by storing a compact byte structure rather than individual objects.
+- As a result of these factors **using the filesystem and relying on pagecache is superior to maintaining an in-memory cache or other structure** -- we at least double the available cache by having automatic access to all free memory, and likely double again by storing a compact byte structure rather than individual objects.
     - Doing so will result in a cache of up to 28~30GB on a 32GB machine without GC penalties.
     - Furthermore, this cache will stay warm even if the service is restarted, whereas the in-process cache will need to be rebuilt in memory (which for a 10GB cache may take 10 minutes) or else it will need to start with a completely cold cache (which likely means terrible initial performance).
     - This also greatly simplifies the code as all logic for maintaining coherency between the cache and filesystem is now in the OS, which tends to do so more efficiently and more correctly than one-off _( 一次性的 )_ in-process attempts.
     - If your disk usage favors linear reads then read-ahead is effectively pre-populating this cache with useful data on each disk read.
 - This suggests a design which is very simple :
-    - rather than maintain as much as possible in-memory and flush it all out to the filesystem in a panic when we run out of space, we invert that.
-    - All data is immediately written to a persistent log on the filesystem without necessarily flushing to disk.
+    - **rather than maintain as much as possible in-memory and flush it all out to the filesystem in a panic when we run out of space, we invert that.**
+    - **All data is immediately written to a persistent log on the filesystem without necessarily flushing to disk.**
     - In effect this just means that it is transferred into the kernel's pagecache.
 - This style of **pagecache-centric design** is described in an [article](http://varnish-cache.org/docs/trunk/phk/notes.html) on the design of Varnish here (along with a healthy dose of arrogance).
 
@@ -242,25 +242,25 @@ _suffice : vi. 足够, 有能力_
     - Furthermore, we assume each message published is read by at least one consumer (often many), hence we strive to make consumption as cheap as possible.
 - We have also found, from experience building and running a number of similar systems, that efficiency is a key to effective multi-tenant _( 多租户 )_ operations.
     - If the downstream infrastructure service can easily become a bottleneck due to a small bump in usage by the application, such small changes will often create problems.
-    - By being very fast we help ensure that the application will tip-over under load before the infrastructure.
+    - By being very fast we help ensure that the application will tip-over _( 翻倒 )_ under load before the infrastructure.
     - This is particularly important when trying to run a centralized service that supports dozens or hundreds of applications on a centralized cluster as changes in usage patterns are a near-daily occurrence.
 - We discussed disk efficiency in the previous section.
     - Once poor disk access patterns have been eliminated, there are two common causes of inefficiency in this type of system :
         - too many small I/O operations, and
         - excessive **byte copying**.
 - The small I/O problem happens both between the client and the server and in the server's own persistent operations.
-- To avoid this, our protocol is built around a "message set" abstraction that naturally groups messages together.
-    - This allows network requests to group messages together and amortize _( 分期偿还 )_ the overhead of the network roundtrip rather than sending a single message at a time.
+- To avoid this, our **protocol is built around a "message set" abstraction that naturally groups messages together.**
+    - This **allows network requests to group messages together and amortize _( 分期偿还 )_ the overhead of the network roundtrip rather than sending a single message at a time.**
     - The server in turn appends chunks of messages to its log in one go, and the consumer fetches large linear chunks at a time.
 - This simple optimization produces orders of magnitude _( 数个数量级的 )_ speed up.
-    - Batching leads to larger network packets, larger sequential disk operations, contiguous memory blocks, and so on, all of which allows Kafka to turn a bursty stream of random message writes into linear writes that flow to the consumers.
+    - **Batching leads to larger network packets, larger sequential disk operations, contiguous memory blocks, and so on, all of which allows Kafka to turn a bursty stream of random message writes into linear writes that flow to the consumers.**
 - The other inefficiency is in byte copying.
     - At low message rates this is not an issue, but under load the impact is significant.
-    - To avoid this we employ a standardized binary message format that is shared by the producer, the broker, and the consumer (so data chunks can be transferred without modification between them).
+    - To avoid this we **employ a standardized binary message format that is shared by the producer, the broker, and the consumer (so data chunks can be transferred without modification between them).**
 - The message log maintained by the broker is itself just a directory of files, each populated by a sequence of message sets that have been written to disk in the same format used by the producer and consumer.
     - Maintaining this common format allows optimization of the most important operation: network transfer of persistent log chunks.
-    - Modern unix operating systems offer a highly optimized code path for transferring data out of pagecache to a socket;
-    - in Linux this is done with the [sendfile system call](https://man7.org/linux/man-pages/man2/sendfile.2.html).
+    - **Modern unix operating systems offer a highly optimized code path for transferring data out of pagecache to a socket;**
+        - in Linux this is done with the [sendfile system call](https://man7.org/linux/man-pages/man2/sendfile.2.html).
 - To understand the impact of sendfile, it is important to understand the **common data path for transfer of data from file to socket** :
     - 1\. The **operating system reads data from the disk into pagecache in kernel space**
     - 2\. The **application reads the data from kernel space into a user-space buffer**
@@ -271,22 +271,213 @@ _suffice : vi. 足够, 有能力_
     - **Using `sendfile`, this re-copying is avoided by allowing the OS to send the data from pagecache to the network directly.**
     - So in this optimized path, only the final copy to the NIC buffer is needed.
 - We expect a common use case to be multiple consumers on a topic.
-    - Using the zero-copy optimization above, data is copied into pagecache exactly once and reused on each consumption instead of being stored in memory and copied out to user-space every time it is read.
-    - This allows messages to be consumed at a rate that approaches the limit of the network connection.
-- This combination of pagecache and sendfile means that on a Kafka cluster where the consumers are mostly caught up you will see no read activity on the disks whatsoever _( 无论什么 )_ as they will be serving data entirely from cache.
-- For more background on the sendfile and zero-copy support in Java, see this [article](https://developer.ibm.com/articles/j-zerocopy/).
+    - **Using the zero-copy optimization above, data is copied into pagecache exactly once and reused on each consumption instead of being stored in memory and copied out to user-space every time it is read.**
+    - This **allows messages to be consumed at a rate that approaches the limit of the network connection.**
+- This combination of pagecache and `sendfile` means that on a Kafka cluster where the consumers are mostly caught up you will see no read activity on the disks whatsoever _( 无论什么 )_ as they will be serving data entirely from cache.
+- For more background on the `sendfile` and zero-copy support in Java, see this [article](https://developer.ibm.com/articles/j-zerocopy/).
+    - _( icehe : 是一篇很棒的文章 )_
 
 #### End-to-end Batch Compression
 
-In some cases the bottleneck is actually not CPU or disk but network bandwidth. This is particularly true for a data pipeline that needs to send messages between data centers over a wide-area network. Of course, the user can always compress its messages one at a time without any support needed from Kafka, but this can lead to very poor compression ratios as much of the redundancy is due to repetition between messages of the same type (e.g. field names in JSON or user agents in web logs or common string values). Efficient compression requires compressing multiple messages together rather than compressing each message individually.
-
-Kafka supports this with an efficient batching format. A batch of messages can be clumped together compressed and sent to the server in this form. This batch of messages will be written in compressed form and will remain compressed in the log and will only be decompressed by the consumer.
-
-Kafka supports GZIP, Snappy, LZ4 and ZStandard compression protocols. More details on compression can be found [here](https://cwiki.apache.org/confluence/display/KAFKA/Compression).
+- In some cases the bottleneck is actually not CPU or disk but network bandwidth.
+    - This is particularly true for a data pipeline that needs to send messages between data centers over a wide-area network.
+    - Of course, the user can always compress its messages one at a time without any support needed from Kafka, but this can lead to very poor compression ratios as much of the redundancy is due to repetition between messages of the same type
+        - (e.g. field names in JSON or user agents in web logs or common string values).
+    - Efficient compression requires compressing multiple messages together rather than compressing each message individually.
+- Kafka supports this with an efficient batching format.
+    - **A batch of messages can be clumped together compressed and sent to the server in this form.**
+    - This batch of messages will be written in compressed form and will remain compressed in the log and will only be decompressed by the consumer.
+- Kafka supports GZIP, Snappy, LZ4 and ZStandard compression protocols.
+    - More details on compression can be found [here](https://cwiki.apache.org/confluence/display/KAFKA/Compression).
 
 ### The Producer
 
 #### Load Balance
+
+- The **producer sends data directly to the broker that is the leader for the partition without any intervening routing tier.**
+    - To help the producer do this **all Kafka nodes can answer a request for metadata about which servers are alive and where the leaders for the partitions of a topic are at any given time to allow the producer to appropriately direct its requests.**
+- The client controls which partition it publishes messages to.
+    - This can be done at random, implementing a kind of random load balancing, or it can be done by some semantic partitioning function.
+    - We expose the interface for semantic partitioning by allowing the user to specify a key to partition by and using this to hash to a partition (there is also an option to override the partition function if need be).
+    - For example if the key chosen was a user id then all data for a given user would be sent to the same partition.
+    - This in turn will allow consumers to make locality assumptions about their consumption.
+    - This style of partitioning is explicitly designed to allow locality-sensitive processing in consumers.
+
+#### Asynchronous send
+
+- Batching is one of the big drivers of efficiency, and to **enable batching the Kafka producer will attempt to accumulate data in memory and to send out larger batches in a single request.**
+    - The **batching can be configured to accumulate no more than a fixed number of messages and to wait no longer than some fixed latency bound (say <u>64k or 10 ms</u>).**
+    - This allows the accumulation of more bytes to send, and few larger I/O operations on the servers.
+    - This buffering is configurable and gives a mechanism to trade off a small amount of additional latency for better throughput.
+- Details on [configuration](https://kafka.apache.org/documentation/#producerconfigs) and the [api](http://kafka.apache.org/082/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html) for the producer can be found elsewhere in the documentation.
+
+### Consumer
+
+- The Kafka consumer works by issuing "fetch" requests to the brokers leading the partitions it wants to consume.
+    - The consumer specifies its offset in the log with each request and receives back a chunk of log beginning from that position.
+    - The consumer thus has significant control over this position and can rewind it to re-consume data if need be.
+
+#### Push vs. Pull
+
+An initial question we considered is whether consumers should pull data from brokers or brokers should push data to the consumer. In this respect Kafka follows a more traditional design, shared by most messaging systems, where data is pushed to the broker from the producer and pulled from the broker by the consumer. Some logging-centric systems, such as Scribe and Apache Flume, follow a very different push-based path where data is pushed downstream. There are pros and cons to both approaches. However, a push-based system has difficulty dealing with diverse consumers as the broker controls the rate at which data is transferred. The goal is generally for the consumer to be able to consume at the maximum possible rate; unfortunately, in a push system this means the consumer tends to be overwhelmed when its rate of consumption falls below the rate of production (a denial of service attack, in essence). A pull-based system has the nicer property that the consumer simply falls behind and catches up when it can. This can be mitigated with some kind of backoff protocol by which the consumer can indicate it is overwhelmed, but getting the rate of transfer to fully utilize (but never over-utilize) the consumer is trickier than it seems. Previous attempts at building systems in this fashion led us to go with a more traditional pull model.
+
+Another advantage of a pull-based system is that it lends itself to aggressive batching of data sent to the consumer. A push-based system must choose to either send a request immediately or accumulate more data and then send it later without knowledge of whether the downstream consumer will be able to immediately process it. If tuned for low latency, this will result in sending a single message at a time only for the transfer to end up being buffered anyway, which is wasteful. A pull-based design fixes this as the consumer always pulls all available messages after its current position in the log (or up to some configurable max size). So one gets optimal batching without introducing unnecessary latency.
+
+The deficiency of a naive pull-based system is that if the broker has no data the consumer may end up polling in a tight loop, effectively busy-waiting for data to arrive. To avoid this we have parameters in our pull request that allow the consumer request to block in a "long poll" waiting until data arrives (and optionally waiting until a given number of bytes is available to ensure large transfer sizes).
+
+You could imagine other possible designs which would be only pull, end-to-end. The producer would locally write to a local log, and brokers would pull from that with consumers pulling from them. A similar type of "store-and-forward" producer is often proposed. This is intriguing but we felt not very suitable for our target use cases which have thousands of producers. Our experience running persistent data systems at scale led us to feel that involving thousands of disks in the system across many applications would not actually make things more reliable and would be a nightmare to operate. And in practice we have found that we can run a pipeline with strong SLAs at large scale without a need for producer persistence.
+
+#### Consumer Position
+
+Keeping track of what has been consumed is, surprisingly, one of the key performance points of a messaging system.
+Most messaging systems keep metadata about what messages have been consumed on the broker. That is, as a message is handed out to a consumer, the broker either records that fact locally immediately or it may wait for acknowledgement from the consumer. This is a fairly intuitive choice, and indeed for a single machine server it is not clear where else this state could go. Since the data structures used for storage in many messaging systems scale poorly, this is also a pragmatic choice--since the broker knows what is consumed it can immediately delete it, keeping the data size small.
+
+What is perhaps not obvious is that getting the broker and consumer to come into agreement about what has been consumed is not a trivial problem. If the broker records a message as consumed immediately every time it is handed out over the network, then if the consumer fails to process the message (say because it crashes or the request times out or whatever) that message will be lost. To solve this problem, many messaging systems add an acknowledgement feature which means that messages are only marked as sent not consumed when they are sent; the broker waits for a specific acknowledgement from the consumer to record the message as consumed. This strategy fixes the problem of losing messages, but creates new problems. First of all, if the consumer processes the message but fails before it can send an acknowledgement then the message will be consumed twice. The second problem is around performance, now the broker must keep multiple states about every single message (first to lock it so it is not given out a second time, and then to mark it as permanently consumed so that it can be removed). Tricky problems must be dealt with, like what to do with messages that are sent but never acknowledged.
+
+Kafka handles this differently. Our topic is divided into a set of totally ordered partitions, each of which is consumed by exactly one consumer within each subscribing consumer group at any given time. This means that the position of a consumer in each partition is just a single integer, the offset of the next message to consume. This makes the state about what has been consumed very small, just one number for each partition. This state can be periodically checkpointed. This makes the equivalent of message acknowledgements very cheap.
+
+There is a side benefit of this decision. A consumer can deliberately rewind back to an old offset and re-consume data. This violates the common contract of a queue, but turns out to be an essential feature for many consumers. For example, if the consumer code has a bug and is discovered after some messages are consumed, the consumer can re-consume those messages once the bug is fixed.
+
+#### Offline Data Load
+
+- Scalable persistence allows for the possibility of consumers that only periodically consume such as batch data loads that periodically bulk-load data into an offline system such as Hadoop or a relational data warehouse.
+    - In the case of Hadoop we parallelize the data load by splitting the load over individual map tasks, one for each node/topic/partition combination, allowing full parallelism in the loading.
+    - Hadoop provides the task management, and tasks which fail can restart without danger of duplicate data—they simply restart from their original position.
+
+#### Static Membership
+
+Static membership aims to improve the availability of stream applications, consumer groups and other applications built on top of the group rebalance protocol. The rebalance protocol relies on the group coordinator to allocate entity ids to group members. These generated ids are ephemeral and will change when members restart and rejoin. For consumer based apps, this "dynamic membership" can cause a large percentage of tasks re-assigned to different instances during administrative operations such as code deploys, configuration updates and periodic restarts. For large state applications, shuffled tasks need a long time to recover their local states before processing and cause applications to be partially or entirely unavailable. Motivated by this observation, Kafka’s group management protocol allows group members to provide persistent entity ids. Group membership remains unchanged based on those ids, thus no rebalance will be triggered.
+If you want to use static membership,
+
+Upgrade both broker cluster and client apps to 2.3 or beyond, and also make sure the upgraded brokers are using inter.broker.protocol.version of 2.3 or beyond as well.
+Set the config ConsumerConfig#GROUP_INSTANCE_ID_CONFIG to a unique value for each consumer instance under one group.
+For Kafka Streams applications, it is sufficient to set a unique ConsumerConfig#GROUP_INSTANCE_ID_CONFIG per KafkaStreams instance, independent of the number of used threads for an instance.
+If your broker is on an older version than 2.3, but you choose to set ConsumerConfig#GROUP_INSTANCE_ID_CONFIG on the client side, the application will detect the broker version and then throws an UnsupportedException. If you accidentally configure duplicate ids for different instances, a fencing mechanism on broker side will inform your duplicate client to shutdown immediately by triggering a org.apache.kafka.common.errors.FencedInstanceIdException. For more details, see [KIP-345](https://cwiki.apache.org/confluence/display/KAFKA/KIP-345%3A+Introduce+static+membership+protocol+to+reduce+consumer+rebalances)
+
+### Message Delivery Semantics
+
+Now that we understand a little about how producers and consumers work, let's discuss the semantic guarantees Kafka provides between producer and consumer. Clearly there are multiple possible message delivery guarantees that could be provided:
+
+At most once—Messages may be lost but are never redelivered.
+At least once—Messages are never lost but may be redelivered.
+Exactly once—this is what people actually want, each message is delivered once and only once.
+It's worth noting that this breaks down into two problems: the durability guarantees for publishing a message and the guarantees when consuming a message.
+Many systems claim to provide "exactly once" delivery semantics, but it is important to read the fine print, most of these claims are misleading (i.e. they don't translate to the case where consumers or producers can fail, cases where there are multiple consumer processes, or cases where data written to disk can be lost).
+
+Kafka's semantics are straight-forward. When publishing a message we have a notion of the message being "committed" to the log. Once a published message is committed it will not be lost as long as one broker that replicates the partition to which this message was written remains "alive". The definition of committed message, alive partition as well as a description of which types of failures we attempt to handle will be described in more detail in the next section. For now let's assume a perfect, lossless broker and try to understand the guarantees to the producer and consumer. If a producer attempts to publish a message and experiences a network error it cannot be sure if this error happened before or after the message was committed. This is similar to the semantics of inserting into a database table with an autogenerated key.
+
+Prior to 0.11.0.0, if a producer failed to receive a response indicating that a message was committed, it had little choice but to resend the message. This provides at-least-once delivery semantics since the message may be written to the log again during resending if the original request had in fact succeeded. Since 0.11.0.0, the Kafka producer also supports an idempotent delivery option which guarantees that resending will not result in duplicate entries in the log. To achieve this, the broker assigns each producer an ID and deduplicates messages using a sequence number that is sent by the producer along with every message. Also beginning with 0.11.0.0, the producer supports the ability to send messages to multiple topic partitions using transaction-like semantics: i.e. either all messages are successfully written or none of them are. The main use case for this is exactly-once processing between Kafka topics (described below).
+
+Not all use cases require such strong guarantees. For uses which are latency sensitive we allow the producer to specify the durability level it desires. If the producer specifies that it wants to wait on the message being committed this can take on the order of 10 ms. However the producer can also specify that it wants to perform the send completely asynchronously or that it wants to wait only until the leader (but not necessarily the followers) have the message.
+
+Now let's describe the semantics from the point-of-view of the consumer. All replicas have the exact same log with the same offsets. The consumer controls its position in this log. If the consumer never crashed it could just store this position in memory, but if the consumer fails and we want this topic partition to be taken over by another process the new process will need to choose an appropriate position from which to start processing. Let's say the consumer reads some messages -- it has several options for processing the messages and updating its position.
+
+It can read the messages, then save its position in the log, and finally process the messages. In this case there is a possibility that the consumer process crashes after saving its position but before saving the output of its message processing. In this case the process that took over processing would start at the saved position even though a few messages prior to that position had not been processed. This corresponds to "at-most-once" semantics as in the case of a consumer failure messages may not be processed.
+It can read the messages, process the messages, and finally save its position. In this case there is a possibility that the consumer process crashes after processing messages but before saving its position. In this case when the new process takes over the first few messages it receives will already have been processed. This corresponds to the "at-least-once" semantics in the case of consumer failure. In many cases messages have a primary key and so the updates are idempotent (receiving the same message twice just overwrites a record with another copy of itself).
+So what about exactly once semantics (i.e. the thing you actually want)? When consuming from a Kafka topic and producing to another topic (as in a Kafka Streams application), we can leverage the new transactional producer capabilities in 0.11.0.0 that were mentioned above. The consumer's position is stored as a message in a topic, so we can write the offset to Kafka in the same transaction as the output topics receiving the processed data. If the transaction is aborted, the consumer's position will revert to its old value and the produced data on the output topics will not be visible to other consumers, depending on their "isolation level." In the default "read_uncommitted" isolation level, all messages are visible to consumers even if they were part of an aborted transaction, but in "read_committed," the consumer will only return messages from transactions which were committed (and any messages which were not part of a transaction).
+
+When writing to an external system, the limitation is in the need to coordinate the consumer's position with what is actually stored as output. The classic way of achieving this would be to introduce a two-phase commit between the storage of the consumer position and the storage of the consumers output. But this can be handled more simply and generally by letting the consumer store its offset in the same place as its output. This is better because many of the output systems a consumer might want to write to will not support a two-phase commit. As an example of this, consider a Kafka Connect connector which populates data in HDFS along with the offsets of the data it reads so that it is guaranteed that either data and offsets are both updated or neither is. We follow similar patterns for many other data systems which require these stronger semantics and for which the messages do not have a primary key to allow for deduplication.
+
+So effectively Kafka supports exactly-once delivery in Kafka Streams, and the transactional producer/consumer can be used generally to provide exactly-once delivery when transferring and processing data between Kafka topics. Exactly-once delivery for other destination systems generally requires cooperation with such systems, but Kafka provides the offset which makes implementing this feasible (see also Kafka Connect). Otherwise, Kafka guarantees at-least-once delivery by default, and allows the user to implement at-most-once delivery by disabling retries on the producer and committing offsets in the consumer prior to processing a batch of messages.
+
+### Replication
+
+Kafka replicates the log for each topic's partitions across a configurable number of servers (you can set this replication factor on a topic-by-topic basis). This allows automatic failover to these replicas when a server in the cluster fails so messages remain available in the presence of failures.
+
+Other messaging systems provide some replication-related features, but, in our (totally biased) opinion, this appears to be a tacked-on thing, not heavily used, and with large downsides: replicas are inactive, throughput is heavily impacted, it requires fiddly manual configuration, etc. Kafka is meant to be used with replication by default—in fact we implement un-replicated topics as replicated topics where the replication factor is one.
+
+The unit of replication is the topic partition. Under non-failure conditions, each partition in Kafka has a single leader and zero or more followers. The total number of replicas including the leader constitute the replication factor. All reads and writes go to the leader of the partition. Typically, there are many more partitions than brokers and the leaders are evenly distributed among brokers. The logs on the followers are identical to the leader's log—all have the same offsets and messages in the same order (though, of course, at any given time the leader may have a few as-yet unreplicated messages at the end of its log).
+
+Followers consume messages from the leader just as a normal Kafka consumer would and apply them to their own log. Having the followers pull from the leader has the nice property of allowing the follower to naturally batch together log entries they are applying to their log.
+
+As with most distributed systems automatically handling failures requires having a precise definition of what it means for a node to be "alive". For Kafka node liveness has two conditions
+
+A node must be able to maintain its session with ZooKeeper (via ZooKeeper's heartbeat mechanism)
+If it is a follower it must replicate the writes happening on the leader and not fall "too far" behind
+We refer to nodes satisfying these two conditions as being "in sync" to avoid the vagueness of "alive" or "failed". The leader keeps track of the set of "in sync" nodes. If a follower dies, gets stuck, or falls behind, the leader will remove it from the list of in sync replicas. The determination of stuck and lagging replicas is controlled by the replica.lag.time.max.ms configuration.
+In distributed systems terminology we only attempt to handle a "fail/recover" model of failures where nodes suddenly cease working and then later recover (perhaps without knowing that they have died). Kafka does not handle so-called "Byzantine" failures in which nodes produce arbitrary or malicious responses (perhaps due to bugs or foul play).
+
+We can now more precisely define that a message is considered committed when all in sync replicas for that partition have applied it to their log. Only committed messages are ever given out to the consumer. This means that the consumer need not worry about potentially seeing a message that could be lost if the leader fails. Producers, on the other hand, have the option of either waiting for the message to be committed or not, depending on their preference for tradeoff between latency and durability. This preference is controlled by the acks setting that the producer uses. Note that topics have a setting for the "minimum number" of in-sync replicas that is checked when the producer requests acknowledgment that a message has been written to the full set of in-sync replicas. If a less stringent acknowledgement is requested by the producer, then the message can be committed, and consumed, even if the number of in-sync replicas is lower than the minimum (e.g. it can be as low as just the leader).
+
+The guarantee that Kafka offers is that a committed message will not be lost, as long as there is at least one in sync replica alive, at all times.
+
+Kafka will remain available in the presence of node failures after a short fail-over period, but may not remain available in the presence of network partitions.
+
+#### Replicated Logs: Quorums, ISRs, and State Machines (Oh my!)
+
+#### Unclean leader election: What if they all die?
+
+#### Availability and Durability Guarantees
+
+#### Replica Management
+
+### Log Compaction
+
+#### Log Compaction Basics
+
+#### What guarantees does log compaction provide?
+
+#### Log Compaction Details
+
+#### Configuring The Log Cleaner
+
+### Quotas
+
+#### Why are quotas necessary?
+
+#### Client groups
+
+#### Quota Configuration
+
+#### Network Bandwidth Quotas
+
+#### Request Rate Quotas
+
+#### Enforcement
+
+## Implementation
+
+### Network Layer
+
+### Messages
+
+### Message Format
+
+#### Record Batch
+
+Control Batches
+
+#### Record
+
+Record Header
+
+#### Old Message Format
+
+### Log
+
+#### Writes
+
+#### Reads
+
+#### Deletes
+
+#### Guarantees
+
+### Distribution
+
+#### Consumer Offset Tracking
+
+#### ZooKeeper Directories
+
+#### Notation
+
+#### Broker Node Registry
+
+#### Broker Topic Registry
+
+#### Cluster Id
+
+#### Broker node registration
 
 ## Notes
 
