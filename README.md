@@ -412,8 +412,7 @@ Batch 批处理
 
 Shell
 
-- [Notes](/scripts/shell/notes.md)
-    - a bash script example
+- [Notes](/scripts/shell/notes.md) : a bash script example
 - [Terminal Colors](/scripts/shell/terminal-colors.md)
 
 Others
@@ -426,9 +425,9 @@ Others
 
 Mine : [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
 
-- **[lib](https://github.com/IceHe/lib) : library | wiki ( this website )**
+- [lib](https://github.com/IceHe/lib) : library | wiki ( this website )
 - [blog](https://github.com/IceHe/blog) : prev tech blog ( archived )
-- **[mac-conf](https://github.com/IceHe/mac-conf) : macOS config files ( @ home dir )**
+- [mac-conf](https://github.com/IceHe/mac-conf) : macOS config files ( @ home dir )
 - [linux-conf](https://github.com/IceHe/linux-conf) : Linux config files ( @ home dir )
 - [applescript](https://github.com/IceHe/applescript) : to manipulate macOS
 - [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset) : ruleset for PHPCS 3.1.0
