@@ -12,7 +12,9 @@ References
         - _( maybe future ActiveMQ 6 )_
         - Documentation : http://activemq.apache.org/components/artemis/documentation
             - Latest ( HTML ) : http://activemq.apache.org/components/artemis/documentation/latest/
-- TODO : https://www.google.com/search?q=activemq+%E6%80%BB%E7%BB%93&oq=activemq+%E6%80%BB%E7%BB%93&aqs=chrome..69i57j69i60l3.3855j0j7&sourceid=chrome&ie=UTF-8
+- Difference Between ActiveMQ and RabbitMQ : https://www.educba.com/activemq-vs-rabbitmq
+
+## Comparison
 
 ## Intro
 
