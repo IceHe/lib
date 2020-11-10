@@ -102,7 +102,6 @@ You can watch for your administrator to install the latest kernel with
 
 ( Note that `-p` isn't guaranteed to work across reboots, especially in the face of ntpdate or other bootup time-changing mechanisms )
 
-
 ### With AB
 
 Reference

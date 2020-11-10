@@ -503,7 +503,7 @@ void basicQOS(unit prefetchSize, ushort prefetchCount, Boolean global)
 - 1\. 消息被拒绝 ( basic.reject / basic.nack ) 同时 requeue=false ( 不重回队列 )
 - 2\. TTL 过期
 - 3\. 队列达到最大长度
-，
+
 DLX 也是一个正常的 Exchange
 
 - 和一般的 Exchange 没有任何的区别, 它能在任何的队列上被指定, 实际上就是设置某个队列的属性
