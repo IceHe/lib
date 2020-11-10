@@ -110,7 +110,8 @@ Message Queues
 
 - [kafka](/snips/message-queues/kafka.md)
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
-- [MemcacheQ](/snips/message-queues/mcq.md)
+- [ActiveMQ](/snips/message-queues/active-mq.md)
+- [_MemcacheQ_](/snips/message-queues/mcq.md)
 
 Storage - Usage
 

@@ -20,3 +20,17 @@ Other Reading
 - 微博应对突发热点事件的弹性调度实践 | MySlide - 专注PPT分享，追随SlideShare和SpeakerDeck的脚步 : https://myslide.cn/slides/6177
 - Fast compression library for C, C# and Java : http://www.quicklz.com/
 - Apache Kafka : https://kafka.apache.org/
+
+Others
+
+- http://activemq.apache.org/
+- http://samza.apache.org/
+- https://storm.apache.org/
+- https://www.rabbitmq.com/
+- https://www.google.com/search?q=%E9%95%BF%E8%BF%9E%E6%8E%A5+%E7%9F%AD%E8%BF%9E%E6%8E%A5&oq=%E9%95%BF%E8%BF%9E%E6%8E%A5+%E7%9F%AD%E8%BF%9E%E6%8E%A5&aqs=chrome..69i57.6181j0j7&sourceid=chrome&ie=UTF-8
+    - TCP的长连接和短连接 : https://www.cnblogs.com/0201zcr/p/4694945.html
+    - http的长连接和短连接（史上最通俗！）: https://www.jianshu.com/p/3fc3646fad80
+    - https://juejin.im/post/6844903609138692110
+- Network
+    - why broken pipe : https://www.google.com/search?q=why+broken+pipe&oq=why+boken+pipe&aqs=chrome.1.69i57j0i22i30i457j0i22i30.7640j0j7&sourceid=chrome&ie=UTF-8
+    - why connection reset : https://www.google.com/search?q=why+connection+reset&oq=why+connection+reset&aqs=chrome..69i57.5345j0j7&sourceid=chrome&ie=UTF-8
