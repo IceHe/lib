@@ -2,7 +2,7 @@
 
 - [x] MCQ
 - [x] **RabbitMQ**
-- [ ] **Kafka**
+- [x] **Kafka**
 - [ ] ActiveMQ
 - [ ] RocketMQ
 - [ ] ZereMQ
