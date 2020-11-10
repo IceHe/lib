@@ -133,8 +133,10 @@ Storage
 - [_Mongo_](/snips/tmp/mongo.md) _( draft )_
 
 <!--
+
         - The data model is key-value, but many different kind of values are supported.
         - e.g. Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
+
 -->
 
 Web

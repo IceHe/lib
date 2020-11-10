@@ -971,7 +971,7 @@ MessageSet (Version: 1) => [offset message_size message]
     - In version 1, to avoid server side re-compression, only the wrapper message will be assigned an offset.
     - The inner messages will have relative offsets.
     - The absolute offset can be computed using the offset from the outer message, which corresponds to the offset assigned to the last inner message.
-The crc field contains the CRC32 (and not CRC-32C) of the subsequent message bytes (i.e. from magic byte to the value).
+- The crc field contains the CRC32 (and not CRC-32C) of the subsequent message bytes (i.e. from magic byte to the value).
 
 ### Log
 
