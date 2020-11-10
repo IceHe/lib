@@ -378,10 +378,10 @@ _suffice : vi. 足够, 有能力_
 
 - Static membership aims to improve the availability of stream applications, consumer groups and other applications built on top of the group rebalance protocol.
     - The rebalance protocol relies on the group coordinator to allocate entity ids to group members.
-    - These generated ids are ephemeral and will change when members restart and rejoin.
+    - These generated ids are ephemeral _( 短暂的 )_ and will change when members restart and rejoin.
     - For consumer based apps, this "dynamic membership" can cause a large percentage of tasks re-assigned to different instances during administrative operations such as code deploys, configuration updates and periodic restarts.
     - For large state applications, shuffled tasks need a long time to recover their local states before processing and cause applications to be partially or entirely unavailable.
-    - Motivated by this observation, Kafka’s group management protocol allows group members to provide persistent entity ids.
+    - Motivated by this observation, Kafka's group management protocol allows group members to provide persistent entity ids.
     - Group membership remains unchanged based on those ids, thus no rebalance will be triggered.
 - If you want to use static membership,
     - 1\. Upgrade both broker cluster and client apps to 2.3 or beyond, and also make sure the upgraded brokers are using inter.broker.protocol.version of 2.3 or beyond as well.
@@ -394,12 +394,14 @@ _suffice : vi. 足够, 有能力_
 ### Message Delivery Semantics
 
 - Now that we understand a little about how producers and consumers work, let's discuss the semantic guarantees Kafka provides between producer and consumer.
-- Clearly there are multiple possible message delivery guarantees that could be provided:
-    - 1\. At most once—Messages may be lost but are never redelivered.
-    - 2\. At least once—Messages are never lost but may be redelivered.
-    - 3\. Exactly once—this is what people actually want, each message is delivered once and only once.
-- It's worth noting that this breaks down into two problems: the durability guarantees for publishing a message and the guarantees when consuming a message.
-- Many systems claim to provide "exactly once" delivery semantics, but it is important to read the fine print, most of these claims are misleading
+- Clearly there are **multiple possible message delivery guarantees** that could be provided :
+    - 1\. **At most once -- Messages may be lost but are never redelivered.**
+    - 2\. **At least once -- Messages are never lost but may be redelivered.**
+    - 3\. **Exactly once -- this is what people actually want, each message is delivered once and only once.**
+- It's worth noting that this breaks down into two problems :
+    - the **durability guarantees for publishing a message** and
+    - the **guarantees when consuming a message**.
+- **Many systems claim to provide "exactly once" delivery semantics**, but it is important to read the fine print, **most of these claims are misleading**
     - (i.e. they don't translate to the case where consumers or producers can fail, cases where there are multiple consumer processes, or cases where data written to disk can be lost).
 - Kafka's semantics are straight-forward.
     - When publishing a message we have a notion of the message being "committed" to the log.
