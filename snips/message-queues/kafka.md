@@ -368,7 +368,7 @@ _suffice : vi. 足够, 有能力_
     - This violates the common contract of a queue, but turns out to be an essential feature for many consumers.
     - For example, if the consumer code has a bug and is discovered after some messages are consumed, the consumer can re-consume those messages once the bug is fixed.
 
-#### Offline Data Load
+#### _Offline Data Load_
 
 - Scalable persistence allows for the possibility of consumers that only periodically consume such as batch data loads that periodically bulk-load data into an offline system such as Hadoop or a relational data warehouse.
     - In the case of Hadoop we parallelize the data load by splitting the load over individual map tasks, one for each node/topic/partition combination, allowing full parallelism in the loading.
@@ -514,22 +514,22 @@ _suffice : vi. 足够, 有能力_
     - This is likely why quorum algorithms more commonly appear for shared cluster configuration such as ZooKeeper but are less common for primary data storage.
     - For example in HDFS the namenode's high-availability feature is built on a [majority-vote-based journal](http://blog.cloudera.com/blog/2012/10/quorum-based-journaling-in-cdh4-1), but this more expensive approach is not used for the data itself.
 - Kafka takes a slightly different approach to choosing its quorum set.
-    - Instead of majority vote, Kafka dynamically maintains a set of in-sync replicas (ISR) that are caught-up to the leader.
-    - Only members of this set are eligible for election as leader.
+    - **Instead of majority vote, Kafka dynamically maintains a set of <u>in-sync replicas (ISR)</u> that are caught-up to the leader.**
+    - Only members of this set are eligible _( 有资格当选的 )_ for election as leader.
     - A write to a Kafka partition is not considered committed until all in-sync replicas have received the write.
-    - This ISR set is persisted to ZooKeeper whenever it changes.
+    - This **ISR set is persisted to ZooKeeper whenever it changes.**
     - Because of this, any replica in the ISR is eligible to be elected leader.
     - This is an important factor for Kafka's usage model where there are many partitions and ensuring leadership balance is important.
     - With this ISR model and f+1 replicas, a Kafka topic can tolerate f failures without losing committed messages.
 - For most use cases we hope to handle, we think this tradeoff is a reasonable one.
-    - In practice, to tolerate f failures, both the majority vote and the ISR approach will wait for the same number of replicas to acknowledge before committing a message (e.g. to survive one failure a majority quorum needs three replicas and one acknowledgement and the ISR approach requires two replicas and one acknowledgement).
+    - In practice, to tolerate f failures, both the majority vote and the ISR approach will wait for the same number of replicas to acknowledge before committing a message _(e.g. to survive one failure a majority quorum needs three replicas and one acknowledgement and the ISR approach requires two replicas and one acknowledgement)_ .
     - The ability to commit without the slowest servers is an advantage of the majority vote approach.
-    - However, we think it is ameliorated by allowing the client to choose whether they block on the message commit or not, and the additional throughput and disk space due to the lower required replication factor is worth it.
-- Another important design distinction is that Kafka does not require that crashed nodes recover with all their data intact.
+    - However, we think it is ameliorated _( 使改善 )_ by allowing the client to choose whether they block on the message commit or not, and the additional throughput and disk space due to the lower required replication factor is worth it.
+- Another important design distinction is that Kafka does not require that crashed nodes recover with all their data intact _( 完整的 )_ .
     - It is not uncommon for replication algorithms in this space to depend on the existence of "stable storage" that cannot be lost in any failure-recovery scenario without potential consistency violations.
     - There are two primary problems with this assumption.
-    - First, disk errors are the most common problem we observe in real operation of persistent data systems and they often do not leave data intact.
-    - Secondly, even if this were not a problem, we do not want to require the use of fsync on every write for our consistency guarantees as this can reduce performance by two to three orders of magnitude.
+        - First, disk errors are the most common problem we observe in real operation of persistent data systems and they often do not leave data intact.
+        - Secondly, even if this were not a problem, we do **not want to require the use of fsync on every write for our consistency guarantees as this can reduce performance by two to three orders of magnitude.**
     - Our protocol for allowing a replica to rejoin the ISR ensures that before rejoining, it must fully re-sync again even if it lost unflushed data in its crash.
 
 #### Unclean leader election: What if they all die?
@@ -539,8 +539,8 @@ _suffice : vi. 足够, 有能力_
 - However a practical system needs to do something reasonable when all the replicas die.
     - If you are unlucky enough to have this occur, it is important to consider what will happen.
     - There are two behaviors that could be implemented:
-- Wait for a replica in the ISR to come back to life and choose this replica as the leader (hopefully it still has all its data).
-- Choose the first replica (not necessarily in the ISR) that comes back to life as the leader.
+        - 1\. Wait for a replica in the ISR to come back to life and choose this replica as the leader (hopefully it still has all its data).
+        - 2\. Choose the first replica (not necessarily in the ISR) that comes back to life as the leader.
 - This is a simple tradeoff between availability and consistency.
     - If we wait for replicas in the ISR, then we will remain unavailable as long as those replicas are down.
     - If such replicas were destroyed or their data was lost, then we are permanently down.
@@ -551,30 +551,30 @@ _suffice : vi. 足够, 有能力_
     - It exists in any quorum-based scheme.
     - For example in a majority voting scheme, if a majority of servers suffer a permanent failure, then you must either choose to lose 100% of your data or violate consistency by taking what remains on an existing server as your new source of truth.
 
-#### Availability and Durability Guarantees
+#### _Availability and Durability Guarantees_
 
 - When writing to Kafka, producers can choose whether they wait for the message to be acknowledged by 0,1 or all (-1) replicas.
     - Note that "acknowledgement by all replicas" does not guarantee that the full set of assigned replicas have received the message.
-    - By default, when acks=all, acknowledgement happens as soon as all the current in-sync replicas have received the message.
+    - **By default, when acks=all, acknowledgement happens as soon as all the current in-sync replicas have received the message.**
     - For example, if a topic is configured with only two replicas and one fails (i.e., only one in sync replica remains), then writes that specify acks=all will succeed.
     - However, these writes could be lost if the remaining replica also fails.
     - Although this ensures maximum availability of the partition, this behavior may be undesirable to some users who prefer durability over availability.
 - Therefore, we provide two topic-level configurations that can be used to prefer message durability over availability:
-    - 1\. Disable unclean leader election - if all replicas become unavailable, then the partition will remain unavailable until the most recent leader becomes available again.
+    - 1\. **Disable unclean leader election - if all replicas become unavailable, then the partition will remain unavailable until the most recent leader becomes available again.**
         - This effectively prefers unavailability over the risk of message loss.
-        - See the previous section on Unclean Leader Election for clarification.
-    - 2\. Specify a minimum ISR size - the partition will only accept writes if the size of the ISR is above a certain minimum, in order to prevent the loss of messages that were written to just a single replica, which subsequently becomes unavailable.
+        - _See the previous section on Unclean Leader Election for clarification._
+    - 2\. **Specify a minimum ISR size - the partition will only accept writes if the size of the ISR is above a certain minimum, in order to prevent the loss of messages that were written to just a single replica**, which subsequently becomes unavailable.
         - This setting only takes effect if the producer uses acks=all and guarantees that the message will be acknowledged by at least this many in-sync replicas.
         - This setting offers a trade-off between consistency and availability.
         - A higher setting for minimum ISR size guarantees better consistency since the message is guaranteed to be written to more replicas which reduces the probability that it will be lost.
         - However, it reduces availability since the partition will be unavailable for writes if the number of in-sync replicas drops below the minimum threshold.
 
-#### Replica Management
+#### _Replica Management_
 
 - The above discussion on replicated logs really covers only a single log, i.e. one topic partition.
     - However a Kafka cluster will manage hundreds or thousands of these partitions.
     - We attempt to balance partitions within a cluster in a round-robin fashion to avoid clustering all partitions for high-volume topics on a small number of nodes.
-    - Likewise we try to balance leadership so that each node is the leader for a proportional share of its partitions.
+    - Likewise _( 同样地 )_ we try to balance leadership so that each node is the leader for a proportional share of its partitions.
 - It is also important to optimize the leadership election process as that is the critical window of unavailability.
     - A naive implementation of leader election would end up running an election per partition for all partitions a node hosted when that node failed.
     - Instead, we elect one of the brokers as the "controller".
@@ -587,7 +587,7 @@ _suffice : vi. 足够, 有能力_
 - Log compaction ensures that Kafka will always retain at least the last known value for each message key within the log of data for a single topic partition.
     - It addresses use cases and scenarios such as restoring state after application crashes or system failure, or reloading caches after application restarts during operational maintenance.
     - Let's dive into these use cases in more detail and then describe how compaction works.
-- So far we have described only the simpler approach to data retention where old log data is discarded after a fixed period of time or when the log reaches some predetermined size.
+- So far _( 迄今为止 )_ we have described only the simpler approach to **data retention where old log data is discarded after a fixed period of time or when the log reaches some predetermined size.**
     - This works well for temporal event data such as logging where each record stands alone.
     - However an important class of data streams are the log of changes to keyed, mutable data (for example, the changes to a database table).
 - Let's discuss a concrete example of such a stream.
@@ -598,9 +598,7 @@ _suffice : vi. 足够, 有能力_
 123 => bill@microsoft.com
         .
         .
-        .
 123 => bill@gatesfoundation.org
-        .
         .
         .
 123 => bill@gmail.com
@@ -611,16 +609,16 @@ _suffice : vi. 足够, 有能力_
     - This means downstream consumers can restore their own state off this topic without us having to retain a complete log of all changes.
 - Let's start by looking at a few use cases where this is useful, then we'll see how it can be used.
     - 1\. Database change subscription.
-        - It is often necessary to have a data set in multiple data systems, and often one of these systems is a database of some kind (either a RDBMS or perhaps a new-fangled key-value store).
+        - It is often necessary to have a data set in multiple data systems, and often one of these systems is a database of some kind (either a RDBMS or perhaps a new-fangled _( 新奇的 )_ key-value store).
         - For example you might have a database, a cache, a search cluster, and a Hadoop cluster.
         - Each change to the database will need to be reflected in the cache, the search cluster, and eventually in Hadoop.
         - In the case that one is only handling the real-time updates you only need recent log.
         - But if you want to be able to reload the cache or restore a failed search node you may need a complete data set.
     - 2\. Event sourcing.
-        - This is a style of application design which co-locates query processing with application design and uses a log of changes as the primary store for the application.
+        - This is a style of application design which co-locates _( 使位于一处 )_ query processing with application design and uses a log of changes as the primary store for the application.
     - 3\. Journaling for high-availability.
         - A process that does local computation can be made fault-tolerant by logging out changes that it makes to its local state so another process can reload these changes and carry on if it should fail.
-        - A concrete example of this is handling counts, aggregations, and other "group by"-like processing in a stream query system.
+        - A concrete example of this is handling counts, aggregations, and other "group by" -- like processing in a stream query system.
         - Samza, a real-time stream-processing framework, [uses this feature](http://samza.apache.org/learn/documentation/0.7.0/container/state-management.html) for exactly this purpose.
 - In each of these cases one needs primarily to handle the real-time feed of changes, but occasionally, when a machine crashes or data needs to be re-loaded or re-processed, one needs to do a full load.
     - Log compaction allows feeding both of these use cases off the same backing topic.
@@ -629,8 +627,8 @@ _suffice : vi. 足够, 有能力_
     - If we had infinite log retention, and we logged each change in the above cases, then we would have captured the state of the system at each time from when it first began.
     - Using this complete log, we could restore to any point in time by replaying the first N records in the log.
     - This hypothetical complete log is not very practical for systems that update a single record many times as the log will grow without bound even for a stable dataset.
-    - The simple log retention mechanism which throws away old updates will bound space but the log is no longer a way to restore the current state—now restoring from the beginning of the log no longer recreates the current state as old updates may not be captured at all.
-- Log compaction is a mechanism to give finer-grained per-record retention, rather than the coarser-grained time-based retention.
+    - The simple log retention mechanism which throws away old updates will bound space but the log is no longer a way to restore the current state -- now restoring from the beginning of the log no longer recreates the current state as old updates may not be captured at all.
+- Log compaction is a mechanism to give finer-grained _( 细粒度的 )_ per-record retention, rather than the coarser-grained _( 勉强的, 强制的 )_ time-based retention.
     - The idea is to selectively remove records where we have a more recent update with the same primary key.
     - This way the log is guaranteed to have at least the last state for each key.
 - This retention policy can be set per-topic, so a single cluster can have some topics where retention is enforced by size or time and other topics where retention is enforced by compaction.
@@ -647,8 +645,8 @@ _suffice : vi. 足够, 有能力_
     - It has dense, sequential offsets and retains all messages.
     - Log compaction adds an option for handling the tail of the log.
     - The picture above shows a log with a compacted tail.
-    - Note that the messages in the tail of the log retain the original offset assigned when they were first written—that never changes.
-    - Note also that all offsets remain valid positions in the log, even if the message with that offset has been compacted away; in this case this position is indistinguishable from the next highest offset that does appear in the log.
+    - Note that the messages in the tail of the log retain the original offset assigned when they were first written -- that never changes.
+    - Note also that all offsets remain valid positions in the log, even if the message with that offset has been compacted away; in this case this position is indistinguishable _( 难区分的 )_ from the next highest offset that does appear in the log.
     - For example, in the picture above the offsets 36, 37, and 38 are all equivalent positions and a read beginning at any of these offsets would return a message set beginning with 38.
 - Compaction also allows for deletes.
     - A message with a key and a null payload will be treated as a delete from the log.
@@ -663,30 +661,30 @@ _suffice : vi. 足够, 有能力_
 #### What guarantees does log compaction provide?
 
 - Log compaction guarantees the following:
-    - 1\. Any consumer that stays caught-up to within the head of the log will see every message that is written; these messages will have sequential offsets.
+    - 1\. Any consumer that stays caught-up to within the head of the log **will see every message that is written**; these messages will have sequential offsets.
         - The topic's `min.compaction.lag.ms` can be used to guarantee the minimum length of time must pass after a message is written before it could be compacted.
         - I.e. it provides a lower bound on how long each message will remain in the (uncompacted) head.
         - The topic's `max.compaction.lag.ms` can be used to guarantee the maximum delay between the time a message is written and the time the message becomes eligible for compaction.
-    - 2\. Ordering of messages is always maintained.
+    - 2\. **Ordering of messages is always maintained.**
         - Compaction will never re-order messages, just remove some.
-    - 3\. The offset for a message never changes.
+    - 3\. **The offset for a message never changes.**
         - It is the permanent identifier for a position in the log.
-    - 4\. Any consumer progressing from the start of the log will see at least the final state of all records in the order they were written.
+    - 4\. Any consumer progressing from the start of the log **will see at least the final state of all records in the order they were written.**
         - Additionally, all delete markers for deleted records will be seen, provided the consumer reaches the head of the log in a time period less than the topic's `delete.retention.ms` setting (the default is 24 hours).
         - In other words: since the removal of delete markers happens concurrently with reads, it is possible for a consumer to miss delete markers if it lags by more than `delete.retention.ms`.
 
 #### Log Compaction Details
 
-- Log compaction is handled by the log cleaner, a pool of background threads that recopy log segment files, removing records whose key appears in the head of the log. Each compactor thread works as follows:
+- Log compaction is handled by the **log cleaner, a pool of background threads that recopy log segment files, removing records whose key appears in the head of the log.** Each compactor thread works as follows:
     - 1\. It chooses the log that has the highest ratio of log head to log tail
-    - 2\. It creates a succinct summary of the last offset for each key in the head of the log
+    - 2\. It creates a succinct _( 简洁的 )_ summary of the last offset for each key in the head of the log
     - 3\. It recopies the log from beginning to end removing keys which have a later occurrence in the log.
         - New, clean segments are swapped into the log immediately so the additional disk space required is just one additional log segment (not a fully copy of the log).
     - 4\. The summary of the log head is essentially just a space-compact hash table.
         - It uses exactly 24 bytes per entry.
         - As a result with 8GB of cleaner buffer one cleaner iteration can clean around 366GB of log head (assuming 1k messages).
 
-#### Configuring The Log Cleaner
+#### _Configuring The Log Cleaner_
 
 - The log cleaner is enabled by default.
     - This will start the pool of cleaner threads.
@@ -698,7 +696,8 @@ log.cleanup.policy=compact
 
 - The `log.cleanup.policy` property is a broker configuration setting defined in the broker's `server.properties` file;
     - it affects all of the topics in the cluster that do not have a configuration override in place as documented [here](https://kafka.apache.org/documentation.html#brokerconfigs).
-    - The log cleaner can be configured to retain a minimum amount of the uncompacted "head" of the log. This is enabled by setting the compaction time lag.
+    - The log cleaner can be configured to retain a minimum amount of the uncompacted "head" of the log.
+    - This is enabled by setting the compaction time lag.
 
 ```properties
 log.cleaner.min.compaction.lag.ms
@@ -713,26 +712,26 @@ log.cleaner.min.compaction.lag.ms
 log.cleaner.max.compaction.lag.ms
 ```
 
-- This can be used to prevent log with low produce rate from remaining ineligible for compaction for an unbounded duration.
+- This can be used to prevent log with low produce rate from remaining ineligible _( 无入选资格的 )_ for compaction for an unbounded duration.
     - If not set, logs that do not exceed `min.cleanable.dirty.ratio` are not compacted.
     - Note that this compaction deadline is not a hard guarantee since it is still subjected to the availability of log cleaner threads and the actual compaction time.
     - You will want to monitor the uncleanable-partitions-count, max-clean-time-secs and max-compaction-delay-secs metrics.
 - Further cleaner configurations are described [here](https://kafka.apache.org/documentation.html#brokerconfigs).
 
-### Quotas
+### _Quotas_
 
 - Kafka cluster has the ability to enforce quotas on requests to control the broker resources used by clients.
 - Two types of client quotas can be enforced by Kafka brokers for each group of clients sharing a quota:
     - 1\. Network bandwidth quotas define byte-rate thresholds (since 0.9)
     - 2\. Request rate quotas define CPU utilization thresholds as a percentage of network and I/O threads (since 0.11)
 
-#### Why are quotas necessary?
+#### _Why are quotas necessary?_
 
-- It is possible for producers and consumers to produce/consume very high volumes of data or generate requests at a very high rate and thus monopolize broker resources, cause network saturation and generally DOS other clients and the brokers themselves.
+- It is possible for producers and consumers to produce/consume very high volumes of data or generate requests at a very high rate and thus monopolize _( 垄断, 独占 )_ broker resources, cause network saturation and generally DOS other clients and the brokers themselves.
     - Having quotas protects against these issues and is all the more important in large multi-tenant clusters where a small set of badly behaved clients can degrade user experience for the well behaved ones.
     - In fact, when running Kafka as a service this even makes it possible to enforce API limits according to an agreed upon contract.
 
-#### Client groups
+#### _Client groups_
 
 - The identity of Kafka clients is the user principal which represents an authenticated user in a secure cluster.
     - In a cluster that supports unauthenticated clients, user principal is a grouping of unauthenticated users chosen by the broker using a configurable PrincipalBuilder.
@@ -743,7 +742,7 @@ log.cleaner.max.compaction.lag.ms
     - All connections of a quota group share the quota configured for the group.
     - For example, if (user="test-user", client-id="test-client") has a produce quota of 10MB/sec, this is shared across all producer instances of user "test-user" with the client-id "test-client".
 
-#### Quota Configuration
+#### _Quota Configuration_
 
 - Quota configuration may be defined for (user, client-id), user and client-id groups.
     - It is possible to override the default quota at any of the quota levels that needs a higher (or even lower) quota.
@@ -765,14 +764,14 @@ log.cleaner.max.compaction.lag.ms
     - These properties are being deprecated and will be removed in a later release.
     - Default quotas for client-id can be set in Zookeeper similar to the other quota overrides and defaults.
 
-#### Network Bandwidth Quotas
+#### _Network Bandwidth Quotas_
 
 - Network bandwidth quotas are defined as the byte rate threshold for each group of clients sharing a quota.
     - By default, each unique client group receives a fixed quota in bytes/sec as configured by the cluster.
     - This quota is defined on a per-broker basis.
     - Each group of clients can publish/fetch a maximum of X bytes/sec per broker before clients are throttled.
 
-#### Request Rate Quotas
+#### _Request Rate Quotas_
 
 - Request rate quotas are defined as the percentage of time a client can utilize on request handler I/O threads and network threads of each broker within a quota window.
     - A quota of n% represents n% of one thread, so the quota is out of a total capacity of ((num.io.threads + num.network.threads) * 100)%.
@@ -786,7 +785,8 @@ log.cleaner.max.compaction.lag.ms
     - Each client can utilize this quota per broker before it gets throttled.
     - We decided that defining these quotas per broker is much better than having a fixed cluster wide bandwidth per client because that would require a mechanism to share client quota usage among all the brokers.
     - This can be harder to get right than the quota implementation itself!
-- How does a broker react when it detects a quota violation? In our solution, the broker first computes the amount of delay needed to bring the violating client under its quota and returns a response with the delay immediately.
+- How does a broker react when it detects a quota violation?
+    - In our solution, the broker first computes the amount of delay needed to bring the violating client under its quota and returns a response with the delay immediately.
     - In case of a fetch request, the response will not contain any data.
     - Then, the broker mutes the channel to the client, not to process requests from the client anymore, until the delay is over.
     - Upon receiving a response with a non-zero delay duration, the Kafka client will also refrain from sending further requests to the broker during the delay.

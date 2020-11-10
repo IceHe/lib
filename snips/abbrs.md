@@ -272,6 +272,7 @@ Reference : https://www.computerhope.com/keys.htm
 - dn : down
 - doc : documentation
 - docs : documentation
+- DoS : [Denial-of-Service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)
 - DSL : [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language)
 - dup : duplicate
 - dw : double word
