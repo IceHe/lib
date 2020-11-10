@@ -120,7 +120,6 @@ Storage
 - Elasticsearch : for search ( and analysis )
     - Basics ( TODO ) : https://www.elastic.co
         - What is Elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
-        - Getting started with the Elastic Stack : https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html
     - [Usage](/snips/storage/elasticsearch.md)
 - MySQL : robust SQL database server
     - Basics ( TODO ) : https://www.mysql.com
