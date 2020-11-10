@@ -7,6 +7,9 @@ References
 - APACHE KAFKA : https://kafka.apache.org/
     - Intro : https://kafka.apache.org/intro
     - Quickstart : https://kafka.apache.org/quickstart
+    - **Documentation** : https://kafka.apache.org/documentation
+        - Kafka 设计与原理详解 : https://blog.csdn.net/suifeng3051/article/details/48053965 _( 上文的部分翻译 )_
+- GitHub : https://github.com/apache/kafka
 
 ## Intro
 
@@ -800,31 +803,31 @@ log.cleaner.max.compaction.lag.ms
 
 ### Network Layer
 
-- The network layer is a fairly straight-forward NIO server, and will not be described in great detail.
-    - The sendfile implementation is done by giving the MessageSet interface a writeTo method.
-    - This allows the file-backed message set to use the more efficient transferTo implementation instead of an in-process buffered write.
+- **The network layer is a fairly straight-forward NIO server**, and will not be described in great detail.
+    - The `sendfile` implementation is done by giving the `MessageSet` interface a `writeTo` method.
+    - This allows the file-backed message set to use the more efficient `transferTo` implementation instead of an in-process buffered write.
     - The threading model is a single acceptor thread and N processor threads which handle a fixed number of connections each.
     - This design has been pretty thoroughly tested [elsewhere](http://sna-projects.com/blog/2009/08/introducing-the-nio-socketserver-implementation) and found to be simple to implement and fast.
     - The protocol is kept quite simple to allow for future implementation of clients in other languages.
 
 ### Messages
 
-- Messages consist of a variable-length header, a variable-length opaque key byte array and a variable-length opaque value byte array.
+- **Messages consist of a variable-length header, a variable-length opaque key byte array and a variable-length opaque value byte array.**
     - The format of the header is described in the following section.
     - Leaving the key and value opaque is the right decision :
         - there is a great deal of progress being made on serialization libraries right now, and any particular choice is unlikely to be right for all uses.
     - Needless to say a particular application using Kafka would likely mandate a particular serialization type as part of its usage.
-    - The RecordBatch interface is simply an iterator over messages with specialized methods for bulk reading and writing to an NIO Channel.
+    - The `RecordBatch` interface is simply an iterator over messages with specialized methods for bulk reading and writing to an NIO `Channel`.
 
 ### Message Format
 
-- Messages (aka Records) are always written in batches.
+- **Messages (aka Records) are always written in batches.**
     - The technical term for a batch of messages is a record batch, and a record batch contains one or more records.
     - In the degenerate case, we could have a record batch containing a single record.
     - Record batches and records have their own headers.
     - The format of each is described below.
 
-#### Record Batch
+#### _Record Batch_
 
 - The following is the on-disk format of a RecordBatch.
 
@@ -866,7 +869,7 @@ records: [Record]
     - As a result, it is possible to have empty batches in the log when all the records in the batch are cleaned but batch is still retained in order to preserve a producer's last sequence number.
     - One oddity here is that the firstTimestamp field is not preserved during compaction, so it will change if the first record in the batch is compacted away.
 
-##### Control Batches
+##### _Control Batches_
 
 - A control batch contains a single record called the control record.
     - Control records should not be passed on to applications.
@@ -880,7 +883,7 @@ type: int16 (0 indicates an abort marker, 1 indicates a commit)
 
 - The schema for the value of a control record is dependent on the type. The value is opaque to clients.
 
-#### Record
+#### _Record_
 
 - Record level headers were introduced in Kafka 0.11.0. The on-disk format of a record with Headers is delineated below.
 
@@ -897,7 +900,7 @@ value: byte[]
 Headers => [Header]
 ```
 
-##### Record Header
+##### _Record Header_
 
 ```properties
 headerKeyLength: varint
@@ -910,13 +913,13 @@ Value: byte[]
     - More information on the latter can be found here.
     - The count of headers in a record is also encoded as a varint.
 
-#### Old Message Format
+#### _Old Message Format_
 
 - Prior to Kafka 0.11, messages were transferred and stored in message sets.
     - In a message set, each message has its own metadata.
     - Note that although message sets are represented as an array, they are not preceded by an int32 array size like other array elements in the protocol.
 
-Message Set
+##### Message Set
 
 ```properties
 MessageSet (Version: 0) => [offset message_size message]
@@ -980,28 +983,30 @@ The crc field contains the CRC32 (and not CRC-32C) of the subsequent message byt
     - So the first file created will be 00000000000.kafka, and each additional file will have an integer name roughly S bytes from the previous file where S is the max log file size given in the configuration.
 - The exact binary format for records is versioned and maintained as a standard interface so record batches can be transferred between producer, broker, and client without recopying or conversion when desirable.
     - The previous section included details about the on-disk format of records.
-- The use of the message offset as the message id is unusual.
-    - Our original idea was to use a GUID generated by the producer, and maintain a mapping from GUID to offset on each broker.
-    - But since a consumer must maintain an ID for each server, the global uniqueness of the GUID provides no value.
+- **The use of the message offset as the message id is unusual.**
+    - **Our original idea was to use a GUID generated by the producer, and maintain a mapping from GUID to offset on each broker.**
+    - **But since a consumer must maintain an ID for each server, the global uniqueness of the GUID provides no value.**
     - Furthermore, the complexity of maintaining the mapping from a random id to an offset requires a heavy weight index structure which must be synchronized with disk, essentially requiring a full persistent random-access data structure.
-    - Thus to simplify the lookup structure we decided to use a simple per-partition atomic counter which could be coupled with the partition id and node id to uniquely identify a message; this makes the lookup structure simpler, though multiple seeks per consumer request are still likely.
-    - However once we settled on a counter, the jump to directly using the offset seemed natural—both after all are monotonically increasing integers unique to a partition.
+    - Thus to simplify the lookup structure we decided to **use a simple per-partition atomic counter which could be coupled with the partition id and node id to uniquely identify a message**; this makes the lookup structure simpler, though multiple seeks per consumer request are still likely.
+    - However once we settled on a counter, the jump to directly using the offset seemed natural -- both after all are monotonically increasing integers unique to a partition.
     - Since the offset is hidden from the consumer API this decision is ultimately an implementation detail and we went with the more efficient approach.
 
 ![kafka-log-implementation.png](_images/kafka-log-implementation.png)
 
 #### Writes
 
-- The log allows serial appends which always go to the last file.
-    - This file is rolled over to a fresh file when it reaches a configurable size (say 1GB).
-    - The log takes two configuration parameters: M, which gives the number of messages to write before forcing the OS to flush the file to disk, and S, which gives a number of seconds after which a flush is forced.
-    - This gives a durability guarantee of losing at most M messages or S seconds of data in the event of a system crash.
+- **The log allows serial appends which always go to the last file.**
+    - **This file is rolled over _( 使翻滚 )_ to a fresh file when it reaches a configurable size (say 1GB).**
+    - The log takes two configuration parameters:
+        - **M**, which gives **the number of messages to write before forcing the OS to flush the file to disk**, and
+        - **S**, which gives **a number of seconds after which a flush is forced**.
+    - This gives a **durability guarantee of losing at most M messages or S seconds of data in the event of a system crash.**
 
 #### Reads
 
-- Reads are done by giving the 64-bit logical offset of a message and an S-byte max chunk size.
+- **Reads are done by giving the 64-bit logical offset of a message and an S-byte max chunk size.**
     - This will return an iterator over the messages contained in the S-byte buffer.
-    - S is intended to be larger than any single message, but in the event of an abnormally large message, the read can be retried multiple times, each time doubling the buffer size, until the message is read successfully.
+    - **S is intended to be larger than any single message, but in the event of an abnormally large message, the read can be retried multiple times, each time doubling the buffer size, until the message is read successfully.**
     - A maximum message and buffer size can be specified to make the server reject messages larger than some size, and to give a bound to the client on the maximum it needs to ever read to get a complete message.
     - It is likely that the read buffer ends with a partial message, this is easily detected by the size delimiting.
 - The actual process of reading from an offset requires first locating the log segment file in which the data is stored, calculating the file-specific offset from the global offset value, and then reading from that file offset.
@@ -1033,15 +1038,15 @@ messageSetSend n
 
 #### Deletes
 
-- Data is deleted one log segment at a time.
-    - The log manager applies two metrics to identify segments which are eligible for deletion: time and size.
-    - For time-based policies, the record timestamps are considered, with the largest timestamp in a segment file (order of records is not relevant) defining the retention time for the entire segment.
-    - Size-based retention is disabled by default.
+- **Data is deleted one log segment at a time.**
+    - The log manager applies **two metrics** to identify segments which are **eligible for deletion: time and size.**
+    - For time-based policies, the record timestamps are considered, **with the largest timestamp in a segment file (order of records is not relevant) defining the retention time for the entire segment.**
+    - **Size-based retention is disabled by default.**
     - When enabled the log manager keeps deleting the oldest segment file until the overall size of the partition is within the configured limit again.
     - If both policies are enabled at the same time, a segment that is eligible for deletion due to either policy will be deleted.
     - To avoid locking reads while still allowing deletes that modify the segment list we use a copy-on-write style segment list implementation that provides consistent views to allow a binary search to proceed on an immutable static snapshot view of the log segments while deletes are progressing.
 
-#### Guarantees
+#### _Guarantees_
 
 - The log provides a configuration parameter M which controls the maximum number of messages that are written before forcing a flush to disk.
     - On startup a log recovery process is run that iterates over all messages in the newest log segment and verifies that each message entry is valid.
@@ -1055,15 +1060,15 @@ messageSetSend n
 
 #### Consumer Offset Tracking
 
-- Kafka consumer tracks the maximum offset it has consumed in each partition and has the capability to commit offsets so that it can resume from those offsets in the event of a restart.
-    - Kafka provides the option to store all the offsets for a given consumer group in a designated broker (for that group) called the group coordinator.
+- **Kafka consumer tracks the maximum offset it has consumed in each partition and has the capability to commit offsets so that it can resume from those offsets in the event of a restart.**
+    - Kafka **provides the option to store all the offsets for a given consumer group in a designated broker (for that group) called the group coordinator.**
     - i.e., any consumer instance in that consumer group should send its offset commits and fetches to that group coordinator (broker).
     - Consumer groups are assigned to coordinators based on their group names.
     - A consumer can look up its coordinator by issuing a FindCoordinatorRequest to any Kafka broker and reading the FindCoordinatorResponse which will contain the coordinator details.
     - The consumer can then proceed to commit or fetch offsets from the coordinator broker.
     - In case the coordinator moves, the consumer will need to rediscover the coordinator.
     - Offset commits can be done automatically or manually by consumer instance.
-- When the group coordinator receives an OffsetCommitRequest, it appends the request to a special [compacted](https://kafka.apache.org/documentation/#compaction) Kafka topic named __consumer_offsets.
+- When the group coordinator receives an OffsetCommitRequest, it appends the request to a special [compacted](https://kafka.apache.org/documentation/#compaction) Kafka topic named `__consumer_offsets`.
     - The broker sends a successful offset commit response to the consumer only after all the replicas of the offsets topic receive the offsets.
     - In case the offsets fail to replicate within a configurable timeout, the offset commit will fail and the consumer may retry the commit after backing off.
     - The brokers periodically compact the offsets topic since it only needs to maintain the most recent offset commit per partition.
@@ -1072,11 +1077,11 @@ messageSetSend n
     - In case coordinator was just started or if it just became the coordinator for a new set of consumer groups (by becoming a leader for a partition of the offsets topic), it may need to load the offsets topic partition into the cache.
     - In this case, the offset fetch will fail with an CoordinatorLoadInProgressException and the consumer may retry the OffsetFetchRequest after backing off.
 
-#### ZooKeeper Directories
+#### _ZooKeeper Directories_
 
 - The following gives the ZooKeeper structures and algorithms used for co-ordination between consumers and brokers.
 
-#### Notation
+#### _Notation_
 
 - When an element in a path is denoted `[xyz]`, that means that the value of xyz is not fixed and there is in fact a ZooKeeper znode for each possible value of xyz.
     - For example `/topics/[topic]` would be a directory named /topics containing a sub-directory for each topic name.
@@ -1084,7 +1089,7 @@ messageSetSend n
     - An arrow `->` is used to indicate the contents of a znode.
     - For example `/hello -> world` would indicate a znode /hello containing the value "world".
 
-#### Broker Node Registry
+#### _Broker Node Registry_
 
 ```properties
     /brokers/ids/[0...N] --> {"jmx_port":...,"timestamp":...,"endpoints":[...],"host":...,"version":...,"port":...} (ephemeral node)
@@ -1096,7 +1101,7 @@ messageSetSend n
     - An attempt to register a broker id that is already in use (say because two servers are configured with the same broker id) results in an error.
 - Since the broker registers itself in ZooKeeper using ephemeral znodes, this registration is dynamic and will disappear if the broker is shutdown or dies (thus notifying consumers it is no longer available).
 
-#### Broker Topic Registry
+#### _Broker Topic Registry_
 
 ```properties
 /brokers/topics/[topic]/partitions/[0...N]/state --> {"controller_epoch":...,"leader":...,"version":...,"leader_epoch":...,"isr":[...]} (ephemeral node)
@@ -1104,48 +1109,18 @@ messageSetSend n
 
 - Each broker registers itself under the topics it maintains and stores the number of partitions for that topic.
 
-#### Cluster Id
+#### _Cluster Id_
 
 - The cluster id is a unique and immutable identifier assigned to a Kafka cluster.
     - The cluster id can have a maximum of 22 characters and the allowed characters are defined by the regular expression [a-zA-Z0-9_\-]+, which corresponds to the characters used by the URL-safe Base64 variant with no padding.
     - Conceptually, it is auto-generated when a cluster is started for the first time.
-- Implementation-wise, it is generated when a broker with version 0.10.1 or later is successfully started for the first time.
+- Implementation-wise _( 实施方面 )_ , it is generated when a broker with version 0.10.1 or later is successfully started for the first time.
     - The broker tries to get the cluster id from the /cluster/id znode during startup.
     - If the znode does not exist, the broker generates a new cluster id and creates the znode with this cluster id.
 
-#### Broker node registration
+#### _Broker node registration_
 
 - The broker nodes are basically independent, so they only publish information about what they have.
     - When a broker joins, it registers itself under the broker node registry directory and writes information about its host name and port.
     - The broker also register the list of existing topics and their logical partitions in the broker topic registry.
     - New topics are registered dynamically when they are created on the broker.
-
-## Notes
-
-TODOs
-
-- https://www.confluent.io/learn/kafka-tutorial/
-- Kafka 设计与原理详解 : https://blog.csdn.net/suifeng3051/article/details/48053965
-- https://github.com/apache/kafka
-- Kafka 总结 : https://www.google.com/search?q=kafka+%E6%80%BB%E7%BB%93&oq=kafka+%E6%80%BB%E7%BB%93&aqs=chrome..69i57j0i457j0j0i20i263j0l4.4931j0j7&sourceid=chrome&ie=UTF-8
-    - https://zhuanlan.zhihu.com/p/72328153
-    - https://juejin.im/post/6844903850596548615
-    - https://cloud.tencent.com/developer/article/1494728
-    - https://www.jianshu.com/p/c2c845e86cb1
-
-Others
-
-- http://activemq.apache.org/
-- http://samza.apache.org/
-- https://storm.apache.org/
-- https://www.rabbitmq.com/
-- https://www.google.com/search?q=%E9%95%BF%E8%BF%9E%E6%8E%A5+%E7%9F%AD%E8%BF%9E%E6%8E%A5&oq=%E9%95%BF%E8%BF%9E%E6%8E%A5+%E7%9F%AD%E8%BF%9E%E6%8E%A5&aqs=chrome..69i57.6181j0j7&sourceid=chrome&ie=UTF-8
-    - TCP的长连接和短连接 : https://www.cnblogs.com/0201zcr/p/4694945.html
-    - http的长连接和短连接（史上最通俗！）: https://www.jianshu.com/p/3fc3646fad80
-    - https://juejin.im/post/6844903609138692110
-- Network
-    - why broken pipe : https://www.google.com/search?q=why+broken+pipe&oq=why+boken+pipe&aqs=chrome.1.69i57j0i22i30i457j0i22i30.7640j0j7&sourceid=chrome&ie=UTF-8
-    - why connection reset : https://www.google.com/search?q=why+connection+reset&oq=why+connection+reset&aqs=chrome..69i57.5345j0j7&sourceid=chrome&ie=UTF-8
-- 零复制
-    - https://www.zhihu.com/question/21705041
-    - https://www.cnblogs.com/f-ck-need-u/p/7615914.html
