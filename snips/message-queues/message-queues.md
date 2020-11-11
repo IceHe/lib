@@ -1,11 +1,23 @@
 # Message Queues ( TODO )
 
-- [x] MCQ
-- [x] **RabbitMQ**
-- [x] **Kafka**
-- [ ] ActiveMQ
 - [ ] RocketMQ
 - [ ] ZereMQ
+
+Comparison ( TODO )
+
+- https://www.educba.com/rabbitmq-vs-kafka/?source=leftnav
+- https://www.educba.com/activemq-vs-kafka/?source=leftnav
+- https://www.educba.com/zeromq-vs-kafka/?source=leftnav
+- https://www.educba.com/mysql-vs-mongodb/?source=leftnav
+- https://www.educba.com/mysql-vs-nosql/?source=leftnav
+- https://www.educba.com/mysql-vs-sqlite/?source=leftnav
+- https://www.educba.com/redis-vs-kafka/?source=leftnav
+- https://www.educba.com/redis-vs-memcached/?source=leftnav
+- https://www.educba.com/postgresql-vs-sqlite/?source=leftnav
+- https://www.educba.com/mongodb-vs-postgresql/?source=leftnav
+- https://www.educba.com/hive-vs-hbase/?source=leftnav
+- https://www.educba.com/apache-hive-vs-apache-spark-sql/?source=leftnav
+- https://www.educba.com/hadoop-vs-hive/?source=leftnav
 
 References
 
