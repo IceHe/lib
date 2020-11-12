@@ -110,7 +110,7 @@ Message Queues
 
 - [kafka](/snips/message-queues/kafka.md)
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
-- [RocketMQ](/snips/message-queues/rocket-mq.md) ( TODO )
+- [RocketMQ](/snips/message-queues/rocket-mq.md)
 - [ActiveMQ](/snips/message-queues/active-mq.md)
 - [ZeroMQ](/snips/message-queues/zero-mq.md) ( TODO )
 - [_MemcacheQ_](/snips/message-queues/mcq.md)
