@@ -2,7 +2,7 @@
 
 ## Number
 
-### Random Generate
+### Get Random Number
 
 Reference
 
