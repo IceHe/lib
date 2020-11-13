@@ -503,7 +503,6 @@ Reference
 
 - Best Practice For NameServer : https://rocketmq.apache.org/docs/best-practice-namesvr
 
-
 In Apache RocketMQ,
 
 - **name servers are designed to <u>coordinate each component of the distributed system</u>** and
