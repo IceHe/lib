@@ -1,5 +1,15 @@
 # Java Snippets
 
+## Number
+
+### Random Generate
+
+Reference
+
+- How to generate random numbers in Java : https://www.educative.io/edpresso/how-to-generate-random-numbers-in-java
+
+TODO
+
 ## String
 
 ### To String
