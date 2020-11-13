@@ -8,7 +8,31 @@ Reference
 
 - How to generate random numbers in Java : https://www.educative.io/edpresso/how-to-generate-random-numbers-in-java
 
-TODO
+```java
+package xyz.icehe.utils;
+
+import java.util.Random;
+
+public class RandomUtils {
+    public static int[] getTenRandomIntegers() {
+        int[] ints = new int[10];
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = new Random().nextInt(UPPER_BOUND);
+        }
+        return ints;
+    }
+}
+```
+
+- How do I generate random integers within a specific range in Java? : https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
+
+```java
+import java.util.concurrent.ThreadLocalRandom;
+
+// nextInt is normally exclusive of the top value,
+// so add 1 to make it inclusive
+int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
+```
 
 ## String
 

@@ -30,7 +30,7 @@ function doQuickSort(array &$ary, $beg, $end): void {
 
 function quickSort2(array &$ary): void {
     $len = count($ary);
-    doQuickSort($ary, 0, $len - 1);
+    doQuickSort2($ary, 0, $len - 1);
 }
 
 function doQuickSort2(array &$ary, $first, $last): void {
