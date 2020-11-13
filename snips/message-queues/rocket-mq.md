@@ -55,14 +55,14 @@ References
 - In this context, we decided to invent a new messaging engine to handle a broader set of use cases, ranging from traditional pub/sub scenarios to high volume real-time zero-loss tolerance transaction system.
     - We believe this solution can be beneficial, so we would like to open source it to the community.
     - Today, more than 100 companies are using the open source version of RocketMQ in their business.
-- The following table demonstrates the comparison between RocketMQ, ActiveMQ and Kafka (Apache’s most popular messaging solutions according to awesome-java):
+- The following table demonstrates the comparison between RocketMQ, ActiveMQ and Kafka (Apache's most popular messaging solutions according to awesome-java):
 
 #### RocketMQ vs. ActiveMQ vs. Kafka
 
 <!--
 
 - _Please note this documentation is written by the RocketMQ team._
-    - _Although the ideal is a disinterested comparison of technology and features, the authors’ expertise and biases obviously favor RocketMQ._
+    - _Although the ideal is a disinterested comparison of technology and features, the authors' expertise and biases obviously favor RocketMQ._
 - _The table below is a handy quick reference for spotting the differences among RocketMQ and its most popular alternatives at a glance._
 
 -->
@@ -371,50 +371,131 @@ Reference
 
 Some useful tips for users.
 
-SendStatus
-When sending a message, you will get SendResult which contains SendStatus. Firstly, we assume that Message’s isWaitStoreMsgOK=true(default is true). If not, we will always get SEND_OK if no exception is thrown. Below is a list of descriptions about each status:
+#### SendStatus
 
-FLUSH_DISK_TIMEOUT
-If the Broker set MessageStoreConfig’s FlushDiskType=SYNC_FLUSH(default is ASYNC_FLUSH), and the Broker doesn’t finish flushing the disk within MessageStoreConfig’s syncFlushTimeout(default is 5 secs), you will get this status.
+- When sending a message, you will get **SendResult which contains SendStatus**.
+    - Firstly, we assume that Message's `isWaitStoreMsgOK=true` ( default is true ) .
+    - If not, we will always get SEND_OK if no exception is thrown.
+    - Below is a list of descriptions about each status:
 
-FLUSH_SLAVE_TIMEOUT
-If the Broker’s role is SYNC_MASTER(default is ASYNC_MASTER), and the slave Broker doesn’t finish synchronizing with the master within the MessageStoreConfig’s syncFlushTimeout(default is 5 secs), you will get this status.
+##### FLUSH_DISK_TIMEOUT
 
-SLAVE_NOT_AVAILABLE
-If the Broker’s role is SYNC_MASTER(default is ASYNC_MASTER), but no slave Broker is configured, you will get this status.
+- If the Broker set MessageStoreConfig's `FlushDiskType=SYNC_FLUSH` ( default is `ASYNC_FLUSH` ) , and the Broker doesn't finish flushing the disk within MessageStoreConfig's `syncFlushTimeout` ( default is **5 secs** ) , you will get this status.
 
-SEND_OK
-SEND_OK does not mean it is reliable. To make sure no message would be lost, you should also enable SYNC_MASTER or SYNC_FLUSH.
+##### FLUSH_SLAVE_TIMEOUT
 
-Duplication or Missing
-If you get FLUSH_DISK_TIMEOUT, FLUSH_SLAVE_TIMEOUT and the Broker happens to shutdown right the moment, you can find your message missing. At this time, you have two choices, one is to let it go, which may cause this message to be lost; another is to resend the message, which may get message duplication. Often we suggest resend and find a way to handle the duplication removal when consuming. Unless you feel it doesn’t matter when some messages are lost. But keep in mind that resending is useless when you get SLAVE_NOT_AVAILABLE. If this happens, you should keep the scene and alert the Cluster Manager.
+- If the Broker's role is `SYNC_MASTER` ( default is `ASYNC_MASTER` ), and the slave Broker doesn't finish synchronizing with the master within the MessageStoreConfig's syncFlushTimeout ( default is **5 secs** ) , you will get this status.
 
-Timeout
-The Client sends requests to Broker, and wait for the responses, but if the max wait time has elapsed and no response is returned, the Client will throw a RemotingTimeoutException. The default wait time is 3 seconds. You can also pass timeout argument using send(msg, timeout) instead of send(msg). Note that we do not suggest the wait time to be too small, as the Broker needs some time to flush the disk or synchronize with slaves. Also the value may have little effect if it exceeds syncFlushTimeout by a lot as Broker may return a response with FLUSH_SLAVE_TIMEOUT or FLUSH_SLAVE_TIMEOUT before the timeout.
+##### SLAVE_NOT_AVAILABLE
 
-Message Size
-We suggest the size of message should be no more than 512K.
+- If the Broker's role is `SYNC_MASTER ( default is `ASYNC_MASTER` ) , but no slave Broker is configured, you will get this status.
 
-Async Sending
-Default send(msg) will block until the response is returned. So if you care about performance, we suggest you use send(msg, callback) which will act in the async way.
+##### SEND_OK
 
-Producer Group
-Normally, the producer group has no effects. But if you are involved in a transaction, you should pay attention to it. By default, you can only create only one producer with the same producer group in the same JVM, which is usually enough.
+- **SEND_OK does not mean it is reliable.*
+    - **To make sure no message would be lost, you should also enable `SYNC_MASTER` or `SYNC_FLUSH`.**
 
-Thread Safety
-The producer is thread-safe, you can just use it in your business solution.
+##### Duplication or Missing
 
-Performance
-If you want more than one producer in one JVM for big data processing, we suggest:
+- If you get `FLUSH_DISK_TIMEOUT`, `FLUSH_SLAVE_TIMEOUT` and the Broker happens to shutdown right the moment, you can find your message missing.
+    - At this time, you have two choices,
+        - one is to **let it go, which may cause this message to be lost**;
+        - another is to **resend the message, which may get message duplication**.
+    - Often we **suggest resend and find a way to handle the duplication removal when consuming**.
+        - Unless you feel it doesn't matter when some messages are lost.
+        - But keep in mind that resending is useless when you get `SLAVE_NOT_AVAILABLE`.
+        - If this happens, you should keep the scene and alert the Cluster Manager.
 
-use async sending with a few producers (3~5 is enough)
-setInstanceName for each producer
+#### Timeout
+
+- The Client sends requests to Broker, and wait for the responses, but if the max wait time has elapsed and no response is returned, the Client will throw a `RemotingTimeoutException`.
+    - The **default wait time is 3 seconds**.
+    - You can also pass timeout argument using `send(msg, timeout)` instead of `send(msg)`.
+    - Note that we do not suggest the wait time to be too small, as the Broker needs some time to flush the disk or synchronize with slaves.
+    - Also the value may have little effect if it exceeds `syncFlushTimeout` by a lot as Broker may return a response with `FLUSH_SLAVE_TIMEOUT` or `FLUSH_SLAVE_TIMEOUT` before the timeout.
+    - _( icehe : 注意监控处理这种异常, 必然时有发生, 要降低报警规则的噪音 )_
+
+#### Message Size
+
+We **suggest the size of message should be <u>no more than 512K</u>**.
+
+#### Async Sending
+
+- **Default `send(msg)` will block until the response is returned.**
+    - So if you care about performance, we suggest you use **`send(msg, callback)` which will act in the async way**.
+
+#### Producer Group
+
+- Normally, the producer group has no effects.
+    - But if you are involved in a transaction, you should pay attention to it.
+    - By default, you can only create only one producer with the same producer group in the same JVM, which is usually enough.
+
+#### Thread Safety
+
+- The **producer is thread-safe**, you can just use it in your business solution.
+
+#### Performance
+
+- If you **want more than one producer in one JVM for big data processing**, we suggest:
+    - **use async sending with a few producers ( 3~5 is enough )**
+    - **`setInstanceName` for each producer**
+        - _( icehe : 方便在打印错误日志时区分不同线程上的生产者, 用堆栈分析多线程的问题 )_
 
 ### Consumer
 
 Reference
 
 - Best Practice For Producer : https://rocketmq.apache.org/docs/best-practice-consumer
+
+Some useful tips for users.
+
+#### Consumer Group and Subscriptions
+
+- The first thing you should be aware of is that different Consumer Group can consume the same topic independently, and each of them will have their own consuming offsets.
+    - Please make sure each Consumer within the same Group to subscribe the same topics.
+
+#### MessageListener
+
+##### Orderly
+
+- The Consumer will lock each MessageQueue to make sure it is consumed one by one in order.
+    - This will cause a performance loss, but it is useful when you care about the order of the messages.
+    - It is not recommended to throw exceptions, you can return `ConsumeOrderlyStatus.SUSPEND_CURRENT_QUEUE_A_MOMENT` instead.
+
+##### Concurrently
+
+- As the name tells, the Consumer will consume the messages concurrently.
+    - It is recommended to use this for good performance.
+    - It is not recommended to throw exceptions, you can return `ConsumeConcurrentlyStatus.RECONSUME_LATER` instead.
+
+##### Consume Status
+
+- For MessageListenerConcurrently, you can return RECONSUME_LATER to tell the consumer that you can not consume it right now and want to reconsume it later.
+    - Then you can continue to consume other messages.
+    - For MessageListenerOrderly, because you care about the order, you can not jump over the message, but you can return SUSPEND_CURRENT_QUEUE_A_MOMENT to tell the consumer to wait for a moment.
+
+##### Blocking
+
+- It is not recommend to block the Listener, because it will block the thread pool, and eventually may stop the consuming process.
+
+#### Thread Number
+
+- The consumer use a ThreadPoolExecutor to process consuming internally, so you can change it by setting setConsumeThreadMin or setConsumeThreadMax.
+
+#### ConsumeFromWhere
+
+- When a new Consumer Group is established, it will need to decide whether it needs to consume the historical messages which had already existed in the Broker.
+    - CONSUME_FROM_LAST_OFFSET will ignore the historical messages, and consume anything produced after that.
+    - CONSUME_FROM_FIRST_OFFSET will consume every message existed in the Broker.
+    - You can also use CONSUME_FROM_TIMESTAMP to consume messages produced after the specified timestamp.
+
+#### Duplication
+
+- Many circumstances could cause duplication, such as:
+    - Producer resend messages(i.e, in case of FLUSH_SLAVE_TIMEOUT)
+    - Consumer shutdown with some offsets not updated to the Broker in time.
+- So you may need to do some external work to handle this if your application cannot tolerate duplication.
+    - For example, you may check the primary key of your DB.
 
 ### NameServer
 
