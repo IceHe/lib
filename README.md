@@ -112,8 +112,9 @@ Message Queues
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
 - [RocketMQ](/snips/message-queues/rocket-mq.md)
 - [ActiveMQ](/snips/message-queues/active-mq.md)
-- [ZeroMQ](/snips/message-queues/zero-mq.md) ( TODO )
+- [ZeroMQ](/snips/message-queues/zero-mq.md)
 - [_MemcacheQ_](/snips/message-queues/mcq.md)
+- [_Notes_](/snips/message-queues/notes.md)
 
 Storage
 

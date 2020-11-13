@@ -503,61 +503,138 @@ Reference
 
 - Best Practice For NameServer : https://rocketmq.apache.org/docs/best-practice-namesvr
 
-#### Intro
 
-- In Apache RocketMQ,
-    - **name servers are designed to <u>coordinate each component of the distributed system</u>** and
-    - the coordination is **mainly achieved through <u>managing topic routing information</u>.**
-        - _( icehe : 这里不太理解 )_
+In Apache RocketMQ,
+
+- **name servers are designed to <u>coordinate each component of the distributed system</u>** and
+- the coordination is **mainly achieved through <u>managing topic routing information</u>.**
+    - _( icehe : 这里不太理解 )_
 
 Management consists of two parts:
 
-Brokers periodically renew meta data kept in every name server.
-Name servers are serving clients, including producers, consumers and command line clients with the latest routing information.
-Therefore, before launching brokers and clients, we need to tell them how to reach name servers by feeding them with a name server address list. In Apache RocketMQ, this can be done in four ways.
+- Brokers periodically renew meta data kept in every name server.
+- Name servers are serving clients, including producers, consumers and command line clients with the latest routing information.
 
-Programmatic Way
-For brokers, we can specify namesrvAddr=name-server-ip1:port;name-server-ip2:port in broker configuration file.
+Therefore, **before launching brokers and clients, we need to tell them how to reach name servers by feeding them with a name server address list.**
 
-For producers and consumers, we can feed name server address list to them as follows:
+In Apache RocketMQ, this can be done in four ways.
 
+#### Programmatic Way
+
+- For brokers, we can specify `namesrvAddr=name-server-ip1:port;name-server-ip2:port` in broker configuration file.
+- For producers and consumers, we can feed name server address list to them as follows:
+
+```java
 DefaultMQProducer producer = new DefaultMQProducer("please_rename_unique_group_name");
 producer.setNamesrvAddr("name-server1-ip:port;name-server2-ip:port");
 
 DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
 consumer.setNamesrvAddr("name-server1-ip:port;name-server2-ip:port");
-If you use admin command line from shell, you can also specify this way:
+```
 
+- If you use admin command line from shell, you can also specify this way:
+
+```bash
 sh mqadmin command-name -n name-server-ip1:port;name-server-ip2:port -X OTHER-OPTION
-A simple example is: sh mqadmin -n localhost:9876 clusterList assuming to query cluster info on the name server node.
+```
 
-If you have integrated admin tool into your own dashboard, you can:
+- A simple example is: `sh mqadmin -n localhost:9876 clusterList` assuming to query cluster info on the name server node.
+- If you have integrated admin tool into your own dashboard, you can:
 
+```java
 DefaultMQAdminExt defaultMQAdminExt = new DefaultMQAdminExt("please_rename_unique_group_name");
 defaultMQAdminExt.setNamesrvAddr("name-server1-ip:port;name-server2-ip:port");
-Java Options
-Name server address list may also be fed to your application through specifying the sequel java option rocketmq.namesrv.addr before launching.
+```
 
-Environment Variable
-You can export NAMESRV_ADDR environment variable. Brokers and clients will examine and use its value if set.
+#### Java Options
 
-HTTP Endpoint
-If you do not specify name server address list using previously mentioned methods, Apache RocketMQ will access the following HTTP end point to acquire and update name server address list every two minutes with initial delay of ten seconds.
+- Name server address list may also be fed to your application through specifying the sequel java option `rocketmq.namesrv.addr` before launching.
 
-By default, the end point is:
+#### Environment Variable
 
-http://jmenv.tbsite.net:8080/rocketmq/nsaddr
+- You can export `NAMESRV_ADDR` environment variable.
+    - Brokers and clients will examine and use its value if set.
 
-You may override jmenv.tbsite.net using this Java option: rocketmq.namesrv.domain, You may also override nsaddr part using this Java option: rocketmq.namesrv.domain.subgroup
+#### HTTP Endpoint
 
-If you are running Apache RocketMQ in production, this method is recommended because it gives you maximum flexibility – you can dynamically add or remove name server nodes without necessity of rebooting your brokers and clients according to your name servers’ system load.
+- If you do not specify name server address list using previously mentioned methods, Apache RocketMQ will access the following HTTP end point to acquire and update name server address list every two minutes with initial delay of ten seconds.
+- By default, the end point is: `http://jmenv.tbsite.net:8080/rocketmq/nsaddr`
+- You may override jmenv.tbsite.net using this Java option: `rocketmq.namesrv.domain`, You may also override `nsaddr` part using this Java option: `rocketmq.namesrv.domain.subgroup`
+- If you are running Apache RocketMQ in production, this method is recommended because it gives you maximum flexibility – you can dynamically add or remove name server nodes without necessity of rebooting your brokers and clients according to your name servers' system load.
 
-Priority
-Methods introduced first take precedence over the latter ones:
-Programmatic Way > Java Options > Environment Variable > HTTP Endpoint
+#### Priority
+
+- Methods introduced first take precedence over the latter ones:
+    - **Programmatic Way > Java Options > Environment Variable > HTTP Endpoint**
 
 ### JVM/Kernel Config
 
 Reference
 
 - RocketMQ JVM/Linux Configuration : https://rocketmq.apache.org/docs/system-config
+
+This is an introduction for **configuring RocketMQ broker JVM/OS parameters**.
+
+- It points out certain specified configurations that should be thinking about before deploying RocketMQ cluster.
+
+#### JVM Options
+
+The **latest released version of <u>JDK 1.8</u> is recommended**, with **server compiler and a <u>8g heap</u>**.
+
+- **Set the same `Xms` and `Xmx` value to prevent the JVM from resizing the heap for better performance.**
+- A simple JVM configurations looks like this:
+
+```properties
+-server -Xms8g -Xmx8g -Xmn4g
+```
+
+If you don't care about the boot time of RocketMQ broker, pre-touch the Java heap to make sure that every page will be allocated during JVM initialization is a better choice.
+
+- Those who don't care about the boot time can enable it:
+
+```properties
+-XX:+AlwaysPreTouch
+```
+
+**Disable biased locking may reduce JVM pauses**:
+
+```properties
+-XX:-UseBiasedLocking
+```
+
+**As for garbage collection, G1 collector with JDK 1.8 is recommended** :
+
+```properties
+-XX:+UseG1GC -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30
+```
+
+- These GC options looks a little aggressive, but it's proved to have good performance in our production environment.
+- **Don't set a too small value for `-XX:MaxGCPauseMillis`, otherwise JVM will use a small young generation to achieve this goal which will cause very frequent minor GC.**
+
+And use rolling GC log file is recommended:
+
+```properties
+-XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=30m
+```
+
+If write GC file will increase latency of broker, consider redirect GC log file to a memory file system:
+
+```properties
+-Xloggc:/dev/shm/mq_gc_%p.log
+```
+
+#### Linux Kernel Parameters
+
+- There is a `os.sh` script that lists a lot of kernel parameters in folder bin which can be used for production use with minor changes.
+    - Below parameters need attention, and more details please refer to documentation for `/proc/sys/vm/*` ( details : [sysctl/vm](https://www.kernel.org/doc/Documentation/sysctl/vm.txt) ).
+- `vm.extra_free_kbytes`, tells the VM to keep extra free memory between the threshold where background reclaim (kswapd) kicks in _( 踢开; 支付; 开始生效; 死亡 )_, and the threshold where direct reclaim (by allocating processes) kicks in.
+    - RocketMQ uses this parameter to avoid high latency in memory allocation.
+- `vm.min_free_kbytes`, if you set this to lower than 1024KB, your system will become subtly broken, and prone to deadlock under high loads.
+- `vm.max_map_count`, limits the maximum number of memory map areas a process may have.
+    - RocketMQ will use mmap to load CommitLog and ConsumeQueue, so set a bigger value for this parameter is recommended.
+- `vm.swappiness`, define how aggressive the kernel will swap memory pages.
+    - **Higher values will increase agressiveness, lower values decrease the amount of swap.**
+    - **10 for this value to avoid swap latency is recommended.**
+- File descriptor limits, RocketMQ needs open file descriptors for files(CommitLog and ConsumeQueue) and network connections.
+    - We **recommend set 655350 for file descriptors.**
+- Disk scheduler, the deadline I/O scheduler is recommended for RocketMQ, which attempts to provide a guaranteed latency for requests ( details : [DEADLINE I/O SCHEDULER](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/performance_tuning_guide/ch06s04s02) ) .

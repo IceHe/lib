@@ -1,8 +1,5 @@
 # Message Queues ( TODO )
 
-- [ ] RocketMQ
-- [ ] ZereMQ
-
 Comparison ( TODO )
 
 - https://www.educba.com/rabbitmq-vs-kafka/?source=leftnav
