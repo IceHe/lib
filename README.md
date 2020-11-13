@@ -79,7 +79,7 @@ Docker
 - [Docker](/snips/docker/docker.md) : Command & Composor
 - [Alpine Linux](/snips/docker/alpine/alpine.md) : minimal OS image
 
-Infrastructre _( doing )_
+Infrastructre _( TODO )_
 
 - [Service Mesh](/snips/infrastructure/service-mesh.md)
 - [Envoy](/snips/infrastructure/envoy.md)
@@ -112,7 +112,7 @@ Message Queues
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
 - [RocketMQ](/snips/message-queues/rocket-mq.md)
 - [ActiveMQ](/snips/message-queues/active-mq.md)
-- [ZeroMQ](/snips/message-queues/zero-mq.md)
+- [ZeroMQ](/snips/message-queues/zero-mq.md) ( TODO )
 - [_MemcacheQ_](/snips/message-queues/mcq.md)
 - [_Notes_](/snips/message-queues/notes.md)
 
