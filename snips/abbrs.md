@@ -337,6 +337,7 @@ Reference : https://www.computerhope.com/keys.htm
 - [firmwave](https://en.wikipedia.org/wiki/Firmware) ( to rm? )
 - fmt : format
 - fn : function
+- FOSS : [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software)
 - fs : [file system](https://en.wikipedia.org/wiki/File_system)
 - fst : first ( see in Java class "Pair" )
 - func : function
