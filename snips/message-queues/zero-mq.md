@@ -170,7 +170,7 @@ Reference
 ```c
 static void
 s_send_string (void *socket, const char *string) {
-	zmq_send (socket, strdup(string), strlen(string), 0);
+    zmq_send (socket, strdup(string), strlen(string), 0);
 }
 ```
 
