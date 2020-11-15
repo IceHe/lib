@@ -143,10 +143,10 @@ _( 消息队列 )_
     - In fact disks are both much slower and much faster than people expect depending on how they are used;
         - and **a properly _( 正确地 )_ designed disk structure can often be as fast as the network**.
 - **The key fact about disk performance is that the <u>throughput of hard drives has been diverging _( 相异 )_ from the latency of a disk seek</u> for the last decade.**
-    - As a result the performance of linear writes on a JBOD configuration with six 7200rpm SATA RAID-5 array is about 600MB/sec but the performance of random writes is only about 100k/sec -- a difference of over 6000X.
-    - These linear reads and writes are the most predictable of all usage patterns, and are heavily optimized by the operating system.
-    - A modern operating system provides read-ahead and write-behind techniques that prefetch data in large block multiples and group smaller logical writes into large physical writes.
-    - A further discussion of this issue can be found in this ACM Queue article;
+    - ……
+    - _These linear reads and writes are the most predictable of all usage patterns, and are heavily optimized by the operating system._
+    - A modern operating system provides **read-ahead** and **write-behind** techniques that **prefetch data in large block multiples** and **group smaller logical writes into large physical writes**.
+    - ……
         - they **actually find that sequential disk access can in some cases be faster than random memory access!**
 - To compensate for this performance divergence, **modern operating systems have become increasingly aggressive in their use of main memory for disk caching.**
     - A modern OS will happily divert all free memory to disk caching with little performance penalty when the memory is reclaimed _( 回收利用 )_ .
