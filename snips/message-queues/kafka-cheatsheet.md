@@ -45,34 +45,23 @@ Kafka combines 3 key capabilities :
 
 Main Concepts and Terminology
 
-- An event records the fact that "something happened" in the world or in your business.
-- It is also called record or message in the documentation.
-- When you read or write data to Kafka, you do this in the form of events.
+- ……
 - Conceptually, **an event has a key, value, timestamp, and optional metadata headers.**
-
-_Here's an example event:_
-
-- _Event **key** : "Alice"_
-- _Event **value** : "Made a payment of $200 to Bob"_
-- _Event **timestamp** : "Jun. 25, 2020 at 2:06 p.m."_
 
 #### Producers
 
-<u>**Producers**</u> are those client applications that publish (write) events to Kafka, and <u>**consumers**</u> are those that subscribe to (read and process) these events.
+**<u>Producers</u>** are those client applications that publish (write) events to Kafka, and **<u>consumers</u>** are those that subscribe to (read and process) these events.
 
-- _In Kafka, producers and consumers are fully decoupled and agnostic of each other, which is a key design element to achieve the high scalability that Kafka is known for._
+- In Kafka, **producers and consumers are fully decoupled and agnostic _( 不可知论的; 怀疑的 )_ of each other**, which is a **key design element to achieve the high scalability** that Kafka is known for.
 - For example, **producers never need to wait for consumers.**
 - Kafka provides various guarantees such as the ability to **process events exactly-once.**
     - _( icehe : 对消息 "有且只消费一次" 的特性存疑, 需要了解具体实现方式 )_
 
 #### Topics
 
-Events are organized and durably stored in <u>**topics**</u>.
+**Events are organized and durably stored in <u>topics</u>.**
 
-- Very simplified, a topic is similar to a folder in a filesystem, and the events are the files in that folder.
-- An example topic name could be "payments".
 - **Topics in Kafka are always multi-producer and multi-subscriber :**
-    - a topic can have zero, one, or many producers that write events to it, as well as zero, one, or many consumers that subscribe to these events.
 - **Events in a topic can be read as often as needed** -- unlike traditional messaging systems, **events are not deleted after consumption.**
     - Instead, you **define for how long Kafka should retain your events through a per-topic configuration setting, after which old events will be discarded.**
     - Kafka's performance is effectively constant with respect to data size, so storing data for a long time is perfectly fine.
@@ -81,8 +70,8 @@ Events are organized and durably stored in <u>**topics**</u>.
 
 Topics are <u>**partitioned**</u>, meaning **a topic is spread over a number of "buckets" located on different Kafka brokers.**
 
-- This distributed placement of your data is very important for scalability because it allows client applications to both read and write the data from/to many brokers at the same time.
-- When a new event is published to a topic, it is actually appended to one of the topic's partitions.
+- This **distributed placement of your data is very important for scalability** because it allows client applications to both read and write the data from/to many brokers at the same time.
+- When **a new event is published to a topic**, it is actually **appended to one of the topic's partitions**.
 - Events with the same event key ( e.g., a customer or vehicle ID ) are written to the same partition, and Kafka guarantees that any consumer of a given topic-partition will always read that partition's events in exactly the same order as they were written.
 
 ![kafka-partitions.png](_images/kafka-partitions.png)
