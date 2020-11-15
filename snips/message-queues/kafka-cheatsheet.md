@@ -175,12 +175,12 @@ _( 消息队列 )_
     - Disk seeks come at 10 ms a pop, and each disk can do only one seek at a time so parallelism is limited.
     - Hence even a handful of disk seeks leads to very high overhead.
     - Since storage systems mix very fast cached operations with very slow physical disk operations, the observed performance of tree structures is often superlinear as data increases with fixed cache -- i.e. doubling your data makes things much worse than twice as slow.
-- Intuitively _( 凭直觉地 )_ a persistent queue could be built on simple reads and appends to files as is commonly the case with logging solutions.
+- Intuitively _( 凭直觉地 )_ a **persistent queue could be built on simple reads and appends to files as is commonly the case with logging solutions.**
     - This structure has the advantage that all operations are O(1) and reads do not block writes or each other.
-    - **This has obvious performance advantages since the performance is completely decoupled from the data size -- one server can now take full advantage of a number of cheap, low-rotational speed 1+TB SATA drives.**
+    - **This has obvious performance advantages since the performance is completely decoupled from the data size** -- one server can now take full advantage of a number of cheap, low-rotational speed 1+TB SATA drives.
     - Though they have poor seek performance, these drives have acceptable performance for large reads and writes and come at 1/3 the price and 3x the capacity.
 - Having access to virtually unlimited disk space without any performance penalty means that we can provide some features not usually found in a messaging system.
-    - For example, in Kafka, instead of attempting to delete messages as soon as they are consumed, we can retain messages for a relatively long period (say a week).
+    - For example, in Kafka, **instead of attempting to delete messages as soon as they are consumed, we can retain messages for a relatively long period** (say a week).
     - This leads to a great deal of flexibility for consumers, as we will describe.
 
 _suffice : vi. 足够, 有能力_
@@ -188,16 +188,14 @@ _suffice : vi. 足够, 有能力_
 ### Efficiency
 
 - We have put significant effort into efficiency.
-    - One of our primary use cases is handling web activity data, which is very high volume : each page view may generate dozens of writes.
-    - Furthermore, we assume each message published is read by at least one consumer (often many), hence we strive to make consumption as cheap as possible.
+    - ……
 - We have also found, from experience building and running a number of similar systems, that efficiency is a key to effective multi-tenant _( 多租户 )_ operations.
     - If the downstream infrastructure service can easily become a bottleneck due to a small bump in usage by the application, such small changes will often create problems.
-    - By being very fast we help ensure that the application will tip-over _( 翻倒 )_ under load before the infrastructure.
-    - This is particularly important when trying to run a centralized service that supports dozens or hundreds of applications on a centralized cluster as changes in usage patterns are a near-daily occurrence.
+    - ……
 - We discussed disk efficiency in the previous section.
     - Once poor disk access patterns have been eliminated, there are two common causes of inefficiency in this type of system :
-        - too many small I/O operations, and
-        - excessive **byte copying**.
+        - **too many small I/O operations**, and
+        - **excessive byte copying**.
 - The small I/O problem happens both between the client and the server and in the server's own persistent operations.
 - To avoid this, our **protocol is built around a "message set" abstraction that naturally groups messages together.**
     - This **allows network requests to group messages together and amortize _( 分期偿还 )_ the overhead of the network roundtrip rather than sending a single message at a time.**
@@ -229,16 +227,13 @@ _suffice : vi. 足够, 有能力_
 
 #### End-to-end Batch Compression
 
-- In some cases the bottleneck is actually not CPU or disk but network bandwidth.
-    - This is particularly true for a data pipeline that needs to send messages between data centers over a wide-area network.
-    - Of course, the user can always compress its messages one at a time without any support needed from Kafka, but this can lead to very poor compression ratios as much of the redundancy is due to repetition between messages of the same type
-        - (e.g. field names in JSON or user agents in web logs or common string values).
-    - Efficient compression requires compressing multiple messages together rather than compressing each message individually.
+- **In some cases the bottleneck is actually not CPU or disk but network bandwidth.**
+    - ……
+    - **Efficient compression requires compressing multiple messages together rather than compressing each message individually.**
 - Kafka supports this with an efficient batching format.
     - **A batch of messages can be clumped together compressed and sent to the server in this form.**
-    - This batch of messages will be written in compressed form and will remain compressed in the log and will only be decompressed by the consumer.
-- Kafka supports GZIP, Snappy, LZ4 and ZStandard compression protocols.
-    - More details on compression can be found [here](https://cwiki.apache.org/confluence/display/KAFKA/Compression).
+    - ……
+– ……
 
 ### The Producer
 
@@ -247,11 +242,7 @@ _suffice : vi. 足够, 有能力_
 - The **producer sends data directly to the broker that is the leader for the partition without any intervening routing tier.**
     - To help the producer do this **all Kafka nodes can answer a request for metadata about which servers are alive and where the leaders for the partitions of a topic are at any given time to allow the producer to appropriately direct its requests.**
 - The client controls which partition it publishes messages to.
-    - This can be done at random, implementing a kind of random load balancing, or it can be done by some semantic partitioning function.
-    - We expose the interface for semantic partitioning by allowing the user to specify a key to partition by and using this to hash to a partition (there is also an option to override the partition function if need be).
-    - For example if the key chosen was a user id then all data for a given user would be sent to the same partition.
-    - This in turn will allow consumers to make locality assumptions about their consumption.
-    - This style of partitioning is explicitly designed to allow locality-sensitive processing in consumers.
+    - ……
 
 #### Asynchronous send
 
@@ -259,7 +250,6 @@ _suffice : vi. 足够, 有能力_
     - The **batching can be configured to accumulate no more than a fixed number of messages and to wait no longer than some fixed latency bound (say <u>64k or 10 ms</u>).**
     - This allows the accumulation of more bytes to send, and few larger I/O operations on the servers.
     - This buffering is configurable and gives a mechanism to trade off a small amount of additional latency for better throughput.
-- Details on [configuration](https://kafka.apache.org/documentation/#producerconfigs) and the [api](http://kafka.apache.org/082/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html) for the producer can be found elsewhere in the documentation.
 
 ### Consumer
 
@@ -275,12 +265,12 @@ _suffice : vi. 足够, 有能力_
     - There are pros and cons to both approaches.
     - However, a push-based system has difficulty dealing with diverse consumers as the broker controls the rate at which data is transferred.
     - The goal is generally for the consumer to be able to consume at the maximum possible rate; unfortunately, in a push system this means the consumer tends to be overwhelmed when its rate of consumption falls below the rate of production (a denial of service attack, in essence).
-    - A pull-based system has the nicer property that the consumer simply falls behind and catches up when it can.
+    - **A pull-based system has the nicer property that the consumer simply falls behind and catches up when it can.**
     - This can be mitigated _( 使缓和, 使减轻 )_ with some kind of backoff protocol by which the consumer can indicate it is overwhelmed, but getting the rate of transfer to fully utilize (but never over-utilize) the consumer is trickier than it seems.
     - Previous attempts at building systems in this fashion led us to go with a more traditional pull model.
-- Another advantage of a pull-based system is that it lends itself to aggressive batching of data sent to the consumer.
-    - A push-based system must choose to either send a request immediately or accumulate more data and then send it later without knowledge of whether the downstream consumer will be able to immediately process it.
-    - If tuned for low latency, this will result in sending a single message at a time only for the transfer to end up being buffered anyway, which is wasteful.
+- Another advantage of **a pull-based system is that it lends itself to aggressive batching of data sent to the consumer.**
+    - **A push-based system must choose to either send a request immediately or accumulate more data and then send it later without knowledge of whether the downstream consumer will be able to immediately process it.**
+    - **If tuned for low latency, this will result in sending a single message at a time only for the transfer to end up being buffered anyway, which is wasteful.**
     - A pull-based design fixes this as the consumer always pulls all available messages after its current position in the log (or up to some configurable max size).
     - So one gets optimal batching without introducing unnecessary latency.
 - The **deficiency of a naive _( 单纯的 )_ pull-based system is that if the broker has no data the consumer may end up polling in a tight loop, effectively busy-waiting for data to arrive.**
