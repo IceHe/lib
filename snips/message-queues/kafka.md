@@ -92,36 +92,29 @@ Topics are <u>**partitioned**</u>, meaning **a topic is spread over a number of 
 
 - The Figure above : This example topic has four partitions P1 ~ P4.
     - Two different producer clients are publishing, independently from each other, new events to the topic by writing events over the network to the topic's partitions.
-    - Events with the same key ( denoted by their color in the figure ) are written to the same partition.
+    - **Events with the same key _( denoted by their color in the figure )_ are written to the same partition.**
     - Note that **both producers can write to the same partition if appropriate.**
 
 #### Replicated
 
-To make your data fault-tolerant and highly-available, every topic can be <u>**replicated**</u>, even across geo-regions or datacenters,
-
-- so that there are always multiple brokers that have a copy of the data just in case things go wrong, you want to do maintenance on the brokers, and so on.
+- To make your data **fault-tolerant and highly-available**, **every topic can be <u>replicated</u>**, even across geo-regions or datacenters,
+    - so that there are always multiple brokers that have a copy of the data just in case things go wrong, you want to do maintenance on the brokers, and so on.
 - A **common production setting is a replication factor of 3**,
     - i.e., there will always be three copies of your data.
 - This **replication is performed at the level of topic-partitions.**
-
-### Design
-
-This primer should be sufficient for an introduction.
-
-- The [Design](https://kafka.apache.org/documentation/#design) section of the documentation explains Kafka's various concepts in full detail, if you are interested.
 
 ## Use Cases
 
 Reference
 
-- Use Cases - Apache kafka : https://kafka.apache.org/uses
+- Use Cases : https://kafka.apache.org/uses
 
 ### Messaging
 
-消息队列
+_( 消息队列 )_
 
-- Kafka works well as a replacement for a more traditional message broker.
-    - Message brokers are used for a variety of reasons (to decouple processing from data producers, to buffer unprocessed messages, etc).
+- Kafka works well **as a replacement for a more traditional message broker.**
+    - Message brokers are used for a variety of reasons (to **decouple processing from data producers**, to **buffer unprocessed messages**, etc).
     - In comparison to most messaging systems **Kafka has better throughput**, **built-in partitioning**, **replication**, and **fault-tolerance** which makes it a good solution for large scale message processing applications.
 - In our experience **messaging uses are often comparatively low-throughput, but may require low end-to-end latency and often depend on the strong durability guarantees** Kafka provides.
 - _In this domain Kafka is comparable to traditional messaging systems such as [ActiveMQ](http://activemq.apache.org/) or [RabbitMQ](https://www.rabbitmq.com/)._
@@ -146,6 +139,7 @@ Reference
 
 - Many people use Kafka as a **replacement for a log aggregation solution**.
     - Log aggregation typically collects physical log files off servers and puts them in a central place ( a file server or HDFS perhaps ) for processing.
+        - _( icehe : 例如 ELK )_
     - Kafka abstracts away the details of files and gives a cleaner abstraction of log or event data as a stream of messages.
     - This allows for lower-latency processing and easier support for multiple data sources and distributed data consumption.
     - **In comparison to log-centric systems like Scribe or Flume, Kafka offers equally good performance, stronger durability guarantees due to replication, and much lower end-to-end latency.**
