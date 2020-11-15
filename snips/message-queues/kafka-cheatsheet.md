@@ -1,6 +1,6 @@
 # kafka
 
-> **Apache Kafka is an open-source distributed event streaming platform** used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+> **Apache Kafka is an open-source distributed event streaming platform** for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
 
 References
 
@@ -9,7 +9,6 @@ References
     - Quickstart : https://kafka.apache.org/quickstart
     - **Documentation** : https://kafka.apache.org/documentation
         - Kafka 设计与原理详解 : https://blog.csdn.net/suifeng3051/article/details/48053965 _( 上文的部分翻译 )_
-- GitHub : https://github.com/apache/kafka
 
 ## Intro
 
@@ -20,23 +19,21 @@ Reference
 Core Capabilities
 
 - **High Throughput** 高吞吐
-- **Scalable** 可伸缩
+- Scalable 可伸缩
 - **Permanent Storage** 持久存储
-- **High Available** 高可用
+- High Available 高可用
 
 Ecosystem
 
 - **Built-in Strem Processing**
     - Process streams of events with joins, aggregations, filters, transformations, and more, using event-time and **exactly-once processing**.
-- Connect to almost anything
-- Client Libraries
-- Large Ecosystem Open Source Tools
+- ……
 
 ### Description
 
-Apache Kafka is an **event streaming platform**. What does that mean?
+……
 
-Kafka combines three key capabilities so you can implement your use cases for event streaming end-to-end with a single battle-tested solution :
+Kafka combines 3 key capabilities :
 
 - To **publish (write)** and **subscribe to (read)** streams of events, including continuous import/export of your data from other systems.
 - To **store** streams of events durably and reliably for as long as you want.
