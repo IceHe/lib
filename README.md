@@ -108,7 +108,7 @@ Markdown
 
 Message Queues
 
-- [kafka](/snips/message-queues/kafka.md)
+- [kafka](/snips/message-queues/kafka.md) ( [digest](/snips/message-queues/kafka-digest.md) )
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
 - [RocketMQ](/snips/message-queues/rocket-mq.md)
 - [ActiveMQ](/snips/message-queues/active-mq.md)
