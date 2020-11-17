@@ -1908,8 +1908,12 @@ Reference
 #### LocalDateTime
 
 ```java
-import java.time.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import lombok.experimental.UtilityClass;
@@ -2011,6 +2015,94 @@ public class LocalDateTimeUtils {
             return null;
         }
         return localDateTime.atZone(ZoneId.systemDefault()).toEpochSecond();
+    }
+
+    /** Calculates milliseconds until another date-time */
+    public Long millisBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.MILLIS);
+    }
+
+    /** Calculates seconds until another date-time */
+    public Long secondsBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.SECONDS);
+    }
+
+    /** Calculates hours until another date-time */
+    public Long hoursBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.HOURS);
+    }
+
+    /** Calculates days until another date-time */
+    public Long daysBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.DAYS);
+    }
+
+    /** Calculates weeks until another date-time */
+    public Long weeksBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.WEEKS);
+    }
+
+    /** Calculates months until another date-time */
+    public Long monthsBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.MONTHS);
+    }
+
+    /** Calculates years until another date-time */
+    public Long yearsBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.YEARS);
+    }
+
+    /** Calculates days until another date */
+    public Long daysBetween(LocalDate localDateA, LocalDate localDateB) {
+        if (null == localDateA || null == localDateB) {
+            return null;
+        }
+        return localDateA.until(localDateB, ChronoUnit.DAYS);
+    }
+
+    /** Calculates weeks until another date */
+    public Long weeksBetween(LocalDate localDateA, LocalDate localDateB) {
+        if (null == localDateA || null == localDateB) {
+            return null;
+        }
+        return localDateA.until(localDateB, ChronoUnit.WEEKS);
+    }
+
+    /** Calculates months until another date */
+    public Long monthsBetween(LocalDate localDateA, LocalDate localDateB) {
+        if (null == localDateA || null == localDateB) {
+            return null;
+        }
+        return localDateA.until(localDateB, ChronoUnit.MONTHS);
+    }
+
+    /** Calculates years until another date */
+    public Long yearsBetween(LocalDate localDateA, LocalDate localDateB) {
+        if (null == localDateA || null == localDateB) {
+            return null;
+        }
+        return localDateA.until(localDateB, ChronoUnit.YEARS);
     }
 }
 
