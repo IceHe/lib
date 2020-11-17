@@ -264,7 +264,7 @@ _suffice : vi. 足够, 有能力_
     - Some logging-centric systems, such as **[Scribe](http://github.com/facebook/scribe) and [Apache Flume](http://flume.apache.org/), follow a very different push-based path where data is pushed downstream.**
     - There are pros and cons to both approaches.
     - However, a push-based system has difficulty dealing with diverse consumers as the broker controls the rate at which data is transferred.
-    - The goal is generally for the consumer to be able to consume at the maximum possible rate; unfortunately, in a push system this means the consumer tends to be overwhelmed when its rate of consumption falls below the rate of production (a denial of service attack, in essence).
+    - **The goal is generally for the consumer to be able to consume at the maximum possible rate; unfortunately, in a push system this means the consumer tends to be overwhelmed when its rate of consumption falls below the rate of production (a denial of service attack, in essence).**
     - **A pull-based system has the nicer property that the consumer simply falls behind and catches up when it can.**
     - This can be mitigated _( 使缓和, 使减轻 )_ with some kind of backoff protocol by which the consumer can indicate it is overwhelmed, but getting the rate of transfer to fully utilize (but never over-utilize) the consumer is trickier than it seems.
     - Previous attempts at building systems in this fashion led us to go with a more traditional pull model.
@@ -274,7 +274,7 @@ _suffice : vi. 足够, 有能力_
     - A pull-based design fixes this as the consumer always pulls all available messages after its current position in the log (or up to some configurable max size).
     - So one gets optimal batching without introducing unnecessary latency.
 - The **deficiency of a naive _( 单纯的 )_ pull-based system is that if the broker has no data the consumer may end up polling in a tight loop, effectively busy-waiting for data to arrive.**
-    - To avoid this we have parameters in our pull request that allow the consumer request to block in a "long poll" waiting until data arrives (and optionally waiting until a given number of bytes is available to ensure large transfer sizes).
+    - **To avoid this we have parameters in our pull request that allow the consumer request to block in a "<u>long poll</u>" waiting until data arrives (and optionally waiting until a given number of bytes is available to ensure large transfer sizes).**
 - You could imagine other possible designs which would be only pull, end-to-end.
     - The producer would locally write to a local log, and brokers would pull from that with consumers pulling from them.
     - A similar type of **"store-and-forward" producer is often proposed.**
