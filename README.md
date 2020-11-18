@@ -132,7 +132,7 @@ Storage
 - Redis : in-memory data structure store
     - _used as a database, cache and message broker_
     - [Basics](/snips/redis/redis-basics.md) : http://redis.io ( TODO )
-    - [Usage](/snips/reids/redis-usage.md) : https://redis.io/commands ( TODO )
+    - [Usage](/snips/redis/redis-usage.md) : https://redis.io/commands ( TODO )
 - [_Mongo_](/snips/tmp/mongo.md) _( draft )_
 
 <!--
