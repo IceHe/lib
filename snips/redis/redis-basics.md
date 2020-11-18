@@ -1,322 +1,123 @@
-# Redis Basics (TODO)
+# Redis Basics ( TODO )
 
 > REmote DIctionary Server
 
-- Redis : https://redis.io
-    - Commands : https://redis.io/commands
-    - Documentation : https://redis.io/documentation
-    - Download : https://redis.io/download
-- ZH Docs : http://redisdoc.com
-
-基本原理和方案设计
-
-- **Redis 深度历险：核心原理与应用实践** : https://juejin.im/book/5afc2e5f6fb9a07a9b362527 ( 推荐 )
-
-容量评估
-
-- **Redis 容量预估** - 极数云舟 : http://www.redis.cn/redis_memory/
-- Redis 容量评估模型 - 腾讯游戏学院 : https://gameinstitute.qq.com/community/detail/114987
-
-## Mode
-
-- Redis : 单线程模型 ( 现支持多线程 )
-    - 单机压测 : QPS 60k
-- Memcached : 多线程模型
-    - 单机压测 : QPS 300k
-    - 使用 libevent 库，理论上性能比 Redis 好
-    - LRU 算法比较成熟
-- Nginx : 多进程模型（每个进程单线程？）
-
-## RESP 序列化
-
-> Redis Serialization Protocol
-
 References
 
-- 原理 2：交头接耳 —— 通信协议 : https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5afc39496fb9a07ab458d0f1
-- Redis Protocol specification : https://redis.io/topics/protocol
+- Home Page : https://redis.io
+    - Introduce : https://redis.io/topics/introduction
+    - _Clients_ : https://redis.io/clients
+    - Commands : https://redis.io/commands
+    - Documentation : https://redis.io/documentation
+    - _Download_ : https://redis.io/download
+- Others
+    - ZH Docs : http://redisdoc.com
+    - 基本原理和方案设计
+        - **Redis 深度历险：核心原理与应用实践** : https://juejin.im/book/5afc2e5f6fb9a07a9b362527 ( 推荐 )
+    - 容量评估
+        - **Redis 容量预估** - 极数云舟 : http://www.redis.cn/redis_memory/
+        - Redis 容量评估模型 - 腾讯游戏学院 : https://gameinstitute.qq.com/community/detail/114987
+
+## Intro
 
-Redis 协议将传输的结构数据分为 5 种最小单元类型，单元结束时统一加上回车换行符号 `\r\n`。
+Reference
 
-- 单行字符串 以 `+` 符号开头。
-- 多行字符串 以 `$` 符号开头，后跟字符串长度。
-- 整数值 以 `:` 符号开头，后跟整数的字符串形式。
-- 错误消息 以 `-` 符号开头。
-- 数组 以 `*` 号开头，后跟数组的长度。
+- Introduce : https://redis.io/topics/introduction
 
-## Persistence
+Redis is an _open source ( BSD licensed ) ,_ **in-memory data structure store**, **used as a database, cache and message broker**.
 
-- 快照 ( RDB? )
-    - `save` 同步保存
-    - `bgsave` 异步保存
-- AOF
+- It supports **data structures** such as [strings](https://redis.io/topics/data-types-intro#strings), [hashes](https://redis.io/topics/data-types-intro#hashes), [lists](https://redis.io/topics/data-types-intro#lists), [sets](https://redis.io/topics/data-types-intro#sets), [sorted sets](https://redis.io/topics/data-types-intro#sorted-sets) with range queries, [bitmaps](https://redis.io/topics/data-types-intro#bitmaps), [hyperloglogs](https://redis.io/topics/data-types-intro#hyperloglogs), [geospatial indexes](https://redis.io/commands/geoadd) with radius queries and [streams](https://redis.io/topics/streams-intro).
+- Redis has built-in [replication](https://redis.io/topics/replication), [Lua scripting](https://redis.io/commands/eval), [LRU eviction](https://redis.io/topics/lru-cache), [transactions](https://redis.io/topics/transactions) and different levels of [on-disk persistence](https://redis.io/topics/persistence), and provides high availability via [Redis Sentinel](https://redis.io/topics/sentinel) and automatic partitioning with [Redis Cluster](https://redis.io/topics/cluster-tutorial).
 
-### AOF
+You can run **atomic operations** on these types, like
 
-AOF : Append Only File?
+- [appending to a string](https://redis.io/commands/append);
+- [incrementing the value in a hash](https://redis.io/commands/hincrby);
+- [pushing an element to a list](https://redis.io/commands/lpush);
+- [computing set intersection](https://redis.io/commands/sinter), [union](https://redis.io/commands/sunion) and [difference](https://redis.io/commands/sdiff);
+- or [getting the member with highest ranking in a sorted set](https://redis.io/commands/zrangebyscore).
 
-- 先运行操作，再写日志到 AOF 文件
-    - hbase / leveldb 等存储引擎都是：先写日志，再执行操作
+In order to achieve its outstanding performance, Redis works with an **in-memory dataset**.
 
-用途
+- Depending on your use case, you can **persist it either by** [dumping the dataset to disk](https://redis.io/topics/persistence#snapshotting) every once in a while, or by [appending each command](https://redis.io/topics/persistence#append-only-file) to a log.
+- _Persistence can be optionally disabled, if you just need a feature-rich, networked, in-memory cache._
 
-- 重放：从宕机中恢复服务
-- 主从同步
+Redis also supports trivial-to-setup ( 微不足道的设置 ) [master-slave asynchronous replication](https://redis.io/topics/replication), with very fast non-blocking first synchronization, auto-reconnection with partial resynchronization on net split.
 
-#### 重写
+Other features include:
 
-- 理由：运行时间长之后，内容太多（有重复、有失效），需要重写
-- 方法：`bgrewriteof` 命令 fork 出子进程
-    - 重写 AOF 文件
-    - 追加重写期间的新操作
-    - 替换旧的 AOF 文件
+- [Transactions](https://redis.io/topics/transactions)
+- [Pub/Sub](https://redis.io/topics/pubsub)
+- [Lua scripting](https://redis.io/commands/eval)
+- [Keys with a limited time-to-live](https://redis.io/commands/expire)
+- [LRU eviction of keys](https://redis.io/topics/lru-cache)
+- [Automatic failover](https://redis.io/topics/sentinel)
 
-#### fsync
+_You can use Redis from [most programming languages](https://redis.io/clients) out there._
 
-强制写文件 `fsync`
+Redis is written in **ANSI C** _and works in most POSIX systems like Linux, \*BSD, macOS without external dependencies._
 
-- 理由：即使写到 AOF “文件”，但是文件内容其实还是可能丢失
-    - 内核为该文件描述符提供了「内存缓存」，异步刷新回磁盘中
-    - 如果此时宕机，仍然可能丢数据！
-- 方法：Linux 的 glibc 提供 `fsync(int fd)` 函数，强制将文件内容刷新回磁盘。
-    - 为了避免频繁 IO 影响性能，生产环境的 Redis 通常 1s 执行一次 fsync，尽量避免丢失数据
-        - appendfsync everysec 默认
-        - appendfsync always 总是
-        - appendfsync no 永不：根据系统刷新输出缓冲区的时间来决定的，一般来说是 30s
-            - 注意：只是「永不主动刷磁盘」而已，还是会等待操作系统来刷磁盘
+- Linux and macOS are the two operating systems where Redis is developed and tested the most, and we **recommend using Linux for deploying**.
+- _Redis may work in Solaris-derived systems like SmartOS, but the support is best effort._
+- _There is no official support for Windows builds._
 
-运维
+## Documentation
 
-- 主从同步的架构：通常主节点不进行持久化，由相对空闲的从节点来做，减少主节点的压力。
-    - 小心一致性：主节点宕机，还有网络不稳定的问题。
+Reference
 
-Redis 4.0 的数据恢复
+- Documentation : https://redis.io/documentation
 
-- 先从 RDB 加载
-- 再从 AOF 重放
+Note :
 
-Related
+- The Redis Documentation is also available in raw (computer friendly) format in the redis-doc github repository.
+    - The Redis Documentation is released under the Creative Commons Attribution-ShareAlike 4.0 International license.
 
-- OS 多进程 Copy On Write 机制（TODO）
+### Programming with Redis
 
-## Pipeline 管道
+- _[The full list of commands](https://redis.io/commands) implemented by Redis, along with thorough documentation for each of them._
+- [Pipelining](https://redis.io/topics/pipelining) : Learn how to **send multiple commands at once, saving on round trip time.**
+- [Redis Pub/Sub](https://redis.io/topics/pubsub) : Redis is a **fast and stable Publish/Subscribe messaging system!** Check it out.
+- [Redis Lua scripting](https://redis.io/commands/eval) : Redis Lua scripting feature documentation.
+- [Debugging Lua scripts](https://redis.io/topics/ldb) : _Redis 3.2 introduces a native Lua debugger for Redis scripts._
+- [Memory optimization](https://redis.io/topics/memory-optimization) : Understand **how Redis uses RAM and learn some tricks to use less of it.**
+- [Expires](https://redis.io/commands/expire) : Redis allows to **set a time to live different for every key** so that the key will be **automatically removed from the server when it expires.**
+- [Redis as an LRU cache](https://redis.io/topics/lru-cache) : How to configure and use Redis **as a cache with a fixed amount of memory and auto eviction of keys.**
+- [Redis transactions](https://redis.io/topics/transactions) : It is possible to **group commands together so that they are executed as a single transaction.**
+- [Client side caching](https://redis.io/topics/client-side-caching) : Starting with version 6 Redis supports **server assisted client side caching.**
+    - _This document describes how to use it._
+- [Mass insertion of data](https://redis.io/topics/mass-insert) : How to **add a big amount of pre existing or generated data to a Redis instance in a short time.**
+- [Partitioning](https://redis.io/topics/partitioning) : How to **distribute your data among multiple Redis instances.**
+- [Distributed locks](https://redis.io/topics/distlock) : Implementing a **distributed lock manager** with Redis.
+- [Redis keyspace notifications](https://redis.io/topics/notifications) : **Get notifications of keyspace events via Pub/Sub** (Redis 2.8 or greater).
+- [Creating secondary indexes with Redis](https://redis.io/topics/indexes) : Use Redis data structures to **create secondary indexes, composed indexes and traverse graphs.**
 
-- 多个请求合到一起发送，多个响应合到一起返回，减少网络的连接传输的次数。
-    - 客户端改变读写顺序，带来性能提升？
-        - 说的是？读写连续较多的数据，对服务端和客户端，IO 的效率都会提交比较多。
+Redis modules API
 
-## Transaction 事务
+- [Introduction to Redis modules](https://redis.io/topics/modules-intro).
+    - A good place to start learing about Redis 4.0 modules programming.
+- [Implementing native data types](https://redis.io/topics/modules-native-types).
+    - Modules scan **implement new data types** (data structures and more) that **look like built-in data types.**
+    - _This documentation covers the API to do so._
+- [Blocking operations with modules](https://redis.io/topics/modules-blocking-ops).
+    - _This is still an experimental API, but a very powerful one to write commands that can **block the client (without blocking Redis) and can execute tasks in other threads**._
+- [Redis modules API reference](https://redis.io/topics/modules-api-ref).
+    - _Directly generated from the top comments in the source code inside src/module.c._
+    - _Contains many low level details about API usage._
 
-- multi / exec / discard
-    - 类似于 SQL 的 begin / commit / rollback
-        - 但是只能放弃事务（discard），并不能回滚（rollback）
-    - 与 Pipeline 结合使用
-- watch：监视某个变量的值是否有变化
-    - 属于「乐观锁」机制，不同于分布式锁服务的「悲观锁」机制（这个还要再理解理解）
-    - 不能在 multi 和 exec 间使用 watch 命令
+Tutorials & FAQ
+Introduction to Redis data types: This is a good starting point to learn the Redis API and data model.
+Introduction to Redis streams: A detailed description of the Redis 5 new data type, the Stream.
+Writing a simple Twitter clone with PHP and Redis
+Auto complete with Redis
+Data types short summary: A short summary of the different types of values that Redis supports, not as updated and info rich as the first tutorial listed in this section.
+FAQ: Some common questions about Redis.
 
-```bash
-> watch books
-OK
-> incr books  # 被修改了
-(integer) 1
-> multi
-OK
-> incr books
-QUEUED
-> exec  # 事务执行失败
-(nil)
-```
+## Commands
 
-## Codis 集群方案
+Reference
 
-- Ref : https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b029e5e5188254266432000
+- Commands : https://redis.io/commands
 
-Codis 集群方案之一：Redis 的代理中间件
+Omited…
 
-- slot 槽位：默认 1024，然后是 2048 / 4096 / …?
-- 槽位存储在 ZooKeeper 或 etcd 等分布式配置服务中
-
-代价
-
-- 有些 Redis 命令不支持：例如 rename
-- 迁移的卡顿较大
-- 增加的网络开销
-- 需要 zk 服务
-
-Related?
-
-- Sential 哨兵（机制的实现不太清楚，有很多不同版本的实现？）
-    - TODO
-
-## Cluster 官方集群方案
-
-> Redis Cluster
-
-- 分布式（不同于 Codis 的集中式）
-- slots 槽位分为 1024 * 16 = 16384
-- 每个 redis 实例都保存有所有节点的槽位信息
-- cluster 客户端可以获得槽位信息表，直接访问数据所在的 Redis 实例
-
-跳转：`-MOVED` 报错
-
-- 说明数据所在的槽位，以及 HOST:PORT
-
-```bash
-> GET x
--MOVED 3999 127.0.0.1:6381
-```
-
-迁移：key 数据搬运
-
-- 以 slot 为单位
-- keywords : migrating / importing / asking
-- 故障认定 PFAIL : Gossip 协议沟通各节点状态
-
-## ziplist
-
-Ziplist 压缩链表
-
-- 小 HashTable : key value 分别作为 entry 连续存储在 ziplist 中
-- 小 SortedSet : value score 分别作为 entry 连续存储在 ziplist 中
-- 除了这两种结构，其它结构例如 set 不会用 ziplist 存储（是吧？）
-    - Set 只有 int 时用 intset 结构存，否则用
-
-## listpack
-
-> Redis 5.0 对 ziplist 的改进
-
-- 去掉了 `zltail_offset`
-- 长度字段用 variant 来编码
-- 消灭了「级联更新」（由于 entry 长度变长扩充内存占用，然后挪动后面的元素）
-    - （这个一时还没想懂）
-- 替代 ziplist：为时尚早，只在新的 Stream 数据结构中使用 listpack
-    - 由于 ziplist 使用广泛，由于兼容性问题，暂时没有直接被 listpack 替换
-
-## intset
-
-```bash
-# e.g.
-> sadd test_set 1 2 3
-(integer) 3
-
-> smembers test_set
-1) "1"
-2) "2"
-3) "3"
-
-> OBJECT encoding test_set
-"intset"
-
-> sadd test_set ice
-(integer) 1
-
-> OBJECT encoding test_set
-"hashtable"
-```
-
-### Expire
-
-> 过期淘汰
-
-每秒十次过期扫描，过期贪心策略
-
-- 随机选取 20 个 key，如果过期就淘汰
-- 一旦其中有超过 1/4 的 key 被淘汰，再进行上一步，循环往复
-- 如果一直持续执行，会有 25 ms 超时上限（避免阻塞后续读写请求）
-
-存在的问题
-
-- 大量的 key 同时过期，导致 Redis 卡顿
-
-从库策略
-
-- 从库不主动进行过期淘汰，等待主库同步对过期 key 的 del 指令
-
-### LRU
-
-> 内存淘汰
-
-设置最大使用内存
-
-- `maxmemory`
-
-淘汰策略
-
-- 前缀
-    - 带 `volatile-*` 前缀，代表只淘汰有过期值的 key
-    - 带 `allkeys-*` 前缀，代表淘汰范围包括所有的 key
-- noneviction 不淘汰：满了之后，进入「只读」状态，无法写入
-- volatile-lru 最近最少使用
-- volatile-ttl 最近过期
-- volatile-random 随机
-- allkeys-lru 最近最少使用
-- allkeys-random 随机
-
-LRU 实现：近似模拟（据说 MC 的 LRU 实现比较成熟）
-
-- 随机选取淘汰范围内的 key，选择一个最近最早使用的 key
-
-### Lazy Delete
-
-> 惰性删除
-
-## Tmp
-
-### TODOs
-
-PubSub 订阅
-
-- TODO
-
-快照同步（RDB 同步）
-
-- 当增量同步（AOF 同步）的缓冲区满了之后，会丢失一些修改
-- 所以这时需要先进行 RDB 同步，然后再重新用 AOF 同步
-    - 问题：要是 RDB 同步太慢，会重蹈覆辙 —— 内存中的指令缓冲区会被填满，又得重新做 RDB 同步了……
-
-Stream
-
-- 借鉴了 kafka 队列
-    - 但是没有 partition实现
-
-info 指令
-
-- 对于排查错误很重要，要自己多尝试
-- 还有 debug 命令！
-
-### FAQ
-
-- Redis strings vs Redis hashes to represent JSON: efficiency? - Stack Overflow :  https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
-
-### 15m Quickstart
-
-部分基本知识：
-
-- 任何二进制的序列都可以作为 key 使用
-- 对 key-value 允许的最大长度是 512MB
-
-应用场景：
-
-1. 最常用的就是 __会话缓存__
-2. __消息队列__，比如支付
-3. 活动 __排行榜__ 或 __计数__
-4. __发布、订阅__ 消息（消息通知）: pubsub?
-5. 商品列表、评论列表等
-
-Ref : https://www.itcodemonkey.com/article/3506.html
-
-微博单台 Redis 示例能扛 5w QPS
-
-### 源码解析
-
-- [Zeech's Tech Blog](http://zcheng.ren/index.html)
-- [ZeeCoder](https://blog.csdn.net/terence1212)
-    - 以上两个博客有 Redis 源码分析的内容
-- [Redis 源码分析 - huangz/note](http://note.huangz.me/storage/redis_code_analysis/index.html) 许多 Redis 书籍均由该作者翻译
-- [Redis 命令参考](http://redisdoc.com/)
-- 注释版源码
-    - 2.6 : https://github.com/huangz1990/annotated_redis_source
-    - 3.0 : https://github.com/huangz1990/redis-3.0-annotated
-- 1.0 源码阅读
-    - http://pein0119.github.io/2014/08/18/-Redis-10%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89---%E5%BC%80%E7%AF%87/
+- See [Redis Usage](redis-usage.md)
