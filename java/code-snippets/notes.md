@@ -2033,6 +2033,14 @@ public class LocalDateTimeUtils {
         return localDateTimeA.until(localDateTimeB, ChronoUnit.SECONDS);
     }
 
+    /** Calculates minutes until another date-time */
+    public Long minutesBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
+        if (null == localDateTimeA || null == localDateTimeB) {
+            return null;
+        }
+        return localDateTimeA.until(localDateTimeB, ChronoUnit.MINUTES);
+    }
+
     /** Calculates hours until another date-time */
     public Long hoursBetween(LocalDateTime localDateTimeA, LocalDateTime localDateTimeB) {
         if (null == localDateTimeA || null == localDateTimeB) {
