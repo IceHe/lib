@@ -110,7 +110,7 @@ Message Queues
 
 - [kafka](/snips/message-queues/kafka.md) ( [digest](/snips/message-queues/kafka-digest.md) )
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
-- [RocketMQ](/snips/message-queues/rocket-mq.md)
+- [RocketMQ](/snips/message-queues/rocket-mq.md) ( TODO )
 - [ActiveMQ](/snips/message-queues/active-mq.md)
 - [ZeroMQ](/snips/message-queues/zero-mq.md) ( TODO )
 - [_MemcacheQ_](/snips/message-queues/mcq.md)
@@ -121,18 +121,18 @@ Storage
 - [LSM Tree](/snips/lsm-tree/lsm-tree.md) : Log-Structured Merge-Tree
     - Data structure related to LevelDB / RocksDB
 - Elasticsearch : for search ( and analysis )
-    - Basics ( TODO ) : https://www.elastic.co
+    - Basics : https://www.elastic.co ( TODO )
         - What is Elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
-    - [Usage](/snips/storage/elasticsearch.md)
+    - [Usage](/snips/storage/elasticsearch.md) ( TODO )
 - MySQL : robust SQL database server
     - Basics ( TODO ) : https://www.mysql.com
-        - https://dev.mysql.com/doc/
+        - https://dev.mysql.com/doc
             - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
-    - [Usage](/snips/mysql/mysql-usage.md)
+    - [Usage](/snips/mysql/mysql-usage.md) ( TODO )
 - Redis : in-memory data structure store
     - _used as a database, cache and message broker_
-    - [Basics](/snips/redis/redis-basics.md) : http://redis.io
-    - [Usage](/snips/reids/redis-usage.md) : https://redis.io/commands
+    - [Basics](/snips/redis/redis-basics.md) : http://redis.io ( TODO )
+    - [Usage](/snips/reids/redis-usage.md) : https://redis.io/commands ( TODO )
 - [_Mongo_](/snips/tmp/mongo.md) _( draft )_
 
 <!--

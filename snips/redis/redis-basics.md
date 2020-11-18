@@ -1,4 +1,4 @@
-# Redis
+# Redis Basics (TODO)
 
 > REmote DIctionary Server
 
