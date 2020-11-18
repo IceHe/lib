@@ -228,6 +228,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cpp : [c++](https://en.wikipedia.org/wiki/C%2B%2B)
 - cr : [carriage return](https://en.wikipedia.org/wiki/Carriage_return)
 - CRC : [Cyclic Redundancy Check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check)
+- CRDTs : [conflict-free replicated data types](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/?_ga=2.260030985.2088872456.1605668199-2081104277.1591070091)
 - crit : critical (condition) 临界 (条件/情况)
 - crlf : carriage return / line feed
     ( [newline](https://en.wikipedia.org/wiki/Newline) )
