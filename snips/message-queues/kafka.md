@@ -338,7 +338,7 @@ _suffice : vi. 足够, 有能力_
     - This is intriguing **but we felt not very suitable for our target use cases which have thousands of producers.**
     - Our experience running persistent data systems at scale led us to feel that involving thousands of disks in the system across many applications would not actually make things more reliable and would be a nightmare to operate.
     - _( icehe : kafka 社区认为 "生产者先把消息持久化再发送给 MQ" 的做法, 实际上并不能让这个系统变得更可靠, 而且非常难维护 )_
-    - And in practice we have found that we can run a pipeline with strong SLAs at large scale without a need for producer persistence.
+    - And in practice we have found that we can run a pipeline with strong SLAs at large scale without a need for prodUcer persistence.
 
 #### Consumer Position
 
