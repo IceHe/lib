@@ -126,7 +126,7 @@ Note :
 - [Introduction to Redis streams](https://redis.io/topics/streams-intro)
     - _A detailed description of the Redis 5 new data type, the Stream._
 - [Writing a simple Twitter clone with PHP and Redis](https://redis.io/topics/twitter-clone)
-- [Auto complete with Redis](http://autocomplete.redis.io/?_ga=2.65866029.2088872456.1605668199-2081104277.1591070091)
+- [Auto complete with Redis](http://autocomplete.redis.io/)
 - [Data types short summary](https://redis.io/topics/data-types)
     - A short summary of the different types of values that Redis supports, not as updated and info rich as the first tutorial listed in this section.
 - [FAQ](https://redis.io/topics/faq)
@@ -153,7 +153,7 @@ Note :
 
 - [Redis on ARM and Raspberry Pi](https://redis.io/topics/ARM)
     - _Starting with Redis 4.0 ARM and the Raspberry Pi are officially supported platforms. This page contains general information and benchmarks._
-- _[A reference implementation of Redis for IoT and Edge Computing can be found here](https://redislabs.com/redis-enterprise/more/redis-edge/?_ga=2.260030985.2088872456.1605668199-2081104277.1591070091)._
+- _[A reference implementation of Redis for IoT and Edge Computing can be found here](https://redislabs.com/redis-enterprise/more/redis-edge/)._
 
 ### Troubleshooting
 
@@ -170,50 +170,50 @@ Note :
 
 ### Other distributed systems based on Redis
 
-- [Redis CRDTs](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/?_ga=2.260030985.2088872456.1605668199-2081104277.1591070091) an **active-active geo-distribution solutions** for Redis.
+- [Redis CRDTs](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/) an **active-active geo-distribution solutions** for Redis.
 - [Roshi](https://github.com/soundcloud/roshi) is a large-scale CRDT set implementation for timestamped events based on Redis and implemented in Go.
     - It was initially developed for the [SoundCloud stream](https://developers.soundcloud.com/blog/roshi-a-crdt-system-for-timestamped-events).
 
 ### Redis on SSD and persistent memory
 
-Redis on Flash by Redis Labs extends DRAM capacity with SSD and persistent memory.
-Specifications
-Redis Design Drafts: Design drafts of new proposals.
-Redis Protocol specification: if you're implementing a client, or out of curiosity, learn how to communicate with Redis at a low level.
-Redis RDB format specification, and RDB version history.
-Internals: Learn details about how Redis is implemented under the hood.
-Resources
-Redis Cheat Sheet: Online or printable function reference for Redis.
-Use cases
-Who is using Redis
-Books
+- [Redis on Flash](https://redislabs.com/redis-enterprise/technology/redis-on-flash/) by Redis Labs extends DRAM capacity with SSD and persistent memory.
+
+### Specifications
+
+- [Redis Design Drafts](https://redis.io/topics/rdd)
+    - Design drafts of new proposals.
+- [Redis Protocol specification](https://redis.io/topics/protocol)
+    - if you're implementing a client, or out of curiosity, learn how to communicate with Redis at a low level.
+- [Redis RDB format](https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format) specification, and [RDB version history](https://github.com/sripathikrishnan/redis-rdb-tools/blob/master/docs/RDB_Version_History.textile).
+- [Internals](https://redis.io/topics/internals)
+    - Learn details about how Redis is implemented under the hood.
+
+### Resources
+
+- [Redis Cheat Sheet](https://cheatography.com/tasjaevan/cheat-sheets/redis/)
+    - Online or printable function reference for Redis.
+
+### Use cases
+
+- [Who is using Redis](https://redis.io/topics/whos-using-redis)
+
+### Books
+
 The following is a list of books covering Redis that are already published. Books are ordered by release date (newer books first).
 
-Mastering Redis (Packt, 2016) by Jeremy Nelson.
-Redis Essentials (Packt, 2015) by Maxwell Da Silva and Hugo Tavares
-Redis in Action (Manning, 2013) by Josiah L. Carlson (early access edition).
-Instant Redis Optimization How-to (Packt, 2013) by Arun Chinnachamy.
-Instant Redis Persistence (Packt, 2013) by Matt Palmer.
-The Little Redis Book (Free Book, 2012) by Karl Seguin is a great free and concise book that will get you started with Redis.
-Redis Cookbook (O'Reilly Media, 2011) by Tiago Macedo and Fred Oliveira.
-The following books have Redis related content but are not specifically about Redis:
+- Mastering Redis (Packt, 2016) by Jeremy Nelson.
+- Redis Essentials (Packt, 2015) by Maxwell Da Silva and Hugo Tavares
+- Redis in Action (Manning, 2013) by Josiah L. Carlson (early access edition).
+- Instant Redis Optimization How-to (Packt, 2013) by Arun Chinnachamy.
+- Instant Redis Persistence (Packt, 2013) by Matt Palmer.
+- The Little Redis Book (Free Book, 2012) by Karl Seguin is a great free and concise book that will get you started with Redis.
+- Redis Cookbook (O'Reilly Media, 2011) by Tiago Macedo and Fred Oliveira.
 
-Seven databases in seven weeks (The Pragmatic Bookshelf, 2012).
-Mining the Social Web (O'Reilly Media, 2011)
-Professional NoSQL (Wrox, 2011)
-Credits
-Redis is developed and maintained by the Redis community.
+_The following books have Redis related content but are not specifically about Redis:_
 
-The project was created, developed and maintained by Salvatore Sanfilippo until June 30th, 2020. In the past Pieter Noordhuis and Matt Stancliff provided a very significant amount of code and ideas to both the Redis core and client libraries.
-
-The full list of Redis contributors can be found in the Redis contributors page at Github. However there are other forms of contributions such as ideas, testing, and bug reporting. When it is possible, contributions are acknowledged in commit messages. The mailing list archives and the Github issues page are good sources to find people active in the Redis community providing ideas and helping other users.
-
-Sponsors
-The work Salvatore Sanfilippo does in order to develop Redis is sponsored by Redis Labs. Other sponsors and past sponsors of the Redis project are listed in the Sponsors page.
-
-License, Trademark and Logo
-Redis is released under the three clause BSD license. You can find additional information in our license page.
-The Redis trademark and logos are owned by Redis Labs Ltd, please read the Redis trademark guidelines for our policy about the use of the Redis trademarks and logo.
+- _[Seven databases in seven weeks (The Pragmatic Bookshelf, 2012)](http://pragprog.com/book/rwdata/seven-databases-in-seven-weeks)._
+- _[Mining the Social Web (O'Reilly Media, 2011)](https://www.oreilly.com/library/view/mining-the-social/9781449394752/)_
+- _[Professional NoSQL (Wrox, 2011)](https://www.wiley.com/en-jp/Professional+NoSQL-p-9780470942246)_
 
 ## Commands
 
