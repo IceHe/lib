@@ -34,7 +34,18 @@ mvn install:install-file \
     -DgroupId=xyz.icehe \
     -DartifactId=test-artifact \
     -Dversion=1.0.0 \
-    -Dpackaging=jar
+    -Dpackaging=jar \
+    -DgeneratePom=true
+
+# 手动下载源码 jar 包, 安装到本地仓库
+mvn install:install-file \
+    -Dfile=test-artifact-1.0.0-sources.jar \
+    -DgroupId=xyz.icehe \
+    -DartifactId=test-artifact \
+    -Dversion=1.0.0 \
+    -Dclassifier=sources \
+    -Dpackaging=jar \
+    -DgeneratePom=true
 ```
 
 ## Options
