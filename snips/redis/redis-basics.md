@@ -134,20 +134,35 @@ Note :
 
 ### Administration
 
-- Redis-cli: Learn how to master the Redis command line interface, something you'll be using a lot in order to administer, troubleshoot and experiment with Redis.
-- Configuration: How to configure redis.
-- Replication: What you need to know in order to set up master-replicas replication.
-- Persistence: Know your options when configuring Redis' durability.
-- Redis Administration: Selected administration topics.
-- Security: An overview of Redis security.
-- Redis Access Control Lists: Starting with version 6 Redis supports ACLs. It is possible to configure users able to run only selected commands and able to access only specific key patterns.
-- Encryption: How to encrypt Redis client-server communication.
-- Signals Handling: How Redis handles signals.
-- Connections Handling: How Redis handles clients connections.
-- High Availability: Redis Sentinel is the official high availability solution for Redis.
-- Latency monitoring: Redis integrated latency monitoring and reporting capabilities are helpful to tune Redis instances for low latency workloads.
-- Benchmarks: See how fast Redis is in different platforms.
-- Redis Releases: Redis development cycle and version numbering.
+- [Redis-cli](https://redis.io/topics/rediscli)
+    - Learn how to master the Redis command line interface, something you'll be using a lot in order to administer, troubleshoot and experiment with Redis.
+- [Configuration](https://redis.io/topics/config)
+    - How to configure redis.
+- [Replication](https://redis.io/topics/replication)
+    - What you need to know in order to set up master-replicas replication.
+- [Persistence](https://redis.io/topics/persistence)
+    - Know your options when configuring Redis' durability.
+- [Redis Administration](https://redis.io/topics/admin)
+    - Selected administration topics.
+- [Security](https://redis.io/topics/security)
+    - An overview of Redis security.
+- [Redis Access Control Lists](https://redis.io/topics/acl)
+    - Starting with version 6 Redis supports ACLs.
+    - It is possible to configure users able to run only selected commands and able to access only specific key patterns.
+- [Encryption](https://redis.io/topics/encryption)
+    - How to encrypt Redis client-server communication.
+- [Signals Handling](https://redis.io/topics/signals)
+    - How Redis handles signals.
+- [Connections Handling](https://redis.io/topics/clients)
+    - How Redis handles clients connections.
+- [High Availability](https://redis.io/topics/sentinel)
+    - Redis Sentinel is the official high availability solution for Redis.
+- [Latency monitoring](https://redis.io/topics/latency-monitor)
+    - Redis integrated latency monitoring and reporting capabilities are helpful to tune Redis instances for low latency workloads.
+- [Benchmarks](https://redis.io/topics/benchmarks)
+    - See **how fast Redis is in different platforms.**
+- _[Redis Releases](https://redis.io/topics/releases)_
+    - _Redis development cycle and version numbering._
 
 ### _Embedded and IoT_
 
@@ -201,13 +216,13 @@ Note :
 
 The following is a list of books covering Redis that are already published. Books are ordered by release date (newer books first).
 
-- Mastering Redis (Packt, 2016) by Jeremy Nelson.
-- Redis Essentials (Packt, 2015) by Maxwell Da Silva and Hugo Tavares
-- Redis in Action (Manning, 2013) by Josiah L. Carlson (early access edition).
-- Instant Redis Optimization How-to (Packt, 2013) by Arun Chinnachamy.
-- Instant Redis Persistence (Packt, 2013) by Matt Palmer.
-- The Little Redis Book (Free Book, 2012) by Karl Seguin is a great free and concise book that will get you started with Redis.
-- Redis Cookbook (O'Reilly Media, 2011) by Tiago Macedo and Fred Oliveira.
+- [Mastering Redis](https://www.packtpub.com/product/mastering-redis/9781783988181) (Packt, 2016) by Jeremy Nelson.
+- [Redis Essentials](https://www.amazon.com/Redis-Essentials-Maxwell-Dayvson-Silva-ebook/dp/B00ZXFCFLO) (Packt, 2015) by Maxwell Da Silva and [Hugo Tavares](https://twitter.com/hltbra)
+- [Redis in Action](http://www.manning.com/carlson/) (Manning, 2013) by [Josiah L. Carlson](https://twitter.com/dr_josiah) (early access edition).
+- [Instant Redis Optimization How-to](http://www.packtpub.com/redis-optimization-how-to/book) (Packt, 2013) by [Arun Chinnachamy](https://twitter.com/ArunChinnachamy).
+- ~~Instant Redis Persistence (Packt, 2013) by Matt Palmer.~~
+- [The Little Redis Book](https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/) (Free Book, 2012) by Karl Seguin is a great free and concise book that will get you started with Redis.
+- [Redis Cookbook](https://www.oreilly.com/library/view/redis-cookbook/9781449311353/) (O'Reilly Media, 2011) by [Tiago Macedo](https://twitter.com/tmacedo) and [Fred Oliveira](https://twitter.com/f).
 
 _The following books have Redis related content but are not specifically about Redis:_
 
