@@ -1,6 +1,6 @@
-# Redis Basics ( TODO )
+# Redis Basics
 
-> REmote DIctionary Server
+> **RE**mote **DI**ctionary **S**erver 远程字典服务
 
 References
 
