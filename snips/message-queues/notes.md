@@ -43,3 +43,54 @@ Others
 - Network
     - why broken pipe : https://www.google.com/search?q=why+broken+pipe&oq=why+boken+pipe&aqs=chrome.1.69i57j0i22i30i457j0i22i30.7640j0j7&sourceid=chrome&ie=UTF-8
     - why connection reset : https://www.google.com/search?q=why+connection+reset&oq=why+connection+reset&aqs=chrome..69i57.5345j0j7&sourceid=chrome&ie=UTF-8
+
+## 多活同步架构
+
+Message Replication _( 以下简称 MR )_
+
+<!--
+
+```plantuml
+@startuml
+
+actor client_a
+actor client_b
+
+package IDC_A {
+    package MQ_A {
+        queue queue_x_4_mr as "queue_x_4_mr"
+        rectangle exchange_x as "exchange_x"
+        queue queue_x as "queue_x"
+        queue queue_x_2_mr as "queue_x_2_mr"
+    }
+    agent mr_middleware_a
+}
+
+package IDC_B {
+    package MQ_B {
+        queue queue_x_4_mr2 as "queue_x_4_mr"
+        rectangle exchange_x2 as "exchange_x"
+        queue queue_x2 as "queue_x"
+        queue queue_x_2_mr2 as "queue_x_2_mr"
+    }
+    agent mr_middleware_b
+}
+
+queue_x_4_mr <.. exchange_x
+client_a -> exchange_x : publish
+queue_x_2_mr ..> queue_x
+exchange_x -> queue_x
+queue_x_4_mr -right-> mr_middleware_a : consume
+mr_middleware_a -right-> queue_x_2_mr2 : publish
+
+exchange_x2 ..> queue_x_4_mr2
+exchange_x2 <- client_b : publish
+queue_x2 <-- exchange_x2
+queue_x2 <.. queue_x_2_mr2
+mr_middleware_b <- queue_x_4_mr2 : consume
+queue_x_2_mr <- mr_middleware_b
+
+@enduml
+```
+
+-->
