@@ -1454,27 +1454,144 @@ select id from positions where x0 - r < x < x0 + r and y0 - r < y < y0 + r;
 
 _使用时, 务必记住 : 它只是一个普通的 zset 结构._
 
-增加
+增加位置 `geoadd`
 
-- `geoadd` : 入参为集合名称, 以及由 经度、纬度、位置名称 组成的三元组
-    - 可以加入多个三元组
+- 入参为 集合名称, 以及由 经度、纬度、位置名称 组成的三元组
+- 可以加入多个三元组
 
 ```bash
 127.0.0.1:6379> geoadd company 116.48105 39.996794 juejin
+(integer) 1
+127.0.0.1:6379> geoadd company 116.514203 39.905409 ireader
+(integer) 1
+127.0.0.1:6379> geoadd company 116.489033 40.007669 meituan
 (integer) 1
 127.0.0.1:6379> geoadd company 116.562108 39.787602 jd 116.334255 40.027400 xiaomi
 (integer) 2
 ```
 
-删除
+删除位置 `zrem`
 
 - Redis 没有直接提供 geo 删除指令
     - 因为 geo 存储结构上使用的是 zset,
     - 意味着可以使用 zset 相关的指令来操作 geo 数据,
-    - 所以 **删除直接使用 zrem 指令** 即可.
+    - 所以 **删除直接使用 `zrem` 指令** 即可.
 
-距离
+位置间的距离
 
-增加
+- `geodist` 计算两个元素之间的距离
+    - 入参为 集合名称, 以及 2 个位置名称和距离单位.
 
-- `geodist` 指令可以用来计算两个元素之间的距离，携带集合名称、2 个名称和距离单位。
+```bash
+127.0.0.1:6379> geodist company juejin ireader km
+"10.5501"
+127.0.0.1:6379> geodist company juejin meituan km
+"1.3878"
+127.0.0.1:6379> geodist company juejin jd km
+"24.2739"
+127.0.0.1:6379> geodist company juejin xiaomi km
+"12.9606"
+127.0.0.1:6379> geodist company juejin juejin km
+"0.0000"
+```
+
+获取元素位置 `geopos`
+
+- 可以获取集合中任意元素的经纬度坐标,
+- 可以一次获取多个.
+
+```bash
+127.0.0.1:6379> geopos company juejin
+1) 1) "116.48104995489120483"
+   2) "39.99679348858259686"
+127.0.0.1:6379> geopos company ireader
+1) 1) "116.5142020583152771"
+   2) "39.90540918662494363"
+127.0.0.1:6379> geopos company juejin ireader
+1) 1) "116.48104995489120483"
+   2) "39.99679348858259686"
+2) 1) "116.5142020583152771"
+   2) "39.90540918662494363"
+```
+
+- 观察到获取的经纬度坐标和 geoadd 进去的坐标有轻微的误差,
+    - 原因是 geohash 对二维坐标进行的一维映射是有损的, 通过映射再还原回来的值会出现较小的差别.
+    - 对于「附近的人」这种功能来说, 这点误差根本不是事.
+
+获取元素的 hash 值 `geohash`
+
+- 可以 **获取元素的经纬度编码字符串, 它是 base32 编码.**
+- 可以 **使用这个编码值去 http://geohash.org 中进行直接定位, 它是 geohash 的标准编码值.**
+
+查询附近的位置 `georadiusbymember`
+
+- _最为关键的指令, 它的参数非常复杂._
+
+```bash
+# 范围 20 公里以内最多 3 个元素按距离正排, 它不会排除自身
+127.0.0.1:6379> georadiusbymember company ireader 20 km count 3 asc
+1) "ireader"
+2) "juejin"
+3) "meituan"
+
+# 范围 20 公里以内最多 3 个元素按距离倒排
+127.0.0.1:6379> georadiusbymember company ireader 20 km count 3 desc
+1) "jd"
+2) "meituan"
+3) "juejin"
+
+# 三个可选参数 withcoord withdist withhash 用来携带附加参数
+# withdist 很有用, 它可以用来显示距离
+127.0.0.1:6379> georadiusbymember company ireader 20 km withcoord withdist withhash count 3 asc
+1) 1) "ireader"
+   2) "0.0000"
+   3) (integer) 4069886008361398
+   4) 1) "116.5142020583152771"
+      2) "39.90540918662494363"
+2) 1) "juejin"
+   2) "10.5501"
+   3) (integer) 4069887154388167
+   4) 1) "116.48104995489120483"
+      2) "39.99679348858259686"
+3) 1) "meituan"
+   2) "11.5748"
+   3) (integer) 4069887179083478
+   4) 1) "116.48903220891952515"
+      2) "40.00766997707732031"
+```
+
+根据坐标值来查询附近的位置 `georadius`
+
+- _除了 georadiusbymember 指令根据元素查询附近的元素,_
+    - Redis 还提供了根据坐标值来查询附近的元素, 这个指令更加有用,
+    - _它可以根据用户的定位来计算「附近的车」, 「附近的餐馆」等._
+    - **参数和 georadiusbymember 基本一致, 除了将目标元素改成经纬度坐标值.**
+
+```bash
+127.0.0.1:6379> georadius company 116.514202 39.905409 20 km withdist count 3 asc
+1) 1) "ireader"
+   2) "0.0000"
+2) 1) "juejin"
+   2) "10.5501"
+3) 1) "meituan"
+   2) "11.5748"
+```
+
+### Precautions
+
+- 在一个地图应用中, 车的数据、餐馆的数据、人的数据可能会有百万千万条,
+    - 如果使用 Redis 的 Geo 数据结构, 它们将全部放在一个 zset 集合中.
+- 在 Redis 的 **集群环境中, 集合可能会从一个节点迁移到另一个节点,**
+    - **如果单个 key 的数据过大, 会对集群的迁移工作造成较大的影响,**
+    - **在集群环境中单个 key 对应的数据量不宜超过 1M,**
+        - **否则会导致集群迁移出现卡顿现象, 影响线上服务的正常运行.**
+- 所以, **建议 Geo 的数据使用单独的 Redis 实例部署, 不使用集群环境!**
+    - **如果数据量过亿甚至更大, 就需要对 Geo 数据进行拆分,**
+        - 按国家拆分、按省拆分, 按市拆分, 在人口特大城市甚至可以按区拆分.
+    - _这样就可以显著降低单个 zset 集合的大小._
+
+## Usage 8 : Scan
+
+Reference
+
+- 应用 9 : 大海捞针 —— Scan : https://juejin.cn/book/6844733724618129422/section/6844733724710404110
