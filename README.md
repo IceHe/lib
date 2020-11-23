@@ -131,6 +131,7 @@ Storage
     - [Usage](/snips/mysql/mysql-usage.md) ( TODO )
 - Redis : in-memory data structure store
     - _used as a database, cache and message broker_
+    - [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( READING )
     - [Basics](/snips/redis/redis-basics.md) : http://redis.io ( TODO )
     - [Usage](/snips/redis/redis-usage.md) : https://redis.io/commands ( TODO )
 - [_Mongo_](/snips/tmp/mongo.md) _( draft )_
