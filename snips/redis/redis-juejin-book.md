@@ -4,6 +4,8 @@
 
 References
 
+- 基本原理和方案设计
+    - **Redis 深度历险 : 核心原理与应用实践** : https://juejin.im/book/5afc2e5f6fb9a07a9b362527
 - Home Page : https://redis.io
     - Introduce : https://redis.io/topics/introduction
     - _Clients_ : https://redis.io/clients
@@ -12,13 +14,17 @@ References
     - _Download_ : https://redis.io/download
 - Others
     - ZH Docs : http://redisdoc.com
-    - 基本原理和方案设计
-        - **Redis 深度历险 : 核心原理与应用实践** : https://juejin.im/book/5afc2e5f6fb9a07a9b362527 ( 推荐 )
     - 容量评估
         - **Redis 容量预估** - 极数云舟 : http://www.redis.cn/redis_memory/
         - Redis 容量评估模型 - 腾讯游戏学院 : https://gameinstitute.qq.com/community/detail/114987
 
-## Basic Data Structure
+## Basics : Data Structure
+
+Reference
+
+- 基础 : 万丈高楼平地起 —— Redis 基础数据结构 : https://juejin.cn/book/6844733724618129422/section/6844733724697985038
+
+Data Structure
 
 - string 字符串
 - list 列表
@@ -161,6 +167,10 @@ Redis 底层的存储结构不是一个简单的 linkedlist,
 - hash 也有缺点, **hash 结构的存储消耗要高于单个字符串**,
     - 到底该使用 hash 还是字符串, 需要根据实际情况再三权衡.
 
+在 Redis 存储结构体到底应该使用 hash 还是 string?
+
+- Redis strings vs Redis hashes to represent JSON: efficiency? - StackOverflow : https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
+
 ### Set
 
 > 集合
@@ -224,7 +234,9 @@ Redis 底层的存储结构不是一个简单的 linkedlist,
     - **首先 L0 层肯定是 100% 了, L1 层只有 50% 的概率, L2 层只有 25% 的概率, L3 层只有 12.5% 的概率, 一直随机到最顶层 L31 层**.
     - _绝大多数元素都过不了几层, 只有极少数元素可以深入到顶层. 列表中的元素越多, 能够深入的层次就越深, 能进入到顶层的概率就会越大._
 
-### 容器型数据结构的通用规则
+### General Principles
+
+> 容器型数据结构的通用规则
 
 list / hash / set / zset 这 4 种数据结构是 **容器型数据结构**, 共享下面两条通用规则 :
 
@@ -235,7 +247,9 @@ list / hash / set / zset 这 4 种数据结构是 **容器型数据结构**, 共
     - **如果容器里元素没有了, 那么立即删除元素, 释放内存**.
     - _这意味着 lpop 操作到最后一个元素, 列表就消失了._
 
-### 过期时间
+### Expiration
+
+> 过期时间
 
 Redis 所有的数据结构都可以设置过期时间, 时间到了, Redis 会自动删除相应的对象.
 
@@ -259,6 +273,257 @@ OK
 (integer) -1
 127.0.0.1:6379>
 ```
+
+## Usage 1 : Distributed Lock
+
+> 应用 1 : 分布式锁
+
+Reference
+
+- 应用 1 : 千帆竞发 —— 分布式锁 : https://juejin.cn/book/6844733724618129422/section/6844733724702015495
+
+_分布式应用进行逻辑处理时经常会遇到并发问题._
+
+- _比如, 一个操作要修改用户的状态, 修改状态需要先读出用户的状态, 在内存里进行修改, 改完了再存回去._
+- _如果这样的操作同时进行了, 就会出现并发问题, 因为 读取和保存状态这两个操作不是原子的._
+
+**原子操作** : **不会被线程调度机制打断的操作**
+
+- 这种 **操作一旦开始, 就一直运行到结束, 中间不会有任何 context switch 线程切换**.
+
+![concurrent-read-n-write-confliction-exmaple.webp](_images/concurrent-read-n-write-confliction-exmaple.webp)
+
+_这时就要使用分布式锁来限制程序的并发执行._
+
+### Distributed Lock
+
+- _分布式锁本质上要实现的目标就是在 Redis 里面占一个 "茅坑" , 当别的进程也要来占时, 发现已经有人蹲在那里了, 就只好放弃或者稍后再试._
+- 占坑一般是使用 `setnx` ( set if not exists ) 指令, 只允许被一个客户端占坑. 先来先占, 用完了, 再调用 `del` 指令释放茅坑.
+
+```bash
+# 这里的冒号 : 就是一个普通的字符, 没特别含义, 它可以是任意其它字符, 不要误解
+> setnx lock:codehole true
+OK
+
+# ... do something critical ...
+> del lock:codehole
+(integer) 1
+```
+
+- 但是有个问题, **如果逻辑执行到中间出现异常了, 可能会导致 del 指令没有被调用**,
+    - 这样 **就会陷入死锁, 锁永远得不到释放.**
+- 于是在拿到锁之后, 再给锁加上一个过期时间,
+    - 比如 5s, 这样 **即使中间出现异常也可以保证 5 秒之后锁会自动释放**.
+
+```bash
+> setnx lock:codehole true
+OK
+> expire lock:codehole 5
+
+# ... do something critical ...
+
+> del lock:codehole
+(integer) 1
+```
+
+- 但是以上逻辑还有问题.
+    - **如果在 `setnx` 和 `expire` 之间服务器进程突然挂掉了, 可能是因为机器掉电或者是被人为杀掉的**,
+    - **就会导致 `expire` 得不到执行, 也会造成死锁.**
+- 这种问题的 **根源就在于 `setnx` 和 `expire` 是两条指令而不是原子指令.
+    - 如果这两条指令可以一起执行就不会出现问题.
+- 也许你会想到用 Redis 事务来解决. 但是这里不行,
+    - 因为 `expire` 是依赖于 `setnx` 的执行结果的,
+    - **如果 setnx 没抢到锁, expire 是不应该执行的.**
+- 事务里没有 if-else 分支逻辑,
+    - **事务的特点是一口气执行, 要么全部执行要么一个都不执行.
+- 最终 Redis 2.8 版本中作者 **加入了 set 指令的扩展参数, 使得 setnx 和 expire 指令可以一起执行**, 彻底解决了分布式锁的乱象.
+    - _( icehe : 虽然以上问题, 现在已经得到基本的解决, 但是还是该好好理解记住这些历史经验 )_
+
+```bash
+> set lock:codehole true ex 5 nx
+OK
+# ... do something critical ...
+> del lock:codehole
+```
+
+### Timeout
+
+> 超时
+
+- Redis 的分布式锁不能解决超时问题,
+    - **如果在加锁和释放锁之间的逻辑执行的太长, 以至于超出了锁的超时限制, 就会出现问题!**
+    - 因为这时 **第一个线程持有的锁过期了, 临界区的逻辑还没有执行完,**
+        - 这时 **第二个线程就提前重新持有了这把锁, 导致临界区代码不能得到严格的串行执行.**
+- 为了避免这个问题, **Redis 分布式锁不要用于较长时间的任务!**
+    - **如果真的偶尔出现了, 数据出现的小波错乱可能需要人工介入解决.**
+
+```python
+tag = random.nextint()  # 随机数
+if redis.set(key, tag, nx=True, ex=5):
+    do_something()
+    redis.delifequals(key, tag)  # 假想的 delifequals 指令
+```
+
+- 有一个稍微安全一点的方案是 :
+    - **为 set 指令的 value 参数设置为一个随机数, 释放锁时先匹配随机数是否一致, 然后再删除 key,**
+        - 这是 **为了确保当前线程占有的锁不会被其它线程释放, 除非这个锁是过期了被服务器自动释放的.**
+    - 但是匹配 value 和删除 key 不是一个原子操作, Redis 也没有提供类似于 `delifequals` 这样的指令,
+        - 这就需要使用 Lua 脚本来处理了, 因为 **Lua 脚本可以保证连续多个指令的原子性执行.**
+
+```lua
+# delifequals
+if redis.call("get",KEYS[1]) == ARGV[1] then
+    return redis.call("del",KEYS[1])
+else
+    return 0
+end
+```
+
+- 但是这也不是一个完美的方案, 它只是相对安全一点,
+    - 因为如果真的超时了, 当前线程的逻辑没有执行完, 其它线程也会乘虚而入.
+
+### Reenterability
+
+> 可重入性
+
+- **可重入性** 是指 **线程在持有锁的情况下再次请求加锁, 如果一个锁支持同一个线程的多次加锁, 那么这个锁就是可重入的.**
+    - 比如 Java 语言里有个 ReentrantLock 就是可重入锁.
+- Redis 分布式锁如果要支持可重入, **需要对客户端的 set 方法进行包装, 使用线程的 Threadlocal 变量存储当前持有锁的计数.**
+
+```python
+# -*- coding: utf-8
+import redis
+import threading
+
+
+locks = threading.local()
+locks.redis = {}
+
+def key_for(user_id):
+    return "account_{}".format(user_id)
+
+def _lock(client, key):
+    return bool(client.set(key, True, nx=True, ex=5))
+
+def _unlock(client, key):
+    client.delete(key)
+
+def lock(client, user_id):
+    key = key_for(user_id)
+    if key in locks.redis:
+        locks.redis[key] += 1
+        return True
+    ok = _lock(client, key)
+    if not ok:
+        return False
+    locks.redis[key] = 1
+    return True
+
+def unlock(client, user_id):
+    key = key_for(user_id)
+    if key in locks.redis:
+        locks.redis[key] -= 1
+        if locks.redis[key] <= 0:
+            del locks.redis[key]
+            self._unlock(key)
+        return True
+    return False
+
+client = redis.StrictRedis()
+print "lock", lock(client, "codehole")
+print "lock", lock(client, "codehole")
+print "unlock", unlock(client, "codehole")
+print "unlock", unlock(client, "codehole")
+```
+
+- 以上还不是可重入锁的全部, **精确一点还需要考虑内存锁计数的过期时间, 代码复杂度将会继续升高.**
+    - 所以 **不推荐使用可重入锁!**
+    - 它 **加重了客户端的复杂性, 在编写业务方法时注意在逻辑结构上进行调整完全可以不使用可重入锁.**
+
+## Usage 2 : Delayed Queue
+
+> 应用 2 : 延时队列
+
+Reference
+
+- 应用 2 : 缓兵之计 —— 延时队列 : https://juejin.cn/book/6844733724618129422/section/6844733724702015496
+
+平时习惯于使用 Rabbitmq 和 Kafka 作为消息队列中间件, 来给应用程序之间增加异步消息传递功能. 这两个中间件都是专业的消息队列中间件, 特性之多超出了大多数人的理解能力.
+
+- _使用过_ RabbitMQ _的就知道它使用起来有多复杂,_
+    - 发消息之前要创建 Exchange, 再创建 Queue, 还要将 Queue 和 Exchange 通过某种规则绑定起来,
+    - 发消息的时候要指定 routing-key, 还要控制头部信息.
+- _消费者在消费消息之前也要进行上面一系列的繁琐过程._
+    - _但是绝大多数情况下, 虽然消息队列只有一组消费者, 但还是需要经历上面这些繁琐的过程._
+- _有了 Redis, 它就可以让我们解脱出来, 对于那些只有一组消费者的消息队列, 使用 Redis 就可以非常轻松的搞定._
+    - **Redis 的消息队列不是专业的消息队列, 它没有非常多的高级特性, 没有 ack 保证,**
+    - **如果对消息的可靠性有着极致的追求, 那么它就不适合使用.**
+
+### Asynchronous Message Queue
+
+> 异步消息队列
+
+Redis 的 list 数据结构常用来作为异步消息队列使用,
+
+- 使用 `rpush` / `lpush` 操作入队列,
+- 使用 `lpop` 和 `rpop` 来出队列.
+
+![list-as-async-mq.webp](_images/list-as-async-mq.webp)
+
+```bash
+> rpush notify-queue apple banana pear
+(integer) 3
+> llen notify-queue
+(integer) 3
+> lpop notify-queue
+"apple"
+> llen notify-queue
+(integer) 2
+> lpop notify-queue
+"banana"
+> llen notify-queue
+(integer) 1
+> lpop notify-queue
+"pear"
+> llen notify-queue
+(integer) 0
+> lpop notify-queue
+(nil)
+```
+
+### _队列空了怎么办?_
+
+_处理完了再接着获取消息, 再进行处理. 如此循环往复, 这便是作为队列消费者的客户端的生命周期._
+
+可是如果队列空了, 客户端就会陷入 pop 的死循环, 不停地 pop, 没有数据, 接着再 pop, 又没有数据. 这就是浪费生命的空轮询.
+
+空轮询不但拉高了客户端的 CPU, redis 的 QPS 也会被拉高, 如果这样空轮询的客户端有几十个, Redis 的慢查询可能会显著增多.
+
+**通常使用 sleep 来解决这个问题, 让线程睡一会, 睡个 1s 钟就可以了. 不但客户端的 CPU 能降下来, Redis 的 QPS 也降下来了.**
+
+```java
+// Sleep for a second
+time.sleep(1)       // Python
+Thread.sleep(1000)  // Java
+```
+
+### Queue Delay Time
+
+用上面睡眠的办法可以解决问题.
+
+- 但是有个小问题, 那就是 **睡眠会导致消息的延迟增大.**
+    - 如果只有 1 个消费者, 那么这个延迟就是 1s.
+    - 如果有多个消费者, 这个延迟会有所下降, 因为每个消费者的睡觉时间是岔开来的.
+- **有没有什么办法能显著降低延迟呢?** 你当然可以很快想到 :
+    - A. 那就把睡觉的时间缩短点. 这种方式当然可以,
+        - 不过有没有更好的解决方案呢?
+    - B. 当然也有, 那就是 **`blpop` / `brpop`**.
+        - 这两个 **指令的前缀字符 b 代表的是 blocking, 也就是阻塞读.**
+- **阻塞读在队列没有数据的时候, 会立即进入休眠状态, 一旦数据到来, 则立刻醒过来.**
+    - 消息的延迟几乎为零.
+    - 用 `blpop` / `brpop` 替代前面的 `lpop` / `rpop` , 就完美解决了上面的问题.
+
+#
 
 ## Intro
 
