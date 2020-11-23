@@ -834,6 +834,8 @@ Reference
 
 - 应用 5 : 层峦叠嶂 —— 布隆过滤器 : https://juejin.cn/book/6844733724618129422/section/6844733724706209806
 
+![bloom-filter-intro.gif](_images/bloom-filter-intro.gif)
+
 ## Intro
 
 Reference
