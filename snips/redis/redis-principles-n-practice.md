@@ -1039,3 +1039,330 @@ _此处暂略, 详见原文_
 邮箱系统的垃圾邮件过滤功能也普遍用到了布隆过滤器,
 
 - 因为用了这个过滤器, 所以平时也会遇到某些正常的邮件被放进了垃圾邮件目录中, 这个就是误判所致, 概率很低.
+
+## Usage 6 : Simple Limiter
+
+> 简单限流器
+
+Reference
+
+- 应用 6 : 断尾求生 —— 简单限流 : https://juejin.cn/book/6844733724618129422/section/6844733724706209800
+
+场景 : 当系统的处理能力有限时, **阻止计划外的请求继续对系统施压**, _这是一个需要重视的问题._
+
+除了控制流量, 限流还有一个应用目的是用于控制用户行为, 避免垃圾请求.
+
+- _比如在 UGC 社区, 用户的发帖、回复、点赞等行为都要严格受控,_
+    - _一般要严格限定某行为在规定时间内允许的次数, 超过了次数那就是非法行为._
+- _对非法行为, 业务必须规定适当的惩处策略._
+
+### 实现简单限流策略
+
+**系统要限定用户的某个行为在指定的时间里只能允许发生 N 次,** _如何使用 Redis 的数据结构来实现这个限流的功能?_
+
+先定义这个接口
+
+```python
+# 指定用户 user_id 的某个行为 action_key 在特定的时间内 period 只允许发生一定的次数 max_count
+def is_action_allowed(user_id, action_key, period, max_count):
+    return True
+
+# 调用这个接口 , 60 秒内只允许最多回复 5 个帖子
+can_reply = is_action_allowed("icehe", "reply", 60, 5)
+if can_reply:
+    do_reply()
+else:
+    raise ActionThresholdOverflow()
+```
+
+### Solution
+
+> 解决方案
+
+限流需求中存在一个滑动时间窗口,
+
+- zset 数据结构可以使用 score 值来圈出时间窗口.
+- 而且只需要保留这个时间窗口, 窗口之外的数据都可以删掉.
+- 那么 zset 的 value 只需要保证唯一性即可
+    - _用 uuid 会比较浪费空间,_ 使用 毫秒时间戳 即可.
+
+![zset-limiter.webp](_images/zset-limiter.webp)
+
+- 用一个 zset 结构记录用户的行为历史, 每一个行为都会作为 zset 中的一个 key 保存下来.
+    - 同一个用户同一种行为用一个 zset 记录.
+- 为节省内存, 只需要保留时间窗口内的行为记录,
+    - 同时如果用户是冷用户, 滑动时间窗口内的行为是空记录, 那么这个 zset 就可以从内存中移除, 不再占用空间.
+- 通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许.
+
+### Implementation
+
+用代码表示如下 :
+
+- _( icehe : O(n) 线性的空间复杂度, 与行为数量成正比 )_
+
+```python
+# coding: utf8
+
+import time
+import redis
+
+client = redis.StrictRedis()
+
+def is_action_allowed(user_id, action_key, period, max_count):
+    key = 'hist:%s:%s' % (user_id, action_key)
+    now_ts = int(time.time() * 1000)  # 毫秒时间戳
+    with client.pipeline() as pipe:  # client 是 StrictRedis 实例
+        # 记录行为
+        pipe.zadd(key, now_ts, now_ts)  # value 和 score 都使用毫秒时间戳
+        # 移除时间窗口之前的行为记录, 剩下的都是时间窗口内的
+        pipe.zremrangebyscore(key, 0, now_ts - period * 1000)
+        # 获取窗口内的行为数量
+        pipe.zcard(key)
+        # 设置 zset 过期时间, 避免冷用户持续占用内存
+        # 过期时间应该等于时间窗口的长度, 再多宽限 1s
+        pipe.expire(key, period + 1)
+        # 批量执行
+        _, _, current_count, _ = pipe.execute()
+    # 比较数量是否超标
+    return current_count <= max_count
+
+for i in range(20):
+    print is_action_allowed("laoqian", "reply", 60, 5)
+```
+
+```java
+public class SimpleRateLimiter {
+
+  private Jedis jedis;
+
+  public SimpleRateLimiter(Jedis jedis) {
+    this.jedis = jedis;
+  }
+
+  public boolean isActionAllowed(String userId, String actionKey, int period, int maxCount) {
+    String key = String.format("hist:%s:%s", userId, actionKey);
+    long nowTs = System.currentTimeMillis();
+    Pipeline pipe = jedis.pipelined();
+    pipe.multi();
+    pipe.zadd(key, nowTs, "" + nowTs);
+    pipe.zremrangeByScore(key, 0, nowTs - period * 1000);
+    Response<Long> count = pipe.zcard(key);
+    pipe.expire(key, period + 1);
+    pipe.exec();
+    pipe.close();
+    return count.get() <= maxCount;
+  }
+
+  public static void main(String[] args) {
+    Jedis jedis = new Jedis();
+    SimpleRateLimiter limiter = new SimpleRateLimiter(jedis);
+    for(int i=0;i<20;i++) {
+      System.out.println(limiter.isActionAllowed("laoqian", "reply", 60, 5));
+    }
+  }
+}
+```
+
+## Usage 7 : Funnel Limiter
+
+> 漏斗限流器
+
+### Solution
+
+> 解决方案
+
+漏斗限流是最常用的限流方法之一, _顾名思义, 这个算法的灵感源于漏斗 ( funnel ) 的结构._
+
+![funnel.webp](_images/funnel.webp)
+
+- _漏斗的容量是有限的, 如果将漏嘴堵住, 然后一直往里面灌水, 它就会变满, 直至再也装不进去._
+- _如果将漏嘴放开, 水就会往下流, 流走一部分之后, 就又可以继续往里面灌水._
+- _如果漏嘴流水的速率大于灌水的速率, 那么漏斗永远都装不满._
+- _如果漏嘴流水速率小于灌水的速率, 那么一旦漏斗满了, 灌水就需要暂停并等待漏斗腾空._
+
+所以
+
+- **漏斗的剩余空间** 就代表着 **当前行为可以持续进行的数量**,
+- **漏嘴的流水速率** 代表着 **系统允许该行为的最大频率**.
+
+### Implementation
+
+使用代码来描述单机漏斗算法 :
+
+_( icehe : 这个应用很有趣! 上次看过之后已经, 忘掉了… 有空得实现一下. )_
+
+```python
+# coding: utf8
+
+import time
+
+class Funnel(object):
+
+    def __init__(self, capacity, leaking_rate):
+        # 漏斗容量
+        self.capacity = capacity
+        # 漏嘴流水速率
+        self.leaking_rate = leaking_rate
+        # 漏斗剩余空间
+        self.left_quota = capacity
+        # 上一次漏水时间
+        self.leaking_ts = time.time()
+
+    def make_space(self):
+        now_ts = time.time()
+        # 距离上一次漏水过去了多久
+        delta_ts = now_ts - self.leaking_ts
+        # 又可以腾出不少空间了
+        delta_quota = delta_ts * self.leaking_rate
+        # 腾的空间太少, 那就等下次再继续j
+        if delta_quota < 1:
+            return
+        # 增加剩余空间
+        self.left_quota += delta_quota
+        # 记录漏水时间
+        self.leaking_ts = now_ts
+        # 剩余空间不得高于容量
+        if self.left_quota > self.capacity:
+            self.left_quota = self.capacity
+
+    def watering(self, quota):
+        self.make_space()
+        # 判断剩余空间是否足够
+        if self.left_quota >= quota:
+            self.left_quota -= quota
+            return True
+        return False
+
+# 所有的漏斗
+funnels = {}
+
+# capacity  漏斗容量
+# leaking_rate 漏嘴流水速率 quota/s
+def is_action_allowed(
+    user_id, action_key, capacity, leaking_rate):
+    key = '%s:%s' % (user_id, action_key)
+    funnel = funnels.get(key)
+    if not funnel:
+        funnel = Funnel(capacity, leaking_rate)
+        funnels[key] = funnel
+    return funnel.watering(1)
+
+for i in range(20):
+    print is_action_allowed('laoqian', 'reply', 15, 0.5)
+```
+
+```java
+public class FunnelRateLimiter {
+
+  static class Funnel {
+    int capacity;
+    float leakingRate;
+    int leftQuota;
+    long leakingTs;
+
+    public Funnel(int capacity, float leakingRate) {
+      this.capacity = capacity;
+      this.leakingRate = leakingRate;
+      this.leftQuota = capacity;
+      this.leakingTs = System.currentTimeMillis();
+    }
+
+    void makeSpace() {
+      long nowTs = System.currentTimeMillis();
+      long deltaTs = nowTs - leakingTs;
+      int deltaQuota = (int) (deltaTs * leakingRate);
+      if (deltaQuota < 0) { // 间隔时间太长, 整数数字过大溢出
+        this.leftQuota = capacity;
+        this.leakingTs = nowTs;
+        return;
+      }
+      if (deltaQuota < 1) { // 腾出空间太小, 最小单位是1
+        return;
+      }
+      this.leftQuota += deltaQuota;
+      this.leakingTs = nowTs;
+      if (this.leftQuota > this.capacity) {
+        this.leftQuota = this.capacity;
+      }
+    }
+
+    boolean watering(int quota) {
+      makeSpace();
+      if (this.leftQuota >= quota) {
+        this.leftQuota -= quota;
+        return true;
+      }
+      return false;
+    }
+  }
+
+  private Map<String, Funnel> funnels = new HashMap<>();
+
+  public boolean isActionAllowed(String userId, String actionKey, int capacity, float leakingRate) {
+    String key = String.format("%s:%s", userId, actionKey);
+    Funnel funnel = funnels.get(key);
+    if (funnel == null) {
+      funnel = new Funnel(capacity, leakingRate);
+      funnels.put(key, funnel);
+    }
+    return funnel.watering(1); // 需要1个quota
+  }
+}
+```
+
+Funnel 对象的 make_space 方法是漏斗算法的核心,
+
+- 其在每次灌水前都会被调用以触发漏水, 给漏斗腾出空间来.
+- 能腾出多少空间取决于过去了多久以及流水的速率.
+- **Funnel 对象占据的空间大小不再和行为的频率成正比, 它的空间占用是一个常量!**
+    - _( icehe : O(n) 线性的空间复杂度, 跟限流对象的数量成正比 )_
+
+分布式的漏斗算法该如何实现? 能不能使用 Redis 的基础数据结构来搞定?
+
+- 观察 Funnel 对象的几个字段,
+    - 发现可以将 Funnel 对象的内容按字段存储到一个 hash 结构中,
+    - 灌水的时候将 hash 结构的字段取出来进行逻辑运算后,
+    - 再将新值回填到 hash 结构中就完成了一次行为频度的检测.
+- 但是有个问题, 无法保证整个过程的原子性.
+    - 从 hash 结构中取值, 然后在内存里运算, 再回填到 hash 结构,
+    - 这三个过程无法原子化, 意味着需要进行适当的加锁控制.
+    - 而一旦加锁, 就意味着会有加锁失败, 加锁失败就需要选择重试或者放弃.
+- 如果重试的话, 就会导致性能下降. 如果放弃的话, 就会影响用户体验.
+    - 同时, 代码的复杂度也跟着升高很多.
+
+这是个艰难的选择, 该如何解决这个问题呢? 可以使用 Redis-Cell 解决!
+
+### Redis-Cell
+
+Redis 4.0 提供了一个 **限流模块 redis-cell**.
+
+- 该模块 **使用 "漏斗算法", 并提供了原子的限流指令**!
+
+该模块 **只有 1 条指令 `cl.throttle`**, _参数和返回值都略显复杂_
+
+```bash
+> cl.throttle icehe:reply 15 30 60 1
+                  ▲       ▲  ▲  ▲  ▲
+                  |       |  |  |  └───── need 1 quota (可选参数, 默认值也是1)
+                  |       |  └──┴─────── 30 operations / 60 seconds 这是漏水速率
+                  |       └───────────── 15 capacity 这是漏斗容量
+                  └─────────────────── key laoqian
+```
+
+以上指令的意思是
+
+- 允许「用户 icehe 的回复行为」的频率为每 60s 最多 30 次 ( 漏水速率 ) ,
+- 漏斗的初始容量为 15, _也就是说一开始可以连续回复 15 个帖子, 然后才开始受漏水速率的影响._
+
+_指令中漏水速率变成了 2 个参数, 替代了之前的单个浮点数._
+
+- 用两个参数相除的结果来表达漏水速率相对单个浮点数要更加直观一些.
+
+```bash
+> cl.throttle laoqian:reply 15 30 60
+1) (integer) 0   # 0 表示允许, 1 表示拒绝
+2) (integer) 15  # 漏斗容量 capacity
+3) (integer) 14  # 漏斗剩余空间 left_quota
+4) (integer) -1  # 如果拒绝了, 需要多长时间后再试 ( 漏斗有空间了, 单位秒 )
+5) (integer) 2   # 多长时间后, 漏斗完全空出来 ( left_quota==capacity, 单位秒 )
+```
