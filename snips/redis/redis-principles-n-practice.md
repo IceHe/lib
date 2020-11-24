@@ -3126,7 +3126,7 @@ Reference
 
 > CAP 原理
 
-- C - Consistent 一致性
+- C - Consistency 一致性
 - A - Availability 可用性
 - P - Partition tolerance 分区容忍性
 
@@ -3178,10 +3178,268 @@ Redis 同步支持
 
 > 快照同步
 
-快照同步是一个非常耗费资源的操作, 它首先需要在主库上进行一次 bgsave 将当前内存的数据全部快照到磁盘文件中, 然后再将快照文件的内容全部传送到从节点.
+**快照同步** 是一个非常耗费资源的操作,
 
-- 从节点将快照文件接受完毕后, 立即执行一次全量加载, 加载之前先要将当前内存的数据清空. 加载完毕后通知主节点继续进行增量同步.
+- 它首 **先需要在主库上进行一次 `bgsave` 将当前内存的数据全部快照到磁盘文件中, 然后再将快照文件的内容全部传送到从节点.**
+- **从节点将快照文件接受完毕后, 立即执行一次全量加载, 加载之前先要将当前内存的数据清空.**
+- **加载完毕后通知主节点继续进行增量同步.**
 
-在整个快照同步进行的过程中, 主节点的复制 buffer 还在不停的往前移动, 如果快照同步的时间过长或者复制 buffer 太小, 都会导致同步期间的增量指令在复制 buffer 中被覆盖, 这样就会导致快照同步完成后无法进行增量复制, 然后会再次发起快照同步, 如此极有可能会陷入快照同步的死循环
+在整个快照同步进行的过程中, 主节点的复制 buffer 还在不停的往前移动, 如果快照同步的时间过长或者复制 buffer 太小, 都会导致同步期间的增量指令在复制 buffer 中被覆盖, 这样就会导致快照同步完成后无法进行增量复制, 然后会再次发起快照同步, 如此极有可能会陷入快照同步的死循环.
+
+所以务必配置一个合适的复制 buffer 大小参数, 避免快照复制的死循环.
 
 ![rdb-snapshot-synchronization.webp](_images/rdb-snapshot-synchronization.webp)
+
+### Add Slave Node
+
+> 增加从节点
+
+**当从节点刚刚加入到集群时, 它必须先要进行一次快照同步, 同步完成后再继续进行增量同步.**
+
+### No Disk Repliaction
+
+> 无盘复制
+
+**主节点在进行快照同步时, 会进行很重的文件 IO 操作, 特别是对于非 SSD 磁盘存储时, 快照会对系统的负载产生较大影响**. 特别是当系统正在进行 AOF 的 fsync 操作时如果发生快照, fsync 将会被推迟执行, 这就会严重影响主节点的服务效率.
+
+所以从 Redis 2.8.18 版开始支持无盘复制. 所谓 **无盘复制** 是指 **主服务器直接通过套接字将快照内容发送到从节点, 生成快照是一个遍历的过程, 主节点会一边遍历内存, 一边将序列化的内容发送到从节点, 从节点还是跟之前一样, 先将接收到的内容存储到磁盘文件中, 再进行一次性加载**.
+
+### Wait Command
+
+> Wait 指令
+
+Redis 的复制是异步进行的, **`wait` 指令可以让异步复制变身同步复制, 确保系统的强一致性 ( 不严格 )**. `wait` 指令是 Redis3.0 版本以后才出现的.
+
+```bash
+> set key value
+OK
+> wait 1 0
+(integer) 1
+```
+
+参数
+
+- 从库的数量 N
+- 时间 t, 以毫秒为单位.
+
+表示等待 `wait` 指令之前的所有写操作同步到 N 个从库 ( 也就是确保 N 个从库的同步没有滞后 ), 最多等待时间 t.
+
+- 如果时间 t=0, 表示无限等待直到 N 个从库同步完成达成一致.
+- 假设此时出现了网络分区, wait 指令第二个参数时间 t=0, 主从同步无法继续进行, wait 指令会永远阻塞, Redis 服务器将丧失可用性.
+
+## Cluster 1 : Sentinel
+
+Reference
+
+- 集群 1 : 李代桃僵 —— Sentinel : https://juejin.cn/book/6844733724618129422/section/6844733724722987021
+
+必须有一个 **高可用** 方案来抵抗节点故障, **当故障发生时可以自动进行从主切换, 程序可以不用重启**, _运维可以继续睡大觉, 仿佛什么事也没发生一样._ Redis 官方提供了这样一种方案 —— **Redis Sentinel** ( 哨兵 ) .
+
+![redis-sentinel-simple-arthitecture.webp](_images/redis-sentinel-simple-arthitecture.webp)
+
+_可以将 Redis Sentinel 集群看成是一个 ZooKeeper 集群, 它是集群高可用的心脏,_ 它一般是由 3～5 个节点组成, 这样挂了个别节点集群还可以正常运转.
+
+**Sentinel 集群负责持续监控主从节点的健康, 当主节点挂掉时, 自动选择一个最优的从节点切换为主节点.**
+
+- 客户端来连接集群时, 会首先连接 sentinel,
+- 通过 sentinel 来查询主节点的地址, 然后再去连接主节点进行数据交互.
+- 当主节点发生故障时, 客户端会重新向 sentinel 要地址, sentinel 会将最新的主节点地址告诉客户端.
+
+如此应用程序将无需重启即可自动完成节点切换. _比如上图的主节点挂掉后, 集群将可能自动调整为下图所示结构 :_
+
+![redis-sentinel-example-master-down.webp](_images/redis-sentinel-example-master-down.webp)
+
+从这张图中我们能看到主节点挂掉了, 原先的主从复制也断开了, 客户端和损坏的主节点也断开了.
+
+- 从节点被提升为新的主节点, 其它从节点开始和新的主节点建立复制关系.
+- 客户端通过新的主节点继续进行交互.
+- Sentinel 会持续监控已经挂掉了主节点, 待它恢复后,
+    - 原先挂掉的主节点现在变成了从节点, 从新的主节点那里建立复制关系.
+
+![redis-sentinel-example-after-recovery.webp](_images/redis-sentinel-example-after-recovery.webp)
+
+### Message Loss
+
+> 消息丢失
+
+Redis 主从采用异步复制, 意味着 **当主节点挂掉时, 从节点可能没有收到全部的同步消息, 这部分未同步的消息就丢失了**. 如果主从延迟特别大, 那么丢失的数据就可能会特别多.
+
+**Sentinel 无法保证消息完全不丢失, 但是也尽可能保证消息少丢失.** 它有两个选项可以限制主从延迟过大.
+
+```bash
+min-slaves-to-write 1
+min-slaves-max-lag 10
+```
+
+`min-slaves-to-write 1` 表示主节点必须至少有一个从节点在进行正常复制, 否则就停止对外写服务, 丧失可用性.
+
+何为正常复制, 何为异常复制? 这个就是由第二个参数控制的, 它的单位是秒, `min-slaves-max-lag 10` 表示如果 10s 没有收到从节点的反馈, 就意味着从节点同步不正常, 要么网络断开了, 要么一直没有给反馈.
+
+### Sentinel Basic Usage
+
+_在此不赘述, 详见原文_
+
+## Cluster 2 : Codis
+
+Reference
+
+- 集群 2 : 分而治之 —— Codis : https://juejin.cn/book/6844733724618129422/section/6844733724723003399
+
+### TODO
+
+_( icehe : 中心化的解决方案 )_
+
+## Cluster 3 : Cluster
+
+Reference
+
+- 集群 3 : 众志成城 —— Cluster : https://juejin.cn/book/6844733724618129422/section/6844733724723003406
+
+### TODO
+
+_( icehe : 去中心化式的解决方案 )_
+
+## Extension 1 : Stream
+
+Reference
+
+- 拓展 1 : 耳听八方 —— Stream : https://juejin.cn/book/6844733724618129422/section/6844733724727181325
+
+而 Redis5.0 最大的新特性就是多出了一个 **数据结构 Stream**, 它是一个新的强大的 **支持多播的可持久化的消息队列**, 作者坦言 Redis Stream 狠狠地借鉴了 Kafka 的设计.
+
+### TODO
+
+## Extension 2 : Info Command
+
+Reference
+
+- 拓展 2 : 无所不知 —— Info 指令 : https://juejin.cn/book/6844733724618129422/section/6844733724727197704
+
+_在使用 Redis 时, 时常会遇到很多问题需要诊断, 在诊断之前需要了解 Redis 的运行状态. 通过 `info` 指令, 可以清晰地知道 Redis 内部一系列运行参数._
+
+`info` 指令显示的信息非常繁多, 分为 9 大块 _( 每个块都有非常多的参数 )_ :
+
+- 1\. Server 服务器运行的环境参数
+- 2\. Clients 客户端相关信息
+- 3\. Memory 服务器运行内存统计数据
+- 4\. Persistence 持久化信息
+- 5\. Stats 通用统计数据
+- 6\. Replication 主从复制相关信息
+- 7\. CPU CPU 使用情况
+- 8\. Cluster 集群信息
+- 9\. KeySpace 键值对统计数量信息
+
+`info` 可以一次性获取所有的信息, 也可以按块取信息.
+
+```bash
+# 获取所有信息
+> info
+# 获取内存相关信息
+> info memory
+# 获取复制相关信息
+> info replication
+```
+
+### TODO
+
+_( icehe : 只是工具 )_
+
+## Expansion 3 : Distributed Lock
+
+Reference
+
+- 拓展 3 : 拾遗漏补 —— 再谈分布式锁 : https://juejin.cn/book/6844733724618129422/section/6844733724727181326
+- 你以为 Redlock 算法真的很完美?
+How to do distributed locking : https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
+        - 文章作者著有《数据密集型应用系统设计》!
+
+_在第三节, 细致讲解了分布式锁的原理, 它的使用非常简单, 一条指令就可以完成加锁操作. 不过在集群环境下, 这种方式是有缺陷的, 它不是绝对安全的._
+
+比如在 Sentinel 集群中, 主节点挂掉时, 从节点会取而代之, 客户端上却并没有明显感知.
+
+- 原先第一个客户端在主节点中申请成功了一把锁, 但是这把锁还没有来得及同步到从节点, 主节点突然挂掉了.
+- 然后从节点变成了主节点, 这个新的节点内部没有这个锁, 所以当另一个客户端过来请求加锁时, 立即就批准了.
+- 这样就会导致系统中同样一把锁被两个客户端同时持有, 不安全性由此产生.
+
+![redis-simple-distributed-lock-error.webp](_images/redis-simple-distributed-lock-error.webp)
+
+不过, **这种不安全也仅仅是在主从发生 failover 的情况下才会产生, 而且持续时间极短, 业务系统多数情况下可以容忍.**
+
+### Redlock Alogorithm
+
+为了解决这个问题, Antirez 发明了 **Redlock 算法**, _它的流程比较复杂, 不过已经有了很多开源的 library 做了良好的封装, 用户可以拿来即用, 比如 redlock-py._
+
+```python
+import redlock
+
+addrs = [{
+    "host": "localhost",
+    "port": 6379,
+    "db": 0
+}, {
+    "host": "localhost",
+    "port": 6479,
+    "db": 0
+}, {
+    "host": "localhost",
+    "port": 6579,
+    "db": 0
+}]
+dlm = redlock.Redlock(addrs)
+success = dlm.lock("user-lck-laoqian", 5000)
+if success:
+    print 'lock success'
+    dlm.unlock('user-lck-laoqian')
+else:
+    print 'lock failed'
+```
+
+为了使用 **Redlock, 需要提供多个 Redis 实例, 这些实例之前相互独立没有主从关系.** 同很多分布式算法一样, **Redlock 也使用「大多数机制」.**
+
+- 加锁时, 它会向过半节点发送 `set(key, value, nx=True, ex=xxx)` 指令,
+    - 只要过半节点 set 成功, 那就认为加锁成功.
+- 释放锁时, 需要向所有节点发送 `del` 指令.
+    - 不过 Redlock 算法还需要考虑出错重试、时钟漂移等很多细节问题,
+    - 同时因为 Redlock 需要向多个节点进行读写, 意味着相比单实例 Redis 性能会下降一些.
+
+### Applicable Scene
+
+> 适用场景
+
+如果你很在乎高可用性, 希望挂了一台 redis 完全不受影响, 那就应该考虑 redlock.
+
+不过代价也是有的, **需要更多的 redis 实例, 性能也下降了, 代码上还需要引入额外的 library, 运维上也需要特殊对待……**
+
+这些都是需要考虑的成本, 使用前请再三斟酌.
+
+##
+
+Reference
+
+-
+
+### TODO
+
+##
+
+Reference
+
+-
+
+### TODO
+
+##
+
+Reference
+
+-
+
+### TODO
+
+##
+
+Reference
+
+-
+
+### TODO
