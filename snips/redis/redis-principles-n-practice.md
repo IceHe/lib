@@ -3412,34 +3412,160 @@ else:
 
 这些都是需要考虑的成本, 使用前请再三斟酌.
 
-##
+## Expansion 4 : Expiration strategy
 
 Reference
 
--
+- 拓展 4 : 朝生暮死 —— 过期策略 : https://juejin.cn/book/6844733724618129422/section/6844733724731375623
 
 ### TODO
 
-##
+## Expansion 5 : LRU
 
 Reference
 
--
+- 拓展 5 : 优胜劣汰 —— LRU : https://juejin.cn/book/6844733724618129422/section/6844733724731375630
 
 ### TODO
 
-##
+## Expansion 6 : Lazy Free
 
 Reference
 
--
+- 拓展 6 : 平波缓进 —— 懒惰删除 : hhttps://juejin.cn/book/6844733724618129422/section/6844733724731375624
 
 ### TODO
 
-##
+## Expansion 7 : How to Use Jedis
 
 Reference
 
--
+- 拓展 7 : 妙手仁心 —— 优雅地使用 Jedis : https://juejin.cn/book/6844733724618129422/section/6844733724731392013
+
+### TODO
+
+## Expansion 8 : Protect Redis
+
+> 保护 Redis
+
+Reference
+
+- 拓展 8 : 居安思危 —— 保护 Redis : https://juejin.cn/book/6844733724618129422/section/6844733724735569928
+
+### TODO
+
+## Expansion 9 : Redis Security Communication
+
+> 安全通信
+
+Reference
+
+- 拓展 9 : 隔墙有耳 —— Redis 安全通信 : https://juejin.cn/book/6844733724618129422/section/6844733724735569934
+
+### TODO
+
+## Expansioin 10 : Lua Script
+
+Reference
+
+- 拓展 10 : 法力无边 —— Redis Lua 脚本执行原理 : https://juejin.cn/book/6844733724618129422/section/6844733724735569927
+
+### TODO
+
+## Expansion 11 : Commond-Line Tools
+
+Reference
+
+- 拓展 11 : 短小精悍 —— 命令行工具的妙用 : https://juejin.cn/book/6844733724618129422/section/6844733724739764231
+
+### TODO
+
+## Src Code 1 : String
+
+Reference
+
+- 源码 1 : 丝分缕析 —— 探索「字符串」内部结构 : https://juejin.cn/book/6844733724618129422/section/6844733724739780615
+
+### TODO
+
+## Src Code 2 : Dictionary
+
+Reference
+
+- 源码 2 : 循序渐进 —— 探索「字典」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724739764238
+
+### TODO
+
+## Src Code 3 : Zip List
+
+Reference
+
+- 源码 3 : 挨肩迭背 —— 探索「压缩列表」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724743958535
+
+### TODO
+
+## Src Code 4 : Quick List
+
+Reference
+
+- 源码 4 : 风驰电掣 —— 探索「快速列表」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724743974925
+
+### TODO
+
+## Src Code 5 : Skip List
+
+Reference
+
+- 源码 5 : 凌波微步 —— 探索「跳跃列表」内部结构 : https://juejin.cn/book/6844733724618129422/section/6844733724743974920
+
+### TODO
+
+## Src Code 6 : List Pack
+
+Reference
+
+- 源码 6 : 破旧立新 —— 探索「紧凑列表」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724743974926
+
+### TODO
+
+## Src Code 7 : Rax
+
+Reference
+
+- 源码 7 : 金枝玉叶 —— 探索「基数树」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724748152845
+
+### TODO
+
+## Src Code 8 : LFU vs LRU
+
+Reference
+
+- 源码 8 : 精益求精 —— LFU vs LRU : https://juejin.cn/book/6844733724618129422/section/6844733724748152839
+
+### TODO
+
+## Src Code 9 : Sacrifice of Lazy Free
+
+> 懒惰删除的牺牲
+
+Reference
+
+- 源码 9: 如履薄冰 —— 懒惰删除的巨大牺牲 : https://juejin.cn/book/6844733724618129422/section/6844733724748152840
+
+### TODO
+
+## Src Code 10 : Dictionary Traverse
+
+Reference
+
+- 源码 10 : 跋山涉水 —— 深入字典遍历 : https://juejin.cn/book/6844733724618129422/section/6844733724752363534
+
+### TODO
+
+## Src Code 11 : HyperLogLog
+
+Reference
+
+- 源码 11 : 见缝插针 —— 探索 HyperLogLog 内部 : https://juejin.cn/book/6844733724618129422/section/6844733724752347149
 
 ### TODO
