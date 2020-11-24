@@ -1813,3 +1813,136 @@ _接下来看看 rehash 前后元素槽位的变化._
 ### Traverse Sequence Before and After Rehashing
 
 > 对比扩容所有前后的遍历顺序
+
+![traverse-sequence-before-n-after-rehashing.webp](_images/traverse-sequence-before-n-after-rehashing.webp)
+
+**采用高位进位加法的遍历顺序, rehash 后的槽位在遍历顺序上是相邻的.**
+
+- 假设当前要即将遍历 110 这个位置 ( 橙色 ) ,
+    - 那么扩容后, 当前槽位上所有的元素对应的新槽位是 0110 和 1110(深绿色), 也就是在槽位的二进制数增加一个高位 0 或 1.
+    - 这时可以直接从 0110 这个槽位开始往后继续遍历, 0110 槽位之前的所有槽位都是已经遍历过的, 这样就可以避免扩容后对已经遍历过的槽位进行重复遍历.
+- 再考虑缩容, 假设当前即将遍历 110 这个位置 ( 橙色 ) ,
+    - 那么缩容后, 当前槽位所有的元素对应的新槽位是 10(深绿色), 也就是去掉槽位二进制最高位.
+    - 这时可以直接从 10 这个槽位继续往后遍历, 10 槽位之前的所有槽位都是已经遍历过的, 这样就可以避免缩容的重复遍历.
+    - 不过缩容还是不太一样, 它会对图中 010 这个槽位上的元素进行重复遍历, 因为缩融后 10 槽位的元素是 010 和 110 上挂接的元素的融合.
+
+### Progressive Rehash
+
+> 渐进式 rehash
+
+Java 的 HashMap 在扩容时会一次性将旧数组下挂接的元素全部转移到新数组下面.
+
+- 如果 HashMap 中元素特别多, 线程就会出现卡顿现象. Redis 为了解决这个问题, 它采用渐进式 rehash.
+- 它会 **同时保留旧数组和新数组**,
+    - **然后在定时任务中以及后续对 hash 的指令操作中渐渐地将旧数组中挂接的元素迁移到新数组上**.
+    - 这意味着要 **操作处于 rehash 中的字典, 需要同时访问新旧两个数组结构**.
+    - **如果在旧数组下面找不到元素, 还需要去新数组下面去寻找**.
+- `scan` 也需要考虑这个问题,
+    - 对与 rehash 中的字典, 它需要同时扫描新旧槽位,
+    - _然后将结果融合后返回给客户端._
+
+### More Scan Commands
+
+`scan` 指令是一系列指令, 除了可以遍历所有的 key 之外, 还 **可以对指定的容器集合进行遍历**. 比如 :
+
+- **`zscan`** 遍历 zset 集合元素
+- **`hscan`** 遍历 hash 字典的元素
+- **`sscan`** 遍历 set 集合的元素
+
+原理同 `scan` 都会类似的, _因为_
+
+- _hash 底层就是字典,_
+- _set 也是一个特殊的 hash ( 所有的 value 指向同一个元素 ) ,_
+- _zset 内部也使用了字典来存储所有的元素内容,_
+
+_所以这里不再赘述._
+
+### Big Key Scan
+
+> 大 key 扫描
+
+_有时候会因为业务人员使用不当, 在 Redis 实例中会形成很大的对象,_
+
+- _比如一个很大的 hash, 一个很大的 zset 这都是经常出现的._
+
+这样的对象对 Redis 的集群数据迁移带来了很大的问题,
+
+- 因为 **在集群环境下, 如果某个 key 太大, 会数据导致迁移卡顿**.
+- 另外 **在内存分配上, 如果一个 key 太大, 那么当它需要扩容时, 会一次性申请更大的一块内存**, 这也会导致卡顿.
+- 如果这个 **大 key 被删除, 内存会一次性回收**, 卡顿现象会再一次产生.
+
+在平时的业务开发中, **要尽量避免大 key 的产生**.
+
+- 如果 **观察到 Redis 的内存大起大落, 这极有可能是因为大 key 导致的,**
+- 这时候你就需要定位出具体是那个 key, 进一步定位出具体的业务来源, 然后再改进相关业务代码设计.
+
+那如何定位大 key 呢?
+
+- 为了避免对线上 Redis 带来卡顿, 这就要用到 scan 指令,
+    - 对于扫描出来的每一个 key, 使用 type 指令获得 key 的类型,
+    - 然后使用相应数据结构的 size 或者 len 方法来得到它的大小,
+    - 对于每一种类型, 保留大小的前 N 名作为扫描结果展示出来.
+
+这样的过程需要编写脚本, 比较繁琐, 不过 Redis **官方已经在 `redis-cli` 指令中提供了 `--bigkeys` 扫描功能**.
+
+```bash
+# e.g.
+redis-cli -h 127.0.0.1 -p 7001 –-bigkeys
+
+# Local Example
+$ redis-cli --bigkeys
+
+# Scanning the entire keyspace to find biggest keys as well as
+# average sizes per key type.  You can use -i 0.1 to sleep 0.1 sec
+# per 100 SCAN commands (not usually needed).
+
+[00.00%] Biggest string found so far '"foo"' with 3 bytes
+
+-------- summary -------
+
+Sampled 1 keys in the keyspace!
+Total key length in bytes is 3 (avg len 3.00)
+
+Biggest string found '"foo"' has 3 bytes
+
+1 strings with 3 bytes (100.00% of keys, avg size 3.00)
+0 lists with 0 items (00.00% of keys, avg size 0.00)
+0 hashs with 0 fields (00.00% of keys, avg size 0.00)
+0 streams with 0 entries (00.00% of keys, avg size 0.00)
+0 sets with 0 members (00.00% of keys, avg size 0.00)
+0 zsets with 0 members (00.00% of keys, avg size 0.00)
+```
+
+- 如果 **担心这个指令会大幅抬升 Redis 的 ops 导致线上报警, 还可以增加一个休眠参数.**
+
+```bash
+redis-cli -h 127.0.0.1 -p 7001 –-bigkeys -i 0.1
+```
+
+- 参数 `-i 0.1` 表示 : **每隔 100 条 scan 指令就会休眠 0.1s**
+    - 这样 ops 就不会剧烈抬升, 但是扫描的时间会变长.
+
+拓展阅读
+
+- 美团近期修复的 scan 的一个 bug : https://mp.weixin.qq.com/s/ufoLJiXE0wU4Bc7ZbE9cDQ
+
+### Principle 1 : Thread IO Model
+
+> 线程 IO 模型
+
+Reference
+
+- 原理 1 : 鞭辟入里 —— 线程 IO 模型 : https://juejin.cn/book/6844733724618129422/section/6844733724710420487
+
+Redis 是个单线程程序！这点必须铭记。
+
+也许你会怀疑高并发的 Redis 中间件怎么可能是单线程。很抱歉，它就是单线程，你的怀疑暴露了你基础知识的不足。莫要瞧不起单线程，除了 Redis 之外，Node.js 也是单线程，Nginx 也是单线程，但是它们都是服务器高性能的典范。
+
+Redis 单线程为什么还能这么快？
+
+因为它所有的数据都在内存中，所有的运算都是内存级别的运算。正因为 Redis 是单线程，所以要小心使用 Redis 指令，对于那些时间复杂度为 O(n) 级别的指令，一定要谨慎使用，一不小心就可能会导致 Redis 卡顿。
+
+Redis 单线程如何处理那么多的并发客户端连接？
+
+这个问题，有很多中高级程序员都无法回答，因为他们没听过多路复用这个词汇，不知道 select 系列的事件轮询 API，没用过非阻塞 IO。
+

@@ -17,6 +17,7 @@ References
     - 容量评估
         - **Redis 容量预估** - 极数云舟 : http://www.redis.cn/redis_memory/
         - Redis 容量评估模型 - 腾讯游戏学院 : https://gameinstitute.qq.com/community/detail/114987
+    - Redis 6.0 多线程IO处理过程详解 - 知乎专栏 : https://zhuanlan.zhihu.com/p/144805500
 
 ## Intro
 
