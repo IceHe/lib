@@ -74,11 +74,19 @@ _`--slurp/-s`_
 
 - _Instead of running the filter for each JSON object in the input, **read the entire input stream into a large array and run the filter just once.**_
 
-_`--raw-input/-R`_
+**`--raw-input/-R`**
 
 - _**Don't parse the input as JSON.**_
     - _Instead, each line of text is passed to the filter as a string._
     - _If combined with `--slurp`, then the entire input is passed to the filter as a single long string._
+
+```bash
+$ echo '{"message":"遇到了一些问题哟","name":"SOA_TIMEOUT"}' | jq '.name'
+"SOA_TIMEOUT"
+
+$ echo '{"message":"遇到了一些问题哟","name":"SOA_TIMEOUT"}' | jq -r '.name'
+SOA_TIMEOUT
+```
 
 _`--null-input/-n`_
 
