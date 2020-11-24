@@ -107,8 +107,112 @@ The application layer is the OSI layer closest to the end user, which means both
 
 ## HTTP
 
+References
+
+- https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+- https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+### Status Codes
+
+All HTTP response status codes are separated into **5 classes or categories**.
+
+- **1xx informational response**
+    - the request was received, continuing process
+- **2xx successful**
+    - the request was successfully received, understood, and accepted
+- **3xx redirection**
+    - further action needs to be taken in order to complete the request
+- **4xx client error**
+    - the request contains bad syntax or cannot be fulfilled
+- **5xx server error**
+    - the server failed to fulfil an apparently valid request
+
+_The first digit of the status code defines the class of response, while the last two digits do not have any classifying or categorization role._
+
+### 1xx Informational Response
+
+- **100 Continues**
+- 101 Switching Protocols
+- 102 Processing
+- _103 Early Hints_
+
+### 2xx Successful
+
+- **200 OK**
+- **201 Created**
+- **202 Accepted**
+- _203 Non-Authoritative Information_
+- **204 No Content**
+- _205 Reset Content_
+- ……
+
+### 3xx Redirection
+
+- _300 Multiple Choices_
+- **301 Move Permanently**
+- **302 Found** _( Previously "Move Temporarily" )_
+- _303 See Other_
+- **304 Not Modified**
+- _305 Use Proxy_
+- _306 Switch Proxy_
+- _307 Temporary Redirect_
+- _308 Permanent Redirect_
+
+### 4xx Client Error
+
+- **400 Bad Request**
+- **401 Unauthorized**
+- 402 Payment Required
+- **403 Forbidden**
+- **404 Not Found**
+- 405 Method Not Allowed
+- _406 Not Acceptable_
+- _407 Proxy Authentication Required_
+- _408 Request Timeout_
+- _409 Conflict_
+- _410 Gone_
+- _411 Length Required_
+- _412 Precondition Failed_
+- _413 Payload Too Large_
+- _414 URI Too Long_
+- _415 Unsupported Media Type_
+- ……
+- ~~_418 I'm a teapot_~~
+- ……
+- _426 Upgrade Required_
+- ……
+- _429 Too Many Requests_
+- _431 Request Header Fields Too Large_
+- _451 Unavailable For Legal Reasons_
+
+### 5xx Server Error
+
+- **500 Internal Server Error**
+- _501 Not Implemented_
+- **502 Bad Gateway**
+- **503 Service Unavailable**
+- **504 Gateway Timeout**
+- **505 HTTP Version Not Supported**
+- ……
+- _507 Insufficient Storage_
+- _508 Loop Detected_
+- _510 Not Extended_
+- _511 Network Authentication Required_
+
 ## TCP
+
+Reference
+
+- https://en.wikipedia.org/wiki/Transmission_Control_Protocol
 
 ## UDP
 
+Reference
+
+- https://en.wikipedia.org/wiki/User_Datagram_Protocol
+
 ## IP
+
+Reference
+
+- https://en.wikipedia.org/wiki/Transport_Layer_Security
