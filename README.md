@@ -167,6 +167,7 @@ _Others_
 - _Temp_
     - [_Go_](/snips/tmp/go.md)
     - [_Work Flow_](/snips/tmp/work-flow.md)
+    - [_Network Notes_](/snips/network/notes.md)
 
 ### Mac
 
