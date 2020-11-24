@@ -167,6 +167,8 @@ _Others_
 - _Temp_
     - [_Go_](/snips/tmp/go.md)
     - [_Work Flow_](/snips/tmp/work-flow.md)
+    - [_Memcached_](/snips/tmp/memcached.md)
+    - [_ID Generator_](/snips/tmp/id-generator.md)
     - [_Network Notes_](/snips/network/notes.md)
 
 ### Mac

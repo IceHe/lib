@@ -240,3 +240,19 @@ Reference
 Omited…
 
 - See [Redis Usage](redis-usage.md)
+
+## Redis 6.0 多线程 IO 处理
+
+Reference
+
+- Redis 6.0 多线程IO处理过程详解 - 知乎专栏 : https://zhuanlan.zhihu.com/p/144805500
+
+解释暂略, 详见原文 ( TODO )
+
+### 单线程 IO 处理过程
+
+![redis-single-thread-process.jpg](_images/redis-single-thread-process.jpg)
+
+### 多线程 IO 处理过程
+
+![redis-multiple-threads-process.jpg](_images/redis-multiple-threads-process.jpg)
