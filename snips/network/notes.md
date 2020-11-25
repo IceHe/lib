@@ -116,11 +116,11 @@ References
 
 All HTTP response status codes are separated into **5 classes or categories**.
 
-- **1xx informational response**
+- **1xx informational response** _( 继续 )_
     - the request was received, continuing process
-- **2xx successful**
+- **2xx successful** _( 成功 )_
     - the request was successfully received, understood, and accepted
-- **3xx redirection**
+- **3xx redirection** _( 重定向 )_
     - further action needs to be taken in order to complete the request
 - **4xx client error**
     - the request contains bad syntax or cannot be fulfilled
