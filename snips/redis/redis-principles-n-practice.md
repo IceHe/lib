@@ -3787,7 +3787,189 @@ Reference
 
 - 源码 2 : 循序渐进 —— 探索「字典」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724739764238
 
-### TODO
+`dict` 是 Redis 服务器中出现最为频繁的复合型数据结构, 除了 `hash` 结构的数据会用到字典外,
+
+- **整个 Redis 数据库的所有 key 和 value 也组成了一个全局字典**,
+- 还有 **带过期时间的 key 集合也是一个字典**.
+
+`zset` 集合中存储 value 和 score 值的映射关系也是通过 `dict` 结构实现的.
+
+```bash
+struct RedisDb {
+    dict* dict; // all keys  key=>value
+    dict* expires; // all expired keys key=>long(timestamp)
+    ...
+}
+
+struct zset {
+    dict *dict; // all values  value=>score
+    zskiplist *zsl;
+}
+```
+
+### dict 内部结构
+
+![redis-dict-structure-simple-example.webp](_images/redis-dict-structure-simple-example.webp)
+
+- dict 结构 **内部包含两个 hashtable, 通常情况下只有一个 hashtable 是有值的.**
+- 但是在 dict **扩容缩容时, 需要分配新的 hashtable, 然后进行渐进式搬迁**, 这时候两个 hashtable 存储的分别是旧的 hashtable 和新的 hashtable.
+- 待搬迁结束后, 旧的 hashtable 被删除, 新的 hashtable 取而代之.
+
+```c
+struct dict {
+    ...
+    dictht ht[2];
+}
+```
+
+![redis-dict-data-structure-example.webp](_images/redis-dict-data-structure-example.webp)
+
+hashtable 的结构和 Java 的 HashMap 几乎是一样的, 都是 **通过分桶的方式解决 hash 冲突. 第一维是数组, 第二维是链表. 数组中存储的是第二维链表的第一个元素的指针.**
+
+```c
+struct dictEntry {
+    void* key;
+    void* val;
+    dictEntry* next; // 链接下一个 entry
+}
+struct dictht {
+    dictEntry** table; // 二维
+    long size; // 第一维数组的长度
+    long used; // hash 表中的元素个数
+    ...
+}
+```
+
+### 渐进式 Rehash
+
+大字典的扩容是比较耗时间的, 需要重新申请新的数组, 然后将旧字典所有链表中的元素重新挂接到新的数组下面, 这是一个 O(n) 级别的操作, 作为单线程的 Redis 表示很难承受这样耗时的过程. _所以 Redis 使用渐进式 rehash 小步搬迁. 虽然慢一点, 但是肯定可以搬完._
+
+```c
+dictEntry *dictAddRaw(dict *d, void *key, dictEntry **existing)
+{
+    long index;
+    dictEntry *entry;
+    dictht *ht;
+
+    // 这里进行小步搬迁
+    if (dictIsRehashing(d)) _dictRehashStep(d);
+
+    /* Get the index of the new element, or -1 if
+     * the element already exists. */
+    if ((index = _dictKeyIndex(d, key, dictHashKey(d,key), existing)) == -1)
+        return NULL;
+
+    /* Allocate the memory and store the new entry.
+     * Insert the element in top, with the assumption that in a database
+     * system it is more likely that recently added entries are accessed
+     * more frequently. */
+    // 如果字典处于搬迁过程中, 要将新的元素挂接到新的数组下面
+    ht = dictIsRehashing(d) ? &d->ht[1] : &d->ht[0];
+    entry = zmalloc(sizeof(*entry));
+    entry->next = ht->table[index];
+    ht->table[index] = entry;
+    ht->used++;
+
+    /* Set the hash entry fields. */
+    dictSetKey(d, entry, key);
+    return entry;
+}
+```
+
+还会在定时任务中对字典进行主动搬迁.
+
+```c
+// 服务器定时任务
+void databaseCron() {
+    ...
+    if (server.activerehashing) {
+        for (j = 0; j < dbs_per_call; j++) {
+            int work_done = incrementallyRehash(rehash_db);
+            if (work_done) {
+                /* If the function did some work, stop here, we'll do
+                 * more at the next cron loop. */
+                break;
+            } else {
+                /* If this db didn't need rehash, we'll try the next one. */
+                rehash_db++;
+                rehash_db %= server.dbnum;
+            }
+        }
+    }
+}
+```
+
+### _查找过程_
+
+_插入和删除操作都依赖于查找, 先必须把元素找到, 才可以进行数据结构的修改操作. hashtable 的元素是在第二维的链表上, 所以首先得定位出元素在哪个链表上._
+
+```c
+func get(key) {
+    let index = hash_func(key) % size;
+    let entry = table[index];
+    while(entry != NULL) {
+        if entry.key == target {
+            return entry.value;
+        }
+        entry = entry.next;
+    }
+}
+```
+
+_值得注意的是代码中的 `hash_func`, 它会将 key 映射为一个整数, 不同的 key 会被映射成分布比较均匀散乱的整数. 只有 hash 值均匀了, 整个 hashtable 才是平衡的, 所有的二维链表的长度就不会差距很远, 查找算法的性能也就比较稳定._
+
+### _hash 函数_
+
+_hashtable 的性能好不好完全取决于 hash 函数的质量. hash 函数如果可以将 key 打散的比较均匀, 那么这个 hash 函数就是个好函数. **Redis 的字典默认的 hash 函数是 siphash. siphash 算法即使在输入 key 很小的情况下, 也可以产生随机性特别好的输出, 而且它的性能也非常突出.** 对于 Redis 这样的单线程来说, 字典数据结构如此普遍, 字典操作也会非常频繁, hash 函数自然也是越快越好._
+
+### _hash 攻击_
+
+_如果 hash 函数存在偏向性, 黑客就可能利用这种偏向性对服务器进行攻击. 存在偏向性的 hash 函数在特定模式下的输入会导致 hash 第二维链表长度极为不均匀, 甚至所有的元素都集中到个别链表中, 直接导致查找效率急剧下降, 从O(1)退化到O(n). 有限的服务器计算能力将会被 hashtable 的查找效率彻底拖垮. 这就是所谓 hash 攻击._
+
+### 扩容条件
+
+```c
+/* Expand the hash table if needed */
+static int _dictExpandIfNeeded(dict *d)
+{
+    /* Incremental rehashing already in progress. Return. */
+    if (dictIsRehashing(d)) return DICT_OK;
+
+    /* If the hash table is empty expand it to the initial size. */
+    if (d->ht[0].size == 0) return dictExpand(d, DICT_HT_INITIAL_SIZE);
+
+    /* If we reached the 1:1 ratio, and we are allowed to resize the hash
+     * table (global setting) or we should avoid it but the ratio between
+     * elements/buckets is over the "safe" threshold, we resize doubling
+     * the number of buckets. */
+    if (d->ht[0].used >= d->ht[0].size &&
+        (dict_can_resize ||
+         d->ht[0].used/d->ht[0].size > dict_force_resize_ratio))
+    {
+        return dictExpand(d, d->ht[0].used*2);
+    }
+    return DICT_OK;
+}
+```
+
+**正常情况下, 当 hash 表中元素的个数等于第一维数组的长度时, 就会开始扩容**, 扩容的新数组是原数组大小的 2 倍.
+
+**不过如果 Redis 正在做 `bgsave`, 为了减少内存页的过多分离 (Copy On Write), Redis 尽量不去扩容 (dict_can_resize), 但是如果 hash 表已经非常满了, 元素的个数已经达到了第一维数组长度的 5 倍 (dict_force_resize_ratio), 说明 hash 表已经过于拥挤了, 这个时候就会强制扩容.**
+
+### 缩容条件
+
+```c
+int htNeedsResize(dict *dict) {
+    long long size, used;
+
+    size = dictSlots(dict);
+    used = dictSize(dict);
+    return (size > DICT_HT_INITIAL_SIZE &&
+            (used*100/size < HASHTABLE_MIN_FILL));
+}
+```
+
+当 hash 表因为元素的逐渐删除变得越来越稀疏时, Redis 会对 hash 表进行缩容来减少 hash 表的第一维数组空间占用. **缩容的条件是元素个数低于数组长度的 10%.** 缩容不会考虑 Redis 是否正在做 `bgsave`.
 
 ## Src Code 3 : Zip List
 
@@ -3795,7 +3977,68 @@ Reference
 
 - 源码 3 : 挨肩迭背 —— 探索「压缩列表」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724743958535
 
-### TODO
+Redis 为了节约内存空间使用, **zset 和 hash 容器对象在元素个数较少的时候, 采用压缩列表 (ziplist) 进行存储.** 压缩列表是一块连续的内存空间, 元素之间紧挨着存储, 没有任何冗余空隙.
+
+```bash
+> zadd programmings 1.0 go 2.0 python 3.0 java
+(integer) 3
+> debug object programmings
+Value at:0x7fec2de00020 refcount:1 encoding:ziplist serializedlength:36 lru:6022374 lru_seconds_idle:6
+> hmset books go fast python slow java fast
+OK
+> debug object books
+Value at:0x7fec2de000c0 refcount:1 encoding:ziplist serializedlength:48 lru:6022478 lru_seconds_idle:1
+```
+
+```c
+struct ziplist<T> {
+    int32 zlbytes; // 整个压缩列表占用字节数
+    int32 zltail_offset; // 最后一个元素距离压缩列表起始位置的偏移量, 用于快速定位到最后一个节点
+    int16 zllength; // 元素个数
+    T[] entries; // 元素内容列表, 挨个挨个紧凑存储
+    int8 zlend; // 标志压缩列表的结束, 值恒为 0xFF
+}
+```
+
+![ziplist-structure-simple-example.webp](_images/ziplist-structure-simple-example.webp)
+
+压缩列表 **为了支持双向遍历, 所以才会有 `ztail_offset` 这个字段, 用来快速定位到最后一个元素, 然后倒着遍历.**
+
+**entry 块随着容纳的元素类型不同, 也会有不一样的结构.**
+
+```c
+struct entry {
+    int<var> prevlen; // 前一个 entry 的字节长度
+    int<var> encoding; // 元素类型编码
+    optional byte[] content; // 元素内容
+}
+```
+
+- 它的 **`prevlen` 字段表示前一个 entry 的字节长度, 当压缩列表倒着遍历时, 需要通过这个字段来快速定位到下一个元素的位置.**
+- 它是一个 **变长的整数**,
+    - **当字符串长度小于 254(0xFE) 时, 使用一个字节表示;**
+    - **如果达到或超出 254(0xFE) 那就使用 5 个字节来表示.**
+        - 第一个字节是 0xFE(254), 剩余四个字节表示字符串长度.
+- _( 可能会觉得用 5 个字节来表示字符串长度, 是不是太浪费了. 可以算一下, 当字符串长度比较长的时候, 其实 5 个字节也只占用了不到 ( 5 / ( 254 + 5 ) ) < 2% 的空间. )_
+
+![redis-zip-list-entry-simple-example.webp](_images/redis-zip-list-entry-simple-example.webp)
+
+`encoding` 字段存储了元素内容的编码类型信息, `ziplist` 通过这个字段来决定后面的 content 内容的形式.
+
+Redis 为了节约存储空间, 对 `encoding` 字段进行了相当复杂的设计. **Redis 通过 `encoding` 字段的前缀位来识别具体存储的数据形式** :
+
+- 1\. 00xxxxxx 最大长度位 63 的短字符串, 后面的 6 个位存储字符串的位数, 剩余的字节就是字符串的内容.
+- 2\. 01xxxxxx xxxxxxxx 中等长度的字符串, 后面 14 个位来表示字符串的长度, 剩余的字节就是字符串的内容.
+- 3\. 10000000 aaaaaaaa bbbbbbbb cccccccc dddddddd 特大字符串, 需要使用额外 4 个字节来表示长度. 第一个字节前缀是10, 剩余 6 位没有使用, 统一置为零. 后面跟着字符串内容. 不过这样的大字符串是没有机会使用的, 压缩列表通常只是用来存储小数据的.
+- 4\. 11000000 表示 int16, 后跟两个字节表示整数.
+- 5\. 11010000 表示 int32, 后跟四个字节表示整数.
+- 6\. 11100000 表示 int64, 后跟八个字节表示整数.
+- 7\. 11110000 表示 int24, 后跟三个字节表示整数.
+- 8\. 11111110 表示 int8, 后跟一个字节表示整数.
+- 9\. 11111111 表示 ziplist 的结束, 也就是 zlend 的值 0xFF.
+- 10\. 1111xxxx 表示极小整数, xxxx 的范围只能是 (0001~1101), 也就是1~13, 因为0000、1110、1111都被占用了. 读取到的 value 需要将 xxxx 减 1, 也就是整数0~12就是最终的 value.
+
+注意到 content 字段在结构体中定义为 optional 类型, 表示这个字段是可选的, 对于很小的整数而言, 它的内容已经内联到 encoding 字段的尾部了.
 
 ## Src Code 4 : Quick List
 
