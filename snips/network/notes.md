@@ -110,9 +110,63 @@ The application layer is the OSI layer closest to the end user, which means both
 References
 
 - https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+- HTTP 请求方法 : https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods
+- https://en.wikipedia.org/wiki/Representational_state_transfer
+- RESTful API 设计指南 - 阮一峰的网络日志 : http://www.ruanyifeng.com/blog/2014/05/restful_api.html
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
+### Methods
+
+- **GET**
+    - GET 方法 **请求一个指定资源** 的表示形式.
+    - 使用 GET 的请求 **应该只被用于获取数据**.
+- **HEAD**
+    - HEAD 方法请求一个 **与 GET 请求的响应相同的响应, 但没有响应体**.
+- **POST**
+    - POST 方法用于 **将实体提交到指定的资源**,
+    - **通常导致在服务器上的状态变化或副作用**.
+- **PUT**
+    - PUT 方法用请求有效载荷 **替换目标资源的所有当前表示**.
+- **DELETE**
+    - DELETE 方法 **删除指定的资源**.
+- _CONNECT_
+    - CONNECT 方法 **建立一个到由目标资源标识的服务器的隧道**.
+- _OPTIONS_
+    - OPTIONS 方法用于 **描述目标资源的通信选项**.
+- _TRACE_
+    - TRACE 方法 **沿着到目标资源的路径执行一个消息环回测试**.
+- **PATCH**
+    - PATCH 方法用于 **对资源应用部分修改**.
+
+### RESTful API
+
+> REpresentational State Transfer
+
+References
+
+- https://en.wikipedia.org/wiki/Representational_state_transfer
+- RESTful API 设计指南 - 阮一峰的网络日志 : http://www.ruanyifeng.com/blog/2014/05/restful_api.html
+
+Semantics of HTTP methods
+
+- GET : Query
+    - Get a representation of the target resource’s state.
+- POST : Create
+    - Let the target resource process the representation enclosed in the request.
+- PUT : Update Whole
+    - Set the target resource’s state to the state defined by the representation enclosed in the request.
+- PATCH : Update Partial
+    - ……
+- DELETE : Remove
+    - Delete the target resource’s state.
+
+TODO
+
 ### Status Codes
+
+Reference
+
+- https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
 All HTTP response status codes are separated into **5 classes or categories**.
 
