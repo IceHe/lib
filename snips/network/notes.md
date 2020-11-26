@@ -5,6 +5,9 @@ TODO
 - 为什么 TCP 协议有粘包问题 : https://draveness.me/whys-the-design-tcp-message-frame
 - 为什么 HTTPS 需要 7 次握手以及 9 倍时延 : https://draveness.me/whys-the-design-https-latency
 - 为什么 TCP/IP 协议会拆分数据 : https://draveness.me/whys-the-design-tcp-segment-ip-packet
+- 为什么 TCP 协议有性能问题 : https://draveness.me/whys-the-design-tcp-performance
+- 为什么 TCP 协议有 TIME_WAIT 状态 : https://draveness.me/whys-the-design-tcp-time-wait
+- 为什么 MAC 地址不需要全球唯一 : https://draveness.me/whys-the-design-non-unique-mac-address
 
 ## OSI Model
 
@@ -623,6 +626,16 @@ MTU 的值不是越大越好, 更大的 MTU 意味着更低的额外开销, 更�
 
 ![ip-path-mtu-discovery.png](_images/ip-path-mtu-discovery.png)
 
+### MAC
+
+> Media Access Control address
+
+Reference
+
+- 为什么 MAC 地址不需要全球唯一 : https://draveness.me/whys-the-design-non-unique-mac-address
+
+#### TODO
+
 ### ARP
 
 > Address Resolution Protocol
@@ -645,7 +658,7 @@ Reference
 
 - https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol
 
-TODO
+#### TODO
 
 ### Others
 
@@ -669,6 +682,6 @@ Reference
 
 - https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
 
-TODO
+### TODO
 
 _( icehe : 应用层的协议 )_
