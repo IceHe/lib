@@ -3422,12 +3422,46 @@ Reference
 
 **如果同一时间太多的 key 过期**, 可能单线程的 Redis 会忙不过来. **删除的时间与过期 key 的数量成线性比例**, 会占用线程的处理时间, **如果删除的太过于频繁, 会导致线上读写指令执行出现卡顿.**
 
-###
+### Expired Key Set
 
-过期的 key 集合
+- 定时删除
+    - Redis 会将每个设置了过期时间的 key 放入到一个独立的字典中, 以后会定时遍历这个字典来删除到期的 key.
+- 惰性删除
+    - 除了定时遍历之外, 它还会使用惰性策略来删除过期的 key.
+    - 在客户端访问这个 key 的时候, Redis 对 key 的过期时间进行检查, 如果过期了就立即删除.
 
+定时删除是集中处理, 惰性删除是零散处理.
 
-### TODO
+### 定时扫描策略
+
+Redis **默认会每秒进行 10 次过期扫描** _( 平均 100 ms 一次 )_ , 过期扫描不会遍历过期字典中所有的 key, 而是采用了一种简单的贪心策略.
+
+- 1\. **从过期字典中随机 20 个 key**
+- 2\. **删除这 20 个 key 中已经过期的 key** _( 5 个 )_
+- 3\. **如果过期的 key 比率超过 1/4, 那就重复第 1 步**
+
+同时, **为了保证过期扫描不会出现循环过度, 导致线程卡死现象, 还增加了扫描时间的上限, 默认不会超过 25 ms.**
+
+设想一个大型的 Redis 实例中所有的 key 在同一时间过期了, 会出现怎样的结果?
+
+毫无疑问, **Redis 会持续扫描过期字典 ( 循环多次 ), 直到过期字典中过期的 key 变得稀疏, 才会停止 ( 循环次数明显下降 )** . 这就会导致线上读写请求出现明显的卡顿现象. 导致这种卡顿的另外一种原因是 **内存管理器需要频繁回收内存页, 这也会产生一定的 CPU 消耗.**
+
+当客户端请求到来时, **服务器如果正好进入过期扫描状态, 客户端的请求将会等待至少 25ms 后才会进行处理, 如果客户端将超时时间设置的比较短, 比如 10ms, 那么就会出现大量的链接因为超时而关闭, 业务端就会出现很多异常** 而且这时 **还无法从 Redis 的 slowlog 中看到慢查询记录, 因为慢查询指的是逻辑处理过程慢, 不包含等待时间.**
+
+所以 一定要注意过期时间, **如果有大批量的 key 过期, 要给过期时间设置一个随机范围, 而不宜全部在同一时间过期, 分散过期处理的压力.**
+
+```python
+# 在目标过期时间上增加一天的随机时间
+redis.expire_at(key, random.randint(86400) + expire_ts)
+```
+
+在实际的生产环境中, 迟早会出现过因为大量 key 同时过期导致的卡顿报警现象, 通过 **将过期时间随机化** 总是能很好地解决了这个问题!
+
+### 从库过期策略
+
+**从库不会进行过期扫描, 从库对过期的处理是被动的**. **主库在 key 到期时, 会在 AOF 文件里增加一条 del 指令, 同步到所有的从库**, 从库通过执行这条 del 指令来删除过期的 key.
+
+**因为指令同步是异步进行的, 所以主库过期的 key 的 del 指令没有及时同步到从库的话, 会出现主从数据的不一致**, 主库没有的数据在从库里还存在, 比如 **集群环境分布式锁的算法漏洞就是因为这个同步延迟产生的**.
 
 ## Expansion 5 : LRU
 
@@ -3435,7 +3469,104 @@ Reference
 
 - 拓展 5 : 优胜劣汰 —— LRU : https://juejin.cn/book/6844733724618129422/section/6844733724731375630
 
-### TODO
+**当 Redis 内存超出物理内存限制时, 内存的数据会开始和磁盘产生频繁的交换 ( swap )** . **交换会让 Redis 的性能急剧下降**, 对于访问量比较频繁的 Redis 来说, 这样龟速的存取效率基本上等于不可用.
+
+**在生产环境中, 不允许 Redis 出现交换行为的**, 为了限制最大使用内存, Redis 提供了 **配置参数 `maxmemory` 来限制内存超出期望大小**.
+
+当实际内存超出 `maxmemory` 时, Redis 提供了几种可选策略 ( `maxmemory-policy` ) 来让用户自己决定该如何腾出新的空间以继续提供读写服务.
+
+- `noeviction`
+    - **不会继续服务写请求 ( DEL 请求可以继续服务 ) , 读请求可以继续进行.**
+    - 这样可以保证不会丢失数据, 但是会让线上的业务不能持续进行. 这是 **默认的淘汰策略**.
+- `volatile-lru`
+    - **尝试淘汰设置了过期时间的 key, 最少使用的 key 优先被淘汰.**
+    - **没有设置过期时间的 key 不会被淘汰!** 这样可以 **保证需要持久化的数据不会突然丢失.**
+- `volatile-ttl`
+    - 跟上面一样, 除了淘汰的策略不是 LRU, 而是 **key 的剩余寿命 ttl 的值, ttl 越小越优先被淘汰.**
+- `volatile-random`
+    - 跟上面一样, 不过 **淘汰过期 key 集合中随机的 key**.
+- `allkeys-lru` 区别于 `volatile-lru`
+    - 这个策略要 **淘汰的 key 对象是全体的 key 集合, 而不只是过期的 key 集合.**
+    - 这意味着 **没有设置过期时间的 key 也会被淘汰.**
+- `allkeys-random`
+    - 跟上面一样, 不过 **淘汰的策略是随机的 key.**
+
+命名规律归纳
+
+- **`volatile-xxx` 策略只会针对带过期时间的 key 进行淘汰**
+- **`allkeys-xxx` 策略会对所有的 key 进行淘汰.**
+
+策略用法归纳
+
+- 如果你只是拿 Redis 做缓存, 那应该使用 `allkeys-xxx`, 客户端写缓存时不必携带过期时间.
+- 如果你还想同时使用 Redis 的持久化功能, 那就使用 `volatile-xxx` 策略,
+    - 这样可以保留没有设置过期时间的 key, 它们是永久的 key 不会被 LRU 算法淘汰.
+
+### LRU Algorithm
+
+实现 LRU 算法除了需要 key/value 字典外, 还需要附加一个链表, 链表中的元素按照一定的顺序进行排列.
+
+- 当空间满的时候, 会踢掉链表尾部的元素.
+- 当字典的某个元素被访问时, 它在链表中的位置会被移动到表头.
+- 所以链表的元素排列顺序就是元素最近被访问的时间顺序.
+    - 位于链表尾部的元素就是不被重用的元素, 所以会被踢掉.
+    - 位于表头的元素就是最近刚刚被人用过的元素, 所以暂时不会被踢.
+
+使用 Python 的 OrderedDict ( 双向链表 + 字典 ) 来实现一个简单的 LRU 算法.
+
+```python
+from collections import OrderedDict
+
+class LRUDict(OrderedDict):
+
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.items = OrderedDict()
+
+    def __setitem__(self, key, value):
+        old_value = self.items.get(key)
+        if old_value is not None:
+            self.items.pop(key)
+            self.items[key] = value
+        elif len(self.items) < self.capacity:
+            self.items[key] = value
+        else:
+            self.items.popitem(last=True)
+            self.items[key] = value
+
+    def __getitem__(self, key):
+        value = self.items.get(key)
+        if value is not None:
+            self.items.pop(key)
+            self.items[key] = value
+        return value
+
+    def __repr__(self):
+        return repr(self.items)
+
+
+d = LRUDict(10)
+
+for i in range(15):
+    d[i] = i
+print d
+```
+
+### 近似 LRU 算法
+
+**Redis 使用的是一种近似 LRU 算法**, 它跟 LRU 算法还不太一样. 之所以**不使用 LRU 算法, 是因为需要消耗大量的额外的内存**, 需要对现有的数据结构进行较大的改造. 近似 LRU 算法则很简单, **在现有数据结构的基础上使用随机采样法来淘汰元素, 能达到和 LRU 算法非常近似的效果**. Redis 为实现近似 LRU 算法, 它 **给每个 key 增加了一个额外的小字段, 这个字段的长度是 24 个 bit, 也就是最后一次被访问的时间戳.**
+
+上一节提到处理 key 过期方式分为集中处理和懒惰处理, **LRU 淘汰的处理方式只有懒惰处理**. 当 Redis **执行写操作时, 发现内存超出 `maxmemory`, 就会执行一次 LRU 淘汰算法.** 这个算法也很简单, **就是随机采样出 5 _( 可以配置 )_ 个 key, 然后淘汰掉最旧的 key, 如果淘汰后内存还是超出 `maxmemory`, 那就继续随机采样淘汰,** 直到内存低于 `maxmemory` 为止.
+
+**如何采样就是看 `maxmemory-policy` 的配置**, 如果是 allkeys 就是从所有的 key 字典中随机, 如果是 volatile 就从带过期时间的 key 字典中随机. **每次采样多少个 key 看的是 maxmemory_samples 的配置, 默认为 5.**
+
+下面是随机 LRU 算法和严格 LRU 算法的效果对比图 :
+
+![redis-lru-benchmark.webp](_images/redis-lru-benchmark.webp)
+
+_图中绿色部分是新加入的 key, 深灰色部分是老旧的 key, 浅灰色部分是通过 LRU 算法淘汰掉的 key. 从图中可以看出采样数量越大, 近似 LRU 算法的效果越接近严格 LRU 算法._ 同时 **Redis 3.0 在算法中增加了淘汰池, 进一步提升了近似 LRU 算法的效果**.
+
+**淘汰池是一个数组, 它的大小是 `maxmemory_samples`, 在每一次淘汰循环中, 新随机出来的 key 列表会和淘汰池中的 key 列表进行融合, 淘汰掉最旧的一个 key 之后, 保留剩余较旧的 key 列表放入淘汰池中留待下一个循环.**
 
 ## Expansion 6 : Lazy Free
 
@@ -3443,7 +3574,47 @@ Reference
 
 - 拓展 6 : 平波缓进 —— 懒惰删除 : hhttps://juejin.cn/book/6844733724618129422/section/6844733724731375624
 
-### TODO
+### Why Lazy Free ?
+
+> Redis 为什么要懒惰删除 ( lazy free ) ?
+
+删除指令 `del` 会直接释放对象的内存, 大部分情况下, 这个指令非常快, 没有明显延迟. 不过 **如果删除的 key 是一个非常大的对象, 比如一个包含了千万元素的 hash, 那么删除操作就会导致单线程卡顿.**
+
+**Redis 为了解决这个卡顿问题, 在 4.0 版本引入了 `unlink` 指令, 它能对删除操作进行懒处理, 丢给后台线程来异步回收内存.**
+
+```bash
+> unlink key
+OK
+```
+
+### flush
+
+Redis 提供了 **`flushdb` 和 `flushall` 指令, 用来清空数据库**, 这也是极其缓慢的操作. Redis 4.0 同样给这两个指令也带来了 **异步化, 在指令后面增加 `async` 参数就可以** _将整棵大树连根拔起, 扔给后台线程慢慢焚烧._
+
+### Asynchronous Queue
+
+主线程将对象的引用从「大树」中摘除后, **会将这个 key 的内存回收操作包装成一个任务, 塞进异步任务队列, 后台线程会从这个异步队列中取任务**. 任务队列被主线程和异步线程同时操作, 所以 **必须是一个线程安全的队列.**
+
+![redis-concurrent-queue-simple-example.webp](_images/redis-concurrent-queue-simple-example.webp)
+
+_不是所有的 `unlink` 操作都会延后处理, 如果对应 key 所占用的内存很小, 延后处理就没有必要了, 这时候 Redis 会将对应的 key 内存立即回收, 跟 del 指令一样._
+
+### AOF Sync 也很慢
+
+Redis 需要每秒一次 ( 可配置 ) 同步AOF日志到磁盘, 确保消息尽量不丢失, 需要调用 `sync` 函数, 这个操作会比较耗时, 会导致主线程的效率下降, 所以 Redis 也将这个操作移到异步线程来完成.
+
+执行 AOF Sync 操作的线程是一个独立的异步线程, 和前面的懒惰删除线程不是一个线程, 同样它也有一个属于自己的任务队列, 队列里只用来存放 AOF Sync 任务.
+
+### _更多异步删除点_
+
+Redis 回收内存除了 `del` 指令和 `flush` 之外, 还会存在于在 key 的过期、LRU 淘汰、`rename` 指令以及从库全量同步时接受完 RDB 文件后会立即进行的 flush 操作.
+
+_Redis 4.0 为这些删除点也带来了异步删除机制, 打开这些点需要额外的配置选项._
+
+- `slave-lazy-flush` : 从库接受完 rdb 文件后的 `flush` 操作
+- `lazyfree-lazy-eviction` : 内存达到 `maxmemory` 时进行淘汰
+- `lazyfree-lazy-expire key` : 过期删除
+- `lazyfree-lazy-server-del` : `rename` 指令删除 `destKey`
 
 ## Expansion 7 : How to Use Jedis
 
@@ -3495,7 +3666,120 @@ Reference
 
 - 源码 1 : 丝分缕析 —— 探索「字符串」内部结构 : https://juejin.cn/book/6844733724618129422/section/6844733724739780615
 
-### TODO
+Redis 中的字符串是可以修改的字符串, 在内存中它是以字节数组的形式存在的. 知道 **C 语言里面的字符串标准形式是以 NULL 作为结束符**, 但是在 Redis 里面字符串不是这么表示的. 因为 **获取 NULL 结尾的字符串的长度使用的是 `strlen` 标准库函数**, 其 **算法复杂度是 O(n)**, _它需要对字节数组进行遍历扫描, 作为单线程的 Redis 表示承受不起._
+
+**Redis 的字符串叫着 SDS, 即 Simple Dynamic String**. 它的结构是一个 **带长度信息的字节数组.**
+
+```c
+struct SDS<T> {
+  T capacity; // 数组容量
+  T len; // 数组长度
+  byte flags; // 特殊标识位, 不理睬它
+  byte[] content; // 数组内容
+}
+```
+
+![redis-sds.webp](_images/redis-sds.webp)
+
+_它有点类似于 Java 语言的 ArrayList 结构,_ 需要比实际的内容长度多分配一些冗余空间.
+
+- `capacity` 所分配数组的长度
+- `len` 字符串的实际长度
+
+字符串是可以修改的字符串, 它要支持 `append` 操作. 如果数组没有冗余空间, 那么追加操作必然涉及到分配新数组, 然后将旧内容复制过来, 再 append 新内容. 如果字符串的长度非常长, 这样的内存分配和复制开销就会非常大.
+
+```c
+/* Append the specified binary-safe string pointed by 't' of 'len' bytes to the
+ * end of the specified sds string 's'.
+ *
+ * After the call, the passed sds string is no longer valid and all the
+ * references must be substituted with the new pointer returned by the call. */
+sds sdscatlen(sds s, const void *t, size_t len) {
+    size_t curlen = sdslen(s);  // 原字符串长度
+
+    // 按需调整空间, 如果 capacity 不够容纳追加的内容, 就会重新分配字节数组并复制原字符串的内容到新数组中
+    s = sdsMakeRoomFor(s,len);
+    if (s == NULL) return NULL; // 内存不足
+    memcpy(s+curlen, t, len);  // 追加目标字符串的内容到字节数组中
+    sdssetlen(s, curlen+len); // 设置追加后的长度值
+    s[curlen+len] = '\0'; // 让字符串以\0 结尾, 便于调试打印, 还可以直接使用 glibc 的字符串函数进行操作
+    return s;
+}
+```
+
+上面的 SDS 结构使用了范型 T, 为什么不直接用 int 呢, 这是因为当字符串比较短时, len 和 capacity 可以使用 byte 和 short 来表示, Redis 为了对内存做极致的优化, 不同长度的字符串使用不同的结构体来表示.
+
+**Redis 规定字符串的长度不得超过 512M 字节**. **创建字符串时 `len` 和 `capacity` 一样长, 不会多分配冗余空间**, 这是 **因为绝大多数场景下都不会使用 append 操作来修改字符串.**
+
+### embstr vs raw
+
+Redis 的字符串有两种存储方式, **在长度特别短时, 使用 `emb` 形式存储 ( embeded ) , 当长度超过 44 时, 使用 `raw` 形式存储.**
+
+_这两种类型有什么区别呢? 为什么分界线是 44 呢? ( 没有加上 `\0` 的长度 )_
+
+```bash
+> set codehole abcdefghijklmnopqrstuvwxyz012345678912345678
+OK
+> debug object codehole
+Value at:0x7fec2de00370 refcount:1 encoding:embstr serializedlength:45 lru:5958906 lru_seconds_idle:1
+> set codehole abcdefghijklmnopqrstuvwxyz0123456789123456789
+OK
+> debug object codehole
+Value at:0x7fec2dd0b750 refcount:1 encoding:raw serializedlength:46 lru:5958911 lru_seconds_idle:1
+```
+
+Redis 对象头结构体 _( 共 16 Bytes )_
+
+```c
+struct RedisObject {
+    int4 type; // 4bits
+    int4 encoding; // 4bits
+    int24 lru; // 24bits
+    int32 refcount; // 4bytes
+    void *ptr; // 8bytes, 64-bit system
+} robj;
+```
+
+- 不同的对象具有不同的类型 type ( 4bit ) ,
+    - 同一个类型的 type 会有不同的存储形式 encoding ( 4bit ),
+    - 为了记录对象的 LRU 信息, 使用了 24 个 bit 来记录 LRU 信息.
+- **每个对象都有个引用计数, 当引用计数为零时, 对象就会被销毁, 内存被回收.**
+- **ptr 指针将指向对象内容 ( body ) 的具体存储位置.**
+
+_这样一个 RedisObject 对象头需要占据 16 字节的存储空间._
+
+接着再看 SDS 结构体的大小, **在字符串比较小时, SDS 对象头的大小是capacity + 3, 至少是 3**. 意味着分配一个字符串的最小空间占用为 19 字节 ( 16 + 3 ) .
+
+```c
+struct SDS {
+    int8 capacity; // 1byte
+    int8 len; // 1byte
+    int8 flags; // 1byte
+    byte[] content; // 内联数组, 长度为 capacity
+}
+```
+
+![redis-sds-embstr-vs-raw.webp](_images/redis-sds-embstr-vs-raw.webp)
+
+SDS 不同的存储形式  :
+
+- **`embstr` : 将 RedisObject 对象头和 SDS 对象连续存在一起, 使用 malloc 方法一次分配.**
+- **`raw` : 需要两次 malloc, 两个对象头在内存地址上一般是不连续的.**
+
+而内存分配器 `jemalloc` / `tcmalloc` 等分配内存大小的单位都是 2、4、8、16、32、64 等等, 为了能容纳一个完整的 embstr 对象, jemalloc 最少会分配 32 字节的空间, 如果字符串再稍微长一点, 那就是 64 字节的空间. 如果总体超出了 64 字节, Redis 认为它是一个大字符串, 不再使用 `emdstr` 形式存储, 而该用 `raw` 形式.
+
+_当内存分配器分配了 64 空间时, 那这个字符串的长度最大可以是多少呢? 这个长度就是 44. 那为什么是 44 呢?_
+
+前面我们提到 SDS 结构体中的 content 中的字符串是以字节 `\0` 结尾的字符串, 之所以多出这样一个字节, 是为了便于直接使用 glibc 的字符串处理函数, 以及为了便于字符串的调试打印输出.
+
+![redis-sds-redisobject-with-embstr.webp](_images/redis-sds-redisobject-with-embstr.webp)
+
+看上图可以算出, 留给 content 的长度最多只有 45 ( = 64 - 19 ) 字节了. 字符串又是以 `\0` 结尾, 所以 `embstr` 最大能容纳的字符串长度就是 44.
+
+### 扩容策略
+
+- **字符串在长度小于 1M 之前, 扩容空间采用加倍策略, 也就是保留 100% 的冗余空间.**
+- **当长度超过 1M 之后, 为了避免加倍后的冗余空间过大而导致浪费, 每次扩容只会多分配 1M 大小的冗余空间.**
 
 ## Src Code 2 : Dictionary
 
