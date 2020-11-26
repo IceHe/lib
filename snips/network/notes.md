@@ -8,6 +8,7 @@ TODO
 - 为什么 TCP 协议有性能问题 : https://draveness.me/whys-the-design-tcp-performance
 - 为什么 TCP 协议有 TIME_WAIT 状态 : https://draveness.me/whys-the-design-tcp-time-wait
 - 为什么 MAC 地址不需要全球唯一 : https://draveness.me/whys-the-design-non-unique-mac-address
+- 为什么 IPv6 难以取代 IPv4 : https://draveness.me/whys-the-design-ipv6-replacing-ipv4
 
 ## OSI Model
 
@@ -613,6 +614,20 @@ Reference
 - https://en.wikipedia.org/wiki/Transport_Layer_Security
 - 关于 TCP/IP 必知必会的 10 个问题 : https://www.cxyxiaowu.com/11609.html
 
+### IP Address
+
+#### TODO
+
+### NAT
+
+> Network Address Translation 网络地址转换
+
+Reference
+
+- 为什么 IPv6 难以取代 IPv4 : https://draveness.me/whys-the-design-ipv6-replacing-ipv4
+
+#### TODO
+
 ### MTU
 
 > Maximum Transmission Unit 最大传输单元
@@ -649,6 +664,8 @@ ARP - Address Resolution Protocol ( 地址解析协议 ) **根据 IP 地址获�
 而广播主机拿到 ARP 包后会更新自己的 ARP 缓存 ( 就是存放 IP-MAC 对应表的地方 ) . 发送广播的主机就会用新的ARP缓存数据准备好数据链路层的的数据包发送工作.
 
 RARP 反向地址解析协议, 与之相反.
+
+#### TODO
 
 ### ICMP
 
