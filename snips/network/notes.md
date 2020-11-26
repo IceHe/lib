@@ -110,12 +110,20 @@ The application layer is the OSI layer closest to the end user, which means both
 References
 
 - https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
-- HTTP 请求方法 : https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods
+- HTTP - Mozilla : https://developer.mozilla.org/zh-CN/docs/Web/HTTP
+    - HTTP 消息 : https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages
+    - HTTP 请求方法 : https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods
 - https://en.wikipedia.org/wiki/Representational_state_transfer
 - RESTful API 设计指南 - 阮一峰的网络日志 : http://www.ruanyifeng.com/blog/2014/05/restful_api.html
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
 ### Methods
+
+Reference
+
+- HTTP 请求方法 : https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods
+
+Methods
 
 - **GET**
     - GET 方法 **请求一个指定资源** 的表示形式.
@@ -137,6 +145,90 @@ References
     - TRACE 方法 **沿着到目标资源的路径执行一个消息环回测试**.
 - **PATCH**
     - PATCH 方法用于 **对资源应用部分修改**.
+
+### Messages
+
+Reference
+
+- HTTP 消息 : https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Messages
+
+#### Headers
+
+HTTP 请求和响应具有相似的结构, 由以下部分组成︰
+
+- 一行起始行用于描述要执行的请求, 或者是对应的状态, 成功或失败.
+    - 这个起始行总是单行的.
+- 一个可选的 HTTP 头集合指明请求或描述消息正文.
+- 一个空行指示所有关于请求的元数据已经发送完毕.
+- 一个可选的包含请求相关数据的正文 ( 比如 HTML 表单内容 ) , 或者响应相关的文档.
+    - 正文的大小有起始行的 HTTP 头来指定.
+- 起始行和  HTTP 消息中的HTTP 头统称为请求头, 而其有效负载被称为消息正文.
+
+![http-headers.png](_images/http-headers.png)
+
+#### Request
+
+来自请求的 HTTP headers 遵循和 HTTP header 相同的基本结构 :
+
+- 不区分大小写的字符串, 紧跟着的冒号 ( `:` ) 和一个结构取决于 header 的值.
+- 整个 header ( 包括值 ) 由一行组成, 这一行可以相当长.
+
+有许多请求头可用, 它们可以分为几组 :
+
+- **General headers**, 例如 Via, **适用于整个报文**.
+- **Request headers**, 例如 User-Agent, Accept-Type,
+    - 通过进一步的定义 ( 例如 Accept-Language),
+    - 或者给定上下文 ( 例如 Referer ),
+    - 或者进行有条件的限制 ( 例如 If-None ) 来 **修改请求**.
+- **Entity headers**, 例如 Content-Length, **适用于请求的 body**.
+    - 显然, **如果请求中没有任何 body, 则不会发送这样的头文件**.
+
+![http-request-headers.png](_images/http-request-headers.png)
+
+#### Body
+
+请求的最后一部分是它的 body.
+
+- 不是所有的请求都有一个 body :
+    - 例如获取资源的请求, GET, HEAD, DELETE 和 OPTIONS, 通常它们不需要 body.
+- 有些请求将数据发送到服务器以便更新数据 :
+    - 常见的的情况是 POST 请求 ( 包含 HTML 表单数据 ) .
+
+Body 大致可分为两类 :
+
+- **Single-resource bodies**, **由一个单文件组成**.
+    - **该类型 body 由两个 header 定义 : `Content-Type` 和 `Content-Length`.**
+- **Multiple-resource bodies**, **由多部分 body 组成, 每一部分包含不同的信息位**.
+    - **通常是和 HTML Forms 连系在一起.**
+
+#### Response
+
+Status Line _( 状态行 )_
+
+- HTTP 响应的起始行被称作 状态行 ( status line ) , 包含以下信息 :
+    - 1\. **协议版本**
+        - 通常为 HTTP/1.1
+    - 2\. **状态码** ( status code )
+        - 表明请求是成功或失败. 常见的状态码是 200, 404, 或 302.
+    - 3\. **状态文本** ( status text )
+        - 一个简短的, 纯粹的信息, 通过状态码的文本描述, 帮助人们理解该 HTTP 消息.
+- 一个典型的状态行看起来像这样 : `HTTP/1.1 404 Not Found`
+
+Response Headers
+
+![http-response-headers.png](_images/http-response-headers.png)
+
+Response Body
+
+- _见上文, 此处不赘述_
+
+#### HTTP/2 Frame
+
+HTTP/1.x 报文有一些性能上的缺点 :
+
+- **Header 不像 body, 它不会被压缩.**
+- **两个报文之间的 header 通常非常相似, 但它们仍然在连接中重复传输.
+- 无法复用. 当在同一个服务器打开几个连接时 : TCP 热连接比冷连接更加有效.
 
 ### RESTful API
 
