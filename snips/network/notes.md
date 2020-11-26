@@ -201,10 +201,12 @@ _The first digit of the status code defines the class of response, while the las
 
 ## TCP
 
-Reference
+References
 
-- https://en.wikipedia.org/wiki/Transmission_Control_Protocol
+- Wikipedia : https://en.wikipedia.org/wiki/Transmission_Control_Protocol
 - 跟着动画来学习TCP三次握手和四次挥手 - 掘金 : https://juejin.cn/post/6844903625513238541
+- 为什么 TCP 建立连接需要三次握手 : https://draveness.me/whys-the-design-tcp-three-way-handshake
+- TCP流量控制、拥塞控制 : https://zhuanlan.zhihu.com/p/37379780
 
 ### Three-Way Handshake
 
@@ -228,7 +230,7 @@ Server
 
 Reference
 
-- 为什么 TCP 建立连接需要三次握手 https://draveness.me/whys-the-design-tcp-three-way-handshake/
+- 为什么 TCP 建立连接需要三次握手 : https://draveness.me/whys-the-design-tcp-three-way-handshake/
 
 为什么我们需要通过三次握手才可以初始化 Sockets、窗口大小、初始序列号并建立 TCP 连接 :
 
@@ -246,19 +248,9 @@ Summary
 - 三次握手能够 **帮助通信双方获取初始化序列号**,
     - 它们能够保证数据包传输的不重不丢, 还能保证它们的传输顺序, 不会因为网络传输的问题发生混乱,
 - 到这里不使用『两次握手』和『四次握手』的原因已经非常清楚了 :
-    - 两次握手 ：无法避免历史错误连接的初始化, 浪费接收方的资源;
-    - 四次握手 ：TCP 协议的设计可以让我们同时传递 ACK 和 SYN 两个控制信息, 减少了通信次数,
+    - 两次握手  : 无法避免历史错误连接的初始化, 浪费接收方的资源;
+    - 四次握手  : TCP 协议的设计可以让我们同时传递 ACK 和 SYN 两个控制信息, 减少了通信次数,
         - _所以不需要使用更多的通信次数传输相同的信息_
-
-### Transport
-
-_Keywords_
-
-- 去重
-- 重传
-- TCP 窗口大小
-
-![tcp-transport.gif](_images/tcp-transport.gif)
 
 ### Four-Way Handshake
 
@@ -281,17 +273,115 @@ Server
     - fin = 1000
 - 6\. `closed`
 
-Why `time_wait` ?
+#### Why time_wait ?
 
-- 在 `time_wait` 这段时间内, 该链接在对话期间于网际路由上产生的残留报文 ( 因为路径过于崎岖, 数据报文走的时间太长, 重传的报文都收到了, 原始报文还在路上 ) 传过来时, 都会被立即丢弃掉.
-    - 4 分钟的时间足以使得这些残留报文彻底消逝.
+- **在 `time_wait` 这段时间内, 该链接在对话期间于网际路由上产生的残留报文传过来时, 都会被立即丢弃掉.**
+    - _( 因为路径过于崎岖, 数据报文走的时间太长, 可能重传的报文都收到了, 而原始报文还在路上 )_
+    - **4 分钟的时间足以使得这些残留报文彻底消逝.**
     - **不然当新的端口被重复利用时, 这些残留报文可能会干扰新的链接.**
-- 4 分钟就是 2 个 MSL, 每个 MSL 是2分钟.
-    - MSL 就是 Maximium Segment Lifetime —— 最长报文寿命.
+- 4 分钟就是 2 个 MSL, 每个 MSL 是 2 分钟.
+    - **MSL 即 Maximium Segment Lifetime —— 最长报文寿命.**
     - 这个时间是由官方 RFC 协议规定的.
     - _至于为什么是 2 个 MSL 而不是 1 个 MSL, 暂时还没有一个足够合理的解释._
 
 ![four-way-handshake.gif](_images/four-way-handshake.gif)
+
+### Transport
+
+_Keywords_
+
+- 去重
+- 重传
+- TCP 窗口大小
+
+![tcp-transport.gif](_images/tcp-transport.gif)
+
+#### Header
+
+固定 Header 至少 20 bytes
+
+![tcp-header.jpeg](_images/tcp-header.jpeg)
+
+#### Flow Control
+
+Reference
+
+- TCP流量控制、拥塞控制 : https://zhuanlan.zhihu.com/p/37379780
+
+如果发送者发送数据过快, 接收者来不及接收, 那么就会有分组丢失. 流量控制 : **为了避免分组丢失, 控制发送者的发送速度, 使得接收者来得及接收**. _流量控制根本目的是防止分组丢失, 是构成TCP可靠性的一方面._
+
+**如何实现流量控制 ?** 由 **滑动窗口协议 _( 连续ARQ协议 )_** 实现.
+
+- 既保证了分组无差错、有序接收, 也实现了流量控制.
+- 主要的方式就是接收方返回的 ACK 中会包含自己的接收窗口的大小, 并且利用大小来控制发送方的数据发送.
+
+_流量控制引发的死锁 ? 怎么避免死锁的发生 ?_
+
+- 当发送者收到了一个窗口为 0 的应答, 发送者便停止发送, 等待接收者的下一个应答.
+- 但是如果这个窗口不为 0 的应答在传输过程丢失, 发送者一直等待下去, 而接收者以为发送者已经收到该应答, 等待接收新数据,
+    - 这样双方就相互等待, 从而产生死锁!
+- **为了避免流量控制引发的死锁, TCP 使用了持续计时器.**
+    - 每当发送者收到一个 0 窗口的应答后就启动该计时器.
+    - **时间一到便主动发送报文询问接收者的窗口大小.**
+        - 若接收者仍然返回 0 窗口, 则重置该计时器继续等待;
+        - 若窗口不为0, 则表示应答报文丢失了,
+            - 此时重置发送窗口后开始发送, _这样就避免了死锁的产生._
+
+Differ Flow Control from Congestion Control ?
+
+- Congestion Control : 拥塞控制是作用于网络的,
+    - 它是防止过多的数据注入到网络中, 避免出现网络负载过大的情况;
+    - 常用的方法 :
+        - 1\. 慢启动、拥塞避免
+        - 2\. 快重传、快恢复
+- Flow Control : 流量控制是作用于接收者的,
+    - 它是控制发送者的发送速度从而使接收者来得及接收, 防止分组丢失的.
+
+#### Congestion Control
+
+拥堵控制算法
+
+假定 :
+
+- 1\. 数据是单方向传递, 另一个窗口只发送确认;
+- 2\. 接收方的缓存足够大, 因此发送方的大小的大小由网络的拥塞程度来决定.
+
+##### Slow Start
+
+> 慢启动
+
+发送方维持一个叫做 **拥塞窗口 cwnd ( congestion window )** 的状态变量.
+
+- 拥塞窗口的大小取决于网络的拥塞程度, 并且动态地在变化.
+- 发送方让自己的发送窗口等于拥塞窗口, 另外考虑到接受方的接收能力, 发送窗口可能小于拥塞窗口.
+
+慢开始算法的思路就是, **不要一开始就发送大量的数据, 先探测一下网络的拥塞程度**, 也就是说 **由小到大逐渐增加拥塞窗口的大小**.
+
+_用报文段的个数作为拥塞窗口的大小举例说明慢开始算法, **实际的拥塞窗口大小是以字节为单位的**. 如下图 :_
+
+![tcp-congestion-control-slow-start.jpg](_images/tcp-congestion-control-slow-start.jpg)
+
+一个传输轮次所经历的时间其实就是 **往返时间 RTT ( Round-Trip delay Time )** , 而且 **每经过一个传输轮次 ( transmission round ) , 拥塞窗口 cwnd 就加倍.**
+
+为了防止 cwnd 增长过大引起网络拥塞, 还需设置一个 **慢开始门限 ssthresh ( Slow Start Threshold )** 状态变量. 其用法 :
+
+- 当 cwnd < ssthresh 时, 使用 Slow Start 算法.
+- 当 cwnd > ssthresh 时, 改用 Congestion Avoidance 算法.
+- 当 cwnd = ssthresh 时, Slow Start 与 Congestion Avoidance 算法任意
+
+注意 : "慢" 并不是指 cwnd 的增长速率慢, 而是指在 TCP 开始发送报文段时先设置 cwnd=1 , 然后逐渐增大; _这当然比按照大的 cwnd 一下子把许多报文段突然注入到网络中要 "慢得多" ._
+
+_( icehe : 即 "慢" 表示初始传输速度慢, 而不是传输速度的增长速度慢. )_
+
+##### Congestion Avoidance
+
+拥塞避免算法让拥塞窗口缓慢增长, 即每经过一个往返时间RTT就把发送方的拥塞窗口cwnd加1, 而不是加倍. 这样拥塞窗口按线性规律缓慢增长.
+
+无论是在慢开始阶段还是在拥塞避免阶段, 只要发送方判断网络出现拥塞 ( 其根据就是没有按时收到确认, 虽然没有收到确认可能是其他原因的分组丢失, 但是因为无法判定, 所以都当做拥塞来处理 ) , 就把慢开始门限ssthresh设置为出现拥塞时的发送窗口大小的一半 ( 但不能小于2 ) . 然后把拥塞窗口cwnd重新设置为1, 执行慢开始算法. 这样做的目的就是要迅速减少主机发送到网络中的分组数, 使得发生拥塞的路由器有足够时间把队列中积压的分组处理完毕.
+
+整个拥塞控制的流程如下图 :
+
+![tcp-congestion-avoidance.jpg](_images/tcp-congestion-avoidance.jpg)
 
 ## UDP
 
