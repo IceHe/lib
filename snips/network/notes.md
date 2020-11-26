@@ -1,5 +1,11 @@
 # Network Notes
 
+TODO
+
+- 为什么 TCP 协议有粘包问题 : https://draveness.me/whys-the-design-tcp-message-frame
+- 为什么 HTTPS 需要 7 次握手以及 9 倍时延 : https://draveness.me/whys-the-design-https-latency
+- 为什么 TCP/IP 协议会拆分数据 : https://draveness.me/whys-the-design-tcp-segment-ip-packet
+
 ## OSI Model
 
 Reference
@@ -603,6 +609,19 @@ Reference
 
 - https://en.wikipedia.org/wiki/Transport_Layer_Security
 - 关于 TCP/IP 必知必会的 10 个问题 : https://www.cxyxiaowu.com/11609.html
+
+### MTU
+
+> Maximum Transmission Unit 最大传输单元
+
+- **IP 协议会分片传输过大的数据包 ( Packet ) 避免物理设备的限制**
+- **TCP 协议会分段传输过大的数据段 ( Segment ) 保证传输的性能**
+
+IP 协议是用于传输数据包的协议, 作为网络层协议, 它能提供 **数据的路由和寻址功能**, 让数据通过网络到达目的地. 不同设备之间传输数据前, 需要先确定一个 IP 数据包的大小上限, 即 **最大传输单元 ( Maximum transmission unit, 即 MTU ) , MTU 是 IP 数据包能够传输的数据上限.
+
+MTU 的值不是越大越好, 更大的 MTU 意味着更低的额外开销, 更小的 MTU 意味着更低的网络延迟. 每一个物理设备都有自己的 MTU, 两个主机之间的 MTU 依赖于底层的网络能力, 它由 **整个链路上 MTU 最小的物理设备决定**, 如下图所示, 网络路径的 MTU 由 MTU 最小的红色物理设备决定, 即 1000 :
+
+![ip-path-mtu-discovery.png](_images/ip-path-mtu-discovery.png)
 
 ### ARP
 
