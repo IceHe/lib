@@ -204,6 +204,94 @@ _The first digit of the status code defines the class of response, while the las
 Reference
 
 - https://en.wikipedia.org/wiki/Transmission_Control_Protocol
+- 跟着动画来学习TCP三次握手和四次挥手 - 掘金 : https://juejin.cn/post/6844903625513238541
+
+### Three-Way Handshake
+
+Client
+
+- 1\. `sync_sent` _( syn package has been sent )_
+    - syn = 90
+- 3\. `established`
+    - ack = 101
+
+Server
+
+- 2\. `sync_rcvd` _( syn package has been received )_
+    - ack = 91
+    - syn = 100
+- 4\. `established`
+
+![three-way-handshake.gif](_images/three-way-handshake.gif)
+
+#### Why three-way ?
+
+Reference
+
+- 为什么 TCP 建立连接需要三次握手 https://draveness.me/whys-the-design-tcp-three-way-handshake/
+
+为什么我们需要通过三次握手才可以初始化 Sockets、窗口大小、初始序列号并建立 TCP 连接 :
+
+- **通过三次握手才能阻止重复历史连接的初始化**
+- 通过三次握手才能对通信双方的初始序列号进行初始化
+- 讨论其他次数握手建立连接的可能性
+
+> The principle reason for the three-way handshake is to prevent old duplicate connection initiations from causing confusion.
+
+![tcp-recovery-from-old-duplicate-syn.png](_images/tcp-recovery-from-old-duplicate-syn.png)
+
+Summary
+
+- TCP 建立连接时通过三次握手可以有效地 **避免历史错误连接的建立**, 减少通信双方不必要的资源消耗,
+- 三次握手能够 **帮助通信双方获取初始化序列号**,
+    - 它们能够保证数据包传输的不重不丢, 还能保证它们的传输顺序, 不会因为网络传输的问题发生混乱,
+- 到这里不使用『两次握手』和『四次握手』的原因已经非常清楚了 :
+    - 两次握手 ：无法避免历史错误连接的初始化, 浪费接收方的资源;
+    - 四次握手 ：TCP 协议的设计可以让我们同时传递 ACK 和 SYN 两个控制信息, 减少了通信次数,
+        - _所以不需要使用更多的通信次数传输相同的信息_
+
+### Transport
+
+_Keywords_
+
+- 去重
+- 重传
+- TCP 窗口大小
+
+![tcp-transport.gif](_images/tcp-transport.gif)
+
+### Four-Way Handshake
+
+Client
+
+- 1\. `fin_wait_1`
+    - fin = 500
+- 3\. `fin_wait_2`
+- 5\. `time_wait`
+    - ack = 1001
+- 7\. _wait for some time_
+    - _default 4 min_
+- 6\. `closed`
+
+Server
+
+- 2\. `close_wait`
+    - ack = 501
+- 4\. `last_ack`
+    - fin = 1000
+- 6\. `closed`
+
+Why `time_wait` ?
+
+- 在 `time_wait` 这段时间内, 该链接在对话期间于网际路由上产生的残留报文 ( 因为路径过于崎岖, 数据报文走的时间太长, 重传的报文都收到了, 原始报文还在路上 ) 传过来时, 都会被立即丢弃掉.
+    - 4 分钟的时间足以使得这些残留报文彻底消逝.
+    - **不然当新的端口被重复利用时, 这些残留报文可能会干扰新的链接.**
+- 4 分钟就是 2 个 MSL, 每个 MSL 是2分钟.
+    - MSL 就是 Maximium Segment Lifetime —— 最长报文寿命.
+    - 这个时间是由官方 RFC 协议规定的.
+    - _至于为什么是 2 个 MSL 而不是 1 个 MSL, 暂时还没有一个足够合理的解释._
+
+![four-way-handshake.gif](_images/four-way-handshake.gif)
 
 ## UDP
 
