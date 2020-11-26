@@ -129,14 +129,14 @@ All HTTP response status codes are separated into **5 classes or categories**.
 
 _The first digit of the status code defines the class of response, while the last two digits do not have any classifying or categorization role._
 
-### 1xx Informational Response
+#### 1xx Informational Response
 
 - **100 Continues**
 - 101 Switching Protocols
 - 102 Processing
 - _103 Early Hints_
 
-### 2xx Successful
+#### 2xx Successful
 
 - **200 OK**
 - **201 Created**
@@ -146,7 +146,7 @@ _The first digit of the status code defines the class of response, while the las
 - _205 Reset Content_
 - ……
 
-### 3xx Redirection
+#### 3xx Redirection
 
 - _300 Multiple Choices_
 - **301 Move Permanently**
@@ -158,7 +158,7 @@ _The first digit of the status code defines the class of response, while the las
 - _307 Temporary Redirect_
 - _308 Permanent Redirect_
 
-### 4xx Client Error
+#### 4xx Client Error
 
 - **400 Bad Request**
 - **401 Unauthorized**
@@ -185,7 +185,7 @@ _The first digit of the status code defines the class of response, while the las
 - _431 Request Header Fields Too Large_
 - _451 Unavailable For Legal Reasons_
 
-### 5xx Server Error
+#### 5xx Server Error
 
 - **500 Internal Server Error**
 - _501 Not Implemented_
@@ -200,6 +200,8 @@ _The first digit of the status code defines the class of response, while the las
 - _511 Network Authentication Required_
 
 ## TCP
+
+> Transmission Control Protocol
 
 References
 
@@ -431,12 +433,67 @@ _注意 : "拥塞避免" 并非完全能够避免了阻塞, 而是使网络比�
 
 ## UDP
 
+> User Datagram Protocol
+
 Reference
 
 - https://en.wikipedia.org/wiki/User_Datagram_Protocol
+
+### TODO
 
 ## IP
 
 Reference
 
 - https://en.wikipedia.org/wiki/Transport_Layer_Security
+- 关于 TCP/IP 必知必会的 10 个问题 : https://www.cxyxiaowu.com/11609.html
+
+### ARP
+
+> Address Resolution Protocol
+
+ARP - Address Resolution Protocol ( 地址解析协议 ) **根据 IP 地址获取 MAC 地址的一种协议**.
+
+本来主机是完全不知道这个 IP 对应的是哪个主机的哪个接口, 当主机要发送一个 IP 包的时候, 会首先查一下自己的 ARP 高速缓存 ( 就是一个 IP-MAC 地址对应表缓存 ) .
+
+如果查询的 IP-MAC 值对不存在, 那么主机就向网络发送一个 ARP 协议广播包, 这个广播包里面就有待查询的 IP 地址, 而直接收到这份广播的包的所有主机都会查询自己的IP地址, 如果收到广播包的某一个主机发现自己符合条件, 那么就准备好一个包含自己的 MAC 地址的 ARP 包传送给发送 ARP 广播的主机.
+
+而广播主机拿到 ARP 包后会更新自己的 ARP 缓存 ( 就是存放 IP-MAC 对应表的地方 ) . 发送广播的主机就会用新的ARP缓存数据准备好数据链路层的的数据包发送工作.
+
+RARP 反向地址解析协议, 与之相反.
+
+### ICMP
+
+> Internet Control Message Protocol
+
+Reference
+
+- https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol
+
+TODO
+
+### Others
+
+Package Encapsulation
+
+![web-package-encapsulation.jpeg](_images/web-package-encapsulation.jpeg)
+
+IP Header
+
+![ip-header.jpeg](_images/ip-header.jpeg)
+
+### TODO
+
+## Others
+
+### SNMP
+
+> Simple Network Management
+
+Reference
+
+- https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
+
+TODO
+
+_( icehe : 应用层的协议 )_
