@@ -3350,7 +3350,7 @@ Reference
 
 - 拓展 3 : 拾遗漏补 —— 再谈分布式锁 : https://juejin.cn/book/6844733724618129422/section/6844733724727181326
 - 你以为 Redlock 算法真的很完美?
-How to do distributed locking : https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
+    - How to do distributed locking : https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
         - 文章作者著有《数据密集型应用系统设计》!
 
 _在第三节, 细致讲解了分布式锁的原理, 它的使用非常简单, 一条指令就可以完成加锁操作. 不过在集群环境下, 这种方式是有缺陷的, 它不是绝对安全的._
