@@ -4046,6 +4046,8 @@ Reference
 
 - 源码 4 : 风驰电掣 —— 探索「快速列表」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724743974925
 
+![redis-quicklist-simple-example.webp](_images/redis-quicklist-simple-example.webp)
+
 ### TODO
 
 ## Src Code 5 : Skip List

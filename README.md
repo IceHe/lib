@@ -79,6 +79,8 @@ Docker
 - [Docker](/snips/docker/docker.md) : Command & Composor
 - [Alpine Linux](/snips/docker/alpine/alpine.md) : minimal OS image
 
+<!--
+
 Infrastructre _( TODO )_
 
 - [Service Mesh](/snips/infrastructure/service-mesh.md)
@@ -100,6 +102,8 @@ Infrastructre _( TODO )_
 - Jenkins
 - GitHub Action
 - Travis CI
+
+-->
 
 Markdown
 

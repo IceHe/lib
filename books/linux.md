@@ -7,6 +7,9 @@ References
 - TODO
     - 为什么系统调用会消耗较多资源 : https://draveness.me/whys-the-design-syscall-overhead
     - 为什么 Linux 默认页大小是 4KB : https://draveness.me/whys-the-design-linux-default-page
+    - 处理器感知线程管理系统 · OSDI 2018 : https://draveness.me/papers-arachne
+    - NVMe 固态硬盘与键值存储 KVell · SOSP 2019 : https://draveness.me/papers-kvell
+    - 调度系统设计精要 : https://draveness.me/system-design-scheduler
 
 ## Introdution
 
