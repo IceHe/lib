@@ -36,7 +36,7 @@ sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createins
     - Connect wifi, wait for processing until reboot
 - or Reboot, press `⌥` for a few seconds
     - Reboot from different disk you selected
-- Reference : https://support.apple.com/zh-cn/HT204904
+- _Reference_ : https://support.apple.com/zh-cn/HT204904
 
 4\. Restore from backups of Time Machine
 
@@ -48,25 +48,7 @@ sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createins
 - Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
     - _( icehe : 做法是对的, 但是具体的配置恐怕在新系统中已经无效了, 待验证 )_
 
-#### Cannot Repeat Keys
-
-References
-
-- Search Google : macos mojave keyboard cannot repeat
-    - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
-        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
-
-Solution
-
-1\. Run command below
-
-```bash
-defaults write -g ApplePressAndHoldEnabled -bool false
-```
-
-2\. Reboot & test
-
-### Network Ladder
+### Network Proxy
 
 If cannot download softwares you need, you need to over the Great Fire Wall ( in China Main Land )
 
@@ -126,7 +108,6 @@ source ~/.bash_profile
 ## For ZSH users :
 echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
 source ~/.zshrc
-
 ```
 
 ### Homebrew-Cask
@@ -173,22 +154,24 @@ Required but cannot install by `brew cask install` ( via Mac App Store )
     - Copy 'Em
     - EasyRes
     - Trello
+- Available on GitHub
+    - TrojanX : https://github.com/JimLee1996/TrojanX
+        - Download : https://github.com/JimLee1996/TrojanX/releases
 
-Trojan
+<!--
 
-- Official : https://trojan-gfw.github.io/trojan/
-    - GitHub : https://github.com/trojan-gfw/trojan
-    - GitHub Wiki : https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
+_Trojan_
+
+- _Official_ : https://trojan-gfw.github.io/trojan/
+    - _GitHub_ : https://github.com/trojan-gfw/trojan
+    - _GitHub Wiki_ : https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
 
 ```bash
 brew tap trojan-gfw/homebrew-trojan
 brew install trojan
 ```
 
-TrojanX
-
-- GitHub : https://github.com/JimLee1996/TrojanX
-    - Releases : https://github.com/JimLee1996/TrojanX/releases
+-->
 
 #### Optional Softwares
 
@@ -236,16 +219,11 @@ brew cask install \
     qlmarkdown \
     qlprettypatch \
     qlstephen \
-    quicklook-csv
-
-# 无法下载 ( TODO : 再验证一次, 还不行就删除 )
-#    quicklook-json \
-#    webpquicklook
+    quicklook-csv \
+    webpquicklook
 ```
 
-### CLI Tools
-
-> Command Line Interface
+### Command Line Interface
 
 Install other commands by command `brew`
 
@@ -390,13 +368,13 @@ xcode-select install
 
 Troubleshooting for myself
 
-- First, link ~/.vimrc to ~/.config/nvim/init.vim ( run command as follow ) !
+- First, link `~/.vimrc` to `~/.config/nvim/init.vim` ( run command as follow ) .
 
 ```bash
 ln -s /Users/[username]/.vimrc /Users/[username]/.config/nvim/init.vim
 ```
 
-Or try ( reference )
+Or try _( reference )_
 
 - Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub : https://github.com/neovim/neovim/issues/7945
 
@@ -514,18 +492,12 @@ Install [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Ki
 
 Steps
 
-- Tap a formula repository ( 配置软件源 )
-
-```bash
-brew tap caskroom/versions
-```
-
 - Install JDK 8
     - Notice : require to input macOS user password
     - For latest version, execute `brew cask install java`
 
 ```bash
-brew cask install java8
+brew cask install adoptopenjdk8
 ```
 
 Get JDK Path
@@ -602,6 +574,24 @@ Intsll plugins
 Include
 
 - Development configurations on local & remote machines
+
+### Key Repeat
+
+References
+
+- Search Google : macos mojave keyboard cannot repeat
+    - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
+        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
+
+Solution
+
+1\. Run command below
+
+```bash
+defaults write -g ApplePressAndHoldEnabled -bool false
+```
+
+2\. Reboot & test
 
 ### System Preferences
 
