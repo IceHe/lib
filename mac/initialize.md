@@ -224,71 +224,7 @@ Install other commands by command `brew`
 - Although some softwares has been pre-installed in macOS, their versions are often outdated.
 - You should install & update them by yourself.
 
-What to Install ?
-
-#### Required Tools
-
-```bash
-brew install \
-    cmake \
-    coreutils \
-    curl \
-    expect \
-    gawk \
-    git \
-    fzf \
-    jq \
-    maven \
-    nvim \
-    ruby \
-    safe-rm \
-    tmux \
-    vim \
-    wget
-```
-
-```bash
-# Tips: Fix `tmux`
-# ( Ref : https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x )
-brew install reattach-to-user-namespace
-```
-
-#### Optional Tools
-
-```bash
-brew install \
-    composer \
-    gradle \
-    groovysdk \
-
-```
-
-#### How to Update
-
-```bash
-brew update && brew upgrade
-```
-
-`brew update`
-
-- Fetch the newest version of Homebrew from GitHub using git.
-
-`brew upgrade`
-
-- Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
-
-If encounter error below,
-
-```bash
-# 输出
-xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
-```
-
-Execute command below and then re-run commands above.
-
-```bash
-xcode-select install
-```
+What to Install?
 
 > Command List & Description
 >
@@ -305,16 +241,16 @@ xcode-select install
 > - [expect](https://linux.die.net/man/1/expect)
 >     - programmed dialogue with interactive programs
 >     - I write a script using expect for remote login
-> - [gawk](https://linux.die.net/man/1/gawk) ( awk )
+> - _[gawk](https://linux.die.net/man/1/gawk) ( awk )_
 >     - pattern scanning and processing language
 >     - for text formatting & log analysis
 > - [git](https://git-scm.com/)
 >     - a distributed version control system
 >     - for code management
-> - [gradle](https://gradle.org/)
+> - _[gradle](https://gradle.org/)_
 >     - a build automation tool focused on flexibility and performance
 >     - for building Java & Groovy projects based on config file *.gradle
-> - [groovysdk](http://www.groovy-lang.org/)
+> - _[groovysdk](http://www.groovy-lang.org/)_
 >     - a multi-faceted language for the Java platform
 >     - for Java unit-testing ( [Spock](http://spockframework.org/) ) or Groovy projects
 >     - Notice : Install **groovysdk** but ~~groovy~~ by Homebrew ( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) )
@@ -338,7 +274,87 @@ xcode-select install
 > - [wget](https://www.gnu.org/software/wget/)
 >     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
 
-#### Others
+#### Required Tools
+
+```bash
+brew install \
+    coreutils \
+    curl \
+    git \
+    fzf \
+    jq \
+    maven \
+    nginx \
+    nvim \
+    safe-rm \
+    tmux \
+    vim \
+    wget
+```
+
+```bash
+# Tips: Fix `tmux`
+# ( Ref : https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x )
+brew install reattach-to-user-namespace
+```
+
+#### Optional Tools
+
+```bash
+brew install \
+    autoconf \
+    automake \
+    cmake \
+    composer \
+    elasticsearch@5.6 \
+    elasticsearch \
+    expect \
+    gawk \
+    gradle \
+    groovysdk \
+    mysql@5.6 \
+    mysql@5.7 \
+    mysql \
+    node \
+    python \
+    rabbitmq \
+    redis \
+    ruby \
+    sqlite \
+    telnet \
+    watch
+```
+
+#### Update and Upgrade
+
+```bash
+brew update && brew upgrade
+```
+
+`brew update`
+
+- Fetch the newest version of Homebrew from GitHub using git.
+
+`brew upgrade`
+
+- Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
+
+#### FAQ
+
+##### Require Xcode
+
+If encounter error below,
+
+```bash
+# 输出
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+```
+
+Execute command below and then re-run commands above.
+
+```bash
+xcode-select install
+```
 
 ##### Neovim Clipboard
 
