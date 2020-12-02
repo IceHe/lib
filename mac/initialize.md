@@ -14,22 +14,23 @@ Reference
 
 ### macOS
 
-Search `macOS` in Mac App Store
+1\. Search `macOS` in Mac App Store
 
 - Download macOS Installation，e.g. High Sierra
-- Reference : https://support.apple.com/zh-cn/HT201372
+- _Reference_ : https://support.apple.com/zh-cn/HT201372
 
-Create bootable installer for macOS（创建引导分区，即U盘安装）
+2\. Create bootable installer for macOS ( 创建引导分区，即U盘安装 )
 
 ```bash
+# e.g. macOS High Sierra
 sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia \
---volume /Volumes/Install\ macOS\ High\ Sierra \
---applicationpath /Applications/Install\ macOS\ High\ Sierra.app
+    --volume /Volumes/Install\ macOS\ High\ Sierra \
+    --applicationpath /Applications/Install\ macOS\ High\ Sierra.app
 ```
 
-- Reference : https://support.apple.com/zh-cn/HT201372
+- _Reference_ : https://support.apple.com/zh-cn/HT201372
 
-Reboot, press `⌘ + r`
+3\. Reboot, press `⌘ + r`
 
 - or Reboot, press `⌘ + ⌥ + r`
     - Connect wifi, wait for processing until reboot
@@ -37,14 +38,15 @@ Reboot, press `⌘ + r`
     - Reboot from different disk you selected
 - Reference : https://support.apple.com/zh-cn/HT204904
 
-Restore from backups of Time Machine
+4\. Restore from backups of Time Machine
 
 - or Restore from Disk Backup by Disk Utility
 - or Re-install macOS
 
-Disable animations to accelerate macOS
+5\. Disable animations to accelerate macOS
 
 - Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
+    - _( icehe : 做法是对的, 但是具体的配置恐怕在新系统中已经无效了, 待验证 )_
 
 #### Cannot Repeat Keys
 
@@ -56,15 +58,15 @@ References
 
 Solution
 
-- Run command
+1\. Run command below
 
 ```bash
 defaults write -g ApplePressAndHoldEnabled -bool false
 ```
 
-- Reboot & test
+2\. Reboot & test
 
-### Over the Wall
+### Network Ladder
 
 If cannot download softwares you need, you need to over the Great-Fire_Wall ( in China Main Land )
 
@@ -84,15 +86,16 @@ Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config
 
 `brew` [macOS package manager](https://brew.sh/) for installing & managing softwares on macOS
 
-Steps
-
-- Install Homebrew
+1\. Install Homebrew
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-- Show version ( check if installed successfully or not ? )
+- If slow, please try :
+    - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170
+
+2\. Validate _: Show version ( check if installed successfully or not ? )_
 
 ```bash
 $ brew --version
@@ -106,55 +109,96 @@ Install Mac Apps by Homebrew-Cask
 
 - Homebrew-Cask extends Homebrew and allows you to install large binary files via a command-line tool.
 - Notice : I have to install ShadowsocksX-NG ( for over Great-Fire_Wall ) at first in China mainland, or fail to download some installions.
+- Available Softwares : https://formulae.brew.sh/cask
+
+#### Required Softwares
 
 Required ( for me )
 
 ```bash
 brew cask install \
     appcleaner \
-    charles \
-    docker \
-    evernote \
-    flash-player \
     google-chrome \
     hyperswitch \
-    iina \
+    intellij-idea \
     iterm2 \
     itsycal \
     karabiner-elements \
     keyboard-maestro \
-    kindle \
-    launchrocket \
-    microsoft-office \
-    mounty \
     neteasemusic \
-    notion \
     numi \
+    imageoptim \
     postman \
     qq \
     qqmusic \
-    renamer \
     sequel-pro \
-    shadowsocksx-ng \
     snipaste \
     sublime-text \
-    thunder \
+    ticktick \
     visual-studio-code \
     wechat
 ```
 
 Required but cannot install by `brew cask install` ( via Mac App Store )
 
-- 2Do
-- Copied
-- Trello
+- Available in App Store
+    - Amphetamine
+    - Copy 'Em
+    - EasyRes
+    - Trello
 
-Required but better installed by [JetBrains Toolbox](https://www.jetbrains.com/toolbox/)
+Trojan
 
-- DataGrip
-- IntelliJ-IDEA
-- PhpStorm
-- …
+- Official : https://trojan-gfw.github.io/trojan/
+    - GitHub : https://github.com/trojan-gfw/trojan
+    - GitHub Wiki : https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
+
+```bash
+brew tap trojan-gfw/homebrew-trojan
+brew install trojan
+```
+
+TrojanX
+
+- GitHub : https://github.com/JimLee1996/TrojanX
+    - Releases : https://github.com/JimLee1996/TrojanX/releases
+
+#### Optional Softwares
+
+Optional ( for me )
+
+```bash
+brew cask install \
+    charles \
+    clion \
+    datagrip \
+    docker \
+    desmume \
+    flash-player \
+    goland \
+    iina \
+    kindle \
+    keycastr \
+    microsoft-office \
+    mounty \
+    notion \
+    phpstorm \
+    popclip \
+    renamer \
+    thunder \
+    time-out \
+    utools \
+    virtualbox \
+    wireshark
+```
+
+Optional and Unable to install by `brew cask install`
+
+- Apple Configurator 2
+- Kantu
+- 百度网盘
+- 虾米音乐
+- 酷我音乐
 
 For quick-look ( preview ) in Finder
 
@@ -173,26 +217,6 @@ brew cask install \
 
 <!-- 以上的 betterzipql 好像已经无法安装了 -->
 
-Optional ( for me )
-
-```bash
-brew cask install \
-    desmume \
-    keycastr \
-    popclip \
-    time-out \
-    virtualbox \
-    wireshark
-```
-
-Optional but cannot install by `brew cask install`
-
-- Apple Configurator 2
-- Kantu
-- 百度网盘
-- 虾米音乐
-- 酷我音乐
-
 ### CLI Tools
 
 > Command Line Interface
@@ -202,13 +226,27 @@ Install other commands by command `brew`
 - Although some softwares has been pre-installed in macOS, their versions are often outdated.
 - You should install & update them by yourself.
 
-What to Install ( recommended )
+What to Install ?
+
+#### Required Tools
 
 ```bash
 brew install \
-    cmake composer coreutils curl except gawk git \
-    gradle groovysdk fzf jq maven nvim ruby safe-rm \
-    tmux vim wget
+    cmake \
+    coreutils \
+    curl \
+    expect \
+    gawk \
+    git \
+    fzf \
+    jq \
+    maven \
+    nvim \
+    ruby \
+    safe-rm \
+    tmux \
+    vim \
+    wget
 ```
 
 ```bash
@@ -217,16 +255,29 @@ brew install \
 brew install reattach-to-user-namespace
 ```
 
-How to Update
+#### Optional Tools
 
-- brew update ：
-    - Fetch the newest version of Homebrew from GitHub using git.
-- brew upgrade ：
-    - Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
+```bash
+brew install \
+    composer \
+    gradle \
+    groovysdk \
+
+```
+
+#### How to Update
 
 ```bash
 brew update && brew upgrade
 ```
+
+`brew update`
+
+- Fetch the newest version of Homebrew from GitHub using git.
+
+`brew upgrade`
+
+- Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
 
 If encounter error below,
 
@@ -289,7 +340,9 @@ xcode-select install
 > - [wget](https://www.gnu.org/software/wget/)
 >     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
 
-#### Neovim Clipboard
+#### Others
+
+##### Neovim Clipboard
 
 > Cannot i/o system clipboard
 
@@ -342,7 +395,7 @@ Terminal Emulator
 
 Code Editor
 
-- [VS Code](https://code.visualstudio.com/) ( recommended )
+- [VS Code](https://code.visualstudio.com/) ( Recommended )
     - Easy to use, free, open source
     - Support [Markdown](https://docs.gitlab.com/ee/user/markdown.html) ( *.md file )
         - Check Markdown style
@@ -367,20 +420,20 @@ Chrome plugins
 - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
 - [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
 - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
-- [cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ) : Add Vim-like key-bindings to Chrome for faster operations
-    - How to Use : https://droidrant.com/using-cvim
-    - Source Code : https://github.com/1995eaton/chromium-vim
+- ~~[cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ) : Add Vim-like key-bindings to Chrome for faster operations~~
+    - ~~How to Use~~ : https://droidrant.com/using-cvim
+    - ~~Source Code~~ : https://github.com/1995eaton/chromium-vim
 
 Clipboard Management
 
 - Reasons for installation
     - You often switch Apps when you are copying and pasting.
     - Clipboard management apps reduces unnecessary manipulatioin, raise efficiency & boost productivity.
+- [Copy'em Paste](http://apprywhere.com/copy-em-paste.html)
+    - More configurations
 - [Paste 2](https://pasteapp.me/)
     - Advantages : Simple, pretty, easy to use, able to search copied content.
     - Disadvantages : It takes up too much screen space.
-- [Copy'em Paste](http://apprywhere.com/copy-em-paste.html)
-    - More configurations
 - …
 
 Dictionary
@@ -388,7 +441,7 @@ Dictionary
 - Dictionary 词典
     - macOS builtin, enough
 - Alternative
-    - EuDic : [欧路词典](https://www.eudic.net/v4/en/app/eudic) ( recommended )
+    - EuDic : [欧路词典](https://www.eudic.net/v4/en/app/eudic) ( Recommended )
     - Youdao Dict : [有道词典](https://itunes.apple.com/cn/app/you-dao-ci-dian/id491854842?mt=12)
 
 HTTP API Debug
@@ -398,7 +451,7 @@ HTTP API Debug
 
 Mind Mapping
 
-- [MindNote](https://mindnode.com/) ( recommended )
+- [MindNote](https://mindnode.com/) ( Recommended )
 - [XMind](https://www.xmind.net/)
 - …
 
