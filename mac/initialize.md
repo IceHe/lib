@@ -210,9 +210,11 @@ brew cask install \
     qlmarkdown \
     qlprettypatch \
     qlstephen \
-    quicklook-csv \
-    quicklook-json \
-    webpquicklook
+    quicklook-csv
+
+# 无法下载 ( TODO : 再验证一次, 还不行就删除 )
+#    quicklook-json \
+#    webpquicklook
 ```
 
 ### CLI Tools
