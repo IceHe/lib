@@ -118,6 +118,7 @@ Required ( for me )
 ```bash
 brew cask install \
     appcleaner \
+    eudic \
     google-chrome \
     hyperswitch \
     intellij-idea \
