@@ -92,7 +92,7 @@ Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-- If slow, please try :
+- If install slowly, please try :
     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170
 
 2\. Validate _: Show version ( check if installed successfully or not ? )_
@@ -101,6 +101,32 @@ Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config
 $ brew --version
 Homebrew 1.7.2
 Homebrew/homebrew-core (git revision 27f23; last commit 2018-08-24)
+```
+
+3\. Accelarate :
+
+- If upgrade slowly, please try :
+    - Homebrew (中国大陆) 有比较快的源 (mirror) 吗? https://www.zhihu.com/question/31360766/answer/749386652
+
+```bash
+# Homebrew
+git -C "$(brew --repo)" remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+
+# Homebrew Core
+git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+
+# Homebrew Cask
+git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+
+# Homebrew-bottles
+## For BASH users :
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
+source ~/.bash_profile
+
+## For ZSH users :
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
+source ~/.zshrc
+
 ```
 
 ### Homebrew-Cask
