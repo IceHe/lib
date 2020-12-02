@@ -597,24 +597,24 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 iCloud
 
-- login
-- enable some services
+- Login
+- Enable some services
 
 Keyboard
 
-- set `Delay Until Repeat` max
-- set `Key Repeat` max
-- clear `Text`
+- Set `Delay Until Repeat` max
+- Set `Key Repeat` max
+- Clear `Text`
 
 Trackpad
 
-- set `Tracking speed` max
-- disable `More gestures -> Notification center`
+- Set `Tracking speed` max
+- Disable `More gestures -> Notification center`
 
 Dock
 
-- set `Auto Hide`
-- remove useless apps from Dock
+- Set `Auto Hide`
+- Remove useless apps from Dock
 - 通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派 : https://sspai.com/post/33366
 
 ```bash
@@ -624,34 +624,33 @@ killall Dock
 
 Notification
 
-- disable useless apps on demand
+- Disable useless apps on demand
 
 Users & Groups
 
-- set `Login Items` (开机启动程序)
-    - or change preferences of apps
+- Set `Login Items` (开机启动程序)
+    - Or change preferences of apps
 
 ### Apps
 
 1Password
 
-- re-install in App Store
+- Re-install in App Store
 
-ShadowsocksX-NG
+TrojanX
 
-- get configs from your Shadowsocks service
-    - mine: <https://portal.shadowsocks.to>
-- re-config by scanning QR Code
+- Get configs from your Shadowsocks service
+- Re-config by scanning QR Code
 
 Chrome
 
-- login Google
-- open <chrome://apps/>
+- Login Google
+- Open [chrome://apps](chrome://apps/)
 
 Sogou Input
 
-- login by WeChat
-- configure in `System Preferences`
+- Login by WeChat
+- Configure in `System Preferences`
     - remove useless input sources
     - add Sogou Input
 
@@ -666,40 +665,35 @@ Karabiner-Elements
 
 Keyboard Maestro
 
-- set license
-
-2Do
-
-- re-download
-- set username + password
+- Set license
 
 EuDic
 
-- re-download
-- login by QQ
+- Re-download
+- Login by QQ
 
 Itsycal
 
-- re-config
+- Re-config
     - ` Y.MM.dd  E  HH:mm:ss `
 
 iTerm 2
 
-- set config path
-- restart app
+- Set config path
+- Restart app
 
 JetBrains : IntelliJ IDEA / GoLand / CLion
 
-- set license (login)
+- Set license (login)
 
 Outlook
 
-- login Microsoft Account
+- Login Microsoft Account
 
 VS Code
 
-- execute `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
-- restart app
+- Execute `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+- Restart app
 
 ### Git
 
