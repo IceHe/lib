@@ -68,7 +68,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 ### Network Ladder
 
-If cannot download softwares you need, you need to over the Great-Fire_Wall ( in China Main Land )
+If cannot download softwares you need, you need to over the Great Fire Wall ( in China Main Land )
 
 1. Connect to network
 2. Open **System Preferences**
