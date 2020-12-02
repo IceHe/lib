@@ -205,7 +205,6 @@ For quick-look ( preview ) in Finder
 
 ```bash
 brew cask install \
-    betterzipql \
     qlcolorcode \
     qlimagesize \
     qlmarkdown \
@@ -215,8 +214,6 @@ brew cask install \
     quicklook-json \
     webpquicklook
 ```
-
-<!-- 以上的 betterzipql 好像已经无法安装了 -->
 
 ### CLI Tools
 
