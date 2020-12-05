@@ -6,47 +6,45 @@
     - `KISS : keep it simple & stupid` 简单原则
     - `OOTB : out of the box` 开箱即用
 
-Reference
+References
 
-- macOS Setup Guide : http://sourabhbajaj.com/mac-setup/
+- macOS Setup Guide : http://sourabhbajaj.com/mac-setup
+- Apple Support
+    - 如何创建可引导的 macOS 安装器 : https://support.apple.com/zh-cn/HT201372
+    - 如何重新安装 macOS : https://support.apple.com/zh-cn/HT204904
 
 ## Install
 
 ### macOS
 
-1\. Search `macOS` in Mac App Store
+1\. Search `macOS` in Mac App Store and Download macOS Installation
 
-- Download macOS Installation，e.g. High Sierra
-- _Reference_ : https://support.apple.com/zh-cn/HT201372
+- _Reference : 如何创建可引导的 macOS 安装器 - Apple Support :_ https://support.apple.com/zh-cn/HT201372
 
 2\. Create bootable installer for macOS ( 创建引导分区，即U盘安装 )
 
 ```bash
-# e.g. macOS High Sierra
-sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia \
-    --volume /Volumes/Install\ macOS\ High\ Sierra \
-    --applicationpath /Applications/Install\ macOS\ High\ Sierra.app
+# e.g. macOS Big Sur
+sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia \
+    --volume /Volumes/Install\ macOS\ Big\ Sur
 ```
 
-- _Reference_ : https://support.apple.com/zh-cn/HT201372
-
-3\. Reboot, press `⌘ + r`
+3\. \* Reboot, press `⌘ + r`
 
 - or Reboot, press `⌘ + ⌥ + r`
     - Connect wifi, wait for processing until reboot
 - or Reboot, press `⌥` for a few seconds
     - Reboot from different disk you selected
-- _Reference_ : https://support.apple.com/zh-cn/HT204904
+- _Reference : 如何重新安装 macOS - Apple Support :_ https://support.apple.com/zh-cn/HT204904
 
-4\. Restore from backups of Time Machine
+4\. \* Restore from backups of Time Machine _( Optional )_
 
 - or Restore from Disk Backup by Disk Utility
 - or Re-install macOS
 
-5\. Disable animations to accelerate macOS
+5\. \* Disable animations to accelerate macOS _( Optional )_
 
 - Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
-    - _( icehe : 做法是对的, 但是具体的配置恐怕在新系统中已经无效了, 待验证 )_
 
 ### Network Proxy
 
@@ -68,7 +66,7 @@ Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config
 
 `brew` [macOS package manager](https://brew.sh/) for installing & managing softwares on macOS
 
-1\. Install Homebrew
+1\. Install
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -77,7 +75,9 @@ Ref : [PAC](https://en.wikipedia.org/wiki/Proxy_auto-config) - Proxy Auto Config
 - If install slowly, please try :
     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170
 
-2\. Validate _: Show version ( check if installed successfully or not ? )_
+2\. Validate
+
+- Show version to check if installed successfully or not.
 
 ```bash
 $ brew --version
@@ -85,7 +85,7 @@ Homebrew 1.7.2
 Homebrew/homebrew-core (git revision 27f23; last commit 2018-08-24)
 ```
 
-3\. Accelarate :
+3\. Accelarate
 
 - If upgrade slowly, please try :
     - Homebrew (中国大陆) 有比较快的源 (mirror) 吗? https://www.zhihu.com/question/31360766/answer/749386652
