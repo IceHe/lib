@@ -682,13 +682,13 @@ iTerm 2
 - Set config path
 - Restart app
 
-JetBrains : IntelliJ IDEA / GoLand / CLion
+JetBrains
 
-- Set license (login)
+- Login or set license
 
-Outlook
+_Microsoft Office_
 
-- Login Microsoft Account
+- Login
 
 VS Code
 
