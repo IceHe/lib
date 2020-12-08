@@ -774,3 +774,11 @@ Configurations
 ```bash
 open ~/.m2/settting.xml
 ```
+
+## TODO
+
+- [ ] remove vscode config files from proj mac-config
+- [ ] add vscode configs sync in initialize.md
+- [ ] add intellij-idea configs sync in initialize.md
+- [ ] install jdk via binary installation
+    - [ ] remove jdk installation via homebrew
