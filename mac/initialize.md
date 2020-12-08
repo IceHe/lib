@@ -779,6 +779,7 @@ open ~/.m2/settting.xml
 
 - [ ] remove vscode config files from proj mac-config
 - [ ] add vscode configs sync in initialize.md
+    - https://code.visualstudio.com/docs/editor/settings-sync
 - [ ] add intellij-idea configs sync in initialize.md
 - [ ] install jdk via binary installation
     - [ ] remove jdk installation via homebrew
