@@ -514,12 +514,15 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
     - **Ultimate** : Fully Functional
     - **Community** : Free
 
-2\. Get Lincense
+2\. Get and Set Lincense
 
-- You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial).
-- Or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
-    - Free Educational Licenses : https://www.jetbrains.com/community/education/#students
-    - 学生授权申请方式 - 中文 : https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式
+- Get License
+    - You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial).
+    - Or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
+        - Free Educational Licenses : https://www.jetbrains.com/community/education/#students
+        - 学生授权申请方式 - 中文 : https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式
+- Set License
+    - _omitted…_
 
 3\. Sync Settings
 
@@ -560,20 +563,7 @@ _References_
 - https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free
 - https://www.vojtechruzicka.com/idea-best-plugins
 
-<!--
-
-> IDE for team
->
-> - Use the same IDE for better collaboration in a team
->     - Uniform code format for all developers in a team
->     - Easy to learn IDE developing experience accumulated by other teammates
->     - Teammates are easy to use others' development environment (IDE)
->     - ……
-
--->
-
-## Plugins
-
+## Install Plugins
 
 ### Chrome
 
@@ -688,19 +678,19 @@ Mind Mapping
 
 -->
 
-# Configure
+## Configure
 
 Include
 
 - Development configurations on local & remote machines
 
-## Key Repeat
+### Key Repeat
 
 References
 
-- Search Google : macos mojave keyboard cannot repeat
+- Search Google : "macos mojave keyboard cannot repeat"
     - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
-        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
+    - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
 
 Solution
 
@@ -710,30 +700,20 @@ Solution
 defaults write -g ApplePressAndHoldEnabled -bool false
 ```
 
-2\. Reboot & test
+2\. Reboot & Check
 
-## System Preferences
+### System Preferences
 
 iCloud
 
 - Login
-- Enable some services
-
-Keyboard
-
-- Set `Delay Until Repeat` max
-- Set `Key Repeat` max
-- Clear `Text`
-
-Trackpad
-
-- Set `Tracking speed` max
-- Disable `More gestures -> Notification center`
+- Enable Services
 
 Dock
 
-- Set `Auto Hide`
-- Remove useless apps from Dock
+- Enable `Automatically hide and show the Dock`
+- Disable `Animate opening applications`
+- Disable all Apps `Options` → `Keep in Dock`
 - 通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派 : https://sspai.com/post/33366
 
 ```bash
@@ -741,82 +721,107 @@ defaults write com.apple.dock autohide-delay -int 0
 killall Dock
 ```
 
+Keyboard
+
+- `Keyboard` Tab
+    - Set `Delay Until Repeat` Max
+    - Set `Key Repeat` Max
+- `Text` Tab
+    - Clear all "Replace With"
+    - Clear all Checkboxes
+        - Correct spelling automatically
+        - Capitalize words automatically
+        - Add period with double-space
+        - Use smart quotes and dashes
+        - ……
+- `Shortcuts` Tab
+    - Add App Shortcuts
+        - `All Applications` → `Show Help menu` ⌥ + ⇧ + /
+        - `Google Chrome` → `Extensions` ⇧ + ⌘ + A
+        - `iTerm` → `Toggle Full Screen` ^ + ⌘ + F
+- `Input Sources` Tab
+    - Remove the useless Input Sources
+
+Trackpad
+
+- Set `Tracking speed` Max
+
 Notification
 
-- Disable useless apps on demand
+- Disable useless Apps Notifications on demand
 
 Users & Groups
 
-- Set `Login Items` (开机启动程序)
-    - Or change preferences of apps
+- Configure `Login Items` (开机启动程序)
 
-## Apps
+### Apps
 
 1Password
 
-- Re-install in App Store
+- _Re-install in App Store_ _( maybe )_
+- Unlock iCloud vaults
 
 TrojanX
 
-- Get configs from your Shadowsocks service
-- Re-config by scanning QR Code
+- Get the config content from the Shadowsocks service
+- Import Server URLs From Pasteboard
 
 Chrome
 
-- Login Google
-- Open [chrome://apps](chrome://apps/)
+- Login
+- Turn on Sync
 
 Sogou Input
 
-- Login by WeChat
-- Configure in `System Preferences`
-    - remove useless input sources
-    - add Sogou Input
+- Login via WeChat
+- Add Sogou Input in `System Preferences` → `Keyboard` → `Input Sources`
 
 Karabiner-Elements
 
 - Simple Modifications
     - Caps Lock `⇪` -> Left Ctrl `^`
     - Left Ctrl `^` -> Caps Lock `⇪`
-    - Right Cmd `⌘` -> Esc `⎋`
-- Function Keys
-    - from Media Control to Function Keys (F1 ~ F12)
+- Sync Settings via Config File
+    - ommitted…
 
 Keyboard Maestro
 
-- Set license
-
-EuDic
-
-- Re-download
-- Login by QQ
+- Set License
+    - `Keyboard Maestro` → `Register Keyboard Maestro…`
+    - Input username and password
+- Sync Settings
+    - `File` → `Start Syncing Macros…` → `Open Existing…`
+    - Select the config file
 
 Itsycal
 
-- Re-config
-    - ` Y.MM.dd  E  HH:mm:ss `
+- ` Y.MM.dd  E  HH:mm:ss `
 
 iTerm 2
 
-- Set config path
-- Restart app
-
-JetBrains
-
-- Login or set license
-
-_Microsoft Office_
-
-- Login
+- Sync Settings
+    - 1\. `Preferences` → `General` → `Preferences`
+    - 2\. Enable `Load preference from a custom folder or URL`
+    - 3\. Select the config folder
+    - 4\. Enable `Save changes to folder when quits`
 
 VS Code
 
-- Execute `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
-- Restart app
+- Sync Settings ( TODO )
+
+EuDic
+
+- Login via QQ
+
+Microsoft Office
+
+- Login
 
 ## Git
 
-Git username & email
+### Name and Email
+
+1\. Set Username & Email
 
 - `[EMAIL]` e.g. icehe@gmail.com
 - `[USERNAME]` e.g. IceHe
@@ -830,7 +835,7 @@ git config --global user.name icehe
 git config --global user.email icehe@gmail.com
 ```
 
-Check
+2\. Validate
 
 ```bash
 $ git config --global -l | grep user
@@ -838,13 +843,15 @@ user.name=icehe
 user.email=icehe@gmail.com
 ```
 
-## Git* Repo
+### SSH Key
 
-Add SSH public SSH key for accounts ( e.g., GitHub & GitLab )
+> GitHub / GitLab / …
+
+1\. Add SSH public SSH key for accounts ( e.g., GitHub & GitLab )
 
 - Advantage : No longer need to enter username & password on trusted devices ( before operations )
 
-Steps to Generate & Add SSH key
+2\. Generate SSH Key
 
 - Generate new SSH key pair ( include public & private key pairs )
 
@@ -869,6 +876,9 @@ Overwrite (y/n)?
 ```
 
 - Input **y** to re-generate
+
+3\. Add SSH Key
+
 - Copy **public key** to clipboard
 
 ```bash
@@ -900,7 +910,6 @@ open ~/.m2/settting.xml
     - [ ] remove vscode config files from proj mac-config
     - [ ] add vscode configs sync in initialize.md
         - https://code.visualstudio.com/docs/editor/settings-sync
-- [ ] add intellij-idea configs sync in initialize.md
 - [ ] Sync configs
     - [ ] Amphetamine : 详细写清楚配置的过程
     - [ ] Copy'Em : 详细写清楚配置的过程
