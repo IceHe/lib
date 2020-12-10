@@ -906,10 +906,10 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 Configurations
 
-- Open Maven configuration file template ~~settings.xml~~ ( not exist now ) .
-- Copy its content
-- Open local Maven configuration file
-- Overlay paste original content
+- 1\. Open Maven configuration file template ~~settings.xml~~ ( not exist now ) .
+- 2\. Copy its content
+- 3\. Open local Maven configuration file
+- 4\. Overlay paste original content
     - `open` : open file with default editor
     - Notic : If you use your own private devices & Maven configuration files exists, please merge content of configurations carefully.
 
