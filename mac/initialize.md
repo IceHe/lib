@@ -155,6 +155,8 @@ Required but cannot install by `brew cask install` ( via Mac App Store )
     - EasyRes
     - Trello
 - Available on GitHub
+    - Amphetamine Enhancer
+        - Download : https://github.com/x74353/Amphetamine-Enhancer
     - TrojanX : https://github.com/JimLee1996/TrojanX
         - Download : https://github.com/JimLee1996/TrojanX/releases
 
@@ -783,3 +785,8 @@ open ~/.m2/settting.xml
 - [ ] add intellij-idea configs sync in initialize.md
 - [ ] install jdk via binary installation
     - [ ] remove jdk installation via homebrew
+- [ ] Sync configs
+    - Amphetamine
+    - Copy'Em
+    - ImageOptim
+    - Snipaste
