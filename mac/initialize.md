@@ -41,10 +41,12 @@ sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstall
 
 - or Restore from Disk Backup by Disk Utility
 - or Re-install macOS
+- _( Suggestion : 如果用硬盘全量备份然后将数据还原到新机器上, 假以时日, 系统中会留存越来越多用不着的东西; 现在觉得重新配置新机器是更好的选择. 2020-12-10 )_
 
 5\. \* Disable animations to accelerate macOS _( Optional )_
 
 - Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
+- _( TODO : 观察还有哪些命令还有效果, 还有效果的命令就记录到本文; 如果基本没啥用了, 就直接删掉这一步吧 )_
 
 ### Network Proxy
 
