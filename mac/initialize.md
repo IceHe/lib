@@ -779,14 +779,16 @@ open ~/.m2/settting.xml
 
 ## TODO
 
-- [ ] remove vscode config files from proj mac-config
-- [ ] add vscode configs sync in initialize.md
-    - https://code.visualstudio.com/docs/editor/settings-sync
+- [ ] vs code
+    - [ ] remove vscode config files from proj mac-config
+    - [ ] add vscode configs sync in initialize.md
+        - https://code.visualstudio.com/docs/editor/settings-sync
 - [ ] add intellij-idea configs sync in initialize.md
 - [ ] install jdk via binary installation
     - [ ] remove jdk installation via homebrew
 - [ ] Sync configs
-    - Amphetamine
-    - Copy'Em
-    - ImageOptim
-    - Snipaste
+    - [ ] Amphetamine : 详细写清楚配置的过程
+    - [ ] Copy'Em : 详细写清楚配置的过程
+    - [ ] ImageOptim : 详细记录配置的参数 ( 用默认配置其实也行? 对啊 )
+    - [ ] Snipaste : 添加了配置文件
+- [ ] consulas font
