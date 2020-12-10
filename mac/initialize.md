@@ -795,7 +795,20 @@ Keyboard Maestro
 
 Itsycal
 
-- ` Y.MM.dd  E  HH:mm:ss `
+- Preference…
+    - General
+        - Enable `Launch at login`
+    - Appearance
+        - Menu Bar
+            - Datetime pattern ` Y.MM.dd  E  HH:mm:ss `
+            - Enable `Hide icon`
+        - Calendar
+            - Highlight
+                - Enable `Saturday` and `Sunday`
+            - Enable `Show event dots`
+                - Enable `Use colored dots`
+            - Enable `Use event location`
+            - Enable `Use calendar weeks`
 
 iTerm 2
 
@@ -904,9 +917,9 @@ Configurations
 open ~/.m2/settting.xml
 ```
 
-# TODO
+## TODO
 
-- [ ] vs code
+- [ ] VS Code
     - [ ] remove vscode config files from proj mac-config
     - [ ] add vscode configs sync in initialize.md
         - https://code.visualstudio.com/docs/editor/settings-sync
