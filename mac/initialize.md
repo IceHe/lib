@@ -168,6 +168,7 @@ Required ( for me )
 
 ```bash
 brew cask install \
+    1password \
     appcleaner \
     eudic \
     google-chrome \
