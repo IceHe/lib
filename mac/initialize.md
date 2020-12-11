@@ -60,7 +60,7 @@ Suggestion on 2020-12-10
 
 ## Network Proxy
 
-If cannot download softwares, you need to configure network proxy ( in China Mainland )
+If cannot download softwares, need to configure network proxy ( in China Mainland )
 
 1. Connect to network
 2. Open `System Preferences` → `Network` → `Advanced…` → `Proxies`
