@@ -40,7 +40,7 @@ sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstall
 3\. Reboot, press `⌘ + r`
 
 - or Reboot, press `⌘ + ⌥ + r`
-    - Connect wifi, wait for processing until reboot
+    - Connect wifi and wait for processing until reboot
 - or Reboot, press `⌥` for a few seconds
     - Reboot from different disk you selected
 
@@ -226,52 +226,22 @@ Optional ( for me )
 brew cask install \
     charles \
     clion \
-    docker \
-    desmume \
-    goland \
-    iina \
-    keycastr \
-    kindle \
-    microsoft-office \
-    mounty \
-    notion \
-    phpstorm \
-    renamer \
-    thunder \
-    virtualbox \
-    wireshark
-```
-
-<!--
-
-Backup on 2020-12-10
-
-```bash
-brew cask install \
-    charles \
-    clion \
     datagrip \
     docker \
     desmume \
-    flash-player \
     goland \
     iina \
-    kindle \
     keycastr \
+    kindle \
     microsoft-office \
     mounty \
     notion \
     phpstorm \
-    popclip \
     renamer \
     thunder \
-    time-out \
-    utools \
     virtualbox \
     wireshark
 ```
-
--->
 
 > Some optional softwares below are unabled to be installed by Homebrew-Cask.
 
@@ -292,58 +262,7 @@ Install CLI tools by command `brew`
 - Although some softwares has been pre-installed in macOS, their versions are often outdated.
 - You should install & update them by yourself.
 
-### Required
-
-```bash
-brew install \
-    coreutils \
-    curl \
-    git \
-    fzf \
-    jq \
-    maven \
-    nginx \
-    nvim \
-    safe-rm \
-    tmux \
-    vim \
-    wget
-```
-
-```bash
-# Tips: Fix `tmux`
-# ( Ref : https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x )
-brew install reattach-to-user-namespace
-```
-
-### Optional
-
-```bash
-brew install \
-    autoconf \
-    automake \
-    cmake \
-    elasticsearch \
-    expect \
-    gawk \
-    gradle \
-    groovysdk \
-    mysql@5.6 \
-    mysql@5.7 \
-    mysql \
-    node \
-    python \
-    rabbitmq \
-    redis \
-    ruby \
-    sqlite \
-    telnet \
-    watch
-```
-
-<!--
-
-> Command Description
+> What to Install
 >
 > - [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
 >     - Produce shell scripts to automatically configure software source code packages
@@ -381,6 +300,9 @@ brew install \
 > - [maven](https://maven.apache.org/)
 >     - A software project management and comprehension tool
 >     - For Java project management based on config files - pom.xml
+> - [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
+>     - Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
+>     - For `tmux` to write and read system clipboard.
 > - [ruby](https://www.ruby-lang.org/en/)
 >     - Ruby programming language
 >     - Package Manger : `gem`
@@ -390,29 +312,50 @@ brew install \
 >     - optional : `nvim` aka. [Neovim](https://neovim.io/)
 > - [wget](https://www.gnu.org/software/wget/)
 >     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
+> - …
 
--->
-
-### _\*Neovim Clipboard_
-
-> Cannot write or read the system clipboard
-
-Troubleshooting for myself
-
-- Link `~/.vimrc` to `~/.config/nvim/init.vim` ( run command as follow )
+### Required
 
 ```bash
-ln -s /Users/[username]/.vimrc /Users/[username]/.config/nvim/init.vim
+brew install \
+    coreutils \
+    curl \
+    git \
+    fzf \
+    jq \
+    maven \
+    nginx \
+    nvim \
+    reattach-to-user-namespace \
+    safe-rm \
+    tmux \
+    vim \
+    wget
 ```
 
-Or try
-
-- Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub : https://github.com/neovim/neovim/issues/7945
+### Optional
 
 ```bash
-# vim
-:checkhealth
-:help clipboard
+brew install \
+    autoconf \
+    automake \
+    cmake \
+    elasticsearch \
+    expect \
+    gawk \
+    gradle \
+    groovysdk \
+    mysql@5.6 \
+    mysql@5.7 \
+    mysql \
+    node \
+    python \
+    rabbitmq \
+    redis \
+    ruby \
+    sqlite \
+    telnet \
+    watch
 ```
 
 ## Java Development
@@ -435,7 +378,7 @@ $ /usr/libexec/java_home -v 1.8
 3\. Set environment variable `JAVA_HOME`
 
 - Append the command line below to config file `~/.bashrc`
-    - If ~/.bashrc doesn't exists, create it.
+    - If `~/.bashrc` doesn't exists, create it.
     - If use other shell such as `zsh`, append to `~/.zshrc`
 
 ```bash
@@ -468,8 +411,8 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 - Share settings through a settings repository : https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository
     - `File` → `Manage IDE Settings` → `Settings Repository…`
-        - Firstly, input HTTPS URL of the settings Github repository.
-        - Secondly, input the Github access token.
+        - 1\. Input HTTPS URL of the settings Github repository.
+        - 2\. Input the Github access token.
 
 3\. Install plugins
 
@@ -520,7 +463,7 @@ open ~/.m2/settting.xml
 
 Notice :
 
-- If you use your own private devices & Maven configuration files exists, please merge content of configurations carefully.
+- If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
 
 <!--
 
@@ -617,18 +560,18 @@ Include
 
 Key Repeat
 
-- 1\. Run command `defaults write -g ApplePressAndHoldEnabled -bool false`
-- 2\. Reboot & check
+- Enable
+    - 1\. Run command `defaults write -g ApplePressAndHoldEnabled -bool false`
+    - 2\. Reboot & check
 - References
     - Search Google : "macos mojave keyboard cannot repeat"
         - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
         - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
 
-
 iCloud
 
 - Login
-- Enable Services
+- Enable necessary services
 
 Dock
 
@@ -649,19 +592,19 @@ Keyboard
     - Set `Key Repeat` Max
 - `Text` Tab
     - Clear all "Replace With"
-    - Clear all Checkboxes
+    - Clear all checkboxes
         - Correct spelling automatically
         - Capitalize words automatically
         - Add period with double-space
         - Use smart quotes and dashes
         - ……
 - `Shortcuts` Tab
-    - Add App Shortcuts
+    - Add App shortcuts
         - `All Applications` → `Show Help menu` ⌥ + ⇧ + /
         - `Google Chrome` → `Extensions` ⇧ + ⌘ + A
         - `iTerm` → `Toggle Full Screen` ^ + ⌘ + F
 - `Input Sources` Tab
-    - Remove the useless Input Sources
+    - Remove the useless input sources
 
 Trackpad
 
@@ -669,13 +612,13 @@ Trackpad
 
 Notification
 
-- Disable useless Apps Notifications on demand
+- Disable useless Apps notifications on demand
 
 Users & Groups
 
 - Configure `Login Items` (开机启动程序)
 
-Disable animations to Accelerate macOS _( Optional )_
+Disable animations to accelerate macOS _( Optional )_
 
 - Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
 - _( TODO : 观察还有哪些命令还有效果, 还有效果的命令就记录到本文; 如果基本没啥用了, 就直接删掉这一步吧 )_
@@ -685,18 +628,18 @@ Disable animations to Accelerate macOS _( Optional )_
 1Password
 
 - _Re-install in App Store_ _( maybe )_
-- Unlock iCloud Vaults
+- Unlock iCloud vaults
 
 TrojanX
 
 - Get the config content from the Shadowsocks service
-- Import Server URLs From Pasteboard
+- Import Server URLs from pasteboard
 
 Chrome
 
 - Login
-- Turn on Sync
-- Install Extensions
+- Turn on `Sync`
+- Install extensions
     - [1Password](https://agilebits.com/browsers/welcome.html) : Password Manager
     - [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
         - If open too many tabs, you can stash them in OneTab to save memory space & visible screen area
@@ -722,20 +665,20 @@ Sogou Input
 
 Karabiner-Elements
 
-- Simple Modifications
+- Simple modifications
     - Caps Lock `⇪` -> Left Ctrl `^`
     - Left Ctrl `^` -> Caps Lock `⇪`
-- Sync Settings via the Config File
+- Sync preferences via the config file
     - ommitted…
 
 Keyboard Maestro
 
-- Set License
+- Set license
     - `Keyboard Maestro` → `Register Keyboard Maestro…`
     - Input Username and Password
-- Sync Settings
+- Sync macros
     - `File` → `Start Syncing Macros…` → `Open Existing…`
-    - Select the Config File
+    - Select the config file
 
 Visual Studio Code
 
@@ -830,9 +773,28 @@ Microsoft Office
 
 - Login
 
-### Git
+### CLI
 
-#### Name and Email
+#### Neovim
+
+- Link `~/.vimrc` to `~/.config/nvim/init.vim` ( run command as follow )
+    - Or `nvim` maybe cannot write or read the system clipboard.
+    - Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub : https://github.com/neovim/neovim/issues/7945
+
+```bash
+ln -s /Users/[USERNAME]/.vimrc /Users/[USERNAME]/.config/nvim/init.vim
+# e.g.
+ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
+
+# Trouble
+# In vim or nvim
+:checkhealth
+:help clipboard
+```
+
+#### Git
+
+> Name and Email
 
 1\. Set username & email
 
@@ -858,9 +820,9 @@ user.email=icehe@gmail.com
 
 #### SSH Key
 
-> GitHub / GitLab / …
+> For GitHub, GitLab and etc.
 
-1\. Add SSH public SSH key for accounts ( e.g., GitHub & GitLab )
+1\. Add SSH public SSH key for accounts
 
 - Advantage : No longer need to enter username & password on trusted devices ( before operations )
 
@@ -876,7 +838,7 @@ ssh-keygen -t rsa -C "icehe.me@qq.com" -b 4096
 ```
 
 - `ssh-keygen` will request user input as follow
-    - Enter file in which to save the key (/Users/\<username\>/.ssh/id_rsa):
+    - Enter file in which to save the key (/Users/[USERNAME]/.ssh/id_rsa):
     - Enter passphrase (empty for no passphrase):
     - Enter same passphrase again:
 - You can just Press the Enter ↩ Key
@@ -884,13 +846,13 @@ ssh-keygen -t rsa -C "icehe.me@qq.com" -b 4096
 
 ```bash
 # outpu
-/Users/<username>/.ssh/id_rsa already exists.
+/Users/[USERNAME]/.ssh/id_rsa already exists.
 Overwrite (y/n)?
 ```
 
 - Input `y` to re-generate
 
-3\. Add SSH key
+3\. Add SSH key on GitLab
 
 - Copy **public key** to clipboard
 
@@ -898,6 +860,6 @@ Overwrite (y/n)?
 pbcopy < ~/.ssh/id_rsa.pub
 ```
 
-- Enter **Settings** webpage and then **SSH Keys** page ( find it yourself )
-- Paste **public key** to input box **Key** ( **Title** input box will be auto-filled )
-- Click **Add key**
+- Enter `Settings` webpage and then `SSH Keys` page ( find it yourself )
+- Paste **public key** to input box `Key` ( `Title` input box will be auto-filled )
+- Click `Add key`
