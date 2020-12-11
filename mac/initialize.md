@@ -97,8 +97,13 @@ Homebrew is a [macOS package manager](https://brew.sh/) for installing & managin
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-- If install slowly, try :
+- If cannot install or install slowly, try the command below :
+    - Homebrew 国内如何自动安装 (国内地址) : https://zhuanlan.zhihu.com/p/111014448
     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170
+
+```bash
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+```
 
 2\. Validate
 
