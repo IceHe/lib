@@ -521,15 +521,14 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
     - Or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
         - Free Educational Licenses : https://www.jetbrains.com/community/education/#students
         - 学生授权申请方式 - 中文 : https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式
-- Set License
-    - _omitted…_
+- Set License _( omitted… )_
 
 3\. Sync Settings
 
-- `File` → `Manage IDE Settings` → `Settings Repository…`
-    - Firstly, input HTTPS URL of the settings Github repository.
-    - Secondly, input the Github access token.
-- _Reference : Share settings through a settings repository :_ https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository
+- Share settings through a settings repository : https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository
+    - `File` → `Manage IDE Settings` → `Settings Repository…`
+        - Firstly, input HTTPS URL of the settings Github repository.
+        - Secondly, input the Github access token.
 
 3\. Install Plugins
 
@@ -537,45 +536,50 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 - [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) _( trying )_
 - [Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript) _( trying )_
 - [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts)
-- [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format)
+- [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) : _Reformats Java source code to comply with Google Java Style._
     - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
     - [GitHub - google/google-java-format](https://github.com/google/google-java-format)
-        - _Reformats Java source code to comply with Google Java Style._
 - [Grep Console](https://pluginjjs.jetbrains.com/plugin/7125-grep-console) _( trying )_
-- [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat) _( Generate POJO according to JSON )_
-- [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)
-    - _Vim emulator - edit text like Vim_
+- [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat) : _Generate POJO according to JSON_
+- [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) : _Vim emulator - edit text like Vim_
 - [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) _( trying )_
+- [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij) _( to try )_
 - [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X)
 - [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
     - [Project Lombok](https://projectlombok.org/)
         - _It is a java library that automatically plugs into your editor and build tools, spicing up your java._
         - _Never write another getter or equals method again. Early access to future java features such as val, and much more._
 - [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
-- [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration)
-    - _Draw UML graphs for docs by [PlantUML](http://plantuml.com/)_
+- [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) : _Draw UML graphs for docs by [PlantUML](http://plantuml.com/)_
 - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) _( trying )_
 - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
 - [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
+
+* Others
+
+- Set Font "Consolas"
+    - Download :
+    - Settings
 
 _References_
 
 - https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free
 - https://www.vojtechruzicka.com/idea-best-plugins
 
-## Install Plugins
+### Maven
 
-### Chrome
+Configurations
 
-- [1Password](https://agilebits.com/browsers/welcome.html) : Password Manager
-- [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
-    - If open too many tabs, you can stash them in OneTab to save memory space & visible screen area
-- [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
-- [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
-- [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
-- [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim.
-- [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application.
-- _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) : The most popular userscript manager. It's used to run so called userscripts._
+1. Open Maven configuration file template ~~settings.xml~~ ( not exist now ) .
+2. Copy its content
+3. Open local Maven configuration file
+4. Overlay paste original content
+    - `open` : open file with default editor
+    - Notic : If you use your own private devices & Maven configuration files exists, please merge content of configurations carefully.
+
+```bash
+open ~/.m2/settting.xml
+```
 
 <!--
 
@@ -584,14 +588,6 @@ _References_
     - ~~Source Code~~ : https://github.com/1995eaton/chromium-vim
 
 -->
-
-### Visual Studio Code
-
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
-- [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
-    - [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
-- [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) _( *.puml file )_
-- [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
 
 <!--
 
@@ -759,7 +755,7 @@ Users & Groups
 1Password
 
 - _Re-install in App Store_ _( maybe )_
-- Unlock iCloud vaults
+- Unlock iCloud Vaults
 
 TrojanX
 
@@ -770,6 +766,16 @@ Chrome
 
 - Login
 - Turn on Sync
+- Install Extensions
+    - [1Password](https://agilebits.com/browsers/welcome.html) : Password Manager
+    - [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
+        - If open too many tabs, you can stash them in OneTab to save memory space & visible screen area
+    - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
+    - [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
+    - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
+    - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim.
+    - [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application.
+    - _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) : The most popular userscript manager. It's used to run so called userscripts._
 
 Sogou Input
 
@@ -781,17 +787,17 @@ Karabiner-Elements
 - Simple Modifications
     - Caps Lock `⇪` -> Left Ctrl `^`
     - Left Ctrl `^` -> Caps Lock `⇪`
-- Sync Settings via Config File
+- Sync Settings via the Config File
     - ommitted…
 
 Keyboard Maestro
 
 - Set License
     - `Keyboard Maestro` → `Register Keyboard Maestro…`
-    - Input username and password
+    - Input Username and Password
 - Sync Settings
     - `File` → `Start Syncing Macros…` → `Open Existing…`
-    - Select the config file
+    - Select the Config File
 
 Itsycal
 
@@ -818,11 +824,18 @@ iTerm 2
     - 3\. Select the config folder
     - 4\. Enable `Save changes to folder when quits`
 
-VS Code
+Visual Studio Code
 
-- Sync Settings ( TODO )
+- Sync Settings
+    - https://code.visualstudio.com/docs/editor/settings-sync
+- Install Extensions
+    - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
+    - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+        - [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
+    - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) _( *.puml file )_
+    - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
 
-EuDic
+EuDic ( 欧路词典 )
 
 - Login via QQ
 
@@ -830,9 +843,9 @@ Microsoft Office
 
 - Login
 
-## Git
+### Git
 
-### Name and Email
+#### Name and Email
 
 1\. Set Username & Email
 
@@ -856,7 +869,7 @@ user.name=icehe
 user.email=icehe@gmail.com
 ```
 
-### SSH Key
+#### SSH Key
 
 > GitHub / GitLab / …
 
@@ -902,30 +915,10 @@ pbcopy < ~/.ssh/id_rsa.pub
 - Paste **public key** to input box **Key** ( **Title** input box will be auto-filled )
 - Click **Add key**
 
-## Maven
-
-Configurations
-
-- 1\. Open Maven configuration file template ~~settings.xml~~ ( not exist now ) .
-- 2\. Copy its content
-- 3\. Open local Maven configuration file
-- 4\. Overlay paste original content
-    - `open` : open file with default editor
-    - Notic : If you use your own private devices & Maven configuration files exists, please merge content of configurations carefully.
-
-```bash
-open ~/.m2/settting.xml
-```
-
 ## TODO
 
-- [ ] VS Code
-    - [ ] remove vscode config files from proj mac-config
-    - [ ] add vscode configs sync in initialize.md
-        - https://code.visualstudio.com/docs/editor/settings-sync
 - [ ] Sync configs
     - [ ] Amphetamine : 详细写清楚配置的过程
     - [ ] Copy'Em : 详细写清楚配置的过程
     - [ ] ImageOptim : 详细记录配置的参数 ( 用默认配置其实也行? 对啊 )
     - [ ] Snipaste : 添加了配置文件
-- [ ] consolas font
