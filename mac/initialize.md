@@ -1,29 +1,35 @@
 # Mac Initialize
 
 - Based on macOS
-- For Java developers
-- Follow principles :
-    - `KISS : keep it simple & stupid` 简单原则
-    - `OOTB : out of the box` 开箱即用
+- Follow principles
+    - KISS - Keep It Simple & Stupid ( 简单原则 )
+    - OOTB - Out Of The Box ( 开箱即用 )
+- _配置过程的说明, 尽可能在粗略与详实之间找一个合适的平衡_
+    - _过于粗略 —— 无法快速完成配置, 甚至搞不明白如何配置_
+    - _过于详实 —— 软件更新后, 配置路径/名称/方式变了, 说明失效_
 
-References
+Reference
 
 - macOS Setup Guide : http://sourabhbajaj.com/mac-setup
-- Apple Support
-    - 如何创建可引导的 macOS 安装器 : https://support.apple.com/zh-cn/HT201372
-    - 如何重新安装 macOS : https://support.apple.com/zh-cn/HT204904
-- icehe.xyz _( my website )_
+
+Related
+
+- icehe.xyz ( my website )
     - [Tools](/marks/tools/tools.md) : 利器 - 软件 / 物件的推荐
     - [Efficiency](/mac/efficiency.md) : 效率指南
     - [Shortcuts](/mac/shortcuts/shortcuts.md) : 快捷键
 
-## macOS
+## Install macOS
 
-1\. Search `macOS` in Mac App Store and Download macOS Installation
+References
 
-- _Reference : 如何创建可引导的 macOS 安装器 - Apple Support :_ https://support.apple.com/zh-cn/HT201372
+- Apple Support
+    - 如何创建可引导的 macOS 安装器 : https://support.apple.com/zh-cn/HT201372
+    - 如何重新安装 macOS : https://support.apple.com/zh-cn/HT204904
 
-2\. Create bootable installer for macOS ( 创建引导分区，即U盘安装 )
+1\. Search `macOS` in Mac App Store and download the macOS installation
+
+2\. Create bootable installer for macOS ( U盘安装, 需要创建引导分区 )
 
 ```bash
 # e.g. macOS Big Sur
@@ -31,38 +37,38 @@ sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstall
     --volume /Volumes/Install\ macOS\ Big\ Sur
 ```
 
-3\. \* Reboot, press `⌘ + r`
+3\. Reboot, press `⌘ + r`
 
 - or Reboot, press `⌘ + ⌥ + r`
     - Connect wifi, wait for processing until reboot
 - or Reboot, press `⌥` for a few seconds
     - Reboot from different disk you selected
-- _Reference : 如何重新安装 macOS - Apple Support :_ https://support.apple.com/zh-cn/HT204904
 
-4\. \* Restore from Backups of Time Machine _( Optional )_
+4A\. Just install macOS _( Recommended )_
+
+- omitted…
+
+### Restore from Backup
+
+4B\. \* Restore from backups of Time Machine _( Optional )_
 
 - or Restore from Disk Backup by Disk Utility
-- or Re-install macOS
-- _( Suggestion : 如果用硬盘全量备份然后将数据还原到新机器上, 假以时日, 系统中会留存越来越多用不着的东西; 现在觉得重新配置新机器是更好的选择. 2020-12-10 )_
 
-5\. \* Disable animations to Accelerate macOS _( Optional )_
+Suggestion on 2020-12-10
 
-- Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
-- _( TODO : 观察还有哪些命令还有效果, 还有效果的命令就记录到本文; 如果基本没啥用了, 就直接删掉这一步吧 )_
+- 如果用硬盘全量备份然后将数据还原到新机器上, 假以时日, 系统中会留存越来越多用不着的东西; 现在觉得重新配置新机器是更好的选择.
 
 ## Network Proxy
 
 If cannot download softwares, you need to configure network proxy ( in China Mainland )
 
 1. Connect to network
-2. Open **System Preferences**
-3. **Network**
-4. **Advanced…**
-5. **Proxies**
-6. Select **Automatic Proxy Configurattion**
-7. Find "**URL:**" input box under "Proxy Configuration File"
-8. Fill with ~~`http://url/to/proxy.pac`~~ ( URL to PAC file )
-9. Click **OK**
+2. Open `System Preferences` → `Network` → `Advanced…` → `Proxies`
+3. Enable `Automatic Proxy Configurattion`
+4. Find `URL:` input-box under `Proxy Configuration File`
+5. Fill with ~~`http://url/to/proxy.pac`~~ ( URL to PAC file )
+    - _You can find a latest valid PAC file URL by yourself on the Internet._
+6. Click `OK`
 
 _Reference : PAC - Proxy Auto Config :_ https://en.wikipedia.org/wiki/Proxy_auto-config
 
@@ -71,11 +77,11 @@ _Reference : PAC - Proxy Auto Config :_ https://en.wikipedia.org/wiki/Proxy_auto
 If encounter error below,
 
 ```bash
-# 输出
+# output
 xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 ```
 
-Execute command below and then re-run commands above.
+Execute command below and then re-run your command again.
 
 ```bash
 xcode-select install
@@ -96,7 +102,7 @@ Homebrew is a [macOS package manager](https://brew.sh/) for installing & managin
 
 2\. Validate
 
-- Show version to check whether installed successfully or not.
+- Show version to check whether it is installed successfully or not.
 
 ```bash
 $ brew --version
@@ -118,8 +124,11 @@ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc
 
 # Homebrew Cask
 git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+```
 
+```bash
 # Homebrew-bottles
+
 # For BASH users :
 echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
 source ~/.bash_profile
@@ -266,34 +275,13 @@ brew cask install \
 
 > Some optional softwares below are unabled to be installed by Homebrew-Cask.
 
-- _Apple Configurator 2_
-- _Kantu_
-- _百度网盘_
-- _虾米音乐_
-- _酷我音乐_
+Available in App Store
 
-For quick-look ( preview ) in Finder
+- Apple Configurator 2
 
-- _( TODO : 一个个安装, 确定哪些需要安装, 哪些又可用? )_
+Available on official homepages
 
-```bash
-brew cask install \
-    qlcolorcode \
-    qlimagesize \
-    qlmarkdown \
-    qlprettypatch \
-    qlstephen \
-    quicklook-csv \
-    webpquicklook
-```
-
-<!--
-
-开发者无法验证,
-
-    qlimagesize \
-
--->
+- 百度网盘 : https://pan.baidu.com/pcloud/home
 
 ## CLI Tools
 
@@ -303,106 +291,6 @@ Install CLI tools by command `brew`
 
 - Although some softwares has been pre-installed in macOS, their versions are often outdated.
 - You should install & update them by yourself.
-
-<!--
-
-What to Install?
-
-> Command List & Description
->
-> - [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
->     - Produce shell scripts to automatically configure software source code packages
-> - [cmake](https://cmake.org/)
->     - An cross-platform family of tools designed to build, test and package software
-> - [coreutils](http://www.gnu.org/s/coreutils/)
->     - The basic file, shell and text manipulation utilities of the GNU operating system
->     - Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html). e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
-> - [curl](https://curl.haxx.se/)
->     - Transfer data with URLs
->     - For HTTP debug & download files
-> - [expect](https://linux.die.net/man/1/expect)
->     - Programmed dialogue with interactive programs
->     - I write a script using expect for remote login
-> - _[gawk](https://linux.die.net/man/1/gawk) ( awk )_
->     - Pattern scanning and processing language
->     - For text formatting & log analysis
-> - [git](https://git-scm.com/)
->     - A distributed version control system
->     - For code management
-> - [jq](https://stedolan.github.io/jq/)
->     - A lightweight and flexible command-line JSON processor
->     - For JSON formatting
->         - Basic filters
->         - Builtin operators & functions
->         - Advanced features…
-> - [maven](https://maven.apache.org/)
->     - A software project management and comprehension tool
->     - For Java project management based on config files - pom.xml
-> - [ruby](https://www.ruby-lang.org/en/)
->     - Ruby programming language
->     - Package Manger : `gem`
-> - [vim](https://www.vim.org/)
->     - The God of editors - Vim / the editor of Gods - Emacs
->     - text editor in CLI
->     - optional : `nvim` aka. [Neovim](https://neovim.io/)
-> - [wget](https://www.gnu.org/software/wget/)
->     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
-
--->
-
-<!--
-
-Backup on 2020-12-10
-
-> Command List & Description
->
-> - [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
->     - Produce shell scripts to automatically configure software source code packages
-> - [cmake](https://cmake.org/)
->     - An cross-platform family of tools designed to build, test and package software
-> - [coreutils](http://www.gnu.org/s/coreutils/)
->     - The basic file, shell and text manipulation utilities of the GNU operating system
->     - Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html). e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
-> - [curl](https://curl.haxx.se/)
->     - Transfer data with URLs
->     - For HTTP debug & download files
-> - [expect](https://linux.die.net/man/1/expect)
->     - Programmed dialogue with interactive programs
->     - I write a script using expect for remote login
-> - _[gawk](https://linux.die.net/man/1/gawk) ( awk )_
->     - Pattern scanning and processing language
->     - For text formatting & log analysis
-> - [git](https://git-scm.com/)
->     - A distributed version control system
->     - For code management
-> - _[gradle](https://gradle.org/)_
->     - A build automation tool focused on flexibility and performance
->     - For building Java & Groovy projects based on config file *.gradle
-> - _[groovysdk](http://www.groovy-lang.org/)_
->     - A multi-faceted language for the Java platform
->     - For Java unit-testing ( [Spock](http://spockframework.org/) ) or Groovy projects
->     - Notice : Install **groovysdk** but ~~groovy~~ by Homebrew ( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) )
->     - More : Add Groovy SDK to IntelliJ IDEA ( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) )
-> - [jq](https://stedolan.github.io/jq/)
->     - A lightweight and flexible command-line JSON processor
->     - For JSON formatting
->         - Basic filters
->         - Builtin operators & functions
->         - Advanced features…
-> - [maven](https://maven.apache.org/)
->     - A software project management and comprehension tool
->     - For Java project management based on config files - pom.xml
-> - [ruby](https://www.ruby-lang.org/en/)
->     - Ruby programming language
->     - Package Manger : `gem`
-> - [vim](https://www.vim.org/)
->     - The God of editors - Vim / the editor of Gods - Emacs
->     - Text editor in CLI
->     - Optional : `nvim` aka. [Neovim](https://neovim.io/)
-> - [wget](https://www.gnu.org/software/wget/)
->     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
-
--->
 
 ### Required
 
@@ -435,8 +323,6 @@ brew install \
     autoconf \
     automake \
     cmake \
-    composer \
-    elasticsearch@5.6 \
     elasticsearch \
     expect \
     gawk \
@@ -455,19 +341,71 @@ brew install \
     watch
 ```
 
+<!--
+
+> Command Description
+>
+> - [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
+>     - Produce shell scripts to automatically configure software source code packages
+> - [cmake](https://cmake.org/)
+>     - An cross-platform family of tools designed to build, test and package software
+> - [coreutils](http://www.gnu.org/s/coreutils/)
+>     - The basic file, shell and text manipulation utilities of the GNU operating system
+>     - Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html). e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
+> - [curl](https://curl.haxx.se/)
+>     - Transfer data with URLs
+>     - For HTTP debug & download files
+> - [expect](https://linux.die.net/man/1/expect)
+>     - Programmed dialogue with interactive programs
+>     - I write a script using expect for remote login
+> - [gawk](https://linux.die.net/man/1/gawk) ( awk )
+>     - Pattern scanning and processing language
+>     - For text formatting & log analysis
+> - _[gradle](https://gradle.org/)_
+>     - A build automation tool focused on flexibility and performance
+>     - For building Java & Groovy projects based on config file *.gradle
+> - _[groovysdk](http://www.groovy-lang.org/)_
+>     - A multi-faceted language for the Java platform
+>     - For Java unit-testing ( [Spock](http://spockframework.org/) ) or Groovy projects
+>     - Notice : Install **groovysdk** but ~~groovy~~ by Homebrew ( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) )
+>     - More : Add Groovy SDK to IntelliJ IDEA ( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) )
+> - [git](https://git-scm.com/)
+>     - A distributed version control system
+>     - For code management
+> - [jq](https://stedolan.github.io/jq/)
+>     - A lightweight and flexible command-line JSON processor
+>     - For JSON formatting
+>         - Basic filters
+>         - Builtin operators & functions
+>         - Advanced features…
+> - [maven](https://maven.apache.org/)
+>     - A software project management and comprehension tool
+>     - For Java project management based on config files - pom.xml
+> - [ruby](https://www.ruby-lang.org/en/)
+>     - Ruby programming language
+>     - Package Manger : `gem`
+> - [vim](https://www.vim.org/)
+>     - The God of editors - Vim / the editor of Gods - Emacs
+>     - text editor in CLI
+>     - optional : `nvim` aka. [Neovim](https://neovim.io/)
+> - [wget](https://www.gnu.org/software/wget/)
+>     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
+
+-->
+
 ### _\*Neovim Clipboard_
 
-> Cannot i/o system clipboard
+> Cannot write or read the system clipboard
 
 Troubleshooting for myself
 
-- First, link `~/.vimrc` to `~/.config/nvim/init.vim` ( run command as follow ) .
+- Link `~/.vimrc` to `~/.config/nvim/init.vim` ( run command as follow )
 
 ```bash
 ln -s /Users/[username]/.vimrc /Users/[username]/.config/nvim/init.vim
 ```
 
-Or try _( reference )_
+Or try
 
 - Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub : https://github.com/neovim/neovim/issues/7945
 
@@ -485,7 +423,7 @@ Or try _( reference )_
 
 - Download the [binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of macOS x64 from offical website
 
-2\. Get JDK Path
+2\. Get JDK path
 
 - For latest version, execute `/usr/libexec/java_home`
 
@@ -494,7 +432,7 @@ $ /usr/libexec/java_home -v 1.8
 /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
 ```
 
-3\. Set Environment Variable `JAVA_HOME`
+3\. Set environment variable `JAVA_HOME`
 
 - Append the command line below to config file `~/.bashrc`
     - If ~/.bashrc doesn't exists, create it.
@@ -511,29 +449,29 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 ### IntelliJ IDEA
 
-1\. Download [Latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) from [offical website](https://www.jetbrains.com/idea/)
+1\. Download [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) from [offical website](https://www.jetbrains.com/idea/)
 
 - Version choices :
     - **Ultimate** : Fully Functional
     - **Community** : Free
 
-2\. Get and Set Lincense
+2\. Get and set Lincense
 
-- Get License
+- Get license
     - You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial).
     - Or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
         - Free Educational Licenses : https://www.jetbrains.com/community/education/#students
         - 学生授权申请方式 - 中文 : https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式
-- Set License _( omitted… )_
+- Set license _( omitted… )_
 
-3\. Sync Settings
+3\. Sync settings
 
 - Share settings through a settings repository : https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository
     - `File` → `Manage IDE Settings` → `Settings Repository…`
         - Firstly, input HTTPS URL of the settings Github repository.
         - Secondly, input the Github access token.
 
-3\. Install Plugins
+3\. Install plugins
 
 - [AceJump](https://plugins.jetbrains.com/plugin/7086-acejump) _( trying )_
 - [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) _( trying )_
@@ -558,12 +496,11 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
 - [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
 
-_Others_
+4\. Set Font `Consolas`
 
-- Set Font "Consolas"
-    - Download Font
-    - Update Preference
-        - `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
+- Download Font
+- Update Preference
+    - `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
 
 _References_
 
@@ -572,26 +509,18 @@ _References_
 
 ### Maven
 
-Configurations
-
-1. Open Maven configuration file template ~~settings.xml~~ ( not exist now ) .
-2. Copy its content
-3. Open local Maven configuration file
-4. Overlay paste original content
+1. Copy the content of the Maven configuration file template.
+    - _You can find it on the Internet._
+2. Open and overwrite the local Maven config file `~/.m2/settting.xml`.
     - `open` : open file with default editor
-    - Notic : If you use your own private devices & Maven configuration files exists, please merge content of configurations carefully.
 
 ```bash
 open ~/.m2/settting.xml
 ```
 
-<!--
+Notice :
 
-- ~~[cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ) : Add Vim-like key-bindings to Chrome for faster operations~~
-    - ~~How to Use~~ : https://droidrant.com/using-cvim
-    - ~~Source Code~~ : https://github.com/1995eaton/chromium-vim
-
--->
+- If you use your own private devices & Maven configuration files exists, please merge content of configurations carefully.
 
 <!--
 
@@ -746,6 +675,11 @@ Users & Groups
 
 - Configure `Login Items` (开机启动程序)
 
+Disable animations to Accelerate macOS _( Optional )_
+
+- Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
+- _( TODO : 观察还有哪些命令还有效果, 还有效果的命令就记录到本文; 如果基本没啥用了, 就直接删掉这一步吧 )_
+
 ### Apps
 
 1Password
@@ -772,6 +706,14 @@ Chrome
     - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim.
     - [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application.
     - _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) : The most popular userscript manager. It's used to run so called userscripts._
+
+<!--
+
+- ~~[cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ) : Add Vim-like key-bindings to Chrome for faster operations~~
+    - ~~How to Use~~ : https://droidrant.com/using-cvim
+    - ~~Source Code~~ : https://github.com/1995eaton/chromium-vim
+
+-->
 
 Sogou Input
 
