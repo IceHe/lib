@@ -189,13 +189,16 @@ Available in App Store
 
 Available on GitHub
 
-- Amphetamine Enhancer
-    - Download : https://github.com/x74353/Amphetamine-Enhancer
-- TrojanX : https://github.com/JimLee1996/TrojanX
-    - Download : https://github.com/JimLee1996/TrojanX/releases
-    - _or Trojan :_ https://trojan-gfw.github.io/trojan
-        - _GitHub :_ https://github.com/trojan-gfw/trojan
-        - _GitHub Wiki :_ https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
+- Amphetamine Enhancer : https://github.com/x74353/Amphetamine-Enhancer
+- TrojanX : https://github.com/JimLee1996/TrojanX/releases
+    - Its official homepage : https://github.com/JimLee1996/TrojanX
+- _or Trojan :_ https://trojan-gfw.github.io/trojan
+    - _GitHub :_ https://github.com/trojan-gfw/trojan
+    - _GitHub Wiki :_ https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
+
+Available on official homepages
+
+- Logi Options : https://www.logitech.com.cn/zh-cn/product/options
 
 <!--
 
@@ -555,11 +558,12 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
 - [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
 
-* Others
+_Others_
 
 - Set Font "Consolas"
-    - Download :
-    - Settings
+    - Download Font
+    - Update Preference
+        - `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
 
 _References_
 
@@ -674,31 +678,23 @@ Mind Mapping
 
 -->
 
-## Configure
+## Preferences
 
 Include
 
 - Development configurations on local & remote machines
 
-### Key Repeat
+### System
 
-References
+Key Repeat
 
-- Search Google : "macos mojave keyboard cannot repeat"
-    - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
-    - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
+- 1\. Run command `defaults write -g ApplePressAndHoldEnabled -bool false`
+- 2\. Reboot & check
+- References
+    - Search Google : "macos mojave keyboard cannot repeat"
+        - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
+        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
 
-Solution
-
-1\. Run command below
-
-```bash
-defaults write -g ApplePressAndHoldEnabled -bool false
-```
-
-2\. Reboot & Check
-
-### System Preferences
 
 iCloud
 
@@ -799,6 +795,58 @@ Keyboard Maestro
     - `File` → `Start Syncing Macros…` → `Open Existing…`
     - Select the Config File
 
+Visual Studio Code
+
+- Sync settings
+    - https://code.visualstudio.com/docs/editor/settings-sync
+- Install extensions
+    - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
+    - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+        - [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
+    - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) _( *.puml file )_
+    - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
+
+iTerm 2
+
+- Sync Settings
+    - 1\. `Preferences` → `General` → `Preferences`
+    - 2\. Enable `Load preference from a custom folder or URL`
+    - 3\. Select the config folder
+    - 4\. Enable `Save changes to folder when quits`
+
+Copy 'Em
+
+- `Preferences`
+    - Enable `Launch at Login`
+    - `Window Appearance`
+        - Select `Midday`
+        - Select `Show Text Colors`
+        - Set `Maximum Font Size` 20
+        - Set `Minimum Font Size` 15
+    - `Window Position` → `Open at Active Screen`
+    - `Search Field`
+        - Enable `Toggle Search Filters with ⌘F`
+        - Eanble `Search Immediately After Each Keystroke`
+    - `Keyboard Shortcuts…`
+        - `Global Shortcuts`
+            - Set `Copy and start new item` ⇧⌘S
+            - Set `Open window` ⌥V
+            - Set `Paste current clipboard item as plain test` ⇧⌘V
+        - `Local Shortcuts`
+            - Set `Switch to 'All' list` ⌘A
+    - Enbale `Get Titles of Web URLs`
+    - Enable `Reject Duplicates`
+    - Enable `Reject Duplicates`
+
+Snipaste
+
+- `Preferences…`
+    - `General` → `Configuration Storage Path`
+        - Select the config file
+    - `Control` → `Global Hotkeys`
+        - Set `Snip` to ^ + ⌘ + A
+        - Clear all other hotkeys
+
 Itsycal
 
 - Preference…
@@ -816,28 +864,25 @@ Itsycal
             - Enable `Use event location`
             - Enable `Use calendar weeks`
 
-iTerm 2
+Amphetamine
 
-- Sync Settings
-    - 1\. `Preferences` → `General` → `Preferences`
-    - 2\. Enable `Load preference from a custom folder or URL`
-    - 3\. Select the config folder
-    - 4\. Enable `Save changes to folder when quits`
-
-Visual Studio Code
-
-- Sync Settings
-    - https://code.visualstudio.com/docs/editor/settings-sync
-- Install Extensions
-    - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
-    - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
-        - [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
-    - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) _( *.puml file )_
-    - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
+- `Prefereces`
+    - `General` → `Launchand Wake Behavior`
+        - Enable all checkboxes
+    - `Sessions` → `Non-trigger Sessions`
+        - Enable all checkboxes
+        - `Default Duration` → `Indefinitely`
+    - `Appearance` → `Menu Bar Image` → `Coffee Cup`
 
 EuDic ( 欧路词典 )
 
 - Login via QQ
+
+ImageOptim
+
+- `Preferences`
+    - `General` → Set all checkboxes
+    - `Quality` → Set all 50% ( JPEG, PNG, GIF and so on )
 
 Microsoft Office
 
@@ -847,7 +892,7 @@ Microsoft Office
 
 #### Name and Email
 
-1\. Set Username & Email
+1\. Set username & email
 
 - `[EMAIL]` e.g. icehe@gmail.com
 - `[USERNAME]` e.g. IceHe
@@ -877,22 +922,22 @@ user.email=icehe@gmail.com
 
 - Advantage : No longer need to enter username & password on trusted devices ( before operations )
 
-2\. Generate SSH Key
+2\. Generate SSH key
 
-- Generate new SSH key pair ( include public & private key pairs )
+- Generate new SSH key pair
 
 ```bash
-ssh-keygen -t rsa -C "<email>" -b 4096
+ssh-keygen -t rsa -C "[EMAIL]" -b 4096
 
 # e.g.
-ssh-keygen -t rsa -C "icehe@gmail.com" -b 4096
+ssh-keygen -t rsa -C "icehe.me@qq.com" -b 4096
 ```
 
 - `ssh-keygen` will request user input as follow
     - Enter file in which to save the key (/Users/\<username\>/.ssh/id_rsa):
     - Enter passphrase (empty for no passphrase):
     - Enter same passphrase again:
-- Press the Enter ↩ key
+- You can just Press the Enter ↩ Key
 - If a local SSH key pair exists, command prompt will display
 
 ```bash
@@ -901,9 +946,9 @@ ssh-keygen -t rsa -C "icehe@gmail.com" -b 4096
 Overwrite (y/n)?
 ```
 
-- Input **y** to re-generate
+- Input `y` to re-generate
 
-3\. Add SSH Key
+3\. Add SSH key
 
 - Copy **public key** to clipboard
 
@@ -914,11 +959,3 @@ pbcopy < ~/.ssh/id_rsa.pub
 - Enter **Settings** webpage and then **SSH Keys** page ( find it yourself )
 - Paste **public key** to input box **Key** ( **Title** input box will be auto-filled )
 - Click **Add key**
-
-## TODO
-
-- [ ] Sync configs
-    - [ ] Amphetamine : 详细写清楚配置的过程
-    - [ ] Copy'Em : 详细写清楚配置的过程
-    - [ ] ImageOptim : 详细记录配置的参数 ( 用默认配置其实也行? 对啊 )
-    - [ ] Snipaste : 添加了配置文件
