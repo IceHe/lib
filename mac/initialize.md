@@ -605,9 +605,9 @@ Keyboard
         - ……
 - `Shortcuts` Tab
     - Add App shortcuts
-        - `All Applications` → `Show Help menu` ⌥ + ⇧ + /
-        - `Google Chrome` → `Extensions` ⇧ + ⌘ + A
-        - `iTerm` → `Toggle Full Screen` ^ + ⌘ + F
+        - `All Applications` → `Show Help menu` ⌥⇧/
+        - `Google Chrome` → `Extensions` ⇧⌘A
+        - `iTerm` → `Toggle Full Screen` ^⌘F
 - `Input Sources` Tab
     - Remove the useless input sources
 
