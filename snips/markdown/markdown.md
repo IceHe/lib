@@ -1,9 +1,3 @@
----
-title: About Front Matter
-example:
-language: yaml
----
-
 # Markdown Style Guide
 
 > Markdown 风格指南
