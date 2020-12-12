@@ -1,6 +1,8 @@
 # $parameter
 
-> The `$' character introduces parameter expansion, command substitution, or arithmetic expansion.
+The `$` character introduces parameter expansion, command substitution, or arithmetic expansion.
+
+---
 
 References
 

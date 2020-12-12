@@ -1,6 +1,8 @@
 # cd
 
-> Change the current directory to dir.
+Change the current directory to dir.
+
+---
 
 ## Quickstart
 

@@ -1,6 +1,8 @@
 # brew
 
-> The missing package manager for macOS
+The missing package manager for macOS
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # cat
 
-> concatenate files and print on the standard output
+concatenate files and print on the standard output
+
+---
 
 References
 
