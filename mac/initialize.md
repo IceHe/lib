@@ -89,6 +89,8 @@ Execute command below and then re-run your command again.
 xcode-select install
 ```
 
+_Notice : It doesn't work on macOS Big Sur on Mac with Apple Silicon M1. ( 2020-12-12 )_
+
 ## Homebrew
 
 Homebrew is a [macOS package manager](https://brew.sh) for installing & managing softwares on macOS
