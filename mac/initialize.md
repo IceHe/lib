@@ -89,7 +89,7 @@ xcode-select install
 
 ## Homebrew
 
-Homebrew is a [macOS package manager](https://brew.sh/) for installing & managing softwares on macOS
+Homebrew is a [macOS package manager](https://brew.sh) for installing & managing softwares on macOS
 
 1\. Install
 
@@ -98,7 +98,7 @@ Homebrew is a [macOS package manager](https://brew.sh/) for installing & managin
 ```
 
 - If cannot install or install slowly, try the command below :
-    - Homebrew 国内如何自动安装 (国内地址) : https://zhuanlan.zhihu.com/p/111014448
+    - **Homebrew 国内如何自动安装 ( 国内地址 )** : https://zhuanlan.zhihu.com/p/111014448
     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170
 
 ```bash
@@ -727,7 +727,6 @@ Copy 'Em
             - Set `Switch to 'All' list` ⌘A
     - Enbale `Get Titles of Web URLs`
     - Enable `Reject Duplicates`
-    - Enable `Reject Duplicates`
 
 Snipaste
 
@@ -780,6 +779,12 @@ Microsoft Office
 - Login
 
 ### CLI
+
+#### Oh-My-Zsh
+
+TODO
+
+https://ohmyz.sh
 
 #### Neovim
 
