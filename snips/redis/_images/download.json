@@ -1,0 +1,6 @@
+)]}'
+{
+  "name": "gitiles",
+  "clone_url": "https://gerrit.googlesource.com/gitiles",
+  "description": "A simple browser for Git repositories"
+}

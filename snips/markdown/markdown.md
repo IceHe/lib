@@ -24,15 +24,11 @@ Markdown Standard _( All Skippable )_
 GFM - GitHub or GitLab Flavored Markdown _( All Required )_
 
 - [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Concise )_
-
 - [Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
-
 - [Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)
-
     - _Organizing information with tables_
     - _Creating and highlighting code blocks_
     - _Autolinked references and URLs_
-
 - [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
 
     ```json
@@ -45,7 +41,7 @@ GFM - GitHub or GitLab Flavored Markdown _( All Required )_
 
 ### Style Guide
 
-**Guideline : Readability > Writability** _( All Recommended )_
+_( All Recommended )_
 
 - [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
 - _[Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)_
@@ -63,9 +59,24 @@ GFM - GitHub or GitLab Flavored Markdown _( All Required )_
 
 ## Suggestions
 
-**建议**
+**Guideline : Readability > Writability** _( 易阅读 > 易编写 )_
 
-**Readability > Writability** : 易阅读 > 易编写
+TODO
+
+Markdown style guide
+
+- [ ] ATX-style headings
+- [ ] Escape newlines
+- [ ] Nest codeblocks within lists
+- [ ] Use informative Markdown link titles
+- [ ] Prefer lists to tables
+- [ ] Strongly prefer Markdown to HTML
+
+Documentation Best Practices
+
+- [ ] Minimum viable documentation
+- [ ] Delete dead documentation
+- [ ] Prefer the good over the perfect
 
 ### 目录 TOC
 
