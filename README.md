@@ -1,6 +1,6 @@
 # Table of Contents
 
-> [Welcome!](/blog/welcome.md) Here is my Library.
+[Welcome!](/blog/welcome.md) Here is my Library.
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
 - Backup : [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)

@@ -1,6 +1,6 @@
 # Markdown Style Guide
 
-> Markdown 风格指南
+Markdown 风格指南
 
 - Here is the Markdown style I follow.
 - It's not a mandatory standard.
@@ -74,6 +74,8 @@ TOC - Table Of Contents
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
 ### 标题 Heading
+
+> 使用 ATX Header
 
 > 一级标题 `#` 必须位于文件第一行
 
