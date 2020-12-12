@@ -76,6 +76,11 @@ FYI - For Your Information ( 仅供参考, 请自行配置 )
 
 _Reference : PAC - Proxy Auto Config :_ https://en.wikipedia.org/wiki/Proxy_auto-config
 
+TrojanX / TrojanX / Trojan-Qt5 / ClashX / Surge
+
+- Get the config content from the Shadowsocks service
+- Import Server URLs from pasteboard
+
 ## Xcode
 
 If encounter error below,
@@ -199,6 +204,8 @@ brew install --cask \
     visual-studio-code \
     wechat
 ```
+
+Notice : You need to search `sogou` in Spotlight to execute its installation.
 
 > Some required softwares below are unabled to be installed by Homebrew-Cask.
 
@@ -645,10 +652,12 @@ Disable animations to accelerate macOS _( Optional )_
 - _Re-install in App Store_ _( maybe )_
 - Unlock iCloud vaults
 
-TrojanX / TrojanX / Trojan-Qt5 / ClashX / Surge
+.dotfile ( TODO )
 
-- Get the config content from the Shadowsocks service
-- Import Server URLs from pasteboard
+- github.com/icehe mac-conf
+- git init ~
+- git remote add origin …
+- git pull
 
 Chrome
 
