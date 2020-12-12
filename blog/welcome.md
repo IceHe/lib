@@ -66,7 +66,7 @@
 
 ## How to Build?
 
-> 我如何创建 Lib？
+我如何创建 Lib？
 
 ### Steps
 

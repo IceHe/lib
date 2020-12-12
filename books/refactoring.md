@@ -1,5 +1,9 @@
 # Refactoring
 
+重构
+
+---
+
 References
 
 - Book "Refactoring Improving the Design of Existing Code"
@@ -33,7 +37,7 @@ Thoughts
 
 ## Preface
 
-> "if it works, don't fix it" ?
+**"if it works, don't fix it" ?**
 
 代码被阅读和被修改的次数, 远远多于它被编写的次数
 
@@ -150,7 +154,7 @@ Refactoring and Performance
 
 ## Bad Smells in Code
 
-> 代码的坏味道
+**代码的坏味道**
 
 Index
 
@@ -379,7 +383,7 @@ As I describe the refactorings in this and other chapters, I use a standard form
 
 ## Composing Methods
 
-> 重新组织方法
+**重新组织方法**
 
 Extract Method 提炼方法
 
@@ -432,7 +436,7 @@ Substitute Algorithm 替换算法
 
 ## Moving Features Between Objects
 
-> 在对象之间搬移特性
+**在对象之间搬移特性**
 
 Move Method 搬移方法
 
@@ -486,7 +490,7 @@ Introduce Local Extension 引入本地拓展
 
 ## Organizing Data
 
-> 重新组织数据
+**重新组织数据**
 
 Self Encapsulate Field 自封装字段
 
@@ -639,7 +643,7 @@ Replace Type Code with Fields 以字段取代子类
 
 ## Simplify Conditional Expressions
 
-> 简化条件表达式
+**简化条件表达式**
 
 Decompose Conditional 分解条件表达式
 
@@ -721,7 +725,7 @@ Introduce Assertion 引入断言
 
 ## Make Method Calls Simpler
 
-> 简化方法调用
+**简化方法调用**
 
 Rename Method 方法改名
 
@@ -871,7 +875,7 @@ Replace Exception with Test 以测试取代异常
 
 ## Dealing with Generalization
 
-> 处理概括 (继承) 关系
+**处理概括 (继承) 关系**
 
 Pull Up Field 字段上移
 
@@ -963,7 +967,7 @@ Replace Delegation with Inheritance 以继承取代委托 (?)
 
 ## Big Refactoring
 
-> 大型重构
+**大型重构**
 
 Tease Apart Inheritance 梳理并分解继承体系
 
@@ -1002,7 +1006,7 @@ Extract Hierarchy 提炼继承体系
 
 ## Refactoring, Reuse, and Reality
 
-> 重构, 复用和现实
+**重构, 复用和现实**
 
 为什么开发者不愿意重构他们的程序?
 
@@ -1039,6 +1043,6 @@ Extract Hierarchy 提炼继承体系
 
 ## Refatoring Tools
 
-> 重构工具
+**重构工具**
 
 - 略 -- 因为 现代 IDE 已经足够先进, 例如 JetBrains 出品的 Java IDE "IntelliJ IDEA"

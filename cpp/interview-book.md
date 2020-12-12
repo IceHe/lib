@@ -1,6 +1,8 @@
 # C++ 面试宝典
 
-> Interview Book - Note:《程序员面试笔试宝典》（机械工业出版社）手写笔记的图片存档。多图慎入！
+Interview Book - Note:《程序员面试笔试宝典》（机械工业出版社）手写笔记的图片存档。多图慎入！
+
+---
 
 - Created on 2014-03
 - Download : [C++ Interview 程序员面试笔试宝典.pdf](https://att.icehe.xyz//pdf%2FC%2B%2B%20Interview%20%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E5%AE%9D%E5%85%B8.pdf)

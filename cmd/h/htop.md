@@ -132,7 +132,7 @@ Press any key to return.                  F10 q: quit
 
 ## Commands
 
-> Interactive Commands
+Interactive Commands
 
 The following commands are supported while in htop:
 

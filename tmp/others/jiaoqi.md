@@ -2,7 +2,7 @@
 
 ## ~~足部异味~~ ( Fixed )
 
-> 脚气
+脚气
 
 ## References
 

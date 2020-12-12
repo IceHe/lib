@@ -98,7 +98,7 @@ Seldom
 
 ### Sort
 
-> Default File Timestamp : **Last Modification Time**
+Default File Timestamp : **Last Modification Time**
 
 - `-S` Sort by file size, largest first
 - `-t` Sort by time, newest first

@@ -27,7 +27,7 @@ Notice
 
 #### Files
 
-> The valid format sequences for files (without --file-system)
+**The valid format sequences for files (without --file-system)**
 
 Type & Name
 
@@ -79,7 +79,7 @@ Seldom
 
 #### _File Systems_
 
-> _Valid format sequences for file systems_
+_Valid format sequences for file systems_
 
 - `%a` free blocks available to non-superuser
 - `%b` total data blocks in file system

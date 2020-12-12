@@ -50,7 +50,7 @@ Functional Keys
 
 #### Switch Stably
 
-> How to switch two input sources stably?
+**How to switch two input sources stably?**
 
 Requirements
 

@@ -1,6 +1,6 @@
 # perf ( TODO )
 
-> Performance analysis tools for Linux
+Performance analysis tools for Linux
 
 ---
 

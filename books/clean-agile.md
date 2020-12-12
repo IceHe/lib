@@ -1,6 +1,8 @@
 # Clean Agile: Back to Basics
 
-> 敏捷整洁知道 : 回归本源
+敏捷整洁知道 : 回归本源
+
+---
 
 ## Snippets
 

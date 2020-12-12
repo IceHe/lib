@@ -29,7 +29,7 @@ inbox --> do
 
 ### Sample
 
-> PlantUML
+**PlantUML**
 
 ```plantuml
 @startuml
@@ -334,13 +334,13 @@ stop
 
 ## Original
 
-> Image
+**Image**
 
 ![GTD](_images/gtd.jpg)
 
 ## Rewritten
 
-> Flow Chart - PlantUML
+**Flow Chart - PlantUML**
 
 ```plantuml
 @startuml

@@ -6,7 +6,7 @@ References
 
 ## BGP
 
-> Border Gateway Protocol
+**Border Gateway Protocol**
 
 - BGP 是外部网关协议（指的是局域网间的路由？）
     - 适用 TCP 协议传输

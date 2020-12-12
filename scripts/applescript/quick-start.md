@@ -1,6 +1,8 @@
 # AppleScript 快速入门
 
-> AppleScript Quick Start: 在有编程基础的情况下，通过快速浏览示例代码，即可熟悉语法，快速入门。
+AppleScript Quick Start: 在有编程基础的情况下，通过快速浏览示例代码，即可熟悉语法，快速入门。
+
+---
 
 ## References
 

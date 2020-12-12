@@ -173,7 +173,7 @@ Phases are actually mapped to underlying goals. The specific goals executed per 
 
 ### archetype:generate
 
-> Create a Project via archetype mechanism
+Create a Project via archetype mechanism
 
 ```bash
 mvn archetype:generate \
@@ -190,7 +190,7 @@ mvn archetype:generate \
 
 #### pom.xml
 
-> Configuration file
+Configuration file
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -223,7 +223,7 @@ mvn archetype:generate \
 
 #### compile
 
-> Compile application sources
+Compile application sources
 
 ```bash
 mvn compile
@@ -247,7 +247,7 @@ If we execute the `compile` phase, the phases that actually get executed are:
 
 #### test
 
-> Compile test sources & Run unit tests
+Compile test sources & Run unit tests
 
 ```bash
 mvn test
@@ -258,7 +258,7 @@ mvn test-compile
 
 #### package
 
-> Build the Project : Create JAR & Install in local repository
+Build the Project : Create JAR & Install in local repository
 
 ```bash
 mvn package

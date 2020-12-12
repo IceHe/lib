@@ -98,7 +98,7 @@ nc 10.1.2.3 8888
 
 ## Transfer File
 
-> Transfer file from `local` machine to `remote`
+**Transfer file from `local` machine to `remote`**
 
 Assume
 
@@ -185,7 +185,7 @@ a839fce6688124b38eca3c42d2d59b10  file
 
 ## Transfer Directory
 
-> Transfer files in the directory 'logs/' from `local` machine to `remote`
+**Transfer files in the directory 'logs/' from `local` machine to `remote`**
 
 Assume
 

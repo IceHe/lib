@@ -1,6 +1,8 @@
 # Initialize Mac
 
-> How to initialize my Mac ?
+How to initialize my Mac ?
+
+---
 
 Reference
 
@@ -79,7 +81,7 @@ Suggestion on 2020-12-10
 
 ## Network Proxy
 
-> First thing first!
+**First thing first!**
 
 If you cannot download softwares, you may need to configure network proxy ( in China mainland ).
 
@@ -296,7 +298,7 @@ Available on official homepages
 
 ## CLI Tools
 
-> CLI - Command Line Interface
+**CLI - Command Line Interface**
 
 Install CLI tools by command `brew`
 
@@ -842,7 +844,7 @@ ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
 
 #### Git
 
-> Name and Email
+**Name and Email**
 
 1\. Set username & email
 
@@ -868,7 +870,7 @@ user.email=icehe@gmail.com
 
 #### SSH Key
 
-> For GitHub, GitLab and etc.
+**For GitHub, GitLab and etc.**
 
 1\. Add SSH public SSH key for accounts
 

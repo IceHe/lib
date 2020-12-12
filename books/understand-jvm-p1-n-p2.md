@@ -1,6 +1,8 @@
 # Automatic Memory Management
 
-> Understanding Java Virtual Machine - Part 1 & 2
+Understanding Java Virtual Machine - Part 1 & 2
+
+---
 
 References
 
@@ -1428,7 +1430,7 @@ Forwarding Pointer 的执行效率
 
 ### ZGC 收集器
 
-> Z Garbage Collector
+**Z Garbage Collector**
 
 Target
 

@@ -240,7 +240,7 @@ Command Line Tools
 
 ### Cmd
 
-> Commands & CLI ( Command-Line Interface )
+Commands & CLI ( Command-Line Interface )
 
 - [ab](/cmd/a/ab.md) : Apache HTTP server benchmarking tool
 - [awk](/cmd/a/awk.md) : pattern-directed scanning and processing language

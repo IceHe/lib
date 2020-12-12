@@ -88,7 +88,7 @@ Meanings of N-th Digit
 
 ### Restricted Deletion
 
-> Restricted Deletion Flag or Sticky Bit
+Restricted Deletion Flag or Sticky Bit
 
 - The restricted deletion flag or sticky bit is a single bit, whose interpretation depends on the file type.
 - For directories, it **prevents unprivileged users from removing or renaming** a file in the directory unless they own the file or the directory;

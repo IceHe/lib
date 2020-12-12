@@ -47,7 +47,7 @@ test
 
 ### Dump & Store
 
-> 备份与恢复
+**备份与恢复**
 
 - Reference : http://www.mongodb.org.cn/tutorial/22.html
 

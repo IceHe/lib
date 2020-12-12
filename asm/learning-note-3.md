@@ -1,6 +1,8 @@
 # ASM 汇编语言 3
 
-> ASM - Note: 汇编指令，伪指令，segment … ends，end，assume，编译和连接，执行过程的跟踪，单步调试，[BX] 和 loop 指令，Debug 程序的各种命令，段前缀，一段安全的空间。
+ASM - Note: 汇编指令，伪指令，segment … ends，end，assume，编译和连接，执行过程的跟踪，单步调试，[BX] 和 loop 指令，Debug 程序的各种命令，段前缀，一段安全的空间。
+
+---
 
 - Created on 2014-10
 - 教材：《汇编语言》（第二版）王爽 著 清华大学出版社

@@ -1,6 +1,8 @@
 # Derived Data
 
-> Designing Data-Intensive Applications - Part III
+Designing Data-Intensive Applications - Part III
+
+---
 
 References
 

@@ -99,7 +99,7 @@ less -MN <file_path>
 
 ## Commands
 
-> Interactive Commands
+Interactive Commands
 
 ### Move
 

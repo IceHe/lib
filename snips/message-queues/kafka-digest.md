@@ -1,6 +1,8 @@
 # kafka ( digest )
 
-> **Apache Kafka is an open-source distributed event streaming platform** for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+**Apache Kafka is an open-source distributed event streaming platform** for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+
+---
 
 References
 

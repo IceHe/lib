@@ -1,6 +1,8 @@
 # Mac 效率指南
 
-> macOS Efficiency: 关于「如何高效使用 Mac」的个人见解。
+macOS Efficiency: 关于「如何高效使用 Mac」的个人见解。
+
+---
 
 ## 说明
 
@@ -109,7 +111,7 @@
 
 ##### 好设计
 
-> 相关快捷键之间有关联，它们的排布遵循一定的内在逻辑
+**相关快捷键之间有关联，它们的排布遵循一定的内在逻辑**
 
 好设计能促进用户对「某一操作该对应哪个快捷键组合」产生一种直觉
 
@@ -118,7 +120,7 @@
 
 ---
 
-> 一个操作所用的快捷键组合，通常跟该操作的英语表述相关
+**一个操作所用的快捷键组合，通常跟该操作的英语表述相关**
 
 快捷键组合所用的字母键，通常是该操作对应单词的其中一个字母，通常是首字母
 
@@ -162,7 +164,7 @@
 
 Emacs
 
-> 注意：macOS 的文本编辑控件内置了一些 Emacs 快捷键！如下
+**注意：macOS 的文本编辑控件内置了一些 Emacs 快捷键！如下**
 
 - 跳转：^ a = Windows 的 Home；^ e = End
 - 删除：^ k 删除光标当前位置至行尾处的字符串
@@ -222,7 +224,7 @@ Emacs
 
 - ⌘ i 打开「文件属性」的信息窗口，此时可以修改这类文件默认使用什么 App 打开（即打开方式），修改或获取该 App 的图标等
 
-> 以下操作不常用/非必需
+**以下操作不常用/非必需**
 
 文件复制
 
@@ -343,7 +345,7 @@ Spotlight
 
 ### 进阶 Vim 式插件
 
-> Chrome + [cVim](https://droidrant.com/using-cvim) | [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)
+**Chrome + [cVim](https://droidrant.com/using-cvim) | [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)**
 
 配合拓展，可在浏览器内使用 Vim 键位浏览网页、操作浏览器！
 
@@ -393,7 +395,7 @@ cVim 比 Vimium 更强大，功能更丰富，拥有更多的配置选项
 
 程序员相关。
 
-> 工具链推荐：Zsh + Vim + tmux + iTerm 2
+**工具链推荐：Zsh + Vim + tmux + iTerm 2**
 
 ### Zsh
 

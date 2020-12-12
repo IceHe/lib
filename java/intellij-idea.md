@@ -1,6 +1,8 @@
 # JetBrains Java IDE - IntelliJ IDEA
 
-> Usage
+Usage
+
+---
 
 ## Generate JavaDoc
 

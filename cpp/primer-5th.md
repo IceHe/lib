@@ -1,6 +1,8 @@
 # C++ Primer 第五版
 
-> C++ Details - Note:《C++ Primer 5th》中文版及其它相关的手写笔记的图片存档。多图慎入！
+C++ Details - Note:《C++ Primer 5th》中文版及其它相关的手写笔记的图片存档。多图慎入！
+
+---
 
 - Created on 2014-04
 - Download : [C++ Primer 5th.pdf](https://att.icehe.xyz//pdf%2FC%2B%2B%20Primer%205th.pdf)

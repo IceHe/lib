@@ -1,6 +1,8 @@
 # Redis Basics ( from Juejin Book )
 
-> **RE**mote **DI**ctionary **S**erver 远程字典服务
+**RE**mote **DI**ctionary **S**erver 远程字典服务
+
+---
 
 References
 
@@ -34,7 +36,7 @@ Data Structure
 
 ### String
 
-> 字符串
+**字符串**
 
 Redis 的字符串是 **动态字符串**,
 
@@ -50,7 +52,7 @@ Redis 的字符串是 **动态字符串**,
 
 ### List
 
-> 列表
+**列表**
 
 **Redis 的列表相当于 Java 语言里面的 LinkedList.**
 
@@ -173,7 +175,7 @@ Redis 底层的存储结构不是一个简单的 linkedlist,
 
 ### Set
 
-> 集合
+**集合**
 
 **Redis 的集合相当于 Java 语言里面的 HashSet**,
 
@@ -184,7 +186,7 @@ Redis 底层的存储结构不是一个简单的 linkedlist,
 
 ### Zset
 
-> 有序集合
+**有序集合**
 
 **zset 可能是 Redis 提供的最为特色的数据结构**,
 
@@ -208,7 +210,7 @@ Redis 底层的存储结构不是一个简单的 linkedlist,
 
 #### Skiplist
 
-> 跳跃表
+**跳跃表**
 
 - **zset 内部的排序功能是通过「跳跃列表」数据结构来实现的,
     - _它的结构非常特殊, 也比较复杂._
@@ -236,7 +238,7 @@ Redis 底层的存储结构不是一个简单的 linkedlist,
 
 ### General Principles
 
-> 容器型数据结构的通用规则
+**容器型数据结构的通用规则**
 
 list / hash / set / zset 这 4 种数据结构是 **容器型数据结构**, 共享下面两条通用规则 :
 
@@ -249,7 +251,7 @@ list / hash / set / zset 这 4 种数据结构是 **容器型数据结构**, 共
 
 ### Expiration
 
-> 过期时间
+**过期时间**
 
 Redis 所有的数据结构都可以设置过期时间, 时间到了, Redis 会自动删除相应的对象.
 
@@ -276,7 +278,7 @@ OK
 
 ## Usage 1 : Distributed Lock
 
-> 应用 1 : 分布式锁
+**应用 1 : 分布式锁**
 
 Reference
 
@@ -348,7 +350,7 @@ OK
 
 ### Timeout
 
-> 超时
+**超时**
 
 - Redis 的分布式锁不能解决超时问题,
     - **如果在加锁和释放锁之间的逻辑执行的太长, 以至于超出了锁的超时限制, 就会出现问题!**
@@ -384,7 +386,7 @@ end
 
 ### Reenterability
 
-> 可重入性
+**可重入性**
 
 - **可重入性** 是指 **线程在持有锁的情况下再次请求加锁, 如果一个锁支持同一个线程的多次加锁, 那么这个锁就是可重入的.**
     - 比如 Java 语言里有个 ReentrantLock 就是可重入锁.
@@ -442,7 +444,7 @@ print "unlock", unlock(client, "codehole")
 
 ## Usage 2 : Delayed Queue
 
-> 应用 2 : 延时队列
+**应用 2 : 延时队列**
 
 Reference
 
@@ -461,7 +463,7 @@ Reference
 
 ### Asynchronous Message Queue
 
-> 异步消息队列
+**异步消息队列**
 
 Redis 的 list 数据结构常用来作为异步消息队列使用,
 
@@ -556,7 +558,7 @@ C. 延时队列
 
 ### Implementation of Delayed Queue
 
-> 延时队列的实现
+**延时队列的实现**
 
 - 延时队列可以通过 Redis 的 zset ( 有序列表 ) 来实现.
     - **将消息序列化成一个字符串作为 zset 的 value, 到期处理时间作为 score,**
@@ -575,7 +577,7 @@ C. 延时队列
 
 ## Usage 3 : Bitmap
 
-> 应用 3 : 节衣缩食 —— 位图
+**应用 3 : 节衣缩食 —— 位图**
 
 - 有一些 bool 型数据需要存取, 比如用户一年的签到记录, 签了是 1, 没签是 0, 要记录 365 天.
     - _如果使用普通的 key / value, 每个用户要记录 365 个, 当用户上亿的时候, 需要的存储空间是惊人的._
@@ -813,7 +815,7 @@ _比如, 在网站中我们有两个内容差不多的页面, 运营说需要这
 
 ### Precautions
 
-> 注意事项
+**注意事项**
 
 使用 HyperLogLog 这个数据结构的内存成本较高
 
@@ -906,7 +908,7 @@ _准确率的测试, 在此不赘述, 详见原文_
 
 ### Precaustions
 
-> 注意事项
+**注意事项**
 
 布隆过滤器的 **initial_size**
 
@@ -1042,7 +1044,7 @@ _此处暂略, 详见原文_
 
 ## Usage 6 : Simple Limiter
 
-> 简单限流器
+**简单限流器**
 
 Reference
 
@@ -1077,7 +1079,7 @@ else:
 
 ### Solution
 
-> 解决方案
+**解决方案**
 
 限流需求中存在一个滑动时间窗口,
 
@@ -1165,11 +1167,11 @@ public class SimpleRateLimiter {
 
 ## Usage 7 : Funnel Limiter
 
-> 漏斗限流器
+**漏斗限流器**
 
 ### Solution
 
-> 解决方案
+**解决方案**
 
 漏斗限流是最常用的限流方法之一, _顾名思义, 这个算法的灵感源于漏斗 ( funnel ) 的结构._
 
@@ -1654,7 +1656,7 @@ Redis 为了解决这个问题, 它在 2.8 版本中加入了指令 `scan`, 相�
 
 ### Basic Usage
 
-> 基础使用
+**基础使用**
 
 测试 : 在使用之前, 往 Redis 里插入 10000 条数据
 
@@ -1744,7 +1746,7 @@ for i in range(10000):
 
 ### Dictionary Structure
 
-> 字典的结构
+**字典的结构**
 
 **在 Redis 中的所有 key 都存储在一个很大的字典中**,
 
@@ -1765,7 +1767,7 @@ for i in range(10000):
 
 ### Scan Traverse Sequence
 
-> scan 遍历顺序
+**scan 遍历顺序**
 
 scan 不是从第一维数组的第 0 位一直遍历到末尾, 而是 **采用了 高位进位加法来 遍历**.
 
@@ -1777,7 +1779,7 @@ scan 不是从第一维数组的第 0 位一直遍历到末尾, 而是 **采用�
 
 ### Dictionary Expansion
 
-> 字典扩容
+**字典扩容**
 
 Java 中的 HashMap 有 **扩容** 的概念,
 
@@ -1812,7 +1814,7 @@ _接下来看看 rehash 前后元素槽位的变化._
 
 ### Traverse Sequence Before and After Rehashing
 
-> 对比扩容所有前后的遍历顺序
+**对比扩容所有前后的遍历顺序**
 
 ![traverse-sequence-before-n-after-rehashing.webp](_images/traverse-sequence-before-n-after-rehashing.webp)
 
@@ -1828,7 +1830,7 @@ _接下来看看 rehash 前后元素槽位的变化._
 
 ### Progressive Rehash
 
-> 渐进式 rehash
+**渐进式 rehash**
 
 Java 的 HashMap 在扩容时会一次性将旧数组下挂接的元素全部转移到新数组下面.
 
@@ -1859,7 +1861,7 @@ _所以这里不再赘述._
 
 ### Big Key Scan
 
-> 大 key 扫描
+**大 key 扫描**
 
 _有时候会因为业务人员使用不当, 在 Redis 实例中会形成很大的对象,_
 
@@ -1928,7 +1930,7 @@ redis-cli -h 127.0.0.1 -p 7001 –-bigkeys -i 0.1
 
 ## Principle 1 : Thread IO Model
 
-> 线程 IO 模型
+**线程 IO 模型**
 
 Reference
 
@@ -1959,7 +1961,7 @@ _( icehe : 看这篇文章的评论区, 看出其评价一般…… )_
 
 ### Non-Blocking IO
 
-> 非阻塞 IO
+**非阻塞 IO**
 
 当调用套接字的读写方法, 默认它们是阻塞的,
 
@@ -1983,7 +1985,7 @@ _( icehe : 看这篇文章的评论区, 看出其评价一般…… )_
 
 ### Event Polling ( Multiplexing )
 
-> 事件轮询 ( 多路复用 )
+**事件轮询 ( 多路复用 )**
 
 _非阻塞 IO 有个问题, 那就是线程要读数据, 结果读了一部分就返回了, 线程如何知道何时才应该继续读._
 
@@ -2065,7 +2067,7 @@ Nginx 和 Node 的事件处理原理跟 Redis 也是类似的
 
 ## Principle 2 : Communication Protocol
 
-> 通信协议
+**通信协议**
 
 References
 
@@ -2079,7 +2081,7 @@ Redis 的作者认为数据库系统的瓶颈一般不在于网络流量, 而是
 
 ### RESP
 
-> RESP - Redis Serialization Protocol
+**RESP - Redis Serialization Protocol**
 
 _RESP 是 Redis 序列化协议的简写. 它是一种直观的文本协议, 优势在于实现异常简单, 解析性能极好._
 
@@ -2142,7 +2144,7 @@ $0\r\n\r\n
 
 ### Client -> Server
 
-> 客户端 -> 服务器
+**客户端 -> 服务器**
 
 **客户端向服务器发送的指令** 只有一种 **格式**, **多行字符串数组**.
 
@@ -2166,7 +2168,7 @@ codehole
 
 ### Server -> Client
 
-> 服务器 -> 客户端
+**服务器 -> 客户端**
 
 - 服务器向客户端回复的响应要支持多种数据结构, 所以消息响应在结构上要复杂不少.
 - 不过再复杂的响应消息也是以上 5 中基本类型的组合.
@@ -2303,7 +2305,7 @@ author
 
 ## Principle 3 : Persistency
 
-> 持久化
+**持久化**
 
 Reference
 
@@ -2332,7 +2334,7 @@ Redis 的持久化机制有两种,
 
 ### Snapshot Principle
 
-> 快照原理
+**快照原理**
 
 _Redis 是单线程程序, 这个线程要同时负责多个客户端套接字的并发读写操作和内存数据结构的逻辑读写._
 
@@ -2387,7 +2389,7 @@ if pid < 0:
 
 ### AOF Principle
 
-> AOF 原理
+**AOF 原理**
 
 **AOF 日志存储的是 Redis 服务器的顺序指令序列, AOF 日志只记录对内存进行修改的指令记录.**
 
@@ -2423,7 +2425,7 @@ Redis 同样也提供了另外两种策略,
 
 ### Operation and Maintenance
 
-> 运维
+**运维**
 
 快照是通过开启子进程的方式进行的, 它是一个比较耗资源的操作.
 
@@ -2462,7 +2464,7 @@ Redis 4.0 为了解决这个问题, 带来了一个新的持久化选项 —— 
 
 ## Principle 4 : Pipeline
 
-> 管道
+**管道**
 
 Reference
 
@@ -2496,7 +2498,7 @@ _以上便是管道操作的本质_
 
 ### Pipeline Benchmark
 
-> 管道压力测试
+**管道压力测试**
 
 _此处不赘述, 详见原文_
 
@@ -2508,7 +2510,7 @@ _( icehe : 简单来说, 就是将多次网络请求合并为一次网络请求,
 
 ## Principle 5 : Transaction
 
-> 事务
+**事务**
 
 _为了确保连续多个操作的原子性, 一个成熟的数据库通常都会有事务支持, Redis 也不例外. Redis 的事务使用非常简单, 不同于关系数据库, 无须理解那么多复杂的事务模型, 就可以直接使用._ 不过也正是因为这种简单性, **它的事务模型很不严格**, 这要求 **不能像使用关系数据库的事务一样来使用 Redis**.
 
@@ -2566,7 +2568,7 @@ QUEUED
 
 ### Atomicity
 
-> 原子性
+**原子性**
 
 **事务的原子性是指要么事务全部成功, 要么全部失败**, _那么 Redis 事务执行是原子性的么?_
 
@@ -2597,7 +2599,7 @@ _( icehe : 啊这… 这也不算真正的 "隔离性" 吧? 真正的隔离指�
 
 ### Discard
 
-> 丢弃
+**丢弃**
 
 **`discard` 指令 : 在 exec 执行之前, 丢弃事务缓存队列中的所有指令.**
 
@@ -2682,7 +2684,7 @@ _以上场景的 Python 样例代码在此不赘述, 详情见原文_
 
 ## Principle 6 : PubSub
 
-> 发布/订阅
+**发布/订阅**
 
 Reference
 
@@ -2694,7 +2696,7 @@ Reference
 
 ### Message Multicast
 
-> 消息多播
+**消息多播**
 
 - 消息多播允许生产者生产一次消息, 中间件负责将消息复制到多个消息队列, 每个消息队列由相应的消费组进行消费.
 - 它是分布式系统常用的一种解耦方式, 用于将多个消费组的逻辑进行拆分.
@@ -2814,7 +2816,7 @@ for msg in p.listen():
 
 ### Pattern Subscribe
 
-> 模式订阅
+**模式订阅**
 
 - **订阅模式是基于名称订阅的**,
     - 消费者订阅一个主题是必须明确指定主题的名称.
@@ -2863,7 +2865,7 @@ Producer / Publisher
 
 ### Message Structure
 
-> 消息结构
+**消息结构**
 
 ```bash
 {'pattern': None, 'type': 'subscribe', 'channel': 'codehole', 'data': 1L}
@@ -2886,7 +2888,7 @@ Producer / Publisher
 
 ### Disadvantages
 
-> 缺点
+**缺点**
 
 - PubSub 的生产者传递过来一个消息, Redis 会直接找到相应的消费者传递过去.
     - 如果一个消费者都没有, 那么消息直接丢弃.
@@ -2904,7 +2906,7 @@ _( icehe : 许多高级特性都没有, 相比高吞吐&持久化 kafka, 还有�
 
 ## Principle 7 : Small Object Compression
 
-> 小对象压缩
+**小对象压缩**
 
 _Redis 是一个非常耗费内存的数据库, 它所有的数据都放在内存里. 如果不注意节约使用内存, Redis 就会因为我们的无节制使用出现内存不足而崩溃._
 
@@ -2916,7 +2918,7 @@ _Redis 作者为了优化数据结构的内存占用, 也苦心孤诣增加了�
 
 ### ziplist
 
-> 小对象压缩存储 ziplist
+**小对象压缩存储 ziplist**
 
 **如果 Redis 内部管理的集合数据结构很小, 它会使用紧凑存储形式压缩存储.**
 
@@ -3041,7 +3043,7 @@ Redis 并不总是可以将空闲内存立即归还给操作系统.
 
 ### Memeory Alloaction Algorithm
 
-> 内存分配算法
+**内存分配算法**
 
 **Redis 为了保持自身结构的简单性, 在内存分配这里直接使用第三方库, 将内存分配的细节丢给了第三方内存分配库去实现.**
 
@@ -3111,7 +3113,7 @@ lazyfree_pending_objects:0
 
 ## Principle 8 : Master-Salve Synchronization
 
-> 主从同步
+**主从同步**
 
 Reference
 
@@ -3124,7 +3126,7 @@ Reference
 
 ### CAP Theorem
 
-> CAP 原理
+**CAP 原理**
 
 - C - Consistency 一致性
 - A - Availability 可用性
@@ -3141,7 +3143,7 @@ Reference
 
 ### Eventually Consistent
 
-> 最终一致
+**最终一致**
 
 Redis 的主从数据是异步同步的, 所以 **分布式的 Redis 系统并不满足「一致性」要求.**
 
@@ -3153,7 +3155,7 @@ _( icehe : 最终一致性, 实质上并不算是什么特别有意义的保证�
 
 ### Master-Slave Synchronization
 
-> 主从同步
+**主从同步**
 
 Redis 同步支持
 
@@ -3164,7 +3166,7 @@ Redis 同步支持
 
 ### Incremental Synchronization
 
-> 增量同步
+**增量同步**
 
 **Redis 同步的是指令流, 主节点会将那些对自己的状态产生修改性影响的指令记录在本地的内存 buffer 中, 然后异步将 buffer 中的指令同步到从节点, 从节点一边执行同步的指令流来达到和主节点一样的状态, 一边向主节点反馈自己同步到哪里了 ( 偏移量 ) .**
 
@@ -3176,7 +3178,7 @@ Redis 同步支持
 
 ### Snapshot Synchronization
 
-> 快照同步
+**快照同步**
 
 **快照同步** 是一个非常耗费资源的操作,
 
@@ -3192,13 +3194,13 @@ Redis 同步支持
 
 ### Add Slave Node
 
-> 增加从节点
+**增加从节点**
 
 **当从节点刚刚加入到集群时, 它必须先要进行一次快照同步, 同步完成后再继续进行增量同步.**
 
 ### No Disk Repliaction
 
-> 无盘复制
+**无盘复制**
 
 **主节点在进行快照同步时, 会进行很重的文件 IO 操作, 特别是对于非 SSD 磁盘存储时, 快照会对系统的负载产生较大影响**. 特别是当系统正在进行 AOF 的 fsync 操作时如果发生快照, fsync 将会被推迟执行, 这就会严重影响主节点的服务效率.
 
@@ -3206,7 +3208,7 @@ Redis 同步支持
 
 ### Wait Command
 
-> Wait 指令
+**Wait 指令**
 
 Redis 的复制是异步进行的, **`wait` 指令可以让异步复制变身同步复制, 确保系统的强一致性 ( 不严格 )**. `wait` 指令是 Redis3.0 版本以后才出现的.
 
@@ -3260,7 +3262,7 @@ _可以将 Redis Sentinel 集群看成是一个 ZooKeeper 集群, 它是集群�
 
 ### Message Loss
 
-> 消息丢失
+**消息丢失**
 
 Redis 主从采用异步复制, 意味着 **当主节点挂掉时, 从节点可能没有收到全部的同步消息, 这部分未同步的消息就丢失了**. 如果主从延迟特别大, 那么丢失的数据就可能会特别多.
 
@@ -3404,7 +3406,7 @@ else:
 
 ### Applicable Scene
 
-> 适用场景
+**适用场景**
 
 如果你很在乎高可用性, 希望挂了一台 redis 完全不受影响, 那就应该考虑 redlock.
 
@@ -3576,7 +3578,7 @@ Reference
 
 ### Why Lazy Free ?
 
-> Redis 为什么要懒惰删除 ( lazy free ) ?
+**Redis 为什么要懒惰删除 ( lazy free ) ?**
 
 删除指令 `del` 会直接释放对象的内存, 大部分情况下, 这个指令非常快, 没有明显延迟. 不过 **如果删除的 key 是一个非常大的对象, 比如一个包含了千万元素的 hash, 那么删除操作就会导致单线程卡顿.**
 
@@ -3626,7 +3628,7 @@ Reference
 
 ## Expansion 8 : Protect Redis
 
-> 保护 Redis
+**保护 Redis**
 
 Reference
 
@@ -3636,7 +3638,7 @@ Reference
 
 ## Expansion 9 : Redis Security Communication
 
-> 安全通信
+**安全通信**
 
 Reference
 
@@ -4084,7 +4086,7 @@ Reference
 
 ## Src Code 9 : Sacrifice of Lazy Free
 
-> 懒惰删除的牺牲
+**懒惰删除的牺牲**
 
 Reference
 

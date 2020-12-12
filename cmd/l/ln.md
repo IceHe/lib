@@ -136,7 +136,7 @@ lrwxrwxrwx 1 root root 7 Nov  5 14:33 file -> ../file
 
 ### Directory
 
-> Soft Link Only!
+Soft Link Only!
 
 ```bash
 # error : hard link
@@ -163,7 +163,7 @@ References
 
 ### Intro
 
-> **本质** 是映射
+**本质** 是映射
 
 Categories
 

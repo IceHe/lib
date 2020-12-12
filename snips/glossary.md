@@ -79,7 +79,7 @@ CAP theorem
 
 ## Concurrency & Parallelism
 
-> 并发 & 并行（的区别）
+**并发 & 并行（的区别）**
 
 - 并发 **Concurrency** is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.
 - 并行 **Parallelism** is when tasks literally run at the same time, e.g., on a multicore processor.
@@ -128,11 +128,11 @@ From **Core Java Volume I - Fundermentals**
 
 ## SRE
 
-> Site Reliable Engineering
+**Site Reliable Engineering**
 
 ### rsyslog
 
-> RSYSLOG is the rocket-fast system for log processing.
+**RSYSLOG is the rocket-fast system for log processing.**
 
 References
 
@@ -140,10 +140,10 @@ References
 
 ### Filebeat
 
-> Lightweight Shipper for Logs
->
-> - Forget using SSH when you have tens, hundreds, or even thousands of servers, virtual machines, and containers generating logs.
-> - Filebeat helps you keep the simple things simple by offering a lightweight way to forward and centralize logs and files.
+**Lightweight Shipper for Logs**
+
+- Forget using SSH when you have tens, hundreds, or even thousands of servers, virtual machines, and containers generating logs.
+- Filebeat helps you keep the simple things simple by offering a lightweight way to forward and centralize logs and files.
 
 References
 
@@ -151,7 +151,7 @@ References
 
 ### k8s
 
-> Kubernetes
+**Kubernetes**
 
 References
 
@@ -159,7 +159,7 @@ References
 
 ### Mesos
 
-> Program against your datacenter like it’s a single pool of resources
+**Program against your datacenter like it’s a single pool of resources**
 
 - Apache Mesos abstracts CPU, memory, storage, and other compute resources away from machines (physical or virtual), enabling fault-tolerant and elastic distributed systems to easily be built and run effectively.
 
@@ -170,7 +170,7 @@ References
 
 ### Marathon
 
-> A container orchestration platform for Mesos and DC/OS
+**A container orchestration platform for Mesos and DC/OS**
 
 References
 
@@ -211,7 +211,7 @@ References
 
 ### Kibana
 
-> 通过 Kibana，您能够对 Elasticsearch 中的数据进行可视化并在 Elastic Stack 进行操作
+**通过 Kibana，您能够对 Elasticsearch 中的数据进行可视化并在 Elastic Stack 进行操作**
 
 References
 
@@ -220,7 +220,7 @@ References
 
 ### Graphite
 
-> Make it easy to store and graph metrics
+**Make it easy to store and graph metrics**
 
 References
 
@@ -230,8 +230,9 @@ Graphite is an enterprise-ready monitoring tool that runs equally well on cheap 
 
 ### Zabbix
 
-> Monitor anything :
-> Solutions for any kind of IT infrastructure, services, applications, resources
+**Monitor anything :
+
+- Solutions for any kind of IT infrastructure, services, applications, resources
 
 References
 
@@ -239,7 +240,7 @@ References
 
 ### Puppet
 
-> Make software discovery, management, and delivery automatic and pervasive with Puppet.
+**Make software discovery, management, and delivery automatic and pervasive with Puppet.**
 
 References
 
@@ -248,7 +249,7 @@ References
 
 ## Distributed
 
-> 服务发现，配置共享（强一致性，高可用性）
+**服务发现，配置共享（强一致性，高可用性）**
 
 ### Consul
 
@@ -264,7 +265,7 @@ Features
 
 ### etcd
 
-> Distributed reliable key-value store for the most critical data of a distributed system
+**Distributed reliable key-value store for the most critical data of a distributed system**
 
 References
 
@@ -288,7 +289,7 @@ Features
 
 ### Flink
 
-> Stateful Computations over Data Streams
+**Stateful Computations over Data Streams**
 
 References
 
@@ -296,7 +297,7 @@ References
 
 ### Fluentd
 
-> Fluentd is an open source data collector for unified logging layer.
+**Fluentd is an open source data collector for unified logging layer.**
 
 References
 
@@ -304,7 +305,7 @@ References
 
 ### Logstash
 
-> Centralize, Transform & Stash Your Data
+**Centralize, Transform & Stash Your Data**
 
 References
 
@@ -312,7 +313,7 @@ References
 
 ### MaxCompute
 
-> 原 ODPS - Open Data Process Service
+**原 ODPS - Open Data Process Service**
 
 References
 
@@ -326,7 +327,7 @@ References
 
 ## MQ
 
-> Message Queue ( message broker )
+**Message Queue ( message broker )**
 
 ### kafka
 
@@ -391,7 +392,7 @@ References
 
 ### Spark
 
-> A unified analytics engine for large-scale data processing.
+**A unified analytics engine for large-scale data processing.**
 
 References
 
@@ -399,7 +400,7 @@ References
 
 ### Hadoop
 
-> The Apache Hadoop project develops open-source software for reliable, scalable, distributed computing.
+**The Apache Hadoop project develops open-source software for reliable, scalable, distributed computing.**
 
 - The Apache Hadoop software library is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models.
 - It is designed to scale up from single servers to thousands of machines, each offering local computation and storage.
@@ -434,7 +435,7 @@ Comparison
 
 ### Msgpack
 
-> It's like JSON, but fast and small.
+**It's like JSON, but fast and small.**
 
 - MessagePack is an efficient binary serialization format.
 - It lets you exchange data among multiple languages like JSON. But it's faster and smaller.
@@ -459,7 +460,7 @@ References
 
 #### ZMQ
 
-> Distributed Messaging
+**Distributed Messaging**
 
 References
 
@@ -481,7 +482,7 @@ References
 
 ### Vitess
 
-> Vitess is a database clustering system for horizontal scaling of MySQL
+**Vitess is a database clustering system for horizontal scaling of MySQL**
 
 References
 
@@ -496,7 +497,7 @@ Features
 
 ### Red Hat OpenShift
 
-> OpenShift combines application lifecycle management - including image builds, continuous integration, deployments, and updates - with Kubernetes.
+**OpenShift combines application lifecycle management - including image builds, continuous integration, deployments, and updates - with Kubernetes.**
 
 ### serverless
 

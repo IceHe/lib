@@ -2,11 +2,11 @@
 
 ## Introduction
 
-> 某类异常代表什么?
+**某类异常代表什么?**
 
 ### Categories
 
-> 分类
+**分类**
 
 - **Error 系统异常 : 不应捕获**
 - **Exception : 可以捕获**
@@ -15,7 +15,7 @@
 
 ### Unchecked Exception
 
-> 非受查异常
+**非受查异常**
 
 - Unchecked Exceptions - The Controversy - Oracle Docs : https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html
 - Checked and Unchecked Exceptions in Java - Baeldung.com : https://www.baeldung.com/java-checked-unchecked-exceptions#when
@@ -38,9 +38,9 @@
 
 ## Class Hierarchy
 
-> 什么时候该用哪个异常类?
->
-> - Java 异常类继承层次 ( 类父子关系 )
+**什么时候该用哪个异常类?**
+
+- Java 异常类继承层次 ( 类父子关系 )
 
 References
 

@@ -1,6 +1,8 @@
 # Survive SJTU Manual
 
-> Snippets of《上海交通大学生存手册》
+Snippets of《上海交通大学生存手册》
+
+---
 
 References
 

@@ -38,6 +38,6 @@ select / poll
 
 ## Thundering Herd Problem
 
-> 惊群效应
+**惊群效应**
 
 - Linux惊群效应详解（最详细的了吧）: https://blog.csdn.net/lyztyycode/article/details/78648798

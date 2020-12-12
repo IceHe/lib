@@ -7,7 +7,7 @@ References
 
 ## mailx
 
-> send and receive Internet mail
+**send and receive Internet mail**
 
 Options
 

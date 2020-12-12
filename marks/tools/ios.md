@@ -20,7 +20,7 @@ http://www.xunfei.cn/ <sup>Favorite</sup>
 
 ## 个人管理
 
-> 事务、时间、习惯
+事务、时间、习惯
 
 ### TickTick 滴答清单
 

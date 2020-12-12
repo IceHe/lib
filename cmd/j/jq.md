@@ -39,7 +39,7 @@ jq [options...] filter [files...]
 
 ## Options
 
-> Invoking JQ
+**Invoking JQ**
 
 `jq` filters run on a stream of JSON data.
 

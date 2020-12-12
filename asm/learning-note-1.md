@@ -1,6 +1,8 @@
 # ASM 汇编语言 1
 
-> ASM Note : 寄存器，段寄存器，CS 和 IP，修改 CS、IP 的指令，查看 CPU 和内存。
+ASM Note : 寄存器，段寄存器，CS 和 IP，修改 CS、IP 的指令，查看 CPU 和内存。
+
+---
 
 - Created on 2014-10
 - 教材：《汇编语言》（第二版）王爽 著 清华大学出版社
@@ -55,7 +57,7 @@ Chapter 2 实验 1 查看 CPU 和内存，用机器指令和汇编指令编程
 
 ## 使用 debug.exe
 
-> [准备 Windows7 下的汇编工具 debug.exe](prepare-on-windows-7.md)
+[准备 Windows7 下的汇编工具 debug.exe](prepare-on-windows-7.md)
 
 ### 指令
 

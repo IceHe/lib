@@ -136,14 +136,14 @@ ConnectionFactory、Connection、Channel 都是 RabbitMQ 对外提供的 API 中
 
 #### 循环分发
 
-> Round-robin dispathching
+**Round-robin dispathching**
 
 - **Round-robin 的分发机制非常适合扩展**, 而且它是专门为并发程序设计的
 - 如果现在 load ( 负载 ) 加重，那么只需要创建更多的 Consumer 来进行任务处理
 
 #### 消息确认
 
-> Message acknowledgement
+**Message acknowledgement**
 
 - 在实际应用中, 可能会发生消费者收到 Queue 中的消息, 但没有处理完成就宕机 ( 或出现其他意外 ) 的情况, 这种情况下就可能会导致消息丢失
 - 为了避免这种情况发生, 可以要求消费者在消费完消息后发送一个回执给 RabbitMQ, RabbitMQ 收到消息回执 ( Message acknowledgment ) 后才将该消息从 Queue 中移除
@@ -156,7 +156,7 @@ ConnectionFactory、Connection、Channel 都是 RabbitMQ 对外提供的 API 中
 
 #### 消息持久化
 
-> Message durability
+**Message durability**
 
 - 如果希望即使在 RabbitMQ 服务重启的情况下, 也不会丢失消息, 可以将 Queue 与 Message 都设置为可持久化的 ( durable ) , 这样可以保证绝大部分情况下 RabbitMQ 消息不丢失
     - 但依然解决不了小概率丢失事件的发生 ( 例如 RabbitMQ 服务器已经接收到生产者的消息, 但还没来得及持久化该消息时 RabbitMQ 服务器就断电了 ) , 如果我们需要对这种小概率事件也要管理起来, 那么我们要用到事务
@@ -237,7 +237,7 @@ channel.basic_publish(
 
 #### 公平分发
 
-> Fair dispathing
+**Fair dispathing**
 
 - 默认分发机制不是那么优雅
     - 默认状态下, RabbitMQ 将第 n 个 Message 分发给第 n 个 Consumer
@@ -489,14 +489,14 @@ void basicQOS(unit prefetchSize, ushort prefetchCount, Boolean global)
 
 #### TTL 队列 / 消息
 
-> TTL : Time To Live 生存时间
+**TTL : Time To Live 生存时间**
 
 - 支持 **消息的过期时间**, 在消息发送时可以指定
 - 支持 **队列过期时间**, 在消息入队列开始计算时间, 只要超过了队列的超时时间配置, 那么消息就会自动的清除
 
 #### 死信队列
 
-> DLX : Dead-Letter-Exchange 死信队列
+**DLX : Dead-Letter-Exchange 死信队列**
 
 利用 DLX, 当消息在一个队列中变成死信 ( Dead Message, 就是没有任何消费者消费 ) 之后, 他能被重新 publish 到另一个 Exchange, 这个 Exchange 就是 DLX
 

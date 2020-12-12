@@ -1,6 +1,8 @@
 # PDCA ( draft )
 
-> Deming cicle/cycle/wheel : Plan → Do → Check → Act
+Deming cicle/cycle/wheel : Plan → Do → Check → Act
+
+---
 
 - PDSA : Plan → Do → Study → Act
 
@@ -36,7 +38,7 @@ Intro
 
 ### Act 行动
 
-> Also called "Adjust" (调整), this act phase is where a process is improved (改善).
+**Also called "Adjust" (调整), this act phase is where a process is improved (改善).**
 
 改善/调整 : 纠正偏差, 确定新目标, 制定下一轮的计划
 

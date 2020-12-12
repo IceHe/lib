@@ -1,6 +1,8 @@
 # TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition ( TOC )
 
-> **Table of Contents**
+Table of Contents
+
+---
 
 References
 

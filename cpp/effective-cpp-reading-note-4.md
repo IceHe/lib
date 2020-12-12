@@ -1,6 +1,8 @@
 # Effective C++ 4
 
-> C++ Advanced - Note: parameter-independent 参数无关的代码抽离 templates；member function templates 运用成员函数模板接受所有兼容类型；请使用 traits class 表现类型信息；template metaprograming；new-handler；placement new，placement delete；不要轻忽编译器的警告；Boost，TR1。
+C++ Advanced - Note: parameter-independent 参数无关的代码抽离 templates；member function templates 运用成员函数模板接受所有兼容类型；请使用 traits class 表现类型信息；template metaprograming；new-handler；placement new，placement delete；不要轻忽编译器的警告；Boost，TR1。
+
+---
 
 - Created on 2014-05
 

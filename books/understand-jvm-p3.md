@@ -1,6 +1,8 @@
 # Execution Engine
 
-> Understanding Java Virtual Machine - Part 3
+Understanding Java Virtual Machine - Part 3
+
+---
 
 References
 
@@ -135,7 +137,7 @@ $ xxd HsdIsTest.class
 
 #### 简介
 
-> Constant Pool
+Constant Pool
 
 - 紧接着主、次版本号之后的是 **常量池入口**
     - 常量池可以比喻为 Class 文件里的资源仓库，它是 Class 文件结构中与其他项目关联最多的数据
@@ -367,7 +369,7 @@ SourceFile: "TestClass.java"
 
 ### 访问标志
 
-> Access Flags
+Access Flags
 
 - 在常量池结束之后，紧接着的 2 个字节代表访问标志 ( **access_flags** )
     - 这个标志用于识别一些类或者接口层次的访问信息, 包括 :

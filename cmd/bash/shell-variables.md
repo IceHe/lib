@@ -1,6 +1,8 @@
 # Shell Variables
 
-> variables are set by the shell
+variables are set by the shell
+
+---
 
 ## PATH
 

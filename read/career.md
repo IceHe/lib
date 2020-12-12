@@ -217,7 +217,7 @@ References
 
 ## 背景调查
 
-> reference check ( ~~backgroud investigation~~ )
+**reference check ( ~~backgroud investigation~~ )**
 
 References
 

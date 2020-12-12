@@ -1,6 +1,8 @@
 # Redis Usage ( TODO )
 
-> REmote DIctionary Server
+REmote DIctionary Server
+
+---
 
 - Redis : https://redis.io
     - Commands : https://redis.io/commands
@@ -29,7 +31,7 @@
 
 ## RESP 序列化
 
-> Redis Serialization Protocol
+**Redis Serialization Protocol**
 
 References
 
@@ -151,7 +153,7 @@ Related?
 
 ## Cluster 官方集群方案
 
-> Redis Cluster
+**Redis Cluster**
 
 - 分布式（不同于 Codis 的集中式）
 - slots 槽位分为 1024 * 16 = 16384
@@ -184,7 +186,7 @@ Ziplist 压缩链表
 
 ## listpack
 
-> Redis 5.0 对 ziplist 的改进
+**Redis 5.0 对 ziplist 的改进**
 
 - 去掉了 `zltail_offset`
 - 长度字段用 variant 来编码
@@ -217,7 +219,7 @@ Ziplist 压缩链表
 
 ### Expire
 
-> 过期淘汰
+**过期淘汰**
 
 每秒十次过期扫描，过期贪心策略
 
@@ -235,7 +237,7 @@ Ziplist 压缩链表
 
 ### LRU
 
-> 内存淘汰
+**内存淘汰**
 
 设置最大使用内存
 
@@ -259,7 +261,7 @@ LRU 实现：近似模拟（据说 MC 的 LRU 实现比较成熟）
 
 ### Lazy Delete
 
-> 惰性删除
+**惰性删除**
 
 ## Tmp
 

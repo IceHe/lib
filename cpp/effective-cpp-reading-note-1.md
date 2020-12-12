@@ -1,6 +1,8 @@
 # Effective C++ 1
 
-> C++ Advanced - Note: const、enum、inline；先初始化再使用变量；smart pointer 智能指针；virtual 虚函数；Destructor 析构函数；self-assignment 自赋值；new 和 delete；若不想使用编译器自动生成的函数，就该明确拒绝。
+C++ Advanced - Note: const、enum、inline；先初始化再使用变量；smart pointer 智能指针；virtual 虚函数；Destructor 析构函数；self-assignment 自赋值；new 和 delete；若不想使用编译器自动生成的函数，就该明确拒绝。
+
+---
 
 - Created on 2014-05
 

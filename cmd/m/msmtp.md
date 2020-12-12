@@ -7,7 +7,7 @@ References
 
 ## msmtp
 
-> An SMTP client
+**An SMTP client**
 
 See `man msmtp` for more
 

@@ -1,6 +1,8 @@
 # ASM 汇编语言 2
 
-> ASM - Note: big / little-endian 大小端问题，通用寄存器，标志寄存器，段寄存器，DS 和 [address] ，CPU 提供的栈机制。
+ASM - Note: big / little-endian 大小端问题，通用寄存器，标志寄存器，段寄存器，DS 和 [address] ，CPU 提供的栈机制。
+
+---
 
 - Created on 2014-10
 - 教材：《汇编语言》（第二版）王爽 著 清华大学出版社

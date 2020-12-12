@@ -1,6 +1,8 @@
 # IceHe Bio
 
-> A short biographical profile
+A short biographical profile
+
+---
 
 <!-- CV -->
 <!-- Curriculum Vitae -->
@@ -184,7 +186,7 @@ Web
 
 ## ~~无关~~
 
-> 弯路。
+**弯路。**
 
 - 生活爱好 : ACGMN / 羽毛球 / ~~毽球~~<sup> _( past )_<sup>
 - [最喜爱的](/marks/favourites.md) : 书、文、影视 …

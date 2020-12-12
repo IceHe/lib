@@ -300,7 +300,7 @@ ERROR
 
 ### Data Type
 
-> 数据类型
+**数据类型**
 
 INT
 
@@ -475,7 +475,7 @@ set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
 
 ### innodb_lock_wait_timeout
 
-> 锁等待超时时间
+**锁等待超时时间**
 
 ```sql
 set Innodb_lock_wait_timeout = 5;

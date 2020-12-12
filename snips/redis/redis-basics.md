@@ -1,6 +1,8 @@
 # Redis Basics
 
-> **RE**mote **DI**ctionary **S**erver 远程字典服务
+**RE**mote **DI**ctionary **S**erver 远程字典服务
+
+---
 
 References
 

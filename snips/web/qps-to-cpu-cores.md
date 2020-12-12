@@ -1,7 +1,9 @@
 # QPS to CPU Cores
 
-> - 根据 API 的 QPS 估算所需的 CPU 核数 (服务器数)
-> - According to API QPS, estimate the count of server/CPU needed.
+- 根据 API 的 QPS 估算所需的 CPU 核数 (服务器数)
+- According to API QPS, estimate the count of server/CPU needed.
+
+---
 
 Assume
 

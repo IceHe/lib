@@ -1,6 +1,8 @@
 # gawk ( TODO )
 
-> gawk - pattern scanning and processing language
+gawk - pattern scanning and processing language
+
+---
 
 References
 

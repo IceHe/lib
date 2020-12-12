@@ -8,7 +8,7 @@
 
 ## Login Registry
 
-> Recommended : Managed your Docker images on [hub.docker.com](https://hub.docker.com)
+**Recommended : Managed your Docker images on [hub.docker.com](https://hub.docker.com)**
 
 `login` to a Docker registry
 
@@ -245,7 +245,7 @@ docker kill icehe_alpine
 
 # Docker Compose (TBD)
 
-> Define and run multi-container applications with Docker.
+**Define and run multi-container applications with Docker.**
 
 - Docs
     - Overview : https://docs.docker.com/compose/overview/

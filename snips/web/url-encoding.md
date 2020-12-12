@@ -52,11 +52,11 @@ https://zh.wikipedia.org/wiki/百分号编码
 
 ### ~~escape~~
 
-> Deprecated!
+**Deprecated!**
 
 ### encodeURL
 
-> 对 URL 整体进行编码
+**对 URL 整体进行编码**
 
 不会对以下字符（保留字符）进行编码
 
@@ -76,7 +76,7 @@ https://zh.wikipedia.org/wiki/百分号编码
 
 ### encodeURLComponent
 
-> 对 URL 的参数进行编码
+**对 URL 的参数进行编码**
 
 不会对以下字符进行编码
 

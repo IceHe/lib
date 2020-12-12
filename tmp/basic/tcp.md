@@ -113,7 +113,7 @@ Notice
 
 ## Head-of-line blocking
 
-> 队头阻塞
+**队头阻塞**
 
 References
 

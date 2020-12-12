@@ -104,7 +104,7 @@ root     164487 178198  0 Nov08 pts/26   00:00:00 man times
 
 ### Others
 
-> See `man ps` on Linux
+**See `man ps` on Linux**
 
 Print using standard syntax
 

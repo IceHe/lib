@@ -252,7 +252,7 @@ HTTP/2 引入了一个额外的步骤 :
 
 ### RESTful API
 
-> REpresentational State Transfer
+**REpresentational State Transfer**
 
 References
 
@@ -367,7 +367,7 @@ _The first digit of the status code defines the class of response, while the las
 
 ## TCP
 
-> Transmission Control Protocol
+**Transmission Control Protocol**
 
 References
 
@@ -516,7 +516,7 @@ Differ Flow Control from Congestion Control ?
 
 ##### Slow Start
 
-> 慢启动
+**慢启动**
 
 发送方维持一个叫做 **拥塞窗口 cwnd ( congestion window )** 的状态变量.
 
@@ -573,7 +573,7 @@ _注意 : "拥塞避免" 并非完全能够避免了阻塞, 而是使网络比�
 
 ##### Fast Retransmit
 
-> 快速重传
+**快速重传**
 
 - 快速重传要求 **接收方在收到一个失序的报文段后就立即发出重复确认** 而不要等到自己发送数据时捎带确认.
     - _( 为的是使发送方及早知道有报文段没有到达对方, 可提高网络吞吐量约 20% )_
@@ -583,7 +583,7 @@ _注意 : "拥塞避免" 并非完全能够避免了阻塞, 而是使网络比�
 
 ##### Fast Recovery
 
-> 快速恢复
+**快速恢复**
 
 快重传配合使用的还有快恢复算法, 有以下两个要点 :
 
@@ -599,7 +599,7 @@ _注意 : "拥塞避免" 并非完全能够避免了阻塞, 而是使网络比�
 
 ## UDP
 
-> User Datagram Protocol
+**User Datagram Protocol**
 
 Reference
 
@@ -620,7 +620,7 @@ Reference
 
 ### NAT
 
-> Network Address Translation 网络地址转换
+**Network Address Translation 网络地址转换**
 
 Reference
 
@@ -630,7 +630,7 @@ Reference
 
 ### MTU
 
-> Maximum Transmission Unit 最大传输单元
+**Maximum Transmission Unit 最大传输单元**
 
 - **IP 协议会分片传输过大的数据包 ( Packet ) 避免物理设备的限制**
 - **TCP 协议会分段传输过大的数据段 ( Segment ) 保证传输的性能**
@@ -643,7 +643,7 @@ MTU 的值不是越大越好, 更大的 MTU 意味着更低的额外开销, 更�
 
 ### MAC
 
-> Media Access Control address
+**Media Access Control address**
 
 Reference
 
@@ -653,7 +653,7 @@ Reference
 
 ### ARP
 
-> Address Resolution Protocol
+**Address Resolution Protocol**
 
 ARP - Address Resolution Protocol ( 地址解析协议 ) **根据 IP 地址获取 MAC 地址的一种协议**.
 
@@ -669,7 +669,7 @@ RARP 反向地址解析协议, 与之相反.
 
 ### ICMP
 
-> Internet Control Message Protocol
+**Internet Control Message Protocol**
 
 Reference
 
@@ -693,7 +693,7 @@ IP Header
 
 ### SNMP
 
-> Simple Network Management
+**Simple Network Management**
 
 Reference
 

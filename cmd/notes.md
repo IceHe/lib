@@ -1,6 +1,8 @@
 # CLI Notes ( draft )
 
-> CLI : Command-Line Interface
+CLI : Command-Line Interface
+
+---
 
 References
 
@@ -189,7 +191,7 @@ done
 
 ## Art of CLI
 
-> The Art of Command Line : 命令行的艺术
+The Art of Command Line : 命令行的艺术
 
 ### Process
 
@@ -320,7 +322,7 @@ done
 
 ## ab
 
-> Apache Bench
+Apache Bench
 
 References
 
@@ -343,7 +345,7 @@ Options
 
 ## Bash
 
-> GNU Bourne-Again SHell
+GNU Bourne-Again SHell
 
 Bash Cheatsheet https://devhints.io/bash
 

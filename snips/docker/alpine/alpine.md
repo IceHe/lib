@@ -1,6 +1,8 @@
 # Alpine Linux
 
-> Alpine is one of the minimal Linux distribution Docker image.
+Alpine is one of the minimal Linux distribution Docker image.
+
+---
 
 - Home : https://alpinelinux.org/
 - About : https://alpinelinux.org/about/

@@ -1,6 +1,8 @@
 # Elasticsearch - Usage
 
-> Elasticsearch is a distributed, **RESTful search** and **analytics engine** capable of solving a growing number of use cases.
+Elasticsearch is a distributed, **RESTful search** and **analytics engine** capable of solving a growing number of use cases.
+
+---
 
 - As the heart of the Elastic Stack, it centrally **stores your data**
     - so you can **discover the expected and uncover the unexpected**.
@@ -29,7 +31,7 @@ Others
 
 #### elastic-head
 
-> a web front end for browsing and interacting with an Elastic Search cluster.
+**a web front end for browsing and interacting with an Elastic Search cluster.**
 
 - GitHub : https://github.com/mobz/elasticsearch-head
 
@@ -63,7 +65,7 @@ ES快速入门 - 简书 : https://www.jianshu.com/p/ddee872c69c1
 
 ( 这个文档比较简略，就是先拿来随便看看的 )
 
-> 是一种搜索引擎，也是一种 **"数据库"**
+**是一种搜索引擎，也是一种 "数据库"**
 
 ES 与 SQL 的基础概念对照（粗浅理解）
 
@@ -79,7 +81,7 @@ ES 与 SQL 的基础概念对照（粗浅理解）
 
 #### Physical
 
-> 物理存储
+**物理存储**
 
 - Cluster
 - Node
@@ -94,7 +96,7 @@ ES 与 SQL 的基础概念对照（粗浅理解）
 
 #### Logical
 
-> 逻辑存储
+**逻辑存储**
 
 Index (DB) 索引
 
@@ -474,7 +476,7 @@ curl -XPUT 'http://10.104.112.235:8200/buyermall/order/287584189415899136' -d '
 
 #### elasticdump
 
-> Import and export tools for elasticsearch
+**Import and export tools for elasticsearch**
 
 <!-- > Tools for moving and saving indices. -->
 

@@ -1,6 +1,8 @@
 # DOS 常用指令
 
-> DOS Commands: help, cmd_name /?, type, attrib, xcopy, netstat, reg, assoc, ftype, find, findstr, sort, comp, fc
+DOS Commands: help, cmd_name /?, type, attrib, xcopy, netstat, reg, assoc, ftype, find, findstr, sort, comp, fc
+
+---
 
 其它资料：《<a href="http://web.csulb.edu/~murdock/dosindex.html">DOS Command Index</a>》
 

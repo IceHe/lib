@@ -1,6 +1,8 @@
 # Designing Data-Intensive Applications ( TOC )
 
-> **Table of Contents**
+Table of Contents
+
+---
 
 References
 
@@ -296,7 +298,7 @@ Doing the Right Thing
 
 ## 精要目录
 
-> 突出 _( icehe 自认为的 )_ 重点内容
+**突出 _( icehe 自认为的 )_ 重点内容**
 
 - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
     - 1\. Reliable, Scalable, and Maintainable Applications
