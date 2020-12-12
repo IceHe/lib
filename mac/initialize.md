@@ -1,4 +1,4 @@
-# Mac Initialize
+# Initialize Mac
 
 - Based on macOS
 - Follow principles
@@ -130,25 +130,24 @@ Homebrew/homebrew-cask (git revision 84d2f; last commit 2020-12-11)
 
 ```bash
 # Homebrew
-git -C "$(brew --repo)" remote set-url origin https://mirrors.ustc.edu.cn/brew.git
-
+git -C "$(brew --repo)" remote set-url \
+    origin https://mirrors.ustc.edu.cn/brew.git
 # Homebrew Core
-git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
-
+git -C "$(brew --repo homebrew/core)" remote set-url \
+    origin https://mirrors.ustc.edu.cn/homebrew-core.git
 # Homebrew Cask
-git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+git -C "$(brew --repo homebrew/cask)" remote set-url \
+    origin https://mirrors.ustc.edu.cn/homebrew-cask.git
 ```
 
 ```bash
 # Homebrew-bottles
-
-# For BASH users :
-echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
-source ~/.bash_profile
-
-# For ZSH users :
-echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
-source ~/.zshrc
+## For BASH users :
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
+    >> ~/.bash_profile && source ~/.bash_profile
+## For ZSH users :
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
+    >> ~/.zshrc && source ~/.zshrc
 ```
 
 4\. Update & Upgrade in the future
@@ -175,7 +174,7 @@ Install Mac Apps by Homebrew-Cask
 Required ( for me )
 
 ```bash
-brew cask install \
+brew install --cask \
     appcleaner \
     eudic \
     google-chrome \
@@ -193,6 +192,7 @@ brew cask install \
     qqmusic \
     sequel-pro \
     snipaste \
+    sogouinput \
     sublime-text \
     ticktick \
     utools \
@@ -238,7 +238,7 @@ brew install trojan
 Optional ( for me )
 
 ```bash
-brew cask install \
+brew install --cask \
     charles \
     clion \
     datagrip \
@@ -645,7 +645,7 @@ Disable animations to accelerate macOS _( Optional )_
 - _Re-install in App Store_ _( maybe )_
 - Unlock iCloud vaults
 
-TrojanX
+TrojanX / TrojanX / Trojan-Qt5 / ClashX / Surge
 
 - Get the config content from the Shadowsocks service
 - Import Server URLs from pasteboard
