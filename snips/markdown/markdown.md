@@ -1,6 +1,6 @@
 # Markdown Style Guide
 
-Markdown 风格指南
+Markdown 风格指北
 
 ---
 
@@ -9,44 +9,50 @@ Markdown 风格指南
 
 ## References
 
-### Markdown
+### Markdown Specification
 
-_( Skippable )_
+Markdown Standard _( All Skippable )_
 
-- _Daring Fireball - Projects - Markdown_
-    - _[Main](https://daringfireball.net/projects/markdown)_
-    - _[Basics](https://daringfireball.net/projects/markdown/basics)_
-    - _[Syntax](https://daringfireball.net/projects/markdown/syntax)_
-    - _[Dingus](https://daringfireball.net/projects/markdown/dingus)_
-- _[CommonMark Spec](https://spec.commonmark.org)_
-    - _[Version 0.29](https://spec.commonmark.org/0.29) on 2019-04-06_
+- Daring Fireball - Projects - Markdown
+    - [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
+- [CommonMark Spec](https://spec.commonmark.org)
+    - [Version 0.29](https://spec.commonmark.org/0.29) on 2019-04-06
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
 
-### GFM
+### GFM Basic Syntax
 
-GitLab & GitHub built-in Markdown
+GFM - GitHub or GitLab Flavored Markdown _( All Required )_
 
-- [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary) _( Readable )_
-- _[Getting started with writing and formatting on GitHub](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)_
-    - _[GitHub Flavored Markdown Spec](https://github.github.com/gfm)_
-    - _[Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)_
-    - _[Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)_
-        - _Organizing information with tables_
-        - _Creating and highlighting code blocks_
-        - _Autolinked references and URLs_
-    - [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Readable )_
+- [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Concise )_
+
+- [Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
+
+- [Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)
+
+    - _Organizing information with tables_
+    - _Creating and highlighting code blocks_
+    - _Autolinked references and URLs_
+
+- [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
+
+    ```json
+    {
+        "foo": "bar"
+    }
+    ```
+
+- 下一行么?
 
 ### Style Guide
 
-**Highly recommend you to read the links below!**
+**Guideline : Readability > Writability** _( All Recommended )_
 
-Guidelines : **Readability > Writability**
-
-- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide) _( Recommended )_
+- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
 - _[Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)_
-    - Sytle Guide : https://github.com/google/styleguide/blob/gh-pages/docguide/style.md
-    - Best Practices : https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md
-    - README.md files ( an Example ) : https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md)
-    - Philosophy : https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md
+    - [Markdown style guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
+    - [Documentation Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
+    - [README.md files](https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md) - a simple example
+    - [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)
 
 ### Chinese Text Layout
 
