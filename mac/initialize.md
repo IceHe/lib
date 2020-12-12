@@ -60,9 +60,11 @@ Suggestion on 2020-12-10
 
 ## Network Proxy
 
-> FYI - For Your Information ( 仅供参考, 自行配置 )
+> First thing first!
 
-If cannot download softwares, need to configure network proxy ( in China Mainland )
+If you cannot download softwares, you may need to configure network proxy ( in China mainland ).
+
+FYI - For Your Information ( 仅供参考, 请自行配置 )
 
 1. Connect to network
 2. Open `System Preferences` → `Network` → `Advanced…` → `Proxies`
@@ -219,6 +221,7 @@ Available on GitHub
 
 Available on official homepages
 
+- Copy 'Em Helper : https://apprywhere.com/ce-helper.html
 - Logi Options : https://www.logitech.com.cn/zh-cn/product/options
 
 <!--
