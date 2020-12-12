@@ -1,14 +1,23 @@
-# Markdown Style
+---
+title: About Front Matter
+example:
+language: yaml
+---
 
-推荐参考，但并非强制执行的 Markdown 风格标准！
+# Markdown Style Guide
 
-## 参考 References
+> Markdown 风格指南
+
+个人遵循的 Markdown 风格, 并非强制的标准
+
+## References
 
 ### GFM
 
-[GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
+了解 GitHub 和 GitLab 原生支持的 Markdown 语法
 
-- 了解 GitLab 原生支持的 Markdown 语法
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
+- [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
 
 ### Style Guide
 

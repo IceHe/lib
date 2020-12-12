@@ -1,12 +1,6 @@
-# Initialize Mac
+# Mac Init
 
-- Based on macOS
-- Follow principles
-    - KISS - Keep It Simple & Stupid ( 简单原则 )
-    - OOTB - Out Of The Box ( 开箱即用 )
-- _配置过程的说明, 尽可能在粗略与详实之间找一个合适的平衡_
-    - _过于粗略 —— 无法快速完成配置, 甚至搞不明白如何配置_
-    - _过于详实 —— 软件更新后, 配置路径/名称/方式变了, 说明失效_
+> How to initialize my Mac ?
 
 Reference
 
@@ -18,6 +12,31 @@ Related
     - [Tools](/marks/tools/tools.md) : 利器 - 软件 / 物件的推荐
     - [Efficiency](/mac/efficiency.md) : 效率指南
     - [Shortcuts](/mac/shortcuts/shortcuts.md) : 快捷键
+
+## Intro
+
+**Based on macOS**
+
+- Applicable macOS versions : Big Sur / Catalina / …
+
+**Follow principles**
+
+- **KISS - Keep It Simple & Stupid** ( 简单原则 )
+    - Focus on the process and omit the extra descriptions.
+        - e.g., apps' introductions & usages / software technology / developer knowledge …
+- **OOTB - Out Of The Box** ( 开箱即用 )
+    - Try to minimize the modification of the initial settings.
+
+**For your reference** ( 供您参考 )
+
+- Assume tha you are an experienced Mac user and a software developer.
+
+---
+
+尽可能在粗疏简略与巨细无遗之间找一个合适的平衡
+
+- 过于粗略 —— 搞不明白如何操作, 无法快速完成配置
+- 过于详细 —— 相关软件更新后, 配置路径/名称/方式等发生变化, 导致说明的内容失效
 
 ## Install macOS
 
@@ -44,13 +63,13 @@ sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstall
 - or Reboot, press `⌥` for a few seconds
     - Reboot from different disk you selected
 
-4A\. Just install macOS _( Recommended )_
+4A\. Just install macOS ( Recommended )
 
 - omitted…
 
 ### Restore from Backup
 
-4B\. \* Restore from backups of Time Machine _( Optional )_
+4B\. \* Restore from backups of Time Machine ( Optional )
 
 - or Restore from Disk Backup by Disk Utility
 
