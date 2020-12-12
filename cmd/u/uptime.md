@@ -2,11 +2,13 @@
 
 Linux
 
-> Tell how long the system has been running.
+- Tell how long the system has been running.
 
 BSD
 
-> show how long system has been running
+- show how long system has been running
+
+---
 
 References
 

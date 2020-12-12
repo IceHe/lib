@@ -15,7 +15,7 @@ TODOs
 
 come into common use with …
 
-> The concept came into common use with Unix text-processing utilities.
+**The concept came into common use with Unix text-processing utilities.**
 
 bring sth into effect
 

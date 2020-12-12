@@ -228,7 +228,7 @@ brew install --cask \
 
 Notice : You need to search `sogou` in Spotlight to execute its installation.
 
-> Some required softwares below are unabled to be installed by Homebrew-Cask.
+**Some required softwares below are unabled to be installed by Homebrew-Cask.**
 
 Available in App Store
 
@@ -286,7 +286,7 @@ brew install --cask \
     wireshark
 ```
 
-> Some optional softwares below are unabled to be installed by Homebrew-Cask.
+**Some optional softwares below are unabled to be installed by Homebrew-Cask.**
 
 Available in App Store
 
@@ -305,57 +305,57 @@ Install CLI tools by command `brew`
 - Although some softwares has been pre-installed in macOS, their versions are often outdated.
 - You should install & update them by yourself.
 
-> What to Install
->
-> - [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
->     - Produce shell scripts to automatically configure software source code packages
-> - [cmake](https://cmake.org/)
->     - An cross-platform family of tools designed to build, test and package software
-> - [coreutils](http://www.gnu.org/s/coreutils/)
->     - The basic file, shell and text manipulation utilities of the GNU operating system
->     - Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html). e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
-> - [curl](https://curl.haxx.se/)
->     - Transfer data with URLs
->     - For HTTP debug & download files
-> - [expect](https://linux.die.net/man/1/expect)
->     - Programmed dialogue with interactive programs
->     - I write a script using expect for remote login
-> - [gawk](https://linux.die.net/man/1/gawk) ( awk )
->     - Pattern scanning and processing language
->     - For text formatting & log analysis
-> - _[gradle](https://gradle.org/)_
->     - A build automation tool focused on flexibility and performance
->     - For building Java & Groovy projects based on config file *.gradle
-> - _[groovysdk](http://www.groovy-lang.org/)_
->     - A multi-faceted language for the Java platform
->     - For Java unit-testing ( [Spock](http://spockframework.org/) ) or Groovy projects
->     - Notice : Install **groovysdk** but ~~groovy~~ by Homebrew ( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) )
->     - More : Add Groovy SDK to IntelliJ IDEA ( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) )
-> - [git](https://git-scm.com/)
->     - A distributed version control system
->     - For code management
-> - [jq](https://stedolan.github.io/jq/)
->     - A lightweight and flexible command-line JSON processor
->     - For JSON formatting
->         - Basic filters
->         - Builtin operators & functions
->         - Advanced features…
-> - [maven](https://maven.apache.org/)
->     - A software project management and comprehension tool
->     - For Java project management based on config files - pom.xml
-> - [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
->     - Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
->     - For `tmux` to write and read system clipboard.
-> - [ruby](https://www.ruby-lang.org/en/)
->     - Ruby programming language
->     - Package Manger : `gem`
-> - [vim](https://www.vim.org/)
->     - The God of editors - Vim / the editor of Gods - Emacs
->     - text editor in CLI
->     - optional : `nvim` aka. [Neovim](https://neovim.io/)
-> - [wget](https://www.gnu.org/software/wget/)
->     - Download files via HTTP/HTTPS、FTP/FTPS protocols.
-> - …
+What to Install
+
+- [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
+    - Produce shell scripts to automatically configure software source code packages
+- [cmake](https://cmake.org/)
+    - An cross-platform family of tools designed to build, test and package software
+- [coreutils](http://www.gnu.org/s/coreutils/)
+    - The basic file, shell and text manipulation utilities of the GNU operating system
+    - Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html). e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
+- [curl](https://curl.haxx.se/)
+    - Transfer data with URLs
+    - For HTTP debug & download files
+- [expect](https://linux.die.net/man/1/expect)
+    - Programmed dialogue with interactive programs
+    - I write a script using expect for remote login
+- [gawk](https://linux.die.net/man/1/gawk) ( awk )
+    - Pattern scanning and processing language
+    - For text formatting & log analysis
+- _[gradle](https://gradle.org/)_
+    - A build automation tool focused on flexibility and performance
+    - For building Java & Groovy projects based on config file *.gradle
+- _[groovysdk](http://www.groovy-lang.org/)_
+    - A multi-faceted language for the Java platform
+    - For Java unit-testing ( [Spock](http://spockframework.org/) ) or Groovy projects
+    - Notice : Install **groovysdk** but ~~groovy~~ by Homebrew ( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) )
+    - More : Add Groovy SDK to IntelliJ IDEA ( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) )
+- [git](https://git-scm.com/)
+    - A distributed version control system
+    - For code management
+- [jq](https://stedolan.github.io/jq/)
+    - A lightweight and flexible command-line JSON processor
+    - For JSON formatting
+        - Basic filters
+        - Builtin operators & functions
+        - Advanced features…
+- [maven](https://maven.apache.org/)
+    - A software project management and comprehension tool
+    - For Java project management based on config files - pom.xml
+- [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
+    - Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
+    - For `tmux` to write and read system clipboard.
+- [ruby](https://www.ruby-lang.org/en/)
+    - Ruby programming language
+    - Package Manger : `gem`
+- [vim](https://www.vim.org/)
+    - The God of editors - Vim / the editor of Gods - Emacs
+    - text editor in CLI
+    - optional : `nvim` aka. [Neovim](https://neovim.io/)
+- [wget](https://www.gnu.org/software/wget/)
+    - Download files via HTTP/HTTPS、FTP/FTPS protocols.
+- …
 
 ### Required
 
@@ -428,10 +428,10 @@ $ /usr/libexec/java_home -v 1.8
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 ```
 
-> `~` tilde symbol
->
-> - In the path `~/.bashrc`, `~` means current user's home directory
-> - In macOS, it's `/Users/[USERNAME]` such as `/Users/IceHe`
+`~` tilde symbol
+
+- In the path `~/.bashrc`, `~` means current user's home directory
+- In macOS, it's `/Users/[USERNAME]` such as `/Users/IceHe`
 
 ### IntelliJ IDEA
 

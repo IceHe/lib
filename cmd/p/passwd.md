@@ -81,7 +81,7 @@ References
 
 - passwd 命令 : http://man.linuxde.net/passwd
 
-> 与用户、组账户信息相关的文件
+**与用户、组账户信息相关的文件**
 
 存放用户信息：
 

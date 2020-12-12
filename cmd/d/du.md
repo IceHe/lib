@@ -2,11 +2,13 @@
 
 On Linux
 
-> estimate file space usage
+- estimate file space usage
 
 On BSD
 
-> display **disk usage** statistics
+- display **disk usage** statistics
+
+---
 
 References
 

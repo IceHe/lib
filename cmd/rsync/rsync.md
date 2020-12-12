@@ -2,17 +2,19 @@
 
 `rsync`
 
-- On Linux
+On Linux
 
-> a fast, versatile, remote (and local) file-copying tool
+- a fast, versatile, remote (and local) file-copying tool
 
-- On BSD
+On BSD
 
-> faster, flexible replacement for rcp
+- faster, flexible replacement for rcp
+
+---
 
 `rcp`
 
-> remote file copy
+**remote file copy**
 
 - Quickstart : http://transamrit.net/docs/rsync/
 - Rsync cheatsheet : https://devhints.io/rsync

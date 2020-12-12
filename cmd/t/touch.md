@@ -2,11 +2,13 @@
 
 On Linux
 
-> change file timestamps
+- change file timestamps
 
 On BSD
 
-> change file access and modification times
+- change file access and modification times
+
+---
 
 References
 
@@ -88,7 +90,7 @@ Modify: 2018-11-04 19:49:04.951145517 +0800
 Change: 2018-11-04 19:49:04.951145517 +0800
 ```
 
-> Notice : ctime ( last changed time ) always changes after `touch` !
+**Notice : ctime ( last changed time ) always changes after `touch` !**
 
 #### Modification Time
 

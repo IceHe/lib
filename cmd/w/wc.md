@@ -6,7 +6,7 @@ print newline, word, and byte counts for each file
 
 In short
 
-> **word count**
+- **word count**
 
 References
 

@@ -2,20 +2,22 @@
 
 On Linux
 
-> **ncat** - Concatenate and redirect sockets
->
-> - Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat.
+**ncat** - Concatenate and redirect sockets
+
+- Ncat was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat.
+
+On BSD
+
+**netcat** - arbitrary TCP and UDP connections and listens
+
+- [Linux Netcat 命令——网络工具中的瑞士军刀](https://www.oschina.net/translate/linux-netcat-command)
+
+---
 
 References
 
 - `man nc`
 - https://nmap.org/ncat/
-
-On BSD
-
-> **netcat** - arbitrary TCP and UDP connections and listens
-
-- [Linux Netcat 命令——网络工具中的瑞士军刀](https://www.oschina.net/translate/linux-netcat-command)
 
 ## Quickstart
 

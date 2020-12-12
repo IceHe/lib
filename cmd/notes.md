@@ -9,7 +9,7 @@ References
 - Coreutils - GNU core utilities : https://www.gnu.org/software/coreutils/coreutils.html
 - URL Template as follow
 
-> www.gnu.org/software/coreutils/manual/html_node/**[COMMAND_NAME]**-invocation.html
+`www.gnu.org/software/coreutils/manual/html_node/[COMMAND_NAME]-invocation.html`
 
 Others
 
@@ -45,7 +45,7 @@ unix / linux 不同的程序仓库代表什么
 
 `jq`
 
-> Command-line JSON processor
+**Command-line JSON processor**
 
 - `… | jq -r 'join(",")'`
     - 原来错的命令行是 `… | jq -r '.[]|join(",")'`

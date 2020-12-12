@@ -2,11 +2,13 @@
 
 On Linux
 
-> crond - daemon to execute scheduled commands
+**crond - daemon to execute scheduled commands**
 
 On BSD
 
-> A time-based job scheduler in Unix-like computer operating systems.
+**A time-based job scheduler in Unix-like computer operating systems.**
+
+---
 
 References
 

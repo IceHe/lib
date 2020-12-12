@@ -2,11 +2,13 @@
 
 On Linux
 
-> report file system disk space usage
+- report file system disk space usage
 
 On BSD
 
-> **display free disk** space
+- **display free disk** space
+
+---
 
 References
 

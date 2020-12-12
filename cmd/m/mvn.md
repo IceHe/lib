@@ -345,7 +345,7 @@ References
 
 - Maven - Maven Getting Started Guide : https://maven.apache.org/guides/getting-started/index.html#How_do_I_filter_resource_files
 
-> **Important** : Please RTFM carefully!
+**Important** : Please RTFM carefully!
 
 - RTFM : READ The Fucking Manual
 

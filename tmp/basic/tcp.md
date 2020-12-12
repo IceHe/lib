@@ -161,10 +161,12 @@ References
 - 《计算机网络：自顶向下方法》
 - 拥塞控制 : https://www.cnblogs.com/losbyday/p/5847041.html
 
-> - 慢启动：指数增长（翻倍）直到 ssthresh 值
-> - 拥塞避免：线性增、乘性减
-> - 快速重传
-> - 快速失败
+Features
+
+- 慢启动：指数增长（翻倍）直到 ssthresh 值
+- 拥塞避免：线性增、乘性减
+- 快速重传
+- 快速失败
 
 慢启动
 

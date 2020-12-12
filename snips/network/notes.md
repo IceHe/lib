@@ -16,7 +16,7 @@ Reference
 
 - https://en.wikipedia.org/wiki/OSI_model
 
-> Open System Interconnection Model
+**Open System Interconnection Model**
 
 |Layer <br/>Type|Layer <br/>Number|Layer <br/>Name|Protocol <br/>Data Unit<br/>(PDU)|Protocols|
 |-|-|-|-|-|
@@ -406,7 +406,7 @@ Reference
 - 通过三次握手才能对通信双方的初始序列号进行初始化
 - 讨论其他次数握手建立连接的可能性
 
-> The principle reason for the three-way handshake is to prevent old duplicate connection initiations from causing confusion.
+**The principle reason for the three-way handshake is to prevent old duplicate connection initiations from causing confusion.**
 
 ![tcp-recovery-from-old-duplicate-syn.png](_images/tcp-recovery-from-old-duplicate-syn.png)
 

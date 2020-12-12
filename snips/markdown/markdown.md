@@ -2,6 +2,8 @@
 
 Markdown 风格指南
 
+---
+
 - Here is the Markdown style I follow.
 - It's not a mandatory standard.
 

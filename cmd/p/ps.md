@@ -2,11 +2,13 @@
 
 On Linux
 
-> report a snapshot of the current processes
+- report a snapshot of the current processes
 
 On BSD
 
-> **process status**
+- **process status**
+
+---
 
 References
 

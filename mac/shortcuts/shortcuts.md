@@ -14,7 +14,7 @@
 
 ---
 
-> macOS Shortcuts: 我的 macOS 快捷键列表。
+**macOS Shortcuts: 我的 macOS 快捷键列表。**
 
 - Some explanation
 - Default shortcuts that I use most frequently

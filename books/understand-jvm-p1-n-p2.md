@@ -616,7 +616,7 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
 
 - _icehe : 感觉大多数人跨到这堵墙 "垃圾回收" 的那一侧之后, 就不想跨回去了_
 
-> 垃圾收集 GC - Garbage Collection
+**垃圾收集 GC - Garbage Collection**
 
 - Which : 哪些内存需要回收
 - When : 什么时候回收
@@ -2492,7 +2492,7 @@ $ jvisualvm
 
 ![jvisualvm-startup-n-plugins.png](_images/understand-jvm/jvisualvm-startup-n-plugins.png)
 
-> 双击 `VisualVM` 后
+**双击 `VisualVM` 后**
 
 - Overview
 
