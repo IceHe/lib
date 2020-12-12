@@ -1,6 +1,8 @@
 # systemctl
 
-> Control the systemd system and service manager
+Control the systemd system and service manager
+
+---
 
 ## Synopsis
 

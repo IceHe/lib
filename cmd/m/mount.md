@@ -1,6 +1,8 @@
 # mount
 
-> mount a filesystem
+mount a filesystem
+
+---
 
 References
 
@@ -38,7 +40,9 @@ mount -t type device dir
 
 # umount
 
-> unmount a filesystem
+unmount a filesystem
+
+---
 
 ## Quickstart
 

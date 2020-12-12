@@ -1,6 +1,8 @@
 # zgrep
 
-> search possibly compressed files for a regular expression
+search possibly compressed files for a regular expression
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # RocketMQ
 
-> A unified messaging engine，lightweight data processing platform.
+A unified messaging engine，lightweight data processing platform.
+
+---
 
 References
 

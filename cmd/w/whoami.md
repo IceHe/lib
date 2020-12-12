@@ -1,6 +1,8 @@
 # whoami
 
-> print effective userid
+print effective userid
+
+---
 
 References
 

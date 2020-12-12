@@ -1,6 +1,8 @@
 # find
 
-> search for files in a directory hierarchy
+search for files in a directory hierarchy
+
+---
 
 References
 

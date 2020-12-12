@@ -1,6 +1,8 @@
 # chmod
 
-> change file mode bits
+change file mode bits
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # realpath
 
-> print the resolved path
+print the resolved path
+
+---
 
 Get **absolute path to file** !
 

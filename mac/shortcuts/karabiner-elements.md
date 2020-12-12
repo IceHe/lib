@@ -1,6 +1,8 @@
 # Karabiner-Elements
 
-> Changes not only the shortcuts but also the keyboard key-remappings!
+Changes not only the shortcuts but also the keyboard key-remappings!
+
+---
 
 - https://pqrs.org/osx/karabiner/index.html)
 

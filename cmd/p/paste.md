@@ -1,6 +1,8 @@
 # paste
 
-> merge lines of files
+merge lines of files
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # tmux
 
-> terminal multiplexer
+terminal multiplexer
+
+---
 
 - `man tmux`
 - Home : https://tmux.github.io/

@@ -1,6 +1,8 @@
 # tar
 
-> manipulate tap archives
+manipulate tap archives
+
+---
 
 References
 

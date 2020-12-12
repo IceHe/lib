@@ -1,6 +1,8 @@
 # head
 
-> output the first part of files
+output the first part of files
+
+---
 
 References
 

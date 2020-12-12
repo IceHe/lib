@@ -73,7 +73,9 @@ endif
 
 # References
 
-> Image
+Image
+
+---
 
 ![GTD](_images/gtd.jpg)
 
@@ -83,7 +85,9 @@ endif
 
 # History
 
-> Archived
+Archived
+
+---
 
 ## Plan
 

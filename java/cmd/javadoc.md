@@ -1,6 +1,8 @@
 # javadoc
 
-> Java API documentation generator
+Java API documentation generator
+
+---
 
 References
 

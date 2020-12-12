@@ -1,6 +1,8 @@
 # expect
 
-> programmed dialogue with interactive programs
+programmed dialogue with interactive programs
+
+---
 
 Reference
 

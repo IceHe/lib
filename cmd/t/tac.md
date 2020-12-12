@@ -1,6 +1,8 @@
 # tac
 
-> concatenate and print files in reverse
+concatenate and print files in reverse
+
+---
 
 References
 

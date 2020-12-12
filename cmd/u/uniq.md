@@ -1,6 +1,8 @@
 # uniq
 
-> report or omit repeated lines
+report or omit repeated lines
+
+---
 
 References
 

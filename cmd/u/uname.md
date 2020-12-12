@@ -1,6 +1,8 @@
 # uname
 
-> print system information
+print system information
+
+---
 
 References
 

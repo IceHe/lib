@@ -1,6 +1,8 @@
 # scp
 
-> secure copy (remote file copy program)
+secure copy (remote file copy program)
+
+---
 
 References
 

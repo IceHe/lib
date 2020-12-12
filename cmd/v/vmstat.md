@@ -1,6 +1,8 @@
 # vmstat
 
-> Report virtual memory statistics
+Report virtual memory statistics
+
+---
 
 - It reports information about processes, memory, paging, block IO, traps, disks and cpu activity.
 - See `man vmstat` for more.

@@ -1,6 +1,8 @@
 # sort
 
-> sort lines of text files
+sort lines of text files
+
+---
 
 Reference
 

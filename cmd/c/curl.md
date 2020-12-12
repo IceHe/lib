@@ -1,6 +1,8 @@
 # curl
 
-> transfer a URL : a tool to transfer data from or to a server, using one of the supported protocols
+transfer a URL : a tool to transfer data from or to a server, using one of the supported protocols
+
+---
 
 References
 

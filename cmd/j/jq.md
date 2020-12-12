@@ -1,6 +1,8 @@
 # jq
 
-> Command-line JSON processor
+Command-line JSON processor
+
+---
 
 References
 

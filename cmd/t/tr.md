@@ -1,6 +1,8 @@
 # tr
 
-> translate or delete characters
+translate or delete characters
+
+---
 
 References
 

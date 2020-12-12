@@ -1,6 +1,8 @@
 # wc
 
-> print newline, word, and byte counts for each file
+print newline, word, and byte counts for each file
+
+---
 
 In short
 

@@ -1,6 +1,8 @@
 # python
 
-> an interpreted, interactive, object-oriented programming language
+an interpreted, interactive, object-oriented programming language
+
+---
 
 References
 

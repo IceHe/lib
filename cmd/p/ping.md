@@ -1,6 +1,8 @@
 # ping
 
-> send ICMP ECHO_REQUEST to network hosts
+send ICMP ECHO_REQUEST to network hosts
+
+---
 
 References
 

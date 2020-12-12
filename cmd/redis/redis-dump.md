@@ -1,6 +1,8 @@
 # redis-dump
 
-> Backup and restore your Redis data to and from JSON.
+Backup and restore your Redis data to and from JSON.
+
+---
 
 **NOTE** !!!
 

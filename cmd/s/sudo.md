@@ -1,6 +1,8 @@
 # sudo
 
-> sudo, sudoedit - execute a command as another user
+sudo, sudoedit - execute a command as another user
+
+---
 
 References
 

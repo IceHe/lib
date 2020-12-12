@@ -1,6 +1,8 @@
 # which
 
-> shows the full path of (shell) commands
+shows the full path of (shell) commands
+
+---
 
 References
 

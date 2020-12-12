@@ -1,6 +1,8 @@
 # diff
 
-> compare files line by line
+compare files line by line
+
+---
 
 References
 

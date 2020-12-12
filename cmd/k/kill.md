@@ -1,6 +1,8 @@
 # kill
 
-> terminate or signal a process
+terminate or signal a process
+
+---
 
 References
 
@@ -118,7 +120,9 @@ $ kill -l
 
 # killall
 
-> kill processes by name
+kill processes by name
+
+---
 
 ## Usage
 

@@ -1,6 +1,8 @@
 # terminal-notifier
 
-> terminal-notifier (2.0.0) is a command-line tool to send macOS User Notifications.
+terminal-notifier (2.0.0) is a command-line tool to send macOS User Notifications.
+
+---
 
 - **Notice : Only on macOS**
 

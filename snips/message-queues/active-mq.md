@@ -1,6 +1,8 @@
 # ActiveMQ
 
-> **Flexible & Powerful** Open Source **Multi-Protocol Messaging**
+**Flexible & Powerful** Open Source **Multi-Protocol Messaging**
+
+---
 
 References
 

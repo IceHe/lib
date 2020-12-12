@@ -1,6 +1,8 @@
 # timeout
 
-> run a command with a time limit
+run a command with a time limit
+
+---
 
 References
 

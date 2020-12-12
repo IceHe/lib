@@ -1,6 +1,8 @@
 # ip
 
-> show / manipulate routing, devices, policy routing and tunnels
+show / manipulate routing, devices, policy routing and tunnels
+
+---
 
 References
 

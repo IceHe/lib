@@ -1,6 +1,8 @@
 # sleep
 
-> delay for a specified amount of time
+delay for a specified amount of time
+
+---
 
 References
 

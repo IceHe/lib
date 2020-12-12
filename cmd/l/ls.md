@@ -1,6 +1,8 @@
 # ls
 
-> **list** directory contents
+**list** directory contents
+
+---
 
 References
 

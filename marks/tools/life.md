@@ -1,6 +1,8 @@
 # 生活
 
-> Daily use
+Daily use
+
+---
 
 ## 护牙
 

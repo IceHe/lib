@@ -1,6 +1,8 @@
 # jstack
 
-> stack trace : print Java stack traces of Java threads for a specified Java process
+stack trace : print Java stack traces of Java threads for a specified Java process
+
+---
 
 References
 

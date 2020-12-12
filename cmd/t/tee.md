@@ -1,6 +1,8 @@
 # tee
 
-> Read from standard input and write to standard output and files
+Read from standard input and write to standard output and files
+
+---
 
 References
 

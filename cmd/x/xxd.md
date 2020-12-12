@@ -1,6 +1,8 @@
 # xxd
 
-> make a hexdump or do the reverse
+make a hexdump or do the reverse
+
+---
 
 Reference
 

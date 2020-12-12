@@ -1,6 +1,8 @@
 # lsof
 
-> list open files
+list open files
+
+---
 
 References
 

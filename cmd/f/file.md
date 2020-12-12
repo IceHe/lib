@@ -1,6 +1,8 @@
 # file
 
-> determine file type
+determine file type
+
+---
 
 References
 

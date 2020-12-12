@@ -1,6 +1,8 @@
 # locale
 
-> get locale-specific information
+get locale-specific information
+
+---
 
 References
 

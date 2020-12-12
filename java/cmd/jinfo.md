@@ -1,6 +1,8 @@
 # jinfo
 
-> Configuration Info for Java : generate Java configuration information for a specified Java process
+Configuration Info for Java : generate Java configuration information for a specified Java process
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # comm
 
-> compare two sorted files line by line
+compare two sorted files line by line
+
+---
 
 References
 

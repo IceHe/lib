@@ -1,6 +1,8 @@
 # Poet
 
-> 眼前的苟且，也正是诗和远方
+眼前的苟且，也正是诗和远方
+
+---
 
 - Digest created on 2016-06-15
 - From: http://zhuanlan.zhihu.com/lswlsw/19895904

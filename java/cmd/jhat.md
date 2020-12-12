@@ -1,6 +1,8 @@
 # jhat
 
-> Java Heap Analysis Tool
+Java Heap Analysis Tool
+
+---
 
 - Only available in JDK 8
 

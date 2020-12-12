@@ -1,6 +1,8 @@
 # jar
 
-> Java archive tool
+Java archive tool
+
+---
 
 - Create an archive for classes and resources, and to manipulate or restore individual classes or resources from an archive.
 

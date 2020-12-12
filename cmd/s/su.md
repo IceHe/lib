@@ -1,6 +1,8 @@
 # su
 
-> run a command with substitute user and group ID
+run a command with substitute user and group ID
+
+---
 
 References
 

@@ -1,7 +1,9 @@
 # passwd
 
-> - Linux : update user's authentication tokens
-> - BSD : modify a user's password
+- Linux : update user's authentication tokens
+- BSD : modify a user's password
+
+---
 
 References
 

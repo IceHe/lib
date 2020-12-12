@@ -1,6 +1,8 @@
 # jstat
 
-> monitor JVM statistics
+monitor JVM statistics
+
+---
 
 References
 

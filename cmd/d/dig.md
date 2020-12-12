@@ -1,6 +1,8 @@
 # dig
 
-> DNS lookup utility
+DNS lookup utility
+
+---
 
 References
 

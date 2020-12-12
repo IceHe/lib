@@ -1,6 +1,8 @@
 # readlink
 
-> print resolved symbolic links or canonical file names
+print resolved symbolic links or canonical file names
+
+---
 
 - `man readlink`
 - It is similiar to `realpath`.

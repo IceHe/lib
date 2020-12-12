@@ -1,6 +1,8 @@
 # cut
 
-> remove sections from each line of files
+remove sections from each line of files
+
+---
 
 References
 

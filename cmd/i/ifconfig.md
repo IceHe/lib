@@ -1,6 +1,8 @@
 # ifconfig
 
-> configure a network interface
+configure a network interface
+
+---
 
 References
 

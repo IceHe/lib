@@ -1,6 +1,8 @@
 # watch
 
-> execute a program periodically, showing output fullscreen
+execute a program periodically, showing output fullscreen
+
+---
 
 References
 

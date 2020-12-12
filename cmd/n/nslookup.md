@@ -1,6 +1,8 @@
 # nslookup
 
-> query Internet name servers interactively
+query Internet name servers interactively
+
+---
 
 References
 

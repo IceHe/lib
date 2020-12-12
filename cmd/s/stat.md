@@ -1,6 +1,8 @@
 # stat
 
-> display file or file system status
+display file or file system status
+
+---
 
 Reference
 

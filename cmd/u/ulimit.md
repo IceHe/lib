@@ -1,6 +1,8 @@
 # ulimit
 
-> system resource limit to shell
+system resource limit to shell
+
+---
 
 Bash Built-in Command
 

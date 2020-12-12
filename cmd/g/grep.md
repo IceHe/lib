@@ -1,6 +1,8 @@
 # grep
 
-> grep, egrep, fgrep - print lines matching a pattern
+grep, egrep, fgrep - print lines matching a pattern
+
+---
 
 References
 

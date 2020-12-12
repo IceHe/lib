@@ -1,6 +1,8 @@
 # mvn
 
-> Maven : a tool used for building and managing any Java-based project
+Maven : a tool used for building and managing any Java-based project
+
+---
 
 Maven is essentially a project management and comprehension tool and as such provides a way to help with managing:
 

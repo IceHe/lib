@@ -1,6 +1,8 @@
 # last
 
-> last, lastb - show list
+last, lastb - show list
+
+---
 
 References
 

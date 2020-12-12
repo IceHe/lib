@@ -1,6 +1,8 @@
 # dstat
 
-> versatile tool for generating system resource statistics
+versatile tool for generating system resource statistics
+
+---
 
 References
 

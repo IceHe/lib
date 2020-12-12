@@ -1,6 +1,8 @@
 # pidstat
 
-> Report statistics for Linux tasks.
+Report statistics for Linux tasks.
+
+---
 
 The pidstat command is used for monitoring individual tasks currently being managed by the Linux kernel.
 

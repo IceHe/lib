@@ -1,6 +1,8 @@
 # whatis
 
-> display manual page descriptions
+display manual page descriptions
+
+---
 
 References
 

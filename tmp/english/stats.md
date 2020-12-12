@@ -1,6 +1,8 @@
 # Statistics
 
-> Unknown | Oblivious
+Unknown | Oblivious
+
+---
 
 - accent : n. vt. 强调
 - alternate : adj. 交替的 vt. vi. 交替 n. 替代物

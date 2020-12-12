@@ -1,6 +1,8 @@
 # javap
 
-> Java class file disassembler
+Java class file disassembler
+
+---
 
 References
 

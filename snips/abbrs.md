@@ -1,6 +1,8 @@
 # Abbreviations
 
-> The abbreviations below are usually related to coding (programmming).
+The abbreviations below are usually related to coding (programmming).
+
+---
 
 常见命名方式
 

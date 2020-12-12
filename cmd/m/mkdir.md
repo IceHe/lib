@@ -1,6 +1,8 @@
 # mkdir
 
-> make directories
+make directories
+
+---
 
 References
 

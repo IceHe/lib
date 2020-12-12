@@ -1,6 +1,8 @@
 # rm
 
-> remove files or directories
+remove files or directories
+
+---
 
 References
 

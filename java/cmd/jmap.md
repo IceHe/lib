@@ -1,6 +1,8 @@
 # jmap
 
-> memory map : print details of a specified process
+memory map : print details of a specified process
+
+---
 
 References
 

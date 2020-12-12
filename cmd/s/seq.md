@@ -1,6 +1,8 @@
 # seq
 
-> print a sequence of numbers
+print a sequence of numbers
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # service
 
-> run a System V init script
+run a System V init script
+
+---
 
 /etc/init.d
 

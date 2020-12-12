@@ -1,6 +1,8 @@
 # top
 
-> display Linux processes
+display Linux processes
+
+---
 
 References
 

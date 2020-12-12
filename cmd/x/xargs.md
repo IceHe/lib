@@ -1,6 +1,8 @@
 # xargs
 
-> build and execute command lines from standard input
+build and execute command lines from standard input
+
+---
 
 References
 

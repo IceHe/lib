@@ -1,6 +1,8 @@
 # redis-server
 
-> redis-server, redis-sentinel - Redis server
+redis-server, redis-sentinel - Redis server
+
+---
 
 ## Synopsis
 

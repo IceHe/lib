@@ -1,6 +1,8 @@
 # sysctl
 
-> configure kernel parameters at runtime
+configure kernel parameters at runtime
+
+---
 
 References
 

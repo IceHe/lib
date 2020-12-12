@@ -1,6 +1,8 @@
 # date
 
-> display or set the system date and time
+display or set the system date and time
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # htop
 
-> interactive process viewer
+interactive process viewer
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # visudo
 
-> edit the sudoers file
+edit the sudoers file
+
+---
 
 References
 

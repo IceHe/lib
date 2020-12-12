@@ -1,6 +1,8 @@
 # jhsdb
 
-> Java HotSpot : attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM
+Java HotSpot : attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM
+
+---
 
 - Available after JDK 9
 

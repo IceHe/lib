@@ -1,6 +1,8 @@
 # RabbitMQ
 
-> RabbitMQ is the most widely deployed open source message broker.
+RabbitMQ is the most widely deployed open source message broker.
+
+---
 
 References
 

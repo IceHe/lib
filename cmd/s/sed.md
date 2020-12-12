@@ -1,6 +1,8 @@
 # sed
 
-> stream editor for filtering and transforming text
+stream editor for filtering and transforming text
+
+---
 
 References
 

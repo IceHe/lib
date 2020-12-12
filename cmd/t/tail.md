@@ -1,6 +1,8 @@
 # tail
 
-> output the last part of files
+output the last part of files
+
+---
 
 References
 

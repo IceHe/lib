@@ -1,6 +1,8 @@
 # less
 
-> opposite of more
+opposite of more
+
+---
 
 References
 

@@ -1,6 +1,8 @@
 # join
 
-> join lines of two files on a common field
+join lines of two files on a common field
+
+---
 
 References
 

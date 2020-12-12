@@ -1,6 +1,8 @@
 # Vim
 
-> terminal text editor
+terminal text editor
+
+---
 
 Purpose
 

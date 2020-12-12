@@ -1,6 +1,8 @@
 # jcmd
 
-> send diagnostic command requests to a running JVM
+send diagnostic command requests to a running JVM
+
+---
 
 References
 

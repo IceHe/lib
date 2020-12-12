@@ -1,6 +1,8 @@
 # ZeroMQ
 
-> An open-source universal messaging library
+An open-source universal messaging library
+
+---
 
 References
 
