@@ -1,5 +1,7 @@
 # Markdown Style Guide
 
+[TOC]
+
 > Markdown 风格指南
 
 个人遵循的 Markdown 风格, 并非强制的标准
@@ -21,10 +23,11 @@
 Markdown Style：**Readability > Writability**
 
 - Markdown Style Guide : http://www.cirosantilli.com/markdown-style-guide
-- Google Doc : https://github.com/google/styleguide/tree/gh-pages/docguide
-    - Philosophy : https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md
+- Google documentation guide : https://github.com/google/styleguide/tree/gh-pages/docguide
     - Sytle Guide : https://github.com/google/styleguide/blob/gh-pages/docguide/style.md
     - Best Practices : https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md
+    - README.md files ( an Example ) : https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md)
+    - Philosophy : https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md
 
 ### 中文排版
 
