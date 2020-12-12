@@ -1,8 +1,10 @@
 # 汇编语言的学习准备
 
-> 在 Windows7 64 位系统上使用 debug.exe
+在 Windows7 64 位系统上使用 debug.exe
 
 - macOS 等其它操作系统，需自行寻找学习工具
+
+## 步骤 ( Steps )
 
 下载 MASM5.0 汇编编译器
 

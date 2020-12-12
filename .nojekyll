@@ -1,6 +1,6 @@
 # .nojekyll
 
-> 用于阻止 GitHub Pages 会忽略掉下划线开头的文件
+用于阻止 GitHub Pages 会忽略掉下划线开头的文件
 
 - 如需启用该特性，将本文件挪到项目根目录
 - Ref : https://docsify.js.org/#/quickstart?id=writing-content
