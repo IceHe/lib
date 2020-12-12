@@ -60,6 +60,8 @@ Suggestion on 2020-12-10
 
 ## Network Proxy
 
+TODO : 重写
+
 If cannot download softwares, need to configure network proxy ( in China Mainland )
 
 1. Connect to network
@@ -99,7 +101,8 @@ Homebrew is a [macOS package manager](https://brew.sh) for installing & managing
 
 - If cannot install or install slowly, try the command below :
     - **Homebrew 国内如何自动安装 ( 国内地址 )** : https://zhuanlan.zhihu.com/p/111014448
-    - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170
+
+<!--     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170 -->
 
 ```bash
 /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
@@ -111,8 +114,9 @@ Homebrew is a [macOS package manager](https://brew.sh) for installing & managing
 
 ```bash
 $ brew --version
-Homebrew 1.7.2
-Homebrew/homebrew-core (git revision 27f23; last commit 2018-08-24)
+Homebrew 2.6.1-29-g2be340c
+Homebrew/homebrew-core (git revision 18d380e; last commit 2020-12-11)
+Homebrew/homebrew-cask (git revision 84d2f; last commit 2020-12-11)
 ```
 
 3\. Accelarate
@@ -168,7 +172,6 @@ Required ( for me )
 
 ```bash
 brew cask install \
-    1password \
     appcleaner \
     eudic \
     google-chrome \
@@ -197,6 +200,7 @@ brew cask install \
 
 Available in App Store
 
+- 1Password
 - Amphetamine
 - Copy 'Em
 - EasyRes
