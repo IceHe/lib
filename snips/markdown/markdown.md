@@ -8,10 +8,11 @@
 
 ### GFM
 
-了解 GitHub 和 GitLab 原生支持的 Markdown 语法
+了解 GitLab 和 GitHub 原生支持的 Markdown 语法
 
-- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
 - [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
+    - [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown)
 
 ### Style Guide
 
@@ -19,11 +20,11 @@
 
 Markdown Style：**Readability > Writability**
 
-- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide/)
-- [Google](https://github.com/google/styleguide/tree/gh-pages/docguide)
-    - [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)
-    - [Sytle Guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
-    - [Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
+- Markdown Style Guide : http://www.cirosantilli.com/markdown-style-guide
+- Google Doc : https://github.com/google/styleguide/tree/gh-pages/docguide
+    - Philosophy : https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md
+    - Sytle Guide : https://github.com/google/styleguide/blob/gh-pages/docguide/style.md
+    - Best Practices : https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md
 
 ### 中文排版
 
@@ -252,6 +253,18 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
     - My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
 - 不如直接使用链接本体
     - My image : https://hub.docker.com/r/icehe/alpine
+
+### 脚注 Footnotes
+
+> 尽量不使用
+
+- Available
+    - GitLab : https://docs.gitlab.com/ee/user/markdown.html#footnotes
+- Unavailable
+    - GitHub
+    - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
+- 如果使用, 标准是 :
+    - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
 ### 其它 Others
 

@@ -23,7 +23,7 @@
 
 Basics
 
-- [JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC [^1]
+- [JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC
     - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
     - [Part III. Execution Engine](/books/understand-jvm-p3.md) _( reading )_
     - Part IV. Compile and Code Optimize _( to read )_
@@ -610,5 +610,3 @@ Previous Blog : 2015 ~ 2017
 ## End
 
 > 靡不有初，鲜克有终
-
-[^1]: 批注测试

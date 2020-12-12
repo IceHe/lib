@@ -1,4 +1,4 @@
-# Mac Init
+# Initialize Mac
 
 > How to initialize my Mac ?
 
