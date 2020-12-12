@@ -1,42 +1,77 @@
 # Markdown Style Guide
 
-[TOC]
-
 > Markdown 风格指南
 
-个人遵循的 Markdown 风格, 并非强制的标准
+- Here is the Markdown style I follow.
+- It's not a mandatory standard.
 
 ## References
 
+### Markdown
+
+_( Skippable )_
+
+- _Daring Fireball - Projects - Markdown_
+    - _[Main](https://daringfireball.net/projects/markdown)_
+    - _[Basics](https://daringfireball.net/projects/markdown/basics)_
+    - _[Syntax](https://daringfireball.net/projects/markdown/syntax)_
+    - _[Dingus](https://daringfireball.net/projects/markdown/dingus)_
+- _[CommonMark Spec](https://spec.commonmark.org)_
+    - _[Version 0.29](https://spec.commonmark.org/0.29) on 2019-04-06_
+
 ### GFM
 
-了解 GitLab 和 GitHub 原生支持的 Markdown 语法
+GitLab & GitHub built-in Markdown
 
-- [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
-- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
-    - [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown)
+- [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary) _( Readable )_
+- _[Getting started with writing and formatting on GitHub](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)_
+    - _[GitHub Flavored Markdown Spec](https://github.github.com/gfm)_
+    - _[Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)_
+    - _[Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)_
+        - _Organizing information with tables_
+        - _Creating and highlighting code blocks_
+        - _Autolinked references and URLs_
+    - [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Readable )_
 
 ### Style Guide
 
-> Highly recommend you to read these files below!
+> Highly recommend you to read the links below!
 
-Markdown Style：**Readability > Writability**
+Guidelines : **Readability > Writability**
 
-- Markdown Style Guide : http://www.cirosantilli.com/markdown-style-guide
-- Google documentation guide : https://github.com/google/styleguide/tree/gh-pages/docguide
+- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide) _( Recommended )_
+- _[Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)_
     - Sytle Guide : https://github.com/google/styleguide/blob/gh-pages/docguide/style.md
     - Best Practices : https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md
     - README.md files ( an Example ) : https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md)
     - Philosophy : https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md
 
-### 中文排版
+### Chinese Text Layout
+
+> 中文排版
 
 - [写给大家看的中文排版指南](https://zhuanlan.zhihu.com/p/20506092)
 - [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
 
-## 建议 Suggestions
+## Suggestions
+
+> 建议
 
 **Readability > Writability** : 易阅读 > 易编写
+
+### 目录 TOC
+
+TOC - Table Of Contents
+
+> 尽量添加目录到文档
+
+- Available
+    - GitLab : https://docs.gitlab.com/ee/user/markdown.html#table-of-contents
+- Unavailable
+    - GitHub
+    - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
+- 如果使用, 标准是 :
+    - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
 ### 标题 Heading
 
@@ -263,6 +298,19 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
 
 - Available
     - GitLab : https://docs.gitlab.com/ee/user/markdown.html#footnotes
+- Unavailable
+    - GitHub
+    - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
+- 如果使用, 标准是 :
+    - https://cirosantilli.com/markdown-style-guide/#reference-style-links
+
+### Emoji
+
+> 尽量不支持
+
+- Available
+    - GitLab : https://docs.gitlab.com/ee/user/markdown.html#footnotes
+    - Visual Studio Code : Markdown Preview Enhanced
 - Unavailable
     - GitHub
     - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_

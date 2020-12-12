@@ -73,7 +73,7 @@ $ passwd -S icehe
 passwd: Unknown user name 'icehe'.
 ```
 
-## Related
+## See Also
 
 References
 

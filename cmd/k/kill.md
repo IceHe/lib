@@ -110,7 +110,7 @@ $ kill -l
 63)  SIGRTMAX-1  64) SIGRTMAX
 ```
 
-## Related
+## See Also
 
 - [`killall`](/cmd/k/killall.md) Kill processes by name
 - `pgrep` Find processes by name
