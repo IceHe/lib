@@ -60,7 +60,7 @@ Suggestion on 2020-12-10
 
 ## Network Proxy
 
-TODO : 重写
+> FYI - For Your Information ( 仅供参考, 自行配置 )
 
 If cannot download softwares, need to configure network proxy ( in China Mainland )
 
@@ -69,7 +69,7 @@ If cannot download softwares, need to configure network proxy ( in China Mainlan
 3. Enable `Automatic Proxy Configurattion`
 4. Find `URL:` input-box under `Proxy Configuration File`
 5. Fill with ~~`http://url/to/proxy.pac`~~ ( URL to PAC file )
-    - _You can find a latest valid PAC file URL by yourself on the Internet._
+    - _You could search a latest valid PAC file URL by yourself on the Internet._
 6. Click `OK`
 
 _Reference : PAC - Proxy Auto Config :_ https://en.wikipedia.org/wiki/Proxy_auto-config
