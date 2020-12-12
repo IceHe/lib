@@ -1,6 +1,8 @@
 # awk
 
-> awk - pattern-directed scanning and processing language
+awk - pattern-directed scanning and processing language
+
+---
 
 References
 
