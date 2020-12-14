@@ -195,3 +195,11 @@ crontab -e
 
 - Prepare : `brew install terminal-notifier`
 - References : https://weibo.com/6067744410/JgC7UbZI5
+
+### Not Working?
+
+- Problem : Crontab is not working on macOS?
+- Solution : Grant cron Full Disk Access in MacOS
+- _Reference : How to Fix Cron Permission Issues in MacOS Catalina & Mojave_ : https://osxdaily.com/2020/04/27/fix-cron-permissions-macos-full-disk-access
+
+![allow-cron-full-disk-access-mac.jpg](_images/allow-cron-full-disk-access-mac.jpg)
