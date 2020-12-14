@@ -2,7 +2,7 @@
 
 - Created on 2016-11-01 00:00:00
 
-[< Sep. 2016 - Prev 上一月](/lifelogs/2016/09/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Nov. 2016 >](/lifelogs/2016/11/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/lifelogs/time-mgt-log.md)
+[< Sep. 2016 - Prev 上一月](/lifelogs/2016/09/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Nov. 2016 >](/lifelogs/2016/11/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/lifelogs/archived/time-mgt-log.md)
 
 1. [16/10/01 stu15 spo24 joy24 was6](/lifelogs/2016/10/d01.md)
 2. [16/10/02 stu50 spo9 joy18](/lifelogs/2016/10/d02.md)

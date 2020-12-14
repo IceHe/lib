@@ -10,7 +10,7 @@ Time Mgt.: Life Log Format 时间日志格式。
 
 ---
 
-- 链接：《 [我所有的时间统计日志](/lifelogs/time-mgt-log.md) 》
+- 链接：《 [我所有的时间统计日志](/lifelogs/archived/time-mgt-log.md) 》
 - 启发：《 [奇特的一生](https://book.douban.com/subject/1115353/) 》 [柳比歇夫](https://zh.wikipedia.org/zh-hans/%E4%BA%9A%E5%8E%86%E5%B1%B1%E5%A4%A7%C2%B7%E4%BA%9A%E5%8E%86%E5%B1%B1%E5%BE%B7%E7%BD%97%E7%BB%B4%E5%A5%87%C2%B7%E6%9F%B3%E6%AF%94%E6%AD%87%E5%A4%AB) 的时间统计法
 - 补充：时间管理日志格式一直根据实际使用进行调整，可能与本文描述不一致。
 - 最新：2016-12-05

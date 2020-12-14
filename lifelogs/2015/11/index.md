@@ -2,7 +2,7 @@
 
 - Created on 2015-11-01 00:00:00
 
-[< Oct. 2015 - Prev 上一月](/lifelogs/2015/10/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Dec. 2015 >](/lifelogs/2015/12/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/lifelogs/time-mgt-log.md)
+[< Oct. 2015 - Prev 上一月](/lifelogs/2015/10/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Dec. 2015 >](/lifelogs/2015/12/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/lifelogs/archived/time-mgt-log.md)
 
 1. [15/11/01 stu58 spo6](/lifelogs/2015/11/d01.md)
 2. [15/11/02 stu58 spo12](/lifelogs/2015/11/d02.md)

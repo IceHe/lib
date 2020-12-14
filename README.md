@@ -557,10 +557,10 @@ Timeline
 
 Nonsense
 
-- Time Mgt. : [Life Logs](/lifelogs/time-mgt-log.md) & [Log Format](/lifelogs/time-mgt.md) _( until 2016.10 )_
-- Way of Life : [Self Manual](/lifelogs/life-manual.md) _( until 2017 )_
-- [Routine](/lifelogs/ROUTINE.md) & [TBC](/lifelogs/TBC.md) _( 2019 ~ 2020.04 )_
-- [Daily Schedule](/lifelogs/daily-schedule.md) _( from 2020.11 )_
+- Time Mgt. : [Life Logs](/lifelogs/archived/time-mgt-log.md) & [Log Format](/lifelogs/archived/time-mgt.md) _( until 2016.10 )_
+- Way of Life : [Self Manual](/lifelogs/archived/life-manual.md) _( until 2017 )_
+- [Routine](/lifelogs/archived/ROUTINE.md) & [TBC](/lifelogs/archived/TBC.md) _( 2019 ~ 2020.04 )_
+- [Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_
 
 Previous Blog : 2015 ~ 2017
 

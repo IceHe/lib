@@ -2,7 +2,7 @@
 
 - Created on 2014-12-01
 
-[< Nov. 2014 - Prev 上一月](/lifelogs/2014/11/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Jan. 2015 >](/lifelogs/2015/01/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/lifelogs/time-mgt-log.md)
+[< Nov. 2014 - Prev 上一月](/lifelogs/2014/11/index.md) &nbsp; &nbsp; | &nbsp; &nbsp; [下一月 Next - Jan. 2015 >](/lifelogs/2015/01/index.md) &nbsp; &nbsp; |  &nbsp; &nbsp; [返回年历 Back to Years ^]](/lifelogs/archived/time-mgt-log.md)
 
 1. [14/12/01](/lifelogs/2014/12/d01.md)
 2. [14/12/02](/lifelogs/2014/12/d02.md)

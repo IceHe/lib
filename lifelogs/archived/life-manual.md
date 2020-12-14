@@ -286,8 +286,8 @@ Personal Life Experience & Self-Help Manual.
         - 应该果断：想到当前该做什么，就立即去做，打破坏状态。
 - **记时**
     自省，提高效率。
-    - 15 分钟为时间统计单位，划分出六种类型的事务，来对自己进行 [时间使用情况的统计](/lifelogs/time-mgt.md)。
-        写好 [脚本](https://github.com/IceHe/Python_for_Day_Log) 定期统计每周、每月、每年的时间使用情况，并会定期发布到 [Life Logs](/lifelogs/time-mgt-log.md)。
+    - 15 分钟为时间统计单位，划分出六种类型的事务，来对自己进行 [时间使用情况的统计](/lifelogs/archived/time-mgt.md)。
+        写好 [脚本](https://github.com/IceHe/Python_for_Day_Log) 定期统计每周、每月、每年的时间使用情况，并会定期发布到 [Life Logs](/lifelogs/archived/time-mgt-log.md)。
     - 记法便捷：记录不要过于详细、复杂，否则会太费时费力，反而会影响做事。
         及时记录，减轻记忆负担，避免遗忘以致记录错误；但要容忍一定程度的记录错误，完满的执行远比完美的统计记录重要！
 - **理财**
