@@ -11,7 +11,7 @@ Markdown 风格指北
 
 ### Markdown Specification
 
-Markdown Standard _( All Skippable )_
+_( All Skippable to Read )_
 
 - Daring Fireball - Projects - Markdown
     - [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
@@ -26,22 +26,14 @@ GFM - GitHub or GitLab Flavored Markdown _( All Required )_
 - [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Concise )_
 - [Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
 - [Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)
-    - _Organizing information with tables_
-    - _Creating and highlighting code blocks_
-    - _Autolinked references and URLs_
+    - Organizing information with tables
+    - Creating and highlighting code blocks
+    - Autolinked references and URLs
 - [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
-
-    ```json
-    {
-        "foo": "bar"
-    }
-    ```
-
-- 下一行么?
 
 ### Style Guide
 
-_( All Recommended )_
+_( All Recommended to Read )_
 
 - [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
 - _[Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)_

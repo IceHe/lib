@@ -109,7 +109,7 @@ Infrastructre _( TODO )_
 
 Markdown
 
-- [Style Guide](/snips/markdown/markdown.md)
+- [Style Guide](/snips/markdown/markdown-style-guide.md)
 - [Lint Tool : mdl](/snips/markdown/lint/lint.md)
 
 Message Queues
@@ -187,7 +187,7 @@ _Others_
     - [Life](/marks/tools/life) : 生活
 - [Efficiency](/mac/efficiency.md) : 效率指南
 - [Shortcuts](/mac/shortcuts/shortcuts.md) : 快捷键
-- [Initialize](/mac/initialize.md) : 系统初始化
+- [Initialize](/mac/initialize-mac.md) : 系统初始化
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. JetBrains IDE - IntelliJ IDEA_
 
