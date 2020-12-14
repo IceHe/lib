@@ -7,52 +7,6 @@ Markdown 风格指北
 - Here is the Markdown style I follow.
 - It's not a mandatory standard.
 
-## References
-
-### Markdown Specification
-
-_( All Skippable to Read )_
-
-- Daring Fireball - Projects - Markdown
-    - [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
-- [CommonMark Spec](https://spec.commonmark.org)
-    - [Version 0.29](https://spec.commonmark.org/0.29) on 2019-04-06
-- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
-
-### GFM Basic Syntax
-
-GFM - GitHub or GitLab Flavored Markdown _( All Required )_
-
-- [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Concise )_
-- [Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
-- [Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)
-    - Organizing information with tables
-    - Creating and highlighting code blocks
-    - Autolinked references and URLs
-- [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
-
-### Style Guide
-
-_( All Recommended to Read )_
-
-- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
-- _[Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)_
-    - [Markdown style guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
-    - [Documentation Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
-    - [README.md files](https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md) - a simple example
-    - [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)
-
-### Chinese Text Layout
-
-**中文排版**
-
-- [写给大家看的中文排版指南](https://zhuanlan.zhihu.com/p/20506092)
-- [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
-
-## Suggestions
-
-**Guideline : Readability > Writability** _( 易阅读 > 易编写 )_
-
 TODO
 
 Markdown style guide
@@ -70,7 +24,59 @@ Documentation Best Practices
 - [ ] Delete dead documentation
 - [ ] Prefer the good over the perfect
 
-### 目录 TOC
+## References
+
+### Markdown Specification
+
+_( All Skippable )_
+
+- Daring Fireball - Projects - Markdown
+    - [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
+- [CommonMark Spec](https://spec.commonmark.org)
+    - [Version 0.29](https://spec.commonmark.org/0.29) on 2019-04-06
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
+
+### GFM Basic Syntax
+
+_( All Required )_
+
+GFM - GitHub or GitLab Flavored Markdown
+
+- [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Concise )_
+- [Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
+- [Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)
+    - Organizing information with tables
+    - Creating and highlighting code blocks
+    - Autolinked references and URLs
+- [GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.html#details-and-summary)
+
+### Style Guide
+
+_( All Recommended to Read )_
+
+- [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
+- [Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)
+    - [Markdown style guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
+    - [Documentation Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md)
+    - [README.md files](https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md) - a simple example
+    - [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)
+
+### Chinese Text Layout
+
+_( All Recommended )_
+
+<!-- 中文排版 -->
+
+- [写给大家看的中文排版指南](https://zhuanlan.zhihu.com/p/20506092)
+- [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
+
+## Suggestions
+
+**Guideline : Readability > Writability**
+
+<!-- _( 易阅读 > 易编写 )_ -->
+
+### TOC
 
 TOC - Table Of Contents
 
@@ -84,7 +90,7 @@ TOC - Table Of Contents
 - 如果使用, 标准是 :
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
-### 标题 Heading
+### Heading
 
 **使用 ATX Header**
 
