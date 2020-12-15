@@ -559,7 +559,7 @@ Nonsense
 
 - Time Mgt. : [Life Logs](/lifelogs/archived/time-mgt-log.md) & [Log Format](/lifelogs/archived/time-mgt.md) _( until 2016.10 )_
 - Way of Life : [Self Manual](/lifelogs/archived/life-manual.md) _( until 2017 )_
-- [Routine](/lifelogs/archived/ROUTINE.md) & [TBC](/lifelogs/archived/TBC.md) _( 2019 ~ 2020.04 )_
+- [Routine](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md) _( 2019 ~ 2020.04 )_
 - [Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_
 
 Previous Blog : 2015 ~ 2017
@@ -612,3 +612,13 @@ Previous Blog : 2015 ~ 2017
 ## End
 
 > 靡不有初，鲜克有终
+
+<!--
+
+> 如果你要拥有你从未有过的东西，那么你必须去做你从未做过的事。
+>
+> - from 电影《流浪地球》导演郭帆 : https://weibo.com/1729156630/Hfy3skh7W
+
+愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
+
+-->
