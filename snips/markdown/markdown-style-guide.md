@@ -28,7 +28,7 @@ Documentation Best Practices
 
 ### Markdown Specification
 
-_( All Skippable )_
+( All skippable to read )
 
 - Daring Fireball - Projects - Markdown
     - [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
@@ -38,7 +38,7 @@ _( All Skippable )_
 
 ### GFM Basic Syntax
 
-_( All Required )_
+( You should know )
 
 GFM - GitHub or GitLab Flavored Markdown
 
@@ -52,7 +52,7 @@ GFM - GitHub or GitLab Flavored Markdown
 
 ### Style Guide
 
-_( All Recommended to Read )_
+( All recommended to read! )
 
 - [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
 - [Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)
@@ -63,9 +63,9 @@ _( All Recommended to Read )_
 
 ### Chinese Text Layout
 
-_( All Recommended )_
-
 <!-- 中文排版 -->
+
+( All recommended to read! )
 
 - [写给大家看的中文排版指南](https://zhuanlan.zhihu.com/p/20506092)
 - [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
@@ -323,7 +323,7 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
 - 如果使用, 标准是 :
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
-### Emoji
+### 表情 Emoji
 
 **尽量不支持**
 

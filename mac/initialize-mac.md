@@ -202,7 +202,6 @@ Required ( for me )
 ```bash
 brew install --cask \
     appcleaner \
-    eudic \
     google-chrome \
     hyperswitch \
     intellij-idea \
@@ -236,6 +235,7 @@ Available in App Store
 - Amphetamine
 - Copy 'Em
 - EasyRes
+- EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
 - Trello
 
 Available on GitHub
