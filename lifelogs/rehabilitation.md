@@ -192,39 +192,41 @@ start
 #white:Inbox|
 -[#black]-> Clean up;
 while (Empty?) is (No)
-    if (Necessary?) then (No)
+    if (Unnecessary?) then (Yes)
+        #white:Delete;
         '#white:Quit;
-        #white:Trash|
-    else (Yes)
+        '#white:Trash|
+    else (No)
         if (Finish soon?) then (Yes)
             #white:Finish;
-            #white:Done|
+            #white:Delete;
+            '#white:Done|
         else (No)
             if (Deferable?) then (Yes)
                 '#white:Defer;
-                #white:Defer|
+                #lightGray:Defer<
             else (No)
                 if (Delegable?) then (Yes)
                     #white:Delegate;
-                    #white:Follow up|
+                    #lightGray:Follow up<
                 else (No)
-                    if (Splittable?) then (Yes)
-                        #white:Split;
-                        'note right : SMART 法则
-                        #white:Inbox|
+                    if (Event?) then (Yes)
+                        #white:Events|
                     else (No)
-                        if (Event?) then (Yes)
-                            #white:Calendar|
+                        if (Due?) then (Yes)
+                            #white:Set deadline;
                         else (No)
-                            if (Due?) then (Yes)
-                                #white:Set deadline;
+                            if (Splittable?) then (Yes)
+                                #white:Split;
+                                'note right : SMART 法则
+                                '#white:Inbox|
                             else (No)
-                                if (Prioritize?) then (Yes)
-                                    #white:Prioritize;
-                                    #white:Sort by priority;
-                                else (No)
-                                endif
                             endif
+                            'if (Without priority?) then (Yes)
+                            '    #white:Prioritize;
+                            '    #white:Sort by priority;
+                            'else (No)
+                            'endif
                         endif
                     endif
                 endif
