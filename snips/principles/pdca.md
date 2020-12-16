@@ -13,8 +13,8 @@ References
 
 Intro
 
-- 此非新创名词，而是企业界早已普遍运用的一套“目标管理”流程
-    - 透过规划（Plan）、执行（Do）、查核（Check）、行动（Act）四阶段，确保每次的目标都能达成
+- 此非新创名词, 而是企业界早已普遍运用的一套 "目标管理" 流程
+    - 透过规划 ( Plan )、执行 ( Do )、查核 ( Check )、行动 ( Act ) 四阶段, 确保每次的目标都能达成
 
 ## Cycle
 
@@ -38,7 +38,7 @@ Intro
 
 ### Act 行动
 
-**Also called "Adjust" (调整), this act phase is where a process is improved (改善).**
+**Also called "Adjust" ( 调整 ) , this act phase is where a process is improved ( 改善 ) .**
 
 改善/调整 : 纠正偏差, 确定新目标, 制定下一轮的计划
 
@@ -48,13 +48,13 @@ Intro
     - 可以改进的地方 opportunities for improvement
     - 低效率 inefficiencies
     - ……
-- 研究以上问题 (issues), 找到根本原因 (root causes)
+- 研究以上问题 ( issues ), 找到根本原因 ( root causes )
     - 通过修改计划, 去消除这些原因
-    - 然后下一个循环就有了更好的基线 (base-line)
-        - 更好的指引 (instructions)
-        - 标准 (standards)
-        - 目标 (goals)
-- 以期下一个循环, 不再重复发生相同的问题 (recurrence of identified issues)
+    - 然后下一个循环就有了更好的基线 ( base-line )
+        - 更好的指引 ( instructions )
+        - 标准 ( standards )
+        - 目标 ( goals )
+- 以期下一个循环, 不再重复发生相同的问题 (recurrence of identified issues )
 
 ## Pics 配图
 

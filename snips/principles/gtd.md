@@ -27,15 +27,6 @@ inbox --> do
 - Todo : 待办事项
 - Follow-up : 跟进
 
-### Sample
-
-**PlantUML**
-
-```plantuml
-@startuml
-@enduml
-```
-
 ## Plan
 
 ### Ver 0
@@ -367,10 +358,10 @@ else (否)
                 end
             else (否)
                 :一定要做]
-                if (有固定时间吗 ?) then (有)
+                if (固定时间的事件 ?) then (是)
                     #turquoise:日历|
                     stop
-                else (没有)
+                else (否)
                     #plum:任务清单|
                     stop
                 endif

@@ -7,31 +7,29 @@ References
 
 ## Meaning
 
-Specific : 目标具体 ( 明确 )
+Specific : _( 目标 )_ 具体 _( 明确, 可以分解出具体的行动步骤 )_
 
-- ~~成为勤奋学习的人~~
-- 今天读书
+- _~~成为勤奋学习的人~~_
+- _今天读 Java Basic_
 
-Measurable : 可度量
+Measurable : 可度量 _( 可量化 )_
 
-- 可以量化, 可以分解出具体的行动步骤
-    - ~~今天读书~~
-    - 今天读 10 页 Java Basic
+- _~~今天读 Java Basic~~_
+- _今天读 10 页 Java Basic_
 
-Achievable : 可实现
+Achievable : 可实现 _( 目标不宜过高 ( 或过低 ) )_
 
-- 目标不宜过高或过低
-    - ~~今天读 100 页 Java Basic~~
-    - 今天读 10 页 Java Basic
+- _~~今天读 100 页 Java Basic~~_
+- _今天读 10 页 Java Basic_
 
-Relevant : 与其它目标相关 ( 例如终极目标 )
+Relevant : _( 与其他目标 )_ 相关 _( 例如终极目标, 否则意义不大 )_
 
-- 如果完成了，但是对其它目标不相关，就没啥意义了
-    - ~~今天读 10 页经济学导论~~
-    - 今天读 10 页 Java Basic
+- _~~今天读 10 页经济学导论~~_
+- _今天读 10 页 Java Basic_
 
-Time-based : 有时间期限
+Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时长 )_
 
-- 确认好事情的轻重缓急，设置合理的时间限制
-    - ~~读 10 页 Java Basic~~
-    - 2h 读 10 页 Java Basic
+- _~~今天读 10 页 Java Basic~~_
+- _今天计划花 2h 读 10 页 Java Basic_
+
+_( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
