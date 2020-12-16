@@ -341,11 +341,11 @@ start
 #paleGreen:收集箱|
 -[#black]-> 逐项思考;
 if (能否在 2 min 内解决 ?) then (能)
-    #white:立即去做 !;
+    #white:立即去做!;
     stop
 else (否)
     if (不做会不会死 ?) then (不会)
-        #white:果断舍弃.;
+        #white:果断舍弃;
         end
     else (会)
         if (能否拖延或推迟) then (能)
@@ -354,7 +354,7 @@ else (否)
         else (否)
             if (能否委托别人做 ?) then (能)
                 #lightGray:跟进清单|
-                #white:委托别人.;
+                #white:委托别人;
                 end
             else (否)
                 :一定要做]

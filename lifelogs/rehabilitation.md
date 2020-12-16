@@ -375,10 +375,9 @@ Act 行动 / Adjust 调整 ( 改进 )
 
 ## 参阅
 
+- [GTD](/snips/principles/gtd.md)
 - [PDCA 循环](/snips/principles/pdca.md)
 - [SMART 法则](/snips/principles/smart.md)
-- [生活指南 ( Life Manual )](/lifelogs/archived/life-manual.md)
 - [日程 ( Routine )](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md)
+- [生活指南 ( Life Manual )](/lifelogs/archived/life-manual.md)
 - …
-
-<!-- - [STAR 法则](/snips/principles/star.md) -->
