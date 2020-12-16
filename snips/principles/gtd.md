@@ -26,7 +26,7 @@ while (Empty?) is (No)
         #white:Quitted;
     else (Yes)
         if (**Finish in 2 min?**) then (Yes)
-            #white:Done;
+            #white:Just do it.;
         else (No)
             if (Allow to defer?) then (Yes)
                 #white:Deferred;
@@ -34,7 +34,7 @@ while (Empty?) is (No)
                 if (Allow to delegate?) then (Yes)
                     #white:Delegated;
                 else (No)
-                    if (  Should split up?) then (Yes)
+                    if (Should split up?) then (Yes)
                         #white:Split up;
                         note right : SMART 法则
                         #white:Inbox|

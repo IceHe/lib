@@ -5,6 +5,7 @@
 ---
 
 > Later equals never.
+>
 > —— LeBlanc's Law
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
@@ -16,9 +17,11 @@
 ### Books
 
 > 纸上得来终觉浅，绝知此事要躬行。
+>
 > —— 陆游《冬夜读书示子聿》
 
 <!-- > 书山有路勤为径, 学海无涯苦作舟. -->
+<!-- > -->
 <!-- > —— 韩愈《增广贤文》 -->
 
 Basics
@@ -71,6 +74,7 @@ Others
 ### Snips
 
 > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
+>
 > —— 鲁迅《致赖少麟》
 
 <!-- Algorithms - Basic -->
@@ -181,6 +185,7 @@ _Others_
 ### Mac
 
 > 埏埴以為器，當其無，有器之用。
+>
 > —— 老子《道德经·无之为用》
 
 <!-- > 君子性非异也，善假于物也。 -->
@@ -459,16 +464,10 @@ Recommendation
 
 ## Life
 
-<!--
-
-> 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
-> —— E.L. Doctorow
-
--->
-
 ### Marks
 
 > Get busy living or get busy dying.
+>
 > —— The Shawshank Redemption
 
 - [Bio](/marks/bio.md) ：Skills / Exp / Edu
@@ -500,6 +499,7 @@ Recommendation
 ### Digest
 
 > 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
+>
 > —— E.L. Doctorow
 
 好文共赏
@@ -550,6 +550,7 @@ Read on 2020
 ### Past
 
 > 如果你要拥有你从未有过的东西，那么你必须去做你从未做过的事。
+>
 > —— 电影《流浪地球》导演郭帆
 
 Timeline
@@ -600,6 +601,7 @@ Previous Blog : 2015 ~ 2017
 ### Friends
 
 > To be a better man.
+>
 > —— Better Man _( Robbie Williams song )_
 
 - Jan Fan : PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
@@ -613,6 +615,7 @@ Previous Blog : 2015 ~ 2017
 ### Work
 
 > Don’t try, just do. Failure is not an option.
+>
 > —— Elon Musk
 
 <!-- > Get it / Make it without reason. -->
@@ -626,4 +629,5 @@ Previous Blog : 2015 ~ 2017
 ## End
 
 > 靡不有初，鲜克有终。
+>
 > —— 《诗经·大雅·荡》
