@@ -5,8 +5,8 @@
 ---
 
 > Later equals never.
->
-> —— LeBlanc's Law
+
+<!-- > —— LeBlanc's Law -->
 
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
 - Backup : [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)
@@ -16,12 +16,12 @@
 
 ### Books
 
-> 纸上得来终觉浅，绝知此事要躬行。
->
-> —— 陆游《冬夜读书示子聿》
+> 紙上得來終覺淺，絕知此事要躬行。
+
+<!-- > 纸上得来终觉浅，绝知此事要躬行。 -->
+<!-- > —— 陆游《冬夜读书示子聿》 -->
 
 <!-- > 书山有路勤为径, 学海无涯苦作舟. -->
-<!-- > -->
 <!-- > —— 韩愈《增广贤文》 -->
 
 Basics
@@ -73,9 +73,10 @@ Others
 
 ### Snips
 
-> 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
->
-> —— 鲁迅《致赖少麟》
+> 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。
+
+<!-- > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。 -->
+<!-- > —— 鲁迅《致赖少麟》 -->
 
 <!-- Algorithms - Basic -->
 
@@ -185,8 +186,9 @@ _Others_
 ### Mac
 
 > 埏埴以為器，當其無，有器之用。
->
-> —— 老子《道德经·无之为用》
+
+<!-- > 埏埴以为器，当其无，有器之用 -->
+<!-- > —— 老子《道德经·无之为用》 -->
 
 <!-- > 君子性非异也，善假于物也。 -->
 <!-- > —— 荀子《劝学》 -->
@@ -467,8 +469,8 @@ Recommendation
 ### Marks
 
 > Get busy living or get busy dying.
->
-> —— The Shawshank Redemption
+
+<!-- > —— The Shawshank Redemption -->
 
 - [Bio](/marks/bio.md) ：Skills / Exp / Edu
     - **SCUT** : Software Engineering | Bachelor _( C++ )_
@@ -499,8 +501,8 @@ Recommendation
 ### Digest
 
 > 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
->
-> —— E.L. Doctorow
+
+<!-- > —— E.L. Doctorow -->
 
 好文共赏
 
@@ -550,8 +552,8 @@ Read on 2020
 ### Past
 
 > 如果你要拥有你从未有过的东西，那么你必须去做你从未做过的事。
->
-> —— 电影《流浪地球》导演郭帆
+
+<!-- > —— 电影《流浪地球》导演郭帆 -->
 
 Timeline
 
@@ -601,8 +603,8 @@ Previous Blog : 2015 ~ 2017
 ### Friends
 
 > To be a better man.
->
-> —— Better Man _( Robbie Williams song )_
+
+<!-- > —— Better Man _( Robbie Williams song )_ -->
 
 - Jan Fan : PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
 - Johnson Zhang : Past Roommate / Python / Sina Mobile / Didi @ Beijing
@@ -615,8 +617,8 @@ Previous Blog : 2015 ~ 2017
 ### Work
 
 > Don’t try, just do. Failure is not an option.
->
-> —— Elon Musk
+
+<!-- > —— Elon Musk -->
 
 <!-- > Get it / Make it without reason. -->
 
@@ -628,6 +630,7 @@ Previous Blog : 2015 ~ 2017
 
 ## End
 
-> 靡不有初，鲜克有终。
->
-> —— 《诗经·大雅·荡》
+> 靡不有初，鮮克有終。
+
+<!-- 靡不有初，鲜克有终。 -->
+<!-- > —— 《诗经·大雅·荡》 -->

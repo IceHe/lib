@@ -149,20 +149,21 @@ To be a better man.
     - 什么时间就该干什么事, 只提醒最重要的事务
 - **BlockyTime - 减少浪费**
     - 记录时间使用情况
-    - _提高效率、时间杠杆率, 得靠 Library_
+    - _如果要提高效率、时间杠杆率, 还得靠 Library_
 - **Forest - 保持专注**
     - 减少玩手机分神的机会, 缩短玩手机的时长
+- **Notification - 保持专注**
+    - 默认关闭所有 Apps 的通知权限
+    - _除了 工作IM、电话、短信、日历、微信、邮件、时间块_
 - **TickTick - 减轻负担**
     - 暂存事项, 清空大脑, 减轻心理负担; 从中选择一件事来做就行
     - _没必要因为待办事项多而焦虑_
 - **Timer - 限制时长**
     - _特别是不重要的事_
 
-<!-- - **Library - 正向循环** : PDCA - Plan 计划 → Do 行动 → Check 反省 → Act 改进 -->
+<!-- - **TickTick - 减轻负担** -->
 <!--     - _所思所想、待办杂项、工作任务、学习计划、日期事件、重复事件_ -->
 <!--     - _( 暂存焦虑 : 在我心目中, "暂存区" 的说法比 "备忘录" 更切中要害 )_ -->
-<!-- - **Notification - 保持专注** : 默认关闭所有 Apps 的通知权限 -->
-<!--     - _除了 钉钉、日历、电话、短信、微信、邮件、时间块_ -->
 <!-- - **Notification - 保持专注** : 默认关闭所有 Apps 的通知权限 -->
 <!--     - _除了 钉钉、日历、电话、短信、微信、邮件、时间块_ -->
 
@@ -191,29 +192,40 @@ start
 #white:Inbox|
 -[#black]-> Clean up;
 while (Empty?) is (No)
-    if (**Have to do?**) then (No)
-        #white:Quitted;
+    if (Necessary?) then (No)
+        '#white:Quit;
+        #white:Trash|
     else (Yes)
-        if (**Finish in 2 min?**) then (Yes)
-            #white:Just do it.;
+        if (Finish soon?) then (Yes)
+            #white:Finish;
+            #white:Done|
         else (No)
-            if (Allow to defer?) then (Yes)
-                #white:Deferred;
+            if (Deferable?) then (Yes)
+                '#white:Defer;
+                #white:Defer|
             else (No)
-                if (Allow to delegate?) then (Yes)
-                    #white:Delegated;
+                if (Delegable?) then (Yes)
+                    #white:Delegate;
+                    #white:Follow up|
                 else (No)
-                    if (  Should split up?) then (Yes)
-                        #white:Split up;
-                        note right : SMART 法则
+                    if (Splittable?) then (Yes)
+                        #white:Split;
+                        'note right : SMART 法则
                         #white:Inbox|
                     else (No)
-                        #white:Todo|
-                        if (Fixed-term?) then (Yes)
-                            #white:Due time;
+                        if (Event?) then (Yes)
+                            #white:Calendar|
                         else (No)
+                            if (Due?) then (Yes)
+                                #white:Set deadline;
+                            else (No)
+                                if (Prioritize?) then (Yes)
+                                    #white:Prioritize;
+                                    #white:Sort by priority;
+                                else (No)
+                                endif
+                            endif
                         endif
-                        #white:Sort by\npriority;
                     endif
                 endif
             endif
@@ -236,23 +248,23 @@ end
 
 Specific : _( 目标 )_ 具体 _( 明确, 可以分解出具体的行动步骤 )_
 
-- _~~成为勤奋学习的人~~_
-- _今天读 Java Basic_
+<!-- - _~~成为勤奋学习的人~~_ -->
+<!-- - _今天读 Java Basic_ -->
 
 Measurable : 可度量 _( 可量化 )_
 
-- _~~今天读 Java Basic~~_
-- _今天读 10 页 Java Basic_
+<!-- - _~~今天读 Java Basic~~_ -->
+<!-- - _今天读 10 页 Java Basic_ -->
 
 Achievable : 可实现 _( 目标不宜过高 ( 或过低 ) )_
 
-- _~~今天读 100 页 Java Basic~~_
-- _今天读 10 页 Java Basic_
+<!-- - _~~今天读 100 页 Java Basic~~_ -->
+<!-- - _今天读 10 页 Java Basic_ -->
 
 Relevant : _( 与其他目标 )_ 相关 _( 例如终极目标, 否则意义不大 )_
 
-- _~~今天读 10 页经济学导论~~_
-- _今天读 10 页 Java Basic_
+<!-- - _~~今天读 10 页经济学导论~~_ -->
+<!-- - _今天读 10 页 Java Basic_ -->
 
 Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时长 )_
 
@@ -267,37 +279,37 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
 Plan 规划 ( 计划 )
 
-- 制定具体目标 & 计划 (过程), 以获得想要的成果
+<!-- - 制定具体目标 & 计划 (过程), 以获得想要的成果 -->
 
 Do 执行 ( 行动 )
 
-- 执行计划 : 展开任务, 组织实施
-    - 尝试做一些小的改变
-    - 并收集信息以便评价这些改变是否有效
+<!-- - 执行计划 : 展开任务, 组织实施 -->
+<!--     - 尝试做一些小的改变 -->
+<!--     - 并收集信息以便评价这些改变是否有效 -->
 
 Check 检查 ( 反省 )
 
-- 检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏
-    - 对比期望的成果, 看有哪里合意, 哪里不合意
-    - 看执行过程, 跟最初的计划有何不同 (过程偏差)
+<!-- - 检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏 -->
+<!--     - 对比期望的成果, 看有哪里合意, 哪里不合意 -->
+<!--     - 看执行过程, 跟最初的计划有何不同 (过程偏差) -->
 
 Act 行动 / Adjust 调整 ( 改进 )
 
-- "Also called 'Adjust', this act phase is where a process is improved."
-- 改善/调整 : 纠正偏差, 确定新目标, 制定下一轮的计划
-- 上两步中分析得出
-    - 问题 Problems
-    - 过程偏差 Non-conformities
-    - 可以改进的地方 Opportunities for improvement
-    - 低效率 Inefficiencies
-    - ……
-- 研究以上问题 ( Issues ), 找到根本原因 ( Root causes )
-    - 通过修改计划, 去消除这些原因
-    - 然后下一个循环就有了更好的基线 ( Base-line )
-        - 更好的指引 ( Instructions )
-        - 标准 ( Standards )
-        - 目标 ( Goals )
-- 以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues )
+<!-- - "Also called 'Adjust', this act phase is where a process is improved." -->
+<!-- - 改善/调整 : 纠正偏差, 确定新目标, 制定下一轮的计划 -->
+<!-- - 上两步中分析得出 -->
+<!--     - 问题 Problems -->
+<!--     - 过程偏差 Non-conformities -->
+<!--     - 可以改进的地方 Opportunities for improvement -->
+<!--     - 低效率 Inefficiencies -->
+<!--     - …… -->
+<!-- - 研究以上问题 ( Issues ), 找到根本原因 ( Root causes ) -->
+<!--     - 通过修改计划, 去消除这些原因 -->
+<!--     - 然后下一个循环就有了更好的基线 ( Base-line ) -->
+<!--         - 更好的指引 ( Instructions ) -->
+<!--         - 标准 ( Standards ) -->
+<!--         - 目标 ( Goals ) -->
+<!-- - 以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues ) -->
 
 ![](https://upload.wikimedia.org/wikipedia/commons/7/7a/PDCA_Cycle.svg)
 
