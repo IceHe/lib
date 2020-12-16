@@ -322,7 +322,12 @@ while (Empty (and till end of day) ?) is (No)
                 #white:Task|
                 endif
             else (No)
-                #orange:What happened?;
+                if (Valueless?) then (Yes)
+                    #white:Rethink;
+                    #white:Task|
+                else (No)
+                    #orange:What happened?;
+                endif
             endif
         endif
     endif
