@@ -144,7 +144,7 @@ To be a better man.
 <!-- Tools -->
 
 - **Library - 正向循环**
-    - 反省 → 改进 → 计划 → 取舍 → 排优先级 → 行动 _( e.g., PDCA )_
+    - 反省 → 改进 → 计划 → 取舍 → 排序 → 行动 _( e.g., PDCA )_
 - **Alarm - 专时专用**
     - 什么时间就该干什么事, 只提醒最重要的事务
 - **BlockyTime - 减少浪费**
@@ -178,40 +178,92 @@ To be a better man.
 
 <!-- Regulations -->
 
-### 取舍
+### GTD
 
 <!-- What to Do -->
 
-**GTD**
+<!-- 简化、取舍、排序 -->
+
+1.1\. Plan - Categorize daily ( at any time )
+
+- Too many task? Over 10 tasks today.
 
 ```plantuml
 @startuml
 start
-:Task / Thought / Memo]
+:Tasks / Thoughts / Questions]
 -[#black]-> Collect at once!;
 #white:Inbox|
 -[#black]-> Clean up;
-while (Empty?) is (No)
+while (Empty (or too many tasks) ?) is (No)
+    if (Valueless?) then (Yes)
+        #white:Discard;
+        #lightGray:Delete;
+        #lightGray:Trash|
+    else (No)
+        if (Task?) then (Yes)
+            #white:Task|
+        else (No)
+            if (Thought?) then (Yes)
+                #white:Thought|
+            else (No)
+                if (Question?) then (Yes)
+                    #white:Question|
+                else (No)
+                    #orange:What happened?;
+                endif
+            endif
+        endif
+    endif
+endwhile (Yes)
+end
+@enduml
+```
+
+1.2\. Plan - Filter & preprocess tasks daily ( morning )
+
+- Enough todos? Usually 3 ~ 5 todos today.
+- Unnecessary? Valueless.
+- Finish soon? Duration <= 2min
+- Deferable? Not important and no deadline.
+- Delegable? Able to assign to another person.
+- _Event? Just an event._
+- Due? With a deadline.
+- Splittable? Not specific or duration > 1day.
+    - Ideal duration ≈ 1 ~ 2 hours ?
+
+```plantuml
+@startuml
+start
+#white:Task|
+-[#black]-> Clean up;
+while (Empty (or until enough todos) ?) is (No)
     if (Unnecessary?) then (Yes)
-        #white:Delete;
-        '#white:Quit;
-        '#white:Trash|
+        if (Hesitate?) then (Yes)
+            #white:Rethink;
+            #white:Inbox|
+        else (No)
+            #white:Quit;
+            #lightGray:Delete;
+            #lightGray:Trash|
+        endif
     else (No)
         if (Finish soon?) then (Yes)
             #white:Finish;
-            #white:Delete;
-            '#white:Done|
+            #lightGray:Delete;
+            #lightGray:Trash|
         else (No)
             if (Deferable?) then (Yes)
-                '#white:Defer;
+                #white:Defer;
                 #lightGray:Defer<
             else (No)
                 if (Delegable?) then (Yes)
                     #white:Delegate;
-                    #lightGray:Follow up<
+                    #lightGray:Follow-up<
                 else (No)
                     if (Event?) then (Yes)
-                        #white:Events|
+                        #white:Calendar|
+                        '#white:Events|
                     else (No)
                         if (Due?) then (Yes)
                             #white:Set deadline;
@@ -219,14 +271,14 @@ while (Empty?) is (No)
                             if (Splittable?) then (Yes)
                                 #white:Split;
                                 'note right : SMART 法则
-                                '#white:Inbox|
+                                #white:Task|
                             else (No)
+                                if (Without duration?) then (Yes)
+                                    #white:Set duration;
+                                else (No)
+                                endif
+                                #white:Todo|
                             endif
-                            'if (Without priority?) then (Yes)
-                            '    #white:Prioritize;
-                            '    #white:Sort by priority;
-                            'else (No)
-                            'endif
                         endif
                     endif
                 endif
@@ -237,6 +289,92 @@ endwhile (Yes)
 end
 @enduml
 ```
+
+2\. Do - Process tasks daily (  )
+
+- Block? Encounter a problem.
+- Timeout? Over expected duration or till end of day.
+- Finish soon? Extra duration < 1h or till end of day.
+
+```plantuml
+@startuml
+start
+#white:Todo|
+#white:Prioritize;
+#white:Sort by priority;
+#white:Sort by due;
+-[#black]-> Clean up;
+while (Empty (and till end of day) ?) is (No)
+    #white:1st thing 1st;
+    #lightGray:WIP<
+    if (Done?) then (Yes)
+        #white:Done|
+    else (No)
+        if (Block?) then (Yes)
+            #white:Task|
+            #lightGray:Block<
+        else (No)
+            if (Timeout?) then (Yes)
+                if (Finish soon?) then (Yes)
+                    #white:Continue;
+                else (No)
+                #white:Split or defer;
+                #white:Task|
+                endif
+            else (No)
+                #orange:What happened?;
+            endif
+        endif
+    endif
+    #lightGray:Untag WIP<
+endwhile (Yes)
+end
+@enduml
+```
+
+3\. Check daily ( evening )
+
+- Redo? Need to redo. (Poor quality?)
+- Record?
+    - _A. Add to Thought & Question_
+    - _B. Update its description or insert a new comment?_
+    - _C. Write in reflect.md of IceHe's Library_
+    - …
+
+```plantuml
+@startuml
+start
+#white:Done|
+-[#black]-> Clean up;
+while (Empty (and till end of day) ?) is (No)
+    if (Unnecessary?) then (Yes)
+        #white:Reflect;
+        #lightGray:Delete;
+        #lightGray:Trash|
+    else (No)
+        if (Redo?) then (Yes)
+            #white:Redo;
+            #white:Task|
+        else (No)
+            if (Have thought or question?) then (Yes)
+                #white:Record;
+                #lightGray:Inbox|
+            else (No)
+                #white:Do nothing?;
+            endif
+        endif
+    endif
+endwhile (Yes)
+end
+@enduml
+```
+
+4\. Adjust
+
+- Update rehabilitation.md
+    - 细则 → GTD
+
+Reference
 
 ![GTD](../snips/principles/_images/gtd.jpg)
 
