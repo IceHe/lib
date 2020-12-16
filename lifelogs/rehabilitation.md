@@ -214,7 +214,7 @@ end
 @enduml
 ```
 
-![GTD](/snips/principles/_images/gtd.jpg)
+![GTD](../snips/principles/_images/gtd.jpg)
 
 ### 做法
 
