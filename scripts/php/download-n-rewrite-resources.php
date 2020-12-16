@@ -8,7 +8,7 @@ echo var_export($argv, true)."\n\n";
 // Download resources to directory `_docsify/resources/`
 $toDownload = false;
 // Rewrite links of resources to local files
-$toRewrite = true; // default
+$toRewrite = false; // default
 
 foreach ($argv as $arg) {
     if (in_array($arg, ['--download', '-d'])) {
@@ -33,32 +33,34 @@ echo $count."\n\n";
 
 $contectImproved = $content;
 
-foreach ($resources[1] ?? [] as $resource) {
-    echo $resource."\n";
+if ($toRewrite) {
+    foreach ($resources[1] ?? [] as $resource) {
+        echo $resource."\n";
 
-    $localFileName = str_replace('/', '_', $resource);
-    echo $localFileName."\n";
+        $localFileName = str_replace('/', '_', $resource);
+        echo $localFileName."\n";
 
-    $localFilePath = "_docsify/resources/{$localFileName}";
+        $localFilePath = "_docsify/resources/{$localFileName}";
 
-    // Download resources
-    if ($toDownload) {
-        echo $cmd = "curl -Lo {$localFilePath} http:{$resource}\n";
-        shell_exec($cmd);
+        // Download resources
+        if ($toDownload) {
+            echo $cmd = "curl -Lo {$localFilePath} http:{$resource}\n";
+            shell_exec($cmd);
+        }
+
+        $replacePath = $localFilePath;
+        // $replacePath = "https://cdn.icehe.xyz/{$localFilePath}";
+
+        // Replace links to resources in `index.html`
+        $contectImproved = str_replace($resource, $replacePath, $contectImproved);
+
+        echo "\n";
     }
-
-    // $replacePath = $localFilePath;
-    $replacePath = "https://cdn.icehe.xyz/{$localFilePath}";
-
-    // Replace links to resources in `index.html`
-    $contectImproved = str_replace($resource, $replacePath, $contectImproved);
-
-    echo "\n";
 }
 
 echo $contectImproved."\n\n";
 
 // Save new `index.html` with links to local resources
-file_put_contents($toRewrite ? 'index.html' : 'index.improved.html', $contectImproved);
+file_put_contents('index.html', $contectImproved);
 
 echo "Fin.\n\n";
