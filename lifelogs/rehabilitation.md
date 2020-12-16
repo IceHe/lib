@@ -214,6 +214,8 @@ end
 @enduml
 ```
 
+![GTD](/snips/principles/_images/gtd.jpg)
+
 ### 做法
 
 <!-- How to Do -->
