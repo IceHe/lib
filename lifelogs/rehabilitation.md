@@ -171,13 +171,54 @@ To be a better man.
 
 <!-- What to Do -->
 
-#### GTD
+**GTD**
 
-### 方式
+```plantuml
+@startuml
+start
+:Task / Thought / Memo]
+-[#black]-> Collect at once!;
+#white:Inbox|
+-[#black]-> Clean up;
+while (Empty?) is (No)
+    if (**Have to do?**) then (No)
+        #white:Quitted;
+    else (Yes)
+        if (**Finish in 2 min?**) then (Yes)
+            #white:Done;
+        else (No)
+            if (Allow to defer?) then (Yes)
+                #white:Deferred;
+            else (No)
+                if (Allow to delegate?) then (Yes)
+                    #white:Delegated;
+                else (No)
+                    if (  Should split up?) then (Yes)
+                        #white:Split up;
+                        note right : SMART 法则
+                        #white:Inbox|
+                    else (No)
+                        #white:Todo|
+                        if (Fixed-term?) then (Yes)
+                            #white:Due time;
+                        else (No)
+                        endif
+                        #white:Sort by\npriority;
+                    endif
+                endif
+            endif
+        endif
+    endif
+endwhile (Yes)
+end
+@enduml
+```
+
+### 做法
 
 <!-- How to Do -->
 
-#### SMART 法则
+**SMART 法则**
 
 <!-- SMART Principle -->
 
@@ -208,7 +249,7 @@ Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时�
 
 _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
-#### PDCA 循环
+**PDCA 循环**
 
 <!-- PDCA Cycle -->
 
@@ -256,7 +297,7 @@ Act 行动 / Adjust 调整 ( 改进 )
 
 <!-- Just Do It / Action -->
 
-#### 经验
+**经验**
 
 <!-- Exprience -->
 
@@ -381,3 +422,6 @@ Act 行动 / Adjust 调整 ( 改进 )
 - [日程 ( Routine )](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md)
 - [生活指南 ( Life Manual )](/lifelogs/archived/life-manual.md)
 - …
+
+> 真正的简约不是删繁就简，而是纷繁中建立秩序。
+> —— Jony Ivy

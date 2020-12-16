@@ -4,16 +4,14 @@
 
 ---
 
+> Later equals never.
+> —— LeBlanc's Law
+
 - Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
 - Backup : [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)
 - Author : [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
-
-> Later equals never.
-> —— LeBlanc
-
-<!-- - "真正的简约不是删繁就简, 而是纷繁中建立秩序." —— Jony Ivy -->
 
 ### Books
 
@@ -71,6 +69,9 @@ Others
 - [Books Ever Read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 
 ### Snips
+
+> 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
+> —— 鲁迅《致赖少麟》
 
 <!-- Algorithms - Basic -->
 
@@ -179,7 +180,11 @@ _Others_
 
 ### Mac
 
-> 君子性非异也，善假于物也。—— 荀子
+> 埏埴以為器，當其無，有器之用。
+> —— 老子《道德经·无之为用》
+
+<!-- > 君子性非异也，善假于物也。 -->
+<!-- > —— 荀子《劝学》 -->
 
 - [Tools](/marks/tools/tools.md) : 利器 - 软件 / 物件的推荐
     - [Software](/marks/tools/README#软件) : 软件
@@ -379,9 +384,6 @@ Scenes
 - __differ output__ : comm, diff, vimdiff, watch
 - ……
 
-> 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。
-> —— 鲁迅
-
 ### C++
 
 - [C++ Primer 5th](/cpp/primer-5th.md)
@@ -467,11 +469,13 @@ Recommendation
 ### Marks
 
 > Get busy living or get busy dying.
+> —— The Shawshank Redemption
 
 - [Bio](/marks/bio.md) ：Skills / Exp / Edu
-    - 阿里巴巴本地生活 / 北京物流 - 众包运营 & 数据组 → 蜂鸟跑腿 ( Java )
-    - 微博 / 移动应用服务 ( PHP ) → 视频平台 ( Java )
-    - 华南理工 / 软件工程 / 本科
+    - **SCUT** : Software Engineering | Bachelor _( C++ )_
+    - **Huawei** : Telecom Software Customization | Intern. _( Java )_
+    - **Sina Weibo** : Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
+    - **Alibaba Local Life** : 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 | Back-End _( Java )_
 - [Favorites](/marks/favourites.md) : ACGMN
 - [Technology Bookmarks](/marks/tech.md)
 - [Reading Bookmarks](/marks/read.md)
@@ -495,32 +499,35 @@ Recommendation
 
 ### Digest
 
+> 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
+> —— E.L. Doctorow
+
 好文共赏
 
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
-    / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)
-    / [_digest_](/read/cruel-reality.md)
+    _( [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) & [digest](/read/cruel-reality.md) )_
     - "Nice guy? I never give a shit."
 - [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920)
-    / [_digest_](/read/meaning.md)
+    _( [digest](/read/meaning.md) )_
     - 因为活着，才去寻找意义。
 - [Happyness Course](https://zhuanlan.zhihu.com/p/19562678)
-    / [_digest_](/read/happiness-course.md)
+    _( [digest](/read/happiness-course.md) )_
     - 如果你只有一个选择，它让你满意吗？
 - [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
-    / [_digest_](/read/why-unhappy.md)
+    _( [digest](/read/why-unhappy.md) )_
     - 我，并不特别。
 - [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方
-    / [_digest_](/read/poet.md)
+    _( [digest](/read/poet.md) )_
     - 眼前的苟且，也正是诗和远方。
 - [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813)
-    / [_digest_](/read/teacher-said.md)
+    _( [digest](/read/teacher-said.md) )_
     - 我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。
     - 做正确的选择，而不是可以接受的选择。
-- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) / [_digest_](/read/pessimist.md)
+- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd)
+    _( [digest](/read/pessimist.md) )_
     - It's the hardest part when memories remain.
 - [Anti-Fragile](/read/anti-fragile.md)
-    / [_book_](https://item.jd.com/11364406.html)
+    _( [book](https://item.jd.com/11364406.html) )_
     - 一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的“统计置信度与日俱增”。
 
 Read on 2020
@@ -541,6 +548,9 @@ Read on 2020
     - **You can't do many of the things you used to do.** _( 不能做很多你以前做的事情 )_
 
 ### Past
+
+> 如果你要拥有你从未有过的东西，那么你必须去做你从未做过的事。
+> —— 电影《流浪地球》导演郭帆
 
 Timeline
 
@@ -585,21 +595,25 @@ Previous Blog : 2015 ~ 2017
 </blockquote>
 </details>
 
+- "愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。"
+
 ### Friends
 
 > To be a better man.
+> —— Better Man _( Robbie Williams song )_
 
-- [Jan Fan](http://janfan.cn/) : Good student / Tencent / Study @ Sweden
-- [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin
-- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Front-end / 360 / UC / Tencent / Tubi
-- IceHe ( myself ) : A fool / Java Backend / Sina Weibo / Alibaba Local Life
-    <!-- - 思想上的巨人, 行动上的矮子 -->
-
-<!-- - [Johnson](http://mrzys.coding.me/) : Pythoner & PHP / Sina Mobile -->
+- Jan Fan : PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
+- Johnson Zhang : Past Roommate / Python / Sina Mobile / Didi @ Beijing
+- [SF Zhou](http://sf-zhou.github.io/) : ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
+- Shiwey Yan : Game Developer / C++ / Tencent - TiMi Studios - QQ Speed @ Shenzhen
+- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
+- [IceHe](https://icehe.xyz) ( myself ) : A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
+- …
 
 ### Work
 
 > Don’t try, just do. Failure is not an option.
+> —— Elon Musk
 
 <!-- > Get it / Make it without reason. -->
 
@@ -611,14 +625,5 @@ Previous Blog : 2015 ~ 2017
 
 ## End
 
-> 靡不有初，鲜克有终
-
-<!--
-
-> 如果你要拥有你从未有过的东西，那么你必须去做你从未做过的事。
->
-> - from 电影《流浪地球》导演郭帆 : https://weibo.com/1729156630/Hfy3skh7W
-
-愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
-
--->
+> 靡不有初，鲜克有终。
+> —— 《诗经·大雅·荡》
