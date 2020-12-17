@@ -220,6 +220,11 @@ end
 
 1.2\. Plan - Filter & preprocess tasks ( morning )
 
+- Priority
+    - High : Important & urgent ( 1st Thing 1st )
+    - Medium : Important & not urgent ( Important )
+    - Low : Not important & urgent ( Concerned )
+    - No : Not important & not urgent ( Trash )
 - Enough todos? Usually 3 ~ 5 todos today.
 - Valueless? Maybe valueless. ( Doubt )
 - Finish soon? Duration <= 2min
@@ -236,6 +241,7 @@ start
 #white:Categorize;
 -[#black]-> Clean up;
 while (Empty (or until enough todos) ?) is (No)
+    #white:Prioritize;
     if (Valueless?) then (Yes)
         if (Hesitate?) then (Yes)
             #white:Rethink;
@@ -294,11 +300,6 @@ end
 
 2\. Do - Process todo tasks
 
-- Priority
-    - High : Important & urgent ( 1st Thing 1st )
-    - Medium : Important & not urgent ( Important )
-    - Low : Not important & urgent ( Concerned )
-    - No : Not important & not urgent ( Trash )
 - Block? Encounter a problem.
 - Timeout? Over expected duration or till end of day.
 - Finish soon? Extra duration < 1h or till end of day.
@@ -308,9 +309,8 @@ end
 @startuml
 start
 #white:Todo|
-#white:Prioritize;
-#white:Sort by priority;
 #white:Sort by due;
+#white:Sort by priority;
 -[#black]-> Clean up;
 while (Empty (and till end of day) ?) is (No)
     #white:1st thing 1st;
