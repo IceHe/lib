@@ -187,7 +187,7 @@ To be a better man.
 start
 :Tasks / Thoughts / Questions]
 -[#black]-> Collect at once!;
-#white:Inbox|
+#white:**Inbox** and \nDue **Event**|
 -[#black]-> Clean up;
 while (Empty (or too many tasks) ?) is (No)
     if (Valueless?) then (Yes)
