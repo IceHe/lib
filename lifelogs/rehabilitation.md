@@ -253,12 +253,20 @@ while (Empty (or until enough todos) ?) is (No)
             if (Deferable?) then (Yes)
                 #white:Defer;
                 #lightGray:Defer<
-                #lightGray:Inbox|
+                if (Tomorrow?) then (Yes)
+                    #lightGray:Inbox|
+                else (no)
+                    #lightGray:Event|
+                endif
             else (No)
                 if (Delegable?) then (Yes)
                     #white:Delegate;
                     #lightGray:Follow-up<
-                    #lightGray:Inbox|
+                    if (Tomorrow?) then (Yes)
+                        #lightGray:Inbox|
+                    else (no)
+                        #lightGray:Event|
+                    endif
                 else (No)
                     'if (Event?) then (Yes)
                     '    #white:Calendar|
