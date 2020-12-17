@@ -15,9 +15,8 @@ To be a better man.
 - 做事要领 : **将 "经验教训" 一个个地沉淀成习惯**
     - _想要 "毫不费力" , 就要 "习惯成自然"_
 - 做正确的事 : **抓住重点**
-- 正确地做事 : **限时完成**
+- 正确地做事 : **限时完成**, _特别是不重要的事_
     - GTD 流程 + PDCA 循环 + SMART 法则
-    - _特别是不重要的事_
     - _忍耐这时 "完美主义和强迫症" 带来的不适, 直到形成新的舒适区_
 - 坚决迅速地执行 : **做好一件小事, 然后再做好下一件小事, 然后不断循环**
     - _立即去做, 5分钟快速启动; 不三心二意, 雷厉风行_
@@ -46,11 +45,11 @@ To be a better man.
 
 - _坚持每天学习_
 
-4\. 杂务 _( 不得不做 )_
+4\. 杂务 : _不得不做_
 
 - _不得不做, 就尽快完成_
 
-5\. 娱乐 _( 生活乐趣 )_
+5\. 娱乐 : _生活乐趣_
 
 - _如果能从 "睡眠、饮食、运动、工作、学习、杂务" 中获得乐趣, 就没必要娱乐_
 - _如果去娱乐, 没必要强迫自己把订阅的全部娱乐节目都消费完, 享受不完就算了_
@@ -152,18 +151,15 @@ To be a better man.
     - _如果要提高效率、时间杠杆率, 还得靠 Library_
 - **Forest - 保持专注**
     - 减少玩手机分神的机会, 缩短玩手机的时长
-- **Notification - 保持专注**
-    - 默认关闭所有 Apps 的通知权限
-    - _除了 工作IM、电话、短信、日历、微信、邮件、时间块、…_
 - **TickTick - 减轻负担**
     - 暂存事项, 清空大脑, 减轻心理负担; 从中选择一件事来做就行
     - _没必要因为待办事项多而焦虑_
 - **Timer - 限制时长**
     - _特别是不重要的事_
 
-<!-- - **TickTick - 减轻负担** -->
-<!--     - _所思所想、待办杂项、工作任务、学习计划、日期事件、重复事件_ -->
-<!--     - _( 暂存焦虑 : 在我心目中, "暂存区" 的说法比 "备忘录" 更切中要害 )_ -->
+<!-- - **Notification - 保持专注** -->
+<!--     - 默认关闭所有 Apps 的通知权限 -->
+<!--     - _除了 工作IM、电话、短信、日历、微信、邮件、时间块、…_ -->
 
 注意 : 他们只不过是 "器" —— 即手段和工具
 
@@ -265,17 +261,13 @@ while (Empty (or until enough todos) ?) is (No)
                         '#white:Events|
                     else (No)
                         if (Due?) then (Yes)
-                            #white:Set deadline;
+                            #white:Set deadline\n or duration;
                         else (No)
                             if (Splittable?) then (Yes)
                                 #white:Split;
                                 'note right : SMART 法则
-                                #white:Task|
+                                #lightGray:Task|
                             else (No)
-                                if (Without duration?) then (Yes)
-                                    #white:Set duration;
-                                else (No)
-                                endif
                                 #white:Todo|
                             endif
                         endif
@@ -291,6 +283,11 @@ end
 
 2\. Do - Process todo tasks
 
+- Priority
+    - High : Important & urgent ( 1st Thing 1st )
+    - Medium : Important & not urgent ( Important )
+    - Low : Not important & urgent ( Concerned )
+    - No : Not important & not urgent ( Trash )
 - Block? Encounter a problem.
 - Timeout? Over expected duration or till end of day.
 - Finish soon? Extra duration < 1h or till end of day.
@@ -356,7 +353,7 @@ while (Empty (and till end of day) ?) is (No)
     fork
         if (Redo?) then (Yes)
             #white:Redo;
-            #white:Task|
+            #lightGray:Task|
         endif
     fork again
         if (No thought or question?) then (Yes)
@@ -366,12 +363,10 @@ while (Empty (and till end of day) ?) is (No)
             if (Long duration?) then (Reasonable)
             else (Time wasted)
             endif
-            #white:Reflect|
-            #lightGray:Inbox|
+            #white:Reflect;
+            #lightGray:Thought or Question|
         else (No)
         endif
-    fork again
-        #orange:Anything\n else?;
     end fork
 endwhile (Yes)
 end
