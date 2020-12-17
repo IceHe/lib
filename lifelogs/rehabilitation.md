@@ -178,7 +178,7 @@ To be a better man.
 
 **Daily Do Flow**
 
-1.1\. Plan - Categorize ( anytime )
+1.1\. Plan - Categorize ( morning )
 
 - Too many task? Over 10 tasks today.
 
@@ -198,13 +198,17 @@ while (Empty (or too many tasks) ?) is (No)
         if (Task?) then (Yes)
             #white:Task|
         else (No)
-            if (Thought?) then (Yes)
-                #white:Thought|
+            if (Event?) then (Yes)
+                #white:Event|
             else (No)
-                if (Question?) then (Yes)
-                    #white:Question|
+                if (Thought?) then (Yes)
+                    #white:Thought|
                 else (No)
-                    #orange:What is it?;
+                    if (Question?) then (Yes)
+                        #white:Question|
+                    else (No)
+                        #orange:What is it?;
+                    endif
                 endif
             endif
         endif
@@ -221,7 +225,6 @@ end
 - Finish soon? Duration <= 2min
 - Deferable? Not important and no deadline.
 - Delegable? Able to assign to another person.
-- _Event? Just an event._
 - Due? With a deadline.
 - Splittable? Not specific or duration > 1day.
     - Ideal duration ≈ 2 hours ?
@@ -256,10 +259,9 @@ while (Empty (or until enough todos) ?) is (No)
                     #lightGray:Follow-up<
                     #lightGray:Inbox|
                 else (No)
-                    if (Event?) then (Yes)
-                        #white:Calendar|
-                        '#white:Events|
-                    else (No)
+                    'if (Event?) then (Yes)
+                    '    #white:Calendar|
+                    'else (No)
                         if (Due?) then (Yes)
                             #white:Set deadline\n or duration;
                         else (No)
@@ -271,7 +273,7 @@ while (Empty (or until enough todos) ?) is (No)
                                 #white:Todo|
                             endif
                         endif
-                    endif
+                    'endif
                 endif
             endif
         endif
@@ -364,7 +366,7 @@ while (Empty (and till end of day) ?) is (No)
             else (Time wasted)
             endif
             #white:Reflect;
-            #lightGray:Thought or Question|
+            #lightGray:Inbox, Thought or Question|
         else (No)
         endif
     end fork
@@ -454,7 +456,7 @@ Relevant : _( 与其他目标 )_ 相关 _( 例如终极目标, 否则意义不�
 
 Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时长 )_
 
-- _今天读 10 页 Java Basic~~_
+- _~~今天读 10 页 Java Basic~~_
 - _计划花 2h 读 10 页 Java Basic_
 
 _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
