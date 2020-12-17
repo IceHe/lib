@@ -233,6 +233,7 @@ end
 @startuml
 start
 #white:Task|
+#white:Categorize;
 -[#black]-> Clean up;
 while (Empty (or until enough todos) ?) is (No)
     if (Valueless?) then (Yes)
