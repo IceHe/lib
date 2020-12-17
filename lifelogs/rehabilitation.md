@@ -15,9 +15,9 @@ To be a better man.
 - 做事要领 : **将 "经验教训" 一个个地沉淀成习惯**
     - _想要 "毫不费力" , 就要 "习惯成自然"_
 - 做正确的事 : **抓住重点**
-    - _GTD 取舍 → 排优先级_
-- 正确地做事 : **遵循 SMART 法则和 PDCA 循环**
-    - _限时完成, 特别是不重要的事_
+- 正确地做事 : **限时完成**
+    - GTD 流程 + PDCA 循环 + SMART 法则
+    - _特别是不重要的事_
     - _忍耐这时 "完美主义和强迫症" 带来的不适, 直到形成新的舒适区_
 - 坚决迅速地执行 : **做好一件小事, 然后再做好下一件小事, 然后不断循环**
     - _立即去做, 5分钟快速启动; 不三心二意, 雷厉风行_
@@ -125,7 +125,7 @@ To be a better man.
     - 运动
         - [ ] 起床后 ~ 上班前 玩健身环 30min
 - 工作
-    - [ ] 工作日尽量 按时、保质、保量 完成任务
+    - [ ] 尽量 按时、保质、保量 完成任务
 - 学习
     - [ ] 起床后 ~ 上班前 学习并做笔记 1h
 - 杂务
@@ -154,7 +154,7 @@ To be a better man.
     - 减少玩手机分神的机会, 缩短玩手机的时长
 - **Notification - 保持专注**
     - 默认关闭所有 Apps 的通知权限
-    - _除了 工作IM、电话、短信、日历、微信、邮件、时间块_
+    - _除了 工作IM、电话、短信、日历、微信、邮件、时间块、…_
 - **TickTick - 减轻负担**
     - 暂存事项, 清空大脑, 减轻心理负担; 从中选择一件事来做就行
     - _没必要因为待办事项多而焦虑_
@@ -164,8 +164,6 @@ To be a better man.
 <!-- - **TickTick - 减轻负担** -->
 <!--     - _所思所想、待办杂项、工作任务、学习计划、日期事件、重复事件_ -->
 <!--     - _( 暂存焦虑 : 在我心目中, "暂存区" 的说法比 "备忘录" 更切中要害 )_ -->
-<!-- - **Notification - 保持专注** : 默认关闭所有 Apps 的通知权限 -->
-<!--     - _除了 钉钉、日历、电话、短信、微信、邮件、时间块_ -->
 
 注意 : 他们只不过是 "器" —— 即手段和工具
 
@@ -182,9 +180,9 @@ To be a better man.
 
 <!-- What to Do -->
 
-<!-- 简化、取舍、排序 -->
+**Daily Do Flow**
 
-1.1\. Plan - Categorize daily ( at any time )
+1.1\. Plan - Categorize ( anytime )
 
 - Too many task? Over 10 tasks today.
 
@@ -210,7 +208,7 @@ while (Empty (or too many tasks) ?) is (No)
                 if (Question?) then (Yes)
                     #white:Question|
                 else (No)
-                    #orange:What happened?;
+                    #orange:What is it?;
                 endif
             endif
         endif
@@ -220,17 +218,17 @@ end
 @enduml
 ```
 
-1.2\. Plan - Filter & preprocess tasks daily ( morning )
+1.2\. Plan - Filter & preprocess tasks ( morning )
 
 - Enough todos? Usually 3 ~ 5 todos today.
-- Unnecessary? Valueless.
+- Valueless? Maybe valueless. ( Doubt )
 - Finish soon? Duration <= 2min
 - Deferable? Not important and no deadline.
 - Delegable? Able to assign to another person.
 - _Event? Just an event._
 - Due? With a deadline.
 - Splittable? Not specific or duration > 1day.
-    - Ideal duration ≈ 1 ~ 2 hours ?
+    - Ideal duration ≈ 2 hours ?
 
 ```plantuml
 @startuml
@@ -238,10 +236,10 @@ start
 #white:Task|
 -[#black]-> Clean up;
 while (Empty (or until enough todos) ?) is (No)
-    if (Unnecessary?) then (Yes)
+    if (Valueless?) then (Yes)
         if (Hesitate?) then (Yes)
             #white:Rethink;
-            #white:Inbox|
+            #lightGray:Inbox|
         else (No)
             #white:Quit;
             #lightGray:Delete;
@@ -250,16 +248,17 @@ while (Empty (or until enough todos) ?) is (No)
     else (No)
         if (Finish soon?) then (Yes)
             #white:Finish;
-            #lightGray:Delete;
-            #lightGray:Trash|
+            #lightGray:Done|
         else (No)
             if (Deferable?) then (Yes)
                 #white:Defer;
                 #lightGray:Defer<
+                #lightGray:Inbox|
             else (No)
                 if (Delegable?) then (Yes)
                     #white:Delegate;
                     #lightGray:Follow-up<
+                    #lightGray:Inbox|
                 else (No)
                     if (Event?) then (Yes)
                         #white:Calendar|
@@ -290,11 +289,12 @@ end
 @enduml
 ```
 
-2\. Do - Process tasks daily (  )
+2\. Do - Process todo tasks
 
 - Block? Encounter a problem.
 - Timeout? Over expected duration or till end of day.
 - Finish soon? Extra duration < 1h or till end of day.
+- valueless? Maybe valueless. ( Doubt )
 
 ```plantuml
 @startuml
@@ -318,15 +318,15 @@ while (Empty (and till end of day) ?) is (No)
                 if (Finish soon?) then (Yes)
                     #white:Continue;
                 else (No)
-                #white:Split or defer;
-                #white:Task|
+                #white:Rethink;
+                #lightGray:Task|
                 endif
             else (No)
                 if (Valueless?) then (Yes)
                     #white:Rethink;
-                    #white:Task|
+                    #lightGray:Task|
                 else (No)
-                    #orange:What happened?;
+                    #orange:What is my\n problem?;
                 endif
             endif
         endif
@@ -337,8 +337,9 @@ end
 @enduml
 ```
 
-3\. Check daily ( evening )
+3\. Check done tasks ( evening )
 
+- Valueless? Maybe valueless.
 - Redo? Need to redo. (Poor quality?)
 - Record?
     - _A. Add to Thought & Question_
@@ -352,23 +353,26 @@ start
 #white:Done|
 -[#black]-> Clean up;
 while (Empty (and till end of day) ?) is (No)
-    if (Unnecessary?) then (Yes)
-        #white:Reflect;
-        #lightGray:Delete;
-        #lightGray:Trash|
-    else (No)
+    fork
         if (Redo?) then (Yes)
             #white:Redo;
             #white:Task|
-        else (No)
-            if (Have thought or question?) then (Yes)
-                #white:Record;
-                #lightGray:Inbox|
-            else (No)
-                #white:Do nothing?;
-            endif
         endif
-    endif
+    fork again
+        if (No thought or question?) then (Yes)
+            if (Value?) then (Great job)
+            else (Valueless)
+            endif
+            if (Long duration?) then (Reasonable)
+            else (Time wasted)
+            endif
+            #white:Reflect|
+            #lightGray:Inbox|
+        else (No)
+        endif
+    fork again
+        #orange:Anything\n else?;
+    end fork
 endwhile (Yes)
 end
 @enduml
@@ -383,42 +387,7 @@ Reference
 
 ![GTD](../snips/principles/_images/gtd.jpg)
 
-### 做法
-
-<!-- How to Do -->
-
-**SMART 法则**
-
-<!-- SMART Principle -->
-
-Specific : _( 目标 )_ 具体 _( 明确, 可以分解出具体的行动步骤 )_
-
-- _~~成为勤奋学习的人~~_
-- _今天读 Java Basic_
-
-Measurable : 可度量 _( 可量化 )_
-
-- _~~今天读 Java Basic~~_
-- _今天读 10 页 Java Basic_
-
-Achievable : 可实现 _( 目标不宜过高 ( 或过低 ) )_
-
-- _~~今天读 100 页 Java Basic~~_
-- _今天读 10 页 Java Basic_
-
-Relevant : _( 与其他目标 )_ 相关 _( 例如终极目标, 否则意义不大 )_
-
-- _~~今天读 10 页经济学导论~~_
-- _今天读 10 页 Java Basic_
-
-Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时长 )_
-
-- _今天读 10 页 Java Basic~~_
-- _计划花 2h 读 10 页 Java Basic_
-
-_( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
-
-**PDCA 循环**
+### PDCA
 
 <!-- PDCA Cycle -->
 
@@ -462,13 +431,42 @@ Act 行动 / Adjust 调整 ( 改进 )
 
 ![](https://upload.wikimedia.org/wikipedia/commons/4/42/PDCA-Multi-Loop.png)
 
-### 行动
+<!-- How to Do -->
 
-<!-- Just Do It / Action -->
+### SMART
 
-**经验**
+<!-- SMART Principle -->
 
-<!-- Exprience -->
+Specific : _( 目标 )_ 具体 _( 明确, 可以分解出具体的行动步骤 )_
+
+- _~~成为勤奋学习的人~~_
+- _今天读 Java Basic_
+
+Measurable : 可度量 _( 可量化 )_
+
+- _~~今天读 Java Basic~~_
+- _今天读 10 页 Java Basic_
+
+Achievable : 可实现 _( 目标不宜过高 ( 或过低 ) )_
+
+- _~~今天读 100 页 Java Basic~~_
+- _今天读 10 页 Java Basic_
+
+Relevant : _( 与其他目标 )_ 相关 _( 例如终极目标, 否则意义不大 )_
+
+- _~~今天读 10 页经济学导论~~_
+- _今天读 10 页 Java Basic_
+
+Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时长 )_
+
+- _今天读 10 页 Java Basic~~_
+- _计划花 2h 读 10 页 Java Basic_
+
+_( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
+
+### 行动经验
+
+<!-- Just Do It / Action Exprience  -->
 
 <!-- _( 踟蹰不前的时候, 劝诱自己行动起来 )_ -->
 
