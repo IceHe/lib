@@ -178,16 +178,17 @@ To be a better man.
 
 **Daily Do Flow**
 
-1.1\. Plan - Categorize ( morning )
+1.1\. Plan - Filter ( morning )
 
+- Arriving Event? Due Event.
 - Too many task? Over 10 tasks today.
 
 ```plantuml
 @startuml
 start
-:Tasks / Thoughts / Questions]
+:Arriving Event / Tasks / Thoughts / Questions]
 -[#black]-> Collect at once!;
-#white:**Inbox** and \nDue **Event**|
+#white:**Inbox**|
 -[#black]-> Clean up;
 while (Empty (or too many tasks) ?) is (No)
     if (Valueless?) then (Yes)
@@ -218,7 +219,7 @@ end
 @enduml
 ```
 
-1.2\. Plan - Filter & preprocess tasks ( morning )
+1.2\. Plan - Preset tasks ( morning )
 
 - Priority
     - High : Important & urgent ( 1st Thing 1st )
@@ -238,9 +239,9 @@ end
 @startuml
 start
 #white:Task|
-#white:Categorize;
 -[#black]-> Clean up;
 while (Empty (or until enough todos) ?) is (No)
+    #white:Categorize;
     #white:Prioritize;
     if (Valueless?) then (Yes)
         if (Hesitate?) then (Yes)
@@ -298,7 +299,7 @@ end
 @enduml
 ```
 
-2\. Do - Process todo tasks
+2\. Do tasks
 
 - Block? Encounter a problem.
 - Timeout? Over expected duration or till end of day.
@@ -377,6 +378,8 @@ while (Empty (and till end of day) ?) is (No)
             #white:Reflect;
             #lightGray:Inbox, Thought or Question|
         else (No)
+            #white:Delete;
+            #lightGray:Trash|
         endif
     end fork
 endwhile (Yes)
