@@ -588,5 +588,4 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
 <!-- - [日程 ( Routine )](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md) -->
 
-> 真正的简约不是删繁就简，而是纷繁中建立秩序。
-> —— Jony Ivy
+> 真正的简约不是删繁就简，而是纷繁中建立秩序。 —— Jony Ivy
