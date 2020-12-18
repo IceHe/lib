@@ -370,9 +370,9 @@ end
 ```plantuml
 @startuml
 start
-#white:Done|
+#white:Completed (and Trash?)|
 -[#black]-> Clean up;
-while (Empty (and till end of day) ?) is (No)
+while (Checked all (and till end of day) ?) is (No)
     fork
         if (Redo?) then (Yes)
             #white:Redo;
@@ -387,14 +387,17 @@ while (Empty (and till end of day) ?) is (No)
             else (Time wasted)
             endif
             #white:Reflect;
-            #lightGray:Inbox, Thought or Question|
+            :New events / tasks / thoughts / questions?]
         else (No)
             if (Need archives?) then (Yes)
-                #white:Complete;
-                #lightGray:Completed|
+                #white:Do nothing;
             else (No)
-                #white:Discard;
-                #lightGray:Trash|
+                if (Completed?) then (Yes)
+                    #white:Discard;
+                    #lightGray:Trash|
+                else (No)
+                    #yellow:Delete Forever;
+                endif
             endif
         endif
     end fork
