@@ -333,9 +333,12 @@ while (Empty (and till end of day) ?) is (No)
             else (No)
                 if (Valueless?) then (Yes)
                     #white:Rethink;
+                    #lightGray:Defer<
                     #lightGray:Task|
                 else (No)
-                    #orange:What is my\n problem?;
+                    #white:Quit;
+                    #lightGray:Delete;
+                    #lightGray:Trash|
                 endif
             endif
         endif
