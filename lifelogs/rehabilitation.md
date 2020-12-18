@@ -332,13 +332,13 @@ while (Empty (and till end of day) ?) is (No)
                 endif
             else (No)
                 if (Valueless?) then (Yes)
-                    #white:Rethink;
-                    #lightGray:Defer<
-                    #lightGray:Task|
-                else (No)
                     #white:Quit;
                     #lightGray:Delete;
                     #lightGray:Trash|
+                else (No)
+                    #white:Rethink;
+                    #lightGray:Defer<
+                    #lightGray:Task|
                 endif
             endif
         endif
@@ -353,8 +353,8 @@ end
 
 - Valueless? Maybe valueless.
 - Redo? Need to redo. (Poor quality?)
-- Record?
-    - _A. Add to Thought & Question_
+- Reflect?
+    - _A. Add to Inbox, Thought & Question_
     - _B. Update its description or insert a new comment?_
     - _C. Write in reflect.md of IceHe's Library_
     - …
@@ -381,8 +381,13 @@ while (Empty (and till end of day) ?) is (No)
             #white:Reflect;
             #lightGray:Inbox, Thought or Question|
         else (No)
-            #white:Delete;
-            #lightGray:Trash|
+            if (Need archives?) then (Yes)
+                #white:Complete;
+                #lightGray:Completed|
+            else (No)
+                #white:Delete;
+                #lightGray:Trash|
+            endif
         endif
     end fork
 endwhile (Yes)
