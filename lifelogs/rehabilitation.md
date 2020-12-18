@@ -316,8 +316,8 @@ start
 while (Empty (and till end of day) ?) is (No)
     #white:1st thing 1st;
     #lightGray:WIP<
-    if (Done?) then (Yes)
-        #white:Done|
+    if (Complte?) then (Yes)
+        #white:Completed|
     else (No)
         if (Block?) then (Yes)
             #white:Task|
