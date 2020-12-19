@@ -213,7 +213,8 @@ end
 
 1.1\. Plan - Filter tasks ( morning )
 
-- Why include Today and Next N Days List? Check arriving events.
+- Why include Today and Next N Days List?
+    - Check arriving events ( which are not in Task & Todo List ).
 - Checked all? Or too many tasks.
     - Too many tasks : Total duration over available time today.
 - Others : Thoughts, questions and something else.
@@ -248,7 +249,7 @@ end
 1.2\. Plan - Preprocess tasks ( morning )
 
 - Categorize :
-    - Work / Study / Read / Joy / Have-to / Time-wasted / …
+    - Work / Learn / Think / Read / Zheteng / Fun / Rest / Sport / Have-to / Waste / …
 - Priority
     - High : Important & urgent
         - _1st Thing 1st_
@@ -304,7 +305,7 @@ end
 
 - Checked all? Or too many todos.
     - Too many todos : Total duration over available time today.
-- Complete soon? Duration <= 5min.
+- Complete soon? Estimated duration <= 5min.
 - Delegable? Able to assign to another person.
 
 ```plantuml
@@ -314,9 +315,11 @@ start
 #white:Untag WIP<
 while (Found 1st thing?) is (No)
     if (Complete soon?) then (Yes)
+        #white:Soon<
         if (Completed soon?) then (Yes)
             #white:Completed|
         else (No)
+            #white:Defer<
             #white:Task|
             '果断放弃, 不要再浪费时间进去
         endif
