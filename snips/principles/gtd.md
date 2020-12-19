@@ -19,7 +19,7 @@ Version 2020-12-19
 
 **Daily Do Flow**
 
-1.1\. Plan - Filter ( morning )
+1.1\. Plan - Filter tasks ( morning )
 
 - Arriving Events? Due events.
 - Too many tasks? Over 10 tasks today.
@@ -29,7 +29,7 @@ Version 2020-12-19
 start
 :Arriving events / tasks / thoughts / questions]
 -[#black]-> Collect at once!;
-#white:**Inbox**|
+#white:Inbox|
 -[#black]-> Clean up;
 while (Empty (or too many tasks) ?) is (No)
     if (Valueless?) then (Yes)
@@ -64,7 +64,7 @@ end
 @enduml
 ```
 
-1.2\. Plan - Preset tasks ( morning )
+1.2\. Plan - Preprocess tasks ( morning )
 
 - Priority
     - High : Important & urgent
@@ -160,7 +160,7 @@ start
 while (Empty (and till end of day) ?) is (No)
     #white:1st thing 1st;
     #lightGray:WIP<
-    if (Complte?) then (Yes)
+    if (Complete?) then (Yes)
         #white:Complete;
         #lightGray:Completed|
     else (No)

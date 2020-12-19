@@ -178,7 +178,7 @@ To be a better man.
 
 **Daily Do Flow**
 
-1.1\. Plan - Filter ( morning )
+1.1\. Plan - Filter tasks ( morning )
 
 - Arriving Events? Due events.
 - Too many tasks? Over 10 tasks today.
@@ -188,7 +188,7 @@ To be a better man.
 start
 :Arriving events / tasks / thoughts / questions]
 -[#black]-> Collect at once!;
-#white:**Inbox**|
+#white:Inbox|
 -[#black]-> Clean up;
 while (Empty (or too many tasks) ?) is (No)
     if (Valueless?) then (Yes)
@@ -223,7 +223,7 @@ end
 @enduml
 ```
 
-1.2\. Plan - Preset tasks ( morning )
+1.2\. Plan - Preprocess tasks ( morning )
 
 - Priority
     - High : Important & urgent
@@ -236,11 +236,9 @@ end
         - _Trash_
 - Enough todos? Usually 3 ~ 5 todos today.
 - Valueless? Maybe valueless. ( Doubt )
-- Complete soon? Duration <= 2min
 - Deferable? Not important and no deadline.
-- Delegable? Able to assign to another person.
 - Due? With a deadline.
-- Splittable? Not specific or duration > 1day.
+- Splittable? Not specific or duration > 4h.
     - Ideal duration ≈ 2 hours ?
 
 ```plantuml
@@ -260,39 +258,24 @@ while (Empty (or until enough todos) ?) is (No)
             #lightGray:Trash|
         endif
     else (No)
-        if (Complete soon?) then (Yes)
-            #white:Complete;
-            #lightGray:Completed|
+        if (Deferable?) then (Yes)
+            #white:Defer;
+            #lightGray:Defer<
+            if (Tomorrow?) then (Yes)
+                #lightGray:Task|
+            else (no)
+                #lightGray:Event|
+            endif
         else (No)
-            if (Deferable?) then (Yes)
-                #white:Defer;
-                #lightGray:Defer<
-                if (Tomorrow?) then (Yes)
-                    #lightGray:Task|
-                else (no)
-                    #lightGray:Event|
-                endif
+            if (Due?) then (Yes)
+                #white:Set deadline\n or duration;
             else (No)
-                if (Delegable?) then (Yes)
-                    #white:Delegate;
-                    #lightGray:Follow-up<
-                    if (Tomorrow?) then (Yes)
-                        #lightGray:Task|
-                    else (no)
-                        #lightGray:Event|
-                    endif
+                if (Splittable?) then (Yes)
+                    #white:Split into\nsubtasks;
+                    'note right : SMART 法则
+                    #lightGray:Task|
                 else (No)
-                    if (Due?) then (Yes)
-                        #white:Set deadline\n or duration;
-                    else (No)
-                        if (Splittable?) then (Yes)
-                            #white:Split into\nsubtasks;
-                            'note right : SMART 法则
-                            #lightGray:Task|
-                        else (No)
-                            #white:Todo|
-                        endif
-                    endif
+                    #white:Todo|
                 endif
             endif
         endif
@@ -302,9 +285,11 @@ end
 @enduml
 ```
 
-2\. Do tasks
+2.1\. Do - Select 1st task
 
+- Complete soon? Duration <= 2min.
 - Block? Encounter a problem.
+- Delegable? Able to assign to another person.
 - Timeout? Over expected duration or till end of day.
 - Finish soon? Extra duration < 1h or till end of day.
 - Valueless? Maybe valueless. ( Doubt )
@@ -313,50 +298,95 @@ end
 @startuml
 start
 #white:Todo|
-#white:Sort by due;
-#white:Sort by priority;
 -[#black]-> Clean up;
 while (Empty (and till end of day) ?) is (No)
-    #white:1st thing 1st;
-    #lightGray:WIP<
-    if (Complte?) then (Yes)
+    if (Complete soon?) then (Yes)
         #white:Complete;
         #lightGray:Completed|
     else (No)
-        if (Block?) then (Yes)
-            #white:Rethink;
-            #lightGray:Block<
-            #lightGray:Task|
+        if (Delegable?) then (Yes)
+            #white:Delegate;
+            #lightGray:Follow-up<
+            if (Tomorrow?) then (Yes)
+                #lightGray:Task|
+            else (no)
+                #lightGray:Event|
+            endif
         else (No)
-            if (Timeout?) then (Yes)
-                if (Finish soon?) then (Yes)
-                    #white:Continue;
-                else (No)
+            #white:Sort by deadline;
+            #white:Sort by priority;
+            #orange:1st thing 1st;
+            #lightGray:Work In Process<
+        endif
+    endif
+endwhile (Yes)
+end
+@enduml
+```
+
+2.2\. Doing long tasks
+
+- Long? Duration >= 5min
+
+```plantuml
+@startuml
+start
+#white:Work In Process<
+-[#black]-> Clean up;
+while (Empty (and till end of day) ?) is (No)
+    if (Complete soon?) then (Yes)
+        #white:Complete;
+        #lightGray:Completed|
+    else (No)
+        if (Delegable?) then (Yes)
+            #white:Delegate;
+            #lightGray:Follow-up<
+            if (Tomorrow?) then (Yes)
+                #lightGray:Task|
+            else (no)
+                #lightGray:Event|
+            endif
+        else (No)
+            #white:Sort by deadline;
+            #white:Sort by priority;
+            #yellow:1st thing 1st;
+            #lightGray:Work In Process<
+            if (Block?) then (Yes)
                 #white:Rethink;
-                #lightGray:Defer<
-                if (Tomorrow?) then (Yes)
-                    #lightGray:Todo|
-                else (no)
-                    #lightGray:Event|
-                endif
-                endif
+                #lightGray:Block<
+                #lightGray:Task|
             else (No)
-                if (Valueless?) then (Yes)
-                    #white:Discard;
-                    #lightGray:Trash|
+                if (Timeout?) then (Yes)
+                    if (Complete soon?) then (Yes)
+                        #white:Complete;
+                        #lightGray:Completed|
+                    else (No)
+                        #white:Rethink;
+                        #lightGray:Defer<
+                        if (Tomorrow?) then (Yes)
+                            #lightGray:Todo|
+                        else (no)
+                            #lightGray:Event|
+                        endif
+                    endif
                 else (No)
-                    #white:Rethink;
-                    #lightGray:Defer<
-                    if (Tomorrow?) then (Yes)
-                        #lightGray:Todo|
-                    else (no)
-                        #lightGray:Event|
+                    if (Valueless?) then (Yes)
+                        #white:Discard;
+                        #lightGray:Trash|
+                    else (No)
+                        #white:Rethink;
+                        #lightGray:Defer<
+                        if (Tomorrow?) then (Yes)
+                            #lightGray:Todo|
+                        else (no)
+                            #lightGray:Event|
+                        endif
                     endif
                 endif
             endif
+            #lightGray:Untag WIP<
         endif
     endif
-    #lightGray:Untag WIP<
 endwhile (Yes)
 end
 @enduml
