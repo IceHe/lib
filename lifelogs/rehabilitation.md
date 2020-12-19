@@ -192,8 +192,13 @@ start
 -[#black]-> Clean up;
 while (Empty (or too many tasks) ?) is (No)
     if (Valueless?) then (Yes)
-        #white:Discard;
-        #lightGray:Trash|
+        if (Hesitate?) then (Yes)
+            #white:Rethink;
+            #lightGray:Inbox|
+        else (No)
+            #white:Discard;
+            #lightGray:Trash|
+        endif
     else (No)
         if (Task?) then (Yes)
             #white:Task|
