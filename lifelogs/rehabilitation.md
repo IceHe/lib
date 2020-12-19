@@ -172,11 +172,11 @@ To be a better man.
 
 <!-- Regulations -->
 
-### GTD
+### Do Flow
 
 <!-- What to Do -->
 
-**Daily Do Flow**
+<!-- **GTD + PDCA** -->
 
 <!--
 
@@ -184,7 +184,7 @@ To be a better man.
 
 - ~~简洁好看? 仅显示动作或目标, 通用性可参考性强, 但可行性不强.~~
     - 这么做没必要, 我就是参考别人画的图来改进的, 别人也参考那个图就完事了.
-    - 根据自己简化完的流程图, 自己看也别扭?
+    - 根据自己简化完的流程图, 自己看也别扭? 简化一版, 看看效果.
 - 表意清晰? 动作 + 具体操作, 但是繁复
 - 实操步骤明确? 操作步骤更详细繁复, 更个人化, 通用性和可参考性更差了.
 
@@ -198,14 +198,19 @@ To be a better man.
 
 1.1\. Plan - Filter tasks ( morning )
 
+<!--
+
 - Arriving Events? Due events.
 - Empty? Empty inbox (or too many tasks).
     - Too many tasks? Over 10 tasks today.
 
+-->
+
 ```plantuml
 @startuml
 start
-:Arriving events / tasks / thoughts / questions]
+:Tasks / arriving events / others]
+':Tasks / arriving events / thoughts / questions]
 -[#black]-> Collect at once!;
 #white:Inbox|
 -[#black]-> Clean up;
@@ -213,21 +218,18 @@ while (Empty?) is (No)
     if (Valueless?) then (Yes)
         #lightGray:Trash|
         'if (Hesitate?) then (Yes)
-        '    '#white:Rethink;
-        '    #white:Inbox|
+        '   #white:Inbox|
         'else (No)
-        '    '#white:Discard;
-        '    #white:Trash|
+        '   #lightGray:Trash|
         'endif
     else (No)
         if (Task?) then (Yes)
             #white:Task|
         else (No)
             if (Event?) then (Yes)
-                #lightGray:Event|
-                '#white:Event|
+                #white:Event|
             else (No)
-                #lightGray:Others|
+                #white:Others|
                 'if (Thought?) then (Yes)
                 '    #white:Thought|
                 'else (No)
@@ -247,6 +249,8 @@ end
 
 1.2\. Plan - Preprocess tasks ( morning )
 
+<!--
+
 - Empty? None of tasks (or until enough todos).
     - Enough todos? Usually 3 ~ 5 long todos today.
 - Categorize :
@@ -265,6 +269,8 @@ end
 - Splittable? Not specific or duration > 4h.
     - Ideal duration ≈ 2 hours ?
 - Split : Split into subtasks
+
+-->
 
 ```plantuml
 @startuml
@@ -286,7 +292,7 @@ while (Empty?) is (No)
     else (No)
         #white:Set due date;
         if (Deferrable?) then (Yes)
-            #lightGray:Inbox|
+            #white:Inbox|
             '#white:Defer;
             '#lightGray:Defer<
             'if (Tomorrow?) then (Yes)
@@ -297,8 +303,9 @@ while (Empty?) is (No)
         else (No)
             if (Splittable?) then (Yes)
                 #white:Split;
+                #white:Task|
                 'note right : SMART 法则
-                #lightGray:Task|
+                '#lightGray:Task|
             else (No)
                 #white:Todo|
             endif
@@ -490,27 +497,27 @@ Reference
 
 ![GTD](../snips/principles/_images/gtd.jpg)
 
-### PDCA
+<!-- ### PDCA -->
 
 <!-- PDCA Cycle -->
 
-Plan 规划 ( 计划 )
+<!-- Plan 规划 ( 计划 ) -->
 
 <!-- - 制定具体目标 & 计划 (过程), 以获得想要的成果 -->
 
-Do 执行 ( 行动 )
+<!-- Do 执行 ( 行动 ) -->
 
 <!-- - 执行计划 : 展开任务, 组织实施 -->
 <!--     - 尝试做一些小的改变 -->
 <!--     - 并收集信息以便评价这些改变是否有效 -->
 
-Check 检查 ( 反省 )
+<!-- Check 检查 ( 反省 ) -->
 
 <!-- - 检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏 -->
 <!--     - 对比期望的成果, 看有哪里合意, 哪里不合意 -->
 <!--     - 看执行过程, 跟最初的计划有何不同 (过程偏差) -->
 
-Act 行动 / Adjust 调整 ( 改进 )
+<!-- Act 行动 / Adjust 调整 ( 改进 ) -->
 
 <!-- - "Also called 'Adjust', this act phase is where a process is improved." -->
 <!-- - 改善/调整 : 纠正偏差, 确定新目标, 制定下一轮的计划 -->
@@ -528,11 +535,11 @@ Act 行动 / Adjust 调整 ( 改进 )
 <!--         - 目标 ( Goals ) -->
 <!-- - 以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues ) -->
 
-![](https://upload.wikimedia.org/wikipedia/commons/7/7a/PDCA_Cycle.svg)
+<!-- ![](https://upload.wikimedia.org/wikipedia/commons/7/7a/PDCA_Cycle.svg) -->
 
-![](https://upload.wikimedia.org/wikipedia/commons/a/a8/PDCA_Process.png)
+<!-- ![](https://upload.wikimedia.org/wikipedia/commons/a/a8/PDCA_Process.png) -->
 
-![](https://upload.wikimedia.org/wikipedia/commons/4/42/PDCA-Multi-Loop.png)
+<!-- ![](https://upload.wikimedia.org/wikipedia/commons/4/42/PDCA-Multi-Loop.png) -->
 
 <!-- How to Do -->
 
@@ -639,19 +646,6 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 - 21:30-22:00 干发, 音视频
 - **22:00-22:30 反省, 计划**
 
-<!--
-
-统计 Stats
-
-- 必须做的杂务 4.5h
-- _身体休息 8h_
-- **运动 1.5h**
-- **学习 4h**
-- <u>工作 6h</u>
-- 4.5h + 8h + 1.5h + 4h + 6h = 24h
-
--->
-
 ### 周末
 
 <!-- Weekends -->
@@ -672,19 +666,6 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 - 20:45-21:30 洗澡, 保养 45m
 - 21:30-22:00 干发, B站
 - **22:00-22:30 反省, 计划**
-
-<!--
-
-统计 Stats
-
-- 必须做的杂务 4h+
-- _身体休息 8h_
-- **运动 30m**
-- **学习 11h+**
-- <u>工作 0h</u>
-- 4.25h + 8h + 0.5h + 11.25h + 0h = 24h
-
- -->
 
 ## 参阅
 
