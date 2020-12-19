@@ -178,10 +178,29 @@ To be a better man.
 
 **Daily Do Flow**
 
+<!--
+
+要想清楚需要流程图达到什么效果?
+
+- ~~简洁好看? 仅显示动作或目标, 通用性可参考性强, 但可行性不强.~~
+    - 这么做没必要, 我就是参考别人画的图来改进的, 别人也参考那个图就完事了.
+    - 根据自己简化完的流程图, 自己看也别扭?
+- 表意清晰? 动作 + 具体操作, 但是繁复
+- 实操步骤明确? 操作步骤更详细繁复, 更个人化, 通用性和可参考性更差了.
+
+实际做法?
+
+- A. 三个版本都画? 比较花时间维护
+- B. 画两个版本? Emmm… 找平衡
+- C. 只画一个版本? 最省事, 但不甘心, 想要以后再推广…
+
+-->
+
 1.1\. Plan - Filter tasks ( morning )
 
 - Arriving Events? Due events.
-- Too many tasks? Over 10 tasks today.
+- Empty? Empty inbox (or too many tasks).
+    - Too many tasks? Over 10 tasks today.
 
 ```plantuml
 @startuml
@@ -190,31 +209,34 @@ start
 -[#black]-> Collect at once!;
 #white:Inbox|
 -[#black]-> Clean up;
-while (Empty (or too many tasks) ?) is (No)
+while (Empty?) is (No)
     if (Valueless?) then (Yes)
-        if (Hesitate?) then (Yes)
-            #white:Rethink;
-            #lightGray:Inbox|
-        else (No)
-            #white:Discard;
-            #lightGray:Trash|
-        endif
+        #lightGray:Trash|
+        'if (Hesitate?) then (Yes)
+        '    '#white:Rethink;
+        '    #white:Inbox|
+        'else (No)
+        '    '#white:Discard;
+        '    #white:Trash|
+        'endif
     else (No)
         if (Task?) then (Yes)
             #white:Task|
         else (No)
             if (Event?) then (Yes)
-                #white:Event|
+                #lightGray:Event|
+                '#white:Event|
             else (No)
-                if (Thought?) then (Yes)
-                    #white:Thought|
-                else (No)
-                    if (Question?) then (Yes)
-                        #white:Question|
-                    else (No)
-                        #orange:What is it?;
-                    endif
-                endif
+                #lightGray:Others|
+                'if (Thought?) then (Yes)
+                '    #white:Thought|
+                'else (No)
+                '    if (Question?) then (Yes)
+                '        #white:Question|
+                '    else (No)
+                '        #orange:What is it?;
+                '    endif
+                'endif
             endif
         endif
     endif
@@ -225,6 +247,10 @@ end
 
 1.2\. Plan - Preprocess tasks ( morning )
 
+- Empty? None of tasks (or until enough todos).
+    - Enough todos? Usually 3 ~ 5 long todos today.
+- Categorize :
+    - Work / Study / Read / Joy / Have-to / Time-wasted / …
 - Priority
     - High : Important & urgent
         - _1st Thing 1st_
@@ -234,49 +260,47 @@ end
         - _Concerned_
     - No : Not important & not urgent
         - _Trash_
-- Enough todos? Usually 3 ~ 5 todos today.
-- Valueless? Maybe valueless. ( Doubt )
-- Deferable? Not important and no deadline.
-- Due? With a deadline.
+- Valueless? Maybe valueless.
+- Deferrable? Not important and no deadline.
 - Splittable? Not specific or duration > 4h.
     - Ideal duration ≈ 2 hours ?
+- Split : Split into subtasks
 
 ```plantuml
 @startuml
 start
 #white:Task|
 -[#black]-> Clean up;
-while (Empty (or until enough todos) ?) is (No)
+while (Empty?) is (No)
     #white:Categorize;
     #white:Prioritize;
     if (Valueless?) then (Yes)
-        if (Hesitate?) then (Yes)
-            #white:Rethink;
-            #lightGray:Inbox|
-        else (No)
-            #white:Discard;
-            #lightGray:Trash|
-        endif
+        #lightGray:Trash|
+        'if (Hesitate?) then (Yes)
+        '    '#white:Rethink;
+        '    #lightGray:Inbox|
+        'else (No)
+        '    '#white:Discard;
+        '    #lightGray:Trash|
+        'endif
     else (No)
-        if (Deferable?) then (Yes)
-            #white:Defer;
-            #lightGray:Defer<
-            if (Tomorrow?) then (Yes)
-                #lightGray:Task|
-            else (no)
-                #lightGray:Event|
-            endif
+        #white:Set due date;
+        if (Deferrable?) then (Yes)
+            #lightGray:Inbox|
+            '#white:Defer;
+            '#lightGray:Defer<
+            'if (Tomorrow?) then (Yes)
+            '    #lightGray:Task|
+            'else (No)
+            '    #lightGray:Event|
+            'endif
         else (No)
-            if (Due?) then (Yes)
-                #white:Set deadline\n or duration;
+            if (Splittable?) then (Yes)
+                #white:Split;
+                'note right : SMART 法则
+                #lightGray:Task|
             else (No)
-                if (Splittable?) then (Yes)
-                    #white:Split into\nsubtasks;
-                    'note right : SMART 法则
-                    #lightGray:Task|
-                else (No)
-                    #white:Todo|
-                endif
+                #white:Todo|
             endif
         endif
     endif
@@ -287,6 +311,7 @@ end
 
 2.1\. Do - Select 1st task
 
+- Empty? None of tasks (or till end of day).
 - Complete soon? Duration <= 2min.
 - Block? Encounter a problem.
 - Delegable? Able to assign to another person.
@@ -299,24 +324,26 @@ end
 start
 #white:Todo|
 -[#black]-> Clean up;
-while (Empty (and till end of day) ?) is (No)
+while (Empty?) is (No)
     if (Complete soon?) then (Yes)
-        #white:Complete;
-        #lightGray:Completed|
+        #white:Completed|
+        '#white:Complete;
+        '#lightGray:Completed|
     else (No)
         if (Delegable?) then (Yes)
             #white:Delegate;
-            #lightGray:Follow-up<
-            if (Tomorrow?) then (Yes)
-                #lightGray:Task|
-            else (no)
-                #lightGray:Event|
-            endif
+            '#lightGray:Follow-up<
+            'if (Tomorrow?) then (Yes)
+            '    #lightGray:Task|
+            'else (no)
+            '    #lightGray:Event|
+            'endif
         else (No)
-            #white:Sort by deadline;
+            #white:Sort by due date;
             #white:Sort by priority;
-            #orange:1st thing 1st;
-            #lightGray:Work In Process<
+            #white:Doing|
+            '#orange:1st thing 1st;
+            '#lightGray:Work In Process<
         endif
     endif
 endwhile (Yes)
@@ -331,69 +358,79 @@ end
 ```plantuml
 @startuml
 start
-#white:Work In Process<
--[#black]-> Clean up;
-while (Empty (and till end of day) ?) is (No)
-    if (Complete soon?) then (Yes)
-        #white:Complete;
-        #lightGray:Completed|
-    else (No)
-        if (Delegable?) then (Yes)
-            #white:Delegate;
-            #lightGray:Follow-up<
-            if (Tomorrow?) then (Yes)
-                #lightGray:Task|
-            else (no)
-                #lightGray:Event|
+#white:Doing|
+'#white:Work In Process<
+-[#black]-> Doing;
+while (Completed?) is (No)
+    fork
+        if (Block?) then (Yes)
+            #white:Doing another todo;
+        else (No)
+        endif
+    fork again
+        if (Timeout?) then (Yes)
+            if (Complete soon?) then (Yes)
+                #white:Continue;
+                '#white:Complete;
+                '#lightGray:Completed|
+            else (No)
+                #white:Doing another todo;
+                '#white:Rethink;
+                '#lightGray:Defer<
+                'if (Tomorrow?) then (Yes)
+                '    #lightGray:Todo|
+                'else (no)
+                '    #lightGray:Event|
+                'endif
             endif
         else (No)
-            #white:Sort by deadline;
-            #white:Sort by priority;
-            #yellow:1st thing 1st;
-            #lightGray:Work In Process<
-            if (Block?) then (Yes)
-                #white:Rethink;
-                #lightGray:Block<
-                #lightGray:Task|
-            else (No)
-                if (Timeout?) then (Yes)
-                    if (Complete soon?) then (Yes)
-                        #white:Complete;
-                        #lightGray:Completed|
-                    else (No)
-                        #white:Rethink;
-                        #lightGray:Defer<
-                        if (Tomorrow?) then (Yes)
-                            #lightGray:Todo|
-                        else (no)
-                            #lightGray:Event|
-                        endif
-                    endif
-                else (No)
-                    if (Valueless?) then (Yes)
-                        #white:Discard;
-                        #lightGray:Trash|
-                    else (No)
-                        #white:Rethink;
-                        #lightGray:Defer<
-                        if (Tomorrow?) then (Yes)
-                            #lightGray:Todo|
-                        else (no)
-                            #lightGray:Event|
-                        endif
-                    endif
-                endif
-            endif
-            #lightGray:Untag WIP<
         endif
-    endif
+    end fork
+    'if (Block?) then (Yes)
+    '    '#white:Rethink;
+    '    '#lightGray:Block<
+    '    #lightGray:Task|
+    'else (No)
+    '    if (Timeout?) then (Yes)
+    '        if (Complete soon?) then (Yes)
+    '            #white:Continue;
+    '            '#white:Complete;
+    '            '#lightGray:Completed|
+    '        else (No)
+    '            #lightGray:Task|
+    '            '#white:Rethink;
+    '            '#lightGray:Defer<
+    '            'if (Tomorrow?) then (Yes)
+    '            '    #lightGray:Todo|
+    '            'else (no)
+    '            '    #lightGray:Event|
+    '            'endif
+    '        endif
+    '    else (No)
+    '        ''if (Valueless?) then (Yes)
+    '        ''    '#white:Discard;
+    '        ''    #lightGray:Trash|
+    '        ''else (No)
+    '        '    #white:Rethink;
+    '        '    #lightGray:Defer<
+    '        '    if (Tomorrow?) then (Yes)
+    '        '        #lightGray:Todo|
+    '        '    else (no)
+    '        '        #lightGray:Event|
+    '        '    endif
+    '        ''endif
+    '    endif
+    'endif
+    ''#lightGray:Untag WIP<
 endwhile (Yes)
+#white:Completed|
 end
 @enduml
 ```
 
 3\. Check done tasks ( evening )
 
+- Checked all? Or till end of day.
 - Valueless? Maybe valueless.
 - Redo? Need to redo. (Poor quality?)
 - Reflect?
@@ -407,34 +444,37 @@ end
 start
 #white:Completed (and Trash?)|
 -[#black]-> Clean up;
-while (Checked all (and till end of day) ?) is (No)
+while (Checked all?) is (No)
     fork
         if (Redo?) then (Yes)
-            #white:Redo;
-            #lightGray:Task|
+            #white:Inbox|
+            '#white:Redo;
+            '#lightGray:Task|
+        else (No)
         endif
     fork again
-        if (No thought or question?) then (Yes)
-            if (Value?) then (Great job)
-            else (Valueless)
-            endif
-            if (Long duration?) then (Reasonable)
-            else (Time wasted)
-            endif
-            #white:Reflect;
-            :New events / tasks / thoughts / questions?]
-        else (No)
-            if (Need archives?) then (Yes)
-                #white:Do nothing;
-            else (No)
-                if (Completed?) then (Yes)
-                    #white:Discard;
-                    #lightGray:Trash|
-                else (No)
-                    #yellow:Delete Forever;
-                endif
-            endif
-        endif
+        #white:Reflect;
+        'if (No thought or question?) then (Yes)
+        '    #white:Reflect;
+        '    'if (Value?) then (Great job)
+        '    'else (Valueless)
+        '    'endif
+        '    'if (Long duration?) then (Reasonable)
+        '    'else (Time wasted)
+        '    'endif
+        '    ':New events / tasks / thoughts / questions?]
+        'else (No)
+        '    'if (Need archives?) then (Yes)
+        '    '    #white:Do nothing;
+        '    'else (No)
+        '    '    if (Completed?) then (Yes)
+        '    '        #white:Discard;
+        '    '        #lightGray:Trash|
+        '    '    else (No)
+        '    '        #yellow:Delete Forever;
+        '    '    endif
+        '    'endif
+        'endif
     end fork
 endwhile (Yes)
 end
@@ -578,12 +618,13 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
 <!-- Weekdays -->
 
-- 23:30-00:00 躺床, 娱乐
-- _00:00-07:15 睡眠 7h15m_
-- _07:15-07:30 醒来, 赖床 15m_
-- 07:30-07:45 起床, 收拾, 内务, 称重, 烧水, 瑜伽垫 15m
-- **07:45-08:15 健身环 & 音视频**
-- 08:15-08:30 洗漱, 保养, 拾掇 15m
+- 22:30-23:00 躺床, 娱乐
+- _23:00-07:00 睡眠 8h_
+- _07:00-07:15 醒来, 赖床 15m_
+- 07:15-07:30 起床, 收拾, 内务, 称重, 烧水, 瑜伽垫 15m
+- **07:30-08:00 健身环 & 音视频**
+- 08:00-08:15 洗漱, 保养, 拾掇 15m
+- **08:15-08:30 反省, 计划 15m**
 - **08:30-10:00 早上学习 1.5h**
 - 10:00-10:30 **上班**, 杂务
 - <u>10:30-12:00 工作 1.5h</u>
@@ -596,7 +637,7 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 - 20:00-20:45 **下班**, 杂务 45m
 - 20:45-21:30 洗澡, 保养 45m
 - 21:30-22:00 干发, 音视频
-- **22:00-23:30 睡前学习 1.5h**
+- **22:00-22:30 反省, 计划**
 
 <!--
 
@@ -615,12 +656,13 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
 <!-- Weekends -->
 
-- 23:30-00:00 躺床, 娱乐
-- _00:00-07:15 睡眠 7h15min_
-- _07:15-07:30 醒来, 赖床 15m_
-- 07:30-07:45 起床, 收拾, 内务, 称重, 烧水, 瑜伽垫 15m
-- **07:45-08:15 健身环 & 音视频**
-- 08:15-08:30 洗漱, 保养, 拾掇 15m
+- 22:30-23:00 躺床, 娱乐
+- _23:00-07:00 睡眠 8h_
+- _07:00-07:15 醒来, 赖床 15m_
+- 07:15-07:30 起床, 收拾, 内务, 称重, 烧水, 瑜伽垫 15m
+- **07:30-08:00 健身环 & 音视频**
+- 08:00-08:15 洗漱, 保养, 拾掇 15m
+- **08:15-08:30 反省, 计划 15m**
 - **08:30-12:00 上午学习 3.5h**
 - 12:00-13:00 午餐, 娱乐 1h
 - _13:00-13:30 午休_
@@ -629,7 +671,7 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 - **19:00-20:45 晚上学习 1.75h**
 - 20:45-21:30 洗澡, 保养 45m
 - 21:30-22:00 干发, B站
-- **22:00-23:30 睡前学习 1.5h**
+- **22:00-22:30 反省, 计划**
 
 <!--
 

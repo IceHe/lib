@@ -75,7 +75,7 @@ end
         - _Concerned_
     - No : Not important & not urgent
         - _Trash_
-- Enough todos? Usually 3 ~ 5 todos today.
+- Enough todos? Usually 3 ~ 5 long todos today.
 - Valueless? Maybe valueless. ( Doubt )
 - Complete soon? Duration <= 2min
 - Deferable? Not important and no deadline.
@@ -124,7 +124,7 @@ while (Empty (or until enough todos) ?) is (No)
                     endif
                 else (No)
                     if (Due?) then (Yes)
-                        #white:Set deadline\n or duration;
+                        #white:Set deadline\n and duration;
                     else (No)
                         if (Splittable?) then (Yes)
                             #white:Split into\nsubtasks;
