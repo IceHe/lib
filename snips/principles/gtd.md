@@ -2,49 +2,58 @@
 
 Glossaries
 
-- Task : 任务 - 工作 & 学习
-- Thought : 想法, 感悟
-- Memo : 备忘, 信息, 笔记
 - Inbox : 收集箱
-- Delay : 拖延 / 推迟
+- Task : 任务 - 工作 & 学习
+- Thought : 想法, 感悟; 备忘, 笔记
+- Question : 问题, 麻烦
+- Event : 事件, 日历
 - Defer : 推迟
 - Delegate : 委托, 委派
-- Todo : 待办事项
 - Follow-up : 跟进
+- Todo : 待办事项
+- Delay : 拖延 / 推迟
 
-## Plan
+## Mine
+
+Version 2020-12-19
+
+**Daily Do Flow**
+
+1.1\. Plan - Filter ( morning )
+
+- Arriving Events? Due events.
+- Too many tasks? Over 10 tasks today.
 
 ```plantuml
 @startuml
 start
-:Task / Thought / Memo]
+:Arriving events / tasks / thoughts / questions]
 -[#black]-> Collect at once!;
-#white:Inbox|
+#white:**Inbox**|
 -[#black]-> Clean up;
-while (Empty?) is (No)
-    if (**Have to do?**) then (No)
-        #white:Quitted;
-    else (Yes)
-        if (**Finish in 2 min?**) then (Yes)
-            #white:Just do it.;
+while (Empty (or too many tasks) ?) is (No)
+    if (Valueless?) then (Yes)
+        if (Hesitate?) then (Yes)
+            #white:Rethink;
+            #lightGray:Inbox|
         else (No)
-            if (Allow to defer?) then (Yes)
-                #white:Deferred;
+            #white:Discard;
+            #lightGray:Trash|
+        endif
+    else (No)
+        if (Task?) then (Yes)
+            #white:Task|
+        else (No)
+            if (Event?) then (Yes)
+                #white:Event|
             else (No)
-                if (Allow to delegate?) then (Yes)
-                    #white:Delegated;
+                if (Thought?) then (Yes)
+                    #white:Thought|
                 else (No)
-                    if (Should split up?) then (Yes)
-                        #white:Split up;
-                        note right : SMART 法则
-                        #white:Inbox|
+                    if (Question?) then (Yes)
+                        #white:Question|
                     else (No)
-                        #white:Todo|
-                        if (Fixed-term?) then (Yes)
-                            #white:Due time;
-                        else (No)
-                        endif
-                        #white:Sort by\npriority;
+                        #orange:What is it?;
                     endif
                 endif
             endif
@@ -55,68 +64,204 @@ end
 @enduml
 ```
 
-## Action
+1.2\. Plan - Preset tasks ( morning )
+
+- Priority
+    - High : Important & urgent
+        - _1st Thing 1st_
+    - Medium : Important & not urgent
+        - _Important_
+    - Low : Not important & urgent
+        - _Concerned_
+    - No : Not important & not urgent
+        - _Trash_
+- Enough todos? Usually 3 ~ 5 todos today.
+- Valueless? Maybe valueless. ( Doubt )
+- Complete soon? Duration <= 2min
+- Deferable? Not important and no deadline.
+- Delegable? Able to assign to another person.
+- Due? With a deadline.
+- Splittable? Not specific or duration > 1day.
+    - Ideal duration ≈ 2 hours ?
+
+```plantuml
+@startuml
+start
+#white:Task|
+-[#black]-> Clean up;
+while (Empty (or until enough todos) ?) is (No)
+    #white:Categorize;
+    #white:Prioritize;
+    if (Valueless?) then (Yes)
+        if (Hesitate?) then (Yes)
+            #white:Rethink;
+            #lightGray:Inbox|
+        else (No)
+            #white:Discard;
+            #lightGray:Trash|
+        endif
+    else (No)
+        if (Complete soon?) then (Yes)
+            #white:Complete;
+            #lightGray:Completed|
+        else (No)
+            if (Deferable?) then (Yes)
+                #white:Defer;
+                #lightGray:Defer<
+                if (Tomorrow?) then (Yes)
+                    #lightGray:Task|
+                else (no)
+                    #lightGray:Event|
+                endif
+            else (No)
+                if (Delegable?) then (Yes)
+                    #white:Delegate;
+                    #lightGray:Follow-up<
+                    if (Tomorrow?) then (Yes)
+                        #lightGray:Task|
+                    else (no)
+                        #lightGray:Event|
+                    endif
+                else (No)
+                    if (Due?) then (Yes)
+                        #white:Set deadline\n or duration;
+                    else (No)
+                        if (Splittable?) then (Yes)
+                            #white:Split into\nsubtasks;
+                            'note right : SMART 法则
+                            #lightGray:Task|
+                        else (No)
+                            #white:Todo|
+                        endif
+                    endif
+                endif
+            endif
+        endif
+    endif
+endwhile (Yes)
+end
+@enduml
+```
+
+2\. Do tasks
+
+- Block? Encounter a problem.
+- Timeout? Over expected duration or till end of day.
+- Finish soon? Extra duration < 1h or till end of day.
+- Valueless? Maybe valueless. ( Doubt )
 
 ```plantuml
 @startuml
 start
 #white:Todo|
-if (What is it?) then (Problem)
-    #white:Thinking;
-    note right : What Why How\n/ 集中 / 通勤 \n/ 散步 / 休憩
-else (Action)
-    #white:Doing;
-    note right : 早上全力以赴\n做最重要的一件事!
-    if (Problems found?) then (No)
-        #white:Logging;
-        note right : STAR 法则
-        end
-    else (Yes)
+#white:Sort by due;
+#white:Sort by priority;
+-[#black]-> Clean up;
+while (Empty (and till end of day) ?) is (No)
+    #white:1st thing 1st;
+    #lightGray:WIP<
+    if (Complte?) then (Yes)
+        #white:Complete;
+        #lightGray:Completed|
+    else (No)
+        if (Block?) then (Yes)
+            #white:Rethink;
+            #lightGray:Block<
+            #lightGray:Task|
+        else (No)
+            if (Timeout?) then (Yes)
+                if (Finish soon?) then (Yes)
+                    #white:Continue;
+                else (No)
+                #white:Rethink;
+                #lightGray:Defer<
+                if (Tomorrow?) then (Yes)
+                    #lightGray:Todo|
+                else (no)
+                    #lightGray:Event|
+                endif
+                endif
+            else (No)
+                if (Valueless?) then (Yes)
+                    #white:Discard;
+                    #lightGray:Trash|
+                else (No)
+                    #white:Rethink;
+                    #lightGray:Defer<
+                    if (Tomorrow?) then (Yes)
+                        #lightGray:Todo|
+                    else (no)
+                        #lightGray:Event|
+                    endif
+                endif
+            endif
+        endif
     endif
-endif
-        #white:Inbox|
-        stop
+    #lightGray:Untag WIP<
+endwhile (Yes)
+end
 @enduml
 ```
 
-## Reflect
+3\. Check done tasks ( evening )
+
+- Valueless? Maybe valueless.
+- Redo? Need to redo. (Poor quality?)
+- Reflect?
+    - _A. Add to Inbox, Thought & Question_
+    - _B. Update its description or insert a new comment?_
+    - _C. Write in reflect.md of IceHe's Library_
+    - …
 
 ```plantuml
 @startuml
 start
-fork
-    #paleGreen:Inbox|
-fork again
-    #aqua:Todo|
-end fork
-:Reflect & Improve & Plan;
-note right : STAR Principle
-fork
+#white:Completed (and Trash?)|
+-[#black]-> Clean up;
+while (Checked all (and till end of day) ?) is (No)
     fork
-        #lightGray:Meaningless]
+        if (Redo?) then (Yes)
+            #white:Redo;
+            #lightGray:Task|
+        endif
     fork again
-        #deepSkyBlue:Done|
+        if (No thought or question?) then (Yes)
+            if (Value?) then (Great job)
+            else (Valueless)
+            endif
+            if (Long duration?) then (Reasonable)
+            else (Time wasted)
+            endif
+            #white:Reflect;
+            :New events / tasks / thoughts / questions?]
+        else (No)
+            if (Need archives?) then (Yes)
+                #white:Do nothing;
+            else (No)
+                if (Completed?) then (Yes)
+                    #white:Discard;
+                    #lightGray:Trash|
+                else (No)
+                    #yellow:Delete Forever;
+                endif
+            endif
+        endif
     end fork
-    #white:Archived;
-fork again
-    fork
-        #orange:WIP|
-    fork again
-        #crimson:Redo<
-    end fork
-    #paleGreen:Inbox|
-end fork
-stop
+endwhile (Yes)
+end
 @enduml
 ```
 
+4\. Adjust
+
+- Update rehabilitation.md
+    - 细则 → GTD
+
 ## References
 
-### Original
+Original
 
 ![GTD](_images/gtd.jpg)
-
-### Flow Chart
 
 ```plantuml
 @startuml
