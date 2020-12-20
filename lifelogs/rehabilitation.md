@@ -1,16 +1,16 @@
 # 更生
 
-<!-- Rehabilitation -->
+Rehabilitation
 
-## 纲领
+## 纲领 ( 道 )
 
-<!-- Guidelines _( 指导方针 )_ -->
+Guidelines _( 指导方针 )_
 
 To be a better man.
 
 ### 方式
 
-<!-- Policy _( 政策, 方针; 策略, 手段 )_ -->
+Policy _( 政策, 方针; 策略, 手段 )_
 
 - 做事要领 : **将 "经验教训" 一个个地沉淀成习惯**
     - _想要 "毫不费力" , 就要 "习惯成自然"_
@@ -23,7 +23,7 @@ To be a better man.
 
 ### 优先级
 
-<!-- Priority -->
+Priority
 
 **1\. 健康** : _身体是革命的本钱_
 
@@ -38,8 +38,7 @@ To be a better man.
 **2\. 工作** : _保证温饱, 改善生活_
 
 - _尽量 按时、保质、保量 完成任务; 不拖后腿, 不给别人添麻烦_
-
-<!--    - _Done is better than perfect._ -->
+    - _Done is better than perfect._
 
 **3\. 学习** : _长久地改善生活_
 
@@ -54,130 +53,51 @@ To be a better man.
 - _如果能从 "睡眠、饮食、运动、工作、学习、杂务" 中获得乐趣, 就没必要娱乐_
 - _如果去娱乐, 没必要强迫自己把订阅的全部娱乐节目都消费完, 享受不完就算了_
 
-<!--    - _苦海无涯回头是岸_ -->
+<!--     - _苦海无涯回头是岸_ -->
 
-## 目标
+## 细则 ( 术 )
 
-<!-- Targets -->
+Regulations
 
-年度
+### 行动经验
 
-<!-- Yearly -->
+Action Exprience
 
-- 健康
-    - [ ] ~ 2020 : **养成 健康生活 的习惯**
-        - _达成标准 : 连续 7 天完成所有 健康习惯打卡_
+_( 踟蹰不前的时候, 劝诱自己行动起来 )_
 
-<!-- - 工作 -->
-<!--     - [ ] ~ 2021 上 : **养成 遇事果断 & 做事坚决 & 迅速行动 的习惯** _( 工作 )_ -->
-<!--         - _达成标准 : 连续 7 天完成所有 果断坚决迅速 的习惯打卡_ -->
-<!-- - 学习 -->
-<!--     - [ ] ~ 2021 下 : **养成 读书学习 的习惯** _( 学习 )_ -->
-<!--         - _达成标准 : 连续 7 天完成所有 学习日程 ( 每个工作日 3h , 每个周末 10h )_ -->
+**从小事做起**
 
-季度
+_( 切合实际的行动方针 )_
 
-<!-- Seasonly -->
+- 做好最基础的小事, 要循序渐进, 不要妄想 "一口吃成胖子" !
+    - 做好一件小事, 然后再做好下一件小事, 然后不断循环.
+- 将经验教训, 一个一个地 "沉淀" 成习惯, 稳扎稳打, 打好地基.
 
-- 工作
-    - [ ] ~ 2021.01.15 : **YFD Interview**
+**能努力就努力**
 
-<!-- - [ ] ~ 2021.03.15 : 详细复习 算法 & 数据结构, 刷题 _( 学习 )_ -->
+- 反正迟早都有忍不住去颓废享乐的时候, 那么能够坚持努力的时候, 为什么不更努力进取一点呢?
 
-月度
+**不想工作就读书**
 
-<!-- Monthly -->
+- 就算要拖延做正事 _( 例如工作 )_ , 也该做点有价值的事来拖延! _( 例如读书 )_
 
-- 学习
-    - 时刻准备好 Interview
-        - [ ] ~ 2020.12 : **详细复习 Redis、MySQL、MQ**
+**哪怕只读一页**
 
-<!-- - [ ] 每月 读完一本专业技术书 -->
-<!--     - [ ] ~ 2021.01 : **粗略复习 算法 & 数据结构, 刷题** -->
-<!--     - [ ] ~ 2021.02 : **Interviews & Got an offer** -->
-<!--     - [ ] ~ ????.?? : 详细复习 算法 & 数据结构, 刷题
-<!--     - [ ] ~ ????.?? : 读完 JZ Offer -->
-<!--     - [ ] ~ ????.?? : 读完 深入理解 JVM -->
-<!--     - [ ] ~ ????.?? : 网络分析就那么简单 -->
-<!--     - [ ] ~ ????.?? : _Java 并发编程实践_ -->
-<!--     - [ ] ~ ????.?? : _Linux Development_ _( 重读、补笔记 )_ -->
+- 我就是一滩烂泥、一坨屎, 再微小的努力也是向上! _( 例如读一页书 )_
 
-每周
+**不要急**
 
-<!-- Weekly -->
+- 碰到一时想不通的问题, 就好好思考, 好好反省, 找到答案之后, 再继续行动, 不用着急焦虑. _( 例如反省、重温本文 )_
 
-- 健康
-    - 运动
-        - [ ] 尽量 打一次羽毛球 2h
-- 工作
-    - [ ] ~ 2020.12.18 Fri : **开发 联调工具 & 配合 堡主测试**
+**不要等**
 
-每日
+- 确定该做什么事之后, 就去做, 不要等.
 
-<!-- Daily -->
+### 每日流程
 
-- 健康
-    - 睡眠
-        - [ ] 22:30 ~ 22:45 躺床
-        - [ ] 07:00 ~ 07:15 起床
-    - 饮食
-        - [ ] 尽量 有一顿饭满足 "清淡 + 节制" 的要求
-    - 运动
-        - [ ] 起床后 ~ 上班前 玩健身环 30min
-- 工作
-    - [ ] 尽量 按时、保质、保量 完成任务
-- 学习
-    - [ ] 起床后 ~ 上班前 学习并做笔记 1h
-- 杂务
-    - [ ] 果断 _( 立即去做 )_ 、坚决 _( 不三心二意 )_ 、迅速地完成杂务
-- 娱乐
-    - [ ] 就不看完所有订阅内容
-        - _WX、票圈、WB、B站、B漫、DMZJ…_
+**Daily Flow**
 
-<!--     - [ ] 每天只看四次 微信、朋友圈、微博、B站、B漫、DMZJ、…
-<!--         - 推荐时间: 起床、午餐、晚餐、临睡 -->
-
-<!-- - 健康 - 饮食 - _参考食谱 : 暖 | 冷沙拉 + 粗粮面包 | 鸡蛋 | 水果 | … + 豆浆 | 酸奶 |牛奶 | … ?_ -->
-
-## 工具
-
-<!-- Tools -->
-
-- **Library - 正向循环**
-    - 反省 → 改进 → 计划 → 取舍 → 排序 → 行动 _( e.g., PDCA )_
-- **Alarm - 专时专用**
-    - 什么时间就该干什么事, 只提醒最重要的事务
-- **BlockyTime - 减少浪费**
-    - 记录时间使用情况
-    - _如果要提高效率、时间杠杆率, 还得靠 Library_
-- **Forest - 保持专注**
-    - 减少玩手机分神的机会, 缩短玩手机的时长
-- **TickTick - 减轻负担**
-    - 暂存事项, 清空大脑, 减轻心理负担; 从中选择一件事来做就行
-    - _没必要因为待办事项多而焦虑_
-- **Timer - 限制时长**
-    - _特别是不重要的事_
-
-<!-- - **Notification - 保持专注** -->
-<!--     - 默认关闭所有 Apps 的通知权限 -->
-<!--     - _除了 工作IM、电话、短信、日历、微信、邮件、时间块、…_ -->
-
-注意 : 他们只不过是 "器" —— 即手段和工具
-
-- **重要的是达成目标, "马上开始行动" 比 "先纠结一番该用啥工具" 明智得多**
-    - _对我来说尤其如此_
-
-<!-- 经常需要使用手机做一些正事, 例如记录时间使用情况、查看工作消息, 不然可以用 OffScreen & ScreenTime 强力控制使用手机的时长 ! -->
-
-## 细则
-
-<!-- Regulations -->
-
-### Daily Flow
-
-<!-- What to Do -->
-
-<!-- **GTD + PDCA** -->
+GTD Flow + PDCA Cycle + SMART Principle
 
 <!--
 
@@ -186,7 +106,7 @@ To be a better man.
 - ~~简洁好看? 仅显示动作或目标, 通用性可参考性强, 但可行性不强.~~
     - 这么做没必要, 我就是参考别人画的图来改进的, 别人也参考那个图就完事了.
     - 根据自己简化完的流程图, 自己看也别扭? 简化一版, 看看效果.
-    - 暂时觉得要保留就保留内容最全的, 以后再删减. (2020-12-20)
+    - 看完简化版的效果, 暂时觉得要保留就保留内容最全的版本, 以后再删减. (2020-12-20)
 - ~~表意清晰? 动作 + 具体操作, 但是繁复.~~
 - 实操步骤明确? 操作步骤更详细繁复, 更个人化, 通用性和可参考性更差了.
 
@@ -198,7 +118,11 @@ To be a better man.
 
 -->
 
-0\. Collect tasks and anything else ( anytime )
+#### Collect
+
+0\. Collect tasks and anything else
+
+_( anytime )_
 
 - Arriving Events? Due events.
 
@@ -212,7 +136,11 @@ end
 @enduml
 ```
 
-1.1\. Plan - Filter tasks ( morning )
+#### Filter
+
+1.1\. Plan - Filter tasks
+
+_( night or morning )_
 
 - Why include Today and Next N Days List?
     - Check arriving events ( which are not in Task & Todo List ).
@@ -247,7 +175,11 @@ end
 @enduml
 ```
 
-1.2\. Plan - Preprocess tasks ( morning )
+#### Prepare
+
+1.2\. Plan - Prepare tasks
+
+_( night or morning )_
 
 - Categorize :
     - Work / Learn / Think / Read / Zheteng / Fun / Rest / Sport / Have-to / Waste / …
@@ -302,7 +234,11 @@ end
 @enduml
 ```
 
+#### Select
+
 2.1\. Do - Select 1st task
+
+_( morning, noon, afternoon, evening )_
 
 - Checked all? Or too many todos.
     - Too many todos : Total duration over available time today.
@@ -344,7 +280,11 @@ end
 @enduml
 ```
 
-2.2\. Doing long tasks
+#### Doing
+
+2.2\. Do - Doing 1st task
+
+_( morning, noon, afternoon, evening )_
 
 - Long? Duration >= 5min
 - Block? Encounter a problem.
@@ -359,7 +299,7 @@ while (Completed?) is (No)
     if (Block?) then (Yes)
         #white:Block<
         #white:Task|
-        #white:Select \n1st thing;
+        #white:Select \n1st task;
         end
     else (No)
         if (Timeout?) then (Yes)
@@ -372,21 +312,25 @@ while (Completed?) is (No)
                 else (no)
                     #white:Event|
                 endif
-                #white:Select \n1st thing;
+                #white:Select \n1st task;
                 end
             endif
         else (No)
             if (Valueless?) then (Yes)
-                #white:Defer<
                 if (Hesitate?) then (Yes)
-                    #white:Task|
+                    #white:Defer<
+                    if (Tomorrow?) then (Yes)
+                        #white:Task|
+                    else (no)
+                        #white:Event|
+                    endif
                 else (No)
                     #lightGray:Trash|
                 endif
             else (No)
                 #orange:What's the\n problem?;
             endif
-            #white:Select \n1st thing;
+            #white:Select \n1st task;
             end
         endif
     endif
@@ -397,7 +341,11 @@ end
 @enduml
 ```
 
-3\. Check done tasks ( evening )
+#### Reflect
+
+3\. Check - Reflect done tasks
+
+_( night or morning )_
 
 - Checked all? Or till end of day.
 - Redo? Need to redo. (Poor quality?)
@@ -421,23 +369,21 @@ while (Checked all?) is (No)
         else (No)
         endif
     fork again
-        if (Reflect?) then (Yes)
-            if (Valueless?) then (Yes)
-            else (No)
-            endif
-            if (Time-wasted?) then (Yes)
-            else (No)
-            endif
-            :New events \n/ tasks / others?]
+        if (Valueless?) then (Yes)
         else (No)
-            if (Archive?) then (Yes)
-                #white:Skip;
+        endif
+        if (Time-wasted?) then (Yes)
+        else (No)
+        endif
+        :New events \n/ tasks / others?]
+    fork again
+        if (Archive?) then (Yes)
+            #white:Skip;
+        else (No)
+            if (Trash?) then (Yes)
+                #yellow:Delete;
             else (No)
-                if (Trash?) then (Yes)
-                    #yellow:Delete;
-                else (No)
-                    #lightGray:Trash|
-                endif
+                #lightGray:Trash|
             endif
         endif
     end fork
@@ -446,63 +392,79 @@ end
 @enduml
 ```
 
-4\. Adjust
+#### Improve
+
+4\. Act / Adjust - Improve daily flow
 
 - Update regulations in rehabilitation.md
+
+### 参考资料
+
+References
+
+- [GTD](/snips/principles/gtd.md)
+- [PDCA 循环](/snips/principles/pdca.md)
+- [SMART 法则](/snips/principles/smart.md)
+- [生活指南 ( Life Manual )](/lifelogs/archived/life-manual.md)
+- …
+
+<!-- - [日程 ( Routine )](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md) -->
+
+#### GTD 流程
+
+**GTD Flow**
 
 Reference
 
 ![GTD](../snips/principles/_images/gtd.jpg)
 
-<!-- ### PDCA -->
+#### PDCA 循环
 
-<!-- PDCA Cycle -->
+**PDCA Cycle**
 
-<!-- Plan 规划 ( 计划 ) -->
+Plan 规划 ( 计划 )
 
-<!-- - 制定具体目标 & 计划 (过程), 以获得想要的成果 -->
+- _制定具体目标 & 计划 ( 过程 ) , 以获得想要的成果_
 
-<!-- Do 执行 ( 行动 ) -->
+Do 执行 ( 行动 )
 
-<!-- - 执行计划 : 展开任务, 组织实施 -->
-<!--     - 尝试做一些小的改变 -->
-<!--     - 并收集信息以便评价这些改变是否有效 -->
+- _执行计划 : 展开任务, 组织实施_
+    - _尝试做一些小的改变_
+    - _并收集信息以便评价这些改变是否有效_
 
-<!-- Check 检查 ( 反省 ) -->
+Check 检查 ( Reflect 反省 )
 
-<!-- - 检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏 -->
-<!--     - 对比期望的成果, 看有哪里合意, 哪里不合意 -->
-<!--     - 看执行过程, 跟最初的计划有何不同 (过程偏差) -->
+- _检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏_
+    - _对比期望的成果, 看有哪里合意, 哪里不合意_
+    - _看执行过程, 跟最初的计划有何不同 (过程偏差)_
 
-<!-- Act 行动 / Adjust 调整 ( 改进 ) -->
+Act 行动 / Adjust 调整 ( Improve 改进 )
 
-<!-- - "Also called 'Adjust', this act phase is where a process is improved." -->
-<!-- - 改善/调整 : 纠正偏差, 确定新目标, 制定下一轮的计划 -->
-<!-- - 上两步中分析得出 -->
-<!--     - 问题 Problems -->
-<!--     - 过程偏差 Non-conformities -->
-<!--     - 可以改进的地方 Opportunities for improvement -->
-<!--     - 低效率 Inefficiencies -->
-<!--     - …… -->
-<!-- - 研究以上问题 ( Issues ), 找到根本原因 ( Root causes ) -->
-<!--     - 通过修改计划, 去消除这些原因 -->
-<!--     - 然后下一个循环就有了更好的基线 ( Base-line ) -->
-<!--         - 更好的指引 ( Instructions ) -->
-<!--         - 标准 ( Standards ) -->
-<!--         - 目标 ( Goals ) -->
-<!-- - 以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues ) -->
+- _"Also called 'Adjust', this act phase is where a process is improved."_
+- _调整 / 改善 : 纠正偏差, 确定新目标, 制定下一轮的计划_
+- _上两步中分析得出_
+    - _遭遇问题 Problems_
+    - _过程偏差 Non-conformities_
+    - _可以改进的地方 Opportunities for improvement_
+    - _低效率 Inefficiencies_
+    - _……_
+- _研究以上问题 ( Issues ) , 找到根本原因 ( Root causes )_
+    - _通过修改计划, 去消除这些原因_
+    - _然后下一个循环就有了更好的基线 ( Base-line )_
+        - _更好的指引 ( Instructions )_
+        - _标准 ( Standards )_
+        - _目标 ( Goals )_
+- _以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues )_
 
-<!-- ![](https://upload.wikimedia.org/wikipedia/commons/7/7a/PDCA_Cycle.svg) -->
+![](https://upload.wikimedia.org/wikipedia/commons/7/7a/PDCA_Cycle.svg)
 
-<!-- ![](https://upload.wikimedia.org/wikipedia/commons/a/a8/PDCA_Process.png) -->
+![](https://upload.wikimedia.org/wikipedia/commons/a/a8/PDCA_Process.png)
 
-<!-- ![](https://upload.wikimedia.org/wikipedia/commons/4/42/PDCA-Multi-Loop.png) -->
+![](https://upload.wikimedia.org/wikipedia/commons/4/42/PDCA-Multi-Loop.png)
 
-<!-- How to Do -->
+#### SMART 法则
 
-### SMART
-
-<!-- SMART Principle -->
+**SMART Principle**
 
 Specific : _( 目标 )_ 具体 _( 明确, 可以分解出具体的行动步骤 )_
 
@@ -531,41 +493,128 @@ Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时�
 
 _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
-### 行动经验
+> 真正的简约不是删繁就简，而是纷繁中建立秩序。 —— Jony Ivy
 
-<!-- Just Do It / Action Exprience  -->
+## 工具 ( 器 )
 
-<!-- _( 踟蹰不前的时候, 劝诱自己行动起来 )_ -->
+Tools
 
-**从小事做起** <!-- _( 切合实际的 )_ 行动方针 -->
+- **Library - 正向循环**
+    - 反省 → 改进 → 计划 → 取舍 → 排序 → 行动 _( e.g., PDCA )_
+- **Alarm - 专时专用**
+    - 什么时间就该干什么事, 只提醒最重要的事务
+- **BlockyTime - 减少浪费**
+    - 记录时间使用情况, 尽量避免不重要的事务占用时间
+    - _如果要提高效率和时间杠杆率, 还得靠 Library_
+- **Forest - 保持专注**
+    - 减少玩手机分神的机会, 缩短玩手机的时长
+- **TickTick - 减轻负担**
+    - 暂存事项, 清空大脑, 减轻心理负担; 从中选择一件事来做就行
+    - _没必要因为待办事项多而焦虑_
+- **Timer - 限制时长**
+    - _特别是不重要的事_
 
-- 做好最基础的小事, 要循序渐进, 不要妄想 "一口吃成胖子" !
-    - 做好一件小事, 然后再做好下一件小事, 然后不断循环.
-- 将经验教训, 一个一个地 "沉淀" 成习惯, 稳扎稳打, 打好地基.
+<!-- - **Notification - 保持专注** -->
+<!--     - 默认关闭所有 Apps 的通知权限 -->
+<!--     - _除了 电话、工作IM、微信、短信、邮件、日历、时间块等_ -->
 
-**能努力就努力**
+注意 : 它们只不过是 "器" —— 即手段和工具
 
-- 反正迟早都有忍不住去颓废享乐的时候, 那么能够坚持努力的时候, 为什么不更努力进取一点呢?
+- **重要的是达成目标, "马上开始行动" 比 "先纠结一番该用啥工具" 明智得多**
+    - _对我来说尤其如此_
 
-**不想工作就读书**
+<!-- 经常需要使用手机做一些正事, 例如记录时间使用情况、查看工作消息; 不然可以用 OffScreen & ScreenTime 强力管控玩手机的时长 ! -->
 
-- 就算要拖延做正事 _( 例如工作 )_ , 也该做点有价值的事来拖延! _( 例如读书 )_
+## 目标 ( 标 )
 
-**哪怕只读一页**
+Targets
 
-- 我就是一滩烂泥、一坨屎, 再微小的努力也是向上! _( 例如读一页书 )_
+### 年度
 
-**不要急**
+Yearly
 
-- 碰到一时想不通的问题, 就好好思考, 好好反省, 找到答案之后, 再继续行动, 不用着急焦虑. _( 例如反省、重温本文 )_
+- 健康
+    - [ ] ~ 2020 : **养成 健康生活 的习惯**
+        - _达成标准 : 连续 7 天完成所有 健康习惯打卡_
 
-**不要等**
+<!-- - 工作 -->
+<!--     - [ ] ~ 2021 上 : **养成 遇事果断 & 做事坚决 & 迅速行动 的习惯** _( 工作 )_ -->
+<!--         - _达成标准 : 连续 7 天完成所有 果断坚决迅速 的习惯打卡_ -->
+<!-- - 学习 -->
+<!--     - [ ] ~ 2021 下 : **养成 读书学习 的习惯** _( 学习 )_ -->
+<!--         - _达成标准 : 连续 7 天完成所有 学习日程 ( 每个工作日 3h , 每个周末 10h )_ -->
 
-- 确定该做什么事之后, 就去做, 不要等.
+### 季度
 
-## 日程
+Seasonly
 
-<!-- Daily Schedule -->
+- 工作
+    - [ ] ~ 2021.01.15 : **YFD Interview**
+
+<!-- - [ ] ~ 2021.03.15 : 详细复习 算法 & 数据结构, 刷题 _( 学习 )_ -->
+
+### 月度
+
+Monthly
+
+- 学习
+    - 时刻准备好 Interview
+        - [ ] ~ 2020.12 : **详细复习 Redis、MySQL、MQ**
+
+<!-- - [ ] 每月 读完一本专业技术书 -->
+<!--     - [ ] ~ 2021.01 : **粗略复习 算法 & 数据结构, 刷题** -->
+<!--     - [ ] ~ 2021.02 : **Interviews & Got an offer** -->
+<!--     - [ ] ~ ????.?? : 详细复习 算法 & 数据结构, 刷题
+<!--     - [ ] ~ ????.?? : 读完 JZ Offer -->
+<!--     - [ ] ~ ????.?? : 读完 深入理解 JVM -->
+<!--     - [ ] ~ ????.?? : 网络分析就那么简单 -->
+<!--     - [ ] ~ ????.?? : _Java 并发编程实践_ -->
+<!--     - [ ] ~ ????.?? : _Linux Development_ _( 重读、补笔记 )_ -->
+
+### 每周
+
+Weekly
+
+- 健康
+    - 运动
+        - [ ] 尽量 打一次羽毛球 2h
+- 工作
+    - [ ] ~ 2020.12.25 Fri :
+        - [ ] **联调工具&报告 : 开发/自测/联调/配合测试**
+        - [ ] **堡主API迁移 : 配合测试 & Bugfix**
+- 学习
+    - [ ] ~ 2020.12 : **详细复习 Redis、MySQL**
+
+### 每日
+
+Daily
+
+- 健康
+    - 睡眠
+        - [ ] 22:30 ~ 22:45 躺床
+        - [ ] 07:00 ~ 07:15 起床
+    - 饮食
+        - [ ] 尽量 有一顿饭满足 "清淡 + 节制" 的要求
+    - 运动
+        - [ ] 起床后 ~ 上班前 玩健身环 30min
+- 工作
+    - [ ] 尽量 按时、保质、保量 完成任务
+- 学习
+    - [ ] 起床后 ~ 上班前 学习并做笔记 1h
+- 杂务
+    - [ ] 果断 _( 立即去做 )_ 、坚决 _( 不三心二意 )_ 、迅速 _( 雷厉风行 )_ 地完成杂务
+- 娱乐
+    - [ ] 就不看完所有订阅内容
+        - _WX、票圈、WB、B站、B漫、DMZJ、脉脉等_
+
+<!--     - [ ] 每天只看四次 WX、票圈、WB、B站、B漫、DMZJ、脉脉等
+<!--         - 推荐时间: 起床、午餐、晚餐、临睡 -->
+
+<!-- - 健康 - 饮食 - _参考食谱 : 暖 | 冷沙拉 + 粗粮面包 | 鸡蛋 | 水果 | … + 豆浆 | 酸奶 |牛奶 | … ?_ -->
+
+### 日程
+
+Daily Schedule
 
 <!--
 
@@ -578,9 +627,9 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
 -->
 
-### 工作日
+#### 工作日
 
-<!-- Weekdays -->
+Weekdays
 
 - 22:30-23:00 躺床, 娱乐
 - _23:00-07:00 睡眠 8h_
@@ -603,9 +652,9 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 - 21:30-22:00 干发, 音视频
 - **22:00-22:30 反省, 计划**
 
-### 周末
+#### 周末
 
-<!-- Weekends -->
+Weekends
 
 - 22:30-23:00 躺床, 娱乐
 - _23:00-07:00 睡眠 8h_
@@ -623,15 +672,3 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 - 20:45-21:30 洗澡, 保养 45m
 - 21:30-22:00 干发, B站
 - **22:00-22:30 反省, 计划**
-
-## 参阅
-
-- [GTD](/snips/principles/gtd.md)
-- [PDCA 循环](/snips/principles/pdca.md)
-- [SMART 法则](/snips/principles/smart.md)
-- [生活指南 ( Life Manual )](/lifelogs/archived/life-manual.md)
-- …
-
-<!-- - [日程 ( Routine )](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md) -->
-
-> 真正的简约不是删繁就简，而是纷繁中建立秩序。 —— Jony Ivy
