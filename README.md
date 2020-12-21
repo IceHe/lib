@@ -609,7 +609,7 @@ Previous Blog : 2015 ~ 2017
 - Jan Fan : PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
 - Johnson Zhang : Past Roommate / Python / Sina Mobile / Didi @ Beijing
 - [SF Zhou](http://sf-zhou.github.io/) : ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
-- Shiwey Yan : Game Developer / C++ / Tencent - TiMi Studios - QQ Speed @ Shenzhen
+- Shiwey Yan : Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
 - [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
 - [IceHe](https://icehe.xyz) ( myself ) : A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
 - …
