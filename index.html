@@ -88,6 +88,12 @@
       //   nextText: '下一章节',
       // },
 
+      // PlantUML : https://github.com/imyelo/docsify-plantuml
+      // PlantUML : https://github.com/indieatom/docsify-puml
+      plantuml: {
+          skin: 'default',
+      },
+
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (content) {
@@ -182,6 +188,8 @@
 
   <!-- PlantUML : https://github.com/imyelo/docsify-plantuml -->
   <script src="_docsify/resources/__unpkg.com_docsify-plantuml_dist_docsify-plantuml.min.js"></script>
+  <!-- PlantUML : https://github.com/indieatom/docsify-puml -->
+  <!-- <script src="_docsify/resources/__unpkg.com_docsify-puml_dist_docsify-puml.min.js"></script> -->
 
   <!-- Zoom Image : https://docsify.js.org/#/plugins?id=zoom-image -->
   <script src="_docsify/resources/__unpkg.com_docsify_lib_plugins_zoom-image.min.js"></script>
