@@ -257,7 +257,11 @@ while (Found 1st thing?) is (No)
             #white:Completed|
         else (No)
             #white:Defer<
-            #white:Task|
+            if (Tomorrow?) then (Yes)
+                #white:Task|
+            else (No)
+                #white:Event|
+            endif
             '果断放弃, 不要再浪费时间进去
         endif
     else (No)
