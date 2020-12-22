@@ -290,7 +290,6 @@ end
 
 _( morning, noon, afternoon, evening )_
 
-- Long? Duration >= 5min
 - Block? Encounter a problem.
 - Timeout? Over expected duration or till end of day.
 - Finish soon? Extra duration < 1h or till end of day.
@@ -352,7 +351,7 @@ end
 _( night or morning )_
 
 - Checked all? Or till end of day.
-- Redo? Need to redo. (Poor quality?)
+- Redo? Need to redo. _( Poor quality? )_
 - Reflect?
     - _A. Add to Inbox, Thought & Question_
     - _B. Update its description or insert a new comment?_
