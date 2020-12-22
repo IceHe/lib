@@ -26,7 +26,11 @@ Documentation Best Practices
 
 ## References
 
+参考资料
+
 ### Markdown Specification
+
+Markdown 标准
 
 ( All skippable to read )
 
@@ -37,6 +41,8 @@ Documentation Best Practices
 - [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
 
 ### GFM Basic Syntax
+
+GitHub 或 GitLab 风格的 Markdown 基础语法
 
 ( You should know )
 
@@ -52,6 +58,8 @@ GFM - GitHub or GitLab Flavored Markdown
 
 ### Style Guide
 
+Markdown 风格指南
+
 ( All recommended to read! )
 
 - [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
@@ -63,7 +71,7 @@ GFM - GitHub or GitLab Flavored Markdown
 
 ### Chinese Text Layout
 
-<!-- 中文排版 -->
+Markdown 中文排版
 
 ( All recommended to read! )
 
