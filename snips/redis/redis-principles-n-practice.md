@@ -3287,6 +3287,101 @@ Reference
 
 - 集群 2 : 分而治之 —— Codis : https://juejin.cn/book/6844733724618129422/section/6844733724723003399
 
+在大数据高并发场景下, 单个 Redis 实例往往会显得捉襟见肘.
+
+- 内存大小 : 单个 Redis 的内存不宜过大, 内存太大会导致 rdb 文件过大, 进一步导致主从同步时全量同步时间过长, 在实例重启恢复时也会消耗很长的数据加载时间,
+    - 特别是在云环境下, 单个实例内存往往都是受限的.
+- CPU 利用率 : 单个 Redis 实例只能利用单个核心, 这单个核心要完成海量数据的存取和管理工作压力会非常大.
+    - _( icehe : 后来 Redis 利用多线程模型了 情况就不太一样了. 瞎想一下 : 一个 Redis 实例跑 4 个线程, 最好配 2 个核心? )_
+
+在大数据高并发的需求之下, Redis 集群方案应运而生.
+
+- 可以将众多小内存的 Redis 实例综合起来, 将分布在多台机器上的众多 CPU 核心的计算能力聚集到一起, 完成海量数据存储和高并发读写操作.
+
+![codis-architecture.webp](_images/codis-architecture.webp)
+
+Codis
+
+- 使用 Go 语言开发
+- 是一个代理中间件
+- 和 Redis 一样也使用 Redis 协议对外提供服务
+    - _客户端操纵 Codis 同操纵 Redis 几乎没有区别, 还是可以使用相同的客户端 SDK, 不需要任何变化._
+- 当客户端向 Codis 发送指令时,
+    - Codis 负责将指令转发到后面的 Redis 实例来执行,
+    - 并将返回结果再转回给客户端.
+- Codis 上挂接的所有 Redis 实例构成一个 Redis 集群,
+    - 当集群空间不足时, 可以通过动态增加 Redis 实例来实现扩容需求.
+
+因为 Codis 是无状态的,
+
+- 它只是一个转发代理中间件, 这意味着我们可以启动多个 Codis 实例,
+    - 供客户端使用, 每个 Codis 节点都是对等的.
+- 因为单个 Codis 代理能支撑的 QPS 比较有限, 通过启动多个 Codis 代理可以显著增加整体的 QPS 需求,
+    - 还能起到容灾功能, 挂掉一个 Codis 代理没关系, 还有很多 Codis 代理可以继续服务.
+
+![codis-multi-nodes.webp](_images/codis-multi-nodes.webp)
+
+### Slots
+
+分片原理
+
+Codis **将所有的 key 默认划分为 1024 个槽位 (slot)** , 它首先对客户端传过来的 key 进行 crc32 运算计算哈希值, 再将 hash 后的整数值对 1024 这个整数进行取模得到一个余数, 这个余数就是对应 key 的槽位.
+
+![codis-slots.webp](_images/codis-slots.webp)
+
+每个槽位都会唯一映射到后面的多个 Redis 实例之一, Codis 会在内存维护槽位和 Redis 实例的映射关系.
+
+```python
+hash = crc32(command.key)
+slot_index = hash % 1024
+redis = slots[slot_index].redis
+redis.do(command)
+```
+
+_槽位数量默认是 1024, 它是可以配置的, 如果集群节点比较多, 建议将这个数值配置大一些, 比如 2048、4096._
+
+### Slot Configurations Synchronization
+
+不同的 Codis 实例之间槽位关系如何同步?
+
+- 如果 Codis 的槽位映射关系只存储在内存里, 那么不同的 Codis 实例之间的槽位关系就无法得到同步.
+    - 所以 Codis 还需要一个分布式配置存储数据库专门用来持久化槽位关系.
+    - _Codis 开始使用 ZooKeeper, 后来连 etcd 也一块支持了._
+
+![codis-slots-conf-sync.webp](_images/codis-slots-conf-sync.webp)
+
+_Codis 将槽位关系存储在 zk 中, 并且提供了一个 Dashboard 可以用来观察和修改槽位关系, 当槽位关系变化时, Codis Proxy 会监听到变化并重新同步槽位关系, 从而实现多个 Codis Proxy 之间共享相同的槽位关系配置._
+
+### Scale Out
+
+_刚开始 Codis 后端只有一个 Redis 实例, 1024 个槽位全部指向同一个 Redis. 然后一个 Redis 实例内存不够了, 所以又加了一个 Redis 实例. 这时候需要对槽位关系进行调整, 将一半的槽位划分到新的节点. 这意味着需要对这一半的槽位对应的所有 key 进行迁移, 迁移到新的 Redis 实例._
+
+Codis 对 Redis 进行了改造, 增加了 `SLOTSSCAN` 指令, 可以 **遍历指定 slot 下所有的 key**. Codis 通过 `SLOTSSCAN` 扫描出待迁移槽位的所有的 key, 然后挨个迁移每个 key 到新的 Redis 节点.
+
+_在迁移过程中, Codis 还是会接收到新的请求打在当前正在迁移的槽位上, 因为当前槽位的数据同时存在于新旧两个槽位中, Codis 如何判断该将请求转发到后面的哪个具体实例呢?_
+
+Codis 无法判定迁移过程中的 key 究竟在哪个实例中, 所以它采用了另一种完全不同的思路. **当 Codis 接收到位于正在迁移槽位中的 key 后, 会立即强制对当前的单个 key 进行迁移, 迁移完成后, 再将请求转发到新的 Redis 实例.**
+
+```python
+slot_index = crc32(command.key) % 1024
+if slot_index in migrating_slots:
+	do_migrate_key(command.key)  # 强制执行迁移
+	redis = slots[slot_index].new_redis
+else:
+	redis = slots[slot_index].redis
+redis.do(command)
+```
+
+_Redis 支持的所有 Scan 指令都是无法避免重复的, 同样 Codis 自定义的 `SLOTSSCAN` 也是一样, 但是这并不会影响迁移. 因为单个 key 被迁移一次后, 在旧实例中它就彻底被删除了, 也就不可能会再次被扫描出来了._
+
+### Auto Balancing
+
+自动均衡
+
+Redis 新增实例, 手工均衡 slots 太繁琐, 所以 Codis 提供了自动均衡功能.
+
+- 自动均衡会在系统比较空闲的时候观察每个 Redis 实例对应的 Slots 数量, 如果不平衡, 就会自动进行迁移.
+
 ### TODO
 
 _( icehe : 中心化的解决方案 )_
