@@ -80,24 +80,40 @@ Markdown 中文排版
 
 ## Suggestions
 
-Design goals
+### Design Goals
 
-- readable
-- portable : produces the same output, or good output, across multiple implementations.
-    - Portability tests are carried out with the Markdown Test Suite.
-- easy to write and modify later
-- diff friendly
-- easy to remember and implement on editors
-- provide rationale behind difficult choices.
+设计目标
+
+- Readable
+- Easy to write and modify later
+- Diff friendly
+- Easy to remember and implement on editors
+- Provide rationale behind difficult choices
 
 _Many design choices come down to:_
 
-- _do you want to write fast_
-- _or do you want people to read fast_
+- _do you want to write fast ( writability )_
+- _or do you want people to read fast ( readability )_
 
 **Guideline : Readability > Writability**
 
 <!-- _( 易阅读 > 易编写 )_ -->
+
+### Lint Tools
+
+**使用自动检测工具**
+
+Asked on Stack Exchange: http://softwarerecs.stackexchange.com/questions/7138/markdown-lint-tool/
+
+- https://github.com/wooorm/mdast-lint
+- https://github.com/mivok/markdownlint
+- https://github.com/slang800/tidy-markdown
+- https://github.com/DavidAnson/markdownlint
+    - Documentation has some links back to this style: https://github.com/DavidAnson/markdownlint/blob/v0.14.2/doc/Rules.md
+
+### General Rules
+
+#### File
 
 ### TOC
 
