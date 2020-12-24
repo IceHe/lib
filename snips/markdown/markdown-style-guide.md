@@ -7,7 +7,7 @@ Markdown 风格指北
 - Here is the Markdown style I follow.
 - It's not a mandatory standard.
 
-TODO
+TODOs
 
 Markdown style guide
 
@@ -79,6 +79,21 @@ Markdown 中文排版
 - [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
 
 ## Suggestions
+
+Design goals
+
+- readable
+- portable : produces the same output, or good output, across multiple implementations.
+    - Portability tests are carried out with the Markdown Test Suite.
+- easy to write and modify later
+- diff friendly
+- easy to remember and implement on editors
+- provide rationale behind difficult choices.
+
+_Many design choices come down to:_
+
+- _do you want to write fast_
+- _or do you want people to read fast_
 
 **Guideline : Readability > Writability**
 
