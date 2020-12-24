@@ -3365,10 +3365,10 @@ Codis 无法判定迁移过程中的 key 究竟在哪个实例中, 所以它采�
 ```python
 slot_index = crc32(command.key) % 1024
 if slot_index in migrating_slots:
-	do_migrate_key(command.key)  # 强制执行迁移
-	redis = slots[slot_index].new_redis
+    do_migrate_key(command.key)  # 强制执行迁移
+    redis = slots[slot_index].new_redis
 else:
-	redis = slots[slot_index].redis
+    redis = slots[slot_index].redis
 redis.do(command)
 ```
 
