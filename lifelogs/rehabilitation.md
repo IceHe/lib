@@ -6,7 +6,7 @@ Rehabilitation
 
 Guidelines _( 指导方针 )_
 
-To be a better man.
+To be a better man. _( To be a better ME. )_
 
 ### 方式
 
