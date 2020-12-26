@@ -887,28 +887,25 @@ Where:
 
 Acceptable, meant to be referred by number from outside of the markdown file:
 
+```markdown
 Terms of use.
 
 1. I will not do anything illegal.
 2. I will not do anything that can harm the website.
+```
 
 Rationale:
 
-If you want to change a list item in the middle of the list, you don’t have to modify all items that follow it.
-
-Diffs will show only the significant line which was modified.
-
-Content stays aligned without extra effort if the numbers reach 2 digits. E.g.: the following is not aligned:
-
-```markdown
-9. a
-10. b
-```
-
-References break when a new list item is added. To reduce this problem:
-
-keep references close to the list so authors are less likely to forget to update them
-when referring from an external document, always refer to an specific version of the markdown file
+- If you want to change a list item in the middle of the list, you don’t have to modify all items that follow it.
+- Diffs will show only the significant line which was modified.
+- Content stays aligned without extra effort if the numbers reach 2 digits. E.g.: the following is not aligned:
+    ```markdown
+    9. a
+    10. b
+    ```
+- References break when a new list item is added. To reduce this problem :
+    - Keep references close to the list so authors are less likely to forget to update them
+    - When referring from an external document, always refer to an specific version of the markdown file
 
 ### TOC
 
