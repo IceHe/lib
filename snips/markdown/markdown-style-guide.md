@@ -7,11 +7,8 @@ Markdown 风格指北
 - Here is the Markdown style I follow.
 - It's not a mandatory standard.
 
-TODOs
+---
 
-Markdown style guide
-
-- [ ] ATX-style headings
 - [ ] Escape newlines
 - [ ] Nest codeblocks within lists
 - [ ] Use informative Markdown link titles
@@ -26,13 +23,13 @@ Documentation Best Practices
 
 ## References
 
-参考资料
+<!-- 参考资料 -->
 
 ### Markdown Specification
 
-Markdown 标准
+<!-- Markdown 标准 -->
 
-( All skippable to read )
+_All skippable to read_
 
 - Daring Fireball - Projects - Markdown
     - [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
@@ -42,13 +39,13 @@ Markdown 标准
 
 ### GFM Basic Syntax
 
-GitHub 或 GitLab 风格的 Markdown 基础语法
+<!-- GitHub 或 GitLab 风格的 Markdown 基础语法 -->
 
-( You should know )
+_You should know_
 
-GFM - GitHub or GitLab Flavored Markdown
+( GFM - GitHub or GitLab Flavored Markdown )
 
-- [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) _( Concise )_
+- [Mastering Markdown - GitHub Guide](https://guides.github.com/features/mastering-markdown) <sup>_concise_</sup>
 - [Basic writing and formatting syntax](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax)
 - [Working with advanced formatting](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/working-with-advanced-formatting)
     - Organizing information with tables
@@ -58,9 +55,9 @@ GFM - GitHub or GitLab Flavored Markdown
 
 ### Style Guide
 
-Markdown 风格指南
+<!-- Markdown 风格指南 -->
 
-( All recommended to read! )
+_All recommended to read!_
 
 - [Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide)
 - [Google documentation guide](https://github.com/google/styleguide/tree/gh-pages/docguide)
@@ -71,24 +68,30 @@ Markdown 风格指南
 
 ### Chinese Text Layout
 
-Markdown 中文排版
+<!-- Markdown 中文排版 -->
 
-( All recommended to read! )
+_All recommended to read!_
 
 - [写给大家看的中文排版指南](https://zhuanlan.zhihu.com/p/20506092)
 - [中文文案排版指南](https://github.com/mzlogin/chinese-copywriting-guidelines)
 
 ## Suggestions
 
+<!-- 建议 -->
+
+- Highly recommend to read the links in section "References → Style Guide" above.
+    - _I made my Markdown style guide below according to them._
+    - _You can make your own guide as well._
+
 ### Design Goals
 
-设计目标
+<!-- 设计目标 -->
 
-- Readable
-- Easy to write and modify later
-- Diff friendly
-- Easy to remember and implement on editors
-- Provide rationale behind difficult choices
+- **Readable** ( icehe : clean and tidy )
+- _Easy to write and modify later_
+- _Diff friendly_
+- _Easy to remember and implement on editors_
+- _Provide rationale behind difficult choices_
 
 _Many design choices come down to:_
 
@@ -97,23 +100,544 @@ _Many design choices come down to:_
 
 **Guideline : Readability > Writability**
 
-<!-- _( 易阅读 > 易编写 )_ -->
-
-### Lint Tools
-
-**使用自动检测工具**
-
-Asked on Stack Exchange: http://softwarerecs.stackexchange.com/questions/7138/markdown-lint-tool/
-
-- https://github.com/wooorm/mdast-lint
-- https://github.com/mivok/markdownlint
-- https://github.com/slang800/tidy-markdown
-- https://github.com/DavidAnson/markdownlint
-    - Documentation has some links back to this style: https://github.com/DavidAnson/markdownlint/blob/v0.14.2/doc/Rules.md
+<!-- 易阅读 > 易编写 -->
 
 ### General Rules
 
 #### File
+
+> File Extention : **Use `.md`**
+
+_Rationale : Why not .mkd or .markdown?_
+
+- _Shorter_
+- _More popular_
+- _Does not have important conflicts_
+
+> File Name : **Prefer to base the file name on the top-header level**
+>
+> - Replace upper case letters with **lower case**
+> - Strip articles the, a, an from the start
+> - **Replace punctuation and white space characters by hyphens**
+> - _Replace consecutive hyphens by a single hyphen_
+> - _Strip surrounding hyphens_
+
+_Good_
+
+```bash
+file-name.md
+```
+
+_Bad, multiple consecutive hyphens_
+
+```bash
+file-name.md
+```
+
+_Bad, surrounding hyphens_
+
+```bash
+-file-name-.md
+```
+
+_Rationale : why not underscore or camel case?_
+
+- Hyphens are the most popular URL separator today,
+- _and markdown files are most often used in contexts where:_
+    - _There are hyphen separated HTML files in the same project, possibly the same directory as the markdown files._
+    - _Filenames will be used directly on URLs. E.g.: GitHub blobs._
+
+#### Whitespaces
+
+<!-- 空白 -->
+
+##### New Lines
+
+<!-- 新行 -->
+
+> - **Don't use 2 or more consecutive empty lines**,
+>     - _that is, more than two consecutive newline characters, except where they must appear literally such as in code blocks._
+> - ~~End files with a newline character, and don't leave empty lines at the end of the file.~~
+> - **Don't use trailing whitespace** _unless it has a function such as indicating a line break._
+
+_Good_
+
+```markdown
+- list
+- list
+
+## Header
+```
+
+_Good, code block_
+
+```markdown
+The markup language X requires you to use triple newlines to separate paragraphs:
+
+    p1
+
+
+    p2
+```
+
+_Bad_
+
+```markdown
+- list
+- list
+
+
+# Header
+```
+
+_Rationale : multiple empty lines occupy more vertical screen space, and do not significantly improve readability._
+
+##### Spaces after sentences
+
+<!-- 句子之后的空格数量 -->
+
+> **Use a single space after sentences.**
+
+_Bad, 2 spaces_
+
+```bash
+First sentence.  Second sentence.
+```
+
+_Good_
+
+```bash
+First sentence. Second sentence.
+```
+
+_Rationale : advantages over `space-sentence:2` :_
+
+- _Easier to edit_
+- _Usually not necessary if you use `wrap:inner-sentence` or `wrap:sentence`_
+- _`space-sentence:2` gives a false sense of readability as it is ignored on the HTML output_
+- _More popular_
+
+_Advantages of `space-sentence:2` :_
+
+- _Easier to see where sentences end_
+
+#### Line wrapping
+
+<!-- 折行 -->
+
+> **Wrap Inner-Sentence**
+
+_Try to keep lines under 80 characters by breaking large paragraphs logically at points such as :_
+
+- _Sentences : after a period `.`, question `?` or exclamation mark `!`_
+- _[Clauses](https://www.lexico.com/grammar/clauses) : after words like `and`, `which`, `if ... then`, commas `,`_
+- _Large [phrases](https://www.lexico.com/grammar/phrases)_
+
+_Good_
+
+```markdown
+This is a very very very very very very very very very very very very very long not wrapped sentence.
+Second sentence of of the paragraph,
+third sentence of a paragraph
+and the fourth one.
+```
+
+_Rationale :_
+
+- _Diffs look better,_
+    - _since a change to a clause shows up as a single diff line._
+- _Occasional visual wrapping does not significantly reduce the readability of Markdown,_
+    - _since the only language feature that can be indented to indicate hierarchy are nested lists._
+- _At some point GitHub translated single newlines to line breaks in READMEs, and still does so on comments._
+    - _Currently there is no major engine which does it, so it is safe to use newlines._
+- _Some tools are not well adapted for long lines,_
+    - _e.g. Vim and `git diff` will not wrap lines by default._
+    - _This can be configured however via `git config --global core.pager 'less -r'` for Git and `set wrap` for Vim._
+
+_Downsides :_
+
+- _Requires considerable writer effort,_
+    - _specially when modifying code._
+- _Markdown does not look like the rendered output,_
+    - _in which there are no line breaks._
+- _Manual line breaking can make the Markdown more readable than the rendered output,_
+    - _which is bad because it gives a false sense of readability encouraging less readable long paragraphs._
+- _Requires users of programming text editors like Vim,_
+    - _which are usually configured to not wrap, to toggle visual wrapping on._
+    - _This can be automated, but [EditorConfig gave it WONTFIX](https://github.com/editorconfig/editorconfig/issues/168)_
+- _Breaks some email systems, which always break a line on a single newline._
+
+_Other alternates :_
+
+- ~~Don't wrap lines.~~
+    - _Rationale : very easy to edit._
+    - _But diffs on huge lines are hard to read._
+- ~~Always wrap at the end of the first word that exceeds 80 characters.~~
+    - _Rationale : source code becomes is very readable and text editors support it automatically._
+    - _But diffs will look bad, and changing lines will be hard._
+- ~~Wrap Sentence~~
+    - _Rationale: similar advantages as `wrap:inner-sentence`,_
+        - _but easier for people to follow since the rule is simple : break after the period._
+    - _But may produce long lines with hard to read diffs._
+    - _Notable occurrence: [ProGit 2](https://raw.githubusercontent.com/progit/progit2/5c285553c0605342339284981a9bb8a6c4e7c18e/book/01-introduction/1-introduction.asc)._
+
+#### Code
+
+##### Dollar Signs in Shell Code
+
+> **Don't prefix shell code with dollar signs `$` unless you will be showing the command output on the same code block.**
+
+If the goal is to clarify what the language is, do it on the preceding paragraph.
+
+_Rationale : harder to copy paste, noisier to read._
+
+_Good_
+
+```bash
+echo a
+echo a > file
+```
+
+_Bad_
+
+```bash
+$ echo a
+$ echo a > file
+```
+
+_Good, shows output_
+
+```bash
+$ echo a
+a
+$ echo a > file
+```
+
+_Good, language specified on preceding paragraph_
+
+```markdown
+Use the following Bash code:
+
+echo a
+echo a > file
+```
+
+##### What to Mark as Code
+
+> **Use code blocks or inline code for :**
+>
+> - **Executables**. _E.g.:_
+>     ```markdown
+>     `gcc` is the best compiler available.
+>     ```
+>     - Differentiate between tool and the name of related projects. _E.g.: `gcc` vs GCC._
+> - **File paths**
+> - **Version numbers**
+> - **Capitalized explanation of abbreviations** :
+>     ```markdown
+>     xinetd stands for `eXtended Internet daemon`
+>     ```
+> - **Other terms related to computers** that you don't want to add to your dictionary
+>
+> **Don't mark as code :**
+>
+> - **Names of projects**. _E.g.: GCC_
+> - **Names of libraries**. _E.g.: libc, glibc_
+
+##### Spelling and Grammar
+
+> **Use correct spelling and grammar.**
+
+Prefer writing in English, and in particular American English.
+
+_Rationale : American English speakers have the largest GDP, specially in the computing industry._
+
+_Use markup like URL or code on words which you do not want to add to your dictionary so that spell checkers can ignore them automatically._
+
+Beware of case sensitive spelling errors, in particular for project, brand names or abbreviations :
+
+- _Good : URL, LinkedIn, DoS attack_
+- _Bad : url, Linkedin, dos attack_
+- _When in doubt, prefer the same abbreviation as used on Wikipedia._
+
+Avoid informal contractions :
+
+- _Good : biography, repository, directory_
+- _Bad : bio, repo, dir_
+
+### Block elements
+
+#### Line breaks
+
+<!-- 换行符 -->
+
+> **Avoid line breaks**, as they don't have generally accepted semantic meaning.
+
+In the rare case you absolutely need them, end a lines with exactly two spaces.
+
+#### Header
+
+<!-- 标题 -->
+
+##### Header Syntax
+
+<!-- 标题的语法 -->
+
+> Use ATX-style headers
+
+_Bad_
+
+```bash
+Header 1
+========
+
+Header 2
+--------
+
+### Header 3
+```
+
+_Good_
+
+```bash
+# Header 1
+
+## Header 2
+
+### Header 3
+```
+
+_Rationale :_
+
+- _Advantages of Setex :_
+    - _more visible. Not very important if you have syntax highlighting._
+- _ATX advantages over Setex :_
+    - _Easier to write because in Setex you have to match the number of characters in both lines for it to look good_
+    - _Works for all levels, while Setex only goes up to level 2_
+    - _Occupy only one screen line, while Setex occupies 2_
+
+> Include a single space between the `#` and the text of the header.
+
+_Good_
+
+```markdown
+# Header
+```
+
+_Bad_
+
+```markdown
+#Header
+
+#  Header
+```
+
+> Don't use the closing `#` character.
+
+_Bad_
+
+```markdown
+# Header #
+```
+
+> Don't add spaces before the number sign `#`.
+
+_Bad_
+
+```markdown
+ # Header
+```
+
+> **Don't skip header levels.**
+
+_Bad_
+
+```markdown
+# Header 1
+
+### Header 3
+```
+
+_Good_
+
+```markdown
+# Header 1
+
+## Header 2
+```
+
+> **Surround headers by a single empty line except at the beginning of the file.**
+
+_Bad_
+
+```markdown
+Before 1.
+# Header 1
+
+Before 2.
+## Header 2
+After 2.
+```
+
+_Good_
+
+```markdown
+# Header 1
+
+After 1.
+
+## Header 2
+
+After 2.
+```
+
+> **Avoid using two headers with the same content in the same markdown file.**
+
+_Rationale : many markdown engines generate IDs for headers based on the header content._
+
+_Bad_
+
+```markdown
+## Dogs
+
+### Anatomy
+
+## Cats
+
+### Anatomy
+```
+
+_Good_
+
+```markdown
+## Dogs
+
+### Anatomy of the dog
+
+## Cats
+
+### Anatomy of the cat
+```
+
+##### Top-Level Header
+
+<!-- 一级标题 -->
+
+> **Exactly one top-level header in a markdown file.**
+
+_Bad_
+
+```markdown
+# Dogs
+
+# Cats
+```
+
+_Good_
+
+```markdown
+# Animal
+
+## Dogs
+
+## Cats
+```
+
+_If you target HTML output, write your documents so that it will have one and only one `h1` element as the first thing in it that serves as the title of the document. This is the HTML top-level header._
+
+_How this `h1` is produced may vary depending on your exact technology stack: some stacks may generate it from metadata, for example Jekyll through the front-matter._
+
+_Storing the top-level header as metadata has the advantage that it can be reused elsewhere more easily, e.g. on a global index, but the downside of lower portability._
+
+_If your target stack does not generate the top-level header in another way, include it in your markdown file. E.g., GitHub._
+
+_Top-level headers on index-like files such as `README.md` or `index.md` should serve as a title for their parent directory._
+
+_Downsides of top-level headers :_
+
+- Take up one header level.
+    - This means that there are only 5 header levels left, _and each new header will have one extra `#`, which looks worse and is harder to write._
+- _Duplicate filename information,_
+    - _which most often can already be seen on a URL._
+    - _In most cases, the filename can be trivially converted to a top-level, e.g.: `some-filename.md` to `Some filename`._
+
+_Advantages of top-level headers :_
+
+- _More readable than URL's, especially for non-technically inclined users._
+
+##### Header Case
+
+<!-- 标题的大小写 -->
+
+> **Use an upper case letter as the first letter of a header**, unless it is a word that always starts with lowercase letters, _e.g. computer code._
+
+_Good_
+
+```markdown
+# Header
+```
+
+_Good, **computer code that always starts with lower case**_
+
+```markdown
+# int main
+```
+
+_Bad_
+
+```markdown
+# header
+```
+
+> ~~The other letters have the same case they would have in the middle of a sentence.~~
+>
+> _According to the Chicago Manual of Style (15th edition), **the following rules should be applied to headers** :_
+>
+> - **Always capitalize the first and last words of titles and subtitles.**
+> - **Always capitalize "major" words** (nouns, pronouns, verbs, adjectives, adverbs, and some conjunctions).
+> - **Lowercase the conjunctions and, but, for, or, and nor**.
+> - **Lowercase the articles the, a, and an**.
+> - **Lowercase prepositions, regardless of length**,
+>     - except when they are stressed, are used adverbially or adjectivally, or are used as conjunctions.
+> - **Lowercase the words to and as**.
+> - Lowercase the second part of Latin species names.
+
+_~~Good~~ Bad_
+
+```markdown
+# The header of the example
+```
+
+_~~Bad~~ Good_
+
+```markdown
+# The Header of the Example
+```
+
+_As an exception, [title case](https://en.wikipedia.org/wiki/Title_case#Title_case) may be optionally used for the top-level header._
+
+- _( icehe : I prefer "Chicago Manual of Style" to "AP Stylebook". )_
+- _Use this exception sparingly ( 保守地 ) , in cases where typographical ( 排字上的 ) perfection is important, e.g.: `README` of a project._
+
+_Rationale : why not Title case for all headers?_
+
+- _It requires too much effort to decide if edge-case words should be upper case or not._
+
+##### End of a header
+
+> Indicate the end of a header's content that is not followed by a new header by an horizontal rule.
+
+```markdown
+# Header
+
+Content
+
+---
+
+Outside header.
+```
+
+##### Header length
 
 ### TOC
 
@@ -135,11 +659,11 @@ TOC - Table Of Contents
 
 **一级标题 `#` 必须位于文件第一行**
 
-- 即是一级标题前面不留空行，也不添加其它内容
+- 即是一级标题前面不留空行, 也不添加其它内容
 
 **必须按照准确级别顺序使用 `#` 标题**
 
-- 例如：上一个标题是一级标题 `#` ，下一个应严格使用二级标题 `##` 而非三级标题  `###`
+- 例如：上一个标题是一级标题 `#` , 下一个应严格使用二级标题 `##` 而非三级标题  `###`
 
 正确示例
 
@@ -192,9 +716,9 @@ TOC - Table Of Contents
 
 ### 代码 Code
 
-**代码块使用 <code>\`\`\`</code> 语法围闭，并标明代码类型**
+**代码块使用 <code>\`\`\`</code> 语法围闭, 并标明代码类型**
 
-- 以一行 <code>\`\`\`[code_type]</code> 开始围闭，例如 <code>\`\`\`bash</code>
+- 以一行 <code>\`\`\`[code_type]</code> 开始围闭, 例如 <code>\`\`\`bash</code>
 - 以一行 <code>\`\`\`</code> 结束围闭
     - code_type 包括但不限于 bash / properties / json / java 等（自行了解和尝试）
 
@@ -231,7 +755,7 @@ TOC - Table Of Contents
 + item 3
 ```
 
-**不混用「编号列表」和「顺序列表」，建议只使用「无序列表」**
+**不混用「编号列表」和「顺序列表」, 建议只使用「无序列表」**
 
 - 因为并非所有 Markdown 渲染引擎都支持
 
@@ -272,8 +796,8 @@ TOC - Table Of Contents
 
 **尽量减少缩进**
 
-- 能不用列表符 `-` 就能表达清楚层级结构的情况，就别用 `-`
-- 列表的层次最好控制在 2 层以内，最多 3 层
+- 能不用列表符 `-` 就能表达清楚层级结构的情况, 就别用 `-`
+- 列表的层次最好控制在 2 层以内, 最多 3 层
 
 ```markdown
 计划
@@ -315,9 +839,9 @@ TOC - Table Of Contents
 
 ### 链接 Link
 
-基于简单原则：尽量少地格式化，去表达同样的意思
+基于简单原则：尽量少地格式化, 去表达同样的意思
 
-**不使用 `<link>` 语法来写 URL ，直接写即可**
+**不使用 `<link>` 语法来写 URL , 直接写即可**
 
 - GitHub 和 GitLab 等常用的 Markdown 语法渲染引擎基本都支持直接写 URL
 
@@ -331,7 +855,7 @@ https://icehe.xyz
 <https://icehe.xyz>
 ```
 
-**如果 URL 链接不是太长，而且自身能准确表达其网页内容，就不要使用 `[link](url)` 语法了**
+**如果 URL 链接不是太长, 而且自身能准确表达其网页内容, 就不要使用 `[link](url)` 语法了**
 
 ```markdown
 My image : https://hub.docker.com/r/icehe/alpine
@@ -345,7 +869,7 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
 
 两种做法的效果
 
-- `[link](url)` 语法：为链接添加标题，并隐去链接本体，如下
+- `[link](url)` 语法：为链接添加标题, 并隐去链接本体, 如下
     - My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
 - 不如直接使用链接本体
     - My image : https://hub.docker.com/r/icehe/alpine
@@ -387,15 +911,17 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
 
 ## Tools
 
-推荐使用
+<!-- 推荐使用 -->
+
+Highly recommended to use
 
 ### VS Code & Plugins
 
-[VS Code](https://code.visualstudio.com/)
+[VS Code](https://code.visualstudio.com)
 
 - 「[markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)」插件
-- 「[Mardown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)」插件
-    - 免费，Markdown 效果预览，自动检测错误
+- 「[Mardown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn)」插件
+    - 免费, Markdown 效果预览, 自动检测错误
 
 ### Mardown Lint
 
@@ -407,14 +933,24 @@ Markdown Lint Tool `mdl`
 
 当前规则
 
-- 由 markdown/lint/style.rb 文件声明，详情如下
+- 由 markdown/lint/style.rb 文件声明, 详情如下
 
 [mdl styles](./lint/style.rb ':include :type=code properties')
 
-推荐通过 form 项目 CI 的 `mdl`（markdownlint）检查后，才允许合并 MR
+推荐通过 form 项目 CI 的 `mdl`（markdownlint）检查后, 才允许合并 MR
 
 ### Remark Lint
 
 [remark-lint](https://github.com/remarkjs/remark-lint)
 
 - 错误输出比 markdownlint 可读性更好
+
+### Other Lints
+
+Asked on Stack Exchange: http://softwarerecs.stackexchange.com/questions/7138/markdown-lint-tool
+
+- https://github.com/wooorm/mdast-lint
+- https://github.com/mivok/markdownlint
+- https://github.com/slang800/tidy-markdown
+- https://github.com/DavidAnson/markdownlint
+    - Documentation has some links back to this style: https://github.com/DavidAnson/markdownlint/blob/v0.14.2/doc/Rules.md
