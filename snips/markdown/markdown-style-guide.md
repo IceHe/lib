@@ -371,6 +371,22 @@ Avoid informal contractions:
 - _Good: biography, repository, directory_
 - _Bad: bio, repo, dir_
 
+##### Escape Newlines
+
+<!-- 转义换行符 -->
+
+( from Google Markdown style guide )
+
+> **Escape any newlines in code blocks : Use a single backslash at the end of the line.**
+
+```bash
+bazel run :target -- --flag \
+    --foo=longlonglonglonglongvalue \
+    --bar=anotherlonglonglonglonglonglonglonglonglonglongvalue
+```
+
+_Rationale: Because most commandline snippets are intended to be copied and pasted directly into a terminal, it's best practice to escape any newlines._
+
 ### Block elements
 
 <!-- 块元素 -->
@@ -1605,6 +1621,59 @@ _Rationale:_
 
 <!-- 表格 -->
 
+> **Prefer lists to tables. Any tables in your Markdown should be small.**
+
+_( from Google Markdown style guide )_
+
+_Bad_
+
+```markdown
+Fruit | Attribute | Notes
+--- | --- | --- | ---
+Apple | [Juicy](https://example.com/SomeReallyReallyReallyReallyReallyReallyReallyReallyLongQuery), Firm, Sweet | Apples keep doctors away.
+Banana | [Convenient](https://example.com/SomeDifferentReallyReallyReallyReallyReallyReallyReallyReallyLongQuery), Soft, Sweet | Contrary to popular belief, most apes prefer mangoes.
+```
+
+_Good_
+
+_Lists and subheadings usually suffice to present the same information in a slightly less compact, though much more edit-friendly way:_
+
+```markdown
+## Fruits
+
+### Apple
+
+* [Juicy](https://SomeReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyLongURL)
+* Firm
+* Sweet
+
+Apples keep doctors away.
+
+### Banana
+
+* [Convenient](https://example.com/SomeDifferentReallyReallyReallyReallyReallyReallyReallyReallyLongQuery)
+* Soft
+* Sweet
+
+Contrary to popular belief, most apes prefer mangoes.
+```
+
+_Good_
+
+_There are times when a small table is called for_
+
+```markdown
+|Transport       |Favored by    |Advantages                   |
+|----------------|--------------|-----------------------------|
+|Swallow         |Coconuts      |Otherwise unladen            |
+|Bicycle         |Miss Gulch    |Weatherproof                 |
+|X-34 landspeeder|Whiny farmboys|Cheap since the X-38 came out|
+```
+
+_Rationale: Complex, large tables are difficult to read in source and most importantly, a pain to modify later._
+
+---
+
 Extension.
 
 > - **Surround tables by one empty line.**
@@ -1697,19 +1766,21 @@ _Rationale:_
 
 _Good_
 
-<pre><code class="lang-markdown">**bold**
+```markdown
+**bold**
 `code`
 [link](http://a.com)
 [text][name]
-</code></pre>
+```
 
 _Bad_
 
-<pre><code class="lang-markdown">** bold **
+```markdown
+** bold **
 ` code `
 [ link ]( http://a.com )
 [text] [name]
-</code></pre>
+```
 
 For inline code in which the space is crucial:
 
@@ -1790,6 +1861,37 @@ _Bad, not aligned_
 
 _Rationale: single quotes do not work in all major implementations, double quotes do._
 
+##### Short Link Titles
+
+<!-- 简短的链接标题 -->
+
+_( from Google Markdown style guide )_
+
+> **Use informative Markdown link titles**
+>
+> Write the sentence naturally, then go back and wrap the most appropriate phrase with the link.
+
+_Bad_
+
+```markdown
+See the syntax guide for more info: [link](syntax_guide.md).
+Or, check out the style guide [here](style_guide.md).
+DO NOT DO THIS.
+```
+
+_Good_
+
+
+```markdown
+See the [syntax guide](syntax_guide.md) for more info.
+Or, check out the [style guide](style_guide.md).
+```
+
+_Rationale:_
+
+- _Markdown link syntax allows you to set a link title, just as HTML does. Use it wisely._
+- _Titling your links as "link" or "here" tells the reader precisely nothing when quickly scanning your doc and is a waste of space:_
+
 #### Emphasis
 
 <!-- 强调 -->
@@ -1829,7 +1931,7 @@ _Rationale: CSS has `text-transform:uppercase` which can easily achieve the same
 
 > **Don't use emphasis elements ( bold or italics ) to introduce a multi line named section: use headers instead.**
 
-_Rationale: that is exactly the semantic meaning of headers, and not necessarily that of emphasis elements. As a consequence, many implementations add useful behaviors to headers and not to emphasis elements, such as automatic id to make it easier to refer to the header later on._
+- _Rationale: that is exactly the semantic meaning of headers, and not necessarily that of emphasis elements. As a consequence, many implementations add useful behaviors to headers and not to emphasis elements, such as automatic id to make it easier to refer to the header later on._
 
 _Good_
 
@@ -1849,7 +1951,8 @@ Open the flour sack.
 
 _Bad_
 
-<pre><code class="lang-markdown">**How to make omelets:**
+```markdown
+**How to make omelets:**
 
 Break an egg.
 
@@ -1859,7 +1962,8 @@ Break an egg.
 
 Open the flour sack.
 
-...</code></pre>
+...
+```
 
 #### Automatic Links
 
@@ -1907,7 +2011,9 @@ _Rationale: many tools automatically interpret any word starting with http as a 
 
 _Good_
 
-<pre><code class="lang-markdown">[file.html](file.html)</code></pre>
+```markdown
+[file.html](file.html)
+```
 
 _Bad_
 
@@ -1935,7 +2041,7 @@ _Bad_
 
 _Rationale: it is hard to differentiate automatic links from HTML tags. What if you want a relative link to a file called `script`?_
 
-###### Email Automatic Links
+##### Email Automatic Links
 
 <!-- 邮箱自动链接 -->
 
@@ -1968,6 +2074,196 @@ _Good, e.g._
 ```markdown
 icehe.me#qq.com ( replace `#` with `@` )
 ```
+
+### Content
+
+<!-- 内容 -->
+
+#### Document Layout
+
+<!-- 文档 ( 内容 ) 布局 -->
+
+_( from Google Markdown style guide )_
+
+_In general, most documents benefit from some variation of the following layout:_
+
+```markdown
+# Document Title
+
+Short introduction.
+
+---
+
+<!-- [TOC] -->
+
+## Topic
+
+Content.
+
+## See also
+
+- https://link-to-more-info
+```
+
+- _`# Document Title`: The first heading should be a level one heading,_
+    - _and should ideally be the same or nearly the same as the filename._
+    - _The first level one heading is used as the page `<title>`._
+- _`author`: Optional._
+    - _If you'd like to claim ownership of the document or if you are very proud of it, add yourself under the title. However, revision history generally suffices._
+- _`Short introduction`. 1 ~ 3 sentences providing a high-level overview of the topic._
+    - _Imagine yourself as a complete newbie, who landed on your "Extending Foo" doc and needs to know the most basic assumptions you take for granted._
+    - _"What is Foo? Why would I extend it?"_
+- ~~_`[TOC]`: if you use hosting that supports table of contents, such as Gitiles, put [TOC] after the short introduction. See `[TOC]` documentation._~~
+- _`## Topic`: The rest of your headings should start from level 2._
+- _`## See also`: Put miscellaneous links at the bottom for the user who wants to know more or didn't find what she needed._
+
+#### Character Line Limit
+
+<!-- 每行字符数量的限制 -->
+
+( from Google Markdown style guide )
+
+_Obey projects' character line limit wherever possible. Long URLs and tables are the usual suspects when breaking the rule. ( Headings also can't be wrapped, but we encourage keeping them short ). Otherwise, wrap your text:_
+
+```markdown
+Lorem ipsum dolor sit amet, nec eius volumus patrioque cu, nec et commodo
+hendrerit, id nobis saperet fuisset ius.
+
+*   Malorum moderatius vim eu. In vix dico persecuti. Te nam saperet percipitur
+    interesset. See the [foo docs](https://gerrit.googlesource.com/gitiles/+/master/Documentation/markdown.md).
+```
+
+_Often, inserting a newline before a long link preserves readability while minimizing the overflow:_
+
+```markdown
+Lorem ipsum dolor sit amet. See the
+[foo docs](https://gerrit.googlesource.com/gitiles/+/master/Documentation/markdown.md)
+for details.
+```
+
+#### Trailing Whitespace
+
+<!-- 结尾的空格 -->
+
+_( from Google Markdown style guide )_
+
+_Don't use trailing whitespace, use a trailing backslash._
+
+_The [CommonMark spec](https://spec.commonmark.org/0.20/#hard-line-breaks) decrees that two spaces at the end of a line should insert a `<br/>` tag. However, many directories have a trailing whitespace presubmit check in place, and many IDEs will clean it up anyway._
+
+_Best practice is to avoid the need for a `<br/>` altogether. Markdown creates paragraph tags for you simply with newlines: get used to that._
+
+#### Images
+
+<!-- 图片 -->
+
+> **Use images sparingly, and prefer simple screenshots.**
+
+_( from Google Markdown style guide )_
+
+_Rationale:_
+
+- _This guide is designed around the idea that plain text gets users down to the business of communication faster with less reader distraction and author procrastination._
+- However, it's sometimes very helpful to show what you mean.
+
+_See [image syntax](https://gerrit.googlesource.com/gitiles/+/master/Documentation/markdown.md#Images)._
+
+#### HTML
+
+> **Strongly prefer Markdown to HTML**
+
+_( from Google Markdown style guide )_
+
+_Rationale:_
+
+- _Please prefer standard Markdown syntax wherever possible and avoid HTML hacks._
+    - _If you can't seem to accomplish what you want, reconsider whether you really need it._
+    - _Except for big tables, Markdown meets almost all needs already._
+- _Every bit of HTML or Javascript hacking reduces the readability and portability._
+    - _This in turn limits the usefulness of integrations with other tools, which may either present the source as plain text or render it._
+    - _See [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)._
+    - _Gitiles does not render HTML._
+
+### Documentation Best Practices
+
+<!-- 文档的最佳实践 -->
+
+_( from Google Markdown style guide )_
+
+"Say what you mean, simply and directly." - [Brian Kernighan](https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style)
+
+_Contents:_
+
+- Minimum viable documentation
+- Update docs with code
+- Delete dead documentation
+- Documentation is the story of your code
+
+#### Minimum Viable Documentation
+
+A small set of fresh and accurate docs are better than a sprawling, loose assembly of "documentation" in various states of disrepair.
+
+**Write short and useful documents. Cut out everything unnecessary**, while also making a habit of continually massaging and improving every doc to suit your changing needs. **Docs work best when they are alive but frequently trimmed, like a bonsai tree.**
+
+This guide _( Google Markdown style guide )_ encourages engineers to take ownership of their docs and keep them up to date with the same zeal we keep our tests in good order. Strive for this.
+
+Identify what you really need: release docs, API docs, testing guidelines.
+Delete cruft frequently and in small batches.
+
+#### Update Docs with Code
+
+**Change your documentation in the same CL _( Commit Log )_ as the code change.** This keeps your docs fresh, and is also a good place to explain to your reviewer what you're doing.
+
+A good reviewer can at least insist that docstrings, header files, README.md files, and any other docs get updated alongside the CL.
+
+#### Delete Dead Documentation
+
+**Dead docs are bad. They misinform, they slow down, they incite despair in engineers and laziness in team leads. They set a precedent for leaving behind messes in a code base. If your home is clean, most guests will be clean without being asked.**
+
+Just like any big cleaning project, it's easy to be overwhelmed. If your docs are in bad shape:
+
+- Take it slow, doc health is a gradual accumulation.
+- **First delete what you're certain is wrong, ignore what's unclear.**
+- Get your whole team involved.
+    - Devote time to quickly scan every doc and make a simple decision: Keep or delete?
+- Default to delete or leave behind if migrating.
+    - Stragglers can always be recovered.
+- Iterate.
+
+#### Prefer the Good Over the Perfect
+
+**Your documentation should be as good as possible within a reasonable time frame.**
+
+The standards for a documentation review are different from the standards for code reviews. Reviewers can and should ask for improvements, but in general, the author should always be able to invoke the "**Good Over Perfect Rule**".
+
+**It's preferable to allow authors to quickly submit changes that improve the document, instead of forcing rounds of review until it's "perfect". Docs are never perfect, and tend to gradually improve as the team learns what they really need to write down.**
+
+#### Documentation is the Story of your Code
+
+Writing excellent code doesn't end when your code compiles or even if your test coverage reaches 100%. It's easy to write something a computer understands, it's much harder to write something both a human and a computer understand. Your mission as a Code Health-conscious engineer is to write for humans first, computers second. Documentation is an important part of this skill.
+
+There's a spectrum of engineering documentation that ranges from terse comments to detailed prose:
+
+Inline comments: The primary purpose of inline comments is to provide information that the code itself cannot contain, such as why the code is there.
+
+Method and class comments:
+
+Method API documentation: The header / Javadoc / docstring comments that say what methods do and how to use them. This documentation is the contract of how your code must behave. The intended audience is future programmers who will use and modify your code.
+
+It is often reasonable to say that any behavior documented here should have a test verifying it. This documentation details what arguments the method takes, what it returns, any "gotchas" or restrictions, and what exceptions it can throw or errors it can return. It does not usually explain why code behaves a particular way unless that's relevant to a developer's understanding of how to use the method. "Why" explanations are for inline comments. Think in practical terms when writing method documentation: "This is a hammer. You use it to pound nails."
+
+Class / Module API documentation: The header / Javadoc / docstring comments for a class or a whole file. This documentation gives a brief overview of what the class / file does and often gives a few short examples of how you might use the class / file.
+
+Examples are particularly relevant when there's several distinct ways to use the class (some advanced, some simple). Always list the simplest use case first.
+
+README.md: A good README.md orients the new user to the directory and points to more detailed explanation and user guides:
+
+What is this directory intended to hold?
+Which files should the developer look at first? Are some files an API?
+Who maintains this directory and where I can learn more?
+See the README.md guidelines.
+
+
 
 ### TOC
 
