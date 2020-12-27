@@ -2240,152 +2240,149 @@ The standards for a documentation review are different from the standards for co
 
 #### Documentation is the Story of your Code
 
-Writing excellent code doesn't end when your code compiles or even if your test coverage reaches 100%. It's easy to write something a computer understands, it's much harder to write something both a human and a computer understand. Your mission as a Code Health-conscious engineer is to write for humans first, computers second. Documentation is an important part of this skill.
+Writing excellent code doesn't end when your code compiles or even if your test coverage reaches 100%. It's easy to write something a computer understands, it's much harder to write something both a human and a computer understand. **Your mission as a Code Health-conscious engineer is to write for humans first, computers second.** Documentation is an important part of this skill.
 
-There's a spectrum of engineering documentation that ranges from terse comments to detailed prose:
+_There's a spectrum of engineering documentation that ranges from terse comments to detailed prose:_
 
-Inline comments: The primary purpose of inline comments is to provide information that the code itself cannot contain, such as why the code is there.
+1. _**Inline comments**: The primary purpose of inline comments is to provide information that the code itself cannot contain, such as why the code is there._
 
-Method and class comments:
+1. **Method and class comments**:
 
-Method API documentation: The header / Javadoc / docstring comments that say what methods do and how to use them. This documentation is the contract of how your code must behave. The intended audience is future programmers who will use and modify your code.
+    - **Method API documentation**: _The header / Javadoc / docstring comments that say what methods do and how to use them. This documentation is the contract of how your code must behave. The intended audience is future programmers who will use and modify your code._
 
-It is often reasonable to say that any behavior documented here should have a test verifying it. This documentation details what arguments the method takes, what it returns, any "gotchas" or restrictions, and what exceptions it can throw or errors it can return. It does not usually explain why code behaves a particular way unless that's relevant to a developer's understanding of how to use the method. "Why" explanations are for inline comments. Think in practical terms when writing method documentation: "This is a hammer. You use it to pound nails."
+        _It is often reasonable to say that any behavior documented here should have a test verifying it. This documentation details what arguments the method takes, what it returns, any "gotchas" or restrictions, and what exceptions it can throw or errors it can return. It does not usually explain why code behaves a particular way unless that's relevant to a developer's understanding of how to use the method. "Why" explanations are for inline comments. Think in practical terms when writing method documentation: "This is a hammer. You use it to pound nails."_
 
-Class / Module API documentation: The header / Javadoc / docstring comments for a class or a whole file. This documentation gives a brief overview of what the class / file does and often gives a few short examples of how you might use the class / file.
+    - _**Class / Module API documentation**: The header / Javadoc / docstring comments for a class or a whole file. This documentation gives a brief overview of what the class / file does and often gives a few short examples of how you might use the class / file._
 
-Examples are particularly relevant when there's several distinct ways to use the class (some advanced, some simple). Always list the simplest use case first.
+        _Examples are particularly relevant when there's several distinct ways to use the class (some advanced, some simple). Always list the simplest use case first._
 
-README.md: A good README.md orients the new user to the directory and points to more detailed explanation and user guides:
+1. _**README.md**: A good README.md orients the new user to the directory and points to more detailed explanation and user guides:_
 
-What is this directory intended to hold?
-Which files should the developer look at first? Are some files an API?
-Who maintains this directory and where I can learn more?
-See the README.md guidelines.
+    - _What is this directory intended to hold?_
 
+    - _Which files should the developer look at first? Are some files an API?_
 
+    - _Who maintains this directory and where I can learn more?_
 
-### TOC
+    _See the [README.md guidelines](https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md)._
 
-TOC - Table Of Contents
+### README.md Files
 
-**尽量添加目录到文档**
+<!-- README.md 文件 ( 示例? ) -->
 
-- Available
-    - GitLab: https://docs.gitlab.com/ee/user/markdown.html#table-of-contents
-- Unavailable
-    - GitHub
-    - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
-- 如果使用, 标准是:
-    - https://cirosantilli.com/markdown-style-guide/#reference-style-links
+_( from Google Markdown style guide )_
 
-### Heading
+_About README.md files._
 
-**使用 ATX Header**
+1. Overview
+1. Guidelines
+1. Filename
+1. Contents
+1. Example
 
-**一级标题 `#` 必须位于文件第一行**
+#### _Overview_
 
-- 即是一级标题前面不留空行, 也不添加其它内容
+`README.md` files are Markdown files that describe a directory. _GitHub and Gitiles renders it when you browse the directory._
 
-**必须按照准确级别顺序使用 `#` 标题**
+_For example, the file /README.md is rendered when you view the contents of the containing directory:_
 
-- 例如：上一个标题是一级标题 `#` , 下一个应严格使用二级标题 `##` 而非三级标题  `###`
+https://github.com/google/styleguide/tree/gh-pages
 
-正确示例
+_Also `README.md` at `HEAD` ref is rendered by Gitiles when displaying repository index:_
 
-```markdown
-# 一级标题
+https://gerrit.googlesource.com/gitiles/
 
-## 二级标题
+#### Guidelines
 
-正文内容
+**`README.md` files are intended to provide orientation for engineers browsing your code, especially first-time users.** The README.md is likely the first file a reader encounters when they browse a directory that contains your code. In this way, it acts as a landing page for the directory.
 
-```
+_We recommend that top-level directories for your code have an up-to-date README.md file. This is especially important for package directories that provide interfaces for other teams._
 
-错误示例
+#### _Filename_
 
-```markdown
+Use `README.md`.
 
-## 二级标题
+_Files named `README` are not displayed in the directory view in Gitiles._
 
-#### 四级标题
+#### Contents
 
-正文内容
-```
+_At minimum, every package-level `README.md` should include or point to the following information:_
 
-### 空行 Blank Line
+1. **What** is in this package/library and what's it used for.
+1. **Who** to contact.
+1. **Status**: whether this package/library is deprecated, or not for general release, etc.
+1. **More info**: where to go for more detailed documentation, such as:
+    - _An overview.md file for more detailed conceptual information._
+    - _Any API documentation for using this package/library._
 
-**使用空行分隔内容**
-
-- 标题与标题之间留空行
-- 标题与内容之间留空行
-- 文件最后必须有且仅有一个空行
-
-正确示例
+#### Example
 
 ```markdown
-# 一级标题
+# APIs
 
-## 二级标题
+This is the top-level directory for all externally-visible APIs, plus some
+private APIs under `internal/` directories.
+See [API Style Guide](docs/apistyle.md) for more information.
 
-正文内容
+*TL;DR*: API definitions and configurations should be defined in `.proto` files,
+checked into `apis/`.
 
+...
 ```
 
-错误示例
+### Philosophy
 
-```markdown
-# 一级标题
-## 二级标题
-正文内容
-```
+<!-- 哲学 -->
 
-### 代码 Code
+_( from Google Markdown style guide )_
 
-**代码块使用 <code>\`\`\`</code> 语法围闭, 并标明代码类型**
+> 埏埴以為器，當其無，有器之用.
+>
+> Clay becomes pottery through craft, but it's the emptiness that makes a pot useful.
+>
+> \- [Laozi](http://ctext.org/dictionary.pl?if=en&id=11602)
 
-- 以一行 <code>\`\`\`[code_type]</code> 开始围闭, 例如 <code>\`\`\`bash</code>
-- 以一行 <code>\`\`\`</code> 结束围闭
-    - code_type 包括但不限于 bash / properties / json / java 等（自行了解和尝试）
+_Contents:_
 
-小段代码使用 <code>\`code\`</code> 语法围闭即可
+- Radical simplicity
+- Readable source text
+- Minimum viable documentation
+- Better is better than perfect
 
-正确示例的效果如下
+#### Radical Simplicity
 
-- 代码块
+- **Scalability and interoperability** are more important than a menagerie _( 动物展览 )_ of unessential features. Scale comes from simplicity, speed, and ease. Interoperability _( 互操作性 )_ comes from unadorned _( 朴素的 )_, digestible content _( 容易消化的 )_ .
+- **Fewer distractions** make for better writing and more productive reading.
+- **New features should never interfere with the simplest use case** and should remain invisible to users who don't need them.
+- **This guide is designed for the average engineer** -- the busy, just-want-to-go-back-to-coding engineer. Large and complex documentation is possible but not the primary focus.
+- **Minimizing context switching makes people happier**. Engineers should be able to interact with documentation using the same tools they use to read and write code.
 
-    ```bash
-    echo 'hello world'
-    ```
+#### Readable Source Text
 
-- 小段代码
-    - 列出目录内容 `ls`
+- **Plain text not only suffices, it is superior**. Markdown itself is not essential to this formula, but it is the best and most widely supported solution right now. HTML is generally not encouraged.
+- **Content and presentation should not mingle** _( 混合 )_ . It should always be possible to ditch the renderer and read the essential information at source. Users should never have to touch the presentation layer if they don't want to.
+- **Portability and future-proofing leave room for the unimagined integrations to come**, and are best achieved by keeping the source as human-readable as possible.
+- **Static content is better than dynamic**, because content should not depend on the features of any one server. However, fresh is better than stale. We strive to balance these needs.
 
-### 列表 List
+#### Minimum Viable Documentation
 
-**推荐使用 `-` 而非 `*` 输入列表**
+- **Docs thrive when they're treated like tests**: a necessary chore one learns to savor because it rewards over time. See [Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md).
+- **Brief and utilitarian is better than long and exhaustive**. The vast majority of users need only a small fraction of the author's total knowledge, but they need it quickly and often.
 
-推荐的做法
+#### Better Is Better Than Perfect
 
-```markdown
-- item 1
-- item 2
-- item 3
-```
+- **Incremental improvement is better than prolonged _( 长时间的 )_ debate**. Patience and tolerance of imperfection allow projects to evolve organically _( 有机地 )_ .
+- **Don't lick the cookie, pass the plate**. We're drowning in _( 溺死在 )_ potentially impactful projects. Choose only those you can really handle and release those you can't.
 
-不推荐的做法
+### 补充 Mine
 
-```markdown
-* item 1
-* item 2
-+ item 3
-```
+#### 列表 Lists
 
-**不混用「编号列表」和「顺序列表」, 建议只使用「无序列表」**
+> **不混用「编号列表」和「顺序列表」, 建议只使用「无序列表」**
 
-- 因为并非所有 Markdown 渲染引擎都支持
+_因为并非所有 Markdown 渲染引擎都支持_
 
-正确示例
+_Good_
 
 ```markdown
 - item a
@@ -2396,7 +2393,7 @@ TOC - Table Of Contents
         - item cat
 ```
 
-不推荐的做法
+_Not recommended_
 
 ```markdown
 1. item a
@@ -2407,7 +2404,7 @@ TOC - Table Of Contents
         - item cat
 ```
 
-错误示例
+_Bad_
 
 ```markdown
 - 1. item a
@@ -2418,32 +2415,14 @@ TOC - Table Of Contents
         - item cat
 ```
 
-### 缩进 Indent
+#### 缩进 Indent
 
-**尽量减少缩进**
+> **尽量减少缩进**
+>
+> - 能不用列表符 `-` 就能表达清楚层级结构的情况, 就别用 `-`
+> - 列表的层次最好控制在 2 层以内, 最多 3 层
 
-- 能不用列表符 `-` 就能表达清楚层级结构的情况, 就别用 `-`
-- 列表的层次最好控制在 2 层以内, 最多 3 层
-
-```markdown
-计划
-
-- 确认需求
-    - 需求文档
-    - 工作排期
-- 开发
-    - 编写代码
-    - 代码审查
-- 测试
-    - 单元测试
-    - 集成测试
-    - 回归测试
-- 上线
-    - 预览上线
-    - 正式上线
-```
-
-不推荐的做法
+_Bad_
 
 ```markdown
 - 计划
@@ -2463,46 +2442,75 @@ TOC - Table Of Contents
         - 正式上线
 ```
 
-### 链接 Link
-
-基于简单原则：尽量少地格式化, 去表达同样的意思
-
-**不使用 `<link>` 语法来写 URL , 直接写即可**
-
-- GitHub 和 GitLab 等常用的 Markdown 语法渲染引擎基本都支持直接写 URL
+_Good_
 
 ```markdown
-https://icehe.xyz
+计划
+
+- 确认需求
+    - 需求文档
+    - 工作排期
+- 开发
+    - 编写代码
+    - 代码审查
+- 测试
+    - 单元测试
+    - 集成测试
+    - 回归测试
+- 上线
+    - 预览上线
+    - 正式上线
 ```
 
-不推荐的做法
+_Better_
 
 ```markdown
-<https://icehe.xyz>
+
+# 计划
+
+确认需求
+
+- 需求文档
+- 工作排期
+
+开发
+
+- 编写代码
+- 代码审查
+
+测试
+
+- 单元测试
+- 集成测试
+- 回归测试
+
+上线
+
+- 预览上线
+- 正式上线
 ```
 
-**如果 URL 链接不是太长, 而且自身能准确表达其网页内容, 就不要使用 `[link](url)` 语法了**
+#### 链接 Link
+
+_基于简单原则: 尽量少地格式化, 去表达同样的意思_
+
+> **如果 URL 链接不是太长, 而且自身能准确表达其网页内容, 就不要使用 `[link](url)` 语法了**
+
+_Good_
 
 ```markdown
 My image: https://hub.docker.com/r/icehe/alpine
 ```
 
-不推荐的做法
+_Bad_
 
 ```markdown
 My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
 ```
 
-两种做法的效果
+#### 脚注 Footnotes
 
-- `[link](url)` 语法：为链接添加标题, 并隐去链接本体, 如下
-    - My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
-- 不如直接使用链接本体
-    - My image: https://hub.docker.com/r/icehe/alpine
-
-### 脚注 Footnotes
-
-**尽量不使用**
+> **尽量不使用脚注**
 
 - Available
     - GitLab: https://docs.gitlab.com/ee/user/markdown.html#footnotes
@@ -2512,9 +2520,9 @@ My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
 - 如果使用, 标准是:
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
-### 表情 Emoji
+#### 表情 Emoji
 
-**尽量不支持**
+> **尽量不使用表情符号**
 
 - Available
     - GitLab: https://docs.gitlab.com/ee/user/markdown.html#footnotes
@@ -2525,15 +2533,15 @@ My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
 - 如果使用, 标准是:
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
-### 其它 Others
+#### 其它 Others
 
-**一行内容不要太长**
+> **一行内容不要太长**
 
 短句方便阅读.
 
-**文档撰写方面, 对 "必须 / 应该 / 建议" 的字眼的使用, 请参考 RFC 2119**
+> **文档撰写方面, 对 "必须 / 应该 / 建议" 的字眼的使用, 请参考 RFC 2119**
 
-- https://www.ietf.org/rfc/rfc2119.txt
+https://www.ietf.org/rfc/rfc2119.txt
 
 ## Tools
 
