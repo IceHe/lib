@@ -7,20 +7,6 @@ Markdown 风格指北
 - Here is the Markdown style I follow.
 - It's not a mandatory standard.
 
----
-
-- [ ] Escape newlines
-- [ ] Nest codeblocks within lists
-- [ ] Use informative Markdown link titles
-- [ ] Prefer lists to tables
-- [ ] Strongly prefer Markdown to HTML
-
-Documentation Best Practices
-
-- [ ] Minimum viable documentation
-- [ ] Delete dead documentation
-- [ ] Prefer the good over the perfect
-
 ## References
 
 <!-- 参考资料 -->
