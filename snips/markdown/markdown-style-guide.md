@@ -1724,6 +1724,251 @@ Use the hyphen marker followed by one space `- a`  for unordered lists.
 
 _Rationale: most browsers don't render the surrounding spaces nor add them to the clipboard on copy._
 
+#### Links
+
+<!-- 链接 -->
+
+##### Reference-style Links
+
+<!-- 引用风格的链接 -->
+
+> **Links:** use the trailing `[]` on implicit links.
+
+_Good_
+
+```markdown
+[a][]
+```
+
+_Bad_
+
+```markdown
+[a]
+```
+
+_Rationale: while omitting `[]` works on most major implementations, it is not specified in the documentation not implemented in the original markdown._
+
+> **Definitions:**
+>
+> - must be the last thing on the file
+> - must be sorted alphabetically by the ID
+> - don't enclose URLs by angle brackets
+> - align URLs and link names as in a table
+> - link IDs use only lowercase letters. _Rationale: they are case insensitive,_
+> - lowercase only is easier to write, and the readability gain of mixed case is not very big.
+
+_Good_
+
+```markdown
+[id2]:     http://long-url.com
+[long id]: http://a.com        "name 1"
+```
+
+_Bad, not ordered by id_
+
+```markdown
+[b]: http://a.com
+[a]: http://b.com
+```
+
+_Bad, not aligned_
+
+```markdown
+[id]: http://id.com
+[long id]: http://long-id.com
+```
+
+##### Single or Double Quote Titles
+
+<!-- 带单个或两个的引用符号的标题 -->
+
+> Use double quotes, not single quotes.
+
+```markdown
+# Class `Integer`
+```
+
+_Rationale: single quotes do not work in all major implementations, double quotes do._
+
+#### Emphasis
+
+<!-- 强调 -->
+
+##### Bold
+
+<!-- 加粗 -->
+
+> **Use double asterisk format: `**bold**`.**
+
+_Rationale: more common and readable than the double underline `__bold__` form._
+
+##### Italic
+
+<!-- 斜体 -->
+
+> ~~**Use single asterisk format: `*italic*`.**~~
+>
+> **Use single underscore format: `_italic_`.**
+
+_Rationale:_
+
+- _more common and readable than the underscore form_
+- _consistent with the bold format, which also uses asterisks_
+
+##### Uppercase for Emphasis
+
+<!-- 用大写字母来表达强调 -->
+
+> **Don't use uppercase for emphasis: use emphasis constructs like bold or italic instead.**
+
+_Rationale: CSS has `text-transform:uppercase` which can easily achieve the same effect consistently across the entire website if you really want uppercase letters._
+
+##### Emphasis vs Headers
+
+<!-- 强调 vs 标题 -->
+
+> **Don't use emphasis elements ( bold or italics ) to introduce a multi line named section: use headers instead.**
+
+_Rationale: that is exactly the semantic meaning of headers, and not necessarily that of emphasis elements. As a consequence, many implementations add useful behaviors to headers and not to emphasis elements, such as automatic id to make it easier to refer to the header later on._
+
+_Good_
+
+```markdown
+# How to make omelets
+
+Break an egg.
+
+...
+
+# How to bake bread
+
+Open the flour sack.
+
+...
+```
+
+_Bad_
+
+<pre><code class="lang-markdown">**How to make omelets:**
+
+Break an egg.
+
+...
+
+**How to bake bread:**
+
+Open the flour sack.
+
+...</code></pre>
+
+#### Automatic Links
+
+<!-- 自动链接 -->
+
+##### Automatic Links without Angle Brackets
+
+<!-- 不带尖角括号的自动链接 -->
+
+> ~~**Don't use automatic links without angle brackets.**~~
+>
+> **Don't use automatic links with angle brackets.**
+
+_~~Good~~ Bad_
+
+```markdown
+<http://a.com>
+```
+
+_~~Bad~~ Good_
+
+```markdown
+http://a.com
+```
+
+_Rationale: it is an extension, `<>` is easy to type and saner._
+
+> If you want literal links which are not autolinks, enclose them in code blocks.
+
+_E.g.:_
+
+```markdown
+`http://not-a-link.com`
+```
+
+_Rationale: many tools automatically interpret any word starting with http as a link._
+
+##### Content of Automatic Links
+
+<!-- 自动链接的内容 -->
+
+> **All automatic links must start with the string `http`.**
+>
+> **In particular, don't use relative automatic links. Use bracket links instead for that purpose.**
+
+_Good_
+
+<pre><code class="lang-markdown">[file.html](file.html)</code></pre>
+
+_Bad_
+
+```markdown
+<file.html>
+```
+
+_Good_
+
+```markdown
+https://github.com
+```
+
+_~~Good~~ Bad_
+
+```markdown
+<https://github.com>
+```
+
+_Bad_
+
+```markdown
+<github.com>
+```
+
+_Rationale: it is hard to differentiate automatic links from HTML tags. What if you want a relative link to a file called `script`?_
+
+###### Email Automatic Links
+
+<!-- 邮箱自动链接 -->
+
+> **Don't use email autolinks `<address@example.com>`. Use raw HTML instead.**
+
+_Rationale: the original markdown specification states it:_
+
+```text
+"performs a bit of randomized decimal
+and hex entity-encoding
+to help obscure your address
+from address-harvesting spambots."
+```
+
+_Therefore, the output is random, ugly, and as the spec itself mentions:_
+
+```text
+"but an address published in this way
+will probably eventually start receiving spam"
+```
+
+_Bad_
+
+```markdown
+<icehe.me@qq.com>
+```
+
+_Good, e.g._
+
+```markdown
+icehe.me#qq.com ( replace `#` with `@` )
+```
+
 ### TOC
 
 TOC - Table Of Contents
