@@ -1028,7 +1028,7 @@ _Good_
 -   b
 ```
 
-_**Rationale: list-space mixed vs 1**_
+###### _Rationale: list-space mixed vs 1_
 
 _The advantages of `list-space:1` are that_
 
@@ -1089,13 +1089,13 @@ _The disadvantages of `list-space:1`_
     _This ( 2 spaces ):_
 
     ```markdown
-    <pre><code>  code
+    <pre><code>  code</code></pre>
     ```
 
     _Or no spaces:_
 
     ```markdown
-    <pre><code>code
+    <pre><code>code</code></pre>
     ```
 
     _Likely the original markdown said no spaces:_
@@ -1487,7 +1487,7 @@ Instead, use either:
 
     - format the item be defined as either of bold, link or code
     - separate the item from the definition with a colon and a space `:` .
-    - don’t align definitions as it is harder to maintain and does not show on the HTML output
+    - don't align definitions as it is harder to maintain and does not show on the HTML output
 
 _Good_
 
@@ -1566,7 +1566,7 @@ Noisy animal
 _Comparison to indented code blocks:_
 
 - _Disadvantage: not part of the original markdown, thus less portable, but added to CommonMark._
-- _Advantage: many implementations, including GitHub’s, allow to specify the code language with it_
+- _Advantage: many implementations, including GitHub's, allow to specify the code language with it_
 
 > **Don't indent fenced code blocks.**
 >
@@ -1583,6 +1583,146 @@ _Bad_
 <pre><code class="lang-markdown">```
 a = 1
 ```</code></pre>
+
+#### Horizontal Rules
+
+<!-- 水平线 -->
+
+> **Don't use horizontal rules except to indicate the [End of a header](#End-of-a-Header).**
+
+_Rationale:_
+
+- _Headers are better section separators since they say what a section is about._
+- _Horizontal rules don't have a generally accepted semantic meaning. This guide gives them one._
+
+> **Use 3 hyphens without spaces**
+
+```markdown
+---
+```
+
+#### Tables
+
+<!-- 表格 -->
+
+Extension.
+
+> - **Surround tables by one empty line.**
+> - **Don't indent tables.**
+> - **Surround every line of the table by pipes.**
+> - Align all border pipes vertically.
+> - **Separate header from body by hyphens except at the aligned pipes `|`.**
+> - **Pipes `|` must be surrounded by a space, except for outer pipes which only get one space internally, and pipes of the hyphen separator line.**
+> - Column width is determined by the longest cell in the column.
+
+_Good table_
+
+```markdown
+Before.
+
+| h    | Long header |
+|------|-------------|
+| abc  | def         |
+| abc2 | def2        |
+
+After.
+```
+
+_Rationale:_
+
+- _Unaligned tables tables are easier to write, but aligned tables are more readable, and people read code much more often than they edit it._
+- _Preceding pipes make it easier to determine where a table starts and ends. Trailing pipes make it look better because of symmetry._
+- _There exist tools which help keeping the table aligned. For example, Vim has the [Tabular plugin](https://github.com/godlygeek/tabular) which allows to align the entire table with `:Tabular /|`._
+- _Why no spaces around pipes of the hyphen separator line, i.e.: `|---|` instead of `| - |`? No spaces looks better, works on GitHub._
+    - _Downside: harder to implement automatic alignment in editors, as it requires a special rule for the separator line._
+
+#### Separate Consecutive Elements
+
+<!-- 分隔连续的元素 -->
+
+> **Separate consecutive:**
+>
+> - **lists**
+> - **indented code blocks**
+> - **blockquotes**
+> - **list followed by external code block**
+>
+> **with an empty HTML comment `<!-- -->`.**
+
+```markdown
+- list 1
+- list 1
+
+<!-- -->
+
+- list 2
+- list 2
+```
+
+```markdown
+    code 1
+    code 1
+
+<!-- -->
+
+    code 2
+    code 2
+```
+
+```markdown
+> blockquote 1
+> blockquote 1
+
+<!-- -->
+
+> blockquote 2
+> blockquote 2
+```
+
+```markdown
+- list
+- list
+
+<!-- -->
+
+    code outside list
+    code outside list
+```
+
+### Span elements
+
+<!-- Span 元素 -->
+
+> **Don't use inner spaces.**
+
+_Good_
+
+<pre><code class="lang-markdown">**bold**
+`code`
+[link](http://a.com)
+[text][name]
+</code></pre>
+
+_Bad_
+
+<pre><code class="lang-markdown">** bold **
+` code `
+[ link ]( http://a.com )
+[text] [name]
+</code></pre>
+
+For inline code in which the space is crucial:
+
+- explain in writing that the spaces must be there
+- add something after the space if possible
+
+_Good_
+
+```markdown
+Use the hyphen marker followed by one space `- a`  for unordered lists.
+```
+
+_Rationale: most browsers don't render the surrounding spaces nor add them to the clipboard on copy._
 
 ### TOC
 
