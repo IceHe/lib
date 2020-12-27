@@ -142,17 +142,17 @@ end
 
 _( night or morning )_
 
-- Why include Today and Next N Days List?
+- Why include Today and Next 7 Days List?
     - Check arriving events ( which are not in Task & Todo List ).
 - Checked all? Or too many tasks.
     - Too many tasks : Total duration over available time today.
-- Event : Events, tomorrow or even further future tasks.
+- Event : Events, future tasks ( without tomorrow ) .
 - Others : Thoughts, questions and something else.
 
 ```plantuml
 @startuml
 start
-#white:Inbox / Today / Next N Days List|
+#white:Inbox / Today / Next 7 Days List|
 while (Checked all?) is (No)
     if (Valueless?) then (Yes)
         if (Hesitate?) then (Yes)
@@ -379,7 +379,7 @@ while (Checked all?) is (No)
         if (Time-wasted?) then (Yes)
         else (No)
         endif
-        :New events \n/ tasks / others?]
+        :New tasks \n/ events / others?]
     fork again
         if (Archive?) then (Yes)
             #white:Skip;
@@ -490,7 +490,7 @@ Relevant : _( 与其他目标 )_ 相关 _( 例如终极目标, 否则意义不�
 - _~~今天读 10 页经济学导论~~_
 - _今天读 10 页 Java Basic_
 
-Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的时长 )_
+Time-based : 有时间期限 _( 区分 可接受的 / 合理的 / 实际的 时长 )_
 
 - _~~今天读 10 页 Java Basic~~_
 - _计划花 2h 读 10 页 Java Basic_
