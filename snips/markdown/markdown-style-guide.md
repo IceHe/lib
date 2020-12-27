@@ -840,9 +840,9 @@ _Downsides :_
 
 <!-- 有序列表 -->
 
-> ~~Prefer lists only with the marker `1.` for ordered lists, unless you intend to refer to items by their number in the same markdown file or externally.~~
+> **Prefer lists only with the marker `1.` for ordered lists, unless you intend to refer to items by their number in the same markdown file or externally.**
 >
-> **Prefer lists with the marker `1.`, `2.`, `3.` and etc. for ordered lists.**
+> ~~Prefer lists with the marker `1.`, `2.`, `3.` and etc. for ordered lists.~~
 >
 > **Prefer unordered lists unless you intent to refer to items by their number.**
 
@@ -854,7 +854,7 @@ _Best, we will never refer to the items of this list by their number_
 - b
 ```
 
-_~~Better~~ Bad, only `1.`_
+_Better, only `1.`_
 
 ```markdown
 1. a
@@ -862,7 +862,7 @@ _~~Better~~ Bad, only `1.`_
 1. b
 ```
 
-_~~Worse, we will never refer to the items of this list by their number~~_
+_Worse, we will never refer to the items of this list by their number_
 
 ```markdown
 1. a
@@ -870,11 +870,11 @@ _~~Worse, we will never refer to the items of this list by their number~~_
 3. b
 ```
 
-Acceptable, refer to them in the text:
-
-The output of the `ls` command is of the form:
+_Acceptable, refer to them in the text_
 
 ```markdown
+The output of the `ls` command is of the form:
+
     drwx------  2 ciro ciro        4096 Jul  5  2013 dir0
     drwx------  4 ciro ciro        4096 Apr 27 08:00 dir1
     1           2
@@ -885,7 +885,7 @@ Where:
 2. number of files directory contains
 ```
 
-Acceptable, meant to be referred by number from outside of the markdown file:
+_Acceptable, meant to be referred by number from outside of the markdown file_
 
 ```markdown
 Terms of use.
@@ -894,18 +894,425 @@ Terms of use.
 2. I will not do anything that can harm the website.
 ```
 
-Rationale:
+_Rationale :_
 
-- If you want to change a list item in the middle of the list, you don’t have to modify all items that follow it.
-- Diffs will show only the significant line which was modified.
-- Content stays aligned without extra effort if the numbers reach 2 digits. E.g.: the following is not aligned:
+- _If you want to change a list item in the middle of the list, you don't have to modify all items that follow it._
+- _Diffs will show only the significant line which was modified._
+- _Content stays aligned without extra effort if the numbers reach 2 digits. E.g.: the following is not aligned :_
     ```markdown
     9. a
     10. b
     ```
-- References break when a new list item is added. To reduce this problem :
-    - Keep references close to the list so authors are less likely to forget to update them
-    - When referring from an external document, always refer to an specific version of the markdown file
+- _References break when a new list item is added. To reduce this problem :_
+    - _Keep references close to the list so authors are less likely to forget to update them_
+    - _When referring from an external document, always refer to an specific version of the markdown file_
+
+##### Spaces Before List Marker
+
+<!-- 列表标识前的空格 -->
+
+> Do not add any space before list markers, except to obey the current level of indentation.
+
+_Bad_
+
+```markdown
+  - a
+  - b
+```
+
+_Good_
+
+```markdown
+- a
+- b
+```
+
+_Good, c is just following the indentation of b_
+
+```markdown
+-   a
+-   b
+    - c
+```
+
+_Bad, c modified the indentation of b_
+
+```markdown
+-   a
+-   b
+      - c
+```
+
+_Rationale :_
+
+- _Easier to type_
+- _Easier to reason about levels_
+
+##### Spaces After List Marker
+
+<!-- 列表标识后的空格 -->
+
+_list-space:mixed_
+
+> **If the content of every item of the list is fits in a single paragraph, use 1 space.**
+>
+> Otherwise, for every item of the list:
+>
+> - Use **3** spaces for unordered lists.
+> - Use **2** spaces for ordered lists.
+>     - One less than for unordered because the marker is 2 chars long.
+
+_Bad, every item is one line long_
+
+```markdown
+-   a
+-   b
+```
+
+_Good_
+
+```markdown
+- a
+- b
+```
+
+_Bad, every item is one line long_
+
+```markdown
+1.  a
+1.  b
+```
+
+_Good_
+
+```markdown
+1. a
+1. b
+```
+
+_Bad, item is longer than one line_
+
+```markdown
+- item that
+  is wrapped
+
+- item 2
+```
+
+_Good_
+
+```markdown
+-   item that
+    is wrapped
+
+-   item 2
+```
+
+_Bad, item is longer than one line_
+
+```markdown
+- a
+
+  par
+
+- b
+```
+
+_Good_
+
+```markdown
+-   a
+
+    par
+
+-   b
+```
+
+_**Rationale : list-space mixed vs 1**_
+
+_The advantages of `list-space:1` are that_
+
+-   _It removes the decision of how many spaces you should put after the list marker : it is always one._
+
+    _We could choose to always have list content indented as :_
+
+    ```markdown
+    -   a
+    -   b
+    ```
+
+    _but that is ugly._
+
+-   _You never need to change the indentation of the entire list because of a new item._
+
+    _This may happen in `list-space:mixed` if you have:_
+
+    ```markdown
+    - a
+    - b
+    ```
+
+    _and will add a multi-line item:_
+
+    ```markdown
+    -   a
+
+    -   b
+
+    -   c
+
+        d
+    ```
+
+    _Note how `a` and `b` were changed because of `c`._
+
+_The disadvantages of `list-space:1`_
+
+- _Creates three indentation levels for the language:_
+
+    - _4 for indented code blocks_
+    - _3 for ordered lists_
+    - _2 for unordered lists_
+
+    _That means that you cannot easily configure your editor indent level to deal with all cases when you want to change the indentation level of multiple list item lines._
+
+- _Is not implemented consistently across editors._
+
+    _In particular what should happen at:_
+
+    ```markdown
+    - a
+
+            code
+    ```
+
+    _This ( 2 spaces ) :_
+
+    ```markdown
+    <pre><code>  code
+    ```
+
+    _Or no spaces :_
+
+    ```markdown
+    <pre><code>code
+    ```
+
+    _Likely the original markdown said no spaces :_
+
+    _"To put a code block within a list item, the code block needs to be indented twice — 8 spaces or two tabs"_
+
+    _But many implementations did otherwise._
+
+    _CommonMark [adds the 2 spaces](https://spec.commonmark.org/0.12/#example-176)._
+
+##### Indentation of Content Inside Lists
+
+<!-- 列表中的内容的缩进 -->
+
+> **The indentation level of what comes inside list and of further list items must be the same as the first list item.**
+
+_Bad_
+
+```markdown
+-   item that
+  is wrapped
+
+-   item 2
+```
+
+_Good_
+
+```markdown
+-   item that
+    is wrapped
+
+-   item 2
+```
+
+_Bad_
+
+```markdown
+-   item 1
+
+  Content 1
+
+-   item 2
+
+      Content 2
+```
+
+_Good, if it matches your spaces after list marker style_
+
+```markdown
+-   item 1
+
+    Content 1
+
+-   item 2
+
+    Content 2
+```
+
+_Bad_
+
+```markdown
+- item 1
+
+    Content 1
+
+- item 2
+
+    Content 2
+```
+
+_Good, if it matches your spaces after list marker style_
+
+```markdown
+- item 1
+
+  Content 1
+
+- item 2
+
+  Content 2
+```
+
+_Avoid starting a list item directly with indented code blocks because that is not consistently implemented. [CommonMark states](http://spec.commonmark.org/0.12/#example-176) that a single space is assumed in that case :_
+
+```markdown
+-     code
+
+  a
+```
+
+##### Empty Lines Inside Lists
+
+<!-- 列表中的空白行 -->
+
+> **If every item of a list is a single line long, don't add empty lines between items. Otherwise, add empty lines between every item.**
+
+_Bad, single lines_
+
+```markdown
+- item 1
+
+- item 2
+
+- item 3
+```
+
+_Good_
+
+```markdown
+- item 1
+- item 2
+- item 3
+```
+
+_Bad, multiple lines_
+
+```markdown
+-   item that
+    is wrapped
+-   item 2
+-   item 3
+```
+
+_Good_
+
+```markdown
+-   item that
+    is wrapped
+
+-   item 2
+
+-   item 3
+```
+
+_Bad, multiple lines_
+
+```markdown
+-   item 1
+
+    Paragraph.
+
+-   item 2
+-   item 3
+```
+
+_Good_
+
+```markdown
+-   item 1.
+
+    Paragraph.
+
+-   item 2
+
+-   item 3
+```
+
+_Bad, multiple lines_
+
+```markdown
+-   item 1
+
+    - item 11
+    - item 12
+    - item 13
+
+-   item 2
+-   item 3
+```
+
+_Good_
+
+```markdown
+-   item 1
+
+    - item 11
+    - item 12
+    - item 13
+
+-   item 2
+
+-   item 3
+```
+
+_Rationale : it is hard to tell where multi-line list items start and end without empty lines._
+
+##### Empty Lines Around Lists
+
+<!-- 列表前后的空行 -->
+
+> **Surround lists by one empty line.**
+
+_Bad_
+
+```markdown
+Before.
+- item
+- item
+After.
+```
+
+_Good_
+
+```markdown
+Before.
+
+- list
+- list
+
+After.
+```
+
+##### Case of First Letter of List Item
+
+<!-- 列表项的第一个字母的大小写 -->
+
+> Each list item has the same case as it would have if it were concatenated with the sentence that comes before the list.
 
 ### TOC
 
