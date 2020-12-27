@@ -87,7 +87,7 @@ _All recommended to read!_
 
 <!-- 设计目标 -->
 
-- **Readable** ( icehe : clean and tidy )
+- **Readable** ( icehe: clean and tidy )
 - _Easy to write and modify later_
 - _Diff friendly_
 - _Easy to remember and implement on editors_
@@ -98,7 +98,7 @@ _Many design choices come down to:_
 - _do you want to write fast ( writability )_
 - _or do you want people to read fast ( readability )_
 
-**Guideline : Readability > Writability**
+**Guideline: Readability > Writability**
 
 <!-- 易阅读 > 易编写 -->
 
@@ -106,15 +106,15 @@ _Many design choices come down to:_
 
 #### File
 
-> File Extention : **Use `.md`**
+> File Extention: **Use `.md`**
 
-_Rationale : Why not .mkd or .markdown?_
+_Rationale: Why not .mkd or .markdown?_
 
 - _Shorter_
 - _More popular_
 - _Does not have important conflicts_
 
-> File Name : **Prefer to base the file name on the top-header level**
+> File Name: **Prefer to base the file name on the top-header level**
 >
 > - Replace upper case letters with **lower case**
 > - Strip articles the, a, an from the start
@@ -140,7 +140,7 @@ _Bad, surrounding hyphens_
 -file-name-.md
 ```
 
-_Rationale : why not underscore or camel case?_
+_Rationale: why not underscore or camel case?_
 
 - Hyphens are the most popular URL separator today,
 - _and markdown files are most often used in contexts where:_
@@ -190,7 +190,7 @@ _Bad_
 # Header
 ```
 
-_Rationale : multiple empty lines occupy more vertical screen space, and do not significantly improve readability._
+_Rationale: multiple empty lines occupy more vertical screen space, and do not significantly improve readability._
 
 ##### Spaces after sentences
 
@@ -210,14 +210,14 @@ _Good_
 First sentence. Second sentence.
 ```
 
-_Rationale : advantages over `space-sentence:2` :_
+_Rationale: advantages over `space-sentence:2`:_
 
 - _Easier to edit_
 - _Usually not necessary if you use `wrap:inner-sentence` or `wrap:sentence`_
 - _`space-sentence:2` gives a false sense of readability as it is ignored on the HTML output_
 - _More popular_
 
-_Advantages of `space-sentence:2` :_
+_Advantages of `space-sentence:2`:_
 
 - _Easier to see where sentences end_
 
@@ -227,10 +227,10 @@ _Advantages of `space-sentence:2` :_
 
 > **Wrap Inner-Sentence**
 
-_Try to keep lines under 80 characters by breaking large paragraphs logically at points such as :_
+_Try to keep lines under 80 characters by breaking large paragraphs logically at points such as:_
 
-- _Sentences : after a period `.`, question `?` or exclamation mark `!`_
-- _[Clauses](https://www.lexico.com/grammar/clauses) : after words like `and`, `which`, `if ... then`, commas `,`_
+- _Sentences: after a period `.`, question `?` or exclamation mark `!`_
+- _[Clauses](https://www.lexico.com/grammar/clauses): after words like `and`, `which`, `if ... then`, commas `,`_
 - _Large [phrases](https://www.lexico.com/grammar/phrases)_
 
 _Good_
@@ -242,7 +242,7 @@ third sentence of a paragraph
 and the fourth one.
 ```
 
-_Rationale :_
+_Rationale:_
 
 - _Diffs look better,_
     - _since a change to a clause shows up as a single diff line._
@@ -254,7 +254,7 @@ _Rationale :_
     - _e.g. Vim and `git diff` will not wrap lines by default._
     - _This can be configured however via `git config --global core.pager 'less -r'` for Git and `set wrap` for Vim._
 
-_Downsides :_
+_Downsides:_
 
 - _Requires considerable writer effort,_
     - _specially when modifying code._
@@ -267,17 +267,17 @@ _Downsides :_
     - _This can be automated, but [EditorConfig gave it WONTFIX](https://github.com/editorconfig/editorconfig/issues/168)_
 - _Breaks some email systems, which always break a line on a single newline._
 
-_Other alternates :_
+_Other alternates:_
 
 - ~~Don't wrap lines.~~
-    - _Rationale : very easy to edit._
+    - _Rationale: very easy to edit._
     - _But diffs on huge lines are hard to read._
 - ~~Always wrap at the end of the first word that exceeds 80 characters.~~
-    - _Rationale : source code becomes is very readable and text editors support it automatically._
+    - _Rationale: source code becomes is very readable and text editors support it automatically._
     - _But diffs will look bad, and changing lines will be hard._
 - ~~Wrap Sentence~~
     - _Rationale: similar advantages as `wrap:inner-sentence`,_
-        - _but easier for people to follow since the rule is simple : break after the period._
+        - _but easier for people to follow since the rule is simple: break after the period._
     - _But may produce long lines with hard to read diffs._
     - _Notable occurrence: [ProGit 2](https://raw.githubusercontent.com/progit/progit2/5c285553c0605342339284981a9bb8a6c4e7c18e/book/01-introduction/1-introduction.asc)._
 
@@ -291,7 +291,7 @@ _Other alternates :_
 
 If the goal is to clarify what the language is, do it on the preceding paragraph.
 
-_Rationale : harder to copy paste, noisier to read._
+_Rationale: harder to copy paste, noisier to read._
 
 _Good_
 
@@ -328,7 +328,7 @@ echo a > file
 
 <!-- 如何标识代码 -->
 
-> **Use code blocks or inline code for :**
+> **Use code blocks or inline code for:**
 >
 > - **Executables**. _E.g.:_
 >     ```markdown
@@ -337,13 +337,13 @@ echo a > file
 >     - Differentiate between tool and the name of related projects. _E.g.: `gcc` vs GCC._
 > - **File paths**
 > - **Version numbers**
-> - **Capitalized explanation of abbreviations** :
+> - **Capitalized explanation of abbreviations**:
 >     ```markdown
 >     xinetd stands for `eXtended Internet daemon`
 >     ```
 > - **Other terms related to computers** that you don't want to add to your dictionary
 >
-> **Don't mark as code :**
+> **Don't mark as code:**
 >
 > - **Names of projects**. _E.g.: GCC_
 > - **Names of libraries**. _E.g.: libc, glibc_
@@ -356,20 +356,20 @@ echo a > file
 
 Prefer writing in English, and in particular American English.
 
-_Rationale : American English speakers have the largest GDP, specially in the computing industry._
+_Rationale: American English speakers have the largest GDP, specially in the computing industry._
 
 _Use markup like URL or code on words which you do not want to add to your dictionary so that spell checkers can ignore them automatically._
 
-Beware of case sensitive spelling errors, in particular for project, brand names or abbreviations :
+Beware of case sensitive spelling errors, in particular for project, brand names or abbreviations:
 
-- _Good : URL, LinkedIn, DoS attack_
-- _Bad : url, Linkedin, dos attack_
+- _Good: URL, LinkedIn, DoS attack_
+- _Bad: url, Linkedin, dos attack_
 - _When in doubt, prefer the same abbreviation as used on Wikipedia._
 
-Avoid informal contractions :
+Avoid informal contractions:
 
-- _Good : biography, repository, directory_
-- _Bad : bio, repo, dir_
+- _Good: biography, repository, directory_
+- _Bad: bio, repo, dir_
 
 ### Block elements
 
@@ -415,11 +415,11 @@ _Good_
 ### Header 3
 ```
 
-_Rationale :_
+_Rationale:_
 
-- _Advantages of Setex :_
+- _Advantages of Setex:_
     - _more visible. Not very important if you have syntax highlighting._
-- _ATX advantages over Setex :_
+- _ATX advantages over Setex:_
     - _Easier to write because in Setex you have to match the number of characters in both lines for it to look good_
     - _Works for all levels, while Setex only goes up to level 2_
     - _Occupy only one screen line, while Setex occupies 2_
@@ -501,7 +501,7 @@ After 2.
 
 > **Avoid using two headers with the same content in the same markdown file.**
 
-_Rationale : many markdown engines generate IDs for headers based on the header content._
+_Rationale: many markdown engines generate IDs for headers based on the header content._
 
 _Bad_
 
@@ -561,7 +561,7 @@ _If your target stack does not generate the top-level header in another way, inc
 
 _Top-level headers on index-like files such as `README.md` or `index.md` should serve as a title for their parent directory._
 
-_Downsides of top-level headers :_
+_Downsides of top-level headers:_
 
 - Take up one header level.
     - This means that there are only 5 header levels left, _and each new header will have one extra `#`, which looks worse and is harder to write._
@@ -569,7 +569,7 @@ _Downsides of top-level headers :_
     - _which most often can already be seen on a URL._
     - _In most cases, the filename can be trivially converted to a top-level, e.g.: `some-filename.md` to `Some filename`._
 
-_Advantages of top-level headers :_
+_Advantages of top-level headers:_
 
 - _More readable than URL's, especially for non-technically inclined users._
 
@@ -599,7 +599,7 @@ _Bad_
 
 > ~~The other letters have the same case they would have in the middle of a sentence.~~
 >
-> _According to the Chicago Manual of Style (15th edition), **the following rules should be applied to headers** :_
+> _According to the Chicago Manual of Style (15th edition), **the following rules should be applied to headers**:_
 >
 > - **Always capitalize the first and last words of titles and subtitles.**
 > - **Always capitalize "major" words** (nouns, pronouns, verbs, adjectives, adverbs, and some conjunctions).
@@ -624,10 +624,10 @@ _~~Bad~~ Good_
 
 _As an exception, [title case](https://en.wikipedia.org/wiki/Title_case#Title_case) may be optionally used for the top-level header._
 
-- _( icehe : I prefer "Chicago Manual of Style" to "AP Stylebook". )_
+- _( icehe: I prefer "Chicago Manual of Style" to "AP Stylebook". )_
 - _Use this exception sparingly ( 保守地 ) , in cases where typographical ( 排字上的 ) perfection is important, e.g.: `README` of a project._
 
-_Rationale : why not Title case for all headers?_
+_Rationale: why not Title case for all headers?_
 
 - _It requires too much effort to decide if edge-case words should be upper case or not._
 
@@ -655,7 +655,7 @@ Outside header.
 >
 > Instead of using a huge sentence, make the header a summary to the huge sentence, and write the huge sentence as the first paragraph beneath the header.
 
-_Rationale : if automatic IDs are generated by the implementation, it is:_
+_Rationale: if automatic IDs are generated by the implementation, it is:_
 
 - _Easier to refer to the header later while editing_
 - _Less likely that the IDs will break due to rephrasing_
@@ -687,11 +687,11 @@ Content
 
 > Don't add a trailing colon `:` to headers.
 
-_Rationale : every header is an introduction to what is about to come next, which is exactly the function of the colon._
+_Rationale: every header is an introduction to what is about to come next, which is exactly the function of the colon._
 
 > Don't add a trailing period `.` to headers.
 
-_Rationale : every header consists of a single short sentence, so there is not need to add a sentence separator to it._
+_Rationale: every header consists of a single short sentence, so there is not need to add a sentence separator to it._
 
 _Good_
 
@@ -826,12 +826,12 @@ _Bad_
 + b
 ```
 
-_Rationale :_
+_Rationale:_
 
 - Asterisk `*` can be confused with bold or italic markers.
 - _Plus sign `+` is not popular_
 
-_Downsides :_
+_Downsides:_
 
 - _`*` and `+` are more visible._
 - _`*` is more visible_
@@ -894,16 +894,16 @@ Terms of use.
 2. I will not do anything that can harm the website.
 ```
 
-_Rationale :_
+_Rationale:_
 
 - _If you want to change a list item in the middle of the list, you don't have to modify all items that follow it._
 - _Diffs will show only the significant line which was modified._
-- _Content stays aligned without extra effort if the numbers reach 2 digits. E.g.: the following is not aligned :_
+- _Content stays aligned without extra effort if the numbers reach 2 digits. E.g.: the following is not aligned:_
     ```markdown
     9. a
     10. b
     ```
-- _References break when a new list item is added. To reduce this problem :_
+- _References break when a new list item is added. To reduce this problem:_
     - _Keep references close to the list so authors are less likely to forget to update them_
     - _When referring from an external document, always refer to an specific version of the markdown file_
 
@@ -943,7 +943,7 @@ _Bad, c modified the indentation of b_
       - c
 ```
 
-_Rationale :_
+_Rationale:_
 
 - _Easier to type_
 - _Easier to reason about levels_
@@ -1028,13 +1028,13 @@ _Good_
 -   b
 ```
 
-_**Rationale : list-space mixed vs 1**_
+_**Rationale: list-space mixed vs 1**_
 
 _The advantages of `list-space:1` are that_
 
--   _It removes the decision of how many spaces you should put after the list marker : it is always one._
+-   _It removes the decision of how many spaces you should put after the list marker: it is always one._
 
-    _We could choose to always have list content indented as :_
+    _We could choose to always have list content indented as:_
 
     ```markdown
     -   a
@@ -1086,19 +1086,19 @@ _The disadvantages of `list-space:1`_
             code
     ```
 
-    _This ( 2 spaces ) :_
+    _This ( 2 spaces ):_
 
     ```markdown
     <pre><code>  code
     ```
 
-    _Or no spaces :_
+    _Or no spaces:_
 
     ```markdown
     <pre><code>code
     ```
 
-    _Likely the original markdown said no spaces :_
+    _Likely the original markdown said no spaces:_
 
     _"To put a code block within a list item, the code block needs to be indented twice — 8 spaces or two tabs"_
 
@@ -1178,7 +1178,7 @@ _Good, if it matches your spaces after list marker style_
   Content 2
 ```
 
-_Avoid starting a list item directly with indented code blocks because that is not consistently implemented. [CommonMark states](http://spec.commonmark.org/0.12/#example-176) that a single space is assumed in that case :_
+_Avoid starting a list item directly with indented code blocks because that is not consistently implemented. [CommonMark states](http://spec.commonmark.org/0.12/#example-176) that a single space is assumed in that case:_
 
 ```markdown
 -     code
@@ -1280,7 +1280,7 @@ _Good_
 -   item 3
 ```
 
-_Rationale : it is hard to tell where multi-line list items start and end without empty lines._
+_Rationale: it is hard to tell where multi-line list items start and end without empty lines._
 
 ##### Empty Lines Around Lists
 
@@ -1312,7 +1312,277 @@ After.
 
 <!-- 列表项的第一个字母的大小写 -->
 
-> Each list item has the same case as it would have if it were concatenated with the sentence that comes before the list.
+> **Each list item has the same case as it would have if it were concatenated with the sentence that comes before the list.**
+
+_Good_
+
+```markdown
+I want to eat:
+
+- apples
+- bananas
+- grapes
+```
+
+_because it could be replaced with_
+
+```markdown
+I want to eat apples
+I want to eat bananas
+I want to eat grapes
+```
+
+_Good_
+
+```markdown
+To ride a bike you have to:
+
+- get on top of the bike. This step is easy.
+- put your foot on the pedal.
+- push the pedal. This is the most fun part.
+```
+
+_because it could be replaced with_
+
+```markdown
+To ride a bike you have to get on top of the bike. This step is easy.
+To ride a bike you have to put your foot on the pedal.
+To ride a bike you have to push the pedal. This is the most fun part.
+```
+
+_Good_
+
+```markdown
+# How to ride a bike
+
+- Get on top of the bike.
+- Put your feet on the pedal.
+- Make the pedal turn.
+```
+
+_because it could be replaced with_
+
+```markdown
+# How to ride a bike
+
+Get on top of the bike.
+Put your feet on the pedal.
+Push the pedal.
+```
+
+##### Punctuation at the End of List Items
+
+<!-- 列表项结尾的标点符号 -->
+
+> **Punctuate at the end of list items if either it:**
+>
+> - **contains multiple sentences or paragraphs**
+> - **starts with an upper case letter**
+>
+> **Otherwise, omit the punctuation if it would be a period `.` .**
+
+_Bad, single sentences_
+
+```markdown
+- apple.
+- banana.
+- orange.
+```
+
+_Good_
+
+```markdown
+- apple
+- banana
+- orange
+```
+
+_Idem_
+
+```markdown
+- go to the market
+- then buy some fruit
+- finally eat the fruit
+```
+
+_Good, not terminated by period but by other punctuation_
+
+```markdown
+- go to the marked
+- then buy fruit?
+- of course!
+```
+
+_Bad, multiple sentences_
+
+```markdown
+- go to the market
+- then buy some fruit. Bad for wallet
+- finally eat the fruit. Good for tummy
+```
+
+_Good_
+
+```markdown
+- go to the market
+- then buy some fruit. Bad for wallet.
+- finally eat the fruit. Good for tummy.
+```
+
+_Note: nothing forbids one list item from ending in period while another in the same list does not._
+
+_Bad, multiple paragraphs_
+
+```markdown
+-   go to the market
+
+-   then buy some fruit
+
+    Bad for wallet
+
+-   finally eat the fruit
+
+    Good for tummy
+```
+
+_Good_
+
+```markdown
+-   go to the market
+
+-   then buy some fruit.
+
+    Bad for wallet.
+
+-   finally eat the fruit.
+
+    Good for tummy.
+```
+
+_Bad, starts with upper case_
+
+```markdown
+- Go to the market
+- Then buy some fruit
+- Finally eat the fruit
+```
+
+_Good_
+
+```markdown
+- Go to the market.
+- Then buy some fruit.
+- Finally eat the fruit.
+```
+
+#### Definition Lists
+
+<!-- 定义词汇的列表 -->
+
+> **Avoid the definition list extension since it is not present in many implementations nor in CommonMark.**
+
+Instead, use either:
+
+- formatted lists:
+
+    - format the item be defined as either of bold, link or code
+    - separate the item from the definition with a colon and a space `:` .
+    - don’t align definitions as it is harder to maintain and does not show on the HTML output
+
+_Good_
+
+```markdown
+- **apple**: red fruit
+- **dog**: noisy animal
+```
+
+_Good_
+
+```markdown
+-   **apple**: red fruit.
+
+    Very tasty.
+
+-   **dog**: noisy animal.
+
+    Not tasty.
+```
+
+_Good_
+
+```markdown
+- [apple](http://apple.com): red fruit
+- [dot](http://dog.com): red fruit
+```
+
+_Good_
+
+```markdown
+- `-f`: force
+- `-r`: recursive
+```
+
+_Bad, no colon_
+
+```markdown
+- **apple** red fruit
+- **dog** noisy animal
+```
+
+_Bad, space between term and colon_
+
+```markdown
+- **apple**: red fruit
+- **dog**: noisy animal
+```
+
+_Bad, definitions aligned_
+
+```markdown
+- **apple**: red fruit
+- **dog**:   noisy animal
+```
+
+- headers
+
+_Good_
+
+```markdown
+# Apple
+
+Red fruit
+
+# Dog
+
+Noisy animal
+```
+
+#### Code Blocks
+
+<!-- 代码块 -->
+
+> **Only use fenced code blocks.**
+
+_Comparison to indented code blocks:_
+
+- _Disadvantage: not part of the original markdown, thus less portable, but added to CommonMark._
+- _Advantage: many implementations, including GitHub’s, allow to specify the code language with it_
+
+> **Don't indent fenced code blocks.**
+>
+> **Always specify the language of the code is applicable.**
+
+_Good_
+
+<pre><code class="lang-markdown">```ruby
+a = 1
+```</code></pre>
+
+_Bad_
+
+<pre><code class="lang-markdown">```
+a = 1
+```</code></pre>
 
 ### TOC
 
@@ -1321,11 +1591,11 @@ TOC - Table Of Contents
 **尽量添加目录到文档**
 
 - Available
-    - GitLab : https://docs.gitlab.com/ee/user/markdown.html#table-of-contents
+    - GitLab: https://docs.gitlab.com/ee/user/markdown.html#table-of-contents
 - Unavailable
     - GitHub
     - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
-- 如果使用, 标准是 :
+- 如果使用, 标准是:
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
 ### Heading
@@ -1533,32 +1803,32 @@ https://icehe.xyz
 **如果 URL 链接不是太长, 而且自身能准确表达其网页内容, 就不要使用 `[link](url)` 语法了**
 
 ```markdown
-My image : https://hub.docker.com/r/icehe/alpine
+My image: https://hub.docker.com/r/icehe/alpine
 ```
 
 不推荐的做法
 
 ```markdown
-My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
+My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
 ```
 
 两种做法的效果
 
 - `[link](url)` 语法：为链接添加标题, 并隐去链接本体, 如下
-    - My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
+    - My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
 - 不如直接使用链接本体
-    - My image : https://hub.docker.com/r/icehe/alpine
+    - My image: https://hub.docker.com/r/icehe/alpine
 
 ### 脚注 Footnotes
 
 **尽量不使用**
 
 - Available
-    - GitLab : https://docs.gitlab.com/ee/user/markdown.html#footnotes
+    - GitLab: https://docs.gitlab.com/ee/user/markdown.html#footnotes
 - Unavailable
     - GitHub
     - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
-- 如果使用, 标准是 :
+- 如果使用, 标准是:
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
 ### 表情 Emoji
@@ -1566,12 +1836,12 @@ My image : [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.co
 **尽量不支持**
 
 - Available
-    - GitLab : https://docs.gitlab.com/ee/user/markdown.html#footnotes
-    - Visual Studio Code : Markdown Preview Enhanced
+    - GitLab: https://docs.gitlab.com/ee/user/markdown.html#footnotes
+    - Visual Studio Code: Markdown Preview Enhanced
 - Unavailable
     - GitHub
     - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
-- 如果使用, 标准是 :
+- 如果使用, 标准是:
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
 ### 其它 Others
@@ -1610,7 +1880,7 @@ Markdown Lint Tool `mdl`
 
 - 由 markdown/lint/style.rb 文件声明, 详情如下
 
-[mdl styles](./lint/style.rb ':include :type=code properties')
+[mdl styles](./lint/style.rb ':include: type=code properties')
 
 推荐通过 form 项目 CI 的 `mdl`（markdownlint）检查后, 才允许合并 MR
 
