@@ -102,8 +102,8 @@ _Rationale: Why not .mkd or .markdown?_
 
 > File Name: **Prefer to base the file name on the top-header level**
 >
-> - Replace upper case letters with **lower case**
-> - Strip articles the, a, an from the start
+> - **Replace upper case letters with <u>lower case</u>**
+> - **Strip articles the, a, an from the start**
 > - **Replace punctuation and white space characters by hyphens**
 > - _Replace consecutive hyphens by a single hyphen_
 > - _Strip surrounding hyphens_
@@ -173,7 +173,7 @@ _Bad_
 - list
 
 
-# Header
+## Header
 ```
 
 _Rationale: multiple empty lines occupy more vertical screen space, and do not significantly improve readability._
