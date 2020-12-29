@@ -1867,7 +1867,6 @@ DO NOT DO THIS.
 
 _Good_
 
-
 ```markdown
 See the [syntax guide](syntax_guide.md) for more info.
 Or, check out the [style guide](style_guide.md).
