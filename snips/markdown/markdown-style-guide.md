@@ -1899,6 +1899,18 @@ _Rationale:_
 
 > **Use double asterisk format: `**bold**`.**
 
+_Bad_
+
+```markdown
+__Bold content__
+```
+
+_Good_
+
+```markdown
+**Bold content**
+```
+
 _Rationale: more common and readable than the double underline `__bold__` form._
 
 ##### Italic
@@ -1908,6 +1920,18 @@ _Rationale: more common and readable than the double underline `__bold__` form._
 > ~~**Use single asterisk format: `*italic*`.**~~
 >
 > **Use single underscore format: `_italic_`.**
+
+_Bad_
+
+```markdown
+*Italic content*
+```
+
+_Good_
+
+```markdown
+_Italic content_
+```
 
 _Rationale:_
 
@@ -1919,6 +1943,18 @@ _Rationale:_
 <!-- 用大写字母来表达强调 -->
 
 > **Don't use uppercase for emphasis: use emphasis constructs like bold or italic instead.**
+
+_Bad_
+
+```markdown
+EMPHASIS
+```
+
+_Good_
+
+```markdown
+**Emphasis**
+```
 
 _Rationale: CSS has `text-transform:uppercase` which can easily achieve the same effect consistently across the entire website if you really want uppercase letters._
 
@@ -2118,7 +2154,7 @@ Content.
 
 <!-- 每行字符数量的限制 -->
 
-( from Google Markdown style guide )
+_( from Google Markdown style guide )_
 
 _Obey projects' character line limit wherever possible. Long URLs and tables are the usual suspects when breaking the rule. ( Headings also can't be wrapped, but we encourage keeping them short ). Otherwise, wrap your text:_
 
