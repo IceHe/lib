@@ -4,7 +4,7 @@ Markdown 风格指北
 
 ---
 
-- Here is the Markdown style I follow.
+- Here is the Markdown style guide I follow.
 - It's not a mandatory standard.
 
 ## References
@@ -73,11 +73,11 @@ _All recommended to read!_
 
 <!-- 设计目标 -->
 
-- **Readable** ( icehe: clean and tidy )
-- _Easy to write and modify later_
+- **Readable** _( icehe: clean and tidy )_
+- Easy to write and modify later
 - _Diff friendly_
-- _Easy to remember and implement on editors_
-- _Provide rationale behind difficult choices_
+- _Easy to remember and implement on editors ( icehe : not easy )_
+- **Provide rationale behind difficult choices**
 
 _Many design choices come down to:_
 
@@ -212,12 +212,12 @@ _Advantages of `space-sentence:2`:_
 <!-- 折行 -->
 
 > **Wrap Inner-Sentence**
-
-_Try to keep lines under 80 characters by breaking large paragraphs logically at points such as:_
-
-- _Sentences: after a period `.`, question `?` or exclamation mark `!`_
-- _[Clauses](https://www.lexico.com/grammar/clauses): after words like `and`, `which`, `if ... then`, commas `,`_
-- _Large [phrases](https://www.lexico.com/grammar/phrases)_
+>
+> _Try to keep lines under 80 characters by breaking large paragraphs logically at points such as:_
+>
+> - _Sentences: after a period `.`, question `?` or exclamation mark `!`_
+> - _[Clauses](https://www.lexico.com/grammar/clauses): after words like `and`, `which`, `if ... then`, commas `,`_
+> - _Large [phrases](https://www.lexico.com/grammar/phrases)_
 
 _Good_
 
