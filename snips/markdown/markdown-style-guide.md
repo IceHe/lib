@@ -74,7 +74,7 @@ _All recommended to read!_
 <!-- 设计目标 -->
 
 - **Readable** _( icehe: clean and tidy )_
-- Easy to write and modify later
+- _Easy to write and modify later_
 - _Diff friendly_
 - _Easy to remember and implement on editors ( icehe : not easy )_
 - **Provide rationale behind difficult choices**
@@ -92,7 +92,7 @@ _Many design choices come down to:_
 
 #### File
 
-> File Extention: **Use `.md`**
+> **File Extention: Use `.md`**
 
 _Rationale: Why not .mkd or .markdown?_
 
@@ -100,7 +100,7 @@ _Rationale: Why not .mkd or .markdown?_
 - _More popular_
 - _Does not have important conflicts_
 
-> File Name: **Prefer to base the file name on the top-header level**
+> **File Name: Prefer to base the file name on the top-header level**
 >
 > - **Replace upper case letters with <u>lower case</u>**
 > - **Strip articles the, a, an from the start**
@@ -128,7 +128,7 @@ _Bad, surrounding hyphens_
 
 _Rationale: why not underscore or camel case?_
 
-- Hyphens are the most popular URL separator today,
+- _Hyphens are the most popular URL separator today,_
 - _and markdown files are most often used in contexts where:_
     - _There are hyphen separated HTML files in the same project, possibly the same directory as the markdown files._
     - _Filenames will be used directly on URLs. E.g.: GitHub blobs._
@@ -141,10 +141,13 @@ _Rationale: why not underscore or camel case?_
 
 <!-- 新行 -->
 
-> - **Don't use 2 or more consecutive empty lines**,
->     - _that is, more than two consecutive newline characters, except where they must appear literally such as in code blocks._
-> - ~~End files with a newline character, and don't leave empty lines at the end of the file.~~
-> - **Don't use trailing whitespace** _unless it has a function such as indicating a line break._
+> -   **Don't use 2 or more consecutive empty lines**,
+>
+>     _that is, more than two consecutive newline characters, except where they must appear literally such as in code blocks._
+>
+> -    ~~End files with a newline character, and don't leave empty lines at the end of the file.~~
+>
+> -    **Don't use trailing whitespace** _unless it has a function such as indicating a line break._
 
 _Good_
 
