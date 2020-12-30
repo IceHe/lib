@@ -230,8 +230,7 @@ and the fourth one.
 
 _Rationale:_
 
-- _Diffs look better,_
-    - _since a change to a clause shows up as a single diff line._
+- _Diffs look better, since a change to a clause shows up as a single diff line._
 - _Occasional visual wrapping does not significantly reduce the readability of Markdown,_
     - _since the only language feature that can be indented to indicate hierarchy are nested lists._
 - _At some point GitHub translated single newlines to line breaks in READMEs, and still does so on comments._
@@ -352,7 +351,7 @@ Beware of case sensitive spelling errors, in particular for project, brand names
 - _Bad: url, Linkedin, dos attack_
 - _When in doubt, prefer the same abbreviation as used on Wikipedia._
 
-Avoid informal contractions:
+> **Avoid informal contractions**
 
 - _Good: biography, repository, directory_
 - _Bad: bio, repo, dir_
@@ -395,7 +394,17 @@ In the rare case you absolutely need them, end a lines with exactly two spaces.
 
 > Use ATX-style headers
 
-_Bad_
+_Bad, Setex-style headers_
+
+```bash
+Header 1
+========
+
+Header 2
+--------
+```
+
+_Bad, both Setex-style and ATX-style headers_
 
 ```bash
 Header 1
@@ -407,7 +416,7 @@ Header 2
 ### Header 3
 ```
 
-_Good_
+_Good, ATX-style headers_
 
 ```bash
 # Header 1
@@ -522,11 +531,11 @@ _Good_
 ```markdown
 ## Dogs
 
-### Anatomy of the dog
+### Anatomy of the Dog
 
 ## Cats
 
-### Anatomy of the cat
+### Anatomy of the Cat
 ```
 
 ##### Top-Level Header
@@ -569,7 +578,7 @@ _Downsides of top-level headers:_
     - This means that there are only 5 header levels left, _and each new header will have one extra `#`, which looks worse and is harder to write._
 - _Duplicate filename information,_
     - _which most often can already be seen on a URL._
-    - _In most cases, the filename can be trivially converted to a top-level, e.g.: `some-filename.md` to `Some filename`._
+    - _In most cases, the filename can be trivially converted to a top-level, e.g.: `some-filename.md` to `Some Filename`._
 
 _Advantages of top-level headers:_
 
@@ -653,7 +662,7 @@ Outside header.
 
 <!-- 标题长度 -->
 
-> Keep headers as short as possible.
+> **Keep headers as short as possible.**
 >
 > Instead of using a huge sentence, make the header a summary to the huge sentence, and write the huge sentence as the first paragraph beneath the header.
 
@@ -691,7 +700,7 @@ Content
 
 _Rationale: every header is an introduction to what is about to come next, which is exactly the function of the colon._
 
-> Don't add a trailing period `.` to headers.
+> **Don't add a trailing period `.` to headers.**
 
 _Rationale: every header consists of a single short sentence, so there is not need to add a sentence separator to it._
 
@@ -772,7 +781,6 @@ _Bad_
 ```markdown
 > Long line
 that was wrapped.
-Good:
 ```
 
 _Good_
@@ -963,6 +971,8 @@ _list-space:mixed_
 > - Use **3** spaces for unordered lists.
 > - Use **2** spaces for ordered lists.
 >     - One less than for unordered because the marker is 2 chars long.
+
+_( icehe : It's controversial. )_
 
 _Bad, every item is one line long_
 
@@ -1482,14 +1492,14 @@ _Good_
 <!-- 定义词汇的列表 -->
 
 > **Avoid the definition list extension since it is not present in many implementations nor in CommonMark.**
-
-Instead, use either:
-
-- formatted lists:
-
-    - format the item be defined as either of bold, link or code
-    - separate the item from the definition with a colon and a space `:` .
-    - don't align definitions as it is harder to maintain and does not show on the HTML output
+>
+> Instead, use either:
+>
+> - Formatted lists:
+>
+>     - format the item be defined as either of bold, link or code
+>     - separate the item from the definition with a colon and a space `:` .
+>     - don't align definitions as it is harder to maintain and does not show on the HTML output
 
 _Good_
 
@@ -1534,8 +1544,8 @@ _Bad, no colon_
 _Bad, space between term and colon_
 
 ```markdown
-- **apple**: red fruit
-- **dog**: noisy animal
+- **apple** : red fruit
+- **dog** : noisy animal
 ```
 
 _Bad, definitions aligned_
@@ -1590,7 +1600,7 @@ a = 1
 
 <!-- 水平线 -->
 
-> **Don't use horizontal rules except to indicate the [End of a header](#End-of-a-Header).**
+> **Don't use horizontal rules except to indicate the [end of a header](#End-of-a-Header).**
 
 _Rationale:_
 
@@ -1629,17 +1639,17 @@ _Lists and subheadings usually suffice to present the same information in a slig
 
 ### Apple
 
-* [Juicy](https://SomeReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyLongURL)
-* Firm
-* Sweet
+- [Juicy](https://SomeReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyLongURL)
+- Firm
+- Sweet
 
 Apples keep doctors away.
 
 ### Banana
 
-* [Convenient](https://example.com/SomeDifferentReallyReallyReallyReallyReallyReallyReallyReallyLongQuery)
-* Soft
-* Sweet
+- [Convenient](https://example.com/SomeDifferentReallyReallyReallyReallyReallyReallyReallyReallyLongQuery)
+- Soft
+- Sweet
 
 Contrary to popular belief, most apes prefer mangoes.
 ```
@@ -1667,7 +1677,7 @@ Extension.
 > - **Surround every line of the table by pipes.**
 > - Align all border pipes vertically.
 > - **Separate header from body by hyphens except at the aligned pipes `|`.**
-> - **Pipes `|` must be surrounded by a space, except for outer pipes which only get one space internally, and pipes of the hyphen separator line.**
+> - ~~Pipes `|` must be surrounded by a space, except for outer pipes which only get one space internally, and pipes of the hyphen separator line.~~
 > - Column width is determined by the longest cell in the column.
 
 _Good table_
@@ -1675,10 +1685,10 @@ _Good table_
 ```markdown
 Before.
 
-| h    | Long header |
-|------|-------------|
-| abc  | def         |
-| abc2 | def2        |
+|h   |Long header|
+|----|-----------|
+|abc |def        |
+|abc2|def2       |
 
 After.
 ```
@@ -1768,10 +1778,10 @@ _Bad_
 [text] [name]
 ```
 
-For inline code in which the space is crucial:
+_For inline code in which the space is crucial:_
 
-- explain in writing that the spaces must be there
-- add something after the space if possible
+- _explain in writing that the spaces must be there_
+- _add something after the space if possible_
 
 _Good_
 
@@ -1789,7 +1799,9 @@ _Rationale: most browsers don't render the surrounding spaces nor add them to th
 
 <!-- 引用风格的链接 -->
 
-> **Links:** use the trailing `[]` on implicit links.
+> ~~Links: use the trailing `[]` on implicit links.~~
+>
+> **Links: avoid using reference-style links.**
 
 _Good_
 
