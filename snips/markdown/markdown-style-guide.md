@@ -216,11 +216,11 @@ _Advantages of `space-sentence:2`:_
 
 > **Wrap Inner-Sentence**
 >
-> _Try to keep lines under 80 characters by breaking large paragraphs logically at points such as:_
+> Try to keep lines under 80 characters by breaking large paragraphs logically at points such as:
 >
-> - _Sentences: after a period `.`, question `?` or exclamation mark `!`_
-> - _[Clauses](https://www.lexico.com/grammar/clauses): after words like `and`, `which`, `if ... then`, commas `,`_
-> - _Large [phrases](https://www.lexico.com/grammar/phrases)_
+> - Sentences: after a period `.`, question `?` or exclamation mark `!`
+> - [Clauses](https://www.lexico.com/grammar/clauses): after words like `and`, `which`, `if ... then`, commas `,`
+> - Large [phrases](https://www.lexico.com/grammar/phrases)
 
 _Good_
 
