@@ -4,8 +4,8 @@ Markdown 风格指北
 
 ---
 
-- Here is the Markdown style guide I follow.
-- It's not a mandatory standard.
+Here is the Markdown style guide I follow.
+It's not a mandatory standard.
 
 ## References
 
@@ -17,11 +17,15 @@ Markdown 风格指北
 
 _All skippable to read_
 
-- Daring Fireball - Projects - Markdown
-    - [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
-- [CommonMark Spec](https://spec.commonmark.org)
-    - [Version 0.29](https://spec.commonmark.org/0.29) on 2019-04-06
-- [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
+-   Daring Fireball - Projects - Markdown
+
+    [Main](https://daringfireball.net/projects/markdown) , [Basics](https://daringfireball.net/projects/markdown/basics) , [Syntax](https://daringfireball.net/projects/markdown/syntax) , [Dingus](https://daringfireball.net/projects/markdown/dingus)
+
+-   [CommonMark Spec](https://spec.commonmark.org)
+
+    [Version 0.29](https://spec.commonmark.org/0.29) on 2019-04-06
+
+-   [GitHub Flavored Markdown Spec](https://github.github.com/gfm)
 
 ### GFM Basic Syntax
 
@@ -65,9 +69,10 @@ _All recommended to read!_
 
 <!-- 建议 -->
 
-- Highly recommend to read the links in section "References → Style Guide" above.
-    - _I made my Markdown style guide below according to them._
-    - _You can make your own guide as well._
+Highly recommend to read the links in section "References → Style Guide" above.
+
+_I made my Markdown style guide below according to them._
+_You can make your own guide as well._
 
 ### Design Goals
 
@@ -128,10 +133,14 @@ _Bad, surrounding hyphens_
 
 _Rationale: why not underscore or camel case?_
 
-- _Hyphens are the most popular URL separator today,_
-- _and markdown files are most often used in contexts where:_
-    - _There are hyphen separated HTML files in the same project, possibly the same directory as the markdown files._
-    - _Filenames will be used directly on URLs. E.g.: GitHub blobs._
+-   _Hyphens are the most popular URL separator today,_
+    _and markdown files are most often used in contexts where:_
+
+    -   _There are hyphen separated HTML files in the same project,_
+        _possibly the same directory as the markdown files._
+
+    -   _Filenames will be used directly on URLs._
+        _E.g.: GitHub blobs._
 
 #### Whitespaces
 
@@ -143,11 +152,14 @@ _Rationale: why not underscore or camel case?_
 
 > -   **Don't use 2 or more consecutive empty lines**,
 >
->     _that is, more than two consecutive newline characters, except where they must appear literally such as in code blocks._
+>     _that is, more than two consecutive newline characters,_
+>     _except where they must appear literally such as in code blocks._
 >
-> -    ~~End files with a newline character, and don't leave empty lines at the end of the file.~~
+> -   ~~End files with a newline character,~~
+>     _and don't leave empty lines at the end of the file.~~
 >
-> -    **Don't use trailing whitespace** _unless it has a function such as indicating a line break._
+> -   **Don't use trailing whitespace**
+>     _unless it has a function such as indicating a line break._
 
 _Good_
 
@@ -179,7 +191,8 @@ _Bad_
 ## Header
 ```
 
-_Rationale: multiple empty lines occupy more vertical screen space, and do not significantly improve readability._
+_Rationale: multiple empty lines occupy more vertical screen space,_
+_and do not significantly improve readability._
 
 ##### Spaces after sentences
 
@@ -201,10 +214,12 @@ First sentence. Second sentence.
 
 _Rationale: advantages over `space-sentence:2`:_
 
-- _Easier to edit_
-- _Usually not necessary if you use `wrap:inner-sentence` or `wrap:sentence`_
-- _`space-sentence:2` gives a false sense of readability as it is ignored on the HTML output_
-- _More popular_
+-   _Easier to edit_
+-   _Usually not necessary if you use_
+    _`wrap:inner-sentence` or `wrap:sentence`_
+-   _`space-sentence:2` gives a false sense of readability_
+    _as it is ignored on the HTML output_
+-   _More popular_
 
 _Advantages of `space-sentence:2`:_
 
@@ -216,11 +231,14 @@ _Advantages of `space-sentence:2`:_
 
 > **Wrap Inner-Sentence**
 >
-> Try to keep lines under 80 characters by breaking large paragraphs logically at points such as:
+> Try to keep lines under 80 characters
+> by breaking large paragraphs logically at points such as:
 >
-> - Sentences: after a period `.`, question `?` or exclamation mark `!`
-> - [Clauses](https://www.lexico.com/grammar/clauses): after words like `and`, `which`, `if ... then`, commas `,`
-> - Large [phrases](https://www.lexico.com/grammar/phrases)
+> -   Sentences:
+      after a period `.`, question `?` or exclamation mark `!`
+> -   [Clauses](https://www.lexico.com/grammar/clauses):
+      after words like `and`, `which`, `if ... then`, commas `,`
+> -   Large [phrases](https://www.lexico.com/grammar/phrases)
 
 _Good_
 
@@ -233,41 +251,74 @@ and the fourth one.
 
 _Rationale:_
 
-- _Diffs look better, since a change to a clause shows up as a single diff line._
-- _Occasional visual wrapping does not significantly reduce the readability of Markdown,_
-    - _since the only language feature that can be indented to indicate hierarchy are nested lists._
-- _At some point GitHub translated single newlines to line breaks in READMEs, and still does so on comments._
-    - _Currently there is no major engine which does it, so it is safe to use newlines._
-- _Some tools are not well adapted for long lines,_
-    - _e.g. Vim and `git diff` will not wrap lines by default._
-    - _This can be configured however via `git config --global core.pager 'less -r'` for Git and `set wrap` for Vim._
+-   _Diffs look better,_
+    _since a change to a clause shows up as a single diff line._
+
+-   _Occasional visual wrapping_
+    _does not significantly reduce the readability of Markdown,_
+    _since the only language feature_
+    _that can be indented to indicate hierarchy are nested lists._
+
+-   _At some point GitHub translated single newlines to line breaks in READMEs,_
+    _and still does so on comments._
+
+    _Currently there is no major engine which does it,_
+    _so it is safe to use newlines._
+
+-   _Some tools are not well adapted for long lines,_
+    _e.g. Vim and `git diff` will not wrap lines by default._
+
+    _This can be configured however via_
+    _`git config --global core.pager 'less -r'`_
+    _for Git and `set wrap` for Vim._
 
 _Downsides:_
 
-- _Requires considerable writer effort,_
-    - _specially when modifying code._
-- _Markdown does not look like the rendered output,_
-    - _in which there are no line breaks._
-- _Manual line breaking can make the Markdown more readable than the rendered output,_
-    - _which is bad because it gives a false sense of readability encouraging less readable long paragraphs._
-- _Requires users of programming text editors like Vim,_
-    - _which are usually configured to not wrap, to toggle visual wrapping on._
-    - _This can be automated, but [EditorConfig gave it WONTFIX](https://github.com/editorconfig/editorconfig/issues/168)_
-- _Breaks some email systems, which always break a line on a single newline._
+-   _Requires considerable writer effort,_
+    _specially when modifying code._
+
+-   _Markdown does not look like the rendered output,_
+    _in which there are no line breaks._
+
+    _Manual line breaking can make the Markdown more readable_
+    _than the rendered output,_
+    _which is bad because it gives a false sense of readability_
+    _encouraging less readable long paragraphs._
+
+-   _Requires users of programming text editors like Vim,_
+    _which are usually configured to not wrap,_
+    _to toggle visual wrapping on._
+
+    _This can be automated, but_
+    _[EditorConfig gave it WONTFIX](https://github.com/editorconfig/editorconfig/issues/168)_
+
+-   _Breaks some email systems,_
+    _which always break a line on a single newline._
 
 _Other alternates:_
 
-- ~~Don't wrap lines.~~
-    - _Rationale: very easy to edit._
-    - _But diffs on huge lines are hard to read._
-- ~~Always wrap at the end of the first word that exceeds 80 characters.~~
-    - _Rationale: source code becomes is very readable and text editors support it automatically._
-    - _But diffs will look bad, and changing lines will be hard._
+-   ~~Don't wrap lines.~~
+
+    _Rationale: very easy to edit._
+
+    _But diffs on huge lines are hard to read._
+
+-   ~~Always wrap at the end of the first word that exceeds 80 characters.~~
+
+    _Rationale: source code becomes is very readable_
+    _and text editors support it automatically._
+
+    _But diffs will look bad, and changing lines will be hard._
+
 - ~~Wrap Sentence~~
-    - _Rationale: similar advantages as `wrap:inner-sentence`,_
-        - _but easier for people to follow since the rule is simple: break after the period._
-    - _But may produce long lines with hard to read diffs._
-    - _Notable occurrence: [ProGit 2](https://raw.githubusercontent.com/progit/progit2/5c285553c0605342339284981a9bb8a6c4e7c18e/book/01-introduction/1-introduction.asc)._
+
+    _Rationale: similar advantages as `wrap:inner-sentence`,_
+    _but easier for people to follow since the rule is simple:_
+    _break after the period._
+
+    _But may produce long lines with hard to read diffs._
+
+    _Notable occurrence: [ProGit 2](https://raw.githubusercontent.com/progit/progit2/5c285553c0605342339284981a9bb8a6c4e7c18e/book/01-introduction/1-introduction.asc)._
 
 #### Code
 
@@ -275,9 +326,12 @@ _Other alternates:_
 
 <!-- Shell 代码中的美元符 `$` -->
 
-> **Don't prefix shell code with dollar signs `$` unless you will be showing the command output on the same code block.**
+> **Don't prefix shell code with dollar signs `$`**
+> **unless you will be showing the command output**
+> **on the same code block.**
 
-If the goal is to clarify what the language is, do it on the preceding paragraph.
+If the goal is to clarify what the language is,
+do it on the preceding paragraph.
 
 _Rationale: harder to copy paste, noisier to read._
 
@@ -318,18 +372,27 @@ echo a > file
 
 > **Use code blocks or inline code for:**
 >
-> - **Executables**. _E.g.:_
+> -   **Executables**. _E.g.:_
+>
 >     ```markdown
 >     `gcc` is the best compiler available.
 >     ```
->     - Differentiate between tool and the name of related projects. _E.g.: `gcc` vs GCC._
-> - **File paths**
-> - **Version numbers**
-> - **Capitalized explanation of abbreviations**:
+>
+>     Differentiate between tool and the name of related projects.
+>     _E.g.: `gcc` vs GCC._
+>
+> -   **File paths**
+>
+> -   **Version numbers**
+>
+> -   **Capitalized explanation of abbreviations**:
+>
 >     ```markdown
 >     xinetd stands for `eXtended Internet daemon`
 >     ```
-> - **Other terms related to computers** that you don't want to add to your dictionary
+>
+> -   **Other terms related to computers**
+>     that you don't want to add to your dictionary
 >
 > **Don't mark as code:**
 >
@@ -342,13 +405,17 @@ echo a > file
 
 > **Use correct spelling and grammar.**
 
-Prefer writing in English, and in particular American English.
+_Prefer writing in English, and in particular American English._
 
-_Rationale: American English speakers have the largest GDP, specially in the computing industry._
+_Rationale: American English speakers have the largest GDP,_
+_specially in the computing industry._
 
-_Use markup like URL or code on words which you do not want to add to your dictionary so that spell checkers can ignore them automatically._
+_Use markup like URL or code on words_
+_which you do not want to add to your dictionary_
+_so that spell checkers can ignore them automatically._
 
-Beware of case sensitive spelling errors, in particular for project, brand names or abbreviations:
+Beware of case sensitive spelling errors,
+in particular for project, brand names or abbreviations:
 
 - _Good: URL, LinkedIn, DoS attack_
 - _Bad: url, Linkedin, dos attack_
@@ -363,9 +430,10 @@ Beware of case sensitive spelling errors, in particular for project, brand names
 
 <!-- 转义换行符 -->
 
-( from Google Markdown style guide )
+_( from Google Markdown style guide )_
 
-> **Escape any newlines in code blocks : Use a single backslash at the end of the line.**
+> **Escape any newlines in code blocks :**
+> **Use a single backslash at the end of the line.**
 
 ```bash
 bazel run :target -- --flag \
@@ -373,7 +441,9 @@ bazel run :target -- --flag \
     --bar=anotherlonglonglonglonglonglonglonglonglonglongvalue
 ```
 
-_Rationale: Because most commandline snippets are intended to be copied and pasted directly into a terminal, it's best practice to escape any newlines._
+_Rationale: Because most commandline snippets_
+_are intended to be copied and pasted directly into a terminal,_
+_it's best practice to escape any newlines._
 
 ### Block elements
 
@@ -383,9 +453,11 @@ _Rationale: Because most commandline snippets are intended to be copied and past
 
 <!-- 换行符 -->
 
-> **Avoid line breaks**, as they don't have generally accepted semantic meaning.
+> **Avoid line breaks**,
+> as they don't have generally accepted semantic meaning.
 
-In the rare case you absolutely need them, end a lines with exactly two spaces.
+In the rare case you absolutely need them,
+end a lines with exactly two spaces.
 
 #### Header
 
@@ -431,12 +503,21 @@ _Good, ATX-style headers_
 
 _Rationale:_
 
-- _Advantages of Setex:_
-    - _more visible. Not very important if you have syntax highlighting._
-- _ATX advantages over Setex:_
-    - _Easier to write because in Setex you have to match the number of characters in both lines for it to look good_
-    - _Works for all levels, while Setex only goes up to level 2_
-    - _Occupy only one screen line, while Setex occupies 2_
+-   _Advantages of Setex:_
+
+    -   _More visible._
+
+        _Not very important if you have syntax highlighting._
+
+-   _ATX advantages over Setex:_
+
+    -   _Easier to write_
+        _because in Setex you have to match the number of characters_
+        _in both lines for it to look good_
+
+    -   _Works for all levels, while Setex only goes up to level 2_
+
+    -   _Occupy only one screen line, while Setex occupies 2_
 
 > Include a single space between the `#` and the text of the header.
 
@@ -488,7 +569,8 @@ _Good_
 ## Header 2
 ```
 
-> **Surround headers by a single empty line except at the beginning of the file.**
+> **Surround headers by a single empty line**
+> **except at the beginning of the file.**
 
 _Bad_
 
@@ -513,9 +595,11 @@ After 1.
 After 2.
 ```
 
-> **Avoid using two headers with the same content in the same markdown file.**
+> **Avoid using two headers with the same content**
+> **in the same markdown file.**
 
-_Rationale: many markdown engines generate IDs for headers based on the header content._
+_Rationale: many markdown engines generate IDs for headers_
+_based on the header content._
 
 _Bad_
 
@@ -565,23 +649,40 @@ _Good_
 ## Cats
 ```
 
-_If you target HTML output, write your documents so that it will have one and only one `h1` element as the first thing in it that serves as the title of the document. This is the HTML top-level header._
+_If you target HTML output, write your documents_
+_so that it will have one and only one `h1` element as the first thing in it_
+_that serves as the title of the document._
+_This is the HTML top-level header._
 
-_How this `h1` is produced may vary depending on your exact technology stack: some stacks may generate it from metadata, for example Jekyll through the front-matter._
+_How this `h1` is produced may vary depending on your exact technology stack:_
+_some stacks may generate it from metadata,_
+_for example Jekyll through the front-matter._
 
-_Storing the top-level header as metadata has the advantage that it can be reused elsewhere more easily, e.g. on a global index, but the downside of lower portability._
+_Storing the top-level header as metadata has the advantage_
+_that it can be reused elsewhere more easily,_
+_e.g. on a global index, but the downside of lower portability._
 
-_If your target stack does not generate the top-level header in another way, include it in your markdown file. E.g., GitHub._
+_If your target stack does not generate the top-level header in another way,_
+_include it in your markdown file._
+_E.g., GitHub._
 
-_Top-level headers on index-like files such as `README.md` or `index.md` should serve as a title for their parent directory._
+_Top-level headers on index-like files_
+_such as `README.md` or `index.md`_
+_should serve as a title for their parent directory._
 
 _Downsides of top-level headers:_
 
-- Take up one header level.
-    - This means that there are only 5 header levels left, _and each new header will have one extra `#`, which looks worse and is harder to write._
-- _Duplicate filename information,_
-    - _which most often can already be seen on a URL._
-    - _In most cases, the filename can be trivially converted to a top-level, e.g.: `some-filename.md` to `Some Filename`._
+-   Take up one header level.
+
+    This means that there are only 5 header levels left,
+    _and each new header will have one extra `#`,_
+    _which looks worse and is harder to write._
+
+-   _Duplicate filename information,_
+    _which most often can already be seen on a URL._
+
+    _In most cases, the filename can be trivially converted to a top-level,_
+    _e.g.: `some-filename.md` to `Some Filename`._
 
 _Advantages of top-level headers:_
 
@@ -591,7 +692,9 @@ _Advantages of top-level headers:_
 
 <!-- 标题的大小写 -->
 
-> **Use an upper case letter as the first letter of a header**, unless it is a word that always starts with lowercase letters, _e.g. computer code._
+> **Use an upper case letter as the first letter of a header**,
+> unless it is a word that always starts with lowercase letters,
+> _e.g. computer code._
 
 _Good_
 
@@ -611,17 +714,31 @@ _Bad_
 # header
 ```
 
-> ~~The other letters have the same case they would have in the middle of a sentence.~~
+> ~~The other letters have the same case~~
+> ~~they would have in the middle of a sentence.~~
 >
-> _According to the Chicago Manual of Style (15th edition), **the following rules should be applied to headers**:_
+> _According to the Chicago Manual of Style (15th edition),_
+> **the following rules should be applied to headers**:_
 >
-> - **Always capitalize the first and last words of titles and subtitles.**
-> - **Always capitalize "major" words** (nouns, pronouns, verbs, adjectives, adverbs, and some conjunctions).
-> - **Lowercase the conjunctions and, but, for, or, and nor**.
-> - **Lowercase the articles the, a, and an**.
-> - **Lowercase prepositions, regardless of length**,
->     - except when they are stressed, are used adverbially or adjectivally, or are used as conjunctions.
+> -   **Always capitalize the first and last words**
+>     **of titles and subtitles.**
+>
+> -   **Always capitalize "major" words**
+>     (nouns, pronouns, verbs, adjectives,
+>     adverbs, and some conjunctions).
+>
+> -   **Lowercase the conjunctions**
+>     **and, but, for, or, and nor**.
+>
+> -   **Lowercase the articles the, a, and an**.
+>
+> -   **Lowercase prepositions, regardless of length**,
+>     except when they are stressed,
+>     are used adverbially or adjectivally,
+>     or are used as conjunctions.
+>
 > - **Lowercase the words to and as**.
+>
 > - Lowercase the second part of Latin species names.
 
 _~~Good~~ Bad_
@@ -636,20 +753,24 @@ _~~Bad~~ Good_
 # The Header of the Example
 ```
 
-_As an exception, [title case](https://en.wikipedia.org/wiki/Title_case#Title_case) may be optionally used for the top-level header._
+_As an exception,_
+_[title case](https://en.wikipedia.org/wiki/Title_case#Title_case) may be optionally used for the top-level header._
+_Use this exception sparingly ( 保守地 ) ,_
+_in cases where typographical ( 排字上的 ) perfection is important,_
+_e.g.: `README` of a project._
 
-- _( icehe: I prefer "Chicago Manual of Style" to "AP Stylebook". )_
-- _Use this exception sparingly ( 保守地 ) , in cases where typographical ( 排字上的 ) perfection is important, e.g.: `README` of a project._
+_( icehe: I prefer "Chicago Manual of Style" to "AP Stylebook". )_
 
 _Rationale: why not Title case for all headers?_
-
-- _It requires too much effort to decide if edge-case words should be upper case or not._
+_It requires too much effort to decide_
+_if edge-case words should be upper case or not._
 
 ##### End of a Header
 
 <!-- 标题的后面 -->
 
-> Indicate the end of a header's content that is not followed by a new header by an horizontal rule.
+> Indicate the end of a header's content
+> that is not followed by a new header by an horizontal rule.
 
 ```markdown
 # Header
@@ -667,7 +788,10 @@ Outside header.
 
 > **Keep headers as short as possible.**
 >
-> Instead of using a huge sentence, make the header a summary to the huge sentence, and write the huge sentence as the first paragraph beneath the header.
+> Instead of using a huge sentence,
+> make the header a summary to the huge sentence,
+> and write the huge sentence
+> as the first paragraph beneath the header.
 
 _Rationale: if automatic IDs are generated by the implementation, it is:_
 
@@ -701,11 +825,13 @@ Content
 
 > Don't add a trailing colon `:` to headers.
 
-_Rationale: every header is an introduction to what is about to come next, which is exactly the function of the colon._
+_Rationale: every header is an introduction to what is about to come next,_
+_which is exactly the function of the colon._
 
 > **Don't add a trailing period `.` to headers.**
 
-_Rationale: every header consists of a single short sentence, so there is not need to add a sentence separator to it._
+_Rationale: every header consists of a single short sentence,_
+_so there is not need to add a sentence separator to it._
 
 _Good_
 
@@ -731,9 +857,11 @@ _Bad_
 
 > Headers serve as an index for users searching for keywords.
 
-_For this reason, you may want to give multiple keyword possibilities for a given header._
+_For this reason,_
+_you may want to give multiple keyword possibilities for a given header._
 
-_To do so, simply create a synonym header with empty content just before its main header._
+_To do so,_
+_simply create a synonym header with empty content just before its main header._
 
 _E.g.:_
 
@@ -745,7 +873,9 @@ _E.g.:_
 You give money and get something in return.
 ```
 
-_Every empty header with the same level as the following one is assumed to be a synonym. This is not the case if levels are different:_
+_Every empty header with the same level as the following one_
+_is assumed to be a synonym._
+_This is not the case if levels are different:_
 
 ```markdown
 # Animals
@@ -853,11 +983,14 @@ _Downsides:_
 
 <!-- 有序列表 -->
 
-> **Prefer lists only with the marker `1.` for ordered lists, unless you intend to refer to items by their number in the same markdown file or externally.**
+> **Prefer lists only with the marker `1.` for ordered lists,**
+> **unless you intend to refer to items by their number**
+> **in the same markdown file or externally.**
 >
 > ~~Prefer lists with the marker `1.`, `2.`, `3.` and etc. for ordered lists.~~
 >
-> **Prefer unordered lists unless you intent to refer to items by their number.**
+> **Prefer unordered lists**
+> **unless you intent to refer to items by their number.**
 
 _Best, we will never refer to the items of this list by their number_
 
@@ -909,22 +1042,35 @@ Terms of use.
 
 _Rationale:_
 
-- _If you want to change a list item in the middle of the list, you don't have to modify all items that follow it._
-- _Diffs will show only the significant line which was modified._
-- _Content stays aligned without extra effort if the numbers reach 2 digits. E.g.: the following is not aligned:_
+-   _If you want to change a list item in the middle of the list,_
+    _you don't have to modify all items that follow it._
+
+    _Diffs will show only the significant line which was modified._
+
+-   _Content stays aligned without extra effort_
+    _if the numbers reach 2 digits._
+    _E.g.: the following is not aligned:_
+
     ```markdown
     9. a
     10. b
     ```
-- _References break when a new list item is added. To reduce this problem:_
-    - _Keep references close to the list so authors are less likely to forget to update them_
-    - _When referring from an external document, always refer to an specific version of the markdown file_
+
+-   _References break when a new list item is added._
+    _To reduce this problem:_
+
+    -   _Keep references close to the list so authors_
+        _are less likely to forget to update them_
+
+    -   _When referring from an external document,_
+        _always refer to an specific version of the markdown file_
 
 ##### Spaces Before List Marker
 
 <!-- 列表标识前的空格 -->
 
-> Do not add any space before list markers, except to obey the current level of indentation.
+> Do not add any space before list markers,
+> except to obey the current level of indentation.
 
 _Bad_
 
@@ -967,13 +1113,16 @@ _Rationale:_
 
 _list-space:mixed_
 
-> **If the content of every item of the list is fits in a single paragraph, use 1 space.**
+> **If the content of every item of the list is fits in a single paragraph,**
+> **use 1 space.**
 >
 > Otherwise, for every item of the list:
 >
-> - Use **3** spaces for unordered lists.
-> - Use **2** spaces for ordered lists.
->     - One less than for unordered because the marker is 2 chars long.
+> -   Use **3** spaces for unordered lists.
+>
+> -   Use **2** spaces for ordered lists.
+>
+>     _One less than for unordered because the marker is 2 chars long._
 
 _( icehe : It's controversial. )_
 
@@ -1047,7 +1196,8 @@ _Good_
 
 _The advantages of `list-space:1` are that_
 
--   _It removes the decision of how many spaces you should put after the list marker: it is always one._
+-   _It removes the decision of how many spaces_
+    _you should put after the list marker: it is always one._
 
     _We could choose to always have list content indented as:_
 
@@ -1058,7 +1208,8 @@ _The advantages of `list-space:1` are that_
 
     _but that is ugly._
 
--   _You never need to change the indentation of the entire list because of a new item._
+-   _You never need to change the indentation of the entire list_
+    _because of a new item._
 
     _This may happen in `list-space:mixed` if you have:_
 
@@ -1083,15 +1234,17 @@ _The advantages of `list-space:1` are that_
 
 _The disadvantages of `list-space:1`_
 
-- _Creates three indentation levels for the language:_
+-   _Creates three indentation levels for the language:_
 
     - _4 for indented code blocks_
     - _3 for ordered lists_
     - _2 for unordered lists_
 
-    _That means that you cannot easily configure your editor indent level to deal with all cases when you want to change the indentation level of multiple list item lines._
+    _That means that you cannot easily configure_
+    _your editor indent level to deal with all cases_
+    _when you want to change the indentation level of multiple list item lines._
 
-- _Is not implemented consistently across editors._
+-   _Is not implemented consistently across editors._
 
     _In particular what should happen at:_
 
@@ -1115,17 +1268,22 @@ _The disadvantages of `list-space:1`_
 
     _Likely the original markdown said no spaces:_
 
-    _"To put a code block within a list item, the code block needs to be indented twice — 8 spaces or two tabs"_
+    _"To put a code block within a list item,_
+    _the code block needs to be indented twice_
+    _— 8 spaces or two tabs"_
 
     _But many implementations did otherwise._
 
-    _CommonMark [adds the 2 spaces](https://spec.commonmark.org/0.12/#example-176)._
+    _CommonMark_
+    _[adds the 2 spaces](https://spec.commonmark.org/0.12/#example-176)._
 
 ##### Indentation of Content Inside Lists
 
 <!-- 列表中的内容的缩进 -->
 
-> **The indentation level of what comes inside list and of further list items must be the same as the first list item.**
+> **The indentation level**
+> **of what comes inside list and of further list items**
+> **must be the same as the first list item.**
 
 _Bad_
 
@@ -1193,7 +1351,10 @@ _Good, if it matches your spaces after list marker style_
   Content 2
 ```
 
-_Avoid starting a list item directly with indented code blocks because that is not consistently implemented. [CommonMark states](http://spec.commonmark.org/0.12/#example-176) that a single space is assumed in that case:_
+_Avoid starting a list item directly with indented code blocks_
+_because that is not consistently implemented._
+_[CommonMark states](http://spec.commonmark.org/0.12/#example-176)_
+_that a single space is assumed in that case:_
 
 ```markdown
 -     code
@@ -1205,7 +1366,9 @@ _Avoid starting a list item directly with indented code blocks because that is n
 
 <!-- 列表中的空白行 -->
 
-> **If every item of a list is a single line long, don't add empty lines between items. Otherwise, add empty lines between every item.**
+> **If every item of a list is a single line long,**
+> **don't add empty lines between items.**
+> **Otherwise, add empty lines between every item.**
 
 _Bad, single lines_
 
@@ -1295,7 +1458,8 @@ _Good_
 -   item 3
 ```
 
-_Rationale: it is hard to tell where multi-line list items start and end without empty lines._
+_Rationale: it is hard to tell_
+_where multi-line list items start and end without empty lines._
 
 ##### Empty Lines Around Lists
 
@@ -1327,7 +1491,9 @@ After.
 
 <!-- 列表项的第一个字母的大小写 -->
 
-> **Each list item has the same case as it would have if it were concatenated with the sentence that comes before the list.**
+> **Each list item has the same case**
+> **as it would have if it were concatenated with the sentence**
+> **that comes before the list.**
 
 _Good_
 
@@ -1394,7 +1560,7 @@ Push the pedal.
 > - **contains multiple sentences or paragraphs**
 > - **starts with an upper case letter**
 >
-> **Otherwise, omit the punctuation if it would be a period `.` .**
+> **Otherwise, omit the punctuation if it would be a period `.`.**
 
 _Bad, single sentences_
 
@@ -1444,7 +1610,8 @@ _Good_
 - finally eat the fruit. Good for tummy.
 ```
 
-_Note: nothing forbids one list item from ending in period while another in the same list does not._
+_Note: nothing forbids one list item from ending in period_
+_while another in the same list does not._
 
 _Bad, multiple paragraphs_
 
@@ -1494,15 +1661,17 @@ _Good_
 
 <!-- 定义词汇的列表 -->
 
-> **Avoid the definition list extension since it is not present in many implementations nor in CommonMark.**
+> **Avoid the definition list extension since it is not present**
+> **in many implementations nor in CommonMark.**
 >
 > Instead, use either:
 >
-> - Formatted lists:
+> -   Formatted lists:
 >
->     - format the item be defined as either of bold, link or code
->     - separate the item from the definition with a colon and a space `:` .
->     - don't align definitions as it is harder to maintain and does not show on the HTML output
+>     -   format the item be defined as either of bold, link or code
+>     -   separate the item from the definition with a colon and a space `:` .
+>     -   don't align definitions
+>         as it is harder to maintain and does not show on the HTML output
 
 _Good_
 
@@ -1580,8 +1749,10 @@ Noisy animal
 
 _Comparison to indented code blocks:_
 
-- _Disadvantage: not part of the original markdown, thus less portable, but added to CommonMark._
-- _Advantage: many implementations, including GitHub's, allow to specify the code language with it_
+-   _Disadvantage: not part of the original markdown,_
+    _thus less portable, but added to CommonMark._
+-   _Advantage: many implementations,_
+    _including GitHub's, allow to specify the code language with it_
 
 > **Don't indent fenced code blocks.**
 >
@@ -1607,8 +1778,10 @@ a = 1
 
 _Rationale:_
 
-- _Headers are better section separators since they say what a section is about._
-- _Horizontal rules don't have a generally accepted semantic meaning. This guide gives them one._
+-   _Headers are better section separators_
+    _since they say what a section is about._
+-   _Horizontal rules don't have a generally accepted semantic meaning._
+    _This guide gives them one._
 
 > **Use 3 hyphens without spaces**
 
@@ -1620,7 +1793,8 @@ _Rationale:_
 
 <!-- 表格 -->
 
-> **Prefer lists to tables. Any tables in your Markdown should be small.**
+> **Prefer lists to tables.**
+> **Any tables in your Markdown should be small.**
 
 _( from Google Markdown style guide )_
 
@@ -1635,7 +1809,8 @@ Banana | [Convenient](https://example.com/SomeDifferentReallyReallyReallyReallyR
 
 _Good_
 
-_Lists and subheadings usually suffice to present the same information in a slightly less compact, though much more edit-friendly way:_
+_Lists and subheadings usually suffice to present the same information in a slightly less compact,_
+_though much more edit-friendly way:_
 
 ```markdown
 ## Fruits
@@ -1669,19 +1844,23 @@ _There are times when a small table is called for_
 |X-34 landspeeder|Whiny farmboys|Cheap since the X-38 came out|
 ```
 
-_Rationale: Complex, large tables are difficult to read in source and most importantly, a pain to modify later._
+_Rationale: Complex,_
+_large tables are difficult to read in source and most importantly,_
+_a pain to modify later._
 
 ---
 
 Extension.
 
-> - **Surround tables by one empty line.**
-> - **Don't indent tables.**
-> - **Surround every line of the table by pipes.**
-> - Align all border pipes vertically.
-> - **Separate header from body by hyphens except at the aligned pipes `|`.**
-> - ~~Pipes `|` must be surrounded by a space, except for outer pipes which only get one space internally, and pipes of the hyphen separator line.~~
-> - Column width is determined by the longest cell in the column.
+> -   **Surround tables by one empty line.**
+> -   **Don't indent tables.**
+> -   **Surround every line of the table by pipes.**
+> -   Align all border pipes vertically.
+> -   **Separate header from body by hyphens except at the aligned pipes `|`.**
+> -   ~~Pipes `|` must be surrounded by a space,~~
+>     ~~except for outer pipes which only get one space internally,~~
+>     ~~and pipes of the hyphen separator line.~~
+> -   Column width is determined by the longest cell in the column.
 
 _Good table_
 
@@ -1698,11 +1877,25 @@ After.
 
 _Rationale:_
 
-- _Unaligned tables tables are easier to write, but aligned tables are more readable, and people read code much more often than they edit it._
-- _Preceding pipes make it easier to determine where a table starts and ends. Trailing pipes make it look better because of symmetry._
-- _There exist tools which help keeping the table aligned. For example, Vim has the [Tabular plugin](https://github.com/godlygeek/tabular) which allows to align the entire table with `:Tabular /|`._
-- _Why no spaces around pipes of the hyphen separator line, i.e.: `|---|` instead of `| - |`? No spaces looks better, works on GitHub._
-    - _Downside: harder to implement automatic alignment in editors, as it requires a special rule for the separator line._
+-   _Unaligned tables tables are easier to write,_
+    _but aligned tables are more readable,_
+    _and people read code much more often than they edit it._
+
+-   _Preceding pipes make it easier to determine_
+    _where a table starts and ends._
+    _Trailing pipes make it look better because of symmetry._
+
+-   _There exist tools which help keeping the table aligned._
+    _For example, Vim has the_
+    _[Tabular plugin](https://github.com/godlygeek/tabular)_
+    _which allows to align the entire table with `:Tabular /|`._
+
+-   _Why no spaces around pipes of the hyphen separator line,_
+    _i.e.: `|---|` instead of `| - |`?_
+    _No spaces looks better, works on GitHub._
+
+    _Downside: harder to implement automatic alignment in editors,_
+    _as it requires a special rule for the separator line._
 
 #### Separate Consecutive Elements
 
@@ -1792,7 +1985,8 @@ _Good_
 Use the hyphen marker followed by one space `- a`  for unordered lists.
 ```
 
-_Rationale: most browsers don't render the surrounding spaces nor add them to the clipboard on copy._
+_Rationale: most browsers don't render the surrounding spaces_
+_nor add them to the clipboard on copy._
 
 #### Links
 
@@ -1818,16 +2012,20 @@ _Bad_
 [a]
 ```
 
-_Rationale: while omitting `[]` works on most major implementations, it is not specified in the documentation not implemented in the original markdown._
+_Rationale: while omitting `[]` works on most major implementations,_
+_it is not specified in the documentation_
+_and not implemented in the original markdown._
 
 > **Definitions:**
 >
-> - must be the last thing on the file
-> - must be sorted alphabetically by the ID
-> - don't enclose URLs by angle brackets
-> - align URLs and link names as in a table
-> - link IDs use only lowercase letters. _Rationale: they are case insensitive,_
-> - lowercase only is easier to write, and the readability gain of mixed case is not very big.
+> -   must be the last thing on the file
+> -   must be sorted alphabetically by the ID
+> -   don't enclose URLs by angle brackets
+> -   align URLs and link names as in a table
+> -   link IDs use only lowercase letters.
+>     _Rationale: they are case insensitive,_
+> -   lowercase only is easier to write,
+>     and the readability gain of mixed case is not very big.
 
 _Good_
 
@@ -1860,7 +2058,8 @@ _Bad, not aligned_
 # Class `Integer`
 ```
 
-_Rationale: single quotes do not work in all major implementations, double quotes do._
+_Rationale: single quotes do not work in all major implementations,_
+_double quotes do._
 
 ##### Short Link Titles
 
@@ -1870,7 +2069,8 @@ _( from Google Markdown style guide )_
 
 > **Use informative Markdown link titles**
 >
-> Write the sentence naturally, then go back and wrap the most appropriate phrase with the link.
+> Write the sentence naturally,
+> then go back and wrap the most appropriate phrase with the link.
 
 _Bad_
 
@@ -1889,8 +2089,10 @@ Or, check out the [style guide](style_guide.md).
 
 _Rationale:_
 
-- _Markdown link syntax allows you to set a link title, just as HTML does. Use it wisely._
-- _Titling your links as "link" or "here" tells the reader precisely nothing when quickly scanning your doc and is a waste of space:_
+-   _Markdown link syntax allows you to set a link title, just as HTML does._
+    _Use it wisely._
+-   _Titling your links as "link" or "here" tells the reader precisely nothing_
+    _when quickly scanning your doc and is a waste of space:_
 
 #### Emphasis
 
@@ -1945,7 +2147,8 @@ _Rationale:_
 
 <!-- 用大写字母来表达强调 -->
 
-> **Don't use uppercase for emphasis: use emphasis constructs like bold or italic instead.**
+> **Don't use uppercase for emphasis:**
+> **use emphasis constructs like bold or italic instead.**
 
 _Bad_
 
@@ -1959,15 +2162,24 @@ _Good_
 **Emphasis**
 ```
 
-_Rationale: CSS has `text-transform:uppercase` which can easily achieve the same effect consistently across the entire website if you really want uppercase letters._
+_Rationale: CSS has `text-transform:uppercase`_
+_which can easily achieve the same effect consistently_
+_across the entire website if you really want uppercase letters._
 
 ##### Emphasis vs Headers
 
 <!-- 强调 vs 标题 -->
 
-> **Don't use emphasis elements ( bold or italics ) to introduce a multi line named section: use headers instead.**
+> **Don't use emphasis elements ( bold or italics )**
+> **to introduce a multi line named section: use headers instead.**
 
-- _Rationale: that is exactly the semantic meaning of headers, and not necessarily that of emphasis elements. As a consequence, many implementations add useful behaviors to headers and not to emphasis elements, such as automatic id to make it easier to refer to the header later on._
+-   _Rationale: that is exactly the semantic meaning of headers,_
+    _and not necessarily that of emphasis elements._
+
+    _As a consequence,_
+    _many implementations add useful behaviors to headers_
+    _and not to emphasis elements,_
+    _such as automatic id to make it easier to refer to the header later on._
 
 _Good_
 
@@ -2075,13 +2287,15 @@ _Bad_
 <github.com>
 ```
 
-_Rationale: it is hard to differentiate automatic links from HTML tags. What if you want a relative link to a file called `script`?_
+_Rationale: it is hard to differentiate automatic links from HTML tags._
+_What if you want a relative link to a file called `script`?_
 
 ##### Email Automatic Links
 
 <!-- 邮箱自动链接 -->
 
-> **Don't use email autolinks `<address@example.com>`. Use raw HTML instead.**
+> **Don't use email autolinks `<address@example.com>`.**
+> **Use raw HTML instead.**
 
 _Rationale: the original markdown specification states it:_
 
@@ -2121,7 +2335,8 @@ icehe.me#qq.com ( replace `#` with `@` )
 
 _( from Google Markdown style guide )_
 
-_In general, most documents benefit from some variation of the following layout:_
+_In general, most documents benefit from_
+_some variation of the following layout:_
 
 ```markdown
 # Document Title
@@ -2141,17 +2356,37 @@ Content.
 - https://link-to-more-info
 ```
 
-- _`# Document Title`: The first heading should be a level one heading,_
-    - _and should ideally be the same or nearly the same as the filename._
-    - _The first level one heading is used as the page `<title>`._
-- _`author`: Optional._
-    - _If you'd like to claim ownership of the document or if you are very proud of it, add yourself under the title. However, revision history generally suffices._
-- _`Short introduction`. 1 ~ 3 sentences providing a high-level overview of the topic._
-    - _Imagine yourself as a complete newbie, who landed on your "Extending Foo" doc and needs to know the most basic assumptions you take for granted._
-    - _"What is Foo? Why would I extend it?"_
-- ~~_`[TOC]`: if you use hosting that supports table of contents, such as Gitiles, put [TOC] after the short introduction. See `[TOC]` documentation._~~
-- _`## Topic`: The rest of your headings should start from level 2._
-- _`## See also`: Put miscellaneous links at the bottom for the user who wants to know more or didn't find what she needed._
+-   _`# Document Title`: The first heading should be a level one heading,_
+    _and should ideally be the same or nearly the same as the filename._
+
+    _The first level one heading is used as the page `<title>`._
+
+-   _`author`: Optional._
+
+    _If you'd like to claim ownership of the document_
+    _or if you are very proud of it, add yourself under the title._
+
+    _However, revision history generally suffices._
+
+-   _`Short introduction`._
+
+    _1 ~ 3 sentences providing a high-level overview of the topic._
+
+    _Imagine yourself as a complete newbie,_
+    _who landed on your "Extending Foo" doc_
+    _and needs to know the most basic assumptions you take for granted._
+
+    _"What is Foo? Why would I extend it?"_
+
+-   ~~_`[TOC]`: if you use hosting that supports table of contents,~~
+    ~~_such as Gitiles, put [TOC] after the short introduction._~~
+
+    ~~_See `[TOC]` documentation._~~~~
+
+-   _`## Topic`: The rest of your headings should start from level 2._
+
+-   _`## See also`: Put miscellaneous links at the bottom for the user_
+    _who wants to know more or didn't find what she needed._
 
 #### Character Line Limit
 
@@ -2159,7 +2394,10 @@ Content.
 
 _( from Google Markdown style guide )_
 
-_Obey projects' character line limit wherever possible. Long URLs and tables are the usual suspects when breaking the rule. ( Headings also can't be wrapped, but we encourage keeping them short ). Otherwise, wrap your text:_
+_Obey projects' character line limit wherever possible._
+_Long URLs and tables are the usual suspects when breaking the rule._
+_( Headings also can't be wrapped, but we encourage keeping them short )._
+_Otherwise, wrap your text:_
 
 ```markdown
 Lorem ipsum dolor sit amet, nec eius volumus patrioque cu, nec et commodo
@@ -2169,7 +2407,8 @@ hendrerit, id nobis saperet fuisset ius.
     interesset. See the [foo docs](https://gerrit.googlesource.com/gitiles/+/master/Documentation/markdown.md).
 ```
 
-_Often, inserting a newline before a long link preserves readability while minimizing the overflow:_
+_Often, inserting a newline before a long link preserves readability_
+_while minimizing the overflow:_
 
 ```markdown
 Lorem ipsum dolor sit amet. See the
@@ -2185,9 +2424,14 @@ _( from Google Markdown style guide )_
 
 _Don't use trailing whitespace, use a trailing backslash._
 
-_The [CommonMark spec](https://spec.commonmark.org/0.20/#hard-line-breaks) decrees that two spaces at the end of a line should insert a `<br/>` tag. However, many directories have a trailing whitespace presubmit check in place, and many IDEs will clean it up anyway._
+_The [CommonMark spec](https://spec.commonmark.org/0.20/#hard-line-breaks)_
+_decrees that two spaces at the end of a line should insert a `<br/>` tag._
+_However, many directories have a trailing whitespace presubmit check in place,_
+_and many IDEs will clean it up anyway._
 
-_Best practice is to avoid the need for a `<br/>` altogether. Markdown creates paragraph tags for you simply with newlines: get used to that._
+_Best practice is to avoid the need for a `<br/>` altogether._
+_Markdown creates paragraph tags for you simply with newlines:_
+_get used to that._
 
 #### Images
 
@@ -2199,7 +2443,10 @@ _( from Google Markdown style guide )_
 
 _Rationale:_
 
-- _This guide is designed around the idea that plain text gets users down to the business of communication faster with less reader distraction and author procrastination._
+-   _This guide is designed around the idea_
+    _that plain text gets users down to the business of communication faster_
+    _with less reader distraction and author procrastination._
+
 - However, it's sometimes very helpful to show what you mean.
 
 _See [image syntax](https://gerrit.googlesource.com/gitiles/+/master/Documentation/markdown.md#Images)._
@@ -2212,13 +2459,23 @@ _( from Google Markdown style guide )_
 
 _Rationale:_
 
-- _Please prefer standard Markdown syntax wherever possible and avoid HTML hacks._
-    - _If you can't seem to accomplish what you want, reconsider whether you really need it._
-    - _Except for big tables, Markdown meets almost all needs already._
-- _Every bit of HTML or Javascript hacking reduces the readability and portability._
-    - _This in turn limits the usefulness of integrations with other tools, which may either present the source as plain text or render it._
-    - _See [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)._
-    - _Gitiles does not render HTML._
+-   _Please prefer standard Markdown syntax wherever possible_
+    _and avoid HTML hacks._
+
+    _If you can't seem to accomplish what you want,_
+    _reconsider whether you really need it._
+
+    _Except for big tables, Markdown meets almost all needs already._
+
+-   _Every bit of HTML or Javascript hacking_
+    _reduces the readability and portability._
+
+    _This in turn limits the usefulness of integrations with other tools,_
+    _which may either present the source as plain text or render it._
+
+    _See [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)._
+
+    _Gitiles does not render HTML._
 
 ### Documentation Best Practices
 
@@ -2237,68 +2494,145 @@ _Contents:_
 
 #### Minimum Viable Documentation
 
-A small set of fresh and accurate docs are better than a sprawling, loose assembly of "documentation" in various states of disrepair.
+A small set of fresh and accurate docs are better than a sprawling,
+loose assembly of "documentation" in various states of disrepair.
 
-**Write short and useful documents. Cut out everything unnecessary**, while also making a habit of continually massaging and improving every doc to suit your changing needs. **Docs work best when they are alive but frequently trimmed, like a bonsai tree.**
+**Write short and useful documents. Cut out everything unnecessary**,
+while also making a habit of continually massaging
+and improving every doc to suit your changing needs.
+**Docs work best when they are alive but frequently trimmed,**
+**like a bonsai tree.**
 
-This guide _( Google Markdown style guide )_ encourages engineers to take ownership of their docs and keep them up to date with the same zeal we keep our tests in good order. Strive for this.
+This guide _( Google Markdown style guide )_
+encourages engineers to take ownership of their docs
+and keep them up to date with the same zeal we keep our tests in good order.
+Strive for this.
 
-Identify what you really need: release docs, API docs, testing guidelines.
+Identify what you really need:
+release docs, API docs, testing guidelines.
 Delete cruft frequently and in small batches.
 
 #### Update Docs with Code
 
-**Change your documentation in the same CL _( Commit Log )_ as the code change.** This keeps your docs fresh, and is also a good place to explain to your reviewer what you're doing.
+**Change your documentation**
+**in the same CL _( Commit Log )_ as the code change.**
+This keeps your docs fresh,
+and is also a good place to explain to your reviewer what you're doing.
 
-A good reviewer can at least insist that docstrings, header files, README.md files, and any other docs get updated alongside the CL.
+A good reviewer can at least insist that
+docstrings, header files, README.md files,
+and any other docs get updated alongside the CL.
 
 #### Delete Dead Documentation
 
-**Dead docs are bad. They misinform, they slow down, they incite despair in engineers and laziness in team leads. They set a precedent for leaving behind messes in a code base. If your home is clean, most guests will be clean without being asked.**
+**Dead docs are bad.**
+**They misinform, they slow down,**
+**they incite despair in engineers and laziness in team leads.**
+**They set a precedent for leaving behind messes in a code base.**
+**If your home is clean, most guests will be clean without being asked.**
 
-Just like any big cleaning project, it's easy to be overwhelmed. If your docs are in bad shape:
+Just like any big cleaning project, it's easy to be overwhelmed.
+If your docs are in bad shape:
 
-- Take it slow, doc health is a gradual accumulation.
-- **First delete what you're certain is wrong, ignore what's unclear.**
-- Get your whole team involved.
-    - Devote time to quickly scan every doc and make a simple decision: Keep or delete?
-- Default to delete or leave behind if migrating.
-    - Stragglers can always be recovered.
-- Iterate.
+-   Take it slow, doc health is a gradual accumulation.
+-   **First delete what you're certain is wrong, ignore what's unclear.**
+-   Get your whole team involved.
+    Devote time to quickly scan every doc and make a simple decision:
+    Keep or delete?
+-   Default to delete or leave behind if migrating.
+    Stragglers can always be recovered.
+-   Iterate.
 
 #### Prefer the Good Over the Perfect
 
-**Your documentation should be as good as possible within a reasonable time frame.**
+**Your documentation should be**
+**as good as possible within a reasonable time frame.**
 
-The standards for a documentation review are different from the standards for code reviews. Reviewers can and should ask for improvements, but in general, the author should always be able to invoke the "**Good Over Perfect Rule**".
+The standards for a documentation review
+are different from the standards for code reviews.
+Reviewers can and should ask for improvements,
+but in general, the author should always be able to invoke the
+"**Good Over Perfect Rule**".
 
-**It's preferable to allow authors to quickly submit changes that improve the document, instead of forcing rounds of review until it's "perfect". Docs are never perfect, and tend to gradually improve as the team learns what they really need to write down.**
+**It's preferable to allow authors to quickly submit changes**
+**that improve the document,**
+**instead of forcing rounds of review until it's "perfect".**
+**Docs are never perfect,**
+**and tend to gradually improve as the team learns**
+**what they really need to write down.**
 
 #### Documentation is the Story of your Code
 
-Writing excellent code doesn't end when your code compiles or even if your test coverage reaches 100%. It's easy to write something a computer understands, it's much harder to write something both a human and a computer understand. **Your mission as a Code Health-conscious engineer is to write for humans first, computers second.** Documentation is an important part of this skill.
+Writing excellent code doesn't end
+when your code compiles or even if your test coverage reaches 100%.
+It's easy to write something a computer understands,
+it's much harder to write something both a human and a computer understand.
+**Your mission as a Code Health-conscious engineer**
+**is to write for humans first, computers second.**
+Documentation is an important part of this skill.
 
-_There's a spectrum of engineering documentation that ranges from terse comments to detailed prose:_
+_There's a spectrum of engineering documentation_
+_that ranges from terse comments to detailed prose:_
 
-1. _**Inline comments**: The primary purpose of inline comments is to provide information that the code itself cannot contain, such as why the code is there._
+1.  _**Inline comments**:
+    The primary purpose of inline comments is
+    to provide information that the code itself cannot contain,
+    such as why the code is there._
 
-1. **Method and class comments**:
+1.  **Method and class comments**:
 
-    - **Method API documentation**: _The header / Javadoc / docstring comments that say what methods do and how to use them. This documentation is the contract of how your code must behave. The intended audience is future programmers who will use and modify your code._
+    -   **Method API documentation**:
 
-        _It is often reasonable to say that any behavior documented here should have a test verifying it. This documentation details what arguments the method takes, what it returns, any "gotchas" or restrictions, and what exceptions it can throw or errors it can return. It does not usually explain why code behaves a particular way unless that's relevant to a developer's understanding of how to use the method. "Why" explanations are for inline comments. Think in practical terms when writing method documentation: "This is a hammer. You use it to pound nails."_
+        _The header / Javadoc / docstring comments that say_
+        _what methods do and how to use them.
 
-    - _**Class / Module API documentation**: The header / Javadoc / docstring comments for a class or a whole file. This documentation gives a brief overview of what the class / file does and often gives a few short examples of how you might use the class / file._
+        _This documentation is the contract of how your code must behave._
 
-        _Examples are particularly relevant when there's several distinct ways to use the class (some advanced, some simple). Always list the simplest use case first._
+        _The intended audience is future programmers_
+        _who will use and modify your code._
 
-1. _**README.md**: A good README.md orients the new user to the directory and points to more detailed explanation and user guides:_
+        _It is often reasonable to say_
+        _that any behavior documented here should have a test verifying it._
 
-    - _What is this directory intended to hold?_
+        _This documentation details what arguments the method takes,_
+        _what it returns, any "gotchas" or restrictions,_
+        _and what exceptions it can throw or errors it can return._
 
-    - _Which files should the developer look at first? Are some files an API?_
+        _It does not usually explain why code behaves a particular way_
+        _unless that's relevant to a developer's understanding of_
+        _how to use the method._
 
-    - _Who maintains this directory and where I can learn more?_
+        _"Why" explanations are for inline comments._
+
+        _Think in practical terms when writing method documentation:_
+        _"This is a hammer. You use it to pound nails."_
+
+    -   _**Class / Module API documentation**:_
+
+        _The header / Javadoc / docstring comments for a class or a whole file._
+
+        _This documentation gives a brief overview of_
+        _what the class / file does_
+        _and often gives a few short examples of_
+        _how you might use the class / file._
+
+        _Examples are particularly relevant_
+        _when there's several distinct ways to use the class_
+        _(some advanced, some simple)._
+
+        _Always list the simplest use case first._
+
+1.  _**README.md**:_
+
+    _A good README.md orients the new user to the directory_
+    _and points to more detailed explanation and user guides:_
+
+    -   _What is this directory intended to hold?_
+
+    -   _Which files should the developer look at first?_
+        _Are some files an API?_
+
+    -   _Who maintains this directory and where I can learn more?_
 
     _See the [README.md guidelines](https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md)._
 
@@ -2318,21 +2652,31 @@ _About README.md files._
 
 #### _Overview_
 
-`README.md` files are Markdown files that describe a directory. _GitHub and Gitiles renders it when you browse the directory._
+`README.md` files are Markdown files that describe a directory.
+_GitHub and Gitiles renders it when you browse the directory._
 
-_For example, the file /README.md is rendered when you view the contents of the containing directory:_
+_For example, the file /README.md is rendered_
+_when you view the contents of the containing directory:_
 
 https://github.com/google/styleguide/tree/gh-pages
 
-_Also `README.md` at `HEAD` ref is rendered by Gitiles when displaying repository index:_
+_Also `README.md` at `HEAD` ref is rendered by Gitiles_
+_when displaying repository index:_
 
 https://gerrit.googlesource.com/gitiles/
 
 #### Guidelines
 
-**`README.md` files are intended to provide orientation for engineers browsing your code, especially first-time users.** The README.md is likely the first file a reader encounters when they browse a directory that contains your code. In this way, it acts as a landing page for the directory.
+**`README.md` files are intended to provide orientation**
+**for engineers browsing your code, especially first-time users.**
+The README.md is likely the first file a reader encounters
+when they browse a directory that contains your code.
+In this way, it acts as a landing page for the directory.
 
-_We recommend that top-level directories for your code have an up-to-date README.md file. This is especially important for package directories that provide interfaces for other teams._
+_We recommend that top-level directories for your code_
+_have an up-to-date README.md file._
+_This is especially important for package directories_
+_that provide interfaces for other teams._
 
 #### _Filename_
 
@@ -2342,12 +2686,14 @@ _Files named `README` are not displayed in the directory view in Gitiles._
 
 #### Contents
 
-_At minimum, every package-level `README.md` should include or point to the following information:_
+_At minimum, every package-level `README.md`_
+_should include or point to the following information:_
 
-1. **What** is in this package/library and what's it used for.
-1. **Who** to contact.
-1. **Status**: whether this package/library is deprecated, or not for general release, etc.
-1. **More info**: where to go for more detailed documentation, such as:
+1.  **What** is in this package/library and what's it used for.
+1.  **Who** to contact.
+1.  **Status**: whether this package/library is deprecated,
+    or not for general release, etc.
+1.  **More info**: where to go for more detailed documentation, such as:
     - _An overview.md file for more detailed conceptual information._
     - _Any API documentation for using this package/library._
 
@@ -2356,8 +2702,8 @@ _At minimum, every package-level `README.md` should include or point to the foll
 ```markdown
 # APIs
 
-This is the top-level directory for all externally-visible APIs, plus some
-private APIs under `internal/` directories.
+This is the top-level directory for all externally-visible APIs,
+plus some private APIs under `internal/` directories.
 See [API Style Guide](docs/apistyle.md) for more information.
 
 *TL;DR*: API definitions and configurations should be defined in `.proto` files,
@@ -2387,28 +2733,78 @@ _Contents:_
 
 #### Radical Simplicity
 
-- **Scalability and interoperability** are more important than a menagerie _( 动物展览 )_ of unessential features. Scale comes from simplicity, speed, and ease. Interoperability _( 互操作性 )_ comes from unadorned _( 朴素的 )_, digestible content _( 容易消化的 )_ .
-- **Fewer distractions** make for better writing and more productive reading.
-- **New features should never interfere with the simplest use case** and should remain invisible to users who don't need them.
-- **This guide is designed for the average engineer** -- the busy, just-want-to-go-back-to-coding engineer. Large and complex documentation is possible but not the primary focus.
-- **Minimizing context switching makes people happier**. Engineers should be able to interact with documentation using the same tools they use to read and write code.
+-   **Scalability and interoperability** are more important than a menagerie
+    _( 动物展览 )_ of unessential features.
+
+    Scale comes from simplicity, speed, and ease.
+
+    Interoperability _( 互操作性 )_ comes from
+    unadorned _( 朴素的 )_, digestible content _( 容易消化的 )_ .
+
+-   **Fewer distractions** make for better writing and more productive reading.
+-   **New features should never interfere with the simplest use case**
+    and should remain invisible to users who don't need them.
+
+-   **This guide is designed for the average engineer** --
+    the busy, just-want-to-go-back-to-coding engineer.
+
+    Large and complex documentation is possible but not the primary focus.
+
+-   **Minimizing context switching makes people happier**.
+
+    Engineers should be able to interact with documentation
+    using the same tools they use to read and write code.
 
 #### Readable Source Text
 
-- **Plain text not only suffices, it is superior**. Markdown itself is not essential to this formula, but it is the best and most widely supported solution right now. HTML is generally not encouraged.
-- **Content and presentation should not mingle** _( 混合 )_ . It should always be possible to ditch the renderer and read the essential information at source. Users should never have to touch the presentation layer if they don't want to.
-- **Portability and future-proofing leave room for the unimagined integrations to come**, and are best achieved by keeping the source as human-readable as possible.
-- **Static content is better than dynamic**, because content should not depend on the features of any one server. However, fresh is better than stale. We strive to balance these needs.
+-   **Plain text not only suffices, it is superior**.
+
+    Markdown itself is not essential to this formula, but it is the best and most widely supported solution right now.
+
+    HTML is generally not encouraged.
+
+-   **Content and presentation should not mingle** _( 混合 )_ .
+
+    It should always be possible to ditch the renderer
+    and read the essential information at source.
+
+    Users should never have to touch the presentation layer
+    if they don't want to.
+
+-   **Portability and future-proofing leave room**
+    **for the unimagined integrations to come**,
+    and are best achieved by keeping the source as human-readable as possible.
+
+-   **Static content is better than dynamic**,
+    because content should not depend on the features of any one server.
+
+    However, fresh is better than stale. We strive to balance these needs.
 
 #### Minimum Viable Documentation
 
-- **Docs thrive when they're treated like tests**: a necessary chore one learns to savor because it rewards over time. See [Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md).
-- **Brief and utilitarian is better than long and exhaustive**. The vast majority of users need only a small fraction of the author's total knowledge, but they need it quickly and often.
+-   **Docs thrive when they're treated like tests**:
+    a necessary chore one learns to savor because it rewards over time.
+
+    See [Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md).
+
+-   **Brief and utilitarian is better than long and exhaustive**.
+
+    The vast majority of users need
+    only a small fraction of the author's total knowledge,
+    but they need it quickly and often.
 
 #### Better Is Better Than Perfect
 
-- **Incremental improvement is better than prolonged _( 长时间的 )_ debate**. Patience and tolerance of imperfection allow projects to evolve organically _( 有机地 )_ .
-- **Don't lick the cookie, pass the plate**. We're drowning in _( 溺死在 )_ potentially impactful projects. Choose only those you can really handle and release those you can't.
+-   **Incremental improvement is better than prolonged _( 长时间的 )_ debate**.
+
+    Patience and tolerance of imperfection
+    allow projects to evolve organically _( 有机地 )_ .
+
+-   **Don't lick the cookie, pass the plate**.
+
+    We're drowning in _( 溺死在 )_ potentially impactful projects.
+
+    Choose only those you can really handle and release those you can't.
 
 ### 补充 Mine
 
