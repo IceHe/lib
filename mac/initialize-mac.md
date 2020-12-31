@@ -868,6 +868,12 @@ user.name=icehe
 user.email=icehe@gmail.com
 ```
 
+#### Sublime Text
+
+TODO : record?
+
+https://packagecontrol.io/packages/Sync%20Settings
+
 #### SSH Key
 
 **For GitHub, GitLab and etc.**
