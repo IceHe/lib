@@ -261,7 +261,6 @@ _Rationale:_
 
 -   _At some point GitHub translated single newlines to line breaks in READMEs,_
     _and still does so on comments._
-
     _Currently there is no major engine which does it,_
     _so it is safe to use newlines._
 
@@ -288,7 +287,6 @@ _Downsides:_
 -   _Requires users of programming text editors like Vim,_
     _which are usually configured to not wrap,_
     _to toggle visual wrapping on._
-
     _This can be automated, but_
     _[EditorConfig gave it WONTFIX](https://github.com/editorconfig/editorconfig/issues/168)_
 
@@ -300,14 +298,12 @@ _Other alternates:_
 -   ~~Don't wrap lines.~~
 
     _Rationale: very easy to edit._
-
     _But diffs on huge lines are hard to read._
 
 -   ~~Always wrap at the end of the first word that exceeds 80 characters.~~
 
     _Rationale: source code becomes is very readable_
     _and text editors support it automatically._
-
     _But diffs will look bad, and changing lines will be hard._
 
 - ~~Wrap Sentence~~
@@ -315,10 +311,10 @@ _Other alternates:_
     _Rationale: similar advantages as `wrap:inner-sentence`,_
     _but easier for people to follow since the rule is simple:_
     _break after the period._
-
     _But may produce long lines with hard to read diffs._
 
-    _Notable occurrence: [ProGit 2](https://raw.githubusercontent.com/progit/progit2/5c285553c0605342339284981a9bb8a6c4e7c18e/book/01-introduction/1-introduction.asc)._
+    _Notable occurrence:_
+    _[ProGit 2](https://raw.githubusercontent.com/progit/progit2/5c285553c0605342339284981a9bb8a6c4e7c18e/book/01-introduction/1-introduction.asc)._
 
 #### Code
 
@@ -673,14 +669,12 @@ _should serve as a title for their parent directory._
 _Downsides of top-level headers:_
 
 -   Take up one header level.
-
     This means that there are only 5 header levels left,
     _and each new header will have one extra `#`,_
     _which looks worse and is harder to write._
 
 -   _Duplicate filename information,_
     _which most often can already be seen on a URL._
-
     _In most cases, the filename can be trivially converted to a top-level,_
     _e.g.: `some-filename.md` to `Some Filename`._
 
@@ -758,7 +752,6 @@ _[title case](https://en.wikipedia.org/wiki/Title_case#Title_case) may be option
 _Use this exception sparingly ( 保守地 ) ,_
 _in cases where typographical ( 排字上的 ) perfection is important,_
 _e.g.: `README` of a project._
-
 _( icehe: I prefer "Chicago Manual of Style" to "AP Stylebook". )_
 
 _Rationale: why not Title case for all headers?_
@@ -2358,29 +2351,22 @@ Content.
 
 -   _`# Document Title`: The first heading should be a level one heading,_
     _and should ideally be the same or nearly the same as the filename._
-
     _The first level one heading is used as the page `<title>`._
 
 -   _`author`: Optional._
-
     _If you'd like to claim ownership of the document_
     _or if you are very proud of it, add yourself under the title._
-
     _However, revision history generally suffices._
 
 -   _`Short introduction`._
-
     _1 ~ 3 sentences providing a high-level overview of the topic._
-
     _Imagine yourself as a complete newbie,_
     _who landed on your "Extending Foo" doc_
     _and needs to know the most basic assumptions you take for granted._
-
     _"What is Foo? Why would I extend it?"_
 
 -   ~~_`[TOC]`: if you use hosting that supports table of contents,~~
     ~~_such as Gitiles, put [TOC] after the short introduction._~~
-
     ~~_See `[TOC]` documentation._~~~~
 
 -   _`## Topic`: The rest of your headings should start from level 2._
@@ -2461,18 +2447,14 @@ _Rationale:_
 
 -   _Please prefer standard Markdown syntax wherever possible_
     _and avoid HTML hacks._
-
     _If you can't seem to accomplish what you want,_
     _reconsider whether you really need it._
-
     _Except for big tables, Markdown meets almost all needs already._
 
 -   _Every bit of HTML or Javascript hacking_
     _reduces the readability and portability._
-
     _This in turn limits the usefulness of integrations with other tools,_
     _which may either present the source as plain text or render it._
-
     _See [Philosophy](https://github.com/google/styleguide/blob/gh-pages/docguide/philosophy.md)._
 
     _Gitiles does not render HTML._
@@ -2508,9 +2490,8 @@ encourages engineers to take ownership of their docs
 and keep them up to date with the same zeal we keep our tests in good order.
 Strive for this.
 
-Identify what you really need:
-release docs, API docs, testing guidelines.
-Delete cruft frequently and in small batches.
+- Identify what you really need: release docs, API docs, testing guidelines.
+- Delete cruft frequently and in small batches.
 
 #### Update Docs with Code
 
@@ -2585,32 +2566,24 @@ _that ranges from terse comments to detailed prose:_
 
         _The header / Javadoc / docstring comments that say_
         _what methods do and how to use them.
-
         _This documentation is the contract of how your code must behave._
-
         _The intended audience is future programmers_
         _who will use and modify your code._
 
         _It is often reasonable to say_
         _that any behavior documented here should have a test verifying it._
-
         _This documentation details what arguments the method takes,_
         _what it returns, any "gotchas" or restrictions,_
         _and what exceptions it can throw or errors it can return._
-
         _It does not usually explain why code behaves a particular way_
         _unless that's relevant to a developer's understanding of_
         _how to use the method._
-
         _"Why" explanations are for inline comments._
-
         _Think in practical terms when writing method documentation:_
         _"This is a hammer. You use it to pound nails."_
 
     -   _**Class / Module API documentation**:_
-
         _The header / Javadoc / docstring comments for a class or a whole file._
-
         _This documentation gives a brief overview of_
         _what the class / file does_
         _and often gives a few short examples of_
@@ -2619,7 +2592,6 @@ _that ranges from terse comments to detailed prose:_
         _Examples are particularly relevant_
         _when there's several distinct ways to use the class_
         _(some advanced, some simple)._
-
         _Always list the simplest use case first._
 
 1.  _**README.md**:_
@@ -2628,10 +2600,8 @@ _that ranges from terse comments to detailed prose:_
     _and points to more detailed explanation and user guides:_
 
     -   _What is this directory intended to hold?_
-
     -   _Which files should the developer look at first?_
         _Are some files an API?_
-
     -   _Who maintains this directory and where I can learn more?_
 
     _See the [README.md guidelines](https://github.com/google/styleguide/blob/gh-pages/docguide/READMEs.md)._
@@ -2735,9 +2705,7 @@ _Contents:_
 
 -   **Scalability and interoperability** are more important than a menagerie
     _( 动物展览 )_ of unessential features.
-
     Scale comes from simplicity, speed, and ease.
-
     Interoperability _( 互操作性 )_ comes from
     unadorned _( 朴素的 )_, digestible content _( 容易消化的 )_ .
 
@@ -2747,27 +2715,22 @@ _Contents:_
 
 -   **This guide is designed for the average engineer** --
     the busy, just-want-to-go-back-to-coding engineer.
-
     Large and complex documentation is possible but not the primary focus.
 
 -   **Minimizing context switching makes people happier**.
-
     Engineers should be able to interact with documentation
     using the same tools they use to read and write code.
 
 #### Readable Source Text
 
 -   **Plain text not only suffices, it is superior**.
-
-    Markdown itself is not essential to this formula, but it is the best and most widely supported solution right now.
-
+    Markdown itself is not essential to this formula,
+    but it is the best and most widely supported solution right now.
     HTML is generally not encouraged.
 
 -   **Content and presentation should not mingle** _( 混合 )_ .
-
     It should always be possible to ditch the renderer
     and read the essential information at source.
-
     Users should never have to touch the presentation layer
     if they don't want to.
 
@@ -2777,18 +2740,15 @@ _Contents:_
 
 -   **Static content is better than dynamic**,
     because content should not depend on the features of any one server.
-
     However, fresh is better than stale. We strive to balance these needs.
 
 #### Minimum Viable Documentation
 
 -   **Docs thrive when they're treated like tests**:
     a necessary chore one learns to savor because it rewards over time.
-
     See [Best Practices](https://github.com/google/styleguide/blob/gh-pages/docguide/best_practices.md).
 
 -   **Brief and utilitarian is better than long and exhaustive**.
-
     The vast majority of users need
     only a small fraction of the author's total knowledge,
     but they need it quickly and often.
@@ -2796,14 +2756,11 @@ _Contents:_
 #### Better Is Better Than Perfect
 
 -   **Incremental improvement is better than prolonged _( 长时间的 )_ debate**.
-
     Patience and tolerance of imperfection
     allow projects to evolve organically _( 有机地 )_ .
 
 -   **Don't lick the cookie, pass the plate**.
-
     We're drowning in _( 溺死在 )_ potentially impactful projects.
-
     Choose only those you can really handle and release those you can't.
 
 ### 补充 Mine
@@ -3013,10 +2970,12 @@ Markdown Lint Tool `mdl`
 
 ### Other Lints
 
-Asked on Stack Exchange: http://softwarerecs.stackexchange.com/questions/7138/markdown-lint-tool
+Asked on Stack Exchange:
+http://softwarerecs.stackexchange.com/questions/7138/markdown-lint-tool
 
 - https://github.com/wooorm/mdast-lint
 - https://github.com/mivok/markdownlint
 - https://github.com/slang800/tidy-markdown
 - https://github.com/DavidAnson/markdownlint
-    - Documentation has some links back to this style: https://github.com/DavidAnson/markdownlint/blob/v0.14.2/doc/Rules.md
+    -   Documentation has some links back to this style:
+        https://github.com/DavidAnson/markdownlint/blob/v0.14.2/doc/Rules.md
