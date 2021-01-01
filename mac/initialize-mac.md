@@ -1,203 +1,253 @@
 # Initialize Mac
 
-How to initialize my Mac ?
+How to initialize my Mac?
 
 ---
 
 Reference
 
-- macOS Setup Guide : http://sourabhbajaj.com/mac-setup
+-   macOS Setup Guide:
+    http://sourabhbajaj.com/mac-setup
 
 Related
 
 - icehe.xyz ( my website )
-    - [Tools](/marks/tools/tools.md) : 利器 - 软件 / 物件的推荐
-    - [Efficiency](/mac/efficiency.md) : 效率指南
-    - [Shortcuts](/mac/shortcuts/shortcuts.md) : 快捷键
+    - [Tools](/marks/tools/tools.md): 利器 - 软件 / 物件的推荐
+    - [Efficiency](/mac/efficiency.md): 效率指南
+    - [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
 
-## Intro
+## Guidelines
 
-**Based on macOS**
+-   **Based on macOS**
 
-- Applicable macOS versions : Big Sur / Catalina / …
+    Applicable macOS versions: Big Sur / Catalina / …
 
-**Follow principles**
+-   **Follow principles**
 
-- **KISS - Keep It Simple & Stupid** ( 简单原则 )
-    - Focus on the process and omit the extra descriptions.
-        - e.g., apps' introductions & usages / software technology / developer knowledge …
-- **OOTB - Out Of The Box** ( 开箱即用 )
-    - Try to minimize the modification of the initial settings.
+    - **KISS - Keep It Simple & Stupid** ( 简单原则 )
 
-**For your reference** ( 供您参考 )
+        Focus on the process and omit the extra descriptions.
 
-- Assume tha you are an experienced Mac user and a software developer.
+        _E.g., apps' introductions & usages_
+        _/ software technology / developer knowledge …_
+
+    - **OOTB - Out Of The Box** ( 开箱即用 )
+
+        Try to minimize the modification of the initial settings.
+
+-   **For your reference** ( 仅供参考 )
+
+    Assume that you are an experienced Mac user and a software developer.
 
 ---
 
-尽可能在粗疏简略与巨细无遗之间找一个合适的平衡
+- 尽可能在粗疏简略与巨细无遗之间找一个合适的平衡
 
-- 过于粗略 —— 搞不明白如何操作, 无法快速完成配置
-- 过于详细 —— 相关软件更新后, 配置路径/名称/方式等发生变化, 导致说明的内容失效
+    -   过于粗略 ——
+        搞不明白如何操作, 无法快速完成配置
+    -   过于详细 ——
+        相关软件更新后, 配置路径/名称/方式等发生变化, 导致说明的内容失效
 
-## Install macOS
+## Install or Restore macOS
 
 References
 
 - Apple Support
-    - 如何创建可引导的 macOS 安装器 : https://support.apple.com/zh-cn/HT201372
-    - 如何重新安装 macOS : https://support.apple.com/zh-cn/HT204904
 
-1\. Search `macOS` in Mac App Store and download the macOS installation
+    -   如何创建可引导的 macOS 安装器:
+        https://support.apple.com/zh-cn/HT201372
+    -   如何重新安装 macOS:
+        https://support.apple.com/zh-cn/HT204904
 
-2\. Create bootable installer for macOS ( U盘安装, 需要创建引导分区 )
+Steps
 
-```bash
-# e.g. macOS Big Sur
-sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia \
-    --volume /Volumes/Install\ macOS\ Big\ Sur
-```
+1. Search `macOS` in Mac App Store and download its installation
 
-3\. Reboot, press `⌘ + r`
+1. Create bootable installer ( U盘安装, 需要创建引导分区 )
 
-- or Reboot, press `⌘ + ⌥ + r`
-    - Connect wifi and wait for processing until reboot
-- or Reboot, press `⌥` for a few seconds
-    - Reboot from different disk you selected
+    ```bash
+    # e.g. macOS Big Sur
+    sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia \
+        --volume /Volumes/Install\ macOS\ Big\ Sur
+    ```
 
-4A\. Just install macOS ( Recommended )
+1.  Reboot from the installer
 
-- omitted…
+    -   Plan A: Reboot, press `⌘ + r`.
+        If it doesn't work, try Plan B or C below.
+    -   Plan B: Reboot, press `⌘ + ⌥ + r`, connect Wi-Fi
+        and then wait for processing until rebooting again.
+    -   Plan C: Reboot, press `⌥` for a few seconds
+        and then select another disk which Mac reboot from.
 
-### Restore from Backup
+1.  Install or restore
 
-4B\. \* Restore from backups of Time Machine ( Optional )
+    - Option A: Just install. ( Recommended )
+    - Option B: Restore from backups of `Time Machine`
+    - Option C: Restore from `Disk Backup` by `Disk Utility`
 
-- or Restore from Disk Backup by Disk Utility
+Suggestion ( on 2020-12-10 )
 
-Suggestion on 2020-12-10
-
-- 如果用硬盘全量备份然后将数据还原到新机器上, 假以时日, 系统中会留存越来越多用不着的东西; 现在觉得重新配置新机器是更好的选择.
+-   如果用硬盘全量备份然后将数据还原到新机器上,
+    假以时日, 系统中会留存越来越多用不着的东西;
+    现在觉得重新配置新机器是更好的选择.
 
 ## Network Proxy
 
-**First thing first!**
+> If cannot download the required softwares,
+have to configure the network proxy firstly.
 
-If you cannot download softwares, you may need to configure network proxy ( in China mainland ).
+1.  Get the proxy service
 
-FYI - For Your Information ( 仅供参考, 请自行配置 )
+    - Option A: Buy one ( recommended )
+    - Option B: Build your own
 
-1. Connect to network
-2. Open `System Preferences` → `Network` → `Advanced…` → `Proxies`
-3. Enable `Automatic Proxy Configurattion`
-4. Find `URL:` input-box under `Proxy Configuration File`
-5. Fill with ~~`http://url/to/proxy.pac`~~ ( URL to PAC file )
-    - _You could search a latest valid PAC file URL by yourself on the Internet._
-6. Click `OK`
+    Because the valid methods often change,
+    recommend to search them on the Internet.
 
-_Reference : PAC - Proxy Auto Config :_ https://en.wikipedia.org/wiki/Proxy_auto-config
+1.  Get the configurations from the proxy service
 
-TrojanX / TrojanX / Trojan-Qt5 / ClashX / Surge
+    _Optional configuration forms, e.g.:_
 
-- Get the config content from the Shadowsocks service
-- Import Server URLs from pasteboard
+    - subscription URL ( recommended )
+    - configuration file
+    - server URLs
+    - QR codes
+    - _…_
+
+1.  Import the configurations into the proxy plugin
+
+    _Optional proxy plugins, e.g.:_
+
+    - Surge
+    - Trojan
+    - TrojanX
+    - _Trojan-Qt5_
+    - _Shadowsocks_
+    - _ShadowsocksX_
+    - _ShadowsocksX-NG_
+    - _ShadowsocksR_
+    - _ClashX_
+    - _Lantern_
+    - _…_
+
+1.  Visit google.com to validate the network
 
 ## Xcode
 
-If encounter error below,
+If encounter the error below while running your command,
 
 ```bash
 # output
 xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 ```
 
-Execute command below and then re-run your command again.
+run the command:
 
 ```bash
 xcode-select install
 ```
 
-_Notice : It doesn't work on macOS Big Sur on Mac with Apple Silicon M1. ( 2020-12-12 )_
+and then re-run yours again.
+
+_Notice :_
+_It doesn't work on Apple Silicon M1 Mac with macOS Big Sur. ( 2020-12-12 )_
 
 ## Homebrew
 
-Homebrew is a [macOS package manager](https://brew.sh) for installing & managing softwares on macOS
+Homebrew is a [macOS package manager](https://brew.sh)
+for installing and managing softwares on macOS.
 
-1\. Install
+1.  Install
 
-```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+    ```bash
+    /usr/bin/ruby -e \
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
 
-- If cannot install or install slowly, try the command below :
-    - **Homebrew 国内如何自动安装 ( 国内地址 )** : https://zhuanlan.zhihu.com/p/111014448
+    If cannot install or install slowly, run the command:
 
-<!--     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170 -->
+    ```bash
+    /bin/zsh -c \
+    "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+    ```
 
-```bash
-/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
-```
+    Reference: **Homebrew 国内如何自动安装 ( 国内地址 )**
+    https://zhuanlan.zhihu.com/p/111014448
 
-2\. Validate
+    <!--     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170 -->
 
-- Show version to check whether it is installed successfully or not.
+1.  Validate
 
-```bash
-$ brew --version
-Homebrew 2.6.1-29-g2be340c
-Homebrew/homebrew-core (git revision 18d380e; last commit 2020-12-11)
-Homebrew/homebrew-cask (git revision 84d2f; last commit 2020-12-11)
-```
+    Show the version to check whether it is installed successfully or not:
 
-3\. Accelarate
+    ```bash
+    $ brew --version
+    Homebrew 2.6.1-29-g2be340c
+    Homebrew/homebrew-core (git revision 18d380e; last commit 2020-12-11)
+    Homebrew/homebrew-cask (git revision 84d2f; last commit 2020-12-11)
+    ```
 
-- If upgrade slowly, try :
-    - Homebrew (中国大陆) 有比较快的源 (mirror) 吗? https://www.zhihu.com/question/31360766/answer/749386652
+1.  Accelarate
 
-```bash
-# Homebrew
-git -C "$(brew --repo)" remote set-url \
-    origin https://mirrors.ustc.edu.cn/brew.git
-# Homebrew Core
-git -C "$(brew --repo homebrew/core)" remote set-url \
-    origin https://mirrors.ustc.edu.cn/homebrew-core.git
-# Homebrew Cask
-git -C "$(brew --repo homebrew/cask)" remote set-url \
-    origin https://mirrors.ustc.edu.cn/homebrew-cask.git
-```
+    If upgrade slowly, run the commands:
 
-```bash
-# Homebrew-bottles
-## For BASH users :
-echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
-    >> ~/.bash_profile && source ~/.bash_profile
-## For ZSH users :
-echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
-    >> ~/.zshrc && source ~/.zshrc
-```
+    ```bash
+    # Homebrew
+    git -C "$(brew --repo)" remote set-url \
+        origin https://mirrors.ustc.edu.cn/brew.git
 
-4\. Update & Upgrade in the future
+    # Homebrew Core
+    git -C "$(brew --repo homebrew/core)" remote set-url \
+        origin https://mirrors.ustc.edu.cn/homebrew-core.git
 
-- Execute command below
+    # Homebrew Cask
+    git -C "$(brew --repo homebrew/cask)" remote set-url \
+        origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+    ```
 
-```bash
-brew update && brew upgrade
-```
+    ```bash
+    # Homebrew-bottles
 
-- `brew update` : Fetch the newest version of Homebrew from GitHub using git.
-- `brew upgrade` : Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
+    ## For BASH users :
+    echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
+        >> ~/.bash_profile && source ~/.bash_profile
+
+    ## For ZSH users :
+    echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
+        >> ~/.zshrc && source ~/.zshrc
+    ```
+
+    -   Reference: Homebrew (中国大陆) 有比较快的源 (mirror) 吗?
+        https://www.zhihu.com/question/31360766/answer/749386652
+
+1.  Update and upgrade
+
+    Run the command:
+
+    ```bash
+    brew update && brew upgrade
+    ```
+
+    Usages:
+
+    -   `brew update`:
+        Fetch the newest version of Homebrew from GitHub using git.
+    -   `brew upgrade`:
+        Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
 
 ## Homebrew-Cask
 
-Install Mac Apps by Homebrew-Cask
+Homebrew-Cask extends Homebrew
+and allows you to install large binary files via a command-line tool.
 
-- Homebrew-Cask extends Homebrew and allows you to install large binary files via a command-line tool.
-- Notice : I have to install ShadowsocksX-NG ( for over Great-Fire_Wall ) at first in China mainland, or fail to download some installions.
-- Available Softwares : https://formulae.brew.sh/cask
+> Recommend to install Mac Apps via Homebrew-Cask
+
+Available Softwares : https://formulae.brew.sh/cask
 
 ### Required
 
-Required ( for me )
+Install the required softwares via Homebrew-Cask
 
 ```bash
 brew install --cask \
@@ -225,32 +275,75 @@ brew install --cask \
     wechat
 ```
 
-Notice : You need to search `sogou` in Spotlight to execute its installation.
+_Notice : Have to search `sogou` in Spotlight to execute its installation then._
 
-**Some required softwares below are unabled to be installed by Homebrew-Cask.**
+### Optional
 
-Available in App Store
+Install the optional softwares via Homebrew-Cask
+
+```bash
+brew install --cask \
+    charles \
+    clion \
+    docker \
+    goland \
+    iina \
+    kindle \
+    microsoft-office \
+    mounty \
+    thunder \
+    virtualbox \
+    wireshark
+```
+
+<!--
+
+    desmume \
+    keycastr \
+    licecap \
+    notion \
+    phpstorm \
+    renamer \
+
+ -->
+
+## Mac App Store
+
+Some softwares are unavailable on Homebrew-Cask but available on Mac App Store.
+
+### Required
+
+Install the required softwares via Mac App Store
 
 - 1Password
 - Amphetamine
 - Copy 'Em
 - EasyRes
 - EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
-- Trello
 
-Available on GitHub
+<!-- - Trello -->
 
-- Amphetamine Enhancer : https://github.com/x74353/Amphetamine-Enhancer
-- TrojanX : https://github.com/JimLee1996/TrojanX/releases
-    - Its official homepage : https://github.com/JimLee1996/TrojanX
-- _or Trojan :_ https://trojan-gfw.github.io/trojan
-    - _GitHub :_ https://github.com/trojan-gfw/trojan
-    - _GitHub Wiki :_ https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
+Others available on GitHub
 
-Available on official homepages
+-   Amphetamine Enhancer:
+    https://github.com/x74353/Amphetamine-Enhancer
+-   TrojanX:
+    https://github.com/JimLee1996/TrojanX/releases
+    -   Official homepage:
+        https://github.com/JimLee1996/TrojanX
+-   _or Trojan:_
+    https://trojan-gfw.github.io/trojan
+    -   _GitHub:_
+        https://github.com/trojan-gfw/trojan
+    -   _GitHub Wiki:_
+        https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
 
-- Copy 'Em Helper : https://apprywhere.com/ce-helper.html
-- Logi Options : https://www.logitech.com.cn/zh-cn/product/options
+Others available on the official homepages
+
+-   Copy 'Em Helper:
+    https://apprywhere.com/ce-helper.html
+-   Logi Options:
+    https://www.logitech.com.cn/zh-cn/product/options
 
 <!--
 
@@ -263,101 +356,107 @@ brew install trojan
 
 ### Optional
 
-Optional ( for me )
-
-```bash
-brew install --cask \
-    charles \
-    clion \
-    datagrip \
-    docker \
-    desmume \
-    goland \
-    iina \
-    keycastr \
-    kindle \
-    microsoft-office \
-    mounty \
-    notion \
-    phpstorm \
-    renamer \
-    thunder \
-    virtualbox \
-    wireshark
-```
-
-**Some optional softwares below are unabled to be installed by Homebrew-Cask.**
-
-Available in App Store
+Install the optional softwares via Mac App Store
 
 - Apple Configurator 2
 
-Available on official homepages
+Others available on official homepages
 
-- 百度网盘 : https://pan.baidu.com/pcloud/home
+-   百度网盘:
+    https://pan.baidu.com/pcloud/home
 
-## CLI Tools
+## CLI Programs
 
-**CLI - Command Line Interface**
+CLI: Command Line Interface
 
-Install CLI tools by command `brew`
+> Recommend to install CLI programs via Homebrew
 
-- Although some softwares has been pre-installed in macOS, their versions are often outdated.
-- You should install & update them by yourself.
+Although some softwares has been pre-installed in macOS,
+their versions are often outdated.
 
-What to Install
+So recommend to install and upgrade them via Homebrew again.
 
-- [autoconf](https://www.gnu.org/software/autoconf/autoconf.html)
-    - Produce shell scripts to automatically configure software source code packages
-- [cmake](https://cmake.org/)
-    - An cross-platform family of tools designed to build, test and package software
-- [coreutils](http://www.gnu.org/s/coreutils/)
-    - The basic file, shell and text manipulation utilities of the GNU operating system
-    - Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html). e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
-- [curl](https://curl.haxx.se/)
-    - Transfer data with URLs
-    - For HTTP debug & download files
-- [expect](https://linux.die.net/man/1/expect)
-    - Programmed dialogue with interactive programs
-    - I write a script using expect for remote login
-- [gawk](https://linux.die.net/man/1/gawk) ( awk )
-    - Pattern scanning and processing language
-    - For text formatting & log analysis
-- _[gradle](https://gradle.org/)_
-    - A build automation tool focused on flexibility and performance
-    - For building Java & Groovy projects based on config file *.gradle
-- _[groovysdk](http://www.groovy-lang.org/)_
-    - A multi-faceted language for the Java platform
-    - For Java unit-testing ( [Spock](http://spockframework.org/) ) or Groovy projects
-    - Notice : Install **groovysdk** but ~~groovy~~ by Homebrew ( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) )
-    - More : Add Groovy SDK to IntelliJ IDEA ( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) )
-- [git](https://git-scm.com/)
-    - A distributed version control system
-    - For code management
-- [jq](https://stedolan.github.io/jq/)
-    - A lightweight and flexible command-line JSON processor
-    - For JSON formatting
-        - Basic filters
-        - Builtin operators & functions
-        - Advanced features…
-- [maven](https://maven.apache.org/)
-    - A software project management and comprehension tool
-    - For Java project management based on config files - pom.xml
-- [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
-    - Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
-    - For `tmux` to write and read system clipboard.
-- [ruby](https://www.ruby-lang.org/en/)
-    - Ruby programming language
-    - Package Manger : `gem`
-- [vim](https://www.vim.org/)
-    - The God of editors - Vim / the editor of Gods - Emacs
-    - text editor in CLI
-    - optional : `nvim` aka. [Neovim](https://neovim.io/)
-- [wget](https://www.gnu.org/software/wget/)
-    - Download files via HTTP/HTTPS、FTP/FTPS protocols.
+### What to Install
+
+-   [autoconf](https://www.gnu.org/software/autoconf/autoconf.html):
+    Produce shell scripts to automatically configure software source code packages
+
+-   [cmake](https://cmake.org/):
+    An cross-platform family of tools designed to build, test and package software
+
+-   [coreutils](http://www.gnu.org/s/coreutils/):
+    The basic file, shell and text manipulation utilities of the GNU operating system.
+
+    Include many useful commands, see TOC of
+    [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
+    E.g., use
+    [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
+    to get absolute path to a file or directory
+
+-   [curl](https://curl.haxx.se/):
+    Transfer data with URLs.
+    For HTTP debug & download files
+
+-   [expect](https://linux.die.net/man/1/expect):
+    Programmed dialogue with interactive programs.
+    _I can write a script using expect for remote login._
+
+-   [gawk](https://linux.die.net/man/1/gawk) ( awk ) :
+    Pattern scanning and processing language.
+    For text formatting & log analysis.
+
+-   _[gradle](https://gradle.org/):_
+    _A build automation tool focused on flexibility and performance._
+    _For building Java & Groovy projects based on config file \*.gradle_
+
+-   _[groovysdk](http://www.groovy-lang.org/):_
+    _A multi-faceted language for the Java platform_
+    _For Java unit-testing ( [Spock](http://spockframework.org/) )_
+    _or Groovy projects._
+
+    _Install **groovysdk** but ~~groovy~~ by Homebrew_
+    _( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) ) ._
+    _Add Groovy SDK to IntelliJ IDEA_
+    _( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) ) ._
+
+-   [git](https://git-scm.com/):
+    A distributed version control system.
+    For code management.
+
+-   [jq](https://stedolan.github.io/jq/):
+    A lightweight and flexible command-line JSON processor.
+    For JSON formatting:
+
+    - Basic filters
+    - Builtin operators & functions
+    - Advanced features…
+
+-   [maven](https://maven.apache.org/):
+    A software project management and comprehension tool.
+    For Java project management based on config files `pom.xml`.
+
+-   _[reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):_
+    _Reattach to the per-user bootstrap namespace_
+    _in its "Background" session then exec the program with args._
+    _For `tmux` to write and read system clipboard._
+
+-   [ruby](https://www.ruby-lang.org/en/):
+    Ruby programming language.
+    Package Manger: `gem`.
+
+-   [vim](https://www.vim.org/):
+    A text editor in CLI.
+    An alternate is `nvim` - [Neovim](https://neovim.io/).
+    "The God of editors is Vim. The editor of Gods is Emacs."
+
+-   [wget](https://www.gnu.org/software/wget/):
+    Download files via HTTP/HTTPS、FTP/FTPS protocols.
+
 - …
 
 ### Required
+
+Install the required softwares via Homebrew
 
 ```bash
 brew install \
@@ -377,6 +476,8 @@ brew install \
 ```
 
 ### Optional
+
+Install the optional softwares via Homebrew
 
 ```bash
 brew install \
@@ -405,57 +506,68 @@ brew install \
 
 ### JDK
 
-1\. Install [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) version 8
+JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 
-- Download the [binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) of macOS x64 from offical website
+1.  Download
+    [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+    for macOs on the offical website
 
-2\. Get JDK path
+    _The recommended version is still stable **8** on 2021-01-01._
 
-- For latest version, execute `/usr/libexec/java_home`
+1.  Install
 
-```bash
-$ /usr/libexec/java_home -v 1.8
-/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
-```
+1.  Set the environment variable `JAVA_HOME`
 
-3\. Set environment variable `JAVA_HOME`
+    Append the command below to the file `~/.zshrc`:
 
-- Append the command line below to config file `~/.bashrc`
-    - If `~/.bashrc` doesn't exists, create it.
-    - If use other shell such as `zsh`, append to `~/.zshrc`
+    ```bash
+    export JAVA_HOME=`/usr/libexec/java_home -v 8`
+    ```
 
-```bash
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-```
+    - If `~/.zshrc` doesn't exists, create it.
+    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
 
-`~` tilde symbol
+    _For getting the path of JDK 8, run the command:_
 
-- In the path `~/.bashrc`, `~` means current user's home directory
-- In macOS, it's `/Users/[USERNAME]` such as `/Users/IceHe`
+    ```bash
+    $ /usr/libexec/java_home -v 8
+    /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
+    ```
+
+    _The tilde symbol `~` equals the path of the current user's home directory._
+    _E.g. `/Users/IceHe` on my Mac._
 
 ### IntelliJ IDEA
 
-1\. Download [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) from [offical website](https://www.jetbrains.com/idea/)
+1.  Download the
+    [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac)
+    on the [offical website](https://www.jetbrains.com/idea/)
 
-- Version choices :
-    - **Ultimate** : Fully Functional
-    - **Community** : Free
+1.  Install
 
-2\. Get and set Lincense
+1.  Get the lincense
 
-- Get license
-    - You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial).
-    - Or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
-        - Free Educational Licenses : https://www.jetbrains.com/community/education/#students
-        - 学生授权申请方式 - 中文 : https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式
-- Set license _( omitted… )_
+    You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+    or
+    [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
-3\. Sync settings
+    _References :_
+    _[Free Educational Licenses](https://www.jetbrains.com/community/education/#students)_
+    _/ [学生授权申请方式 - 中文](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
 
-- Share settings through a settings repository : https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository
-    - `File` → `Manage IDE Settings` → `Settings Repository…`
-        - 1\. Input HTTPS URL of the settings Github repository.
-        - 2\. Input the Github access token.
+1.  Set the lincense
+
+1.  Synchronize the settings
+
+    [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+
+    Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+    to share the same settings accroos multiple JetBrains's accounts.
+
+    1. `File` → `Manage IDE Settings` → `Settings Repository…`
+    1. Input HTTPS URL of the settings Github repository.
+    1. Input the Github access token.
+
 
 3\. Install plugins
 
