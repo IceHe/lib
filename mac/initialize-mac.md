@@ -537,65 +537,89 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     or
     [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
-    _References :_
-    _[Free Educational Licenses](https://www.jetbrains.com/community/education/#students)_
-    _/ [学生授权申请方式 - 中文](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
+    References:
+    [Free Educational Licenses](https://www.jetbrains.com/community/education/#students)
+    / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)
 
 1.  Set the lincense
 
 1.  Synchronize the settings
 
     Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
-    to share the same settings accroos multiple JetBrains's accounts.
+    for sharing the same settings accroos multiple JetBrains's accounts.
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
     1. Input HTTPS URL of the settings Github repository.
     1. Input the Github access token.
 
-    Reference: [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+    But it allows to sync any configurable components
+    **except for the list of enabled and disabled plugins**.
 
-1. Install plugins
+    Reference ( including other alternatives ) :
+    [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
 
-    - [AceJump](https://plugins.jetbrains.com/plugin/7086-acejump) _( trying )_
-    - [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) _( trying )_
-    - [Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript) _( trying )_
-    - [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts)
-    - [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) : _Reformats Java source code to comply with Google Java Style._
-        - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
-        - [GitHub - google/google-java-format](https://github.com/google/google-java-format)
-    - [Grep Console](https://pluginjjs.jetbrains.com/plugin/7125-grep-console) _( trying )_
-    - [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat) : _Generate POJO according to JSON_
-    - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) : _Vim emulator - edit text like Vim_
-    - [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) _( trying )_
-    - [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij) _( to try )_
-    - [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X)
-    - [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
-        - [Project Lombok](https://projectlombok.org/)
-            - _It is a java library that automatically plugs into your editor and build tools, spicing up your java._
-            - _Never write another getter or equals method again. Early access to future java features such as val, and much more._
-    - [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
-    - [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) : _Draw UML graphs for docs by [PlantUML](http://plantuml.com/)_
-    - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) _( trying )_
-    - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
-    - [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
+1.  Install plugins
 
-4\. Set Font `Consolas`
+    -   [AceJump](https://plugins.jetbrains.com/plugin/7086-acejump):
+        ( trying )
+        Quickly navigate the caret to any position visible in the editor.
+    -   [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea):
+        ( trying )
+        Scan of Java files with CheckStyle from within IDEA.
+    -   [Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript)
+        ( trying )
+    -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts):
+        Forces the user to use keyboard shortcuts by blocking click action
+        <!-- and displaying the keyboard shortcut in a popup. -->
+    -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format):
+        Reformats Java source code to comply with
+        [Google Java Style](https://google.github.io/styleguide/javaguide.html)
+    -   [Grep Console](https://plugin.jetbrains.com/plugin/7125-grep-console)
+        ( trying )
+    -   [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat):
+        Generate POJO according to JSON
+    -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim):
+        Vim emulator - edit text like Vim
+    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow)
+    -   [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij)
+        ( to try )
+    -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X):
+        Learn essential shortcuts while you are working
+    -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin):
+        Never write another getter or equals method again.
+        <!-- [Project Lombok](https://projectlombok.org/) -->
+        <!-- is a java library that automatically plugs into your editor -->
+        <!-- and build tools, spicing up your java. -->
+        <!-- _Early access to future java features such as val, and much more._ -->
+    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
+    -   [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration):
+        Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
+    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
+    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
+    -   [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
 
-- Download Font
-- Update Preference
-    - `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
+    References:
 
-_References_
+    - [21 Best IntelliJ Plugins for 2019 (100% Free)](https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free)
+    - [IntelliJ IDEA best plugins](https://www.vojtechruzicka.com/idea-best-plugins)
 
-- https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free
-- https://www.vojtechruzicka.com/idea-best-plugins
+1.  Set the font `Consolas`
+
+    1.  Download on the Internet
+
+    1.  Update the preference:
+
+        `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
 
 ### Maven
 
-1. Copy the content of the Maven configuration file template.
-    - _You can find it on the Internet._
-2. Open and overwrite the local Maven config file `~/.m2/settting.xml`.
-    - `open` : open file with default editor
+1.  Copy the content of the Maven configuration file template
+
+    _Search it on the Internet_
+
+1.  Open and overwrite the local Maven config file `~/.m2/settting.xml`
+
+    _`open` : open file with default editor_
 
 ```bash
 open ~/.m2/settting.xml
