@@ -6,7 +6,7 @@ How to initialize my Mac?
 
 Reference: [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
-Related articles on icehe.xyz ( my website ) :
+Related articles on icehe.xyz ( my website ):
 
 - [Tools: 利器 - 软件 / 物件的推荐](/marks/tools/tools.md)
 - [Efficiency: 效率指南](/mac/efficiency.md)
@@ -144,7 +144,7 @@ xcode-select install
 
 and then re-run yours again.
 
-_Notice :_
+_Notice:_
 _It doesn't work on Apple Silicon M1 Mac with macOS Big Sur. ( 2020-12-12 )_
 
 ## Homebrew
@@ -169,7 +169,7 @@ for installing and managing softwares on macOS.
     Reference:
     [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
-    <!--     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170 -->
+    <!--     - Mac 下镜像飞速安装 Homebrew 教程: https://zhuanlan.zhihu.com/p/90508170 -->
 
 1.  Validate
 
@@ -203,11 +203,11 @@ for installing and managing softwares on macOS.
     ```bash
     # Homebrew-bottles
 
-    ## For BASH users :
+    ## For BASH users:
     echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
         >> ~/.bash_profile && source ~/.bash_profile
 
-    ## For ZSH users :
+    ## For ZSH users:
     echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
         >> ~/.zshrc && source ~/.zshrc
     ```
@@ -270,7 +270,7 @@ brew install --cask \
     wechat
 ```
 
-_Notice : Have to search `sogou` in Spotlight to execute its installation then._
+_Notice: Have to search `sogou` in Spotlight to execute its installation then._
 
 ### Optional
 
@@ -387,7 +387,7 @@ So recommend to install and upgrade them via Homebrew again.
     Programmed dialogue with interactive programs.
     _I can write a script using expect for remote login._
 
--   [gawk](https://linux.die.net/man/1/gawk) ( awk ) :
+-   [gawk](https://linux.die.net/man/1/gawk) ( awk ):
     Pattern scanning and processing language.
     For text formatting & log analysis.
 
@@ -537,9 +537,9 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     or
     [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
-    References:
-    [Free Educational Licenses](https://www.jetbrains.com/community/education/#students)
-    / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)
+    _References:_
+    _[Free Educational Licenses](https://www.jetbrains.com/community/education/#students)_
+    _/ [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
 
 1.  Set the lincense
 
@@ -547,25 +547,24 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 
     Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
     for sharing the same settings accroos multiple JetBrains's accounts.
+    _But it allows to sync any configurable components_
+    _except for the list of enabled and disabled plugins._
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
     1. Input HTTPS URL of the settings Github repository.
     1. Input the Github access token.
 
-    But it allows to sync any configurable components
-    **except for the list of enabled and disabled plugins**.
-
-    Reference ( including other alternatives ) :
-    [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+    _Reference ( including other alternatives ):_
+    _[Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)_
 
 1.  Install plugins
 
     -   [AceJump](https://plugins.jetbrains.com/plugin/7086-acejump):
         ( trying )
-        Quickly navigate the caret to any position visible in the editor.
+        Quickly navigate the caret to any position visible in the editor
     -   [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea):
         ( trying )
-        Scan of Java files with CheckStyle from within IDEA.
+        Scan of Java files with CheckStyle from within IDEA
     -   [Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript)
         ( trying )
     -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts):
@@ -574,29 +573,41 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format):
         Reformats Java source code to comply with
         [Google Java Style](https://google.github.io/styleguide/javaguide.html)
-    -   [Grep Console](https://plugin.jetbrains.com/plugin/7125-grep-console)
+    -   [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console):
         ( trying )
+        Grep, tail, filter, highlight... everything you need for a console
+        ( not supporting terminals )
     -   [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat):
         Generate POJO according to JSON
     -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim):
         Vim emulator - edit text like Vim
-    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow)
-    -   [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij)
+    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow):
+        Colorize the indentation in front of your text
+        alternating four different colors on each step
+    -   [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij):
         ( to try )
+        Allow developers to reload code changes instantly
     -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X):
         Learn essential shortcuts while you are working
     -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin):
-        Never write another getter or equals method again.
+        Never write another getter or equals method again
         <!-- [Project Lombok](https://projectlombok.org/) -->
         <!-- is a java library that automatically plugs into your editor -->
         <!-- and build tools, spicing up your java. -->
         <!-- _Early access to future java features such as val, and much more._ -->
-    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
+    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper):
+        A must have plugin for working with Maven
     -   [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration):
         Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
-    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
-    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
-    -   [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
+    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets):
+        Code faster and smarter using code completions
+        learned from millions of programs directly
+    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation):
+        Case switching, sorting, filtering, incrementing,
+        aligning to columns, grepping, escaping, encoding…
+    -   [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator):
+        Display the tab number indicator
+        before the opened file name int editor tabs.
 
     References:
 
@@ -606,9 +617,7 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 1.  Set the font `Consolas`
 
     1.  Download on the Internet
-
     1.  Update the preference:
-
         `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
 
 ### Maven
@@ -619,25 +628,25 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 
 1.  Open and overwrite the local Maven config file `~/.m2/settting.xml`
 
-    _`open` : open file with default editor_
+    ```bash
+    open ~/.m2/settting.xml
+    ```
 
-```bash
-open ~/.m2/settting.xml
-```
+    _`open`: open file with default editor_
 
-Notice :
-
-- If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
+_Notice:_
+_If use your own private devices & Maven configuration files exists,_
+_please merge the content of configurations carefully._
 
 <!--
 
 ## Mac Apps
 
-References :
+References:
 
-- [Tools](/marks/tools/tools.md) : 利器 - 软件 / 物件的推荐
-- [Efficiency](/mac/efficiency.md) : 效率指南
-- [Shortcuts](/mac/shortcuts/shortcuts.md) : 快捷键
+- [Tools](/marks/tools/tools.md): 利器 - 软件 / 物件的推荐
+- [Efficiency](/mac/efficiency.md): 效率指南
+- [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
 
 ### Common
 
@@ -673,12 +682,12 @@ Code Editor
             - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) plugin
     - Support [PlatUML](http://plantuml.com/) ( *.puml file )
         - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) plugin
-    - Advanced : Vim emulator - edit text like Vim
+    - Advanced: Vim emulator - edit text like Vim
         - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) plugin
 - [Sublime Text](https://www.sublimetext.com/) _( Lightweight & Fastest )_
     - Lightweight, easy to use, free
     - Its cold boot is the fastest. ( compared to VS Code, Atom & etc. )
-    - Builtin **Vintage** Mode : edit text like Vim
+    - Builtin **Vintage** Mode: edit text like Vim
 
 ### Recommended
 
@@ -687,8 +696,8 @@ Clipboard Management
 - [Copy'em Paste](http://apprywhere.com/copy-em-paste.html)
     - More configurations
 - [Paste 2](https://pasteapp.me/)
-    - Advantages : Simple, pretty, easy to use, able to search copied content.
-    - Disadvantages : It takes up too much screen space.
+    - Advantages: Simple, pretty, easy to use, able to search copied content.
+    - Disadvantages: It takes up too much screen space.
 - …
 - Reasons for installation
     - You often switch Apps when you are copying and pasting.
@@ -716,9 +725,7 @@ Mind Mapping
 
 ## Preferences
 
-Include
-
-- Development configurations on local & remote machines
+Include the development configurations on local and remote machines
 
 ### System
 
@@ -728,9 +735,9 @@ Key Repeat
     - 1\. Run command `defaults write -g ApplePressAndHoldEnabled -bool false`
     - 2\. Reboot & check
 - References
-    - Search Google : "macos mojave keyboard cannot repeat"
-        - Problem with key repeat - Apple Community : https://discussions.apple.com/thread/8068772
-        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key : https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
+    - Search Google: "macos mojave keyboard cannot repeat"
+        - Problem with key repeat - Apple Community: https://discussions.apple.com/thread/8068772
+        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key: https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
 
 iCloud
 
@@ -742,7 +749,7 @@ Dock
 - Enable `Automatically hide and show the Dock`
 - Disable `Animate opening applications`
 - Disable all Apps `Options` → `Keep in Dock`
-- 通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派 : https://sspai.com/post/33366
+- 通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派: https://sspai.com/post/33366
 
 ```bash
 defaults write com.apple.dock autohide-delay -int 0
@@ -784,8 +791,8 @@ Users & Groups
 
 Disable animations to accelerate macOS _( Optional )_
 
-- Mac 加速：干掉那些「炫酷」的动画 - 知乎 : https://zhuanlan.zhihu.com/p/20667030
-- _( TODO : 观察还有哪些命令还有效果, 还有效果的命令就记录到本文; 如果基本没啥用了, 就直接删掉这一步吧 )_
+- Mac 加速：干掉那些「炫酷」的动画 - 知乎: https://zhuanlan.zhihu.com/p/20667030
+- _( TODO: 观察还有哪些命令还有效果, 还有效果的命令就记录到本文; 如果基本没啥用了, 就直接删掉这一步吧 )_
 
 ### Apps
 
@@ -806,21 +813,21 @@ Chrome
 - Login
 - Turn on `Sync`
 - Install extensions
-    - [1Password](https://agilebits.com/browsers/welcome.html) : Password Manager
-    - [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
+    - [1Password](https://agilebits.com/browsers/welcome.html): Password Manager
+    - [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter
         - If open too many tabs, you can stash them in OneTab to save memory space & visible screen area
-    - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
-    - [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
-    - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
-    - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim.
-    - [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application.
-    - _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) : The most popular userscript manager. It's used to run so called userscripts._
+    - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm): A lightweight AD blocker
+    - [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa): Make JSON easy to read
+    - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif): Manage and switch between multiple proxies quickly & easily
+    - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim.
+    - [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application.
+    - _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
 
 <!--
 
-- ~~[cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ) : Add Vim-like key-bindings to Chrome for faster operations~~
-    - ~~How to Use~~ : https://droidrant.com/using-cvim
-    - ~~Source Code~~ : https://github.com/1995eaton/chromium-vim
+- ~~[cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ): Add Vim-like key-bindings to Chrome for faster operations~~
+    - ~~How to Use~~: https://droidrant.com/using-cvim
+    - ~~Source Code~~: https://github.com/1995eaton/chromium-vim
 
 -->
 
@@ -851,11 +858,11 @@ Visual Studio Code
 - Sync settings
     - https://code.visualstudio.com/docs/editor/settings-sync
 - Install extensions
-    - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
+    - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Check Markdown style
     - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         - [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
-    - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) _( *.puml file )_
-    - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
+    - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml): Support [PlatUML](http://plantuml.com/) _( *.puml file )_
+    - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim): Vim emulator - edit text like Vim
 
 iTerm 2
 
@@ -950,7 +957,7 @@ https://ohmyz.sh
 
 - Link `~/.vimrc` to `~/.config/nvim/init.vim` ( run command as follow )
     - Or `nvim` maybe cannot write or read the system clipboard.
-    - Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub : https://github.com/neovim/neovim/issues/7945
+    - Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub: https://github.com/neovim/neovim/issues/7945
 
 ```bash
 ln -s /Users/[USERNAME]/.vimrc /Users/[USERNAME]/.config/nvim/init.vim
@@ -991,7 +998,7 @@ user.email=icehe@gmail.com
 
 #### Sublime Text
 
-TODO : record?
+TODO: record?
 
 https://packagecontrol.io/packages/Sync%20Settings
 
@@ -1001,7 +1008,7 @@ https://packagecontrol.io/packages/Sync%20Settings
 
 1\. Add SSH public SSH key for accounts
 
-- Advantage : No longer need to enter username & password on trusted devices ( before operations )
+- Advantage: No longer need to enter username & password on trusted devices ( before operations )
 
 2\. Generate SSH key
 
