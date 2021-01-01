@@ -4,17 +4,13 @@ How to initialize my Mac?
 
 ---
 
-Reference
+Reference: [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
--   macOS Setup Guide:
-    http://sourabhbajaj.com/mac-setup
+Related articles on icehe.xyz ( my website ) :
 
-Related
-
-- icehe.xyz ( my website )
-    - [Tools](/marks/tools/tools.md): 利器 - 软件 / 物件的推荐
-    - [Efficiency](/mac/efficiency.md): 效率指南
-    - [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
+- [Tools: 利器 - 软件 / 物件的推荐](/marks/tools/tools.md)
+- [Efficiency: 效率指南](/mac/efficiency.md)
+- [Shortcuts: 快捷键](/mac/shortcuts/shortcuts.md)
 
 ## Guidelines
 
@@ -54,10 +50,8 @@ References
 
 - Apple Support
 
-    -   如何创建可引导的 macOS 安装器:
-        https://support.apple.com/zh-cn/HT201372
-    -   如何重新安装 macOS:
-        https://support.apple.com/zh-cn/HT204904
+    - [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
+    - [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
 Steps
 
@@ -172,8 +166,8 @@ for installing and managing softwares on macOS.
     "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
     ```
 
-    Reference: **Homebrew 国内如何自动安装 ( 国内地址 )**
-    https://zhuanlan.zhihu.com/p/111014448
+    Reference:
+    [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
     <!--     - Mac 下镜像飞速安装 Homebrew 教程 : https://zhuanlan.zhihu.com/p/90508170 -->
 
@@ -218,8 +212,8 @@ for installing and managing softwares on macOS.
         >> ~/.zshrc && source ~/.zshrc
     ```
 
-    -   Reference: Homebrew (中国大陆) 有比较快的源 (mirror) 吗?
-        https://www.zhihu.com/question/31360766/answer/749386652
+    Reference:
+    [Homebrew (中国大陆) 有比较快的源 (mirror) 吗?](https://www.zhihu.com/question/31360766/answer/749386652)
 
 1.  Update and upgrade
 
@@ -243,7 +237,8 @@ and allows you to install large binary files via a command-line tool.
 
 > Recommend to install Mac Apps via Homebrew-Cask
 
-Available Softwares : https://formulae.brew.sh/cask
+Available softwares on Homebrew-Cask:
+[Homebrew Formulae](https://formulae.brew.sh/cask)
 
 ### Required
 
@@ -325,25 +320,17 @@ Install the required softwares via Mac App Store
 
 Others available on GitHub
 
--   Amphetamine Enhancer:
-    https://github.com/x74353/Amphetamine-Enhancer
--   TrojanX:
-    https://github.com/JimLee1996/TrojanX/releases
-    -   Official homepage:
-        https://github.com/JimLee1996/TrojanX
--   _or Trojan:_
-    https://trojan-gfw.github.io/trojan
-    -   _GitHub:_
-        https://github.com/trojan-gfw/trojan
-    -   _GitHub Wiki:_
-        https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions
+-   [Amphetamine Enhancer](https://github.com/x74353/Amphetamine-Enhancer)
+-   [TrojanX](https://github.com/JimLee1996/TrojanX/releases)
+    _( [official homepage](https://github.com/JimLee1996/TrojanX) )_
+-   [Trojan](https://trojan-gfw.github.io/trojan)
+    _( [GitHub](https://github.com/trojan-gfw/trojan)_
+    _/ [GitHub Wiki](https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions) )_
 
 Others available on the official homepages
 
--   Copy 'Em Helper:
-    https://apprywhere.com/ce-helper.html
--   Logi Options:
-    https://www.logitech.com.cn/zh-cn/product/options
+- [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options)
 
 <!--
 
@@ -362,8 +349,7 @@ Install the optional softwares via Mac App Store
 
 Others available on official homepages
 
--   百度网盘:
-    https://pan.baidu.com/pcloud/home
+- [百度网盘](https://pan.baidu.com/pcloud/home)
 
 ## CLI Programs
 
@@ -446,7 +432,7 @@ So recommend to install and upgrade them via Homebrew again.
 
 -   [vim](https://www.vim.org/):
     A text editor in CLI.
-    An alternate is `nvim` - [Neovim](https://neovim.io/).
+    An alternate is `nvim`: [Neovim](https://neovim.io/).
     "The God of editors is Vim. The editor of Gods is Emacs."
 
 -   [wget](https://www.gnu.org/software/wget/):
@@ -509,7 +495,7 @@ brew install \
 JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 
 1.  Download
-    [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+    [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     for macOs on the offical website
 
     _The recommended version is still stable **8** on 2021-01-01._
@@ -559,8 +545,6 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 
 1.  Synchronize the settings
 
-    [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
-
     Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
     to share the same settings accroos multiple JetBrains's accounts.
 
@@ -568,31 +552,32 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     1. Input HTTPS URL of the settings Github repository.
     1. Input the Github access token.
 
+    Reference: [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
 
-3\. Install plugins
+1. Install plugins
 
-- [AceJump](https://plugins.jetbrains.com/plugin/7086-acejump) _( trying )_
-- [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) _( trying )_
-- [Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript) _( trying )_
-- [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts)
-- [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) : _Reformats Java source code to comply with Google Java Style._
-    - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
-    - [GitHub - google/google-java-format](https://github.com/google/google-java-format)
-- [Grep Console](https://pluginjjs.jetbrains.com/plugin/7125-grep-console) _( trying )_
-- [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat) : _Generate POJO according to JSON_
-- [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) : _Vim emulator - edit text like Vim_
-- [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) _( trying )_
-- [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij) _( to try )_
-- [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X)
-- [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
-    - [Project Lombok](https://projectlombok.org/)
-        - _It is a java library that automatically plugs into your editor and build tools, spicing up your java._
-        - _Never write another getter or equals method again. Early access to future java features such as val, and much more._
-- [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
-- [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) : _Draw UML graphs for docs by [PlantUML](http://plantuml.com/)_
-- [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) _( trying )_
-- [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
-- [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
+    - [AceJump](https://plugins.jetbrains.com/plugin/7086-acejump) _( trying )_
+    - [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) _( trying )_
+    - [Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript) _( trying )_
+    - [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts)
+    - [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) : _Reformats Java source code to comply with Google Java Style._
+        - [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+        - [GitHub - google/google-java-format](https://github.com/google/google-java-format)
+    - [Grep Console](https://pluginjjs.jetbrains.com/plugin/7125-grep-console) _( trying )_
+    - [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat) : _Generate POJO according to JSON_
+    - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) : _Vim emulator - edit text like Vim_
+    - [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) _( trying )_
+    - [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij) _( to try )_
+    - [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X)
+    - [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin)
+        - [Project Lombok](https://projectlombok.org/)
+            - _It is a java library that automatically plugs into your editor and build tools, spicing up your java._
+            - _Never write another getter or equals method again. Early access to future java features such as val, and much more._
+    - [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper)
+    - [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) : _Draw UML graphs for docs by [PlantUML](http://plantuml.com/)_
+    - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) _( trying )_
+    - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
+    - [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator)
 
 4\. Set Font `Consolas`
 
