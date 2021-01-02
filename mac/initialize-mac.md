@@ -14,26 +14,26 @@ Related articles on icehe.xyz ( my website ):
 
 ## Guidelines
 
--   **Based on macOS**
+**Based on macOS**
 
-    Applicable macOS versions: Big Sur / Catalina / …
+- Applicable macOS versions: Big Sur / Catalina / …
 
--   **Follow principles**
+**Follow principles**
 
-    - **KISS - Keep It Simple & Stupid** ( 简单原则 )
+- **KISS: Keep It Simple and Stupid** ( 简单原则 )
 
-        Focus on the process and omit the extra descriptions.
+    Focus on the process and omit the extra descriptions.
 
-        _E.g., apps' introductions & usages_
-        _/ software technology / developer knowledge …_
+    <!-- _E.g., apps' introductions & usages_ -->
+    <!-- _/ software technology / developer knowledge …_ -->
 
-    - **OOTB - Out Of The Box** ( 开箱即用 )
+- **OOTB: Out Of The Box** ( 开箱即用 )
 
-        Try to minimize the modification of the initial settings.
+    Try to minimize the modification of the initial settings.
 
--   **For your reference** ( 仅供参考 )
+**For your reference** ( 仅供参考 )
 
-    Assume that you are an experienced Mac user and a software developer.
+- Assume that you are an experienced Mac user and a software developer.
 
 ---
 
