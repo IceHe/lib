@@ -6,6 +6,8 @@ How to initialize my Mac?
 
 Reference: [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
+<!--  -->
+
 Related articles on icehe.xyz ( my website ):
 
 - [Tools: 利器 - 软件 / 物件的推荐](/marks/tools/tools.md)
@@ -22,27 +24,27 @@ Related articles on icehe.xyz ( my website ):
 
 - **KISS: Keep It Simple and Stupid** ( 简单原则 )
 
-    Focus on the process and omit the extra descriptions.
+    Focus on the process and omit the unnecessary descriptions
 
-    <!-- _E.g., apps' introductions & usages_ -->
-    <!-- _/ software technology / developer knowledge …_ -->
+    _E.g., apps' introductions & usages_
+    _/ software technology / developer knowledge …_
 
 - **OOTB: Out Of The Box** ( 开箱即用 )
 
-    Try to minimize the modification of the initial settings.
+    Try to minimize the modification of the initial settings
 
 **For your reference** ( 仅供参考 )
 
-- Assume that you are an experienced Mac user and a software developer.
+- Assume that you are an experienced Mac user and a software developer
 
 ---
 
-- 尽可能在粗疏简略与巨细无遗之间找一个合适的平衡
+尽可能在粗疏简略与巨细无遗之间寻找一个合适的平衡
 
-    -   过于粗略 ——
-        搞不明白如何操作, 无法快速完成配置
-    -   过于详细 ——
-        相关软件更新后, 配置路径/名称/方式等发生变化, 导致说明的内容失效
+-   过于粗略 ——
+    搞不明白如何操作, 无法快速完成配置
+-   过于详细 ——
+    相关软件更新后, 配置路径/名称/方式等发生变化, 导致说明的内容失效
 
 ## Install or Restore macOS
 
@@ -57,7 +59,7 @@ Steps
 
 1. Search `macOS` in Mac App Store and download its installation
 
-1. Create bootable installer ( U盘安装, 需要创建引导分区 )
+1. Create the bootable installer ( U盘安装, 需要创建引导分区 )
 
     ```bash
     # e.g. macOS Big Sur
@@ -82,9 +84,9 @@ Steps
 
 Suggestion ( on 2020-12-10 )
 
--   如果用硬盘全量备份然后将数据还原到新机器上,
+-   如果用硬盘全量备份然后将数据还原到新的设备上,
     假以时日, 系统中会留存越来越多用不着的东西;
-    现在觉得重新配置新机器是更好的选择.
+    现在觉得完全重新配置新的设备是更好的选择.
 
 ## Network Proxy
 
@@ -228,7 +230,7 @@ for installing and managing softwares on macOS.
     -   `brew update`:
         Fetch the newest version of Homebrew from GitHub using git.
     -   `brew upgrade`:
-        Upgrade outdated, unpinned brews ( commands installed by Homebrew ).
+        Upgrade outdated, unpinned brews ( the commands installed by Homebrew ).
 
 ## Homebrew-Cask
 
@@ -475,7 +477,6 @@ brew install \
     gawk \
     gradle \
     groovysdk \
-    mysql@5.6 \
     mysql@5.7 \
     mysql \
     node \
