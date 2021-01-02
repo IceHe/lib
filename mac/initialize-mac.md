@@ -638,91 +638,6 @@ _Notice:_
 _If use your own private devices & Maven configuration files exists,_
 _please merge the content of configurations carefully._
 
-<!--
-
-## Mac Apps
-
-References:
-
-- [Tools](/marks/tools/tools.md): 利器 - 软件 / 物件的推荐
-- [Efficiency](/mac/efficiency.md): 效率指南
-- [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
-
-### Common
-
-Instant Messaging
-
-- [Mac QQ](http://im.qq.com/macqq/)
-
-Email
-
-- Mail
-    - macOS builtin mail client
-- [Microsoft Outlook](https://products.office.com/zh-cn/outlook/email-and-calendar-software-microsoft-outlook?tab=tabs-1) ( recommend to purchase )
-    - Better rules for too many emails
-    - [Office 365](https://products.office.com/zh-cn/compare-all-microsoft-office-products?tab=1) license ( include Outlook, Word, Excel, PPT & etc. )
-
-Browser
-
-- [Chrome](https://www.google.com/chrome/)
-
-Terminal Emulator
-
-- [iTerm2](https://www.iterm2.com/)
-    - Better than macOS builtin Terminal
-
-Code Editor
-
-- [VS Code](https://code.visualstudio.com/) _( Powerful )_
-    - Easy to use, free, open source
-    - Support [Markdown](https://docs.gitlab.com/ee/user/markdown.html) ( *.md file )
-        - Check Markdown style
-            - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) plugin
-        - Support [PlatUML](http://plantuml.com/) real-time rendering in Markdown code blocks
-            - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) plugin
-    - Support [PlatUML](http://plantuml.com/) ( *.puml file )
-        - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) plugin
-    - Advanced: Vim emulator - edit text like Vim
-        - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) plugin
-- [Sublime Text](https://www.sublimetext.com/) _( Lightweight & Fastest )_
-    - Lightweight, easy to use, free
-    - Its cold boot is the fastest. ( compared to VS Code, Atom & etc. )
-    - Builtin **Vintage** Mode: edit text like Vim
-
-### Recommended
-
-Clipboard Management
-
-- [Copy'em Paste](http://apprywhere.com/copy-em-paste.html)
-    - More configurations
-- [Paste 2](https://pasteapp.me/)
-    - Advantages: Simple, pretty, easy to use, able to search copied content.
-    - Disadvantages: It takes up too much screen space.
-- …
-- Reasons for installation
-    - You often switch Apps when you are copying and pasting.
-    - Clipboard management apps reduces unnecessary manipulatioin, raise efficiency & boost productivity.
-
-Dictionary
-
-- Dictionary 词典
-    - macOS builtin, enough
-- [EuDic](https://www.eudic.net/v4/en/app/eudic) 欧路词典
-- [Youdao Dict](https://itunes.apple.com/cn/app/you-dao-ci-dian/id491854842?mt=12) 有道词典
-
-HTTP API Debug
-
-- [Postman](https://www.getpostman.com/)
-    - for HTTP API debug & test
-
-Mind Mapping
-
-- [MindNote](https://mindnode.com/) ( Recommended )
-- [XMind](https://www.xmind.net/)
-- …
-
--->
-
 ## Preferences
 
 Include the development configurations on local and remote machines
@@ -1047,3 +962,23 @@ pbcopy < ~/.ssh/id_rsa.pub
 - Enter `Settings` webpage and then `SSH Keys` page ( find it yourself )
 - Paste **public key** to input box `Key` ( `Title` input box will be auto-filled )
 - Click `Add key`
+
+## Others
+
+Code Editor
+
+- [VS Code](https://code.visualstudio.com/) _( Powerful )_
+    - Easy to use, free, open source
+    - Support [Markdown](https://docs.gitlab.com/ee/user/markdown.html) ( *.md file )
+        - Check Markdown style
+            - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) plugin
+        - Support [PlatUML](http://plantuml.com/) real-time rendering in Markdown code blocks
+            - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) plugin
+    - Support [PlatUML](http://plantuml.com/) ( *.puml file )
+        - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) plugin
+    - Advanced: Vim emulator - edit text like Vim
+        - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) plugin
+- [Sublime Text](https://www.sublimetext.com/) _( Lightweight & Fastest )_
+    - Lightweight, easy to use, free
+    - Its cold boot is the fastest. ( compared to VS Code, Atom & etc. )
+    - Builtin **Vintage** Mode: edit text like Vim

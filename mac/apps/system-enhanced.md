@@ -28,7 +28,9 @@ http://www.clipmenu.com <sup>Simple</sup>
 - 支持 URL、纯文本、RTF、图片、文件等各种格式，包括剪贴历史的排序、内容的大小写转换、自定义文本的调用。
 - _但是不支持用关键字搜索历史记录, 所以后来改用 Copied 了._
 
-## Copied
+## ~~Copied~~
+
+Clipboard Management
 
 https://copiedapp.com <sup>Favorite, Searchable</sup>
 
@@ -40,6 +42,18 @@ https://copiedapp.com <sup>Favorite, Searchable</sup>
 - App 定制规则：来自不同 App 的内容，分别保存到不同的列表，应用不同的格式化模板。
 - Queue（队列）：先入先出地输出内容（平时默认：后入先出）。
 - 其它选择：[Paste](http://pasteapp.me/) 最好看！这类 App 层出不穷…
+
+<!--  -->
+
+- [Copy'em Paste](http://apprywhere.com/copy-em-paste.html)
+    - More configurations
+- [Paste 2](https://pasteapp.me/)
+    - Advantages: Simple, pretty, easy to use, able to search copied content.
+    - Disadvantages: It takes up too much screen space.
+- …
+- Reasons for installation
+    - You often switch Apps when you are copying and pasting.
+    - Clipboard management apps reduces unnecessary manipulatioin, raise efficiency & boost productivity.
 
 ## ~~PopClip~~
 
@@ -120,6 +134,13 @@ http://www.dejal.com/timeout <sup>Health , Protect Eyes!</sup>
 ### Dictionary
 
 - macOS 系统自带的字典应用，足够好用。<sup>Great</sup>
+
+<!--  -->
+
+- Dictionary 词典
+    - macOS builtin, enough
+- [EuDic](https://www.eudic.net/v4/en/app/eudic) 欧路词典
+- [Youdao Dict](https://itunes.apple.com/cn/app/you-dao-ci-dian/id491854842?mt=12) 有道词典
 
 ## EuDic Free
 
