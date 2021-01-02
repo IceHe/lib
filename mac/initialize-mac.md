@@ -644,53 +644,68 @@ Include the development configurations on local and remote machines
 
 ### System
 
-Key Repeat
-
-- Enable
-    - 1\. Run command `defaults write -g ApplePressAndHoldEnabled -bool false`
-    - 2\. Reboot & check
-- References
-    - Search Google: "macos mojave keyboard cannot repeat"
-        - Problem with key repeat - Apple Community: https://discussions.apple.com/thread/8068772
-        - OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key: https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key/
-
-iCloud
-
-- Login
-- Enable necessary services
-
-Dock
+#### Dock
 
 - Enable `Automatically hide and show the Dock`
 - Disable `Animate opening applications`
-- Disable all Apps `Options` → `Keep in Dock`
-- 通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派: https://sspai.com/post/33366
+- Disable all apps `Options` → `Keep in Dock`
+- [通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派](https://sspai.com/post/33366)
+    ```bash
+    defaults write com.apple.dock autohide-delay -int 0
+    killall Dock
+    ```
 
-```bash
-defaults write com.apple.dock autohide-delay -int 0
-killall Dock
-```
+#### Keyboard
 
-Keyboard
+`Keyboard` Tab
 
-- `Keyboard` Tab
-    - Set `Delay Until Repeat` Max
-    - Set `Key Repeat` Max
-- `Text` Tab
-    - Clear all "Replace With"
-    - Clear all checkboxes
-        - Correct spelling automatically
-        - Capitalize words automatically
-        - Add period with double-space
-        - Use smart quotes and dashes
-        - ……
-- `Shortcuts` Tab
-    - Add App shortcuts
-        - `All Applications` → `Show Help menu` ⌥⇧/
-        - `Google Chrome` → `Extensions` ⇧⌘A
-        - `iTerm` → `Toggle Full Screen` ^⌘F
-- `Input Sources` Tab
-    - Remove the useless input sources
+- Set `Delay Until Repeat` max
+- Set `Key Repeat` max
+
+`Text` Tab
+
+- Clear all `Replace With`
+- Clear the checkboxes:
+    - `Correct spelling automatically`
+    - `Capitalize words automatically`
+    - `Add period with double-space`
+    - `Use smart quotes and dashes`
+    - …
+
+`Shortcuts` Tab
+
+- Add the apps' shortcuts
+    - `All Applications` → `Show Help menu` ⌥⇧/
+    - `Google Chrome` → `Extensions` ⇧⌘A
+    - `iTerm` → `Toggle Full Screen` ^⌘F
+
+`Input Sources` Tab
+
+- Remove the useless input sources
+
+#### Key Repeat
+
+How to enable:
+
+1. Run the command:
+
+    ```bash
+    defaults write -g ApplePressAndHoldEnabled -bool false
+    ```
+
+1. Reboot and validate
+
+References: Search "macos mojave keyboard cannot repeat" on Google
+
+- [Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)
+- [OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
+
+#### Others
+
+iCloud
+
+1. Login
+1. Enable necessary services
 
 Trackpad
 
@@ -702,141 +717,136 @@ Notification
 
 Users & Groups
 
-- Configure `Login Items` (开机启动程序)
-
-Disable animations to accelerate macOS _( Optional )_
-
-- Mac 加速：干掉那些「炫酷」的动画 - 知乎: https://zhuanlan.zhihu.com/p/20667030
-- _( TODO: 观察还有哪些命令还有效果, 还有效果的命令就记录到本文; 如果基本没啥用了, 就直接删掉这一步吧 )_
+- Configure `Login Items` ( 开机启动程序 )
 
 ### Apps
 
-1Password
+#### 1Password
 
-- _Re-install in App Store_ _( maybe )_
-- Unlock iCloud vaults
+1.  Re-install in Mac App Store
+1.  Login the 1Password account
+    or unlock the vaults from the cloud drive.
+    _E.g. iCloud._
 
-.dotfile ( TODO )
+#### Chrome
 
-- github.com/icehe mac-conf
-- git init ~
-- git remote add origin …
-- git pull
+1.  Login the Google account
+1.  Turn on `Sync` _( require the independent synchronization password )_
+1.  Install the extensions:
+    -   [1Password](https://agilebits.com/browsers/welcome.html): Password Manager
+    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter.
+        If open too many tabs, stash them in OneTab to save memory space and visible screen area
+    -   [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm): A lightweight AD blocker
+    -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa): Make JSON easy to read
+    -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif): Manage and switch between multiple proxies quickly & easily
+    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim.
+    -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application.
+    -   _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
 
-Chrome
+#### .dotfiles
 
-- Login
-- Turn on `Sync`
-- Install extensions
-    - [1Password](https://agilebits.com/browsers/welcome.html): Password Manager
-    - [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter
-        - If open too many tabs, you can stash them in OneTab to save memory space & visible screen area
-    - [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm): A lightweight AD blocker
-    - [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa): Make JSON easy to read
-    - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif): Manage and switch between multiple proxies quickly & easily
-    - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim.
-    - [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application.
-    - _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
+E.g. for me below
 
-<!--
+```bash
+cd ~
+git init
+# Require Git SSH Key
+git remote add origin git@github.com:IceHe/lib.git
+git pull
+```
 
-- ~~[cVim](https://chrome.google.com/webstore/detail/ihlenndgcmojhcghmfjfneahoeklbjjh) ( advanced ): Add Vim-like key-bindings to Chrome for faster operations~~
-    - ~~How to Use~~: https://droidrant.com/using-cvim
-    - ~~Source Code~~: https://github.com/1995eaton/chromium-vim
+#### Sogou Input
 
--->
+1. Login via the WeChat acount
+1. Add `Sogou Input` in `System Preferences` → `Keyboard` → `Input Sources`
 
-Sogou Input
+#### Karabiner-Elements
 
-- Login via WeChat
-- Add Sogou Input in `System Preferences` → `Keyboard` → `Input Sources`
+- Sync the settings via the configuration file in .dotfiles
 
-Karabiner-Elements
+#### Keyboard Maestro
 
-- Simple modifications
-    - Caps Lock `⇪` -> Left Ctrl `^`
-    - Left Ctrl `^` -> Caps Lock `⇪`
-- Sync preferences via the config file
-    - ommitted…
+1.  Set the license
+    1. `Keyboard Maestro` → `Register Keyboard Maestro…`
+    1. Input Username and Password
+1.  Synchronize the macros
+    1. `File` → `Start Syncing Macros…` → `Open Existing…`
+    1. Select the configuration file in .dotfiles
 
-Keyboard Maestro
+#### Visual Studio Code
 
-- Set license
-    - `Keyboard Maestro` → `Register Keyboard Maestro…`
-    - Input Username and Password
-- Sync macros
-    - `File` → `Start Syncing Macros…` → `Open Existing…`
-    - Select the config file
+1.  Synchronize the settings: [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
+1.  Install the extensions
+    -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Check Markdown style
+    -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+        ( [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks )
+    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml): Support [PlatUML](http://plantuml.com/) _( *.puml file )_
+    -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim): Vim emulator - edit text like Vim
 
-Visual Studio Code
+#### Sublime Text
 
-- Sync settings
-    - https://code.visualstudio.com/docs/editor/settings-sync
-- Install extensions
-    - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Check Markdown style
-    - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
-        - [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
-    - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml): Support [PlatUML](http://plantuml.com/) _( *.puml file )_
-    - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim): Vim emulator - edit text like Vim
+See [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)
 
-iTerm 2
+#### iTerm 2
 
-- Sync Settings
-    - 1\. `Preferences` → `General` → `Preferences`
-    - 2\. Enable `Load preference from a custom folder or URL`
-    - 3\. Select the config folder
-    - 4\. Enable `Save changes to folder when quits`
+Synchronize the settings
 
-Copy 'Em
+1. `Preferences` → `General` → `Preferences`
+1. Enable `Load preference from a custom folder or URL`
+1. Select the config folder
+1. Enable `Save changes to folder when quits`
 
-- `Preferences`
-    - Enable `Launch at Login`
-    - `Window Appearance`
-        - Select `Midday`
-        - Select `Show Text Colors`
-        - Set `Maximum Font Size` 20
-        - Set `Minimum Font Size` 15
-    - `Window Position` → `Open at Active Screen`
-    - `Search Field`
-        - Enable `Toggle Search Filters with ⌘F`
-        - Eanble `Search Immediately After Each Keystroke`
-    - `Keyboard Shortcuts…`
-        - `Global Shortcuts`
-            - Set `Copy and start new item` ⇧⌘S
-            - Set `Open window` ⌥V
-            - Set `Paste current clipboard item as plain test` ⇧⌘V
-        - `Local Shortcuts`
-            - Set `Switch to 'All' list` ⌘A
-    - Enbale `Get Titles of Web URLs`
-    - Enable `Reject Duplicates`
+#### Copy 'Em
 
-Snipaste
+`Preferences`
 
-- `Preferences…`
-    - `General` → `Configuration Storage Path`
-        - Select the config file
-    - `Control` → `Global Hotkeys`
-        - Set `Snip` to ^ + ⌘ + A
-        - Clear all other hotkeys
+- Enable `Launch at Login`
+- `Window Appearance`
+    - Select `Midday`
+    - Select `Show Text Colors`
+    - Set `Maximum Font Size` **20**
+    - Set `Minimum Font Size` **15**
+- `Window Position` → `Open at Active Screen`
+- `Search Field`
+    - Enable `Toggle Search Filters with ⌘F`
+    - Eanble `Search Immediately After Each Keystroke`
+- `Keyboard Shortcuts…`
+    - `Global Shortcuts`
+        - Set `Copy and start new item` **⇧⌘S**
+        - Set `Open window` **⌥V**
+        - Set `Paste current clipboard item as plain test` **⇧⌘V**
+    - `Local Shortcuts`
+        - Set `Switch to 'All' list` **⌘A**
+- Enbale `Get Titles of Web URLs`
+- Enable `Reject Duplicates`
 
-Itsycal
+#### Snipaste
 
-- Preference…
-    - General
-        - Enable `Launch at login`
-    - Appearance
-        - Menu Bar
-            - Datetime pattern ` Y.MM.dd  E  HH:mm:ss `
-            - Enable `Hide icon`
-        - Calendar
-            - Highlight
-                - Enable `Saturday` and `Sunday`
-            - Enable `Show event dots`
-                - Enable `Use colored dots`
-            - Enable `Use event location`
-            - Enable `Use calendar weeks`
+`Preferences…`
 
-Amphetamine
+- `Control` → `Global Hotkeys`
+    - Set `Snip` **^⌘A**
+    - Clear all other hotkeys
+
+#### Itsycal
+
+`Preference…`
+
+- `General`
+    - Enable `Launch at login`
+- `Appearance`
+    - `Menu Bar`
+        - Datetime pattern ` Y.MM.dd  E  HH:mm:ss `
+        - Enable `Hide icon`
+    - `Calendar`
+        - `Highlight`
+            - Enable `Saturday` and `Sunday`
+        - Enable `Show event dots`
+            - Enable `Use colored dots`
+        - Enable `Use event location`
+        - Enable `Use calendar weeks`
+
+#### Amphetamine
 
 - `Prefereces`
     - `General` → `Launchand Wake Behavior`
@@ -846,139 +856,125 @@ Amphetamine
         - `Default Duration` → `Indefinitely`
     - `Appearance` → `Menu Bar Image` → `Coffee Cup`
 
-EuDic ( 欧路词典 )
+#### EuDic 欧路词典
 
-- Login via QQ
+- Login via the QQ account
 
-ImageOptim
+#### ImageOptim
 
 - `Preferences`
     - `General` → Set all checkboxes
-    - `Quality` → Set all 50% ( JPEG, PNG, GIF and so on )
+    - `Quality` → Set all **50%** ( JPEG, PNG, GIF and so on )
 
-Microsoft Office
+<!--
 
-- Login
+#### Microsoft Office
+
+- Login the Microsoft account
+
+-->
 
 ### CLI
 
 #### Oh-My-Zsh
 
-TODO
-
-https://ohmyz.sh
+See [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
 #### Neovim
 
-- Link `~/.vimrc` to `~/.config/nvim/init.vim` ( run command as follow )
-    - Or `nvim` maybe cannot write or read the system clipboard.
-    - Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub: https://github.com/neovim/neovim/issues/7945
+Run the command below to link `~/.vimrc` to `~/.config/nvim/init.vim`:
 
 ```bash
 ln -s /Users/[USERNAME]/.vimrc /Users/[USERNAME]/.config/nvim/init.vim
 # e.g.
 ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
 
-# Trouble
-# In vim or nvim
+# Trouble-shooting in Vim or Nvim
 :checkhealth
 :help clipboard
 ```
+
+_Or `nvim` maybe cannot write or read the system clipboard._
+
+_Reference: [Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)_
 
 #### Git
 
 **Name and Email**
 
-1\. Set username & email
+1. Set the username and email
 
-- `[EMAIL]` e.g. icehe@gmail.com
-- `[USERNAME]` e.g. IceHe
+    ```bash
+    git config --global user.name [USERNAME]
+    git config --global user.email [EMAIL]
 
-```bash
-git config --global user.name [USERNAME]
-git config --global user.email [EMAIL]
+    # e.g.
+    git config --global user.name icehe
+    git config --global user.email icehe.me@qq.com
+    ```
 
-# e.g.
-git config --global user.name icehe
-git config --global user.email icehe@gmail.com
-```
+1. Validate
 
-2\. Validate
-
-```bash
-$ git config --global -l | grep user
-user.name=icehe
-user.email=icehe@gmail.com
-```
-
-#### Sublime Text
-
-TODO: record?
-
-https://packagecontrol.io/packages/Sync%20Settings
+    ```bash
+    $ git config --global -l | grep user
+    user.name=icehe
+    user.email=icehe@gmail.com
+    ```
 
 #### SSH Key
 
-**For GitHub, GitLab and etc.**
+For GitHub, GitLab and etc.
 
-1\. Add SSH public SSH key for accounts
+1.  Add the SSH public SSH key on Mac to the accounts of the git services
 
-- Advantage: No longer need to enter username & password on trusted devices ( before operations )
+    Advantage: No longer need to enter the username and password
+    on the trusted devices
 
-2\. Generate SSH key
+1.  Generate the SSH key pair
 
-- Generate new SSH key pair
+    1. Generate
 
-```bash
-ssh-keygen -t rsa -C "[EMAIL]" -b 4096
+        ```bash
+        ssh-keygen -t rsa -C "[EMAIL]" -b 4096
 
-# e.g.
-ssh-keygen -t rsa -C "icehe.me@qq.com" -b 4096
-```
+        # e.g.
+        ssh-keygen -t rsa -C "icehe.me@qq.com" -b 4096
+        ```
 
-- `ssh-keygen` will request user input as follow
-    - Enter file in which to save the key (/Users/[USERNAME]/.ssh/id_rsa):
-    - Enter passphrase (empty for no passphrase):
-    - Enter same passphrase again:
-- You can just Press the Enter ↩ Key
-- If a local SSH key pair exists, command prompt will display
+    1.  `ssh-keygen` will request the user input as follow
 
-```bash
-# outpu
-/Users/[USERNAME]/.ssh/id_rsa already exists.
-Overwrite (y/n)?
-```
+        1. `Enter file in which to save the key (/Users/[USERNAME]/.ssh/id_rsa):`
+        1. `Enter passphrase (empty for no passphrase):`
+        1. `Enter same passphrase again:`
 
-- Input `y` to re-generate
+    1.  You can just press the Enter `↩` key to skip them above.
 
-3\. Add SSH key on GitLab
+        If a local SSH key pair exists, the command prompt will notify as below.
 
-- Copy **public key** to clipboard
+        ```bash
+        # output
+        /Users/[USERNAME]/.ssh/id_rsa already exists.
+        Overwrite (y/n)?
+        ```
 
-```bash
-pbcopy < ~/.ssh/id_rsa.pub
-```
+        You can input `y` to re-generate.
 
-- Enter `Settings` webpage and then `SSH Keys` page ( find it yourself )
-- Paste **public key** to input box `Key` ( `Title` input box will be auto-filled )
-- Click `Add key`
+1.  Add the SSH key to the accounts of the git services
 
-## Others
+    _E.g. GitLab and GitHub._
 
-Code Editor
+    1.  Copy the **public key** to the clipboard
 
-- [VS Code](https://code.visualstudio.com/) _( Powerful )_
-    - Easy to use, free, open source
-    - Support [Markdown](https://docs.gitlab.com/ee/user/markdown.html) ( *.md file )
-        - Check Markdown style
-            - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) plugin
-        - Support [PlatUML](http://plantuml.com/) real-time rendering in Markdown code blocks
-            - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) plugin
-    - Support [PlatUML](http://plantuml.com/) ( *.puml file )
-        - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) plugin
-    - Advanced: Vim emulator - edit text like Vim
-        - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) plugin
-- [Sublime Text](https://www.sublimetext.com/) _( Lightweight & Fastest )_
-    - Lightweight, easy to use, free
-    - Its cold boot is the fastest. ( compared to VS Code, Atom & etc. )
-    - Builtin **Vintage** Mode: edit text like Vim
+        ```bash
+        pbcopy < ~/.ssh/id_rsa.pub
+        ```
+
+    1.  Visit the `Settings → SSH Keys` webpage.
+        _( Find it yourself. )_
+
+    1.  Paste the **public key** into the `Key` input box.
+        _( The `Title` input box will be auto-filled. )_
+
+    1.  Click `Add key`
+
+    1.  Validate

@@ -39,6 +39,9 @@ https://code.visualstudio.com <sup>开箱即用</sup>
 http://www.sublimetext.com <sup>Fastest</sup>
 
 - 代码编辑器。Vintage 模式，可用 Vim 键位进行操作。冷启动也快如闪电！
+    - Lightweight, easy to use, free
+    - Its cold boot is the fastest. ( compared to VS Code & etc. )
+    - Builtin **Vintage** Mode: edit text like Vim
 - 我自定义的 [keymap](https://github.com/IceHe/mac-conf/blob/master/.config/sublime/)
 - 我安装的 [plugins](https://github.com/IceHe/mac-conf/blob/master/.config/sublime/Package%20Control.sublime-settings)
     - **Clickable URLs**：`⌘ ⌥ ↩` 打开光标当前位置的 URL。
