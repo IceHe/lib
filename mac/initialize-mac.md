@@ -69,12 +69,12 @@ Steps
 
 1.  Reboot from the installer
 
-    -   Plan A: Reboot, press `⌘ + r`.
-        If it doesn't work, try Plan B or C below.
+    -   Plan A: Reboot, press `⌘ + r`
+        If it doesn't work, try Plan B or C below
     -   Plan B: Reboot, press `⌘ + ⌥ + r`, connect Wi-Fi
-        and then wait for processing until rebooting again.
+        and then wait for processing until rebooting again
     -   Plan C: Reboot, press `⌥` for a few seconds
-        and then select another disk which Mac reboot from.
+        and then select another disk which Mac reboot from
 
 1.  Install or restore
 
@@ -86,12 +86,12 @@ Suggestion ( on 2020-12-10 )
 
 -   如果用硬盘全量备份然后将数据还原到新的设备上,
     假以时日, 系统中会留存越来越多用不着的东西;
-    现在觉得完全重新配置新的设备是更好的选择.
+    现在觉得完全重新配置新的设备是更好的选择
 
 ## Network Proxy
 
 > If cannot download the required softwares,
-have to configure the network proxy firstly.
+> have to configure the network proxy firstly
 
 1.  Get the proxy service
 
@@ -99,7 +99,7 @@ have to configure the network proxy firstly.
     - Option B: Build your own
 
     Because the valid methods often change,
-    recommend to search them on the Internet.
+    recommend to search them on the Internet
 
 1.  Get the configurations from the proxy service
 
@@ -144,7 +144,7 @@ run the command:
 xcode-select install
 ```
 
-and then re-run yours again.
+and then re-run yours again
 
 _Notice:_
 _It doesn't work on Apple Silicon M1 Mac with macOS Big Sur. ( 2020-12-12 )_
@@ -152,7 +152,7 @@ _It doesn't work on Apple Silicon M1 Mac with macOS Big Sur. ( 2020-12-12 )_
 ## Homebrew
 
 Homebrew is a [macOS package manager](https://brew.sh)
-for installing and managing softwares on macOS.
+for installing and managing softwares on macOS
 
 1.  Install
 
@@ -228,14 +228,14 @@ for installing and managing softwares on macOS.
     Usages:
 
     -   `brew update`:
-        Fetch the newest version of Homebrew from GitHub using git.
+        Fetch the newest version of Homebrew from GitHub using git
     -   `brew upgrade`:
-        Upgrade outdated, unpinned brews ( the commands installed by Homebrew ).
+        Upgrade outdated, unpinned brews ( the commands installed by Homebrew )
 
 ## Homebrew-Cask
 
 Homebrew-Cask extends Homebrew
-and allows you to install large binary files via a command-line tool.
+and allows you to install large binary files via a command-line tool
 
 > Recommend to install Mac Apps via Homebrew-Cask
 
@@ -306,7 +306,7 @@ brew install --cask \
 
 ## Mac App Store
 
-Some softwares are unavailable on Homebrew-Cask but available on Mac App Store.
+Some softwares are unavailable on Homebrew-Cask but available on Mac App Store
 
 ### Required
 
@@ -360,9 +360,9 @@ CLI: Command Line Interface
 > Recommend to install CLI programs via Homebrew
 
 Although some softwares has been pre-installed in macOS,
-their versions are often outdated.
+their versions are often outdated
 
-So recommend to install and upgrade them via Homebrew again.
+So recommend to install and upgrade them via Homebrew again
 
 ### What to Install
 
@@ -373,7 +373,7 @@ So recommend to install and upgrade them via Homebrew again.
     An cross-platform family of tools designed to build, test and package software
 
 -   [coreutils](http://www.gnu.org/s/coreutils/):
-    The basic file, shell and text manipulation utilities of the GNU operating system.
+    The basic file, shell and text manipulation utilities of the GNU operating system
 
     Include many useful commands, see TOC of
     [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
@@ -387,11 +387,11 @@ So recommend to install and upgrade them via Homebrew again.
 
 -   [expect](https://linux.die.net/man/1/expect):
     Programmed dialogue with interactive programs.
-    _I can write a script using expect for remote login._
+    _I can write a script using expect for remote login_
 
 -   [gawk](https://linux.die.net/man/1/gawk) ( awk ):
     Pattern scanning and processing language.
-    For text formatting & log analysis.
+    For text formatting & log analysis
 
 -   _[gradle](https://gradle.org/):_
     _A build automation tool focused on flexibility and performance._
@@ -409,7 +409,7 @@ So recommend to install and upgrade them via Homebrew again.
 
 -   [git](https://git-scm.com/):
     A distributed version control system.
-    For code management.
+    For code management
 
 -   [jq](https://stedolan.github.io/jq/):
     A lightweight and flexible command-line JSON processor.
@@ -421,7 +421,7 @@ So recommend to install and upgrade them via Homebrew again.
 
 -   [maven](https://maven.apache.org/):
     A software project management and comprehension tool.
-    For Java project management based on config files `pom.xml`.
+    For Java project management based on config files `pom.xml`
 
 -   _[reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):_
     _Reattach to the per-user bootstrap namespace_
@@ -430,7 +430,7 @@ So recommend to install and upgrade them via Homebrew again.
 
 -   [ruby](https://www.ruby-lang.org/en/):
     Ruby programming language.
-    Package Manger: `gem`.
+    Package Manger: `gem`
 
 -   [vim](https://www.vim.org/):
     A text editor in CLI.
@@ -438,7 +438,7 @@ So recommend to install and upgrade them via Homebrew again.
     "The God of editors is Vim. The editor of Gods is Emacs."
 
 -   [wget](https://www.gnu.org/software/wget/):
-    Download files via HTTP/HTTPS、FTP/FTPS protocols.
+    Download files via HTTP/HTTPS、FTP/FTPS protocols
 
 - …
 
@@ -499,7 +499,7 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     for macOs on the offical website
 
-    _The recommended version is still stable **8** on 2021-01-01._
+    The recommended version is still **8** on 2021-01-01
 
 1.  Install
 
@@ -511,8 +511,8 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     export JAVA_HOME=`/usr/libexec/java_home -v 8`
     ```
 
-    - If `~/.zshrc` doesn't exists, create it.
-    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
+    - If `~/.zshrc` doesn't exists, create it
+    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
 
     _For getting the path of JDK 8, run the command:_
 
@@ -536,7 +536,7 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 
     You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or
-    [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
+    [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-)
 
     _References:_
     _[Free Educational Licenses](https://www.jetbrains.com/community/education/#students)_
@@ -547,15 +547,16 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 1.  Synchronize the settings
 
     Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
-    for sharing the same settings accroos multiple JetBrains's accounts.
+    for sharing the same settings accroos multiple JetBrains's accounts
+
     _But it allows to sync any configurable components_
     _except for the list of enabled and disabled plugins._
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
-    1. Input HTTPS URL of the settings Github repository.
-    1. Input the Github access token.
+    1. Input HTTPS URL of the settings Github repository
+    1. Input the Github access token
 
-    _Reference ( including other alternatives ):_
+    _Reference ( including other alternatives ) :_
     _[Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)_
 
 1.  Install plugins
@@ -608,7 +609,7 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
         aligning to columns, grepping, escaping, encoding…
     -   [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator):
         Display the tab number indicator
-        before the opened file name int editor tabs.
+        before the opened file name int editor tabs
 
     References:
 
@@ -727,7 +728,7 @@ Users & Groups
 1.  Re-install in Mac App Store
 1.  Login the 1Password account
     or unlock the vaults from the cloud drive.
-    _E.g. iCloud._
+    _E.g. iCloud_
 
 #### Chrome
 
@@ -735,13 +736,13 @@ Users & Groups
 1.  Turn on `Sync` _( require the independent synchronization password )_
 1.  Install the extensions:
     -   [1Password](https://agilebits.com/browsers/welcome.html): Password Manager
-    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter.
+    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter
         If open too many tabs, stash them in OneTab to save memory space and visible screen area
     -   [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm): A lightweight AD blocker
     -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa): Make JSON easy to read
     -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif): Manage and switch between multiple proxies quickly & easily
-    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim.
-    -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application.
+    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim
+    -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application
     -   _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
 
 #### .dotfiles
@@ -763,7 +764,7 @@ git pull
 
 #### Karabiner-Elements
 
-- Sync the settings via the configuration file in .dotfiles
+- Sync the settings via the configuration file in .dotfiles above
 
 #### Keyboard Maestro
 
@@ -879,7 +880,15 @@ Synchronize the settings
 
 #### Oh-My-Zsh
 
-See [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
+```bash
+# via curl
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# via wget
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
+Reference: [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
 #### Neovim
 
@@ -901,7 +910,9 @@ _Reference: [Global system clipboard (yank, paste) stopped working · Issue #794
 
 #### Git
 
-**Name and Email**
+Synchronize the settings via the configuration files from .dotfiles above
+
+Or configure via the commands. E.g. Name and Email:
 
 1. Set the username and email
 
@@ -948,9 +959,9 @@ For GitHub, GitLab and etc.
         1. `Enter passphrase (empty for no passphrase):`
         1. `Enter same passphrase again:`
 
-    1.  You can just press the Enter `↩` key to skip them above.
+    1.  You can just press the Enter `↩` key to skip them above
 
-        If a local SSH key pair exists, the command prompt will notify as below.
+        If a local SSH key pair exists, the command prompt will notify as below
 
         ```bash
         # output
@@ -958,7 +969,7 @@ For GitHub, GitLab and etc.
         Overwrite (y/n)?
         ```
 
-        You can input `y` to re-generate.
+        You can input `y` to re-generate
 
 1.  Add the SSH key to the accounts of the git services
 
@@ -970,10 +981,10 @@ For GitHub, GitLab and etc.
         pbcopy < ~/.ssh/id_rsa.pub
         ```
 
-    1.  Visit the `Settings → SSH Keys` webpage.
+    1.  Visit the `Settings → SSH Keys` webpage
         _( Find it yourself. )_
 
-    1.  Paste the **public key** into the `Key` input box.
+    1.  Paste the **public key** into the `Key` input box
         _( The `Title` input box will be auto-filled. )_
 
     1.  Click `Add key`
