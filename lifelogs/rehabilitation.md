@@ -12,48 +12,63 @@ To be a better man. _( To be a better ME. )_
 
 Policy _( 政策, 方针; 策略, 手段 )_
 
-- 做事要领 : **将 "经验教训" 一个个地沉淀成习惯**
-    - _想要 "毫不费力" , 就要 "习惯成自然"_
-- 做正确的事 : **抓住重点**
-- 正确地做事 : **限时完成**, _特别是不重要的事_
-    - GTD 流程 + PDCA 循环 + SMART 法则
-    - _忍耐这时 "完美主义和强迫症" 带来的不适, 直到形成新的舒适区_
-- 果断坚决迅速地行动 : **做好一件小事, 然后再做好下一件小事, 然后不断循环**
-    - _立即去做, 5分钟快速启动; 不三心二意; 雷厉风行_
+-   做事要领 : **将 "经验教训" 一个个地沉淀成习惯**
+
+    _想要 "毫不费力" , 就要 "习惯成自然"_
+
+-   做正确的事 : **抓住重点**
+
+-   正确地做事 : **限时完成**, _特别是不重要的事_
+
+    GTD 流程 + PDCA 循环 + SMART 法则
+
+    _忍耐这时 "完美主义和强迫症" 带来的不适, 直到形成新的舒适区_
+
+-   果断坚决迅速地行动 : **做好一件小事, 然后再做好下一件小事, 然后不断循环**
+
+    _立即去做, 5分钟快速启动; 不三心二意; 雷厉风行_
 
 ### 优先级
 
 Priority
 
-**1\. 健康** : _身体是革命的本钱_
+1.  **健康** : _身体是革命的本钱_
 
-- **i. 睡眠**
-    - _早睡早起, 充足睡眠_
-- **ii. 饮食**
-    - _清淡 : 尽量 回避 高糖、高盐、高油、辛辣_
-    - _节制 : 只吃 七八分饱_
-- **iii. 运动**
-    - _坚持每天运动_
+    -   **i. 睡眠**
 
-**2\. 工作** : _保证温饱, 改善生活_
+        _早睡早起, 充足睡眠_
 
-- _尽量 按时、保质、保量 完成工作任务; 不拖后腿, 不给别人添麻烦_
-    - _Done is better than perfect._
+    -   **ii. 饮食**
 
-**3\. 学习** : _长久地改善生活_
+        _清淡 : 尽量 回避 高糖、高盐、高油、辛辣_
 
-- _坚持每天学习_
+        _节制 : 只吃 七八分饱_
 
-4\. 杂务 : _不得不做_
+    -   **iii. 运动**
 
-- _不得不做, 就尽快完成_
+        _坚持每天运动_
 
-5\. 娱乐 : _生活乐趣_
+1.  **工作** : _保证温饱, 改善生活_
 
-- _如果能从 "睡眠、饮食、运动、工作、学习、杂务" 中获得乐趣, 就没必要娱乐_
-- _如果去娱乐, 没必要强迫自己把订阅的全部娱乐节目都消费完, 享受不完就算了_
+    _尽量 按时、保质、保量 完成工作任务; 不拖后腿, 不给别人添麻烦._
 
-<!--     - _苦海无涯回头是岸_ -->
+    _Done is better than perfect._
+
+1. **学习** : _长久地改善生活_
+
+    _坚持每天学习_
+
+1. 杂务 : _不得不做_
+
+    _不得不做, 就尽快完成_
+
+1. 娱乐 : _生活乐趣_
+
+    _如果能从 "睡眠、饮食、运动、工作、学习、杂务" 中获得乐趣, 就没必要娱乐_
+
+    _如果去娱乐, 没必要强迫自己把订阅的全部娱乐节目都消费完, 享受不完就算了_
+
+<!--     _苦海无涯回头是岸_ -->
 
 ## 细则 ( 术 )
 
@@ -65,33 +80,35 @@ Action Exprience
 
 _( 踟蹰不前的时候, 劝诱自己行动起来 )_
 
-**从小事做起**
+-   **从小事做起**
 
-_( 切合实际的行动方针 )_
+    _( 切合实际的行动方针 )_
 
-- 做好最基础的小事, 要循序渐进, 不要妄想 "一口吃成胖子" !
-    - 做好一件小事, 然后再做好下一件小事, 然后不断循环.
-- 将经验教训, 一个一个地 "沉淀" 成习惯, 稳扎稳打, 打好地基.
+    -   做好最基础的小事, 要循序渐进, 不要妄想 "一口吃成胖子" !
 
-**能努力就努力**
+        做好一件小事, 然后再做好下一件小事, 然后不断循环.
 
-- 反正迟早都有忍不住去颓废享乐的时候, 那么能够坚持努力的时候, 为什么不更努力进取一点呢?
+    -   将经验教训, 一个一个地 "沉淀" 成习惯, 稳扎稳打, 打好地基.
 
-**不想工作就读书**
+-   **能努力就努力**
 
-- 就算要拖延做正事 _( 例如工作 )_ , 也该做点有价值的事来拖延! _( 例如读书 )_
+    反正迟早都有忍不住去颓废享乐的时候, 那么能够坚持努力的时候, 为什么不更努力进取一点呢?
 
-**哪怕只读一页**
+-   **不想工作就读书**
 
-- 我就是一滩烂泥、一坨屎, 再微小的努力也是向上! _( 例如读一页书 )_
+    就算要拖延做正事 _( 例如工作 )_ , 也该做点有价值的事来拖延! _( 例如读书 )_
 
-**不要急**
+-   **哪怕只读一页**
 
-- 碰到一时想不通的问题, 就好好思考, 好好反省, 找到答案之后, 再继续行动, 不用着急焦虑. _( 例如反省、重温本文 )_
+    我就是一滩烂泥、一坨屎, 再微小的努力也是向上! _( 例如读一页书 )_
 
-**不要等**
+-   **不要急**
 
-- 确定该做什么事之后, 就去做, 不要等.
+    碰到一时想不通的问题, 就好好思考, 好好反省, 找到答案之后, 再继续行动, 不用着急焦虑. _( 例如反省、重温本文 )_
+
+-   **不要等**
+
+    确定该做什么事之后, 就去做, 不要等.
 
 ### 每日流程
 
@@ -142,12 +159,17 @@ end
 
 _( night or morning )_
 
-- Why include Today and Next 7 Days List?
-    - Check arriving events ( which are not in Task & Todo List ).
-- Checked all? Or too many tasks.
-    - Too many tasks : Total duration over available time today.
-- Event : Events, future tasks ( without tomorrow ) .
-- Others : Thoughts, questions and something else.
+-   Why include Today and Next 7 Days List?
+
+    Check arriving events ( which are not in Task & Todo List ).
+
+-   Checked all? Or too many tasks.
+
+    Too many tasks : Total duration over available time today.
+
+-   Event : Events, future tasks ( without tomorrow ) .
+
+-   Others : Thoughts, questions and something else.
 
 ```plantuml
 @startuml
@@ -182,21 +204,24 @@ end
 
 _( night or morning )_
 
-- Categorize :
-    - Work / Learn / Think / Read / Zheteng / Fun / Rest / Sport / Have-to / Waste / …
-- Priority
-    - High : Important & urgent
-        - _1st Thing 1st_
-    - Medium : Important & not urgent
-        - _Important_
-    - Low : Not important & urgent
-        - _Concerned_
-    - No : Not important & not urgent
-        - _Trash_
-- Deferrable? Not important.
-- Splittable? Not specific or duration > 2h.
-    - Ideal duration <= 2 hours
-- Split : Split into subtasks
+-   Categorize:
+
+    Work / Learn / Think / Read / Zheteng / Fun / Rest / Sport / Have-to / Waste / …
+
+-   Priority
+
+    - High: Important & urgent - _1st Thing 1st_
+    - Medium: Important & not urgent - _Important_
+    - Low: Not important & urgent - _Concerned_
+    - No: Not important & not urgent - _Trash_
+
+-   Deferrable? Not important.
+
+-   Splittable? Not specific or duration > 2h.
+
+    Ideal duration <= 2 hours
+
+-   Split : Split into subtasks
 
 ```plantuml
 @startuml
