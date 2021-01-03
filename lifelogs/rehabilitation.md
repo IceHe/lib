@@ -266,10 +266,13 @@ end
 
 _( morning, noon, afternoon, evening )_
 
-- Checked all? Or too many todos.
-    - Too many todos : Total duration over available time today.
-- Complete soon? Estimated duration <= 5min.
-- Delegable? Able to assign to another person.
+-   Checked all? Or too many todos.
+
+    Too many todos : Total duration over available time today.
+
+-   Complete soon? Estimated duration <= 5min.
+
+-   Delegable? Able to assign to another person.
 
 ```plantuml
 @startuml
@@ -457,33 +460,45 @@ Plan 规划 ( 计划 )
 
 Do 执行 ( 行动 )
 
-- _执行计划 : 展开任务, 组织实施_
-    - _尝试做一些小的改变_
-    - _并收集信息以便评价这些改变是否有效_
+-   _执行计划 : 展开任务, 组织实施_
+
+    _尝试做一些小的改变_
+
+    _并收集信息以便评价这些改变是否有效_
 
 Check 检查 ( Reflect 反省 )
 
-- _检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏_
-    - _对比期望的成果, 看有哪里合意, 哪里不合意_
-    - _看执行过程, 跟最初的计划有何不同 ( 过程偏差 )_
+-   _检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏_
+
+    _对比期望的成果, 看有哪里合意, 哪里不合意_
+
+    _看执行过程, 跟最初的计划有何不同 ( 过程偏差 )_
 
 Act 行动 / Adjust 调整 ( Improve 改进 )
 
-- _"Also called 'Adjust', this act phase is where a process is improved."_
-- _调整 / 改善 : 纠正偏差, 确定新目标, 制定下一轮的计划_
-- _上两步中分析得出_
+-   _"Also called 'Adjust', this act phase is where a process is improved."_
+
+-   _调整 / 改善 : 纠正偏差, 确定新目标, 制定下一轮的计划_
+
+-   _上两步中分析得出_
+
     - _遭遇问题 Problems_
     - _过程偏差 Non-conformities_
     - _可以改进的地方 Opportunities for improvement_
     - _低效率 Inefficiencies_
     - _……_
-- _研究以上问题 ( Issues ) , 找到根本原因 ( Root causes )_
-    - _通过修改计划, 去消除这些原因_
-    - _然后下一个循环就有了更好的基线 ( Base-line )_
-        - _更好的指引 ( Instructions )_
-        - _标准 ( Standards )_
-        - _目标 ( Goals )_
-- _以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues )_
+
+-   _研究以上问题 ( Issues ) , 找到根本原因 ( Root causes )_
+
+    _通过修改计划, 去消除这些原因_
+
+    _然后下一个循环就有了更好的基线 ( Base-line )_
+
+    - _更好的指引 ( Instructions )_
+    - _标准 ( Standards )_
+    - _目标 ( Goals )_
+
+-   _以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues )_
 
 ![](https://upload.wikimedia.org/wikipedia/commons/7/7a/PDCA_Cycle.svg)
 
@@ -528,20 +543,33 @@ _( 事务的轻重缓急, 不是 SMART 法则的关注点 )_
 
 Tools
 
-- **Library - 正向循环**
-    - 反省 → 改进 → 计划 → 取舍 → 排序 → 行动 _( e.g., PDCA )_
-- **Alarm - 专时专用**
-    - 什么时间就该干什么事, 只提醒最重要的事务
-- **BlockyTime - 减少浪费**
-    - 记录时间使用情况, 尽量避免不重要的事务占用时间
-    - _如果要提高效率和时间杠杆率, 还得靠 Library_
-- **Forest - 保持专注**
-    - 减少玩手机分神的机会, 缩短玩手机的时长
-- **TickTick - 减轻负担**
-    - 暂存事项, 清空大脑, 减轻心理负担; 选择一件事务来做就行
-    - _没必要因为待办事项多而焦虑_
-- **Timer - 限制时长**
-    - _特别是不重要的事_
+-   **Library - 正向循环**
+
+    反省 → 改进 → 计划 → 取舍 → 排序 → 行动 _( e.g., PDCA )_
+
+-   **Alarm - 专时专用**
+
+    什么时间就该干什么事, 只提醒最重要的事务
+
+-   **BlockyTime - 减少浪费**
+
+    记录时间使用情况, 尽量避免不重要的事务占用时间
+
+    _如果要提高效率和时间杠杆率, 还得靠 Library_
+
+-   **Forest - 保持专注**
+
+    减少玩手机分神的机会, 缩短玩手机的时长
+
+-   **TickTick - 减轻负担**
+
+    暂存事项, 清空大脑, 减轻心理负担; 选择一件事务来做就行
+
+    _没必要因为待办事项多而焦虑_
+
+-   **Timer - 限制时长**
+
+    _特别是不重要的事_
 
 <!-- - **Notification - 保持专注** -->
 <!--     - 默认关闭所有 Apps 的通知权限 -->
@@ -549,8 +577,9 @@ Tools
 
 注意 : 它们只不过是 "器" —— 即手段和工具
 
-- **重要的是达成目标, "马上开始行动" 比 "先纠结一番该用啥工具" 明智得多**
-    - _对我来说尤其如此_
+-   **重要的是达成目标, "马上开始行动" 比 "先纠结一番该用啥工具" 明智得多**
+
+    _对我来说尤其如此_
 
 <!-- 经常需要使用手机做一些正事, 例如记录时间使用情况、查看工作消息; 不然可以用 OffScreen & ScreenTime 强力管控玩手机的时长 ! -->
 
@@ -563,21 +592,26 @@ Targets
 Yearly
 
 - 健康
-    - [ ] ~ 2020 : **养成 健康生活 的习惯**
-        - _达成标准 : 连续 7 天完成所有 健康习惯打卡_
 
-<!-- - 工作 -->
+    -   [ ] ~ 2020 : **养成 健康生活 的习惯**
+
+        _达成标准 : 连续 7 天完成所有 健康习惯打卡_
+
+<!-- -   工作 -->
 <!--     - [ ] ~ 2021 上 : **养成 遇事果断 & 做事坚决 & 迅速行动 的习惯** _( 工作 )_ -->
-<!--         - _达成标准 : 连续 7 天完成所有 果断坚决迅速 的习惯打卡_ -->
-<!-- - 学习 -->
+<!--  -->
+<!--         _达成标准 : 连续 7 天完成所有 果断坚决迅速 的习惯打卡_ -->
+<!-- -   学习 -->
 <!--     - [ ] ~ 2021 下 : **养成 读书学习 的习惯** _( 学习 )_ -->
-<!--         - _达成标准 : 连续 7 天完成所有 学习日程 ( 每个工作日 3h , 每个周末 10h )_ -->
+<!--  -->
+<!--         _达成标准 : 连续 7 天完成所有 学习日程 ( 每个工作日 3h , 每个周末 10h )_ -->
 
 ### 季度
 
 Seasonly
 
 - 工作
+
     - [ ] ~ 2021.01.15 : **YFD Interview**
 
 <!-- - [ ] ~ 2021.03.15 : 详细复习 算法 & 数据结构, 刷题 _( 学习 )_ -->

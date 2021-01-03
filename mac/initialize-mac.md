@@ -549,7 +549,7 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
     for sharing the same settings accroos multiple JetBrains's accounts
 
-    _But it allows to sync any configurable components_
+    _But it allows to synchronize any configurable components_
     _except for the list of enabled and disabled plugins._
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
@@ -764,7 +764,7 @@ git pull
 
 #### Karabiner-Elements
 
-- Sync the settings via the configuration file in .dotfiles above
+- Synchronize the settings via the configuration file in .dotfiles above
 
 #### Keyboard Maestro
 
@@ -850,31 +850,25 @@ Synchronize the settings
 
 #### Amphetamine
 
-- `Prefereces`
-    - `General` → `Launchand Wake Behavior`
-        - Enable all checkboxes
-    - `Sessions` → `Non-trigger Sessions`
-        - Enable all checkboxes
-        - `Default Duration` → `Indefinitely`
-    - `Appearance` → `Menu Bar Image` → `Coffee Cup`
+`Prefereces`
+
+- `General` → `Launchand Wake Behavior`
+    - Enable all checkboxes
+- `Sessions` → `Non-trigger Sessions`
+    - Enable all checkboxes
+    - `Default Duration` → `Indefinitely`
+- `Appearance` → `Menu Bar Image` → `Coffee Cup`
 
 #### EuDic 欧路词典
 
-- Login via the QQ account
+Login via the QQ account
 
 #### ImageOptim
 
-- `Preferences`
-    - `General` → Set all checkboxes
-    - `Quality` → Set all **50%** ( JPEG, PNG, GIF and so on )
+`Preferences`
 
-<!--
-
-#### Microsoft Office
-
-- Login the Microsoft account
-
--->
+- `General` → Set all checkboxes
+- `Quality` → Set all **50%** ( JPEG, PNG, GIF and so on )
 
 ### CLI
 
