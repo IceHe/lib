@@ -512,7 +512,7 @@ Act 行动 / Adjust 调整 ( Improve 改进 )
 
 Specific: _( 目标 )_ 具体 _( 明确, 可以分解出具体的行动步骤 )_
 
-- _~~成为勤奋学习的人~~_
+- _~~要努力学习~~_
 - _今天读 Java Basic_
 
 Measurable: 可度量 _( 可量化 )_
