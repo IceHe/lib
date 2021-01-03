@@ -1,4 +1,6 @@
-# Redis Basics
+# Redis Notes
+
+Reid Principles and Practice
 
 **RE**mote **DI**ctionary **S**erver 远程字典服务
 
