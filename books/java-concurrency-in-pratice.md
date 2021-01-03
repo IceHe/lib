@@ -1,4 +1,4 @@
-# Java Concurrency in Pratice ( TODO )
+# Java Concurrency in Pratice ( todo )
 
 References
 

@@ -1,4 +1,4 @@
-# 如何学习 ( TODO )
+# 如何学习 ( todo )
 
 《How to Study: A Brief Guide》的译文，将在（有生之年）持续施工。
 

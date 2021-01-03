@@ -1,4 +1,4 @@
-# Plan ( TODO )
+# Plan ( todo )
 
 ## Initial Stage
 

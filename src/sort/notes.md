@@ -1,4 +1,4 @@
-# Sorting Algorithm Notes ( TODO )
+# Sorting Algorithm Notes ( todo )
 
 References
 

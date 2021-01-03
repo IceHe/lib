@@ -1,4 +1,4 @@
-# Redis Usage ( TODO )
+# Redis Usage ( todo )
 
 REmote DIctionary Server
 

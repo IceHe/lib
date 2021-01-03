@@ -1,4 +1,4 @@
-# perf ( TODO )
+# perf ( todo )
 
 Performance analysis tools for Linux
 

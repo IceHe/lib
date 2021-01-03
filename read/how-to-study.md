@@ -1,4 +1,4 @@
-# How to Study ( TODO )
+# How to Study ( todo )
 
 - Created on 2016-06-24
 

@@ -1,6 +1,6 @@
-# Message Queues ( TODO )
+# Message Queues ( todo )
 
-Comparison ( TODO )
+Comparison ( todo )
 
 - https://www.educba.com/rabbitmq-vs-kafka/?source=leftnav
 - https://www.educba.com/activemq-vs-kafka/?source=leftnav

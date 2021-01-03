@@ -1,4 +1,4 @@
-# telnet ( TODO )
+# telnet ( todo )
 
 user interface to the TELNET protocol
 

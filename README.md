@@ -78,9 +78,13 @@ Tools
 <!-- > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。 -->
 <!-- > —— 鲁迅《致赖少麟》 -->
 
-<!-- Algorithms - Basic -->
+<!--
 
-<!-- - [Sorting](/src/sort/notes.md): Insertion / Heap / Quick / … -->
+Algorithms
+
+- [Sorting](/src/sort/notes.md): Insertion / Heap / Quick / …
+
+-->
 
 Docker
 
@@ -118,28 +122,30 @@ Markdown
 - [Style Guide](/snips/markdown/markdown-style-guide.md)
 - [Lint Tool: mdl](/snips/markdown/lint/lint.md)
 
-Elasticsearch: for search and analysis
+Storage
 
+- LSM Tree: [Intro](/snips/lsm-tree/lsm-tree.md)
+    - _basic data structure of LevelDB & RocksDB_
+- Elasticsearch: [Usage](/snips/elasticsearch.md)
+    - _for search and analysis_
+- MySQL: [Usage](/snips/mysql/mysql-usage.md)
+    - _robust SQL database server_
+- Redis: [Basics](/snips/redis/redis-basics.md) / [Usage](/snips/redis/redis-usage.md) / [Principles and Practice](/snips/redis/redis-principles-n-practice.md)
+    - _in-memory data structure store as a database, cache and message broker_
+    <!-- basics: http://redis.io -->
+    <!-- usage: https://redis.io/commands -->
+
+<!--
+
+- ES
 - Basics: https://www.elastic.co ( todo )
     - What is Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
-- [Usage](/snips/elasticsearch.md) ( todo )
-
-LSM Tree: basic data structure of LevelDB & RocksDB
-
-- [Log-Structured Merge-Tree](/snips/lsm-tree/lsm-tree.md)
-
-MySQL: robust SQL database server
-
+- MySQL
 - Basics: https://www.mysql.com ( todo )
     - https://dev.mysql.com/doc
     - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
-- [Usage](/snips/mysql/mysql-usage.md) ( todo )
 
-Redis: in-memory data structure store _as a database, cache and message broker_
-
-- [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( todo )
-- [Basics](/snips/redis/redis-basics.md): http://redis.io ( todo )
-- [Usage](/snips/redis/redis-usage.md): https://redis.io/commands ( todo )
+-->
 
 Web
 

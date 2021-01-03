@@ -1,4 +1,4 @@
-# gawk ( TODO )
+# gawk ( todo )
 
 gawk - pattern scanning and processing language
 
