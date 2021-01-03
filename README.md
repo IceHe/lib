@@ -1,6 +1,6 @@
 # Table of Contents
 
-[Welcome!](/blog/welcome.md) Here is my Library.
+[Welcome!](/blog/welcome.md) Here is my "Library".
 
 ---
 
@@ -8,8 +8,8 @@
 
 <!-- > —— LeBlanc's Law -->
 
--   This site: [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
--   Backup site: [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)
+- This site: [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
+- Backup site: [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)
 -   Author: [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
@@ -41,8 +41,8 @@ Basics
         - 9\. **Consistency** and **Consensus**
     - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
         - 10\. **Batch** Processing / 11\. **Stream** Processing / …
-- _* [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) ( to read )_
-- _* [Linux Kernel](/books/linux.md) ( note-taking )_
+- \* [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( to read )_
+- \* [Linux Kernel](/books/linux.md) _( to note-take )
 
 <!-- - _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--     - _* [Part 1](/books/tcp-ip-illustracted-protocols-p1.md) ( to read )_ -->
@@ -120,7 +120,7 @@ Markdown
 
 Message Queues
 
-- [kafka](/snips/message-queues/kafka.md) ( [digest](/snips/message-queues/kafka-digest.md) )
+- [kafka](/snips/message-queues/kafka.md) / _[digest](/snips/message-queues/kafka-digest.md)_
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
 - [RocketMQ](/snips/message-queues/rocket-mq.md) ( todo )
 - [ActiveMQ](/snips/message-queues/active-mq.md)
@@ -130,20 +130,19 @@ Message Queues
 
 Storage
 
-- [LSM Tree](/snips/lsm-tree/lsm-tree.md): Log-Structured Merge-Tree
-    - Data structure related to LevelDB & RocksDB
+- [LSM Tree](/snips/lsm-tree/lsm-tree.md): Log-Structured Merge-Tree - data structure related to LevelDB & RocksDB
 - Elasticsearch: for search and analysis
     - Basics: https://www.elastic.co ( todo )
         - What is Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
     - [Usage](/snips/storage/elasticsearch.md) ( todo )
 - MySQL: robust SQL database server
-    - Basics ( todo ) : https://www.mysql.com
+    - Basics: https://www.mysql.com ( todo )
         - https://dev.mysql.com/doc
         - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
     - [Usage](/snips/mysql/mysql-usage.md) ( todo )
 - Redis: in-memory data structure store
     - _used as a database, cache and message broker_
-    - [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( reading )
+    - [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( todo )
     - [Basics](/snips/redis/redis-basics.md): http://redis.io ( todo )
     - [Usage](/snips/redis/redis-usage.md): https://redis.io/commands ( todo )
 - [_Mongo_](/snips/tmp/mongo.md) _( draft )_
@@ -200,9 +199,7 @@ Basics
 - [Glossary](/java/java-glossary.md)
 - [Install JDK](/java/install-jdk.md)
 - Package Manager: [Maven](/java/maven.md) & Gradle
-- Code Style Guide:
-    [Alibaba](https://edu.aliyun.com/certification/cldt02) &
-    [Google](https://google.github.io/styleguide/javaguide.html)
+- Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
 
 Coding
 
@@ -389,27 +386,27 @@ Scenes
 - [C++ Interview Book](/cpp/interview-book.md)
 - [C++ Coding Standards](/cpp/code-standards.md)
 - [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
-- Effective C++: [P1](/cpp/effective-cpp-reading-note-1.md) / [P2](/cpp/effective-cpp-reading-note-2.md) / [P3](/cpp/effective-cpp-reading-note-3.md) / [P4](/cpp/effective-cpp-reading-note-4.md)
+- Effective C++: [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
 
 ### Assembly
 
 [Prepare on Windows 7](/asm/prepare-on-windows-7.md)
 
-1. [Register / CS / IP / CPU / Memory](/asm/learning-note-1.md)
-2. [Endien / Register / DS / [addr] / Stack](/asm/learning-note-2.md)
-3. [Pesudo Instruction / Compile / Link / Debug / [BX] / loop / Seg Prefix  / Mem Space](/asm/learning-note-3.md)
-4. [Stack / Data / Code / 栈的段 / 多段程序 / 大小写转换 / Addressing / SI / DI](/asm/learning-note-4.md)
-5. [bx / si / di / bp / Addressing / Division / dd / dup / Structural Data](/asm/learning-note-5.md)
-6. [Jump / offset / jmp / jcxz / loop / dec / Bounds Checking](/asm/learning-note-6.md)
-7. [call / ret / mul / Show Str (Pos, Color) / Division Overflow / Show Value](/asm/learning-note-7.md)
-8. [Course Design: 公司数据以指定格式在屏幕上显示](/asm/learning-note-8.md)
+1. [register / cs / ip / CPU / memory](/asm/learning-note-1.md)
+2. [endien / register / ds / [addr] / stack](/asm/learning-note-2.md)
+3. [pesudo instruction / compile / link / debug / [bx] / loop / seg prefix  / mem space](/asm/learning-note-3.md)
+4. [stack / data / code / 栈的段 / 多段程序 / 大小写转换 / addressing / si / di](/asm/learning-note-4.md)
+5. [bx / si / di / bp / addressing / division / dd / dup / Structural Data](/asm/learning-note-5.md)
+6. [jump / offset / jmp / jcxz / loop / dec / bounds checking](/asm/learning-note-6.md)
+7. [call / ret / mul / show str (pos, color) / division overflow / show value](/asm/learning-note-7.md)
+8. [course design: 公司数据以指定格式在屏幕上显示](/asm/learning-note-8.md)
 9. [flag register / adc / sbb / cmp 检测比较结果的条件转移指令，DF 标识和串传送指令 / Tests](/asm/learning-note-9.md)
-10. [internal interrupt / Interrupt Routine / Install 中断向量表 / 设置中断向量](/asm/learning-note-10.md)
-11. [int instruction / Interrupt Routine / Tests](/asm/learning-note-11.md)
-12. [Port IO / in / out / shl / shr / Visit CMOS RAM](/asm/learning-note-12.md)
-13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / Tests](/asm/learning-note-13.md)
-14. [直接定址表 / Data / 地址标号 / 在其它段中，计算 sin(x) / Tests](/asm/learning-note-14.md)
-15. [用 BIOS 进行键盘输入和磁盘读写 / Tests](/asm/learning-note-15.md)
+10. [internal interrupt / interrupt routine / install 中断向量表 / 设置中断向量](/asm/learning-note-10.md)
+11. [int instruction / Interrupt Routine / tests](/asm/learning-note-11.md)
+12. [port IO / in / out / shl / shr / visit CMOS RAM](/asm/learning-note-12.md)
+13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / tests](/asm/learning-note-13.md)
+14. [直接定址表 / data / 地址标号 / 在其它段中，计算 sin(x) / tests](/asm/learning-note-14.md)
+15. [用 BIOS 进行键盘输入和磁盘读写 / tests](/asm/learning-note-15.md)
 16. [Appendix: 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
 
 ### Scripts
@@ -433,7 +430,7 @@ Shell
 
 Others
 
-- PHP: [Functions & Scripts](/scripts/php/php.md)
+- PHP: [functions & scripts](/scripts/php/php.md)
 - Python 3: [Quick Start](/scripts/python/quick-start.md)
 - JavaScript: [Optimize some code](/scripts/javascript/optimize-some-code.md)
 
@@ -464,7 +461,7 @@ Recommendation
 
 <!-- > —— The Shawshank Redemption -->
 
-- [Bio](/marks/bio.md) ：Skills / Exprience / Education
+- [Bio](/marks/bio.md): Skills / Exprience / Education
     - **SCUT**: Software Engineering | Bachelor _( C++ )_
     - **Huawei**: Telecom Software Customization | Intern. _( Java )_
     - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
@@ -498,30 +495,22 @@ Recommendation
 
 好文共赏
 
-- [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
-    _/ [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) / [digest](/read/cruel-reality.md)_
+- [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) _/ [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) / [digest](/read/cruel-reality.md)_
     - "Nice guy? I never give a shit."
-- [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920)
-    _/ [digest](/read/meaning.md)_
+- [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) _/ [digest](/read/meaning.md)_
     - "因为活着，才去寻找意义。"
-- [Happyness Course](https://zhuanlan.zhihu.com/p/19562678)
-    _[digest](/read/happiness-course.md)_
+- [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) _/ [digest](/read/happiness-course.md)_
     - "如果你只有一个选择，它让你满意吗？"
-- [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
-    _[digest](/read/why-unhappy.md)_
+- [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) _/ [digest](/read/why-unhappy.md)_
     - "我，并不特别。"
-- [Poet](https://zhuanlan.zhihu.com/p/19895904): 诗和远方
-    _[digest](/read/poet.md)_
+- [Poet](https://zhuanlan.zhihu.com/p/19895904): 诗和远方 _/ [digest](/read/poet.md)_
     - "眼前的苟且，也正是诗和远方。"
-- [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813)
-    _[digest](/read/teacher-said.md)_
+- [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) _/ [digest](/read/teacher-said.md)_
     - "我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。"
     - "做正确的选择，而不是可以接受的选择。"
-- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd)
-    _[digest](/read/pessimist.md)_
+- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) _/ [digest](/read/pessimist.md)_
     - "It's the hardest part when memories remain."
-- [Anti-Fragile](/read/anti-fragile.md)
-    _[book](https://item.jd.com/11364406.html)_
+- [Anti-Fragile](/read/anti-fragile.md) _/ [book](https://item.jd.com/11364406.html)_
     - "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
 
 Read on 2020
@@ -575,7 +564,7 @@ Timeline
 
 Nonsense
 
-- Time Mgt.: [Life Logs](/lifelogs/archived/time-mgt-log.md) & [Log Format](/lifelogs/archived/time-mgt.md) _( until 2016.10 )_
+- Time Management: [Life Logs](/lifelogs/archived/time-mgt-log.md) & [Log Format](/lifelogs/archived/time-mgt.md) _( until 2016.10 )_
 - Way of Life: [Self Manual](/lifelogs/archived/life-manual.md) _( until 2017 )_
 - [Routine](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md) _( 2019 ~ 2020.04 )_
 - [Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_
@@ -603,7 +592,7 @@ Previous Blog: 2015 ~ 2017
 </blockquote>
 </details>
 
-- "愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。"
+> 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
 ### Friends
 
