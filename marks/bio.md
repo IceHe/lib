@@ -11,19 +11,19 @@ A short biographical profile
 
 我是
 
-- IceHe : 广州人在北京 _( 花名 : 冰何 )_
+- IceHe: 广州人在北京 _( 花名: 冰何 )_
 
 动态
 
-- 技术博客 : [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
-- 生活琐碎 : [weibo.com](http://weibo.com/icedes) @\_IceHe\_
+- 技术博客: [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
+- 生活琐碎: [weibo.com](http://weibo.com/icedes) @\_IceHe\_
 
 经历
 
-- 阿里巴巴本地生活 - 前台研发部 (蜂鸟) 跑腿后端组 - Java _2020.04 ~ TBC_
+- 阿里巴巴本地生活 - 前台研发部 ( 蜂鸟 ) 跑腿后端组 - Java _2020.04 ~ TBC_
 - 阿里巴巴本地生活 - 众包物流运营 & 数据组 - Java _2019.03 ~ 2020.03_
 - 新浪微博 - 视频平台 - Java 服务端 _2018.04 ~ 2019.02_
-- 新浪微博 - Mobile API - PHP 服务端 (应届) _2015.07 ~ 2018.03_
+- 新浪微博 - Mobile API - PHP 服务端 ( 应届 ) _2015.07 ~ 2018.03_
 - 新浪微博 - Mobile API - PHP 实习 _2014.12 ~ 2015.02_
 - 华为软件 - 电信软件定制部 - Java 实习 _2014.08 ~ 2014.10_
 - 华南理工大学 - 软件工程 - C++ 本科 _2011.09 ~ 2015.07_
@@ -35,9 +35,9 @@ A short biographical profile
 
 联络
 
-- GitHub : [IceHe](https://github.com/IceHe)
-- 邮箱 : [icehe.me@qq.com](mailto:icehe.me@qq.com)
-- 微信 : IceHooo
+- GitHub: [IceHe](https://github.com/IceHe)
+- 邮箱: [icehe.me@qq.com](mailto:icehe.me@qq.com)
+- 微信: IceHooo
 
 <!--
 
@@ -56,28 +56,31 @@ A short biographical profile
 
 技能级别
 
-- 精通 Proficient _: 运用自如, 极少需要文档_
-- 熟悉 Familiar _: 熟练使用, 偶尔查阅文档_
-- 胜任 Competent _: 能够使用, 经常查阅文档_
-- 了解 Know _: 了解基本原理_
+- 精通 Proficient: _运用自如, 极少需要文档_
+- 熟悉 Familiar: _熟练使用, 偶尔查阅文档_
+- 胜任 Competent: _能够使用, 经常查阅文档_
+- 了解 Know: _了解基本原理_
 
 编程语言
 
 - 胜任 **[Java](https://go.java/?intcmp=gojava-banner-java-com) / [PHP](https://php.net/)**
 - 了解 [C](https://en.wikipedia.org/wiki/C_(programming_language)) / [C++](https://isocpp.org/) / [Python](https://www.python.org/) / [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) / [Assembly](https://en.wikipedia.org/wiki/Assembly_language)
-- Todo : [Go](https://pingcap.com/) / …
+
+<!-- - Todo: [Go](https://pingcap.com/) / … -->
 
 存储 / 缓存 / 队列
 
 - 胜任 **[MySQL](https://www.mysql.com/) / [Redis](https://redis.io/) / [Elasticsearch](https://www.elastic.co/)**
 - 了解 [Memcached](https://memcached.org/) / [RabbitMQ](https://www.rabbitmq.com/) / [Kafaka](https://kafka.apache.org/)
-- Todo : [PostgreSQL](https://www.postgresql.org/) / [TiDB](https://pingcap.com/) / …
+
+<!-- - Todo: [PostgreSQL](https://www.postgresql.org/) / [TiDB](https://pingcap.com/) / … -->
 
 Web
 
 - 胜任 [Docker](https://www.docker.com/) / HTML / CSS / [jQuery](https://jquery.com/)
 - 了解 [Thrift](https://thrift.apache.org/) / [Protocol Buffers](https://developers.google.com/protocol-buffers)
-- Todo : [Vue.js](https://vuejs.org/) / …
+
+<!-- - Todo: [Vue.js](https://vuejs.org/) / … -->
 
 操作系统
 
@@ -91,7 +94,7 @@ Web
 
 语言沟通
 
-- 英语 : 大学六级, 技术内容的基本阅读 & 写作
+- 英语: 大学六级, 技术内容的基本阅读 & 写作
 - 普通话、粤语
 
 ---
@@ -100,8 +103,8 @@ Web
 
 **阿里巴巴本地生活 (原饿了么 & 口碑 & 百度外卖) - 前台研发部 - (蜂鸟) 跑腿后端组 - Java 服务端研发** _2019.04 ~ TBC_
 
-- 堡主平台 : 订单 & 运单状态流转 / 订单列表 / 各种维度的订单计数 / 订单状态推送 / 订单搜索 & 导出 / …
-- AB业务融合 - 开放平台 : 开发者联调工具 – 订单&商户状态变化 – 主动调用查询 & 被动回调通知
+- 堡主平台: 订单 & 运单状态流转 / 订单列表 / 各种维度的订单计数 / 订单状态推送 / 订单搜索 & 导出 / …
+- AB业务融合 - 开放平台: 开发者联调工具 – 订单&商户状态变化 – 主动调用查询 & 被动回调通知
 - _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / RabbitMQ_
 
 **阿里巴巴本地生活 - 众包物流研发部 – 骑手运营 & 数据组 - Java 服务端** _2019.03 ~ 2020.03_
@@ -117,18 +120,18 @@ Web
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端 (应届)** _2015.07 ~ 2018.03_
 
 - **微博产品部 2017 年度优秀个人 ( MAPI 前 1/16，产品部 前 15/200+ )**
-- MAPI 微博移动服务技术部 : 开发维护移动端 ( 主要指手机 [客户端](https://itunes.apple.com/cn/app/id350962117) 和 [H5](https://m.weibo.cn/) 页 ) 的 API 服务 及其 CMS 后台
-    - 部门职责 : 在 [微博平台](http://open.weibo.com/)、各业务方与移动端间，进行数据整合、适配对接、快速实现需求
+- MAPI 微博移动服务技术部: 开发维护移动端 ( 主要指手机 [客户端](https://itunes.apple.com/cn/app/id350962117) 和 [H5](https://m.weibo.cn/) 页 ) 的 API 服务 及其 CMS 后台
+    - 部门职责: 在 [微博平台](http://open.weibo.com/)、各业务方与移动端间，进行数据整合、适配对接、快速实现需求
 - 重构部门主项目「微博移动端 API 服务」包括登录、HTTP 请求、日志记录等模块
     - 管理迁移 ( 重构 ) 进度，改进工作流程，审核代码及上线，编写文档，维护开发测试的 Docker 环境
-    - 工作流程自动化 : CI 持续集成、固定流程一键完成、定时任务、自动任务
+    - 工作流程自动化: CI 持续集成、固定流程一键完成、定时任务、自动任务
         - 一键上线 ( GitLab API & CI, Jenkins ) 、上线日志回写 ( Release note ) 、上线公告
         - 定时自动 仿真上线、通知提测、清理代码库 ( branch, tag ) 、issues 管理
-        - 代码质量 : 语法检查 ( PHPLint ) 、代码风格检查 ( PHPCS ) 、单元测试 ( PHPUnit )
-        - 文档生成 : 覆盖率报告 ( PHPUnit ) 、API 文档 ( Sami ) 、自动更新文档网站 ( CI, docsify )
-        - 项目工具 : 编写为项目定制的命令行工具 ( Symfony Console Command )
-        - CI 优化 : 定制项目专用的执行 CI 的 Docker 镜像，调整 runner 的配置项，精简 stage & job，尽量并行运行 job，缩短 CI 周期
-        - 异常处理 : 自动重试因 Runner 'System Failed' 异常而失败的 CI Job ( Event, Webhook )
+        - 代码质量: 语法检查 ( PHPLint ) 、代码风格检查 ( PHPCS ) 、单元测试 ( PHPUnit )
+        - 文档生成: 覆盖率报告 ( PHPUnit ) 、API 文档 ( Sami ) 、自动更新文档网站 ( CI, docsify )
+        - 项目工具: 编写为项目定制的命令行工具 ( Symfony Console Command )
+        - CI 优化: 定制项目专用的执行 CI 的 Docker 镜像，调整 runner 的配置项，精简 stage & job，尽量并行运行 job，缩短 CI 周期
+        - 异常处理: 自动重试因 Runner 'System Failed' 异常而失败的 CI Job ( Event, Webhook )
 - 2016.04 ~ 2016.08 开发与维护「微博头条」的服务端 API 及其 CMS 后台
 - _PHP 7 / Yaf / MySQL / Redis / Memcached / MCQ / Docker / CentOS / GitLab / Jenkins_
 
@@ -153,8 +156,8 @@ Web
 
 **毕业设计 - [基于进程安全测量的安全管理](https://github.com/IceHe/secure-mgt-by-dyn-measuring)** _2015.03 ~ 2015.05_
 
-- 包括 : [安全测量模块](https://github.com/IceHe/dimm) ( Linux Loadable Kernel Module ) 、[安全管理器](https://github.com/IceHe/secure-monitor) ( Qt GUI )
-- 原理 : 用 SHA-1 分别计算进程在内存中的代码段与参数段，
+- 包括: [安全测量模块](https://github.com/IceHe/dimm) ( Linux Loadable Kernel Module ) 、[安全管理器](https://github.com/IceHe/secure-monitor) ( Qt GUI )
+- 原理: 用 SHA-1 分别计算进程在内存中的代码段与参数段，
     - 得出定长的信息摘要作为特征值 ( 方便比对 ) ，去比对标准特征值，
     - 便可判断进程是否被篡改，或程序是否被替换
 - _C , C++ , Loadable Kernel Module , CentOS 7 , Qt Framework_
@@ -188,10 +191,10 @@ Web
 
 **弯路。**
 
-- 生活爱好 : ACGMN / 羽毛球 / ~~毽球~~<sup> _( past )_<sup>
-- [最喜爱的](/marks/favourites.md) : 书、文、影视 …
-- [回忆](/past/moments.md) : Good old days
-- [旧文](/past/old-blog.md) : 为赋新词强说愁
+- 生活爱好: ACGMN / 羽毛球 / ~~毽球~~<sup> _( past )_<sup>
+- [最喜爱的](/marks/favourites.md): 书、文、影视 …
+- [回忆](/past/moments.md): Good old days
+- [旧文](/past/old-blog.md): 为赋新词强说愁
 - 尝试 ( 弯路 ) 如下
 
 **华南理工毽球社 - 社长** _2012.09 ~ 2014.06_
@@ -219,7 +222,7 @@ Web
 
 **华工学生职业发展协会 - 综合事务部 - 干事** _2011.09 ~ 2012.06_
 
-- 说服广州信诚人寿 HR 负责人为「超完美计划培训营」优胜者提供岗位 : 经理人 2 个、实习生 10 个
+- 说服广州信诚人寿 HR 负责人为「超完美计划培训营」优胜者提供岗位: 经理人 2 个、实习生 10 个
 - 说服南方报业集团传媒研究院为「职协企观月」活动提供 40 个免费参观南方报业集团的名额
 - 举办 「就业服务月之公关危机」 比赛 ( 第一次办比赛，规模虽小，值得纪念 )
 
