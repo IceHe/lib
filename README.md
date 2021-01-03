@@ -21,31 +21,26 @@
 <!-- > 纸上得来终觉浅，绝知此事要躬行。 -->
 <!-- > —— 陆游《冬夜读书示子聿》 -->
 
-<!-- > 书山有路勤为径, 学海无涯苦作舟. -->
-<!-- > —— 韩愈《增广贤文》 -->
+- [Books Ever Read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 
-Basics
+[JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC
 
-- [JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC
-    - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
-    - [Part III. Execution Engine](/books/understand-jvm-p3.md) _( to read )_
-    - Part IV. Compile and Code Optimize _( to read )_
-- [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) - TOC
-    - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
-        - 1\. **Reliable**, **Scalable**, and Maintainable Applications
-        - 2\. **Data Models** and Query Languages
-        - 3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
-    - [Part II. Distributed Data](/books/designing-data-intensive-applications-p2.md)
-        - 5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
-        - 8\. The Trouble with **Distributed Systems**
-        - 9\. **Consistency** and **Consensus**
-    - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
-        - 10\. **Batch** Processing / 11\. **Stream** Processing / …
-- \* [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( to read )_
-- \* [Linux Kernel](/books/linux.md) _( to note-take )
+- [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
+- [Part III. Execution Engine](/books/understand-jvm-p3.md) _( todo )_
+- Part IV. Compile and Code Optimize _( todo )_
 
-<!-- - _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
-<!--     - _* [Part 1](/books/tcp-ip-illustracted-protocols-p1.md) ( to read )_ -->
+[Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) - TOC
+
+- [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
+    - 1\. **Reliable**, **Scalable**, and Maintainable Applications
+    - 2\. **Data Models** and Query Languages
+    - 3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
+- [Part II. Distributed Data](/books/designing-data-intensive-applications-p2.md)
+    - 5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
+    - 8\. The Trouble with **Distributed Systems**
+    - 9\. **Consistency** and **Consensus**
+- [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
+    - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
 Coding
 
@@ -55,6 +50,11 @@ Coding
     - _The Pragmatic Programmer: your journey to mastery ( 2nd Edition )_
 - [Clean Agile: Back to Basics](/books/clean-agile.md)
 
+Todo
+
+- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
+- [Linux Kernel](/books/linux.md) _( to take notes )_
+
 <!-- - [JZ Offer](/books/jz-offer.md) -->
 
 <!--
@@ -62,14 +62,14 @@ Coding
 Tools
 
 - Wireshark
-    - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( to read )_
-    - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( to read )_
+    - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( todo )_
+    - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( todo )_
 
 -->
 
-Others
-
-- [Books Ever Read - Douban](https://book.douban.com/people/IceHeGZ/collect)
+<!-- _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
+<!--  -->
+<!-- - _* [Part 1](/books/tcp-ip-illustracted-protocols-p1.md) ( todo )_ -->
 
 ### Snips
 
@@ -84,7 +84,7 @@ Others
 
 Docker
 
-- [Docker](/snips/docker/docker.md): command and composor
+- [Docker](/snips/docker/docker-commands.md): commands and composor
 - [Alpine Linux](/snips/docker/alpine/alpine.md): minimal OS image
 
 <!--
@@ -118,34 +118,27 @@ Markdown
 - [Style Guide](/snips/markdown/markdown-style-guide.md)
 - [Lint Tool: mdl](/snips/markdown/lint/lint.md)
 
-Message Queues
+Elasticsearch: for search and analysis
 
-- [kafka](/snips/message-queues/kafka.md) / _[digest](/snips/message-queues/kafka-digest.md)_
-- [RabbitMQ](/snips/message-queues/rabbit-mq.md)
-- [RocketMQ](/snips/message-queues/rocket-mq.md) ( todo )
-- [ActiveMQ](/snips/message-queues/active-mq.md)
-- [ZeroMQ](/snips/message-queues/zero-mq.md) ( todo )
-- [_MemcacheQ_](/snips/message-queues/mcq.md)
-- [_Notes_](/snips/message-queues/notes.md)
+- Basics: https://www.elastic.co ( todo )
+    - What is Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
+- [Usage](/snips/elasticsearch.md) ( todo )
 
-Storage
+LSM Tree: basic data structure of LevelDB & RocksDB
 
-- [LSM Tree](/snips/lsm-tree/lsm-tree.md): Log-Structured Merge-Tree - data structure related to LevelDB & RocksDB
-- Elasticsearch: for search and analysis
-    - Basics: https://www.elastic.co ( todo )
-        - What is Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
-    - [Usage](/snips/storage/elasticsearch.md) ( todo )
-- MySQL: robust SQL database server
-    - Basics: https://www.mysql.com ( todo )
-        - https://dev.mysql.com/doc
-        - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
-    - [Usage](/snips/mysql/mysql-usage.md) ( todo )
-- Redis: in-memory data structure store
-    - _used as a database, cache and message broker_
-    - [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( todo )
-    - [Basics](/snips/redis/redis-basics.md): http://redis.io ( todo )
-    - [Usage](/snips/redis/redis-usage.md): https://redis.io/commands ( todo )
-- [_Mongo_](/snips/tmp/mongo.md) _( draft )_
+- [Log-Structured Merge-Tree](/snips/lsm-tree/lsm-tree.md)
+
+MySQL: robust SQL database server
+
+- Basics: https://www.mysql.com ( todo )
+    - https://dev.mysql.com/doc
+    - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
+- [Usage](/snips/mysql/mysql-usage.md) ( todo )
+
+Redis: in-memory data structure store _as a database, cache and message broker_
+- [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( todo )
+- [Basics](/snips/redis/redis-basics.md): http://redis.io ( todo )
+- [Usage](/snips/redis/redis-usage.md): https://redis.io/commands ( todo )
 
 Web
 
@@ -172,8 +165,21 @@ Others
     - _[Go](/snips/tmp/go.md)_
     - _[Work Flow](/snips/tmp/work-flow.md)_
     - _[Memcached](/snips/tmp/memcached.md)_
+    - _[Mongo](/snips/tmp/mongo.md)_ _( draft )_
     - _[ID Generator](/snips/tmp/id-generator.md)_
     - _[Network Notes](/snips/network/notes.md)_
+
+### MQ
+
+Message Queues
+
+- [kafka](/message-queues/kafka.md) / _[digest](/message-queues/kafka-digest.md)_
+- [RabbitMQ](/message-queues/rabbit-mq.md)
+- [RocketMQ](/message-queues/rocket-mq.md) ( todo )
+- [ActiveMQ](/message-queues/active-mq.md)
+- [ZeroMQ](/message-queues/zero-mq.md) ( todo )
+- _[MemcacheQ](/message-queues/mcq.md)_
+- _[Notes](/message-queues/notes.md)_
 
 ### Mac
 
@@ -191,6 +197,12 @@ Others
 - [Initialize](/mac/initialize-mac.md): 系统初始化
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
+
+### Git
+
+- [Common Commands](/git/common-commands.md)
+- [Concepts & Theory](/git/concepts-n-theory.md)
+- [Docs Digest](/git/docs-digest.md)
 
 ### Java
 
@@ -233,15 +245,7 @@ Command Line Tools
     - _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
     - _Available after JDK 9_
 
-### Git
-
-- [Common Commands](/git/common-commands.md)
-- [Concepts & Theory](/git/concepts-n-theory.md)
-- [Docs Digest](/git/docs-digest.md)
-
-### Cmd
-
-Commands & CLI ( Command-Line Interface )
+### Commands
 
 - [ab](/cmd/a/ab.md): Apache HTTP server benchmarking tool
 - [awk](/cmd/a/awk.md): pattern-directed scanning and processing language
