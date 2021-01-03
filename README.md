@@ -84,7 +84,7 @@ Tools
 
 Docker
 
-- [Docker](/snips/docker/docker-commands.md): commands and composor
+- [Commands](/snips/docker/docker-commands.md)
 - [Alpine Linux](/snips/docker/alpine/alpine.md): minimal OS image
 
 <!--
@@ -136,6 +136,7 @@ MySQL: robust SQL database server
 - [Usage](/snips/mysql/mysql-usage.md) ( todo )
 
 Redis: in-memory data structure store _as a database, cache and message broker_
+
 - [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( todo )
 - [Basics](/snips/redis/redis-basics.md): http://redis.io ( todo )
 - [Usage](/snips/redis/redis-usage.md): https://redis.io/commands ( todo )
