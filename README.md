@@ -23,13 +23,21 @@
 
 - [Books Ever Read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 
-[JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC
+Coding
+
+- [Refactoring](/books/refactoring.md)
+- [Design Patterns](/books/design-patterns.md)
+- [Pragmatic Programmer](/books/pragmatic-programmer.md)
+    - _The Pragmatic Programmer: your journey to mastery ( 2nd Edition )_
+- [Clean Agile: Back to Basics](/books/clean-agile.md)
+
+JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
 
 - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
 - [Part III. Execution Engine](/books/understand-jvm-p3.md) _( todo )_
 - Part IV. Compile and Code Optimize _( todo )_
 
-[Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) - TOC
+Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-applications-toc.md)
 
 - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
     - 1\. **Reliable**, **Scalable**, and Maintainable Applications
@@ -42,15 +50,7 @@
 - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
     - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
-Coding
-
-- [Refactoring](/books/refactoring.md)
-- [Design Patterns](/books/design-patterns.md)
-- [Pragmatic Programmer](/books/pragmatic-programmer.md)
-    - _The Pragmatic Programmer: your journey to mastery ( 2nd Edition )_
-- [Clean Agile: Back to Basics](/books/clean-agile.md)
-
-Todo
+Todos
 
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
 - [Linux Kernel](/books/linux.md) _( to take notes )_
@@ -78,49 +78,10 @@ Tools
 <!-- > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。 -->
 <!-- > —— 鲁迅《致赖少麟》 -->
 
-<!--
-
-Algorithms
-
-- [Sorting](/src/sort/notes.md): Insertion / Heap / Quick / …
-
--->
-
 Docker
 
 - [Commands](/snips/docker/docker-commands.md)
 - [Alpine Linux](/snips/docker/alpine/alpine.md): minimal OS image
-
-<!--
-
-Infrastructre _( todo )_
-
-- [Service Mesh](/snips/infrastructure/service-mesh.md)
-- [Envoy](/snips/infrastructure/envoy.md)
-- [Istio](/snips/infrastructure/service-mesh/istio.md)
-- Thrift
-- Nginx
-- OpenResty
-- Kubernetes
-- E2E and etc.: E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
-- Gatling
-- APM / 监控告警系统
-- Prometheus
-- Thanos
-- Sky Walking
-- ELK
-- Mock 平台
-- CI/CD
-- Jenkins
-- GitHub Action
-- Travis CI
-
--->
-
-Markdown
-
-- [Style Guide](/snips/markdown/markdown-style-guide.md)
-- [Lint Tool: mdl](/snips/markdown/lint/lint.md)
 
 Storage
 
@@ -151,36 +112,74 @@ Web
 
 - [IP Address](/snips/web/ip.md)
 - [URL Encoding](/snips/web/url-encoding.md)
-- Simple HTTP service
+- Simple HTTP service:
     - [init.d](/snips/init.d/init.d.md) with `php -S`
-    - [Nginx](/snips/nginx/nginx.md)
-- How to mail
-    - [on CentOS](/cmd/m/mailx.md): mailx
-    - [on macOS](/cmd/m/msmtp.md): msmtp ( sth wrong? )
-- How to estimate
-    - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
-- How to build personal website
+    - [Nginx](/snips/nginx/nginx.md) via the configuration file
+- How to build the personal website?
     - Powered by [docsify](/_docsify/how-to-docsify.md)
+- How to estimate the required computing resources?
+    - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
+- _How to mail_
+    - _[on CentOS](/cmd/m/mailx.md): mailx_
+    - _[on macOS](/cmd/m/msmtp.md): msmtp ( sth wrong? )_
 
-Others
+Writing
 
 - [Abbreviations](/snips/abbrs.md)
-- _[Glossary](/snips/glossary.md)_ _& Intro to Common Tech Products_
-- _[Chrome & Postman](/snips/web/chrome-n-postman.md)_
-- _[Regular Expression](/snips/regex.md)_
-- _Temp_
-    - _[Go](/snips/tmp/go.md)_
-    - _[Work Flow](/snips/tmp/work-flow.md)_
-    - _[Memcached](/snips/tmp/memcached.md)_
-    - _[Mongo](/snips/tmp/mongo.md)_ _( draft )_
-    - _[ID Generator](/snips/tmp/id-generator.md)_
-    - _[Network Notes](/snips/network/notes.md)_
+- [Glossary](/snips/glossary.md) _with intros to the common technology products_
+- [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
+- [Markdown Lint Tool: mdl](/snips/markdown/lint/lint.md)
+- [Regular Expression](/snips/regex.md)
 
-### MQ
+_Todos / Drafts / Others_
+
+- _[Chrome & Postman](/snips/web/chrome-n-postman.md)_
+- _[Go](/snips/tmp/go.md)_
+- _[Work Flow](/snips/tmp/work-flow.md)_
+- _[Memcached](/snips/tmp/memcached.md)_
+- _[Mongo](/snips/tmp/mongo.md)_
+- _[ID Generator](/snips/tmp/id-generator.md)_
+- _[Network Notes](/snips/network/notes.md)_
+
+<!--
+
+Algorithms
+
+- [Sorting](/src/sort/notes.md): Insertion / Heap / Quick / …
+
+-->
+
+<!--
+
+Infrastructre _( todo )_
+
+- [Service Mesh](/snips/infrastructure/service-mesh.md)
+- [Envoy](/snips/infrastructure/envoy.md)
+- [Istio](/snips/infrastructure/service-mesh/istio.md)
+- Thrift
+- Nginx
+- OpenResty
+- Kubernetes
+- E2E and etc.: E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
+- Gatling
+- APM / 监控告警系统
+- Prometheus
+- Thanos
+- Sky Walking
+- ELK
+- Mock 平台
+- CI/CD
+- Jenkins
+- GitHub Action
+- Travis CI
+
+-->
+
+### MQs
 
 Message Queues
 
-- [kafka](/message-queues/kafka.md) / _[digest](/message-queues/kafka-digest.md)_
+- [kafka](/message-queues/kafka.md) ( [digest](/message-queues/kafka-digest.md) )
 - [RabbitMQ](/message-queues/rabbit-mq.md)
 - [RocketMQ](/message-queues/rocket-mq.md) ( todo )
 - [ActiveMQ](/message-queues/active-mq.md)
@@ -236,23 +235,26 @@ Benchmark & Stress Testing
 
 Command Line Tools
 
-- **[jar](/java/cmd/jar.md)**: Java **archive tool**
-- **[java](/java/cmd/java.md)**: Java **application launcher**
-- **[javac](/java/cmd/javac.md)**: Java **compiler**
-- **[javap](/java/cmd/javap.md)**: Java **class file disassembler**
-- [javadoc](/java/cmd/javadoc.md): Java API documentation generator
-- **[jps](/java/cmd/jps.md)**: JVM **process status** _( list the instrumented JVMs on the target system )_
-- **[jstat](/java/cmd/jstat.md)**: monitor JVM **statistics**
-- [jinfo](/java/cmd/jinfo.md): **configuration info** _( generate configuration info for a specified Java process )_
-- [jmap](/java/cmd/jmap.md): **memory map** _( print details of a specified process )_
-- ~~[jhat](/java/cmd/jhat.md): Java **Heap Analysis Tool**~~ _( only available in JDK 8 ! )_
-- [jstack](/java/cmd/jstack.md): **stack trace** _( print Java stack traces of Java threads for a specified Java process )_
-- **[jcmd](/java/cmd/jcmd.md)**: **send diagnostic command** requests to a running JVM
-- **[jhsdb](/java/cmd/jhsdb.md)**: Java **HotSpot Debugger**
+- [jar](/java/cmd/jar.md): archive tool
+- [java](/java/cmd/java.md): application launcher
+- [javac](/java/cmd/javac.md): compiler
+- [javap](/java/cmd/javap.md): class file disassembler
+- [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
+- [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
+- [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
     - _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
-    - _Available after JDK 9_
+    - _available after JDK 9_
+- _Seldom-used and deprecated_
+    - _[javadoc](/java/cmd/javadoc.md): API documentation generator_
+    - _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
+    - _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
+    - _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
+    - _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
+    - _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
 
-### Commands
+### CMDs
+
+Commands
 
 - [ab](/cmd/a/ab.md): Apache HTTP server benchmarking tool
 - [awk](/cmd/a/awk.md): pattern-directed scanning and processing language
@@ -399,9 +401,11 @@ Scenes
 - [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
 - Effective C++: [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
 
-### Assembly
+### ASM
 
-[Prepare on Windows 7](/asm/prepare-on-windows-7.md)
+Assembly
+
+_[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 
 1. [register / cs / ip / CPU / memory](/asm/learning-note-1.md)
 2. [endien / register / ds / [addr] / stack](/asm/learning-note-2.md)
@@ -449,20 +453,20 @@ Others
 
 Mine: [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
 
-- [lib](https://github.com/IceHe/lib): library | wiki ( this website )
-- [blog](https://github.com/IceHe/blog): prev tech blog ( archived )
-- [mac-conf](https://github.com/IceHe/mac-conf): macOS config files ( @ home dir )
-- [linux-conf](https://github.com/IceHe/linux-conf): Linux config files ( @ home dir )
-- [applescript](https://github.com/IceHe/applescript): to manipulate macOS
-- [phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset): ruleset for PHPCS 3.1.0
+- [lib](https://github.com/IceHe/lib): personal library | wiki ( this website )
+- [blog](https://github.com/IceHe/blog): previous technology blog ( archived )
+- [mac-conf](https://github.com/IceHe/mac-conf): macOS configuration files
+- _[linux-conf](https://github.com/IceHe/linux-conf): Linux configuration files_
+- _[applescript](https://github.com/IceHe/applescript): to manipulate macOS_
+- _[phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset): ruleset for PHPCS 3.1.0_
 
-<!-- [GitHub DMCA](/_private/others/github-dmca.md): Alert myself! -->
+<!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
 
 Recommendation
 
-- [Art of Command Line](https://github.com/jlevy/the-art-of-command-line): master the command line, in one page.
-- [Redis](https://github.com/antirez/redis): an in-memory database that persists on disk.
-- [docsify](https://github.com/docsifyjs/docsify): a magical documentation site generator.
+- [Art of Command Line](https://github.com/jlevy/the-art-of-command-line): master the command line, in one page
+- [Redis](https://github.com/antirez/redis): an in-memory database that persists on disk
+- [docsify](https://github.com/docsifyjs/docsify): a magical documentation site generator
 
 ## Life
 
@@ -488,7 +492,7 @@ Recommendation
 - [Ask](/snips/principles/how-to-ask.md): how to ask
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
-- [GTD](/snips/principles/gtd.md): Get Thing Done - flow Chart
+- [GTD](/snips/principles/gtd.md): Get Thing Done - flow chart
 - [PDCA](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
 - [SMART](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR](/snips/principles/star.md): Situation → Target → Action → Result
@@ -552,7 +556,7 @@ Read on 2020
         in which we trade our genius and artistry for apparent stability."
         _( 我们的文化在进行一场浮士德式的交易, 在其中我们用我们的天赋和技巧, 来换取表面上的稳定. )_
     -   **You can't do many of the things you used to do.**
-        _( 不能做很多你以前做的事情 )_
+        _( 不可以去做许多你习惯去做的事情 )_
 
 ### Past
 
@@ -611,18 +615,12 @@ Previous Blog: 2015 ~ 2017
 
 <!-- > —— Better Man _( Robbie Williams song )_ -->
 
--   Jan Fan:
-    PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
--   Johnson Zhang:
-    Past Roommate / Python / Sina Mobile / Didi @ Beijing
--   [SF Zhou](http://sf-zhou.github.io/):
-    ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
--   Shiwey Yan:
-    Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
--   [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues):
-    Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
--   [IceHe](https://icehe.xyz) ( myself ):
-    A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
+-   Jan Fan: PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
+-   Johnson Zhang: Past Roommate / Python / Sina Mobile / Didi @ Beijing
+-   [SF Zhou](http://sf-zhou.github.io/): ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
+-   Shiwey Yan: Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
+-   [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues): Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
+-   [IceHe](https://icehe.xyz) ( myself ): A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
 - …
 
 ### Work
