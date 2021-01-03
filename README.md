@@ -8,9 +8,11 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Website : [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
-- Backup : [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)
-- Author : [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
+-   Website : [icehe.xyz](https://icehe.xyz) - powered by
+    [docsify](/_docsify/how-to-docsify.md)
+-   Backup : [lib.icehe.xyz](https://lib.icehe.xyz) - powered by
+    [GitBook](https://www.gitbook.com/)
+-   Author : [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
 
@@ -28,7 +30,7 @@ Basics
 
 - [JVM - Java Virtual Machine](/books/understand-jvm-toc.md) - TOC
     - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
-    - [Part III. Execution Engine](/books/understand-jvm-p3.md) _( reading )_
+    - [Part III. Execution Engine](/books/understand-jvm-p3.md) _( to read )_
     - Part IV. Compile and Code Optimize _( to read )_
 - [Designing Data Intensive Applications](/books/designing-data-intensive-applications-toc.md) - TOC
     - [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
@@ -84,12 +86,12 @@ Others
 
 Docker
 
-- [Docker](/snips/docker/docker.md) : Command & Composor
+- [Docker](/snips/docker/docker.md) : command and composor
 - [Alpine Linux](/snips/docker/alpine/alpine.md) : minimal OS image
 
 <!--
 
-Infrastructre _( TODO )_
+Infrastructre _( todo )_
 
 - [Service Mesh](/snips/infrastructure/service-mesh.md)
 - [Envoy](/snips/infrastructure/envoy.md)
@@ -122,44 +124,37 @@ Message Queues
 
 - [kafka](/snips/message-queues/kafka.md) ( [digest](/snips/message-queues/kafka-digest.md) )
 - [RabbitMQ](/snips/message-queues/rabbit-mq.md)
-- [RocketMQ](/snips/message-queues/rocket-mq.md) ( TODO )
+- [RocketMQ](/snips/message-queues/rocket-mq.md) ( todo )
 - [ActiveMQ](/snips/message-queues/active-mq.md)
-- [ZeroMQ](/snips/message-queues/zero-mq.md) ( TODO )
+- [ZeroMQ](/snips/message-queues/zero-mq.md) ( todo )
 - [_MemcacheQ_](/snips/message-queues/mcq.md)
 - [_Notes_](/snips/message-queues/notes.md)
 
 Storage
 
 - [LSM Tree](/snips/lsm-tree/lsm-tree.md) : Log-Structured Merge-Tree
-    - Data structure related to LevelDB / RocksDB
-- Elasticsearch : for search ( and analysis )
-    - Basics : https://www.elastic.co ( TODO )
+    - Data structure related to LevelDB & RocksDB
+- Elasticsearch : for search and analysis
+    - Basics : https://www.elastic.co ( todo )
         - What is Elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
-    - [Usage](/snips/storage/elasticsearch.md) ( TODO )
+    - [Usage](/snips/storage/elasticsearch.md) ( todo )
 - MySQL : robust SQL database server
-    - Basics ( TODO ) : https://www.mysql.com
+    - Basics ( todo ) : https://www.mysql.com
         - https://dev.mysql.com/doc
             - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
-    - [Usage](/snips/mysql/mysql-usage.md) ( TODO )
+    - [Usage](/snips/mysql/mysql-usage.md) ( todo )
 - Redis : in-memory data structure store
     - _used as a database, cache and message broker_
-    - [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( READING )
-    - [Basics](/snips/redis/redis-basics.md) : http://redis.io ( TODO )
-    - [Usage](/snips/redis/redis-usage.md) : https://redis.io/commands ( TODO )
+    - [Principles and Practice](/snips/redis/redis-principles-n-practice.md) ( reading )
+    - [Basics](/snips/redis/redis-basics.md) : http://redis.io ( todo )
+    - [Usage](/snips/redis/redis-usage.md) : https://redis.io/commands ( todo )
 - [_Mongo_](/snips/tmp/mongo.md) _( draft )_
-
-<!--
-
-        - The data model is key-value, but many different kind of values are supported.
-        - e.g. Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps.
-
--->
 
 Web
 
 - [IP Address](/snips/web/ip.md)
 - [URL Encoding](/snips/web/url-encoding.md)
-- Simple HTTP Service
+- Simple HTTP service
     - [init.d](/snips/init.d/init.d.md) with `php -S`
     - [Nginx](/snips/nginx/nginx.md)
 - How to mail
@@ -170,18 +165,18 @@ Web
 - How to build personal website
     - Powered by [docsify](/_docsify/how-to-docsify.md)
 
-_Others_
+Others
 
 - [Abbreviations](/snips/abbrs.md)
-- [_Glossary_](/snips/glossary.md) _& Intro to Common Tech Products_
-- [_Chrome & Postman_](/snips/web/chrome-n-postman.md)
-- [_Regular Expression_](/snips/regex.md)
+- _[Glossary](/snips/glossary.md)_ _& Intro to Common Tech Products_
+- _[Chrome & Postman](/snips/web/chrome-n-postman.md)_
+- _[Regular Expression](/snips/regex.md)_
 - _Temp_
-    - [_Go_](/snips/tmp/go.md)
-    - [_Work Flow_](/snips/tmp/work-flow.md)
-    - [_Memcached_](/snips/tmp/memcached.md)
-    - [_ID Generator_](/snips/tmp/id-generator.md)
-    - [_Network Notes_](/snips/network/notes.md)
+    - _[Go](/snips/tmp/go.md)_
+    - _[Work Flow](/snips/tmp/work-flow.md)_
+    - _[Memcached](/snips/tmp/memcached.md)_
+    - _[ID Generator](/snips/tmp/id-generator.md)_
+    - _[Network Notes](/snips/network/notes.md)_
 
 ### Mac
 
@@ -189,9 +184,6 @@ _Others_
 
 <!-- > 埏埴以为器，当其无，有器之用 -->
 <!-- > —— 老子《道德经·无之为用》 -->
-
-<!-- > 君子性非异也，善假于物也。 -->
-<!-- > —— 荀子《劝学》 -->
 
 - [Tools](/marks/tools/tools.md) : 利器 - 软件 / 物件的推荐
     - [Software](/marks/tools/README#软件) : 软件
@@ -201,7 +193,7 @@ _Others_
 - [Shortcuts](/mac/shortcuts/shortcuts.md) : 快捷键
 - [Initialize](/mac/initialize-mac.md) : 系统初始化
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
-    - _e.g. JetBrains IDE - IntelliJ IDEA_
+    - _e.g. for JetBrains IDE - IntelliJ IDEA_
 
 ### Java
 
@@ -210,21 +202,23 @@ Basics
 - [Glossary](/java/java-glossary.md)
 - [Install JDK](/java/install-jdk.md)
 - Package Manager : [Maven](/java/maven.md) & Gradle
-- Code Style Guide : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
+- Code Style Guide :
+    [Alibaba](https://edu.aliyun.com/certification/cldt02) &
+    [Google](https://google.github.io/styleguide/javaguide.html)
 
 Coding
 
 - [Notes](/java/notes.md)
 - [Snippets](/java/code-snippets/notes.md)
-- [Spock](/java/spock.md) : Unit Tests ( or JUnit )
-    - [Groovy](/java/groovy.md) : A multi-faceted language for the Java platform
-- [IDE - IntelliJ IDEA](/java/intellij-idea.md) : Usage / …
-- [Exceptions](/java/exceptions.md) : Exception Class Hierarchy / …
+- [Spock](/java/spock.md) : unit tests ( or JUnit )
+    - [Groovy](/java/groovy.md) : a multi-faceted language for the Java platform
+- [IDE - IntelliJ IDEA](/java/intellij-idea.md) : usage / …
+- [Exceptions](/java/exceptions.md) : exception class hierarchy / …
 - [Annotations](/java/annotations.md) : Spring / Lombok / FastJson / Jackson / …
 
 Benchmark & Stress Testing
 
-- [JMH](/java/jmh.md) - Java Microbenchmark Harness ( TODO )
+- [JMH](/java/jmh.md) - Java Microbenchmark Harness ( todo )
 
 Command Line Tools
 
@@ -241,7 +235,7 @@ Command Line Tools
 - [jstack](/java/cmd/jstack.md) : **stack trace** _( print Java stack traces of Java threads for a specified Java process )_
 - **[jcmd](/java/cmd/jcmd.md)** : **send diagnostic command** requests to a running JVM
 - **[jhsdb](/java/cmd/jhsdb.md)** : Java **HotSpot Debugger**
-    - _( attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM )_
+    - _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
     - _Available after JDK 9_
 
 ### Git
@@ -256,7 +250,7 @@ Commands & CLI ( Command-Line Interface )
 
 - [ab](/cmd/a/ab.md) : Apache HTTP server benchmarking tool
 - [awk](/cmd/a/awk.md) : pattern-directed scanning and processing language
-    - [gawk](/cmd/a/awk.md) : pattern scanning and processing language ( TODO )
+    - [gawk](/cmd/a/awk.md) : pattern scanning and processing language ( todo )
 - [bash](/cmd/bash/bash.md) : GNU Bourne-Again SHell ( draft )
     - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
     - [shell variables](/cmd/bash/shell-variables.md) : variables are set by the shell
@@ -299,7 +293,7 @@ Commands & CLI ( Command-Line Interface )
 - [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
     - stop (suspend) the execution of processes & continue (resume) their execution at a later point
 - [join](/cmd/j/join.md) : join lines of two files on a common field
-- [jq](/cmd/j/jq.md) : Command-line JSON processor
+- [jq](/cmd/j/jq.md) : command-line JSON processor
 - [kill](/cmd/k/kill.md) : terminate or signal a process
     - [killall](/cmd/k/killall.md) : kill processes by name
 - [last](/cmd/l/last.md) : show listing of last logged in users
@@ -316,12 +310,12 @@ Commands & CLI ( Command-Line Interface )
 - [mv](/cmd/m/mv.md) : move (rename) files
 - [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
-- [netstat](/cmd/n/network-status.md) : show network status ( TODO : and below )
+- [netstat](/cmd/n/network-status.md) : show network status ( todo : and below )
 - [nl](/cmd/n/nl.md) : number lines of files
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
 - [passwd](/cmd/p/passwd.md) : modify a user's password
 - [paste](/cmd/p/paste.md) : merge lines of files
-- [perf](/cmd/p/perf.md) : performance analysis tools for Linux ( TODO )
+- [perf](/cmd/p/perf.md) : performance analysis tools for Linux ( todo )
 - [php](/cmd/p/php.md) : PHP Command Line Interface
 - [pidstat](/cmd/p/pidstat.md) : report statistics for Linux tasks
 - [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
@@ -339,7 +333,7 @@ Commands & CLI ( Command-Line Interface )
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [sort](/cmd/s/sort.md) : sort lines of text files
-- [ssh](/cmd/s/ssh.md) : OpenSSH Client (remote login program) ( TODO )
+- [ssh](/cmd/s/ssh.md) : OpenSSH Client (remote login program) ( todo )
 - [stat](/cmd/s/stat.md) : display file or file system status
 - [su](/cmd/s/su.md) : run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
@@ -349,7 +343,7 @@ Commands & CLI ( Command-Line Interface )
 - [tail](/cmd/t/tail.md) : output the last part of files
 - [tar](/cmd/t/tar.md) : pack & compress
 - [tee](/cmd/t/tee.md) : write to standard output & files
-- [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol ( TODO )
+- [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol ( todo )
 - [terminal-notifier](/cmd/t/terminal-notifier) : send macOS User Notifications
 - [timeout](/cmd/t/timeout.md) : run a command with a time limit
 - [tmux](/cmd/t/tmux.md) : terminal multiplexer
@@ -460,9 +454,9 @@ Mine : [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/Ic
 
 Recommendation
 
-- [Art of Command Line](https://github.com/jlevy/the-art-of-command-line) : Master the command line, in one page.
-- [Redis](https://github.com/antirez/redis) : An in-memory database that persists on disk.
-- [docsify](https://github.com/docsifyjs/docsify) : A magical documentation site generator.
+- [Art of Command Line](https://github.com/jlevy/the-art-of-command-line) : master the command line, in one page.
+- [Redis](https://github.com/antirez/redis) : an in-memory database that persists on disk.
+- [docsify](https://github.com/docsifyjs/docsify) : a magical documentation site generator.
 
 ## Life
 
@@ -472,7 +466,7 @@ Recommendation
 
 <!-- > —— The Shawshank Redemption -->
 
-- [Bio](/marks/bio.md) ：Skills / Exp / Edu
+- [Bio](/marks/bio.md) ：Skills / Exprience / Education
     - **SCUT** : Software Engineering | Bachelor _( C++ )_
     - **Huawei** : Telecom Software Customization | Intern. _( Java )_
     - **Sina Weibo** : Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
@@ -485,10 +479,10 @@ Recommendation
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
-- [Ask](/snips/principles/how-to-ask.md) : How to Ask
+- [Ask](/snips/principles/how-to-ask.md) : how to ask
     - JFGI : Just Fucking Google It
     - RTFM : Read The Fucking Manual
-- [GTD](/snips/principles/gtd.md) : Get Thing Done - Flow Chart
+- [GTD](/snips/principles/gtd.md) : Get Thing Done - flow Chart
 - [PDCA](/snips/principles/pdca.md) : Plan → Do → Check → Act ( Adjust )
 - [SMART](/snips/principles/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR](/snips/principles/star.md) : Situation → Target → Action → Result
@@ -507,47 +501,60 @@ Recommendation
 好文共赏
 
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
-    _( [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) & [digest](/read/cruel-reality.md) )_
+    _/ [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) / [digest](/read/cruel-reality.md)_
     - "Nice guy? I never give a shit."
 - [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920)
-    _( [digest](/read/meaning.md) )_
-    - 因为活着，才去寻找意义。
+    _/ [digest](/read/meaning.md)_
+    - "因为活着，才去寻找意义。"
 - [Happyness Course](https://zhuanlan.zhihu.com/p/19562678)
-    _( [digest](/read/happiness-course.md) )_
-    - 如果你只有一个选择，它让你满意吗？
+    _[digest](/read/happiness-course.md)_
+    - "如果你只有一个选择，它让你满意吗？"
 - [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894)
-    _( [digest](/read/why-unhappy.md) )_
-    - 我，并不特别。
+    _[digest](/read/why-unhappy.md)_
+    - "我，并不特别。"
 - [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方
-    _( [digest](/read/poet.md) )_
-    - 眼前的苟且，也正是诗和远方。
+    _[digest](/read/poet.md)_
+    - "眼前的苟且，也正是诗和远方。"
 - [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813)
-    _( [digest](/read/teacher-said.md) )_
-    - 我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。
-    - 做正确的选择，而不是可以接受的选择。
+    _[digest](/read/teacher-said.md)_
+    - "我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。"
+    - "做正确的选择，而不是可以接受的选择。"
 - [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd)
-    _( [digest](/read/pessimist.md) )_
-    - It's the hardest part when memories remain.
+    _[digest](/read/pessimist.md)_
+    - "It's the hardest part when memories remain."
 - [Anti-Fragile](/read/anti-fragile.md)
-    _( [book](https://item.jd.com/11364406.html) )_
-    - 一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的“统计置信度与日俱增”。
+    _[book](https://item.jd.com/11364406.html)_
+    - "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
 
 Read on 2020
 
-- _[VicodinXYZ's Life Beliefs](/read/life-beliefs.md)_
-    - 决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结
-    - **对于日常小决策, 决策速度大于决策质量, 不要拖; 对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对**
-    - **不是生活中的每一个问题都要解决, 和问题共处是人生常态. 把精力用在重要的事情上**
-- _[Sspai Time Mgt](/read/sspai-time-mgt.md)_
-    - 提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。
-    - **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
-    - 在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：**精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**
-    - 道理很简单，**「不做事」一定是最节省时间、最高效的做事方式，学会「做重要的事」才是掌控时间的终极法门。**
-    - 何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
-- _[Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)_
-    - … blindly accept what they're given, and spend their free time disengaging ( 脱离 ) from reality. _( … 盲目地接受, 把空闲的时间花费在脱离现实上. )_
-    - Seth Godin once said, "The problem is that our culture has engaged in a Faustian bargain, in which we trade our genius and artistry for apparent stability." _( 我们的文化在进行一场浮士德式的交易, 在其中我们用我们的天赋和技巧, 来换取表面上的稳定. )_
-    - **You can't do many of the things you used to do.** _( 不能做很多你以前做的事情 )_
+-   _[VicodinXYZ's Life Beliefs](/read/life-beliefs.md)_
+    -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
+    -   "**对于日常小决策, 决策速度大于决策质量, 不要拖;**
+        **对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对**"
+    -   "**不是生活中的每一个问题都要解决, 和问题共处是人生常态.**
+        **把精力用在重要的事情上**"
+-   _[Sspai Time Mgt](/read/sspai-time-mgt.md)_
+    -   "提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。"
+    -   "**更大的效率来自于重要事情上做得好，而不是在处处做得好，**
+        **管理精力比管理时间更重要。**"
+    -   "在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：
+        **精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**"
+    -   "道理很简单，**「不做事」一定是最节省时间、最高效的做事方式，**
+        **学会「做重要的事」才是掌控时间的终极法门。**"
+    -   "何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，
+        事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，
+        另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**"
+-   _[Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)_
+    -   … blindly accept what they're given,
+        and spend their free time disengaging ( 脱离 ) from reality.
+        _( … 盲目地接受, 把空闲的时间花费在脱离现实上. )_
+    -   Seth Godin once said,
+        "The problem is that our culture has engaged in a Faustian bargain,
+        in which we trade our genius and artistry for apparent stability."
+        _( 我们的文化在进行一场浮士德式的交易, 在其中我们用我们的天赋和技巧, 来换取表面上的稳定. )_
+    -   **You can't do many of the things you used to do.**
+        _( 不能做很多你以前做的事情 )_
 
 ### Past
 
@@ -606,12 +613,18 @@ Previous Blog : 2015 ~ 2017
 
 <!-- > —— Better Man _( Robbie Williams song )_ -->
 
-- Jan Fan : PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
-- Johnson Zhang : Past Roommate / Python / Sina Mobile / Didi @ Beijing
-- [SF Zhou](http://sf-zhou.github.io/) : ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
-- Shiwey Yan : Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
-- [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
-- [IceHe](https://icehe.xyz) ( myself ) : A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
+-   Jan Fan:
+    PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
+-   Johnson Zhang:
+    Past Roommate / Python / Sina Mobile / Didi @ Beijing
+-   [SF Zhou](http://sf-zhou.github.io/):
+    ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
+-   Shiwey Yan:
+    Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
+-   [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues):
+    Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
+-   [IceHe](https://icehe.xyz) ( myself ) :
+    A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
 - …
 
 ### Work
