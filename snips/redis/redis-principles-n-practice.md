@@ -1,4 +1,4 @@
-# Redis Basics ( from Juejin Book )
+# Redis Basics
 
 **RE**mote **DI**ctionary **S**erver 远程字典服务
 
