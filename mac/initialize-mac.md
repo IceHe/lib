@@ -745,15 +745,21 @@ Users & Groups
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application
     -   _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
 
-#### .dotfiles
+#### dotfiles
 
 E.g. for me below
 
 ```bash
 cd ~
 git init
-# Require Git SSH Key
-git remote add origin git@github.com:IceHe/lib.git
+
+# Recommend to pull via HTTPS at the first time
+git remote add origin https://github.com/IceHe/mac-conf.git
+git pull
+
+# Pull via SSH after the first time
+# ( Require local Git SSH key, so configure it later )
+git remote set-url origin git@github.com:IceHe/lib.git
 git pull
 ```
 
@@ -764,7 +770,8 @@ git pull
 
 #### Karabiner-Elements
 
-- Synchronize the settings via the configuration file in .dotfiles above
+- Synchronize the settings via the configuration file
+    `~/.config/karabiner/karabiner.json` in dotfiles above
 
 #### Keyboard Maestro
 
@@ -772,12 +779,44 @@ git pull
     1. `Keyboard Maestro` → `Register Keyboard Maestro…`
     1. Input Username and Password
 1.  Synchronize the macros
-    1. `File` → `Start Syncing Macros…` → `Open Existing…`
-    1. Select the configuration file in .dotfiles
+    1.  `File` → `Start Syncing Macros…` → `Open Existing…`
+    1.  Select the configuration file
+        `~/.config/Keyboard\ Maestro\ Macros.kmsync` in dotfiles
 
 #### Visual Studio Code
 
-1.  Synchronize the settings: [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
+1.  Synchronize the settings via the built-in feature
+    [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
+
+    1.  Select the entry `Turn On Settings Sync…`
+
+        _in the `Manage` gear menu at the bottom of the `Activity Bar`_
+
+    1.  Sign in with GitHub
+
+        _The browser will open so that you can sign in to your GitHub account_
+
+        _After signing in, `Settings Sync` will be turned on_
+        _and continue to synchronize the preferences automatically_
+        _in the background_
+
+    1.  Select all settings to synchronize
+
+    1.  Replace local settings
+
+        _If already synchronized from a machine_
+        _and turning on sync from another machine,_
+        _the dialog `Merge or Replace` will show 3 choices:_
+
+        - _`Merge`:_
+            _Merge local settings with remote settings from the cloud_
+        -   _`Replace Local`:_
+            _Overwrite local settings with remote settings from the cloud_
+        -   _`Merge Manually…`:_
+            _Open `Merges` view where you can merge settings one by one._
+
+        Select `Replace Local`
+
 1.  Install the extensions
     -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
@@ -787,7 +826,31 @@ git pull
 
 #### Sublime Text
 
-See [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)
+Synchronize the settings via the plugin
+[Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)
+
+1.  Run `Package Control: Install Package` command, and looks for
+    [Sync Settings](https://packagecontrol.io/packages/Sync%20Settings)
+1.  Run `Sync Settings: Edit User Settings`
+1.  **if** Do you already have a gist?
+    1.  Copy `gist id` and put it in the configuration file
+        ( `https://gist.github.com/<username>/<gist id>` )
+        ( `gist_id` property )
+    1.  Run `Sync Settings: Download` command to retrieve your backup
+1. **else**
+    1.  Create an access token in
+        [GitHub](https://github.com/settings/tokens/new) with gist scope checked
+    1.  Put the token in the the configuration file ( `access_token` property )
+    1.  Run `Sync Settings: Create and Upload` command
+
+    Configuration file format:
+
+    ```json
+    {
+        "access_token": "xxxxxxxxxxxxxxxxxxxxxxxxx",
+        "gist_id": "xxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+    ```
 
 #### iTerm 2
 
@@ -874,15 +937,22 @@ Login via the QQ account
 
 #### Oh-My-Zsh
 
-```bash
-# via curl
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+1. Install
 
-# via wget
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
+    ```bash
+    # via curl
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-Reference: [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
+    # via wget
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    ```
+
+    Reference:
+    [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
+
+1.  Synchronize the settings via the configuration file
+    `~/.zshrc` in dotfiles above
+
 
 #### Neovim
 
@@ -900,15 +970,21 @@ ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
 
 _Or `nvim` maybe cannot write or read the system clipboard._
 
-_Reference: [Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)_
+Reference:
+[Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)
 
 #### Git
 
-Synchronize the settings via the configuration files from .dotfiles above
+Synchronize the settings via the configuration files from dotfiles. _E.g.:_
 
-Or configure via the commands. E.g. Name and Email:
+- `~/.gitconfig`
+- `~/.gitignore`
+- `~/.gitignore_global`
+- …
 
-1. Set the username and email
+Configure via the commands. E.g. Name and Email:
+
+1. Set
 
     ```bash
     git config --global user.name [USERNAME]
@@ -929,12 +1005,15 @@ Or configure via the commands. E.g. Name and Email:
 
 #### SSH Key
 
-For GitHub, GitLab and etc.
+Add the SSH public SSH key on Mac to the accounts of the git services.
+_E.g.: GitHub, GitLab_
 
-1.  Add the SSH public SSH key on Mac to the accounts of the git services
+-   Advantage:
+    No longer need to enter the username and password on the trusted devices
+-    Reference:
+    [GitLab and SSH keys](https://docs.gitlab.com/ee/ssh/README.html)
 
-    Advantage: No longer need to enter the username and password
-    on the trusted devices
+Steps
 
 1.  Generate the SSH key pair
 
@@ -965,9 +1044,12 @@ For GitHub, GitLab and etc.
 
         You can input `y` to re-generate
 
+    Reference:
+    [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
+
 1.  Add the SSH key to the accounts of the git services
 
-    _E.g. GitLab and GitHub._
+    _E.g. GitLab_
 
     1.  Copy the **public key** to the clipboard
 
@@ -984,3 +1066,6 @@ For GitHub, GitLab and etc.
     1.  Click `Add key`
 
     1.  Validate
+
+    Reference:
+    [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
