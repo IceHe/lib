@@ -1,8 +1,8 @@
 # Redis Notes
 
-Reid Principles and Practice
+Redis Principles and Practice
 
-**RE**mote **DI**ctionary **S**erver 远程字典服务
+Redis: **RE**mote **DI**ctionary **S**erver 远程字典服务
 
 ---
 
