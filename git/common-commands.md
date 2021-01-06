@@ -1,6 +1,8 @@
-# Git 常用操作
+# Git Common Commands
 
-Common Git Commands : 我的 Git 笔记，日常工作曾使用的指令组合。
+Git 常用命令集合.
+
+笔者工作时曾经使用的命令集合.
 
 ---
 

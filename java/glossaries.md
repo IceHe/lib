@@ -1,4 +1,4 @@
-# Java Glossary
+# Java Glossaries
 
 ## JEE
 

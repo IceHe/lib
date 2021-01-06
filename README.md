@@ -89,9 +89,9 @@ Storage
     - _basic data structure of LevelDB & RocksDB_
 - Elasticsearch: [Usage](/snips/elasticsearch.md)
     - _for search and analysis_
-- MySQL: [Usage](/snips/mysql/mysql-usage.md)
+- MySQL: [Usage](/snips/mysql/usage.md)
     - _robust SQL database server_
-- Redis: [Basics](/snips/redis/redis-basics.md) / [Usage](/snips/redis/redis-usage.md) / [Principles and Practice](/snips/redis/redis-principles-n-practice.md)
+- Redis: [Basics](/snips/redis/basics.md) / [Usage](/snips/redis/usage.md) / [Notes](/snips/redis/notes.md)
     - _in-memory data structure store as a database, cache and message broker_
     <!-- basics: http://redis.io -->
     <!-- usage: https://redis.io/commands -->
@@ -110,7 +110,8 @@ Storage
 
 Web
 
-- [IP Address](/snips/web/ip.md)
+- [IP Address](/snips/network/ip.md)
+- [Network Notes](/snips/network/notes.md)
 - [URL Encoding](/snips/web/url-encoding.md)
 - Simple HTTP service:
     - [init.d](/snips/init.d/init.d.md) with `php -S`
@@ -119,14 +120,11 @@ Web
     - Powered by [docsify](/_docsify/how-to-docsify.md)
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
-- _How to mail_
-    - _[on CentOS](/cmd/m/mailx.md): mailx_
-    - _[on macOS](/cmd/m/msmtp.md): msmtp ( sth wrong? )_
 
 Writing
 
 - [Abbreviations](/snips/abbrs.md)
-- [Glossary](/snips/glossary.md) _with intros to the common technology products_
+- [Glossaries](/snips/glossaries.md) _with intros to the common technology products_
 - [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
 - [Markdown Lint Tool: mdl](/snips/markdown/lint/lint.md)
 - [Regular Expression](/snips/regex.md)
@@ -139,7 +137,6 @@ _Todos / Drafts / Others_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
 - _[ID Generator](/snips/tmp/id-generator.md)_
-- _[Network Notes](/snips/network/notes.md)_
 
 <!--
 
@@ -195,9 +192,9 @@ Message Queues
 <!-- > —— 老子《道德经·无之为用》 -->
 
 - [Tools](/marks/tools/tools.md): 利器 - 软件 / 物件的推荐
-    - [Software](/marks/tools/README#软件): 软件
-    - [Hardware](/marks/tools/hardware): 硬件
-    - [Life](/marks/tools/life): 生活
+    - [Software](/marks/tools/tools.md#软件): 软件
+    - [Hardware](/marks/tools/hardware.md): 硬件
+    - [Life](/marks/tools/life.md): 生活
 - [Efficiency](/mac/efficiency.md): 效率指南
 - [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
 - [Initialize](/mac/initialize-mac.md): 系统初始化
@@ -214,7 +211,7 @@ Message Queues
 
 Basics
 
-- [Glossary](/java/java-glossary.md)
+- [Glossaries](/java/glossaries.md)
 - [Install JDK](/java/install-jdk.md)
 - Package Manager: [Maven](/java/maven.md) & Gradle
 - Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
@@ -312,6 +309,8 @@ Commands
 - [ls](/cmd/l/ls.md): list directory contents
 - [lsof](/cmd/l/lsof.md): list open files
 - [man](/cmd/m/man.md): an interface to the on-line reference manuals
+- [mailx](/cmd/m/mailx.md): send mails on CentOS
+- _[msmtp](/cmd/m/msmtp.md): send mails on macOS( sth wrong? )_
 - [mkdir](/cmd/m/mkdir.md): make directories
 - [mount](/cmd/m/mount.md): mount a filesystem
     - [umount](/cmd/m/mount.md#umount): un-mount a filesystem
