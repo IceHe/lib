@@ -1,6 +1,6 @@
-# 技术阅读收藏
+# Technology Bookmarks
 
-Technology Bookmarks 技术内容的书签：工具、文档、Wiki、技术博客…
+技术阅读的书签: 工具、文档、Wiki、技术博客…
 
 ---
 

@@ -497,9 +497,7 @@ Recommendation
 - [STAR](/snips/principles/star.md) Principle: Situation → Target → Action → Result
 - [SWOT](/snips/principles/swot.md) Analysis: Strengths / Weakness / Oppertunities / Threats
 - [What Why How](/snips/principles/what-why-how.md)
-- _Newly_
-    - _[AIDA](/snips/principles/aida.md): Attention → Interest → Desire → Action_
-    - _FERI: Fact → Emotion ( Feel ) → Reflect → Improve_
+- _[AIDA](/snips/principles/aida.md): Attention → Interest → Desire → Action_
 
 ### Digest
 
@@ -535,7 +533,7 @@ Read on 2020
         对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对"
     -   "**不是生活中的每一个问题都要解决, 和问题共处是人生常态.**
         **把精力用在重要的事情上**"
--   _[Sspai Time Mgt](/read/sspai-time-mgt.md)_
+-   _[Sspai Time Management](/read/sspai-time-mgt.md)_
     -   "提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。"
     -   "**更大的效率来自于重要事情上做得好，而不是在处处做得好，**
         **管理精力比管理时间更重要。**"
