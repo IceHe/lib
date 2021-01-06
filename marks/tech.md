@@ -85,7 +85,7 @@
 - [Consistent Hashing 五分钟理解一致性哈希算法](http://blog.csdn.net/cywosp/article/details/23397179)
 - [尾递归调用](https://github.com/ruanyf/articles/blob/master/2015/2015-04-10-tail-call.md)
 - [随机问题 - 洗牌算法](http://mp.weixin.qq.com/s?__biz=MzA4NjE3MDg4OQ==&amp;mid=403338527&amp;idx=1&amp;sn=0c3649ba03268f8b9605b1b75e14cb8b&amp;scene=1&amp;srcid=0406vMkKTTz3LabAOl04P8L6#rd)
-- [结构之法 算法之道](http://blog.csdn.net/v_july_v) <sup>_todo_</sup>
+- [结构之法 算法之道](http://blog.csdn.net/v_july_v)
 
 ## GitHub 仓库
 
@@ -154,7 +154,7 @@
 - [从面向对象的设计模式看软件设计](http://coolshell.cn/articles/8961.html)
 - [PHP PSR](https://github.com/PizzaLiu/PHP-FIG) - 代码规范
 - [PHP Clean Code](https://segmentfault.com/p/1210000011625408/read)
-- [Google Style Guides](https://github.com/google/styleguide/) - 代码风格 <sup>_todo_</sup>
+- [Google Style Guides](https://github.com/google/styleguide/) - 代码风格
 - [防卫性编程](http://blog.jobbole.com/101801/) - 小心多余的错误检查与处理
 - [技术管理者的创业工具箱](http://mp.weixin.qq.com/s?__biz=MzA3NDM0ODQwMw==&mid=206233749&idx=1&sn=775d435c48db5eac47037f7721d426e6&scene=21#wechat_redirect)
 - [编译器的工作过程](https://github.com/ruanyf/articles/blob/master/2014/2014-11-08-compiler.md) - `./configure`, `make`, `make install`
@@ -170,12 +170,7 @@
 
 ## 阅读
 
-- [GitBook](https://www.gitbook.com/explore) <sup>_todo_</sup>
-    - [How to be a Programmer](https://www.gitbook.com/book/braydie/how-to-be-a-programmer/details/zh) <sup>_todo_</sup>
-    - [The Ultimate Question of Programming, Refactoring, and Every](https://www.gitbook.com/book/alexastva/the-ultimate-question-of-programming-refactoring-/details) <sup>_todo_</sup>
-    - [未来世界的幸存者](http://survivor.ruanyifeng.com/) <sup>_temp_</sup> <sup>_todo_</sup>
-- [Free Programming Books](https://github.com/vhf/free-programming-books/blob/master/free-programming-books-zh.md) <sup>_todo_</sup>
-- [程序员必读书单 1.0](http://lucida.me/blog/developer-reading-list/) <sup>_todo_</sup>
+- [程序员必读书单 1.0](http://lucida.me/blog/developer-reading-list/)
 - [面向对象编程的弊端是什么？](https://www.zhihu.com/question/20275578/answer/26577791)<sup>__Best__</sup>
 - [程序员博客墙](http://www.wangminli.com/blogwall/) - 优秀程序员的个人博客索引
 - [酷壳](https://coolshell.cn) - 左耳朵耗子 陈皓 的博客
@@ -194,8 +189,8 @@
 ## Web
 
 - [HTTP Guide](https://www.code-maze.com/http-series/)
-- [Nginx 教程](http://openresty.org/download/agentzh-nginx-tutorials-zhcn.html) <sup>_todo_</sup>
-- [Nginx 指南](https://github.com/bingbo/blog/wiki/NGINX%E6%8C%87%E5%8D%97) <sup>_temp_</sup> <sup>_todo_</sup>
+- [Nginx 教程](http://openresty.org/download/agentzh-nginx-tutorials-zhcn.html)
+- [Nginx 指南](https://github.com/bingbo/blog/wiki/NGINX%E6%8C%87%E5%8D%97)
 - [一个故事讲完 HTTPS](https://mp.weixin.qq.com/s?__biz=MzAxOTc0NzExNg==&mid=2665513779&idx=1&sn=a1de58690ad4f95111e013254a026ca2) - 原理思想
 - [HTTPS 之难](http://www.infoq.com/cn/articles/https-difficult)
 - [AJAX 知识体系梳理](http://louiszhai.github.io/2016/11/02/ajax/)
@@ -205,11 +200,7 @@
 - [TCP/IP 协议栈及 OSI 参考模型详解](http://mp.weixin.qq.com/s?__biz=MzAwNjMxMTA5Mw==&mid=213726432&idx=1&sn=337e2442c23c811cb96bd8315e3d4916&scene=5&srcid=09208rmQfdovBALp0y138PM3#rd)
 - [TCP/IP 协议详解内容总结](http://mp.weixin.qq.com/s?__biz=MzAwNjMxMTA5Mw==&mid=213790057&idx=2&sn=06296c4e3b67fa227b703c6d31a23b3e&scene=5&srcid=0925aDg44vjLgZvCaRNTmrKZ#rd)
 - [高扩展性网站的50条原则](http://www.cnblogs.com/xing901022/p/4425124.html)
-- [FreeRouterV2_HandBook.pdf](https://github.com/lifetyper/FreeRouter_V2/blob/master/FreeRouterV2_HandBook.pdf)
-- [{json:api}](http://jsonapi.org/) - B/S 间的 JSON 格式数据的传输规范 <sup>_temp_</sup>
-- [为什么全栈 JavaScript 经常被黑，而 Java 却不会被黑？](https://www.zhihu.com/question/43165251/answer/95373570)- “全栈”之路 <sup>_temp_</sup>
 - [WTF JS?](https://github.com/denysdovhan/wtfjs) - A list of funny and tricky JavaScript examples
-- [SEO Tips](https://backlinko.com/blog) & [Want To ﻿Build﻿ Highly Profitable Websites?](https://www.authorityhacker.com/) <sup>_temp_</sup>
 - [Chrome 开发者工具的小技巧](http://coolshell.cn/articles/17634.html)
 
 ## 架构
@@ -229,7 +220,7 @@
 - [常见的网站服务器架构有哪些？](https://www.zhihu.com/question/20657269/answer/32678620)- 演进
 - [缓存更新的套路](https://coolshell.cn/articles/17416.html) <sup>__Best__</sup>
 - [工作线程数究竟要设置为多少](https://mp.weixin.qq.com/s/BRpngTEFHjzpGv8tkdqmPQ)
-- [分布式服务化系统一致性的“最佳实干”](http://www.jianshu.com/p/1156151e20c8) <sup>_temp_</sup>
+- [分布式服务化系统一致性的“最佳实干”](http://www.jianshu.com/p/1156151e20c8)
 - [从 GitLab 误删除数据库想到的](https://coolshell.cn/articles/17680.html) - 自动化运维
 - [关于高可用的系统](https://coolshell.cn/articles/17459.html)
 - [Netflix 微服务技术架构](https://mp.weixin.qq.com/s?__biz=MzI4MTY5NTk4Ng==&mid=2247489175&amp;idx=1&amp;sn=76895b3269a7390d6991cea5d3cb89c5&source=41#wechat_redirect )
@@ -243,7 +234,7 @@
 
 ## Linux
 
-- [Bash Guide](https://github.com/Idnan/bash-guide) - 简明入门 <sup>_temp_</sup>
+- [Bash Guide](https://github.com/Idnan/bash-guide) - 简明入门
 - [Linux 命令大全](http://man.linuxde.net/) - 快速上手 <sup>__Best__</sup>
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) <sup>__Best__</sup>
 - [Linux Tools Quik Tutorial](http://linuxtools-rst.readthedocs.org/zh_CN/latest/index.html) <sup>_todo_</sup>
@@ -285,7 +276,7 @@
 - [Don't Call Yourself A Programmer, And Other Career Advice](http://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/)
     译文：[不要自称是程序员，我十多年的 IT 职场总结](http://blog.jobbole.com/94148/)
 - [精益技术简历之道——改善技术简历的47条原则](http://www.cnblogs.com/figure9/p/lean-technical-resume.html) - Google 工程师，[Lucida](http://lucida.me/)
-- [如何优雅地参加技术分享会？](https://zhuanlan.zhihu.com/p/22322885)- 听技术分享的意义 <sup>_temp_</sup>
+- [如何优雅地参加技术分享会？](https://zhuanlan.zhihu.com/p/22322885)- 听技术分享的意义
 - [左耳朵耗子：不灌鸡汤，说真的年龄渐长，技术人的发展之路该怎么走？](http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2650995135&idx=1&sn=758336ff3ecbfdc239d80a11a7122344&chksm=bdbf01ec8ac888fa1c24d310bb34ca257c4ba06e3d92a1d32d05803498e10624d0c525c1cc59&mpshare=1&scene=1&srcid=1229uZN9HTY7NE6ZuPIyse2t#rd)
 - [为何公司宁愿给新人开高工资，却不愿意给知根知底的老员工涨薪？](https://www.zhihu.com/question/62260755)
 - [高级工程师的个人职业发展](http://www.ixirong.com/2016/10/28/senior-software-career-advise/index.html)
