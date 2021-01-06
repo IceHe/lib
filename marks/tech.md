@@ -4,24 +4,65 @@
 
 ---
 
-- 好内容很多，但人生太有限，不可尽揽。本来我还想着给碰到的每一篇好文章写下笔记呢……
-- __生活本来就是一团乱麻，「完美」只是镜花水月，盲目接近它和追求它，均是徒劳，甚至可以说是一出悲剧，就如西西弗斯的滚石。__
-- 追求整洁、秩序、完满，还不如由它杂乱不堪来得省心。我就是一个典型的「强迫症、细节控」，可是不想再继续这样下去了。人生太短暂了，何不及时行乐去享受乐趣，或是好好做事追寻人生的意义。
-- 不过，我还是想留下这个博客 —— 这一片隐秘天地，让我自己一个人，能够静静地跟自己说说话。
+**后记**
+
+-   好内容很多，但人生太有限，不可尽揽。
+    本来我还想着给碰到的每一篇好文章写下笔记呢…
+
+    **生活本来就是一团乱麻，「完美」只是镜花水月，**
+    **盲目接近它和追求它，均是徒劳，**
+    **甚至可以说是一出悲剧，就如西西弗斯的滚石。**
+
+    追求整洁、秩序、完满，
+    还不如由它杂乱不堪来得省心。
+    我就是一个典型的「强迫症、细节控」，
+    可是不想再继续这样下去了。
+    人生太短暂了，何不及时行乐去享受乐趣，
+    或是好好做事追寻人生的意义。
+
+    不过，我还是想留下这个博客
+    —— 这一片隐秘天地，让我自己一个人，
+    能够静静地跟自己说说话。
+
+-   除非发现非常好的新文章，可能以后不会更新本文了。
+
+    在实物上，已经能做到比较精简了，但是在知识收集上，仍然有「松鼠病」。
+    收集了不太可能重看，即使看了琐碎的知识也不容易回想起来应用在实践上。
+
+    毕竟本站访问量少得可怜，即使在这里分享，也不能产生太多分享的价值。
+    所以，还是花更多时间在提升自己算了。
+
+    2017-11-15
+
+    > Never memorize something that you can look up.
+    >
+    > __Albert Einstein__
 
 ## Tools
 
-- BeJson : http://www.bejson.com
-    - JSON 格式校验、格式化，及网络、前端、编码、转换等相关工具
-        - 类似 - JSON.cn : https://www.json.cn
-    - 常用 Web 开发辅助工具、相关知识的简明手册
-        - 类似 - 开源中国 : http://tool.oschina.net
-- Regex101 : https://regex101.com
-    - Online regex tester and debugger : PHP, PCRE, Python, Golang and JavaScript
-- Crontab.guru : https://crontab.guru/#0_*_*_*_*
-    - The cron schedule expression editor
-- HTTP Status Codes ( 状态码 ) : https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#1xx_Informational
-- TCP & UDP Port Numbers ( 端口号 ) : https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Well-known_ports
+-   BeJson: http://www.bejson.com
+
+    -   JSON 格式校验、格式化，及网络、前端、编码、转换等相关工具
+
+        类似 - JSON.cn: https://www.json.cn
+
+    -   常用 Web 开发辅助工具、相关知识的简明手册
+
+        类似 - 开源中国: http://tool.oschina.net
+
+-   Regex101: https://regex101.com
+
+    Online regex tester and debugger: PHP, PCRE, Python, Golang and JavaScript
+
+-   Crontab.guru:
+    https://crontab.guru/#0_*_*_*_*
+
+    The cron schedule expression editor
+
+-   HTTP Status Codes ( 状态码 ):
+    https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#1xx_Informational
+-   TCP & UDP Port Numbers ( 端口号 ):
+    https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Well-known_ports
 
 ## 文档
 
@@ -30,18 +71,17 @@
 - [My Git Note](/git/common-commands.md)
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Vim 键位操作总结图
 - [PHP.net](http://php.net) 官方文档
-- [PHP The Right Way](http://www.phptherightway.com/) <sup>_todo_</sup>
 - [PHP Type Comparisons](http://www.php.net/manual/en/types.comparisons.php) - PHP 变量比较结果参考
 - [Mac Developer Library](https://developer.apple.com/library/mac/navigation/) -> [AppleScript Language Guide](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html)
 - [Object Oriented Design](http://www.cheatography.com/david/cheat-sheets/object-oriented-design/) ( Cheat Sheet )
-- Elasticsearch Cheatsheet - 1.X ~ 7.X : http://elasticsearch-cheatsheet.jolicode.com
+- Elasticsearch Cheatsheet - 1.X ~ 7.X: http://elasticsearch-cheatsheet.jolicode.com
 
 ## 算法
 
-- [Advanced Data Structures](http://courses.csail.mit.edu/6.851/) <sup>_todo_</sup>
+- [Advanced Data Structures](http://courses.csail.mit.edu/6.851/)
 - [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms/)
-- [Visual Algo](http://visualgo.net/) - Visualising data structures and algorithms through animation. <sup>_todo_</sup>
-- [ACM Cheat Sheet](https://github.com/soulmachine/acm-cheat-sheet) - 入门范例 <sup>__Best__</sup> <sup>_todo_</sup>
+- [Visual Algo](http://visualgo.net/) - Visualising data structures and algorithms through animation.
+- [ACM Cheat Sheet](https://github.com/soulmachine/acm-cheat-sheet) - 入门范例 <sup>__Best__</sup>
 - [Consistent Hashing 五分钟理解一致性哈希算法](http://blog.csdn.net/cywosp/article/details/23397179)
 - [尾递归调用](https://github.com/ruanyf/articles/blob/master/2015/2015-04-10-tail-call.md)
 - [随机问题 - 洗牌算法](http://mp.weixin.qq.com/s?__biz=MzA4NjE3MDg4OQ==&amp;mid=403338527&amp;idx=1&amp;sn=0c3649ba03268f8b9605b1b75e14cb8b&amp;scene=1&amp;srcid=0406vMkKTTz3LabAOl04P8L6#rd)
@@ -51,33 +91,58 @@
 
 [dwmkerr/hacker-laws](https://github.com/dwmkerr/hacker-laws) & [nusr/hacker-laws-zh](https://github.com/nusr/hacker-laws-zh)
 
-- 简介 Intro
-    - 💻📖 Laws, Theories, Principles and Patterns that developers will find useful.
-    - 💻📖对开发人员有用的定律、理论、原则和模式。
-- 摘要 Abstract
-    - 布鲁克斯法则 - Brooks's Law
-        - "九个女人不能在一个月内生一个孩子. "
-    - 盖尔定律 - Gall's Law
-        - 一个切实可行的复杂系统势必是从一个切实可行的简单系统发展而来的.
-        - 从头开始设计的复杂系统根本不切实可行，无法修修补补让它切实可行.
-        - 你必须由一个切实可行的简单系统重新开始.
-    - 汉隆的剃刀 - Hanlon's Razor
-        - 一个行为所产生的消极结果通常并不是恶意导致的.
-        - 相反，消极结果更有可能归咎于这些没有得到充分理解的行动或影响.
-    - 侯世达定律 - Hofstadter's Law
-        - 即使考虑到侯世达定律, 它也总是比你预期要长.
-    - 复杂性守恒定律 - The Law of Leaky Abstractions
-        - 即使简化整个系统，内在的复杂性也不会降低.
-        - 它会转移到用户, 并且用户必须以更复杂的方式行事!
-    - 抽象泄露定律 - The Law of Leaky Abstractions
-        - 过度依赖抽象, 加上对底层过程的理解不足, 实际上使得问题在某些情况下更加复杂.
-    - 帕金森定理 - Parkinson's Law
-        - 在工作能够完成的时限内, 工作量会一直增加, 直到所有可用时间都被填满为止.
-    - 帕金森琐碎定理 - The Law of Triviality
-        - 如果没有大量的专业知识或者准备, 很难给非常大的复杂主题讨论提供宝贵的意见. 但是, 人们希望看到更多意见.
-        - 因此, 他们倾向于将大量时间集中在很容易推敲, 但不一定被看重的小细节上.
-    - 你不需要它原则 - You Aren't Gonna Need It
-        - 只有当你需要某些东西的时候, 才去实现它们, 而不是在你预见的时候.
+简介 Intro
+
+- 💻📖 Laws, Theories, Principles and Patterns that developers will find useful.
+- 💻📖对开发人员有用的定律、理论、原则和模式。
+
+摘要 Abstract
+
+-   布鲁克斯法则 - Brooks's Law
+
+    "九个女人不能在一个月内生一个孩子. "
+
+-   盖尔定律 - Gall's Law
+
+    一个切实可行的复杂系统势必是从一个切实可行的简单系统发展而来的.
+
+    从头开始设计的复杂系统根本不切实可行，无法修修补补让它切实可行.
+
+    你必须由一个切实可行的简单系统重新开始.
+
+-   汉隆的剃刀 - Hanlon's Razor
+
+    一个行为所产生的消极结果通常并不是恶意导致的.
+
+    相反，消极结果更有可能归咎于这些没有得到充分理解的行动或影响.
+
+-   侯世达定律 - Hofstadter's Law
+
+    即使考虑到侯世达定律, 它也总是比你预期要长.
+
+-   复杂性守恒定律 - The Law of Leaky Abstractions
+
+    即使简化整个系统，内在的复杂性也不会降低.
+
+    它会转移到用户, 并且用户必须以更复杂的方式行事!
+
+-   抽象泄露定律 - The Law of Leaky Abstractions
+
+    过度依赖抽象, 加上对底层过程的理解不足, 实际上使得问题在某些情况下更加复杂.
+
+-   帕金森定理 - Parkinson's Law
+
+    在工作能够完成的时限内, 工作量会一直增加, 直到所有可用时间都被填满为止.
+
+-   帕金森琐碎定理 - The Law of Triviality
+
+    如果没有大量的专业知识或者准备, 很难给非常大的复杂主题讨论提供宝贵的意见. 但是, 人们希望看到更多意见.
+
+    因此, 他们倾向于将大量时间集中在很容易推敲, 但不一定被看重的小细节上.
+
+-   你不需要它原则 - You Aren't Gonna Need It
+
+    只有当你需要某些东西的时候, 才去实现它们, 而不是在你预见的时候.
 
 ## 代码技巧
 
@@ -96,8 +161,8 @@
 - [What are the main differences between Vim and Emacs?](https://www.quora.com/Text-Editors-What-are-the-main-differences-between-Vim-and-Emacs) - Vim VS Emacs!
 - [有哪些老鸟程序员知道而新手不知道的小技巧？](https://www.zhihu.com/question/36426051)
 - [为什么文件名要小写？](http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html)
-- [Python 3 Cookbook](http://python3-cookbook.readthedocs.io/zh_CN/latest/index.html) <sup>_temp_</sup>
-- [Python 高级编程](https://dongweiming.github.io/Expert-Python/#1) <sup>_temp_</sup>
+- [Python 3 Cookbook](http://python3-cookbook.readthedocs.io/zh_CN/latest/index.html)
+- [Python 高级编程](https://dongweiming.github.io/Expert-Python/#1)
 - [PHP7 革新与性能优化](https://www.csdn.net/article/1970-01-01/2825720)
 - [The secret of PHP7's Performance](https://www.slideshare.net/slideshow/embed_code/key/KMbqLBfzYnMN29)
 - [如何重构“箭头型”代码](https://coolshell.cn/articles/17757.html)
@@ -182,7 +247,7 @@
 - [Linux 命令大全](http://man.linuxde.net/) - 快速上手 <sup>__Best__</sup>
 - [The Art of Command Line](https://github.com/jlevy/the-art-of-command-line/blob/master/README.md) <sup>__Best__</sup>
 - [Linux Tools Quik Tutorial](http://linuxtools-rst.readthedocs.org/zh_CN/latest/index.html) <sup>_todo_</sup>
-- [Linux Netcat 命令——网络工具中的瑞士军刀](http://www.oschina.net/translate/linux-netcat-command) <sup>_temp_</sup>
+- [Linux Netcat 命令——网络工具中的瑞士军刀](http://www.oschina.net/translate/linux-netcat-command)
 - [服务器操作系统的选择](https://www.zhihu.com/question/19599986)
 - [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard) - 各目录用途
 - [Awesome Sysadmin](https://github.com/kahun/awesome-sysadmin) - 译文：[运维资源清单](http://blog.jobbole.com/83212/)
@@ -263,16 +328,3 @@
 - [《程序员必读的职业规划书》《剑指 Offer》Note & 招聘相关微博摘录](/read/career.md)
     & 简历上的 精通、熟练、掌握、理解 英语怎么翻译？
 - [技术细节速记](/read/tech-details.md)
-
-## 后记
-
-- 除非发现非常好的新文章，可能以后不会更新本文了。
-- 在实物上，已经能做到比较精简了，但是在知识收集上，仍然有「松鼠病」。
-- 收集了不太可能重看，即使看了琐碎的知识也不容易回想起来应用在实践上。
-- 毕竟本站访问量少得可怜，即使在这里分享，也不能产生太多分享的价值。
-- 所以，还是花更多时间在提升自己算了。
-- 2017-11-15
-
-> Never memorize something that you can look up.
->
-> __Albert Einstein__
