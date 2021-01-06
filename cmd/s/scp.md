@@ -211,3 +211,7 @@ _the server will not send unexpected filenames._
 
 **Verbose mode.**
 Causes scp and `ssh` to print debugging messages about their progress.  This is helpful in debugging connection, authentication, and configuration problems.
+
+## Usage
+
+todo
