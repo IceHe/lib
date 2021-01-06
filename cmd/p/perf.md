@@ -1,4 +1,4 @@
-# perf ( todo )
+# perf
 
 Performance analysis tools for Linux
 
@@ -12,8 +12,4 @@ Performance analysis tools for Linux
 >
 > From : https://weibo.com/1642628345/I1zCoaD1I
 
-## Quickstart
-
-```bash
-
-```
+todo
