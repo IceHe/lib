@@ -228,7 +228,7 @@ Coding
 
 Benchmark & Stress Testing
 
-- [JMH](/java/jmh.md) - Java Microbenchmark Harness ( todo )
+- [JMH](/java/jmh.md): Java Microbenchmark Harness ( todo )
 
 Command Line Tools
 
@@ -445,8 +445,8 @@ Shell
 Others
 
 - PHP: [functions & scripts](/scripts/php/php.md)
-- Python 3: [Quick Start](/scripts/python/quick-start.md)
-- JavaScript: [Optimize some code](/scripts/javascript/optimize-some-code.md)
+- Python 3: [quick start](/scripts/python/quick-start.md)
+- JavaScript: [optimize some code](/scripts/javascript/optimize-some-code.md)
 
 ### Repos
 
@@ -488,14 +488,14 @@ Recommendation
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
-- [Ask](/snips/principles/how-to-ask.md): how to ask
+- [How to Ask](/snips/principles/how-to-ask.md)
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
-- [GTD](/snips/principles/gtd.md): Get Thing Done - flow chart
-- [PDCA](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
-- [SMART](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR](/snips/principles/star.md): Situation → Target → Action → Result
-- [SWOT](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats
+- [GTD](/snips/principles/gtd.md) Flow: Get Thing Done
+- [PDCA](/snips/principles/pdca.md) Cycle: Plan → Do → Check → Act ( Adjust )
+- [SMART](/snips/principles/smart.md) Principle: Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR](/snips/principles/star.md) Principle: Situation → Target → Action → Result
+- [SWOT](/snips/principles/swot.md) Analysis: Strengths / Weakness / Oppertunities / Threats
 - [What Why How](/snips/principles/what-why-how.md)
 - _Newly_
     - _[AIDA](/snips/principles/aida.md): Attention → Interest → Desire → Action_
@@ -532,7 +532,7 @@ Read on 2020
 -   _[VicodinXYZ's Life Beliefs](/read/life-beliefs.md)_
     -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
     -   "**对于日常小决策, 决策速度大于决策质量, 不要拖;**
-        **对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对**"
+        对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对"
     -   "**不是生活中的每一个问题都要解决, 和问题共处是人生常态.**
         **把精力用在重要的事情上**"
 -   _[Sspai Time Mgt](/read/sspai-time-mgt.md)_
@@ -546,16 +546,6 @@ Read on 2020
     -   "何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，
         事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，
         另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**"
--   _[Focus On Learning and Creating Rather Than Entertainment and Distraction](/read/focus-on-learning-and-creating-rather-than-being-entertained-and-distracted.md)_
-    -   … blindly accept what they're given,
-        and spend their free time disengaging ( 脱离 ) from reality.
-        _( … 盲目地接受, 把空闲的时间花费在脱离现实上. )_
-    -   Seth Godin once said,
-        "The problem is that our culture has engaged in a Faustian bargain,
-        in which we trade our genius and artistry for apparent stability."
-        _( 我们的文化在进行一场浮士德式的交易, 在其中我们用我们的天赋和技巧, 来换取表面上的稳定. )_
-    -   **You can't do many of the things you used to do.**
-        _( 不可以去做许多你习惯去做的事情 )_
 
 ### Past
 
@@ -565,8 +555,9 @@ Read on 2020
 
 Timeline
 
-- [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
+- [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
 - [2018 Winter](/past/2018-winter.md)
+- [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
 - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
 - [2017 Spring](/past/2017-spring.md)
 - [2016 Winter](/past/2016-winter.md)

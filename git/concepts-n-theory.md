@@ -1,6 +1,6 @@
-# Concepts n Theory
+# Git Concepts and Theory
 
-Git 中的部分概念、指令的简要笔记。
+Git 中的概念和理论的简要笔记
 
 ## Commit ID
 

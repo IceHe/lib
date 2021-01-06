@@ -1,4 +1,8 @@
-# Docs Digest
+# Git Docs Digest
+
+Git 文档片段摘录
+
+---
 
 ## Abbreviations
 
