@@ -1,4 +1,4 @@
-# Memcached ( todo )
+# Memcached
 
 References
 
