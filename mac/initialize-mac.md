@@ -818,6 +818,7 @@ git pull
         Select `Replace Local`
 
 1.  Install the extensions
+
     -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         ( [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks )
