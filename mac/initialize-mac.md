@@ -808,11 +808,11 @@ git pull
         _and turning on sync from another machine,_
         _the dialog `Merge or Replace` will show 3 choices:_
 
-        - _`Merge`:_
+        -   _`Merge`:_
             _Merge local settings with remote settings from the cloud_
-        - _`Replace Local`:_
+        -   _`Replace Local`:_
             _Overwrite local settings with remote settings from the cloud_
-        - _`Merge Manually…`:_
+        -   _`Merge Manually…`:_
             _Open `Merges` view where you can merge settings one by one._
 
         Select `Replace Local`
