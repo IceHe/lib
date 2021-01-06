@@ -1,4 +1,4 @@
-# IP ( todo )
+# IP
 
 ## Intranet
 
