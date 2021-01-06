@@ -145,7 +145,7 @@ _`-l`_
     - _This can be useful for dynamic pages._
     - _Available in 2.4.7 and later._
 
-**`-m HTTP-method`
+**`-m HTTP-method`**
 
 - **Custom HTTP method for the requests.**
     - _Available in 2.4.10 and later._

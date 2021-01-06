@@ -11,61 +11,173 @@ References
 ## Synopsis
 
 ```bash
-scp [-1246BCpqrv] [-c cipher]
-    [-F ssh_config] [-i identity_file]
-    [-l limit] [-o ssh_option]
-    [-P port] [-S program]
-    [[user@]host1:] file1 ...
-    [[user@]host2:]file2
+scp [-346BCpqrTv]
+    [-c cipher]
+    [-F ssh_config]
+    [-i identity_file]
+    [-J destination]
+    [-l limit]
+    [-o ssh_option]
+    [-P port]
+    [-S program]
+    source ... target
 ```
 
-scp copies files between hosts on a network.
+## Description
 
-- It uses ssh for data transfer, and uses the same authentication and provides the same security as ssh.
-- _Unlike rcp, scp will ask for passwords or passphrases if they are needed for authentication._
-- When copying a source file to a target file which already exists, scp will replace the contents of the target file (keeping the inode).
-- If the target file does not yet exist, an empty file with the target file name is created, then filled with the source file contents.
+**`scp` copies files between hosts on a network.**
+**It uses `ssh` for data transfer,**
+and uses the same authentication
+and provides the same security as `ssh`.
+`scp` will ask for passwords or passphrases
+if they are needed for authentication.
+
+The source and target may be specified as a local pathname,
+a remote host with optional path in the form `[user@]host:[path]`,
+or a URI in the form `scp://[user@]host[:port][/path]`.
+Local file names can be made explicit using absolute or relative pathnames
+to avoid scp treating file names containing `:` as host specifiers.
+
+When copying between two remote hosts,
+if the URI format is used,
+a port may only be specified on the target
+if the `-3` option is used.
 
 ## Options
 
-     -4      Forces scp to use IPv4 addresses only.
+`-3`
 
-     -6      Forces scp to use IPv6 addresses only.
+Copies between two remote hosts are **transferred through the local host.**
+_Without this option the data is copied directly between the two remote hosts._
+_Note that this option disables the progress meter._
 
-     -B      Selects batch mode (prevents asking for passwords or passphrases).
+`-4`
 
-     -C      Compression enable.  Passes the -C flag to ssh(1) to enable compression.
+Forces scp to **use IPv4 addresses only.**
 
-     -c cipher
-             Selects the cipher to use for encrypting the data transfer.  This option is directly passed to ssh(1).
+`-6`
 
-     -F ssh_config
-             Specifies an alternative per-user configuration file for ssh.  This option is directly passed to ssh(1).
+Forces scp to **use IPv6 addresses only.**
 
-     -i identity_file
-             Selects the file from which the identity (private key) for public key authentication is read.  This option is directly passed to ssh(1).
+`-B`
 
-     -l limit
-             Limits the used bandwidth, specified in Kbit/s.
+Selects batch mode (prevents asking for passwords or passphrases).
 
-     -P port
-             Specifies the port to connect to on the remote host.  Note that this option is written with a capital 'P', because -p is already reserved for
-             preserving the times and modes of the file in rcp(1).
+**`-C`**
 
-     -p      Preserves modification times, access times, and modes from the original file.
+**Compression enable.**  Passes the -C flag to `ssh` to enable compression.
 
-     -q      Quiet mode: disables the progress meter as well as warning and diagnostic messages from ssh(1).
+`-c cipher`
 
-     -r      Recursively copy entire directories.  Note that scp follows symbolic links encountered in the tree traversal.
+Selects the cipher to use for encrypting the data transfer. This option is directly passed to ssh(1).
 
-     -S program
-             Name of program to use for the encrypted connection.  The program must understand ssh(1) options.
+`-F ssh_config`
 
-     -v      Verbose mode.  Causes scp and ssh(1) to print debugging messages about their progress.  This is helpful in debugging connection, authentica-
-             tion, and configuration problems.
+Specifies an alternative per-user configuration file for ssh.  This option is directly passed to ssh(1).
 
-## Usage
+`-i identity_file`
 
-```bash
-scp -r [HOST_OR_IP]@[/path/to/send/] [/path/to/local]
-```
+Selects the file from which the identity (private key) for public key authentication is read.  This option is directly passed to ssh(1).
+
+`-J destination`
+
+Connect to the target host by first making an scp connection to the jump host described by destination and then establishing a TCP forwarding to the ultimate destination from there.
+Multiple jump hops may be specified separated by comma characters.
+This is a shortcut to specify a ProxyJump configuration directive.  This option is directly passed to ssh(1).
+
+`-l limit`
+
+Limits the used bandwidth, specified in Kbit/s.
+
+`-o ssh_option`
+
+Can be used to pass options to ssh in the format used in ssh_config(5).  This is useful for specifying options for which there is no separate scp command-line flag.  For full details of the options listed below, and their possible values, see ssh_config(5).
+
+- AddressFamily
+- BatchMode
+- BindAddress
+- BindInterface
+- CanonicalDomains
+- CanonicalizeFallbackLocal
+- CanonicalizeHostname
+- CanonicalizeMaxDots
+- CanonicalizePermittedCNAMEs
+- CASignatureAlgorithms
+- CertificateFile
+- ChallengeResponseAuthentication
+- CheckHostIP
+- Ciphers
+- Compression
+- ConnectionAttempts
+- ConnectTimeout
+- ControlMaster
+- ControlPath
+- ControlPersist
+- GlobalKnownHostsFile
+- GSSAPIAuthentication
+- GSSAPIDelegateCredentials
+- HashKnownHosts
+- Host
+- HostbasedAuthentication
+- HostbasedKeyTypes
+- HostKeyAlgorithms
+- HostKeyAlias
+- Hostname
+- IdentitiesOnly
+- IdentityAgent
+- IdentityFile
+- IPQoS
+- KbdInteractiveAuthentication
+- KbdInteractiveDevices
+- KexAlgorithms
+- LogLevel
+- MACs
+- NoHostAuthenticationForLocalhost
+- NumberOfPasswordPrompts
+- PasswordAuthentication
+- PKCS11Provider
+- Port
+- PreferredAuthentications
+- ProxyCommand
+- ProxyJump
+- PubkeyAcceptedKeyTypes
+- PubkeyAuthentication
+- RekeyLimit
+- SendEnv
+- ServerAliveInterval
+- ServerAliveCountMax
+- SetEnv
+- StrictHostKeyChecking
+- TCPKeepAlive
+- UpdateHostKeys
+- User
+- UserKnownHostsFile
+- VerifyHostKeyDNS
+
+`-P port`
+
+Specifies the port to connect to on the remote host.  Note that this option is written with a capital `P', because -p is already reserved for preserving the times and modes of the file.
+
+`-p`
+
+Preserves modification times, access times, and modes from the original file.
+
+`-q`
+
+Quiet mode: disables the progress meter as well as warning and diagnostic messages from ssh(1).
+
+`-r`
+
+Recursively copy entire directories.  Note that scp follows symbolic links encountered in the tree traversal.
+
+`-S program`
+
+Name of program to use for the encrypted connection.  The program must understand ssh(1) options.
+
+`-T`
+
+Disable strict filename checking.  By default when copying files from a remote host to a local directory scp checks that the received filenames match those requested on the command-line to prevent the remote end from sending unexpected or unwanted files.  Because of differences in how various operating systems and shells interpret filename wildcards, these checks may cause wanted files to be rejected.  This option disables these checks at the expense of fully trusting that the server will not send unexpected filenames.
+
+`-v`
+
+Verbose mode.  Causes scp and ssh(1) to print debugging messages about their progress.  This is helpful in debugging connection, authentication, and configuration problems.
