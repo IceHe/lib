@@ -808,7 +808,7 @@ git pull
         _and turning on sync from another machine,_
         _the dialog `Merge or Replace` will show 3 choices:_
 
-        - _`Merge`:_
+        -   _`Merge`:_
             _Merge local settings with remote settings from the cloud_
         -   _`Replace Local`:_
             _Overwrite local settings with remote settings from the cloud_
@@ -952,7 +952,6 @@ Login via the QQ account
 
 1.  Synchronize the settings via the configuration file
     `~/.zshrc` in dotfiles above
-
 
 #### Neovim
 
