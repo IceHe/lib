@@ -48,7 +48,7 @@ Examples
 
 Details
 
-- [Basic](/mac/shortcuts/macos-basic.md)
+- [Basic](/mac/shortcuts/macos-shortcuts.md)
 - [File & Edit](/mac/shortcuts/file-n-edit.md)
 - [Finder](/mac/shortcuts/finder.md)
 - [Window & Tab](/mac/shortcuts/window-n-tab.md)

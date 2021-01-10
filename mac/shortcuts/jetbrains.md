@@ -1,22 +1,28 @@
 # JetBrains
 
-- JetBrains : https://www.jetbrains.com/
-    - IntelliJ IDEA : https://www.jetbrains.com/idea/
-    - PhpStorm : https://www.jetbrains.com/phpstorm/
-- The shortcuts in other IDEs from JetBrains are same as IntelliJ IDEA,
-    - such as CLion , PhpStorm , RubyMine , PyCharm and so on.
+The shortcuts in other IDEs from JetBrains are same as IntelliJ IDEA,
+such as CLion , PhpStorm , RubyMine , PyCharm and so on.
 
-## Settings
+---
 
-- Quick Guide : `PhpStorm` → `Help` → `Keymap Reference`
-- Advance Settings : `PhpStorm` → `Preferences…` → `Keymap`
+References
+
+- [JetBrains](https://www.jetbrains.com)
+    - [IntelliJ IDEA](https://www.jetbrains.com/idea)
+    - [PhpStorm](https://www.jetbrains.com/phpstorm)
+    - …
+
+## Preferences
+
+- Quick Guide: `IntelliJ IDEA` → `Help` → `Keymap Reference`
+- Advance Settings: `IntelliJ IDEA` → `Preferences…` → `Keymap`
 
 ## Refactor
 
 - `^ ⌥ t` Refactor This
 - `^ ⌥ o` Optimize Imports
 - `⌘ ⌥ l` Reformat Code
-    - The rules for reformation can be modified in :
+    - The rules for reformation can be modified in:
     - `Preferences` → `Editor` → `Code Style` → Select the programming language.
 - `⌘ ⌥ e` Rename `$variableName`, `ClassName`, `functionName`
     - Auto rename other related code
@@ -30,12 +36,13 @@
 
 ## Code
 
-- _`^ 凵` Auto Complete_
-- `⌘ /` Line Comment
+<!-- - _`^ 凵` Auto Complete_ -->
+
+- **`⌘ /` Line Comment**
 - _`⌘ ⌥ /` Block Comment_
 - _`⌥ ↑` Extend Selection_
 - _`⌥ ↓` Shrink Selection_
-- `⌥ ↩` Show Intention Actions
+- **`⌥ ↩` Show Intention Actions**
 - _`⌘ ⇧ ↩` Complete Current Statement_
 - _`^ ⌥ h` Toggle Parameter Name_
 - _`^ ⌘ g` Select All Occurrences_
@@ -91,7 +98,7 @@
 - `⌘ k` Prev Method
 - `⌘ e` Recent Files
 - `⌘ ⇧ E` Recently Edited Files
-- `⌘ ⇧ T` Test Subject : Jump to Test for current file | Create Test for it
+- `⌘ ⇧ T` Test Subject: Jump to Test for current file | Create Test for it
 - _`⌘ u` Super Class or Interface_
 - _`⌘ ↑` Navigation Bar_
 - `⌘ 1~9` Jump to the specified Tool Window | Hide it
@@ -129,11 +136,11 @@ VCS: History & Compare
 
 ## IdeaVim
 
-IdeaVim : https://plugins.jetbrains.com/plugin/164?pr=idea
+IdeaVim: https://plugins.jetbrains.com/plugin/164?pr=idea
 
 - It is the best Vim-Emulator plugin for IDEs from [JetBrains](https://www.jetbrains.com/).
 - Its most keys are the same as Vim, so I just list my custom keys.
-- My config file : [.ideavimrc](https://github.com/IceHe/macos-home-conf/blob/master/.ideavimrc)
+- My config file: [.ideavimrc](https://github.com/IceHe/macos-home-conf/blob/master/.ideavimrc)
 
 ### Ctags Like
 
@@ -174,7 +181,7 @@ Mimic Emacs in Insert Mode:
 
 - `ds*` Delete Surround
     - such as `ds'` `ds"` `ds[` `ds{` <code>ds\`</code> `dst` ( `t` for HTML Tag ) …
-- `ys**` Add Surround :
+- `ys**` Add Surround:
     - 1st `*` for Postion ( Start or Stop )
     - 2rd `*` for Surround Char (or HTML Tag)
     - such as `yse'` `ysW"` `ysfb[` `ysTh{` …
@@ -182,6 +189,10 @@ Mimic Emacs in Insert Mode:
     - 1st `*` for Current Surround Char
     - 2rd `*` for New Surround Char
     - such as `cs'"` `cs[{` `cst<p>`…
+
+### Ace-Jump
+
+- `^ ;`
 
 ### Others
 
