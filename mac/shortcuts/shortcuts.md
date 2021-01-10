@@ -8,16 +8,6 @@
 - Default shortcuts that I use most frequently
 - Custom shortcuts that I modified or appended
 
-Examples
-
-- Meanings of Font Style
-    - The items with superscript <sup>_custom_</sup> implies it might **be custom by me**.
-    - _The italic item_ is **not frequently-used**.
-- `⌘ 1` | `⌘ 2` Manipulation
-    - Press "⌘ 1" or "⌘ 2" to do the manipulation.
-- `⌘ 1`, `⌘ 2` Manipulation
-    - Press "⌘ 1" then "⌘ 2" to do the manipulation.
-
 ## Principles
 
 > Less & Simple
