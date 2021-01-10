@@ -36,7 +36,8 @@
 
 ## Crazy Remappings
 
-- [Keyboard Maestro](/mac/shortcuts/keyboard-maestro.md)
+- Keyboard Maestro
+    - Reference: [Official Homepage](https://www.keyboardmaestro.com/main)
 - [Karabiner-Elements](/mac/shortcuts/karabiner-elements.md)
 - [Keyboard Layouts](/mac/shortcuts/keyboard-layouts.md)
 
