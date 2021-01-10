@@ -1,5 +1,12 @@
 # macOS Shortcuts
 
+IceHe's macOS Shortcuts
+
+---
+
+- Some are common & default in operating system.
+- Some of the keys below can be modified in `System Preference → Keyboard`.
+
 ## Common
 
 ### Accessory
@@ -74,6 +81,7 @@ Moreover modified by `Keyboard Maestro`
 - `^ u` = [ `^ a`, `^ k` ] Del the Whole Line <sup>_custom_</sup>
 - `^ j` = `↩` Return <sup>_custom_</sup>
 - These modifications can be supported in `Karabiner-Elements` too.
+
 ## Editor
 
 ### Editor - File

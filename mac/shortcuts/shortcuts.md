@@ -42,14 +42,7 @@ Examples
 
 ## macOS
 
-- Some are common & default in operating system.
-- Some of the keys below can be modified in `System Preference → Keyboard`.
-- Some are modified by Apps Karabiner-Elements & Keyboard Maestro
-
-Details
-
 - [macOS Shortcuts](/mac/shortcuts/macos-shortcuts.md)
-- [macOS Emacs Built-in](/mac/shortcuts/macos-emacs-builtin.md)
 
 ## Crazy Remappings
 
