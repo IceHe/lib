@@ -377,14 +377,6 @@
 - [caoz的梦呓](http://chuansong.me/account/caozsay) <sup>__Best__</sup> - 创业、技术、科技
 - [丁香园](http://chuansong.me/account/caozsay) <sup>__Best__</sup> - 健康、医疗的常识科普！（还推荐他的知乎问答！）
 
-## 额外
-
-- 最喜欢的 [电影](favourites.md#Motion-Picture-电影)
-- 最喜欢的 [电视剧](favourites.md#TV-Dramas-电视剧)
-- 最喜欢的 [动画](favourites.md#Animate-动画)
-- 最喜欢的 [游戏](favourites.md#Games-游戏)
-- 最喜欢的 [歌手](favourites.md#Singers-歌手)
-
 ## 笔记
 
 - [你的自控能力强么？｜研究：不快乐的人自控力更差](/read/self_control.md)

@@ -192,7 +192,6 @@ Web
 **弯路。**
 
 - 生活爱好: ACGMN / 羽毛球 / ~~毽球~~<sup> _( past )_<sup>
-- [最喜爱的](/marks/favourites.md): 书、文、影视 …
 - [回忆](/past/moments.md): Good old days
 - [旧文](/past/old-blog.md): 为赋新词强说愁
 - 尝试 ( 弯路 ) 如下
