@@ -196,6 +196,8 @@ Message Queues
     - [Life](/marks/tools/life.md): 生活
 - [Efficiency](/mac/efficiency.md): 效率指南
 - [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
+    - [JetBrains](/mac/shortcuts/jetbrains.md)
+    - [Sublime Text](/mac/shortcuts/sublime-text.md)
 - [Initialize](/mac/initialize-mac.md): 系统初始化
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_

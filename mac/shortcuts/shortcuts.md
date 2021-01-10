@@ -52,10 +52,7 @@ Details
 - [File & Edit](/mac/shortcuts/file-n-edit.md)
 - [Finder](/mac/shortcuts/finder.md)
 - [Window & Tab](/mac/shortcuts/window-n-tab.md)
-- [Input Sources](/mac/shortcuts/input-sources.md)
 - [macOS Emacs Built-in](/mac/shortcuts/macos-emacs-builtin.md)
-- [Activity Monitor](/mac/shortcuts/activity-monitor.md)
-- [Mail](/mac/shortcuts/mail.md)
 
 ## Crazy Remappings
 
@@ -63,31 +60,15 @@ Details
 - [Karabiner-Elements](/mac/shortcuts/karabiner-elements.md)
 - [Keyboard Layouts](/mac/shortcuts/keyboard-layouts.md)
 
-## System Assistant
-
-- [System Assistant](/mac/shortcuts/system-assistant.md)
-
 ## Development
 
-- [Charles](/mac/shortcuts/charles.md)
-- [Script Editor](/mac/shortcuts/script-editor.md)
 - [Sublime Text](/mac/shortcuts/sublime-text.md)
 - [JetBrains](/mac/shortcuts/jetbrains.md)
 
 ## Command Line
 
-- [iTerm2](/mac/shortcuts/iterm2.md)
 - [tmux](/cmd/t/tmux.md)
 - [Vim](/cmd/v/vim.md)
 - [Zsh](/cmd/z/zsh.md)
-
-## Others
-
-- [2Do](/mac/shortcuts/2do.md)
-- [EuDict](/mac/shortcuts/eu-dict.md)
-- [MindNode](/mac/shortcuts/mindnode.md)
-- [NeteaseMusic](/mac/shortcuts/netease-music.md)
-- [Outlook](/mac/shortcuts/outlook.md)
-- [Trello](/mac/shortcutqqs/trello.md)
 
 > 天下武功, 唯快不破。

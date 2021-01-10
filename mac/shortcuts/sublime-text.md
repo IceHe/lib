@@ -1,6 +1,13 @@
-# Sublime Text
+# Sublime Text - Shortcuts
 
-- https://www.sublimetext.com/
+https://www.sublimetext.com
+
+## Command Palette
+
+- `⌘ p` Quick Open File
+- `⌘ ⇧ P` Command Palette…
+- `⌘ ⇧ C` Copy File Path
+- `^ s` Trim Trailing Whitespace
 
 ## Cursor Position
 
@@ -22,29 +29,22 @@
 
 - `⌘ d` Expand Selection to Word
 - `^ ⇧ M` Expand Selection to Brackets
-- `⌘ ⇧ L` Split into Lines
+- **`⌘ ⇧ L` Split into Lines**
 - _`^ l` Scroll to the Selection_
-
-## Bookmarks
-
-- `⌘ F2` Toggle Bookmark
-- `F2` Next Bookmark
-- `⇧ F2` Prev Bookmark
-- `⌘ ⇧ F2` Clear All Bookmarks
-
-## Layout
-
-- `⌘ ⌥ 1~4` 1~4 Columns
-- _`⌘ ⌥ 5` Grid_
-- _`⌘ ⌥ ⇧ 2~3` 2~3 Rows_
-
-## Command Palette…
-
-- `⌘ p` Quick Open File
-- `⌘ ⇧ P` Command Palette…
-- `⌘ ⇧ C` Copy File Path
-- `^ s` Trim Trailing Whitespace
 
 ## Sidebar
 
 - `⌘ k` `⌘ b` Toggle Sidebar
+
+## _Layout_
+
+- _`⌘ ⌥ 1~4` 1~4 Columns_
+- _`⌘ ⌥ 5` Grid_
+- _`⌘ ⌥ ⇧ 2~3` 2~3 Rows_
+
+## _Bookmarks_
+
+- _`⌘ F2` Toggle Bookmark_
+- _`F2` Next Bookmark_
+- _`⇧ F2` Prev Bookmark_
+- _`⌘ ⇧ F2` Clear All Bookmarks_
