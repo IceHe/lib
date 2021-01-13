@@ -4,10 +4,6 @@
 
 ---
 
-- The principles that I follow
-- Default shortcuts that I use most frequently
-- Custom shortcuts that I modified or appended
-
 ## Principles
 
 > Less & Simple
@@ -38,8 +34,6 @@
 
 - Keyboard Maestro
     - Reference: [Official Homepage](https://www.keyboardmaestro.com/main)
-- [Karabiner-Elements](/mac/shortcuts/karabiner-elements.md)
-- [Keyboard Layouts](/mac/shortcuts/keyboard-layouts.md)
 
 ## Development
 

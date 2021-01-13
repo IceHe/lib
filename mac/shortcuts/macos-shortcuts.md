@@ -1,6 +1,6 @@
 # macOS Shortcuts
 
-IceHe's macOS Shortcuts
+macOS Shortcuts
 
 ---
 
@@ -12,13 +12,13 @@ IceHe's macOS Shortcuts
 ### Accessory
 
 - `⌘ 凵` Spotlight
-- _`⌥ ⇧ ?` Show Help Menu_ <sup>_custom_</sup>
+- `⌥ ⇧ ?` Show Help Menu <sup>_custom_</sup>
 - `⌘ ⌥ d` _Dock Hiding On/Off_
 
 ### Window
 
 - <code>⌘ \`</code> Switch windows of the current App
-    - It's enhanced by App [HyperSwitch](https://bahoom.com/hyperswitch) | Keyboard Maestro
+    - It's enabled via the App [HyperSwitch](https://bahoom.com/hyperswitch)
 - `⌘ ^ f` Toggle Full Screen
 - `⌘ ,` Preferences
 - `⌘ q` Exit
@@ -55,7 +55,7 @@ IceHe's macOS Shortcuts
 - They may work, if you append some modifier keys to them.
 - Reference : [Keyboard Shortcuts ( Emacs ) for Editing Text Fields in OS X](http://jblevins.org/log/kbd)
 
-#### Default
+Emacs shortcuts:
 
 - `^ f` = `←`
 - `^ b` = `→`
@@ -70,17 +70,6 @@ IceHe's macOS Shortcuts
 - `^ o` Insert a Blank Line `'\n'` after the cursor
 
 They are also enabled by `Zsh` ( in `.zshrc` ) and `Vim` ( in `.vimrc` ) in iTerm 2 ( Terminal ).
-
-#### Advanced
-
-Moreover modified by `Keyboard Maestro`
-
-- `^ p` = `⌥ ←` Move to Prev Word <sup>_custom_</sup>
-- `^ n` = `⌥ ←` Move to Next Word <sup>_custom_</sup>
-- `^ w` = `⌥ ⌫` Del Preceding Word <sup>_custom_</sup>
-- `^ u` = [ `^ a`, `^ k` ] Del the Whole Line <sup>_custom_</sup>
-- `^ j` = `↩` Return <sup>_custom_</sup>
-- These modifications can be supported in `Karabiner-Elements` too.
 
 ## Editor
 
@@ -100,7 +89,7 @@ Moreover modified by `Keyboard Maestro`
 - `⌘ c` Copy
 - _`⌘ ⌥ c` Copy Path_
 - `⌘ v` Paste
-- `⌘ ⌥ v` Move ( After `⌘ c` )
+- `⌘ ⌥ v` Move ( after `⌘ c` )
 - `⌘ f` Search
 - `⌘ g` Next Match
 - `⌘ ⇧ G` Prev Match
