@@ -455,29 +455,33 @@ _Others_
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-- [Bio](/past/bio.md): Skills / Exprience / Education
-    - [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
-    - **SCUT**: Software Engineering | Bachelor _( C++ )_
-    - **Huawei**: Telecom Software Customization | Intern. _( Java )_
-    - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
-    - **Alibaba Local Life**: 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 | Back-End _( Java )_
-- Bookmarks: [Reading](/past/bookmarks/reading.md) & [Technology](/past/bookmarks/technology.md)
-
-<!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
-
 Timeline
 
-- [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
-- [2018 Winter](/past/2018-winter.md)
-- [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
-- [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
-- [2017 Spring](/past/2017-spring.md)
-- [2016 Winter](/past/2016-winter.md)
-- [2016 Fall](/past/2016-fall.md)
-- [2016 Spring & Summer](/past/2016-summer.md)
-- [Bye 2015](/past/2015-bye.md)
-- [Moments](/past/moments.md): 回忆
-- [Old Blog](/past/old-blog.md): 旧博索引
+- [Bio](/past/bio.md): Skills / Exprience / Education
+    - Repos: [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
+    - **SCUT**: Software Engineering / Bachelor / C++
+    - **Huawei**: Telecom Software Customization / Intern. / Java
+    - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform / Back-End / Java
+    - **Alibaba Local Life**: 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 / Back-End / Java
+- After 2018
+    - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
+    - [2018 Winter](/past/2018-winter.md)
+    - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
+    - [Moments](/past/moments.md): 回忆
+- 2015 ~ 2017
+    - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
+    - [2017 Spring](/past/2017-spring.md)
+    - [2016 Winter](/past/2016-winter.md)
+    - [2016 Fall](/past/2016-fall.md)
+    - [2016 Spring & Summer](/past/2016-summer.md)
+    - [Bye 2015](/past/2015-bye.md)
+    - [How to Build Blog](/blog/build.md): 搭建博客
+    - [Blog Changlogs](/blog/changelog.md): 折腾博客
+    - [icehe.me](https://icehe.me): previous technology blog
+- Before 2015
+    - [QZone Index](/past/qzone-index.md) of the old posts
+
+> 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
 Nonsense
 
@@ -487,11 +491,9 @@ Nonsense
 - ~~[Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_~~
 - [Simple Rehabilitation](/lifelogs/simple-rehabilitation.md) _( since 2021-01-13 )_
 
-Previous Blog: 2015 ~ 2017
+<!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
 
-- [Tech Blog](https://icehe.me): icehe.me
-- [How to Build Blog](/blog/build.md): 搭建博客
-- [Blog Changlogs](/blog/changelog.md): 折腾博客
+<!--
 
 <details>
 <summary>少不更事</summary>
@@ -510,7 +512,7 @@ Previous Blog: 2015 ~ 2017
 </blockquote>
 </details>
 
-> 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
+-->
 
 ### Principles
 
@@ -519,7 +521,8 @@ Previous Blog: 2015 ~ 2017
 - [How to Ask](/snips/principles/how-to-ask.md): Prepare before asking
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
-- How to Work: "Don't try, just do. Failure is not an option." —— Elon Musk
+- Working standards
+    - "Don't try, just do. Failure is not an option." - Elon Musk
     - 请示工作说方案
     - 布置工作说标准
     - 汇报工作说结果
@@ -527,8 +530,8 @@ Previous Blog: 2015 ~ 2017
     - 回顾工作说感受
 - [GTD Flow](/snips/principles/gtd.md): Get Thing Done
 - [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
-- [SMART Principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR Principle](/snips/principles/star.md): Situation → Target → Action → Result
+- [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR principle](/snips/principles/star.md): Situation → Target → Action → Result
 
 <!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
 <!-- - [What Why How](/snips/principles/what-why-how.md) -->
@@ -541,6 +544,9 @@ Previous Blog: 2015 ~ 2017
 
 好文共赏
 
+- Bookmarks:
+    - [Reading](/past/bookmarks/reading.md)
+    - [Technology](/past/bookmarks/technology.md)
 - [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) _/ [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) / [digest](/read/cruel-reality.md)_
     - "Nice guy? I never give a shit."
 - [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) _/ [digest](/read/meaning.md)_
@@ -558,9 +564,6 @@ Previous Blog: 2015 ~ 2017
     - "It's the hardest part when memories remain."
 - [Anti-Fragile](/read/anti-fragile.md) _/ [book](https://item.jd.com/11364406.html)_
     - "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
-
-Read on 2020
-
 -   _[VicodinXYZ's Life Beliefs](/read/life-beliefs.md)_
     -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
     -   "**对于日常小决策, 决策速度大于决策质量, 不要拖;**
@@ -581,8 +584,10 @@ Read on 2020
 
 ### Friends
 
-> To be a better man.
+> To be a better me.
 
+<!-- > To be a better man. -->
+<!-- > -->
 <!-- > —— Better Man _( Robbie Williams song )_ -->
 
 -   Jan Fan: PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
