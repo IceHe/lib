@@ -10,7 +10,6 @@ Reference: [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
 Related articles on icehe.xyz ( my website ):
 
-- [Tools: 利器 - 软件 / 物件的推荐](/marks/tools/tools.md)
 - [Efficiency: 效率指南](/mac/efficiency.md)
 - [Shortcuts: 快捷键](/mac/shortcuts/shortcuts.md)
 
