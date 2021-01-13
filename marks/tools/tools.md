@@ -32,5 +32,3 @@
 - [命令行](/marks/tools/cli.md)
 - [软件开发](/mac/apps/development.md)
 - [核心应用](/mac/apps/core-apps.md)
-- [系统增强](/mac/apps/system-enhanced.md)
-- [其它候选](/mac/apps/candidates.md)
