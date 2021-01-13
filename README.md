@@ -190,9 +190,11 @@ Message Queues
 
 <!-- > —— 老子《道德经·无之为用》 -->
 
-- [Efficiency](/mac/efficiency.md): 效率指南
-- [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
-- [Initialize](/mac/initialize-mac.md): 系统初始化
+- [Efficiency](/mac/efficiency.md) _( 效率指南 )_
+    - [macOS shortcuts](/mac/shortcuts/macos.md)
+    - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
+    - [JetBrains shortcuts](/mac/shortcuts/jetbrains.md)
+- [Initialize](/mac/initialize-mac.md) _( 系统初始化 )_
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
 

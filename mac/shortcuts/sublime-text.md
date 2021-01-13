@@ -1,4 +1,4 @@
-# Sublime Text - Shortcuts
+# Sublime Text Shortcuts
 
 https://www.sublimetext.com
 

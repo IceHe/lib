@@ -1,4 +1,4 @@
-# JetBrains
+# JetBrains Shortcuts
 
 The shortcuts in other IDEs from JetBrains are same as IntelliJ IDEA,
 such as CLion , PhpStorm , RubyMine , PyCharm and so on.

@@ -28,10 +28,6 @@ A short biographical profile
 - 华为软件 - 电信软件定制部 - Java 实习 _2014.08 ~ 2014.10_
 - 华南理工大学 - 软件工程 - C++ 本科 _2011.09 ~ 2015.07_
 
-工具控
-
-- [我的快捷键](/mac/shortcuts/shortcuts.md) - 默认 & 自定义
-
 联络
 
 - GitHub: [IceHe](https://github.com/IceHe)
