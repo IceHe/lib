@@ -10,7 +10,7 @@
 
 - This site: [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
 - Backup site: [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)
--   Author: [IceHe](/marks/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
+-   Author: [IceHe](/past/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
 
@@ -455,7 +455,7 @@ _Others_
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-- [Bio](/marks/bio.md): Skills / Exprience / Education
+- [Bio](/past/bio.md): Skills / Exprience / Education
     - [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
     - **SCUT**: Software Engineering | Bachelor _( C++ )_
     - **Huawei**: Telecom Software Customization | Intern. _( Java )_
