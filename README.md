@@ -131,7 +131,6 @@ Writing
 
 _Todos / Drafts / Others_
 
-- _[Chrome & Postman](/snips/web/chrome-n-postman.md)_
 - _[Go](/snips/tmp/go.md)_
 - _[Work Flow](/snips/tmp/work-flow.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
