@@ -64,10 +64,6 @@ Life Logs: 个人时间使用情况的记录统计日志。( 已停更 )
 
 ## 时间日志格式
 
-[Explanations for Log Format - 日志记录格式的说明](/lifelogs/archived/time-mgt.md)
-
-_( icehe: 想起来就稍微更新一下 )_
-
 ## 2021
 
 - 一月: todo
