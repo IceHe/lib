@@ -5,7 +5,7 @@ Bulid Blog: Why 初衷、How 过程，Hexo 建站，Theme 主题，Domain Name �
 ---
 
 - 原博客：https://icehe.me
-- **进阶文章**《 [折腾个人博客](/blog/blog_changelog.md) 》
+- **进阶文章**《 [折腾个人博客](/past/blog/changelog.md) 》
 
 ## 后记
 

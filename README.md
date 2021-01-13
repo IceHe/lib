@@ -1,6 +1,6 @@
 # Table of Contents
 
-[Welcome!](/blog/welcome.md) Here is my "Library".
+[Welcome!](/past/blog/welcome.md) Here is my "Library".
 
 ---
 
@@ -20,8 +20,6 @@
 
 <!-- > 纸上得来终觉浅，绝知此事要躬行。 -->
 <!-- > —— 陆游《冬夜读书示子聿》 -->
-
-- [Books Ever Read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 
 Coding
 
@@ -52,6 +50,7 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 
 Todos
 
+- [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
 - [Linux Kernel](/books/linux.md) _( to take notes )_
 
@@ -475,8 +474,8 @@ Timeline
     - [2016 Fall](/past/2016-fall.md)
     - [2016 Spring & Summer](/past/2016-summer.md)
     - [Bye 2015](/past/2015-bye.md)
-    - [How to Build Blog](/blog/build.md): 搭建博客
-    - [Blog Changlogs](/blog/changelog.md): 折腾博客
+    - [How to Build Blog](/past/blog/build.md): 搭建博客
+    - [Blog Changlogs](/past/blog/changelog.md): 折腾博客
     - [icehe.me](https://icehe.me): previous technology blog
 - Before 2015
     - [QZone Index](/past/qzone-index.md) of the old posts
