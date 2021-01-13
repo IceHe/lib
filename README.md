@@ -422,39 +422,33 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 
 ### Scripts
 
-AppleScript
-
-- [AppleScript Quick Start](/scripts/applescript/quick-start.md)
-- [AppleScript to Control Evernote / macOS](/scripts/applescript/evernote-macos.md)
-
-Batch 批处理
-
-- [Batch 批处理指令](/scripts/batch/commands.md)
-- [Batch 批处理中的特殊符号](/scripts/batch/dos-special-symbol.md)
-- [DOS Common Commands](/scripts/batch/dos-common-commands.md)
-- [DOS Environment Variables](/scripts/batch/dos-environment-variable.md)
-
 Shell
 
 - [Notes](/scripts/shell/notes.md): a bash script example
 - [Terminal Colors](/scripts/shell/terminal-colors.md)
 
-Others
+_Batch 批处理_
 
-- PHP: [functions & scripts](/scripts/php/php.md)
-- Python 3: [quick start](/scripts/python/quick-start.md)
-- JavaScript: [optimize some code](/scripts/javascript/optimize-some-code.md)
+- _[Batch 批处理指令](/scripts/batch/commands.md)_
+- _[Batch 批处理中的特殊符号](/scripts/batch/dos-special-symbol.md)_
+- _[DOS Common Commands](/scripts/batch/dos-common-commands.md)_
+- _[DOS Environment Variables](/scripts/batch/dos-environment-variable.md)_
+
+_Others_
+
+- _AppleScript_
+    - _[Quick Start](/scripts/applescript/quick-start.md)_
+    - _[Control Evernote & macOS](/scripts/applescript/evernote-macos.md)_
+- _PHP: [functions & scripts](/scripts/php/php.md)_
+- _Python 3: [quick start](/scripts/python/quick-start.md)_
+- _JavaScript: [optimize some code](/scripts/javascript/optimize-some-code.md)_
 
 ### Repos
 
 Mine: [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
 
 - [lib](https://github.com/IceHe/lib): personal library | wiki ( this website )
-- [blog](https://github.com/IceHe/blog): previous technology blog ( archived )
 - [mac-conf](https://github.com/IceHe/mac-conf): macOS configuration files
-- _[linux-conf](https://github.com/IceHe/linux-conf): Linux configuration files_
-- _[applescript](https://github.com/IceHe/applescript): to manipulate macOS_
-- _[phpcs-ruleset](https://github.com/IceHe/phpcs-ruleset): ruleset for PHPCS 3.1.0_
 
 <!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
 
@@ -462,7 +456,6 @@ Recommendation
 
 - [Art of Command Line](https://github.com/jlevy/the-art-of-command-line): master the command line, in one page
 - [Redis](https://github.com/antirez/redis): an in-memory database that persists on disk
-- [docsify](https://github.com/docsifyjs/docsify): a magical documentation site generator
 
 ## Life
 
@@ -493,7 +486,6 @@ Recommendation
 - [STAR](/snips/principles/star.md) Principle: Situation → Target → Action → Result
 - [SWOT](/snips/principles/swot.md) Analysis: Strengths / Weakness / Oppertunities / Threats
 - [What Why How](/snips/principles/what-why-how.md)
-- _[AIDA](/snips/principles/aida.md): Attention → Interest → Desire → Action_
 
 ### Digest
 
