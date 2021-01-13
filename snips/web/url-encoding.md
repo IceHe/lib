@@ -52,7 +52,7 @@ https://zh.wikipedia.org/wiki/百分号编码
 
 ### ~~escape~~
 
-**Deprecated!**
+**Deprecated method!**
 
 ### encodeURL
 

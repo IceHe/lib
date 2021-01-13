@@ -131,11 +131,10 @@ Writing
 
 _Todos / Drafts / Others_
 
-- _[Go](/snips/tmp/go.md)_
-- _[Work Flow](/snips/tmp/work-flow.md)_
+- _[ID Generator](/snips/tmp/id-generator.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
-- _[ID Generator](/snips/tmp/id-generator.md)_
+- _[Work Flow](/snips/tmp/work-flow.md)_
 
 <!--
 
