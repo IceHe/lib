@@ -193,7 +193,6 @@ Message Queues
 - [Tools](/marks/tools/tools.md): 利器 - 软件 / 物件的推荐
     - [Software](/marks/tools/tools.md#软件): 软件
     - [Hardware](/marks/tools/hardware.md): 硬件
-    - [Life](/marks/tools/life.md): 生活
 - [Efficiency](/mac/efficiency.md): 效率指南
 - [Shortcuts](/mac/shortcuts/shortcuts.md): 快捷键
 - [Initialize](/mac/initialize-mac.md): 系统初始化
