@@ -444,10 +444,15 @@ _Others_
 
 ## Life
 
-### Marks
+### Past
 
-> Get busy living or get busy dying.
+> 如果你要拥有你从未有过的东西，那么你必须去做你从未做过的事。
 
+<!-- > -->
+<!-- > —— 电影《流浪地球》导演郭帆 -->
+
+<!-- > Get busy living or get busy dying. -->
+<!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
 - [Bio](/marks/bio.md): Skills / Exprience / Education
@@ -456,76 +461,11 @@ _Others_
     - **Huawei**: Telecom Software Customization | Intern. _( Java )_
     - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
     - **Alibaba Local Life**: 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 | Back-End _( Java )_
-- [Technology Bookmarks](/marks/tech.md)
-- [Reading Bookmarks](/marks/read.md)
+- Bookmarks
+    - [Technology](/marks/tech.md)
+    - [Reading](/marks/read.md)
 
 <!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
-
-### Principles
-
-> 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
-
-- [How to Ask](/snips/principles/how-to-ask.md)
-    - JFGI: Just Fucking Google It
-    - RTFM: Read The Fucking Manual
-- [GTD](/snips/principles/gtd.md) Flow: Get Thing Done
-- [PDCA](/snips/principles/pdca.md) Cycle: Plan → Do → Check → Act ( Adjust )
-- [SMART](/snips/principles/smart.md) Principle: Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR](/snips/principles/star.md) Principle: Situation → Target → Action → Result
-- [SWOT](/snips/principles/swot.md) Analysis: Strengths / Weakness / Oppertunities / Threats
-- [What Why How](/snips/principles/what-why-how.md)
-
-### Digest
-
-> 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
-
-<!-- > —— E.L. Doctorow -->
-
-好文共赏
-
-- [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) _/ [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) / [digest](/read/cruel-reality.md)_
-    - "Nice guy? I never give a shit."
-- [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) _/ [digest](/read/meaning.md)_
-    - "因为活着，才去寻找意义。"
-- [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) _/ [digest](/read/happiness-course.md)_
-    - "如果你只有一个选择，它让你满意吗？"
-- [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) _/ [digest](/read/why-unhappy.md)_
-    - "我，并不特别。"
-- [Poet](https://zhuanlan.zhihu.com/p/19895904): 诗和远方 _/ [digest](/read/poet.md)_
-    - "眼前的苟且，也正是诗和远方。"
-- [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) _/ [digest](/read/teacher-said.md)_
-    - "我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。"
-    - "做正确的选择，而不是可以接受的选择。"
-- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) _/ [digest](/read/pessimist.md)_
-    - "It's the hardest part when memories remain."
-- [Anti-Fragile](/read/anti-fragile.md) _/ [book](https://item.jd.com/11364406.html)_
-    - "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
-
-Read on 2020
-
--   _[VicodinXYZ's Life Beliefs](/read/life-beliefs.md)_
-    -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
-    -   "**对于日常小决策, 决策速度大于决策质量, 不要拖;**
-        对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对"
-    -   "**不是生活中的每一个问题都要解决, 和问题共处是人生常态.**
-        **把精力用在重要的事情上**"
--   _[Sspai Time Management](/read/sspai-time-mgt.md)_
-    -   "提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。"
-    -   "**更大的效率来自于重要事情上做得好，而不是在处处做得好，**
-        **管理精力比管理时间更重要。**"
-    -   "在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：
-        **精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**"
-    -   "道理很简单，**「不做事」一定是最节省时间、最高效的做事方式，**
-        **学会「做重要的事」才是掌控时间的终极法门。**"
-    -   "何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，
-        事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，
-        另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**"
-
-### Past
-
-> 如果你要拥有你从未有过的东西，那么你必须去做你从未做过的事。
-
-<!-- > —— 电影《流浪地球》导演郭帆 -->
 
 Timeline
 
@@ -574,6 +514,73 @@ Previous Blog: 2015 ~ 2017
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
+### Principles
+
+> 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
+
+- [How to Ask](/snips/principles/how-to-ask.md): Prepare before asking
+    - JFGI: Just Fucking Google It
+    - RTFM: Read The Fucking Manual
+- How to Work: "Don't try, just do. Failure is not an option." —— Elon Musk
+    - 请示工作说方案
+    - 布置工作说标准
+    - 汇报工作说结果
+    - 总结工作说流程
+    - 回顾工作说感受
+- [GTD Flow](/snips/principles/gtd.md): Get Thing Done
+- [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
+- [SMART Principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR Principle](/snips/principles/star.md): Situation → Target → Action → Result
+
+<!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
+<!-- - [What Why How](/snips/principles/what-why-how.md) -->
+
+### Digest
+
+> 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
+
+<!-- > —— E.L. Doctorow -->
+
+好文共赏
+
+- [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) _/ [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) / [digest](/read/cruel-reality.md)_
+    - "Nice guy? I never give a shit."
+- [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) _/ [digest](/read/meaning.md)_
+    - "因为活着，才去寻找意义。"
+- [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) _/ [digest](/read/happiness-course.md)_
+    - "如果你只有一个选择，它让你满意吗？"
+- [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) _/ [digest](/read/why-unhappy.md)_
+    - "我，并不特别。"
+- [Poet](https://zhuanlan.zhihu.com/p/19895904): 诗和远方 _/ [digest](/read/poet.md)_
+    - "眼前的苟且，也正是诗和远方。"
+- [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) _/ [digest](/read/teacher-said.md)_
+    - "我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。"
+    - "做正确的选择，而不是可以接受的选择。"
+- [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) _/ [digest](/read/pessimist.md)_
+    - "It's the hardest part when memories remain."
+- [Anti-Fragile](/read/anti-fragile.md) _/ [book](https://item.jd.com/11364406.html)_
+    - "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
+
+Read on 2020
+
+-   _[VicodinXYZ's Life Beliefs](/read/life-beliefs.md)_
+    -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
+    -   "**对于日常小决策, 决策速度大于决策质量, 不要拖;**
+        对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对"
+    -   "**不是生活中的每一个问题都要解决, 和问题共处是人生常态.**
+        **把精力用在重要的事情上**"
+-   _[Sspai Time Management](/read/sspai-time-mgt.md)_
+    -   "提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。"
+    -   "**更大的效率来自于重要事情上做得好，而不是在处处做得好，**
+        **管理精力比管理时间更重要。**"
+    -   "在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：
+        **精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**"
+    -   "道理很简单，**「不做事」一定是最节省时间、最高效的做事方式，**
+        **学会「做重要的事」才是掌控时间的终极法门。**"
+    -   "何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，
+        事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，
+        另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**"
+
 ### Friends
 
 > To be a better man.
@@ -588,21 +595,7 @@ Previous Blog: 2015 ~ 2017
 -   [IceHe](https://icehe.xyz) ( myself ): A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
 - …
 
-### Work
-
-> Don’t try, just do. Failure is not an option.
-
-<!-- > —— Elon Musk -->
-
-<!-- > Get it / Make it without reason. -->
-
-- 请示工作说方案
-- 布置工作说标准
-- 汇报工作说结果
-- 总结工作说流程
-- 回顾工作说感受
-
-## End
+## Ending
 
 > 靡不有初，鮮克有終。
 
