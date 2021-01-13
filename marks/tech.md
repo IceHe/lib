@@ -4,40 +4,6 @@
 
 ---
 
-**后记**
-
--   好内容很多，但人生太有限，不可尽揽。
-    本来我还想着给碰到的每一篇好文章写下笔记呢…
-
-    **生活本来就是一团乱麻，「完美」只是镜花水月，**
-    **盲目接近它和追求它，均是徒劳，**
-    **甚至可以说是一出悲剧，就如西西弗斯的滚石。**
-
-    追求整洁、秩序、完满，
-    还不如由它杂乱不堪来得省心。
-    我就是一个典型的「强迫症、细节控」，
-    可是不想再继续这样下去了。
-    人生太短暂了，何不及时行乐去享受乐趣，
-    或是好好做事追寻人生的意义。
-
-    不过，我还是想留下这个博客
-    —— 这一片隐秘天地，让我自己一个人，
-    能够静静地跟自己说说话。
-
--   除非发现非常好的新文章，可能以后不会更新本文了。
-
-    在实物上，已经能做到比较精简了，但是在知识收集上，仍然有「松鼠病」。
-    收集了不太可能重看，即使看了琐碎的知识也不容易回想起来应用在实践上。
-
-    毕竟本站访问量少得可怜，即使在这里分享，也不能产生太多分享的价值。
-    所以，还是花更多时间在提升自己算了。
-
-    2017-11-15
-
-    > Never memorize something that you can look up.
-    >
-    > __Albert Einstein__
-
 ## Tools
 
 -   BeJson: http://www.bejson.com
@@ -45,10 +11,6 @@
     -   JSON 格式校验、格式化，及网络、前端、编码、转换等相关工具
 
         类似 - JSON.cn: https://www.json.cn
-
-    -   常用 Web 开发辅助工具、相关知识的简明手册
-
-        类似 - 开源中国: http://tool.oschina.net
 
 -   Regex101: https://regex101.com
 
@@ -59,16 +21,10 @@
 
     The cron schedule expression editor
 
--   HTTP Status Codes ( 状态码 ):
-    https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#1xx_Informational
--   TCP & UDP Port Numbers ( 端口号 ):
-    https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Well-known_ports
-
 ## 文档
 
 最好的习惯：查阅官方网站的文档。
 
-- [My Git Note](/git/common-commands.md)
 - [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Vim 键位操作总结图
 - [PHP.net](http://php.net) 官方文档
 - [PHP Type Comparisons](http://www.php.net/manual/en/types.comparisons.php) - PHP 变量比较结果参考
@@ -318,4 +274,4 @@
 
 - [《程序员必读的职业规划书》《剑指 Offer》Note & 招聘相关微博摘录](/read/career.md)
     & 简历上的 精通、熟练、掌握、理解 英语怎么翻译？
-- [技术细节速记](/read/tech-details.md)
+- [技术细节速记](/tmp/basic/tech-details.md)
