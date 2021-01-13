@@ -192,6 +192,7 @@ Message Queues
     - [macOS shortcuts](/mac/shortcuts/macos.md)
     - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
     - [JetBrains shortcuts](/mac/shortcuts/jetbrains.md)
+    - [mac-conf](https://github.com/IceHe/mac-conf): my macOS configuration files
 - [Initialize](/mac/initialize-mac.md) _( 系统初始化 )_
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
@@ -441,20 +442,6 @@ _Others_
 - _Python 3: [quick start](/scripts/python/quick-start.md)_
 - _JavaScript: [optimize some code](/scripts/javascript/optimize-some-code.md)_
 
-### Repos
-
-Mine: [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
-
-- [lib](https://github.com/IceHe/lib): personal library | wiki ( this website )
-- [mac-conf](https://github.com/IceHe/mac-conf): macOS configuration files
-
-<!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
-
-Recommendation
-
-- [Art of Command Line](https://github.com/jlevy/the-art-of-command-line): master the command line, in one page
-- [Redis](https://github.com/antirez/redis): an in-memory database that persists on disk
-
 ## Life
 
 ### Marks
@@ -464,12 +451,15 @@ Recommendation
 <!-- > —— The Shawshank Redemption -->
 
 - [Bio](/marks/bio.md): Skills / Exprience / Education
+    - [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
     - **SCUT**: Software Engineering | Bachelor _( C++ )_
     - **Huawei**: Telecom Software Customization | Intern. _( Java )_
     - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
     - **Alibaba Local Life**: 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 | Back-End _( Java )_
 - [Technology Bookmarks](/marks/tech.md)
 - [Reading Bookmarks](/marks/read.md)
+
+<!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
 
 ### Principles
 

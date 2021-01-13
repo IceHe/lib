@@ -379,7 +379,7 @@ Spotlight
 
 ### 其它插件
 
-详见 我的 Chrome 插件 ( ~~tools.md#Chrome-插件~~ 已删除 )
+例如
 
 - 广告过滤器: uBlock
 - 下载工具: Chrono Download Manager
@@ -459,15 +459,11 @@ Spotlight
     - 我用右手掌小鱼际 ( 即靠近小指的部分手掌 ) 去按原来的 `^` 键位, 这样的话双手就基本不用远离键盘中心区了 ( 参考盲打键盘的标准姿势 ) .
 - 我从键盘上移除了专门单个键的 `⇪` CapsLock 大写锁定键 ( 改用 `Fn + u` = `⇪` )
     - 因为很少用到, Vim 党可以先以小写写完, 再用 `U` 指令全部改写为大写, 大不了全用 `⇧` 来输入大写字母.
-- 右 `⌘` 改成 `⎋`, 左小指挪到键盘左上角的 `⎋` 略远
-    - 改成这样的话, 双手就基本不用远离键盘中心区了 ( 参考盲打键盘的标准姿势 ) ,
-    - 而且用强健的右大拇指去代替比较弱小的左小拇指去按 ⎋, 减轻长时间敲击键盘的手指不适.
-    - 最重要的是从 2016 款开始 MacBook Pro 由于 Touch Bar 不再带实体的 `⎋`, Vim 使用者难以适应缺乏反馈的虚拟按键.
 - 我的配置 [karabiner.json](https://github.com/IceHe/mac-conf/blob/master/.config/karabiner/karabiner.json)
 
 ### AppleScript
 
-[AppleScript](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)
+Reference: [AppleScript - Apple Developer](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)
 
 系统内置的可用于操作 macOS 以及 Apps 的脚本语言. 能实现许多功能在此暂不赘述.
 
@@ -481,13 +477,6 @@ Spotlight
     《[AppleScript Language Guide](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html)》官方文档
     《[用 AppleScript 操作 Evernote / macOS](scripts/applescript/evernote-macos.md)》
     《[AppleScript Quick Start 快速入门](scripts/applescript/applescript.md)》
-
-### Automator
-
-[Automator](http://www.macworld.co.uk/how-to/mac-software/what-automator-can-do-for-you-3605538/) :可谓 macOS 的「按键精灵」.
-
-- 有时候用 JS、Shell、Python、AppleScript 写脚本来实现某些功能并不方便, 比如关于 GUI 的一些任务, 不如直接手动做.
-- 这时需要的若只是重复性的简单鼠标键盘操作, 就可以用 Automator 直接录制键盘、鼠标的操作来重复运行, 以减少重复的人工劳动.
 
 ### Shell
 
