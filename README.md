@@ -130,6 +130,7 @@ Writing
 
 _Todos / Drafts / Others_
 
+- _[CentOS 6](/snips/os/centos6.md)_
 - _[ID Generator](/snips/tmp/id-generator.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
@@ -183,16 +184,12 @@ Message Queues
 
 ### Mac
 
-> 埏埴以為器，當其無，有器之用。
-
-<!-- > —— 老子《道德经·无之为用》 -->
-
-- [Efficiency](/mac/efficiency.md) _( 效率指南 )_
+- [Initialize](/mac/initialize-mac.md): _系统初始化_
+- [Efficiency](/mac/efficiency.md): _效率指南_
     - [macOS shortcuts](/mac/shortcuts/macos.md)
     - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
     - [JetBrains shortcuts](/mac/shortcuts/jetbrains.md)
     - [mac-conf](https://github.com/IceHe/mac-conf): my macOS configuration files
-- [Initialize](/mac/initialize-mac.md) _( 系统初始化 )_
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
 
@@ -201,48 +198,6 @@ Message Queues
 - [Common Commands](/git/common-commands.md)
 - [Concepts & Theory](/git/concepts-n-theory.md)
 - [Docs Digest](/git/docs-digest.md)
-
-### Java
-
-Basics
-
-- [Glossaries](/java/glossaries.md)
-- [Install JDK](/java/install-jdk.md)
-- Package Manager: [Maven](/java/maven.md) & Gradle
-- Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
-
-Coding
-
-- [Notes](/java/notes.md)
-- [Snippets](/java/code-snippets/notes.md)
-- [Spock](/java/spock.md): unit tests ( or JUnit )
-    - [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
-- [IDE - IntelliJ IDEA](/java/intellij-idea.md): usage / …
-- [Exceptions](/java/exceptions.md): exception class hierarchy / …
-- [Annotations](/java/annotations.md): Spring / Lombok / FastJson / Jackson / …
-
-Benchmark & Stress Testing
-
-- [JMH](/java/jmh.md): Java Microbenchmark Harness ( todo )
-
-Command Line Tools
-
-- [jar](/java/cmd/jar.md): archive tool
-- [java](/java/cmd/java.md): application launcher
-- [javac](/java/cmd/javac.md): compiler
-- [javap](/java/cmd/javap.md): class file disassembler
-- [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
-- [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
-- [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
-    - _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
-    - _available after JDK 9_
-- _Seldom-used and deprecated_
-    - _[javadoc](/java/cmd/javadoc.md): API documentation generator_
-    - _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
-    - _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
-    - _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
-    - _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
-    - _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
 
 ### CMDs
 
@@ -386,6 +341,48 @@ Scenes
 - __http benchmark__: ab, watch
 - __differ output__: comm, diff, vimdiff, watch
 - ……
+
+### Java
+
+Basics
+
+- [Glossaries](/java/glossaries.md)
+- [Install JDK](/java/install-jdk.md)
+- Package Manager: [Maven](/java/maven.md) & Gradle
+- Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
+
+Coding
+
+- [Notes](/java/notes.md)
+- [Snippets](/java/code-snippets/notes.md)
+- [Spock](/java/spock.md): unit tests ( or JUnit )
+    - [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
+- [IDE - IntelliJ IDEA](/java/intellij-idea.md): usage / …
+- [Exceptions](/java/exceptions.md): exception class hierarchy / …
+- [Annotations](/java/annotations.md): Spring / Lombok / FastJson / Jackson / …
+
+Benchmark & Stress Testing
+
+- [JMH](/java/jmh.md): Java Microbenchmark Harness ( todo )
+
+Command Line Tools
+
+- [jar](/java/cmd/jar.md): archive tool
+- [java](/java/cmd/java.md): application launcher
+- [javac](/java/cmd/javac.md): compiler
+- [javap](/java/cmd/javap.md): class file disassembler
+- [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
+- [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
+- [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
+    - _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
+    - _available after JDK 9_
+- _Seldom-used and deprecated_
+    - _[javadoc](/java/cmd/javadoc.md): API documentation generator_
+    - _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
+    - _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
+    - _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
+    - _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
+    - _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
 
 ### C++
 
@@ -601,5 +598,12 @@ Nonsense
 
 > 靡不有初，鮮克有終。
 
-<!-- 靡不有初，鲜克有终。 -->
 <!-- > —— 《诗经·大雅·荡》 -->
+
+<!--
+
+> 埏埴以為器，當其無，有器之用。
+>
+> —— 老子《道德经·无之为用》
+
+-->
