@@ -1,6 +1,6 @@
 - [Cover](/)
 - [Home](/README.md)
-- [About](/marks/bio.md)
+- [About](/past/bio.md)
 
 <!-- - [Message](https://github.com/IceHe/lib/issues) -->
 <!-- - External -->
