@@ -1,5 +1,9 @@
 # Design Patterns
 
+Elements of Reusable Object-Oriented Software
+
+---
+
 References
 
 - Book "Design Patterns : Elements of Reusable Object-Oriented Software"

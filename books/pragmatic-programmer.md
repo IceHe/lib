@@ -1,5 +1,9 @@
 # Pragmatic Programmer
 
+The Pragmatic Programmer: your journey to mastery ( 2nd Edition )
+
+---
+
 References
 
 - Book "The Pragmatic Programmer : your journey to mastery, 2nd Edition"

@@ -24,10 +24,13 @@
 Coding
 
 - [Refactoring](/books/refactoring.md)
+    - Refactoring Improving the Design of Existing Code
 - [Design Patterns](/books/design-patterns.md)
+    - Elements of Reusable Object-Oriented Software
 - [Pragmatic Programmer](/books/pragmatic-programmer.md)
-    - _The Pragmatic Programmer: your journey to mastery ( 2nd Edition )_
-- [Clean Agile: Back to Basics](/books/clean-agile.md)
+    - The Pragmatic Programmer: your journey to mastery ( 2nd Edition )
+- [Clean Agile](/books/clean-agile.md)
+    - Back to Basics
 
 JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
 
@@ -48,7 +51,7 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
     - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
-Todos
+Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
@@ -85,13 +88,13 @@ Docker
 Storage
 
 - LSM Tree: [Intro](/snips/lsm-tree/lsm-tree.md)
-    - _basic data structure of LevelDB & RocksDB_
+    - basic data structure of LevelDB & RocksDB
 - Elasticsearch: [Usage](/snips/elasticsearch.md)
-    - _for search and analysis_
+    - for search and analysis
 - MySQL: [Usage](/snips/mysql/usage.md)
-    - _robust SQL database server_
+    - robust SQL database server
 - Redis: [Basics](/snips/redis/basics.md) / [Usage](/snips/redis/usage.md) / [Notes](/snips/redis/notes.md)
-    - _in-memory data structure store as a database, cache and message broker_
+    - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
     <!-- usage: https://redis.io/commands -->
 
@@ -123,7 +126,7 @@ Web
 Writing
 
 - [Abbreviations](/snips/abbrs.md)
-- [Glossaries](/snips/glossaries.md) _with intros to the common technology products_
+- [Glossaries](/snips/glossaries.md) with intros to the common technology products
 - [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
 - [Markdown Lint Tool: mdl](/snips/markdown/lint/lint.md)
 - [Regular Expression](/snips/regex.md)
@@ -184,8 +187,8 @@ Message Queues
 
 ### Mac
 
-- [Initialize](/mac/initialize-mac.md): _系统初始化_
-- [Efficiency](/mac/efficiency.md): _效率指南_
+- [Initialize](/mac/initialize-mac.md): 系统初始化
+- [Efficiency](/mac/efficiency.md): 效率指南
     - [macOS shortcuts](/mac/shortcuts/macos.md)
     - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
     - [JetBrains shortcuts](/mac/shortcuts/jetbrains.md)
@@ -453,7 +456,7 @@ _Others_
 
 Timeline
 
-- [Bio](/past/bio.md): Skills / Exprience / Education
+- [Bio](/past/bio.md): skills / exprience / education
     - Repos: [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
     - **SCUT**: Software Engineering / Bachelor / C++
     - **Huawei**: Telecom Software Customization / Intern. / Java
@@ -461,8 +464,8 @@ Timeline
     - **Alibaba Local Life**: 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 / Back-End / Java
 - After 2018
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
-    - [2018 Winter](/past/2018-winter.md)
     - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
+    - [2018 Winter](/past/2018-winter.md)
     - [Moments](/past/moments.md): 回忆
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
@@ -591,7 +594,7 @@ Nonsense
 -   [SF Zhou](http://sf-zhou.github.io/): ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
 -   Shiwey Yan: Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues): Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
--   [IceHe](https://icehe.xyz) ( myself ): A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
+-   [IceHe](https://icehe.xyz) ( myself ) : A fool / Java Backend / Sina Weibo / Alibaba Local Life @ Beijing
 - …
 
 ## Ending
