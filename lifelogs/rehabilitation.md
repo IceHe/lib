@@ -443,7 +443,7 @@ References
 - [GTD](/snips/principles/gtd.md)
 - [PDCA 循环](/snips/principles/pdca.md)
 - [SMART 法则](/snips/principles/smart.md)
-- [生活指南 ( Life Manual )](/lifelogs/archived/life-manual.md)
+- [生活指南 ( Life Manual )](/lifelogs/life-manual.md)
 - …
 
 #### GTD 流程

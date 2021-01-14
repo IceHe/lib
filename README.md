@@ -484,7 +484,7 @@ Timeline
 
 Nonsense
 
-- Way of Life: [Self Manual](/lifelogs/archived/life-manual.md) _( until 2017 )_
+- Way of Life: [Self Manual](/lifelogs/life-manual.md) _( until 2017 )_
 - ~~[Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_~~
 - [Simple Rehabilitation](/lifelogs/simple-rehabilitation.md) _( since 2021-01-13 )_
 
