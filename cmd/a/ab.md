@@ -4,13 +4,13 @@ Apache HTTP server benchmarking tool
 
 ---
 
-- `ab` is a tool for benchmarking your Apache Hypertext Transfer Protocol (HTTP) server.
-    - It is designed to give you an impression of how your current Apache installation performs.
-    - This especially shows you how many requests per second your Apache  installation is capable of serving.
+`ab` is a tool for benchmarking your Apache Hypertext Transfer Protocol (HTTP) server.
+
+- It is designed to give you an impression of how your current Apache installation performs.
+- This especially shows you how many requests per second your Apache  installation is capable of serving.
 
 References
 
-- `man ab` on macOS
 - Using Apache Bench for simple load testing : https://vyspiansky.github.io/2019/12/02/apache-bench-for-load-testing
 
 ## Quickstart
