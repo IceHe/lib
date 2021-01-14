@@ -467,6 +467,8 @@ Timeline
     - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/past/2018-winter.md)
     - [Moments](/past/moments.md): 回忆
+    - ~~[Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_~~
+    - [Simple Rehabilitation](/lifelogs/simple-rehabilitation.md) _( since 2021-01-13 )_
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
     - [2017 Spring](/past/2017-spring.md)
@@ -481,12 +483,6 @@ Timeline
     - [QZone Index](/past/qzone-index.md) of the old posts
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
-
-Nonsense
-
-- Way of Life: [Self Manual](/lifelogs/life-manual.md) _( until 2017 )_
-- ~~[Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_~~
-- [Simple Rehabilitation](/lifelogs/simple-rehabilitation.md) _( since 2021-01-13 )_
 
 <!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
 
