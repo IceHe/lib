@@ -1,4 +1,4 @@
-# Glossary ( draft )
+# Glossary
 
 ## 向后兼容 & 向后兼容
 
@@ -124,7 +124,7 @@ From **Core Java Volume I - Fundermentals**
 - Wikipedia : https://en.wikipedia.org/wiki/Write_amplification
 - 中文维基 : https://zh.wikipedia.org/wiki/%E5%86%99%E5%85%A5%E6%94%BE%E5%A4%A7
 
-# Common Tech Products ( draft )
+# Common Tech Products
 
 ## SRE
 

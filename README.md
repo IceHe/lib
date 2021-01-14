@@ -36,7 +36,7 @@ JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
 
 - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
 - [Part III. Execution Engine](/books/understand-jvm-p3.md) _( todo )_
-- Part IV. Compile and Code Optimize _( todo )_
+- Part IV. Compile and Code Optimize
 
 Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-applications-toc.md)
 
@@ -55,7 +55,7 @@ Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
-- [Linux Kernel](/books/linux.md) _( to take notes )_
+- [Linux Kernel](/books/linux.md) _( todo )_
 
 <!-- - [JZ Offer](/books/jz-offer.md) -->
 
@@ -131,7 +131,7 @@ Writing
 - [Markdown Lint Tool: mdl](/snips/markdown/lint/lint.md)
 - [Regular Expression](/snips/regex.md)
 
-_Todos / Drafts / Others_
+Others
 
 - _[CentOS 6](/snips/os/centos6.md)_
 - _[ID Generator](/snips/tmp/id-generator.md)_
@@ -208,8 +208,8 @@ Commands
 
 - [ab](/cmd/a/ab.md): Apache HTTP server benchmarking tool
 - [awk](/cmd/a/awk.md): pattern-directed scanning and processing language
-    - [gawk](/cmd/a/awk.md): pattern scanning and processing language ( todo )
-- [bash](/cmd/bash/bash.md): GNU Bourne-Again SHell ( draft )
+    - [gawk](/cmd/a/awk.md): pattern scanning and processing language
+- [bash](/cmd/bash/bash.md): GNU Bourne-Again SHell
     - [parameter](/cmd/bash/parameter.md): basic, expansion & substitution
     - [shell variables](/cmd/bash/shell-variables.md): variables are set by the shell
 - [brew](/cmd/b/brew.md): the missing package manager for macOS
@@ -275,7 +275,7 @@ Commands
 - [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
 - [passwd](/cmd/p/passwd.md): modify a user's password
 - [paste](/cmd/p/paste.md): merge lines of files
-- [perf](/cmd/p/perf.md): performance analysis tools for Linux ( todo )
+- [perf](/cmd/p/perf.md): performance analysis tools for Linux
 - [php](/cmd/p/php.md): PHP Command Line Interface
 - [pidstat](/cmd/p/pidstat.md): report statistics for Linux tasks
 - [ping](/cmd/p/ping.md): send ICMP ECHO_REQUEST to network hosts
@@ -293,7 +293,7 @@ Commands
 - [service](/cmd/s/service.md): run a System V init script
 - [sleep](/cmd/s/sleep.md): delay for a specified amount of time
 - [sort](/cmd/s/sort.md): sort lines of text files
-- [ssh](/cmd/s/ssh.md): OpenSSH Client (remote login program) ( todo )
+- [ssh](/cmd/s/ssh.md): OpenSSH Client (remote login program)
 - [stat](/cmd/s/stat.md): display file or file system status
 - [su](/cmd/s/su.md): run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md): execute a command as another user
@@ -303,7 +303,7 @@ Commands
 - [tail](/cmd/t/tail.md): output the last part of files
 - [tar](/cmd/t/tar.md): pack & compress
 - [tee](/cmd/t/tee.md): write to standard output & files
-- [telnet](/cmd/t/telnet.md): user interface to the TELNET protocol ( todo )
+- [telnet](/cmd/t/telnet.md): user interface to the TELNET protocol
 - [terminal-notifier](/cmd/t/terminal-notifier): send macOS User Notifications
 - [timeout](/cmd/t/timeout.md): run a command with a time limit
 - [tmux](/cmd/t/tmux.md): terminal multiplexer
@@ -324,7 +324,7 @@ Commands
 - [xargs](/cmd/x/xargs.md): build and execute command lines from standard input
 - _[xxd](/cmd/x/xxd.md): make a hexdump or do the reverse_
 - [zsh](/cmd/z/zsh.md): one of shells
-- _[CLI Notes](/cmd/notes.md) ( draft )_
+- _[CLI Notes](/cmd/notes.md)_
 
 Scenes
 
@@ -366,7 +366,7 @@ Coding
 
 Benchmark & Stress Testing
 
-- [JMH](/java/jmh.md): Java Microbenchmark Harness ( todo )
+- [JMH](/java/jmh.md): Java Microbenchmark Harness
 
 Command Line Tools
 

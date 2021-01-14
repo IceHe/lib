@@ -1,4 +1,4 @@
-# CLI Notes ( draft )
+# CLI Notes
 
 CLI : Command-Line Interface
 

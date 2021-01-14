@@ -66,7 +66,7 @@ Kinds x Language
 ## Language
 
 - Pseudo-code : 理清思路
-- PHP : draft / 简单实现
+- PHP : 简单实现
     - 用 PHP 完成实现很便捷、迅速（简直首选）
 - C : optional (recommended : 在学)
 - C++ : optional (necessary? : 重温)

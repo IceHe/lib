@@ -1,4 +1,4 @@
-# Nginx ( draft )
+# Nginx
 
 A free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server.
 

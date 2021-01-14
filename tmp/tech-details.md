@@ -1,4 +1,4 @@
-# Tech Details ( draft )
+# Tech Details
 
 替换 Redis 实例
 
