@@ -446,8 +446,6 @@ References
 - [生活指南 ( Life Manual )](/lifelogs/archived/life-manual.md)
 - …
 
-<!-- - [日程 ( Routine )](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md) -->
-
 #### GTD 流程
 
 **GTD Flow**
