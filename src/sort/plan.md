@@ -1,4 +1,4 @@
-# Plan ( todo )
+# Plan
 
 ## Initial Stage
 
@@ -72,3 +72,5 @@ Kinds x Language
 - C++ : optional (necessary? : 重温)
 - Java : optional (necessary? : 巩固)
 - Template : C++ / Java (unnecessary? : 暂无必要用模板类实现)
+
+TODO

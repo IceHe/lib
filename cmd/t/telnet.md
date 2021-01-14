@@ -1,4 +1,4 @@
-# telnet ( todo )
+# telnet
 
 user interface to the TELNET protocol
 
@@ -11,3 +11,5 @@ References
 ## Options
 
 ## Usage
+
+TODO

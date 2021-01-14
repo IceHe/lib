@@ -1,4 +1,4 @@
-# TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition ( Part 1 ) ( todo )
+# TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition ( Part 1 )
 
 References
 
@@ -553,3 +553,5 @@ _( TCP 拥塞控制 )_
 
 - Glossary of Acronyms
 - Index
+
+TODO

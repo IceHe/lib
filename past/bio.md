@@ -61,21 +61,21 @@ A short biographical profile
 - 胜任 **[Java](https://go.java/?intcmp=gojava-banner-java-com) / [PHP](https://php.net/)**
 - 了解 [C](https://en.wikipedia.org/wiki/C_(programming_language)) / [C++](https://isocpp.org/) / [Python](https://www.python.org/) / [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) / [Assembly](https://en.wikipedia.org/wiki/Assembly_language)
 
-<!-- - Todo: [Go](https://pingcap.com/) / … -->
+<!-- - TODO: Go / … -->
 
 存储 / 缓存 / 队列
 
 - 胜任 **[MySQL](https://www.mysql.com/) / [Redis](https://redis.io/) / [Elasticsearch](https://www.elastic.co/)**
 - 了解 [Memcached](https://memcached.org/) / [RabbitMQ](https://www.rabbitmq.com/) / [Kafaka](https://kafka.apache.org/)
 
-<!-- - Todo: [PostgreSQL](https://www.postgresql.org/) / [TiDB](https://pingcap.com/) / … -->
+<!-- - TODO: [PostgreSQL](https://www.postgresql.org/) / [TiDB](https://pingcap.com/) / … -->
 
 Web
 
 - 胜任 [Docker](https://www.docker.com/) / HTML / CSS / [jQuery](https://jquery.com/)
 - 了解 [Thrift](https://thrift.apache.org/) / [Protocol Buffers](https://developers.google.com/protocol-buffers)
 
-<!-- - Todo: [Vue.js](https://vuejs.org/) / … -->
+<!-- - TODO: [Vue.js](https://vuejs.org/) / … -->
 
 操作系统
 

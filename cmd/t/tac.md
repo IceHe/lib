@@ -13,7 +13,7 @@ References
 ```bash
 tac file
 
-# todo : ref
+# Ref
 cat file        # Print a file
 cat -n file     # With line numbers
 cat file1 file2 # Print files

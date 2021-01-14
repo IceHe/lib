@@ -1,6 +1,6 @@
 # Bash ( draft )
 
-TODOs
+Todos
 
 - Compound Commands ( Control Structure )
 - Built-in Function
@@ -29,3 +29,5 @@ else
     echo "文件存在"
 fi
 ```
+
+TODO

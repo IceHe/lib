@@ -2,8 +2,6 @@
 
 // https://leetcode.com/problems/delete-columns-to-make-sorted/
 
-// TODO
-
 class Solution {
 
     /**

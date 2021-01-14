@@ -37,8 +37,6 @@ References
 
 ### Basic Grammar
 
-TODO : abstract
-
 - `LIMIT length`
 - `LIMIT offset, length` = `LIMIT length OFFSET offset`
 

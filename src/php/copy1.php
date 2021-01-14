@@ -38,5 +38,4 @@ $b->i = 2;
 echo $a->i."\n";
 echo $b->i."\n";
 echo PHP_EOL;
-// PHP 5.6 : TODO
 // PHP 7 : 2, 2

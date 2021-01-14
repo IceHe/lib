@@ -453,7 +453,7 @@ Reference : https://www.computerhope.com/keys.htm
 - loc : location
 - LoD : Law of Demeter 德墨忒尔法则
 - lol : Laugh Out Loud
-- lru : least recently used ( TODO : add link )
+- lru : least recently used
 - ls : list
 - ltd : limited
 - LVS: [Linus Virtual Server](https://en.wikipedia.org/wiki/Linux_Virtual_Server) - a load balancing software

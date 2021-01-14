@@ -1,4 +1,4 @@
-# Java Concurrency in Pratice ( todo )
+# Java Concurrency in Pratice
 
 References
 
@@ -235,3 +235,5 @@ Attempts to reason about the order in which memory actions "must" happen in insu
     - _当读取一个非 volatile 类型的 long 变量时, 如果对该变量的读操作和写操作在不同的线程中执行, 那么很可能会读到某个值的高 32 位和另一个值的低 32 位_
 
 volatile 变量
+
+TODO

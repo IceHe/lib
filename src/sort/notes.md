@@ -1,4 +1,4 @@
-# Sorting Algorithm Notes ( todo )
+# Sorting Algorithm Notes
 
 References
 
@@ -17,3 +17,5 @@ References
 - [Heap Sort](/snips/sort/heap-sort.md)
 - [Quick Sort](/snips/sort/quick-sort.md)
 - [Quick3 Sort](/snips/sort/quick3-sort.md)
+
+TODO

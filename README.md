@@ -8,9 +8,10 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- This site: [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
-- Backup site: [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)
+- This site: [icehe.xyz](https://icehe.xyz) - _powered by [docsify](/_docsify/how-to-docsify.md)_
 -   Author: [IceHe](/past/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
+
+<!-- - _Backup site: [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)_ -->
 
 ## Tech
 
@@ -18,7 +19,6 @@
 
 > 紙上得來終覺淺，絕知此事要躬行。
 
-<!-- > 纸上得来终觉浅，绝知此事要躬行。 -->
 <!-- > —— 陆游《冬夜读书示子聿》 -->
 
 Coding

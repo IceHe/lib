@@ -1,4 +1,8 @@
-# How to mail on macOS ( draft )
+# How to mail on macOS
+
+FIXME: something wrong
+
+---
 
 References
 
@@ -12,10 +16,6 @@ References
 See `man msmtp` for more
 
 ---
-
-**Notice : There is something wrong with setting QQMail in msmtp on macOS**!
-
-- **TODO : If I actually need to send email via command line on macOS, I will try it again.**
 
 ### Install
 

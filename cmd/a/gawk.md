@@ -1,4 +1,4 @@
-# gawk ( todo )
+# gawk
 
 gawk - pattern scanning and processing language
 
@@ -722,3 +722,5 @@ $ awk 'BEGIN { if (1) { print ARGC } else { print ARGV[0], ARGV[1] } }' sample
 $ awk 'BEGIN { if (0) { print ARGC } else { print ARGV[0], ARGV[1] } }' sample
 awk sample
 ```
+
+TODO

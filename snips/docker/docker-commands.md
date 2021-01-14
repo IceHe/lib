@@ -1,10 +1,12 @@
 # Docker Commands
 
-- Home : https://www.docker.com/
-- Docs : https://docs.docker.com/
-- Hub : https://hub.docker.com/
-- Train : https://training.docker.com/
-    - Another Choice : [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/) @ GitBook
+References
+
+- https://www.docker.com
+    - https://docs.docker.com
+    - https://hub.docker.com
+    - https://training.docker.com
+- [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/) @ GitBook
 
 ## Login Registry
 
@@ -243,17 +245,22 @@ docker kill CONTAINER [CONTAINER...]
 docker kill icehe_alpine
 ```
 
-# Docker Compose (TBD)
+# Docker Compose
 
-**Define and run multi-container applications with Docker.**
+Define and run multi-container applications with Docker.
 
-- Docs
-    - Overview : https://docs.docker.com/compose/overview/
-    - Install : https://docs.docker.com/compose/install/
-    - Get started : https://docs.docker.com/compose/gettingstarted/
-    - Compose file : https://docs.docker.com/compose/compose-file/
-    - Environment Variables : https://docs.docker.com/compose/environment-variables/
+---
+
+References
+
+- Overview : https://docs.docker.com/compose/overview
+- Install : https://docs.docker.com/compose/install
+- Get started : https://docs.docker.com/compose/gettingstarted
+- Compose file : https://docs.docker.com/compose/compose-file
+- Environment Variables : https://docs.docker.com/compose/environment-variables
 
 ```bash
 docker-compose help
 ```
+
+TODO

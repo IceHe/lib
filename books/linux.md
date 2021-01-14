@@ -1,4 +1,4 @@
-# Linux Kernel ( todo )
+# Linux Kernel
 
 References
 
@@ -637,3 +637,5 @@ procfs 虚拟文件系统
 - 软中断 softriq
 - tasklet
 - 工作队列 work queue
+
+TODO

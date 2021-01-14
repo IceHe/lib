@@ -1,4 +1,4 @@
-# 如何学习 ( todo )
+# 如何学习
 
 《How to Study: A Brief Guide》的译文，将在（有生之年）持续施工。
 
@@ -505,3 +505,5 @@ Read
 
 - [Slow Reading Lists (and the meaning of Slow Reading)](http://www.freelance-academy.org/slowread.htm)
 - [Homework? What Homework?](https://www.cse.buffalo.edu//~rapaport/che.homework.html)
+
+TODO

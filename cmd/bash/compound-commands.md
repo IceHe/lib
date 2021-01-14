@@ -1,4 +1,4 @@
-# Compound Commands ( todo )
+# Compound Commands
 
 - Control Structures
 - Syntactic Sugar
@@ -22,3 +22,5 @@
 
 - select
 - …
+
+TODO

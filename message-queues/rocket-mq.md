@@ -4,6 +4,16 @@ A unified messaging engine，lightweight data processing platform.
 
 ---
 
+Todo List
+
+- RocketMQ总结
+    - https://www.jianshu.com/p/fabb2d14ffa1
+    - https://www.cnblogs.com/Jtianlin/p/8427033.html
+    - https://juejin.im/post/6844904201416359949
+    - https://blog.csdn.net/u012385190/article/details/108120931
+    - https://liuyanzhao.com/1307946145498140672.html
+    - http://woshinlper.com/system-design/data-communication/RocketMQ/
+
 References
 
 - Home Page : https://rocketmq.apache.org
@@ -12,13 +22,6 @@ References
     - Quick Start : https://rocketmq.apache.org/docs/quick-start
     - ……
 - Documentation - CN : https://github.com/apache/rocketmq/tree/master/docs/cn
-- TODOs RocketMQ总结
-    - https://www.jianshu.com/p/fabb2d14ffa1
-    - https://www.cnblogs.com/Jtianlin/p/8427033.html
-    - https://juejin.im/post/6844904201416359949
-    - https://blog.csdn.net/u012385190/article/details/108120931
-    - https://liuyanzhao.com/1307946145498140672.html
-    - http://woshinlper.com/system-design/data-communication/RocketMQ/
 
 ## Intro
 

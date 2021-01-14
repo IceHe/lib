@@ -1,6 +1,4 @@
-# How to Study ( todo )
-
-- Created on 2016-06-24
+# How to Study
 
 ## Studying
 
@@ -151,3 +149,5 @@
             - If you have two exams on the same day, split the time in half.
 
 ---
+
+TODO

@@ -1,4 +1,4 @@
-# Regular Expressions ( draft )
+# Regular Expressions
 
 Manual
 
@@ -16,7 +16,7 @@ Since the 1980s, different syntaxes for writing regular expressions exist, one b
 
 **Usage**
 
-- TODO
+TODO
 
 ## CH & EN
 

@@ -1,4 +1,4 @@
-# Redis Usage ( todo )
+# Redis Usage
 
 REmote DIctionary Server
 
@@ -322,3 +322,5 @@ Ref : https://www.itcodemonkey.com/article/3506.html
     - 3.0 : https://github.com/huangz1990/redis-3.0-annotated
 - 1.0 源码阅读
     - http://pein0119.github.io/2014/08/18/-Redis-10%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89---%E5%BC%80%E7%AF%87/
+
+TODO
