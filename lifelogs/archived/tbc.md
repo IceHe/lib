@@ -163,27 +163,3 @@ Fixed-term
 Sorted by priority
 
 - 做正确的事, 做最正确 (重要) 的事 !!!
-
-## Action
-
-```plantuml
-@startuml
-start
-#white:Todo|
-if (What is it?) then (Problem)
-    #white:Thinking;
-    note right : What Why How\n/ 集中 / 通勤 \n/ 散步 / 休憩
-else (Action)
-    #white:Doing;
-    'note right : 早上全力以赴\n做最重要的一件事!
-    if (Problems found?) then (No)
-        #white:Logging;
-        note right : STAR 法则
-        end
-    else (Yes)
-    endif
-endif
-    #white:Inbox|
-    stop
-@enduml
-```

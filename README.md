@@ -484,7 +484,6 @@ Timeline
 
 Nonsense
 
-- Time Management: [Life Logs](/lifelogs/archived/time-mgt-log.md)
 - Way of Life: [Self Manual](/lifelogs/archived/life-manual.md) _( until 2017 )_
 - [Routine](/lifelogs/archived/routine.md) & [TBC](/lifelogs/archived/tbc.md) _( 2019 ~ 2020.04 )_
 - ~~[Rehabilitation](/lifelogs/rehabilitation.md) _( since 2020-12-14 )_~~
