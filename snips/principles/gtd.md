@@ -1,9 +1,5 @@
 # GTD Flow
 
-GTD Flow + PDCA Cycle + SMART Principle
-
----
-
 ## Simple Flow
 
 ```plantuml

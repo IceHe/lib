@@ -1,4 +1,4 @@
-# PDCA ( draft )
+# PDCA Cycle
 
 Deming cicle/cycle/wheel : Plan → Do → Check → Act
 
@@ -20,39 +20,53 @@ Intro
 
 ---
 
+**PDCA Cycle**
+
 Plan 规划 ( 计划 )
 
-- 制定具体目标 & 计划 (过程), 以获得想要的成果
+- _制定具体目标 & 计划 ( 过程 ) , 以获得想要的成果_
 
 Do 执行 ( 行动 )
 
-- 执行计划 : 展开任务, 组织实施
-    - 尝试做一些小的改变
-    - 并收集信息以便评价这些改变是否有效
+-   _执行计划: 展开任务, 组织实施_
 
-Check 检查 ( 反省 )
+    _尝试做一些小的改变_
 
-- 检查完成度 : 对关键点 & 结果进行检查, 看有无遗漏
-    - 对比期望的成果, 看有哪里合意, 哪里不合意
-    - 看执行过程, 跟最初的计划有何不同 (过程偏差)
+    _并收集信息以便评价这些改变是否有效_
 
-Act 行动 / Adjust 调整 ( 改进 )
+Check 检查 ( Reflect 反省 )
 
-- "Also called 'Adjust', this act phase is where a process is improved."
-- 改善/调整 : 纠正偏差, 确定新目标, 制定下一轮的计划
-- 上两步中分析得出
-    - 问题 Problems
-    - 过程偏差 Non-conformities
-    - 可以改进的地方 Opportunities for improvement
-    - 低效率 Inefficiencies
-    - ……
-- 研究以上问题 ( Issues ), 找到根本原因 ( Root causes )
-    - 通过修改计划, 去消除这些原因
-    - 然后下一个循环就有了更好的基线 ( Base-line )
-        - 更好的指引 ( Instructions )
-        - 标准 ( Standards )
-        - 目标 ( Goals )
-- 以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues )
+-   _检查完成度: 对关键点 & 结果进行检查, 看有无遗漏_
+
+    _对比期望的成果, 看有哪里合意, 哪里不合意_
+
+    _看执行过程, 跟最初的计划有何不同 ( 过程偏差 )_
+
+Act 行动 / Adjust 调整 ( Improve 改进 )
+
+-   _"Also called 'Adjust', this act phase is where a process is improved."_
+
+-   _调整 / 改善: 纠正偏差, 确定新目标, 制定下一轮的计划_
+
+-   _上两步中分析得出_
+
+    - _遭遇问题 Problems_
+    - _过程偏差 Non-conformities_
+    - _可以改进的地方 Opportunities for improvement_
+    - _低效率 Inefficiencies_
+    - _……_
+
+-   _研究以上问题 ( Issues ) , 找到根本原因 ( Root causes )_
+
+    _通过修改计划, 去消除这些原因_
+
+    _然后下一个循环就有了更好的基线 ( Base-line )_
+
+    - _更好的指引 ( Instructions )_
+    - _标准 ( Standards )_
+    - _目标 ( Goals )_
+
+-   _以期下一个循环, 不再重复发生相同的问题 ( Recurrence of identified issues )_
 
 ---
 
