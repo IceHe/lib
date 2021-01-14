@@ -595,6 +595,8 @@ Timeline
 
 > 靡不有初，鮮克有終。
 
+![the-fucking-life.jpg](/past/_images/the-fucking-life.jpg)
+
 <!-- > —— 《诗经·大雅·荡》 -->
 
 <!--
