@@ -11,8 +11,6 @@
 - This site: [icehe.xyz](https://icehe.xyz) - _powered by [docsify](/_docsify/how-to-docsify.md)_
 -   Author: [IceHe](/past/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
-<!-- - _Backup site: [lib.icehe.xyz](https://lib.icehe.xyz) - powered by [GitBook](https://www.gitbook.com/)_ -->
-
 ## Tech
 
 ### Books
@@ -59,31 +57,21 @@ Others
 
 <!-- - [JZ Offer](/books/jz-offer.md) -->
 
-<!--
-
-Tools
-
-- Wireshark
-    - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( todo )_
-    - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( todo )_
-
--->
-
 <!-- _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--  -->
-<!-- - _* [Part 1](/books/tcp-ip-illustracted-protocols-p1.md) ( todo )_ -->
+<!-- - _[Part*  1](/books/tcp-ip-illustracted-protocols-p1.md) ( todo )_ -->
+
+<!-- Tools -->
+
+<!-- - Wireshark -->
+<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( todo )_ -->
+<!--     - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( todo )_ -->
 
 ### Snips
 
 > 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。
 
-<!-- > 巨大的建筑，总是由一木一石叠起来的，我们何妨做做这一木一石呢？我时常做些零碎事，就是为此。 -->
 <!-- > —— 鲁迅《致赖少麟》 -->
-
-Docker
-
-- [Commands](/snips/docker/docker-commands.md)
-- [Alpine Linux](/snips/docker/alpine/alpine.md): minimal OS image
 
 Storage
 
@@ -110,6 +98,26 @@ Storage
 
 -->
 
+Markdown
+
+- [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
+- [Markdown Lint Tool: mdl](/snips/markdown/lint/lint.md)
+
+Docker
+
+- [Commands](/snips/docker/docker-commands.md)
+- [Alpine Linux](/snips/docker/alpine/alpine.md): minimal OS image
+
+Coding
+
+- [Abbreviations](/snips/abbrs.md)
+- [Glossaries](/snips/glossaries.md) with intros to the common technology products
+- [Regular Expression](/snips/regex.md)
+
+<!-- Algorithms -->
+
+<!-- - TODO -->
+
 Web
 
 - [IP Address](/snips/network/ip.md)
@@ -123,14 +131,6 @@ Web
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
 
-Writing
-
-- [Abbreviations](/snips/abbrs.md)
-- [Glossaries](/snips/glossaries.md) with intros to the common technology products
-- [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
-- [Markdown Lint Tool: mdl](/snips/markdown/lint/lint.md)
-- [Regular Expression](/snips/regex.md)
-
 Others
 
 - _[CentOS 6](/snips/os/centos6.md)_
@@ -138,14 +138,7 @@ Others
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
 - _[Work Flow](/snips/tmp/work-flow.md)_
-
-<!--
-
-Algorithms
-
-- [Sorting](/src/sort/notes.md): Insertion / Heap / Quick / …
-
--->
+- _[Sorting Algorithms](/src/sort/notes.md)_
 
 <!--
 
@@ -463,11 +456,11 @@ Timeline
     - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform / Back-End / Java
     - **Alibaba Local Life**: 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 / Back-End / Java
 - After 2018
+    - [Rehabilitation](/past/rehabilitation.md)
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
     - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/past/2018-winter.md)
     - [Moments](/past/moments.md): 回忆
-    - [Rehabilitation](/past/rehabilitation.md) _( since 2020-12-14 )_
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
     - [2017 Spring](/past/2017-spring.md)
