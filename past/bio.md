@@ -11,11 +11,13 @@ A short biographical profile
 
 我是
 
-- IceHe: 广州人在北京 _( 花名: 冰何 )_
+- IceHe: 广州人在北京
+    <!-- _( 花名: 冰何 )_ -->
 
 动态
 
-- 技术博客: [icehe.xyz](https://icehe.xyz) _( archived [icehe.me](https://icehe.me) )_
+- 技术博客: [icehe.xyz](https://icehe.xyz)
+    <!-- _( archived [icehe.me](https://icehe.me) )_ -->
 - 生活琐碎: [weibo.com](http://weibo.com/icedes) @\_IceHe\_
 
 经历
