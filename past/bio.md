@@ -29,22 +29,18 @@ A short biographical profile of IceHe
 - 邮箱: icehe.me#qq.com _( replace # with @ )_
 - 微信: IceHooo
 
-<!--
-
 <details>
-<summary>WeChat QRCode <i>( click to show )</i></summary>
+<summary>微信二维码 ( 点击展示 )</summary>
 
 ![](https://img.icehe.xyz/about_original/qrcode_01.jpg)
 
 </details>
 
--->
-
 ---
 
 ## 技能
 
-_分级_
+分级
 
 - 精通 - Proficient: _运用自如, 极少需要文档_
 - 熟悉 - Familiar: _熟练使用, 偶尔查阅文档_
@@ -56,16 +52,10 @@ _分级_
 - 胜任: Java / PHP
 - 了解: C / C++ / Python / JavaScript / Assembly
 
-<!-- - TODO: Go / … -->
-
 存储 / 缓存 / 队列
 
 - 胜任: MySQL / Redis / Elasticsearch
 - 了解: Memcached / RabbitMQ / Kafaka
-
-<!-- - TODO: [PostgreSQL](https://www.postgresql.org/) / [TiDB](https://pingcap.com/) / … -->
-
-<!-- - TODO: [Thrift](https://thrift.apache.org/) / [Protocol Buffers](https://developers.google.com/protocol-buffers) -->
 
 操作系统
 
@@ -80,8 +70,6 @@ _分级_
 网页前端
 
 - 胜任: HTML / CSS / jQuery
-
-<!-- - TODO: [Vue.js](https://vuejs.org/) / … -->
 
 语言沟通
 
@@ -108,10 +96,10 @@ _分级_
 - 媒体库 / 探测报警 (API 健康) / 视频墙 (个人主页发布视频列表) / 文档库 / Partial request / …
 - _Java / Groovy / Spring Boot / MySQL / MyBatis / Redis / Memcached / Kafka / Docker / CentOS / Bash_
 
-**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端 (应届)** _2015.7 ~ 2018.3_
+**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端** ( 应届 ) _2015.7 ~ 2018.3_
 
 - **微博产品部 2017 年度优秀个人 ( MAPI 前 1/16，产品部 前 15/200+ )**
-- 开发维护移动端 (手机 [客户端](https://itunes.apple.com/cn/app/id350962117) & [H5](https://m.weibo.cn/) 页) 的 API 服务及其 CMS 后台
+- 开发维护移动端 ( 手机 [客户端](https://itunes.apple.com/cn/app/id350962117) & [H5](https://m.weibo.cn/) 页 ) 的 API 服务及其 CMS 后台
     - 部门职责: 为微博平台、各业务方及移动端，进行数据整合、适配对接、快速实现需求
 - 重构部门主项目「微博移动端 API 服务」包括登录、HTTP 请求、日志记录等模块
     - 管理重构迁移进度，改进工作流程，审核代码, 服务上线，维护开发环境，编写文档
@@ -137,22 +125,10 @@ _分级_
 - 「广东移动电子渠道项目」即 [官网](http://www.10086.cn/gd/index_200_200.html) 建设 - 开发「移动商城」、「我的移动」模块的部分需求
 - _Java / JavaEE / Spring / Oracle / MyBastis / JSP / JavaScript / jQuery_
 
-**华南理工大学 - IBM 实验室 - C++ 服务端 & PC端 实习** _2013.3 ~ 2014.5_
+**华南理工大学 - IBM 实验室 - C++ 服务端 & PC 端 实习** _2013.3 ~ 2014.5_
 
 - 「华工教学云平台」Windows 客户端 ( C++ Qt GUI ) ，及 Linux 服务端的部分功能
-- _C / C++ / Qt Framework（客户端）/ MySQL / CentOS_
-
-<!--
-
-**毕业设计 - [基于进程安全测量的安全管理](https://github.com/IceHe/secure-mgt-by-dyn-measuring)** _2015.3 ~ 2015.5_
-
-- 包括: [安全测量模块](https://github.com/IceHe/dimm) ( Linux Loadable Kernel Module ) 、[安全管理器](https://github.com/IceHe/secure-monitor) ( Qt GUI )
-- 原理: 用 SHA-1 分别计算进程在内存中的代码段与参数段，
-    - 得出定长的信息摘要作为特征值 ( 方便比对 ) ，去比对标准特征值，
-    - 便可判断进程是否被篡改，或程序是否被替换
-- _C , C++ , Loadable Kernel Module , CentOS 7 , Qt Framework_
-
--->
+- _C / C++ / Qt Framework ( 客户端 ) / MySQL / CentOS_
 
 ---
 
@@ -160,54 +136,41 @@ _分级_
 
 **[华南理工大学](https://zh.wikipedia.org/wiki/%E5%8D%8E%E5%8D%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6) - 软件学院 - 软件工程 - 本科** _2011.9 ~ 2015.7_
 
-<!--
-
-- 微电子工艺实习 ( 88 , 1/82 )
-- 电路与电子技术 ( 94 , 2/82 )
-- 电路与电子技术实验 ( 82 , 2/82 )
-- C++程序设计 ( 90 , 7/82 )
-- 数字逻辑 ( 90, 9/82 )
-- 2013~2014学年度「校级三等奖学金」
-
--->
-
 [广州市执信中学](https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%89%A7%E4%BF%A1%E4%B8%AD%E5%AD%A6) - 2011 届「优秀毕业生」( 20% ) _2008.9 ~ 2011.7_
-
-<!-- - 2008、2009、2010 年「三好学生」( 前 20% ) -->
 
 ---
 
-## ~~无关~~
+## 其它
 
 生活爱好
 
-- ACGMN
-- 羽毛球
-- ~~毽球~~ _( 已放弃 )_
+- ACGMN: _生活乐趣_
+- 羽毛球: _水平一般_
+- ~~毽球~~: _已放弃_
 
 **华南理工毽球社 - 社长** _2012.9 ~ 2014.6_
 
 - 2016.5.15 「京津冀天津毽球邀请赛」混合团体冠军 ( 1/16 )
 - 2016.3.13 「天津星五洲杯毽球邀请赛」混合团体亚军 ( 2/16 )
-- 广东省第十五届「高校杯毽球邀请赛」男子团体第七名 ( 7/32 )
-- 广东省第六届「大学生毽球精英挑战赛」男子团体 16 强 ( 16/32 )
 - 广东省第十六届「高校杯毽球邀请赛」男子团体 16 强 ( 16/32 )
-- 2011 至 2014 「大学城毽球联赛」分获亚军、季军、亚军、季军 ( 前7 )
-- 2013 至 2015 「华工双人毽球争霸赛」分获冠军、亚军、冠军 ( 前16 )
+- 广东省第十五届「高校杯毽球邀请赛」男子团体第 7 名 ( 7/32 )
+- 广东省第六届「大学生毽球精英挑战赛」男子团体 16 强 ( 16/32 )
+- 2011 ~ 2014 「大学城毽球联赛」分获亚军、季军、亚军、季军 ( n/7 )
+- 2013 ~ 2015 「华工双人毽球争霸赛」分获冠军、亚军、冠军 ( n/16 )
 - 2011「华工院际毽球赛」冠军
 
 **华南理工职业体验协会 - 会长** _2013.3 ~ 2014.6_
 
-- 任期内，协会在社团联合会的年度综合测评中积 96.7 分，排名从第 36 跃升至第 5 ( 5/59 )
 - 承办「2013 [全球创业周中国站](http://gcc.eweekchina.org/page/200)《创业课堂》高校巡讲-华工站」活动 ( 广州 )
-    - 邀请到零点研究咨询集团董事长兼 CEO [袁岳](http://baike.baidu.com/view/801470.htm) 先生作主讲嘉宾
+    - 主讲嘉宾: 零点研究咨询集团董事长兼 CEO [袁岳](http://baike.baidu.com/view/801470.htm) 先生
 - 参加 2013 年 [第三届](http://page.renren.com/600002531/note/911026751)「全球创业周中国站校园伙伴高峰论坛」 ( 上海 )
-- 参加 2013 年 第三届「梦想 Safari 素质教育论坛」 ( 珠海 )
 
+<!-- - 参加 2013 年 第三届「梦想 Safari 素质教育论坛」 ( 珠海 ) -->
+<!-- - 任期内，协会在社团联合会的年度综合测评中积 96.7 分，排名从第 36 跃升至第 5 ( 5/59 ) -->
 <!-- - 举办「一站到底」华工版、「生存挑战营」 ( 在陌生城市挣返校费用 ) 2 届 -->
-- 承办「职场好声音」讲座 2 场、承办「黑苹果职业访问大赛」华工场
-- 承办「过来人托业杯职场精英挑战赛」大学城分赛区初赛
-- 主讲「策划撰写、商务礼仪」2 场培训，举办 会员服务活动 6 场、素质拓展 2 场
+<!-- - 承办「职场好声音」讲座 2 场、承办「黑苹果职业访问大赛」华工场 -->
+<!-- - 承办「过来人托业杯职场精英挑战赛」大学城分赛区初赛 -->
+<!-- - 主讲「策划撰写、商务礼仪」2 场培训，举办 会员服务活动 6 场、素质拓展 2 场 -->
 
 <!-- **华工学生职业发展协会 - 综合事务部 - 干事** _2011.9 ~ 2012.6_ -->
 
