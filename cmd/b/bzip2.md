@@ -20,10 +20,22 @@ bunzip2 file.bz2
 
 ## Options
 
-- `-k, --keep` Keep (don't delete) input files during compression or decompression
-- `-d, --decompress` Force decompression
-- `-z, --compress` The complement to `-d` **forces compression**, regardless of the invocation name
-- `-c, --stdout` Compress or decompress to standard output ( for pipe )
+-   `-k, --keep`
+
+    Keep (don't delete) input files during compression or decompression
+
+-   `-d, --decompress`
+
+    Force decompression
+
+-   `-z, --compress`
+
+    The complement to `-d` **forces compression**,
+    regardless of the invocation name
+
+-   `-c, --stdout`
+
+    Compress or decompress to standard output ( for pipe )
 
 ## Details
 
