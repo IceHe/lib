@@ -138,7 +138,7 @@ Others
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
 - _[Work Flow](/snips/tmp/work-flow.md)_
-- _[Sorting Algorithms](/src/sort/notes.md)_
+- _[Sorting Algorithms](/sort/notes.md)_
 
 <!--
 

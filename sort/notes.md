@@ -6,7 +6,7 @@ References
 
 List
 
-- [ ] Insertion Sort
+- [x] Insertion Sort
 - [ ] Selection Sort
 - [ ] Bubble Sort
 - [ ] Merge Sort
@@ -39,3 +39,25 @@ Propeties
 - _适用规模_
     - 小于多少个元素，哪个排序是最好的
     - 大于多少个元素，哪个排序是最好的
+
+## Insertion Sort
+
+Reference: [Insertion Sort](https://www.toptal.com/developers/sorting-algorithms/insertion-sort)
+
+Properties
+
+- Stable
+- O(1) extra space
+- O(n^2) comparisons and swaps
+- Adaptive: O(n) time when nearly sorted
+- Very low overhead
+
+Pseudocode
+
+```bash
+for i = 2:n,
+    for (k = i; k > 1 and a[k] < a[k-1]; k--)
+        swap a[k,k-1]
+    → invariant: a[1..i] is sorted
+end
+```
