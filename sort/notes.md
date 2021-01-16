@@ -8,12 +8,12 @@ Index
 
 - [x] Insertion Sort
 - [x] Selection Sort
-- [ ] Bubble Sort
+- [x] Bubble Sort
+- [ ] Shell Sort
 - [ ] Merge Sort
 - [ ] Quick Sort
 - [ ] Quick3 Sort
 - [ ] Heap Sort
-- [ ] Shell Sort
 - [ ] 基数排序
 
 Step
@@ -50,7 +50,7 @@ Properties
 - O(1) extra space
 - O(n^2) comparisons and swaps
 - **Adaptive: O(n) time when nearly sorted**
-- **Very low overhead**
+- Very low overhead
 
 Pseudocode
 
@@ -68,9 +68,9 @@ Reference: [Selection Sort](https://www.toptal.com/developers/sorting-algorithms
 
 Properties
 
-- Not stable
+- **Not stable?**
 - O(1) extra space
-- **Θ(n^2) comparisons**
+- Θ(n^2) comparisons
 - **Θ(n) swaps**
 - **Not adaptive**: _always Θ(n^2) comparisons_
 
@@ -97,3 +97,65 @@ Others
 Reference: [Bubble Sort](https://www.toptal.com/developers/sorting-algorithms/bubble-sort)
 
 Properties
+
+- Stable
+- O(1) extra space
+- O(n^2) comparisons and swaps
+- **Adaptive**: O(n) when nearly sorted
+
+Pseudocode
+
+```bash
+for i = 1:n,
+    swapped = false
+    for j = n:i+1,
+        if a[j] < a[j-1],
+            swap a[j,j-1]
+            swapped = true
+    → invariant: a[1..i] in final position
+    break if not swapped
+end
+```
+
+Others
+
+-   In the case of nearly sorted data,
+    bubble sort takes O(n) time,
+    but requires at least 2 passes through the data
+    (whereas insertion sort requires something more like 1 pass).
+
+## Shell Sort
+
+Reference: [Shell Sort](https://www.toptal.com/developers/sorting-algorithms)
+
+Properties
+
+Pseudocode
+
+```baash
+
+```
+
+## Todo Sort
+
+Reference: [Sort]()
+
+Properties
+
+Pseudocode
+
+```baash
+
+```
+
+## Todo Sort
+
+Reference: [Sort]()
+
+Properties
+
+Pseudocode
+
+```baash
+
+```

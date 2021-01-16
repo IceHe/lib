@@ -8,8 +8,8 @@ public class SelectionSort {
         for (int i = 0; i < 10; i++) {
             System.out.println("Before selection sorting");
             int[] intArray = SortUtils.genAndPrint10Ints();
-            System.out.println("After selection sorting");
             selectionSort(intArray);
+            System.out.println("After selection sorting");
             SortUtils.printInts(intArray);
             SortUtils.checkSortedInts(intArray);
             System.out.println();
