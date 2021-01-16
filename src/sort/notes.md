@@ -4,13 +4,38 @@ References
 
 - [Sorting Algorithms](https://www.toptal.com/developers/sorting-algorithms)
 
-[Study Plan](/src/sort/plan.md)
+List
 
-- Insertion Sort
-- Selection Sort
-- Bubble Sort
-- Shell Sort
-- Merge Sort
-- Heap Sort
-- Quick Sort
-- Quick3 Sort
+- [ ] Insertion Sort
+- [ ] Selection Sort
+- [ ] Bubble Sort
+- [ ] Merge Sort
+- [ ] Quick Sort
+- [ ] Quick3 Sort
+- [ ] Heap Sort
+- [ ] Shell Sort
+- [ ] 基数排序
+
+Step
+
+- 伪代码实现: 理清思路
+- 纸笔实现: 提高思维的严谨度
+- 代码实现
+- 对比各个排序算法: 得出特征和优缺点
+- 时间/空间复杂度、是否稳定、适用场景
+
+Propeties
+
+- 时间复杂度
+    - `O(n*n)` 或者 `O(n*log(n))`
+- 空间复杂度
+    - replace in place : 不适用额外的存储空间
+- _是否稳定_
+    - quick sort 不稳定
+- _适用的场景_
+    - insertion 最常用的？
+    - bubble 最差？
+    - 接近有序的数组，用谁最好？
+- _适用规模_
+    - 小于多少个元素，哪个排序是最好的
+    - 大于多少个元素，哪个排序是最好的
