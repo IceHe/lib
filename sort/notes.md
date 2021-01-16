@@ -4,10 +4,10 @@ References
 
 - [Sorting Algorithms](https://www.toptal.com/developers/sorting-algorithms)
 
-List
+Index
 
 - [x] Insertion Sort
-- [ ] Selection Sort
+- [x] Selection Sort
 - [ ] Bubble Sort
 - [ ] Merge Sort
 - [ ] Quick Sort
@@ -49,8 +49,8 @@ Properties
 - Stable
 - O(1) extra space
 - O(n^2) comparisons and swaps
-- Adaptive: O(n) time when nearly sorted
-- Very low overhead
+- **Adaptive: O(n) time when nearly sorted**
+- **Very low overhead**
 
 Pseudocode
 
@@ -61,3 +61,39 @@ for i = 2:n,
     → invariant: a[1..i] is sorted
 end
 ```
+
+## Selection Sort
+
+Reference: [Selection Sort](https://www.toptal.com/developers/sorting-algorithms/selection-sort)
+
+Properties
+
+- Not stable
+- O(1) extra space
+- **Θ(n^2) comparisons**
+- **Θ(n) swaps**
+- **Not adaptive**: _always Θ(n^2) comparisons_
+
+Pseudocode
+
+```bash
+for i = 1:n,
+    k = i
+    for j = i+1:n, if a[j] < a[k], k = j
+    → invariant: a[k] smallest of a[i..n]
+    swap a[i,k]
+    → invariant: a[1..i] in final position
+end
+```
+
+Others
+
+- Why not stable? I think:
+    - If alway swap a[i, k], it's not stable.
+    - If swap a[i, k] only when i != k, it's stable.
+
+## Bubble Sort
+
+Reference: [Bubble Sort](https://www.toptal.com/developers/sorting-algorithms/bubble-sort)
+
+Properties

@@ -6,25 +6,30 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-            System.out.println("Before insertion sorting");
+            System.out.println("Before selection sorting");
             int[] intArray = SortUtils.genAndPrint10Ints();
-            System.out.println("After insertion sorting");
-            insertionSort(intArray);
-            SortUtils.swap(intArray, 8, 9);
+            System.out.println("After selection sorting");
+            selectionSort(intArray);
             SortUtils.printInts(intArray);
             SortUtils.checkSortedInts(intArray);
             System.out.println();
         }
     }
 
-    public static void insertionSort(int[] intAry) {
+    public static void selectionSort(int[] intAry) {
         if (null == intAry) {
             return;
         }
 
-        for (int times = 1; times < intAry.length; times++) {
-            for (int i = times; i > 0 && intAry[i - 1] > intAry[i]; i--) {
-                SortUtils.swap(intAry, i - 1, i);
+        for (int idx = 0; idx < intAry.length - 1; idx++) {
+            int minValIdx = idx;
+            for (int i = idx; i < intAry.length; i++) {
+                if (intAry[i] < intAry[minValIdx]) {
+                    minValIdx = i;
+                }
+            }
+            if (minValIdx != idx) {
+                SortUtils.swap(intAry, idx, minValIdx);
             }
         }
     }

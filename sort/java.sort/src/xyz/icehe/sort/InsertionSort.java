@@ -10,7 +10,6 @@ public class InsertionSort {
             int[] intArray = SortUtils.genAndPrint10Ints();
             System.out.println("After insertion sorting");
             insertionSort(intArray);
-            SortUtils.swap(intArray, 8, 9);
             SortUtils.printInts(intArray);
             SortUtils.checkSortedInts(intArray);
             System.out.println();
