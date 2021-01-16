@@ -6,39 +6,38 @@ References
 
 Index
 
-- [x] Insertion Sort
-- [x] Selection Sort
-- [x] Bubble Sort
-- [ ] Shell Sort
-- [ ] Merge Sort
-- [ ] Quick Sort
-- [ ] Quick3 Sort
-- [ ] Heap Sort
-- [ ] 基数排序
+- Insertion Sort
+- Selection Sort
+- Bubble Sort
+- Shell Sort
+- Merge Sort
+- Quick Sort
+- Quick3 Sort
+- Heap Sort
+- 基数排序
 
-Step
+Todos
 
-- 伪代码实现: 理清思路
-- 纸笔实现: 提高思维的严谨度
-- 代码实现
-- 对比各个排序算法: 得出特征和优缺点
-- 时间/空间复杂度、是否稳定、适用场景
-
-Propeties
-
-- 时间复杂度
-    - `O(n*n)` 或者 `O(n*log(n))`
-- 空间复杂度
-    - replace in place : 不适用额外的存储空间
-- _是否稳定_
-    - quick sort 不稳定
-- _适用的场景_
-    - insertion 最常用的？
-    - bubble 最差？
-    - 接近有序的数组，用谁最好？
-- _适用规模_
-    - 小于多少个元素，哪个排序是最好的
-    - 大于多少个元素，哪个排序是最好的
+- [ ] Study
+    - [x] Insertion Sort
+    - [x] Selection Sort
+    - [x] Bubble Sort
+    - [x] Shell Sort
+    - [ ] Merge Sort
+    - [ ] Quick Sort
+    - [ ] Quick3 Sort
+    - [ ] Heap Sort
+    - [ ] 基数排序
+- [ ] Review
+    - [ ] Insertion Sort
+    - [ ] Selection Sort
+    - [ ] **Bubble Sort !**
+    - [ ] **Shell Sort !!!**
+    - [ ] Merge Sort
+    - [ ] Quick Sort
+    - [ ] Quick3 Sort
+    - [ ] Heap Sort
+    - [ ] 基数排序
 
 ## Insertion Sort
 
@@ -127,6 +126,48 @@ Others
 ## Shell Sort
 
 Reference: [Shell Sort](https://www.toptal.com/developers/sorting-algorithms)
+
+
+Properties
+
+- Not stable
+- O(1) extra space
+- **O(n^3/2) time**
+- **Adaptive: O(n·lg(n)) time when nearly sorted**
+
+Pseudocode
+
+```baash
+h = 1
+while h < n, h = 3*h + 1
+while h > 0,
+    h = h / 3
+    for k = 1:h, insertion sort a[k:h:n]
+    → invariant: each h-sub-array is sorted
+end
+```
+
+_( icehe : 这个伪码不太好理, 最好看实现 )_
+
+Others
+
+-   **Shell sort is based on insertion sort**
+
+-   The worse-case time complexity of shell sort
+    depends on the increment sequence.
+
+    For the increments 1 4 13 40 121…,
+    which is what is used here, the time complexity is O(n^3/2).
+
+    For other increments,
+    time complexity is known to be O(n^4/3) and even O(n·lg2(n)).
+
+    Neither tight upper bounds on time complexity
+    nor the best increment sequence are known.
+
+## Merge Sort
+
+Reference: [Merge Sort](https://www.toptal.com/developers/sorting-algorithms/merge-sort)
 
 Properties
 
