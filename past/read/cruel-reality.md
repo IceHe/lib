@@ -1,11 +1,7 @@
 # Cruel Reality
 
-《Loser 应该知道的 6 个残酷人生事实》
-
-- 原标题：6 Harsh Truths That Will Make You a Better Person
-- Digest created on 2016-06-15
-- From: http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359 （**超级推荐直接看原文**）
-    - 英语原文：https://www.reddit.com/r/TheRedPill/comments/1rq5gr/6_harsh_truths_that_will_make_you_a_better_person/?sort=top
+- 英语原文: [6 Harsh Truths That Will Make You a Better Person](https://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person)
+- 中文译文: [Loser应该知道的6个残酷人生事实](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)
 
 ## 这个世界只关心你能给予什么
 
@@ -83,7 +79,7 @@ You are your job.
 
 - 你只是在换个说法来讲「你己是个好人罢了。」你的高尚品德，有在产生价值吗？
 
-## 人的内在只有在所做的事之上，才能提现
+## 人的内在只有在所做的事之上，才能体现
 
 你是作家吗？还是你在声称自己是作家而已？
 
