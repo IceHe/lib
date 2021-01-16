@@ -559,34 +559,19 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
 
 1.  Install plugins
 
-    -   [AceJump](https://plugins.jetbrains.com/plugin/7086-acejump):
-        ( trying )
-        Quickly navigate the caret to any position visible in the editor
-    -   [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea):
-        ( trying )
-        Scan of Java files with CheckStyle from within IDEA
-    -   [Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript)
-        ( trying )
     -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts):
         Forces the user to use keyboard shortcuts by blocking click action
         <!-- and displaying the keyboard shortcut in a popup. -->
     -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format):
         Reformats Java source code to comply with
         [Google Java Style](https://google.github.io/styleguide/javaguide.html)
-    -   [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console):
-        ( trying )
-        Grep, tail, filter, highlight... everything you need for a console
-        ( not supporting terminals )
-    -   [GsonFormat](https://plugins.jetbrains.com/plugin/7654-gsonformat):
+    -   [GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus):
         Generate POJO according to JSON
     -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim):
         Vim emulator - edit text like Vim
     -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow):
         Colorize the indentation in front of your text
         alternating four different colors on each step
-    -   [JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij):
-        ( to try )
-        Allow developers to reload code changes instantly
     -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X):
         Learn essential shortcuts while you are working
     -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin):
@@ -597,7 +582,7 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
         <!-- _Early access to future java features such as val, and much more._ -->
     -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper):
         A must have plugin for working with Maven
-    -   [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml-integration):
+    -   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration):
         Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
     -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets):
         Code faster and smarter using code completions
@@ -608,6 +593,21 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     -   [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator):
         Display the tab number indicator
         before the opened file name int editor tabs
+    -   _[AceJump](https://plugins.jetbrains.com/plugin/7086-acejump):_
+        _( trying )_
+        _Quickly navigate the caret to any position visible in the editor_
+    -   _[CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea):_
+        _( trying )_
+        _Scan of Java files with CheckStyle from within IDEA_
+    -   _[Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript)_
+        _( trying )_
+    -   _[Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console):_
+        _( trying )_
+        _Grep, tail, filter, highlight... everything you need for a console_
+        _( not supporting terminals )_
+    -   _[JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij):_
+        _( to try )_
+        _Allow developers to reload code changes instantly_
 
     References:
 

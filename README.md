@@ -450,11 +450,10 @@ _Others_
 Timeline
 
 - [Bio](/past/bio.md): skills / exprience / education
-    - Repos: [GitHub](https://github.com/IceHe) & [GitLab](https://gitlab.com/users/IceHe/projects)
     - **SCUT**: Software Engineering / Bachelor / C++
     - **Huawei**: Telecom Software Customization / Intern. / Java
     - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform / Back-End / Java
-    - **Alibaba Local Life**: 众包物流运营 & 数据组后台 → 蜂鸟跑腿前台 / Back-End / Java
+    - **Alibaba Local Life**: 众包物流运营&数据组后台 → 蜂鸟跑腿前台 / Back-End / Java
 - After 2018
     - [Rehabilitation](/past/rehabilitation.md)
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
