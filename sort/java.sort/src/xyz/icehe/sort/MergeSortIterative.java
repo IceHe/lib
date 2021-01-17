@@ -17,62 +17,43 @@ public class MergeSortIterative {
     }
 
     public static void mergeSortIterative(int[] intAry) {
-        if (null == intAry) {
+        if (null == intAry || intAry.length < 2) {
             return;
         }
 
         int len = intAry.length;
-        int increment = 2;
-        while (increment < len) {
-            increment *= 2;
-            for (int i = 0; i < len; i += increment) {
-                
-            }
-        }
-    }
+        int[] tmpIntAry = new int[len];
 
-    private static void doMergeSortIterative(int[] intAry, int firstIdx, int lastIdx) {
-        if (null == intAry
-            || firstIdx < 0
-            || lastIdx < 0
-            || firstIdx >= intAry.length
-            || lastIdx >= intAry.length
-            || lastIdx <= firstIdx) {
-            return;
-        }
-
-        int pivot = (firstIdx + lastIdx + 1) / 2;
-        doMergeSortIterative(intAry, firstIdx, pivot - 1);
-        doMergeSortIterative(intAry, pivot, lastIdx);
-
-        int[] tmpIntAry = new int[lastIdx - firstIdx + 1];
-
-        int i = 0;
-        int j = firstIdx;
-        int k = pivot;
+        int increment = 1;
         do {
-            if (intAry[j] <= intAry[k]) {
-                tmpIntAry[i] = intAry[j];
-                j++;
-            } else {
-                tmpIntAry[i] = intAry[k];
-                k++;
-            }
-            i++;
-        } while (j < pivot && k < lastIdx + 1);
+            increment *= 2;
+            System.arraycopy(intAry, 0, tmpIntAry, 0, len);
 
-        while (j < pivot) {
-            tmpIntAry[i++] = intAry[j++];
-        }
+            int startIdx = 0;
+            do {
+                int pivot = startIdx + increment / 2;
+                int i = startIdx;
+                int j = startIdx;
+                int k = pivot;
 
-        while (k < lastIdx + 1) {
-            tmpIntAry[i++] = intAry[k++];
-        }
+                do {
+                    if (tmpIntAry[j] <= tmpIntAry[k]) {
+                        intAry[i++] = tmpIntAry[j++];
+                    } else {
+                        intAry[i++] = tmpIntAry[k++];
+                    }
+                } while(j < pivot && k < (startIdx + increment) && k < len);
 
-        // Replace with built-in function
-        //for (int idx = 0; idx < tmpIntAry.length; idx++) {
-        //    intAry[idx + firstIdx] = tmpIntAry[idx];
-        //}
-        System.arraycopy(tmpIntAry, 0, intAry, firstIdx, tmpIntAry.length);
+                while (j < pivot) {
+                    intAry[i++] = tmpIntAry[j++];
+                }
+
+                while (k < (startIdx + increment) && k < len) {
+                    intAry[i++] = tmpIntAry[k++];
+                }
+
+                startIdx += increment;
+            } while (startIdx + increment <= len);
+        } while (increment <= len);
     }
 }
