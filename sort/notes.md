@@ -33,7 +33,7 @@ Todos
     - [ ] Selection Sort
     - [ ] **Bubble Sort !**
     - [ ] **Shell Sort !!!**
-    - [ ] Merge Sort
+    - [ ] **Merge Sort !!**
     - [ ] Quick Sort
     - [ ] Quick3 Sort
     - [ ] Heap Sort
