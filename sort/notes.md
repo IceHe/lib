@@ -12,7 +12,7 @@ Index
 - Shell Sort
 - Merge Sort
 - Quick Sort
-- Quick3 Sort
+- Quick Sort 3 Way
 - Heap Sort
 - 基数排序
 
@@ -23,9 +23,9 @@ Todos
     - [x] Selection Sort
     - [x] Bubble Sort
     - [x] Shell Sort
-    - [ ] Merge Sort
+    - [x] Merge Sort
     - [ ] Quick Sort
-    - [ ] Quick3 Sort
+    - [ ] Quick Sort 3 Way
     - [ ] Heap Sort
     - [ ] 基数排序
 - [ ] Review
@@ -33,9 +33,10 @@ Todos
     - [ ] Selection Sort
     - [ ] **Bubble Sort !**
     - [ ] **Shell Sort !!!**
-    - [ ] **Merge Sort !!**
+    - [ ] **Merge Sort Recursive !**
+    - [ ] **Merge Sort Iterative !!!**
     - [ ] Quick Sort
-    - [ ] Quick3 Sort
+    - [ ] Quick Sort 3 Way
     - [ ] Heap Sort
     - [ ] 基数排序
 
@@ -171,15 +172,43 @@ Reference: [Merge Sort](https://www.toptal.com/developers/sorting-algorithms/mer
 
 Properties
 
+- Stable
+- **Θ(n) extra space for arrays**
+- Θ(lg(n)) extra space for linked lists
+- **Θ(n·lg(n)) time**
+- Not adaptive
+- **Does not require random access to data**
+
 Pseudocode
 
 ```baash
+# split in half
+m = n / 2
 
+# recursive sorts
+sort a[1..m]
+sort a[m+1..n]
+
+# merge sorted sub-arrays using temp array
+b = copy of a[1..m]
+i = 1, j = m+1, k = 1
+while i <= m and j <= n,
+    a[k++] = (a[j] < b[i]) ? a[j++] : b[i++]
+    → invariant: a[1..k] in final position
+while i <= m,
+    a[k++] = b[i++]
+    → invariant: a[1..k] in final position
 ```
 
-## Todo Sort
+Others
 
-Reference: [Sort]()
+-   It makes between 0.5lg(n) and lg(n) comparisons per element,
+    and between lg(n) and 1.5lg(n) swaps per element.
+    _( icehe: 数学常识快忘光了 )_
+
+## Quick Sort
+
+Reference: [Quick Sort](https://www.toptal.com/developers/sorting-algorithms/quick-sort)
 
 Properties
 
@@ -189,9 +218,21 @@ Pseudocode
 
 ```
 
-## Todo Sort
+## Quick Sort 3 Way
 
-Reference: [Sort]()
+Reference: [Quick Sort 3 Way](https://www.toptal.com/developers/sorting-algorithms/quick-sort-3-way)
+
+Properties
+
+Pseudocode
+
+```baash
+
+```
+
+## Heap Sort
+
+Reference: [Heap Sort](https://www.toptal.com/developers/sorting-algorithms/heap-sort)
 
 Properties
 
