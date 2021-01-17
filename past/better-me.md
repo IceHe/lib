@@ -1,5 +1,3 @@
-<!-- # Better Me -->
-
 To be a better me.
 
 ---
@@ -12,7 +10,7 @@ To be a better me.
 
 1.  限时完成
 
-    For anything: **Done is better than perfect.**
+    **Done is better than perfect.**
 
 1.  能努力就努力, 哪怕只读一页书
 
