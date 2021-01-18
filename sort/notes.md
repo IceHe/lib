@@ -128,7 +128,6 @@ Others
 
 Reference: [Shell Sort](https://www.toptal.com/developers/sorting-algorithms)
 
-
 Properties
 
 - Not stable
@@ -138,7 +137,7 @@ Properties
 
 Pseudocode
 
-```baash
+```bash
 h = 1
 while h < n, h = 3*h + 1
 while h > 0,
@@ -181,7 +180,7 @@ Properties
 
 Pseudocode
 
-```baash
+```bash
 # split in half
 m = n / 2
 
