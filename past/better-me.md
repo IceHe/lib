@@ -14,12 +14,11 @@ To be a better me.
 
 1.  能努力就努力, 哪怕只读一页书
 
-    _5分钟快速启动_
+    5分钟快速启动
 
 Tools
 
 - Alarm: 什么时间就该干什么事
-- BlockyTime: 记录时间使用情况
 - Forest: 保持专注
 - Timer: 限制时长
 
