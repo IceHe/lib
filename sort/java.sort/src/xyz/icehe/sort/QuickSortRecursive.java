@@ -33,22 +33,20 @@ public class QuickSortRecursive {
         }
 
         int pivot = (firstIdx + lastIdx) / 2;
-        doQuickSortRecursive(intAry, firstIdx, pivot);
-        doQuickSortRecursive(intAry, pivot + 1, lastIdx);
-        SortUtils.printInts(intAry);
 
         SortUtils.swap(intAry, pivot, lastIdx);
-        int lfIdx = firstIdx;
-        int rgIdx = lastIdx - 1;
-        while (lfIdx < rgIdx) {
-            while (intAry[lfIdx] < intAry[lastIdx]) {
-                lfIdx++;
-            }
-            while (rgIdx > 0 && intAry[rgIdx] > intAry[lastIdx]) {
-                rgIdx--;
-            }
+        int lfIdx = firstIdx - 1;
+        int rgIdx = lastIdx;
+        do {
+            while (intAry[++lfIdx] < intAry[lastIdx]) { ; }
+            while (rgIdx > 0 && intAry[--rgIdx] > intAry[lastIdx]) { ; }
             SortUtils.swap(intAry, lfIdx, rgIdx);
-        }
+        } while (lfIdx < rgIdx);
+        SortUtils.swap(intAry, lfIdx, rgIdx);
         SortUtils.swap(intAry, lfIdx, lastIdx);
+
+        SortUtils.printInts(intAry);
+        doQuickSortRecursive(intAry, firstIdx, lfIdx - 1);
+        doQuickSortRecursive(intAry, lfIdx + 1, lastIdx);
     }
 }
