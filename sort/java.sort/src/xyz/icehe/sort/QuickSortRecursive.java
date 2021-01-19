@@ -5,13 +5,13 @@ import xyz.icehe.utils.SortUtils;
 public class QuickSortRecursive {
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             System.out.println("Before recursive quick sorting");
-            int[] intArray = SortUtils.genAndPrint10Ints();
-            quickSortRecursive(intArray);
+            int[] intAry = SortUtils.genAndPrint10Ints();
+            quickSortRecursive(intAry);
             System.out.println("After recursive quick sorting");
-            SortUtils.printInts(intArray);
-            SortUtils.checkSortedInts(intArray);
+            SortUtils.printInts(intAry);
+            SortUtils.checkSortedInts(intAry);
             System.out.println();
         }
     }
@@ -32,38 +32,23 @@ public class QuickSortRecursive {
             return;
         }
 
-        int pivot = (firstIdx + lastIdx + 1) / 2;
-        doQuickSortRecursive(intAry, firstIdx, pivot - 1);
-        doQuickSortRecursive(intAry, pivot, lastIdx);
+        int pivot = (firstIdx + lastIdx) / 2;
+        doQuickSortRecursive(intAry, firstIdx, pivot);
+        doQuickSortRecursive(intAry, pivot + 1, lastIdx);
+        SortUtils.printInts(intAry);
 
-        int[] tmpIntAry = new int[lastIdx - firstIdx + 1];
-
-        int i = 0;
-        int j = firstIdx;
-        int k = pivot;
-        do {
-            if (intAry[j] <= intAry[k]) {
-                tmpIntAry[i] = intAry[j];
-                j++;
-            } else {
-                tmpIntAry[i] = intAry[k];
-                k++;
+        SortUtils.swap(intAry, pivot, lastIdx);
+        int lfIdx = firstIdx;
+        int rgIdx = lastIdx - 1;
+        while (lfIdx < rgIdx) {
+            while (intAry[lfIdx] < intAry[lastIdx]) {
+                lfIdx++;
             }
-            i++;
-        } while (j < pivot && k < lastIdx + 1);
-
-        while (j < pivot) {
-            tmpIntAry[i++] = intAry[j++];
+            while (rgIdx > 0 && intAry[rgIdx] > intAry[lastIdx]) {
+                rgIdx--;
+            }
+            SortUtils.swap(intAry, lfIdx, rgIdx);
         }
-
-        while (k < lastIdx + 1) {
-            tmpIntAry[i++] = intAry[k++];
-        }
-
-        // Replace with built-in function
-        //for (int idx = 0; idx < tmpIntAry.length; idx++) {
-        //    intAry[idx + firstIdx] = tmpIntAry[idx];
-        //}
-        System.arraycopy(tmpIntAry, 0, intAry, firstIdx, tmpIntAry.length);
+        SortUtils.swap(intAry, lfIdx, lastIdx);
     }
 }

@@ -7,11 +7,11 @@ public class InsertionSort {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             System.out.println("Before insertion sorting");
-            int[] intArray = SortUtils.genAndPrint10Ints();
-            insertionSort(intArray);
+            int[] intAry = SortUtils.genAndPrint10Ints();
+            insertionSort(intAry);
             System.out.println("After insertion sorting");
-            SortUtils.printInts(intArray);
-            SortUtils.checkSortedInts(intArray);
+            SortUtils.printInts(intAry);
+            SortUtils.checkSortedInts(intAry);
             System.out.println();
         }
     }

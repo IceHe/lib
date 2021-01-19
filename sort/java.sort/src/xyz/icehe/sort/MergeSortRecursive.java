@@ -7,11 +7,11 @@ public class MergeSortRecursive {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             System.out.println("Before recursive merge sorting");
-            int[] intArray = SortUtils.genAndPrint10Ints();
-            mergeSortRecursive(intArray);
+            int[] intAry = SortUtils.genAndPrint10Ints();
+            mergeSortRecursive(intAry);
             System.out.println("After recursive merge sorting");
-            SortUtils.printInts(intArray);
-            SortUtils.checkSortedInts(intArray);
+            SortUtils.printInts(intAry);
+            SortUtils.checkSortedInts(intAry);
             System.out.println();
         }
     }

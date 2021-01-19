@@ -7,11 +7,11 @@ public class QuickSortIterative {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             System.out.println("Before iterative quick sorting");
-            int[] intArray = SortUtils.genAndPrint10Ints();
-            quickSortIterative(intArray);
+            int[] intAry = SortUtils.genAndPrint10Ints();
+            quickSortIterative(intAry);
             System.out.println("After iterative quick sorting");
-            SortUtils.printInts(intArray);
-            SortUtils.checkSortedInts(intArray);
+            SortUtils.printInts(intAry);
+            SortUtils.checkSortedInts(intAry);
             System.out.println();
         }
     }

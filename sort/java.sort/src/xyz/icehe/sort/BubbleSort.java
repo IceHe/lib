@@ -7,11 +7,11 @@ public class BubbleSort {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             System.out.println("Before bubble sorting");
-            int[] intArray = SortUtils.genAndPrint10Ints();
-            bubbleSort(intArray);
+            int[] intAry = SortUtils.genAndPrint10Ints();
+            bubbleSort(intAry);
             System.out.println("After bubble sorting");
-            SortUtils.printInts(intArray);
-            SortUtils.checkSortedInts(intArray);
+            SortUtils.printInts(intAry);
+            SortUtils.checkSortedInts(intAry);
             System.out.println();
         }
     }

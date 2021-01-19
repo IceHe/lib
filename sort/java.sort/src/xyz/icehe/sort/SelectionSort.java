@@ -7,11 +7,11 @@ public class SelectionSort {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             System.out.println("Before selection sorting");
-            int[] intArray = SortUtils.genAndPrint10Ints();
-            selectionSort(intArray);
+            int[] intAry = SortUtils.genAndPrint10Ints();
+            selectionSort(intAry);
             System.out.println("After selection sorting");
-            SortUtils.printInts(intArray);
-            SortUtils.checkSortedInts(intArray);
+            SortUtils.printInts(intAry);
+            SortUtils.checkSortedInts(intAry);
             System.out.println();
         }
     }

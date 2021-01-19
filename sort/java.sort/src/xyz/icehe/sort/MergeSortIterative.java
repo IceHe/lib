@@ -7,11 +7,11 @@ public class MergeSortIterative {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             System.out.println("Before iterative merge sorting");
-            int[] intArray = SortUtils.genAndPrint10Ints();
-            mergeSortIterative(intArray);
+            int[] intAry = SortUtils.genAndPrint10Ints();
+            mergeSortIterative(intAry);
             System.out.println("After iterative merge sorting");
-            SortUtils.printInts(intArray);
-            SortUtils.checkSortedInts(intArray);
+            SortUtils.printInts(intAry);
+            SortUtils.checkSortedInts(intAry);
             System.out.println();
         }
     }
