@@ -2,7 +2,7 @@ To be a better me.
 
 ---
 
-<!-- Guidelines -->
+Guidelines
 
 1.  抓住重点
 
