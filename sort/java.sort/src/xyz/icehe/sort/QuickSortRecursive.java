@@ -5,7 +5,7 @@ import xyz.icehe.utils.SortUtils;
 public class QuickSortRecursive {
 
     public static void main(String[] args) {
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println("Before recursive quick sorting");
             int[] intAry = SortUtils.genAndPrint10Ints();
             quickSortRecursive(intAry);
@@ -45,7 +45,6 @@ public class QuickSortRecursive {
         SortUtils.swap(intAry, lfIdx, rgIdx);
         SortUtils.swap(intAry, lfIdx, lastIdx);
 
-        SortUtils.printInts(intAry);
         doQuickSortRecursive(intAry, firstIdx, lfIdx - 1);
         doQuickSortRecursive(intAry, lfIdx + 1, lastIdx);
     }

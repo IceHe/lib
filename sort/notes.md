@@ -35,7 +35,7 @@ Todos
     - [ ] **Shell Sort !!!**
     - [ ] **Merge Sort Recursive !**
     - [ ] **Merge Sort Iterative !!!**
-    - [ ] Quick Sort
+    - [ ] **Merge Sort Iterative !!!!**
     - [ ] Quick Sort 3 Way
     - [ ] Heap Sort
     - [ ] 基数排序
@@ -211,10 +211,26 @@ Reference: [Quick Sort](https://www.toptal.com/developers/sorting-algorithms/qui
 
 Properties
 
+- Not stable
+- O(lg(n)) extra space
+- O(n^2) time, but typically O(n·lg(n)) time
+- Not adaptive
+
 Pseudocode
 
-```baash
+```bash
+_# choose pivot_
+swap a[1,rand(1,n)]
 
+_# 2-way partition_
+k = 1
+for i = 2:n, if a[i] < a[1], swap a[++k,i]
+swap a[1,k]
+_→ invariant: a[1..k-1] < a[k] <= a[k+1..n]_
+
+_# recursive sorts_
+sort a[1..k-1]
+sort a[k+1,n]
 ```
 
 ## Quick Sort 3 Way
@@ -225,7 +241,7 @@ Properties
 
 Pseudocode
 
-```baash
+```bash
 
 ```
 
@@ -237,6 +253,5 @@ Properties
 
 Pseudocode
 
-```baash
-
+```bash
 ```
