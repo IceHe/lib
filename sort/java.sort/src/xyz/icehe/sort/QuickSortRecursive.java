@@ -1,5 +1,7 @@
 package xyz.icehe.sort;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import xyz.icehe.utils.SortUtils;
 
 public class QuickSortRecursive {
@@ -26,26 +28,28 @@ public class QuickSortRecursive {
     private static void doQuickSortRecursive(int[] intAry, int firstIdx, int lastIdx) {
         if (null == intAry
             || firstIdx < 0
-            || lastIdx < 0
-            || lastIdx <= firstIdx
+            || firstIdx >= lastIdx
             || lastIdx >= intAry.length) {
             return;
         }
 
-        int pivot = (firstIdx + lastIdx) / 2;
+        int pivotIdx = ThreadLocalRandom.current().nextInt(firstIdx, lastIdx + 1);
+        SortUtils.swap(intAry, firstIdx, pivotIdx);
 
-        SortUtils.swap(intAry, pivot, lastIdx);
         int lfIdx = firstIdx - 1;
         int rgIdx = lastIdx;
         do {
-            while (intAry[++lfIdx] < intAry[lastIdx]) { ; }
-            while (rgIdx > 0 && intAry[--rgIdx] > intAry[lastIdx]) { ; }
+            int pivotVal = intAry[lastIdx];
+            while (intAry[++lfIdx] < pivotVal) { ; }
+            while (rgIdx > 0 && intAry[--rgIdx] > pivotVal) { ; }
             SortUtils.swap(intAry, lfIdx, rgIdx);
         } while (lfIdx < rgIdx);
         SortUtils.swap(intAry, lfIdx, rgIdx);
-        SortUtils.swap(intAry, lfIdx, lastIdx);
 
-        doQuickSortRecursive(intAry, firstIdx, lfIdx - 1);
-        doQuickSortRecursive(intAry, lfIdx + 1, lastIdx);
+        int newPivotIdx = lfIdx;
+        SortUtils.swap(intAry, newPivotIdx, lastIdx);
+
+        doQuickSortRecursive(intAry, firstIdx, newPivotIdx - 1);
+        doQuickSortRecursive(intAry, newPivotIdx + 1, lastIdx);
     }
 }
