@@ -8,9 +8,7 @@ Reference: [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
 <!--  -->
 
-The related article on icehe.xyz ( my website ):
-
-- [Efficiency: 效率指南](/mac/efficiency.md)
+The related article on icehe.xyz ( my website ): [Efficiency: 效率指南](/mac/efficiency.md)
 
 ## Guidelines
 
