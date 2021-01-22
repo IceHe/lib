@@ -5,7 +5,7 @@ import xyz.icehe.utils.SortUtils;
 public class QuickSortIterative {
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             System.out.println("Before iterative quick sorting");
             int[] intAry = SortUtils.genAndPrint10Ints();
             quickSortIterative(intAry);
@@ -22,38 +22,29 @@ public class QuickSortIterative {
         }
 
         int len = intAry.length;
-        int[] tmpIntAry = new int[len];
 
         int increment = 1;
-        do {
+        while (increment < len) {
             increment *= 2;
-            System.arraycopy(intAry, 0, tmpIntAry, 0, len);
+        }
 
-            int startIdx = 0;
-            do {
-                int pivot = startIdx + increment / 2;
-                int i = startIdx;
-                int j = startIdx;
-                int k = pivot;
-
-                do {
-                    if (tmpIntAry[j] <= tmpIntAry[k]) {
-                        intAry[i++] = tmpIntAry[j++];
-                    } else {
-                        intAry[i++] = tmpIntAry[k++];
+        while (increment > 1) {
+            for (int i = 0; i + 1 < len; i += increment) {
+                int pivotIdx = (i + increment) / 2;
+                int pivotVal = intAry[pivotIdx];
+                System.out.println("pivotIdx=" + pivotIdx);
+                System.out.println("pivotVal=" + pivotVal);
+                SortUtils.swap(intAry, i, pivotIdx);
+                int k = i;
+                for (int j = i + 1; j < i + increment && j < len; j++) {
+                    if (intAry[j] < pivotVal) {
+                        SortUtils.swap(intAry, j, ++k);
                     }
-                } while(j < pivot && k < (startIdx + increment) && k < len);
-
-                while (j < pivot) {
-                    intAry[i++] = tmpIntAry[j++];
                 }
-
-                while (k < (startIdx + increment) && k < len) {
-                    intAry[i++] = tmpIntAry[k++];
-                }
-
-                startIdx += increment;
-            } while (startIdx + increment <= len);
-        } while (increment <= len);
+                SortUtils.swap(intAry, i, k);
+            }
+            SortUtils.printInts(intAry);
+            increment /= 2;
+        }
     }
 }
