@@ -24,7 +24,7 @@ Todos
     - [x] Bubble Sort
     - [x] Shell Sort
     - [x] Merge Sort
-    - [ ] Quick Sort
+    - [x] Quick Sort
     - [ ] Quick Sort 3 Way
     - [ ] Heap Sort
     - [ ] 基数排序
