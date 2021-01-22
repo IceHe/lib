@@ -35,7 +35,9 @@ Todos
     - [ ] **Shell Sort !!!**
     - [ ] **Merge Sort Recursive !**
     - [ ] **Merge Sort Iterative !!!**
-    - [ ] **Merge Sort Iterative !!!!**
+    - [ ] **Quick Sort Recursive !!!!**
+    - [ ] **Quick Sort Recursive Simple !!!**
+    - [ ] Quick Sort Iterative
     - [ ] Quick Sort 3 Way
     - [ ] Heap Sort
     - [ ] 基数排序
@@ -219,16 +221,16 @@ Properties
 Pseudocode
 
 ```bash
-_# choose pivot_
+# choose pivot
 swap a[1,rand(1,n)]
 
-_# 2-way partition_
+# 2-way partition
 k = 1
 for i = 2:n, if a[i] < a[1], swap a[++k,i]
 swap a[1,k]
-_→ invariant: a[1..k-1] < a[k] <= a[k+1..n]_
+→ invariant: a[1..k-1] < a[k] <= a[k+1..n]
 
-_# recursive sorts_
+# recursive sorts
 sort a[1..k-1]
 sort a[k+1,n]
 ```
