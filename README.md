@@ -180,7 +180,7 @@ Message Queues
 
 ### Mac
 
-- [Initialize](/mac/initialize-mac.md): 系统初始化
+- [Initialize](/mac/initialize.md): 系统初始化
 - [Efficiency](/mac/efficiency.md): 效率指南
     - [macOS shortcuts](/mac/shortcuts/macos.md)
     - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
