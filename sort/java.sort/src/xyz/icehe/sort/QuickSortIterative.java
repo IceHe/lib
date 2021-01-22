@@ -43,7 +43,7 @@ public class QuickSortIterative {
             //System.out.println("lastIdx=" + lastIdx);
             //System.out.println("pivotIdx=" + pivotIdx);
             //System.out.println("pivotVal=" + pivotVal);
-            
+
             SortUtils.swap(intAry, firstIdx, pivotIdx);
             int k = firstIdx;
             for (int j = firstIdx + 1; j <= lastIdx; j++) {

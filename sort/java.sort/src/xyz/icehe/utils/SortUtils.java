@@ -10,11 +10,11 @@ public class SortUtils {
 
     public static void swap(int[] intAry, int idxA, int idxB) {
         if (null == intAry
-                || idxA == idxB
-                || idxA < 0
-                || idxB < 0
-                || idxA >= intAry.length
-                || idxB >= intAry.length) {
+            || idxA == idxB
+            || idxA < 0
+            || idxB < 0
+            || idxA >= intAry.length
+            || idxB >= intAry.length) {
             return;
         }
 
