@@ -1,5 +1,8 @@
 package xyz.icehe.sort;
 
+import java.util.Stack;
+import java.util.concurrent.ThreadLocalRandom;
+
 import xyz.icehe.utils.SortUtils;
 
 public class QuickSortIterative {
@@ -22,29 +25,39 @@ public class QuickSortIterative {
         }
 
         int len = intAry.length;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        stack.push(len - 1);
 
-        int increment = 1;
-        while (increment < len) {
-            increment *= 2;
-        }
-
-        while (increment > 1) {
-            for (int i = 0; i + 1 < len; i += increment) {
-                int pivotIdx = (i + increment) / 2;
-                int pivotVal = intAry[pivotIdx];
-                System.out.println("pivotIdx=" + pivotIdx);
-                System.out.println("pivotVal=" + pivotVal);
-                SortUtils.swap(intAry, i, pivotIdx);
-                int k = i;
-                for (int j = i + 1; j < i + increment && j < len; j++) {
-                    if (intAry[j] < pivotVal) {
-                        SortUtils.swap(intAry, j, ++k);
-                    }
-                }
-                SortUtils.swap(intAry, i, k);
+        while (!stack.isEmpty()) {
+            int lastIdx = stack.pop();
+            int firstIdx = stack.pop();
+            if (firstIdx >= lastIdx) {
+                continue;
             }
+
+            int pivotIdx = ThreadLocalRandom.current().nextInt(firstIdx, lastIdx + 1);
+            int pivotVal = intAry[pivotIdx];
+
+            //System.out.println("firstIdx=" + firstIdx);
+            //System.out.println("lastIdx=" + lastIdx);
+            //System.out.println("pivotIdx=" + pivotIdx);
+            //System.out.println("pivotVal=" + pivotVal);
+            
+            SortUtils.swap(intAry, firstIdx, pivotIdx);
+            int k = firstIdx;
+            for (int j = firstIdx + 1; j <= lastIdx; j++) {
+                if (intAry[j] < pivotVal) {
+                    SortUtils.swap(intAry, j, ++k);
+                }
+            }
+            SortUtils.swap(intAry, firstIdx, k);
             SortUtils.printInts(intAry);
-            increment /= 2;
+
+            stack.push(firstIdx);
+            stack.push(k - 1);
+            stack.push(k + 1);
+            stack.push(lastIdx);
         }
     }
 }
