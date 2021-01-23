@@ -679,6 +679,8 @@ Include the development configurations on local and remote machines
 
 - Remove the useless input sources
 
+<!--
+
 #### Key Repeat
 
 How to enable:
@@ -695,6 +697,8 @@ References: Search "macos mojave keyboard cannot repeat" on Google
 
 - [Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)
 - [OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
+
+-->
 
 #### Others
 
