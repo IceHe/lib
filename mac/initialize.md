@@ -753,7 +753,7 @@ git init
 
 # Recommend to pull via HTTPS at the first time
 git remote add origin https://github.com/IceHe/mac-conf.git
-git pull
+git pull origin master
 
 # Pull via SSH after the first time
 # ( Require local Git SSH key, so configure it later )
