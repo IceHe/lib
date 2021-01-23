@@ -650,11 +650,6 @@ Include the development configurations on local and remote machines
 - Enable `Automatically hide and show the Dock`
 - Disable `Animate opening applications`
 - Disable all apps `Options` → `Keep in Dock`
-- [通过终端命令调整 Dock 栏的隐藏速度｜一日一技 · Mac - 少数派](https://sspai.com/post/33366)
-    ```bash
-    defaults write com.apple.dock autohide-delay -int 0
-    killall Dock
-    ```
 
 #### Keyboard
 
