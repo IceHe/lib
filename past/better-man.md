@@ -1,6 +1,6 @@
 # To be a better man.
 
-每天
+时间表 & 要求
 
 - [ ] **22:30-23:00 躺床, 娱乐** **⓵ 早睡**
 - _23:00-07:00 睡眠 8h_
@@ -29,8 +29,8 @@
 
     _Alarm / Due / Schedule / BlockyTime / Forest / TickTick.Habit_
 
-1.  Done is better than perfect.
+1.  设定时限: Done is better than perfect.
 
     _Deadline / Timer_
 
-1.  抓住重点, 去做事
+1.  抓住重点, 做正确的事
