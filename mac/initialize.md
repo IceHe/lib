@@ -167,7 +167,7 @@ for installing and managing softwares on macOS
     Reference:
     [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
-    For Apple M1 Mac:
+    For M1 Mac:
     [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)
 
     <!--     - Mac 下镜像飞速安装 Homebrew 教程: https://zhuanlan.zhihu.com/p/90508170 -->
@@ -185,7 +185,7 @@ for installing and managing softwares on macOS
 
 1.  Accelarate
 
-    If upgrade slowly, run the commands:
+    If upgrade slowly, run the commands: ( not work for M1 Mac)
 
     ```bash
     # Homebrew
