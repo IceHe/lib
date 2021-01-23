@@ -167,8 +167,8 @@ for installing and managing softwares on macOS
     Reference:
     [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
-    For M1 Mac:
-    [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)
+    _For M1 Mac:_
+    _[在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)_
 
     <!--     - Mac 下镜像飞速安装 Homebrew 教程: https://zhuanlan.zhihu.com/p/90508170 -->
 
@@ -185,7 +185,7 @@ for installing and managing softwares on macOS
 
 1.  Accelarate
 
-    If upgrade slowly, run the commands: ( not work for M1 Mac)
+    If upgrade slowly, run the commands:
 
     ```bash
     # Homebrew
@@ -199,6 +199,8 @@ for installing and managing softwares on macOS
     # Homebrew Cask
     git -C "$(brew --repo homebrew/cask)" remote set-url \
         origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+
+    #  The 3 commands above don't work on M1 Mac.
     ```
 
     ```bash
