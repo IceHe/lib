@@ -1,6 +1,4 @@
-To be a better man.
-
----
+# To be a better man.
 
 纲领
 
@@ -12,13 +10,13 @@ To be a better man.
 
 1.  做好一件小事, 然后再做好下一件小事, 然后不断循环
 
-1.  能努力就努力, 哪怕只读一页书
-
-    _5分钟快速启动_
-
 1.  Done is better than perfect.
 
     _死线 / 倒计时_
+
+1.  能努力就努力, 哪怕只读一页书
+
+    _5分钟快速启动_
 
 每天
 
