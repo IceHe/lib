@@ -204,13 +204,13 @@ for installing and managing softwares on macOS
     ```bash
     # Homebrew-bottles
 
-    ## For BASH users:
-    echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
-        >> ~/.bash_profile && source ~/.bash_profile
-
     ## For ZSH users:
     echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
         >> ~/.zshrc && source ~/.zshrc
+
+    ## For BASH users:
+    echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
+        >> ~/.bash_profile && source ~/.bash_profile
     ```
 
     Reference:
