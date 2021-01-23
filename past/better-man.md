@@ -31,6 +31,6 @@
 
 1.  设定时限: Done is better than perfect.
 
-    _Deadline / Timer_
+    _Timer_
 
 1.  抓住重点, 做正确的事
