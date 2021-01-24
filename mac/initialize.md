@@ -83,8 +83,6 @@ Suggestion
     - Shadowsocks
     - ShadowsocksX
     - ShadowsocksX-NG
-    - ShadowsocksR
-    - ClashX
     - …
 
 1.  Visit google.com to validate the network
@@ -98,16 +96,17 @@ for installing and managing softwares on macOS
 
     -   Plan A: [Homebrew homepage - brew.sh](https://brew.sh)
 
-        If cannot install or install slowly, try Plan B.
+        _If cannot install or install slowly, try Plan B._
 
     -   Plan B: [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
-        On M1 Mac: [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935). 2021-01-24
+    -   Plan C: [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935) 2021-01-24
 
 1.  Validate
 
     ```bash
     $ brew --version
+    # e.g.
     Homebrew 2.6.1-29-g2be340c
     Homebrew/homebrew-core (git revision 18d380e; last commit 2020-12-11)
     Homebrew/homebrew-cask (git revision 84d2f; last commit 2020-12-11)
@@ -215,84 +214,6 @@ their versions are often outdated
 
 So recommend to install and upgrade them via Homebrew again
 
-### What to Install
-
--   [autoconf](https://www.gnu.org/software/autoconf/autoconf.html):
-    Produce shell scripts to automatically configure software source code packages
-
--   [cmake](https://cmake.org/):
-    An cross-platform family of tools designed to build, test and package software
-
--   [coreutils](http://www.gnu.org/s/coreutils/):
-    The basic file, shell and text manipulation utilities of the GNU operating system
-
-    Include many useful commands, see TOC of
-    [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
-    E.g., use
-    [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
-    to get absolute path to a file or directory
-
--   [curl](https://curl.haxx.se/):
-    Transfer data with URLs.
-    For HTTP debug & download files
-
--   [expect](https://linux.die.net/man/1/expect):
-    Programmed dialogue with interactive programs.
-    _I can write a script using expect for remote login_
-
--   [gawk](https://linux.die.net/man/1/gawk) ( awk ):
-    Pattern scanning and processing language.
-    For text formatting & log analysis
-
--   _[gradle](https://gradle.org/):_
-    _A build automation tool focused on flexibility and performance._
-    _For building Java & Groovy projects based on config file \*.gradle_
-
--   _[groovysdk](http://www.groovy-lang.org/):_
-    _A multi-faceted language for the Java platform_
-    _For Java unit-testing ( [Spock](http://spockframework.org/) )_
-    _or Groovy projects._
-
-    _Install **groovysdk** but ~~groovy~~ by Homebrew_
-    _( see [Stack Overflow](https://stackoverflow.com/questions/41110256/how-do-i-tell-intellij-about-groovy-installed-with-brew-on-osx/41111852) ) ._
-    _Add Groovy SDK to IntelliJ IDEA_
-    _( ref [link](https://www.bonusbits.com/wiki/HowTo:Add_Groovy_SDK_to_IntelliJ_IDEA) ) ._
-
--   [git](https://git-scm.com/):
-    A distributed version control system.
-    For code management
-
--   [jq](https://stedolan.github.io/jq/):
-    A lightweight and flexible command-line JSON processor.
-    For JSON formatting:
-
-    - Basic filters
-    - Builtin operators & functions
-    - Advanced features…
-
--   [maven](https://maven.apache.org/):
-    A software project management and comprehension tool.
-    For Java project management based on config files `pom.xml`
-
--   _[reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):_
-    _Reattach to the per-user bootstrap namespace_
-    _in its "Background" session then exec the program with args._
-    _For `tmux` to write and read system clipboard._
-
--   [ruby](https://www.ruby-lang.org/en/):
-    Ruby programming language.
-    Package Manger: `gem`
-
--   [vim](https://www.vim.org/):
-    A text editor in CLI.
-    An alternate is `nvim`: [Neovim](https://neovim.io/).
-    "The God of editors is Vim. The editor of Gods is Emacs."
-
--   [wget](https://www.gnu.org/software/wget/):
-    Download files via HTTP/HTTPS、FTP/FTPS protocols
-
-- …
-
 ### Required
 
 Install the required softwares via Homebrew
@@ -314,30 +235,38 @@ brew install \
     wget
 ```
 
+-   [coreutils](http://www.gnu.org/s/coreutils/):
+    The basic file, shell and text manipulation utilities of the GNU operating system
+
+    Include many useful commands, see TOC of
+    [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
+    E.g., use
+    [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
+    to get absolute path to a file or directory
+
+-   _[reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):_
+    _Reattach to the per-user bootstrap namespace_
+    _in its "Background" session then exec the program with args._
+    _For `tmux` to write and read system clipboard._
+
+-   [vim](https://www.vim.org/):
+    a text editor in cli.
+    an alternate is `nvim`: [neovim](https://neovim.io/).
+    "the god of editors is vim. the editor of gods is emacs."
+
 ### Optional
 
 Install the optional softwares via Homebrew
 
 ```bash
 brew install \
-    autoconf \
-    automake \
-    cmake \
     elasticsearch \
-    expect \
-    gawk \
-    gradle \
-    groovysdk \
     mysql@5.7 \
     mysql \
     node \
     python \
-    rabbitmq \
     redis \
-    ruby \
-    sqlite \
-    telnet \
-    watch
+    ruby
 ```
 
 ## Java Development
