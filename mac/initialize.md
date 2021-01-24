@@ -273,13 +273,13 @@ brew install \
 
 ### JDK
 
-JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
+JDK - Java Development Kit
 
 1.  Download
     [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     for macOs on the offical website
 
-    The recommended version is still **8** on 2021-01-01.
+    The recommended version is still **8**. 2021-01-01
 
 1.  Install
 
@@ -294,50 +294,42 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     - If `~/.zshrc` doesn't exists, create it
     - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
 
+    _The tilde symbol `~` equals the path of the current user's home directory._
+    _E.g. `/Users/IceHe` on my Mac._
+
     _For getting the path of JDK 8, run the command:_
 
     ```bash
     $ /usr/libexec/java_home -v 8
+    # e.g.
     /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
     ```
 
-    _The tilde symbol `~` equals the path of the current user's home directory._
-    _E.g. `/Users/IceHe` on my Mac._
-
 ### IntelliJ IDEA
 
-1.  Download the
-    [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac)
-    on the [offical website](https://www.jetbrains.com/idea/)
+1.  Download the [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) on the [offical website](https://www.jetbrains.com/idea/)
+
+    You can choose the Community verion to skip setting the license.
 
 1.  Install
 
-1.  Get the lincense
+1.  Get and set the lincense
 
     You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
-    or
-    [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-)
+    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-)
 
-    _References:_
-    _[Free Educational Licenses](https://www.jetbrains.com/community/education/#students)_
-    _/ [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
-
-1.  Set the lincense
+    _References: [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
 
 1.  Synchronize the settings
 
     Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
     for sharing the same settings accroos multiple JetBrains's accounts
 
-    _But it allows to synchronize any configurable components_
-    _except for the list of enabled and disabled plugins._
-
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
     1. Input HTTPS URL of the settings Github repository
     1. Input the Github access token
 
-    _Reference ( including other alternatives ) :_
-    _[Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)_
+    _But cannot synchronize the plugins in this way. So the next step is to…_
 
 1.  Install plugins
 
@@ -483,11 +475,6 @@ References: Search "macos mojave keyboard cannot repeat" on Google
 
 #### Others
 
-iCloud
-
-1. Login
-1. Enable necessary services
-
 Trackpad
 
 - Set `Tracking speed` Max
@@ -504,10 +491,7 @@ Users & Groups
 
 #### 1Password
 
-1.  Re-install in Mac App Store
-1.  Login the 1Password account
-    or unlock the vaults from the cloud drive.
-    _E.g. iCloud_
+Login the 1Password account or unlock the vaults from the cloud. _E.g. iCloud_
 
 #### Chrome
 
