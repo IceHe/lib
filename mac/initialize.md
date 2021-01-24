@@ -115,6 +115,7 @@ Suggestion ( on 2020-12-10 )
     - Trojan
     - TrojanX
     - _Trojan-Qt5_
+        _( It works on M1 Mac. 2021-01-24 )_
     - _Shadowsocks_
     - _ShadowsocksX_
     - _ShadowsocksX-NG_
@@ -128,7 +129,7 @@ Suggestion ( on 2020-12-10 )
 ## Xcode
 
 _Notice:_
-_It's unnecessary on M1 Mac. ( 2020-12-12 )_
+_It's unnecessary on M1 Mac. 2020-12-12_
 
 If encounter the error below while running your command,
 
@@ -200,7 +201,7 @@ for installing and managing softwares on macOS
     git -C "$(brew --repo homebrew/cask)" remote set-url \
         origin https://mirrors.ustc.edu.cn/homebrew-cask.git
 
-    #  The 3 commands above don't work on M1 Mac. ( 2021-01-24 )
+    #  The 3 commands above don't work on M1 Mac. 2021-01-24
     ```
 
     ```bash
@@ -500,7 +501,7 @@ JDK: [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit)
     [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     for macOs on the offical website
 
-    The recommended version is still **8** on 2021-01-01
+    The recommended version is still **8** on 2021-01-01.
 
 1.  Install
 
