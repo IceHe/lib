@@ -127,6 +127,9 @@ Suggestion ( on 2020-12-10 )
 
 ## Xcode
 
+_Notice:_
+_It's unnecessary on M1 Mac. ( 2020-12-12 )_
+
 If encounter the error below while running your command,
 
 ```bash
@@ -141,9 +144,6 @@ xcode-select install
 ```
 
 and then re-run yours again
-
-_Notice:_
-_It doesn't work on Apple Silicon M1 Mac with macOS Big Sur. ( 2020-12-12 )_
 
 ## Homebrew
 
@@ -167,7 +167,7 @@ for installing and managing softwares on macOS
     Reference:
     [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
-    _For M1 Mac:_
+    _On M1 Mac:_
     _[在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)_
 
     <!--     - Mac 下镜像飞速安装 Homebrew 教程: https://zhuanlan.zhihu.com/p/90508170 -->
@@ -200,7 +200,7 @@ for installing and managing softwares on macOS
     git -C "$(brew --repo homebrew/cask)" remote set-url \
         origin https://mirrors.ustc.edu.cn/homebrew-cask.git
 
-    #  The 3 commands above don't work on M1 Mac.
+    #  The 3 commands above don't work on M1 Mac. ( 2021-01-24 )
     ```
 
     ```bash
