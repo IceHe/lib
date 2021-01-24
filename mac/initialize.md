@@ -18,18 +18,18 @@ Related on icehe.xyz: [Efficiency: 效率指南](/mac/efficiency.md)
 
 - **KISS: Keep It Simple and Stupid** ( 简单原则 )
 
-    Focus on the process and omit the unnecessary descriptions
+    Focus on the process and omit the unnecessary descriptions.
 
     _e.g., apps' introductions & usages_
     _/ software technology / developer knowledge …_
 
 - **OOTB: Out Of The Box** ( 开箱即用 )
 
-    Try to minimize the modification of the initial settings
+    Try to minimize the modification of the initial settings.
 
 **For your reference** ( 仅供参考 )
 
-- Assume that you are an experienced Mac user and a software developer
+- Assume that you are an experienced Mac user and a software developer.
 
 ## Install or Restore macOS
 
@@ -59,7 +59,7 @@ Suggestion
     - _Option B: Build your own_
 
     Because the valid methods often change,
-    recommend to search them on the Internet
+    recommend to search them on the Internet.
 
 1.  Get the configurations from the proxy service
 
@@ -89,7 +89,7 @@ Suggestion
 
 ## Homebrew
 
-Homebrew is a [macOS package manager](https://brew.sh)
+[Homebrew](https://brew.sh) is a macOS package manager
 for installing and managing softwares on macOS
 
 1.  Install
@@ -98,9 +98,9 @@ for installing and managing softwares on macOS
 
         _If cannot install or install slowly, try Plan B._
 
-    -   Plan B: [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
+    -   Plan B: [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448)
 
-    -   Plan C: [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935) ( 2021-01-24 )
+    -   Plan C: [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) ( 2021-01-24 )
 
 1.  Validate
 
@@ -114,7 +114,7 @@ for installing and managing softwares on macOS
 
 1.  Accelarate
 
-    Reference: [Homebrew (中国大陆) 有比较快的源 (mirror) 吗?](https://www.zhihu.com/question/31360766/answer/749386652)
+    Reference: [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
 1.  Update and upgrade
 
@@ -125,7 +125,7 @@ for installing and managing softwares on macOS
 ## Homebrew-Cask
 
 Homebrew-Cask extends Homebrew
-and allows you to install large binary files via a command-line tool
+and allows you to install large binary files via a command-line tool.
 
 > Recommend to install Mac Apps via Homebrew-Cask
 
@@ -177,7 +177,7 @@ brew install --cask \
 ## Mac App Store
 
 Some softwares are unavailable on Homebrew-Cask
-but available on Mac App Store
+but available on Mac App Store.
 
 **Required**
 
@@ -226,12 +226,16 @@ brew install \
     jq \
     maven \
     nginx \
+    node \
+    nvim \
     reattach-to-user-namespace \
     safe-rm \
     tmux \
     vim \
     wget
 ```
+
+<!--
 
 -   [coreutils](http://www.gnu.org/s/coreutils/):
     _The basic file, shell and text manipulation utilities_
@@ -247,6 +251,8 @@ brew install \
     _Reattach to the per-user bootstrap namespace_
     _in its "Background" session then exec the program with args._
 
+-->
+
 ### Optional
 
 Install the optional softwares via Homebrew
@@ -256,7 +262,6 @@ brew install \
     elasticsearch \
     mysql@5.7 \
     mysql \
-    node \
     python \
     redis \
     ruby
@@ -264,12 +269,17 @@ brew install \
 
 ## CLI Settings
 
+### 1Password
+
+1. Login the 1Password account or unlock the vaults from the cloud. _E.g. iCloud._
+
+_For logining the git services, such as GitHub, GitLab, Coding._
+
 ### SSH Key
 
 Add the public SSH key on Mac to the accounts of the git services.
-_E.g.: GitHub, GitLab, Coding…_
 
-_Advantage: No longer need to enter the username and password on the trusted devices_
+_Advantage: No longer need to enter the username and password on the trusted devices._
 
 Steps
 
@@ -277,72 +287,33 @@ Steps
 
     Reference: [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
 
-    _Tip: The user input will be requested as follow_
-
-    - _`Enter file in which to save the key (/Users/[USERNAME]/.ssh/id_rsa):`_
-    - _`Enter passphrase (empty for no passphrase):`_
-    - _`Enter same passphrase again:`_
-
-    _You can just press the Enter `↩` key to skip them above_
-
 1.  Add the SSH key to the accounts of the git services
 
-    _E.g. GitLab_
+    Reference: [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
 
-    1.  Copy the **public key** to the clipboard
+### Dotfiles
 
-        ```bash
-        pbcopy < ~/.ssh/id_rsa.pub
-        ```
-
-    1.  Visit the `Settings → SSH Keys` webpage
-        _( Find it yourself. )_
-
-    1.  Paste the **public key** into the `Key` input box
-        _( The `Title` input box will be auto-filled. )_
-
-    1.  Click `Add key`
-
-    1.  Validate
-
-    Reference:
-    [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
-### dotfiles
-
-_E.g. I run the commands below:_
+_E.g. for me:_
 
 ```bash
 cd ~
 git init
-
-# Recommend to pull via HTTPS at the first time
-git remote add origin https://github.com/IceHe/mac-conf.git
+git remote add origin git@github.com:IceHe/mac-conf.git
 git pull origin master
-
-# Pull via SSH after the first time
-# ( Require local Git SSH key, so configure it later )
-git remote set-url origin git@github.com:IceHe/mac-conf.git
-git pull
+git push --set-upstream origin master
 ```
 
-
-### Oh-My-Zsh
+### Oh My Zsh
 
 1. Install
 
-    ```bash
-    # via curl
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    Reference: [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
-    # via wget
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-    ```
+1.  Synchronize the settings
 
-    Reference:
-    [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
+    via the configuration file `~/.zshrc` from the dotfiles above.
 
-1.  Synchronize the settings via the configuration file
-    `~/.zshrc` in dotfiles above
+<!--
 
 ### Neovim
 
@@ -363,35 +334,27 @@ _Or `nvim` maybe cannot write or read the system clipboard._
 Reference:
 [Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)
 
+-->
+
 ### Git
 
-Synchronize the settings via the configuration files from dotfiles. _E.g.:_
+Synchronize the settings via the configuration files from the dotfiles above. _E.g.:_
 
 - `~/.gitconfig`
 - `~/.gitignore`
 - `~/.gitignore_global`
 - …
 
-Configure via the commands. E.g. Name and Email:
+Or configure via the commands. E.g. Name and Email:
 
-1. Set
-
-    ```bash
-    git config --global user.name [USERNAME]
-    git config --global user.email [EMAIL]
-
-    # e.g.
-    git config --global user.name IceHe
-    git config --global user.email icehe.me@qq.com
-    ```
-
-1. Validate
-
-    ```bash
-    $ git config --global -l | grep user
-    user.name=IceHe
-    user.email=icehe@gmail.com
-    ```
+```bash
+# e.g.
+$ git config --global user.name IceHe
+$ git config --global user.email icehe.me@qq.com
+$ git config --global -l | grep user
+user.name=IceHe
+user.email=icehe@gmail.com
+```
 
 ## Java Development
 
@@ -399,8 +362,7 @@ Configure via the commands. E.g. Name and Email:
 
 JDK - Java Development Kit
 
-1.  Download
-    [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+1.  Download [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     for macOs on the offical website
 
     _The recommended version is still **8**. ( 2021-01-01 )_
@@ -415,8 +377,8 @@ JDK - Java Development Kit
     export JAVA_HOME=`/usr/libexec/java_home -v 8`
     ```
 
-    - If `~/.zshrc` doesn't exists, create it
-    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
+    - If `~/.zshrc` doesn't exists, create it.
+    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
 
     _The tilde symbol `~` equals the path of the current user's home directory._
     _E.g. `/Users/IceHe` on my Mac._
@@ -440,20 +402,20 @@ JDK - Java Development Kit
 1.  Get and set the lincense
 
     You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
-    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-)
+    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
     _References: [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
 
 1.  Synchronize the settings
 
     Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
-    for sharing the same settings accroos multiple JetBrains's accounts
+    for sharing the same settings accroos multiple JetBrains's accounts.
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
     1. Input HTTPS URL of the settings Github repository
     1. Input the Github access token
 
-    _But cannot synchronize the plugins in this way. So the next step is to…_
+    But you cannot synchronize the plugins in this way. So the next step is to…
 
 1.  Install plugins
 
@@ -507,10 +469,10 @@ JDK - Java Development Kit
         _( to try )_
         _Allow developers to reload code changes instantly_
 
-    References:
+    _References:_
 
-    - [21 Best IntelliJ Plugins for 2019 (100% Free)](https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free)
-    - [IntelliJ IDEA best plugins](https://www.vojtechruzicka.com/idea-best-plugins)
+    - _[21 Best IntelliJ Plugins for 2019 (100% Free)](https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free)_
+    - _[IntelliJ IDEA best plugins](https://www.vojtechruzicka.com/idea-best-plugins)_
 
 1.  Set the font `Consolas`
 
@@ -594,21 +556,15 @@ Notification
 
 - Disable useless Apps notifications on demand
 
-Users & Groups
-
-- Configure `Login Items` ( 开机启动程序 )
-
 ### Apps
-
-#### 1Password
-
-1. Login the 1Password account or unlock the vaults from the cloud. _E.g. iCloud_
 
 #### Chrome
 
 1.  Login the Google account
-1.  Turn on `Sync` _( require the independent synchronization password )_
-1.  _Install the extensions manually if `Sync` does not work in time_
+1.  Turn on `Sync`
+    _( require the independent synchronization password )_
+1.  Synchronize the extensions automatically
+    _( do it manually if `Sync` does not finish in time )_
     -   [1Password](https://agilebits.com/browsers/welcome.html): Password Manager
     -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter
         If open too many tabs, stash them in OneTab to save memory space and visible screen area
@@ -618,7 +574,7 @@ Users & Groups
     -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application
     -   _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
-1.  Sync settings of `Proxy SwitchyOmega`
+1.  Synchronize the settings of the plugin `Proxy SwitchyOmega`
     via the configuration file from another device
 
 #### Sogou Input
@@ -629,7 +585,7 @@ Users & Groups
 #### Karabiner-Elements
 
 1. Synchronize the settings via the configuration file
-    `~/.config/karabiner/karabiner.json` in dotfiles above
+    `~/.config/karabiner/karabiner.json` from the dotfiles above
 
 #### Keyboard Maestro
 
@@ -639,14 +595,14 @@ Users & Groups
 1.  Synchronize the macros
     1.  `File` → `Start Syncing Macros…` → `Open Existing…`
     1.  Select the configuration file
-        `~/.config/Keyboard\ Maestro\ Macros.kmsync` in dotfiles
+        `~/.config/Keyboard\ Maestro\ Macros.kmsync`
+        from the dotfiles above
 
 #### Visual Studio Code
 
 1.  Synchronize the settings via the built-in feature [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
-
-1.  Install the extensions
-
+1.  Synchronize the extensions automatically
+    _( do it manually if `Settings Sync` does not finish in time )_
     -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         ( [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks )
@@ -656,6 +612,9 @@ Users & Groups
 #### Sublime Text
 
 1. Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)
+1. _Set the license if you have the license ( optional )_
+    1. _`Help` → `Enter License`_
+    1. _Input the license key_
 
 #### iTerm 2
 
@@ -665,6 +624,11 @@ Synchronize the settings
 1. Enable `Load preference from a custom folder or URL`
 1. Select the config folder
 1. Enable `Save changes to folder when quits`
+
+Copy and paste _( if cannot synchronize this setting, configure it manually )_
+
+1. `Preferences` → `General` → `Selection`
+1. Enable `Applications in terminal may access clipboard`
 
 #### Copy 'Em
 
@@ -698,23 +662,7 @@ Synchronize the settings
     - Set `Snip` **^⌘A**
     - Clear all other hotkeys
 
-#### Itsycal
-
-`Preference…`
-
-- `General`
-    - Enable `Launch at login`
-- `Appearance`
-    - `Menu Bar`
-        - Datetime pattern ` Y.MM.dd  E  HH:mm:ss `
-        - Enable `Hide icon`
-    - `Calendar`
-        - `Highlight`
-            - Enable `Saturday` and `Sunday`
-        - Enable `Show event dots`
-            - Enable `Use colored dots`
-        - Enable `Use event location`
-        - Enable `Use calendar weeks`
+<!--
 
 #### Amphetamine
 
@@ -727,13 +675,11 @@ Synchronize the settings
     - `Default Duration` → `Indefinitely`
 - `Appearance` → `Menu Bar Image` → `Coffee Cup`
 
-#### EuDic 欧路词典
-
-- Login via the QQ account
-
 #### ImageOptim
 
 `Preferences`
 
 - `General` → Set all checkboxes
 - `Quality` → Set all **50%** ( JPEG, PNG, GIF and so on )
+
+-->
