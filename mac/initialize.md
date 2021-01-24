@@ -42,11 +42,11 @@ References
 
 Suggestion
 
--   如果用硬盘全量备份然后将数据还原到新的设备上,
-    假以时日, 系统中会留存越来越多用不着的东西;
+-   如果全量备份然后将数据还原到设备上,
+    假以时日, 会留存越来越多用不着的东西;
 
-    随着时间推移, 不得不购置容量越来越大的内置和备份硬盘,
-    所以无论新老设备, 个人推荐 **直接重装然后重新配置**.
+    随着时间推移, 不得不购置容量越来越大的硬盘,
+    所以无论新老设备, 个人推荐 **直接重装 / 重新配置**.
 
 ## Network Proxy
 
@@ -85,7 +85,7 @@ Suggestion
     - ShadowsocksX-NG
     - …
 
-1.  Visit google.com to validate the network
+1.  Visit [google.com](https://www.google.com/ncr) to validate the network
 
 ## Homebrew
 
@@ -100,7 +100,7 @@ for installing and managing softwares on macOS
 
     -   Plan B: [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
-    -   Plan C: [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935) 2021-01-24
+    -   Plan C: [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935) ( 2021-01-24 )
 
 1.  Validate
 
@@ -144,8 +144,6 @@ brew install --cask \
     keyboard-maestro \
     neteasemusic \
     numi \
-    imageoptim \
-    postman \
     qqmusic \
     snipaste \
     sogouinput \
@@ -166,12 +164,12 @@ Install the optional softwares via Homebrew-Cask
 brew install --cask \
     appcleaner \
     charles \
-    clion \
     docker \
-    goland \
     iina \
+    imageoptim \
     kindle \
     microsoft-office \
+    postman \
     sequel-pro \
     wireshark
 ```
@@ -202,7 +200,7 @@ Others available on the official homepages
 
 **Optional**
 
-- skipped
+- _skipped_
 
 ## CLI Programs
 
@@ -210,10 +208,10 @@ CLI: Command Line Interface
 
 > Recommend to install CLI programs via Homebrew
 
-Although some softwares has been pre-installed in macOS,
-their versions are often outdated
+_Although some softwares has been pre-installed in macOS,_
+_their versions are often outdated._
 
-So recommend to install and upgrade them via Homebrew again
+_So recommend to install and upgrade them via Homebrew again._
 
 ### Required
 
@@ -228,7 +226,6 @@ brew install \
     jq \
     maven \
     nginx \
-    nvim \
     reattach-to-user-namespace \
     safe-rm \
     tmux \
@@ -237,20 +234,18 @@ brew install \
 ```
 
 -   [coreutils](http://www.gnu.org/s/coreutils/):
-    The basic file, shell and text manipulation utilities
-    of the GNU operating system
+    _The basic file, shell and text manipulation utilities_
+    _of the GNU operating system._
 
-    Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
+    _Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html)._
 
-    E.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
+    E.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory.
 
 -   [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):
     For `tmux` to write and read system clipboard.
 
-    Reattach to the per-user bootstrap namespace
-    in its "Background" session then exec the program with args.
-
--   [vim](https://www.vim.org/): a text editor in cli. An alternate is `nvim` - [neovim](https://neovim.io/).
+    _Reattach to the per-user bootstrap namespace_
+    _in its "Background" session then exec the program with args._
 
 ### Optional
 
@@ -267,6 +262,137 @@ brew install \
     ruby
 ```
 
+## CLI Settings
+
+### SSH Key
+
+Add the public SSH key on Mac to the accounts of the git services.
+_E.g.: GitHub, GitLab, Coding…_
+
+_Advantage: No longer need to enter the username and password on the trusted devices_
+
+Steps
+
+1.  Generate the SSH key pair
+
+    Reference: [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
+
+    _Tip: The user input will be requested as follow_
+
+    - _`Enter file in which to save the key (/Users/[USERNAME]/.ssh/id_rsa):`_
+    - _`Enter passphrase (empty for no passphrase):`_
+    - _`Enter same passphrase again:`_
+
+    _You can just press the Enter `↩` key to skip them above_
+
+1.  Add the SSH key to the accounts of the git services
+
+    _E.g. GitLab_
+
+    1.  Copy the **public key** to the clipboard
+
+        ```bash
+        pbcopy < ~/.ssh/id_rsa.pub
+        ```
+
+    1.  Visit the `Settings → SSH Keys` webpage
+        _( Find it yourself. )_
+
+    1.  Paste the **public key** into the `Key` input box
+        _( The `Title` input box will be auto-filled. )_
+
+    1.  Click `Add key`
+
+    1.  Validate
+
+    Reference:
+    [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
+### dotfiles
+
+_E.g. I run the commands below:_
+
+```bash
+cd ~
+git init
+
+# Recommend to pull via HTTPS at the first time
+git remote add origin https://github.com/IceHe/mac-conf.git
+git pull origin master
+
+# Pull via SSH after the first time
+# ( Require local Git SSH key, so configure it later )
+git remote set-url origin git@github.com:IceHe/mac-conf.git
+git pull
+```
+
+
+### Oh-My-Zsh
+
+1. Install
+
+    ```bash
+    # via curl
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    # via wget
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    ```
+
+    Reference:
+    [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
+
+1.  Synchronize the settings via the configuration file
+    `~/.zshrc` in dotfiles above
+
+### Neovim
+
+Run the command below to link `~/.vimrc` to `~/.config/nvim/init.vim`:
+
+```bash
+ln -s /Users/[USERNAME]/.vimrc /Users/[USERNAME]/.config/nvim/init.vim
+# e.g.
+ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
+
+# Trouble-shooting in Vim or Nvim
+:checkhealth
+:help clipboard
+```
+
+_Or `nvim` maybe cannot write or read the system clipboard._
+
+Reference:
+[Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)
+
+### Git
+
+Synchronize the settings via the configuration files from dotfiles. _E.g.:_
+
+- `~/.gitconfig`
+- `~/.gitignore`
+- `~/.gitignore_global`
+- …
+
+Configure via the commands. E.g. Name and Email:
+
+1. Set
+
+    ```bash
+    git config --global user.name [USERNAME]
+    git config --global user.email [EMAIL]
+
+    # e.g.
+    git config --global user.name IceHe
+    git config --global user.email icehe.me@qq.com
+    ```
+
+1. Validate
+
+    ```bash
+    $ git config --global -l | grep user
+    user.name=IceHe
+    user.email=icehe@gmail.com
+    ```
+
 ## Java Development
 
 ### JDK
@@ -277,7 +403,7 @@ JDK - Java Development Kit
     [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     for macOs on the offical website
 
-    The recommended version is still **8**. 2021-01-01
+    _The recommended version is still **8**. ( 2021-01-01 )_
 
 1.  Install
 
@@ -418,8 +544,6 @@ Include the development configurations on local and remote machines
 
 #### Dock
 
-- Enable `Automatically hide and show the Dock`
-- Disable `Animate opening applications`
 - Disable all apps `Options` → `Keep in Dock`
 
 #### Keyboard
@@ -432,25 +556,16 @@ Include the development configurations on local and remote machines
 `Text` Tab
 
 - Clear all `Replace With`
-- Clear the checkboxes:
-    - `Correct spelling automatically`
-    - `Capitalize words automatically`
-    - `Add period with double-space`
-    - `Use smart quotes and dashes`
-    - …
+- Clear the checkboxes
 
 `Shortcuts` Tab
 
 - Add the apps' shortcuts
     - `All Applications` → `Show Help menu` ⌥⇧/
-    - `Google Chrome` → `Extensions` ⇧⌘A
-    - `iTerm` → `Toggle Full Screen` ^⌘F
 
 `Input Sources` Tab
 
 - Remove the useless input sources
-
-<!--
 
 #### Key Repeat
 
@@ -464,12 +579,10 @@ How to enable:
 
 1. Reboot and validate
 
-References: Search "macos mojave keyboard cannot repeat" on Google
+_References: Search "macos keyboard cannot repeat" on Google_
 
-- [Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)
-- [OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
-
--->
+- _[Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)_
+- _[OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)_
 
 #### Others
 
@@ -495,7 +608,7 @@ Users & Groups
 
 1.  Login the Google account
 1.  Turn on `Sync` _( require the independent synchronization password )_
-1.  Install the extensions:
+1.  _Install the extensions manually if `Sync` does not work in time_
     -   [1Password](https://agilebits.com/browsers/welcome.html): Password Manager
     -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter
         If open too many tabs, stash them in OneTab to save memory space and visible screen area
@@ -505,24 +618,8 @@ Users & Groups
     -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application
     -   _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
-
-#### dotfiles
-
-_E.g. I run the commands below:_
-
-```bash
-cd ~
-git init
-
-# Recommend to pull via HTTPS at the first time
-git remote add origin https://github.com/IceHe/mac-conf.git
-git pull origin master
-
-# Pull via SSH after the first time
-# ( Require local Git SSH key, so configure it later )
-git remote set-url origin git@github.com:IceHe/mac-conf.git
-git pull
-```
+1.  Sync settings of `Proxy SwitchyOmega`
+    via the configuration file from another device
 
 #### Sogou Input
 
@@ -640,139 +737,3 @@ Synchronize the settings
 
 - `General` → Set all checkboxes
 - `Quality` → Set all **50%** ( JPEG, PNG, GIF and so on )
-
-### CLI
-
-#### Oh-My-Zsh
-
-1. Install
-
-    ```bash
-    # via curl
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-    # via wget
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-    ```
-
-    Reference:
-    [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
-
-1.  Synchronize the settings via the configuration file
-    `~/.zshrc` in dotfiles above
-
-#### Neovim
-
-Run the command below to link `~/.vimrc` to `~/.config/nvim/init.vim`:
-
-```bash
-ln -s /Users/[USERNAME]/.vimrc /Users/[USERNAME]/.config/nvim/init.vim
-# e.g.
-ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
-
-# Trouble-shooting in Vim or Nvim
-:checkhealth
-:help clipboard
-```
-
-_Or `nvim` maybe cannot write or read the system clipboard._
-
-Reference:
-[Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)
-
-#### Git
-
-Synchronize the settings via the configuration files from dotfiles. _E.g.:_
-
-- `~/.gitconfig`
-- `~/.gitignore`
-- `~/.gitignore_global`
-- …
-
-Configure via the commands. E.g. Name and Email:
-
-1. Set
-
-    ```bash
-    git config --global user.name [USERNAME]
-    git config --global user.email [EMAIL]
-
-    # e.g.
-    git config --global user.name IceHe
-    git config --global user.email icehe.me@qq.com
-    ```
-
-1. Validate
-
-    ```bash
-    $ git config --global -l | grep user
-    user.name=IceHe
-    user.email=icehe@gmail.com
-    ```
-
-#### SSH Key
-
-Add the SSH public SSH key on Mac to the accounts of the git services.
-_E.g.: GitHub, GitLab_
-
--   Advantage:
-    No longer need to enter the username and password on the trusted devices
--    Reference:
-    [GitLab and SSH keys](https://docs.gitlab.com/ee/ssh/README.html)
-
-Steps
-
-1.  Generate the SSH key pair
-
-    1. Generate
-
-        ```bash
-        ssh-keygen -t rsa -C "[EMAIL]" -b 4096
-
-        # e.g.
-        ssh-keygen -t rsa -C "icehe.me@qq.com" -b 4096
-        ```
-
-    1.  `ssh-keygen` will request the user input as follow
-
-        1. `Enter file in which to save the key (/Users/[USERNAME]/.ssh/id_rsa):`
-        1. `Enter passphrase (empty for no passphrase):`
-        1. `Enter same passphrase again:`
-
-    1.  You can just press the Enter `↩` key to skip them above
-
-        If a local SSH key pair exists, the command prompt will notify as below
-
-        ```bash
-        # output
-        /Users/[USERNAME]/.ssh/id_rsa already exists.
-        Overwrite (y/n)?
-        ```
-
-        You can input `y` to re-generate
-
-    Reference:
-    [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
-
-1.  Add the SSH key to the accounts of the git services
-
-    _E.g. GitLab_
-
-    1.  Copy the **public key** to the clipboard
-
-        ```bash
-        pbcopy < ~/.ssh/id_rsa.pub
-        ```
-
-    1.  Visit the `Settings → SSH Keys` webpage
-        _( Find it yourself. )_
-
-    1.  Paste the **public key** into the `Key` input box
-        _( The `Title` input box will be auto-filled. )_
-
-    1.  Click `Add key`
-
-    1.  Validate
-
-    Reference:
-    [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
