@@ -698,7 +698,7 @@ Configure via the commands. E.g. Name and Email:
     git config --global user.email [EMAIL]
 
     # e.g.
-    git config --global user.name icehe
+    git config --global user.name IceHe
     git config --global user.email icehe.me@qq.com
     ```
 
@@ -706,7 +706,7 @@ Configure via the commands. E.g. Name and Email:
 
     ```bash
     $ git config --global -l | grep user
-    user.name=icehe
+    user.name=IceHe
     user.email=icehe@gmail.com
     ```
 
