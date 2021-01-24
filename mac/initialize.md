@@ -6,15 +6,13 @@ How to initialize my Mac?
 
 Reference: [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
-<!--  -->
-
-The related article on icehe.xyz ( my website ): [Efficiency: 效率指南](/mac/efficiency.md)
+Related on icehe.xyz: [Efficiency: 效率指南](/mac/efficiency.md)
 
 ## Guidelines
 
 **Based on macOS**
 
-- Applicable macOS versions: Big Sur / Catalina / …
+- Applicable macOS version: Big Sur
 
 **Follow principles**
 
@@ -22,7 +20,7 @@ The related article on icehe.xyz ( my website ): [Efficiency: 效率指南](/mac
 
     Focus on the process and omit the unnecessary descriptions
 
-    _E.g., apps' introductions & usages_
+    _e.g., apps' introductions & usages_
     _/ software technology / developer knowledge …_
 
 - **OOTB: Out Of The Box** ( 开箱即用 )
@@ -33,15 +31,6 @@ The related article on icehe.xyz ( my website ): [Efficiency: 效率指南](/mac
 
 - Assume that you are an experienced Mac user and a software developer
 
----
-
-尽可能在粗疏简略与巨细无遗之间寻找一个合适的平衡
-
--   过于粗略 ——
-    搞不明白如何操作, 无法快速完成配置
--   过于详细 ——
-    相关软件更新后, 配置路径/名称/方式等发生变化, 导致说明的内容失效
-
 ## Install or Restore macOS
 
 References
@@ -51,39 +40,13 @@ References
     - [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
     - [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
-Steps
-
-1. Search `macOS` in Mac App Store and download its installation
-
-1. Create the bootable installer ( U盘安装, 需要创建引导分区 )
-
-    _e.g. for macOS Big Sur_
-
-    ```bash
-    sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia \
-        --volume /Volumes/Install\ macOS\ Big\ Sur
-    ```
-
-1.  Reboot from the installer
-
-    -   Plan A: Reboot, press `⌘ + r`
-        If it doesn't work, try Plan B or C below
-    -   Plan B: Reboot, press `⌘ + ⌥ + r`, connect Wi-Fi
-        and then wait for processing until rebooting again
-    -   Plan C: Reboot, press `⌥` for a few seconds
-        and then select another disk which Mac reboot from
-
-1.  Install or restore
-
-    - Option A: Just install. ( Recommended )
-    - Option B: Restore from backups of `Time Machine`
-    - Option C: Restore from `Disk Backup` by `Disk Utility`
-
-Suggestion ( on 2020-12-10 )
+Suggestion
 
 -   如果用硬盘全量备份然后将数据还原到新的设备上,
     假以时日, 系统中会留存越来越多用不着的东西;
-    现在觉得完全重新配置新的设备是更好的选择
+
+    随着时间推移, 不得不购置容量越来越大的内置和备份硬盘,
+    所以无论新老设备, 个人推荐 **直接重装然后重新配置**.
 
 ## Network Proxy
 
@@ -92,17 +55,17 @@ Suggestion ( on 2020-12-10 )
 
 1.  Get the proxy service
 
-    - Option A: Buy one ( recommended )
-    - Option B: Build your own
+    - Option A: **Buy** one ( recommended )
+    - _Option B: Build your own_
 
     Because the valid methods often change,
     recommend to search them on the Internet
 
 1.  Get the configurations from the proxy service
 
-    _Optional configuration forms, e.g.:_
+    _Optional configuration forms:_
 
-    - subscription URL ( recommended )
+    - **subscription URL** ( recommended )
     - configuration file
     - server URLs
     - QR codes
@@ -110,20 +73,19 @@ Suggestion ( on 2020-12-10 )
 
 1.  Import the configurations into the proxy plugin
 
-    _Optional proxy plugins, e.g.:_
+    _Optional proxy plugins:_
 
     - Surge
     - Trojan
     - TrojanX
-    - _Trojan-Qt5_
-        _( It works on M1 Mac. 2021-01-24 )_
-    - _Shadowsocks_
-    - _ShadowsocksX_
-    - _ShadowsocksX-NG_
-    - _ShadowsocksR_
-    - _ClashX_
-    - _Lantern_
-    - _…_
+    - Trojan-Qt5
+        ( works on M1 Mac. 2021-01-24 )
+    - Shadowsocks
+    - ShadowsocksX
+    - ShadowsocksX-NG
+    - ShadowsocksR
+    - ClashX
+    - …
 
 1.  Visit google.com to validate the network
 
@@ -134,29 +96,15 @@ for installing and managing softwares on macOS
 
 1.  Install
 
-    ```bash
-    /usr/bin/ruby -e \
-    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ```
+    -   Plan A: [Homebrew homepage - brew.sh](https://brew.sh)
 
-    If cannot install or install slowly, run the command:
+        If cannot install or install slowly, try Plan B.
 
-    ```bash
-    /bin/zsh -c \
-    "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
-    ```
+    -   Plan B: [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
 
-    Reference:
-    [Homebrew 国内如何自动安装 ( 国内地址 )](https://zhuanlan.zhihu.com/p/111014448)
-
-    _On M1 Mac:_
-    _[在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935)_
-
-    <!--     - Mac 下镜像飞速安装 Homebrew 教程: https://zhuanlan.zhihu.com/p/90508170 -->
+        On M1 Mac: [在 M1 芯片 Mac 上使用 Homebrew](https://sspai.com/post/63935). 2021-01-24
 
 1.  Validate
-
-    Show the version to check whether it is installed successfully or not:
 
     ```bash
     $ brew --version
@@ -167,51 +115,13 @@ for installing and managing softwares on macOS
 
 1.  Accelarate
 
-    If upgrade slowly, run the commands:
-
-    ```bash
-    # Homebrew
-    git -C "$(brew --repo)" remote set-url \
-        origin https://mirrors.ustc.edu.cn/brew.git
-
-    # Homebrew Core
-    git -C "$(brew --repo homebrew/core)" remote set-url \
-        origin https://mirrors.ustc.edu.cn/homebrew-core.git
-
-    # Homebrew Cask
-    git -C "$(brew --repo homebrew/cask)" remote set-url \
-        origin https://mirrors.ustc.edu.cn/homebrew-cask.git
-    ```
-
-    ```bash
-    # Homebrew-bottles
-
-    ## For ZSH users:
-    echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
-        >> ~/.zshrc && source ~/.zshrc
-
-    ## For BASH users:
-    echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' \
-        >> ~/.bash_profile && source ~/.bash_profile
-    ```
-
-    Reference:
-    [Homebrew (中国大陆) 有比较快的源 (mirror) 吗?](https://www.zhihu.com/question/31360766/answer/749386652)
+    Reference: [Homebrew (中国大陆) 有比较快的源 (mirror) 吗?](https://www.zhihu.com/question/31360766/answer/749386652)
 
 1.  Update and upgrade
-
-    Run the command:
 
     ```bash
     brew update && brew upgrade
     ```
-
-    Usages:
-
-    -   `brew update`:
-        Fetch the newest version of Homebrew from GitHub using git
-    -   `brew upgrade`:
-        Upgrade outdated, unpinned brews ( the commands installed by Homebrew )
 
 ## Homebrew-Cask
 
@@ -220,8 +130,7 @@ and allows you to install large binary files via a command-line tool
 
 > Recommend to install Mac Apps via Homebrew-Cask
 
-Available softwares on Homebrew-Cask:
-[Homebrew Formulae](https://formulae.brew.sh/cask)
+Available softwares on Homebrew-Cask: [Homebrew Formulae](https://formulae.brew.sh/cask)
 
 ### Required
 
@@ -229,26 +138,21 @@ Install the required softwares via Homebrew-Cask
 
 ```bash
 brew install --cask \
-    appcleaner \
     google-chrome \
     hyperswitch \
     intellij-idea \
     iterm2 \
-    itsycal \
     karabiner-elements \
     keyboard-maestro \
     neteasemusic \
     numi \
     imageoptim \
     postman \
-    qq \
     qqmusic \
-    sequel-pro \
     snipaste \
     sogouinput \
     sublime-text \
     ticktick \
-    utools \
     visual-studio-code \
     wechat
 ```
@@ -261,6 +165,7 @@ Install the optional softwares via Homebrew-Cask
 
 ```bash
 brew install --cask \
+    appcleaner \
     charles \
     clion \
     docker \
@@ -268,28 +173,15 @@ brew install --cask \
     iina \
     kindle \
     microsoft-office \
-    mounty \
-    thunder \
-    virtualbox \
+    sequel-pro \
     wireshark
 ```
-
-<!--
-
-    desmume \
-    keycastr \
-    licecap \
-    notion \
-    phpstorm \
-    renamer \
-
- -->
 
 ## Mac App Store
 
 Some softwares are unavailable on Homebrew-Cask but available on Mac App Store
 
-### Required
+**Required**
 
 Install the required softwares via Mac App Store
 
@@ -299,40 +191,18 @@ Install the required softwares via Mac App Store
 - EasyRes
 - EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
 
-<!-- - Trello -->
-
 Others available on GitHub
 
 -   [Amphetamine Enhancer](https://github.com/x74353/Amphetamine-Enhancer)
--   [TrojanX](https://github.com/JimLee1996/TrojanX/releases)
-    _( [official homepage](https://github.com/JimLee1996/TrojanX) )_
--   [Trojan](https://trojan-gfw.github.io/trojan)
-    _( [GitHub](https://github.com/trojan-gfw/trojan)_
-    _/ [GitHub Wiki](https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions) )_
 
 Others available on the official homepages
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
 - [Logi Options](https://www.logitech.com.cn/zh-cn/product/options)
 
-<!--
+**Optional**
 
-```bash
-brew tap trojan-gfw/homebrew-trojan
-brew install trojan
-```
-
--->
-
-### Optional
-
-Install the optional softwares via Mac App Store
-
-- Apple Configurator 2
-
-Others available on official homepages
-
-- [百度网盘](https://pan.baidu.com/pcloud/home)
+- skipped
 
 ## CLI Programs
 
@@ -739,7 +609,7 @@ git pull origin master
 
 # Pull via SSH after the first time
 # ( Require local Git SSH key, so configure it later )
-git remote set-url origin git@github.com:IceHe/lib.git
+git remote set-url origin git@github.com:IceHe/mac-conf.git
 git pull
 ```
 
