@@ -576,8 +576,6 @@ Synchronize the settings
 - Enable `Launch at Login`
 - `Window Appearance`
     - Select `Midday`
-    - Select `Show Text Colors`
-    - Set `Maximum Font Size` **20**
     - Set `Minimum Font Size` **15**
     - Select `Auto-Scroll to Last Selected After List Change`
 - `Window Position` → `Open at Active Screen`
@@ -586,13 +584,14 @@ Synchronize the settings
     - Eanble `Search Immediately After Each Keystroke`
 - `Keyboard Shortcuts…`
     - `Global Shortcuts`
-        - Set `Copy and start new item` **⇧⌘S**
         - Set `Open window` **⌥V**
         - Set `Paste current clipboard item as plain test` **⇧⌘V**
     - `Local Shortcuts`
         - Set `Switch to 'All' list` **⇧⌘A**
 - Enbale `Get Titles of Web URLs`
 - Enable `Reject Duplicates`
+- `Auto-Delete Unstarred Items` → `Auto-Delete Oldest…`
+    - Store only the most recent `1000` unstarred items…
 
 #### Snipaste
 
