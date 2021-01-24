@@ -489,7 +489,7 @@ Users & Groups
 
 #### 1Password
 
-Login the 1Password account or unlock the vaults from the cloud. _E.g. iCloud_
+1. Login the 1Password account or unlock the vaults from the cloud. _E.g. iCloud_
 
 #### Chrome
 
@@ -531,7 +531,7 @@ git pull
 
 #### Karabiner-Elements
 
-- Synchronize the settings via the configuration file
+1. Synchronize the settings via the configuration file
     `~/.config/karabiner/karabiner.json` in dotfiles above
 
 #### Keyboard Maestro
@@ -579,6 +579,7 @@ Synchronize the settings
     - Select `Show Text Colors`
     - Set `Maximum Font Size` **20**
     - Set `Minimum Font Size` **15**
+    - Select `Auto-Scroll to Last Selected After List Change`
 - `Window Position` → `Open at Active Screen`
 - `Search Field`
     - Enable `Toggle Search Filters with ⌘F`
@@ -589,7 +590,7 @@ Synchronize the settings
         - Set `Open window` **⌥V**
         - Set `Paste current clipboard item as plain test` **⇧⌘V**
     - `Local Shortcuts`
-        - Set `Switch to 'All' list` **⌘A**
+        - Set `Switch to 'All' list` **⇧⌘A**
 - Enbale `Get Titles of Web URLs`
 - Enable `Reject Duplicates`
 
@@ -632,7 +633,7 @@ Synchronize the settings
 
 #### EuDic 欧路词典
 
-Login via the QQ account
+- Login via the QQ account
 
 #### ImageOptim
 
