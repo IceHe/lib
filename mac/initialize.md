@@ -241,17 +241,16 @@ brew install \
     of the GNU operating system
 
     Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
+
     E.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
 
 -   [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):
-    Reattach to the per-user bootstrap namespace
-    in its "Background" session then exec the program with args.
     For `tmux` to write and read system clipboard.
 
--   [vim](https://www.vim.org/):
-    a text editor in cli.
-    an alternate is `nvim`: [neovim](https://neovim.io/).
-    "the god of editors is vim. the editor of gods is emacs."
+    Reattach to the per-user bootstrap namespace
+    in its "Background" session then exec the program with args.
+
+-   [vim](https://www.vim.org/): a text editor in cli. An alternate is `nvim` - [neovim](https://neovim.io/).
 
 ### Optional
 
