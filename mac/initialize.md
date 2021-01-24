@@ -300,7 +300,7 @@ cd ~
 git init
 git remote add origin git@github.com:IceHe/mac-conf.git
 git pull origin master
-git push --set-upstream origin master
+git branch --set-upstream-to=origin/master master
 ```
 
 ### Oh My Zsh
