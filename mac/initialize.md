@@ -57,8 +57,9 @@ Steps
 
 1. Create the bootable installer ( U盘安装, 需要创建引导分区 )
 
+    _e.g. for macOS Big Sur_
+
     ```bash
-    # e.g. macOS Big Sur
     sudo /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia \
         --volume /Volumes/Install\ macOS\ Big\ Sur
     ```
@@ -126,26 +127,6 @@ Suggestion ( on 2020-12-10 )
 
 1.  Visit google.com to validate the network
 
-## Xcode
-
-_Notice:_
-_It's unnecessary on M1 Mac. 2020-12-12_
-
-If encounter the error below while running your command,
-
-```bash
-# output
-xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
-```
-
-run the command:
-
-```bash
-xcode-select install
-```
-
-and then re-run yours again
-
 ## Homebrew
 
 Homebrew is a [macOS package manager](https://brew.sh)
@@ -200,8 +181,6 @@ for installing and managing softwares on macOS
     # Homebrew Cask
     git -C "$(brew --repo homebrew/cask)" remote set-url \
         origin https://mirrors.ustc.edu.cn/homebrew-cask.git
-
-    #  The 3 commands above don't work on M1 Mac. 2021-01-24
     ```
 
     ```bash
