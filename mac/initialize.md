@@ -138,7 +138,6 @@ Install the required softwares via Homebrew-Cask
 ```bash
 brew install --cask \
     google-chrome \
-    hyperswitch \
     intellij-idea \
     iterm2 \
     karabiner-elements \
@@ -156,7 +155,8 @@ brew install --cask \
     wechat
 ```
 
-_Notice: Have to search `sogou` in Spotlight to execute its installation then._
+_Notice: `sogouinput` above is just a installation_
+_and you have to execute it individually._
 
 ### Optional
 
@@ -178,7 +178,8 @@ brew install --cask \
 
 ## Mac App Store
 
-Some softwares are unavailable on Homebrew-Cask but available on Mac App Store
+Some softwares are unavailable on Homebrew-Cask
+but available on Mac App Store
 
 **Required**
 
@@ -236,18 +237,16 @@ brew install \
 ```
 
 -   [coreutils](http://www.gnu.org/s/coreutils/):
-    The basic file, shell and text manipulation utilities of the GNU operating system
+    The basic file, shell and text manipulation utilities
+    of the GNU operating system
 
-    Include many useful commands, see TOC of
-    [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
-    E.g., use
-    [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
-    to get absolute path to a file or directory
+    Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
+    E.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory
 
--   _[reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):_
-    _Reattach to the per-user bootstrap namespace_
-    _in its "Background" session then exec the program with args._
-    _For `tmux` to write and read system clipboard._
+-   [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):
+    Reattach to the per-user bootstrap namespace
+    in its "Background" session then exec the program with args.
+    For `tmux` to write and read system clipboard.
 
 -   [vim](https://www.vim.org/):
     a text editor in cli.
@@ -510,7 +509,7 @@ Login the 1Password account or unlock the vaults from the cloud. _E.g. iCloud_
 
 #### dotfiles
 
-E.g. for me below
+_E.g. I run the commands below:_
 
 ```bash
 cd ~
@@ -548,37 +547,7 @@ git pull
 
 #### Visual Studio Code
 
-1.  Synchronize the settings via the built-in feature
-    [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
-
-    1.  Select the entry `Turn On Settings Sync…`
-
-        _in the `Manage` gear menu at the bottom of the `Activity Bar`_
-
-    1.  Sign in with GitHub
-
-        _The browser will open so that you can sign in to your GitHub account_
-
-        _After signing in, `Settings Sync` will be turned on_
-        _and continue to synchronize the preferences automatically_
-        _in the background_
-
-    1.  Select all settings to synchronize
-
-    1.  Replace local settings
-
-        _If already synchronized from a machine_
-        _and turning on sync from another machine,_
-        _the dialog `Merge or Replace` will show 3 choices:_
-
-        -   _`Merge`:_
-            _Merge local settings with remote settings from the cloud_
-        -   _`Replace Local`:_
-            _Overwrite local settings with remote settings from the cloud_
-        -   _`Merge Manually…`:_
-            _Open `Merges` view where you can merge settings one by one._
-
-        Select `Replace Local`
+1.  Synchronize the settings via the built-in feature [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
 
 1.  Install the extensions
 
@@ -590,31 +559,7 @@ git pull
 
 #### Sublime Text
 
-Synchronize the settings via the plugin
-[Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)
-
-1.  Run `Package Control: Install Package` command, and looks for
-    [Sync Settings](https://packagecontrol.io/packages/Sync%20Settings)
-1.  Run `Sync Settings: Edit User Settings`
-1.  **if** Do you already have a gist?
-    1.  Copy `gist id` and put it in the configuration file
-        ( `https://gist.github.com/<username>/<gist id>` )
-        ( `gist_id` property )
-    1.  Run `Sync Settings: Download` command to retrieve your backup
-1. **else**
-    1.  Create an access token in
-        [GitHub](https://github.com/settings/tokens/new) with gist scope checked
-    1.  Put the token in the the configuration file ( `access_token` property )
-    1.  Run `Sync Settings: Create and Upload` command
-
-    Configuration file format:
-
-    ```json
-    {
-        "access_token": "xxxxxxxxxxxxxxxxxxxxxxxxx",
-        "gist_id": "xxxxxxxxxxxxxxxxxxxxxxxxx"
-    }
-    ```
+1. Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)
 
 #### iTerm 2
 
