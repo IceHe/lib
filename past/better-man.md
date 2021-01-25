@@ -1,5 +1,19 @@
 # To be a better man.
 
+纲领
+
+1.  **做好一件小事, 然后再做好下一件小事, 然后不断循环**
+
+1.  什么时间就该干什么事
+
+    <!-- _Alarm / Due / Schedule / BlockyTime / Forest / TickTick.Habit_ -->
+
+1.  设定时限: Done is better than perfect.
+
+    <!-- _Timer_ -->
+
+1.  抓住重点, 做正确的事
+
 时间表 & 要求
 
 - [ ] **22:30-23:00 躺床, 娱乐** **⓵ 早睡**
@@ -22,17 +36,3 @@
 - [ ] 21:30-22:00 干发 & 音视频 **⓻ 早睡**
 - **22:00-22:30 临睡学习**
 - [ ] 尽量 不吃零食和夜宵 **⓼ 饮食**
-
-纲领
-
-1.  什么时间就该干什么事
-
-    _Alarm / Due / Schedule / BlockyTime / Forest / TickTick.Habit_
-
-1.  设定时限: Done is better than perfect.
-
-    _Timer_
-
-1.  抓住重点, 做正确的事
-
-1.  做好一件小事, 然后再做好下一件小事, 然后不断循环
