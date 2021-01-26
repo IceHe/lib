@@ -21,6 +21,25 @@ References
     - 容量评估
         - **Redis 容量预估** - 极数云舟 : http://www.redis.cn/redis_memory/
         - Redis 容量评估模型 - 腾讯游戏学院 : https://gameinstitute.qq.com/community/detail/114987
+    - 源码解析
+        - [Redis 源码分析 - huangz/note](http://note.huangz.me/storage/redis_code_analysis/index.html) 许多 Redis 书籍均由该作者翻译
+        - 注释版源码
+            - 2.6 : https://github.com/huangz1990/annotated_redis_source
+            - 3.0 : https://github.com/huangz1990/redis-3.0-annotated
+        - 1.0 源码阅读
+            - http://pein0119.github.io/2014/08/18/-Redis-10%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89---%E5%BC%80%E7%AF%87/
+    - [Redis strings vs Redis hashes to represent JSON: efficiency? - Stack Overflow](https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency)
+
+Benchmarks
+
+- Redis : 单线程模型 ( 现支持多线程 )
+    - 单机压测 : QPS 60k
+    - 参考: 微博单台 Redis 示例能扛 5w QPS
+- Memcached : 多线程模型
+    - 单机压测 : QPS 300k
+    - 使用 libevent 库，理论上性能比 Redis 好
+    - LRU 算法比较成熟
+- Nginx : 多进程模型（每个进程单线程？）
 
 ## Basics : Data Structure
 
