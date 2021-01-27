@@ -75,7 +75,7 @@ Redis: **RE**mote **DI**ctionary **S**erver
 
 - 实现:
     - _`setnx` ( set if not exists ) 加锁并设置超时时间, 用完了再调用 `del` 释放锁._
-    - _为 `setnx` 的 value 参数设置为一个随机数, 释放锁时先匹配随机数是否一致, 然后再删除 key._
+    - _`setnx` 的 value 参数设置为一个随机数, 释放锁时先匹配随机数是否一致._
         - 加锁
             ```python
             tag = random.nextint()  # 随机数
@@ -199,488 +199,124 @@ Redis: **RE**mote **DI**ctionary **S**erver
 
 ### funnel limiter _漏斗限流器_
 
-**解决方案**
-
-漏斗限流是最常用的限流方法之一, _顾名思义, 这个算法的灵感源于漏斗 ( funnel ) 的结构._
-
-![funnel.webp](_images/funnel.webp)
-
-- _漏斗的容量是有限的, 如果将漏嘴堵住, 然后一直往里面灌水, 它就会变满, 直至再也装不进去._
-- _如果将漏嘴放开, 水就会往下流, 流走一部分之后, 就又可以继续往里面灌水._
-- _如果漏嘴流水的速率大于灌水的速率, 那么漏斗永远都装不满._
-- _如果漏嘴流水速率小于灌水的速率, 那么一旦漏斗满了, 灌水就需要暂停并等待漏斗腾空._
-
-所以
-
-- **漏斗的剩余空间** 就代表着 **当前行为可以持续进行的数量**,
-- **漏嘴的流水速率** 代表着 **系统允许该行为的最大频率**.
-
-### Implementation
-
-使用代码来描述单机漏斗算法 :
-
-_( icehe : 这个应用很有趣! 上次看过之后已经, 忘掉了… 有空得实现一下. )_
-
-```python
-# coding: utf8
-
-import time
-
-class Funnel(object):
-
-    def __init__(self, capacity, leaking_rate):
-        # 漏斗容量
-        self.capacity = capacity
-        # 漏嘴流水速率
-        self.leaking_rate = leaking_rate
-        # 漏斗剩余空间
-        self.left_quota = capacity
-        # 上一次漏水时间
-        self.leaking_ts = time.time()
-
-    def make_space(self):
-        now_ts = time.time()
-        # 距离上一次漏水过去了多久
-        delta_ts = now_ts - self.leaking_ts
-        # 又可以腾出不少空间了
-        delta_quota = delta_ts * self.leaking_rate
-        # 腾的空间太少, 那就等下次再继续j
-        if delta_quota < 1:
-            return
-        # 增加剩余空间
-        self.left_quota += delta_quota
-        # 记录漏水时间
-        self.leaking_ts = now_ts
-        # 剩余空间不得高于容量
-        if self.left_quota > self.capacity:
-            self.left_quota = self.capacity
-
-    def watering(self, quota):
-        self.make_space()
-        # 判断剩余空间是否足够
-        if self.left_quota >= quota:
-            self.left_quota -= quota
-            return True
-        return False
-
-# 所有的漏斗
-funnels = {}
-
-# capacity  漏斗容量
-# leaking_rate 漏嘴流水速率 quota/s
-def is_action_allowed(
-    user_id, action_key, capacity, leaking_rate):
-    key = '%s:%s' % (user_id, action_key)
-    funnel = funnels.get(key)
-    if not funnel:
-        funnel = Funnel(capacity, leaking_rate)
-        funnels[key] = funnel
-    return funnel.watering(1)
-
-for i in range(20):
-    print is_action_allowed('laoqian', 'reply', 15, 0.5)
-```
-
-```java
-public class FunnelRateLimiter {
-
-  static class Funnel {
-    int capacity;
-    float leakingRate;
-    int leftQuota;
-    long leakingTs;
-
-    public Funnel(int capacity, float leakingRate) {
-      this.capacity = capacity;
-      this.leakingRate = leakingRate;
-      this.leftQuota = capacity;
-      this.leakingTs = System.currentTimeMillis();
-    }
-
-    void makeSpace() {
-      long nowTs = System.currentTimeMillis();
-      long deltaTs = nowTs - leakingTs;
-      int deltaQuota = (int) (deltaTs * leakingRate);
-      if (deltaQuota < 0) { // 间隔时间太长, 整数数字过大溢出
-        this.leftQuota = capacity;
-        this.leakingTs = nowTs;
-        return;
-      }
-      if (deltaQuota < 1) { // 腾出空间太小, 最小单位是1
-        return;
-      }
-      this.leftQuota += deltaQuota;
-      this.leakingTs = nowTs;
-      if (this.leftQuota > this.capacity) {
-        this.leftQuota = this.capacity;
-      }
-    }
-
-    boolean watering(int quota) {
-      makeSpace();
-      if (this.leftQuota >= quota) {
-        this.leftQuota -= quota;
-        return true;
-      }
-      return false;
-    }
-  }
-
-  private Map<String, Funnel> funnels = new HashMap<>();
-
-  public boolean isActionAllowed(String userId, String actionKey, int capacity, float leakingRate) {
-    String key = String.format("%s:%s", userId, actionKey);
-    Funnel funnel = funnels.get(key);
-    if (funnel == null) {
-      funnel = new Funnel(capacity, leakingRate);
-      funnels.put(key, funnel);
-    }
-    return funnel.watering(1); // 需要1个quota
-  }
-}
-```
-
-Funnel 对象的 make_space 方法是漏斗算法的核心,
-
-- 其在每次灌水前都会被调用以触发漏水, 给漏斗腾出空间来.
-- 能腾出多少空间取决于过去了多久以及流水的速率.
-- **Funnel 对象占据的空间大小不再和行为的频率成正比, 它的空间占用是一个常量!**
-    - _( icehe : O(n) 线性的空间复杂度, 跟限流对象的数量成正比 )_
-
-分布式的漏斗算法该如何实现? 能不能使用 Redis 的基础数据结构来搞定?
-
-- 观察 Funnel 对象的几个字段,
-    - 发现可以将 Funnel 对象的内容按字段存储到一个 hash 结构中,
-    - 灌水的时候将 hash 结构的字段取出来进行逻辑运算后,
-    - 再将新值回填到 hash 结构中就完成了一次行为频度的检测.
-- 但是有个问题, 无法保证整个过程的原子性.
-    - 从 hash 结构中取值, 然后在内存里运算, 再回填到 hash 结构,
-    - 这三个过程无法原子化, 意味着需要进行适当的加锁控制.
-    - 而一旦加锁, 就意味着会有加锁失败, 加锁失败就需要选择重试或者放弃.
-- 如果重试的话, 就会导致性能下降. 如果放弃的话, 就会影响用户体验.
-    - 同时, 代码的复杂度也跟着升高很多.
-
-这是个艰难的选择, 该如何解决这个问题呢? 可以使用 Redis-Cell 解决!
-
-### Redis-Cell
-
-Redis 4.0 提供了一个 **限流模块 redis-cell**.
-
-- 该模块 **使用 "漏斗算法", 并提供了原子的限流指令**!
-
-该模块 **只有 1 条指令 `cl.throttle`**, _参数和返回值都略显复杂_
-
-```bash
-> cl.throttle icehe:reply 15 30 60 1
-                  ▲       ▲  ▲  ▲  ▲
-                  |       |  |  |  └───── need 1 quota (可选参数, 默认值也是1)
-                  |       |  └──┴─────── 30 operations / 60 seconds 这是漏水速率
-                  |       └───────────── 15 capacity 这是漏斗容量
-                  └─────────────────── key laoqian
-```
-
-以上指令的意思是
-
-- 允许「用户 icehe 的回复行为」的频率为每 60s 最多 30 次 ( 漏水速率 ) ,
-- 漏斗的初始容量为 15, _也就是说一开始可以连续回复 15 个帖子, 然后才开始受漏水速率的影响._
-
-_指令中漏水速率变成了 2 个参数, 替代了之前的单个浮点数._
-
-- 用两个参数相除的结果来表达漏水速率相对单个浮点数要更加直观一些.
-
-```bash
-> cl.throttle laoqian:reply 15 30 60
-1) (integer) 0   # 0 表示允许, 1 表示拒绝
-2) (integer) 15  # 漏斗容量 capacity
-3) (integer) 14  # 漏斗剩余空间 left_quota
-4) (integer) -1  # 如果拒绝了, 需要多长时间后再试 ( 漏斗有空间了, 单位秒 )
-5) (integer) 2   # 多长时间后, 漏斗完全空出来 ( left_quota==capacity, 单位秒 )
-```
-
-## Usage 8 : GeoHash
-
-Reference
-
-- 应用 8 : 近水楼台 —— GeoHash : https://juejin.cn/book/6844733724618129422/section/6844733724710404103
-
-Redis 在 **3.2 版本以后增加了地理位置 GEO 模块**, 意味着可以使用 Redis 来实现摩拜单车「附近的 Mobike」、美团和饿了么「附近的餐馆」这样的功能了.
-
-### 用 DB 来算附近的人
-
-地图元素的位置数据使用二维的经纬度表示,
-
-- 经度范围 (-180, 180], 纬度范围 (-90, 90],
-- 纬度正负以赤道为界, 北正南负,
-- 经度正负以本初子午线 (英国格林尼治天文台) 为界, 东正西负.
-
-_比如掘金办公室在望京 SOHO, 它的经纬度坐标是 (116.48105, 39.996794), 都是正数, 因为中国位于东北半球._
-
-当两个元素的距离不是很远时, 可以直接使用勾股定理就能算得元素之间的距离.
-
-- 我们平时使用的「附近的人」的功能, 元素距离都不是很大, 勾股定理算距离足矣.
-- 不过需要注意的是, 经纬度坐标的密度不一样 ( 地球是一个椭圆 ) ,
-    - 勾股定律计算平方差时之后再求和时, 需要按一定的系数比加权求和,
-    - 如果不求精确的话, 也可以不必加权.
-
-问题 : 经度总共 360 度, 维度总共只有 180 度, 为什么距离密度不是 2:1 ?
-
-- 现在, 如果要计算「附近的人」, 也就是给定一个元素的坐标, 然后计算这个坐标附近的其它元素, 按照距离进行排序, 该如何下手?
-
-![estimate-geographic-distance.webp](_images/estimate-geographic-distance.webp)
-
-_如果现在元素的经纬度坐标使用关系数据库 (元素 id, 经度 x, 纬度 y) 存储, 你该如何计算?_
-
-- _首先, 不可能通过遍历来计算所有的元素和目标元素的距离然后再进行排序,_
-    - _这个计算量太大了, 性能指标肯定无法满足._
-- 一般的方法都是 **通过矩形区域来限定元素的数量, 然后对区域内的元素进行全量距离计算再排序**.
-    - _这样可以明显减少计算量._
-- 如何划分矩形区域呢?
-    - **可以指定一个半径 r, 使用一条 SQL 就可以圈出来.**
-    - **当用户对筛出来的结果不满意, 那就扩大半径继续筛选.**
-
-```sql
-select id from positions where x0 - r < x < x0 + r and y0 - r < y < y0 + r;
-```
-
-- **为了满足高性能的矩形区域算法, 数据表需要在经纬度坐标加上双向复合索引 (x, y)**, 这样可以最大优化查询性能.
-    - _( icehe : "双向复合索引" 是啥? )_
-- 但是数据库查询性能毕竟有限, 如果「附近的人」查询请求非常多, 在高并发场合, 这可能并不是一个很好的方案.
-
-### GeoHash 算法
-
-**业界比较通用的 地理位置距离排序算法是 GeoHash 算法**, _Redis 也使用 GeoHash 算法._
-
-- GeoHash 算法将二维的经纬度数据映射到一维的整数,
-    - 这样所有的元素都将在挂载到一条线上, 距离靠近的二维坐标映射到一维后的点之间距离也会很接近.
-    - _当我们想要计算「附近的人时」, 首先将目标位置映射到这条线上, 然后在这个一维的线上获取附近的点就行了._
-- 那这个映射算法具体是怎样的呢?
-    - **将整个地球看成一个二维平面, 然后划分成了一系列正方形的方格**, 就好比围棋棋盘.
-    - **所有的地图元素坐标都将放置于唯一的方格中**. 方格越小, 坐标越精确.
-    - **然后对这些方格进行整数编码, 越是靠近的方格编码越是接近.**
-    - 那如何编码呢? 一个最简单的方案就是切蛋糕法.
-        - **设想一个正方形的蛋糕摆在你面前, 二刀下去均分分成四块小正方形,**
-            - 这四个小正方形可以 **分别标记为 00,01,10,11 四个二进制整数.**
-        - 然后 **对每一个小正方形继续用二刀法切割一下, 这时每个小小正方形就可以使用 4bit 的二进制整数予以表示.**
-        - 然后继续切下去, 正方形就会越来越小, 二进制整数也会越来越长, 精确度就会越来越高.
-
-![geohash-animation.gif](_images/geohash-animation.gif)
-
-- **上面的例子中使用的是二刀法,**
-    - **真实算法中还会有很多其它刀法**, 最终编码出来的整数数字也都不一样.
-- 编码之后, 每个地图元素的坐标都将变成一个整数,
-    - 通过这个整数可以还原出元素的坐标, 整数越长, 还原出来的坐标值的损失程度就越小.
-    - 对于「附近的人」这个功能而言, 损失的一点精确度可以忽略不计.
-- GeoHash 算法会 **继续对这个整数做一次 base32 编码 ( 0-9,a-z 去掉 a,i,l,o 四个字母 ) 变成一个字符串.**
-    - 在 Redis 里面, **经纬度使用 52 位的整数进行编码, 放进了 zset 里面,**
-        - **zset 的 value 是元素的 key** _( 例如, "三里屯SOHO" )_ ,
-        - **score 是 GeoHash 的 52 位整数值.**
-    - **zset 的 score 虽然是浮点数, 但是对于 52 位的整数值, 它可以无损存储.**
-- Redis 进行 Geo 查询时, **GeoHash 的内部结构实际上只是一个 zset ( skiplist )** .
-    - **通过 zset 的 score 范围查询就可以得到坐标附近的其它元素,**
-        - _( 实际情况要复杂一些, 不过这样理解足够了)_
-    - 通过将 score 还原成坐标值就可以得到元素的原始坐标.
-
-### Redis 的 Geo 指令基本使用
-
-_使用时, 务必记住 : 它只是一个普通的 zset 结构._
-
-增加位置 `geoadd`
-
-- 入参为 集合名称, 以及由 经度、纬度、位置名称 组成的三元组
-- 可以加入多个三元组
-
-```bash
-127.0.0.1:6379> geoadd company 116.48105 39.996794 juejin
-(integer) 1
-127.0.0.1:6379> geoadd company 116.514203 39.905409 ireader
-(integer) 1
-127.0.0.1:6379> geoadd company 116.489033 40.007669 meituan
-(integer) 1
-127.0.0.1:6379> geoadd company 116.562108 39.787602 jd 116.334255 40.027400 xiaomi
-(integer) 2
-```
-
-删除位置 `zrem`
-
-- Redis 没有直接提供 geo 删除指令
-    - 因为 geo 存储结构上使用的是 zset,
-    - 意味着可以使用 zset 相关的指令来操作 geo 数据,
-    - 所以 **删除直接使用 `zrem` 指令** 即可.
-
-位置间的距离
-
-- `geodist` 计算两个元素之间的距离
-    - 入参为 集合名称, 以及 2 个位置名称和距离单位.
-
-```bash
-127.0.0.1:6379> geodist company juejin ireader km
-"10.5501"
-127.0.0.1:6379> geodist company juejin meituan km
-"1.3878"
-127.0.0.1:6379> geodist company juejin jd km
-"24.2739"
-127.0.0.1:6379> geodist company juejin xiaomi km
-"12.9606"
-127.0.0.1:6379> geodist company juejin juejin km
-"0.0000"
-```
-
-获取元素位置 `geopos`
-
-- 可以获取集合中任意元素的经纬度坐标,
-- 可以一次获取多个.
-
-```bash
-127.0.0.1:6379> geopos company juejin
-1) 1) "116.48104995489120483"
-   2) "39.99679348858259686"
-127.0.0.1:6379> geopos company ireader
-1) 1) "116.5142020583152771"
-   2) "39.90540918662494363"
-127.0.0.1:6379> geopos company juejin ireader
-1) 1) "116.48104995489120483"
-   2) "39.99679348858259686"
-2) 1) "116.5142020583152771"
-   2) "39.90540918662494363"
-```
-
-- 观察到获取的经纬度坐标和 geoadd 进去的坐标有轻微的误差,
-    - 原因是 geohash 对二维坐标进行的一维映射是有损的, 通过映射再还原回来的值会出现较小的差别.
-    - 对于「附近的人」这种功能来说, 这点误差根本不是事.
-
-获取元素的 hash 值 `geohash`
-
-- 可以 **获取元素的经纬度编码字符串, 它是 base32 编码.**
-- 可以 **使用这个编码值去 http://geohash.org 中进行直接定位, 它是 geohash 的标准编码值.**
-
-查询附近的位置 `georadiusbymember`
-
-- _最为关键的指令, 它的参数非常复杂._
-
-```bash
-# 范围 20 公里以内最多 3 个元素按距离正排, 它不会排除自身
-127.0.0.1:6379> georadiusbymember company ireader 20 km count 3 asc
-1) "ireader"
-2) "juejin"
-3) "meituan"
-
-# 范围 20 公里以内最多 3 个元素按距离倒排
-127.0.0.1:6379> georadiusbymember company ireader 20 km count 3 desc
-1) "jd"
-2) "meituan"
-3) "juejin"
-
-# 三个可选参数 withcoord withdist withhash 用来携带附加参数
-# withdist 很有用, 它可以用来显示距离
-127.0.0.1:6379> georadiusbymember company ireader 20 km withcoord withdist withhash count 3 asc
-1) 1) "ireader"
-   2) "0.0000"
-   3) (integer) 4069886008361398
-   4) 1) "116.5142020583152771"
-      2) "39.90540918662494363"
-2) 1) "juejin"
-   2) "10.5501"
-   3) (integer) 4069887154388167
-   4) 1) "116.48104995489120483"
-      2) "39.99679348858259686"
-3) 1) "meituan"
-   2) "11.5748"
-   3) (integer) 4069887179083478
-   4) 1) "116.48903220891952515"
-      2) "40.00766997707732031"
-```
-
-根据坐标值来查询附近的位置 `georadius`
-
-- _除了 georadiusbymember 指令根据元素查询附近的元素,_
-    - Redis 还提供了根据坐标值来查询附近的元素, 这个指令更加有用,
-    - _它可以根据用户的定位来计算「附近的车」, 「附近的餐馆」等._
-    - **参数和 georadiusbymember 基本一致, 除了将目标元素改成经纬度坐标值.**
-
-```bash
-127.0.0.1:6379> georadius company 116.514202 39.905409 20 km withdist count 3 asc
-1) 1) "ireader"
-   2) "0.0000"
-2) 1) "juejin"
-   2) "10.5501"
-3) 1) "meituan"
-   2) "11.5748"
-```
-
-### Precautions
-
-- 在一个地图应用中, 车的数据、餐馆的数据、人的数据可能会有百万千万条,
-    - 如果使用 Redis 的 Geo 数据结构, 它们将全部放在一个 zset 集合中.
-- 在 Redis 的 **集群环境中, 集合可能会从一个节点迁移到另一个节点,**
-    - **如果单个 key 的数据过大, 会对集群的迁移工作造成较大的影响,**
-    - **在集群环境中单个 key 对应的数据量不宜超过 1M,**
-        - **否则会导致集群迁移出现卡顿现象, 影响线上服务的正常运行.**
-- 所以, **建议 Geo 的数据使用单独的 Redis 实例部署, 不使用集群环境!**
-    - **如果数据量过亿甚至更大, 就需要对 Geo 数据进行拆分,**
-        - 按国家拆分、按省拆分, 按市拆分, 在人口特大城市甚至可以按区拆分.
-    - _这样就可以显著降低单个 zset 集合的大小._
-
-## Usage 8 : Scan
-
-Reference
-
-- 应用 9 : 大海捞针 —— Scan : https://juejin.cn/book/6844733724618129422/section/6844733724710404110
-
-_在平时线上 Redis 维护工作中, 有时候需要从 Redis 实例成千上万的 key 中找出特定前缀的 key 列表来手动处理数据, 可能是修改它的值, 也可能是删除 key._
-
-_这里就有一个问题, 如何从海量的 key 中找出满足特定前缀的 key 列表来?_
-
-```bash
-127.0.0.1:6379> set codehole1 a
-OK
-127.0.0.1:6379> set codehole2 b
-OK
-127.0.0.1:6379> set codehole3 c
-OK
-127.0.0.1:6379> set code1hole a
-OK
-127.0.0.1:6379> set code2hole b
-OK
-127.0.0.1:6379> set code3hole b
-OK
-127.0.0.1:6379> keys *
-1) "codehole1"
-2) "code3hole"
-3) "codehole3"
-4) "code2hole"
-5) "codehole2"
-6) "code1hole"
-127.0.0.1:6379> keys codehole*
-1) "codehole1"
-2) "codehole3"
-3) "codehole2"
-127.0.0.1:6379> keys code*hole
-1) "code3hole"
-2) "code2hole"
-3) "code1hole"
-```
-
-**指令 `keys` 列出所有满足特定正则字符串规则的 key**.
-
-使用非常简单, 提供一个简单的正则字符串即可, 但是有很明显的两个缺点 :
-
-- 1\. **没有 offset、limit 参数, 一次性吐出所有满足条件的 key,**
-    - _万一实例中有几百 w 个 key 满足条件, 当看到满屏的字符串刷的没有尽头时, 你就知道难受了._
-- 2\. **keys 算法是遍历算法, 复杂度是 O(n),**
-    - **如果实例中有千万级以上的 key, 这个指令就会导致 Redis 服务卡顿, 所有读写 Redis 的其它的指令都会被延后甚至会超时报错,**
-    - **因为 Redis 是单线程程序, 顺序执行所有指令, 其它指令必须等到当前的 keys 指令执行完了才可以继续.**
-
-Redis 为了解决这个问题, 它在 2.8 版本中加入了指令 `scan`, 相比 `keys` 具备有以下特点 :
-
-- 1\. _复杂度虽然也是 O(n), 但是它是_ **通过游标分步进行的, 不会阻塞线程**;
-- 2\. **提供 limit 参数, 可以控制每次返回结果的最大条数**,
-    - limit 只是一个 hint, 返回的结果可多可少;
-- 3\. _同 keys 一样, 它也_ **提供模式匹配功能**;
-- 4\. 服务器 **不需要为游标保存状态**,
-    - **游标的唯一状态就是 scan 返回给客户端的游标整数**;
-- 5\. 注意! **返回的结果可能会有重复, 需要客户端去重复**;
-- 6\. **遍历的过程中如果有数据修改, 改动后的数据能不能遍历到是不确定的**;
-- 7\. **单次返回的结果是空的并不意味着遍历结束, 而要看返回的游标值是否为零**;
+- 类比:
+    - 漏斗的剩余空间: 当前行为可以持续进行的数量
+    - 漏嘴的流水速率: 系统允许该行为的最大频率
+- 做法:
+    - 每次灌水前都会被调用以触发漏水, 给漏斗腾出空间来.
+    - 能腾出多少空间取决于过去了多久以及流水的速率.
+- 实现:
+    ```python
+    # coding: utf8
+    import time
+
+    class Funnel(object):
+
+        def __init__(self, capacity, leaking_rate):
+            # 漏斗容量
+            self.capacity = capacity
+            # 漏嘴流水速率
+            self.leaking_rate = leaking_rate
+            # 漏斗剩余空间
+            self.left_quota = capacity
+            # 上一次漏水时间
+            self.leaking_ts = time.time()
+
+        def make_space(self):
+            now_ts = time.time()
+            # 距离上一次漏水过去了多久
+            delta_ts = now_ts - self.leaking_ts
+            # 又可以腾出不少空间了
+            delta_quota = delta_ts * self.leaking_rate
+            # 腾的空间太少, 那就等下次再继续
+            if delta_quota < 1:
+                return
+            # 增加剩余空间
+            self.left_quota += delta_quota
+            # 记录漏水时间
+            self.leaking_ts = now_ts
+            # 剩余空间不得高于容量
+            if self.left_quota > self.capacity:
+                self.left_quota = self.capacity
+
+        def watering(self, quota):
+            self.make_space()
+            # 判断剩余空间是否足够
+            if self.left_quota >= quota:
+                self.left_quota -= quota
+                return True
+            return False
+
+    # 所有的漏斗
+    funnels = {}
+
+    # capacity  漏斗容量
+    # leaking_rate 漏嘴流水速率 quota/s
+    def is_action_allowed(
+        user_id, action_key, capacity, leaking_rate):
+        key = '%s:%s' % (user_id, action_key)
+        funnel = funnels.get(key)
+        if not funnel:
+            funnel = Funnel(capacity, leaking_rate)
+            funnels[key] = funnel
+        return funnel.watering(1)
+
+    for i in range(20):
+        print is_action_allowed('laoqian', 'reply', 15, 0.5)
+    ```
+- 优点:
+    - _Funnel 对象占据的空间大小不再和行为的频率成正比, 它的空间占用是一个常量_
+- 简单方案:
+    - _将 Funnel 对象的内容按字段存储到一个 hash 结构中_
+- 问题:
+    - _无法对整个 hash 结构的各字段的读写过程保证原子性._
+    - _而一旦加锁, 就意味着会有加锁失败, 加锁失败就需要选择重试或者放弃._
+    - _如果重试的话, 就会导致性能下降. 如果放弃的话, 就会影响用户体验._
+    - _同时, 代码的复杂度也跟着升高很多._
+- 合理方案:
+    - _Redis 4.0 提供了限流模块 redis-cell, 使用 "漏斗算法" 并提供原子的限流指令_
+
+### GeoHash
+
+- 场景: 寻找附近的人
+    - _地图元素的位置数据使用二维的经纬度表示_
+    - _当两个元素的距离不是很远时, 可以直接使用勾股定理就能算得元素之间的距离._
+- 简单方案:
+    - _元素的经纬度坐标使用关系数据库 (元素 id, 经度 x, 纬度 y) 存储_
+    - _通过遍历来计算所有的元素和目标元素的距离然后再进行排序, 计算量太大._
+    - 通常通过矩形区域来限定元素的数量, 然后对区域内的元素进行全量距离计算再排序.
+        - `select id from positions where x0 - r < x < x0 + r and y0 - r < y < y0 + r;`
+    - _当用户对筛出来的结果不满意, 那就扩大半径继续筛选._
+    - _如果查询请求非常多, 在高并发场合, 数据库的查询性能有限._
+- 合理方案:
+    - 业界比较通用的 **地理位置距离排序算法是 GeoHash 算法**
+        - 将二维的经纬度数据映射到一维的整数, 所有的元素都将在挂载到一条线上,
+        - 距离靠近的二维坐标映射到一维后的点之间距离也会很接近.
+        - [geohash-animation.gif](_images/geohash-animation.gif)
+            - _动图的例子中使用的是二刀法, 真实算法中还会有很多其它刀法, 最终编码出来的整数数字也都不一样._
+- 实现:
+    - 经纬度使用 52 位的整数进行编码, 放进了 zset 中
+        - _zset 的 value 是元素的 key ( 例如 "三里屯SOHO" )_
+        - _score 是 GeoHash 的 52 位整数值_
+            - _score 虽然是浮点数, 但是对于 52 位的整数值, 它可以无损存储_
+    - score 范围查询就可以得到坐标附近的其它元素
+    - 通过将 score 还原成坐标值就可以得到元素的原始坐标
+
+### scan
+
+- 指令 `keys` 列出所有满足特定正则字符串规则的 key
+    - 缺点: 一次性吐出所有满足条件的 key, 使用遍历算法, 复杂度是 O(n)
+        - _如果实例中有千万级以上的 key, 会导致 Redis 服务卡顿, 所有读写 Redis 的其它的指令都会被延后甚至会超时报错,_
+- 指令 `scan` 特点:
+    - _复杂度虽然也是 O(n), 但是它是_ **通过游标分步进行的, 不会阻塞线程**;
+    - **提供 limit 参数, 可以控制每次返回结果的最大条数**,
+        limit 只是一个 hint, 返回的结果可多可少;
+    - _同 keys 一样, 它也_ **提供模式匹配功能**;
+    - 服务器 **不需要为游标保存状态**,
+        **游标的唯一状态就是 scan 返回给客户端的游标整数**;
+    - 注意! **返回的结果可能会有重复, 需要客户端去重复**;
+    - **遍历的过程中如果有数据修改, 改动后的数据能不能遍历到是不确定的**;
+    - **单次返回的结果是空的并不意味着遍历结束, 而要看返回的游标值是否为零**;
 
 ### Basic Usage
 
