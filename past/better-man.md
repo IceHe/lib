@@ -4,13 +4,13 @@
 
 1.  **做好一件小事, 然后再做好下一件小事, 然后不断循环**
 
-1.  什么时间就该干什么事
+1.  **什么时间就该干什么事**
 
-    <!-- _Alarm / Due / Schedule / BlockyTime / Forest / TickTick.Habit_ -->
+    _Schedule / Alarm / Due / BlockyTime / Forest / TickTick.Habit_
 
-1.  设定时限: Done is better than perfect.
+1.  _设定时限: Done is better than perfect._
 
-    <!-- _Timer_ -->
+    _Timer_
 
 1.  抓住重点, 做正确的事
 
