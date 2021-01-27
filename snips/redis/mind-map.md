@@ -36,104 +36,32 @@ References
             - if len >= 1M, 扩容 1M
             - max len = 512M
 - list
-    - usage: 异步队列
-    - ziplist
-    - [quicklist](quicklist)
-- set
-- zset
+    - ziplist 压缩列表
+        - 用一块连续的内存存储
+    - quicklist 快速链表
+        - 将多个 ziplist 用双向指针连起来
+        -   list 元素少时, 用 ziplist;
+            list 元素多时, 用 quicklist.
+        - _满足快速的插入删除, 以及较小的空间冗余 ( 普通链表的指针太多 )_
+        - [structure.webp](_images/quicklist-simple-structure.webp)
 - hash
+    - 值只能是字符串
+    - progressive [rehash](#rehash)
+        -   ht[0] old;
+            ht[1] new.
+        - [strategy.webp](_images/progressive-rehash-strategy.webp)
+    - _usage: [strings vs hashes to represent JSON: efficiency?](https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency)_
+        - _以 hash 形式保存完整信息的话, 可以只获取部分字段, 但结构消耗内存比 string 大._
+        - _以 string 形式保存完整信息的话, 只能一次性全部读取, 比较浪费网络流量, 但比 hash 节省内存._
+- set
+    - 内部实现: hash
+        - 所有的 value 都是 NULL
+- zset
+    - _like sorted-set + hash_
+    - 内部实现: skip-list
+        - [structure.webp](_images/skiplist-simple-structure-example.webp)
 
-### quicklist
-
-![zip-list-simple-structure.webp](_images/quicklist-simple-structure.webp)
-
-- list 元素较少时, 用 ziplist 压缩列表: 用一块连续的内存存储
-- list 元素较多时, 用 quicklist 快速链表: 将多个 ziplist 用双向指针连起来
-    - _满足快速的插入删除, 以及较小的空间冗余 ( 普通链表的指针太多 )_
-
-#### Rehash
-
-- 与 Java 不同的是, **Redis 的字典的值只能是字符串**,
-- **rehash 方式** 也不一样,
-    - 因为 Java 的 HashMap 在字典很大时, rehash 是个耗时的操作, 需要一次性全部 rehash.
-    - Redis 为了高性能, 不能堵塞服务, 所以采用了 **渐进式 rehash 策略**.
-
-![progressive-rehash-strategy.webp](_images/progressive-rehash-strategy.webp)
-
-- 渐进式 rehash 会在 rehash 的同时, 保留新旧两个 hash 结构, 查询时会同时查询两个 hash 结构,
-- 然后 **在后续的定时任务中以及 hash 操作指令中, 循序渐进地将旧 hash 的内容一点点迁移到新的 hash 结构中**.
-- 当搬迁完成了, 就会使用新的 hash 结构取而代之.
-- 当 hash 移除了最后一个元素之后, 该数据结构自动被删除, 内存被回收.
-
-#### String vs. Hash
-
-![hash-sets-example.gif](_images/hash-sets-example.gif)
-
-- hash 结构也可以用来存储用户信息, 不同于字符串一次性需要全部序列化整个对象, **hash 可以对用户结构中的每个字段单独存储.
-    - 这样当需要获取用户信息时 **可以进行部分获取**.
-    - 而以 **整个字符串的形式去保存用户信息的话就只能一次性全部读取, 这样就会比较浪费网络流量**.
-- hash 也有缺点, **hash 结构的存储消耗要高于单个字符串**,
-    - 到底该使用 hash 还是字符串, 需要根据实际情况再三权衡.
-
-在 Redis 存储结构体到底应该使用 hash 还是 string?
-
-- Redis strings vs Redis hashes to represent JSON: efficiency? - StackOverflow : https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
-
-### Set
-
-**集合**
-
-**Redis 的集合相当于 Java 语言里面的 HashSet**,
-
-- 它内部的键值对是无序的唯一的.
-- 它的 **内部实现相当于一个特殊的字典, 字典中所有的 value 都是一个值 NULL**.
-
-![set-simple-example.gif](_images/set-simple-example.gif)
-
-### Zset
-
-**有序集合**
-
-**zset 可能是 Redis 提供的最为特色的数据结构**,
-
-- _它也是在面试中面试官最爱问的数据结构._
-- 它 **类似于 Java 的 SortedSet 和 HashMap 的结合体**,
-    - **一方面它是一个 set, 保证了内部 value 的唯一性**,
-    - **另一方面它可以给每个 value 赋予一个 score, 代表这个 value 的排序权重**.
-- 它的内部实现用的是一种叫做「**跳跃列表**」的数据结构.
-- zset 中最后一个 value 被移除后, 数据结构自动删除, 内存被回收.
-
-![zset-simple-example.gif](_images/zset-simple-example.gif)
-
-- _zset 可以用来存粉丝列表,_
-    - _value 值是粉丝的用户 ID,_
-    - _score 是关注时间._
-    - _可以对粉丝列表按关注时间进行排序._
-- _zset 还可以用来存储学生的成绩,_
-    - _value 值是学生的 ID,_
-    - _score 是他的考试成绩._
-    - _可以对成绩按分数进行排序就可以得到他的名次._
-
-#### Skiplist
-
-**跳跃表**
-
-- **zset 内部的排序功能是通过「跳跃列表」数据结构来实现的,**
-    - _它的结构非常特殊, 也比较复杂._
-- 因为 **zset 要支持随机的插入和删除**, 所以它不好使用数组来表示.
-- 因为 **zset 需要链表按照 score 值进行排序**,
-    - 这意味着当有新元素需要插入时, 要定位到特定位置的插入点, 这样才可以继续保证链表是有序的.
-    - 通常我们会通过二分查找来找到插入点, 但是二分查找的对象必须是数组, 只有数组才可以支持快速位置定位, 链表做不到
-
-![normal-linked-list.webp](_images/normal-linked-list.webp)
-
-- 跳跃列表就是类似于层级制,
-    - 最下面一层所有的元素都会串起来.
-    - 然后每隔几个元素挑选出一个代表来, 再将这几个代表使用另外一级指针串起来.
-    - 然后在这些代表里再挑出二级代表, 再串起来.
-    - 最终就形成了金字塔结构.
-
-![skiplist-simple-structure-example.webp](_images/skiplist-simple-structure-example.webp)
+跳跃表
 
 - 「跳跃列表」之所以「跳跃」, 是因为内部的元素可能「身兼数职」,
     - 比如上图中间的这个元素, 同时处于 L0、L1 和 L2 层, 可以快速在不同层次之间进行「跳跃」.
