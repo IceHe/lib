@@ -1,12 +1,10 @@
 # Redis Notes
 
-Redis Principles and Practice
-
-Redis: **RE**mote **DI**ctionary **S**erver 远程字典服务
+Redis: **RE**mote **DI**ctionary **S**erver
 
 ---
 
-References
+## references
 
 - [Redis 深度历险 : 核心原理与应用实践](https://juejin.im/book/5afc2e5f6fb9a07a9b362527)
 - [Redis.io](https://redis.io)
@@ -24,10 +22,9 @@ References
     - 注释版源码
         - 2.6: https://github.com/huangz1990/annotated_redis_source
         - 3.0: https://github.com/huangz1990/redis-3.0-annotated
-        - 1.0: http://pein0119.github.io/2014/08/18/-Redis-10%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89---%E5%BC%80%E7%AF%87/
-- [Redis strings vs Redis hashes to represent JSON: efficiency? - Stack Overflow](https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency)
+        - 1.0: http://pein0119.github.io/2014/08/18/-Redis-10%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89---%E5%BC%80%E7%AF%87
 
-## Data Structure
+## data structure
 
 - string
     - sds: simple dynamic string
@@ -61,949 +58,146 @@ References
     - 内部实现: skip-list
         - [structure.webp](_images/skiplist-simple-structure-example.webp)
 
-跳跃表
-
-- 「跳跃列表」之所以「跳跃」, 是因为内部的元素可能「身兼数职」,
-    - 比如上图中间的这个元素, 同时处于 L0、L1 和 L2 层, 可以快速在不同层次之间进行「跳跃」.
-    - 定位插入点时, 先在顶层进行定位, 然后下潜到下一级定位, 一直下潜到最底层找到合适的位置, 将新元素插进去.
-- 跳跃列表 **采取一个随机策略来决定新元素可以兼职到第几层**.
-    - **首先 L0 层肯定是 100% 了, L1 层只有 50% 的概率, L2 层只有 25% 的概率, L3 层只有 12.5% 的概率, 一直随机到最顶层 L31 层**.
-    - _绝大多数元素都过不了几层, 只有极少数元素可以深入到顶层. 列表中的元素越多, 能够深入的层次就越深, 能进入到顶层的概率就会越大._
-
-### General Principles
-
-**容器型数据结构的通用规则**
-
-list / hash / set / zset 这 4 种数据结构是 **容器型数据结构**, 共享下面两条通用规则 :
-
-- 1\. **create if not exists**
-    - **如果容器不存在, 那就创建一个, 再进行操作.**
-    - _比如 rpush 操作刚开始是没有列表的, Redis 就会自动创建一个, 然后再 rpush 进去新元素._
-- 2\. **drop if no elements**
-    - **如果容器里元素没有了, 那么立即删除元素, 释放内存**.
-    - _这意味着 lpop 操作到最后一个元素, 列表就消失了._
-
-### Expiration
-
-**过期时间**
-
-Redis 所有的数据结构都可以设置过期时间, 时间到了, Redis 会自动删除相应的对象.
-
-- **过期是以对象为单位**!
-    - 例如, **一个 hash 结构的过期是整个 hash 对象的过期, 而不是其中的某个子 key**
-- 小心 string 的过期时间被移除!
-    - 例如, **如果一个字符串已经设置了过期时间, 然后你调用了 set 方法修改了它, 它的过期时间会消失!**
-
-```bash
-$ redis-server &
-$ redis-cli
-127.0.0.1:6379> set foo bar
-OK
-127.0.0.1:6379> expire foo 600
-(integer) 1
-127.0.0.1:6379> ttl foo
-(integer) 596
-127.0.0.1:6379> set foo ice
-OK
-127.0.0.1:6379> ttl foo
-(integer) -1
-127.0.0.1:6379>
-```
-
-## Usage 1 : Distributed Lock
-
-**应用 1 : 分布式锁**
-
-Reference
-
-- 应用 1 : 千帆竞发 —— 分布式锁 : https://juejin.cn/book/6844733724618129422/section/6844733724702015495
-
-_分布式应用进行逻辑处理时经常会遇到并发问题._
-
-- _比如, 一个操作要修改用户的状态, 修改状态需要先读出用户的状态, 在内存里进行修改, 改完了再存回去._
-- _如果这样的操作同时进行了, 就会出现并发问题, 因为 读取和保存状态这两个操作不是原子的._
-
-**原子操作** : **不会被线程调度机制打断的操作**
-
-- 这种 **操作一旦开始, 就一直运行到结束, 中间不会有任何 context switch 线程切换**.
-
-![concurrent-read-n-write-confliction-exmaple.webp](_images/concurrent-read-n-write-confliction-exmaple.webp)
-
-_这时就要使用分布式锁来限制程序的并发执行._
-
-### Distributed Lock
-
-- _分布式锁本质上要实现的目标就是在 Redis 里面占一个 "茅坑" , 当别的进程也要来占时, 发现已经有人蹲在那里了, 就只好放弃或者稍后再试._
-- 占坑一般是使用 `setnx` ( set if not exists ) 指令, 只允许被一个客户端占坑. 先来先占, 用完了, 再调用 `del` 指令释放茅坑.
-
-```bash
-# 这里的冒号 : 就是一个普通的字符, 没特别含义, 它可以是任意其它字符, 不要误解
-> setnx lock:codehole true
-OK
-
-# ... do something critical ...
-> del lock:codehole
-(integer) 1
-```
-
-- 但是有个问题, **如果逻辑执行到中间出现异常了, 可能会导致 del 指令没有被调用**,
-    - 这样 **就会陷入死锁, 锁永远得不到释放.**
-- 于是在拿到锁之后, 再给锁加上一个过期时间,
-    - 比如 5s, 这样 **即使中间出现异常也可以保证 5 秒之后锁会自动释放**.
-
-```bash
-> setnx lock:codehole true
-OK
-> expire lock:codehole 5
-
-# ... do something critical ...
-
-> del lock:codehole
-(integer) 1
-```
-
-- 但是以上逻辑还有问题.
-    - **如果在 `setnx` 和 `expire` 之间服务器进程突然挂掉了, 可能是因为机器掉电或者是被人为杀掉的**,
-    - **就会导致 `expire` 得不到执行, 也会造成死锁.**
-- 这种问题的 **根源就在于 `setnx` 和 `expire` 是两条指令而不是原子指令.**
-    - 如果这两条指令可以一起执行就不会出现问题.
-- 也许你会想到用 Redis 事务来解决. 但是这里不行,
-    - 因为 `expire` 是依赖于 `setnx` 的执行结果的,
-    - **如果 setnx 没抢到锁, expire 是不应该执行的.**
-- 事务里没有 if-else 分支逻辑,
-    - **事务的特点是一口气执行, 要么全部执行要么一个都不执行.
-- 最终 Redis 2.8 版本中作者 **加入了 set 指令的扩展参数, 使得 setnx 和 expire 指令可以一起执行**, 彻底解决了分布式锁的乱象.
-    - _( icehe : 虽然以上问题, 现在已经得到基本的解决, 但是还是该好好理解记住这些历史经验 )_
-
-```bash
-> set lock:codehole true ex 5 nx
-OK
-# ... do something critical ...
-> del lock:codehole
-```
-
-### Timeout
-
-**超时**
-
-- Redis 的分布式锁不能解决超时问题,
-    - **如果在加锁和释放锁之间的逻辑执行的太长, 以至于超出了锁的超时限制, 就会出现问题!**
-    - 因为这时 **第一个线程持有的锁过期了, 临界区的逻辑还没有执行完,**
-        - 这时 **第二个线程就提前重新持有了这把锁, 导致临界区代码不能得到严格的串行执行.**
-- 为了避免这个问题, **Redis 分布式锁不要用于较长时间的任务!**
-    - **如果真的偶尔出现了, 数据出现的小波错乱可能需要人工介入解决.**
-
-```python
-tag = random.nextint()  # 随机数
-if redis.set(key, tag, nx=True, ex=5):
-    do_something()
-    redis.delifequals(key, tag)  # 假想的 delifequals 指令
-```
-
-- 有一个稍微安全一点的方案是 :
-    - **为 set 指令的 value 参数设置为一个随机数, 释放锁时先匹配随机数是否一致, 然后再删除 key,**
-        - 这是 **为了确保当前线程占有的锁不会被其它线程释放, 除非这个锁是过期了被服务器自动释放的.**
-    - 但是匹配 value 和删除 key 不是一个原子操作, Redis 也没有提供类似于 `delifequals` 这样的指令,
-        - 这就需要使用 Lua 脚本来处理了, 因为 **Lua 脚本可以保证连续多个指令的原子性执行.**
-
-```lua
-# delifequals
-if redis.call("get",KEYS[1]) == ARGV[1] then
-    return redis.call("del",KEYS[1])
-else
-    return 0
-end
-```
-
-- 但是这也不是一个完美的方案, 它只是相对安全一点,
-    - 因为如果真的超时了, 当前线程的逻辑没有执行完, 其它线程也会乘虚而入.
-
-### Reenterability
-
-**可重入性**
-
-- **可重入性** 是指 **线程在持有锁的情况下再次请求加锁, 如果一个锁支持同一个线程的多次加锁, 那么这个锁就是可重入的.**
-    - 比如 Java 语言里有个 ReentrantLock 就是可重入锁.
-- Redis 分布式锁如果要支持可重入, **需要对客户端的 set 方法进行包装, 使用线程的 Threadlocal 变量存储当前持有锁的计数.**
-
-```python
-# -*- coding: utf-8
-import redis
-import threading
-
-
-locks = threading.local()
-locks.redis = {}
-
-def key_for(user_id):
-    return "account_{}".format(user_id)
-
-def _lock(client, key):
-    return bool(client.set(key, True, nx=True, ex=5))
-
-def _unlock(client, key):
-    client.delete(key)
-
-def lock(client, user_id):
-    key = key_for(user_id)
-    if key in locks.redis:
-        locks.redis[key] += 1
-        return True
-    ok = _lock(client, key)
-    if not ok:
-        return False
-    locks.redis[key] = 1
-    return True
-
-def unlock(client, user_id):
-    key = key_for(user_id)
-    if key in locks.redis:
-        locks.redis[key] -= 1
-        if locks.redis[key] <= 0:
-            del locks.redis[key]
-            self._unlock(key)
-        return True
-    return False
-
-client = redis.StrictRedis()
-print "lock", lock(client, "codehole")
-print "lock", lock(client, "codehole")
-print "unlock", unlock(client, "codehole")
-print "unlock", unlock(client, "codehole")
-```
-
-- 以上还不是可重入锁的全部, **精确一点还需要考虑内存锁计数的过期时间, 代码复杂度将会继续升高.**
-    - 所以 **不推荐使用可重入锁!**
-    - 它 **加重了客户端的复杂性, 在编写业务方法时注意在逻辑结构上进行调整完全可以不使用可重入锁.**
-
-## Usage 2 : Delayed Queue
-
-**应用 2 : 延时队列**
-
-Reference
-
-- 应用 2 : 缓兵之计 —— 延时队列 : https://juejin.cn/book/6844733724618129422/section/6844733724702015496
-
-平时习惯于使用 Rabbitmq 和 Kafka 作为消息队列中间件, 来给应用程序之间增加异步消息传递功能. 这两个中间件都是专业的消息队列中间件, 特性之多超出了大多数人的理解能力.
-
-- _使用过_ RabbitMQ _的就知道它使用起来有多复杂,_
-    - 发消息之前要创建 Exchange, 再创建 Queue, 还要将 Queue 和 Exchange 通过某种规则绑定起来,
-    - 发消息的时候要指定 routing-key, 还要控制头部信息.
-- _消费者在消费消息之前也要进行上面一系列的繁琐过程._
-    - _但是绝大多数情况下, 虽然消息队列只有一组消费者, 但还是需要经历上面这些繁琐的过程._
-- _有了 Redis, 它就可以让我们解脱出来, 对于那些只有一组消费者的消息队列, 使用 Redis 就可以非常轻松的搞定._
-    - **Redis 的消息队列不是专业的消息队列, 它没有非常多的高级特性, 没有 ack 保证,**
-    - **如果对消息的可靠性有着极致的追求, 那么它就不适合使用.**
-
-### Asynchronous Message Queue
-
-**异步消息队列**
-
-Redis 的 list 数据结构常用来作为异步消息队列使用,
-
-- 使用 `rpush` / `lpush` 操作入队列,
-- 使用 `lpop` 和 `rpop` 来出队列.
-
-![list-as-async-mq.webp](_images/list-as-async-mq.webp)
-
-```bash
-> rpush notify-queue apple banana pear
-(integer) 3
-> llen notify-queue
-(integer) 3
-> lpop notify-queue
-"apple"
-> llen notify-queue
-(integer) 2
-> lpop notify-queue
-"banana"
-> llen notify-queue
-(integer) 1
-> lpop notify-queue
-"pear"
-> llen notify-queue
-(integer) 0
-> lpop notify-queue
-(nil)
-```
-
-### _队列空了怎么办?_
-
-_处理完了再接着获取消息, 再进行处理. 如此循环往复, 这便是作为队列消费者的客户端的生命周期._
-
-可是如果队列空了, 客户端就会陷入 pop 的死循环, 不停地 pop, 没有数据, 接着再 pop, 又没有数据. 这就是浪费生命的空轮询.
-
-空轮询不但拉高了客户端的 CPU, redis 的 QPS 也会被拉高, 如果这样空轮询的客户端有几十个, Redis 的慢查询可能会显著增多.
-
-**通常使用 sleep 来解决这个问题, 让线程睡一会, 睡个 1s 钟就可以了. 不但客户端的 CPU 能降下来, Redis 的 QPS 也降下来了.**
-
-### Queue Delay Time
-
-用上面睡眠的办法可以解决问题.
-
-- 但是有个小问题, 那就是 **睡眠会导致消息的延迟增大.**
-    - 如果只有 1 个消费者, 那么这个延迟就是 1s.
-    - 如果有多个消费者, 这个延迟会有所下降, 因为每个消费者的睡觉时间是岔开来的.
-- **有没有什么办法能显著降低延迟呢?** 你当然可以很快想到 :
-    - A. 那就把睡觉的时间缩短点. 这种方式当然可以,
-        - 不过有没有更好的解决方案呢?
-    - B. 当然也有, 那就是 **`blpop` / `brpop`**.
-        - 这两个 **指令的前缀字符 b 代表的是 blocking, 也就是阻塞读.**
-- **阻塞读在队列没有数据的时候, 会立即进入休眠状态, 一旦数据到来, 则立刻醒过来.**
-    - 消息的延迟几乎为零.
-    - 用 `blpop` / `brpop` 替代前面的 `lpop` / `rpop` , 就完美解决了上面的问题.
-
-### 空闲连接自动断开
-
-上面的方案并非完美, 还有 **空闲连接** 的问题需要解决.
-
-- **如果线程一直阻塞在哪里, Redis 的客户端连接就成了闲置连接,**
-    - **闲置过久, 服务器一般会主动断开连接, 减少闲置资源占用.**
-- **这时 `blpop` / `brpop` 会抛出异常来.**
-    - 所以, 必须注意捕获异常, 还要重试.
-
-所以编写客户端消费者的时候要小心, 注意捕获异常, 还要重试.
-
-### 锁冲突处理
-
-客户端在处理分布式锁请求时, **加锁没加成功怎么办?** 一般有 3 种策略来处理加锁失败 :
-
-- A. **直接抛出异常, 通知用户稍后重试**
-- B. **sleep 一会再重试**
-- C. **将请求转移至延时队列, 过一会再试**
-
-A. 直接抛出特定类型的异常
-
-- 这种方式比较适合由用户直接发起的请求,
-    - 用户看到错误对话框后, 会先阅读对话框的内容, 再点击重试, 这样就可以起到人工延时的效果.
-    - 如果考虑到用户体验, 可以由前端的代码替代用户自己来进行延时重试控制.
-    - 它本质上是 **对当前请求的放弃, 由用户决定是否重新发起新的请求.**
-
-B. Sleep
-
-- sleep 会阻塞当前的消息处理线程, 会导致队列的后续消息处理出现延迟.
-    - **如果碰撞的比较频繁或者队列里消息比较多, sleep 可能并不合适.**
-    - **如果因为个别死锁的 key 导致加锁不成功, 线程会彻底堵死, 导致后续消息永远得不到及时处理.**
-
-C. 延时队列
-
-- 这种方式 **比较适合异步消息处理**,
-    - **将当前冲突的请求扔到另一个队列延后处理以避开冲突.**
-
-### Implementation of Delayed Queue
-
-**延时队列的实现**
-
-- 延时队列可以通过 Redis 的 zset ( 有序列表 ) 来实现.
-    - **将消息序列化成一个字符串作为 zset 的 value, 到期处理时间作为 score,**
-    - 然后用 **多个线程轮询 zset 获取到期的任务进行处理,**
-    - **多个线程是为了保障可用性, 万一挂了一个线程还有其它线程可以继续处理.**
-    - 因为有多个线程, 所以 **需要考虑并发争抢任务, 确保任务不能被多次执行.**
-- Redis 的 **`zrem` 方法是多线程多进程争抢任务的关键, 它的返回值决定了当前实例有没有抢到任务,
-    - 因为 loop 方法可能会被多个线程、多个进程调用, 同一个任务可能会被多个进程线程抢到, 通过 zrem 来决定唯一的属主.
-    - 同时, 要注意一定要对 `handle_msg` 进行异常捕获, 避免因为个别任务处理问题导致循环异常退出.
-
-进一步优化
-
-- 上面的算法中同一个任务可能会被多个进程取到之后再使用 zrem 进行争抢, 那些没抢到的进程都是白取了一次任务, 这是浪费.
-    - 可以考虑 **使用 lua scripting 来原子化地执行这个逻辑, 将 zrangebyscore 和 zrem 一同挪到服务器端进行原子化操作**,
-    - 这样多个进程之间争抢任务时就不会出现这种浪费了.
-
-## Usage 3 : Bitmap
-
-**应用 3 : 节衣缩食 —— 位图**
-
-- 有一些 bool 型数据需要存取, 比如用户一年的签到记录, 签了是 1, 没签是 0, 要记录 365 天.
-    - _如果使用普通的 key / value, 每个用户要记录 365 个, 当用户上亿的时候, 需要的存储空间是惊人的._
-- 为了解决这个问题, **Redis 提供了位图数据结构**,
-    - _这样每天的签到记录只占据一个位, 365 天就是 365 个位, 46 个字节 ( 一个稍长一点的字符串 ) 就可以完全容纳下, 这就大大节约了存储空间._
-- **位图 就是普通的字符串, 也就是 byte 数组.**
-    - 可以使用普通的 `get` / `set` 直接获取和设置整个位图的内容,
-    - 也可以使用位图操作 `getbit` / `setbit` 等将 byte 数组看成「位数组」来处理.
-- 当要统计月活的时候, 因为需要去重, 需要使用 set 来记录所有活跃用户的 id, 这非常浪费内存.
-    - 这时就可以考虑使用位图来标记用户的活跃状态.
-    - _每个用户会都在这个位图的一个确定位置上, 0 表示不活跃, 1 表示活跃._
-    - _然后到月底遍历一次位图就可以得到月度活跃用户数._
-    - 不过这个方法也是有条件的, 那就是 userid 是整数连续的, 并且活跃占比较高, 否则可能得不偿失.
-
-### Basic Usage
-
-Redis 的 **位数组是自动扩展的**,
-
-- 如果设置了某个偏移位置超出了现有的内容范围, 就会自动将位数组进行零扩充.
-- _此处不赘述, 详见自行查询_
-
-零存整取
-
-```bash
-127.0.0.1:6379> setbit s 1 1
-(integer) 0
-127.0.0.1:6379> setbit s 2 1
-(integer) 0
-127.0.0.1:6379> setbit s 4 1
-(integer) 0
-127.0.0.1:6379> setbit s 9 1
-(integer) 0
-127.0.0.1:6379> setbit s 10 1
-(integer) 0
-127.0.0.1:6379> setbit s 13 1
-(integer) 0
-127.0.0.1:6379> setbit s 15 1
-(integer) 0
-127.0.0.1:6379> get s
-"he"
-```
-
-零存零取
-
-```bash
-127.0.0.1:6379> setbit w 1 1
-(integer) 0
-127.0.0.1:6379> setbit w 2 1
-(integer) 0
-127.0.0.1:6379> setbit w 4 1
-(integer) 0
-127.0.0.1:6379> getbit w 1  # 获取某个具体位置的值 0/1
-(integer) 1
-127.0.0.1:6379> getbit w 2
-(integer) 1
-127.0.0.1:6379> getbit w 4
-(integer) 1
-127.0.0.1:6379> getbit w 5
-(integer) 0
-```
-
-整存零取
-
-```bash
-127.0.0.1:6379> set w h  # 整存
-(integer) 0
-127.0.0.1:6379> getbit w 1
-(integer) 1
-127.0.0.1:6379> getbit w 2
-(integer) 1
-127.0.0.1:6379> getbit w 4
-(integer) 1
-127.0.0.1:6379> getbit w 5
-(integer) 0
-```
-
-### 统计与查找
-
-Redis 提供了指令
-
-- 位图统计 `bitcount`
-- 位图查找 `bitpos`
-- `bitcount` 统计指定位置范围内 1 的个数
-- `bitpos` 用来查找指定范围内出现的第一个 0 或 1
-
-比如,
-
-- 可以通过 `bitcount` 统计用户一共签到了多少天,
-- 通过 `bitpos` 指令查找用户从哪一天开始第一次签到.
-- 如果指定了范围参数 `[start, end]` ,
-    - 就可以统计在某个时间范围内用户签到了多少天,
-    - 用户自某天以后的哪天开始签到.
-- 遗憾的是 start 和 end 参数是字节索引, 也就是说指定的位范围必须是 8 的倍数, 而不能任意指定.
-    - _这很奇怪, 一般人表示不是很能理解 Antirez 为什么要这样设计._
-    - _因为这个设计, 无法直接计算某个月内用户签到了多少天,_
-    - _而必须要将这个月所覆盖的字节内容全部取出来 ( `getrange` 可以取出字符串的子串 )_
-    - _然后在内存里进行统计, 这个非常繁琐._
-
-_bitcount 指令和 bitpos 指令 示例 :_
-
-```bash
-127.0.0.1:6379> set w hello
-OK
-
-127.0.0.1:6379> bitcount w
-(integer) 21
-
-# 第一个字符中 1 的位数
-127.0.0.1:6379> bitcount w 0 0
-(integer) 3
-
-# 前两个字符中 1 的位数
-127.0.0.1:6379> bitcount w 0 1
-(integer) 7
-
-# 第一个 0 位
-127.0.0.1:6379> bitpos w 0
-(integer) 0
-
-# 第一个 1 位
-127.0.0.1:6379> bitpos w 1
-(integer) 1
-
-# 从第二个字符算起, 第一个 1 位
-127.0.0.1:6379> bitpos w 1 1 1
-(integer) 9
-
-# 从第三个字符算起, 第一个 1 位
-127.0.0.1:6379> bitpos w 1 2 2
-(integer) 17
-```
-
-### _魔术指令 bitfield_
-
-- 前文设置 `setbit` 和获取 `getbit` 指定位的值都是单个位的,
-    - 如果要一次操作多个位, 就必须使用管道来处理.
-- _不过 Redis 的 3.2 版本以后新增了功能强大的指令 `bitfield`,_
-    - 有了这条指令, 不用管道也可以一次进行多个位的操作.
-- `bitfield` 有三个子指令, 分别是 `get` / `set` / `incrby`,
-    - 它们都可以对指定位片段进行读写, 但是最多只能处理 64 个连续的位,
-    - 如果超过 64 位, 就得使用多个子指令, bitfield 可以一次执行多个子指令.
-- ……
-
-多次执行
-
-```bash
-127.0.0.1:6379> set w hello
-OK
-# 从第一个位开始取 4 个位, 结果是无符号数 (u)
-127.0.0.1:6379> bitfield w get u4 0
-(integer) 6
-
-# 从第三个位开始取 3 个位, 结果是无符号数 (u)
-127.0.0.1:6379> bitfield w get u3 2
-(integer) 5
-
-# 从第一个位开始取 4 个位, 结果是有符号数 (i)
-127.0.0.1:6379> bitfield w get i4 0
-1) (integer) 6
-
-# 从第三个位开始取 3 个位, 结果是有符号数 (i)
-127.0.0.1:6379> bitfield w get i3 2
-1) (integer) -3
-```
-
-不使用 pipeline 的情况下, 一次性执行
-
-```bash
-127.0.0.1:6379> bitfield w get u4 0 get u3 2 get i4 0 get i3 2
-1) (integer) 6
-2) (integer) 5
-3) (integer) 6
-4) (integer) -3
-```
-
-……
-
-后文内容较少使用, 暂略 ( todo )
-
-- 饱和截断 SAT
-- 失败不执行 FAIL
-
-## Usage 4 : HyperLogLog
-
-Reference
-
-- 应用 4 : 四两拨千斤 —— HyperLogLog : https://juejin.cn/book/6844733724618129422/section/6844733724706209805
-
-思考一个常见的业务问题 : 如果开发维护一个大型的网站, 我们需要网站每个网页每天的 UV 数据, 然后计划开发这个统计模块, 如何实现?
-
-- 如果统计 PV 那非常好办, 给每个网页一个独立的 Redis 计数器就可以了, 这个计数器的 key 后缀加上当天的日期.
-    - _这样来一个请求, incrby 一次, 最终就可以统计出所有的 PV 数据._
-- 但是 UV 不一样, 它要去重, 同一个用户一天之内的多次访问请求只能计数一次.
-    - _这就要求每一个网页请求都需要带上用户的 ID, 无论是登陆用户还是未登陆用户都需要一个唯一 ID 来标识._
-
-也许可以使用一个简单的方案
-
-- 为每一个页面一个独立的 set 集合来存储所有当天访问过此页面的用户 ID.
-- 当一个请求过来时, 我们使用 sadd 将用户 ID 塞进去就可以了.
-- 通过 scard 可以取出这个集合的大小, 这个数字就是这个页面的 UV 数据. 没错, 这是一个非常简单的方案.
-
-但是, 如果你的页面访问量非常大,
-
-- 比如一个爆款页面几千万的 UV, 你需要一个很大的 set 集合来统计, 这就非常浪费空间.
-- 如果这样的页面很多, 那所需要的存储空间是惊人的.
-- 为这样一个去重功能就耗费这样多的存储空间, 值得么?
-- 其实老板需要的数据又不需要太精确, 105w 和 106w 这两个数字对于老板们来说并没有多大区别.
-
-_那么, 有没有更好的解决方案呢?_
-
-- Redis 提供了 **HyperLogLog 数据结构, 用来解决统计问题.**
-    - HyperLogLog **提供不精确的去重计数方案, 虽然不精确但是也不是非常不精确, 标准误差是 0.81%**,
-    - 这样的精确度已经可以满足上面的 UV 统计需求了.
-
-### How to Use
-
-HyperLogLog 提供了两个指令
-
-- **`pfadd` 增加计数**
-    - _跟 set 集合的 `sadd` 用法一样, 来一个用户 ID, 就将用户 ID 塞进去就是._
-- **`pfcount` 获取计数**
-    - _跟 `scard` 用法是一样, 直接获取计数值._
-
-_PF 是 HyperLogLog 这个数据结构的发明人 Philippe Flajolet 的首字母缩写._
-
-_测试部分不赘述, 详见原文_
-
-### pfmerge 适合什么场景
-
-HyperLogLog 除了上面的 `pfadd` 和 `pfcount` 之外, 还提供了第三个指令
-
-- **`pfmerge` 用于将多个 pf 计数值累加在一起形成一个新的 pf 值.**
-
-_比如, 在网站中我们有两个内容差不多的页面, 运营说需要这两个页面的数据进行合并. 其中页面的 UV 访问量也需要合并, 那这个时候 `pfmerge` 就可以派上用场了._
-
-### Precautions
-
-**注意事项**
-
-使用 HyperLogLog 这个数据结构的内存成本较高
-
-- 它需要占据一定 12k 的存储空间, 所以它不适合统计单个用户相关的数据.
-- 如果你的用户上亿, 可以算算, 这个空间成本是非常惊人的.
-- 但是相比 set 存储方案, HyperLogLog 所使用的空间那真是可以使用千斤对比四两来形容了.
-
-不过你也不必过于担心, 因为 **Redis 对 HyperLogLog 的存储进行了优化**,
-
-- **在计数比较小时, 它的存储空间采用稀疏矩阵存储, 空间占用很小,**
-- **仅仅在计数慢慢变大, 稀疏矩阵占用空间渐渐超过了阈值时才会一次性转变成稠密矩阵, 才会占用 12k 的空间.**
-
-原理比较复杂, 难以理解, 详见原文
-
-## Usage 5 : Bloom Filter
-
-Reference
-
-- 应用 5 : 层峦叠嶂 —— 布隆过滤器 : https://juejin.cn/book/6844733724618129422/section/6844733724706209806
-
-![bloom-filter-intro.gif](_images/bloom-filter-intro.gif)
-
-_使用 HyperLogLog 数据结构来进行估数, 它非常有价值, 可以解决很多精确度不高的统计需求._
-
-_但是如果想知道某一个值是不是已经在 HyperLogLog 结构里面了, 它就无能为力了, 它只提供了 `pfadd` 和 `pfcount` 方法, 没有提供 ~~`pfcontains`~~ 这种方法._
-
-比如, 在使用新闻客户端看新闻时, 它会给我们不停地推荐新的内容, 它 **每次推荐时要去重, 去掉那些已经看过的内容.**
-
-- _问题 :_
-    - _新闻客户端推荐系统如何实现推送去重的? _
-- 直接的解法 :
-    - 做法 : 服务器记录了用户看过的所有历史记录, 当推荐系统推荐新闻时会从每个用户的历史记录里进行筛选, 过滤掉那些已经存在的记录.
-    - 缺点 : 当用户量很大, 每个用户看过的新闻又很多的情况下, 这种方式, 推荐系统的去重工作在性能上很难跟上
-
-实际上,
-
-- 如果历史记录存储在关系数据库里, 去重就需要频繁地对数据库进行 exists 查询,
-- 当系统并发量很高时, 数据库是很难扛住压力的.
-
-然后考虑引入缓存,
-
-- 但是将大量的历史记录全部缓存起来, 浪费大量存储空间.
-- 而且这个存储空间是随着时间线性增长, 撑不住长期的积累.
-- 但是不缓存的话, 性能又跟不上.
-
-**布隆过滤器 ( Bloom Filter )** 就是 **专门用来解决去重问题的**.
-
-- 它在起到去重的同时, 在空间上还能节省 90% 以上,
-- 只是稍微有那么点不精确, 也就是有一定的误判概率.
-- _( icehe : 需要花时间计算这个紧凑的数据结构, 用计算时间换存储空间 )_
-
-### What is Bloom Filter?
-
-布隆过滤器 **可以理解为一个不怎么精确的 set 结构**,
-
-- **使用 contains 方法判断某个对象是否存在时, 可能会误判.**
-- 但是布隆过滤器也不是特别不精确,
-    - **只要参数设置的合理, 它的精确度可以控制的相对足够精确, 只会有很小的误判概率.**
-
-特点
-
-- **当布隆过滤器说某个值存在时, 这个值可能不存在;**
-- **当它说不存在时, 那就肯定不存在.**
-
-套在上面的使用场景中,
-
-- 布隆过滤器能准确过滤掉那些已经看过的内容,
-- 那些没有看过的新内容, 它也会过滤掉极小一部分 ( 误判 ) ,
-- 但是绝大多数新内容它都能准确识别.
-
-就可以完全保证推荐给用户的内容都是无重复的.
-
-Redis 官方提供的布隆过滤器功能
-
-- **Redis 4.0 版本才开始有**
-- **作为一个插件加载到 Redis Server 中**
-
-### Basic Usage
-
-布隆过滤器有两个基本指令
-
-- `bf.add` 添加一个元素
-    - `bf.madd` 添加多个元素
-- `bf.exists` 查询一个元素是否存在
-    - `bf.mexists` 查询多个元素是否存在
-
-它们的用法和 set 集合的 `sadd` 和 `sismember` 差不多.
-
-_准确率的测试, 在此不赘述, 详见原文_
-
-### Precaustions
-
-**注意事项**
-
-布隆过滤器的 **initial_size**
-
-- 估计的过大, 会浪费存储空间,
-- 估计的过小, 就会影响准确率,
-
-用户在使用之前
-
-- 一定要 **尽可能地精确估计好元素数量,**
-- 还需要 **加上一定的冗余空间以避免实际元素可能会意外高出估计值很多.**
-
-布隆过滤器的 error_rate 越小, 需要的存储空间就越大, 对于不需要过于精确的场合, error_rate 设置稍大一点也无伤大雅.
-
-- _比如, 在新闻去重上而言, 误判率高一点只会让小部分文章不能让合适的人看到, 文章的整体阅读量不会因为这点误判率就带来巨大的改变._
-
-### Working Principles
-
-![bloom-filter-data-structure-simple-example.webp](_images/bloom-filter-data-structure-simple-example.webp)
-
-- **每个布隆过滤器对应到 Redis 的数据结构里面就是一个大型的位数组和几个不一样的无偏 hash 函数.**
-    - 所谓无偏就是能够把元素的 hash 值算得比较均匀.
-- **向布隆过滤器中添加 key 时, 会使用多个 hash 函数对 key 进行 hash,**
-    - **算得一个整数索引值然后对位数组长度进行取模运算得到一个位置,**
-    - **每个 hash 函数都会算得一个不同的位置. 再把位数组的这几个位置都置为 1 就完成了 add 操作.**
-- 向布隆过滤器询问 key 是否存在时, 跟 add 一样,
-    - 也会 **把 hash 的几个位置都算出来, 看看位数组中这几个位置是否都为 1,**
-        - **只要有一个位为 0, 那么说明布隆过滤器中这个 key 不存在.**
-        - **如果都是 1, 这并不能说明这个 key 就一定存在, 只是极有可能存在,**
-            - 因为这些位被置为 1 可能是因为其它的 key 存在所致.
-    - 如果这个位数组比较稀疏, 判断正确的概率就会很大, 如果这个位数组比较拥挤, 判断正确的概率就会降低.
-    - _具体的概率计算公式比较复杂, 感兴趣可以阅读扩展阅读, 在此不赘述_
-- **使用时不要让实际元素远大于初始化大小,**
-    - **当实际元素开始超出初始化大小时, 应该对布隆过滤器进行重建**,
-        - **重新分配一个 size 更大的过滤器, 再将所有的历史元素批量 add 进去.**
-        - ( 这要求在其它的存储器中记录所有的历史元素 )
-    - 因为 error_rate 不会因为数量超出就急剧增加, 这就给我们重建过滤器提供了较为宽松的时间.
-
-布隆过滤器的原理涉及到较为复杂的数学知识, 感兴趣可以阅读文章继续深入了解内部原理 :
-
-- 【原】布隆过滤器 (Bloom Filter) 详解 : https://www.cnblogs.com/allensun/archive/2011/02/16/1956532.html
-
-### _Estimate Space Occupation_
-
-_公式推导过程, 在此不赘述, 详情自行查询_
-
-布隆过滤器有两个参数
-
-- 预计元素的数量 n
-- 错误率 f
-
-公式根据这两个输入得到两个输出
-
-- 位数组的长度 l _( 也就是需要的存储空间大小 (bit) )_
-- hash 函数的最佳数量 k
-
-hash 函数的数量也会直接影响到错误率, 最佳的数量会有最低的错误率.
-
-```bash
-k = 0.7 * ( l / n )     # 约等于
-f = 0.6185 ^ ( l / n )  # ^ 表示次方计算, 即 math.pow
-```
-
-_从公式中可以看出_
-
-- 位数组相对越长 ( l / n )
-    - 错误率 f 越低
-    - hash 函数需要的最佳数量也越多, 影响计算效率
-- 当一个元素平均需要 1 个字节 ( 8 bit ) 的指纹空间时 ( l / n = 8 ) ,
-    - 错误率大约为 2%
-- 错误率为 10%
-    - 一个元素需要的平均指纹空间为 4.792 个 bit, 大约为 5bit
-- 错误率为 1%
-    - 一个元素需要的平均指纹空间为 9.585 个 bit, 大约为 10bit
-- 错误率为 0.1%
-    - 一个元素需要的平均指纹空间为 14.377 个 bit, 大约为 15bit
-
-如果一个元素需要占据 15 个 bit, 那相对 set 集合的空间优势是不是就没有那么明显了?
-
-- _需要明确的是, set 中会存储每个元素的内容, 而布隆过滤器仅仅存储元素的指纹._
-- 元素的内容大小就是字符串的长度, 它一般会有多个字节, 甚至是几十个上百个字节,
-    - 每个元素本身还需要一个指针被 set 集合来引用, 这个指针又会占去 4 个字节或 8 个字节, 取决于系统是 32bit 还是 64bit.
-- 而指纹空间只有接近 2 个字节, 所以布隆过滤器的空间优势还是非常明显的.
-
-有现成的网站已经支持计算空间占用的功能了, 只要把参数输进去, 就可以直接看到结果
-
-- 例如, 布隆计算器 : https://krisives.github.io/bloom-calculator
-
-### 实际元素超出时, 误判率会怎样变化
-
-当实际元素超出预计元素时, 错误率会有多大变化? _它会急剧上升么, 还是平缓地上升_
-
-这就需要另外一个公式, 引入参数 t 表示 实际元素跟预计元素的比率
-
-```bash
-# 极限近似, k 是 hash 函数的最佳数量
-f = ( 1 - 0.5 ^ t ) ^ k
-```
-
-- 当 t 增大时, 错误率 f 也会跟着增大
-- 分别选择错误率为 10%, 1%, 0.1% 的 k 值, 画出它的曲线进行直观观察
-
-![bloom-filter-fault-tolerance-rate-graph.webp](_images/bloom-filter-fault-tolerance-rate-graph.webp)
-
-- 纵轴 : 错误率
-- 横轴 : 实际元素跟预计元素的比率
-
-_从这个图中可以看出曲线还是比较陡峭的_
-
-- 错误率为 10% 时, 比率比为 2 时, 错误率就会升至接近 40%, _这个就比较危险了_
-- 错误率为 1% 时, 比率比为 2 时, 错误率升至 15%, _也挺可怕的_
-- 错误率为 0.1%, 比率比为 2 时, 错误率升至 5%, _也比较悬了_
-
-### 非 Redis 4.0 如何用上布隆过滤器?
-
-_此处暂略, 详见原文_
-
-### 布隆过滤器的其它应用
-
-在爬虫系统中, 需要对 URL 进行去重, 已经爬过的网页就可以不用爬了.
-
-- 但是 URL 太多了, 几千万几个亿, 如果用一个集合装下这些 URL 地址那是非常浪费空间的.
-- 这时候就可以考虑使用布隆过滤器.
-- 它可以大幅降低去重存储消耗, 只不过也会使得爬虫系统错过少量的页面.
-
-布隆过滤器在 NoSQL 数据库领域使用非常广泛,
-
-- 平时用到的 HBase、Cassandra 还有 LevelDB、RocksDB 内部都有布隆过滤器结构, 布隆过滤器可以显著降低数据库的 IO 请求数量.
-- **当用户来查询某个 row 时, 可以先通过内存中的布隆过滤器过滤掉大量不存在的 row 请求, 然后再去磁盘进行查询.**
-
-邮箱系统的垃圾邮件过滤功能也普遍用到了布隆过滤器,
-
-- 因为用了这个过滤器, 所以平时也会遇到某些正常的邮件被放进了垃圾邮件目录中, 这个就是误判所致, 概率很低.
-
-## Usage 6 : Simple Limiter
-
-**简单限流器**
-
-Reference
-
-- 应用 6 : 断尾求生 —— 简单限流 : https://juejin.cn/book/6844733724618129422/section/6844733724706209800
-
-场景 : 当系统的处理能力有限时, **阻止计划外的请求继续对系统施压**, _这是一个需要重视的问题._
-
-除了控制流量, 限流还有一个应用目的是用于控制用户行为, 避免垃圾请求.
-
-- _比如在 UGC 社区, 用户的发帖、回复、点赞等行为都要严格受控,_
-    - _一般要严格限定某行为在规定时间内允许的次数, 超过了次数那就是非法行为._
-- _对非法行为, 业务必须规定适当的惩处策略._
-
-### 实现简单限流策略
-
-**系统要限定用户的某个行为在指定的时间里只能允许发生 N 次,** _如何使用 Redis 的数据结构来实现这个限流的功能?_
-
-先定义这个接口
-
-```python
-# 指定用户 user_id 的某个行为 action_key 在特定的时间内 period 只允许发生一定的次数 max_count
-def is_action_allowed(user_id, action_key, period, max_count):
-    return True
-
-# 调用这个接口 , 60 秒内只允许最多回复 5 个帖子
-can_reply = is_action_allowed("icehe", "reply", 60, 5)
-if can_reply:
-    do_reply()
-else:
-    raise ActionThresholdOverflow()
-```
-
-### Solution
-
-**解决方案**
-
-限流需求中存在一个滑动时间窗口,
-
-- zset 数据结构可以使用 score 值来圈出时间窗口.
-- 而且只需要保留这个时间窗口, 窗口之外的数据都可以删掉.
-- 那么 zset 的 value 只需要保证唯一性即可
-    - _用 uuid 会比较浪费空间,_ 使用 毫秒时间戳 即可.
-
-![zset-limiter.webp](_images/zset-limiter.webp)
-
-- 用一个 zset 结构记录用户的行为历史, 每一个行为都会作为 zset 中的一个 key 保存下来.
-    - 同一个用户同一种行为用一个 zset 记录.
-- 为节省内存, 只需要保留时间窗口内的行为记录,
-    - 同时如果用户是冷用户, 滑动时间窗口内的行为是空记录, 那么这个 zset 就可以从内存中移除, 不再占用空间.
-- 通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许.
-
-### Implementation
-
-用代码表示如下 :
-
-- _( icehe : O(n) 线性的空间复杂度, 与行为数量成正比 )_
-
-```python
-# coding: utf8
-
-import time
-import redis
-
-client = redis.StrictRedis()
-
-def is_action_allowed(user_id, action_key, period, max_count):
-    key = 'hist:%s:%s' % (user_id, action_key)
-    now_ts = int(time.time() * 1000)  # 毫秒时间戳
-    with client.pipeline() as pipe:  # client 是 StrictRedis 实例
-        # 记录行为
-        pipe.zadd(key, now_ts, now_ts)  # value 和 score 都使用毫秒时间戳
-        # 移除时间窗口之前的行为记录, 剩下的都是时间窗口内的
-        pipe.zremrangebyscore(key, 0, now_ts - period * 1000)
-        # 获取窗口内的行为数量
-        pipe.zcard(key)
-        # 设置 zset 过期时间, 避免冷用户持续占用内存
-        # 过期时间应该等于时间窗口的长度, 再多宽限 1s
-        pipe.expire(key, period + 1)
-        # 批量执行
-        _, _, current_count, _ = pipe.execute()
-    # 比较数量是否超标
-    return current_count <= max_count
-
-for i in range(20):
-    print is_action_allowed("laoqian", "reply", 60, 5)
-```
-
-```java
-public class SimpleRateLimiter {
-
-  private Jedis jedis;
-
-  public SimpleRateLimiter(Jedis jedis) {
-    this.jedis = jedis;
-  }
-
-  public boolean isActionAllowed(String userId, String actionKey, int period, int maxCount) {
-    String key = String.format("hist:%s:%s", userId, actionKey);
-    long nowTs = System.currentTimeMillis();
-    Pipeline pipe = jedis.pipelined();
-    pipe.multi();
-    pipe.zadd(key, nowTs, "" + nowTs);
-    pipe.zremrangeByScore(key, 0, nowTs - period * 1000);
-    Response<Long> count = pipe.zcard(key);
-    pipe.expire(key, period + 1);
-    pipe.exec();
-    pipe.close();
-    return count.get() <= maxCount;
-  }
-
-  public static void main(String[] args) {
-    Jedis jedis = new Jedis();
-    SimpleRateLimiter limiter = new SimpleRateLimiter(jedis);
-    for(int i=0;i<20;i++) {
-      System.out.println(limiter.isActionAllowed("laoqian", "reply", 60, 5));
-    }
-  }
-}
-```
-
-## Usage 7 : Funnel Limiter
-
-**漏斗限流器**
-
-### Solution
+## general principles
+
+- 容器性数据结构, 及其通用规则
+    - list / hash / set / zset / ~~string~~
+    - create if not exists: _如果容器不存在, 就创建一个再操作_
+    - drop if no elements: _如果容器里元素没有了, 立即删除元素, 释放内存_
+- expiration
+    - 过期是以对象为单位的
+        - hash 结构的过期是整个 hash 对象的过期, 而不是其中的某个子 key
+        - 注意: 如果 string 有过期时间, 调用 set 方法修改, 会移除其过期时间
+
+## usage
+
+### distributed lock
+
+- 实现:
+    - _`setnx` ( set if not exists ) 加锁并设置超时时间, 用完了再调用 `del` 释放锁._
+    - _为 `setnx` 的 value 参数设置为一个随机数, 释放锁时先匹配随机数是否一致, 然后再删除 key._
+        - 加锁
+            ```python
+            tag = random.nextint()  # 随机数
+            if redis.set(key, tag, nx=True, ex=5):
+                do_something()
+                redis.delifequals(key, tag)  # 假想的 delifequals 指令
+            ```
+        - 解锁
+            ```lua
+            # delifequals
+            if redis.call("get",KEYS[1]) == ARGV[1] then
+                return redis.call("del",KEYS[1])
+            else
+                return 0
+            end
+            ```
+- 问题:
+    - lock timeout 锁超时
+    - reentrerability 可重入性
+- _解决: 尽可能避免, 允许偶尔人工介入_
+
+### delayed queue
+
+- asynchronous message queue
+    - 实现: list
+    - _队列空了怎么办? 忙等: 浪费 CPU, 拉高 QPS_
+        - _优化A: 拉不到数据时, sleep 一段时间; 但是延迟增大_
+        - _优化B:_ 使用阻塞读, 例如 `blpop` `brpop`
+            - _阻塞读在队列没有数据的时候, 会立即进入休眠状态, 一旦数据到来, 则立刻醒过来._
+            - _空闲连接自动断开: 注意捕获异常, 然后重试_
+    - 客户端在处理分布式锁请求时, 加锁失败怎么办? 3 种处理策略:
+        - A. 直接抛出异常, 通知用户稍后重试
+            - _比较适合由用户直接发起的请求,_
+            - _用户看到错误对话框后, 会先阅读对话框的内容, 再点击重试, 这样就可以起到人工延时的效果._
+            - _如果考虑到用户体验, 可以由前端的代码替代用户自己来进行延时重试控制._
+            - _本质上是对当前请求的放弃, 由用户决定是否重新发起新的请求._
+        - B. sleep 一会再重试
+            - _如果碰撞的比较频繁或者队列里消息比较多, sleep 可能并不合适._
+            - _如果因为个别死锁的 key 导致加锁不成功, 线程会彻底堵死, 导致后续消息永远得不到及时处理._
+        - C. 将请求转移至延时队列, 过一会再试
+            - _比较适合异步消息处理, 将当前冲突的请求扔到另一个队列延后处理以避开冲突._
+- delayed queue
+    - 实现: zset
+        - 将消息序列化成 string 作为 zset 的 value, 到期处理时间作为 score;
+        - 然后用多个线程轮询 zset 获取到期的任务进行处理;
+
+### bitmap
+
+- 实现:
+    - 普通的 string 作为 byte 数组
+- 场景:
+    - 统计月活: 因为使用 set 浪费空间
+        - 前提: userid 连续, 且活跃占比高, 否则还是浪费空间
+- _特性:_
+    - 自动拓展: _如果设置了某个偏移位置超出了现有内容范围, 就会自动将位数组进行零扩充._
+
+### HyperLogLog
+
+- _背景:_
+    - _统计 PV: 给每个网页一个独立的 Redis 计数器, 计数器的 key 后缀加上当天的日期_
+    - 统计 UV: 需要去重, 同一个用户一天之内的多次访问请求只能计数一次
+        - _要求每一个网页请求都需要带上用户的 ID, 无论是登陆用户还是未登陆用户都需要一个唯一 ID 来标识_
+- _简单方案:_
+    - _做法: 为每一个页面一个独立的 set 集合来存储所有当天访问过此页面的用户 ID_
+    - _缺点: 如果页面访问量大、页面多, 则非常浪费内存_
+    - _妥协: 老板需要的数据一般不需要太精确, 105w 和 106w 差别不大_
+- _合理方案:_
+    - 实现: HyperLogLog 提供不精确的去重计数, 标准误差为 0.81%
+    - _缺点: 数据结构的内存成本较高_
+        - _结构需要占据 12k 内存, 所以不适合统计单个用户相关的数据_
+        - _如果用户上亿, 非常浪费内存._
+    - _结构改进:_
+        - _在计数比较小时, HyperLogLog 的存储空间采用稀疏矩阵存储, 空间占用很小;_
+        - _仅仅在计数慢慢变大, 稀疏矩阵占用空间渐渐超过了阈值时才会一次性转变成稠密矩阵, 才会占用 12k 的空间._
+- _PF 是 HyperLogLog 这个数据结构的发明人 Philippe Flajolet 的首字母缩写._
+
+### bloom filter
+
+- _背景:_
+    - _比如, 使用新闻客户端看新闻时, 它会不停地推荐新的内容, 每次推荐时要去重, 去掉那些已经看过的内容._
+- _简单方案:_
+    - _做法: 服务器记录用户看过的所有历史记录, 当推荐系统推荐新闻时会从每个用户的历史记录里进行筛选, 过滤掉那些已经存在的记录_
+    - _缺点: 当用户量很大, 每个用户看过的新闻又很多的情况下, 这种方式, 推荐系统的去重工作在性能上很难跟上_
+- _改进方案?_
+    - _使用关系型DB存储历史记录? 去重需要频繁地对数据库进行 exists 查询, 当系统并发量很高时, DB 压力过大_
+    - _引入缓存? 浪费内存; 而且存储空间是随着时间线性增长, 撑不住长期的积累; 但不缓存的话, 性能又跟不上_
+- 合理方案:
+    - bloom filter 提供不精确的去重的存在判定; _在空间上还能节省 90% 以上_
+- 特性:
+    - 当 bloom filter 说某个值存在时, 这个值可能不存在; 当它说不存在时, 那就肯定不存在.
+    - _Redis 4.0 版本才开始有, 作为一个插件加载到 Redis Server 中_
+    - _在上述场景下, 可以完全保证推荐给用户的内容都是无重复的_
+- 原理:
+    - 多个不同的无偏 hash 函数 + bitmap 存储… 详情略
+        - _无偏: 能够把元素的 hash 值算得比较均匀_
+    - _注意: 不要让实际元素远大于初始化大小, 当实际元素开始超出初始化大小时, 应该对布隆过滤器进行重建_
+        - _( 这要求在其它的存储器中记录所有的历史元素 )_
+    - [bloom-filter-data-structure.webp](_images/bloom-filter-data-structure-simple-example.webp)
+- _其它场景:_
+    - _爬虫系统: 对 URL 进行去重, 已经爬过的网页就可以不用爬了_
+    - _NoSQL 数据库领域: HBase、Cassandra、LevelDB、RocksDB 使用它来显著降低数据库的 IO 请求数量_
+    - _垃圾邮件过滤: 所以平时也会遇到某些正常的邮件被放进了垃圾邮件目录中, 就是误判所致, 概率很低_
+
+### simple limiter _简单限流器_
+
+- _场景:_
+    - _当系统的处理能力有限时, 阻止计划外的请求继续对系统施压_
+    - _控制用户操作频率, 避免垃圾请求._
+        - _比如在 UGC 社区, 用户的发帖、回复、点赞等行为都要严格受控,_
+        - _一般要严格限定某行为在规定时间内允许的次数, 超过了次数那就是非法行为._
+        - _对非法行为, 业务必须规定适当的惩处策略._
+- _目标: 限定用户的某个行为在指定的时间里只能允许发生 N 次_
+- 方案:
+    - 实现: zset, 用 score 值来保存时间窗口
+        - [zset-limiter.webp](_images/zset-limiter.webp)
+    - 做法:
+        - 用一个 zset 结构记录用户的行为历史, 每一个行为都作为 zset 中的一个 key 保存下来.
+        - 同一个用户同一种行为用一个 zset 记录.
+        - 只需要保留这个时间窗口内的数据, 窗口之外的都可以删掉, 节省内存.
+        - 通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许.
+
+### funnel limiter _漏斗限流器_
 
 **解决方案**
 
