@@ -1,4 +1,4 @@
-# Redis Notes
+# Key Notes
 
 Redis: **RE**mote **DI**ctionary **S**erver
 
