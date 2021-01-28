@@ -58,17 +58,6 @@ Redis: **RE**mote **DI**ctionary **S**erver
     - 内部实现: skip-list
         - [structure.webp](_images/skiplist-simple-structure-example.webp)
 
-## general principles
-
-- 容器性数据结构, 及其通用规则
-    - list / hash / set / zset / ~~string~~
-    - create if not exists: _如果容器不存在, 就创建一个再操作_
-    - drop if no elements: _如果容器里元素没有了, 立即删除元素, 释放内存_
-- expiration
-    - 过期是以对象为单位的
-        - hash 结构的过期是整个 hash 对象的过期, 而不是其中的某个子 key
-        - 注意: 如果 string 有过期时间, 调用 set 方法修改, 会移除其过期时间
-
 ## usage
 
 ### distributed lock
@@ -172,7 +161,9 @@ Redis: **RE**mote **DI**ctionary **S**erver
     - _NoSQL 数据库领域: HBase、Cassandra、LevelDB、RocksDB 使用它来显著降低数据库的 IO 请求数量_
     - _垃圾邮件过滤: 所以平时也会遇到某些正常的邮件被放进了垃圾邮件目录中, 就是误判所致, 概率很低_
 
-### simple limiter _简单限流器_
+### simple limiter
+
+_简单限流器_
 
 - _场景:_
     - _当系统的处理能力有限时, 阻止计划外的请求继续对系统施压_
@@ -190,7 +181,9 @@ Redis: **RE**mote **DI**ctionary **S**erver
         - 只需要保留这个时间窗口内的数据, 窗口之外的都可以删掉, 节省内存.
         - 通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许.
 
-### funnel limiter _漏斗限流器_
+### funnel limiter
+
+_漏斗限流器_
 
 - _类比:_
     - _漏斗的剩余空间: 当前行为可以持续进行的数量_
@@ -320,7 +313,9 @@ Redis: **RE**mote **DI**ctionary **S**erver
         - _因为不是所有的槽位上都会挂接链表, 有些槽位可能是空的; 还有些槽位上挂接的链表上的元素可能会有多个._
     - **每一次遍历都会将 limit 数量的槽位上挂接的所有链表元素进行模式匹配过滤后, 一次性返回** 给客户端.
 
-#### traverse sequence _遍历顺序_
+#### traverse sequence
+
+_遍历顺序_
 
 - 做法:
     - 不是从第一维数组的第 0 位一直遍历到末尾, 而是采用 **高位进位加法** 来遍历.
@@ -347,220 +342,129 @@ Redis: **RE**mote **DI**ctionary **S**erver
             - 如果在旧数组 ht[0] 下面找不到元素, 还需要去新数组 ht[1] 下面去寻找.
         - _所以需要同时扫描新旧槽位, 然后将结果融合后返回给客户端._
 
-### Big Key Scan
-
-**大 key 扫描**
-
-_有时候会因为业务人员使用不当, 在 Redis 实例中会形成很大的对象,_
-
-- _比如一个很大的 hash, 一个很大的 zset 这都是经常出现的._
-
-这样的对象对 Redis 的集群数据迁移带来了很大的问题,
-
-- 因为 **在集群环境下, 如果某个 key 太大, 会数据导致迁移卡顿**.
-- 另外 **在内存分配上, 如果一个 key 太大, 那么当它需要扩容时, 会一次性申请更大的一块内存**, 这也会导致卡顿.
-- 如果这个 **大 key 被删除, 内存会一次性回收**, 卡顿现象会再一次产生.
-
-在平时的业务开发中, **要尽量避免大 key 的产生**.
-
-- 如果 **观察到 Redis 的内存大起大落, 这极有可能是因为大 key 导致的,**
-- 这时候你就需要定位出具体是那个 key, 进一步定位出具体的业务来源, 然后再改进相关业务代码设计.
-
-那如何定位大 key 呢?
-
-- 为了避免对线上 Redis 带来卡顿, 这就要用到 scan 指令,
-    - 对于扫描出来的每一个 key, 使用 type 指令获得 key 的类型,
-    - 然后使用相应数据结构的 size 或者 len 方法来得到它的大小,
-    - 对于每一种类型, 保留大小的前 N 名作为扫描结果展示出来.
-
-这样的过程需要编写脚本, 比较繁琐, 不过 Redis **官方已经在 `redis-cli` 指令中提供了 `--bigkeys` 扫描功能**.
-
-```bash
-# e.g.
-redis-cli -h 127.0.0.1 -p 7001 –-bigkeys
-
-# Local Example
-$ redis-cli --bigkeys
-
-# Scanning the entire keyspace to find biggest keys as well as
-# average sizes per key type.  You can use -i 0.1 to sleep 0.1 sec
-# per 100 SCAN commands (not usually needed).
-
-[00.00%] Biggest string found so far '"foo"' with 3 bytes
-
--------- summary -------
-
-Sampled 1 keys in the keyspace!
-Total key length in bytes is 3 (avg len 3.00)
-
-Biggest string found '"foo"' has 3 bytes
-
-1 strings with 3 bytes (100.00% of keys, avg size 3.00)
-0 lists with 0 items (00.00% of keys, avg size 0.00)
-0 hashs with 0 fields (00.00% of keys, avg size 0.00)
-0 streams with 0 entries (00.00% of keys, avg size 0.00)
-0 sets with 0 members (00.00% of keys, avg size 0.00)
-0 zsets with 0 members (00.00% of keys, avg size 0.00)
-```
-
-- 如果 **担心这个指令会大幅抬升 Redis 的 ops 导致线上报警, 还可以增加一个休眠参数.**
-
-```bash
-redis-cli -h 127.0.0.1 -p 7001 –-bigkeys -i 0.1
-```
-
-- 参数 `-i 0.1` 表示 : **每隔 100 条 scan 指令就会休眠 0.1s**
-    - 这样 ops 就不会剧烈抬升, 但是扫描的时间会变长.
-
-拓展阅读
-
-- 美团近期修复的 scan 的一个 bug : https://mp.weixin.qq.com/s/ufoLJiXE0wU4Bc7ZbE9cDQ
-
-## Principle 1 : Thread IO Model
-
-**线程 IO 模型**
-
-Reference
-
-- 原理 1 : 鞭辟入里 —— 线程 IO 模型 : https://juejin.cn/book/6844733724618129422/section/6844733724710420487
-
-**Redis 是个单线程程序**! 这点必须铭记.
-
-_( icehe : 注意从 Redis 6.0 开始, 支持多线程 IO 处理模型 )_
-
-_除了 Redis 之外, Node.js 也是单线程, Nginx 也是单线程, 但是它们都是服务器高性能的典范._
-
-Redis 单线程为什么还能这么快?
-
-- 因为它 **所有的数据都在内存中, 所有的运算都是内存级别的运算.**
-- 正因为 Redis 是单线程, 所以要小心使用 Redis 指令,
-    - 对于那些时间复杂度为 O(n) 级别的指令, 一定要谨慎使用,
-    - _一不小心就可能会导致 Redis 卡顿._
-
-Redis 单线程如何处理那么多的并发客户端连接?
-
-- 利用 **多路复用** : `select` 系列的事件轮询 API, 支持非阻塞 IO.
-
-拓展阅读
-
-- 为什么 Redis 选择单线程模型 : https://draveness.me/whys-the-design-redis-single-thread
-
-_( icehe : 看这篇文章的评论区, 看出其评价一般…… )_
-
-### Non-Blocking IO
-
-**非阻塞 IO**
-
-当调用套接字的读写方法, 默认它们是阻塞的,
-
-- 比如 **read 方法要传递进去一个参数 n, 表示最多读取这么多字节后再返回,**
-    - **如果一个字节都没有, 那么线程就会卡在那里,**
-    - **直到新的数据到来或者连接关闭了, read方法才可以返回, 线程才能继续处理.**
-- 而 **write 方法一般来说不会阻塞,**
-    - **除非内核为套接字分配的写缓冲区已经满了, write方法就会阻塞,**
-    - **直到缓存区中有空闲空间挪出来了.**
-
-![io-model.webp](_images/io-model.webp)
-
-非阻塞 IO 在套接字对象上提供了一个选项 `Non_Blocking`,
-
-- 当选项 `Non_Blocking` 打开时, 读写方法不会阻塞, 而是能读多少读多少, 能写多少写多少.
-    - 能读多少 取决于 : 内核为套接字分配的 **读缓冲区** 内部的数据字节数,
-    - 能写多少 取决于 : 内核为套接字分配的 **写缓冲区** 的空闲空间字节数.
-- 读方法和写方法都会通过返回值来告知程序实际读写了多少字节.
-    - 有了非阻塞 IO 意味着线程在读写 IO 时可以不必再阻塞了,
-    - 读写可以瞬间完成然后线程可以继续干别的事了.
-
-### Event Polling ( Multiplexing )
-
-**事件轮询 ( 多路复用 )**
-
-_非阻塞 IO 有个问题, 那就是线程要读数据, 结果读了一部分就返回了, 线程如何知道何时才应该继续读._
-
-- _也就是当数据到来时, 线程如何得到通知._
-- _写也是一样, 如果缓冲区满了, 写不完, 剩下的数据何时才应该继续写, 线程也应该得到通知._
-
-![event-loop.webp](_images/event-loop.webp)
-
-事件轮询 API 就是用来解决这个问题的,
-
-**最简单的事件轮询 API 是 `select` 函数**, 它是操作系统提供给用户程序的 API.
-
-- 输入 : 读写描述符列表 **read_fds & write_fds**,
-- 输出 : 与之对应的可读可写事件.
-- 参数 :
-    - timeout : 如果没有任何事件到来, 那么就最多等待 timeout 时间, 线程处于阻塞状态.
-        - 一旦期间有任何事件到来, 就可以立即返回.
-        - 时间过了之后还是没有任何事件到来, 也会立即返回.
-
-拿到事件后, 线程就可以继续挨个处理相应的事件.
-
-- 处理完了继续过来轮询, 于是线程就进入了一个死循环,
-- 把这个死循环称为 **事件循环**, 一个循环为一个周期.
-
-每个客户端套接字 socket 都有对应的读写文件描述符.
-
-```python
-read_events, write_events = select(read_fds, write_fds, timeout)
-for event in read_events:
-    handle_read(event.fd)
-for event in write_events:
-    handle_write(event.fd)
-handle_others() # 处理其它事情, 如定时任务等
-```
-
-因为 **通过 `select` 系统调用同时处理多个通道描述符的读写事件**, 所以将这类系统调用称为 **多路复用 API**.
-
-- 现代操作系统的多路复用 API 已经不再使用 `select` 系统调用, 而改用 **`epoll`** _( on Linux )_ & **`kqueue`** _( on FreeBSD & macOS )_
-    - 因为 **`select` 系统调用的性能在描述符特别多时性能会非常差.**
-    - 它们使用起来可能在形式上略有差异, 但是本质上都是差不多的, 都可以使用上面的伪代码逻辑进行理解.
-
-_服务器套接字 `serversocket` 对象的读操作是指调用 `accept` 接受客户端新连接. 何时有新连接到来, 也是通过 `select` 系统调用的读事件来得到通知的._
-
-**事件轮询 API 就是 Java 语言里面的 NIO 技术.**
-
-_Java 的 NIO 并不是 Java 特有的技术, 其它计算机语言都有这个技术, 只不过换了一个词汇, 不叫 NIO 而已._
-
-### Others
-
-#### 指令队列
-
-- Redis 会 **将每个客户端套接字都关联一个指令队列.**
-- 客户端的 **指令通过队列来排队进行顺序处理, 先到先服务.**
-
-#### 响应队列
-
-- Redis 同样也会 **为每个客户端套接字关联一个响应队列.**
-- Redis 服务器 **通过响应队列来将指令的返回结果回复给客户端.**
-    - 如果队列为空, 那么意味着连接暂时处于空闲状态, 不需要去获取写事件,
-        - 也就是可以将当前的客户端描述符从 write_fds 里面移出来.
-    - 等到队列有数据了, 再将描述符放进去.
-        - 避免 `select` 系统调用立即返回写事件, 结果发现没什么数据可以写.
-        - 出这种情况的线程会飙高 CPU.
-
-#### 定时任务
-
-_服务器处理要响应 IO 事件外, 还要处理其它事情. 比如 **定时任务** 就是非常重要的一件事._
-
-_如果线程阻塞在 `select` 系统调用上, 定时任务将无法得到准时调度. 那 Redis 是如何解决这个问题的呢?_
-
-Redis 的 **定时任务会记录在一个称为最小堆的数据结构中.**
-
-- 这个堆中, **最快要执行的任务排在堆的最上方.**
-- **在每个循环周期, Redis 都会将最小堆里面已经到点的任务立即进行处理.**
-- **处理完毕后, 将最快要执行的任务还需要的时间记录下来, 这个时间就是 `select` 系统调用的 timeout 参数.**
-    - 因为 Redis 知道未来 timeout 时间内, 没有其它定时任务需要处理, 所以可以安心睡眠 timeout 的时间.
-
-Nginx 和 Node 的事件处理原理跟 Redis 也是类似的
-
-## Principle 2 : Communication Protocol
-
-**通信协议**
-
-References
-
-- 原理 2 : 交头接耳 —— 通信协议 : https://juejin.cn/book/6844733724618129422/section/6844733724714598413
-- Redis Protocol specification : https://redis.io/topics/protocol
+#### bigkeys
+
+- 场景:
+    - _有时候会因为业务人员使用不当, 在 Redis 实例中会形成很大的对象,_
+        - _比如一个很大的 hash, 一个很大的 zset 这都是经常出现的._
+        - 因为在集群环境下, 如果某个 key 太大, 会导致数据迁移卡顿.
+        - 另外在内存分配上, 如果 key 太大, 当它需要扩容时, 会一次性申请更大的一块内存, 也会卡顿.
+        - 如果这个大 key 被删除, 内存会一次性回收, 会再一次卡顿.
+- 建议: 尽量避免大 key 的产生.
+    - 如果观察到 Redis 的内存大起大落, 这极有可能是因为大 key 导致的;
+    - 需要定位出具体是那个 key, 进一步定位出具体的业务来源, 然后再改进相关业务代码设计.
+- _问题: 如何定位大 key?_
+    - _为了避免对线上 Redis 带来卡顿, 这就要用到 scan 指令,_
+    - _对于扫描出来的每一个 key, 使用 type 指令获得 key 的类型,_
+    - _然后使用相应数据结构的 size 或者 len 方法来得到它的大小,_
+    - _对于每一种类型, 保留大小的前 N 名作为扫描结果展示出来._
+    - _这样的过程需要编写脚本, 比较繁琐,_
+- 解决:
+    - `redis-cli` 指令中提供了 `--bigkeys` 扫描功能.
+        - _`redis-cli -h 127.0.0.1 -p 7001 –-bigkeys`_
+    - _担心这个指令会大幅抬升 Redis 的 ops 导致线上报警, 可以使用休眠参数._
+        - _`redis-cli -h 127.0.0.1 -p 7001 –-bigkeys -i 0.1`_
+        - _这样 ops 就不会剧烈抬升, 但是扫描的时间会变长._
+    - 拓展阅读: [美团近期修复的 scan 的一个 bug](https://mp.weixin.qq.com/s/ufoLJiXE0wU4Bc7ZbE9cDQ)
+
+## principles
+
+### general
+
+- 容器性数据结构, 及其通用规则
+    - list / hash / set / zset / ~~string~~
+    - create if not exists: _如果容器不存在, 就创建一个再操作_
+    - drop if no elements: _如果容器里元素没有了, 立即删除元素, 释放内存_
+- expiration
+    - 过期是以对象为单位的
+        - hash 结构的过期是整个 hash 对象的过期, 而不是其中的某个子 key
+        - 注意: 如果 string 有过期时间, 调用 set 方法修改, 会移除其过期时间
+
+### thread io model
+
+_线程 IO 模型_
+
+- Redis 是个单线程程序, 但从 Redis 6.0 开始, 支持多线程 IO 处理模型
+    - _注意: 对于那些时间复杂度为 O(n) 级别的指令, 小心导致 Redis 卡顿._
+- 如何处理许多并发客户端的连接?
+    - 多路复用: `select` 系列的事件轮询 API, 支持非阻塞 IO.
+- 拓展阅读: [为什么 Redis 选择单线程模型 - draveness.me](https://draveness.me/whys-the-design-redis-single-thread)
+
+#### non-blocking io
+
+- 当调用套接字的读写方法, 默认是阻塞的,
+    - read 方法要传递进去一个参数 n, 表示最多读取这么多字节后再返回,
+        - 如果一个字节都没有, 那么线程就会卡在那里,
+        - 直到新的数据到来或者连接关闭了, read方法才可以返回, 线程才能继续处理.
+    - 而 write 方法一般来说不会阻塞,
+        - 除非内核为套接字分配的写缓冲区已经满了, write方法就会阻塞,
+        - 直到缓存区中有空闲空间挪出来了.
+    - [io-model.webp](_images/io-model.webp)
+- 非阻塞 IO 在套接字对象上提供了一个选项 `Non_Blocking`,
+    - 当选项 `Non_Blocking` 打开时, 读写方法不会阻塞, 而是能读多少读多少, 能写多少写多少.
+        - 能读多少 取决于 : 内核为套接字分配的 **读缓冲区** 内部的数据字节数,
+        - 能写多少 取决于 : 内核为套接字分配的 **写缓冲区** 的空闲空间字节数.
+    - 读方法和写方法都会通过返回值来告知程序实际读写了多少字节.
+        - 有了非阻塞 IO 意味着线程在读写 IO 时可以不必再阻塞了,
+        - 读写可以瞬间完成然后线程可以继续干别的事了.
+
+#### event polling
+
+_( multiplexing 多路复用 )_
+
+- _非阻塞 IO 的问题: 线程要读数据, 结果读了一部分就返回了, 线程如何知道何时才应该继续读?_
+    - _也就是当数据到来时, 线程如何得到通知._
+    - _写也是一样, 如果缓冲区满了, 写不完, 剩下的数据何时才应该继续写, 线程也应该得到通知._
+    - [event-loop.webp](_images/event-loop.webp)
+- 初始方案:
+    - 最简单的事件轮询 API 是操作系统提供给用户程序的 `select` 函数.
+        - _输入 : 读写描述符列表 **read_fds & write_fds**,_
+        - _输出 : 与之对应的可读可写事件._
+        - 参数 :
+            - timeout : 如果没有任何事件到来, 那么就最多等待 timeout 时间, 线程处于阻塞状态.
+                - _一旦期间有任何事件到来, 就可以立即返回._
+                - _时间过了之后还是没有任何事件到来, 也会立即返回._
+        - 拿到事件后, 线程就可以继续挨个处理相应的事件.
+            - 处理完了继续过来轮询, 于是线程就进入了一个死循环,
+            - 把这个死循环称为 **事件循环**, 一个循环为一个周期.
+    - _每个客户端套接字 socket 都有对应的读写文件描述符._
+        ```python
+        read_events, write_events = select(read_fds, write_fds, timeout)
+        for event in read_events:
+            handle_read(event.fd)
+        for event in write_events:
+            handle_write(event.fd)
+        handle_others() # 处理其它事情, 如定时任务等
+        ```
+    - _因为通过 `select` 系统调用同时处理多个通道描述符的读写事件, 所以将这类系统调用称为多路复用 API._
+- 进阶方案:
+    - 现代 OS 的多路复用 API 改用 **`epoll`** _( Linux )_ & **`kqueue`** _( FreeBSD & macOS )_
+        - _因为 `select` 系统调用的性能在描述符特别多时性能会非常差._
+    - _事件轮询 API 就是 Java 语言里面的 NIO 技术._
+        - _Java 的 NIO 并不是 Java 特有的技术, 其它计算机语言都有这个技术, 只不过换了一个词汇, 不叫 NIO 而已._
+- 指令队列:
+    - _Redis 将每个客户端套接字都关联一个指令队列._
+    - _客户端的指令通过队列来排队进行顺序处理, 先到先服务._
+- 响应队列:
+    - _为每个客户端套接字关联一个响应队列._
+    - _服务器通过响应队列来将指令的返回结果回复给客户端._
+        - _如果队列为空, 那么意味着连接暂时处于空闲状态, 不需要去获取写事件,_
+            - _也就是可以将当前的客户端描述符从 write_fds 里面移出来._
+        - _等到队列有数据了, 再将描述符放进去._
+            - _避免 `select` 系统调用立即返回写事件, 结果发现没什么数据可以写._
+            - _出这种情况的线程会飙高 CPU._
+- 定时任务:
+    - _服务器处理要响应 IO 事件外, 还要处理其它事情._
+    - _如果线程阻塞在 `select` 系统调用上, 定时任务将无法得到准时调度. Redis 如何解决?_
+        - 定时任务会记录在一个称为最小堆的数据结构中.
+        - _在每个循环周期, Redis 都会将最小堆里面已经到点的任务立即进行处理._
+        - _处理完毕后, 将最快要执行的任务还需要的时间记录下来, 这个时间就是 `select` 系统调用的 timeout 参数._
+        - _因为 Redis 知道未来 timeout 时间内, 没有其它定时任务需要处理, 所以可以安心睡眠 timeout 的时间._
+    - _Nginx 和 Node 的事件处理原理跟 Redis 也是类似的_
+
+### communication protocol
+
+- [Redis Protocol specification](https://redis.io/topics/protocol)
 
 Redis 的作者认为数据库系统的瓶颈一般不在于网络流量, 而是数据库自身内部逻辑处理上.
 
