@@ -81,7 +81,7 @@ Storage
     - for search and analysis
 - MySQL: [Usage](/snips/mysql/usage.md)
     - robust SQL database server
-- Redis: [Basics](/snips/redis/basics.md)  / [Notes](/snips/redis/notes.md)
+- Redis: [Basics](/snips/redis/basics.md)  / [Notes](/snips/redis/notes.md) / [Mind Map](/snips/redis/mind-map.md)
     - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
     <!-- usage: https://redis.io/commands -->
