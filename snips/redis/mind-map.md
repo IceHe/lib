@@ -464,273 +464,58 @@ _( multiplexing 多路复用 )_
 
 ### communication protocol
 
-- [Redis Protocol specification](https://redis.io/topics/protocol)
-
-Redis 的作者认为数据库系统的瓶颈一般不在于网络流量, 而是数据库自身内部逻辑处理上.
-
-- 所以即使 Redis 使用了浪费流量的文本协议, 依然可以取得极高的访问性能.
-- Redis 将所有数据都放在内存, 用一个单线程对外提供服务, 单个节点在跑满一个 CPU 核心的情况下可以达到了 10w/s 的超高 QPS.
-
-### RESP
-
-**RESP - Redis Serialization Protocol**
-
-_RESP 是 Redis 序列化协议的简写. 它是一种直观的文本协议, 优势在于实现异常简单, 解析性能极好._
-
-Redis 协议将传输的结构数据分为 5 种最小单元类型, **单元结束时统一加上回车换行符号 `\r\n`**.
-
-- 1\. **单行字符串 以 `+` 符号开头.**
-- 2\. **多行字符串 以 `$` 符号开头, 后跟字符串长度.**
-- 3\. **整数值 以 `:` 符号开头, 后跟整数的字符串形式.**
-- 4\. **错误消息 以 `-` 符号开头.**
-- 5\. **数组 以 `*` 号开头, 后跟数组的长度.**
-
-单号字符串
-
-```bash
-+hello world\r\n
-```
-
-多行字符串
-
-```bash
-$11\r\nhello world\r\n
-```
-
-整数
-
-```bash
-:1024\r\n
-```
-
-错误 _( 参数类型错误 )_
-
-```bash
--WRONGTYPE Operation against a key holding the wrong kind of value\r\n
-```
-
-数组
-
-```bash
-*3\r\n:1\r\n:2\r\n:3\r\n
-```
-
-NULL
-
-- 用多行字符串表示, 不过长度要写成 -1.
-
-```bash
-$-1\r\n
-```
-
-空字符串
-
-- 用多行字符串表示, 长度填 0.
-
-```bash
-$0\r\n\r\n
-```
-
-- 注意这里有两个 `\r\n`
-    - 为什么是两个? 因为两个 `\r\n` 之间, 隔的是空串.
-
-### Client -> Server
-
-**客户端 -> 服务器**
-
-**客户端向服务器发送的指令** 只有一种 **格式**, **多行字符串数组**.
-
-- 比如一个简单的 `set` 指令 `set author codehole` 会被序列化成下面的字符串.
-
-```bash
-*3\r\n$3\r\nset\r\n$6\r\nauthor\r\n$8\r\ncodehole\r\n
-```
-
-在控制台输出这个字符串如下
-
-```bash
-*3
-$3
-set
-$6
-author
-$8
-codehole
-```
-
-### Server -> Client
-
-**服务器 -> 客户端**
-
-- 服务器向客户端回复的响应要支持多种数据结构, 所以消息响应在结构上要复杂不少.
-- 不过再复杂的响应消息也是以上 5 中基本类型的组合.
-
-#### 单行字符串响应
-
-```bash
-127.0.0.1:6379> set author codehole
-OK
-```
-
-- 这里的 OK 就是单行响应, 没有使用引号括起来.
-
-```bash
-+OK
-
-```
-
-#### 错误响应
-
-```bash
-127.0.0.1:6379> incr author
-(error) ERR value is not an integer or out of range
-```
-
-- 试图对一个字符串进行自增, 服务器抛出一个通用的错误.
-
-```bash
--ERR value is not an integer or out of range
-
-```
-
-#### 整数响应
-
-```bash
-127.0.0.1:6379> incr books
-(integer) 1
-```
-
-- 这里的 1 就是整数响应
-
-```bash
-:1
-
-```
-
-#### 多行字符串响应
-
-```bash
-127.0.0.1:6379> get author
-"codehole"
-```
-
-- 这里使用双引号括起来的字符串就是多行字符串响应
-
-```bash
-$8
-codehole
-
-```
-
-#### 数组响应
-
-```bash
-127.0.0.1:6379> hset info name laoqian
-(integer) 1
-127.0.0.1:6379> hset info age 30
-(integer) 1
-127.0.0.1:6379> hset info sex male
-(integer) 1
-127.0.0.1:6379> hgetall info
-1) "name"
-2) "laoqian"
-3) "age"
-4) "30"
-5) "sex"
-6) "male"
-```
-
-- 这里的 `hgetall` 命令返回的就是一个数组,
-    - 第 0|2|4 位置的字符串是 hash 表的 key,
-    - 第 1|3|5 位置的字符串是 value,
-    - 客户端负责将数组组装成字典再返回.
-
-```bash
-*6
-$4
-name
-$6
-laoqian
-$3
-age
-$2
-30
-$3
-sex
-$4
-male
-
-```
-
-#### 嵌套
-
-```bash
-127.0.0.1:6379> scan 0
-1) "0"
-2) 1) "info"
-   2) "books"
-   3) "author"
-```
-
-- scan 命令用来扫描服务器包含的所有 key 列表, 它是以游标的形式获取, 一次只获取一部分.
-- scan 命令返回的是一个嵌套数组.
-    - 数组的第一个值表示游标的值, 如果这个值为零, 说明已经遍历完毕.
-    - 如果不为零, 使用这个值作为 scan 命令的参数进行下一次遍历.
-    - 数组的第二个值又是一个数组, 这个数组就是 key 列表.
-
-```bash
-*2
-$1
-0
-*3
-$4
-info
-$5
-books
-$6
-author
-```
-
-- Redis 协议里有大量冗余的回车换行符, 但是这不影响它成为互联网技术领域非常受欢迎的一个文本协议.
-- 有很多开源项目使用 RESP 作为它的通讯协议.
-- 在技术领域性能并不总是一切, 还有简单性、易理解性和易实现性, 这些都需要进行适当权衡.
-
-## Principle 3 : Persistency
-
-**持久化**
-
-Reference
-
-- 原理 3 : 未雨绸缪 —— 持久化 : https://juejin.cn/book/6844733724618129422/section/6844733724714614797
-
-_Redis 的数据全部在内存里,_
-
-- _如果突然宕机, 数据就会全部丢失,_
-- _因此必须有一种机制来保证 Redis 的数据不会因为故障而丢失,_
-
-_这种机制就是 Redis 的持久化机制._
-
-Redis 的持久化机制有两种,
-
-- 1\. 快照 ( snapshot )
-    - 一次 **全量备份**.
-    - **内存数据的二进制序列化形式, 在存储上非常紧凑**.
-- 2\. AOF 日志
-    - 连续的 **增量备份**.
-    - 记录的是 **内存数据修改的指令记录文本**.
-    - AOF 日志在长期的运行过程中会变的无比庞大,
-        - **数据库重启时需要加载 AOF 日志进行指令重放**, 这个时间就会无比漫长.
-        - 所以 **需要定期进行 AOF 重写, 给 AOF 日志进行瘦身.**
-
-![rdb-n-aof.webp](_images/rdb-n-aof.webp)
-
-### Snapshot Principle
-
-**快照原理**
-
-_Redis 是单线程程序, 这个线程要同时负责多个客户端套接字的并发读写操作和内存数据结构的逻辑读写._
-
-在服务线上请求的同时, Redis 还需要进行内存快照, 内存快照要求 Redis 必须进行文件 IO 操作, 可文件 IO 操作是不能使用多路复用 API.
+- RESP: Redis Serialization Protocol ( [Redis Protocol specification](https://redis.io/topics/protocol) )
+    - _直观, 优势在于实现异常简单, 解析性能极好._
+    - _Redis 的作者认为数据库系统的瓶颈一般不在于网络流量, 而是数据库自身内部逻辑处理上._
+    - _所以即使 Redis 使用了浪费流量的文本协议, 依然可以取得极高的访问性能._
+    - _将所有数据都放在内存, 用一个单线程对外提供服务, 单个节点在跑满一个 CPU 核心的情况下可以达到了 10w/s 的超高 QPS._
+- 传输结构
+    - 单元结束时统一加上回车换行符号 `\r\n`
+    - 5 种最小单元类型:
+        1. 1 string: `+OK\r\n`
+        1. N strings: `$3\r\nfoo\r\n` ( `$` 开头, 后跟 string len )
+        1. int: `:1024\r\n`
+        1. error : `-Error message\r\n`
+        1. array: `*2\r\n:1\r\n$3\r\nfoo\r\n` ( `*` 开头, 后跟 array len )
+            ```bash
+            *2
+            :1
+            $3
+            foo
+
+            ```
+    - 特殊类型:
+        - NULL: `$-1\r\n`
+        - empty string: `$0\r\n\r\n` ( 注意: 有两个 `\r\n` 是为了分隔空串 )
+- _客户端向服务器发送的指令格式: 多行字符串数组_
+    - _例如指令 `set author icehe` 会被序列化成:_
+        _`*3\r\n$3\r\nset\r\n$6\r\nauthor\r\n$5\r\nicehe\r\n`_
+        ```bash
+        *3
+        $3
+        set
+        $6
+        author
+        $5
+        icehe
+        ```
+- _服务器向客户端回复的响应要支持多种数据结构: 略_
+
+### persistency
+
+- 持久化机制
+    1. snapshot 快照:
+        - 全量备份
+        - 格式: 二进制序列化形式, 紧凑
+    1. AOF 日志:
+        - 增量备份
+        - 格式: 指令文本
+        - 问题: 在长期的运行过程中会变的无比庞大, 重启时需要加载 AOF 日志进行指令重放, 时间漫长
+        - 解决: 需要定期进行 AOF 重写, 给 AOF 日志进行瘦身
+
+#### snapshot
+
+- 在服务线上请求的同时, Redis 还需要进行内存快照, 内存快照要求 Redis 必须进行文件 IO 操作, 可文件 IO 操作是不能使用多路复用 API.
 
 这意味着单线程同时在服务线上的请求还要进行文件 IO 操作, 文件 IO 操作会严重拖垮服务器请求的性能.
 
