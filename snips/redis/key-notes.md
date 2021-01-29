@@ -604,238 +604,57 @@ _( multiplexing 多路复用 )_
 
 ### pipeline
 
-_有人一直以来对 Redis 管道有一个误解, 他们以为这是 Redis 服务器提供的一种特别的技术, 有了这种技术就可以加速 Redis 的存取效率._
-
-_但是实际上_ Redis **管道 ( Pipeline ) 本身并不是 Redis 服务器直接提供的技术, 这个技术本质上是由客户端提供的**, 跟服务器没有什么直接的关系.
-
-### Redis 的消息交互
-
-_当使用客户端对 Redis 进行一次操作时, 客户端将请求传送给服务器, 服务器处理完毕后, 再将响应回复给客户端. 这要花费一个网络数据包来回的时间._
-
-_如果连续执行多条指令, 那就会花费多个网络数据包来回的时间._
-
-![client-requests-server-responses.webp](_images/client-requests-server-responses.webp)
-
-_此处不赘述, 详见原文_
-
-……
-
-_优化后 : 两个连续的写操作和两个连续的读操作总共只会花费一次网络来回, 就好比连续的 write 操作合并了, 连续的 read 操作也合并了一样._
-
-![client-requests-server-responses-in-pipeline.webp](_images/client-requests-server-responses-in-pipeline.webp)
-
-_以上便是管道操作的本质_
-
-- _服务器根本没有任何区别对待, 还是收到一条消息, 执行一条消息, 回复一条消息的正常的流程._
-- _客户端通过对管道中的指令列表改变读写顺序就可以大幅节省 IO 时间._
-- _管道中指令越多, 效果越好._
-
-### Pipeline Benchmark
-
-**管道压力测试**
-
-_此处不赘述, 详见原文_
-
-### 深入理解管道本质
-
-_此处不赘述, 详见原文 ( 这段好像没抓住重点 )_
-
-_( icehe : 简单来说, 就是将多次网络请求合并为一次网络请求, 节省多次网络往返的时延 )_
-
-## Principle 5 : Transaction
-
-**事务**
-
-_为了确保连续多个操作的原子性, 一个成熟的数据库通常都会有事务支持, Redis 也不例外. Redis 的事务使用非常简单, 不同于关系数据库, 无须理解那么多复杂的事务模型, 就可以直接使用._ 不过也正是因为这种简单性, **它的事务模型很不严格**, 这要求 **不能像使用关系数据库的事务一样来使用 Redis**.
-
-### Basic Usage
-
-每个事务的操作 :
-
-- `begin` 事务的开始
-- `commit` 事务的提交
-- `rollback` 事务的回滚
-
-它大致的形式如下 :
-
-```java
-begin();
-try {
-    command1();
-    command2();
-    ....
-    commit();
-} catch(Exception e) {
-    rollback();
-}
-```
-
-Redis 在形式上看起来也差不多, 分别是
-
-- **multi 事务的开始**
-- **exec 事务的执行**
-- **discard 事务的丢弃**
-
-```bash
-> multi
-OK
-> incr books
-QUEUED
-> incr books
-QUEUED
-> exec
-(integer) 1
-(integer) 2
-```
-
-上面的指令演示了一个完整的事务过程,
-
-- 所有的指令在 exec 之前不执行, 而是缓存在服务器的一个事务队列中,
-- 服务器一旦收到 exec 指令, 才开执行整个事务队列,
-- 执行完毕后一次性返回所有指令的运行结果.
-
-**因为 Redis 的单线程特性**, 它不用担心自己在执行队列的时候被其它指令打搅, **可以保证能得到的「原子性」执行**.
-
-![redis-transaction.webp](_images/redis-transaction.webp)
-
-- _QUEUED 是一个简单字符串, 同 OK 是一个形式, 它表示指令已经被服务器缓存到队列里了._
-
-### Atomicity
-
-**原子性**
-
-**事务的原子性是指要么事务全部成功, 要么全部失败**, _那么 Redis 事务执行是原子性的么?_
-
-```bash
-> multi
-OK
-> set books iamastring
-QUEUED
-> incr books
-QUEUED
-> set poorman iamdesperate
-QUEUED
-> exec
-1) OK
-2) (error) ERR value is not an integer or out of range
-3) OK
-> get books
-"iamastring"
->  get poorman
-"iamdesperate
-```
-
-_上面的例子是事务执行到中间遇到失败了, 因为我们不能对一个字符串进行数学运算; 事务在遇到指令执行失败后, 后面的指令还继续执行, 所以 poorman 的值能继续得到设置._
-
-所以, **Redis 的事务根本不能算「原子性」, 而仅仅是满足了事务的「隔离性」, 隔离性中的串行化** —— 当前执行的事务有着不被其它事务打断的权利.
-
-_( icehe : 啊这… 这也不算真正的 "隔离性" 吧? 真正的隔离指的是, 一个的事务看不到另一个事务中还没的数据; 当然对于单个 Redis 实例, 一个事务是串行执行得, 所以两个事务就天然隔离了… )_
-
-### Discard
-
-**丢弃**
-
-**`discard` 指令 : 在 exec 执行之前, 丢弃事务缓存队列中的所有指令.**
-
-```bash
-> get books
-(nil)
-> multi
-OK
-> incr books
-QUEUED
-> incr books
-QUEUED
-> discard
-OK
-> get books
-(nil)
-```
-
-### _优化_
-
-_上面的 Redis 事务在发送每个指令到事务缓存队列时都要经过一次网络读写, 当一个事务内部的指令较多时, 需要的网络 IO 时间也会线性增长._
-
-_所以通常 Redis 的客户端在执行事务时都会结合 pipeline 一起使用, 这样可以将多次 IO 操作压缩为单次 IO 操作._
-
-_比如, 有的公司在使用 Python 的 Redis 客户端时执行事务时是要强制使用 pipeline 的._
-
-### Watch
-
-考虑到一个业务场景,
-
-- Redis 存储了我们的账户余额数据, 它是一个整数.
-- 现在有两个并发的客户端要对账户余额进行修改操作,
-    - 这个修改不是一个简单的 incrby 指令, 而是要对余额乘以一个倍数.
-
-Redis 可没有提供 `multiplyby` 这样的指令. 需要先取出余额然后在内存里乘以倍数, 再将结果写回 Redis. 这就会出现并发问题, 因为有多个客户端会并发进行操作.
-
-**可以通过 Redis 的分布式锁来避免冲突**.
-
-**分布式锁是一种悲观锁, 可以考虑使用乐观锁的方式来解决冲突.**
-
-Redis 提供了这种 **`watch` 的机制, 就是一种乐观锁**. 使用方式如下 :
-
-```python
-while True:
-    do_watch()
-    commands()
-    multi()
-    send_commands()
-    try:
-        exec()
-        break
-    except WatchError:
-        continue
-```
-
-- **`watch` 会在事务开始之前盯住 1 个或多个关键变量,**
-- **当事务执行时, 也就是服务器收到了 `exec` 指令要顺序执行缓存的事务队列时, Redis 会检查关键变量自 watch 之后, 是否被修改了 ( 包括当前事务所在的客户端 )**.
-- **如果关键变量被人动过了, exec 指令就会返回 null 回复告知客户端事务执行失败,**
-    - 这个时候客户端一般会选择重试.
-
-```bash
-> watch books
-OK
-> incr books  # 被修改了
-(integer) 1
-> multi
-OK
-> incr books
-QUEUED
-> exec  # 事务执行失败
-(nil)
-```
-
-_当服务器给 `exec` 指令返回一个 null 回复时, 客户端知道了事务执行是失败的, 通常客户端 (redis-py) 都会抛出一个 WatchError 这种错误, 不过也有些语言 (jedis) 不会抛出异常, 而是通过在 exec 方法里返回一个 null, 这样客户端需要检查一下返回结果是否为 null 来确定事务是否执行失败._
-
-注意事项 :
-
-- Redis 禁止在 `multi` 和 `exec` 之间执行 `watch` 指令,
-    - 而必须在 `multi` 之前做好盯住关键变量, 否则会出错.
-
-_以上场景的 Python 样例代码在此不赘述, 详情见原文_
-
-## Principle 6 : PubSub
-
-**发布/订阅**
-
-Reference
-
-- 原理 6 : 小道消息 —— PubSub : https://juejin.cn/book/6844733724618129422/section/6844733724718972936
-
-可以用 Redis 实现简单的消息队列, 但是这样的消息队列 **不支持消息的多播机制**.
-
-![redis-as-message-queue.webp](_images/redis-as-message-queue.webp)
-
-### Message Multicast
-
-**消息多播**
-
-- 消息多播允许生产者生产一次消息, 中间件负责将消息复制到多个消息队列, 每个消息队列由相应的消费组进行消费.
-- 它是分布式系统常用的一种解耦方式, 用于将多个消费组的逻辑进行拆分.
+- _误解:_
+    - _Redis 管道 ( Pipeline ) 本身并不是由服务器直接提供的技术, **本质上是由客户端提供的**, 跟服务器没有什么直接的关系._
+- 本质:
+    - _服务器没有任何区别对待, 还是收到一条消息, 执行一条消息, 回复一条消息的正常的流程._
+    - _客户端通过对管道中的指令列表改变读写顺序就可以大幅节省 IO 时间._
+    - 简单来说, 就是 **将多次网络请求合并为一次网络请求, 节省多次网络往返的时延.**
+    - [client-requests-server-responses.webp](_images/client-requests-server-responses.webp)
+    - [client-requests-server-responses-in-pipeline.webp](_images/client-requests-server-responses-in-pipeline.webp)
+
+### transaction
+
+- 缺点!
+    - Redis 的事务模型很不严格, 不能像使用关系数据库的事务一样来使用
+- _DB 每个事务的操作:_
+    - _`begin` 事务的开始_
+    - _`commit` 事务的提交_
+    - _`rollback` 事务的回滚_
+- Redis 在形式上看起来差不多:
+    - `watch` 在事务开始之前盯住 1 个或多个关键变量
+        - 当 `exec` 执行时, 检查关键变量自 `watch` 以来是否被修改
+            ( 包括当前事务所在的客户端 ) .
+        - 如果关键变量被修改了, `exec` 指令返回 null 告知客户端事务执行失败
+            ( 这时客户端一般会选择重试 ) .
+    - `multi` 事务的开始
+    - `exec` 事务的执行
+    - `discard` 事务的丢弃: 在 `exec` 执行之前, 丢弃事务缓存队列中的所有指令.
+- _示例:_
+    ```bash
+    > multi
+    OK
+    > incr books
+    QUEUED
+    > incr books
+    QUEUED
+    > exec
+    (integer) 1
+    (integer) 2
+    ```
+- [redis-transaction.webp](_images/redis-transaction.webp)
+
+### pubsub
+
+- 背景:
+    - 可以用 Redis 的 list 或 zset 实现简单的消息队列,
+    - 但是这样不支持消息的多播机制.
+    - [redis-as-message-queue.webp](_images/redis-as-message-queue.webp)
+- message multicast _消息多播_
+    - 消息多播允许生产者生产一次消息, 中间件负责将消息复制到多个消息队列, 每个消息队列由相应的消费组进行消费.
+    - 它是分布式系统常用的一种解耦方式, 用于将多个消费组的逻辑进行拆分.
     - 支持了消息多播, 多个消费组的逻辑就可以放到不同的子系统中.
-- 如果是普通的消息队列, 就得将多个不同的消费组逻辑串接起来放在一个子系统中, 进行连续消费.
+    - 如果是普通的消息队列, 就得将多个不同的消费组逻辑串接起来放在一个子系统中, 进行连续消费.
 
 ### PubSub
 
