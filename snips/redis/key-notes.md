@@ -1301,50 +1301,6 @@ _Redis 4.0 为这些删除点也带来了异步删除机制, 打开这些点需�
 - `lazyfree-lazy-expire key` : 过期删除
 - `lazyfree-lazy-server-del` : `rename` 指令删除 `destKey`
 
-## Expansion 7 : How to Use Jedis
-
-Reference
-
-- 拓展 7 : 妙手仁心 —— 优雅地使用 Jedis : https://juejin.cn/book/6844733724618129422/section/6844733724731392013
-
-### TODO
-
-## Expansion 8 : Protect Redis
-
-**保护 Redis**
-
-Reference
-
-- 拓展 8 : 居安思危 —— 保护 Redis : https://juejin.cn/book/6844733724618129422/section/6844733724735569928
-
-### TODO
-
-## Expansion 9 : Redis Security Communication
-
-**安全通信**
-
-Reference
-
-- 拓展 9 : 隔墙有耳 —— Redis 安全通信 : https://juejin.cn/book/6844733724618129422/section/6844733724735569934
-
-### TODO
-
-## Expansioin 10 : Lua Script
-
-Reference
-
-- 拓展 10 : 法力无边 —— Redis Lua 脚本执行原理 : https://juejin.cn/book/6844733724618129422/section/6844733724735569927
-
-### TODO
-
-## Expansion 11 : Commond-Line Tools
-
-Reference
-
-- 拓展 11 : 短小精悍 —— 命令行工具的妙用 : https://juejin.cn/book/6844733724618129422/section/6844733724739764231
-
-### TODO
-
 ## Src Code 1 : String
 
 Reference
@@ -1782,13 +1738,5 @@ Reference
 Reference
 
 - 源码 10 : 跋山涉水 —— 深入字典遍历 : https://juejin.cn/book/6844733724618129422/section/6844733724752363534
-
-### TODO
-
-## Src Code 11 : HyperLogLog
-
-Reference
-
-- 源码 11 : 见缝插针 —— 探索 HyperLogLog 内部 : https://juejin.cn/book/6844733724618129422/section/6844733724752347149
 
 ### TODO
