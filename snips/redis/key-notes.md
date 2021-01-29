@@ -38,9 +38,9 @@ Redis: **RE**mote **DI**ctionary **S**erver
             - **用一块连续的内存存储**
         - **quicklist 快速链表**
             - **将多个 ziplist 用双向指针连起来**
-            -   list 元素少时, 用 ziplist;
-                list 元素多时, 用 quicklist.
-            - _满足快速的插入删除, 以及较小的空间冗余 ( 普通链表的指针太多 )_
+            -   元素少用 ziplist;
+                元素多用 quicklist.
+            - _满足快速的插入删除, 以及较小的空间冗余 (普通链表的指针太多)_
             - [structure.webp](_images/quicklist-simple-structure.webp)
 - hash
     - 值只能是字符串
