@@ -655,657 +655,292 @@ _( multiplexing 多路复用 )_
     - 它是分布式系统常用的一种解耦方式, 用于将多个消费组的逻辑进行拆分.
     - 支持了消息多播, 多个消费组的逻辑就可以放到不同的子系统中.
     - 如果是普通的消息队列, 就得将多个不同的消费组逻辑串接起来放在一个子系统中, 进行连续消费.
-
-### PubSub
-
-为了支持消息多播, Redis 不能再依赖于那 5 种基本数据类型了.
-
-- 它单独使用了 **模块 PubSub 支持消息多播**,
-    - 也就是 PublisherSubscriber, 发布者订阅者模型.
-
-使用 Python 语言来演示一下 PubSub 如何使用 :
-
-```python
-# -*- coding: utf-8 -*-
-import time
-import redis
-
-client = redis.StrictRedis()
-p = client.pubsub()
-p.subscribe("codehole")
-time.sleep(1)
-print p.get_message()
-client.publish("codehole", "java comes")
-time.sleep(1)
-print p.get_message()
-client.publish("codehole", "python comes")
-time.sleep(1)
-print p.get_message()
-print p.get_message()
-```
-
-Output
-
-```bash
-{'pattern': None, 'type': 'subscribe', 'channel': 'codehole', 'data': 1L}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'java comes'}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'python comes'}
-None
-```
-
-![redis-pubsub-example.webp](_images/redis-pubsub-example.webp)
-
-- 客户端发起订阅命令后, Redis 会立即给予一个反馈消息通知订阅成功.
-    - 因为有网络传输延迟, 在 subscribe 命令发出后, 需要休眠一会, 再通过 get_message 才能拿到反馈消息.
-- 客户端接下来执行发布命令, 发布了一条消息.
-    - 同样因为网络延迟, 在 publish 命令发出后, 需要休眠一会, 再通过 get_message 才能拿到发布的消息.
-    - 如果当前没有消息, get_message 会返回空, 告知当前没有消息, 所以它不是阻塞的.
-
-_Redis PubSub 的生产者和消费者是不同的连接, 也就是上面这个例子实际上使用了两个 Redis 的连接. 这是必须的, 因为 Redis 不允许连接在 subscribe 等待消息时还要进行其它的操作._
-
-#### Consumer
-
-```python
-# -*- coding: utf-8 -*-
-import time
-import redis
-
-client = redis.StrictRedis()
-p = client.pubsub()
-p.subscribe("codehole")
-while True:
-    msg = p.get_message()
-    if not msg:
-        time.sleep(1)
-        continue
-    print msg
-```
-
-#### Producer
-
-```python
-# -*- coding: utf-8 -*-
-import redis
-
-client = redis.StrictRedis()
-client.publish("codehole", "python comes")
-client.publish("codehole", "java comes")
-client.publish("codehole", "golang comes")
-```
-
-必须先启动消费者, 然后再执行生产者, 消费者我们可以启动多个, pubsub 会保证它们收到的是相同的消息序列.
-
-消费者的输出
-
-```bash
-{'pattern': None, 'type': 'subscribe', 'channel': 'codehole', 'data': 1L}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'python comes'}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'java comes'}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'golang comes'}
-```
-
-从消费者的控制台窗口可以看到上面的输出, 每个消费者窗口都是同样的输出.
-
-- 第一行是订阅成功消息, 它很快就会输出, 后面的三行会在生产者进程执行的时候立即输出.
-- 上面的消费者是通过轮询 get_message 来收取消息的, 如果收取不到就休眠 1s. 这让我们想起了第 3 节的消息队列模型, 我们使用 blpop 来代替休眠来提高消息处理的及时性.
-
-#### Blocking Consumer
-
-**PubSub 的消费者如果使用休眠的方式来轮询消息, 也会遭遇消息处理不及时的问题.** 不过 **可以使用 `listen` 来阻塞监听消息来进行处理, 这点同 blpop 原理是一样的**.
-
-```python
-# -*- coding: utf-8 -*-
-import time
-import redis
-
-client = redis.StrictRedis()
-p = client.pubsub()
-p.subscribe("codehole")
-for msg in p.listen():
-    print msg
-```
-
-- 不需要再休眠了, 消息处理也及时了.
-
-### Pattern Subscribe
-
-**模式订阅**
-
-- **订阅模式是基于名称订阅的**,
-    - 消费者订阅一个主题是必须明确指定主题的名称.
-    - 如果 **订阅多个主题, 那就 subscribe 多个名称.**
-
-Consumer / Subscriber
-
-```bash
-# 同时订阅三个主题, 会有三条订阅成功反馈信息
-> subscribe codehole.image codehole.text codehole.blog
-1) "subscribe"
-2) "codehole.image"
-3) (integer) 1
-1) "subscribe"
-2) "codehole.text"
-3) (integer) 2
-1) "subscribe"
-2) "codehole.blog"
-3) (integer) 3
-```
-
-Producer / Publisher
-
-- _这样生产者向这三个主题发布的消息, 这个消费者都可以接收到._
-
-```bash
-> publish codehole.image https://www.google.com/dudo.png
-(integer) 1
-> publish codehole.text " 你好, 欢迎加入码洞 "
-(integer) 1
-> publish codehole.blog '{"content": "hello, everyone", "title": "welcome"}'
-(integer) 1
-```
-
-如果现在要增加一个主题 codehole.group , 客户端必须也跟着增加一个订阅指令才可以收到新开主题的消息推送.
-
-为了简化订阅的繁琐, Redis 提供了 **模式订阅功能 Pattern Subscribe**, 这样就 **可以一次订阅多个主题, 即使生产者新增加了同模式的主题, 消费者也可以立即收到消息**.
-
-```bash
-# 用模式匹配一次订阅多个主题, 主题以 "codehole." 字符开头的消息都可以收到
-> psubscribe codehole.*
-1) "psubscribe"
-2) "codehole.*"
-3) (integer) 1
-```
-
-### Message Structure
-
-**消息结构**
-
-```bash
-{'pattern': None, 'type': 'subscribe', 'channel': 'codehole', 'data': 1L}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'python comes'}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'java comes'}
-{'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'golang comes'}
-```
-
-消息结构中几个字段的含义 :
-
-- `data` 消息的内容, 一个字符串
-- `channel` 当前订阅的主题名称
-- `type` 消息的类型 :
-    - 如果是一个普通的消息, 那么类型就是 **message**,
-    - 如果是控制消息, 比如订阅指令的反馈, 它的类型就是 **subscribe**,
-    - 如果是模式订阅的反馈, 它的类型就是 **psubscribe**,
-    - 还有取消订阅指令的反馈 **unsubscribe** 和 **punsubscribe**.
-- `pattern` 当前消息是使用哪种模式订阅到的,
-    - 如果是通过 subscribe 指令订阅的, 那么这个字段就是空.
-
-### Disadvantages
-
-**缺点**
-
-- PubSub 的生产者传递过来一个消息, Redis 会直接找到相应的消费者传递过去.
-    - 如果一个消费者都没有, 那么消息直接丢弃.
-    - 如果开始有三个消费者, 一个消费者突然挂掉了, 生产者会继续发送消息, 另外两个消费者可以持续收到消息.
-    - 但是挂掉的消费者重新连上的时候, 这断连期间生产者发送的消息, 对于这个消费者来说就是彻底丢失了.
-- 如果 Redis 停机重启, PubSub 的消息是不会持久化的,
-    - 毕竟 Redis 宕机就相当于一个消费者都没有, 所有的消息直接被丢弃.
-
-**正是因为 PubSub 有这些缺点, 它几乎找不到合适的应用场景.**
-
-- _所以 Redis 的作者单独开启了一个项目 Disque 专门用来做多播消息队列._
-- _该项目目前没有成熟, 一直长期处于 Beta 版本, 但是相应的客户端 sdk 已经非常丰富了, 就待 Redis 作者临门一脚发布一个 Release 版本._
-
-_( icehe : 许多高级特性都没有, 相比高吞吐&持久化 kafka, 还有强大易用的 RabbitMQ, 实用性太差了. )_
-
-## Principle 7 : Small Object Compression
-
-**小对象压缩**
-
-_Redis 是一个非常耗费内存的数据库, 它所有的数据都放在内存里. 如果不注意节约使用内存, Redis 就会因为我们的无节制使用出现内存不足而崩溃._
-
-_Redis 作者为了优化数据结构的内存占用, 也苦心孤诣增加了非常多的优化点, 这些优化也是以牺牲代码的可读性为代价的, 但是毫无疑问这是非常值得的, 尤其像 Redis 这种数据库._
-
-### 32bit vs 64bit
-
-**Redis 如果使用 32bit 进行编译, 内部所有数据结构所使用的指针空间占用会少一半**, 如果对 Redis 使用内存不超过 4G, 可以考虑使用 32bit 进行编译, 可以节约大量内存. 4G 的容量作为一些小型站点的缓存数据库是绰绰有余了, 如果不足还可以通过增加实例的方式来解决.
-
-### ziplist
-
-**小对象压缩存储 ziplist**
-
-**如果 Redis 内部管理的集合数据结构很小, 它会使用紧凑存储形式压缩存储.**
-
-这就好比 HashMap 本来是二维结构, 但是如果内部元素比较少, 使用二维结构反而浪费空间, 还不如使用一维数组进行存储, 需要查找时, 因为元素少进行遍历也很快, 甚至可以比 HashMap 本身的查找还要快.
-
-_比如下面我们可以使用数组来模拟 HashMap 的增删改操作._
-
-- 此处不赘述, 详见原文
-
-Redis 的 **ziplist 是一个紧凑的字节数组结构, 每个元素之间都是紧挨着的**.
-
-_不用过于关心 zlbytes, zltail, zlend 的含义, 稍微了解一下就好._
-
-![zlist-simple-structure-example.webp](_images/zlist-simple-structure-example.webp)
-
-- 如果它存储的是 hash 结构, 那么 key 和 value 会作为两个 entry 相邻存在一起.
-
-```bash
-127.0.0.1:6379> hset hello a 1
-(integer) 1
-127.0.0.1:6379> hset hello b 2
-(integer) 1
-127.0.0.1:6379> hset hello c 3
-(integer) 1
-127.0.0.1:6379> object encoding hello
-"ziplist"
-```
-
-- 如果它存储的是 zset, 那么 value 和 score 会作为两个 entry 相邻存在一起.
-
-```bash
-127.0.0.1:6379> zadd world 1 a
-(integer) 1
-127.0.0.1:6379> zadd world 2 b
-(integer) 1
-127.0.0.1:6379> zadd world 3 c
-(integer) 1
-127.0.0.1:6379> object encoding world
-"ziplist"
-```
-
-Redis 的 **intset 是一个紧凑的整数数组结构**, 它 **用于存放元素都是整数的并且元素个数较少的 set 集合**.
-
-- 如果整数可以用 uint16 表示, 那么 intset 的元素就是 16 位的数组,
-    - 如果新加入的整数超过了 uint16 的表示范围, 那么就使用 uint32 表示,
-    - 如果新加入的元素超过了 uint32 的表示范围, 那么就使用 uint64 表示,
-- Redis 支持 set 集合动态从 uint16 升级到 uint32, 再升级到 uint64.
-
-![intset-structure-simple-example.webp](_images/intset-structure-simple-example.webp)
-
-```bash
-127.0.0.1:6379> sadd hello 1 2 3
-(integer) 3
-127.0.0.1:6379> object encoding hello
-"intset"
-```
-
-- 如果 set 里存储的是字符串, 那么 sadd 立即升级为 hashtable 结构.
-
-```bash
-127.0.0.1:6379> sadd hello yes no
-(integer) 2
-127.0.0.1:6379> object encoding hello
-"hashtable"
-```
-
-**<u>存储界限</u> 当集合对象的元素不断增加, 或者某个 value 值过大, 这种小对象存储也会被升级为标准结构.**
-
-Redis **规定在小对象存储结构的限制条件如下** :
-
-```bash
-# hash 的元素个数超过 512 就必须用标准结构存储
-hash-max-ziplist-entries 512
-# hash 的任意元素的 key/value 的长度超过 64 就必须用标准结构存储
-hash-max-ziplist-value 64
-
-# list 的元素个数超过 512 就必须用标准结构存储
-list-max-ziplist-entries 512
-# list 的任意元素的长度超过 64 就必须用标准结构存储
-list-max-ziplist-value 64
-
-# zset 的元素个数超过 128 就必须用标准结构存储
-zset-max-ziplist-entries 128
-# zset 的任意元素的长度超过 64 就必须用标准结构存储
-zset-max-ziplist-value 64
-
-# set 的整数元素个数超过 512 就必须用标准结构存储
-set-max-intset-entries 512
-```
-
-实验
-
-```python
-import redis
-client = redis.StrictRedis()
-client.delete("hello")
-for i in range(512):
-    client.hset("hello", str(i), str(i))
-print client.object("encoding", "hello")  # 获取对象的存储结构
-client.hset("hello", "512", "512")
-print client.object("encoding", "hello") # 再次获取对象的存储结构
-```
-
-输出
-
-```bash
-ziplist
-hashtable
-```
-
-### 内存回收机制
-
-Redis 并不总是可以将空闲内存立即归还给操作系统.
-
-- 如果当前 Redis 内存有 10 GB, 当你删除了 1GB 的 key 后, 再去观察内存, 会发现内存变化不会太大.
-    - 原因是操作系统回收内存是以页为单位, 如果这个页上只要有一个 key 还在使用, 那么它就不能被回收.
-    - Redis 虽然删除了 1GB 的 key, 但是这些 key 分散到了很多页面中,
-    - 每个页面都还有其它 key 存在, 这就导致了内存不会立即被回收.
-- 不过, 如果你执行 `flushdb`, 然后再观察内存会发现内存确实被回收了.
-    - 原因是所有的 key 都干掉了, 大部分之前使用的页面都完全干净了, 会立即被操作系统回收.
-- Redis 虽然无法保证立即回收已经删除的 key 的内存, 但是它会重用那些尚未回收的空闲内存.
-
-### Memeory Alloaction Algorithm
-
-**内存分配算法**
-
-**Redis 为了保持自身结构的简单性, 在内存分配这里直接使用第三方库, 将内存分配的细节丢给了第三方内存分配库去实现.**
-
-**目前 Redis 可以使用 jemalloc (facebook) 库来管理内存, 也可以切换到 tcmalloc(google).**
-
-_因为 jemalloc 相比 tcmalloc 的性能要稍好一些, 所以 Redis 默认使用了 jemalloc._
-
-```bash
-127.0.0.1:6379> info memory
-# Memory
-used_memory:809608
-used_memory_human:790.63K
-used_memory_rss:8232960
-used_memory_peak:566296608
-used_memory_peak_human:540.06M
-used_memory_lua:36864
-mem_fragmentation_ratio:10.17
-mem_allocator:jemalloc-3.6.0
-```
-
-_( icehe : macOS 安装的 Redis 使用了 libc 的 mem_allocator )_
-
-```bash
-127.0.0.1:6379> info memory
-# Memory
-used_memory:1065392
-used_memory_human:1.02M
-used_memory_rss:761856
-used_memory_rss_human:744.00K
-used_memory_peak:1141936
-used_memory_peak_human:1.09M
-used_memory_peak_perc:93.30%
-used_memory_overhead:1019272
-used_memory_startup:1001536
-used_memory_dataset:46120
-used_memory_dataset_perc:72.23%
-allocator_allocated:1020272
-allocator_active:723968
-allocator_resident:723968
-total_system_memory:8589934592
-total_system_memory_human:8.00G
-used_memory_lua:37888
-used_memory_lua_human:37.00K
-used_memory_scripts:0
-used_memory_scripts_human:0B
-number_of_cached_scripts:0
-maxmemory:0
-maxmemory_human:0B
-maxmemory_policy:noeviction
-allocator_frag_ratio:0.71
-allocator_frag_bytes:18446744073709255312
-allocator_rss_ratio:1.00
-allocator_rss_bytes:0
-rss_overhead_ratio:1.05
-rss_overhead_bytes:37888
-mem_fragmentation_ratio:0.75
-mem_fragmentation_bytes:-258416
-mem_not_counted_for_evict:0
-mem_replication_backlog:0
-mem_clients_slaves:0
-mem_clients_normal:17440
-mem_aof_buffer:0
-mem_allocator:libc
-active_defrag_running:0
-lazyfree_pending_objects:0
-```
-
-## Principle 8 : Master-Salve Synchronization
-
-**主从同步**
-
-Reference
-
-- 原理 8 : 有备无患 —— 主从同步 : https://juejin.cn/book/6844733724618129422/section/6844733724722987015
-
-很多企业都没有使用到 Redis 的集群, 但是至少都做了主从.
-
-- 有了主从, 当 master 挂掉的时候, 运维让从库过来接管, 服务就可以继续,
-- 否则 master 需要经过数据恢复和重启的过程, 这就可能会拖很长的时间, 影响线上业务的持续服务.
-
-### CAP Theorem
-
-**CAP 原理**
-
-- C - Consistency 一致性
-- A - Availability 可用性
-- P - Partition tolerance 分区容忍性
-
-分布式系统的节点往往都是分布在不同的机器上进行网络隔离开的, 这意味着必然会有网络断开的风险, 这个 **网络断开的场景** 的专业词汇叫着「**网络分区**」.
-
-- 在网络分区发生时, 两个分布式节点之间无法进行通信, 对一个节点进行的修改操作将无法同步到另外一个节点, 所以数据的「**一致性**」将无法满足, 因为两个分布式节点的数据不再保持一致.
-- 除非牺牲「**可用性**」, 也就是暂停分布式节点服务, 在网络分区发生时, 不再提供修改数据的功能, 直到网络状况完全恢复正常再继续对外提供服务.
-
-**CAP 原理 : 网络分区发生时, 一致性和可用性两难全.**
-
-![cap-theorem-simple-example.webp](_images/cap-theorem-simple-example.webp)
-
-### Eventually Consistent
-
-**最终一致**
-
-Redis 的主从数据是异步同步的, 所以 **分布式的 Redis 系统并不满足「一致性」要求.**
-
-当客户端在 Redis 的主节点修改了数据后, 立即返回, **即使在主从网络断开的情况下, 主节点依旧可以正常对外提供修改服务, 所以 Redis 满足「可用性」.** _( icehe : 这种情况到底算不算可用? 有争议 )_
-
-**Redis 保证「最终一致性」, 从节点会努力追赶主节点, 最终从节点的状态会和主节点的状态将保持一致.** 如果网络断开了, 主从节点的数据将会出现大量不一致, 一旦网络恢复, 从节点会采用多种策略努力追赶上落后的数据, 继续尽力保持和主节点一致.
-
-_( icehe : 最终一致性, 实质上并不算是什么特别有意义的保证…… )_
-
-### Master-Slave Synchronization
-
-**主从同步**
-
-Redis 同步支持
-
-- **主从同步** Master-Slave Synchronization
-- **从从同步** Slave-Slave Synchronization
-
-**从从同步**功能是 Redis 后续版本增加的功能, 为了减轻主库的同步负担. _后面为了描述上的方便, 统一理解为主从同步._
-
-### Incremental Synchronization
-
-**增量同步**
-
-**Redis 同步的是指令流, 主节点会将那些对自己的状态产生修改性影响的指令记录在本地的内存 buffer 中, 然后异步将 buffer 中的指令同步到从节点, 从节点一边执行同步的指令流来达到和主节点一样的状态, 一边向主节点反馈自己同步到哪里了 ( 偏移量 ) .**
-
-因为 **内存的 buffer 是有限的**, 所以 Redis 主库不能将所有的指令都记录在内存 buffer 中. **Redis 的复制内存 buffer 是一个定长的环形数组, 如果数组内容满了, 就会从头开始覆盖前面的内容.**
-
-![circular-array-simple-structure-example.webp](_images/circular-array-simple-structure-example.webp)
-
-如果因为网络状况不好, 从节点在短时间内无法和主节点进行同步, 那么 **当网络状况恢复时, Redis 的主节点中那些没有同步的指令在 buffer 中有可能已经被后续的指令覆盖掉了**, 从节点将无法直接通过指令流来进行同步, 这个时候就需要用到更加复杂的同步机制 —— 快照同步.
-
-### Snapshot Synchronization
-
-**快照同步**
-
-**快照同步** 是一个非常耗费资源的操作,
-
-- 它首 **先需要在主库上进行一次 `bgsave` 将当前内存的数据全部快照到磁盘文件中, 然后再将快照文件的内容全部传送到从节点.**
-- **从节点将快照文件接受完毕后, 立即执行一次全量加载, 加载之前先要将当前内存的数据清空.**
-- **加载完毕后通知主节点继续进行增量同步.**
-
-在整个快照同步进行的过程中, 主节点的复制 buffer 还在不停的往前移动, 如果快照同步的时间过长或者复制 buffer 太小, 都会导致同步期间的增量指令在复制 buffer 中被覆盖, 这样就会导致快照同步完成后无法进行增量复制, 然后会再次发起快照同步, 如此极有可能会陷入快照同步的死循环.
-
-所以务必配置一个合适的复制 buffer 大小参数, 避免快照复制的死循环.
-
-![rdb-snapshot-synchronization.webp](_images/rdb-snapshot-synchronization.webp)
-
-### Add Slave Node
-
-**增加从节点**
-
-**当从节点刚刚加入到集群时, 它必须先要进行一次快照同步, 同步完成后再继续进行增量同步.**
-
-### No Disk Repliaction
-
-**无盘复制**
-
-**主节点在进行快照同步时, 会进行很重的文件 IO 操作, 特别是对于非 SSD 磁盘存储时, 快照会对系统的负载产生较大影响**. 特别是当系统正在进行 AOF 的 fsync 操作时如果发生快照, fsync 将会被推迟执行, 这就会严重影响主节点的服务效率.
-
-所以从 Redis 2.8.18 版开始支持无盘复制. 所谓 **无盘复制** 是指 **主服务器直接通过套接字将快照内容发送到从节点, 生成快照是一个遍历的过程, 主节点会一边遍历内存, 一边将序列化的内容发送到从节点, 从节点还是跟之前一样, 先将接收到的内容存储到磁盘文件中, 再进行一次性加载**.
-
-### Wait Command
-
-**Wait 指令**
-
-Redis 的复制是异步进行的, **`wait` 指令可以让异步复制变身同步复制, 确保系统的强一致性 ( 不严格 )**. `wait` 指令是 Redis3.0 版本以后才出现的.
-
-```bash
-> set key value
-OK
-> wait 1 0
-(integer) 1
-```
-
-参数
-
-- 从库的数量 N
-- 时间 t, 以毫秒为单位.
-
-表示等待 `wait` 指令之前的所有写操作同步到 N 个从库 ( 也就是确保 N 个从库的同步没有滞后 ), 最多等待时间 t.
-
-- 如果时间 t=0, 表示无限等待直到 N 个从库同步完成达成一致.
-- 假设此时出现了网络分区, wait 指令第二个参数时间 t=0, 主从同步无法继续进行, wait 指令会永远阻塞, Redis 服务器将丧失可用性.
-
-## Cluster 1 : Sentinel
-
-Reference
-
-- 集群 1 : 李代桃僵 —— Sentinel : https://juejin.cn/book/6844733724618129422/section/6844733724722987021
-
-必须有一个 **高可用** 方案来抵抗节点故障, **当故障发生时可以自动进行从主切换, 程序可以不用重启**, _运维可以继续睡大觉, 仿佛什么事也没发生一样._ Redis 官方提供了这样一种方案 —— **Redis Sentinel** ( 哨兵 ) .
-
-![redis-sentinel-simple-arthitecture.webp](_images/redis-sentinel-simple-arthitecture.webp)
-
-_可以将 Redis Sentinel 集群看成是一个 ZooKeeper 集群, 它是集群高可用的心脏,_ 它一般是由 3～5 个节点组成, 这样挂了个别节点集群还可以正常运转.
-
-**Sentinel 集群负责持续监控主从节点的健康, 当主节点挂掉时, 自动选择一个最优的从节点切换为主节点.**
-
-- 客户端来连接集群时, 会首先连接 sentinel,
-- 通过 sentinel 来查询主节点的地址, 然后再去连接主节点进行数据交互.
-- 当主节点发生故障时, 客户端会重新向 sentinel 要地址, sentinel 会将最新的主节点地址告诉客户端.
-
-如此应用程序将无需重启即可自动完成节点切换. _比如上图的主节点挂掉后, 集群将可能自动调整为下图所示结构 :_
-
-![redis-sentinel-example-master-down.webp](_images/redis-sentinel-example-master-down.webp)
-
-从这张图中我们能看到主节点挂掉了, 原先的主从复制也断开了, 客户端和损坏的主节点也断开了.
-
-- 从节点被提升为新的主节点, 其它从节点开始和新的主节点建立复制关系.
-- 客户端通过新的主节点继续进行交互.
-- Sentinel 会持续监控已经挂掉了主节点, 待它恢复后,
-    - 原先挂掉的主节点现在变成了从节点, 从新的主节点那里建立复制关系.
-
-![redis-sentinel-example-after-recovery.webp](_images/redis-sentinel-example-after-recovery.webp)
-
-### Message Loss
-
-**消息丢失**
-
-Redis 主从采用异步复制, 意味着 **当主节点挂掉时, 从节点可能没有收到全部的同步消息, 这部分未同步的消息就丢失了**. 如果主从延迟特别大, 那么丢失的数据就可能会特别多.
-
-**Sentinel 无法保证消息完全不丢失, 但是也尽可能保证消息少丢失.** 它有两个选项可以限制主从延迟过大.
-
-```bash
-min-slaves-to-write 1
-min-slaves-max-lag 10
-```
-
-`min-slaves-to-write 1` 表示主节点必须至少有一个从节点在进行正常复制, 否则就停止对外写服务, 丧失可用性.
-
-何为正常复制, 何为异常复制? 这个就是由第二个参数控制的, 它的单位是秒, `min-slaves-max-lag 10` 表示如果 10s 没有收到从节点的反馈, 就意味着从节点同步不正常, 要么网络断开了, 要么一直没有给反馈.
-
-### Sentinel Basic Usage
-
-_在此不赘述, 详见原文_
-
-## Cluster 2 : Codis
-
-Reference
-
-- 集群 2 : 分而治之 —— Codis : https://juejin.cn/book/6844733724618129422/section/6844733724723003399
-
-在大数据高并发场景下, 单个 Redis 实例往往会显得捉襟见肘.
-
-- 内存大小 : 单个 Redis 的内存不宜过大, 内存太大会导致 rdb 文件过大, 进一步导致主从同步时全量同步时间过长, 在实例重启恢复时也会消耗很长的数据加载时间,
-    - 特别是在云环境下, 单个实例内存往往都是受限的.
-- CPU 利用率 : 单个 Redis 实例只能利用单个核心, 这单个核心要完成海量数据的存取和管理工作压力会非常大.
-    - _( icehe : 后来 Redis 利用多线程模型了 情况就不太一样了. 瞎想一下 : 一个 Redis 实例跑 4 个线程, 最好配 2 个核心? )_
-
-在大数据高并发的需求之下, Redis 集群方案应运而生.
-
-- 可以将众多小内存的 Redis 实例综合起来, 将分布在多台机器上的众多 CPU 核心的计算能力聚集到一起, 完成海量数据存储和高并发读写操作.
-
-![codis-architecture.webp](_images/codis-architecture.webp)
-
-Codis
-
-- 使用 Go 语言开发
-- 是一个代理中间件
-- 和 Redis 一样也使用 Redis 协议对外提供服务
-    - _客户端操纵 Codis 同操纵 Redis 几乎没有区别, 还是可以使用相同的客户端 SDK, 不需要任何变化._
-- 当客户端向 Codis 发送指令时,
-    - Codis 负责将指令转发到后面的 Redis 实例来执行,
-    - 并将返回结果再转回给客户端.
-- Codis 上挂接的所有 Redis 实例构成一个 Redis 集群,
-    - 当集群空间不足时, 可以通过动态增加 Redis 实例来实现扩容需求.
-
-因为 Codis 是无状态的,
-
-- 它只是一个转发代理中间件, 这意味着我们可以启动多个 Codis 实例,
-    - 供客户端使用, 每个 Codis 节点都是对等的.
-- 因为单个 Codis 代理能支撑的 QPS 比较有限, 通过启动多个 Codis 代理可以显著增加整体的 QPS 需求,
-    - 还能起到容灾功能, 挂掉一个 Codis 代理没关系, 还有很多 Codis 代理可以继续服务.
-
-![codis-multi-nodes.webp](_images/codis-multi-nodes.webp)
-
-### Slots
-
-分片原理
-
-Codis **将所有的 key 默认划分为 1024 个槽位 (slot)** , 它首先对客户端传过来的 key 进行 crc32 运算计算哈希值, 再将 hash 后的整数值对 1024 这个整数进行取模得到一个余数, 这个余数就是对应 key 的槽位.
-
-![codis-slots.webp](_images/codis-slots.webp)
-
-每个槽位都会唯一映射到后面的多个 Redis 实例之一, Codis 会在内存维护槽位和 Redis 实例的映射关系.
-
-```python
-hash = crc32(command.key)
-slot_index = hash % 1024
-redis = slots[slot_index].redis
-redis.do(command)
-```
-
-_槽位数量默认是 1024, 它是可以配置的, 如果集群节点比较多, 建议将这个数值配置大一些, 比如 2048、4096._
-
-### Slot Configurations Synchronization
-
-不同的 Codis 实例之间槽位关系如何同步?
-
-- 如果 Codis 的槽位映射关系只存储在内存里, 那么不同的 Codis 实例之间的槽位关系就无法得到同步.
+- 官方方案:
+    - _为了支持消息多播, 不能再依赖于那 5 种基本数据类型了._
+    - 单独使用了模块 PubSub 支持消息多播,
+    - _即 PublisherSubscriber, 发布者订阅者模型._
+    - 问题:
+        - PubSub 的消费者如果使用休眠的方式来轮询消息, 也会遭遇消息处理不及时的问题.
+    - 解决:
+        - 可以使用 `listen` 来阻塞监听消息来进行处理, _跟 `blpop` 原理相同._
+        - _不需要再休眠了, 消息处理也及时了._
+- 特性:
+    - Pattern Subscribe _模式订阅_: `psubscribe codehole.*`
+- 消息结构:
+    - `data` 消息的内容, string
+    - `channel` 当前订阅的主题名称
+    - `type` 消息的类型 :
+        - 如果是一个普通的消息, 那么类型就是 **message**,
+        - 如果是控制消息, 比如订阅指令的反馈, 它的类型就是 **subscribe**,
+        - 如果是模式订阅的反馈, 它的类型就是 **psubscribe**,
+        - 还有取消订阅指令的反馈 **unsubscribe** 和 **punsubscribe**.
+    - `pattern` 当前消息是使用哪种模式订阅到的,
+        - 如果是通过 subscribe 指令订阅的, 那么这个字段就是空.
+- _消息示例:_
+    ```bash
+    {'pattern': None, 'type': 'subscribe', 'channel': 'codehole', 'data': 1L}
+    {'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'python comes'}
+    {'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'java comes'}
+    {'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'golang comes'}
+    ```
+- 缺点:
+    - PubSub 的生产者传递过来一个消息, Redis 会直接找到相应的消费者传递过去.
+        - 如果一个消费者都没有, 那么消息直接丢弃.
+        - 如果开始有三个消费者, 一个消费者突然挂掉了, 生产者会继续发送消息, 另外两个消费者可以持续收到消息.
+        - 但是挂掉的消费者重新连上的时候, 这断连期间生产者发送的消息, 对于这个消费者来说就是彻底丢失了.
+    - 如果 Redis 停机重启, PubSub 的消息是不会持久化的,
+        - 毕竟 Redis 宕机就相当于一个消费者都没有, 所有的消息直接被丢弃.
+    - 正是因为 PubSub 有这些缺点, 它几乎找不到合适的应用场景.
+- 解决:
+    - _所以 Redis 的作者单独开启了一个项目 Disque 专门用来做多播消息队列._
+    - _该项目目前没有成熟, 一直长期处于 Beta 版本, 但是相应的客户端 sdk 已经非常丰富了, 就待 Redis 作者临门一脚发布一个 Release 版本._
+- _许多高级特性都没有, 相比高吞吐 & 持久化 kafka, 还有强大易用的 RabbitMQ, 实用性太差了._
+
+### small object compression
+
+- 32bit vs 64bit
+    - Redis 如果使用 32bit 进行编译, 内部所有数据结构所使用的指针空间占用会少一半, 如果对 Redis 使用内存不超过 4G, 可以考虑使用 32bit 进行编译, 可以节约大量内存.
+    - 4G 的容量作为一些小型站点的缓存数据库是绰绰有余了, 如果不足还可以通过增加实例的方式来解决.
+- 考虑:
+    - 好比 HashMap 本来是二维结构, 但是如果内部元素比较少, 使用二维结构反而浪费空间,
+    - 还不如使用一维数组进行存储, 需要查找时, 因为元素少进行遍历也很快, 甚至可以比 HashMap 本身的查找还要快.
+- ziplist
+    - 是一个紧凑的字节数组结构, 每个元素之间都是紧挨着的
+    - 结构: [zlist-simple-structure-example.webp](_images/zlist-simple-structure-example.webp)
+- _ziplist 示例:_
+    - _如果它存储的是 hash 结构, 那么 key 和 value 会作为两个 entry 相邻存在一起._
+        ```bash
+        127.0.0.1:6379> hset hello a 1
+        (integer) 1
+        127.0.0.1:6379> hset hello b 2
+        (integer) 1
+        127.0.0.1:6379> hset hello c 3
+        (integer) 1
+        127.0.0.1:6379> object encoding hello
+        "ziplist"
+        ```
+    - 如果它存储的是 zset, 那么 value 和 score 会作为两个 entry 相邻存在一起.
+        ```bash
+        127.0.0.1:6379> zadd world 1 a
+        (integer) 1
+        127.0.0.1:6379> zadd world 2 b
+        (integer) 1
+        127.0.0.1:6379> zadd world 3 c
+        (integer) 1
+        127.0.0.1:6379> object encoding world
+        "ziplist"
+        ```
+- intset
+    - 是一个紧凑的整数数组结构, 用于存放元素都是整数并且个数较少的 set 集合.
+    - 如果整数可以用 uint16 表示, 那么 intset 的元素就是 16 位的数组,
+        - 如果新加入的整数超过了 uint16 的表示范围, 那么就使用 uint32 表示,
+        - 如果新加入的元素超过了 uint32 的表示范围, 那么就使用 uint64 表示,
+    - 支持 set 集合动态从 uint16 升级到 uint32, 再升级到 uint64.
+    - 结构: [intset-structure-simple-example.webp](_images/intset-structure-simple-example.webp)
+- _intset 示例:_
+    - 如果 set 里存储的是字符串, 那么 sadd 立即升级为 hashtable 结构.
+        ```bash
+        127.0.0.1:6379> sadd hello yes no
+        (integer) 2
+        127.0.0.1:6379> object encoding hello
+        "hashtable"
+        ```
+- **存储界限**:
+    - 当集合对象的元素不断增加, 或者某个 value 值过大, 这种小对象存储也会被升级为标准结构.
+    - 规定在小对象存储结构的限制条件:
+        ```bash
+        # hash 的元素个数超过 512 就必须用标准结构存储
+        hash-max-ziplist-entries 512
+        # hash 的任意元素的 key/value 的长度超过 64 就必须用标准结构存储
+        hash-max-ziplist-value 64
+
+        # list 的元素个数超过 512 就必须用标准结构存储
+        list-max-ziplist-entries 512
+        # list 的任意元素的长度超过 64 就必须用标准结构存储
+        list-max-ziplist-value 64
+
+        # zset 的元素个数超过 128 就必须用标准结构存储
+        zset-max-ziplist-entries 128
+        # zset 的任意元素的长度超过 64 就必须用标准结构存储
+        zset-max-ziplist-value 64
+
+        # set 的整数元素个数超过 512 就必须用标准结构存储
+        set-max-intset-entries 512
+        ```
+
+### memory collection mechanism
+
+- 背景:
+    - Redis 并不总是可以将空闲内存立即归还给操作系统.
+- 做法:
+    - OS 回收内存是以页为单位, 如果这个页上只要有一个 key 还在使用, 那么它就不能被回收.
+    - 如果执行 `flushdb`, 然后再观察内存会发现内存确实被回收了.
+        - 因为所有的 key 都干掉了, 大部分之前使用的页面都完全干净了, 会立即被操作系统回收.
+    - Redis 虽然无法保证立即回收已经删除的 key 的内存, 但是它会重用那些尚未回收的空闲内存.
+
+### memeory alloaction algorithm
+
+- 背景:
+    - Redis 为了保持自身结构的简单性, 在内存分配这里直接使用第三方库, 将内存分配的细节丢给了第三方内存分配库去实现.
+- 现状:
+    - 可以使用 jemalloc (facebook) 库来管理内存, 也可以切换到 tcmalloc(google).
+        - _因为 jemalloc 相比 tcmalloc 的性能要稍好一些, 所以 Redis 默认使用了 jemalloc._
+        ```bash
+        127.0.0.1:6379> info memory
+        # Memory
+        used_memory:809608
+        used_memory_human:790.63K
+        used_memory_rss:8232960
+        used_memory_peak:566296608
+        used_memory_peak_human:540.06M
+        used_memory_lua:36864
+        mem_fragmentation_ratio:10.17
+        mem_allocator:jemalloc-3.6.0
+        ```
+        - _macOS 安装的 Redis 使用了 libc 的 mem_allocator_
+
+### master-salve synchronization
+
+- 背景:
+    - 很多企业都没有使用到 Redis 的集群, 但是至少都做了主从.
+- 考虑:
+    - 有了主从, 当 master 挂掉的时候, 运维让从库过来接管, 服务就可以继续,
+    - 否则 master 需要经过数据恢复和重启的过程, 这就可能会拖很长的时间, 影响线上业务的持续服务.
+- eventually consistent _最终一致_
+    - Redis 的主从数据是异步同步的, 所以分布式的 Redis 系统并不满足「一致性」要求.
+    - 当客户端在 Redis 的主节点修改了数据后, 立即返回,
+    - 即使在主从网络断开的情况下, 主节点依旧可以正常对外提供修改服务, 所以 Redis 满足「可用性」. _( 这种情况到底算不算可用? 有争议 )_
+    - Redis 保证「最终一致性」, 从节点会努力追赶主节点, 最终从节点的状态会和主节点的状态将保持一致.
+    - 如果网络断开了, 主从节点的数据将会出现大量不一致, 一旦网络恢复, 从节点会采用多种策略努力追赶上落后的数据, 继续尽力保持和主节点一致.
+- 特性
+    - **主从同步** Master-Slave Synchronization
+    - **从从同步** Slave-Slave Synchronization: 为了减轻主库的同步负担.
+
+### incremental synchronization
+
+- 背景:
+    - Redis 同步的是指令流, 主节点会将那些对自己的状态产生修改性影响的指令记录在本地的内存 buffer 中, 然后异步将 buffer 中的指令同步到从节点
+    - 从节点一边执行同步的指令流来达到和主节点一样的状态, 一边向主节点反馈自己同步到哪里了 ( 偏移量 ) .
+- 问题:
+    - 因为内存的 buffer 是有限的, 所以 Redis 主库不能将所有的指令都记录在内存 buffer 中.
+    - Redis 的复制内存 buffer 是一个定长的环形数组, 如果数组内容满了, 就会从头开始覆盖前面的内容.
+    - 如果因为网络状况不好, 从节点在短时间内无法和主节点进行同步, 那么当网络状况恢复时, Redis 的主节点中那些没有同步的指令在 buffer 中有可能已经被后续的指令覆盖掉了,
+        - 从节点将无法直接通过指令流来进行同步, 这个时候就需要用到更加复杂的同步机制 —— 快照同步.
+
+### snapshot synchronization
+
+- 背景:
+    - 快照同步是一个非常耗费资源的操作,
+    - 首先需要在主库上进行一次 `bgsave` 将当前内存的数据全部快照到磁盘文件中, 然后再将快照文件的内容全部传送到从节点.
+    - 从节点将快照文件接受完毕后, 立即执行一次全量加载, 加载之前先要将当前内存的数据清空.
+    - 加载完毕后通知主节点继续进行增量同步.
+    - [rdb-snapshot-synchronization.webp](_images/rdb-snapshot-synchronization.webp)
+- 问题:
+    - 在整个快照同步进行的过程中, 主节点的复制 buffer 还在不停的往前移动,
+    - 如果快照同步的时间过长或者复制 buffer 太小, 都会导致同步期间的增量指令在复制 buffer 中被覆盖,
+    - 这样就会导致快照同步完成后无法进行增量复制, 然后会再次发起快照同步, 如此极有可能会陷入快照同步的死循环.
+    - 所以务必配置一个合适的复制 buffer 大小参数, 避免快照复制的死循环.
+- add slave node
+    - 当从节点刚刚加入到集群时, 它必须先要进行一次快照同步, 同步完成后再继续进行增量同步.
+- no disk repliaction _无盘复制_
+    - 主节点在进行快照同步时, 会进行很重的文件 IO 操作, 特别是对于非 SSD 磁盘存储时, 快照会对系统的负载产生较大影响.
+    - 特别是当系统正在进行 AOF 的 fsync 操作时如果发生快照, fsync 将会被推迟执行, 这就会严重影响主节点的服务效率.
+    - 所以从 Redis 2.8.18 版开始支持无盘复制.
+    - 无盘复制: 主服务器直接通过套接字将快照内容发送到从节点,
+        - 生成快照是一个遍历的过程, 主节点会一边遍历内存, 一边将序列化的内容发送到从节点,
+        - 从节点还是跟之前一样, 先将接收到的内容存储到磁盘文件中, 再进行一次性加载.
+- `wait` 指令
+    - Redis 的复制是异步进行的, `wait` 指令可以让异步复制变身同步复制, 确保系统的强一致性 ( 不严格 ).
+    - _since Redis 3.0_
+    - 参数:
+        - 从库的数量 N
+        - 时间 t, 以毫秒为单位.
+    - 表示等待 `wait` 指令之前的所有写操作同步到 N 个从库 ( 也就是确保 N 个从库的同步没有滞后 ), 最多等待时间 t.
+        - 如果时间 t=0, 表示无限等待直到 N 个从库同步完成达成一致.
+        - 假设此时出现了网络分区, wait 指令第二个参数时间 t=0, 主从同步无法继续进行, wait 指令会永远阻塞, Redis 服务器将丧失可用性.
+
+## cluster
+
+### Sentinel
+
+- 背景:
+    - 必须有一个高可用方案来抵抗节点故障, 当故障发生时可以自动进行从主切换, 程序可以不用重启,
+        - _运维可以继续睡大觉, 仿佛什么事也没发生一样._
+    - Redis 官方提供了这样一种方案 —— **Redis Sentinel**
+    - [redis-sentinel-simple-arthitecture.webp](_images/redis-sentinel-simple-arthitecture.webp)
+- 做法:
+    - 将 Redis Sentinel 集群看成是一个 ZooKeeper 集群, 它是集群高可用的心脏, 一般由 3～5 个节点组成, 这样挂了个别节点集群还可以正常运转.
+    - Sentinel 集群负责持续监控主从节点的健康, 当主节点挂掉时, 自动选择一个最优的从节点切换为主节点.
+    - 客户端来连接集群时, 会首先连接 sentinel, 通过 sentinel 来查询主节点的地址, 然后再去连接主节点进行数据交互.
+    - 当主节点发生故障时, 客户端会重新向 sentinel 要地址, sentinel 会将最新的主节点地址告诉客户端.
+    - 如此应用程序将无需重启即可自动完成节点切换.
+        - [redis-sentinel-example-master-down.webp](_images/redis-sentinel-example-master-down.webp)
+    - 到主节点挂掉了, 原先的主从复制也断开了, 客户端和损坏的主节点也断开了.
+        - 从节点被提升为新的主节点, 其它从节点开始和新的主节点建立复制关系.
+        - 客户端通过新的主节点继续进行交互.
+        - Sentinel 会持续监控已经挂掉了主节点, 待它恢复后, 原先挂掉的主节点现在变成了从节点, 从新的主节点那里建立复制关系.
+        - [redis-sentinel-example-after-recovery.webp](_images/redis-sentinel-example-after-recovery.webp)
+
+#### message loss
+
+- 问题:
+    - Redis 主从采用异步复制, 意味着当主节点挂掉时, 从节点可能没有收到全部的同步消息, 这部分未同步的消息就丢失了.
+    - _如果主从延迟特别大, 那么丢失的数据就可能会特别多._
+- 缺点:
+    - Sentinel 无法保证消息完全不丢失, 但是也尽可能保证消息少丢失. 它有两个选项可以限制主从延迟过大.
+        ```bash
+        min-slaves-to-write 1
+        min-slaves-max-lag 10
+        ```
+    - `min-slaves-to-write 1` 表示主节点必须至少有一个从节点在进行正常复制, 否则就停止对外写服务, 丧失可用性.
+        - 何为正常复制, 何为异常复制? 这个就是由第二个参数控制的, 它的单位是秒,
+    - `min-slaves-max-lag 10` 表示如果 10s 没有收到从节点的反馈, 就意味着从节点同步不正常, 要么网络断开了, 要么一直没有给反馈.
+
+### Codis
+
+- 背景:
+    - 在大数据高并发场景下, 单个 Redis 实例往往会显得捉襟见肘.
+    - 内存大小 :
+        - 单个 Redis 的内存不宜过大, 内存太大会导致 rdb 文件过大, 进一步导致主从同步时全量同步时间过长, 在实例重启恢复时也会消耗很长的数据加载时间,
+            - 特别是在云环境下, 单个实例内存往往都是受限的.
+        - CPU 利用率 : 单个 Redis 实例只能利用单个核心, 这单个核心要完成海量数据的存取和管理工作压力会非常大.
+- 思路:
+    - 将众多小内存的 Redis 实例综合起来, 将分布在多台机器上的众多 CPU 核心的计算能力聚集到一起, 完成海量数据存储和高并发读写操作.
+    - [codis-architecture.webp](_images/codis-architecture.webp)
+- Codis
+    - Go 语言开发
+    - 是一个代理中间件
+    - 和 Redis 一样也使用 Redis 协议对外提供服务
+        - _客户端操纵 Codis 同操纵 Redis 几乎没有区别, 还是可以使用相同的客户端 SDK, 不需要任何变化._
+- 做法:
+    - 当客户端向 Codis 发送指令时, Codis 负责将指令转发到后面的 Redis 实例来执行, 并将返回结果再转回给客户端.
+    - Codis 上挂接的所有 Redis 实例构成一个 Redis 集群, 当集群空间不足时, 可以通过动态增加 Redis 实例来实现扩容需求.
+- 特性:
+    - 因为 Codis 是无状态的, 它只是一个转发代理中间件, 这意味着我们可以启动多个 Codis 实例, 供客户端使用, 每个 Codis 节点都是对等的.
+        - 因为单个 Codis 代理能支撑的 QPS 比较有限, 通过启动多个 Codis 代理可以显著增加整体的 QPS 需求,
+        - 还能起到容灾功能, 挂掉一个 Codis 代理没关系, 还有很多 Codis 代理可以继续服务.
+        - [codis-multi-nodes.webp](_images/codis-multi-nodes.webp)
+
+#### slots
+
+- 分片原理:
+    - Codis 将所有的 key 默认划分为 1024 个槽位 (slot), 它首先对客户端传过来的 key 进行 crc32 运算计算哈希值, 再将 hash 后的整数值对 1024 这个整数进行取模得到一个余数, 这个余数就是对应 key 的槽位.
+        - [codis-slots.webp](_images/codis-slots.webp)
+    - 每个槽位都会唯一映射到后面的多个 Redis 实例之一, Codis 会在内存维护槽位和 Redis 实例的映射关系.
+        _槽位数量默认是 1024, 它是可以配置的, 如果集群节点比较多, 建议将这个数值配置大一些, 比如 2048、4096._
+
+#### slot configurations synchronization
+
+- 问题:
+    - 不同的 Codis 实例之间槽位关系如何同步?
+- 解决:
+    - 如果 Codis 的槽位映射关系只存储在内存里, 那么不同的 Codis 实例之间的槽位关系就无法得到同步.
     - 所以 Codis 还需要一个分布式配置存储数据库专门用来持久化槽位关系.
     - _Codis 开始使用 ZooKeeper, 后来连 etcd 也一块支持了._
+    - [codis-slots-conf-sync.webp](_images/codis-slots-conf-sync.webp)
+    - _Codis 将槽位关系存储在 zk 中, 并且提供了一个 Dashboard 可以用来观察和修改槽位关系, 当槽位关系变化时, Codis Proxy 会监听到变化并重新同步槽位关系, 从而实现多个 Codis Proxy 之间共享相同的槽位关系配置._
 
-![codis-slots-conf-sync.webp](_images/codis-slots-conf-sync.webp)
-
-_Codis 将槽位关系存储在 zk 中, 并且提供了一个 Dashboard 可以用来观察和修改槽位关系, 当槽位关系变化时, Codis Proxy 会监听到变化并重新同步槽位关系, 从而实现多个 Codis Proxy 之间共享相同的槽位关系配置._
-
-### Scale Out
+##### scale out
 
 _刚开始 Codis 后端只有一个 Redis 实例, 1024 个槽位全部指向同一个 Redis. 然后一个 Redis 实例内存不够了, 所以又加了一个 Redis 实例. 这时候需要对槽位关系进行调整, 将一半的槽位划分到新的节点. 这意味着需要对这一半的槽位对应的所有 key 进行迁移, 迁移到新的 Redis 实例._
 
