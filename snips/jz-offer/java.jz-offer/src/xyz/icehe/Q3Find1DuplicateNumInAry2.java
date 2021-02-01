@@ -2,6 +2,9 @@ package xyz.icehe;
 
 import xyz.icehe.utils.CommonUtils;
 
+/**
+ * TODO: 做得太烂了, 需要重做
+ */
 public class Q3Find1DuplicateNumInAry2 {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
