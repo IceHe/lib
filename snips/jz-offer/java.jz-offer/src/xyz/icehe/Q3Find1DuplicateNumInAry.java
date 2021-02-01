@@ -33,12 +33,12 @@ public class Q3Find1DuplicateNumInAry {
         return -1;
     }
 
-    public static int find1DuplicateNumInAry2(int[] intAry) {
+    public static int betterFind1DuplicateNumInAry(int[] intAry) {
         if (null == intAry || 0 == intAry.length) {
             return -3;
         }
 
-        // 循环拆分, 方便理解
+        // 循环拆分, 容易理解
         int len = intAry.length;
         for (int j : intAry) {
             // 最初写成 <= 0, 太弱智了…
