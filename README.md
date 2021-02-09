@@ -49,13 +49,10 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
     - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
-Algorithms ( 4th Edition ) - [TOC](/books/algorithms-toc.md)
-
-- [Notes](/books/algorithms-notes.md)
-
 Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
+- [Algorithms ( 4th Edition ) - Notes](/books/algorithms-notes.md) _( reading )_
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
 - [Linux Kernel](/books/linux.md) _( todo )_
 
