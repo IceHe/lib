@@ -13,9 +13,6 @@ References
 
 ---
 
-- 前言
-- 致谢
-
 ## Part 1 走近 Java
 
 ### 第 1 章 走近 Java
