@@ -51,7 +51,7 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 
 Algorithms ( 4th Edition ) - [TOC](/books/algorithms-toc.md)
 
-- _todo_
+- [Notes](/books/algorithms-notes.md)
 
 Others
 

@@ -1,6 +1,6 @@
-# Algorithms ( TOC )
+# Algorithms ( Notes )
 
-Table Of Contents
+Algorithms, Fourth Edition
 
 ---
 
@@ -11,4 +11,6 @@ References
 
 ---
 
-todo or torm
+## Fundamentals
+
+## Sorting
