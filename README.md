@@ -49,6 +49,10 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 - [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
     - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
+Algorithms ( 4th Edition ) - [TOC](/books/algorithms-toc.md)
+
+- _todo_
+
 Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
@@ -113,10 +117,6 @@ Coding
 - [Abbreviations](/snips/abbrs.md)
 - [Glossaries](/snips/glossaries.md) with intros to the common technology products
 - [Regular Expression](/snips/regex.md)
-
-<!-- Algorithms -->
-
-<!-- - TODO -->
 
 Web
 
