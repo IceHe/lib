@@ -52,10 +52,10 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
-- [Algorithms ( 4th Edition ) - Notes](/books/algorithms-notes.md) _( reading )_
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
 - [Linux Kernel](/books/linux.md) _( todo )_
 
+<!-- - [Algorithms ( 4th Edition ) - Notes](/books/algorithms-notes.md) _( reading )_ -->
 <!-- - [JZ Offer](/books/jz-offer.md) -->
 
 <!-- _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
