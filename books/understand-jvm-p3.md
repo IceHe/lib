@@ -499,6 +499,18 @@ Class 文件中由以下 3 项数据来确定该类型的继承关系
 |V|特殊类型 void|
 |**L**|**对象类型, 如 Ljava/lang/Object;**|
 
+描述符
+
+- 数组 `[`
+    - 二维字符串数组 `[[Ljava/lang/String;`
+    - 一维整型数组 `[I`
+- 方法 `()`
+    - `void inc()` 的描述符为 `()V`
+    - `java.lang.String toString()` 为 `()Ljava/lang/String;`
+    - `int indexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex)` 为 `([CII[CIII)I`
+
+### 方法表集合
+
 ## 虚拟机类加载机制
 
 ## 虚拟机字节码执行引擎
