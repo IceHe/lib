@@ -10,6 +10,7 @@ A short biographical profile of IceHe
 
 经历
 
+- 猿辅导 - 斑马AI课 - 供应链 - Java 后端 _2021.3 ~ 至今_
 - 阿里本地生活 - 前台研发部 蜂鸟跑腿组 - Java 后端 _2020.4 ~ 2021.3_
 - 阿里本地生活 - 众包物流 运营&数据组 - Java 后端 _2019.3 ~ 2020.3_
 - 新浪微博 - 视频平台 - Java 后端 _2018.4 ~ 2019.2_
@@ -79,6 +80,11 @@ A short biographical profile of IceHe
 ---
 
 ## 经历
+
+**猿辅导 - 斑马AI课 - 供应链 - Java 后端** _2021.3 ~ 至今_
+
+- ?
+- _Java / Thrift / MySQL / MyBatis / Redis_
 
 **阿里本地生活 - 前台研发部 - 蜂鸟跑腿后端组 - Java 后端** _2020.4 ~ 2021.3_
 
