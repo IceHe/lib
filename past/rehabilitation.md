@@ -172,6 +172,7 @@ _Yearly_
 _Seasonly_
 
 - 工作: 长久改善生活
+    - [ ] ~ 2021.06.15: **Find meaningful tasks**
     - [ ] ~ 2021.09.15: **Pass YFD probation**
 
 <!-- - [ ] ~ 2021.03.15: 详细复习 算法 & 数据结构, 刷题 _( 学习 )_ -->

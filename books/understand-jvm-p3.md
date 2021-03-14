@@ -499,6 +499,41 @@ Class 文件中由以下 3 项数据来确定该类型的继承关系
 |V|特殊类型 void|
 |**L**|**对象类型, 如 Ljava/lang/Object;**|
 
+描述符
+
+- 数组 `[`
+    - 二维字符串数组 `[[Ljava/lang/String;`
+    - 一维整型数组 `[I`
+- 方法 `()`
+    - `void inc()` 的描述符为 `()V`
+    - `java.lang.String toString()` 为 `()Ljava/lang/String;`
+    - `int indexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex)` 为 `([CII[CIII)I`
+
+### 方法表集合
+
+方法访问标志
+
+|标志名称|标志值|含义|
+|-|-|-|
+|ACC_PUBLIC|0x0001|字段是否 public|
+|ACC_PRIVATE|0x0002|字段是否 private|
+|ACC_PROTECTED|0x0004|字段是否 protected|
+|ACC_STATIC|0x0008|字段是否 static|
+|ACC_FINAL|0x0010|字段是否 final|
+|ACC_SYNCHRONIZED|0x0020|字段是否 synchronized|
+|ACC_BRIDGE|0x0040|字段是否由编译器产生的桥接方法|
+|ACC_VARARGS|0x0080|字段是否接受不定参数|
+|ACC_NATIVE|0x0100|字段是否为 native|
+|ACC_ABSTRACT|0x0400|自如是否 abstract|
+|ACC_STRICT|0x0800|自如是否 strictfp|
+|ACC_SYNTHETIC|0x1000|字段是否 由编译器自动产生|
+
+_其它详见原文_
+
+### 属性表集合
+
+_`attribute_info`_
+
 ## 虚拟机类加载机制
 
 ## 虚拟机字节码执行引擎
