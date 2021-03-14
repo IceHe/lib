@@ -534,6 +534,30 @@ _其它详见原文_
 
 _`attribute_info`_
 
+- 不再要求各个属性表具有严格顺序
+- JVM 规范允许只要不与已有属性名重复, 任何人实现的编译器都可以向属性表中写入自己定义的属性信息
+
+JVM 规范预定义的属性
+
+- 略
+
+属性表结构
+
+|类型|名称|数量|
+|-|-|-|
+|u2|attribute_name_index|1|
+|u4|attribute_length|1|
+|u1|info|attribute_length|
+
+Code 属性
+
+- 属性表的结构 : 略
+    - max_stack : 操作数栈 ( Operand Stack ) 深度的最大值
+    - max_locals : 局部变量表所需的存储空间
+        - 单位 : 变量槽 ( Slot ), 32 bits
+
+_TODO : 摘录_
+
 ## 虚拟机类加载机制
 
 ## 虚拟机字节码执行引擎
