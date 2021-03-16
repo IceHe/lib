@@ -362,10 +362,12 @@ user.email=icehe@gmail.com
 
 JDK - Java Development Kit
 
-1.  Download [JDK 8 binary installation package](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+1.  Download [JDK 8 binary installation package](https://www.oracle.com/hk/java/technologies/javase/javase-jdk8-downloads.html)
     for macOs on the offical website
 
     _The recommended version is still **8**. ( 2021-01-01 )_
+
+    _( Optional installation : [sdkman](https://sdkman.io) )_
 
 1.  Install
 
