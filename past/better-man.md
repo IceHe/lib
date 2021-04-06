@@ -6,7 +6,7 @@
 
     1.  **什么时间就该干什么事**
 
-        _Schedule / Alarm / Due / BlockyTime / Forest / TickTick.Habit_
+        _Schedule / Alarm / Due / <!-- BlockyTime / --> Forest / TickTick.Habit_
 
 1.  **做好一件小事, 然后再做好下一件小事, 然后不断循环**
 
