@@ -614,6 +614,7 @@ row in set (0.00 sec)
     - 因为在 InnoDB 的老版本中为了页对齐都自动的往上增加了
     - 比如有一行行长 29 bytes 为了保证页对齐，往上加了 1 或 2 bytes
 - 在经历了多次块分裂后，认为「块」到达约 69% 满了
+
 ## Troubleshooting
 
 ERROR
