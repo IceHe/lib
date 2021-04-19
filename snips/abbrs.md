@@ -228,6 +228,8 @@ Reference : https://www.computerhope.com/keys.htm
 - COW : [Copy-On-Write](https://en.wikipedia.org/wiki/Copy-on-write)
 - cp : [copy](https://en.wikipedia.org/wiki/Copy_(command))
 - cpp : [c++](https://en.wikipedia.org/wiki/C%2B%2B)
+- CQRS : [Command and Query Reponsibility Segregation](https://martinfowler.com/bliki/CQRS.html)
+    ( [浅谈查询职责分离(CQRS)模式](https://www.arcblock.io/blog/zh/post/2018/10/30/cqrs-commaded) )
 - cr : [carriage return](https://en.wikipedia.org/wiki/Carriage_return)
 - CRC : [Cyclic Redundancy Check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check)
 - CRDTs : [conflict-free replicated data types](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/)
