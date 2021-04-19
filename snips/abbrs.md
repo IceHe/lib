@@ -266,6 +266,7 @@ Reference : https://www.computerhope.com/keys.htm
 - del : delete
 - dev : development | device
 - diff : differ | difference
+- DIP : [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
 - DIP : Director IP 转发地址
 - dir : directory
 - dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
