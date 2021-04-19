@@ -275,6 +275,7 @@ Reference : https://www.computerhope.com/keys.htm
 - dn : down
 - doc : documentation
 - docs : documentation
+- DoD : [Definition of Done](https://en.wikipedia.org/wiki/Scrum_(software_development)#:~:text=the%20work%20item.-,Definition%20of%20done)
 - DoS : [Denial-of-Service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)
 - DSL : [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language)
 - dup : duplicate
