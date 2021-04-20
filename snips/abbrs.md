@@ -208,6 +208,7 @@ Reference : https://www.computerhope.com/keys.htm
 - CAP : [Consistency, Availability, Partition Tolerance](https://en.wikipedia.org/wiki/CAP_theorem)
 - CAS : Compare & Set/Swap ( for Lock )
 - cb : char block? ( for Linux )
+- CDC : [Change Data Capture](https://en.wikipedia.org/wiki/Change_data_capture)
 - chan : channel ( for Go )
 - chk : check
 - CI/CD : Continuous Integration / Continuous Delivery (持续集成/持续交付)
