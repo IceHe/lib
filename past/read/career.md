@@ -205,12 +205,6 @@ Result：自己的贡献
 
 再次强调：对于未来的规划，尽量不要主动谈及外在的职位与收入，着重表现内在的积累与成长。
 
-## BAT 职级待遇
-
-References
-
-- 百度、腾讯和阿里等互联网公司级别、薪资待遇 - 百度经验 : https://jingyan.baidu.com/article/d2b1d102c2978c5c7f37d470.html
-
 ## 背景调查
 
 **reference check ( ~~backgroud investigation~~ )**

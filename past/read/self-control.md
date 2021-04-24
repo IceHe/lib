@@ -5,7 +5,7 @@
 ---
 
 - Digest created on 2016-06-17
-- From: http://mp.weixin.qq.com/s?__biz=MzI1OTAwNDc1OA==&mid=405068698&idx=1&sn=a401b7eba92b3bc4378cb5ec8dfd7c48&scene=1&srcid=04011TWvm7WC8dEBpfJRwAIP#rd
+- From: https://mp.weixin.qq.com/s?__biz=MzA4NjcyMDU1NQ==&mid=2247489404&idx=1&sn=05483c4f3491cc1b11c98db41f903d8b
 
 ## 自控力定义
 
