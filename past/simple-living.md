@@ -1,6 +1,6 @@
 # Simple Living
 
-规则
+信念
 
 时间表
 
