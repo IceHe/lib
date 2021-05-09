@@ -453,7 +453,7 @@ Timeline
     - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform / Back-End / Java
     - **Alibaba Local Life**: 众包物流运营&数据组后台 → 蜂鸟跑腿前台 / Back-End / Java
 - After 2018
-    - [To be a better man](/past/better-man.md)
+    - [Better Living](/past/better-living.md)
     - [Rehabilitation](/past/rehabilitation.md)
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
     - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
