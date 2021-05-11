@@ -1,0 +1,16 @@
+# Java Snippets
+
+- [Collection](collection.md)
+- [Common DTOs](common-dtos.md)
+- [Elasticsearch](elasticsearch.md)
+- [Enum](enum.md)
+- [Excel](excel.md)
+- [Executor](executor.md)
+- [HTTP](http.md)
+- [JSON](json.md)
+- [LocalDateTime](local-date-time.md)
+- [MyBatis and JDBC](mybatis-n-jdbc.md)
+- [Number](number.md)
+- [Spring ConstraintValidator](spring-constraint-validator.md)
+- [Stream and Optional](stream-n-optional.md)
+- [String](string.md)

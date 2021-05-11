@@ -348,7 +348,7 @@ Basics
 Coding
 
 - [Notes](/java/notes.md)
-- [Snippets](/java/code-snippets/notes.md)
+- [Snippets](/java/code-snippets/TOC.md)
 - [Spock](/java/spock.md): unit tests ( or JUnit )
     - [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
 - [IDE - IntelliJ IDEA](/java/intellij-idea.md): usage / …
