@@ -3711,6 +3711,24 @@ public class PooledHttpClient extends CloseableHttpClient implements AutoCloseab
 
 - How to Write to an Excel file in Java using Apache POI | CalliCoder : https://www.callicoder.com/java-write-excel-file-apache-poi/
 
+```xml
+<!-- Used to work with the older excel file format - `.xls` -->
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.17</version>
+</dependency>
+
+<!-- Used to work with the newer excel file format - `.xlsx` -->
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.17</version>
+</dependency>
+```
+
 ### Read from bytes
 
 ```java
