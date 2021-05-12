@@ -8,6 +8,7 @@ References
 
 - Book "Fundamentals of Software Architecture"
     - 《软件架构基础》（影印版）
+    - [TOC](/books/fundamentals-of-software-architecture-toc.md)
 
 ## Table of Contents
 
@@ -24,11 +25,11 @@ References
         - Have Bussines Domain Knowledge
         - Understand and Navigate _( 操纵 )_ Politics
     - Intersection _( 交叉点 )_ of Architecture and …
-        - Engineering Practices
-        - Operations / DevOps
-        - Process
-        - Data
-    - Laws of Software Architecutre
+        - **Engineering Practices**
+        - **Operations / DevOps**
+        - **Process**
+        - **Data**
+    - **Laws of Software Architecutre**
 
 ### Part 1. Foundations
 
@@ -40,24 +41,24 @@ References
     - Understanding Business Drivers
     - Balancing Architecutre and Hands-On Coding
 
--   3\. Modularity _( 模块性 )_
+-   3\. **Modularity _( 模块性 )_**
 
     - Definition
     - Measuring Modularity
-        - Cohesion
-        - Coupling
-        - Abstractness, Instability, and Distance from the Main Sequence
-        - Distance from the Main Sequence
-        - Connascence _( 共生性 )_
-        - Unifying Coupling and Connascence Metrics
-    - From Modules to Components
+        - **Cohesion**
+        - **Coupling**
+        - **Abstractness, Instability, and Distance from the Main Sequence**
+        - **Distance from the Main Sequence**
+        - **Connascence _( 共生性 )_**
+        - **Unifying Coupling and Connascence Metrics**
+    - **From Modules to Components**
 
--   4\. Architecture Characteristics _( 特征 )_ Defined
+-   4\. **Architecture Characteristics _( 特征 )_** Defined
 
     - Architectural Characteristics ( Partially ) Listed
-        - Operational Architecture Characteristics
-        - Structural Architecture Characteristics
-        - Cross-Cutting Architecture Characteristics
+        - **Operational** Architecture Characteristics
+        - **Structural** Architecture Characteristics
+        - **Cross-Cutting** Architecture Characteristics
     - Trade-Offs and Least Worst Architecture
 
 -   5\. Indentifying Architectural Characteristics
@@ -78,19 +79,19 @@ References
         - Governing Architecture Characteristics
         - Fitness Functions
 
--   7\. Scope of Architecture Characteristics
+-   7\. **Scope** of Architecture Characteristics
 
-    - Coupling and Connascence
-    - Architectural Quanta _( 量 )_ and Granularity _( 粒度 )_
+    - **Coupling and Connascence**
+    - **Architectural Quanta _( 量 )_ and Granularity _( 粒度 )_**
         - Case Study: Going, Going, Gone
 
 -   8\. Component-Based Thinking
 
     - Component Scope
-    - Architect Role _( 职责 )_
-        - Architecture Partitioning _( 分割 )_
+    - **Architect Role _( 职责 )_**
+        - **Architecture Partitioning _( 分割 )_**
         - Case Study: Silicon Sanwiches: Partitioning
-    - Developer Role
+    - **Developer Role**
     - Component Identification Flow
         - Identifying Initial Components
         - Assign Requirements to Components
@@ -111,15 +112,205 @@ References
         - Big Ball of Mud
         - Unitary _( 统一的 )_ Architecture
         - Client / Server
-    - Monolithic Versus Distributed Architectures
-        - Fallacy _( 谬误 )_ #1: The Network Is Reliable
-        - Fallacy #2: Latency Is Zero
-        - Fallacy #3: Bandwidth Is Infinite
-        - Fallacy #4: The Network Is Secure
-        - Fallacy #5: The Topology Never Changes
-        - Fallacy #6: There Is Only One Administrator
-        - Fallacy #7: Transport Cost Is Zero
-        - Fallacy #8: The Network Is Homogeneous
+    - **Monolithic Versus Distributed Architectures**
+        - **Fallacy _( 谬误 )_ #1: The Network Is Reliable**
+        - **Fallacy #2: Latency Is Zero**
+        - **Fallacy #3: Bandwidth Is Infinite**
+        - **Fallacy #4: The Network Is Secure**
+        - **Fallacy #5: The Topology Never Changes**
+        - **Fallacy #6: There Is Only One Administrator**
+        - **Fallacy #7: Transport Cost Is Zero**
+        - **Fallacy #8: The Network Is Homogeneous**
         - Other Distributed Considerations
 
--   10\. Layered Architecture Style
+-   10\. **Layered** Architecture Style
+
+    - Topology
+    - **Layers of Isolation**
+    - Adding Layers
+    - Other Considerations
+    - Why Use This Architecture Style
+    - Architecture Characteristics Ratings
+
+-   11\. **Pipeline** Architecture Style
+
+    - Topology
+        - **Pipes**
+        - **Filters**
+    - Example
+    - Architecture Characteristics Ratings
+
+-   12\. **Microkernel** Architecture Style
+
+    - Topology
+        - **Core System**
+        - **Plug-In Components**
+    - **Registry**
+    - **Contracts**
+    - Examples of Use Cases
+    - Architecture Characteristics Ratings
+
+-   13\. **Service-Based** Architecture Style
+
+    - Topology
+    - Topology Variants
+    - Service Design and Granularity
+    - **Database Partitioning**
+    - Example Architecture
+    - Architecture Characteristics Ratings
+    - When to Use This Architecture Style
+
+-   14\. **Event-Driven** Architecture Style
+
+    - Topology
+    - **Broker** Topology
+    - **Mediator** Topology
+    - **Asynchronous Capabilities**
+    - **Error Handling**
+    - **Prevent Data Loss**
+    - **Broadcast Capabilities**
+    - **Request-Reply**
+    - Choosing Between Request-Reply and **Event-Based**
+    - **Hybrid** Event-Driven Architectures
+    - Architecture Characteristics Ratings
+
+-   15\. **Space-Based** Architecture Style
+
+    - General Topology
+        - **Processing Unit**
+        - **Virtualized Middleware**
+        - **Data Pumps _( 泵 )_**
+        - **Data Writers**
+        - **Data Readers**
+    - **Data Collisions**
+    - **Cloud Versus On-Premises _( 内部部署 )_ Implementations**
+    - **Replicated Versus Distributed Caching**
+    - **Near-Cahce** Considerations
+    - Implementation Examples
+        - Correct Ticketing System
+        - Online Auction System
+    - Architecture Characteristics Ratings
+
+-   16\. **Orchestration-Driven Service-Oriented** Architecture
+
+    - History and Philosophy
+    - Topology
+    - Taxonomy
+        - **Business** Services
+        - **Enterprise** Services
+        - **Application** Services
+        - **Infrastructure** Services
+        - **Orchestration** Services
+        - **Message Flow**
+    - **Reuse … and Coupling**
+    - Architecture Characteristics Ratings
+
+-   17\. **Microservices** Architecture
+
+    - History
+    - Topology
+    - **Distributed**
+    - **Bounded Context**
+        - **Granularity**
+        - **Data Isolation**
+    - **API Layer**
+    - Operational Reuse
+    - **Frontends _( 前端的 )_**
+    - Communication
+        - **Choreography _( 舞蹈舞蹈设计 )_ and Orchestration**
+        - **Transactions and Sages _( 圣人, 智者 )_**
+    - Architecture Characteristics Ratings
+    - Additional References
+
+-   18\. Choosing the Appropriate Architecture Style
+
+    - Shifting "Fashion" in Architecture
+    - **Decision Criteria _( 标准, 条件 )_**
+    - Monolith Case Study: Silicon Sandwiches
+        - Modular Monolith
+        - Microkernel
+    - Distributed Case Study: Going, Going, Gone
+
+### Part 3. Techniques and Soft Skills
+
+-   19\. **Architecture Decisions**
+
+    - Architecture Decision **Anti-Patterns**
+        - **Governing Your Assets** Anti-Pattern
+        - **Groundhog Day _( 土拨鼠日 )_** Anti-Pattern
+        - **Email-Driven** Architecture Anti-Pattern
+    - Architecturally Significant
+    - Architecture Decision Records
+        - Basic Structure
+        - Storing ADRs
+        - ADRs as Documentation
+        - Using ADRs for Standards
+        - Example
+
+-   20\. Analyzing Architecture **Risk**
+
+    - Risk Matrix
+    - Risk Assessments _( 估价 )_
+    - Risk Storming
+        - Identification
+        - Consensus
+    - Agile Story Risk Analysis
+    - Risk Storming Examples
+        - Availability
+        - **Elasticity _( 弹性 )_**
+        - Security
+
+-   21\. Diagramming and Presenting Architecture
+
+    - Diagramming
+        - Tools
+        - Diagramming Standards: **UML, C4, and ArchiMate**
+        - Diagram Guidelines
+    - Presenting
+        - Manipulating Time
+        - Incremental Builds
+        - **Infodecks Versus Presentations**
+        - **Slides Are Half of the Story**
+        - Invisibility
+
+-   22\. Making Teams Effective
+
+    - Team Boundaries
+    - Architect Personalities
+        - Control Freak _( 怪物; 反常的事 )_
+        - Armchair _( 扶手椅 )_ Architect
+        - Effective Architect
+    - How Much Control?
+    - Team Warning Signs
+    - **Leveraging Checklists**
+        - **Developer Code Completion** Checklist
+        - **Unit and Functional Testing** Checklist
+        - **Software Release** Checklist
+    - Providing Guidance
+    - Summary
+
+-   23\. Negotiation and Leadership Skills
+
+    - **Negotiation and Facilitation** _( 助长, 简易化 )_
+        - Negotiating with Business Stakeholders
+        - Negotiating with Other Architects
+        - Negotiating with Developers
+    - The Software Architect as a Leader
+        - The 4 C's of Architecture
+        - Be Pragmatic, Yet Visionary _( 有眼光的, 有远见的 )_
+        - Leading Teams By Example
+    - Integrating with the Development Team
+    - Summary
+
+-   24\. Developing a Career Path
+
+    - The 20-Minute Rule
+    - Developing a Personal Radar
+        - The ThoughtWorks Technology Radar
+        - Open Source Visualization Bits
+    - Using Social Media
+    - Parting Words of Advice
+
+-   Appendix. Self-Assessment Questions
+
+-   Index

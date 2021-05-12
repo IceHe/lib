@@ -52,7 +52,7 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
-- [Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md)
+- [Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md) _( and [TOC](/books/fundamentals-of-software-architecture-toc.md) )_
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
 - [Linux Kernel](/books/linux.md) _( todo )_
 
