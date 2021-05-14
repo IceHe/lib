@@ -140,6 +140,7 @@ brew install --cask \
     google-chrome \
     intellij-idea \
     iterm2 \
+    itsycal \
     karabiner-elements \
     keyboard-maestro \
     neteasemusic \
@@ -660,9 +661,29 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 
 `Preferences…`
 
+- `General`
+    - Enable `Run on system startup`
 - `Control` → `Global Hotkeys`
     - Set `Snip` **^⌘A**
     - Clear all other hotkeys
+
+#### Itsycal
+
+`Preference…`
+
+- `General`
+    - Enable `Launch at login`
+- `Appearance`
+    - `Menu Bar`
+        - Datetime pattern ` Y.MM.dd  E  HH:mm:ss `
+        - Enable `Hide icon`
+    - `Calendar`
+        - `Highlight`
+            - Enable `Saturday` and `Sunday`
+        - Enable `Show event dots`
+            - Enable `Use colored dots`
+        - Enable `Use event location`
+        - Enable `Use calendar weeks`
 
 <!--
 
