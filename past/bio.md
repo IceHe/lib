@@ -83,8 +83,8 @@ A short biographical profile of IceHe
 
 **猿辅导 - 斑马AI课 - 供应链 - Java 后端** _2021.3 ~ 至今_
 
-- ?
-- _Java / Thrift / MySQL / MyBatis / Redis_
+- 课程随材物料支持历史版本、实验分组 / 库存计算 / 快递&仓库发货策略 / …
+- _Java / Spring Boot / Thrift / MySQL / Redis / RocketMQ_
 
 **阿里本地生活 - 前台研发部 - 蜂鸟跑腿后端组 - Java 后端** _2020.4 ~ 2021.3_
 
