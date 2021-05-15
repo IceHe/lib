@@ -448,10 +448,11 @@ _Others_
 Timeline
 
 - [Bio](/past/bio.md): skills / exprience / education
-    - **SCUT**: Software Engineering / Bachelor / C++
-    - **Huawei**: Telecom Software Customization / Intern. / Java
-    - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform / Back-End / Java
-    - **Alibaba Local Life**: 众包物流运营&数据组后台 → 蜂鸟跑腿前台 / Back-End / Java
+    - **SCUT**: Software Engineering | Bachelor _( C++ )_
+    - **Huawei**: Telecom Software Customization | Intern. _( Java )_
+    - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
+    - **Alibaba Local Life**: 众包物流运营&数据组 → 蜂鸟跑腿 | Back-End _( Java )_
+    - **YFD** : 斑马AI课 供应链 | Back-End _( Java )_
 - After 2018
     - [Better Living](/past/better-living.md)
     - [Rehabilitation](/past/rehabilitation.md)
@@ -505,7 +506,6 @@ Timeline
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
 - Working standards
-    - "Don't try, just do. Failure is not an option." - Elon Musk
     - 请示工作说方案
     - 布置工作说标准
     - 汇报工作说结果
@@ -518,6 +518,7 @@ Timeline
 
 <!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
 <!-- - [What Why How](/snips/principles/what-why-how.md) -->
+<!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
 ### Digest
 
@@ -574,7 +575,7 @@ Timeline
 <!-- > —— Better Man _( Robbie Williams song )_ -->
 
 -   Jan Fan: PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
--   Johnson Zhang: Past Roommate / Python / Sina Mobile / Didi @ Beijing
+-   Johnson Zhang: Past Roommate / Python / Sina Mobile / Meituan @ Beijing
 -   [SF Zhou](http://sf-zhou.github.io/): ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
 -   Shiwey Yan: Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues): Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
@@ -585,8 +586,6 @@ Timeline
 
 > 靡不有初，鮮克有終。
 
-![the-fucking-life.jpg](/past/_images/the-fucking-life.jpg)
-
 <!-- > —— 《诗经·大雅·荡》 -->
 
 <!--
@@ -596,3 +595,5 @@ Timeline
 > —— 老子《道德经·无之为用》
 
 -->
+
+<!-- ![the-fucking-life.jpg](/past/_images/the-fucking-life.jpg) -->
