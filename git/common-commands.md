@@ -69,8 +69,13 @@ git diff
 
     --cached
     --word-diff
+
     # compare to the past of the past
     HEAD^
+    HEAD~2
+
+    # show diff between two commits
+    <commit_id1>...<commit_id2>
 
 git add
 git rm
@@ -141,7 +146,7 @@ git clean
     # remove whole directories
     -d
 
-git cherry-pick COMMIT_ID1 COMMIT_ID2 …
+git cherry-pick <commit_id1> <commit_id2> …
 
 git rebase
 
