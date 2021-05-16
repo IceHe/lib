@@ -317,7 +317,25 @@ References
 
 ## Preface: Invalidating Axioms
 
-TODO
+Architecture characteristics referes to the "-illities" that the system must support
+
+- Availability 可用性
+- Reliability 可靠性
+    - _Software Reliability is the probability of failure-free software operation for a specified period of time in a specified environment. ( [ref](https://users.ece.cmu.edu/~koopman/des_s99/sw_reliability/#:~:text=Software%20Reliability%20is%20the%20probability,important%20factor%20affecting%20system%20reliability.&text=Measurement%20in%20software%20is%20still%20in%20its%20infancy.) )_
+- Testability 可测试性
+- Scalability 可伸缩性
+    - _Scalability handles the changing needs of an application within the confines of the infrastructure via statically adding or removing resources to meet applications demands if needed. ( [ref](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
+- Security 安全性
+- Agility 敏捷性
+- Fault Tolerance 错误容忍性
+- Elasticity 弹性
+    - _The purpose of Elasticity is to match the resources allocated with actual amount of resources needed at any given point in time. ( [ref](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
+- Recoverability 可恢复性
+- Performance 性能
+- Deployability 可部署性
+- Learnability 可学习性?
+
+_( [Scalability vs. Elasticity](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
 
 ## Introduction
 
