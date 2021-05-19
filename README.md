@@ -198,6 +198,7 @@ Message Queues
 Commands
 
 - [ab](/cmd/a/ab.md): Apache HTTP server benchmarking tool
+- [ag](/cmd/a/ag.md): The Silver Searcher. Like `ack`, but faster.
 - [awk](/cmd/a/awk.md): pattern-directed scanning and processing language
     - [gawk](/cmd/a/awk.md): pattern scanning and processing language
 - [bash](/cmd/bash/bash.md): GNU Bourne-Again SHell
