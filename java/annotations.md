@@ -6,6 +6,12 @@ Core Spring Framework Annotations
 
 - https://springframework.guru/spring-framework-annotations/
 
+### @Transactional
+
+- [Spring事务失效的 8 大原因](https://zhuanlan.zhihu.com/p/285264026)
+
+TODO
+
 ### @Resource vs. @Autowired (@Inject)
 
 - https://stackoverflow.com/a/10916767
