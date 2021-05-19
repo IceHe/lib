@@ -262,3 +262,12 @@ Custom
 # or
 :mkexrc
 ```
+
+### Input via command
+
+- 直接从命令行中获取内容并输出到文件中, 例如 `:r !ls`
+
+## Trouble Shooting
+
+- `:scriptnames` 查看使用到的文件 : 有没有使用 `.vimrc` ?
+- `vim -u path/to/.vimrc` 手动指定配置文件

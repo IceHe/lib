@@ -10,8 +10,6 @@ Core Spring Framework Annotations
 
 - [Spring事务失效的 8 大原因](https://zhuanlan.zhihu.com/p/285264026)
 
-TODO
-
 ### @Resource vs. @Autowired (@Inject)
 
 - https://stackoverflow.com/a/10916767
@@ -119,4 +117,8 @@ public class MqTest {
 
 ### @JsonSerialize and @JsonDeserialize
 
-- See [java/code-snippets/notes.md#serialize-and-deserialize](java/code-snippets/notes.md#serialize-and-deserialize)
+- [java/code-snippets/notes.md#serialize-and-deserialize](java/code-snippets/notes.md#serialize-and-deserialize)
+
+### @JsonInclude(Include.NON_NULL)
+
+- [Ignore Null Fields with Jackson](https://www.baeldung.com/jackson-ignore-null-fields)

@@ -51,6 +51,15 @@ keyValuesMap.forEach((key, vals) ->
 
 ```
 
+## Array T[] to List
+
+```java
+// e.g.
+Arrays.stream(values()).collect(Collectors.toConcurrentMap(
+        SomeEnum::getKey,
+        SomeEnum::getVal)));
+```
+
 ## Collection toArray
 
 ```java
@@ -98,23 +107,6 @@ Stream<Entry<String, List<Item>>> duplicates = merged
         .collect(Collectors.groupingBy(Item::getId)))
         .entrySet().stream()
         .filter(e -> e.getValue() > 1);
-
-```
-
-## StringUtils
-
-```java
-import org.apache.commons.lang3.StringUtils;
-
-StringUtils.join(stringIterator, ",")
-
-// Consider blank charaters
-StringUtils.isBlank(string)
-StringUtils.isNotBlank(string)
-
-// Just care about length
-StringUtils.isEmpty(string)
-StringUtils.isNotEmpty(string)
 
 ```
 

@@ -294,3 +294,20 @@ Matcher mixedZhEnMatcher = mixedZhEnParttern.matcher(fuzzyKeyword);
 boolean likeMixedZhEn = mixedZhEnMatcher.find();
 
 ```
+
+## StringUtils
+
+```java
+import org.apache.commons.lang3.StringUtils;
+
+StringUtils.join(stringIterator, ",")
+
+// Consider blank charaters
+StringUtils.isBlank(string)
+StringUtils.isNotBlank(string)
+
+// Just care about length
+StringUtils.isEmpty(string)
+StringUtils.isNotEmpty(string)
+
+```
