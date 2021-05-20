@@ -337,6 +337,26 @@ Architecture characteristics referes to the "-illities" that the system must sup
 
 _( [Scalability vs. Elasticity](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
 
-## Introduction
+## C1. Introduction
 
-TODO
+Laws of Software Architecture
+
+> Everything in software architecture is a trade-off.
+
+_—— First Law of SOftware Architecture_
+
+> If an architect thinks they discovered something that isn't a trade-off, more likely they just haven't identified the trade-off yet.
+
+_—— Corollary 1_
+
+> Why is more important than how.
+
+_—— Second Law of SOftware Architecture_
+
+# Part 1. Foundations
+
+## C2. Architectureal Thinking
+
+# Part 2. Architeure Styles
+
+# Part 3. Techniques and Soft Skills
