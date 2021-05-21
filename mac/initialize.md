@@ -610,6 +610,7 @@ Notification
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         ( [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks )
     -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml): Support [PlatUML](http://plantuml.com/) _( *.puml file )_
+        - _Trouble Shooting: require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )_
     -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim): Vim emulator - edit text like Vim
 
 #### Sublime Text
