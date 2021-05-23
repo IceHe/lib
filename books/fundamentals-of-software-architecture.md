@@ -386,6 +386,26 @@ Topic disadvantages
 
 _( icehe : 初见, 感觉基于 topic 是 "完美的" , 实则同样存在的取舍平衡 )_
 
+### Balancing Architecure and Hands-on Coding
+
+First way is to do frequent proof-of-concepts or POCs.
+
+- … it also helps validate an architecuture decision by talking the implementation details into account.
+- _Our advice when doing proof-of-concept work is that, whenever possible, the architect should write the best production-quality code they can._
+
+Another way an architect can remain hands-on is to tackle some of the technical debt stories or architecture stories, _freeing the development team up to work on the critical functional user stories._
+
+- _Similarly, working on bugfixes within an iteration…_
+- Leveraging automation by creating simple command-line tools and analyzers _to help the development team with their day-to-day tasks is another great way to maintain hands-on coding skills while making the development team more effective_
+
+Do frequent code reviews.
+
+---
+
+[ArchiUnit](https://www.archunit.org/)
+
+ArchUnit is a free, simple and extensible library for checking the architecture of your Java code using any plain Java unit test framework. That is, ArchUnit can check dependencies between packages and classes, layers and slices, check for cyclic dependencies and more. It does so by analyzing given Java bytecode, importing all classes into a Java code structure.
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
