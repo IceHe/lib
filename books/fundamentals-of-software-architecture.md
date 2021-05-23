@@ -357,6 +357,35 @@ _—— Second Law of SOftware Architecture_
 
 ## C2. Architectureal Thinking
 
+### Technical Breadth
+
+Technical Depth & Technical Breadth
+
+![tech-depth-n-breath.jpeg](_images/fundamentals-of-software-architecture/tech-depth-n-breath.jpeg)
+
+### Analyze Trade-Offs
+
+Trade-offs between topics and queues
+
+![topic-communication.jpeg](_images/fundamentals-of-software-architecture/topic-communication.jpeg)
+![queues-communication.jpeg](_images/fundamentals-of-software-architecture/queues-communication.jpeg)
+
+Topic advantages
+
+- Architecture extensibility
+- Service decoupling
+
+Topic disadvantages
+
+- Data access and data security conerns
+    _( 可以像阿里那样用管理后台管控 topic 接入, 但实际可以通过代码绕过去 )_
+- No heterogeneous contents
+    _( 不同消费方关注的字段各不相同, 生产方只能提供消费方所需字段的超集, 没法为消费方按需提供数据 )_
+- Monitoring and programmatic scalability
+    _( 无法单独监控 topic 的消息消费情况, 就难以为各个消费方单独做自动扩缩容 )_
+
+_( icehe : 初见, 感觉基于 topic 是 "完美的" , 实则同样存在的取舍平衡 )_
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
