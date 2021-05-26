@@ -1,6 +1,6 @@
 # ag
 
-ag  - The Silver Searcher. Like ack, but faster.
+The Silver Searcher. Like ack, but faster.
 
 ---
 

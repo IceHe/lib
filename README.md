@@ -297,6 +297,7 @@ Commands
 - [tee](/cmd/t/tee.md): write to standard output & files
 - [telnet](/cmd/t/telnet.md): user interface to the TELNET protocol
 - [terminal-notifier](/cmd/t/terminal-notifier): send macOS User Notifications
+- [time](/cmd/t/time.md): time command execution
 - [timeout](/cmd/t/timeout.md): run a command with a time limit
 - [tmux](/cmd/t/tmux.md): terminal multiplexer
 - [touch](/cmd/t/touch.md): change file access & modification times
