@@ -1,6 +1,6 @@
 # README
 
-[Welcome!](/past/blog/welcome.md) Here is my "Library".
+[Welcome](/past/blog/welcome.md) to IceHe's Library !
 
 ---
 
@@ -507,7 +507,7 @@ Timeline
 - [How to Ask](/snips/principles/how-to-ask.md): Prepare before asking
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
-- Working standards
+- Working Standards
     - 请示工作说方案
     - 布置工作说标准
     - 汇报工作说结果
@@ -584,7 +584,9 @@ Timeline
 -   [IceHe](https://icehe.xyz) ( myself ) : A fool / Java Backend / Weibo / Alibaba / YFD @ Beijing
 - …
 
-## Ending
+---
+
+<!-- ## Ending -->
 
 > 靡不有初，鮮克有終。
 
