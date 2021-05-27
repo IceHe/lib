@@ -408,6 +408,39 @@ ArchUnit is a free, simple and extensible library for checking the architecture 
 
 ## C3. Modularity
 
+### Measuring Modularity
+
+#### Cohesion
+
+_( 内聚 )_
+
+- **Functional** cohesion
+    - Every part of the module is related to the other, ant he module contains everything essential to function
+- **Sequential** cohesion
+    - Two modules interact, where one outputs data that becomes the input ofr the other
+- **Communicational** cohesion
+    - Two modules form a communication chain
+    - e.g. ad a record to db → gen an email based on it
+- **Procedural** cohesion
+    - Must execute in particular order
+- **Temporal** cohesion
+    - Related based on timing dependencies
+    - e.g. things that must be initialized at system startup
+- **Logical** cohesion
+    - Related logically but not functionally
+    - e.g. StringUtils package
+        - Operations are related, but the functions are quite different
+- **Coincidental** cohesion _( negative )_
+    - e.g. not related but being in the same source file
+
+#### Coupling
+
+_( 耦合 )_
+
+#### Connascence
+
+_icehe : 可修改性? 怎么翻译好?_
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
