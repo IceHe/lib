@@ -8,10 +8,12 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- This site: [icehe.xyz](https://icehe.xyz) - _powered by [docsify](/_docsify/how-to-docsify.md)_
+- Website: [icehe.xyz](https://icehe.xyz) - _powered by [docsify](/_docsify/how-to-docsify.md)_
 -   Author: [IceHe](/past/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
+
+Technology
 
 ### Books
 
@@ -177,6 +179,8 @@ Message Queues
 - _[Notes](/message-queues/notes.md)_
 
 ### Mac
+
+macOS
 
 - [Initialize](/mac/initialize.md): 系统初始化
 - [Efficiency](/mac/efficiency.md): 效率指南
@@ -435,6 +439,8 @@ _Others_
 - _JavaScript: [optimize some code](/scripts/javascript/optimize-some-code.md)_
 
 ## Life
+
+Living
 
 ### Past
 
