@@ -4,100 +4,81 @@
 
 ---
 
-一件事要想清楚为什么而做? 然后是怎么去做? 不忘初心, 方得始终. ( 不至于南辕北辙 )
-
 ## What is my Lib?
 
-我的 "[IceHe's Lib](https://icehe.xyz)" 是什么？
+[IceHe's Lib](https://icehe.xyz)
 
-### "Notebook"
+### Notebook
 
-“笔记本”
+- 保存 个人笔记 的 Git 代码仓库 ( note repo )
+- 或者说是 个人的维基百科 ( personal [Wiki](https://en.wikipedia.org/wiki/Wiki) )
 
-- 保存 "个人笔记" 的 Git 代码仓库 ( note repo )
-- 或者说是 "个人的维基百科" ( personal [Wiki](https://en.wikipedia.org/wiki/Wiki) )
-
-### "Blog"
-
-“博客”
+### Blog
 
 - 虽然从内容的组织方式上看并非通常意义上的 [Blog](https://en.wikipedia.org/wiki/Blog) —— 主要按照发布时间倒序排列展示
 - 但我将这里视为自己新的的个人博客网站, 是对写博客习惯的一种延续
 
 ### Naming
 
-命名
-
-- 比起 Notebook / Blog / Wiki 这些词, 个人更喜欢用 [Library](https://en.wikipedia.org/wiki/Library) 形容这里, 像是 "只属于自己的图书馆" ~
-- 然后 Lib 是 Library 的缩写, 更简洁有力, 更有 coder 的 style.
-- 所以这里被命名为 Lib.
+- 比起 Notebook / Blog / Wiki 这些词, 个人更喜欢用 [Library](https://en.wikipedia.org/wiki/Library) 形容这里, 像是只属于自己的图书馆
+- 然后 Lib 是 Library 的缩写, 更简洁有力, 更有 coder 的 style
 
 ## Why I Build?
 
-我为什么要创建 Lib？
-
 ### Note-taking
-
-记笔记
 
 - 记录自己 "技术" 上的所学所做 —— **学习的知识 / 具体的实践**
 - 记录自己 "生活" 上的所见所闻 / 所思所想, 还有所作所为 —— **见闻 / 想法 / 作为**
 
 ### Sharing
 
-分享
-
 - 放在开放的互联网上, 最便于分享知识 —— 无论是给同事 / 朋友, 还是萍水相逢的访客
 
 ### Self-presentation
 
-自我展示
-
-- 让别人看见自己: 那一点一滴积累知识的过程以及收获, 还有曾经的快乐 / 失落与挣扎……
+- 让别人看见自己 : 那一点一滴积累知识的过程以及收获, 还有曾经的快乐 / 失落与挣扎
 
 ### Self-disciplline
 
-自我约束
+- 让懒惰又无能的自己尽量多做点积累
 
-- 激励懒惰又无能的自己 "更进一步" , 不要再重蹈覆辙 / 松懈停歇
-
-> - Remember, misery is comfortable. It's why so many people prefer it. Happiness takes effort.
-> - 记住: 痛苦是会让人感到舒坦的。许多人选择拥抱痛苦, 是因为, 幸福是需要努力的。
+> Remember, misery is comfortable. It's why so many people prefer it. Happiness takes effort.
+>
+> 记住: 痛苦是会让人感到舒坦的。许多人选择拥抱痛苦, 是因为, 幸福是需要努力的。
 
 ## How to Build?
 
-我如何创建 Lib？
-
 ### Steps
 
-1\. 创建代码仓库
+1.  New git repository
 
-- [GitHub](https://github.com) / [GitLab](https://gitlab.com)
+    [GitHub](https://github.com) / [GitLab](https://gitlab.com)
 
-2\. 编写内容
+2.  Write content
 
-- 以 [Markdown](https://en.wikipedia.org/wiki/Markdown) 格式为主, 辅以必要的图片和外链 ( [hyperlink](https://en.wikipedia.org/wiki/Hyperlink) ) 等
+    以 [Markdown](https://en.wikipedia.org/wiki/Markdown) 格式为主, 辅以必要的图片和外链 ( [hyperlink](https://en.wikipedia.org/wiki/Hyperlink) ) 等
+
     - 尽可能以纯文本格式来描述和保存 —— 兼容性好, 易迁移, 易处理
     - GitHub / GitLab 以及常用的文本编辑器对 Markdown 内容的渲染和浏览都有着很不错的支持
         - GitLab 甚至支持在 Markdown 文件中对 [PlantUML](http://plantuml.com/) 代码块进行 UML 图渲染 ( 后来不默认支持了 )
         - 参考 [Github Flavored Markdown](https://github.github.com/gfm/)
 
-3\. 组织内容
+3.  Arrange content
 
-- 具体方式可以参考本 Lib 的仓库
+    具体方式可以参考本 Lib 的仓库
     - https://github.com/IceHe/lib
     - https://gitlab.com/IceHe/lib
 
-4\. 搭建网站
+4.  Deploy website
 
-- 基于代码仓库的原始内容, 使用 [docsify](https://docsify.js.org/) 构建出 [SPA](https://en.wikipedia.org/wiki/Single-page_application) 式的个人网站
+    基于代码仓库的原始内容, 使用 [docsify](https://docsify.js.org/) 构建出 [SPA](https://en.wikipedia.org/wiki/Single-page_application) 式的个人网站
     - 可以参考我的 [docsify](/_docsify/how-to-docsify.md) 建站参考文档
 
 ---
 
 其实直接用 GitHub / GitLab 的代码仓库页面作为 "技术博客" 也是没问题的。不过个人更喜欢:
 
-- 拥有一个有独立域名的个人网站 (例如 [icehe.xyz](https://icehe.xyz) | [icehe.me](https://icehe.me) )
+- 拥有一个有独立域名的个人网站 ( 例如 [icehe.xyz](https://icehe.xyz) | [icehe.me](https://icehe.me) )
 - 使用 docsify 负责对内容进行渲染展示, 效果很不错！
     - 边栏能够根据文章的各级标题生成并显示 "目录" ( TOC : Table Of Content ) ！
     - 安装简单, 基本功能足够强大, 其添加和使用都很便捷, 还几乎没有副作用
@@ -110,22 +91,25 @@
 
 ## Trade-off
 
-取舍: 舍弃了什么, 得到了什么？
+取舍 : 舍弃了什么, 得到了什么？
 
 ### Replace Evernote
 
 使用 GitHub 和 GitLab 等代码仓库, 来替代印象笔记 / 有道云笔记等笔记类软件
 
-- 缺点:
-    - 移动端 (手机) 难以编辑 Lib 的内容
-        - 移动端暂时没有便捷的方法直接对 GitHub / GitLab 代码仓库的内容进行修改和提交
-        - 只能先使用 Notes (iOS) 等其他软件做笔记, 然后在 Mac 上操作将其转移到 Lib 上
-- 优点:
-    - 免费
-    - 通用: 纯文本保存 —— 简单, 易编辑, 易处理, 易迁移, 兼容性好, 很自由！
-        - 富文本的格式, 依赖具体软件的处理效果, 可能会乱码 / 格式错乱, 泛用性不佳
+缺点 :
 
-例如, 如果直接使用 "有道云笔记" 的 "导出" 功能导出文件, 其内容是经过私有方法加密过的格式, 难以便捷地导入 / 迁移到印象笔记等其他的平台 (吃相难看) , 也难以用一般文本的方式进行保存 / 编辑 / 查看。
+- 移动端 (手机) 难以编辑 Lib 的内容
+    - 移动端暂时没有便捷的方法直接对 GitHub / GitLab 代码仓库的内容进行修改和提交
+    - 只能先使用 Notes (iOS) 等其他软件做笔记, 然后在 Mac 上操作将其转移到 Lib 上
+
+优点 :
+
+- 免费
+- 通用 : 纯文本保存 —— 简单, 易编辑, 易处理, 易迁移, 兼容性好, 很自由！
+    - 富文本的格式, 依赖具体软件的处理效果, 可能会乱码 / 格式错乱, 泛用性不佳
+
+例如, 如果直接使用 "有道云笔记" 的 "导出" 功能导出文件, 其内容是经过私有方法加密过的格式, 难以便捷地导入 / 迁移到印象笔记等其他的平台 (吃相难看) , 也难以用一般文本的方式进行保存 / 编辑 / 查看
 
 ### No SEO
 
@@ -168,7 +152,7 @@
 
 ### Pragmatism
 
-实用主义: 只记录有用的内容
+实用主义 : 只记录有用的内容
 
 - 经常碰到的问题, 经常用到的工具
 - 用到的情况很少, 但是很重要 (能救命)
@@ -200,4 +184,4 @@
 
 - 而是要在自己读懂理解后, 进行实践验证
 - 再按照自己的思维习惯, 重新组织, 然后编写, 并附上实例, 以及个人问题和想法
-- 否则, 只摘录重点, 然后给出原文链接即可
+- 否则, 只摘录重点, 然后加上原文链接即可
