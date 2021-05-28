@@ -453,11 +453,17 @@ $$
 A = \frac{\sum{m^a}}{\sum{m^c}}
 $$
 
+- $m^a$ represents abstract elements (interfaces or abstract classes) with the module
+- $m^c$ represents concrete elements (nonabstract classes)
+
 **Instability** is the ratio of efferent coupling to the sum of both efferent and afferent coupling.
 
 $$
 I = \frac{C^e}{C^e+C^a}
 $$
+
+- $c^e$ represents efferent (or outgoing) coupling
+- $c^a$ represents afferent (or incoming) coupling
 
 #### Connascence
 
