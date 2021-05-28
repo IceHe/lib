@@ -351,7 +351,7 @@ _—— Corollary 1_
 
 > Why is more important than how.
 
-_—— Second Law of SOftware Architecture_
+_—— Second Law of Software Architecture_
 
 # Part 1. Foundations
 
@@ -433,9 +433,27 @@ _( 内聚 )_
 - **Coincidental** cohesion _( negative )_
     - e.g. not related but being in the same source file
 
+**LCOM** : Lack of Cohesion in Methods
+
+- The sume of sets of methods not shared via sharing fields
+
 #### Coupling
 
 _( 耦合 )_
+
+- 传入的 & 输出的 耦合
+- afferent and efferent coupling
+- incoming and outgoing coupling
+
+#### Abstractness, Instability, and Distance from the Main Sequence
+
+**Abstractness** is the ratio of abstract artifacts ( abstract classes, interfaces, and so on ) to concrete artifacts ( implementation ) .
+
+$$
+A = \frac{\sum{m^a}}{\sum{m^c}}
+$$
+
+**Instability** is the ratio of efferent coupling to the sum of both efferent and afferent coupling.
 
 #### Connascence
 
