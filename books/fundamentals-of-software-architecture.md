@@ -455,6 +455,10 @@ $$
 
 **Instability** is the ratio of efferent coupling to the sum of both efferent and afferent coupling.
 
+$$
+I = \frac{C^e}{C^e+C^a}
+$$
+
 #### Connascence
 
 _icehe : 可修改性? 怎么翻译好?_
