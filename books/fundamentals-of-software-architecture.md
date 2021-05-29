@@ -476,9 +476,102 @@ $$
 D = |A+I-1|
 $$
 
+TODO
+
+![ideal-relationship-between-abstractness-and-instability.jpeg](_images/fundamentals-of-software-architecture/ideal-relationship-between-abstractness-and-instability.jpeg)
+![normalized-distance-from-main-sequence-4-particular-class.jpeg](_images/fundamentals-of-software-architecture/normalized-distance-from-main-sequence-4-particular-class.jpeg)
+![zones-of-uselessness-n-pain.jpeg](_images/fundamentals-of-software-architecture/zones-of-uselessness-n-pain.jpeg)
+
+**Limitations of Metrics**
+
+For example, **cyclomatic complexity** measures complexity in code bases but cannot distinguish from **essential complexity** (because the underlying problem is complex) or **accidental complexity** (the code is more complex than it should be).
+
 #### Connascence
 
-_icehe : 可修改性? 怎么翻译好?_
+[Connascence - Wikipedia](https://en.wikipedia.org/wiki/Connascence)
+
+_icehe : 很像 coupling 耦合, 怎么翻译比较好? 联动?_
+
+> Two components are connascent if a change in one would require the other to be modified in order to maintain the overall correctness of the system.
+>
+> —— _Meilir Page-Jones_
+
+##### Static Connascence
+
+**Static connascence** referes to source-code-level coupling (as opposed to execution-time coupling);
+it is a refinement of the afferent and efferent couplings defined by _Structured Design_.
+
+In other words, architects view the following types of static connascence as the _degree_ to which something is coupled, either afferently or efferently:
+
+-   Connascence of Name (CoN)
+
+    Multiple components must agree on the name of an entity.
+
+    _Names of methods represents the most common way that code bases are coupled and the most desirable._
+
+-   Connascence of Type (CoT)
+
+    Multiple components must agree on the type of an entity.
+
+    _e.g. statically typed languages, and dynamically typed languages offering selective typing_
+
+-   Connascence of Meaning (CoM) or Connascence of Convention (CoC)
+
+    Multiple components must agree on the meaning of particular values.
+
+    _e.g. hard-coded numbers rather than constants_
+
+-   Connascence of Position (CoP)
+
+    Multiple entities must agree on the order of values.
+
+    _e.g. parameter values for method and function calls ( wrong parameter order of function )_
+
+-   Connascence of Algorithm (CoA)
+
+    Multiple entities must agree on a particular algorithm.
+
+    _e.g. defines a security hashing algorithm that must run on both the server and client and produce identical results to authenticate the user_
+
+##### Dynamic Connascence
+
+**Dynamic connascence** analyses calls at runtime.
+
+Different types of dynamic connascence:
+
+-   Connascence of Execution (CoE)
+
+    TODO
+
+-   Connascence of Timing (CoT)
+
+    TODO
+
+-   Connascence of Values (CoV)
+
+    TODO
+
+-   Connascence of Identity (CoI)
+
+##### Connascence Properties
+
+-   Strength
+
+    TODO
+
+-   Locality
+
+    TODO
+
+-   Degree
+
+#### Unifying Coupling and Connascence Metrics
+
+TODO
+
+### From Modules to Components
+
+TODO
 
 # Part 2. Architeure Styles
 
