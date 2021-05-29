@@ -441,11 +441,14 @@ _( 内聚 )_
 
 _( 耦合 )_
 
-- 传入的 & 输出的 耦合
-- afferent and efferent coupling
-- incoming and outgoing coupling
+**Afferent** coupling _( 传入的 ≈ incoming )_
+**Efferent** coupling _( 输出的 ≈ outgoing )_
 
-#### Abstractness, Instability, and Distance from the Main Sequence
+Afferent coupling measure the number of incoming connections to a code artifact (component, class, function, and so on).
+
+Efferent coupling measures the outgoing connections to toher code artifacts.
+
+#### Abstractness, Instability
 
 **Abstractness** is the ratio of abstract artifacts ( abstract classes, interfaces, and so on ) to concrete artifacts ( implementation ) .
 
@@ -464,6 +467,14 @@ $$
 
 - $c^e$ represents efferent (or outgoing) coupling
 - $c^a$ represents afferent (or incoming) coupling
+
+The instability _( 不稳定 )_ metric determines the volatility _( 变化无常, 不稳定 )_ of a code base. A code base that exhibits high degrees of instability breaks more easily when changed because of high coupling.
+
+#### Distance from the Main Sequence
+
+$$
+D = |A+I-1|
+$$
 
 #### Connascence
 
