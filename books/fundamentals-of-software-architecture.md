@@ -562,9 +562,9 @@ Different types of dynamic connascence:
 
     _e.g. two independent components that must share and update a common data structure, such as a distributed quque._
 
-
-
 ##### Connascence Properties
+
+_Some properties of connascence help developers use it wisely._
 
 -   Strength
 
