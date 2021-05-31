@@ -541,17 +541,28 @@ Different types of dynamic connascence:
 
 -   Connascence of Execution (CoE)
 
-    TODO
+    The order of execution of multiple components.
 
 -   Connascence of Timing (CoT)
 
-    TODO
+    The timing of the execution of multiple components.
+
+    _e.g. a race condition caused by two threads executing at the same time_
 
 -   Connascence of Values (CoV)
 
-    TODO
+    Occurs when serveral values relate on one another and must change together.
+
+    _e.g. the more common and problematic case involves transactions, especially in distributed system:_
+    _When an architect designs a system with separate databases, yet needs to update a single value across all of the databases, all the values must change together or not at all._
 
 -   Connascence of Identity (CoI)
+
+    Occurs when serveral values relate on one another and must change together. _( icehe : 竟然这句跟上文一样? )_
+
+    _e.g. two independent components that must share and update a common data structure, such as a distributed quque._
+
+
 
 ##### Connascence Properties
 
