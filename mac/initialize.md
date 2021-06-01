@@ -526,7 +526,8 @@ Include the development configurations on local and remote machines
 `Shortcuts` Tab
 
 - Add the apps' shortcuts
-    - `All Applications` → `Show Help menu` ⌥⇧/
+    - `All Applications` → `Show Help menu` ⌥ ⇧ /
+    - `Google Chrome` → `Duplicate Tab` ⌘ ⇧ D
 
 `Input Sources` Tab
 
@@ -639,6 +640,9 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 `Preferences`
 
 - Enable `Launch at Login`
+- `Sort Order`
+    - Select `Most Recently Used` or Press ⌘ ⌥ R _( Recommended )_
+    - Select `Most Often Pasted` or Press ⌘ ⌥ O _( Experimental )_
 - `Window Appearance`
     - Select `Midday`
     - Set `Minimum Font Size` **15**
