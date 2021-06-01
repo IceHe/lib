@@ -641,8 +641,7 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 
 - Enable `Launch at Login`
 - `Sort Order`
-    - Select `Most Recently Used` or Press ⌘ ⌥ R _( Recommended )_
-    - Select `Most Often Pasted` or Press ⌘ ⌥ O _( Experimental )_
+    - Select `Most Recently Used` or Press ⌘ ⌥ R
 - `Window Appearance`
     - Select `Midday`
     - Set `Minimum Font Size` **15**
