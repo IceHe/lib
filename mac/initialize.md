@@ -528,6 +528,7 @@ Include the development configurations on local and remote machines
 - Add the apps' shortcuts
     - `All Applications` → `Show Help menu` ⌥ ⇧ /
     - `Google Chrome` → `Duplicate Tab` ⌘ ⇧ D
+    - `iTerm` → `Toggle Full Screen` ⌘ ⇧ F
 
 `Input Sources` Tab
 
@@ -652,10 +653,10 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
     - Eanble `Search Immediately After Each Keystroke`
 - `Keyboard Shortcuts…`
     - `Global Shortcuts`
-        - Set `Open window` **⌥V**
-        - Set `Paste current clipboard item as plain test` **⇧⌘V**
+        - Set `Open window` **⌥ V**
+        - Set `Paste current clipboard item as plain test` **⇧ ⌘ V**
     - `Local Shortcuts`
-        - Set `Switch to 'All' list` **⇧⌘A**
+        - Set `Switch to 'All' list` **⇧ ⌘ A**
 - Enbale `Get Titles of Web URLs`
 - Enable `Reject Duplicates`
 - `Auto-Delete Unstarred Items` → `Auto-Delete Oldest…`
@@ -668,7 +669,7 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 - `General`
     - Enable `Run on system startup`
 - `Control` → `Global Hotkeys`
-    - Set `Snip` **^⌘A**
+    - Set `Snip` **^ ⌘ A**
     - Clear all other hotkeys
 
 #### Itsycal
