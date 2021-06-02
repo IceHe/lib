@@ -556,13 +556,13 @@ Timeline
     -   "It's the hardest part when memories remain."
 -   [Anti-Fragile](/past/read/anti-fragile.md) _/ [book](https://item.jd.com/11364406.html)_
     -   "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
--   _[VicodinXYZ's Life Beliefs](/past/read/life-beliefs.md)_
+-   [VicodinXYZ's Life Beliefs](/past/read/life-beliefs.md)
     -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
     -   "**对于日常小决策, 决策速度大于决策质量, 不要拖;**
         对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对"
     -   "**不是生活中的每一个问题都要解决, 和问题共处是人生常态.**
         **把精力用在重要的事情上**"
--   _[Sspai Time Management](/past/read/sspai-time-mgt.md)_
+-   [Sspai Time Management](/past/read/sspai-time-mgt.md)
     -   "提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。"
     -   "**更大的效率来自于重要事情上做得好，而不是在处处做得好，**
         **管理精力比管理时间更重要。**"

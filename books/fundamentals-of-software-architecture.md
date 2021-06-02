@@ -476,11 +476,11 @@ $$
 D = |A+I-1|
 $$
 
-TODO
+![ideal-relationship-between-abstractness-and-instability.jpg](_images/fundamentals-of-software-architecture/ideal-relationship-between-abstractness-and-instability.jpg)
 
-![ideal-relationship-between-abstractness-and-instability.jpeg](_images/fundamentals-of-software-architecture/ideal-relationship-between-abstractness-and-instability.jpeg)
-![normalized-distance-from-main-sequence-4-particular-class.jpeg](_images/fundamentals-of-software-architecture/normalized-distance-from-main-sequence-4-particular-class.jpeg)
-![zones-of-uselessness-n-pain.jpeg](_images/fundamentals-of-software-architecture/zones-of-uselessness-n-pain.jpeg)
+![normalized-distance-from-main-sequence-4-particular-class.jpg](_images/fundamentals-of-software-architecture/normalized-distance-from-main-sequence-4-particular-class.jpg)
+
+![zones-of-uselessness-n-pain.jpg](_images/fundamentals-of-software-architecture/zones-of-uselessness-n-pain.jpg)
 
 **Limitations of Metrics**
 
@@ -566,15 +566,39 @@ Different types of dynamic connascence:
 
 _Some properties of connascence help developers use it wisely._
 
--   Strength
+-   **Strength**
 
-    TODO
+    Architects determine the _strength_ of connanascence by the ease with which a developer can refactor that type of coupling; _differenct types of connascence are demonstrably more desirable._
 
--   Locality
+    _e.g. consider the case of connascence of meaning, which developers can improve by refactoring to connascence of name by creating named constant rather than a magic value._
 
-    TODO
+    ![strength-on-connascence-provides-a-good-refactoring-guide.jpg](_images/fundamentals-of-software-architecture/strength-on-connascence-provides-a-good-refactoring-guide.jpg)
 
--   Degree
+-   **Locality**
+
+    The _locality_ of connascence mearsures how proximal the modules are to each other in the code base.
+
+    _Proximal code (in the same module) typically has more and higher forms of connascence than more separated code (in separate modules or code bases) ._
+    _In other words, forms of connascence that indicate poor coupling when far apart are fine when closer together._
+
+    _e.g. if two classes in the same component have connascence of meaning, it is less damaging to the code base than if two components have the same form of connascence._
+
+-   **Degree**
+
+    The _degree_ of connascence related to the size of its impact —— does it impact a few classes or many?
+
+    _Lesser degrees of connascence damage code bases less._
+
+Three guidelines for using connascence to improve system modularity:
+
+1. Minimize overall connascence by breaking the system into encapsulated elements
+2. Minimize any remaining connascence that crosses encapsulation boundaries
+3. Maximize the connascence within encapsulation boundaries
+
+_The lengendary software architecture innovator Jim Weirich offers two great pieces of advices:_
+
+- **Rule of Degree**: convert strong forms of connascence into weaker forms of connascence
+- **Rule of Locality**: as the distance between software elements increases, use weaker forms fo connascence
 
 #### Unifying Coupling and Connascence Metrics
 
