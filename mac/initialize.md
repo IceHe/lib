@@ -200,10 +200,6 @@ Others available on the official homepages
 - [Sublime Text 3](https://www.sublimetext.com/3)
     - _`brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …_
 
-**Optional**
-
-- _skipped_
-
 ## CLI Programs
 
 CLI: Command Line Interface
@@ -618,9 +614,6 @@ Notification
 
 #### Sublime Text
 
-1. _Set the license if you have the license ( optional )_
-    1. _`Help` → `Enter License`_
-    1. _Input the license key_
 1. update user settings as below:
 
     ```json
@@ -633,7 +626,14 @@ Notification
     }
     ```
 
-1. _Optional : Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)_
+1. Install plugin `Pretty JSON`
+
+1. _Set the license if you have the license ( optional )_
+
+    1. _`Help` → `Enter License`_
+    1. _Input the license key_
+
+1. _Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings) ( optional )_
 
 #### iTerm 2
 
