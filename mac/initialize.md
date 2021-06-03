@@ -628,12 +628,12 @@ Notification
 
 1. Install plugin `Pretty JSON`
 
-1. _Set the license if you have the license ( optional )_
+1. _Set the license if you have one ( optional )_
 
     1. _`Help` → `Enter License`_
     1. _Input the license key_
 
-1. _Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings) ( optional )_
+<!-- 1. _Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings) ( optional )_ -->
 
 #### iTerm 2
 
