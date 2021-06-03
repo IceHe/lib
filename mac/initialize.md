@@ -148,7 +148,6 @@ brew install --cask \
     qqmusic \
     snipaste \
     sogouinput \
-    sublime-text \
     ticktick \
     visual-studio-code \
     wechat
@@ -198,6 +197,8 @@ Others available on the official homepages
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
 - [Logi Options](https://www.logitech.com.cn/zh-cn/product/options)
+- [Sublime Text 3](https://www.sublimetext.com/3)
+    - _`brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …_
 
 **Optional**
 
@@ -617,10 +618,22 @@ Notification
 
 #### Sublime Text
 
-1. Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)
 1. _Set the license if you have the license ( optional )_
     1. _`Help` → `Enter License`_
     1. _Input the license key_
+1. update user settings as below:
+
+    ```json
+    {
+        "ignored_packages":
+        [
+        ],
+        "update_check": false,
+        "vintage_use_clipboard": true
+    }
+    ```
+
+1. _Optional : Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings)_
 
 #### iTerm 2
 
