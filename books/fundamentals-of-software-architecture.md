@@ -602,11 +602,41 @@ _The lengendary software architecture innovator Jim Weirich offers two great pie
 
 #### Unifying Coupling and Connascence Metrics
 
-TODO
+From an architect's point of view, these two views (coupling and connascence) overlap.
+
+… Connascence cares about how things are coupled together.
+
+… What structured programming called _data coupling_ (method calls), connascence provides advice for how that coupling should manifest.
+
+![unifying-coupling-n-connascence.jpeg](_images/fundamentals-of-software-architecture/unifying-coupling-n-connascence.jpeg)
+
+_The structured programming couipling concepts appear on the left, while the connascence appear on the right._
 
 ### From Modules to Components
 
-TODO
+We use _module_ throughtout as a generic name for a bundling of related code.
+
+_We'll disscuss more in Chapter 8._
+
+## C4. Architecture Characteristics Defined
+
+A software solution consists of both domain requirements and architectural.
+
+- **Auditability**
+- **Performance**
+- **Security**
+- **Requirements**
+- **Data**
+- **Legality**
+- **Scalability**
+
+An architecture characteristic meets three criteria
+
+- Specifies a nondomain design consideration
+- Influences some structuralaspect of the design
+- Is critical or important to application success
+
+TODO Figure 4-2
 
 # Part 2. Architeure Styles
 
