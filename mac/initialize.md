@@ -621,6 +621,8 @@ Notification
         "ignored_packages":
         [
         ],
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true,
         "update_check": false,
         "vintage_use_clipboard": true
     }
