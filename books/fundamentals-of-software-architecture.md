@@ -1,14 +1,14 @@
 # Fundamentals of Software Architecture
 
-《软件架构基础》（影印版）Mark Richards, Neal Ford 著
+《软件架构基础》
 
 ---
 
 References
 
-- Book "Fundamentals of Software Architecture"
+- Book "Fundamentals of Software Architecture" Mark Richards, Neal Ford 著
     - 《软件架构基础》（影印版）
-    - [TOC](/books/fundamentals-of-software-architecture-toc.md)
+    - [Table Of Content](/books/fundamentals-of-software-architecture-toc.md)
 
 ## Table of Contents
 

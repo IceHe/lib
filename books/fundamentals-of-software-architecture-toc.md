@@ -6,7 +6,7 @@ Table of Contents
 
 References
 
-- Book "Fundamentals of Software Architecture"
+- Book "Fundamentals of Software Architecture" Mark Richards, Neal Ford
     - 《软件架构基础》（影印版）
 
 ---
