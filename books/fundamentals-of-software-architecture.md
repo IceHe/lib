@@ -636,7 +636,77 @@ An architecture characteristic meets three criteria
 - Influences some structuralaspect of the design
 - Is critical or important to application success
 
-TODO Figure 4-2
+![differentiating-features-of-architecture-characteristics.jpeg](_images/fundamentals-of-software-architecture/differentiating-features-of-architecture-characteristics.jpeg)
+
+_The choice of a triangle is intentional:_
+_each of the definition elements supports the others,_
+_which in turn support the overall design of the system._
+
+-   Specifies a nondomain design consideration
+
+    When designing an application, the requirements specify what the application should do;
+    architecture characteristics specify operational and design crieria for success,
+    concerning how to implement the requirements and why certain choices were made.
+
+-   Influences some structural aspect of the design
+
+-   Critical or important to application success
+
+    Applications shouldn't support for each characteristics adds complexity to the design.
+    Thus a critical job for architects lies in choosing the fewest architecture characteristics rather than the most possible.
+
+### Architectural Characteristics (Partially) Listed
+
+#### Operational Architectural Characteristics
+
+Term & Definition
+
+-   **Availability**
+
+    How long the system will need to be available.
+    ( if 24/7, steps need to be in place to allow the system to be up and running quickly in case of any failure ) .
+
+-   **Continuity** _( 连续性 )_
+
+    **Disaster recovery capacity**.
+
+-   **Performance**
+
+    Includes stress testing, peak analysis, analysis of the frequency of fucntions used, cpacity required, and response times.
+    _Performance acceptance sometimes require an exercises of its own, talking months to complete._
+
+-   **Recoverability**
+
+    Bussiness continuity requirements _( 业务连续性? )_
+    ( e.g., in case of a disaster, how quickly is the system required to be online again? ) .
+    This will affect the cakup strategy and requirements for duplicated hardware.
+
+-   **Reliability / safety**
+
+    Assess if the system needs to be **fail-safe** _( 自动放故障的 )_ ,
+    or if it is mission critical _( 关键任务 )_ in a way that affects lives.
+    If it fails, will it cost the company large sums of money?
+
+-   **Robustness**
+
+    Ability to **handle error and boundary conditions while running**
+    if the internet connection goes down or if there's a power outage or hardware failure.
+
+-   **Scalability**
+
+    Ability for the system to perform and operate as the number of users or requests increses.
+
+#### Structural Architecture Characteristics
+
+-   **Configurability**
+-   **Extensibility**
+-   **Installability**
+-   **Leverageability / reuse**
+-   **Localization**
+-   **Maintainability**
+-   **Portability**
+-   **Supportability**
+-   **Upgradeability**
 
 # Part 2. Architeure Styles
 
