@@ -1,46 +1,36 @@
 # Maven
 
-References
-
-- Official Website : https://maven.apache.org/
-    - **Maven in 5 Minutes** : http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
-    - **POM Reference** : http://maven.apache.org/pom.html
-
 Maven
 
 - A software profject management & comprehension tool ( not Pacakge Management ! )
 - based on a POM (project object model)
 - including project's build, reporting & documentation
 
-Book :
+References
 
-- 《Maven 实战》( Maven 3 in Action 中文版 )
+- Official Website : https://maven.apache.org/
+    - **Maven in 5 Minutes** : http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+    - **POM Reference** : http://maven.apache.org/pom.html
+- Book :《 Maven 实战 》( Maven 3 in Action 中文版 )
 
-Related tool :
+## Configuration File
 
-- Gradle
+- Config file : `.m2/settings.xml`
+- One of mirrors : https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.0.1.RELEASE
 
-## Temp Notes
-
-### Add Dependecy
+## Add Dependecy
 
 - IntelliJ: `⌘ n` in file `pom.xml` >> choose `dependency`
 - Then, enable `Maven Auto Import`
 - `Topbar` (taskbar) >> `Code` >> `Generate…`
 
-#### Config File
-
-- Config file : `.m2/settings.xml`
-- One of mirrors : https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.0.1.RELEASE
-
-### Scope
-
-#### provided
+## Scope: `provided`
 
 References
 
-- Maven - Introduction to the Dependency Mechanism : https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
-- Difference between maven scope compile and provided for JAR packaging - Stack Overflow : https://stackoverflow.com/questions/6646959/difference-between-maven-scope-compile-and-provided-for-jar-packaging
+- [Maven - Introduction to the Dependency Mechanism](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
+- [Difference between maven scope compile and provided for JAR packaging - Stack Overflow](https://stackoverflow.com/questions/6646959/difference-between-maven-scope-compile-and-provided-for-jar-packaging)
+- [Difference between maven compile and provided scope (Other Build Tools forum at Coderanch)](https://coderanch.com/t/502091/build-tools/difference-maven-compile-scope)
 
 Differ `provided` from `compile`
 
@@ -48,25 +38,20 @@ Differ `provided` from `compile`
 - provided scope is **only available on the compilation and test classpath**, whereas compile scope is available in all classpaths.
 - provided dependencies are **not packaged**
 
-##### Differences
 
-References
+> Compile means that you need the JAR for compiling and running the app. For a web application, as an example, the JAR will be placed in the WEB-INF/lib directory.
+>
+> Provided means that you need the JAR for compiling, but at run time there is already a JAR provided by the environment so you don't need it packaged with your app. For a web app, this means that the JAR file will not be placed into the WEB-INF/lib directory.
+>
+> For a web app, if the app server already provides the JAR (or its functionality), then use "provided" otherwise use "compile".
 
-- difference between maven compile and provided scope (Other Build Tools forum at Coderanch) : https://coderanch.com/t/502091/build-tools/difference-maven-compile-scope
-
-Compile means that you need the JAR for compiling and running the app. For a web application, as an example, the JAR will be placed in the WEB-INF/lib directory.
-
-Provided means that you need the JAR for compiling, but at run time there is already a JAR provided by the environment so you don't need it packaged with your app. For a web app, this means that the JAR file will not be placed into the WEB-INF/lib directory.
-
-For a web app, if the app server already provides the JAR (or its functionality), then use "provided" otherwise use "compile".
-
-### Resolve Package Conflictions
+## Resolve Package Conflictions
 
 References
 
 - maven依赖jar包时版本冲突的解决 : https://blog.csdn.net/sinat_39789638/article/details/78005945
 
-### Install an Artifact to Local Repository
+## Install an Artifact to Local Repository
 
 References
 
@@ -91,7 +76,31 @@ mvn install:install-file \
     -DgeneratePom=true
 ```
 
-### Others
+## Skip `deploy`
+
+References
+
+- [Frequently Asked Questions](https://maven.apache.org/plugins/maven-deploy-plugin/faq.html)
+    - I don't want to deploy one of the artifacts in my multi-module build. Can I skip deployment?
+
+pom.xml
+
+```xml
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+```
+
+## Others
 
 试错经验
 
