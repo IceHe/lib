@@ -38,7 +38,6 @@ Differ `provided` from `compile`
 - provided scope is **only available on the compilation and test classpath**, whereas compile scope is available in all classpaths.
 - provided dependencies are **not packaged**
 
-
 > Compile means that you need the JAR for compiling and running the app. For a web application, as an example, the JAR will be placed in the WEB-INF/lib directory.
 >
 > Provided means that you need the JAR for compiling, but at run time there is already a JAR provided by the environment so you don't need it packaged with your app. For a web app, this means that the JAR file will not be placed into the WEB-INF/lib directory.
