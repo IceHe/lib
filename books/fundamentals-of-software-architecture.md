@@ -699,14 +699,60 @@ Term & Definition
 #### Structural Architecture Characteristics
 
 -   **Configurability**
+
+    Ability for the end users to easily change aspects of the software's configuration ( through usable interface ) .
+
 -   **Extensibility**
+
+    How important it is to plug new pieces of fucntionality in.
+
 -   **Installability**
+
+    Ease of system installation on all necessary platforms.
+
 -   **Leverageability / reuse**
+
+    Ability to leverage common components across multiple products.
+
 -   **Localization**
+
+    Support for multiple languages on entry/query screens in data fields; on reports, multibyte charater requirements and units of measure or currencies.
+
 -   **Maintainability**
+
+    How easy it is to apply changes and enhance the system?
+
 -   **Portability**
+
+    Does the system need to run on more than one platform? _( For example, does the frontend need to run against oracle as well as SAP DB? )_
+
 -   **Supportability**
+
+    What level of technical support is needed by the application? What level of logging and other facilities are required to debug errors in the system?
+
 -   **Upgradeability**
+
+    Ability to easily/quickly upgrade from a previous version of this application/solution to a newer version on servers and clients.
+
+#### Cross-Cutting Architecture Characteristics
+
+-   **Accessibility**
+
+-   **Archivability**
+
+-   **Authentication**
+
+-   **Authorization**
+
+-   **Legal**
+
+-   **Privacy**
+
+-   **Security**
+
+-   **Supportability**
+
+-   **Usability/achievability**
 
 # Part 2. Architeure Styles
 
