@@ -736,23 +736,49 @@ Term & Definition
 
 #### Cross-Cutting Architecture Characteristics
 
--   **Accessibility**
+-   **Accessibility** _( 可得性 )_
 
--   **Archivability**
+    **Access to all your users, including those with disabilities** like colorblindness or hearing loss.
 
--   **Authentication**
+-   **Archivability** _( 可归档 )_
 
--   **Authorization**
+    Will the data need to be **archived or deleted after aperiod of time**?
+    _( For example, customer accounts are to be deleted after three months or marked as obsolete and archived to a secondary database for future access. )_
 
--   **Legal**
+-   **Authentication** _( 鉴权 )_
 
--   **Privacy**
+    Security requirements to **ensure users are who they say they are.**
+
+-   **Authorization** _( 授权 )_
+
+    Security requirements to **ensure users can access only certain functions within the application** ( by use case, subsystem, webpage, business rule, field level, etc. )
+
+-   **Legal** _( 合法性 )_
+
+    What legislative constraints is the system operating in ( data protection, Sarbanes Oxley, GDPR, etc. ) ?
+    What reservation rights does the company require?
+    Any regulations regarding the way the application is to be built or deployed?
+
+-   **Privacy** _( 隐私 )_
+
+    Ability to **hide transactions from internal company employees**
+    ( entrypted transactions so even DBAs and network architects cannot see them ) .
 
 -   **Security**
 
+    Does the data need to be entrypted in the databases?
+    Entrypted for network communication between internal systems?
+    What type of authentication needs to be in place for remote user access?
+
 -   **Supportability**
 
--   **Usability/achievability**
+    What level of technical support is needed by the application?
+    What level of logging and other facilities are required to debug errors in the system?
+
+-   **Usability/achievability** _( 可用性?/可实现性? )_
+
+    Level of training required for users to achieve their goals with the application/solution.
+    Usability requirements need to be treated as seriously as any other architectureal issuce.
 
 # Part 2. Architeure Styles
 
