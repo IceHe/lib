@@ -780,6 +780,11 @@ Term & Definition
     Level of training required for users to achieve their goals with the application/solution.
     Usability requirements need to be treated as seriously as any other architectureal issuce.
 
+**Italy-ility**
+
+- _Years ago, becuse of a freak communication outage, the head office had lost communication with the Italian branches, and it was organizationally traumatic._
+- Italy-ility is **a unique combination of availability, recoverability, and resilience.**
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
