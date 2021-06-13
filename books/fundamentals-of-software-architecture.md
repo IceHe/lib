@@ -906,11 +906,15 @@ Translation of domain concers to architecture characteristics
 
 |Domian concern|Architecture characteristics|
 |-|-|
-|Mergers and acquisitions||
-|Time to market||
-|User satisfaction||
-|Competitive advantage||
-|Time and budget||
+|Mergers and acquisitions|Interoperability, scalability, adaptability, extensibility|
+|Time to market|Agility, testability, deployability|
+|User satisfaction|Performance, availability, fault tolerance, testability, deployability, agility, security|
+|Competitive advantage|Agility, testability, deployablity, scalability, availability, fault tolerance|
+|Time and budget|Simplicity, feasibility|
+
+### Extracting Architecture Characteristics from Requirements
+
+## C6. Measuring and Governing Architecture Characteristics
 
 # Part 2. Architeure Styles
 
