@@ -857,6 +857,37 @@ Term & Definition
 
 **The Many Ambiguities in Software Architecture**
 
+A consistent frustration amongst architects is the lack of clear definitions of so many critical things,
+including the activity of software architecture itself!
+This leads companies to define their own terms for common things,
+which leads to industry-wide confusion because architects either use opaque terms or,
+worse yet, use the same terms for wildly different meanings.
+As much as we'd like,
+we can't impose a standard nomenclature _( 命名法 )_ on the software development world.
+However, we do follow and recommend the advice from domain-driven design
+to establish and use ubiquitous _( 无处不在的 )_ language amonst fellow employees
+to help ensure fewer term-based misunderstandings.
+
+### Trades-Offs and Least Worst Architecture
+
+……
+The bigger problem lies with the fact that each architecture characteristics often has an impact on others.
+For example, if an architect wants to improve _security_, it will almost certainly negatively impact _performance_:
+the application must do more on-the-fly _( 即时 )_ encryption, indirection for secrets hiding,
+and other activities that potentially degrade performance.
+
+……
+Each  architecture characteristic that an architect designs support for potentially complicates the overall design.
+
+Thus, **architects rarely encounter the situation where they are able to design a system and maximize every single architecture characteristic.**
+**More often, the decisions come down to trade-offs between several competing concerns.**
+
+> Never shoot for the best architecture, but rather the least worst architecture.
+
+Too many architecture characteristics leads to generic solutions that are trying to solve every business problem, and those architectures rarely work because the design becomes unwieldy _( 不易移动或操作的, 笨重的, 庞大的 )_ .
+
+## C5. Identifying Architecture Characteristcis
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
