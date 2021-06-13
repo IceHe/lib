@@ -927,6 +927,11 @@ Translation of domain concers to architecture characteristics
 
 ##### Explicit Characteristics
 
+……
+
+- Scalability —— the ablility to handle a large number of concurrent users without serious performance degradation.
+- Elasticity —— the ablility to handle bursts of requests.
+
 ##### Implicit Characteristics
 
 ## C6. Measuring and Governing Architecture Characteristics
