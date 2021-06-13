@@ -888,6 +888,30 @@ Too many architecture characteristics leads to generic solutions that are trying
 
 ## C5. Identifying Architecture Characteristcis
 
+### Extracting Architecture Characteristics from Domain Concerns
+
+……
+One tip when collaborating with domain stakeholders to define the driving architecture characteristics
+is to work hard to **keep the final list as short as possible.**
+A common anti-pattern _( 反模式, 反面的模式, 反例 )_ in architecture entails tyrings to design a _generic architecture_,
+one that supports _all_ the architecture characteristics.
+……
+_Supporting too many architecture characteristics leads to greater and greater complexity_
+_before the architect and developers have even started addressing the problem domain,_
+_the original motivation for writing the software._
+**Don't obses over _( 痴迷 )_ the number of the characteristics,**
+**but rather the motivation to keep design simple.**
+
+Translation of domain concers to architecture characteristics
+
+|Domian concern|Architecture characteristics|
+|-|-|
+|Mergers and acquisitions||
+|Time to market||
+|User satisfaction||
+|Competitive advantage||
+|Time and budget||
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
