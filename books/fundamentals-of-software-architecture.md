@@ -914,6 +914,21 @@ Translation of domain concers to architecture characteristics
 
 ### Extracting Architecture Characteristics from Requirements
 
+<!--
+
+**The Origin of Architecture Katas**
+
+- [Architectural Katas](https://archkatas.herokuapp.com/)
+    - Related: [nealford.com/katas](https://nealford.com/katas/)
+
+-->
+
+#### Case Study: Silicon Sanwiches
+
+##### Explicit Characteristics
+
+##### Implicit Characteristics
+
 ## C6. Measuring and Governing Architecture Characteristics
 
 # Part 2. Architeure Styles
