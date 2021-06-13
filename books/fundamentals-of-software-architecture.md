@@ -785,6 +785,78 @@ Term & Definition
 - _Years ago, becuse of a freak communication outage, the head office had lost communication with the Italian branches, and it was organizationally traumatic._
 - Italy-ility is **a unique combination of availability, recoverability, and resilience.**
 
+#### Others from ISO
+
+-   **Performance efficiency**
+
+    ……
+    It includes
+    _time behavior_ ( measure of reponse, processing times, and/or throughput rates ) ,
+    _resource utilization_ ( amounts and types of resources used ) , and
+    _capacity_ ( degree to which the maximum established limits are exceeded ) .
+
+-   **Compatibility**
+
+    Degree to which a product, system, or component can exchange information with other products, systems, or components
+    and/or perform its required functions while sharing the same hardware or sofware environment.
+
+    It includes
+    _coexistence_ _( 共存 )_
+    ( can perform its required functions efficiently while sharing a common environment and resources with other products ) and
+    **_interoperability_ ( degree to which two or more systems can exchange and utilize information ) .**
+
+-   **Usability**
+
+    Users can use the system effectively, efficiently, and satisfactorily for its intended purpose.
+
+    It includes
+    **_appropriateness recognizability_ ( users can recognize whether the software is appropriate for their needs ) ,**
+    _learnability_ ( … ) ,
+    _user error protection_ ( … ) , and
+    _accessibility_ ( make the software available to people who with the widest range of characteristics and capabilities ) .
+
+-   **Reliability**
+
+    Degree to which a system functions under specified conditions for a specified period of time.
+
+    It includes
+    **_maturity_ ( does the software is operational and accessible ) ,**
+    _fault tolerance_ ( … ) ,
+    _recoverability_ ( … ) .
+
+-   **Security**
+
+    ……
+    It includes
+    **_confidentiality_ _( 机密性 )_ ( data is accessible only to those authorized to have access ) ,**
+    **_integrity_ ( the software prevents unauthorized access to or modification of software or data ) ,**
+    **_nonrepudiation_ _( 不否认, 不拒绝 )_ , ( can actions or events be proven to have taken place ) ,**
+    **_accountability_ ( can user actions of a user be traced ) ,** and
+    _authenticity_ ( proving the identity of a user )
+
+-   **Maintainability**
+
+    Represnts the degree of effectiveness and efficiency to which developers can modify the software to improve it, correct it, or adapt it to changes in environment and/or requirements.
+
+    It includes
+    **_modularity_** ( … ) ,
+    **_reusability_** ( … ) ,
+    **_analyzability_** ( … ) ,
+    **_modifiability_** ( … ) , and
+    **_testability_** ( … )
+
+-   **Portability**
+
+    Degree to which developers can transfer a system, product, or component from one hardware, software, or other operational or usage environment to another.
+
+    It includes
+    _adaptability_
+    ( can developers effectively and efficiently adapt the software for different or evlving hardware, software, or other operational or usage environments ) ,
+    _installability_ ( can the software be installed and/or uninstalled in a specified environment ) , and
+    _replacebility_ ( how easily developers can replace the functionality with other software ) .
+
+**The Many Ambiguities in Software Architecture**
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
