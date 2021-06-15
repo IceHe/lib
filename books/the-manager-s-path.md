@@ -2,13 +2,12 @@
 
 A Guide for Tech Leaders Navigating Growth and Change
 
-—— Camille Fournier
+_—— Camille Fournier_
 
 ---
 
 Table of Contents
 
-- _Acknowledgement_
 - _Introduction_
 - 1\. Management 101
 - 2\. Mentoring
@@ -21,8 +20,6 @@ Table of Contents
 - 9\. Bootstrapping Culture
 - 10\. Conclusion
 - _Index_
-
-## _Acknowledgement_
 
 ## _Introduction_
 
