@@ -636,6 +636,42 @@ INT
     - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
 - bigint 8
 
+### Cannot mysql.server start
+
+Problem
+
+```bash
+$ mysql.server start
+Starting MySQL
+ ERROR! The server quit without updating PID file (/usr/local/var/mysql/icehe-mbp.local.pid).
+```
+
+Steps
+
+```bash
+$ cd /usr/local/var/mysql/
+$ less icehe-mbp.local.err
+# e.g.
+…… [FATAL] InnoDB: Table flags are 0 in the data dictionary but the flags in file ./ibdata1 are 0x4000!…
+# e.g.
+…… Can't open the mysql.plugin table. Please run mysql_upgrade to create it
+# e.g.
+…… Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+```
+
+```bash
+$ pwd
+/usr/local/var/mysql
+$ rm -rf *
+$ mysqld --initialize-insecure
+```
+
+Reference
+
+- [MYSQL Error – Server Quit Without Updating PID File – Quick fix!](https://bobcares.com/blog/mysql-error-server-quit-without-updating-pid-file/)
+- [Can't open and lock privilege tables: Table 'mysql.user' doesn't exist](https://stackoverflow.com/questions/34516664/cant-open-and-lock-privilege-tables-table-mysql-user-doesnt-exist)
+- [Can't open the mysql.plugin table. Please run mysql_upgrade to create it](https://stackoverflow.com/questions/41531225/cant-open-the-mysql-plugin-table-please-run-mysql-upgrade-to-create-it/41532987)
+
 ## TODO
 
 - References
