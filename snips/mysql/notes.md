@@ -664,6 +664,7 @@ $ pwd
 /usr/local/var/mysql
 $ rm -rf *
 $ mysqld --initialize-insecure
+# ommited output
 ```
 
 Reference
