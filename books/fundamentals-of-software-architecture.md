@@ -934,6 +934,8 @@ Translation of domain concers to architecture characteristics
 
 ##### Implicit Characteristics
 
+> There are no wrong answers in architecture, only expensive ones.
+
 ## C6. Measuring and Governing Architecture Characteristics
 
 # Part 2. Architeure Styles
