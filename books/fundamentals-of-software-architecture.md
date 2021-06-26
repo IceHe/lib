@@ -934,7 +934,13 @@ Translation of domain concers to architecture characteristics
 
 ##### Implicit Characteristics
 
+It's important to note that there are no correct answers in choosing architecture characteristics, only incorrect ones:
+
 > There are no wrong answers in architecture, only expensive ones.
+
+_Architects must remeber:_
+
+> There is no best design in architecture, only a least worst collection of trade-offs.
 
 ## C6. Measuring and Governing Architecture Characteristics
 
