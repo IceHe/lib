@@ -942,7 +942,46 @@ _Architects must remeber:_
 
 > There is no best design in architecture, only a least worst collection of trade-offs.
 
+**Of the operational architecture characteristics, performance is likely the least critical for success.**
+Of course, the developers don't mean to build an application that has terrible performance,
+but rather one that doesn't prioritize performance over other characteristics,
+such as scalability or availability.
+
 ## C6. Measuring and Governing Architecture Characteristics
+
+### Measuring Architecture Characteristics
+
+……
+
+#### Operational Measures
+
+……
+
+#### Structural Measures
+
+……
+
+**Cyclomatic Complexity**
+
+CC = E - N + 2
+
+- N: nodes ( lines of codes )
+- E: edges ( possible decisions )
+- 2: a simplification for a single function/method
+
+For fan-out calls to other methods
+(known as _connected components_ in graph theory ) ,
+the more general formula is:
+
+CC = E - N + 2P
+
+- P: the number of connected components
+
+**What's a Good Value for Cyclomatic Complexity?**
+
+……
+
+#### Process Measures
 
 # Part 2. Architeure Styles
 
