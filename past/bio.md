@@ -23,12 +23,14 @@ IceHe's short biographical profile
 
 - 技术博客: [icehe.xyz](https://icehe.xyz)
 - 生活琐碎: [微博](https://weibo.com/icedes) @\_IceHe\_
-- 代码仓库: [GitHub](https://github.com/IceHe)
+- 代码仓库: [GitHub.IceHe](https://github.com/IceHe)
 
 联络
 
 - 邮箱: icehe.me#qq.com _( replace # with @ )_
 - 微信: IceHooo
+
+<!--
 
 <details>
 <summary>微信二维码 ( 点击展示 )</summary>
@@ -36,6 +38,8 @@ IceHe's short biographical profile
 ![](https://img.icehe.xyz/about_original/qrcode_01.jpg)
 
 </details>
+
+-->
 
 ---
 
@@ -83,7 +87,7 @@ IceHe's short biographical profile
 
 **猿辅导 - 斑马AI课 - 供应链 - Java 后端** _2021.3 ~ 至今_
 
-- 课程随材物料支持历史版本、实验分组 / 库存计算 / 快递&仓库发货策略 / …
+- 课程随材物料支持历史版本及实验分组 / 判断库存充足状况 / 快递发货策略 / 运单时效监控 / …
 - _Java / Spring Boot / Thrift / MySQL / Redis / RocketMQ_
 
 **阿里本地生活 - 前台研发部 - 蜂鸟跑腿后端组 - Java 后端** _2020.4 ~ 2021.3_
