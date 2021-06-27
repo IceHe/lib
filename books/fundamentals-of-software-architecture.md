@@ -983,6 +983,32 @@ CC = E - N + 2P
 
 #### Process Measures
 
+……
+
+### Governance and Fitness Functions
+
+……
+
+#### Governing Architecture Characteristics
+
+Governance, derived from the Greek word **kubernan** ( to steer _( 掌舵, 驾驶 )_ ) …
+
+……
+
+#### Fitness Functions
+
+**Fitness function**:
+an object function used to assess how close the output comes to achieving the aim.
+
+**Architecture fitness function**:
+Any mechanism that provides an objective integrity assessment of some architecture characteristics or combination of architecture characteristics
+
+……
+
+> Architect must ensure that developers understand the purpose of the fitness function before imposing it on them.
+
+## C7. Scope of Architecture Characteristics
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
