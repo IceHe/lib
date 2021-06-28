@@ -123,6 +123,8 @@ git checkout
     [<path/to/file|dir>]
     # new branch
     -b <branch_name>
+    # rename
+    -m <new_branch_name>
 
 git log
 
@@ -239,6 +241,9 @@ git checkout <commit_id>   # 恢复到 revert 前的 commit 的状态。
 
 - `git branch` 查看分支
 - `git branch <branch_name>` 新建分支
+- `git branch -m <new_branch_name>` 重命名分支
+    - `git branch --move <new_branch_name>`
+    - [How To Rename a Local and Remote Git Branch](https://linuxize.com/post/how-to-rename-local-and-remote-git-branch/)
 - `git checkout -b <branch_name>` 新建分支，并切换到该分支
 - `git checkout <branch_name>` 切换分支
 - `git merge <branch_name>` 将另一分支 <branch_name> 导入到当前分支
