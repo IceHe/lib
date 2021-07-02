@@ -157,6 +157,17 @@ git rebase
     --abort
 ```
 
+```bash
+# 显示最近的 commit id
+git log [<branch_name>] --oneline | head -1 | awk -F ' ' '{ print $1 }'
+
+# 展示 mater 和 deploy-test 之外的分支
+gb -l | grep -E -v 'deploy-test|master'
+
+# 拷贝非 mater 和 deploy-test 之外的第一个分支的名称
+gb -l | grep -E -v 'deploy-test|master' | head -1 | tr -d ' \n' | pbcopy
+```
+
 ## Check 检查
 
 Commit 提交
