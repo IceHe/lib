@@ -1049,7 +1049,7 @@ Architecture is indenpendent from the development process.
 
 ……
 
-**Generally the component is the lowest levevl of the software system an architect interacts directly with**,
+**Generally the component is the lowest level of the software system an architect interacts directly with**,
 _with the exception of many of the code quality metrics that affect code bases holistically ( 整体地 ) ._
 
 Components consist of classes or functions _( depending on the implementation platform )_ ,
@@ -1068,6 +1068,53 @@ But before an architect can identify components,
 they must know how to partition the architecture.
 
 #### Architecture Partitioning
+
+**Top-level partitioning** _( 顶层分区 )_
+
+- Layered
+- Modular
+
+![types-of-top-level-architecture-partitioning-layered-n-modular.jpeg](_images/fundamentals-of-software-architecture/types-of-top-level-architecture-partitioning-layered-n-modular.jpeg)
+
+![types-of-top-level-partitioning-in-architecture.jpeg](_images/fundamentals-of-software-architecture/types-of-top-level-partitioning-in-architecture.jpeg)
+
+The architect has partitioned functionality of the system into _technical capabilities_:
+
+- presentation
+- bussiness rules
+- service
+- persistence
+- …
+
+_This way of organizing a code base certainly makes sense._
+_All the persistence code resides in one layer in the architecture,_
+_making it easy for developers to find persistence-realted code._
+
+_Even though the basic concept of layer architecture predates ( 领先 ) it by decades,_
+_the Model-View-Controller design pattern matches with this architectureal pattern.,_
+_making it easy for develpers to understand._
+_Thus, it is often the default architecture in many organizations._
+
+_An interesting side effect of the predominance ( 优势, 卓越 ) of the layered architecture_
+_relates to how companies seat different project roles._
+_When using a layered architecture,_
+_it makes some sense to have all the backed developers sit together in one department,_
+_the DBAs in another, the presentation team in another, and so on._
+
+Because of **Conway's law**, this make sense in those organizations.
+
+##### Conway's Law
+
+> Organizations which design systems … are constained to produce designs which are copied of the communications structures of these organizations.
+
+Paraphrased ( 意译 ) , this law suggests that **when a group of people designs some technical artifact,**
+**the communication structures between the people end up replicated in the design.**
+
+_People at all levels of organizations see this law in action,_
+_and they sometimes make decisions based on it._
+_For example, it is common for organizations to partition workers based on technical capabilities,_
+_which make sense from a pure organizational sense_
+_but hamper ( 妨碍 ) collaboration because of artifical separation of common concerns._
 
 # Part 2. Architeure Styles
 
