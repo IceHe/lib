@@ -1130,6 +1130,37 @@ Most realistic softwares software systems require workflows that cut across tech
 
 icehe: 一般情况下在实践层面, 不同的业务通常根据 "领域" (domain) 来划分边界和职责, 然后在 "领域" 内部再根据技术能力 "分层" (layered) 来进一步划分边界和职责.
 
+### Developer Role
+
+In general, class and function design is the shared responsibility of architects, tech leads, and developers,
+with the lion's share going to developer roles.
+
+_通常来说, 类和方法的设计职责由架构师、技术负责人和研发共同分担, 其中最大的份额归于研发角色_
+
+**Developers should never take components designed by architects as the last word;**
+**all software design benefits from iteration.**
+
+_研发永远不要把架构师的组件设计当做最后的定论; 所有的软件设计都会从迭代中收益._
+
+Rather, that **initial design should be viewed as a first draft,**
+**where implementation will reveal more details and refinements.**
+
+_最初的设计应该被视为第一版草稿, 然后它的具体实现会揭示更多细节, 从中发现可以改进的细节._
+
+### Component Identification Flow
+
+TODO 配图
+
+#### Identifying Initial Components
+
+#### Assign Requirements to Components
+
+#### Analyze Roles and Responsibilities
+
+#### Analyze Architecture Characteristics
+
+#### Restructure Components
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
