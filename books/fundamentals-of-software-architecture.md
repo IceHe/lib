@@ -1009,6 +1009,66 @@ Any mechanism that provides an objective integrity assessment of some architectu
 
 ## C7. Scope of Architecture Characteristics
 
+### Coupling and Connascence
+
+( icehe : 我将 connascence 理解翻译为 "联动性" )
+
+……
+
+### Architectural Quanta and Granularity
+
+_The word quantum derives from Latin, meaning "how great" or "how much."_
+
+**Architecture quantum**
+
+And independently deployable artifact with high functional cohesion and synchrous connscence
+
+- Independently deployable
+- High functional cohesion
+- Synchronous connscence
+    -   It implies synchronous calls within an application context or between distributed service that for this architecture quantum.
+    -   For example, if one service in microservice architecture calls another one synchrounously,
+        each service cannot exhibit extreme differences in operational architecture characteristcis.
+    -   If the caller is much more scalable that the callee, timeouts and other reliability concerns will occur.
+    -   Thus, synchronous calls create dynamic connascence for the length of the call —— if one is waiting for the other,
+        their operational architecture characteristics must be the same for the duration of the call.
+
+### Case Study: Going, Going, Gone
+
+……
+
+## C8. Component-Based Thinking
+
+### Component Scope
+
+……
+
+### Architect Role
+
+Architecture is indenpendent from the development process.
+
+……
+
+**Generally the component is the lowest levevl of the software system an architect interacts directly with**,
+_with the exception of many of the code quality metrics that affect code bases holistically ( 整体地 ) ._
+
+Components consist of classes or functions _( depending on the implementation platform )_ ,
+whose design falls under the responsibility of tech leads or developers.
+
+**It's not that architects shouldn't involve themselves in class design**
+**( particularly when discovering or applying design patterns ) ,**
+**but they should avoid micromanaging each decision from top to bottom in the system.**
+
+If architects never allow other roles to make decisions of consequence,
+the organization will struggle with empowering the next generation of architects.
+
+**An architect must identify components as one of the first tasks on a new project.**
+
+But before an architect can identify components,
+they must know how to partition the architecture.
+
+#### Architecture Partitioning
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
