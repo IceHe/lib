@@ -1116,6 +1116,20 @@ _For example, it is common for organizations to partition workers based on techn
 _which make sense from a pure organizational sense_
 _but hamper ( 妨碍 ) collaboration because of artifical separation of common concerns._
 
+##### Domain-Driven Design
+
+In DDD, the architect identifies domians or workflows independent and decoupled from each other.
+
+The microservice architecture style is based on this philosophy.
+**In a modular monolith, the architect partitions the architecture around domains or workflows rather than technical capabilities.**
+
+It has a huge impact on how an architect decideds how to initially identify components ——
+does the architect want to partition things technically or by domain? …
+
+Most realistic softwares software systems require workflows that cut across technical capabilities.
+
+icehe: 一般情况下在实践层面, 不同的业务通常根据 "领域" (domain) 来划分边界和职责, 然后在 "领域" 内部再根据技术能力 "分层" (layered) 来进一步划分边界和职责.
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
