@@ -223,6 +223,7 @@ Reference : https://www.computerhope.com/keys.htm
 - conf : configuration
 - conj. : conjunction [语] 连接词; 结合; 同时发生
 - conn : connect, connection
+- _pros and cons : 正反两方面; 赞成者和反对者_
 - const : constant
 - constr : [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
 - conv : convert
@@ -580,6 +581,7 @@ Reference : https://www.computerhope.com/keys.htm
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
 - pron. : pronoun 代词
 - prop : property
+- pros and cons : 正反两方面; 赞成者和反对者
 - prt : print
 - ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
 - PS : PhotoShop
