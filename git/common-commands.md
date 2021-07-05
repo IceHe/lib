@@ -164,7 +164,7 @@ git log [<branch_name>] --oneline | head -1 | awk -F ' ' '{ print $1 }'
 # 展示 mater 和 deploy-test 之外的分支
 gb -l | grep -E -v 'deploy-test|master'
 
-# 拷贝非 mater 和 deploy-test 之外的第一个分支的名称
+# 拷贝除 mater 和 deploy-test 之外的第一个分支的名称
 gb -l | grep -E -v 'deploy-test|master' | head -1 | tr -d ' \n' | pbcopy
 ```
 
