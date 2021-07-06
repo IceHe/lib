@@ -15,4 +15,5 @@
 
 # Others
 _private/
+*.out
 
