@@ -85,7 +85,7 @@ IceHe's short biographical profile
 
 ## 经历
 
-**猿辅导 - 斑马AI课 - 供应链 - Java 后端** _2021.3 ~ 至今_
+**猿辅导 - 斑马 - 电商 - 供应链 - Java 后端** _2021.3 ~ 至今_
 
 - 课程随材物料支持历史版本及实验分组 / 判断库存充足状况 / 快递发货策略 / 运单时效监控 / …
 - _Java / Spring Boot / Thrift / MySQL / Redis / RocketMQ_
