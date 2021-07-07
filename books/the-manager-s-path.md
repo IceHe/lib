@@ -82,7 +82,21 @@ is an important step in owning your career and workplace happiness.
 
 #### Spending Time Thinking about What You Want
 
-2021-07-04 15:44:23
+…
+
+#### You Are Responsible For Yourself
+
+**When that feedback comes to you, take it graciously, even when you don't agree with it.**
+
+**When you are persistently unhappy, say something.**
+**When you are stuck, ask for help.**
+When you want a raise, ask for it.
+**When you want a promotion, find out what you need to do to get it.**
+
+**Your manager cannot force work–life balance on you.**
+If you want to go home, figure out how to get your work done and go home.
+**Sometimes you will have to go against the cultural grain to set your own boundaries**, and that will feel uncomfortable.
+On the flip side, **sometimes if you want a bigger job, you will have to work more hours to get it.**
 
 ## 2. Mentoring
 
