@@ -98,7 +98,37 @@ If you want to go home, figure out how to get your work done and go home.
 **Sometimes you will have to go against the cultural grain to set your own boundaries**, and that will feel uncomfortable.
 On the flip side, **sometimes if you want a bigger job, you will have to work more hours to get it.**
 
+…
+
+#### Give Your Manager A Break
+
+…
+
+Especially as you become more senior, remember that your manager expects you to bring solutions, not problems.
+
+#### Choose Your Managers Wisely
+
+Your manager can make a huge difference in your career.
+So, as much as you can, consider not only the job, the company, and the pay,
+but also the manager when you are evaluating job opportunities.
+
+Strong managers know how to play the game at their company.
+They can get you promoted;
+they can get you attention and feedback from important people.
+
+…
+
+### Assessing Your Own Experience
+
+…
+
 ## 2. Mentoring
+
+### Being a Mentor
+
+#### Mentoring an Intern
+
+#### Listen Carefully
 
 ## 3. Tech Lead
 
