@@ -128,7 +128,11 @@ they can get you attention and feedback from important people.
 
 #### Mentoring an Intern
 
-#### Listen Carefully
+##### Listen Carefully
+
+##### Clearly Communicate
+
+##### Clibrate Your Response
 
 ## 3. Tech Lead
 
