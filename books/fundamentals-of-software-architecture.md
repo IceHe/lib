@@ -1153,7 +1153,22 @@ TODO 配图
 
 #### Identifying Initial Components
 
+…
+
+_icehe: 几乎不可能在一开始就设计好, 所以要不断迭代以改善最初的设计_
+
 #### Assign Requirements to Components
+
+_Once an architect has identified initial components,_
+the next step aligns requirements (or user stories) to those components
+to see how well they fit.
+
+_This may entail ( 需要 ) createing new components, consolidating existing ones,_
+_or breaking components apart because they have too much responsibility._
+
+This mapping doesn't have to be exact —— the architect is attempting to
+find a good coarse-grained substrate ( 粗粒度基底 )
+to allow further design and refinement by architects, tech leads, and/or developers.
 
 #### Analyze Roles and Responsibilities
 
