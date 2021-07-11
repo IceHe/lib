@@ -130,6 +130,26 @@ they can get you attention and feedback from important people.
 
 ##### Listen Carefully
 
+Listening is the first and most basic skill of managing people.
+Listening is a precursor to empathy.
+
+…
+
+One of the early lessons in leadership,
+whether it is via direct management or indirect influence,
+is that people are not good at saying precisely what they mean in a way
+that others can exactly understand.
+We have yet to achieve Borg hive mind or Vulcan mind meld,
+so we’re constantly pushing complex ideas through the eye of the needle of language.
+And language is not something that most engineers have mastered in nuance and interpretation.
+So listening goes beyond hearing the words your mentee is saying.
+When you’re face to face with another person,
+you also have to interpret his body language and the way he’s saying those words.
+Is he looking you in the eye? Is he smiling? Frowning? Sighing?
+These small signals give you a clue as to whether he feels understood or not.
+
+Be prepared to say anything complex a few times, in different ways. If you feel that you don’t understand something your mentee has asked you, repeat the question in a different way. Let him correct you.
+
 ##### Clearly Communicate
 
 ##### Clibrate Your Response
