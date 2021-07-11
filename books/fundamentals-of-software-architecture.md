@@ -1230,7 +1230,7 @@ differeing architecture characteristics.
 While there is no one true way to ascertain _( 弄清; 确认 )_ components,
 a common anti-pattern lurks _( 潜伏; 埋伏; 潜藏 )_ : the _entity trap_.  …
 
-TODO 配图
+![building-an-architecture-as-an-object-relational-mapping.jpg](_images/fundamentals-of-software-architecture/building-an-architecture-as-an-object-relational-mapping.jpg)
 
 _The architect has basically taken entity identified in the requirements and_
 _made a Manager component based on that entity._
@@ -1244,10 +1244,6 @@ when an architect incorrectly identifies the database relationships as workflows
 _a correspondence that rarely manifests in the real world._
 
 Rather, **this anti-pattern generally indicates lack of thought about the actual workflows of the application.**
-
-###### Naked Objects and Similar Frameworks
-
-TODO 2021-07-11 11:48:19
 
 ##### Actor/Actions Approach
 
