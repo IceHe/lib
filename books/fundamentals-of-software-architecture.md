@@ -1172,9 +1172,42 @@ to allow further design and refinement by architects, tech leads, and/or develop
 
 #### Analyze Roles and Responsibilities
 
+<!-- _… Thinking about both the roles and behaviors the application must support allows the architect to align the components and domain granularity ( 粒度 ) ._ -->
+
+…
+
 #### Analyze Architecture Characteristics
 
+…
+
 #### Restructure Components
+
+Feekback is critical in software design.
+Thus, architects must continually iterate on their component design with developers.
+
+**Designing software provides all kinds unexpected difficulties**
+**—— no one can anticipate all unknown issues that usually occur during software projects.**
+Thus, an iterative approach to component design is key.
+
+First,
+**it's virtually impossible to account for all the different discoveries and edge cases**
+**that will arise that encourage redesign.**
+
+Secondly,
+**as the architecture and developers delve more deeply into building the application,**
+**they gain a more nuanced understanding of where behavior and roles should lie.**
+
+_( icehe : 很真实, 所以不要妄图在一个 Scrum 的开始时就能确认清楚 设计方案、最后期限和需求范围. )_
+
+### Component Granularity
+
+### Component Design
+
+#### Discovering Components
+
+### Case Study: Going, Going, Gone: Discovering Components
+
+### Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
 
 # Part 2. Architeure Styles
 
