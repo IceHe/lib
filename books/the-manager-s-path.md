@@ -31,7 +31,7 @@ Table of Contents
 
 ### What to Expect from a Manager
 
-Everyone’s very first experience of management is on the other side of the table,
+Everyone's very first experience of management is on the other side of the table,
 and the experience of being managed is the foundation on which you build your own management philosophy.
 
 …
@@ -41,7 +41,7 @@ and the experience of being managed is the foundation on which you build your ow
 1-1s serve two purposes.
 
 First, they create human connection between you and your manager.
-_That doesn’t mean you spend the whole time talking about your hobbies or families or making small talk about the weekend._
+_That doesn't mean you spend the whole time talking about your hobbies or families or making small talk about the weekend._
 But letting your manager into your life a little bit is important, because when there are stressful things happening
 (a death in the family, a new child, a breakup, housing woes),
 it will be much easier to ask your manager for time off or tell him what you need if he has context on you as a person.
@@ -50,7 +50,7 @@ it will be much easier to ask your manager for time off or tell him what you nee
 
 The second purpose of a 1-1 is a regular opportunity for you to speak privately with your manager about whatever needs discussing.
 _You should expect your 1-1s to be scheduled with some predictability so that you can plan for them,_
-_because it is not your manager’s job to completely control the 1-1 agenda._
+_because it is not your manager's job to completely control the 1-1 agenda._
 _Sometimes he will, but it is good for you to put a little thought into what you might actually want to discuss before your 1-1 meetings._
 
 …
@@ -137,22 +137,46 @@ Listening is a precursor to empathy.
 
 One of the early lessons in leadership,
 whether it is via direct management or indirect influence,
-is that people are not good at saying precisely what they mean in a way
-that others can exactly understand.
-We have yet to achieve Borg hive mind or Vulcan mind meld,
-so we’re constantly pushing complex ideas through the eye of the needle of language.
-And language is not something that most engineers have mastered in nuance and interpretation.
-So listening goes beyond hearing the words your mentee is saying.
-When you’re face to face with another person,
-you also have to interpret his body language and the way he’s saying those words.
-Is he looking you in the eye? Is he smiling? Frowning? Sighing?
-These small signals give you a clue as to whether he feels understood or not.
+is that people are **not good at saying precisely _( 恰好 )_**
+**what they mean in a way that others can exactly understand.**
 
-Be prepared to say anything complex a few times, in different ways. If you feel that you don’t understand something your mentee has asked you, repeat the question in a different way. Let him correct you.
+_We have yet to achieve_
+_[Borg hive mind](https://borgcollective.fandom.com/wiki/Hive_Mind) ( 蜂巢思维 )_
+_or [Vulcan mind meld](https://intl.startrek.com/database_article/mind-meld-vulcan#:~:text=A%20touch%20technique%20that%20allows,the%20targeted%20partner's%20skull%20temples.),_
+_so we're constantly pushing complex ideas through the eye of the needle of language._
+
+**And language is not something that most engineers have mastered in nuance and interpretation.**
+**So listening goes beyond hearing the words your mentee is saying.**
+**When you're face to face with another person,**
+**you also have to interpret his body language and the way he's saying those words.**
+**Is he looking you in the eye? Is he smiling? Frowning? Sighing?**
+**These small signals give you a clue as to whether he feels understood or not.**
+
+**<u>Be prepared to say anything complex a few times, in different ways.</u>**
+**If you feel that you don't understand something your mentee has asked you,**
+**repeat the question in a different way.**
+**Let him correct you.**
+
+…
+
+The odds of you spending all of your time answering questions are slim
+compared to the odds that your intern will go off in the absolute wrong direction
+because he didn't ask enough questions.
 
 ##### Clearly Communicate
 
+With that said, what if the intern does spend too much time asking you for help,
+without ever looking for help himself?
+
+Well, that gives you an opportunity to work on another management skill:
+**communicating what needs to happen**.
+If you expect him to do research on his own before asking you a question, tell him so!
+
 ##### Clibrate Your Response
+
+…
+
+##### Mentoring a New Hire
 
 ## 3. Tech Lead
 
