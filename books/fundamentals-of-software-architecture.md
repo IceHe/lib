@@ -1149,7 +1149,7 @@ _最初的设计应该被视为第一版草稿, 然后它的具体实现会揭�
 
 ### Component Identification Flow
 
-TODO 配图
+![component-identification-cycle.jpeg](_images/fundamentals-of-software-architecture/component-identification-cycle.jpeg)
 
 #### Identifying Initial Components
 
@@ -1201,9 +1201,55 @@ _( icehe : 很真实, 所以不要妄图在一个 Scrum 的开始时就能确认
 
 ### Component Granularity
 
+Finding the proper granularity for components is one of an architect's most difficult task.
+
+**Too fine-grained _( 细粒度 )_ a component design leads to**
+**too much communication between components to achieve results.**
+
+**Too coarse-grained _( 粗粒度 )_ components encourage high internal coupling,**
+**which leads to difficulties in deployability and testability,**
+**as well as modularity-related negative side effects.**
+
 ### Component Design
 
+No accepted "correct" way exists to design components. …
+
 #### Discovering Components
+
+_Architects, often in collaboration with other roles such as …,_
+create an initial component design
+based on gneral knowledge of the system and how they choose to decompose it,
+based on technical or domain partitioning.
+
+The team goal is an initial design that
+partitions the problem space into coarse chunks that take into account
+differeing architecture characteristics.
+
+##### Entity Trap
+
+While there is no one true way to ascertain _( 弄清; 确认 )_ components,
+a common anti-pattern lurks _( 潜伏; 埋伏; 潜藏 )_ : the _entity trap_.  …
+
+TODO 配图
+
+_The architect has basically taken entity identified in the requirements and_
+_made a Manager component based on that entity._
+
+**This isn't an architecture; it's a component-relational mapping of a framework to a database.**
+**In other words, if a system only needs simple databased CRUD operations ( create, read, update, delete ) ,**
+**then the architect can download a framework to create user interfaces directly from the database.**
+
+The entity trap anti-pattern arises
+when an architect incorrectly identifies the database relationships as workflows in the application,
+_a correspondence that rarely manifests in the real world._
+
+Rather, **this anti-pattern generally indicates lack of thought about the actual workflows of the application.**
+
+###### Naked Objects and Similar Frameworks
+
+TODO 2021-07-11 11:48:19
+
+##### Actor/Actions Approach
 
 ### Case Study: Going, Going, Gone: Discovering Components
 
