@@ -1,6 +1,8 @@
 # OS
 
-> Show OS info ( not a command )
+Show OS info ( not a command )
+
+---
 
 ```bash
 # 查看 Linux 发行版的名称及其版本号

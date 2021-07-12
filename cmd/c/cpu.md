@@ -1,6 +1,8 @@
 # CPU
 
-> Show CPU info ( not a command )
+Show CPU info ( not a command )
+
+---
 
 References
 

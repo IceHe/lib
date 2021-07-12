@@ -275,6 +275,7 @@ Commands
 - [nc](/cmd/n/nc.md): TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md): show network status
 - [nl](/cmd/n/nl.md): number lines of files
+- [nohup](cmd/n/nohup): invoke a utility immune to hangups
 - [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
 - [os](/cmd/o/os.md): show os info ( not a command )
 - [passwd](/cmd/p/passwd.md): modify a user's password
@@ -333,21 +334,22 @@ Commands
 
 Scenes
 
-- __connect__: curl, nc, ssh, telnet
-- __directory__: cp, find, ln, ls, mv
-- __disk__: df, du
-- __monitor status__: dstat, htop, lsof, netstat, pidstat, ps, stat, top
-- __network detect__: dig, ifconfig, ip, netstat, nslookup, ping
-- __string display__: cat, head, less, tac, tail
-- __string process__:
+- **connect**: curl, nc, ssh, telnet
+- **directory**: cp, find, ln, ls, mv
+- **disk**: df, du
+- **monitor status**: dstat, htop, lsof, netstat, pidstat, ps, stat, top
+- **network detect**: dig, ifconfig, ip, netstat, nslookup, ping
+- **string display**: cat, head, less, tac, tail
+- **string process**:
     - awk, column, comm, cut, grep,
     - join, jq, paste, sed, sort,
     - tr, uniq, wc, …
-- __transfer data__: ftp, nc, rsync, scp
-- __write file__: tee, `>`, `2>&1`
-- __notify__: terminal-notifier
-- __http benchmark__: ab, watch
-- __differ output__: comm, diff, vimdiff, watch
+- **transfer data**: ftp, nc, rsync, scp
+- **write file**: tee, `>`, `2>&1`
+- **notify**: terminal-notifier
+- **http benchmark**: ab, watch
+- **differ output**: comm, diff, vimdiff, watch
+- **run in backgroud**: `^z`, bg, fg, nohup [CMD] &
 - ……
 
 ### Java
