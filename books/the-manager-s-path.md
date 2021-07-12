@@ -176,6 +176,46 @@ If you expect him to do research on his own before asking you a question, tell h
 
 …
 
+###### Mentroing a Summer Intern
+
+_…_
+_What should the intern do?_
+_How do i prepare to help this person have a great summer?_
+_…_
+_Here are the basic things you need to do:_
+
+1.  **Prepare for his arrival.**
+
+    _Arrival date?_
+    _Has a desk near you?_
+    _Prepare computer?_
+    _Prepare softwares?_
+    …
+
+2.  **Have a project for him to work on.**
+
+    The trick to deciding on an intern project is that you want
+    something **specific but not urgent**,
+    something **relevant to the team**
+    **but also something that could be completed**
+    **by an entry-level engineer in the span of**, say,
+    **half the time that your intern will be there**.
+
+    This achieves two goals.
+    **It gives him plenty of time,**
+    **so if he has a lot of other activities to do,**
+    such as going to training or social events set up by your internship program,
+    he will still have time to complete it.
+
+    _If he completes it before the end of the program, great ——_
+    _he should hopefully know enough about some part of your code base_
+    _to do other work for the rest of the time._
+
+    _Remember, this person is an intern._
+    _He's still in school and still learning,_
+    _so expect him to move slowly,_
+    _and be pleasantly surprised if he overshoots._
+
 ##### Mentoring a New Hire
 
 ## 3. Tech Lead
