@@ -25,3 +25,12 @@ REDHAT_SUPPORT_PRODUCT_VERSION="7"
 CentOS Linux release 7.6.1810 (Core)
 CentOS Linux release 7.6.1810 (Core)
 ```
+
+```bash
+# 查看 Linux 内核版本命令
+$ uname -a
+Linux xyz-icehe-85698c8b66-496g2 4.19.104-300.el7.x86_64 #1 SMP Mon Feb 17 15:34:16 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+# or
+$ cat /proc/version
+Linux version 4.19.104-300.el7.x86_64 (mockbuild@x86-02.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-36) (GCC)) #1 SMP Mon Feb 17 15:34:16 UTC 2020
+```
