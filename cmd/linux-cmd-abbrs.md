@@ -1,4 +1,4 @@
-# Linux Abbreviations
+# Linux Command Abbreviations
 
 References
 

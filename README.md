@@ -278,6 +278,7 @@ Commands
 - [nohup](cmd/n/nohup): invoke a utility immune to hangups
 - [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
 - [os](/cmd/o/os.md): show os info ( not a command )
+- [output](/cmd/o/output.md): redirect output ( not a command )
 - [passwd](/cmd/p/passwd.md): modify a user's password
 - [paste](/cmd/p/paste.md): merge lines of files
 - [perf](/cmd/p/perf.md): performance analysis tools for Linux
