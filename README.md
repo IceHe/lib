@@ -224,6 +224,7 @@ Commands
 - [column](/cmd/c/column.md): columnate lists
 - [comm](/cmd/c/comm.md): compare two sorted files line by line
 - [cp](/cmd/c/cp.md): copy files & directories
+- [cpu](/cmd/c/cpu.md): show cpu info ( not a command )
 - [crontab](/cmd/c/crontab.md): time-based job scheduler
 - [curl](/cmd/c/curl.md): transfer data from or to a server
 - [cut](/cmd/c/cut.md): remove sections from each line of files
