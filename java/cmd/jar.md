@@ -11,6 +11,24 @@ References
 - `man jar`
 - Java SE 11 Docs - Tools References - `jar` : https://docs.oracle.com/en/java/javase/11/tools/jar.html
 
+## Quickstart
+
+```bash
+# 列举 jar 包含的目录和文件
+# -f  specify archive file name
+# -t  list table of contents for archive
+jar -tf bolt-logistics-client-1.6.41-sources.jar
+
+# 解压 jar 包含的文件
+mkdir tmp
+mv a.jar tmp/a-sources.jar
+cd tmp
+# ( 另外创建一个文件夹, 把解压缩的文件都集中到里面, 方便清理 )
+# -x  extract named (or all) files from archive
+jar -xf a-sources.jar
+
+```
+
 ## Synopsis
 
 ```bash
