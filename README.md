@@ -276,6 +276,7 @@ Commands
 - [netstat](/cmd/n/network-status.md): show network status
 - [nl](/cmd/n/nl.md): number lines of files
 - [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
+- [os](/cmd/o/os.md): show os info ( not a command )
 - [passwd](/cmd/p/passwd.md): modify a user's password
 - [paste](/cmd/p/paste.md): merge lines of files
 - [perf](/cmd/p/perf.md): performance analysis tools for Linux

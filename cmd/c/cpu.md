@@ -28,7 +28,11 @@ $ cat /proc/cpuinfo | grep "processor" | wc -l
 # 查看 CPU 信息（型号）
 $ cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
     128  AMD EPYC 7502 32-Core Processor
+```
 
+---
+
+```bash
 # 查看内存信息
 $ cat /proc/meminfo
 cat /proc/meminfo
