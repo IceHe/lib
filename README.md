@@ -331,7 +331,8 @@ Commands
 - [xargs](/cmd/x/xargs.md): build and execute command lines from standard input
 - _[xxd](/cmd/x/xxd.md): make a hexdump or do the reverse_
 - [zsh](/cmd/z/zsh.md): one of shells
-- _[CLI Notes](/cmd/notes.md)_
+- [Linux Abbreviations](/cmd/linux-abbrs.md)
+- _[CLI Notes](/cmd/notes.md) ( todo )_
 
 Scenes
 
