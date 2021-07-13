@@ -1,6 +1,8 @@
 # man
 
-an interface to the on-line reference **manuals**
+manual
+
+an interface to the on-line reference manuals
 
 ---
 

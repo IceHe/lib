@@ -1,6 +1,6 @@
 # cd
 
-Change the current directory to dir.
+change directory
 
 ---
 

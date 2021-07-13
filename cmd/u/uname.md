@@ -1,5 +1,7 @@
 # uname
 
+unix name
+
 print system information
 
 ---

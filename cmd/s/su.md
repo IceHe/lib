@@ -1,5 +1,7 @@
 # su
 
+switch user
+
 run a command with substitute user and group ID
 
 ---

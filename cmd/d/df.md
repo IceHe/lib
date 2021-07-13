@@ -1,12 +1,10 @@
 # df
 
-On Linux
+disk free
 
-- report file system disk space usage
+display free disk space
 
-On BSD
-
-- **display free disk** space
+report file system disk space usage
 
 ---
 

@@ -1,5 +1,7 @@
 # sed
 
+Stream EDitor
+
 stream editor for filtering and transforming text
 
 ---

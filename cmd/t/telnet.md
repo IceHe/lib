@@ -1,5 +1,7 @@
 # telnet
 
+TEminaL over Network
+
 user interface to the TELNET protocol
 
 ---

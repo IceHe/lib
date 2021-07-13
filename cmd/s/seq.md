@@ -1,5 +1,7 @@
 # seq
 
+sequence
+
 print a sequence of numbers
 
 ---

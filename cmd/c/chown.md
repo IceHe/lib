@@ -1,5 +1,7 @@
 # chown
 
+change owner
+
 change file owner and group
 
 ---
