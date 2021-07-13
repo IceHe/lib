@@ -10,94 +10,7 @@ References
 
 ## Commands
 
-- chsh : change shell
-- pwd : print work directory
-    _( 打印当前目录, 显示出当前工作目录的绝对路径 )_
-- dd : disk dump _( 磁盘转储 )_
-- df : disk free _( 磁盘可用空间 )_
-    - _显示磁盘可用空间数目及空间结点信息_
-    - _就是报告在任何安装的设备或目录中, 还剩多少自由的空间_
-- du : disk usage
-- fsck : file system check
-- mkfs : make file system
-- rpm : RPM Package Manager = RedHat PackageManager _( RedHat 的发明之一 )_
-    - dpkg : Debian package manager
-    - apt : Advanced package tool _( Debian 或基于 Debian 的发行版中提供 )_
-- **uname : unix name**
-- dd : _本来应根据其功能描述 "convert an copy" 命名为 "cc" , 但 "cc" 已经被用以代表 "CComplier", 所以命名为 "dd"_
-- **tar : tape archive _( 磁带档案 )_**
-- ldd : list dynamic dependencies
-    - _文件结尾的 "rc" ( 如 .bashrc .xinitrc 等 ) : Resource configuration_
-    - _Knnxxx / Snnxxx ( 位于rcx.d目录下 ) :_
-        - _K ( Kill )_
-        - _S ( Service )_
-        - _nn ( 执行顺序号 )_
-        - _xxx ( 服务标识 )_
-- **lsof : LiSt Open Files**
-- **sed : Stream Editor**
-- seq : sequence
-- **telnet : TEminaL over Network**
-- **tr = traslate**
-
-## Directory
-
-- /bin : binaries _( 二进制文件 )_
-- /dev : devices
-- **/etc : etcetera _( 等等 )_**
-- /lib : library
-- /proc : processes
-- **/sbin : superuser binaries _( 超级用户的二进制文件 )_**
-- /tmp : temporary
-- **/usr : Unix Shared Resources**
-- **/var : variable _( 变量 )_**
-
-## File Extension
-
-- **.a ：archive, static library**
-- **.so : shared object，dynamically linked library**
-- .o : object file, complied result of C/C++ source file
-
-## Language
-
-- lisp
-    - = LISt Processing
-    - = Lots of IrritatingSuperfluous Parentheses
-- MySQL : My 是最初作者女儿的名字
-    - SQL : Structured Query Language
-- Perl
-    - = "Pratical Extraction and Report Languag"
-        _( 实际的抽取和报告语言 )_
-    - = "Pathologically Eclectic Rubbish Lister"
-- PHP
-    - = Personal Home Page Tools
-    - = PHP HypertextPreprocessor
-- Python : 得名于电视剧 Monty Python's Flying Circus
-- **Tcl = Tool Command Language**
-
-## Shell
-
-- awk : "Aho Weiberger and Kernighan" 三个作者的姓的第一个字母
-- bash : Bourne Again SHell
-- Fish : the Friendly Interactive SHell
-- ksh : Korn SHell
-
-## Technology
-
-- **GRUB = GRand Unified Bootloader**
-- **IFS = Internal Field Seperators**
-- LILO = LInux LOader
-- PS = Prompt String
-- **Tk = ToolKit**
-- VT = Video Terminal
-- YaST = Yet Another Setup Tool
-- apache = "a patchy" server
-- ar = archiver
-- as = assembler
-- bc = Basic (Better) Calculator
 - biff = 作者 HeidiStettner 在 U.C.Berkely 养的一条狗, 喜欢对邮递员汪汪叫
-- cal = calendar
-- cmp = compare
-- cobra = Common Object Request BrokerArchitecture
 - comm = common
 - cpio = CoPy In and Out
 - cpp = c pre processor
@@ -195,5 +108,97 @@ References
 - xrdb = X Resources DataBase
 - xwd = X Window Dump
 - yacc = yet another compiler compiler
-- MIME = Multipurpose Internet Mail Extensions
+
+---
+
+- ar : archiver
+- as : assembler
+- bc : basic (better) calculator
+    _( an arbitrary precision calculator language )_
+- cal : calendar
+    _( displays a calendar and the date of Easter )_
+- chsh : change shell
+- cmp : compare
+    _( compare two files byte by byte )_
+- dd : _本来应根据其功能描述 "convert an copy" 命名为 "cc" , 但 "cc" 已经被用以代表 "CComplier", 所以命名为 "dd"_
+- dd : disk dump _( 磁盘转储 )_
+- **df : disk free** _( 磁盘可用空间 )_
+    - _显示磁盘可用空间数目及空间结点信息_
+    - _就是报告在任何安装的设备或目录中, 还剩多少自由的空间_
+- **du : disk usage**
+- fsck : file system check
+- mkfs : make file system
+- ldd : list dynamic dependencies
+    - _文件结尾的 "rc" ( 如 .bashrc .xinitrc 等 ) : Resource configuration_
+    - _Knnxxx / Snnxxx ( 位于rcx.d目录下 ) :_
+        - _K ( Kill )_
+        - _S ( Service )_
+        - _nn ( 执行顺序号 )_
+        - _xxx ( 服务标识 )_
+- **lsof : LiSt Open Files**
+- pwd : print working directory
+    _( 打印当前目录, 显示出当前工作目录的绝对路径 )_
+- rpm : RPM Package Manager = RedHat PackageManager _( RedHat 的发明之一 )_
+    - dpkg : Debian package manager
+    - apt : Advanced package tool _( Debian 或基于 Debian 的发行版中提供 )_
+- **sed : Stream Editor**
+- seq : sequence
+- **tar : tape archive _( 磁带档案 )_**
+- **telnet : TEminaL over Network**
+- **tr = traslate**
+- **uname : unix name**
+
+## Directory
+
+- /bin : binaries _( 二进制文件 )_
+- /dev : devices
+- **/etc : etcetera _( 等等 )_**
+- /lib : library
+- /proc : processes
+- **/sbin : superuser binaries _( 超级用户的二进制文件 )_**
+- /tmp : temporary
+- **/usr : Unix Shared Resources**
+- **/var : variable _( 变量 )_**
+
+## File Extension
+
+- **.a ：archive, static library**
+- **.so : shared object，dynamically linked library**
+- .o : object file, complied result of C/C++ source file
+
+## Language
+
+- LISP
+    - = LISt Processing
+    - = Lots of IrritatingSuperfluous Parentheses
+- MySQL : My 是最初作者女儿的名字
+    - SQL : Structured Query Language
+- Perl
+    - = "Pratical Extraction and Report Languag"
+        _( 实际的抽取和报告语言 )_
+    - = "Pathologically Eclectic Rubbish Lister"
+- PHP
+    - = Personal Home Page Tools
+    - = PHP HypertextPreprocessor
+- **Tcl = Tool Command Language**
+
+## Shell
+
+- awk : "Aho Weiberger and Kernighan" 三个作者的姓的第一个字母
+- bash : Bourne Again SHell
+- Fish : the Friendly Interactive SHell
+- ksh : Korn SHell
+
+## Technology
+
+- Apache = "a patchy" server
+- cobra = Common Object Request Broker Architecture
 - ECMA = European Computer Manufacturers Association
+- GRUB : GRand Unified Bootloader
+- IFS : Internal Field Seperators
+- LILO : LInux LOader
+- MIME = Multipurpose Internet Mail Extensions
+- **PS = Prompt String**
+- Tk = ToolKit
+- VT = Video Terminal
+- YaST = Yet Another Setup Tool
