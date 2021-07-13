@@ -15,6 +15,7 @@ References
 - chgrp : change group
 - chmod : change mode
 - chown : change owner
+- chsh : change shell
 - cp : copy
 - ps : process status
     - `ps -auxf`
@@ -29,19 +30,19 @@ References
 - mkdir : make directory
 - rmdir : remove directory
 - rm : remove _( 删除目录或文件 )_
-- rpm : RedHat Package Management _( RedHat 的发明之一 )_
+- rpm = RPM Package Manager = RedHat PackageManager _( RedHat 的发明之一 )_
     - dpkg : Debian package manager
-    - apt：Advanced package tool _( Debian 或基于 Debian 的发行版中提供 )_
+    - apt : Advanced package tool _( Debian 或基于 Debian 的发行版中提供 )_
 - ln : link
     - `ln -s` : `link -soft` _( 创建一个软链接, 相当于创建一个快捷方式 )_
 - ls : list files
 - insmod : install module
-- lsmod : list modules
-- rmmod : remove module
-- man : manual
+    - lsmod : list modules
+    - rmmod : remove module
+- man : manual pages
 - mv : move file
 - su : switch user
-- uname : unix name
+- **uname : unix name**
 - bg : background
 - fg : foreground
 - dd : _本来应根据其功能描述 "convert an copy" 命名为 "cc" , 但 "cc" 已经被用以代表 "CComplier", 所以命名为 "dd"_
@@ -53,336 +54,164 @@ References
         - _S ( Service )_
         - _nn ( 执行顺序号 )_
         - _xxx ( 服务标识 )_
-- .a ：archive, static library
-- .so : shared object，dynamically linked library
+
+## File Extension
+
+- **.a ：archive, static library**
+- **.so : shared object，dynamically linked library**
 - .o : object file, complied result of C/C++ source file
 
-bin = Binaries (二进制文件)
+## Directory
 
-/dev = Devices (设备)
+- /bin : binaries _( 二进制文件 )_
+- /dev : devices
+- **/etc : etcetera _( 等等 )_**
+- /lib : library
+- /proc : processes
+- **/sbin : superuser binaries _( 超级用户的二进制文件 )_**
+- /tmp : temporary
+- **/usr : Unix Shared Resources**
+- **/var : variable _( 变量 )_**
 
-/etc = Etcetera (等等)
+## Technology
 
-/lib = LIBrary
+- FIFO = First In, First Out
+- **GRUB = GRand Unified Bootloader**
+- **IFS= Internal Field Seperators**
+- LILO = LInux LOader
+- MySQL = My 是最初作者女儿的名字
+- SQL = Structured QueryLanguage
+- PHP
+    - = Personal Home Page Tools
+    - = PHP HypertextPreprocessor
+- PS = Prompt String
+- Perl
+    - = "Pratical Extraction and Report Languag"
+        _( 实际的抽取和报告语言 )_
+    - = "Pathologically Eclectic Rubbish Lister"
+- Python 得名于电视剧 Monty Python's Flying Circus
+- **Tcl = Tool Command Language**
+- **Tk = ToolKit**
+- VT = Video Terminal
+- YaST = Yet Another Setup Tool
+- apache = "a patchy" server
+- ar = archiver
+- as = assembler
 
-/proc = Processes
-
-/sbin = Superuser Binaries (超级用户的二进制文件)
-
-/tmp = Temporary (临时)
-
-/usr = Unix Shared Resources
-
-/var = Variable (变量)
-
-FIFO = First In, First Out
-
-GRUB = GRand Unified Bootloader
-
-IFS= Internal Field Seperators
-
-LILO = LInux LOader
-
-MySQL = My 是最初作者女儿的名字，
-
-SQL = Structured QueryLanguage
-
-PHP = Personal Home Page Tools = PHP HypertextPreprocessor
-
-PS = Prompt String
-
-Perl = “Pratical Extraction and Report Language”(实际的抽取和报告语言) =”Pathologically Eclectic Rubbish Lister”
-
-Python 得名于电视剧Monty Python’s Flying Circus
-
-Tcl = Tool Command Language
-
-Tk = ToolKit
-
-VT = Video Terminal
-
-YaST = Yet Another Setup Tool
-
-apache = “a patchy” server
-
-apt = Advanced Packaging Tool
-
-ar = archiver
-
-as = assembler
-
-awk = “Aho Weiberger and Kernighan”三个作者的姓的第一个字母
-
+awk = "Aho Weiberger and Kernighan" 三个作者的姓的第一个字母
 bash = Bourne Again SHell
-
-bc = Basic (Better) Calculator
-
-bg = BackGround
-
-biff = 作者HeidiStettner在U.C.Berkely养的一条狗,喜欢对邮递员汪汪叫。
-
-cal = Calendar (日历)
-
-cat = Catenate (链接)
-
-cd = Change Directory
-
-chgrp = Change Group
-
-chmod = Change Mode
-
-chown = Change Owner
-
-chsh = Change Shell
-
-cmp = compare
-
-cobra = Common Object Request BrokerArchitecture
-
-comm = common
-
-cp = Copy
-
-cpio = CoPy In and Out
-
-cpp = C Pre Processor
-
-cron = Chronos 希腊文时间
-
-cups = Common Unix Printing System
-
-cvs = Current Version System
-
-daemon = Disk And Execution MONitor
-
-dc = Desk Calculator
-
-dd = Disk Dump (磁盘转储)
-
-df = Disk Free
-
-diff = Difference
-
-dmesg = diagnostic message
-
-du = Disk Usage
-
-ed = editor
-
-egrep = Extended GREP
-
-elf = Extensible Linking Format
-
-elm = ELectronic Mail
-
-emacs = Editor MACroS
-
-eval = EVALuate
-
-ex = EXtended
-
-exec = EXECute (执行)
-
-fd = file descriptors
-
-fg = ForeGround
-
-fgrep = Fixed GREP
-
-fmt = format
-
-fsck = File System ChecK
-
-fstab = FileSystem TABle
-
-fvwm = F*** Virtual Window Manager
-
-gawk = GNU AWK
-
-gpg = GNU Privacy Guard
-
-groff = GNU troff
-
-hal = Hardware Abstraction Layer
-
-joe = Joe’s Own Editor
-
 ksh = Korn SHell
-
-lame = Lame Ain’t an MP3 Encoder
-
+bc = Basic (Better) Calculator
+biff = 作者 HeidiStettner 在 U.C.Berkely 养的一条狗,, 喜欢对邮递员汪汪叫
+cal = calendar
+cmp = compare
+cobra = Common Object Request BrokerArchitecture
+comm = common
+cpio = CoPy In and Out
+cpp = c pre processor
+cron = Chronos 希腊文时间
+cups = common unix printing system
+cvs = current version system
+daemon = Disk And Execution MONitor
+dc = desk calculator
+dd = disk dump (磁盘转储)
+diff = difference
+dmesg = diagnostic message
+ed = editor
+egrep = Extended GREP
+elf = Extensible Linking Format
+elm = ELectronic Mail
+emacs = Editor MACroS
+eval = EVALuate
+ex = EXtended
+exec = EXECute (执行)
+fd = file descriptors
+fgrep = fixed grep
+fmt = format
+fsck = File System ChecK
+fstab = FileSystem TABle
+fvwm = F*** Virtual Window Manager
+gawk = GNU AWK
+gpg = GNU Privacy Guard
+groff = GNU troff
+hal = Hardware Abstraction Layer
+joe = Joe's Own Editor
+lame = Lame Ain't an MP3 Encoder
 lex = LEXical analyser
-
 lisp = LISt Processing = Lots of IrritatingSuperfluous Parentheses
-
-ln = Link
-
 lpr = Line PRint
-
-ls = list
-
 lsof = LiSt Open Files
-
 m4 = Macro processor Version 4
-
-man = MANual pages
-
-mawk = Mike Brennan’s AWK
-
+mawk = Mike Brennan's AWK
 mc = Midnight Commander
-
 mkfs = MaKe FileSystem
-
 mknod = Make Node
-
 motd = Message of The Day
-
 mozilla = MOsaic GodZILLa
-
 mtab = Mount TABle
-
-mv = Move
-
-nano = Nano’s ANOther editor
-
+nano = Nano's ANOther editor
 nawk = New AWK
-
 nl = Number of Lines
-
 nm = names
-
 nohup = No HangUP
-
 nroff = New ROFF
-
 od = Octal Dump
-
-passwd = Passwd
-
+passwd = passwd
 pg = pager
-
-pico = PIne’s message COmposition editor
-
-pine = “Program for Internet News &Email” = “Pine is not Elm”
-
+pico = PIne's message COmposition editor
+pine = "Program for Internet News &Email" = "Pine is not Elm"
 ping = 拟声 又 = Packet Internet Grouper
-
 pirntcap = PRINTer CAPability
-
 popd = POP Directory
-
 pr = pre
-
 printf = Print Formatted
-
-ps = Processes Status
-
 pty = pseudo tty
-
 pushd = PUSH Directory
-
-pwd = Print Working Directory
-
 rc = runcom = run command, rc还是plan9的shell
-
 rev = REVerse
-
-rm = ReMove
-
 rn = Read News
-
 roff = RunOFF
-
-rpm = RPM Package Manager = RedHat PackageManager
-
 rsh, rlogin, rvim中的
-
 r = Remote
-
 rxvt = ouR XVT
-
 seamoneky = 我
-
 sed = Stream Editor
-
 seq = SEQuence
-
 shar = Shell ARchive
-
 slrn = S-Lang rn
-
 ssh = Secure Shell
-
 ssl = Secure Sockets Layer
-
 stty = Set TTY
-
 su = Substitute User
-
 svn = SubVersion
-
-tar = Tape ARchive
-
 tcsh = TENEX C shell
-
 tee = T (T形水管接口)
-
 telnet = TEminaL over Network
-
 termcap = terminal capability
-
 terminfo = terminal information
-
 tex = τέχνη的缩写，希腊文art
-
 tr = traslate
-
 troff = Typesetter new ROFF
-
 tsort = Topological SORT
-
 tty = TeleTypewriter
-
-twm = Tom’s Window Manager
-
+twm = Tom's Window Manager
 tz = TimeZone
-
 udev = Userspace DEV
-
-ulimit = User’s LIMIT
-
-umask = User’s MASK
-
+ulimit = User's LIMIT
+umask = User's MASK
 uniq = UNIQue
-
 i = VIsual = Very Inconvenient
-
 vim = Vi IMproved
-
 wall = write all
-
 wc = Word Count
-
 wine = WINE Is Not an Emulator
-
 xargs = eXtended ARGuments
-
 xdm = X Display Manager
-
 xlfd = X Logical Font Description
-
 xmms = X Multimedia System
-
 xrdb = X Resources DataBase
-
 xwd = X Window Dump
-
 yacc = yet another compiler compiler
-
 Fish = the Friendly Interactive SHell
-
-su = Switch User
-
 MIME = Multipurpose Internet Mail Extensions
-
 ECMA = European Computer ManufacturersAssociation
