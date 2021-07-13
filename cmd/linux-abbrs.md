@@ -35,8 +35,9 @@ References
         - _xxx ( 服务标识 )_
 - **lsof : LiSt Open Files**
 - **sed : Stream Editor**
-- seq : SEQuence
+- seq : sequence
 - **telnet : TEminaL over Network**
+- **tr = traslate**
 
 ## Directory
 
@@ -56,32 +57,42 @@ References
 - **.so : shared object，dynamically linked library**
 - .o : object file, complied result of C/C++ source file
 
+## Language
+
+- lisp
+    - = LISt Processing
+    - = Lots of IrritatingSuperfluous Parentheses
+- MySQL : My 是最初作者女儿的名字
+    - SQL : Structured Query Language
+- Perl
+    - = "Pratical Extraction and Report Languag"
+        _( 实际的抽取和报告语言 )_
+    - = "Pathologically Eclectic Rubbish Lister"
+- PHP
+    - = Personal Home Page Tools
+    - = PHP HypertextPreprocessor
+- Python : 得名于电视剧 Monty Python's Flying Circus
+- **Tcl = Tool Command Language**
+
+## Shell
+
+- awk : "Aho Weiberger and Kernighan" 三个作者的姓的第一个字母
+- bash : Bourne Again SHell
+- Fish : the Friendly Interactive SHell
+- ksh : Korn SHell
+
 ## Technology
 
 - **GRUB = GRand Unified Bootloader**
 - **IFS = Internal Field Seperators**
 - LILO = LInux LOader
-- MySQL = My 是最初作者女儿的名字
-- SQL = Structured Query Language
-- PHP
-    - = Personal Home Page Tools
-    - = PHP HypertextPreprocessor
 - PS = Prompt String
-- Perl
-    - = "Pratical Extraction and Report Languag"
-        _( 实际的抽取和报告语言 )_
-    - = "Pathologically Eclectic Rubbish Lister"
-- Python : 得名于电视剧 Monty Python's Flying Circus
-- **Tcl = Tool Command Language**
 - **Tk = ToolKit**
 - VT = Video Terminal
 - YaST = Yet Another Setup Tool
 - apache = "a patchy" server
 - ar = archiver
 - as = assembler
-- awk = "Aho Weiberger and Kernighan" 三个作者的姓的第一个字母
-- bash = Bourne Again SHell
-- ksh = Korn SHell
 - bc = Basic (Better) Calculator
 - biff = 作者 HeidiStettner 在 U.C.Berkely 养的一条狗, 喜欢对邮递员汪汪叫
 - cal = calendar
@@ -118,7 +129,6 @@ References
 - joe = Joe's Own Editor
 - lame = Lame Ain't an MP3 Encoder
 - lex = LEXical analyser
-- lisp = LISt Processing = Lots of IrritatingSuperfluous Parentheses
 - lpr = Line PRint
 - m4 = Macro processor Version 4
 - mawk = Mike Brennan's AWK
@@ -138,7 +148,7 @@ References
 - passwd = passwd
 - pg = pager
 - pico = PIne's message COmposition editor
-- pine = "Program for Internet News &Email" = "Pine is not Elm"
+- pine = "Program for Internet News & Email" = "Pine is not Elm"
 - ping = 拟声 又 = Packet Internet Grouper
 - pirntcap = PRINTer CAPability
 - popd = POP Directory
@@ -146,7 +156,7 @@ References
 - printf = Print Formatted
 - pty = pseudo tty
 - pushd = PUSH Directory
-- rc = runcom = run command, rc还是plan9的shell
+- rc = runcom = run command, rc 还是 plan9 的shell
 - rev = REVerse
 - rn = Read News
 - roff = RunOFF
@@ -164,8 +174,7 @@ References
 - tee = T _( T形水管接口 )_
 - termcap = terminal capability
 - terminfo = terminal information
-- tex = τέχνη的缩写，希腊文art
-- tr = traslate
+- tex = τέχνη 的缩写，希腊文 art
 - troff = Typesetter new ROFF
 - tsort = Topological SORT
 - tty = TeleTypewriter
@@ -178,7 +187,6 @@ References
 - i = VIsual = Very Inconvenient
 - vim = Vi IMproved
 - wall = write all
-- wc = Word Count
 - wine = WINE Is Not an Emulator
 - xargs = eXtended ARGuments
 - xdm = X Display Manager
@@ -187,6 +195,5 @@ References
 - xrdb = X Resources DataBase
 - xwd = X Window Dump
 - yacc = yet another compiler compiler
-- Fish = the Friendly Interactive SHell
 - MIME = Multipurpose Internet Mail Extensions
-- ECMA = European Computer ManufacturersAssociation
+- ECMA = European Computer Manufacturers Association
