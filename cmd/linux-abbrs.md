@@ -10,7 +10,6 @@ References
 
 ## Commands
 
-- biff = 作者 HeidiStettner 在 U.C.Berkely 养的一条狗, 喜欢对邮递员汪汪叫
 - comm = common
 - cpio = CoPy In and Out
 - cpp = c pre processor
