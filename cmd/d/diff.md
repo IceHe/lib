@@ -1,5 +1,7 @@
 # diff
 
+difference
+
 compare files line by line
 
 ---

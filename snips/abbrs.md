@@ -164,6 +164,7 @@ Reference : https://www.computerhope.com/keys.htm
 - AIR : Automatic, Indenpendent, Repeatable 即 "空气" 原则
 - AK : Access Key (ID/Secret)
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
+- Apache : "a patchy" server | [Apache HTTP Server](https://en.wikipedia.org/wiki/Apache_HTTP_Server)
 - AOF : [Append Only File](https://redis.io/topics/persistence)
 - AOI : [Area Of Interest](https://baike.baidu.com/item/AOI/18907777)
 - APM : [Application Performance Management](https://en.wikipedia.org/wiki/Application_performance_management)
@@ -220,6 +221,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cmp : compare
 - cmt : comment
 - cnt : count
+- COBRA : [Common Object Request Broker Architecture](https://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture)
 - conf : configuration
 - conj. : conjunction [语] 连接词; 结合; 同时发生
 - conn : connect, connection
@@ -233,6 +235,7 @@ Reference : https://www.computerhope.com/keys.htm
 - CQRS : [Command and Query Reponsibility Segregation](https://martinfowler.com/bliki/CQRS.html)
     ( [浅谈查询职责分离(CQRS)模式](https://www.arcblock.io/blog/zh/post/2018/10/30/cqrs-commaded) )
 - cr : [carriage return](https://en.wikipedia.org/wiki/Carriage_return)
+- cron : [Chronos 希腊文时间](https://en.wikipedia.org/wiki/Chronos)
 - CRC : [Cyclic Redundancy Check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check)
 - CRDTs : [conflict-free replicated data types](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/)
 - crit : critical (condition) 临界 (条件/情况)
@@ -246,9 +249,11 @@ Reference : https://www.computerhope.com/keys.htm
 - ctl : control? / control tool?
 - ctrl : control
 - ctx : context
+- CUPS : [common unix printing system](https://en.wikipedia.org/wiki/CUPS)
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
 - CVR : [Conversion Rate](https://www.quora.com/What-is-CVR-in-digital-marketing) ( [Ad Tech](https://www.mobvista.com/en/blog/what-are-cvr-and-ctr/) ) 转化率
+- cvs : current version system | [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
 - cwd : [current working directory](https://en.wikipedia.org/wiki/Working_directory)
 - cwnd : [congestion window](https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window) ( for TCP )
 
@@ -258,8 +263,9 @@ Reference : https://www.computerhope.com/keys.htm
     - for CLI : daemon | debug | delete | delimiter | directory
     - for programing language : double
 - D : define ( for CLI )
-- DAO : [Data Access Object](https://en.wikipedia.org/wiki/Data_access_object)
+- daemon : Disk And Execution MONitor ( [Wikipedia](https://en.wikipedia.org/wiki/Daemon_(computing)) )
 - DAG : [Directed Acyclic Graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
+- DAO : [Data Access Object](https://en.wikipedia.org/wiki/Data_access_object)
 - dat : data
 - db : database
 - DDL : [Data Definition Language](https://en.wikipedia.org/wiki/Data_definition_language)
@@ -292,6 +298,7 @@ Reference : https://www.computerhope.com/keys.htm
     - for CLI : edit | equal (`test`) | exclude | execute | expression
 - E : exponent 指数 ( [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) )
 - EC2 : [Amazon Elastic Compute Cloud](https://aws.amazon.com/cn/ec2/)
+- ECMA : [European Computer Manufacturers Association](https://en.wikipedia.org/wiki/Ecma_International)
 - e.g. : for example
 - edt : edit
 - EI : [Engineering Index](https://en.wikipedia.org/wiki/Ei_Compendex)
@@ -299,6 +306,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ELK : [ELK Stack : Elasticsearch Logstash Kibana](https://www.elastic.co/cn/elk-stack)
 - em : them ( pron. )
 - 'em : [them](https://www.urbandictionary.com/define.php?term=%27em)
+- emacs : [Editor MACroS](https://en.wikipedia.org/wiki/Emacs)
 - EMERG : emergency ( for Linux )
     - Linux Kerner
         - EMERG 紧急 \> ALERT 警告
@@ -322,6 +330,7 @@ Reference : https://www.computerhope.com/keys.htm
 - etc. : [et cetera](https://en.wikipedia.org/wiki/Et_cetera) ( etcetera ) (aka. and so on) 等等，及其它
     - `&c` or `&c.` for `& etc.`
 - etl : extract 抽取, transform 转换, load 加载 ( 常用于数据仓库 )
+- eval : [EVALuate](https://en.wikipedia.org/wiki/Eval)
 - evt : event
 - ex : exception | excluding, without | exit | expire ( for Redis )
 - exe : executive | execution
@@ -363,6 +372,8 @@ Reference : https://www.computerhope.com/keys.htm
 - gid : group id
 - glob : [glob patterns](https://en.wikipedia.org/wiki/Glob_(programming))
 - GMT : [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) 格林威治时间
+- gpg : [GNU Privacy Guard](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)
+- GRUB : [GRand Unified Bootloader](https://en.wikipedia.org/wiki/GNU_GRUB)
 - GTID : [Global Transaction Identifier](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-concepts.html) ( for MySQL )
 
 ### H
@@ -398,6 +409,7 @@ Reference : https://www.computerhope.com/keys.htm
 - id : IDs - 多个 ID
 - idx : index
 - i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）
+- IFS : Internal Field Seperators ( for CLI )
 - img : image
 - imp : improve
 - impl : implement
@@ -448,12 +460,14 @@ Reference : https://www.computerhope.com/keys.htm
 - lang : language
 - LB : [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)) ( or balancer )
 - len : length
+- lex : LEXical 词汇的
 - lf : left | [line feed](https://en.wikipedia.org/wiki/Newline)
 - LGTM : Looks Good To Me
 - lib : library
     - 一方库 : 本工程内部子项目模块依赖的库 (jar 包)
     - 二方库 : 公司内部发布到中央仓库, 可供公司内部其它应用依赖的库 (jar 包)
     - 三方库 : 公司之外的开源库 (jar 包)
+- LILO : Last In Last Out | LInux LOader
 - ln : link
 - lnk : link
 - loc : location
@@ -584,6 +598,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pros and cons : 正反两方面; 赞成者和反对者
 - prt : print
 - ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
+- PS : Prompt String ( for CLI )
 - PS : PhotoShop
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
 - PSH : push 传送 ( for TCP )
@@ -744,6 +759,7 @@ Reference : https://www.computerhope.com/keys.htm
 - tsk : task ( for Linux )
 - TTL : [Time to Live](https://en.wikipedia.org/wiki/Time_to_live)
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)
+- tz : Time Zone
 
 ### U
 
@@ -753,6 +769,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ui : [user interface](https://en.wikipedia.org/wiki/User_interface) | [user interaction](https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction)
 - uid : user id
 - uk : unique key ( for SQL )
+- ulimit : User's LIMIT
 - UML : [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 统一建模语言
 - uni : unique
 - uniq : unique
@@ -779,6 +796,7 @@ Reference : https://www.computerhope.com/keys.htm
     - [vide infra](https://www.collinsdictionary.com/dictionary/english/vide-infra) : see below; see further on (in the book, etc.) 见下
     - [vide post](https://www.collinsdictionary.com/dictionary/english/vide-post) : see after; see further on (in the book, etc.) 见后
     - [vide supra](https://www.collinsdictionary.com/dictionary/english/vide-supra) : see above; see earlier (in the book, etc.) 见上
+- vim : Vi IMproved
 - VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address) 虚拟服务器地址
 - virt : virtual
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
@@ -802,6 +820,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - x : unknown number
     - for CLI : extended | debug (`sh`) | extract (`tar` `zip`)
+- xdm : [X Display Manager](https://en.wikipedia.org/wiki/X_display_manager)
 - xx : exist ( for Redis )
 
 ### Y
@@ -809,6 +828,7 @@ Reference : https://www.computerhope.com/keys.htm
 - y : year
     - for CLI : yes
 - Y2K38 Problem : Year 2038
+- yacc : [yet another compiler compiler](https://en.wikipedia.org/wiki/Yacc)
 - YMMV : [Your Mileage May Vary](https://dictionary.cambridge.org/us/dictionary/english/ymmv)
 - yr : year
 - yrs : years | yours

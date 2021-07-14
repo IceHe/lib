@@ -10,103 +10,85 @@ References
 
 ## Commands
 
-- comm = common
 - cpio = CoPy In and Out
-- cpp = c pre processor
-- cron = Chronos 希腊文时间
-- cups = common unix printing system
-- cvs = current version system
-- daemon = Disk And Execution MONitor
-- dc = desk calculator
-- diff = difference
-- dmesg = diagnostic message
-- ed = editor
-- egrep = Extended GREP
-- elf = Extensible Linking Format
-- elm = ELectronic Mail
-- emacs = Editor MACroS
-- eval = EVALuate
-- ex = EXtended
-- exec = EXECute (执行)
-- fd = file descriptors
-- fgrep = fixed grep
-- fmt = format
-- fsck = File System ChecK
-- fstab = FileSystem TABle
-- fvwm = F*** Virtual Window Manager
-- gawk = GNU AWK
-- gpg = GNU Privacy Guard
-- groff = GNU troff
-- hal = Hardware Abstraction Layer
-- joe = Joe's Own Editor
-- lame = Lame Ain't an MP3 Encoder
-- lex = LEXical analyser
-- lpr = Line PRint
-- m4 = Macro processor Version 4
-- mawk = Mike Brennan's AWK
-- mc = Midnight Commander
-- mkfs = MaKe FileSystem
-- mknod = Make Node
-- motd = Message of The Day
-- mozilla = MOsaic GodZILLa
-- mtab = Mount TABle
-- nano = Nano's ANOther editor
-- nawk = New AWK
-- nl = Number of Lines
-- nm = names
-- nohup = No HangUP
-- nroff = New ROFF
-- od = Octal Dump
-- passwd = passwd
-- pg = pager
-- pico = PIne's message COmposition editor
-- pine = "Program for Internet News & Email" = "Pine is not Elm"
-- ping = 拟声 又 = Packet Internet Grouper
-- pirntcap = PRINTer CAPability
-- popd = POP Directory
-- pr = pre
-- printf = Print Formatted
-- pty = pseudo tty
-- pushd = PUSH Directory
-- rc = runcom = run command, rc 还是 plan9 的shell
-- rev = REVerse
-- rn = Read News
-- roff = RunOFF
-- rsh, rlogin, rvim中的
-- r = Remote
-- rxvt = ouR XVT
-- seamoneky = 我
-- shar = Shell ARchive
-- slrn = S-Lang rn
-- ssh = Secure Shell
-- ssl = Secure Sockets Layer
-- stty = Set TTY
-- svn = SubVersion
-- tcsh = TENEX C shell
-- tee = T _( T形水管接口 )_
-- termcap = terminal capability
-- terminfo = terminal information
-- tex = τέχνη 的缩写，希腊文 art
-- troff = Typesetter new ROFF
-- tsort = Topological SORT
-- tty = TeleTypewriter
-- twm = Tom's Window Manager
-- tz = TimeZone
-- udev = Userspace DEV
-- ulimit = User's LIMIT
-- umask = User's MASK
-- uniq = UNIQue
+- **cron : [Chronos 希腊文时间](https://en.wikipedia.org/wiki/Chronos)**
+- **CUPS : [common unix printing system](https://en.wikipedia.org/wiki/CUPS)**
+- **cvs : current version system**
+- **daemon : Disk And Execution MONitor**
+- _dc : desk calculator_
+- **dmesg : diagnostic message**
+- _ed : editor_
+- egrep : Extended GREP
+- _elm : ELectronic Mail_
+- **emacs : [Editor MACroS](https://en.wikipedia.org/wiki/Emacs)**
+- **eval : [EVALuate](https://en.wikipedia.org/wiki/Eval)**
+- fgrep : fixed grep
+- fstab : File System TABle
+- _fvwm : F*** Virtual Window Manager_
+- **gpg : [GNU Privacy Guard](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)**
+- _hal : Hardware Abstraction Layer_
+- _lame : Lame Ain't an MP3 Encoder_
+- lex : LEXical analyser
+- _lpr : Line PRint_
+- _m4 : Macro processor Version 4_
+- _mawk : Mike Brennan's AWK_
+- _mc : Midnight Commander_
+- mknod : Make Node
+- _motd : Message of The Day_
+- _mtab : Mount TABle_
+- _nano : Nano's ANOther editor_
+- _nawk : New AWK_
+- _nl : Number of Lines_
+- _nm : names_
+- **nohup : No HangUP**
+- _nroff : New ROFF_
+- _od : Octal Dump_
+- pg : pager
+- pico : PIne's message COmposition editor
+- pine : "Program for Internet News & Email" = "Pine is not Elm"
+- ping : 拟声词, 也表示 Packet Internet Grouper
+- _pirntcap : PRINTer CAPability_
+- _popd : POP Directory_
+- _pr : pre_
+- printf : Print Formatted
+- pty : pseudo tty
+- _pushd : PUSH Directory_
+- _rev : REVerse_
+- _rn : Read News_
+- _roff : RunOFF_
+- _rsh, rlogin, rvim中的_
+- r : Remote
+- _rxvt : ouR XVT_
+- _seamoneky : 我_
+- _shar : Shell ARchive_
+- _slrn : S-Lang rn_
+- _ssh : Secure Shell_
+- _ssl : Secure Sockets Layer_
+- _stty : Set TTY_
+- tee : T _( T形水管接口 )_
+- _termcap : terminal capability_
+- _terminfo : terminal information_
+- tex : τέχνη 的缩写，希腊文 art
+- _troff : Typesetter new ROFF_
+- _tsort : Topological SORT_
+- tty : TeleTypewriter
+- _twm : Tom's Window Manager_
+- **tz : TimeZone**
+- _udev : Userspace DEV_
+- **ulimit : User's LIMIT**
+- umask : User's MASK
+- uniq : UNIQue
 - i = VIsual = Very Inconvenient
-- vim = Vi IMproved
-- wall = write all
-- wine = WINE Is Not an Emulator
-- xargs = eXtended ARGuments
-- xdm = X Display Manager
-- xlfd = X Logical Font Description
-- xmms = X Multimedia System
-- xrdb = X Resources DataBase
-- xwd = X Window Dump
-- yacc = yet another compiler compiler
+- **vim : Vi IMproved**
+- _wall : write all_
+- _wine : WINE Is Not an Emulator_
+- xargs : eXtended ARGuments
+- _xdm : [X Display Manager](https://en.wikipedia.org/wiki/X_display_manager)_
+- _xlfd : X Logical Font Description_
+- _xmms : X Multimedia System_
+- _xrdb : X Resources DataBase_
+- _xwd : X Window Dump_
+- **yacc : [yet another compiler compiler](https://en.wikipedia.org/wiki/Yacc)**
 
 ---
 
@@ -162,6 +144,8 @@ References
 ## File Extension
 
 - **.a ：archive, static library**
+- **cpp : c pre processor**
+- elf : [Extensible Linking Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)
 - **.so : shared object，dynamically linked library**
 - .o : object file, complied result of C/C++ source file
 
@@ -187,17 +171,20 @@ References
 - bash : Bourne Again SHell
 - Fish : the Friendly Interactive SHell
 - ksh : Korn SHell
+- rc : runcom = run command, rc 还是 plan9 的 shell
+- tcsh : TENEX C shell
 
 ## Technology
 
-- Apache = "a patchy" server
-- cobra = Common Object Request Broker Architecture
-- ECMA = European Computer Manufacturers Association
-- GRUB : GRand Unified Bootloader
-- IFS : Internal Field Seperators
-- LILO : LInux LOader
-- MIME = Multipurpose Internet Mail Extensions
-- **PS = Prompt String**
-- Tk = ToolKit
-- VT = Video Terminal
-- YaST = Yet Another Setup Tool
+- **Apache : "a patchy" server**
+- **COBRA : Common Object Request Broker Architecture**
+- **ECMA : European Computer Manufacturers Association**
+- **GRUB : GRand Unified Bootloader**
+- **IFS : Internal Field Seperators**
+- **LILO : LInux LOader**
+- MIME : Multipurpose Internet Mail Extensions
+- Mozilla : MOsaic GodZILLa
+- **PS : Prompt String**
+- _Tk : ToolKit_
+- _VT : Video Terminal_
+- _YaST : Yet Another Setup Tool_
