@@ -218,6 +218,42 @@ _Here are the basic things you need to do:_
 
 ##### Mentoring a New Hire
 
+…
+
+How does work get done?
+What are the rules, spoken and unspoken?
+
+A more subtle unspoken rule dictates approximately
+how long you are expected to struggle with something by yourself
+before asking someone else to help you.
+
+There are many bits of process, culture, and jargon that are so second-nature
+that you might not realize they're completely foreign to a newcomer.
+
+…
+
+Effective teams have good onboarding documents they provide to new hires.
+
+Things like step-by-step guides to setting up their development environments,
+learning how tracking systems work,
+and familiarizing themselves with the tools they will need for the job are crucial for new hires.
+
+These documents should constantly evolve to meet the changes of the workplace itself.
+
+…
+
+Even if you have absolutely no interest in management,
+it's very difficult to build a career at any company with multiple teams
+without building a strong network of trusted people to share information and ideas with.
+
+…
+
+##### Technical or Career Mentoring
+
+###### When you are a mentor
+
+###### When you are a mentee
+
 ## 3. Tech Lead
 
 ## 4. Managing People
