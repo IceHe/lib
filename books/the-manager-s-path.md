@@ -252,7 +252,25 @@ without building a strong network of trusted people to share information and ide
 
 ###### When you are a mentor
 
+**Tell your mentee what you expect from him.**
+
+If you want him to come prepared for your meetings with questions he has sent you in advance, ask for that.
+Be explicit about your time commitment.
+
+And then be honest with him when he asks questions.
+**There's no point in _( 没有意义 )_ being a mentor to a relative stranger**
+**if you can't at least use that professional distance to offer him the kind of candid _( 耿直的, 直率的 )_ advice**
+**that he may not get from his manager or coworkers.**
+
+…
+
+It’s also OK to say no to mentoring.
+
+…
+
 ###### When you are a mentee
+
+TODO
 
 ## 3. Tech Lead
 
