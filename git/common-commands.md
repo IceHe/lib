@@ -159,13 +159,21 @@ git rebase
 
 ```bash
 # 显示最近的 commit id
-git log [<branch_name>] --oneline | head -1 | awk -F ' ' '{ print $1 }'
+# Latest Commit ID
+alias glci="git log --oneline | head -1 | awk -F ' ' '{ print \$1 }'"
 
-# 展示 mater 和 deploy-test 之外的分支
-gb -l | grep -E -v 'deploy-test|master'
+# 展示 main 和 master 之外的分支
+# Git Other Branch
+alias gob="git branch -l | grep -E -v 'main|master'"
 
-# 拷贝除 mater 和 deploy-test 之外的第一个分支的名称
-gb -l | grep -E -v 'deploy-test|master' | head -1 | tr -d ' \n' | pbcopy
+# 拷贝除 main 和 master 之外的第一个分支的名称
+# Git Other Branch Name Copy
+alias gobc="git branch -l | grep -E -v 'main|master' | head -1 | tr -d ' \n' | pbcopy"
+
+# 切换到除 main 和 mater 之外的第一个分支的名称
+# Git Checkout Other Branch
+alias gcoo="git checkout \`git branch -l | grep -E -v 'main|master' | head -1 | tr -d ' \n'\`"
+
 ```
 
 ## Check 检查
