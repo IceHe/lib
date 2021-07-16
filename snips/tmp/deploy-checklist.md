@@ -1,0 +1,41 @@
+# Deployment Checklist
+
+不应该因为粗心大意导致低级失误!
+
+- [ ] 存储层
+    - [ ] DB
+    - [ ] Redis _( or Memcached )_
+    - [ ] ES
+    - [ ] MQ _( kafka / RabbitMQ / RocketMQ )_
+    - [ ] Confs?
+        - [ ] Registry _( 注册中心 / 配置平台 )_
+        - [ ] File _( 配置文件 )_
+        - [ ] Code _( 硬编码 )_
+    - [ ] 洗数据?  _( Migration )_
+        - [ ] 载体迁移 _( e.g. DB → ES )_
+        - [ ] 格式转换 _( e.g. DB.tableA → DB.tableB )_
+            - [ ] DB 增减字段
+            - [ ] DB 增减索引
+        - [ ] 刷新缓存 _( e.g. DB → DB.tableB )_
+- [ ] 依赖接口
+    - [ ] 内部接口就绪 _( e.g. update version → mvn deploy )_
+    - [ ] 外部接口就绪 _( e.g. update version → mvn deploy )_
+        - _( HTTP / RPC / … ? DNS ? Nginx ? 限流 ?  )_
+- [ ] 部署顺序
+    - [ ] 多个上下游服务的依赖顺序
+    - [ ] 某些服务是否可同时上线 _( 提高效率 )_
+- [ ] 可灰度
+    - [ ] 灰度测试/发布 _( e.g. 白名单 / 黑名单 / AB Test )_
+    - [ ] 特性开关 _( 以便紧急止血 )_
+- [ ] 可监控
+    - [ ] 关注哪些监控指标
+        - [ ] 异常日志
+            - [ ] QPS
+            - [ ] Latency _( P99 / P95 / P50 / … )_
+            - [ ] Exceptions
+        - [ ] 监控曲线
+            - [ ] CPU / 内存 / 硬盘 / GC
+            - [ ] 埋点打点
+- [ ] 可应急
+    - [ ] 代码可回滚 _( e.g. 数据模型没变, 可正常运行 )_
+    - [ ] 数据可恢复 _( e.g. 不丢失数据 / 可通过其它数据还原 )_
