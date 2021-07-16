@@ -2,6 +2,10 @@
 
 ## Jackson
 
+References
+
+- [How to enable pretty print JSON output](https://mkyong.com/java/how-to-enable-pretty-print-json-output-jackson/)
+
 ### JsonUtils
 
 ```java
@@ -36,11 +40,14 @@ public class JsonUtils {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
+    /*
+     * 全局生效的序列化配置
+     */
     static {
         // 解决实体未包含字段反序列化时抛出异常
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        // 对于空的对象转json的时候不抛出错误
+        // 对于空的对象转 JSON 的时候不抛出错误
         mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
 
         // 允许属性名称没有引号
@@ -49,12 +56,15 @@ public class JsonUtils {
         // 允许单引号
         mapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
 
-        // Include.NON_EMPTY 属性为 空（""） 或者为 NULL 都不序列化, 则返回的 JSON 是没有这个字段的, 这样对移动端会更省流量
+        // Include.NON_EMPTY 属性为 空 ("") 或者为 NULL 都不序列化, 则返回的 JSON 是没有这个字段的, 这样对移动端会更省流量
         mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
 
         // LocalDateTime 的序列化
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        // Pretty Print ( enable on demand )
+        // mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
     /**
@@ -67,12 +77,12 @@ public class JsonUtils {
     }
 
     /**
-     * Serialize Object into JSON String (without exceptions)
+     * Serialize Object into JSON String ( without throwing an exception )
      *
      * @param object
      * @return
      */
-    public String toJsonString(Object object) {
+    public String writeValue(Object object) {
         if (null == object) {
             return null;
         }
@@ -84,13 +94,30 @@ public class JsonUtils {
     }
 
     /**
-     * Serialize Object into JSON String with exceptions
+     * Serialize Object into Pretty JSON String ( without throwing an exception )
+     *
+     * @param object
+     * @return
+     */
+    public String writePrettyValue(Object object) {
+        if (null == object) {
+            return null;
+        }
+        try {
+            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * Serialize Object into JSON String or throw an exception
      *
      * @param object
      * @return
      * @throws JsonProcessingException
      */
-    public String toJsonStringWithExceptions(Object object) throws JsonProcessingException {
+    public String writeValueOrThrowEx(Object object) throws JsonProcessingException {
         if (null == object) {
             return null;
         }
@@ -98,14 +125,14 @@ public class JsonUtils {
     }
 
     /**
-     * Deserialize Object from JSON String (without exceptions)
+     * Deserialize Object from JSON String ( without throwing an exception )
      *
      * @param content
      * @param valueType
      * @param <T>
      * @return
      */
-    public <T> T fromJsonString(String content, Class<T> valueType) {
+    public <T> T readValue(String content, Class<T> valueType) {
         if (StringUtils.isBlank(content)) {
             return null;
         }
@@ -117,14 +144,14 @@ public class JsonUtils {
     }
 
     /**
-     * Deserialize Object from JSON String (without exceptions)
+     * Deserialize Object from JSON String ( without throwing an exception )
      *
      * @param content
      * @param typeReference
      * @param <T>
      * @return
      */
-    public <T> T fromJsonString(String content, TypeReference<T> typeReference) {
+    public <T> T readValue(String content, TypeReference<T> typeReference) {
         if (StringUtils.isBlank(content)) {
             return null;
         }
@@ -136,7 +163,7 @@ public class JsonUtils {
     }
 
     /**
-     * Deserialize Object from JSON String with exceptions
+     * Deserialize Object from JSON String or throw an exception
      *
      * @param content
      * @param valueType
@@ -144,7 +171,7 @@ public class JsonUtils {
      * @return
      * @throws IOException
      */
-    public <T> T fromJsonStringWithExceptions(String content, Class<T> valueType) throws IOException {
+    public <T> T readValueOrThrowEx(String content, Class<T> valueType) throws IOException {
         if (StringUtils.isBlank(content)) {
             return null;
         }
@@ -152,7 +179,7 @@ public class JsonUtils {
     }
 
     /**
-     * Deserialize Object from JSON String with exceptions
+     * Deserialize Object from JSON String or throw an exception
      *
      * @param content
      * @param typeReference
@@ -160,7 +187,7 @@ public class JsonUtils {
      * @return
      * @throws IOException
      */
-    public <T> T fromJsonStringWithExceptions(String content, TypeReference<T> typeReference) throws IOException {
+    public <T> T readValueOrThrowEx(String content, TypeReference<T> typeReference) throws IOException {
         if (StringUtils.isBlank(content)) {
             return null;
         }
@@ -168,7 +195,7 @@ public class JsonUtils {
     }
 
     /**
-     * Convert Object to Map (without exceptions)
+     * Convert Object to Map ( without throwing an exception )
      *
      * @param object
      * @return
@@ -185,12 +212,12 @@ public class JsonUtils {
     }
 
     /**
-     * Convert Object to Map with exceptions
+     * Convert Object to Map or throw an exception
      *
      * @param object
      * @return
      */
-    public Map<String, Object> toMapWithExceptions(Object object) throws IllegalArgumentException {
+    public Map<String, Object> toMapOrThrowEx(Object object) throws IllegalArgumentException {
         if (null == object) {
             return Collections.emptyMap();
         }
@@ -360,7 +387,7 @@ public class GsonUtils {
      * @param o
      * @return
      */
-    public String toJsonString(Object o) {
+    public String writeValue(Object o) {
         return gson.toJson(o);
     }
 
@@ -372,7 +399,7 @@ public class GsonUtils {
      * @param <T>
      * @return
      */
-    public <T> T fromJsonString(String json, Class<T> classOfT) {
+    public <T> T readValue(String json, Class<T> classOfT) {
         return gson.fromJson(json, classOfT);
     }
 
@@ -384,7 +411,7 @@ public class GsonUtils {
      * @param <T>
      * @return
      */
-    public <T> T fromJsonString(String json, Type typeOfT) {
+    public <T> T readValue(String json, Type typeOfT) {
         return gson.fromJson(json, typeOfT);
     }
 }
