@@ -1245,7 +1245,40 @@ _a correspondence that rarely manifests in the real world._
 
 Rather, **this anti-pattern generally indicates lack of thought about the actual workflows of the application.**
 
-##### Actor/Actions Approach
+##### Actor/Actions approach
+
+_In this approach, originally defined by the Rational Unified Process,_
+architects identify actors who perform activities with the application
+and the actions those actors may perform.
+
+_It provides a technique for discovering the typical users of the system_
+_and what kinds of things they might do with the system._
+
+This style of component decomposition works well for all types of systems, monolithic or distributed.
+
+_( icehe : 其实就是 "用户/用例" 的分析和分解 )_
+
+##### Event storming
+
+_Event storming_ as a component discovery technique
+comes from domain-driven design (DDD)
+and shares popularity with microservices,
+_also heavilly influenced by DDD._
+
+In event storming the architect assumes **the project will use messages and/or events**
+**to communicate between the various components.**
+
+To that end, the team tries to determine which events occur in the system
+based on requirements and identified roles,
+and buildcomponents around those event and message handlers.
+
+This works well in distributed architectures
+like microservices that use events and messages,
+because it helps architects define the messages used in the eventual system.
+
+##### Workflow approach
+
+TODO
 
 ### Case Study: Going, Going, Gone: Discovering Components
 
