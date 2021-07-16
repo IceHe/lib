@@ -535,7 +535,7 @@ Timeline
 - [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
 - [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR principle](/snips/principles/star.md): Situation → Target → Action → Result
-- _[Deploy Checklist](/snips/)_
+- [Deployment Checklist](/snips/tmp/deployment-checklist.md): Avoid low-level mistakes
 
 <!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
 <!-- - [What Why How](/snips/principles/what-why-how.md) -->

@@ -2,6 +2,10 @@
 
 不应该因为粗心大意导致低级失误!
 
+- [ ] 代码
+    - [ ] Code Review
+    - [ ] Unit Tests
+    - [ ] Deploy Testing Environment
 - [ ] 存储层
     - [ ] DB
     - [ ] Redis _( or Memcached )_
