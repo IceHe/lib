@@ -272,6 +272,7 @@ Commands
     - [umount](/cmd/m/mount.md#umount): un-mount a filesystem
 - [mv](/cmd/m/mv.md): move (rename) files
 - [mvn](/cmd/m/mvn.md): a tool for building & managing any Java-based project
+- [mysql](/cmd/m/mysql.md): MySQL CLI tool ( not a command )
 - [nc](/cmd/n/nc.md): TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md): show network status
 - [nl](/cmd/n/nl.md): number lines of files
