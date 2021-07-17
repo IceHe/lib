@@ -14,28 +14,36 @@ References
 # Regular Expression
 grep -e pattern file    # Use basic syntaxes
 grep -E pattern file    # Use extended syntaxes
-egrep pattern file      # (prefer)
-# e.g.
-egrep "^#" /etc/hosts
+egrep pattern file      # ( shorter )
+# e.g.  egrep "^#" /etc/hosts
 
 # Common
 grep -v pattern file    # Invert match
 grep --invert-match pattern file
+
 grep -i pattern file    # Ignore case
 grep --ignore-case pattern file
+
 grep -n pattern file    # Print with line numbers
 grep --line-number pattern file
+
 grep -c pattern file    # Count of matching lines
 grep --count pattern file
+
+grep -r pattern dir     # Recursive search in dir
+grep -R pattern dir
+grep --recursive pattern dir
 
 # Context
 grep -A NUM pattern file    # Print n lines after matching lines
 grep --after-context=n pattern file
+
 grep -B NUM pattern file    # Print n lines before matching lines
 grep --before-context=n pattern file
+
 grep -C NUM pattern file    # Print n lines before & after …
-grep -NUM pattern file      # e.g. grep -2 abc file
 grep --context=NUM pattern file
+grep -NUM pattern file      # e.g. grep -2 abc file
 ```
 
 ## Synopsis
