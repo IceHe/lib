@@ -1278,7 +1278,16 @@ because it helps architects define the messages used in the eventual system.
 
 ##### Workflow approach
 
-TODO
+An alternative to event storming offeres a more generic approach
+for architects not using DDD or messaging.
+
+_The workflow approach models the components around workflows,_
+_much like event storming,_
+_but without the explicit constraints of building a messages-based system._
+
+_A workflow approach identifies the key roles,_
+_determines the kinds of workflows these roles engage in,_
+_and builds components around the identified activities._
 
 ### Case Study: Going, Going, Gone: Discovering Components
 
