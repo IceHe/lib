@@ -13,16 +13,23 @@ References
 ## Quickstart
 
 ```bash
+curl baidu.com              # Output from url
+curl -o tmp.html baidu.com  # Write to file
+# -o file : Write output to file
+# -o = --output
+
 curl -I icehe.xyz   # Print only Headers
 curl -i icehe.xyz   # Print include Headers
+# -I | --head       : Fetch the headers only
+# -i | --include    : Include HTTP response headers
 
 curl -s -X POST -H "Foo: bar" icehe.xyz
-# -s            : Do not show progress meter or error messages
-# -X POST       : Specify request method
-# -H "Foo: bar" : Add a header
+# -s | --silent     : Do not show progress meter or error messages
+# -X | --request    : Specify request method
+# -H | --header     : Add a header
 
-curl -LO https://getcomposer.org/composer.phar
-# -L : Enable redirect
+curl -LO https://raw.githubusercontent.com/IceHe/lib/master/README.md
+# -L | --location : Enable redirect
 # -O : Write local file named like remote file
 ```
 

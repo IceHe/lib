@@ -51,16 +51,16 @@ README.md.1                                  100%[==============================
 wget -O <new_filename> <file_url>
 
 # e.g.
-$ wget -O WGET.md https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+$ wget -O tmp.md https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
 --2021-07-17 09:45:00--  https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
 Connecting to 127.0.0.1:1083... connected.
 Proxy request sent, awaiting response... 200 OK
 Length: 63 [text/plain]
-Saving to: ‘WGET.md’
+Saving to: ‘tmp.md’
 
-WGET.md                                      100%[=============================================================================================>]      63  --.-KB/s    in 0s
+tmp.md                                      100%[=============================================================================================>]      63  --.-KB/s    in 0s
 
-2021-07-17 09:45:00 (3.00 MB/s) - ‘WGET.md’ saved [63/63]
+2021-07-17 09:45:00 (3.00 MB/s) - ‘tmp.md’ saved [63/63]
 ```
 
 ### Continue stopped download
@@ -69,7 +69,7 @@ WGET.md                                      100%[==============================
 wget -c <file_url>
 
 # e.g.
-$ wget -c -O WGET.md https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+$ wget -c -O tmp.md https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
 --2021-07-17 09:45:27--  https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
 Connecting to 127.0.0.1:1083... connected.
 Proxy request sent, awaiting response... 416 Range Not Satisfiable
