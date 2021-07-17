@@ -11,6 +11,15 @@ References
 
 - `man wget`
 
+## Quickstart
+
+```bash
+wget file       # Download file
+wget -c file    # Continue stopped download
+wget -r url     # Recursively download files from url
+wget -O filename file   # Download file to specified location
+```
+
 ## Options
 
 - `-O file` | `--output-document=file` written to "file"
@@ -18,30 +27,52 @@ References
 
 ## Usage
 
-Download as **original filename**
+### Download as original filename
 
 ```bash
-wget <url_to_file>
+wget <file_url>
 
 # e.g.
-wget https://raw.githubusercontent.com/IceHe/mac-conf/master/.vimrc
+$ wget https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+--2021-07-17 09:42:31--  https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+Connecting to 127.0.0.1:1083... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 63 [text/plain]
+Saving to: ‘README.md.1’
+
+README.md.1                                  100%[=============================================================================================>]      63  --.-KB/s    in 0s
+
+2021-07-17 09:42:33 (1.88 MB/s) - ‘README.md.1’ saved [63/63]
 ```
 
-Download as **specified filename**
+### Download as specified filename
 
 ```bash
-wget -O <specified_filename> <url_to_file>
+wget -O <new_filename> <file_url>
 
 # e.g.
-$ wget -O _vimrc https://raw.githubusercontent.com/IceHe/mac-conf/master/.vimrc
---2018-11-05 22:49:27--  https://raw.githubusercontent.com/IceHe/mac-conf/master/.vimrc
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.108.133
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.108.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 1954 (1.9K) [text/plain]
-Saving to: ‘_vimrc’
+$ wget -O WGET.md https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+--2021-07-17 09:45:00--  https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+Connecting to 127.0.0.1:1083... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 63 [text/plain]
+Saving to: ‘WGET.md’
 
-100%[========================================================================================>] 1,954       --.-K/s   in 0s
+WGET.md                                      100%[=============================================================================================>]      63  --.-KB/s    in 0s
 
-2018-11-05 22:49:27 (23.5 MB/s) - ‘_vimrc’ saved [1954/1954]
+2021-07-17 09:45:00 (3.00 MB/s) - ‘WGET.md’ saved [63/63]
+```
+
+### Continue stopped download
+
+```bash
+wget -c <file_url>
+
+# e.g.
+$ wget -c -O WGET.md https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+--2021-07-17 09:45:27--  https://raw.githubusercontent.com/IceHe/mac-conf/master/README.md
+Connecting to 127.0.0.1:1083... connected.
+Proxy request sent, awaiting response... 416 Range Not Satisfiable
+
+    The file is already fully retrieved; nothing to do.
 ```
