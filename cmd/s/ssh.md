@@ -8,6 +8,14 @@ References
 
 - `man ssh`
 
+## Quickstart
+
+```bash
+ssh user@host           # connect to host as user
+ssh -p port user@host   # connect using port
+ssh -D user@host        # connect & use bind port
+```
+
 ## Synopsis
 
 ```bash
