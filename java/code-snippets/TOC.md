@@ -2,6 +2,7 @@
 
 - [Collection](/java/code-snippets/collection.md)
 - [Common DTOs](/java/code-snippets/common-dtos.md)
+- [Deep Clone](/java/code-snippets/deep-clone.md)
 - [Elasticsearch](/java/code-snippets/elasticsearch.md)
 - [Enum](/java/code-snippets/enum.md)
 - [Excel](/java/code-snippets/excel.md)
