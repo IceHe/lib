@@ -540,16 +540,17 @@ public class TimeUtil {
 
         String trimmedString = string.trim();
         try {
-            if (trimmedString.length() == YYYY_MM_DD_HH_MM_SS_SSS.length()) {
+            if (YYYY_MM_DD_HH_MM_SS_SSS.length() == trimmedString.length()) {
                 return LocalDateTime.parse(trimmedString, FMT_YYYY_MM_DD_HH_MM_SS_SSS);
-            } else if (trimmedString.length() == YYYY_MM_DD_HH_MM_SS.length()) {
+            } else if (YYYY_MM_DD_HH_MM_SS.length() == trimmedString.length()) {
                 return LocalDateTime.parse(trimmedString, FMT_YYYY_MM_DD_HH_MM_SS);
-            } else if (trimmedString.length() == YYYY_MM_DD_HH_MM.length()) {
+            } else if (YYYY_MM_DD_HH_MM.length() == trimmedString.length()) {
                 return LocalDateTime.parse(trimmedString, FMT_YYYY_MM_DD_HH_MM);
+            } else if (YYYY_MM_DD.length() == trimmedString.length()) {
+                return LocalDateTime.parse(trimmedString, FMT_YYYY_MM_DD);
             } else {
                 return null;
             }
-
         } catch (Exception e) {
             return null;
         }
