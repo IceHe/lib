@@ -423,3 +423,177 @@ public class LocalDates {
 }
 
 ```
+
+## TimeUtil
+
+```java
+import lombok.experimental.UtilityClass;
+import org.jetbrains.annotations.NotNull;
+
+import java.time.DayOfWeek;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
+/**
+ * @author icehe.xyz
+ */
+@UtilityClass
+public class TimeUtil {
+
+    /**
+     * 默认使用的时区
+     */
+    public final ZoneId SHANGHAI_ZONE_ID = ZoneId.of("Asia/Shanghai");
+
+    public final Long SECOND_IN_MILLIS = 1000L;
+
+    public final Long MINUTE_IN_MILLIS = SECOND_IN_MILLIS * 60;
+
+    public final Long HOUR_IN_MILLIS = MINUTE_IN_MILLIS * 60;
+
+    public final Long HALF_DAY_TIMESTAMP = HOUR_IN_MILLIS * 12;
+
+    public final Long DAY_IN_MILLIS = HOUR_IN_MILLIS * 24;
+
+    public final Long DAY_AND_A_HALF_TIMESTAMP = HOUR_IN_MILLIS * 36;
+
+    /**
+     * e.g. "2019/08/13"
+     */
+    public final DateTimeFormatter FMT_YYYY_MM_DD_SLASH =
+            DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+    /**
+     * e.g. "2019-08-13"
+     */
+    public final DateTimeFormatter FMT_YYYY_MM_DD =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    /**
+     * e.g. "2021-07-18 Sunday"
+     */
+    public final DateTimeFormatter FMT_YYYY_MM_DD_EEEE =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd EEEE");
+
+    /**
+     * e.g. "2019-08-13 17:54:30"
+     */
+    public final DateTimeFormatter FMT_YYYY_MM_DD_HH_MM_SS =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    /**
+     * e.g. "2019-08-13 17:54:30.926"
+     */
+    public final DateTimeFormatter FMT_YYYY_MM_DD_HH_MM_SS_SSS =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+
+    public long toMillis(@NotNull LocalDateTime localDateTime) {
+        return localDateTime.atZone(SHANGHAI_ZONE_ID).toInstant().toEpochMilli();
+    }
+
+    public long toMillis(@NotNull LocalDate localDate) {
+        return toMillis(localDate.atStartOfDay());
+    }
+
+    public LocalDateTime now() {
+        return LocalDateTime.now(SHANGHAI_ZONE_ID);
+    }
+
+    public LocalDate today() {
+        return now().toLocalDate();
+    }
+
+    public LocalDate yesterday() {
+        return today().plusDays(-1);
+    }
+
+    public String format(@NotNull LocalDateTime localDateTime, @NotNull String format) {
+        return localDateTime.format(DateTimeFormatter.ofPattern(format));
+    }
+
+    public String formatNow(@NotNull DateTimeFormatter formatter) {
+        return now().format(formatter);
+    }
+
+    public String formatMillis(long millis, @NotNull String format) {
+        return fromMillis(millis).format(DateTimeFormatter.ofPattern(format));
+    }
+
+    public String formatMillis(long millis, @NotNull DateTimeFormatter formatter) {
+        return fromMillis(millis).format(formatter);
+    }
+
+    /**
+     * 获取当前时间与给定时间的天数差 ( 自然天 )
+     *
+     * <p>.e.g.
+     * <ul>
+     *     <li>1)  input: 06/07 10:00:00
+     *             now: 06/08 09:00:00
+     *             output: 1
+     *     <li>2)  input: 06/07 10:00:00
+     *             now: 06/08 11:00:00
+     *             output: 1
+     * </ul>
+     */
+    public long getDaysBetweenMillisAndNow(long millis) {
+        LocalDate cmpDate = fromMillis(millis).toLocalDate();
+        Period period = Period.between(cmpDate, today());
+        return period.getDays();
+    }
+
+    private boolean isFirstSecOnDayOfWeek(long millis, @NotNull DayOfWeek dayOfWeek) {
+        LocalDateTime localDateTime = fromMillis(millis);
+        if (localDateTime.getDayOfWeek() != dayOfWeek) {
+            return false;
+        }
+        return localDateTime.truncatedTo(ChronoUnit.DAYS).equals(localDateTime);
+    }
+
+    public boolean isFirstSecOnMonday(long millis) {
+        return isFirstSecOnDayOfWeek(millis, DayOfWeek.MONDAY);
+    }
+
+    /**
+     * From Long millis to LocalDateTime
+     */
+    public LocalDateTime fromMillis(Long millis) {
+        if (null == millis) {
+            return null;
+        }
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(millis), SHANGHAI_ZONE_ID);
+    }
+
+    /**
+     * From LocalDateTime to String
+     *
+     * <p>e.g. "2019-08-13 17:54:30.926"
+     */
+    public String toString(@NotNull LocalDateTime localDateTime) {
+        return FMT_YYYY_MM_DD_HH_MM_SS_SSS.format(localDateTime);
+    }
+
+    /**
+     * From millis to String
+     *
+     * <p>e.g. "2019-08-13 17:54:30.926"
+     */
+    public String fromMillisToString(long millis) {
+        return FMT_YYYY_MM_DD_HH_MM_SS_SSS.format(fromMillis(millis));
+    }
+
+    public long getEpochMillisOfGivenHourAtToday(int hour) {
+        return toMillis(today().atTime(hour, 0));
+    }
+
+    public long getEpochMillisOfGivenHourAtYesterday(int hour) {
+        return toMillis(yesterday().atTime(hour, 0));
+    }
+}
+
+```
