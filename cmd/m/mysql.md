@@ -595,11 +595,42 @@ Length
     - `int(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
 - `bigint` 8 bytes
 
-#### VARCHAR
+#### VARCHAR, TEXT, JSON
 
-#### TEXT
+References
 
-#### JSON
+- [The JSON Data Type - MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/json.html)
+- [Data Type Storage Requirements - MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html#data-types-storage-reqs-strings)
+- [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/8.0/en/blob.html)
+
+MySQL supports a native JSON data type _defined by RFC 7159_
+that **enables efficient access to data in JSON** _(JavaScript Object Notation)_ documents.
+
+_The JSON data type provides these advantages over storing JSON-format strings in a string column:_
+
+-   **Automatic validation of JSON documents** stored in JSON columns.
+    **Invalid documents produce an error.**
+-   Optimized storage format.
+    JSON documents stored in JSON columns are
+    **converted to an internal format that permits quick read access to document elements**.
+
+    _When the server later must read a JSON value stored in this binary format,_
+    _the value need not be parsed from a text representation._
+
+    The binary format is
+    **structured to enable the server to look up subobjects or nested values directly**
+    **by key or array index without reading all values**
+    before or after them in the document.
+
+**The space required to store a JSON document is roughly the same as for `LONGBLOB` or `LONGTEXT`**;
+see [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html), for more information.
+
+In the following table,
+
+- `M` represents the declared column length in characters for nonbinary string types and bytes for binary string types.
+- `L` represents the actual length in bytes of a given string value.
+
+TODO
 
 ### Pagenation
 

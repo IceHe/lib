@@ -89,7 +89,7 @@ Storage
     - basic data structure of LevelDB & RocksDB
 - Elasticsearch: [Usage](/snips/elasticsearch.md)
     - for search and analysis
-- MySQL: [Usage](/snips/mysql/usage.md)
+- MySQL: [Usage](/cmd/m/mysql.md)
     - robust SQL database server
 - Redis: [Basics](/snips/redis/basics.md)  / [Notes](/snips/redis/notes.md) / [Key Notes](/snips/redis/key-notes.md)
     - in-memory data structure store as a database, cache and message broker
