@@ -4,9 +4,9 @@ MySQL CLI tool ( not a command )
 
 ---
 
-## Install
+## Install on macOS
 
-Homebrew
+Homebrew on
 
 ```bash
 brew install mysql
@@ -58,6 +58,49 @@ Usage: mysql.server  {start|stop|restart|reload|force-reload|status}  [ MySQL se
 $ mysql.server start
 ```
 
+#### Cannot mysql.server start
+
+References
+
+- [MYSQL Error – Server Quit Without Updating PID File – Quick fix!](https://bobcares.com/blog/mysql-error-server-quit-without-updating-pid-file/)
+- [Can't open and lock privilege tables: Table 'mysql.user' doesn't exist](https://stackoverflow.com/questions/34516664/cant-open-and-lock-privilege-tables-table-mysql-user-doesnt-exist)
+- [Can't open the mysql.plugin table. Please run mysql_upgrade to create it](https://stackoverflow.com/questions/41531225/cant-open-the-mysql-plugin-table-please-run-mysql-upgrade-to-create-it/41532987)
+
+Error Keyword
+
+> MySql server startup error 'The server quit without updating PID file '
+
+- StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
+
+Problem
+
+```bash
+$ mysql.server start
+Starting MySQL
+ ERROR! The server quit without updating PID file (/usr/local/var/mysql/icehe-mbp.local.pid).
+```
+
+Steps
+
+```bash
+$ cd /usr/local/var/mysql/
+$ less icehe-mbp.local.err
+# e.g.
+…… [FATAL] InnoDB: Table flags are 0 in the data dictionary but the flags in file ./ibdata1 are 0x4000!…
+# e.g.
+…… Can't open the mysql.plugin table. Please run mysql_upgrade to create it
+# e.g.
+…… Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
+```
+
+```bash
+$ pwd
+/usr/local/var/mysql
+$ rm -rf *
+$ mysqld --initialize-insecure
+# ommited output
+```
+
 ### Connect
 
 ```bash
@@ -66,7 +109,7 @@ $ mysql -h HOST -P PORT -u USERNAME -pPASSWORD
 $ mysql -h db.icehe.xyz -P 5104 -u username -ppassword
 ```
 
-First time
+First time after installing
 
 ```bash
 $ mysql -u root -p
@@ -81,7 +124,7 @@ mysql> select version();
 +-----------+
 | version() |
 +-----------+
-| 5.7.24    |
+| 8.0.25    |
 +-----------+
 1 row in set (0.00 sec)
 ```
@@ -93,26 +136,27 @@ mysql> status;
 # or
 mysql> \s
 --------------
-mysql  Ver 14.14 Distrib 5.7.24, for osx10.13 (x86_64) using  EditLine wrapper
+mysql  Ver 8.0.25 for macos11.3 on x86_64 (Homebrew)
 
-Connection id:          29
-Current database:       life_log
+Connection id:          15
+Current database:
 Current user:           root@localhost
 SSL:                    Not in use
 Current pager:          less
 Using outfile:          ''
 Using delimiter:        ;
-Server version:         5.7.24 Homebrew
+Server version:         8.0.25 Homebrew
 Protocol version:       10
 Connection:             Localhost via UNIX socket
-Server characterset:    utf8
-Db     characterset:    utf8
-Client characterset:    utf8
-Conn.  characterset:    utf8
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    utf8mb4
+Conn.  characterset:    utf8mb4
 UNIX socket:            /tmp/mysql.sock
-Uptime:                 23 days 8 hours 5 min 10 sec
+Binary data as:         Hexadecimal
+Uptime:                 2 min 1 sec
 
-Threads: 5  Questions: 909871  Slow queries: 225  Opens: 282  Flush tables: 1  Open tables: 243  Queries per second avg: 0.451
+Threads: 2  Questions: 13  Slow queries: 0  Opens: 652  Flush tables: 4  Open tables: 36  Queries per second avg: 0.107
 --------------
 ```
 
@@ -125,10 +169,10 @@ _仅供参考_
 mysql -u root -p
 
 # create new user
-create user 'springuser'@'localhost' identified by 'ThePassword';
+CREATE USER 'icehe'@'localhost' IDENTIFIED BY 'first_password';
 
 # grant privileges to new user ( DML )
-GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'localhost' IDENTIFIED BY 'first_password';
 
 # if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
 mysql_upgrade -u root -p
@@ -205,8 +249,6 @@ desc table_name
 
 ```bash
 show create table table_name
-# e.g.
-show create table jobs
 ```
 
 ### Info
@@ -218,19 +260,18 @@ mysql> show variables like '%version%';
 +--------------------------+-------------------------------+
 | admin_tls_version        | TLSv1,TLSv1.1,TLSv1.2,TLSv1.3 |
 | immediate_server_version | 999999                        |
-| innodb_version           | 8.0.23                        |
+| innodb_version           | 8.0.25                        |
 | original_server_version  | 999999                        |
 | protocol_version         | 10                            |
 | slave_type_conversions   |                               |
 | tls_version              | TLSv1,TLSv1.1,TLSv1.2,TLSv1.3 |
-| version                  | 8.0.23                        |
+| version                  | 8.0.25                        |
 | version_comment          | Homebrew                      |
 | version_compile_machine  | x86_64                        |
-| version_compile_os       | osx10.15                      |
+| version_compile_os       | macos11.3                     |
 | version_compile_zlib     | 1.2.11                        |
 +--------------------------+-------------------------------+
-12 rows in set (0.00 sec)
-
+12 rows in set (0.01 sec)
 ```
 
 ### Slow Log
@@ -238,18 +279,21 @@ mysql> show variables like '%version%';
 ```bash
 mysql> set global slow_query_log=1;
 Query OK, 0 rows affected (0.00 sec)
+```
 
+```
 mysql> show variables like '%slow%';
-+---------------------------+--------------------------------------------+
-| Variable_name             | Value                                      |
-+---------------------------+--------------------------------------------+
-| log_slow_admin_statements | OFF                                        |
-| log_slow_slave_statements | OFF                                        |
-| slow_launch_time          | 2                                          |
-| slow_query_log            | ON                                         |
-| slow_query_log_file       | /usr/local/var/mysql/icehe-laptop-slow.log |
-+---------------------------+--------------------------------------------+
-5 rows in set (0.00 sec)
++---------------------------+----------------------------------------+
+| Variable_name             | Value                                  |
++---------------------------+----------------------------------------+
+| log_slow_admin_statements | OFF                                    |
+| log_slow_extra            | OFF                                    |
+| log_slow_slave_statements | OFF                                    |
+| slow_launch_time          | 2                                      |
+| slow_query_log            | OFF                                    |
+| slow_query_log_file       | /opt/homebrew/var/mysql/bogon-slow.log |
++---------------------------+----------------------------------------+
+6 rows in set (0.00 sec)
 
 mysql> show variables like '%long_query%';
 +-----------------+----------+
@@ -259,7 +303,7 @@ mysql> show variables like '%long_query%';
 +-----------------+----------+
 1 row in set (0.00 sec)
 
-mysql> system tail /usr/local/var/mysql/icehe-laptop-slow.log
+mysql> system tail /opt/homebrew/var/mysql/bogon-slow.log
 # Time: 2019-02-05T02:05:43.401259Z
 # User@Host: root[root] @ localhost []  Id:    20
 # Query_time: 0.000048  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
@@ -270,14 +314,6 @@ show processlist;
 # Query_time: 0.001060  Lock_time: 0.000100 Rows_sent: 5  Rows_examined: 1032
 SET timestamp=1549332407;
 show variables like '%slow%';
-
-mysql> select @@global.tx_isolation,@@tx_isolation,version(),"custom content";
-+-----------------------+-----------------+-----------+----------------+
-| @@global.tx_isolation | @@tx_isolation  | version() | custom content |
-+-----------------------+-----------------+-----------+----------------+
-| REPEATABLE-READ       | REPEATABLE-READ | 5.7.24    | custom content |
-+-----------------------+-----------------+-----------+----------------+
-1 row in set, 2 warnings (0.01 sec)
 ```
 
 ### Processlist
@@ -286,13 +322,13 @@ Ref : MySQL慢查询&分析SQL执行效率浅谈 - 简书 : https://www.jianshu.
 
 ```bash
 mysql> show processlist;
-+----+------+-----------------+----------+---------+------+----------+------------------+
-| Id | User | Host            | db       | Command | Time | State    | Info             |
-+----+------+-----------------+----------+---------+------+----------+------------------+
-| 16 | root | localhost:62050 | life_log | Sleep   |   27 |          | NULL             |
-| 17 | root | localhost:62051 | NULL     | Sleep   |   27 |          | NULL             |
-| 20 | root | localhost       | life_log | Query   |    0 | starting | show processlist |
-+----+------+-----------------+----------+---------+------+----------+------------------+
++----+-----------------+-----------+------+---------+------+------------------------+------------------+
+| Id | User            | Host      | db   | Command | Time | State                  | Info             |
++----+-----------------+-----------+------+---------+------+------------------------+------------------+
+|  8 | event_scheduler | localhost | NULL | Daemon  | 1523 | Waiting on empty queue | NULL             |
+| 15 | root            | localhost | sys  | Query   |    0 | init                   | show processlist |
+| 17 | icehe           | localhost | NULL | Sleep   |    4 |                        | NULL             |
++----+-----------------+-----------+------+---------+------+------------------------+------------------+
 3 rows in set (0.00 sec)
 ```
 
@@ -300,20 +336,12 @@ mysql> show processlist;
 
 ```bash
 mysql> show warnings;
-ERROR 2006 (HY000): MySQL server has gone away
-No connection. Trying to reconnect...
-Connection id:    21
-Current database: life_log
-
-+---------+------+------------------------------------------------------------------------------------------------------------------------+
-| Level   | Code | Message                                                                                                                |
-+---------+------+------------------------------------------------------------------------------------------------------------------------+
-| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
-| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
-| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
-| Warning | 1287 | 'COM_FIELD_LIST' is deprecated and will be removed in a future release. Please use SHOW COLUMNS FROM statement instead |
-+---------+------+------------------------------------------------------------------------------------------------------------------------+
-4 rows in set (0.01 sec)
++-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Level | Code | Message                                                                                                                                                   |
++-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Error | 1064 | You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'warning' at line 1 |
++-------+------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
 ```
 
 ### Lock
@@ -323,32 +351,36 @@ References
 - MySQL Transactional and Locking Commands - MySQL Reference Manual [Book] : https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
 
 ```sql
-> lock table t write;
+> lock table table_name write;
 Query OK, 0 rows affected (0.00 sec)
 
 > unlock tables;
 Query OK, 0 rows affected (0.00 sec)
 ```
 
-### Isolation
+### Isolation Level
 
 隔离级别
 
 ```bash
-mysql> select @@tx_isolation;
-+-----------------+
-| @@tx_isolation  |
-+-----------------+
-| REPEATABLE-READ |
-+-----------------+
-1 row in set, 1 warning (0.00 sec)
+# MySQL 8.0+
+mysql> select @@global.transaction_isolation, @@transaction_isolation, version();
++--------------------------------+-------------------------+-----------+
+| @@GLOBAL.transaction_isolation | @@transaction_isolation | version() |
++--------------------------------+-------------------------+-----------+
+| REPEATABLE-READ                | REPEATABLE-READ         | 8.0.25    |
++--------------------------------+-------------------------+-----------+
+1 row in set (0.00 sec)
 
-mysql> select @@global.tx_isolation;
-+-----------------------+
-| @@global.tx_isolation |
-+-----------------------+
-| REPEATABLE-READ       |
-+-----------------------+
+# MySQL 5.7
+
+mysql> select @@global.tx_isolation, @@tx_isolation, version();
++-----------------------+-----------------+-----------+
+| @@global.tx_isolation | @@tx_isolation  | version() |
++-----------------------+-----------------+-----------+
+| REPEATABLE-READ       | REPEATABLE-READ | 5.7.24    |
++-----------------------+-----------------+-----------+
+1 row in set, 2 warnings (0.01 sec)
 ```
 
 ### \G \g
@@ -394,24 +426,24 @@ charset   (\C) Switch to another charset. Might be needed for processing binlog 
 warnings  (\W) Show warnings after every statement.
 nowarning (\w) Don't show warnings after every statement.
 resetconnection(\x) Clean session context.
+query_attributes Sets string parameters (name1 value1 name2 value2 ...) for the next query to pick up.
 
 For server side help, type 'help contents'
 ```
 
-### utf8 & utf8mb4
+### UTF8 & UTF8MB4
 
 References
 
-- 清官谈 MySQL 中 utf8 和 utf8mb4 区别 : http://blogread.cn/it/article/7546?f=wb_blogread
+- [清官谈 MySQL 中 utf8 和 utf8mb4 区别](http://blogread.cn/it/article/7546?f=wb_blogread)
 
 ### Binlog
 
 References
 
-- mysql中如何开启binlog? : https://www.cnblogs.com/chuanzhang053/p/9335924.html
+- [mysql中如何开启binlog?](https://www.cnblogs.com/chuanzhang053/p/9335924.html)
 
 ```bash
-# e.g.
 mysql> set @@binlog_format=row;
 Query OK, 0 rows affected (0.00 sec)
 
@@ -432,6 +464,18 @@ mysql> select @@binlog_row_image;
 1 row in set (0.00 sec)
 
 mysql> show binlog events;
++---------------+-----+----------------+-----------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Log_name      | Pos | Event_type     | Server_id | End_log_pos | Info                                                                                                                                                                             |
++---------------+-----+----------------+-----------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| binlog.000001 |   4 | Format_desc    |         1 |         125 | Server ver: 8.0.25, Binlog ver: 4                                                                                                                                                |
+| binlog.000001 | 125 | Previous_gtids |         1 |         156 |                                                                                                                                                                                  |
+| binlog.000001 | 156 | Anonymous_Gtid |         1 |         233 | SET @@SESSION.GTID_NEXT= 'ANONYMOUS'                                                                                                                                             |
+| binlog.000001 | 233 | Query          |         1 |         353 | create database icehe_db /* xid=20 */                                                                                                                                            |
+| binlog.000001 | 353 | Anonymous_Gtid |         1 |         432 | SET @@SESSION.GTID_NEXT= 'ANONYMOUS'                                                                                                                                             |
+| binlog.000001 | 432 | Query          |         1 |         682 | use `icehe_db`; CREATE USER 'icehe'@'localhost' IDENTIFIED WITH 'caching_sha2_password' AS '$A$005$;eAeK*ZBv&
+                                                          qWat;0X3Yn48OhUlYGq04dz3taa2Dnd.t4gLGjgf3vxBLKi8' /* xid=29 */ |
++---------------+-----+----------------+-----------+-------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+6 rows in set (0.00 sec)
 ```
 
 ```bash
@@ -442,6 +486,14 @@ $ mysqlbinlog -vv mysql-bin.000001 --start-position=2078
 ### sql_safe_updates
 
 ```bash
+mysql> show variables like '%sql_safe_update%';
++------------------+-------+
+| Variable_name    | Value |
++------------------+-------+
+| sql_safe_updates | OFF   |
++------------------+-------+
+1 row in set (0.00 sec)
+
 mysql> set sql_safe_updates=1;
 Query OK, 0 rows affected (0.00 sec)
 
@@ -482,10 +534,10 @@ set Innodb_lock_wait_timeout = 5;
 
 References
 
-- Avg_row_length是怎么计算的？: https://www.cnblogs.com/sunss/p/6122997.html
+- [Avg_row_length是怎么计算的？](https://www.cnblogs.com/sunss/p/6122997.html)
 - Q & A ( on MySQL Forums )
-    - How Avg_row_length is calculated? : https://forums.mysql.com/read.php?22,219129
-    - Re: How Avg_row_length is calculated? : https://forums.mysql.com/read.php?22,219129,224296#msg-224296
+    - [How Avg_row_length is calculated?](https://forums.mysql.com/read.php?22,219129)
+    - [Re: How Avg_row_length is calculated?](https://forums.mysql.com/read.php?22,219129,224296#msg-224296)
 
 Command
 
@@ -532,16 +584,22 @@ row in set (0.00 sec)
 
 ### Data Type
 
-**数据类型**
+#### INT
 
-INT
+Length
 
-- tinyint 1
-- smallint 2
-- midiumint 3
-- int 4
-    - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
-- bigint 8
+- `tinyint` 1 bytes
+- `smallint` 2 bytes
+- `midiumint` 3 bytes
+- `int` 4 bytes
+    - `int(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
+- `bigint` 8 bytes
+
+#### VARCHAR
+
+#### TEXT
+
+#### JSON
 
 ### Pagenation
 
@@ -551,18 +609,18 @@ INT
 ### ON DUPLICATE KEY UPDATE
 
 - References
-    - https://dev.mysql.com/doc/refman/8.0/en/insert-on-duplicate.html
+    - [INSERT ... ON DUPLICATE KEY UPDATE Statement - MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/insert-on-duplicate.html)
 
 ### Prepare
 
 - References
-    - 理解Mysql prepare预处理语句 : https://www.cnblogs.com/simpman/p/6510604.html
-    - MySQL :: MySQL 8.0 Reference Manual :: 13.5 Prepared SQL Statement Syntax : https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html
+    - [理解Mysql prepare预处理语句](https://www.cnblogs.com/simpman/p/6510604.html)
+    - [MySQL :: MySQL 8.0 Reference Manual :: 13.5 Prepared SQL Statement Syntax](https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html)
 
 ### Explain
 
 - References
-    - MySQL 性能优化神器 Explain 使用分析 : https://segmentfault.com/a/1190000008131735
+    - [MySQL 性能优化神器 Explain 使用分析](https://segmentfault.com/a/1190000008131735)
 
 ### SERIAL
 
@@ -574,13 +632,13 @@ INT
 
 References
 
-- MySQL 5.7贴心参数之binlog_row_image : http://www.cnblogs.com/gomysql/p/6155160.html
+- [MySQL 5.7贴心参数之binlog_row_image](http://www.cnblogs.com/gomysql/p/6155160.html)
 
 ### Index & Key
 
 References
 
-- mysql中index和key的区别 : https://blog.csdn.net/kusedexingfu/article/details/78347354
+- [mysql中index和key的区别](https://blog.csdn.net/kusedexingfu/article/details/78347354)
 
 > KEY | INDEX
 >
@@ -590,7 +648,7 @@ References
 
 References
 
-- 35 | join语句怎么优化？: https://time.geekbang.org/column/article/80147
+- [35 | join语句怎么优化？](https://time.geekbang.org/column/article/80147)
 
 优化开启语句
 
@@ -610,50 +668,5 @@ mysql> explain select * from t1 where a>=1 and a<=100;
 
 ### Union
 
-- union : 去重
-- union all : 不去重
-
-## Trouble Shooting
-
-### Cannot mysql.server start
-
-ERROR
-
-> MySql server startup error 'The server quit without updating PID file '
-
-- StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
-
-Problem
-
-```bash
-$ mysql.server start
-Starting MySQL
- ERROR! The server quit without updating PID file (/usr/local/var/mysql/icehe-mbp.local.pid).
-```
-
-Steps
-
-```bash
-$ cd /usr/local/var/mysql/
-$ less icehe-mbp.local.err
-# e.g.
-…… [FATAL] InnoDB: Table flags are 0 in the data dictionary but the flags in file ./ibdata1 are 0x4000!…
-# e.g.
-…… Can't open the mysql.plugin table. Please run mysql_upgrade to create it
-# e.g.
-…… Can't open and lock privilege tables: Table 'mysql.user' doesn't exist
-```
-
-```bash
-$ pwd
-/usr/local/var/mysql
-$ rm -rf *
-$ mysqld --initialize-insecure
-# ommited output
-```
-
-Reference
-
-- [MYSQL Error – Server Quit Without Updating PID File – Quick fix!](https://bobcares.com/blog/mysql-error-server-quit-without-updating-pid-file/)
-- [Can't open and lock privilege tables: Table 'mysql.user' doesn't exist](https://stackoverflow.com/questions/34516664/cant-open-and-lock-privilege-tables-table-mysql-user-doesnt-exist)
-- [Can't open the mysql.plugin table. Please run mysql_upgrade to create it](https://stackoverflow.com/questions/41531225/cant-open-the-mysql-plugin-table-please-run-mysql-upgrade-to-create-it/41532987)
+- `union` : 去重
+- `union all` : 不去重
