@@ -584,17 +584,6 @@ row in set (0.00 sec)
 
 ### Data Type
 
-#### INT
-
-Length
-
-- `tinyint` 1 bytes
-- `smallint` 2 bytes
-- `midiumint` 3 bytes
-- `int` 4 bytes
-    - `int(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
-- `bigint` 8 bytes
-
 #### VARCHAR, TEXT, JSON
 
 References
@@ -605,6 +594,8 @@ References
 
 MySQL supports a native JSON data type _defined by RFC 7159_
 that **enables efficient access to data in JSON** _(JavaScript Object Notation)_ documents.
+
+---
 
 _The JSON data type provides these advantages over storing JSON-format strings in a string column:_
 
@@ -622,15 +613,104 @@ _The JSON data type provides these advantages over storing JSON-format strings i
     **by key or array index without reading all values**
     before or after them in the document.
 
-**The space required to store a JSON document is roughly the same as for `LONGBLOB` or `LONGTEXT`**;
-see [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html), for more information.
+---
+
+**The space required to store a JSON document is roughly the same as for `LONGBLOB` or `LONGTEXT`**.
+
+It is important to keep in mind that
+the **size of any JSON document stored in a JSON column is limited to the value of the [max_allowed_packet](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) system variable**.
+
+( When the server is manipulating a JSON value internally in memory, it can be larger than this; the limit applies when the server stores it. )
+
+You can obtain the amount of space required to store a JSON document using the `JSON_STORAGE_SIZE()` function;
+_note that for a JSON column, the storage size — and thus the value returned by this function — is that used by the column prior to any partial updates that may have been performed on it._
+
+---
+
+**Prior to MySQL 8.0.13, a JSON column cannot have a non-NULL default value.**
+
+---
+
+Partial Updates of JSON Values
+
+In MySQL 8.0, the optimizer can
+**perform a partial, in-place update of a JSON column instead of removing the old document and**
+**writing the new document in its entirety to the column**.
+
+This optimization can be performed for an update that meets the following conditions:
+
+### Storage Requirements
+
+#### Numeric
+
+- `TINYINT` 1 bytes
+- `SMALLINT` 2 bytes
+- `MIDIUMINT` 3 bytes
+- `INT`, `INTEGER` 4 bytes
+    - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
+- `BIGINT` 8 bytes
+- `FLOAT(p)` 4 bytes
+    - if 0 <= p <= 24, 8 bytes if 25 <= p <= 53
+- `FLOAT` 4 bytes
+- `DOUBLE [PRECISION]`, `REAL` 8 bytes
+- `DECIMAL(M, D)`, `NUMERIC(M, D)` Varies ( it depends )
+- `BIT(M)` approximately (M+7)/8 bytes
+
+#### String
+
+References
+
+- [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html)
 
 In the following table,
 
-- `M` represents the declared column length in characters for nonbinary string types and bytes for binary string types.
-- `L` represents the actual length in bytes of a given string value.
+-   `M` represents the **declared column length in characters**
+    for nonbinary string types and bytes for binary string types.
+-   `L` represents the **actual length in bytes** of a given string value.
 
-TODO
+---
+
+-   `CHAR(M)`
+
+    The compact family of InnoDB row formats optimize storage for variable-length character sets.
+
+    See [COMPACT Row Format Storage Characteristics](https://dev.mysql.com/doc/refman/8.0/en/innodb-row-format.html#innodb-compact-row-format-characteristics).
+
+    Otherwise, **M × w** bytes, 0 <= M <= 255,
+    where **w** is the number of bytes required for the maximum-length character in the character set.
+
+-   `BINARY(M)`
+
+    **M** bytes, 0 <= M <= 255
+
+-   `VARCHAR(M)`, `VARBINARY(M)`
+
+    -   **L + 1** bytes if column values require 0 − 255 bytes
+    -   **L + 2** bytes if values may require more than 255 bytes
+
+-   `TINYBLOB`, `TINYTEXT`
+
+    **L + 1** bytes, where **L < 28** ( 1 byte for saving text-size )
+
+-   `BLOB`, `TEXT`
+
+    **L + 2** bytes, where **L < 216** ( 2 bytes for saving text-size )
+
+-   `MEDIUMBLOB`, `MEDIUMTEXT`
+
+    **L + 3 bytes**, where **L < 224** ( 3 bytes for saving text-size )
+
+-   `LONGBLOB`, `LONGTEXT`
+
+    **L + 4 bytes**, where **L < 232** ( 4 bytes for saving text-size )
+
+-   `ENUM('value1','value2',...)`
+
+    1 or 2 bytes, depending on the number of enumeration values ( 65,535 values maximum )
+
+-   `SET('value1','value2',...)`
+
+    1, 2, 3, 4, or 8 bytes, depending on the number of set members ( 64 members maximum )
 
 ### Pagenation
 
