@@ -641,6 +641,10 @@ This optimization can be performed for an update that meets the following condit
 
 ### Storage Requirements
 
+References
+
+- [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html)
+
 #### Numeric
 
 - `TINYINT` 1 bytes
@@ -680,10 +684,6 @@ This optimization can be performed for an update that meets the following condit
 #### Date Time
 
 #### String
-
-References
-
-- [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html)
 
 In the following table,
 
