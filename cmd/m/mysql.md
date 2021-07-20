@@ -644,17 +644,40 @@ This optimization can be performed for an update that meets the following condit
 #### Numeric
 
 - `TINYINT` 1 bytes
+
 - `SMALLINT` 2 bytes
+
 - `MIDIUMINT` 3 bytes
+
 - `INT`, `INTEGER` 4 bytes
+
     - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
+
 - `BIGINT` 8 bytes
+
 - `FLOAT(p)` 4 bytes
+
     - if 0 <= p <= 24, 8 bytes if 25 <= p <= 53
+
 - `FLOAT` 4 bytes
+
 - `DOUBLE [PRECISION]`, `REAL` 8 bytes
-- `DECIMAL(M, D)`, `NUMERIC(M, D)` Varies ( it depends )
+
 - `BIT(M)` approximately (M+7)/8 bytes
+
+- `DECIMAL(M, D)`, `NUMERIC(M, D)` Varies ( it depends )
+
+    -   **M** is the precision and **D** is the scale
+
+        -   **precision** : the number of significant digits that are stored for values.
+        -   **scale** : the number of digits that can be stored following the decimal point.
+
+    -   Storage for the **integer and fractional parts of each value are determined separately**.
+
+    -   Each multiple of nine digits requires four bytes,
+        and the "leftover" digits require some fraction of four bytes.
+
+#### Date Time
 
 #### String
 
