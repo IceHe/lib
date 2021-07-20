@@ -584,13 +584,35 @@ row in set (0.00 sec)
 
 ### Data Type
 
-#### VARCHAR, TEXT, JSON
+#### DATEIME
+
+Rferences
+
+- [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/8.0/en/char.html)
+
+TODO
+
+#### VARCHAR
 
 References
 
-- [The JSON Data Type - MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/json.html)
-- [Data Type Storage Requirements - MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html#data-types-storage-reqs-strings)
+- [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/8.0/en/char.html)
+
+TODO
+
+#### TEXT
+
+References
+
 - [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/8.0/en/blob.html)
+
+TODO
+
+#### JSON
+
+References
+
+- [The JSON Data Type](https://dev.mysql.com/doc/refman/8.0/en/json.html)
 
 MySQL supports a native JSON data type _defined by RFC 7159_
 that **enables efficient access to data in JSON** _(JavaScript Object Notation)_ documents.
@@ -639,13 +661,13 @@ In MySQL 8.0, the optimizer can
 
 This optimization can be performed for an update that meets the following conditions:
 
-### Storage Requirements
+#### Storage Requirements
 
 References
 
 - [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html)
 
-#### Numeric
+##### Numeric
 
 - `TINYINT` 1 bytes
 
@@ -681,9 +703,25 @@ References
     -   Each multiple of nine digits requires four bytes,
         and the "leftover" digits require some fraction of four bytes.
 
-#### Date Time
+##### Date Time
 
-#### String
+_For TIME, DATETIME, and TIMESTAMP columns,_
+_the storage required for tables created before MySQL 5.6.4 differs from tables created from 5.6.4 on._
+
+_This is due to a change in 5.6.4 that permits these types to have a fractional part,_
+_which requires from 0 to 3 bytes._
+
+|Data Type|Storage Required Before MySQL 5.6.4|Storage Required as of MySQL 5.6.4|
+|-|-|-|
+|YEAR|1 byte|1 byte|
+|DATE|3 bytes|3 bytes|
+|TIME|3 bytes|3 bytes + fractional seconds storage|
+|DATETIME|8 bytes|5 bytes + fractional seconds storage|
+|TIMESTAMP|4 bytes|4 bytes + fractional seconds storage|
+
+…
+
+##### String
 
 In the following table,
 
