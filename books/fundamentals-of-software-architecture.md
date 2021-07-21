@@ -1291,6 +1291,35 @@ _and builds components around the identified activities._
 
 ### Case Study: Going, Going, Gone: Discovering Components
 
+If a team has no special constraints
+and is looking for a goo gneral-purpose component decomposition,
+the Actor/Actions approach works well as a generic solution.
+
+…
+
+![initial-set-of-components-for-ggg.jpg](_images/fundamentals-of-software-architecture/initial-set-of-components-for-ggg.jpg)
+
+For example,
+the currrent design features a Bid Capture components
+to capture bids from both bidders and the auctioneer,
+which makes sense functionallly:
+capturing bids from anyone can be handled the same.
+
+**However, what about architecture characteristics around bid capture?**
+**The auctioneer doesn't need the same level of scalability or elasticity**
+**as potential thousands of bidders.**
+
+**By the same token, an architect must ensure that architecture characteristics like**
+**reliability ( connection don't drop ) and**
+**available ( the system is up )**
+**for the auctioneer could be higher than other parts of the system.**
+
+…
+
+Because they have differing levels of architecture characteristics,
+the architect decides to split the Bid Capture into Bid Capture and Auctioneer Capture
+so that each of the two components can support differing architecture characteristics.
+
 ### Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
 
 # Part 2. Architeure Styles
