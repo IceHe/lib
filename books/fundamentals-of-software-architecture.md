@@ -1322,6 +1322,10 @@ so that each of the two components can support differing architecture characteri
 
 ### Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
 
+That in turn leads an architect toward an important decision
+as the finish their initial component design:
+**should the architecture be monolithic or distributed?**
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
