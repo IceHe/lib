@@ -624,6 +624,20 @@ The **TIMESTAMP and DATETIME data types offer automatic initialization and updat
 
 - _See [Automatic Initialization and Updating for TIMESTAMP and DATETIME](https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html)_
 
+Time Zone
+
+**MySQL converts TIMESTAMP values from the current time zone to UTC for storage,**
+**and back from UTC to the current time zone for retrieval.**
+**(This does not occur for other types such as DATETIME.)**
+
+_By default, the current time zone for each connection is the server's time._
+_The time zone can be set on a per-connection basis._
+
+_As long as the time zone setting remains constant, you get back the same value you store._
+If you store a TIMESTAMP value, and then change the time zone and retrieve the value,
+the retrieved value is different from the value you stored.
+_This occurs because the same time zone was not used for conversion in both directions._
+
 #### VARCHAR
 
 References
