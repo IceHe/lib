@@ -598,7 +598,30 @@ References
 
 - [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/8.0/en/char.html)
 
-TODO
+`CHAR`
+
+- The length of a `CHAR` column is fixed to the length that you declare when you create the table.
+- The length can be any value from **0 to 255**.
+- When `CHAR` values are stored, they are right-padded with spaces to the specified length.
+
+`VARCHAR`
+
+- Values in `VARCHAR` columns are variable-length strings.
+- The length can be specified as a value from **0 to 65,535**.
+- The **effective maximum length of a VARCHAR is subject to the [maximum row size](https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html)** ( 65,535 bytes, which is shared among all columns ) and the character set used.
+
+In contrast to CHAR, VARCHAR values are stored as a 1-byte or 2-byte length prefix plus data.
+
+- The length prefix indicates the number of bytes in the value.
+- A column uses one length byte if values require no more than 255 bytes,
+    - two length bytes if values may require more than 255 bytes.
+
+If strict SQL mode is not enabled
+and you **assign a value to a CHAR or VARCHAR column**
+**that exceeds the column's maximum length,**
+**the value is truncated to fit** and a warning is generated.
+
+- For truncation of nonspace characters, you can cause an error to occur ( rather than a warning ) and suppress insertion of the value by using strict SQL mode.
 
 #### TEXT
 
@@ -606,7 +629,28 @@ References
 
 - [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/8.0/en/blob.html)
 
-TODO
+The four `TEXT` types are **`TINYTEXT`, `TEXT`, `MEDIUMTEXT`, and `LONGTEXT`**. …
+
+_`BLOB` values are treated as binary strings (byte strings)._
+_They have the binary character set and collation,_
+_and comparison and sorting are based on the numeric values of the bytes in column values._
+
+_`TEXT` values are treated as nonbinary strings (character strings)._
+_They have a character set other than binary,_
+_and values are sorted and compared based on the collation of the character set._
+
+_In most respects, you can regard a `BLOB` column as a `VARBINARY` column that can be as large as you like._
+_Similarly, you can regard a `TEXT` column as a `VARCHAR` column._
+_`BLOB` and `TEXT` differ from `VARBINARY` and `VARCHAR` in the following ways:_
+
+- For indexes on `BLOB` and `TEXT` columns,
+    you must specify an index prefix length.
+- For `CHAR` and `VARCHAR`, a prefix length is optional.
+
+**`BLOB` and `TEXT` columns cannot have `DEFAULT` values.**
+
+Each `BLOB` or `TEXT` value is **represented internally by a separately allocated object.**
+_This is in contrast to all other data types, for which storage is allocated once per column when the table is opened._
 
 #### JSON
 
