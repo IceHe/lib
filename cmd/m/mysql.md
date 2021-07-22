@@ -584,6 +584,28 @@ row in set (0.00 sec)
 
 ### Data Type
 
+#### NUMERIC
+
+The `DECIMAL` and `NUMERIC` types **store exact numeric data values**.
+
+- These types are used when it is important to **preserve exact precision**,
+    for example with monetary data.
+- _In MySQL, NUMERIC is implemented as DECIMAL,_
+    _so the following remarks about DECIMAL apply equally to NUMERIC._
+- _MySQL stores DECIMAL values in binary format._
+
+```sql
+salary DECIMAL(5,2)
+```
+
+In this example, **5 is the precision and 2 is the scale**.
+
+- The precision represents the number of significant digits that are stored for values,
+- and the scale represents the number of digits that can be stored following the decimal point.
+
+Standard SQL requires that `DECIMAL(5,2)` be able to store any value with five digits and two decimals,
+so values that can be stored in the salary column range **from -999.99 to 999.99**.
+
 #### DATEIME
 
 Rferences
