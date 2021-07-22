@@ -603,6 +603,8 @@ A DATETIME or TIMESTAMP value can include a trailing fractional seconds part in 
 
 The TIMESTAMP and DATETIME data types offer automatic initialization and updating to the current date and time. For more information, see Section 11.2.5, “[Automatic Initialization and Updating for TIMESTAMP and DATETIME](https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html)”.
 
+TODO 2021-07-22 23:49:11
+
 #### VARCHAR
 
 References
