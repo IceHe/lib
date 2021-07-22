@@ -590,20 +590,39 @@ Rferences
 
 - [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/8.0/en/datetime.html)
 
-The date and time data types for representing temporal values are
-`DATE`, `TIME`, `DATETIME`, `TIMESTAMP`, and `YEAR`.
+`DATE`
 
-The DATE type is used for values with a date part but no time part. MySQL retrieves and displays DATE values in 'YYYY-MM-DD' format. The supported range is '1000-01-01' to '9999-12-31'.
+- The DATE type is used for values with a date part but no time part.
+- MySQL retrieves and displays DATE values in **'YYYY-MM-DD'** format.
+- The supported range is **'1000-01-01' to '9999-12-31'**.
 
-The DATETIME type is used for values that contain both date and time parts. MySQL retrieves and displays DATETIME values in 'YYYY-MM-DD hh:mm:ss' format. The supported range is '1000-01-01 00:00:00' to '9999-12-31 23:59:59'.
+`DATETIME`
 
-The TIMESTAMP data type is used for values that contain both date and time parts. TIMESTAMP has a range of '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC.
+- The DATETIME type is used for values that contain both date and time parts.
+- MySQL retrieves and displays DATETIME values in **'YYYY-MM-DD hh:mm:ss'** format.
+- The supported range is **'1000-01-01 00:00:00' to '9999-12-31 23:59:59'**.
 
-A DATETIME or TIMESTAMP value can include a trailing fractional seconds part in up to microseconds (6 digits) precision. In particular, any fractional part in a value inserted into a DATETIME or TIMESTAMP column is stored rather than discarded. With the fractional part included, the format for these values is 'YYYY-MM-DD hh:mm:ss[.fraction]', the range for DATETIME values is '1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999', and the range for TIMESTAMP values is '1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999'. The fractional part should always be separated from the rest of the time by a decimal point; no other fractional seconds delimiter is recognized. For information about fractional seconds support in MySQL, see Section 11.2.6, “[Fractional Seconds in Time Values](https://dev.mysql.com/doc/refman/8.0/en/fractional-seconds.html)”.
+`TIMESTAMP`
 
-The TIMESTAMP and DATETIME data types offer automatic initialization and updating to the current date and time. For more information, see Section 11.2.5, “[Automatic Initialization and Updating for TIMESTAMP and DATETIME](https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html)”.
+- The TIMESTAMP data type is used for values that contain both date and time parts.
+- TIMESTAMP has a range of **'1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC**.
 
-TODO 2021-07-22 23:49:11
+**Precision**
+
+A DATETIME or TIMESTAMP value **can include a trailing fractional seconds part in up to microseconds (6 digits) precision.**
+
+- _In particular, any fractional part in a value inserted into a DATETIME or TIMESTAMP column is stored rather than discarded._
+- With the fractional part included,
+    - the format for these values is **'YYYY-MM-DD hh:mm:ss[.fraction]'**,
+    - the range for DATETIME values is **'1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999'**,
+    - and the range for TIMESTAMP values is **'1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999'**.
+- The fractional part should always be separated from the rest of the time by a decimal point;
+    no other fractional seconds delimiter is recognized.
+- _See [Fractional Seconds in Time Values](https://dev.mysql.com/doc/refman/8.0/en/fractional-seconds.html)_
+
+The **TIMESTAMP and DATETIME data types offer automatic initialization and updating to the current date and time.**
+
+- _See [Automatic Initialization and Updating for TIMESTAMP and DATETIME](https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html)_
 
 #### VARCHAR
 
@@ -613,14 +632,14 @@ References
 
 `CHAR`
 
-- The length of a `CHAR` column is fixed to the length that you declare when you create the table.
-- The length can be any value from **0 to 255**.
-- When `CHAR` values are stored, they are right-padded with spaces to the specified length.
+- The length of a CHAR column is fixed to the length that you declare when you create the table.
+- The length can be any value **from 0 to 255**.
+- When CHAR values are stored, they are right-padded with spaces to the specified length.
 
 `VARCHAR`
 
-- Values in `VARCHAR` columns are variable-length strings.
-- The length can be specified as a value from **0 to 65,535**.
+- Values in VARCHAR columns are variable-length strings.
+- The length can be specified as a value **from 0 to 65,535**.
 - The **effective maximum length of a VARCHAR is subject to the [maximum row size](https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html)** ( 65,535 bytes, which is shared among all columns ) and the character set used.
 
 In contrast to CHAR, VARCHAR values are stored as a 1-byte or 2-byte length prefix plus data.
@@ -652,17 +671,18 @@ _`TEXT` values are treated as nonbinary strings (character strings)._
 _They have a character set other than binary,_
 _and values are sorted and compared based on the collation of the character set._
 
-_In most respects, you can regard a `BLOB` column as a `VARBINARY` column that can be as large as you like._
-_Similarly, you can regard a `TEXT` column as a `VARCHAR` column._
-_`BLOB` and `TEXT` differ from `VARBINARY` and `VARCHAR` in the following ways:_
+_In most respects, you can regard a BLOB column as a VARBINARY column that can be as large as you like._
+_Similarly, you can regard a TEXT column as a VARCHAR column._
+_BLOB and TEXT differ from VARBINARY and VARCHAR in the following ways:_
 
-- For indexes on `BLOB` and `TEXT` columns,
+- For indexes on BLOB and TEXT columns,
     you must specify an index prefix length.
-- For `CHAR` and `VARCHAR`, a prefix length is optional.
+- For CHAR and VARCHAR, a prefix length is optional.
 
 **`BLOB` and `TEXT` columns cannot have `DEFAULT` values.**
 
-Each `BLOB` or `TEXT` value is **represented internally by a separately allocated object.**
+Each BLOB or TEXT value is **represented internally by a separately allocated object.**
+
 _This is in contrast to all other data types, for which storage is allocated once per column when the table is opened._
 
 #### JSON
