@@ -490,7 +490,7 @@ Timeline
     - [Bye 2015](/past/2015-bye.md)
     - [How to Build Blog](/past/blog/build.md): 搭建博客
     - [Blog Changlogs](/past/blog/changelog.md): 折腾博客
-    - [icehe.me](https://icehe.me): previous technology blog
+    - [icehe.github.io](https://icehe.github.io): previous technology blog
 - Before 2015
     - [QZone Index](/past/qzone-index.md) of the old posts
 
