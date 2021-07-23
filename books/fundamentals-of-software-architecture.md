@@ -1354,4 +1354,24 @@ requires a distributed architecture to accommodate differing architecture charac
 
 # Part 2. Architeure Styles
 
+**Architecture Style**
+
+- The **overarching _( 首要的 )_ structure of how the user interface and backend source code are orgainized**
+    - ( such as within layers of a monolithic deployment or seqparately deployed )
+- and **how that source code interacts with datastore**.
+
+**Arcitecture Patterns**
+
+- **Lower-level design structures that help form specific solutions within an architecture style**
+    - ( such as how to achieve high scalability or high performance within a set of operations or between sets of services )
+
+_Understanding architecture styles occupies much of the time and effort for new architects because they share importance and abundance._
+
+Architects must understand the various styles
+and the trade-offs encapsulated within each to make effective decisions;
+each architecture style embodies a well-known set of trade-offs
+that help an architect make the right choice for a particular business problem.
+
+## C9. Fundations
+
 # Part 3. Techniques and Soft Skills
