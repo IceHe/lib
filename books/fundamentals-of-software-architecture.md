@@ -1326,6 +1326,32 @@ That in turn leads an architect toward an important decision
 as the finish their initial component design:
 **should the architecture be monolithic or distributed?**
 
+A _monolithic_ architecture typically features a single deployable unit,
+including all functionality of the system that runs in the process,
+typically connected to a single database.
+
+_Types of monolithic architecture include the layered and modular monolith._
+
+A _distributed_ architecture is the opposite ——
+the application consists of multiple services running in their own ecosystem,
+communicating via networking protocols.
+
+**Distributed architectures may feature finer-grained deployment models,**
+where each service may have its own release cadence _( 节奏 )_ and engineering practices,
+based on the development team and their priorities.
+
+---
+
+The fundamental decision rests on how many quanta
+the architecture discovers during the design process.
+
+If the system can manager with a single quantum
+( in other words, one set of architecture characteristics ) ,
+then a monolith architecture offers many advantages.
+
+On the other hand, differing architecture characteristics for components,
+requires a distributed architecture to accommodate differing architecture characteristics.
+
 # Part 2. Architeure Styles
 
 # Part 3. Techniques and Soft Skills
