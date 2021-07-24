@@ -1374,4 +1374,20 @@ that help an architect make the right choice for a particular business problem.
 
 ## C9. Fundations
 
+_Architecture styles, sometimes called architecture patterns,_
+_describe a named relationship of components_
+_covering a variety of architecture characteristics._
+
+**An architecture style name, similar to design patterns,**
+**creates a single name that acts as shorthand between experienced architecture.**
+
+_For example, when an architect talks about a layered monolith,_
+_their target in the conversation understands aspects of structure,_
+_which kinds of architecture characteristics work well_
+_( and which ones can cause problems ) ,_
+_typical deployment models, data strategies, and a host of other information._
+
+**Each name captures a wealth of understood details,**
+**one of the purposes of design patterns.**
+
 # Part 3. Techniques and Soft Skills
