@@ -450,35 +450,45 @@ JDK - Java Development Kit
     -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation):
         Case switching, sorting, filtering, incrementing,
         aligning to columns, grepping, escaping, encoding…
-    -   [TabNumberIndicator](https://plugins.jetbrains.com/plugin/9962-tabnumberindicator):
-        Display the tab number indicator
-        before the opened file name int editor tabs
     -   _[AceJump](https://plugins.jetbrains.com/plugin/7086-acejump):_
         _( trying )_
         _Quickly navigate the caret to any position visible in the editor_
     -   _[CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea):_
         _( trying )_
         _Scan of Java files with CheckStyle from within IDEA_
-    -   _[Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript)_
-        _( trying )_
-    -   _[Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console):_
-        _( trying )_
-        _Grep, tail, filter, highlight... everything you need for a console_
-        _( not supporting terminals )_
-    -   _[JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij):_
-        _( to try )_
-        _Allow developers to reload code changes instantly_
 
     _References:_
 
     - _[21 Best IntelliJ Plugins for 2019 (100% Free)](https://blog.codota.com/21-best-intellij-plugins-for-2019-100-free)_
     - _[IntelliJ IDEA best plugins](https://www.vojtechruzicka.com/idea-best-plugins)_
 
+<!--
+
+    -   _[Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console):_
+        _( trying )_
+        _Grep, tail, filter, highlight... everything you need for a console_
+        _( not supporting terminals )_
+    -   _[Codota AI Autocomplete for Java and JavaScript](https://plugins.jetbrains.com/plugin/7638-codota-ai-autocomplete-for-java-and-javascript)_
+        _( trying )_
+    -   _[JRebel and XRebel for IntelliJ](https://plugins.jetbrains.com/plugin/4441-jrebel-and-xrebel-for-intellij):_
+        _( to try )_
+        _Allow developers to reload code changes instantly_
+
+-->
+
 1.  Set the font `Consolas`
 
     1.  Download on the Internet
     1.  Update the preference:
         `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
+
+2.  Set the color scheme `Solarized Light (Alternate)`
+
+    1.  Download on the Internet
+        -   [Solarized_Light__Alternate_.icls](TODO) or
+            [Solarized_Light__Alternate_.jar](TODO)
+    1.  Update the preference:
+        `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
 
 ### Maven
 
