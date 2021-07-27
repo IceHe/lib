@@ -282,7 +282,9 @@ public class MD5Utils {
 
 ### Pattern and Matcher
 
-- http://tutorials.jenkov.com/java-regex/matcher.html
+Reference
+
+- [Java Regex - Matcher](http://tutorials.jenkov.com/java-regex/matcher.html)
 
 ```java
 import java.util.regex.Matcher;
@@ -293,6 +295,17 @@ Pattern mixedZhEnParttern = Pattern.compile("^[\\s\\da-zA-Z\\u4E00-\\u9FA5]+");
 Matcher mixedZhEnMatcher = mixedZhEnParttern.matcher(fuzzyKeyword);
 boolean likeMixedZhEn = mixedZhEnMatcher.find();
 
+```
+
+## Excpetion
+
+Reference
+
+- [How can I convert a stack trace to a string?](https://stackoverflow.com/questions/1149703/how-can-i-convert-a-stack-trace-to-a-string)
+
+```java
+String stackTrace = ExceptionUtils.getStackTrace(e);
+System.out.println(stackTrace);
 ```
 
 ## StringUtils
