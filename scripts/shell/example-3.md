@@ -1,4 +1,4 @@
-# Bash Script - Example 2
+# Bash Script - Example 3
 
 ---
 
@@ -10,7 +10,7 @@ Prepare
 brew install terminal-notifier
 ```
 
-File : auto-deploy-test.sh
+File : auto-deploy-canary.sh
 
 ```bash
 #!/bin/bash
@@ -52,12 +52,12 @@ checkRespStatusCode () {
     # echo -e "respStatusCode: `echo ${respStatusCode:?200}` \n"
 
     if [ "$respStatusCode" == "404" ]; then
-        notify "Pineline ${pipelineId}" "404 Not Found"
+        notify "Pineline ${pipelineId}" "Not found 404"
         exit
     fi
 
     if [ "$respStatusCode" == "401" ]; then
-        notify "Pineline ${pipelineId}" "401 Unauthorized"
+        notify "Pineline ${pipelineId}" "Unauthorized 401"
         exit
     fi
 
@@ -123,6 +123,33 @@ triggerDeploy () {
     echo
 }
 
+# 通知审核上线
+auditNotify () {
+    local projectIdentity=$1
+    local pipelineId=$2
+    local cookie=$3
+
+    echo -e "auditNotify () { … }"
+    curl \
+        --location "https://infra-api.zhenguanyu.com/infra-phoenix-console/api/pipeline/${projectIdentity}/${pipelineId}/audit/notify" \
+        --request POST \
+        --header "${cookie}"
+    echo
+}
+
+# 获取审核情况
+getPipelineAudit () {
+    local projectIdentity=$1
+    local pipelineId=$2
+    local cookie=$3
+
+    local pipelineAudit=`curl --silent \
+        --location "https://infra-api.zhenguanyu.com/infra-phoenix-console/api/pipeline/${projectIdentity}/${pipelineId}/audit" \
+        --request GET \
+        --header "${cookie}"`
+    echo "$pipelineAudit"
+}
+
 echo -e "\n===========START==========="
 date +"%Y-%m-%d %H:%M:%S %a"
 echo
@@ -134,14 +161,15 @@ cd ~/Desktop
 PATH=$PATH:/usr/local/bin
 
 authorName=${1}
-branchName=deploy-test
+branchName=master
 cookie=`cat cookie.txt`
 projectIdentity=conan-commerce-shipment
-stage=TESTING
-tryTimes=60
+stage=CANARY
+tryTimes=96
 toTriggerBuild=${2:-0}
-toTriggerDeploy=${3:-0}
-toCheckDeploy=${4:-1}
+toTriggerNotify=${3:-0}
+toTriggerDeploy=${4:-0}
+toCheckDeploy=${5:-1}
 
 echo -e "PWD: `pwd`"
 echo -e "PATH: $PATH"
@@ -152,65 +180,48 @@ echo -e "projectIdentity: $projectIdentity"
 echo -e "stage: $stage"
 echo -e "tryTimes: $tryTimes"
 echo -e "toTriggerBuild: $toTriggerBuild"
+echo -e "toTriggerNotify: $toTriggerNotify"
 echo -e "toTriggerDeploy: $toTriggerDeploy"
 echo -e "toCheckDeploy: $toCheckDeploy"
 echo
 
-if [ "$toTriggerBuild" == "0" ] && [ "$toTriggerDeploy" == "0" ] && [ "$toCheckDeploy" == "0" ]; then
+if [ "$authorName" == "" ]; then
+    notify "Pineline" "Do nothing for invalid authorName"
+    exit
+fi
+
+if [ "$toTriggerBuild" == "0" ] && [ "$toTriggerNotify" == "0" ] && [ "$toTriggerDeploy" == "0" ]; then
     notify "Pineline" "Do nothing for invalid params"
     exit
 fi
 
 if [ "$toTriggerBuild" == "1" ]; then
-    triggerBuild "$projectIdentity" "$branchName" "$cookie"
-    notify "Pineline ${pipelineId}" "Building branch $branchName" \
-        "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
+    triggerDeploy "$projectIdentity" "$pipelineId" "$stage" "$cookie"
+    notify "Pineline ${pipelineId}" "Deploying $stage for branch ${branchName}" \
+        "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
     waitForSecs 30
+fi
 
-    latestPipeline=`getLatestPipeline "$branchName" "$authorName" "$cookie"`
-    echo -e "latestPipeline: `echo $latestPipeline | jq` \n"
-    checkRespStatusCode "$latestPipeline"
+latestPipeline=`getLatestPipeline "$branchName" "$authorName" "$cookie"`
+echo -e "latestPipeline: `echo $latestPipeline | jq` \n"
+checkRespStatusCode "$latestPipeline"
 
-    pipelineId=`echo $latestPipeline | jq '.id'`
-    echo -e "pipelineId: $pipelineId \n"
+pipelineId=`echo $latestPipeline | jq '.id'`
+echo -e "pipelineId: $pipelineId \n"
 
-    triggeredMillis=`echo $latestPipeline | jq '.triggeredTime'`
-    triggeredSecs=${triggeredMillis:0:10}
-    nowSecs=`date +%s`
+triggeredMillis=`echo $latestPipeline | jq '.triggeredTime'`
+triggeredSecs=${triggeredMillis:0:10}
+nowSecs=`date +%s`
 
-    echo -e "triggeredMillis: `echo $triggeredMillis`"
-    echo -e "triggeredSecs: `echo $triggeredSecs`"
-    echo -e "nowSecs: `echo $nowSecs`"
-    echo
+echo -e "triggeredMillis: `echo $triggeredMillis`"
+echo -e "triggeredSecs: `echo $triggeredSecs`"
+echo -e "nowSecs: `echo $nowSecs`"
+echo
 
-    if [ $triggeredSecs -lt `expr $nowSecs - 120` ]; then
-        notify "Pineline ${pipelineId}" "Recent pineline not found for branch ${branchName}" \
-            "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
-        exit
-    fi
-
-else
-    latestPipeline=`getLatestPipeline "$branchName" "$authorName" "$cookie"`
-    echo -e "latestPipeline: `echo $latestPipeline | jq` \n"
-    checkRespStatusCode "$latestPipeline"
-
-    pipelineId=`echo $latestPipeline | jq '.id'`
-    echo -e "pipelineId: $pipelineId \n"
-
-    #triggeredMillis=`echo $latestPipeline | jq '.triggeredTime'`
-    #triggeredSecs=${triggeredMillis:0:10}
-    #nowSecs=`date +%s`
-
-    #echo -e "triggeredMillis: `echo $triggeredMillis`"
-    #echo -e "triggeredSecs: `echo $triggeredSecs`"
-    #echo -e "nowSecs: `echo $nowSecs`"
-    #echo
-
-    #if [ $triggeredSecs -lt `expr $nowSecs - 1200` ]; then
-    #    notify "Pineline ${pipelineId}" "Recent pineline not found for branch ${branchName}" \
-    #        "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
-    #    exit
-    #fi
+if [ $triggeredSecs -lt `expr $nowSecs - 6000` ]; then
+    notify "Pineline ${pipelineId}" "Recent pineline not found for branch ${branchName}" \
+        "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
+    exit
 fi
 
 buildSuccess=0
@@ -231,7 +242,7 @@ for i in `seq 1 ${times}`; do
 
     if [ "$buildStageStatus" == "\"SUCCESS\"" ]; then
         notify "Pineline ${pipelineId}" "Builded branch ${branchName}" \
-            "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=TESTING"
+            "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=CANARY"
         buildSuccess=1
         break 1
     fi
@@ -245,28 +256,64 @@ if [ "$buildSuccess" != "1" ]; then
     exit
 fi
 
+if [ "$toTriggerNotify" == "1" ]; then
+    auditNotify "$projectIdentity" "$pipelineId" "$cookie"
+fi
+
+auditApproved=0
+times=$tryTimes
+for i in `seq 1 ${times}`; do
+    pinelineAudit=`getPipelineAudit "$projectIdentity" "$pipelineId" "$cookie"`
+    echo -e "pinelineAudit: `echo $pinelineAudit | jq` \n"
+    checkRespStatusCode "$pinelineAudit"
+
+    auditStatus=`echo $pinelineAudit | jq '.auditStatus'`
+    echo -e "auditStatus: $auditStatus \n"
+
+    if [ "$auditStatus" == "\"APPROVED\"" ]; then
+        notify "Pineline ${pipelineId}" "Deployed ${stage} for branch ${branchName}" \
+            "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+        auditApproved=1
+        break 1
+    fi
+
+    if [ "$auditStatus" != "\"UNAUDITED\"" ]; then
+        notify "Pineline ${pipelineId}" "Failed to audit ${stage} for branch ${branchName}" \
+            "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+        exit
+    fi
+
+    waitForSecs 10
+done
+
+if [ "$auditApproved" != "1" ]; then
+    notify "Pineline ${pipelineId}" "Deploy timeout or failed for branch ${branchName}" \
+        "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+    exit
+fi
+
 if [ "$toTriggerDeploy" == "1" ]; then
     pipelineDetail=`getPipelineDetail "$pipelineId" "$projectIdentity" "$cookie"`
     echo -e "pipelineDetail: `echo $pipelineDetail | jq` \n"
     checkRespStatusCode "$pipelineDetail"
 
-    testingStageStatus=`echo $pipelineDetail | jq '.stages[] | select(.stage == "TESTING") | .status'`
-    echo -e "testingStageStatus: `echo $testingStageStatus | jq` \n"
+    canaryStageStatus=`echo $pipelineDetail | jq '.stages[] | select(.stage == "CANARY") | .status'`
+    echo -e "canaryStageStatus: `echo $canaryStageStatus | jq` \n"
 
-    if [ "$testingStageStatus" == "\"FAILED\"" ]; then
-        notify "Pineline ${pipelineId}" "Failed to deploy TESTING, no need to re-deploy branch ${branchName}" \
+    if [ "$canaryStageStatus" == "\"FAILED\"" ]; then
+        notify "Pineline ${pipelineId}" "Failed to deploy ${stage}, no need to re-deploy branch ${branchName}" \
             "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
         exit
     fi
 
-    if [ "$testingStageStatus" == "\"SUCCESS\"" ]; then
-        notify "Pineline ${pipelineId}" "Deployed TESTING, no need to re-deploy branch ${branchName}" \
+    if [ "$canaryStageStatus" == "\"SUCCESS\"" ]; then
+        notify "Pineline ${pipelineId}" "Deployed ${stage}, no need to re-deploy branch ${branchName}" \
             "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
         exit
     fi
 
     triggerDeploy "$projectIdentity" "$pipelineId" "$stage" "$cookie"
-    notify "Pineline ${pipelineId}" "Deploying $stage for branch ${branchName}" \
+    notify "Pineline ${pipelineId}" "Deploying ${stage} for branch ${branchName}" \
         "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
 fi
 
@@ -278,17 +325,17 @@ if [ "$toCheckDeploy" == "1" ]; then
         echo -e "pipelineDetail: `echo $pipelineDetail | jq` \n"
         checkRespStatusCode "$pipelineDetail"
 
-        testingStageStatus=`echo $pipelineDetail | jq '.stages[] | select(.stage == "TESTING") | .status'`
-        echo -e "testingStageStatus: `echo $testingStageStatus | jq` \n"
+        canaryStageStatus=`echo $pipelineDetail | jq '.stages[] | select(.stage == "CANARY") | .status'`
+        echo -e "canaryStageStatus: `echo $canaryStageStatus | jq` \n"
 
-        if [ "$testingStageStatus" == "\"FAILED\"" ]; then
-            notify "Pineline ${pipelineId}" "Failed to deploy TESTING for branch ${branchName}" \
+        if [ "$canaryStageStatus" == "\"FAILED\"" ]; then
+            notify "Pineline ${pipelineId}" "Failed to deploy ${stage} for branch ${branchName}" \
                 "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
             exit
         fi
 
-        if [ "$testingStageStatus" == "\"SUCCESS\"" ]; then
-            notify "Pineline ${pipelineId}" "Deployed TESTING for branch ${branchName}" \
+        if [ "$canaryStageStatus" == "\"SUCCESS\"" ]; then
+            notify "Pineline ${pipelineId}" "Deployed ${stage} for branch ${branchName}" \
                 "https://console.zhenguanyu.com/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
             deploySuccess=1
             break 1
@@ -307,5 +354,6 @@ fi
 echo
 date +"%Y-%m-%d %H:%M:%S %a"
 echo -e "============END============ \n"
+
 
 ```
