@@ -1390,4 +1390,12 @@ _typical deployment models, data strategies, and a host of other information._
 **Each name captures a wealth of understood details,**
 **one of the purposes of design patterns.**
 
+### Fundamental Patterns
+
+#### Big Ball of Mud
+
+#### Unitary Architecture
+
+#### Client / Server
+
 # Part 3. Techniques and Soft Skills
