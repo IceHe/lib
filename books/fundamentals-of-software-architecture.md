@@ -1394,6 +1394,8 @@ _typical deployment models, data strategies, and a host of other information._
 
 #### Big Ball of Mud
 
+A Big Ball of Mud is haphazardly _( 偶然地, 随意地, 无计划地 )_ structured, sparawling _( 蔓生的, 不规则地伸展的 )_ , sloppy _( 邋遢的, 做事马虎的 )_ , TODO
+
 #### Unitary Architecture
 
 #### Client / Server
