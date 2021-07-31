@@ -1394,7 +1394,47 @@ _typical deployment models, data strategies, and a host of other information._
 
 #### Big Ball of Mud
 
-A Big Ball of Mud is haphazardly _( 偶然地, 随意地, 无计划地 )_ structured, sparawling _( 蔓生的, 不规则地伸展的 )_ , sloppy _( 邋遢的, 做事马虎的 )_ , TODO
+> A Big Ball of Mud is
+> haphazardly _( 偶然地, 随意地, 无计划地 )_ structured,
+> sparawling _( 蔓生的, 不规则地伸展的 )_ ,
+> sloppy _( 邋遢的, 做事马虎的 )_ ,
+> duct-tape-and-baling-wire _( 管道胶布和打包线 )_ ,
+> spaghetti-code juggle _( 意大利面条代码 )_ .
+>
+> These systems show unmistakable _( 显而易见的, 不会弄错的 )_
+> signs of unregulated _( 未受管理的 )_ growth,
+> and repeated, expedient _( 权宜之计 )_ repair.
+>
+> Infomation is shared promiscuously _( 杂乱的 )_
+> among distant elements of the system,
+> often to the point where nearly all the important information
+> becomes global or duplicated.
+>
+> The overall structure of the system may never have been well defined.
+>
+> If it was, it may have eroded _( 腐蚀 )_ beyond recognition.
+> Programmers with a shred of _( 一丝 )_ architecture sensibility
+> shun _( 避开 )_ these quagmires _( 沼泽 )_ .
+>
+> Only those who are unconcerned about architecture,
+> and, perhaps, are comfortable with the inertia _( 惯性 )_ of day-to-day chore _( 讨厌或累人的工作 )_
+> of patching the holes in these failing disks, are content to work on such systems.
+>
+> —— Brian Foote and Joseph Yoder
+
+_In modern terms,_
+_a big ball of mud might describe a simple scripting application_
+_with event handlers wired directed to database calls,_
+_with no internal structure._
+_Many trivial ( 不重要的 ) applications start like this_
+_then become unwieldy as they continue to grow_
+
+_In general, architects want to avoid this type of architecture at all costs._
+_The lack of structure makes change incresingly difficult._
+_This type of architecture also suffers from problems in_
+_deployment, testability, scalability, and performance._
+
+TODO
 
 #### Unitary Architecture
 
