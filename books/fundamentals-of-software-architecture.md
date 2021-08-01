@@ -1434,9 +1434,27 @@ _The lack of structure makes change incresingly difficult._
 _This type of architecture also suffers from problems in_
 _deployment, testability, scalability, and performance._
 
-TODO
+_Unfortunately, this architecture anti-pattern occurs quite commonly in the real world._
+Few architects intend to create one,
+but many projects inadvertently _( 漫不经心地, 疏忽地 )_ manager to create a mess
+because of lack of governance around code quality and structure.
 
 #### Unitary Architecture
+
+_When software originated, there was only the computer, and software ran on it._
+Through the various eras of hardware and software evolution,
+the two started as single entity,
+then split as the need for more sophisticated capabilities grew.
+
+……
+As networking PCs became common,
+distributed systems ( such as client/server ) appeared.
+
+_Few unitary ( 单一的, 统一的 ) architectures exist outside embedded systems and other highly constrained environments._
+
+Generally, software systems tend to grow in functionality over time,
+requiring separation of concerns to maintain operational architecture characteristics,
+such as performance and scale.
 
 #### Client / Server
 
