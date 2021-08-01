@@ -1452,10 +1452,349 @@ distributed systems ( such as client/server ) appeared.
 
 _Few unitary ( 单一的, 统一的 ) architectures exist outside embedded systems and other highly constrained environments._
 
-Generally, software systems tend to grow in functionality over time,
-requiring separation of concerns to maintain operational architecture characteristics,
-such as performance and scale.
+**Generally, software systems tend to grow in functionality over time,**
+**requiring separation of concerns to maintain operational architecture characteristics,**
+**such as performance and scale.**
 
 #### Client / Server
 
+……
+
+A fundamental style in architecture separates technical functionality between **frontend and backend**,
+called _two-tier ( 两层 )_ , or _client / server_ , architecture.
+
+##### Desktop + database server
+
+##### Browser + web server
+
+##### Three-tier
+
+##### Three-Tier, Language Design, and Long-Term Implications
+
+#### Monolithic Versus Distributed Architectures
+
+##### Fallacy _( 谬误 )_ #1: The Network Is Reliable
+
+##### Fallacy #2: Latency Is Zero
+
+##### Fallacy #3: Bandwidth Is Infinite
+
+##### Fallacy #4: The Network Is Secure
+
+##### Fallacy #5: The Topology Never Changes
+
+##### Fallacy #6: There Is Only One Administrator
+
+##### Fallacy #7: Transport Cost Is Zero
+
+##### Fallacy #8: The Network Is Homogeneous
+
+##### Other Distributed Considerations
+
+## C10. Layered Architecture Style
+
+### Topology
+
+### Layers of Isolation
+
+### Adding Layers
+
+### Other Considerations
+
+### Why Use This Architecture Style
+
+### Architecture Characteristics Ratings
+
+## C11. Pipeline Architecture Style
+
+### Topology
+
+#### Pipes
+
+#### Filters
+
+### Example
+
+### Architecture Characteristics Ratings
+
+## C12. Microkernel Architecture Style
+
+### Topology
+
+#### Core System
+
+#### Plug-In Components
+
+### Registry
+
+### Contracts
+
+### Examples of Use Cases
+
+### Architecture Characteristics Ratings
+
+## C13. Service-Based Architecture Style
+
+### Topology
+
+### Topology Variants
+
+### Service Design and Granularity
+
+### Database Partitioning
+
+### Example Architecture
+
+### Architecture Characteristics Ratings
+
+### When to Use This Architecture Style
+
+## C14. Event-Driven Architecture Style
+
+### Topology
+### Broker Topology
+### Mediator Topology
+### Asynchronous Capabilities
+### Error Handling
+### Prevent Data Loss
+### Broadcast Capabilities
+### Request-Reply
+### Choosing Between Request-Reply and Event-Based
+### Hybrid Event-Driven Architectures
+### Architecture Characteristics Ratings
+
+## C15. Space-Based Architecture Style
+
+### General Topology
+
+#### Processing Unit
+
+#### Virtualized Middleware
+
+#### Data Pumps _( 泵 )_
+
+#### Data Writers
+
+#### Data Readers
+
+### Data Collisions
+
+### Cloud Versus On-Premises _( 内部部署 )_ Implementations
+
+### Replicated Versus Distributed Caching
+
+### Near-Cahce Consideratio
+
+### Implementation Examples
+
+#### Correct Ticketing System
+
+#### Online Auction System
+
+### Architecture Characteristics Ratings
+
+## C16. Orchestration-Driven Service-Oriented Architecture
+
+### History and Philosophy
+
+### Topology
+
+### Taxonomy
+
+#### Business Services
+
+#### Enterprise Services
+
+#### Application Services
+
+#### Infrastructure Services
+
+#### Orchestration Services
+
+#### Message Flow
+
+### Reuse … and Coupling
+
+### Architecture Characteristics Ratings
+
+## C17. Microservices Architecture
+
+### History
+
+### Topology
+
+### Distributed
+
+### Bounded Context
+
+#### Granularity
+
+#### Data Isolation
+
+### API Layer
+
+### Operational Reuse
+
+### Frontends _( 前端的 )_
+
+### Communication
+
+#### Choreography _( 舞蹈舞蹈设计 )_ and Orchestration
+
+#### Transactions and Sages _( 圣人, 智者 )_
+
+### Architecture Characteristics Ratings
+
+### Additional References
+
+## C18. Choosing the Appropriate Architecture Style
+
+### Shifting "Fashion" in Architecture
+
+### Decision Criteria _( 标准, 条件 )_
+
+### Monolith Case Study: Silicon Sandwiches
+
+#### Modular Monolith
+
+#### Microkernel
+
+### Distributed Case Study: Going, Going, Gone
+
 # Part 3. Techniques and Soft Skills
+
+## C19. Architecture Decisions
+
+### Architecture Decision **Anti-Patterns**
+
+#### Governing Your Assets Anti-Pattern
+
+#### Groundhog Day _( 土拨鼠日 )_ Anti-Pattern
+
+#### Email-Driven Architecture Anti-Pattern
+
+### Architecturally Significant
+
+### Architecture Decision Records
+
+#### Basic Structure
+
+#### Storing ADRs
+
+#### ADRs as Documentation
+
+#### Using ADRs for Standards
+
+#### Example
+
+## C20. Analyzing Architecture Risk
+
+### Risk Matrix
+
+### Risk Assessments _( 估价 )_
+
+### Risk Storming
+
+#### Identification
+
+#### Consensus
+
+### Agile Story Risk Analysis
+
+### Risk Storming Examples
+
+#### Availability
+
+#### Elasticity _( 弹性 )_
+
+#### Security
+
+## C21. Diagramming and Presenting Architecture
+
+### Diagramming
+
+#### Tools
+
+#### Diagramming Standards: UML, C4, and ArchiMate
+
+#### Diagram Guidelines
+
+### Presenting
+
+#### Manipulating Time
+
+#### Incremental Builds
+
+#### Infodecks Versus Presentations
+
+#### Slides Are Half of the Story
+
+#### Invisibility
+
+## C22. Making Teams Effective
+
+### Team Boundaries
+
+### Architect Personalities
+
+#### Control Freak _( 怪物; 反常的事 )_
+
+#### Armchair _( 扶手椅 )_ Architect
+
+#### Effective Architect
+
+### How Much Control?
+
+### Team Warning Signs
+
+### Leveraging Checklists
+
+#### Developer Code Completion Checklist
+
+#### Unit and Functional Testing Checklist
+
+#### Software Release Checklist
+
+### Providing Guidance
+
+### Summary
+
+## C23. Negotiation and Leadership Skills
+
+### Negotiation and Facilitation _( 助长, 简易化 )_
+
+#### Negotiating with Business Stakeholders
+
+#### Negotiating with Other Architects
+
+#### Negotiating with Developers
+
+### The Software Architect as a Leader
+
+#### The 4 C's of Architecture
+
+#### Be Pragmatic, Yet Visionary _( 有眼光的, 有远见的 )_
+
+#### Leading Teams By Example
+
+### Integrating with the Development Team
+
+### Summary
+
+## C24. Developing a Career Path
+
+### The 20-Minute Rule
+
+### Developing a Personal Radar
+
+#### The ThoughtWorks Technology Radar
+
+#### Open Source Visualization Bits
+
+### Using Social Media
+
+### Parting Words of Advice
+
+# Appendix. Self-Assessment Questions
+
+# Index
