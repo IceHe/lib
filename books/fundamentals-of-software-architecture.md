@@ -1552,15 +1552,25 @@ called _two-tier ( 两层 )_ , or _client / server_ , architecture.
 ## C14. Event-Driven Architecture Style
 
 ### Topology
+
 ### Broker Topology
+
 ### Mediator Topology
+
 ### Asynchronous Capabilities
+
 ### Error Handling
+
 ### Prevent Data Loss
+
 ### Broadcast Capabilities
+
 ### Request-Reply
+
 ### Choosing Between Request-Reply and Event-Based
+
 ### Hybrid Event-Driven Architectures
+
 ### Architecture Characteristics Ratings
 
 ## C15. Space-Based Architecture Style
