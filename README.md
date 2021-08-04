@@ -536,7 +536,7 @@ Timeline
 - [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
 - [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR principle](/snips/principles/star.md): Situation → Target → Action → Result
-- [Job Tips from Weibo](/snips/principles/job-tips-from-weibo.md): 九边 / tombkeeper / 蛋疼的 axb / …
+- [Job Tips from Weibo](/snips/principles/job-tips-from-weibo.md): 九边 / tombkeeper / …
 - [Deployment Checklist](/snips/tmp/deployment-checklist.md): Avoid low-level mistakes
 
 <!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
