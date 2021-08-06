@@ -114,6 +114,8 @@ git branch
     -d | --delete
     # force to delete
     -D
+    # rename
+    -m
 
 git checkout
 
