@@ -131,7 +131,9 @@ File Path
 
 ## Versions
 
-### Use CMS _( beofre 2019.9 )_
+### CMS
+
+_before 2019-09_
 
 - `-XX:+UseConcMarkSweepGC`
 
@@ -157,7 +159,52 @@ File Path
 -ea
 ```
 
-### Try ZGC _( 2020.09.03 )_
+### ParNew + CMS
+
+_2021-08-06_
+_from YuanFuDao_
+
+- `-XX:+UseParNewGC`
+- `-XX:+UseConcMarkSweepGC`
+
+```bash
+-Xms6144m
+-Xmx6144m
+-Xmn2048m
+-XX:PermSize=512m
+-XX:MaxPermSize=768m
+-Xss512K
+-XX:ReservedCodeCacheSize=256m
+-XX:SurvivorRatio=1
+-XX:+UseParNewGC
+-XX:+UseConcMarkSweepGC
+-XX:+UseCMSCompactAtFullCollection
+-XX:+UseCMSInitiatingOccupancyOnly
+-XX:CMSInitiatingOccupancyFraction=70
+-XX:+CMSParallelRemarkEnabled
+-XX:+CMSClassUnloadingEnabled
+-XX:CMSFullGCsBeforeCompaction=0
+-XX:LargePageSizeInBytes=200M
+-Dsun.io.useCanonCaches=false
+-Djava.net.preferIPv4Stack=true
+-Dsun.rmi.dgc.client.gcInterval=10800000
+-Dsun.rmi.dgc.server.gcInterval=10800000
+-XX:SoftRefLRUPolicyMSPerMB=0
+-XX:+DisableExplicitGC
+-XX:+PrintClassHistogram
+-XX:+PrintGCDetails
+-XX:+PrintGCTimeStamps
+-XX:+PrintHeapAtGC
+
+-XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
+-XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
+-Xbootclasspath/a:../lib/boot.jar
+-XX:MaxPermSize=512m
+```
+
+### ZGC Trial
+
+_2020-09-03_
 
 - `-XX:+UseConcMarkSweepGC`
 - `-XX:+UseZGC`
@@ -185,7 +232,9 @@ File Path
 -ea
 ```
 
-### Use ZGC _( 2020.09.04 )_
+### ZGC Ver.1
+
+_2020-09-04_
 
 - `-XX:+UseG1GC`
 
@@ -211,8 +260,66 @@ File Path
 -ea
 ```
 
-### Current
+### IntelliJ IDEA Ultimate Default
 
-- Same as above on 2020-09-06
+_2021-08-06_
+_from JetBrains IDE - IntelliJ IDEA Ultimate_
+
+- `-XX:+UseG1GC`
+
+```bash
+-Xms128m
+-Xmx2048m
+-XX:ReservedCodeCacheSize=512m
+-XX:+UseG1GC
+-XX:SoftRefLRUPolicyMSPerMB=50
+-XX:CICompilerCount=2
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:-OmitStackTraceInFastThrow
+-ea
+-Dsun.io.useCanonCaches=false
+-Djdk.http.auth.tunneling.disabledSchemes=""
+-Djdk.attach.allowAttachSelf=true
+-Djdk.module.illegalAccess.silent=true
+-Dkotlinx.coroutines.debug=off
+-XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
+-XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
+-Dide.no.platform.update=true
+-Dtoolbox.notification.token=2BfpYmssU2s6j63glx2Vi6D8LXNftgsNUmfu3ucncwk=
+-Dtoolbox.notification.portFile=/Users/icehe/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/211.7628.21/IntelliJ IDEA.app.vmoptions.port
+```
+
+### ZGC Ver.2
+
+_2021-08-06_
+
+```bash
+-ea
+-Xms6144m
+-Xmx6144m
+-XX:+UseG1GC
+-XX:+UseCompressedOops
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:-OmitStackTraceInFastThrow
+-XX:CICompilerCount=2
+-XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
+-XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
+-XX:ReservedCodeCacheSize=512m
+-XX:SoftRefLRUPolicyMSPerMB=50
+-Xverify:none
+-Dfile.encoding=UTF-8
+-Dide.no.platform.update=true
+-Djava.net.preferIPv4Stack=true
+-Djdk.attach.allowAttachSelf=true
+-Djdk.module.illegalAccess.silent=true
+-Djdk.http.auth.tunneling.disabledSchemes=""
+-Dkotlinx.coroutines.debug=off
+-Dsun.io.useCanonCaches=false
+-Dsun.io.useCanonPrefixCache=false
+-Dtoolbox.notification.token=2BfpYmssU2s6j63glx2Vi6D8LXNftgsNUmfu3ucncwk=
+-Dtoolbox.notification.portFile=/Users/icehe/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/211.7628.21/IntelliJ IDEA.app.vmoptions.port
+```
+
+### ZGC Current
 
 [File : .idea.vmoptions](.idea.vmoptions ':include :type=code java')
