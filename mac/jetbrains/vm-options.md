@@ -162,7 +162,7 @@ _before 2019-09_
 ### ParNew + CMS
 
 _2021-08-06_
-_from YuanFuDao_
+_from a forum_
 
 - `-XX:+UseParNewGC`
 - `-XX:+UseConcMarkSweepGC`
@@ -285,8 +285,8 @@ _from JetBrains IDE - IntelliJ IDEA Ultimate_
 -XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
 -XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
 -Dide.no.platform.update=true
--Dtoolbox.notification.token=2BfpYmssU2s6j63glx2Vi6D8LXNftgsNUmfu3ucncwk=
--Dtoolbox.notification.portFile=/Users/icehe/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/211.7628.21/IntelliJ IDEA.app.vmoptions.port
+-Dtoolbox.notification.token=[SECRET]
+-Dtoolbox.notification.portFile=[SECRET]
 ```
 
 ### ZGC Ver.2
@@ -316,8 +316,8 @@ _2021-08-06_
 -Dkotlinx.coroutines.debug=off
 -Dsun.io.useCanonCaches=false
 -Dsun.io.useCanonPrefixCache=false
--Dtoolbox.notification.token=2BfpYmssU2s6j63glx2Vi6D8LXNftgsNUmfu3ucncwk=
--Dtoolbox.notification.portFile=/Users/icehe/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/211.7628.21/IntelliJ IDEA.app.vmoptions.port
+-Dtoolbox.notification.token=[SECRET]
+-Dtoolbox.notification.portFile=[SECRET]
 ```
 
 ### ZGC Current

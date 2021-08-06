@@ -20,5 +20,5 @@
 -Dkotlinx.coroutines.debug=off
 -Dsun.io.useCanonCaches=false
 -Dsun.io.useCanonPrefixCache=false
--Dtoolbox.notification.token=2BfpYmssU2s6j63glx2Vi6D8LXNftgsNUmfu3ucncwk=
--Dtoolbox.notification.portFile=/Users/icehe/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/211.7628.21/IntelliJ IDEA.app.vmoptions.port
+-Dtoolbox.notification.token=[SECRET]
+-Dtoolbox.notification.portFile=[SECRET]
