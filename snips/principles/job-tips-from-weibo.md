@@ -332,10 +332,12 @@
 
 进度:
 
-- [ ] tombkeeper 的微博标签 "定期renew"
-    https://weibo.com/1401527553/profile?is_search=0&visible=0&is_tag=1&tag_name=%E5%AE%9A%E6%9C%9Frenew&profile_ftype=1&page=12#feedtop
-- [ ] 忘了哪个.xyz
-- [ ] 九边 / 基地二号头目?
+- [ ] VicodinXYZ
+    - https://weibo.com/dropthethe
+- [ ] 九边 / 组织二号头目
+    - https://weibo.com/u/1782961197?is_all=1#1628403371940
+- [ ] caoz
+    - https://weibo.com/caoz
 
 <!--
 
