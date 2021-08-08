@@ -555,6 +555,7 @@ Reference : https://www.computerhope.com/keys.htm
 - multi : multiple
 - mv : [move](https://en.wikipedia.org/wiki/Move_(command)) ( for CLI )
 - MVCC : 多版本并行控制
+- MYOB : Mind your own bussiness. 管好你自己的事
 
 ### N
 
@@ -562,12 +563,17 @@ Reference : https://www.computerhope.com/keys.htm
     - for CLI : number (`head` `tail`) | not (`make`)
 - n/a , N/A , n.a. : [not applicable](https://en.wikipedia.org/wiki/N/a) 不适用
 - NaN : [Not a Number](https://en.wikipedia.org/wiki/NaN)
+- NE : any
+- NE1 : anyone
 - NFS : [Network File System](https://en.wikipedia.org/wiki/Network_File_System)
 - nio : new Input/Output ( 特性 Non-blocking ) ( for Java )
 - NLJ : Nested-Loop Join 算法 ( for SQL : Index/Simple/Block NLJ )
+- NM : Never mind.
 - No. : number
 - no-no : n. 禁忌；不可作之事
 - NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"
+- NOYB : None of your businness. 与你无关
+- NP : No problem.
 - NPE : Null Pointer Exception ( Linux | java.lang.NullPointerException )
 - NRT : Near Realtime
 - ns : [namespace](https://en.wikipedia.org/wiki/Namespace)
@@ -576,17 +582,23 @@ Reference : https://www.computerhope.com/keys.htm
     - [Null-terminated string](https://en.wikipedia.org/wiki/Null-terminated_string)
 - num : number
 - NR : number
+- NW : No way. 没门
+- nvr : never
 - nx : not exist ( for Redis )
 
 ### O
 
 - o : output ( also for CLI )
+- O4Y : only for you
 - obj : object
 - oct : octal
     - Oct : October
 - OKR : [Objective & Key Results](http://blog.devtang.com/2018/11/22/okr-introduction/)
 - OLAP : 在线分析处理
 - OLTP : 在线事务处理
+- OMD : Oh my god!
+- OMW : On my way. 在路上
+- onl : online
 - OOM : Out Of Memory
     - 源于 java.lang.OutOfMemoryError, 当 JVM 没有足够内存来为对象分配空间, 并且垃圾回收器也无法回收空间时, 系统出现的严重状态
 - OOP : Object Oriented Programming
@@ -600,6 +612,7 @@ Reference : https://www.computerhope.com/keys.htm
 - OSPF : Open Shortest Path First 开放最短链路优先
 - OSS : [Object Storage Service](https://www.aliyun.com/product/oss?spm=a2c4g.11186623.2.10.4d933abdzkr1xJ)
 - oth : others
+- othd : on the other hand
 - TS : [TableStore](https://help.aliyun.com/document_detail/27280.html?spm=5176.54465.905680.docots.43fe17bb9x3HRi)
 - OOTB : [out-of-the-box](https://en.wikipedia.org/wiki/Out_of_the_box_(feature))
 
@@ -612,6 +625,7 @@ Reference : https://www.computerhope.com/keys.htm
 - Pangu : 阿里云 盘古分布式文件系统
 - param : parameter
 - PCB : [Process Control Block](https://en.wikipedia.org/wiki/Process_control_block) ( task struct )
+- PCM : Please call me.
 - PCRE : [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions)
 - pct : percent ( for MySQL )
 - PDCA : [Plan-Do-Check-Act](https://en.wikipedia.org/wiki/PDCA)
@@ -621,8 +635,11 @@ Reference : https://www.computerhope.com/keys.htm
 - pf : prefix | process flags ( for kernel )
 - PFAIL : Possibly Fail ( for Redis Cluster )
 - pg : page
+- pic : picture
 - pid : [process id](https://en.wikipedia.org/wiki/Process_identifier)
 - pk : primary key ( for SQL )
+- pls : please
+- plz : please
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
 - POJO : Plain Ordinary Java Object
     - 通常专指只有 setter / getter / toString 的简单类, 包括 DO/DTO/BO/VO 等
@@ -650,6 +667,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pub : public
 - pw , pwd : passowrd
 - pwd : [print working directory](https://en.wikipedia.org/wiki/Pwd)
+- PXT : Please explain that. 请解释一下
 - py : python
 
 ### Q
@@ -657,9 +675,11 @@ Reference : https://www.computerhope.com/keys.htm
 - q : [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) | question | quiet ( for CLI )
 - QA : [quality assurance](https://en.wikipedia.org/wiki/Quality_assurance)
 - Q & A : [Questions & Answers](https://en.wikipedia.org/wiki/Q%26A)
+- qik : quick
 - QoE : [Quality of Experience](https://en.wikipedia.org/wiki/Quality_of_experience)
 - QoS : [Quality of Service](https://en.wikipedia.org/wiki/Quality_of_service)
 - qps : [queries per second](https://en.wikipedia.org/wiki/Queries_per_second)
+- QQ : cry 哭 _( looking like crying eyes )_
 - q.v. : [quod vide](https://en.wiktionary.org/wiki/quod_vide) 参见… (拉丁语)
 
 ### R
@@ -696,6 +716,7 @@ Reference : https://www.computerhope.com/keys.htm
 - RISC : Reduced Instruction-Set Computer 精简指令集计算机
 - rm : remove
 - rn : rename
+- RN : right now
 - ROI : Return On Investment 投资回报率
 - rst : result | reset 重置 ( for TCP )
 - rsp : response
@@ -713,6 +734,7 @@ Reference : https://www.computerhope.com/keys.htm
 - s
     - for CLI : silent | size | subject
     - for programing language : string
+- S2U : Same to you. 和你一样
 - S3 : [Amazon Simple Storage Service](https://aws.amazon.com/cn/s3/)
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
 - SAPI : Server API ( for PHP )
@@ -728,6 +750,7 @@ Reference : https://www.computerhope.com/keys.htm
 - serv : server | service
 - sess : session
 - sh : [shell](https://en.wikipedia.org/wiki/Shell_(computing))
+- SH^ : Shut up!
 - sha1 : [Secure Hash Algorithm 1](https://en.wikipedia.org/wiki/SHA-1)
 - shf : shift
 - shr : share
