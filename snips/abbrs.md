@@ -282,6 +282,7 @@ Reference : https://www.computerhope.com/keys.htm
 - CU : See you.
 - CUPS : [common unix printing system](https://en.wikipedia.org/wiki/CUPS)
 - cur : current
+- cuz : because / cause
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
 - CVR : [Conversion Rate](https://www.quora.com/What-is-CVR-in-digital-marketing) ( [Ad Tech](https://www.mobvista.com/en/blog/what-are-cvr-and-ctr/) ) 转化率
 - cvs : current version system | [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
@@ -392,6 +393,7 @@ Reference : https://www.computerhope.com/keys.htm
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
 - fin : finish | 结束 ( for TCP )
 - [firmwave](https://en.wikipedia.org/wiki/Firmware) ( to rm? )
+- FML : Fuck my life.
 - fmt : format
 - fn : function
 - FOSS : [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software)
@@ -428,6 +430,7 @@ Reference : https://www.computerhope.com/keys.htm
 - H : hour | header ( for CLI `curl` )
 - HA : High Availability
 - [HAProxy](https://en.wikipedia.org/wiki/HAProxy) : a high availability load balancer and proxy server
+- HBY : How about you?
 - HD : [Hard Disk](https://en.wikipedia.org/wiki/Hard_disk_drive)
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system) ( [百度百科](https://baike.baidu.com/item/hdfs/4836121) )
 - hex : heximal
@@ -453,7 +456,9 @@ Reference : https://www.computerhope.com/keys.htm
 - id : identity, identifier
     - idle ( for CLI `top` )
 - IDBI : I don't believe it.
+- IDC : I don't care.
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
+- IDGAF : I don't give a fuck. 老子/老娘不在乎
 - IDK : I don't know.
 - ids : IDs - 多个 ID
 - idx : index
@@ -523,6 +528,7 @@ Reference : https://www.computerhope.com/keys.htm
     - 二方库 : 公司内部发布到中央仓库, 可供公司内部其它应用依赖的库 (jar 包)
     - 三方库 : 公司之外的开源库 (jar 包)
 - LILO : Last In Last Out | LInux LOader
+- lmao : laughing my ass off 把屁股笑掉
 - ln : link
 - lnk : link
 - loc : location
@@ -597,6 +603,7 @@ Reference : https://www.computerhope.com/keys.htm
 - NR : number
 - NW : No way. 没门
 - nvr : never
+- NVM : Never mind.
 - nx : not exist ( for Redis )
 
 ### O
@@ -606,6 +613,7 @@ Reference : https://www.computerhope.com/keys.htm
 - obj : object
 - oct : octal
     - Oct : October
+- OIC : Oh, I see.
 - OKR : [Objective & Key Results](http://blog.devtang.com/2018/11/22/okr-introduction/)
 - OLAP : 在线分析处理
 - OLTP : 在线事务处理
@@ -658,6 +666,7 @@ Reference : https://www.computerhope.com/keys.htm
     - 通常专指只有 setter / getter / toString 的简单类, 包括 DO/DTO/BO/VO 等
 - pom : [Project Oject Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) ( for Maven )
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
+- ppl : people
 - pr : priority ( for CLI )
 - pre- : before ( in time, place, order, degree, or importance ) 前，在前 / 先于，预先
 - preg : [PECL](https://en.wikipedia.org/wiki/PEAR#PECL) regular expression
@@ -772,6 +781,7 @@ Reference : https://www.computerhope.com/keys.htm
 - sig : signal | signature
 - sim : simple , simplify
 - SJF : Shortest Job First ( for OS )
+- sksksk : snickering 哈哈哈
 - SKU : [Stock Keeping Unit](https://en.wikipedia.org/wiki/Stock_keeping_unit)（库存量单位）库存进出计量的单位
 - slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - sm1 : someone
@@ -791,6 +801,7 @@ Reference : https://www.computerhope.com/keys.htm
 - spk : speak | speaker
 - SPU : [Standard Product Unit](https://www.zhihu.com/question/29073730)（标准化产品单元）商品信息聚合的最小单位
 - src : source
+- srsly : seriously
 - sry : sorry
 - SRJF : Shortest Remaining Job First ( for OS )
 - ssh : [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)
@@ -849,6 +860,7 @@ Reference : https://www.computerhope.com/keys.htm
 - tsk : task ( for Linux )
 - TTL : [Time to Live](https://en.wikipedia.org/wiki/Time_to_live)
 - ttly : totally
+- TTYL : Talk to you later.
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)
 - tz : Time Zone
 
