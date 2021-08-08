@@ -143,6 +143,11 @@ Reference : https://www.computerhope.com/keys.htm
 - `0~9` One of the digits 0 ~ 9
 - `a~z` One of the alphabet a ~ z
 
+## Number
+
+- 2 : to, too, two
+- 8 : ate _( 因为发音相同 )_
+
 ## Alphabet
 
 ### A
@@ -160,6 +165,7 @@ Reference : https://www.computerhope.com/keys.htm
     - 拉丁短语，意思：特设的、特定目的的（地）、即席的、**临时的、将就的**、专案的
 - addr : address
 - AES : [Advanced Encrypted Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+- AH : at home _( commmon abroad )_
 - AIDA : [Awareness → Interest → Desire → Action](https://en.wikipedia.org/wiki/AIDA_(marketing))
 - AIR : Automatic, Indenpendent, Repeatable 即 "空气" 原则
 - AK : Access Key (ID/Secret)
@@ -175,6 +181,11 @@ Reference : https://www.computerhope.com/keys.htm
 - arg : argument
 - asc : ascend
 - asm : assembly
+- AQAP : as quick as possible
+- ASAP : as soon as possible
+- ATM : at the moment
+- ATST : at the same time
+- aweso : awesome
 - auth : authenticate
 - auto : automatic
 
@@ -183,9 +194,12 @@ Reference : https://www.computerhope.com/keys.htm
 - b : [bit](https://en.wikipedia.org/wiki/Bit)
     - for CLI : backup | batch | buffer (`df` `du` `tar`)
 - B : [byte](https://en.wikipedia.org/wiki/Byte)
+- b4 : before
 - bak : backup
 - BASE : [Basically Available, Soft state, Eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency)
 - bat : batch
+- b/c : because
+- BDay, B-Day : birthday
 - BI : Business Intelligence
 - BKA : Batched Key Access 算法 ( for SQL )
 - B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
@@ -217,6 +231,8 @@ Reference : https://www.computerhope.com/keys.htm
 - cjk : Chinese, Japenese and Korean languages (中日韩)
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 - cls : class
+- CM : Call me.
+- CMB : Call me back.
 - cmd : command
 - cmp : compare
 - cmt : comment
@@ -229,6 +245,7 @@ Reference : https://www.computerhope.com/keys.htm
 - const : constant
 - constr : [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
 - conv : convert
+- cos : because
 - COW : [Copy-On-Write](https://en.wikipedia.org/wiki/Copy-on-write)
 - cp : [copy](https://en.wikipedia.org/wiki/Copy_(command))
 - cpp : [c++](https://en.wikipedia.org/wiki/C%2B%2B)
@@ -249,6 +266,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ctl : control? / control tool?
 - ctrl : control
 - ctx : context
+- CU : See you.
 - CUPS : [common unix printing system](https://en.wikipedia.org/wiki/CUPS)
 - cur : current
 - CV : [Curriculum Vitae](https://en.wikipedia.org/wiki/Curriculum_vitae) 简历
@@ -256,6 +274,7 @@ Reference : https://www.computerhope.com/keys.htm
 - cvs : current version system | [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
 - cwd : [current working directory](https://en.wikipedia.org/wiki/Working_directory)
 - cwnd : [congestion window](https://en.wikipedia.org/wiki/TCP_congestion_control#Congestion_window) ( for TCP )
+- CX : cancelled
 
 ### D
 
@@ -275,10 +294,12 @@ Reference : https://www.computerhope.com/keys.htm
 - desc : description | descend ( for SQL )
 - del : delete
 - dev : development | device
+- DF : dear friend
 - diff : differ | difference
 - DIP : [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
 - DIP : Director IP 转发地址
 - dir : directory
+- dl : download
 - dll : [dynamic link library](https://en.wikipedia.org/wiki/Dynamic-link_library)
 - DMA : [Direct Memory Access](https://en.wikipedia.org/wiki/Direct_memory_access)
 - dmg : [Apple Disk Image](https://en.wikipedia.org/wiki/Apple_Disk_Image)
@@ -297,6 +318,7 @@ Reference : https://www.computerhope.com/keys.htm
 - e : element | error | exception | exponent
     - for CLI : edit | equal (`test`) | exclude | execute | expression
 - E : exponent 指数 ( [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) )
+- e1, every1 : everyone
 - EC2 : [Amazon Elastic Compute Cloud](https://aws.amazon.com/cn/ec2/)
 - ECMA : [European Computer Manufacturers Association](https://en.wikipedia.org/wiki/Ecma_International)
 - e.g. : for example
@@ -339,6 +361,8 @@ Reference : https://www.computerhope.com/keys.htm
     | [exponent](https://en.wikipedia.org/wiki/Scientific_notation#E-notation)
 - expr : expression
 - ext : extension | extract | extra | exterior
+- ez : easy
+- ezy : easy
 
 ### F
 
@@ -347,9 +371,11 @@ Reference : https://www.computerhope.com/keys.htm
     - for programing language : float
 - F : full ( for CLI )
 - [Fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) ( from Wikipedia ) 分布式计算的谬误（错误假设）
+- F2F : face to face
 - FAQ : [Frequently Asked Questions](https://en.wikipedia.org/wiki/FAQ) 常见问题
 - FCFS : First Come First Serve ( for OS )
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
+- FE : for example
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
 - fin : finish | 结束 ( for TCP )
 - [firmwave](https://en.wikipedia.org/wiki/Firmware) ( to rm? )
@@ -358,6 +384,7 @@ Reference : https://www.computerhope.com/keys.htm
 - FOSS : [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software)
 - fs : [file system](https://en.wikipedia.org/wiki/File_system)
 - fst : first ( see in Java class "Pair" )
+- FTF : face to face
 - func : function
 - Fuxi : 阿里云 伏羲分布式资源管理
 - FYI : [For Your Infomation](https://en.wikipedia.org/wiki/FYI) 供参考
@@ -365,14 +392,19 @@ Reference : https://www.computerhope.com/keys.htm
 ### G
 
 - G : billion 十亿
+- GA : go ahead
 - GAV : GroupId, ArtifactId, Version : 即 Maven 坐标, 唯一标识 jar 包
+- GB : gigabyte / Goodbye / Great Britain
 - gen : generate
 - GFM : [Github Flavored Markdown](https://github.github.com/gfm/)
 - GFW : [Great Fire Wall](https://en.wikipedia.org/wiki/Great_Firewall)
 - gid : group id
+- GJ : good job
 - glob : [glob patterns](https://en.wikipedia.org/wiki/Glob_(programming))
 - GMT : [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) 格林威治时间
+- GN : good night
 - gpg : [GNU Privacy Guard](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)
+- GRATZ : gragulations
 - GRUB : [GRand Unified Bootloader](https://en.wikipedia.org/wiki/GNU_GRUB)
 - GTID : [Global Transaction Identifier](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-concepts.html) ( for MySQL )
 
@@ -387,6 +419,7 @@ Reference : https://www.computerhope.com/keys.htm
 - HDFS : [Hadoop Distributed File System](https://en.wikipedia.org/wiki/Apache_Hadoop#Hadoop_distributed_file_system) ( [百度百科](https://baike.baidu.com/item/hdfs/4836121) )
 - hex : heximal
 - hi : hard interrupt ( for CLI `top` )
+- HowZ : How is
 - HRBP : [Human Resource Business Partner](https://baike.baidu.com/item/HRBP)
 - hr : hour | human resource
 - hrs : hours
@@ -401,15 +434,19 @@ Reference : https://www.computerhope.com/keys.htm
 - i14y : interoperability
 - i18n : internationalization
 - IaaS : 基础设施即服务 [Infrastructure as a Service](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)
+- IC : I see. _( 好吧, 我知道了 )_
 - ico : icon
 - ICMP : [Internet Control Message Protocol](https://baike.baidu.com/item/ICMP) ( for Network )
 - id : identity, identifier
     - idle ( for CLI `top` )
+- IDBI : I don't believe it.
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
-- id : IDs - 多个 ID
+- IDK : I don't know.
+- ids : IDs - 多个 ID
 - idx : index
 - i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）
 - IFS : Internal Field Seperators ( for CLI )
+- IK : I know.
 - img : image
 - imp : improve
 - impl : implement
@@ -431,8 +468,10 @@ Reference : https://www.computerhope.com/keys.htm
 - j : jump | bzip2 ( for CLI )
 - jar : [Java Archive file](https://en.wikipedia.org/wiki/JAR_(file_format))
 - jd : job description
+- JDI : Just do it.
 - JEP : [JDK Enhancement-Proposal](http://openjdk.java.net/jeps/0)
 - JFGI : Just Fucking Google It
+- JK : Just kidding.
 - JNI : Java Native Interface ?
 - jr : job requirement
 - Jr. : Junior 初级的
@@ -827,6 +866,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - y : year
     - for CLI : yes
+- Y : Why
 - Y2K38 Problem : Year 2038
 - yacc : [yet another compiler compiler](https://en.wikipedia.org/wiki/Yacc)
 - YMMV : [Your Mileage May Vary](https://dictionary.cambridge.org/us/dictionary/english/ymmv)
