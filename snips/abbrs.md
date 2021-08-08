@@ -143,9 +143,22 @@ Reference : https://www.computerhope.com/keys.htm
 - `0~9` One of the digits 0 ~ 9
 - `a~z` One of the alphabet a ~ z
 
+### Others
+
+- `*$` Starbucks
+- `**//` wink wink, nudge nudge 眨眼
+
 ## Number
 
+- 121 : one to one
+- 182 : I hate you.
+- 1dful : wonderful
 - 2 : to, too, two
+- 24/7 : 24 hours everyday
+- 2day : today
+- 2qt : too cute
+- 4e : forever
+- 4nr : foreigner
 - 8 : ate _( 因为发音相同 )_
 
 ## Alphabet
@@ -735,6 +748,7 @@ Reference : https://www.computerhope.com/keys.htm
     - for CLI : silent | size | subject
     - for programing language : string
 - S2U : Same to you. 和你一样
+- S2S : Sorry to say. 很抱歉告诉你
 - S3 : [Amazon Simple Storage Service](https://aws.amazon.com/cn/s3/)
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
 - SAPI : Server API ( for PHP )
@@ -760,6 +774,7 @@ Reference : https://www.computerhope.com/keys.htm
 - SJF : Shortest Job First ( for OS )
 - SKU : [Stock Keeping Unit](https://en.wikipedia.org/wiki/Stock_keeping_unit)（库存量单位）库存进出计量的单位
 - slb : [server load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
+- sm1 : someone
 - SMP : [Symmetric Multiprocessing](https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%A4%9A%E5%A4%84%E7%90%86) 对称多处理
     - 指在一个计算机上汇集了一组处理器(多CPU)，各 CPU 之间共享内存子系统以及总线结构。
 - snd : send | second ( see in Java class "Pair" )
@@ -769,11 +784,14 @@ Reference : https://www.computerhope.com/keys.htm
 - SOAP : [Simple Object Access Protocol](https://en.wikipedia.org/wiki/SOAP) ( based on XML )
 - SoC , SOC : [System on Chip](https://en.wikipedia.org/wiki/System_on_a_chip)
     - Chip or IC : [Integrated Circuit](https://en.wikipedia.org/wiki/Integrated_circuit) 集成电路
+- SOL : sooner or later 早晚
 - SOP : Standard Operating Procedure 标准操作程序
+- soz : sorry
 - spec : specific | specified | specification
 - spk : speak | speaker
 - SPU : [Standard Product Unit](https://www.zhihu.com/question/29073730)（标准化产品单元）商品信息聚合的最小单位
 - src : source
+- sry : sorry
 - SRJF : Shortest Remaining Job First ( for OS )
 - ssh : [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)
 - SSL : [Secure Sockets Layer](https://en.wikipedia.org/wiki/Transport_Layer_Security) ( deprecated )
@@ -785,6 +803,7 @@ Reference : https://www.computerhope.com/keys.htm
 - stmt : statement ( for SQL )
 - str : string
 - sub : subscribe, subscription
+- SUL : See you later. 再见
 - sum : summary | summation
 - supremum : InnoDB 给每个索引添加了一个不存在的最大值
     - 以符合间隙锁（next-key lock）的前开后闭区间。
@@ -802,7 +821,10 @@ Reference : https://www.computerhope.com/keys.htm
 - TA : teaching assistant
 - TB : team building
 - tb : table ( for SQL )
-- TBD : [To Be Determinated](https://en.wikipedia.org/wiki/To_be_announced)
+- TBC : to be continued 未完待续
+- TBD : [to be determinated](https://en.wikipedia.org/wiki/To_be_announced)
+- TBH : to be honest
+- TC : Take care. 保重
 - TCP : [Transmission Control Protocol](https://hit-alibaba.github.io/interview/basic/network/TCP.html)
 - TDA : tell-don't-ask 只管命令, 不要询问
 - tel : tell | telephone
@@ -810,6 +832,7 @@ Reference : https://www.computerhope.com/keys.htm
 - templ : template
 - term : terminate 中止 | [terminal](https://en.wikipedia.org/wiki/Terminal_emulator) 终端
 - tgid : thread group id
+- thx : thanks
 - tid : thread id
 - tl : tool? ( for Linux )
 - TL;DR : [too long; didn't read.](https://en.wikipedia.org/wiki/TL;DR)
@@ -825,6 +848,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ts : [timestamp](https://en.wikipedia.org/wiki/Timestamp)
 - tsk : task ( for Linux )
 - TTL : [Time to Live](https://en.wikipedia.org/wiki/Time_to_live)
+- ttly : totally
 - txt : plain [text file](https://en.wikipedia.org/wiki/Text_file)
 - tz : Time Zone
 
@@ -841,8 +865,10 @@ Reference : https://www.computerhope.com/keys.htm
 - uni : unique
 - uniq : unique
 - upd : update
+- ur : you are …
 - URG : urgent 紧急 ( for TCP )
 - usr : user
+- usu : usually
 - UTC : [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) 协调世界时
     - English speakers originally proposed CUT ( for "coordinated universal time" ), while French speakers proposed TUC ( for "temps universel coordonné" ) . The compromise that emerged was UTC.
 - UTS : [Universal Time-sharing System](https://en.wikipedia.org/wiki/Universal_Time-Sharing_System)
@@ -869,25 +895,37 @@ Reference : https://www.computerhope.com/keys.htm
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
 - vol : volume
 - VP : [Vice President](https://en.wikipedia.org/wiki/Vice_president) 副总裁
+- vry : very
 
 ### W
 
 - w : word
     - for CLI : who | width
+- w8 : wait
+- WAM : Wait a minute/moment. 等一下
 - WAN : [Wide Area Network](https://en.wikipedia.org/wiki/Wide_area_network)
+- wan2 : want to
+- WB : Welcome back. 欢迎回来 / 微博
+- WBU : What about you?
+- WC : Who cares. 谁关心啊
 - win : window
 - WIP : [Work In Process](https://en.wikipedia.org/wiki/Work_in_process) or Progress
 - wk : week
 - wnd : window
+- wrk : work
 - ws : [Web Service](https://en.wikipedia.org/wiki/Web_service)
 - wtf : [what the fuck](https://en.wikipedia.org/wiki/Fuck#Modern_usage)
 - www : [world wide web](https://en.wikipedia.org/wiki/World_Wide_Web)
+- wx : weather / 微信
 
 ### X
 
 - x : unknown number
     - for CLI : extended | debug (`sh`) | extract (`tar` `zip`)
 - xdm : [X Display Manager](https://en.wikipedia.org/wiki/X_display_manager)
+- XME : Excuse me.
+- xu : Kiss you.
+- XOXO : Kiss and hugs. 亲亲抱抱
 - xx : exist ( for Redis )
 
 ### Y
@@ -897,8 +935,11 @@ Reference : https://www.computerhope.com/keys.htm
 - Y : Why
 - Y2K38 Problem : Year 2038
 - yacc : [yet another compiler compiler](https://en.wikipedia.org/wiki/Yacc)
+- yep : yes
+- YKW : You know what? 你知道么 / you-known-what 那个东西 _( 不需或不便言明的 )_
 - YMMV : [Your Mileage May Vary](https://dictionary.cambridge.org/us/dictionary/english/ymmv)
-- yr : year
+- yup : yes
+- yr : year / yeah / right / your
 - yrs : years | yours
 
 ### Z
@@ -906,4 +947,4 @@ Reference : https://www.computerhope.com/keys.htm
 - z
     - for CLI : gzip | compress ( `tar` `bzip` )
 - zk : [ZooKeeper](https://en.wikipedia.org/wiki/Apache_ZooKeeper) 分布式配置服务
-- zzz : fall asleep
+- zzz : fall asleep _( 困 / 在睡觉 )_
