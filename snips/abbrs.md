@@ -168,7 +168,7 @@ Reference : https://www.computerhope.com/keys.htm
 - AH : at home _( commmon abroad )_
 - AIDA : [Awareness → Interest → Desire → Action](https://en.wikipedia.org/wiki/AIDA_(marketing))
 - AIR : Automatic, Indenpendent, Repeatable 即 "空气" 原则
-- AK : Access Key (ID/Secret)
+- AK : Access Key ( ID / Secret )
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - Apache : "a patchy" server | [Apache HTTP Server](https://en.wikipedia.org/wiki/Apache_HTTP_Server)
 - AOF : [Append Only File](https://redis.io/topics/persistence)
@@ -192,7 +192,7 @@ Reference : https://www.computerhope.com/keys.htm
 ### B
 
 - b : [bit](https://en.wikipedia.org/wiki/Bit)
-    - for CLI : backup | batch | buffer (`df` `du` `tar`)
+    - for CLI : backup | batch | buffer ( `df` `du` `tar` )
 - B : [byte](https://en.wikipedia.org/wiki/Byte)
 - b4 : before
 - bak : backup
@@ -202,7 +202,7 @@ Reference : https://www.computerhope.com/keys.htm
 - BDay, B-Day : birthday
 - BI : Business Intelligence
 - BKA : Batched Key Access 算法 ( for SQL )
-- B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年（基督之前…年）
+- B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年 ( 基督之前…年 )
 - bg : background
 - BGP : Border Gatway Protocol
 - bin : binary
@@ -226,9 +226,9 @@ Reference : https://www.computerhope.com/keys.htm
 - CDC : [Change Data Capture](https://en.wikipedia.org/wiki/Change_data_capture)
 - chan : channel ( for Go )
 - chk : check
-- CI/CD : Continuous Integration / Continuous Delivery (持续集成/持续交付)
+- CI/CD : Continuous Integration / Continuous Delivery ( 持续集成 / 持续交付 )
 - CIP : Client IP
-- cjk : Chinese, Japenese and Korean languages (中日韩)
+- cjk : Chinese, Japenese and Korean languages 中日韩
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 - cls : class
 - CM : Call me.
@@ -260,7 +260,7 @@ Reference : https://www.computerhope.com/keys.htm
     ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - CRM : Customer Relationship Management 客户关系管理
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
-    - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones)（不同国家的）中央时区
+    - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones) ( 不同国家的 ) 中央时区
 - CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
 - CTR : [Click Through Rate](https://en.wikipedia.org/wiki/Click-through_rate) 点进率
 - ctl : control? / control tool?
@@ -444,7 +444,7 @@ Reference : https://www.computerhope.com/keys.htm
 - IDK : I don't know.
 - ids : IDs - 多个 ID
 - idx : index
-- i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est)（拉丁语）即（也就是）
+- i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est) ( 拉丁语 ) 即 ( 也就是 )
 - IFS : Internal Field Seperators ( for CLI )
 - IK : I know.
 - img : image
@@ -454,7 +454,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ind : index
 - info : information
 - infra : (esp in textual annotation) [below; further on](https://www.collinsdictionary.com/dictionary/english/infra_1)
-    - (in writing) see below (拉丁语)
+    - (in writing) see below ( 拉丁语 )
 - ini : initialization (configuration files)
 - init : initiate
 - ins : insert
@@ -471,6 +471,7 @@ Reference : https://www.computerhope.com/keys.htm
 - JDI : Just do it.
 - JEP : [JDK Enhancement-Proposal](http://openjdk.java.net/jeps/0)
 - JFGI : Just Fucking Google It
+- JIK : Just in case. 以防万一
 - JK : Just kidding.
 - JNI : Java Native Interface ?
 - jr : job requirement
@@ -482,19 +483,21 @@ Reference : https://www.computerhope.com/keys.htm
 ### K
 
 - k : kilo- 千 | kill ( for CLI ) | kernel ( for Linux )
-- KA : [Key Account](https://wiki.mbalib.com/wiki/%E5%A4%A7%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86) 关键客户（大客户、重要客户）
+- KA : [Key Account](https://wiki.mbalib.com/wiki/%E5%A4%A7%E5%AE%A2%E6%88%B7%E7%AE%A1%E7%90%86) 关键客户 ( 大客户、重要客户 )
     - 其它参考：[百度百科](https://baike.baidu.com/item/Key%20Account/7288923)
 - k8s : Kubernetes
 - KiB : [kibibyte](https://en.wikipedia.org/wiki/Kibibyte) , 2^10 = 1024 bytes
     - KB : Kilobyte , 10^3 = 1000 bytes
     - Others : GiB / TiB / PiB / EiB / ZiB / YiB
 - KISS : [keep it simple, stupid](https://en.wikipedia.org/wiki/KISS_principle)
+- KIT : Keep in touch.
 
 ### L
 
 - l : length | long
     - for CLI : list | load (`gcc`) | login (`ssh`)
 - L : long
+- l8r : later
 - LAN : [Local Area Network](https://en.wikipedia.org/wiki/Local_area_network)
 - lang : language
 - LB : [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)) ( or balancer )
@@ -511,7 +514,8 @@ Reference : https://www.computerhope.com/keys.htm
 - lnk : link
 - loc : location
 - LoD : Law of Demeter 德墨忒尔法则
-- lol : Laugh Out Loud
+- lol : laugh out loud
+- lolo : Lots of love.  _很多爱. 即爱你爱你_
 - lru : least recently used
 - ls : list
 - ltd : limited
@@ -524,6 +528,7 @@ Reference : https://www.computerhope.com/keys.htm
     - for CLI : mail | message | mode | modification
 - M : month | million 百万
 - m17n : multilingualization 多语言
+- m8 : mate 哥们
 - MBR : [Master Boot Record](https://en.wikipedia.org/wiki/Master_boot_record)
 - mc : [Memcached](https://en.wikipedia.org/wiki/Memcached)
 - md : [markdown](https://en.wikipedia.org/wiki/Markdown)
@@ -624,7 +629,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pom : [Project Oject Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) ( for Maven )
 - post- : after, behind (in time or order) 后 / 晚于 / 末尾
 - pr : priority ( for CLI )
-- pre- : before (in time, place, order, degree, or importance) 前，在前 / 先于，预先
+- pre- : before ( in time, place, order, degree, or importance ) 前，在前 / 先于，预先
 - preg : [PECL](https://en.wikipedia.org/wiki/PEAR#PECL) regular expression
 - prev : previous
 - pri : private | priority ( for CLI )
@@ -816,7 +821,7 @@ Reference : https://www.computerhope.com/keys.htm
 - URG : urgent 紧急 ( for TCP )
 - usr : user
 - UTC : [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) 协调世界时
-    - English speakers originally proposed CUT (for "coordinated universal time"), while French speakers proposed TUC (for "temps universel coordonné"). The compromise that emerged was UTC.
+    - English speakers originally proposed CUT ( for "coordinated universal time" ), while French speakers proposed TUC ( for "temps universel coordonné" ) . The compromise that emerged was UTC.
 - UTS : [Universal Time-sharing System](https://en.wikipedia.org/wiki/Universal_Time-Sharing_System)
 - util : utility
 - uuid : [Universally Unique IDentifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) 通用唯一标识符
@@ -831,10 +836,10 @@ Reference : https://www.computerhope.com/keys.htm
 - VC : [Venture Capital](https://en.wikipedia.org/wiki/Venture_capital)
 - ver : version
 - vide : vt. [refer, see](https://www.collinsdictionary.com/dictionary/english/vide) 参见, 参阅
-    - [vide ante](https://www.collinsdictionary.com/dictionary/english/vide-ante) : see before; see earlier (in the book, etc.) 见前, 参见上文
-    - [vide infra](https://www.collinsdictionary.com/dictionary/english/vide-infra) : see below; see further on (in the book, etc.) 见下
-    - [vide post](https://www.collinsdictionary.com/dictionary/english/vide-post) : see after; see further on (in the book, etc.) 见后
-    - [vide supra](https://www.collinsdictionary.com/dictionary/english/vide-supra) : see above; see earlier (in the book, etc.) 见上
+    - [vide ante](https://www.collinsdictionary.com/dictionary/english/vide-ante) : see before; see earlier ( in the book, etc. ) 见前, 参见上文
+    - [vide infra](https://www.collinsdictionary.com/dictionary/english/vide-infra) : see below; see further on ( in the book, etc. ) 见下
+    - [vide post](https://www.collinsdictionary.com/dictionary/english/vide-post) : see after; see further on ( in the book, etc. ) 见后
+    - [vide supra](https://www.collinsdictionary.com/dictionary/english/vide-supra) : see above; see earlier ( in the book, etc. ) 见上
 - vim : Vi IMproved
 - VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address) 虚拟服务器地址
 - virt : virtual
