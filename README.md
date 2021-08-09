@@ -591,13 +591,13 @@ Timeline
 -   [The Tyranny of Merit](/books/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
     -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   _[Noise: a Flaw in Human Judgement](books/noise-a-flaw-in-human-judgement.md)_ _( to read )_
-    -   《 噪声: 一个人类判断力的缺陷 》
--   _[How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](https://book.douban.com/subject/35390276)_ _( reading )_
+-   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](https://book.douban.com/subject/35390276) ( to take notes )
     -   《 如何成为不完美主义者 》
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
     -   不那么在意所谓时机，更在意任务本身。
+-   _[Noise: a Flaw in Human Judgement](books/noise-a-flaw-in-human-judgement.md)_ _( to read )_
+    -   《 噪声: 一个人类判断力的缺陷 》
 
 ### Friends
 
