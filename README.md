@@ -362,17 +362,35 @@ Basics
 - [Glossaries](/java/glossaries.md)
 - [Install JDK](/java/install-jdk.md)
 - Package Manager: [Maven](/java/maven.md) & Gradle
-- Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
 
 Coding
 
 - [Notes](/java/notes.md)
-- [Snippets](/java/code-snippets/TOC.md)
+- Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
 - [Spock](/java/spock.md): unit tests ( or JUnit )
     - [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
 - [IDE - IntelliJ IDEA](/java/intellij-idea.md): usage / …
 - [Exceptions](/java/exceptions.md): exception class hierarchy / …
 - [Annotations](/java/annotations.md): Spring / Lombok / FastJson / Jackson / …
+
+Snippets
+
+- [Collection](/java/code-snippets/collection.md)
+- [Common DTOs](/java/code-snippets/common-dtos.md)
+- [Deep Clone](/java/code-snippets/deep-clone.md)
+- [Elasticsearch](/java/code-snippets/elasticsearch.md)
+- [Enum](/java/code-snippets/enum.md)
+- [Excel](/java/code-snippets/excel.md)
+- [Executor](/java/code-snippets/executor.md)
+- [HTTP](/java/code-snippets/http.md)
+- [JSON](/java/code-snippets/json.md)
+- [LocalDateTime](/java/code-snippets/local-date-time.md)
+- [MyBatis and JDBC](/java/code-snippets/mybatis-n-jdbc.md)
+- [Number](/java/code-snippets/number.md)
+- [Spring Beans](/java/code-snippets/spring-beans.md)
+- [Spring ConstraintValidator](/java/code-snippets/spring-constraint-validator.md)
+- [Stream and Optional](/java/code-snippets/stream-n-optional.md)
+- [String](/java/code-snippets/string.md)
 
 Benchmark & Stress Testing
 
