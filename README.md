@@ -40,7 +40,7 @@ Coding
 JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
 
 - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
-- [Part III. Execution Engine](/books/understand-jvm-p3.md) _( todo )_
+- [Part III. Execution Engine](/books/understand-jvm-p3.md) _( to read )_
 - Part IV. Compile and Code Optimize
 
 Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-applications-toc.md)
@@ -60,8 +60,8 @@ Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 - [Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md) _( and [TOC](/books/fundamentals-of-software-architecture-toc.md) )_
-- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( todo )_
-- [Linux Kernel](/books/linux.md) _( todo )_
+- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( to read )_
+- [Linux Kernel](/books/linux.md) _( to read )_
 - [Learn X in Y minutes](https://learnxinyminutes.com) _( Programming Language )_
 
 <!-- - [Algorithms ( 4th Edition ) - Notes](/books/algorithms-notes.md) _( reading )_ -->
@@ -69,13 +69,13 @@ Others
 
 <!-- _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--  -->
-<!-- - _[Part*  1](/books/tcp-ip-illustracted-protocols-p1.md) ( todo )_ -->
+<!-- - _[Part*  1](/books/tcp-ip-illustracted-protocols-p1.md) ( to read )_ -->
 
 <!-- Tools -->
 
 <!-- - Wireshark -->
-<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( todo )_ -->
-<!--     - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( todo )_ -->
+<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( to read )_ -->
+<!--     - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( to read )_ -->
 
 ### Snips
 
@@ -99,10 +99,10 @@ Storage
 <!--
 
 - ES
-- Basics: https://www.elastic.co ( todo )
+- Basics: https://www.elastic.co ( to read )
     - What is Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
 - MySQL
-- Basics: https://www.mysql.com ( todo )
+- Basics: https://www.mysql.com ( to read )
     - https://dev.mysql.com/doc
     - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
 
@@ -148,7 +148,7 @@ Others
 
 <!--
 
-Infrastructre _( todo )_
+Infrastructre _( to read )_
 
 - [Service Mesh](/snips/infrastructure/service-mesh.md)
 - [Envoy](/snips/infrastructure/envoy.md)
@@ -178,9 +178,9 @@ Message Queues
 
 - [kafka](/message-queues/kafka.md) ( [digest](/message-queues/kafka-digest.md) )
 - [RabbitMQ](/message-queues/rabbit-mq.md)
-- [RocketMQ](/message-queues/rocket-mq.md) ( todo )
+- [RocketMQ](/message-queues/rocket-mq.md) ( to read )
 - [ActiveMQ](/message-queues/active-mq.md)
-- [ZeroMQ](/message-queues/zero-mq.md) ( todo )
+- [ZeroMQ](/message-queues/zero-mq.md) ( to read )
 - _[MemcacheQ](/message-queues/mcq.md)_
 - _[Notes](/message-queues/notes.md)_
 
@@ -333,7 +333,7 @@ Commands
 - _[xxd](/cmd/x/xxd.md): make a hexdump or do the reverse_
 - [zsh](/cmd/z/zsh.md): one of shells
 - [Linux Abbreviations](/cmd/linux-abbrs.md)
-- _[CLI Notes](/cmd/notes.md) ( todo )_
+- _[CLI Notes](/cmd/notes.md) ( to read )_
 
 Scenes
 
