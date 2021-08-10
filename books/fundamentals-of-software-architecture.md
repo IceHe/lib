@@ -1465,11 +1465,28 @@ called _two-tier ( 两层 )_ , or _client / server_ , architecture.
 
 ##### Desktop + database server
 
+……
+
 ##### Browser + web server
+
+The separation of responsibilities was similar to the desktop variant
+but with even thinner clients as browers,
+_allowing a wider distribution both inside and outside firewalls._
+
+……
 
 ##### Three-tier
 
+……
+a database tier using an industrial-strength database server,
+an application tier managed by an application server,
+frontend coded in generated HTML,
+and increasingly, JavaScript, as its capabilities expanded.
+……
+
 ##### Three-Tier, Language Design, and Long-Term Implications
+
+
 
 #### Monolithic Versus Distributed Architectures
 
