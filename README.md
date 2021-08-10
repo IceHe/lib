@@ -361,17 +361,14 @@ Basics
 
 - [Glossaries](/java/glossaries.md)
 - [Install JDK](/java/install-jdk.md)
-- Package Manager: [Maven](/java/maven.md) & Gradle
-
-Coding
-
-- [Notes](/java/notes.md)
+- IDE: [IntelliJ IDEA](/java/intellij-idea.md) usage
 - Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
-- [Spock](/java/spock.md): unit tests ( or JUnit )
+- Package Manager: [Maven](/java/maven.md) & Gradle
+- Unit Tests: [Spock](/java/spock.md) or JUnit
     - [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
-- [IDE - IntelliJ IDEA](/java/intellij-idea.md): usage / …
-- [Exceptions](/java/exceptions.md): exception class hierarchy / …
 - [Annotations](/java/annotations.md): Spring / Lombok / FastJson / Jackson / …
+- [Exceptions](/java/exceptions.md): exception class hierarchy / …
+- [Other Notes](/java/notes.md)
 
 Snippets
 
