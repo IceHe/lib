@@ -1551,7 +1551,7 @@ the **time measured to access that service (t_remote) is measured in millisecond
 When using any distributed architecture,
 architects must know this latency average.
 
-It is the only way of determining
+It is the only way of determininpercentileg
 whether a distributed architecture is feasible,
 particularly when considering microservices
 due to the fine-grained nature of the services
