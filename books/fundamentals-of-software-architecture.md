@@ -1570,7 +1570,35 @@ It's usually this "long tail" latency that will kill performance in distributed 
 
 ##### Fallacy #3: Bandwidth Is Infinite
 
+Bandwidth is usually not a concern in monolithic architectures,
+because once processing goes into a monolith,
+little or no bandwidth is required to process that business request.
+
+Once systems are broken apart into smaller deployment units (services)
+in distributed architecture such microservices,
+communication to and between these services significantly utilizes bandwidth,
+causing networks to slow down, thus impacting latency (fallacy #2) and reliability (fallacy #1) .
+
+……
+
+**Stamp coupling** in distributed architectures consumes significant amounts of bandwidth.
+
+> Stamp coupling _is a fairly low type of coupling._
+> It is also known as **data-structure coupling**
+> because it occurs when modules share a composite data structure.
+>
+> When a composite data structure is shared between two modules,
+> some of the fields in the data structure may not even be used.
+> For example, **a module passes a composite data structure to another module,**
+> **which then just uses one field in it.**
+>
+> It is similar to **data coupling**,
+> except that the data shared is a composite data type rather than primitive data values
+> and that not all of the values shared may be used.
+
 ##### Fallacy #4: The Network Is Secure
+
+……
 
 ##### Fallacy #5: The Topology Never Changes
 
