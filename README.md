@@ -62,7 +62,7 @@ Others
 - [Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md) _( and [TOC](/books/fundamentals-of-software-architecture-toc.md) )_
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( to read )_
 - [Linux Kernel](/books/linux.md) _( to read )_
-- [Learn X in Y minutes](https://learnxinyminutes.com) _( Programming Language )_
+- [Learn X in Y minutes](https://learnxinyminutes.com) _( programming languages )_
 
 <!-- - [Algorithms ( 4th Edition ) - Notes](/books/algorithms-notes.md) _( reading )_ -->
 <!-- - [JZ Offer](/books/jz-offer.md) -->
