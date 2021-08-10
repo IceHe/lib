@@ -6,7 +6,7 @@ References
 
 - [How to enable pretty print JSON output](https://mkyong.com/java/how-to-enable-pretty-print-json-output-jackson/)
 
-### JsonUtils
+### JsonUtil
 
 ```java
 package xyz.icehe.utils;
@@ -34,9 +34,41 @@ import org.apache.commons.lang3.StringUtils;
  * @since 2020/10/19
  */
 @UtilityClass
-public class JsonUtils {
+public class JsonUtil {
 
-    public final TypeReference<Map<String, Object>> MAP_TYPE_REF = new TypeReference<Map<String, Object>>() {};
+    public final TypeReference<List<Integer>> TYPE_REF_LIST_INT = new TypeReference<List<Integer>>() {};
+
+    public final TypeReference<Set<Integer>> TYPE_REF_SET_INT = new TypeReference<Set<Integer>>() {};
+
+    public final TypeReference<Map<Integer, Double>> TYPE_REF_MAP_INT_2_DOUBLE = new TypeReference<Map<Integer, Double>>() {};
+
+    public final TypeReference<Map<Integer, Integer>> TYPE_REF_MAP_INT_2_INT = new TypeReference<Map<Integer, Integer>>() {};
+
+    public final TypeReference<Map<Integer, Long>> TYPE_REF_MAP_INT_2_LONG = new TypeReference<Map<Integer, Long>>() {};
+
+    public final TypeReference<Map<Integer, List<Integer>>> TYPE_REF_MAP_INT_2_LIST_INT = new TypeReference<Map<Integer, List<Integer>>>() {};
+
+    public final TypeReference<Map<Integer, Set<Integer>>> TYPE_REF_MAP_INT_2_SET_INT = new TypeReference<Map<Integer, Set<Integer>>>() {};
+
+    public final TypeReference<List<Long>> TYPE_REF_LIST_LONG = new TypeReference<List<Long>>() {};
+
+    public final TypeReference<Set<Long>> TYPE_REF_SET_LONG = new TypeReference<Set<Long>>() {};
+
+    public final TypeReference<Map<Long, List<Long>>> TYPE_REF_MAP_LONG_2_LIST_LONG = new TypeReference<Map<Long, List<Long>>>() {};
+
+    public final TypeReference<Map<Long, List<String>>> TYPE_REF_MAP_LONG_2_LIST_STR = new TypeReference<Map<Long, List<String>>>() {};
+
+    public final TypeReference<Map<String, Object>> TYPE_REF_MAP_STR_2_OBJ = new TypeReference<Map<String, Object>>() {};
+
+    public final TypeReference<List<String>> TYPE_REF_LIST_STR = new TypeReference<List<String>>() {};
+
+    public final TypeReference<Set<String>> TYPE_REF_SET_STR = new TypeReference<Set<String>>() {};
+
+    public final TypeReference<Map<String, String>> TYPE_REF_MAP_STR_2_STR = new TypeReference<Map<String, String>>() {};
+
+    public final TypeReference<Map<String, List<String>>> TYPE_REF_MAP_STR_2_LIST_STR = new TypeReference<Map<String, List<String>>>() {};
+
+    public final TypeReference<Map<String, Object>> TYPE_REF_MAP_STR_2_OBJ = new TypeReference<Map<String, Object>>() {};
 
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -205,7 +237,7 @@ public class JsonUtils {
             return Collections.emptyMap();
         }
         try {
-            return mapper.convertValue(object, MAP_TYPE_REF);
+            return mapper.convertValue(object, TYPE_REF_MAP_STR_2_OBJ);
         } catch (Exception e) {
             return Collections.emptyMap();
         }
@@ -221,7 +253,7 @@ public class JsonUtils {
         if (null == object) {
             return Collections.emptyMap();
         }
-        return mapper.convertValue(object, MAP_TYPE_REF);
+        return mapper.convertValue(object, TYPE_REF_MAP_STR_2_OBJ);
     }
 }
 
