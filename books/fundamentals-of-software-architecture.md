@@ -1477,22 +1477,96 @@ _allowing a wider distribution both inside and outside firewalls._
 
 ##### Three-tier
 
-……
-a database tier using an industrial-strength database server,
+…… a database tier using an industrial-strength database server,
 an application tier managed by an application server,
 frontend coded in generated HTML,
 and increasingly, JavaScript, as its capabilities expanded.
+
 ……
 
 ##### Three-Tier, Language Design, and Long-Term Implications
 
+……
 
+**One of the common headaches with existing languages such as C++ was**
+**how cumbersome it was to move objects over the networks**
+**in a consistent way between systems.**
+
+**Thus, the designers of Java decided to build this capability**
+**into the core of the language using a mechanism called _serialization_.**
+
+Every **Object** in Java implements an interface that requires it to support serialization.
+
+The designers figured that
+since three-tier architecture would forever be the architecture style,
+baking it into the language would offer a great convenience.
+
+……
+
+_Understanding the long-term implications of design decisions has always eluded us,_
+_in software, as in other engineering disciplines._
+
+The perpetual advice to **favor simple designs is in many ways defense against future consequences.**
+
+( 一个长久不变的建议是 **"倾向使用简单的设计", 它可以在很多方面上抵抗未来的不良影响.** )
 
 #### Monolithic Versus Distributed Architectures
 
+Monolithic
+
+- Layered architecture _( Chapter 10 )_
+- Pipeline architecture  _( Chapter 11 )_
+- Microkernel architecture  _( Chapter 12 )_
+
+Distributed
+
+- Service-based architecture _( Chapter 13 )_
+- Event-driven architecture _( Chapter 14 )_
+- Space-based architecture _( Chapter 15 )_
+- Service-oriented architecture _( Chapter 16 )_
+- Microservices architecture _( Chapter 17 )_
+
+The first group issues facing all distributed architecture are described in
+[the fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing).
+
+A fallacy is something that is believed or assumed to be true but is not.
+
 ##### Fallacy _( 谬误 )_ #1: The Network Is Reliable
 
+……
+
 ##### Fallacy #2: Latency Is Zero
+
+……
+
+When a local call is made to another component via a method or function call,
+that **time (t_local) is measured in nanoseconds or microseconds.**
+
+However, when that same call is made through a remote access protocol
+(such as REST, messaging, or RPC),
+the **time measured to access that service (t_remote) is measured in milliseconds.**
+
+……
+
+When using any distributed architecture,
+architects must know this latency average.
+
+It is the only way of determining
+whether a distributed architecture is feasible,
+particularly when considering microservices
+due to the fine-grained nature of the services
+and the amount of communication between those services.
+
+Assuming an average of 100 milliseconds of latency per request,
+chaining together 10 service calls to perform a particular business function
+adds 1,000 miliseconds to the request!
+
+**Knowing the average latency is important,**
+**but event more important is also knowing the 95th to 99th percentile.**
+**While an average latency might yield only 60 milliseconds (which is good),**
+**the 95th percentile might be 400 milliseconds!**
+
+It's usually this "long tail" latency that will kill performance in distributed architecture.
 
 ##### Fallacy #3: Bandwidth Is Infinite
 
