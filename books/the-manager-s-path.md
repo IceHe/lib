@@ -118,10 +118,6 @@ they can get you attention and feedback from important people.
 
 …
 
-### Assessing Your Own Experience
-
-…
-
 ## 2. Mentoring
 
 ### Being a Mentor
@@ -176,7 +172,7 @@ If you expect him to do research on his own before asking you a question, tell h
 
 …
 
-###### Mentroing a Summer Intern
+#### Mentroing a Summer Intern
 
 _…_
 _What should the intern do?_
@@ -216,7 +212,7 @@ _Here are the basic things you need to do:_
     _so expect him to move slowly,_
     _and be pleasantly surprised if he overshoots._
 
-##### Mentoring a New Hire
+#### Mentoring a New Hire
 
 …
 
@@ -270,7 +266,23 @@ It’s also OK to say no to mentoring.
 
 ###### When you are a mentee
 
+……
+
+### Good Manager, Bad Manager:The Alpha Geek
+
 TODO
+
+### Tips for the Manager of a Mentor
+
+#### Hiring Interns
+
+### Key Takeaways for the Mentor
+
+#### Be Curious and Open-minded
+
+#### Listen and Speak Their Language
+
+#### Make Connections
 
 ## 3. Tech Lead
 
