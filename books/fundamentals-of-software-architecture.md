@@ -1705,7 +1705,26 @@ Contract creation, maintenance, and versioning.
 
 ## C10. Layered Architecture Style
 
-TODO
+The layered architecture, also known as the _n-tier_ architecture style,
+is one of most common architecture styles.
+
+**Layered architecture is the de facto _( 实际存在的 )_ standard for most applications,**
+**primarily because of its simplicity, familiarity, and low cost.**
+
+**It is also a very natural way to develop applications due to**
+**[Conway's law](https://en.wikipedia.org/wiki/Conway's_law),**
+**which states that organizations that design systems are constrained to produce designs**
+**which are copies of the communication structures of thes orgainzations.**
+
+……
+
+The layered architecture style also falls into several architecture anti-patterns,
+including the _architecture by implication_ anti-pattern
+and the _accidental architecture_ anti-pattern.
+
+If a developer or architect is unsure which architecture style they are using,
+or if an Agile development team "just starts coding",
+chances are good that is the layered architecture style they are implementing.
 
 ### Topology
 
