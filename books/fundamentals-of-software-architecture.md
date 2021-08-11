@@ -1595,6 +1595,8 @@ causing networks to slow down, thus impacting latency (fallacy #2) and reliabili
 > It is similar to **data coupling**,
 > except that the data shared is a composite data type rather than primitive data values
 > and that not all of the values shared may be used.
+>
+> ( from [Stamp coupling (data-structured coupling)](https://www.oreilly.com/library/view/software-architects-handbook/9781788624060/568555d1-7312-414d-bae1-2db148544ec0.xhtml) )
 
 ##### Fallacy #4: The Network Is Secure
 
@@ -1602,15 +1604,108 @@ causing networks to slow down, thus impacting latency (fallacy #2) and reliabili
 
 ##### Fallacy #5: The Topology Never Changes
 
+This fallacy refers to the overall network tpology,
+including all of the routers, hubs, switchers, firewalls, networks, and appliance _( 器具 )_
+used within the overall network.
+
+……
+
 ##### Fallacy #6: There Is Only One Administrator
+
+……
 
 ##### Fallacy #7: Transport Cost Is Zero
 
+**Transport cost here does not refer to latency,**
+**but rather to actual cost in terms of money**
+associated with making a "simple RESTful call".
+
+Architects assume (incorrectly) that
+the necessary infrastructure is in place
+and sufficient for making a simple RESTful call
+or breaking apart a monolithic application.
+It is usually not.
+
+Distributed architectures cost significant ly more than monolithic architectures,
+primarily due to increased needs for additional hardware, servers, gateways, firewalls, new subnets, proxies, and so on.
+
 ##### Fallacy #8: The Network Is Homogeneous
+
+Most architects and developers assume a network is hmogeneous
+—— made up by only one network hardware vendor.
+Most companies have multiple network hardware vendors in their infrastructure,
+if not more _( 如果没有更多的话 )_ .
+
+**The significance of this fallacy is that**
+**not all of those heterogeneous hardware vendors ply together well.**
+
+……
 
 ##### Other Distributed Considerations
 
+###### Distributed Logging
+
+Performing root-cause analysis to determine why a particular order was dropped
+is very difficult and time-consuming in a distributed architecture
+due to the distribution of application and system logs.
+
+……
+
+Logging consolidation tools such as Splunk
+help to consolidate information
+from various sources and systems together
+into one consolidated log and console,
+but these tools only scratch the surface of the complexities
+involved with distributed logging.
+
+_Detailed solutions and patterns for distributed logging_
+_are outside the scope of this book._
+
+###### Distributed Transactions
+
+……
+
+Standard **commits** and **rollbacks** executed from persistence frameworks
+leverage ACID ( atomicity, consistency, isolation, durability )  transactions
+to guarentee that the data is updated
+in a correct way to ensure high data consistency and integrity.
+
+**Distributed architectures rely on what is called _eventually consistency_**
+**to ensure the data processed by separated deployment units**
+**is at some specified point in time all synchronized into a consistent state.**
+This is one of the trade-offs of distributed architecture:
+high scalability, performance, and availability
+at the sacrifice of data consistency and data integrity.
+
+[Transactional sagas](https://microservices.io/patterns/data/saga.html) _( 必读 )_
+are one way to manage distributed transactions.
+**Sagas utilize either _event sourcing_ for compensation**
+**or _finite state machine_ manage the state of transaction.**
+
+In addition to sagas, **BASE transactions** are used.  BASE stands for
+
+- **Basic Available**
+- **Soft state**
+- **Eventual consistency**.
+
+**Soft state in BASE refers to the transit of data from a source to a target,**
+**as well as the inconsistency between data sources.**
+Based on the _basic availability_ of the systems
+or services involved, the systems will _eventually_ become consistent
+through the use of architecture patterns and messing.
+
+###### Contract Maintenance and Versioning
+
+Contract creation, maintenance, and versioning.
+
+**A contract is behavior and data that is agreed upon by both the client and the service.**
+**Contract maintenance is particularly difficult in distributed architectures,**
+**primarily due to decoupled services and systems owned by different teams and departments.**
+**Event more complex are the communication models needed for version deprecation.**
+
 ## C10. Layered Architecture Style
+
+TODO
 
 ### Topology
 
