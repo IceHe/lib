@@ -1728,7 +1728,50 @@ chances are good that is the layered architecture style they are implementing.
 
 ### Topology
 
+Components within the layered architecture style
+are organized into logical horizontal layers,
+with each layer performing a specific role within the application
+( such as presentation logic or business logic ) .
+
+Although there are no restrictions
+in terms of the number and types of layers that must exist,
+most layered architectures consist of four standard layers:
+**presentation, business, persistence, and database.**
+
+……
+
+_separation of concerns_
+
+……
+
+The layered architecture is **technically partitioned architecture**
+( as opposed to a domain-partitioned architecture ) .
+
+……
+
 ### Layers of Isolation
+
+Each layer in the layered architecture style can be either **closed** or **open**.
+
+**A closed layer means that as a request moves top-down from layer to layer,**
+**the request cannot skip any layers,**
+**but rather must go through the layer immediately below it to get to the next layer.**
+
+……
+
+**The _layered of isolation_ concept means that**
+**changes made in one layer of architecture**
+**generally don't impact or affect components in other layers,**
+providing the contracts between those layers remain unchanged.
+
+Each layer is independent of the other layers,
+thereby having little or no knowledge of the inner workings
+of other layers in the architecture.
+
+The layers of isolation concept also
+allows any layer in the architecture to be replaced
+without impacting any other layer
+( again, assuming well-defined contracts and the use of the [business delegate pattern](https://en.wikipedia.org/wiki/Business_delegate_pattern) ) .
 
 ### Adding Layers
 
