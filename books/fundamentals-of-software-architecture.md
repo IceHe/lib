@@ -1773,7 +1773,45 @@ allows any layer in the architecture to be replaced
 without impacting any other layer
 ( again, assuming well-defined contracts and the use of the [business delegate pattern](https://en.wikipedia.org/wiki/Business_delegate_pattern) ) .
 
+![closed-layers-within-layered-architecture.jpg](_images/fundamentals-of-software-architecture/closed-layers-within-layered-architecture.jpg)
+
 ### Adding Layers
+
+While **closed layers facilitate layers of isolation**
+**and therefore help isolate change within the architecture**,
+there are times when it makes sense for certain layers to be open.
+
+For example,
+suppose there are shared objects within the business layer
+that contain common functionality for business components
+( such date and string utility classes, auditing classes, logging classes and so on ) .
+
+Suppose there is an architecture decision stating that
+the presentation layer is restricted from using these shared business objects.
+This scenario is difficult to govern and control
+because architecturally the presentation layer has access to the bussiness layer,
+and hence has access to the shared objects within that layer.
+
+![shared-objects-within-business-layer.jpg](_images/fundamentals-of-software-architecture/shared-objects-within-business-layer.jpg)
+
+One way to architecturally mandate this restriction is
+to **add the architecture a new services layer containing all the shared business objects.**
+**Adding this new layer now architecturally**
+**restricts the presentation layer from accessing the shared business objects**
+**because the business layer is closed.**
+
+However, the new services layer must be marked as _open_;
+otherwise the business layer would be forced to
+go through the services layer to access the persistence layer.
+
+Marking the services layer as open allows the business layer to
+either access that layer ( as indicated by the solid arrow ) ,
+or bypass the layer and go to the next one down
+( as indicated by the dotted arrow in the figure below ) .
+
+![adding-services-layer-to-architecture.jpg](_images/fundamentals-of-software-architecture/adding-services-layer-to-architecture.jpg)
+
+……
 
 ### Other Considerations
 
