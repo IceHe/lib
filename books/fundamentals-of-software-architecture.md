@@ -1815,9 +1815,44 @@ or bypass the layer and go to the next one down
 
 ### Other Considerations
 
+**The layered architecture makes for a good starting point for most applications**
+**when it is not known yet exactly which architecture style will ultimately be used.**
+
+This is a common practice for many microservices efforts
+when architects are still determing
+whether microservices is the right architecture choice,
+but development must begin.
+
+However, when using this technique, be sure to keep reuse at a minimum
+and keep object hierarchies ( depth of inheritance tree ) fairly shallow
+so as to maintain a good level of modularity.
+_This will help facilitate the move to another architecture style later on._
+
+One thing to watch out for with the layered architecture
+is **architecture sinkhole** _( 污水坑 )_ anti-pattern.
+
+This anti-pattern occurs when requests move from layer to layer
+as simple pass-through processing with no business logic performed within each layer.
+……
+
+The key to determining whether the architecture sinkhole anti-pattern is at play
+is to analyze the percentage of requests that fall into this category.
+The 80-20 rule is usually a good practice to follow.
+
+_For example, it is acceptable if only 20 percent of the requests are sinkholes._
+_However, if 80 percent of the requests are sinkholes,_
+_it a good indicator that the layered architecture_
+_is not the correct architecture style for the problem domain._
+
 ### Why Use This Architecture Style
 
+…… _( As mentioned above )_
+
 ### Architecture Characteristics Ratings
+
+![layered-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/layered-architecture-characteristics-ratings.jpeg)
+
+……
 
 ## C11. Pipeline Architecture Style
 
