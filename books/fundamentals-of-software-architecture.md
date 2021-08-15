@@ -1856,6 +1856,13 @@ _is not the correct architecture style for the problem domain._
 
 ## C11. Pipeline Architecture Style
 
+One the fundamental styles in software architecture that appears again and again
+is the _pipeline_ architecture ( aka. the _pipes and filters_ architecture ) .
+
+_As soon as developers and architects decided to split functionality into discrete parts, this pattern followed._
+_Most developers know this architecture as this underlying principle_
+_behind Unix terminal shell languages, such as Bash and Zsh._
+
 ### Topology
 
 #### Pipes

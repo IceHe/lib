@@ -541,12 +541,22 @@ Timeline
 - [How to Ask](/snips/principles/how-to-ask.md): Prepare before asking
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
-- Working Standards
-    - 请示工作说方案
-    - 布置工作说标准
-    - 汇报工作说结果
-    - 总结工作说流程
-    - 回顾工作说感受
+- [Working Standards](/snips/principles/working-standards.md)
+    - How to work
+        - 请示工作说方案
+        - 布置工作说标准
+        - 汇报工作说结果
+        - 总结工作说流程
+        - 回顾工作说感受
+    - How to solve problems
+        1. 既无问题也无见解者，不用；
+        1. 只提问题无见解者，慎用；
+        1. 既提问题也有见解者，且有良好业绩者，重用！
+        1. 不能发现问题还回避问题者，淘汰！
+        1. 能发现问题还能提几套解决方案者，奖赏！
+        1. 能发现问题，又能从根源上解决问题者，重赏！
+        1. 能预见问题，能防范问题者，重用！
+        1. 不能发现问题，不能解决问题，还处处抱怨者，PK。
 - [GTD Flow](/snips/principles/gtd.md): Get Thing Done
 - [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
 - [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
