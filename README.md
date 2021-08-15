@@ -541,8 +541,8 @@ Timeline
 - [How to Ask](/snips/principles/how-to-ask.md): Prepare before asking
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
-- [Working Standards](/snips/principles/working-standards.md)
-    - How to work
+- [How to Work](/snips/principles/how-to-work.md)
+    - Working Standards
         - 请示工作说方案
         - 布置工作说标准
         - 汇报工作说结果
@@ -561,7 +561,6 @@ Timeline
 - [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
 - [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR principle](/snips/principles/star.md): Situation → Target → Action → Result
-- [Job Tips from Weibo](/snips/principles/job-tips-from-weibo.md): 九边 / tombkeeper / …
 - [Deployment Checklist](/snips/tmp/deployment-checklist.md): Avoid low-level mistakes
 
 <!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
