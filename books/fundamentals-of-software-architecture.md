@@ -1850,9 +1850,24 @@ _is not the correct architecture style for the problem domain._
 
 ### Architecture Characteristics Ratings
 
+……
+
 ![layered-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/layered-architecture-characteristics-ratings.jpeg)
 
-……
+**Overall cost and simplicity are the primary strengths** of the layered architecture style.
+
+**Being monolithic** in nature, layered architecture
+**don't have the complexities associated with distributed architecture styles**,
+**are simple and easy to understand, and are relatively low cost to build and maintain.**
+
+However, as a cautionary note,
+**these ratings start to quickly diminish**
+**as monolithic layered architectures get bigger and consequently more complex.**
+
+Both deployability and testability rate very low for this architecture style.
+_( icehe : 第一反应 —— 测试和部署的评价这么低么? 看了后面的解释还是可以理解的. )_
+
+TODO : 补完中…
 
 ## C11. Pipeline Architecture Style
 
@@ -1956,6 +1971,22 @@ _from one step in a bussiness process to another._
 ……
 
 ### Architecture Characteristics Ratings
+
+……
+
+**The pipeline architecture style is technically partitioned architecture**
+**due to the partitioning of application logic into filters**
+( producer, tester, transformer, and consumer ) .
+
+Aslo, because the pipeline architecture
+is **usually implemented as a monolithic deployment**,
+the architectural quantum is always one.
+
+![pipeline-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/pipeline-architecture-characteristics-ratings.jpeg)
+
+TODO 配图
+
+Overall cost and simplicity combined with modularity are the primary strengths of the pipeline architecture style.
 
 ## C12. Microkernel Architecture Style
 
