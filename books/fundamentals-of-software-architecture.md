@@ -1863,13 +1863,97 @@ _As soon as developers and architects decided to split functionality into discre
 _Most developers know this architecture as this underlying principle_
 _behind Unix terminal shell languages, such as Bash and Zsh._
 
+_Developers in many functional programming languages will see parallels_
+_between language constructs and elements of this architecture._
+
 ### Topology
+
+```plantuml
+@startuml
+start
+:Filter;
+-> Pipe;
+:Filter;
+-> Pipe;
+:Filter;
+-> Pipe;
+:Filter;
+end
+@enduml
+```
+
+_The pipes and filters coordinate in specific fasion,_
+_with pipes forming one-way communication between filters,_
+_usually in a point-to-point fashion._
 
 #### Pipes
 
+**_Pipes_ in this architecture form the communication channel between filters.**
+
+Each pipe is typically unidirectional ( 单向的 ) and point-to-point
+( rather than broadcast ) for performance reasons,
+accepting input from one source and always directing output to another.
+
+The payload carried on the pipes may be any data format,
+but architects favor smaller amounts of data to enable high performance.
+
 #### Filters
 
+**_Filters_ are self-contained, independent from other filters, generally stateless.**
+**Filters should perform one task only.**
+**Composite tasks should be handled by a sequence of filters rather than single one.**
+
+Four types of filters exist within this architecture style:
+
+-   **Producer**
+
+    The starting point of a process,
+    outbound _( 开往外地/外国的 )_ only,
+    sometimes called the **source**.
+
+-   **Transformer**
+
+    Accepts input,
+    optionally performs a transformation on some or all of the data,
+    then forwards it to the outbound pipe.
+
+    Functional advocates will recognize this feature as **map**.
+
+-   **Tester**
+
+    Accepts input, tests one or more criteria,
+    then optionally produces output, based on the test.
+
+    Functional programmers will recognize this as similar to **reduce**.
+
+    _( icehe : 我竟然还以为这应该对应 Java Stream API 里的 filter , 其实应该是 reduce … )_
+
+-   **Comsumer**
+
+    The termination point for pipeline flow.
+
+    Consumers sometimes persist the final result of the pipeline process to a database,
+    _or they may display the final results on a user interface screen._
+
+**The unidirectional nature and simplicity of each of the pipes and filters**
+**encourages compositional resuse.**
+
 ### Example
+
+The pipeline architecture pattern appears in a variety of applications,
+especially tasks that **facilitate simple, one-way processing**.
+
+**ETL tools ( extract, transform, and load )**
+leverage the pipeline architecture as well for the flow and modification of data
+from one database or datasource to another.
+
+_Orchestrators and mediators such as Apache Camel_
+_utilize the pipeline architecture to pass information_
+_from one step in a bussiness process to another._
+
+![pipeline-architecture-example.jpg](_images/fundamentals-of-software-architecture/pipeline-architecture-example.jpg)
+
+……
 
 ### Architecture Characteristics Ratings
 
