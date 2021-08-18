@@ -1893,7 +1893,7 @@ particularly along with dozons of other changes
 being made to the monolithic application at the same time.
 ……
 
-**Medium Overall Reliability**
+**Medium Reliability**
 
 _Mostly due to the lack of network traffic, bandwidth, and latency found in most distributed architecture. …_
 
@@ -2016,9 +2016,37 @@ the architectural quantum is always one.
 
 ![pipeline-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/pipeline-architecture-characteristics-ratings.jpeg)
 
-TODO 配图
+**Best Overall Cost and Simplicity**
 
-Overall cost and simplicity combined with modularity are the primary strengths of the pipeline architecture style.
+_Overall cost and simplicity combined with modularity are the primary strengths of the pipeline architecture style._
+
+**Medium Architecture modularity**
+
+_Architecture modularity is achived through the separation of concerns_
+_between the various filter types and transformers._
+_Any of these filters can be modified or replace without impacting the other filters._
+
+**Medium Deployability and Testability**
+
+……
+
+**Low Elasticity and Scalability**
+
+Primarily due to monolithic deployments.
+
+**Low Available**
+
+Pipeline architecture **don't support fault tolerance**
+due to monolithic deployments and lack of **architectural modularity**.
+
+_If one small part of a pipeline architecture causes an out-of-memory condition to occur,_
+_the entire application unit is impacted and crashes._
+
+Furthermore, overall availability is impacted
+due to the high **mean time to recovery ( MTTR )**
+_usually experienced by most monolithic applications,_
+_with startup times ranging anywhere from 2 minutes for smaller applications,_
+_up to 15 minutes or more for most large applications._
 
 ## C12. Microkernel Architecture Style
 
