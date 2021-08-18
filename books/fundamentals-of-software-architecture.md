@@ -2094,6 +2094,30 @@ _would be separate plug-in components specific to the payment domain._
 
 #### Plug-In Components
 
+**Plug-in components are standalone, independent components**
+**that contain specialized processing, additional features,**
+**and custom code meant to enhance or extend the core system.**
+
+Additionally, they can used to **isolate highly volatile code**,
+creating better maintainablity and testability within the application.
+Ideally, **plug-in components should be independent of each other**
+**and have no dependentcies between them.**
+
+The communication between the plug-in components and the core system
+is generally point-to-point,
+meaning the **"pipe" that connects the plugin-in to the core system**
+**is usually a method invocation or function call**
+**to the entry-point class of the plug-in component.**
+
+In addition,
+**the plug-in components can be added or removed at runtime**
+**without having to redeploy the core system or other plug-ins**,
+and they are **usually managed through frameworks**
+_such as OpenService Gateway Initiative ( OSGi ) for Java_, ……
+
+Point-to-point plug-in components can be implemented as shared libraries
+_( such as a JAR, DLL, or GEM ) , package anmes in java, or namespaces in C#._
+
 ### Registry
 
 ### Contracts
