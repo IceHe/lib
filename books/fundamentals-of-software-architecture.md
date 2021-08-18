@@ -1867,7 +1867,39 @@ However, as a cautionary note,
 Both deployability and testability rate very low for this architecture style.
 _( icehe : 第一反应 —— 测试和部署的评价这么低么? 看了后面的解释还是可以理解的. )_
 
-TODO : 补完中…
+**Low Deployability**
+
+_Deployability rates low due to the cremony of deployment ( effort to deploy ) , high risk, and lack of frequent deployments._
+
+_A simple three-line change to a class file in the layered architecture_
+_requires the entire deployment unit to be redeployed,_
+_taking in protential database changes, configuration changes,_
+_or other coding changes sneaking in alongside the original change._
+
+_Furthermore, this simple three-line change_
+_is usually bundled with dozens of other changes,_
+_thereby increasing deployment risk even further_
+_( as well as increasing ther frequency of deployment ) ._
+
+_( icehe: 说实话这段话, 现在还不是特别能理解 2021-08-18 )_
+
+**Low Testability**
+
+With a simple three-line change,
+most developers are not going to spend hours
+executing the entire regression test suite ( 回归测试套件 )
+( even if such a thing were to exist in the first place ) ,
+particularly along with dozons of other changes
+being made to the monolithic application at the same time.
+……
+
+**Medium Overall Reliability**
+
+_Mostly due to the lack of network traffic, bandwidth, and latency found in most distributed architecture. …_
+
+**Very Low Elasticity and Scalability**
+
+_Primarily due to **monolithic deployments** and the **lack of architecture modularity**_
 
 ## C11. Pipeline Architecture Style
 
