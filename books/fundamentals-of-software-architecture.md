@@ -2050,9 +2050,47 @@ _up to 15 minutes or more for most large applications._
 
 ## C12. Microkernel Architecture Style
 
+**The _micorkernel_ architecture style**
+**( also referred to as the _plug-in_ architecture )**
+was coined ( 铸造, 创造 ) serveral decades ago
+and is still widely used today.
+
+It is a natural fit for product-based applications
+( packaged and made available for download and installation
+as a single, monolithic deployment,
+typically installed on the customer's site as a third-party product )
+but is widely used in many nonproduct custom business applications as well.
+
 ### Topology
 
+The microkernel architecture style is relatively simple monolithic architecture
+**consisting of two architecture components: a core system and plug-in components.**
+
+Application logic is divided
+between **independent plugin-in components and the basic core system**,
+**providing extensibility, adaptability,**
+**and isolation of application features**
+**and custom processing logic.**
+
 #### Core System
+
+The _core system_ is formally defined as **the minimal functionality required to run the system.**
+
+_The Eclipse IDE is a good example of this._
+
+……
+
+Depending on the size and complexity,
+the core system can be implemented as a layered architecture or a modular monolith.
+
+In some cases, the core system can be split into separately deployed domain services,
+with each domain service containing specific plug-in components specific to that domain.
+
+_For example, suppose Payment Processing is the domain service representing the core system._
+_Each payment method ( credit card, PayPal, store credit, gift card, and purchase order )_
+_would be separate plug-in components specific to the payment domain._
+
+![variations-of-the-microkernel-architecture-core-system.jpeg](_images/fundamentals-of-software-architecture/variations-of-the-microkernel-architecture-core-system.jpeg)
 
 #### Plug-In Components
 
