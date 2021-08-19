@@ -2118,6 +2118,25 @@ _such as OpenService Gateway Initiative ( OSGi ) for Java_, ……
 Point-to-point plug-in components can be implemented as shared libraries
 _( such as a JAR, DLL, or GEM ) , package anmes in java, or namespaces in C#._
 
+……
+
+Plug-in components do not always have to
+be point-to-point communication with the core system.
+
+Other alternatives exist,
+**including using REST or messageing**
+**as a means to invoke plug-in functionality,**
+**with each plug-in being a standalone service**
+**( or maybe even a microservice implemented using a container ) .**
+
+_Although this may soud like a good way to increase overall scalability,_
+_note that this topology is still only a single architecture quantum_
+_due to the monolithic core system._
+_Every request must first go through the core system_
+_to get to the plug-in service._
+
+![remote-plugin-access-using-rest.jpeg](_images/fundamentals-of-software-architecture/remote-plugin-access-using-rest.jpeg)
+
 ### Registry
 
 ### Contracts
