@@ -2181,6 +2181,22 @@ either embedded within the core system or deployed externally
 
 ### Contracts
 
+**The contracts between the plug-in components and the core system**
+**are usually standard across a domain of plug-in components**
+**and include behavior, input data, and output data returned from the plug-in component.**
+
+Custom contracts are typically found in situations
+where plug-in components are developed by a third party
+where you have no control over the contract used by the plug-in.
+
+In such cases, it is common to create an adapter
+between the plug-in contract and your standard contract
+so that the core system doesn't need specialized code for each plug-in.
+
+_Plug-in contracts can be implemented in XML, JSON,_
+_or even objects passed back and forth_
+_between the plug-in and the core system_
+
 ### Examples of Use Cases
 
 ### Architecture Characteristics Ratings
