@@ -2137,6 +2137,31 @@ _to get to the plug-in service._
 
 ![remote-plugin-access-using-rest.jpeg](_images/fundamentals-of-software-architecture/remote-plugin-access-using-rest.jpeg)
 
+**The benefits of the remote access approach**
+**to accessing plug-in components implemented as individual services**
+**is that it provides better overall component decoupling,**
+**allows for better scalability and throughput,**
+**and allows for runtime changes without any special frameworks**
+_like OSGi, Jigsaw, or Prism._
+
+It also allows for asynchronous communications to plug-ins,
+which, depending on the scenario,
+could significantly improve overall user responsiveness.
+
+_Using the electronics recycling example,_
+_**rather than having to wait for the electronic device assessment to run,**_
+_the core system, could **make an asynchronous request** to kick off ( 开始 )_
+_an assessment for a paticular device._
+
+_When the assessment completes,_
+_the plug-in can **notify the core system**_
+_**through another asynchrounous messaging channel**,_
+_which in turn would notify the user that the assessment is complete._
+
+With these benefits comes trade-offs. ……
+
+_( icehe : 省略的这段内容有参考性, 但价值不是特别大, 是老生常谈、经验之谈、常识, 没必要特意做笔记了 )_
+
 ### Registry
 
 ### Contracts
