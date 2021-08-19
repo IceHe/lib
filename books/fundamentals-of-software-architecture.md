@@ -2164,6 +2164,21 @@ _( icehe : 省略的这段内容有参考性, 但价值不是特别大, 是老�
 
 ### Registry
 
+**The core system needs to know about**
+**which plug-in modules are available**
+**and how to get to them.**
+
+One common way of implementing this is through a **plug-in registry**.
+This registry **contains information about each plug-in module,**
+**including** things like its **name, data contract, and remote access protocol details**
+_( depending on how the plug-in is connected to the core system ) ._
+
+The registry can be as simple as an internal map structure
+owned by the core system containing a key and the plug-in component reference,
+or it can be as complex as a registry and disconvery tool
+either embedded within the core system or deployed externally
+( such as Apache ZooKeeper or Consul ) .
+
 ### Contracts
 
 ### Examples of Use Cases
