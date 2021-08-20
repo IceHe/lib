@@ -2234,8 +2234,6 @@ through independent, self-contained plug-in components,
 thereby making it relatively easy to extend and enhance applications created
 using this architecture style and allowing teams to respond to changes much faster.
 
-
-
 ## C13. Service-Based Architecture Style
 
 ### Topology
