@@ -2199,7 +2199,42 @@ _between the plug-in and the core system_
 
 ### Examples of Use Cases
 
+……
+
 ### Architecture Characteristics Ratings
+
+Similar to the layered architecture style,
+**simplicity and overall cost are the main strengths**
+of the microkernel architecture style,
+and **scalability, fault tolerance, and extensibility its main weakness**.
+
+![microkernel-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/microkernel-architecture-characteristics-ratings.jpeg)
+
+_Like the layered architecture style,_
+the number of quanta is always singular (one)
+because all requests must go through the core system
+to get to independent plug-in components.
+
+The microkernel architecture style is unique
+in that it is the only architecture style
+that can be **both domain partitioned and technically partitioned**.
+……
+
+**Testability, deployability, and reliability rate a little above average**,
+primary because functionality can be isolated to independent plug-in components.
+
+If done right, this reduces the overall testing scope of changes
+and also reduces overall risk of deployment,
+particularly if plug-in components are deployed in a runtime fashion.
+
+**Modularity and extensibility also rate a little above average**.
+
+…… additional functionality can be added, removed, and changed
+through independent, self-contained plug-in components,
+thereby making it relatively easy to extend and enhance applications created
+using this architecture style and allowing teams to respond to changes much faster.
+
+
 
 ## C13. Service-Based Architecture Style
 
