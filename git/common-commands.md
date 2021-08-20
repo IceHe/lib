@@ -227,6 +227,14 @@ git log --pretty="%H" --author="authorname" | while read commit_hash; do git sho
 - `git reset` 取消所有文件的暂存状态（staged，即等待被 commit 的状态）
 - `git reset HEAD <file_path>` 取消该文件的暂存状态
 - `git reset <commit_id> <file_path>` 取消该文件的暂存状态，将其 HEAD 指针移到指定 commit_id 的版本
+- [Restoring deleted files](https://www.git-tower.com/learn/git/faq/restoring-deleted-files) _( 恢复已删除的文件  )_
+    - Deleted but didn't commit `git checkout HEAD <file_path>`
+    - Deleted but committed `git reset --hard HEAD~1`
+    - Committed deletion and did more commits
+        1. `git log -- <file_path>`
+        1. `git checkout <commit_id> -- <file_path>`
+            or `git checkout <deletion_commit_id>~1 -- <file_path>`
+    - Deleted, committed and pushed `git revert --no-commit <commit_id>`
 
 ### Commit 提交
 
