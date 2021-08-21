@@ -1,8 +1,12 @@
 package xyz.icehe;
 
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
+
+        Map<String, Integer> hashMap = new HashMap<>();
         //System.out.println(2.0e-6 * 100000000.1);
         //System.out.println((1+2.236) / 2);
         //System.out.println(1+2+3+4.0);
@@ -34,6 +38,6 @@ public class Main {
         //}
         //System.out.printf("%.5f\n", t);
 
-        System.out.println((char)('a' + 4));
+        //System.out.println((char)('a' + 4));
     }
 }
