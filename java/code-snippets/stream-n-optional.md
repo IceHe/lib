@@ -37,18 +37,73 @@ List<String> notBlankStrings = strings.stream()
 
 ```
 
-## sort
+## sort, max, min
 
-Sort Integer List
+### Collections.sort
+
+Sort integer list
 
 ```java
-Map<String, List<Long>> keyValuesMap = getKeyValuesMap();
+Map<String, List<Long>> key2ValuesMap = getKey2ValuesMap();
 
 // 返回结果是乱序的；
 // 需要根据输入参数 valueList 中 value 的原始顺序，重新排列好
-keyValuesMap.forEach((key, vals) ->
+key2ValuesMap.forEach((key, vals) ->
     Collections.sort(vals, Comparator.comparingInt(val -> valueList.indexOf(val))));
 
+```
+
+### sorted
+
+Sort by multiple compartors
+
+```java
+List<WarehouseEnum> recommendedWarehouses = warehouse2StockCheckResultMap.entrySet().stream()
+        .sorted(Comparator.comparingInt(
+                // 1. 库存充足的仓库 排在前面
+                (Map.Entry<WarehouseEnum, StockCheckResult> entry) -> {
+                    StockCheckResult stockCheckResult = entry.getValue();
+                    boolean isInventoriesEnough = CollectionUtils.isEmpty(stockCheckResult.getNotEnoughInventories());
+                    return isInventoriesEnough ? 0 : 1;
+                })
+                // 2. 库存不充足仓库中, 物料种类缺得最少的仓库 排在前面
+                .thenComparing((Map.Entry<WarehouseEnum, StockCheckResult> entry) -> {
+                    StockCheckResult stockCheckResult = entry.getValue();
+                    return stockCheckResult.getNotEnoughInventories().size();
+                })
+                // 3. 库存不充足而且物料种类缺得一样多的仓库中, 物料数量缺得最少的仓库 排在前面
+                .thenComparing((Map.Entry<WarehouseEnum, StockCheckResult> entry) -> {
+                    WarehouseEnum warehouse = entry.getKey();
+                    StockCheckResult stockCheckResult = entry.getValue();
+
+                    Map<WarehouseEnum, Map<InventoryKey, Integer>> warehouse2Inventory2QuantityMap =
+                            stockCheckResult.getWarehouse2Inventory2QuantityMap();
+                    Map<InventoryKey, Integer> inventory2QuantityMap =
+                            warehouse2Inventory2QuantityMap.getOrDefault(warehouse, Collections.emptyMap());
+
+                    int quantityTotal = inventory2QuantityMap.values().stream()
+                            .mapToInt(Integer::valueOf)
+                            .sum();
+                    return quantityTotal;
+                })
+                // 4. 以上的库存情况都相同的仓库, 编号(number)小的仓库 排在前面
+                .thenComparing((Map.Entry<WarehouseEnum, StockCheckResult> entry) -> {
+                    WarehouseEnum warehouse = entry.getKey();
+                    return warehouse.getNumber();
+                })
+                // *. 如需逆序, 可调用 reversed()
+                // .reversed()
+        )
+        .map(Map.Entry::getKey)
+        .toList(Collectors.toList());
+```
+
+### max, min
+
+```java
+Obj maxObj = objs.stream()
+        .max(Comparator.comparing(keyExtractor, keyComparator)
+                .thenComparing(antoherKeyExtractor));
 ```
 
 ## Array T[] to List
