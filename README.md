@@ -59,7 +59,6 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 [Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md) _- [TOC](/books/fundamentals-of-software-architecture-toc.md)_
 
 - 1\. Introduction
-    - Defining Software Architecture
     - Expectations of an Architect
         - Continually Analyze the Archituecture
         - Keep Current with Latest Trends
@@ -68,10 +67,7 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
         - Have Bussines Domain Knowledge
         - Understand and Navigate _( 操纵 )_ Politics
     - Intersection _( 交叉点 )_ of Architecture and …
-        - **Engineering Practices**
-        - **Operations / DevOps**
-        - **Process**
-        - **Data**
+        - **Engineering Practices** / **Operations & DevOps** / **Process** / **Data**
     - **Laws of Software Architecutre**
 - Part 1. Foundations
     - 2\. Architectural _( 建筑学上的 )_ Thinking
@@ -81,7 +77,6 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
         - Understanding Business Drivers
         - Balancing Architecutre and Hands-On Coding
     - 3\. **Modularity _( 模块性 )_**
-        - Definition
         - Measuring Modularity
             - **Cohesion**
             - **Coupling**
@@ -92,28 +87,20 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
         - **From Modules to Components**
     - 4\. **Architecture Characteristics _( 特征 )_** Defined
         - Architectural Characteristics ( Partially ) Listed
-            - **Operational** Architecture Characteristics
-            - **Structural** Architecture Characteristics
-            - **Cross-Cutting** Architecture Characteristics
+            - **Operational** / **Structural** / **Cross-Cutting**
         - Trade-Offs and Least Worst Architecture
     - 5\. Indentifying Architectural Characteristics
         - Extracting Architecture Characteristics from Domain Concerns
         - Extracting Architecture Characteristics from Requirements
-        - Case Study: Silicon Sandwiches
-            - Explicit Characteristics
-            - Implicit Characteristics
+        - Characteristics : Explicit / Implicit
     - 6\. Measuring and Governing Architecture Characteristics
-        - Measuring Architecture Characteristics
-            - Operational Measures
-            - Structural Measures
-            - Process Measures
+        - Measuring : Operational / Structural / Process
         - Governance _( 管理 )_ and Fitness _( 适当 )_ Function
             - Governing Architecture Characteristics
             - Fitness Functions
     - 7\. **Scope** of Architecture Characteristics
         - **Coupling and Connascence**
         - **Architectural Quanta _( 量 )_ and Granularity _( 粒度 )_**
-            - Case Study: Going, Going, Gone
     - 8\. Component-Based Thinking
         - Component Scope
         - **Architect Role _( 职责 )_**
@@ -153,13 +140,9 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
         - Other Considerations
         - Why Use This Architecture Style
     - 11\. **Pipeline** Architecture Style
-        - Topology
-            - **Pipes**
-            - **Filters**
+        - Topology: **Pipes** / **Filters**
     - 12\. **Microkernel** Architecture Style
-        - Topology
-            - **Core System**
-            - **Plug-In Components**
+        - Topology: **Core System** / **Plug-In Components**
         - **Registry**
         - **Contracts**
     - 13\. **Service-Based** Architecture Style
@@ -266,29 +249,21 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
             - **Unit and Functional Testing** Checklist
             - **Software Release** Checklist
         - Providing Guidance
-
-### 23\. Negotiation and Leadership Skills
-
-- **Negotiation and Facilitation** _( 助长, 简易化 )_
-    - Negotiating with Business Stakeholders
-    - Negotiating with Other Architects
-    - Negotiating with Developers
-- The Software Architect as a Leader
-    - The 4 C's of Architecture
-    - Be Pragmatic, Yet Visionary _( 有眼光的, 有远见的 )_
-    - Leading Teams By Example
-- Integrating with the Development Team
-- Summary
-
-### 24\. Developing a Career Path
-
-- The 20-Minute Rule
-- Developing a Personal Radar
-    - The ThoughtWorks Technology Radar
-    - Open Source Visualization Bits
-- Using Social Media
-- Parting Words of Advice
-
+    - 23\. Negotiation and Leadership Skills
+        - **Negotiation and Facilitation** _( 助长, 简易化 )_
+            - Negotiating with: Business Stakeholders / Other Architects / Developers
+        - The Software Architect as a Leader
+            - The 4 C's of Architecture
+            - Be Pragmatic, Yet Visionary _( 有眼光的, 有远见的 )_
+            - Leading Teams By Example
+        - Integrating with the Development Team
+    - 24\. Developing a Career Path
+        - The 20-Minute Rule
+        - Developing a Personal Radar
+            - The ThoughtWorks Technology Radar
+            - Open Source Visualization Bits
+        - Using Social Media
+        - Parting Words of Advice
 
 Others
 
