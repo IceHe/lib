@@ -354,6 +354,26 @@ user.name=IceHe
 user.email=icehe@gmail.com
 ```
 
+### PlantUML
+
+Require installed [GraphViz](https://plantuml.com/zh/graphviz-dot)
+
+```bash
+brew install libtool
+brew link libtool
+brew install graphviz
+brew link --overwrite graphviz
+```
+
+_( This could fix issues if you have installed GraphViz as .dmg package. )_
+
+_By default, the dot executable is expected:_
+
+- _Firstly in: `/usr/local/bin/dot`_
+- _Then in: `/usr/bin/dot`_
+
+_You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of your GraphViz executable._
+
 ## Java Development
 
 ### JDK
