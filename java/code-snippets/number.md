@@ -1,5 +1,32 @@
 # Number
 
+## Fuzzy Compare
+
+```java
+private Optional<LogisticsCompany> getExpectedLogisticsProviderByWeight(double totalWeightKg) {
+    final String methodName = "getExpectedLogisticsProviderByWeight";
+
+    if (totalWeightKg < 0) {
+        // (-INF, 0.0)
+        log.error("{}, invalid totalWeightKg={}, default expectedExpressCompany={}",
+                methodName, totalWeightKg, DEFAULT_LOGISTICS_PROVIDER);
+        return Optional.empty();
+
+    } else if (DoubleMath.fuzzyCompare(totalWeightKg, 3.0D, TOLERANCE) <= 0) {
+        // [0.0, 3.0]
+        return Optional.of(LogisticsProvider.XXX);
+
+    } else if (DoubleMath.fuzzyCompare(totalWeightKg, 5.0D, TOLERANCE) <= 0) {
+        // (3.0, 5.0]
+        return Optional.of(LogisticsProvider.AAA);
+
+    } else {
+        // (5.0, +INF)
+        return Optional.of(LogisticsProvider.XXX);
+    }
+}
+```
+
 ## Generate Random Numbers
 
 Reference
