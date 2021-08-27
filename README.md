@@ -620,7 +620,7 @@ Timeline
     - **Huawei**: Telecom Software Customization | Intern. _( Java )_
     - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
     - **Alibaba Local Life**: 众包物流运营&数据组 → 蜂鸟跑腿 | Back-End _( Java )_
-    - **YFD**: 斑马AI课 供应链 | Back-End _( Java )_
+    - **YFD**: 斑马 - 供应链 | Back-End _( Java )_
 - After 2018
     - [Better Living](/past/better-living.md)
     - [Rehabilitation](/past/rehabilitation.md)
