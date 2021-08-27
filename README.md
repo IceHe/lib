@@ -187,14 +187,7 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
         - Diagramming: Tools / Diagramming Standards: **UML, C4, and ArchiMate** / Diagram Guidelines
         - Presenting: Manipulating Time / Incremental Builds / **Infodecks Versus Presentations** / **Slides Are Half of the Story** / Invisibility
     - 22\. Making Teams Effective
-        - Team Boundaries
-        - Architect Personalities: Control Freak _( 怪物; 反常的事 )_ / Armchair _( 扶手椅 )_ Architect / Effective Architect
-        - How Much Control?
-        - Team Warning Signs
-        - **Leveraging Checklists**: **Developer Code Completion** / **Unit and Functional Testing** / **Software Release**
     - 23\. Negotiation and Leadership Skills
-        - **Negotiation and Facilitation** _( 助长, 简易化 )_ : Negotiating with: Business Stakeholders / Other Architects / Developers
-        - The Software Architect as a Leader: The 4 C's of Architecture / Be Pragmatic, Yet Visionary _( 有眼光的, 有远见的 )_ / Leading Teams By Example
 
 Others
 
