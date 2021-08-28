@@ -59,135 +59,41 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 [Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md) _- [TOC](/books/fundamentals-of-software-architecture-toc.md)_
 
 - 1\. Introduction
-    - Expectations of an Architect
-        - Continually Analyze the Archituecture
-        - Keep Current with Latest Trends
-        - Ensure Compliance _( 服从 )_ with Decisions
-        - Diverse _( 不同的 )_ Exposure _( 显露? )_ and Experience
-        - Have Bussines Domain Knowledge
-        - Understand and Navigate _( 操纵 )_ Politics
-    - Intersection _( 交叉点 )_ of Architecture and …
-        - **Engineering Practices** / **Operations & DevOps** / **Process** / **Data**
-    - **Laws of Software Architecutre**
+    - Expectations of an Architect: Keep Current with Latest Trends / Ensure Compliance with Decisions / Diverse Exposure and Experience / Have Bussines Domain Knowledge / Understand and Navigate Politics
+    - Intersection of Architecture and …: Engineering Practices / Operations & DevOps / Process / Data
 - Part 1. Foundations
-    - 2\. Architectural _( 建筑学上的 )_ Thinking
-        - Architecture Versus Design
-        - Technical Breadth
-        - Analyze Trade-Offs
-        - Understanding Business Drivers
-        - Balancing Architecutre and Hands-On Coding
-    - 3\. **Modularity _( 模块性 )_**
-        - Measuring Modularity
-            - **Cohesion**
-            - **Coupling**
-            - **Abstractness, Instability, and Distance from the Main Sequence**
-            - **Distance from the Main Sequence**
-            - **Connascence _( 共生性 )_**
-            - **Unifying Coupling and Connascence Metrics**
-        - **From Modules to Components**
-    - 4\. **Architecture Characteristics _( 特征 )_** Defined
-        - Architectural Characteristics ( Partially ) Listed: **Operational** / **Structural** / **Cross-Cutting**
-        - Trade-Offs and Least Worst Architecture
-    - 5\. Indentifying Architectural Characteristics
-        - Extracting Architecture Characteristics from Domain Concerns
-        - Extracting Architecture Characteristics from Requirements
-        - Characteristics : Explicit / Implicit
+    - 2\. Architectural Thinking: Architecture Versus Design / Technical Breadth / Analyze Trade-Offs / Understanding Business Drivers / Balancing Architecutre and Hands-On Coding
+    - 3\. **Modularity**: Measuring Modularity / **Cohesion** / **Coupling** / **Abstractness, Instability, and Distance from the Main Sequence** / **Distance from the Main Sequence** / **Connascence** / **Unifying Coupling and Connascence Metrics** / From Modules to Components
+    - 4\. **Architecture Characteristics**: Trade-Offs and Least Worst Architecture / Defined: ( Partially ) Listed: Operational / Structural / Cross-Cutting
+    - 5\. Indentifying Architectural Characteristics: Extracting Architecture Characteristics from Domain Concerns and Requirements / Characteristics: Explicit / Implicit
     - 6\. Measuring and Governing Architecture Characteristics
-        - Measuring : Operational / Structural / Process
-        - Governance _( 管理 )_ and Fitness _( 适当 )_ Function: Governing Architecture Characteristics / Fitness Functions
-    - 7\. **Scope** of Architecture Characteristics
-        - **Coupling and Connascence**
-        - **Architectural Quanta _( 量 )_ and Granularity _( 粒度 )_**
-    - 8\. Component-Based Thinking
-        - Component Scope
-        - **Architect Role _( 职责 )_** : **Architecture Partitioning _( 分割 )_** / Case Study: Silicon Sanwiches: Partitioning
-        - **Developer Role**
-        - Component Identification Flow
-            - Identifying Initial Components
-            - Assign Requirements to Components
-            - Analyze Roles and Responsibilities
-            - Analyze Architecture Characteristics
-            - Restructure Components
+        - Measuring: Operational / Structural / Process
+        - Governance and Fitness Function: Governing Architecture Characteristics / Fitness Functions
+    - 7\. Scope of Architecture Characteristics: Coupling and Connascence / Architectural Quanta and Granularity
+    - 8\. Component-Based Thinking: Component Scope / Developer Role
+        - **Architect Role** : **Architecture Partitioning** / Case Study: Silicon Sanwiches: Partitioning
+        - Component Identification Flow: Identifying Initial Components / Assign Requirements to Components / Analyze Roles and Responsibilities / Analyze Architecture Characteristics / Restructure Components
         - Component Granularity
-        - Component Design: Discovering Components
-        - Case Study: Going, Going, Gone: Discovering Components
         - Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
 - Part 2. Architure Styles
-    - 9\. Foundations
-        - Fundamental Patterns: Big Ball of Mud / Unitary _( 统一的 )_ Architecture / Client/Server
-        - **Monolithic Versus Distributed Architectures**
-            - **Fallacy _( 谬误 )_ #1: The Network Is Reliable**
-            - **Fallacy #2: Latency Is Zero**
-            - **Fallacy #3: Bandwidth Is Infinite**
-            - **Fallacy #4: The Network Is Secure**
-            - **Fallacy #5: The Topology Never Changes**
-            - **Fallacy #6: There Is Only One Administrator**
-            - **Fallacy #7: Transport Cost Is Zero**
-            - **Fallacy #8: The Network Is Homogeneous**
-            - Other Distributed Considerations
-    - 10\. **Layered** Architecture Style
-        - **Layers of Isolation**
-        - Adding Layers
-        - Other Considerations
-        - Why Use This Architecture Style
-    - 11\. **Pipeline** Architecture Style
-        - Topology: **Pipes** / **Filters**
-    - 12\. **Microkernel** Architecture Style
-        - Topology: **Core System** / **Plug-In Components**
-        - **Registry**
-        - **Contracts**
-    - 13\. **Service-Based** Architecture Style
-        - Topology Variants
-        - Service Design and Granularity
-        - **Database Partitioning**
-        - When to Use This Architecture Style
-    - 14\. **Event-Driven** Architecture Style
-        - **Broker** Topology
-        - **Mediator** Topology
-        - **Asynchronous Capabilities**
-        - **Error Handling**
-        - **Prevent Data Loss**
-        - **Broadcast Capabilities**
-        - **Request-Reply**
-        - Choosing Between Request-Reply and **Event-Based**
-        - **Hybrid** Event-Driven Architectures
-    - 15\. **Space-Based** Architecture Style
-        - General Topology: **Processing Unit** / **Virtualized Middleware** / **Data Pumps _( 泵 )_** / **Data Writers** / **Data Readers**
-        - **Data Collisions**
-        - **Cloud Versus On-Premises _( 内部部署 )_ Implementations**
-        - **Replicated Versus Distributed Caching**
-        - **Near-Cahce** Considerations
-        - Implementation Examples: Correct Ticketing System / Online Auction System
-    - 16\. **Orchestration-Driven Service-Oriented** Architecture
-        - Taxonomy: **Business** Services / **Enterprise** Services / **Application** Services / **Infrastructure** Services / **Orchestration** Services / **Message Flow**
-        - **Reuse … and Coupling**
-    - 17\. **Microservices** Architecture
-        - **Distributed**
-        - **Bounded Context**: **Granularity** / **Data Isolation**
-        - **API Layer**
-        - Operational Reuse
-        - **Frontends _( 前端的 )_**
-        - Communication: **Choreography _( 舞蹈舞蹈设计 )_ and Orchestration** / **Transactions and Sages _( 圣人, 智者 )_**
-    - 18\. Choosing the Appropriate Architecture Style
-        - Shifting "Fashion" in Architecture
-        - **Decision Criteria _( 标准, 条件 )_**
-        - Monolith Case Study: Silicon Sandwiches —— Modular Monolith / Microkernel
-- Part 3. Techniques and Soft Skills
-    - 19\. **Architecture Decisions**
-        - Architecture Decision **Anti-Patterns**: **Governing Your Assets** / **Groundhog Day _( 土拨鼠日 )_** Anti-Pattern / **Email-Driven** Architecture Anti-Pattern
-        - Architecturally Significant
-        - Architecture Decision Records: / Basic Structure / Storing ADRs / ADRs as Documentation / Using ADRs for Standards / Example
-    - 20\. Analyzing Architecture **Risk**
-        - Risk Matrix
-        - Risk Assessments _( 估价 )_
-        - Risk Storming: Identification / Consensus
-        - Agile Story Risk Analysis
-        - Risk Storming Examples: Availability / **Elasticity _( 弹性 )_** / Security
-    - 21\. Diagramming and Presenting Architecture
-        - Diagramming: Tools / Diagramming Standards: **UML, C4, and ArchiMate** / Diagram Guidelines
-        - Presenting: Manipulating Time / Incremental Builds / **Infodecks Versus Presentations** / **Slides Are Half of the Story** / Invisibility
-    - 22\. Making Teams Effective
-    - 23\. Negotiation and Leadership Skills
+    - 9\. Foundations: Fundamental Patterns: Big Ball of Mud / Unitary Architecture / Client/Server
+        - **Monolithic Versus Distributed Architectures** - **Fallacies**:
+            - The Network Is Reliable / Latency Is Zero / Bandwidth Is Infinite / The Network Is Secure / The Topology Never Changes / There Is Only One Administrator / Transport Cost Is Zero / The Network Is Homogeneous
+    - 10\. **Layered**: Layers of Isolation
+    - 11\. **Pipeline**: **Pipes** / **Filters**
+    - 12\. **Microkernel**: **Core System** or **Plug-In Components** / **Registry** / **Contracts**
+    - 13\. **Service-Based**: Service Design and Granularity / Database Partitioning
+    - 14\. **Event-Driven**: **Broker** / **Mediator**
+        - Asynchronous Capabilities / Error Handling / Prevent Data Loss / Broadcast Capabilities / Request-Reply / Choosing Between Request-Reply and Event-Based / Hybrid** Event-Driven Architectures
+    - 15\. **Space-Based**
+        - Processing Unit / Virtualized Middleware / Data Pumps / Data Writers / Data Readers
+        - Data Collisions / Cloud Versus On-Premises Implementations / Replicated Versus Distributed Caching / Near-Cahce Considerations
+    - 16\. **Orchestration-Driven Service-Oriented**: Reuse … and Coupling / Taxonomy: Business / Enterprise / Application / Infrastructure / Orchestration / Message Flow
+    - 17\. **Microservices**
+        - Bounded Context: Granularity / Data Isolation
+        - Distributed / API Layer / Operational Reuse / Frontends
+        - Communication: Choreography and Orchestration / Transactions and Sages
+- ……
 
 Others
 
@@ -227,6 +133,8 @@ Storage
     - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
     <!-- usage: https://redis.io/commands -->
+- [Cache Patterns](/snips/cache-patterns.md)
+    - cache aside / read through / write through / write behind caching
 
 <!--
 
