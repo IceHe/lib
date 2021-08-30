@@ -1,6 +1,6 @@
 # OSS
 
-Object Store Service
+Object Storage Service
 
 ---
 
