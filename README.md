@@ -185,6 +185,7 @@ Others
 - _[Mongo](/snips/tmp/mongo.md)_
 - _[Work Flow](/snips/tmp/work-flow.md)_
 - _[Sorting Algorithms](/sort/notes.md)_
+- [XXL-JOB](https://www.xuxueli.com/xxl-job/) - [GitHub](https://github.com/xuxueli/xxl-job)
 
 <!--
 
