@@ -430,6 +430,7 @@ Snippets
 - [Spring ConstraintValidator](/java/code-snippets/spring-constraint-validator.md)
 - [Stream and Optional](/java/code-snippets/stream-n-optional.md)
 - [String](/java/code-snippets/string.md)
+- [Task](task.md)
 
 Benchmark & Stress Testing
 
