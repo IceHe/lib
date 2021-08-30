@@ -66,8 +66,8 @@ public class CsvService {
             CSVParser csvParser = CSVFormat.DEFAULT.withHeader().withIgnoreEmptyLines(true).parse(reader);
             return csvParser.getRecords();
         } catch (IOException e) {
-            log.error("failed to parse csv file, data.length, charset={}", data.length, charset, e);
-            throw new RuntimeException("解析文件失败", e);
+            log.error("failed to parse csv file, data.length={}, charset={}", data.length, charset, e);
+            throw new RuntimeException("failed to parse csv file", e);
         }
     }
 }
