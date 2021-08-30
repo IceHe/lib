@@ -7,8 +7,9 @@ Comma Separate Value
 ## Parse CSV File
 
 ```java
-package xyz.icehe.service;
+package xyz.icehe.utils;
 
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.csv.CSVFormat;
@@ -17,7 +18,6 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.input.BOMInputStream;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -30,11 +30,11 @@ import java.util.List;
 /**
  * @author icehe.xyz
  */
-@Service
 @Slf4j
-public class CsvService {
+@UtilityClass
+public class CsvReader {
 
-    public List<CSVRecord> getCsvRecordsFromCsvFileContent(@NotNull byte[] data) {
+    public List<CSVRecord> parseCsvRecordsFromCsvFileContent(@NotNull byte[] data) {
         List<CSVRecord> csvRecords = parseCsvFileByCharset(data, StandardCharsets.UTF_8);
         if (CollectionUtils.isEmpty(csvRecords)) {
             csvRecords = parseCsvFileByCharset(data, Charset.forName("GBK"));
@@ -69,6 +69,81 @@ public class CsvService {
             log.error("failed to parse csv file, data.length={}, charset={}", data.length, charset, e);
             throw new RuntimeException("failed to parse csv file", e);
         }
+    }
+}
+
+```
+
+## Write CSV File
+
+```java
+package xyz.icehe.utils;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * @author icehe.xyz
+ */
+public class CsvWriter {
+
+    public static <T> void write(
+            @NotNull Appendable appendable,
+            @NotNull List<T> csvRows,
+            @NotNull Class<T> csvRowClazz
+    ) throws IOException {
+        appendable.append('\uFEFF');
+
+        Field[] columnFields = csvRowClazz.getDeclaredFields();
+        List<Field> validFields = new ArrayList<>();
+
+        String[] csvHeaders = Arrays.stream(columnFields)
+                .map(columnField -> {
+                    CsvColumn annotation = columnField.getDeclaredAnnotation(CsvColumn.class);
+                    if (annotation == null) {
+                        return null;
+                    }
+                    columnField.setAccessible(true);
+                    validFields.add(columnField);
+
+                    return annotation.value();
+                })
+                .filter(StringUtils::isNotBlank)
+                .toArray(String[]::new);
+
+        CSVPrinter printer = new CSVPrinter(appendable, CSVFormat.EXCEL.withHeader(csvHeaders));
+
+        for (T csvRow : csvRows) {
+            List<Object> columns = validFields.stream().map(f -> {
+                try {
+                    return f.get(csvRow);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }).collect(Collectors.toList());
+
+            printer.printRecord(columns);
+        }
+        printer.close();
+    }
+
+    @Target(ElementType.FIELD)
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface CsvColumn {
+        String value() default "";
     }
 }
 ```
