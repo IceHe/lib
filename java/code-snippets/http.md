@@ -101,6 +101,62 @@ public class IpUtils {
 
 ```
 
+## HTTP Download
+
+```java
+package xyz.icehe.utils;
+
+import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.http.HttpEntity;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
+
+/**
+ * @author icehe.xyz
+ */
+@Slf4j
+@UtilityClass
+public class HttpUtil {
+
+    /**
+     * 根据 URL 下载文件, 并转换为字节流
+     */
+    public byte[] httpGet(String url) throws Exception {
+        final String methodName = "httpGet";
+        try {
+            try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+                HttpGet httpGet = new HttpGet(url);
+                log.info("{}, executing request:{}", methodName, httpGet.getURI());
+
+                try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
+                    HttpEntity entity = response.getEntity();
+                    log.info("{}, response status:{}", methodName, response.getStatusLine());
+
+                    if (entity != null) {
+                        log.info("{}, entity length:{}", methodName, entity.getContentLength());
+
+                        byte[] result = EntityUtils.toByteArray(entity);
+                        return result;
+                    }
+                }
+            }
+            return null;
+        } catch (ParseException | IOException e) {
+            log.error("{} failed", methodName, e);
+            throw e;
+        }
+    }
+}
+```
+
 ## PooledHttpClient
 
 ```java
