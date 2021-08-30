@@ -21,7 +21,66 @@ create table if not exists task
 comment '任务';
 
 create index idx_parentId
-    on shipment_timeout_stats_task (parentId);
+    on task (parentId);
+```
+
+## TaskStatus
+
+```java
+package xyz.icehe.enums;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import java.util.Optional;
+import java.util.stream.Stream;
+
+/**
+ * 任务状态
+ *
+ * @author icehe.xyz
+ */
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public enum TaskStatusEnum {
+
+    INVALID(-1, "无效值"),
+    PROCESSING(0, "处理中"),
+    SUCCEEDED(1, "处理成功"),
+    FAILED(2, "处理失败"),
+    TODO(3, "待处理"),
+    ;
+
+    private final int code;
+
+    private final String desc;
+
+    public static Optional<TaskStatusEnum> getByInt(int integer) {
+        return Stream.of(values()).filter(value -> value.getCode() == integer).findFirst();
+    }
+
+    public static Optional<TaskStatusEnum> getByString(String name) {
+        return Stream.of(values()).filter(value -> value.name().equals(name)).findFirst();
+    }
+
+    public static TaskStatusEnum getNullableByInt(int value) {
+        return getByInt(value).orElse(INVALID);
+    }
+
+    @JsonCreator
+    public static TaskStatusEnum getNullableByString(String name) {
+        return getByString(name).orElse(INVALID);
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return this.name();
+    }
+}
 ```
 
 ## TaskService
@@ -30,7 +89,7 @@ create index idx_parentId
 package xyz.icehe.service;
 
 import xyz.icehe.data.Task;
-import xyz.icehe.enums.shipmenttimeoutstats.TaskTypeEnum;
+import xyz.icehe.enums.TaskTypeEnum;
 
 import java.util.List;
 import java.util.Optional;
@@ -88,7 +147,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.icehe.enums.TaskStatusEnum;
 import xyz.icehe.data.Task;
-import xyz.icehe.enums.shipmenttimeoutstats.TaskTypeEnum;
+import xyz.icehe.enums.TaskTypeEnum;
 import xyz.icehe.service.TaskService;
 import xyz.icehe.storage.TaskStorage;
 import xyz.icehe.exception.TaskStatusUpdateException;
@@ -294,8 +353,8 @@ public class TaskServiceImpl implements TaskService {
 package xyz.icehe.storage;
 
 import xyz.icehe.common.enums.TaskStatusEnum;
-import xyz.icehe.shipment.enums.shipmenttimeoutstats.TaskTypeEnum;
-import xyz.icehe.shipment.data.Task;
+import xyz.icehe.enums.TaskTypeEnum;
+import xyz.icehe.data.Task;
 
 import java.util.List;
 import java.util.Map;
@@ -403,7 +462,7 @@ import org.springframework.stereotype.Repository;
 import xyz.icehe.common.db.DbClient;
 import xyz.icehe.data.Task;
 import xyz.icehe.enums.TaskStatusEnum;
-import xyz.icehe.enums.shipmenttimeoutstats.TaskTypeEnum;
+import xyz.icehe.enums.TaskTypeEnum;
 import xyz.icehe.storage.TaskStorage;
 import xyz.icehe.util.TimeUtil;
 

@@ -74,7 +74,7 @@ getLatestPipeline () {
     local cookie=$3
 
     local pipeline=`curl --silent \
-        --location "https://infra-api.icehe.xyz/infra-phoenix-console/api/pipeline/conan-commerce-shipment?branchName=${branchName}&page=0&authorName=${authorName}" \
+        --location "https://infra-api.icehe.xyz/infra-phoenix-console/api/pipeline/icehe-xyz-project?branchName=${branchName}&page=0&authorName=${authorName}" \
         --request GET \
         --header "${cookie}" \
         | jq '.list[0]'`
@@ -163,7 +163,7 @@ PATH=$PATH:/usr/local/bin
 authorName=${1}
 branchName=master
 cookie=`cat cookie.txt`
-projectIdentity=conan-commerce-shipment
+projectIdentity=icehe-xyz-project
 stage=CANARY
 tryTimes=96
 toTriggerBuild=${2:-0}
