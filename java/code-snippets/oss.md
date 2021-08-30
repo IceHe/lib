@@ -4,7 +4,7 @@ Object Store Service
 
 ---
 
-## Demo
+## Download
 
 ```java
 package xyz.icehe.service;
@@ -40,7 +40,7 @@ public class OssService {
     @Value("${oss.accessKeySecret}")
     private String accessKeySecret;
 
-    public byte[] fetchOssFile(@NotNull String fileUrl) {
+    public byte[] fetchOssFileContent(@NotNull String fileUrl) {
 
         OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
         OSSObject ossObject = ossClient.getObject(bucketName, parseOssObjectKey(fileUrl));

@@ -424,6 +424,7 @@ Snippets
 - [LocalDateTime](/java/code-snippets/local-date-time.md)
 - [MyBatis and JDBC](/java/code-snippets/mybatis-n-jdbc.md)
 - [Number](/java/code-snippets/number.md)
+- [OSS](/java/code-snippets/oss.md)
 - [Spring Beans](/java/code-snippets/spring-beans.md)
 - [Spring ConstraintValidator](/java/code-snippets/spring-constraint-validator.md)
 - [Stream and Optional](/java/code-snippets/stream-n-optional.md)
