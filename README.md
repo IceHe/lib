@@ -151,7 +151,7 @@ Storage
 Markdown
 
 - [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
-- [Markdown Lint Tool: mdl](/snips/markdown/lint/lint.md)
+- [MDL - Markdown Lint Tool](/snips/markdown/lint/lint.md)
 
 Docker
 
@@ -233,7 +233,7 @@ macOS
 - [Efficiency](/mac/efficiency.md): 效率指南
     - [macOS shortcuts](/mac/shortcuts/macos.md)
     - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
-    - [JetBrains shortcuts](/mac/shortcuts/jetbrains.md)
+    - [JetBrains IDE shortcuts](/mac/shortcuts/jetbrains.md)
     - [mac-conf](https://github.com/IceHe/mac-conf): my macOS configuration files
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
@@ -592,7 +592,7 @@ Timeline
         - 汇报工作说结果
         - 总结工作说流程
         - 回顾工作说感受
-    - How to solve problems
+    - How to Solve Problems
         1. 既无问题也无见解者，不用；
         1. 只提问题无见解者，慎用；
         1. 既提问题也有见解者，且有良好业绩者，重用！
@@ -659,7 +659,7 @@ Timeline
 -   [The Tyranny of Merit](/books/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
     -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](https://book.douban.com/subject/35390276) ( to take notes )
+-   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](https://book.douban.com/subject/35390276) _( to take notes )_
     -   《 如何成为不完美主义者 》
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
