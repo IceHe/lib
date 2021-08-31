@@ -606,6 +606,7 @@ Timeline
 - [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR principle](/snips/principles/star.md): Situation → Target → Action → Result
 - [Deployment Checklist](/snips/tmp/deployment-checklist.md): Avoid low-level mistakes
+- [How to Leave](/snips/principles/how-to-leave.md):《解除劳动合同告知书》
 
 <!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
 <!-- - [What Why How](/snips/principles/what-why-how.md) -->
@@ -664,7 +665,7 @@ Timeline
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
     -   不那么在意所谓时机，更在意任务本身。
--   _[Noise: a Flaw in Human Judgement](books/noise-a-flaw-in-human-judgement.md)_ _( to read )_
+-   _[Noise: a Flaw in Human Judgement](/books/noise-a-flaw-in-human-judgement.md)_ _( to read )_
     -   《 噪声: 一个人类判断力的缺陷 》
 
 ### Friends
