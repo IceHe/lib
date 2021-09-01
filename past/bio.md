@@ -61,7 +61,7 @@ IceHe's short biographical profile
 存储 / 缓存 / 队列
 
 - 胜任: MySQL / Redis / Elasticsearch
-- 了解: Memcached / RabbitMQ / Kafaka
+- 了解: Memcached / RabbitMQ / RocketMQ / Kafaka
 
 操作系统
 
