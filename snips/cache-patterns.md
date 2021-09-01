@@ -45,20 +45,39 @@ References
 注意，**先更新数据库，成功后，让缓存失效。**
 那么，这样是否可以避免前文提到的那个问题呢？可以推演一下。
 
-一个是查询操作，一个是更新操作的并发，
-首先，没有了删除 cache 数据的操作了，
-而是先更新了数据库中的数据，
-此时，缓存依然有效
-所以，并发的查询操作拿的是没有更新的数据，
-但是，更新操作马上让缓存的失效了，后续的查询操作再把数据从数据库中拉出来。而不会像文章开头的那个逻辑产生的问题，后续的查询操作一直都在取老的数据。
+一个是查询操作，一个是更新操作的并发；
+首先，没有了删除 cache 数据的操作了，而是先更新了数据库中的数据；
+此时，缓存依然有效，所以，并发的查询操作拿的是没有更新的数据；
+但是，更新操作马上让缓存的失效了，后续的查询操作再把数据从数据库中拉出来。
+而不会像前文提到的那个逻辑产生的问题（导致后续的查询操作一直都在取老的数据）。
 
-这是标准的design pattern，包括Facebook的论文《[Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)》也使用了这个策略。为什么不是写完数据库后更新缓存？你可以看一下Quora上的这个问答《[Why does Facebook use delete to remove the key-value pair in Memcached instead of updating the Memcached during write request to the backend?](https://www.quora.com/Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend)》，主要是怕两个并发的写操作导致脏数据。
+这是标准的 design pattern，包括 Facebook 的论文《
+[Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)
+》也使用了这个策略。
 
-那么，是不是Cache Aside这个就不会有并发问题了？不是的，比如，一个是读操作，但是没有命中缓存，然后就到数据库中取数据，此时来了一个写操作，写完数据库后，让缓存失效，然后，之前的那个读操作再把老的数据放进去，所以，会造成脏数据。
+为什么不是写完数据库后更新缓存？
+你可以看一下 Quora 上的这个问答《
+[Why does Facebook use delete to remove the key-value pair in Memcached instead of updating the Memcached during write request to the backend?](https://www.quora.com/Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend)
+》，主要是怕两个并发的写操作导致脏数据。
 
-但，这个case理论上会出现，不过，实际上出现的概率可能非常低，因为这个条件需要发生在读缓存时缓存失效，而且并发着有一个写操作。而实际上数据库的写操作会比读操作慢得多，而且还要锁表，而读操作必需在写操作前进入数据库操作，而又要晚于写操作更新缓存，所有的这些条件都具备的概率基本并不大。
+是不是 Cache Aside 这个就不会有并发问题了？不是的。
+**比如，一个是读操作，但是没有命中缓存，然后就到数据库中取数据；**
+**此时来了一个写操作，写完数据库后，让缓存失效；**
+**然后，之前的那个读操作再把老的数据放进去，所以这时会造成脏数据。**
 
-所以，这也就是Quora上的那个答案里说的，要么通过2PC或是Paxos协议保证一致性，要么就是拼命的降低并发时脏数据的概率，而Facebook使用了这个降低概率的玩法，因为2PC太慢，而Paxos太复杂。当然，最好还是为缓存设置上过期时间。
+**但是，这个 case 理论上会出现；**
+**不过，实际上出现的概率可能非常低。**
+**因为这个条件需要发生在读缓存时缓存失效，而且并发着有一个写操作。**
+**而实际上数据库的写操作会比读操作慢得多，而且还要锁表，**
+**而读操作必需在写操作前进入数据库操作，而又要晚于写操作更新缓存，**
+**所有的这些条件都具备的概率基本并不大。**
+
+所以，正如 Quora 上的那个答案所说的，
+要么通过 2PC 或是 Paxos 协议保证一致性，
+要么就是拼命的降低并发时脏数据的概率，
+而 Facebook 使用了这个降低概率的玩法。
+因为 2PC 太慢，而 Paxos 太复杂。
+当然，**最好还是为缓存设置上过期时间。**
 
 ## Read/Write Through
 
