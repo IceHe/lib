@@ -42,9 +42,15 @@ References
 
 ![Updating-Data-using-the-Cache-Aside-Pattern-Flow.png](_images/Updating-Data-using-the-Cache-Aside-Pattern-Flow.png)
 
-注意，我们的更新是先更新数据库，成功后，让缓存失效。那么，这种方式是否可以没有文章前面提到过的那个问题呢？我们可以脑补一下。
+注意，**先更新数据库，成功后，让缓存失效。**
+那么，这样是否可以避免前文提到的那个问题呢？可以推演一下。
 
-一个是查询操作，一个是更新操作的并发，首先，没有了删除cache数据的操作了，而是先更新了数据库中的数据，此时，缓存依然有效，所以，并发的查询操作拿的是没有更新的数据，但是，更新操作马上让缓存的失效了，后续的查询操作再把数据从数据库中拉出来。而不会像文章开头的那个逻辑产生的问题，后续的查询操作一直都在取老的数据。
+一个是查询操作，一个是更新操作的并发，
+首先，没有了删除 cache 数据的操作了，
+而是先更新了数据库中的数据，
+此时，缓存依然有效
+所以，并发的查询操作拿的是没有更新的数据，
+但是，更新操作马上让缓存的失效了，后续的查询操作再把数据从数据库中拉出来。而不会像文章开头的那个逻辑产生的问题，后续的查询操作一直都在取老的数据。
 
 这是标准的design pattern，包括Facebook的论文《[Scaling Memcache at Facebook](https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf)》也使用了这个策略。为什么不是写完数据库后更新缓存？你可以看一下Quora上的这个问答《[Why does Facebook use delete to remove the key-value pair in Memcached instead of updating the Memcached during write request to the backend?](https://www.quora.com/Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend)》，主要是怕两个并发的写操作导致脏数据。
 
