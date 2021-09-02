@@ -7,7 +7,7 @@
 References
 
 - [缓存更新套路](https://coolshell.cn/articles/17416.html)
-- [AxiaEpoch 2021-08-27 21:23 的微博](https://weibo.com/1671040287/KvqWpmgqd)
+- [AxiaEpoch 2021-08-27 21:23 的微博](https://weibo.com/1671040287/KvqWpmgqd) ( 微博视频平台的前同事 ) <!-- 伍凯 -->
 
 ## Intro
 
@@ -158,59 +158,82 @@ Write Back 模式:
 
 ![write-back_with_write-allocation.png](_images/write-back_with_write-allocation.png)
 
-## from 伍凯
+## Further Discussion
 
-概述:
+_from 微博视频平台的前同事_
 
-缓存模式主要分为两种, 一是Cache-aside, 二是Cache-as-Sor, Sor是system of record的简称, 简单来说就是数据存储, 常见的就是 DB 了. 在Cache-as-Sor模式中, 包含两种模式, 一是Read-through, 二是Write-through或Write-behind（也可以叫做Write-back）, 下面介绍下这几种模式.
+### Intro
 
-一: Cache-aside
+缓存模式主要分为两种:
 
-简单来说就是缓存可以看作是个独立的模块, 可以认为缓存的操作是业务流程的一部分.
-读流程:
-从cahce读, 如果cache miss, 从Sor中读, 然后写入cache, 然后返回.
-更新流程:
-写入Sor, 将cache失效.
+1. **Cache-aside**
+2. **Cache-as-SoR**
 
-二: Cache-as-SoR
+**SoR 是 System of Record 的简称**, 简单来说就是数据存储, 常见的就是 DB 了.
 
-简单来说是把缓存看作数据存储, 业务流程中不会关心缓存的处理, 缓存由数据存储逻辑来处理.
+在 Cache-as-SoR 模式中, 包含两种模式:
 
 1. Read-through
-    这个和Cache-aside的读流程一样, 只不过这个逻辑放在数据存储层做.
+2. Write-through or Write-behind ( aka. Write-back )
 
-2. Write-through
-    写入缓存的时候, 同时去更新后面真实的存储, 成功后才返回.
+### Cache-Aside
 
-3. Write-behind（也可以叫做Write-back）
-    写入缓存之后即可返回, 之后去异步更新后面真实的存储. 这个模式的优势就是写入很快.
+简单来说就是 cache 可以看作是个独立的模块,
+可以认为 cache 的操作是业务流程的一部分.
 
-一般来说, 使用上面几种模式, 缓存加上过期时间（为了保证最终一致性）, 一些需要强一致的业务操作绕过缓存直接访问存储, 就不会有太大问题.
+- **读流程: 从 cahce 读, 如果 cache miss , 从 SoR 中读, 然后写入 cache , 最后返回.**
+- **更新流程: 写入 SoR , 将 cache 失效.**
 
-但是, 系统设计里充满了Trade-off, 我们需要清晰的知道, 我们是在什么东西上做了什么样的权衡.
+### Cache-as-SoR
 
-下面说下这些模式在分布式系统中的一些场景中存在的问题:
+简单来说是把 cache 看作 storage , 业务流程中不会关心 cache 的处理, cache 由 storage 逻辑来处理.
 
-一: Cache-aside模式
+1.  **Read-through**:
 
-1. 这个模式要求Sor是强一致的, 否则, 写流程 将cache失效后, 读流程 可能从Sor中读到旧数据写入到cache中.
-2. 如果要求Sor是强一致的, 根据分布式系统的CAP理论, Sor只能是CP的. 那么这个时候问题就落到了数据存储层, 存储层的CP怎么做.
+    **与 Cache-aside 的读流程一样, 只不过实现逻辑放在 storage 做.**
 
-二: Cache-as-SoR
+2.  **Write-through**:
 
-1. Read-through
-    这个和Cache-aside所面临的问题一样.
+    **写入 cache 的时候, 同时去更新底层的 storage, 成功后才返回.**
 
-2. Write-through
-    写缓存, 写真实的存储, 这是两步操作, 这意味什么, 分布式事务.
+3.  **Write-behind**: aka. **Write-back**
 
-3. Write-behind（也可以叫做Write-back）
-    这个就更复杂一些了, 比如如何保证数据不丢, 如何保证CP等等
+    **写入缓存之后即可返回, 之后 cache 去异步更新底层的 storage.** _优势是写入很快._
 
-Write-through和Write-behind还涉及到一个问题是, 如果修改的是cache中的一小部分数据, 这个时候cache miss的话采用什么策略, 这里还有两个模式:
+一般来说,
 
-1. Write allocate (又叫fetch on write)
-    先从存储里把数据读到缓存中, 然后修改缓存, 通常在Write-behind模式下使用.
+- 使用以上几种模式
+- **缓存加上过期时间 ( 为了保证最终一致性 )**
+- **一些需要强一致的业务操作绕过缓存直接访问存储**
 
-2. No-write allocate (又叫write-no-allocate or write around)
-    不管缓存, 直接写存储, 通常在Write-through模式下使用.
+就不会有太大问题.
+
+### Trade-Off
+
+但是, 系统设计里充满了 trade-off , 需要清晰地知道 —— 我们在什么东西上做了怎样的权衡.
+
+说一说以上这些模式在分布式系统中的一些场景中存在的问题.
+
+#### Cache-Aside
+
+-   **Cache-aside 模式要求 SoR 是强一致的,**
+    **否则, 写流程 将cache失效后, 读流程 可能从 SoR 中读到旧数据写入到 cache 中.**
+-   **如果要求 SoR 是强一致的, 根据分布式系统的 CAP 理论, SoR 只能是 CP 的.**
+    **那么这时候问题就落到了数据存储层 ( data storage ) , 存储层的 CP 怎么做呢?**
+
+#### Cache-as-SoR
+
+-   **Read-through: 这个模式与 Cache-aside 面临相同的问题.**
+-   **Write-through: 写 cache, 写真实的 storage , 这是两步操作, 这意味什么? 分布式事务的问题!**
+-   **Write-behind ( aka. Write-back ) : 这个模式就更复杂一些了. 例如, 如何保证数据不丢? 如何保证 CP ? 等等**
+
+Write-through 和 Write-behind 还涉及到一个问题:
+如果修改的是 cache 中的一小部分数据, 这个时候 cache miss 的话采用什么策略, 这里还有两个模式:
+
+1.  **Write allocate** ( aka. **Fetch on write** )
+
+    先从存储里把数据读到 cache 中, 然后修改 cache , 通常在 Write-behind 模式下使用.
+
+2.  **No-write allocate** ( aka. **Write-no-allocate** or **Write around** )
+
+    不管缓存, 直接写存储, 通常在 Write-through 模式下使用.
