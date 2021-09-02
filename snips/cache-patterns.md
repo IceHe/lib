@@ -80,7 +80,19 @@ References
 
 当然，**最好还是为缓存设置上过期时间。**
 
-## Read/Write Through
+## Read / Write Through
+
+Cache Aside 套路中，应用代码需要维护两个数据存储：
+
+- 缓存 Cache
+- 数据库 Repository
+
+所以，应用程序比较啰嗦。
+
+而 Read/Write Through 套路是把更新数据库（Repository）的操作由缓存自己代理了，
+所以，对于应用层来说，就简单很多了。
+
+可以理解为，应用认为后端就是一个单一的存储，而 **存储自己维护自己的 Cache。**
 
 ### Read Through
 
