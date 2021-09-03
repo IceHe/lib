@@ -89,7 +89,7 @@ IceHe's short biographical profile
 
 **To Be Continued - Week-End** _2021.9 ~ 至今_
 
-- 打算休息一段时间
+- 休息一段时间
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
 

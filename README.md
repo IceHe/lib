@@ -177,6 +177,10 @@ Web
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
 
+JavaScript
+
+- [pnpm](/snips/javascript/pnpm.md): Fast, disk space efficient package manager ( [pnpm.io](https://pnpm.io/) )
+
 Others
 
 - _[CentOS 6](/snips/os/centos6.md)_
