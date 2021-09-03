@@ -179,7 +179,11 @@ Web
 
 JavaScript
 
+- [TypeScript](/snips/javascript/type-script.md): JavaScript with syntax for types ( [typescriptlang.org](https://www.typescriptlang.org/) )
 - [pnpm](/snips/javascript/pnpm.md): Fast, disk space efficient package manager ( [pnpm.io](https://pnpm.io/) )
+- lerna: A tool for managing JavaScript projects with multiple packages ( [lerna.js.org](https://lerna.js.org/) )
+- husky: Modern native Git hooks made easy ( [typicode.github.io](https://typicode.github.io/husky/#/) )
+- commitlint: Lint commit messages ( [commitlint.js.org](https://commitlint.js.org/#/) )
 
 Others
 
