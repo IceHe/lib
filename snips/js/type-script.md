@@ -7,6 +7,10 @@ JavaScript with syntax for types
 References
 
 - [typescriptlang.org](https://www.typescriptlang.org/)
+    - Documentation
+        - API reference documentation
+        - ES6 features
+        - Guides
 
 ## Intro
 
