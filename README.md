@@ -527,12 +527,13 @@ Living
 
 Timeline
 
-- [Bio](/past/bio.md): skills / exprience / education
-    - **SCUT**: Software Engineering | Bachelor _( C++ )_
-    - **Huawei**: Telecom Software Customization | Intern. _( Java )_
-    - **Sina Weibo**: Mobile API _( PHP )_ → Video Platform | Back-End _( Java )_
-    - **Alibaba Local Life**: 众包物流运营&数据组 → 蜂鸟跑腿 | Back-End _( Java )_
-    - **YFD**: 斑马 - 供应链 | Back-End _( Java )_
+- [Bio](/past/bio.md): skills | exprience | education
+    - **TBC** : 休息一段时间 | Week-End ( ? )
+    - **YFD** : 斑马 - 供应链 | Back-End ( Java )
+    - **Alibaba Local Life** : 众包物流运营&数据组后台 → 蜂鸟跑腿前台 | Back-End ( Java )
+    - **Sina Weibo** : Mobile API ( PHP ) → Video Platform | Back-End ( Java )
+    - **Huawei** : Telecom Software Customization | Intern. ( Java )
+    - **SCUT** : Software Engineering | Bachelor ( C++ )
 - After 2018
     - [Better Living](/past/better-living.md)
     - [Rehabilitation](/past/rehabilitation.md)
