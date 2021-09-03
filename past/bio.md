@@ -87,7 +87,7 @@ IceHe's short biographical profile
 
 ## 经历
 
-**To Be Continued** _2021.9 ~ 至今_
+**To Be Continued - Week-End** _2021.9 ~ 至今_
 
 - 打算休息一段时间
 
