@@ -8,7 +8,9 @@ References
 
 - [pnpm.io](https://pnpm.io/)
 
-## Features
+## Intro
+
+Characteristics
 
 -   **Fast**:
     pnpm is up to 2x faster than the alternatives
@@ -22,11 +24,12 @@ References
 -   **Strict**:
     pnpm creates a non-flat node_modules, so code has no access to arbitrary packages
 
-## Intro
+Get Started
 
 - [Motivation](https://pnpm.io/motivation)
 - [Installation](https://pnpm.io/installation)
     - Upgrade: `pnpm add -g pnpm`
+    - ……
 
 | npm command     | pnpm equivalent  |
 | --------------- | ---------------- |
@@ -106,3 +109,37 @@ References
 - `store` Managing the package store.
 
 ## Configuration
+
+……
+
+## Workspace
+
+pnpm has built-in support for monorepositories
+(AKA **multi-package repositories**, **multi-project repositories**, or **monolithic repositories**).
+You can create a workspace to unite multiple projects inside a single repository.
+
+## Receipes
+
+- Using Changesets
+- Continuous Integration
+- Only allow pnpm
+- Working with Git
+
+### Only allow pnpm
+
+When you use pnpm on a project,
+you don't want others to accidentally run `npm install` or `yarn`.
+
+To prevent devs from using other package managers,
+you can add the following preinstall script to your `package.json` :
+
+```json
+{
+    "scripts": {
+        "preinstall": "npx only-allow pnpm"
+    }
+}
+```
+
+_Now, whenever someone runs `npm install` or `yarn,,_
+_they'll get an error instead and installation will not proceed._
