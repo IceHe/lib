@@ -4,7 +4,7 @@ IceHe's short biographical profile
 
 <!-- CV - Curriculum Vitae -->
 
----
+<!-- --- -->
 
 ## 简介
 
@@ -43,7 +43,7 @@ IceHe's short biographical profile
 
 -->
 
----
+<!-- --- -->
 
 ## 技能
 
@@ -83,7 +83,7 @@ IceHe's short biographical profile
 - 英语: 大学六级, 技术内容的基本阅读 & 写作
 - 普通话 & 粤语: 母语
 
----
+<!-- --- -->
 
 ## 经历
 
@@ -129,7 +129,7 @@ IceHe's short biographical profile
 - 2016.4 ~ 2016.8 开发与维护「微博头条」的服务端 API 及其 CMS 后台
 - _PHP 7 / Yaf / MySQL / Redis / Memcached / MCQ / Docker / CentOS / GitLab / Jenkins_
 
----
+<!-- --- -->
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端 实习** _2014.12 ~ 2015.2_
 
@@ -146,7 +146,7 @@ IceHe's short biographical profile
 - 「华工教学云平台」Windows 客户端 ( C++ Qt GUI ) , 及 Linux 服务端的部分功能
 - _C / C++ / Qt Framework ( 客户端 ) / MySQL / CentOS_
 
----
+<!-- --- -->
 
 ## 教育
 
@@ -154,7 +154,7 @@ IceHe's short biographical profile
 
 [广州市执信中学](https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%89%A7%E4%BF%A1%E4%B8%AD%E5%AD%A6) - 2011 届「优秀毕业生」( 20% ) _2008.9 ~ 2011.7_
 
----
+<!-- --- -->
 
 ## 其它
 
@@ -199,7 +199,7 @@ IceHe's short biographical profile
 <!-- - 筹划执行校园推广活动, 运营微博营销号, 参与文案内容制作 -->
 <!-- - 于广州各高校执行 15+ 场推广公司品牌的讲座、交流会、公开课 -->
 
----
+<!-- --- -->
 
 > 写一部小说就像在黑夜里开车。你只能看到车灯照亮的部分, 但是你却可以走完整个旅程。
 >
