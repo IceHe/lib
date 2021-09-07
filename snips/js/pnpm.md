@@ -94,6 +94,10 @@ Get Started
 - `start`, `run start` Runs an arbitrary command specified in the package's start property of its `scripts` object.
     - If no start property is specified on the scripts object, it will attempt to run node `server.js` as a default, failing if neither are present.
 
+### npx, pnpx
+
+WARNING: This command is deprecated! Use `pnpm exec` and `pnpm dlx` instead.
+
 ## Other Commands
 
 - `env` Manages the Node.js environment.
