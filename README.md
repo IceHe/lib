@@ -8,7 +8,7 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Website: [icehe.xyz](https://icehe.xyz) - _powered by [docsify](/_docsify/how-to-docsify.md)_
+- Website: [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
 -   Author: [IceHe](/past/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
@@ -674,7 +674,7 @@ Timeline
 -   [The Tyranny of Merit](/books/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
     -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/books/how-to-be-an-imperfectionist.md) _( to take notes )_
+-   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/books/how-to-be-an-imperfectionist.md) _( taking notes )_
     -   《 如何成为不完美主义者 》
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
