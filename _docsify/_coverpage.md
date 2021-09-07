@@ -4,7 +4,9 @@
 
 <!-- Don’t try, just do. Failure is not an option. -->
 
+```
     <!-- 好记性不如烂博客 -->
+```
 
 <!-- Done is better than perfect. -->
 
