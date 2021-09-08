@@ -8,8 +8,9 @@
 
 <!-- > —— LeBlanc's Law -->
 
+-   Whoami: [IceHe](/past/bio.md)
 -   Website: [icehe.xyz](https://icehe.xyz) _powered by [docsify](/_docsify/how-to-docsify.md)_
--   Author: [IceHe](/past/bio.md) - icehe.me@qq.com
+-   Contact: `aWNlaGUubWVAcXEuY29t` <!-- _- Base64 Encoded_ -->
 
 ## Tech
 
@@ -544,15 +545,19 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
+[Bio](/past/bio.md): Java Back-End - Exp | Edu | Skills
+
+- **TBC**: Have a rest
+- **YFD**: Zebra - Supply Chain
+- **Alibaba Local Life**: 蜂鸟跑腿前台
+- **Alibaba Local Life**: 众包物流运营&数据组后台
+- **Weibo**: Video Platform
+- **Weibo**: Mobile API - PHP Graduate
+- **Huawei**: Telecom Software Customization - Java Intern.
+- **SCUT**: Software Engineering - C++ Bachelor
+
 Timeline
 
-- [Bio](/past/bio.md): Back-End - Exprience, Education, Skills
-    - **TBC** : 休息一段时间 | Nothing
-    - **YFD** : 斑马 - 供应链 | Java
-    - **Alibaba Local Life** : 众包物流运营&数据组后台 → 蜂鸟跑腿前台 | Java
-    - **Sina Weibo** : Mobile API → Video Platform | PHP → Java
-    - **Huawei** : Telecom Software Customization | Java Intern.
-    - **SCUT** : Software Engineering | Bachelor | C++
 - After 2018
     - [Better Living](/past/better-living.md)
     - [Rehabilitation](/past/rehabilitation.md)
