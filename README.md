@@ -8,8 +8,8 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Website: [icehe.xyz](https://icehe.xyz) _- powered by [docsify](/_docsify/how-to-docsify.md)_
--   Author: [IceHe](/past/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
+-   Website: [icehe.xyz](https://icehe.xyz) _powered by [docsify](/_docsify/how-to-docsify.md)_
+-   Author: [IceHe](/past/bio.md) - icehe.me@qq.com
 
 ## Tech
 
@@ -58,6 +58,10 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 
 [Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md) _- [TOC](/books/fundamentals-of-software-architecture-toc.md)_
 
+- _reading and taking notes_
+
+<!--
+
 - 1\. Introduction
     - Expectations of an Architect: Keep Current with Latest Trends / Ensure Compliance with Decisions / Diverse Exposure and Experience / Have Bussines Domain Knowledge / Understand and Navigate Politics
     - Intersection of Architecture and …: Engineering Practices / Operations & DevOps / Process / Data
@@ -94,6 +98,8 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
         - Distributed / API Layer / Operational Reuse / Frontends
         - Communication: Choreography and Orchestration / Transactions and Sages
 - ……
+
+-->
 
 Others
 
