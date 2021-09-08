@@ -8,7 +8,7 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Website: [icehe.xyz](https://icehe.xyz) - powered by [docsify](/_docsify/how-to-docsify.md)
+- Website: [icehe.xyz](https://icehe.xyz) _- powered by [docsify](/_docsify/how-to-docsify.md)_
 -   Author: [IceHe](/past/bio.md) - [icehe.me@qq.com](mailto:icehe.me@qq.com)
 
 ## Tech
@@ -31,8 +31,8 @@ Coding
 - [Design Patterns](/books/design-patterns.md)
     - Elements of Reusable Object-Oriented Software
 - [Pragmatic Programmer](/books/pragmatic-programmer.md)
-    - The Pragmatic Programmer: your journey to mastery ( 2nd Edition )
-- [The Manager's Path](/books/the-manager-s-path.md) _( reading )_
+    - The Pragmatic Programmer: your journey to mastery - 2nd Edition
+- [The Manager's Path](/books/the-manager-s-path.md) _- reading_
     - A Guide for Tech Leaders Navigating Growth and Change
 - [Clean Agile](/books/clean-agile.md)
     - Back to Basics
@@ -40,7 +40,7 @@ Coding
 JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
 
 - [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
-- [Part III. Execution Engine](/books/understand-jvm-p3.md) _( to read )_
+- [Part III. Execution Engine](/books/understand-jvm-p3.md) _- to read_
 - Part IV. Compile and Code Optimize
 
 Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-applications-toc.md)
@@ -98,22 +98,22 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
-- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _( to read )_
-- [Linux Kernel](/books/linux.md) _( to read )_
-- [Learn X in Y minutes](https://learnxinyminutes.com) _( programming languages )_
+- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _- to read_
+- [Linux Kernel](/books/linux.md) _- to read_
+- [Learn X in Y minutes](https://learnxinyminutes.com) _- programming languages_
 
-<!-- - [Algorithms ( 4th Edition ) - Notes](/books/algorithms-notes.md) _( reading )_ -->
+<!-- - [Algorithms - 4th Edition - Notes](/books/algorithms-notes.md) _- reading_ -->
 <!-- - [JZ Offer](/books/jz-offer.md) -->
 
 <!-- _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--  -->
-<!-- - _[Part*  1](/books/tcp-ip-illustracted-protocols-p1.md) ( to read )_ -->
+<!-- - _[Part*  1](/books/tcp-ip-illustracted-protocols-p1.md) - to read_ -->
 
 <!-- Tools -->
 
 <!-- - Wireshark -->
-<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) ( to read )_ -->
-<!--     - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) ( to read )_ -->
+<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) - to read_ -->
+<!--     - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) - to read_ -->
 
 ### Snips
 
@@ -179,16 +179,16 @@ Web
 
 JavaScript
 
-- [Node.js](/snips/js/nodejs.md): A JavaScript runtime built on Chrome's V8 JavaScript engine ( [nodejs.org](https://nodejs.org/en/) )
-- [TypeScript](/snips/js/type-script.md): JavaScript with syntax for types ( [typescriptlang.org](https://www.typescriptlang.org/) )
+- [Node.js](/snips/js/nodejs.md): A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
+- [TypeScript](/snips/js/type-script.md): JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
 - Package Management
-    - [npm](/snips/js/npm.md): share and borrow packages ( [npmjs.com](https://www.npmjs.com/) )
-    - yarn: a package manager that doubles down as project manager. ( [yarnpkg.com](https://yarnpkg.com/) )
+    - [npm](/snips/js/npm.md): share and borrow packages - [npmjs.com](https://www.npmjs.com/)
+    - yarn: a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
         - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
-    - [pnpm](/snips/js/pnpm.md): Fast, disk space efficient package manager ( [pnpm.io](https://pnpm.io/) )
-- lerna: A tool for managing JavaScript projects with multiple packages ( [lerna.js.org](https://lerna.js.org/) )
-- husky: Modern native Git hooks made easy ( [typicode.github.io](https://typicode.github.io/husky/#/) )
-- commitlint: Lint commit messages ( [commitlint.js.org](https://commitlint.js.org/#/) )
+    - [pnpm](/snips/js/pnpm.md): Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
+- lerna: A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+- husky: Modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+- commitlint: Lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
 
 Others
 
@@ -230,11 +230,11 @@ Infrastructre _( to read )_
 
 Message Queues
 
-- [kafka](/message-queues/kafka.md) ( [digest](/message-queues/kafka-digest.md) )
+- [kafka](/message-queues/kafka.md) _- [digest](/message-queues/kafka-digest.md)_
 - [RabbitMQ](/message-queues/rabbit-mq.md)
-- [RocketMQ](/message-queues/rocket-mq.md) ( to read )
+- [RocketMQ](/message-queues/rocket-mq.md) _- to read_
 - [ActiveMQ](/message-queues/active-mq.md)
-- [ZeroMQ](/message-queues/zero-mq.md) ( to read )
+- [ZeroMQ](/message-queues/zero-mq.md) _- to read_
 - _[MemcacheQ](/message-queues/mcq.md)_
 - _[Notes](/message-queues/notes.md)_
 
@@ -278,13 +278,13 @@ Commands
 - [column](/cmd/c/column.md): columnate lists
 - [comm](/cmd/c/comm.md): compare two sorted files line by line
 - [cp](/cmd/c/cp.md): copy files & directories
-- [cpu](/cmd/c/cpu.md): show cpu info ( not a command )
+- [cpu](/cmd/c/cpu.md): show cpu info _- not a command_
 - [crontab](/cmd/c/crontab.md): time-based job scheduler
 - [curl](/cmd/c/curl.md): transfer data from or to a server
 - [cut](/cmd/c/cut.md): remove sections from each line of files
     - common combo: `column | cut`
 - [date](/cmd/d/date.md): print or set the system date & time
-- [df](/cmd/d/df.md): report file system disk space usage ( display free space )
+- [df](/cmd/d/df.md): report file system disk space usage _- display free space_
 - [diff](/cmd/d/diff.md): compare files line by line
     - better choice: `comm`
 - [dig](/cmd/d/dig.md): DNS lookup utility
@@ -292,7 +292,7 @@ Commands
     - [iftop](/cmd/i/iftop.md): display bandwidth usage on an interface by host
     - [iostat](/cmd/i/iostat.md): statistics of CPU & IO for devices & partitions
     - [vmstat](/cmd/v/vmstat.md): report virtual memory statistics
-- [du](/cmd/d/du.md): estimate file space usage ( disk usage )
+- [du](/cmd/d/du.md): estimate file space usage _- disk usage_
 - [env](/cmd/e/env.md): run a program in a modified environment
 - [expect](/cmd/e/expect.md): interact with programs
 - [expr](/cmd/e/expr.md): evaluate expressions
@@ -320,20 +320,20 @@ Commands
 - [lsof](/cmd/l/lsof.md): list open files
 - [man](/cmd/m/man.md): an interface to the on-line reference manuals
 - [mailx](/cmd/m/mailx.md): send mails on CentOS
-- _[msmtp](/cmd/m/msmtp.md): send mails on macOS( sth wrong? )_
+- _[msmtp](/cmd/m/msmtp.md): send mails on macOS - sth wrong?_
 - [mkdir](/cmd/m/mkdir.md): make directories
 - [mount](/cmd/m/mount.md): mount a filesystem
     - [umount](/cmd/m/mount.md#umount): un-mount a filesystem
 - [mv](/cmd/m/mv.md): move (rename) files
 - [mvn](/cmd/m/mvn.md): a tool for building & managing any Java-based project
-- [mysql](/cmd/m/mysql.md): MySQL CLI tool ( not only a command )
+- [mysql](/cmd/m/mysql.md): MySQL CLI tool _- not only a command_
 - [nc](/cmd/n/nc.md): TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md): show network status
 - [nl](/cmd/n/nl.md): number lines of files
 - [nohup](cmd/n/nohup): invoke a utility immune to hangups
 - [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
-- [os](/cmd/o/os.md): show os info ( not a command )
-- [output](/cmd/o/output.md): redirect output ( not a command )
+- [os](/cmd/o/os.md): show os info _- not a command_
+- [output](/cmd/o/output.md): redirect output _- not a command_
 - [passwd](/cmd/p/passwd.md): modify a user's password
 - [paste](/cmd/p/paste.md): merge lines of files
 - [perf](/cmd/p/perf.md): performance analysis tools for Linux
@@ -344,17 +344,17 @@ Commands
 - [ps](/cmd/p/ps.md): process status
 - [realpath](/cmd/r/realpath.md): print the resolved path
 - [redis-cli](/cmd/redis/redis-cli.md): Redis client
-- [redis-server](/cmd/redis/redis-server.md) ( & redis-sentinel ): Redis server
-- [redis-dump](/cmd/redis/redis-dump.md) ( & redis-load ): Backup & restore Redis data to and from JSON
+- [redis-server](/cmd/redis/redis-server.md) & redis-sentinel: Redis server
+- [redis-dump](/cmd/redis/redis-dump.md) & redis-load: Backup & restore Redis data to and from JSON
 - [rm](/cmd/r/rm.md): remove files or directories
 - [rsync](/cmd/rsync/rsync.md): transfer files
-- [scp](/cmd/s/scp.md): secure copy (remote file copy program)
+- [scp](/cmd/s/scp.md): secure copy _- remote file copy program_
 - [sed](/cmd/s/sed.md): stream editor for filtering & transforming text
 - [seq](/cmd/s/seq.md): print a sequence of numbers
 - [service](/cmd/s/service.md): run a System V init script
 - [sleep](/cmd/s/sleep.md): delay for a specified amount of time
 - [sort](/cmd/s/sort.md): sort lines of text files
-- [ssh](/cmd/s/ssh.md): OpenSSH Client (remote login program)
+- [ssh](/cmd/s/ssh.md): OpenSSH Client _- remote login program_
 - [stat](/cmd/s/stat.md): display file or file system status
 - [su](/cmd/s/su.md): run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md): execute a command as another user
@@ -387,7 +387,7 @@ Commands
 - _[xxd](/cmd/x/xxd.md): make a hexdump or do the reverse_
 - [zsh](/cmd/z/zsh.md): one of shells
 - [Linux Abbreviations](/cmd/linux-abbrs.md)
-- _[CLI Notes](/cmd/notes.md) ( to read )_
+- _[CLI Notes](/cmd/notes.md) - to read_
 
 Scenes
 
@@ -540,13 +540,13 @@ Living
 
 Timeline
 
-- [Bio](/past/bio.md): skills | exprience | education
-    - **TBC** : 休息一段时间 | Week-End ( ? )
-    - **YFD** : 斑马 - 供应链 | Back-End ( Java )
-    - **Alibaba Local Life** : 众包物流运营&数据组后台 → 蜂鸟跑腿前台 | Back-End ( Java )
-    - **Sina Weibo** : Mobile API ( PHP ) → Video Platform | Back-End ( Java )
-    - **Huawei** : Telecom Software Customization | Intern. ( Java )
-    - **SCUT** : Software Engineering | Bachelor ( C++ )
+- [Bio](/past/bio.md): Back-End - Exprience, Education, Skills
+    - **TBC** : 休息一段时间 | Nothing
+    - **YFD** : 斑马 - 供应链 | Java
+    - **Alibaba Local Life** : 众包物流运营&数据组后台 → 蜂鸟跑腿前台 | Java
+    - **Sina Weibo** : Mobile API → Video Platform | PHP → Java
+    - **Huawei** : Telecom Software Customization | Java Intern.
+    - **SCUT** : Software Engineering | Bachelor | C++
 - After 2018
     - [Better Living](/past/better-living.md)
     - [Rehabilitation](/past/rehabilitation.md)
@@ -616,7 +616,7 @@ Timeline
         1. 能预见问题，能防范问题者，重用！
         1. 不能发现问题，不能解决问题，还处处抱怨者，PK。
 - [GTD Flow](/snips/principles/gtd.md): Get Thing Done
-- [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act ( Adjust )
+- [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act or Adjust
 - [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR principle](/snips/principles/star.md): Situation → Target → Action → Result
 - [Deployment Checklist](/snips/tmp/deployment-checklist.md): Avoid low-level mistakes
@@ -674,12 +674,12 @@ Timeline
 -   [The Tyranny of Merit](/books/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
     -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/books/how-to-be-an-imperfectionist.md) _( taking notes )_
+-   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/books/how-to-be-an-imperfectionist.md) _- taking notes_
     -   《 如何成为不完美主义者 》
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
     -   不那么在意所谓时机，更在意任务本身。
--   _[Noise: a Flaw in Human Judgement](/books/noise-a-flaw-in-human-judgement.md)_ _( to read )_
+-   _[Noise: a Flaw in Human Judgement](/books/noise-a-flaw-in-human-judgement.md)_ _- to read_
     -   《 噪声: 一个人类判断力的缺陷 》
 
 ### Friends
@@ -688,7 +688,7 @@ Timeline
 
 <!-- > To be a better man. -->
 <!-- > -->
-<!-- > —— Better Man _( Robbie Williams song )_ -->
+<!-- > —— Better Man _- Robbie Williams song_ -->
 
 -   Jan Fan: PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
 -   Johnson Zhang: Past Roommate / Python / Sina Mobile / Meituan @ Beijing
