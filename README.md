@@ -192,7 +192,7 @@ JavaScript
 - [TypeScript](/snips/js/type-script.md): JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
 - Package Management
     - [npm](/snips/js/npm.md): share and borrow packages - [npmjs.com](https://www.npmjs.com/)
-    - yarn: a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
+    - [yarn](/snips/js/yarn.md): a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
         - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
     - [pnpm](/snips/js/pnpm.md): Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
 - lerna: A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
