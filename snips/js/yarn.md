@@ -1,8 +1,8 @@
 # yarn
 
 Yarn is a package manager that doubles down as project manager.
-Whether you work on one-shot projects or large monorepos,
-as a hobbyist or an enterprise user, we've got you covered.
+_Whether you work on one-shot projects or large monorepos,_
+_as a hobbyist or an enterprise user, we've got you covered._
 
 ---
 
@@ -53,4 +53,4 @@ Code is shared through something called a package.
 
 ## Others
 
-- 暂略
+- Temporarily omitted

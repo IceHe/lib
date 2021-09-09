@@ -1,9 +1,89 @@
 # npm
 
+npm is the world's largest software registry.
+_Open source developers from every continent use npm to share and borrow packages,_
+_and many organizations use npm to manage private development as well._
+
 ---
 
 References
 
 - [npmjs.com](https://www.npmjs.com/)
+    - [About npm](https://docs.npmjs.com/about-npm)
+    - [Get Started](https://docs.npmjs.com/getting-started)
 
-## Intro
+## About
+
+npm consists of three distinct components:
+
+- the website
+- the Command Line Interface (CLI)
+- the registry
+
+Use the website to discover packages, set up profiles, and manage other aspects of your npm experience.
+_For example, you can set up organizations to manage access to public or private packages._
+
+The CLI runs from a terminal, and is how most developers interact with `npm`.
+
+The registry is a large public database of JavaScript software and the meta-information surrounding it.
+
+## Packages & Modules
+
+### Packages
+
+**A package is a file or directory that is described by a `package.json` file.**
+A package must contain a `package.json` file in order to be published to the npm registry.
+
+Packages can be unscoped or scoped to a user or organization, and scoped packages can be private or public.
+
+#### Package Formats
+
+A package is any of the following:
+
+- (a) A folder containing a program described by a package.json file.
+- (b) A gzipped tarball containing (a).
+- (c) A URL that resolves to (b).
+- (d) A `<name>@<version>` that is published on the registry with (c).
+- (e) A `<name>@<tag>` that points to (d).
+- (f) A `<name>` that has a latest tag satisfying (e).
+- (g) A git url that, when cloned, results in (a).
+
+#### npm package git URL formats
+
+Git URLs used for npm packages can be formatted in the following ways:
+
+```bash
+git://github.com/user/project.git#commit-ish
+git+ssh://user@hostname:project.git#commit-ish
+git+http://user@hostname/project/blah.git#commit-ish
+git+https://user@hostname/project/blah.git#commit-ish
+```
+
+The commit-ish can be any tag, sha, or branch that can be supplied as an argument to git checkout.
+The default commit-ish is master.
+
+### Modules
+
+A module is any file or directory in the node_modules directory that can be loaded by the Node.js `require()` function.
+
+To be loaded by the Node.js `require()` function, a module must be one of the following:
+
+- A folder with a `package.json` file containing a "main" field.
+- A JavaScript file.
+
+Note: Since modules are not required to have a `package.json` file, not all modules are packages.
+
+Only modules that have a `package.json` file are also packages.
+
+_In the context of a Node program, the module is also the thing that was loaded from a file._
+_For example, in the following program:_
+
+```js
+var req = require('request')
+```
+
+_we might say that "The variable req refers to the request module"._
+
+## Others
+
+- Temporarily omitted
