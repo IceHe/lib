@@ -75,16 +75,15 @@ Suggestion
 
     _Optional proxy plugins:_
 
-    - Clash
-    - ClashX
-    - **ClashX Pro**
-    - Trojan
-    - TrojanX
-    - Trojan-Qt5
-    - Shadowsocks
-    - ShadowsocksX
-    - ShadowsocksX-NG
-    - Surge
+    - [Surge](https://nssurge.com/)
+    - [Clash](https://github.com/Dreamacro/clash)
+        - [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
+    - [Trojan](https://github.com/trojan-gfw/trojan)
+        - ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
+        - ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~ _- removed due to regulationn_
+    - [Shadowsocks](https://github.com/shadowsocks)
+        - ~~[ShadowsocksX](https://github.com/RobertYim/ShadowsocksX)~~ _- archived read-only_
+        - ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~ _- latest release on 2019.11.13_
     - …
 
 1.  Visit [google.com](https://www.google.com/ncr) to validate the network
