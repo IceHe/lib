@@ -685,7 +685,7 @@ Reference : https://www.computerhope.com/keys.htm
 - PS : PhotoShop
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
 - PSH : push 传送 ( for TCP )
-- PTAL : Please Take A Look.
+- PTAL : Please Take A Look
 - ptr : pointer
 - pub : public
 - pw , pwd : passowrd
@@ -773,7 +773,7 @@ Reference : https://www.computerhope.com/keys.htm
 - Serde : Serializer / Deserializer 的简写
 - serv : server | service
 - sess : session
-- SGLM : Sounds Good To Me.
+- SGLM : Sounds Good To Me
 - sh : [shell](https://en.wikipedia.org/wiki/Shell_(computing))
 - SH^ : Shut up!
 - sha1 : [Secure Hash Algorithm 1](https://en.wikipedia.org/wiki/SHA-1)
@@ -838,7 +838,7 @@ Reference : https://www.computerhope.com/keys.htm
 - TBD : [to be determinated](https://en.wikipedia.org/wiki/To_be_announced)
     - D: Done | Defined | Discussed / Decided / Determined / …
 - TBH : to be honest
-- TBR : To Be Reviewed.
+- TBR : To Be Reviewed
 - TC : Take care. 保重
 - TCP : [Transmission Control Protocol](https://hit-alibaba.github.io/interview/basic/network/TCP.html)
 - TDA : tell-don't-ask 只管命令, 不要询问
