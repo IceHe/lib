@@ -110,7 +110,43 @@ you must pass a command-line flag when publishing to make them public.
 
 ### Contribute Packages to the Registry
 
-TODO
+#### Creating package.json
+
+You can add a `package.json` file to your package to make it easy for others to manage and install.
+Packages published to the registry must contain a package.json file.
+
+A package.json file:
+
+- lists the packages your project depends on
+- specifies versions of a package that your project can use using semantic versioning rules
+- makes your build reproducible, and therefore easier to share with other developers
+
+##### Fields
+
+**Required name and version fields**
+
+A package.json file must contain `name` and `version` fields.
+
+- The `name` field contains your package's name, and must be lowercase and one word, and may contain hyphens and underscores.
+- The `version` field must be in the form `x.x.x` and follow the semantic versioning guidelines.
+
+**Author field**
+
+If you want to include package author information in `author` field,
+use the following format (email and website are both optional):
+
+```bash
+Your Name <email@example.com> (http://example.com)
+```
+
+Example
+
+```json
+{
+  "name": "my-awesome-package",
+  "version": "1.0.0"
+}
+```
 
 ## Others
 
