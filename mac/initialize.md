@@ -75,14 +75,16 @@ Suggestion
 
     _Optional proxy plugins:_
 
-    - Surge
+    - Clash
+    - ClashX
+    - **ClashX Pro**
     - Trojan
     - TrojanX
     - Trojan-Qt5
-        ( works on M1 Mac. 2021-01-24 )
     - Shadowsocks
     - ShadowsocksX
     - ShadowsocksX-NG
+    - Surge
     - …
 
 1.  Visit [google.com](https://www.google.com/ncr) to validate the network
@@ -164,6 +166,7 @@ Install the optional softwares via Homebrew-Cask
 brew install --cask \
     appcleaner \
     charles \
+    clashx \
     docker \
     iina \
     imageoptim \
