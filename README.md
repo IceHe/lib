@@ -202,12 +202,13 @@ JavaScript
 Others
 
 - _[CentOS 6](/snips/os/centos6.md)_
-- _[ID Generator](/snips/tmp/id-generator.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
 - _[Work Flow](/snips/tmp/work-flow.md)_
+- _[ID Generator](/snips/tmp/id-generator.md)_
 - _[Sorting Algorithms](/sort/notes.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [GitHub](https://github.com/xuxueli/xxl-job)_
+- _[Elixir](/snips/tmp/elixir.md)_ -
 
 <!--
 
