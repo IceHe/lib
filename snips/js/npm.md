@@ -27,16 +27,14 @@ The CLI runs from a terminal, and is how most developers interact with `npm`.
 
 The registry is a large public database of JavaScript software and the meta-information surrounding it.
 
-## Packages & Modules
-
-### Packages
+## Packages
 
 **A package is a file or directory that is described by a `package.json` file.**
 A package must contain a `package.json` file in order to be published to the npm registry.
 
 Packages can be unscoped or scoped to a user or organization, and scoped packages can be private or public.
 
-#### Package Formats
+### Package Formats
 
 A package is any of the following:
 
@@ -48,7 +46,7 @@ A package is any of the following:
 - (f) A `<name>` that has a latest tag satisfying (e).
 - (g) A git url that, when cloned, results in (a).
 
-#### npm package git URL formats
+### npm package git URL formats
 
 Git URLs used for npm packages can be formatted in the following ways:
 
@@ -62,7 +60,7 @@ git+https://user@hostname/project/blah.git#commit-ish
 The commit-ish can be any tag, sha, or branch that can be supplied as an argument to git checkout.
 The default commit-ish is master.
 
-### Modules
+## Modules
 
 A module is any file or directory in the node_modules directory that can be loaded by the Node.js `require()` function.
 
@@ -84,7 +82,7 @@ var req = require('request')
 
 _we might say that "The variable req refers to the request module"._
 
-#### Scopes
+### Scopes
 
 When you sign up for an npm user account or create an organization,
 you are granted a scope that matches your user or organization name.
@@ -100,7 +98,7 @@ The scope name is everything between the @ and the slash:
 - "npm" scope: `@npm/package-name`
 - "npmcorp" scope: `@npmcorp/package-name`
 
-#### Scopes and package visibility
+### Scopes and package visibility
 
 - Unscoped packages are always public.
 - Private packages are always scoped.
@@ -108,9 +106,9 @@ The scope name is everything between the @ and the slash:
 Scoped packages are private by default;
 you must pass a command-line flag when publishing to make them public.
 
-### Contribute Packages to the Registry
+## Contribute Packages to the Registry
 
-#### Creating package.json
+### Creating package.json
 
 You can add a `package.json` file to your package to make it easy for others to manage and install.
 Packages published to the registry must contain a package.json file.
@@ -120,8 +118,6 @@ A package.json file:
 - lists the packages your project depends on
 - specifies versions of a package that your project can use using semantic versioning rules
 - makes your build reproducible, and therefore easier to share with other developers
-
-##### Fields
 
 **Required name and version fields**
 
