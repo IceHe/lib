@@ -37,6 +37,8 @@ Coding
     - A Guide for Tech Leaders Navigating Growth and Change
 - [Clean Agile](/books/clean-agile.md)
     - Back to Basics
+- [Zen of Python](/snips/)
+- [PEP 20 -- The Zen of Python](https://www.python.org/dev/peps/pep-0020)
 
 JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
 
