@@ -911,6 +911,7 @@ Reference : https://www.computerhope.com/keys.htm
 - VM : [virtual machine](https://en.wikipedia.org/wiki/Virtual_machine)
 - vol : volume
 - VP : [Vice President](https://en.wikipedia.org/wiki/Vice_president) 副总裁
+- VPC : [Virtual Private Cloud](https://en.wikipedia.org/wiki/Virtual_private_cloud)
 - vry : very
 
 ### W
