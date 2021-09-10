@@ -47,13 +47,45 @@ receive do
 end
 ```
 
-**Due to their lightweight nature**,
-**it is not uncommon to have hundreds of thousands of processes running concurrently in the same machine.**
-**Isolation allows processes to be garbage collected independently, reducing system-wide pauses,**
-**and using all machine resources as efficiently as possible (vertical scaling).**
+**Due to their lightweight nature, it is not uncommon to have hundreds of thousands of processes running concurrently in the same machine.**
+**Isolation allows processes to be garbage collected independently, reducing system-wide pauses, and using all machine resources as efficiently as possible (vertical scaling).**
 
 **Processes are also able to communicate with other processes running on different machines in the same network.**
 This provides the foundation for distribution, allowing developers to coordinate work across multiple nodes (horizontal scaling).
+
+#### Fault-Tolerance
+
+The unavoidable truth about software running in production is that things will go wrong.
+Even more when we take network, file systems, and other third-party resources into account.
+
+To cope with failures, Elixir **provides supervisors which describe how to restart parts of your system when things go awry, going back to a known initial state that is guaranteed to work:**
+
+```elixir
+children = [
+  TCP.Pool,
+  {TCP.Acceptor, port: 4040}
+]
+
+Supervisor.start_link(children, strategy: :one_for_one)
+```
+
+The combination of fault-tolerance and event-driven programming via message passing makes Elixir an excellent choice for **reactive programming and robust architectures**.
+
+### Language Features
+
+#### Functional Programming
+
+TODO
+
+#### Extensibility and DSLs
+
+### Tooling Features
+
+#### A growing Ecosystem
+
+#### Interactive Development
+
+#### Erlang compatible
 
 ## Install
 
