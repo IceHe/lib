@@ -75,9 +75,31 @@ The combination of fault-tolerance and event-driven programming via message pass
 
 #### Functional Programming
 
-TODO
+**Functional programming promotes a coding style that helps developers write code that is short, concise, and maintainable.**
+For example, pattern matching allows developers to easily destructure data and access its contents:
+
+```elixir
+%User{name: name, age: age} = User.get("John Doe")
+name #=> "John Doe"
+```
+
+When mixed with guards, pattern matching allows us to elegantly match and assert specific conditions for some code to execute:
+
+```elixir
+def drive(%User{age: age}) when age >= 16 do
+  # Code that drives a car
+end
+
+drive(User.get("John Doe"))
+#=> Fails if the user is under 16
+```
+
+**Elixir relies heavily on those features to ensure your software is working under the expected constraints.**
+And when it is not, don't worry, supervisors have your back!
 
 #### Extensibility and DSLs
+
+Elixir has been designed to be extensible, letting developers naturally extend the language to particular domains, in order to increase their productivity.
 
 ### Tooling Features
 
