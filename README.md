@@ -208,7 +208,8 @@ Others
 - _[ID Generator](/snips/tmp/id-generator.md)_
 - _[Sorting Algorithms](/sort/notes.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [GitHub](https://github.com/xuxueli/xxl-job)_
-- _[Elixir](/snips/tmp/elixir.md)_ -
+- _[Elixir](/snips/tmp/elixir.md)_ - a dynamic, functional language
+    for building scalable and maintainable applications
 
 <!--
 
