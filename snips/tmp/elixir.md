@@ -13,6 +13,48 @@ References
     - [Docs](https://elixir-lang.org/docs.html)
 - Learn X in Y minutes - Where X=elixir [EN](https://learnxinyminutes.com/docs/elixir/) / [CN](https://learnxinyminutes.com/docs/zh-cn/elixir-cn/)
 
+## Intro
+
+Elixir leverages the Erlang VM, known for running low-latency, distributed, and fault-tolerant systems.
+
+Elixir is successfully used in web development,
+embedded software, data ingestion, and multimedia processing,
+across a wide range of industries. Here is a peek:
+
+```bash
+iex> "Elixir" |> String.graphemes() |> Enum.frequencies()
+%{"E" => 1, "i" => 2, "l" => 1, "r" => 1, "x" => 1}
+```
+
+### Platform Features
+
+#### Scalability
+
+All Elixir code **runs inside lightweight threads of execution (called processes)**
+that are **isolated and exchange information via messages**:
+
+```elixir
+current_process = self()
+
+# Spawn an Elixir process (not an operating system one!)
+spawn_link(fn ->
+  send(current_process, {:msg, "hello world"})
+end)
+
+# Block until the message is received
+receive do
+  {:msg, contents} -> IO.puts(contents)
+end
+```
+
+**Due to their lightweight nature**,
+**it is not uncommon to have hundreds of thousands of processes running concurrently in the same machine.**
+**Isolation allows processes to be garbage collected independently, reducing system-wide pauses,**
+**and using all machine resources as efficiently as possible (vertical scaling).**
+
+**Processes are also able to communicate with other processes running on different machines in the same network.**
+This provides the foundation for distribution, allowing developers to coordinate work across multiple nodes (horizontal scaling).
+
 ## Install
 
 macOS
@@ -30,6 +72,12 @@ Elixir 1.12.3 (compiled with Erlang/OTP 24)
 ```
 
 ## Learn Elixir in Y minutes
+
+Open `Interactive Elixir`
+
+```bash
+iex
+```
 
 Elixir is a modern functional language built on top of the Erlang VM.
 It’s fully compatible with Erlang,
@@ -470,7 +518,3 @@ Agent.get(my_agent, fn colors -> colors end) #=> ["red", "green"]
 # Update the agent's state the same way
 Agent.update(my_agent, fn colors -> ["blue" | colors] end)
 ```
-
-## Intro
-
-TODO
