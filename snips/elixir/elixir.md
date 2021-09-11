@@ -182,7 +182,11 @@ Erlang/OTP 24 [erts-12.0.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threa
 Elixir 1.12.3 (compiled with Erlang/OTP 24)
 ```
 
-## Learn Elixir in Y minutes
+## Quickstart
+
+References
+
+- Learn X in Y minutes Where X=elixir [EN](https://learnxinyminutes.com/docs/elixir/) / [CN](https://learnxinyminutes.com/docs/zh-cn/elixir-cn/)
 
 Open `Interactive Elixir`
 
@@ -628,4 +632,44 @@ Agent.get(my_agent, fn colors -> colors end) #=> ["red", "green"]
 
 # Update the agent's state the same way
 Agent.update(my_agent, fn colors -> ["blue" | colors] end)
+```
+
+## Guides
+
+### Interactive Mode
+
+When you install Elixir, you will have three new executables: `iex`, `elixir` and `elixirc`.
+_If you compiled Elixir from source or are using a packaged version, you can find these inside the `bin` directory._
+
+_For now, let’s start by running `iex` which stands for Interactive Elixir._
+_In interactive mode, we can type any Elixir expression and get its result._
+
+Open up `iex` and type the following expressions:
+
+```bash
+$ iex
+Erlang/OTP 24 [erts-12.0.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [dtrace]
+
+Interactive Elixir (1.12.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> 40 + 2
+42
+iex(2)> "hello" <> " world"
+"hello world"
+iex(3)>
+```
+
+### Running scripts
+
+After getting familiar with the basics of the language you may want to try writing simple programs.
+This can be accomplished by putting the following Elixir code into a file:
+
+```elixir
+IO.puts("Hello world from Elixir")
+```
+
+Save it as `simple.exs` and execute it with `elixir`:
+
+```elixir
+$ elixir hello-world.exs
+Hello world from elixir
 ```
