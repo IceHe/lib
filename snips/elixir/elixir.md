@@ -182,6 +182,13 @@ $ elixir --version
 Erlang/OTP 24 [erts-12.0.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [dtrace]
 
 Elixir 1.12.3 (compiled with Erlang/OTP 24)
+
+# Try: Interactive Mode
+$ iex
+Erlang/OTP 24 [erts-12.0.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [dtrace]
+
+Interactive Elixir (1.12.3) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)>
 ```
 
 ### In Y Minutes
