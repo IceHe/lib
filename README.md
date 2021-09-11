@@ -188,7 +188,8 @@ Web
 Others
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
-- [Elixir](/snips/tmp/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
+- [Elixir](/snips/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
+- [Scala](/snips/scala/scala.md) -
 - _[CentOS 6](/snips/os/centos6.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
