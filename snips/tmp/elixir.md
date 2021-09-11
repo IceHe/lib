@@ -99,11 +99,42 @@ And when it is not, don't worry, supervisors have your back!
 
 #### Extensibility and DSLs
 
-Elixir has been designed to be extensible, letting developers naturally extend the language to particular domains, in order to increase their productivity.
+Elixir has been designed to be **extensible, letting developers naturally extend the language to particular domains, in order to increase their productivity**.
+
+As an example, let's write a simple test case using Elixir's test framework called [ExUnit](https://hexdocs.pm/ex_unit/ExUnit.html):
+
+```elixir
+defmodule MathTest do
+  use ExUnit.Case, async: true
+
+  test "can add two numbers" do
+    assert 1 + 1 == 2
+  end
+end
+```
+
+The `async: true` option allows `test`s to run in parallel, using as many CPU cores as possible, while the `assert` functionality can introspect your code, providing great reports in case of failures.
+Those features are built using Elixir macros, making it possible to add new constructs as if they were part of the language itself.
 
 ### Tooling Features
 
 #### A growing Ecosystem
+
+Elixir ships with a great set of tools to ease development.
+[Mix is a build tool](https://hexdocs.pm/mix/Mix.html) that allows you to easily create projects, manage tasks, run tests and more:
+
+```elixir
+$ mix new my_app
+$ cd my_app
+$ mix test
+.
+
+Finished in 0.04 seconds (0.04s on load, 0.00s on tests)
+1 test, 0 failures
+```
+
+Mix is also able to manage dependencies and integrates with the [Hex package manager](https://hexdocs.pm/mix/Mix.html),
+which performs dependency resolution, fetches remote packages, and hosts documentation for the whole ecosystem.
 
 #### Interactive Development
 
