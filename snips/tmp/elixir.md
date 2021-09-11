@@ -69,7 +69,8 @@ children = [
 Supervisor.start_link(children, strategy: :one_for_one)
 ```
 
-The combination of fault-tolerance and event-driven programming via message passing makes Elixir an excellent choice for **reactive programming and robust architectures**.
+The combination of fault-tolerance and event-driven programming via message passing
+makes Elixir an excellent choice for **reactive programming and robust architectures**.
 
 ### Language Features
 
@@ -113,7 +114,8 @@ defmodule MathTest do
 end
 ```
 
-The `async: true` option allows `test`s to run in parallel, using as many CPU cores as possible, while the `assert` functionality can introspect your code, providing great reports in case of failures.
+The `async: true` option allows `test`s to run in parallel, using as many CPU cores as possible,
+while the `assert` functionality can introspect your code, providing great reports in case of failures.
 Those features are built using Elixir macros, making it possible to add new constructs as if they were part of the language itself.
 
 ### Tooling Features
@@ -121,7 +123,8 @@ Those features are built using Elixir macros, making it possible to add new cons
 #### A growing Ecosystem
 
 Elixir ships with a great set of tools to ease development.
-[Mix is a build tool](https://hexdocs.pm/mix/Mix.html) that allows you to easily create projects, manage tasks, run tests and more:
+[Mix is a build tool](https://hexdocs.pm/mix/Mix.html)
+that allows you to easily create projects, manage tasks, run tests and more:
 
 ```elixir
 $ mix new my_app
@@ -138,7 +141,30 @@ which performs dependency resolution, fetches remote packages, and hosts documen
 
 #### Interactive Development
 
+Tools like [IEx (Elixir's interactive shell)](https://hexdocs.pm/iex/IEx.html)
+are able to leverage many aspects of the language and platform
+to provide auto-complete, debugging tools, code reloading, as well as nicely formatted documentation:
+
+```elixir
+$ iex
+Interactive Elixir - press Ctrl+C to exit (type h() ENTER for help)
+iex> h String.trim           # Prints the documentation for function
+iex> i "Hello, World"        # Prints information about the given data type
+iex> break! String.trim/1    # Sets a breakpoint in the String.trim/1 function
+iex> recompile               # Recompiles the current project on the fly
+```
+
 #### Erlang compatible
+
+Elixir runs on the Erlang VM giving developers complete access to Erlang's ecosystem,
+used by companies like Heroku, WhatsApp, Klarna and many more
+to build distributed, fault-tolerant applications.
+An Elixir programmer can invoke any Erlang function with no runtime cost:
+
+```elixir
+iex> :crypto.hash(:md5, "Using crypto from Erlang OTP")
+<<192, 223, 75, 115, ...>>
+```
 
 ## Install
 
