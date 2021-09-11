@@ -166,7 +166,9 @@ iex> :crypto.hash(:md5, "Using crypto from Erlang OTP")
 <<192, 223, 75, 115, ...>>
 ```
 
-## Install
+## Quickstart
+
+### Install
 
 macOS
 
@@ -182,7 +184,7 @@ Erlang/OTP 24 [erts-12.0.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threa
 Elixir 1.12.3 (compiled with Erlang/OTP 24)
 ```
 
-## Quickstart
+### In Y Minutes
 
 References
 
@@ -658,7 +660,7 @@ iex(2)> "hello" <> " world"
 iex(3)>
 ```
 
-### Running scripts
+### Running Scripts
 
 After getting familiar with the basics of the language you may want to try writing simple programs.
 This can be accomplished by putting the following Elixir code into a file:
@@ -672,4 +674,17 @@ Save it as `simple.exs` and execute it with `elixir`:
 ```elixir
 $ elixir hello-world.exs
 Hello world from elixir
+```
+
+### Basic Types
+
+```bash
+iex> 1          # integer
+iex> 0x1F       # integer
+iex> 1.0        # float
+iex> true       # boolean
+iex> :atom      # atom / symbol
+iex> "elixir"   # string
+iex> [1, 2, 3]  # list
+iex> {1, 2, 3}  # tuple
 ```
