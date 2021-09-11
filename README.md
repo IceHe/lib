@@ -406,7 +406,7 @@ Scenes
 - **run in backgroud**: `^z`, bg, fg, nohup [CMD] &
 - ……
 
-### JavaScript
+### JS
 
 - [Node.js](/js/nodejs.md): A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/sjs/type-script.md): JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
