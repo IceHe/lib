@@ -12,6 +12,8 @@ References
     - [Guides](https://elixir-lang.org/getting-started/introduction.html)
     - [Docs](https://elixir-lang.org/docs.html)
 - Learn X in Y minutes - Where X=elixir [EN](https://learnxinyminutes.com/docs/elixir/) / [CN](https://learnxinyminutes.com/docs/zh-cn/elixir-cn/)
+- [exercism.org/tracks/elixir](https://exercism.org/tracks/elixir)
+    - Want to learn and master Elixir?
 
 ## Intro
 
