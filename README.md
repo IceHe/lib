@@ -227,13 +227,13 @@ Infrastructre _( to read )_
 
 Message Queues
 
-- [kafka](/message-queues/kafka.md) _- [digest](/message-queues/kafka-digest.md)_
-- [RabbitMQ](/message-queues/rabbit-mq.md)
-- [RocketMQ](/message-queues/rocket-mq.md) _- to read_
-- [ActiveMQ](/message-queues/active-mq.md)
-- [ZeroMQ](/message-queues/zero-mq.md) _- to read_
-- _[MemcacheQ](/message-queues/mcq.md)_
-- _[Notes](/message-queues/notes.md)_
+- [kafka](/mqs/kafka.md) _- [digest](/mqs/kafka-digest.md)_
+- [RabbitMQ](/mqs/rabbit-mq.md)
+- [RocketMQ](/mqs/rocket-mq.md) _- to read_
+- [ActiveMQ](/mqs/active-mq.md)
+- [ZeroMQ](/mqs/zero-mq.md) _- to read_
+- _[MemcacheQ](/mqs/mcq.md)_
+- _[Notes](/mqs/notes.md)_
 
 ### Mac
 
@@ -418,7 +418,7 @@ Scenes
 - lerna: A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
 - husky: Modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
 - commitlint: Lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
-
+- ~~[Optimize some code](/js/optimize-some-code.md)~~
 
 ### Java
 
@@ -532,7 +532,6 @@ _Others_
     - _[Control Evernote & macOS](/scripts/applescript/evernote-macos.md)_
 - _PHP: [functions & scripts](/scripts/php/php.md)_
 - _Python 3: [quick start](/scripts/python/quick-start.md)_
-- _JavaScript: [optimize some code](/scripts/javascript/optimize-some-code.md)_
 
 ## Life
 
