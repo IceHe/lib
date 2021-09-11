@@ -109,7 +109,6 @@ Others
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 - [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _- to read_
 - [Linux Kernel](/books/linux.md) _- to read_
-- [Learn X in Y minutes](https://learnxinyminutes.com) _- programming languages_
 
 <!-- - [Algorithms - 4th Edition - Notes](/books/algorithms-notes.md) _- reading_ -->
 <!-- - [JZ Offer](/books/jz-offer.md) -->
@@ -186,21 +185,10 @@ Web
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
 
-JavaScript
-
-- [Node.js](/snips/js/nodejs.md): A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
-- [TypeScript](/snips/js/type-script.md): JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
-- Package Management
-    - [npm](/snips/js/npm.md): share and borrow packages - [npmjs.com](https://www.npmjs.com/)
-    - [yarn](/snips/js/yarn.md): a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
-        - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
-    - [pnpm](/snips/js/pnpm.md): Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
-- lerna: A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-- husky: Modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
-- commitlint: Lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
-
 Others
 
+- [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
+- [Elixir](/snips/tmp/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
 - _[CentOS 6](/snips/os/centos6.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
@@ -208,7 +196,6 @@ Others
 - _[ID Generator](/snips/tmp/id-generator.md)_
 - _[Sorting Algorithms](/sort/notes.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [GitHub](https://github.com/xuxueli/xxl-job)_
-- [Elixir](/snips/tmp/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
 
 <!--
 
@@ -418,6 +405,20 @@ Scenes
 - **differ output**: comm, diff, vimdiff, watch
 - **run in backgroud**: `^z`, bg, fg, nohup [CMD] &
 - ……
+
+### JavaScript
+
+- [Node.js](/js/nodejs.md): A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
+- [TypeScript](/sjs/type-script.md): JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
+- Package Management
+    - [npm](/js/npm.md): share and borrow packages - [npmjs.com](https://www.npmjs.com/)
+    - [yarn](/js/yarn.md): a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
+        - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
+    - [pnpm](/js/pnpm.md): Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
+- lerna: A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+- husky: Modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+- commitlint: Lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+
 
 ### Java
 
