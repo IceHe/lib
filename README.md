@@ -37,8 +37,7 @@ Coding
     - A Guide for Tech Leaders Navigating Growth and Change
 - [Clean Agile](/books/clean-agile.md)
     - Back to Basics
-- [Zen of Python](/snips/)
-- [PEP 20 -- The Zen of Python](https://www.python.org/dev/peps/pep-0020)
+- [The Zen of Python](https://www.python.org/dev/peps/pep-0020) - PEP 20
 
 JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
 
@@ -185,11 +184,14 @@ Web
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
 
-Others
+Langs
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
 - [Elixir](/snips/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
-- [Scala](/snips/scala/scala.md) -
+- [Scala](/snips/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
+
+Others
+
 - _[CentOS 6](/snips/os/centos6.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
