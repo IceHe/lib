@@ -17,7 +17,7 @@ IceHe's short biographical profile
 
 -->
 
--   SliverHand - 创始团队 - Node.js
+-   Sliverhand - 创始团队 - Node.js
     _2021.10 ~ ?_
 -   猿辅导 - 斑马 - 供应链 - Java
     _2021.3 ~ 2021.8_
