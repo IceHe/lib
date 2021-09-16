@@ -109,7 +109,7 @@ IceHe's short biographical profile
 
 -->
 
-**Silverhand - 创始团队 - Node.js** _2021.10 ~ ?_
+**Silverhand - 创始团队 - Node.js 后端** _2021.10 ~ ?_
 
 - _TODO_
 

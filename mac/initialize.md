@@ -170,9 +170,12 @@ brew install --cask \
     iina \
     imageoptim \
     kindle \
+    linear \
     microsoft-office \
+    notion \
     postman \
     sequel-pro \
+    slack \
     wireshark
 ```
 
