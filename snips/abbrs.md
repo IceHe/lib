@@ -613,6 +613,7 @@ Reference : https://www.computerhope.com/keys.htm
 - obj : object
 - oct : octal
     - Oct : October
+- oidc : [OpenID Connect](https://openid.net/connect)
 - OIC : Oh, I see.
 - OKR : [Objective & Key Results](http://blog.devtang.com/2018/11/22/okr-introduction/)
 - OLAP : 在线分析处理
