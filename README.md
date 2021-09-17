@@ -653,7 +653,7 @@ Timeline
 
 好文共赏
 
--   Bookmarks:
+-   Bookmarks :
     -   [Reading](/past/bookmarks/reading.md)
     -   [Technology](/past/bookmarks/technology.md)
 -   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) _- [digest](/past/read/cruel-reality.md)_
@@ -710,12 +710,13 @@ Timeline
 <!-- > —— Better Man _- Robbie Williams song_ -->
 
 -   Jan Fan : Pythonist / Tencent / Applied Mathematics PhD @ Sweden
--   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing
 -   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin @ Guangzhou
 -   Shiwey Yan : Game Developer / Tencent - Timi - QQ Speed @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann) : Zhixin Schoolfellow / Front-end / 360 / UC / Tencent / Tubi @ Beijing
 -   [Ice He](https://icehe.xyz/#/past/bio) ( myself ) : A fool back-end / Weibo / Alibaba / YFD / Silverhand @ Beijing
 - …
+
+<!-- -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing -->
 
 ---
 
