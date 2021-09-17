@@ -8,9 +8,9 @@
 
 <!-- > —— LeBlanc's Law -->
 
--   Whoami: [IceHe](/past/bio.md)
--   Website: [icehe.xyz](https://icehe.xyz) _powered by [docsify](/_docsify/how-to-docsify.md)_
--   Contact: `aWNlaGUubWVAcXEuY29t` <!-- _- Base64 Encoded_ -->
+-   Whoami : [IceHe](/past/bio.md)
+-   Website : [icehe.xyz](https://icehe.xyz) _powered by [docsify](/_docsify/how-to-docsify.md)_
+-   Contact : `aWNlaGUubWVAcXEuY29t` <!-- _- Base64 Encoded_ -->
 
 ## Tech
 
@@ -32,7 +32,7 @@ Coding
 - [Design Patterns](/books/design-patterns.md)
     - Elements of Reusable Object-Oriented Software
 - [Pragmatic Programmer](/books/pragmatic-programmer.md)
-    - The Pragmatic Programmer: your journey to mastery - 2nd Edition
+    - The Pragmatic Programmer : your journey to mastery - 2nd Edition
 - [The Manager's Path](/books/the-manager-s-path.md) _- reading_
     - A Guide for Tech Leaders Navigating Growth and Change
 - [Clean Agile](/books/clean-agile.md)
@@ -65,40 +65,40 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 <!--
 
 - 1\. Introduction
-    - Expectations of an Architect: Keep Current with Latest Trends / Ensure Compliance with Decisions / Diverse Exposure and Experience / Have Bussines Domain Knowledge / Understand and Navigate Politics
-    - Intersection of Architecture and …: Engineering Practices / Operations & DevOps / Process / Data
+    - Expectations of an Architect : Keep Current with Latest Trends / Ensure Compliance with Decisions / Diverse Exposure and Experience / Have Bussines Domain Knowledge / Understand and Navigate Politics
+    - Intersection of Architecture and … : Engineering Practices / Operations & DevOps / Process / Data
 - Part 1. Foundations
-    - 2\. Architectural Thinking: Architecture Versus Design / Technical Breadth / Analyze Trade-Offs / Understanding Business Drivers / Balancing Architecutre and Hands-On Coding
-    - 3\. **Modularity**: Measuring Modularity / **Cohesion** / **Coupling** / **Abstractness, Instability, and Distance from the Main Sequence** / **Distance from the Main Sequence** / **Connascence** / **Unifying Coupling and Connascence Metrics** / From Modules to Components
-    - 4\. **Architecture Characteristics**: Trade-Offs and Least Worst Architecture / Defined: ( Partially ) Listed: Operational / Structural / Cross-Cutting
+    - 2\. Architectural Thinking : Architecture Versus Design / Technical Breadth / Analyze Trade-Offs / Understanding Business Drivers / Balancing Architecutre and Hands-On Coding
+    - 3\. **Modularity** : Measuring Modularity / **Cohesion** / **Coupling** / **Abstractness, Instability, and Distance from the Main Sequence** / **Distance from the Main Sequence** / **Connascence** / **Unifying Coupling and Connascence Metrics** / From Modules to Components
+    - 4\. **Architecture Characteristics** : Trade-Offs and Least Worst Architecture / Defined : ( Partially ) Listed : Operational / Structural / Cross-Cutting
     - 5\. Indentifying Architectural Characteristics: Extracting Architecture Characteristics from Domain Concerns and Requirements / Characteristics: Explicit / Implicit
     - 6\. Measuring and Governing Architecture Characteristics
-        - Measuring: Operational / Structural / Process
-        - Governance and Fitness Function: Governing Architecture Characteristics / Fitness Functions
+        - Measuring : Operational / Structural / Process
+        - Governance and Fitness Function : Governing Architecture Characteristics / Fitness Functions
     - 7\. Scope of Architecture Characteristics: Coupling and Connascence / Architectural Quanta and Granularity
-    - 8\. Component-Based Thinking: Component Scope / Developer Role
-        - **Architect Role** : **Architecture Partitioning** / Case Study: Silicon Sanwiches: Partitioning
-        - Component Identification Flow: Identifying Initial Components / Assign Requirements to Components / Analyze Roles and Responsibilities / Analyze Architecture Characteristics / Restructure Components
+    - 8\. Component-Based Thinking : Component Scope / Developer Role
+        - **Architect Role** : **Architecture Partitioning** / Case Study : Silicon Sanwiches: Partitioning
+        - Component Identification Flow : Identifying Initial Components / Assign Requirements to Components / Analyze Roles and Responsibilities / Analyze Architecture Characteristics / Restructure Components
         - Component Granularity
-        - Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
+        - Architecture Quantum Redux : Choosing Between Monolithic Versus Distributed Architectures
 - Part 2. Architure Styles
     - 9\. Foundations: Fundamental Patterns: Big Ball of Mud / Unitary Architecture / Client/Server
-        - **Monolithic Versus Distributed Architectures** - **Fallacies**:
+        - **Monolithic Versus Distributed Architectures** - **Fallacies** :
             - The Network Is Reliable / Latency Is Zero / Bandwidth Is Infinite / The Network Is Secure / The Topology Never Changes / There Is Only One Administrator / Transport Cost Is Zero / The Network Is Homogeneous
-    - 10\. **Layered**: Layers of Isolation
-    - 11\. **Pipeline**: **Pipes** / **Filters**
-    - 12\. **Microkernel**: **Core System** or **Plug-In Components** / **Registry** / **Contracts**
-    - 13\. **Service-Based**: Service Design and Granularity / Database Partitioning
-    - 14\. **Event-Driven**: **Broker** / **Mediator**
+    - 10\. **Layered** : Layers of Isolation
+    - 11\. **Pipeline** : **Pipes** / **Filters**
+    - 12\. **Microkernel** : **Core System** or **Plug-In Components** / **Registry** / **Contracts**
+    - 13\. **Service-Based** : Service Design and Granularity / Database Partitioning
+    - 14\. **Event-Driven** : **Broker** / **Mediator**
         - Asynchronous Capabilities / Error Handling / Prevent Data Loss / Broadcast Capabilities / Request-Reply / Choosing Between Request-Reply and Event-Based / Hybrid** Event-Driven Architectures
     - 15\. **Space-Based**
         - Processing Unit / Virtualized Middleware / Data Pumps / Data Writers / Data Readers
         - Data Collisions / Cloud Versus On-Premises Implementations / Replicated Versus Distributed Caching / Near-Cahce Considerations
-    - 16\. **Orchestration-Driven Service-Oriented**: Reuse … and Coupling / Taxonomy: Business / Enterprise / Application / Infrastructure / Orchestration / Message Flow
+    - 16\. **Orchestration-Driven Service-Oriented** : Reuse … and Coupling / Taxonomy : Business / Enterprise / Application / Infrastructure / Orchestration / Message Flow
     - 17\. **Microservices**
-        - Bounded Context: Granularity / Data Isolation
+        - Bounded Context : Granularity / Data Isolation
         - Distributed / API Layer / Operational Reuse / Frontends
-        - Communication: Choreography and Orchestration / Transactions and Sages
+        - Communication : Choreography and Orchestration / Transactions and Sages
 - ……
 
 -->
@@ -112,7 +112,7 @@ Others
 <!-- - [Algorithms - 4th Edition - Notes](/books/algorithms-notes.md) _- reading_ -->
 <!-- - [JZ Offer](/books/jz-offer.md) -->
 
-<!-- _* [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
+<!-- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--  -->
 <!-- - _[Part*  1](/books/tcp-ip-illustracted-protocols-p1.md) - to read_ -->
 
@@ -130,16 +130,16 @@ Others
 
 Storage
 
-- LSM Tree: [Intro](/snips/lsm-tree/lsm-tree.md)
+- LSM Tree : [Intro](/snips/lsm-tree/lsm-tree.md)
     - basic data structure of LevelDB & RocksDB
-- Elasticsearch: [Usage](/snips/elasticsearch.md)
+- Elasticsearch : [Usage](/snips/elasticsearch.md)
     - for search and analysis
-- MySQL: [Usage](/cmd/m/mysql.md)
+- MySQL : [Usage](/cmd/m/mysql.md)
     - robust SQL database server
 - Redis: [Basics](/snips/redis/basics.md)  / [Notes](/snips/redis/notes.md) / [Key Notes](/snips/redis/key-notes.md)
     - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
-    <!-- usage: https://redis.io/commands -->
+    <!-- usage : https://redis.io/commands -->
 - [Cache Patterns](/snips/cache-patterns.md)
     - cache aside / read through / write through / write behind caching
 
@@ -147,7 +147,7 @@ Storage
 
 - ES
 - Basics: https://www.elastic.co ( to read )
-    - What is Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
+    - What is Elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
 - MySQL
 - Basics: https://www.mysql.com ( to read )
     - https://dev.mysql.com/doc
@@ -163,7 +163,7 @@ Markdown
 Docker
 
 - [Commands](/snips/docker/docker-commands.md)
-- [Alpine Linux](/snips/docker/alpine/alpine.md): minimal OS image
+- [Alpine Linux](/snips/docker/alpine/alpine.md) : minimal OS image
 
 Coding
 
@@ -176,7 +176,7 @@ Web
 - [IP Address](/snips/network/ip.md)
 - [Network Notes](/snips/network/notes.md)
 - [URL Encoding](/snips/web/url-encoding.md)
-- Simple HTTP service:
+- Simple HTTP service :
     - [init.d](/snips/init.d/init.d.md) with `php -S`
     - [Nginx](/snips/nginx/nginx.md) via the configuration file
 - How to build the personal website?
@@ -211,7 +211,7 @@ Infrastructre _( to read )_
 - Nginx
 - OpenResty
 - Kubernetes
-- E2E and etc.: E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
+- E2E and etc. : E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
 - Gatling
 - APM / 监控告警系统
 - Prometheus
@@ -242,12 +242,12 @@ Message Queues
 
 macOS
 
-- [Initialize](/mac/initialize.md): 系统初始化
-- [Efficiency](/mac/efficiency.md): 效率指南
+- [Initialize](/mac/initialize.md) : 系统初始化
+- [Efficiency](/mac/efficiency.md) : 效率指南
     - [macOS shortcuts](/mac/shortcuts/macos.md)
     - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
     - [JetBrains IDE shortcuts](/mac/shortcuts/jetbrains.md)
-    - [mac-conf](https://github.com/IceHe/mac-conf): my macOS configuration files
+    - [mac-conf](https://github.com/IceHe/mac-conf) : my macOS configuration files
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
 
@@ -261,166 +261,166 @@ macOS
 
 Commands
 
-- [ab](/cmd/a/ab.md): Apache HTTP server benchmarking tool
-- [ag](/cmd/a/ag.md): The Silver Searcher. Like `ack`, but faster.
-- [awk](/cmd/a/awk.md): pattern-directed scanning and processing language
-    - [gawk](/cmd/a/awk.md): pattern scanning and processing language
-- [bash](/cmd/bash/bash.md): GNU Bourne-Again SHell
-    - [parameter](/cmd/bash/parameter.md): basic, expansion & substitution
-    - [shell variables](/cmd/bash/shell-variables.md): variables are set by the shell
-- [brew](/cmd/b/brew.md): the missing package manager for macOS
-- [bzip2](/cmd/b/bzip2.md): block-sorting file compressor
-- [cat](/cmd/c/cat.md): concatenate files & print on the standard output
-- [cd](/cmd/c/cd.md): change the current directory
-- [chgrp](/cmd/c/chgrp.md): change group ownership
-- [chmod](/cmd/c/chmod.md): change file mode bits
-- [chown](/cmd/c/chown.md): change file owner & group
-- [column](/cmd/c/column.md): columnate lists
-- [comm](/cmd/c/comm.md): compare two sorted files line by line
-- [cp](/cmd/c/cp.md): copy files & directories
-- [cpu](/cmd/c/cpu.md): show cpu info _- not a command_
-- [crontab](/cmd/c/crontab.md): time-based job scheduler
-- [curl](/cmd/c/curl.md): transfer data from or to a server
-- [cut](/cmd/c/cut.md): remove sections from each line of files
-    - common combo: `column | cut`
-- [date](/cmd/d/date.md): print or set the system date & time
-- [df](/cmd/d/df.md): report file system disk space usage _- display free space_
-- [diff](/cmd/d/diff.md): compare files line by line
-    - better choice: `comm`
-- [dig](/cmd/d/dig.md): DNS lookup utility
-- [dstat](/cmd/d/dstat.md): versatile tool for generating system resource statistics
-    - [iftop](/cmd/i/iftop.md): display bandwidth usage on an interface by host
-    - [iostat](/cmd/i/iostat.md): statistics of CPU & IO for devices & partitions
-    - [vmstat](/cmd/v/vmstat.md): report virtual memory statistics
-- [du](/cmd/d/du.md): estimate file space usage _- disk usage_
-- [env](/cmd/e/env.md): run a program in a modified environment
-- [expect](/cmd/e/expect.md): interact with programs
-- [expr](/cmd/e/expr.md): evaluate expressions
-- [file](/cmd/f/file.md): determine file type
-- [find](/cmd/f/find.md): search for files in a directory hierarchy
-- [git](/cmd/g/git.md): the stupid content tracker
-- [grep](/cmd/g/grep.md): print lines matching a pattern
-    - [zgrep](/cmd/z/zgrep.md): search possibly compressed files for a regular expression
-- [head](/cmd/h/head.md): output the first part of files
-- [htop](/cmd/h/htop.md): interactive process viewer
-- [ifconfig](/cmd/i/ifconfig.md): configure a network interface
-- [ip](/cmd/i/ip.md): show / manipulate routing, devices, policy routing & tunnels
+- [ab](/cmd/a/ab.md) : Apache HTTP server benchmarking tool
+- [ag](/cmd/a/ag.md) : The Silver Searcher. Like `ack`, but faster.
+- [awk](/cmd/a/awk.md) : pattern-directed scanning and processing language
+    - [gawk](/cmd/a/awk.md) : pattern scanning and processing language
+- [bash](/cmd/bash/bash.md) : GNU Bourne-Again SHell
+    - [parameter](/cmd/bash/parameter.md) : basic, expansion & substitution
+    - [shell variables](/cmd/bash/shell-variables.md) : variables are set by the shell
+- [brew](/cmd/b/brew.md) : the missing package manager for macOS
+- [bzip2](/cmd/b/bzip2.md) : block-sorting file compressor
+- [cat](/cmd/c/cat.md) : concatenate files & print on the standard output
+- [cd](/cmd/c/cd.md) : change the current directory
+- [chgrp](/cmd/c/chgrp.md) : change group ownership
+- [chmod](/cmd/c/chmod.md) : change file mode bits
+- [chown](/cmd/c/chown.md) : change file owner & group
+- [column](/cmd/c/column.md) : columnate lists
+- [comm](/cmd/c/comm.md) : compare two sorted files line by line
+- [cp](/cmd/c/cp.md) : copy files & directories
+- [cpu](/cmd/c/cpu.md) : show cpu info _- not a command_
+- [crontab](/cmd/c/crontab.md) : time-based job scheduler
+- [curl](/cmd/c/curl.md) : transfer data from or to a server
+- [cut](/cmd/c/cut.md) : remove sections from each line of files
+    - common combo : `column | cut`
+- [date](/cmd/d/date.md) : print or set the system date & time
+- [df](/cmd/d/df.md) : report file system disk space usage _- display free space_
+- [diff](/cmd/d/diff.md) : compare files line by line
+    - better choice : `comm`
+- [dig](/cmd/d/dig.md) : DNS lookup utility
+- [dstat](/cmd/d/dstat.md) : versatile tool for generating system resource statistics
+    - [iftop](/cmd/i/iftop.md) : display bandwidth usage on an interface by host
+    - [iostat](/cmd/i/iostat.md) : statistics of CPU & IO for devices & partitions
+    - [vmstat](/cmd/v/vmstat.md) : report virtual memory statistics
+- [du](/cmd/d/du.md) : estimate file space usage _- disk usage_
+- [env](/cmd/e/env.md) : run a program in a modified environment
+- [expect](/cmd/e/expect.md) : interact with programs
+- [expr](/cmd/e/expr.md) : evaluate expressions
+- [file](/cmd/f/file.md) : determine file type
+- [find](/cmd/f/find.md) : search for files in a directory hierarchy
+- [git](/cmd/g/git.md) : the stupid content tracker
+- [grep](/cmd/g/grep.md) : print lines matching a pattern
+    - [zgrep](/cmd/z/zgrep.md) : search possibly compressed files for a regular expression
+- [head](/cmd/h/head.md) : output the first part of files
+- [htop](/cmd/h/htop.md) : interactive process viewer
+- [ifconfig](/cmd/i/ifconfig.md) : configure a network interface
+- [ip](/cmd/i/ip.md) : show / manipulate routing, devices, policy routing & tunnels
 - [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
     - stop (suspend) the execution of processes & continue (resume) their execution at a later point
-- [join](/cmd/j/join.md): join lines of two files on a common field
-- [jq](/cmd/j/jq.md): command-line JSON processor
-- [kill](/cmd/k/kill.md): terminate or signal a process
-    - [killall](/cmd/k/killall.md): kill processes by name
-- [last](/cmd/l/last.md): show listing of last logged in users
-- [less](/cmd/l/less.md): provides \`more\` emulation plus extensive enhancements
-    - more: file perusal filter for paging through text one screenful at a time
-- [ln](/cmd/l/ln.md): make links between files
-- [locale](/cmd/l/locale.md): get locale-specific information
-- [ls](/cmd/l/ls.md): list directory contents
-- [lsof](/cmd/l/lsof.md): list open files
-- [man](/cmd/m/man.md): an interface to the on-line reference manuals
-- [mailx](/cmd/m/mailx.md): send mails on CentOS
-- _[msmtp](/cmd/m/msmtp.md): send mails on macOS - sth wrong?_
-- [mkdir](/cmd/m/mkdir.md): make directories
-- [mount](/cmd/m/mount.md): mount a filesystem
-    - [umount](/cmd/m/mount.md#umount): un-mount a filesystem
-- [mv](/cmd/m/mv.md): move (rename) files
-- [mvn](/cmd/m/mvn.md): a tool for building & managing any Java-based project
-- [mysql](/cmd/m/mysql.md): MySQL CLI tool _- not only a command_
-- [nc](/cmd/n/nc.md): TCP / UDP connect & listen
-- [netstat](/cmd/n/network-status.md): show network status
-- [nl](/cmd/n/nl.md): number lines of files
-- [nohup](cmd/n/nohup): invoke a utility immune to hangups
-- [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
-- [os](/cmd/o/os.md): show os info _- not a command_
-- [output](/cmd/o/output.md): redirect output _- not a command_
-- [passwd](/cmd/p/passwd.md): modify a user's password
-- [paste](/cmd/p/paste.md): merge lines of files
-- [perf](/cmd/p/perf.md): performance analysis tools for Linux
-- [php](/cmd/p/php.md): PHP Command Line Interface
-- [pidstat](/cmd/p/pidstat.md): report statistics for Linux tasks
-- [ping](/cmd/p/ping.md): send ICMP ECHO_REQUEST to network hosts
-- [python](/cmd/p/python.md): Python Command Line Interface
-- [ps](/cmd/p/ps.md): process status
-- [realpath](/cmd/r/realpath.md): print the resolved path
-- [redis-cli](/cmd/redis/redis-cli.md): Redis client
-- [redis-server](/cmd/redis/redis-server.md) & redis-sentinel: Redis server
-- [redis-dump](/cmd/redis/redis-dump.md) & redis-load: Backup & restore Redis data to and from JSON
-- [rm](/cmd/r/rm.md): remove files or directories
-- [rsync](/cmd/rsync/rsync.md): transfer files
-- [scp](/cmd/s/scp.md): secure copy _- remote file copy program_
-- [sed](/cmd/s/sed.md): stream editor for filtering & transforming text
-- [seq](/cmd/s/seq.md): print a sequence of numbers
-- [service](/cmd/s/service.md): run a System V init script
-- [sleep](/cmd/s/sleep.md): delay for a specified amount of time
-- [sort](/cmd/s/sort.md): sort lines of text files
-- [ssh](/cmd/s/ssh.md): OpenSSH Client _- remote login program_
-- [stat](/cmd/s/stat.md): display file or file system status
-- [su](/cmd/s/su.md): run a command with substitute user & group ID
-- [sudo](/cmd/s/sudo.md): execute a command as another user
-- _[sysctl](/cmd/s/sysctl.md): configure kernel parameters at runtime_
-- [systemctl](/cmd/s/systemctl.md): control systemd & service manager
-- [tac](/cmd/t/tac.md): concatenate and print files in reverse
-- [tail](/cmd/t/tail.md): output the last part of files
-- [tar](/cmd/t/tar.md): pack & compress
-- [tee](/cmd/t/tee.md): write to standard output & files
-- [telnet](/cmd/t/telnet.md): user interface to the TELNET protocol
-- [terminal-notifier](/cmd/t/terminal-notifier): send macOS User Notifications
-- [time](/cmd/t/time.md): time command execution
-- [timeout](/cmd/t/timeout.md): run a command with a time limit
-- [tmux](/cmd/t/tmux.md): terminal multiplexer
-- [touch](/cmd/t/touch.md): change file access & modification times
-- [tr](/cmd/t/tr.md): translate or delete characters
-- _[ulimit](/cmd/u/ulimit.md): system resource limit to shell_
-- _[uname](/cmd/u/uname.md): print system information_
-- [uniq](/cmd/u/uniq.md): report or omit repeated lines
-- _[uptime](/cmd/u/uptime.md): show how long system has been running_
-- [vim](/cmd/v/vim.md): terminal text editor
-- [visudo](/cmd/v/visudo.md): edit the sudoers file
-- _[w](/cmd/w/w.md): show who is logged on & what they are doing_
-- [watch](/cmd/w/watch.md):  execute a program periodically, showing output fullscreen
-- [wc](/cmd/w/wc.md): print newline, word, & byte counts for each file
-- [wget](/cmd/w/wget.md): network downloader
-- [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md): locate, show path & description
-- _[whoami](/cmd/w/whoami.md): print effective userid_
-- [xargs](/cmd/x/xargs.md): build and execute command lines from standard input
-- _[xxd](/cmd/x/xxd.md): make a hexdump or do the reverse_
-- [zsh](/cmd/z/zsh.md): one of shells
+- [join](/cmd/j/join.md) : join lines of two files on a common field
+- [jq](/cmd/j/jq.md) : command-line JSON processor
+- [kill](/cmd/k/kill.md) : terminate or signal a process
+    - [killall](/cmd/k/killall.md) : kill processes by name
+- [last](/cmd/l/last.md) : show listing of last logged in users
+- [less](/cmd/l/less.md) : provides \`more\` emulation plus extensive enhancements
+    - more : file perusal filter for paging through text one screenful at a time
+- [ln](/cmd/l/ln.md) : make links between files
+- [locale](/cmd/l/locale.md) : get locale-specific information
+- [ls](/cmd/l/ls.md) : list directory contents
+- [lsof](/cmd/l/lsof.md) : list open files
+- [man](/cmd/m/man.md) : an interface to the on-line reference manuals
+- [mailx](/cmd/m/mailx.md) : send mails on CentOS
+- _[msmtp](/cmd/m/msmtp.md) : send mails on macOS - sth wrong?_
+- [mkdir](/cmd/m/mkdir.md) : make directories
+- [mount](/cmd/m/mount.md) : mount a filesystem
+    - [umount](/cmd/m/mount.md#umount) : un-mount a filesystem
+- [mv](/cmd/m/mv.md) : move (rename) files
+- [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project
+- [mysql](/cmd/m/mysql.md) : MySQL CLI tool _- not only a command_
+- [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
+- [netstat](/cmd/n/network-status.md) : show network status
+- [nl](/cmd/n/nl.md) : number lines of files
+- [nohup](cmd/n/nohup) : invoke a utility immune to hangups
+- [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
+- [os](/cmd/o/os.md) : show os info _- not a command_
+- [output](/cmd/o/output.md) : redirect output _- not a command_
+- [passwd](/cmd/p/passwd.md) : modify a user's password
+- [paste](/cmd/p/paste.md) : merge lines of files
+- [perf](/cmd/p/perf.md) : performance analysis tools for Linux
+- [php](/cmd/p/php.md) : PHP Command Line Interface
+- [pidstat](/cmd/p/pidstat.md) : report statistics for Linux tasks
+- [ping](/cmd/p/ping.md) : send ICMP ECHO_REQUEST to network hosts
+- [python](/cmd/p/python.md) : Python Command Line Interface
+- [ps](/cmd/p/ps.md) : process status
+- [realpath](/cmd/r/realpath.md) : print the resolved path
+- [redis-cli](/cmd/redis/redis-cli.md) : Redis client
+- [redis-server](/cmd/redis/redis-server.md) & redis-sentinel : Redis server
+- [redis-dump](/cmd/redis/redis-dump.md) & redis-load : Backup & restore Redis data to and from JSON
+- [rm](/cmd/r/rm.md) : remove files or directories
+- [rsync](/cmd/rsync/rsync.md) : transfer files
+- [scp](/cmd/s/scp.md) : secure copy _- remote file copy program_
+- [sed](/cmd/s/sed.md) : stream editor for filtering & transforming text
+- [seq](/cmd/s/seq.md) : print a sequence of numbers
+- [service](/cmd/s/service.md) : run a System V init script
+- [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
+- [sort](/cmd/s/sort.md) : sort lines of text files
+- [ssh](/cmd/s/ssh.md) : OpenSSH Client _- remote login program_
+- [stat](/cmd/s/stat.md) : display file or file system status
+- [su](/cmd/s/su.md) : run a command with substitute user & group ID
+- [sudo](/cmd/s/sudo.md) : execute a command as another user
+- _[sysctl](/cmd/s/sysctl.md) : configure kernel parameters at runtime_
+- [systemctl](/cmd/s/systemctl.md) : control systemd & service manager
+- [tac](/cmd/t/tac.md) : concatenate and print files in reverse
+- [tail](/cmd/t/tail.md) : output the last part of files
+- [tar](/cmd/t/tar.md) : pack & compress
+- [tee](/cmd/t/tee.md) : write to standard output & files
+- [telnet](/cmd/t/telnet.md) : user interface to the TELNET protocol
+- [terminal-notifier](/cmd/t/terminal-notifier) : send macOS User Notifications
+- [time](/cmd/t/time.md) : time command execution
+- [timeout](/cmd/t/timeout.md) : run a command with a time limit
+- [tmux](/cmd/t/tmux.md) : terminal multiplexer
+- [touch](/cmd/t/touch.md) : change file access & modification times
+- [tr](/cmd/t/tr.md) : translate or delete characters
+- _[ulimit](/cmd/u/ulimit.md) : system resource limit to shell_
+- _[uname](/cmd/u/uname.md) : print system information_
+- [uniq](/cmd/u/uniq.md) : report or omit repeated lines
+- _[uptime](/cmd/u/uptime.md) : show how long system has been running_
+- [vim](/cmd/v/vim.md) : terminal text editor
+- [visudo](/cmd/v/visudo.md) : edit the sudoers file
+- _[w](/cmd/w/w.md) : show who is logged on & what they are doing_
+- [watch](/cmd/w/watch.md) :  execute a program periodically, showing output fullscreen
+- [wc](/cmd/w/wc.md) : print newline, word, & byte counts for each file
+- [wget](/cmd/w/wget.md) : network downloader
+- [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md) : locate, show path & description
+- _[whoami](/cmd/w/whoami.md) : print effective userid_
+- [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
+- _[xxd](/cmd/x/xxd.md) : make a hexdump or do the reverse_
+- [zsh](/cmd/z/zsh.md) : one of shells
 - [Linux Abbreviations](/cmd/linux-abbrs.md)
 - _[CLI Notes](/cmd/notes.md) - to read_
 
 Scenes
 
-- **connect**: curl, nc, ssh, telnet
-- **directory**: cp, find, ln, ls, mv
-- **disk**: df, du
-- **monitor status**: dstat, htop, lsof, netstat, pidstat, ps, stat, top
-- **network detect**: dig, ifconfig, ip, netstat, nslookup, ping
-- **string display**: cat, head, less, tac, tail
-- **string process**:
+- **connect** : curl, nc, ssh, telnet
+- **directory** : cp, find, ln, ls, mv
+- **disk** : df, du
+- **monitor status** : dstat, htop, lsof, netstat, pidstat, ps, stat, top
+- **network detect** : dig, ifconfig, ip, netstat, nslookup, ping
+- **string display** : cat, head, less, tac, tail
+- **string process** :
     - awk, column, comm, cut, grep,
     - join, jq, paste, sed, sort,
     - tr, uniq, wc, …
-- **transfer data**: ftp, nc, rsync, scp
-- **write file**: tee, `>`, `2>&1`
-- **notify**: terminal-notifier
-- **http benchmark**: ab, watch
-- **differ output**: comm, diff, vimdiff, watch
-- **run in backgroud**: `^z`, bg, fg, nohup [CMD] &
+- **transfer data** : ftp, nc, rsync, scp
+- **write file** : tee, `>`, `2>&1`
+- **notify** : terminal-notifier
+- **http benchmark** : ab, watch
+- **differ output** : comm, diff, vimdiff, watch
+- **run in backgroud** : `^z`, bg, fg, nohup [CMD] &
 - ……
 
 ### JS
 
-- [Node.js](/js/nodejs.md): A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
-- [TypeScript](/sjs/type-script.md): JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
+- [Node.js](/js/nodejs.md) : A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
+- [TypeScript](/sjs/type-script.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
 - Package Management
-    - [npm](/js/npm.md): share and borrow packages - [npmjs.com](https://www.npmjs.com/)
-    - [yarn](/js/yarn.md): a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
+    - [npm](/js/npm.md) : share and borrow packages - [npmjs.com](https://www.npmjs.com/)
+    - [yarn](/js/yarn.md) : a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
         - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
-    - [pnpm](/js/pnpm.md): Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
-- lerna: A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-- husky: Modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
-- commitlint: Lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+    - [pnpm](/js/pnpm.md) : Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
+- lerna : A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+- husky : Modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+- commitlint : Lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
 - ~~[Optimize some code](/js/optimize-some-code.md)~~
 
 ### Java
@@ -429,13 +429,13 @@ Basics
 
 - [Glossaries](/java/glossaries.md)
 - [Install JDK](/java/install-jdk.md)
-- IDE: [IntelliJ IDEA](/java/intellij-idea.md) usage
-- Code Style Guide: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
-- Package Manager: [Maven](/java/maven.md) & Gradle
+- IDE : [IntelliJ IDEA](/java/intellij-idea.md) usage
+- Code Style Guide : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
+- Package Manager : [Maven](/java/maven.md) & Gradle
 - Unit Tests: [Spock](/java/spock.md) or JUnit
-    - [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
-- [Annotations](/java/annotations.md): Spring / Lombok / FastJson / Jackson / …
-- [Exceptions](/java/exceptions.md): exception class hierarchy / …
+    - [Groovy](/java/groovy.md) : a multi-faceted language for the Java platform
+- [Annotations](/java/annotations.md) : Spring / Lombok / FastJson / Jackson / …
+- [Exceptions](/java/exceptions.md) : exception class hierarchy / …
 - [Other Notes](/java/notes.md)
 
 Snippets
@@ -462,26 +462,26 @@ Snippets
 
 Benchmark & Stress Testing
 
-- [JMH](/java/jmh.md): Java Microbenchmark Harness
+- [JMH](/java/jmh.md) : Java Microbenchmark Harness
 
 Command Line Tools
 
-- [jar](/java/cmd/jar.md): archive tool
-- [java](/java/cmd/java.md): application launcher
-- [javac](/java/cmd/javac.md): compiler
-- [javap](/java/cmd/javap.md): class file disassembler
-- [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
-- [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
-- [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
+- [jar](/java/cmd/jar.md) : archive tool
+- [java](/java/cmd/java.md) : application launcher
+- [javac](/java/cmd/javac.md) : compiler
+- [javap](/java/cmd/javap.md) : class file disassembler
+- [jps](/java/cmd/jps.md) : JVM process status - _list the instrumented JVMs on the target system_
+- [jcmd](/java/cmd/jcmd.md) : send diagnostic command requests to a running JVM
+- [jhsdb](/java/cmd/jhsdb.md) : HotSpot Debugger
     - _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
     - _available after JDK 9_
 - _Seldom-used and deprecated_
-    - _[javadoc](/java/cmd/javadoc.md): API documentation generator_
-    - _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
-    - _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
-    - _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
-    - _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
-    - _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
+    - _[javadoc](/java/cmd/javadoc.md) : API documentation generator_
+    - _[jstat](/java/cmd/jstat.md) : monitor JVM statistics_
+    - _[jinfo](/java/cmd/jinfo.md) : configuration info_ - _generate configuration info for a specified Java process_
+    - _[jmap](/java/cmd/jmap.md) : memory map_ - _print details of a specified process_
+    - _~~[jhat](/java/cmd/jhat.md) : Heap Analysis Tool~~_ - _only available in JDK 8 !_
+    - _[jstack](/java/cmd/jstack.md) : stack trace_ - _print Java stack traces of Java threads for a specified Java process_
 
 ### C++
 
@@ -489,7 +489,7 @@ Command Line Tools
 - [C++ Interview Book](/cpp/interview-book.md)
 - [C++ Coding Standards](/cpp/code-standards.md)
 - [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
-- Effective C++: [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
+- Effective C++ : [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
 
 ### ASM
 
@@ -504,7 +504,7 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 5. [bx / si / di / bp / addressing / division / dd / dup / Structural Data](/asm/learning-note-5.md)
 6. [jump / offset / jmp / jcxz / loop / dec / bounds checking](/asm/learning-note-6.md)
 7. [call / ret / mul / show str (pos, color) / division overflow / show value](/asm/learning-note-7.md)
-8. [course design: 公司数据以指定格式在屏幕上显示](/asm/learning-note-8.md)
+8. [course design : 公司数据以指定格式在屏幕上显示](/asm/learning-note-8.md)
 9. [flag register / adc / sbb / cmp 检测比较结果的条件转移指令，DF 标识和串传送指令 / Tests](/asm/learning-note-9.md)
 10. [internal interrupt / interrupt routine / install 中断向量表 / 设置中断向量](/asm/learning-note-10.md)
 11. [int instruction / Interrupt Routine / tests](/asm/learning-note-11.md)
@@ -512,13 +512,13 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / tests](/asm/learning-note-13.md)
 14. [直接定址表 / data / 地址标号 / 在其它段中，计算 sin(x) / tests](/asm/learning-note-14.md)
 15. [用 BIOS 进行键盘输入和磁盘读写 / tests](/asm/learning-note-15.md)
-16. [Appendix: 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
+16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
 
 ### Scripts
 
 Shell
 
-- [Notes](/scripts/shell/notes.md): a bash script example
+- [Notes](/scripts/shell/notes.md) : a bash script example
 - [Terminal Colors](/scripts/shell/terminal-colors.md)
 
 _Batch 批处理_
@@ -534,7 +534,7 @@ _Others_
     - _[Quick Start](/scripts/applescript/quick-start.md)_
     - _[Control Evernote & macOS](/scripts/applescript/evernote-macos.md)_
 - _PHP: [functions & scripts](/scripts/php/php.md)_
-- _Python 3: [quick start](/scripts/python/quick-start.md)_
+- _Python 3 : [quick start](/scripts/python/quick-start.md)_
 
 ## Life
 
@@ -553,7 +553,7 @@ Living
 
 [Bio](/past/bio.md) : Back-End - Exp | Edu | Skills
 
-<!-- - **TBC**: Have a rest -->
+<!-- - **TBC** : Have a rest -->
 
 - **Silverhand** : Founding Team - Node.js
 - **YFD** : Zebra - Supply Chain - Java
@@ -572,7 +572,7 @@ Timeline
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
     - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/past/2018-winter.md)
-    - [Moments](/past/moments.md): 回忆
+    - [Moments](/past/moments.md) : 回忆
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
     - [2017 Spring](/past/2017-spring.md)
@@ -580,15 +580,15 @@ Timeline
     - [2016 Fall](/past/2016-fall.md)
     - [2016 Spring & Summer](/past/2016-summer.md)
     - [Bye 2015](/past/2015-bye.md)
-    - [How to Build Blog](/past/blog/build.md): 搭建博客
-    - [Blog Changlogs](/past/blog/changelog.md): 折腾博客
-    - [icehe.github.io](https://icehe.github.io): previous technology blog
+    - [How to Build Blog](/past/blog/build.md) : 搭建博客
+    - [Blog Changlogs](/past/blog/changelog.md) : 折腾博客
+    - [icehe.github.io](https://icehe.github.io) : previous technology blog
 - Before 2015
     - [QZone Index](/past/qzone-index.md) of the old posts
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
-<!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
+<!-- [GitHub DMCA](/path/to/github-dmca.md) : Alert myself! -->
 
 <!--
 
@@ -615,9 +615,9 @@ Timeline
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
-- [How to Ask](/snips/principles/how-to-ask.md): Prepare before asking
-    - JFGI: Just Fucking Google It
-    - RTFM: Read The Fucking Manual
+- [How to Ask](/snips/principles/how-to-ask.md) : Prepare before asking
+    - JFGI : Just Fucking Google It
+    - RTFM : Read The Fucking Manual
 - [How to Work](/snips/principles/how-to-work.md)
     - Working Standards
         - 请示工作说方案
@@ -634,14 +634,14 @@ Timeline
         1. 能发现问题，又能从根源上解决问题者，重赏！
         1. 能预见问题，能防范问题者，重用！
         1. 不能发现问题，不能解决问题，还处处抱怨者，PK。
-- [GTD Flow](/snips/principles/gtd.md): Get Thing Done
-- [PDCA Cycle](/snips/principles/pdca.md): Plan → Do → Check → Act or Adjust
-- [SMART principle](/snips/principles/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR principle](/snips/principles/star.md): Situation → Target → Action → Result
-- [Deployment Checklist](/snips/tmp/deployment-checklist.md): Avoid low-level mistakes
-- [How to Leave](/snips/principles/how-to-leave.md):《解除劳动合同告知书》
+- [GTD Flow](/snips/principles/gtd.md) : Get Thing Done
+- [PDCA Cycle](/snips/principles/pdca.md) : Plan → Do → Check → Act or Adjust
+- [SMART principle](/snips/principles/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR principle](/snips/principles/star.md) : Situation → Target → Action → Result
+- [Deployment Checklist](/snips/tmp/deployment-checklist.md) : Avoid low-level mistakes
+- [How to Leave](/snips/principles/how-to-leave.md) :《解除劳动合同告知书》
 
-<!-- - [SWOT Analysis](/snips/principles/swot.md): Strengths / Weakness / Oppertunities / Threats -->
+<!-- - [SWOT Analysis](/snips/principles/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
 <!-- - [What Why How](/snips/principles/what-why-how.md) -->
 <!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
@@ -664,7 +664,7 @@ Timeline
     -   "如果你只有一个选择，它让你满意吗？"
 -   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) _/ [digest](/past/read/why-unhappy.md)_
     -   "我，并不特别。"
--   [Poet](https://zhuanlan.zhihu.com/p/19895904): 诗和远方 _/ [digest](/past/read/poet.md)_
+-   [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方 _/ [digest](/past/read/poet.md)_
     -   "眼前的苟且，也正是诗和远方。"
 -   [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) _/ [digest](/past/read/teacher-said.md)_
     -   "我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。"
@@ -693,13 +693,13 @@ Timeline
 -   [The Tyranny of Merit](/books/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
     -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist: The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/books/how-to-be-an-imperfectionist.md) _- taking notes_
+-   [How to Be an Imperfectionist : The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/books/how-to-be-an-imperfectionist.md) _- taking notes_
     -   《 如何成为不完美主义者 》
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
     -   不那么在意所谓时机，更在意任务本身。
--   _[Noise: a Flaw in Human Judgement](/books/noise-a-flaw-in-human-judgement.md)_ _- to read_
-    -   《 噪声: 一个人类判断力的缺陷 》
+-   _[Noise : a Flaw in Human Judgement](/books/noise-a-flaw-in-human-judgement.md)_ _- to read_
+    -   《 噪声 : 一个人类判断力的缺陷 》
 
 ### Friends
 
@@ -709,11 +709,11 @@ Timeline
 <!-- > -->
 <!-- > —— Better Man _- Robbie Williams song_ -->
 
--   Jan Fan: PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
--   Johnson Zhang: Past Roommate / Python / Sina Mobile / Meituan @ Beijing
--   [SF Zhou](http://sf-zhou.github.io/): ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
--   Shiwey Yan: Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
--   [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues): Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
+-   Jan Fan : PhD in Applied Mathematics / Python / Tencent / Study @ Sweden
+-   Johnson Zhang : Past Roommate / Python / Sina Mobile / Meituan @ Beijing
+-   [SF Zhou](http://sf-zhou.github.io/) : ACMer / C++ / Microsoft / SenseTime / Weixin @ Guangzhou
+-   Shiwey Yan : Game Developer / C++ / Tencent - QQ Speed @ Shenzhen
+-   [Toxic Johann](https://github.com/toxic-johann/toxic-johann.github.io/issues) : Zhixin Schoolmate / Front-end / 360 / UC / Tencent / Tubi @ Beijing
 -   [IceHe](https://icehe.xyz) ( myself ) : A fool / Java Backend / Weibo / Alibaba / YFD @ Beijing
 - …
 

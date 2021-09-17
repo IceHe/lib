@@ -113,7 +113,7 @@ IceHe's short biographical profile
 **Silverhand - 创始团队 - Node.js 后端** _2021.10 ~ ?_
 
 - DOING
-- _Node.js / TypeScript / GitHub / AWS_
+- _Node.js / TypeScript / GitHub Organization / AWS or Alibaba Cloud_
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
 
