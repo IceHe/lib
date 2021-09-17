@@ -618,14 +618,14 @@ Timeline
 - [How to Ask](/snips/principles/how-to-ask.md) : Prepare before asking
     - JFGI : Just Fucking Google It
     - RTFM : Read The Fucking Manual
-- [How to Work](/snips/principles/how-to-work.md)
-    - Working Standards
+- [How to Work](/snips/principles/how-to-work.md) :
+    - Working Standards :
         - 请示工作说方案
         - 布置工作说标准
         - 汇报工作说结果
         - 总结工作说流程
         - 回顾工作说感受
-    - How to Solve Problems
+    - How to Solve Problems :
         1. 既无问题也无见解者，不用；
         1. 只提问题无见解者，慎用；
         1. 既提问题也有见解者，且有良好业绩者，重用！
@@ -645,7 +645,7 @@ Timeline
 <!-- - [What Why How](/snips/principles/what-why-how.md) -->
 <!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
-### Digest
+### Digests
 
 > 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
 
