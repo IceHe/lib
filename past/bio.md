@@ -70,7 +70,7 @@ IceHe's short biographical profile
 
 编程语言
 
-- 胜任: Java / PHP
+- 胜任: Java / PHP / TypeScript <sup>learning</sup>
 - 了解: C / C++ / Python / JavaScript / Assembly
 
 存储 / 缓存 / 队列
@@ -91,6 +91,7 @@ IceHe's short biographical profile
 网页前端
 
 - 胜任: HTML / CSS / jQuery
+- 了解: Node.js <sup>learning</sup>
 
 语言沟通
 
@@ -111,7 +112,8 @@ IceHe's short biographical profile
 
 **Silverhand - 创始团队 - Node.js 后端** _2021.10 ~ ?_
 
-- _TODO_
+- DOING
+- _Node.js / TypeScript / GitHub / AWS_
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
 
