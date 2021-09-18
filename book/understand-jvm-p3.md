@@ -256,7 +256,7 @@ $ javap -v TestClass
 $ javap -verbose TestClass
 
 # output
-Classfile /Users/IceHe/Documents/lib/books/src/understand-jvm/TestClass.class
+Classfile /Users/IceHe/Documents/lib/book/src/understand-jvm/TestClass.class
   Last modified Sep 13, 2020; size 295 bytes
   SHA-256 checksum 080cab5c3401acf642960a2bf3c882b9b4d32eda4f94d79e95d9db856a5c50a4
   Compiled from "TestClass.java"

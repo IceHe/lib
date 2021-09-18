@@ -300,7 +300,7 @@ Doing the Right Thing
 
 **突出 _( icehe 自认为的 )_ 重点内容**
 
-- [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
+- [Part I. Foundations of Data Systems](/book/designing-data-intensive-applications-p1.md)
     - 1\. Reliable, Scalable, and Maintainable Applications
     - 2\. Data Models and Query Languages : Relational Model / Document Model / NoSQL / …
     - 3\. Storage and Retrieval
@@ -308,7 +308,7 @@ Doing the Right Thing
         - Transaction Processing or Analytics / Data Warehousing  / …
         - Column-Oriented Storage / Column Compression / …
     - 4\. Encoding and Evolution : Thrift / Protocol Buffers / …
-- [Part II. Distributed Data](/books/designing-data-intensive-applications-p2.md)
+- [Part II. Distributed Data](/book/designing-data-intensive-applications-p2.md)
     - 5\. Replication
         - Leaders and Followers
             - Sync V.S. Async Replication / Replication Logs
@@ -334,7 +334,7 @@ Doing the Right Thing
         - Consistency Guarantees : Linearizability / …
         - Ordering and Causality / Total Order Broadcast
         - Distributed Transactions and Consensus : 2PC / Coordination / …
-- [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
+- [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
     - 10\. Batch Processing : MapReduce and Distributed Filesystems / …
     - 11\. Stream Processing : Messaging Systems / Partitioned Logs / …
 

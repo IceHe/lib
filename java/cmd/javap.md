@@ -237,7 +237,7 @@ $ javap -v HelloWorldFrame
 $ javap -verbose HelloWorldFrame
 
 # output
-Classfile /Users/IceHe/Documents/lib/books/src/understand-jvm/HelloWorldFrame.class
+Classfile /Users/IceHe/Documents/lib/book/src/understand-jvm/HelloWorldFrame.class
   Last modified Sep 13, 2020; size 634 bytes
   SHA-256 checksum b9b067c99e296a1ca6e5054ee9ec0e98d753ad68cd8cd5ae718c30ed351f4e67
   Compiled from "HelloWorldFrame.java"

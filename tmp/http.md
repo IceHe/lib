@@ -37,7 +37,7 @@ Features
 e.g. GET
 
 ```http
-GET /books/?sex=man&name=Professional HTTP/1.1
+GET /book/?sex=man&name=Professional HTTP/1.1
 Host: www.example.com
 User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)
 Gecko/20050225 Firefox/1.0.1

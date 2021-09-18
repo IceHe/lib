@@ -27,38 +27,38 @@ Technology
 
 Coding
 
-- [Refactoring](/books/refactoring.md)
+- [Refactoring](/book/refactoring.md)
     - Refactoring Improving the Design of Existing Code
-- [Design Patterns](/books/design-patterns.md)
+- [Design Patterns](/book/design-patterns.md)
     - Elements of Reusable Object-Oriented Software
-- [Pragmatic Programmer](/books/pragmatic-programmer.md)
+- [Pragmatic Programmer](/book/pragmatic-programmer.md)
     - The Pragmatic Programmer : your journey to mastery - 2nd Edition
-- [The Manager's Path](/books/the-manager-s-path.md) _- reading_
+- [The Manager's Path](/book/the-manager-s-path.md) _- reading_
     - A Guide for Tech Leaders Navigating Growth and Change
-- [Clean Agile](/books/clean-agile.md)
+- [Clean Agile](/book/clean-agile.md)
     - Back to Basics
 - [The Zen of Python](https://www.python.org/dev/peps/pep-0020) - PEP 20
 
-JVM - Java Virtual Machine - [TOC](/books/understand-jvm-toc.md)
+JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
-- [Part I & Part II. Automatic Memory Management](/books/understand-jvm-p1-n-p2.md)
-- [Part III. Execution Engine](/books/understand-jvm-p3.md) _- to read_
+- [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
+- [Part III. Execution Engine](/book/understand-jvm-p3.md) _- to read_
 - Part IV. Compile and Code Optimize
 
-Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-applications-toc.md)
+Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-applications-toc.md)
 
-- [Part I. Foundations of Data Systems](/books/designing-data-intensive-applications-p1.md)
+- [Part I. Foundations of Data Systems](/book/designing-data-intensive-applications-p1.md)
     - 1\. **Reliable**, **Scalable**, and Maintainable Applications
     - 2\. **Data Models** and Query Languages
     - 3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
-- [Part II. Distributed Data](/books/designing-data-intensive-applications-p2.md)
+- [Part II. Distributed Data](/book/designing-data-intensive-applications-p2.md)
     - 5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
     - 8\. The Trouble with **Distributed Systems**
     - 9\. **Consistency** and **Consensus**
-- [Part III. Derived Data](/books/designing-data-intensive-applications-p3.md)
+- [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
     - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
-[Fundamentals of Software Architecture](/books/fundamentals-of-software-architecture.md) _- [TOC](/books/fundamentals-of-software-architecture-toc.md)_
+[Fundamentals of Software Architecture](/book/fundamentals-of-software-architecture.md) _- [TOC](/book/fundamentals-of-software-architecture-toc.md)_
 
 - _reading and taking notes_
 
@@ -106,21 +106,21 @@ Designing Data Intensive Applications - [TOC](/books/designing-data-intensive-ap
 Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
-- [Java Concurrency in Pratice](/books/java-concurrency-in-pratice.md) _- to read_
-- [Linux Kernel](/books/linux.md) _- to read_
+- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) _- to read_
+- [Linux Kernel](/book/linux.md) _- to read_
 
-<!-- - [Algorithms - 4th Edition - Notes](/books/algorithms-notes.md) _- reading_ -->
-<!-- - [JZ Offer](/books/jz-offer.md) -->
+<!-- - [Algorithms - 4th Edition - Notes](/book/algorithms-notes.md) _- reading_ -->
+<!-- - [JZ Offer](/book/jz-offer.md) -->
 
-<!-- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/books/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
+<!-- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--  -->
-<!-- - _[Part*  1](/books/tcp-ip-illustracted-protocols-p1.md) - to read_ -->
+<!-- - _[Part*  1](/book/tcp-ip-illustracted-protocols-p1.md) - to read_ -->
 
 <!-- Tools -->
 
 <!-- - Wireshark -->
-<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/books/wireshark-makes-life-easy.md) - to read_ -->
-<!--     - _[The Art of Network Analysis Using Wireshark](/books/wireshark-the-art-of-network-analysis.md) - to read_ -->
+<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - to read_ -->
+<!--     - _[The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - to read_ -->
 
 ### Snips
 
@@ -687,15 +687,15 @@ Timeline
     -   "何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，
         事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，
         另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**"
--   [The Tyranny of Merit](/books/the-tyranny-of-merit.md)
+-   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
     -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist : The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/books/how-to-be-an-imperfectionist.md) _- taking notes_
+-   [How to Be an Imperfectionist : The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/book/how-to-be-an-imperfectionist.md) _- taking notes_
     -   《 如何成为不完美主义者 》
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
     -   不那么在意所谓时机，更在意任务本身。
--   _[Noise : a Flaw in Human Judgement](/books/noise-a-flaw-in-human-judgement.md)_ _- to read_
+-   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ _- to read_
     -   《 噪声 : 一个人类判断力的缺陷 》
 
 ### Friends
