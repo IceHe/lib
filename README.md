@@ -128,6 +128,27 @@ Others
 
 <!-- > —— 鲁迅《致赖少麟》 -->
 
+Coding
+
+- [Abbreviations](/snip/abbrs.md)
+- [Glossaries](/snip/glossaries.md) with intros to the common technology products
+- [Regular Expression](/snip/regex.md)
+
+Langs
+
+- [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
+- [Elixir](/snip/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
+- [Scala](/snip/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
+
+Markdown
+
+- [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
+- [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
+
+OIDC : OpenID Connect
+
+- DOING
+
 Storage
 
 - LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md)
@@ -155,17 +176,6 @@ Storage
 
 -->
 
-Markdown
-
-- [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
-- [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
-
-Coding
-
-- [Abbreviations](/snip/abbrs.md)
-- [Glossaries](/snip/glossaries.md) with intros to the common technology products
-- [Regular Expression](/snip/regex.md)
-
 Web
 
 - [IP Address](/snip/network/ip.md)
@@ -178,12 +188,6 @@ Web
     - Powered by [docsify](/_docsify/how-to-docsify.md)
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
-
-Langs
-
-- [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
-- [Elixir](/snip/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
-- [Scala](/snip/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
 
 Others
 
@@ -234,9 +238,7 @@ Message Queue
 - _[MemcacheQ](/mq/mcq.md)_
 - _[Notes](/mq/notes.md)_
 
-### Mac
-
-macOS
+### macOS
 
 - [Initialize](/mac/initialize.md) : 系统初始化
 - [Efficiency](/mac/efficiency.md) : 效率指南
