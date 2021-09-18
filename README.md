@@ -651,8 +651,8 @@ Timeline
 好文共赏
 
 -   Bookmarks :
-    -   [Reading](/past/bookmarks/reading.md)
-    -   [Technology](/past/bookmarks/technology.md)
+    -   [Reading](/past/bookmark/reading.md)
+    -   [Technology](/past/bookmark/technology.md)
 -   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) _- [digest](/past/read/cruel-reality.md)_
     -   "Nice guy? I never give a shit."
 -   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) _- [digest](/past/read/meaning.md)_
