@@ -240,9 +240,9 @@ macOS
 
 - [Initialize](/mac/initialize.md) : 系统初始化
 - [Efficiency](/mac/efficiency.md) : 效率指南
-    - [macOS shortcuts](/mac/shortcuts/macos.md)
-    - [Sublime Text shortcuts](/mac/shortcuts/sublime-text.md)
-    - [JetBrains IDE shortcuts](/mac/shortcuts/jetbrains.md)
+    - [macOS shortcuts](/mac/shortcut/macos.md)
+    - [Sublime Text shortcuts](/mac/shortcut/sublime-text.md)
+    - [JetBrains IDE shortcuts](/mac/shortcut/jetbrains.md)
     - [mac-conf](https://github.com/IceHe/mac-conf) : my macOS configuration files
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
