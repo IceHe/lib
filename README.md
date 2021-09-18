@@ -552,7 +552,7 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-[Bio](/past/bio.md) : Back-End - Exp | Edu | Skills
+[Bio](/past/bio.md) : Backend - Exp | Edu | Skills
 
 <!-- - **TBC** : Have a rest -->
 
@@ -713,8 +713,8 @@ Timeline
 -   Jan Fan : Pythonist / Tencent / Applied Mathematics PhD @ Sweden
 -   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin @ Guangzhou
 -   Shiwey Yan : Game Developer / Tencent - Timi - QQ Speed @ Shenzhen
--   [Toxic Johann](https://github.com/toxic-johann) : Zhixin Schoolfellow / Front-end / 360 / UC / Tencent / Tubi @ Beijing
--   [Ice He](https://icehe.xyz/#/past/bio) ( myself ) : A fool back-end / Weibo / Alibaba / YFD / Silverhand @ Beijing
+-   [Toxic Johann](https://github.com/toxic-johann) : Zhixin Schoolfellow / Frontend / 360 / UC / Tencent / Tubi @ Beijing
+-   [Ice He](https://icehe.xyz/#/past/bio) ( myself ) : A fool backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 - …
 
 <!-- -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing -->

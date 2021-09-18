@@ -4,13 +4,15 @@
 
 ## Keyword?
 
-- customer
-    - Workforce Identity
-    - Customer Identity?
-- 友商
-    - auth0
-    - authing
-    - okta
+- customer identity
+    - ? workforce identity
+    - SaaS
+        - [auth0](https://auth0.com/)
+        - [Authing](https://www.authing.cn/)
+    - open source
+        - [keycloak](https://www.keycloak.org/)
+        - [supertokens](https://supertokens.io/)
+        - [casdoor](https://casdoor.org/)
 - scope
 - token
     - access token

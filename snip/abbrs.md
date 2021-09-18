@@ -334,6 +334,7 @@ Reference : https://www.computerhope.com/keys.htm
 - E : exponent 指数 ( [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) )
 - e1, every1 : everyone
 - EC2 : [Amazon Elastic Compute Cloud](https://aws.amazon.com/cn/ec2/)
+- ECI : [Elastic Container Instance](https://www.aliyun.com/product/eci) 弹性容器实例
 - ECMA : [European Computer Manufacturers Association](https://en.wikipedia.org/wiki/Ecma_International)
 - e.g. : for example
 - edt : edit
