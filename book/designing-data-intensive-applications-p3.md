@@ -466,7 +466,7 @@ _To differentiate the systems, it is particularly helpful to ask the following t
         - Fan-out allows several independent consumers to each "tune in" _( 收听/收看 )_ to the same broadcast of messages, without affecting each other -- _the streaming equivalent of having several different batch jobs that read the same input file._
         - _( This feature is provided by topic subscriptions in JMS, and exchange bindings in AMQP. )_
 
-![mq-load-balancing-n-fan-out.png](_images/designing-data-intensive-applications/mq-load-balancing-n-fan-out.png)
+![mq-load-balancing-n-fan-out.png](_image/designing-data-intensive-applications/mq-load-balancing-n-fan-out.png)
 
 - The two patterns can be combined : _for example,_
     - two separate groups of consumers may each subscribe to a topic,
@@ -486,7 +486,7 @@ _To differentiate the systems, it is particularly helpful to ask the following t
     - _Thus, m3 and m4 are not delivered in the same order as they were sent by producer 1._
     - _( icehe : 如果应用层逻辑对收到的消息由因果/顺序方面的要求, 就很容易出问题 )_
 
-![ordering-of-messaging.png](_images/designing-data-intensive-applications/ordering-of-messaging.png)
+![ordering-of-messaging.png](_image/designing-data-intensive-applications/ordering-of-messaging.png)
 
 - _Even if the message broker otherwise tries to_ preserve the order of messages _( as required by both the JMS and AMQP standards )_ , the combination of load balancing with redelivery inevitably leads to messages being reordered.
     - _To avoid this issue, you can use a separate queue per consumer ( i.e., not use the load balancing feature ) ._

@@ -301,7 +301,7 @@ _Also Known As_
 
 Structure
 
-<!-- ![abstract-factory.png](_images/design-patterns/abstract-factory.png) -->
+<!-- ![abstract-factory.png](_image/design-patterns/abstract-factory.png) -->
 
 ```plantuml
 @startuml
@@ -685,7 +685,7 @@ _Applicability_
 
 Structure
 
-<!-- ![composite](_images/design-patterns/composite.png) -->
+<!-- ![composite](_image/design-patterns/composite.png) -->
 
 ```plantuml
 @startuml
@@ -739,7 +739,7 @@ _Applicability_
 
 Structure
 
-<!-- ![decorator](_images/design-patterns/decorator.png) -->
+<!-- ![decorator](_image/design-patterns/decorator.png) -->
 
 ```plantuml
 @startuml
@@ -807,7 +807,7 @@ _Applicability_
 
 Structure
 
-<!-- ![facade](_images/design-patterns/facade.png) -->
+<!-- ![facade](_image/design-patterns/facade.png) -->
 
 ```plantuml
 @startuml
@@ -854,7 +854,7 @@ _Applicability_
 
 Structure
 
-<!-- ![flyweight](_images/design-patterns/flyweight.png) -->
+<!-- ![flyweight](_image/design-patterns/flyweight.png) -->
 
 ```plantuml
 @startuml
@@ -921,7 +921,7 @@ _Applicability_
 
 Structure
 
-<!-- ![proxy](_images/design-patterns/proxy.png) -->
+<!-- ![proxy](_image/design-patterns/proxy.png) -->
 
 ```plantuml
 @startuml
@@ -1022,7 +1022,7 @@ ConcreteHandler2 : handleRequest()
 
 _A typical object structure might look like this:_
 
-<!-- ![chain-of-responsibility.typical-object-structure](_images/design-patterns/chain-of-responsibility.typical-object-structure.png) -->
+<!-- ![chain-of-responsibility.typical-object-structure](_image/design-patterns/chain-of-responsibility.typical-object-structure.png) -->
 
 ```plantuml
 @startuml
@@ -1160,7 +1160,7 @@ _Applicability_
 
 Structure
 
-<!-- ![interpreter](_images/design-patterns/interpreter.png) -->
+<!-- ![interpreter](_image/design-patterns/interpreter.png) -->
 
 ```plantuml
 @startuml
@@ -1279,7 +1279,7 @@ Colleague <|-- ConcreteColleague2
 
 _A typical object structure might look like this:_
 
-<!-- ![mediator.typical-ojbect-structure](_images/design-patterns/mediator.typical-ojbect-structure.png) -->
+<!-- ![mediator.typical-ojbect-structure](_image/design-patterns/mediator.typical-ojbect-structure.png) -->
 
 ```plantuml
 @startuml

@@ -40,9 +40,9 @@ References
 - 命中: 应用程序从 cache 中取数据, 取到后返回.
 - 更新: 先把数据存到 db 中, 成功后, 再让缓存失效.
 
-![Cache-Aside-Design-Pattern-Flow.png](_images/Cache-Aside-Design-Pattern-Flow.png)
+![Cache-Aside-Design-Pattern-Flow.png](_image/Cache-Aside-Design-Pattern-Flow.png)
 
-![Updating-Data-using-the-Cache-Aside-Pattern-Flow.png](_images/Updating-Data-using-the-Cache-Aside-Pattern-Flow.png)
+![Updating-Data-using-the-Cache-Aside-Pattern-Flow.png](_image/Updating-Data-using-the-Cache-Aside-Pattern-Flow.png)
 
 ### Debug
 
@@ -117,7 +117,7 @@ Write Through 模式和 Read Through 相仿, 不过是在更新数据时发生.
 
 下图来自 [Cache - Wikipedia](https://en.wikipedia.org/wiki/Cache_(computing)) _其中的 Memory 可理解为就是上文中的 repository ( or db ) ._
 
-![write-through_with_no-write-allocation.png](_images/write-through_with_no-write-allocation.png)
+![write-through_with_no-write-allocation.png](_image/write-through_with_no-write-allocation.png)
 
 ## Write Behind Caching
 
@@ -156,7 +156,7 @@ Write Back 模式:
 
 下图还是来自 [Cache - Wikipedia](https://en.wikipedia.org/wiki/Cache_(computing)) , 关于 write back 的基本逻辑流程:
 
-![write-back_with_write-allocation.png](_images/write-back_with_write-allocation.png)
+![write-back_with_write-allocation.png](_image/write-back_with_write-allocation.png)
 
 ## Further Discussion
 

@@ -174,7 +174,7 @@ HTTP 请求和响应具有相似的结构, 由以下部分组成︰
     - 正文的大小有起始行的 HTTP 头来指定.
 - 起始行和  HTTP 消息中的HTTP 头统称为请求头, 而其有效负载被称为消息正文.
 
-![http-headers.png](_images/http-headers.png)
+![http-headers.png](_image/http-headers.png)
 
 #### Request
 
@@ -193,7 +193,7 @@ HTTP 请求和响应具有相似的结构, 由以下部分组成︰
 - **Entity headers**, 例如 Content-Length, **适用于请求的 body**.
     - 显然, **如果请求中没有任何 body, 则不会发送这样的头文件**.
 
-![http-request-headers.png](_images/http-request-headers.png)
+![http-request-headers.png](_image/http-request-headers.png)
 
 #### Body
 
@@ -226,7 +226,7 @@ Status Line _( 状态行 )_
 
 Response Headers
 
-![http-response-headers.png](_images/http-response-headers.png)
+![http-response-headers.png](_image/http-response-headers.png)
 
 Response Body
 
@@ -248,7 +248,7 @@ HTTP/2 引入了一个额外的步骤 :
 - **将多个流组合**, 这是一个被称为 **多路复用 ( multiplexing )** 的过程,
     - 它允许更有效的底层 TCP 连接.
 
-![http-v2-frame.png](_images/http-v2-frame.png)
+![http-v2-frame.png](_image/http-v2-frame.png)
 
 ### RESTful API
 
@@ -392,7 +392,7 @@ Server
     - syn = 100
 - 4\. `established`
 
-![tcp-three-way-handshake.gif](_images/tcp-three-way-handshake.gif)
+![tcp-three-way-handshake.gif](_image/tcp-three-way-handshake.gif)
 
 #### Why three-way ?
 
@@ -408,7 +408,7 @@ Reference
 
 **The principle reason for the three-way handshake is to prevent old duplicate connection initiations from causing confusion.**
 
-![tcp-recovery-from-old-duplicate-syn.png](_images/tcp-recovery-from-old-duplicate-syn.png)
+![tcp-recovery-from-old-duplicate-syn.png](_image/tcp-recovery-from-old-duplicate-syn.png)
 
 Summary
 
@@ -452,7 +452,7 @@ Server
     - 这个时间是由官方 RFC 协议规定的.
     - _至于为什么是 2 个 MSL 而不是 1 个 MSL, 暂时还没有一个足够合理的解释._
 
-![tcp-four-way-handshake.gif](_images/tcp-four-way-handshake.gif)
+![tcp-four-way-handshake.gif](_image/tcp-four-way-handshake.gif)
 
 ### Transport
 
@@ -462,13 +462,13 @@ _Keywords_
 - 重传
 - TCP 窗口大小
 
-![tcp-transport.gif](_images/tcp-transport.gif)
+![tcp-transport.gif](_image/tcp-transport.gif)
 
 #### Header
 
 固定 Header 至少 20 bytes
 
-![tcp-header.jpeg](_images/tcp-header.jpeg)
+![tcp-header.jpeg](_image/tcp-header.jpeg)
 
 #### Flow Control
 
@@ -527,7 +527,7 @@ Differ Flow Control from Congestion Control ?
 
 _用报文段的个数作为拥塞窗口的大小举例说明慢启动算法, **实际的拥塞窗口大小是以字节为单位的**._
 
-![tcp-congestion-control-slow-start.jpg](_images/tcp-congestion-control-slow-start.jpg)
+![tcp-congestion-control-slow-start.jpg](_image/tcp-congestion-control-slow-start.jpg)
 
 一个传输轮次所经历的时间其实就是 **往返时间 RTT ( Round-Trip delay Time )** , 而且 **每经过一个传输轮次 ( transmission round ) , 拥塞窗口 cwnd 就加倍.**
 
@@ -550,7 +550,7 @@ _( icehe : 即 "慢" 表示初始传输速度慢, 而不是传输速度的增长
     - 这样做的目的就是要迅速减少主机发送到网络中的分组数, 使得发生拥塞的路由器有足够时间把队列中积压的分组处理完毕.
     - _( icehe : 不能适应现代的复杂&先进网络环境 )_
 
-![tcp-congestion-avoidance.jpg](_images/tcp-congestion-avoidance.jpg)
+![tcp-congestion-avoidance.jpg](_image/tcp-congestion-avoidance.jpg)
 
 拥塞控制的流程 _( 例如上图 )_ :
 
@@ -579,7 +579,7 @@ _注意 : "拥塞避免" 并非完全能够避免了阻塞, 而是使网络比�
     - _( 为的是使发送方及早知道有报文段没有到达对方, 可提高网络吞吐量约 20% )_
 - 快重传算法规定, **发送方只要一连收到三个重复确认就应当立即重传对方尚未收到的报文段**, 而不必继续等待设置的重传计时器时间到期. 如下图 :
 
-![tcp-fast-retransmit.jpg](_images/tcp-fast-retransmit.jpg)
+![tcp-fast-retransmit.jpg](_image/tcp-fast-retransmit.jpg)
 
 ##### Fast Recovery
 
@@ -593,7 +593,7 @@ _注意 : "拥塞避免" 并非完全能够避免了阻塞, 而是使网络比�
     - 所以此时不执行慢开始算法, **而是将 cwnd 设置为 ssthresh 减半后的值, 然后执行拥塞避免算法, 使cwnd缓慢增大.**
     - **TCP Reno 版本是目前使用最广泛的版本.**
 
-![tcp-fast-recovery.jpg](_images/tcp-fast-recovery.jpg)
+![tcp-fast-recovery.jpg](_image/tcp-fast-recovery.jpg)
 
 注意 : **在采用快恢复算法时, 慢开始算法只是在TCP连接建立时和网络出现超时时才使用**.
 
@@ -639,7 +639,7 @@ IP 协议是用于传输数据包的协议, 作为网络层协议, 它能提供 
 
 MTU 的值不是越大越好, 更大的 MTU 意味着更低的额外开销, 更小的 MTU 意味着更低的网络延迟. 每一个物理设备都有自己的 MTU, 两个主机之间的 MTU 依赖于底层的网络能力, 它由 **整个链路上 MTU 最小的物理设备决定**, 如下图所示, 网络路径的 MTU 由 MTU 最小的红色物理设备决定, 即 1000 :
 
-![ip-path-mtu-discovery.png](_images/ip-path-mtu-discovery.png)
+![ip-path-mtu-discovery.png](_image/ip-path-mtu-discovery.png)
 
 ### MAC
 
@@ -681,11 +681,11 @@ Reference
 
 Package Encapsulation
 
-![web-package-encapsulation.jpeg](_images/web-package-encapsulation.jpeg)
+![web-package-encapsulation.jpeg](_image/web-package-encapsulation.jpeg)
 
 IP Header
 
-![ip-header.jpeg](_images/ip-header.jpeg)
+![ip-header.jpeg](_image/ip-header.jpeg)
 
 ### TODO
 

@@ -436,6 +436,6 @@ IntelliJ IDEA
 - https://www.jetbrains.com/help/idea/getting-started-with-groovy.html
     - _( icehe : 要是 project 的 `Add Framework Support` 没有 Groovy 选项, 可以在各个 module 分别试试 )_
 
-![intellij-idea-project-right-click-menu.png](_images/intellij-idea-project-right-click-menu.png)
+![intellij-idea-project-right-click-menu.png](_image/intellij-idea-project-right-click-menu.png)
 
-![intellij-idea-proejct-add-frameworks-support.png](_images/intellij-idea-proejct-add-frameworks-support.png)
+![intellij-idea-proejct-add-frameworks-support.png](_image/intellij-idea-proejct-add-frameworks-support.png)

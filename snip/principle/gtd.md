@@ -350,7 +350,7 @@ end
 
 ### Original
 
-![GTD](_images/gtd.jpg)
+![GTD](_image/gtd.jpg)
 
 ### Rewritten
 

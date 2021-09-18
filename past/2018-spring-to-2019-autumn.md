@@ -135,8 +135,8 @@
 
 ### 3.1 承认平庸
 
-![](_images/mediocrity-1.jpg)
-![](_images/mediocrity-2.jpg)
+![](_image/mediocrity-1.jpg)
+![](_image/mediocrity-2.jpg)
 
 以上贴的是一位 "逼乎" 用户的两次问答,
 对比一下他被社会毒打前后的状态.

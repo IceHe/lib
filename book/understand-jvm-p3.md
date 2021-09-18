@@ -31,7 +31,7 @@ References
     - _因此, 有一些 Java 语言本身无法有效支持的语言特性并不代表在字节码中也无法有效表达出来_
     - _这为其他程序语言实现一些有别于 Java 的语言特性提供了发挥空间_
 
-![jvm-language-independency.png](_images/understand-jvm/jvm-language-independency.png)
+![jvm-language-independency.png](_image/understand-jvm/jvm-language-independency.png)
 
 ### Class 类文件的结构
 
@@ -430,7 +430,7 @@ Class 文件中由以下 3 项数据来确定该类型的继承关系
     - 类索引和父类索引用两个 u2 类型的索引值表示，它们各自指向一个类型为 CONSTANT_Class_ info的类描述符常量
     - 通过 CONSTANT_Class_info 类型的常量中的索引值可以找到定义在 CONSTANT_Utf8_info 类型的常量中的全限定名字符串
 
-![this-class-fully-qualified-name.png](_images/understand-jvm/this-class-fully-qualified-name.png)
+![this-class-fully-qualified-name.png](_image/understand-jvm/this-class-fully-qualified-name.png)
 
 ### 字段表集合
 

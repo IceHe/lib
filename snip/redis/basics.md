@@ -253,10 +253,10 @@ Reference
 
 ### 单线程 IO 处理过程
 
-![redis-single-thread-process.jpg](_images/redis-single-thread-process.jpg)
+![redis-single-thread-process.jpg](_image/redis-single-thread-process.jpg)
 
 ### 多线程 IO 处理过程
 
-![redis-multiple-threads-process.jpg](_images/redis-multiple-threads-process.jpg)
+![redis-multiple-threads-process.jpg](_image/redis-multiple-threads-process.jpg)
 
 TODO

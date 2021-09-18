@@ -369,24 +369,24 @@ AMQP 协议
 
 ### Exchange
 
-![rabbit-mq-exchange.jpeg](_images/rabbit-mq-exchange.jpeg)
+![rabbit-mq-exchange.jpeg](_image/rabbit-mq-exchange.jpeg)
 
 **Exchange 类型**
 
-![rabbit-mq-direct-exchange.png](_images/rabbit-mq-direct-exchange.png)
+![rabbit-mq-direct-exchange.png](_image/rabbit-mq-direct-exchange.png)
 
 - **Direct Exchange : 所有发送到 Direct Exchange 的消息被转发到 Routing Key 中指定的 Queue**
     - Direct Exchange 可以使用默认的 Exchange
     - 默认的 Exchange 会绑定所有的队列, 所以 Direct 可以直接使用 Queue 名 ( 作为 Routing Key ) 绑定 _( icehe : 要实际使用一下来理解 )_
     - 或者消费者和生产者的 Routing Key 完全匹配
 
-![rabbit-mq-topic-exchange.png](_images/rabbit-mq-topic-exchange.png)
+![rabbit-mq-topic-exchange.png](_image/rabbit-mq-topic-exchange.png)
 
 - **Topic Exchange : 发送到 Topic Exchange 的消息被转发到所有关心的 Routing Key 中指定 Topic 的 Queue 上**
     - Exchange 将 Routing Key 和某 Topic 进行模糊匹配, 此时队列需要绑定一个 Topic
     - 所谓模糊匹配就是可以使用通配符, `#` 可以匹配一个或多个词, 只匹配一个词比如 `log.#` 可以匹配 `log.info.test` `log.` 就只能匹配 `log.error`
 
-![rabbit-mq-fanout-exchange.png](_images/rabbit-mq-fanout-exchange.png)
+![rabbit-mq-fanout-exchange.png](_image/rabbit-mq-fanout-exchange.png)
 
 - **Fanout Exchange : 不处理路由键, 只需简单的将队列绑定到交换机上**
     - 发送到改 Exchange 上的消息都会被发送到与该 Exchange 绑定的 queues 上
@@ -413,14 +413,14 @@ AMQP 协议
 
 - A. 消息落库, 对消息进行打标
 
-![rabbit-mq-save-msgs.jpeg](_images/rabbit-mq-save-msgs.jpeg)
+![rabbit-mq-save-msgs.jpeg](_image/rabbit-mq-save-msgs.jpeg)
 
 - B. 消息的延迟投递
     - 在高并发场景下，每次进行 DB 的操作都是每场消耗性能的
     - 使用延迟队列来减少一次数据库的操作
     - _( icehe : 这里看图不太理解 )_
 
-![rabbit-mq-deferred-delivery.jpeg](_images/rabbit-mq-deferred-delivery.jpeg)
+![rabbit-mq-deferred-delivery.jpeg](_image/rabbit-mq-deferred-delivery.jpeg)
 
 #### 消息幂等性
 
@@ -540,7 +540,7 @@ arguments.put("x-dead-letter-exchange","dlx.exchange");
 
 Mirror Queue 镜像队列
 
-![rabbit-mq-cluster.jpeg](_images/rabbit-mq-cluster.jpeg)
+![rabbit-mq-cluster.jpeg](_image/rabbit-mq-cluster.jpeg)
 
 - **镜像队列, 是 RabbitMQ 数据高可用的解决方案**
     - 主要实现数据同步, **一般来说是由 2~3节 点实现数据同步, ( 对于 100% 消息可靠性解决方案一般是 3 个节点 )**
@@ -553,7 +553,7 @@ Mirror Queue 镜像队列
 - RabbitMQ 部署架构采用双中心模式 ( 多中心 ) 在两套 ( 或多套 ) 数据中心个部署一套 RabbitMQ 集群
     - 各中心的 RabbitMQ 服务需要为提供正常的消息业务外, **数据中心之间还需要实现部分队列消息共享**
 
-![rabbit-mq-multiple-data-center-architecture.jpeg](_images/rabbit-mq-multiple-data-center-architecture.jpeg)
+![rabbit-mq-multiple-data-center-architecture.jpeg](_image/rabbit-mq-multiple-data-center-architecture.jpeg)
 
 > Federation 插件是一个不需要构建 Cluster, 而在 Brokers 之间传输消息的高性能插件,
 > Federation 可以在 Brokers 或者 Cluster 之间传输消息,
@@ -561,7 +561,7 @@ Mirror Queue 镜像队列
 > 双方也可以使用不同版本的 Erlang 或者 RabbitMQ 版本.
 > Federation 插件可以使用 AMQP 协议作为通讯协议, 可以接受不连续的传输.
 
-![rabbit-mq-federation-exchanges.jpeg](_images/rabbit-mq-federation-exchanges.jpeg)
+![rabbit-mq-federation-exchanges.jpeg](_image/rabbit-mq-federation-exchanges.jpeg)
 
 - **Federation Exchanges**, 可以看成 Downstream 从 Upstream 主动拉取消息
     - 但并不是拉取所有消息, 必须是在 Downstream 上已经明确定义 Bindings 关系的 Exchange

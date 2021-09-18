@@ -731,4 +731,4 @@ Timeline
 
 -->
 
-<!-- ![the-fucking-life.jpg](/past/_images/the-fucking-life.jpg) -->
+<!-- ![the-fucking-life.jpg](/past/_image/the-fucking-life.jpg) -->

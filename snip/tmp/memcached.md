@@ -9,7 +9,7 @@ References
 - _因此 Redis 和 Memcached 的区别基本成了面试官缓存方面必问的面试题,_
 - 最近几年 Memcached 用的少了, 基本都是 Redis.
 
-![memcached-thread-model.png](_images/memcached-thread-model.png)
+![memcached-thread-model.png](_image/memcached-thread-model.png)
 
 Memcached 服务器
 

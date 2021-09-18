@@ -125,7 +125,7 @@ More details please refer to [here](http://www.confluent.io/blog/how-to-choose-t
 
 #### How to support more partition in RocketMQ?
 
-![rocketmq-consume-queue.png](_images/rocketmq-consume-queue.png)
+![rocketmq-consume-queue.png](_image/rocketmq-consume-queue.png)
 
 - 1\. **All message data are stored in commit log files.**
     - All writes are completely sequential whilst _( 同时 )_ reads are random.
@@ -173,7 +173,7 @@ Reference
     - Each of them **can be horizontally extended without a single Point of Failure**.
     - _As shown in screenshot below._
 
-![rocket-mq-architecture.png](_images/rocket-mq-architecture.png)
+![rocket-mq-architecture.png](_image/rocket-mq-architecture.png)
 
 #### NameServerCluster
 
@@ -222,7 +222,7 @@ Reference
     - **HA Service**, provides data sync feature between master broker and slave broker.
     - **Index Service**, builds index for messages by specified key and provides quick message query.
 
-![rocket-mq-broker-server.png](_images/rocket-mq-broker-server.png)
+![rocket-mq-broker-server.png](_image/rocket-mq-broker-server.png)
 
 ## Best Pratice
 
@@ -232,7 +232,7 @@ Reference
 
 - Core Concept : https://rocketmq.apache.org/docs/core-concept
 
-![rocket-mq-model.png](_images/rocket-mq-model.png)
+![rocket-mq-model.png](_image/rocket-mq-model.png)
 
 According to the above model, we can dig deeper into some topics about messaging system design:
 

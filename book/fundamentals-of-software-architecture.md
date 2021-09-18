@@ -361,14 +361,14 @@ _—— Second Law of Software Architecture_
 
 Technical Depth & Technical Breadth
 
-![tech-depth-n-breath.jpeg](_images/fundamentals-of-software-architecture/tech-depth-n-breath.jpeg)
+![tech-depth-n-breath.jpeg](_image/fundamentals-of-software-architecture/tech-depth-n-breath.jpeg)
 
 ### Analyze Trade-Offs
 
 Trade-offs between topics and queues
 
-![topic-communication.jpeg](_images/fundamentals-of-software-architecture/topic-communication.jpeg)
-![queues-communication.jpeg](_images/fundamentals-of-software-architecture/queues-communication.jpeg)
+![topic-communication.jpeg](_image/fundamentals-of-software-architecture/topic-communication.jpeg)
+![queues-communication.jpeg](_image/fundamentals-of-software-architecture/queues-communication.jpeg)
 
 Topic advantages
 
@@ -476,11 +476,11 @@ $$
 D = |A+I-1|
 $$
 
-![ideal-relationship-between-abstractness-and-instability.jpg](_images/fundamentals-of-software-architecture/ideal-relationship-between-abstractness-and-instability.jpg)
+![ideal-relationship-between-abstractness-and-instability.jpg](_image/fundamentals-of-software-architecture/ideal-relationship-between-abstractness-and-instability.jpg)
 
-![normalized-distance-from-main-sequence-4-particular-class.jpg](_images/fundamentals-of-software-architecture/normalized-distance-from-main-sequence-4-particular-class.jpg)
+![normalized-distance-from-main-sequence-4-particular-class.jpg](_image/fundamentals-of-software-architecture/normalized-distance-from-main-sequence-4-particular-class.jpg)
 
-![zones-of-uselessness-n-pain.jpg](_images/fundamentals-of-software-architecture/zones-of-uselessness-n-pain.jpg)
+![zones-of-uselessness-n-pain.jpg](_image/fundamentals-of-software-architecture/zones-of-uselessness-n-pain.jpg)
 
 **Limitations of Metrics**
 
@@ -572,7 +572,7 @@ _Some properties of connascence help developers use it wisely._
 
     _e.g. consider the case of connascence of meaning, which developers can improve by refactoring to connascence of name by creating named constant rather than a magic value._
 
-    ![strength-on-connascence-provides-a-good-refactoring-guide.jpg](_images/fundamentals-of-software-architecture/strength-on-connascence-provides-a-good-refactoring-guide.jpg)
+    ![strength-on-connascence-provides-a-good-refactoring-guide.jpg](_image/fundamentals-of-software-architecture/strength-on-connascence-provides-a-good-refactoring-guide.jpg)
 
 -   **Locality**
 
@@ -608,7 +608,7 @@ From an architect's point of view, these two views (coupling and connascence) ov
 
 … What structured programming called _data coupling_ (method calls), connascence provides advice for how that coupling should manifest.
 
-![unifying-coupling-n-connascence.jpeg](_images/fundamentals-of-software-architecture/unifying-coupling-n-connascence.jpeg)
+![unifying-coupling-n-connascence.jpeg](_image/fundamentals-of-software-architecture/unifying-coupling-n-connascence.jpeg)
 
 _The structured programming couipling concepts appear on the left, while the connascence appear on the right._
 
@@ -636,7 +636,7 @@ An architecture characteristic meets three criteria
 - Influences some structuralaspect of the design
 - Is critical or important to application success
 
-![differentiating-features-of-architecture-characteristics.jpeg](_images/fundamentals-of-software-architecture/differentiating-features-of-architecture-characteristics.jpeg)
+![differentiating-features-of-architecture-characteristics.jpeg](_image/fundamentals-of-software-architecture/differentiating-features-of-architecture-characteristics.jpeg)
 
 _The choice of a triangle is intentional:_
 _each of the definition elements supports the others,_
@@ -1074,9 +1074,9 @@ they must know how to partition the architecture.
 - Layered
 - Modular
 
-![types-of-top-level-architecture-partitioning-layered-n-modular.jpeg](_images/fundamentals-of-software-architecture/types-of-top-level-architecture-partitioning-layered-n-modular.jpeg)
+![types-of-top-level-architecture-partitioning-layered-n-modular.jpeg](_image/fundamentals-of-software-architecture/types-of-top-level-architecture-partitioning-layered-n-modular.jpeg)
 
-![types-of-top-level-partitioning-in-architecture.jpeg](_images/fundamentals-of-software-architecture/types-of-top-level-partitioning-in-architecture.jpeg)
+![types-of-top-level-partitioning-in-architecture.jpeg](_image/fundamentals-of-software-architecture/types-of-top-level-partitioning-in-architecture.jpeg)
 
 The architect has partitioned functionality of the system into _technical capabilities_:
 
@@ -1149,7 +1149,7 @@ _最初的设计应该被视为第一版草稿, 然后它的具体实现会揭�
 
 ### Component Identification Flow
 
-![component-identification-cycle.jpeg](_images/fundamentals-of-software-architecture/component-identification-cycle.jpeg)
+![component-identification-cycle.jpeg](_image/fundamentals-of-software-architecture/component-identification-cycle.jpeg)
 
 #### Identifying Initial Components
 
@@ -1230,7 +1230,7 @@ differeing architecture characteristics.
 While there is no one true way to ascertain _( 弄清; 确认 )_ components,
 a common anti-pattern lurks _( 潜伏; 埋伏; 潜藏 )_ : the _entity trap_.  …
 
-![building-an-architecture-as-an-object-relational-mapping.jpg](_images/fundamentals-of-software-architecture/building-an-architecture-as-an-object-relational-mapping.jpg)
+![building-an-architecture-as-an-object-relational-mapping.jpg](_image/fundamentals-of-software-architecture/building-an-architecture-as-an-object-relational-mapping.jpg)
 
 _The architect has basically taken entity identified in the requirements and_
 _made a Manager component based on that entity._
@@ -1297,7 +1297,7 @@ the Actor/Actions approach works well as a generic solution.
 
 …
 
-![initial-set-of-components-for-ggg.jpg](_images/fundamentals-of-software-architecture/initial-set-of-components-for-ggg.jpg)
+![initial-set-of-components-for-ggg.jpg](_image/fundamentals-of-software-architecture/initial-set-of-components-for-ggg.jpg)
 
 For example,
 the currrent design features a Bid Capture components
@@ -1773,7 +1773,7 @@ allows any layer in the architecture to be replaced
 without impacting any other layer
 ( again, assuming well-defined contracts and the use of the [business delegate pattern](https://en.wikipedia.org/wiki/Business_delegate_pattern) ) .
 
-![closed-layers-within-layered-architecture.jpg](_images/fundamentals-of-software-architecture/closed-layers-within-layered-architecture.jpg)
+![closed-layers-within-layered-architecture.jpg](_image/fundamentals-of-software-architecture/closed-layers-within-layered-architecture.jpg)
 
 ### Adding Layers
 
@@ -1792,7 +1792,7 @@ This scenario is difficult to govern and control
 because architecturally the presentation layer has access to the bussiness layer,
 and hence has access to the shared objects within that layer.
 
-![shared-objects-within-business-layer.jpg](_images/fundamentals-of-software-architecture/shared-objects-within-business-layer.jpg)
+![shared-objects-within-business-layer.jpg](_image/fundamentals-of-software-architecture/shared-objects-within-business-layer.jpg)
 
 One way to architecturally mandate this restriction is
 to **add the architecture a new services layer containing all the shared business objects.**
@@ -1809,7 +1809,7 @@ either access that layer ( as indicated by the solid arrow ) ,
 or bypass the layer and go to the next one down
 ( as indicated by the dotted arrow in the figure below ) .
 
-![adding-services-layer-to-architecture.jpg](_images/fundamentals-of-software-architecture/adding-services-layer-to-architecture.jpg)
+![adding-services-layer-to-architecture.jpg](_image/fundamentals-of-software-architecture/adding-services-layer-to-architecture.jpg)
 
 ……
 
@@ -1852,7 +1852,7 @@ _is not the correct architecture style for the problem domain._
 
 ……
 
-![layered-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/layered-architecture-characteristics-ratings.jpeg)
+![layered-architecture-characteristics-ratings.jpeg](_image/fundamentals-of-software-architecture/layered-architecture-characteristics-ratings.jpeg)
 
 **Overall cost and simplicity are the primary strengths** of the layered architecture style.
 
@@ -1998,7 +1998,7 @@ _Orchestrators and mediators such as Apache Camel_
 _utilize the pipeline architecture to pass information_
 _from one step in a bussiness process to another._
 
-![pipeline-architecture-example.jpg](_images/fundamentals-of-software-architecture/pipeline-architecture-example.jpg)
+![pipeline-architecture-example.jpg](_image/fundamentals-of-software-architecture/pipeline-architecture-example.jpg)
 
 ……
 
@@ -2014,7 +2014,7 @@ Aslo, because the pipeline architecture
 is **usually implemented as a monolithic deployment**,
 the architectural quantum is always one.
 
-![pipeline-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/pipeline-architecture-characteristics-ratings.jpeg)
+![pipeline-architecture-characteristics-ratings.jpeg](_image/fundamentals-of-software-architecture/pipeline-architecture-characteristics-ratings.jpeg)
 
 **Best Overall Cost and Simplicity**
 
@@ -2090,7 +2090,7 @@ _For example, suppose Payment Processing is the domain service representing the 
 _Each payment method ( credit card, PayPal, store credit, gift card, and purchase order )_
 _would be separate plug-in components specific to the payment domain._
 
-![variations-of-the-microkernel-architecture-core-system.jpeg](_images/fundamentals-of-software-architecture/variations-of-the-microkernel-architecture-core-system.jpeg)
+![variations-of-the-microkernel-architecture-core-system.jpeg](_image/fundamentals-of-software-architecture/variations-of-the-microkernel-architecture-core-system.jpeg)
 
 #### Plug-In Components
 
@@ -2135,7 +2135,7 @@ _due to the monolithic core system._
 _Every request must first go through the core system_
 _to get to the plug-in service._
 
-![remote-plugin-access-using-rest.jpeg](_images/fundamentals-of-software-architecture/remote-plugin-access-using-rest.jpeg)
+![remote-plugin-access-using-rest.jpeg](_image/fundamentals-of-software-architecture/remote-plugin-access-using-rest.jpeg)
 
 **The benefits of the remote access approach**
 **to accessing plug-in components implemented as individual services**
@@ -2208,7 +2208,7 @@ Similar to the layered architecture style,
 of the microkernel architecture style,
 and **scalability, fault tolerance, and extensibility its main weakness**.
 
-![microkernel-architecture-characteristics-ratings.jpeg](_images/fundamentals-of-software-architecture/microkernel-architecture-characteristics-ratings.jpeg)
+![microkernel-architecture-characteristics-ratings.jpeg](_image/fundamentals-of-software-architecture/microkernel-architecture-characteristics-ratings.jpeg)
 
 _Like the layered architecture style,_
 the number of quanta is always singular (one)

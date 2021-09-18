@@ -41,13 +41,13 @@ Redis: **RE**mote **DI**ctionary **S**erver
             -   元素少用 ziplist;
                 元素多用 quicklist.
             - _满足快速的插入删除, 以及较小的空间冗余 (普通链表的指针太多)_
-            - [structure.webp](_images/quicklist-simple-structure.webp)
+            - [structure.webp](_image/quicklist-simple-structure.webp)
 - hash
     - 值只能是字符串
     - **progressive rehash**
         -   **ht[0] old;**
             **ht[1] new.**
-        - [strategy.webp](_images/progressive-rehash-strategy.webp)
+        - [strategy.webp](_image/progressive-rehash-strategy.webp)
     - _usage: [strings vs hashes to represent JSON: efficiency?](https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency)_
         - _以 hash 形式保存完整信息的话, 可以只获取部分字段, 但结构消耗内存比 string 大._
         - _以 string 形式保存完整信息的话, 只能一次性全部读取, 比较浪费网络流量, 但比 hash 节省内存._
@@ -57,7 +57,7 @@ Redis: **RE**mote **DI**ctionary **S**erver
 - zset
     - _like sorted-set + hash_
     - 结构: **skip-list**
-        - [structure.webp](_images/skiplist-simple-structure-example.webp)
+        - [structure.webp](_image/skiplist-simple-structure-example.webp)
 
 ## usage
 
@@ -161,7 +161,7 @@ Redis: **RE**mote **DI**ctionary **S**erver
         - 无偏: 能够把元素的 hash 值算得比较均匀
     - 注意: 不要让实际元素远大于初始化大小, 当实际元素开始超出初始化大小时, 应该对布隆过滤器进行重建
         - 这要求在其它的存储器中记录所有的历史元素!
-    - [bloom-filter-data-structure.webp](_images/bloom-filter-data-structure-simple-example.webp)
+    - [bloom-filter-data-structure.webp](_image/bloom-filter-data-structure-simple-example.webp)
 - _其它场景:_
     - _爬虫系统: 对 URL 进行去重, 已经爬过的网页就可以不用爬了_
     - NoSQL 数据库领域: HBase、Cassandra、LevelDB、RocksDB 使用它来显著降低数据库的 IO 请求数量
@@ -185,7 +185,7 @@ _简单限流器_
     - 同一个用户同一种行为用一个 zset 记录;
     - 只需要保留这个时间窗口内的数据, 窗口之外的都可以删掉, 节省内存;
     - 通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许.
-    - [zset-limiter.webp](_images/zset-limiter.webp)
+    - [zset-limiter.webp](_image/zset-limiter.webp)
 
 ### funnel limiter
 
@@ -283,7 +283,7 @@ _漏斗限流器_
     - 业界比较通用的 **地理位置距离排序算法是 GeoHash 算法**
         - **将二维的经纬度数据映射到一维的整数, 所有的元素都将在挂载到一条线上,**
         - **距离靠近的二维坐标映射到一维后的点之间距离也会很接近.**
-        - [geohash-animation.gif](_images/geohash-animation.gif)
+        - [geohash-animation.gif](_image/geohash-animation.gif)
             - _动图的例子中使用的是二刀法, 真实算法中还会有很多其它刀法, 最终编码出来的整数数字也都不一样._
     - 做法:
         - 经纬度使用 52 位的整数进行编码, 放进 zset
@@ -310,7 +310,7 @@ _漏斗限流器_
         - 单次返回的结果是空的并不意味着遍历结束, 而要看返回的游标值是否为 0.
 - `scan` 原理:
     - 在 Redis 中的所有 key 都存储在一个很大的 dictionary 中
-        - 实现: 一维数组 + 二维链表结构 ( [dictionary-structure.webp](_images/dictionary-simple-structure.webp) )
+        - 实现: 一维数组 + 二维链表结构 ( [dictionary-structure.webp](_image/dictionary-simple-structure.webp) )
         - 大小: 第一维数组的大小总是 2^n
         - 扩容: 一维数组大小加倍
     - `scan` 指令返回的游标 cursor: 第一维数组的位置索引, 也称为 **槽 ( slot )**
@@ -328,7 +328,7 @@ _遍历顺序_
 - 原因:
     - **考虑到字典的扩容和缩容时避免槽位的遍历重复和遗漏**.
 - 演示:
-    - [high-carry-addition.gif](_images/high-carry-addition-example.gif)
+    - [high-carry-addition.gif](_image/high-carry-addition-example.gif)
 - 原理:
     - rehash 就是将元素的 hash 值对数组长度进行取模运算.
         - 因为长度变了, 所以每个元素挂接的槽位可能也发生了变化.
@@ -336,12 +336,12 @@ _遍历顺序_
         - _假设当前的字典的数组长度由 8 位扩容到 16 位, 那么 3 号槽位 011 将会被 rehash 到 3 号槽位和 11 号槽位,_
             - _也就是说该槽位链表中大约有一半的元素还是 3 号槽位, 其它的元素会放到 11 号槽位,_
             - _11 这个数字的二进制是 1011, 就是对 3 的二进制 011 增加了一个高位 1._
-            - [dictionary-rehash.webp](_images/dictionary-rehash-example.webp)
+            - [dictionary-rehash.webp](_image/dictionary-rehash-example.webp)
         - _抽象一点说, 假设开始槽位的二进制数是 xxx,_
             - _那么该槽位中的元素将被 rehash 到 0xxx 和 1xxx ( xxx+8 ) 中._
     - 对比扩容前后的遍历顺序:
         - **采用高位进位加法的遍历顺序, rehash 后的槽位在遍历顺序上是相邻的.**
-        - [traverse-sequence-before-n-after-rehashing.webp](_images/traverse-sequence-before-n-after-rehashing.webp)
+        - [traverse-sequence-before-n-after-rehashing.webp](_image/traverse-sequence-before-n-after-rehashing.webp)
     - 考虑缩容:
         - **过去两个 slot 的数据挂载到同一个 slot, 有些元素会被重复遍历.**
     - 考虑 progressive rehash:
@@ -410,7 +410,7 @@ _线程 IO 模型_
     - 而 write 方法一般来说不会阻塞,
         - 除非内核为套接字分配的写缓冲区已经满了, write方法就会阻塞,
         - 直到缓存区中有空闲空间挪出来了.
-    - [io-model.webp](_images/io-model.webp)
+    - [io-model.webp](_image/io-model.webp)
 - 非阻塞 IO 在套接字对象上提供了一个选项 `Non_Blocking`,
     - **当选项 `Non_Blocking` 打开时, 读写方法不会阻塞, 而是能读多少读多少, 能写多少写多少.**
         - 能读多少 取决于 : 内核为套接字分配的 **读缓冲区** 内部的数据字节数,
@@ -427,7 +427,7 @@ _( multiplexing 多路复用 )_
     - _非阻塞 IO 的问题: 线程要读数据, 结果读了一部分就返回了, 线程如何知道何时才应该继续读?_
     - _也就是当数据到来时, 线程如何得到通知._
     - _写也是一样, 如果缓冲区满了, 写不完, 剩下的数据何时才应该继续写, 线程也应该得到通知._
-    - [event-loop.webp](_images/event-loop.webp)
+    - [event-loop.webp](_image/event-loop.webp)
 - 初始方案:
     - 最简单的事件轮询 API 是操作系统提供给用户程序的 `select` 函数.
         - 输入: 读写描述符列表 **read_fds & write_fds**,`
@@ -600,7 +600,7 @@ _( multiplexing 多路复用 )_
         - _通常这部分 AOF 日志不能大, AOF 的速度必须能够尽快追上更新数据的速度_
     - 于是在 **Redis 重启的时候, 可以先加载 RDB 的内容, 然后再重放增量 AOF 日志.**
         - _可以完全替代之前的 AOF 全量文件重放, 重启效率因此大幅得到提升._
-    - [recover-redis-by-rdb-n-aop.webp](_images/recover-redis-by-rdb-n-aop.webp)
+    - [recover-redis-by-rdb-n-aop.webp](_image/recover-redis-by-rdb-n-aop.webp)
 
 ### pipeline
 
@@ -610,8 +610,8 @@ _( multiplexing 多路复用 )_
     - _服务器没有任何区别对待, 还是收到一条消息, 执行一条消息, 回复一条消息的正常的流程._
     - _客户端通过对管道中的指令列表改变读写顺序就可以大幅节省 IO 时间._
     - 简单来说, 就是 **将多次网络请求合并为一次网络请求, 节省多次网络往返的时延.**
-    - [client-requests-server-responses.webp](_images/client-requests-server-responses.webp)
-    - [client-requests-server-responses-in-pipeline.webp](_images/client-requests-server-responses-in-pipeline.webp)
+    - [client-requests-server-responses.webp](_image/client-requests-server-responses.webp)
+    - [client-requests-server-responses-in-pipeline.webp](_image/client-requests-server-responses-in-pipeline.webp)
 
 ### transaction
 
@@ -642,14 +642,14 @@ _( multiplexing 多路复用 )_
     (integer) 1
     (integer) 2
     ```
-- [redis-transaction.webp](_images/redis-transaction.webp)
+- [redis-transaction.webp](_image/redis-transaction.webp)
 
 ### pubsub
 
 - 背景:
     - 可以用 Redis 的 list 或 zset 实现简单的消息队列,
     - 但是这样不支持消息的多播机制.
-    - [redis-as-message-queue.webp](_images/redis-as-message-queue.webp)
+    - [redis-as-message-queue.webp](_image/redis-as-message-queue.webp)
 - message multicast _消息多播_
     - 消息多播允许生产者生产一次消息, 中间件负责将消息复制到多个消息队列, 每个消息队列由相应的消费组进行消费.
     - 它是分布式系统常用的一种解耦方式, 用于将多个消费组的逻辑进行拆分.
@@ -706,7 +706,7 @@ _( multiplexing 多路复用 )_
     - 还不如使用一维数组进行存储, 需要查找时, 因为元素少进行遍历也很快, 甚至可以比 HashMap 本身的查找还要快.
 - ziplist
     - 是一个紧凑的字节数组结构, 每个元素之间都是紧挨着的
-    - 结构: [zlist-simple-structure-example.webp](_images/zlist-simple-structure-example.webp)
+    - 结构: [zlist-simple-structure-example.webp](_image/zlist-simple-structure-example.webp)
 - _ziplist 示例:_
     - _如果它存储的是 hash 结构, 那么 key 和 value 会作为两个 entry 相邻存在一起._
         ```bash
@@ -736,7 +736,7 @@ _( multiplexing 多路复用 )_
         - 如果新加入的整数超过了 uint16 的表示范围, 那么就使用 uint32 表示,
         - 如果新加入的元素超过了 uint32 的表示范围, 那么就使用 uint64 表示,
     - 支持 set 集合动态从 uint16 升级到 uint32, 再升级到 uint64.
-    - 结构: [intset-structure-simple-example.webp](_images/intset-structure-simple-example.webp)
+    - 结构: [intset-structure-simple-example.webp](_image/intset-structure-simple-example.webp)
 - _intset 示例:_
     - 如果 set 里存储的是字符串, 那么 sadd 立即升级为 hashtable 结构.
         ```bash
@@ -834,7 +834,7 @@ _( multiplexing 多路复用 )_
     - 首先需要在主库上进行一次 `bgsave` 将当前内存的数据全部快照到磁盘文件中, 然后再将快照文件的内容全部传送到从节点.
     - 从节点将快照文件接受完毕后, 立即执行一次全量加载, 加载之前先要将当前内存的数据清空.
     - 加载完毕后通知主节点继续进行增量同步.
-    - [rdb-snapshot-synchronization.webp](_images/rdb-snapshot-synchronization.webp)
+    - [rdb-snapshot-synchronization.webp](_image/rdb-snapshot-synchronization.webp)
 - 问题:
     - 在整个快照同步进行的过程中, 主节点的复制 buffer 还在不停的往前移动,
     - 如果快照同步的时间过长或者复制 buffer 太小, 都会导致同步期间的增量指令在复制 buffer 中被覆盖,
@@ -867,19 +867,19 @@ _( multiplexing 多路复用 )_
     - 必须有一个高可用方案来抵抗节点故障, 当故障发生时可以自动进行从主切换, 程序可以不用重启,
         - _运维可以继续睡大觉, 仿佛什么事也没发生一样._
     - Redis 官方提供了这样一种方案 —— **Redis Sentinel**
-    - [redis-sentinel-simple-arthitecture.webp](_images/redis-sentinel-simple-arthitecture.webp)
+    - [redis-sentinel-simple-arthitecture.webp](_image/redis-sentinel-simple-arthitecture.webp)
 - 做法:
     - 将 Redis Sentinel 集群看成是一个 ZooKeeper 集群, 它是集群高可用的心脏, 一般由 3～5 个节点组成, 这样挂了个别节点集群还可以正常运转.
     - Sentinel 集群负责持续监控主从节点的健康, 当主节点挂掉时, 自动选择一个最优的从节点切换为主节点.
     - 客户端来连接集群时, 会首先连接 sentinel, 通过 sentinel 来查询主节点的地址, 然后再去连接主节点进行数据交互.
     - 当主节点发生故障时, 客户端会重新向 sentinel 要地址, sentinel 会将最新的主节点地址告诉客户端.
     - 如此应用程序将无需重启即可自动完成节点切换.
-        - [redis-sentinel-example-master-down.webp](_images/redis-sentinel-example-master-down.webp)
+        - [redis-sentinel-example-master-down.webp](_image/redis-sentinel-example-master-down.webp)
     - 到主节点挂掉了, 原先的主从复制也断开了, 客户端和损坏的主节点也断开了.
         - 从节点被提升为新的主节点, 其它从节点开始和新的主节点建立复制关系.
         - 客户端通过新的主节点继续进行交互.
         - Sentinel 会持续监控已经挂掉了主节点, 待它恢复后, 原先挂掉的主节点现在变成了从节点, 从新的主节点那里建立复制关系.
-        - [redis-sentinel-example-after-recovery.webp](_images/redis-sentinel-example-after-recovery.webp)
+        - [redis-sentinel-example-after-recovery.webp](_image/redis-sentinel-example-after-recovery.webp)
 
 #### message loss
 
@@ -906,7 +906,7 @@ _( multiplexing 多路复用 )_
         - CPU 利用率 : 单个 Redis 实例只能利用单个核心, 这单个核心要完成海量数据的存取和管理工作压力会非常大.
 - 思路:
     - 将众多小内存的 Redis 实例综合起来, 将分布在多台机器上的众多 CPU 核心的计算能力聚集到一起, 完成海量数据存储和高并发读写操作.
-    - [codis-architecture.webp](_images/codis-architecture.webp)
+    - [codis-architecture.webp](_image/codis-architecture.webp)
 - Codis
     - Go 语言开发
     - 是一个代理中间件
@@ -919,13 +919,13 @@ _( multiplexing 多路复用 )_
     - 因为 Codis 是无状态的, 它只是一个转发代理中间件, 这意味着我们可以启动多个 Codis 实例, 供客户端使用, 每个 Codis 节点都是对等的.
         - 因为单个 Codis 代理能支撑的 QPS 比较有限, 通过启动多个 Codis 代理可以显著增加整体的 QPS 需求,
         - 还能起到容灾功能, 挂掉一个 Codis 代理没关系, 还有很多 Codis 代理可以继续服务.
-        - [codis-multi-nodes.webp](_images/codis-multi-nodes.webp)
+        - [codis-multi-nodes.webp](_image/codis-multi-nodes.webp)
 
 #### slots
 
 - 分片原理:
     - Codis 将所有的 key 默认划分为 1024 个槽位 (slot), 它首先对客户端传过来的 key 进行 crc32 运算计算哈希值, 再将 hash 后的整数值对 1024 这个整数进行取模得到一个余数, 这个余数就是对应 key 的槽位.
-        - [codis-slots.webp](_images/codis-slots.webp)
+        - [codis-slots.webp](_image/codis-slots.webp)
     - 每个槽位都会唯一映射到后面的多个 Redis 实例之一, Codis 会在内存维护槽位和 Redis 实例的映射关系.
         _槽位数量默认是 1024, 它是可以配置的, 如果集群节点比较多, 建议将这个数值配置大一些, 比如 2048、4096._
 
@@ -937,7 +937,7 @@ _( multiplexing 多路复用 )_
     - 如果 Codis 的槽位映射关系只存储在内存里, 那么不同的 Codis 实例之间的槽位关系就无法得到同步.
     - 所以 Codis 还需要一个分布式配置存储数据库专门用来持久化槽位关系.
     - _Codis 开始使用 ZooKeeper, 后来连 etcd 也一块支持了._
-    - [codis-slots-conf-sync.webp](_images/codis-slots-conf-sync.webp)
+    - [codis-slots-conf-sync.webp](_image/codis-slots-conf-sync.webp)
     - _Codis 将槽位关系存储在 zk 中, 并且提供了一个 Dashboard 可以用来观察和修改槽位关系, 当槽位关系变化时, Codis Proxy 会监听到变化并重新同步槽位关系, 从而实现多个 Codis Proxy 之间共享相同的槽位关系配置._
 
 ##### scale out
@@ -1098,7 +1098,7 @@ _( multiplexing 多路复用 )_
     - 原先第一个客户端在主节点中申请成功了一把锁, 但是这把锁还没有来得及同步到从节点, 主节点突然挂掉了.
     - 然后从节点变成了主节点, 这个新的节点内部没有这个锁, 所以当另一个客户端过来请求加锁时, 立即就批准了.
     - 这样就会导致系统中同样一把锁被两个客户端同时持有, 不安全性由此产生.
-    - [redis-simple-distributed-lock-error.webp](_images/redis-simple-distributed-lock-error.webp)
+    - [redis-simple-distributed-lock-error.webp](_image/redis-simple-distributed-lock-error.webp)
     - 不过, 这种不安全也仅仅是在主从发生 failover 的情况下才会产生, 而且持续时间极短, 业务系统多数情况下可以容忍.
 
 ### Redlock Alogorithm
@@ -1298,7 +1298,7 @@ print d
 
 下面是随机 LRU 算法和严格 LRU 算法的效果对比图 :
 
-![redis-lru-benchmark.webp](_images/redis-lru-benchmark.webp)
+![redis-lru-benchmark.webp](_image/redis-lru-benchmark.webp)
 
 _图中绿色部分是新加入的 key, 深灰色部分是老旧的 key, 浅灰色部分是通过 LRU 算法淘汰掉的 key. 从图中可以看出采样数量越大, 近似 LRU 算法的效果越接近严格 LRU 算法._ 同时 **Redis 3.0 在算法中增加了淘汰池, 进一步提升了近似 LRU 算法的效果**.
 
@@ -1331,7 +1331,7 @@ Redis 提供了 **`flushdb` 和 `flushall` 指令, 用来清空数据库**, 这�
 
 主线程将对象的引用从「大树」中摘除后, **会将这个 key 的内存回收操作包装成一个任务, 塞进异步任务队列, 后台线程会从这个异步队列中取任务**. 任务队列被主线程和异步线程同时操作, 所以 **必须是一个线程安全的队列.**
 
-![redis-concurrent-queue-simple-example.webp](_images/redis-concurrent-queue-simple-example.webp)
+![redis-concurrent-queue-simple-example.webp](_image/redis-concurrent-queue-simple-example.webp)
 
 _不是所有的 `unlink` 操作都会延后处理, 如果对应 key 所占用的内存很小, 延后处理就没有必要了, 这时候 Redis 会将对应的 key 内存立即回收, 跟 del 指令一样._
 
@@ -1371,7 +1371,7 @@ struct SDS<T> {
 }
 ```
 
-![redis-sds.webp](_images/redis-sds.webp)
+![redis-sds.webp](_image/redis-sds.webp)
 
 _它有点类似于 Java 语言的 ArrayList 结构,_ 需要比实际的内容长度多分配一些冗余空间.
 
@@ -1451,7 +1451,7 @@ struct SDS {
 }
 ```
 
-![redis-sds-embstr-vs-raw.webp](_images/redis-sds-embstr-vs-raw.webp)
+![redis-sds-embstr-vs-raw.webp](_image/redis-sds-embstr-vs-raw.webp)
 
 SDS 不同的存储形式  :
 
@@ -1464,7 +1464,7 @@ _当内存分配器分配了 64 空间时, 那这个字符串的长度最大可�
 
 前面我们提到 SDS 结构体中的 content 中的字符串是以字节 `\0` 结尾的字符串, 之所以多出这样一个字节, 是为了便于直接使用 glibc 的字符串处理函数, 以及为了便于字符串的调试打印输出.
 
-![redis-sds-redisobject-with-embstr.webp](_images/redis-sds-redisobject-with-embstr.webp)
+![redis-sds-redisobject-with-embstr.webp](_image/redis-sds-redisobject-with-embstr.webp)
 
 看上图可以算出, 留给 content 的长度最多只有 45 ( = 64 - 19 ) 字节了. 字符串又是以 `\0` 结尾, 所以 `embstr` 最大能容纳的字符串长度就是 44.
 
@@ -1501,7 +1501,7 @@ struct zset {
 
 ### dict 内部结构
 
-![redis-dict-structure-simple-example.webp](_images/redis-dict-structure-simple-example.webp)
+![redis-dict-structure-simple-example.webp](_image/redis-dict-structure-simple-example.webp)
 
 - dict 结构 **内部包含两个 hashtable, 通常情况下只有一个 hashtable 是有值的.**
 - 但是在 dict **扩容缩容时, 需要分配新的 hashtable, 然后进行渐进式搬迁**, 这时候两个 hashtable 存储的分别是旧的 hashtable 和新的 hashtable.
@@ -1514,7 +1514,7 @@ struct dict {
 }
 ```
 
-![redis-dict-data-structure-example.webp](_images/redis-dict-data-structure-example.webp)
+![redis-dict-data-structure-example.webp](_image/redis-dict-data-structure-example.webp)
 
 hashtable 的结构和 Java 的 HashMap 几乎是一样的, 都是 **通过分桶的方式解决 hash 冲突. 第一维是数组, 第二维是链表. 数组中存储的是第二维链表的第一个元素的指针.**
 
@@ -1692,7 +1692,7 @@ struct ziplist<T> {
 }
 ```
 
-![ziplist-structure-simple-example.webp](_images/ziplist-structure-simple-example.webp)
+![ziplist-structure-simple-example.webp](_image/ziplist-structure-simple-example.webp)
 
 压缩列表 **为了支持双向遍历, 所以才会有 `ztail_offset` 这个字段, 用来快速定位到最后一个元素, 然后倒着遍历.**
 
@@ -1713,7 +1713,7 @@ struct entry {
         - 第一个字节是 0xFE(254), 剩余四个字节表示字符串长度.
 - _( 可能会觉得用 5 个字节来表示字符串长度, 是不是太浪费了. 可以算一下, 当字符串长度比较长的时候, 其实 5 个字节也只占用了不到 ( 5 / ( 254 + 5 ) ) < 2% 的空间. )_
 
-![redis-zip-list-entry-simple-example.webp](_images/redis-zip-list-entry-simple-example.webp)
+![redis-zip-list-entry-simple-example.webp](_image/redis-zip-list-entry-simple-example.webp)
 
 `encoding` 字段存储了元素内容的编码类型信息, `ziplist` 通过这个字段来决定后面的 content 内容的形式.
 
@@ -1738,7 +1738,7 @@ Reference
 
 - 源码 4 : 风驰电掣 —— 探索「快速列表」内部 : https://juejin.cn/book/6844733724618129422/section/6844733724743974925
 
-![redis-quicklist-simple-example.webp](_images/redis-quicklist-simple-example.webp)
+![redis-quicklist-simple-example.webp](_image/redis-quicklist-simple-example.webp)
 
 ### TODO
 

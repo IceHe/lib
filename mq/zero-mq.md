@@ -289,7 +289,7 @@ _( 序言, 前言 )_
     - Yes, **ZeroMQ sockets are the world-saving superheroes of the networking world**.
         - _( icehe: 这段话看不太懂, 真的那么强吗? )_
 
-![zmq-a-terrible-accident.png](_images/zmq-a-terrible-accident.png)
+![zmq-a-terrible-accident.png](_image/zmq-a-terrible-accident.png)
 
 #### The Zen of Zero
 

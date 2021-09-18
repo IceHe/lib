@@ -49,7 +49,7 @@ Leaf
 
 _SnowFlake 是 Twitter 公司采用的一种算法,_ 目的是 **在分布式系统中产生全局唯一且趋势递增的ID.**
 
-![snowflake-id-example.jpg](_images/snowflake-id-example.jpg)
+![snowflake-id-example.jpg](_image/snowflake-id-example.jpg)
 
 组成部分 ( 64bit )
 

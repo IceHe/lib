@@ -75,7 +75,7 @@ Topics are <u>**partitioned**</u>, meaning **a topic is spread over a number of 
 - This **distributed placement of your data is very important for scalability** because it allows client applications to both read and write the data from/to many brokers at the same time.
 - When **a new event is published to a topic**, it is actually **appended to one of the topic's partitions**.
 
-![kafka-partitions.png](_images/kafka-partitions.png)
+![kafka-partitions.png](_image/kafka-partitions.png)
 
 - The Figure above : This example topic has four partitions P1 ~ P4.
     - ……
@@ -580,7 +580,7 @@ _suffice : vi. 足够, 有能力_
 
 #### Log Compaction Basics
 
-![kafka-log-logical-structure.png](_images/kafka-log-logical-structure.png)
+![kafka-log-logical-structure.png](_image/kafka-log-logical-structure.png)
 
 - Here is a high-level picture that shows the logical structure of a Kafka log with the offset for each message.
 - The head of the log is identical to a traditional Kafka log.
@@ -598,7 +598,7 @@ _suffice : vi. 足够, 有能力_
     - Cleaning does not block reads and can be throttled to use no more than a configurable amount of I/O throughput to avoid impacting producers and consumers.
     - The actual process of compacting a log segment looks something like this:
 
-![kafka-compact-a-log-segment.png](_images/kafka-compact-a-log-segment.png)
+![kafka-compact-a-log-segment.png](_image/kafka-compact-a-log-segment.png)
 
 #### What guarantees does log compaction provide?
 
@@ -930,7 +930,7 @@ MessageSet (Version: 1) => [offset message_size message]
     - However once we settled on a counter, the jump to directly using the offset seemed natural -- both after all are monotonically increasing integers unique to a partition.
     - Since the offset is hidden from the consumer API this decision is ultimately an implementation detail and we went with the more efficient approach.
 
-![kafka-log-implementation.png](_images/kafka-log-implementation.png)
+![kafka-log-implementation.png](_image/kafka-log-implementation.png)
 
 #### Writes
 

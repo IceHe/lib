@@ -62,7 +62,7 @@ _In the example of the following image :_
 - The replication to follower 2 is **asynchronous**.
     - The leader sends the message, but doesn't wait for a response from the follower.
 
-![sync_n_async_replication.png](_images/designing-data-intensive-applications/sync_n_async_replication.png)
+![sync_n_async_replication.png](_image/designing-data-intensive-applications/sync_n_async_replication.png)
 
 _For that reason, it is impractical for all followers to be synchronous :_
 
@@ -203,7 +203,7 @@ _If the user views the data shortly after making a write, the new data may not y
 
 - _To the user, it looks as though the data they submitted was lost, so they will be understandably unhappy._
 
-![read-your-own-writes.png](_images/designing-data-intensive-applications/read-your-own-writes.png)
+![read-your-own-writes.png](_image/designing-data-intensive-applications/read-your-own-writes.png)
 
 In this situation, we need **read-after-write consistency**, also known as **read-your-writes consistency**.
 
@@ -254,7 +254,7 @@ A user first reads from a fresh replica, then from a stale _( 不新鲜的 )_ re
 
 - To prevent this anomaly _( 异常/反常 )_ , we need **monotonic reads**.
 
-![monotonic-reads.png](_images/designing-data-intensive-applications/monotonic-reads.png)
+![monotonic-reads.png](_image/designing-data-intensive-applications/monotonic-reads.png)
 
 Monotonic reads is a guarantee that this kind of anomaly does not happen.
 
@@ -288,7 +288,7 @@ _Now, imagine a third person is listening to this conversation through followers
 
 - _To the observer it looks as though Mrs. Cake is answering the question before Mr. Poons has even asked it. Such psychic powers are impressive, but very confusing._
 
-![consistent-prefix-reads.png](_images/designing-data-intensive-applications/consistent-prefix-reads.png)
+![consistent-prefix-reads.png](_image/designing-data-intensive-applications/consistent-prefix-reads.png)
 
 Preventing this kind of anomaly requires another type of guarantee : **consistent prefix reads**.
 
@@ -453,7 +453,7 @@ _( 节点失效时写入数据库 )_
         - In addition, some datastores have a background process that constantly looks for differences in the data between replicas and copies any missing data from one replica to another.
         - _Unlike the replication log in leader-based replication, this anti-entropy process does not copy writes in any particular order, and there may be a significant delay before data is copied._
 
-![quorum-write-read-n-read-repair.png](_images/designing-data-intensive-applications/quorum-write-read-n-read-repair.png)
+![quorum-write-read-n-read-repair.png](_image/designing-data-intensive-applications/quorum-write-read-n-read-repair.png)
 
 **Quorums** for reading and writing _( 法定人数 / 法定票数 / 仲裁 )_
 
@@ -590,7 +590,7 @@ Dynamo-style databases allow several clients to **concurrently write to the same
 
 The problem is that **events may arrive in a different order at different nodes**, due to variable network delays and partial failures.
 
-![concurrent-writes-in-dynamo-style-datastore.png](_images/designing-data-intensive-applications/concurrent-writes-in-dynamo-style-datastore.png)
+![concurrent-writes-in-dynamo-style-datastore.png](_image/designing-data-intensive-applications/concurrent-writes-in-dynamo-style-datastore.png)
 
 _If each node simply overwrote the value for a key whenever it received a write request from a client, the nodes would become permanently inconsistent._
 
@@ -616,7 +616,7 @@ _If each node simply overwrote the value for a key whenever it received a write 
 - _( 比较复杂, 详情看原书, 而且有必要搞明白! )_
     - _( icehe : 如何巧妙地靠同时保存一个 key 的多个版本 value, 以及版本号来处理多设备同步 value 并解决冲突的问题! ( 不过只是对一个数据集追加元素的操作场景 ) )_
 
-![capturing-causal-dependencies-between-2-clients-concurrently-editing-a-shopping-cart.png](_images/designing-data-intensive-applications/capturing-causal-dependencies-between-2-clients-concurrently-editing-a-shopping-cart.png)
+![capturing-causal-dependencies-between-2-clients-concurrently-editing-a-shopping-cart.png](_image/designing-data-intensive-applications/capturing-causal-dependencies-between-2-clients-concurrently-editing-a-shopping-cart.png)
 
 **Merging concurrently written values**
 
@@ -801,7 +801,7 @@ _No matter which partitioning scheme is used, rebalancing is usually expected to
     - If a node is added to the cluster, the new node can steal a few partitions from every existing node until partitions are fairly distributed once again.
     - _If a node is removed from the cluster, the same happens in reverse._
 
-![fixed-number-of-partitions.png](_images/designing-data-intensive-applications/fixed-number-of-partitions.png)
+![fixed-number-of-partitions.png](_image/designing-data-intensive-applications/fixed-number-of-partitions.png)
 
 - _In this configuration,_ **the number of partitions is usually fixed when the database is first set up and not changed afterward**.
     - _Although in principle it's possible to split and merge partitions,_ a fixed number of partitions is operationally simpler, and **so many fixed-partition databases choose not to implement partition splitting**.
@@ -898,7 +898,7 @@ _On a high level, there are a few different approaches to this problem :_
 - 3\. Require that clients be aware of the partitioning and the assignment of partitions to nodes.
     - In this case, a client can connect directly to the appropriate node, without any intermediary.
 
-![routing-request-to-right-node.png](_images/designing-data-intensive-applications/routing-request-to-right-node.png)
+![routing-request-to-right-node.png](_image/designing-data-intensive-applications/routing-request-to-right-node.png)
 
 How does the component making the routing decision _( which may be one of the nodes, or the routing tier, or the client )_ learn about changes in the assignment of partitions to nodes?
 
@@ -907,7 +907,7 @@ How does the component making the routing decision _( which may be one of the no
     - Other actors, such as the routing tier or the partitioning-aware client, can subscribe to this information in ZooKeeper.
     - Whenever a partition changes ownership, or a node is added or removed, ZooKeeper notifies the routing tier so that it can keep its routing information up to date.
 
-![zookeeper-keep-track-of-assignment-of-partitions-to-nodes.png](_images/designing-data-intensive-applications/zookeeper-keep-track-of-assignment-of-partitions-to-nodes.png)
+![zookeeper-keep-track-of-assignment-of-partitions-to-nodes.png](_image/designing-data-intensive-applications/zookeeper-keep-track-of-assignment-of-partitions-to-nodes.png)
 
 _When using a routing tier or when sending requests to a random node,_ clients still need to find the IP addresses to connect to.
 
@@ -1021,7 +1021,7 @@ Systems that do not meet the ACID criteria are sometimes called **BASE**, which 
     - _Some popular databases, such as Oracle 11g, don't even implement it._
     - _In Oracle there is an isolation level called "serializable," but it actually implements something called **snapshot isolation**, which is a weaker guarantee than serializability._
 
-![race-condition-between-2-clients-concurrently-incrementing-counter.png](_images/designing-data-intensive-applications/race-condition-between-2-clients-concurrently-incrementing-counter.png)
+![race-condition-between-2-clients-concurrently-incrementing-counter.png](_image/designing-data-intensive-applications/race-condition-between-2-clients-concurrently-incrementing-counter.png)
 
 **Durability** _( 持久性 )_
 
@@ -1158,7 +1158,7 @@ The most basic level of transaction isolation is **read committed**. _It makes t
 
 _( 快照级别隔离与可重复读 )_
 
-![non-repeatable-read-example.png](_images/designing-data-intensive-applications/non-repeatable-read-example.png)
+![non-repeatable-read-example.png](_image/designing-data-intensive-applications/non-repeatable-read-example.png)
 
 - _Say Alice has $1,000 of savings at a bank, split across two accounts with $500 each._
     - _Now a transaction transfers $100 from one of her accounts to the other._
@@ -1190,7 +1190,7 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
 - _When a transaction is started, it is given a unique, always-increasing_ **transaction ID ( txid )** .
     - _Whenever a transaction writes anything to the database,_ **the data it writes is tagged with the transaction ID of the writer**.
 
-![snapshot-isolation-using-multi-objects.png](_images/designing-data-intensive-applications/snapshot-isolation-using-multi-objects.png)
+![snapshot-isolation-using-multi-objects.png](_image/designing-data-intensive-applications/snapshot-isolation-using-multi-objects.png)
 
 - Each row in a table has a **created_by** field, containing the ID of the transaction that inserted this row into the table.
 - Moreover, each row has a **deleted_by** field, which is initially empty.
@@ -1282,7 +1282,7 @@ _Snapshot isolation is a popular feature : it is supported by PostgreSQL, MySQL 
 
 - _( icehe : "写倾斜" 跟 "脏写" 和 "更新丢失" 相比, 是更为微妙的写冲突现象, 详见原书 )_
 
-![write-skew-example.png](_images/designing-data-intensive-applications/write-skew-example.png)
+![write-skew-example.png](_image/designing-data-intensive-applications/write-skew-example.png)
 
 - _Explain the example above :_
     - _In each transaction, your application first checks that two or more doctors are currently on call; if yes, it assumes it's safe for one doctor to go off call._
@@ -1897,7 +1897,7 @@ _( 如何达到线性化 )_
     - _This requirement ensures the **recency guarantee** ( 就近保证 ) we discussed earlier :_
         - **once a new value has been written or read, all subsequent reads see the value that was written, until it is overwritten again.**
 
-![linearizability-example.png](_images/designing-data-intensive-applications/linearizability-example.png)
+![linearizability-example.png](_image/designing-data-intensive-applications/linearizability-example.png)
 
 - _Visualizing the points in time at which the reads and writes appear to have taken effect._
     - _The final read by B is not linearizable._
@@ -2271,7 +2271,7 @@ _( 原子提交与两阶段提交 )_
     - _It is a classic algorithm in distributed databases._
     - _2PC is used internally in some databases and also_ made available to applications in the form of **XA transactions** _( which are supported by the Java Transaction API, for example )_ or via **WS-AtomicTransaction** for SOAP web services.
 
-![2pc-two-phase-commit.png](_images/designing-data-intensive-applications/2pc-two-phase-commit.png)
+![2pc-two-phase-commit.png](_image/designing-data-intensive-applications/2pc-two-phase-commit.png)
 
 - _Don't confuse 2PC and 2PL_
     - _Two-phase commit (2PC) and two-phase locking are two very different things._

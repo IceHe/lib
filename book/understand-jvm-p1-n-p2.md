@@ -172,7 +172,7 @@ _BEA Liquid VM / Azul VM_
     - 将不同语言的源码, 编译成中间格式 _( 例如 LLVM 字节码 )_
     - 通过解释器转换为能被 Graal VM 接受的中间表示 _( IR - Intermediate Representation )_
 
-![grall-vm-intro.png](_images/understand-jvm/grall-vm-intro.png)
+![grall-vm-intro.png](_image/understand-jvm/grall-vm-intro.png)
 
 #### 即时编译器
 
@@ -301,7 +301,7 @@ IDE Debug
 - Select `File` → `New CMake Project from Sources…` & click `Ok`
 - Edit Run/Debug Configuration as below
 
-![clion-debug-config.png](_images/understand-jvm/clion-debug-config.png)
+![clion-debug-config.png](_image/understand-jvm/clion-debug-config.png)
 
 ## 第2章 内存区域 & 内存溢出异常
 
@@ -309,7 +309,7 @@ IDE Debug
 
 JVM Runtime Data Area _( JVM 运行时数据区 )_
 
-![jvm-runtime-data-area.png](_images/understand-jvm/jvm-runtime-data-area.png)
+![jvm-runtime-data-area.png](_image/understand-jvm/jvm-runtime-data-area.png)
 
 #### 程序计数器
 
@@ -522,8 +522,8 @@ _3\. **Padding** ( 对齐填充 )_
         - 优点 : 速度更快, 节省一次指针定位的时间
     - HotSpot VM 主要使用 direct pointer 的方式访问对象 _(当然也有例外情况)_
 
-![object-handle-pool.png](_images/understand-jvm/object-handle-pool.png)
-![object-direct-pointer.png](_images/understand-jvm/object-direct-pointer.png)
+![object-handle-pool.png](_image/understand-jvm/object-handle-pool.png)
+![object-direct-pointer.png](_image/understand-jvm/object-direct-pointer.png)
 
 ### 实战 : OutOfMemeoryError
 
@@ -644,7 +644,7 @@ Exception in thread "main" java.lang.OutOfMemorYyEIIOL
     - 如果某个对象到 GC Roots 间没有任何引用相连
         - 或者用图论的话来说, 就是从 GC Roots 到这个对象不可达时, 则证明此对象是不可能再被使用的
 
-![reachability-analysis.png](_images/understand-jvm/reachability-analysis.png)
+![reachability-analysis.png](_image/understand-jvm/reachability-analysis.png)
 
 #### GC Roots
 
@@ -958,7 +958,7 @@ GC Roots 枚举
     - **Incremental Update 增量更新**
     - **Snapshot At The Beginning (SATB) 原始快照**
 
-![object-disappear.png](_images/understand-jvm/object-disappear.png)
+![object-disappear.png](_image/understand-jvm/object-disappear.png)
 
 #### 增量更新
 
@@ -967,7 +967,7 @@ Incremental Update _( 增量更新 )_
 - 当黑色对象插入新的指向白色对象的引用关系时, 就将这个新插入的引用记录下来
 - 等并发扫描结束之后, 再将这些记录过的引用关系中的黑色对象为根, 重新扫描一次
 
-![increamental-update.gif](_images/understand-jvm/increamental-update.gif)
+![increamental-update.gif](_image/understand-jvm/increamental-update.gif)
 
 #### 原始快照
 
@@ -976,7 +976,7 @@ Snapshot At The Beginning (SATB) _( 原始快照 )_
 - 当灰色对象要删除指向白色对象的引用时, 就将这个要删除的引用记录下来
 - 等并发扫描结束之后, 再将这些记录过的引用关系中的灰色对象为根, 重新扫描一次
 
-![snapshot-at-the-beginning.gif](_images/understand-jvm/snapshot-at-the-beginning.gif)
+![snapshot-at-the-beginning.gif](_image/understand-jvm/snapshot-at-the-beginning.gif)
 
 - 增量更新 <!-- ( Incremental Update ) --> 用的是 写后屏障 ( Post-Write Barrier ) , 记录了所有新增的引用关系
 - 原始快照 <!-- ( Snapshot At The Beginning ) --> 用的是 写前屏障 ( Pre-Write Barrier ) , 将所有即将被删除的引用关系的旧引用记录下来
@@ -1019,7 +1019,7 @@ _何谓 "经典"_
 
 _如果 ( 下图的 ) 两个收集器之间存在连线, 就说明它们可以搭配使用_
 
-![classical-gc.png](_images/understand-jvm/classical-gc.png)
+![classical-gc.png](_image/understand-jvm/classical-gc.png)
 
 #### Serial
 
@@ -1033,7 +1033,7 @@ Serial 收集器
 
 _Serial / Serial Old 收集器运行示意图_
 
-![serial-n-serial-old-collector-running.png](_images/understand-jvm/serial-n-serial-old-collector-running.png)
+![serial-n-serial-old-collector-running.png](_image/understand-jvm/serial-n-serial-old-collector-running.png)
 
 #### ParNew
 
@@ -1048,7 +1048,7 @@ ParNew 收集器
 
 _ParNew / Serial Old 收集器运行示意图_
 
-![par-new-n-serial-old-collector-running.png](_images/understand-jvm/par-new-n-serial-old-collector-running.png)
+![par-new-n-serial-old-collector-running.png](_image/understand-jvm/par-new-n-serial-old-collector-running.png)
 
 #### Parallel Scavenge
 
@@ -1088,7 +1088,7 @@ Serial Old 收集器
 
 _Serial / Serial Old 收集器运行示意图_
 
-![serial-n-serial-old-collector-running.png](_images/understand-jvm/serial-n-serial-old-collector-running.png)
+![serial-n-serial-old-collector-running.png](_image/understand-jvm/serial-n-serial-old-collector-running.png)
 
 #### Parallel Old
 
@@ -1100,7 +1100,7 @@ Parallel Old 收集器
 
 _Parallel Scavenge / Parallel Old 收集器运行示意图_
 
-![parallel-scavenge-n-parallel-old-collector-running.png](_images/understand-jvm/parallel-scavenge-n-parallel-old-collector-running.png)
+![parallel-scavenge-n-parallel-old-collector-running.png](_image/understand-jvm/parallel-scavenge-n-parallel-old-collector-running.png)
 
 #### Cocurrent Mark Sweep
 
@@ -1116,7 +1116,7 @@ CMS - Cocurrent Mark Sweep 收集器
 
 _CMS 收集器运行示意图_
 
-![concurrent-mark-sweep-collector-running.png](_images/understand-jvm/concurrent-mark-sweep-collector-running.png)
+![concurrent-mark-sweep-collector-running.png](_image/understand-jvm/concurrent-mark-sweep-collector-running.png)
 
 ##### 运作过程
 
@@ -1254,7 +1254,7 @@ _详见原书, 以下为部分摘录_
         - 再清理掉整个旧 Region 中的全部空间
     - _整个过程涉及存活对象的移动, 必须暂停用户线程, 由多条收集器线程并行完成_
 
-![garbage-first-collector-running.png](_images/understand-jvm/garbage-first-collector-running.png)
+![garbage-first-collector-running.png](_image/understand-jvm/garbage-first-collector-running.png)
 
 ##### 缺点
 
@@ -1297,7 +1297,7 @@ Trade-off : 指标取舍
 
 - _( icehe : G1 在 Finish Mark 之后那部分是标错了吗? )_
 
-![gc-collectors-concurrency.png](_images/understand-jvm/gc-collectors-concurrency.png)
+![gc-collectors-concurrency.png](_image/understand-jvm/gc-collectors-concurrency.png)
 
 ### Shenandoah 收集器
 
@@ -1336,7 +1336,7 @@ _History_
     - 降低了处理跨 Region 指针时, Remembered Set 的维护消耗, 也降低了为 "伪共享问题" 的发生概率
         - _( icehe : 看过原书的对应小节, 还是没找到 "伪共享问题" 是啥问题 )_
 
-![shenandoah-connection-matrix.png](_images/understand-jvm/shenandoah-connection-matrix.png)
+![shenandoah-connection-matrix.png](_image/understand-jvm/shenandoah-connection-matrix.png)
 
 #### 运作过程
 
@@ -1368,7 +1368,7 @@ _History_
 - 经过 Concurrent Evacuation 和 Update Reference 之后, 整个 CSet ( 回收集 ) 中所有 Region 再无存活对象
     - _回收这些 Region 的内存空间_
 
-![shenandoah-collector-running.png](_images/understand-jvm/shenandoah-collector-running.png)
+![shenandoah-collector-running.png](_image/understand-jvm/shenandoah-collector-running.png)
 
 #### Brooks Pointer
 
@@ -1384,9 +1384,9 @@ _History_
     - _一旦用户程序访问到归属于旧对象的内存空间就会产生 "自陷中断", 进入预设好的 "异常处理器" 中, 再由其中的代码逻辑把访问转发到复制后的新对象上_
     - _虽然确实能够实现对象移动与用户线程并发, 但是如果没有操作系统层面的直接支持, 这种方案将导致用户态频繁切换到核心态, 代价是非常大的, 不能频繁使用_
 
-![brooks-pointer-1.png](_images/understand-jvm/brooks-pointer-1.png)
+![brooks-pointer-1.png](_image/understand-jvm/brooks-pointer-1.png)
 
-![brooks-pointer-2.png](_images/understand-jvm/brooks-pointer-2.png)
+![brooks-pointer-2.png](_image/understand-jvm/brooks-pointer-2.png)
 
 ##### 并行读写
 
@@ -1403,7 +1403,7 @@ _如果事件 2 在事件 1 和 3 之间发生, 将导致用户线程对 object 
 - CAS - Comapre And Swap : 通过将内存中的值与指定值进行比较, 当数值一样时将内存中的值替换为新的值
     - _可用于在多线程编程中实现不被打断的数据交换操作, 从而避免多线程同时改写某一数据时由于执行顺序不确定性以及中断的不可预知性产生的数据不一致问题_
 
-![brooks-pointer-3.png](_images/understand-jvm/brooks-pointer-3.png)
+![brooks-pointer-3.png](_image/understand-jvm/brooks-pointer-3.png)
 
 ##### 执行效率
 
@@ -1465,7 +1465,7 @@ ZGC 的 Region 内存布局
                 - 在 ZGC 的实现中不会被 reallocate _( 重分配 )_
 - _ZGC 的 Region 被官方称为 Page 或 ZPage_
 
-![zgc-memory-layout.png](_images/understand-jvm/zgc-memory-layout.png)
+![zgc-memory-layout.png](_image/understand-jvm/zgc-memory-layout.png)
 
 #### 染色指针
 
@@ -1535,7 +1535,7 @@ _Colored Pointer 是一种直接将少量额外的信息存储在 Pointer 上的
         - 45 位 : 是否进入重分配集 ( 即被移动过 )
         - 44~43 位 : 三色标记信息
 
-![colored-pointer.png](_images/understand-jvm/colored-pointer.png)
+![colored-pointer.png](_image/understand-jvm/colored-pointer.png)
 
 ##### 优势
 
@@ -1578,7 +1578,7 @@ ZGC 的 Colored Pointer 在 Linux / x86-64 平台下的底层实现
     - 把 Colored Pointer 中的标志位看作是 Address 的分段符, 那只要将这些不同的地址段都映射到同一个 Physical Memory Space
     - _经过 Multi-Mapping 转换后, 就可以使用 Colored Pointer 正常进行 addressing 了,_ _效果见下图_
 
-![multi-mapping.png](_images/understand-jvm/multi-mapping.png)
+![multi-mapping.png](_image/understand-jvm/multi-mapping.png)
 
 #### 运作过程
 
@@ -1631,7 +1631,7 @@ ZGC 运作过程
         - 反正它们都是要遍历所有 Object 的, 这样合并就节省了一次遍历 Object Graph 的开销
         - **一旦所有 Pointer 都被修正之后, 原来记录新旧 Object 关系的 Forward Table 就可以释放掉了**
 
-![zgc-running.png](_images/understand-jvm/zgc-running.png)
+![zgc-running.png](_image/understand-jvm/zgc-running.png)
 
 #### 缺点
 
@@ -1679,9 +1679,9 @@ _从官方给出的测试结果来看, 用 "令人震惊的、革命性的 ZGC" 
     - 不论是平均停顿, 还是 95% Pause 、99% Pause 、 99.9% Pause , 抑或是 Max Pause Time , ZGC 均能毫不费劲地控制在 10 ms 之内
         - _以至于把它和另外两款停顿数百近千毫秒的收集器放到一起对比, 就几乎显示不了 ZGC 的柱状条, 必须把结果的纵坐标从线性尺度调整成对数尺度 ( 纵坐标轴的尺度是对数增长的 ) 才能观察到 ZGC 的测试结果_
 
-![zgc-throughput-test.png](_images/understand-jvm/zgc-throughput-test.png)
+![zgc-throughput-test.png](_image/understand-jvm/zgc-throughput-test.png)
 
-![zgc-pause-time-test.png](_images/understand-jvm/zgc-pause-time-test.png)
+![zgc-pause-time-test.png](_image/understand-jvm/zgc-pause-time-test.png)
 
 ### 选择 GC 收集器
 
@@ -2351,11 +2351,11 @@ finished at 2020-08-23T15:21:38.570885
 duration = 52134 ms
 ```
 
-![jconsole-monitoring-overview.png](_images/understand-jvm/jconsole-monitoring-overview.png)
+![jconsole-monitoring-overview.png](_image/understand-jvm/jconsole-monitoring-overview.png)
 
-![jconsole-monitoring-memory-eden-space.png](_images/understand-jvm/jconsole-monitoring-memory-eden-space.png)
+![jconsole-monitoring-memory-eden-space.png](_image/understand-jvm/jconsole-monitoring-memory-eden-space.png)
 
-![jconsole-monitoring-memory-tenured-gen.png](_images/understand-jvm/jconsole-monitoring-memory-tenured-gen.png)
+![jconsole-monitoring-memory-tenured-gen.png](_image/understand-jvm/jconsole-monitoring-memory-tenured-gen.png)
 
 Analysis
 
@@ -2391,7 +2391,7 @@ Analysis
     - 但 `readBytes()` 方法检查到流没有更新就会立刻归还执行令牌给操作系统
     - 这种等待只消耗很小的处理器资源
 
-![jconsole-monitoring-thread-wait-before-input-1st.png](_images/understand-jvm/jconsole-monitoring-thread-wait-before-input-1st.png)
+![jconsole-monitoring-thread-wait-before-input-1st.png](_image/understand-jvm/jconsole-monitoring-thread-wait-before-input-1st.png)
 
 - Before input 2nd
     - 接着监控 testBusyThread 线程 ( 如下图所示 )
@@ -2401,14 +2401,14 @@ Analysis
     - 所以会在空循环耗尽操作系统分配给它的执行时间, 直到线程切换为止
     - 这种等待会消耗大量的处理器资源
 
-![jconsole-monitoring-thread-wait-before-input-2nd.png](_images/understand-jvm/jconsole-monitoring-thread-wait-before-input-2nd.png)
+![jconsole-monitoring-thread-wait-before-input-2nd.png](_image/understand-jvm/jconsole-monitoring-thread-wait-before-input-2nd.png)
 
 - After input 2nd
     - 下图的 testLockThread 线程正处于正常的 **活锁等待** 中
         - 即等待 lock 对象的 `notify()` 或 `notifyAll()` 方法的出现
     - 线程这时候处于 WAITING 状态, 在重新唤醒前不会被分配执行时间, 这个线程便能激活继续执行
 
-![jconsole-monitoring-thread-wait-after-input-2nd.png](_images/understand-jvm/jconsole-monitoring-thread-wait-after-input-2nd.png)
+![jconsole-monitoring-thread-wait-after-input-2nd.png](_image/understand-jvm/jconsole-monitoring-thread-wait-after-input-2nd.png)
 
 ###### 线程死锁
 
@@ -2446,11 +2446,11 @@ Analysis
     - 线程 B 又在等待被线程 A 持有的 `Integer.valueOf(2)`
     - 结果大家都跑不下去的情况
 
-![jconsole-monitoring-dead-lock-threads.png](_images/understand-jvm/jconsole-monitoring-dead-lock-threads.png)
+![jconsole-monitoring-dead-lock-threads.png](_image/understand-jvm/jconsole-monitoring-dead-lock-threads.png)
 
 - 出现线程死锁之后, 点击 JConsole "Threads" 面板的 "Detect DeadLock" 按钮, 将出现一个新的 "Deadlock" Tab
 
-![jconsole-monitoring-dead-lock-detect-deadlock.png](_images/understand-jvm/jconsole-monitoring-dead-lock-detect-deadlock.png)
+![jconsole-monitoring-dead-lock-detect-deadlock.png](_image/understand-jvm/jconsole-monitoring-dead-lock-detect-deadlock.png)
 
 ### VisualVM : 多合-故障处理工具
 
@@ -2490,37 +2490,37 @@ $ jvisualvm
 
 - 主页 & 插件页
 
-![jvisualvm-startup-n-plugins.png](_images/understand-jvm/jvisualvm-startup-n-plugins.png)
+![jvisualvm-startup-n-plugins.png](_image/understand-jvm/jvisualvm-startup-n-plugins.png)
 
 **双击 `VisualVM` 后**
 
 - Overview
 
-![jvisualvm-overview.png](_images/understand-jvm/jvisualvm-overview.png)
+![jvisualvm-overview.png](_image/understand-jvm/jvisualvm-overview.png)
 
 - Monitor
 
-![jvisualvm-monitor.png](_images/understand-jvm/jvisualvm-monitor.png)
+![jvisualvm-monitor.png](_image/understand-jvm/jvisualvm-monitor.png)
 
 - Threads
 
-![jvisualvm-threads.png](_images/understand-jvm/jvisualvm-threads.png)
+![jvisualvm-threads.png](_image/understand-jvm/jvisualvm-threads.png)
 
 - Sampler - CPU
 
-![jvisualvm-sampler-cpu.png](_images/understand-jvm/jvisualvm-sampler-cpu.png)
+![jvisualvm-sampler-cpu.png](_image/understand-jvm/jvisualvm-sampler-cpu.png)
 
 - Sampler - Memory
 
-![jvisualvm-sampler-memory.png](_images/understand-jvm/jvisualvm-sampler-memory.png)
+![jvisualvm-sampler-memory.png](_image/understand-jvm/jvisualvm-sampler-memory.png)
 
 - Visual GC
 
-![jvisualvm-visual-gc.png](_images/understand-jvm/jvisualvm-visual-gc.png)
+![jvisualvm-visual-gc.png](_image/understand-jvm/jvisualvm-visual-gc.png)
 
 - Tracer
 
-![jvisualvm-tracer.png](_images/understand-jvm/jvisualvm-tracer.png)
+![jvisualvm-tracer.png](_image/understand-jvm/jvisualvm-tracer.png)
 
 #### 生成 & 浏览堆转储快照
 
@@ -2563,7 +2563,7 @@ e
 1000
 ```
 
-![jvisualvm-tracing-application.png](_images/understand-jvm/jvisualvm-tracing-application.png)
+![jvisualvm-tracing-application.png](_image/understand-jvm/jvisualvm-tracing-application.png)
 
 ### Java Mission Control : 可持续在线的监控工具
 
@@ -2599,12 +2599,12 @@ JMC 7 的 GUI
 
 - MBean Server
 
-![jmc-mbean-server.png](_images/understand-jvm/jmc-mbean-server.png)
+![jmc-mbean-server.png](_image/understand-jvm/jmc-mbean-server.png)
 
 - 在左侧的 "JVM Browser" Panel 中自动显示了通过 **JDP 协议 ( Java Discovery Protocol )** 找到的本机正在运行的 HotSpot VM 进程
 - 如果需要监控其它服务器上的 JVM, 可在 "File → Connect…" 菜单中创建远程连接
 
-![jmc-connect-remote-jvm.png](_images/understand-jvm/jmc-connect-remote-jvm.png)
+![jmc-connect-remote-jvm.png](_image/understand-jvm/jmc-connect-remote-jvm.png)
 
 要填写的信息应该在被监控 JVM 进程启动的时候以 VM 参数的形式指定, _以下是一份被监控端的启动参数样例 :_
 
@@ -2616,7 +2616,7 @@ JMC 7 的 GUI
 -XX:+UnlockCommercialFeatures -XX:+FlightRecorder
 ```
 
-![jmc-start-flight-recording.png](_images/understand-jvm/jmc-start-flight-recording.png)
+![jmc-start-flight-recording.png](_image/understand-jvm/jmc-start-flight-recording.png)
 
 - 此处略, 详见原书
 
@@ -2906,7 +2906,7 @@ Dignosis 诊断
     - 数据包接收和发送时要经过每层协议栈的 `up()` 和 `down()` 方法
     - 其中的 NAKACK 栈用于保障各个包的有效顺序以及重发
 
-![jboss-cache-protocol-stack.png](_images/understand-jvm/jboss-cache-protocol-stack.png)
+![jboss-cache-protocol-stack.png](_image/understand-jvm/jboss-cache-protocol-stack.png)
 
 - 由于信息有传输失败需要重发的可能性, 在确认所有注册在 GMS ( Group Membership Service ) 的节点都收到正确的信息前, 发送的信息必须在内存中保留
     - 而此 MIS 的服务端中有一个负责安全校验的全局过滤器, 每当接收到请求时, 均会更新一次最后操作时间, 并且将这个时间同步到所有的节点中去, 使得一个用户在一段时间内不能在多台机器上重复登录

@@ -27,7 +27,7 @@ Server 层包括
 - 以及所有的 **内置函数** ( 如日期、时间、数学和加密函数等 )
 - 比如 **存储过程、触发器、视图** 等
 
-![logic-architecture.png](_images/logic-architecture.png)
+![logic-architecture.png](_image/logic-architecture.png)
 
 ### 存储引擎
 
@@ -230,7 +230,7 @@ _如果今天赊账的不多, 掌柜可以等打烊后再整理. 但如果某天
 - 与此类似, **InnoDB 的 redo log 是固定大小的, 比如可以配置为一组 4 个文件, 每个文件的大小是 1GB, 那么这块 "粉板" 总共就可以记录 4GB 的操作.**
     - 从头开始写, 写到末尾就又回到开头循环写, _如下面这个图所示._
 
-![redo-log-writing](_images/redo-log-writing.png)
+![redo-log-writing](_image/redo-log-writing.png)
 
 - **write pos** 是当前记录的位置, 一边写一边后移, 写到第 3 号文件末尾后就回到 0 号文件开头.
 - **checkpoint** 是当前要擦除的位置, 也是往后推移并且循环的, 擦除记录前要把记录更新到数据文件.
@@ -281,7 +281,7 @@ _给出这个 update 语句的执行流程图,_
 - 图中浅色框表示是在 InnoDB 内部执行的
 - 深色框表示是在执行器中执行的
 
-![update-flow-diagram.png](_images/update-flow-diagram.png)
+![update-flow-diagram.png](_image/update-flow-diagram.png)
 
 其中第 3 到 5 步将 redo log 的写入拆成了两个步骤 : **prepare 和 commit —— "两阶段提交"**.
 
@@ -362,7 +362,7 @@ redo log 用于保证 crash-safe 能力
 
 #### 隔离级别对事务的影响示例
 
-![transaction-read-n-write-4-read-committed.png](_images/transaction-read-n-write-4-read-committed.png)
+![transaction-read-n-write-4-read-committed.png](_image/transaction-read-n-write-4-read-committed.png)
 
 假设数据表 T 中只有一列, 其中一行的值为 1, 上面是按照时间顺序执行两个事务的行为.
 
@@ -427,7 +427,7 @@ mysql> show variables like "transaction_isolation";
 
 假设一个值从 1 被按顺序改成了 2、3、4, 在 **回滚日志** 里面就会有类似下面的记录 _( icehe : 就像是用 Git 进行版本控制 )_
 
-![rollback-log-example.png](_images/rollback-log-example.pnG)
+![rollback-log-example.png](_image/rollback-log-example.pnG)
 
 - 当前值是 4, 但是在查询这条记录的时候, 不同时刻启动的事务会有不同的 read-view.
 - 如图中看到的, 在视图 A、B、C 里面, 这一个记录的值分别是 1、2、4,
@@ -549,7 +549,7 @@ _索引的出现其实就是为了提高数据查询的效率, 就像书的目�
     - 只有等值查询的场景
     - _例如, Memcached 及其它一些 NoSQL 引擎._
 
-![hash-table-example.png](_images/hash-table-example.png)
+![hash-table-example.png](_image/hash-table-example.png)
 
 #### 有序数组
 
@@ -562,7 +562,7 @@ _索引的出现其实就是为了提高数据查询的效率, 就像书的目�
     - 静态存储引擎
     - _例如, 某年某城市的归档 (不再修改) 的人口信息_
 
-![sorted-array-example.png](_images/sorted-array-example.png)
+![sorted-array-example.png](_image/sorted-array-example.png)
 
 #### 搜索树
 
@@ -578,7 +578,7 @@ _索引的出现其实就是为了提高数据查询的效率, 就像书的目�
     - 静态存储引擎
     - _例如, 某年某城市的归档 (不再修改) 的人口信息_
 
-![binary-search-tree.png](_images/binary-search-tree-example.png)
+![binary-search-tree.png](_image/binary-search-tree-example.png)
 
 - 树可以有二叉, 也可以有多叉.
     - 多叉树就是每个节点有多个儿子, 儿子之间的大小保证从左到右递增.
@@ -622,7 +622,7 @@ create table T (
 
 表中 R1~R5 的 (ID, k) 值分别为 (100, 1), (200, 2), (300, 3), (500, 5) 和 (600, 6), 两棵树的示例示意图如下 :
 
-![innodb-btree-records-example.png](_images/innodb-btree-records-example.png)
+![innodb-btree-records-example.png](_image/innodb-btree-records-example.png)
 
 根据叶子节点的内容, 索引类型分为 :
 
@@ -707,7 +707,7 @@ insert into T values
     (700, 7, 'gg');
 ```
 
-![innodb-btree-records-example.png](_images/innodb-btree-records-example.png)
+![innodb-btree-records-example.png](_image/innodb-btree-records-example.png)
 
 现在, 我们一起来看看这条 SQL 查询语句的执行流程 :
 

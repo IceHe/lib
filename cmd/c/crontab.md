@@ -202,4 +202,4 @@ crontab -e
 - Solution : Grant cron Full Disk Access in MacOS
 - _Reference : How to Fix Cron Permission Issues in MacOS Catalina & Mojave_ : https://osxdaily.com/2020/04/27/fix-cron-permissions-macos-full-disk-access
 
-![allow-cron-full-disk-access-mac.jpg](_images/allow-cron-full-disk-access-mac.jpg)
+![allow-cron-full-disk-access-mac.jpg](_image/allow-cron-full-disk-access-mac.jpg)

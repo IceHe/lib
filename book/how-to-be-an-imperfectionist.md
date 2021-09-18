@@ -615,7 +615,7 @@ _(Kindle Locations 615-623)_
 
 ## 第4章 不完美主义带来的自由
 
-![running-in-the-rain.png](_images/how-to-be-an-imperfectionist/running-in-the-rain.png)
+![running-in-the-rain.png](_image/how-to-be-an-imperfectionist/running-in-the-rain.png)
 
 你只要在前进，不论多慢，都会把那些瘫在沙发上的家伙远远甩在身后。—— 佚名
 
