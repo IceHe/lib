@@ -4,6 +4,9 @@
 
 ## Keyword?
 
+- customer
+    - Workforce Identity
+    - Customer Identity?
 - 友商
     - auth0
     - authing
@@ -13,9 +16,7 @@
     - access token
     - refresh token
     - id token
-- Customer
-    - Workforce Identity
-    - Customer Identity?
+- [vercel](https://vercel.com)
 
 ## Terminology
 
