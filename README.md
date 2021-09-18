@@ -608,14 +608,14 @@ Timeline
 
 -->
 
-### Principles
+### Principle
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
-- [How to Ask](/snips/principles/how-to-ask.md) : Prepare before asking
+- [How to Ask](/snips/principle/how-to-ask.md) : Prepare before asking
     - JFGI : Just Fucking Google It
     - RTFM : Read The Fucking Manual
-- [How to Work](/snips/principles/how-to-work.md) :
+- [How to Work](/snips/principle/how-to-work.md) :
     - Working Standards :
         - 请示工作说方案
         - 布置工作说标准
@@ -631,15 +631,15 @@ Timeline
         1. 能发现问题，又能从根源上解决问题者，重赏！
         1. 能预见问题，能防范问题者，重用！
         1. 不能发现问题，不能解决问题，还处处抱怨者，PK。
-- [GTD Flow](/snips/principles/gtd.md) : Get Thing Done
-- [PDCA Cycle](/snips/principles/pdca.md) : Plan → Do → Check → Act or Adjust
-- [SMART principle](/snips/principles/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR principle](/snips/principles/star.md) : Situation → Target → Action → Result
+- [GTD Flow](/snips/principle/gtd.md) : Get Thing Done
+- [PDCA Cycle](/snips/principle/pdca.md) : Plan → Do → Check → Act or Adjust
+- [SMART principle](/snips/principle/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR principle](/snips/principle/star.md) : Situation → Target → Action → Result
 - [Deployment Checklist](/snips/tmp/deployment-checklist.md) : Avoid low-level mistakes
-- [How to Leave](/snips/principles/how-to-leave.md) :《解除劳动合同告知书》
+- [How to Leave](/snips/principle/how-to-leave.md) :《解除劳动合同告知书》
 
-<!-- - [SWOT Analysis](/snips/principles/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
-<!-- - [What Why How](/snips/principles/what-why-how.md) -->
+<!-- - [SWOT Analysis](/snips/principle/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
+<!-- - [What Why How](/snips/principle/what-why-how.md) -->
 <!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
 ### Digests
