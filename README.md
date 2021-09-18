@@ -147,7 +147,7 @@ Markdown
 
 OIDC : OpenID Connect
 
-- DOING
+- [Notes](/snip/oidc/notes.md)
 
 Storage
 
