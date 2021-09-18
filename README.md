@@ -160,11 +160,6 @@ Markdown
 - [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
 - [MDL - Markdown Lint Tool](/snips/markdown/lint/lint.md)
 
-Docker
-
-- [Commands](/snips/docker/docker-commands.md)
-- [Alpine Linux](/snips/docker/alpine/alpine.md) : minimal OS image
-
 Coding
 
 - [Abbreviations](/snips/abbrs.md)
@@ -192,6 +187,7 @@ Langs
 
 Others
 
+- [Alpine Linux](/snips/docker/alpine/alpine.md) : minimal OS Docker image
 - _[CentOS 6](/snips/os/centos6.md)_
 - _[Memcached](/snips/tmp/memcached.md)_
 - _[Mongo](/snips/tmp/mongo.md)_
@@ -226,7 +222,7 @@ Infrastructre _( to read )_
 
 -->
 
-### MQs
+### MQ
 
 Message Queues
 
@@ -257,7 +253,7 @@ macOS
 - [Concepts & Theory](/git/concepts-n-theory.md)
 - [Docs Digest](/git/docs-digest.md)
 
-### CMDs
+### CMD
 
 Commands
 
@@ -288,6 +284,7 @@ Commands
 - [diff](/cmd/d/diff.md) : compare files line by line
     - better choice : `comm`
 - [dig](/cmd/d/dig.md) : DNS lookup utility
+- [docker](/cmd/d/docker.md) : base command for the Docker CLI
 - [dstat](/cmd/d/dstat.md) : versatile tool for generating system resource statistics
     - [iftop](/cmd/i/iftop.md) : display bandwidth usage on an interface by host
     - [iostat](/cmd/i/iostat.md) : statistics of CPU & IO for devices & partitions
