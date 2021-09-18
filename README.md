@@ -16,7 +16,7 @@
 
 Technology
 
-### Books
+### Book
 
 > 短期太急躁, 總想走捷徑快速見效;<br/>
 > 長期沒耐心, 小覷長期堅持的成長.
@@ -226,13 +226,13 @@ Infrastructre _( to read )_
 
 Message Queues
 
-- [kafka](/mqs/kafka.md) _- [digest](/mqs/kafka-digest.md)_
-- [RabbitMQ](/mqs/rabbit-mq.md)
-- [RocketMQ](/mqs/rocket-mq.md) _- to read_
-- [ActiveMQ](/mqs/active-mq.md)
-- [ZeroMQ](/mqs/zero-mq.md) _- to read_
-- _[MemcacheQ](/mqs/mcq.md)_
-- _[Notes](/mqs/notes.md)_
+- [kafka](/mq/kafka.md) _- [digest](/mq/kafka-digest.md)_
+- [RabbitMQ](/mq/rabbit-mq.md)
+- [RocketMQ](/mq/rocket-mq.md) _- to read_
+- [ActiveMQ](/mq/active-mq.md)
+- [ZeroMQ](/mq/zero-mq.md) _- to read_
+- _[MemcacheQ](/mq/mcq.md)_
+- _[Notes](/mq/notes.md)_
 
 ### Mac
 
