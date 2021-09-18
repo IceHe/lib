@@ -238,7 +238,9 @@ Message Queue
 - _[MemcacheQ](/mq/mcq.md)_
 - _[Notes](/mq/notes.md)_
 
-### macOS
+### Mac
+
+macOS
 
 - [Initialize](/mac/initialize.md) : 系统初始化
 - [Efficiency](/mac/efficiency.md) : 效率指南
