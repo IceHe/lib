@@ -247,9 +247,9 @@ _Daily Schedule_
 
 _Daily Flow_
 
-- [GTD 流程](/snips/principle/gtd.md)
-- [PDCA 循环](/snips/principle/pdca.md)
-- [SMART 法则](/snips/principle/smart.md)
+- [GTD 流程](/snip/principle/gtd.md)
+- [PDCA 循环](/snip/principle/pdca.md)
+- [SMART 法则](/snip/principle/smart.md)
 
 工作日
 

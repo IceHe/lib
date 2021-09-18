@@ -130,17 +130,17 @@ Others
 
 Storage
 
-- LSM Tree : [Intro](/snips/lsm-tree/lsm-tree.md)
+- LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md)
     - basic data structure of LevelDB & RocksDB
-- Elasticsearch : [Usage](/snips/elasticsearch.md)
+- Elasticsearch : [Usage](/snip/elasticsearch.md)
     - for search and analysis
 - MySQL : [Usage](/cmd/m/mysql.md)
     - robust SQL database server
-- Redis: [Basics](/snips/redis/basics.md)  / [Notes](/snips/redis/notes.md) / [Key Notes](/snips/redis/key-notes.md)
+- Redis: [Basics](/snip/redis/basics.md)  / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
     - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
     <!-- usage : https://redis.io/commands -->
-- [Cache Patterns](/snips/cache-patterns.md)
+- [Cache Patterns](/snip/cache-patterns.md)
     - cache aside / read through / write through / write behind caching
 
 <!--
@@ -157,42 +157,42 @@ Storage
 
 Markdown
 
-- [Markdown Style Guide](/snips/markdown/markdown-style-guide.md)
-- [MDL - Markdown Lint Tool](/snips/markdown/lint/lint.md)
+- [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
+- [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
 
 Coding
 
-- [Abbreviations](/snips/abbrs.md)
-- [Glossaries](/snips/glossaries.md) with intros to the common technology products
-- [Regular Expression](/snips/regex.md)
+- [Abbreviations](/snip/abbrs.md)
+- [Glossaries](/snip/glossaries.md) with intros to the common technology products
+- [Regular Expression](/snip/regex.md)
 
 Web
 
-- [IP Address](/snips/network/ip.md)
-- [Network Notes](/snips/network/notes.md)
-- [URL Encoding](/snips/web/url-encoding.md)
+- [IP Address](/snip/network/ip.md)
+- [Network Notes](/snip/network/notes.md)
+- [URL Encoding](/snip/web/url-encoding.md)
 - Simple HTTP service :
-    - [init.d](/snips/init.d/init.d.md) with `php -S`
-    - [Nginx](/snips/nginx/nginx.md) via the configuration file
+    - [init.d](/snip/init.d/init.d.md) with `php -S`
+    - [Nginx](/snip/nginx/nginx.md) via the configuration file
 - How to build the personal website?
     - Powered by [docsify](/_docsify/how-to-docsify.md)
 - How to estimate the required computing resources?
-    - [QPS to CPU Cores](/snips/web/qps-to-cpu-cores.md)
+    - [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
 
 Langs
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
-- [Elixir](/snips/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
-- [Scala](/snips/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
+- [Elixir](/snip/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
+- [Scala](/snip/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
 
 Others
 
-- [Alpine Linux](/snips/docker/alpine/alpine.md) : minimal OS Docker image
-- _[CentOS 6](/snips/os/centos6.md)_
-- _[Memcached](/snips/tmp/memcached.md)_
-- _[Mongo](/snips/tmp/mongo.md)_
-- _[Work Flow](/snips/tmp/work-flow.md)_
-- _[ID Generator](/snips/tmp/id-generator.md)_
+- [Alpine Linux](/snip/docker/alpine/alpine.md) : minimal OS Docker image
+- _[CentOS 6](/snip/os/centos6.md)_
+- _[Memcached](/snip/tmp/memcached.md)_
+- _[Mongo](/snip/tmp/mongo.md)_
+- _[Work Flow](/snip/tmp/work-flow.md)_
+- _[ID Generator](/snip/tmp/id-generator.md)_
 - _[Sorting Algorithms](/sort/notes.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [GitHub](https://github.com/xuxueli/xxl-job)_
 
@@ -200,9 +200,9 @@ Others
 
 Infrastructre _( to read )_
 
-- [Service Mesh](/snips/infrastructure/service-mesh.md)
-- [Envoy](/snips/infrastructure/envoy.md)
-- [Istio](/snips/infrastructure/service-mesh/istio.md)
+- [Service Mesh](/snip/infrastructure/service-mesh.md)
+- [Envoy](/snip/infrastructure/envoy.md)
+- [Istio](/snip/infrastructure/service-mesh/istio.md)
 - Thrift
 - Nginx
 - OpenResty
@@ -612,10 +612,10 @@ Timeline
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
-- [How to Ask](/snips/principle/how-to-ask.md) : Prepare before asking
+- [How to Ask](/snip/principle/how-to-ask.md) : Prepare before asking
     - JFGI : Just Fucking Google It
     - RTFM : Read The Fucking Manual
-- [How to Work](/snips/principle/how-to-work.md) :
+- [How to Work](/snip/principle/how-to-work.md) :
     - Working Standards :
         - 请示工作说方案
         - 布置工作说标准
@@ -631,18 +631,18 @@ Timeline
         1. 能发现问题，又能从根源上解决问题者，重赏！
         1. 能预见问题，能防范问题者，重用！
         1. 不能发现问题，不能解决问题，还处处抱怨者，PK。
-- [GTD Flow](/snips/principle/gtd.md) : Get Thing Done
-- [PDCA Cycle](/snips/principle/pdca.md) : Plan → Do → Check → Act or Adjust
-- [SMART principle](/snips/principle/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR principle](/snips/principle/star.md) : Situation → Target → Action → Result
-- [Deployment Checklist](/snips/tmp/deployment-checklist.md) : Avoid low-level mistakes
-- [How to Leave](/snips/principle/how-to-leave.md) :《解除劳动合同告知书》
+- [GTD Flow](/snip/principle/gtd.md) : Get Thing Done
+- [PDCA Cycle](/snip/principle/pdca.md) : Plan → Do → Check → Act or Adjust
+- [SMART principle](/snip/principle/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR principle](/snip/principle/star.md) : Situation → Target → Action → Result
+- [Deployment Checklist](/snip/tmp/deployment-checklist.md) : Avoid low-level mistakes
+- [How to Leave](/snip/principle/how-to-leave.md) :《解除劳动合同告知书》
 
-<!-- - [SWOT Analysis](/snips/principle/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
-<!-- - [What Why How](/snips/principle/what-why-how.md) -->
+<!-- - [SWOT Analysis](/snip/principle/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
+<!-- - [What Why How](/snip/principle/what-why-how.md) -->
 <!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
-### Digests
+### Digest
 
 > 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
 

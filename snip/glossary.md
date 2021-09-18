@@ -317,13 +317,13 @@ References
 
 References
 
-- [MaxCompute](/snips/cloud/max-compute.md)
+- [MaxCompute](/snip/cloud/max-compute.md)
 
 #### Hive
 
 References
 
-- [Hive](/snips/cloud/max-compute.md#Hive) ( mine ) : data process
+- [Hive](/snip/cloud/max-compute.md#Hive) ( mine ) : data process
 
 ## MQ
 
