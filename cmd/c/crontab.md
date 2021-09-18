@@ -115,7 +115,7 @@ g 2>&1
 #run sce_sync
 */10 * * * * root /bin/sleep $(($RANDOM\%120+10)) && /bin/sh /var/sce/sce_agent/jobs/sce_sync.sh >> /var/log/sce/sc
 e_agent.log 2>&1
-30 */1 * * * root /var/cfengine/inputs/files/scripts/cfengine_health_check.sh
+30 */1 * * * root /var/cfengine/inputs/files/script/cfengine_health_check.sh
 ```
 
 ### Timing

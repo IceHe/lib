@@ -117,7 +117,7 @@ php path/to/download-n-rewrite-resources.php --download --rewrite
 
 Reference
 
-- [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/scripts/php/download-n-rewrite-resources.php)
+- [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/script/php/download-n-rewrite-resources.php)
 
 ## Deploy
 

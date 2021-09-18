@@ -515,23 +515,23 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 
 Shell
 
-- [Notes](/scripts/shell/notes.md) : a bash script example
-- [Terminal Colors](/scripts/shell/terminal-colors.md)
+- [Notes](/script/shell/notes.md) : a bash script example
+- [Terminal Colors](/script/shell/terminal-colors.md)
 
 _Batch 批处理_
 
-- _[Batch 批处理指令](/scripts/batch/commands.md)_
-- _[Batch 批处理中的特殊符号](/scripts/batch/dos-special-symbol.md)_
-- _[DOS Common Commands](/scripts/batch/dos-common-commands.md)_
-- _[DOS Environment Variables](/scripts/batch/dos-environment-variable.md)_
+- _[Batch 批处理指令](/script/batch/commands.md)_
+- _[Batch 批处理中的特殊符号](/script/batch/dos-special-symbol.md)_
+- _[DOS Common Commands](/script/batch/dos-common-commands.md)_
+- _[DOS Environment Variables](/script/batch/dos-environment-variable.md)_
 
 _Others_
 
 - _AppleScript_
-    - _[Quick Start](/scripts/applescript/quick-start.md)_
-    - _[Control Evernote & macOS](/scripts/applescript/evernote-macos.md)_
-- _PHP: [functions & scripts](/scripts/php/php.md)_
-- _Python 3 : [quick start](/scripts/python/quick-start.md)_
+    - _[Quick Start](/script/applescript/quick-start.md)_
+    - _[Control Evernote & macOS](/script/applescript/evernote-macos.md)_
+- _PHP: [functions & scripts](/script/php/php.md)_
+- _Python 3 : [quick start](/script/python/quick-start.md)_
 
 ## Life
 
