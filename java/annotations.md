@@ -117,7 +117,7 @@ public class MqTest {
 
 ### @JsonSerialize and @JsonDeserialize
 
-- [java/code-snippets/notes.md#serialize-and-deserialize](java/code-snippets/notes.md#serialize-and-deserialize)
+- [java/code-snippet/notes.md#serialize-and-deserialize](java/code-snippet/notes.md#serialize-and-deserialize)
 
 ### @JsonInclude(Include.NON_NULL)
 

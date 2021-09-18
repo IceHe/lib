@@ -122,7 +122,7 @@ Others
 <!--     - _[Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - to read_ -->
 <!--     - _[The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - to read_ -->
 
-### Snips
+### Snip
 
 > 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。
 
@@ -224,7 +224,7 @@ Infrastructre _( to read )_
 
 ### MQ
 
-Message Queues
+Message Queue
 
 - [kafka](/mq/kafka.md) _- [digest](/mq/kafka-digest.md)_
 - [RabbitMQ](/mq/rabbit-mq.md)
@@ -255,7 +255,7 @@ macOS
 
 ### CMD
 
-Commands
+Command
 
 - [ab](/cmd/a/ab.md) : Apache HTTP server benchmarking tool
 - [ag](/cmd/a/ag.md) : The Silver Searcher. Like `ack`, but faster.
@@ -386,7 +386,7 @@ Commands
 - [Linux Abbreviations](/cmd/linux-abbrs.md)
 - _[CLI Notes](/cmd/notes.md) - to read_
 
-Scenes
+Scene
 
 - **connect** : curl, nc, ssh, telnet
 - **directory** : cp, find, ln, ls, mv
@@ -435,33 +435,33 @@ Basics
 - [Exceptions](/java/exceptions.md) : exception class hierarchy / …
 - [Other Notes](/java/notes.md)
 
-Snippets
+Snippet
 
-- [Collection](/java/code-snippets/collection.md)
-- [Common DTOs](/java/code-snippets/common-dtos.md)
-- [Deep Clone](/java/code-snippets/deep-clone.md)
-- [CSV - Comma Separate Value](/java/code-snippets/csv.md)
-- [Elasticsearch](/java/code-snippets/elasticsearch.md)
-- [Enum](/java/code-snippets/enum.md)
-- [Excel](/java/code-snippets/excel.md)
-- [Executor](/java/code-snippets/executor.md)
-- [HTTP](/java/code-snippets/http.md)
-- [JSON](/java/code-snippets/json.md)
-- [LocalDateTime](/java/code-snippets/local-date-time.md)
-- [MyBatis and JDBC](/java/code-snippets/mybatis-n-jdbc.md)
-- [Number](/java/code-snippets/number.md)
-- [OSS - Object Storage Service](/java/code-snippets/oss.md)
-- [Spring Beans](/java/code-snippets/spring-beans.md)
-- [Spring ConstraintValidator](/java/code-snippets/spring-constraint-validator.md)
-- [Stream and Optional](/java/code-snippets/stream-n-optional.md)
-- [String](/java/code-snippets/string.md)
+- [Collection](/java/code-snippet/collection.md)
+- [Common DTOs](/java/code-snippet/common-dtos.md)
+- [Deep Clone](/java/code-snippet/deep-clone.md)
+- [CSV - Comma Separate Value](/java/code-snippet/csv.md)
+- [Elasticsearch](/java/code-snippet/elasticsearch.md)
+- [Enum](/java/code-snippet/enum.md)
+- [Excel](/java/code-snippet/excel.md)
+- [Executor](/java/code-snippet/executor.md)
+- [HTTP](/java/code-snippet/http.md)
+- [JSON](/java/code-snippet/json.md)
+- [LocalDateTime](/java/code-snippet/local-date-time.md)
+- [MyBatis and JDBC](/java/code-snippet/mybatis-n-jdbc.md)
+- [Number](/java/code-snippet/number.md)
+- [OSS - Object Storage Service](/java/code-snippet/oss.md)
+- [Spring Beans](/java/code-snippet/spring-beans.md)
+- [Spring ConstraintValidator](/java/code-snippet/spring-constraint-validator.md)
+- [Stream and Optional](/java/code-snippet/stream-n-optional.md)
+- [String](/java/code-snippet/string.md)
 - [Task](task.md)
 
 Benchmark & Stress Testing
 
 - [JMH](/java/jmh.md) : Java Microbenchmark Harness
 
-Command Line Tools
+Command Line Tool
 
 - [jar](/java/cmd/jar.md) : archive tool
 - [java](/java/cmd/java.md) : application launcher
@@ -511,7 +511,7 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 15. [用 BIOS 进行键盘输入和磁盘读写 / tests](/asm/learning-note-15.md)
 16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
 
-### Scripts
+### Script
 
 Shell
 
