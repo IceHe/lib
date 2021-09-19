@@ -441,17 +441,18 @@ _( TODO 以下内容 应该放到其它文章里 )_
 
 ---
 
-进度: ( 这些都是心痒痒的小事, 不应该主要做它们, 偶尔做做就行 )
+TODOs
 
-- [ ] 过去个人文章的一些摘录也放到这
-- [ ] VicodinXYZ
-    - https://weibo.com/dropthethe
+这些都是心痒痒的小事, 不应该主要做它们, 偶尔做做就行
+
+- [ ] VicodinXYZ :
+    https://weibo.com/dropthethe
 - [ ] 九边 / 组织二号头目
-    - https://weibo.com/u/1782961197?is_all=1#1628403371940
+    https://weibo.com/u/1782961197?is_all=1#1628403371940
 - [ ] caoz
-    - https://weibo.com/caoz
+    https://weibo.com/caoz
 - [ ] 和菜头
-    - TODO
+- [ ] 过去个人文章的一些摘录也放到这
 - [ ] 过去个人书签的链接内容也摘录一些到这
 
 <!--
