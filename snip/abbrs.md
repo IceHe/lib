@@ -908,6 +908,7 @@ Reference : https://www.computerhope.com/keys.htm
     - [vide infra](https://www.collinsdictionary.com/dictionary/english/vide-infra) : see below; see further on ( in the book, etc. ) 见下
     - [vide post](https://www.collinsdictionary.com/dictionary/english/vide-post) : see after; see further on ( in the book, etc. ) 见后
     - [vide supra](https://www.collinsdictionary.com/dictionary/english/vide-supra) : see above; see earlier ( in the book, etc. ) 见上
+- VIE : [Variable Interest Entity](https://zh.wikipedia.org/wiki/可变权益实体) 可变权益实体
 - vim : Vi IMproved
 - VIP : [Virtual IP address](https://en.wikipedia.org/wiki/Virtual_IP_address) 虚拟服务器地址
 - virt : virtual
