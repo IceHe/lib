@@ -225,6 +225,7 @@ Reference : https://www.computerhope.com/keys.htm
 - [BSON](https://en.wikipedia.org/wiki/BSON) : a computer data interchange format used mainly as a data storage and network transfer format in the MongoDB database
 - btm : bottom
 - btw : by the way | between
+- BVI : [British Virgin Islands](https://en.wikipedia.org/wiki/British_Virgin_Islands) 英属维京群岛
 
 ### C
 
