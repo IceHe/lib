@@ -929,6 +929,7 @@ Reference : https://www.computerhope.com/keys.htm
 - WB : Welcome back. 欢迎回来 / 微博
 - WBU : What about you?
 - WC : Who cares. 谁关心啊
+- WFOE : [Wholly Foreign-Owned Enterprise](https://en.wikipedia.org/wiki/Wholly_Foreign-Owned_Enterprise)
 - win : window
 - WIP : [Work In Process](https://en.wikipedia.org/wiki/Work_in_process) or Progress
 - wk : week
