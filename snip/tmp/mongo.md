@@ -2,8 +2,9 @@
 
 References
 
-- Official Website : https://www.mongodb.com/
-- Guide - ZH Ver. : http://www.mongodb.org.cn/tutorial/3.html
+- [Official Website](https://www.mongodb.com)
+- [Guide - ZH Ver.](http://www.mongodb.org.cn/tutorial/3.html)
+- [MongoDB 基础浅谈（上）- 腾讯程序员](https://weibo.com/ttarticle/p/show?id=2309404681966665728467)
 
 ## Database
 
