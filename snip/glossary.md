@@ -124,6 +124,10 @@ From **Core Java Volume I - Fundermentals**
 - Wikipedia : https://en.wikipedia.org/wiki/Write_amplification
 - 中文维基 : https://zh.wikipedia.org/wiki/%E5%86%99%E5%85%A5%E6%94%BE%E5%A4%A7
 
+## Others
+
+- on-premises 是一个形容词，表示在本地部署的（系统），与云端部署的（系统）相对
+
 # Common Tech Products
 
 ## SRE
