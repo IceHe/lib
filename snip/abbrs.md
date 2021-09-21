@@ -170,7 +170,7 @@ Reference : https://www.computerhope.com/keys.htm
 - abbr : abbreviation
 - abs : absolute
 - abt : about
-- AC : [Network Access Control](https://en.wikipedia.org/wiki/Network_Access_Control)
+- AC : [Network Access Control](https://en.wikipedia.org/wiki/Network_Access_Control) 接入控制器
 - ACID : [Atomicity, Consistency, Isolation, Durability](https://en.wikipedia.org/wiki/ACID_(computer_science))
 - ACK : acknowledgement 确认 ( for TCP )
 - ACL : [Access control list](https://en.wikipedia.org/wiki/Access_control_list)
@@ -184,7 +184,7 @@ Reference : https://www.computerhope.com/keys.htm
 - AIR : Automatic, Indenpendent, Repeatable 即 "空气" 原则
 - AK : Access Key ( ID / Secret )
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
-- AP : [Wireless Access Point](https://en.wikipedia.org/wiki/Wireless_access_point)
+- AP : [Wireless Access Point](https://en.wikipedia.org/wiki/Wireless_access_point) 无线接入点
 - Apache : "a patchy" server | [Apache HTTP Server](https://en.wikipedia.org/wiki/Apache_HTTP_Server)
 - AOF : [Append Only File](https://redis.io/topics/persistence)
 - AOI : [Area Of Interest](https://baike.baidu.com/item/AOI/18907777)
