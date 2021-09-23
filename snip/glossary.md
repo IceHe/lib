@@ -127,6 +127,8 @@ From **Core Java Volume I - Fundermentals**
 ## Others
 
 - on-premises 是一个形容词，表示在本地部署的（系统），与云端部署的（系统）相对
+- [Quarkus](https://en.wikipedia.org/wiki/Quarkus) is a Kubernetes Native Java framework tailored for OpenJDK HotSpot and GraalVM, crafted from best-of-breed Java libraries and standards.
+- [WildFly](https://en.wikipedia.org/wiki/WildFly), formerly known as JBoss AS, or simply JBoss, is an application server authored by JBoss, now developed by Red Hat.
 
 # Common Tech Products
 

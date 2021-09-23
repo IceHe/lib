@@ -64,7 +64,7 @@
 
 -   **JWT - [JSON Web Tokens](https://jwt.io/)**
 
-    n open, industry standard RFC 7519 method for representing claims securely between two parties.
+    an open, industry standard RFC 7519 method for representing claims securely between two parties.
 
 -   IDaaS CIAM - [Customer Identity & Access Management System](https://help.aliyun.com/document_detail/187178.html)
 
@@ -74,3 +74,7 @@
     _It is included in most Windows Server operating systems as a set of processes and services._
     _Initially, Active Directory was used only for centralized domain management._
     However, Active Directory eventually became **an umbrella title for a broad range of directory-based identity-related services.**
+
+-   UMA - [User Management Access](https://en.wikipedia.org/wiki/User-Managed_Access)
+
+    an **OAuth-based access management protocol standard**.

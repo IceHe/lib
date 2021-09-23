@@ -883,6 +883,7 @@ Reference : https://www.computerhope.com/keys.htm
 - uid : user id
 - uk : unique key ( for SQL )
 - ulimit : User's LIMIT
+- UMA : [User-Management Acess](https://en.wikipedia.org/wiki/User-Managed_Access)
 - UML : [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 统一建模语言
 - uni : unique
 - uniq : unique
