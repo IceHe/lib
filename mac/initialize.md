@@ -534,8 +534,8 @@ Include the development configurations on local and remote machines
 
 - Add the apps' shortcuts
     - `All Applications` → `Show Help menu` ⌥ ⇧ /
-    - `Google Chrome` → `Duplicate Tab` ⌘ ⇧ D
-    - `iTerm` → `Toggle Full Screen` ⌘ ⇧ F
+    - `Google Chrome` → `Duplicate Tab` ⇧ ⌘ D
+    - `iTerm` → `Toggle Full Screen` ⇧ ⌘ F
 
 `Input Sources` Tab
 
@@ -577,17 +577,30 @@ Notification
     _( require the independent synchronization password )_
 1.  Synchronize the extensions automatically
     _( do it manually if `Sync` does not finish in time )_
-    -   [1Password](https://agilebits.com/browsers/welcome.html) : Password Manager
-    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
+    -   [1Password](https://agilebits.com/browsers/welcome.html) : Password manager
     -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
-    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim
-    -   [Chrono Download](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn) : Download and Manage the web
+    -   [Chrono Download](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn) : Download and manage the web
+    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
         If open too many tabs, stash them in OneTab to save memory space and visible screen area
-    -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
     -   [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
+    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim
+    -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application
 1.  Synchronize the settings of the plugin `Proxy SwitchyOmega`
     via the configuration file from another device
+1.  Change keyboard shortcuts from extensions :
+    `Extensions` → `Keyboard shortcuts`
+    - 1Password :
+        - `⇧ ⌘ X` Activate the extension
+    - Proxy SwitchyOmega :
+        - `^ ⌘ S` Activate the extension
+    - Chrono Download Manager :
+        - `⇧ ⌘ J` Activate the extension
+    - OneTab :
+        - `⇧ ⌘ O` Activate the extension
+        - `⇧ ⌘ S` Di**S**play/**S**how OneTab
+        - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
+    - Edit required shortcuts  and remove uncessary ones
 
 #### Sogou Input
 
@@ -667,14 +680,14 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 
 - Enable `Launch at Login`
 - `Sort Order`
-    - Select `Most Recently Used` or Press ⌘ ⌥ R
+    - Select `Most Recently Used` or Press ⌥ ⌘ R
 - `Window Appearance`
     - Select `Midday`
     - Set `Minimum Font Size` **15**
     - Select `Auto-Scroll to Last Selected After List Change`
 - `Window Position` → `Open at Active Screen`
 - `Search Field`
-    - Enable `Toggle Search Filters with ⌘F`
+    - Enable `Toggle Search Filters with ⌘ F`
     - Eanble `Search Immediately After Each Keystroke`
 - `Keyboard Shortcuts…`
     - `Global Shortcuts`
