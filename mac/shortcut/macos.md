@@ -13,22 +13,22 @@ macOS Shortcuts
 
 - `⌘ 凵` Spotlight
 - `⌥ ⇧ ?` Show Help Menu <sup>_custom_</sup>
-- `⌘ ⌥ d` _Dock Hiding On/Off_
+- `⌥ ⌘ d` _Dock Hiding On/Off_
 
 ### Window
 
 - <code>⌘ \`</code> Switch windows of the current App
     - It's enabled via the App [HyperSwitch](https://bahoom.com/hyperswitch)
-- `⌘ ^ f` Toggle Full Screen
+- `^ ⌘ f` Toggle Full Screen
 - `⌘ ,` Preferences
 - `⌘ q` Exit
 - `⌘ w` Close
 - `⌘ h` Hide
-- `⌘ ⌥ h` Hide All Apps But the Front-most
+- `⌥ ⌘ h` Hide All Apps But the Front-most
     - The manipulation `Hide` is much better than `Minimize` in macOS!
     - So I prefer `Hide` to `Minimize`.
 - _`⌘ m` Minimize to Dock_
-- _`⌘ ⌥ m` Minimize All Windows of the Front-most App_
+- _`⌥ ⌘ m` Minimize All Windows of the Front-most App_
 
 ### Tab
 
@@ -87,9 +87,9 @@ They are also enabled by `Zsh` ( in `.zshrc` ) and `Vim` ( in `.vimrc` ) in iTer
 - `⇧ ⌘ Z` Redo
 - `⌘ a` Select All
 - `⌘ c` Copy
-- _`⌘ ⌥ c` Copy Path_
+- _`⌥ ⌘ c` Copy Path_
 - `⌘ v` Paste
-- `⌘ ⌥ v` Move ( after `⌘ c` )
+- `⌥ ⌘ v` Move ( after `⌘ c` )
 - `⌘ f` Search
 - `⌘ g` Next Match
 - `⇧ ⌘ G` Prev Match
@@ -121,10 +121,10 @@ They are also enabled by `Zsh` ( in `.zshrc` ) and `Vim` ( in `.vimrc` ) in iTer
 - `⇧ ⌘ I` iCloud
 - `⇧ ⌘ O` Documents
 - `⇧ ⌘ R` AirDrop
-- `⌘ ⌥ l` Downloads
+- `⌥ ⌘ l` Downloads
 - `⇧ ⌘ N` New Folder
 - `⌘ ↑` to Parent Dir
-- _`⌘ ^ ↑` Open Parent Dir in New Window_
+- _`^ ⌘ ↑` Open Parent Dir in New Window_
 - _`⇧ ⌘ C` Computer_
 - _`⇧ ⌘ H` Home_
 - _`⇧ ⌘ K` Network_
@@ -140,9 +140,9 @@ They are also enabled by `Zsh` ( in `.zshrc` ) and `Vim` ( in `.vimrc` ) in iTer
 - `⌘  3` View as columns
 - `⌘  4` View as a cover flow
 - `⇧ ⌘ ⌫` Empty Trash
-- _`⇧ ⌘ ⌥ ⌫` Empty Trash without Confirmation_
+- _`⌥ ⇧ ⌘ ⌫` Empty Trash without Confirmation_
 - _`⇧ ⌘ P` Show | Hide Preview_
-- _`⌘ ⌥ p` Show | Hide Path Bar_
-- _`⌘ ⌥ s` Show | Hide Sidebar_
-- _`⌘ ⌥ t` Show | Hide Tool Bar_
+- _`⌥ ⌘ p` Show | Hide Path Bar_
+- _`⌥ ⌘ s` Show | Hide Sidebar_
+- _`⌥ ⌘ t` Show | Hide Tool Bar_
 - _`⌘ /` Show | Hide Status Bar_

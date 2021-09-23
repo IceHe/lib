@@ -9,13 +9,13 @@
 - `⇧ ⌘ A` Extensions
 - `⇧ ⌘ J` Downloads
 - `⌘ d` Bookmarks
-- `⌘ ⌥ B` _Manage Bookmarks_
+- `⌥ ⌘ B` _Manage Bookmarks_
 
 ## Development
 
-- `⌘ ⌥ i` Inspect Elements
-- `⌘ ⌥ u` Page Source Code
-- `⌘ ⌥ j` _JavaScript Console_
+- `⌥ ⌘ i` Inspect Elements
+- `⌥ ⌘ u` Page Source Code
+- `⌥ ⌘ j` _JavaScript Console_
 
 ## Extension
 

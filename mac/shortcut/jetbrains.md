@@ -21,16 +21,16 @@ References
 
 - `^ ⌥ t` Refactor This
 - `^ ⌥ o` Optimize Imports
-- `⌘ ⌥ l` Reformat Code
+- `⌥ ⌘ l` Reformat Code
     - The rules for reformation can be modified in:
     - `Preferences` → `Editor` → `Code Style` → Select the programming language.
-- `⌘ ⌥ e` Rename `$variableName`, `ClassName`, `functionName`
+- `⌥ ⌘ e` Rename `$variableName`, `ClassName`, `functionName`
     - Auto rename other related code
-- `⌘ ⌥ n` Inline Variable
-- `⌘ ⌥ v` Extract Variable
-- `⌘ ⌥ m` Extract Method
-- `⌘ ⌥ f` Extract Field
-- `⌘ ⌥ c` Extract Constant
+- `⌥ ⌘ n` Inline Variable
+- `⌥ ⌘ v` Extract Variable
+- `⌥ ⌘ m` Extract Method
+- `⌥ ⌘ f` Extract Field
+- `⌥ ⌘ c` Extract Constant
 - _`F5` Copy File_
 - _`F6` Move File_
 
@@ -39,7 +39,7 @@ References
 <!-- - _`^ 凵` Auto Complete_ -->
 
 - **`⌘ /` Line Comment**
-- _`⌘ ⌥ /` Block Comment_
+- _`⌥ ⌘ /` Block Comment_
 - _`⌥ ↑` Extend Selection_
 - _`⌥ ↓` Shrink Selection_
 - **`⌥ ↩` Show Intention Actions**
@@ -85,7 +85,7 @@ References
 - `^ s` Find Complementation
 - `⌘ o` Find Class
 - `⇧ ⌘ O` Find File
-- `⌘ ⌥ o` Find Symbols ( Class, Files, Methods, Functions )
+- `⌥ ⌘ o` Find Symbols ( Class, Files, Methods, Functions )
 - _`⇧, ⇧` Search (Everything) Everywhere_
 - _`⇧ ⌘ A` Find Actions_
 
@@ -125,11 +125,11 @@ VCS: History & Compare
 - `^ ⌥ c` Git -> Resolve Conflicts
 - _`⌘ t` Update Porject from VCS_
 - _`^ ⇧ C` Commit Project to VCS_
-- _`⌘ ⌥ g` 'VCS' Operations Quick Popup_
+- _`⌥ ⌘ g` 'VCS' Operations Quick Popup_
 
 ## Tools
 
-- `⌘ ^ h` Hide All Tool Windows
+- `^ ⌘ h` Hide All Tool Windows
 - `^ ⌥ q` Terminal
 - _`^ ⌥ s` Test RESTful Web Service_
 - `⇧ ⌘ ↑↓←→` Extend | Shrink Tool Window

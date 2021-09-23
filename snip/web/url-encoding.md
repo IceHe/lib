@@ -18,7 +18,7 @@ References
 ## JavaScript
 
 - Open **Chrome** Browser
-- Press `⌘ ⌥ j` to open `View -> Developer -> JavaScript Console`
+- Press `⌥ ⌘ j` to open `View -> Developer -> JavaScript Console`
 - Run code as follow
 
 ### UTF-8

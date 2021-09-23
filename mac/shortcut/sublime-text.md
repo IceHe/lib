@@ -19,11 +19,11 @@ https://www.sublimetext.com
 - `⌘ f` Find
 - `⌥ ↩` Find All
 - `⌘ r` Find Files
-- `⌘ ⌥ f` Replace
-- `⌘ ⌥ e` Replace one by one
+- `⌥ ⌘ f` Replace
+- `⌥ ⌘ e` Replace one by one
 - `^ ⌥ ↩` Replace All
-- `⌘ ⌥ r` Toggle Regular Expression
-- `⌘ ⌥ c` Toggle Case Sensitive
+- `⌥ ⌘ r` Toggle Regular Expression
+- `⌥ ⌘ c` Toggle Case Sensitive
 
 ## Selection
 
@@ -38,9 +38,9 @@ https://www.sublimetext.com
 
 ## _Layout_
 
-- _`⌘ ⌥ 1~4` 1~4 Columns_
-- _`⌘ ⌥ 5` Grid_
-- _`⌘ ⌥ ⇧ 2~3` 2~3 Rows_
+- _`⌥ ⌘ 1~4` 1~4 Columns_
+- _`⌥ ⌘ 5` Grid_
+- _`⌥ ⌘ ⇧ 2~3` 2~3 Rows_
 
 ## _Bookmarks_
 
