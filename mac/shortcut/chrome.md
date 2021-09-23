@@ -6,8 +6,8 @@
 
 - `⌘ l` Edit Address Bar
 - `⌘ y` Full History
-- `⌘ ⇧ A` Extensions
-- `⌘ ⇧ J` Downloads
+- `⇧ ⌘ A` Extensions
+- `⇧ ⌘ J` Downloads
 - `⌘ d` Bookmarks
 - `⌘ ⌥ B` _Manage Bookmarks_
 
@@ -21,16 +21,16 @@
 
 ### Others
 
-- `⌘ ⇧ E` Evernote Web Clipper
-- `⌘ ⇧ P` Activate SwitchyOmega
+- `⇧ ⌘ E` Evernote Web Clipper
+- `⇧ ⌘ P` Activate SwitchyOmega
 
 ### OneTab
 
 [in Web Store](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)
 
-- `⌘ ⇧ O` Activate One Tab
-- `⌘ ⇧ D` Display One Tab
-- `⌘ ⇧ C` Send Current Tab to One Tab
+- `⇧ ⌘ O` Activate One Tab
+- `⇧ ⌘ D` Display One Tab
+- `⇧ ⌘ C` Send Current Tab to One Tab
 
 ### cVim
 

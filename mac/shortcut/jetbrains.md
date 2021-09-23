@@ -43,11 +43,11 @@ References
 - _`⌥ ↑` Extend Selection_
 - _`⌥ ↓` Shrink Selection_
 - **`⌥ ↩` Show Intention Actions**
-- _`⌘ ⇧ ↩` Complete Current Statement_
+- _`⇧ ⌘ ↩` Complete Current Statement_
 - _`^ ⌥ h` Toggle Parameter Name_
 - _`^ ⌘ g` Select All Occurrences_
 - _`^ ⇧ I` Inspect Code_
-- _`⌘ ⇧ V` Copy from History_
+- _`⇧ ⌘ V` Copy from History_
 
 ## Debug
 
@@ -67,27 +67,27 @@ References
 
 ## File
 
-- `⌘ ⇧ C` Copy Path
+- `⇧ ⌘ C` Copy Path
 - `^ ⌥ r` Copy Reference ( `File:Line` | `Class::method()` )
 - _`⇧ ↩` Open in a new Editor Window_ ( in Project View)
 
 ## Find
 
 - `⌘ f` Find
-- `⌘ ⇧ F` Find in Paths
+- `⇧ ⌘ F` Find in Paths
 - `⌘ r` Replace
-- `⌘ ⇧ R` Replace in Paths
+- `⇧ ⌘ R` Replace in Paths
 - `⌘ g` Find Next
-- `⌘ ⇧ G` Find Prev
+- `⇧ ⌘ G` Find Prev
 - `^ ⌥ g` Toggle Regex
 - _`^ ⌥ c` Toggle Case Sensitive_
 - `^ g` Find Usage
 - `^ s` Find Complementation
 - `⌘ o` Find Class
-- `⌘ ⇧ O` Find File
+- `⇧ ⌘ O` Find File
 - `⌘ ⌥ o` Find Symbols ( Class, Files, Methods, Functions )
 - _`⇧, ⇧` Search (Everything) Everywhere_
-- _`⌘ ⇧ A` Find Actions_
+- _`⇧ ⌘ A` Find Actions_
 
 ## Navigate
 
@@ -97,8 +97,8 @@ References
 - `⌘ j` Next Method
 - `⌘ k` Prev Method
 - `⌘ e` Recent Files
-- `⌘ ⇧ E` Recently Edited Files
-- `⌘ ⇧ T` Test Subject: Jump to Test for current file | Create Test for it
+- `⇧ ⌘ E` Recently Edited Files
+- `⇧ ⌘ T` Test Subject: Jump to Test for current file | Create Test for it
 - _`⌘ u` Super Class or Interface_
 - _`⌘ ↑` Navigation Bar_
 - `⌘ 1~9` Jump to the specified Tool Window | Hide it
@@ -132,7 +132,7 @@ VCS: History & Compare
 - `⌘ ^ h` Hide All Tool Windows
 - `^ ⌥ q` Terminal
 - _`^ ⌥ s` Test RESTful Web Service_
-- `⌘ ⇧ ↑↓←→` Extend | Shrink Tool Window
+- `⇧ ⌘ ↑↓←→` Extend | Shrink Tool Window
 
 ## IdeaVim
 

@@ -5,8 +5,8 @@ https://www.sublimetext.com
 ## Command Palette
 
 - `⌘ p` Quick Open File
-- `⌘ ⇧ P` Command Palette…
-- `⌘ ⇧ C` Copy File Path
+- `⇧ ⌘ P` Command Palette…
+- `⇧ ⌘ C` Copy File Path
 - `^ s` Trim Trailing Whitespace
 
 ## Cursor Position
@@ -29,7 +29,7 @@ https://www.sublimetext.com
 
 - `⌘ d` Expand Selection to Word
 - `^ ⇧ M` Expand Selection to Brackets
-- **`⌘ ⇧ L` Split into Lines**
+- **`⇧ ⌘ L` Split into Lines**
 - _`^ l` Scroll to the Selection_
 
 ## Sidebar
@@ -47,4 +47,4 @@ https://www.sublimetext.com
 - _`⌘ F2` Toggle Bookmark_
 - _`F2` Next Bookmark_
 - _`⇧ F2` Prev Bookmark_
-- _`⌘ ⇧ F2` Clear All Bookmarks_
+- _`⇧ ⌘ F2` Clear All Bookmarks_

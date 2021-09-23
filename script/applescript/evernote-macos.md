@@ -13,7 +13,7 @@ AppleScript Advanced: 检查控制 Wifi、蓝牙、硬盘、键盘输入，执�
 - [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
 - [Mac Wrangle Evernote with AppleScript](https://dev.evernote.com/doc/articles/applescript.php) / [通过 AppleScript 连接印象笔记](https://dev.yinxiang.com/doc/articles/applescript.php) - Evernote Official Docs
 - [Evernote Search Grammar](https://dev.evernote.com/doc/articles/search_grammar.php) / [搜索语法](https://dev.yinxiang.com/doc/articles/search_grammar.php) - How to Search Notes
-- __App's AppleScript Dictionary :__ Open App `Script Editor` → &nbsp;Enter `⌘ ⇧ o` → &nbsp;Choose `app_name.app` (if it supports AppleScript)
+- __App's AppleScript Dictionary :__ Open App `Script Editor` → &nbsp;Enter `⇧ ⌘ o` → &nbsp;Choose `app_name.app` (if it supports AppleScript)
     __Evernote Dictionary :__ … → Choose `Evernote.app`
 - My Github Repos:
     1. [AppleScript_for_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)

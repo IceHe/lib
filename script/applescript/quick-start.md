@@ -8,7 +8,7 @@ AppleScript Quick Start: 在有编程基础的情况下，通过快速浏览示�
 
 - [AppleScript Fundamentals](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html) - Apple Official Docs
 - __App's AppleScript Dictionary :__
-    - Open App `Script Editor` → &nbsp;Enter `⌘ ⇧ o` → &nbsp;Choose `app_name.app` (if it supports AppleScript)
+    - Open App `Script Editor` → &nbsp;Enter `⇧ ⌘ o` → &nbsp;Choose `app_name.app` (if it supports AppleScript)
 - My Github Repos:
     - [AppleScript_for_Evernote](https://github.com/IceHe/AppleScript_for_Evernote)
     - [AppleScript_for_me](https://github.com/IceHe/AppleScript_for_me)
