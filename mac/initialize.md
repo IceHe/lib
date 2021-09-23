@@ -4,26 +4,26 @@ How to initialize my Mac?
 
 ---
 
-Reference: [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
+Reference : [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
-Related on icehe.xyz: [Efficiency: 效率指南](/mac/efficiency.md)
+Related on icehe.xyz : [Efficiency : 效率指南](/mac/efficiency.md)
 
 ## Guidelines
 
 **Based on macOS**
 
-- Applicable macOS version: Big Sur
+- Applicable macOS version : Big Sur
 
 **Follow principles**
 
-- **KISS: Keep It Simple and Stupid** ( 简单原则 )
+- **KISS : Keep It Simple and Stupid** ( 简单原则 )
 
     Focus on the process and omit the unnecessary descriptions.
 
     _e.g., apps' introductions & usages_
     _/ software technology / developer knowledge …_
 
-- **OOTB: Out Of The Box** ( 开箱即用 )
+- **OOTB : Out Of The Box** ( 开箱即用 )
 
     Try to minimize the modification of the initial settings.
 
@@ -55,15 +55,15 @@ Suggestion
 
 1.  Get the proxy service
 
-    - Option A: **Buy** one ( recommended )
-    - _Option B: Build your own_
+    - Option A : **Buy** one ( recommended )
+    - _Option B : Build your own_
 
     Because the valid methods often change,
     recommend to search them on the Internet.
 
 1.  Get the configurations from the proxy service
 
-    _Optional configuration forms:_
+    _Optional configuration forms :_
 
     - **subscription URL** ( recommended )
     - configuration file
@@ -73,7 +73,7 @@ Suggestion
 
 1.  Import the configurations into the proxy plugin
 
-    _Optional proxy plugins:_
+    _Optional proxy plugins :_
 
     - [Surge](https://nssurge.com/)
     - [Clash](https://github.com/Dreamacro/clash)
@@ -95,13 +95,13 @@ for installing and managing softwares on macOS
 
 1.  Install
 
-    -   Plan A: [Homebrew homepage - brew.sh](https://brew.sh)
+    -   Plan A : [Homebrew homepage - brew.sh](https://brew.sh)
 
         _If cannot install or install slowly, try Plan B._
 
-    -   Plan B: [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448)
+    -   Plan B : [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448)
 
-    -   Plan C: [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) ( 2021-01-24 )
+    -   Plan C : [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) ( 2021-01-24 )
 
 1.  Validate
 
@@ -115,7 +115,7 @@ for installing and managing softwares on macOS
 
 1.  Accelarate
 
-    Reference: [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
+    Reference : [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
 1.  Update and upgrade
 
@@ -130,7 +130,7 @@ and allows you to install large binary files via a command-line tool.
 
 > Recommend to install Mac Apps via Homebrew-Cask
 
-Available softwares on Homebrew-Cask: [Homebrew Formulae](https://formulae.brew.sh/cask)
+Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
 
 ### Required
 
@@ -154,7 +154,7 @@ brew install --cask \
     wechat
 ```
 
-_Notice: `sogouinput` above is just a installation_
+_Notice : `sogouinput` above is just a installation_
 _and you have to execute it individually._
 
 ### Optional
@@ -207,7 +207,7 @@ Others available on the official homepages
 
 ## CLI Programs
 
-CLI: Command Line Interface
+CLI : Command Line Interface
 
 > Recommend to install CLI programs via Homebrew
 
@@ -240,7 +240,7 @@ brew install \
 
 <!--
 
--   [coreutils](http://www.gnu.org/s/coreutils/):
+-   [coreutils](http://www.gnu.org/s/coreutils/) :
     _The basic file, shell and text manipulation utilities_
     _of the GNU operating system._
 
@@ -248,7 +248,7 @@ brew install \
 
     E.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory.
 
--   [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x):
+-   [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x) :
     For `tmux` to write and read system clipboard.
 
     _Reattach to the per-user bootstrap namespace_
@@ -282,21 +282,21 @@ _For logining the git services, such as GitHub, GitLab, Coding._
 
 Add the public SSH key on Mac to the accounts of the git services.
 
-_Advantage: No longer need to enter the username and password on the trusted devices._
+_Advantage : No longer need to enter the username and password on the trusted devices._
 
 Steps
 
 1.  Generate the SSH key pair
 
-    Reference: [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
+    Reference : [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
 
 1.  Add the SSH key to the accounts of the git services
 
-    Reference: [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
+    Reference : [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
 
 ### Dotfiles
 
-_E.g. for me:_
+_E.g. for me :_
 
 ```bash
 cd ~
@@ -310,7 +310,7 @@ git branch --set-upstream-to=origin/master master
 
 1. Install
 
-    Reference: [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
+    Reference : [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
 1.  Synchronize the settings
 
@@ -320,7 +320,7 @@ git branch --set-upstream-to=origin/master master
 
 ### Neovim
 
-Run the command below to link `~/.vimrc` to `~/.config/nvim/init.vim`:
+Run the command below to link `~/.vimrc` to `~/.config/nvim/init.vim` :
 
 ```bash
 ln -s /Users/[USERNAME]/.vimrc /Users/[USERNAME]/.config/nvim/init.vim
@@ -334,21 +334,21 @@ ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
 
 _Or `nvim` maybe cannot write or read the system clipboard._
 
-Reference:
+Reference :
 [Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)
 
 -->
 
 ### Git
 
-Synchronize the settings via the configuration files from the dotfiles above. _E.g.:_
+Synchronize the settings via the configuration files from the dotfiles above. _E.g. :_
 
 - `~/.gitconfig`
 - `~/.gitignore`
 - `~/.gitignore_global`
 - …
 
-Or configure via the commands. E.g. Name and Email:
+Or configure via the commands. E.g. Name and Email :
 
 ```bash
 # e.g.
@@ -372,10 +372,10 @@ brew link --overwrite graphviz
 
 _( This could fix issues if you have installed GraphViz as .dmg package. )_
 
-_By default, the dot executable is expected:_
+_By default, the dot executable is expected :_
 
-- _Firstly in: `/usr/local/bin/dot`_
-- _Then in: `/usr/bin/dot`_
+- _Firstly in : `/usr/local/bin/dot`_
+- _Then in : `/usr/bin/dot`_
 
 _You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of your GraphViz executable._
 
@@ -396,7 +396,7 @@ JDK - Java Development Kit
 
 1.  Set the environment variable `JAVA_HOME`
 
-    Append the command below to the file `~/.zshrc`:
+    Append the command below to the file `~/.zshrc` :
 
     ```bash
     export JAVA_HOME=`/usr/libexec/java_home -v 8`
@@ -408,7 +408,7 @@ JDK - Java Development Kit
     _The tilde symbol `~` equals the path of the current user's home directory._
     _E.g. `/Users/IceHe` on my Mac._
 
-    _For getting the path of JDK 8, run the command:_
+    _For getting the path of JDK 8, run the command :_
 
     ```bash
     $ /usr/libexec/java_home -v 8
@@ -429,7 +429,7 @@ JDK - Java Development Kit
     You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
-    _References: [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
+    _References : [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
 
 1.  Synchronize the settings
 
@@ -444,42 +444,42 @@ JDK - Java Development Kit
 
 1.  Install plugins
 
-    -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts):
+    -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts) :
         Forces the user to use keyboard shortcuts by blocking click action
         <!-- and displaying the keyboard shortcut in a popup. -->
-    -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format):
+    -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :
         Reformats Java source code to comply with
         [Google Java Style](https://google.github.io/styleguide/javaguide.html)
-    -   [GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus):
+    -   [GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus) :
         Generate POJO according to JSON
-    -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim):
+    -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) :
         Vim emulator - edit text like Vim
-    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow):
+    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) :
         Colorize the indentation in front of your text
         alternating four different colors on each step
-    -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X):
+    -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X) :
         Learn essential shortcuts while you are working
-    -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin):
+    -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin) :
         Never write another getter or equals method again
         <!-- [Project Lombok](https://projectlombok.org/) -->
         <!-- is a java library that automatically plugs into your editor -->
         <!-- and build tools, spicing up your java. -->
         <!-- _Early access to future java features such as val, and much more._ -->
-    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper):
+    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper) :
         A must have plugin for working with Maven
-    -   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration):
+    -   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) :
         Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
-    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets):
+    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) :
         Code faster and smarter using code completions
         learned from millions of programs directly
-    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation):
+    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation) :
         Case switching, sorting, filtering, incrementing,
         aligning to columns, grepping, escaping, encoding…
 
 1.  Set the font `Consolas`
 
     1.  Download on the Internet
-    1.  Update the preference:
+    1.  Update the preference :
         `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
 
 1.  Set the color scheme `Solarized Light (Alternate)`
@@ -487,7 +487,7 @@ JDK - Java Development Kit
     1.  Download on the Internet
         -   [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
             [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
-    1.  Update the preference:
+    1.  Update the preference :
         `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
 
 ### Maven
@@ -502,9 +502,9 @@ JDK - Java Development Kit
     open ~/.m2/settting.xml
     ```
 
-    _`open`: open file with default editor_
+    _`open` : open file with default editor_
 
-_Notice:_
+_Notice :_
 _If use your own private devices & Maven configuration files exists,_
 _please merge the content of configurations carefully._
 
@@ -543,9 +543,9 @@ Include the development configurations on local and remote machines
 
 #### Key Repeat
 
-How to enable:
+How to enable :
 
-1. Run the command:
+1. Run the command :
 
     ```bash
     defaults write -g ApplePressAndHoldEnabled -bool false
@@ -553,7 +553,7 @@ How to enable:
 
 1. Reboot and validate
 
-_References: Search "macos keyboard cannot repeat" on Google_
+_References : Search "macos keyboard cannot repeat" on Google_
 
 - _[Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)_
 - _[OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)_
@@ -577,15 +577,15 @@ Notification
     _( require the independent synchronization password )_
 1.  Synchronize the extensions automatically
     _( do it manually if `Sync` does not finish in time )_
-    -   [1Password](https://agilebits.com/browsers/welcome.html): Password Manager
-    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall): Reduce tab clutter
+    -   [1Password](https://agilebits.com/browsers/welcome.html) : Password Manager
+    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
+    -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
+    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim
+    -   [Chrono Download](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn) : Download and Manage the web
         If open too many tabs, stash them in OneTab to save memory space and visible screen area
-    -   [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm): A lightweight AD blocker
-    -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa): Make JSON easy to read
-    -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif): Manage and switch between multiple proxies quickly & easily
-    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb): Provide keyboard shortcuts for navigation and control in the spirit of Vim
-    -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm): Containing the excellent ElasticSearch Head application
-    -   _[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo): The most popular userscript manager. It's used to run so called userscripts._
+    -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
+    -   [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
+    -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application
 1.  Synchronize the settings of the plugin `Proxy SwitchyOmega`
     via the configuration file from another device
 
@@ -615,16 +615,16 @@ Notification
 1.  Synchronize the settings via the built-in feature [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
 1.  Synchronize the extensions automatically
     _( do it manually if `Settings Sync` does not finish in time )_
-    -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Check Markdown style
+    -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         ( [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks )
-    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml): Support [PlatUML](http://plantuml.com/) _( *.puml file )_
-        - _Trouble Shooting: require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )_
-    -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim): Vim emulator - edit text like Vim
+    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) _( *.puml file )_
+        - _Trouble Shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )_
+    -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
 
 #### Sublime Text
 
-1. update user settings as below:
+1. update user settings as below :
 
     ```json
     {
