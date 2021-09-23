@@ -1,7 +1,8 @@
 # Keycloak
 
-Open Source Identity and Access Management
-For Modern Applications and Services
+Keycloak is an open source Identity and Access Management solution aimed at modern applications and services.
+
+It makes it easy to secure applications and services with little to no code.
 
 ---
 
@@ -10,8 +11,9 @@ References
 - [Keycloak](https://www.keycloak.org)
     - [About](https://www.keycloak.org/about)
     - [Documentation](https://www.keycloak.org/documentation)
+    - [Get Started Guide](https://www.keycloak.org/docs/latest/getting_started/index.html)
 
-### Intro
+## Intro
 
 -   Add authentication to applications and secure services with minimum fuss.
 
@@ -19,7 +21,7 @@ References
 
 -   You'll even get advanced features such as User Federation, **Identity Brokering and Social Login**.
 
-### Features
+## Features
 
 -   **Single-Sign On**
 
