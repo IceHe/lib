@@ -11,10 +11,10 @@
 - customer identity
     - ? workforce identity
     - SaaS
-        - [auth0](https://auth0.com/)
-        - [Authing](https://www.authing.cn/)
+        - [ ] [auth0](https://auth0.com/)
+        - [ ] [Authing](https://www.authing.cn/)
     - open source
-        - [Keycloak](https://www.keycloak.org/)
+        - [ ] [Keycloak](https://www.keycloak.org/)
         - [SuperTokens](https://supertokens.io/)
         - [Casdoor](https://casdoor.org/)
 - scope
@@ -67,3 +67,10 @@
     n open, industry standard RFC 7519 method for representing claims securely between two parties.
 
 -   IDaaS CIAM - [Customer Identity & Access Management System](https://help.aliyun.com/document_detail/187178.html)
+
+-   AD - [Active Directory](https://en.wikipedia.org/wiki/Active_Directory)
+
+    Active Directory (AD) is a directory service developed by Microsoft for Windows domain networks.
+    _It is included in most Windows Server operating systems as a set of processes and services._
+    _Initially, Active Directory was used only for centralized domain management._
+    However, Active Directory eventually became **an umbrella title for a broad range of directory-based identity-related services.**

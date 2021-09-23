@@ -35,17 +35,33 @@ References
 
     _For admins and users_
 
--   Adapters ( ? )
+-   Adapters
 
-    Secure applications and services easily
+    **Secure** applications and services easily
 
--   **LDAP** and Active Directory ( ? )
+    _We have adapters available for a number of platforms and programming languages, but if there's not one available for your chosen platform don't worry._
+    _Keycloak is built on standard protocols so you can use any OpenID Connect Resource Library or SAML 2.0 Service Provider library out there._
+
+-   **LDAP** and **Active Directory**
 
     **Connect to existing user directories**
 
+    -   Kerberos <!-- 三头犬 --> bridge
+
+        If your users authenticate to workstations with Kerberos
+        ( LDAP or active directory )
+        they can also be automatically authenticated to Keycloak
+        without having to provide their username and password again
+        after they log on to the workstation.
+
+    -   User Federation
+
+        Keycloak has built-in support to connect to existing LDAP or Active Directory servers.
+        You can also implement your own provider if you have users in other stores, such as a relational database.
+
 -   **Social Login**
 
-    Easily enable social login
+    Easily enable **social login**
 
 -   Identity Brokering
 
