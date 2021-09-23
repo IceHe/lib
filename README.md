@@ -108,9 +108,9 @@ Others
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
 - [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) _- to read_
 - [Linux Kernel](/book/linux.md) _- to read_
+- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC
 
 <!-- - [Algorithms - 4th Edition - Notes](/book/algorithms-notes.md) _- reading_ -->
-<!-- - [JZ Offer](/book/jz-offer.md) -->
 
 <!-- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--  -->
