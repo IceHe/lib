@@ -33,12 +33,12 @@ gpg --full-generate-key
 # or
 gpg --full-gen-key
 
-# Either  export  all keys from all keyrings,
-# or if at least one name is given, those of the given name.
+# Either export all keys from all keyrings,
 # with --armor to mail those keys.
 gpg --armor --export [GPG-Key-ID]
 
-#
+# Remove key from the secret keyring.
+ gpg --delete-secret-keys [GPG-Key-ID]
 ```
 
 ## Usage
