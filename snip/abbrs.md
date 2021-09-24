@@ -473,6 +473,7 @@ Reference : https://www.computerhope.com/keys.htm
 - img : image
 - imp : improve
 - impl : implement
+- Inc. : [incorporated](https://www.legalzoom.com/articles/what-does-incorporated-mean-in-business)
 - incr : increase
 - ind : index
 - info : information

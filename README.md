@@ -256,6 +256,7 @@ macOS
 - [Common Commands](/git/common-commands.md)
 - [Concepts & Theory](/git/concepts-n-theory.md)
 - [Docs Digest](/git/docs-digest.md)
+- [Commit Signature Verification](/git/commit-signature-verification.md)
 
 ### CMD
 
