@@ -724,7 +724,9 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
     - Enable `Launch at login`
 - `Appearance`
     - `Menu Bar`
-        - Datetime pattern ` Y.MM.dd  E  HH:mm:ss `
+        - Datetime pattern `MM / dd  E  HH:mm:ss`
+            - or `E, dd MMM HH:mm:ss`
+            - or ` Y.MM.dd  E  HH:mm:ss `
         - Enable `Hide icon`
     - `Calendar`
         - `Highlight`
