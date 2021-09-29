@@ -415,7 +415,7 @@ Scene
 ### JS
 
 - [Node.js](/js/nodejs.md) : A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
-- [TypeScript](/sjs/type-script.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
+- [TypeScript](/js/type-script/type-script.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
 - Package Management
     - [npm](/js/npm.md) : share and borrow packages - [npmjs.com](https://www.npmjs.com/)
     - [yarn](/js/yarn.md) : a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)

@@ -69,4 +69,8 @@ The handbook is split into two sections:
 
 ## Basics
 
-### Static type-checking
+- Static Type-checking
+- Non-exception Failures
+- Types for Tooling
+- `tsc`, TypeScript Compiler
+
