@@ -153,4 +153,16 @@ We'll learn more about the syntax `T<U>` when we cover generics.
 
 _Note that `[number]` is a different thing; refer to the section on Tuples._
 
-#### `any`
+#### any
+
+_TypeScript also has a special type,_ `any`, that you can **use whenever you don't want a particular value to cause typechecking errors**.
+
+Use the compiler flag `noImplicitAny` **to flag any implicit any as an error**.
+
+#### Type Annotations on Variables
+
+When you declare a variable using const, var, or let, you can optionally add a type annotation to explicitly specify the type of the variable:
+
+```js
+let myName: string = "Alice";
+```
