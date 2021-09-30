@@ -15,4 +15,4 @@ names.forEach((s) => {
 const strs = ["Ice", "He", "Lib"];
 strs.forEach((str) => {
     console.log(str.toLowerCase());
-})
+});
