@@ -67,7 +67,7 @@ The handbook is split into two sections:
 
     You can read it top-to-bottom, but each section aims to provide a deeper explanation of a single concept - meaning there is no aim for continuity.
 
-## Basics
+### Basics
 
 -   Static Type-checking
 
@@ -124,3 +124,33 @@ The handbook is split into two sections:
 
     - `noImplicitAny` : most lenient type `any`
     - `strictNullChecks` : makes handling `null` and `undefined` more explicit, and spares us from worrying about whether we forgot to handle `null` and `undefined`.
+
+### Everyday Types
+
+#### Primitives
+
+-   `string`
+
+    represents string values like `"Hello, world"`
+
+-   `number`
+
+    is for numbers like `42`.
+
+    JavaScript does not have a special runtime value for integers, so there’s no equivalent to `int` or `float` - everything is simply `number`
+
+-   `boolean`
+
+    is for the two values `true` and `false`
+
+#### Arrays
+
+To specify the type of an array like `[1, 2, 3]`, you can use the syntax `number[]`;
+this syntax works for any type (e.g. `string[]` is an array of strings, and so on).
+
+You may also see this written as `Array<number>`, which means the same thing.
+We'll learn more about the syntax `T<U>` when we cover generics.
+
+_Note that `[number]` is a different thing; refer to the section on Tuples._
+
+#### `any`
