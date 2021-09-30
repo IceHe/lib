@@ -73,4 +73,4 @@ The handbook is split into two sections:
 - Non-exception Failures
 - Types for Tooling
 - `tsc`, TypeScript Compiler
-
+- Emitting with Errors
