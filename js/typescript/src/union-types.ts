@@ -8,3 +8,10 @@ printId(101);
 printId("202");
 // Error
 //printId({ myID: 22342 });
+
+function printNumOrStr(numOrStr: number | string) {
+    console.log(`The content is: ${numOrStr}`)
+}
+
+printNumOrStr(666);
+printNumOrStr("icehe.xyz");

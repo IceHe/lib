@@ -1,0 +1,28 @@
+function printId(id) {
+    if (typeof id === "string") {
+        // In this branch, id is of type 'string'
+        console.log(id.toUpperCase());
+    }
+    else {
+        // Here, id is of type 'number'
+        console.log(id);
+    }
+}
+// OK
+printId(101);
+// OK
+printId("202");
+// Error
+//printId({ myID: 22342 });
+function printNumOrStr(numOrStr) {
+    if (typeof numOrStr === "string") {
+        // In this branch, id is of type 'string'
+        console.log(numOrStr.toUpperCase());
+    }
+    else {
+        // Here, id is of type 'number'
+        console.log(numOrStr);
+    }
+}
+printNumOrStr(666);
+printNumOrStr("icehe.xyz");
