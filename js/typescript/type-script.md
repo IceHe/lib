@@ -74,3 +74,4 @@ The handbook is split into two sections:
 - Types for Tooling
 - `tsc`, TypeScript Compiler
 - Emitting with Errors
+- Explicit Types
