@@ -166,3 +166,45 @@ When you declare a variable using const, var, or let, you can optionally add a t
 ```js
 let myName: string = "Alice";
 ```
+
+```js
+// No type annotation needed -- 'myName' inferred as type 'string'
+let myName = "Alice";
+```
+
+#### Functions
+
+##### Parameter Type Annotations
+
+```js
+// Parameter type annotation
+function greet(name: string) {
+  console.log("Hello, " + name.toUpperCase() + "!!");
+}
+```
+
+##### Return Type Annotations
+
+```js
+function getFavoriteNumber(): number {
+  return 26;
+}
+```
+
+##### Anonymous Functions
+
+```js
+// No type annotations here, but TypeScript can spot the bug
+const names = ["Alice", "Bob", "Eve"];
+
+// Contextual typing for function
+names.forEach(function (s) {
+  console.log(s.toUpperCase());
+});
+
+// Contextual typing also applies to arrow functions
+names.forEach((s) => {
+  console.log(s.toUpperCase());
+});
+```
+
