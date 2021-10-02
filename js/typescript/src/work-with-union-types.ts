@@ -27,3 +27,16 @@ function printNumOrStr(numOrStr: number | string) {
 
 printNumOrStr(666);
 printNumOrStr("icehe.xyz");
+
+function welcomePeople(people: string[] | string) {
+    if (Array.isArray(people)) {
+        // Here: 'x' is 'string[]'
+        console.log("Hello, " + people.join(" and "));
+    } else {
+        // Here: 'x' is 'string'
+        console.log("Welcom lone traveler " + people);
+    }
+}
+
+welcomePeople(["IceHe", "Alice", "Bob"]);
+welcomePeople("IceHe");

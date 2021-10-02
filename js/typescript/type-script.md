@@ -264,3 +264,9 @@ function printId(id: number | string) {
   }
 }
 ```
+
+##### Type Aliases
+
+```js
+
+```
