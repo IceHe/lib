@@ -267,6 +267,19 @@ function printId(id: number | string) {
 
 ##### Type Aliases
 
-```js
+It’s common to want to use the same type more than once and refer to it by a single name.
 
+```js
+type Point = {
+    x: number;
+    y: number;
+}
+
+// Exactly the same as the earlier example
+function printCoordinate(point: Point) {
+    console.log("The coordinate's x value is " + point.x);
+    console.log("The coordinate's y value is " + point.y);
+}
+
+printCoordinate({ x: 100, y: 50 });
 ```
