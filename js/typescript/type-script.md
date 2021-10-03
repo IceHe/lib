@@ -348,3 +348,35 @@ the key distinction is that **a type cannot be re-opened to add new properties**
 
 -   ……
 
+##### Type Assertions
+
+Sometimes you will have information about the type of a value that TypeScript can’t know about.
+
+For example, if you’re using `document.getElementById`, TypeScript only knows that this will return some kind of `HTMLElement`, but you might know that your page will always have an `HTMLCanvasElement` with a given ID.
+
+In this situation, you can use a type assertion to specify a more specific type:
+
+```js
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
+```
+
+Reminder: Because type assertions are removed at compile-time, there is no runtime checking associated with a type assertion.
+There won’t be an exception or null generated if the type assertion is wrong.
+
+##### Literal Types
+
+##### null and undefined
+
+**`strictNullChecks` off**
+
+**`strictNullChecks` on**
+
+**Non-null Assertion Operator (Postfix `!`)**
+
+##### Enums
+
+##### Less Common Primitives
+
+**bigint**
+
+**symbol**
