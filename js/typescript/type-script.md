@@ -327,3 +327,24 @@ the key distinction is that **a type cannot be re-opened to add new properties**
     ```
 
 -   Extend a type via intersection
+
+    ```js
+    type Animal = {
+        name: string
+    }
+
+    type Bear = Animal & {
+        honey: boolean
+    }
+
+    function getBear(): Bear {
+        return { name: "IceHe", honey: true};
+    }
+
+    const bear = getBear()
+    console.log(bear.name)
+    console.log(bear.honey)
+    ```
+
+-   ……
+
