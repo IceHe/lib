@@ -283,3 +283,25 @@ function printCoordinate(point: Point) {
 
 printCoordinate({ x: 100, y: 50 });
 ```
+
+##### Interfaces
+
+```js
+interface Point {
+    x: number;
+    y: number;
+}
+
+// Exactly the same as the earlier example
+function printCoordinate(point: Point) {
+    console.log("The coordinate's x value is " + point.x);
+    console.log("The coordinate's y value is " + point.y);
+}
+
+printCoordinate({ x: 100, y: 50 });
+```
+
+**Differences Between Type Aliases and Interfaces**
+
+Almost all features of an interface are available in type,
+the key distinction is that **a type cannot be re-opened to add new properties** vs **an interface which is always extendable**.
