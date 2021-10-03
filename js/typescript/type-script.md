@@ -365,6 +365,8 @@ There won’t be an exception or null generated if the type assertion is wrong.
 
 ##### Literal Types
 
+**Literal Inference**
+
 ##### null and undefined
 
 **`strictNullChecks` off**
