@@ -512,3 +512,5 @@ TypeScript expects this to return a certain set of strings:
 - `undefined`
 - `object`
 - `function`
+
+It turns out that **in JavaScript, `typeof null` is actually "object"**! This is one of those unfortunate accidents of history.
