@@ -514,3 +514,27 @@ TypeScript expects this to return a certain set of strings:
 - `function`
 
 It turns out that **in JavaScript, `typeof null` is actually "object"**! This is one of those unfortunate accidents of history.
+
+##### Truthiness Narrowing
+
+In JavaScript, **constructs like `if` first "coerce" their conditions to booleans to make sense of them, and then choose their branches depending on whether the result is true or false**.
+
+Values like
+
+- `0`
+- `NaN`
+- `""` (the empty string)
+- `0n` (the bigint version of zero)
+- `null`
+- `undefined`
+
+all coerce to `false`, and other values get coerced `true`.
+
+You can always **coerce values to booleans by running them through the `Boolean` function, or by using the shorter double-Boolean negation.**
+( **The latter has the advantage that TypeScript infers a narrow literal boolean type true, while inferring the first as type boolean.** )
+
+```js
+// both of these result in 'true'
+Boolean("hello");   // type: boolean, value: true
+!!"world";          // type: true,    value: true
+```
