@@ -538,3 +538,23 @@ You can always **coerce values to booleans by running them through the `Boolean`
 Boolean("hello");   // type: boolean, value: true
 !!"world";          // type: true,    value: true
 ```
+
+_Exmaple_
+
+```js
+function multiplyAll(
+    values: number[] | undefined,
+    factor: number
+): number[] | undefined {
+    if (!values) {
+        return values;
+    } else {
+        return values.map((x) => x * factor);
+    }
+}
+
+console.log(multiplyAll([1, 2, 3], 3));
+console.log(multiplyAll(undefined, 3));
+console.log(multiplyAll(null, 3));
+console.log(multiplyAll([], 3));
+```
