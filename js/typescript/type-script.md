@@ -409,13 +409,38 @@ configure("auto");
 
 **Literal Inference**
 
+- [See details](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-inference)
+
 ##### null and undefined
 
-**`strictNullChecks` off**
+JavaScript has two primitive values used to **signal absent or uninitialized value: `null` and `undefined`**.
 
-**`strictNullChecks` on**
+---
+
+**`strictNullChecks`**
+
+-   **off**
+
+    With `strictNullChecks` off, values that might be **null or undefined can still be accessed normally, and the values null and undefined can be assigned to a property of any type**.
+
+    _The lack of checking for these values tends to be a major source of bugs; we always recommend people turn `strictNullChecks` on if it’s practical to do so in their codebase._
+
+-   **on**
+
+    With `strictNullChecks` on, **when a value is null or undefined, you will need to test for those values before using methods or properties on that value**.
 
 **Non-null Assertion Operator (Postfix `!`)**
+
+TypeScript also has a special syntax for removing `null` and `undefined` from a type without doing any explicit checking.
+
+Writing `!` after any expression is effectively a type assertion that the value isn’t **null** or **undefined**:
+
+```js
+function liveDangerously(x?: number | null) {
+  // No error
+  console.log(x!.toFixed());
+}
+```
 
 ##### Enums
 
