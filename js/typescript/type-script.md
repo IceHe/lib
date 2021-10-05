@@ -483,3 +483,32 @@ if (firstName === secondName) {
     console.log("`firstName === secondName` is wrong.");
 }
 ```
+
+#### Narrowing
+
+```js
+function padLeft(padding: number | string, input: string) {
+    if (typeof padding === "number") {
+        return new Array(padding + 1).join(" ") + input;
+    }
+    return padding + input;
+}
+
+console.log(padLeft(3, "IceHe"));
+console.log(padLeft("Seen ", "IceHe"));
+```
+
+##### `typeof` type guards
+
+JavaScript supports a typeof operator which can give very basic information about the type of values we have at runtime.
+
+TypeScript expects this to return a certain set of strings:
+
+- `string`
+- `number`
+- `bigint`
+- `boolean`
+- `symbol`
+- `undefined`
+- `object`
+- `function`
