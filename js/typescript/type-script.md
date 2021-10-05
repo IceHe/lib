@@ -444,8 +444,42 @@ function liveDangerously(x?: number | null) {
 
 ##### Enums
 
+Enums are a feature added to JavaScript by TypeScript which allows for describing a value which could be one of a set of possible named constants.
+
+Unlike most TypeScript features, this is **not a type-level addition to JavaScript but something added to the language and runtime**.
+
+- See [Enums](https://www.typescriptlang.org/docs/handbook/enums.html)
+
 ##### Less Common Primitives
 
 **bigint**
 
+From ES2020 onwards, there is a primitive in JavaScript used for very large integers, BigInt:
+
+```js
+// Creating a bigint via the BigInt function
+const oneHundred: bigint = BigInt(100);
+// Creating a BigInt via the literal syntax
+const anotherHundred: bigint = 100n;
+```
+
+```bash
+$ tsc --target es2020 bigint.ts && node bigint.js
+100n
+100n
+```
+
 **symbol**
+
+There is a primitive in JavaScript used to create a globally unique reference via the function `Symbol()`:
+
+```js
+const firstName = Symbol("name");
+const secondName = Symbol("name");
+
+if (firstName === secondName) {
+    // Can't ever happen
+} else {
+    console.log("`firstName === secondName` is wrong.");
+}
+```
