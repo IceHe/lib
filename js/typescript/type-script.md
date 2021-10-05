@@ -558,3 +558,9 @@ console.log(multiplyAll(undefined, 3));
 console.log(multiplyAll(null, 3));
 console.log(multiplyAll([], 3));
 ```
+
+##### Equality Narrowing
+
+TypeScript also uses switch statements and equality checks like `===`, `!==`, `==`, and `!=` to narrow types.
+
+For example:
