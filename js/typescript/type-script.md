@@ -365,6 +365,27 @@ There won’t be an exception or null generated if the type assertion is wrong.
 
 ##### Literal Types
 
+It's not much use to have a variable that can only have one value!
+
+But **by combining literals into unions**, you can express a much more useful concept - for example, **functions that only accept a certain set of known values ( on function parameters )**:
+
+```js
+function print123(s: "one" | "two" | "three") {
+    console.log(s);
+}
+
+print123("one");
+print123("two");
+print123("three");
+// print123("four");
+```
+
+Numeric literal types work the same way ( using on function returning type ) :
+
+```js
+
+```
+
 **Literal Inference**
 
 ##### null and undefined
