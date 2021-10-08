@@ -577,3 +577,19 @@ function example(x: string | number, y: string | boolean) {
     }
 }
 ```
+
+When we checked that x and y are both equal in the above example, TypeScript knew their types also had to be equal.
+Since `string` is the only common type that both x and y could take on, TypeScript knows that x and y must be a `string` in the first branch.
+
+……
+
+Checking whether something `== null` actually not only checks whether it is specifically the value `null` - it also checks whether it's potentially `undefined`. The same applies to `== undefined`: it checks whether a value is either `null` or `undefined`.
+
+See [Equality Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#equality-narrowing) for details
+
+##### `in` Operator Narrowing
+
+JavaScript has an operator for determining if an object has a property with a name: the `in` operator.
+_TypeScript takes this into account as a way to narrow down potential types._
+
+_( icehe : `typeof` 用于推断基本类型, `in` 用来推断自定义类型 )_
