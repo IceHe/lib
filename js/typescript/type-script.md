@@ -543,14 +543,14 @@ _Exmaple_
 
 ```js
 function multiplyAll(
-    values: number[] | undefined,
-    factor: number
+  values: number[] | undefined,
+  factor: number
 ): number[] | undefined {
-    if (!values) {
-        return values;
-    } else {
-        return values.map((x) => x * factor);
-    }
+  if (!values) {
+    return values;
+  } else {
+    return values.map((x) => x * factor);
+  }
 }
 
 console.log(multiplyAll([1, 2, 3], 3));
@@ -567,14 +567,14 @@ For example:
 
 ```js
 function example(x: string | number, y: string | boolean) {
-    if (x === y) {
-        // We can now call any 'string' method on 'x' or 'y'.
-        x.toUpperCase();
-        y.toLowerCase();
-    } else {
-        console.log(x);
-        console.log(y);
-    }
+  if (x === y) {
+    // We can now call any 'string' method on 'x' or 'y'.
+    x.toUpperCase();
+    y.toLowerCase();
+  } else {
+    console.log(x);
+    console.log(y);
+  }
 }
 ```
 
