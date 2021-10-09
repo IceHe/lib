@@ -374,17 +374,152 @@ Further reading: [Project References - TypeScript Handbook](https://www.typescri
 
 ##### allowUnreachableCode
 
+When:
+
+- `undefined` (default) provide suggestions as warnings to editors
+- `true` unreachable code is ignored
+- `false` raises compiler errors about unreachable code
+
+These warnings are only about code which is provably unreachable due to the use of JavaScript syntax, for example:
+
+With `"allowUnreachableCode": false`:
+
+```js
+function fn(n: number) {
+  if (n > 5) {
+    return true;
+  } else {
+    return false;
+  }
+  return true;
+  // Unreachable code detected.
+}
+```
+
+This does not affect errors on the basis of code which appears to be unreachable due to type analysis.
+
 ##### allowUnusedLabels
+
+When:
+
+- `undefined` (default) provide suggestions as warnings to editors
+- `true` unused labels are ignored
+- `false` raises compiler errors about unused labels
+
+Labels are very rare in JavaScript and typically indicate an attempt to write an object literal:
+
+```js
+function verifyAge(age: number) {
+  // Forgot 'return' statement
+  if (age > 18) {
+    verified: true;
+    // Unused label.
+  }
+}
+```
 
 ##### alwaysStrict
 
+**Ensures that your files are parsed in the ECMAScript strict mode, and emit "use strict" for each source file.**
+
+ECMAScript strict mode was introduced in ES5 and provides behavior tweaks to the runtime of the JavaScript engine to improve performance, and makes a set of errors throw instead of silently ignoring them.
+
 ##### exactOptionalPropertyTypes
+
+With `exactOptionalPropertyTypes` enabled, TypeScript **applies stricter rules around how it handles properties on `type` or `interface`s which have a `?` prefix.**
+
+For example, this interface declares that there is a property which can be one of two strings: "dark" or "light" or it should not be in the object.
+
+```js
+interface UserDefaults {
+  // The absence of a value represents 'system'
+  colorThemeOverride?: "dark" | "light";
+}
+```
+
+Without this flag enabled, there are three values which you can set colorThemeOverride to be: "dark", "light" and `undefined`.
+
+Setting the value to `undefined` will allow most JavaScript runtime checks for the existence to fail, which is effectively falsy.
+However, this isn't quite accurate `colorThemeOverride: undefined` is not the same as `colorThemeOverride` not being defined.
+For example `"colorThemeOverride" in settings` would have different behavior with `undefined` as the key compared to not being defined.
+
+`exactOptionalPropertyTypes` makes TypeScript truly enforce the definition provided as an optional property:
+
+```js
+const settings = getUserSettings();
+settings.colorThemeOverride = "dark";
+settings.colorThemeOverride = "light";
+
+// But not:
+settings.colorThemeOverride = undefined;
+// Type 'undefined' is not assignable to type '"dark" | "light"' with 'exactOptionalPropertyTypes: true'.
+// Consider adding 'undefined' to the type of the target.
+```
 
 ##### noFallthroughCasesInSwitch
 
+**Report errors for fallthrough cases in switch statements.**
+Ensures that any non-empty case inside a switch statement includes either `break` or `return`.
+This means you won't accidentally ship a case fallthrough bug.
+
+```js
+const a: number = 6;
+
+switch (a) {
+  case 0:
+Fallthrough case in switch.
+    console.log("even");
+  case 1:
+    console.log("odd");
+    break;
+}
+```
+
 ##### noImplicitAny
 
+**In some cases where no type annotations are present, TypeScript will fall back to a type of any for a variable when it cannot infer the type.**
+
+**This can cause some errors to be missed**, for example:
+
+```js
+function fn(s) {
+  // No error?
+  console.log(s.subtr(3));
+}
+fn(42);
+```
+
+Turning on `noImplicitAny` however TypeScript will issue an error whenever it would have inferred `any`:
+
+```js
+function fn(s) {
+  // Parameter 's' implicitly has an 'any' type.
+  console.log(s.subtr(3));
+}
+```
+
 ##### noImplicitOverride
+
+**When working with classes which use inheritance, it's possible for a sub-class to get "out of sync" with the functions it overloads when they are renamed in the base class.**
+
+Using `noImplicitOverride` you can ensure that the sub-classes never go out of sync, by **ensuring that functions which override include the keyword `override`.**
+
+The following example has `noImplicitOverride` enabled, and you can see the error received when `override` is missing:
+
+```js
+class Album {
+  setup() {}
+}
+
+class MLAlbum extends Album {
+  override setup() {}
+}
+
+class SharedAlbum extends Album {
+  setup() {}
+  // This member must have an 'override' modifier because it overrides a member in the base class 'Album'.
+}
+```
 
 ##### noImplicitReturns
 
