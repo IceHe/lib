@@ -96,7 +96,213 @@ _For example, if you were writing a project which uses Node.js version 16 and ab
 
 ### Category
 
+Top Level ( Root Field )
+
+- files
+- extends
+- include
+- exclude
+- references
+
+`"compilerOptions"`
+
+-   Type Checking
+
+    - allowUnreachableCode
+    - allowUnusedLabels
+    - alwaysStrict
+    - exactOptionalPropertyTypes
+    - noFallthroughCasesInSwitch
+    - noImplicitAny
+    - noImplicitOverride
+    - noImplicitReturns
+    - noImplicitThis
+    - noPropertyAccessFromIndexSignature
+    - noUncheckedIndexedAccess
+    - noUnusedLocals
+    - noUnusedParameters
+    - strict
+    - strictBindCallApply
+    - strictFunctionTypes
+    - strictNullChecks
+    - strictPropertyInitialization
+    - useUnknownInCatchVariables
+
+-   Modules
+
+    - allowUmdGlobalAccess
+    - baseUrl
+    - module
+    - moduleResolution
+    - noResolve
+    - paths
+    - resolveJsonModule
+    - rootDir
+    - rootDirs
+    - typeRoots andtypes
+
+-   Emit
+
+    - declaration
+    - declarationDir
+    - declarationMap
+    - downlevelIteration
+    - emitBOM
+    - emitDeclarationOnly
+    - importHelpers
+    - importsNotUsedAsValues
+    - inlineSourceMap
+    - inlineSources
+    - mapRoot
+    - newLine
+    - noEmit
+    - noEmitHelpers
+    - noEmitOnError
+    - outDir
+    - outFile
+    - preserveConstEnums
+    - preserveValueImports
+    - removeComments
+    - sourceMap
+    - sourceRoot
+    - stripInternal
+
+-   JavaScript Support
+
+    - allowJs
+    - checkJs
+    - maxNodeModuleJsDepth
+
+-   Editor Support
+
+    - disableSizeLimit
+    - plugins
+
+-   Interop Constraints
+
+    - allowSyntheticDefaultImports
+    - esModuleInterop
+    - forceConsistentCasingInFileNames
+    - isolatedModules andpreserveSymlinks
+
+-   Backwards Compatibility
+
+    - charset
+    - keyofStringsOnly
+    - noImplicitUseStrict
+    - noStrictGenericChecks
+    - out
+    - suppressExcessPropertyErrors
+    - suppressImplicitAnyIndexErrors
+
+-   Language and Environment
+
+    - emitDecoratorMetadata
+    - experimentalDecorators
+    - jsx
+    - jsxFactory
+    - jsxFragmentFactory
+    - jsxImportSource
+    - lib
+    - noLib
+    - reactNamespace
+    - target
+    - useDefineForClassFields
+
+-   Compiler Diagnostics
+
+    - diagnostics
+    - explainFiles
+    - extendedDiagnostics
+    - generateCpuProfile
+    - listEmittedFiles
+    - listFiles
+    - traceResolution
+
+-   Projects
+
+    - composite
+    - disableReferencedProjectLoad
+    - disableSolutionSearching
+    - disableSourceOfProjectReferenceRedirect
+    - incremental
+    - tsBuildInfoFile
+
+-   Output Formatting
+
+    - noErrorTruncation
+    - preserveWatchOutput
+    - pretty
+
+-   Completeness
+
+    - skipDefaultLibCheck
+    - skipLibCheck
+
+-   Command Line
+
+-   Watch Options
+
+    - assumeChangesOnlyAffectDirectDependencies
+
+`"watchOptions"`
+
+- watchFile
+- watchDirectory
+- fallbackPolling
+- synchronousWatchDirectory
+- excludeDirectories
+- excludeFiles
+
+`"typeAcquisition"`
+
+- enable
+- include
+- exclude
+- disableFilenameBasedTypeAcquisition
+
 ### Root Field
+
+#### files
+
+**Specifies an allowlist of files to include in the program.**
+_An error occurs if any of the files can't be found._
+
+```json
+{
+  "compilerOptions": {},
+  "files": [
+    "core.ts",
+    "sys.ts",
+    "types.ts",
+    "scanner.ts",
+    "parser.ts",
+    "utilities.ts",
+    "binder.ts",
+    "checker.ts",
+    "tsc.ts"
+  ]
+}
+```
+
+#### extends
+
+**The value of `extends` is a string which contains a path to another configuration file to inherit from.**
+_The path may use Node.js style resolution._
+
+The configuration from the base file are loaded first, then overridden by those in the inheriting config file.
+_All relative paths found in the configuration file will be resolved relative to the configuration file they originated in._
+
+It's worth noting that <!-- 值得注意的是 -->
+
+- **`files`, `include` and `exclude` from the inheriting config file overwrite those from the base config file,**
+- **and that circularity between configuration files is not allowed.**
+
+#### include
+
+#### exclude
+
+#### references
 
 ### Compiler Options
 
