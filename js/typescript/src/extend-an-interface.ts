@@ -1,15 +1,15 @@
 interface Animal {
-    name: string
+  name: string;
 }
 
 interface Bear extends Animal {
-    honey: boolean
+  honey: boolean;
 }
 
 function getBear(): Bear {
-    return { name: "IceHe", honey: true};
+  return { name: 'IceHe', honey: true };
 }
 
-const bear = getBear()
-console.log(bear.name)
-console.log(bear.honey)
+const bear = getBear();
+console.log(bear.name);
+console.log(bear.honey);

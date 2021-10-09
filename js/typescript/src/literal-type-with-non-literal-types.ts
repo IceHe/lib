@@ -1,10 +1,10 @@
 interface Options {
-    width: number;
+  width: number;
 }
-function configure(x: Options | "auto") {
-    console.log(x);
+function configure(x: Options | 'auto') {
+  console.log(x);
 }
 
 configure({ width: 100 });
-configure("auto");
-// configure("automatic");
+configure('auto');
+// Configure("automatic");

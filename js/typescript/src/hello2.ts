@@ -1,6 +1,6 @@
 // This is an industrial-grade general-purpose greeter function:
 function greet(person, date) {
-    console.log(`Hello ${person}, today is ${date}!`);
+  console.log(`Hello ${person}, today is ${date}!`);
 }
 
-greet("Brendan", "2021/09/29");
+greet('Brendan', '2021/09/29');
