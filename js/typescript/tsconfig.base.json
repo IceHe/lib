@@ -1,0 +1,11 @@
+{
+    // "extends": "@silverhand/ts-config/tsconfig.base",
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "strictNullChecks": true
+    },
+}

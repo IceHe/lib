@@ -1,12 +1,5 @@
 {
-    // "extends": "@silverhand/ts-config/tsconfig.base",
-    "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "sourceMap": true
-    },
+    "extends": "./js/typescript/tsconfig.base",
     "include": [
         "js/**/*",
         "src/**/*"

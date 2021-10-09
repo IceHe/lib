@@ -298,9 +298,63 @@ It's worth noting that <!-- 值得注意的是 -->
 - **`files`, `include` and `exclude` from the inheriting config file overwrite those from the base config file,**
 - **and that circularity between configuration files is not allowed.**
 
+Example
+
+`configs/base.json`:
+
+```json
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  }
+}
+```
+
+`tsconfig.json`:
+
+```json
+{
+  "extends": "./configs/base",
+  "files": ["main.ts", "supplemental.ts"]
+}
+```
+
+`tsconfig.nostrictnull.json`:
+
+```json
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "strictNullChecks": false
+  }
+}
+```
+
+Properties with relative paths found in the configuration file, which aren't excluded from inheritance, will be resolved relative to the configuration file they originated in.
+
 #### include
 
+**Specifies an array of filenames or patterns to include in the program.**
+These filenames are resolved relative to the directory containing the `tsconfig.json` file.
+
+```json
+{
+  "include": ["src/**/*", "tests/**/*"]
+}
+```
+
+`include` and `exclude` support wildcard characters to make glob patterns:
+
+- `*` matches zero or more characters (excluding directory separators)
+- `?` matches any one character (excluding directory separators)
+- **`**/` matches any directory nested to any level**
+
+**If a glob pattern doesn't include a file extension, then only files with supported extensions are included** (e.g. `.ts`, `.tsx`, and `.d.ts` by default, with `.js` and `.jsx` if `allowJs` is set to true).
+
 #### exclude
+
+**Specifies an array of filenames or patterns that should be skipped when resolving `include`.**
 
 #### references
 
