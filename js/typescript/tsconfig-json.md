@@ -523,9 +523,87 @@ class SharedAlbum extends Album {
 
 ##### noImplicitReturns
 
+When enabled, TypeScript will **check all code paths in a function to ensure they return a value.**
+
+```js
+function lookupHeadphonesManufacturer(color: "blue" | "black"): string {
+  // Function lacks ending return statement and return type does not include 'undefined'.
+  if (color === "blue") {
+    return "beats";
+  } else {
+    "bose";
+  }
+}
+```
+
 ##### noImplicitThis
 
+**Raise error on "this" expressions with an implied "any" type.**
+
+For example, the class below returns a function which tries to access `this.width` and `this.height` – but the context for `this` inside the function inside `getAreaFunction` is not the instance of the Rectangle.
+
+```js
+class Rectangle {
+  width: number;
+  height: number;
+
+  constructor(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+  }
+
+  getAreaFunction() {
+    return function () {
+      return this.width * this.height;
+      // 'this' implicitly has type 'any' because it does not have a type annotation.
+      // 'this' implicitly has type 'any' because it does not have a type annotation.
+    };
+  }
+}
+```
+
 ##### noPropertyAccessFromIndexSignature
+
+This setting **ensures consistency between accessing a field via the “dot” (`obj.key`) syntax, and "indexed" (`obj["key"]`) and the way which the property is declared in the type.**
+
+Without this flag, TypeScript will allow you to use the dot syntax to access fields which are not defined:
+
+```js
+interface GameSettings {
+  // Known up-front properties
+  speed: "fast" | "medium" | "slow";
+  quality: "high" | "low";
+
+  // Assume anything unknown to the interface
+  // is a string.
+  [key: string]: string;
+}
+
+const settings = getSettings();
+settings.speed;
+// (property) GameSettings.speed: "fast" | "medium" | "slow"
+
+settings.quality;
+// (property) GameSettings.quality: "high" | "low"
+
+// Unknown key accessors are allowed on
+// this object, and are `string`
+settings.username;
+```
+
+Turning the flag on will raise an error because the unknown field uses dot syntax instead of indexed syntax.
+
+```js
+const settings = getSettings();
+settings.speed;
+settings.quality;
+
+// This would need to be settings["username"];
+settings.username;
+// Property 'username' comes from an index signature, so it must be accessed with ['username'].
+```
+
+The goal of this flag is to signal intent in your calling syntax about how certain you are this property exists.
 
 ##### noUncheckedIndexedAccess
 
