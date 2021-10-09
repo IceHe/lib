@@ -356,16 +356,258 @@ These filenames are resolved relative to the directory containing the `tsconfig.
 
 **Specifies an array of filenames or patterns that should be skipped when resolving `include`.**
 
+Important: **`exclude` only changes which files are included as a result of the `include` setting.**
+A file specified by `exclude` can still become part of your codebase due to an `import` statement in your code, a types inclusion, a `/// <reference` directive, or being specified in the `files` list.
+
+It is not a mechanism that **prevents** a file from being included in the codebase - it simply changes what the `include` setting finds.
+
 #### references
+
+Project references are **a way to structure your TypeScript programs into smaller pieces.**
+Using Project References can greatly improve build and editor interaction times, enforce logical separation between components, and organize your code in new and improved ways.
+
+Further reading: [Project References - TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/project-references.html)
 
 ### Compiler Options
 
-#### Top Level
-
 #### Type Checking
 
-### Watch Options
+##### allowUnreachableCode
 
-### Type Acquisition
+##### allowUnusedLabels
 
-TODO
+##### alwaysStrict
+
+##### exactOptionalPropertyTypes
+
+##### noFallthroughCasesInSwitch
+
+##### noImplicitAny
+
+##### noImplicitOverride
+
+##### noImplicitReturns
+
+##### noImplicitThis
+
+##### noPropertyAccessFromIndexSignature
+
+##### noUncheckedIndexedAccess
+
+##### noUnusedLocals
+
+##### noUnusedParameters
+
+##### strict
+
+##### strictBindCallApply
+
+##### strictFunctionTypes
+
+##### strictNullChecks
+
+##### strictPropertyInitialization
+
+##### useUnknownInCatchVariables
+
+#### Modules
+
+##### allowUmdGlobalAccess
+
+##### baseUrl
+
+##### module
+
+##### moduleResolution
+
+##### noResolve
+
+##### paths
+
+##### resolveJsonModule
+
+##### rootDir
+
+##### rootDirs
+
+##### typeRoots andtypes
+
+#### Emit
+
+##### declaration
+
+##### declarationDir
+
+##### declarationMap
+
+##### downlevelIteration
+
+##### emitBOM
+
+##### emitDeclarationOnly
+
+##### importHelpers
+
+##### importsNotUsedAsValues
+
+##### inlineSourceMap
+
+##### inlineSources
+
+##### mapRoot
+
+##### newLine
+
+##### noEmit
+
+##### noEmitHelpers
+
+##### noEmitOnError
+
+##### outDir
+
+##### outFile
+
+##### preserveConstEnums
+
+##### preserveValueImports
+
+##### removeComments
+
+##### sourceMap
+
+##### sourceRoot
+
+##### stripInternal
+
+#### JavaScript Support
+
+##### allowJs
+
+##### checkJs
+
+##### maxNodeModuleJsDepth
+
+#### Editor Support
+
+##### disableSizeLimit
+
+##### plugins
+
+#### Interop Constraints
+
+##### allowSyntheticDefaultImports
+
+##### esModuleInterop
+
+##### forceConsistentCasingInFileNames
+
+##### isolatedModules andpreserveSymlinks
+
+#### Backwards Compatibility
+
+##### charset
+
+##### keyofStringsOnly
+
+##### noImplicitUseStrict
+
+##### noStrictGenericChecks
+
+##### out
+
+##### suppressExcessPropertyErrors
+
+##### suppressImplicitAnyIndexErrors
+
+#### Language and Environment
+
+##### emitDecoratorMetadata
+
+##### experimentalDecorators
+
+##### jsx
+
+##### jsxFactory
+
+##### jsxFragmentFactory
+
+##### jsxImportSource
+
+##### lib
+
+##### noLib
+
+##### reactNamespace
+
+##### target
+
+##### useDefineForClassFields
+
+#### Compiler Diagnostics
+
+##### diagnostics
+
+##### explainFiles
+
+##### extendedDiagnostics
+
+##### generateCpuProfile
+
+##### listEmittedFiles
+
+##### listFiles
+
+##### traceResolution
+
+#### Projects
+
+##### composite
+
+##### disableReferencedProjectLoad
+
+##### disableSolutionSearching
+
+##### disableSourceOfProjectReferenceRedirect
+
+##### incremental
+
+##### tsBuildInfoFile
+
+#### Output Formatting
+
+##### noErrorTruncation
+
+##### preserveWatchOutput
+
+##### pretty
+
+#### Completeness
+
+##### skipDefaultLibCheck
+
+##### skipLibCheck
+
+#### Command Line
+
+TBD 暂无?
+
+#### Watch Options
+
+assumeChangesOnlyAffectDirectDependencies
+
+### watchOptions
+
+- watchFile
+- watchDirectory
+- fallbackPolling
+- synchronousWatchDirectory
+- excludeDirectories
+- excludeFiles
+
+### typeAcquisition
+
+- enable
+- include
+- exclude
+- disableFilenameBasedTypeAcquisition
