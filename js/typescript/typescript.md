@@ -19,7 +19,6 @@ References
             - Search for npm modules with types from DefinitelyTyped or embedded in the module.
 - Notes
     - [tsconfig.json](tsconfig-json.md)
-    - [Compiler Options](compiler-options.md)
 
 ## Intro
 
