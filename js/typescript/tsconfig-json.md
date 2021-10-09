@@ -607,11 +607,78 @@ The goal of this flag is to signal intent in your calling syntax about how certa
 
 ##### noUncheckedIndexedAccess
 
+TypeScript has a way to describe objects which have unknown keys but known values on an object, via index signatures.
+
+```js
+interface EnvironmentVars {
+  NAME: string;
+  OS: string;
+
+  // Unknown properties are covered by this index signature.
+  [propName: string]: string;
+}
+
+declare const env: EnvironmentVars;
+
+// Declared as existing
+const sysName = env.NAME;
+const os = env.OS;
+
+// Not declared, but because of the index
+// signature, then it is considered a string
+const nodeEnv = env.NODE_ENV;
+// const nodeEnv: string
+```
+
+Turning on `noUncheckedIndexedAccess` will add `undefined` to any un-declared field in the type.
+
+```js
+declare const env: EnvironmentVars;
+
+// Declared as existing
+const sysName = env.NAME;
+const os = env.OS;
+
+const os: string
+
+// Not declared, but because of the index
+// signature, then it is considered a string
+const nodeEnv = env.NODE_ENV;
+// const nodeEnv: string | undefined
+```
+
 ##### noUnusedLocals
+
+**Report errors on unused local variables.**
+
+```js
+const createKeyboard = (modelID: number) => {
+  const defaultModelID = 23;
+  // 'defaultModelID' is declared but its value is never read.
+  return { type: "keyboard", modelID };
+};
+```
 
 ##### noUnusedParameters
 
+**Report errors on unused parameters in functions.**
+
+```js
+const createDefaultKeyboard = (modelID: number) => {
+  // 'modelID' is declared but its value is never read.
+  const defaultModelID = 23;
+  return { type: "keyboard", modelID: defaultModelID };
+};
+```
+
 ##### strict
+
+The `strict` flag **enables a wide range of type checking behavior that results in stronger guarantees of program correctness.**
+Turning this on is equivalent to enabling all of the strict mode family options, which are outlined below.
+You can then turn off individual strict mode family checks as needed.
+
+Future versions of TypeScript may introduce additional stricter checking under this flag, so upgrades of TypeScript might result in new type errors in your program.
+When appropriate and possible, a corresponding flag will be added to disable that behavior.
 
 ##### strictBindCallApply
 
