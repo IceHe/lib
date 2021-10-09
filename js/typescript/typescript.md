@@ -17,6 +17,9 @@ References
             - An annotated reference to more than a hundred compiler options available in a `tsconfig.json` or `jsconfig.json`.
         - [Type Search](https://www.typescriptlang.org/dt/search?search=)
             - Search for npm modules with types from DefinitelyTyped or embedded in the module.
+- Notes
+    - [tsconfig.json](tsconfig-json.md)
+    - [Compiler Options](compiler-options.md)
 
 ## Intro
 
