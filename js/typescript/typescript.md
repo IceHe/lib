@@ -279,8 +279,8 @@ type Point = {
 
 // Exactly the same as the earlier example
 function printCoordinate(point: Point) {
-    console.log("The coordinate's x value is " + point.x);
-    console.log("The coordinate's y value is " + point.y);
+  console.log("The coordinate's x value is " + point.x);
+  console.log("The coordinate's y value is " + point.y);
 }
 
 printCoordinate({ x: 100, y: 50 });
@@ -290,14 +290,14 @@ printCoordinate({ x: 100, y: 50 });
 
 ```js
 interface Point {
-    x: number;
-    y: number;
+  x: number;
+  y: number;
 }
 
 // Exactly the same as the earlier example
 function printCoordinate(point: Point) {
-    console.log("The coordinate's x value is " + point.x);
-    console.log("The coordinate's y value is " + point.y);
+  console.log("The coordinate's x value is " + point.x);
+  console.log("The coordinate's y value is " + point.y);
 }
 
 printCoordinate({ x: 100, y: 50 });
@@ -312,15 +312,15 @@ the key distinction is that **a type cannot be re-opened to add new properties**
 
     ```js
     interface Animal {
-        name: string
+      name: string
     }
 
     interface Bear extends Animal {
-        honey: boolean
+      honey: boolean
     }
 
     function getBear(): Bear {
-        return { name: "IceHe", honey: true};
+      return { name: "IceHe", honey: true};
     }
 
     const bear = getBear()
@@ -332,15 +332,15 @@ the key distinction is that **a type cannot be re-opened to add new properties**
 
     ```js
     type Animal = {
-        name: string
+      name: string
     }
 
     type Bear = Animal & {
-        honey: boolean
+      honey: boolean
     }
 
     function getBear(): Bear {
-        return { name: "IceHe", honey: true};
+      return { name: "IceHe", honey: true};
     }
 
     const bear = getBear()
@@ -373,7 +373,7 @@ But **by combining literals into unions**, you can express a much more useful co
 
 ```js
 function print123(s: "one" | "two" | "three") {
-    console.log(s);
+  console.log(s);
 }
 
 print123("one");
@@ -386,7 +386,7 @@ Numeric literal types work the same way ( using on function returning type ) :
 
 ```js
 function compare(a: string, b: string): -1 | 0 | 1 {
-    return ((a === b) ? 0 : ((a > b) ? 1 : -1));
+  return ((a === b) ? 0 : ((a > b) ? 1 : -1));
 }
 
 console.log(compare("a", "abc"));
@@ -398,10 +398,10 @@ Combine these with non-literal types:
 
 ```js
 interface Options {
-    width: number;
+  width: number;
 }
 function configure(x: Options | "auto") {
-    console.log(x);
+  console.log(x);
 }
 
 configure({ width: 100 });
@@ -480,9 +480,9 @@ const firstName = Symbol("name");
 const secondName = Symbol("name");
 
 if (firstName === secondName) {
-    // Can't ever happen
+  // Can't ever happen
 } else {
-    console.log("`firstName === secondName` is wrong.");
+  console.log("`firstName === secondName` is wrong.");
 }
 ```
 
@@ -490,10 +490,10 @@ if (firstName === secondName) {
 
 ```js
 function padLeft(padding: number | string, input: string) {
-    if (typeof padding === "number") {
-        return new Array(padding + 1).join(" ") + input;
-    }
-    return padding + input;
+  if (typeof padding === "number") {
+    return new Array(padding + 1).join(" ") + input;
+  }
+  return padding + input;
 }
 
 console.log(padLeft(3, "IceHe"));
