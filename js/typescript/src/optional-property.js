@@ -1,13 +1,14 @@
 // Optional Properties
-function printName(obj) {
-    console.log(obj.first.toUpperCase());
-    // Error - might crash if 'obj.last' wasn't provided!
-    if (obj.last !== undefined) {
-        // OK
-        console.log(obj.last.toUpperCase());
-    }
-    // A safe alternative using modern JavaScript syntax:
-    // console.log(obj.last?.toUpperCase());
+function printName(object) {
+  console.log(object.first.toUpperCase());
+  // Error - might crash if 'obj.last' wasn't provided!
+  if (object.last !== undefined) {
+    // OK
+    console.log(object.last.toUpperCase());
+  }
+  // A safe alternative using modern JavaScript syntax:
+  // console.log(obj.last?.toUpperCase());
 }
-printName({ first: "Bob" });
-printName({ first: "Ice", last: "He" });
+
+printName({ first: 'Bob' });
+printName({ first: 'Ice', last: 'He' });

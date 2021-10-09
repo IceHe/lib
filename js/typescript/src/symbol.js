@@ -1,8 +1,7 @@
-var firstName = Symbol("name");
-var secondName = Symbol("name");
+const firstName = Symbol('name');
+const secondName = Symbol('name');
 if (firstName === secondName) {
-    // Can't ever happen
-}
-else {
-    console.log("`firstName === secondName` is wrong.");
+  // Can't ever happen
+} else {
+  console.log('`firstName === secondName` is wrong.');
 }

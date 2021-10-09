@@ -1,7 +1,8 @@
 function liveDangerously(x) {
-    // No error
-    console.log(x.toFixed());
+  // No error
+  console.log(x.toFixed(0));
 }
+
 liveDangerously(996);
-// liveDangerously(null);
+// LiveDangerously(null);
 // liveDangerously(undefined);

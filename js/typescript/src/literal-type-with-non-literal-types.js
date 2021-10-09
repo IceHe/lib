@@ -1,6 +1,7 @@
 function configure(x) {
-    console.log(x);
+  console.log(x);
 }
+
 configure({ width: 100 });
-configure("auto");
-// configure("automatic");
+configure('auto');
+// Configure("automatic");

@@ -3,11 +3,11 @@ type Animal = {
 }
 
 type Bear = Animal & {
-    honey: boolean
+  honey: boolean
 }
 
 function getBear(): Bear {
-    return { name: "IceHe", honey: true};
+  return { name: "IceHe", honey: true};
 }
 
 const bear = getBear()
