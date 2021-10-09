@@ -416,7 +416,8 @@ Scene
 
 JavaScript aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
 
-- [package.json](/js/package-json.md))
+- [JavaScript](/js/js.md)
+    - [package.json](/js/package-json.md))
 - [Node.js](/js/nodejs.md) : A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
     - [tsconfig.json](/js/typescript/tsconfig-json.md)
