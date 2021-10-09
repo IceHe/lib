@@ -682,13 +682,176 @@ When appropriate and possible, a corresponding flag will be added to disable tha
 
 ##### strictBindCallApply
 
+When set, TypeScript will **check that the built-in methods of functions call, bind, and apply are invoked with correct argument for the underlying function**:
+
+```js
+// With strictBindCallApply on
+function fn(x: string) {
+  return parseInt(x);
+}
+
+const n1 = fn.call(undefined, "10");
+
+const n2 = fn.call(undefined, false);
+// Argument of type 'boolean' is not assignable to parameter of type 'string'.
+```
+
+Otherwise, these functions accept any arguments and will return `any`:
+
+```js
+// With strictBindCallApply off
+function fn(x: string) {
+  return parseInt(x);
+}
+
+// Note: No error; return type is 'any'
+const n = fn.call(undefined, false);
+```
+
 ##### strictFunctionTypes
+
+When enabled, this flag **causes functions parameters to be checked more correctly.**
+
+Here’s a basic example with `strictFunctionTypes` off:
+
+```js
+function fn(x: string) {
+  console.log("Hello, " + x.toLowerCase());
+}
+
+type StringOrNumberFunc = (ns: string | number) => void;
+
+// Unsafe assignment
+let func: StringOrNumberFunc = fn;
+// Unsafe call - will crash
+func(10);
+```
+
+With `strictFunctionTypes` on, the error is correctly detected:
+
+```js
+function fn(x: string) {
+  console.log("Hello, " + x.toLowerCase());
+}
+
+type StringOrNumberFunc = (ns: string | number) => void;
+
+// Unsafe assignment is prevented
+let func: StringOrNumberFunc = fn;
+// Type '(x: string) => void' is not assignable to type 'StringOrNumberFunc'.
+//   Types of parameters 'x' and 'ns' are incompatible.
+//     Type 'string | number' is not assignable to type 'string'.
+//       Type 'number' is not assignable to type 'string'.
+```
+
+During development of this feature, we discovered a large number of inherently unsafe class hierarchies, including some in the DOM.
+Because of this, the setting only applies to functions written in function syntax, not to those in method syntax:
+
+```js
+type Methodish = {
+  func(x: string | number): void;
+};
+
+function fn(x: string) {
+  console.log("Hello, " + x.toLowerCase());
+}
+
+// Ultimately an unsafe assignment, but not detected
+const m: Methodish = {
+  func: fn,
+};
+m.func(10);
+```
 
 ##### strictNullChecks
 
+When `strictNullChecks` is `false`, `null` and `undefined` are effectively ignored by the language.
+This can lead to unexpected errors at runtime.
+
+**When `strictNullChecks` is `true`, `null` and `undefined` have their own distinct types and you'll get a type error if you try to use them where a concrete value is expected.**
+
+For example with this TypeScript code, `users.find` has no guarantee that it will actually find a user, but you can write code as though it will:
+
+```js
+declare const loggedInUsername: string;
+
+const users = [
+  { name: "Oby", age: 12 },
+  { name: "Heera", age: 32 },
+];
+
+const loggedInUser = users.find((u) => u.name === loggedInUsername);
+console.log(loggedInUser.age);
+```
+
+Setting `strictNullChecks` to `true` will raise an error that you have not made a guarantee that the `loggedInUser` exists before trying to use it.
+
+```js
+declare const loggedInUsername: string;
+
+const users = [
+  { name: "Oby", age: 12 },
+  { name: "Heera", age: 32 },
+];
+
+const loggedInUser = users.find((u) => u.name === loggedInUsername);
+console.log(loggedInUser.age);
+// Object is possibly 'undefined'.
+```
+
+The second example failed because the array's `find` function looks a bit like this simplification:
+
+```js
+// When strictNullChecks: true
+type Array = {
+  find(predicate: (value: any, index: number) => boolean): S | undefined;
+};
+// When strictNullChecks: false the undefined is removed from the type system,
+// allowing you to write code which assumes it always found a result
+type Array = {
+  find(predicate: (value: any, index: number) => boolean): S;
+};
+```
+
 ##### strictPropertyInitialization
 
+**When set to true, TypeScript will raise an error when a class property was declared but not set in the constructor.**
+
+```js
+class UserAccount {
+  name: string;
+  accountType = "user";
+
+  email: string;
+  // Property 'email' has no initializer and is not definitely assigned in the constructor.
+  address: string | undefined;
+
+  constructor(name: string) {
+    this.name = name;
+    // Note that this.email is not set
+  }
+}
+```
+
 ##### useUnknownInCatchVariables
+
+In TypeScript 4.0, support was added to allow changing the type of the variable in a catch clause from `any` to `unknown`.
+Allowing for code like:
+
+```js
+try {
+  // ...
+} catch (err) {
+  // We have to verify err is an
+  // error before using it as one.
+  if (err instanceof Error) {
+    console.log(err.message);
+  }
+}
+```
+
+This pattern ensures that error handling code becomes more comprehensive because you cannot guarantee that the object being thrown is a Error subclass ahead of time.
+With the flag `useUnknownInCatchVariables` enabled, then you do not need the additional syntax (`: unknown`) nor a linter rule to try enforce this behavior.
 
 #### Modules
 
