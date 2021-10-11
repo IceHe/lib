@@ -204,7 +204,11 @@ Some of them are CJS, AMD, UMD, and ESM.
 
 ### CJS
 
-**CJS is short for CommonJS.** Here is what it looks like:
+References
+
+- [CommonJS - Wikipedia](https://en.wikipedia.org/wiki/CommonJS)
+
+CJS is short for **CommonJS**. _Here is what it looks like:_
 
 ```js
 // importing
@@ -229,15 +233,63 @@ module.exports = function doSomething(n) {
 
 ### AMD
 
-Reference: [Asynchronous Module Definition - Wikipedia](https://en.wikipedia.org/wiki/Asynchronous_module_definition)
+References:
 
-TODO
+- [Asynchronous Module Definition - Wikipedia](https://en.wikipedia.org/wiki/Asynchronous_module_definition)
+
+AMD stands for **Asynchronous Module Definition**. _Here is a sample code:_
+
+```js
+define(['dep1', 'dep2'], function (dep1, dep2) {
+  // Define the module value by returning a value.
+  return function () {};
+});
+```
+
+or
+
+```js
+// "simplified CommonJS wrapping" https://requirejs.org/docs/whyamd.html
+define(function (require) {
+    var dep1 = require('dep1'),
+        dep2 = require('dep2');
+    return function () {};
+});
+```
+
+- AMD **imports modules asynchronously** (hence the name).
+- AMD is **made for frontend (when it was proposed) (while CJS backend)**.
+- AMD syntax is **less intuitive than CJS**. _I think of AMD as the exact opposite sibling of CJS._
 
 ### UMD
 
-Reference: [UMD (Universal Module Definition) - github.com/umdjs/umd](https://github.com/umdjs/umd#:~:text=These%20are%20modules%20which%20are,(e.g%20RequireJS%20amongst%20others).)
+Reference:
 
-TODO
+- [UMD (Universal Module Definition) - github.com/umdjs/umd](https://github.com/umdjs/umd#:~:text=These%20are%20modules%20which%20are,(e.g%20RequireJS%20amongst%20others).)
+
+UMD stands for **Universal Module Definition**. _Here is what it may look like:_
+
+```js
+(function (root, factory) {
+    if (typeof define === "function" && define.amd) {
+        define(["jquery", "underscore"], factory);
+    } else if (typeof exports === "object") {
+        module.exports = factory(require("jquery"), require("underscore"));
+    } else {
+        root.Requester = factory(root.$, root._);
+    }
+}(this, function ($, _) {
+    // this is where I defined my module implementation
+
+    var Requester = { // ... };
+
+    return Requester;
+}));
+```
+
+- Works on **front and back end** (hence the name universal).
+- Unlike CJS or AMD, UMD is **more like a pattern to configure several module systems**.
+- UMD is usually used as a fallback module when using bundler like Rollup/Webpack _( icehe : 暂时不太懂什么意思 2021/10/11 )_
 
 ### ESM
 
@@ -246,6 +298,38 @@ References:
 - [Modules: ECMAScript modules - nodjs.org](https://nodejs.org/api/esm.html)
 - [ES modules: A cartoon deep-dive - hacks.mozilla.org](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) TBD?
 - [Introduction to ES Modules - flaviocopes.com](https://flaviocopes.com/es-modules/) TBD?
+
+ESM stands for **ES Modules**.  It is **Javascript's proposal to implement a standard module system**.
+
+_I am sure many of you have seen this:_
+
+```js
+import React from 'react';
+```
+
+_Other sightings in the wild:_
+
+```js
+export default function() {
+  // your Function
+};
+export const function1() {...};
+export const function2() {...};
+```
+
+- Works in many modern browsers
+- It has the best of both worlds: **CJS-like simple syntax and AMD's async**
+- **[Tree-shakeable](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking), due to ES6's [static module structure](https://exploringjs.com/es6/ch_modules.html#static-module-structure)**
+- ESM allows bundlers like Rollup to [remove unnecessary code](https://dev.to/bennypowers/you-should-be-using-esm-kn3), allowing sites to ship less codes to get faster load.
+- Can be called in HTML, just do:
+
+### Summary
+
+TODO
+
+## export const vs export default
+
+### TODO
 
 ## Transpilers
 
