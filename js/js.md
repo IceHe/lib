@@ -10,7 +10,7 @@ References
     - aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
 - [create-project.js.org](https://create-project.js.org/)
 
-## dependencies vs devDependencies vs peerDependencies
+## peerDependencies
 
 References
 
