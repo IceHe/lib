@@ -1,7 +1,9 @@
 {
     // "extends": "@silverhand/ts-config/tsconfig.base",
     "compilerOptions": {
+        "exactOptionalPropertyTypes": true,
         "module": "commonjs",
+        "noFallthroughCasesInSwitch": false,
         "noImplicitAny": true,
         "noImplicitOverride": true,
         "noImplicitReturns": true,
