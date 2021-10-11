@@ -45,7 +45,10 @@ Get Started
 
 - `pnpm add sax` Save to dependencies.
 - `pnpm add -D sax` Save to devDependencies.
+    - `-D, --save-dev`
 - `pnpm add -O sax` Save to optionalDependencies.
+    - `-O, --save-optional`
+- `pnpm add --save-peer sax` Save to  peerDependencies and devDependencies.
 - `pnpm add sax@next` Install from the next tag.
 - `pnpm add sax@3.0.0` Specify version 3.0.0 .
 
