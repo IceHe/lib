@@ -12,12 +12,13 @@
         "noUncheckedIndexedAccess": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "removeComments": true,
         "preserveConstEnums": true,
+        "removeComments": true,
         "sourceMap": true,
         // "strict": true,
-        "strictBindCallApply": false,
+        "strictBindCallApply": true,
         "strictFunctionTypes": true,
-        "strictNullChecks": false
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true
     },
 }
