@@ -414,9 +414,9 @@ Scene
 
 ### JS
 
-- [JavaScript](/js/js.md) : aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
-    - [package.json](/js/package-json.md)
-- [Node.js](/js/nodejs.md) : A JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
+- [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+    - [package.json](/js/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
+- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
     - [tsconfig.json](/js/typescript/tsconfig-json.md)
 - Package Management
@@ -424,9 +424,9 @@ Scene
     - [yarn](/js/yarn.md) : a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
         - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
     - [pnpm](/js/pnpm.md) : Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
-- lerna : A tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-- husky : Modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
-- commitlint : Lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+- lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+- husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+- commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
 - ~~[Optimize some code](/js/optimize-some-code.md)~~
 
 ### Java
