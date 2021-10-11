@@ -1,4 +1,4 @@
-const http = require('http');
+import { Server } from 'http';
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -11,14 +11,14 @@ const html = `<!DOCTYPE html>
 </body>
 </html>`;
 
-const app = new http.Server();
+const app = new Server();
 
-app.on('request', (req, res) => {
-  res.writeHead(200, {
+app.on('request', (request, response) => {
+  response.writeHead(200, {
     'Content-Type': 'text/html',
   });
-  res.write(html);
-  res.end('\n');
+  response.write(html);
+  response.end('\n');
 });
 
-module.exports = app;
+export default app;
