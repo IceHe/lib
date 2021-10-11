@@ -712,7 +712,7 @@ const n = fn.call(undefined, false);
 
 When enabled, this flag **causes functions parameters to be checked more correctly.**
 
-Here’s a basic example with `strictFunctionTypes` off:
+Here's a basic example with `strictFunctionTypes` off:
 
 ```js
 function fn(x: string) {

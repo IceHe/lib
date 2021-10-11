@@ -455,6 +455,7 @@ Reference : https://www.computerhope.com/keys.htm
 - i14y : interoperability
 - i18n : internationalization
 - IaaS : 基础设施即服务 [Infrastructure as a Service](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)
+- IAM : Identity and Access Management ( aka. [Identity Managment](https://en.wikipedia.org/wiki/Identity_management) )
 - IC : I see. _( 好吧, 我知道了 )_
 - ico : icon
 - ICMP : [Internet Control Message Protocol](https://baike.baidu.com/item/ICMP) ( for Network )
