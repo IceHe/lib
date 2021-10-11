@@ -10,7 +10,7 @@
 
 -   Whoami : [IceHe](/past/bio.md)
 -   Website : [icehe.xyz](https://icehe.xyz) _powered by [docsify](/_docsify/how-to-docsify.md)_
--   Contact : `aWNlaGUubWVAcXEuY29t` <!-- _- Base64 Encoded_ -->
+-   Contact : `aWNlaGUueHl6QHFxLmNvbQ==` <!-- _- Base64 Encoded_ -->
 
 ## Tech
 

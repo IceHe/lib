@@ -37,7 +37,7 @@ IceHe's short biographical profile
 
 联络
 
-- 邮箱: icehe.me#qq.com
+- 邮箱: icehe.xyz#qq.com
     <!-- _- replace # with @_ -->
 - 微信: `SWNlSG9vbw==`
     <!-- _- Base64 Encoded_ -->
