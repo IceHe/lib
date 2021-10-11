@@ -229,8 +229,34 @@ module.exports = function doSomething(n) {
 
 ### AMD
 
+Reference: [Asynchronous Module Definition - Wikipedia](https://en.wikipedia.org/wiki/Asynchronous_module_definition)
+
+TODO
+
 ### UMD
 
+Reference: [UMD (Universal Module Definition) - github.com/umdjs/umd](https://github.com/umdjs/umd#:~:text=These%20are%20modules%20which%20are,(e.g%20RequireJS%20amongst%20others).)
+
+TODO
+
 ### ESM
+
+References:
+
+- [Modules: ECMAScript modules - nodjs.org](https://nodejs.org/api/esm.html)
+- [ES modules: A cartoon deep-dive - hacks.mozilla.org](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) TBD?
+- [Introduction to ES Modules - flaviocopes.com](https://flaviocopes.com/es-modules/) TBD?
+
+## Transpilers
+
+> What They Are & Why We Need Them
+
+References
+
+- [JavaScript Transpilers: What They Are & Why We Need Them - scotch.io](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them)
+
+### Introduction
+
+### TODO
 
 ## TODO

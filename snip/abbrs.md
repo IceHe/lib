@@ -187,6 +187,7 @@ Reference : https://www.computerhope.com/keys.htm
 - aka. : [also known as](https://en.wikipedia.org/wiki/Aka) 又叫做，亦称
 - AP : [Wireless Access Point](https://en.wikipedia.org/wiki/Wireless_access_point) 无线接入点
 - Apache : "a patchy" server | [Apache HTTP Server](https://en.wikipedia.org/wiki/Apache_HTTP_Server)
+- AMD : [Asynchronous Module Definition](https://en.wikipedia.org/wiki/Asynchronous_module_definition)
 - AOF : [Append Only File](https://redis.io/topics/persistence)
 - AOI : [Area Of Interest](https://baike.baidu.com/item/AOI/18907777)
 - APM : [Application Performance Management](https://en.wikipedia.org/wiki/Application_performance_management)
@@ -246,6 +247,7 @@ Reference : https://www.computerhope.com/keys.htm
 - CI/CD : Continuous Integration / Continuous Delivery ( 持续集成 / 持续交付 )
 - CIP : Client IP
 - cjk : Chinese, Japenese and Korean languages 中日韩
+- CJS : [CommonJS](https://en.wikipedia.org/wiki/CommonJS)
 - cli : [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 - cls : class
 - CM : Call me.
@@ -365,6 +367,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ERP : Enterprise Resource Planning 企业资源规划
 - err : error
 - esc : escape
+- ESM : [ES Modules](https://nodejs.org/api/esm.html)
 - ESTAB : established ( for TCP )
 - et al. : et alii 以及其他人（等人）；et alibi 以及其他地方
 - ETA : [Estimated Time of Arrival](https://en.wikipedia.org/wiki/Estimated_time_of_arrival) 预计抵达时间
@@ -886,6 +889,7 @@ Reference : https://www.computerhope.com/keys.htm
 - uk : unique key ( for SQL )
 - ulimit : User's LIMIT
 - UMA : [User-Management Acess](https://en.wikipedia.org/wiki/User-Managed_Access)
+- UMD : [Universal Module Definition](https://github.com/umdjs/umd#:~:text=These%20are%20modules%20which%20are,(e.g%20RequireJS%20amongst%20others).)
 - UML : [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language) 统一建模语言
 - uni : unique
 - uniq : unique
