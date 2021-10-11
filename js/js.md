@@ -58,7 +58,7 @@ References
 
 <!-- - [JavaScript require() vs import()](https://flexiple.com/javascript-require-vs-import) -->
 
-### stack overflow
+### Stack Overflow
 
 Reference : [The difference between "require(x)" and "import x" - stack overflow](https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x)
 
@@ -191,5 +191,46 @@ To use the `require()` statement, a module must be saved with `.js` extension as
 ES modules can be loaded dynamically via the `import()` function unlike `require()`.
 
 -->
+
+## CJS, AMD, UMD, ESM
+
+References
+
+- [What are CJS, AMD, UMD, and ESM in Javascript? - dev.to](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
+
+In the beginning, Javascript did not have a way to import/export modules. This is a problem.
+Then, people much, much smarter than me attempted to add modularity to Javascript.
+Some of them are CJS, AMD, UMD, and ESM.
+
+### CJS
+
+**CJS is short for CommonJS.** Here is what it looks like:
+
+```js
+// importing
+const doSomething = require('./doSomething.js');
+
+// exporting
+module.exports = function doSomething(n) {
+  // do something
+}
+```
+
+-   [CJS module format](https://blog.risingstack.com/node-js-at-scale-module-system-commonjs-require/).
+-   CJS **imports module synchronously.**
+-   You can **import from a library `node_modules` or local dir.**
+
+    Either by `const myLocalModule = require('./some/local/file.js')` or `var React = require('react');` works.
+
+-   When CJS imports, it will **give you a copy of the imported object.**
+
+    CJS will **not work in the browser.**
+    It will **have to be transpiled and bundled.**
+
+### AMD
+
+### UMD
+
+### ESM
 
 ## TODO

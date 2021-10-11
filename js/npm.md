@@ -12,6 +12,12 @@ References
     - [About npm](https://docs.npmjs.com/about-npm)
     - [Get Started](https://docs.npmjs.com/getting-started)
 
+Others
+
+- 全局安装:
+    - 建议不要在全局安装 `npm i -g [pakcage_name]`
+    - 只在对应项目安装所需要的包 `npm i [pakcage_name]` 然后使用 `npx [package_command]`
+
 ## About
 
 npm consists of three distinct components:
