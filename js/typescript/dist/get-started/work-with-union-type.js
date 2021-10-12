@@ -1,4 +1,3 @@
-"use strict";
 function printId(id) {
     if (typeof id === 'string') {
         console.log(id.toUpperCase());

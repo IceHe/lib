@@ -1,5 +1,4 @@
-"use strict";
-const a = 6;
+var a = 6;
 switch (a) {
     case 0:
         console.log('even');

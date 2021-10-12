@@ -1,6 +1,5 @@
-"use strict";
-const firstName = Symbol('name');
-const secondName = Symbol('name');
+var firstName = Symbol('name');
+var secondName = Symbol('name');
 if (firstName === secondName) {
 }
 else {

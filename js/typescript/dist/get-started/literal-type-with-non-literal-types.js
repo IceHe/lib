@@ -1,4 +1,3 @@
-"use strict";
 function configure(x) {
     console.log(x);
 }

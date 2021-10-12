@@ -1,1 +1,1 @@
-{"version":3,"file":"no-unchecked-indexed-access.js","sourceRoot":"","sources":["../../src/test-tsconfig/no-unchecked-indexed-access.ts"],"names":[],"mappings":";AAWA,MAAM,OAAO,GAAG,GAAG,CAAC,IAAI,CAAC;AACzB,MAAM,EAAE,GAAG,GAAG,CAAC,EAAE,CAAC;AAIlB,MAAM,OAAO,GAAG,GAAG,CAAC,QAAQ,CAAC"}
+{"version":3,"file":"no-unchecked-indexed-access.js","sourceRoot":"","sources":["../../src/test-tsconfig/no-unchecked-indexed-access.ts"],"names":[],"mappings":"AAWA,IAAM,OAAO,GAAG,GAAG,CAAC,IAAI,CAAC;AACzB,IAAM,EAAE,GAAG,GAAG,CAAC,EAAE,CAAC;AAIlB,IAAM,OAAO,GAAG,GAAG,CAAC,QAAQ,CAAC"}

@@ -1,4 +1,3 @@
-"use strict";
 function lookupHeadphonesManufacturer(color) {
     if (color === 'blue') {
         return 'beats';

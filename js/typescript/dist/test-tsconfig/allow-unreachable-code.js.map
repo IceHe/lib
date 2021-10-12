@@ -1,1 +1,1 @@
-{"version":3,"file":"allow-unreachable-code.js","sourceRoot":"","sources":["../../src/test-tsconfig/allow-unreachable-code.ts"],"names":[],"mappings":";AAAA,SAAS,wBAAwB;IAC/B,OAAO,KAAK,CAAC;IACb,OAAO,IAAI,CAAC;AAEd,CAAC"}
+{"version":3,"file":"allow-unreachable-code.js","sourceRoot":"","sources":["../../src/test-tsconfig/allow-unreachable-code.ts"],"names":[],"mappings":"AAAA,SAAS,wBAAwB;IAC/B,OAAO,KAAK,CAAC;IACb,OAAO,IAAI,CAAC;AAEd,CAAC"}

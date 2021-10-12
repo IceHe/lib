@@ -1,4 +1,3 @@
-"use strict";
 function print123(s) {
     console.log(s);
 }

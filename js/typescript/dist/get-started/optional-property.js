@@ -1,4 +1,3 @@
-"use strict";
 function printName(object) {
     console.log(object.first.toUpperCase());
     if (object.last !== undefined) {

@@ -1,4 +1,3 @@
-"use strict";
 try {
 }
 catch (error) {

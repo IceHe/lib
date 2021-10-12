@@ -1,4 +1,3 @@
-"use strict";
 function testNoExplicitAny(s) {
     console.log(s.subtr(3));
 }

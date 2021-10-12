@@ -1,4 +1,3 @@
-"use strict";
 function move(animal) {
     if ('swim' in animal) {
         animal.swim();
