@@ -620,6 +620,62 @@ References
 
 ### Introduction
 
+**Transpilers**, or **source-to-source** compilers, are tools that read source code written in one programming language, and produce the equivalent code in another language.
+Languages you write that transpile to JavaScript are often called **compile-to-JS** languages, and are said to **target** JavaScript.
+
+Oh, and, even though people tend to use "**compile**/r" and "**transpile**/r" interchangeably, I'll **prefer the latter term** in this article.
+
+---
+
+You've probably heard about [CoffeeScript](http://coffeescript.org/) and [TypeScript](https://www.typescriptlang.org/).
+
+- CoffeeScript provides syntactic sugar for a [number of features](http://coffeescript.org/#loops) not yet native to JavaScript, while [discouraging some of JavaScript's "bad parts"](https://github.com/jashkenas/coffeescript/issues/1693).
+- TypeScript is more drastic<!-- 激烈的 -->, adding [classical object-oriented semantics](https://www.typescriptlang.org/docs/handbook/2/objects.html) to a [fundamentally different language](https://scotch.io/tutorials/better-javascript-with-es6-pt-ii-a-deep-dive-into-classes).
+
+Anything you can write in JavaScript, you can write in CoffeeScript or TypeScript.
+
+```js
+"use strict";
+
+// Good 'ol JS
+function printSecret ( secret ) {
+    console.log(`${secret}. But don't tell anyone.`);
+}
+
+printSecret("I don't like CoffeeScript");
+```
+
+```js
+"use strict"
+
+# CoffeeScript
+printSecret (secret) =>
+    console.log '#{secret}. But don't tell anyone.'
+
+printSecret "I don't like JavaScript."
+```
+
+```js
+"use strict";
+
+// TypeScript -- JavaScript, with types and stuff
+function printSecret ( secret : string ) {
+    console.log("${secret}. But don't tell anyone.");
+}
+
+printSecret("I don't like CoffeeScript.");
+```
+
+Trouble is, JavaScript environments only understand…… Well, JavaScript.
+Trying those last two examples in your console will throw errors.
+As a matter of fact, if you try that pure JavaScript example in an older browser, you'll still get an error.
+[Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) still don't have reliable browser support.
+
+That's where transpilers come in:
+**The transpilers read CoffeeScript, TypeScript, and ES2015, and spit out JavaScript guaranteed to work anywhere.**
+
+### In Defense of Transpilers
+
 ### TODO
 
 ## TODO
