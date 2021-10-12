@@ -344,7 +344,6 @@ References
 - _[export const vs. export default in ES6 - stack overflow](https://stackoverflow.com/questions/33611812/export-const-vs-export-default-in-es6)_
 - _[Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)_
 
-
 ### Introduction
 
 **The export statement is used when creating JavaScript modules to export live bindings to functions, objects, or primitive values from the module so they can be used by other programs with the import statement.**
