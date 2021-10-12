@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.base",
+    "compilerOptions": {
+        // "rootDir": ".",
+        "outDir": "dist",
+        "declaration": true
+    },
+    "include": [
+        // "**/*",
+        "src"
+    ],
+}
