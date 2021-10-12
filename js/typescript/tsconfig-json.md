@@ -1108,6 +1108,54 @@ settings.dry === 2;
 
 ##### rootDir
 
+**Default**: The longest common path of all non-declaration input files.
+**If `composite` is set, the default is instead the directory containing the `tsconfig.json` file.**
+
+For example, let’s say you have some input files:
+
+```js
+MyProj
+├── tsconfig.json
+├── core
+│   ├── a.ts
+│   ├── b.ts
+│   ├── sub
+│   │   ├── c.ts
+├── types.d.ts
+```
+
+The inferred value for `rootDir` is the longest common path of all non-declaration input files, which in this case is `core/`.
+
+If your `outDir` was dist, TypeScript would write this tree:
+
+```js
+MyProj
+├── dist
+│   ├── a.js
+│   ├── b.js
+│   ├── sub
+│   │   ├── c.js
+```
+
+However, you may have intended for core to be part of the output directory structure.
+By setting `rootDir: "."` in `tsconfig.json`, TypeScript would write this tree:
+
+```js
+MyProj
+├── dist
+│   ├── core
+│   │   ├── a.js
+│   │   ├── b.js
+│   │   ├── sub
+│   │   │   ├── c.js
+```
+
+Importantly, **`rootDir` does not affect which files become part of the compilation.**
+It has no interaction with the `include`, `exclude`, or `files` `tsconfig.json` settings.
+
+Note that TypeScript will never write an output file to a directory outside of `outDir`, and will never skip emitting a file.
+For this reason, `rootDir` also enforces that all files which need to be emitted are underneath the `rootDir` path.
+
 ##### rootDirs
 
 ##### typeRoots andtypes

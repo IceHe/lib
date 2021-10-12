@@ -6,5 +6,7 @@
     "exclude": [
         "node_modules",
         "**/*.spec.ts"
-    ]
+    ],
+    "rootDir": ".",
+    "outDir": "../dist"
 }
