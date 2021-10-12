@@ -1156,9 +1156,62 @@ It has no interaction with the `include`, `exclude`, or `files` `tsconfig.json` 
 Note that TypeScript will never write an output file to a directory outside of `outDir`, and will never skip emitting a file.
 For this reason, `rootDir` also enforces that all files which need to be emitted are underneath the `rootDir` path.
 
+For example, let’s say you had this tree: <!-- icehe : 暂时不够理解这个例子 2021/10/12 -->
+
+```js
+MyProj
+├── tsconfig.json
+├── core
+│   ├── a.ts
+│   ├── b.ts
+├── helpers.ts
+```
+
+It would be an error to specify `rootDir` as `core` and `include` as `*` because it creates a file (`helpers.ts`) that would need to be emitted outside the `outDir` (i.e. `../helpers.js`).
+
 ##### rootDirs
 
-##### typeRoots andtypes
+Using `rootDirs`, you can inform the compiler that there are many "virtual" directories acting as a single root.
+This allows the compiler to resolve relative module imports within these "virtual" directories, as if they were merged in to one directory.
+
+……
+
+<!-- icehe : TODO if necessary someday 2021/10/12 -->
+
+##### typeRoots
+
+**By default all visible `"@types"` packages are included in your compilation.**
+**Packages in `node_modules/@types` of any enclosing folder are considered visible.**
+For example, that means packages within `./node_modules/@types/`, `../node_modules/@types/`, `../../node_modules/@types/`, and so on.
+
+**If `typeRoots` is specified, only packages under `typeRoots` will be included.** For example:
+
+```js
+{
+  "compilerOptions": {
+    "typeRoots": ["./typings", "./vendor/types"]
+  }
+}
+```
+
+This config file will include all packages under `./typings` and `./vendor/types`, and no packages from `./node_modules/@types`.
+All paths are relative to the `tsconfig.json`.
+
+##### types
+
+……
+
+**If `types` is specified, only packages listed will be included in the global scope.** For instance:
+
+```js
+{
+  "compilerOptions": {
+    "types": ["node", "jest", "express"]
+  }
+}
+```
+
+……
 
 #### Emit
 
