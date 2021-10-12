@@ -610,13 +610,15 @@ Notes
     import { default as MyDefaultExport } from "./MyFileWithADefaultExport";
     ```
 
-## Transpilers
+## _Transpilers_
 
 > What They Are & Why We Need Them
 
+<!-- icehe : 本文一般般 -->
+
 References
 
-- [JavaScript Transpilers: What They Are & Why We Need Them - scotch.io](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them)
+- [JavaScript Transpilers: What They Are & Why We Need Them - scotch.io](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them) on 2016-04-25
 
 ### Introduction
 
@@ -676,6 +678,43 @@ That's where transpilers come in:
 
 ### In Defense of Transpilers
 
-### TODO
+……
+
+_In the case of languages that target JavaScript, it's largely a matter of preference or background._
+**Writing in a language that "thinks" the way you do makes you more productive.**
+
+- _People with backgrounds in OOP often like TypeScript because it's familiar territory._
+- _Pythonistas like CoffeeScript._
+- _Clojurists write ClojureScript. You get the idea._
+
+But the rest of us, who are perfectly fine with writing plain JavaScript, still use transpilers,
+because they're the only reliable way to use features from ES2015 and beyond.
+
+#### _Tomorrow's JavaScript, Today_
+
+( history ) ……
+
+#### Tomorrow's JavaScript, Along the Way
+
+References
+
+- [TC39](https://en.wikipedia.org/wiki/Ecma_International#Committees) – responsible for ECMAScript.
+- [The TC39 process for ECMAScript features](https://2ality.com/2015/11/tc39-process.html)
+
+……
+
+To recap, transpilers:
+
+1. **Allow us to write compile-to-JavaScript languages**, like CoffeeScript, TypeScript, or ClojureScript;
+2. Let us **use new and potential JavaScript features, reliably**; and
+3. **Contribute to the development of the ECMAScript specification.**
+
+### Using Transpilers
+
+( using Babel ) ……
+
+### Build Tools
+
+( using Babel API ) ……
 
 ## TODO
