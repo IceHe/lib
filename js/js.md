@@ -717,7 +717,63 @@ To recap, transpilers:
 
 ( using Babel API ) ……
 
-## "use strict";
+## File `*.d.ts`
+
+References
+
+- [About "*.d.ts" in TypeScript - stack overflow](https://stackoverflow.com/questions/21247278/about-d-ts-in-typescript)
+
+The `d.ts` file is used to **provide typescript type information about an API that's written in JavaScript.**
+The idea is that you're using something like jQuery or underscore, an existing javascript library.
+You want to consume those from your typescript code.
+
+Rather than rewriting jquery or underscore or whatever in typescript, you can instead write the `d.ts` file, which contains only the type annotations.
+Then from your typescript code you get the typescript benefits of static type checking while still using a pure JS library.
+
+This works thanks to TypeScript's constraint of not letting you add the `.ts` extension at the end of the `import` statement.
+Because of that, when you reference some file, let's say, **`my-module.js`, if there is a `my-module.d.ts` next to it, then TypeScript will include its content:**
+
+```js
+src/
+  my-module.js
+  my-module.d.ts
+  index.ts
+```
+
+```js
+// my-module.js
+const thing = 42;
+
+module.exports = { thing };
+```
+
+```js
+// my-module.d.ts
+export declare const thing: number;
+```
+
+```js
+// index.ts
+import { thing } from "./my-module"; // <- no extension
+
+// runtime implementation of `thing` is taken from ".js"
+console.log(thing); // 42
+
+// type declaration of `thing` is taken from ".d.ts"
+type TypeOfThing = typeof thing; // number
+```
+
+## tslib
+
+References
+
+- [tslib - npmjs.com](https://www.npmjs.com/package/tslib)
+
+**tslib is a runtime library for TypeScript that contains all of the TypeScript helper functions.**
+
+This library is primarily used by the `--importHelpers` flag in TypeScript. ……
+
+## Statement `"use strict";`
 
 References
 

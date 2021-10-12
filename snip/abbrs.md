@@ -225,6 +225,7 @@ Reference : https://www.computerhope.com/keys.htm
 - bin : binary
 - biz : business
 - bmp : bitmap
+- BOM : [Byte Order Mark](https://en.wikipedia.org/wiki/Byte_order_mark)
 - brk : [break](https://en.wikipedia.org/wiki/Sbrk)
 - [BSON](https://en.wikipedia.org/wiki/BSON) : a computer data interchange format used mainly as a data storage and network transfer format in the MongoDB database
 - btm : bottom

@@ -1,0 +1,1 @@
+{"version":3,"file":"no-implicit-returns.js","sourceRoot":"","sources":["../../src/test-tsconfig/no-implicit-returns.ts"],"names":[],"mappings":";AAAA,SAAS,4BAA4B,CAAC,KAAuB;IAE3D,IAAI,KAAK,KAAK,MAAM,EAAE;QACpB,OAAO,OAAO,CAAC;KAChB;IAED,CAAC,MAAM,CAAC,CAAC;AACX,CAAC"}

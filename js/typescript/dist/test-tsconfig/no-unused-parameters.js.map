@@ -1,0 +1,1 @@
+{"version":3,"file":"no-unused-parameters.js","sourceRoot":"","sources":["../../src/test-tsconfig/no-unused-parameters.ts"],"names":[],"mappings":";AAAA,MAAM,qBAAqB,GAAG,CAAC,OAAe,EAAE,EAAE;IAEhD,MAAM,cAAc,GAAG,EAAE,CAAC;IAC1B,OAAO,EAAE,IAAI,EAAE,UAAU,EAAE,OAAO,EAAE,cAAc,EAAE,CAAC;AACvD,CAAC,CAAC"}

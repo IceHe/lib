@@ -1,12 +1,12 @@
 {
     "extends": "./tsconfig.base",
     "compilerOptions": {
-        // "rootDir": "src/get-started",
-        // "outDir": "dist",
-        // "declaration": true
+        // "rootDir": ".",
+        "outDir": "dist",
+        "declaration": true
     },
     "include": [
-        // "**/*",
-        "src"
+        "**/*",
+        // "src"
     ],
 }

@@ -1217,35 +1217,139 @@ All paths are relative to the `tsconfig.json`.
 
 ##### declaration
 
+**Generate `.d.ts` files for every TypeScript or JavaScript file inside your project.**
+
+**These `.d.ts` files are type definition files which describe the external API of your module.**
+With `.d.ts` files, tools like TypeScript can provide intellisense <!-- 知识界 --> and accurate types for un-typed code.
+
+When `declaration` is set to `true`, running the compiler with this TypeScript code:
+
+```js
+export let helloWorld = "hi";
+```
+
+Will generate an `index.js` file like this:
+
+```js
+export let helloWorld = "hi";
+```
+
+With a corresponding `helloWorld.d.ts`:
+
+```js
+export declare let helloWorld: string;
+```
+
+When working with `.d.ts` files for JavaScript files you may want to use `emitDeclarationOnly` or use `outDir` to ensure that the JavaScript files are not overwritten.
+
 ##### declarationDir
+
+Offers a way to configure the root directory for where declaration files are emitted.
+
+……
 
 ##### declarationMap
 
+……
+
 ##### downlevelIteration
+
+**Downleveling is TypeScript’s term for transpiling to an older version of JavaScript.**
+This flag is to enable support for a more accurate implementation of how modern JavaScript iterates through new concepts in older JavaScript runtimes.
+
+……
 
 ##### emitBOM
 
+**Controls whether TypeScript will emit a [byte order mark (BOM)](https://en.wikipedia.org/wiki/Byte_order_mark) when writing output files.**
+_Some runtime environments require a BOM to correctly interpret a JavaScript files; others require that it is not present._
+The default value of false is generally best unless you have a reason to change it.
+
 ##### emitDeclarationOnly
+
+Only emit `.d.ts` files; do not emit `.js` files.
+
+……
 
 ##### importHelpers
 
+**For certain downleveling operations, TypeScript uses some helper code for operations like extending class, spreading arrays or objects, and async operations.**
+**By default, these helpers are inserted into files which use them.**
+This can result in code duplication if the same helper is used in many different modules.
+
+**If the `importHelpers` flag is on, these helper functions are instead imported from the [`tslib`](https://www.npmjs.com/package/tslib) module.**
+You will need to ensure that the `tslib` module is able to be imported at runtime.
+This only affects modules; global script files will not attempt to import modules.
+
 ##### importsNotUsedAsValues
+
+This flag controls how `import` works, there are 3 different options:
+
+-   `remove` : The default behavior of dropping `import` statements which only reference types.
+-   `preserve` : Preserves all import statements whose values or types are never used.
+    This can cause imports/side-effects to be preserved.
+
+-   `error` : This preserves all imports (the same as the preserve option), but will error when a value import is only used as a type.
+    This might be useful if you want to ensure no values are being accidentally imported, but still make side-effect imports explicit.
+
+This flag works because you can use `import type` to explicitly create an `import` statement which should never be emitted into JavaScript.
 
 ##### inlineSourceMap
 
+**When set, instead of writing out a `.js.map` file to provide source maps, TypeScript will embed the source map content in the `.js` files.**
+Although this results in larger JS files, it can be convenient in some scenarios.
+For example, you might want to debug JS files on a webserver that doesn’t allow `.map` files to be served.
+
+……
+
 ##### inlineSources
+
+**When set, TypeScript will include the original content of the `.ts` file as an embedded string in the source map.**
+This is often useful in the same cases as `inlineSourceMap`.
+
+Requires either `sourceMap` or `inlineSourceMap` to be set.
 
 ##### mapRoot
 
+Specify the location where debugger should locate map files instead of generated locations.
+
+……
+
 ##### newLine
+
+Specify the end of line sequence to be used when emitting files: ‘CRLF’ (dos) or ‘LF’ (unix).
 
 ##### noEmit
 
+**Do not emit compiler output files like JavaScript source code, source-maps or declarations.**
+
+_This makes room for another tool like Babel, or swc to handle converting the TypeScript file to a file which can run inside a JavaScript environment._
+
+_You can then use TypeScript as a tool for providing editor integration, and as a source code type-checker._
+
 ##### noEmitHelpers
+
+……
 
 ##### noEmitOnError
 
+**Do not emit compiler output files like JavaScript source code, source-maps or declarations if any errors were reported.**
+
+This defaults to false, making it easier to work with TypeScript in a watch-like environment where you may want to see results of changes to your code in another environment before making sure all errors are resolved.
+
 ##### outDir
+
+**If specified, `.js` (as well as `.d.ts`, `.js.map`, etc.) files will be emitted into this directory.**
+The directory structure of the original source files is preserved; see `rootDir` if the computed root is not what you intended.
+
+If not specified, `.js` files will be emitted in the same directory as the `.ts` files they were generated from:
+
+```bash
+$ tsc
+example
+├── index.js
+└── index.ts
+```
 
 ##### outFile
 
