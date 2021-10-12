@@ -342,6 +342,15 @@ References
 
 - [export const vs. export default in ES6 - stack overflow](https://stackoverflow.com/questions/33611812/export-const-vs-export-default-in-es6)
 - [Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)
+- [export - developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+
+ES6 provides us to import a module and use it in other files.
+Strictly speaking in React terms, one can **use stateless components in other components by exporting the components from their respective <!-- 各自的 --> modules and using it in other files.**
+
+ES6 provides two ways to export a module from a file:
+
+- **named export** and
+- **default export**.
 
 ### Stack Overflow
 
@@ -366,8 +375,15 @@ You **can have one default export per file.**
 _When you import you have to specify a name and import like so:_
 
 ```js
-import MyDefaultExport from "./MyFileWithADefaultExport";
+// import
+import MyDefaultComponent from "./MyFileWithADefaultExport";
+
+// export
+const MyComponent = () => {}
+export default MyComponent;
 ```
+
+**The naming of import is completely independent in default export** and we can use any name we like.
 
 #### Named Export
 
@@ -377,12 +393,22 @@ With named exports, you **can have multiple named exports per file.**
 _Then import the specific exports you want surrounded in braces:_
 
 ```js
-// ex. importing multiple exports:
-import { MyClass, MyOtherClass } from "./MyClass";
-// ex. giving a named import a different name by using "as":
-import { MyClass2 as MyClass2Alias } from "./MyClass2";
+// imports
+// ex. importing a single named export
+import { MyComponent } from "./MyComponent";
+// use MyComponent here
 
-// use MyClass, MyOtherClass, and MyClass2Alias here
+// ex. importing multiple named exports
+import { MyComponent, MyComponent2 } from "./MyComponent";
+// use MyComponent and MyComponent2 here
+
+// ex. giving a named import a different name by using "as":
+import { MyComponent2 as MyNewComponent } from "./MyComponent";
+// use MyNewComponent here
+
+// exports from ./MyComponent.js file
+export const MyComponent = () => {}
+export const MyComponent2 = () => {}
 ```
 
 Or it's possible to use a default along with named imports in the same statement:
@@ -408,19 +434,16 @@ import * as MyClasses from "./MyClass";
     import { default as MyDefaultExport } from "./MyFileWithADefaultExport";
     ```
 
-### Medium
+### Others
 
-References:
+From [Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export):
 
-- [Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)
-
-#### Named Export
-
-`export`
-
-#### Default Export
-
-`export default`
+> Named exports are useful to export several values.
+> During the import, one will be able to use the same name to refer to the corresponding value.
+>
+> Concerning the default export, there is only a single default export per module.
+> A default export can be a function, a class, an object or anything else.
+> This value is to be considered as the “main” exported value since it will be the simplest to import.
 
 ## Transpilers
 
