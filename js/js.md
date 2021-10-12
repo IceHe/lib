@@ -717,6 +717,22 @@ To recap, transpilers:
 
 ( using Babel API ) ……
 
+## "use strict";
+
+References
+
+- [JavaScript Use Strict - w3schools.com](https://www.w3schools.com/js/js_strict.asp)
+
+**`"use strict";` defines that JavaScript code should be executed in "strict mode".**
+
+_It is not a statement, but a literal expression, ignored by earlier versions of JavaScript._
+
+The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
+With strict mode, you can not, for example, use undeclared variables.
+All modern browsers support "use strict" except Internet Explorer 9 and lower: ……
+
+---
+
 ## TODO
 
 Other Topics

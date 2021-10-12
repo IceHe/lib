@@ -899,13 +899,212 @@ Changing module affects [moduleResolution](https://www.typescriptlang.org/tsconf
 
 _Here's some example output for this file:_
 
+```js
+// @filename: index.ts
+import { valueOfPi } from "./constants";
+
+export const twoPi = valueOfPi * 2;
+```
+
+-   **CommonJS**
+
+    ```js
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.twoPi = void 0;
+    const constants_1 = require("./constants");
+    exports.twoPi = constants_1.valueOfPi * 2;
+    ```
+
+-   **UMD**
+
+    ```js
+    (function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports", "./constants"], factory);
+    }
+    })(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.twoPi = void 0;
+    const constants_1 = require("./constants");
+    exports.twoPi = constants_1.valueOfPi * 2;
+    });
+    ```
+
+-   **AMD**
+
+    ```js
+    define(["require", "exports", "./constants"], function (require, exports, constants_1) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: true });
+        exports.twoPi = void 0;
+        exports.twoPi = constants_1.valueOfPi * 2;
+    });
+    ```
+
+-   **System**
+
+    ```js
+    System.register(["./constants"], function (exports_1, context_1) {
+        "use strict";
+        var constants_1, twoPi;
+        var __moduleName = context_1 && context_1.id;
+        return {
+            setters: [
+                function (constants_1_1) {
+                    constants_1 = constants_1_1;
+                }
+            ],
+            execute: function () {
+                exports_1("twoPi", twoPi = constants_1.valueOfPi * 2);
+            }
+        };
+    });
+    ```
+
+-   **ESNext**
+
+    ```js
+    import { valueOfPi } from "./constants";
+    export const twoPi = valueOfPi * 2;
+    ```
+
+-   **ES2020**
+
+    ```js
+    import { valueOfPi } from "./constants";
+    export const twoPi = valueOfPi * 2;
+    ```
+
+-   **ES2015/ES6**
+
+    ```js
+    import { valueOfPi } from "./constants";
+    export const twoPi = valueOfPi * 2;
+    ```
+
+    If you are wondering about the difference between `ES2015` (aka `ES6`) and `ES2020`, `ES2020` adds support for dynamic `import`s, and `import.meta`.
+
+-   **node12/nodenext**
+
+    ```js
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.twoPi = void 0;
+    const constants_js_1 = require("./constants.js");
+    exports.twoPi = constants_js_1.valueOfPi * 2;
+    ```
+
+    Introduced in TypeScript 4.5, `node12` and `nodenext` declare support for Node’s ECMAScript Module Support.
+    The emitted JavaScript is the same as `ES2020` which is the same `import/export` syntax in the TypeScript file.
+    _You can learn more in the [4.5 release notes](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/)._
+
+-   **None**
+
+    ```js
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.twoPi = void 0;
+    const constants_1 = require("./constants");
+    exports.twoPi = constants_1.valueOfPi * 2;
+    ```
+
 ##### moduleResolution
+
+**Specify the module resolution strategy**:
+
+-   `'node'` for Node.js' CommonJS implementation
+-   `'node12'` or `'nodenext'` for Node.js' ECMAScript Module Support [from TypeScript 4.5 onwards](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/)
+-   `'classic'` used in TypeScript before the release of 1.6.
+    You probably won’t need to use classic in modern code
 
 ##### noResolve
 
+**By default, TypeScript will examine the initial set of files for `import` and `<reference` directives and add these resolved files to your program.**
+
+**If `noResolve` is set, this process doesn't happen.**
+However, `import` statements are still checked to see if they resolve to a valid module, so you'll need to make sure this is satisfied by some other means.
+
 ##### paths
 
+**A series of entries which re-map imports to lookup locations relative to the `baseUrl`**, there is a larger coverage of `paths` in the handbook.
+
+`paths` lets you declare how TypeScript should resolve an import in your `require/import`s.
+
+```js
+{
+  "compilerOptions": {
+    "baseUrl": ".", // this must be specified if "paths" is specified.
+    "paths": {
+      "jquery": ["node_modules/jquery/dist/jquery"] // this mapping is relative to "baseUrl"
+    }
+  }
+}
+```
+
+This would allow you to be able to write `import "jquery"`, and get all of the correct typing locally.
+
+```js
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+        "app/*": ["app/*"],
+        "config/*": ["app/_config/*"],
+        "environment/*": ["environments/*"],
+        "shared/*": ["app/_shared/*"],
+        "helpers/*": ["helpers/*"],
+        "tests/*": ["tests/*"]
+    },
+}
+```
+
+In this case, you can tell the TypeScript file resolver to support a number of custom prefixes to find code.
+This pattern can be used to avoid long relative paths within your codebase.
+
 ##### resolveJsonModule
+
+**Allows importing modules with a ".json" extension, which is a common practice in node projects.**
+This includes generating a type for the import based on the static JSON shape.
+
+TypeScript does not support resolving JSON files by default:
+
+```js
+// @filename: settings.json
+// Cannot find module './settings.json'. Consider using '--resolveJsonModule' to import module with '.json' extension.
+{
+    "repo": "TypeScript",
+    "dry": false,
+    "debug": false
+}
+// @filename: index.ts
+import settings from "./settings.json";
+
+settings.debug === true;
+settings.dry === 2;
+```
+
+_Enabling the option allows importing JSON, and validating the types in that JSON file._
+
+```js
+// @filename: settings.json
+{
+    "repo": "TypeScript",
+    "dry": false,
+    // This condition will always return 'false' since the types 'boolean' and 'number' have no overlap.
+    "debug": false
+}
+// @filename: index.ts
+import settings from "./settings.json";
+
+settings.debug === true;
+settings.dry === 2;
+```
 
 ##### rootDir
 
