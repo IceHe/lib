@@ -718,3 +718,7 @@ To recap, transpilers:
 ( using Babel API ) ……
 
 ## TODO
+
+Other Topics
+
+- [WASM is AWSM](https://dev.to/vibalijoshi/wasm-is-awsm-3a98)

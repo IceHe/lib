@@ -857,16 +857,47 @@ With the flag `useUnknownInCatchVariables` enabled, then you do not need the add
 
 ##### allowUmdGlobalAccess
 
-When set to true, `allowUmdGlobalAccess` lets you access UMD exports as globals from inside module files.
-A module file is a file that has imports and/or exports. Without this flag, using an export from a UMD module requires an import declaration.
+When set to true, `allowUmdGlobalAccess` lets you **access UMD exports as globals from inside module files.**
+A module file is a file that has imports and/or exports.
+Without this flag, using an export from a UMD module requires an import declaration.
 
-An example use case for this flag would be a web project where you know the particular library (like jQuery or Lodash) will always be available at runtime, but you can’t access it with an import.
+An example use case for this flag would be a web project where you know the particular library (like jQuery or Lodash) will always be available at runtime, but you can't access it with an import.
 
 ( icehe : What is UMD module? )
 
 ##### baseUrl
 
+Lets you set **a base directory to resolve non-absolute module names**.
+
+_You can define a root folder where you can do absolute file resolution. E.g._
+
+```bash
+baseUrl
+├── ex.ts
+├── hello
+│   └── world.ts
+└── tsconfig.json
+```
+
+_With `"baseUrl": "./"` inside this project TypeScript will look for files starting at the same folder as the `tsconfig.json`._
+
+```js
+import { helloWorld } from "hello/world";
+console.log(helloWorld);
+```
+
+_If you get tired of imports always looking like `"../"` or `"./"`, or needing to change them as you move files, this is a great way to fix that._
+
 ##### module
+
+**Sets the module system for the program.**
+
+See the [Modules](https://www.typescriptlang.org/docs/handbook/modules.html) reference page for more information.
+You very likely want `"CommonJS"` for node projects.
+
+Changing module affects [moduleResolution](https://www.typescriptlang.org/tsconfig#moduleResolution) which also has a [reference page](https://www.typescriptlang.org/docs/handbook/module-resolution.html).
+
+_Here's some example output for this file:_
 
 ##### moduleResolution
 
