@@ -322,7 +322,6 @@ export const function2() {...};
 - **[Tree-shakeable](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking), due to ES6's [static module structure](https://exploringjs.com/es6/ch_modules.html#static-module-structure)**
 - ESM allows bundlers like Rollup to [remove unnecessary code](https://dev.to/bennypowers/you-should-be-using-esm-kn3), allowing sites to ship less codes to get faster load.
 - Can be called in HTML, just do:
-
     ```js
     <script type="module">
         import {func1} from 'my-lib';
@@ -344,7 +343,84 @@ References
 - [export const vs. export default in ES6 - stack overflow](https://stackoverflow.com/questions/33611812/export-const-vs-export-default-in-es6)
 - [Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)
 
-### TODO
+### Stack Overflow
+
+References:
+
+- [export const vs. export default in ES6 - stack overflow](https://stackoverflow.com/questions/33611812/export-const-vs-export-default-in-es6)
+
+It's actually a named export vs a default export.
+
+#### export const
+
+**`export const` is a named export that exports a const declaration or declarations.**
+
+To emphasize: What matters here is the `export` keyword as `const` is used to declare a const declaration or declarations.
+_`export` may also be applied to other declarations such as class or function declarations._
+
+#### Default Export
+
+`export default`
+
+You **can have one default export per file.**
+_When you import you have to specify a name and import like so:_
+
+```js
+import MyDefaultExport from "./MyFileWithADefaultExport";
+```
+
+#### Named Export
+
+`export`
+
+With named exports, you **can have multiple named exports per file.**
+_Then import the specific exports you want surrounded in braces:_
+
+```js
+// ex. importing multiple exports:
+import { MyClass, MyOtherClass } from "./MyClass";
+// ex. giving a named import a different name by using "as":
+import { MyClass2 as MyClass2Alias } from "./MyClass2";
+
+// use MyClass, MyOtherClass, and MyClass2Alias here
+```
+
+Or it's possible to use a default along with named imports in the same statement:
+
+```js
+import MyDefaultExport, { MyClass, MyOtherClass} from "./MyClass";
+```
+
+#### Namespace Import
+
+It's also possible to **import everything from the file on an object**:
+
+```js
+import * as MyClasses from "./MyClass";
+// use MyClasses.MyClass, MyClasses.MyOtherClass and MyClasses.default here
+```
+
+#### Notes
+
+- **The syntax favours default exports as slightly more concise because their use case is more common** ([See the discussion here](https://esdiscuss.org/topic/moduleimport)).
+- **A default export is actually a named export with the name `default`** so you are able to import it with a named import:
+    ```js
+    import { default as MyDefaultExport } from "./MyFileWithADefaultExport";
+    ```
+
+### Medium
+
+References:
+
+- [Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)
+
+#### Named Export
+
+`export`
+
+#### Default Export
+
+`export default`
 
 ## Transpilers
 
