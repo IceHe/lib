@@ -323,11 +323,26 @@ export const function2() {...};
 - ESM allows bundlers like Rollup to [remove unnecessary code](https://dev.to/bennypowers/you-should-be-using-esm-kn3), allowing sites to ship less codes to get faster load.
 - Can be called in HTML, just do:
 
+    ```js
+    <script type="module">
+        import {func1} from 'my-lib';
+        func1();
+    </script>
+    ```
+
 ### Summary
 
-TODO
+- **ESM** is the best module format thanks to its simple syntax, async nature, and tree-shakeability.
+- **UMD** works everywhere and usually used as a fallback in case ESM does not work
+- **CJS** is synchronous and good for back end.
+- **AMD** is asynchronous and good for front end.
 
 ## export const vs export default
+
+References
+
+- [export const vs. export default in ES6 - stack overflow](https://stackoverflow.com/questions/33611812/export-const-vs-export-default-in-es6)
+- [Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)
 
 ### TODO
 
