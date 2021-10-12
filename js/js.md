@@ -344,6 +344,8 @@ References
 - [Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)
 - [export - developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 
+---
+
 ES6 provides us to import a module and use it in other files.
 Strictly speaking in React terms, one can **use stateless components in other components by exporting the components from their respective <!-- 各自的 --> modules and using it in other files.**
 
@@ -351,6 +353,19 @@ ES6 provides two ways to export a module from a file:
 
 - **named export** and
 - **default export**.
+
+### export
+
+References
+
+- [export - developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+
+> **The export statement is used when creating JavaScript modules to export live bindings to functions, objects, or primitive values from the module so they can be used by other programs with the import statement.**
+> The value of an imported binding is subject to change in the module that exports it.
+> When a module updates the value of a binding that it exports, the update will be visible in its imported value.
+>
+> Exported modules are in strict mode whether you declare them as such or not.
+> The export statement cannot be used in embedded scripts.
 
 ### Stack Overflow
 
