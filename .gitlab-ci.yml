@@ -1,12 +1,12 @@
 stages:
     - parallel
 
-mdl:
-    stage: parallel
-    image: icehe/markdownlint
-    script:
-        - mdl --style snip/markdown/lint/style.rb --list-rules
-        - mdl --style snip/markdown/lint/style.rb . --git-recurse && echo 'All is well.'
+#mdl:
+#    stage: parallel
+#    image: icehe/markdownlint
+#    script:
+#        - mdl --style snip/markdown/lint/style.rb --list-rules
+#        - mdl --style snip/markdown/lint/style.rb . --git-recurse && echo 'All is well.'
 
 pages:
     # Deploy @ GitLab Pages
