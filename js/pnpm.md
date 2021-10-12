@@ -72,6 +72,7 @@ Get Started
 ### others
 
 - `remove`, `rm` `uninstall` `un`
+    - `pnpn rm -g typescript` 卸载全局环境下的 typescript ( 仅保留项目环境下的 )
 - `link`, `ln`
 - `unlink` …
 - `import` generates a `pnpm-lock.yaml` from another package manager's lockfile.
