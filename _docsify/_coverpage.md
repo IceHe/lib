@@ -35,9 +35,11 @@
 
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
-[🏄 Weibo](https://weibo.com/icedes)
-[📚 Library](/README)
+[Weibo](https://weibo.com/icedes)
+[Library](/README)
 
+<!-- [🏄 Weibo](https://weibo.com/icedes) -->
 <!-- [🎯 About](/past/bio.md) -->
+<!-- [📚 Library](/README) -->
 
 <!-- Ref : https://docsify.js.org/#/cover -->
