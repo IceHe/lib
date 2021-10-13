@@ -142,3 +142,26 @@ _Conversely, some files are always ignored:_
 - `package-lock.json` ( use `npm-shrinkwrap.json` if you wish it to be published )
 
 ## main
+
+**The main field is a <u>module ID</u> that is the primary entry point to your program.**
+That is, if your package is named `foo`, and a user installs it, and then does `require("foo")`, then your main module's exports object will be returned.
+
+This **should be a module relative to the root of your package folder.**
+
+For most modules, it makes the most sense to have a main script and often not much else.
+
+**If `main` is not set it defaults to `index.js` in the packages root folder.**
+
+## browser
+
+If your module is meant to be used client-side the `browser` field should be used instead of the `main` field.
+_This is helpful to hint users that it might rely on primitives that aren't available in Node.js modules. (e.g. `window`)_
+
+## bin
+
+A lot of packages have one or more executable files that they'd like to install into the `PATH`.
+_npm makes this pretty easy (in fact, it uses this feature to install the "npm" executable.)_
+
+To use this, **supply a `bin` field in your `package.json` which is a map of command name to local file name.**
+When this package is installed globally, that file will be linked where global bins go so it is available to run by name.
+When this package is installed as a dependency in another package, the file will be linked where it will be available to that package either directly by `npm exec` or by name in other scripts when invoking them via `npm run-script`.
