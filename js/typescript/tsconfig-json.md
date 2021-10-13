@@ -1348,6 +1348,8 @@ This is often useful in the same cases as `inlineSourceMap`.
 
 Requires either `sourceMap` or `inlineSourceMap` to be set.
 
+……
+
 ##### mapRoot
 
 Specify the location where debugger should locate map files instead of generated locations.
@@ -1362,11 +1364,13 @@ Specify the end of line sequence to be used when emitting files: ‘CRLF’ (dos
 
 **Do not emit compiler output files like JavaScript source code, source-maps or declarations.**
 
-_This makes room for another tool like Babel, or swc to handle converting the TypeScript file to a file which can run inside a JavaScript environment._
+_This makes room for another tool like [Babel](https://babeljs.io/), or [swc](https://github.com/swc-project/swc) to handle converting the TypeScript file to a file which can run inside a JavaScript environment._
 
 _You can then use TypeScript as a tool for providing editor integration, and as a source code type-checker._
 
 ##### noEmitHelpers
+
+Instead of importing helpers with [importHelpers](https://www.typescriptlang.org/tsconfig#importHelpers), you can provide implementations in the global scope for the helpers you use and completely turn off emitting of helper functions.
 
 ……
 
@@ -1374,7 +1378,7 @@ _You can then use TypeScript as a tool for providing editor integration, and as 
 
 **Do not emit compiler output files like JavaScript source code, source-maps or declarations if any errors were reported.**
 
-This defaults to false, making it easier to work with TypeScript in a watch-like environment where you may want to see results of changes to your code in another environment before making sure all errors are resolved.
+This defaults to `false`, making it easier to work with TypeScript in a watch-like environment where you may want to see results of changes to your code in another environment before making sure all errors are resolved.
 
 ##### outDir
 
