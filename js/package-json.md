@@ -42,3 +42,46 @@ _Some tips:_
 
 A name can be optionally prefixed by a scope, e.g. `@myorg/mypackage`.
 See [scope](https://docs.npmjs.com/cli/v7/using-npm/scope/) for more detail.
+
+## version
+
+……
+**The name and version together form an identifier that is assumed to be completely unique.**
+……
+
+Version must be parseable by [node-semver](https://github.com/npm/node-semver), which is bundled with npm as a dependency.
+(`npm install semver` to use it yourself.)
+
+## description
+
+Put a description in it. It's a string.
+This helps people discover your package, as **it's listed in `npm search`.**
+
+## keywords
+
+_Put keywords in it. It's an array of strings._
+_This helps people discover your package as it's listed in `npm search`._
+
+## homepage
+
+**The url to the project homepage.**
+
+## bugs
+
+**The url to your project's issue tracker and / or the email address to which issues should be reported.**
+These are helpful for people who encounter issues with your package.
+
+_It should look like this:_
+
+```json
+{
+  "url" : "https://github.com/owner/project/issues",
+  "email" : "project@hostname.com"
+}
+```
+
+……
+
+_If a url is provided, it will be used by the `npm bugs` command._
+
+## license
