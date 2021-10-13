@@ -427,7 +427,6 @@ Scene
 - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
 - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
 - commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
-- ~~[Optimize some code](/js/optimize-some-code.md)~~
 
 ### Java
 
