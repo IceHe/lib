@@ -1,5 +1,6 @@
 - [Cover](/)
 - [Home](/README.md)
+- [Chat](https://gitter.im/IceHe)
 - [About](/past/bio.md)
 
 <!-- - [Message](https://github.com/IceHe/lib/issues) -->
