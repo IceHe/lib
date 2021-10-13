@@ -85,3 +85,20 @@ _It should look like this:_
 _If a url is provided, it will be used by the `npm bugs` command._
 
 ## license
+
+_You should specify a license for your package so that people know how they are permitted to use it, and any restrictions you're placing on it._
+
+## people fields: author, contributors
+
+The "author" is one person.
+"contributors" is an array of people.
+
+……
+
+## _funding_
+
+You can specify an object containing an URL that provides up-to-date information about ways to help fund development of your package, or a string URL, or an array of these: ……
+
+## files
+
+The optional files field is an array of file patterns that describes the entries to be included when your package is installed as a dependency. File patterns follow a similar syntax to .gitignore, but reversed: including a file, directory, or glob pattern (*, **/*, and such) will make it so that file is included in the tarball when it's packed. Omitting the field will make it default to ["*"], which means it will include all files.
