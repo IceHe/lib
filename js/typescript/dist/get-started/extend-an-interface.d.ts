@@ -1,7 +1,7 @@
 interface Animal {
-    name: string;
+  name: string;
 }
 interface Bear extends Animal {
-    honey: boolean;
+  honey: boolean;
 }
 declare const bear: Bear;

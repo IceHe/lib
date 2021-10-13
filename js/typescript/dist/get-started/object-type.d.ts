@@ -1,4 +1,1 @@
-declare function printCoord(pt: {
-    x: number;
-    y: number;
-}): void;
+declare function printCoord(pt: { x: number; y: number }): void;

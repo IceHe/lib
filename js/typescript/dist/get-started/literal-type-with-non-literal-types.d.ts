@@ -1,4 +1,4 @@
 interface Options {
-    width: number;
+  width: number;
 }
 declare function configure(x: Options | 'auto'): void;

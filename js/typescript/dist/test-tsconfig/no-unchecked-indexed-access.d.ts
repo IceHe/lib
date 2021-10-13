@@ -1,7 +1,7 @@
 interface EnvironmentVariables {
-    NAME: string;
-    OS: string;
-    [propName: string]: string;
+  NAME: string;
+  OS: string;
+  [propName: string]: string;
 }
 declare const env: EnvironmentVariables;
 declare const sysName: string;

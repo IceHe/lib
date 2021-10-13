@@ -1,7 +1,7 @@
 declare type Animal = {
-    name: string;
+  name: string;
 };
 declare type Bear = Animal & {
-    honey: boolean;
+  honey: boolean;
 };
 declare const bear: Bear;

@@ -1,7 +1,7 @@
 declare type Fish = {
-    swim: () => void;
+  swim: () => void;
 };
 declare type Bird = {
-    fly: () => void;
+  fly: () => void;
 };
 declare function move(animal: Fish | Bird): void;

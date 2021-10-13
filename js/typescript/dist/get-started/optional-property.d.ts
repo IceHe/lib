@@ -1,4 +1,1 @@
-declare function printName(object: {
-    first: string;
-    last?: string;
-}): void;
+declare function printName(object: { first: string; last?: string }): void;
