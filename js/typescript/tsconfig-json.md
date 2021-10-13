@@ -1302,7 +1302,7 @@ The default value of false is generally best unless you have a reason to change 
 
 ##### emitDeclarationOnly
 
-Only emit `.d.ts` files; do not emit `.js` files.
+**Only emit `.d.ts` files; do not emit `.js` files.**
 
 This setting is useful in two cases:
 
@@ -1323,7 +1323,7 @@ This only affects modules; global script files will not attempt to import module
 
 ##### importsNotUsedAsValues
 
-This flag controls how `import` works, there are 3 different options:
+**This flag controls how `import` works, there are 3 different options**:
 
 -   `remove` : The default behavior of dropping `import` statements which only reference types.
 -   `preserve` : Preserves all import statements whose values or types are never used.
@@ -1389,14 +1389,90 @@ If not specified, `.js` files will be emitted in the same directory as the `.ts`
 
 ```bash
 $ tsc
+
 example
 ├── index.js
 └── index.ts
 ```
 
+_With a `tsconfig.json` like this:_
+
+```json
+{
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
+```
+
+Running `tsc` with these settings moves the files into the specified `dist` folder:
+
+```bash
+$ tsc
+
+example
+├── dist
+│   └── index.js
+├── index.ts
+└── tsconfig.json
+```
+
 ##### outFile
 
+**If specified, all _global_ (non-module) files will be concatenated into the single output file specified.**
+
+If `module` is `system` or `amd`, all module files will also be concatenated into this file after all global content.
+
+Note: `outFile` cannot be used unless `module` is `None`, `System`, or `AMD`.
+**This option cannot be used to bundle CommonJS or ES6 modules.**
+
 ##### preserveConstEnums
+
+**Do not `erase const` enum declarations in generated code.**
+`const enum`s provide a way to reduce the overall memory footprint of your application at runtime by emitting the enum value instead of a reference.
+
+_For example with this TypeScript:_
+
+```ts
+const enum Album {
+  JimmyEatWorldFutures = 1,
+  TubRingZooHypothesis = 2,
+  DogFashionDiscoAdultery = 3,
+}
+
+const selectedAlbum = Album.JimmyEatWorldFutures;
+if (selectedAlbum === Album.JimmyEatWorldFutures) {
+  console.log("That is a great choice.");
+}
+```
+
+The default `const enum` behavior is to convert any `Album.Something` to the corresponding number literal, and to remove a reference to the enum from the JavaScript completely.
+
+```ts
+"use strict";
+const selectedAlbum = 1 /* JimmyEatWorldFutures */;
+if (selectedAlbum === 1 /* JimmyEatWorldFutures */) {
+    console.log("That is a great choice.");
+}
+```
+
+With `preserveConstEnums` set to `true`, the `enum` exists at runtime and the numbers are still emitted.
+
+```ts
+"use strict";
+var Album;
+(function (Album) {
+    Album[Album["JimmyEatWorldFutures"] = 1] = "JimmyEatWorldFutures";
+    Album[Album["TubRingZooHypothesis"] = 2] = "TubRingZooHypothesis";
+    Album[Album["DogFashionDiscoAdultery"] = 3] = "DogFashionDiscoAdultery";
+})(Album || (Album = {}));
+const selectedAlbum = 1 /* JimmyEatWorldFutures */;
+if (selectedAlbum === 1 /* JimmyEatWorldFutures */) {
+    console.log("That is a great choice.");
+}
+```
+
+**This essentially makes such const enums a source-code feature only, with no runtime traces.**
 
 ##### preserveValueImports
 
