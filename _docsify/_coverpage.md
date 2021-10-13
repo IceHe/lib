@@ -11,17 +11,13 @@
 <!-- - Wiki：Never memorize something that you can look up. -->
 <!-- - **Albert Einstein** -->
 
-<!-- - Don’t try, just do. Failure is not an option. -->
+<!-- - Don't try, just do. Failure is not an option. -->
 <!-- - from _Anonymous_ -->
 
 - 写一部小说就像在黑夜里开车<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程
 - **E.L. Doctorow**
 
 <span class="token comment"># 京 ICP 备 18038982 号</span>
-
-<!-- - [痛苦是会让人感到舒坦的。](https://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) -->
-<!-- - [许多人选择拥抱痛苦，是因为：](https://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) -->
-<!-- - [幸福是需要努力的。](https://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) -->
 
 <!-- - 没有收到新的工作任务，胡乱地工作着、学习着， -->
 <!-- - 找不到人生方向，不知道该做什么。 -->
