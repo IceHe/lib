@@ -1,6 +1,8 @@
 <img src="https://cdn.icehe.xyz/_docsify/avatar-400.png" alt="avatar"  width="120px"/>
 
-# IceHe <small>Lib</small>
+<!-- # IceHe <small>Lib</small> -->
+
+# IceHe.xyz
 
 ```
 <!-- 好记性不如烂博客 -->
@@ -33,7 +35,8 @@
 
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
-[Weibo](https://weibo.com/icedes)
-[Library](/README)
+[🌴 Weibo](https://weibo.com/icedes)
+[🖥 About](/past/bio.md)
+[📚 Library](/README)
 
 <!-- Ref : https://docsify.js.org/#/cover -->

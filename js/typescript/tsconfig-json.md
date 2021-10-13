@@ -1523,113 +1523,500 @@ exports.helloWorld = "hi";
 
 _And this also generates this json map:_
 
+```json
+// helloWorld.js.map
+{
+  "version": 3,
+  "file": "ex.js",
+  "sourceRoot": "",
+  "sources": ["../ex.ts"],
+  "names": [],
+  "mappings": ";;AAAa,QAAA,UAAU,GAAG,IAAI,CAAA"
+}
+```
+
 ##### sourceRoot
 
+**Specify the location where a debugger should locate TypeScript files instead of relative source locations.**
+_This string is treated verbatim inside the source-map where you can use a path or a URL:_
+
+```json
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "sourceRoot": "https://my-website.com/debug/source/"
+  }
+}
+```
+
+_Would declare that `index.js` will have a source file at `https://my-website.com/debug/source/index.ts`._
+
 ##### stripInternal
+
+Do not emit declarations for code that has an `@internal` annotation in its JSDoc comment.
+
+……
 
 #### JavaScript Support
 
 ##### allowJs
 
+**Allow JavaScript files to be imported inside your project, instead of just `.ts` and `.tsx` files.**
+This defaults to `false`.
+
+_For example, this JS file:_
+
+```js
+// @filename: card.js
+export const defaultCardDeck = "Heart";
+```
+
+_Imported into a TypeScript file:_
+
+```ts
+// @filename: index.ts
+import { defaultCardDeck } from "./card";
+
+console.log(defaultCardDeck);
+```
+
+This flag can be used as a way to incrementally add TypeScript files into JS projects by allowing the `.ts` and `.tsx` files to live along-side existing JavaScript files.
+
 ##### checkJs
 
+Works in tandem with allowJs.
+**When checkJs is enabled then errors are reported in JavaScript files.**
+This is the equivalent of including `// @ts-check` at the top of all JavaScript files which are included in your project.
+
+……
+
 ##### maxNodeModuleJsDepth
+
+**The maximum dependency depth to search under `node_modules` and load JavaScript files.**
+
+This flag is can only be used when `allowJs` is enabled, and is used if you want to have TypeScript infer types for all of the JavaScript inside your `node_modules`.
+
+**Ideally this should stay at 0 (the default)**, and `d.ts` files should be used to explicitly define the shape of modules.
+However, there are cases where you may want to turn this on at the expense of speed and potential accuracy.
 
 #### Editor Support
 
 ##### disableSizeLimit
 
+**To avoid a possible memory bloat issues when working with very large JavaScript projects, there is an upper limit to the amount of memory TypeScript will allocate.**
+Turning this flag on will remove the limit.
+This defaults to `false`.
+
 ##### plugins
+
+**List of language service plugins to run inside the editor.**
+
+Language service plugins are a way to provide additional information to a user based on existing TypeScript files.
+They can enhance existing messages between TypeScript and an editor, or to provide their own error messages.
 
 #### Interop Constraints
 
 ##### allowSyntheticDefaultImports
 
+When set to `true`, `allowSyntheticDefaultImports` allows you to write an import like:
+
+```ts
+import React from "react";
+```
+
+instead of:
+
+```ts
+import * as React from "react";
+```
+
+When the module **does not** explicitly specify a default export.
+
+……
+
+This defaults to `true`.
+
 ##### esModuleInterop
+
+……
 
 ##### forceConsistentCasingInFileNames
 
-##### isolatedModules andpreserveSymlinks
+**TypeScript follows the case sensitivity rules of the file system it's running on.**
+This can be problematic if some developers are working in a case-sensitive file system and others aren’t. ……
+
+When this option is set, TypeScript will issue an error if a program tries to include a file by a casing different from the casing on disk.
+
+This defaults to `false`.
+
+##### isolatedModules
+
+This defaults to `false`.
+
+……
+
+##### preserveSymlinks
+
+This is to reflect the same flag in Node.js; which **does not resolve the real path of symlinks.**
+
+……
 
 #### Backwards Compatibility
 
 ##### charset
 
+This defaults to `utf8`
+
+_In prior versions of TypeScript, this controlled what encoding was used when reading text files from disk._
+Today, **TypeScript assumes UTF-8 encoding, but will correctly detect UTF-16 (BE and LE) or UTF-8 BOMs.**
+
 ##### keyofStringsOnly
+
+This flag **changes the `keyof` type operator to return `string` instead of `string | number` when applied to a type with a string index signature.**
+
+This defaults to `false`.
 
 ##### noImplicitUseStrict
 
+You shouldn't need this.
+_By default, when emitting a module file to a non-ES6 target, TypeScript emits a "use strict"; prologue at the top of the file._
+_This setting disables the prologue._
+
+……
+
+This defaults to `false`.
+
 ##### noStrictGenericChecks
+
+This defaults to `false`.
+
+TypeScript will **unify type parameters when comparing two generic functions**.
 
 ##### out
 
+Use `outFile` instead.
+
+……
+
 ##### suppressExcessPropertyErrors
 
+This **disables reporting of excess property errors**,  ……
+
+This defaults to `false`.
+
 ##### suppressImplicitAnyIndexErrors
+
+Turning `suppressImplicitAnyIndexErrors` on **suppresses reporting the error about implicit anys when indexing into objects**, ……
+
+This defaults to `false`.
 
 #### Language and Environment
 
 ##### emitDecoratorMetadata
 
+Enables experimental support for emitting type metadata for decorators which works with the module [reflect-metadata](https://www.npmjs.com/package/reflect-metadata).
+
+……
+
 ##### experimentalDecorators
+
+**Enables [experimental support for decorators](https://github.com/tc39/proposal-decorators)**, which is in stage 2 of the TC39 standardization process.
+
+……
 
 ##### jsx
 
+Controls how JSX constructs are emitted in JavaScript files.
+This only affects output of JS files that started in `.tsx` files.
+
+……
+
+_( Related to React. )_
+
 ##### jsxFactory
+
+……
 
 ##### jsxFragmentFactory
 
+……
+
 ##### jsxImportSource
+
+……
 
 ##### lib
 
+**TypeScript includes a default set of type definitions for built-in JS APIs** (like `Math`), as well as type definitions for things found in browser environments (like `document`).
+TypeScript also includes APIs for newer JS features matching the target you specify; for example the definition for `Map` is available if target is ES6 or newer.
+
+You may want to change these for a few reasons:
+
+- Your program doesn't run in a browser, so you don't want the "dom" type definitions
+- Your runtime platform provides certain JavaScript API objects (maybe through [polyfill](https://en.wikipedia.org/wiki/Polyfill_(programming))s), but doesn't yet support the full syntax of a given ECMAScript version
+- You have polyfills or native implementations for some, but not all, of a higher level ECMAScript version
+
+In TypeScript 4.5, lib files can be overriden by npm modules, find out more [in the blog](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#supporting-lib-from-node_modules).
+
+**High Level libraries**
+
+Name and Contents:
+
+-   ES5
+
+    Core definitions for all ES3 and ES5 functionality
+
+-   ES2015
+
+    Additional APIs available in ES2015 (also known as ES6) -
+    array.find, Promise, Proxy, Symbol, Map, Set, Reflect, etc.
+
+-   ES6
+
+    Alias for “ES2015”
+
+-   ES2016
+
+    Additional APIs available in ES2016 -
+    array.include, etc.
+
+-   ES7
+
+    Alias for “ES2016”
+
+-   ES2017
+
+    Additional APIs available in ES2017 -
+    Object.entries, Object.values, Atomics, SharedArrayBuffer, date.formatToParts, typed arrays, etc.
+
+-   ES2018
+
+    Additional APIs available in ES2018 -
+    async iterables, promise.finally, Intl.PluralRules, regexp.groups, etc.
+
+-   ES2019
+
+    Additional APIs available in ES2019 -
+    array.flat, array.flatMap, Object.fromEntries, string.trimStart, string.trimEnd, etc.
+
+-   ES2020
+
+    Additional APIs available in ES2020 - string.matchAll, etc.
+
+-   ES2021
+
+    Additional APIs available in ES2021 - promise.any, string.replaceAll etc.
+
+-   ESNext
+
+    Additional APIs available in ESNext -
+    This changes as the JavaScript specification evolves
+
+-   DOM
+
+    DOM definitions - window, document, etc.
+
+-   WebWorker
+
+    APIs available in WebWorker contexts
+
+-   ScriptHost
+
+    APIs for the Windows Script Hosting System
+
+**Individual library components**
+
+Name:
+
+- DOM.Iterable
+- ES2015.Core
+- ES2015.Collection
+- ES2015.Generator
+- ES2015.Iterable
+- ES2015.Promise
+- ES2015.Proxy
+- ES2015.Reflect
+- ES2015.Symbol
+- ES2015.Symbol.WellKnown
+- ES2016.Array.Include
+- ES2017.object
+- ES2017.Intl
+- ES2017.SharedMemory
+- ES2017.String
+- ES2017.TypedArrays
+- ES2018.Intl
+- ES2018.Promise
+- ES2018.RegExp
+- ES2019.Array
+- ES2019.Object
+- ES2019.String
+- ES2019.Symbol
+- ES2020.String
+- ES2020.Symbol.wellknown
+- ES2021.Promise
+- ES2021.String
+- ES2021.Weakref
+- ESNext.AsyncIterable
+- ESNext.Array
+- ESNext.Intl
+- ESNext.Symbol
+
+This list may be out of date, you can see the full list in the [TypeScript source code](https://github.com/microsoft/TypeScript/tree/main/lib).
+
 ##### noLib
+
+**Disables the automatic inclusion of any library files.**
+If this option is set, `lib` is ignored.
+
+TypeScript cannot compile anything without a set of interfaces for key primitives like:
+`Array`, `Boolean`, `Function`, `IArguments`, `Number`, `Object`, `RegExp`, and `String`.
+It is expected that if you use `noLib` you will be including your own type definitions for these.
 
 ##### reactNamespace
 
+Use `jsxFactory` instead.
+
+……
+
 ##### target
+
+_Modern browsers support all `ES6` features, so ES6 is a good choice._
+You might choose to set a lower target if your code is deployed to older environments, or a higher target if your code is guaranteed to run in newer environments.
+
+……
 
 ##### useDefineForClassFields
 
+This flag is used as part of migrating to the upcoming standard version of class fields.
+
+……
+
 #### Compiler Diagnostics
 
-##### diagnostics
+##### _diagnostics_
+
+Deprecated. This defaults to `false`.
+
+**Used to output diagnostic information for debugging.**
+_This command is a subset of `extendedDiagnostics` which are more user-facing results, and easier to interpret._
+
+_If you have been asked by a TypeScript compiler engineer to give the results using this flag in a compile, in which there is no harm in using `extendedDiagnostics` instead._
 
 ##### explainFiles
 
+**Print names of files which TypeScript sees as a part of your project and the reason they are part of the compilation.**
+
+……
+
 ##### extendedDiagnostics
+
+You can use this flag to **discover where TypeScript is spending its time when compiling.**
+This is a tool **used for understanding the performance characteristics of your codebase overall.**
+
+You can learn more about how to measure and understand the output in the performance [section of the wiki](https://github.com/microsoft/TypeScript/wiki/Performance).
+
+This defaults to `false`.
 
 ##### generateCpuProfile
 
+This option gives you the chance **to have TypeScript emit a v8 CPU profile during the compiler run.**
+The CPU profile can provide insight into why your builds may be slow.
+
+This option can only be used from the CLI via: `--generateCpuProfile tsc-output.cpuprofile`.
+
+This defaults to `profile.cpuprofile`.
+
+```bash
+npm run tsc --generateCpuProfile tsc-output.cpuprofile
+```
+
+This file can be opened in a chromium based browser like Chrome or Edge Developer in [the CPU profiler section](https://developer.chrome.com/docs/devtools/evaluate-performance/).
+_You can learn more about understanding the compilers performance in the TypeScript wiki [section on performance](https://github.com/microsoft/TypeScript/wiki/Performance)._
+
 ##### listEmittedFiles
+
+**Print names of generated files part of the compilation to the terminal.**
+
+This flag is useful in two cases:
+
+- You want to transpile TypeScript as a part of a build chain in the terminal where the filenames are processed in the next command.
+- You are not sure that TypeScript has included a file you expected, as a part of debugging the file inclusion settings.
+
+……
 
 ##### listFiles
 
+**Print names of files part of the compilation.**
+_This is useful when you are not sure that TypeScript has included a file you expected._
+
+……
+
 ##### traceResolution
+
+When you are trying to debug why a module isn't being included.
+You can set `traceResolutions` to `true` to have TypeScript print information about its resolution process for each processed file.
 
 #### Projects
 
 ##### composite
 
+The `composite` option **enforces certain constraints which make it possible for build tools (including TypeScript itself, under `--build` mode) to quickly determine if a project has been built yet.**
+
+……
+
 ##### disableReferencedProjectLoad
+
+In multi-project TypeScript programs, TypeScript will load all of the available projects into memory in order to provide accurate results for editor responses which require a full knowledge graph like 'Find All References'.
+
+If your project is large, you can use the flag disableReferencedProjectLoad to **disable the automatic loading of all projects**.
+**Instead, projects are loaded dynamically as you open files through your editor.**
 
 ##### disableSolutionSearching
 
+When working with composite TypeScript projects, this option provides a way to **declare that you do not want a project to be included when using features like find all references or jump to definition in an editor.**
+
+……
+
 ##### disableSourceOfProjectReferenceRedirect
+
+……
 
 ##### incremental
 
+Tells TypeScript to **save information about the project graph from the last compilation to files stored on disk.**
+
+……
+
 ##### tsBuildInfoFile
+
+This setting lets you specify a file for storing incremental compilation information as a part of composite projects which enables faster building of larger TypeScript codebases.
+
+……
 
 #### Output Formatting
 
 ##### noErrorTruncation
 
+**Do not truncate error messages.**
+
+This defaults to `false`.
+
+……
+
 ##### preserveWatchOutput
+
+Whether to **keep outdated console output in watch mode instead of clearing the screen every time a change happened.**
+
+This defaults to `false`.
 
 ##### pretty
 
+**Stylize errors and messages using color and context**, this is on by default — offers you a chance to have less terse, single colored messages from the compiler.
+
 #### Completeness
+
+Use `skipLibCheck` instead.
+Skip type checking of default library declaration files.
 
 ##### skipDefaultLibCheck
 
