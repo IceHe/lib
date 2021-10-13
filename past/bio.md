@@ -57,7 +57,7 @@ IceHe's short biographical profile
 
 ## 技能
 
-分级
+技能分级
 
 -   精通 - Proficient:
     _运用自如, 极少需要文档_
@@ -70,8 +70,8 @@ IceHe's short biographical profile
 
 编程语言
 
-- 胜任: Java / PHP / TypeScript <sup>learning</sup>
-- 了解: C / C++ / Python / JavaScript / Assembly
+- 胜任: Java / PHP / JavaScript / TypeScript
+- 了解: C / C++ / Python / Assembly
 
 存储 / 缓存 / 队列
 
@@ -83,17 +83,21 @@ IceHe's short biographical profile
 - 熟悉: macOS
 - 胜任: Linux
 
-开发工具
-
-- 熟悉: Git / Vim / IntelliJ IDEA
-- 胜任: Zsh / Bash / Docker
-
-网页前端
+前端领域
 
 - 胜任: HTML / CSS / jQuery
 - 了解: Node.js <sup>learning</sup>
 
-语言沟通
+<!--
+
+开发工具
+
+- 熟悉: Git / Vim / VS Code / IntelliJ IDEA
+- 胜任: Zsh / Bash / Docker
+
+-->
+
+沟通语言
 
 - 英语: 大学六级, 技术内容的基本阅读 & 写作
 - 普通话 & 粤语: 母语
