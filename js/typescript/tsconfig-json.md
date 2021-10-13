@@ -1248,13 +1248,44 @@ When working with `.d.ts` files for JavaScript files you may want to use `emitDe
 
 Offers a way to configure the root directory for where declaration files are emitted.
 
-……
+```bash
+example
+├── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+with this `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./types"
+  }
+}
+```
+
+Would place the d.ts for the `index.ts` in a `types` folder:
+
+```bash
+example
+├── index.js
+├── index.ts
+├── package.json
+├── tsconfig.json
+└── types
+    └── index.d.ts
+```
 
 ##### declarationMap
 
-Generates a source map for .d.ts files which map back to the original .ts source file. This will allow editors such as VS Code to go to the original .ts file when using features like Go to Definition.
+**Generates a source map for `.d.ts` files which map back to the original `.ts` source file.**
+_This will allow editors such as VS Code to go to the original `.ts` file when using features like Go to Definition._
 
-You should strongly consider turning this on if you’re using project references.
+You should strongly consider turning this on if you're using project references.
+
+<!-- icehe : 主要 frontend 需要使用, backend 的 Node.js 项目没必要生成 `*.map.js` 文件 -->
 
 ##### downlevelIteration
 
@@ -1273,7 +1304,10 @@ The default value of false is generally best unless you have a reason to change 
 
 Only emit `.d.ts` files; do not emit `.js` files.
 
-……
+This setting is useful in two cases:
+
+- You are using a transpiler other than TypeScript to generate your JavaScript.
+- You are using TypeScript to only generate `d.ts` files for your consumers.
 
 ##### importHelpers
 
@@ -1285,6 +1319,8 @@ This can result in code duplication if the same helper is used in many different
 You will need to ensure that the `tslib` module is able to be imported at runtime.
 This only affects modules; global script files will not attempt to import modules.
 
+……
+
 ##### importsNotUsedAsValues
 
 This flag controls how `import` works, there are 3 different options:
@@ -1292,7 +1328,6 @@ This flag controls how `import` works, there are 3 different options:
 -   `remove` : The default behavior of dropping `import` statements which only reference types.
 -   `preserve` : Preserves all import statements whose values or types are never used.
     This can cause imports/side-effects to be preserved.
-
 -   `error` : This preserves all imports (the same as the preserve option), but will error when a value import is only used as a type.
     This might be useful if you want to ensure no values are being accidentally imported, but still make side-effect imports explicit.
 
