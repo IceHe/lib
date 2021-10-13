@@ -2015,29 +2015,78 @@ This defaults to `false`.
 
 #### Completeness
 
+##### skipDefaultLibCheck
+
 Use `skipLibCheck` instead.
 Skip type checking of default library declaration files.
 
-##### skipDefaultLibCheck
+……
 
 ##### skipLibCheck
 
+……
+
 #### Command Line
 
-TBD 暂无?
+……
 
 #### Watch Options
 
-assumeChangesOnlyAffectDirectDependencies
+TypeScript 3.8 shipped a new strategy for watching directories, which is crucial for efficiently picking up changes to `node_modules`.
+
+……
+
+##### assumeChangesOnlyAffectDirectDependencies
+
+When this option is enabled, TypeScript will **avoid rechecking/rebuilding all truly possibly-affected files, and only recheck/rebuild files that have changed as well as files that directly import them.**
+
+This can be considered a ‘fast & loose’ implementation of the watching algorithm, which can drastically reduce incremental rebuild times at the expense of having to run the full build occasionally to get all compiler error messages.
 
 ### watchOptions
 
-- watchFile
-- watchDirectory
-- fallbackPolling
-- synchronousWatchDirectory
-- excludeDirectories
-- excludeFiles
+You can configure the how TypeScript `--watch` works.
+This section is mainly for handling case where `fs.watch` and `fs.watchFile` have additional constraints like on Linux.
+You can read more at [Configuring Watch](https://www.typescriptlang.org/docs/handbook/configuring-watch.html).
+
+#### watchFile
+
+The strategy for how individual files are watched.
+
+- `fixedPollingInterval`: Check every file for changes several times a second at a fixed interval.
+- `priorityPollingInterval`: Check every file for changes several times a second, but use heuristics to check certain types of files less frequently than others.
+- `dynamicPriorityPolling`: Use a dynamic queue where less-frequently modified files will be checked less often.
+- `useFsEvents` (the default): Attempt to use the operating system/file system’s native events for file changes.
+- `useFsEventsOnParentDirectory`: Attempt to use the operating system/file system’s native events to listen for changes on a file’s parent directory
+
+……
+
+#### watchDirectory
+
+_The strategy for how entire directory trees are watched under systems that lack recursive file-watching functionality._
+
+……
+
+#### fallbackPolling
+
+_When using file system events, this option specifies the polling strategy that gets used when the system runs out of native file watchers and/or doesn't support native file watchers._
+
+……
+
+#### synchronousWatchDirectory
+
+_Synchronously call callbacks and update the state of directory watchers on platforms that don't support recursive watching natively. ……_
+
+#### excludeDirectories
+
+You can use `excludeFiles` to drastically reduce the number of files which are watched during `--watch`.
+
+……
+
+#### excludeFiles
+
+You can use `excludeFiles` to remove a set of specific files from the files which are watched.
+
+……
 
 ### typeAcquisition
 
