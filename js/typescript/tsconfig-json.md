@@ -386,7 +386,7 @@ These warnings are only about code which is provably unreachable due to the use 
 
 With `"allowUnreachableCode": false`:
 
-```js
+```ts
 function fn(n: number) {
   if (n > 5) {
     return true;
@@ -410,7 +410,7 @@ When:
 
 Labels are very rare in JavaScript and typically indicate an attempt to write an object literal:
 
-```js
+```ts
 function verifyAge(age: number) {
   // Forgot 'return' statement
   if (age > 18) {
@@ -432,7 +432,7 @@ With `exactOptionalPropertyTypes` enabled, TypeScript **applies stricter rules a
 
 _For example, this interface declares that there is a property which can be one of two strings: "dark" or "light" or it should not be in the object._
 
-```js
+```ts
 interface UserDefaults {
   // The absence of a value represents 'system'
   colorThemeOverride?: "dark" | "light";
@@ -447,7 +447,7 @@ For example `"colorThemeOverride" in settings` would have different behavior wit
 
 _`exactOptionalPropertyTypes` makes TypeScript truly enforce the definition provided as an optional property:_
 
-```js
+```ts
 const settings = getUserSettings();
 settings.colorThemeOverride = "dark";
 settings.colorThemeOverride = "light";
@@ -464,7 +464,7 @@ settings.colorThemeOverride = undefined;
 Ensures that any non-empty case inside a switch statement includes either `break` or `return`.
 This means you won't accidentally ship a case fallthrough bug.
 
-```js
+```ts
 const a: number = 6;
 
 switch (a) {
@@ -483,7 +483,7 @@ switch (a) {
 
 **This can cause some errors to be missed**, _for example:_
 
-```js
+```ts
 function fn(s) {
   // No error?
   console.log(s.subtr(3));
@@ -493,7 +493,7 @@ fn(42);
 
 _Turning on `noImplicitAny` however TypeScript will issue an error whenever it would have inferred `any`:_
 
-```js
+```ts
 function fn(s) {
   // Parameter 's' implicitly has an 'any' type.
   console.log(s.subtr(3));
@@ -508,7 +508,7 @@ Using `noImplicitOverride` you can ensure that the sub-classes never go out of s
 
 The following example has `noImplicitOverride` enabled, and you can see the error received when `override` is missing:
 
-```js
+```ts
 class Album {
   setup() {}
 }
@@ -527,7 +527,7 @@ class SharedAlbum extends Album {
 
 When enabled, TypeScript will **check all code paths in a function to ensure they return a value.**
 
-```js
+```ts
 function lookupHeadphonesManufacturer(color: "blue" | "black"): string {
   // Function lacks ending return statement and return type does not include 'undefined'.
   if (color === "blue") {
@@ -544,7 +544,7 @@ function lookupHeadphonesManufacturer(color: "blue" | "black"): string {
 
 For example, the class below returns a function which tries to access `this.width` and `this.height` – but the context for `this` inside the function inside `getAreaFunction` is not the instance of the Rectangle.
 
-```js
+```ts
 class Rectangle {
   width: number;
   height: number;
@@ -570,7 +570,7 @@ This setting **ensures consistency between accessing a field via the “dot” (
 
 Without this flag, TypeScript will allow you to use the dot syntax to access fields which are not defined:
 
-```js
+```ts
 interface GameSettings {
   // Known up-front properties
   speed: "fast" | "medium" | "slow";
@@ -595,7 +595,7 @@ settings.username;
 
 Turning the flag on will raise an error because the unknown field uses dot syntax instead of indexed syntax.
 
-```js
+```ts
 const settings = getSettings();
 settings.speed;
 settings.quality;
@@ -611,7 +611,7 @@ The goal of this flag is to signal intent in your calling syntax about how certa
 
 TypeScript has a way to describe objects which have unknown keys but known values on an object, via index signatures.
 
-```js
+```ts
 interface EnvironmentVars {
   NAME: string;
   OS: string;
@@ -634,7 +634,7 @@ const nodeEnv = env.NODE_ENV;
 
 Turning on `noUncheckedIndexedAccess` will add `undefined` to any un-declared field in the type.
 
-```js
+```ts
 declare const env: EnvironmentVars;
 
 // Declared as existing
@@ -653,7 +653,7 @@ const nodeEnv = env.NODE_ENV;
 
 **Report errors on unused local variables.**
 
-```js
+```ts
 const createKeyboard = (modelID: number) => {
   const defaultModelID = 23;
   // 'defaultModelID' is declared but its value is never read.
@@ -665,7 +665,7 @@ const createKeyboard = (modelID: number) => {
 
 **Report errors on unused parameters in functions.**
 
-```js
+```ts
 const createDefaultKeyboard = (modelID: number) => {
   // 'modelID' is declared but its value is never read.
   const defaultModelID = 23;
@@ -686,7 +686,7 @@ When appropriate and possible, a corresponding flag will be added to disable tha
 
 When set, TypeScript will **check that the built-in methods of functions call, bind, and apply are invoked with correct argument for the underlying function**:
 
-```js
+```ts
 // With strictBindCallApply on
 function fn(x: string) {
   return parseInt(x);
@@ -700,7 +700,7 @@ const n2 = fn.call(undefined, false);
 
 Otherwise, these functions accept any arguments and will return `any`:
 
-```js
+```ts
 // With strictBindCallApply off
 function fn(x: string) {
   return parseInt(x);
@@ -716,7 +716,7 @@ When enabled, this flag **causes functions parameters to be checked more correct
 
 _Here's a basic example with `strictFunctionTypes` off:_
 
-```js
+```ts
 function fn(x: string) {
   console.log("Hello, " + x.toLowerCase());
 }
@@ -731,7 +731,7 @@ func(10);
 
 _With `strictFunctionTypes` on, the error is correctly detected:_
 
-```js
+```ts
 function fn(x: string) {
   console.log("Hello, " + x.toLowerCase());
 }
@@ -749,7 +749,7 @@ let func: StringOrNumberFunc = fn;
 _During development of this feature, we discovered a large number of inherently unsafe class hierarchies, including some in the DOM._
 _Because of this, the setting only applies to functions written in function syntax, not to those in method syntax:_
 
-```js
+```ts
 type Methodish = {
   func(x: string | number): void;
 };
@@ -774,7 +774,7 @@ This can lead to unexpected errors at runtime.
 
 _For example with this TypeScript code, `users.find` has no guarantee that it will actually find a user, but you can write code as though it will:_
 
-```js
+```ts
 declare const loggedInUsername: string;
 
 const users = [
@@ -788,7 +788,7 @@ console.log(loggedInUser.age);
 
 _Setting `strictNullChecks` to `true` will raise an error that you have not made a guarantee that the `loggedInUser` exists before trying to use it._
 
-```js
+```ts
 declare const loggedInUsername: string;
 
 const users = [
@@ -803,7 +803,7 @@ console.log(loggedInUser.age);
 
 _The second example failed because the array's `find` function looks a bit like this simplification:_
 
-```js
+```ts
 // When strictNullChecks: true
 type Array = {
   find(predicate: (value: any, index: number) => boolean): S | undefined;
@@ -819,7 +819,7 @@ type Array = {
 
 **When set to true, TypeScript will raise an error when a class property was declared but not set in the constructor.**
 
-```js
+```ts
 class UserAccount {
   name: string;
   accountType = "user";
@@ -840,7 +840,7 @@ class UserAccount {
 In TypeScript 4.0, support was added to allow changing the type of the variable in a catch clause from `any` to `unknown`.
 Allowing for code like:
 
-```js
+```ts
 try {
   // ...
 } catch (err) {
@@ -883,7 +883,7 @@ baseUrl
 
 _With `"baseUrl": "./"` inside this project TypeScript will look for files starting at the same folder as the `tsconfig.json`._
 
-```js
+```ts
 import { helloWorld } from "hello/world";
 console.log(helloWorld);
 ```
@@ -901,7 +901,7 @@ Changing module affects [moduleResolution](https://www.typescriptlang.org/tsconf
 
 _Here's some example output for this file:_
 
-```js
+```ts
 // @filename: index.ts
 import { valueOfPi } from "./constants";
 
@@ -910,7 +910,7 @@ export const twoPi = valueOfPi * 2;
 
 -   **CommonJS**
 
-    ```js
+    ```ts
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.twoPi = void 0;
@@ -920,7 +920,7 @@ export const twoPi = valueOfPi * 2;
 
 -   **UMD**
 
-    ```js
+    ```ts
     (function (factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
         var v = factory(require, exports);
@@ -940,7 +940,7 @@ export const twoPi = valueOfPi * 2;
 
 -   **AMD**
 
-    ```js
+    ```ts
     define(["require", "exports", "./constants"], function (require, exports, constants_1) {
         "use strict";
         Object.defineProperty(exports, "__esModule", { value: true });
@@ -951,7 +951,7 @@ export const twoPi = valueOfPi * 2;
 
 -   **System**
 
-    ```js
+    ```ts
     System.register(["./constants"], function (exports_1, context_1) {
         "use strict";
         var constants_1, twoPi;
@@ -971,21 +971,21 @@ export const twoPi = valueOfPi * 2;
 
 -   **ESNext**
 
-    ```js
+    ```ts
     import { valueOfPi } from "./constants";
     export const twoPi = valueOfPi * 2;
     ```
 
 -   **ES2020**
 
-    ```js
+    ```ts
     import { valueOfPi } from "./constants";
     export const twoPi = valueOfPi * 2;
     ```
 
 -   **ES2015/ES6**
 
-    ```js
+    ```ts
     import { valueOfPi } from "./constants";
     export const twoPi = valueOfPi * 2;
     ```
@@ -994,7 +994,7 @@ export const twoPi = valueOfPi * 2;
 
 -   **node12/nodenext**
 
-    ```js
+    ```ts
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.twoPi = void 0;
@@ -1008,7 +1008,7 @@ export const twoPi = valueOfPi * 2;
 
 -   **None**
 
-    ```js
+    ```ts
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.twoPi = void 0;
@@ -1038,7 +1038,7 @@ However, `import` statements are still checked to see if they resolve to a valid
 
 `paths` lets you declare how TypeScript should resolve an import in your `require/import`s.
 
-```js
+```ts
 {
   "compilerOptions": {
     "baseUrl": ".", // this must be specified if "paths" is specified.
@@ -1051,7 +1051,7 @@ However, `import` statements are still checked to see if they resolve to a valid
 
 This would allow you to be able to write `import "jquery"`, and get all of the correct typing locally.
 
-```js
+```ts
 {
   "compilerOptions": {
     "baseUrl": "src",
@@ -1076,7 +1076,7 @@ This includes generating a type for the import based on the static JSON shape.
 
 TypeScript does not support resolving JSON files by default:
 
-```js
+```ts
 // @filename: settings.json
 // Cannot find module './settings.json'. Consider using '--resolveJsonModule' to import module with '.json' extension.
 {
@@ -1093,7 +1093,7 @@ settings.dry === 2;
 
 _Enabling the option allows importing JSON, and validating the types in that JSON file._
 
-```js
+```ts
 // @filename: settings.json
 {
     "repo": "TypeScript",
@@ -1115,7 +1115,7 @@ settings.dry === 2;
 
 _For example, let’s say you have some input files:_
 
-```js
+```ts
 MyProj
 ├── tsconfig.json
 ├── core
@@ -1130,7 +1130,7 @@ _The inferred value for `rootDir` is the longest common path of all non-declarat
 
 _If your `outDir` was dist, TypeScript would write this tree:_
 
-```js
+```ts
 MyProj
 ├── dist
 │   ├── a.js
@@ -1142,7 +1142,7 @@ MyProj
 _However, you may have intended for core to be part of the output directory structure._
 _By setting `rootDir: "."` in `tsconfig.json`, TypeScript would write this tree:_
 
-```js
+```ts
 MyProj
 ├── dist
 │   ├── core
@@ -1160,7 +1160,7 @@ For this reason, `rootDir` also enforces that all files which need to be emitted
 
 _For example, let’s say you had this tree:_ <!-- icehe : 暂时不够理解这个例子 2021/10/12 -->
 
-```js
+```ts
 MyProj
 ├── tsconfig.json
 ├── core
@@ -1188,7 +1188,7 @@ For example, that means packages within `./node_modules/@types/`, `../node_modul
 
 **If `typeRoots` is specified, only packages under `typeRoots` will be included.** For example:
 
-```js
+```ts
 {
   "compilerOptions": {
     "typeRoots": ["./typings", "./vendor/types"]
@@ -1205,7 +1205,7 @@ All paths are relative to the `tsconfig.json`.
 
 **If `types` is specified, only packages listed will be included in the global scope.** For instance:
 
-```js
+```ts
 {
   "compilerOptions": {
     "types": ["node", "jest", "express"]
@@ -1226,19 +1226,19 @@ With `.d.ts` files, tools like TypeScript can provide intellisense <!-- 知识�
 
 _When `declaration` is set to `true`, running the compiler with this TypeScript code:_
 
-```js
+```ts
 export let helloWorld = "hi";
 ```
 
 _Will generate an `index.js` file like this:_
 
-```js
+```ts
 export let helloWorld = "hi";
 ```
 
 _With a corresponding `helloWorld.d.ts`:_
 
-```js
+```ts
 export declare let helloWorld: string;
 ```
 

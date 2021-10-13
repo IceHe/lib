@@ -93,7 +93,7 @@ The handbook is split into two sections:
 
 -   Explicit Types
 
-    ```js
+    ```ts
     function greet(person: string, date: Date) {
       console.log(`Hello ${person}, today is ${date.toDateString()}!`);
     }
@@ -103,7 +103,7 @@ The handbook is split into two sections:
 
     In many cases, TypeScript can even just infer (or "figure out") the types for us even if we omit them.
 
-    ```js
+    ```ts
     let msg = "hello there!";
     ```
 
@@ -165,11 +165,11 @@ Use the compiler flag `noImplicitAny` **to flag any implicit any as an error**.
 
 When you declare a variable using const, var, or let, you can optionally add a type annotation to explicitly specify the type of the variable:
 
-```js
+```ts
 let myName: string = "Alice";
 ```
 
-```js
+```ts
 // No type annotation needed -- 'myName' inferred as type 'string'
 let myName = "Alice";
 ```
@@ -178,7 +178,7 @@ let myName = "Alice";
 
 ##### Parameter Type Annotations
 
-```js
+```ts
 // Parameter type annotation
 function greet(name: string) {
   console.log("Hello, " + name.toUpperCase() + "!!");
@@ -187,7 +187,7 @@ function greet(name: string) {
 
 ##### Return Type Annotations
 
-```js
+```ts
 function getFavoriteNumber(): number {
   return 26;
 }
@@ -195,7 +195,7 @@ function getFavoriteNumber(): number {
 
 ##### Anonymous Functions
 
-```js
+```ts
 // No type annotations here, but TypeScript can spot the bug
 const names = ["Alice", "Bob", "Eve"];
 
@@ -212,7 +212,7 @@ names.forEach((s) => {
 
 #### Object Types
 
-```js
+```ts
 // The parameter's type annotation is an object type
 function printCoord(pt: { x: number; y: number }) {
   console.log("The coordinate's x value is " + pt.x);
@@ -223,7 +223,7 @@ printCoord({ x: 3, y: 7 });
 
 ##### Optional Properties
 
-```js
+```ts
 function printName(obj: { first: string; last?: string }) {
   // Error - might crash if 'obj.last' wasn't provided!
   console.log(obj.last.toUpperCase());
@@ -241,7 +241,7 @@ function printName(obj: { first: string; last?: string }) {
 
 **Defining a Union Type**
 
-```js
+```ts
 function printId(id: number | string) {
   console.log("Your ID is: " + id);
 }
@@ -255,7 +255,7 @@ printId({ myID: 22342 });
 
 **Working with Union Types**
 
-```js
+```ts
 function printId(id: number | string) {
   if (typeof id === "string") {
     // In this branch, id is of type 'string'
@@ -271,7 +271,7 @@ function printId(id: number | string) {
 
 It’s common to want to use the same type more than once and refer to it by a single name.
 
-```js
+```ts
 type Point = {
     x: number;
     y: number;
@@ -288,7 +288,7 @@ printCoordinate({ x: 100, y: 50 });
 
 ##### Interfaces
 
-```js
+```ts
 interface Point {
   x: number;
   y: number;
@@ -310,7 +310,7 @@ the key distinction is that **a type cannot be re-opened to add new properties**
 
 -   Extend an interface
 
-    ```js
+    ```ts
     interface Animal {
       name: string
     }
@@ -330,7 +330,7 @@ the key distinction is that **a type cannot be re-opened to add new properties**
 
 -   Extend a type via intersection
 
-    ```js
+    ```ts
     type Animal = {
       name: string
     }
@@ -358,7 +358,7 @@ For example, if you’re using `document.getElementById`, TypeScript only knows 
 
 In this situation, you can use a type assertion to specify a more specific type:
 
-```js
+```ts
 const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
 ```
 
@@ -371,7 +371,7 @@ It's not much use to have a variable that can only have one value!
 
 But **by combining literals into unions**, you can express a much more useful concept - for example, **functions that only accept a certain set of known values ( on function parameters )**:
 
-```js
+```ts
 function print123(s: "one" | "two" | "three") {
   console.log(s);
 }
@@ -384,7 +384,7 @@ print123("three");
 
 Numeric literal types work the same way ( using on function returning type ) :
 
-```js
+```ts
 function compare(a: string, b: string): -1 | 0 | 1 {
   return ((a === b) ? 0 : ((a > b) ? 1 : -1));
 }
@@ -396,7 +396,7 @@ console.log(compare("ice", "he"));
 
 Combine these with non-literal types:
 
-```js
+```ts
 interface Options {
   width: number;
 }
@@ -437,7 +437,7 @@ TypeScript also has a special syntax for removing `null` and `undefined` from a 
 
 Writing `!` after any expression is effectively a type assertion that the value isn’t **null** or **undefined**:
 
-```js
+```ts
 function liveDangerously(x?: number | null) {
   // No error
   console.log(x!.toFixed());
@@ -458,7 +458,7 @@ Unlike most TypeScript features, this is **not a type-level addition to JavaScri
 
 From ES2020 onwards, there is a primitive in JavaScript used for very large integers, BigInt:
 
-```js
+```ts
 // Creating a bigint via the BigInt function
 const oneHundred: bigint = BigInt(100);
 // Creating a BigInt via the literal syntax
@@ -475,7 +475,7 @@ $ tsc --target es2020 bigint.ts && node bigint.js
 
 There is a primitive in JavaScript used to create a globally unique reference via the function `Symbol()`:
 
-```js
+```ts
 const firstName = Symbol("name");
 const secondName = Symbol("name");
 
@@ -488,7 +488,7 @@ if (firstName === secondName) {
 
 #### Narrowing
 
-```js
+```ts
 function padLeft(padding: number | string, input: string) {
   if (typeof padding === "number") {
     return new Array(padding + 1).join(" ") + input;
@@ -535,7 +535,7 @@ all coerce to `false`, and other values get coerced `true`.
 You can always **coerce values to booleans by running them through the `Boolean` function, or by using the shorter double-Boolean negation.**
 ( **The latter has the advantage that TypeScript infers a narrow literal boolean type true, while inferring the first as type boolean.** )
 
-```js
+```ts
 // both of these result in 'true'
 Boolean("hello");   // type: boolean, value: true
 !!"world";          // type: true,    value: true
@@ -543,7 +543,7 @@ Boolean("hello");   // type: boolean, value: true
 
 _Exmaple_
 
-```js
+```ts
 function multiplyAll(
   values: number[] | undefined,
   factor: number
@@ -567,7 +567,7 @@ TypeScript also uses switch statements and equality checks like `===`, `!==`, `=
 
 For example:
 
-```js
+```ts
 function example(x: string | number, y: string | boolean) {
   if (x === y) {
     // We can now call any 'string' method on 'x' or 'y'.
