@@ -430,7 +430,7 @@ ECMAScript strict mode was introduced in ES5 and provides behavior tweaks to the
 
 With `exactOptionalPropertyTypes` enabled, TypeScript **applies stricter rules around how it handles properties on `type` or `interface`s which have a `?` prefix.**
 
-For example, this interface declares that there is a property which can be one of two strings: "dark" or "light" or it should not be in the object.
+_For example, this interface declares that there is a property which can be one of two strings: "dark" or "light" or it should not be in the object._
 
 ```js
 interface UserDefaults {
@@ -445,7 +445,7 @@ Setting the value to `undefined` will allow most JavaScript runtime checks for t
 However, this isn't quite accurate `colorThemeOverride: undefined` is not the same as `colorThemeOverride` not being defined.
 For example `"colorThemeOverride" in settings` would have different behavior with `undefined` as the key compared to not being defined.
 
-`exactOptionalPropertyTypes` makes TypeScript truly enforce the definition provided as an optional property:
+_`exactOptionalPropertyTypes` makes TypeScript truly enforce the definition provided as an optional property:_
 
 ```js
 const settings = getUserSettings();
@@ -481,7 +481,7 @@ switch (a) {
 
 **In some cases where no type annotations are present, TypeScript will fall back to a type of any for a variable when it cannot infer the type.**
 
-**This can cause some errors to be missed**, for example:
+**This can cause some errors to be missed**, _for example:_
 
 ```js
 function fn(s) {
@@ -491,7 +491,7 @@ function fn(s) {
 fn(42);
 ```
 
-Turning on `noImplicitAny` however TypeScript will issue an error whenever it would have inferred `any`:
+_Turning on `noImplicitAny` however TypeScript will issue an error whenever it would have inferred `any`:_
 
 ```js
 function fn(s) {
@@ -714,7 +714,7 @@ const n = fn.call(undefined, false);
 
 When enabled, this flag **causes functions parameters to be checked more correctly.**
 
-Here's a basic example with `strictFunctionTypes` off:
+_Here's a basic example with `strictFunctionTypes` off:_
 
 ```js
 function fn(x: string) {
@@ -729,7 +729,7 @@ let func: StringOrNumberFunc = fn;
 func(10);
 ```
 
-With `strictFunctionTypes` on, the error is correctly detected:
+_With `strictFunctionTypes` on, the error is correctly detected:_
 
 ```js
 function fn(x: string) {
@@ -746,8 +746,8 @@ let func: StringOrNumberFunc = fn;
 //       Type 'number' is not assignable to type 'string'.
 ```
 
-During development of this feature, we discovered a large number of inherently unsafe class hierarchies, including some in the DOM.
-Because of this, the setting only applies to functions written in function syntax, not to those in method syntax:
+_During development of this feature, we discovered a large number of inherently unsafe class hierarchies, including some in the DOM._
+_Because of this, the setting only applies to functions written in function syntax, not to those in method syntax:_
 
 ```js
 type Methodish = {
@@ -772,7 +772,7 @@ This can lead to unexpected errors at runtime.
 
 **When `strictNullChecks` is `true`, `null` and `undefined` have their own distinct types and you'll get a type error if you try to use them where a concrete value is expected.**
 
-For example with this TypeScript code, `users.find` has no guarantee that it will actually find a user, but you can write code as though it will:
+_For example with this TypeScript code, `users.find` has no guarantee that it will actually find a user, but you can write code as though it will:_
 
 ```js
 declare const loggedInUsername: string;
@@ -786,7 +786,7 @@ const loggedInUser = users.find((u) => u.name === loggedInUsername);
 console.log(loggedInUser.age);
 ```
 
-Setting `strictNullChecks` to `true` will raise an error that you have not made a guarantee that the `loggedInUser` exists before trying to use it.
+_Setting `strictNullChecks` to `true` will raise an error that you have not made a guarantee that the `loggedInUser` exists before trying to use it._
 
 ```js
 declare const loggedInUsername: string;
@@ -801,7 +801,7 @@ console.log(loggedInUser.age);
 // Object is possibly 'undefined'.
 ```
 
-The second example failed because the array's `find` function looks a bit like this simplification:
+_The second example failed because the array's `find` function looks a bit like this simplification:_
 
 ```js
 // When strictNullChecks: true
@@ -1113,7 +1113,7 @@ settings.dry === 2;
 **Default**: The longest common path of all non-declaration input files.
 **If `composite` is set, the default is instead the directory containing the `tsconfig.json` file.**
 
-For example, let’s say you have some input files:
+_For example, let’s say you have some input files:_
 
 ```js
 MyProj
@@ -1126,9 +1126,9 @@ MyProj
 ├── types.d.ts
 ```
 
-The inferred value for `rootDir` is the longest common path of all non-declaration input files, which in this case is `core/`.
+_The inferred value for `rootDir` is the longest common path of all non-declaration input files, which in this case is `core/`._
 
-If your `outDir` was dist, TypeScript would write this tree:
+_If your `outDir` was dist, TypeScript would write this tree:_
 
 ```js
 MyProj
@@ -1139,8 +1139,8 @@ MyProj
 │   │   ├── c.js
 ```
 
-However, you may have intended for core to be part of the output directory structure.
-By setting `rootDir: "."` in `tsconfig.json`, TypeScript would write this tree:
+_However, you may have intended for core to be part of the output directory structure._
+_By setting `rootDir: "."` in `tsconfig.json`, TypeScript would write this tree:_
 
 ```js
 MyProj
@@ -1158,7 +1158,7 @@ It has no interaction with the `include`, `exclude`, or `files` `tsconfig.json` 
 Note that TypeScript will never write an output file to a directory outside of `outDir`, and will never skip emitting a file.
 For this reason, `rootDir` also enforces that all files which need to be emitted are underneath the `rootDir` path.
 
-For example, let’s say you had this tree: <!-- icehe : 暂时不够理解这个例子 2021/10/12 -->
+_For example, let’s say you had this tree:_ <!-- icehe : 暂时不够理解这个例子 2021/10/12 -->
 
 ```js
 MyProj
@@ -1169,7 +1169,7 @@ MyProj
 ├── helpers.ts
 ```
 
-It would be an error to specify `rootDir` as `core` and `include` as `*` because it creates a file (`helpers.ts`) that would need to be emitted outside the `outDir` (i.e. `../helpers.js`).
+_It would be an error to specify `rootDir` as `core` and `include` as `*` because it creates a file (`helpers.ts`) that would need to be emitted outside the `outDir` (i.e. `../helpers.js`)._
 
 ##### rootDirs
 
@@ -1224,19 +1224,19 @@ All paths are relative to the `tsconfig.json`.
 **These `.d.ts` files are type definition files which describe the external API of your module.**
 With `.d.ts` files, tools like TypeScript can provide intellisense <!-- 知识界 --> and accurate types for un-typed code.
 
-When `declaration` is set to `true`, running the compiler with this TypeScript code:
+_When `declaration` is set to `true`, running the compiler with this TypeScript code:_
 
 ```js
 export let helloWorld = "hi";
 ```
 
-Will generate an `index.js` file like this:
+_Will generate an `index.js` file like this:_
 
 ```js
 export let helloWorld = "hi";
 ```
 
-With a corresponding `helloWorld.d.ts`:
+_With a corresponding `helloWorld.d.ts`:_
 
 ```js
 export declare let helloWorld: string;
@@ -1255,7 +1255,7 @@ example
 └── tsconfig.json
 ```
 
-with this `tsconfig.json`:
+_with this `tsconfig.json`:_
 
 ```json
 {
@@ -1266,7 +1266,7 @@ with this `tsconfig.json`:
 }
 ```
 
-Would place the d.ts for the `index.ts` in a `types` folder:
+_Would place the d.ts for the `index.ts` in a `types` folder:_
 
 ```bash
 example
@@ -1385,7 +1385,7 @@ This defaults to `false`, making it easier to work with TypeScript in a watch-li
 **If specified, `.js` (as well as `.d.ts`, `.js.map`, etc.) files will be emitted into this directory.**
 The directory structure of the original source files is preserved; see `rootDir` if the computed root is not what you intended.
 
-If not specified, `.js` files will be emitted in the same directory as the `.ts` files they were generated from:
+_If not specified, `.js` files will be emitted in the same directory as the `.ts` files they were generated from:_
 
 ```bash
 $ tsc
@@ -1405,7 +1405,7 @@ _With a `tsconfig.json` like this:_
 }
 ```
 
-Running `tsc` with these settings moves the files into the specified `dist` folder:
+_Running `tsc` with these settings moves the files into the specified `dist` folder:_
 
 ```bash
 $ tsc
@@ -1446,7 +1446,7 @@ if (selectedAlbum === Album.JimmyEatWorldFutures) {
 }
 ```
 
-The default `const enum` behavior is to convert any `Album.Something` to the corresponding number literal, and to remove a reference to the enum from the JavaScript completely.
+_The default `const enum` behavior is to convert any `Album.Something` to the corresponding number literal, and to remove a reference to the enum from the JavaScript completely._
 
 ```ts
 "use strict";
@@ -1456,7 +1456,7 @@ if (selectedAlbum === 1 /* JimmyEatWorldFutures */) {
 }
 ```
 
-With `preserveConstEnums` set to `true`, the `enum` exists at runtime and the numbers are still emitted.
+_With `preserveConstEnums` set to `true`, the `enum` exists at runtime and the numbers are still emitted._
 
 ```ts
 "use strict";
@@ -1476,9 +1476,52 @@ if (selectedAlbum === 1 /* JimmyEatWorldFutures */) {
 
 ##### preserveValueImports
 
+There are some cases where TypeScript can't detect that you're using an import.
+_For example, take the following code:_
+
+```ts
+import { Animal } from "./animal.js";
+eval("console.log(new Animal().isDangerous())");
+```
+
+_or code using 'Compiles to HTML' languages like Svelte or Vue._
+
+When combined with [`isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules):
+imported types must be marked as type-only because compilers that process single files at a time have no way of knowing whether imports are values that appear unused, or a type that must be removed in order to avoid a runtime crash.
+
+……
+
 ##### removeComments
 
+**Strips all comments from TypeScript files when converting into JavaScript.**
+Defaults to `false`.
+
+……
+
 ##### sourceMap
+
+**Enables the generation of sourcemap files.**
+These files allow debuggers and other tools to display the original TypeScript source code when actually working with the emitted JavaScript files.
+Source map files are emitted as `.js.map` (or `.jsx.map`) files next to the corresponding `.js` output file.
+
+The `.js` files will in turn contain a sourcemap comment to indicate where the files are to external tools, _for example:_
+
+```ts
+// helloWorld.ts
+export declare const helloWorld = "hi";
+```
+
+_Compiling with `sourceMap` set to `true` creates the following JavaScript file:_
+
+```ts
+// helloWorld.js
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.helloWorld = "hi";
+//# sourceMappingURL=// helloWorld.js.map
+```
+
+_And this also generates this json map:_
 
 ##### sourceRoot
 
