@@ -1,8 +1,5 @@
 function testStrictFunctionTypes(x) {
-  console.log('Hello, ' + x.toLocaleLowerCase());
+    console.log('Hello, ' + x.toLocaleLowerCase());
 }
-
-// Unsafe assignment
-const testFunction = testStrictFunctionTypes;
-// Unsafe call - will crash
+var testFunction = testStrictFunctionTypes;
 testFunction(10);

@@ -14,7 +14,7 @@
         "noUnusedParameters": true,
         "preserveConstEnums": true,
         "removeComments": true,
-        "sourceMap": true,
+        "sourceMap": false,
         // "strict": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": true,

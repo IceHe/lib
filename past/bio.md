@@ -33,7 +33,7 @@ IceHe's short biographical profile
 
 - 技术博客: [icehe.xyz](https://icehe.xyz)
 - 生活日常: [微博](https://weibo.com/icedes) @\_IceHe\_
-- 代码仓库: [GitHub.IceHe](https://github.com/IceHe)
+- 代码仓库: [GitHub/IceHe](https://github.com/IceHe)
 
 联络
 
