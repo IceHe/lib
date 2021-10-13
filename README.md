@@ -416,6 +416,7 @@ Scene
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
     - [package.json](/js/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
+    - [scope](/js/scope.md) : scoped packages
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
     - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
