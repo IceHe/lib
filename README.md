@@ -724,8 +724,6 @@ Timeline
 
 <!-- -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing -->
 
----
-
 <!-- ## Ending -->
 
 > 靡不有初，鮮克有終。
