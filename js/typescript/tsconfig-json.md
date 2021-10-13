@@ -2096,8 +2096,38 @@ However, for JavaScript projects, the TypeScript tooling will download types for
 
 #### enable
 
+Offers a config for disabling type-acquisition in JavaScript projects ……
+
 #### include
+
+**If you have a JavaScript project where TypeScript needs additional guidance to understand global dependencies, or have disabled the built-in inference via `disableFilenameBasedTypeAcquisition`.**
+
+You can use `include` to **specify which types should be used from DefinitelyTyped**:
+
+```json
+{
+  "typeAcquisition": {
+    "include": ["jquery"]
+  }
+}
+```
 
 #### exclude
 
+Offers a config for **disabling the type-acquisition for a certain module in JavaScript projects.**
+This can be useful for projects which include other libraries in testing infrastructure which aren't needed in the main application.
+
+```json
+{
+  "typeAcquisition": {
+    "exclude": ["jest", "mocha"]
+  }
+}
+```
+
 #### disableFilenameBasedTypeAcquisition
+
+TypeScript's type acquisition can infer what types should be added based on filenames in a project.
+This means that having a file like `jquery.js` in your project would automatically download the types for JQuery from DefinitelyTyped.
+
+……
