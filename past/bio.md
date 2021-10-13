@@ -4,7 +4,7 @@ IceHe's short biographical profile
 
 <!-- CV - Curriculum Vitae -->
 
-<!-- --- -->
+---
 
 ## 简介
 
@@ -70,7 +70,7 @@ IceHe's short biographical profile
 
 编程语言
 
-- 胜任: Java / PHP / JavaScript / TypeScript
+- 胜任: Java / PHP / JavaScript / TypeScript <sup>learning</sup>
 - 了解: C / C++ / Python / Assembly
 
 存储 / 缓存 / 队列
