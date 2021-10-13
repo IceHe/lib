@@ -36,9 +36,8 @@
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
 [🏄 Weibo](https://weibo.com/icedes)
-[🎯 About](/README)
 [📚 Library](/README)
 
-<!-- [About](/past/bio.md) -->
+<!-- [🎯 About](/past/bio.md) -->
 
 <!-- Ref : https://docsify.js.org/#/cover -->
