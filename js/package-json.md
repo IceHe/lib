@@ -101,4 +101,44 @@ You can specify an object containing an URL that provides up-to-date information
 
 ## files
 
-The optional files field is an array of file patterns that describes the entries to be included when your package is installed as a dependency. File patterns follow a similar syntax to .gitignore, but reversed: including a file, directory, or glob pattern (*, **/*, and such) will make it so that file is included in the tarball when it's packed. Omitting the field will make it default to ["*"], which means it will include all files.
+The optional `files` field is an array of file patterns that **describes the entries to be included when your package is installed as a dependency.**
+_File patterns follow a similar syntax to `.gitignore`, but reversed: including a file, directory, or glob pattern (`*`, `**/*`, and such) will make it so that file is included in the tarball when it's packed._
+**Omitting the field will make it default to `["*"]`, which means it will include all files.**
+
+_Some special files and directories are also included or excluded regardless of whether they exist in the `files` array (see below)._
+
+**You can also provide a `.npmignore` file in the root of your package or in subdirectories, which will keep files from being included.**
+At the root of your package it will not override the "files" field, but in subdirectories it will.
+The `.npmignore` file works just like a `.gitignore`.
+If there is a `.gitignore` file, and `.npmignore` is missing, `.gitignore`'s contents will be used instead.
+
+**Files included with the "package.json#files" field cannot be excluded through `.npmignore` or `.gitignore`.**
+
+Certain files are **always included**, regardless of settings:
+
+- **`package.json`**
+- **`README`**
+- **`LICENSE` / `LICENCE`**
+- **The file in the "main" field**
+
+`README` & `LICENSE` can have any case and extension.
+
+_Conversely, some files are always ignored:_
+
+- `.git`
+- `CVS`
+- `.svn`
+- `.hg`
+- `.lock-wscript`
+- `.wafpickle-N`
+- `.*.swp`
+- `.DS_Store`
+- `._*`
+- `npm-debug.log`
+- `.npmrc`
+- `node_modules`
+- `config.gypi`
+- `*.orig`
+- `package-lock.json` ( use `npm-shrinkwrap.json` if you wish it to be published )
+
+## main
