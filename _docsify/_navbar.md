@@ -1,13 +1,11 @@
 - [Library](/README.md)
 - [About](/past/bio.md)
-- [Chat](https://gitter.im/IceHe/community)
 
-<!-- - [Message](https://github.com/IceHe/lib/issues) -->
+<!-- - [Chat](https://gitter.im/IceHe/community) -->
 <!-- - External -->
-<!--     - [Blog](https://icehe.me) -->
+<!--     - [Repo](https://github.com/IceHe/IceHe) -->
 <!--     - [GitHub](https://github.com/IceHe) -->
 <!--     - [GitLab](https://gitlab.com/IceHe) -->
 <!--     - [Weibo](https://weibo.com/icedes) -->
-<!--     - [Repo](https://github.com/IceHe/IceHe) -->
 
 <!-- Ref : https://docsify.js.org/#/custom-navbar?id=markdown -->
