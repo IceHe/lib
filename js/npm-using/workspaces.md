@@ -55,13 +55,41 @@ Below is a post `npm install` example, given that same previous example structur
 
 ## Getting started with workspaces
 
+You may automate the required steps to define a new workspace using [`npm init`](https://docs.npmjs.com/cli/v7/commands/npm-init).
+For example in a project that already has a `package.json` defined you can run:
+
+```bash
+npm init -w ./packages/a
+```
+
+This command will create the missing folders and a new `package.json` file (if needed) while also making sure to properly configure the `"workspaces"` property of your root project `package.json`.
+
 ## Adding dependencies to a workspace
+
+It's possible to directly add/remove/update dependencies of your workspaces using the [`workspace` config](https://docs.npmjs.com/cli/v7/using-npm/config#workspace).
+
+For example, assuming the following structure:
+
+```bash
+.
++-- package.json
+`-- packages
+   +-- a
+   |   `-- package.json
+   `-- b
+       `-- package.json
+```
+
+If you want to add a dependency named `abbrev` from the registry as a dependency of your workspace **a**, you may use the workspace config to tell the npm installer that package should be added as a dependency of the provided workspace:
+
+```bash
+npm install abbrev -w a
+```
+
+Note: other installing commands such as `uninstall`, `ci`, etc will also respect the provided `workspace` configuration.
 
 ## Using workspaces
 
 ## Running commands in the context of workspaces
 
 ## Ignoring missing scripts
-
-## See also
-
