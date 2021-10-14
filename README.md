@@ -420,9 +420,10 @@ Scene
     - [package-lock.json](/js/npm-configuring/package-lock-json.md) : a manifestation of the manifest
     - [folders](/js/npm-configuring/folders.md) : folder Structures Used by npm
 - Using `npm`
-    - [registry](/js/npm-using/registry.md) : JavaScript package registry
+    - [registry](/js/npm-using/registry.md) : The JavaScript package registry
     - [scope](/js/npm-using/scope.md) : scoped packages
     - [scripts](/js/npm-using/scripts.md) : How npm handles the "scripts" field
+    - [workspaces](/js/npm-using/workspaces.md) : Working with workspaces
     - ……
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
