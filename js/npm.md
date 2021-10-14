@@ -150,6 +150,26 @@ Example
 }
 ```
 
+## Using npm
+
+TODO
+
+### Registry
+
+### Config
+
+### Scope
+
+### Scripts
+
+### Workspaces
+
+### Organizations
+
+### Developers
+
+### Removal
+
 ## Others
 
 - Temporarily omitted

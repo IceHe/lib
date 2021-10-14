@@ -165,3 +165,152 @@ _npm makes this pretty easy (in fact, it uses this feature to install the "npm" 
 To use this, **supply a `bin` field in your `package.json` which is a map of command name to local file name.**
 When this package is installed globally, that file will be linked where global bins go so it is available to run by name.
 When this package is installed as a dependency in another package, the file will be linked where it will be available to that package either directly by `npm exec` or by name in other scripts when invoking them via `npm run-script`.
+
+_For example, myapp could have this:_
+
+```json
+{
+  "bin": {
+    "myapp": "./cli.js"
+  }
+}
+```
+
+_So, when you install myapp, it'll create a symlink from the `cli.js` script to `/usr/local/bin/myapp`._
+
+_If you have a single executable, and its name should be the name of the package, then you can just supply it as a string. For example:_
+
+```json
+{
+  "name": "my-program",
+  "version": "1.2.5",
+  "bin": "./path/to/program"
+}
+```
+
+_would be the same as this:_
+
+```json
+{
+  "name": "my-program",
+  "version": "1.2.5",
+  "bin": {
+    "my-program": "./path/to/program"
+  }
+}
+```
+
+Please make sure that your file(s) referenced in `bin` starts with `#!/usr/bin/env node`, otherwise the scripts are started without the node executable!
+
+……
+
+## man
+
+**Specify either a single file or an array of filenames to put in place for the man program to find.**
+
+……
+
+## directories
+
+**The CommonJS [Packages](http://wiki.commonjs.org/wiki/Packages/1.0) spec details a few ways that you can indicate the structure of your package using a `directories` object.**
+If you look at [npm's package.json](https://registry.npmjs.org/npm/latest), you'll see that it has directories for doc, lib, and man.
+
+_In the future, this information may be used in other creative ways._
+
+### directories.bin
+
+**If you specify a `bin` directory in `directories.bin`, all the files in that folder will be added.**
+
+Because of the way the `bin` directive works, specifying both a `bin` path and setting `directories.bin` is an error!
+If you want to specify individual files, use `bin`, and for all the files in an existing `bin` directory, use `directories.bin`.
+
+_For example:_
+
+```json
+// https://registry.npmjs.org/npm/latest
+{
+    // ……
+    "directories": {
+        "bin": "./bin",
+        "doc": "./doc",
+        "lib": "./lib",
+        "man": "./man"
+    },
+    // ……
+}
+```
+
+### directories.man
+
+**A folder that is full of man pages.**
+Sugar to generate a "man" array by walking the folder.
+
+## repository
+
+**Specify the place where your code lives.**
+_This is helpful for people who want to contribute._
+_If the git repo is on GitHub, then the npm docs command will be able to find you._
+
+_Do it like this:_
+
+```json
+{
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/cli.git"
+  }
+}
+```
+
+The URL should be a publicly available (perhaps read-only) url that can be handed directly to a VCS program without any modification.
+It should not be a url to an html project page that you put in your browser. It's for computers.
+
+_For GitHub, GitHub gist, Bitbucket, or GitLab repositories you can use the same shortcut syntax you use for `npm install`:_
+
+```json
+{
+  "repository": "npm/npm",
+  "repository": "github:user/repo",
+  "repository": "gist:11081aaa281",
+  "repository": "bitbucket:user/repo",
+  "repository": "gitlab:user/repo"
+}
+```
+
+**If the `package.json` for your package is not in the root directory** ( for example **if it is part of a monorepo** ), you can specify the directory in which it lives:
+
+```json
+{
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facebook/react.git",
+    "directory": "packages/react-dom"
+  }
+}
+```
+
+## scripts
+
+**The "scripts" property is a dictionary containing script commands that are run at various times in the lifecycle of your package.**
+The key is the lifecycle event, and the value is the command to run at that point.
+
+See [`scripts`](https://docs.npmjs.com/cli/v7/using-npm/scripts) to find out more about writing package scripts.
+
+## config
+
+**A "config" object can be used to set configuration parameters used in package scripts that persist across upgrades.**
+
+_For instance, if a package had the following:_
+
+```json
+{
+  "name": "foo",
+  "config": {
+    "port": "8080"
+  }
+}
+```
+
+_It could also have a "start" command that referenced the `npm_package_config_port` environment variable._
+
+## dependencies
