@@ -69,12 +69,19 @@ If you wish, you may associate a scope with a registry; see below.
 
 ### public
 
-### primary
+To publish a public scoped package, you must specify `--access public` with the initial publication.
+This will publish the package and set access to `public` as if you had run `npm access public` after publishing.
 
 ### private
 
+**To publish a private scoped package to the npm registry, you must have an [npm Private Modules](https://docs.npmjs.com/private-modules/intro) account.**
+
+You can then publish the module with `npm publish` or `npm publish --access restricted`, and it will be present in the npm registry, with restricted access.
+You can then change the access permissions, if desired, with `npm access` or on the npmjs.com website.
+
 ## Associating a Scope with a Registry
 
-## See Also
+**Scopes can be associated with a separate registry.**
+This allows you to seamlessly use a mix of packages from the primary npm registry and one or more private registries, _such as [GitHub Packages](https://github.com/features/packages) or the open source [Verdaccio](https://verdaccio.org/) project._
 
-<!-- 另请参阅 --> ……
+……
