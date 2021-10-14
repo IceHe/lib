@@ -415,7 +415,12 @@ Scene
 ### JS
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
-    - [package.json](/js/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
+- Configuring `npm`
+    - [package.json](/js/npm-configuring/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
+    - [package-lock.json](/js/npm-configuring/package-lock-json.md) : a manifestation of the manifest
+    - [folders](/js/npm-configuring/folders.md) : folder Structures Used by npm
+- Using `npm`
+    - [Registry](/js/registry.md) : JavaScript package registry
     - [scope](/js/scope.md) : scoped packages
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
