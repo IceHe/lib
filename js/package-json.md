@@ -363,8 +363,108 @@ _For example, these are all valid:_
 }
 ```
 
-### URLs as Dependencies
+### URLs
 
-You may specify a tarball URL in place of a version range.
+You may **specify a tarball URL in place of a version range.**
 
 This tarball will be downloaded and installed locally to your package at install time.
+
+### Git URLs
+
+Git urls are of the form:
+
+```text
+<protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]
+```
+
+**`<protocol>` is one of `git`, `git+ssh`, `git+http`, `git+https`, or `git+file`.**
+
+If `#<commit-ish>` is provided, it will be used to clone exactly that commit.
+If the commit-ish has the format `#semver:<semver>`, `<semver>` can be any valid semver range or exact version, and npm will look for any tags or refs matching that range in the remote repository, much as it would for a registry dependency.
+If neither `#<commit-ish>` or `#semver:<semver>` is specified, then `master` is used.
+
+_Examples:_
+
+```text
+git+ssh://git@github.com:npm/cli.git#v1.0.27
+git+ssh://git@github.com:npm/cli#semver:^5.0
+git+https://isaacs@github.com/npm/cli.git
+git://github.com/npm/cli.git#v1.0.27
+```
+
+### GitHub URLs
+
+As of version 1.1.65, you can refer to GitHub urls as just `"foo": "user/foo-project"`.
+Just as with git URLs, a commit-ish suffix can be included.
+_For example:_
+
+```json
+{
+  "name": "foo",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": "expressjs/express",
+    "mocha": "mochajs/mocha#4727d357ea",
+    "module": "user/repo#feature\/branch"
+  }
+}
+```
+
+### Local Paths
+
+As of version 2.0.0 you can provide a path to a local directory that contains a package.
+Local paths can be saved using `npm install -S` or `npm install --save`, using any of these forms:
+
+```bash
+../foo/bar
+~/foo/bar
+./foo/bar
+/foo/bar
+```
+
+in which case they will be normalized to a relative path and added to your `package.json`.
+_For example:_
+
+```json
+{
+  "name": "baz",
+  "dependencies": {
+    "bar": "file:../foo/bar"
+  }
+}
+```
+
+This feature is helpful for local offline development and creating tests that require npm installing where you don't want to hit an external server, but should not be used when publishing packages to the public registry.
+
+## devDependencies
+
+**If someone is planning on downloading and using your module in their program, then they probably don't want or need to download and build the external test or documentation framework that you use.**
+
+**In this case, it's best to map these additional items in a devDependencies object.**
+
+These things will be installed when doing `npm link` or `npm install` from the root of a package, and can be managed like any other npm configuration param.
+See [`config`](https://docs.npmjs.com/cli/v7/using-npm/config) for more on the topic.
+
+_For build steps that are not platform-specific, such as compiling CoffeeScript or other languages to JavaScript, use the `prepare` script to do this, and make the required package a devDependency._
+
+_For example:_
+
+```json
+{
+  "name": "ethopia-waza",
+  "description": "a delightfully fruity coffee varietal",
+  "version": "1.2.3",
+  "devDependencies": {
+    "coffee-script": "~1.6.3"
+  },
+  "scripts": {
+    "prepare": "coffee -o lib/ -c src/waza.coffee"
+  },
+  "main": "lib/waza.js"
+}
+```
+
+_The `prepare` script will be run before publishing, so that users can consume the functionality without requiring them to compile it themselves._
+_In dev mode (ie, locally running `npm install`), it'll run this script as well, so that you can test it easily._
+
+## peerDependencies
