@@ -643,4 +643,28 @@ _It is allowed to both block and allow an item, although there isn't any good re
 ## cpu
 
 
-If your code only runs on certain cpu architectures, you can specify which ones.
+**If your code only runs on certain cpu architectures, you can specify which ones.**
+
+```json
+{
+  "cpu": [
+    "x64",
+    "ia32"
+  ]
+}
+```
+
+Like the `os` option, you can also block architectures:
+
+```json
+{
+  "cpu": [
+    "!arm",
+    "!mips"
+  ]
+}
+```
+
+The host architecture is determined by `process.arch`
+
+
