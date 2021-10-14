@@ -422,6 +422,7 @@ Scene
 - Using `npm`
     - [registry](/js/npm-using/registry.md) : JavaScript package registry
     - [scope](/js/npm-using/scope.md) : scoped packages
+    - ……
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
     - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project

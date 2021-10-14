@@ -6,7 +6,7 @@ The JavaScript Package Registry
 
 References
 
-- [registry - npm Docs](https://docs.npmjs.com/cli/v7/using-npm/registry)
+- [registry - npm docs](https://docs.npmjs.com/cli/v7/using-npm/registry)
 
 ## Description
 

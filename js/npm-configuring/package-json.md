@@ -6,7 +6,7 @@ A lot of the behavior described in this document is affected by the config setti
 
 References
 
-- [package.json - npm Docs](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
+- [package.json - npm docs](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)
 
 ## Description
 

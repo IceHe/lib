@@ -1,4 +1,4 @@
-# scope
+# npm scope
 
 Scoped packages
 
@@ -6,7 +6,7 @@ Scoped packages
 
 References
 
-- [scope - npm Docs](https://docs.npmjs.com/cli/v7/using-npm/scope/)
+- [scope - npm docs](https://docs.npmjs.com/cli/v7/using-npm/scope/)
 
 ## Description
 

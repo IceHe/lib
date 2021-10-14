@@ -6,7 +6,7 @@ A manifestation of the manifest
 
 References
 
-- [package-lock.json - npm Docs](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json)
+- [package-lock.json - npm docs](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json)
 
 ## Description
 
