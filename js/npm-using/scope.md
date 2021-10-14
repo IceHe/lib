@@ -1,4 +1,4 @@
-# npm scope
+# scope
 
 Scoped packages
 

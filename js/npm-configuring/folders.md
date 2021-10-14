@@ -1,4 +1,4 @@
-# npm folders
+# folders
 
 Folder Structures Used by npm
 

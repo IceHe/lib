@@ -1,4 +1,4 @@
-# npm registry
+# registry
 
 The JavaScript Package Registry
 

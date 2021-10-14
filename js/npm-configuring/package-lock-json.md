@@ -1,4 +1,4 @@
-# npm package-lock.json
+# package-lock.json
 
 A manifestation of the manifest
 
