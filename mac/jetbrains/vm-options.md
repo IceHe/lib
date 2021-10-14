@@ -59,7 +59,7 @@ File Path
     - For performance purposes, when such an exception is thrown a few times, the method may be recompiled.
     - After recompilation, the compiler may choose a faster tactic using preallocated exceptions that do not provide a stack trace.
     - To **disable completely the use of preallocated exceptions**, use this new flag: `-XX:-OmitStackTraceInFastThrow`.
-    - References :
+    - References
         - https://stackoverflow.com/questions/2411487/nullpointerexception-in-java-with-no-stacktrace
         - https://www.oracle.com/java/technologies/javase/release-notes-Introduction.html#vm
 - `-XX:CICompilerCount=threads` Sets the **number of compiler threads to use for compilation**.
@@ -80,36 +80,36 @@ File Path
 - `-Xverify:none` Disables the verifier.
     - Note: This is not a supported configuration and, as noted, was **deprecated from Java 13**.
     - _If you encounter problems with the verifier turned off, remove this option and try to reproduce the problem._
-    - References :
+    - References
         - Java 8 : https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html
         - OpenJ9 : https://www.eclipse.org/openj9/docs/xverify/
 - `-Dfile.encoding=UTF-8`
-    - References :
+    - References
         - OpenJ9 :  https://www.eclipse.org/openj9/docs/dfileencoding/
 - `-Djava.net.preferIPv4Stack=true` To **enforce IPv4 preference over IPv6**.
     - _IPv4 is required by Oracle Identity Analytics for network communication._
     - _Refer to the operating system documentation for instructions to enable IPv4 stack._
-    - References :
+    - References
         - Oracle : https://docs.oracle.com/cd/E27119_01/doc.11113/e23126/installationandupgradeguideprintable36.html
         - IBM : https://www.ibm.com/support/pages/ipv6-can-cause-poor-java-performance
 - `-Djdk.attach.allowAttachSelf`
     - _( icehe : 对这个参数搞得还不是很清楚, 不折腾了 )_
-    - References :
+    - References
         - Stack Overflow : https://stackoverflow.com/questions/47522449/jmockit-error-on-initialization-java-lang-illegalstateexception-running-on-jdk/47522648#47522648
         - ROOKOUT Documentation : https://docs.rookout.com/docs/jvm-setup/
         - Oracle : https://www.oracle.com/java/technologies/javase/9-notes.html
 - `-Djdk.http.auth.tunneling.disabledSchemes=""` To re-enable **basic authentication for Proxy**.
     - Cause : **In Java 8u111, Basic authentication for HTTPS tunneling was disabled by default**.
-    - References :
+    - References
         - Basic authentication fails for outgoing proxy in Java 8u111 - Atlassian Documentation : https://confluence.atlassian.com/kb/basic-authentication-fails-for-outgoing-proxy-in-java-8u111-909643110.html
 - `-Dkotlinx.coroutines.debug=off`
     - _( icehe : 对这个参数搞得还不是很清楚, 应该就是 "关闭对 Kotlin 语言 coroutines 的 debug 功能" )_
-    - References :
+    - References
         - Kotlin : https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-debug/
 - `-Dsun.io.useCanonPrefixCache=false` **Disable Java's canonicalization cache**.
     - _This can be done by setting the system properties `sun.io.useCanonCaches` and `sun.io.useCanonPrefixCache` to false._
     - _By default, canonical file names are cached for 30 seconds ( read from source [here](http://www.docjar.com/html/api/java/io/ExpiringCache.java.html) ) ._
-    - References :
+    - References
         - Stack Overflow : https://stackoverflow.com/questions/7479198/canonical-file-path-in-java-optimization-problem
         - Coder Work : https://www.coder.work/article/860466
 - `-ea` **Enables assertions**.

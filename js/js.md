@@ -233,7 +233,7 @@ module.exports = function doSomething(n) {
 
 ### AMD
 
-References:
+References
 
 - [Asynchronous Module Definition - Wikipedia](https://en.wikipedia.org/wiki/Asynchronous_module_definition)
 
@@ -293,7 +293,7 @@ UMD stands for **Universal Module Definition**. _Here is what it may look like:_
 
 ### ESM
 
-References:
+References
 
 - [Modules: ECMAScript modules - nodjs.org](https://nodejs.org/api/esm.html)
 - [ES modules: A cartoon deep-dive - hacks.mozilla.org](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) TBD?
@@ -788,7 +788,7 @@ All modern browsers support "use strict" except Internet Explorer 9 and lower: â
 
 ## node-gyp
 
-References :
+References
 
 - [node-gyp - github.com](https://github.com/nodejs/node-gyp)
 

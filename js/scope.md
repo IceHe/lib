@@ -4,7 +4,7 @@ Scoped packages
 
 ---
 
-References:
+References
 
 - [scope - npm Docs](https://docs.npmjs.com/cli/v7/using-npm/scope/)
 

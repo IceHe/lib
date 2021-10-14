@@ -197,7 +197,7 @@ _BEA Liquid VM / Azul VM_
 
 ### 源码调试入门
 
-References :
+References
 
 - OpenJDK Mercurial Repositories : https://hg.openjdk.java.net/jdk
 - <i>优雅地在 Mac OS Catalina 下 编译 Open JDK 13 : https://cloud.tencent.com/developer/article/1522903 </i>
