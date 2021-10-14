@@ -114,9 +114,11 @@ IceHe's short biographical profile
 
 -->
 
-**Silverhand - 创始团队 - Node.js 后端** _2021.10 ~ ?_
+**银手科技 - 创始团队 - Node.js 后端** _2021.10 ~ ?_
 
-- DOING
+- 公司 : [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
+- 产品 : [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
+- 阶段 : Seed money $2M from Sequoia Capital <!-- 红杉资本 --> & ZhenFund <!-- 真格基金 -->
 - _JavaScript / TypeScript / Node.js / GitHub Organization / Alibaba Cloud_
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
