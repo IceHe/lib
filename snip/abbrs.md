@@ -432,6 +432,7 @@ Reference : https://www.computerhope.com/keys.htm
 - GRATZ : gragulations
 - GRUB : [GRand Unified Bootloader](https://en.wikipedia.org/wiki/GNU_GRUB)
 - GTID : [Global Transaction Identifier](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-concepts.html) ( for MySQL )
+- gyp : [generate your projects](https://en.wikipedia.org/wiki/GYP_(software))
 
 ### H
 

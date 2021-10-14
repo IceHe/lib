@@ -786,6 +786,24 @@ The purpose of "use strict" is to indicate that the code should be executed in "
 With strict mode, you can not, for example, use undeclared variables.
 All modern browsers support "use strict" except Internet Explorer 9 and lower: ……
 
+## node-gyp
+
+References :
+
+- [node-gyp - github.com](https://github.com/nodejs/node-gyp)
+
+### Intro
+
+**`node-gyp` is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js.**
+_It contains a vendored copy of the `gyp-next` project that was previously used by the Chromium team, extended to support the development of Node.js native addons._
+
+**Note that `node-gyp` is not used to build Node.js itself.**
+
+### Features
+
+- The same build commands work on any of the supported platforms
+- Supports the targeting of different versions of Node.js
+
 ---
 
 ## TODO

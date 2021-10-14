@@ -706,7 +706,7 @@ npm will default some values based on package contents.
 
 -   `"scripts":{"install": "node-gyp rebuild"}`
 
-    If there is a `binding.gyp` file in the root of your package and you have not defined an `install` or `preinstall` script, npm will default the `install` command to compile using node-gyp.
+    If there is a `binding.gyp` file in the root of your package and you have not defined an `install` or `preinstall` script, npm will default the `install` command to compile using [node-gyp](https://github.com/nodejs/node-gyp).
 
 -   `"contributors": [...]`
 
