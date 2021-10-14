@@ -2,9 +2,7 @@
 
 <!-- # IceHe <small>Lib</small> -->
 
-<!-- # IceHe <sup><small>Lib</small></sup> -->
-
-# IceHe <small>Life</small>
+# IceHe<small>Life</small>
 
 ```
 <!-- 好记性不如烂博客 -->
