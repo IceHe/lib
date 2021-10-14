@@ -1,4 +1,4 @@
-# package.json
+# npm package.json
 
 A lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
 

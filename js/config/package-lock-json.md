@@ -1,4 +1,4 @@
-# package-lock.json
+# npm package-lock.json
 
 A manifestation of the manifest
 
@@ -22,3 +22,14 @@ This file is **intended to be committed into source repositories**, and serves v
 - As of npm v7, lockfiles include enough information to **gain a complete picture of the package tree, reducing the need to read `package.json` files, and allowing for significant performance improvements.**
 
 ## package-lock.json vs npm-shrinkwrap.json
+
+Both of these files have the same format, and perform similar functions in the root of a project.
+
+The difference is that `package-lock.json` cannot be published, and it will be ignored if found in any place other than the root project.
+
+_In contrast, [`npm-shrinkwrap.json`](https://docs.npmjs.com/cli/v7/configuring-npm/npm-shrinkwrap-json) allows publication, and defines the dependency tree from the point encountered._
+_This is not recommended unless deploying a CLI tool or otherwise using the publication process for producing production packages._
+
+_If both `package-lock.json` and `npm-shrinkwrap.json` are present in the root of a project, `npm-shrinkwrap.json` will take precedence and `package-lock.json` will be ignored._
+
+## Hidden Lockfiles
