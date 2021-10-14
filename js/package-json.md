@@ -314,3 +314,30 @@ _For instance, if a package had the following:_
 _It could also have a "start" command that referenced the `npm_package_config_port` environment variable._
 
 ## dependencies
+
+**Dependencies are specified in a simple object that maps a package name to a version range.**
+The version range is a string which has one or more space-separated descriptors.
+Dependencies can also be identified with a tarball or git URL.
+
+**Please do not put test harnesses or transpilers or other "development" time tools in your `dependencies` object.**
+See `devDependencies`, below.
+
+See [semver](https://github.com/npm/node-semver#versions) for more details about specifying version ranges.
+
+- `version` Must match version exactly
+- `>version` Must be greater than version
+- `>=version` etc
+- `<version`
+- `<=version`
+- `~version` "Approximately equivalent to version" _See semver_
+- `^version` "Compatible with version" _See semver_
+- `1.2.x` 1.2.0, 1.2.1, etc., but not 1.3.0
+- `http://...` See 'URLs as Dependencies' below
+- `*` Matches any version
+- `""` (just an empty string) Same as `*`
+- `version1 - version2` Same as `>=version1 <=version2`.
+- `range1 || range2` Passes if either range1 or range2 are satisfied.
+- `git...` See 'Git URLs as Dependencies' below
+- `user/repo` See 'GitHub URLs' below
+- `tag` A specific version tagged and published as `tag` See [`npm dist-tag`](https://docs.npmjs.com/cli/v7/commands/npm-dist-tag)
+- `path/path/path` See [Local Paths](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#local-paths) below
