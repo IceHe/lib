@@ -642,7 +642,6 @@ _It is allowed to both block and allow an item, although there isn't any good re
 
 ## cpu
 
-
 **If your code only runs on certain cpu architectures, you can specify which ones.**
 
 ```json
@@ -667,4 +666,49 @@ Like the `os` option, you can also block architectures:
 
 The host architecture is determined by `process.arch`
 
+## private
 
+**If you set `"private": true` in your package.json, then npm will refuse to publish it.**
+
+This is **a way to prevent accidental publication of private repositories.**
+If you would like to ensure that a given package is only ever published to a specific registry (for example, an internal registry), then use the `publishConfig` dictionary described below to override the `registry` config param at publish-time.
+
+## publishConfig
+
+This is a set of config values that will be used at publish-time.
+It's especially handy if you want to set the tag, registry or access, so that you **can ensure that a given package is not tagged with "latest", published to the global public registry or that a scoped module is private by default.**
+
+See [`config`](https://docs.npmjs.com/cli/v7/using-npm/config) to see the list of config options that can be overridden.
+
+## workspaces
+
+**The optional `workspaces` field is an array of file patterns that describes locations within the local file system that the install client should look up to find each [workspace](https://docs.npmjs.com/cli/v7/using-npm/workspaces) that needs to be symlinked to the top level node_modules folder.**
+
+In the following example, all folders located inside the folder `./packages` will be treated as workspaces as long as they have valid `package.json` files inside them:
+
+```json
+{
+  "name": "workspace-example",
+  "workspaces": [
+    "./packages/*"
+    // or "packages/*"
+  ]
+}
+```
+
+## DEFAULT VALUES
+
+npm will default some values based on package contents.
+
+-   `"scripts": {"start": "node server.js"}`
+
+    If there is a `server.js` file in the root of your package, then npm will default the `start` command to node `server.js`.
+
+-   `"scripts":{"install": "node-gyp rebuild"}`
+
+    If there is a `binding.gyp` file in the root of your package and you have not defined an `install` or `preinstall` script, npm will default the `install` command to compile using node-gyp.
+
+-   `"contributors": [...]`
+
+    If there is an `AUTHORS` file in the root of your package, npm will treat each line as a `Name <email> (url)` format, where email and url are optional.
+    Lines which start with a `#` or are blank, will be ignored.
