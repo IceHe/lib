@@ -556,3 +556,91 @@ _This file contains the dependencies `renderized` and `super-streams` which can 
 _Note that the package names do not include any versions, as that information is specified in `dependencies`._
 
 ## optionalDependencies
+
+If a dependency can be used, but you would like npm to proceed if it cannot be found or fails to install, then you may put it in the optionalDependencies object.
+This is a map of package name to version or url, just like the `dependencies` object.
+**The difference is that build failures do not cause installation to fail.**
+Running `npm install --no-optional` will prevent these dependencies from being installed.
+
+_It is still your program's responsibility to handle the lack of the dependency._
+_For example, something like this:_
+
+```js
+try {
+  var foo = require('foo')
+  var fooVersion = require('foo/package.json').version
+} catch (er) {
+  foo = null
+}
+if ( notGoodFooVersion(fooVersion) ) {
+  foo = null
+}
+
+// .. then later in your program ..
+
+if (foo) {
+  foo.doFooThings()
+}
+```
+
+Entries in `optionalDependencies` will override entries of the same name in `dependencies`, so it's usually best to only put in one place.
+
+## engines
+
+You can **specify the version of node that your stuff works on**:
+
+```json
+{
+  "engines": {
+    "node": ">=0.10.3 <15"
+  }
+}
+```
+
+_And, like with dependencies, if you don't specify the version (or if you specify "*" as the version), then any version of node will do._
+
+You can also **use the "engines" field to specify which versions of `npm are capable of properly installing your program.**
+_For example:_
+
+```json
+{
+  "engines": {
+    "npm": "~1.0.20",
+    "pnpm": ">=6"
+  }
+}
+```
+
+**Unless the user has set the `engine-strict` config flag, this field is advisory only and will only produce warnings when your package is installed as a dependency.**
+
+## os
+
+You can **specify which operating systems your module will run on**:
+
+```json
+{
+  "os": [
+    "darwin",
+    "linux"
+  ]
+}
+```
+
+You **can also block instead of allowing operating systems, just prepend the blocked os with a '!'**:
+
+```json
+{
+  "os": [
+    "!win32"
+  ]
+}
+```
+
+_The host operating system is determined by `process.platform`_
+
+_It is allowed to both block and allow an item, although there isn't any good reason to do this._
+
+## cpu
+
+
+If your code only runs on certain cpu architectures, you can specify which ones.
