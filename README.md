@@ -130,9 +130,9 @@ Others
 
 Coding
 
-- [Abbreviations](/snip/abbrs.md)
+- [Abbreviations](/snip/abbrs.md) are usually related to coding (programmming)
 - [Glossaries](/snip/glossaries.md) with intros to the common technology products
-- [Regular Expression](/snip/regex.md)
+- [Regular Expression](/snip/regex.md) is a sequence of characters that specifies a search pattern
 
 Langs
 
@@ -425,9 +425,10 @@ Scene
     - [yarn](/js/yarn.md) : a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
         - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
     - [pnpm](/js/pnpm.md) : Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
-- lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-- husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
-- commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+- Dependencies
+    - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+    - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+    - commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
 
 ### Java
 
@@ -707,7 +708,7 @@ Timeline
 -   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ _- to read_
     -   《 噪声 : 一个人类判断力的缺陷 》
 
-### Friends
+### Friend
 
 > To be a better me.
 
@@ -716,13 +717,12 @@ Timeline
 <!-- > —— Better Man _- Robbie Williams song_ -->
 
 -   Jan Fan : Pythonist / Tencent / Applied Mathematics PhD @ Sweden
+-   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing
 -   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin @ Guangzhou
 -   Shiwey Yan : Game Developer / Tencent - Timi - QQ Speed @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann) : Zhixin Schoolfellow / Frontend / 360 / UC / Tencent / Tubi @ Beijing
 -   [Ice He](https://icehe.xyz/#/past/bio) ( myself ) : A fool backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 - …
-
-<!-- -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing -->
 
 <!-- ## Ending -->
 
