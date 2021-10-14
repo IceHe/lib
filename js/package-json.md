@@ -468,3 +468,91 @@ _The `prepare` script will be run before publishing, so that users can consume t
 _In dev mode (ie, locally running `npm install`), it'll run this script as well, so that you can test it easily._
 
 ## peerDependencies
+
+**In some cases, you want to express the compatibility of your package with a host tool or library, while not necessarily doing a require of this host.**
+This is **usually referred to as a plugin.**
+Notably, your module may be exposing a specific interface, expected and specified by the host documentation.
+
+_For example:_
+
+```json
+{
+  "name": "tea-latte",
+  "version": "1.3.5",
+  "peerDependencies": {
+    "tea": "2.x"
+  }
+}
+```
+
+_This ensures your package tea-latte can be installed along with the second major version of the host package tea only._
+_`npm install tea-latte` could possibly yield the following dependency graph:_
+
+```bash
+├── tea-latte@1.3.5
+└── tea@2.2.0
+```
+
+In npm versions 3 through 6, `peerDependencies` were not automatically installed, and would raise a warning if an invalid version of the peer dependency was found in the tree.
+As of npm v7, peerDependencies are installed by default.
+
+**Trying to install another plugin with a conflicting requirement may cause an error if the tree cannot be resolved correctly.**
+For this reason, make sure your plugin requirement is as broad as possible, and not to lock it down to specific patch versions.
+
+_Assuming the host complies with semver, only changes in the host package's major version will break your plugin._
+_Thus, if you've worked with every 1.x version of the host package, use `"^1.0"` or `"1.x"` to express this._
+_If you depend on features introduced in 1.5.2, use `"^1.5.2"`._
+
+## peerDependenciesMeta
+
+When a user installs your package, npm will emit warnings if packages specified in `peerDependencies` are not already installed.
+**The `peerDependenciesMeta` field serves to provide npm more information on how your peer dependencies are to be used.**
+Specifically, it allows peer dependencies to be marked as optional.
+
+_For example:_
+
+```json
+{
+  "name": "tea-latte",
+  "version": "1.3.5",
+  "peerDependencies": {
+    "tea": "2.x",
+    "soy-milk": "1.2"
+  },
+  "peerDependenciesMeta": {
+    "soy-milk": {
+      "optional": true
+    }
+  }
+}
+```
+
+Marking a peer dependency as optional ensures npm will not emit a warning if the `soy-milk` package is not installed on the host.
+This allows you to integrate and interact with a variety of host packages without requiring all of them to be installed.
+
+## bundledDependencies
+
+**This defines an array of package names that will be bundled when publishing the package.**
+
+In cases where you need to preserve npm packages locally or have them available through a single file download, you can bundle the packages in a tarball file by specifying the package names in the `bundledDependencies` array and executing `npm pack`.
+
+_For example:_
+
+_If we define a `package.json` like this:_
+
+```json
+{
+  "name": "awesome-web-framework",
+  "version": "1.0.0",
+  "bundledDependencies": [
+    "renderized",
+    "super-streams"
+  ]
+}
+```
+
+_we can obtain `awesome-web-framework-1.0.0.tgz` file by running `npm pack`._
+_This file contains the dependencies `renderized` and `super-streams` which can be installed in a new project by executing `npm install awesome-web-framework-1.0.0.tgz`._
+_Note that the package names do not include any versions, as that information is specified in `dependencies`._
+
+## optionalDependencies
