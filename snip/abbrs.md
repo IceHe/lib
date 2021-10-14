@@ -845,6 +845,7 @@ Reference : https://www.computerhope.com/keys.htm
 
 - t : temporary | time | tag ( for CLI )
 - TA : teaching assistant
+- tar : **t**ape **ar**chive, aka. [tarball](https://en.wikipedia.org/wiki/Tar_(computing))
 - TB : team building
 - tb : table ( for SQL )
 - TBC : to be continued 未完待续

@@ -341,3 +341,30 @@ See [semver](https://github.com/npm/node-semver#versions) for more details about
 - `user/repo` See 'GitHub URLs' below
 - `tag` A specific version tagged and published as `tag` See [`npm dist-tag`](https://docs.npmjs.com/cli/v7/commands/npm-dist-tag)
 - `path/path/path` See [Local Paths](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#local-paths) below
+
+_For example, these are all valid:_
+
+```json
+{
+  "dependencies": {
+    "foo": "1.0.0 - 2.9999.9999",
+    "bar": ">=1.0.2 <2.1.2",
+    "baz": ">1.0.2 <=2.3.4",
+    "boo": "2.0.1",
+    "qux": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
+    "asd": "http://asdf.com/asdf.tar.gz",
+    "til": "~1.2",
+    "elf": "~1.2.3",
+    "two": "2.x",
+    "thr": "3.3.x",
+    "lat": "latest",
+    "dyl": "file:../dyl"
+  }
+}
+```
+
+### URLs as Dependencies
+
+You may specify a tarball URL in place of a version range.
+
+This tarball will be downloaded and installed locally to your package at install time.
