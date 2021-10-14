@@ -730,6 +730,8 @@ Timeline
 -   [Ice He](https://icehe.xyz/#/past/bio) (me) : Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 - …
 
+---
+
 <!-- ## Ending -->
 
 > 靡不有初，鮮克有終。
