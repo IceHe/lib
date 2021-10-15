@@ -242,6 +242,8 @@ Message Queue
 
 ### Mac
 
+> 磨刀不誤砍柴工
+
 macOS
 
 - [Initialize](/mac/initialize.md) : 系统初始化
