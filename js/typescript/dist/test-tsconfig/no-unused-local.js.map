@@ -1,1 +1,0 @@
-{"version":3,"file":"no-unused-local.js","sourceRoot":"","sources":["../../src/test-tsconfig/no-unused-local.ts"],"names":[],"mappings":"AAAA,IAAM,cAAc,GAAG,UAAC,OAAe;IACrC,IAAM,cAAc,GAAG,EAAE,CAAC;IAE1B,OAAO,EAAE,IAAI,EAAE,UAAU,EAAE,OAAO,SAAA,EAAE,CAAC;AACvC,CAAC,CAAC"}

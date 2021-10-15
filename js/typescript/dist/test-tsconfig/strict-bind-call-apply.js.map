@@ -1,1 +1,0 @@
-{"version":3,"file":"strict-bind-call-apply.js","sourceRoot":"","sources":["../../src/test-tsconfig/strict-bind-call-apply.ts"],"names":[],"mappings":"AAAA,SAAS,uBAAuB,CAAC,CAAS;IACxC,OAAO,MAAM,CAAC,QAAQ,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC;AAED,IAAM,EAAE,GAAG,uBAAuB,CAAC,IAAI,CAAC,SAAS,EAAE,IAAI,CAAC,CAAC;AAEzD,IAAM,EAAE,GAAG,uBAAuB,CAAC,IAAI,CAAC,SAAS,EAAE,KAAK,CAAC,CAAC"}

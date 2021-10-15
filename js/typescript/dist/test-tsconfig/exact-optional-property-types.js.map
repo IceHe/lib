@@ -1,1 +1,0 @@
-{"version":3,"file":"exact-optional-property-types.js","sourceRoot":"","sources":["../../src/test-tsconfig/exact-optional-property-types.ts"],"names":[],"mappings":"AAKA,SAAS,eAAe;IACtB,OAAO,EAAE,kBAAkB,EAAE,SAAS,EAAE,CAAC;AAC3C,CAAC;AAED,IAAM,QAAQ,GAAG,eAAe,EAAE,CAAC;AAKnC,QAAQ,CAAC,kBAAkB,GAAG,SAAS,CAAC"}
