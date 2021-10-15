@@ -444,10 +444,11 @@ Basics
     - ……
 - Commands
     - [npm](/js/npm-cmd/npm.md) : javascript package manager
+    - [npm init](/js/npm-cmd/npm-init.md) : create a `package.json` file
     - [npm install](/js/npm-cmd/npm-install.md) : install a package
     - [npm link](/js/npm-cmd/npm-link.md) : symlink a package folder
     - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
-    - [npm exec](/js/npm-cmd/npm-exec.md) | `npx` :
+    - [npm exec](/js/npm-cmd/npm-exec.md), ~~`npx`~~ : run a command from a local or remote npm package
 - Dependencies
     - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
     - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)

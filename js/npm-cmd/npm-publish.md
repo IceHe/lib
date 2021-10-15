@@ -7,6 +7,7 @@ Publish a package
 References
 
 - [npm-publish - npm docs](https://docs.npmjs.com/cli/v7/commands/npm-publish)
+- `man npm-publish`
 
 ## Synopsis
 
