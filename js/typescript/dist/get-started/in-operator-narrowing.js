@@ -5,3 +5,11 @@ function move(animal) {
     }
     animal.fly();
 }
+function getSwimmingAnimal() {
+    return {
+        swim: function () {
+            console.log('swimming');
+        }
+    };
+}
+move(getSwimmingAnimal());

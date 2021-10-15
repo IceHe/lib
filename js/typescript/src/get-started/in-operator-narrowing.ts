@@ -9,3 +9,13 @@ function move(animal: Fish | Bird) {
 
   animal.fly();
 }
+
+function getSwimmingAnimal() {
+  return {
+    swim: () => {
+      console.log('swimming');
+    },
+  };
+}
+
+move(getSwimmingAnimal());
