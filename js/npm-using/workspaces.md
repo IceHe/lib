@@ -90,6 +90,83 @@ Note: other installing commands such as `uninstall`, `ci`, etc will also respect
 
 ## Using workspaces
 
+Given the [specifities of how Node.js handles module resolution] it's possible to consume any defined workspace by it's declared `package.json` `name`.
+_Continuing from the example defined above, let's also create a Node.js script that will require the `workspace-a` example module, e.g:_
+
+```ts
+// ./workspace-a/index.js
+module.exports = 'a'
+
+// ./lib/index.js
+const moduleA = require('workspace-a')
+console.log(moduleA) // -> a
+```
+
+_When running it with:_ `node lib/index.js`
+
+This demonstrates how the nature of `node_modules` resolution allows for **workspaces** to enable a portable workflow for requiring each **workspace** in such a way that is also easy to [publish](https://docs.npmjs.com/cli/v7/commands/npm-publish) these nested workspaces to be consumed elsewhere.
+
 ## Running commands in the context of workspaces
 
+**You can use the `workspace` configuration option to run commands in the context of a configured workspace.**
+
+Following is a quick example on how to use the `npm run` command in the context of nested workspaces.
+_For a project containing multiple workspaces, e.g:_
+
+```text
+.
++-- package.json
+`-- packages
+   +-- a
+   |   `-- package.json
+   `-- b
+       `-- package.json
+```
+
+_By running a command using the `workspace` option, it's possible to run the given command in the context of that specific workspace. e.g:_
+
+```bash
+npm run test --workspace=a
+```
+
+_This will run the `test` script defined within the `./packages/a/package.json` file._
+
+Please note that you **can also specify this argument multiple times in the command-line in order to target multiple workspaces**, _e.g:_
+
+```bash
+npm run test --workspace=a --workspace=b
+```
+
+It's also possible to **use the `workspaces` (plural) configuration option to enable the same behavior but running that command in the context of all configured workspaces.** _e.g:_
+
+```bash
+npm run test --workspaces
+```
+
+_Will run the test script in both `./packages/a` and `./packages/b`._
+
+Commands will be run in each workspace in the order they appear in your `package.json`
+
+```json
+{
+  "workspaces": [ "packages/a", "packages/b" ]
+}
+```
+
+_Order of run is different with:_
+
+```json
+{
+  "workspaces": [ "packages/b", "packages/a" ]
+}
+```
+
 ## Ignoring missing scripts
+
+It is not required for all of the workspaces to implement scripts run with the `npm run` command.
+
+**By running the command with the `--if-present` flag, npm will ignore workspaces missing target script.**
+
+```bash
+npm run test --workspaces --if-present
+```
