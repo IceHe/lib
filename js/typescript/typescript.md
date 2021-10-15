@@ -615,7 +615,7 @@ function move(animal: Fish | Bird) {
 
 _To reiterate optional properties will exist in both sides for narrowing, for example a human could both swim and fly (with the right equipment) and thus should show up in both sides of the `in` check:_
 
-```bash
+```ts
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 type Human = { swim?: () => void; fly?: () => void };
@@ -623,12 +623,10 @@ type Human = { swim?: () => void; fly?: () => void };
 function move(animal: Fish | Bird | Human) {
   if ("swim" in animal) {
     animal;
-
-(parameter) animal: Fish | Human
+    // (parameter) animal: Fish | Human
   } else {
     animal;
-
-(parameter) animal: Bird | Human
+    // (parameter) animal: Bird | Human
   }
 }
 ```
