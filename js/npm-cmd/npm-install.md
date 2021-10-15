@@ -96,7 +96,7 @@ In order to distinguish between this and other options, the argument must start 
 
 Example: `npm install https://github.com/indexzero/forever/tarball/v0.5.6`
 
-### npm install [\<@scope\>/]\<name\>
+### `npm install [<@scope>/]<name>`
 
 Do a `<name>@<tag>` install, where `<tag>` is the "tag" config.
 (See [config](https://docs.npmjs.com/cli/v7/using-npm/config). The config's **default value is `latest`.**)
@@ -159,34 +159,224 @@ Additionally, you can control where and how they get saved with some additional 
 
     _Note: If there is a file or folder named `<name>` in the current working directory, then it will try to install that, and only try to fetch the package by name if it is not valid._
 
-### `npm install <alias>@npm:<name>`
+### Others
 
-**Install a package under a custom alias.**
+-   `npm install <alias>@npm:<name>`
 
-……
+    **Install a package under a custom alias.**
 
-### `npm install [<@scope>/]<name>@<tag>`
+    ……
 
-**Install the version of the package that is referenced by the specified tag.**
+-   `npm install [<@scope>/]<name>@<tag>`
 
-……
+    **Install the version of the package that is referenced by the specified tag.**
 
-### `npm install [<@scope>/]<name>@<version>`
+    ……
 
-**Install the specified version of the package.**
+-   `npm install [<@scope>/]<name>@<version>`
 
-……
+    **Install the specified version of the package.**
 
-### `npm install [<@scope>/]<name>@<version range>`
+    ……
 
-**Install a version of the package matching the specified version range.**
+-   `npm install [<@scope>/]<name>@<version range>`
 
-……
+    **Install a version of the package matching the specified version range.**
 
-### `npm install <git remote url>`
+    ……
 
-**Installs the package from the hosted git provider, cloning it with git.** For a full git remote url, only that URL will be attempted.
+-   `npm install <git remote url>`
+
+    **Installs the package from the hosted git provider, cloning it with git.** For a full git remote url, only that URL will be attempted.
+
+    ```http
+    <protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]
+    ```
+
+    `<protocol>` is one of `git`, `git+ssh`, `git+http`, `git+https`, or `git+file`.
+
+    ……
+
+-   `npm install <githubname>/<githubrepo>[#<commit-ish>]`
+
+    ……
+
+-   `npm install github:<githubname>/<githubrepo>[#<commit-ish>]`
+
+    ……
+
+-   `npm install gist:[<githubname>/]<gistID>[#<commit-ish>|#semver:<semver>]`
+
+    ……
+
+-   `npm install bitbucket:<bitbucketname>/<bitbucketrepo>[#<commit-ish>]`
+
+    ……
+
+-   `npm install gitlab:<gitlabname>/<gitlabrepo>[#<commit-ish>]`
+
+    ……
 
 ## Configuration
 
+### `save`
+
+- Default: true
+
+**Save installed packages to a package.json file as dependencies.**
+
+……
+
+### `save-exact`
+
+- Default: false
+
+**Dependencies saved to `package.json` will be configured with an exact version rather than using npm's default semver range operator.**
+
+### `global`
+
+- Default: false
+
+**Operates in "global" mode, so that packages are installed into the `prefix` folder instead of the current working directory.**
+See [folders](https://docs.npmjs.com/cli/v7/configuring-npm/folders) for more on the differences in behavior.
+
+- packages are installed into the `{prefix}/lib/node_modules` folder, instead of the current working directory.
+- bin files are linked to `{prefix}/bin`
+- man pages are linked to `{prefix}/share/man`
+
+### `strict-peer-deps`
+
+- Default: false
+
+**If set to `true`, and `--legacy-peer-deps` is not set, then any conflicting `peerDependencies` will be treated as an install failure**, even if npm could reasonably guess the appropriate resolution based on non-peer dependency relationships.
+
+By default, conflicting `peerDependencies` deep in the dependency graph will be resolved using the nearest non-peer dependency specification, even if doing so will result in some packages receiving a peer dependency outside the range set in their package's `peerDependencies` object.
+
+When such and override is performed, a warning is printed, explaining the conflict and the packages involved.
+If `--strict-peer-deps` is set, then this warning is treated as a failure.
+
+### `package-lock`
+
+- Default: true
+
+**If set to false, then ignore `package-lock.json` files when installing.**
+This will also prevent writing `package-lock.json` if save is true.
+
+When package package-locks are disabled, automatic pruning of extraneous modules will also be disabled.
+To remove extraneous modules with package-locks disabled use `npm prune`.
+
+### `omit`
+
+- Default: 'dev' if the `NODE_ENV` environment variable is set to 'production', otherwise empty.
+- Type: "dev", "optional", or "peer" (can be set multiple times)
+
+Dependency types to omit from the installation tree on disk.
+
+……
+
+### `ignore-scripts`
+
+- Default: false
+
+**If true, npm does not run scripts specified in `package.json` files.**
+
+Note that commands explicitly intended to run a particular script, such as `npm start`, `npm stop`, `npm restart`, `npm test`, and `npm run-script` will still run their intended script if `ignore-scripts` is set, but they will not run any pre- or post-scripts.
+
+### `audit`
+
+- Default: true
+
+**When "true" submit audit reports alongside the current npm command to the default registry and all registries configured for scopes.**
+See the documentation for [`npm audit`](https://docs.npmjs.com/cli/v7/commands/npm-audit) for details on what is submitted.
+
+### `bin-links`
+
+- Default: true
+
+Tells npm to create symlinks (or `.cmd` shims on Windows) for package executables.
+
+Set to false to have it not do this.
+This can be used to work around the fact that some file systems don't support symlinks, even on ostensibly Unix systems.
+
+### `dry-run`
+
+- Default: false
+
+**Indicates that you don't want npm to make any changes and that it should only report what it would have done.**
+This can be passed into any of the commands that modify your local installation, eg, `install`, `update`, `dedupe`, `uninstall`, as well as `pack` and `publish`.
+
+Note: This is NOT honored by other network related commands, eg `dist-tags`, `owner`, etc.
+
+### `workspace`
+
+- Default: ""
+- Type: String (can be set multiple times)
+
+**Enable running a command in the context of the configured workspaces of the current project while filtering by running only the workspaces defined by this configuration option.**
+
+Valid values for the workspace config are either:
+
+- Workspace names
+- Path to a workspace directory
+- Path to a parent workspace directory (will result in selecting all workspaces within that folder)
+
+When set for the `npm init` command, this may be set to the folder of a workspace which does not yet exist, to create the folder and set it up as a brand new workspace within the project.
+
+_This value is not exported to the environment for child processes._
+
+### `workspaces`
+
+- Default: null
+- Type: null or Boolean
+
+**Set to true to run the command in the context of all configured workspaces.**
+
+Explicitly setting this to `false` will cause commands like `install` to ignore workspaces altogether.
+When not set explicitly:
+
+- Commands that operate on the `node_modules` tree (`install`, `update`, etc.) will link workspaces into the `node_modules` folder.
+- Commands that do other things (`test`, `exec`, `publish`, etc.) will operate on the root project, unless one or more workspaces are specified in the workspace config.
+
+_This value is not exported to the environment for child processes. -
+
+### `include-workspace-root`
+
+- Default: false
+
+Include the workspace root when workspaces are enabled for a command.
+
+When false, specifying individual workspaces via the `workspace` config, or all workspaces via the `workspaces` flag, will cause npm to operate only on the specified workspaces, and not on the root project.
+
+### Others
+
+- `global-style`
+- `legacy-bundling`
+- `fund`
+
 ## Algorithm
+
+Given a `package{dep}` structure: `A{B,C}`, `B{C}`, `C{D}`, the npm install algorithm produces:
+
+```txt
+A
++-- B
++-- C
++-- D
+```
+
+That is, the dependency from B to C is satisfied by the fact that A already caused C to be installed at a higher level. D is still installed at the top level because nothing conflicts with it.
+
+For `A{B,C}`, `B{C,D@1}`, `C{D@2}`, this algorithm produces:
+
+```txt
+A
++-- B
++-- C
+   `-- D@2
++-- D@1
+```
+
+Because B's D@1 will be installed in the top-level, C now has to install D@2 privately for itself.
+This algorithm is deterministic, but different trees may be produced if two dependencies are requested for installation in a different order.
+
+See [folders](https://docs.npmjs.com/cli/v7/configuring-npm/folders) for a more detailed description of the specific folder structures that npm creates.
