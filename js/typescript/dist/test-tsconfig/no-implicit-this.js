@@ -10,4 +10,3 @@ var Rectangle = (function () {
     };
     return Rectangle;
 }());
-//# sourceMappingURL=no-implicit-this.js.map

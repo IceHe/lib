@@ -5,4 +5,3 @@ var UserAccount = (function () {
     }
     return UserAccount;
 }());
-//# sourceMappingURL=strict-property-initialization.js.map

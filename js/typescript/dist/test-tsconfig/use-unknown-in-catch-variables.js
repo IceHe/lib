@@ -5,4 +5,3 @@ catch (error) {
         console.log(error.message);
     }
 }
-//# sourceMappingURL=use-unknown-in-catch-variables.js.map

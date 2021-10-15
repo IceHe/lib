@@ -3,4 +3,3 @@ function testStrictFunctionTypes(x) {
 }
 var testFunction = testStrictFunctionTypes;
 testFunction(10);
-//# sourceMappingURL=strict-function-types.js.map

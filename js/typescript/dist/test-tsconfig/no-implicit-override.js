@@ -35,4 +35,3 @@ var SharedAlbum = (function (_super) {
     SharedAlbum.prototype.setup = function () { };
     return SharedAlbum;
 }(Album));
-//# sourceMappingURL=no-implicit-override.js.map

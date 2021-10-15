@@ -4,4 +4,3 @@ var users = [
 ];
 var loggedInUser = users.find(function (u) { return u.name === loggedInUsername; });
 console.log(loggedInUser.age);
-//# sourceMappingURL=strict-null-checks.js.map

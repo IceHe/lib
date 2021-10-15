@@ -4,4 +4,3 @@ function lookupHeadphonesManufacturer(color) {
     }
     ('bose');
 }
-//# sourceMappingURL=no-implicit-returns.js.map

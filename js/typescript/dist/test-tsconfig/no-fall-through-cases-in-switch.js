@@ -8,4 +8,3 @@ switch (a) {
     default:
         break;
 }
-//# sourceMappingURL=no-fall-through-cases-in-switch.js.map
