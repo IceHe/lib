@@ -5,7 +5,7 @@
 # IceHe<small>Life</small>
 
 ```
-<!-- 好记性不如烂博客 -->
+<!-- Later equals never. -->
 ```
 
 <!-- Done is better than perfect. -->
@@ -19,7 +19,7 @@
 - 写一部小说就像在黑夜里开车<br/>你只能看到车灯照亮的部分，但是你却可以走完整个旅程
 - **E.L. Doctorow**
 
-<span class="token comment"># 京 ICP 备 18038982 号</span>
+<span class="token comment"># 京 ICP 备 18038982 号 #</span>
 
 <!-- - 没有收到新的工作任务，胡乱地工作着、学习着， -->
 <!-- - 找不到人生方向，不知道该做什么。 -->
@@ -36,7 +36,6 @@
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
 [Weibo](https://weibo.com/icedes)
-[About](/past/bio.md)
 [Library](/README)
 
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->

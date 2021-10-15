@@ -4,7 +4,9 @@
 
 ---
 
-> Later equals never.
+> 好记性不如烂博客
+
+<!-- > Later equals never. -->
 
 <!-- > —— LeBlanc's Law -->
 
