@@ -422,15 +422,13 @@ Basics
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
-- [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
-    - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 - Package Management
     - [npm](/js/npm.md) : share and borrow packages - [npmjs.com](https://www.npmjs.com/)
     - [yarn](/js/yarn.md) : a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
         - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
     - [pnpm](/js/pnpm.md) : fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
 
-**npm** : the world's largest software registry
+npm : the world's largest software registry
 
 - Configuring
     - [package.json](/js/npm-configuring/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
@@ -457,6 +455,11 @@ Basics
         - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
     - Parcel.js : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
         - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
+
+TypeScript
+
+- [TypeScript](/js/typescript/get-started/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
+    - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 
 ### Java
 
