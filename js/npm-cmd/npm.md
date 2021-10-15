@@ -9,7 +9,7 @@ References
 - [npm -npm docs](https://docs.npmjs.com/cli/v7/commands/npm)
 - `man npm`
 
-Synopsis
+## Synopsis
 
 ```bash
 npm <command> [args]

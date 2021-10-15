@@ -418,8 +418,9 @@ Scene
 
 ### JS
 
-[JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+Basics
 
+- [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
     - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
@@ -443,6 +444,7 @@ Scene
     - ……
 - Commands
     - [npm](/js/npm-cmd/npm.md) : javascript package manager
+    - [npm install](/js/npm-cmd/npm-install.md) : install a package
 - Dependencies
     - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
     - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
