@@ -251,6 +251,53 @@ function example() {
 
 ## Using Type Predicates
 
+_We've worked with existing JavaScript constructs to handle narrowing so far, however sometimes you want more direct control over how types change throughout your code._
+
+_To define a user-defined type guard, we simply need to define a function whose return type is a type predicate:_
+
+```ts
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+```
+
+**`pet is Fish` is our type predicate** in this example.
+**A predicate takes the form parameterName is Type, where parameterName must be the name of a parameter from the current function signature.**
+
+Any time `isFish` is called with some variable, TypeScript will narrow that variable to that specific type if the original type is compatible.
+
+```ts
+// Both calls to 'swim' and 'fly' are now okay.
+let pet = getSmallPet();
+
+if (isFish(pet)) {
+  pet.swim();
+} else {
+  pet.fly();
+}
+```
+
+_Notice that TypeScript not only knows that `pet` is a `Fish` in the `if` branch; it also knows that in the `else` branch, you don't have a Fish, so you must have a Bird._
+
+You may use the type guard `isFish` to filter an array of `Fish | Bird` and obtain an array of `Fish`:
+
+```ts
+const zoo: (Fish | Bird)[] = [getSmallPet(), getSmallPet(), getSmallPet()];
+const underWater1: Fish[] = zoo.filter(isFish);
+// or, equivalently
+const underWater2: Fish[] = zoo.filter(isFish) as Fish[];
+
+// The predicate may need repeating for more complex examples
+const underWater3: Fish[] = zoo.filter((pet): pet is Fish => {
+  if (pet.name === "sharkey") return false;
+  return isFish(pet);
+});
+```
+
+_In addition, classes can [use this is Type](https://www.typescriptlang.org/docs/handbook/2/classes.html#this-based-type-guards) to narrow their type._
+
+<!-- icehe : 暂时看得不是很明白 2021/10/15 -->
+
 ## Discriminated Unions
 
 ## The never Type
