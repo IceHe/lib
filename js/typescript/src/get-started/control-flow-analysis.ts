@@ -18,3 +18,5 @@ function example() {
   return x;
   // Let x: string | number
 }
+
+console.log(example());
