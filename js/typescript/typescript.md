@@ -633,4 +633,4 @@ function move(animal: Fish | Bird | Human) {
 }
 ```
 
-`instanceof` narrowing
+##### `instanceof` narrowing
