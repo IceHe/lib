@@ -458,8 +458,12 @@ npm : the world's largest software registry
 
 TypeScript
 
-- [TypeScript](/js/typescript/get-started/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
-    - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
+- [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
+    - [Intro](/js/typescript/handbook/intro.md)
+    - [Basics](/js/typescript/handbook/basics.md)
+    - [Everyday Types](/js/typescript/handbook/everyday-types.md)
+    - [Narrowing](/js/typescript/handbook/narrowing.md)
+- [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 
 ### Java
 
