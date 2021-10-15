@@ -167,3 +167,42 @@ function logValue(x: Date | string) {
   }
 }
 ```
+
+## Assignments
+
+_As we mentioned earlier, when we assign to any variable, TypeScript looks at the right side of the assignment and narrows the left side appropriately._
+
+```ts
+let x = Math.random() < 0.5 ? 10 : "hello world!";
+// let x: string | number
+
+x = 1;
+console.log(x);
+// let x: number
+
+x = "goodbye!";
+console.log(x);
+// let x: string
+```
+
+Notice that each of these assignments is valid.
+**Even though the observed type of `x` changed to `number` after our first assignment, we were still able to assign a string to `x`.**
+**This is because the declared type of `x` - the type that `x` started with - is `string | number`, and assignability is always checked against the declared type.**
+
+_If we'd assigned a boolean to `x`, we'd have seen an error since that wasn't part of the declared type._
+
+```ts
+let x = Math.random() < 0.5 ? 10 : "hello world!";
+// let x: string | number
+
+x = 1;
+console.log(x);
+// let x: number
+
+x = true;
+// Type 'boolean' is not assignable to type 'string | number'.
+console.log(x);
+// let x: string | number
+```
+
+## Control Flow Analysis
