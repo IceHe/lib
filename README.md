@@ -414,17 +414,8 @@ Scene
 
 ### JS
 
-- [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
-- Configuring `npm`
-    - [package.json](/js/npm-configuring/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
-    - [package-lock.json](/js/npm-configuring/package-lock-json.md) : a manifestation of the manifest
-    - [folders](/js/npm-configuring/folders.md) : folder Structures Used by npm
-- Using `npm`
-    - [registry](/js/npm-using/registry.md) : The JavaScript package registry
-    - [scope](/js/npm-using/scope.md) : scoped packages
-    - [scripts](/js/npm-using/scripts.md) : How npm handles the "scripts" field
-    - [workspaces](/js/npm-using/workspaces.md) : Working with workspaces
-    - ……
+[JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
 - [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
     - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
@@ -432,7 +423,22 @@ Scene
     - [npm](/js/npm.md) : share and borrow packages - [npmjs.com](https://www.npmjs.com/)
     - [yarn](/js/yarn.md) : a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
         - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
-    - [pnpm](/js/pnpm.md) : Fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
+    - [pnpm](/js/pnpm.md) : fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
+
+**npm** : the world's largest software registry
+
+- Configuring
+    - [package.json](/js/npm-configuring/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
+    - [package-lock.json](/js/npm-configuring/package-lock-json.md) : a manifestation of the manifest
+    - [folders](/js/npm-configuring/folders.md) : folder Structures Used by npm
+- Using
+    - [registry](/js/npm-using/registry.md) : The JavaScript package registry
+    - [scope](/js/npm-using/scope.md) : scoped packages
+    - [scripts](/js/npm-using/scripts.md) : How npm handles the "scripts" field
+    - [workspaces](/js/npm-using/workspaces.md) : Working with workspaces
+    - ……
+- Commands
+    - [npm](/js/npm-cmd/npm.md) : javascript package manager
 - Dependencies
     - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
     - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
