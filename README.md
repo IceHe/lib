@@ -445,10 +445,15 @@ Basics
 - Commands
     - [npm](/js/npm-cmd/npm.md) : javascript package manager
     - [npm install](/js/npm-cmd/npm-install.md) : install a package
+    - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
 - Dependencies
     - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
     - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
     - commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+    - Next.js : The React Framework for Production - [nextjs.org](https://nextjs.org/)
+        - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
+    - Parcel.js : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
+        - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
 
 ### Java
 
