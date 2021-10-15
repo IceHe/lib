@@ -595,3 +595,42 @@ JavaScript has an operator for determining if an object has a property with a na
 _TypeScript takes this into account as a way to narrow down potential types._
 
 _( icehe : `typeof` 用于推断基本类型, `in` 用来推断自定义类型 )_
+
+_For example, with the code: `"value" in x`._
+_where `"value"` is a string literal and x is a union type._
+_The “true” branch narrows `x`’s types which have either an optional or required property value, and the “false” branch narrows to types which have an optional or missing property `value`._
+
+```ts
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+
+function move(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    return animal.swim();
+  }
+
+  return animal.fly();
+}
+```
+
+_To reiterate optional properties will exist in both sides for narrowing, for example a human could both swim and fly (with the right equipment) and thus should show up in both sides of the `in` check:_
+
+```bash
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+type Human = { swim?: () => void; fly?: () => void };
+
+function move(animal: Fish | Bird | Human) {
+  if ("swim" in animal) {
+    animal;
+
+(parameter) animal: Fish | Human
+  } else {
+    animal;
+
+(parameter) animal: Bird | Human
+  }
+}
+```
+
+`instanceof` narrowing
