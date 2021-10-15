@@ -116,7 +116,7 @@ _( icehe : `typeof` 用于推断基本类型, `in` 用来推断自定义类型 )
 
 _For example, with the code: `"value" in x`._
 _where `"value"` is a string literal and x is a union type._
-_The “true” branch narrows `x`’s types which have either an optional or required property value, and the “false” branch narrows to types which have an optional or missing property `value`._
+_The “true” branch narrows `x`'s types which have either an optional or required property value, and the “false” branch narrows to types which have an optional or missing property `value`._
 
 ```ts
 type Fish = { swim: () => void };
@@ -206,3 +206,45 @@ console.log(x);
 ```
 
 ## Control Flow Analysis
+
+_Up until this point, we've gone through some basic examples of how TypeScript narrows within specific branches._
+_But there's a bit more going on than just walking up from every variable and looking for type guards in `if`s, `while`s, conditionals, etc. For example_
+
+```ts
+function padLeft(padding: number | string, input: string) {
+  if (typeof padding === "number") {
+    return new Array(padding + 1).join(" ") + input;
+  }
+  return padding + input;
+}
+```
+
+**`padLeft` returns from within its first `if` block.**
+**TypeScript was able to analyze this code and see that the rest of the body (`return padding + input;`) is unreachable in the case where padding is a number.**
+**As a result, it was able to remove number from the type of padding (narrowing from `string | number` to `string`) for the rest of the function.**
+
+This analysis of code based on reachability is called **control flow analysis**, and TypeScript uses this flow analysis to narrow types as it encounters type guards and assignments.
+When a variable is analyzed, control flow can split off and re-merge over and over again, and that variable can be observed to have a different type at each point.
+
+```ts
+function example() {
+  let x: string | number | boolean;
+
+  x = Math.random() < 0.5;
+  console.log(x);
+    // let x: boolean
+
+  if (Math.random() < 0.5) {
+    x = "hello";
+    console.log(x);
+    // let x: string
+  } else {
+    x = 100;
+    console.log(x);
+    // let x: number
+  }
+
+  return x;
+  // let x: string | number
+}
+```
