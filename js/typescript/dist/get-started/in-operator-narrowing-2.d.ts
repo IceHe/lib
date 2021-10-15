@@ -4,3 +4,7 @@ declare type Fish = {
 declare type Bird = {
     fly: () => void;
 };
+declare type Human = {
+    swim?: () => void;
+    fly?: () => void;
+};
