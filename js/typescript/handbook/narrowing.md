@@ -248,3 +248,11 @@ function example() {
   // let x: string | number
 }
 ```
+
+## Using Type Predicates
+
+## Discriminated Unions
+
+## The never Type
+
+## Exhaustiveness Checking

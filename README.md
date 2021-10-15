@@ -463,6 +463,7 @@ TypeScript
     - [Basics](/js/typescript/handbook/basics.md)
     - [Everyday Types](/js/typescript/handbook/everyday-types.md)
     - [Narrowing](/js/typescript/handbook/narrowing.md)
+    - [More on Functions](/js/typescript/handbook/more-on-functions.md)
 - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 
 ### Java
