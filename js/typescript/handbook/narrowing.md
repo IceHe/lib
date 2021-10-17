@@ -300,6 +300,57 @@ _In addition, classes can [use this is Type](https://www.typescriptlang.org/docs
 
 ## Discriminated Unions
 
+_Most of the examples we've looked at so far have focused around narrowing single variables with simple types like `string`, `boolean`, and `number`._
+_While this is common, most of the time in JavaScript we'll be dealing with slightly more complex structures._
+
+_For some motivation, let's imagine we're trying to encode shapes like circles and squares._
+_Circles keep track of their radiuses and squares keep track of their side lengths._
+_We'll use a field called kind to tell which shape we're dealing with._
+_Here's a first attempt at defining `Shape`._
+
+```ts
+interface Shape {
+  kind: "circle" | "square";
+  radius?: number;
+  sideLength?: number;
+}
+```
+
+Notice we're using a union of string literal types: `"circle"` and `"square"` to tell us whether we should treat the shape as a circle or square respectively.
+By using `"circle" | "square"` instead of string, we can avoid misspelling issues.
+
+```ts
+function handleShape(shape: Shape) {
+  // oops!
+  if (shape.kind === "rect") {
+    // This condition will always return 'false' since the types '"circle" | "square"' and '"rect"' have no overlap.
+    // ...
+  }
+}
+```
+
+_We can write a `getArea` function that applies the right logic based on if it's dealing with a circle or square._
+_We'll first try dealing with circles._
+
+```ts
+function getArea(shape: Shape) {
+  return Math.PI * shape.radius ** 2;
+  // Object is possibly 'undefined'.
+}
+```
+
+Under `strictNullChecks` that gives us an error - which is appropriate since `radius` might not be defined.
+But what if we perform the appropriate checks on the `kind` property?
+
+```ts
+function getArea(shape: Shape) {
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius ** 2;
+    // Object is possibly 'undefined'.
+  }
+}
+```
+
 ## The never Type
 
 ## Exhaustiveness Checking
