@@ -140,6 +140,32 @@ Note that in this example, TypeScript could infer both the type of the `Input` t
 
 ### Constraints
 
+_We've written some generic functions that can work on `any` kind of value._
+_Sometimes we want to relate two values, but can only operate on a certain subset of values._
+_In this case, we can use a constraint to limit the kinds of types that a type parameter can accept._
+
+_Let's write a function that returns the longer of two values._
+_To do this, we need a `length` property that's a `number`._
+We **constrain the type parameter to that type by writing an `extends` clause**:
+
+```ts
+function longest<Type extends { length: number }>(a: Type, b: Type) {
+  if (a.length >= b.length) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+// longerArray is of type 'number[]'
+const longerArray = longest([1, 2], [1, 2, 3]);
+// longerString is of type 'alice' | 'bob'
+const longerString = longest("alice", "bob");
+// Error! Numbers don't have a 'length' property
+const notOK = longest(10, 100);
+// Argument of type 'number' is not assignable to parameter of type '{ length: number; }'.
+```
+
 ### Working with Constrained Values
 
 ### Specifying Type Arguments
