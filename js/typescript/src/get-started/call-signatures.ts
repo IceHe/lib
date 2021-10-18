@@ -8,10 +8,10 @@ function doSomething(handle: DescribableFunction) {
 }
 
 // TODO / FIXME : 还是没有成功声明出一个可以调用的函数
-function function_(argument: number) {
+function testOverloadSignature(argument: number) {
   return true;
 }
 
-function_.description = 'test';
+testOverloadSignature.description = 'test';
 
-doSomething(function_);
+doSomething(testOverloadSignature);
