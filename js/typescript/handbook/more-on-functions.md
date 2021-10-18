@@ -343,7 +343,7 @@ function f(x = 10) {
 ```
 
 Now in the body of `f`, `x` will have type `number` because any `undefined` argument will be replaced with `10`.
-Note that when a parameter is optional, callers can always pass undefined, as this simply simulates a "missing" argument:
+Note that when a parameter is optional, callers can always pass `undefined`, as this simply simulates a "missing" argument:
 
 ```ts
 declare function f(x?: number): void;
@@ -355,6 +355,50 @@ f(undefined);
 ```
 
 ### Optional Parameters in Callbacks
+
+Once you've learned about optional parameters and function type expressions, it's very easy to make the following mistakes when writing functions that invoke callbacks:
+
+```ts
+function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], i);
+  }
+}
+```
+
+What people usually intend when writing `index?` as an optional parameter is that they want both of these calls to be legal:
+
+```ts
+myForEach([1, 2, 3], (a) => console.log(a));
+myForEach([1, 2, 3], (a, i) => console.log(a, i));
+```
+
+What this _actually_ means is that _callback_ might get invoked with one argument.
+_In other words, the function definition says that the implementation might look like this:_
+
+```ts
+function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
+  for (let i = 0; i < arr.length; i++) {
+    // I don't feel like providing the index today
+    callback(arr[i]);
+  }
+}
+```
+
+_In turn, TypeScript will enforce this meaning and issue errors that aren’t really possible:_
+
+```ts
+myForEach([1, 2, 3], (a, i) => {
+  console.log(i.toFixed());
+  // Object is possibly 'undefined'.
+});
+```
+
+_In JavaScript, if you call a function with more arguments than there are parameters, the extra arguments are simply ignored._
+_TypeScript behaves the same way._
+_Functions with fewer parameters (of the same types) can always take the place of functions with more parameters._
+
+> **When writing a function type for a callback, never write an optional parameter unless you intend to call the function without passing that argument**
 
 ## Function Overloads
 
