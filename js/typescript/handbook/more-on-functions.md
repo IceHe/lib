@@ -178,7 +178,7 @@ _Remember, generics are all about relating two or more values with the same type
 
 _Finally, just as we'd like, the call to `longest(10, 100)` is rejected because the number type doesn't have a `.length` property._
 
-### Working with Constrained Values
+### _Working with Constrained Values_
 
 _Here's a common error when working with generic constraints:_
 
@@ -197,13 +197,65 @@ function minimumLength<Type extends { length: number }>(
 }
 ```
 
-It might look like this function is OK - `Type` is constrained to `{ length: number }`, and the function either returns `Type` or a value matching that constraint.
-The problem is that the function promises to return the same kind of object as was passed in, not just some object matching the constraint.
-If this code were legal, you could write code that definitely wouldn’t work:
+_It might look like this function is OK - `Type` is constrained to `{ length: number }`, and the function either returns `Type` or a value matching that constraint._
+_The problem is that the function promises to return the same kind of object as was passed in, not just some object matching the constraint._
+_If this code were legal, you could write code that definitely wouldn't work:_
 
-### Specifying Type Arguments
+```ts
+// 'arr' gets value { length: 6 }
+const arr = minimumLength([1, 2, 3], 6);
+// and crashes here because arrays have
+// a 'slice' method, but not the returned object!
+console.log(arr.slice(0));
+```
+
+### _Specifying Type Arguments_
+
+TypeScript can usually infer the intended type arguments in a generic call, but not always.
+_For example, let's say you wrote a function to combine two arrays:_
+
+```ts
+function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
+  return arr1.concat(arr2);
+}
+```
+
+_Normally it would be an error to call this function with mismatched arrays:_
+
+```ts
+const arr = combine([1, 2, 3], ["hello"]);
+// Type 'string' is not assignable to type 'number'.
+```
+
+_If you intended to do this, however, you could manually specify Type:_
+
+```ts
+const arr = combine<string | number>([1, 2, 3], ["hello"]);
+```
 
 ### Guidelines for Writing Good Generic Functions
+
+Writing generic functions is fun, and it can be easy to get carried away with <!-- 被…冲昏头脑 --> type parameters.
+Having too many type parameters or using constraints where they aren't needed can make inference less successful, frustrating callers of your function.
+
+#### Push Type Parameters Down
+
+_Here are two ways of writing a function that appear similar:_
+
+```ts
+function firstElement1<Type>(arr: Type[]) {
+  return arr[0];
+}
+
+function firstElement2<Type extends any[]>(arr: Type) {
+  return arr[0];
+}
+
+// a: number (good)
+const a = firstElement1([1, 2, 3]);
+// b: any (bad)
+const b = firstElement2([1, 2, 3]);
+```
 
 ## Optional Parameters
 
