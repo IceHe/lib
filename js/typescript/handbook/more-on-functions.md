@@ -518,6 +518,22 @@ Callers can invoke this with either sort of value, and as an added bonus, we don
 
 ### Declaring `this` in a Function
 
+_TypeScript will infer what the `this` should be in a function via code flow analysis, for example in the following:_
+
+```ts
+const user = {
+  id: 123,
+  admin: false,
+  becomeAdmin: function () {
+    this.admin = true;
+  },
+};
+```
+
+TypeScript understands that the function `user.becomeAdmin` has a corresponding this which is the outer object `user`.
+`this`, heh, can be enough for a lot of cases, but there are a lot of cases where you need more control over what object this represents.
+The JavaScript specification states that you cannot have a parameter called `this`, and so TypeScript uses that syntax space to let you declare the type for `this` in the function body.
+
 ## Other Types to Know About
 
 ### void
