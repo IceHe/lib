@@ -6,4 +6,4 @@ interface EnvironmentVariables {
 declare const env: EnvironmentVariables;
 declare const sysName: string;
 declare const os: string;
-declare const nodeEnv: string | undefined;
+declare const nodeEnv: string;

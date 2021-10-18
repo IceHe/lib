@@ -465,6 +465,7 @@ TypeScript
     - [Narrowing](/js/typescript/handbook/narrowing.md)
     - [More on Functions](/js/typescript/handbook/more-on-functions.md)
 - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
+- [tsc](/js/typescript/tsc.md) : compiles the current project, with additional settings
 
 ### Java
 
