@@ -166,7 +166,40 @@ const notOK = longest(10, 100);
 // Argument of type 'number' is not assignable to parameter of type '{ length: number; }'.
 ```
 
+_There are few interesting things to note in this example._
+_We allowed TypeScript to infer the return type of `longest`._
+**Return type inference also works on generic functions.**
+
+Because we constrained `Type` to `{ length: number }`, we were allowed to access the `.length` property of the `a` and `b` parameters.
+Without the type constraint, we wouldn't be able to access those properties because the values might have been some other type without a length property.
+
+_The types of `longerArray` and `longerString` were inferred based on the arguments._
+_Remember, generics are all about relating two or more values with the same type!_
+
+_Finally, just as we'd like, the call to `longest(10, 100)` is rejected because the number type doesn't have a `.length` property._
+
 ### Working with Constrained Values
+
+_Here's a common error when working with generic constraints:_
+
+```ts
+function minimumLength<Type extends { length: number }>(
+  obj: Type,
+  minimum: number
+): Type {
+  if (obj.length >= minimum) {
+    return obj;
+  } else {
+    return { length: minimum };
+    // Type '{ length: number; }' is not assignable to type 'Type'.
+    //   '{ length: number; }' is assignable to the constraint of type 'Type', but 'Type' could be instantiated with a different subtype of constraint '{ length: number; }'.
+  }
+}
+```
+
+It might look like this function is OK - `Type` is constrained to `{ length: number }`, and the function either returns `Type` or a value matching that constraint.
+The problem is that the function promises to return the same kind of object as was passed in, not just some object matching the constraint.
+If this code were legal, you could write code that definitely wouldn’t work:
 
 ### Specifying Type Arguments
 
