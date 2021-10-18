@@ -340,7 +340,7 @@ function getArea(shape: Shape) {
 ```
 
 Under `strictNullChecks` that gives us an error - which is appropriate since `radius` might not be defined.
-But what if we perform the appropriate checks on the `kind` property?
+_But what if we perform the appropriate checks on the `kind` property?_
 
 ```ts
 function getArea(shape: Shape) {
@@ -351,6 +351,141 @@ function getArea(shape: Shape) {
 }
 ```
 
-## The never Type
+_But this doesn't feel ideal._
+_We had to shout a bit at the type-checker with those non-null assertions (`!`) to convince it that `shape.radius` was defined, but those assertions are error-prone if we start to move code around._
+_Additionally, outside of `strictNullChecks` we're able to accidentally access any of those fields anyway (since optional properties are just assumed to always be present when reading them)._
+_We can definitely do better._
 
-## Exhaustiveness Checking
+The problem with this encoding of `Shape` is that the type-checker doesn't have any way to know whether or not `radius` or `sideLength` are present based on the `kind` property.
+_We need to communicate what we know to the type checker. With that in mind, let's take another swing at defining `Shape`._
+
+```ts
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+
+type Shape = Circle | Square;
+```
+
+Here, we've properly separated `Shape` out into two types with different values for the `kind` property, but `radius` and `sideLength` are declared as required properties in their respective types.
+
+_Let's see what happens here when we try to access the `radius` of a `Shape`._
+
+```ts
+function getArea(shape: Shape) {
+  return Math.PI * shape.radius ** 2;
+  // Property 'radius' does not exist on type 'Shape'.
+  //   Property 'radius' does not exist on type 'Square'.
+}
+```
+
+_Like with our first definition of `Shape`, this is still an error._
+_When `radius` was optional, we got an error (only in `strictNullChecks`) because TypeScript couldn't tell whether the property was present._
+_Now that `Shape` is a union, TypeScript is telling us that shape might be a Square, and Squares don't have `radius` defined on them!_
+_Both interpretations are correct, but only does our new encoding of Shape still cause an error outside of `strictNullChecks`._
+
+_But what if we tried checking the `kind` property again?_
+
+```ts
+function getArea(shape: Shape) {
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius ** 2;
+    // (parameter) shape: Circle
+  }
+}
+```
+
+_That got rid of the error!_
+_When every type in a union contains a common property with literal types, TypeScript considers that to be a discriminated union, and can narrow out the members of the union._
+
+**In this case, `kind` was that common property (which is what's considered a discriminant property of `Shape`).**
+Checking whether the `kind` property was `"circle"` got rid of every type in Shape that didn't have a kind property with the type `"circle"`.
+That narrowed shape down to the type `Circle`.
+
+_The same checking works with switch statements as well._
+_Now we can try to write our complete getArea without any pesky `!` non-null assertions._
+
+```ts
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+
+(parameter) shape: Circle
+    case "square":
+      return shape.sideLength ** 2;
+
+(parameter) shape: Square
+  }
+}
+```
+
+The important thing here was the encoding of `Shape`.
+Communicating the right information to TypeScript - that `Circle` and `Square` were really two separate types with specific `kind` fields - was crucial.
+_Doing that let us write type-safe TypeScript code that looks no different than the JavaScript we would've written otherwise._
+_From there, the type system was able to do the "right" thing and figure out the types in each branch of our `switch` statement._
+
+……
+
+Discriminated unions _are useful for more than just talking about circles and squares._
+**They're good for representing any sort of messaging scheme in JavaScript, like when sending messages over the network (client/server communication), or encoding mutations in a state management framework.**
+
+## The `never` Type
+
+When narrowing, you can reduce the options of a union to a point where you have removed all possibilities and have nothing left.
+In those cases, TypeScript will **use a `never` type to represent a state which shouldn't exist.**
+
+<!-- icehe : 那么具体怎么用? 原文档没有示例. -->
+
+### Exhaustiveness Checking
+
+**The `never` type is assignable to every type; however, no type is assignable to `never` (except `never` itself).**
+This means you can use narrowing and rely on `never` turning up to do exhaustive checking in a `switch` statement.
+
+_For example, adding a `default` to our `getArea` function which tries to assign the shape to `never` will raise when every possible case has not been handled._
+
+```ts
+type Shape = Circle | Square;
+
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    default:
+      const _exhaustiveCheck: never = shape;
+      return _exhaustiveCheck;
+  }
+}
+```
+
+_Adding a new member to the `Shape` union, will cause a TypeScript error:_
+
+```ts
+interface Triangle {
+  kind: "triangle";
+  sideLength: number;
+}
+
+type Shape = Circle | Square | Triangle;
+
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    default:
+      const _exhaustiveCheck: never = shape;
+      // Type 'Triangle' is not assignable to type 'never'.
+      return _exhaustiveCheck;
+  }
+}
+```
