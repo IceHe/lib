@@ -385,7 +385,7 @@ function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
 }
 ```
 
-_In turn, TypeScript will enforce this meaning and issue errors that aren’t really possible:_
+_In turn, TypeScript will enforce this meaning and issue errors that aren't really possible:_
 
 ```ts
 myForEach([1, 2, 3], (a, i) => {
@@ -405,8 +405,8 @@ _Functions with fewer parameters (of the same types) can always take the place o
 Some JavaScript functions can be called in a variety of argument counts and types.
 _For example, you might write a function to produce a `Date` that takes either a timestamp (one argument) or a month/day/year specification (three arguments)._
 
-In TypeScript, we can specify a function that can be called in different ways by writing overload signatures.
-To do this, write some number of function signatures (usually two or more), followed by the body of the function:
+In TypeScript, we can **specify a function that can be called in different ways by writing overload signatures**.
+To do this, **write some number of function signatures (usually two or more), followed by the body of the function**:
 
 ```ts
 function makeDate(timestamp: number): Date;
@@ -424,7 +424,53 @@ const d3 = makeDate(1, 3);
 // No overload expects 2 arguments, but overloads do exist that expect either 1 or 3 arguments.
 ```
 
+_In this example, we wrote two overloads: one accepting one argument, and another accepting three arguments._
+_These first two signatures are called the overload signatures._
+
+_Then, we wrote a function implementation with a compatible signature._
+_Functions have an implementation signature, but this signature can't be called directly._
+_Even though we wrote a function with two optional parameters after the required one, it can't be called with two parameters!_
+
 ### Overload Signatures and the Implementation Signature
+
+_This is a common source of confusion._
+_Often people will write code like this and not understand why there is an error:_
+
+```ts
+function fn(x: string): void;
+function fn() {
+  // ...
+}
+// Expected to be able to call with zero arguments
+fn();
+// Expected 1 arguments, but got 0.
+```
+
+Again, **the signature used to write the function body can't be "seen" from the outside.**
+
+> **The signature of the implementation is not visible from the outside.**
+> **When writing an overloaded function, you should always have two or more signatures above the implementation of the function.**
+
+**The implementation signature must also be compatible with the overload signatures.**
+_For example, these functions have errors because the implementation signature doesn't match the overloads in a correct way:_
+
+```ts
+function fn(x: boolean): void;
+// Argument type isn't right
+function fn(x: string): void;
+// This overload signature is not compatible with its implementation signature.
+function fn(x: boolean) {}
+```
+
+```ts
+function fn(x: string): string;
+// Return type isn't right
+function fn(x: number): boolean;
+This overload signature is not compatible with its implementation signature.
+function fn(x: string | number) {
+  return "oops";
+}
+```
 
 ### Writing Good Overloads
 
