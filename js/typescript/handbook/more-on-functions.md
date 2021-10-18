@@ -120,6 +120,24 @@ const u = firstElement([]);
 
 ### Inference
 
+_Note that we didn't have to specify `Type` in this sample._
+_The type was **inferred** - chosen automatically - by TypeScript._
+
+_We can use multiple type parameters as well._
+_For example, a standalone version of map would look like this:_
+
+```ts
+function map<Input, Output>(arr: Input[], func: (arg: Input) => Output): Output[] {
+  return arr.map(func);
+}
+
+// Parameter 'n' is of type 'string'
+// 'parsed' is of type 'number[]'
+const parsed = map(["1", "2", "3"], (n) => parseInt(n));
+```
+
+Note that in this example, TypeScript could infer both the type of the `Input` type parameter (from the given `string` array), as well as the `Output` type parameter based on the return value of the function expression (`number`).
+
 ### Constraints
 
 ### Working with Constrained Values
