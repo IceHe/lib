@@ -260,6 +260,8 @@ const b = firstElement2([1, 2, 3]);
 **These might seem identical at first glance, but `firstElement1` is a much better way to write this function.**
 Its inferred return type is `Type`, but `firstElement2`'s inferred return type is `any` because TypeScript has to resolve the `arr[0]` expression using the constraint type, rather than "waiting" to resolve the element during a call.
 
+> **Rule**: When possible, use the type parameter itself rather than constraining it
+
 #### Use Fewer Type Parameters
 
 _Here's another pair of similar functions:_
@@ -279,26 +281,34 @@ function filter2<Type, Func extends (arg: Type) => boolean>(
 
 We've created a type parameter `Func` that doesn't relate two values.
 That's always a red flag<!-- 这总是一个危险信号 -->, because it means callers wanting to specify type arguments have to manually specify an extra type argument for no reason.
-`Func` doesn't do anything but make the function harder to read and reason about!
+**`Func` doesn't do anything but make the function harder to read and reason about!**
 
-> **Rule**: When possible, use the type parameter itself rather than constraining it
+> **Rule**: Always use as few type parameters as possible
 
-#### Use Fewer Type Parameters
+#### Type Parameters Should Appear Twice
 
-_Here's another pair of similar functions:_
+_Sometimes we forget that a function might not need to be generic:_
 
 ```ts
-function filter1<Type>(arr: Type[], func: (arg: Type) => boolean): Type[] {
-  return arr.filter(func);
+function greet<Str extends string>(s: Str) {
+  console.log("Hello, " + s);
 }
 
-function filter2<Type, Func extends (arg: Type) => boolean>(
-  arr: Type[],
-  func: Func
-): Type[] {
-  return arr.filter(func);
+greet("world");
+```
+
+_We could just as easily have written a simpler version:_
+
+```ts
+function greet(s: string) {
+  console.log("Hello, " + s);
 }
 ```
+
+Remember, type parameters are for relating the types of multiple values.
+**If a type parameter is only used once in the function signature, it's not relating anything.**
+
+> **Rule**: If a type parameter only appears in one location, strongly reconsider if you actually need it
 
 ## Optional Parameters
 
