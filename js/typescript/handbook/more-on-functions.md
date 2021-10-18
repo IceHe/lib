@@ -26,9 +26,52 @@ function printToConsole(s: string) {
 greeter(printToConsole);
 ```
 
+The syntax `(a: string) => void` means "a function with one parameter, named `a`, of type string, that doesn't have a return value".
+_Just like with function declarations, if a parameter type isn't specified, it's implicitly `any`._
+
+_Of course, we can use a type alias to name a function type:_
+
+```ts
+type GreetFunction = (a: string) => void;
+function greeter(fn: GreetFunction) {
+  // ...
+}
+```
+
 ## Call Signatures
 
+In JavaScript, functions can have properties in addition to being callable.
+However, the function type expression syntax doesn't allow for declaring properties.
+**If we want to describe something callable with properties, we can write a call signature in an object type**:
+
+```ts
+type DescribableFunction = {
+  description: string;
+  (someArg: number): boolean;
+};
+
+function doSomething(fn: DescribableFunction) {
+  console.log(fn.description + " returned " + fn(6));
+}
+```
+
+Note that the syntax is slightly different compared to a function type expression - use `:` between the parameter list and the return type rather than `=>`.
+
 ## Construct Signatures
+
+JavaScript functions can also be invoked with the `new` operator.
+TypeScript refers to these as _constructors_ because they usually create a new object.
+You can write a construct signature by adding the `new` keyword in front of a call signature:
+
+```ts
+type SomeConstructor = {
+  new (s: string): SomeObject;
+};
+
+function fn(ctor: SomeConstructor) {
+  return new ctor("hello");
+}
+```
 
 ## Generic Functions
 
