@@ -85,51 +85,81 @@ interface CallOrConstruct {
 
 ## Generic Functions
 
-It's common to write a function where the types of the input relate to the type of the output, or where the types of two inputs are related in some way.
-Let’s consider for a moment a function that returns the first element of an array:
+_It's common to write a function where the types of the input relate to the type of the output, or where the types of two inputs are related in some way._
+_Let's consider for a moment a function that returns the first element of an array:_
 
-## Inference
+```ts
+function firstElement(arr: any[]) {
+  return arr[0];
+}
+```
 
-## Constraints
+_This function does its job, but unfortunately has the return type `any`._
+_It'd be better if the function returned the type of the array element._
 
-## Working with Constrained Values
+**In TypeScript, _generics_ are used when we want to describe a correspondence between two values.**
+We do this by declaring a _type parameter_ in the function signature:
 
-## Specifying Type Arguments
+```ts
+function firstElement<Type>(arr: Type[]): Type | undefined {
+  return arr[0];
+}
+```
 
-## Guidelines for Writing Good Generic Functions
+**By adding a type parameter `Type` to this function and using it in two places, we've created a link between the input of the function (the array) and the output (the return value).**
+Now when we call it, a more specific type comes out:
+
+```ts
+// s is of type 'string'
+const s = firstElement(["a", "b", "c"]);
+// n is of type 'number'
+const n = firstElement([1, 2, 3]);
+// u is of type undefined
+const u = firstElement([]);
+```
+
+### Inference
+
+### Constraints
+
+### Working with Constrained Values
+
+### Specifying Type Arguments
+
+### Guidelines for Writing Good Generic Functions
 
 ## Optional Parameters
 
-## Optional Parameters in Callbacks
+### Optional Parameters in Callbacks
 
 ## Function Overloads
 
-## Overload Signatures and the Implementation Signature
+### Overload Signatures and the Implementation Signature
 
-## Writing Good Overloads
+### Writing Good Overloads
 
-## Declaring this in a Function
+### Declaring this in a Function
 
 ## Other Types to Know About
 
-## void
+### void
 
-## object
+### object
 
-## unknown
+### unknown
 
-## never
+### never
 
-## Function
+### Function
 
 ## Rest Parameters and Arguments
 
-## Rest Parameters
+### Rest Parameters
 
-## Rest Arguments
+### Rest Arguments
 
 ## Parameter Destructuring
 
 ## Assignability of Functions
 
-## Return type void
+### Return type void
