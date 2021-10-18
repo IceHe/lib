@@ -6,4 +6,4 @@ declare const users: {
 declare const loggedInUser: {
     name: string;
     age: number;
-};
+} | undefined;
