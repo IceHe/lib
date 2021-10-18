@@ -59,7 +59,7 @@ Note that the syntax is slightly different compared to a function type expressio
 
 ## Construct Signatures
 
-JavaScript functions can also be invoked with the `new` operator.
+**JavaScript functions can also be invoked with the `new` operator.**
 TypeScript refers to these as _constructors_ because they usually create a new object.
 You can write a construct signature by adding the `new` keyword in front of a call signature:
 
@@ -73,7 +73,20 @@ function fn(ctor: SomeConstructor) {
 }
 ```
 
+**Some objects, like JavaScript's `Date` object, can be called with or without new.**
+You can combine call and construct signatures in the same type arbitrarily:
+
+```ts
+interface CallOrConstruct {
+  new (s: string): Date;
+  (n?: number): number;
+}
+```
+
 ## Generic Functions
+
+It's common to write a function where the types of the input relate to the type of the output, or where the types of two inputs are related in some way.
+Let’s consider for a moment a function that returns the first element of an array:
 
 ## Inference
 
