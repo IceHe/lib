@@ -664,11 +664,26 @@ function doSomething(f: Function) {
 
 **This is an _untyped function call_ and is generally best avoided because of the unsafe `any` return type.**
 
-**If you need to accept an arbitrary function but don’t intend to call it, the type `() => void` is generally safer.**
+**If you need to accept an arbitrary function but don't intend to call it, the type `() => void` is generally safer.**
 
 ## Rest Parameters and Arguments
 
 ### Rest Parameters
+
+In addition to using optional parameters or overloads to make functions that can accept a variety of fixed argument counts, we can also **define functions that take an unbounded number of arguments using rest parameters.**
+
+A rest parameter appears after all other parameters, and **uses the `...` syntax**:
+
+```ts
+function multiply(n: number, ...m: number[]) {
+  return m.map((x) => n * x);
+}
+// 'a' gets value [10, 20, 30, 40]
+const a = multiply(10, 1, 2, 3, 4);
+```
+
+In TypeScript, the type annotation on these parameters is implicitly `any[]` instead of `any`, and any type annotation given must be of the form `Array<T>` or `T[]`, or a tuple type (which we'll learn about later).
+
 
 ### Rest Arguments
 
