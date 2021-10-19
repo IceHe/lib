@@ -747,4 +747,45 @@ function setCoordinate(coord: Either2dOr3d) {
 }
 ```
 
+**Tuples can also have rest elements, which have to be an array/tuple type.**
+
+```ts
+type StringNumberBooleans = [string, number, ...boolean[]];
+type StringBooleansNumber = [string, ...boolean[], number];
+type BooleansStringNumber = [...boolean[], string, number];
+```
+
+- _`StringNumberBooleans` describes a tuple whose first two elements are `string` and `number` respectively, but which may have any number of `boolean`s following._
+- _`StringBooleansNumber` describes a tuple whose first element is `string` and then any number of `boolean`s and ending with a `number`._
+- _`BooleansStringNumber` describes a tuple whose starting elements any number of `boolean`s and ending with a string then a `number`._
+
+A tuple with a rest element has no set “length” - it only has a set of well-known elements in different positions.
+
+```ts
+const a: StringNumberBooleans = ["hello", 1];
+const b: StringNumberBooleans = ["beautiful", 2, true];
+const c: StringNumberBooleans = ["world", 3, true, false, true, false, true];
+```
+
+Why might optional and rest elements be useful?
+Well, it allows TypeScript to correspond tuples with parameter lists.
+Tuples types can be used in [rest parameters and arguments](https://www.typescriptlang.org/docs/handbook/2/functions.html#rest-parameters-and-arguments), so that the following:
+
+```ts
+function readButtonInput(...args: [string, number, ...boolean[]]) {
+  const [name, version, ...input] = args;
+  // ...
+}
+```
+
+_is basically equivalent to:_
+
+```ts
+function readButtonInput(name: string, version: number, ...input: boolean[]) {
+  // ...
+}
+```
+
+_This is handy when you want to take a variable number of arguments with a rest parameter, and you need a minimum number of elements, but you don’t want to introduce intermediate variables._
+
 ### `readonly` Tuple Types
