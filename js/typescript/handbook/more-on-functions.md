@@ -684,8 +684,12 @@ const a = multiply(10, 1, 2, 3, 4);
 
 In TypeScript, the type annotation on these parameters is implicitly `any[]` instead of `any`, and any type annotation given must be of the form `Array<T>` or `T[]`, or a tuple type (which we'll learn about later).
 
-
 ### Rest Arguments
+
+Conversely, we can **provide a variable number of arguments from an array using the spread syntax.**
+_For example, the push method of arrays takes any number of arguments:_
+
+
 
 ## Parameter Destructuring
 
