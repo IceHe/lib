@@ -1,4 +1,4 @@
-function doSomething(pair: [string, number]) {
+function f1(pair: [string, number]) {
   console.log(pair);
 
   const a = pair[0];
@@ -11,4 +11,16 @@ function doSomething(pair: [string, number]) {
   // Tuple type '[string, number]' of length '2' has no element at index '2'.
 }
 
-doSomething(['icehe', 123]);
+f1(['icehe', 123]);
+
+function f2(stringHash: [string, number]) {
+  const [inputString, hash] = stringHash;
+
+  console.log(`inputString=${inputString}`);
+  // Const inputString: string
+
+  console.log(`hash=${hash}`);
+  // Const hash: number
+}
+
+f2(['abc', 789]);
