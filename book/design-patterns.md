@@ -2026,7 +2026,7 @@ ParentClass <|-- SubClass
 
 **Realization 实现**
 
-- l类与接口的关系
+- 类与接口的关系
     - _带三角形箭头的虚线指向接口_
 
 ```plantuml

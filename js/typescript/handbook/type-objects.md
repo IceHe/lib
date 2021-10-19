@@ -363,9 +363,186 @@ const cc: ColorfulCircle = {
 
 ## Intersection Types
 
+`interface`s allowed us to build up new types from other types by extending them.
+**TypeScript provides another construct called _intersection_ types that is mainly used to combine existing object types.**
+
+**An intersection type is defined using the `&` operator.**
+
+```ts
+interface Colorful {
+  color: string;
+}
+interface Circle {
+  radius: number;
+}
+
+type ColorfulCircle = Colorful & Circle;
+```
+
+_Here, we've intersected `Colorful` and `Circle` to produce a new type that has all the members of `Colorful` and `Circle`._
+
+```ts
+function draw(circle: Colorful & Circle) {
+  console.log(`Color was ${circle.color}`);
+  console.log(`Radius was ${circle.radius}`);
+}
+
+// okay
+draw({ color: "blue", radius: 42 });
+
+// oops
+draw({ color: "red", raidus: 42 });
+// Argument of type '{ color: string; raidus: number; }' is not assignable to parameter of type 'Colorful & Circle'.
+//   Object literal may only specify known properties, but 'raidus' does not exist in type 'Colorful & Circle'. Did you mean to write 'radius'?
+```
+
 ## Interfaces vs. Intersections
 
+We just looked at two ways to combine types which are similar, but are actually subtly different.
+With interfaces, we could use an `extends` clause to extend from other types, and we were able to do something similar with intersections and name the result with a type alias.
+The principle difference between the two is how conflicts are handled, and that difference is typically one of the main reasons why you'd pick one over the other between an interface and a type alias of an intersection type.
+
 ## Generic Object Types
+
+_Let's imagine a `Box` type that can contain any value - `string`s, `number`s, `Giraffe`s, whatever._
+
+```ts
+interface Box {
+  contents: any;
+}
+```
+
+_Right now, the `contents` property is typed as `any`, which works, but can lead to accidents down the line._
+
+We could instead use `unknown`, but that would mean that in cases where we already know the type of `contents`, we'd need to do precautionary checks, or use error-prone type assertions.
+
+```ts
+interface Box {
+  contents: unknown;
+}
+
+let x: Box = {
+  contents: "hello world",
+};
+
+// we could check 'x.contents'
+if (typeof x.contents === "string") {
+  console.log(x.contents.toLowerCase());
+}
+
+// or we could use a type assertion
+console.log((x.contents as string).toLowerCase());
+```
+
+_One type safe approach would be to instead scaffold out different `Box` types for every type of `contents`._
+
+```ts
+interface NumberBox {
+  contents: number;
+}
+
+interface StringBox {
+  contents: string;
+}
+
+interface BooleanBox {
+  contents: boolean;
+}
+```
+
+_But that means we'll have to create different functions, or overloads of functions, to operate on these types._
+
+```ts
+function setContents(box: StringBox, newContents: string): void;
+function setContents(box: NumberBox, newContents: number): void;
+function setContents(box: BooleanBox, newContents: boolean): void;
+function setContents(box: { contents: any }, newContents: any) {
+  box.contents = newContents;
+}
+```
+
+_That's a lot of boilerplate._
+_Moreover, we might later need to introduce new types and overloads._
+_This is frustrating, since our box types and overloads are all effectively the same._
+
+_Instead, we can make a generic `Box` type which declares a type parameter._
+
+```ts
+interface Box<Type> {
+  contents: Type;
+}
+```
+
+You might read this as **"A `Box` of `Type` is something whose `contents` have type `Type`"**.
+Later on, when we refer to `Box`, we have to give a type argument in place of `Type`.
+
+```ts
+let box: Box<string>;
+```
+
+_Think of `Box` as a template for a real type, where `Type` is a placeholder that will get replaced with some other type._
+_When TypeScript sees `Box<string>`, it will replace every instance of `Type` in `Box<Type>` with string, and end up working with something like `{ contents: string }`._
+_In other words, `Box<string>` and our earlier `StringBox` work identically._
+
+```ts
+interface Box<Type> {
+  contents: Type;
+}
+interface StringBox {
+  contents: string;
+}
+
+let boxA: Box<string> = { contents: "hello" };
+boxA.contents;
+// (property) Box<string>.contents: string
+
+let boxB: StringBox = { contents: "world" };
+boxB.contents;
+// (property) StringBox.contents: string
+```
+
+**`Box` is reusable in that `Type` can be substituted with anything.**
+_That means that when we need a box for a new type, we don't need to declare a new `Box` type at all (though we certainly could if we wanted to)._
+
+```ts
+interface Box<Type> {
+  contents: Type;
+}
+
+interface Apple {
+  // ....
+}
+
+// Same as '{ contents: Apple }'.
+type AppleBox = Box<Apple>;
+```
+
+This also means that we can avoid overloads entirely by instead using [generic functions](https://www.typescriptlang.org/docs/handbook/2/functions.html#generic-functions).
+
+```ts
+function setContents<Type>(box: Box<Type>, newContents: Type) {
+  box.contents = newContents;
+}
+```
+
+It is worth noting that<!-- 值得注意的是 --> type aliases can also be generic.
+_We could have defined our new `Box<Type>` interface, which was:_
+
+```ts
+interface Box<Type> {
+  contents: Type;
+}
+```
+
+by using a type alias instead:
+
+```ts
+type Box<Type> = {
+  contents: Type;
+};
+```
+
+Since type aliases, unlike interfaces, can describe more than just object types, we can also use them to write other kinds of generic helper types.
 
 ### `Array` Type
 
