@@ -758,7 +758,7 @@ Timeline
 -   [ME](https://icehe.xyz/#/past/bio) : Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 -   Jan Fan : Pythonist / Tencent / Applied Mathematics PhD @ Sweden
 -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing
--   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin / ? @Hangzhou
+-   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou
 -   Shiwey Yan : Game Developer / Tencent - Timi @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann) : Frontend / 360 / UC / Tencent / Tubi @ Beijing
 - …
