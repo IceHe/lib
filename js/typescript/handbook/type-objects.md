@@ -294,6 +294,73 @@ _You can't set `myArray[2]` because the index signature is `readonly`._
 
 ## Extending Types
 
+_It's pretty common to have types that might be more specific versions of other types._
+_For example, we might have a `BasicAddress` type that describes the fields necessary for sending letters and packages in the U.S._
+
+```ts
+interface BasicAddress {
+  name?: string;
+  street: string;
+  city: string;
+  country: string;
+  postalCode: string;
+}
+```
+
+_In some situations that's enough, but addresses often have a unit number associated with them if the building at an address has multiple units._
+_We can then describe an AddressWithUnit._
+
+```ts
+interface AddressWithUnit {
+  name?: string;
+  unit: string;
+  street: string;
+  city: string;
+  country: string;
+  postalCode: string;
+}
+```
+
+_This does the job, but the downside here is that we had to repeat all the other fields from `BasicAddress` when our changes were purely additive._
+_Instead, we can extend the original `BasicAddress` type and just add the new fields that are unique to `AddressWithUnit`._
+
+```ts
+interface BasicAddress {
+  name?: string;
+  street: string;
+  city: string;
+  country: string;
+  postalCode: string;
+}
+
+interface AddressWithUnit extends BasicAddress {
+  unit: string;
+}
+```
+
+**The `extends` keyword on an `interface` allows us to effectively copy members from other named types, and add whatever new members we want.**
+_This can be useful for cutting down the amount of type declaration boilerplate we have to write, and for signaling intent that several different declarations of the same property might be related._
+_For example, AddressWithUnit didn't need to repeat the street property, and because street originates from BasicAddress, a reader will know that those two types are related in some way._
+
+**`interfaces` can also extend from multiple types.**
+
+```ts
+interface Colorful {
+  color: string;
+}
+
+interface Circle {
+  radius: number;
+}
+
+interface ColorfulCircle extends Colorful, Circle {}
+
+const cc: ColorfulCircle = {
+  color: "red",
+  radius: 42,
+};
+```
+
 ## Intersection Types
 
 ## Interfaces vs. Intersections
