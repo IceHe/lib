@@ -214,6 +214,84 @@ _Using [mapping modifiers](https://www.typescriptlang.org/docs/handbook/2/mapped
 
 ### Index Signatures
 
+Sometimes you don't know all the names of a type's properties ahead of time, but you do know the shape of the values.
+
+_In those cases you can use an index signature to describe the types of possible values, for example:_
+
+```ts
+interface StringArray {
+  [index: number]: string;
+}
+
+const myArray: StringArray = getStringArray();
+const secondItem = myArray[1];
+// const secondItem: string
+```
+
+Above, we have a `StringArray` interface which has an index signature.
+This index signature states that when a `StringArray` is indexed with a `number`, it will return a `string`.
+
+An index signature property type must be either ‘string' or ‘number'.
+
+It is possible to support both types of indexers, but the type returned from a numeric indexer must be a subtype of the type returned from the string indexer.
+This is because **when indexing with a `number`, JavaScript will actually convert that to a `string` before indexing into an object.**
+**That means that indexing with `100` (a `number`) is the same thing as indexing with `"100"` (a `string`), so the two need to be consistent.**
+
+```ts
+interface Animal {
+  name: string;
+}
+
+interface Dog extends Animal {
+  breed: string;
+}
+
+// Error: indexing with a numeric string might get you a completely separate type of Animal!
+interface NotOkay {
+  [x: number]: Animal;
+  // 'number' index type 'Animal' is not assignable to 'string' index type 'Dog'.
+  [x: string]: Dog;
+}
+```
+
+While string index signatures are a powerful way to describe the “dictionary” pattern, they also enforce that all properties match their return type.
+This is because a string index declares that `obj.property` is also available as `obj["property"]`.
+_In the following example, name's type does not match the string index's type, and the type checker gives an error:_
+
+```ts
+interface NumberDictionary {
+  [index: string]: number;
+
+  length: number; // ok
+  name: string;
+  // Property 'name' of type 'string' is not assignable to 'string' index type 'number'.
+}
+```
+
+_However, properties of different types are acceptable if the index signature is a union of the property types:_
+
+```ts
+interface NumberOrStringDictionary {
+  [index: string]: number | string;
+  length: number; // ok, length is a number
+  name: string; // ok, name is a string
+}
+```
+
+Finally, you can make index signatures `readonly` in order to prevent assignment to their indices:
+
+```ts
+interface ReadonlyStringArray {
+  readonly [index: number]: string;
+}
+
+let myArray: ReadonlyStringArray = getReadOnlyStringArray();
+myArray[2] = "Mallory";
+// Index signature in type 'ReadonlyStringArray' only permits reading.
+```
+
+_You can't set `myArray[2]` because the index signature is `readonly`._
+
 ## Extending Types
 
 ## Intersection Types

@@ -5,5 +5,5 @@ var writablePerson = {
 var readonlyPerson = writablePerson;
 console.log(readonlyPerson);
 writablePerson.age++;
-readonlyPerson.age++;
+readonlyPersoN.age++;
 console.log(readonlyPerson);
