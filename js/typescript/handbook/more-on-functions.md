@@ -689,9 +689,65 @@ In TypeScript, the type annotation on these parameters is implicitly `any[]` ins
 Conversely, we can **provide a variable number of arguments from an array using the spread syntax.**
 _For example, the push method of arrays takes any number of arguments:_
 
+```ts
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+arr1.push(...arr2);
+```
 
+Note that in general, **TypeScript does not assume that arrays are immutable.**
+_This can lead to some surprising behavior:_
+
+```ts
+// Inferred type is number[] -- "an array with zero or more numbers",
+// not specifically two numbers
+const args = [8, 5];
+const angle = Math.atan2(...args);
+// A spread argument must either have a tuple type or be passed to a rest parameter.
+```
+
+The best fix for this situation depends a bit on your code, but in general a `const` context is the most straightforward solution:
+
+```ts
+// Inferred as 2-length tuple
+const args = [8, 5] as const;
+// OK
+const angle = Math.atan2(...args);
+```
+
+Using rest arguments may require turning on [downlevelIteration](https://www.typescriptlang.org/tsconfig#downlevelIteration) when targeting older runtimes.
 
 ## Parameter Destructuring
+
+You can **use parameter destructuring to conveniently unpack objects provided as an argument into one or more local variables in the function body.**
+_In JavaScript, it looks like this:_
+
+```ts
+function sum({ a, b, c }) {
+  console.log(a + b + c);
+}
+sum({ a: 10, b: 3, c: 9 });
+```
+
+Background Reading: [Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+**The type annotation for the object goes after the destructuring syntax**:
+
+```ts
+function sum({ a, b, c }: { a: number; b: number; c: number }) {
+  console.log(a + b + c);
+}
+```
+
+This can look a bit verbose, but you can use a named type here as well:
+
+```ts
+// Same as prior example
+type ABC = { a: number; b: number; c: number };
+function sum({ a, b, c }: ABC) {
+  console.log(a + b + c);
+}
+```
 
 ## Assignability of Functions
 
