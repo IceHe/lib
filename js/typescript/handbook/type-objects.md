@@ -525,8 +525,8 @@ function setContents<Type>(box: Box<Type>, newContents: Type) {
 }
 ```
 
-It is worth noting that<!-- 值得注意的是 --> type aliases can also be generic.
-_We could have defined our new `Box<Type>` interface, which was:_
+It is worth noting that<!-- 值得注意的是 --> **type aliases can also be generic.**
+We could have defined our new `Box<Type>` interface, which was:
 
 ```ts
 interface Box<Type> {
@@ -542,7 +542,21 @@ type Box<Type> = {
 };
 ```
 
-Since type aliases, unlike interfaces, can describe more than just object types, we can also use them to write other kinds of generic helper types.
+**Since type aliases, unlike interfaces, can describe more than just object types, we can also use them to write other kinds of generic helper types.**
+
+```ts
+type OrNull<Type> = Type | null;
+
+type OneOrMany<Type> = Type | Type[];
+
+type OneOrManyOrNull<Type> = OrNull<OneOrMany<Type>>;
+// type OneOrManyOrNull<Type> = OneOrMany<Type> | null
+
+type OneOrManyOrNullStrings = OneOrManyOrNull<string>;
+// type OneOrManyOrNullStrings = OneOrMany<string> | null
+```
+
+_We'll circle back to type aliases in just a little bit._
 
 ### `Array` Type
 

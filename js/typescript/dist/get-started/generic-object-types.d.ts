@@ -1,0 +1,3 @@
+interface Box {
+    contents: any;
+}
