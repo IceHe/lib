@@ -464,6 +464,8 @@ TypeScript
     - [Everyday Types](/js/typescript/handbook/everyday-types.md)
     - [Narrowing](/js/typescript/handbook/narrowing.md)
     - [More on Functions](/js/typescript/handbook/more-on-functions.md)
+    - [Object Types](/js/typescript/handbook/type-objects.md)
+    - TBC
 - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 - [tsc](/js/typescript/tsc.md) : compiles the current project, with additional settings
 
