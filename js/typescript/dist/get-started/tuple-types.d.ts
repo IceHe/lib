@@ -1,1 +1,11 @@
 declare function f2(stringHash: [string, number]): void;
+declare type Either2dOr3d = [number, number, number?];
+declare function setCoordinate(coord: Either2dOr3d): void;
+declare type StringNumberBooleans = [string, number, ...boolean[]];
+declare type StringBooleansNumber = [string, ...boolean[], number];
+declare type BooleansStringNumber = [...boolean[], string, number];
+declare const a: StringNumberBooleans;
+declare const b: StringNumberBooleans;
+declare const c: StringNumberBooleans;
+declare function readButtonInput(...args: [string, number, ...boolean[]]): void;
+declare function readButtonInput2(name: string, version: number, ...input: boolean[]): void;
