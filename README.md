@@ -464,19 +464,8 @@ npm : the world's largest software registry
     - [Narrowing](/js/typescript/handbook/narrowing.md)
     - [More on Functions](/js/typescript/handbook/more-on-functions.md)
     - [Object Types](/js/typescript/handbook/type-objects.md)
-    - Type Manipulation
-        - [Creating Type from Types](/js/typescript/handbook/type-manipulation/creating-type-from-types.md)
-        - [Generics](/js/typescript/handbook/type-manipulation/generics.md)
-        - [Keyof Types Operator](/js/typescript/handbook/type-manipulation/keyof-types-operator.md)
-        - [Typeof Types Operator](/js/typescript/handbook/type-manipulation/typeof-types-operator.md)
-        - [Indexed Access Types](/js/typescript/handbook/type-manipulation/indexed-access-types.md)
-        - [Conditional Types](/js/typescript/handbook/type-manipulation/conditional-types.md)
-        - [Mapped Types](/js/typescript/handbook/type-manipulation/mapped-types.md)
-        - [Template Literal Types](/js/typescript/handbook/type-manipulation/template-literal-types.md)
-        - [Classes](/js/typescript/handbook/type-manipulation/classes.md)
-        - [Modules](/js/typescript/handbook/type-manipulation/modules.md)
-    - Reference
-        - TBC
+    - [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
+    - Reference: TBC
 - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 - [tsc](/js/typescript/tsc.md) : compiles the current project, with additional settings
 

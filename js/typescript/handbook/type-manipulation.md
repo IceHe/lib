@@ -1,6 +1,32 @@
-# Generics
+# Type Manipulation
 
-Reference
+- [Creating Type from Types - Type Manipulation](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
+
+## Creating Type from Types
+
+References
+
+- [Creating Type from Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
+
+TypeScript's type system is very powerful because it allows expressing types _in terms of other types_.
+
+The simplest form of this idea is generics, we actually have a wide variety of _type operators_ available to use.
+It's also possible to express types in terms of _values_ that we already have.
+
+**By combining various type operators, we can express complex operations and values in a succinct<!-- 简明的 -->, maintainable way.**
+_In this section we'll cover ways to express a new type in terms of an existing type or value._
+
+- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html) - Types which take parameters
+- [Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html) - Using the `keyof` operator to create new types
+- [Typeof Type Operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html) - Using the `typeof` operator to create new types
+- [Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html) - Using `Type['a']` syntax to access a subset of a type
+- [Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) - Types which act like if statements in the type system
+- [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) - Creating types by mapping each property in an existing type
+- [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) - Mapped types which change properties via template literal strings
+
+## Generics
+
+References
 
 - [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 
@@ -10,11 +36,11 @@ _Components that are capable of working on the data of today as well as the data
 _In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one._
 _This allows users to consume these components and use their own types._
 
-## Hello World of Generics
+### Hello World of Generics
 
 … skipped …
 
-## Working with Generic Type Variables
+### Working with Generic Type Variables
 
 ```ts
 function loggingIdentity<Type>(arg: Type): Type {
@@ -33,7 +59,7 @@ function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
 
 ……
 
-## Generic Types
+### Generic Types
 
 ```ts
 function identity<Type>(arg: Type): Type {
@@ -77,7 +103,7 @@ let myIdentity: GenericIdentityFn<number> = identity;
 
 ……
 
-## Generic Classes
+### Generic Classes
 
 ```ts
 class GenericNumber<NumType> {
@@ -104,7 +130,7 @@ console.log(stringNumeric.add(stringNumeric.zeroValue, "test"));
 
 ……
 
-## Generic Constraints
+### Generic Constraints
 
 ```ts
 interface Lengthwise {
@@ -119,7 +145,7 @@ function loggingIdentity<Type extends Lengthwise>(arg: Type): Type {
 
 ……
 
-## Using Type Parameters in Generic Constraints
+### Using Type Parameters in Generic Constraints
 
 **You can declare a type parameter that is constrained by another type parameter.**
 For example, here we'd like to get a property from an object given its name.
@@ -137,7 +163,7 @@ getProperty(x, "m");
 // Argument of type '"m"' is not assignable to parameter of type '"a" | "b" | "c" | "d"'.
 ```
 
-## Using Class Types in Generics
+### Using Class Types in Generics
 
 ```ts
 class BeeKeeper {
@@ -169,3 +195,50 @@ createInstance(Bee).keeper.hasMask;
 ```
 
 ……
+
+## Keyof Types Operator
+
+References
+
+- [Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
+
+### `keyof` type operator
+
+**The `keyof` operator takes an object type and produces a string or numeric literal union of its keys.**
+_The following type P is the same type as “x” | “y”:_
+
+```ts
+type Point = { x: number; y: number };
+type P = keyof Point;
+// type P = keyof Point
+```
+
+If the type has a `string` or `number` index signature, keyof will return those types instead:
+
+```ts
+type Arrayish = { [n: number]: unknown };
+type A = keyof Arrayish;
+// type A = number
+
+type Mapish = { [k: string]: boolean };
+type M = keyof Mapish;
+// type M = string | number
+```
+
+**Note that in this example, M is `string | number` — this is because JavaScript object keys are always coerced to a string, so `obj[0]` is always the same as `obj["0"]`.**
+
+_`keyof` types become especially useful when combined with mapped types, which we'll learn more about later._
+
+## Typeof Types Operator
+
+## Indexed Access Types
+
+## Conditional Types
+
+## Mapped Types
+
+## Template Literal Types
+
+## Classes
+
+## Modules

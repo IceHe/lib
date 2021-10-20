@@ -1,1 +1,0 @@
-# Typeof Types Operator
