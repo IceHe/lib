@@ -633,8 +633,108 @@ const conforms: OnlyBoolsAndHorses = {
 
 _A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type:_
 
+TODO
+
+### Mapping Modifiers
+
+### Key Remapping via `as`
+
+### Further Exploration
+
 ## Template Literal Types
+
+### String Unions in Types
+
+### Inference with Template Literals
+
+### Intrinsic String Manipulation Types
+
+#### `Uppercase<StringType>`
+
+#### `Lowercase<StringType>`
+
+#### `Capitalize<StringType>`
+
+#### `Uncapitalize<StringType>`
 
 ## Classes
 
+### Class Members
+
+#### Fields
+
+##### `readonly`
+
+#### Constructors
+
+#### Methods
+
+##### Getters / Setters
+
+##### Index Signatures
+
+### Class Heritage
+
+#### `implements` Clauses
+
+#### `extends` Clauses
+
+### Member Visibility
+
+#### `public`
+
+#### `protected`
+
+#### `private`
+
+### Static Members
+
+#### Special Static Names
+
+#### Why No Static Classes?
+
+#### `static` Blocks in Classes
+
+### Generic Classes
+
+#### Type Parameters in Static Members
+
+### `this` at Runtime in Classes
+
+#### Arrow Functions
+
+#### `this` parameters
+
+### `this` Types
+
+#### `this`-based type guards
+
+### Parameter Properties
+
+### Class Expressions
+
+### `abstract` Classes and Members
+
+#### Abstract Construct Signatures
+
+### Relationships Between Classes
+
 ## Modules
+
+### How JavaScript Modules are Defined
+
+### Non-modules
+
+### Modules in TypeScript
+
+#### Additional Import Syntax
+
+### CommonJS Syntax
+
+#### CommonJS and ES Modules interop
+
+### TypeScript’s Module Resolution Options
+
+### TypeScript’s Module Output Options
+
+### TypeScript namespaces
