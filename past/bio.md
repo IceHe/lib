@@ -106,7 +106,7 @@ IceHe's short biographical profile
 
 ## 经历
 
-**银手科技 - 创始团队 - Node.js 后端成员** _2021.10 ~ ?_
+**武侍科技 - 创始团队 - Node.js 后端成员** _2021.10 ~ ?_
 
 - 公司简介: [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 - 初始产品: [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
