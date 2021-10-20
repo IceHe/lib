@@ -1,8 +1,8 @@
 function printAll(strs) {
     if (typeof strs === 'object') {
         for (var _i = 0, strs_1 = strs; _i < strs_1.length; _i++) {
-            var s = strs_1[_i];
-            console.log(s);
+            var s_1 = strs_1[_i];
+            console.log(s_1);
         }
     }
     else if (typeof strs === 'string') {
