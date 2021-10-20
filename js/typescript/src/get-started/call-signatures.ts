@@ -3,7 +3,7 @@ type DescribableFunction = {
   (someArgument: number): boolean;
 };
 
-function doSomething(handle: DescribableFunction) {
+function f1(handle: DescribableFunction) {
   console.log(handle.description + ' returned ' + handle(6));
 }
 
@@ -14,4 +14,4 @@ function testOverloadSignature(argument: number) {
 
 testOverloadSignature.description = 'test';
 
-doSomething(testOverloadSignature);
+f1(testOverloadSignature);
