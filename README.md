@@ -10,9 +10,9 @@
 
 <!-- > —— LeBlanc's Law -->
 
--   Whoami : [IceHe](/past/bio.md)
--   Website : [icehe.xyz](https://icehe.xyz) _powered by [docsify](/_docsify/how-to-docsify.md)_
--   Contact : `aWNlaGUueHl6QHFxLmNvbQ==` <!-- _- Base64 Encoded_ -->
+-   Whoami: [IceHe](/past/bio.md)
+-   Website: [icehe.xyz](https://icehe.xyz)
+-   Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- _- Base64 Encoded_ -->
 
 ## Tech
 
