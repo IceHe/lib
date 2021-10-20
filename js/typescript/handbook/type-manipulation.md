@@ -616,6 +616,23 @@ type StrArrOrNumArr = ToArrayNonDist<string | number>;
 
 ## Mapped Types
 
+When you don't want to repeat yourself, sometimes a type needs to be based on another type.
+
+Mapped types build on the syntax for index signatures, which are used to declare the types of properties which have not been declared ahead of time:
+
+```ts
+type OnlyBoolsAndHorses = {
+  [key: string]: boolean | Horse;
+};
+
+const conforms: OnlyBoolsAndHorses = {
+  del: true,
+  rodney: false,
+};
+```
+
+_A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type:_
+
 ## Template Literal Types
 
 ## Classes
