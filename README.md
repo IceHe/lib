@@ -421,12 +421,11 @@ Scene
 Basics
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
-- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine - [nodejs.org](https://nodejs.org/en/)
+- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine <!-- [nodejs.org](https://nodejs.org/en/) -->
 - Package Management
-    - [npm](/js/npm.md) : share and borrow packages - [npmjs.com](https://www.npmjs.com/)
-    - [yarn](/js/yarn.md) : a package manager that doubles down as project manager - [yarnpkg.com](https://yarnpkg.com/)
-        - _Whether you work on one-shot projects or large monorepos, as a hobbyist or an enterprise user, we've got you covered._
-    - [pnpm](/js/pnpm.md) : fast, disk space efficient package manager - [pnpm.io](https://pnpm.io/)
+    - [npm](/js/npm.md) : share and borrow packages
+    - [yarn](/js/yarn.md) : a package manager that doubles down as project manager
+    - [pnpm](/js/pnpm.md) : fast, disk space efficient package manager
 
 npm : the world's largest software registry
 
@@ -456,9 +455,9 @@ npm : the world's largest software registry
     - Parcel.js : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
         - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
 
-TypeScript
+[TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types
 
-- [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types - [typescriptlang.org](https://www.typescriptlang.org/)
+- Handbook
     - [Intro](/js/typescript/handbook/intro.md)
     - [Basics](/js/typescript/handbook/basics.md)
     - [Everyday Types](/js/typescript/handbook/everyday-types.md)
@@ -474,6 +473,10 @@ TypeScript
         - [Conditional Types](/js/typescript/handbook/type-manipulation/conditional-types.md)
         - [Mapped Types](/js/typescript/handbook/type-manipulation/mapped-types.md)
         - [Template Literal Types](/js/typescript/handbook/type-manipulation/template-literal-types.md)
+        - [Classes](/js/typescript/handbook/type-manipulation/classes.md)
+        - [Modules](/js/typescript/handbook/type-manipulation/modules.md)
+    - Reference
+        - TBC
 - [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 - [tsc](/js/typescript/tsc.md) : compiles the current project, with additional settings
 
