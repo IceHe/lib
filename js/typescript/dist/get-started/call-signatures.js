@@ -1,8 +1,8 @@
-function doSomething(handle) {
+function f1(handle) {
     console.log(handle.description + ' returned ' + handle(6));
 }
 function testOverloadSignature(argument) {
     return true;
 }
 testOverloadSignature.description = 'test';
-doSomething(testOverloadSignature);
+f1(testOverloadSignature);
