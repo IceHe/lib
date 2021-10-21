@@ -55,10 +55,37 @@ JWT: JSON Web Token
     - SIGNATURE 签名
 - 经过签名之后的 JWT 的整体结构, 是被句点符号分割的三段内容, 结构为 `header.payload.signature`, 把它拷贝到 [jwt.io](https://jwt.io/) 网站的在线校验工具中, 就可以看到解码之后的数据.
 
+许可类型?
+
+- 授权码许可 : … 前文之述备矣 …
+- 资源拥有者凭据许可 : 使用 password 直接获取 access_token
+- 客户端凭据许可 : 可以形象地理解为 "资源拥有者被塞进了第三方软件中" 或者 "第三方软件就是资源拥有者"
+- 隐式许可 : see docs
+
+许可类型对比
+
+- 授权码许可 : 通过授权码 code 获取 access_token
+- 资源拥有者凭据许可 : 通过资源拥有者的用户名和密码获取 access_token
+- 客户端凭据许可 : 通过第三方软件的 app_id 和 app_secret 获取 access_token
+- 隐式许可 : 通过嵌入浏览器中的第三方软件的 app_id 来获取 access_token
+
 Keyword
 
 - rscope : replay scope - 受保护资源服务再次确认的权限
 - JWT: 将包含了一些信息的令牌 (Token), 称为结构化令牌, 简称 JWT
-- 令牌内检 : see details
-- 资源拥有者凭据许可 : 使用 password 直接获取 access_token
-- 客户端凭据许可 : 可以形象地理解为 "资源拥有者被塞进了第三方软件中" 或者 "第三方软件就是资源拥有者"
+- 令牌内检 : see docs
+- PKCE 协议 : Proof Key for Code Exchange by OAuth Public Clients
+    - 在授权码许可类型的流程中，如果没有了 app_secret 这一层的保护，那么通过授权码 code 换取访问令牌的时候，就只有授权码 code 在“冲锋陷阵”了。这时，授权码 code 一旦失窃，就会带来严重的安全问题。那么，我既不使用 app_secret，还要防止授权码 code 失窃，有什么好的方法吗？
+
+Client without Server :
+
+- by PKCE Protocol
+    - code_verifier : first generated
+    - code_challenge_method :
+        - Option A : `plain` do nothing
+        - Option B : `S256` i.e. SHA256()
+        - Option …
+    - code_challenge :
+        ```js
+        code_challenge = BASE64_URL_ENCODE(SHA256(ASCII(code_verifier)))
+        ```
