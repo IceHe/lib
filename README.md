@@ -147,9 +147,10 @@ Markdown
 - [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
 - [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
 
-OIDC : OpenID Connect
+OAuth 2.0 & OIDC
 
-- [Notes](/snip/oidc/notes.md)
+- [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open Auth 2.0
+- [OIDC](/snip/auth/oidc.md) : Open ID Connect
 
 Storage
 
