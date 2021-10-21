@@ -89,3 +89,12 @@ Client without Server :
         ```js
         code_challenge = BASE64_URL_ENCODE(SHA256(ASCII(code_verifier)))
         ```
+
+Security Risks 安全风险
+
+- CSRF ( Cross-Site Request Forgery ) 跨站请求伪造
+    - Solution : using `state` parameter with random value
+- XSS ( Cross Site Scripting ) 跨站脚本攻击
+- 水平越权
+- 授权码失窃
+- 重定向 URI 伪造
