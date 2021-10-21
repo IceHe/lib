@@ -147,11 +147,6 @@ Markdown
 - [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
 - [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
 
-OAuth 2.0 & OIDC
-
-- [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open Auth 2.0
-- [OIDC](/snip/auth/oidc.md) : Open ID Connect
-
 Storage
 
 - LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md)
@@ -191,6 +186,11 @@ Web
     - Powered by [docsify](/_docsify/how-to-docsify.md)
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
+
+Authentication & Authorization
+
+- [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open Auth 2.0
+- [OIDC](/snip/auth/oidc.md) : Open ID Connect
 
 Others
 
