@@ -11,7 +11,7 @@ IceHe's short biographical profile
 经历 - 后端
 
 -   Sliverhand - 创始团队 - Node.js -
-    _2021.10 ~ Now_
+    _2021.10 至今_
 -   猿辅导 - 斑马 - 供应链 - Java -
     _2021.3 ~ 2021.8_
 -   阿里本地生活 - 前台研发部 - 蜂鸟跑腿组 - Java -
