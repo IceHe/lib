@@ -431,6 +431,7 @@ Reference : https://www.computerhope.com/keys.htm
 - GMT : [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) 格林威治时间
 - GN : good night
 - gpg : [GNU Privacy Guard](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)
+- HQ : headquarter
 - GRATZ : gragulations
 - GRUB : [GRand Unified Bootloader](https://en.wikipedia.org/wiki/GNU_GRUB)
 - GTID : [Global Transaction Identifier](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-concepts.html) ( for MySQL )
