@@ -217,6 +217,7 @@ Reference : https://www.computerhope.com/keys.htm
 - bat : batch
 - b/c : because
 - BDay, B-Day : birthday
+- BFF : [Backends for Frontends](https://docs.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends) / [original](https://samnewman.io/patterns/architectural/bff/)
 - BI : Business Intelligence
 - BKA : Batched Key Access 算法 ( for SQL )
 - B.C. : [Before Christ](https://en.wikipedia.org/wiki/Anno_Domini) 公元前…年 ( 基督之前…年 )
