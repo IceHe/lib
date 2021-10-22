@@ -34,9 +34,11 @@ Coding
 - [Design Patterns](/book/design-patterns.md)
     - Elements of Reusable Object-Oriented Software
 - [Pragmatic Programmer](/book/pragmatic-programmer.md)
-    - The Pragmatic Programmer : your journey to mastery - 2nd Edition
+    - Your journey to mastery - 2nd Edition
 - [The Manager's Path](/book/the-manager-s-path.md) _- reading_
     - A Guide for Tech Leaders Navigating Growth and Change
+- [Peopleware](/book/peopleware.md) _- to re-read_
+    - Productive Projects and Teams
 - [Clean Agile](/book/clean-agile.md)
     - Back to Basics
 - [The Zen of Python](https://www.python.org/dev/peps/pep-0020) - PEP 20
