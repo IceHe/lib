@@ -19,7 +19,13 @@ References
         - Retail
         - B2B SaaS
         - Public Sector
-    - Docs & Resources
+    - [Docs](https://auth0.com/docs/) & Resources
+        - [APIs](https://auth0.com/docs/api)
+        - [Tutorial (Videos)](https://auth0.com/docs/videos)
+        - [Quickstarts](https://auth0.com/docs/quickstarts/)
+        - _[Community](https://community.auth0.com/)_
+        - _[Support](https://support.auth0.com/)_
+    - ……
 
 ## Intro
 
@@ -29,4 +35,3 @@ Company
 >
 > Built for Developers,
 > Trusted by Global Enterprises.
-
