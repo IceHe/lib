@@ -134,3 +134,7 @@ API Gateway Layer
     - 1\. Validate access_token
     - 2\. Validate app_id & app_secret
     - 3\. Request target API & return result
+
+Others
+
+[登录工程：传统 Web 应用中的身份验证技术｜洞见](https://blog.51cto.com/u_15127595/2743613)
