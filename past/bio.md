@@ -75,13 +75,8 @@ IceHe's short biographical profile
 
 存储 / 缓存 / 队列
 
-- 胜任: MySQL / Redis / Elasticsearch
-- 了解: Memcached / RabbitMQ / RocketMQ / Kafaka
-
-操作系统
-
-- 熟悉: macOS
-- 胜任: Linux
+- 胜任: Elasticsearch / MySQL / Redis
+- 了解: Kafaka / RabbitMQ / RocketMQ / Memcached
 
 前端领域
 
@@ -89,6 +84,11 @@ IceHe's short biographical profile
 - 了解: Node.js <sup>learning</sup>
 
 <!--
+
+操作系统
+
+- 熟悉: macOS
+- 胜任: Linux
 
 开发工具
 
@@ -115,18 +115,21 @@ IceHe's short biographical profile
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
 
-- 课程随材物料支持历史版本及实验分组 / 库存充足状况计算 / 快递发货策略 / 运单时效统计 / …
+- 课程随材物料支持多版本滚动及分组实验 / 运单时效的大数据统计 / 库存充足状况计算 / 快递发货策略 / …
 - _Java / Spring Boot / Thrift / MySQL / Redis / RocketMQ_
 
 **阿里本地生活 - 前台研发部 - 蜂鸟跑腿后端组 - Java 后端** _2020.4 ~ 2021.3_
 
-- 堡主平台: 订单 & 运单状态流转 / 订单列表 / 多维度的订单计数 / 订单状态推送 / 订单搜索 & 导出 / …
-- AB业务融合 - 开放平台: 开发者联调工具 / …
+- 堡主平台: 实时的订单 & 运单状态流转、订单列表、多维度订单计数和订单状态推送 / 准实时的订单搜索 & 导出
+- AB业务融合 - 商家开放平台: 授权、鉴权、调用、回调的 API 开放平台, 及其开发者联调工具
 - _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / RabbitMQ_
 
 **阿里本地生活 - 众包物流研发部 – 骑手运营 & 数据组 - Java 后端** _2019.3 ~ 2020.3_
 
-- 骑手 CRM / 骑手群组计算 / 骑手培训中心 / 秒送 & 优选骑手运力运营 / …
+- 骑手 CRM - 骑手数据的准实时统计与查询
+- 骑手圈群的大数据计算 - 圈出满足一组指定特征的一群骑手, 用于补贴、判罚、培训、统计报表等
+- 秒送 & 优选骑手运力运营 - 报名、审核、相关数据的统计和查询, 以及续报、审核的自动化
+- 骑手培训中心 - 线上线下骑手培训的发布、报名、通知、签到、培训、考试、反馈、统计等
 - _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / Kafka / Blink ( i.e. Flink ) / ODPS ( in Aliyun )_
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端** _2018.4 ~ 2019.2_
@@ -140,14 +143,15 @@ IceHe's short biographical profile
 - 开发维护移动端 ( 手机 [客户端](https://itunes.apple.com/cn/app/id350962117) & [H5](https://m.weibo.cn/) 页 ) 的 API 服务及其 CMS 后台
     - 部门职责: 为微博平台、各业务方及移动端, 进行数据整合、适配对接、快速实现需求
 - 重构部门主项目「微博移动端 API 服务」包括登录、HTTP 请求、日志记录等模块
-    - 管理重构迁移进度, 改进工作流程, 审核代码, 服务上线, 维护开发环境, 编写文档
-    - 工作流程自动化: CI 持续集成, 固定流程自动化 - 一键/自动/定时完成
-        - 一键上线 ( GitLab API & CI, Jenkins ) 、上线日志回写 ( Release notes ) 、上线公告
-        - 自动更新仿真环境、通知提测、自动处理 issues
-        - 编写为项目定制的命令行工具 ( Symfony Console Command )
+    - 工作流程自动化: CI 持续集成, 固定流程自动化
+        - 日常上线全流程耗时从15分钟以上, 优化到最快3分钟内完成
+        - 一键上线 (GitLab API & CI, Jenkins) , 回写上线日志 (Release notes) 并发布上线公告
+        - 自动更新仿真环境、生成并通知提测内容、自动处理相关 issues
+        - 编写为项目定制的命令行工具 (Symfony Console Command)
         - 定制项目专用的 Docker 镜像来并行执行 CI 任务, 缩短 CI 周期
-        - 代码质量: 语法检查 ( PHPLint ) 、代码风格检查 ( PHPCS ) 、单元测试 ( PHPUnit )
-        - 文档生成: 覆盖率报告 ( PHPUnit ) 、API 文档 ( Sami ) 、自动更新文档网站 ( CI, docsify )
+        - 代码质量: 语法检查 (PHPLint)、代码风格检查 (PHPCS)、单元测试 (PHPUnit)
+        - 文档生成: 覆盖率报告 (PHPUnit)、API 文档 (Sami)、自动更新文档网站 (CI, docsify)
+    - 管理重构迁移进度, 改进工作流程, 维护开发环境, 编写文档
 - 2016.4 ~ 2016.8 开发与维护「微博头条」的服务端 API 及其 CMS 后台
 - _PHP 7 / Yaf / MySQL / Redis / Memcached / MCQ / Docker / CentOS / GitLab / Jenkins_
 
