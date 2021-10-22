@@ -473,6 +473,7 @@ Reference : https://www.computerhope.com/keys.htm
 - idc : [internet data center](https://en.wikipedia.org/wiki/Data_center) 数据中心
 - IDGAF : I don't give a fuck. 老子/老娘不在乎
 - IDK : I don't know.
+- IDP : [Identity Provider](https://en.wikipedia.org/wiki/Identity_provider)
 - ids : IDs - 多个 ID
 - idx : index
 - i.e. : [id est](https://en.wikipedia.org/wiki/List_of_Latin_phrases_(I)#id_est) ( 拉丁语 ) 即 ( 也就是 )
