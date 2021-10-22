@@ -192,6 +192,7 @@ Web
 Authentication & Authorization
 
 - [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open Auth 2.0
+- [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md)
 - [OIDC](/snip/auth/oidc.md) : Open ID Connect
 
 Others
