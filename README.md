@@ -191,9 +191,14 @@ Web
 
 Authentication & Authorization
 
-- [OIDC](/snip/auth/oidc.md) : Open ID Connect _- todo_
-- [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open **Authorization** 2.0
-- [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) _- required? read as needed_
+- Basics
+    - [OIDC](/snip/auth/oidc.md) : Open ID Connect _- todo_
+    - [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open **Authorization** 2.0
+    - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) _- required? read as needed._
+- Solution Provider
+    - [auth0](/snip/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
+    - [okta](/snip/auth/solution-provider/okta.md) : the world's #1 identity platform
+    - [Authing](/snip/auth/solution-provider/authing.md) : connect every person and app on the planet
 
 Others
 
