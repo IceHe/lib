@@ -376,6 +376,7 @@ Reference : https://www.computerhope.com/keys.htm
 - etc. : [et cetera](https://en.wikipedia.org/wiki/Et_cetera) ( etcetera ) (aka. and so on) 等等，及其它
     - `&c` or `&c.` for `& etc.`
 - etl : extract 抽取, transform 转换, load 加载 ( 常用于数据仓库 )
+- EU : [End User](https://en.wikipedia.org/wiki/End_user)
 - eval : [EVALuate](https://en.wikipedia.org/wiki/Eval)
 - evt : event
 - ex : exception | excluding, without | exit | expire ( for Redis )
@@ -639,6 +640,7 @@ Reference : https://www.computerhope.com/keys.htm
 - OOP : Object Oriented Programming
 - oops : 哎哟
 - op : operation | option
+- OP : [OpenID identity Provider](https://en.wikipedia.org/wiki/OpenID)
 - ops : operations
 - opt : option
 - org : organization
@@ -755,6 +757,7 @@ Reference : https://www.computerhope.com/keys.htm
 - rn : rename
 - RN : right now
 - ROI : Return On Investment 投资回报率
+- RP : [Relying Party](https://en.wikipedia.org/wiki/Relying_party)
 - rst : result | reset 重置 ( for TCP )
 - rsp : response
 - rt : realtime

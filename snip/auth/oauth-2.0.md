@@ -106,7 +106,15 @@ OIDC : Open ID Connect
 - OIDC = 授权协议 + 身份认证
     - 是 OAuth 2.0 的超集
 - Role Name
-    - Resource Owner → EU ( End User )
+    - Resource Owner ( 资源拥有者 ) → EU ( End User )
     - Client ( 第三方软件 ) → RP ( Relying Party, 认证服务的依赖方 )
-    - Authorization Server → OP ( OpenID Provider, 身份认证服务方 )
+    - Authorization Server ( 授权服务 ) → OP ( OpenID Provider, 身份认证服务方 )
     - Resource Provider
+
+ID 令牌的内容
+
+- iss : issuer = OP URL ( 令牌的颁发者 )
+- sub : subject = EU global unique identifier ( 令牌的主题 )
+- aud : audience = RP app-id ( 令牌的目标受众 )
+- exp : expiration = token expiration ( 令牌的到期时间 )
+- iat : issue added timestamp ( 颁发令牌的时间戳 )
