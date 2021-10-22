@@ -118,3 +118,19 @@ ID 令牌的内容
 - aud : audience = RP app-id ( 令牌的目标受众 )
 - exp : expiration = token expiration ( 令牌的到期时间 )
 - iat : issue added timestamp ( 颁发令牌的时间戳 )
+
+SPA 场景
+
+- 简单做法 : 采用 "隐式许可"
+- 业界推荐 : "第一方移动应用" 场景下的授权码许可 + PKCE 拓展流程
+
+SSO 单点登录场景
+
+- Problem : 为了支持 SSO, IDP 的 Session Cookie 需要种在应用的根域上; 也就是说不同 Web 应用的根域名必须相同, 否则会有跨域问题.
+
+API Gateway Layer
+
+- Usage :
+    - 1\. Validate access_token
+    - 2\. Validate app_id & app_secret
+    - 3\. Request target API & return result
