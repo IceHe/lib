@@ -37,7 +37,7 @@ Coding
     - Your journey to mastery - 2nd Edition
 - [The Manager's Path](/book/the-manager-s-path.md) _- reading_
     - A Guide for Tech Leaders Navigating Growth and Change
-- [Peopleware](/book/peopleware.md) _- to re-read_
+- [Peopleware](/book/peopleware.md) _- to reread_
     - Productive Projects and Teams
 - [Clean Agile](/book/clean-agile.md)
     - Back to Basics
