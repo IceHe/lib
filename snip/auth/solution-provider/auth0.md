@@ -21,7 +21,7 @@ References
         - Public Sector
     - [Docs](https://auth0.com/docs/) & Resources
         - [APIs](https://auth0.com/docs/api)
-        - [Tutorial (Videos)](https://auth0.com/docs/videos)
+        - [Tutorial ( videos )](https://auth0.com/docs/videos)
         - [Quickstarts](https://auth0.com/docs/quickstarts/)
         - _[Community](https://community.auth0.com/)_
         - _[Support](https://support.auth0.com/)_
