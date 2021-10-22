@@ -99,3 +99,14 @@ Security Risks 安全风险
 - 水平越权
 - 授权码失窃
 - 重定向 URI 伪造
+
+OIDC : Open ID Connect
+
+- 用户身份认证的开放标准
+- OIDC = 授权协议 + 身份认证
+    - 是 OAuth 2.0 的超集
+- Role Name
+    - Resource Owner → EU ( End User )
+    - Client ( 第三方软件 ) → RP ( Relying Party, 认证服务的依赖方 )
+    - Authorization Server → OP ( OpenID Provider, 身份认证服务方 )
+    - Resource Provider
