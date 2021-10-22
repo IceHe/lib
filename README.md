@@ -193,7 +193,7 @@ Authentication & Authorization
 
 - [OIDC](/snip/auth/oidc.md) : Open ID Connect _- todo_
 - [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open **Authorization** 2.0
-- [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md)
+- [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) _- required? read as needed_
 
 Others
 
