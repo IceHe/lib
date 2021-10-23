@@ -10,7 +10,7 @@ IceHe's short biographical profile
 
 经历 - 后端
 
--   Sliverhand - 创始团队 - Node.js -
+-   武侍科技 - 创始团队 (<10人) - Node.js -
     _2021.10 至今_
 -   猿辅导 - 斑马 - 供应链 - Java -
     _2021.3 ~ 2021.8_
@@ -106,7 +106,7 @@ IceHe's short biographical profile
 
 ## 经历
 
-**武侍科技 - 创始团队 - Node.js 后端成员** _2021.10 至今_
+**武侍科技 - 创始团队 (<10人) - Node.js 后端成员** _2021.10 至今_
 
 - 公司简介: [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 - 初始产品: [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
@@ -115,7 +115,7 @@ IceHe's short biographical profile
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
 
-- 课程随材物料支持多版本滚动及分组实验 / 运单时效的大数据统计 / 库存充足状况计算 / 快递发货策略 / …
+- 课程随材物料支持多版本滚动及分组实验 / 运单时效的大数据统计 / 库存充足状况计算 / 快递发货策略
 - _Java / Spring Boot / Thrift / MySQL / Redis / RocketMQ_
 
 **阿里本地生活 - 前台研发部 - 蜂鸟跑腿后端组 - Java 后端** _2020.4 ~ 2021.3_
@@ -126,10 +126,10 @@ IceHe's short biographical profile
 
 **阿里本地生活 - 众包物流研发部 – 骑手运营 & 数据组 - Java 后端** _2019.3 ~ 2020.3_
 
-- 骑手 CRM - 骑手数据的准实时统计与查询
-- 骑手圈群的大数据计算 - 圈出满足一组指定特征的一群骑手, 用于补贴、判罚、培训、统计报表等
-- 秒送 & 优选骑手运力运营 - 报名、审核、相关数据的统计和查询, 以及续报、审核的自动化
-- 骑手培训中心 - 线上线下骑手培训的发布、报名、通知、签到、培训、考试、反馈、统计等
+- 骑手 CRM: 骑手数据的准实时统计与查询
+- 骑手圈群的大数据计算: 圈出满足一组指定特征的一群骑手, 用于补贴、判罚、培训、统计报表等
+- 秒送 & 优选骑手运力运营: 报名、审核、相关数据的统计和查询, 以及续报、审核的自动化
+- 骑手培训中心: 线上线下骑手培训的发布、报名、通知、签到、培训、考试、反馈、统计等
 - _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / Kafka / Blink ( i.e. Flink ) / ODPS ( in Aliyun )_
 
 **[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 视频平台 - Java 服务端** _2018.4 ~ 2019.2_
