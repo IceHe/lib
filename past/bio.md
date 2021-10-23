@@ -93,7 +93,7 @@ IceHe's short biographical profile
 开发工具
 
 - 熟悉: Git / Vim / VS Code / IntelliJ IDEA
-- 胜任: Zsh / Bash / Docker
+- 胜任: Zsh / Bash
 
 -->
 
