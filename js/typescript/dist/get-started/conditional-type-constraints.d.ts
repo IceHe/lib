@@ -1,5 +1,5 @@
 declare type MessageOf<T extends {
-    message: string;
+    message: unknown;
 }> = T['message'];
 interface Email {
     message: string;

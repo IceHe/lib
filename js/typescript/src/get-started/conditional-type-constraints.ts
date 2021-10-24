@@ -1,5 +1,4 @@
-// Type MessageOf<T extends { message: unknown }> = T['message'];
-type MessageOf<T extends { message: string }> = T['message'];
+type MessageOf<T extends { message: unknown }> = T['message'];
 
 interface Email {
   message: string;
