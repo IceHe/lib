@@ -1,3 +1,9 @@
+interface IdLabel {
+    id: number;
+}
+interface NameLabel {
+    name: string;
+}
 declare type NameOrId<T extends string | number> = T extends string ? NameLabel : IdLabel;
 declare const a: IdLabel | NameLabel;
 declare const b: IdLabel | NameLabel;

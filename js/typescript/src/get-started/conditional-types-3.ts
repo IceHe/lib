@@ -9,14 +9,14 @@ interface NameLabel {
 type NameOrId<T extends string | number> = T extends string ? NameLabel : IdLabel;
 
 function createLabel<T extends string | number>(idOrName: string | number): NameOrId<T> {
-  // Throw 'unimplemented';
-  if (typeof idOrName === string) {
-    return { name: idOrName };
-  }
+  throw 'unimplemented';
+  // If (typeof idOrName === string) {
+  //   return { name: idOrName };
+  // }
 
-  if (typeof idOrName === number) {
-    return { id: idOrName };
-  }
+  // if (typeof idOrName === number) {
+  //   return { id: idOrName };
+  // }
 }
 
 const a = createLabel('icehe');
