@@ -399,7 +399,8 @@ SomeType extends OtherType ? TrueType : FalseType;
 
 _When the type on the left of the `extends` is assignable to the one on the right, then you'll get the type in the first branch (the “true” branch); otherwise you'll get the type in the latter branch (the “false” branch)._
 
-From the examples above, conditional types might not immediately seem useful - we can tell ourselves whether or not `Dog extends Animal` and pick `number` or `string`! But the power of conditional types comes from using them with generics.
+From the examples above, conditional types might not immediately seem useful - we can tell ourselves whether or not `Dog extends Animal` and pick `number` or `string`!
+But **the power of conditional types comes from using them with generics.**
 
 _For example, let's take the following `createLabel` function:_
 
@@ -422,7 +423,7 @@ function createLabel(nameOrId: string | number): IdLabel | NameLabel {
 These overloads for createLabel describe a single JavaScript function that makes a choice based on the types of its inputs.
 _Note a few things:_
 
-1.  If a library has to make the same sort of choice over and over throughout its API, this becomes cumbersome.
+1.  If a library has to make the same sort of choice over and over throughout its API, this becomes cumbersome<!-- 笨重的 -->.
 2.  We have to create three overloads:
     one for each case when we're sure of the type (one for `string` and one for `number`), and one for the most general case (taking a `string | number`).
     For every new type `createLabel` can handle, the number of overloads grows exponentially.
