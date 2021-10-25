@@ -98,21 +98,60 @@ _( To produce IDs in UUID.V4 format, please see `@lukeed/uuid`. )_
 See a good article about random generators theory:
 [Secure random values (in Node.js)](https://gist.github.com/joepie91/7105003c3b26e65efcea63f3db82dfba)
 
--   **Unpredictability**
+-   **Unpredictability**.
 
     Instead of using the unsafe `Math.random()`, Nano ID **uses the crypto module in Node.js and the Web Crypto API in browsers.**
     These modules **use unpredictable hardware random generator.**
 
--   **Uniformity**
+-   **Uniformity**.
 
     **`random % alphabet` is a popular mistake to make when coding an ID generator.**
     The distribution will not be even; there will be a lower chance for some symbols to appear compared to others.
     So, it will reduce the number of tries when brute-forcing.
     Nano ID **uses a better algorithm and is tested for uniformity.**
 
--   **Well-documented**
+-   **Well-documented**:
 
     all Nano ID hacks are documented.
     See comments in [the source](https://gist.github.com/joepie91/7105003c3b26e65efcea63f3db82dfba).
 
-Vulnerabilities: to report a security vulnerability, please use the Tidelift security contact. Tidelift will coordinate the fix and disclosure.
+-   **Vulnerabilities**
+
+    to report a security vulnerability, please use the [Tidelift security contact](https://tidelift.com/security).
+    Tidelift will coordinate the fix and disclosure.
+
+## Install
+
+## API
+
+### Blocking
+
+### Async
+
+### Non-Secure
+
+### Custom Alphabet or Size
+
+### Custom Random Bytes Generator
+
+## Usage
+
+### IE
+
+### React
+
+### HTML ID
+
+### React Native
+
+### Rollup
+
+### PouchDB and CouchDB
+
+### Mongoose
+
+### Web Workers
+
+### CLI
+
+### Other Programming Languages
