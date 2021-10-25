@@ -1,0 +1,15 @@
+console.log(Buffer.isEncoding('base64url'));
+var s = '\u00E9';
+console.log('s=[' + s + ']');
+var sAscii = Buffer.from(s).toString('ascii');
+var sUtf8 = Buffer.from(s).toString('utf-8');
+var sUtf16le = Buffer.from(s).toString('utf16le');
+var sUcs2 = Buffer.from(s).toString('ucs-2');
+var sBase64 = Buffer.from(s).toString('base64');
+var sBase64url = Buffer.from(s).toString('base64url');
+var sLatin1 = Buffer.from(s).toString('latin1');
+var sBinary = Buffer.from(s).toString('binary');
+var sHex = Buffer.from(s).toString('hex');
+console.log('sBinary=[' + Buffer.from(sBinary, 'binary').toString('base64') + ']');
+console.log('sBinary=[' + btoa(sBinary) + ']');
+console.log('sUtf8=[' + btoa(sUtf8) + ']');

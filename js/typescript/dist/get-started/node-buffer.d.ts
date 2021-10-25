@@ -1,0 +1,10 @@
+declare const s = "\u00E9";
+declare const sAscii: string;
+declare const sUtf8: string;
+declare const sUtf16le: string;
+declare const sUcs2: string;
+declare const sBase64: string;
+declare const sBase64url: string;
+declare const sLatin1: string;
+declare const sBinary: string;
+declare const sHex: string;
