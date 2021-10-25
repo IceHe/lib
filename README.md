@@ -448,20 +448,21 @@ npm : the world's largest software registry
     - [scripts](/js/npm-using/scripts.md) : How npm handles the "scripts" field
     - [workspaces](/js/npm-using/workspaces.md) : Working with workspaces
     - ……
-- Commands
+- Command
     - [npm](/js/npm-cmd/npm.md) : javascript package manager
     - [npm init](/js/npm-cmd/npm-init.md) : create a `package.json` file
     - [npm install](/js/npm-cmd/npm-install.md) : install a package
     - [npm link](/js/npm-cmd/npm-link.md) : symlink a package folder
     - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
     - [npm exec](/js/npm-cmd/npm-exec.md), ~~`npx`~~ : run a command from a local or remote npm package
-- Dependencies
-    - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-    - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+- Package
     - commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
-    - Next.js : The React Framework for Production - [nextjs.org](https://nextjs.org/)
+    - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+    - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+    - [nanoid](/js/package/nanoid.md) : A tiny (108 bytes), secure, URL-friendly, unique string ID generator for JavaScript
+    - next : The React Framework for Production - [nextjs.org](https://nextjs.org/)
         - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
-    - Parcel.js : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
+    - parcel : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
         - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
 
 [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types
