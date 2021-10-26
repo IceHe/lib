@@ -1,6 +1,6 @@
 # Library
 
-[Welcome](/timeline/blog/welcome.md) to IceHe's Library !
+[Welcome](/docsify/welcome.md) to IceHe's Library !
 
 ---
 
@@ -602,8 +602,8 @@ Timeline
     - [2016 Fall](/timeline/2016-fall.md)
     - [2016 Spring & Summer](/timeline/2016-summer.md)
     - [Bye 2015](/timeline/2015-bye.md)
-    - [How to Build Blog](/timeline/blog/build.md) : 搭建博客
-    - [Blog Changlogs](/timeline/blog/changelog.md) : 折腾博客
+    - [How to Build Blog](/docsify/build.md) : 搭建博客
+    - [Blog Changlogs](/docsify/changelog.md) : 折腾博客
     - [icehe.github.io](https://icehe.github.io) : previous technology blog
 - Before 2015
     - [QZone Index](/timeline/qzone-index.md) of the old posts
