@@ -556,7 +556,7 @@ C++
 - _AppleScript_
     - _[Quick Start](/snip/applescript/quick-start.md)_
     - _[Control Evernote & macOS](/snip/applescript/evernote-macos.md)_
-- _PHP: [functions & scripts](/script/php/php.md)_
+- _PHP: [functions & scripts](/snip/php/php.md)_
 
 ## Life
 
