@@ -207,7 +207,7 @@ Others
 
 - [Alpine Linux](/snip/docker/alpine/alpine.md) : minimal OS Docker image
 - [Regular Expression](/snip/regex.md) : a sequence of characters that specifies a search pattern
-- _[Sorting Algorithms](/sort/notes.md)_
+- _[Sorting Algorithms](/snip/sort/notes.md)_
 - _[ID Generator](/snip/tmp/id-generator.md)_
 - _[CentOS 6](/snip/tmp/centos6.md)_
 - _[Memcached](/snip/tmp/memcached.md)_
@@ -761,4 +761,4 @@ Timeline
 
 -->
 
-<!-- ![the-fucking-life.jpg](/past/_image/the-fucking-life.jpg) -->
+<!-- ![the-fucking-life.jpg](/timeline/_image/the-fucking-life.jpg) -->
