@@ -132,19 +132,37 @@ Others
 
 <!-- > —— 鲁迅《致赖少麟》 -->
 
-- [Abbreviations](/snip/abbrs.md) are usually related to coding (programmming)
-- [Glossaries](/snip/glossaries.md) with intros to the common technology products
+Authentication & Authorization
 
-Langs
-
-- [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
-- [Elixir](/snip/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
-- [Scala](/snip/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
+- Basics
+    - [OIDC](/snip/auth/oidc.md) : Open ID Connect - _todo_
+    - [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open **Authorization** 2.0
+    - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) - _required? read as needed._
+- Solution Provider
+    - [auth0](/snip/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
+    - [okta](/snip/auth/solution-provider/okta.md) : the world's #1 identity platform
+    - [Authing](/snip/auth/solution-provider/authing.md) : connect every person and app on the planet
 
 Markdown
 
 - [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
 - [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
+
+MQ : Message Queue
+
+- [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
+- [RabbitMQ](/snip/mq/rabbit-mq.md)
+- [RocketMQ](/snip/mq/rocket-mq.md) - _to read_
+- [ActiveMQ](/snip/mq/active-mq.md)
+- [ZeroMQ](/snip/mq/zero-mq.md) - _to read_
+- _[MemcacheQ](/snip/mq/mcq.md)_
+- _[Notes](/snip/mq/notes.md)_
+
+Programming language at a glance
+
+- [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
+- [Elixir](/snip/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
+- [Scala](/snip/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
 
 Storage
 
@@ -163,15 +181,18 @@ Storage
 
 <!--
 
-- ES
-- Basics: https://www.elastic.co ( to read )
+- ES : https://www.elastic.co - _to read_
     - What is Elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
-- MySQL
-- Basics: https://www.mysql.com ( to read )
+- MySQL : https://www.mysql.com - _to read_
     - https://dev.mysql.com/doc
     - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
 
 -->
+
+Terminology
+
+- [Abbreviations](/snip/abbrs.md) are usually related to coding (programmming)
+- [Glossaries](/snip/glossaries.md) with intros to the common technology products
 
 Web
 
@@ -186,17 +207,6 @@ Web
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
 
-Authentication & Authorization
-
-- Basics
-    - [OIDC](/snip/auth/oidc.md) : Open ID Connect - _todo_
-    - [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open **Authorization** 2.0
-    - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) - _required? read as needed._
-- Solution Provider
-    - [auth0](/snip/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
-    - [okta](/snip/auth/solution-provider/okta.md) : the world's #1 identity platform
-    - [Authing](/snip/auth/solution-provider/authing.md) : connect every person and app on the planet
-
 Others
 
 - [Alpine Linux](/snip/docker/alpine/alpine.md) : minimal OS Docker image
@@ -208,44 +218,6 @@ Others
 - _[Mongo](/snip/tmp/mongo.md)_
 - _[Work Flow](/snip/tmp/work-flow.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
-
-<!--
-
-Infrastructre _( to read )_
-
-- [Service Mesh](/snip/infrastructure/service-mesh.md)
-- [Envoy](/snip/infrastructure/envoy.md)
-- [Istio](/snip/infrastructure/service-mesh/istio.md)
-- Thrift
-- Nginx
-- OpenResty
-- Kubernetes
-- E2E and etc. : E2E / 压力测试 / 全链路压测 / 流量构造 / 流量染色 / 数据工场平台
-- Gatling
-- APM / 监控告警系统
-- Prometheus
-- Thanos
-- Sky Walking
-- ELK
-- Mock 平台
-- CI/CD
-- Jenkins
-- GitHub Action
-- Travis CI
-
--->
-
-### MQ
-
-Message Queue
-
-- [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
-- [RabbitMQ](/snip/mq/rabbit-mq.md)
-- [RocketMQ](/snip/mq/rocket-mq.md) - _to read_
-- [ActiveMQ](/snip/mq/active-mq.md)
-- [ZeroMQ](/snip/mq/zero-mq.md) - _to read_
-- _[MemcacheQ](/snip/mq/mcq.md)_
-- _[Notes](/snip/mq/notes.md)_
 
 ### Mac
 
