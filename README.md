@@ -199,7 +199,7 @@ Web
     - [init.d](/snip/init.d/init.d.md) with `php -S`
     - [Nginx](/snip/nginx/nginx.md) via the configuration file
 - How to build the personal website?
-    - Powered by [docsify](/_docsify/how-to-docsify.md)
+    - Powered by [docsify](/docsify/how-to-docsify.md)
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
 

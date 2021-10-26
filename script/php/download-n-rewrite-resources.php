@@ -1,11 +1,11 @@
 <?php
 
 // Notice: It should be executed in the project root directory.
-// `php _docsify/download-n-rewrite-resources.php [-d|--download] [-r|--rewrite]`
+// `php docsify/download-n-rewrite-resources.php [-d|--download] [-r|--rewrite]`
 
 echo var_export($argv, true)."\n\n";
 
-// Download resources to directory `_docsify/resources/`
+// Download resources to directory `docsify/resources/`
 $toDownload = false;
 // Rewrite links of resources to local files
 $toRewrite = false; // default
@@ -40,7 +40,7 @@ if ($toRewrite) {
         $localFileName = str_replace('/', '_', $resource);
         echo $localFileName."\n";
 
-        $localFilePath = "_docsify/resources/{$localFileName}";
+        $localFilePath = "docsify/resources/{$localFileName}";
 
         // Download resources
         if ($toDownload) {

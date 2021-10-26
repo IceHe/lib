@@ -66,7 +66,7 @@ http://localhost:3000
 ```bash
 # Rewrite links to resources
 php path/to/download-n-rewrite-resources.php --rewrite # --download
-# ( option `--download` : get or refresh resources in directory `_docsify/resources/*` )
+# ( option `--download` : get or refresh resources in directory `docsify/resources/*` )
 
 # Generate Docs
 mkdir .public

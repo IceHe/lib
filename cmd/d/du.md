@@ -62,16 +62,16 @@ du -ah
 
 # e.g.
 $ du -ah | head
-4.0K    ./_docsify/_navbar.md
-4.0K    ./_docsify/deploy/nginx/docsify.conf
-4.0K    ./_docsify/deploy/nginx
-4.0K    ./_docsify/deploy/service/docsify
-4.0K    ./_docsify/deploy/service
-8.0K    ./_docsify/deploy
-8.0K    ./_docsify/resources/__unpkg.com_docsify-pagination_dist_docsify-pagination.min.js
-152K    ./_docsify/resources/__unpkg.com_gitalk_dist_gitalk.min.js
-4.0K    ./_docsify/resources/__unpkg.com_prismjs_components_prism-http.min.js
-4.0K    ./_docsify/resources/__unpkg.com_prismjs_components_prism-php.min.j
+4.0K    ./docsify/_navbar.md
+4.0K    ./docsify/deploy/nginx/docsify.conf
+4.0K    ./docsify/deploy/nginx
+4.0K    ./docsify/deploy/service/docsify
+4.0K    ./docsify/deploy/service
+8.0K    ./docsify/deploy
+8.0K    ./docsify/resources/__unpkg.com_docsify-pagination_dist_docsify-pagination.min.js
+152K    ./docsify/resources/__unpkg.com_gitalk_dist_gitalk.min.js
+4.0K    ./docsify/resources/__unpkg.com_prismjs_components_prism-http.min.js
+4.0K    ./docsify/resources/__unpkg.com_prismjs_components_prism-php.min.j
 ```
 
 ## Optoins

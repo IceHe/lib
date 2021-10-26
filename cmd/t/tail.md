@@ -77,15 +77,15 @@ Print last 12 lines
 
 ```bash
 $ tail -12 index.html
-  <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-nasm.min.js"></script>
-  <!-- <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-php.min.js"></script> -->
-  <!-- <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-properties.min.js"></script> -->
-  <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-python.min.js"></script>
-  <!-- <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-ruby.min.js"></script> -->
-  <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-sql.min.js"></script>
-  <!-- <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-vim.min.js"></script> -->
-  <!-- <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-wiki.min.js"></script> -->
-  <!-- <script src="https://cdn.icehe.xyz/_docsify/resources/__unpkg.com_prismjs_components_prism-yaml.min.js"></script> -->
+  <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-nasm.min.js"></script>
+  <!-- <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-php.min.js"></script> -->
+  <!-- <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-properties.min.js"></script> -->
+  <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-python.min.js"></script>
+  <!-- <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-ruby.min.js"></script> -->
+  <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-sql.min.js"></script>
+  <!-- <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-vim.min.js"></script> -->
+  <!-- <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-wiki.min.js"></script> -->
+  <!-- <script src="https://cdn.icehe.xyz/docsify/resources/__unpkg.com_prismjs_components_prism-yaml.min.js"></script> -->
 
 </body>
 </html>
