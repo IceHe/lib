@@ -177,16 +177,6 @@ Storage
 - [Cache Patterns](/snip/cache-patterns.md)
     - cache aside / read through / write through / write behind caching
 
-<!--
-
-- ES : https://www.elastic.co - _to read_
-    - What is Elasticsearch : https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html
-- MySQL : https://www.mysql.com - _to read_
-    - https://dev.mysql.com/doc
-    - https://dev.mysql.com/doc/refman/8.0/en/introduction.html
-
--->
-
 Terminology
 
 - [Abbreviations](/snip/abbrs.md) are usually related to coding (programmming)

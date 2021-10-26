@@ -8,6 +8,11 @@ Elasticsearch is a distributed, **RESTful search** and **analytics engine** capa
     - so you can **discover the expected and uncover the unexpected**.
 - From : Facebook Inc.
 
+References
+
+- [www.elastic.co](https://www.elastic.co)
+    - [What is Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html)
+
 ## References
 
 ### Elasticsearch

@@ -4,6 +4,12 @@ MySQL CLI tool ( not a command )
 
 ---
 
+References
+
+- [www.mysql.com](https://www.mysql.com)
+    - [Documentation](https://dev.mysql.com/doc)
+        - [General Infomation](https://dev.mysql.com/doc/refman/8.0/en/introduction.html)
+
 ## Install on macOS
 
 Homebrew on
