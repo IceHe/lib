@@ -430,11 +430,12 @@ Scene
 Basics
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+    - [Promise](/js/basics/promise.md) : The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine <!-- [nodejs.org](https://nodejs.org/en/) -->
 - Package Management
-    - [npm](/js/npm.md) : share and borrow packages
-    - [yarn](/js/yarn.md) : a package manager that doubles down as project manager
-    - [pnpm](/js/pnpm.md) : fast, disk space efficient package manager
+    - [npm](/js/package-management/npm.md) : share and borrow packages
+    - [yarn](/js/package-management/yarn.md) : a package manager that doubles down as project manager
+    - [pnpm](/js/package-management/pnpm.md) : fast, disk space efficient package manager
 
 npm : the world's largest software registry
 
