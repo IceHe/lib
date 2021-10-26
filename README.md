@@ -586,7 +586,7 @@ Living
 - **Huawei** : Telecom Software Customization - Java Intern.
 - **SCUT** : Software Engineering - C++ Bachelor
 
-**Timeline**
+Timeline
 
 - After 2018
     - [Better Living](/past/better-living.md)
