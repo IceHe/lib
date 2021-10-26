@@ -239,6 +239,8 @@ Git
 
 ### Command
 
+Manual
+
 - [ab](/cmd/a/ab.md) : Apache HTTP server benchmarking tool
 - [ag](/cmd/a/ag.md) : The Silver Searcher. Like `ack`, but faster.
 - [awk](/cmd/a/awk.md) : pattern-directed scanning and processing language
@@ -389,6 +391,19 @@ Scene
 - **run in backgroud** : `^z`, bg, fg, nohup [CMD] &
 - ……
 
+Shell
+
+- [Notes](/shell/notes.md) : a bash script example
+- [Terminal Colors](/shell/terminal-colors.md)
+
+_Batch 批处理_
+
+- _[Batch 批处理指令](/script/batch/commands.md)_
+- _[Batch 批处理中的特殊符号](/script/batch/dos-special-symbol.md)_
+- _[DOS Common Commands](/script/batch/dos-common-commands.md)_
+- _[DOS Environment Variables](/script/batch/dos-environment-variable.md)_
+
+
 ### JavaScript
 
 Basics
@@ -460,7 +475,7 @@ Basics
 - [Exceptions](/java/exceptions.md) : exception class hierarchy / …
 - [Other Notes](/java/notes.md)
 
-Snippet
+Code Snippet
 
 - [Collection](/java/code-snippet/collection.md)
 - [Common DTOs](/java/code-snippet/common-dtos.md)
@@ -507,7 +522,7 @@ Command Line Tool
 
 ### ASM & CPP
 
-**Assembly**
+Assembly
 
 _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 
@@ -528,7 +543,7 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 15. [用 BIOS 进行键盘输入和磁盘读写 / tests](/asm/learning-note-15.md)
 16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
 
-**C++**
+C++
 
 - [C++ Primer 5th](/cpp/primer-5th.md)
 - [C++ Interview Book](/cpp/interview-book.md)
@@ -537,20 +552,6 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 - Effective C++ : [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
 
 ### Script
-
-Shell
-
-- [Notes](/script/shell/notes.md) : a bash script example
-- [Terminal Colors](/script/shell/terminal-colors.md)
-
-_Batch 批处理_
-
-- _[Batch 批处理指令](/script/batch/commands.md)_
-- _[Batch 批处理中的特殊符号](/script/batch/dos-special-symbol.md)_
-- _[DOS Common Commands](/script/batch/dos-common-commands.md)_
-- _[DOS Environment Variables](/script/batch/dos-environment-variable.md)_
-
-_Others_
 
 - _AppleScript_
     - _[Quick Start](/script/applescript/quick-start.md)_
