@@ -132,8 +132,6 @@ Others
 
 <!-- > —— 鲁迅《致赖少麟》 -->
 
-Reading
-
 - [Abbreviations](/snip/abbrs.md) are usually related to coding (programmming)
 - [Glossaries](/snip/glossaries.md) with intros to the common technology products
 
@@ -241,13 +239,13 @@ Infrastructre _( to read )_
 
 Message Queue
 
-- [kafka](/mq/kafka.md) - _[digest](/mq/kafka-digest.md)_
-- [RabbitMQ](/mq/rabbit-mq.md)
-- [RocketMQ](/mq/rocket-mq.md) - _to read_
-- [ActiveMQ](/mq/active-mq.md)
-- [ZeroMQ](/mq/zero-mq.md) - _to read_
-- _[MemcacheQ](/mq/mcq.md)_
-- _[Notes](/mq/notes.md)_
+- [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
+- [RabbitMQ](/snip/mq/rabbit-mq.md)
+- [RocketMQ](/snip/mq/rocket-mq.md) - _to read_
+- [ActiveMQ](/snip/mq/active-mq.md)
+- [ZeroMQ](/snip/mq/zero-mq.md) - _to read_
+- _[MemcacheQ](/snip/mq/mcq.md)_
+- _[Notes](/snip/mq/notes.md)_
 
 ### Mac
 
