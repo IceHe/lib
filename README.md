@@ -431,6 +431,7 @@ Basics
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
     - [Promise](/js/basics/promise.md) : The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+        - [States and Fates](/js/basics/promise-states-n-fates.md)
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine <!-- [nodejs.org](https://nodejs.org/en/) -->
 - Package Management
     - [npm](/js/package-management/npm.md) : share and borrow packages
