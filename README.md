@@ -1,6 +1,6 @@
 # Library
 
-[Welcome](/past/blog/welcome.md) to IceHe's Library !
+[Welcome](/timeline/blog/welcome.md) to IceHe's Library !
 
 ---
 
@@ -10,7 +10,7 @@
 
 <!-- > —— LeBlanc's Law -->
 
--   Whoami: [IceHe](/past/bio.md)
+-   Whoami: [IceHe](/timeline/bio.md)
 -   Website: [icehe.xyz](https://icehe.xyz)
 -   Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- - _Base64 Encoded_ -->
 
@@ -573,7 +573,7 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-[Bio](/past/bio.md) : Backend - Exp | Edu | Skills
+[Bio](/timeline/bio.md) : Backend - Exp | Edu | Skills
 
 <!-- - **TBC** : Have a rest -->
 
@@ -589,24 +589,24 @@ Living
 Timeline
 
 - After 2018
-    - [Better Living](/past/better-living.md)
-    - [Rehabilitation](/past/rehabilitation.md)
+    - [Better Living](/timeline/better-living.md)
+    - [Rehabilitation](/timeline/rehabilitation.md)
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
-    - [2018 Spring ~ 2019 Autumn](/past/2018-spring-to-2019-autumn.md)
-    - [2018 Winter](/past/2018-winter.md)
-    - [Moments](/past/moments.md) : 回忆
+    - [2018 Spring ~ 2019 Autumn](/timeline/2018-spring-to-2019-autumn.md)
+    - [2018 Winter](/timeline/2018-winter.md)
+    - [Moments](/timeline/moments.md) : 回忆
 - 2015 ~ 2017
-    - [2017 Summer ~ Winter](/past/2017-summer-2-winter.md)
-    - [2017 Spring](/past/2017-spring.md)
-    - [2016 Winter](/past/2016-winter.md)
-    - [2016 Fall](/past/2016-fall.md)
-    - [2016 Spring & Summer](/past/2016-summer.md)
-    - [Bye 2015](/past/2015-bye.md)
-    - [How to Build Blog](/past/blog/build.md) : 搭建博客
-    - [Blog Changlogs](/past/blog/changelog.md) : 折腾博客
+    - [2017 Summer ~ Winter](/timeline/2017-summer-2-winter.md)
+    - [2017 Spring](/timeline/2017-spring.md)
+    - [2016 Winter](/timeline/2016-winter.md)
+    - [2016 Fall](/timeline/2016-fall.md)
+    - [2016 Spring & Summer](/timeline/2016-summer.md)
+    - [Bye 2015](/timeline/2015-bye.md)
+    - [How to Build Blog](/timeline/blog/build.md) : 搭建博客
+    - [Blog Changlogs](/timeline/blog/changelog.md) : 折腾博客
     - [icehe.github.io](https://icehe.github.io) : previous technology blog
 - Before 2015
-    - [QZone Index](/past/qzone-index.md) of the old posts
+    - [QZone Index](/timeline/qzone-index.md) of the old posts
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
