@@ -159,7 +159,7 @@ Programming languages _at a glance_
 - [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
 - [Elixir](/snip/lang/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
 - [Scala](/snip/lang/scala.md) - combines object-oriented and functional programming in one concise, high-level language
-- [Python 3](/snip/lang/python3.md)
+- [Python 3](/snip/lang/python3.md) - a programming language that lets you work quickly and integrate systems more effectively
 
 Storage
 
@@ -554,8 +554,8 @@ C++
 ### Script
 
 - _AppleScript_
-    - _[Quick Start](/script/applescript/quick-start.md)_
-    - _[Control Evernote & macOS](/script/applescript/evernote-macos.md)_
+    - _[Quick Start](/snip/applescript/quick-start.md)_
+    - _[Control Evernote & macOS](/snip/applescript/evernote-macos.md)_
 - _PHP: [functions & scripts](/script/php/php.md)_
 
 ## Life
