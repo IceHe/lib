@@ -573,7 +573,7 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-**[Bio](/past/bio.md) : Backend - Exp | Edu | Skills**
+[Bio](/past/bio.md) : Backend - Exp | Edu | Skills
 
 <!-- - **TBC** : Have a rest -->
 
@@ -633,7 +633,7 @@ Timeline
 
 -->
 
-### Digest
+### Reading
 
 <!-- #### Working -->
 <!-- or -->
@@ -641,7 +641,7 @@ Timeline
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
-**Work Hard**
+Work Hard
 
 - [How to Ask](/snip/principle/how-to-ask.md) : Prepare before asking
     - JFGI : Just Fucking Google It
@@ -679,11 +679,11 @@ Timeline
 
 <!-- > —— E.L. Doctorow -->
 
-**好文共赏**
+好文共赏
 
 -   Bookmarks :
-    -   [Reading](/past/bookmark/reading.md)
-    -   [Technology](/past/bookmark/technology.md)
+    -   [Reading](/read/reading-bookmark.md)
+    -   [Technology](/read/technology-bookmark.md)
 -   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) - _[digest](/read/cruel-reality.md)_
     -   "Nice guy? I never give a shit."
 -   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) - _[digest](/read/meaning.md)_
