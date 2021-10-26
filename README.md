@@ -12,7 +12,7 @@
 
 -   Whoami: [IceHe](/past/bio.md)
 -   Website: [icehe.xyz](https://icehe.xyz)
--   Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- _- Base64 Encoded_ -->
+-   Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- - _Base64 Encoded_ -->
 
 ## Tech
 
@@ -35,9 +35,9 @@ Coding
     - Elements of Reusable Object-Oriented Software
 - [Pragmatic Programmer](/book/pragmatic-programmer.md)
     - Your journey to mastery - 2nd Edition
-- [The Manager's Path](/book/the-manager-s-path.md) _- reading_
+- [The Manager's Path](/book/the-manager-s-path.md) - _reading_
     - A Guide for Tech Leaders Navigating Growth and Change
-- [Peopleware](/book/peopleware.md) _- to reread_
+- [Peopleware](/book/peopleware.md) - _to reread_
     - Productive Projects and Teams
 - [Clean Agile](/book/clean-agile.md)
     - Back to Basics
@@ -46,7 +46,7 @@ Coding
 JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
 - [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
-- [Part III. Execution Engine](/book/understand-jvm-p3.md) _- to read_
+- [Part III. Execution Engine](/book/understand-jvm-p3.md) - _to read_
 - Part IV. Compile and Code Optimize
 
 Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-applications-toc.md)
@@ -62,7 +62,7 @@ Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-app
 - [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
     - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
-[Fundamentals of Software Architecture](/book/fundamentals-of-software-architecture.md) _- [TOC](/book/fundamentals-of-software-architecture-toc.md)_
+[Fundamentals of Software Architecture](/book/fundamentals-of-software-architecture.md) - _[TOC](/book/fundamentals-of-software-architecture-toc.md)_
 
 - _reading and taking notes_
 
@@ -110,11 +110,11 @@ Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-app
 Others
 
 - [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
-- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) _- to read_
-- [Linux Kernel](/book/linux.md) _- to read_
+- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - _to read_
+- [Linux Kernel](/book/linux.md) - _to read_
 - JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC
 
-<!-- - [Algorithms - 4th Edition - Notes](/book/algorithms-notes.md) _- reading_ -->
+<!-- - [Algorithms - 4th Edition - Notes](/book/algorithms-notes.md) - _reading_ -->
 
 <!-- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
 <!--  -->
@@ -132,11 +132,10 @@ Others
 
 <!-- > —— 鲁迅《致赖少麟》 -->
 
-Coding
+Reading
 
 - [Abbreviations](/snip/abbrs.md) are usually related to coding (programmming)
 - [Glossaries](/snip/glossaries.md) with intros to the common technology products
-- [Regular Expression](/snip/regex.md) is a sequence of characters that specifies a search pattern
 
 Langs
 
@@ -192,9 +191,9 @@ Web
 Authentication & Authorization
 
 - Basics
-    - [OIDC](/snip/auth/oidc.md) : Open ID Connect _- todo_
+    - [OIDC](/snip/auth/oidc.md) : Open ID Connect - _todo_
     - [OAuth 2.0](/snip/auth/oauth-2.0.md) : Open **Authorization** 2.0
-    - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) _- required? read as needed._
+    - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) - _required? read as needed._
 - Solution Provider
     - [auth0](/snip/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
     - [okta](/snip/auth/solution-provider/okta.md) : the world's #1 identity platform
@@ -203,13 +202,14 @@ Authentication & Authorization
 Others
 
 - [Alpine Linux](/snip/docker/alpine/alpine.md) : minimal OS Docker image
-- _[CentOS 6](/snip/os/centos6.md)_
+- [Regular Expression](/snip/regex.md) : a sequence of characters that specifies a search pattern
+- _[Sorting Algorithms](/sort/notes.md)_
+- _[ID Generator](/snip/tmp/id-generator.md)_
+- _[CentOS 6](/snip/tmp/centos6.md)_
 - _[Memcached](/snip/tmp/memcached.md)_
 - _[Mongo](/snip/tmp/mongo.md)_
 - _[Work Flow](/snip/tmp/work-flow.md)_
-- _[ID Generator](/snip/tmp/id-generator.md)_
-- _[Sorting Algorithms](/sort/notes.md)_
-- _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [GitHub](https://github.com/xuxueli/xxl-job)_
+- _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
 
 <!--
 
@@ -241,11 +241,11 @@ Infrastructre _( to read )_
 
 Message Queue
 
-- [kafka](/mq/kafka.md) _- [digest](/mq/kafka-digest.md)_
+- [kafka](/mq/kafka.md) - _[digest](/mq/kafka-digest.md)_
 - [RabbitMQ](/mq/rabbit-mq.md)
-- [RocketMQ](/mq/rocket-mq.md) _- to read_
+- [RocketMQ](/mq/rocket-mq.md) - _to read_
 - [ActiveMQ](/mq/active-mq.md)
-- [ZeroMQ](/mq/zero-mq.md) _- to read_
+- [ZeroMQ](/mq/zero-mq.md) - _to read_
 - _[MemcacheQ](/mq/mcq.md)_
 - _[Notes](/mq/notes.md)_
 
@@ -292,13 +292,13 @@ Command
 - [column](/cmd/c/column.md) : columnate lists
 - [comm](/cmd/c/comm.md) : compare two sorted files line by line
 - [cp](/cmd/c/cp.md) : copy files & directories
-- [cpu](/cmd/c/cpu.md) : show cpu info _- not a command_
+- [cpu](/cmd/c/cpu.md) : show cpu info - _not a command_
 - [crontab](/cmd/c/crontab.md) : time-based job scheduler
 - [curl](/cmd/c/curl.md) : transfer data from or to a server
 - [cut](/cmd/c/cut.md) : remove sections from each line of files
     - common combo : `column | cut`
 - [date](/cmd/d/date.md) : print or set the system date & time
-- [df](/cmd/d/df.md) : report file system disk space usage _- display free space_
+- [df](/cmd/d/df.md) : report file system disk space usage - _display free space_
 - [diff](/cmd/d/diff.md) : compare files line by line
     - better choice : `comm`
 - [dig](/cmd/d/dig.md) : DNS lookup utility
@@ -307,7 +307,7 @@ Command
     - [iftop](/cmd/i/iftop.md) : display bandwidth usage on an interface by host
     - [iostat](/cmd/i/iostat.md) : statistics of CPU & IO for devices & partitions
     - [vmstat](/cmd/v/vmstat.md) : report virtual memory statistics
-- [du](/cmd/d/du.md) : estimate file space usage _- disk usage_
+- [du](/cmd/d/du.md) : estimate file space usage - _disk usage_
 - [env](/cmd/e/env.md) : run a program in a modified environment
 - [expect](/cmd/e/expect.md) : interact with programs
 - [expr](/cmd/e/expr.md) : evaluate expressions
@@ -342,14 +342,14 @@ Command
     - [umount](/cmd/m/mount.md#umount) : un-mount a filesystem
 - [mv](/cmd/m/mv.md) : move (rename) files
 - [mvn](/cmd/m/mvn.md) : a tool for building & managing any Java-based project
-- [mysql](/cmd/m/mysql.md) : MySQL CLI tool _- not only a command_
+- [mysql](/cmd/m/mysql.md) : MySQL CLI tool - _not only a command_
 - [nc](/cmd/n/nc.md) : TCP / UDP connect & listen
 - [netstat](/cmd/n/network-status.md) : show network status
 - [nl](/cmd/n/nl.md) : number lines of files
 - [nohup](cmd/n/nohup) : invoke a utility immune to hangups
 - [nslookup](/cmd/n/nslookup.md) : query Internet name servers interactively
-- [os](/cmd/o/os.md) : show os info _- not a command_
-- [output](/cmd/o/output.md) : redirect output _- not a command_
+- [os](/cmd/o/os.md) : show os info - _not a command_
+- [output](/cmd/o/output.md) : redirect output - _not a command_
 - [passwd](/cmd/p/passwd.md) : modify a user's password
 - [paste](/cmd/p/paste.md) : merge lines of files
 - [perf](/cmd/p/perf.md) : performance analysis tools for Linux
@@ -364,13 +364,13 @@ Command
 - [redis-dump](/cmd/redis/redis-dump.md) & redis-load : Backup & restore Redis data to and from JSON
 - [rm](/cmd/r/rm.md) : remove files or directories
 - [rsync](/cmd/rsync/rsync.md) : transfer files
-- [scp](/cmd/s/scp.md) : secure copy _- remote file copy program_
+- [scp](/cmd/s/scp.md) : secure copy - _remote file copy program_
 - [sed](/cmd/s/sed.md) : stream editor for filtering & transforming text
 - [seq](/cmd/s/seq.md) : print a sequence of numbers
 - [service](/cmd/s/service.md) : run a System V init script
 - [sleep](/cmd/s/sleep.md) : delay for a specified amount of time
 - [sort](/cmd/s/sort.md) : sort lines of text files
-- [ssh](/cmd/s/ssh.md) : OpenSSH Client _- remote login program_
+- [ssh](/cmd/s/ssh.md) : OpenSSH Client - _remote login program_
 - [stat](/cmd/s/stat.md) : display file or file system status
 - [su](/cmd/s/su.md) : run a command with substitute user & group ID
 - [sudo](/cmd/s/sudo.md) : execute a command as another user
@@ -431,7 +431,7 @@ Basics
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
     - [Promise](/js/basics/promise.md) : The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
-        - [States and Fates](/js/basics/promise-states-n-fates.md)
+        - [States and Fates](/js/basics/promise-states-n-fates.md) :
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine <!-- [nodejs.org](https://nodejs.org/en/) -->
 - Package Management
     - [npm](/js/package-management/npm.md) : share and borrow packages
@@ -541,17 +541,9 @@ Command Line Tool
     - _~~[jhat](/java/cmd/jhat.md) : Heap Analysis Tool~~_ - _only available in JDK 8 !_
     - _[jstack](/java/cmd/jstack.md) : stack trace_ - _print Java stack traces of Java threads for a specified Java process_
 
-### C++
+### ASM & CPP
 
-- [C++ Primer 5th](/cpp/primer-5th.md)
-- [C++ Interview Book](/cpp/interview-book.md)
-- [C++ Coding Standards](/cpp/code-standards.md)
-- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
-- Effective C++ : [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
-
-### ASM
-
-Assembly
+**Assembly**
 
 _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 
@@ -571,6 +563,14 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 14. [直接定址表 / data / 地址标号 / 在其它段中，计算 sin(x) / tests](/asm/learning-note-14.md)
 15. [用 BIOS 进行键盘输入和磁盘读写 / tests](/asm/learning-note-15.md)
 16. [Appendix : 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
+
+**C++**
+
+- [C++ Primer 5th](/cpp/primer-5th.md)
+- [C++ Interview Book](/cpp/interview-book.md)
+- [C++ Coding Standards](/cpp/code-standards.md)
+- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
+- Effective C++ : [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
 
 ### Script
 
@@ -609,7 +609,7 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-[Bio](/past/bio.md) : Backend - Exp | Edu | Skills
+**[Bio](/past/bio.md) : Backend - Exp | Edu | Skills**
 
 <!-- - **TBC** : Have a rest -->
 
@@ -622,7 +622,7 @@ Living
 - **Huawei** : Telecom Software Customization - Java Intern.
 - **SCUT** : Software Engineering - C++ Bachelor
 
-Timeline
+**Timeline**
 
 - After 2018
     - [Better Living](/past/better-living.md)
@@ -669,9 +669,15 @@ Timeline
 
 -->
 
-### Principle
+### Digest
+
+<!-- #### Working -->
+<!-- or -->
+<!-- #### Working Principle -->
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
+
+**Work Hard**
 
 - [How to Ask](/snip/principle/how-to-ask.md) : Prepare before asking
     - JFGI : Just Fucking Google It
@@ -703,33 +709,33 @@ Timeline
 <!-- - [What Why How](/snip/principle/what-why-how.md) -->
 <!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
-### Digest
+<!-- #### Reading -->
 
 > 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
 
 <!-- > —— E.L. Doctorow -->
 
-好文共赏
+**好文共赏**
 
 -   Bookmarks :
     -   [Reading](/past/bookmark/reading.md)
     -   [Technology](/past/bookmark/technology.md)
--   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) _- [digest](/past/read/cruel-reality.md)_
+-   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) - _[digest](/past/read/cruel-reality.md)_
     -   "Nice guy? I never give a shit."
--   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) _- [digest](/past/read/meaning.md)_
+-   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) - _[digest](/past/read/meaning.md)_
     -   "因为活着，才去寻找意义。"
--   [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) _- [digest](/past/read/happiness-course.md)_
+-   [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) / [digest](/past/read/happiness-course.md)
     -   "如果你只有一个选择，它让你满意吗？"
--   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) _- [digest](/past/read/why-unhappy.md)_
+-   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) - _[digest](/past/read/why-unhappy.md)_
     -   "我，并不特别。"
--   [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方 _- [digest](/past/read/poet.md)_
+-   [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方 - _[digest](/past/read/poet.md)_
     -   "眼前的苟且，也正是诗和远方。"
--   [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) _- [digest](/past/read/teacher-said.md)_
+-   [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) - _[digest](/past/read/teacher-said.md)_
     -   "我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。"
     -   "做正确的选择，而不是可以接受的选择。"
--   [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) _- [digest](/past/read/pessimist.md)_
+-   [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) - _[digest](/past/read/pessimist.md)_
     -   "It's the hardest part when memories remain."
--   [Anti-Fragile](/past/read/anti-fragile.md) _- [book](https://item.jd.com/11364406.html)_
+-   [Anti-Fragile](/past/read/anti-fragile.md) - _[book](https://item.jd.com/11364406.html)_
     -   "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
 -   [VicodinXYZ's Life Beliefs](/past/read/life-beliefs.md)
     -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
@@ -751,12 +757,12 @@ Timeline
 -   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
     -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist : The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/book/how-to-be-an-imperfectionist.md) _- taking notes_
+-   [How to Be an Imperfectionist : The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/book/how-to-be-an-imperfectionist.md) - _taking notes_
     -   《 如何成为不完美主义者 》
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
     -   不那么在意所谓时机，更在意任务本身。
--   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ _- to read_
+-   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ - _to read_
     -   《 噪声 : 一个人类判断力的缺陷 》
 
 ### Friend
@@ -765,7 +771,7 @@ Timeline
 
 <!-- > To be a better man. -->
 <!-- > -->
-<!-- > —— Better Man _- Robbie Williams song_ -->
+<!-- > —— Better Man - _Robbie Williams song_ -->
 
 -   Jan Fan : Pythonist / Tencent / Applied Mathematics PhD @ Sweden
 -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing
