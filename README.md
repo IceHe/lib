@@ -14,11 +14,11 @@
 -   Website: [icehe.xyz](https://icehe.xyz)
 -   Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- - _Base64 Encoded_ -->
 
-## Tech
-
-Technology
+## Technology
 
 ### Book
+
+[IceHe's Booklist](https://book.douban.com/people/IceHeGZ/collect) @douban.com
 
 > 短期太急躁, 總想走捷徑快速見效;<br/>
 > 長期沒耐心, 小覷長期堅持的成長.
@@ -37,7 +37,7 @@ Coding
     - Your journey to mastery - 2nd Edition
 - [The Manager's Path](/book/the-manager-s-path.md) - _reading_
     - A Guide for Tech Leaders Navigating Growth and Change
-- [Peopleware](/book/peopleware.md) - _to reread_
+- [Peopleware](/book/peopleware.md) - _to re-read_
     - Productive Projects and Teams
 - [Clean Agile](/book/clean-agile.md)
     - Back to Basics
@@ -62,9 +62,9 @@ Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-app
 - [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
     - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
-[Fundamentals of Software Architecture](/book/fundamentals-of-software-architecture.md) - _[TOC](/book/fundamentals-of-software-architecture-toc.md)_
+Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-architecture-toc.md)
 
-- _reading and taking notes_
+- [reading notes](/book/fundamentals-of-software-architecture.md)
 
 <!--
 
@@ -107,26 +107,22 @@ Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-app
 
 -->
 
-Others
-
-- [Books ever read - Douban](https://book.douban.com/people/IceHeGZ/collect)
-- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - _to read_
-- [Linux Kernel](/book/linux.md) - _to read_
-- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC
-
 <!-- - [Algorithms - 4th Edition - Notes](/book/algorithms-notes.md) - _reading_ -->
+<!-- - JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - _reading_ -->
+<!-- - [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - _reading_ -->
+<!-- - [Linux Kernel](/book/linux.md) - _reading_ -->
 
-<!-- _* [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC_ -->
+<!-- [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC -->
 <!--  -->
 <!-- - _[Part*  1](/book/tcp-ip-illustracted-protocols-p1.md) - to read_ -->
 
 <!-- Tools -->
 
 <!-- - Wireshark -->
-<!--     - _[Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - to read_ -->
-<!--     - _[The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - to read_ -->
+<!--     - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - _reading_ -->
+<!--     - [The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - _reading_ -->
 
-### Snip
+### Snippet
 
 > 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。
 
@@ -148,7 +144,7 @@ Markdown
 - [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
 - [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
 
-MQ : Message Queue
+MQ - Message Queue
 
 - [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
 - [RabbitMQ](/snip/mq/rabbit-mq.md)
@@ -158,7 +154,7 @@ MQ : Message Queue
 - _[MemcacheQ](/snip/mq/mcq.md)_
 - _[Notes](/snip/mq/notes.md)_
 
-Programming language at a glance
+Programming languages _at a glance_
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
 - [Elixir](/snip/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
@@ -219,7 +215,7 @@ Others
 - _[Work Flow](/snip/tmp/work-flow.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
 
-### Mac
+### Efficiency
 
 > 磨刀不誤砍柴工
 
@@ -234,16 +230,14 @@ macOS
 - [JVM Options Optimaization](/mac/jetbrains/README.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
 
-### Git
+Git
 
 - [Common Commands](/git/common-commands.md)
 - [Concepts & Theory](/git/concepts-n-theory.md)
 - [Docs Digest](/git/docs-digest.md)
 - [Commit Signature Verification](/git/commit-signature-verification.md)
 
-### CMD
-
-Command
+### Command
 
 - [ab](/cmd/a/ab.md) : Apache HTTP server benchmarking tool
 - [ag](/cmd/a/ag.md) : The Silver Searcher. Like `ack`, but faster.
@@ -395,7 +389,7 @@ Scene
 - **run in backgroud** : `^z`, bg, fg, nohup [CMD] &
 - ……
 
-### JS
+### JavaScript
 
 Basics
 
