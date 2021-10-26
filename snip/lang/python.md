@@ -1,6 +1,6 @@
-# Python3 快速入门
+# Python
 
-目标：让有编程基础的人，通过简单参阅本文，即可快速上手使用 Python3 的基本特性。
+a programming language that lets you work quickly and integrate systems more effectively
 
 ---
 
@@ -14,6 +14,7 @@ References
 内容
 
 - 《[廖学峰的 Python 教程](https://www.liaoxuefeng.com/wiki/1016959663602400)》笔记的再整理
+    > 目标：让有编程基础的人，通过简单参阅本文，即可快速上手使用 Python3 的基本特性。
 - 本文由一些简单的说明、Python3 代码及其运行结果组成
 
 定位

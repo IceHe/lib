@@ -144,7 +144,7 @@ Markdown
 - [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
 - [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
 
-MQ - Message Queue
+Message Queue
 
 - [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
 - [RabbitMQ](/snip/mq/rabbit-mq.md)
@@ -154,12 +154,13 @@ MQ - Message Queue
 - _[MemcacheQ](/snip/mq/mcq.md)_
 - _[Notes](/snip/mq/notes.md)_
 
-Programming languages _at a glance_
+Programming Languages
 
-- [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
-- [Elixir](/snip/lang/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
-- [Scala](/snip/lang/scala.md) - combines object-oriented and functional programming in one concise, high-level language
-- [Python 3](/snip/lang/python3.md) - a programming language that lets you work quickly and integrate systems more effectively
+- [Learn X in Y minutes](https://learnxinyminutes.com) : programming languages / tools / …
+- [Elixir](/snip/lang/elixir.md) : a dynamic, functional language for building scalable and maintainable applications
+- [Scala](/snip/lang/scala.md) : combines object-oriented and functional programming in one concise, high-level language
+- [PHP](/snip/php/php.md) : a popular general-purpose scripting language that is especially suited to web development
+- [Python](/snip/lang/python.md) : a programming language that lets you work quickly and integrate systems more effectively
 
 Storage
 
@@ -215,6 +216,9 @@ Others
 - _[Mongo](/snip/tmp/mongo.md)_
 - _[Work Flow](/snip/tmp/work-flow.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
+- _AppleScript_
+    - _[Quick Start](/snip/applescript/quick-start.md)_
+    - _[Control Evernote & macOS](/snip/applescript/evernote-macos.md)_
 
 ### Efficiency
 
@@ -550,13 +554,6 @@ C++
 - [C++ Coding Standards](/cpp/code-standards.md)
 - [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
 - Effective C++ : [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
-
-### Script
-
-- _AppleScript_
-    - _[Quick Start](/snip/applescript/quick-start.md)_
-    - _[Control Evernote & macOS](/snip/applescript/evernote-macos.md)_
-- _PHP: [functions & scripts](/snip/php/php.md)_
 
 ## Life
 
