@@ -4,9 +4,16 @@
 
 ---
 
+References
+
+- [www.python.org](https://www.python.org/)
+- [廖学峰的 Python 教程](https://www.liaoxuefeng.com/wiki/1016959663602400)
+
+---
+
 内容
 
-- 《[廖学峰的 Python 教程](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)》笔记的再整理
+- 《[廖学峰的 Python 教程](https://www.liaoxuefeng.com/wiki/1016959663602400)》笔记的再整理
 - 本文由一些简单的说明、Python3 代码及其运行结果组成
 
 定位
@@ -16,7 +23,7 @@
 
 工具
 
-- 笔记内容由 [Jupyter](http://jupyter.org/)（交互式的编程笔记）写就，以 Markdown 格式导出，并发布为本文
+- 笔记内容由 [Jupyter](https://jupyter.org/)（交互式的编程笔记）写就，以 Markdown 格式导出，并发布为本文
 
 # 基础
 

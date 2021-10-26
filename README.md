@@ -157,8 +157,9 @@ MQ - Message Queue
 Programming languages _at a glance_
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) - programming languages / tools / …
-- [Elixir](/snip/elixir/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
-- [Scala](/snip/scala/scala.md) - combines object-oriented and functional programming in one concise, high-level language
+- [Elixir](/snip/lang/elixir.md) - a dynamic, functional language for building scalable and maintainable applications
+- [Scala](/snip/lang/scala.md) - combines object-oriented and functional programming in one concise, high-level language
+- [Python 3](/snip/lang/python3.md)
 
 Storage
 
@@ -398,11 +399,10 @@ Shell
 
 _Batch 批处理_
 
-- _[Batch 批处理指令](/script/batch/commands.md)_
-- _[Batch 批处理中的特殊符号](/script/batch/dos-special-symbol.md)_
-- _[DOS Common Commands](/script/batch/dos-common-commands.md)_
-- _[DOS Environment Variables](/script/batch/dos-environment-variable.md)_
-
+- _[Batch 批处理指令](/cmd/batch/commands.md)_
+- _[Batch 批处理中的特殊符号](/cmd/batch/dos-special-symbol.md)_
+- _[DOS Common Commands](/cmd/batch/dos-common-commands.md)_
+- _[DOS Environment Variables](/cmd/batch/dos-environment-variable.md)_
 
 ### JavaScript
 
@@ -557,7 +557,6 @@ C++
     - _[Quick Start](/script/applescript/quick-start.md)_
     - _[Control Evernote & macOS](/script/applescript/evernote-macos.md)_
 - _PHP: [functions & scripts](/script/php/php.md)_
-- _Python 3 : [quick start](/script/python/quick-start.md)_
 
 ## Life
 
