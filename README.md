@@ -630,10 +630,10 @@ Timeline
 
 Work Hard
 
-- [How to Ask](/snip/principle/how-to-ask.md) : Prepare before asking
+- [How to Ask](/life/principle/how-to-ask.md) : Prepare before asking
     - JFGI : Just Fucking Google It
     - RTFM : Read The Fucking Manual
-- [How to Work](/snip/principle/how-to-work.md) :
+- [How to Work](/life/principle/how-to-work.md) :
     - Working Standards :
         - 请示工作说方案
         - 布置工作说标准
@@ -649,15 +649,15 @@ Work Hard
         1. 能发现问题，又能从根源上解决问题者，重赏！
         1. 能预见问题，能防范问题者，重用！
         1. 不能发现问题，不能解决问题，还处处抱怨者，PK。
-- [GTD Flow](/snip/principle/gtd.md) : Get Thing Done
-- [PDCA Cycle](/snip/principle/pdca.md) : Plan → Do → Check → Act or Adjust
-- [SMART principle](/snip/principle/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR principle](/snip/principle/star.md) : Situation → Target → Action → Result
+- [GTD Flow](/life/principle/gtd.md) : Get Thing Done
+- [PDCA Cycle](/life/principle/pdca.md) : Plan → Do → Check → Act or Adjust
+- [SMART principle](/life/principle/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
+- [STAR principle](/life/principle/star.md) : Situation → Target → Action → Result
 - [Deployment Checklist](/snip/tmp/deployment-checklist.md) : Avoid low-level mistakes
-- [How to Leave](/snip/principle/how-to-leave.md) :《解除劳动合同告知书》
+- [How to Leave](/life/principle/how-to-leave.md) :《解除劳动合同告知书》
 
-<!-- - [SWOT Analysis](/snip/principle/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
-<!-- - [What Why How](/snip/principle/what-why-how.md) -->
+<!-- - [SWOT Analysis](/life/principle/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
+<!-- - [What Why How](/life/principle/what-why-how.md) -->
 <!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
 <!-- #### Reading -->

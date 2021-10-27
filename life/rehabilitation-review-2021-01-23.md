@@ -372,9 +372,9 @@ Daily Schedule
 
 Daily Flow
 
-- [GTD 流程](/snip/principle/gtd.md)
-- [PDCA 循环](/snip/principle/pdca.md)
-- [SMART 法则](/snip/principle/smart.md)
+- [GTD 流程](/life/principle/gtd.md)
+- [PDCA 循环](/life/principle/pdca.md)
+- [SMART 法则](/life/principle/smart.md)
 
 _icehe:_
 _道理: 做法是有价值的, 但是自己做不到, 感觉技巧太高阶了, 跟我没关系…_
