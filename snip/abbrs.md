@@ -527,6 +527,7 @@ Reference : https://www.computerhope.com/keys.htm
 - KISS : [keep it simple, stupid](https://en.wikipedia.org/wiki/KISS_principle)
 - KIT : Keep in touch.
 - KMM : [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/kmm-faq.html#what-is-kmm)
+- kt : [Kotlin](https://en.wikipedia.org/wiki/Kotlin_(programming_language))
 
 ### L
 

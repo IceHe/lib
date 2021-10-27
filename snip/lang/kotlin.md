@@ -1,11 +1,12 @@
 # Kotlin
 
-A modern programming language that makes developers happier
+a cross-platform, statically typed, general-purpose programming language with type inference
 
 ---
 
 References
 
+- [Kotlin (programming language)](https://en.wikipedia.org/wiki/Kotlin_(programming_language))
 - [kotlinlang.org](https://kotlinlang.org/)
     - [Docs Home](https://kotlinlang.org/docs/home.html)
 
