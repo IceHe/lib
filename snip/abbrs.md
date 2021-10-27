@@ -546,6 +546,7 @@ Reference : https://www.computerhope.com/keys.htm
     - 二方库 : 公司内部发布到中央仓库, 可供公司内部其它应用依赖的库 (jar 包)
     - 三方库 : 公司之外的开源库 (jar 包)
 - LILO : Last In Last Out | LInux LOader
+- LLVM : [LLVM Compiler Infrastructure](https://llvm.org)
 - lmao : laughing my ass off 把屁股笑掉
 - ln : link
 - lnk : link

@@ -8,7 +8,6 @@ References
 
 - [kotlinlang.org](https://kotlinlang.org/)
     - [Docs Home](https://kotlinlang.org/docs/home.html)
-        - [Android Overview](https://kotlinlang.org/docs/android-overview.html)
 
 ## Get Started
 
@@ -17,8 +16,12 @@ It's **concise, safe, interoperable with Java and other languages**, and **provi
 
 ……
 
-## Android Overview
+## Basics
+
+### Basic syntax
 
 References
 
-- [Android Overview - Kotlin Docs](https://kotlinlang.org/docs/android-overview.html)
+- [Android Overview - Kotlin Docs](https://kotlinlang.org/docs/basic-syntax.html)
+
+#### Package definition and imports
