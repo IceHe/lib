@@ -83,19 +83,10 @@ IceHe's short biographical profile
 - 胜任: HTML / CSS / jQuery
 - 了解: Node.js <sup>learning</sup>
 
-<!--
-
-操作系统
-
-- 熟悉: macOS
-- 胜任: Linux
-
 开发工具
 
 - 熟悉: Git / Vim / VS Code / IntelliJ IDEA
 - 胜任: Zsh / Bash
-
--->
 
 沟通语言
 
