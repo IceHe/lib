@@ -154,13 +154,14 @@ Message Queue
 - _[MemcacheQ](/snip/mq/mcq.md)_
 - _[Notes](/snip/mq/notes.md)_
 
-Programming Languages
+Programming Languages _at a glance_
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) : programming languages / tools / …
 - [Elixir](/snip/lang/elixir.md) : a dynamic, functional language for building scalable and maintainable applications
 - [Scala](/snip/lang/scala.md) : combines object-oriented and functional programming in one concise, high-level language
 - [PHP](/snip/php/php.md) : a popular general-purpose scripting language that is especially suited to web development
 - [Python](/snip/lang/python.md) : a programming language that lets you work quickly and integrate systems more effectively
+- [Kotlin](/snip/lang/kotlin.md) : a modern programming language that makes developers happier
 
 Storage
 
