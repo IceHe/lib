@@ -141,8 +141,8 @@ Authentication & Authorization
 
 Markdown
 
-- [Markdown Style Guide](/snip/markdown/markdown-style-guide.md)
-- [MDL - Markdown Lint Tool](/snip/markdown/lint/lint.md)
+- [Markdown Style Guide](/docsify/markdown/markdown-style-guide.md)
+- [MDL - Markdown Lint Tool](/docsify/markdown/lint/lint.md)
 
 Message Queue
 
