@@ -19,7 +19,6 @@
 # Node.js
 .cache/
 /dist
-/node_modules
 
 # Others
 _private/
