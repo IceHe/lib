@@ -2,7 +2,7 @@
     "extends": "./js/typescript/tsconfig.base",
     "include": [
         "js/**/*",
-        "src/**/*"
+        "src-node/**/*"
     ],
     "exclude": [
         "node_modules",

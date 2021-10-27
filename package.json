@@ -16,10 +16,10 @@
   "main": "./dist/index.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev:watch": "node ./node_modules/parcel-bundler/bin/cli watch ./src/index.js --target node --out-dir ./dist/",
+    "dev:watch": "node ./node_modules/parcel-bundler/bin/cli watch ./src-node/index.js --target node --out-dir ./dist/",
     "dev:hot-reload": "node ./node_modules/nodemon/bin/nodemon --watch ./dist/ ./dist/index.js",
     "start": "node ./node_modules/npm-run-all/bin/npm-run-all -p -r dev:watch dev:hot-reload",
-    "build": "node ./node_modules/parcel-bundler/bin/cli build ./src/index.js --target node --out-dir ./dist/",
+    "build": "node ./node_modules/parcel-bundler/bin/cli build ./src-node/index.js --target node --out-dir ./dist/",
     "lint": "node ./node_modules/eslint/bin/eslint . --ext .js --fix"
   },
   "devDependencies": {
