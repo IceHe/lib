@@ -10,7 +10,7 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Whoami: [IceHe](/timeline/bio.md)
+- Whoami: [IceHe](/life/bio.md)
 - Website: [icehe.xyz](https://icehe.xyz)
 - Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- - _Base64 Encoded_ -->
 
@@ -560,7 +560,7 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-[Bio](/timeline/bio.md) : Backend - Exp | Edu | Skills
+[Bio](/life/bio.md) : Backend - Exp | Edu | Skills
 
 <!-- - **TBC** : Have a rest -->
 
@@ -576,24 +576,24 @@ Living
 Timeline
 
 - After 2018
-    - [Better Living](/timeline/better-living.md)
-    - [Rehabilitation](/timeline/rehabilitation.md)
+    - [Better Living](/life/better-living.md)
+    - [Rehabilitation](/life/rehabilitation.md)
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
-    - [2018 Spring ~ 2019 Autumn](/timeline/2018-spring-to-2019-autumn.md)
-    - [2018 Winter](/timeline/2018-winter.md)
-    - [Moments](/timeline/moments.md) : 回忆
+    - [2018 Spring ~ 2019 Autumn](/life/2018-spring-to-2019-autumn.md)
+    - [2018 Winter](/life/2018-winter.md)
+    - [Moments](/life/moments.md) : 回忆
 - 2015 ~ 2017
-    - [2017 Summer ~ Winter](/timeline/2017-summer-2-winter.md)
-    - [2017 Spring](/timeline/2017-spring.md)
-    - [2016 Winter](/timeline/2016-winter.md)
-    - [2016 Fall](/timeline/2016-fall.md)
-    - [2016 Spring & Summer](/timeline/2016-summer.md)
-    - [Bye 2015](/timeline/2015-bye.md)
+    - [2017 Summer ~ Winter](/life/2017-summer-2-winter.md)
+    - [2017 Spring](/life/2017-spring.md)
+    - [2016 Winter](/life/2016-winter.md)
+    - [2016 Fall](/life/2016-fall.md)
+    - [2016 Spring & Summer](/life/2016-summer.md)
+    - [Bye 2015](/life/2015-bye.md)
     - [How to Build Blog](/docsify/build.md) : 搭建博客
     - [Blog Changlogs](/docsify/changelog.md) : 折腾博客
     - [icehe.github.io](https://icehe.github.io) : previous technology blog
 - Before 2015
-    - [QZone Index](/timeline/qzone-index.md) of the old posts
+    - [QZone Index](/life/qzone-index.md) of the old posts
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
@@ -748,4 +748,4 @@ Work Hard
 
 -->
 
-<!-- ![the-fucking-life.jpg](/timeline/_image/the-fucking-life.jpg) -->
+<!-- ![the-fucking-life.jpg](/life/_image/the-fucking-life.jpg) -->

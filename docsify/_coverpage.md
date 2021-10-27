@@ -39,7 +39,7 @@
 [Library](/README)
 
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->
-<!-- [🎯 About](/timeline/bio.md) -->
+<!-- [🎯 About](/life/bio.md) -->
 <!-- [📚 Library](/README) -->
 
 <!-- Ref : https://docsify.js.org/#/cover -->
