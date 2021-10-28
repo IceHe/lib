@@ -589,12 +589,12 @@ Living
 Timeline
 
 - After 2018
-    - [Better Living](/life/better-living.md)
-    - [Rehabilitation](/life/rehabilitation.md)
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
     - [2018 Spring ~ 2019 Autumn](/life/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/life/2018-winter.md)
     - [Moments](/life/moments.md) : 回忆
+    - [Better Living](/life/better-living.md)
+    - [Rehabilitation](/life/rehabilitation.md)
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/life/2017-summer-2-winter.md)
     - [2017 Spring](/life/2017-spring.md)
