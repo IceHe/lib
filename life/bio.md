@@ -10,7 +10,7 @@ IceHe's short biographical profile
 
 经历 - 后端
 
--   武侍科技: 创始团队 (<10人) - Node.js /
+-   武侍科技: 创始团队 - Node.js /
     _2021.10 至今_
 -   猿辅导: 斑马 - 供应链 - Java /
     _2021.3 ~ 2021.8_
@@ -97,11 +97,11 @@ IceHe's short biographical profile
 
 ## 经历
 
-**武侍科技 - 创始团队 (<10人) - Node.js 后端成员** _2021.10 至今_
+**武侍科技 - 创始团队 - Node.js 后端成员** _2021.10 至今_
 
 - 公司简介: [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 - 初始产品: [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
-- 融资阶段: Seed money $2M+ from [Sequoia Capital](https://www.sequoiacap.com/china/)<!-- 红杉资本 -->, [ZhenFund](http://www.zhenfund.com/) <!-- 真格基金 --> & TBD?
+- 融资阶段: Seed money $2M+ from [Sequoia Capital](https://www.sequoiacap.com/china/)<!-- 红杉资本 -->, [ZhenFund](http://www.zhenfund.com/)<!-- 真格基金 -->, …
 - _JavaScript / TypeScript / Node.js / GitHub Organization / Alibaba Cloud_
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
