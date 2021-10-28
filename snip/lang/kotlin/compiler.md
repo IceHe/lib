@@ -208,7 +208,7 @@ There are several ways to **set the compiler options and their values (compiler 
 
 -   If you run a **command-line** compiler, add the compiler arguments directly to the utility call or write them into an [**argfile**](https://kotlinlang.org/docs/compiler-reference.html#api-version-version).
 
-### Common Options
+### Common
 
 -   `-version`
 
@@ -216,13 +216,13 @@ There are several ways to **set the compiler options and their values (compiler 
 
     _Suppress the compiler from displaying warnings during compilation._
 
--   `-Werror`
+-   **`-Werror`**
 
     **Turn any warnings into a compilation error.**
 
 -   `-verbose`
 
--   `-script`
+-   **`-script`**
 
     **Evaluate a Kotlin script file.**
 
@@ -230,7 +230,7 @@ There are several ways to **set the compiler options and their values (compiler 
 
 -   `-help`, `-h`
 
--   `-X`
+-   **`-X`**
 
     **Display information about the advanced options and exit.**
 
@@ -240,7 +240,7 @@ There are several ways to **set the compiler options and their values (compiler 
 
     Specify a custom path to the Kotlin compiler used for the discovery of runtime libraries.
 
--   `-P plugin:pluginId:optionName=value`
+-   **`-P plugin:pluginId:optionName=value`**
 
     **Pass an option to a Kotlin compiler plugin.**
 
@@ -254,14 +254,14 @@ There are several ways to **set the compiler options and their values (compiler 
 
     _Allow using declarations only from the specified version of Kotlin bundled libraries._
 
--   `-progressive`
+-   **`-progressive`**
 
     **Enable the [progressive mode](https://kotlinlang.org/docs/whatsnew13.html#progressive-mode) for the compiler.**
 
     In the progressive mode, deprecations and bug fixes for unstable code take effect immediately, instead of going through a graceful migration cycle.
     Code written in the progressive mode is backwards compatible; however, code written in a non-progressive mode may cause compilation errors in the progressive mode.
 
--   `@argfile`
+-   **`@argfile`**
 
     **Read the compiler options from the given file.**
 
@@ -286,3 +286,69 @@ There are several ways to **set the compiler options and their values (compiler 
     ```
 
     <!-- icehe : 这段没看懂, 感觉还得用一用才能理解… 2021/10/28 -->
+
+### Kotlin/JVM
+
+The Kotlin compiler for JVM compiles Kotlin source files into Java class files.
+**The command-line tools for Kotlin to JVM compilation are `kotlinc` and `kotlinc-jvm`.**
+You can also use them for executing Kotlin script files.
+
+-   **`-classpath path (-cp path)`**
+
+    **Search for class files in the specified paths.**
+
+    _Separate elements of the classpath with system path separators (`;` on Windows, `:` on macOS/Linux)._
+    The classpath can contain file and directory paths, ZIP, or JAR files.
+
+-   **`-d path`**
+
+    **Place the generated class files into the specified location.**
+
+    The location can be a directory, a ZIP, or a JAR file.
+
+-   **`-include-runtime`**
+
+    **Include the Kotlin runtime into the resulting JAR file.**
+
+    Makes the resulting archive runnable on any Java-enabled environment.
+
+-   `-jdk-home path`
+
+    Use a custom JDK home directory to include into the classpath if it differs from the default `JAVA_HOME`.
+
+-   `-jvm-target version`
+
+    Specify the target version of the generated JVM bytecode.
+
+    Possible values are 1.6 (DEPRECATED), 1.8, 9, 10, 11, 12, 13, 14, 15 and 16. The default value is 1.8.
+
+-   **`-java-parameters`**
+
+    **Generate metadata for Java 1.8 reflection on method parameters.**
+
+-  `-module-name name` (JVM)
+
+    _Set a custom name for the generated `.kotlin_module` file._
+
+-   `-no-jdk`
+
+    _Don't automatically include the Java runtime into the classpath._
+
+-   `-no-reflect`
+
+    _Don't automatically include the Kotlin reflection (kotlin-reflect.jar) into the classpath._
+
+-   `-no-stdlib` (JVM)
+
+    _Don't automatically include the Kotlin/JVM stdlib (`kotlin-stdlib.jar`) and Kotlin reflection (`kotlin-reflect.jar`) into the classpath._
+
+-   `-script-templates classnames[,]`
+
+    _Script definition template classes._
+
+    _Use fully qualified class names and separate them with commas (`,`)._
+
+### Kotlin/JS
+
+The Kotlin compiler for JS compiles Kotlin source files into JavaScript code.
+The command-line tool for Kotlin to JS compilation is `kotlinc-js`.
