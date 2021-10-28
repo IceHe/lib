@@ -464,12 +464,27 @@ Basics
 - [Install JDK](/java/install-jdk.md)
 - IDE : [IntelliJ IDEA](/java/intellij-idea.md) usage
 - Code Style Guide : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
-- Package Manager : [Maven](/java/maven.md) & Gradle
 - Unit Tests: [Spock](/java/spock.md) or JUnit
     - [Groovy](/java/groovy.md) : a multi-faceted language for the Java platform
 - [Annotations](/java/annotations.md) : Spring / Lombok / FastJson / Jackson / …
 - [Exceptions](/java/exceptions.md) : exception class hierarchy / …
 - [Other Notes](/java/notes.md)
+
+Package Manager
+
+- [Maven](/java/maven.md)
+    - Apache Maven is a software project management and comprehension tool.
+    - Based on the concept of a **project object model** (POM), Maven can :
+        - manage a project's build,
+        - reporting _and_
+        - documentation from a central piece of information.
+- [Gradle](/java/gradle.md)
+    - From mobile apps to microservices, from small startups to big enterprises,
+    - Gradle helps teams build, automate and deliver better software, faster.
+
+Benchmark & Stress Testing
+
+- [JMH](/java/jmh.md) : Java Microbenchmark Harness
 
 Code Snippet
 
@@ -492,10 +507,6 @@ Code Snippet
 - [Stream and Optional](/java/code-snippet/stream-n-optional.md)
 - [String](/java/code-snippet/string.md)
 - [Task](task.md)
-
-Benchmark & Stress Testing
-
-- [JMH](/java/jmh.md) : Java Microbenchmark Harness
 
 Command Line Tool
 

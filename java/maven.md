@@ -1,5 +1,10 @@
 # Maven
 
+Apache Maven is a software project management and comprehension tool.
+Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.
+
+---
+
 Maven
 
 - A software profject management & comprehension tool ( not Pacakge Management ! )
@@ -8,9 +13,9 @@ Maven
 
 References
 
-- Official Website : https://maven.apache.org/
-    - **Maven in 5 Minutes** : http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
-    - **POM Reference** : http://maven.apache.org/pom.html
+- [maven.apache.org](https://maven.apache.org/)
+    - [Maven in 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
+    - [POM Reference](http://maven.apache.org/pom.html)
 - Book :《 Maven 实战 》( Maven 3 in Action 中文版 )
 
 ## Configuration File
