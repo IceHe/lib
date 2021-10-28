@@ -433,6 +433,94 @@ The command-line tool for Kotlin/Native compilation is **`kotlinc-native`**.
 
     Produce an application for running unit tests without an explicit process exit.
 
--   `-include-binary path`, `-ib path`
+-   **`-include-binary path`, `-ib path`**
 
-    Pack external binary within the generated klib file.
+    **Pack external binary within the generated klib file.**
+
+-   `-library path` `-l path`
+
+    **Link with the library.**
+
+    To learn about using libraries in Kotlin/native projects, see [Kotlin/Native libraries](https://kotlinlang.org/docs/native-libraries.html).
+
+-   `-library-version version`, `-lv version`
+
+    Set the library version.
+
+-   `-list-targets`
+
+    List the available hardware targets.
+
+-   `-module-name name` (Native)
+
+    Specify a name for the compilation module.
+
+    This option can also be used to specify a name prefix for the declarations exported to Objective-C:
+    [How do I specify a custom Objective-C prefix/name for my Kotlin framework?](https://kotlinlang.org/docs/native-faq.html#how-do-i-specify-a-custom-objective-c-prefix-name-for-my-kotlin-framework)
+
+-   `-native-library path` `-nl path`
+
+    Include the native bitcode library.
+
+-   `-no-default-libs`
+
+    Disable linking user code with the default platform libraries distributed with the compiler.
+
+-   `-nomain`
+
+    Assume the main entry point to be provided by external libraries.
+
+-   `-nopack`
+
+    Don't pack the library into a klib file.
+
+-   `-linker-option`
+
+    Pass an argument to the linker during binary building.
+
+    This can be used for linking against some native library.
+
+-   `-linker-options args`
+
+    Pass multiple arguments to the linker during binary building.
+
+    _Separate arguments with whitespaces._
+
+-   `-nostdlib`
+
+    Don't link with stdlib.
+
+-   **`-opt`**
+
+    **Enable compilation optimizations.**
+
+-   `-output name`, `-o name`
+
+    Set the name for the output file.
+
+-   `-entry name`, `-e name`
+
+    Specify the qualified entry point name.
+
+-   `-produce output`, `-p output`
+
+    Specify output file kind:
+
+    - `program`
+    - `static`
+    - `dynamic`
+    - `framework`
+    - `library`
+    - `bitcode`
+
+-   `-repo path`, `-r path`
+
+    Library search path.
+
+    For more information, see [Library search sequence](https://kotlinlang.org/docs/native-libraries.html#library-search-sequence).
+
+-   `-target target`
+
+    **Set hardware target.**
+
+    To see the list of available targets, use the [`-list-targets`](https://kotlinlang.org/docs/compiler-reference.html#kotlin-native-compiler-options) option.
