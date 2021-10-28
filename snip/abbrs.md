@@ -652,6 +652,7 @@ Reference : https://www.computerhope.com/keys.htm
 - org : organization
 - ori : original
 - ORM : [Object Relational Mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
+- OSGi : [Open Services Gateway initiative](https://en.wikipedia.org/wiki/OSGi)
 - OSPF : Open Shortest Path First 开放最短链路优先
 - OSS : [Object Storage Service](https://www.aliyun.com/product/oss?spm=a2c4g.11186623.2.10.4d933abdzkr1xJ)
 - oth : others

@@ -293,7 +293,7 @@ The Kotlin compiler for JVM compiles Kotlin source files into Java class files.
 **The command-line tools for Kotlin to JVM compilation are `kotlinc` and `kotlinc-jvm`.**
 You can also use them for executing Kotlin script files.
 
--   **`-classpath path (-cp path)`**
+-   **`-classpath path`, `-cp path`**
 
     **Search for class files in the specified paths.**
 
@@ -458,7 +458,7 @@ The command-line tool for Kotlin/Native compilation is **`kotlinc-native`**.
     This option can also be used to specify a name prefix for the declarations exported to Objective-C:
     [How do I specify a custom Objective-C prefix/name for my Kotlin framework?](https://kotlinlang.org/docs/native-faq.html#how-do-i-specify-a-custom-objective-c-prefix-name-for-my-kotlin-framework)
 
--   `-native-library path` `-nl path`
+-   `-native-library path`, `-nl path`
 
     Include the native bitcode library.
 
