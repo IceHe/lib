@@ -227,8 +227,6 @@ brew install \
     git \
     fzf \
     jq \
-    kotlin \
-    maven \
     nginx \
     node \
     nvim \
@@ -499,6 +497,12 @@ JDK - Java Development Kit
 
 ### Maven
 
+1.  Install [Apache Maven](https://maven.apache.org/) ( `mvn` )
+
+    ```bash
+    brew install maven
+    ```
+
 1.  Copy the content of the Maven configuration file template
 
     _Search it on the Internet_
@@ -759,12 +763,28 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 
 -->
 
+---
+
 ## TODO
 
-### JavaScript Development
+## JavaScript Development
 
-#### WebStorm
+CLI
 
-### Kotlin Android Development
+```bash
+brew install node
+```
 
-#### AndroidStudio
+### WebStorm
+
+## Kotlin Android Development
+
+CLI
+
+```bash
+brew install \
+    kotlin \
+    gradle
+```
+
+### AndroidStudio
