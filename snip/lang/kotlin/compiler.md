@@ -1,5 +1,9 @@
 # Compiler - Kotlin
 
+References
+
+- [Kotlin command-line compiler - Kotlin Docs](https://kotlinlang.org/docs/command-line.html)
+
 ## Install
 
 ### Homebrew
@@ -162,3 +166,5 @@ $ kotlinc -script src/hello_world.kts
 Hello world!
 Welcome, IceHe!
 ```
+
+……

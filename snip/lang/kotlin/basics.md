@@ -1,12 +1,12 @@
-## Basics - Kotlin
+# Basics - Kotlin
 
-### Basic syntax
+## Basic syntax
 
 References
 
 - [Android Overview - Kotlin Docs](https://kotlinlang.org/docs/basic-syntax.html)
 
-#### Package definition and imports
+### Package definition and imports
 
 Package specification should be at the top of the source file.
 
@@ -22,7 +22,7 @@ import kotlin.text.*
 
 See [Packages](https://kotlinlang.org/docs/packages.html).
 
-#### Program entry point
+### Program entry point
 
 ```kt
 fun main() {
@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-#### Print to the standard output
+### Print to the standard output
 
 ```kt
 print("Hello ")
@@ -47,7 +47,7 @@ println("Hello IceHe!")
 println(42)
 ```
 
-#### Functions
+### Functions
 
 ```kt
 fun sum(a: Int, b: Int): Int {
@@ -64,7 +64,7 @@ fun sum(a: Int, b: Int) = a + b
 
 See [Functions](https://kotlinlang.org/docs/functions.html)
 
-#### Variables
+### Variables
 
 **Read-only local variables are defined using the keyword `val`.**
 **They can be assigned a value only once.**
@@ -96,7 +96,7 @@ fun incrementX() {
 
 See [Properties](https://kotlinlang.org/docs/properties.html)
 
-#### Creating classes and instances
+### Creating classes and instances
 
 Properties of a class can be listed in its declaration or body.
 
@@ -126,7 +126,7 @@ class Rectangle(var height: Double, var length: Double): Shape() {
 
 See [Classes](https://kotlinlang.org/docs/classes.html) and [Objects and instances](https://kotlinlang.org/docs/object-declarations.html).
 
-#### Comments
+### Comments
 
 ```kt
 // This is an end-of-line comment
@@ -145,7 +145,7 @@ and ends here. */
 
 _See [Documenting Kotlin Code](https://kotlinlang.org/docs/kotlin-doc.html) for information on the documentation comment syntax._
 
-#### String templates
+### String templates
 
 ```kt
 var a = 1
@@ -159,7 +159,7 @@ val s2 = "${s1.replace("is", "was")}, but now is $a"
 
 See [String templates](https://kotlinlang.org/docs/basic-types.html#string-templates) for details.
 
-#### Conditional expressions
+### Conditional expressions
 
 ```kt
 fun maxOf(a: Int, b: Int): Int {
@@ -179,7 +179,7 @@ fun maxOf(a: Int, b: Int) = if (a > b) a else b
 
 See [`if`-expressions](https://kotlinlang.org/docs/control-flow.html#if-expression).
 
-#### for loop
+### for loop
 
 ```kt
 val items = listOf("apple", "banana", "kiwifruit")
@@ -199,7 +199,7 @@ for (index in items.indices) {
 
 See [for loop](https://kotlinlang.org/docs/control-flow.html#while-loops).
 
-#### while loop
+### while loop
 
 ```kt
 val items = listOf("apple", "banana", "kiwifruit")
@@ -212,7 +212,7 @@ while (index < items.size) {
 
 See [while loop](https://kotlinlang.org/docs/control-flow.html#while-loops).
 
-#### when expression
+### when expression
 
 ```kt
 fun describe(obj: Any): String =
@@ -227,7 +227,7 @@ fun describe(obj: Any): String =
 
 See [when expression](https://kotlinlang.org/docs/control-flow.html#when-expression).
 
-#### Ranges
+### Ranges
 
 **Check if a number is within a range using `in` operator.**
 
@@ -274,7 +274,7 @@ for (x in 9 downTo 0 step 3) {
 
 See [Ranges and progression](https://kotlinlang.org/docs/ranges.html)
 
-#### Collections
+### Collections
 
 Iterate over a collection.
 
@@ -306,7 +306,7 @@ fruits
 
 See [Collections overview](https://kotlinlang.org/docs/collections-overview.html)
 
-#### Nullable values and null checks
+### Nullable values and null checks
 
 **A reference must be explicitly marked as nullable when `null` value is possible.**
 **Nullable type names have `?` at the end.**
@@ -319,7 +319,7 @@ fun parseInt(str: String): Int? {
 }
 ```
 
-#### Use a function returning nullable value:
+### Use a function returning nullable value:
 
 ```kt
 fun printProduct(arg1: String, arg2: String) {
@@ -356,7 +356,7 @@ println(x * y)
 
 See [Null-safety](https://kotlinlang.org/docs/null-safety.html).
 
-#### Type checks and automatic casts﻿
+### Type checks and automatic casts
 
 **The `is` operator checks if an expression is an instance of a type.**
 If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
