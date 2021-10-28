@@ -461,14 +461,12 @@ npm : the world's largest software registry
 Basics
 
 - [Glossaries](/java/glossaries.md)
-- [Install JDK](/java/install-jdk.md)
+- Install : [JDK](/java/install-jdk.md)
 - IDE : [IntelliJ IDEA](/java/intellij-idea.md) usage
 - Code Style Guide : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
-- Unit Tests: [Spock](/java/spock.md) or JUnit
-    - [Groovy](/java/groovy.md) : a multi-faceted language for the Java platform
 - [Annotations](/java/annotations.md) : Spring / Lombok / FastJson / Jackson / …
 - [Exceptions](/java/exceptions.md) : exception class hierarchy / …
-- [Other Notes](/java/notes.md)
+- Others : [Notes](/java/notes.md)
 
 Package Manager
 
@@ -482,9 +480,11 @@ Package Manager
     - From mobile apps to microservices, from small startups to big enterprises,
     - Gradle helps teams build, automate and deliver better software, faster.
 
-Benchmark & Stress Testing
+Benchmark, Stress Testing & Unit Testing
 
-- [JMH](/java/jmh.md) : Java Microbenchmark Harness
+- Benchmark & Stress Testing : [JMH](/java/jmh.md) - Java Microbenchmark Harness
+- Unit testing & Integration testing : [Spock](/java/spock.md) or JUnit
+    - [Groovy](/java/groovy.md) : a multi-faceted language for the Java platform
 
 Code Snippet
 
