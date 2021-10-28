@@ -4,7 +4,7 @@
 
 ### Homebrew
 
-**Recommended**
+**( Recommended )**
 
 ```bash
 brew update
@@ -13,7 +13,7 @@ brew install kotlin
 
 ### _SDKMAN!_
 
-_Optional_
+_( Optional )_
 
 An easier way to install Kotlin on UNIX-based systems, such as OS X, Linux, Cygwin, FreeBSD, and Solaris, is [SDKMAN!](https://sdkman.io/).
 It also works in Bash and ZSH shells.
@@ -34,9 +34,10 @@ sdk install kotlin
 
 For example:
 
-1\. Create a simple application in Kotlin. `hello-world.kt` :
+1\. Create a simple application in Kotlin. `hello_world.kt` :
 
 ```kt
+// hello_world.kt
 fun main() {
     println("Hello, World!")
 }
@@ -45,13 +46,13 @@ fun main() {
 2\. Compile the application
 
 ```bash
-kotlinc hello-world.kt --include-runtim -d hello-world.jar
+kotlinc hello_world.kt --include-runtim -d hello_world.jar
 ```
 
 3\. Run the application
 
 ```bash
-$ java -jar target/hello-world.jar
+$ java -jar target/hello_world.jar
 Hello world!
 ```
 
@@ -96,6 +97,7 @@ where possible options include:
 
 For details, see https://kotl.in/cli
 ```
+
 ## Compile a library
 
 1\. Create a simple application in Kotlin. `HelloWorld.kt` :
@@ -114,7 +116,7 @@ class HelloWorld {
 2\. Compile the application
 
 ```bash
-kotlinc hello-world.kt --include-runtim -d hello-world.jar```bash
+kotlinc hello-world.kt --include-runtim -d hello-world.jar
 ```
 
 3\. Run the application
@@ -140,3 +142,23 @@ Test Kotlin Shell
 ```
 
 ## Run scripts
+
+1\. Create a simple script in Kotlin. `HelloWorld.kt` :
+
+```kt
+// hello_world.kts
+fun main() {
+    println("Hello world!")
+}
+
+main();
+println("Welcome, IceHe!")
+```
+
+2\. Comile and run the script
+
+```bash
+$ kotlinc -script src/hello_world.kts
+Hello world!
+Welcome, IceHe!
+```
