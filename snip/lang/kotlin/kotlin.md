@@ -417,3 +417,9 @@ fun getStringLength(obj: Any): Int? {
 ```
 
 See [Classes](https://kotlinlang.org/docs/classes.html) and Type casts.
+
+## Idioms
+
+```kt
+data class Customer(val name: String, val email: String)
+```

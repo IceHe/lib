@@ -227,6 +227,7 @@ brew install \
     git \
     fzf \
     jq \
+    kotlin \
     maven \
     nginx \
     node \
@@ -757,3 +758,13 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 - `Quality` → Set all **50%** ( JPEG, PNG, GIF and so on )
 
 -->
+
+## TODO
+
+### JavaScript Development
+
+#### WebStorm
+
+### Kotlin Android Development
+
+#### AndroidStudio

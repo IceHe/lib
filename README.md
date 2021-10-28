@@ -154,7 +154,7 @@ Message Queue
 - _[MemcacheQ](/snip/mq/mcq.md)_
 - _[Notes](/snip/mq/notes.md)_
 
-Programming Languages _at a glance_
+Programming Languages - at a glance
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) : programming languages / tools / …
 - [Elixir](/snip/lang/elixir.md) : a dynamic, functional language for building scalable and maintainable applications
