@@ -3,6 +3,7 @@
 References
 
 - [Kotlin command-line compiler - Kotlin Docs](https://kotlinlang.org/docs/command-line.html)
+- [Kotlin compiler options - Kotlin Docs](https://kotlinlang.org/docs/compiler-reference.html)
 
 ## Install
 
@@ -34,7 +35,9 @@ To install the Kotlin compiler via SDKMAN!, run the following command in the ter
 sdk install kotlin
 ```
 
-## Compile and run an application
+## Compile and Run
+
+### Application
 
 For example:
 
@@ -102,7 +105,7 @@ where possible options include:
 For details, see https://kotl.in/cli
 ```
 
-## Compile a library
+### Library
 
 1\. Create a simple application in Kotlin. `HelloWorld.kt` :
 
@@ -130,7 +133,9 @@ $ kotlin -classpath target/HelloWorld.jar HelloWorld
 Hello world!
 ```
 
-## Run the REPL
+### REPL
+
+Read-Eval-Print Loop
 
 You can run the compiler without parameters to have an interactive shell. In this shell, you can type any valid Kotlin code and see the results.
 
@@ -145,7 +150,7 @@ Test Kotlin Shell
 >>>
 ```
 
-## Run scripts
+### Script
 
 1\. Create a simple script in Kotlin. `HelloWorld.kt` :
 
@@ -168,3 +173,116 @@ Welcome, IceHe!
 ```
 
 ……
+
+## Compiler Options
+
+Each release of Kotlin includes compilers for the supported targets:
+
+- **JVM**,
+- **JavaScript**, and
+- **native binaries** for [supported platforms](https://kotlinlang.org/docs/native-overview.html#target-platforms).
+    - macOS
+    - iOS, tvOS, watchOS
+    - Linux
+    - Windows (MinGW)
+    - Android NDK
+    - ……
+
+……
+
+_You can also run Kotlin compilers manually from the command line as described in the Working with command-line compiler tutorial (above) ._
+
+_Kotlin compilers have a number of options for tailoring<!-- 剪裁, 使合适 --> the compiling process. ……_
+
+There are several ways to **set the compiler options and their values (compiler arguments):**
+
+-   In **IntelliJ IDEA**, write in the compiler arguments in the **Additional command-line parameters** text box in "Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler"
+
+-   If you're using **Gradle**, specify the compiler arguments in the **`kotlinOptions`** property of the Kotlin compilation task.
+
+    _For details, see [Gradle](https://kotlinlang.org/docs/gradle.html#compiler-options)._
+
+-   If you're using **Maven**, specify the compiler arguments in the **`<configuration>`** element of the Maven plugin node.
+
+    _For details, see [Maven](https://kotlinlang.org/docs/maven.html#specifying-compiler-options)._
+
+-   If you run a **command-line** compiler, add the compiler arguments directly to the utility call or write them into an [**argfile**](https://kotlinlang.org/docs/compiler-reference.html#api-version-version).
+
+### Common Options
+
+-   `-version`
+
+-   `-nowarn`
+
+    _Suppress the compiler from displaying warnings during compilation._
+
+-   `-Werror`
+
+    **Turn any warnings into a compilation error.**
+
+-   `-verbose`
+
+-   `-script`
+
+    **Evaluate a Kotlin script file.**
+
+    When called with this option, the compiler executes the first Kotlin script (`*.kts`) file among the given arguments.
+
+-   `-help`, `-h`
+
+-   `-X`
+
+    **Display information about the advanced options and exit.**
+
+    _These options are currently unstable: their names and behavior may be changed without notice._
+
+-   `-kotlin-home path`
+
+    Specify a custom path to the Kotlin compiler used for the discovery of runtime libraries.
+
+-   `-P plugin:pluginId:optionName=value`
+
+    **Pass an option to a Kotlin compiler plugin.**
+
+    Available plugins and their options are listed in the "Tools > Compiler plugins" section of the documentation.
+
+-   `-language-version version`
+
+    _Provide source compatibility with the specified version of Kotlin._
+
+-   `-api-version version`
+
+    _Allow using declarations only from the specified version of Kotlin bundled libraries._
+
+-   `-progressive`
+
+    **Enable the [progressive mode](https://kotlinlang.org/docs/whatsnew13.html#progressive-mode) for the compiler.**
+
+    In the progressive mode, deprecations and bug fixes for unstable code take effect immediately, instead of going through a graceful migration cycle.
+    Code written in the progressive mode is backwards compatible; however, code written in a non-progressive mode may cause compilation errors in the progressive mode.
+
+-   `@argfile`
+
+    **Read the compiler options from the given file.**
+
+    Such a file can contain compiler options with values and paths to the source files.
+    Options and paths should be separated by whitespaces.
+    For example: `-include-runtime -d hello.jar hello.kt`
+
+    To pass values that contain whitespaces, surround them with single (`'`) or double (`"`) quotes.
+    If a value contains quotation marks in it, escape them with a backslash (`\`).
+    `-include-runtime -d 'My folder'`
+
+    You can also pass multiple argument files, for example, to separate compiler options from source files.
+
+    ```bash
+    $ kotlinc @compiler.options @classes
+    ```
+
+    If the files reside in locations different from the current directory, use relative paths.
+
+    ```bash
+    $ kotlinc @options/compiler.options hello.kt
+    ```
+
+    <!-- icehe : 这段没看懂, 感觉还得用一用才能理解… 2021/10/28 -->
