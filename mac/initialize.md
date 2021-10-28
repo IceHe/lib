@@ -395,7 +395,7 @@ JDK - Java Development Kit
 
     _The recommended version is still **8**. ( 2021-01-01 )_
 
-    _( Optional installation : [sdkman](https://sdkman.io) )_
+    _( Optional installation : [SDKMAN!](https://sdkman.io) )_
 
 1.  Install
 
@@ -765,8 +765,6 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 
 ---
 
-## TODO
-
 ## JavaScript Development
 
 CLI
@@ -776,6 +774,8 @@ brew install node
 ```
 
 ### WebStorm
+
+TODO
 
 ## Kotlin Android Development
 
@@ -788,3 +788,5 @@ brew install \
 ```
 
 ### AndroidStudio
+
+TODO
