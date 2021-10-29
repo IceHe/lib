@@ -196,3 +196,41 @@ fruits
 /**
  * nullable values and null checks
  */
+fun parseInt(str: String?): Int? {
+    try {
+        return Integer.parseInt(str)
+    } catch (e: Exception) {
+        return null
+    }
+}
+
+fun printProduct(arg1: String, arg2: String) {
+    val x = parseInt(arg1)
+    val y = parseInt(arg2)
+
+    // Using `x * y` yields error because they may hold nulls.
+    if (x == null || y == null) {
+        println("'$arg1' or '$arg2' is not a number")
+    } else {
+        println(x + y)
+    }
+}
+
+var arg1: String
+var arg2: String
+
+arg1 = "1"
+arg2 = "y"
+printProduct(arg1, arg2)
+
+arg1 = "x"
+arg2 = "2"
+printProduct(arg1, arg2)
+
+arg1 = "x"
+arg2 = "y"
+printProduct(arg1, arg2)
+
+arg1 = "3"
+arg2 = "4"
+printProduct(arg1, arg2)
