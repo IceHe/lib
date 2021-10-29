@@ -234,3 +234,18 @@ printProduct(arg1, arg2)
 arg1 = "3"
 arg2 = "4"
 printProduct(arg1, arg2)
+
+/**
+ * type checks and automatic casts
+ */
+fun getStringLength(obj: Any): Int? {
+    return if (obj is String) {
+        obj.length
+    } else {
+        null
+    }
+}
+
+println("getStringLength(\"icehe\") = " + getStringLength("icehe"))
+println("getStringLength(\"\") = " + getStringLength(""))
+println("getStringLength(5) = " + getStringLength(5))
