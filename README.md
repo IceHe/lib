@@ -364,12 +364,14 @@ Manual
 - _[whoami](/cmd/w/whoami.md) : print effective userid_
 - [xargs](/cmd/x/xargs.md) : build and execute command lines from standard input
 - _[xxd](/cmd/x/xxd.md) : make a hexdump or do the reverse_
+- _[yes](/cmd/y/yes.md) : be repetitively affirmative_
 - [zsh](/cmd/z/zsh.md) : one of shells
 - [Linux Abbreviations](/cmd/linux-abbrs.md)
 - _[CLI Notes](/cmd/notes.md) - to read_
 
 Scene
 
+- **automate** : expect, yes
 - **connect** : curl, nc, ssh, telnet
 - **directory** : cp, find, ln, ls, mv
 - **disk** : df, du
