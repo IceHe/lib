@@ -162,7 +162,7 @@ Programming Languages - at a glance
 - [PHP](/snip/php/php.md) : a popular general-purpose scripting language that is especially suited to web development
 - [Python](/snip/lang/python.md) : a programming language that lets you work quickly and integrate systems more effectively
 - [Kotlin](/snip/lang/kotlin/kotlin.md) : a cross-platform, statically typed, general-purpose programming language with type inference
-    - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) / [Compiler](/snip/lang/kotlin/compiler.md)
+    - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md)<!-- TODO --> / [Compiler](/snip/lang/kotlin/compiler.md) / …
 
 Storage
 
