@@ -201,9 +201,32 @@ _It also describes the security and privacy considerations for using OpenID Conn
 
 ## 1. Introduction
 
+OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 RFC6749 protocol.
+It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
+
+The OpenID Connect Core 1.0 specification defines the core OpenID Connect functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User.
+It also describes the security and privacy considerations for using OpenID Connect.
+
+As background, the OAuth 2.0 Authorization Framework [RFC6749] and OAuth 2.0 Bearer Token Usage [RFC6750] specifications provide a general framework for third-party applications to obtain and use limited access to HTTP resources.
+They define mechanisms to obtain and use Access Tokens to access resources but do not define standard methods to provide identity information.
+Notably, without profiling OAuth 2.0, it is incapable of providing information about the authentication of an End-User.
+_Readers are expected to be familiar with these specifications._
+
+**OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process.**
+Use of this extension is requested by Clients by including the openid scope value in the Authorization Request.
+**Information about the authentication performed is returned in a JSON Web Token (JWT) [JWT] called an ID Token (see Section 2).**
+_OAuth 2.0 Authentication Servers implementing OpenID Connect are also referred to as **OpenID Providers (OPs)**._
+_OAuth 2.0 Clients using OpenID Connect are also referred to as **Relying Parties (RPs)**._
+
+This specification **assumes that the Relying Party has already obtained configuration information about the OpenID Provider, including its Authorization Endpoint and Token Endpoint locations.**
+**This information is normally obtained via Discovery**, as described in OpenID Connect Discovery 1.0 [OpenID.Discovery], **or may be obtained via other mechanisms.**
+
+Likewise, this specification assumes that **the Relying Party has already obtained sufficient credentials and provided information needed to use the OpenID Provider.**
+**This is normally done via Dynamic Registration**, as described in OpenID Connect Dynamic Client Registration 1.0 [OpenID.Registration], or may be obtained via other mechanisms.
+
 ### 1.1. Requirements Notation and Conventions
 
-TODO
+……
 
 ### 1.2. Terminology
 
@@ -295,7 +318,7 @@ TODO ignore?
 
 TODO
 
-### 5. Claims
+## 5. Claims
 
 - 5.1.  Standard Claims
     <!-- - 5.1.1.  Address Claim -->
@@ -318,7 +341,7 @@ TODO
     <!--     - 5.6.2.2.  Example of Distributed Claims -->
 - 5.7.  Claim Stability and Uniqueness
 
-### 6. Passing Request Parameters as JWTs
+## 6. Passing Request Parameters as JWTs
 
 TODO
 
@@ -334,7 +357,7 @@ TODO
     <!-- - 6.3.2.  Signed Request Object -->
     <!-- - 6.3.3.  Request Parameter Assembly and Validation -->
 
-### 7. Self-Issued OpenID Provider
+## 7. Self-Issued OpenID Provider
 
 TODO
 
@@ -345,17 +368,17 @@ TODO
 - 7.4.  Self-Issued OpenID Provider Response
 - 7.5.  Self-Issued ID Token Validation
 
-### 8. Subject Identifier Types
+## 8. Subject Identifier Types
 
 TODO
 
 - 8.1.  Pairwise Identifier Algorithm
 
-### 9. Client Authentication
+## 9. Client Authentication
 
 TODO
 
-### 10.  Signatures and Encryption
+## 10.  Signatures and Encryption
 
 TODO
 
@@ -364,11 +387,11 @@ TODO
 - 10.2.  Encryption
     <!-- - 10.2.1.  Rotation of Asymmetric Encryption Keys -->
 
-### 11. Offline Access
+## 11. Offline Access
 
 TODO
 
-### 12. Using Refresh Tokens
+## 12. Using Refresh Tokens
 
 TODO
 
@@ -376,7 +399,7 @@ TODO
 - 12.2.  Successful Refresh Response
 - 12.3.  Refresh Error Response
 
-### 13.  Serializations
+## 13.  Serializations
 
 TODO
 
@@ -384,11 +407,11 @@ TODO
 - 13.2.  Form Serialization
 - 13.3.  JSON Serialization
 
-### 14.  String Operations
+## 14.  String Operations
 
 TODO
 
-### 15.  Implementation Considerations
+## 15.  Implementation Considerations
 
 TODO
 
@@ -405,7 +428,7 @@ TODO
     <!-- - 15.6.2.  Google "iss" Value -->
 - 15.7.  Related Specifications and Implementer's Guides
 
-### 16. Security Considerations
+## 16. Security Considerations
 
 TODO
 
@@ -431,7 +454,7 @@ TODO
 - 16.20. Need for Signed Requests
 - 16.21. Need for Encrypted Requests
 
-### 17. Privacy Considerations
+## 17. Privacy Considerations
 
 TODO
 
@@ -440,7 +463,7 @@ TODO
 - 17.3.  Correlation
 - 17.4.  Offline Access
 
-### 18. IANA Considerations
+## 18. IANA Considerations
 
 TODO
 
@@ -451,14 +474,14 @@ TODO
 - 18.3. OAuth Extensions Error Registration
     <!-- - 18.3.1. Registry Contents -->
 
-### 19. References
+## 19. References
 
 TODO
 
 - 19.1. Normative References
 - 19.2. Informative References
 
-### Appendix A. Authorization Examples
+## Appendix A. Authorization Examples
 
 TODO
 
@@ -470,10 +493,10 @@ TODO
 - A.6. Example using response_type=code id_token token
 - A.7. RSA Key Used in Examples
 
-### Appendix B.  Acknowledgements
+## Appendix B.  Acknowledgements
 
 TODO
 
-### Appendix C.  Notices
+## Appendix C.  Notices
 
 TODO

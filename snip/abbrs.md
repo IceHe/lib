@@ -514,6 +514,8 @@ Reference : https://www.computerhope.com/keys.htm
 - Jr. : Junior 初级的
 - js : javascript
 - json : [JavaScript Object Notation](https://en.wikipedia.org/wiki/JSON)
+- JWE : [JSON Web Encryption](https://en.wikipedia.org/wiki/JSON_Web_Encryption)
+- JWS : [JSON Web Signature](https://en.wikipedia.org/wiki/JSON_Web_Signature)
 - jwt : [JSON Web Tokens](https://jwt.io/introduction/)
 
 ### K
