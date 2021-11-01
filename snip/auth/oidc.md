@@ -127,3 +127,34 @@ References
     - Flexibility
     - Wide support of devices
     - Enabling Claims Providers to be distinct from Identity Providers
+
+## Intro
+
+-   **What is OpenID Connect?**
+
+    OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol.
+    It allows Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
+
+    OpenID Connect allows clients of all types, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end-users.
+    The specification suite is extensible, allowing participants to use optional features such as encryption of identity data, discovery of OpenID Providers, and session management, when it makes sense for them.
+
+-   **How is OpenID Connect different than OpenID 2.0?**
+
+    OpenID Connect performs many of the same tasks as OpenID 2.0, but does so **in a way that is API-friendly, and usable by native and mobile applications.**
+    OpenID Connect **defines optional mechanisms for robust signing and encryption.**
+    Whereas integration of OAuth 1.0a and OpenID 2.0 required an extension, in OpenID Connect, OAuth 2.0 capabilities are integrated with the protocol itself.
+
+### Specification Organization
+
+The OpenID Connect 1.0 specification consists of these documents:
+
+- Core – Defines the core OpenID Connect functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+- Discovery – (Optional) Defines how Clients dynamically discover information about OpenID Providers
+- Dynamic Registration – (Optional) Defines how clients dynamically register with OpenID Providers
+- OAuth 2.0 Multiple Response Types – Defines several specific new OAuth 2.0 response types
+- OAuth 2.0 Form Post Response Mode – (Optional) Defines how to return OAuth 2.0 Authorization Response parameters (including OpenID Connect Authentication Response parameters) using HTML form values that are auto-submitted by the User Agent using HTTP POST
+- RP-Initiated Logout – (Optional) Defines how a Relying Party requests that an OpenID Provider log out the End-User
+- Session Management – (Optional) Defines how to manage OpenID Connect sessions, including postMessage-based logout and RP-initiated logout functionality
+- Front-Channel Logout – (Optional) Defines a front-channel logout mechanism that does not use an OP iframe on RP pages
+- Back-Channel Logout – (Optional) Defines a logout mechanism that uses direct back-channel communication between the OP and RPs being logged out
+- OpenID Connect Federation – (Optional) Defines how sets of OPs and RPs can establish trust by utilizing a Federation Operator
