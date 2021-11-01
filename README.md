@@ -131,13 +131,21 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 [Authentication & Authorization](/snip/auth/auth.md)
 
 - Basics
-    - [OIDC](/snip/auth/oidc.md) - Open ID Connect
-        - an interoperable authentication protocol based on the OAuth 2.0 family of specifications
+    - [OIDC](/snip/auth/oidc/oidc.md) - Open ID Connect :
+
+        an interoperable authentication protocol based on the OAuth 2.0 family of specifications
+
+        - [Core 1.0](/snip/auth/oidc/core.md) functionality : authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+
     - [OAuth](/snip/auth/oauth.md) - Open **Authorization**
-        - an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
+
+        an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
+
         - [OAuth 2.0 实战课 - Geekbang](/snip/auth/oauth-2.0-pratical-course.md)
         - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) - _to read_
+
 - Solution Provider
+
     - [auth0](/snip/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
     - [okta](/snip/auth/solution-provider/okta.md) : the world's #1 identity platform
     - [Authing](/snip/auth/solution-provider/authing.md) : connect every person and app on the planet
