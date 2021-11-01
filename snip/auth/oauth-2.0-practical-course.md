@@ -1,4 +1,4 @@
-# OAuth 2.0
+# OAuth 2.0 Practical Course
 
 Open Auth 2.0
 
