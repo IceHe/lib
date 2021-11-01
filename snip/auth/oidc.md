@@ -105,3 +105,25 @@ References
     **OpenID Connect identifies a set of personal attributes that can be exchanged between Identity Providers and the apps that use them, and includes an approval step so that users can consent (or deny) the sharing of this information.**
 
 -   What about new authentication technologies like biometrics and devices?
+
+    ……
+
+-   How does OpenID Connect relate to the FIDO Alliance?
+
+    ……
+
+-   **How does OpenID Connect relate to SAML?**
+
+    **The Security Assertion Markup Language (SAML) is an XML-based federation technology used in some enterprise and academic use cases.**
+    **OpenID Connect can satisfy these same use cases but with a simpler, JSON/REST based protocol.**
+    **OpenID Connect was designed to also support native apps and mobile applications, whereas SAML was designed only for Web-based applications.**
+    SAML and OpenID Connect will likely coexist for quite some time, with each being deployed in situations where they make sense.
+
+-   How does OpenID Connect enable creating an Internet identity ecosystem?
+
+    - Interoperability
+    - Security
+    - Ease of deployment
+    - Flexibility
+    - Wide support of devices
+    - Enabling Claims Providers to be distinct from Identity Providers

@@ -402,6 +402,7 @@ Reference : https://www.computerhope.com/keys.htm
 - FCFS : First Come First Serve ( for OS )
 - fd : [file descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 - FE : for example
+- FIDO Alliance : [Fast ID Online Alliance](https://en.wikipedia.org/wiki/FIDO_Alliance)
 - FIFO : [First In First Out](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics))
 - fin : finish | 结束 ( for TCP )
 - [firmwave](https://en.wikipedia.org/wiki/Firmware) ( to rm? )
@@ -785,6 +786,7 @@ Reference : https://www.computerhope.com/keys.htm
 - S2S : Sorry to say. 很抱歉告诉你
 - S3 : [Amazon Simple Storage Service](https://aws.amazon.com/cn/s3/)
 - SaaS：软件即服务 [Software as a Service](https://en.wikipedia.org/wiki/Software_as_a_service)
+- SAML : [Secure Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)
 - SAPI : Server API ( for PHP )
 - sched : schedule
 - SCI : [Science Citation Index](https://en.wikipedia.org/wiki/Science_Citation_Index)
