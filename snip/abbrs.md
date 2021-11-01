@@ -763,7 +763,7 @@ Reference : https://www.computerhope.com/keys.htm
 - rm : remove
 - rn : rename
 - RN : right now
-- ROI : Return On Investment 投资回报率
+- ROI : [Return On Investment](https://en.wikipedia.org/wiki/Return_on_investment) 投资回报率
 - RP : [Relying Party](https://en.wikipedia.org/wiki/Relying_party)
 - rst : result | reset 重置 ( for TCP )
 - rsp : response
