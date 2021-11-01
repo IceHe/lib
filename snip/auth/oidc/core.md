@@ -214,7 +214,7 @@ _Readers are expected to be familiar with these specifications._
 
 **OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process.**
 Use of this extension is requested by Clients by including the openid scope value in the Authorization Request.
-**Information about the authentication performed is returned in a JSON Web Token (JWT) [JWT] called an ID Token (see Section 2).**
+**Information about the authentication performed is returned in a JSON Web Token (JWT) JWT called an ID Token (see Section 2).**
 _OAuth 2.0 Authentication Servers implementing OpenID Connect are also referred to as **OpenID Providers (OPs)**._
 _OAuth 2.0 Clients using OpenID Connect are also referred to as **Relying Parties (RPs)**._
 
@@ -234,7 +234,99 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
 ### 1.2. Terminology
 
-TODO
+……
+
+-   ……
+
+-   **Claim**
+
+    **Piece of information asserted about Entity.**
+
+-   _Claim Type_
+
+    _Syntax used for representing a Claim Value._
+
+    _This specification defines **Normal**, **Aggregated**, and **Distributed** Claim Types._
+
+-   _Claims Provider_
+
+    _Server that can return Claims about an Entity._
+
+-   **Credential**
+
+    **Data presented as evidence of the right to use an identity or other resources.**
+
+-   End-User
+
+    Human participant.
+
+-   Entity
+
+    Something that has a separate and distinct existence and that can be identified in a context.
+
+    _An End-User is one example of an Entity._
+
+-   Essential Claim
+
+    Claim specified by the Client as being necessary to ensure a smooth authorization experience for the specific task requested by the End-User.
+
+-   _Hybrid Flow_
+
+    _OAuth 2.0 flow in which an Authorization Code is returned from the Authorization Endpoint, some tokens are returned from the Authorization Endpoint, and others are returned from the Token Endpoint._
+
+-   **ID Token**
+
+    **JSON Web Token (JWT) that contains Claims about the Authentication event.**
+
+    It MAY contain other Claims.
+
+-   **Identifier**
+
+    **Value that uniquely characterizes an Entity in a specific context.**
+
+-   **Identity**
+
+    **Set of attributes related to an Entity.**
+
+-   _Implicit Flow_
+
+    _OAuth 2.0 flow in which all tokens are returned from the Authorization Endpoint and neither the Token Endpoint nor an Authorization Code are used._
+
+-   **Issuer**
+
+    **Entity that issues a set of Claims.**
+
+-   **Issuer Identifier**
+
+    Verifiable Identifier for an Issuer.
+
+    **An Issuer Identifier is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components.**
+
+-   Message
+
+    Request or a response between an OpenID Relying Party and an OpenID Provider.
+
+-   **OpenID Provider (OP)**
+
+    OAuth 2.0 Authorization Server that is capable of **Authenticating the End-User and providing Claims to a Relying Party about the Authentication event and the End-User.**
+
+-   **Request Object**
+
+    **JWT that contains a set of request parameters as its Claims.**
+
+-   **Request URI**
+
+    **URL that references a resource containing a Request Object.**
+
+    The Request URI contents MUST be retrievable by the Authorization Server.
+
+-   Pairwise Pseudonymous Identifier (PPID)
+
+    Identifier that identifies the Entity to a Relying Party that cannot be correlated with the Entity's PPID at another Relying Party.
+
+-   TODO
+
+-   ……
 
 ### 1.3. Overview
 
