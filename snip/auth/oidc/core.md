@@ -284,9 +284,9 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
     **Value that uniquely characterizes an Entity in a specific context.**
 
--   **Identity**
+-   Identity
 
-    **Set of attributes related to an Entity.**
+    Set of attributes related to an Entity.
 
 -   _Implicit Flow_
 
@@ -296,15 +296,15 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
     **Entity that issues a set of Claims.**
 
--   **Issuer Identifier**
+-   _Issuer Identifier_
 
-    Verifiable Identifier for an Issuer.
+    _Verifiable Identifier for an Issuer._
 
-    **An Issuer Identifier is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components.**
+    _An Issuer Identifier is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components._
 
--   Message
+-   _Message_
 
-    Request or a response between an OpenID Relying Party and an OpenID Provider.
+    _Request or a response between an OpenID Relying Party and an OpenID Provider._
 
 -   **OpenID Provider (OP)**
 
@@ -314,15 +314,31 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
     **JWT that contains a set of request parameters as its Claims.**
 
--   **Request URI**
+-   Request URI
 
-    **URL that references a resource containing a Request Object.**
+    URL that references a resource containing a Request Object.
 
     The Request URI contents MUST be retrievable by the Authorization Server.
 
--   Pairwise Pseudonymous Identifier (PPID)
+-   _Pairwise<!-- 成对的 --> Pseudonymous Identifier (PPID)_
 
-    Identifier that identifies the Entity to a Relying Party that cannot be correlated with the Entity's PPID at another Relying Party.
+    _Identifier that identifies the Entity to a Relying Party that cannot be correlated with the Entity's PPID at another Relying Party._
+
+    <!-- icehe : 理解不了这个术语… 2021/11/01 -->
+
+-   _Personally Identifiable Information (PII)_
+
+    _Information that:_
+    _(a) can be used to identify the natural person to whom such information relates, or_
+    _(b) is or might be directly or indirectly linked to a natural person to whom such information relates._
+
+-   **Relying Party (RP)**
+
+    **OAuth 2.0 Client application requiring End-User Authentication and Claims from an OpenID Provider.**
+
+-   Sector Identifier
+
+    Host component of a URL used by the Relying Party's organization that is an input to the computation of pairwise Subject Identifiers for that Relying Party.
 
 -   TODO
 
