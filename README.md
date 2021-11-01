@@ -132,7 +132,7 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 - Basics
     - [OIDC](/snip/auth/oidc.md) - Open ID Connect
-        - a simple identity layer on top of the OAuth 2.0 protocol
+        - an interoperable authentication protocol based on the OAuth 2.0 family of specifications
     - [OAuth](/snip/auth/oauth.md) - Open **Authorization**
         - an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
         - [OAuth 2.0 实战课 - Geekbang](/snip/auth/oauth-2.0-pratical-course.md)
