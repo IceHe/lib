@@ -588,16 +588,14 @@ Living
 
 [Bio](/life/bio.md) : Backend - Exp | Edu | Skills
 
-<!-- - **TBC** : Have a rest -->
-
-- **Silverhand** : Founding Team - Node.js
-- **YFD** : Zebra - Supply Chain - Java
-- **Alibaba Local Life** : 蜂鸟跑腿前台 - Java
-- **Alibaba Local Life** : 众包物流运营&数据组后台 - Java
-- **Weibo** : Video Platform - Java
-- **Weibo** : Mobile API - PHP Graduate
-- **Huawei** : Telecom Software Customization - Java Intern.
-- **SCUT** : Software Engineering - C++ Bachelor
+- **Silverhand** : Founding Team
+- **YFD** : Zebra - Supply Chain
+- **Alibaba Local Life** : 蜂鸟跑腿前台
+- **Alibaba Local Life** : 众包物流运营&数据组后台
+- **Weibo** : Video Platform
+- **Weibo** : Mobile API - Graduate
+- **Huawei** : Telecom Software Customization - Intern.
+- **SCUT** : Software Engineering - Bachelor
 
 Timeline
 
@@ -646,15 +644,9 @@ Timeline
 
 -->
 
-### Reading
-
-<!-- #### Working -->
-<!-- or -->
-<!-- #### Working Principle -->
+### Practice
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
-
-Work Hard
 
 - [How to Ask](/life/principle/how-to-ask.md) : Prepare before asking
     - JFGI : Just Fucking Google It
@@ -686,7 +678,7 @@ Work Hard
 <!-- - [What Why How](/life/principle/what-why-how.md) -->
 <!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
 
-<!-- #### Reading -->
+### Read
 
 > 写一部小说就像在黑夜里开车, 你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
 
@@ -694,14 +686,14 @@ Work Hard
 
 好文共赏
 
--   Bookmarks :
+-   Bookmarks
     -   [Reading](/read/reading-bookmark.md)
     -   [Technology](/read/technology-bookmark.md)
--   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) / [ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) - _[digest](/read/cruel-reality.md)_
+-   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) - _[ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)_ - _[digest](/read/cruel-reality.md)_
     -   "Nice guy? I never give a shit."
 -   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) - _[digest](/read/meaning.md)_
     -   "因为活着，才去寻找意义。"
--   [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) / [digest](/read/happiness-course.md)
+-   [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) - _[digest](/read/happiness-course.md)_
     -   "如果你只有一个选择，它让你满意吗？"
 -   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) - _[digest](/read/why-unhappy.md)_
     -   "我，并不特别。"
@@ -739,8 +731,9 @@ Work Hard
     -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
     -   不那么在意行动正确与否，更在意是否在行动。
     -   不那么在意所谓时机，更在意任务本身。
--   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ - _to read_
-    -   《 噪声 : 一个人类判断力的缺陷 》
+
+<!-- -   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ - _to read_ -->
+<!--     -   《 噪声 : 一个人类判断力的缺陷 》 -->
 
 ### Friend
 
@@ -755,7 +748,7 @@ Work Hard
 -   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou
 -   Shiwey Yan : Game Engine Developer / Tencent - Timi @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann) : Frontend / 360 / UC / Tencent / Tubi @ Beijing
--   [Fool ME](https://icehe.xyz/#/past/bio) : Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
+-   [ME](https://icehe.xyz/#/past/bio) : Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 - …
 
 ---
