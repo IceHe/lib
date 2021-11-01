@@ -187,16 +187,19 @@ _It also describes the security and privacy considerations for using OpenID Conn
 - 19.  References
     - 19.1.  Normative References
     - 19.2.  Informative References
-- Appendix A.  Authorization Examples
-    - A.1.  Example using response_type=code
-    - A.2.  Example using response_type=id_token
-    - A.3.  Example using response_type=id_token token
-    - A.4.  Example using response_type=code id_token
-    - A.5.  Example using response_type=code token
-    - A.6.  Example using response_type=code id_token token
-    - A.7.  RSA Key Used in Examples
-- Appendix B.  Acknowledgements
-- Appendix C.  Notices
+
+---
+
+- Appendix A. Authorization Examples
+    - 1\. Example using response_type=code
+    - 2\. Example using response_type=id_token
+    - 3\. Example using response_type=id_token token
+    - 4\. Example using response_type=code id_token
+    - 5\. Example using response_type=code token
+    - 6\. Example using response_type=code id_token token
+    - 7\. RSA Key Used in Examples
+- Appendix B. Acknowledgements
+- Appendix C. Notices
 - ……
 
 ## 1. Introduction
@@ -225,24 +228,24 @@ TODO
 
 TODO ignore?
 
-- 3.1.1.  Authorization Code Flow Steps
-- 3.1.2.  Authorization Endpoint
-    - 3.1.2.1.  Authentication Request
-    - 3.1.2.2.  Authentication Request Validation
-    - 3.1.2.3.  Authorization Server Authenticates End-User
-    - 3.1.2.4.  Authorization Server Obtains End-User Consent/Authorization
-    - 3.1.2.5.  Successful Authentication Response
-    - 3.1.2.6.  Authentication Error Response
-    - 3.1.2.7.  Authentication Response Validation
-- 3.1.3.  Token Endpoint
-    - 3.1.3.1.  Token Request
-    - 3.1.3.2.  Token Request Validation
-    - 3.1.3.3.  Successful Token Response
-    - 3.1.3.4.  Token Error Response
-    - 3.1.3.5.  Token Response Validation
-    - 3.1.3.6.  ID Token
-    - 3.1.3.7.  ID Token Validation
-    - 3.1.3.8.  Access Token Validation
+- 3.1.1. Authorization Code Flow Steps
+- 3.1.2. Authorization Endpoint
+    - 3.1.2.1. Authentication Request
+    - 3.1.2.2. Authentication Request Validation
+    - 3.1.2.3. Authorization Server Authenticates End-User
+    - 3.1.2.4. Authorization Server Obtains End-User Consent/Authorization
+    - 3.1.2.5. Successful Authentication Response
+    - 3.1.2.6. Authentication Error Response
+    - 3.1.2.7. Authentication Response Validation
+- 3.1.3. Token Endpoint
+    - 3.1.3.1. Token Request
+    - 3.1.3.2. Token Request Validation
+    - 3.1.3.3. Successful Token Response
+    - 3.1.3.4. Token Error Response
+    - 3.1.3.5. Token Response Validation
+    - 3.1.3.6. ID Token
+    - 3.1.3.7. ID Token Validation
+    - 3.1.3.8. Access Token Validation
 
 ### 3.2. Authentication using the Implicit Flow
 
@@ -384,26 +387,26 @@ TODO
 - 13.2.  Form Serialization
 - 13.3.  JSON Serialization
 
-### 14.  String Operations
+### 14. String Operations
 
 TODO
 
-### 15.  Implementation Considerations
+### 15. Implementation Considerations
 
 TODO
 
-- 15.1.  Mandatory to Implement Features for All OpenID Providers
-- 15.2.  Mandatory to Implement Features for Dynamic OpenID Providers
-- 15.3.  Discovery and Registration
-- 15.4.  Mandatory to Implement Features for Relying Parties
-- 15.5.  Implementation Notes
-    - 15.5.1.  Authorization Code Implementation Notes
-    - 15.5.2.  Nonce Implementation Notes
-    - 15.5.3.  Redirect URI Fragment Handling Implementation Notes
-- 15.6.  Compatibility Notes
-    - 15.6.1.  Pre-Final IETF Specifications
-    - 15.6.2.  Google "iss" Value
-- 15.7.  Related Specifications and Implementer's Guides
+- 15.1. Mandatory to Implement Features for All OpenID Providers
+- 15.2. Mandatory to Implement Features for Dynamic OpenID Providers
+- 15.3. Discovery and Registration
+- 15.4. Mandatory to Implement Features for Relying Parties
+- 15.5. Implementation Notes
+    - Authorization Code Implementation Notes
+    - Nonce Implementation Notes
+    - Redirect URI Fragment Handling Implementation Notes
+- 15.6. Compatibility Notes
+    - Pre-Final IETF Specifications
+    - Google "iss" Value
+- 15.7. Related Specifications and Implementer's Guides
 
 ### 16. Security Considerations
 
@@ -445,11 +448,8 @@ TODO
 TODO
 
 - 18.1. JSON Web Token Claims Registration
-    - 18.1.1. Registry Contents
 - 18.2. OAuth Parameters Registration
-    - 18.2.1. Registry Contents
 - 18.3. OAuth Extensions Error Registration
-    - 18.3.1. Registry Contents
 
 ### 19. References
 
@@ -462,13 +462,13 @@ TODO
 
 TODO
 
-- A.1.  Example using response_type=code
-- A.2.  Example using response_type=id_token
-- A.3.  Example using response_type=id_token token
-- A.4.  Example using response_type=code id_token
-- A.5.  Example using response_type=code token
-- A.6.  Example using response_type=code id_token token
-- A.7.  RSA Key Used in Examples
+- A.1. Example using response_type=code
+- A.2. Example using response_type=id_token
+- A.3. Example using response_type=id_token token
+- A.4. Example using response_type=code id_token
+- A.5. Example using response_type=code token
+- A.6. Example using response_type=code id_token token
+- A.7. RSA Key Used in Examples
 
 ### Appendix B.  Acknowledgements
 
