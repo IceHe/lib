@@ -228,6 +228,10 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
 ……
 
+[Key words for use in RFCs to Indicate Requirement Levels - RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
+
+……
+
 ### 1.2. Terminology
 
 TODO

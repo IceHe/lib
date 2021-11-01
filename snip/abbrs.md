@@ -510,6 +510,7 @@ Reference : https://www.computerhope.com/keys.htm
 - JIK : Just in case. 以防万一
 - JK : Just kidding.
 - JNI : Java Native Interface ?
+- JOSE Header : [JSON Object Signing and Encryption Header](https://datatracker.ietf.org/doc/html/rfc7515#section-2)
 - jr : job requirement
 - Jr. : Junior 初级的
 - js : javascript
