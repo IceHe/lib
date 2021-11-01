@@ -148,13 +148,62 @@ References
 
 The OpenID Connect 1.0 specification consists of these documents:
 
-- Core – Defines the core OpenID Connect functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
-- Discovery – (Optional) Defines how Clients dynamically discover information about OpenID Providers
-- Dynamic Registration – (Optional) Defines how clients dynamically register with OpenID Providers
-- OAuth 2.0 Multiple Response Types – Defines several specific new OAuth 2.0 response types
-- OAuth 2.0 Form Post Response Mode – (Optional) Defines how to return OAuth 2.0 Authorization Response parameters (including OpenID Connect Authentication Response parameters) using HTML form values that are auto-submitted by the User Agent using HTTP POST
-- RP-Initiated Logout – (Optional) Defines how a Relying Party requests that an OpenID Provider log out the End-User
-- Session Management – (Optional) Defines how to manage OpenID Connect sessions, including postMessage-based logout and RP-initiated logout functionality
-- Front-Channel Logout – (Optional) Defines a front-channel logout mechanism that does not use an OP iframe on RP pages
-- Back-Channel Logout – (Optional) Defines a logout mechanism that uses direct back-channel communication between the OP and RPs being logged out
-- OpenID Connect Federation – (Optional) Defines how sets of OPs and RPs can establish trust by utilizing a Federation Operator
+-   Core
+
+    Defines the core OpenID Connect functionality:
+
+    authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+
+-   Discovery ( Optional )
+
+    Defines how Clients dynamically discover information about OpenID Providers
+
+-   Dynamic Registration ( Optional )
+
+    Defines how clients dynamically register with OpenID Providers
+
+-   OAuth 2.0 Multiple Response Types
+
+    Defines several specific new OAuth 2.0 response types
+
+-   OAuth 2.0 Form Post Response Mode ( Optional )
+
+    Defines how to return OAuth 2.0 Authorization Response parameters (including OpenID Connect Authentication Response parameters) using HTML form values that are auto-submitted by the User Agent using HTTP POST
+
+-   RP-Initiated Logout ( Optional )
+
+    Defines how a Relying Party requests that an OpenID Provider log out the End-User
+
+-   Session Management ( Optional )
+
+    Defines how to manage OpenID Connect sessions, including postMessage-based logout and RP-initiated logout functionality
+
+-   Front-Channel Logout ( Optional )
+
+    Defines a front-channel logout mechanism that does not use an OP iframe on RP pages
+
+-   Back-Channel Logout ( Optional )
+
+    Defines a logout mechanism that uses direct back-channel communication between the OP and RPs being logged out
+
+-   OpenID Connect Federation ( Optional )
+
+    Defines how sets of OPs and RPs can establish trust by utilizing a Federation Operator
+
+Two implementer's guides are also available to serve as self-contained references for implementers of basic Web-based Relying Parties:
+
+-   Basic Client Implementer’s Guide
+
+    Simple subset of the Core functionality for a web-based Relying Party using the OAuth code flow
+
+-   Implicit Client Implementer’s Guide
+
+    Simple subset of the Core functionality for a web-based Relying Party using the OAuth implicit flow
+
+A protocol migration specification has been finalized:
+
+-   OpenID 2.0 to OpenID Connect Migration 1.0
+
+    Defines how to migrate from OpenID 2.0 to OpenID Connect
+
+![oidc-protocol-suite-20140204.png](_image/oidc-protocol-suite-20140204.png)
