@@ -457,6 +457,7 @@ npm : the world's largest software registry
         - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
     - parcel : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
         - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
+    - jest : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
 
 [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types
 
