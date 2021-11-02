@@ -336,26 +336,27 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
     **OAuth 2.0 Client application requiring End-User Authentication and Claims from an OpenID Provider.**
 
--   TODO ICEHE: TO READ LATER
+-   _Sector Identifier_
 
--   Sector Identifier
+    _Host component of a URL used by the Relying Party's organization that is an input to the computation of pairwise Subject Identifiers for that Relying Party.<!-- icehe : 这句没看懂 -->_
 
-    Host
--   Self-Issued OpenID Provider
+-   _Self-Issued OpenID Provider_
 
-    Personal, self-hosted OpenID Provider that issues self-signed ID Tokens.
+    _Personal, self-hosted OpenID Provider that issues self-signed ID Tokens._
 
--   Subject Identifier
+-   _Subject Identifier_
 
-    Locally unique and never reassigned identifier within the Issuer for the End-User, which is intended to be consumed by the Client.
+    _Locally unique and never reassigned identifier within the Issuer for the End-User, which is intended to be consumed by the Client._
 
--   UserInfo Endpoint
+-   **UserInfo Endpoint**
 
-    Protected Resource that, when presented with an Access Token by the Client, returns authorized information about the End-User represented by the corresponding Authorization Grant. The UserInfo Endpoint URL MUST use the https scheme and MAY contain port, path, and query parameter components.
+    Protected Resource that, when presented with an Access Token by the Client, returns authorized information about the End-User represented by the corresponding Authorization Grant.
+
+    The **UserInfo Endpoint URL MUST use the https scheme and MAY contain port, path, and query parameter components.**
 
 -   Validation
 
-    Process intended to establish the soundness or correctness of a construct.
+    Process intended to establish the soundness<!-- 坚固; 公正 --> or correctness of a construct.
 
 -   Verification
 

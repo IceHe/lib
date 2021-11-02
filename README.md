@@ -447,7 +447,7 @@ npm : the world's largest software registry
     - [npm install](/js/npm-cmd/npm-install.md) : install a package
     - [npm link](/js/npm-cmd/npm-link.md) : symlink a package folder
     - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
-    - [npm exec](/js/npm-cmd/npm-exec.md), ~~`npx`~~ : run a command from a local or remote npm package
+    - [npm exec](/js/npm-cmd/npm-exec.md), `npx` : run a command from a local or remote npm package
 - Package
     - commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
     - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
