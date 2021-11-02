@@ -131,7 +131,7 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 [Authentication & Authorization](/snip/auth/auth.md)
 
 - Basics
-    - [OIDC](/snip/auth/oidc/oidc.md) - Open ID Connect
+    - [OIDC](/snip/auth/oidc/oidc.md) - OpenID Connect
 
         an interoperable authentication protocol based on the OAuth 2.0 family of specifications
 

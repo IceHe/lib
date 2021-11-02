@@ -379,26 +379,34 @@ TODO
 
 ### 3.1. Authentication using the Authorization Code Flow
 
-TODO ignore?
+#### 3.1.1. Authorization Code Flow Steps
 
-- 3.1.1. Authorization Code Flow Steps
-- 3.1.2. Authorization Endpoint
-    <!-- - 3.1.2.1. Authentication Request -->
-    <!-- - 3.1.2.2. Authentication Request Validation -->
-    <!-- - 3.1.2.3. Authorization Server Authenticates End-User -->
-    <!-- - 3.1.2.4. Authorization Server Obtains End-User Consent/Authorization -->
-    <!-- - 3.1.2.5. Successful Authentication Response -->
-    <!-- - 3.1.2.6. Authentication Error Response -->
-    <!-- - 3.1.2.7. Authentication Response Validation -->
-- 3.1.3. Token Endpoint
-    <!-- - 3.1.3.1. Token Request -->
-    <!-- - 3.1.3.2. Token Request Validation -->
-    <!-- - 3.1.3.3. Successful Token Response -->
-    <!-- - 3.1.3.4. Token Error Response -->
-    <!-- - 3.1.3.5. Token Response Validation -->
-    <!-- - 3.1.3.6. ID Token -->
-    <!-- - 3.1.3.7. ID Token Validation -->
-    <!-- - 3.1.3.8. Access Token Validation -->
+#### 3.1.2. Authorization Endpoint
+
+##### 3.1.2.1. Authentication Request
+
+##### 3.1.2.2. Authentication Request Validation
+
+##### 3.1.2.3. Authorization Server Authenticates End-User
+
+##### 3.1.2.4. Authorization Server Obtains End-User Consent/Authorization
+
+##### 3.1.2.5. Successful Authentication Response
+
+##### 3.1.2.6. Authentication Error Response
+
+##### 3.1.2.7. Authentication Response Validation
+
+#### 3.1.3. Token Endpoint
+
+- 3.1.3.1. Token Request
+- 3.1.3.2. Token Request Validation
+- 3.1.3.3. Successful Token Response
+- 3.1.3.4. Token Error Response
+- 3.1.3.5. Token Response Validation
+- 3.1.3.6. ID Token
+- 3.1.3.7. ID Token Validation
+- 3.1.3.8. Access Token Validation
 
 ### 3.2. Authentication using the Implicit Flow
 
@@ -521,7 +529,7 @@ Claims requested by the following scopes are treated by Authorization Servers as
 
 _OpenID Connect defines the following `scope` values that are used to request Claims:_
 
--   **profile** _OPTIONAL_
+-   **`profile`** _OPTIONAL_
 
     This scope value requests access to the End-User's default profile Claims, which are:
 
@@ -540,23 +548,37 @@ _OpenID Connect defines the following `scope` values that are used to request Cl
     - `locale`
     - `updated_at`
 
--   **email** _OPTIONAL_
+-   **`email`** _OPTIONAL_
 
     This scope value requests access to the
 
     - `email` and
     - `email_verified` Claims.
 
--   **address** _OPTIONAL_
+-   **`address`** _OPTIONAL_
 
     This scope value requests access to the `address` Claim.
 
--   **phone** _OPTIONAL_
+-   **`phone`** _OPTIONAL_
 
     This scope value requests access to the
 
     - `phone_number` and
     - `phone_number_verified` Claims.
+
+Multiple scope values MAY be used by creating a space delimited, case sensitive list of ASCII scope values.
+
+**The Claims requested by the `profile`, `email`, `address`, and `phone` scope values are returned from the UserInfo Endpoint**, _as described in Section 5.3.2,_ **when a `response_type` value is used that results in an Access Token being issued.**
+**However, when no Access Token is issued (which is the case for the `response_type` value `id_token`), the resulting Claims are returned in the ID Token.**
+
+In some cases, the End-User will be given the option to have the OpenID Provider decline to provide some or all information requested by RPs.
+To minimize the amount of information that the End-User is being asked to disclose<!-- 揭露, 公开 -->, an RP can elect<!-- 选择, 决定 --> to only request a subset of the information available from the UserInfo Endpoint.
+
+The following is a non-normative example of an unencoded scope request:
+
+```http
+scope=openid profile email phone
+```
 
 ### 5.5.  Requesting Claims using the "claims" Request Parameter
 
