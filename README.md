@@ -122,33 +122,36 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 <!--     - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - _reading_ -->
 <!--     - [The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - _reading_ -->
 
+### Auth*
+
+Basics
+
+- [Auth*](/snip/auth/auth.md) - Authentication & Authorization
+
+- [OIDC](/snip/auth/oidc/oidc.md) - OpenID Connect
+
+    an interoperable authentication protocol based on the OAuth 2.0 family of specifications
+
+    - [Core 1.0](/snip/auth/oidc/core.md) functionality : authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+
+- [OAuth](/snip/auth/oauth.md) - Open **Authorization**
+
+    an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
+
+    - [OAuth 2.0 实战课 - Geekbang](/snip/auth/oauth-2.0-pratical-course.md)
+    - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) - _to read_
+
+Solution Provider
+
+- [auth0](/snip/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
+- [okta](/snip/auth/solution-provider/okta.md) : the world's #1 identity platform
+- [Authing](/snip/auth/solution-provider/authing.md) : connect every person and app on the planet
+
 ### Snippet
 
 > 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。
 
 <!-- > —— 鲁迅《致赖少麟》 -->
-
-[Authentication & Authorization](/snip/auth/auth.md)
-
-- Basics
-    - [OIDC](/snip/auth/oidc/oidc.md) - OpenID Connect
-
-        an interoperable authentication protocol based on the OAuth 2.0 family of specifications
-
-        - [Core 1.0](/snip/auth/oidc/core.md) functionality : authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
-
-    - [OAuth](/snip/auth/oauth.md) - Open **Authorization**
-
-        an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
-
-        - [OAuth 2.0 实战课 - Geekbang](/snip/auth/oauth-2.0-pratical-course.md)
-        - [OAuth 2 in Action - Book](/snip/auth/oauth-2-in-action.md) - _to read_
-
-- Solution Provider
-
-    - [auth0](/snip/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
-    - [okta](/snip/auth/solution-provider/okta.md) : the world's #1 identity platform
-    - [Authing](/snip/auth/solution-provider/authing.md) : connect every person and app on the planet
 
 Markdown
 

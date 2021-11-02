@@ -1,4 +1,6 @@
-# Authentication & Authorization
+# Auth*
+
+Authentication & Authorization
 
 ---
 
