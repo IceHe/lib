@@ -528,14 +528,26 @@ The Claims can come directly from the OpenID Provider or from distributed source
     **End-User's full name** in displayable form including all name parts,
     possibly including titles and suffixes, ordered according to the End-User's locale and preferences.
 
--   `given_name` string
+-   **`given_name`** string
 
-    Given name(s) or first name(s) of the End-User.
+    Given name(s) or **first name(s)** of the End-User.
 
-    Note that in some cultures, people can have multiple given names;
-    all can be present, with the names being separated by space characters.
+    _Note that in some cultures, people can have multiple given names;_
+    _all can be present, with the names being separated by space characters._
 
--   TODO ICEHE: TO DO LATER
+-   **`family_name`** string
+
+    Surname(s) or **last name(s)** of the End-User.
+
+    _Note that in some cultures, people can have multiple family names or no family name;_
+    _all can be present, with the names being separated by space characters._
+
+-   `middle_name` string
+
+    Middle name(s) of the End-User.
+
+    _Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters._
+    _Also note that in some cultures, middle names are not used._
 
 -   **`address`** JSON object
 
