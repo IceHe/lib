@@ -361,9 +361,9 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
     Process intended to test or prove the truth or accuracy of a fact or value.
 
--   Voluntary Claim
+-   **Voluntary Claim**
 
-    Claim specified by the Client as being useful but not Essential for the specific task requested by the End-User.
+    **Claim specified by the Client as being useful but not Essential for the specific task requested by the End-User.**
 
 ### 1.3. Overview
 
@@ -461,8 +461,43 @@ The Claims can come directly from the OpenID Provider or from distributed source
 
 ### 5.1.  Standard Claims
 
-    - 5.1.1.  Address Claim
-    - 5.1.2.  Additional Claims
+-   `Member` Type
+
+    Description
+
+-   **`sub`** string
+
+    **Subject - Identifier for the End-User at the Issuer.**
+
+-   **`name`** string
+
+    **End-User's full name** in displayable form including all name parts,
+    possibly including titles and suffixes, ordered according to the End-User's locale and preferences.
+
+-   `given_name` string
+
+    Given name(s) or first name(s) of the End-User.
+
+    Note that in some cultures, people can have multiple given names;
+    all can be present, with the names being separated by space characters.
+
+-   TODO ICEHE: TO DO LATER
+
+-   **`address`** JSON object
+
+    **End-User's preferred postal address.**
+
+    The value of the address member is a JSON [RFC4627] structure containing some or all of the members _defined in Section 5.1.1._
+
+-   `updated_at` number
+
+    Time the End-User's information was last updated.
+
+    **Its value is a JSON number representing the number of seconds from `1970-01-01T0:0:0Z` as measured in UTC until the date/time.**
+
+#### 5.1.1.  Address Claim
+
+#### 5.1.2.  Additional Claims
 
 ### 5.2.  Claims Languages and Scripts
 
@@ -474,6 +509,54 @@ The Claims can come directly from the OpenID Provider or from distributed source
 <!-- - 5.3.4.  UserInfo Response Validation -->
 
 ### 5.4.  Requesting Claims using Scope Values
+
+OpenID Connect Clients use `scope` values, _as defined in Section 3.3 of OAuth 2.0 [RFC6749],_ to **specify what access privileges are being requested for Access Tokens.**
+
+The scopes associated with Access Tokens determine what resources will be available when they are used to access OAuth 2.0 protected endpoints.
+**Protected Resource endpoints MAY perform different actions and return different information based on the `scope` values** and other parameters used when requesting the presented Access Token.
+
+For OpenID Connect, scopes can be used to request that specific sets of information be made available as Claim Values.
+
+Claims requested by the following scopes are treated by Authorization Servers as Voluntary Claims.
+
+_OpenID Connect defines the following `scope` values that are used to request Claims:_
+
+-   **profile** _OPTIONAL_
+
+    This scope value requests access to the End-User's default profile Claims, which are:
+
+    - `name`
+    - `family_name`
+    - `given_name`
+    - `middle_name`
+    - `nickname`
+    - `preferred_username`
+    - `profile`
+    - `picture`
+    - `website`
+    - `gender`
+    - `birthdate`
+    - `zoneinfo`
+    - `locale`
+    - `updated_at`
+
+-   **email** _OPTIONAL_
+
+    This scope value requests access to the
+
+    - `email` and
+    - `email_verified` Claims.
+
+-   **address** _OPTIONAL_
+
+    This scope value requests access to the `address` Claim.
+
+-   **phone** _OPTIONAL_
+
+    This scope value requests access to the
+
+    - `phone_number` and
+    - `phone_number_verified` Claims.
 
 ### 5.5.  Requesting Claims using the "claims" Request Parameter
 
