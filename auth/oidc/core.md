@@ -549,6 +549,10 @@ The Claims can come directly from the OpenID Provider or from distributed source
     _Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters._
     _Also note that in some cultures, middle names are not used._
 
+-   `nickname` string
+
+    Casual name of the End-User that may or may not be the same as the given_name. For instance, a nickname value of Mike might be returned alongside a given_name value of Michael.
+
 -   **`address`** JSON object
 
     **End-User's preferred postal address.**
