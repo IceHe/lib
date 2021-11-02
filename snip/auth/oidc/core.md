@@ -336,13 +336,34 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
     **OAuth 2.0 Client application requiring End-User Authentication and Claims from an OpenID Provider.**
 
+-   TODO ICEHE: TO READ LATER
+
 -   Sector Identifier
 
-    Host component of a URL used by the Relying Party's organization that is an input to the computation of pairwise Subject Identifiers for that Relying Party.
+    Host
+-   Self-Issued OpenID Provider
 
--   TODO
+    Personal, self-hosted OpenID Provider that issues self-signed ID Tokens.
 
--   ……
+-   Subject Identifier
+
+    Locally unique and never reassigned identifier within the Issuer for the End-User, which is intended to be consumed by the Client.
+
+-   UserInfo Endpoint
+
+    Protected Resource that, when presented with an Access Token by the Client, returns authorized information about the End-User represented by the corresponding Authorization Grant. The UserInfo Endpoint URL MUST use the https scheme and MAY contain port, path, and query parameter components.
+
+-   Validation
+
+    Process intended to establish the soundness or correctness of a construct.
+
+-   Verification
+
+    Process intended to test or prove the truth or accuracy of a fact or value.
+
+-   Voluntary Claim
+
+    Claim specified by the Client as being useful but not Essential for the specific task requested by the End-User.
 
 ### 1.3. Overview
 
@@ -432,26 +453,42 @@ TODO
 
 ## 5. Claims
 
-- 5.1.  Standard Claims
-    <!-- - 5.1.1.  Address Claim -->
-    <!-- - 5.1.2.  Additional Claims -->
-- 5.2.  Claims Languages and Scripts
-- 5.3.  UserInfo Endpoint
-    <!-- - 5.3.1.  UserInfo Request -->
-    <!-- - 5.3.2.  Successful UserInfo Response -->
-    <!-- - 5.3.3.  UserInfo Error Response -->
-    <!-- - 5.3.4.  UserInfo Response Validation -->
-- 5.4.  Requesting Claims using Scope Values
-- 5.5.  Requesting Claims using the "claims" Request Parameter
-    <!-- - 5.5.1.  Individual Claims Requests -->
-    <!--    - 5.5.1.1.  Requesting the "acr" Claim -->
-    <!-- - 5.5.2.  Languages and Scripts for Individual Claims -->
-- 5.6.  Claim Types
-    <!-- - 5.6.1.  Normal Claims -->
-    <!-- - 5.6.2.  Aggregated and Distributed Claims -->
-    <!--     - 5.6.2.1.  Example of Aggregated Claims -->
-    <!--     - 5.6.2.2.  Example of Distributed Claims -->
-- 5.7.  Claim Stability and Uniqueness
+This section specifies **how the Client can obtain Claims about the End-User and the Authentication event.**
+
+It also **defines a standard set of basic profile Claims.**
+**Pre-defined sets of Claims can be requested using specific scope values or individual Claims can be requested using the `claims` request parameter.**
+The Claims can come directly from the OpenID Provider or from distributed sources as well.
+
+### 5.1.  Standard Claims
+
+    - 5.1.1.  Address Claim
+    - 5.1.2.  Additional Claims
+
+### 5.2.  Claims Languages and Scripts
+
+### 5.3.  UserInfo Endpoint
+
+<!-- - 5.3.1.  UserInfo Request -->
+<!-- - 5.3.2.  Successful UserInfo Response -->
+<!-- - 5.3.3.  UserInfo Error Response -->
+<!-- - 5.3.4.  UserInfo Response Validation -->
+
+### 5.4.  Requesting Claims using Scope Values
+
+### 5.5.  Requesting Claims using the "claims" Request Parameter
+
+<!-- - 5.5.1.  Individual Claims Requests -->
+<!--    - 5.5.1.1.  Requesting the "acr" Claim -->
+<!-- - 5.5.2.  Languages and Scripts for Individual Claims -->
+
+### 5.6.  Claim Types
+
+- 5.6.1.  Normal Claims
+- 5.6.2.  Aggregated and Distributed Claims
+    - 5.6.2.1.  Example of Aggregated Claims
+    - 5.6.2.2.  Example of Distributed Claims
+
+### 5.7.  Claim Stability and Uniqueness
 
 ## 6. Passing Request Parameters as JWTs
 
