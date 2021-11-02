@@ -11,7 +11,7 @@ rule "MD001" # Header levels should only increment by one level at a time
 # rule "MD002" # First header should be a top level header
 rule "MD003" # Header style
 # rule "MD004" # Unordered list style
-rule "MD005" # Inconsistent indentation for list items at the same level
+# rule "MD005" # Inconsistent indentation for list items at the same level
 rule "MD006" # Consider starting bulleted lists at the beginning of the line
 # rule "MD007" , :indent => 4 # Unordered list indentation
 rule "MD009" # Trailing spaces
