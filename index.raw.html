@@ -34,7 +34,7 @@
   <!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
 
   <!-- KateX : https://github.com/Khan/KaTeX#readme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" /> -->
 
   <!-- Themes : https://docsify.js.org/#/themes -->
   <!-- ( Usage : Enable one & Disable others ) -->
@@ -107,7 +107,7 @@
           hook.beforeEach(function (content) {
             // KateX : https://github.com/Khan/KaTeX#readme
             // ( Usage : https://github.com/docsifyjs/docsify/issues/96#issuecomment-284404397 )
-            // content = content.replace(/\$\$([\s\S]*?)\$\$/g, function (m, code) {
+            // content = content.replace(/\$\$\n([\s\S]*?)\n\$\$/g, function (m, code) {
             //   console.log(code)
             //   return katex.renderToString(code.trim())
             // })
@@ -135,7 +135,6 @@
               '# <a href="https://beian.miit.gov.cn/" style="color: inherit; font-weight: normal; text-decoration: none;">京 ICP 备 18038982 号</a>',
               '',
             ].join(' <br/> ');
-            // ].join(' | ');
 
             return [
               toEdit, '\n',
@@ -157,7 +156,7 @@
 
   <!-- KateX : https://github.com/Khan/KaTeX#readme -->
   <!-- ( Notice : KateX must be loaded before basic `docsify.min.js`! ) -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script> -->
 
   <!-- Basic -->
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
