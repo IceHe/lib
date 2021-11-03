@@ -168,13 +168,19 @@ alias glci="git log --oneline | head -1 | awk -F ' ' '{ print \$1 }'"
 # Git Other Branch
 alias gob="git branch -l | grep -E -v 'main|master'"
 
-# 拷贝除 main 和 master 之外的第一个分支的名称
+# 拷贝 main 和 master 之外的第一个分支的名称
 # Git Other Branch Name Copy
 alias gobc="git branch -l | grep -E -v 'main|master' | head -1 | tr -d ' \n' | pbcopy"
 
-# 切换到除 main 和 mater 之外的第一个分支的名称
+# 切换到 main 和 mater 之外的第一个分支
 # Git Checkout Other Branch
 alias gcoo="git checkout \`git branch -l | grep -E -v 'main|master' | head -1 | tr -d ' \n'\`"
+
+# 删除除 main 和 mater 之外的分支
+alias gbdo="git branch -l | grep -E -v 'main|master' | xargs git branch -d"
+
+# 展示 main 和 mater 之外的分支名称 ( 压缩为一行 )
+alias gblo="git branch -l | grep -E -v 'main|master' | tr -d '\n'"
 
 ```
 
