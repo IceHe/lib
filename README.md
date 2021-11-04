@@ -140,6 +140,7 @@ Basics
 
     - [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-pratical-course.md)
     - [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md) - _to read_
+    - [CSRF Fraud for OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
 Solution Provider
 
