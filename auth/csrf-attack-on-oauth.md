@@ -147,12 +147,15 @@ user <-> geekbang_client: Login via username & password
 activate user
 user -> geekbang_client: Request to bind **User's WeChat account**
 activate geekbang_client
-user <-- geekbang_client: 1. Redirect User to AuthServer
+
+geekbang_client -> geekbang_client: Generate random state = **stateB** \n    and save in storage
+user <-- geekbang_client: 1. Redirect User to Auth Server with state = **stateB**
 deactivate geekbang_client
 
-user -> auth_server: Load AuthServer for authentication \n    with redirect uri = **https://geekbang.com/client/callback**
+
+user -> auth_server: Load AuthServer for authentication \n    with redirect uri = **https://geekbang.com/client/callback** \n        and state = **stateB**
 activate auth_server
-user <-- auth_server: 2. authorization code = **codeB**
+user <-- auth_server: 2. authorization code = **codeB** \n        and state = **stateB**
 deactivate auth_server
 
 note over user
@@ -171,17 +174,17 @@ endrnote
 user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA** \n        and state = **stateA**
 activate geekbang_client
 
-geekbang_client -x geekbang_client: compare original state = **stateB** \n    with current state = **stateA**
+geekbang_client -x geekbang_client: Load original state = **stateB** from storage \n    and compare with current state = **stateA**
 
 rnote over geekbang_client
-    Aborted: becuase state DOES NOT match!
+    Abort becuase state DOES NOT match!
 endrnote
 
 geekbang_client -x auth_server: 3. Exchange for access_token \n    with given authorization code = **codeA**
 deactivate geekbang_client
 
 rnote over geekbang_client
-    State protect User!
+    State protects User!
 endrnote
 
 @enduml
