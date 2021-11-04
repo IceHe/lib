@@ -10,28 +10,28 @@ actor attacker as "Attacker"
 actor user as "User"
 
 participant geekbang_client as "Geekbang Client"
+participant auth_server as "WeChat AuthServer"
 
-participant auth_serv as "WeChat Auth Server"
-participant protected_res as "Resource Provider"
+collections protected_resource as "ProtectedResource"
 
 attacker -> geekbang_client: Request to bind **Attacker's WeChat account**
 activate attacker
 activate geekbang_client
-attacker <-- geekbang_client: 1. Redirect User to Auth Server
+attacker <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-attacker -> auth_serv: Load Auth Server for authentication with redirect uri = **geekbang_client/callback**
-activate auth_serv
-attacker <-- auth_serv: 2. authorization code = **codeA** for **Attacker's WeChat account**
-deactivate auth_serv
+attacker -> auth_server: Load AuthServer for authentication with redirect uri = **https://geekbang.com/client/callback**
+activate auth_server
+attacker <-- auth_server: 2. authorization code = **codeA** for **Attacker's WeChat account**
+deactivate auth_server
 
 note over attacker
     Attacker DO NOT
         exchange for access_token
-        with given authorization DELIBERATELY.
+        with given authorization code DELIBERATELY.
 endrnote
 
-attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeA**
+attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA**
 deactivate attacker
 
 ==Soon==
@@ -40,35 +40,35 @@ user <-> geekbang_client: Login via username & password
 activate user
 user -> geekbang_client: Request to bind **User's WeChat account**
 activate geekbang_client
-user <-- geekbang_client: 1. Redirect User to Auth Server
+user <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-user -> auth_serv: Load Auth Server for authentication \n    with redirect uri = **geekbang_client/callback**
-activate auth_serv
-user <-- auth_serv: 2. authorization = **codeB**
-deactivate auth_serv
+user -> auth_server: Load AuthServer for authentication \n    with redirect uri = **https://geekbang.com/client/callback**
+activate auth_server
+user <-- auth_server: 2. authorization code = **codeB**
+deactivate auth_server
 
 note over user
     User DO NOT
         exchange for access_token
-        with given authorization IN TIME.
+        with given authorization code IN TIME.
 endrnote
 
-user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeB**
+user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeB**
 
 rnote over user
-    User is induced to click the link to
-        **geekbang_client/callback?code=codeA**
+    Attacker induces User to click the link to
+        **https://geekbang.com/client/callback?code=codeA**
 endrnote
 
-user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeA**
+user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA**
 deactivate user
 activate geekbang_client
 
-geekbang_client -> auth_serv: 3. Exchange for access_token \n    with given authorization = **codeA**
-activate auth_serv
-geekbang_client <-- auth_serv: 4. Return **access_token** for **User's Geekbang account & Attacker's WeChat account**
-deactivate auth_serv
+geekbang_client -> auth_server: 3. Exchange for access_token \n    with given authorization code = **codeA**
+activate auth_server
+geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n    & **Attacker's WeChat account**
+deactivate auth_server
 deactivate geekbang_client
 
 rnote over geekbang_client
@@ -77,35 +77,41 @@ endrnote
 
 ==Later==
 
+rnote over geekbang_client
+    Attacker can social-login User's Geekbang account via Attacker's WeChat account NOW!
+endrnote
+
 attacker -> geekbang_client: Login via Attacker's WeChat account
 activate attacker
 activate geekbang_client
-attacker <-- geekbang_client: 1. Redirect User to Auth Server
+attacker <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-attacker -> auth_serv: Load Auth Server for authentication with redirect uri = **geekbang_client/callback**
-activate auth_serv
-attacker <-- auth_serv: 2. authorization = **codeC** for **Attacker's WeChat account**
-deactivate auth_serv
+attacker -> auth_server: Load AuthServer for authentication with redirect uri = **https://geekbang.com/client/callback**
+activate auth_server
+attacker <-- auth_server: 2. authorization code = **codeC** for **Attacker's WeChat account**
+deactivate auth_server
 
-attacker -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeC**
+attacker -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeC**
 activate geekbang_client
-deactivate attacker
 
-geekbang_client -> auth_serv: 3. Exchange for access_token \n    with given authorization = **codeC**
-activate auth_serv
-geekbang_client <-- auth_serv: 4. Return **access_token** for **User's Geekbang account & Attacker's WeChat account**
-deactivate auth_serv
+geekbang_client -> auth_server: 3. Exchange for access_token \n    with given authorization code = **codeC**
+activate auth_server
+geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n    & **Attacker's WeChat account**
+deactivate auth_server
+
+attacker -> geekbang_client: Do something bad: \n    e.g. access User's private data
+geekbang_client -> protected_resource: Load ProtectedResource for User's private data
+activate protected_resource
+geekbang_client <-- protected_resource: User's private data
+deactivate protected_resource
 deactivate geekbang_client
-
-rnote over geekbang_client
-    Attacker can access User's Geekbang account!
-endrnote
+deactivate attacker
 
 @enduml
 ```
 
-### Solution
+### Solution: Random STATE
 
 ```plantuml
 @startuml
@@ -113,67 +119,65 @@ actor attacker as "Attacker"
 actor user as "User"
 
 participant geekbang_client as "Geekbang Client"
-
-participant auth_serv as "WeChat Auth Server"
-participant protected_res as "Resource Provider"
+participant auth_server as "WeChat AuthServer"
 
 attacker -> geekbang_client: Request to bind **Attacker's WeChat account**
 activate attacker
 activate geekbang_client
-attacker <-- geekbang_client: 1. Redirect User to Auth Server
+attacker <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-attacker -> auth_serv: Load Auth Server for authentication with redirect uri = **geekbang_client/callback**
-activate auth_serv
-attacker <-- auth_serv: 2. authorization = **codeA** for **Attacker's WeChat account**
-deactivate auth_serv
+attacker -> auth_server: Load AuthServer for authentication with redirect uri = **https://geekbang.com/client/callback**
+activate auth_server
+attacker <-- auth_server: 2. authorization code = **codeA** for **Attacker's WeChat account**
+deactivate auth_server
 
 note over attacker
     Attacker DO NOT
         exchange for access_token
-        with given authorization DELIBERATELY.
+        with given authorization code DELIBERATELY.
 endrnote
 
-attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeA**
+attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA**
 deactivate attacker
 
 ==Soon==
 
-ser <-> geekbang_client: Login via username & password
+user <-> geekbang_client: Login via username & password
 activate user
 user -> geekbang_client: Request to bind **User's WeChat account**
 activate geekbang_client
-user <-- geekbang_client: 1. Redirect User to Auth Server
+user <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-user -> auth_serv: Load Auth Server for authentication \n    with redirect uri = **geekbang_client/callback**
-activate auth_serv
-user <-- auth_serv: 2. authorization = **codeB**
-deactivate auth_serv
+user -> auth_server: Load AuthServer for authentication \n    with redirect uri = **https://geekbang.com/client/callback**
+activate auth_server
+user <-- auth_server: 2. authorization code = **codeB**
+deactivate auth_server
 
 note over user
     User DO NOT
         exchange for access_token
-        with given authorization IN TIME.
+        with given authorization code IN TIME.
 endrnote
 
-user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeB** \n        and state = **stateB**
+user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeB** \n        and state = **stateB**
 
 rnote over user
-    Use is induced to click the link to
-        **geekbang_client/callback?code=codeA&state=stateA**
+    Attacker induces User to click the link to
+        **https://geekbang.com/client/callback?code=codeA&state=stateA**
 endrnote
 
-user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeA** \n        and state = **stateA**
+user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA** \n        and state = **stateA**
 activate geekbang_client
 
-geekbang_client -x geekbang_client: check original state (**stateB**) and current state (**stateA**)
+geekbang_client -x geekbang_client: compare original state = **stateB** \n    with current state = **stateA**
 
 rnote over geekbang_client
-    Aborted: becuase state is not equal!
+    Aborted: becuase state DOES NOT match!
 endrnote
 
-geekbang_client -x auth_serv: 3. Exchange for access_token \n    with given authorization = **codeA**
+geekbang_client -x auth_server: 3. Exchange for access_token \n    with given authorization code = **codeA**
 deactivate geekbang_client
 
 rnote over geekbang_client
