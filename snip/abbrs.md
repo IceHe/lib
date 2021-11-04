@@ -283,6 +283,7 @@ Reference : https://www.computerhope.com/keys.htm
 - CRM : Customer Relationship Management 客户关系管理
 - CST : [China Standard Time](https://en.wikipedia.org/wiki/China_Standard_Time) 北京时间
     - 歧义：[Central Standard Time](https://en.wikipedia.org/wiki/CST#Time_zones) ( 不同国家的 ) 中央时区
+- CSRF : [Cross Site Request Forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
 - CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
 - CTR : [Click Through Rate](https://en.wikipedia.org/wiki/Click-through_rate) 点进率
 - ctl : control? / control tool?
