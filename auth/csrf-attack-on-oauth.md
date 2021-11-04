@@ -20,7 +20,7 @@ activate geekbang_client
 attacker <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-attacker -> auth_server: Load AuthServer for authentication with redirect uri = **https://geekbang.com/client/callback**
+attacker -> auth_server: Load AuthServer for authentication with redirect_uri = **https://geekbang.com/client/callback**
 activate auth_server
 attacker <-- auth_server: 2. authorization code = **codeA** for **Attacker's WeChat account**
 deactivate auth_server
@@ -31,7 +31,7 @@ note over attacker
         with given authorization code DELIBERATELY.
 endrnote
 
-attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA**
+attacker -x geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeA**
 deactivate attacker
 
 ==Soon==
@@ -43,7 +43,7 @@ activate geekbang_client
 user <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-user -> auth_server: Load AuthServer for authentication \n    with redirect uri = **https://geekbang.com/client/callback**
+user -> auth_server: Load AuthServer for authentication \n    with redirect_uri = **https://geekbang.com/client/callback**
 activate auth_server
 user <-- auth_server: 2. authorization code = **codeB**
 deactivate auth_server
@@ -54,20 +54,20 @@ note over user
         with given authorization code IN TIME.
 endrnote
 
-user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeB**
+user -x geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeB**
 
 rnote over user
     Attacker induces User to click the link to
         **https://geekbang.com/client/callback?code=codeA**
 endrnote
 
-user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA**
-deactivate user
+user -> geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeA**
 activate geekbang_client
+deactivate user
 
 geekbang_client -> auth_server: 3. Exchange for access_token \n    with given authorization code = **codeA**
 activate auth_server
-geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n    & **Attacker's WeChat account**
+geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n        & **Attacker's WeChat account**
 deactivate auth_server
 deactivate geekbang_client
 
@@ -87,21 +87,21 @@ activate geekbang_client
 attacker <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-attacker -> auth_server: Load AuthServer for authentication with redirect uri = **https://geekbang.com/client/callback**
+attacker -> auth_server: Load AuthServer for authentication with redirect_uri = **https://geekbang.com/client/callback**
 activate auth_server
 attacker <-- auth_server: 2. authorization code = **codeC** for **Attacker's WeChat account**
 deactivate auth_server
 
-attacker -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeC**
+attacker -> geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeC**
 activate geekbang_client
 
 geekbang_client -> auth_server: 3. Exchange for access_token \n    with given authorization code = **codeC**
 activate auth_server
-geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n    & **Attacker's WeChat account**
+geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n        & **Attacker's WeChat account**
 deactivate auth_server
 
 attacker -> geekbang_client: Do something bad: \n    e.g. access User's private data
-geekbang_client -> protected_resource: Load ProtectedResource for User's private data
+geekbang_client -> protected_resource: Load ProtectedResource for User's private data \n    witch **access_token**
 activate protected_resource
 geekbang_client <-- protected_resource: User's private data
 deactivate protected_resource
@@ -127,7 +127,7 @@ activate geekbang_client
 attacker <-- geekbang_client: 1. Redirect User to AuthServer
 deactivate geekbang_client
 
-attacker -> auth_server: Load AuthServer for authentication with redirect uri = **https://geekbang.com/client/callback**
+attacker -> auth_server: Load AuthServer for authentication with redirect_uri = **https://geekbang.com/client/callback**
 activate auth_server
 attacker <-- auth_server: 2. authorization code = **codeA** for **Attacker's WeChat account**
 deactivate auth_server
@@ -138,7 +138,7 @@ note over attacker
         with given authorization code DELIBERATELY.
 endrnote
 
-attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA**
+attacker -x geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeA**
 deactivate attacker
 
 ==Soon==
@@ -153,7 +153,7 @@ user <-- geekbang_client: 1. Redirect User to Auth Server with state = **stateB*
 deactivate geekbang_client
 
 
-user -> auth_server: Load AuthServer for authentication \n    with redirect uri = **https://geekbang.com/client/callback** \n        and state = **stateB**
+user -> auth_server: Load AuthServer for authentication \n    with redirect_uri = **https://geekbang.com/client/callback** \n        and state = **stateB**
 activate auth_server
 user <-- auth_server: 2. authorization code = **codeB** \n        and state = **stateB**
 deactivate auth_server
@@ -164,14 +164,15 @@ note over user
         with given authorization code IN TIME.
 endrnote
 
-user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeB** \n        and state = **stateB**
+user -x geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeB** \n        and state = **stateB**
 
 rnote over user
     Attacker induces User to click the link to
         **https://geekbang.com/client/callback?code=codeA&state=stateA**
 endrnote
 
-user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization code = **codeA** \n        and state = **stateA**
+user -> geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeA** \n        and state = **stateA**
+deactivate user
 activate geekbang_client
 
 geekbang_client -x geekbang_client: Load original state = **stateB** from storage \n    and compare with current state = **stateA**
