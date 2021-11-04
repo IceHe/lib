@@ -90,62 +90,75 @@ endrnote
 
 ### Solution
 
-<!--
-
----
-
 ```plantuml
 @startuml
 actor attacker as "Attacker"
-actor user as "Normal User"
+actor user as "User"
 
-participant attack_client as "Attack Client"
-participant normal_client as "Normal Client"
+participant geekbang_client as "Geekbang Client"
 
-participant auth_serv as "Auth Server"
+participant auth_serv as "WeChat Auth Server"
 participant protected_res as "Resource Provider"
 
-attacker -> attack_client
-attacker <-- attack_client: 1. Redirect User to Auth Server
+attacker -> geekbang_client: Request to bind **Attacker's WeChat account**
+attacker <-- geekbang_client: 1. Redirect User to Auth Server
 
-attacker -> auth_serv: Load Auth Server for authentication with redirect uri = **attack_client/callback**
-attacker <-- auth_serv: 2. auth code = **authCodeA**
+attacker -> auth_serv: Load Auth Server for authentication with redirect uri = **geekbang_client/callback**
+attacker <-- auth_serv: 2. auth code = **authCodeA** for **Attacker's WeChat account**
 
 note over attacker
-    The attacker DO NOT
+    Attacker DO NOT
         exchange for access_token
-        with given auth code DELIBERATELY
+        with given auth code DELIBERATELY.
 endrnote
 
-attacker -x attack_client: Redirect to client redirect uri \n    with auth code = **authCodeA**
+attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with auth code = **authCodeA**
 
-==soon==
+==Soon==
 
-user -> normal_client: Request to bind his WeChat account
-user <-- normal_client: 1. Redirect User to Auth Server
+user -> geekbang_client: Login via username & password
 
-user -> auth_serv: Load Auth Server for authentication \n    with redirect uri = **normal_client/callback**
-user <-- auth_serv: 2. auth code = **authCodeB**
+user -> geekbang_client: Request to bind **User's WeChat account**
 
 note over user
     The user DO NOT
         exchange for access_token
-        with given auth code IN TIME
+        with given auth code IN TIME.
 endrnote
 
-user -x normal_client: Redirect to client redirect uri \n    with auth code = **authCodeB**
+user -> geekbang_client: Request to bind **User's WeChat account**
+geekbang_client -> geekbang_client: generate and store state = **stateB**
+user <-- geekbang_client: 1. Redirect User to Auth Server with state = **stateB**
+
+user -> auth_serv: Load Auth Server for authentication \n    with redirect uri = **geekbang_client/callback** \n        and state = **stateB**
+user <-- auth_serv: 2. auth code = **authCodeB** \n        and state = **stateB**
+
+note over user
+    The user DO NOT
+        exchange for access_token
+        with given auth code IN TIME.
+endrnote
+
+user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with auth code = **authCodeB** \n        and state = **stateB**
 
 rnote over user
     Be induced to click the link to
-        **normal_client/callback?code=authCodeA**
+        **geekbang_client/callback?code=authCodeA&state=stateA**.
 endrnote
 
-user -> normal_client: Redirect to client redirect uri \n    with auth code = **authCodeA**
+user -> geekbang_client: Redirect to geekbang_client redirect uri \n    with auth code = **authCodeA** \n        and state = **stateA**
 
-normal_client -> auth_serv: 3. Exchange for access_token \n    with given auth code = **authCodeA**
-normal_client <-- auth_serv: 4. Return access_token & refresh_token
+geekbang_client -x geekbang_client: check original state (**stateB**) and current state (**stateA**)
+
+rnote over geekbang_client
+    Aborted: becuase state is not equal!
+endrnote
+
+geekbang_client -x auth_serv: 3. Exchange for access_token \n    with given auth code = **authCodeA**
+
+rnote over geekbang_client
+    State protect User!
+endrnote
 
 @enduml
 ```
-
--->
