@@ -67,7 +67,7 @@ deactivate user
 
 geekbang_client -> auth_server: 3. Exchange for access_token \n    with given authorization code = **codeA**
 activate auth_server
-geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n        & **Attacker's WeChat account**
+geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n        bound to **Attacker's WeChat account**
 deactivate auth_server
 deactivate geekbang_client
 
@@ -97,7 +97,7 @@ activate geekbang_client
 
 geekbang_client -> auth_server: 3. Exchange for access_token \n    with given authorization code = **codeC**
 activate auth_server
-geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n        & **Attacker's WeChat account**
+geekbang_client <-- auth_server: 4. Return **access_token** \n    for **User's Geekbang account** \n        bound to **Attacker's WeChat account**
 deactivate auth_server
 
 attacker -> geekbang_client: Do something bad: \n    e.g. access User's private data
