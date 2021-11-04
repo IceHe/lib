@@ -57,7 +57,7 @@ endrnote
 user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeB**
 
 rnote over user
-    Be induced to click the link to
+    User is induced to click the link to
         **geekbang_client/callback?code=codeA**
 endrnote
 
@@ -160,7 +160,7 @@ endrnote
 user -x geekbang_client: Redirect to geekbang_client redirect uri \n    with authorization = **codeB** \n        and state = **stateB**
 
 rnote over user
-    Be induced to click the link to
+    Use is induced to click the link to
         **geekbang_client/callback?code=codeA&state=stateA**
 endrnote
 
