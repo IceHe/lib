@@ -6,6 +6,9 @@
 
 ```plantuml
 @startuml
+
+title CSRF Attack on OAuth 2.0 - Fraud to Bind WeChat Account - Problem
+
 actor attacker as "Attacker"
 actor user as "User"
 
@@ -115,6 +118,9 @@ deactivate attacker
 
 ```plantuml
 @startuml
+
+title CSRF Attack on OAuth 2.0 - Fraud to Bind WeChat Account - Solution: Random STATE
+
 actor attacker as "Attacker"
 actor user as "User"
 

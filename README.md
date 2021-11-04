@@ -133,6 +133,7 @@ Basics
     an interoperable authentication protocol based on the OAuth 2.0 family of specifications
 
     - [Core 1.0](/auth/oidc/core.md) functionality : authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+    - TBC…
 
 - [OAuth](/auth/oauth.md) - Open **Authorization**
 
@@ -144,8 +145,8 @@ Basics
 
 Solution Provider
 
-- [auth0](/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
-- [okta](/auth/solution-provider/okta.md) : the world's #1 identity platform
+- [Auth0](/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
+- [Okta](/auth/solution-provider/okta.md) : the world's #1 identity platform
 - [Authing](/auth/solution-provider/authing.md) : connect every person and app on the planet
 
 ### Snippet
