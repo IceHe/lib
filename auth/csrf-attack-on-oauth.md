@@ -31,15 +31,6 @@ attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with
 ==Soon==
 
 user -> geekbang_client: Login via username & password
-
-user -> geekbang_client: Request to bind **User's WeChat account**
-
-note over user
-    The user DO NOT
-        exchange for access_token
-        with given auth code IN TIME.
-endrnote
-
 user -> geekbang_client: Request to bind **User's WeChat account**
 user <-- geekbang_client: 1. Redirect User to Auth Server
 
@@ -47,7 +38,7 @@ user -> auth_serv: Load Auth Server for authentication \n    with redirect uri =
 user <-- auth_serv: 2. auth code = **authCodeB**
 
 note over user
-    The user DO NOT
+    User DO NOT
         exchange for access_token
         with given auth code IN TIME.
 endrnote
@@ -70,7 +61,7 @@ endrnote
 
 ==Later==
 
-attacker -> geekbang_client: Login via attacker's WeChat account
+attacker -> geekbang_client: Login via Attacker's WeChat account
 attacker <-- geekbang_client: 1. Redirect User to Auth Server
 
 attacker -> auth_serv: Load Auth Server for authentication with redirect uri = **geekbang_client/callback**
@@ -119,14 +110,6 @@ attacker -x geekbang_client: Redirect to geekbang_client redirect uri \n    with
 user -> geekbang_client: Login via username & password
 
 user -> geekbang_client: Request to bind **User's WeChat account**
-
-note over user
-    The user DO NOT
-        exchange for access_token
-        with given auth code IN TIME.
-endrnote
-
-user -> geekbang_client: Request to bind **User's WeChat account**
 geekbang_client -> geekbang_client: generate and store state = **stateB**
 user <-- geekbang_client: 1. Redirect User to Auth Server with state = **stateB**
 
@@ -134,7 +117,7 @@ user -> auth_serv: Load Auth Server for authentication \n    with redirect uri =
 user <-- auth_serv: 2. auth code = **authCodeB** \n        and state = **stateB**
 
 note over user
-    The user DO NOT
+    User DO NOT
         exchange for access_token
         with given auth code IN TIME.
 endrnote
