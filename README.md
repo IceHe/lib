@@ -204,7 +204,9 @@ Web
 
 - [IP Address](/snip/network/ip.md)
 - [Network Notes](/snip/network/notes.md)
-- [URL Encoding](/snip/web/url-encoding.md)
+- [URL Encoding](/snip/web/url-encoding.md) : aka. Percent Encoding
+    - a method to encode arbitrary data in a Uniform Resource Identifier (URI) using only the limited US-ASCII characters legal within a URI
+- [Base64 Encoding](/snip/web/base64-encoding.md)
 - Simple HTTP service :
     - [init.d](/snip/init.d/init.d.md) with `php -S`
     - [Nginx](/snip/nginx/nginx.md) via the configuration file

@@ -1,6 +1,16 @@
 # URL Encoding
 
-Scene
+a method to encode arbitrary data in a Uniform Resource Identifier (URI) using only the limited US-ASCII characters legal within a URI
+
+---
+
+References
+
+- [关于URL编码 - 阮一峰](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
+- [Percent Encoding - Wikipedia](https://en.wikipedia.org/wiki/Percent-encoding)
+- [百分号编码 - 维基百科](https://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81)
+
+## Scene
 
 - URL 传参时，可能由于参数编码的问题，服务器无法正确解析参数的内容
     - 特别是自行使用字符串操作拼接 URL 时
@@ -9,11 +19,6 @@ Scene
             - 例如有封装好的 URL 拼接函数，它内置对参数的自动 url-encode
             - 但是调用该工具函数前，你已经对参数进行了一次 url-encode，导致参数被多重编码
     - 甚至 URL 除了参数部分之外，也有编码问题
-
-References
-
-- 关于URL编码 - 阮一峰 : http://www.ruanyifeng.com/blog/2010/02/url_encoding.html
-- 百分号编码 - 维基百科 : https://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
 
 ## JavaScript
 
