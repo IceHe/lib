@@ -6,7 +6,7 @@ a method to encode arbitrary data in a Uniform Resource Identifier (URI) using o
 
 References
 
-- [关于URL编码 - 阮一峰](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
+- **[关于URL编码 - 阮一峰](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)**
 - [Percent Encoding - Wikipedia](https://en.wikipedia.org/wiki/Percent-encoding)
 - [百分号编码 - 维基百科](https://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81)
 
