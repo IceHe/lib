@@ -133,6 +133,7 @@ Basics
     an interoperable authentication protocol based on the OAuth 2.0 family of specifications
 
     - [Core 1.0](/auth/oidc/core.md) functionality : authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+    - [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_
     - TBC…
 
 - [OAuth](/auth/oauth.md) - Open **Authorization**
