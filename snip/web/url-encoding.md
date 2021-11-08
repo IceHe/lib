@@ -20,15 +20,17 @@ References
             - 但是调用该工具函数前，你已经对参数进行了一次 url-encode，导致参数被多重编码
     - 甚至 URL 除了参数部分之外，也有编码问题
 
-## JavaScript
+## Usage
+
+Prepare Testing
 
 - Open **Chrome** Browser
 - Press `⌥ ⌘ j` to open `View -> Developer -> JavaScript Console`
 - Run code as follow
 
-### UTF-8
+### Examples
 
-Chinese
+Chinese characters
 
 ```javascript
 # Unicode
@@ -36,13 +38,13 @@ Chinese
 "%u767E%u5206%u53F7%u7F16%u7801"
 
 # UTF-8
-> encodeURI("百分号编码")
-"%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81"
-> encodeURIComponent("百分号编码")
-"%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81"
+> encodeURI("icehe.xyz@qq.com")
+'icehe.xyz@qq.com'
+> encodeURIComponent("icehe.xyz@qq.com")
+'icehe.xyz%40qq.com'
 ```
 
-URL with Chinese
+URL with Chinese characters
 
 ```url
 https://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81
@@ -57,7 +59,7 @@ https://zh.wikipedia.org/wiki/百分号编码
 
 ### ~~escape~~
 
-**Deprecated method!**
+Deprecated method!
 
 ### encodeURL
 
