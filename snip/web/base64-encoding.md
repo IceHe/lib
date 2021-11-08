@@ -111,12 +111,10 @@ This encoding causes an **overhead of 33–36% (33% by the encoding itself; up t
 
 ![base64-padding-example-2.png](_image/base64-padding-example-2.png)
 
-### Output padding
-
-### Decoding Base64 with padding
-
-### Decoding Base64 without padding
+_`=` padding characters might be added to make the last encoded block contain four Base64 characters._
 
 ## Implementations and history
 
-### Variants summary table
+Variants summary table
+
+![base64-implementation-variants-summary-table.png](_image/base64-implementation-variants-summary-table.png)
