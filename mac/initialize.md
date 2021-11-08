@@ -775,6 +775,10 @@ brew install node
 
 ### WebStorm
 
+References
+
+- [How to make WebStorm format code according to eslint? - Stack Overflow](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint)
+
 TODO
 
 ## Kotlin Android Development
