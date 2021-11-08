@@ -10,6 +10,59 @@ References
 - [Percent Encoding - Wikipedia](https://en.wikipedia.org/wiki/Percent-encoding)
 - [百分号编码 - 维基百科](https://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81)
 
+## Intro
+
+**Percent-encoding**, also known as **URL encoding**, is **a method to encode arbitrary data in a Uniform Resource Identifier (URI) using only the limited US-ASCII characters legal within a URI.**
+
+_Although it is known as URL encoding, it is also used more generally within the main Uniform Resource Identifier (URI) set, which includes both Uniform Resource Locator (URL) and Uniform Resource Name (URN)._
+As such, it is also used in the preparation of data of the **`application/x-www-form-urlencoded`** media type, as is often used in the submission of HTML form data in HTTP requests.
+
+## In URI
+
+Types of URI characters
+
+- **reserved** : characters that sometimes have special meaning
+- **unreserved** : characters have no such meanings
+
+_RFC 3986 section 2.2_ **Reserved** Characters _(January 2005)_
+
+```bash
+! # $ & ' ( ) * + , / : ; = ? @ [ ]
+```
+
+_RFC 3986 section 2.3_ **Unreserved** Characters _(January 2005)_
+
+```text
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+0 1 2 3 4 5 6 7 8 9 - _ . ~
+```
+
+Other characters in a URI must be percent encoded.
+
+---
+
+Common characters after percent-encoding (ASCII or UTF-8 based)
+
+- `!` %21
+- `#` %23
+- `$` %24
+- `&` %26
+- `'` %27
+- `(` %28
+- `)` %29
+- `*` %2A
+- `+` %2B
+- `,` %2C
+- `/` %2F
+- `:` %3A
+- `;` %3B
+- `=` %3D
+- `?` %3F
+- `@` %40
+- `[` %5B
+- `]` %5D
+
 ## Scene
 
 - URL 传参时，可能由于参数编码的问题，服务器无法正确解析参数的内容
