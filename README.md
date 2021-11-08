@@ -434,6 +434,7 @@ Basics
     - [npm](/js/package-management/npm.md) : share and borrow packages
     - [yarn](/js/package-management/yarn.md) : a package manager that doubles down as project manager
     - [pnpm](/js/package-management/pnpm.md) : fast, disk space efficient package manager
+- Coding : [Code Snippet](/js/code-snippet/code-snippet.md)
 
 npm : the world's largest software registry
 
