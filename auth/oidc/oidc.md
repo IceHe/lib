@@ -10,6 +10,7 @@ References
 - [openid.net](https://openid.net)
     - [OpenID Connect](https://openid.net/connect/)
         - [FAQ and Q&As](https://openid.net/connect/faq/)
+- [RFC7636 - Proof Key for Code Exchange by OAuth Public Clients](https://datatracker.ietf.org/doc/html/rfc7636)
 
 ## FAQ
 
