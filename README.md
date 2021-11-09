@@ -183,9 +183,12 @@ Programming Languages - at a glance
 
 Storage
 
-- LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md) - basic data structure of LevelDB & RocksDB
-- Elasticsearch : [Usage](/snip/elasticsearch.md) - for search and analysis
-- MySQL : [Usage](/cmd/m/mysql.md) - robust SQL database server
+- LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md)
+    - basic data structure of LevelDB & RocksDB
+- Elasticsearch : [Usage](/snip/elasticsearch.md)
+    - for search and analysis
+- MySQL : [Usage](/cmd/m/mysql.md)
+    - robust SQL database server
 - Redis: [Basics](/snip/redis/basics.md)  / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
     - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
@@ -473,7 +476,7 @@ Package
     - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
 - [superstruct](https://github.com/ianstormtaylor/superstruct) : makes it easy to define interfaces and then validate JavaScript data against them
     - other options : [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends : [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
-- [zustand](https://github.com/pmndrs/zustand) :
+- [zustand](https://github.com/pmndrs/zustand) : a small, fast and scalable bearbones state-management solution using simplified flux principles
 
 TypeScript
 
