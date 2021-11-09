@@ -430,11 +430,17 @@ Basics
     - [Promise](/js/basics/promise.md) : The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
         - [States and Fates](/js/basics/promise-states-n-fates.md) :
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine <!-- [nodejs.org](https://nodejs.org/en/) -->
-- Package Management
-    - [npm](/js/package-management/npm.md) : share and borrow packages
-    - [yarn](/js/package-management/yarn.md) : a package manager that doubles down as project manager
-    - [pnpm](/js/package-management/pnpm.md) : fast, disk space efficient package manager
-- Coding : [Code Snippet](/js/code-snippet/code-snippet.md)
+
+Code Snippet
+
+- [Base Encoding](/js/code-snippet/base64-encoding.md)
+- [Code Snippet](/js/code-snippet/code-snippet.md)
+
+Package Management
+
+- [npm](/js/package-management/npm.md) : share and borrow packages
+- [yarn](/js/package-management/yarn.md) : a package manager that doubles down as project manager
+- [pnpm](/js/package-management/pnpm.md) : fast, disk space efficient package manager
 
 npm : the world's largest software registry
 
@@ -458,13 +464,16 @@ npm : the world's largest software registry
 - Package
     - commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
     - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+    - jest : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
     - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
     - [nanoid](/js/package/nanoid.md) : A tiny (108 bytes), secure, URL-friendly, unique string ID generator for JavaScript
     - next : The React Framework for Production - [nextjs.org](https://nextjs.org/)
         - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
     - parcel : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
         - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
-    - jest : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
+    - [superstruct](https://github.com/ianstormtaylor/superstruct) : makes it easy to define interfaces and then validate JavaScript data against them
+        - other options : [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends : [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
+    - [zustand](https://github.com/pmndrs/zustand) :
 
 [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types
 
