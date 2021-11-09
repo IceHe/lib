@@ -433,8 +433,9 @@ Basics
 
 Code Snippet
 
-- [Base Encoding](/js/code-snippet/base64-encoding.md)
-- [Code Snippet](/js/code-snippet/code-snippet.md)
+- [Base Encoding](/js/code-snippet/base64-encoding.md) : encode, decode
+- [Environment](/js/code-snippet/environment.md) : running under Node or browser-like environments
+- [Jest](/js/code-snippet/jest.md) : for unit tests
 
 Package Management
 
