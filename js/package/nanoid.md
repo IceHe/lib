@@ -1,6 +1,6 @@
 # nanoid
 
-A tiny, secure, URL-friendly, unique string ID generator for JavaScript.
+a tiny, secure, URL-friendly, unique string ID generator for JavaScript.
 
 ---
 

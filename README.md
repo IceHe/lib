@@ -183,12 +183,9 @@ Programming Languages - at a glance
 
 Storage
 
-- LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md)
-    - basic data structure of LevelDB & RocksDB
-- Elasticsearch : [Usage](/snip/elasticsearch.md)
-    - for search and analysis
-- MySQL : [Usage](/cmd/m/mysql.md)
-    - robust SQL database server
+- LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md) - basic data structure of LevelDB & RocksDB
+- Elasticsearch : [Usage](/snip/elasticsearch.md) - for search and analysis
+- MySQL : [Usage](/cmd/m/mysql.md) - robust SQL database server
 - Redis: [Basics](/snip/redis/basics.md)  / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
     - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
@@ -204,7 +201,7 @@ Terminology
 Web
 
 - [IP Address](/snip/network/ip.md)
-- [Network Notes](/snip/network/notes.md)
+- [Network - Notes](/snip/network/notes.md)
 - [URL Encoding](/snip/web/url-encoding.md) : aka. Percent Encoding
     - a method to encode arbitrary data in a Uniform Resource Identifier (URI) using only the limited US-ASCII characters legal within a URI
 - [Base64 Encoding](/snip/web/base64-encoding.md)
@@ -427,9 +424,9 @@ _Batch 批处理_
 Basics
 
 - [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
-    - [Promise](/js/basics/promise.md) : The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
-        - [States and Fates](/js/basics/promise-states-n-fates.md) :
-- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine <!-- [nodejs.org](https://nodejs.org/en/) -->
+- [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
+    - [States and Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises
+- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
 
 Code Snippet
 
@@ -462,22 +459,27 @@ npm : the world's largest software registry
     - [npm link](/js/npm-cmd/npm-link.md) : symlink a package folder
     - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
     - [npm exec](/js/npm-cmd/npm-exec.md), `npx` : run a command from a local or remote npm package
-- Package
-    - commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
-    - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
-    - jest : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
-    - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-    - [nanoid](/js/package/nanoid.md) : A tiny (108 bytes), secure, URL-friendly, unique string ID generator for JavaScript
-    - next : The React Framework for Production - [nextjs.org](https://nextjs.org/)
-        - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
-    - parcel : The zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
-        - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
-    - [superstruct](https://github.com/ianstormtaylor/superstruct) : makes it easy to define interfaces and then validate JavaScript data against them
-        - other options : [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends : [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
-    - [zustand](https://github.com/pmndrs/zustand) :
 
-[TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types
+Package
 
+- commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+- husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+- jest : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
+- lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+- [nanoid](/js/package/nanoid.md) : a tiny (108 bytes), secure, URL-friendly, unique string ID generator for JavaScript
+- next : React Framework for Production - [nextjs.org](https://nextjs.org/)
+    - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
+- parcel : zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
+    - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
+- [superstruct](https://github.com/ianstormtaylor/superstruct) : makes it easy to define interfaces and then validate JavaScript data against them
+    - other options : [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends : [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
+- [zustand](https://github.com/pmndrs/zustand) :
+
+TypeScript
+
+- [TypeScript](/js/typescript/typescript.md) : JavaScript with syntax for types
+- [tsc](/js/typescript/tsc.md) : compiles the current project, with additional settings
+- [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
 - Handbook
     - [Intro](/js/typescript/handbook/intro.md)
     - [Basics](/js/typescript/handbook/basics.md)
@@ -486,9 +488,7 @@ npm : the world's largest software registry
     - [More on Functions](/js/typescript/handbook/more-on-functions.md)
     - [Object Types](/js/typescript/handbook/type-objects.md)
     - [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
-    - Reference: TBC
-- [tsconfig.json](/js/typescript/tsconfig-json.md) : specifies the root files and the compiler options required to compile the project
-- [tsc](/js/typescript/tsc.md) : compiles the current project, with additional settings
+    - TODO
 
 ### Java
 
@@ -504,8 +504,7 @@ Basics
 
 Package Manager
 
-- [Maven](/java/maven.md)
-    - Apache Maven is a software project management and comprehension tool.
+- [Maven](/java/maven.md) : a software project management and comprehension tool
     - Based on the concept of a **project object model** (POM), Maven can :
         - manage a project's build,
         - reporting _and_
@@ -692,7 +691,7 @@ Timeline
 - [PDCA Cycle](/life/principle/pdca.md) : Plan → Do → Check → Act or Adjust
 - [SMART principle](/life/principle/smart.md) : Specific / Measurable / Achievable / Relevant / Time-based
 - [STAR principle](/life/principle/star.md) : Situation → Target → Action → Result
-- [Deployment Checklist](/snip/tmp/deployment-checklist.md) : Avoid low-level mistakes
+- [Deployment Checklist](/snip/tmp/deployment-checklist.md) : avoid low-level mistakes
 - [How to Leave](/life/principle/how-to-leave.md) :《解除劳动合同告知书》
 
 <!-- - [SWOT Analysis](/life/principle/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
