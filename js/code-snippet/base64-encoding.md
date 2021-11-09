@@ -1,4 +1,4 @@
-# Base64 Encoding - JS
+# Base64 Encoding
 
 ## Browser: btoa/atob
 
