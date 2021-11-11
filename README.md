@@ -426,16 +426,17 @@ _Batch 批处理_
 
 Basics
 
-- [JavaScript](/js/js.md) aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+- [JavaScript](/js/js.md) : aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
 - [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
     - [States and Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises
-- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
 
 Code Snippet
 
 - [Base Encoding](/js/code-snippet/base64-encoding.md) : encode, decode
 - [Environment](/js/code-snippet/environment.md) : running under Node or browser-like environments
 - [Jest](/js/code-snippet/jest.md) : for unit tests
+- TODO
 
 Package Management
 
@@ -443,7 +444,7 @@ Package Management
 - [yarn](/js/package-management/yarn.md) : a package manager that doubles down as project manager
 - [pnpm](/js/package-management/pnpm.md) : fast, disk space efficient package manager
 
-npm : the world's largest software registry
+NPM : the world's largest software registry
 
 - Configuring
     - [package.json](/js/npm-configuring/package-json.md) : a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
@@ -462,6 +463,7 @@ npm : the world's largest software registry
     - [npm link](/js/npm-cmd/npm-link.md) : symlink a package folder
     - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
     - [npm exec](/js/npm-cmd/npm-exec.md), `npx` : run a command from a local or remote npm package
+    - TODO : e.g. `npm run build`
 
 Package
 
@@ -469,14 +471,14 @@ Package
 - husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
 - jest : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
 - lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-- [nanoid](/js/package/nanoid.md) : a tiny (108 bytes), secure, URL-friendly, unique string ID generator for JavaScript
+- [nanoid](/js/package/nanoid.md) : a tiny (108 bytes), secure, URL-friendly, unique string ID generator
 - next : React Framework for Production - [nextjs.org](https://nextjs.org/)
-    - Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more.
+- razzle : build modern JavaScript applications from zero to production - [razzlejs.org](https://razzlejs.org/)
 - parcel : zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
-    - Parcel starts with a great development experience, from starting a new project, to iterating and debugging, and shipping to production.
-- [superstruct](https://github.com/ianstormtaylor/superstruct) : makes it easy to define interfaces and then validate JavaScript data against them
+- superstruct : makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
     - other options : [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends : [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
-- [zustand](https://github.com/pmndrs/zustand) : a small, fast and scalable bearbones state-management solution using simplified flux principles
+- zustand : a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
+- TODO : READ & NOTE-TAKE
 
 TypeScript
 
