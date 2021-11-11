@@ -126,7 +126,7 @@
 
 ## 阅读
 
-- [程序员必读书单 1.0](http://lucida.me/blog/developer-reading-list/)
+- [程序员必读书单 1.0](http://lucida.me/blog/developer-reading-list/) & [程序员必读书单 1.0 -- 六年后的回顾](http://lucida.me/blog/developer-reading-list-retro/)
 - [面向对象编程的弊端是什么？](https://www.zhihu.com/question/20275578/answer/26577791)<sup>__Best__</sup>
 - [程序员博客墙](http://www.wangminli.com/blogwall/) - 优秀程序员的个人博客索引
 - [酷壳](https://coolshell.cn) - 左耳朵耗子 陈皓 的博客
@@ -141,6 +141,8 @@
 - [中文编码杂谈](http://mp.weixin.qq.com/s?__biz=MzAwNjMxMTA5Mw==&amp;mid=401458542&amp;idx=1&amp;sn=8b92d5fb274760558154eb38a7a796de&amp;scene=1&amp;srcid=0104vzltG2BqJX4KXEWMcK4N#rd)
 - [程序员小灰](http://chuansong.me/account/dreamsee321) <sup>微信公众号</sup> <sup>__Best__</sup>
 - [抖音设局](https://mp.weixin.qq.com/s/IzL6tbgS8V6k67KTdD_eXg) - 一个极度理性自律的精英, 利用他人的不理性的放纵来挣钱
+- [Devops 中的 Overfitting](https://www.kawabangga.com/posts/4145) - [我的感想](https://weibo.com/2181657940/L0Ku8xNio)
+    - "过度的自动化会浪费跟多的成本，只能得到很少的收益。" 连 Devops 领域也是. 为了低概率事件而做过度的自动化, 还不如留些 "余地" —— 有时允许适当频率和时长的人工介入处理, 可以降低系统的复杂性, 让运维任务更容易些 ( 系统不至于过于复杂难以理解 ) .
 
 ## Web
 
