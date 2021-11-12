@@ -102,9 +102,9 @@ IceHe's short biographical profile
 - 公司简介: [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 - 初始产品: [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
 - 融资阶段: Seed money $2M+ from [Sequoia Capital](https://www.sequoiacap.com/china/) & [ZhenFund](http://www.zhenfund.com/)
-- _JavaScript / TypeScript / Node.js / GitHub Organization / Alibaba Cloud_
+- _JavaScript / TypeScript / Node.js / GitHub Organization_
 
-<!-- - 融资阶段: Seed money $4.5M+ from [Sequoia Capital](https://www.sequoiacap.com/china/), [ZhenFund](http://www.zhenfund.com/), [Eminence Ventures](http://www.emventures.cn/)… -->
+<!-- - 融资阶段: Seed money $4.5M+ from [Sequoia Capital](https://www.sequoiacap.com/china/), [ZhenFund](http://www.zhenfund.com/) & [Eminence Ventures](http://www.emventures.cn/)… -->
 
 **猿辅导 - 斑马 - 供应链 - Java 后端** _2021.3 ~ 2021.8_
 
