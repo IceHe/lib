@@ -1,3 +1,5 @@
 {
-    "workbench.preferredDarkColorTheme": "Default Light+"
+    "workbench.preferredDarkColorTheme": "Default Light+",
+    "window.autoDetectColorScheme": true,
+    "workbench.colorTheme": "Visual Studio Light"
 }
