@@ -20,7 +20,7 @@ IceHe's short biographical profile
     _2019.3 ~ 2020.3_
 -   新浪微博: 视频平台 - Java |
     _2018.4 ~ 2019.2_
--   新浪微博: Mobile API - PHP 应届 |
+-   新浪微博: Mobile API - PHP |
     _2015.7 ~ 2018.3_
 -   华为软件: 电信软件定制部 - Java 实习 |
     _2014.8 ~ 2014.10_
@@ -130,7 +130,7 @@ IceHe's short biographical profile
 - 媒体库 / 探测报警 (API 健康) / 视频墙 (个人主页发布视频列表) / 文档库 / Partial request / …
 - _Java / Groovy / Spring Boot / MySQL / MyBatis / Redis / Memcached / Kafka / Docker / CentOS / Bash_
 
-**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端 应届** _2015.7 ~ 2018.3_
+**[新浪微博](https://zh.wikipedia.org/wiki/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A) - 移动应用服务 - PHP 服务端** _2015.7 ~ 2018.3_
 
 - **微博产品部 2017 年度优秀个人 - MAPI 前 1/16, 产品部 前 15/200+**
 - 开发维护移动端 ( 手机 [客户端](https://itunes.apple.com/cn/app/id350962117) & [H5](https://m.weibo.cn/) 页 ) 的 API 服务及其 CMS 后台
