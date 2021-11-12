@@ -618,7 +618,7 @@ Living
 - **Alibaba Local Life** : 蜂鸟跑腿前台
 - **Alibaba Local Life** : 众包物流运营&数据组后台
 - **Weibo** : Video Platform
-- **Weibo** : Mobile API - Graduate
+- **Weibo** : Mobile API
 - **Huawei** : Telecom Software Customization - Intern.
 - **SCUT** : Software Engineering - Bachelor
 
