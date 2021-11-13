@@ -715,47 +715,51 @@ Timeline
     -   [Reading](/read/reading-bookmark.md)
     -   [Technology](/read/technology-bookmark.md)
 -   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) - _[ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)_ - _[digest](/read/cruel-reality.md)_
-    -   "Nice guy? I never give a shit."
+    -   Nice guy? I never give a shit.
 -   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) - _[digest](/read/meaning.md)_
-    -   "因为活着，才去寻找意义。"
+    -   因为活着, 才去寻找意义.
 -   [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) - _[digest](/read/happiness-course.md)_
-    -   "如果你只有一个选择，它让你满意吗？"
+    -   如果你只有一个选择, 它让你满意吗?
 -   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) - _[digest](/read/why-unhappy.md)_
-    -   "我，并不特别。"
+    -   我, 并不特别.
 -   [Poet](https://zhuanlan.zhihu.com/p/19895904) : 诗和远方 - _[digest](/read/poet.md)_
-    -   "眼前的苟且，也正是诗和远方。"
+    -   眼前的苟且, 也正是诗和远方.
 -   [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) - _[digest](/read/teacher-said.md)_
-    -   "我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。"
-    -   "做正确的选择，而不是可以接受的选择。"
+    -   我们用 "我能做到什么" 来判断和定位自己, 而别人用 "你已经做过什么" 来判断和定位你.
+    -   做正确的选择, 而不是可以接受的选择.
 -   [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) - _[digest](/read/pessimist.md)_
-    -   "It's the hardest part when memories remain."
+    -   It's the hardest part when memories remain.
 -   [Anti-Fragile](/read/anti-fragile.md) - _[book](https://item.jd.com/11364406.html)_
-    -   "一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。"
+    -   一只火鸡被屠夫喂养了 1000 天, 每天都向其分析师证实, 屠夫对火鸡的爱的 "统计置信度与日俱增" .
 -   [VicodinXYZ's Life Beliefs](/read/life-beliefs.md)
-    -   "决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结"
-    -   "**对于日常小决策, 决策速度大于决策质量, 不要拖;**
-        对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对"
-    -   "**不是生活中的每一个问题都要解决, 和问题共处是人生常态.**
-        **把精力用在重要的事情上**"
+    -   决策的第一要务是给自己创造足够多的好选项. 大多数决策失败来源于在几个都不够好的选择中反复纠结.
+    -   **对于日常小决策, 决策速度大于决策质量, 不要拖**;
+        对于重大而难逆转的大决策, 要收集足够多信息尽量保证做对.
+    -   **不是生活中的每一个问题都要解决, 和问题共处是人生常态. 把精力用在重要的事情上**.
 -   [Sspai Time Management](/read/sspai-time-mgt.md)
-    -   "提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。"
-    -   "**更大的效率来自于重要事情上做得好，而不是在处处做得好，**
-        **管理精力比管理时间更重要。**"
-    -   "在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：
-        **精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**"
-    -   "道理很简单，**「不做事」一定是最节省时间、最高效的做事方式，**
-        **学会「做重要的事」才是掌控时间的终极法门。**"
-    -   "何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，
-        事实上研究表明，**认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，
-        另一项研究则表明，**对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**"
+    -   **更大的效率来自于重要事情上做得好, 而不是在处处做得好,**
+        **管理精力比管理时间更重要.**
+    -   在考虑如何提高精力之前, 我们得先解决导致精力被浪费的主要原因:
+        -   **精力错位, 也就是把最好的时间和状态, 浪费在了低产出的任务上.**
+    -   **"不做事" 一定是最节省时间、最高效的做事方式**,
+        学会 "做重要的事" 才是掌控时间的终极法门.
+    -   提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定.
+    -   何谓 "真正的休息" 呢? 不少人习惯将阅读网站和新闻当作一种休息, 事实上研究表明,
+        -   **认知活动 ( 阅读文字、视频等 ) 加重了工作需求产生消极情绪**, 另一项研究则表明,
+        -   **对于减少疲惫感, 而且通过智能手机应用休息的效果差于与朋友或同事社交.**
 -   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
-    -   成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist : The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism](/book/how-to-be-an-imperfectionist.md) - _taking notes_
+        成功者會認為他們的成功是靠自己的才能和努力, 而與社會無關,
+        既然成功是我自己的事, 那失敗就是輸家自己的錯,
+        這會製造出 "才德的驕傲" ( meritocratic hubris ) ,
+        對階梯下的人缺乏同理心, 甚至不屑和輕蔑,
+        因此更不會有對於共同體內同胞的相互責任.
+-   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md):
+    -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
     -   《 如何成为不完美主义者 》
-    -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
-    -   不那么在意行动正确与否，更在意是否在行动。
-    -   不那么在意所谓时机，更在意任务本身。
+        -   不那么在意问题本身, 更在意在有问题存在的情况下能取得的进展.
+        -   不那么在意行动正确与否, 更在意是否在行动.
+        -   不那么在意所谓时机, 更在意任务本身.
 
 <!-- -   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ - _to read_ -->
 <!--     -   《 噪声 : 一个人类判断力的缺陷 》 -->
@@ -769,12 +773,13 @@ Timeline
 <!-- > —— Better Man - _Robbie Williams song_ -->
 
 -   Jan Fan : Pythonist / Tencent / Applied Mathematics PhD @ Sweden
--   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing
 -   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou
 -   Shiwey Yan : Game Engine Developer / Tencent - Timi @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann) : Frontend / 360 / UC / Tencent / Tubi @ Beijing
 -   [ME](https://icehe.xyz/#/past/bio) : Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 - …
+
+<!-- -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing -->
 
 ---
 
