@@ -35,7 +35,7 @@ Coding
     - Elements of Reusable Object-Oriented Software
 - [Pragmatic Programmer](/book/pragmatic-programmer.md)
     - Your journey to mastery - 2nd Edition
-- [The Manager's Path](/book/the-manager-s-path.md) - _reading_
+- [The Manager's Path](/book/the-manager-s-path.md) - _to read_
     - A Guide for Tech Leaders Navigating Growth and Change
 - [Peopleware](/book/peopleware.md) - _to re-read_
     - Productive Projects and Teams
@@ -107,10 +107,10 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 -->
 
-<!-- - [Algorithms - 4th Edition - Notes](/book/algorithms-notes.md) - _reading_ -->
-<!-- - JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - _reading_ -->
-<!-- - [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - _reading_ -->
-<!-- - [Linux Kernel](/book/linux.md) - _reading_ -->
+<!-- - [Algorithms - 4th Edition - Notes](/book/algorithms-notes.md) - _to read_ -->
+<!-- - JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - _to read -->
+<!-- - [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - to read_ -->
+<!-- - [Linux Kernel](/book/linux.md) - _to read_ -->
 
 <!-- [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC -->
 <!--  -->
@@ -119,8 +119,8 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 <!-- Tools -->
 
 <!-- - Wireshark -->
-<!--     - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - _reading_ -->
-<!--     - [The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - _reading_ -->
+<!--     - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - _to read -->
+<!--     - [The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - _to read_ -->
 
 ### Auth*
 
