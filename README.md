@@ -429,8 +429,11 @@ Basics
 - [JavaScript](/js/js.md) : aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
 - [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
-    - _[States & Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises_
+    - [Using Promise](/js/basics/using-promise.md) : TODO
     - [async & await](/js/basics/async-n-await.md) : TODO
+    - _[States & Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises_
+        - States : { settled : [ fullfilled, rejected ] , unsettled : [ pending ] }
+        - Fates : [ resolved, unresolved ]
 
 Code Snippet
 
