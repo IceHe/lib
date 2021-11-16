@@ -429,7 +429,7 @@ Basics
 - [JavaScript](/js/js.md) : aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
 - [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
-    - [States and Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises
+    - _[States and Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises_
 
 Code Snippet
 
@@ -629,8 +629,9 @@ Timeline
     - [2018 Spring ~ 2019 Autumn](/life/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/life/2018-winter.md)
     - [Moments](/life/moments.md) : 回忆
-    - [Better Living](/life/better-living.md)
     - [Rehabilitation](/life/rehabilitation.md)
+    - [Reflection](/life/reflection.md)
+    - [Better Living](/life/better-living.md)
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/life/2017-summer-2-winter.md)
     - [2017 Spring](/life/2017-spring.md)
