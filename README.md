@@ -615,7 +615,7 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-[Bio](/life/bio.md) : Backend - Exp | Edu | Skills
+[Bio](/life/bio.md) : Backend Experience & Education
 
 - **Silverhand** : Founding Team
 - **YFD** : Zebra - Supply Chain
