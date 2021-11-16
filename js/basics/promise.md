@@ -161,3 +161,41 @@ Since all web APIs are aware of the incumbent settings object, the following wil
 _( icehe : 暂时理解不了这一小节的内容, 所以暂时隐藏掉 2021/11/16)_
 
 -->
+
+## Constructor
+
+### Static methods
+
+-   [`Promise.all(iterable)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+
+    Wait for all promises to be resolved, or for any to be rejected.
+
+    If the returned promise resolves, it is resolved with an aggregating array of the values from the resolved promises, in the same order as defined in the iterable of multiple promises.
+
+    If it rejects, it is rejected with the reason from the first promise in the iterable that was rejected.
+
+    _icehe : 对比 `allSettled()`, `all()` 只要有其中一个 promise rejected, 就会中止并返回._
+
+-   [`Promise.allSettled(iterable)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
+
+    Wait until all promises have settled (each may resolve or reject).
+
+    Returns a Promise that resolves after all of the given promises is either fulfilled or rejected, with an array of objects that each describe the outcome of each promise.
+
+    _icehe : 对比 `all()`, `allSettled()` 要等到所有 promise 都 fullfilled 或 rejected 之后, 才会返回._
+
+-   [`Promise.any(iterable)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
+
+    Takes an iterable of Promise objects and, as soon as one of the promises in the iterable fulfills, returns a single promise that resolves with the value from that promise.
+
+    _icehe : 只要有其中一个 promise fullfilled, 就会中止并返回第一个 fullfilled promise ._
+
+-   `Promise.race(iterable)`
+
+    Wait until any of the promises is fulfilled or rejected.
+
+    _icehe : 对比 `any()`, `race()` 要等到所有 promise 都 fullfilled 或 rejected 之后, 才会返回第一个 fullfilled 或 rejected 的 promise._
+
+### Instance methods
+
+### Examples
