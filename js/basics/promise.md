@@ -93,4 +93,47 @@ Handling a rejected promise in each `.then()` has consequences further down the 
 Sometimes there is no choice, because an error must be handled immediately.
 In such cases we must throw an error of some type to maintain error state down the chain.
 On the other hand, in the absence of an immediate need, it is simpler to leave out error handling until a final `.catch()` statement.
-A `.catch()` is really just a `.then()` without a slot for a callback function for the case when the promise is resolved. <!-- icehe : 最后这句没看懂 2021/11/16 -->
+
+A **`.catch()` is really just a `.then()` without a slot for a callback function for the case when the promise is resolved.**
+
+```js
+myPromise
+    .then(handleResolvedA)
+    .then(handleResolvedB)
+    .then(handleResolvedC)
+    .catch(handleRejectedAny);
+```
+
+……
+
+**The termination condition of a promise determines the "settled" state of the next promise in the chain.**
+
+A "resolved" state indicates a successful completion of the promise, while a "rejected" state indicates a lack of success.
+
+**The return value of each resolved promise in the chain is passed along to the next `.then()`, while the reason for rejection is passed along to the next rejection-handler function in the chain.**
+
+_The promises of a chain are nested like Russian dolls, but get popped like the top of a stack._
+_The first promise in the chain is most deeply nested and is the first to pop._
+
+```js
+(promise D, (promise C, (promise B, (promise A))))
+```
+
+……
+
+**A promise can participate in more than one nesting.**
+
+_For the following code, the transition of `promiseA` into a "settled" state will cause both instances of `.then()` to be invoked._
+
+```js
+const promiseA = new Promise(myExecutorFunc);
+const promiseB = promiseA.then(handleFulfilled1, handleRejected1);
+const promiseC = promiseA.then(handleFulfilled2, handleRejected2);
+```
+
+**An action can be assigned to an <u>already "settled"</u> promise.**
+
+In that case, the action ( if appropriate ) will be performed at the first asynchronous opportunity.
+Note that promises are guaranteed to be asynchronous.
+Therefore, an action for an already "settled" promise will occur only after the stack has cleared and a clock-tick has passed.
+The effect is much like that of `setTimeout(action, 10)`.
