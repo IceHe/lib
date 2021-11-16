@@ -12,6 +12,8 @@ References
 
 ## Description
 
+### Basics
+
 **A `Promise` is a proxy for a value not necessarily known when the promise is created.**
 It allows you to **associate handlers with an asynchronous action's eventual success value or failure reason**
 
@@ -51,3 +53,44 @@ You will also hear **the term `resolved` used with promises — this means that 
 [States and fates](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md) contain more details about promise terminology.
 
 <!-- icehe: resolved 和 unresolved 概念没搞懂. -->
+
+### Chained Promises
+
+The methods
+
+- `promise.then()`,
+- `promise.catch()`, and
+- `promise.finally()`
+
+are used to associate further action with a promise that becomes settled.
+
+---
+
+The `.then()` method takes up to two arguments;
+
+- the **first** argument is a **callback** function for the **resolved** case of the promise, and
+- the **second** argument is a **callback** function for the **rejected** case.
+
+**Each `.then()` returns a newly generated promise object**, which can optionally be used for chaining; for example:
+
+```js
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('foo');
+  }, 300);
+});
+
+myPromise
+  .then(handleResolvedA, handleRejectedA)
+  .then(handleResolvedB, handleRejectedB)
+  .then(handleResolvedC, handleRejectedC);
+```
+
+Processing continues to the next link of the chain even when a `.then()` lacks a callback function that returns a Promise object.
+Therefore, **a chain can safely omit every rejection callback function until the final `.catch()` .**
+
+Handling a rejected promise in each `.then()` has consequences further down the promise chain.
+Sometimes there is no choice, because an error must be handled immediately.
+In such cases we must throw an error of some type to maintain error state down the chain.
+On the other hand, in the absence of an immediate need, it is simpler to leave out error handling until a final `.catch()` statement.
+A `.catch()` is really just a `.then()` without a slot for a callback function for the case when the promise is resolved. <!-- icehe : 最后这句没看懂 2021/11/16 -->
