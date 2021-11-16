@@ -137,3 +137,27 @@ In that case, the action ( if appropriate ) will be performed at the first async
 Note that promises are guaranteed to be asynchronous.
 Therefore, an action for an already "settled" promise will occur only after the stack has cleared and a clock-tick has passed.
 The effect is much like that of `setTimeout(action, 10)`.
+
+<!--
+
+#### _Incumbent settings object tracking_
+
+A settings object is an [environment](https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object) that provides additional information when JavaScript code is running.
+This includes the **realm** and module map, as well as HTML specific information such as the origin.
+The incumbent _( 在职的 )_ settings object is tracked in order to ensure that the browser knows which one to use for a given piece of user code.
+
+To better picture this, we can take a closer look at how the **realm** might be an issue.
+**A realm can be roughly thought of as the global object.**
+What is unique about realms is that they **hold all of the necessary information to run JavaScript code**.
+This includes objects like Array and Error.
+Each settings object has its own "copy" of these and they are not shared.
+That can cause some unexpected behavior in relation to promises.
+In order to get around this, we track something called the incumbent settings object.
+This represents information specific to the context of the user code responsible for a certain function call.
+
+To illustrate this a bit further we can take a look at how an [\<iframe\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) embedded in a document communicates with its host.
+Since all web APIs are aware of the incumbent settings object, the following will work in all browsers:
+
+_( icehe : 暂时理解不了这一小节的内容, 所以暂时隐藏掉 2021/11/16)_
+
+-->
