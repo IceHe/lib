@@ -43,12 +43,12 @@
 -   [ ] 经常分神? _需要专注前, 做好准备_
     -   [ ] 手机 : 打开 Forest 种树 → 远离手机 → 戴手表 ( 收提醒 )
     -   [ ] 电脑 : `vim /etc/hosts` 屏蔽 [ WB, B站 ]
-    -   [ ] 限制 : 每天只在 [ 上班, 午饭, 午休, 晚饭, 下班 ] 玩手机
-        [ WB, WX, B站, 漫画, … ] 预先安排好的娱乐时间也可以
+    -   [ ] 限制 : 每天只在 [ _起床_, 上班, 午饭, 午休, 晚饭, 下班, _临睡_ ] 玩手机
+        [ WB, WX, B站, 漫画, … ] 或者其它预先安排好的娱乐时间
 
 ### 5.  **什么时间干什么事**
 
-( Schedule / Alarm / Due / <!-- BlockyTime / --> Forest / TickTick.Habit )
+Schedule / Alarm / Due / <!-- BlockyTime / --> Forest / TickTick.Habit
 
 - [ ] 23:45 躺床 ( 早睡 )
 - [ ] 07:45 起床 ( 早起 )
