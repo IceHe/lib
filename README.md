@@ -630,8 +630,8 @@ Timeline
     - [2018 Winter](/life/2018-winter.md)
     - [Moments](/life/moments.md) : 回忆
     - [Rehabilitation](/life/rehabilitation.md)
-    - [Reflection](/life/reflection.md)
     - [Better Living](/life/better-living.md)
+    - [Reflection](/life/reflection.md)
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/life/2017-summer-2-winter.md)
     - [2017 Spring](/life/2017-spring.md)
