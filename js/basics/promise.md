@@ -188,13 +188,28 @@ _( icehe : 暂时理解不了这一小节的内容, 所以暂时隐藏掉 2021/1
 
     Takes an iterable of Promise objects and, as soon as one of the promises in the iterable fulfills, returns a single promise that resolves with the value from that promise.
 
-    _icehe : 只要有其中一个 promise fullfilled, 就会中止并返回第一个 fullfilled promise ._
+    _icehe : 对比 `race()`, `anay()` 只要有其中一个 promise fullfilled, 就会中止并返回._
 
--   `Promise.race(iterable)`
+-   [`Promise.race(iterable)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
 
     Wait until any of the promises is fulfilled or rejected.
 
-    _icehe : 对比 `any()`, `race()` 要等到所有 promise 都 fullfilled 或 rejected 之后, 才会返回第一个 fullfilled 或 rejected 的 promise._
+    If the returned promise resolves, it is resolved with the value of the first promise in the iterable that resolved.
+
+    If it rejects, it is rejected with the reason from the first promise that was rejected.
+
+    _icehe : 对比 `any()`, `race()` 要等到所有 promise 都 fullfilled 或 rejected 之后, 才会返回._
+
+-   [`Promise.reject(reason)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
+
+    Returns a new Promise object that is rejected with the given reason.
+
+-   [`Promise.resolve(value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
+
+    Returns a new Promise object that is resolved with the given value.
+    If the value is a thenable (i.e. has a then method), the returned promise will "follow" that thenable, adopting its eventual state; otherwise, the returned promise will be fulfilled with the value.
+
+    Generally, if you don't know if a value is a promise or not, `Promise.resolve(value)` it instead and work with the return value as a promise.
 
 ### Instance methods
 
