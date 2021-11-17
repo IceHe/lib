@@ -222,7 +222,7 @@ While each phase is special in its own way, generally, **when the event loop ent
 Since any of these operations may schedule more operations and new events processed in the **poll** phase are queued by the kernel, poll events can be queued while polling events are being processed.
 As a result, long running callbacks can allow the poll phase to run much longer than a timer's threshold.
 
-<!-- icehe : 上面这段话要表达什么, 暂时没看懂 2021/11/18 -->
+_icehe : 上面这段话要表达什么, 暂时没看懂 2021/11/18_
 
 ……
 
