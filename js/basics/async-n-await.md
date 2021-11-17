@@ -1,5 +1,7 @@
 # async & await
 
+to simplify the syntax necessary to consume promise-based APIs
+
 ---
 
 References
@@ -89,10 +91,15 @@ add(10).then(v => {
 - **The resolved value of the promise is treated as the return value of the `await` expression.**
 - Use of `async` and `await` enables the use of ordinary `try` / `catch` blocks around asynchronous code.
 
-Note:
+Note :
 
 -   **The `await` keyword is only valid inside async functions within regular JavaScript code.**
 
     If you use it outside of an async function's body, you will get a [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError).
 
 -   `await` can be used on its own with [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
+
+Note :
+
+**The purpose of `async`/`await` is to simplify the syntax necessary to consume promise-based APIs.**
+The behavior of `async`/`await` is similar to combining generators and promises.
