@@ -159,3 +159,13 @@ In the example below, the message `'this is just a message'` will be written to 
 A web worker or a cross-origin `iframe` has its own stack, heap, and message queue.
 **Two distinct runtimes can only communicate through sending messages via the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.**
 This method adds a message to the other runtime if the latter listens to message events.
+
+## Never blocking
+
+A very interesting **property of the event loop model is that JavaScript, unlike a lot of other languages, <u>never blocks</u>**.
+Handling I/O is typically performed via events and callbacks, so when the application is waiting for an [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) query to return or an [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) request to return, it can still process other things like user input.
+
+_Legacy exceptions exist like `alert` or synchronous XHR, but it is considered a good practice to avoid them._
+Beware: [exceptions to the exception do exist](https://stackoverflow.com/questions/2734025/is-javascript-guaranteed-to-be-single-threaded/2734311#2734311) ( but are usually implementation bugs, rather than anything else ) .
+
+_icehe : 最后这一段没看懂, 以后再回顾 2021/11/17_
