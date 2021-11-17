@@ -434,7 +434,8 @@ Basics
     - [async & await](/js/basics/async-n-await.md) : to simplify the syntax necessary to consume promise-based APIs
     - _[States & Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises_
         - States : { settled : [ fullfilled, rejected ] , unsettled : [ pending ] }
-        - Fates : [ resolved, unresolved ]
+        - _Fates : [ resolved, unresolved ]_
+- [Event Loop](/js/basics/event-loop.md) : which the JavaScript concurrency model based on
 - Tasks vs. Microtasks : TODO
     - _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
     - _[In depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)_
