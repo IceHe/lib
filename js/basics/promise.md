@@ -383,3 +383,33 @@ _there's no need for an equivalent of the browser runtime's `preventDefault()` m
 
 _However, if you add that `process.on` listener but don't also have code within it to handle rejected promises, they will just be dropped on the floor and silently ignored._
 _So ideally, you should add code within that listener to examine each rejected promise and make sure it was not caused by an actual code bug._
+
+### Composition
+
+……
+
+### Timing
+
+To avoid surprises, functions passed to `then()` will never be called synchronously, even with an already-resolved promise:
+
+```js
+Promise.resolve().then(() => console.log(2));
+console.log(1); // 1, 2
+```
+
+**Instead of running immediately, the passed-in function is put on a microtask queue**, which means **it runs later ( only after the function which created it exits, and when the JavaScript execution stack is empty )** , just **before control is returned to the event loop**;
+i.e. pretty soon:
+
+```js
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+wait(0).then(() => console.log(4));
+Promise.resolve().then(() => console.log(2)).then(() => console.log(3));
+console.log(1); // 1, 2, 3, 4
+```
+
+icehe : 执行顺序优先级
+
+1. sync code
+2. then( plain code )
+3. then( event loop code )
