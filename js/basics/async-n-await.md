@@ -32,54 +32,67 @@ async function asyncCall() {
 asyncCall();
 ```
 
-_Output:_
+_Output_
 
 ```bash
 > "calling"
 > "resolved"
 ```
 
-Async functions may also be defined as expressions ( via `async function` keyword ) .
+Syntax
 
--   Syntax
+```js
+async function [name]([param1[, param2[, ..., paramN]]]) {
+  statements
+}
+```
 
-    ```js
-    async function [name]([param1[, param2[, ..., paramN]]]) {
-      statements
-    }
-    ```
+-   Return value : **a `Promise`** which will be
 
-    -   **Return value** : **a `Promise`** which will be
+    - **resolved with the value returned by the async function**, or
+    - **rejected with an exception thrown** from, or uncaught within, the async function.
 
-        - **resolved with the value returned by the async function**, or
-        - **rejected with an exception thrown** from, or uncaught within, the async function.
+Simple example
 
-- Simple example
+```js
+function resolveAfter2Seconds(x) {
+return new Promise(resolve => {
+  setTimeout(() => {
+  resolve(x);
+  }, 2000);
+});
+};
 
-    ```js
-    function resolveAfter2Seconds(x) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-        resolve(x);
-        }, 2000);
-    });
-    };
+const add = async function(x) { // async function expression assigned to a variable
+  let a = await resolveAfter2Seconds(20);
+  let b = await resolveAfter2Seconds(30);
+  return x + a + b;
+};
 
-    const add = async function(x) { // async function expression assigned to a variable
-    let a = await resolveAfter2Seconds(20);
-    let b = await resolveAfter2Seconds(30);
-    return x + a + b;
-    };
+add(10).then(v => {
+  console.log(v);  // prints 60 after 4 seconds.
+});
 
-    add(10).then(v => {
-    console.log(v);  // prints 60 after 4 seconds.
-    });
+(async function(x) { // async function expression used as an IIFE
+  let p_a = resolveAfter2Seconds(20);
+  let p_b = resolveAfter2Seconds(30);
+  return x + await p_a + await p_b;
+})(10).then(v => {
+  console.log(v);  // prints 60 after 2 seconds.
+});
+```
 
-    (async function(x) { // async function expression used as an IIFE
-    let p_a = resolveAfter2Seconds(20);
-    let p_b = resolveAfter2Seconds(30);
-    return x + await p_a + await p_b;
-    })(10).then(v => {
-    console.log(v);  // prints 60 after 2 seconds.
-    });
-    ```
+### Description
+
+- Async functions **can contain zero or more await expressions**.
+- Await expressions make promise-returning functions behave as though they're synchronous by suspending execution until the returned promise is fulfilled or rejected.
+- **The resolved value of the promise is treated as the return value of the `await` expression.**
+- Use of `async` and `await` enables the use of ordinary `try` / `catch` blocks around asynchronous code.
+
+Note:
+
+-   **The `await` keyword is only valid inside async functions within regular JavaScript code.**
+
+    If you use it outside of an async function's body, you will get a [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError).
+
+-   `await` can be used on its own with [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
