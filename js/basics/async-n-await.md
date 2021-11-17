@@ -115,7 +115,7 @@ _For example, the following:_
 
 ```js
 async function foo() {
-   return 1
+  return 1
 }
 ```
 
@@ -123,7 +123,7 @@ async function foo() {
 
 ```js
 function foo() {
-   return Promise.resolve(1)
+  return Promise.resolve(1)
 }
 ```
 
@@ -152,6 +152,8 @@ console.log(p === basicReturn()); // true
 console.log(p === asyncReturn()); // false
 ```
 
+### Explanation
+
 The body of an async function can be thought of as being split by zero or more await expressions.
 **Top-level code, up to<!-- 直到 --> and including the first await expression (if there is one), is run synchronously.**
 In this way, **an async function without an await expression will run synchronously**.
@@ -163,7 +165,7 @@ _For example :_
 
 ```js
 async function foo() {
-   await 1
+  await 1
 }
 ```
 
@@ -171,7 +173,7 @@ _… is equivalent to:_
 
 ```js
 function foo() {
-   return Promise.resolve(1).then(() => undefined)
+  return Promise.resolve(1).then(() => undefined)
 }
 ```
 
@@ -179,23 +181,49 @@ function foo() {
 In this way a promise chain is progressively constructed with each reentrant step through the function.
 The return value forms the final link in the chain.
 
-_In the following example, we successively `await` two promises._
-_Progress moves through function `foo` in three stages._
+In the following example, we successively `await` two promises.
+Progress moves through function `foo` in three stages.
 
-1.  The first line of the body of function `foo` is executed synchronously, with the `await` expression configured with the pending promise.
+```js
+async function foo() {
+  const result1 = await new Promise((resolve) => setTimeout(() => resolve('1')))
+  const result2 = await new Promise((resolve) => setTimeout(() => resolve('2')))
+}
+foo();
+```
 
-    Progress through `foo` is then suspended and control is yielded back to the function that called foo.
+1.  The first line of the body of function `foo` is executed synchronously, with the **`await` expression configured with the pending promise**.
 
-2.  Some time later, when the first promise has either been fulfilled or rejected, control moves back into foo.
+    Progress through `foo` is then suspended and control is yielded back to the function that called `foo`.
+
+2.  Some time later, **when the first promise has either been fulfilled or rejected, control moves back into `foo`**.
 
     The result of the first promise fulfillment (if it was not rejected) is returned from the await expression.
-    Here 1 is assigned to result1.
+    Here `1` is assigned to `result1`.
     Progress continues, and the second await expression is evaluated.
-    Again, progress through foo is suspended and control is yielded.
+    Again, progress through `foo` is suspended and control is yielded.
 
-3.  Some time later, when the second promise has either been fulfilled or rejected, control re-enters foo.
+3.  Some time later, when the second promise has either been fulfilled or rejected, control re-enters `foo`.
 
     The result of the second promise resolution is returned from the second await expression.
-    Here 2 is assigned to result2.
+    Here `2` is assigned to `result2`.
     Control moves to the return expression (if any).
-    The default return value of undefined is returned as the resolution value of the current promise.
+    The default return value of `undefined` is returned as the resolution value of the current promise.
+
+Note how the promise chain is not built-up in one go.
+Instead, the promise chain is constructed in stages as control is successively yielded from and returned to the async function.
+As a result, we must be mindful of error handling behavior when dealing with concurrent asynchronous operations.
+
+For example, in the following code an unhandled promise rejection error will be thrown, even if a `.catch` handler has been configured further along the promise chain.
+This is because `p2` will not be "wired into" the promise chain until control returns from `p1`.
+
+```js
+async function foo() {
+   const p1 = new Promise((resolve) => setTimeout(() => resolve('1'), 1000))
+   const p2 = new Promise((_,reject) => setTimeout(() => reject('2'), 500))
+   const results = [await p1, await p2] // Do not do this! Use Promise.all or Promise.allSettled instead.
+}
+foo().catch(() => {}); // Attempt to swallow all errors...
+```
+
+<!-- icehe : 最后这个例子看懵了, 自己似懂非懂, 有了实践经验之后再回顾一下 2021/11/17 -->
