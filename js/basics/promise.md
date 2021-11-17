@@ -104,33 +104,6 @@ myPromise
     .catch(handleRejectedAny);
 ```
 
-```js
-// just like ( not the same )
-try {
-  const result = syncDoSomething();
-  const newResult = syncDoSomethingElse(result);
-  const finalResult = syncDoThirdThing(newResult);
-  console.log(`Got the final result: ${finalResult}`);
-} catch(error) {
-  failureCallback(error);
-}
-```
-
-```js
-// This symmetry with asynchronous code culminates
-// in the async/await syntactic sugar in ECMAScript 2017:
-async function foo() {
-  try {
-    const result = await doSomething();
-    const newResult = await doSomethingElse(result);
-    const finalResult = await doThirdThing(newResult);
-    console.log(`Got the final result: ${finalResult}`);
-  } catch(error) {
-    failureCallback(error);
-  }
-}
-```
-
 ……
 
 **The termination condition of a promise determines the "settled" state of the next promise in the chain.**
@@ -274,6 +247,8 @@ See [Chained Promises](#chained-promises) above.
 
 ……
 
+#### Comparison
+
 In the old days, doing several asynchronous operations in a row would lead to the classic callback pyramid of doom:
 
 ```js
@@ -286,6 +261,104 @@ doSomething(function(result) {
 }, failureCallback);
 ```
 
+With modern functions, we attach our callbacks to the returned promises instead, forming a promise chain:
+
+```js
+doSomething()
+.then(function(result) {
+  return doSomethingElse(result);
+})
+.then(function(newResult) {
+  return doThirdThing(newResult);
+})
+.then(function(finalResult) {
+  console.log('Got the final result: ' + finalResult);
+})
+.catch(failureCallback);
+```
+
+The arguments to then are optional, and **`catch(failureCallback)` is short for `then(null, failureCallback)`**.
+
+……
+
+#### Chaining after a catch
+
+It's possible to **chain after a failure, i.e. a `catch`**, which is useful to **accomplish new actions even after an action failed in the chain**.
+
+```js
+new Promise((resolve, reject) => {
+    console.log('Initial');
+    resolve();
+})
+.then(() => {
+    throw new Error('Something failed');
+    console.log('Do this');
+})
+.catch(() => {
+    console.error('Do that');
+})
+.then(() => {
+    console.log('Do this, no matter what happened before');
+});
+```
+
+_Output:_
+
+```bash
+Initial
+Do that
+Do this, no matter what happened before
+```
+
 ### Error propagation
 
+```js
+doSomething()
+  .then(result => doSomethingElse(result))
+  .then(newResult => doThirdThing(newResult))
+  .then(finalResult => console.log(`Got the final result: ${finalResult}`))
+  .catch(failureCallback);
+```
+
+Just like above _( but not the same, here are synchronized operations )_
+
+```js
+try {
+  const result = syncDoSomething();
+  const newResult = syncDoSomethingElse(result);
+  const finalResult = syncDoThirdThing(newResult);
+  console.log(`Got the final result: ${finalResult}`);
+} catch(error) {
+  failureCallback(error);
+}
+```
+
+This symmetry with asynchronous code culminates in the `async`/`await` _syntactic sugar in ECMAScript 2017_ :
+
+```js
+async function foo() {
+  try {
+    const result = await doSomething();
+    const newResult = await doSomethingElse(result);
+    const finalResult = await doThirdThing(newResult);
+    console.log(`Got the final result: ${finalResult}`);
+  } catch(error) {
+    failureCallback(error);
+  }
+}
+```
+
 ### Promise rejection events
+
+Whenever a promise is rejected, one of two events is sent to the global scope
+( generally, this is either the [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) or, if being used in a web [`worker`](https://developer.mozilla.org/en-US/docs/Web/API/Worker), it's the Worker or other worker-based interface ).
+
+The two events are:
+
+-   [rejectionhandled](https://developer.mozilla.org/en-US/docs/Web/API/Window/rejectionhandled_event)
+
+    Sent when a promise is rejected, after that rejection has been handled by the executor's reject function.
+
+-   [unhandledrejection](https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event)
+
+    Sent when a promise is rejected but there is no rejection handler available.
