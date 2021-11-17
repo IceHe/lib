@@ -353,12 +353,33 @@ async function foo() {
 Whenever a promise is rejected, one of two events is sent to the global scope
 ( generally, this is either the [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) or, if being used in a web [`worker`](https://developer.mozilla.org/en-US/docs/Web/API/Worker), it's the Worker or other worker-based interface ).
 
-The two events are:
+_The two events are:_
 
--   [rejectionhandled](https://developer.mozilla.org/en-US/docs/Web/API/Window/rejectionhandled_event)
+-   [`rejectionhandled`](https://developer.mozilla.org/en-US/docs/Web/API/Window/rejectionhandled_event)
 
     Sent when a promise is rejected, after that rejection has been handled by the executor's reject function.
 
--   [unhandledrejection](https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event)
+-   [`unhandledrejection`](https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event)
 
     Sent when a promise is rejected but there is no rejection handler available.
+
+In both cases, the event (of type [`PromiseRejectionEvent`](https://developer.mozilla.org/en-US/docs/Web/API/PromiseRejectionEvent)) has as members a promise property indicating the `promise` that was rejected, and a [`reason`](https://developer.mozilla.org/en-US/docs/Web/API/PromiseRejectionEvent/reason) property that provides the reason given for the promise to be rejected.
+
+These make it possible to offer fallback error handling for promises, as well as to help debug issues with your promise management.
+These handlers are global per context, so all errors will go to the same event handlers, regardless of source.
+
+One case of special usefulness: when writing code for Node.js, it's common that modules you include in your project may have unhandled rejected promises, logged to the console by the Node.js runtime.
+You can capture them for analysis and handling by your code —— or just to avoid having them cluttering up your output —— by adding a handler for the Node.js `unhandledRejection` event (notice the difference in capitalization of the name), like this:
+
+```js
+process.on("unhandledRejection", (reason, promise) => {
+  /* You might start here by adding code to examine the
+   * "promise" and "reason" values. */
+});
+```
+
+_For Node.js, to prevent the error from being logged to the console ( the default action that would otherwise occur ) , adding that `process.on()` listener is all that's necessary;_
+_there's no need for an equivalent of the browser runtime's `preventDefault()` method._
+
+_However, if you add that `process.on` listener but don't also have code within it to handle rejected promises, they will just be dropped on the floor and silently ignored._
+_So ideally, you should add code within that listener to examine each rejected promise and make sure it was not caused by an actual code bug._
