@@ -445,3 +445,85 @@ event-loop cycle: Promise (fulfilled) Promise {<fulfilled>}
 _icehe : 暂时还理解不了, 以后回顾一下. 2021/11/17_
 
 _For more details, refer to [Tasks vs microtasks](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth#tasks_vs_microtasks)._
+
+### Nesting
+
+_Simple promise chains are best kept flat without nesting, as nesting can be a result of careless composition._
+See [common mistakes](#common-mistakes) below.
+
+**Nesting is a control structure to limit the scope of `catch` statements.**
+Specifically, **a nested `catch` only catches failures in its scope and below**, not errors higher up in the chain outside the nested scope.
+
+When used correctly, this gives greater precision in error recovery:
+
+```js
+doSomethingCritical()
+.then(result => doSomethingOptional(result)
+  .then(optionalResult => doSomethingExtraNice(optionalResult))
+  .catch(e => {})) // Ignore if optional stuff fails; proceed.
+.then(() => moreCriticalStuff())
+.catch(e => console.error("Critical failure: " + e.message));
+```
+
+……
+
+### Common Mistakes
+
+_Here are some common mistakes to watch out for when composing promise chains._
+_Several of these mistakes manifest in the following example:_
+
+```js
+// Bad example! Spot 3 mistakes!
+
+doSomething().then(function(result) {
+  // Forgot to return promise from inner chain + unnecessary nesting
+  doSomethingElse(result)
+    .then(newResult => doThirdThing(newResult));
+}).then(() => doFourthThing());
+// Forgot to terminate chain with a catch!
+```
+
+1.  The first mistake is to **not chain things together properly**.
+
+    This happens **when we create a new promise but forget to return it**.
+    As a consequence, the chain is broken, or rather, we have two independent chains racing.
+    This means `doFourthThing()` won't wait for `doSomethingElse()` or `doThirdThing()` to finish, and will run in parallel with them, likely unintended.
+    Separate chains also have separate error handling, leading to uncaught errors.
+
+2.  The second mistake is to **nest unnecessarily**, enabling the first mistake.
+
+    Nesting also limits the scope of inner error handlers, which —— if unintended —— can lead to uncaught errors.
+    A variant of this is the [promise constructor anti-pattern](https://stackoverflow.com/questions/23803743/what-is-the-explicit-promise-construction-antipattern-and-how-do-i-avoid-it),
+    which combines nesting with redundant use of the promise constructor to wrap code that already uses promises.
+
+3.  The third mistake is **forgetting to terminate chains with catch**.
+
+    Unterminated promise chains lead to uncaught promise rejections in most browsers.
+
+A good rule-of-thumb<!-- 经验法则 --> is to
+
+- **always either return or terminate promise chains**, and
+- **as soon as you get a new promise, return it immediately**,
+- **to flatten things**:
+
+```js
+doSomething()
+  .then(function(result) {
+    return doSomethingElse(result);
+  })
+  .then(newResult => doThirdThing(newResult))
+  .then(() => doFourthThing())
+  .catch(error => console.error(error));
+```
+
+……
+
+**Using `async`/`await` addresses most, if not all of these problems** ——
+the tradeoff being that the most common mistake with that syntax is forgetting the `await` keyword.
+
+### When promises and tasks collide
+
+If you run into situations in which you have promises and tasks ( such as events or callbacks ) which are firing in unpredictable orders,
+it's possible you may benefit from using a microtask to check status or balance out your promises when promises are created conditionally.
+
+If you think microtasks may help solve this problem, see the [microtask guide](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) to learn more about how to use [queueMicrotask()](https://developer.mozilla.org/en-US/docs/Web/API/queueMicrotask) to enqueue a function as a microtask.
