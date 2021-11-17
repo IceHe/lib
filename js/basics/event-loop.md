@@ -225,3 +225,27 @@ As a result, long running callbacks can allow the poll phase to run much longer 
 <!-- icehe : 上面这段话要表达什么, 暂时没看懂 2021/11/18 -->
 
 ……
+
+### Phases Overview
+
+### Phases in Detail
+
+#### timers
+
+#### pending callbacks
+
+#### poll
+
+#### check
+
+#### close callbacks
+
+### process.nextTick()
+
+#### Understanding
+
+#### Why would that be allowed?
+
+#### process.nextTick() vs setImmediate()
+
+#### Why use process.nextTick()?
