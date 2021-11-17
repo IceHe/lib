@@ -92,15 +92,15 @@ A good practice to follow is to make message processing short and if possible cu
 
 In web browsers, messages are added anytime an event occurs and there is an event listener attached to it.
 If there is no listener, the event is lost.
-So a click on an element with a click event handler will add a message—likewise with any other event.
+So a click on an element with a click event handler will add a message —— likewise with any other event.
 
-The function setTimeout is called with 2 arguments: a message to add to the queue, and a time value (optional; defaults to 0).
+The function `setTimeout` is called with 2 arguments: a message to add to the queue, and a time value (optional; defaults to 0).
 The time value represents the (minimum) delay after which the message will actually be pushed into the queue.
 If there is no other message in the queue, and the stack is empty, the message is processed right after the delay.
-However, if there are messages, the setTimeout message will have to wait for other messages to be processed.
-For this reason, the second argument indicates a minimum time—not a guaranteed time.
+However, if there are messages, the `setTimeout` message will have to wait for other messages to be processed.
+For this reason, the second argument indicates a minimum time —— not a guaranteed time.
 
-Here is an example that demonstrates this concept ( setTimeout does not run immediately after its timer expires ) :
+_Here is an example that demonstrates this concept ( `setTimeout` does not run immediately after its timer expires ) :_
 
 ```js
 const s = new Date().getSeconds();
@@ -117,3 +117,45 @@ while (true) {
   }
 }
 ```
+
+### Zero delays
+
+Zero delay doesn't actually mean the call back will fire-off after zero milliseconds.
+Calling `setTimeout` with a delay of 0 (zero) milliseconds doesn't execute the callback function after the given interval.
+
+**The execution depends on the number of waiting tasks in the queue.**
+In the example below, the message `'this is just a message'` will be written to the console before the message in the callback gets processed, because the delay is the minimum time required for the runtime to process the request ( not a guaranteed time ) .
+
+**Basically, the `setTimeout` needs to wait for all the code for queued messages to complete** even though you specified a particular time limit for your `setTimeout`.
+
+```js
+(function() {
+
+  console.log('this is the start');
+
+  setTimeout(function cb() {
+    console.log('Callback 1: this is a msg from call back');
+  }); // has a default time value of 0
+
+  console.log('this is just a message');
+
+  setTimeout(function cb1() {
+    console.log('Callback 2: this is a msg from call back');
+  }, 0);
+
+  console.log('this is the end');
+
+})();
+
+// "this is the start"
+// "this is just a message"
+// "this is the end"
+// "Callback 1: this is a msg from call back"
+// "Callback 2: this is a msg from call back"
+```
+
+### Several runtimes communicating together
+
+A web worker or a cross-origin `iframe` has its own stack, heap, and message queue.
+**Two distinct runtimes can only communicate through sending messages via the [`postMessage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.**
+This method adds a message to the other runtime if the latter listens to message events.
