@@ -1,4 +1,4 @@
-# event loop
+# event loop in browser-like environment
 
 JavaScript has a concurrency model based on an event loop
 
@@ -7,6 +7,7 @@ JavaScript has a concurrency model based on an event loop
 References
 
 - [Concurrency model and the event loop - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+- [The Node.js Event Loop, Timers, and process.nextTick() - Node Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#what-is-the-event-loop)
 
 **JavaScript has a concurrency model based on an event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.
 
@@ -169,3 +170,24 @@ _Legacy exceptions exist like `alert` or synchronous XHR, but it is considered a
 Beware: [exceptions to the exception do exist](https://stackoverflow.com/questions/2734025/is-javascript-guaranteed-to-be-single-threaded/2734311#2734311) ( but are usually implementation bugs, rather than anything else ) .
 
 _icehe : 最后这一段没看懂, 以后再回顾 2021/11/17_
+
+## Node.js Event Loop
+
+Node.js Event Loop, Timers and process.nextTick()
+
+---
+
+### What is?
+
+The event loop is what **allows Node.js to perform non-blocking I/O operations**
+—— **despite the fact that JavaScript is single-threaded**
+—— **by offloading operations to the system kernel whenever possible**.
+
+Since most modern kernels are multi-threaded, they can handle multiple operations executing in the background.
+When one of these operations completes, the kernel tells Node.js so that the **appropriate callback may be added to the poll queue to eventually be executed**.
+
+### Explained
+
+When Node.js starts, it initializes the event loop, processes the provided input script (or drops into the REPL, which is not covered in this document) which may make async API calls, schedule timers, or call `process.nextTick()`, then begins processing the event loop.
+
+The following diagram shows a simplified overview of the event loop's order of operations.
