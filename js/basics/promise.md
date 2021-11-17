@@ -408,8 +408,40 @@ Promise.resolve().then(() => console.log(2)).then(() => console.log(3));
 console.log(1); // 1, 2, 3, 4
 ```
 
-icehe : 执行顺序优先级
+_icehe : 以上执行顺序优先级的简短总结_
 
 1. sync code
 2. then( plain code )
 3. then( event loop code )
+
+#### Task queues vs microtasks
+
+**_Promise_ callbacks are handled as a _[Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_ whereas _[setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)_ callbacks are handled as _Task queues_.**
+
+```js
+const promise = new Promise(function(resolve, reject) {
+  console.log("Promise callback");
+  resolve();
+}).then(function(result) {
+  console.log("Promise callback (.then)");
+});
+
+setTimeout(function() {
+  console.log("event-loop cycle: Promise (fulfilled)", promise)
+}, 0);
+
+console.log("Promise (pending)", promise);
+```
+
+_The code above will output:_
+
+```js
+Promise callback
+Promise (pending) Promise {<pending>}
+Promise callback (.then)
+event-loop cycle: Promise (fulfilled) Promise {<fulfilled>}
+```
+
+_icehe : 暂时还理解不了, 以后回顾一下. 2021/11/17_
+
+_For more details, refer to [Tasks vs microtasks](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth#tasks_vs_microtasks)._
