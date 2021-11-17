@@ -1,7 +1,0 @@
-# Using Promise
-
----
-
-Preferences
-
-- TODO

@@ -58,8 +58,8 @@ You will also hear **the term `resolved` used with promises — this means that 
 
 The methods
 
-- `promise.then()`,
-- `promise.catch()`, and
+- `promise.then()`
+- `promise.catch()`
 - `promise.finally()`
 
 are used to associate further action with a promise that becomes settled.
@@ -102,6 +102,33 @@ myPromise
     .then(handleResolvedB)
     .then(handleResolvedC)
     .catch(handleRejectedAny);
+```
+
+```js
+// just like ( not the same )
+try {
+  const result = syncDoSomething();
+  const newResult = syncDoSomethingElse(result);
+  const finalResult = syncDoThirdThing(newResult);
+  console.log(`Got the final result: ${finalResult}`);
+} catch(error) {
+  failureCallback(error);
+}
+```
+
+```js
+// This symmetry with asynchronous code culminates
+// in the async/await syntactic sugar in ECMAScript 2017:
+async function foo() {
+  try {
+    const result = await doSomething();
+    const newResult = await doSomethingElse(result);
+    const finalResult = await doThirdThing(newResult);
+    console.log(`Got the final result: ${finalResult}`);
+  } catch(error) {
+    failureCallback(error);
+  }
+}
 ```
 
 ……
@@ -228,6 +255,37 @@ _See the [Microtask guide](https://developer.mozilla.org/en-US/docs/Web/API/HTML
 
     Appends a handler to the promise, and returns a new promise that is resolved when the original promise is resolved. The handler is called when the promise is settled, whether fulfilled or rejected.
 
-### Examples
+## Using Promise
+
+### Guarantees
+
+_Unlike old-fashioned passed-in callbacks, a promise comes with some guarantees:_
+
+-   Callbacks added with `then()` will **never be invoked before the completion of the current run of the JavaScript event loop**.
+-   These callbacks will **be invoked even if they were added after the success or failure of the asynchronous operation** that the promise represents.
+-   Multiple callbacks may be added by calling `then()` several times.
+    They will **be invoked one after another, in the order in which they were inserted**.
+
+_One of the great things about using promises is chaining._
+
+### Chaining
+
+See [Chained Promises](#chained-promises) above.
 
 ……
+
+In the old days, doing several asynchronous operations in a row would lead to the classic callback pyramid of doom:
+
+```js
+doSomething(function(result) {
+  doSomethingElse(result, function(newResult) {
+    doThirdThing(newResult, function(finalResult) {
+      console.log('Got the final result: ' + finalResult);
+    }, failureCallback);
+  }, failureCallback);
+}, failureCallback);
+```
+
+### Error propagation
+
+### Promise rejection events
