@@ -113,7 +113,9 @@ process.env.NODE_ENV // "development"
 
 > You can also run your js file with `node -r dotenv/config index.js` command if you don't want to import the package in your code.
 
-### Accept arguments from the command line
+### Command Line
+
+#### Accept arguments
 
 _For example :_
 
@@ -187,9 +189,9 @@ _This time you need to use double dashes before each argument name:_
 node app.js --name=joe
 ```
 
-### Output to the command line
+#### Output
 
-#### Basic output using the console module
+##### Basic output using the console module
 
 Node.js provides a [`console` module](https://nodejs.org/api/console.html) which provides tons of very useful ways to interact with the command line.
 It is basically the same as the `console` object you find in the browser.
@@ -223,7 +225,7 @@ console.log('My %s has %d years', 'cat', 2)
 
 `console.clear()` clears the console ( the behavior might depend on the console used ) .
 
-#### Counting elements
+##### Counting elements
 
 `console.count()` is a handy method.
 
@@ -237,7 +239,7 @@ The `console.countReset()` method resets counter used with `console.count()`.
 
 ……
 
-#### Print the stack trace**
+##### Print the stack trace
 
 There might be cases where it's useful to print the call stack trace of a function, maybe to answer the question how did you reach that part of the code?
 
@@ -266,7 +268,7 @@ Trace
     at REPLServer.emit (events.js:210:7)
 ```
 
-#### Calculate the time spent
+##### Calculate the time spent
 
 You can **easily calculate how much time a function takes to run, using `time()` and `timeEnd()`.**
 
@@ -281,7 +283,7 @@ const measureDoingSomething = () => {
 measureDoingSomething()
 ```
 
-#### Others
+##### Others
 
 **stdout and stderr**
 
@@ -337,3 +339,5 @@ const timer = setInterval(() => {
   }
 }, 100)
 ```
+
+#### Accept input
