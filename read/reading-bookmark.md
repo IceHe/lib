@@ -85,9 +85,11 @@
 - [为什么很多优质女生找不到男朋友？](https://www.zhihu.com/question/37373471)
 - [认为「 只有我完美了，别人才会喜欢我 」的想法有什么错误，该怎么解决？](https://www.zhihu.com/question/31280604)- 吾生有涯
 - [女生选择和一个男生交往的第一个条件是不是看脸？](https://www.zhihu.com/question/28596258/answer/58346160) - 整体形象
-- [送礼的秘诀是什么？](https://www.zhihu.com/question/20455039)- 「送者心安，受者心欢。」
-- [中国的劝酒文化背后的逻辑是什么？](https://www.zhihu.com/question/28311266)- 服从性 & 诚意测试
-- [父母真的只是为了孩子吗？](https://zhuanlan.zhihu.com/p/22558083)- 为了“自己”
+- [送礼的秘诀是什么?](https://www.zhihu.com/question/20455039) -「送者心安，受者心欢。」
+- [中国的劝酒文化背后的逻辑是什么?](https://www.zhihu.com/question/28311266) - 服从性 & 诚意测试
+- [父母真的只是为了孩子吗?](https://zhuanlan.zhihu.com/p/22558083) - 为了“自己”
+- [追女孩子应不应该每天找她聊天?](https://www.zhihu.com/question/326252736/answer/1785449374) - 不是说持久战不能成功，而是代价大，耗时间，不推荐。
+- [这种情况下，我应该继续追她吗?](https://www.zhihu.com/question/489383806/answer/2175042994) - 只要你喜欢她，那就够了。
 
 ### 思维
 
