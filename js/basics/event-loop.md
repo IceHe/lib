@@ -228,13 +228,83 @@ _icehe : 上面这段话要表达什么, 暂时没看懂 2021/11/18_
 
 ### Phases Overview
 
+-   **timers** : executes callbacks scheduled by **`setTimeout()`** and **`setInterval()`**.
+-   **pending callbacks** : executes **I/O callbacks deferred to the next loop iteration**.
+-   _**idle**, **prepare** : only used internally._
+-   **poll** : retrieve **new I/O events**;
+    execute **I/O related callbacks** ( almost all with the exception of close callbacks, the ones scheduled by timers, and `setImmediate()` ) ;
+    node will block here when appropriate.
+-   **check** : **`setImmediate()`** callbacks are invoked here.
+-   **close callbacks**: some close callbacks, _e.g. `socket.on('close', …)`._
+
 ### Phases in Detail
 
 #### timers
 
+**A timer specifies the <u>threshold</u> after which a provided callback may be executed rather than the <u>exact</u> time a person wants it to be executed.**
+**Timers callbacks will run as early as they can be scheduled after the specified amount of time has passed**; however, Operating System scheduling or the running of other callbacks may delay them.
+
+> Technically, the **poll** phase controls when timers are executed.
+
+_For example, say you schedule a timeout to execute after a 100 ms threshold, then your script starts asynchronously reading a file which takes 95 ms :_
+
+```js
+const fs = require('fs');
+
+function someAsyncOperation(callback) {
+  // Assume this takes 95ms to complete
+  fs.readFile('/path/to/file', callback);
+}
+
+const timeoutScheduled = Date.now();
+
+setTimeout(() => {
+  const delay = Date.now() - timeoutScheduled;
+
+  console.log(`${delay}ms have passed since I was scheduled`);
+}, 100);
+
+// do someAsyncOperation which takes 95 ms to complete
+someAsyncOperation(() => {
+  const startCallback = Date.now();
+
+  // do something that will take 10ms...
+  while (Date.now() - startCallback < 10) {
+    // do nothing
+  }
+});
+```
+
+When the event loop enters the poll phase, it has an empty queue ( `fs.readFile()` has not completed ) , so it will wait for the number of ms remaining until the soonest timer's threshold is reached.
+While it is waiting 95 ms pass, `fs.readFile()` finishes reading the file and its callback which takes 10 ms to complete is added to the **poll** queue and executed.
+When the callback finishes, there are no more callbacks in the queue, so the event loop will see that the threshold of the soonest timer has been reached then wrap back to the **timers** phase to execute the timer's callback.
+In this example, you will see that the total delay between the timer being scheduled and its callback being executed will be 105ms.
+
+> To prevent the **poll** phase from starving the event loop, [libuv](https://libuv.org/) ( the C library that implements the Node.js event loop and all of the asynchronous behaviors of the platform ) also has a hard maximum ( system dependent ) before it stops polling for more events.
+
 #### pending callbacks
 
+This phase **executes callbacks for some system operations such as types of TCP errors**.
+
+For example if a TCP socket receives `ECONNREFUSED` when attempting to connect, some \*nix systems want to wait to report the error.
+This will be queued to execute in the **pending callbacks** phase.
+
 #### poll
+
+The poll phase has two main functions:
+
+1. **Calculating how long it should block and poll for I/O**, then
+2. **Processing events in the poll queue**.
+
+When the event loop enters the poll phase and there are no timers scheduled, one of two things will happen :
+
+-   If the **poll** **queue** is **not empty**, the event loop will **iterate through its queue of callbacks executing them synchronously until either the queue has been exhausted, or the system-dependent hard limit is reached**.
+
+-   If the poll queue is **empty**, one of two more things will happen:
+
+    -   If scripts have been scheduled by `setImmediate()`, the event loop will end the **poll** phase and continue to the **check** phase to execute those scheduled scripts.
+
+    -   If scripts **have not** been scheduled by `setImmediate()`, the event loop will wait for callbacks to be added to the queue, then execute them immediately.
 
 #### check
 
