@@ -1,4 +1,4 @@
-# Event Loop
+# JavaScript Event Loop
 
 JavaScript has a concurrency model based on an event loop
 
@@ -172,13 +172,13 @@ Beware: [exceptions to the exception do exist](https://stackoverflow.com/questio
 
 _icehe : 最后这一段没看懂, 以后再回顾 2021/11/17_
 
-## Node.js Event Loop
+# Node.js Event Loop
 
 References
 
 - [The Node.js Event Loop, Timers, and process.nextTick() - Node Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#what-is-the-event-loop)
 
-### What is?
+## What is?
 
 The event loop is what **allows Node.js to perform non-blocking I/O operations**
 —— **despite the fact that JavaScript is single-threaded**
@@ -187,7 +187,7 @@ The event loop is what **allows Node.js to perform non-blocking I/O operations**
 Since most modern kernels are multi-threaded, they can handle multiple operations executing in the background.
 When one of these operations completes, the kernel tells Node.js so that the **appropriate callback may be added to the poll queue to eventually be executed**.
 
-### Explained
+## Explained
 
 When Node.js starts, it initializes the event loop, processes the provided input script (or drops into the REPL, which is not covered in this document) which may make async API calls, schedule timers, or call `process.nextTick()`, then begins processing the event loop.
 
@@ -227,7 +227,7 @@ _icehe : 上面这段话要表达什么, 暂时没看懂 2021/11/18_
 
 ……
 
-### Phases Overview
+## Phases Overview
 
 -   **timers** : executes callbacks scheduled by **`setTimeout()`** and **`setInterval()`**.
 -   **pending callbacks** : executes **I/O callbacks deferred to the next loop iteration**.
@@ -240,9 +240,9 @@ _icehe : 上面这段话要表达什么, 暂时没看懂 2021/11/18_
 
 ![event-loop-by-bert-belder.png](_image/event-loop-by-bert-belder.png)
 
-### Phases in Detail
+## Phases in Detail
 
-#### timers
+### timers
 
 **A timer specifies the <u>threshold</u> after which a provided callback may be executed rather than the <u>exact</u> time a person wants it to be executed.**
 **Timers callbacks will run as early as they can be scheduled after the specified amount of time has passed**; however, Operating System scheduling or the running of other callbacks may delay them.
@@ -285,14 +285,14 @@ In this example, you will see that the total delay between the timer being sched
 
 > To prevent the **poll** phase from starving the event loop, [libuv](https://libuv.org/) ( the C library that implements the Node.js event loop and all of the asynchronous behaviors of the platform ) also has a hard maximum ( system dependent ) before it stops polling for more events.
 
-#### pending callbacks
+### pending callbacks
 
 This phase **executes callbacks for some system operations such as types of TCP errors**.
 
 For example if a TCP socket receives `ECONNREFUSED` when attempting to connect, some \*nix systems want to wait to report the error.
 This will be queued to execute in the **pending callbacks** phase.
 
-#### poll
+### poll
 
 The poll phase has two main functions:
 
@@ -312,7 +312,7 @@ When the event loop enters the poll phase and there are no timers scheduled, one
 Once the **poll** queue is empty the event loop will check for timers whose time thresholds have been reached.
 If one or more timers are ready, the event loop will wrap back to<!-- 绕回 --> the **timers** phase to execute those timers' callbacks.
 
-#### check
+### check
 
 This phase **allows a person to execute callbacks immediately after the <u>poll</u> phase has completed**.
 If the **poll** phase becomes idle and scripts have been queued with `setImmediate()`, the event loop may continue to the **check** phase rather than waiting.
@@ -323,12 +323,12 @@ It uses a libuv API that schedules callbacks to execute after the **poll** phase
 Generally, as the code is executed, the event loop will eventually hit the **poll** phase where it will wait for an incoming connection, request, etc.
 However, if a callback has been scheduled with `setImmediate()` and the **poll** phase becomes idle, it will end and continue to the **check** phase rather than waiting for **poll** events.
 
-#### close callbacks
+### close callbacks
 
 If a socket or handle is closed abruptly (e.g. `socket.destroy()`), the `'close'` event will be emitted in this phase.
 Otherwise it will be emitted via `process.nextTick()`.
 
-### setImmediate() vs setTimeout()
+## setImmediate() vs setTimeout()
 
 `setImmediate()` and `setTimeout()` are similar, but behave in different ways depending on when they are called.
 
@@ -389,9 +389,9 @@ timeout
 
 The main advantage to using `setImmediate()` over `setTimeout()` is `setImmediate()` will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
 
-### process.nextTick()
+## process.nextTick()
 
-#### Understanding process.nextTick()
+### Understanding process.nextTick()
 
 You may have noticed that `process.nextTick()` was not displayed in the diagram, even though **it's a part of the asynchronous API**.
 This is because **`process.nextTick()` is not technically part of the event loop**.
@@ -401,7 +401,7 @@ Here, an operation is defined as a transition from the underlying C/C++ handler,
 Looking back at our diagram, **any time you call `process.nextTick()` in a given phase, all callbacks passed to `process.nextTick()` will be resolved before the event loop continues**.
 This can create some bad situations because **it allows you to "starve"<!-- (使)挨饿 --> your I/O by making recursive `process.nextTick()` calls**, which prevents the event loop from reaching the **poll** phase.
 
-#### Why would that be allowed?
+### Why would that be allowed?
 
 Why would something like this be included in Node.js?
 Part of it is **a design philosophy where an API should always be asynchronous even where it doesn't have to be**.
@@ -477,7 +477,7 @@ The problem is that the `.on('listening')` callback will not have been set by th
 To get around this, the `'listening'` event is queued in a `nextTick()` to allow the script to run to completion.
 This allows the user to set any event handlers they want.
 
-#### process.nextTick() vs setImmediate()
+### process.nextTick() vs setImmediate()
 
 We have two calls that are similar as far as users are concerned, but their names are confusing.
 
@@ -492,7 +492,7 @@ While they are confusing, the names themselves won't change.
 
 > We recommend developers use `setImmediate()` in all cases because it's easier to reason about.
 
-#### Why use process.nextTick()?
+### Why use process.nextTick()?
 
 _There are two main reasons :_
 
@@ -556,13 +556,13 @@ myEmitter.on('event', () => {
 
 _icehe : 要想明白 `process.nextTick()` 的使用场景 & 用法, 要理解清楚代码的执行顺序! 所以很有必要仔细看懂各个例子._
 
-## More Understanding
+# More Understanding
 
 References
 
 - [Event Loop Cycle in Node.js - Medium](https://medium.com/@deedee8/event-loop-cycle-in-node-js-bc9dd0f2834f)
 
-### Event Driven Model
+## Event Driven Model
 
 Node uses an event-driven model and this is all handled by a library called _libuv_ which provides a mechanism called an event loop. ……
 
