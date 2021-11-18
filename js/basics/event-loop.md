@@ -404,8 +404,6 @@ Why would something like this be included in Node.js?
 Part of it is **a design philosophy where an API should always be asynchronous even where it doesn't have to be**.
 _Take this code snippet for example :_
 
-_( icehe : 这一小节看懵了, 不是很懂 2021/11/18 )_
-
 ```js
 function apiCall(arg, callback) {
   if (typeof arg !== 'string')
@@ -417,10 +415,11 @@ The snippet does an argument check and if it's not correct, it will pass the err
 The API updated fairly recently to allow passing arguments to `process.nextTick()` allowing it to take any arguments passed after the callback to be propagated as the arguments to the callback so you don't have to nest functions.
 
 What we're doing is passing an error back to the user but only after we have allowed the rest of the user's code to execute.
-By using `process.nextTick()` we guarantee that `apiCall()` always runs its callback after the rest of the user's code and before the event loop is allowed to proceed. To achieve this, the JS call stack is allowed to unwind then immediately execute the provided callback which allows a person to make recursive calls to `process.nextTick()` without reaching a `RangeError: Maximum call stack size exceeded from v8`.
+**By using `process.nextTick()` we guarantee that `apiCall()` always runs its callback after the rest of the user's code and before the event loop is allowed to proceed.**
+To achieve this, the JS call stack is allowed to unwind then immediately execute the provided callback which allows a person to make recursive calls to `process.nextTick()` without reaching a `RangeError: Maximum call stack size exceeded from v8`.
 
 This philosophy can lead to some potentially problematic situations.
-Take this snippet for example:
+_Take this snippet for example:_
 
 ```js
 let bar;
@@ -460,7 +459,7 @@ someAsyncApiCall(() => {
 bar = 1;
 ```
 
-Here's another real world example:
+_Here's another real world example:_
 
 ```js
 const server = net.createServer(() => {}).listen(8080);
@@ -479,4 +478,30 @@ This allows the user to set any event handlers they want.
 
 We have two calls that are similar as far as users are concerned, but their names are confusing.
 
+- `process.nextTick()` fires immediately on the same phase
+- `setImmediate()` fires on the following iteration or 'tick' of the event loop
+
+In essence, the names should be swapped.
+**`process.nextTick()` fires more immediately than setImmediate()**, but this is an artifact of the past which is unlikely to change.
+Making this switch would break a large percentage of the packages on npm.
+Every day more new modules are being added, which means every day we wait, more potential breakages occur.
+While they are confusing, the names themselves won't change.
+
+> We recommend developers use `setImmediate()` in all cases because it's easier to reason about.
+
 #### Why use process.nextTick()?
+
+_There are two main reasons :_
+
+1. Allow users to handle errors, cleanup any then unneeded resources, or perhaps try the request again before the event loop continues.
+2. At times it's necessary to allow a callback to run after the call stack has unwound but before the event loop continues.
+
+_One example is to match the user's expectations. Simple example:_
+
+```js
+const server = net.createServer();
+server.on('connection', (conn) => { });
+
+server.listen(8080);
+server.on('listening', () => { });
+```
