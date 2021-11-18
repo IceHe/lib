@@ -118,18 +118,69 @@ process.env.NODE_ENV // "development"
 _For example :_
 
 ```bash
+$ node app.js joe
+# or
+$ node app.js name=joe
+```
+
+The way you retrieve it is **using the `process` object** built into Node.js.
+
+It exposes an **`argv` property**, which is **an array that contains all the command line invocation arguments**.
+
+- The first element is the full path of the `node` command.
+- The second element is the full path of the file being executed.
+- All the **additional arguments are present from the third position going forward**.
+
+_You can iterate over all the arguments ( including the node path and the file path ) using a loop :_
+
+```js
+process.argv.forEach((val, index) => {
+  console.log(`${index}: ${val}`)
+})
+```
+
+_You can get only the additional arguments by creating a new array that excludes the first 2 params:_
+
+```js
+const args = process.argv.slice(2)
+```
+
+_If you have one argument without an index name, like this :_
+
+```bash
 node app.js joe
 ```
 
-or
+_you can access it using_
+
+```js
+const args = process.argv.slice(2)
+args[0]
+```
+
+_In this case :_
 
 ```bash
 node app.js name=joe
 ```
 
-The way you retrieve it is using the `process` object built into Node.js.
+**`args[0]` is `name=joe`, and you need to parse it.**
 
-It exposes an `argv` property, which is an array that contains all the command line invocation arguments.
+The best way to do so is by using the [`minimist`](https://www.npmjs.com/package/minimist) library, which helps dealing with arguments:
 
-- The first element is the full path of the `node` command.
-- The second element is the full path of the file being executed.
+```js
+const args = require('minimist')(process.argv.slice(2))
+args['name'] //joe
+```
+
+Install the required `minimist` package using `npm`.
+
+```bash
+npm install minimist
+```
+
+_This time you need to use double dashes before each argument name:_
+
+```bash
+node app.js --name=joe
+```
