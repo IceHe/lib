@@ -70,3 +70,66 @@ What changes is the ecosystem.
     Another big difference is that in Node.js you control the environment.
     Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on.
     Compared to the browser environment, where you don't get the luxury to choose what browser your visitors will use, this is very convenient.
+
+## Get Started
+
+### Read environment variables
+
+**The `process` core module of Node.js provides the `env` property which hosts all the environment variables that were set at the moment the process was started.**
+
+_The below code runs `app.js` and set `USER_ID` and `USER_KEY`._
+
+```bash
+USER_ID=239482 USER_KEY=foobar node app.js
+```
+
+> Note: `process` does not require a "require", it's automatically available.
+
+_Here is an example that accesses the `USER_ID` and `USER_KEY` environment variables, which we set in above code._
+
+```bash
+process.env.USER_ID // "239482"
+process.env.USER_KEY // "foobar"
+```
+
+_In the same way you can access any custom environment variable you set._
+
+If you have multiple environment variables in your node project, you can also **create an `.env` file in the root directory of your project**, and then **use the [dotenv](https://www.npmjs.com/package/dotenv) package to load them during runtime**.
+
+```bash
+# .env file
+USER_ID="239482"
+USER_KEY="foobar"
+NODE_ENV="development"
+```
+
+```js
+require('dotenv').config();
+
+process.env.USER_ID // "239482"
+process.env.USER_KEY // "foobar"
+process.env.NODE_ENV // "development"
+```
+
+> You can also run your js file with `node -r dotenv/config index.js` command if you don't want to import the package in your code.
+
+### Accept arguments from the command line
+
+_For example :_
+
+```bash
+node app.js joe
+```
+
+or
+
+```bash
+node app.js name=joe
+```
+
+The way you retrieve it is using the `process` object built into Node.js.
+
+It exposes an `argv` property, which is an array that contains all the command line invocation arguments.
+
+- The first element is the full path of the `node` command.
+- The second element is the full path of the file being executed.
