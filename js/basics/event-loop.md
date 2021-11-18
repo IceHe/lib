@@ -8,6 +8,7 @@ References
 
 - [Concurrency model and the event loop - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 - [The Node.js Event Loop, Timers, and process.nextTick() - Node Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#what-is-the-event-loop)
+- [Event Loop Cycle in Node.js - Medium](https://medium.com/@deedee8/event-loop-cycle-in-node-js-bc9dd0f2834f)
 
 **JavaScript has a concurrency model based on an event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.
 
@@ -173,9 +174,9 @@ _icehe : 最后这一段没看懂, 以后再回顾 2021/11/17_
 
 ## Node.js Event Loop
 
-Node.js Event Loop, Timers and process.nextTick()
+References
 
----
+- [The Node.js Event Loop, Timers, and process.nextTick() - Node Docs](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#what-is-the-event-loop)
 
 ### What is?
 
@@ -236,6 +237,8 @@ _icehe : 上面这段话要表达什么, 暂时没看懂 2021/11/18_
     node will block here when appropriate.
 -   **check** : **`setImmediate()`** callbacks are invoked here.
 -   **close callbacks**: some close callbacks, _e.g. `socket.on('close', …)`._
+
+![event-loop-by-bert-belder.png](_image/event-loop-by-bert-belder.png)
 
 ### Phases in Detail
 
@@ -552,3 +555,69 @@ myEmitter.on('event', () => {
 ```
 
 _icehe : 要想明白 `process.nextTick()` 的使用场景 & 用法, 要理解清楚代码的执行顺序! 所以很有必要仔细看懂各个例子._
+
+## More Understanding
+
+References
+
+- [Event Loop Cycle in Node.js - Medium](https://medium.com/@deedee8/event-loop-cycle-in-node-js-bc9dd0f2834f)
+
+### Event Driven Model
+
+Node uses an event-driven model and this is all handled by a library called _libuv_ which provides a mechanism called an event loop. ……
+
+> In computer programming, event-driven programming ( event model ) is a programming paradigm in which the flow of the program is determined by events such as user actions ( mouse clicks, key presses ) , sensor outputs, or messages from other programs or threads.
+
+In other systems there is always a blocking call to start the event-loop.
+Typically behaviour is defined through callbacks at the beginning of a script and at the end starts a server through a blocking call like `EventMachine.run()` in Ruby and `reactor.run()` in Python.
+
+Node there is no such start-the-event-loop call.
+
+- **Node simply enters the event loop after executing the input script.**
+- **Node exits the event loop when there are no more callbacks to perform.**
+
+This behaviour is like browser JavaScript —— the event loop is hidden from the user.
+
+### What is Event Loop again
+
+The event loop is what allows Node.js to **perform non-blocking I/O operations —— despite the fact that JavaScript is single-threaded —— by offloading operations to the system kernel whenever possible**.
+
+Since most modern kernels are multi-threaded, they can handle multiple operations executing in the background.
+When one of these operations completes, the kernel tells Node.js so that the appropriate callback may be added to the poll queue to eventually be executed.
+
+### Misconceptions vs Reality
+
+Present few misconceptions to avoid confusion.
+
+1.  There is a main thread where the JavaScript code of the user runs in and another one that runs the event loop.
+
+    -   **Misconception** :
+
+        Every time we have an asynchronous operation, the main thread will hand over the work to the event loop thread and once it is done, the event loop thread will ping the main thread to execute a callback.
+
+    -   **Reality** :
+
+        **There is only one thread that executes JavaScript code and this is the thread where the event loop is running.**
+        The execution of callbacks is done by the event loop.
+
+2.  Everything that's asynchronous is handled by a thread pool.
+
+    -   **Misconception** :
+
+        Asynchronous operations, like working with the filesystems, doing outbound HTTP requests or talking to databases are always loaded off to a thread pool provided by libuv.
+
+    -   **Reality** :
+
+        **Libuv by default creates a thread pool with four threads to offload asynchronous work to.**
+        **These threads are only used in special cases when there is no other way because modern OS (operating systems) and other systems, such as databases, already provide asynchronous interfaces**, so the engine will try to use them and if there is no async alternative, it will resort to the thread pool.
+
+3.  The event loop is something like a stack or queue.
+
+    -   **Misconception** :
+
+        The event loop continuously traverses a FIFO (first-in, first-out) of asynchronous tasks and executes the callback when a task is completed.
+
+    -   **Reality** :
+
+        **While there are queue-like structures involved, the event loop does not run through and process a stack.**
+        **The event loop as a process is a set of phases with specific tasks that are processed in an invocation manner.**
