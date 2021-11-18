@@ -233,6 +233,7 @@ foo().catch(() => {}); // Attempt to swallow all errors...
 ### Async functions and execution order
 
 ```js
+// async-functions-and-execution-order.js
 function resolveAfter2Seconds() {
   console.log("starting slow promise")
   return new Promise(resolve => {
@@ -304,8 +305,54 @@ setTimeout(concurrentPromise, 7000) // same as concurrentStart
 setTimeout(parallel, 10000) // truly parallel: after 1 second, logs "fast", then after 1 more second, "slow"
 ```
 
+```bash
+$ node async-functions-and-execution-order.js
+==SEQUENTIAL START==
+starting slow promise
+slow promise is done
+slow
+starting fast promise
+fast promise is done
+fast
+==CONCURRENT START with await==
+starting slow promise
+starting fast promise
+fast promise is done
+slow promise is done
+slow
+fast
+==CONCURRENT START with Promise.all==
+starting slow promise
+starting fast promise
+fast promise is done
+slow promise is done
+slow
+fast
+==PARALLEL with await Promise.all==
+starting slow promise
+starting fast promise
+fast promise is done
+fast
+slow promise is done
+slow
+```
+
 #### await and parallelism
 
-TBD: 标题级别
+In `sequentialStart`, execution suspends 2 seconds for the first `await`, and then another second for the second await.
+The second timer is not created until the first has already fired, so the code finishes after 3 seconds.
+
+In `concurrentStart`, both timers are created and then awaited.
+The timers run concurrently, which means the code finishes in 2 rather than 3 seconds, i.e. the slowest timer.
+However, the await calls still run in series, which means the second await will wait for the first one to finish.
+In this case, the result of the fastest timer is processed after the slowest.
+
+If you wish to safely perform two or more jobs in parallel, you must await a call to Promise.all, or Promise.allSettled.
+
+> **Warning** : The functions `concurrentStart` and `concurrentPromise` are not functionally equivalent.
+>
+> In `concurrentStart,` if promise `fast` rejects before promise `slow` is fulfilled, then an unhandled promise rejection error will be raised, regardless of whether the caller has configured a catch clause.
+>
+> In `concurrentPromise,` `Promise.all` wires up the promise chain in one go, meaning that the operation will fail-fast regardless of the order of rejection of the promises, and the error will always occur within the configured promise chain, enabling it to be caught in the normal way.
 
 ### Rewriting a Promise chain with an async function

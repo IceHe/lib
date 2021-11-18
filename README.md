@@ -433,9 +433,9 @@ Basics
 - [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
 - [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
     - [async & await](/js/basics/async-n-await.md) : to simplify the syntax necessary to consume promise-based APIs
-    - _[States & Fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises_
+    - [states & fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises
         - States : { settled : [ fullfilled, rejected ] , unsettled : [ pending ] }
-        - _Fates : [ resolved, unresolved ]_
+        - Fates : [ resolved, unresolved ]
 - [Event Loop](/js/basics/event-loop.md) : which the JavaScript concurrency model based on
 - Tasks vs. Microtasks : TODO
     - _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
