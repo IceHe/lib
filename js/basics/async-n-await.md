@@ -385,4 +385,4 @@ async function getProcessedData(url) {
 }
 ```
 
-In the second example, notice there is no `await` statement after the return keyword, although that would be valid too: The return value of an async function is implicitly wrapped in `Promise.resolve` - if it's not already a promise itself (as in this example).
+In the second example, notice there is no `await` statement after the return keyword, although that would be valid too: The return value of an async function is implicitly wrapped in [`Promise.resolve`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) - if it's not already a promise itself (as in this example).
