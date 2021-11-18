@@ -306,16 +306,177 @@ When the event loop enters the poll phase and there are no timers scheduled, one
 
     -   If scripts **have not** been scheduled by `setImmediate()`, the event loop will wait for callbacks to be added to the queue, then execute them immediately.
 
+Once the **poll** queue is empty the event loop will check for timers whose time thresholds have been reached.
+If one or more timers are ready, the event loop will wrap back to<!-- 绕回 --> the **timers** phase to execute those timers' callbacks.
+
 #### check
+
+This phase **allows a person to execute callbacks immediately after the <u>poll</u> phase has completed**.
+If the **poll** phase becomes idle and scripts have been queued with `setImmediate()`, the event loop may continue to the **check** phase rather than waiting.
+
+**`setImmediate()` is actually a special timer that runs in a separate phase of the event loop.**
+It uses a libuv API that schedules callbacks to execute after the **poll** phase has completed.
+
+Generally, as the code is executed, the event loop will eventually hit the **poll** phase where it will wait for an incoming connection, request, etc.
+However, if a callback has been scheduled with `setImmediate()` and the **poll** phase becomes idle, it will end and continue to the **check** phase rather than waiting for **poll** events.
 
 #### close callbacks
 
+If a socket or handle is closed abruptly (e.g. `socket.destroy()`), the `'close'` event will be emitted in this phase.
+Otherwise it will be emitted via `process.nextTick()`.
+
+### setImmediate() vs setTimeout()
+
+`setImmediate()` and `setTimeout()` are similar, but behave in different ways depending on when they are called.
+
+- **`setImmediate()` is designed to execute a script once the current <u>poll</u> phase completes**.
+- **`setTimeout()` schedules a script to be run after a minimum threshold in ms has elapsed**.
+
+The order in which the timers are executed will vary depending on the context in which they are called.
+If both are called from within the main module, then timing will be bound by the performance of the process ( which can be impacted by other applications running on the machine ) .
+
+_For example, if we run the following script which is not within an I/O cycle ( i.e. the main module ) , the order in which the two timers are executed is non-deterministic, as it is bound by the performance of the process :_
+
+```js
+// timeout_vs_immediate.js
+setTimeout(() => {
+  console.log('timeout');
+}, 0);
+
+setImmediate(() => {
+  console.log('immediate');
+});
+```
+
+```bash
+$ node timeout_vs_immediate.js
+timeout
+immediate
+
+$ node timeout_vs_immediate.js
+immediate
+timeout
+```
+
+_However, if you move the two calls within an I/O cycle, the immediate callback is always executed first :_
+
+```js
+// timeout_vs_immediate.js
+const fs = require('fs');
+
+fs.readFile(__filename, () => {
+  setTimeout(() => {
+    console.log('timeout');
+  }, 0);
+  setImmediate(() => {
+    console.log('immediate');
+  });
+});
+```
+
+```bash
+$ node timeout_vs_immediate.js
+immediate
+timeout
+
+$ node timeout_vs_immediate.js
+immediate
+timeout
+```
+
+The main advantage to using `setImmediate()` over `setTimeout()` is `setImmediate()` will always be executed before any timers if scheduled within an I/O cycle, independently of how many timers are present.
+
 ### process.nextTick()
 
-#### Understanding
+#### Understanding process.nextTick()
+
+You may have noticed that `process.nextTick()` was not displayed in the diagram, even though **it's a part of the asynchronous API**.
+This is because **`process.nextTick()` is not technically part of the event loop**.
+Instead, the nextTickQueue will be processed after the current operation is completed, regardless of the current phase of the event loop.
+Here, an operation is defined as a transition from the underlying C/C++ handler, and handling the JavaScript that needs to be executed.
+
+Looking back at our diagram, **any time you call `process.nextTick()` in a given phase, all callbacks passed to `process.nextTick()` will be resolved before the event loop continues**.
+This can create some bad situations because **it allows you to "starve"<!-- (使)挨饿 --> your I/O by making recursive `process.nextTick()` calls**, which prevents the event loop from reaching the **poll** phase.
 
 #### Why would that be allowed?
 
+Why would something like this be included in Node.js?
+Part of it is **a design philosophy where an API should always be asynchronous even where it doesn't have to be**.
+_Take this code snippet for example :_
+
+_( icehe : 这一小节看懵了, 不是很懂 2021/11/18 )_
+
+```js
+function apiCall(arg, callback) {
+  if (typeof arg !== 'string')
+    return process.nextTick(callback, new TypeError('argument should be string'));
+}
+```
+
+The snippet does an argument check and if it's not correct, it will pass the error to the callback.
+The API updated fairly recently to allow passing arguments to `process.nextTick()` allowing it to take any arguments passed after the callback to be propagated as the arguments to the callback so you don't have to nest functions.
+
+What we're doing is passing an error back to the user but only after we have allowed the rest of the user's code to execute.
+By using `process.nextTick()` we guarantee that `apiCall()` always runs its callback after the rest of the user's code and before the event loop is allowed to proceed. To achieve this, the JS call stack is allowed to unwind then immediately execute the provided callback which allows a person to make recursive calls to `process.nextTick()` without reaching a `RangeError: Maximum call stack size exceeded from v8`.
+
+This philosophy can lead to some potentially problematic situations.
+Take this snippet for example:
+
+```js
+let bar;
+
+// this has an asynchronous signature, but calls callback synchronously
+function someAsyncApiCall(callback) { callback(); }
+
+// the callback is called before `someAsyncApiCall` completes.
+someAsyncApiCall(() => {
+  // since someAsyncApiCall hasn't completed, bar hasn't been assigned any value
+  console.log('bar', bar); // undefined
+});
+
+bar = 1;
+```
+
+The user defines `someAsyncApiCall()` to have an asynchronous signature, but it actually operates synchronously.
+When it is called, the callback provided to `someAsyncApiCall()` is called in the same phase of the event loop because `someAsyncApiCall()` doesn't actually do anything asynchronously.
+As a result, the callback tries to reference bar even though it may not have that variable in scope yet, because the script has not been able to run to completion.
+
+By placing the callback in a `process.nextTick()`, the script still has the ability to run to completion, allowing all the variables, functions, etc., to be initialized prior to the callback being called.
+It also has the advantage of not allowing the event loop to continue.
+It may be useful for the user to be alerted to an error before the event loop is allowed to continue.
+Here is the previous example using `process.nextTick()` :
+
+```js
+let bar;
+
+function someAsyncApiCall(callback) {
+  process.nextTick(callback);
+}
+
+someAsyncApiCall(() => {
+  console.log('bar', bar); // 1
+});
+
+bar = 1;
+```
+
+Here's another real world example:
+
+```js
+const server = net.createServer(() => {}).listen(8080);
+
+server.on('listening', () => {});
+```
+
+When only a port is passed, the port is bound immediately.
+So, the `'listening'` callback could be called immediately.
+The problem is that the `.on('listening')` callback will not have been set by that time.
+
+To get around this, the `'listening'` event is queued in a `nextTick()` to allow the script to run to completion.
+This allows the user to set any event handlers they want.
+
 #### process.nextTick() vs setImmediate()
+
+We have two calls that are similar as far as users are concerned, but their names are confusing.
 
 #### Why use process.nextTick()?
