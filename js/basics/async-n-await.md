@@ -356,3 +356,33 @@ If you wish to safely perform two or more jobs in parallel, you must await a cal
 > In `concurrentPromise,` `Promise.all` wires up the promise chain in one go, meaning that the operation will fail-fast regardless of the order of rejection of the promises, and the error will always occur within the configured promise chain, enabling it to be caught in the normal way.
 
 ### Rewriting a Promise chain with an async function
+
+An API that returns a `Promise` will result in a promise chain, and it splits the function into many parts. Consider the following code:
+
+```js
+function getProcessedData(url) {
+  return downloadData(url) // returns a promise
+    .catch(e => {
+      return downloadFallbackData(url)  // returns a promise
+    })
+    .then(v => {
+      return processDataInWorker(v)  // returns a promise
+    })
+}
+```
+
+it can be rewritten with a single async function as follows:
+
+```js
+async function getProcessedData(url) {
+  let v
+  try {
+    v = await downloadData(url)
+  } catch(e) {
+    v = await downloadFallbackData(url)
+  }
+  return processDataInWorker(v)
+}
+```
+
+In the second example, notice there is no `await` statement after the return keyword, although that would be valid too: The return value of an async function is implicitly wrapped in `Promise.resolve` - if it's not already a promise itself (as in this example).
