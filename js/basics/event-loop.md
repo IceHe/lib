@@ -505,3 +505,50 @@ server.on('connection', (conn) => { });
 server.listen(8080);
 server.on('listening', () => { });
 ```
+
+Say that `listen()` is run at the beginning of the event loop, but the listening callback is placed in a `setImmediate()`.
+Unless a hostname is passed, binding to the port will happen immediately.
+For the event loop to proceed, it must hit the poll phase, which means there is a non-zero chance that a connection could have been received allowing the connection event to be fired before the listening event.
+
+Another example is running a function constructor that was to, say, inherit from EventEmitter and it wanted to call an event within the constructor:
+
+```js
+const EventEmitter = require('events');
+const util = require('util');
+
+function MyEmitter() {
+  EventEmitter.call(this);
+  this.emit('event');
+}
+util.inherits(MyEmitter, EventEmitter);
+
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () => {
+  console.log('an event occurred!');
+});
+```
+
+You can't emit an event from the constructor immediately because the script will not have processed to the point where the user assigns a callback to that event.
+So, within the constructor itself, you can use `process.nextTick()` to set a callback to emit the event after the constructor has finished, which provides the expected results:
+
+```js
+const EventEmitter = require('events');
+const util = require('util');
+
+function MyEmitter() {
+  EventEmitter.call(this);
+
+  // use nextTick to emit the event once a handler is assigned
+  process.nextTick(() => {
+    this.emit('event');
+  });
+}
+util.inherits(MyEmitter, EventEmitter);
+
+const myEmitter = new MyEmitter();
+myEmitter.on('event', () => {
+  console.log('an event occurred!');
+});
+```
+
+_icehe : 要想明白 `process.nextTick()` 的使用场景 & 用法, 要理解清楚代码的执行顺序! 所以很有必要仔细看懂各个例子._
