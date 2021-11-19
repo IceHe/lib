@@ -941,3 +941,44 @@ npm update
 ```bash
 npm install
 ```
+
+### Semantic Versioning
+
+The Semantic Versioning concept is simple : **all versions have 3 digits: `x.y.z`**.
+
+1. the first digit is the **major version**
+2. the second digit is the **minor version**
+3. the third digit is the **patch version**
+
+When you make a new release, you **don't just up a number as you please, but you have rules**:
+
+- you **up the major version when you make incompatible API changes**
+- you **up the minor version when you add functionality in a backward-compatible manner**
+- you **up the patch version when you make backward-compatible bug fixes**
+
+_The convention is adopted all across programming languages, and it is very important that every `npm` package adheres to it, because the whole system depends on that._
+
+Why is that so important?
+Because `npm` set some rules we can use in the `package.json` file to choose which versions it can update our packages to, when we run `npm update`.
+
+See those symbols and their rules **in detail** :
+
+-   `^` It will **only do updates that do not change the leftmost non-zero number** i.e there **can be changes in minor version or patch version but not in major version**.
+
+    If you write `^13.1.0`, when running `npm update`, it can update to `13.2.0`, `13.3.0` even `13.3.1`, `13.3.2` and so on, but not to `14.0.0` or above.
+
+-   `~` if you write `~0.13.0` when running `npm update` it can update to patch releases: `0.13.1` is ok, but `0.14.0` is not.
+
+-   `>` accept any version **higher than** the one you specify
+
+-   `>=` accept any version **equal to or higher than** the one you specify
+
+-   `<=` accept any version **equal or lower to** the one you specify
+
+-   `<` accept any version **lower than** the one you specify
+
+-   `=` accept that **exact** version
+
+-   `-` accept **a range** of versions. _Example: `2.1.0 - 2.6.2`_
+
+-   `||` **combine sets**. _Example: `< 2.1 || > 2.6`_
