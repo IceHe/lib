@@ -1139,3 +1139,41 @@ bar
 ```
 
 ……
+
+### Understanding process.nextTick()
+
+_As you try to understand the Node.js event loop, one important part of it is `process.nextTick()`._
+
+**Every time the event loop takes a full trip, we call it a tick.**
+
+When we pass a function to `process.nextTick()`, we instruct the engine to **invoke this function at the end of the current operation, before the next event loop tick starts** :
+
+```js
+process.nextTick(() => {
+  //do something
+});
+```
+
+_The event loop is busy processing the current function code._
+
+When this operation ends, the JS engine runs all the functions passed to `nextTick` calls during that operation.
+
+It's the way we can tell the JS engine to process a function asynchronously (after the current function), but as soon as possible, not queue it.
+
+**Calling `setTimeout(() => {}, 0)` will execute the function at the end of next tick, much later than when using `nextTick()` which prioritizes the call and executes it just before the beginning of the next tick.**
+
+_Use `nextTick()` when you want to make sure that in the next event loop iteration that code is already executed._
+
+### Understanding setImmediate()
+
+When you want to **execute some piece of code asynchronously, but as soon as possible**, one option is to use the **`setImmediate()`** function provided by Node.js:
+
+Any function passed as the `setImmediate()` argument is a callback that's **executed in the next iteration of the event loop**.
+
+**How is `setImmediate()` different from `setTimeout(() => {}, 0)` ( passing a 0ms timeout ), and from `process.nextTick()`?**
+
+A function passed to **`process.nextTick()` is going to be executed on the current iteration of the event loop**, after the current operation ends.
+This **means it will always execute before `setTimeout` and `setImmediate`**.
+
+A `setTimeout()` callback with a 0ms delay is very similar to `setImmediate()`.
+The execution order will depend on various factors, but they will be both run in the next iteration of the event loop.
