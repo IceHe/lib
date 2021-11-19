@@ -838,3 +838,62 @@ The **`package-lock.json` file needs to be committed to your Git repository**, _
 **The dependencies versions will be updated in the `package-lock.json` file when you run `npm update`.**
 
 ……
+
+### Find the installed version of an npm package
+
+**To see the version of all installed npm packages, including their dependencies:**
+
+```bash
+$ npm list
+/Users/joe/dev/node/cowsay
+└─┬ cowsay@1.3.1
+  ├── get-stdin@5.0.1
+  ├─┬ optimist@0.6.1
+  │ ├── minimist@0.0.10
+  │ └── wordwrap@0.0.3
+  ├─┬ string-width@2.1.1
+  │ ├── is-fullwidth-code-point@2.0.0
+  │ └─┬ strip-ansi@4.0.0
+  │   └── ansi-regex@3.0.0
+  └── strip-eof@1.0.0
+```
+
+_You can also just open the `package-lock.json` file, but this involves some visual scanning._
+
+_`npm list -g` is the same, but for globally installed packages._
+
+```bash
+$ npm list -g
+/Users/icehe/.nvm/versions/node/v16.13.0/lib
+├── corepack@0.10.0
+├── npm@8.1.0
+└── pnpm@6.21.1
+```
+
+_To get only your top-level packages ( basically, the ones you told npm to install and you listed in the `package.json` ), run :_
+
+```bash
+$ npm list --depth=0
+/Users/joe/dev/node/cowsay
+└── cowsay@1.3.1
+```
+
+_You can get the version of a specific package by specifying its name:_
+
+```bash
+$ npm list cowsay
+/Users/joe/dev/node/cowsay
+└── cowsay@1.3.1
+```
+
+_This also works for dependencies of packages you installed:_
+
+```bash
+$ npm list minimist
+/Users/joe/dev/node/cowsay
+└─┬ cowsay@1.3.1
+  └─┬ optimist@0.6.1
+    └── minimist@0.0.10
+```
+
+……
