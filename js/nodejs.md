@@ -1296,22 +1296,22 @@ setTimeout(myFunction, 1000);
 
 ……
 
-### Asynchronous Programming and Callbacks
+## Asynchronous Programming and Callbacks
 
 ……
 
-#### JavaScript
+### JavaScript
 
 **JavaScript is synchronous by default and is single threaded.**
 This means that code **cannot create new threads and run in parallel.**
 
 ……
 
-#### Callbacks
+### Callbacks
 
 ……
 
-#### Handling errors in callbacks
+### Handling errors in callbacks
 
 How do you handle errors with callbacks?
 One very common strategy is to use what Node.js adopted:
@@ -1335,11 +1335,11 @@ fs.readFile('/file.json', (err, data) => {
 
 ……
 
-### Promises
+## Promises
 
 ……
 
-#### Common errors
+### Common errors
 
 - **Uncaught TypeError: undefined is not a promise**
 
@@ -1350,14 +1350,14 @@ fs.readFile('/file.json', (err, data) => {
   This means that **a promise you called rejected, but there was no catch used to handle the error.**
   Add a `catch` after the offending `then` to handle this properly.
 
-### Modern Asynchronous with Async and Await
+## Modern Asynchronous with Async and Await
 
 ……
 
 **Async functions are a combination of promises and generators**, and basically, they are a higher level abstraction over promises.
 Let me repeat: `async`/`await` is built on promises.
 
-#### Why were async/await introduced?
+### Why were async/await introduced?
 
 **They reduce the boilerplate around promises, and the "don't break the chain" limitation of chaining promises.**
 
@@ -1369,7 +1369,7 @@ _They were good primitives around which a better syntax could be exposed to the 
 
 _They make the code look like it's synchronous, but it's asynchronous and non-blocking behind the scenes._
 
-#### How it works
+### How it works
 
 An async function returns a promise, like in this example:
 
@@ -1391,7 +1391,7 @@ const doSomething = async () => {
 };
 ```
 
-#### A quick example
+### A quick example
 
 This is a simple example of `async`/`await` used to run a function asynchronously :
 
@@ -1419,7 +1419,7 @@ After
 I did something
 ```
 
-#### Promise all the things
+### Promise all the things
 
 **Prepending the `async` keyword to any function means that the function will return a promise.**
 _Even if it's not doing so explicitly, it will internally make it return a promise._
@@ -1444,7 +1444,7 @@ const aFunction = () => {
 aFunction().then(alert); // This will alert 'test'
 ```
 
-#### The code is much simpler to read
+### The code is much simpler to read
 
 _As you can see in the example above, our code looks very simple._
 _Compare it to code using plain promises, with chaining and callback functions._
@@ -1480,7 +1480,7 @@ const getFirstUserData = async () => {
 getFirstUserData();
 ```
 
-#### Multiple async functions in series
+### Multiple async functions in series
 
 _Async functions can be chained very easily, and the syntax is much more readable than with plain promises :_
 
@@ -1512,8 +1512,73 @@ and I watched
 and I watched as well
 ```
 
-#### Easier debugging
+### Easier debugging
 
 Debugging promises is hard because the debugger will not step over asynchronous code.
 
 **Async/await makes this very easy because to the compiler it's just like synchronous code.**
+
+## Event emitter
+
+_If you worked with JavaScript in the browser, you know how much of the interaction of the user is handled through events: mouse clicks, keyboard button presses, reacting to mouse movements, and so on._
+
+On the backend side, Node.js offers us the option to build a similar system using the **[`events` module](https://nodejs.org/api/events.html)**.
+
+This module, in particular, offers the **`EventEmitter`** class, which we'll use to handle our events.
+_You initialize that using_
+
+```js
+const EventEmitter = require('events');
+const eventEmitter = new EventEmitter();
+```
+
+_This object exposes, among many others, the `on` and `emit` methods._
+
+- **`emit` is used to trigger an event**
+- **`on` is used to add a callback function that's going to be executed when the event is triggered**
+
+_For example, let's create a start event, and as a matter of providing a sample, we react to that by just logging to the console :_
+
+```js
+eventEmitter.on('start', () => {
+  console.log('started');
+});
+```
+
+_When we run_
+
+```js
+eventEmitter.emit('start');
+```
+
+_the event handler function is triggered, and we get the console log._
+
+_You can pass arguments to the event handler by passing them as additional arguments to `emit()` :_
+
+```js
+eventEmitter.on('start', (number) => {
+  console.log(`started ${number}`);
+});
+
+eventEmitter.emit('start', 23);
+```
+
+Multiple arguments :
+
+```js
+eventEmitter.on('start', (start, end) => {
+  console.log(`started from ${start} to ${end}`);
+});
+
+eventEmitter.emit('start', 1, 100);
+```
+
+The EventEmitter object also exposes several other methods to interact with events, like
+
+- **`once()` : add a one-time listener**
+- **`removeListener()` / `off()` : remove an event listener from an event**
+- **`removeAllListeners()` : remove all listeners for an event**
+
+_You can read all their details on the events module page at [nodejs.org/api/events.html](https://nodejs.org/api/events.html)_
+
+## Build an HTTP Server
