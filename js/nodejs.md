@@ -839,7 +839,7 @@ The **`package-lock.json` file needs to be committed to your Git repository**, _
 
 ……
 
-### Find the installed version of an npm package
+### Find the installed version of a package
 
 **To see the version of all installed npm packages, including their dependencies:**
 
@@ -897,3 +897,47 @@ $ npm list minimist
 ```
 
 ……
+
+### Install an older version of a package
+
+You can **install an old version of an npm package using the `@` syntax**:
+
+```bash
+npm install <package>@<version>
+```
+
+……
+
+### Update all the dependencies to their latest version
+
+**To discover new releases of the packages, you run `npm outdated`.**
+
+……
+
+Some of those updates are major releases.
+Running npm update won't update the version of those.
+Major releases are never updated in this way because they ( by definition ) introduce breaking changes, and `npm` wants to save you trouble.
+
+_To update all packages to a new major version, install the **`npm-check-updates`** package globally:_
+
+```bash
+npm install -g npm-check-updates
+```
+
+```bash
+ncu -u
+```
+
+this will **upgrade all the version hints in the `package.json` file**, to `dependencies` and `devDependencies`, so npm can install the new major version.
+
+You are now ready to run the update:
+
+```bash
+npm update
+```
+
+**If you just downloaded the project without the `node_modules` dependencies and you want to install the shiny new versions first, just run**
+
+```bash
+npm install
+```
