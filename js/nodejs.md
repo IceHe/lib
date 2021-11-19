@@ -1177,3 +1177,121 @@ This **means it will always execute before `setTimeout` and `setImmediate`**.
 
 A `setTimeout()` callback with a 0ms delay is very similar to `setImmediate()`.
 The execution order will depend on various factors, but they will be both run in the next iteration of the event loop.
+
+### Discover JavaScript Timers
+
+#### setTimeout()
+
+……
+
+This syntax defines a new function.
+You **can call whatever other function you want** in there, or you **can pass** an existing function name, and **a set of parameters**:
+
+```js
+const myFunction = (firstParam, secondParam) => {
+  // do something
+};
+
+// runs after 2 seconds with parameters
+setTimeout(myFunction, 2000, firstParam, secondParam);
+```
+
+**`setTimeout` returns the timer id.**
+**This is generally not used, but you can store this id, and clear it if you want to delete this scheduled function execution :**
+
+```js
+const id = setTimeout(() => {
+  // should run after 2 seconds
+}, 2000);
+
+// I changed my mind
+clearTimeout(id);
+```
+
+##### Zero delay
+
+_If you specify the timeout delay to `0`, the callback function will be executed as soon as possible, but after the current function execution:_
+
+```js
+setTimeout(() => {
+  console.log('after ');
+}, 0);
+
+console.log(' before ');
+```
+
+……
+
+This is **especially useful to avoid blocking the CPU on intensive tasks and let other functions be executed while performing a heavy calculation, by queuing functions in the scheduler.**
+
+> _Some browsers (IE and Edge) implement a `setImmediate()` method that does this same exact functionality, but it's not standard and unavailable on other browsers._ > _But it's a standard function in Node.js._
+
+#### setInterval()
+
+**`setInterval`** is a function similar to `setTimeout`, with a difference : instead of running the callback function once, it **will run it forever, at the specific time interval you specify ( in milliseconds ) :**
+
+```js
+setInterval(() => {
+  // runs every 2 seconds
+}, 2000);
+```
+
+The function above runs every 2 seconds unless you tell it to stop, using `clearInterval`, passing it the interval id that `setInterval` returned :
+
+```js
+const id = setInterval(() => {
+  // runs every 2 seconds
+}, 2000);
+
+clearInterval(id);
+```
+
+**It's common to call `clearInterval` inside the `setInterval` callback function, to let it auto-determine if it should run again or stop.**
+
+_For example this code runs something unless `App.somethingIWait` has the value arrived:_
+
+```js
+const interval = setInterval(() => {
+  if (App.somethingIWait === 'arrived') {
+    clearInterval(interval);
+    return;
+  }
+  // otherwise do things
+}, 100);
+```
+
+#### Recursive setTimeout()
+
+**`setInterval` starts a function every n milliseconds, without any consideration about when a function finished its execution.**
+
+_If a function always takes the same amount of time, it's all fine:_
+
+![setinterval-ok.png](_image/setinterval-ok.png)
+
+Maybe the function takes different execution times, depending on network conditions _for example:_
+
+![setinterval-varying-duration.png](_image/setinterval-varying-duration.png)
+
+And maybe one long execution overlaps the next one:
+
+![setinterval-overlapping.png](_image/setinterval-overlapping.png)
+
+To avoid this, you **can schedule a recursive setTimeout to be called when the callback function finishes** :
+
+```js
+const myFunction = () => {
+  // do something
+
+  setTimeout(myFunction, 1000);
+};
+
+setTimeout(myFunction, 1000);
+```
+
+**to achieve this scenario :**
+
+![recursive-settimeout.png](_image/recursive-settimeout.png)
+
+`setTimeout` and `setInterval` are available in Node.js, through the [Timers module](https://nodejs.org/api/timers.html).
+
+……
