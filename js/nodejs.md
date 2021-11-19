@@ -552,3 +552,78 @@ _Or a bug in the latest release of a lib, still unfixed, is causing an issue._
 Specifying an explicit version of a library also helps to keep everyone on the same exact version of a package, so that the whole team runs the same version until the package.json file is updated.
 
 In all those cases, versioning helps a lot, and `npm` follows the **semantic versioning (semver) standard**.
+
+### Running Tasks
+
+The `package.json` file supports a format for specifying command line tasks that can be run by using
+
+```bash
+npm run <task-name>
+```
+
+_For example :_
+
+```json
+{
+  "scripts": {
+    "start-dev": "node lib/server-development",
+    "start": "node lib/server-production"
+  }
+}
+```
+
+_It's very common to use this feature to run Webpack :_
+
+```json
+{
+  "scripts": {
+    "watch": "webpack --watch --progress --colors --config webpack.conf.js",
+    "dev": "webpack --progress --colors --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js",
+  }
+}
+```
+
+_So instead of typing those long commands, which are easy to forget or mistype, you can run_
+
+```bash
+$ npm run watch
+$ npm run dev
+$ npm run prod
+```
+
+### Where to install packages?
+
+When you install a package using `npm` you can perform 2 types of installation:
+
+- a **local** install
+- a **global** install
+
+_By default, when you type an `npm install` command, like:_
+
+```bash
+npm install lodash
+```
+
+_the package is installed in the current file tree, under the `node_modules` subfolder._
+
+_As this happens, `npm` also adds the `lodash` entry in the `dependencies` property of the `package.json` file present in the current folder._
+
+**A global installation is performed using the `-g` flag:**
+
+```bash
+npm install -g lodash
+```
+
+When this happens, npm won't install the package under the local folder, but instead, it will use a global location.
+
+Where, exactly?
+
+- The `npm root -g` command will tell you where that exact location is on your machine.
+
+    - On macOS or Linux this location could be /usr/local/lib/node_modules.
+    - On Windows it could be C:\Users\YOU\AppData\Roaming\npm\node_modules
+
+- If you use `nvm` to manage Node.js versions, however, that location would differ.
+
+    I, for example, use nvm and my packages location was shown as `/Users/icehe/.nvm/versions/node/v16.13.0/lib/node_modules`.
