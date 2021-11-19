@@ -474,3 +474,58 @@ What's the difference between `module.exports` and `exports`?
 - **`exports` exposes the properties of the object it points to.**
 
 ## npm package manager
+
+### Introduction
+
+`npm` is the standard package manager for Node.js.
+
+……
+
+It started as a way to download and manage dependencies of Node.js packages, but it has since become a tool used also in frontend JavaScript.
+
+_There are many things that npm does._
+
+> `Yarn` and `pnpm` are alternatives to npm cli. _You can check them out as well._
+
+### Downloads
+
+`npm` manages downloads of dependencies of your project.
+
+#### Installing all dependencies
+
+If a project has a `package.json` file, by running
+
+```bash
+npm install
+```
+
+it will install everything the project needs, in the `node_modules` folder, _creating it if it's not existing already._
+
+#### Installing a single package
+
+```bash
+npm install <package-name>
+```
+
+……
+
+_Often you'll see more flags added to this command:_
+
+- `--save-dev` installs and adds the entry to the `package.json` file _devDependencies_
+- `--no-save` installs but **does not** add the entry to the `package.json` file _dependencies_
+- `--save-optional` installs and adds the entry to the `package.json` file _optionalDependencies_
+- `--no-optional` will **prevent** optional dependencies from being installed
+
+_Shorthands of the flags can also be used:_
+
+- `-S`: `--save`
+- `-D`: `--save-dev`
+- `-O`: `--save-optional`
+
+**The difference between `devDependencies` and `dependencies` is that the former contains development tools, like a testing library, while the latter is bundled with the app in production.**
+
+_As for the `optionalDependencies` the difference is that build failure of the dependency will not cause installation to fail._
+_But it is your program's responsibility to handle the lack of the dependency._
+_Read more about [optional dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#optionaldependencies)._
+
+### Updating packages
