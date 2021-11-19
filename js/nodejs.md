@@ -982,3 +982,78 @@ See those symbols and their rules **in detail** :
 -   `-` accept **a range** of versions. _Example: `2.1.0 - 2.6.2`_
 
 -   `||` **combine sets**. _Example: `< 2.1 || > 2.6`_
+
+_You can combine some of those notations, for example use `1.0.0 || >=1.1.0 <1.2.0` to either use 1.0.0 or one release from 1.1.0 up, but lower than 1.2.0._
+
+There are other rules, too:
+
+- **no symbol : you accept only that specific version you specify ( `1.2.1` )**
+- `latest` : you want to use the latest version available
+
+### global or local packages
+
+……
+
+In general, **all packages should be installed locally.**
+
+```js
+require('package-name')
+```
+
+This makes sure you can have dozens of applications in your computer, all running a different version of each package if needed.
+
+**Updating a global package would make all your projects use the new release**, and as you can imagine this might cause nightmares in terms of maintenance, as some packages might break compatibility with further dependencies, and so on.
+
+All projects have their own local version of a package, even if this might appear like a waste of resources, it's minimal compared to the possible negative consequences.
+
+A package **should be installed globally when it provides an executable command that you run from the shell ( CLI )** , and it's reused across projects.
+
+You **can also install executable commands locally and run them using `npx`**, but some packages are just better installed globally.
+
+……
+
+### npx Node.js Package Runner
+
+_`npx` is a very powerful command that's been available in npm starting version 5.2._
+
+If you don't want to install `npm`, you can install x as a standalone package
+
+`npx` lets you run code built with Node.js and published through the npm registry.
+
+#### Easily run local commands
+
+……
+
+**Running `npx commandname` automatically finds the correct reference of the command inside the `node_modules` folder of a project**, without needing to know the exact path, and without requiring the package to be installed globally and in the user's path.
+
+#### Installation-less command execution
+
+There is another great feature of `npx`, which is **allowing to run commands without first installing them.**
+
+This is pretty useful, mostly because:
+
+1. you don't need to install anything
+2. you **can run different versions of the same command, using the syntax @version**
+
+#### Run code using a different Node.js version
+
+Use the `@` to specify the version, and combine that with the [`node` npm package](https://www.npmjs.com/package/node) :
+
+```bash
+npx node@10 -v # v10.18.1
+npx node@12 -v # v12.14.1
+```
+
+This helps to avoid tools like `nvm` or the other Node.js version management tools.
+
+#### Run arbitrary code snippets directly from a URL
+
+`npx` does not limit you to the packages published on the npm registry.
+
+You **can run code that sits in a GitHub gist**, _for example :_
+
+```bash
+npx https://gist.github.com/zkat/4bc19503fe9e9309e2bfaa2c58074d32
+```
+
+_Of course, you need to be careful when running code that you do not control, as with great power comes great responsibility._
