@@ -657,3 +657,144 @@ _The cowsay package provides a command line program that can be executed to make
     ```
 
     and **`npx` will find the package location**.
+
+### package.json guide
+
+What's `package.json` for? What should you know about it, and what are some of the cool things you can do with it?
+
+The `package.json` file is kind of a manifest for your project.
+It can do a lot of things, completely unrelated.
+It's **a central repository of configuration for tools**, for example.
+It's also **where `npm` and `yarn` store the names and versions for all the installed packages**.
+
+#### File structure
+
+……
+
+_Here's a much more complex example, which was extracted from a sample Vue.js application:_
+
+```json
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "A Vue.js project",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "test": "npm run unit",
+    "lint": "eslint --ext .js,.vue src test/unit",
+    "build": "node build/build.js"
+  },
+  "dependencies": {
+    "vue": "^2.5.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^8.2.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-jest": "^21.0.2",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-plugin-transform-vue-jsx": "^3.5.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-stage-2": "^6.22.0",
+    "chalk": "^2.0.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.0",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^11.3.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.4",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.0.4",
+    "jest-serializer-vue": "^0.3.0",
+    "node-notifier": "^5.1.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "ora": "^1.2.0",
+    "portfinder": "^1.0.13",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.8",
+    "postcss-url": "^7.2.1",
+    "rimraf": "^2.6.0",
+    "semver": "^5.3.0",
+    "shelljs": "^0.7.6",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "url-loader": "^0.5.8",
+    "vue-jest": "^1.0.2",
+    "vue-loader": "^13.3.0",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.5.2",
+    "webpack": "^3.6.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+}
+```
+
+_there are lots of things going on here:_
+
+- `version` indicates the current version
+- `name` sets the application/package name
+- `description` is a brief description of the app/package
+- **`main` sets the entry point for the application**
+- `private` if set to `true` prevents the app/package to be accidentally published on `npm`
+- **`scripts` defines a set of node scripts you can run**
+- **`dependencies`** sets a list of `npm` packages installed as dependencies
+- **`devDependencies`** sets a list of `npm` packages installed as development dependencies
+- **`engines` sets which versions of Node.js this package/app works on**
+- `browserslist` is used to tell which browsers ( and their versions ) you want to support
+- ……
+
+All those properties are used by either `npm` or other tools that we can use.
+
+#### Properties breakdown
+
+_This section describes the properties you can use in detail._
+_We refer to "package" but the same thing applies to local applications which you do not use as packages._
+
+_Most of those properties are only used on https://www.npmjs.com/, others by scripts that interact with your code, like `npm` or others._
+
+……
+
+Command-specific properties
+
+**The `package.json` file can also host command-specific configuration, for example for Babel, ESLint, and more.**
+
+_Each has a specific property, like `eslintConfig`, `babel` and others._
+_Those are command-specific, and you can find how to use those in the respective command/project documentation._
+
+#### Package versions
+
+_You have seen in the description above version numbers like these: `~3.0.0` or `^0.13.0`._
+_What do they mean, and which other version specifiers can you use?_
+
+That symbol specifies which updates your package accepts, from that dependency.
+
+**Given that using semver ( semantic versioning ) all versions have 3 digits,**
+
+1. the first being the **major release**,
+2. the second the **minor release** and
+3. the third is the **patch release**,
+
+you have these "[Rules](https://nodejs.dev/learn/semantic-versioning-using-npm/)".
+
+_You can combine most of the versions in ranges, like this: `1.0.0 || >=1.1.0 <1.2.0`, to either use 1.0.0 or one release from 1.1.0 up, but lower than 1.2.0._
