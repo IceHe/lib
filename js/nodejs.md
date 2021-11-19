@@ -798,3 +798,43 @@ That symbol specifies which updates your package accepts, from that dependency.
 you have these "[Rules](https://nodejs.dev/learn/semantic-versioning-using-npm/)".
 
 _You can combine most of the versions in ranges, like this: `1.0.0 || >=1.1.0 <1.2.0`, to either use 1.0.0 or one release from 1.1.0 up, but lower than 1.2.0._
+
+### package-lock.json file
+
+_In version 5, npm introduced the `package-lock.json` file._
+
+What's that?
+You probably know about the package.json file, which is much more common and has been around for much longer.
+
+The goal of `package-lock.json` file is **to keep track of the exact version of every package that is installed so that a product is 100% reproducible in the same way even if packages are updated by their maintainers**.
+
+This **solves a very specific problem that `package.json` left unsolved**.
+**In `package.json` you can set which versions you want to upgrade to** ( patch or minor ) , using the semver notation, for example:
+
+-   if you write `~0.13.0`, you want to **only update patch releases** : `0.13.1` is ok, but `0.14.0` is not.
+
+-   if you write `^0.13.0`, you want to **get updates that do not change the leftmost non-zero number** : 0.13.1, 0.13.2 and so on.
+
+    If you write `^1.13.0`, you will get patch and minor releases: `1.13.1`, `1.14.0` and so on up to `2.0.0` but not `2.0.0`.
+
+-   If you write `0.13.0`, that is the **exact version that will be used**, always
+
+You don't commit to Git your `node_modules` folder, which is generally huge, and when you try to replicate the project on another machine by using the `npm install` command, if you specified the `~` syntax and a patch release of a package has been released, that one is going to be installed.
+Same for `^` and minor releases.
+
+> If you specify exact versions, like `0.13.0` in the example, you are not affected by this problem.
+
+_It could be you, or another person trying to initialize the project on the other side of the world by running `npm install`._
+
+_So your original project and the newly initialized project are actually different._
+_Even if a patch or minor release should not introduce breaking changes, we all know bugs can (and so, they will) slide in._
+
+**The `package-lock.json` sets your currently installed version of each package <u>in stone</u>, and `npm` will use those exact versions when running `npm ci`**.
+
+_This concept is not new, and other programming languages package managers ( like Composer in PHP ) use a similar system for years._
+
+The **`package-lock.json` file needs to be committed to your Git repository**, _so it can be fetched by other people, if the project is public or you have collaborators, or if you use Git as a source for deployments._
+
+**The dependencies versions will be updated in the `package-lock.json` file when you run `npm update`.**
+
+……
