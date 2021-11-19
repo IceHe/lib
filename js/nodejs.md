@@ -71,9 +71,9 @@ What changes is the ecosystem.
     Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on.
     Compared to the browser environment, where you don't get the luxury to choose what browser your visitors will use, this is very convenient.
 
-## Get Started
+# Get Started
 
-### Read environment variables
+## Read environment variables
 
 **The `process` core module of Node.js provides the `env` property which hosts all the environment variables that were set at the moment the process was started.**
 
@@ -113,9 +113,9 @@ process.env.NODE_ENV // "development"
 
 > You can also run your js file with `node -r dotenv/config index.js` command if you don't want to import the package in your code.
 
-### Command Line
+## Command Line
 
-#### Accept arguments
+### Accept arguments
 
 _For example :_
 
@@ -189,9 +189,9 @@ _This time you need to use double dashes before each argument name:_
 node app.js --name=joe
 ```
 
-#### Output
+### Output
 
-##### Basic output using the console module
+#### Basic output using the console module
 
 Node.js provides a [`console` module](https://nodejs.org/api/console.html) which provides tons of very useful ways to interact with the command line.
 It is basically the same as the `console` object you find in the browser.
@@ -225,7 +225,7 @@ console.log('My %s has %d years', 'cat', 2)
 
 `console.clear()` clears the console ( the behavior might depend on the console used ) .
 
-##### Counting elements
+#### Counting elements
 
 `console.count()` is a handy method.
 
@@ -239,7 +239,7 @@ The `console.countReset()` method resets counter used with `console.count()`.
 
 ……
 
-##### Print the stack trace
+#### Print the stack trace
 
 There might be cases where it's useful to print the call stack trace of a function, maybe to answer the question how did you reach that part of the code?
 
@@ -268,7 +268,7 @@ Trace
     at REPLServer.emit (events.js:210:7)
 ```
 
-##### Calculate the time spent
+#### Calculate the time spent
 
 You can **easily calculate how much time a function takes to run, using `time()` and `timeEnd()`.**
 
@@ -283,7 +283,7 @@ const measureDoingSomething = () => {
 measureDoingSomething()
 ```
 
-##### Others
+#### Others
 
 **stdout and stderr**
 
@@ -340,4 +340,137 @@ const timer = setInterval(() => {
 }, 100)
 ```
 
-#### Accept input
+### Accept input
+
+Node.js since version 7 provides the [`readline` module](https://nodejs.org/api/readline.html) to perform exactly this :
+**get input from a readable stream such as the `process.stdin` stream**, which during the execution of a Node.js program is the terminal input, one line at a time.
+
+```js
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+readline.question(`What's your name?`, name => {
+  console.log(`Hi ${name}!`)
+  readline.close()
+})
+```
+
+_This piece of code asks the username, and once the text is entered and the user presses enter, we send a greeting._
+
+The **`question()` method shows the first parameter ( a question ) and waits for the user input**.
+It calls the callback function once enter is pressed.
+In this callback function, we close the readline interface.
+
+……
+
+The simplest way is to use the [`readline-sync` package](https://www.npmjs.com/package/readline-sync) which is very similar in terms of the API and handles this out of the box.
+
+**A more complete and abstract solution is provided by the [Inquirer.js package](https://github.com/SBoudrias/Inquirer.js).**
+
+```js
+const inquirer = require('inquirer')
+
+var questions = [
+  {
+    type: 'input',
+    name: 'name',
+    message: "What's your name?"
+  }
+]
+
+inquirer.prompt(questions).then(answers => {
+  console.log(`Hi ${answers['name']}!`)
+})
+```
+
+Inquirer.js lets you do many things like **asking multiple choices**, having **radio buttons**, **confirmations**, and more.
+
+It's worth knowing all the alternatives, especially the built-in ones provided by Node.js, but if you plan to take CLI input to the next level, Inquirer.js is an optimal choice.
+
+## Expose functionality from file using exports
+
+Node.js has a built-in module system.
+A Node.js file can import functionality exposed by other Node.js files.
+
+When you want to **import something you use**
+
+```js
+const library = require('./library')
+```
+
+**to import the functionality exposed in the `library.js` file that resides in the current file folder.**
+
+In this file, functionality must be exposed before it can be imported by other files.
+Any other object or variable defined in the file by default is private and not exposed to the outer world.
+
+This is what the module.exports API offered by the [`module` system](https://nodejs.org/api/modules.html) allows us to do.
+
+**When you assign an object or a function as a new exports property, that is the thing that's being exposed**, and as such, it can be imported in other parts of your app, or in other apps as well.
+
+You can do so in 2 ways.
+
+1.  The first is to **assign an object to `module.exports`**, which is an object provided out of the box by the module system, and this will **make your file export just that object**:
+
+    ```js
+    // car.js
+    const car = {
+    brand: 'Ford',
+    model: 'Fiesta'
+    }
+
+    module.exports = car
+    ```
+
+    ```js
+    // index.js
+    const car = require('./car')
+    ```
+
+2.  The second way is to **add the exported object as a property of `exports`**.
+    This way **allows you to export multiple objects, functions or data**:
+
+    ```js
+    const car = {
+    brand: 'Ford',
+    model: 'Fiesta'
+    }
+
+    exports.car = car
+    ```
+
+    or directly
+
+    ```js
+    exports.car = {
+    brand: 'Ford',
+    model: 'Fiesta'
+    }
+    ```
+
+    And in the other file, you'll use it by referencing a property of your import:
+
+    ```js
+    const items = require('./items')
+    const car = items.car
+    ```
+
+    or
+
+    ```js
+    const car = require('./items').car
+    ```
+
+    or you can use a destructuring assignment:
+
+    ```js
+    const { car } = require('./items')
+    ```
+
+What's the difference between `module.exports` and `exports`?
+
+- **`module.exports` exposes the object it points to.**
+- **`exports` exposes the properties of the object it points to.**
+
+## npm package manager

@@ -1,5 +1,6 @@
 {
     "workbench.preferredDarkColorTheme": "Quiet Light",
     "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Quiet Light"
+    "workbench.colorTheme": "Quiet Light",
+    "workbench.preferredLightColorTheme": "Quiet Light"
 }
