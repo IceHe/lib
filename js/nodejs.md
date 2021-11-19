@@ -544,12 +544,11 @@ npm update <package-name>
 
 ### Versioning
 
-In addition to plain downloads, npm also manages versioning, so you can specify any specific version of a package, or require a version higher or lower than what you need.
+In addition to plain downloads, `npm` also manages **versioning**, so you can specify any specific version of a package, or require a version higher or lower than what you need.
 
-Many times you'll find that a library is only compatible with a major release of another library.
-
-Or a bug in the latest release of a lib, still unfixed, is causing an issue.
+_Many times you'll find that a library is only compatible with a major release of another library._
+_Or a bug in the latest release of a lib, still unfixed, is causing an issue._
 
 Specifying an explicit version of a library also helps to keep everyone on the same exact version of a package, so that the whole team runs the same version until the package.json file is updated.
 
-In all those cases, versioning helps a lot, and npm follows the semantic versioning (semver) standard.
+In all those cases, versioning helps a lot, and `npm` follows the **semantic versioning (semver) standard**.
