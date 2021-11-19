@@ -528,4 +528,28 @@ _As for the `optionalDependencies` the difference is that build failure of the d
 _But it is your program's responsibility to handle the lack of the dependency._
 _Read more about [optional dependencies](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#optionaldependencies)._
 
-### Updating packages
+#### Updating packages
+
+```bash
+npm update
+```
+
+**`npm` will check all packages for a newer version that satisfies your versioning constraints.**
+
+_You can specify a single package to update as well:_
+
+```bash
+npm update <package-name>
+```
+
+### Versioning
+
+In addition to plain downloads, npm also manages versioning, so you can specify any specific version of a package, or require a version higher or lower than what you need.
+
+Many times you'll find that a library is only compatible with a major release of another library.
+
+Or a bug in the latest release of a lib, still unfixed, is causing an issue.
+
+Specifying an explicit version of a library also helps to keep everyone on the same exact version of a package, so that the whole team runs the same version until the package.json file is updated.
+
+In all those cases, versioning helps a lot, and npm follows the semantic versioning (semver) standard.
