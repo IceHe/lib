@@ -1140,7 +1140,7 @@ bar
 
 ……
 
-### Understanding process.nextTick()
+### process.nextTick()
 
 _As you try to understand the Node.js event loop, one important part of it is `process.nextTick()`._
 
@@ -1295,3 +1295,44 @@ setTimeout(myFunction, 1000);
 `setTimeout` and `setInterval` are available in Node.js, through the [Timers module](https://nodejs.org/api/timers.html).
 
 ……
+
+### Asynchronous Programming and Callbacks
+
+……
+
+#### JavaScript
+
+**JavaScript is synchronous by default and is single threaded.**
+This means that code **cannot create new threads and run in parallel.**
+
+……
+
+#### Callbacks
+
+……
+
+#### Handling errors in callbacks
+
+How do you handle errors with callbacks?
+One very common strategy is to use what Node.js adopted:
+**the first parameter in any callback function is the error object : error-first callbacks**
+
+_If there is no error, the object is `null`._
+_If there is an error, it contains some description of the error and other information._
+
+```js
+fs.readFile('/file.json', (err, data) => {
+  if (err) {
+    //handle error
+    console.log(err);
+    return;
+  }
+
+  //no errors, process data
+  console.log(data);
+});
+```
+
+……
+
+### Promises
