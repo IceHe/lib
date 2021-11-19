@@ -617,13 +617,43 @@ npm install -g lodash
 
 When this happens, npm won't install the package under the local folder, but instead, it will use a global location.
 
-Where, exactly?
+**Where, exactly?**
 
-- The `npm root -g` command will tell you where that exact location is on your machine.
+- The **`npm root -g` command will tell you where that exact location is on your machine.**
 
-    - On macOS or Linux this location could be /usr/local/lib/node_modules.
-    - On Windows it could be C:\Users\YOU\AppData\Roaming\npm\node_modules
+    - On macOS or Linux this location could be `/usr/local/lib/node_modules.`
+    - On Windows it could be `C:\Users\YOU\AppData\Roaming\npm\node_modules`
 
 - If you use `nvm` to manage Node.js versions, however, that location would differ.
 
     I, for example, use nvm and my packages location was shown as `/Users/icehe/.nvm/versions/node/v16.13.0/lib/node_modules`.
+
+### How to use or execute a package installed using npm
+
+When you install a package into your `node_modules` folder using `npm` , or also globally, how do you use it in your Node.js code?
+
+_Say you install `lodash`, the popular JavaScript utility library, using `npm install lodash`._
+_This is going to install the package in the local node_modules folder._
+
+**What if your package is an executable?**
+
+- In this case, it will **put the executable file under the `node_modules/.bin/` folder**.
+
+_One easy way to demonstrate this is [cowsay](https://www.npmjs.com/package/cowsay)._
+
+_The cowsay package provides a command line program that can be executed to make a cow say something ( and other animals as well 🦊 ) ._
+
+- _When you install the package using `npm install cowsay`, it will install itself and a few dependencies in the `node_modules` folder: …_
+- _There is a hidden `.bin` folder, which contains symbolic links to the cowsay binaries: …_
+
+**How do you execute those?**
+
+-   You can of course type `./node_modules/.bin/cowsay` to run it, and it works,
+    but **`npx`**, included in the recent versions of `npm` (since 5.2), **is a much better option**.
+    _You just run:_
+
+    ```bash
+    npx cowsay take me out of here
+    ```
+
+    and **`npx` will find the package location**.
