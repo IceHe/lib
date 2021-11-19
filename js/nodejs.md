@@ -7,10 +7,10 @@ A JavaScript runtime built on Chrome's V8 JavaScript engine
 References
 
 - [nodejs.org](https://nodejs.org/en/)
-    - Documentation
-        - [API reference documentation](https://nodejs.org/api/) ( latest )
-        - [ES6 features](https://nodejs.org/en/docs/es6/)
-        - [Guides](https://nodejs.org/en/docs/guides/)
+  - Documentation
+    - [API reference documentation](https://nodejs.org/api/) ( latest )
+    - [ES6 features](https://nodejs.org/en/docs/es6/)
+    - [Guides](https://nodejs.org/en/docs/guides/)
 
 ## About
 
@@ -59,17 +59,17 @@ Both the browser and Node.js use JavaScript as their programming language.
 
 What changes is the ecosystem.
 
--   In the browser, most of the time what you are doing is interacting with the DOM, or other Web Platform APIs like Cookies.
+- In the browser, most of the time what you are doing is interacting with the DOM, or other Web Platform APIs like Cookies.
 
-    _And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the filesystem access functionality._
+  _And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the filesystem access functionality._
 
--   Those do not exist in Node.js, of course.
+- Those do not exist in Node.js, of course.
 
-    You don't have the `document`, `window` and all the other objects that are provided by the browser.
+  You don't have the `document`, `window` and all the other objects that are provided by the browser.
 
-    Another big difference is that in Node.js you control the environment.
-    Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on.
-    Compared to the browser environment, where you don't get the luxury to choose what browser your visitors will use, this is very convenient.
+  Another big difference is that in Node.js you control the environment.
+  Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on.
+  Compared to the browser environment, where you don't get the luxury to choose what browser your visitors will use, this is very convenient.
 
 # Get Started
 
@@ -106,9 +106,9 @@ NODE_ENV="development"
 ```js
 require('dotenv').config();
 
-process.env.USER_ID // "239482"
-process.env.USER_KEY // "foobar"
-process.env.NODE_ENV // "development"
+process.env.USER_ID; // "239482"
+process.env.USER_KEY; // "foobar"
+process.env.NODE_ENV; // "development"
 ```
 
 > You can also run your js file with `node -r dotenv/config index.js` command if you don't want to import the package in your code.
@@ -137,14 +137,14 @@ _You can iterate over all the arguments ( including the node path and the file p
 
 ```js
 process.argv.forEach((val, index) => {
-  console.log(`${index}: ${val}`)
-})
+  console.log(`${index}: ${val}`);
+});
 ```
 
 _You can get only the additional arguments by creating a new array that excludes the first 2 params:_
 
 ```js
-const args = process.argv.slice(2)
+const args = process.argv.slice(2);
 ```
 
 _If you have one argument without an index name, like this :_
@@ -156,8 +156,8 @@ node app.js joe
 _you can access it using_
 
 ```js
-const args = process.argv.slice(2)
-args[0]
+const args = process.argv.slice(2);
+args[0];
 ```
 
 _In this case :_
@@ -173,8 +173,8 @@ node app.js name=joe
 The best way to do so is by using the [`minimist`](https://www.npmjs.com/package/minimist) library, which helps dealing with arguments:
 
 ```js
-const args = require('minimist')(process.argv.slice(2))
-args['name'] //joe
+const args = require('minimist')(process.argv.slice(2));
+args['name']; //joe
 ```
 
 _Install the required `minimist` package using `npm`._
@@ -202,9 +202,9 @@ If you pass an object, it will render it as a string.
 _You can pass multiple variables to console.log, for example :_
 
 ```js
-const x = 'x'
-const y = 'y'
-console.log(x, y)
+const x = 'x';
+const y = 'y';
+console.log(x, y);
 ```
 
 _and Node.js will print both._
@@ -213,7 +213,7 @@ We can also format pretty phrases by passing variables and a format specifier.
 _For example :_
 
 ```js
-console.log('My %s has %d years', 'cat', 2)
+console.log('My %s has %d years', 'cat', 2);
 ```
 
 - `%s` format a variable as a string
@@ -246,9 +246,9 @@ There might be cases where it's useful to print the call stack trace of a functi
 You can do so using `console.trace()` :
 
 ```js
-const function2 = () => console.trace()
-const function1 = () => function2()
-function1()
+const function2 = () => console.trace();
+const function1 = () => function2();
+function1();
 ```
 
 This will print the stack trace.
@@ -273,14 +273,14 @@ Trace
 You can **easily calculate how much time a function takes to run, using `time()` and `timeEnd()`.**
 
 ```js
-const doSomething = () => console.log('test')
+const doSomething = () => console.log('test');
 const measureDoingSomething = () => {
-  console.time('doSomething()')
+  console.time('doSomething()');
   //do something, and measure the time it takes
-  doSomething()
-  console.timeEnd('doSomething()')
-}
-measureDoingSomething()
+  doSomething();
+  console.timeEnd('doSomething()');
+};
+measureDoingSomething();
 ```
 
 #### Others
@@ -289,12 +289,12 @@ measureDoingSomething()
 
 As we saw
 
--   console.log is great for printing messages in the Console.
-    This is what's called the standard output, or `stdout`.
+- console.log is great for printing messages in the Console.
+  This is what's called the standard output, or `stdout`.
 
--   console.error prints to the `stderr` stream.
+- console.error prints to the `stderr` stream.
 
-    It will not appear in the console, but it will appear in the error log.
+  It will not appear in the console, but it will appear in the error log.
 
 **Color the output**
 
@@ -302,7 +302,7 @@ You can color the output of your text in the console by using [escape sequences]
 An escape sequence is a set of characters that identifies a color.
 
 ```js
-console.log('\x1b[33m%s\x1b[0m', 'hi!')
+console.log('\x1b[33m%s\x1b[0m', 'hi!');
 ```
 
 _You can try that in the Node.js REPL, and it will print "hi!" in yellow._
@@ -314,8 +314,8 @@ The simplest way to go about coloring the console output is by using a library.
 _You install it with `npm install chalk`, then you can use it:_
 
 ```js
-const chalk = require('chalk')
-console.log(chalk.yellow('hi!'))
+const chalk = require('chalk');
+console.log(chalk.yellow('hi!'));
 ```
 
 _Using `chalk.yellow` is much more convenient than trying to remember the escape codes, and the code is much more readable._
@@ -329,15 +329,15 @@ _This snippet creates a 10-step progress bar, and every 100ms one step is comple
 _When the bar completes we clear the interval :_
 
 ```js
-const ProgressBar = require('progress')
+const ProgressBar = require('progress');
 
-const bar = new ProgressBar(':bar', { total: 10 })
+const bar = new ProgressBar(':bar', { total: 10 });
 const timer = setInterval(() => {
-  bar.tick()
+  bar.tick();
   if (bar.complete) {
-    clearInterval(timer)
+    clearInterval(timer);
   }
-}, 100)
+}, 100);
 ```
 
 ### Accept input
@@ -348,13 +348,13 @@ Node.js since version 7 provides the [`readline` module](https://nodejs.org/api/
 ```js
 const readline = require('readline').createInterface({
   input: process.stdin,
-  output: process.stdout
-})
+  output: process.stdout,
+});
 
-readline.question(`What's your name?`, name => {
-  console.log(`Hi ${name}!`)
-  readline.close()
-})
+readline.question(`What's your name?`, (name) => {
+  console.log(`Hi ${name}!`);
+  readline.close();
+});
 ```
 
 _This piece of code asks the username, and once the text is entered and the user presses enter, we send a greeting._
@@ -370,19 +370,19 @@ The simplest way is to use the [`readline-sync` package](https://www.npmjs.com/p
 **A more complete and abstract solution is provided by the [Inquirer.js package](https://github.com/SBoudrias/Inquirer.js).**
 
 ```js
-const inquirer = require('inquirer')
+const inquirer = require('inquirer');
 
 var questions = [
   {
     type: 'input',
     name: 'name',
-    message: "What's your name?"
-  }
-]
+    message: "What's your name?",
+  },
+];
 
-inquirer.prompt(questions).then(answers => {
-  console.log(`Hi ${answers['name']}!`)
-})
+inquirer.prompt(questions).then((answers) => {
+  console.log(`Hi ${answers['name']}!`);
+});
 ```
 
 Inquirer.js lets you do many things like **asking multiple choices**, having **radio buttons**, **confirmations**, and more.
@@ -397,7 +397,7 @@ A Node.js file can import functionality exposed by other Node.js files.
 When you want to **import something you use**
 
 ```js
-const library = require('./library')
+const library = require('./library');
 ```
 
 **to import the functionality exposed in the `library.js` file that resides in the current file folder.**
@@ -416,16 +416,16 @@ You can do so in 2 ways.
     ```js
     // car.js
     const car = {
-    brand: 'Ford',
-    model: 'Fiesta'
-    }
+      brand: 'Ford',
+      model: 'Fiesta',
+    };
 
-    module.exports = car
+    module.exports = car;
     ```
 
     ```js
     // index.js
-    const car = require('./car')
+    const car = require('./car');
     ```
 
 2.  The second way is to **add the exported object as a property of `exports`**.
@@ -433,39 +433,39 @@ You can do so in 2 ways.
 
     ```js
     const car = {
-    brand: 'Ford',
-    model: 'Fiesta'
-    }
+      brand: 'Ford',
+      model: 'Fiesta',
+    };
 
-    exports.car = car
+    exports.car = car;
     ```
 
     or directly
 
     ```js
     exports.car = {
-    brand: 'Ford',
-    model: 'Fiesta'
-    }
+      brand: 'Ford',
+      model: 'Fiesta',
+    };
     ```
 
     And in the other file, you'll use it by referencing a property of your import:
 
     ```js
-    const items = require('./items')
-    const car = items.car
+    const items = require('./items');
+    const car = items.car;
     ```
 
     or
 
     ```js
-    const car = require('./items').car
+    const car = require('./items').car;
     ```
 
     or you can use a destructuring assignment:
 
     ```js
-    const { car } = require('./items')
+    const { car } = require('./items');
     ```
 
 What's the difference between `module.exports` and `exports`?
@@ -579,7 +579,7 @@ _It's very common to use this feature to run Webpack :_
   "scripts": {
     "watch": "webpack --watch --progress --colors --config webpack.conf.js",
     "dev": "webpack --progress --colors --config webpack.conf.js",
-    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js"
   }
 }
 ```
@@ -621,12 +621,12 @@ When this happens, npm won't install the package under the local folder, but ins
 
 - The **`npm root -g` command will tell you where that exact location is on your machine.**
 
-    - On macOS or Linux this location could be `/usr/local/lib/node_modules.`
-    - On Windows it could be `C:\Users\YOU\AppData\Roaming\npm\node_modules`
+  - On macOS or Linux this location could be `/usr/local/lib/node_modules.`
+  - On Windows it could be `C:\Users\YOU\AppData\Roaming\npm\node_modules`
 
 - If you use `nvm` to manage Node.js versions, however, that location would differ.
 
-    I, for example, use nvm and my packages location was shown as `/Users/icehe/.nvm/versions/node/v16.13.0/lib/node_modules`.
+  I, for example, use nvm and my packages location was shown as `/Users/icehe/.nvm/versions/node/v16.13.0/lib/node_modules`.
 
 ### How to use or execute a package installed using npm
 
@@ -648,15 +648,15 @@ _The cowsay package provides a command line program that can be executed to make
 
 **How do you execute those?**
 
--   You can of course type `./node_modules/.bin/cowsay` to run it, and it works,
-    but **`npx`**, included in the recent versions of `npm` (since 5.2), **is a much better option**.
-    _You just run:_
+- You can of course type `./node_modules/.bin/cowsay` to run it, and it works,
+  but **`npx`**, included in the recent versions of `npm` (since 5.2), **is a much better option**.
+  _You just run:_
 
-    ```bash
-    npx cowsay take me out of here
-    ```
+  ```bash
+  npx cowsay take me out of here
+  ```
 
-    and **`npx` will find the package location**.
+  and **`npx` will find the package location**.
 
 ### package.json guide
 
@@ -811,13 +811,13 @@ The goal of `package-lock.json` file is **to keep track of the exact version of 
 This **solves a very specific problem that `package.json` left unsolved**.
 **In `package.json` you can set which versions you want to upgrade to** ( patch or minor ) , using the semver notation, for example:
 
--   if you write `~0.13.0`, you want to **only update patch releases** : `0.13.1` is ok, but `0.14.0` is not.
+- if you write `~0.13.0`, you want to **only update patch releases** : `0.13.1` is ok, but `0.14.0` is not.
 
--   if you write `^0.13.0`, you want to **get updates that do not change the leftmost non-zero number** : 0.13.1, 0.13.2 and so on.
+- if you write `^0.13.0`, you want to **get updates that do not change the leftmost non-zero number** : 0.13.1, 0.13.2 and so on.
 
-    If you write `^1.13.0`, you will get patch and minor releases: `1.13.1`, `1.14.0` and so on up to `2.0.0` but not `2.0.0`.
+  If you write `^1.13.0`, you will get patch and minor releases: `1.13.1`, `1.14.0` and so on up to `2.0.0` but not `2.0.0`.
 
--   If you write `0.13.0`, that is the **exact version that will be used**, always
+- If you write `0.13.0`, that is the **exact version that will be used**, always
 
 You don't commit to Git your `node_modules` folder, which is generally huge, and when you try to replicate the project on another machine by using the `npm install` command, if you specified the `~` syntax and a patch release of a package has been released, that one is going to be installed.
 Same for `^` and minor releases.
@@ -963,25 +963,25 @@ Because `npm` set some rules we can use in the `package.json` file to choose whi
 
 See those symbols and their rules **in detail** :
 
--   `^` It will **only do updates that do not change the leftmost non-zero number** i.e there **can be changes in minor version or patch version but not in major version**.
+- `^` It will **only do updates that do not change the leftmost non-zero number** i.e there **can be changes in minor version or patch version but not in major version**.
 
-    If you write `^13.1.0`, when running `npm update`, it can update to `13.2.0`, `13.3.0` even `13.3.1`, `13.3.2` and so on, but not to `14.0.0` or above.
+  If you write `^13.1.0`, when running `npm update`, it can update to `13.2.0`, `13.3.0` even `13.3.1`, `13.3.2` and so on, but not to `14.0.0` or above.
 
--   `~` if you write `~0.13.0` when running `npm update` it can update to patch releases: `0.13.1` is ok, but `0.14.0` is not.
+- `~` if you write `~0.13.0` when running `npm update` it can update to patch releases: `0.13.1` is ok, but `0.14.0` is not.
 
--   `>` accept any version **higher than** the one you specify
+- `>` accept any version **higher than** the one you specify
 
--   `>=` accept any version **equal to or higher than** the one you specify
+- `>=` accept any version **equal to or higher than** the one you specify
 
--   `<=` accept any version **equal or lower to** the one you specify
+- `<=` accept any version **equal or lower to** the one you specify
 
--   `<` accept any version **lower than** the one you specify
+- `<` accept any version **lower than** the one you specify
 
--   `=` accept that **exact** version
+- `=` accept that **exact** version
 
--   `-` accept **a range** of versions. _Example: `2.1.0 - 2.6.2`_
+- `-` accept **a range** of versions. _Example: `2.1.0 - 2.6.2`_
 
--   `||` **combine sets**. _Example: `< 2.1 || > 2.6`_
+- `||` **combine sets**. _Example: `< 2.1 || > 2.6`_
 
 _You can combine some of those notations, for example use `1.0.0 || >=1.1.0 <1.2.0` to either use 1.0.0 or one release from 1.1.0 up, but lower than 1.2.0._
 
@@ -997,7 +997,7 @@ There are other rules, too:
 In general, **all packages should be installed locally.**
 
 ```js
-require('package-name')
+require('package-name');
 ```
 
 This makes sure you can have dozens of applications in your computer, all running a different version of each package if needed.
@@ -1057,3 +1057,85 @@ npx https://gist.github.com/zkat/4bc19503fe9e9309e2bfaa2c58074d32
 ```
 
 _Of course, you need to be careful when running code that you do not control, as with great power comes great responsibility._
+
+## Node.js Event Loop
+
+### Introduction
+
+_The **Event Loop** is one of the most important aspects to understand about Node.js._
+
+Why is this so important?
+Because it explains how Node.js can be asynchronous and have non-blocking I/O, and so it explains basically the "killer app" of Node.js, the thing that made it this successful.
+
+**The Node.js JavaScript code runs on a single thread.**
+_There is just one thing happening at a time._
+
+_This is a limitation that's actually very helpful, as it simplifies a lot how you program without worrying about concurrency issues._
+
+_You just need to pay attention to how you write your code and avoid anything that could block the thread, like synchronous network calls or infinite loops._
+
+_In general, in most browsers there is an event loop for every browser tab, to make every process isolated and avoid a web page with infinite loops or heavy processing to block your entire browser._
+
+_The environment manages multiple concurrent event loops, to handle API calls for example._
+_Web Workers run in their own event loop as well._
+
+_You mainly need to be concerned that your code will run on a single event loop, and write code with this thing in mind to avoid blocking it._
+
+……
+
+### Call Stack
+
+**The call stack is a LIFO (Last In, First Out) stack.**
+
+The event loop continuously checks the call stack to see if there's any function that needs to run.
+
+While doing so, it adds any function call it finds to the call stack and executes each one in order.
+
+……
+
+### Message Queue
+
+When `setTimeout()` is called, the Browser or Node.js starts the timer.
+Once the timer expires, in this case immediately as we put 0 as the timeout, the callback function is put in the **Message Queue**.
+
+……
+
+**The loop gives priority to the call stack, and it first processes everything it finds in the call stack, and once there's nothing in there, it goes to pick up things in the message queue.**
+
+### ES6 Job Queue
+
+ECMAScript 2015 introduced the concept of the **Job Queue**, which is **used by Promises** (also introduced in ES6/ES2015).
+**It's a way to execute the result of an async function as soon as possible, rather than being put at the end of the call stack.**
+
+Promises that resolve before the current function ends will be executed right after the current function.
+
+_I find nice the analogy of a rollercoaster<!-- 过山车 --> ride at an amusement park:_
+_the message queue puts you at the back of the queue, behind all the other people, where you will have to wait for your turn, while the job queue is the fastpass ticket that lets you take another ride right after you finished the previous one._
+
+```js
+const bar = () => console.log('bar');
+
+const baz = () => console.log('baz');
+
+const foo = () => {
+  console.log('foo');
+  setTimeout(bar, 0);
+  new Promise((resolve, reject) => resolve('should be right after baz, before bar')).then(
+    (resolve) => console.log(resolve)
+  );
+  baz();
+};
+
+foo();
+```
+
+_Output :_
+
+```bash
+foo
+baz
+should be right after baz, before bar
+bar
+```
+
+……
