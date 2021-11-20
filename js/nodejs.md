@@ -1582,3 +1582,29 @@ The EventEmitter object also exposes several other methods to interact with even
 _You can read all their details on the events module page at [nodejs.org/api/events.html](https://nodejs.org/api/events.html)_
 
 ## Build an HTTP Server
+
+_Here is a sample Hello World HTTP web server :_
+
+```js
+const http = require('http');
+
+const port = process.env.PORT || 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  res.end('<h1>Hello, World!</h1>');
+});
+
+server.listen(port, () => {
+  console.log(`Server running at port ${port}`);
+});
+```
+
+We include the [`http` module](https://nodejs.org/api/http.html).
+We use the module to create an HTTP server.
+
+The server is set to listen on the specified port, `3000`.
+When the server is ready, the `listen` callback function is called.
+
+The callback function we pass is the one that's going to be executed upon every request that comes in. Whenever a new request is received, the [`request` event](https://nodejs.org/api/http.html#http_event_request) is called, providing two objects: a request ( an [`http.IncomingMessage`](https://nodejs.org/api/http.html#http_class_http_incomingmessage) object ) and a response ( an [`http.ServerResponse`](https://nodejs.org/api/http.html#http_class_http_serverresponse) object ) .
