@@ -10,7 +10,7 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Whoami: [IceHe](/life/bio.md)
+- Whoami: [IceHe's bio](/life/bio.md)
 - Website: [icehe.xyz](https://icehe.xyz)
 - Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- - _Base64 Encoded_ -->
 

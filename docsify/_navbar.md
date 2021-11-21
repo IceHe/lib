@@ -1,6 +1,8 @@
 - [Library](/README.md)
-- [Weibo](https://weibo.com/icedes)
-- [Bio](/life/bio.md)
+- Links
+    - [Bio](/life/bio.md)
+    - [Weibo](https://weibo.com/icedes)
+    - [GitHub](https://github.com/IceHe)
 
 <!-- - External -->
 <!--     - [Chat](https://gitter.im/IceHe/community) -->
