@@ -1581,7 +1581,9 @@ The EventEmitter object also exposes several other methods to interact with even
 
 _You can read all their details on the events module page at [nodejs.org/api/events.html](https://nodejs.org/api/events.html)_
 
-## Build an HTTP Server
+## HTTP
+
+### Build an HTTP Server
 
 _Here is a sample Hello World HTTP web server :_
 
@@ -1632,3 +1634,71 @@ and we **end close the response, adding the content as an argument to `end()`** 
 ```js
 res.end('<h1>Hello, World!</h1>');
 ```
+
+### Making HTTP requests
+
+Perform a GET Request
+
+```js
+const https = require('https');
+const options = {
+  hostname: 'example.com',
+  port: 443,
+  path: '/todos',
+  method: 'GET',
+};
+
+const req = https.request(options, (res) => {
+  console.log(`statusCode: ${res.statusCode}`);
+
+  res.on('data', (d) => {
+    process.stdout.write(d);
+  });
+});
+
+req.on('error', (error) => {
+  console.error(error);
+});
+
+req.end();
+```
+
+Perform a POST Request
+
+```js
+const https = require('https');
+
+const data = new TextEncoder().encode(
+  JSON.stringify({
+    todo: 'Buy the milk 🍼',
+  })
+);
+
+const options = {
+  hostname: 'whatever.com',
+  port: 443,
+  path: '/todos',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Content-Length': data.length,
+  },
+};
+
+const req = https.request(options, (res) => {
+  console.log(`statusCode: ${res.statusCode}`);
+
+  res.on('data', (d) => {
+    process.stdout.write(d);
+  });
+});
+
+req.on('error', (error) => {
+  console.error(error);
+});
+
+req.write(data);
+req.end();
+```
+
+_PUT and DELETE requests use the same POST request format - you just need to change the `options.method` value to the appropriate method._
