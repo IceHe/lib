@@ -20,7 +20,7 @@
 
 [IceHe's Booklist](https://book.douban.com/people/IceHeGZ/collect) @douban.com
 
-> 短期太急躁，總想走捷徑快速見效；<br/>
+> 短期太急躁，總想走捷徑快速見效；
 > 長期沒耐心，小覷長期堅持的成長。
 
 <!-- > 紙上得來終覺淺，絕知此事要躬行。 -->
