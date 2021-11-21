@@ -7,10 +7,10 @@ A JavaScript runtime built on Chrome's V8 JavaScript engine
 References
 
 - [nodejs.org](https://nodejs.org/en/)
-  - Documentation
-    - [API reference documentation](https://nodejs.org/api/) ( latest )
-    - [ES6 features](https://nodejs.org/en/docs/es6/)
-    - [Guides](https://nodejs.org/en/docs/guides/)
+    - Documentation
+        - [API reference documentation](https://nodejs.org/api/) ( latest )
+        - [ES6 features](https://nodejs.org/en/docs/es6/)
+        - [Guides](https://nodejs.org/en/docs/guides/)
 
 ## About
 
@@ -621,8 +621,8 @@ When this happens, npm won't install the package under the local folder, but ins
 
 - The **`npm root -g` command will tell you where that exact location is on your machine.**
 
-  - On macOS or Linux this location could be `/usr/local/lib/node_modules.`
-  - On Windows it could be `C:\Users\YOU\AppData\Roaming\npm\node_modules`
+    - On macOS or Linux this location could be `/usr/local/lib/node_modules.`
+    - On Windows it could be `C:\Users\YOU\AppData\Roaming\npm\node_modules`
 
 - If you use `nvm` to manage Node.js versions, however, that location would differ.
 
@@ -965,7 +965,7 @@ See those symbols and their rules **in detail** :
 
 - `^` It will **only do updates that do not change the leftmost non-zero number** i.e there **can be changes in minor version or patch version but not in major version**.
 
-  If you write `^13.1.0`, when running `npm update`, it can update to `13.2.0`, `13.3.0` even `13.3.1`, `13.3.2` and so on, but not to `14.0.0` or above.
+    If you write `^13.1.0`, when running `npm update`, it can update to `13.2.0`, `13.3.0` even `13.3.1`, `13.3.2` and so on, but not to `14.0.0` or above.
 
 - `~` if you write `~0.13.0` when running `npm update` it can update to patch releases: `0.13.1` is ok, but `0.14.0` is not.
 
@@ -1853,3 +1853,41 @@ const server = http.createServer(async (req, res) => {
   res.end();
 });
 ```
+
+## File System
+
+### Working with file descriptors
+
+_Before you're able to interact with a file that sits in your filesystem, you must get a file descriptor._
+
+A file descriptor is a reference to an open file, a number ( `fd` ) returned by opening the file using the `open()` method offered by the `fs` module.
+This number ( `fd` ) uniquely identifies an open file in operating system :
+
+```js
+const fs = require('fs');
+
+fs.open('/Users/joe/test.txt', 'r', (err, fd) => {
+  //fd is our file descriptor
+});
+```
+
+Notice the `r` we used as the second parameter to the `fs.open()` call.
+
+That flag means we open the file for reading.
+Other flags you'll commonly use are:
+
+-   `r+`
+
+    open the file for reading and writing, if file doesn't exist it won't be created.
+
+-   `w+`
+
+    open the file for reading and writing, positioning the stream at the beginning of the file. The file is created if not existing.
+
+-   `a`
+
+    open the file for writing, positioning the stream at the end of the file. The file is created if not existing.
+
+-   `a+`
+
+    open the file for reading and writing, positioning the stream at the end of the file. The file is created if not existing.
