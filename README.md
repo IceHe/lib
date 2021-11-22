@@ -74,7 +74,7 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 - Part 1. Foundations
     - 2\. Architectural Thinking : Architecture Versus Design / Technical Breadth / Analyze Trade-Offs / Understanding Business Drivers / Balancing Architecutre and Hands-On Coding
     - 3\. **Modularity** : Measuring Modularity / **Cohesion** / **Coupling** / **Abstractness, Instability, and Distance from the Main Sequence** / **Distance from the Main Sequence** / **Connascence** / **Unifying Coupling and Connascence Metrics** / From Modules to Components
-    - 4\. **Architecture Characteristics** : Trade-Offs and Least Worst Architecture / Defined : ( Partially ) Listed : Operational / Structural / Cross-Cutting
+    - 4\. **Architecture Characteristics** : Trade-Offs and Least Worst Architecture / Defined : (Partially) Listed : Operational / Structural / Cross-Cutting
     - 5\. Indentifying Architectural Characteristics: Extracting Architecture Characteristics from Domain Concerns and Requirements / Characteristics: Explicit / Implicit
     - 6\. Measuring and Governing Architecture Characteristics
         - Measuring : Operational / Structural / Process
