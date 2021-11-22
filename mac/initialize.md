@@ -174,6 +174,8 @@ brew install --cask \
     notion \
     postman \
     sequel-pro \
+    tableplus \
+    thunder \
     slack \
     wireshark
 ```
