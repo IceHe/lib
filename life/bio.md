@@ -99,7 +99,7 @@ _2021.10 至今_
 - 公司简介 : [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 - 初始产品 : [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
 - 融资阶段 : Seed money $2M+ from [Sequoia Capital](https://www.sequoiacap.com/china/) & [ZhenFund](http://www.zhenfund.com/)
-- _JavaScript / TypeScript / Node.js / GitHub Organization_
+- _JavaScript / TypeScript / Node.js / Kotlin / Java / <!--Android /--> PostgreSQL / GitHub Organization_
 
 <!-- - 融资阶段: Seed money $4.5M+ from [Sequoia Capital](https://www.sequoiacap.com/china/), [ZhenFund](http://www.zhenfund.com/) & [Eminence Ventures](http://www.emventures.cn/)… -->
 
@@ -107,7 +107,7 @@ _2021.10 至今_
 _2021.3 ~ 2021.8_
 
 - 课程随材物料支持多版本滚动及分组实验 / 运单时效的大数据统计 / 库存充足状况计算 / 快递发货策略
-- _Java / Spring Boot / Thrift / MySQL / Redis / RocketMQ_
+- _Java / Spring Boot / Thrift / MySQL / Redis / RocketMQ / Gerrit_
 
 **阿里本地生活 : 前台研发部 - 蜂鸟跑腿后端组 - Java**
 _2020.4 ~ 2021.3_
@@ -123,7 +123,7 @@ _2019.3 ~ 2020.3_
 - 骑手圈群的大数据计算 : 圈出满足一组指定特征的一群骑手, 用于补贴、判罚、培训、统计报表等
 - 秒送 & 优选骑手运力运营 : 报名、审核、相关数据的统计和查询, 以及续报、审核的自动化
 - 骑手培训中心 : 线上线下骑手培训的发布、报名、通知、签到、培训、考试、反馈、统计等
-- _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / Kafka / Blink ( i.e. Flink ) / ODPS ( in Aliyun )_
+- _Java / Spring Boot / MySQL / MyBatis / Redis / Elasticsearch / Kafka / ODPS (on Aliyun)_
 
 **新浪微博 : 视频平台 - Java**
 _2018.4 ~ 2019.2_
@@ -135,9 +135,9 @@ _2018.4 ~ 2019.2_
 _2015.7 ~ 2018.3_
 
 - **微博产品部 2017 年度优秀个人 - MAPI 前 1/16, 产品部 前 15/200+**
-- 开发维护移动端 ( 手机 [客户端](https://itunes.apple.com/cn/app/id350962117) & [H5](https://m.weibo.cn/) 页 ) 的 API 服务及其 CMS 后台
-    - 部门职责 : 为微博平台、各业务方及移动端, 进行数据整合、适配对接、快速实现需求
-- 重构部门主项目「微博移动端 API 服务」包括登录、HTTP 请求、日志记录等模块
+- 开发维护移动端 (即手机客户端 & WAP端) 的 API 服务及其 CMS 后台
+    为微博平台及各业务方, 进行数据整合、适配对接、快速实现需求
+- 重构部门主项目「微博移动端 API 服务 V7」包括登录、HTTP 请求、日志记录等模块
     - 工作流程自动化 : CI 持续集成, 固定流程自动化
         - 日常上线全流程耗时从15分钟以上, 优化到最快3分钟内完成
         - 一键上线 (GitLab API & CI, Jenkins) , 回写上线日志 (Release notes) 并发布上线公告
@@ -147,13 +147,14 @@ _2015.7 ~ 2018.3_
         - 代码质量 : 语法检查 (PHPLint)、代码风格检查 (PHPCS)、单元测试 (PHPUnit)
         - 文档生成: 覆盖率报告 (PHPUnit)、API 文档 (Sami)、自动更新文档网站 (CI, docsify)
     - 管理重构迁移进度, 改进工作流程, 维护开发环境, 编写文档
-- 2016.4 ~ 2016.8 开发与维护「微博头条」的服务端 API 及其 CMS 后台
 - _PHP 7 / Yaf / MySQL / Redis / Memcached / MCQ / Docker / CentOS / GitLab / Jenkins_
+
+<!-- - 2016.4 ~ 2016.8 开发与维护「微博头条」的服务端 API 及其 CMS 后台 -->
 
 **新浪微博 : 移动应用服务 - PHP 实习**
 _2014.12 ~ 2015.2_
 
-- 「手机微博管理后台」v5 ( B/S ) - 开发「活动管理, 常量管理」等模块
+- 「手机微博管理后台」v5 (B/S) - 开发「活动管理, 常量管理」等模块
 - _PHP 5.6 / MySQL / HTML / CSS / JavaScript / jQuery / Bootstrap_
 
 **华为软件 : 电信软件定制部 - Java 实习**
@@ -165,7 +166,7 @@ _2014.7 ~ 2014.10_
 **华南理工大学 : IBM 实验室 - C++ 实习**
 _2013.3 ~ 2014.5_
 
-- 「华工教学云平台」Windows 客户端 ( C++ Qt GUI ) , 及 Linux 服务端的部分功能
+- 「华工教学云平台」Windows 客户端 (C++ Qt GUI) , 及 Linux 服务端的部分功能
 - _C / C++ / Qt Framework 客户端 / MySQL / CentOS_
 
 ## 教育
@@ -173,12 +174,12 @@ _2013.3 ~ 2014.5_
 **[华南理工大学](https://zh.wikipedia.org/wiki/%E5%8D%8E%E5%8D%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6) : 软件学院 - 软件工程 - 本科**
 _2011.9 ~ 2015.7_
 
-[广州市执信中学](https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%89%A7%E4%BF%A1%E4%B8%AD%E5%AD%A6) : 2011 届「优秀毕业生」( 20% )
+[广州市执信中学](https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%B7%9E%E5%B8%82%E6%89%A7%E4%BF%A1%E4%B8%AD%E5%AD%A6) : 2011 届「优秀毕业生」(20%)
 _2008.9 ~ 2011.7_
 
 ## 其它
 
-**华南理工毽球社 - 社长**
+**华南理工毽球社 : 社长**
 _2012.9 ~ 2014.6_
 
 - 2016.5.15 「京津冀天津毽球邀请赛」混合团体冠军 - 1/16
@@ -190,28 +191,28 @@ _2012.9 ~ 2014.6_
 - 2013 ~ 2015 「华工双人毽球争霸赛」分获冠军、亚军、冠军 - n/16
 - 2011「华工院际毽球赛」冠军 - 1/8
 
-**华南理工职业体验协会 - 会长**
+**华南理工职业体验协会 : 会长**
 _2013.3 ~ 2014.6_
 
 - 承办「2013 [全球创业周中国站](http://gcc.eweekchina.org/page/200)《创业课堂》高校巡讲-华工站」活动 - 广州
     - 主讲嘉宾 : 零点研究咨询集团董事长兼 CEO [袁岳](http://baike.baidu.com/view/801470.htm) 先生
 - 参加 2013 年 [第三届](http://page.renren.com/600002531/note/911026751)「全球创业周中国站校园伙伴高峰论坛」- 上海
 
-<!-- - 参加 2013 年 第三届「梦想 Safari 素质教育论坛」 ( 珠海 ) -->
-<!-- - 任期内, 协会在社团联合会的年度综合测评中积 96.7 分, 排名从第 36 跃升至第 5 ( 5/59 ) -->
-<!-- - 举办「一站到底」华工版、「生存挑战营」 ( 在陌生城市挣返校费用 ) 2 届 -->
+<!-- - 参加 2013 年 第三届「梦想 Safari 素质教育论坛」 (珠海) -->
+<!-- - 任期内, 协会在社团联合会的年度综合测评中积 96.7 分, 排名从第 36 跃升至第 5 (5/59) -->
+<!-- - 举办「一站到底」华工版、「生存挑战营」 (在陌生城市挣返校费用) 2 届 -->
 <!-- - 承办「职场好声音」讲座 2 场、承办「黑苹果职业访问大赛」华工场 -->
 <!-- - 承办「过来人托业杯职场精英挑战赛」大学城分赛区初赛 -->
 <!-- - 主讲「策划撰写、商务礼仪」2 场培训, 举办 会员服务活动 6 场、素质拓展 2 场 -->
 
-<!-- **华工学生职业发展协会 - 综合事务部 - 干事** -->
+<!-- **华工学生职业发展协会 : 综合事务部 - 干事** -->
 <!-- _2011.9 ~ 2012.6_ -->
 
 <!-- - 说服广州信诚人寿 HR 负责人为「超完美计划培训营」优胜者提供岗位: 经理人 2 个、实习生 10 个 -->
 <!-- - 说服南方报业集团传媒研究院为「职协企观月」活动提供 40 个免费参观南方报业集团的名额 -->
-<!-- - 举办 「就业服务月之公关危机」 比赛 ( 第一次办比赛, 规模虽小, 值得纪念 ) -->
+<!-- - 举办 「就业服务月之公关危机」 比赛 (第一次办比赛, 规模虽小, 值得纪念) -->
 
-**优职英才 ( 北京 ) 教育科技公司 - 市场部 - 实习生**
+**优职英才 (北京) 教育科技公司 : 市场部 - 实习生**
 _2011.7 ~ 2012.12_
 
 <!-- - 筹划执行校园推广活动, 运营微博营销号, 参与文案内容制作 -->
