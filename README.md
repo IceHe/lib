@@ -182,6 +182,8 @@ Programming Languages - at a glance
 - [Python](/snip/lang/python.md) : a programming language that lets you work quickly and integrate systems more effectively
 - [Kotlin](/snip/lang/kotlin/kotlin.md) : a cross-platform, statically typed, general-purpose programming language with type inference
     - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md)<!-- TODO --> / [Compiler](/snip/lang/kotlin/compiler.md) / …
+- [AppleScript](/snip/lang/applescript/applescript.md) : a scripting language that facilitates automated control over scriptable Mac applications
+    - [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
 
 Storage
 
@@ -230,9 +232,6 @@ Others
 - _[Mongo](/snip/tmp/mongo.md)_
 - _[Work Flow](/snip/tmp/work-flow.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
-- _AppleScript_
-    - _[Quick Start](/snip/applescript/quick-start.md)_
-    - _[Control Evernote & macOS](/snip/applescript/evernote-macos.md)_
 
 ### Efficiency
 
