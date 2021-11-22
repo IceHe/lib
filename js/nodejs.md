@@ -626,14 +626,14 @@ When this happens, npm won't install the package under the local folder, but ins
 
 - If you use `nvm` to manage Node.js versions, however, that location would differ.
 
-  I, for example, use nvm and my packages location was shown as `/Users/icehe/.nvm/versions/node/v16.13.0/lib/node_modules`.
+    I, for example, use nvm and my packages location was shown as `/Users/icehe/.nvm/versions/node/v16.13.0/lib/node_modules`.
 
 ### How to use or execute a package installed using npm
 
 When you install a package into your `node_modules` folder using `npm` , or also globally, how do you use it in your Node.js code?
 
 _Say you install `lodash`, the popular JavaScript utility library, using `npm install lodash`._
-_This is going to install the package in the local node_modules folder._
+_This is going to install the package in the local `node_modules` folder._
 
 **What if your package is an executable?**
 
