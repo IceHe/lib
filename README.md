@@ -39,7 +39,7 @@ Coding
     A Guide for Tech Leaders Navigating Growth and Change <!--_to read_-->
 -   [Peopleware](/book/peopleware.md)
     Productive Projects and Teams <!--_to re-read_-->
--   [Clean Agile](/book/clean-agile.md) :
+-   [Clean Agile](/book/clean-agile.md)
     Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
     PEP 20
