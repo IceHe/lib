@@ -176,9 +176,9 @@ Message Queue
 Programming Languages - at a glance
 
 - [Learn X in Y minutes](https://learnxinyminutes.com) : programming languages / tools / …
-- [Elixir](/snip/lang/elixir.md) : a dynamic, functional language for building scalable and maintainable applications
+- [Elixir](/snip/lang/elixir/elixir.md) : a dynamic, functional language for building scalable and maintainable applications
 - [Scala](/snip/lang/scala.md) : combines object-oriented and functional programming in one concise, high-level language
-- [PHP](/snip/php/php.md) : a popular general-purpose scripting language that is especially suited to web development
+- [PHP](/snip/lang/php/php.md) : a popular general-purpose scripting language that is especially suited to web development
 - [Python](/snip/lang/python.md) : a programming language that lets you work quickly and integrate systems more effectively
 - [Kotlin](/snip/lang/kotlin/kotlin.md) : a cross-platform, statically typed, general-purpose programming language with type inference
     - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md)<!-- TODO --> / [Compiler](/snip/lang/kotlin/compiler.md) / …

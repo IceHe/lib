@@ -112,12 +112,12 @@ cd path/to/project
 
 ```bash
 php path/to/download-n-rewrite-resources.php --download --rewrite
-# current path is scripts/php/download-n-rewrite-resources.php
+# current path is snip/lang/php/download-n-rewrite-resources.php
 ```
 
 Reference
 
-- [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/snip/php/download-n-rewrite-resources.php)
+- [download-n-rewrite-resources.php](https://github.com/IceHe/lib/blob/master/snip/lang/php/download-n-rewrite-resources.php)
 
 ## Deploy
 
