@@ -158,11 +158,11 @@ Solution Provider
 
 <!-- > —— 鲁迅《致赖少麟》 -->
 
-Client-Side
+Client-side
 
 - [Android](/snip/android/android.md) : a mobile/desktop operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets
-    - [Activities](/snip/android/activities.md)
     - [Intents and Intent Filters](/snip/android/intents-filters.md)
+    - [Activities](/snip/android/activities.md)
 
 Markdown
 
