@@ -29,19 +29,20 @@
 
 Coding
 
-- [Refactoring](/book/refactoring.md)
-    - Refactoring Improving the Design of Existing Code
-- [Design Patterns](/book/design-patterns.md)
-    - Elements of Reusable Object-Oriented Software
-- [Pragmatic Programmer](/book/pragmatic-programmer.md)
-    - Your journey to mastery - 2nd Edition
-- [The Manager's Path](/book/the-manager-s-path.md) - _to read_
-    - A Guide for Tech Leaders Navigating Growth and Change
-- [Peopleware](/book/peopleware.md) - _to re-read_
-    - Productive Projects and Teams
-- [Clean Agile](/book/clean-agile.md)
-    - Back to Basics
-- [The Zen of Python](https://www.python.org/dev/peps/pep-0020) - PEP 20
+-   [Refactoring](/book/refactoring.md)
+    Improving the Design of Existing Code
+-   [Design Patterns](/book/design-patterns.md)
+    Elements of Reusable Object-Oriented Software_
+-   [Pragmatic Programmer](/book/pragmatic-programmer.md)
+    Your journey to mastery - 2nd Edition
+-   [The Manager's Path](/book/the-manager-s-path.md)
+    A Guide for Tech Leaders Navigating Growth and Change <!--_to read_-->
+-   [Peopleware](/book/peopleware.md)
+    Productive Projects and Teams <!--_to re-read_-->
+-   [Clean Agile](/book/clean-agile.md) :
+    Back to Basics
+-   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
+    PEP 20
 
 JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
@@ -51,16 +52,16 @@ JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
 Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-applications-toc.md)
 
-- [Part I. Foundations of Data Systems](/book/designing-data-intensive-applications-p1.md)
-    - 1\. **Reliable**, **Scalable**, and Maintainable Applications
-    - 2\. **Data Models** and Query Languages
-    - 3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
-- [Part II. Distributed Data](/book/designing-data-intensive-applications-p2.md)
-    - 5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
-    - 8\. The Trouble with **Distributed Systems**
-    - 9\. **Consistency** and **Consensus**
-- [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
-    - 10\. **Batch** Processing / 11\. **Stream** Processing / …
+-   [Part I. Foundations of Data Systems](/book/designing-data-intensive-applications-p1.md)
+    1\. **Reliable**, **Scalable**, and Maintainable Applications
+    2\. **Data Models** and Query Languages
+    3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
+-   [Part II. Distributed Data](/book/designing-data-intensive-applications-p2.md)
+    5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
+    8\. The Trouble with **Distributed Systems**
+    9\. **Consistency** and **Consensus**
+-   [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
+    10\. **Batch** Processing / 11\. **Stream** Processing / …
 
 Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-architecture-toc.md)
 
@@ -128,9 +129,9 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 Basics
 
-- [Auth*](/auth/auth.md) - Authentication & Authorization
+-   [Auth*](/auth/auth.md) - Authentication & Authorization
 
-- [OIDC](/auth/oidc/oidc.md) - OpenID Connect
+-   [OIDC](/auth/oidc/oidc.md) - OpenID Connect
 
     an interoperable authentication protocol based on the OAuth 2.0 family of specifications
 
@@ -138,7 +139,7 @@ Basics
     - [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_
     - TBC…
 
-- [OAuth](/auth/oauth.md) - Open **Authorization**
+-   [OAuth](/auth/oauth.md) - Open **Authorization**
 
     an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
 
@@ -148,9 +149,12 @@ Basics
 
 Solution Provider
 
-- [Auth0](/auth/solution-provider/auth0.md) : an easy to implement, adaptable authentication and authorization platform
-- [Okta](/auth/solution-provider/okta.md) : the world's #1 identity platform
-- [Authing](/auth/solution-provider/authing.md) : connect every person and app on the planet
+-   [Auth0](/auth/solution-provider/auth0.md)
+    an easy to implement, adaptable authentication and authorization platform
+-   [Okta](/auth/solution-provider/okta.md)
+    the world's #1 identity platform
+-   [Authing](/auth/solution-provider/authing.md)
+    connect every person and app on the planet
 
 ### Snippet
 
@@ -160,7 +164,10 @@ Solution Provider
 
 Client-side
 
-- [Android](/snip/android/android.md) : a mobile/desktop operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets
+-   [Android](/snip/android/android.md)
+
+    a mobile/desktop operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets
+
     - [Intents and Intent Filters](/snip/android/intents-filters.md)
     - [Activities](/snip/android/activities.md)
 
@@ -181,30 +188,37 @@ Message Queue
 
 Programming Languages - at a glance
 
-- [Learn X in Y minutes](https://learnxinyminutes.com) : programming languages / tools / …
-- [Elixir](/snip/lang/elixir/elixir.md) : a dynamic, functional language for building scalable and maintainable applications
-- [Scala](/snip/lang/scala.md) : combines object-oriented and functional programming in one concise, high-level language
-- [PHP](/snip/lang/php/php.md) : a popular general-purpose scripting language that is especially suited to web development
-- [Python](/snip/lang/python.md) : a programming language that lets you work quickly and integrate systems more effectively
-- [Kotlin](/snip/lang/kotlin/kotlin.md) : a cross-platform, statically typed, general-purpose programming language with type inference
+-   [Learn X in Y minutes](https://learnxinyminutes.com)
+    programming languages / tools / …
+-   [Elixir](/snip/lang/elixir/elixir.md)
+    a dynamic, functional language for building scalable and maintainable applications
+-   [Scala](/snip/lang/scala.md)
+    combines object-oriented and functional programming in one concise, high-level language
+-   [PHP](/snip/lang/php/php.md)
+    a popular general-purpose scripting language that is especially suited to web development
+-   [Python](/snip/lang/python.md)
+    a programming language that lets you work quickly and integrate systems more effectively
+-   [Kotlin](/snip/lang/kotlin/kotlin.md)
+    a cross-platform, statically typed, general-purpose programming language with type inference
     - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md)<!-- TODO --> / [Compiler](/snip/lang/kotlin/compiler.md) / …
-- [AppleScript](/snip/lang/applescript/applescript.md) : a scripting language that facilitates automated control over scriptable Mac applications
+-   [AppleScript](/snip/lang/applescript/applescript.md)
+    a scripting language that facilitates automated control over scriptable Mac applications
     - [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
 
 Storage
 
-- LSM Tree : [Intro](/snip/lsm-tree/lsm-tree.md)
-    - basic data structure of LevelDB & RocksDB
-- Elasticsearch : [Usage](/snip/elasticsearch.md)
-    - for search and analysis
-- MySQL : [Usage](/cmd/m/mysql.md)
-    - robust SQL database server
-- Redis: [Basics](/snip/redis/basics.md)  / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
-    - in-memory data structure store as a database, cache and message broker
+-   **LSM Tree** : [Intro](/snip/lsm-tree/lsm-tree.md)
+    basic data structure of LevelDB & RocksDB
+-   **Elasticsearch** : [Usage](/snip/elasticsearch.md)
+    for search and analysis
+-   **MySQL** : [Usage](/cmd/m/mysql.md)
+    robust SQL database server
+-   **Redis** : [Basics](/snip/redis/basics.md)  / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
+    in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
     <!-- usage : https://redis.io/commands -->
-- [Cache Patterns](/snip/cache-patterns.md)
-    - cache aside / read through / write through / write behind caching
+-   [Cache Patterns](/snip/cache-patterns.md)
+    cache aside / read through / write through / write behind caching
 
 Terminology
 
@@ -215,11 +229,12 @@ Web
 
 - [IP Address](/snip/network/ip.md)
 - [Network - Notes](/snip/network/notes.md)
-- [URL Encoding](/snip/web/url-encoding.md) : aka. Percent Encoding
+- [URL Encoding](/snip/web/url-encoding.md)
+    aka. Percent Encoding
     - a method to encode arbitrary data in a Uniform Resource Identifier (URI) using only the limited US-ASCII characters legal within a URI
 - [Base64 Encoding](/snip/web/base64-encoding.md)
     - a group of binary-to-text encoding schemes that represent binary data in an ASCII string format
-- Simple HTTP service :
+- Simple HTTP service
     - [init.d](/snip/init.d/init.d.md) with `php -S`
     - [Nginx](/snip/nginx/nginx.md) via the configuration file
 - How to build the personal website?
@@ -433,17 +448,17 @@ _Batch 批处理_
 
 Basics
 
-- [JavaScript](/js/js.md) : aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
-- [HTML Living Standard](js/js/html-standard.md) : TODO - https://html.spec.whatwg.org
-- [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
-    - [API Documentation](/js/nodejs-api.md) : for 16.X LTS version
+-   [JavaScript](/js/js.md) : aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+-   [HTML Living Standard](js/js/html-standard.md) : TODO - [html.spec.whatwg.org](https://html.spec.whatwg.org)
+-   [Node.js](/js/nodejs.md) : a JavaScript runtime built on Chrome's V8 JavaScript engine
+    -   [API Documentation](/js/nodejs-api.md) : for 16.X LTS version
 - [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
-    - [async & await](/js/basics/async-n-await.md) : to simplify the syntax necessary to consume promise-based APIs
-    - [states & fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises
-        - States : { settled : [ fullfilled, rejected ] , unsettled : [ pending ] }
-        - Fates : [ resolved, unresolved ]
+    -   [async & await](/js/basics/async-n-await.md) : to simplify the syntax necessary to consume promise-based APIs
+    -   [states & fates](/js/basics/promise-states-n-fates.md) : clarify the different adjectives surrounding promises
+        - **States** : { settled : [ fullfilled, rejected ] , unsettled : [ pending ] }
+        - **Fates** : [ resolved, unresolved ]
 - [Event Loop](/js/basics/event-loop.md) : which the JavaScript concurrency model based on
-- Tasks vs. Microtasks : TODO
+- **Tasks vs. Microtasks** : TODO
     - _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
     - _[In depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)_
 
@@ -452,7 +467,6 @@ Code Snippet
 - [Base Encoding](/js/code-snippet/base64-encoding.md) : encode, decode
 - [Environment](/js/code-snippet/environment.md) : running under Node or browser-like environments
 - [Jest](/js/code-snippet/jest.md) : for unit tests
-- TODO
 
 Package Management
 
@@ -483,19 +497,19 @@ NPM : the world's largest software registry
 
 Package
 
-- commitlint : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
-- husky : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
-- jest : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
-- lerna : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-- lodash : a modern JavaScript utility library delivering modularity, performance & extras - [lodash.com](https://lodash.com/)
+- **commitlint** : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+- **husky** : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+- **jest** : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
+- **lerna** : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+- **lodash** : a modern JavaScript utility library delivering modularity, performance & extras - [lodash.com](https://lodash.com/)
 - [nanoid](/js/package/nanoid.md) : a tiny (108 bytes), secure, URL-friendly, unique string ID generator
-- next : React Framework for Production - [nextjs.org](https://nextjs.org/)
-- razzle : build modern JavaScript applications from zero to production - [razzlejs.org](https://razzlejs.org/)
-- parcel : zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
-- superstruct : makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
+- **next** : React Framework for Production - [nextjs.org](https://nextjs.org/)
+- **razzle** : build modern JavaScript applications from zero to production - [razzlejs.org](https://razzlejs.org/)
+- **parcel** : zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
+- **superstruct** : makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
     - other options : [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends : [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
-- zustand : a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
-- TODO : READ & NOTE-TAKE
+- **zustand** : a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
+- TODO : read & note-take
 
 TypeScript
 
@@ -517,12 +531,12 @@ TypeScript
 Basics
 
 - [Glossaries](/java/glossaries.md)
-- Install : [JDK](/java/install-jdk.md)
-- IDE : [IntelliJ IDEA](/java/intellij-idea.md) usage
-- Code Style Guide : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
+- **Install** : [JDK](/java/install-jdk.md)
+- **IDE** : [IntelliJ IDEA](/java/intellij-idea.md) usage
+- **Code Style Guide** : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
 - [Annotations](/java/annotations.md) : Spring / Lombok / FastJson / Jackson / …
 - [Exceptions](/java/exceptions.md) : exception class hierarchy / …
-- Others : [Notes](/java/notes.md)
+- **Others** : [Notes](/java/notes.md)
 
 Package Manager
 
@@ -537,8 +551,8 @@ Package Manager
 
 Benchmark, Stress Testing & Unit Testing
 
-- Benchmark & Stress Testing : [JMH](/java/jmh.md) - Java Microbenchmark Harness
-- Unit testing & Integration testing : [Spock](/java/spock.md) or JUnit
+- **Benchmark & Stress Testing** : [JMH](/java/jmh.md) - Java Microbenchmark Harness
+- **Unit testing & Integration testing** : [Spock](/java/spock.md) or JUnit
     - [Groovy](/java/groovy.md) : a multi-faceted language for the Java platform
 
 Code Snippet
@@ -754,27 +768,19 @@ Timeline
     -   一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。
 -   [VicodinXYZ's Life Beliefs](/read/life-beliefs.md)
     -   决策的第一要务是给自己创造足够多的好选项。大多数决策失败来源于在几个都不够好的选择中反复纠结。
-    -   **对于日常小决策，决策速度大于决策质量，不要拖**；
-        对于重大而难逆转的大决策，要收集足够多信息尽量保证做对。
+    -   **对于日常小决策，决策速度大于决策质量，不要拖**；对于重大而难逆转的大决策，要收集足够多信息尽量保证做对。
     -   **不是生活中的每一个问题都要解决，和问题共处是人生常态。把精力用在重要的事情上**。
 -   [Sspai Time Management](/read/sspai-time-mgt.md)
-    -   **更大的效率来自于重要事情上做得好，而不是在处处做得好，**
-        **管理精力比管理时间更重要。**
-    -   在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：
-        -   **精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**
-    -   **「不做事」一定是最节省时间、最高效的做事方式**，
-        学会「做重要的事」才是掌控时间的终极法门。
+    -   **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
+    -   在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：**精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**
+    -   **「不做事」一定是最节省时间、最高效的做事方式**，学会「做重要的事」才是掌控时间的终极法门。
     -   提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。
     -   何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，事实上研究表明，
         -   **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，
         -   **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
 -   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政 》
-        成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，
-        既然成功是我自己的事，那失敗就是輸家自己的錯，
-        這會製造出「才德的驕傲」（meritocratic hubris），
-        對階梯下的人缺乏同理心，甚至不屑和輕蔑，
-        因此更不會有對於共同體內同胞的相互責任。
+        成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
 -   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md) :
     -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
     -   《 如何成为不完美主义者 》
@@ -793,14 +799,19 @@ Timeline
 <!-- > -->
 <!-- > —— Better Man - _Robbie Williams song_ -->
 
--   Jan Fan : Pythonist / Tencent / Applied Mathematics PhD @ Sweden
--   [SF Zhou](http://sf-zhou.github.io/) : ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou
--   Shiwey Yan : Game Engine Developer / Tencent - Timi @ Shenzhen
--   [Toxic Johann](https://github.com/toxic-johann) : Frontend / 360 / UC / Tencent / Tubi @ Beijing
--   [ME](https://icehe.xyz/#/past/bio) : Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
-- …
-
-<!-- -   Johnson Zhang : Goer / Sina Mobile / Didi / Meituan @ Beijing -->
+-   **Jan Fan**
+    _Pythonist / Tencent / Applied Mathematics PhD @ Sweden_
+-   **Johnson Zhang**
+    _Goer / Sina Mobile / Didi / Meituan @ Beijing_
+-   [SF Zhou](http://sf-zhou.github.io/)
+    _ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou_
+-   **Shiwey Yan**
+    _Game Engine Developer / Tencent - Timi @ Shenzhen_
+-   [Toxic Johann](https://github.com/toxic-johann)
+    _Frontend / 360 / UC / Tencent / Tubi @ Beijing_
+-   [ME](https://icehe.xyz/#/past/bio)
+    _Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing_
+-   …
 
 ---
 

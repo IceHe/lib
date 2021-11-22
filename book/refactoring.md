@@ -1,8 +1,6 @@
 # Refactoring
 
-重构
-
-Refactoring Improving the Design of Existing Code
+Improving the Design of Existing Code
 
 ---
 
