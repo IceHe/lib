@@ -35,8 +35,10 @@
 
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
-[Weibo](https://weibo.com/icedes)
-[Library](/README)
+<!-- [Weibo](https://weibo.com/icedes) -->
+<!-- [Library](/README) -->
+
+<a href="https://weibo.com/icedes" target="_blank" rel="noopener">Weibo</a> <a href="#/README">Library</a>
 
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->
 <!-- [🎯 About](/life/bio.md) -->
