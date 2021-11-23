@@ -31,6 +31,19 @@ This window typically fills the screen, but may be smaller than the screen and f
 **Generally, one activity implements one screen in an app.**
 _For instance, one of an app's activities may implement a Preferences screen, while another activity implements a Select Photo screen._
 
+Most apps contain multiple screens, which means they comprise multiple activities.
+Typically, one activity in an app is specified as the main activity, which is the first screen to appear when the user launches the app.
+Each activity can then start another activity in order to perform different actions.
+_For example, the main activity in a simple e-mail app may provide the screen that shows an e-mail inbox._
+_From there, the main activity might launch other activities that provide screens for tasks like writing e-mails and opening individual e-mails._
+
+Although activities work together to form a cohesive user experience in an app, each activity is only loosely bound to the other activities; there are usually minimal dependencies among the activities in an app.
+In fact, activities often start up activities belonging to other apps.
+_For example, a browser app might launch the Share activity of a social-media app._
+
+To use activities in your app, you must register information about them in the app’s manifest, and you must manage activity lifecycles appropriately.
+The rest of this document introduces these subjects.
+
 ## Configuring the manifest
 
 ### Declare activities
