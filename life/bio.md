@@ -30,15 +30,15 @@ IceHe's short biographical profile
 动态
 
 - 技术博客 : [icehe.xyz](https://icehe.xyz)
-- 生活日常 : [微博](https://weibo.com/icedes) @\_IceHe\_
+- 生活日常 : [Weibo@\_IceHe\_](https://weibo.com/icedes)
 - 代码仓库 : [GitHub/IceHe](https://github.com/IceHe)
 
 联络
 
-- 邮箱 : icehe.xyz#qq.com
+- 邮箱 : `icehe.xyz#qq.com`
     <!-- _- replace # with @_ -->
-- 微信 : `SWNlSG9vbw==`
-    <!-- _- Base64 Encoded_ -->
+- 微信 : `SWNlSG9vbw`
+    <!-- - _Base64 Encoded and Trimmed the trailing equal signs_ -->
 
 <!--
 

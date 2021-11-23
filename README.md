@@ -10,15 +10,23 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Whoami: [IceHe's bio](/life/bio.md)
-- Website: [icehe.xyz](https://icehe.xyz)
-- Contact: `aWNlaGUueHl6QHFxLmNvbQ==` <!-- - _Base64 Encoded_ -->
+Here is [https://icehe.xyz](https://icehe.xyz).
+Whoami : [IceHe's bio](/life/bio.md)
+
+<!-- Contact : `aWNlaGUueHl6QHFxLmNvbQ`  -->
+<!-- - _Base64 Encoded and Trimmed the trailing equal signs_ -->
+
+<!-- WeChat : `SWNlSG9vbw`  -->
+<!-- - _Base64 Encoded and Trimmed the trailing equal signs_ -->
+
+<!-- Weibo : [@\_IceHe\_](https://weibo.com/icedes) -->
+<!-- GitHub : [IceHe](https://github.com/IceHe) -->
 
 ## Technology
 
 ### Book
 
-[IceHe's Booklist](https://book.douban.com/people/IceHeGZ/collect) @douban.com
+[IceHe's Booklist](https://book.douban.com/people/IceHeGZ/collect) @Douban.com
 
 > 短期太急躁，總想走捷徑快速見效；
 > 長期沒耐心，小覷長期堅持的成長。
@@ -238,7 +246,7 @@ Web
 - Simple HTTP service
     - [init.d](/snip/init.d/init.d.md) with `php -S`
     - [Nginx](/snip/nginx/nginx.md) via the configuration file
-- How to build the personal website?
+- How to build my personal website?
     - Powered by [docsify](/docsify/how-to-docsify.md)
 - How to estimate the required computing resources?
     - [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
