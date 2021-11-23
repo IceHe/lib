@@ -32,7 +32,7 @@
 
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
-[🎯 About](/life/bio.md) [📚 Library](/README)
+[🧑🏻‍💻 About](/life/bio.md) [📚 Library](/README)
 
 <!-- [🎯 About](/life/bio.md) -->
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->
