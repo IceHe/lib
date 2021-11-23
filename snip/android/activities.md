@@ -41,12 +41,36 @@ Although activities work together to form a cohesive user experience in an app, 
 In fact, activities often start up activities belonging to other apps.
 _For example, a browser app might launch the Share activity of a social-media app._
 
-To use activities in your app, you must register information about them in the app’s manifest, and you must manage activity lifecycles appropriately.
-The rest of this document introduces these subjects.
+To use activities in your app, you must register information about them in the app's manifest, and you must manage activity lifecycles appropriately.
+_The rest of this document introduces these subjects._
 
 ## Configuring the manifest
 
+**For your app to be able to use activities, you must declare the activities, and certain of their attributes, in the manifest.**
+
 ### Declare activities
+
+To declare your activity, open your manifest file and add an `<activity>` element as a child of the `<application>` element.
+_For example:_
+
+```xml
+<manifest ... >
+  <application ... >
+      <activity android:name=".ExampleActivity" />
+      ...
+  </application ... >
+  ...
+</manifest >
+```
+
+**The only required attribute for this element is [android:name](https://developer.android.com/guide/topics/manifest/activity-element#nm), which specifies the class name of the activity.**
+You can also add attributes that define activity characteristics such as label, icon, or UI theme.
+_For more information about these and other attributes, see the `<activity>` element reference documentation._
+
+> **Note**:
+> After you publish your app, you should not change activity names.
+> If you do, you might break some functionality, such as app shortcuts.
+> _For more information on changes to avoid after publishing, see [Things That Cannot Change](https://developer.android.com/guide/topics/manifest/activity-element#nm)._
 
 ### Declare intent filters
 
