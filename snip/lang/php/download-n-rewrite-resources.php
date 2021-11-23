@@ -15,6 +15,8 @@ foreach ($argv as $arg) {
         $toDownload = true;
     } elseif (in_array($arg, ['--rewrite', '-r'])) {
         $toRewrite = true;
+    } elseif (in_array($arg, ['--simplify', '-s'])) {
+        $toSimplify = true;
     }
 }
 
@@ -56,6 +58,16 @@ if ($toRewrite) {
 
         echo "\n";
     }
+}
+
+if ($toSimplify) {
+    // 移除被 `<!-- -->` 注释的 HTML 元素
+    $contectImproved = preg_replace('/<!--([\s\S]*?)-->\s*/m', '', $contectImproved);
+    // 移除被 `//` 注释的单行 JavaScript 代码
+    $contectImproved = preg_replace('/^\s*\/\/[^\n]*/m', "", $contectImproved);
+    $contectImproved = preg_replace('/((?<!["\':])\/\/[^\n]*)/', "", $contectImproved);
+    // 将多个空行换为单个空行
+    $contectImproved = preg_replace('/\n+/s', "\n", $contectImproved);
 }
 
 echo $contectImproved."\n\n";
