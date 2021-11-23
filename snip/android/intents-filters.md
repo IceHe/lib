@@ -90,11 +90,150 @@ _Likewise, if you do not declare any intent filters for an activity, then it can
 
 ## Building an intent
 
-TODO
+**An `Intent` object carries information that the Android system uses to determine which component to start** (such as the exact component name or component category that should receive the intent), **plus information that the recipient component uses in order to properly perform the action** (such as the action to take and the data to act upon).
+
+The primary information contained in an `Intent` is the following:
+
+-   **Component name**
+
+-   **Action**
+
+-   **Data**
+
+-   **Category**
+
+-   **Extras**
+
+-   **Flags**
+
+### Example explicit intent
+
+### Example implicit intent
+
+### Forcing an app chooser
+
+_Omitted_
+
+### Detect unsafe intent launches
+
+_Omitted_
 
 ## Receiving an implicit intent
 
-TODO
+**To advertise which implicit intents your app can receive, declare one or more intent filters for each of your app components with an [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element) element in your [manifest file](https://developer.android.com/guide/topics/manifest/manifest-intro).**
+**Each intent filter specifies the type of intents it accepts based on the intent's action, data, and category.**
+The system delivers an implicit intent to your app component only if the intent can pass through one of your intent filters.
+
+> **Note**: An explicit intent is always delivered to its target, regardless of any intent filters the component declares.
+
+An app component should declare separate filters for each unique job it can do.
+
+_For example, one activity in an image gallery app may have two filters: one filter to view an image, and another filter to edit an image._
+_When the activity starts, it inspects the `Intent` and decides how to behave based on the information in the `Intent` (such as to show the editor controls or not)._
+
+Each intent filter is defined by an `<intent-filter>` element in the app's manifest file, nested in the corresponding app component (such as an `<activity>` element).
+
+In each app component that includes an `<intent-filter>` element, explicitly set a value for `android:exported`.
+This attribute indicates whether the app component is accessible to other apps.
+In some situations, such as activities whose intent filters include the `LAUNCHER` category, it's useful to set this attribute to true.
+Otherwise, it's safer to set this attribute to `false`.
+
+> **Warning**: If an activity, service, or broadcast receiver in your app uses intent filters and doesn't explicitly set the value for android:exported, your app can't be installed on a device that runs Android 12 or higher.
+
+Inside the `<intent-filter>`, you can specify the type of intents to accept using one or more of these three elements :
+
+-   `<action>`
+
+    **Declares the intent action accepted, in the name attribute.**
+
+    _The value must be the literal string value of an action, not the class constant._
+
+-   `<data>`
+
+    **Declares the type of data accepted**,
+
+    using one or more attributes that specify various aspects of the data URI (scheme, host, port, path) and MIME type.
+
+-   `<category>`
+
+    **Declares the intent category accepted, in the name attribute.**
+
+    _The value must be the literal string value of an action, not the class constant._
+
+    > **Note**: To receive implicit intents, you must include the [CATEGORY_DEFAULT](https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT) category in the intent filter.
+    > The methods `startActivity()` and `startActivityForResult()` treat all intents as if they declared the CATEGORY_DEFAULT category.
+    > If you do not declare this category in your intent filter, no implicit intents will resolve to your activity.
+
+_For example, here's an activity declaration with an intent filter to receive an [ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) intent when the data type is text:_
+
+```xml
+<activity android:name="ShareActivity" android:exported="false">
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain"/>
+    </intent-filter>
+</activity>
+```
+
+You can create a filter that includes more than one instance of `<action>`, `<data>`, or `<category>`.
+If you do, you need to be certain that the component can handle any and all combinations of those filter elements.
+
+When you want to handle multiple kinds of intents, but only in specific combinations of action, data, and category type, then you need to create multiple intent filters.
+
+**An implicit intent is tested against a filter by comparing the intent to each of the three elements.**
+**To be delivered to the component, the intent must pass all three tests.**
+**If it fails to match even one of them, the Android system won't deliver the intent to the component.**
+However, because a component may have multiple intent filters, an intent that does not pass through one of a component's filters might make it through on another filter.
+_More information about how the system resolves intents is provided in the section below about [Intent Resolution](https://developer.android.com/guide/components/intents-filters?hl=en#Resolution)._
+
+> **Caution**:
+> Using an intent filter isn't a secure way to prevent other apps from starting your components.
+> Although intent filters restrict a component to respond to only certain kinds of implicit intents, another app can potentially start your app component by using an explicit intent if the developer determines your component names.
+> If it's important that only your own app is able to start one of your components, do not declare intent filters in your manifest.
+> Instead, set the `exported` attribute to `"false"` for that component.
+>
+> Similarly, to avoid inadvertently running a different app's **Service**, always use an explicit intent to start your own service.
+
+---
+
+> **Note**:
+> For all activities, you must declare your intent filters in the manifest file.
+> However, filters for broadcast receivers can be registered dynamically by calling `registerReceiver()`.
+> You can then unregister the receiver with `unregisterReceiver()`.
+> Doing so allows your app to listen for specific broadcasts during only a specified period of time while your app is running.
+
+### Example filter
+
+_To demonstrate some of the intent filter behaviors, here is an example from the manifest file of a social-sharing app:_
+
+```xml
+<activity android:name="MainActivity" android:exported="true">
+    <!-- This activity is the main entry, should appear in app launcher -->
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+
+<activity android:name="ShareActivity" android:exported="false">
+    <!-- This activity handles "SEND" actions with text data -->
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain"/>
+    </intent-filter>
+    <!-- This activity also handles "SEND" and "SEND_MULTIPLE" with media data -->
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <action android:name="android.intent.action.SEND_MULTIPLE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="application/vnd.google.panorama360+jpg"/>
+        <data android:mimeType="image/*"/>
+        <data android:mimeType="video/*"/>
+    </intent-filter>
+</activity>
+```
 
 ## Others
 
