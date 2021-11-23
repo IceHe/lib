@@ -9,8 +9,8 @@ References
 
 ## Intro
 
-**The [`Activity`](https://developer.android.com/reference/android/app/Activity) class is a crucial component of an Android app, and the way activities are launched and put together is a fundamental part of the platform's application model.**
-****Unlike programming paradigms in which apps are launched with a `main()` method, the Android system initiates code in an `Activity` instance by invoking specific callback methods that correspond to specific stages of its lifecycle.**
+The [`Activity`](https://developer.android.com/reference/android/app/Activity) class is a crucial component of an Android app, and the way activities are launched and put together is a fundamental part of the platform's application model.
+**Unlike programming paradigms in which apps are launched with a `main()` method, the Android system initiates code in an `Activity` instance by invoking specific callback methods that correspond to specific stages of its lifecycle.**
 
 …… _For additional information about best practices in architecting your app, see [Guide to App Architecture](https://developer.android.com/topic/libraries/architecture/guide)._
 
@@ -46,7 +46,7 @@ _The rest of this document introduces these subjects._
 
 ## Configuring the manifest
 
-**For your app to be able to use activities, you must declare the activities, and certain of their attributes, in the manifest.**
+For your app to be able to use activities, you must declare the activities, and certain of their attributes, in the manifest.
 
 ### Declare activities
 
@@ -63,7 +63,7 @@ _For example:_
 </manifest >
 ```
 
-**The only required attribute for this element is [android:name](https://developer.android.com/guide/topics/manifest/activity-element#nm), which specifies the class name of the activity.**
+The only required attribute for this element is [android:name](https://developer.android.com/guide/topics/manifest/activity-element#nm), which specifies the class name of the activity.
 You can also add attributes that define activity characteristics such as label, icon, or UI theme.
 _For more information about these and other attributes, see the `<activity>` element reference documentation._
 
@@ -122,7 +122,7 @@ _For example, the following code snippet shows how to configure an activity that
     startActivity(sendIntent);
     ```
 
-**If you intend for your app to be self-contained and not allow other apps to activate its activities, you don't need any other intent filters.**
+If you intend for your app to be self-contained and not allow other apps to activate its activities, you don't need any other intent filters.
 Activities that you don't want to make available to other applications should have no intent filters, and you can start them yourself using explicit intents.
 _For more information about how your activities can respond to intents, see [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters)._
 
@@ -152,18 +152,19 @@ _For more information on permissions and security in general, see [Security and 
 
 ## Managing the activity lifecycle
 
-**Over the course of its lifetime, an activity goes through a number of states.**
-**You use a series of callbacks to handle transitions between states.**
+Over the course of its lifetime, an activity goes through a number of states.
+You use a series of callbacks to handle transitions between states.
 
 _The following sections introduce these callbacks._
 
 ### onCreate()
 
 You **must implement this callback, which fires when the system creates your activity**.
-Your **implementation should initialize the essential components of your activity**: _For example, your app should create views and bind data to lists here._
-**Most importantly, this is where you must call [`setContentView()`](https://developer.android.com/reference/android/app/Activity#setContentView(android.view.View)) to define the layout for the activity's user interface.**
+Your implementation should initialize the essential components of your activity:
+_For example, your app should create views and bind data to lists here._
+Most importantly, **this is where you must call [`setContentView()`](https://developer.android.com/reference/android/app/Activity#setContentView(android.view.View)) to define the layout for the activity's user interface.**
 
-**When [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) finishes, the next callback is always `onStart()`.**
+When [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) finishes, the next callback is always `onStart()`.
 
 ### onStart()
 
@@ -172,7 +173,21 @@ This callback contains what amounts to the activity’s final preparations for c
 
 ### onResume()
 
+**The system invokes [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) callback just before the activity starts interacting with the user.**
+At this point, the activity is at the top of the activity stack, and captures all user input.
+**Most of an app’s core functionality is implemented in the `onResume()` method.**
+
+The `onPause()` callback always follows `onResume()`.
+
 ### onPause()
+
+The system calls onPause() when the activity loses focus and enters a Paused state. This state occurs when, for example, the user taps the Back or Recents button. When the system calls onPause() for your activity, it technically means your activity is still partially visible, but most often is an indication that the user is leaving the activity, and the activity will soon enter the Stopped or Resumed state.
+
+An activity in the Paused state may continue to update the UI if the user is expecting the UI to update. Examples of such an activity include one showing a navigation map screen or a media player playing. Even if such activities lose focus, the user expects their UI to continue updating.
+
+You should not use onPause() to save application or user data, make network calls, or execute database transactions. For information about saving data, see Saving and restoring activity state.
+
+Once onPause() finishes executing, the next callback is either onStop() or onResume(), depending on what happens after the activity enters the Paused state.
 
 ### onStop()
 
