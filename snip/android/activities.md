@@ -14,4 +14,45 @@ References
 
 …… _For additional information about best practices in architecting your app, see [Guide to App Architecture](https://developer.android.com/topic/libraries/architecture/guide)._
 
+## The concept of activities
+
+The mobile-app experience differs from its desktop counterpart in that a user's interaction with the app doesn't always begin in the same place.
+Instead, the user journey often begins non-deterministically.
+_For instance, if you open an email app from your home screen, you might see a list of emails._
+_By contrast, if you are using a social media app that then launches your email app, you might go directly to the email app's screen for composing an email._
+
+The `Activity` class is designed to facilitate this paradigm.
+**When one app invokes another, the calling app invokes an activity in the other app, rather than the app as an atomic whole.**
+In this way, **the activity serves as the entry point for an app's interaction with the user**.
+You implement an activity as a subclass of the Activity class.
+
+**An activity provides the window in which the app draws its UI.**
+This window typically fills the screen, but may be smaller than the screen and float on top of other windows.
+**Generally, one activity implements one screen in an app.**
+_For instance, one of an app's activities may implement a Preferences screen, while another activity implements a Select Photo screen._
+
+## Configuring the manifest
+
+### Declare activities
+
+### Declare intent filters
+
+### _Declare permissions_
+
+## Managing the activity lifecycle
+
+### onCreate()
+
+### onStart()
+
+### onResume()
+
+### onPause()
+
+### onStop()
+
+### onRestart()
+
+### onDestroy()
+
 TODO
