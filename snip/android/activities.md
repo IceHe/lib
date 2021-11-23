@@ -74,13 +74,101 @@ _For more information about these and other attributes, see the `<activity>` ele
 
 ### Declare intent filters
 
+[Intent filters](https://developer.android.com/guide/components/intents-filters) are a very powerful feature of the Android platform.
+They **provide the ability to launch an activity based not only on an explicit request, but also an implicit one**.
+
+_For example, an explicit request might tell the system to "Start the Send Email activity in the Gmail app"._
+_By contrast, an implicit request tells the system to "Start a Send Email screen in any activity that can do the job."_
+When the system UI asks a user which app to use in performing a task, that's an intent filter at work.
+
+You can take advantage of this feature by declaring an `<intent-filter>` attribute in the `<activity>` element.
+The definition of this element includes an `<action>` element and, optionally, a `<category>` element and/or a `<data>` element.
+These elements combine to specify the type of intent to which your activity can respond.
+
+_For example, the following code snippet shows how to configure an activity that sends text data, and receives requests from other activities to do so:_
+
+```xml
+<activity android:name=".ExampleActivity" android:icon="@drawable/app_icon">
+    <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+</activity>
+```
+
+- _In this example, the `<action>` element specifies that this activity sends data._
+- _Declaring the `<category>` element as DEFAULT enables the activity to receive launch requests._
+- _The `<data>` element specifies the type of data that this activity can send. The following code snippet shows how to call the activity described above:_
+
+    ```kt
+    val sendIntent = Intent().apply {
+        action = Intent.ACTION_SEND
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, textMessage)
+    }
+    startActivity(sendIntent)
+    ```
+
+    or
+
+    ```java
+    // Create the text message with a string
+    Intent sendIntent = new Intent();
+    sendIntent.setAction(Intent.ACTION_SEND);
+    sendIntent.setType("text/plain");
+    sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
+    // Start the activity
+    startActivity(sendIntent);
+    ```
+
+**If you intend for your app to be self-contained and not allow other apps to activate its activities, you don't need any other intent filters.**
+Activities that you don't want to make available to other applications should have no intent filters, and you can start them yourself using explicit intents.
+_For more information about how your activities can respond to intents, see [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters)._
+
 ### _Declare permissions_
+
+You can use the manifest's `<activity>` tag to control which apps can start a particular activity.
+A parent activity cannot launch a child activity unless both activities have the same permissions in their manifest.
+If you declare a `<uses-permission>` element for a parent activity, each child activity must have a matching `<uses-permission>` element.
+
+_For example, if your app wants to use a hypothetical<!-- 假设的 --> app named SocialApp to share a post on social media, SocialApp itself must define the permission that an app calling it must have:_
+
+```xml
+<manifest>
+<activity android:name="...."
+   android:permission="com.google.socialapp.permission.SHARE_POST"/>
+```
+
+_Then, to be allowed to call SocialApp, your app must match the permission set in SocialApp's manifest:_
+
+```xml
+<manifest>
+   <uses-permission android:name="com.google.socialapp.permission.SHARE_POST" />
+</manifest>
+```
+
+_For more information on permissions and security in general, see [Security and Permissions](https://developer.android.com/guide/topics/security/security)._
 
 ## Managing the activity lifecycle
 
+**Over the course of its lifetime, an activity goes through a number of states.**
+**You use a series of callbacks to handle transitions between states.**
+
+_The following sections introduce these callbacks._
+
 ### onCreate()
 
+You **must implement this callback, which fires when the system creates your activity**.
+Your **implementation should initialize the essential components of your activity**: _For example, your app should create views and bind data to lists here._
+**Most importantly, this is where you must call [`setContentView()`](https://developer.android.com/reference/android/app/Activity#setContentView(android.view.View)) to define the layout for the activity's user interface.**
+
+**When [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) finishes, the next callback is always `onStart()`.**
+
 ### onStart()
+
+**As [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) exits, the activity enters the Started state, and the activity becomes visible to the user.**
+This callback contains what amounts to the activity’s final preparations for coming to the foreground and becoming interactive.
 
 ### onResume()
 
