@@ -25,15 +25,25 @@ echo 'toRewrite: '.intval($toRewrite)."\n";
 echo "\n";
 
 // Get content of `index.html`
-$content = file_get_contents("index.raw.html");
-echo $content."\n\n";
+$originalContent = file_get_contents("index.raw.html");
+echo $originalContent."\n\n";
+
+$modifiedContent = $originalContent;
+
+if ($toSimplify) {
+    // 移除被 `<!-- -->` 注释的 HTML 元素
+    $modifiedContent = preg_replace('/<!--([\s\S]*?)-->\s*/m', '', $modifiedContent);
+    // 移除被 `//` 注释的单行 JavaScript 代码
+    $modifiedContent = preg_replace('/^\s*\/\/[^\n]*/m', "", $modifiedContent);
+    $modifiedContent = preg_replace('/((?<!["\':])\/\/[^\n]*)/', "", $modifiedContent);
+    // 移除空行
+    $modifiedContent = preg_replace('/\n+/s', "\n", $modifiedContent);
+}
 
 // Extract URLs of resources from `index.html`
-$count = preg_match_all('/ (?:href|src)="((?!_docsify|_files|_images|http(s)?:\/\/)[^"]+)"/', $content, $resources);
+$count = preg_match_all('/ (?:href|src)="((?!_docsify|_files|_images|http(s)?:\/\/)[^"]+)"/', $modifiedContent, $resources);
 echo var_export($resources, true)."\n";
 echo $count."\n\n";
-
-$contectImproved = $content;
 
 if ($toRewrite) {
     foreach ($resources[1] ?? [] as $resource) {
@@ -42,7 +52,7 @@ if ($toRewrite) {
         $localFileName = str_replace('/', '_', $resource);
         echo $localFileName."\n";
 
-        $localFilePath = "docsify/resources/{$localFileName}";
+        $localFilePath = "docsify/resource/{$localFileName}";
 
         // Download resources
         if ($toDownload) {
@@ -54,25 +64,15 @@ if ($toRewrite) {
         // $replacePath = "https://cdn.icehe.xyz/{$localFilePath}";
 
         // Replace links to resources in `index.html`
-        $contectImproved = str_replace($resource, $replacePath, $contectImproved);
+        $modifiedContent = str_replace($resource, $replacePath, $modifiedContent);
 
         echo "\n";
     }
 }
 
-if ($toSimplify) {
-    // 移除被 `<!-- -->` 注释的 HTML 元素
-    $contectImproved = preg_replace('/<!--([\s\S]*?)-->\s*/m', '', $contectImproved);
-    // 移除被 `//` 注释的单行 JavaScript 代码
-    $contectImproved = preg_replace('/^\s*\/\/[^\n]*/m', "", $contectImproved);
-    $contectImproved = preg_replace('/((?<!["\':])\/\/[^\n]*)/', "", $contectImproved);
-    // 将多个空行换为单个空行
-    $contectImproved = preg_replace('/\n+/s', "\n", $contectImproved);
-}
-
-echo $contectImproved."\n\n";
+echo $modifiedContent."\n\n";
 
 // Save new `index.html` with links to local resources
-file_put_contents('index.html', $contectImproved);
+file_put_contents('index.html', $modifiedContent);
 
 echo "Fin.\n\n";
