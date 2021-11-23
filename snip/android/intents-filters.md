@@ -47,3 +47,43 @@ _The rest of this page explains **how intents work** and **how to use** them._
 _For related information, see [Interacting with Other Apps](https://developer.android.com/training/basics/intents) and [Sharing Content](https://developer.android.com/training/sharing)._
 
 ## Intent types
+
+There are two types of intents:
+
+-   **Explicit intents**
+
+    **specify which application will satisfy the intent, by supplying either the target app's package name or a fully-qualified component class name.**
+
+    _You'll typically use an explicit intent to start a component in your own app, because you know the class name of the activity or service you want to start._
+
+    _For example, you might start a new activity within your app in response to a user action, or start a service to download a file in the background._
+
+-   **Implicit intents**
+
+    **do not name a specific component, but instead declare a general action to perform, which allows a component from another app to handle it.**
+
+    _For example, if you want to show the user a location on a map, you can use an implicit_
+
+The figure below shows how an intent is used when starting an activity.
+**When the `Intent` object names a specific activity component explicitly, the system immediately starts that component.**
+
+![intent-filters.png](_image/intent-filters.png)
+
+How an implicit intent is delivered through the system to start another activity :
+
+1. `Activity` A creates an `Intent` with an action description and passes it to `startActivity()`.
+2. The Android System searches all apps for an intent filter that matches the intent.
+3. When a match is found, the system starts the matching activity (Activity B) by invoking its `onCreate()` method and passing it the Intent.
+
+**When you use an implicit intent, the Android system finds the appropriate component to start by comparing the contents of the intent to the intent filters declared in the manifest file of other apps on the device.**
+**If the intent matches an intent filter, the system starts that component and delivers it the Intent object.**
+**If multiple intent filters are compatible, the system displays a dialog so the user can pick which app to use.**
+
+An intent filter is an expression in an app's manifest file that specifies the type of intents that the component would like to receive.
+For instance, by declaring an intent filter for an activity, you make it possible for other apps to directly start your activity with a certain kind of intent.
+_Likewise, if you do not declare any intent filters for an activity, then it can be started only with an explicit intent._
+
+> **Caution** :
+> To ensure that your app is secure, always use an explicit intent when starting a `Service` and do not declare intent filters for your services.
+> Using an implicit intent to start a service is a security hazard because you can't be certain what service will respond to the intent, and the user can't see which service starts.
+> Beginning with Android 5.0 (API level 21), the system throws an exception if you call `bindService()` with an implicit intent.
