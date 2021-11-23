@@ -87,3 +87,27 @@ _Likewise, if you do not declare any intent filters for an activity, then it can
 > To ensure that your app is secure, always use an explicit intent when starting a `Service` and do not declare intent filters for your services.
 > Using an implicit intent to start a service is a security hazard because you can't be certain what service will respond to the intent, and the user can't see which service starts.
 > Beginning with Android 5.0 (API level 21), the system throws an exception if you call `bindService()` with an implicit intent.
+
+## Building an intent
+
+TODO
+
+## Receiving an implicit intent
+
+TODO
+
+## Others
+
+_Omitted_
+
+Using a pending intent
+
+- Specify mutability
+- Use explicit intents within pending intents
+
+Intent resolution
+
+- Action test
+- Category test
+- Data test
+- Intent matching
