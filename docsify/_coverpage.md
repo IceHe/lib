@@ -32,11 +32,9 @@
 
 <!-- - 记于 2019 年 1 月 12 日。 -->
 
-<!-- [Weibo](https://weibo.com/icedes) -->
-<!-- [Library](/README) -->
+[🎯 About](/life/bio.md)
+[🏄 Weibo](https://weibo.com/icedes)
+[💻 GitHub](https://weibo.com/icedes)
+[📚 Library](/README)
 
-<a href="#/life/bio">About</a> <a href="https://weibo.com/icedes" target="_blank" rel="noopener">Weibo</a> <a href="https://github.com/IceHe" target="_blank" rel="noopener">GitHub</a> <a href="#/README">Library</a>
-
-<!-- [🏄 Weibo](https://weibo.com/icedes) -->
-<!-- [🎯 About](/life/bio.md) -->
-<!-- [📚 Library](/README) -->
+<!-- <a href="https://weibo.com/icedes" target="_blank" rel="noopener">🏄 Weibo</a><a href="#/README">📚 Library</a> -->
