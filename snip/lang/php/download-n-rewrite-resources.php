@@ -41,6 +41,7 @@ if ($toSimplify) {
 }
 
 // Extract URLs of resources from `index.html`
+// $count = preg_match_all('/ (?:href|src)="((?!_docsify|_files|_images|http(s)?:\/\/)[^"]+)"/', $originalContent, $resources);
 $count = preg_match_all('/ (?:href|src)="((?!_docsify|_files|_images|http(s)?:\/\/)[^"]+)"/', $modifiedContent, $resources);
 echo var_export($resources, true)."\n";
 echo $count."\n\n";
