@@ -7,6 +7,7 @@ An Intent is a messaging object you can use to request an action from another ap
 References
 
 - [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters)
+- [Intent](https://developer.android.com/reference/android/content/Intent)
 
 ## Intro
 
@@ -234,6 +235,19 @@ _To demonstrate some of the intent filter behaviors, here is an example from the
     </intent-filter>
 </activity>
 ```
+
+_The first activity, `MainActivity`, is the app's main entry point —— the activity that opens when the user initially launches the app with the launcher icon:_
+
+-   The **ACTION_MAIN** action indicates this is the **main entry point** and **does not expect any intent data**.
+-   The **CATEGORY_LAUNCHER** category indicates that this activity's icon should be placed in the system's app launcher.
+    If the `<activity>` element does not specify an icon with icon, then the system uses the icon from the `<application>` element.
+
+These two must be paired together in order for the activity to appear in the app launcher.
+
+The second activity, `ShareActivity`, is intended to facilitate sharing text and media content.
+Although users might enter this activity by navigating to it from `MainActivity`, they can also enter ShareActivity directly from another app that issues an implicit intent matching one of the two intent filters.
+
+> _**Note**: The MIME type, `application/vnd.google.panorama360+jpg`, is a special data type that specifies panoramic photos, which you can handle with the Google panorama APIs._
 
 ## Others
 
