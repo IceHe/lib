@@ -35,7 +35,7 @@
 <!-- [Weibo](https://weibo.com/icedes) -->
 <!-- [Library](/README) -->
 
-<a href="https://weibo.com/icedes" target="_blank" rel="noopener">Weibo</a> <a href="#/README">Library</a>
+<a href="#/life/bio">About</a> <a href="https://weibo.com/icedes" target="_blank" rel="noopener">Weibo</a> <a href="https://github.com/IceHe" target="_blank" rel="noopener">GitHub</a> <a href="#/README">Library</a>
 
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->
 <!-- [🎯 About](/life/bio.md) -->
