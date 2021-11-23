@@ -13,6 +13,11 @@
   <meta name="description" content="IceHe's Library">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
+  <!-- RESOURCE CDNs -->
+  <!-- - A free CDN for Open Source : https://www.jsdelivr.com/ -->
+  <!-- - UNPKG is a fast, global content delivery network for everything on npm : https://unpkg.com/ -->
+  <!-- HOW TO : Replace 'cdn.jsdelivr.net/npm/' with 'unpkg.com/' for shorter URLs. -->
+
   <!-- Favicon : https://en.wikipedia.org/wiki/Favicon -->
   <!-- <link rel="shortcut icon" type="image/x-icon" href="docsify/weibo-favicon.ico" /> -->
   <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icehe.xyz/_docsify/h-favicon.ico" />
@@ -25,15 +30,15 @@
        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous"> -->
 
   <!-- Gitalk : https://docsify.js.org/#/plugins?id=gitalk -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <!-- <link rel="stylesheet" href="//unpkg.com/gitalk@1/dist/gitalk.css"> -->
   <!-- <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css"> -->
 
   <!-- KateX : https://github.com/Khan/KaTeX#readme -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" /> -->
+  <!-- <link rel="stylesheet" href="//unpkg.com/katex@latest/dist/katex.min.css" /> -->
 
   <!-- Themes : https://docsify.js.org/#/themes -->
   <!-- ( Usage : Enable one & Disable others ) -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
+  <!-- <link rel="stylesheet" href="//unpkg.com/docsify@4/lib/themes/vue.css"> -->
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" title="vue">
   <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/buble.css"> -->
   <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css"> -->
@@ -43,7 +48,7 @@
   <!-- <link rel="stylesheet" href="//unpkg.com/docsify-themeable/dist/css/theme-defaults.css"> -->
 
   <!-- docsify-darklight-theme : https://github.com/boopathikumar018/docsify-darklight-theme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+  <link rel="stylesheet" href="//unpkg.com/docsify-darklight-theme@latest/dist/style.min.css"
     title="docsify-darklight-theme" type="text/css" />
 
 </head>
@@ -93,9 +98,6 @@
         paths: 'auto',
         placeholder: 'Type to search',
       },
-
-      // Google Analytics : https://docsify.js.org/#/plugins?id=google-analytics
-      ga: 'G-LJ15JZ8GPG',
 
       // Pagination ( Prev & Next Page ) : https://github.com/imyelo/docsify-pagination
       // pagination: {
@@ -164,15 +166,11 @@
 
   <!-- KateX : https://github.com/Khan/KaTeX#readme -->
   <!-- ( Notice : KateX must be loaded before basic `docsify.min.js`! ) -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+  <!-- <script src="//unpkg.com/docsify-katex@latest/dist/docsify-katex.js"></script> -->
 
   <!-- Basic -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4" data-ga="G-LJ15JZ8GPG"></script> -->
-  <script src="//unpkg.com/docsify/lib/docsify.min.js" data-ga="G-LJ15JZ8GPG"></script>
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js" data-ga="G-LJ15JZ8GPG"></script> -->
-
-  <!-- Google Analytics : https://docsify.js.org/#/plugins?id=google-analytics -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
+  <script src="//unpkg.com/docsify@4"></script>
+  <!-- <script src="//unpkg.com/docsify/lib/docsify.min.js"></script> -->
 
   <!-- Advanced Plugins : https://docsify.js.org/#/plugins -->
 
@@ -257,8 +255,17 @@
   -->
 
   <!-- docsify-darklight-theme : https://github.com/boopathikumar018/docsify-darklight-theme -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"
+  <script src="//unpkg.com/docsify-darklight-theme@latest/dist/index.min.js"
     class="__web-inspector-hide-shortcut__"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJ15JZ8GPG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LJ15JZ8GPG');
+  </script>
 
 </body>
 
