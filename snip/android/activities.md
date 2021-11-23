@@ -240,6 +240,20 @@ In other words, each callback allows you to perform specific work that's appropr
 Doing the right work at the right time and handling transitions properly make your app more robust and performant.
 _For example, good implementation of the lifecycle callbacks can help ensure that your app avoids:_
 
+- _Crashing if the user receives a phone call or switches to another app while using your app._
+- _Consuming valuable system resources when the user is not actively using it._
+- _Losing the user's progress if they leave your app and return to it at a later time._
+- _Crashing or losing the user's progress when the screen rotates between landscape and portrait orientation._
+
+_This document explains the activity lifecycle in detail._
+_The document begins by describing the lifecycle paradigm._
+_Next, it explains each of the callbacks: what happens internally while they execute, and what you should implement during them._
+_It then briefly introduces the relationship between activity state and a process’s vulnerability to being killed by the system._
+_Last, it discusses several topics related to transitions between activity states._
+
+For information about handling lifecycles, including guidance about best practices, see Handling Lifecycles with Lifecycle-Aware Components and Saving UI States.
+To learn how to architect a robust, production-quality app using activities in combination with architecture components, see Guide to App Architecture.
+
 ## Activity-lifecycle concepts
 
 ## Lifecycle callbacks
