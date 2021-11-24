@@ -179,7 +179,6 @@ Client-side
     - [Intents and Intent Filters](/snip/android/intents-filters.md)
     - [Intro to Activities](/snip/android/intro-to-activities.md)
     - [Activity Lifecycle](/snip/android/activity-lifecycle.md)
-
     <!-- - [Services](/snip/android/services.md) -->
 
 Markdown
