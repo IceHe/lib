@@ -4,8 +4,6 @@ IceHe's short biographical profile
 
 <!-- CV - Curriculum Vitae -->
 
----
-
 ## 简介
 
 经历 - 后端
