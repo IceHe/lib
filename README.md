@@ -38,19 +38,19 @@ Whoami : [IceHe's bio](/life/bio.md)
 Coding
 
 -   [Refactoring](/book/refactoring.md)
-    Improving the Design of Existing Code
+    - Improving the Design of Existing Code
 -   [Design Patterns](/book/design-patterns.md)
-    Elements of Reusable Object-Oriented Software_
+    - Elements of Reusable Object-Oriented Software_
 -   [Pragmatic Programmer](/book/pragmatic-programmer.md)
-    Your journey to mastery - 2nd Edition
+    - Your journey to mastery - 2nd Edition
 -   [The Manager's Path](/book/the-manager-s-path.md)
-    A Guide for Tech Leaders Navigating Growth and Change <!--_to read_-->
+    - A Guide for Tech Leaders Navigating Growth and Change <!--_to read_-->
 -   [Peopleware](/book/peopleware.md)
-    Productive Projects and Teams <!--_to re-read_-->
+    - Productive Projects and Teams <!--_to re-read_-->
 -   [Clean Agile](/book/clean-agile.md)
-    Back to Basics
+    - Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
-    PEP 20
+    - PEP 20
 
 JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
@@ -61,15 +61,15 @@ JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-applications-toc.md)
 
 -   [Part I. Foundations of Data Systems](/book/designing-data-intensive-applications-p1.md)
-    1\. **Reliable**, **Scalable**, and Maintainable Applications
-    2\. **Data Models** and Query Languages
-    3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
+    - 1\. **Reliable**, **Scalable**, and Maintainable Applications
+    - 2\. **Data Models** and Query Languages
+    - 3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
 -   [Part II. Distributed Data](/book/designing-data-intensive-applications-p2.md)
-    5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
-    8\. The Trouble with **Distributed Systems**
-    9\. **Consistency** and **Consensus**
+    - 5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
+    - 8\. The Trouble with **Distributed Systems**
+    - 9\. **Consistency** and **Consensus**
 -   [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
-    10\. **Batch** Processing / 11\. **Stream** Processing / …
+    - 10\. **Batch** Processing / 11\. **Stream** Processing / …
 
 Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-architecture-toc.md)
 
@@ -145,7 +145,6 @@ Basics
 
     - [Core 1.0](/auth/oidc/core.md) functionality : authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
     - [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_
-    - TBC…
 
 -   [OAuth](/auth/oauth.md) - Open **Authorization**
 
@@ -157,11 +156,11 @@ Basics
 
 Solution Provider
 
--   [Auth0](/auth/solution-provider/auth0.md)
+-   [Auth0](/auth/solution-provider/auth0.md) :
     an easy to implement, adaptable authentication and authorization platform
--   [Okta](/auth/solution-provider/okta.md)
+-   [Okta](/auth/solution-provider/okta.md) :
     the world's #1 identity platform
--   [Authing](/auth/solution-provider/authing.md)
+-   [Authing](/auth/solution-provider/authing.md) :
     connect every person and app on the planet
 
 ### Snippet
@@ -199,41 +198,43 @@ Message Queue
 Programming Languages - at a glance
 
 -   [Learn X in Y minutes](https://learnxinyminutes.com)
-    programming languages / tools / …
+    - programming languages / tools / …
 -   [Elixir](/snip/lang/elixir/elixir.md)
-    a dynamic, functional language for building scalable and maintainable applications
+    - a dynamic, functional language for building scalable and maintainable applications
 -   [Scala](/snip/lang/scala.md)
-    combines object-oriented and functional programming in one concise, high-level language
+    - combines object-oriented and functional programming in one concise, high-level language
 -   [PHP](/snip/lang/php/php.md)
-    a popular general-purpose scripting language that is especially suited to web development
+    - a popular general-purpose scripting language that is especially suited to web development
 -   [Python](/snip/lang/python.md)
-    a programming language that lets you work quickly and integrate systems more effectively
+    - a programming language that lets you work quickly and integrate systems more effectively
 -   [Kotlin](/snip/lang/kotlin/kotlin.md)
-    a cross-platform, statically typed, general-purpose programming language with type inference
+    - a cross-platform, statically typed, general-purpose programming language with type inference
     - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md)<!-- TODO --> / [Compiler](/snip/lang/kotlin/compiler.md) / …
 -   [AppleScript](/snip/lang/applescript/applescript.md)
-    a scripting language that facilitates automated control over scriptable Mac applications
+    - a scripting language that facilitates automated control over scriptable Mac applications
     - [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
 
 Storage
 
 -   **LSM Tree** : [Intro](/snip/lsm-tree/lsm-tree.md)
-    basic data structure of LevelDB & RocksDB
+    - basic data structure of LevelDB & RocksDB
 -   **Elasticsearch** : [Usage](/snip/elasticsearch.md)
-    for search and analysis
+    - for search and analysis
 -   **MySQL** : [Usage](/cmd/m/mysql.md)
-    robust SQL database server
+    - robust SQL database server
 -   **Redis** : [Basics](/snip/redis/basics.md)  / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
-    in-memory data structure store as a database, cache and message broker
+    - in-memory data structure store as a database, cache and message broker
     <!-- basics: http://redis.io -->
     <!-- usage : https://redis.io/commands -->
 -   [Cache Patterns](/snip/cache-patterns.md)
-    cache aside / read through / write through / write behind caching
+    - cache aside / read through / write through / write behind caching
 
 Terminology
 
-- [Abbreviations](/snip/abbrs.md) are usually related to coding (programmming)
-- [Glossaries](/snip/glossaries.md) with intros to the common technology products
+- [Abbreviations](/snip/abbrs.md)
+    - are usually related to coding (programmming)
+- [Glossaries](/snip/glossaries.md)
+    - with intros to the common technology products
 
 Web
 
@@ -254,8 +255,10 @@ Web
 
 Others
 
-- [Alpine Linux](/snip/docker/alpine/alpine.md) : minimal OS Docker image
-- [Regular Expression](/snip/regex.md) : a sequence of characters that specifies a search pattern
+- [Alpine Linux](/snip/docker/alpine/alpine.md)
+    - minimal OS Docker image
+- [Regular Expression](/snip/regex.md)
+    - a sequence of characters that specifies a search pattern
 - _[Sorting Algorithms](/snip/sort/notes.md)_
 - _[ID Generator](/snip/tmp/id-generator.md)_
 - _[CentOS 6](/snip/tmp/centos6.md)_
@@ -540,13 +543,15 @@ TypeScript
 
 Basics
 
-- [Glossaries](/java/glossaries.md)
-- **Install** : [JDK](/java/install-jdk.md)
-- **IDE** : [IntelliJ IDEA](/java/intellij-idea.md) usage
-- **Code Style Guide** : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
-- [Annotations](/java/annotations.md) : Spring / Lombok / FastJson / Jackson / …
-- [Exceptions](/java/exceptions.md) : exception class hierarchy / …
-- **Others** : [Notes](/java/notes.md)
+-   [Glossaries](/java/glossaries.md)
+-   **Install** : [JDK](/java/install-jdk.md)
+-   **IDE** : [IntelliJ IDEA](/java/intellij-idea.md) usage
+-   **Code Style Guide** : [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
+-   [Annotations](/java/annotations.md) :
+    Spring / Lombok / FastJson / Jackson / …
+-   [Exceptions](/java/exceptions.md) :
+    exception class hierarchy / …
+-   **Others** : [Notes](/java/notes.md)
 
 Package Manager
 
