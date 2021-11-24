@@ -96,10 +96,8 @@ _2021.10 至今_
 
 - 公司简介 : [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 - 初始产品 : [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
-- 融资阶段 : Seed money $2M+ from [Sequoia Capital](https://www.sequoiacap.com/china/) & [ZhenFund](http://www.zhenfund.com/)
+- 融资阶段 : Seed money $4.5M+ from [Sequoia Capital](https://www.sequoiacap.com/china/) , [ZhenFund](http://www.zhenfund.com/) , [Eminence Ventures](http://www.emventures.cn/)
 - _JavaScript / TypeScript / Node.js / Kotlin / Java / <!--Android /--> PostgreSQL / GitHub Organization_
-
-<!-- - 融资阶段: Seed money $4.5M+ from [Sequoia Capital](https://www.sequoiacap.com/china/), [ZhenFund](http://www.zhenfund.com/) & [Eminence Ventures](http://www.emventures.cn/)… -->
 
 **猿辅导 : 斑马 - 供应链 - Java**
 _2021.3 ~ 2021.8_
