@@ -46,11 +46,26 @@ To navigate **transitions between stages of the activity lifecycle**, the **Acti
 
 **The system invokes each of these callbacks as an activity enters a new state.**
 
-_The figure below presents a visual representation of this paradigm._
+_A simplified illustration of the activity lifecycle :_
 
 ![activity-lifecycle.png](_image/activity-lifecycle.png)
 
+As the user begins to leave the activity, the system calls methods to dismantle<!-- 拆除, 拆开 --> the activity.
+In some cases, this dismantlement is only partial; the activity still resides in memory (such as when the user switches to another app), and can still come back to the foreground.
+If the user returns to that activity, the activity resumes from where the user left off.
+With a few exceptions, apps are [restricted from starting activities when running in the background](https://developer.android.com/guide/components/activities/background-starts).
+
+The system's likelihood<!-- 可能性 --> of killing a given process —— along with the activities in it —— depends on the state of the activity at the time.
+Activity state and ejection from memory provides more information on the relationship between state and vulnerability to ejection.
+
+Depending on the complexity of your activity, you probably don't need to implement all the lifecycle methods.
+_However, it's important that you understand each one and implement those that ensure your app behaves the way users expect._
+
+_The next section of this document provides detail on the callbacks that you use to handle transitions between states._
+
 ## Lifecycle callbacks
+
+TODO
 
 - onCreate()
 - onStart()
