@@ -177,8 +177,10 @@ Client-side
     a mobile/desktop operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets
 
     - [Intents and Intent Filters](/snip/android/intents-filters.md)
-    - [Activities](/snip/android/activities.md)
-    - [Services](/snip/android/services.md)
+    - [Intro to Activities](/snip/android/intro-to-activities.md)
+    - [Activity Lifecycle](/snip/android/activity-lifecycle.md)
+
+    <!-- - [Services](/snip/android/services.md) -->
 
 Markdown
 
