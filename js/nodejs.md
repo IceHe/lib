@@ -2777,7 +2777,7 @@ The event listener has these in-built events:
 - `newListener` when a listener is added
 - `removeListener` when a listener is removed
 
-_Here's a detailed description of the most useful methods:_
+_Here's a detailed descriptidon of the most useful methods:_
 
 -   `emitter.addListener()`
 
@@ -2895,3 +2895,7 @@ _Here's a detailed description of the most useful methods:_
     ```js
     door.setMaxListeners(50)
     ```
+
+## http module
+
+The HTTP core module is a key module to Node.js networking.
