@@ -210,6 +210,9 @@ Programming Languages - at a glance
 -   [Kotlin](/snip/lang/kotlin/kotlin.md)
     - a cross-platform, statically typed, general-purpose programming language with type inference
     - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md)<!-- TODO --> / [Compiler](/snip/lang/kotlin/compiler.md) / …
+    - Mocking for unit tests
+        - [MockK](/snip/lang/kotlin/mocking.md#MockK) : mocking library for Kotlin
+        - [Mockito](/snip/lang/kotlin/mocking.md#Mockito) : tasty mocking framework for unit tests in Java
 -   [AppleScript](/snip/lang/applescript/applescript.md)
     - a scripting language that facilitates automated control over scriptable Mac applications
     - [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
