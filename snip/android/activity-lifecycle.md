@@ -65,14 +65,42 @@ _The next section of this document provides detail on the callbacks that you use
 
 ## Lifecycle callbacks
 
-TODO
+_This section provides conceptual and implementation information about the callback methods used during the activity lifecycle._
 
-- onCreate()
-- onStart()
-- onResume()
-- onPause()
-- onStop()
-- onDestroy()
+Some actions, such as calling `setContentView()`, belong in the activity lifecycle methods themselves.
+However, the code implementing the actions of a dependent component should be placed in the component itself.
+To achieve this, you must make the dependent component lifecycle-aware.
+_See [Handling Lifecycles with Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/lifecycle) to learn how to make your dependent components lifecycle-aware._
+
+### onCreate()
+
+You must implement `onCreate()` callback, which fires when the system first creates the activity.
+On activity creation, the activity enters the _Created_ state.
+In the `onCreate()` method, you perform basic application startup logic that should happen only once for the entire life of the activity.
+
+_For example, your implementation of `onCreate()` might bind data to lists, associate the activity with a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel), and instantiate some class-scope variables._
+_This method receives the parameter `savedInstanceState`, which is a [Bundle](https://developer.android.com/reference/android/os/Bundle) object containing the activity's previously saved state._
+_If the activity has never existed before, the value of the `Bundle` object is null._
+
+_Omitted_
+
+### onStart()
+
+_Omitted_
+
+### onResume()
+
+_Omitted_
+
+### onPause()
+
+_Omitted_
+
+### onStop()
+
+_Omitted_
+
+### onDestroy()
 
 _Omitted_
 
@@ -87,6 +115,28 @@ _Omitted_
 _Omitted_
 
 ## Navigating between activities
+
+The system kills processes when it needs to free up RAM; **the likelihood of the system killing a given process depends on the state of the process at the time**.
+**Process state, in turn, depends on the state of the activity running in the process.**
+
+_The table below shows the correlation among process state, activity state, and likelihood of the system’s killing the process._
+
+Relationship between process lifecycle and activity state :
+
+|Likelihood of being killed|Process state|Activity state|
+|-|-|-|
+|Least|Foreground (having or about to get focus)|Created<br/>Started<br/>Resumed|
+|More|Background (lost focus)|Paused|
+|Most|Background (not visible)|Stopped|
+|Most|Empty|Destroyed|
+
+**The system never kills an activity directly to free up memory.**
+**Instead, it kills the process in which the activity runs, destroying not only the activity but everything else running in the process, as well.**
+_To learn how to preserve and restore your activity's UI state when system-initiated process death occurs, see [Saving and restoring activity state](https://developer.android.com/guide/components/activities/activity-lifecycle#saras)._
+
+A user can also kill a process by using the Application Manager under Settings to kill the corresponding app.
+
+For more information about processes in general, see [Processes and Threads](https://developer.android.com/guide/components/processes-and-threads#Lifecycle). …
 
 ### Starting one activity from another
 
