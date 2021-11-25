@@ -1891,3 +1891,17 @@ Other flags you'll commonly use are:
 -   `a+`
 
     open the file for reading and writing, positioning the stream at the end of the file. The file is created if not existing.
+
+You can also open the file by using the `fs.openSync` method, which returns the file descriptor, instead of providing it in a callback:
+
+```js
+const fs = require('fs')
+
+try {
+  const fd = fs.openSync('/Users/joe/test.txt', 'r')
+} catch (err) {
+  console.error(err)
+}
+```
+
+Once you get the file descriptor, in whatever way you choose, you can perform all the operations that require it, like calling `fs.close()` and many other operations that interact with the filesystem.
