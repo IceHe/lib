@@ -2327,11 +2327,15 @@ _Once you do so, you have access to all its methods, which include:_
 
 -   `fs.chmod()`
 
-    change the permissions of a file specified by the filename passed. Related: fs.lchmod(), fs.fchmod()
+    change the permissions of a file specified by the filename passed.
+
+    _Related: `fs.lchmod()`, `fs.fchmod()`_
 
 -   `fs.chown()`
 
-    change the owner and group of a file specified by the filename passed. Related: fs.fchown(), fs.lchown()
+    change the owner and group of a file specified by the filename passed.
+
+    _Related: `fs.fchown(),` `fs.lchown()`_
 
 -   `fs.close()`
 
@@ -2371,7 +2375,9 @@ _Once you do so, you have access to all its methods, which include:_
 
 -   `fs.readFile()`
 
-    read the content of a file. Related: fs.read()
+    read the content of a file.
+
+    _Related: `fs.read()`_
 
 -   `fs.readlink()`
 
@@ -2379,7 +2385,7 @@ _Once you do so, you have access to all its methods, which include:_
 
 -   `fs.realpath()`
 
-    resolve relative file path pointers (., ..) to the full path
+    resolve relative file path pointers (`.`, `..`) to the full path
 
 -   `fs.rename()`
 
@@ -2391,7 +2397,9 @@ _Once you do so, you have access to all its methods, which include:_
 
 -   `fs.stat()`
 
-    returns the status of the file identified by the filename passed. Related: fs.fstat(), fs.lstat()
+    returns the status of the file identified by the filename passed.
+
+    _Related: `fs.fstat()`, `fs.lstat()`_
 
 -   `fs.symlink()`
 
@@ -2399,7 +2407,9 @@ _Once you do so, you have access to all its methods, which include:_
 
 -   `fs.truncate()`
 
-    truncate to the specified length the file identified by the filename passed. Related: fs.ftruncate()
+    truncate to the specified length the file identified by the filename passed.
+
+    _Related: `fs.ftruncate()`_
 
 -   `fs.unlink()`
 
@@ -2411,15 +2421,21 @@ _Once you do so, you have access to all its methods, which include:_
 
 -   `fs.utimes()`
 
-    change the timestamp of the file identified by the filename passed. Related: fs.futimes()
+    change the timestamp of the file identified by the filename passed.
+
+    _Related: `fs.futimes()`_
 
 -   `fs.watchFile()`
 
-    start watching for changes on a file. Related: fs.watch()
+    start watching for changes on a file.
+
+    _Related: `fs.watch()`_
 
 -   `fs.writeFile()`
 
-    write data to a file. Related: fs.write()
+    write data to a file.
+
+    _Related: `fs.write()`_
 
 One peculiar thing about the `fs` module is that all the methods are asynchronous by default, but they can also work synchronously by appending `Sync`.
 
@@ -2429,3 +2445,152 @@ For example:
 - `fs.renameSync()`
 - `fs.write()`
 - `fs.writeSync()`
+
+### path module
+
+The `path` module provides a lot of very useful functionality to access and interact with the file system.
+
+This module provides `path.sep` which provides the path segment separator (`\` on Windows, and `/` on Linux / macOS), and `path.delimiter` which provides the path delimiter (`;` on Windows, and `:` on Linux / macOS).
+
+-   `path.basename()`
+
+    Return the last portion of a path.
+
+    A second parameter can filter out the file extension:
+
+-   `path.dirname()`
+
+    Return the directory part of a path:
+
+    ```js
+    require('path').dirname('/test/something') // /test
+    require('path').dirname('/test/something/file.txt') // /test/something
+    ```
+
+-   `path.dirname()`
+
+    Return the directory part of a path:
+
+    ```js
+    require('path').dirname('/test/something') // /test
+    require('path').dirname('/test/something/file.txt') // /test/something
+    ```
+
+-   `path.extname()`
+
+    Return the extension part of a path
+
+    ```js
+    require('path').extname('/test/something') // ''
+    require('path').extname('/test/something/file.txt') // '.txt'
+    ```
+
+-   `path.format()`
+
+    Returns a path string from an object.
+
+    This is the opposite of `path.parse` `path.format` accepts an object as argument with the following keys:
+
+    - `root` : the root
+    - `dir` : the folder path starting from the root
+    - `base` : the file name + extension
+    - `name` : the file name
+    - `ext` : the file extension
+
+    `root` is ignored if `dir` is provided
+    `ext` and `name` are ignored if `base` exists
+
+    ```js
+    // # POSIX #
+    // '/Users/joe/test.txt'
+    require('path').format({ dir: '/Users/joe', base: 'test.txt' })
+
+    // '/Users/joe/test.txt'
+    require('path').format({ root: '/Users/joe', name: 'test', ext: '.txt' })
+
+    // # WINDOWS #
+    // 'C:\\Users\\joe\\test.txt'
+    require('path').format({ dir: 'C:\\Users\\joe', base: 'test.txt' })
+    ```
+
+-   `path.isAbsolute()`
+
+    Returns true if it's an absolute path
+
+    ```js
+    require('path').isAbsolute('/test/something') // true
+    require('path').isAbsolute('./test/something') // false
+    ```
+
+-   `path.join()`
+
+    Joins two or more parts of a path:
+
+    ```js
+    const name = 'joe'
+    require('path').join('/', 'users', name, 'notes.txt') //'/users/joe/notes.txt'
+    ```
+
+-   `path.normalize()`
+
+    Tries to calculate the actual path when it contains relative specifiers like `.` or `..`, or double slashes:
+
+    ```js
+    require('path').normalize('/users/joe/..//test.txt') //'/users/test.txt'
+    ```
+
+-   `path.parse()`
+
+    Parses a path to an object with the segments that compose it:
+
+    - `root`: the root
+    - `dir`: the folder path starting from the root
+    - `base`: the file name + extension
+    - `name`: the file name
+    - `ext`: the file extension
+
+    ```js
+    require('path').parse('/users/test.txt')
+    ```
+
+    results in
+
+    ```json
+    {
+      root: '/',
+      dir: '/users',
+      base: 'test.txt',
+      ext: '.txt',
+      name: 'test'
+    }
+    ```
+
+-   `path.relative()`
+
+    Accepts 2 paths as arguments.
+    Returns the relative path from the first path to the second, based on the current working directory.
+
+    ```js
+    require('path').relative('/Users/joe', '/Users/joe/test.txt') //'test.txt'
+    require('path').relative('/Users/joe', '/Users/joe/something/test.txt') //'something/test.txt'
+    ```
+
+-   `path.resolve()`
+
+    You can get the absolute path calculation of a relative path using `path.resolve()`:
+
+    ```js
+    path.resolve('joe.txt') //'/Users/joe/joe.txt' if run from my home folder
+    ```
+
+    By specifying a second parameter, resolve will use the first as a base for the second:
+
+    ```js
+    path.resolve('tmp', 'joe.txt') //'/Users/joe/tmp/joe.txt' if run from my home folder
+    ```
+
+    If the first parameter starts with a slash, that means it's an absolute path:
+
+    ```js
+    path.resolve('/etc', 'joe.txt') //'/etc/joe.txt'
+    ```
