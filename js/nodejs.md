@@ -1856,7 +1856,7 @@ const server = http.createServer(async (req, res) => {
 
 ## File System
 
-### Working with file descriptors
+### File descriptors
 
 _Before you're able to interact with a file that sits in your filesystem, you must get a file descriptor._
 
@@ -1905,3 +1905,124 @@ try {
 ```
 
 Once you get the file descriptor, in whatever way you choose, you can perform all the operations that require it, like calling `fs.close()` and many other operations that interact with the filesystem.
+
+### File stats
+
+Every file comes with a set of details that we can inspect using Node.js.
+
+In particular, using the `stat()` method provided by the `fs` module.
+
+You call it passing a file path, and once Node.js gets the file details it will call the callback function you pass, with 2 parameters: an error message, and the file stats:
+
+```js
+const fs = require('fs')
+fs.stat('/Users/joe/test.txt', (err, stats) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  //we have access to the file stats in `stats`
+})
+```
+
+Node.js provides also a sync method, which blocks the thread until the file stats are ready:
+
+```js
+const fs = require('fs')
+try {
+  const stats = fs.statSync('/Users/joe/test.txt')
+} catch (err) {
+  console.error(err)
+}
+```
+
+**The file information is included in the stats variable.**
+
+What kind of information can we extract using the stats? Including:
+
+- if the file is a directory or a file, using `stats.isFile()` and `stats.isDirectory()`
+- if the file is a symbolic link using `stats.isSymbolicLink()`
+- the file size in bytes using `stats.size`.
+
+There are other advanced methods, but the bulk of what you'll use in your day-to-day programming is this.
+
+```js
+const fs = require('fs')
+fs.stat('/Users/joe/test.txt', (err, stats) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+
+  stats.isFile() //true
+  stats.isDirectory() //false
+  stats.isSymbolicLink() //false
+  stats.size //1024000 //= 1MB
+})
+```
+
+### File Paths
+
+Every file in the system has a path.
+
+- On Linux and macOS, a path might look like: `/users/joe/file.txt`
+- while Windows computers are different, and have a structure such as: `C:\users\joe\file.txt`
+
+You need to pay attention when using paths in your applications, as this difference must be taken into account.
+
+You include this module in your files using
+
+```js
+const path = require('path')
+```
+
+and you can start using its methods.
+
+#### Getting information out of a path
+
+Given a path, you can extract information out of it using those methods:
+
+- `dirname` : get the parent folder of a file
+- `basename` : get the filename part
+- `extname` : get the file extension
+
+```js
+const notes = '/users/joe/notes.txt'
+
+path.dirname(notes) // /users/joe
+path.basename(notes) // notes.txt
+path.extname(notes) // .txt
+```
+
+**Join two or more parts of a path** by using `path.join()`:
+
+```js
+const name = 'joe'
+path.join('/', 'users', name, 'notes.txt') //'/users/joe/notes.txt'
+```
+
+**Get the absolute path calculation of a relative path** using `path.resolve()`:
+
+```js
+path.resolve('joe.txt') //'/Users/joe/joe.txt' if run from my home folder
+```
+
+_In this case Node.js will simply append `/joe.txt` to the current working directory._
+_If you specify a second parameter folder, `resolve` will use the first as a base for the second:_
+
+```js
+path.resolve('tmp', 'joe.txt') //'/Users/joe/tmp/joe.txt' if run from my home folder
+```
+
+……
+
+`path.normalize()` is another useful function, that will **try and calculate the actual path, when it contains relative specifiers like `.` or `..`, or double slashes**:
+
+```js
+path.normalize('/users/joe/..//test.txt') //'/users/test.txt'
+```
+
+**Neither resolve nor normalize will check if the path exists.**
+They just calculate a path based on the information they got.
+
+### Reading files
