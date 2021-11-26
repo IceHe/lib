@@ -93,11 +93,10 @@ Suggestion
     _e.g. configure ClashX Pro via subscription URL_
 
     1.  Menubar → `ClashX` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1.  Menubar → `ClashX` → `Config` → Select new configuration
-        / _Confirm selected new config_
+    1.  Menubar → `ClashX` → `Config` → confirm selecting new configuration
     1.  Menubar → `ClashX` → `Set as system proxy`
     1.  Menubar → `ClashX` → `Copy shell command`
-    1.  Open `Terminal` → Paste shell command → Execute
+    1.  Open `Terminal` → paste shell command → execute
 
 1.  Visit [google.com](https://www.google.com/ncr) to validate the network
 
@@ -152,9 +151,9 @@ Install the required softwares via Homebrew-Cask
 ```bash
 brew install --cask \
     google-chrome \
-    intellij-idea \
     iterm2 \
     itsycal \
+    jetbrains-toolbox \
     karabiner-elements \
     keyboard-maestro \
     neteasemusic \
@@ -177,7 +176,6 @@ Install the optional softwares via Homebrew-Cask
 brew install --cask \
     appcleaner \
     charles \
-    clashx \
     docker \
     iina \
     imageoptim \
@@ -203,14 +201,9 @@ but available on Mac App Store.
 Install the required softwares via Mac App Store
 
 - 1Password
-- Amphetamine
 - Copy 'Em
 - EasyRes
 - EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
-
-Others available on GitHub
-
-- [Amphetamine Enhancer](https://github.com/x74353/Amphetamine-Enhancer)
 
 Others available on the official homepages
 
