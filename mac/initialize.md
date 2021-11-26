@@ -236,6 +236,7 @@ brew install \
     curl \
     git \
     fzf \
+    gpg \
     jq \
     nginx \
     node \
@@ -288,7 +289,17 @@ brew install \
 
 _For logining the git services, such as GitHub, GitLab, Coding._
 
-### SSH Key
+### GPG Key
+
+Add the public GPG key on Mac to the accounts of the git services.
+
+_Advantage : No longer need to enter the username and password on the trusted devices._
+
+TODO
+
+### ~~SSH Key~~
+
+> DEPRECATED!
 
 Add the public SSH key on Mac to the accounts of the git services.
 
