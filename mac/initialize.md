@@ -299,7 +299,7 @@ brew install \
 
 ### GPG Key
 
-**Using GPG**, you can **sign tags and commits locally**.
+Using **GPG**, you can **sign tags and commits locally**.
 
 - These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source.
 
@@ -319,19 +319,19 @@ Steps
 
 ### SSH Key
 
-Add the public SSH key on Mac to the accounts of the git services.
+Using the **SSH** protocol, you can **connect** and **authenticate** to remote servers and services.
 
-- Advantage : No longer need to enter the username and password on the trusted devices.
+- With SSH keys, you can connect to GitHub **without supplying your username and personal access token at each visit**.
 
 Steps
 
 1.  Generate the SSH key pair
 
-    Reference : [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
+    Reference : [Generating a new SSH key and adding it to the ssh-agent - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 1.  Add the SSH key to the accounts of the git services
 
-    Reference : [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
+    Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 ### Dotfiles
 
@@ -401,7 +401,7 @@ git config --global commit.gpgsign true
 git config --global -l | grep user
 # output
 user.name=IceHe.xyz
-user.email=icehe@gmail.com
+user.email=icehe@qq.com
 ```
 
 ### PlantUML
@@ -415,7 +415,7 @@ brew install graphviz
 brew link --overwrite graphviz
 ```
 
-_( This could fix issues if you have installed GraphViz as .dmg package. )_
+_This could fix issues if you have installed GraphViz as .dmg package._
 
 _By default, the dot executable is expected :_
 
@@ -433,9 +433,9 @@ JDK - Java Development Kit
 1.  Download [JDK 8 binary installation package](https://www.oracle.com/hk/java/technologies/javase/javase-jdk8-downloads.html)
     for macOs on the offical website
 
-    _The recommended version is still **8**. ( 2021-01-01 )_
+    The recommended version is still **8**. ( 2021-01-01 )
 
-    _( Optional installation : [SDKMAN!](https://sdkman.io) )_
+    _Optional installation : [SDKMAN!](https://sdkman.io)_
 
 1.  Install
 
@@ -474,7 +474,7 @@ JDK - Java Development Kit
     You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
-    _References : [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)_
+    Reference : [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)
 
 1.  Synchronize the settings
 
@@ -565,9 +565,14 @@ Include the development configurations on local and remote machines
 
 ### System
 
-#### Dock
+#### Bottom Dock
 
 - Disable all apps `Options` → `Keep in Dock`
+
+#### Dock & Menu Bar
+
+- Enable `Automatically hide and show the Dock`
+- Disable `Show recent applications in Dock`
 
 #### Keyboard
 
@@ -575,6 +580,7 @@ Include the development configurations on local and remote machines
 
 - Set `Delay Until Repeat` max
 - Set `Key Repeat` max
+- Enable `Use F1, F2, etc. keys as standard function keys`
 
 `Text` Tab
 
@@ -583,7 +589,7 @@ Include the development configurations on local and remote machines
 
 `Shortcuts` Tab
 
-- Add the apps' shortcuts
+- Add/Update `App Shortcuts`
     - `All Applications` → `Show Help menu` ⌥ ⇧ /
     - `Google Chrome` → `Duplicate Tab` ⇧ ⌘ D
     - `iTerm` → `Toggle Full Screen` ⇧ ⌘ F
@@ -652,6 +658,8 @@ Notification
         - `⇧ ⌘ S` Di**S**play/**S**how OneTab
         - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
     - Edit required shortcuts  and remove uncessary ones
+
+TODO: Last step is not required.
 
 #### Sogou Input
 
