@@ -299,9 +299,9 @@ brew install \
 
 ### GPG Key
 
-Add the public GPG key on Mac to the accounts of the git services.
+**Using GPG**, you can **sign tags and commits locally**.
 
-- _Advantage : No longer need to enter the username and password on the trusted devices._
+- These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source.
 
 Steps
 
@@ -317,13 +317,21 @@ Steps
 
     Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
-> **NOTE**: GPG key is better than SSH Key.
->
-> Using GPG, you can sign tags and commits locally.
-> These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source.
-> GPG key is better SSH key
->
-> So I have DEPRECATED SSH key.
+### SSH Key
+
+Add the public SSH key on Mac to the accounts of the git services.
+
+- Advantage : No longer need to enter the username and password on the trusted devices.
+
+Steps
+
+1.  Generate the SSH key pair
+
+    Reference : [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
+
+1.  Add the SSH key to the accounts of the git services
+
+    Reference : [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
 
 ### Dotfiles
 
@@ -392,7 +400,7 @@ git config --global commit.gpgsign true
 # show configs
 git config --global -l | grep user
 # output
-user.name=IceHe
+user.name=IceHe.xyz
 user.email=icehe@gmail.com
 ```
 
