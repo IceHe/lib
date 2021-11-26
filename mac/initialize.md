@@ -71,7 +71,7 @@ Suggestion
     - QR codes
     - _…_
 
-1.  Import the configurations into the proxy plugin
+1.  Download the proxy plugin
 
     _Optional proxy plugins :_
 
@@ -88,6 +88,16 @@ Suggestion
         - ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~ _- latest release on 2019.11.13_
     - …
 
+1.  Import the configurations into the proxy plugin
+
+    e.g. ClashX Pro configured by subscription URL
+
+    1. Menubar → `ClashX` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
+    1. Menubar → `ClashX` → `Config` → Select new config
+    1. Menubar → `ClashX` → `Set as system proxy`
+    1. Menubar → `ClashX` → `Copy shell command`
+    1. Open `Terminal` → Paste shell command → Execute
+
 1.  Visit [google.com](https://www.google.com/ncr) to validate the network
 
 ## Homebrew
@@ -103,7 +113,7 @@ for installing and managing softwares on macOS
 
     -   Plan B : [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448)
 
-    -   Plan C : [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) ( 2021-01-24 )
+    -   Plan C : [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) _2021/01/24_
 
 1.  Validate
 
