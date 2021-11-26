@@ -6,52 +6,48 @@ How to initialize my Mac?
 
 Reference : [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
-Related on icehe.xyz : [Efficiency : 效率指南](/mac/efficiency.md)
+Related : [Efficiency : 效率指南](/mac/efficiency.md)
 
-## Guidelines
+---
 
 **Based on macOS**
 
-- Applicable macOS version : **Monterey**  ( 12.x.x )
+- Latest applicable macOS version : **Monterey**  ( 12.x.x )
 
-**Follow principles**
+## Guidelines
 
-- **KISS : Keep It Simple and Stupid** ( 简单原则 )
+Follow the principles :
 
-    Focus on the process and omit the unnecessary descriptions.
+-   **KISS : Keep It Simple and Stupid/Short** ( 简单原则 )
 
-    _e.g., Apps' introductions & usages_
-    _/ software technology / developer knowledge …_
+    Assume that you are an experienced Mac user and a software developer,
+    so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages, development knowledge and etc._
 
-- **OOTB : Out Of The Box** ( 开箱即用 )
+-   **OOTB : Out Of The Box** ( 开箱即用 )
 
-    Try to minimize the modification of the initial settings.
+    Try not to change the default settings.
 
-**For your reference** ( 仅供参考 )
-
-- Assume that you are an experienced Mac user and a software developer.
+-   **FYI only : For Your Information only** ( 仅供参考 )
 
 ## Install or Restore macOS
 
-References
+SKIP when you set up a new Mac.
 
-- Apple Support
+> **WARNING** : 避免直接将备份数据还原到新系统中！
+>
+> 每次将过去的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
+> 随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误，产生疑难问题。
+> 所以，为了适时淘汰这些持续累积的问题数据，建议每次迁移设备的数据都尽量避免直接迁移。
 
-    - [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
-    - [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
+References : Apple Support
 
-Suggestion
-
--   如果全量备份然后将数据还原到设备上,
-    假以时日, 会留存越来越多用不着的东西;
-
-    随着时间推移, 不得不购置容量越来越大的硬盘,
-    所以无论新老设备, 个人推荐 **直接重装 / 重新配置**.
+- [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
+- [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
 ## Network Proxy
 
-> If cannot download the required softwares,
-> have to configure the network proxy firstly
+> If you cannot download the required softwares,
+> you'd better configure the network proxy at first.
 
 1.  Get the proxy service
 
@@ -60,8 +56,8 @@ Suggestion
     - A. **Buy** ( recommended )
     - B. Build your own
 
-    Because the valid methods often change,
-    recommend to search them on the Internet.
+    _Because the valid methods often change,_
+    _recommend to search them on the Internet._
 
 1.  Get the configurations from the proxy service
 
