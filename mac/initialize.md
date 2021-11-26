@@ -185,14 +185,14 @@ brew install --cask \
     parallels \
     postman \
     sequel-pro \
+    slack \
     tableplus \
     thunder \
-    slack \
     wireshark
 ```
 
-> Notice: The installations may require you to input password.
-> e.g. `microsoft-office` and `parallels`
+> Notice: Some installations may require you to input password,
+> e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ## Mac App Store
 
@@ -296,15 +296,25 @@ Add the public GPG key on Mac to the accounts of the git services.
 
 _Advantage : No longer need to enter the username and password on the trusted devices._
 
-TODO
+Steps
+
+1.  Generate the GPG key pair
+
+    Reference : [Generating a new GPG key - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
+1.  Export the GPG pulic key
+
+    References : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
+
+1.  Add the GPG key to the accounts of the git services
+
+    Reference : [Adding a new GPG key to your GitHub account - GitLab](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
 ### ~~SSH Key~~
 
 > DEPRECATED!
 
 Add the public SSH key on Mac to the accounts of the git services.
-
-_Advantage : No longer need to enter the username and password on the trusted devices._
 
 Steps
 
