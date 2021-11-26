@@ -144,7 +144,7 @@ and allows you to install large binary files via a command-line tool.
 
 Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
 
-- You can find the softwares you need on it.
+- NOTE: You can find the softwares you need on it.
 
 ### Required
 
