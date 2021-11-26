@@ -90,13 +90,14 @@ Suggestion
 
 1.  Import the configurations into the proxy plugin
 
-    e.g. ClashX Pro configured by subscription URL
+    _e.g. configure ClashX Pro via subscription URL_
 
-    1. Menubar → `ClashX` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1. Menubar → `ClashX` → `Config` → Select new config
-    1. Menubar → `ClashX` → `Set as system proxy`
-    1. Menubar → `ClashX` → `Copy shell command`
-    1. Open `Terminal` → Paste shell command → Execute
+    1.  Menubar → `ClashX` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
+    1.  Menubar → `ClashX` → `Config` → Select new configuration
+        / _Confirm selected new config_
+    1.  Menubar → `ClashX` → `Set as system proxy`
+    1.  Menubar → `ClashX` → `Copy shell command`
+    1.  Open `Terminal` → Paste shell command → Execute
 
 1.  Visit [google.com](https://www.google.com/ncr) to validate the network
 
