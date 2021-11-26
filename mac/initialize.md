@@ -12,22 +12,22 @@ Related : [Efficiency : 效率指南](/mac/efficiency.md)
 
 **Based on macOS**
 
-- Latest applicable macOS version : **Monterey**  ( 12.x.x )
+- Latest applicable macOS version : **Monterey**  (12.x.x)
 
 ## Guidelines
 
 Follow the principles :
 
--   **KISS : Keep It Simple and Stupid/Short** ( 简单原则 )
+-   **KISS : Keep It Simple and Stupid / Short** (简单原则)
 
     Assume that you are an experienced Mac user and a software developer,
     so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages, development knowledge and etc._
 
--   **OOTB : Out Of The Box** ( 开箱即用 )
+-   **OOTB : Out Of The Box** (开箱即用)
 
     Try not to change the default settings.
 
--   **FYI only : For Your Information only** ( 仅供参考 )
+-   **FYI only : For Your Information only** (仅供参考)
 
 ## Install or Restore macOS
 
@@ -46,24 +46,21 @@ References : Apple Support
 
 ## Network Proxy
 
-> If you cannot download the required softwares,
-> you'd better configure the network proxy at first.
+FIRST of all, you'd better configure the network proxy
+for stable and faster Internet connections.
 
 1.  Get the proxy service
 
-    Service options :
+    How to :
 
-    - A. **Buy** ( recommended )
-    - B. Build your own
-
-    _Because the valid methods often change,_
-    _recommend to search them on the Internet._
+    - A. **BUY** / RENT (recommended)
+    - B. Build it yourself
 
 1.  Get the configurations from the proxy service
 
-    Configuration options :
+    How to :
 
-    - A. **Subscription URL** ( recommended )
+    - A. **Subscription URL** (recommended)
     - B. Configuration file
     - C. Server URLs
     - D. QR codes
@@ -74,8 +71,8 @@ References : Apple Support
     Plugin options :
 
     - A. [Clash](https://github.com/Dreamacro/clash)
-    - B. [ClashX](https://github.com/yichengchen/clashX) : [releases](https://github.com/yichengchen/clashX/releases)
-    - C. **[ClashX Pro](https://github.com/Semporia/ClashX-Pro) : [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** ( recommended )
+    - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
+    - C. **[ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** (recommended)
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
     - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
@@ -85,17 +82,25 @@ References : Apple Support
     - J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~ _- latest release on 2019.11.13_
     - …
 
-1.  Import the configurations into the proxy plugin
+1.  Configure the proxy plugin
 
-    _e.g. Configure ClashX Pro via subscription URL_
+    Import the configurations into the proxy plugin via …
+
+    e.g. configure ClashX Pro via the subscription URL :
 
     1.  Menubar → `ClashX Pro` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1.  Menubar → `ClashX Pro` → `Config` → Confirm selecting new configuration
+    1.  Menubar → `ClashX Pro` → `Config` → Select new configuration (MAY NOT NEED)
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
     1.  Menubar → `ClashX Pro` → `Copy shell command`
     1.  Open `Terminal` → Paste shell command → Execute
 
-1.  Visit [google.com](https://www.google.com/ncr) to validate the network
+1.  Check the network connection
+
+    e.g. visit [www.google.com](https://www.google.com)
+
+**NOTE** :
+Because the valid methods for stable Internet connection may change often,
+RECOMMEND to search them on the Internet when you need.
 
 ## Homebrew
 
