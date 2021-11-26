@@ -78,6 +78,8 @@ Suggestion
     - [Surge](https://nssurge.com/)
     - [Clash](https://github.com/Dreamacro/clash)
         - [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
+    - [ClashX Pro](https://github.com/Semporia/ClashX-Pro)
+        - [ClashX Pro releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
     - [Trojan](https://github.com/trojan-gfw/trojan)
         - ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
         - ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~ _- removed due to regulationn_
