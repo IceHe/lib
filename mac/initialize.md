@@ -109,13 +109,11 @@ for installing and managing softwares on macOS
 
 1.  Install
 
-    Options
+    How to :
 
-    -   A. [Homebrew homepage - brew.sh](https://brew.sh)
+    -   A. [Homebrew - brew.sh](https://brew.sh)
 
-        _If cannot install or install slowly, try Option B below._
-
-    -   B. [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448)
+    -   B. [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448) (recommended)
 
     -   C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) _2021/01/24_
 
