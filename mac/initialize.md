@@ -144,6 +144,8 @@ and allows you to install large binary files via a command-line tool.
 
 Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
 
+- You can find the softwares you need on it.
+
 ### Required
 
 Install the required softwares via Homebrew-Cask
@@ -272,6 +274,7 @@ brew install \
     elasticsearch \
     mysql@5.7 \
     mysql \
+    postgresql \
     python \
     redis \
     ruby
