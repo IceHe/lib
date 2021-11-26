@@ -12,7 +12,7 @@ Related on icehe.xyz : [Efficiency : 效率指南](/mac/efficiency.md)
 
 **Based on macOS**
 
-- Applicable macOS version : Big Sur
+- Applicable macOS version : **Monterey**  ( 12.x.x )
 
 **Follow principles**
 
@@ -180,6 +180,7 @@ Install the optional softwares via Homebrew-Cask
 ```bash
 brew install --cask \
     appcleaner \
+    bartender \
     charles \
     docker \
     iina \
@@ -187,6 +188,7 @@ brew install --cask \
     kindle \
     linear \
     microsoft-office \
+    monitorcontrol
     notion \
     parallels \
     postman \
