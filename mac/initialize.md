@@ -20,7 +20,7 @@ Related on icehe.xyz : [Efficiency : 效率指南](/mac/efficiency.md)
 
     Focus on the process and omit the unnecessary descriptions.
 
-    _e.g., apps' introductions & usages_
+    _e.g., Apps' introductions & usages_
     _/ software technology / developer knowledge …_
 
 - **OOTB : Out Of The Box** ( 开箱即用 )
@@ -55,48 +55,49 @@ Suggestion
 
 1.  Get the proxy service
 
-    - Option A : **Buy** one ( recommended )
-    - _Option B : Build your own_
+    Service options :
+
+    - A. **Buy** ( recommended )
+    - B. Build your own
 
     Because the valid methods often change,
     recommend to search them on the Internet.
 
 1.  Get the configurations from the proxy service
 
-    _Optional configuration forms :_
+    Configuration options :
 
-    - **subscription URL** ( recommended )
-    - configuration file
-    - server URLs
-    - QR codes
-    - _…_
+    - A. **Subscription URL** ( recommended )
+    - B. Configuration file
+    - C. Server URLs
+    - D. QR codes
+    - …
 
 1.  Download the proxy plugin
 
-    _Optional proxy plugins :_
+    Plugin options :
 
-    - [Surge](https://nssurge.com/)
-    - [Clash](https://github.com/Dreamacro/clash)
-        - [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
-    - [ClashX Pro](https://github.com/Semporia/ClashX-Pro)
-        - [ClashX Pro releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
-    - [Trojan](https://github.com/trojan-gfw/trojan)
-        - ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
-        - ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~ _- removed due to regulationn_
-    - [Shadowsocks](https://github.com/shadowsocks)
-        - ~~[ShadowsocksX](https://github.com/RobertYim/ShadowsocksX)~~ _- archived read-only_
-        - ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~ _- latest release on 2019.11.13_
+    - A. [Clash](https://github.com/Dreamacro/clash)
+    - B. [ClashX](https://github.com/yichengchen/clashX) : [releases](https://github.com/yichengchen/clashX/releases)
+    - C. **[ClashX Pro](https://github.com/Semporia/ClashX-Pro) : [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** ( recommended )
+    - D. [Surge](https://nssurge.com/)
+    - E. [Trojan](https://github.com/trojan-gfw/trojan)
+    - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
+    - G. ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~ _- removed due to regulationn_
+    - H. [Shadowsocks](https://github.com/shadowsocks)
+    - I. ~~[ShadowsocksX](https://github.com/RobertYim/ShadowsocksX)~~ _- archived read-only_
+    - J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~ _- latest release on 2019.11.13_
     - …
 
 1.  Import the configurations into the proxy plugin
 
-    _e.g. configure ClashX Pro via subscription URL_
+    _e.g. Configure ClashX Pro via subscription URL_
 
-    1.  Menubar → `ClashX` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1.  Menubar → `ClashX` → `Config` → confirm selecting new configuration
-    1.  Menubar → `ClashX` → `Set as system proxy`
-    1.  Menubar → `ClashX` → `Copy shell command`
-    1.  Open `Terminal` → paste shell command → execute
+    1.  Menubar → `ClashX Pro` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
+    1.  Menubar → `ClashX Pro` → `Config` → Confirm selecting new configuration
+    1.  Menubar → `ClashX Pro` → `Set as system proxy`
+    1.  Menubar → `ClashX Pro` → `Copy shell command`
+    1.  Open `Terminal` → Paste shell command → Execute
 
 1.  Visit [google.com](https://www.google.com/ncr) to validate the network
 
@@ -107,13 +108,15 @@ for installing and managing softwares on macOS
 
 1.  Install
 
-    -   Plan A : [Homebrew homepage - brew.sh](https://brew.sh)
+    Options
 
-        _If cannot install or install slowly, try Plan B._
+    -   A. [Homebrew homepage - brew.sh](https://brew.sh)
 
-    -   Plan B : [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448)
+        _If cannot install or install slowly, try Option B below._
 
-    -   Plan C : [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) _2021/01/24_
+    -   B. [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448)
+
+    -   C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) _2021/01/24_
 
 1.  Validate
 
@@ -140,11 +143,11 @@ for installing and managing softwares on macOS
 Homebrew-Cask extends Homebrew
 and allows you to install large binary files via a command-line tool.
 
-> Recommend to install Mac Apps via Homebrew-Cask
+> RECOMMEND to install Mac Apps via Homebrew-Cask
 
 Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
 
-- NOTE: You can find the softwares you need on it.
+- **NOTE** : You can find the softwares you need on it.
 
 ### Required
 
@@ -166,6 +169,9 @@ brew install --cask \
     visual-studio-code \
     wechat
 ```
+
+- **NOTICE** : Some installations may **REQUIRE** you to input **PASSWORD**.
+    - e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ### Optional
 
@@ -191,8 +197,7 @@ brew install --cask \
     wireshark
 ```
 
-> Notice: Some installations may require you to input password,
-> e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
+**TODO**: DO it in PARALLEL!
 
 ## Mac App Store
 
@@ -212,6 +217,7 @@ Others available on the official homepages
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
 - [Logi Options](https://www.logitech.com.cn/zh-cn/product/options)
+    - **TODO**: Wait for Logi Option+ Beta supporting public downloading…
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
     - _`brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …_
@@ -286,15 +292,16 @@ brew install \
 
 ### 1Password
 
-1. Login the 1Password account or unlock the vaults from the cloud. _E.g. iCloud._
+1.  Login the 1Password account or unlock the vaults from the cloud.
+    _E.g. iCloud._
 
-_For logining the git services, such as GitHub, GitLab, Coding._
+    _For logining the git services, such as GitHub, GitLab, Coding._
 
 ### GPG Key
 
 Add the public GPG key on Mac to the accounts of the git services.
 
-_Advantage : No longer need to enter the username and password on the trusted devices._
+- _Advantage : No longer need to enter the username and password on the trusted devices._
 
 Steps
 
@@ -304,31 +311,23 @@ Steps
 
 1.  Export the GPG pulic key
 
-    References : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
+    Reference : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
 
 1.  Add the GPG key to the accounts of the git services
 
-    Reference : [Adding a new GPG key to your GitHub account - GitLab](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
+    Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
-### ~~SSH Key~~
-
-> DEPRECATED!
-
-Add the public SSH key on Mac to the accounts of the git services.
-
-Steps
-
-1.  Generate the SSH key pair
-
-    Reference : [Generating a new SSH key pair - GitLab](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair)
-
-1.  Add the SSH key to the accounts of the git services
-
-    Reference : [Adding an SSH key to your GitLab account - GitLab](https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account)
+> **NOTE**: GPG key is better than SSH Key.
+>
+> Using GPG, you can sign tags and commits locally.
+> These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source.
+> GPG key is better SSH key
+>
+> So I have DEPRECATED SSH key.
 
 ### Dotfiles
 
-_E.g. for me :_
+e.g. for me :
 
 ```bash
 cd ~
@@ -385,7 +384,7 @@ Or configure via the commands. E.g. Name and Email :
 ```bash
 # e.g.
 # common configs
-git config --global user.name IceHe
+git config --global user.name IceHe.xyz
 git config --global user.email icehe.me@qq.com
 # gpg configs ( testing )
 git config --global user.signingkey [SIGNING_KEY]
