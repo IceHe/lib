@@ -167,9 +167,6 @@ brew install --cask \
     wechat
 ```
 
-_Notice : `sogouinput` above is just a installation_
-_and you have to execute it individually._
-
 ### Optional
 
 Install the optional softwares via Homebrew-Cask
@@ -185,6 +182,7 @@ brew install --cask \
     linear \
     microsoft-office \
     notion \
+    parallels \
     postman \
     sequel-pro \
     tableplus \
@@ -192,6 +190,9 @@ brew install --cask \
     slack \
     wireshark
 ```
+
+> Notice: The installations may require you to input password.
+> e.g. `microsoft-office` and `parallels`
 
 ## Mac App Store
 
