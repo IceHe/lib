@@ -111,11 +111,9 @@ for installing and managing softwares on macOS
 
     How to :
 
-    -   A. [Homebrew - brew.sh](https://brew.sh)
-
-    -   B. [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448) (recommended)
-
-    -   C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) _2021/01/24_
+    - A. [Homebrew - brew.sh](https://brew.sh)
+    - B. [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448) (recommended)
+    - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) _2021/01/24_
 
 1.  Validate
 
@@ -145,7 +143,7 @@ Homebrew-Cask extends Homebrew and allows you to install large binary files via 
 
 Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
 
-- **NOTE** : You can find the softwares you need on it.
+**NOTE** : You can find the softwares you need on it.
 
 ### Required
 
@@ -168,9 +166,8 @@ brew install --cask \
     wechat
 ```
 
--   **NOTICE** : Some installations may **REQUIRE** you to input **PASSWORD**.
-
-    e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
+**NOTICE** : The installations may **REQUIRE** you to input **PASSWORD**,
+e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ### Optional
 
@@ -187,7 +184,7 @@ brew install --cask \
     kindle \
     linear \
     microsoft-office \
-    monitorcontrol
+    monitorcontrol \
     notion \
     parallels \
     postman \
@@ -217,21 +214,17 @@ Install the required softwares via Mac App Store
 Others available on the official homepages
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - **TODO** : Wait for Logi Option+ publishing.
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - **TODO** : Wait for Logi Option+ Beta publishing.
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
-    - _**NOTE** : `brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …_
+
+**NOTE** : `brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …
 
 ## CLI Programs
 
 CLI : Command Line Interface
 
 > Recommend to install CLI programs via Homebrew
-
-_Although some softwares has been pre-installed in macOS,_
-_their versions are often outdated._
-
-_So recommend to install and upgrade them via Homebrew again._
 
 ### Required
 
@@ -254,6 +247,9 @@ brew install \
     vim \
     wget
 ```
+
+NOTE : Because pre-installed softwares may be outdated,_
+_RECOMMEND to install and upgrade them via Homebrew again._
 
 <!--
 
