@@ -89,7 +89,7 @@ IceHe's short biographical profile
 
 ## 经历
 
-> 技术方向 : **服务端** - Java / Node.js / PHP
+> **技术方向 : 后端 - Java, Node.js, PHP**
 
 **武侍科技 : 创始团队 - Node.js** <br/>
 _2021.10 至今_
