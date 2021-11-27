@@ -4,6 +4,8 @@ How to initialize my Mac step by step?
 
 ---
 
+Documentation Version : BETA ( tesing )
+
 Reference : [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
 Related : [Efficiency : 效率指南](/mac/efficiency.md)
@@ -12,7 +14,7 @@ Related : [Efficiency : 效率指南](/mac/efficiency.md)
 
 **Based on macOS**
 
-- Latest applicable macOS version : **Monterey** - 12.x.x
+- The documentation was recently used on macOS version : **Monterey** - 12.0.1 .
 
 ## Guidelines
 
@@ -44,10 +46,19 @@ References : Apple Support
 - [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
 - [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
+## Network & AppleID
+
+FIRST of all :
+
+1.  Connect to Internet via Wi-Fi or Erthernet
+
+1.  Sign in AppleID to synchronize the settings & iCloud data
+
+    - Sign up if you don't have AppleID
+
 ## Network Proxy
 
-FIRST of all, you'd better configure the network proxy
-for stable and faster Internet connections.
+RECOMMEND to configure the network proxy for stable and faster Internet connections.
 
 1.  Get the proxy service
 
@@ -94,13 +105,17 @@ for stable and faster Internet connections.
     1.  Menubar → `ClashX Pro` → `Copy shell command`
     1.  Open `Terminal` → Paste shell command → Execute
 
-1.  Check the network connection
+1.  Check Internet connection
 
     e.g. visit [www.google.com](https://www.google.com)
 
-**NOTE** :
-Because the valid methods for stable Internet connection may change often,
-RECOMMEND to search them on the Internet when you need.
+    **NOTE** :
+    Because the valid methods for stable Internet connection may change often,
+    RECOMMEND to search them on the Internet when you need.
+
+1.  Open this webpage with Safari browser so that continue following this guide on Mac
+
+    _TODO : Wait for the stable link to this webpage._
 
 ## Homebrew
 
