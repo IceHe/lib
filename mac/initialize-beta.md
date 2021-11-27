@@ -113,7 +113,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     Because the valid methods for stable Internet connection may change often,
     RECOMMEND to search them on the Internet when you need.
 
-1.  Open this webpage with Safari browser so that continue following this guide on Mac
+1.  Open this webpage with Safari browser for better continuing the following steps on Mac
 
     _TODO : Wait for the stable link to this webpage._
 
@@ -154,7 +154,7 @@ for installing and managing softwares on macOS
 
 Homebrew-Cask extends Homebrew and allows you to install large binary files via a command-line tool.
 
-> RECOMMEND to install Apps via Homebrew-Cask
+RECOMMEND to install Apps via Homebrew-Cask
 
 Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
 
