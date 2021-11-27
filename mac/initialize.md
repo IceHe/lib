@@ -217,11 +217,10 @@ Install the required softwares via Mac App Store
 Others available on the official homepages
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options)
-    - **TODO**: Wait for Logi Option+ Beta supporting public downloading…
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - **TODO** : Wait for Logi Option+ publishing.
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
-    - _`brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …_
+    - _**NOTE** : `brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …_
 
 ## CLI Programs
 
