@@ -122,16 +122,16 @@ for installing and managing softwares on macOS
     ```bash
     $ brew --version
     # e.g.
-    Homebrew 2.6.1-29-g2be340c
-    Homebrew/homebrew-core (git revision 18d380e; last commit 2020-12-11)
-    Homebrew/homebrew-cask (git revision 84d2f; last commit 2020-12-11)
+    Homebrew 3.3.5
+    Homebrew/homebrew-core (git revision 8be0d8cc6d4; last commit 2021-11-24)
+    Homebrew/homebrew-cask (git revision 2f292faf97; last commit 2021-11-24)
     ```
 
 1.  Accelarate
 
     Reference : [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
-1.  Update and upgrade
+1.  _\*Update and upgrade (optional)_
 
     ```bash
     brew update && brew upgrade
@@ -139,10 +139,9 @@ for installing and managing softwares on macOS
 
 ## Homebrew-Cask
 
-Homebrew-Cask extends Homebrew
-and allows you to install large binary files via a command-line tool.
+Homebrew-Cask extends Homebrew and allows you to install large binary files via a command-line tool.
 
-> RECOMMEND to install Mac Apps via Homebrew-Cask
+> RECOMMEND to install Apps via Homebrew-Cask
 
 Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
 
@@ -150,7 +149,7 @@ Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew
 
 ### Required
 
-Install the required softwares via Homebrew-Cask
+Install the required Apps via Homebrew-Cask
 
 ```bash
 brew install --cask \
@@ -169,12 +168,13 @@ brew install --cask \
     wechat
 ```
 
-- **NOTICE** : Some installations may **REQUIRE** you to input **PASSWORD**.
-    - e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
+-   **NOTICE** : Some installations may **REQUIRE** you to input **PASSWORD**.
+
+    e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ### Optional
 
-Install the optional softwares via Homebrew-Cask
+Install the optional Apps via Homebrew-Cask
 
 ```bash
 brew install --cask \
@@ -198,11 +198,11 @@ brew install --cask \
     wireshark
 ```
 
-**TODO**: DO it in PARALLEL!
+**TODO**: Do it IN PARALLEL!
 
 ## Mac App Store
 
-Some softwares are unavailable on Homebrew-Cask
+Some Apps are unavailable on Homebrew-Cask
 but available on Mac App Store.
 
 **Required**
