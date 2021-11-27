@@ -277,6 +277,7 @@ Others
 macOS
 
 - [Initialize](/mac/initialize.md) : 系统初始化
+    - [Initialize Mac](/mac/initialize-beta.md) step by step : 系统初始化 ( beta version )
 - [Efficiency](/mac/efficiency.md) : 效率指南
     - [macOS shortcuts](/mac/shortcut/macos.md)
     - [Sublime Text shortcuts](/mac/shortcut/sublime-text.md)
