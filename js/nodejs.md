@@ -2899,3 +2899,5 @@ _Here's a detailed descriptidon of the most useful methods:_
 ## http module
 
 The HTTP core module is a key module to Node.js networking.
+
+_The module provides some properties and methods, and some classes._

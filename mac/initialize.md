@@ -12,22 +12,22 @@ Related : [Efficiency : 效率指南](/mac/efficiency.md)
 
 **Based on macOS**
 
-- Latest applicable macOS version : **Monterey**  (12.x.x)
+- Latest applicable macOS version : **Monterey** - 12.x.x
 
 ## Guidelines
 
 Follow the principles :
 
--   **KISS : Keep It Simple and Stupid / Short** (简单原则)
+-   **KISS : Keep It Simple and Stupid / Short** ( 简单原则 )
 
     Assume that you are an experienced Mac user and a software developer,
     so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages, development knowledge and etc._
 
--   **OOTB : Out Of The Box** (开箱即用)
+-   **OOTB : Out Of The Box** ( 开箱即用 )
 
     Try not to change the default settings.
 
--   **FYI only : For Your Information only** (仅供参考)
+-   **FYI only : For Your Information only** ( 仅供参考 )
 
 ## Install or Restore macOS
 
@@ -53,14 +53,14 @@ for stable and faster Internet connections.
 
     How to :
 
-    - A. **BUY** / RENT (recommended)
+    - A. **BUY** / RENT ( recommended )
     - B. Build it yourself
 
 1.  Get the configurations from the proxy service
 
     How to :
 
-    - A. **Subscription URL** (recommended)
+    - A. **Subscription URL** ( recommended )
     - B. Configuration file
     - C. Server URLs
     - D. QR codes
@@ -72,7 +72,7 @@ for stable and faster Internet connections.
 
     - A. [Clash](https://github.com/Dreamacro/clash)
     - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
-    - C. **[ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** (recommended)
+    - C. **[ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** ( recommended )
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
     - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
@@ -89,7 +89,7 @@ for stable and faster Internet connections.
     e.g. configure ClashX Pro via the subscription URL :
 
     1.  Menubar → `ClashX Pro` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1.  Menubar → `ClashX Pro` → `Config` → Select new configuration (MAY NOT NEED)
+    1.  Menubar → `ClashX Pro` → `Config` → Select new configuration ( may not need )
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
     1.  Menubar → `ClashX Pro` → `Copy shell command`
     1.  Open `Terminal` → Paste shell command → Execute
@@ -111,11 +111,11 @@ for installing and managing softwares on macOS
 
     How to :
 
-    - A. [Homebrew - brew.sh](https://brew.sh)
-    - B. [Homebrew 国内如何自动安装 ( 国内地址 ) - 知乎](https://zhuanlan.zhihu.com/p/111014448) (recommended)
-    - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) _2021/01/24_
+    - A. [Homebrew - brew.sh](https://brew.sh) ( official )
+    - B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) ( recommended )
+    - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) ( compatible )
 
-1.  Validate
+1.  Check
 
     ```bash
     $ brew --version
@@ -125,11 +125,11 @@ for installing and managing softwares on macOS
     Homebrew/homebrew-cask (git revision 2f292faf97; last commit 2021-11-24)
     ```
 
-1.  Accelarate
+1.  Speed up
 
     Reference : [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
-1.  _\*Update and upgrade (optional)_
+1.  Update and Upgrade ( in the future )
 
     ```bash
     brew update && brew upgrade
@@ -195,7 +195,7 @@ brew install --cask \
     wireshark
 ```
 
-**TODO**: Do it IN PARALLEL!
+**TODO**: Do it IN PARALLEL?
 
 ## Mac App Store
 
@@ -211,10 +211,10 @@ Install the required softwares via Mac App Store
 - EasyRes
 - EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
 
-Others available on the official homepages
+Others available on their official homepages
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - **TODO** : Wait for Logi Option+ Beta publishing.
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - **TODO** : Wait for the Logi Option+ public release
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
 
@@ -222,9 +222,9 @@ Others available on the official homepages
 
 ## CLI Programs
 
-CLI : Command Line Interface
+CLI - Command Line Interface
 
-> Recommend to install CLI programs via Homebrew
+> RECOMMEND to install CLI programs via Homebrew
 
 ### Required
 
@@ -248,8 +248,9 @@ brew install \
     wget
 ```
 
-NOTE : Because pre-installed softwares may be outdated,_
-_RECOMMEND to install and upgrade them via Homebrew again._
+**NOTE** : The pre-installed softwares may be outdated.
+
+> RECOMMEND to install and upgrade them via Homebrew again.
 
 <!--
 
@@ -289,27 +290,27 @@ brew install \
 ### 1Password
 
 1.  Login the 1Password account or unlock the vaults from the cloud.
-    _E.g. iCloud._
+    _e.g. iCloud._
 
-    _For logining the git services, such as GitHub, GitLab, Coding._
+    For logining the git services, such as GitHub, GitLab, Coding.net & etc..
 
 ### GPG Key
 
-Using **GPG**, you can **sign tags and commits locally**.
+Use GPG to sign tags and commits locally.
 
 - These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source.
 
-Steps
+How to :
 
 1.  Generate the GPG key pair
 
     Reference : [Generating a new GPG key - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
-1.  Export the GPG pulic key
+1.  Get the GPG pulic key
 
     Reference : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
 
-1.  Add the GPG key to the accounts of the git services
+1.  Add the GPG key to the GitHub/GitLab/etc. accounts
 
     Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
@@ -319,13 +320,13 @@ Using the **SSH** protocol, you can **connect** and **authenticate** to remote s
 
 - With SSH keys, you can connect to GitHub **without supplying your username and personal access token at each visit**.
 
-Steps
+How to :
 
 1.  Generate the SSH key pair
 
     Reference : [Generating a new SSH key and adding it to the ssh-agent - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-1.  Add the SSH key to the accounts of the git services
+1.  Get the SSH public key and Add it to the GitHub/GitLab/etc. accounts
 
     Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
@@ -376,33 +377,47 @@ Reference :
 
 ### Git
 
-Synchronize the settings via the configuration files from the dotfiles above. _E.g. :_
+Synchronize the settings via the configuration files from the dotfiles above.
+e.g. :
 
 - `~/.gitconfig`
 - `~/.gitignore`
 - `~/.gitignore_global`
 - …
 
-Or configure via the commands. E.g. Name and Email :
+Or configure git via commands.
+e.g. for me :
 
-```bash
-# e.g.
-# common configs
-git config --global user.name IceHe.xyz
-git config --global user.email icehe.me@qq.com
-# gpg configs ( testing )
-git config --global user.signingkey [SIGNING_KEY]
-git config --global commit.gpgsign true
-# show configs
-git config --global -l | grep user
-# output
-user.name=IceHe.xyz
-user.email=icehe@qq.com
-```
+1. Add the common configurations
+
+    ```bash
+    git config --global user.name IceHe.xyz
+    git config --global user.email icehe.me@qq.com
+    ```
+
+2. Add the GPG configurations
+
+    ```bash
+    git config --global user.signingkey [SIGNING_KEY]
+    git config --global commit.gpgsign true
+    ```
+
+3. Check the configurations
+
+    ```bash
+    $ git config --global -l | grep user
+    # e.g.
+    user.name=IceHe.xyz
+    user.email=icehe@qq.com
+    user.signingkey=[SIGNING_KEY]
+    commit.gpgsign=true
+    gpg.program=gpg
+    …
+    ```
 
 ### PlantUML
 
-Require installed [GraphViz](https://plantuml.com/zh/graphviz-dot)
+Require [GraphViz](https://plantuml.com/zh/graphviz-dot)
 
 ```bash
 brew install libtool
@@ -411,14 +426,14 @@ brew install graphviz
 brew link --overwrite graphviz
 ```
 
-_This could fix issues if you have installed GraphViz as .dmg package._
+**NOTE** : This could fix issues if you have installed GraphViz as `.dmg` package.
 
-_By default, the dot executable is expected :_
+By default, the dot executable is expected :
 
-- _Firstly in : `/usr/local/bin/dot`_
-- _Then in : `/usr/bin/dot`_
+- Firstly in : `/usr/local/bin/dot`
+- Then in : `/usr/bin/dot`
 
-_You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of your GraphViz executable._
+You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
 
 ## Java Development
 
@@ -427,9 +442,9 @@ _You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact l
 JDK - Java Development Kit
 
 1.  Download [JDK 8 binary installation package](https://www.oracle.com/hk/java/technologies/javase/javase-jdk8-downloads.html)
-    for macOs on the offical website
+    for macOS on the offical website
 
-    The recommended version is still **8**. ( 2021-01-01 )
+    RECOMMEND to install the version **8** ( until 2021-01-01 ) .
 
     _Optional installation : [SDKMAN!](https://sdkman.io)_
 
@@ -446,16 +461,16 @@ JDK - Java Development Kit
     - If `~/.zshrc` doesn't exists, create it.
     - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
 
-    _The tilde symbol `~` equals the path of the current user's home directory._
-    _E.g. `/Users/IceHe` on my Mac._
+**NOTE** : The tilde symbol `~` equals the path of the current user's home directory.
+e.g. for me `/Users/IceHe`.
 
-    _For getting the path of JDK 8, run the command :_
+e.g. get the path of JDK 8 :
 
-    ```bash
-    $ /usr/libexec/java_home -v 8
-    # e.g.
-    /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
-    ```
+```bash
+$ /usr/libexec/java_home -v 1.8
+# e.g.
+/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
+```
 
 ### IntelliJ IDEA
 
@@ -474,7 +489,7 @@ JDK - Java Development Kit
 
 1.  Synchronize the settings
 
-    Recommend to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+    RECOMMEND to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
     for sharing the same settings accroos multiple JetBrains's accounts.
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
@@ -496,14 +511,14 @@ JDK - Java Development Kit
     -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) :
         Vim emulator - edit text like Vim
     -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) :
-        Colorize the indentation in front of your text
+        Colorize the indentation in front of the text
         alternating four different colors on each step
     -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X) :
         Learn essential shortcuts while you are working
     -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin) :
         Never write another getter or equals method again
         <!-- [Project Lombok](https://projectlombok.org/) -->
-        <!-- is a java library that automatically plugs into your editor -->
+        <!-- is a java library that automatically plugs into the editor -->
         <!-- and build tools, spicing up your java. -->
         <!-- _Early access to future java features such as val, and much more._ -->
     -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper) :
@@ -541,7 +556,7 @@ JDK - Java Development Kit
 
 1.  Copy the content of the Maven configuration file template
 
-    _Search it on the Internet_
+    Search it on the Internet
 
 1.  Open and overwrite the local Maven config file `~/.m2/settting.xml`
 
@@ -549,11 +564,9 @@ JDK - Java Development Kit
     open ~/.m2/settting.xml
     ```
 
-    _`open` : open file with default editor_
+    **NOTE** : `open` file with default editor
 
-_Notice :_
-_If use your own private devices & Maven configuration files exists,_
-_please merge the content of configurations carefully._
+**NOTICE** : If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
 
 ## Preferences
 
@@ -604,12 +617,12 @@ How to enable :
     defaults write -g ApplePressAndHoldEnabled -bool false
     ```
 
-1. Reboot and validate
+1. Reboot and Check
 
-_References : Search "macos keyboard cannot repeat" on Google_
+    References : Search "macos keyboard cannot repeat" on Google
 
-- _[Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)_
-- _[OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)_
+    - _[Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)_
+    - _[OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)_
 
 #### Others
 
@@ -619,7 +632,7 @@ Trackpad
 
 Notification
 
-- Disable useless Apps notifications on demand
+- Disable the useless Apps notifications on demand
 
 ### Apps
 
@@ -655,7 +668,7 @@ Notification
         - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
     - Edit required shortcuts  and remove uncessary ones
 
-TODO: Last step is not required.
+TODO: The last step may be unnecessary, because the settings can be synchorized via the Google account.
 
 #### Sogou Input
 
@@ -708,7 +721,7 @@ TODO: Last step is not required.
 
 1. Install plugin `Pretty JSON`
 
-1. _Set the license if you have one ( optional )_
+1. Set the license ( optional )
 
     1. _`Help` → `Enter License`_
     1. _Input the license key_
