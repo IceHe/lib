@@ -48,7 +48,9 @@ NOTE : 避免直接将备份数据还原到新系统中！
 随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误，产生疑难问题。
 所以，为了适时淘汰这些持续累积的问题数据，建议每次迁移设备的数据都尽量避免直接迁移。
 
-## Network & AppleID
+## Network and Passwords
+
+### Network & AppleID
 
 First of all :
 
@@ -64,7 +66,7 @@ First of all :
 
     Visit [icehe.xyz/#/mac/setup-guide](https://icehe.xyz/#/mac/setup-guide) so that you can continue the following steps
 
-## Password Manager
+### Password Manager
 
 The password manager makes it easier and safer for you to login other accounts
 
@@ -78,7 +80,7 @@ e.g. [1Password](https://1password.com/)
 
 Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)
 
-## Network Proxy
+### Network Proxy
 
 RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland
 
@@ -156,7 +158,9 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
         curl: (56) Recv failure: Connection reset by peer
         ```
 
-## Homebrew
+## Install Softwares
+
+### Homebrew
 
 [Homebrew](https://brew.sh) is a macOS package manager
 for installing and managing softwares
@@ -191,13 +195,13 @@ for installing and managing softwares
 
 NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh).
 
-## Homebrew Cask
+### Homebrew Cask
 
 Homebrew-Cask extends Homebrew and allows you to install the large binary files via a command-line tool.
 
 RECOMMEND to install Apps via Homebrew-Cask
 
-### Required
+#### Required
 
 Install the required Apps via Homebrew-Cask
 
@@ -218,7 +222,7 @@ brew install --cask \
 NOTICE : The installations may REQUIRE you to input PASSWORD,
 e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
 
-### Optional
+#### Optional
 
 Install the optional Apps via Homebrew-Cask
 
@@ -249,7 +253,7 @@ brew install --cask \
 
 TODO: Do it IN PARALLEL?
 
-## Mac App Store
+### Mac App Store
 
 The Apps unavailable on Homebrew-Cask may be available on Mac App Store.
 
@@ -275,13 +279,13 @@ NOTE : `brew install --cask sublime-text` will install the latest version, but I
 
 - none
 
-## CLI Programs
+### CLI Programs
 
 CLI - Command Line Interface
 
 RECOMMEND to install CLI programs via Homebrew
 
-### Required
+#### Required
 
 Install the required CLI programs via Homebrew
 
@@ -299,7 +303,20 @@ brew install \
     tmux \
     vim \
     wget
+
+brew install libtool \
+    && brew link libtool \
+    && brew install graphviz \
+    && brew link --overwrite graphviz
 ```
+
+NOTE : The pre-installed softwares may be outdated.
+
+RECOMMEND to install and upgrade them via Homebrew again.
+
+---
+
+NOTE : Why I need them ?
 
 -   [coreutils](http://www.gnu.org/s/coreutils/) :
     The basic file, shell and text manipulation utilities of the GNU operating system
@@ -315,11 +332,25 @@ brew install \
 
     Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
 
-NOTE : The pre-installed softwares may be outdated.
+-   PlantUML require [GraphViz](https://plantuml.com/zh/graphviz-dot)
 
-RECOMMEND to install and upgrade them via Homebrew again.
+    ```bash
+    brew install libtool
+    brew link libtool
+    brew install graphviz
+    brew link --overwrite graphviz
+    ```
 
-### Optional
+    NOTE : This could fix issues if you have installed GraphViz as `.dmg` package.
+
+    By default, the dot executable is expected :
+
+    - Firstly in : `/usr/local/bin/dot`
+    - Then in : `/usr/bin/dot`
+
+    You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
+
+#### Optional
 
 Install the optional softwares via Homebrew
 
@@ -341,9 +372,13 @@ brew install \
 - `nvm` : install `node ` via `nvm` ?
 - `sdkman` : install `jdk` via `sdk` ?
 
-## GitHub Settings
+## CLI Preferences
 
-### GPG Key
+CLI - Command Line Interface
+
+### GitHub Keys
+
+#### GPG Key
 
 Use GPG to sign tags and commits locally.
 
@@ -363,7 +398,7 @@ How to :
 
     Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
-### SSH Key
+#### SSH Key
 
 Using the SSH protocol, you can connect and authenticate to remote servers and services.
 
@@ -379,8 +414,6 @@ How to :
 
     Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-## CLI Settings
-
 ### Dotfiles
 
 e.g. for the author
@@ -393,7 +426,7 @@ git pull origin master
 git branch --set-upstream-to=origin/master master
 ```
 
-### Oh My Zsh
+#### Oh My Zsh
 
 1. Install
 
@@ -426,7 +459,7 @@ Reference :
 
 -->
 
-### Git
+#### Git
 
 Synchronize the settings via the configuration files from the dotfiles above.
 e.g. :
@@ -465,29 +498,9 @@ Or configure git via commands, e.g. for the author :
     …
     ```
 
-### PlantUML
+## GUI Preferences
 
-Require [GraphViz](https://plantuml.com/zh/graphviz-dot)
-
-```bash
-brew install libtool
-brew link libtool
-brew install graphviz
-brew link --overwrite graphviz
-```
-
-NOTE : This could fix issues if you have installed GraphViz as `.dmg` package.
-
-By default, the dot executable is expected :
-
-- Firstly in : `/usr/local/bin/dot`
-- Then in : `/usr/bin/dot`
-
-You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
-
-TODO : Move to another section
-
-## Preferences
+GUI - Graphical User Interface
 
 Include the development configurations on local and remote machines
 
@@ -513,7 +526,7 @@ Include the development configurations on local and remote machines
 `Text` Tab
 
 - Clear all `Replace With`
-- Clear the checkboxes
+- Clear all checkboxes
 
 `Shortcuts` Tab
 
@@ -530,7 +543,7 @@ Include the development configurations on local and remote machines
 
 How to enable :
 
-1. Run the command :
+1. Execute the command :
 
     ```bash
     defaults write -g ApplePressAndHoldEnabled -bool false
@@ -540,8 +553,8 @@ How to enable :
 
     References : Search "macos keyboard cannot repeat" on Google
 
-    - _[Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)_
-    - _[OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)_
+    - [Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)
+    - [OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
 
 #### Others
 
@@ -739,9 +752,11 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 
 -->
 
-## Java Development
+## Development
 
-### JDK
+### Java
+
+#### JDK
 
 JDK - Java Development Kit
 
@@ -776,7 +791,7 @@ $ /usr/libexec/java_home -v 1.8
 /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
 ```
 
-### IntelliJ IDEA
+#### IntelliJ IDEA
 
 1.  Download the [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) on the [offical website](https://www.jetbrains.com/idea/)
 
@@ -850,7 +865,7 @@ $ /usr/libexec/java_home -v 1.8
     1.  Update the preference :
         `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
 
-### Maven
+#### Maven
 
 1.  Install [Apache Maven](https://maven.apache.org/) ( `mvn` )
 
@@ -872,9 +887,7 @@ $ /usr/libexec/java_home -v 1.8
 
 NOTICE : If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
 
----
-
-## JavaScript Development
+### JavaScript
 
 CLI
 
@@ -882,7 +895,7 @@ CLI
 brew install node
 ```
 
-### WebStorm
+#### WebStorm
 
 References
 
@@ -890,7 +903,7 @@ References
 
 TODO
 
-## Kotlin Android Development
+### Android - Kotlin
 
 CLI
 
@@ -900,6 +913,6 @@ brew install \
     gradle
 ```
 
-### AndroidStudio
+#### AndroidStudio
 
 TODO
