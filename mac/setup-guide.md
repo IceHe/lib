@@ -23,7 +23,9 @@ Follow the principles :
 -   **KISS : Keep It Simple and Stupid / Short** ( 简单原则 )
 
     Assume that you are an experienced Mac user and a software developer,
-    so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages and development knowledge_
+    so I can focus on the procedure and skip the unnecessary descriptions
+
+    _e.g. Apps' introductions & usages and development knowledge_
 
 -   **OOTB : Out Of The Box** ( 开箱即用 )
 
@@ -33,7 +35,7 @@ Follow the principles :
 
 ## Install or Restore macOS
 
-> **SKIP** this step when you set up a new Mac.
+> **SKIP** this step when you set up a new Mac
 
 References : Apple Support
 
@@ -66,8 +68,6 @@ First of all :
 
 The password manager makes it easier and safer for you to login other accounts
 
-> **SKIP** this step when you don't need it
-
 e.g. [1Password](https://1password.com/)
 
 1.  **Install** via Mac App Store
@@ -80,7 +80,7 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
 
 ## Network Proxy
 
-> RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland.
+RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland
 
 1.  **Get the proxy service**
 
@@ -336,7 +336,10 @@ brew install \
     ruby
 ```
 
-TODO : Install `node ` via `nvm`
+**Others** : TODO
+
+- `nvm` : install `node ` via `nvm` ?
+- `sdkman` : install `jdk` via `sdk` ?
 
 ## GitHub Settings
 
@@ -380,7 +383,7 @@ How to :
 
 ### Dotfiles
 
-e.g. for me :
+e.g. for the author
 
 ```bash
 cd ~
@@ -433,8 +436,7 @@ e.g. :
 - `~/.gitignore_global`
 - …
 
-Or configure git via commands.
-e.g. for me :
+Or configure git via commands, e.g. for the author :
 
 1. Add the common configurations
 
@@ -453,7 +455,7 @@ e.g. for me :
 3. Check the configurations
 
     ```bash
-    $ git config --global -l | grep user
+    $ git config --global -l
     # e.g.
     user.name=IceHe.xyz
     user.email=icehe@qq.com
@@ -483,138 +485,7 @@ By default, the dot executable is expected :
 
 You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
 
-## Java Development
-
-### JDK
-
-JDK - Java Development Kit
-
-1.  Download [JDK 8 binary installation package](https://www.oracle.com/hk/java/technologies/javase/javase-jdk8-downloads.html)
-    for macOS on the offical website
-
-    RECOMMEND to install the version **8** ( until 2021-01-01 ) .
-
-    _Optional installation : [SDKMAN!](https://sdkman.io)_
-
-1.  Install
-
-1.  Set the environment variable `JAVA_HOME`
-
-    Append the command below to the file `~/.zshrc` :
-
-    ```bash
-    export JAVA_HOME=`/usr/libexec/java_home -v 8`
-    ```
-
-    - If `~/.zshrc` doesn't exists, create it.
-    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
-
-NOTE : The tilde symbol `~` equals the path of the current user's home directory.
-e.g. for me `/Users/IceHe`.
-
-e.g. get the path of JDK 8 :
-
-```bash
-$ /usr/libexec/java_home -v 1.8
-# e.g.
-/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
-```
-
-### IntelliJ IDEA
-
-1.  Download the [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) on the [offical website](https://www.jetbrains.com/idea/)
-
-    You can choose the Community verion to skip setting the license.
-
-1.  Install
-
-1.  Get and set the lincense
-
-    You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
-    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
-
-    Reference : [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)
-
-1.  Synchronize the settings
-
-    RECOMMEND to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
-    for sharing the same settings accroos multiple JetBrains's accounts.
-
-    1. `File` → `Manage IDE Settings` → `Settings Repository…`
-    1. Input HTTPS URL of the settings Github repository
-    1. Input the Github access token
-
-    But you cannot synchronize the plugins in this way. So the next step is to…
-
-1.  Install plugins
-
-    -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts) :
-        Forces the user to use keyboard shortcuts by blocking click action
-        <!-- and displaying the keyboard shortcut in a popup. -->
-    -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :
-        Reformats Java source code to comply with
-        [Google Java Style](https://google.github.io/styleguide/javaguide.html)
-    -   [GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus) :
-        Generate POJO according to JSON
-    -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) :
-        Vim emulator - edit text like Vim
-    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) :
-        Colorize the indentation in front of the text
-        alternating four different colors on each step
-    -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X) :
-        Learn essential shortcuts while you are working
-    -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin) :
-        Never write another getter or equals method again
-        <!-- [Project Lombok](https://projectlombok.org/) -->
-        <!-- is a java library that automatically plugs into the editor -->
-        <!-- and build tools, spicing up your java. -->
-        <!-- _Early access to future java features such as val, and much more._ -->
-    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper) :
-        A must have plugin for working with Maven
-    -   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) :
-        Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
-    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) :
-        Code faster and smarter using code completions
-        learned from millions of programs directly
-    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation) :
-        Case switching, sorting, filtering, incrementing,
-        aligning to columns, grepping, escaping, encoding…
-
-1.  Set the font `Consolas`
-
-    1.  Download on the Internet
-    1.  Update the preference :
-        `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
-
-1.  Set the color scheme `Solarized Light (Alternate)`
-
-    1.  Download on the Internet
-        -   [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
-            [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
-    1.  Update the preference :
-        `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
-
-### Maven
-
-1.  Install [Apache Maven](https://maven.apache.org/) ( `mvn` )
-
-    ```bash
-    brew install maven
-    ```
-
-1.  Copy the content of the Maven configuration file template
-
-    Search it on the Internet
-
-1.  Open and overwrite the local Maven config file `~/.m2/settting.xml`
-
-    ```bash
-    open ~/.m2/settting.xml
-    ```
-
-    NOTE : `open` file with default editor
-
-NOTICE : If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
+TODO : Move to another section
 
 ## Preferences
 
@@ -867,6 +738,139 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 - `Quality` → Set all 50% ( JPEG, PNG, GIF and so on )
 
 -->
+
+## Java Development
+
+### JDK
+
+JDK - Java Development Kit
+
+1.  Download [JDK 8 binary installation package](https://www.oracle.com/hk/java/technologies/javase/javase-jdk8-downloads.html)
+    for macOS on the offical website
+
+    RECOMMEND to install the version **8** ( until 2021-01-01 ) .
+
+    _Optional installation : [SDKMAN!](https://sdkman.io)_
+
+1.  Install
+
+1.  Set the environment variable `JAVA_HOME`
+
+    Append the command below to the file `~/.zshrc` :
+
+    ```bash
+    export JAVA_HOME=`/usr/libexec/java_home -v 8`
+    ```
+
+    - If `~/.zshrc` doesn't exists, create it.
+    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
+
+NOTE : The tilde symbol `~` equals the path of the current user's home directory.
+e.g. for me `/Users/IceHe`.
+
+e.g. get the path of JDK 8 :
+
+```bash
+$ /usr/libexec/java_home -v 1.8
+# e.g.
+/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
+```
+
+### IntelliJ IDEA
+
+1.  Download the [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) on the [offical website](https://www.jetbrains.com/idea/)
+
+    You can choose the Community verion to skip setting the license.
+
+1.  Install
+
+1.  Get and set the lincense
+
+    You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
+
+    Reference : [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)
+
+1.  Synchronize the settings
+
+    RECOMMEND to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+    for sharing the same settings accroos multiple JetBrains's accounts.
+
+    1. `File` → `Manage IDE Settings` → `Settings Repository…`
+    1. Input HTTPS URL of the settings Github repository
+    1. Input the Github access token
+
+    But you cannot synchronize the plugins in this way. So the next step is to…
+
+1.  Install plugins
+
+    -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts) :
+        Forces the user to use keyboard shortcuts by blocking click action
+        <!-- and displaying the keyboard shortcut in a popup. -->
+    -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :
+        Reformats Java source code to comply with
+        [Google Java Style](https://google.github.io/styleguide/javaguide.html)
+    -   [GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus) :
+        Generate POJO according to JSON
+    -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) :
+        Vim emulator - edit text like Vim
+    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) :
+        Colorize the indentation in front of the text
+        alternating four different colors on each step
+    -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X) :
+        Learn essential shortcuts while you are working
+    -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin) :
+        Never write another getter or equals method again
+        <!-- [Project Lombok](https://projectlombok.org/) -->
+        <!-- is a java library that automatically plugs into the editor -->
+        <!-- and build tools, spicing up your java. -->
+        <!-- _Early access to future java features such as val, and much more._ -->
+    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper) :
+        A must have plugin for working with Maven
+    -   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) :
+        Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
+    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) :
+        Code faster and smarter using code completions
+        learned from millions of programs directly
+    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation) :
+        Case switching, sorting, filtering, incrementing,
+        aligning to columns, grepping, escaping, encoding…
+
+1.  Set the font `Consolas`
+
+    1.  Download on the Internet
+    1.  Update the preference :
+        `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
+
+1.  Set the color scheme `Solarized Light (Alternate)`
+
+    1.  Download on the Internet
+        -   [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
+            [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
+    1.  Update the preference :
+        `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
+
+### Maven
+
+1.  Install [Apache Maven](https://maven.apache.org/) ( `mvn` )
+
+    ```bash
+    brew install maven
+    ```
+
+1.  Copy the content of the Maven configuration file template
+
+    Search it on the Internet
+
+1.  Open and overwrite the local Maven config file `~/.m2/settting.xml`
+
+    ```bash
+    open ~/.m2/settting.xml
+    ```
+
+    NOTE : `open` file with default editor
+
+NOTICE : If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
 
 ---
 
