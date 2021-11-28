@@ -14,7 +14,7 @@ Related : [Efficiency : 效率指南](/mac/efficiency.md)
 
 **Based on macOS**
 
-- The documentation was recently used on macOS version : **Monterey** - 12.0.1 .
+- The author used this guide recently on macOS version : **Monterey** - 12.0.1
 
 ## Guidelines
 
@@ -23,7 +23,7 @@ Follow the principles :
 -   **KISS : Keep It Simple and Stupid / Short** ( 简单原则 )
 
     Assume that you are an experienced Mac user and a software developer,
-    so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages, development knowledge and etc._
+    so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages and development knowledge_
 
 -   **OOTB : Out Of The Box** ( 开箱即用 )
 
@@ -33,32 +33,48 @@ Follow the principles :
 
 ## Install or Restore macOS
 
-SKIP when you set up a new Mac.
-
-> **WARNING** : 避免直接将备份数据还原到新系统中！
->
-> 每次将过去的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
-> 随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误，产生疑难问题。
-> 所以，为了适时淘汰这些持续累积的问题数据，建议每次迁移设备的数据都尽量避免直接迁移。
+> **SKIP** this step when you set up a new Mac.
 
 References : Apple Support
 
 - [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
 - [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
-## Network & AppleID
+**NOTE** : 避免直接将备份数据还原到新系统中！
 
-FIRST of all :
+因为每次将过去的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
+随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误，产生疑难问题。
+所以，为了适时淘汰这些持续累积的问题数据，建议每次迁移设备的数据都尽量避免直接迁移。
 
-1.  Connect to Internet via Wi-Fi or Erthernet
+## First of All
 
-1.  Sign in AppleID to synchronize the settings & iCloud data
+1.  **Turn on Mac**
+
+1.  **Connect to Internet** via Wi-Fi or Erthernet
+
+1.  **Sign in AppleID** to synchronize the settings & iCloud data
 
     - Sign up if you don't have AppleID
 
+1.  **Open this guide** with Safari browser on Mac ( optional )
+
+    Visit [icehe.xyz/#/mac/initialize-mac](https://icehe.xyz/#/mac/initialize-mac) so that you can continue the following steps
+
+## Password Manager
+
+The password manager make you login other accounts more convenient and safer
+
+e.g. 1Password
+
+1.  Install on Mac App Store
+
+1.  Login the 1Password account or unlock the vaults on iCloud
+
+Other options : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)
+
 ## Network Proxy
 
-RECOMMEND to configure the network proxy for stable and faster Internet connections.
+> **RECOMMEND** to configure the network proxy for stable and faster Internet connections in China mainland.
 
 1.  Get the proxy service
 
@@ -67,9 +83,13 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     - A. **BUY** / RENT ( recommended )
     - B. Build it yourself
 
+    **NOTE** :
+    Because the valid methods for stable Internet connection may change often,
+    RECOMMEND to search them on the Internet when you need.
+
 1.  Get the configurations from the proxy service
 
-    How to :
+    Options :
 
     - A. **Subscription URL** ( recommended )
     - B. Configuration file
@@ -107,20 +127,12 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
 
 1.  Check Internet connection
 
-    e.g. visit [www.google.com](https://www.google.com)
-
-    **NOTE** :
-    Because the valid methods for stable Internet connection may change often,
-    RECOMMEND to search them on the Internet when you need.
-
-1.  Open this webpage with Safari browser for better continuing the following steps on Mac
-
-    _TODO : Wait for the stable link to this webpage._
+    Visit [google.com/ncr](https://google.com/ncr)
 
 ## Homebrew
 
 [Homebrew](https://brew.sh) is a macOS package manager
-for installing and managing softwares on macOS
+for installing and managing softwares
 
 1.  Install
 
@@ -150,15 +162,13 @@ for installing and managing softwares on macOS
     brew update && brew upgrade
     ```
 
+**NOTE** : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh).
+
 ## Homebrew-Cask
 
-Homebrew-Cask extends Homebrew and allows you to install large binary files via a command-line tool.
+Homebrew-Cask extends Homebrew and allows you to install the large binary files via a command-line tool.
 
-RECOMMEND to install Apps via Homebrew-Cask
-
-Available softwares on Homebrew-Cask : [Homebrew Formulae](https://formulae.brew.sh/cask)
-
-**NOTE** : You can find the softwares you need on it.
+> **RECOMMEND** to install Apps via Homebrew-Cask
 
 ### Required
 
@@ -214,8 +224,7 @@ brew install --cask \
 
 ## Mac App Store
 
-Some Apps are unavailable on Homebrew-Cask
-but available on Mac App Store.
+The Apps unavailable on Homebrew-Cask may be available on Mac App Store.
 
 **Required**
 
@@ -226,14 +235,14 @@ Install the required softwares via Mac App Store
 - EasyRes
 - EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
 
-Others available on their official homepages
+Others available on their official websites
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
 - [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - **TODO** : Wait for the Logi Option+ public release
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
 
-**NOTE** : `brew install --cask sublime-text` will install the latest version 4, but I still stick on version 3 ( that I have already bought ) and don't want to subscribe version 4 …
+**NOTE** : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3 ( that I have already bought and it meets my requirements ) and don't want to pay for the new version.
 
 ## CLI Programs
 
@@ -301,13 +310,6 @@ brew install \
 ```
 
 ## CLI Settings
-
-### 1Password
-
-1.  Login the 1Password account or unlock the vaults from the cloud.
-    _e.g. iCloud._
-
-    For logining the git services, such as GitHub, GitLab, Coding.net & etc..
 
 ### GPG Key
 
