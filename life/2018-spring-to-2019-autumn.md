@@ -287,7 +287,7 @@ ta 们只要集中精力思考处理好那些重要的事 (生活的重点) ;
 
 来自《马斯克激进冰冷, 特斯拉犹如邪教, 但我在这里工作却超级满足、热血沸腾》- 知乎 : https://zhuanlan.zhihu.com/p/57993225
 
-> Don’t try, just do, failure is not an option.
+> Don't try, just do, failure is not an option.
 >
 > 试什么试, 直接干, 只许成功不许失败。
 

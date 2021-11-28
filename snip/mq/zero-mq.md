@@ -344,7 +344,7 @@ Details see original text.
     - Others try to explain by comparison.
     - It’s smaller, simpler, but still looks familiar.
     - Personally, I like to remember why we made ZeroMQ at all, because that’s most likely where you, the reader, still are today.
-- Programming is science dressed up as art because most of us don’t understand the physics of software and it’s rarely, if ever, taught.
+- Programming is science dressed up as art because most of us don't understand the physics of software and it’s rarely, if ever, taught.
     - The physics of software is not algorithms, data structures, languages and abstractions.
     - These are just tools we make, use, throw away.
     - The real physics of software is the physics of people–specifically, our limitations when it comes to complexity, and our desire to work together to solve large problems in pieces.
@@ -365,7 +365,7 @@ Details see original text.
 - So we live in a world where the wiring is years ahead of our ability to use it.
     - We had a software crisis in the 1980s, when leading software engineers like Fred Brooks believed there was no “Silver Bullet” to “promise even one order of magnitude of improvement in productivity, reliability, or simplicity”.
 - Brooks missed free and open source software, which solved that crisis, enabling us to share knowledge efficiently.
-    - Today we face another software crisis, but it’s one we don’t talk about much.
+    - Today we face another software crisis, but it’s one we don't talk about much.
     - Only the largest, richest firms can afford to create connected applications.
     - There is a cloud, but it’s proprietary.
     - Our data and our knowledge is disappearing from our personal computers into clouds that we cannot access and with which we cannot compete.

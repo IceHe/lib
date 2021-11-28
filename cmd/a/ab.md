@@ -19,7 +19,7 @@ References
 # Append extra headers to the request
 ab -n 100 -c 10 -H "Accept-Encoding: gzip,deflate" http://example.com/
 
-# Don’t exit if it gets an error
+# Don't exit if it gets an error
 ab -n 100 -c 10 -r http://example.com/
 
 # To make POST requests with a specific file used as the POST data

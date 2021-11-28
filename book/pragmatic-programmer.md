@@ -25,7 +25,7 @@ _1\. 人生是你的 ( It's Your Life )_
 - Tip 3 : 你有权选择 _( You Have Agency )_
     - **人生是自己的. 把握住人生, 让它如你所愿**
         - _工作内容无聊没有意思? 团队一团糟? "改变这个组织, 或者换一个组织"_
-            - _Does your work environment suck? Is your job boring? Try to fix it. But don’t try forever. As Martin Fowler says, "you can change your organization or change your organization."_
+            - _Does your work environment suck? Is your job boring? Try to fix it. But don't try forever. As Martin Fowler says, "you can change your organization or change your organization."_
         - _担心自己掌握的技术过时? 安排时间学习看起来有趣的新技术_
             - _这是一种自我投资, **只有为此加班才是合理的**_
             - _If technology seems to be passing you by, make time (in your own time) to study new stuff that looks interesting._
@@ -38,8 +38,8 @@ _2\. 我的源码被猫吃了 ( The Cat Ate My Source Code )_
 - Tip 4 : 提供选择, 别找借口 _( Provide Options, Don't Make Lame Excuses )_
     - **提供选择而不是去找理由. 不要只说做不到; 解释一下都能做到些什么**
         - _英文原文 :_
-            - _Don’t blame someone or something else, or make up an excuse._
-            - _Don’t blame all the problems on a vendor, a programming language, management, or your coworkers._
+            - _Don't blame someone or something else, or make up an excuse._
+            - _Don't blame all the problems on a vendor, a programming language, management, or your coworkers._
             - _Any and all of these may play a role, but it is up to you to provide solutions, not excuses._
 
 _3\. 软件的熵 ( Software Entropy )_

@@ -20,70 +20,74 @@ Related : [Efficiency : 效率指南](/mac/efficiency.md)
 
 Follow the principles :
 
--   **KISS : Keep It Simple and Stupid / Short** ( 简单原则 )
+-   **KISS** : Keep It Simple and Stupid / Short ( 简单原则 )
 
     Assume that you are an experienced Mac user and a software developer,
     so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages and development knowledge_
 
--   **OOTB : Out Of The Box** ( 开箱即用 )
+-   **OOTB** : Out Of The Box ( 开箱即用 )
 
     Try not to change the default settings.
 
--   **FYI only : For Your Information only** ( 仅供参考 )
+-   **FYI only** : For Your Information only ( 仅供参考 )
 
 ## Install or Restore macOS
 
-> **SKIP** this step when you set up a new Mac.
+> SKIP this step when you set up a new Mac.
 
 References : Apple Support
 
 - [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
 - [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
-**NOTE** : 避免直接将备份数据还原到新系统中！
+NOTE : 避免直接将备份数据还原到新系统中！
 
 因为每次将过去的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
 随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误，产生疑难问题。
 所以，为了适时淘汰这些持续累积的问题数据，建议每次迁移设备的数据都尽量避免直接迁移。
 
-## First of All
+## Network & AppleID
 
-1.  **Turn on Mac**
+First of all :
 
-1.  **Connect to Internet** via Wi-Fi or Erthernet
+1.  Turn on Mac
 
-1.  **Sign in AppleID** to synchronize the settings & iCloud data
+1.  Connect to Internet via Wi-Fi or Erthernet
 
-    - Sign up if you don't have AppleID
+1.  Sign in AppleID to synchronize the settings & iCloud data
 
-1.  **Open this guide** with Safari browser on Mac ( optional )
+    - or Sign up if you don't have AppleID
+
+1.  Open this guide with Safari browser on Mac ( optional )
 
     Visit [icehe.xyz/#/mac/initialize-mac](https://icehe.xyz/#/mac/initialize-mac) so that you can continue the following steps
 
 ## Password Manager
 
-The password manager make you login other accounts more convenient and safer
+The password manager makes it easier and safer for you to login other accounts
 
 e.g. 1Password
 
-1.  Install on Mac App Store
+1.  Install via Mac App Store
 
-1.  Login the 1Password account or unlock the vaults on iCloud
+1.  Login the account on [my.1password.com](https://my.1password.com) ( recommended )
 
-Other options : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)
+    - or Load the vaults on iCloud
+
+Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)
 
 ## Network Proxy
 
-> **RECOMMEND** to configure the network proxy for stable and faster Internet connections in China mainland.
+> RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland.
 
 1.  Get the proxy service
 
     How to :
 
-    - A. **BUY** / RENT ( recommended )
+    - A. BUY / RENT ( recommended )
     - B. Build it yourself
 
-    **NOTE** :
+    NOTE :
     Because the valid methods for stable Internet connection may change often,
     RECOMMEND to search them on the Internet when you need.
 
@@ -91,7 +95,7 @@ Other options : [List of password managers](https://en.wikipedia.org/wiki/List_o
 
     Options :
 
-    - A. **Subscription URL** ( recommended )
+    - A. Subscription URL ( recommended )
     - B. Configuration file
     - C. Server URLs
     - D. QR codes
@@ -103,7 +107,7 @@ Other options : [List of password managers](https://en.wikipedia.org/wiki/List_o
 
     - A. [Clash](https://github.com/Dreamacro/clash)
     - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
-    - C. **[ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** ( recommended )
+    - C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public) ( recommended )
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
     - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
@@ -162,13 +166,13 @@ for installing and managing softwares
     brew update && brew upgrade
     ```
 
-**NOTE** : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh).
+NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh).
 
 ## Homebrew-Cask
 
 Homebrew-Cask extends Homebrew and allows you to install the large binary files via a command-line tool.
 
-> **RECOMMEND** to install Apps via Homebrew-Cask
+> RECOMMEND to install Apps via Homebrew-Cask
 
 ### Required
 
@@ -191,7 +195,7 @@ brew install --cask \
     wechat
 ```
 
-**NOTICE** : The installations may **REQUIRE** you to input **PASSWORD**,
+NOTICE : The installations may REQUIRE you to input PASSWORD,
 e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ### Optional
@@ -220,7 +224,7 @@ brew install --cask \
     wireshark
 ```
 
-**TODO**: Do it IN PARALLEL?
+TODO: Do it IN PARALLEL?
 
 ## Mac App Store
 
@@ -238,11 +242,11 @@ Install the required softwares via Mac App Store
 Others available on their official websites
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - **TODO** : Wait for the Logi Option+ public release
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - TODO : Wait for the Logi Option+ public release
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
 
-**NOTE** : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3 ( that I have already bought and it meets my requirements ) and don't want to pay for the new version.
+NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3 ( that I have already bought and it meets my requirements ) and don't want to pay for the new version.
 
 ## CLI Programs
 
@@ -272,7 +276,7 @@ brew install \
     wget
 ```
 
-**NOTE** : The pre-installed softwares may be outdated.
+NOTE : The pre-installed softwares may be outdated.
 
 > RECOMMEND to install and upgrade them via Homebrew again.
 
@@ -333,9 +337,9 @@ How to :
 
 ### SSH Key
 
-Using the **SSH** protocol, you can **connect** and **authenticate** to remote servers and services.
+Using the SSH protocol, you can connect and authenticate to remote servers and services.
 
-- With SSH keys, you can connect to GitHub **without supplying your username and personal access token at each visit**.
+- With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit.
 
 How to :
 
@@ -443,7 +447,7 @@ brew install graphviz
 brew link --overwrite graphviz
 ```
 
-**NOTE** : This could fix issues if you have installed GraphViz as `.dmg` package.
+NOTE : This could fix issues if you have installed GraphViz as `.dmg` package.
 
 By default, the dot executable is expected :
 
@@ -478,7 +482,7 @@ JDK - Java Development Kit
     - If `~/.zshrc` doesn't exists, create it.
     - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
 
-**NOTE** : The tilde symbol `~` equals the path of the current user's home directory.
+NOTE : The tilde symbol `~` equals the path of the current user's home directory.
 e.g. for me `/Users/IceHe`.
 
 e.g. get the path of JDK 8 :
@@ -581,9 +585,9 @@ $ /usr/libexec/java_home -v 1.8
     open ~/.m2/settting.xml
     ```
 
-    **NOTE** : `open` file with default editor
+    NOTE : `open` file with default editor
 
-**NOTICE** : If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
+NOTICE : If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
 
 ## Preferences
 
@@ -768,7 +772,7 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
     - Select `Most Recently Used` or Press ⌥ ⌘ R
 - `Window Appearance`
     - Select `Midday`
-    - Set `Minimum Font Size` **15**
+    - Set `Minimum Font Size` 15
     - Select `Auto-Scroll to Last Selected After List Change`
 - `Window Position` → `Open at Active Screen`
 - `Search Field`
@@ -776,10 +780,10 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
     - Eanble `Search Immediately After Each Keystroke`
 - `Keyboard Shortcuts…`
     - `Global Shortcuts`
-        - Set `Open window` **⌥ V**
-        - Set `Paste current clipboard item as plain test` **⇧ ⌘ V**
+        - Set `Open window` ⌥ V
+        - Set `Paste current clipboard item as plain test` ⇧ ⌘ V
     - `Local Shortcuts`
-        - Set `Switch to 'All' list` **⇧ ⌘ A**
+        - Set `Switch to 'All' list` ⇧ ⌘ A
 - Enbale `Get Titles of Web URLs`
 - Enable `Reject Duplicates`
 - `Auto-Delete Unstarred Items` → `Auto-Delete Oldest…`
@@ -792,7 +796,7 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 - `General`
     - Enable `Run on system startup`
 - `Control` → `Global Hotkeys`
-    - Set `Snip` **^ ⌘ A**
+    - Set `Snip` ^ ⌘ A
     - Clear all other hotkeys
 
 #### Itsycal
@@ -833,7 +837,7 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 `Preferences`
 
 - `General` → Set all checkboxes
-- `Quality` → Set all **50%** ( JPEG, PNG, GIF and so on )
+- `Quality` → Set all 50% ( JPEG, PNG, GIF and so on )
 
 -->
 

@@ -85,7 +85,7 @@
     2. 投资新兴市场和细分市场
 - __在公司工作时，也要建立好一生相随的个人品牌。__
 - 学会沟通和写作。
-- __DRY 原则 - Don’t Repeat Yourself__
+- __DRY 原则 - Don't Repeat Yourself__
     __不做重复的事！__
     三大原则还包括以下：
     - kISS : Keep it simple stupid.
