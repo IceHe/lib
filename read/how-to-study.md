@@ -38,11 +38,11 @@
     - 3.6. Copy Your Notes at Home
         - Just (re-)reading them is too passive, and won’t help.
         - Study you notes by re-writing them.
-    - 3.7. Don’t Take Notes on a Computer
+    - 3.7. Don't Take Notes on a Computer
         - Typing might disturbing to your fellow students.
         - Have a firmer grashp of what I write if I handwrite it than I type it.
         - You can re-write notes on a computer so that you can easy to search them.
-    - 3.8. Don’t Rely on the Instructor’s Lecture Notes
+    - 3.8. Don't Rely on the Instructor’s Lecture Notes
         - Just reading it is passive.
         - It’s beeter to re-writing them.
         - Or compare it with yours.
@@ -52,11 +52,11 @@
     - When should you study?
         - As soon as possible and !
             - Make you have enough time to finish it.
-            - You might have little time to play. Don’t complainn!
+            - You might have little time to play. Don't complainn!
             - Take it serious! Assume that studying is a full time job!
 - 5\. Read Texts Actively & Slowly, before & after Class
     - 5.1. Read Actively, Not Passively
-        - Don’t read without thinking. Or you will fall asleep, ZZZ...
+        - Don't read without thinking. Or you will fall asleep, ZZZ...
     - 5.2. Read Slowly
         - 「 An undeniable truth: that in the pursuit of knowledge, slower can be better. 」
         - An algorithm for how to read:
@@ -65,17 +65,17 @@
                 - IF you do not understand it, THEN:
                     - re-read the previous material, SLOWLY
                     - re-read the incommprehensible sentence, SLOWLY
-                    - IF you still don’t understand it, THEN:
+                    - IF you still Don't understand it, THEN:
                         - ask a fellow student to explain it
-                    - IF you still don’t understand it, THEN:
+                    - IF you still Don't understand it, THEN:
                         - ask your Teaching Assistant (TA) to explain it
-                    - IF you still don’t understand it, THEN:
+                    - IF you still Don't understand it, THEN:
                         - Others
-                    - IF you are in a upper-level course & still don’t understand it, THEN:
+                    - IF you are in a upper-level course & still Don't understand it, THEN:
                         - write a paper about it (!)
         - Why use it?
             - It forces you to actively think about each sentence you read before you go on to the next on.
-            - It slows you down, so that you don’t read past the point at which you don’t understand.
+            - It slows you down, so that you Don't read past the point at which you Don't understand.
             - It can help you get help from your teacher, because you can show them where you get lost.
             - An opportunity to interact with your instructors and fellow students!
         - 「 How do you know whether you understand  what you’ve read? Easy: After each sentence, ask yourself "Why?" 」

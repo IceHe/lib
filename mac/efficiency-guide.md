@@ -1,4 +1,4 @@
-# Mac 效率指南
+# macOS Efficiency Guide : 效率指南
 
 macOS Efficiency: 关于「如何高效使用 Mac」的个人见解.
 

@@ -276,9 +276,9 @@ Others
 
 macOS
 
-- [Initialize](/mac/initialize.md) : 系统初始化
-    - [Initialize Mac](/mac/initialize-mac.md) step by step : 系统初始化 ( beta version )
-- [Efficiency](/mac/efficiency.md) : 效率指南
+- [Initialize](/mac/initialize.md) : 系统初始化 ( TO BE DEPRECATED )
+- [Setup Guide](/mac/setup-guide.md) : 设置指南
+- [Efficiency Guide](/mac/efficiency-guide.md) : 效率指南
     - [macOS shortcuts](/mac/shortcut/macos.md)
     - [Sublime Text shortcuts](/mac/shortcut/sublime-text.md)
     - [JetBrains IDE shortcuts](/mac/shortcut/jetbrains.md)

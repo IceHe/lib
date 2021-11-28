@@ -1,14 +1,14 @@
-# Initialize Mac
+# macOS Setup Guide : 设置指南
 
-How to initialize my Mac step by step?
+How to setup my Mac step by step?
 
 ---
 
 Documentation Version : BETA ( tesing )
 
-Reference : [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
+Reference : [macOS Setup Guide - Sourabh Bajaj](http://sourabhbajaj.com/mac-setup)
 
-Related : [Efficiency : 效率指南](/mac/efficiency.md)
+Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 ---
 
@@ -20,20 +20,20 @@ Related : [Efficiency : 效率指南](/mac/efficiency.md)
 
 Follow the principles :
 
--   **KISS** : Keep It Simple and Stupid / Short ( 简单原则 )
+-   **KISS : Keep It Simple and Stupid / Short** ( 简单原则 )
 
     Assume that you are an experienced Mac user and a software developer,
     so I can focus on the procedure and skip the unnecessary descriptions,  _e.g. Apps' introductions & usages and development knowledge_
 
--   **OOTB** : Out Of The Box ( 开箱即用 )
+-   **OOTB : Out Of The Box** ( 开箱即用 )
 
     Try not to change the default settings.
 
--   **FYI only** : For Your Information only ( 仅供参考 )
+-   **FYI only : For Your Information only** ( 仅供参考 )
 
 ## Install or Restore macOS
 
-> SKIP this step when you set up a new Mac.
+> **SKIP** this step when you set up a new Mac.
 
 References : Apple Support
 
@@ -50,27 +50,27 @@ NOTE : 避免直接将备份数据还原到新系统中！
 
 First of all :
 
-1.  Turn on Mac
+1.  **Turn on Mac**
 
-1.  Connect to Internet via Wi-Fi or Erthernet
+1.  **Connect to Internet** via Wi-Fi or Erthernet
 
-1.  Sign in AppleID to synchronize the settings & iCloud data
+1.  **Sign in AppleID** to synchronize the settings & iCloud data
 
     - or Sign up if you don't have AppleID
 
-1.  Open this guide with Safari browser on Mac ( optional )
+1.  Open this guide on Mac ( optional )
 
-    Visit [icehe.xyz/#/mac/initialize-mac](https://icehe.xyz/#/mac/initialize-mac) so that you can continue the following steps
+    Visit [icehe.xyz/#/mac/setup-guide](https://icehe.xyz/#/mac/setup-guide) so that you can continue the following steps
 
 ## Password Manager
 
 The password manager makes it easier and safer for you to login other accounts
 
-e.g. 1Password
+e.g. **1Password**
 
-1.  Install via Mac App Store
+1.  **Install** via Mac App Store
 
-1.  Login the account on [my.1password.com](https://my.1password.com) ( recommended )
+1.  **Login** the account on [my.1password.com](https://my.1password.com) ( recommended )
 
     - or Load the vaults on iCloud
 
@@ -80,34 +80,34 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
 
 > RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland.
 
-1.  Get the proxy service
+1.  Get the **proxy service**
 
     How to :
 
-    - A. BUY / RENT ( recommended )
+    - A. **BUY** / RENT ( recommended )
     - B. Build it yourself
 
     NOTE :
     Because the valid methods for stable Internet connection may change often,
     RECOMMEND to search them on the Internet when you need.
 
-1.  Get the configurations from the proxy service
+1.  Get the **configurations** from the proxy service
 
-    Options :
+    Methods :
 
-    - A. Subscription URL ( recommended )
+    - **A. Subscription URL** ( recommended )
     - B. Configuration file
     - C. Server URLs
     - D. QR codes
     - …
 
-1.  Download the proxy plugin
+1.  Download the **proxy plugin**
 
     Plugin options :
 
     - A. [Clash](https://github.com/Dreamacro/clash)
     - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
-    - C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public) ( recommended )
+    - **C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** ( recommended )
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
     - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
@@ -119,7 +119,7 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
 
 1.  Configure the proxy plugin
 
-    Import the configurations into the proxy plugin via …
+    **Import the configurations** into the proxy plugin via different methods
 
     e.g. configure ClashX Pro via the subscription URL :
 
