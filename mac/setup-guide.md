@@ -130,14 +130,14 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
 1.  **Check Internet connection**
 
     Visit [google.com/ncr](https://google.com/ncr) on the browser
-    ( **GUI** - Graphical User Interface )
+    <!-- ( **GUI** - Graphical User Interface ) -->
 
 1.  **Configure network proxy on CLI** - Command Line Interface
 
     e.g. ClashX Pro
 
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
-    1.  Menubar → `ClashX Pro` → `Copy shell command`, e.g.
+    1.  Menubar → `ClashX Pro` → `Copy shell command` :
         ```bash
         export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
         ```
@@ -161,7 +161,7 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
 [Homebrew](https://brew.sh) is a macOS package manager
 for installing and managing softwares
 
-1.  Install
+1.  **Install**
 
     How to :
 
@@ -169,7 +169,7 @@ for installing and managing softwares
     - B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) ( recommended )
     - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) ( compatible )
 
-1.  Check
+1.  **Check**
 
     ```bash
     $ brew --version
@@ -179,7 +179,7 @@ for installing and managing softwares
     Homebrew/homebrew-cask (git revision 2f292faf97; last commit 2021-11-24)
     ```
 
-1.  Speed up
+1.  **Speed up**
 
     Reference : [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
@@ -191,11 +191,11 @@ for installing and managing softwares
 
 NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh).
 
-## Homebrew-Cask
+## Homebrew Cask
 
 Homebrew-Cask extends Homebrew and allows you to install the large binary files via a command-line tool.
 
-> RECOMMEND to install Apps via Homebrew-Cask
+RECOMMEND to install Apps via Homebrew-Cask
 
 ### Required
 
@@ -206,12 +206,9 @@ brew install --cask \
     google-chrome \
     iterm2 \
     itsycal \
-    jetbrains-toolbox \
     karabiner-elements \
     keyboard-maestro \
-    neteasemusic \
     numi \
-    qqmusic \
     snipaste \
     ticktick \
     visual-studio-code \
@@ -233,13 +230,16 @@ brew install --cask \
     docker \
     iina \
     imageoptim \
+    jetbrains-toolbox \
     kindle \
     linear \
     microsoft-office \
     monitorcontrol \
+    neteasemusic \
     notion \
     parallels \
     postman \
+    qqmusic \
     sequel-pro \
     slack \
     tableplus \
@@ -257,7 +257,7 @@ The Apps unavailable on Homebrew-Cask may be available on Mac App Store.
 
 Install the required softwares via Mac App Store
 
-- 1Password
+- 1Password ( Done )
 - Copy 'Em
 - EasyRes
 - EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
@@ -271,15 +271,19 @@ Others available on their official websites
 
 NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3 ( that I have already bought and it meets my requirements ) and don't want to pay for the new version.
 
+**Optional**
+
+- none
+
 ## CLI Programs
 
 CLI - Command Line Interface
 
-> RECOMMEND to install CLI programs via Homebrew
+RECOMMEND to install CLI programs via Homebrew
 
 ### Required
 
-Install the required softwares via Homebrew
+Install the required CLI programs via Homebrew
 
 ```bash
 brew install \
@@ -289,8 +293,6 @@ brew install \
     fzf \
     gpg \
     jq \
-    nginx \
-    node \
     nvim \
     reattach-to-user-namespace \
     safe-rm \
@@ -299,27 +301,23 @@ brew install \
     wget
 ```
 
-NOTE : The pre-installed softwares may be outdated.
-
-> RECOMMEND to install and upgrade them via Homebrew again.
-
-<!--
-
 -   [coreutils](http://www.gnu.org/s/coreutils/) :
-    _The basic file, shell and text manipulation utilities_
-    _of the GNU operating system._
+    The basic file, shell and text manipulation utilities of the GNU operating system
 
-    _Include many useful commands, see TOC of [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html)._
+    Include many useful commands, see TOC of
+    [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
 
-    E.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) to get absolute path to a file or directory.
+    e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
+    to get absolute path to a file or directory.
 
 -   [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x) :
-    For `tmux` to write and read system clipboard.
+    For `tmux` to write and read system clipboard
 
-    _Reattach to the per-user bootstrap namespace_
-    _in its "Background" session then exec the program with args._
+    Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
 
--->
+NOTE : The pre-installed softwares may be outdated.
+
+RECOMMEND to install and upgrade them via Homebrew again.
 
 ### Optional
 
@@ -330,13 +328,17 @@ brew install \
     elasticsearch \
     mysql@5.7 \
     mysql \
+    nginx \
+    node \
     postgresql \
     python \
     redis \
     ruby
 ```
 
-## CLI Settings
+TODO : Install `node ` via `nvm`
+
+## GitHub Settings
 
 ### GPG Key
 
@@ -373,6 +375,8 @@ How to :
 1.  Get the SSH public key and Add it to the GitHub/GitLab/etc. accounts
 
     Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+## CLI Settings
 
 ### Dotfiles
 
