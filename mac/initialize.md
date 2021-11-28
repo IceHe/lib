@@ -6,7 +6,7 @@ How to initialize my Mac?
 
 Reference : [macOS Setup Guide](http://sourabhbajaj.com/mac-setup)
 
-Related : [Efficiency : 效率指南](/mac/efficiency.md)
+Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 ---
 

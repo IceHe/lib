@@ -66,7 +66,9 @@ First of all :
 
 The password manager makes it easier and safer for you to login other accounts
 
-e.g. **1Password**
+> **SKIP** this step when you don't need it
+
+e.g. [1Password](https://1password.com/)
 
 1.  **Install** via Mac App Store
 
@@ -80,7 +82,7 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
 
 > RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland.
 
-1.  Get the **proxy service**
+1.  **Get the proxy service**
 
     How to :
 
@@ -91,9 +93,9 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
     Because the valid methods for stable Internet connection may change often,
     RECOMMEND to search them on the Internet when you need.
 
-1.  Get the **configurations** from the proxy service
+1.  **Get the proxy configurations** from the proxy service
 
-    Methods :
+    List of configuration methods :
 
     - **A. Subscription URL** ( recommended )
     - B. Configuration file
@@ -101,9 +103,9 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
     - D. QR codes
     - …
 
-1.  Download the **proxy plugin**
+1.  **Install the proxy plugin**
 
-    Plugin options :
+    List of proxy plugins :
 
     - A. [Clash](https://github.com/Dreamacro/clash)
     - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
@@ -117,21 +119,42 @@ Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_passw
     - J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~ _- latest release on 2019.11.13_
     - …
 
-1.  Configure the proxy plugin
-
-    **Import the configurations** into the proxy plugin via different methods
+1.  **Import the proxy configurations** into the proxy plugin
 
     e.g. configure ClashX Pro via the subscription URL :
 
     1.  Menubar → `ClashX Pro` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
     1.  Menubar → `ClashX Pro` → `Config` → Select new configuration ( may not need )
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
-    1.  Menubar → `ClashX Pro` → `Copy shell command`
+
+1.  **Check Internet connection**
+
+    Visit [google.com/ncr](https://google.com/ncr) on the browser
+    ( **GUI** - Graphical User Interface )
+
+1.  **Configure network proxy on CLI** - Command Line Interface
+
+    e.g. ClashX Pro
+
+    1.  Menubar → `ClashX Pro` → `Set as system proxy`
+    1.  Menubar → `ClashX Pro` → `Copy shell command`, e.g.
+        ```bash
+        export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+        ```
     1.  Open `Terminal` → Paste shell command → Execute
+    1.  Execute `curl google.com` to check Internet connection
+        ```bash
+        # Success
+        <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <TITLE>301 Moved</TITLE></HEAD><BODY>
+        <H1>301 Moved</H1>
+        The document has moved
+        <A HREF="http://www.google.com/">here</A>.
+        </BODY></HTML>
 
-1.  Check Internet connection
-
-    Visit [google.com/ncr](https://google.com/ncr)
+        # Failure
+        curl: (56) Recv failure: Connection reset by peer
+        ```
 
 ## Homebrew
 
