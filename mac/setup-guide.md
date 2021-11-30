@@ -144,7 +144,8 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
         export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
         ```
     1.  Open `Terminal` → Paste shell command → Execute
-    1.  Execute `curl google.com` to check Internet connection
+    1.  Execute `curl google.com` to check Internet connection,
+        e.g.
         ```bash
         # Success
         <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -194,121 +195,6 @@ for installing and managing softwares
     ```
 
 NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh)
-
-## Install GUI Softwares
-
-GUI - Graphical User Interface
-
-RECOMMEND to install the GUI softwares via Homebrew-Cask
-
-### Required
-
-#### Homebrew-Cask
-
-Install the required GUI softwares via Homebrew-Cask
-
--   Common
-
-    ```bash
-    brew install --cask \
-        google-chrome \
-        karabiner-elements \
-        keyboard-maestro \
-        snipaste \
-        ticktick \
-        visual-studio-code \
-        wechat
-    ```
-
--   Personal
-
-    ```bash
-    brew install --cask \
-        iterm2 \
-    ```
-
-
-NOTICE : The installations may REQUIRE you to input PASSWORD,
-e.g. `karabiner-elements`
-
-#### Mac App Store
-
-Install the required GUI softwares via Mac App Store
-
-Note : The GUI softwares unavailable on Homebrew-Cask may be available on Mac App Store
-
-- 1Password - _done above_
-- Copy 'Em
-- EasyRes
-- EuDic 欧路词典 - _相对于 "增强版" 而言, 属于 "免费版"_
-
-#### Websites
-
-Note : Some GUI softwares are only available on the websites
-
-- [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release_
-- [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
-- [Sublime Text 3](https://www.sublimetext.com/3)
-
-NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3.
-Because I have already bought Sublime Text 3 and it meets my requirements, I don't want to pay for the new version.
-
-### Optional
-
-Install the optional GUI softwares via Homebrew-Cask
-
--   Auxiliary
-
-    ```bash
-    brew install --cask \
-        appcleaner \
-        bartender \
-        iina \
-        imageoptim \
-        itsycal \
-        monitorcontrol \
-        numi \
-        qq
-    ```
-
--   Entertainment
-
-    ```bash
-    brew install --cask \
-        kindle \
-        neteasemusic \
-        parallels \
-        qqmusic \
-        steam \
-        thunder
-    ```
-
--   Office
-
-    ```bash
-    brew install --cask \
-        linear \
-        microsoft-office \
-        notion \
-        slack
-    ```
-
--   Development
-
-    ```bash
-    brew install --cask \
-        charles \
-        docker \
-        jetbrains-toolbox \
-        postman \
-        sequel-pro \
-        tableplus \
-        wireshark
-    ```
-
-NOTICE : The installations may REQUIRE you to input PASSWORD,
-e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ## Install CLI Softwares
 
@@ -403,6 +289,114 @@ brew install \
 
 - `nvm` : install `node ` via `nvm` ?
 - `sdkman` : install `jdk` via `sdk` ?
+
+## Install GUI Softwares
+
+GUI - Graphical User Interface
+
+RECOMMEND to install the GUI softwares via Homebrew-Cask
+
+### Required
+
+#### Homebrew-Cask
+
+Install the required GUI softwares via Homebrew-Cask
+
+```bash
+brew install --cask \
+    google-chrome \
+    karabiner-elements \
+    keyboard-maestro \
+```
+
+NOTICE : The installations may REQUIRE you to input PASSWORD,
+e.g. `karabiner-elements`
+
+#### Mac App Store
+
+Install the required GUI softwares via Mac App Store
+
+Note : The GUI softwares unavailable on Homebrew-Cask may be available on Mac App Store
+
+- 1Password - _done above_
+- Copy 'Em
+- EasyRes
+- EuDic 欧路词典 - _相对于 "增强版" 而言, 属于 "免费版"_
+
+#### Websites
+
+Note : Some GUI softwares are only available on the websites
+
+- [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release_
+- [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
+- [Sublime Text 3](https://www.sublimetext.com/3)
+
+NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3.
+Because I have already bought Sublime Text 3 and it meets my requirements, I don't want to pay for the new version.
+
+### Optional
+
+Install the optional GUI softwares via Homebrew-Cask
+
+-   Auxiliary
+
+    ```bash
+    brew install --cask \
+        appcleaner \
+        bartender \
+        imageoptim \
+        itsycal \
+        monitorcontrol \
+        numi \
+        qq \
+        snipaste \
+        ticktick \
+        wechat
+    ```
+
+-   Personal
+
+-   Entertainment
+
+    ```bash
+    brew install --cask \
+        iina \
+        kindle \
+        neteasemusic \
+        parallels \
+        qqmusic \
+        steam \
+        thunder
+    ```
+
+-   Development
+
+    ```bash
+    brew install --cask \
+        charles \
+        docker \
+        iterm2 \
+        jetbrains-toolbox \
+        postman \
+        sequel-pro \
+        tableplus \
+        visual-studio-code \
+        wireshark
+    ```
+
+-   Office
+
+    ```bash
+    brew install --cask \
+        linear \
+        microsoft-office \
+        notion \
+        slack
+    ```
+
+NOTICE : The installations may REQUIRE you to input PASSWORD,
+e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ## CLI Preferences
 
