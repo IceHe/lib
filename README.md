@@ -823,7 +823,7 @@ Timeline
 -   **Johnson Zhang** :
     Goer / Sina Mobile / Didi / Meituan @ Beijing
 -   [SF Zhou](http://sf-zhou.github.io/) :
-    ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou_
+    ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou
 -   **Shiwey Yan** :
     Game Engine Developer / Tencent - Timi @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann) :
