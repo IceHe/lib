@@ -792,13 +792,12 @@ JDK - Java Development Kit
 
 1.  **Install** JDK via [SDKMAN!](https://sdkman.io)
 
-    RECOMMEND to install the JDKs of version **8**, **11** and the latest LTS **17** ( on 2021-01-01 )
+    RECOMMEND to install the JDKs of version **11** and the latest LTS **17** ( on 2021-01-01 )
 
     -   A.  via Homebrew
 
         ```bash
         brew install openjdk
-        brew install openjdk@8
         brew install openjdk@11
         ```
 
