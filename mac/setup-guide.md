@@ -359,13 +359,19 @@ Install the optional CLI softwares via Homebrew
 
 JDK - Java Development Kit
 
-1.  **Install** via [SDKMAN!](https://sdkman.io)
+1.  **Install JDK** via [SDKMAN!](https://sdkman.io)
 
     _or Download the installation from the official website : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)_
 
     RECOMMEND to install the JDK of version **8** ( on 2021-01-01 )
 
-    1.
+    1.  Install SDKMAN!
+
+        Reference : [Installation - SDKMAN!](https://sdkman.io/install)
+
+    2.  Install JDK via SDKMAN!
+
+        Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
 
 1.  **Set the environment variable `JAVA_HOME`**
 
