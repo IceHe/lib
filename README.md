@@ -10,8 +10,8 @@
 
 <!-- > —— LeBlanc's Law -->
 
-Here : [https://icehe.xyz](https://icehe.xyz)
-Whoami : [IceHe's bio](/life/bio.md)
+- Here : [https://icehe.xyz](https://icehe.xyz)
+- Whoami : [IceHe's bio](/life/bio.md)
 
 <!-- Contact : `aWNlaGUueHl6QHFxLmNvbQ`  -->
 <!-- - _Base64 Encoded and Trimmed the trailing equal signs_ -->
@@ -510,7 +510,7 @@ NPM : the world's largest software registry
     - [npm link](/js/npm-cmd/npm-link.md) : symlink a package folder
     - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
     - [npm exec](/js/npm-cmd/npm-exec.md), `npx` : run a command from a local or remote npm package
-    - TODO : e.g. `npm run build`
+    - _TODO : e.g. `npm run build`_
 
 Package
 
@@ -818,18 +818,18 @@ Timeline
 <!-- > -->
 <!-- > —— Better Man - _Robbie Williams song_ -->
 
--   **Jan Fan**
-    _Pythonist / Tencent / Applied Mathematics PhD @ Sweden_
--   **Johnson Zhang**
-    _Goer / Sina Mobile / Didi / Meituan @ Beijing_
--   [SF Zhou](http://sf-zhou.github.io/)
-    _ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou_
--   **Shiwey Yan**
-    _Game Engine Developer / Tencent - Timi @ Shenzhen_
--   [Toxic Johann](https://github.com/toxic-johann)
-    _Frontend / 360 / UC / Tencent / Tubi @ Beijing_
--   [ME](https://icehe.xyz/#/past/bio)
-    _Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing_
+-   **Jan Fan** :
+    Pythonist / Tencent / Applied Mathematics PhD @ Sweden
+-   **Johnson Zhang** :
+    Goer / Sina Mobile / Didi / Meituan @ Beijing
+-   [SF Zhou](http://sf-zhou.github.io/) :
+    ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou_
+-   **Shiwey Yan** :
+    Game Engine Developer / Tencent - Timi @ Shenzhen
+-   [Toxic Johann](https://github.com/toxic-johann) :
+    Frontend / 360 / UC / Tencent / Tubi @ Beijing
+-   [ME](https://icehe.xyz/#/past/bio) :
+    Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 -   …
 
 ---
