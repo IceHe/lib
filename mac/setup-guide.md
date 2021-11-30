@@ -20,22 +20,22 @@ Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 Follow the principles :
 
--   **KISS : Keep It Simple and Stupid / Short** ( 简单原则 )
+-   **KISS : Keep It Simple and Stupid / Short** - 简单原则
 
     Assume that you are an experienced Mac user and a software developer,
     so I can focus on the procedure and skip the unnecessary descriptions
 
-    _e.g. Apps' introductions & usages and development knowledge_
+    _e.g. the softwares' introductions & usages and development knowledge_
 
--   **OOTB : Out Of The Box** ( 开箱即用 )
+-   **OOTB : Out Of The Box** - 开箱即用
 
     Try not to change the default settings.
 
--   **FYI only : For Your Information only** ( 仅供参考 )
+-   **FYI only : For Your Information only** - 仅供参考
 
 ## Install or Restore macOS
 
-> **SKIP** this step when you set up a new Mac
+> **SKIP** this step when you set up a new Mac or have already re-installed macOS
 
 References : Apple Support
 
@@ -44,9 +44,9 @@ References : Apple Support
 
 NOTE : 避免直接将备份数据还原到新系统中！
 
-因为每次将过去的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
-随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误，产生疑难问题。
-所以，为了适时淘汰这些持续累积的问题数据，建议每次迁移设备的数据都尽量避免直接迁移。
+因为每次将过去 Mac 的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
+随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误甚至产生疑难问题。
+所以，为了适时淘汰这些持续累积的可能存在问题的数据，建议每次迁移 Mac 时都尽量避免直接迁移数据。
 
 ## Network and Passwords
 
@@ -62,7 +62,7 @@ First of all :
 
     - or Sign up if you don't have AppleID
 
-1.  Open this guide on Mac ( optional )
+1.  **Open this guide** on Mac - optional
 
     Visit [icehe.xyz/#/mac/setup-guide](https://icehe.xyz/#/mac/setup-guide) so that you can continue the following steps
 
@@ -74,7 +74,7 @@ e.g. [1Password](https://1password.com/)
 
 1.  **Install** via Mac App Store
 
-1.  **Login** the account on [my.1password.com](https://my.1password.com) ( recommended )
+1.  **Login** the account on [my.1password.com](https://my.1password.com) - recommended
 
     - or Load the vaults on iCloud
 
@@ -88,7 +88,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
 
     How to :
 
-    - A. **BUY** / RENT ( recommended )
+    - A. **BUY** / RENT - recommended
     - B. Build it yourself
 
     NOTE :
@@ -99,7 +99,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
 
     List of configuration methods :
 
-    - **A. Subscription URL** ( recommended )
+    - **A. Subscription URL** - recommended
     - B. Configuration file
     - C. Server URLs
     - D. QR codes
@@ -111,7 +111,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
 
     - A. [Clash](https://github.com/Dreamacro/clash)
     - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
-    - **C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** ( recommended )
+    - **C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** - recommended
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
     - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
@@ -126,7 +126,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     e.g. configure ClashX Pro via the subscription URL :
 
     1.  Menubar → `ClashX Pro` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1.  Menubar → `ClashX Pro` → `Config` → Select new configuration ( may not need )
+    1.  Menubar → `ClashX Pro` → `Config` → Select new configuration - may not need
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
 
 1.  **Check Internet connection**
@@ -158,20 +158,20 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
         curl: (56) Recv failure: Connection reset by peer
         ```
 
-## Install Softwares
-
-### Homebrew
+## Homebrew & Homebrew Cask
 
 [Homebrew](https://brew.sh) is a macOS package manager
 for installing and managing softwares
+
+[Homebrew-Cask](https://formulae.brew.sh/cask/) extends Homebrew and allows you to install the large binary files via a command-line tool.
 
 1.  **Install**
 
     How to :
 
-    - A. [Homebrew - brew.sh](https://brew.sh) ( official )
-    - B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) ( recommended )
-    - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) ( compatible )
+    - A. [Homebrew - brew.sh](https://brew.sh) - official
+    - B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) - recommended
+    - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) - compatible
 
 1.  **Check**
 
@@ -187,7 +187,7 @@ for installing and managing softwares
 
     Reference : [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
-1.  Update and Upgrade ( in the future )
+1.  **Update and Upgrade** - in the future
 
     ```bash
     brew update && brew upgrade
@@ -195,15 +195,15 @@ for installing and managing softwares
 
 NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh).
 
-### Homebrew Cask
+## Install GUI Softwares
 
-Homebrew-Cask extends Homebrew and allows you to install the large binary files via a command-line tool.
+RECOMMEND to install the GUI softwares via Homebrew-Cask
 
-RECOMMEND to install Apps via Homebrew-Cask
+### Required
 
-#### Required
+#### Homebrew-Cask
 
-Install the required Apps via Homebrew-Cask
+Install the required softwares via Homebrew-Cask
 
 ```bash
 brew install --cask \
@@ -212,7 +212,6 @@ brew install --cask \
     itsycal \
     karabiner-elements \
     keyboard-maestro \
-    numi \
     snipaste \
     ticktick \
     visual-studio-code \
@@ -222,9 +221,31 @@ brew install --cask \
 NOTICE : The installations may REQUIRE you to input PASSWORD,
 e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
 
-#### Optional
+#### Mac App Store
 
-Install the optional Apps via Homebrew-Cask
+Install the required softwares via Mac App Store
+
+Note : The softwares unavailable on Homebrew-Cask may be available on Mac App Store.
+
+- 1Password - _done above_
+- Copy 'Em
+- EasyRes
+- EuDic 欧路词典 - _相对于 "增强版" 而言, 属于 "免费版"_
+
+#### Websites
+
+Note : Some softwares are only available on the websites.
+
+- [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - TODO : Wait for the Logi Option+ public release
+- [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
+- [Sublime Text 3](https://www.sublimetext.com/3)
+
+NOTE : `brew install --cask sublime-text` will install the latest version, but the author still stick on version 3 ( that the author have already bought and it meets my requirements ) and don't want to pay for the new version.
+
+### Optional
+
+Install the optional softwares via Homebrew-Cask
 
 ```bash
 brew install --cask \
@@ -241,6 +262,7 @@ brew install --cask \
     monitorcontrol \
     neteasemusic \
     notion \
+    numi \
     parallels \
     postman \
     qqmusic \
@@ -253,41 +275,15 @@ brew install --cask \
 
 TODO: Do it IN PARALLEL?
 
-### Mac App Store
-
-The Apps unavailable on Homebrew-Cask may be available on Mac App Store.
-
-**Required**
-
-Install the required softwares via Mac App Store
-
-- 1Password ( Done )
-- Copy 'Em
-- EasyRes
-- EuDic 欧路词典 _( 相对于 "增强版" 而言, 属于 "免费版"  )_
-
-Others available on their official websites
-
-- [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - TODO : Wait for the Logi Option+ public release
-- [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
-- [Sublime Text 3](https://www.sublimetext.com/3)
-
-NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3 ( that I have already bought and it meets my requirements ) and don't want to pay for the new version.
-
-**Optional**
-
-- none
-
-### CLI Programs
+## Install CLI Softwares
 
 CLI - Command Line Interface
 
 RECOMMEND to install CLI programs via Homebrew
 
-#### Required
+### Required
 
-Install the required CLI programs via Homebrew
+Install the required CLI softwares via Homebrew
 
 ```bash
 brew install \
@@ -350,7 +346,7 @@ NOTE : Why I need them ?
 
     You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
 
-#### Optional
+### Optional
 
 Install the optional softwares via Homebrew
 
@@ -508,7 +504,7 @@ Include the development configurations on local and remote machines
 
 #### Bottom Dock
 
-- Disable all apps `Options` → `Keep in Dock`
+- Disable all softwares `Options` → `Keep in Dock`
 
 #### Dock & Menu Bar
 
@@ -564,9 +560,9 @@ Trackpad
 
 Notification
 
-- Disable the useless Apps notifications on demand
+- Disable the useless softwares notifications on demand
 
-### Apps
+### softwares
 
 #### Chrome
 
