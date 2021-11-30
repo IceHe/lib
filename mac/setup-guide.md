@@ -127,8 +127,9 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     e.g. configure ClashX Pro via the subscription URL :
 
     1.  Menubar → `ClashX Pro` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1.  Menubar → `ClashX Pro` → `Config` → Select new configuration - may not need
+    1.  Menubar → `ClashX Pro` → `Config` → Select the new config you added - usually uncessary
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
+    1.  Menubar → `ClashX Pro` → `Dashboard` → `Setting` → Enable `Start at login` - recommended
 
 1.  **Check Internet connection**
 
@@ -138,7 +139,6 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
 
     e.g. ClashX Pro
 
-    1.  Menubar → `ClashX Pro` → `Set as system proxy`
     1.  Menubar → `ClashX Pro` → `Copy shell command` :
         ```bash
         export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
@@ -207,17 +207,26 @@ RECOMMEND to install the GUI softwares via Homebrew-Cask
 
 Install the required GUI softwares via Homebrew-Cask
 
-```bash
-brew install --cask \
-    google-chrome \
-    iterm2 \
-    karabiner-elements \
-    keyboard-maestro \
-    snipaste \
-    ticktick \
-    visual-studio-code \
-    wechat
-```
+-   Common
+
+    ```bash
+    brew install --cask \
+        google-chrome \
+        karabiner-elements \
+        keyboard-maestro \
+        snipaste \
+        ticktick \
+        visual-studio-code \
+        wechat
+    ```
+
+-   Personal
+
+    ```bash
+    brew install --cask \
+        iterm2 \
+    ```
+
 
 NOTICE : The installations may REQUIRE you to input PASSWORD,
 e.g. `karabiner-elements`
