@@ -200,6 +200,15 @@ NOTE : You can search available softwares you need on [Homebrew Formulae](https:
     ```bash
     brew update && brew upgrade
     ```
+1.  **PREPARE** : Prevent Mac from automatically sleeping in a short time so that the installation can be done
+
+    Change some of the battery settings temporarily
+
+    - Open `System Preferences` → `Battery`
+        1. → `Battery` → `Turn display off after:` 30 min ↑
+            - Disable `Put hard disks to sleep when possible` - optional
+        2. → `Power Adapter` → `Turn display off after:` 30 min ↑
+            - Enable `Prevent your Mac from automatically sleeping when the display off` - optional
 
 ## Install CLI Softwares
 
@@ -441,7 +450,7 @@ How to :
 
 ### Dotfiles
 
-e.g. for the author
+e.g. for me
 
 ```bash
 cd ~
@@ -455,45 +464,45 @@ git branch --set-upstream-to=origin/master master
 
 How to configure :
 
--   A. Synchronize the settings via the configuration files from the dotfiles above - recommended
+A. Synchronize the settings via the configuration files from the dotfiles above - recommended
 
-    e.g.
+e.g.
 
-    - `~/.gitconfig`
-    - `~/.gitignore`
-    - `~/.gitignore_global`
-    - …
+- `~/.gitconfig`
+- `~/.gitignore`
+- `~/.gitignore_global`
+- …
 
--   B. Or execute the commands
+B. Or execute the commands
 
-    e.g. for me :
+e.g. for me :
 
-    1. Add the common configurations
+1. Add the common configurations
 
-        ```bash
-        git config --global user.name IceHe.xyz
-        git config --global user.email icehe.me@qq.com
-        ```
+    ```bash
+    git config --global user.name IceHe.xyz
+    git config --global user.email icehe.me@qq.com
+    ```
 
-    2. Add the GPG configurations
+2. Add the GPG configurations
 
-        ```bash
-        git config --global user.signingkey [SIGNING_KEY]
-        git config --global commit.gpgsign true
-        ```
+    ```bash
+    git config --global user.signingkey [SIGNING_KEY]
+    git config --global commit.gpgsign true
+    ```
 
-    3. Check the configurations
+3. Check the configurations
 
-        ```bash
-        $ git config --global -l
-        # e.g.
-        user.name=IceHe.xyz
-        user.email=icehe@qq.com
-        user.signingkey=[SIGNING_KEY]
-        commit.gpgsign=true
-        gpg.program=gpg
-        …
-        ```
+    ```bash
+    $ git config --global -l
+    # e.g.
+    user.name=IceHe.xyz
+    user.email=icehe@qq.com
+    user.signingkey=[SIGNING_KEY]
+    commit.gpgsign=true
+    gpg.program=gpg
+    …
+    ```
 
 #### Oh My Zsh
 
@@ -633,7 +642,9 @@ TODO: The last step may be unnecessary, because the settings can be synchorized 
 #### Sogou Input
 
 1. Login via the WeChat acount
+1. Menubar → `Input menu` → `搜狗拼音` → `偏好设置` → `同步` → `配置同步` → `下载配置`
 1. Add `Sogou Input` in `System Preferences` → `Keyboard` → `Input Sources`
+1. Remove the Input methods except `ABC` and `搜狗拼音`
 
 #### Karabiner-Elements
 
@@ -849,6 +860,12 @@ JDK - Java Development Kit
 
 1.  Install
 
+    TODO
+
+    - A. via Jetbrains Toolbox
+
+    - B. via the installation from the official websites
+
 1.  Get and set the lincense
 
     You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
@@ -867,7 +884,7 @@ JDK - Java Development Kit
 
     But you cannot synchronize the plugins in this way. So the next step is to…
 
-1.  Install plugins
+1.  Install plugins - can sync so unnecessary ?
 
     -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts) :
         Forces the user to use keyboard shortcuts by blocking click action
