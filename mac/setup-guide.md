@@ -4,8 +4,6 @@ How to setup my Mac step by step?
 
 ---
 
-Documentation Version : BETA ( tesing )
-
 Reference : [macOS Setup Guide - Sourabh Bajaj](http://sourabhbajaj.com/mac-setup)
 
 Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
@@ -14,24 +12,26 @@ Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 **Based on macOS**
 
-- The author used this guide recently on macOS version : **Monterey** - 12.0.1
+- The guide has been recently used on 2021/11/30
+    - Mac version : Macbook Pro 2021 with M1 Pro
+    - macOS version : **Monterey - 12.0.1** on
 
 ## Guidelines
 
 Follow the principles :
 
--   **KISS : Keep It Simple and Stupid / Short** - 简单原则
+-   **KISS - Keep It Simple and Stupid / Short** - 简单原则
 
     Assume that you are an experienced Mac user and a software developer,
     so I can focus on the procedure and skip the unnecessary descriptions
 
     _e.g. the softwares' introductions & usages and development knowledge_
 
--   **OOTB : Out Of The Box** - 开箱即用
+-   **OOTB - Out Of The Box** - 开箱即用
 
     Try not to change the default settings
 
--   **FYI only : For Your Information only** - 仅供参考
+-   **FYI only - For Your Information only** - 仅供参考
 
 ## Install or Restore macOS
 
@@ -39,8 +39,9 @@ Follow the principles :
 
 References : Apple Support
 
-- [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
-- [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
+1. [在 Mac 上抹掉所有内容和设置](https://support.apple.com/zh-cn/HT212749) - optional
+1. [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
+1. [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
 NOTE : 避免直接将备份数据还原到新系统中！
 
@@ -76,7 +77,7 @@ e.g. [1Password](https://1password.com/)
 
 1.  **Login** the account on [my.1password.com](https://my.1password.com) - recommended
 
-    - or Load the vaults on iCloud
+    - or **Load** the vaults on iCloud
 
 Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)
 
@@ -114,11 +115,11 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     - **C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** - recommended
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
-    - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~ _- latest release on 2020.11.21_
-    - G. ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~ _- removed due to regulationn_
+    - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~
+    - G. ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~
     - H. [Shadowsocks](https://github.com/shadowsocks)
-    - I. ~~[ShadowsocksX](https://github.com/RobertYim/ShadowsocksX)~~ _- archived read-only_
-    - J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~ _- latest release on 2019.11.13_
+    - I. ~~[ShadowsocksX](https://github.com/RobertYim/ShadowsocksX)~~
+    - J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~
     - …
 
 1.  **Import the proxy configurations** into the proxy plugin
@@ -204,7 +205,7 @@ RECOMMEND to install the GUI softwares via Homebrew-Cask
 
 #### Homebrew-Cask
 
-Install the required softwares via Homebrew-Cask
+Install the required GUI softwares via Homebrew-Cask
 
 ```bash
 brew install --cask \
@@ -223,9 +224,9 @@ e.g. `karabiner-elements`
 
 #### Mac App Store
 
-Install the required softwares via Mac App Store
+Install the required GUI softwares via Mac App Store
 
-Note : The softwares unavailable on Homebrew-Cask may be available on Mac App Store
+Note : The GUI softwares unavailable on Homebrew-Cask may be available on Mac App Store
 
 - 1Password - _done above_
 - Copy 'Em
@@ -234,51 +235,56 @@ Note : The softwares unavailable on Homebrew-Cask may be available on Mac App St
 
 #### Websites
 
-Note : Some softwares are only available on the websites
+Note : Some GUI softwares are only available on the websites
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
 - [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release_
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
 
-NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3 ( that I have already bought and it meets my requirements ) and don't want to pay for the new version
+NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3.
+Because I have already bought Sublime Text 3 and it meets my requirements, I don't want to pay for the new version.
 
 ### Optional
 
-Install the optional softwares via Homebrew-Cask
+Install the optional GUI softwares via Homebrew-Cask
 
-```bash
-brew install --cask \
-    appcleaner \
-    bartender \
-    charles \
-    docker \
-    iina \
-    imageoptim \
-    itsycal \
-    jetbrains-toolbox \
-    kindle \
-    linear \
-    microsoft-office \
-    monitorcontrol \
-    neteasemusic \
-    notion \
-    numi \
-    parallels \
-    postman \
-    qq \
-    qqmusic \
-    sequel-pro \
-    slack \
-    tableplus \
-    thunder \
-    wireshark
-```
+-   Auxiliary
+
+    ```bash
+    brew install --cask \
+        appcleaner \
+        bartender \
+        docker \
+        iina \
+        imageoptim \
+        itsycal \
+        jetbrains-toolbox \
+        kindle \
+        linear \
+        microsoft-office \
+        monitorcontrol \
+        neteasemusic \
+        notion \
+        numi \
+        parallels \
+        postman \
+        qq \
+        qqmusic \
+        sequel-pro \
+        slack \
+        tableplus \
+        thunder \
+        wireshark
+
+    brew install --cask \
+        charles \
+    ```
+
+-   Development
 
 NOTICE : The installations may REQUIRE you to input PASSWORD,
 e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
-
-TODO: Do it IN PARALLEL ?
 
 ## Install CLI Softwares
 

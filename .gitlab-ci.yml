@@ -1,5 +1,5 @@
 stages:
-    - parallel
+  - parallel
 
 #mdl:
 #    stage: parallel
@@ -9,16 +9,16 @@ stages:
 #        - mdl --style docsify/markdown/lint/style.rb . --git-recurse && echo 'All is well.'
 
 pages:
-    # Deploy @ GitLab Pages
-    stage: parallel
-    script:
-        # Build：temporary directory `.public/`
-        - mkdir .public
-        - cp -r * .public
-        # Release：formal directory `public/`
-        - mv .public public
-    artifacts:
-        paths:
-            - public
-    only:
-        - master
+  # Deploy @ GitLab Pages
+  stage: parallel
+  script:
+    # Build：temporary directory `.public/`
+    - mkdir .public
+    - cp -r * .public
+    # Release：formal directory `public/`
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
