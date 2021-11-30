@@ -29,7 +29,7 @@ Follow the principles :
 
 -   **OOTB : Out Of The Box** - 开箱即用
 
-    Try not to change the default settings.
+    Try not to change the default settings
 
 -   **FYI only : For Your Information only** - 仅供参考
 
@@ -93,7 +93,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
 
     NOTE :
     Because the valid methods for stable Internet connection may change often,
-    RECOMMEND to search them on the Internet when you need.
+    RECOMMEND to search them on the Internet when you need
 
 1.  **Get the proxy configurations** from the proxy service
 
@@ -132,7 +132,6 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
 1.  **Check Internet connection**
 
     Visit [google.com/ncr](https://google.com/ncr) on the browser
-    <!-- ( **GUI** - Graphical User Interface ) -->
 
 1.  **Configure network proxy on CLI** - Command Line Interface
 
@@ -158,12 +157,12 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
         curl: (56) Recv failure: Connection reset by peer
         ```
 
-## Homebrew & Homebrew Cask
+## Homebrew & Homebrew-Cask
 
 [Homebrew](https://brew.sh) is a macOS package manager
 for installing and managing softwares
 
-[Homebrew-Cask](https://formulae.brew.sh/cask/) extends Homebrew and allows you to install the large binary files via a command-line tool.
+[Homebrew-Cask](https://formulae.brew.sh/cask/) extends Homebrew and allows you to install the large binary files via a command-line tool
 
 1.  **Install**
 
@@ -193,9 +192,11 @@ for installing and managing softwares
     brew update && brew upgrade
     ```
 
-NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh).
+NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh)
 
 ## Install GUI Softwares
+
+GUI - Graphical User Interface
 
 RECOMMEND to install the GUI softwares via Homebrew-Cask
 
@@ -209,7 +210,6 @@ Install the required softwares via Homebrew-Cask
 brew install --cask \
     google-chrome \
     iterm2 \
-    itsycal \
     karabiner-elements \
     keyboard-maestro \
     snipaste \
@@ -219,13 +219,13 @@ brew install --cask \
 ```
 
 NOTICE : The installations may REQUIRE you to input PASSWORD,
-e.g. `karabiner-elements`, `microsoft-office`, `parallels`, `wireshark` and etc.
+e.g. `karabiner-elements`
 
 #### Mac App Store
 
 Install the required softwares via Mac App Store
 
-Note : The softwares unavailable on Homebrew-Cask may be available on Mac App Store.
+Note : The softwares unavailable on Homebrew-Cask may be available on Mac App Store
 
 - 1Password - _done above_
 - Copy 'Em
@@ -234,14 +234,14 @@ Note : The softwares unavailable on Homebrew-Cask may be available on Mac App St
 
 #### Websites
 
-Note : Some softwares are only available on the websites.
+Note : Some softwares are only available on the websites
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - TODO : Wait for the Logi Option+ public release
+- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release_
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
 
-NOTE : `brew install --cask sublime-text` will install the latest version, but the author still stick on version 3 ( that the author have already bought and it meets my requirements ) and don't want to pay for the new version.
+NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3 ( that I have already bought and it meets my requirements ) and don't want to pay for the new version
 
 ### Optional
 
@@ -255,6 +255,7 @@ brew install --cask \
     docker \
     iina \
     imageoptim \
+    itsycal \
     jetbrains-toolbox \
     kindle \
     linear \
@@ -265,6 +266,7 @@ brew install --cask \
     numi \
     parallels \
     postman \
+    qq \
     qqmusic \
     sequel-pro \
     slack \
@@ -273,7 +275,10 @@ brew install --cask \
     wireshark
 ```
 
-TODO: Do it IN PARALLEL?
+NOTICE : The installations may REQUIRE you to input PASSWORD,
+e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
+
+TODO: Do it IN PARALLEL ?
 
 ## Install CLI Softwares
 
@@ -306,9 +311,9 @@ brew install libtool \
     && brew link --overwrite graphviz
 ```
 
-NOTE : The pre-installed softwares may be outdated.
+NOTE : The pre-installed softwares may be outdated
 
-RECOMMEND to install and upgrade them via Homebrew again.
+RECOMMEND to install and upgrade them via Homebrew again
 
 ---
 
@@ -320,15 +325,16 @@ NOTE : Why I need them ?
     Include many useful commands, see TOC of
     [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
 
-    e.g., use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
+    e.g. use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
     to get absolute path to a file or directory.
 
--   [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x) :
-    For `tmux` to write and read system clipboard
+-   `tmux` requires [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
+    to write and read the system clipboard
 
     Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
 
 -   PlantUML require [GraphViz](https://plantuml.com/zh/graphviz-dot)
+    to write UML diagrams
 
     ```bash
     brew install libtool
@@ -337,14 +343,14 @@ NOTE : Why I need them ?
     brew link --overwrite graphviz
     ```
 
-    NOTE : This could fix issues if you have installed GraphViz as `.dmg` package.
+    NOTE : This could fix issues if you have installed GraphViz as `.dmg` package
+
+    You can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable
 
     By default, the dot executable is expected :
 
     - Firstly in : `/usr/local/bin/dot`
     - Then in : `/usr/bin/dot`
-
-    You can also specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
 
 ### Optional
 
@@ -370,45 +376,46 @@ brew install \
 
 ## CLI Preferences
 
-CLI - Command Line Interface
-
 ### GitHub Keys
 
-#### GPG Key
-
-Use GPG to sign tags and commits locally.
-
-- These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source.
-
-How to :
-
-1.  Generate the GPG key pair
-
-    Reference : [Generating a new GPG key - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
-
-1.  Get the GPG pulic key
-
-    Reference : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
-
-1.  Add the GPG key to the GitHub/GitLab/etc. accounts
-
-    Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
+GitLab keys ditto
 
 #### SSH Key
 
-Using the SSH protocol, you can connect and authenticate to remote servers and services.
+Using the SSH protocol, you can connect and authenticate to remote servers and services
 
-- With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit.
+- With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit
 
 How to :
 
-1.  Generate the SSH key pair
+1.  **Generate** the SSH key pair
 
     Reference : [Generating a new SSH key and adding it to the ssh-agent - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-1.  Get the SSH public key and Add it to the GitHub/GitLab/etc. accounts
+1.  **Get** the SSH public key and
+    **Add** it to the GitHub accounts
 
     Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+#### GPG Key
+
+Use GPG to sign tags and commits locally
+
+- These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source
+
+How to :
+
+1.  **Generate** the GPG key pair
+
+    Reference : [Generating a new GPG key - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
+1.  **Get** the GPG pulic key
+
+    Reference : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
+
+1.  **Add** the GPG key to the GitHub accounts
+
+    Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
 ### Dotfiles
 
@@ -422,13 +429,57 @@ git pull origin master
 git branch --set-upstream-to=origin/master master
 ```
 
+#### Git
+
+How to configure :
+
+-   A. Synchronize the settings via the configuration files from the dotfiles above - recommended
+
+    e.g.
+
+    - `~/.gitconfig`
+    - `~/.gitignore`
+    - `~/.gitignore_global`
+    - …
+
+-   B. Or execute the commands
+
+    e.g. for me :
+
+    1. Add the common configurations
+
+        ```bash
+        git config --global user.name IceHe.xyz
+        git config --global user.email icehe.me@qq.com
+        ```
+
+    2. Add the GPG configurations
+
+        ```bash
+        git config --global user.signingkey [SIGNING_KEY]
+        git config --global commit.gpgsign true
+        ```
+
+    3. Check the configurations
+
+        ```bash
+        $ git config --global -l
+        # e.g.
+        user.name=IceHe.xyz
+        user.email=icehe@qq.com
+        user.signingkey=[SIGNING_KEY]
+        commit.gpgsign=true
+        gpg.program=gpg
+        …
+        ```
+
 #### Oh My Zsh
 
-1. Install
+1.  **Install**
 
     Reference : [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
-1.  Synchronize the settings
+1.  **Synchronize** the settings
 
     via the configuration file `~/.zshrc` from the dotfiles above.
 
@@ -455,45 +506,6 @@ Reference :
 
 -->
 
-#### Git
-
-Synchronize the settings via the configuration files from the dotfiles above.
-e.g. :
-
-- `~/.gitconfig`
-- `~/.gitignore`
-- `~/.gitignore_global`
-- …
-
-Or configure git via commands, e.g. for the author :
-
-1. Add the common configurations
-
-    ```bash
-    git config --global user.name IceHe.xyz
-    git config --global user.email icehe.me@qq.com
-    ```
-
-2. Add the GPG configurations
-
-    ```bash
-    git config --global user.signingkey [SIGNING_KEY]
-    git config --global commit.gpgsign true
-    ```
-
-3. Check the configurations
-
-    ```bash
-    $ git config --global -l
-    # e.g.
-    user.name=IceHe.xyz
-    user.email=icehe@qq.com
-    user.signingkey=[SIGNING_KEY]
-    commit.gpgsign=true
-    gpg.program=gpg
-    …
-    ```
-
 ## GUI Preferences
 
 GUI - Graphical User Interface
@@ -502,7 +514,7 @@ Include the development configurations on local and remote machines
 
 ### System
 
-#### Bottom Dock
+#### Dock at the bottom
 
 - Disable all softwares `Options` → `Keep in Dock`
 
@@ -513,27 +525,35 @@ Include the development configurations on local and remote machines
 
 #### Keyboard
 
-`Keyboard` Tab
+-   `Keyboard` Tab
 
-- Set `Delay Until Repeat` max
-- Set `Key Repeat` max
-- Enable `Use F1, F2, etc. keys as standard function keys`
+    - Set `Delay Until Repeat` max
+    - Set `Key Repeat` max
+    - Enable `Use F1, F2, etc. keys as standard function keys`
 
-`Text` Tab
+-   `Text` Tab
 
-- Clear all `Replace With`
-- Clear all checkboxes
+    - Clear all `Replace With`
+    - Clear all checkboxes
 
-`Shortcuts` Tab
+-   `Shortcuts` Tab
 
-- Add/Update `App Shortcuts`
-    - `All Applications` → `Show Help menu` ⌥ ⇧ /
-    - `Google Chrome` → `Duplicate Tab` ⇧ ⌘ D
-    - `iTerm` → `Toggle Full Screen` ⇧ ⌘ F
+    - Add/Update `App Shortcuts`
+        - `All Applications` → `Show Help menu` ⌥ ⇧ /
+        - `Google Chrome` → `Duplicate Tab` ⇧ ⌘ D
+        - `iTerm` → `Toggle Full Screen` ⇧ ⌘ F
 
-`Input Sources` Tab
+-   `Input Sources` Tab
 
-- Remove the useless input sources
+    - Remove the useless input sources
+
+#### Trackpad
+
+- Set `Tracking speed` Max
+
+#### Notification
+
+- Disable the useless softwares notifications on demand
 
 #### Key Repeat
 
@@ -552,17 +572,7 @@ How to enable :
     - [Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)
     - [OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
 
-#### Others
-
-Trackpad
-
-- Set `Tracking speed` Max
-
-Notification
-
-- Disable the useless softwares notifications on demand
-
-### softwares
+### Softwares
 
 #### Chrome
 
@@ -606,7 +616,7 @@ TODO: The last step may be unnecessary, because the settings can be synchorized 
 #### Karabiner-Elements
 
 1. Synchronize the settings via the configuration file
-    `~/.config/karabiner/karabiner.json` from the dotfiles above
+    `~/.config/karabiner/karabiner.json` from the dotfiles - done above
 
 #### Keyboard Maestro
 
@@ -633,6 +643,8 @@ TODO: The last step may be unnecessary, because the settings can be synchorized 
 
 #### Sublime Text
 
+TODO ?
+
 1. update user settings as below :
 
     ```json
@@ -649,7 +661,7 @@ TODO: The last step may be unnecessary, because the settings can be synchorized 
 
 1. Install plugin `Pretty JSON`
 
-1. Set the license ( optional )
+1. **Set the license** - optional
 
     1. _`Help` → `Enter License`_
     1. _Input the license key_
@@ -773,11 +785,11 @@ JDK - Java Development Kit
     export JAVA_HOME=`/usr/libexec/java_home -v 8`
     ```
 
-    - If `~/.zshrc` doesn't exists, create it.
-    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`.
+    - If `~/.zshrc` doesn't exists, create it
+    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
 
-NOTE : The tilde symbol `~` equals the path of the current user's home directory.
-e.g. for me `/Users/IceHe`.
+NOTE : The tilde symbol `~` equals the path of the current user's home directory
+e.g. for me `/Users/icehe`
 
 e.g. get the path of JDK 8 :
 
@@ -863,7 +875,7 @@ $ /usr/libexec/java_home -v 1.8
 
 #### Maven
 
-1.  Install [Apache Maven](https://maven.apache.org/) ( `mvn` )
+1.  Install [Apache Maven](https://maven.apache.org/) - `mvn`
 
     ```bash
     brew install maven
