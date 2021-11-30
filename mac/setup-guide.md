@@ -275,128 +275,6 @@ NOTE : Why I need them ?
 
 Install the optional CLI softwares via Homebrew
 
-#### Node.js
-
-1.  **Install [Node Version Manager](https://github.com/nvm-sh/nvm)** - `nvm`
-
-    ```bash
-    $ brew install nvm
-
-    # e.g. output
-    ==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/nvm-0.39.0.all.bottle.tar.gz
-    Already downloaded: /Users/icehe/Library/Caches/Homebrew/downloads/4dc7eceb4921b8909c081af037518450c6e85151603a6f51695bf17bab3081f5--nvm-0.39.0.all.bottle.tar.gz
-    ==> Reinstalling nvm
-    ==> Pouring nvm-0.39.0.all.bottle.tar.gz
-    ==> Caveats
-    Please note that upstream has asked us to make explicit managing
-    nvm via Homebrew is unsupported by them and you should check any
-    problems against the standard nvm install method prior to reporting.
-
-    You should create NVM's working directory if it doesn't exist:
-
-    mkdir ~/.nvm
-
-    Add the following to ~/.zshrc or your desired shell
-    configuration file:
-
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-    You can set $NVM_DIR to any location, but leaving it unchanged from
-    /opt/homebrew/opt/nvm will destroy any nvm-installed Node installations
-    upon upgrade/reinstall.
-
-    Type `nvm help` for further information.
-    ```
-
-    Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-1.  **Preapre** the environment
-
-    e.g. follow the PROMPT from the `brew install nvm` output above
-
-    1.  Create NVM's working directory if it doesn't exist :
-
-        ```bash
-        mkdir ~/.nvm
-        ```
-
-    1.  Just execute the following commands for now - recommended
-
-        _or Add the following commands to `~/.zshrc` or your desired shell configuration file :_
-
-        ```bash
-        export NVM_DIR="$HOME/.nvm"
-        # Loads nvm
-        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-        # Loads nvm bash_completion
-        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-        ```
-
-1.  **Install [Node.js](https://nodejs.org/en/)** - `node`, e.g.
-
-    ```bash
-    nvm install node
-    node -v
-    nvm install 16
-    ```
-
-    RECOMMEND to install the Node.js of version **16** ( on 2021-11-30 )
-
-    Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
-
-1.  **Check** the versions, e.g.
-
-    ```bash
-    $ nvm -v
-    0.39.0
-    $ node -v
-    v16.13.0
-    ```
-
-#### JDK
-
-JDK - Java Development Kit
-
-1.  **Install JDK** via [SDKMAN!](https://sdkman.io)
-
-    _or Download the installation from the official website : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)_
-
-    RECOMMEND to install the JDK of version **8** ( on 2021-01-01 )
-
-    1.  Install SDKMAN!
-
-        Reference : [Installation - SDKMAN!](https://sdkman.io/install)
-
-    2.  Install JDK via SDKMAN!
-
-        Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
-
-1.  **Set the environment variable `JAVA_HOME`**
-
-    Append the command below to the file `~/.zshrc` :
-
-    ```bash
-    export JAVA_HOME=`/usr/libexec/java_home -v 8`
-    ```
-
-    - If `~/.zshrc` doesn't exists, create it
-    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
-
-    NOTE : The tilde symbol `~` equals the path of the current user's home directory
-    e.g. for me `/Users/icehe`
-
-    e.g. get the path of JDK 8 :
-
-    ```bash
-    $ /usr/libexec/java_home -v 1.8
-    # e.g.
-    /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
-    ```
-
-#### Others
-
 ```bash
 brew install \
     elasticsearch \
@@ -908,6 +786,62 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 
 ### Java
 
+#### JDK
+
+JDK - Java Development Kit
+
+1.  **Install** JDK via [SDKMAN!](https://sdkman.io)
+
+    RECOMMEND to install the JDKs of version **8**, **11** and the latest LTS **17** ( on 2021-01-01 )
+
+    -   A.  via Homebrew
+
+        ```bash
+        brew install openjdk
+        brew install openjdk@8
+        brew install openjdk@11
+        ```
+
+    -   B.  via SDKMAN!
+
+        1.  **Install SDKMAN!**
+
+            Reference : [Installation - SDKMAN!](https://sdkman.io/install)
+
+        2.  **Install JDK** via SDKMAN!
+
+            Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
+
+            ```bash
+            sdk install java
+            ```
+
+    -   C. Download the installation from the official website
+
+        Reference : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)
+
+1.  **Set the environment variable `JAVA_HOME`**
+
+    Append the command below to the file `~/.zshrc` :
+
+    ```bash
+    export JAVA_HOME=`/usr/libexec/java_home -v 8`
+    ```
+
+    - If `~/.zshrc` doesn't exists, create it
+    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
+
+    NOTE : The tilde symbol `~` equals the path of the current user's home directory
+    e.g. for me `/Users/icehe`
+
+    e.g. get the path of JDK 8 :
+
+    ```bash
+    $ /usr/libexec/java_home -v 1.8
+    # e.g.
+    /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
+    ```
+
 #### IntelliJ IDEA
 
 1.  Download the [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) on the [offical website](https://www.jetbrains.com/idea/)
@@ -1012,11 +946,85 @@ CLI
 brew install node
 ```
 
-#### CLI
+#### Node.js
 
-1. install nvm
-1. install node via nvm
-1. project
+1.  **Install [Node Version Manager](https://github.com/nvm-sh/nvm)** - `nvm`
+
+    ```bash
+    $ brew install nvm
+
+    # e.g. output
+    ==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/nvm-0.39.0.all.bottle.tar.gz
+    Already downloaded: /Users/icehe/Library/Caches/Homebrew/downloads/4dc7eceb4921b8909c081af037518450c6e85151603a6f51695bf17bab3081f5--nvm-0.39.0.all.bottle.tar.gz
+    ==> Reinstalling nvm
+    ==> Pouring nvm-0.39.0.all.bottle.tar.gz
+    ==> Caveats
+    Please note that upstream has asked us to make explicit managing
+    nvm via Homebrew is unsupported by them and you should check any
+    problems against the standard nvm install method prior to reporting.
+
+    You should create NVM's working directory if it doesn't exist:
+
+    mkdir ~/.nvm
+
+    Add the following to ~/.zshrc or your desired shell
+    configuration file:
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+    You can set $NVM_DIR to any location, but leaving it unchanged from
+    /opt/homebrew/opt/nvm will destroy any nvm-installed Node installations
+    upon upgrade/reinstall.
+
+    Type `nvm help` for further information.
+    ```
+
+    Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+1.  **Preapre** the environment
+
+    e.g. follow the PROMPT from the `brew install nvm` output above
+
+    1.  Create NVM's working directory if it doesn't exist :
+
+        ```bash
+        mkdir ~/.nvm
+        ```
+
+    1.  Just execute the following commands for now - recommended
+
+        _or Add the following commands to `~/.zshrc` or your desired shell configuration file :_
+
+        ```bash
+        export NVM_DIR="$HOME/.nvm"
+        # Loads nvm
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+        # Loads nvm bash_completion
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+        ```
+
+1.  **Install [Node.js](https://nodejs.org/en/)** - `node`, e.g.
+
+    ```bash
+    nvm install node
+    node -v
+    nvm install 16
+    ```
+
+    RECOMMEND to install the Node.js of version **16** ( on 2021-11-30 )
+
+    Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
+
+1.  **Check** the versions, e.g.
+
+    ```bash
+    $ nvm -v
+    0.39.0
+    $ node -v
+    v16.13.0
+    ```
 
 #### WebStorm
 
