@@ -79,7 +79,7 @@ e.g. [1Password](https://1password.com/)
 
     - or **Load** the vaults on iCloud
 
-Others : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)
+_Related : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)_
 
 ### Network Proxy
 
@@ -255,33 +255,48 @@ Install the optional GUI softwares via Homebrew-Cask
     brew install --cask \
         appcleaner \
         bartender \
-        docker \
         iina \
         imageoptim \
         itsycal \
-        jetbrains-toolbox \
+        monitorcontrol \
+        numi \
+        qq
+    ```
+
+-   Entertainment
+
+    ```bash
+    brew install --cask \
         kindle \
+        neteasemusic \
+        parallels \
+        qqmusic \
+        steam \
+        thunder
+    ```
+
+-   Office
+
+    ```bash
+    brew install --cask \
         linear \
         microsoft-office \
-        monitorcontrol \
-        neteasemusic \
         notion \
-        numi \
-        parallels \
-        postman \
-        qq \
-        qqmusic \
-        sequel-pro \
-        slack \
-        tableplus \
-        thunder \
-        wireshark
-
-    brew install --cask \
-        charles \
+        slack
     ```
 
 -   Development
+
+    ```bash
+    brew install --cask \
+        charles \
+        docker \
+        jetbrains-toolbox \
+        postman \
+        sequel-pro \
+        tableplus \
+        wireshark
+    ```
 
 NOTICE : The installations may REQUIRE you to input PASSWORD,
 e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
@@ -909,13 +924,19 @@ CLI
 brew install node
 ```
 
+#### CLI
+
+1. install nvm
+1. install node via nvm
+1. project
+
 #### WebStorm
+
+TODO : Synchroize the preferences with the GitHub repository
 
 References
 
 - [How to make WebStorm format code according to eslint? - Stack Overflow](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint)
-
-TODO
 
 ### Android - Kotlin
 
@@ -929,4 +950,4 @@ brew install \
 
 #### AndroidStudio
 
-TODO
+TODO : Synchroize with the GitHub repository
