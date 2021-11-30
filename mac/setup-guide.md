@@ -324,8 +324,7 @@ Install the optional CLI softwares via Homebrew
 
     1.  Just execute the following commands for now - recommended
 
-        Or Add the following commands to `~/.zshrc` or your desired shell configuration file :
-
+        _or Add the following commands to `~/.zshrc` or your desired shell configuration file :_
 
         ```bash
         export NVM_DIR="$HOME/.nvm"
@@ -343,7 +342,7 @@ Install the optional CLI softwares via Homebrew
     nvm install 16
     ```
 
-    RECOMMEND to install the version **16** ( on 2021-11-30 )
+    RECOMMEND to install the Node.js of version **16** ( on 2021-11-30 )
 
     Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
 
@@ -360,7 +359,35 @@ Install the optional CLI softwares via Homebrew
 
 JDK - Java Development Kit
 
-- `sdkman` : install `jdk` via `sdk` ?
+1.  **Install** via [SDKMAN!](https://sdkman.io)
+
+    _or Download the installation from the official website : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)_
+
+    RECOMMEND to install the JDK of version **8** ( on 2021-01-01 )
+
+    1.
+
+1.  **Set the environment variable `JAVA_HOME`**
+
+    Append the command below to the file `~/.zshrc` :
+
+    ```bash
+    export JAVA_HOME=`/usr/libexec/java_home -v 8`
+    ```
+
+    - If `~/.zshrc` doesn't exists, create it
+    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
+
+    NOTE : The tilde symbol `~` equals the path of the current user's home directory
+    e.g. for me `/Users/icehe`
+
+    e.g. get the path of JDK 8 :
+
+    ```bash
+    $ /usr/libexec/java_home -v 1.8
+    # e.g.
+    /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
+    ```
 
 #### Others
 
@@ -874,41 +901,6 @@ Copy and paste _( if cannot synchronize this setting, configure it manually )_
 ## Development
 
 ### Java
-
-#### JDK
-
-JDK - Java Development Kit
-
-1.  Download [JDK 8 binary installation package](https://www.oracle.com/hk/java/technologies/javase/javase-jdk8-downloads.html)
-    for macOS on the offical website
-
-    RECOMMEND to install the version **8** ( until 2021-01-01 )
-
-    _Optional installation : [SDKMAN!](https://sdkman.io)_
-
-1.  Install
-
-1.  Set the environment variable `JAVA_HOME`
-
-    Append the command below to the file `~/.zshrc` :
-
-    ```bash
-    export JAVA_HOME=`/usr/libexec/java_home -v 8`
-    ```
-
-    - If `~/.zshrc` doesn't exists, create it
-    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
-
-NOTE : The tilde symbol `~` equals the path of the current user's home directory
-e.g. for me `/Users/icehe`
-
-e.g. get the path of JDK 8 :
-
-```bash
-$ /usr/libexec/java_home -v 1.8
-# e.g.
-/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
-```
 
 #### IntelliJ IDEA
 
