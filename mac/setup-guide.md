@@ -300,12 +300,35 @@ RECOMMEND to install the GUI softwares via Homebrew-Cask
 
 Install the required GUI softwares via Homebrew-Cask
 
-```bash
-brew install --cask \
-    google-chrome \
-    karabiner-elements \
-    keyboard-maestro
-```
+-   First
+
+    ```bash
+    brew install --cask \
+        google-chrome \
+        karabiner-elements \
+        keyboard-maestro \
+        wechat
+    ```
+
+-   Later
+
+    ```bash
+    brew install --cask \
+        appcleaner \
+        bartender \
+        imageoptim \
+        iterm2 \
+        itsycal \
+        kindle \
+        monitorcontrol \
+        neteasemusic \
+        numi \
+        qq \
+        qqmusic \
+        snipaste \
+        ticktick \
+        visual-studio-code
+    ```
 
 NOTICE : The installations may REQUIRE you to input PASSWORD,
 e.g. `karabiner-elements`
@@ -337,33 +360,12 @@ Because I have already bought Sublime Text 3 and it meets my requirements, I don
 
 Install the optional GUI softwares via Homebrew-Cask
 
--   Auxiliary
-
-    ```bash
-    brew install --cask \
-        appcleaner \
-        bartender \
-        imageoptim \
-        itsycal \
-        monitorcontrol \
-        numi \
-        qq \
-        snipaste \
-        ticktick \
-        wechat
-    ```
-
--   Personal
-
 -   Entertainment
 
     ```bash
     brew install --cask \
         iina \
-        kindle \
-        neteasemusic \
         parallels \
-        qqmusic \
         steam \
         thunder
     ```
@@ -374,12 +376,10 @@ Install the optional GUI softwares via Homebrew-Cask
     brew install --cask \
         charles \
         docker \
-        iterm2 \
         jetbrains-toolbox \
         postman \
         sequel-pro \
         tableplus \
-        visual-studio-code \
         wireshark
     ```
 
