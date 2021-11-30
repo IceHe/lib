@@ -12,7 +12,7 @@ Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 **Based on macOS**
 
-- The guide has been recently used on 2021/11/30
+- The guide has been recently used on 2021-11-30
     - Mac version : Macbook Pro 2021 with M1 Pro
     - macOS version : **Monterey - 12.0.1** on
 
@@ -166,6 +166,11 @@ for installing and managing softwares
 
 [Homebrew-Cask](https://formulae.brew.sh/cask/) extends Homebrew and allows you to install the large binary files via a command-line tool
 
+NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh)
+
+- CLI softwares : [Formula](https://formulae.brew.sh/formula/) - a listing of all packages available from the **core** tap
+- GUI softwares : [Cask](https://formulae.brew.sh/cask) - a listing of all casks available from the **cask** tap
+
 1.  **Install**
 
     How to :
@@ -177,6 +182,8 @@ for installing and managing softwares
 1.  **Check**
 
     ```bash
+    $ brew -v
+    # or
     $ brew --version
     # e.g.
     Homebrew 3.3.5
@@ -193,8 +200,6 @@ for installing and managing softwares
     ```bash
     brew update && brew upgrade
     ```
-
-NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh)
 
 ## Install CLI Softwares
 
@@ -227,9 +232,8 @@ brew install libtool \
     && brew link --overwrite graphviz
 ```
 
-NOTE : The pre-installed softwares may be outdated
-
-RECOMMEND to install and upgrade them via Homebrew again
+NOTE : The pre-installed softwares may be outdated,
+so RECOMMEND to install and upgrade them via Homebrew again
 
 ---
 
@@ -247,7 +251,7 @@ NOTE : Why I need them ?
 -   `tmux` requires [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
     to write and read the system clipboard
 
-    Reattach to the per-user bootstrap namespace in its "Background" session then exec the program with args.
+    Reattach to the per-user bootstrap namespace in its "Background" session then execute the program with arguments.
 
 -   PlantUML require [GraphViz](https://plantuml.com/zh/graphviz-dot)
     to write UML diagrams
@@ -261,8 +265,7 @@ NOTE : Why I need them ?
 
     NOTE : This could fix issues if you have installed GraphViz as `.dmg` package
 
-    You can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable
-
+    You can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
     By default, the dot executable is expected :
 
     - Firstly in : `/usr/local/bin/dot`
@@ -270,7 +273,37 @@ NOTE : Why I need them ?
 
 ### Optional
 
-Install the optional softwares via Homebrew
+Install the optional CLI softwares via Homebrew
+
+#### Node.js
+
+1.  Install [Node Version Manager](https://github.com/nvm-sh/nvm) - `nvm`
+
+    ```bash
+    brew install nvm
+    ```
+
+    Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+2.  Install [Node.js](https://nodejs.org/en/) - `node`
+
+    ```bash
+    nvm install node
+    nvm install 16
+    nvm use 16
+    ```
+
+    RECOMMEND to install the version 16 ( on 2021-11-30 )
+
+    Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
+
+#### JDK
+
+JDK - Java Development Kit
+
+- `sdkman` : install `jdk` via `sdk` ?
+
+#### Others
 
 ```bash
 brew install \
@@ -278,17 +311,12 @@ brew install \
     mysql@5.7 \
     mysql \
     nginx \
-    node \
+    php \
     postgresql \
     python \
     redis \
     ruby
 ```
-
-**Others** : TODO
-
-- `nvm` : install `node ` via `nvm` ?
-- `sdkman` : install `jdk` via `sdk` ?
 
 ## Install GUI Softwares
 
@@ -795,7 +823,7 @@ JDK - Java Development Kit
 1.  Download [JDK 8 binary installation package](https://www.oracle.com/hk/java/technologies/javase/javase-jdk8-downloads.html)
     for macOS on the offical website
 
-    RECOMMEND to install the version **8** ( until 2021-01-01 ) .
+    RECOMMEND to install the version **8** ( until 2021-01-01 )
 
     _Optional installation : [SDKMAN!](https://sdkman.io)_
 
