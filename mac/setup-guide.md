@@ -277,25 +277,84 @@ Install the optional CLI softwares via Homebrew
 
 #### Node.js
 
-1.  Install [Node Version Manager](https://github.com/nvm-sh/nvm) - `nvm`
+1.  **Install [Node Version Manager](https://github.com/nvm-sh/nvm)** - `nvm`
 
     ```bash
-    brew install nvm
+    $ brew install nvm
+
+    # e.g. output
+    ==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/nvm-0.39.0.all.bottle.tar.gz
+    Already downloaded: /Users/icehe/Library/Caches/Homebrew/downloads/4dc7eceb4921b8909c081af037518450c6e85151603a6f51695bf17bab3081f5--nvm-0.39.0.all.bottle.tar.gz
+    ==> Reinstalling nvm
+    ==> Pouring nvm-0.39.0.all.bottle.tar.gz
+    ==> Caveats
+    Please note that upstream has asked us to make explicit managing
+    nvm via Homebrew is unsupported by them and you should check any
+    problems against the standard nvm install method prior to reporting.
+
+    You should create NVM's working directory if it doesn't exist:
+
+    mkdir ~/.nvm
+
+    Add the following to ~/.zshrc or your desired shell
+    configuration file:
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+    You can set $NVM_DIR to any location, but leaving it unchanged from
+    /opt/homebrew/opt/nvm will destroy any nvm-installed Node installations
+    upon upgrade/reinstall.
+
+    Type `nvm help` for further information.
     ```
 
     Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-2.  Install [Node.js](https://nodejs.org/en/) - `node`
+1.  **Preapre** the environment
+
+    e.g. follow the PROMPT from the `brew install nvm` output above
+
+    1.  Create NVM's working directory if it doesn't exist :
+
+        ```bash
+        mkdir ~/.nvm
+        ```
+
+    1.  Just execute the following commands for now - recommended
+
+        Or Add the following commands to `~/.zshrc` or your desired shell configuration file :
+
+
+        ```bash
+        export NVM_DIR="$HOME/.nvm"
+        # Loads nvm
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+        # Loads nvm bash_completion
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+        ```
+
+1.  **Install [Node.js](https://nodejs.org/en/)** - `node`, e.g.
 
     ```bash
     nvm install node
+    node -v
     nvm install 16
-    nvm use 16
     ```
 
-    RECOMMEND to install the version 16 ( on 2021-11-30 )
+    RECOMMEND to install the version **16** ( on 2021-11-30 )
 
     Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
+
+1.  **Check** the versions, e.g.
+
+    ```bash
+    $ nvm -v
+    0.39.0
+    $ node -v
+    v16.13.0
+    ```
 
 #### JDK
 
@@ -334,7 +393,7 @@ Install the required GUI softwares via Homebrew-Cask
 brew install --cask \
     google-chrome \
     karabiner-elements \
-    keyboard-maestro \
+    keyboard-maestro
 ```
 
 NOTICE : The installations may REQUIRE you to input PASSWORD,
