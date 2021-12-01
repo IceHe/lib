@@ -569,7 +569,7 @@ Open `System Preferences`
 
 #### Battery
 
-NOTE : Revert the battery settings changed above back to the defaults
+NOTE : Revert the battery settings changed above back to the **default values**
 
 -   `Battery` Tab
 
@@ -610,7 +610,7 @@ NOTE : Revert the battery settings changed above back to the defaults
 
 -   `Shortcuts` Tab
 
-    - Add/Update `App Shortcuts`
+    - Add / Update `App Shortcuts`
         - `Google Chrome` → `Duplicate Tab` ⇧ ⌘ D
         - `iTerm` → `Toggle Full Screen` ^ ⌘ F
 
@@ -630,7 +630,7 @@ NOTE : Revert the battery settings changed above back to the defaults
 
 How to disable `Character Accents Popup` and enable `Key Repeat` :
 
-1. Set via the command :
+1. Enable `Key Repeat` via the command :
 
     ```bash
     defaults write -g ApplePressAndHoldEnabled -bool false
