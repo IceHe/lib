@@ -358,7 +358,7 @@ Install the required GUI softwares via Homebrew-Cask
         visual-studio-code
     ```
 
-NOTICE : The installations may REQUIRE you to input PASSWORD,
+NOTICE : The installations may REQUIRE you to enter PASSWORD,
 e.g. `karabiner-elements`
 
 #### Mac App Store
@@ -421,7 +421,7 @@ Install the optional GUI softwares via Homebrew-Cask
         slack
     ```
 
-NOTICE : The installations may REQUIRE you to input PASSWORD,
+NOTICE : The installations may REQUIRE you to enter PASSWORD,
 e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ## CLI Preferences
@@ -540,13 +540,13 @@ e.g. for me
 
     Reference : [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
-1.  Synchronize zsh settings
+1.  Synchronize zsh settings - automatically via the dotfiles above
 
-    via the configuration file `~/.zshrc` from the dotfiles above
+    i.e. the configuration file `~/.zshrc` from the dotfiles above
 
 1.  Install the plugin `zsh-autosuggestion`
 
-    via the git command
+    via the git command :
 
     ```bash
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -669,7 +669,7 @@ All the softwares appeared
 
 -   `Input Sources` Tab
 
-    - Remove the unused input sources
+    - Clear the unused input sources
 
 #### Key Repeat
 
@@ -715,15 +715,15 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
     `Chrome` menubar → `Window` → `Extensions` → Sidebar on the left → `Open Chrome Web Store`
 
-    -   [1Password](https://agilebits.com/browsers/welcome.html) : Password manager
-    -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
-    -   [Chrono Download](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn) : Download and manage the web
-    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : Reduce tab clutter
+    -   [1Password](https://agilebits.com/browsers/welcome.html) : password manager
+    -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : manage and switch between multiple proxies quickly & easily
+    -   [Chrono Download](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn) : download and manage the web
+    -   [OneTab](https://chrome.google.com/webstore/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall) : reduce tab clutter
         If open too many tabs, stash them in OneTab to save memory space and visible screen area
-    -   [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : A lightweight AD blocker
-    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim
-    -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
-    -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application
+    -   [uBlock Origin](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm) : a lightweight AD blocker
+    -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : provide keyboard shortcuts for navigation and control in the spirit of Vim
+    -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : make JSON easy to read
+    -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : containing the excellent ElasticSearch Head application
 
 1.  Synchronize the extension `Proxy SwitchyOmega` settings
 
@@ -745,84 +745,86 @@ Reference : Search "macos keyboard cannot repeat" on Google
         - `⇧ ⌘ O` Activate the extension
         - `⇧ ⌘ S` DiSplay / Show OneTab
         - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
-    - Edit required shortcuts  and remove uncessary ones
+    - Edit required shortcuts and Clear uncessary ones
 
 #### Sogou Input
 
 1. Login via the WeChat acount
 1. Menubar → `Input menu` → `搜狗拼音` → `偏好设置` → `同步` → `配置同步` → `下载配置`
 1. Add `Sogou Input` in `System Preferences` → `Keyboard` → `Input Sources`
-1. Remove the Input methods except `ABC` and `搜狗拼音`
+1. Clear the input methods except `ABC` and `搜狗拼音`
 
 #### Karabiner-Elements
 
 1. Synchronize the settings via the configuration file
-    `~/.config/karabiner/karabiner.json` from the dotfiles - done above
+    `~/.config/karabiner/karabiner.json` - automatically via the dotfiles above
 
 #### Keyboard Maestro
 
-1.  Set the license
+1.  Enter the license
+
     1. `Keyboard Maestro` → `Register Keyboard Maestro…`
-    1. Input Username and Password
+    1. Enter `Email` and `License key`
+
 1.  Synchronize the macros
+
     1.  `File` → `Start Syncing Macros…` → `Open Existing…`
-    1.  Select the configuration file
-        `~/.config/Keyboard Maestro Macros.kmsync`
-        from the dotfiles above
+    1.  Choose the configuration file
+        `~/.config/Keyboard Maestro Macros.kmsync` from the dotfiles above
 
 #### Visual Studio Code
 
 1.  Synchronize the settings via the built-in feature [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
+
     -   Sign in with GitHub
-1.  Synchronize the extensions - usually automatically
+
+1.  Synchronize the extensions - automatically
 
     or do it manually if `Settings Sync` does not work well
 
-    -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
+    -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         -   [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
     -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : support [PlatUML](http://plantuml.com/) - `\*.puml` files
-        -   Trouble Shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )
-    -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
+        -   Trouble-shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) to provide `dot` program
+    -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : emulator for editing text like Vim
+    -   …
 
 #### Sublime Text
 
-1.  Open the `Preferences.sublime-settings` of the User
+1.  Configure
 
-    via the shortcut `⌘ ,`
+    1.  Press the shortcut  `⌘ ,` to open `Preferences.sublime-settings` of the User
+    1.  Edit the content as below :
 
-1.  Update the `Preferences.sublime-settings` of the User as below :
-
-    ```json
-    {
-        "ignored_packages": [],
-        "tab_size": 4,
-        "translate_tabs_to_spaces": true,
-        "update_check": false,
-        "vintage_use_clipboard": true
-    }
-    ```
+        ```json
+        {
+            "ignored_packages": [],
+            "tab_size": 4,
+            "translate_tabs_to_spaces": true,
+            "update_check": false,
+            "vintage_use_clipboard": true
+        }
+        ```
 
 1.  Install `Package Control` - optional
 
-    via the shortcut `⇧ ⌘ P`
+    1. Press the shortcut `⇧ ⌘ P`
+    1. Search `install`
+    1. Select `Install Package Control` to install
 
-    1. Search `install` …
-    1. Select `Install Package Control`
+1.  Install the package `Pretty JSON` - optional
 
-1.  Install the plugin `Pretty JSON` - optional
-
-    via the shortcut `⇧ ⌘ P`
-
-    1. Search `install` …
+    1. Press the shortcut `⇧ ⌘ P`
+    1. Search `install`
     1. Select `Package Control: Install Package`
     1. Search `Pretty JSON`
-    1. Select `Pretty JSON`
+    1. Select `Pretty JSON` to install
 
-1. Set the license - optional
+1. Enter the license - optional
 
     1. `Help` → `Enter License`
-    1. Input the license key
+    1. Enter the license key
 
 <!-- 1. _Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings) ( optional )_ -->
 
@@ -845,11 +847,15 @@ Reference : Search "macos keyboard cannot repeat" on Google
 1.  Select the light color preset
 
     1. `Preferences` → `Profiles` → `Colors` → `Color Presets`
-    1. Select `Light Background`
+    1. Select any color preset you like
 
 #### Copy 'Em
 
-`Preferences`
+`Sort Order` int the top right corner of the popup menu
+
+- Select `Most Recently Used` or Press ⌥ ⌘ R
+
+`Preferences` in the bottom left corner of the popup menu
 
 - Enable `Launch at Login`
 - `Window Appearance`
@@ -866,15 +872,11 @@ Reference : Search "macos keyboard cannot repeat" on Google
         - Set `Paste current clipboard item as plain test` ⇧ ⌘ V
     - `Local Shortcuts`
         - Set `Switch to 'All' list` ⇧ ⌘ A
-    - Remove the other shortcuts
+    - Clear the other shortcuts
 - Enbale `Get Titles of Web URLs`
 - Enable `Reject Duplicates`
 - `Auto-Delete Unstarred Items` → `Auto-Delete Oldest…`
     - Store only the most recent `1000` unstarred items…
-
-`Sort Order`
-
-- Select `Most Recently Used` or Press ⌥ ⌘ R
 
 #### Snipaste
 
@@ -884,27 +886,29 @@ Reference : Search "macos keyboard cannot repeat" on Google
     - Enable `Run on system startup`
 - `Control` → `Global Hotkeys`
     - Set `Snip` ^ ⌘ A
-    - Remove the other hotkeys
+    - Clear the other hotkeys
 
 #### Itsycal
-
-`System Preferences`
-
-- `Dock & Menu Bar` → `Clock` → Time Options: `Analog`
 
 `Preference…`
 
 -   `General`
+
     - Enable `Launch at login`
     - First day of week: `Monday`
     - Select the calendars on demand
+
 -   `Appearance`
+
     -   `Menu Bar`
+
         - Datetime pattern `MM / dd  E  HH:mm:ss`
             - or `E, dd MMM HH:mm:ss`
             - or ` Y.MM.dd  E  HH:mm:ss `
         - Enable `Hide icon`
+
     -   `Calendar`
+
         - `Highlight`
             - Enable `Saturday` and `Sunday`
         - Enable `Show event dots`
@@ -912,19 +916,18 @@ Reference : Search "macos keyboard cannot repeat" on Google
         - Enable `Use event location`
         - Enable `Use calendar weeks`
 
+`System Preferences`
+
+- `Dock & Menu Bar` → `Clock` → Time Options: `Analog`
+
 #### Bartender
 
 `Preferences…`
 
 -   `General`
 
-    -   Startup :
-
-        Enable `Launch Bartender at login`
-
-    -   Bartender Bar :
-
-        Enable `Use Bartender Bar to show hidden items`
+    -   Startup : Enable `Launch Bartender at login`
+    -   Bartender Bar : Enable `Use Bartender Bar to show hidden items`
 
 <!--
 
@@ -945,11 +948,11 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 JDK - Java Development Kit
 
-1.  Install JDK via [SDKMAN!](https://sdkman.io)
+1.  Install JDKs
 
     RECOMMEND to install the JDKs of version **11** and the latest LTS **17** ( on 2021-01-01 )
 
-    -   A.  via Homebrew
+    -   A.  via Homebrew - recommended
 
         ```bash
         brew install openjdk
@@ -970,29 +973,27 @@ JDK - Java Development Kit
             sdk install java
             ```
 
-    -   C. Download the installation from the official website
+    -   C. via the installation downloaded from the official website
 
         Reference : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)
 
-1.  Set the environment variable `JAVA_HOME`
+1.  Set the environment variable `JAVA_HOME` - automatically via the dotfiles above
 
-    Append the command below to the file `~/.zshrc` :
+    or do it manually - append the command below to the ZSH configuration file `~/.zshrc` :
 
     ```bash
-    export JAVA_HOME=`/usr/libexec/java_home -v 8`
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
     ```
 
     - If `~/.zshrc` doesn't exists, create it
     - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
 
-    NOTE : The tilde symbol `~` equals the path of the current user's home directory
-    e.g. for me `/Users/icehe`
+    NOTE : The tilde symbol `~` equals the path of the current user's home directory, e.g. for me `/Users/icehe`
 
-    e.g. get the path of JDK 8 :
+    NOTE : Get the path to JDK via `/usr/libexec/java_home`, e.g. JDK 8
 
     ```bash
     $ /usr/libexec/java_home -v 1.8
-    # e.g.
     /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
     ```
 
@@ -1023,8 +1024,8 @@ JDK - Java Development Kit
     for sharing the same settings accroos multiple JetBrains's accounts.
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
-    1. Input HTTPS URL of the settings Github repository
-    1. Input the Github access token
+    1. Enter HTTPS URL of the settings Github repository
+    1. Enter the Github access token
 
     But you cannot synchronize the plugins in this way. So the next step is to…
 
