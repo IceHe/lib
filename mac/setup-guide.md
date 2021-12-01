@@ -452,6 +452,8 @@ How to :
 
 ### Dotfiles
 
+#### Common
+
 e.g. for me
 
 ```bash
@@ -464,45 +466,54 @@ git branch --set-upstream-to=origin/master master
 
 #### Git
 
-How to configure :
+e.g. for me
 
-A. Synchronize the settings via the configuration files from the dotfiles above - recommended
+1.  **Synchronize** the most of Git settings via the configuration files from the dotfiles above
 
-e.g.
+    e.g.
 
-- `~/.gitconfig`
-- `~/.gitignore`
-- `~/.gitignore_global`
-- …
+    - `~/.gitconfig.sample`
+    - `~/.gitignore`
+    - `~/.gitignore_global`
+    - …
 
-B. Or execute the commands
+1.  **Initilize** the `.gitconfig` according to the sample file
 
-e.g. for me :
+    ```bash
+    cp .gitconfig .gitconfig.sample
+    ```
 
-1. Add the common configurations
+1.  **Add / Update** the **user configurations**
 
     ```bash
     git config --global user.name IceHe.xyz
     git config --global user.email icehe.me@qq.com
     ```
 
-2. Add the GPG configurations
+1.  **Add / Update** the **GPG signing key**
 
     ```bash
     git config --global user.signingkey [SIGNING_KEY]
-    git config --global commit.gpgsign true
     ```
 
-3. Check the configurations
+1.  **Check** the configurations
 
     ```bash
     $ git config --global -l
     # e.g.
-    user.name=IceHe.xyz
-    user.email=icehe@qq.com
-    user.signingkey=[SIGNING_KEY]
+    core.ignorecase=false
+    filter.lfs.required=true
+    filter.lfs.clean=git-lfs clean -- %f
+    filter.lfs.process=git-lfs filter-process
+    filter.lfs.smudge=git-lfs smudge -- %f
     commit.gpgsign=true
     gpg.program=gpg
+    http.sslverify=false
+    pager.branch=false
+    pull.rebase=true
+    user.name=IceHe.xyz
+    user.email=icehe.me@qq.com
+    user.signingkey=[SIGNING_KEY]
     …
     ```
 
@@ -578,8 +589,13 @@ NOTE : Revert the battery settings changed above back to the defaults
 
 -   `Keyboard` Tab
 
-    - Set `Key Repeat` max
-    - Set `Delay Until Repeat` max
+    - Set `Key Repeat` fastest
+    - Set `Delay Until Repeat` 35 millis
+        - Check via the command :
+            ```bash
+            $ defaults read NSGlobalDomain InitialKeyRepeat
+            35
+            ```
     - Enable `Use F1, F2, etc. keys as standard function keys`
 
 -   `Text` Tab
@@ -609,7 +625,7 @@ NOTE : Revert the battery settings changed above back to the defaults
 
 How to disable `Character Accents Popup` and enable `Key Repeat` :
 
-1. Execute the command :
+1. Set via the command :
 
     ```bash
     defaults write -g ApplePressAndHoldEnabled -bool false
