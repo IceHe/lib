@@ -10,11 +10,10 @@ Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 ---
 
-**Based on macOS**
+This guide has been recently used on 2021-12-01
 
-- The guide has been recently used on 2021-11-30
-    - Mac version : Macbook Pro 2021 with M1 Pro
-    - macOS version : **Monterey - 12.0.1** on
+- macOS **Monterey** version **12.0.1**
+- MacBook Pro 2021 with **M1 Pro** chip
 
 ## Guidelines
 
@@ -35,19 +34,19 @@ Follow the principles :
 
 ## Install or Restore macOS
 
-SKIP this step when you set up a new Mac or have already re-installed macOS
+SKIP this step when you set up a new Mac or have already re-installed a new macOS
 
-References : Apple Support
+Follow the references : Apple Support
 
 1. [在 Mac 上抹掉所有内容和设置](https://support.apple.com/zh-cn/HT212749) - optional
 1. [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
 1. [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
-NOTE : 避免直接将备份数据还原到新系统中！
+NOTE : 避免直接将备份数据还原到新系统中
 
 因为每次将过去 Mac 的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
-随着时间推移，不但需要越来越大的存储空间来保存它们，而且会持续积累错误甚至产生疑难问题。
-所以，为了适时淘汰这些持续累积的可能存在问题的数据，建议每次迁移 Mac 时都尽量避免直接迁移数据。
+随着时间推移，不但需要越来越大的存储空间来保存它们，而且可能会持续积累异常甚至产生疑难问题。
+所以，建议为了适时淘汰这些持续累积的可能存在问题的数据，每次迁移 Mac 时都尽量避免直接迁移数据。
 
 ## Network and Passwords
 
@@ -83,6 +82,10 @@ NOTE : [List of password managers - Wikipedia](https://en.wikipedia.org/wiki/Lis
 
 RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland
 
+#### GUI Proxy
+
+GUI - Graphical User Interface
+
 1.  Get the proxy service
 
     How to :
@@ -91,7 +94,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     - B. Build it yourself
 
     NOTE :
-    Because the valid methods for stable Internet connection may change often,
+    Because the valid ways to establish stable Internet connections may change often,
     RECOMMEND to search them on the Internet when you need
 
 1.  Get the proxy configurations from the proxy service
@@ -104,7 +107,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     - D. QR codes
     - …
 
-1.  Install the proxy plugin
+1.  Install the proxy plugin, e.g. [ClashX Pro](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
 
     List of proxy plugins :
 
@@ -129,45 +132,62 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
     1.  Menubar → `ClashX Pro` → `Dashboard` → `Setting` → Enable `Start at login` - recommended
 
-1.  Check Internet connection
+1.  Check the Internet connection
 
-    Visit [google.com/ncr](https://google.com/ncr) on the browser
+    e.g. visit [google.com/ncr](https://google.com/ncr) on the browser
 
-1.  Configure network proxy on CLI - Command Line Interface
+#### CLI Proxy
+
+CLI - Command Line Interface
+
+Configure the network proxy on CLI
+
+1.  Get the proxy from the proxy plugin
 
     e.g. ClashX Pro
 
-    1.  Menubar → `ClashX Pro` → `Copy shell command` :
-        ```bash
-        export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
-        ```
-    1.  Open `Terminal` → Paste shell command → Execute
-    1.  Execute `curl google.com` to check Internet connection,
-        e.g.
-        ```bash
-        # Success
-        <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-        <TITLE>301 Moved</TITLE></HEAD><BODY>
-        <H1>301 Moved</H1>
-        The document has moved
-        <A HREF="http://www.google.com/">here</A>.
-        </BODY></HTML>
+    Menubar → `ClashX Pro` → `Copy shell command` :
 
-        # Failure
-        curl: (56) Recv failure: Connection reset by peer
-        ```
+    ```bash
+    export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+    ```
+
+1.  Add the proxy on CLI
+
+    e.g. Terminal
+
+    1. Open `Terminal`
+    1. Paste the shell command above to execute
+
+1.  Check the Internet connection on CLI
+
+    e.g. visit [google.com](https://google.com) on Terminal opened above :
+
+    ```bash
+    $ curl google.com
+
+    # Success
+    <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <TITLE>301 Moved</TITLE></HEAD><BODY>
+    <H1>301 Moved</H1>
+    The document has moved
+    <A HREF="http://www.google.com/">here</A>.
+    </BODY></HTML>
+
+    # Failure
+    curl: (56) Recv failure: Connection reset by peer
+    ```
 
 ## Homebrew & Homebrew-Cask
 
-[Homebrew](https://brew.sh) is a macOS package manager
-for installing and managing softwares
+[Homebrew](https://brew.sh) is a macOS package manager for installing and managing softwares
 
 [Homebrew-Cask](https://formulae.brew.sh/cask/) extends Homebrew and allows you to install the large binary files via a command-line tool
 
-NOTE : You can search available softwares you need on [Homebrew Formulae](https://formulae.brew.sh)
+NOTE : You can search the available softwares you need on [Homebrew Formulae](https://formulae.brew.sh)
 
-- CLI softwares : [Formula](https://formulae.brew.sh/formula/) - a listing of all packages available from the **core** tap
-- GUI softwares : [Cask](https://formulae.brew.sh/cask) - a listing of all casks available from the **cask** tap
+- CLI softwares : [Formula](https://formulae.brew.sh/formula/) - a listing of all packages available from the core tap
+- GUI softwares : [Cask](https://formulae.brew.sh/cask) - a listing of all casks available from the cask tap
 
 1.  Install
 
@@ -175,7 +195,6 @@ NOTE : You can search available softwares you need on [Homebrew Formulae](https:
 
     - A. [Homebrew - brew.sh](https://brew.sh) - official
     - B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) - recommended
-    - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) - compatible
 
 1.  Check
 
@@ -200,15 +219,16 @@ NOTE : You can search available softwares you need on [Homebrew Formulae](https:
     ```
 1.  PREPARE : Prevent Mac from automatically sleeping in a short time so that the installation can be done
 
-    Change some of the battery settings temporarily
+    e.g. change some battery settings temporarily
 
-    - Open `System Preferences` → `Battery`
-        -   `Battery` Tab
-            - Set `Turn display off after:` 30 min+
-            - Disable `Put hard disks to sleep when possible` - optional
-        -   `Power Adapter` Tab
-            - Set `Turn display off after:` 30 min+
-            - Enable `Prevent your Mac from automatically sleeping when the display off` - optional
+    Open `System Preferences` → `Battery`
+
+    -   `Battery` Tab
+        - Set `Turn display off after:` 30 min+
+        - Disable `Put hard disks to sleep when possible` - optional
+    -   `Power Adapter` Tab
+        - Set `Turn display off after:` 30 min+
+        - Enable `Prevent your Mac from automatically sleeping when the display off` - optional
 
 ## Install CLI Softwares
 
@@ -241,11 +261,11 @@ brew install libtool \
 ```
 
 NOTE : The pre-installed softwares may be outdated,
-so RECOMMEND to install and upgrade them via Homebrew again
+so RECOMMEND to install them via Homebrew again
 
 ---
 
-NOTE : Why I need them ?
+NOTE : Why I need these CLI softwares?
 
 -   [coreutils](http://www.gnu.org/s/coreutils/) :
     The basic file, shell and text manipulation utilities of the GNU operating system
@@ -343,7 +363,7 @@ e.g. `karabiner-elements`
 
 #### Mac App Store
 
-Install the required GUI softwares via Mac App StorE
+Install the required GUI softwares via Mac App Store
 
 Note : The GUI softwares unavailable on Homebrew-Cask may be available on Mac App Store
 
@@ -362,7 +382,7 @@ Note : Some GUI softwares are only available on the websites
 - [Sublime Text 3](https://www.sublimetext.com/3)
 
 NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3.
-Because I have already bought Sublime Text 3 and it meets my requirements, I don't want to pay for the new version.
+Because I have already bought Sublime Text 3 and it still meets my requirements, I don't want to pay for the latest version.
 
 ### Optional
 
@@ -418,12 +438,11 @@ Using the SSH protocol, you can connect and authenticate to remote servers and s
 
 How to :
 
-1.  Generate the SSH key pair
+1.  Generate a SSH key pair
 
     Reference : [Generating a new SSH key and adding it to the ssh-agent - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-1.  Get the SSH public key and
-    Add it to the GitHub accounts
+1.  Get the SSH public key and add it to the GitHub account
 
     Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
@@ -435,7 +454,7 @@ Use GPG to sign tags and commits locally
 
 How to :
 
-1.  Generate the GPG key pair
+1.  Generate a GPG key pair
 
     Reference : [Generating a new GPG key - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
@@ -443,13 +462,13 @@ How to :
 
     Reference : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
 
-1.  Add the GPG key to the GitHub accounts
+1.  Add the GPG key to the GitHub account
 
     Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
-### Dotfiles
+### CLI Tools
 
-#### Common
+#### Dotfiles
 
 e.g. for me
 
@@ -465,16 +484,18 @@ git branch --set-upstream-to=origin/master master
 
 e.g. for me
 
-1.  Synchronize the most of Git settings via the configuration files from the dotfiles above
+1.  Synchronize the most of the settings via the configuration files
 
-    e.g.
+    e.g. from the dotfiles downloaded above
 
     - `~/.gitconfig.sample`
     - `~/.gitignore`
     - `~/.gitignore_global`
     - …
 
-1.  Initilize the `.gitconfig` according to the sample file
+1.  Initilize the global configuration file `.gitconfig`
+
+    e.g. according to the sample file `.gitconfig.sample` from the dotfiles downloaded above
 
     ```bash
     cp .gitconfig .gitconfig.sample
@@ -487,7 +508,7 @@ e.g. for me
     git config --global user.email icehe.me@qq.com
     ```
 
-1.  Add / Update the GPG signing key
+1.  Add / Update the GPG signing key from GitHub GPG Key generated above
 
     ```bash
     git config --global user.signingkey [SIGNING_KEY]
@@ -497,7 +518,6 @@ e.g. for me
 
     ```bash
     $ git config --global -l
-    # e.g.
     core.ignorecase=false
     filter.lfs.required=true
     filter.lfs.clean=git-lfs clean -- %f
@@ -516,7 +536,7 @@ e.g. for me
 
 #### Oh My Zsh
 
-1.  Install oh-my-zsh
+1.  Install
 
     Reference : [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
@@ -524,7 +544,9 @@ e.g. for me
 
     via the configuration file `~/.zshrc` from the dotfiles above
 
-1.  Install the oh-my-zsh plugin zsh-autosuggestion
+1.  Install the plugin `zsh-autosuggestion`
+
+    via the git command
 
     ```bash
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -558,8 +580,6 @@ Reference :
 ## GUI Preferences
 
 GUI - Graphical User Interface
-
-Include the development configurations on local and remote machines
 
 ### System
 
