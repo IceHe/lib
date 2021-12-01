@@ -344,7 +344,7 @@ e.g. `karabiner-elements`
 
 #### Mac App Store
 
-Install the required GUI softwares via Mac App Store
+Install the required GUI softwares via Mac App StorE
 
 Note : The GUI softwares unavailable on Homebrew-Cask may be available on Mac App Store
 
@@ -545,6 +545,16 @@ Include the development configurations on local and remote machines
 
 ### System
 
+#### Battery
+
+NOTE : Revert the battery settings changed above
+
+- Open `System Preferences` → `Battery`
+    1. → `Battery` → `Turn display off after:` 3 min
+        - Enable `Put hard disks to sleep when possible`
+    2. → `Power Adapter` → `Turn display off after:` 10 min
+        - Disable `Prevent your Mac from automatically sleeping when the display off`
+
 #### Dock at the bottom
 
 - Disable all softwares `Options` → `Keep in Dock`
@@ -578,13 +588,13 @@ Include the development configurations on local and remote machines
 
     - Remove the useless input sources
 
-#### Trackpad
-
-- Set `Tracking speed` Max
-
 #### Notification
 
 - Disable the useless softwares notifications on demand
+
+#### Trackpad
+
+- Set `Tracking speed` Max
 
 #### Key Repeat
 
@@ -608,10 +618,17 @@ How to enable :
 #### Chrome
 
 1.  Login the Google account
+
 1.  Turn on `Sync`
-    _( require the independent synchronization password )_
+
+    Require the independent synchronization password
+
 1.  Synchronize the extensions automatically
-    _( do it manually if `Sync` does not finish in time )_
+
+    or Do it manually if `Sync` does not work well
+
+    `Extensions` → Sidebar on the left → `Open Chrome Web Store`
+
     -   [1Password](https://agilebits.com/browsers/welcome.html) : Password manager
     -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
     -   [Chrono Download](https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn) : Download and manage the web
@@ -621,23 +638,36 @@ How to enable :
     -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) : Provide keyboard shortcuts for navigation and control in the spirit of Vim
     -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application
+
 1.  Synchronize the settings of the plugin `Proxy SwitchyOmega`
+
     via the configuration file from another device
-1.  Change keyboard shortcuts from extensions :
+
+1.  Synchronize the extensions' keyboard shortcuts automatically
+
+    or Change them manually if `Sync` does not work well
+
     `Extensions` → `Keyboard shortcuts`
-    - 1Password :
+
+    - 1Password
+
         - `⇧ ⌘ X` Activate the extension
-    - Proxy SwitchyOmega :
+
+    - Proxy SwitchyOmega
+
         - `^ ⌘ S` Activate the extension
-    - Chrono Download Manager :
+
+    - Chrono Download Manager
+
         - `⇧ ⌘ J` Activate the extension
-    - OneTab :
+
+    - OneTab
+
         - `⇧ ⌘ O` Activate the extension
         - `⇧ ⌘ S` Di**S**play/**S**how OneTab
         - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
-    - Edit required shortcuts  and remove uncessary ones
 
-TODO: The last step may be unnecessary, because the settings can be synchorized via the Google account.
+    - Edit required shortcuts  and remove uncessary ones
 
 #### Sogou Input
 
