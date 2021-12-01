@@ -61,7 +61,7 @@ First of all :
 
 1.  **Sign in AppleID** to synchronize the settings & iCloud data
 
-    - or Sign up if you don't have AppleID
+    - or sign up if you don't have AppleID
 
 1.  **Open this guide** on Mac - optional
 
@@ -77,7 +77,7 @@ e.g. [1Password](https://1password.com/)
 
 1.  **Login** the account on [my.1password.com](https://my.1password.com) - recommended
 
-    - or **Load** the vaults on iCloud
+    - or **load** the vaults on iCloud
 
 _Related : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)_
 
@@ -646,15 +646,15 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 #### Chrome
 
-1.  Login the Google account
+1.  **Login the Google account**
 
-1.  Turn on `Sync`
+1.  **Turn on `Sync`** - usually automatically request you to confirm
 
-    Require the independent synchronization password
+    MAY require the independent synchronization password
 
-1.  Synchronize the extensions automatically
+1.  **Synchronize the extensions** - usually automatically
 
-    or Do it manually if `Sync` does not work well
+    or install them manually if `Sync` does not work well
 
     `Extensions` → Sidebar on the left → `Open Chrome Web Store`
 
@@ -668,34 +668,26 @@ Reference : Search "macos keyboard cannot repeat" on Google
     -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application
 
-1.  Synchronize the settings of the plugin `Proxy SwitchyOmega`
+1.  **Synchronize the settings of the plugin `Proxy SwitchyOmega`** - manually
 
     via the configuration file from another device
 
-1.  Synchronize the extensions' keyboard shortcuts automatically
+1.  **Synchronize the extensions' keyboard shortcuts** - usually automatically
 
-    or Change them manually if `Sync` does not work well
+    or change them manually if `Sync` does not work well
 
     `Extensions` → `Keyboard shortcuts`
 
     - 1Password
-
         - `⇧ ⌘ X` Activate the extension
-
     - Proxy SwitchyOmega
-
         - `^ ⌘ S` Activate the extension
-
     - Chrono Download Manager
-
         - `⇧ ⌘ J` Activate the extension
-
     - OneTab
-
         - `⇧ ⌘ O` Activate the extension
         - `⇧ ⌘ S` Di**S**play/**S**how OneTab
         - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
-
     - Edit required shortcuts  and remove uncessary ones
 
 #### Sogou Input
@@ -718,19 +710,18 @@ Reference : Search "macos keyboard cannot repeat" on Google
 1.  Synchronize the macros
     1.  `File` → `Start Syncing Macros…` → `Open Existing…`
     1.  Select the configuration file
-        `~/.config/Keyboard\ Maestro\ Macros.kmsync`
+        `~/.config/Keyboard Maestro Macros.kmsync`
         from the dotfiles above
 
 #### Visual Studio Code
 
 1.  Synchronize the settings via the built-in feature [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
-1.  Synchronize the extensions automatically
-    _( do it manually if `Settings Sync` does not finish in time )_
+1.  Synchronize the extensions automatically ( do it manually if `Settings Sync` does not finish in time )
     -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         ( [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks )
-    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) _( *.puml file )_
-        - _Trouble Shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )_
+    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) ( *.puml file )
+        - Trouble Shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )
     -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
 
 #### Sublime Text
