@@ -225,7 +225,6 @@ Install the required CLI softwares via Homebrew
 ```bash
 brew install \
     coreutils \
-    curl \
     git \
     fzf \
     gpg \
@@ -483,7 +482,7 @@ e.g. for me
     cp .gitconfig .gitconfig.sample
     ```
 
-1.  **Add / Update** the **user configurations**
+1.  **Add / Update** the **user settings**
 
     ```bash
     git config --global user.name IceHe.xyz
@@ -496,7 +495,7 @@ e.g. for me
     git config --global user.signingkey [SIGNING_KEY]
     ```
 
-1.  **Check** the configurations
+1.  **Check** the settings
 
     ```bash
     $ git config --global -l
@@ -525,7 +524,7 @@ e.g. for me
 
 1.  **Synchronize** the settings
 
-    via the configuration file `~/.zshrc` from the dotfiles above.
+    via the configuration file `~/.zshrc` from the dotfiles above
 
 1.  TODO : zsh-autosuggestion install - GitHub repo link
 
