@@ -587,8 +587,22 @@ NOTE : Revert the battery settings changed above back to the **default values**
 
 #### Dock & Menu Bar
 
+`Dock & Menu Bar` Tab
+
 - Enable `Automatically hide and show the Dock`
 - Disable `Show recent applications in Dock`
+
+`Screnn Mirroring`
+
+- Disable `Show in the menubar`
+
+`Spotlight` Tab
+
+- Disable `Show in the menubar`
+
+`Siri` Tab
+
+- Disable `Show in the menubar`
 
 #### Keyboard
 
@@ -795,8 +809,6 @@ Reference : Search "macos keyboard cannot repeat" on Google
 `Preferences`
 
 - Enable `Launch at Login`
-- `Sort Order`
-    - Select `Most Recently Used` or Press ⌥ ⌘ R
 - `Window Appearance`
     - Select `Midday`
     - Set `Minimum Font Size` 15
@@ -811,10 +823,15 @@ Reference : Search "macos keyboard cannot repeat" on Google
         - Set `Paste current clipboard item as plain test` ⇧ ⌘ V
     - `Local Shortcuts`
         - Set `Switch to 'All' list` ⇧ ⌘ A
+    - Remove the other shortcuts
 - Enbale `Get Titles of Web URLs`
 - Enable `Reject Duplicates`
 - `Auto-Delete Unstarred Items` → `Auto-Delete Oldest…`
     - Store only the most recent `1000` unstarred items…
+
+`Sort Order`
+
+- Select `Most Recently Used` or Press ⌥ ⌘ R
 
 #### Snipaste
 
@@ -824,27 +841,34 @@ Reference : Search "macos keyboard cannot repeat" on Google
     - Enable `Run on system startup`
 - `Control` → `Global Hotkeys`
     - Set `Snip` ^ ⌘ A
-    - Clear all other hotkeys
+    - Remove the other hotkeys
 
 #### Itsycal
 
+`System Preferences`
+
+- `Dock & Menu Bar` → `Clock` → Time Options: `Analog`
+
 `Preference…`
 
-- `General`
+-   `General`
     - Enable `Launch at login`
-- `Appearance`
-    - `Menu Bar`
+    - First day of week: `Monday`
+    - Select the calendars on demand
+-   `Appearance`
+    -   `Menu Bar`
         - Datetime pattern `MM / dd  E  HH:mm:ss`
             - or `E, dd MMM HH:mm:ss`
             - or ` Y.MM.dd  E  HH:mm:ss `
         - Enable `Hide icon`
-    - `Calendar`
+    -   `Calendar`
         - `Highlight`
             - Enable `Saturday` and `Sunday`
         - Enable `Show event dots`
             - Enable `Use colored dots`
         - Enable `Use event location`
         - Enable `Use calendar weeks`
+
 
 <!--
 
