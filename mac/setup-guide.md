@@ -654,7 +654,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 1.  **Synchronize the extensions** - usually automatically
 
-    or install them manually if `Sync` does not work well
+    or do it manually if `Sync` does not work well
 
     `Extensions` → Sidebar on the left → `Open Chrome Web Store`
 
@@ -674,7 +674,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 1.  **Synchronize the extensions' keyboard shortcuts** - usually automatically
 
-    or change them manually if `Sync` does not work well
+    or do it manually if `Sync` does not work well
 
     `Extensions` → `Keyboard shortcuts`
 
@@ -716,12 +716,16 @@ Reference : Search "macos keyboard cannot repeat" on Google
 #### Visual Studio Code
 
 1.  Synchronize the settings via the built-in feature [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)
-1.  Synchronize the extensions automatically ( do it manually if `Settings Sync` does not finish in time )
+    -   Sign in with GitHub
+1.  Synchronize the extensions - usually automatically
+
+    or do it manually if `Settings Sync` does not finish in time
+
     -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
-        ( [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks )
-    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) ( *.puml file )
-        - Trouble Shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )
+        -   [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
+    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) - `\*.puml` files
+        -   Trouble Shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )
     -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
 
 #### Sublime Text
