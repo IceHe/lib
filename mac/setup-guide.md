@@ -719,26 +719,26 @@ Reference : Search "macos keyboard cannot repeat" on Google
     -   Sign in with GitHub
 1.  Synchronize the extensions - usually automatically
 
-    or do it manually if `Settings Sync` does not finish in time
+    or do it manually if `Settings Sync` does not work well
 
     -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : Check Markdown style
     -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
         -   [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
-    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : Support [PlatUML](http://plantuml.com/) - `\*.puml` files
+    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : support [PlatUML](http://plantuml.com/) - `\*.puml` files
         -   Trouble Shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) ( provices `dot` program )
     -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : Vim emulator - edit text like Vim
 
 #### Sublime Text
 
-TODO ?
+1.  Open the `Preferences.sublime-settings` of the User
 
-1. update user settings as below :
+    via the shortcut `⌘ ,`
+
+1.  Update the `Preferences.sublime-settings` of the User as below :
 
     ```json
     {
-        "ignored_packages":
-        [
-        ],
+        "ignored_packages": [],
         "tab_size": 4,
         "translate_tabs_to_spaces": true,
         "update_check": false,
@@ -746,28 +746,49 @@ TODO ?
     }
     ```
 
-1. Install plugin `Pretty JSON`
+1.  Install `Package Control` - optional
 
-1. **Set the license** - optional
+    via the shortcut `⇧ ⌘ P`
 
-    1. _`Help` → `Enter License`_
-    1. _Input the license key_
+    1. Search `install` …
+    1. Select `Install Package Control`
+
+1.  Install the plugin `Pretty JSON` - optional
+
+    via the shortcut `⇧ ⌘ P`
+
+    1. Search `install` …
+    1. Select `Package Control: Install Package`
+    1. Search `Pretty JSON`
+    1. Select `Pretty JSON`
+
+1. Set the license - optional
+
+    1. `Help` → `Enter License`
+    1. Input the license key
 
 <!-- 1. _Synchronize the settings via the plugin [Sync Settings - Package Control](https://packagecontrol.io/packages/Sync%20Settings) ( optional )_ -->
 
 #### iTerm 2
 
-Synchronize the settings
+1.  Synchronize the settings
 
-1. `Preferences` → `General` → `Preferences`
-1. Enable `Load preference from a custom folder or URL`
-1. Select the config folder
-1. Enable `Save changes to folder when quits`
+    1. `Preferences` → `General` → `Preferences`
+    1. Enable `Load preference from a custom folder or URL`
+    1. Select the config folder
+    1. Select Save changes `When Quitting`
 
-Copy and paste _( if cannot synchronize this setting, configure it manually )_
+1.  Enable the access to the system clipboard
 
-1. `Preferences` → `General` → `Selection`
-1. Enable `Applications in terminal may access clipboard`
+    or do it manually if the synchronization does not work well
+
+    1. `Preferences` → `General` → `Selection`
+    1. Enable `Applications in terminal may access clipboard`
+
+1.  Select the light color preset
+
+    1. `Preferences` → `Profiles` → `Colors` → `Color Presets`
+    1. Select `Light Background`
 
 #### Copy 'Em
 
