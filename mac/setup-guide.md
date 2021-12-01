@@ -518,15 +518,21 @@ e.g. for me
 
 #### Oh My Zsh
 
-1.  **Install**
+1.  **Install oh-my-zsh**
 
     Reference : [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
-1.  **Synchronize** the settings
+1.  **Synchronize zsh settings**
 
     via the configuration file `~/.zshrc` from the dotfiles above
 
-1.  TODO : zsh-autosuggestion install - GitHub repo link
+1.  **Install** the oh-my-zsh plugin **zsh-autosuggestion**
+
+    ```bash
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+
+    Reference : [Installation - zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 
 <!--
 
