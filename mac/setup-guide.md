@@ -547,15 +547,21 @@ Include the development configurations on local and remote machines
 
 ### System
 
+Open `System Preferences`
+
 #### Battery
 
 NOTE : Revert the battery settings changed above
 
-- Open `System Preferences` → `Battery`
-    1. → `Battery` → `Turn display off after:` 3 min
-        - Enable `Put hard disks to sleep when possible`
-    2. → `Power Adapter` → `Turn display off after:` 10 min
-        - Disable `Prevent your Mac from automatically sleeping when the display off`
+-   `Battery` Tab
+
+    - Set `Turn display off after:` 3 min
+    - Enable `Put hard disks to sleep when possible`
+
+-   `Power Adapter` Tab
+
+    - Set `Turn display off after:` 10 min
+    - Disable `Prevent your Mac from automatically sleeping when the display off`
 
 #### Dock at the bottom
 
@@ -599,7 +605,7 @@ NOTE : Revert the battery settings changed above
 
 #### Key Repeat
 
-How to enable :
+How to disable `Character Accents Popup` and enable `Key Repeat` :
 
 1. Execute the command :
 
@@ -609,10 +615,9 @@ How to enable :
 
 1. Reboot and Check
 
-    References : Search "macos keyboard cannot repeat" on Google
+Reference : Search "macos keyboard cannot repeat" on Google
 
-    - [Problem with key repeat - Apple Community](https://discussions.apple.com/thread/8068772)
-    - [OS X – Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
+- [Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
 
 ### Softwares
 
