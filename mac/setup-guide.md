@@ -205,9 +205,11 @@ NOTE : You can search available softwares you need on [Homebrew Formulae](https:
     Change some of the battery settings temporarily
 
     - Open `System Preferences` → `Battery`
-        1. → `Battery` → `Turn display off after:` 30 min ↑
+        -   `Battery` Tab
+            - Set `Turn display off after:` 30 min+
             - Disable `Put hard disks to sleep when possible` - optional
-        2. → `Power Adapter` → `Turn display off after:` 30 min ↑
+        -   `Power Adapter` Tab
+            - Set `Turn display off after:` 30 min+
             - Enable `Prevent your Mac from automatically sleeping when the display off` - optional
 
 ## Install CLI Softwares
@@ -551,7 +553,7 @@ Open `System Preferences`
 
 #### Battery
 
-NOTE : Revert the battery settings changed above
+NOTE : Revert the battery settings changed above back to the defaults
 
 -   `Battery` Tab
 
