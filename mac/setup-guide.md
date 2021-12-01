@@ -514,6 +514,8 @@ e.g. for me :
 
     via the configuration file `~/.zshrc` from the dotfiles above.
 
+1.  TODO : zsh-autosuggestion install - GitHub repo link
+
 <!--
 
 ### Neovim
@@ -568,8 +570,8 @@ NOTE : Revert the battery settings changed above
 
 -   `Keyboard` Tab
 
-    - Set `Delay Until Repeat` max
     - Set `Key Repeat` max
+    - Set `Delay Until Repeat` max
     - Enable `Use F1, F2, etc. keys as standard function keys`
 
 -   `Text` Tab
@@ -580,17 +582,16 @@ NOTE : Revert the battery settings changed above
 -   `Shortcuts` Tab
 
     - Add/Update `App Shortcuts`
-        - `All Applications` → `Show Help menu` ⌥ ⇧ /
         - `Google Chrome` → `Duplicate Tab` ⇧ ⌘ D
-        - `iTerm` → `Toggle Full Screen` ⇧ ⌘ F
+        - `iTerm` → `Toggle Full Screen` ^ ⌘ F
 
 -   `Input Sources` Tab
 
-    - Remove the useless input sources
+    - Remove the unused input sources
 
-#### Notification
+#### Notification & Focus
 
-- Disable the useless softwares notifications on demand
+- Disable the unncessary softwares' notifications on demand
 
 #### Trackpad
 
