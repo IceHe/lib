@@ -589,36 +589,54 @@ Open `System Preferences`
 
 NOTE : Revert the battery settings changed above back to the default values
 
--   `Battery` Tab
+-   `Battery`
 
     - Set `Turn display off after:` 3 min
     - Enable `Put hard disks to sleep when possible`
 
--   `Power Adapter` Tab
+-   `Power Adapter`
 
     - Set `Turn display off after:` 10 min
     - Disable `Prevent your Mac from automatically sleeping when the display off`
 
-#### Dock at the bottom
+#### Dock at the bottom of Screen
 
-- Disable all softwares `Options` → `Keep in Dock`
+All the softwares appeared
+
+- Right click the software icon → `Options` → Disable `Keep in Dock`
 
 #### Dock & Menu Bar
 
-`Dock & Menu Bar` Tab
+`Dock & Menu Bar`
 
 - Enable `Automatically hide and show the Dock`
 - Disable `Show recent applications in Dock`
+
+`Wi-Fi`
+
+- Disable `Show in the menubar`
+
+`Bluetooth`
+
+- Disable `Show in the menubar`
 
 `Screnn Mirroring`
 
 - Disable `Show in the menubar`
 
-`Spotlight` Tab
+`Display`
 
 - Disable `Show in the menubar`
 
-`Siri` Tab
+`Sound`
+
+- Enable `Show in the menubar` → Select `always`
+
+`Spotlight`
+
+- Disable `Show in the menubar`
+
+`Siri`
 
 - Disable `Show in the menubar`
 
@@ -627,12 +645,15 @@ NOTE : Revert the battery settings changed above back to the default values
 -   `Keyboard` Tab
 
     - Set `Key Repeat` fastest
-    - Set `Delay Until Repeat` 35 millis
-        - Check via the command :
-            ```bash
-            $ defaults read NSGlobalDomain InitialKeyRepeat
-            35
-            ```
+    - Set `Delay Until Repeat` the 3rd shortest : 35 millis
+
+        Check via the command :
+
+        ```bash
+        $ defaults read NSGlobalDomain InitialKeyRepeat
+        35
+        ```
+
     - Enable `Use F1, F2, etc. keys as standard function keys`
 
 -   `Text` Tab
@@ -650,14 +671,6 @@ NOTE : Revert the battery settings changed above back to the default values
 
     - Remove the unused input sources
 
-#### Notification & Focus
-
-- Disable the unncessary softwares' notifications on demand
-
-#### Trackpad
-
-- Set `Tracking speed` Max
-
 #### Key Repeat
 
 How to disable `Character Accents Popup` and enable `Key Repeat` :
@@ -674,21 +687,33 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 - [Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
 
+#### Misson Control
+
+- `Hot Corners…` → The bottom right corner → Select `-` to disable `Quick Note`
+
+#### Notification & Focus
+
+- Disable the unncessary softwares' notifications on demand
+
+#### Trackpad
+
+- Set `Tracking speed` fastest
+
 ### Softwares
 
 #### Chrome
 
 1.  Login the Google account
 
-1.  Turn on `Sync` - usually automatically request you to confirm
+1.  Turn on `Sync` - automatically request you to confirm
 
     MAY require the independent synchronization password
 
-1.  Synchronize the extensions - usually automatically
+1.  Synchronize the extensions - automatically
 
     or do it manually if `Sync` does not work well
 
-    `Extensions` → Sidebar on the left → `Open Chrome Web Store`
+    `Chrome` menubar → `Window` → `Extensions` → Sidebar on the left → `Open Chrome Web Store`
 
     -   [1Password](https://agilebits.com/browsers/welcome.html) : Password manager
     -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : Manage and switch between multiple proxies quickly & easily
@@ -700,15 +725,15 @@ Reference : Search "macos keyboard cannot repeat" on Google
     -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application
 
-1.  Synchronize the settings of the plugin `Proxy SwitchyOmega` - manually
+1.  Synchronize the extension `Proxy SwitchyOmega` settings
 
-    via the configuration file from another device
+    e.g. manually or via the configuration file from another device
 
-1.  Synchronize the extensions' keyboard shortcuts - usually automatically
+1.  Synchronize the extensions' keyboard shortcuts - automatically
 
     or do it manually if `Sync` does not work well
 
-    `Extensions` → `Keyboard shortcuts`
+    `Chrome` menubar → `Window` → `Extensions` → Sidebar on the left → `Keyboard shortcuts`
 
     - 1Password
         - `⇧ ⌘ X` Activate the extension
@@ -887,18 +912,21 @@ Reference : Search "macos keyboard cannot repeat" on Google
         - Enable `Use event location`
         - Enable `Use calendar weeks`
 
+#### Bartender
+
+`Preferences…`
+
+-   `General`
+
+    -   Startup :
+
+        Enable `Launch Bartender at login`
+
+    -   Bartender Bar :
+
+        Enable `Use Bartender Bar to show hidden items`
+
 <!--
-
-#### Amphetamine
-
-`Prefereces`
-
-- `General` → `Launchand Wake Behavior`
-    - Enable all checkboxes
-- `Sessions` → `Non-trigger Sessions`
-    - Enable all checkboxes
-    - `Default Duration` → `Indefinitely`
-- `Appearance` → `Menu Bar Image` → `Coffee Cup`
 
 #### ImageOptim
 
