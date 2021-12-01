@@ -35,7 +35,7 @@ Follow the principles :
 
 ## Install or Restore macOS
 
-> **SKIP** this step when you set up a new Mac or have already re-installed macOS
+SKIP this step when you set up a new Mac or have already re-installed macOS
 
 References : Apple Support
 
@@ -55,17 +55,15 @@ NOTE : 避免直接将备份数据还原到新系统中！
 
 First of all :
 
-1.  **Turn on Mac**
+1.  Turn on Mac
 
-1.  **Connect to Internet** via Wi-Fi or Erthernet
+1.  Connect to Internet via Wi-Fi or Erthernet
 
-1.  **Sign in AppleID** to synchronize the settings & iCloud data
+1.  Sign in AppleID to synchronize the settings & iCloud data
 
     - or sign up if you don't have AppleID
 
-1.  **Open this guide** on Mac - optional
-
-    Visit [icehe.xyz/#/mac/setup-guide](https://icehe.xyz/#/mac/setup-guide) so that you can continue the following steps
+1.  Open [this guide](https://icehe.xyz/#/mac/setup-guide) on Mac so that you can continue the following steps
 
 ### Password Manager
 
@@ -73,46 +71,46 @@ The password manager makes it easier and safer for you to login other accounts
 
 e.g. [1Password](https://1password.com/)
 
-1.  **Install** via Mac App Store
+1.  Install via Mac App Store
 
-1.  **Login** the account on [my.1password.com](https://my.1password.com) - recommended
+1.  Login the account on [my.1password.com](https://my.1password.com) - recommended
 
-    - or **load** the vaults on iCloud
+    - or load the vaults on iCloud
 
-_Related : [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)_
+NOTE : [List of password managers - Wikipedia](https://en.wikipedia.org/wiki/List_of_password_managers)
 
 ### Network Proxy
 
 RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland
 
-1.  **Get the proxy service**
+1.  Get the proxy service
 
     How to :
 
-    - A. **BUY** / RENT - recommended
+    - A. BUY / RENT - recommended
     - B. Build it yourself
 
     NOTE :
     Because the valid methods for stable Internet connection may change often,
     RECOMMEND to search them on the Internet when you need
 
-1.  **Get the proxy configurations** from the proxy service
+1.  Get the proxy configurations from the proxy service
 
     List of configuration methods :
 
-    - **A. Subscription URL** - recommended
+    - A. Subscription URL - recommended
     - B. Configuration file
     - C. Server URLs
     - D. QR codes
     - …
 
-1.  **Install the proxy plugin**
+1.  Install the proxy plugin
 
     List of proxy plugins :
 
     - A. [Clash](https://github.com/Dreamacro/clash)
     - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
-    - **C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)** - recommended
+    - C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public) - recommended
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
     - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~
@@ -122,7 +120,7 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     - J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~
     - …
 
-1.  **Import the proxy configurations** into the proxy plugin
+1.  Import the proxy configurations into the proxy plugin
 
     e.g. configure ClashX Pro via the subscription URL :
 
@@ -131,11 +129,11 @@ RECOMMEND to configure the network proxy for stable and faster Internet connecti
     1.  Menubar → `ClashX Pro` → `Set as system proxy`
     1.  Menubar → `ClashX Pro` → `Dashboard` → `Setting` → Enable `Start at login` - recommended
 
-1.  **Check Internet connection**
+1.  Check Internet connection
 
     Visit [google.com/ncr](https://google.com/ncr) on the browser
 
-1.  **Configure network proxy on CLI** - Command Line Interface
+1.  Configure network proxy on CLI - Command Line Interface
 
     e.g. ClashX Pro
 
@@ -171,7 +169,7 @@ NOTE : You can search available softwares you need on [Homebrew Formulae](https:
 - CLI softwares : [Formula](https://formulae.brew.sh/formula/) - a listing of all packages available from the **core** tap
 - GUI softwares : [Cask](https://formulae.brew.sh/cask) - a listing of all casks available from the **cask** tap
 
-1.  **Install**
+1.  Install
 
     How to :
 
@@ -179,7 +177,7 @@ NOTE : You can search available softwares you need on [Homebrew Formulae](https:
     - B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) - recommended
     - C. [在 M1 芯片 Mac 上使用 Homebrew - 少数派](https://sspai.com/post/63935) - compatible
 
-1.  **Check**
+1.  Check
 
     ```bash
     $ brew -v
@@ -191,16 +189,16 @@ NOTE : You can search available softwares you need on [Homebrew Formulae](https:
     Homebrew/homebrew-cask (git revision 2f292faf97; last commit 2021-11-24)
     ```
 
-1.  **Speed up**
+1.  Speed up
 
     Reference : [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
-1.  **Update and Upgrade** - in the future
+1.  Update and Upgrade - in the future
 
     ```bash
     brew update && brew upgrade
     ```
-1.  **PREPARE** : Prevent Mac from automatically sleeping in a short time so that the installation can be done
+1.  PREPARE : Prevent Mac from automatically sleeping in a short time so that the installation can be done
 
     Change some of the battery settings temporarily
 
@@ -420,12 +418,12 @@ Using the SSH protocol, you can connect and authenticate to remote servers and s
 
 How to :
 
-1.  **Generate** the SSH key pair
+1.  Generate the SSH key pair
 
     Reference : [Generating a new SSH key and adding it to the ssh-agent - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-1.  **Get** the SSH public key and
-    **Add** it to the GitHub accounts
+1.  Get the SSH public key and
+    Add it to the GitHub accounts
 
     Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
@@ -437,15 +435,15 @@ Use GPG to sign tags and commits locally
 
 How to :
 
-1.  **Generate** the GPG key pair
+1.  Generate the GPG key pair
 
     Reference : [Generating a new GPG key - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
-1.  **Get** the GPG pulic key
+1.  Get the GPG pulic key
 
     Reference : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
 
-1.  **Add** the GPG key to the GitHub accounts
+1.  Add the GPG key to the GitHub accounts
 
     Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
@@ -467,7 +465,7 @@ git branch --set-upstream-to=origin/master master
 
 e.g. for me
 
-1.  **Synchronize** the most of Git settings via the configuration files from the dotfiles above
+1.  Synchronize the most of Git settings via the configuration files from the dotfiles above
 
     e.g.
 
@@ -476,26 +474,26 @@ e.g. for me
     - `~/.gitignore_global`
     - …
 
-1.  **Initilize** the `.gitconfig` according to the sample file
+1.  Initilize the `.gitconfig` according to the sample file
 
     ```bash
     cp .gitconfig .gitconfig.sample
     ```
 
-1.  **Add / Update** the **user settings**
+1.  Add / Update the user settings
 
     ```bash
     git config --global user.name IceHe.xyz
     git config --global user.email icehe.me@qq.com
     ```
 
-1.  **Add / Update** the **GPG signing key**
+1.  Add / Update the GPG signing key
 
     ```bash
     git config --global user.signingkey [SIGNING_KEY]
     ```
 
-1.  **Check** the settings
+1.  Check the settings
 
     ```bash
     $ git config --global -l
@@ -518,15 +516,15 @@ e.g. for me
 
 #### Oh My Zsh
 
-1.  **Install oh-my-zsh**
+1.  Install oh-my-zsh
 
     Reference : [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
-1.  **Synchronize zsh settings**
+1.  Synchronize zsh settings
 
     via the configuration file `~/.zshrc` from the dotfiles above
 
-1.  **Install** the oh-my-zsh plugin **zsh-autosuggestion**
+1.  Install the oh-my-zsh plugin zsh-autosuggestion
 
     ```bash
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -569,7 +567,7 @@ Open `System Preferences`
 
 #### Battery
 
-NOTE : Revert the battery settings changed above back to the **default values**
+NOTE : Revert the battery settings changed above back to the default values
 
 -   `Battery` Tab
 
@@ -660,13 +658,13 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 #### Chrome
 
-1.  **Login the Google account**
+1.  Login the Google account
 
-1.  **Turn on `Sync`** - usually automatically request you to confirm
+1.  Turn on `Sync` - usually automatically request you to confirm
 
     MAY require the independent synchronization password
 
-1.  **Synchronize the extensions** - usually automatically
+1.  Synchronize the extensions - usually automatically
 
     or do it manually if `Sync` does not work well
 
@@ -682,11 +680,11 @@ Reference : Search "macos keyboard cannot repeat" on Google
     -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : Make JSON easy to read
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : Containing the excellent ElasticSearch Head application
 
-1.  **Synchronize the settings of the plugin `Proxy SwitchyOmega`** - manually
+1.  Synchronize the settings of the plugin `Proxy SwitchyOmega` - manually
 
     via the configuration file from another device
 
-1.  **Synchronize the extensions' keyboard shortcuts** - usually automatically
+1.  Synchronize the extensions' keyboard shortcuts - usually automatically
 
     or do it manually if `Sync` does not work well
 
@@ -700,7 +698,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
         - `⇧ ⌘ J` Activate the extension
     - OneTab
         - `⇧ ⌘ O` Activate the extension
-        - `⇧ ⌘ S` Di**S**play/**S**how OneTab
+        - `⇧ ⌘ S` DiSplay / Show OneTab
         - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
     - Edit required shortcuts  and remove uncessary ones
 
@@ -869,7 +867,6 @@ Reference : Search "macos keyboard cannot repeat" on Google
         - Enable `Use event location`
         - Enable `Use calendar weeks`
 
-
 <!--
 
 #### Amphetamine
@@ -900,7 +897,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 JDK - Java Development Kit
 
-1.  **Install** JDK via [SDKMAN!](https://sdkman.io)
+1.  Install JDK via [SDKMAN!](https://sdkman.io)
 
     RECOMMEND to install the JDKs of version **11** and the latest LTS **17** ( on 2021-01-01 )
 
@@ -913,11 +910,11 @@ JDK - Java Development Kit
 
     -   B.  via SDKMAN!
 
-        1.  **Install SDKMAN!**
+        1.  Install SDKMAN!
 
             Reference : [Installation - SDKMAN!](https://sdkman.io/install)
 
-        2.  **Install JDK** via SDKMAN!
+        2.  Install JDK via SDKMAN!
 
             Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
 
@@ -929,7 +926,7 @@ JDK - Java Development Kit
 
         Reference : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)
 
-1.  **Set the environment variable `JAVA_HOME`**
+1.  Set the environment variable `JAVA_HOME`
 
     Append the command below to the file `~/.zshrc` :
 
@@ -1063,7 +1060,7 @@ brew install node
 
 #### Node.js
 
-1.  **Install [Node Version Manager](https://github.com/nvm-sh/nvm)** - `nvm`
+1.  Install [Node Version Manager](https://github.com/nvm-sh/nvm) - `nvm`
 
     ```bash
     $ brew install nvm
@@ -1098,7 +1095,7 @@ brew install node
 
     Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-1.  **Preapre** the environment
+1.  Preapre the environment
 
     e.g. follow the PROMPT from the `brew install nvm` output above
 
@@ -1120,7 +1117,7 @@ brew install node
         [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
         ```
 
-1.  **Install [Node.js](https://nodejs.org/en/)** - `node`, e.g.
+1.  Install [Node.js](https://nodejs.org/en/) - `node`, e.g.
 
     ```bash
     nvm install node
@@ -1132,7 +1129,7 @@ brew install node
 
     Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
 
-1.  **Check** the versions, e.g.
+1.  Check the versions, e.g.
 
     ```bash
     $ nvm -v
