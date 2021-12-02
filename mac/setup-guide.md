@@ -669,34 +669,34 @@ Some of the icons will still be visible in Control Center
 
 #### Keyboard
 
--   `Keyboard`
+`Keyboard`
 
-    - Set `Key Repeat` fastest
-    - Set `Delay Until Repeat` the 3rd shortest i.e. 35 milliseconds
+- Set `Key Repeat` fastest
+- Set `Delay Until Repeat` the 3rd shortest i.e. 35 milliseconds
 
-        Check :
+    Check :
 
-        ```bash
-        $ defaults read NSGlobalDomain InitialKeyRepeat
-        35
-        ```
+    ```bash
+    $ defaults read NSGlobalDomain InitialKeyRepeat
+    35
+    ```
 
-    - Enable `Use F1, F2, etc. keys as standard function keys`
+- Enable `Use F1, F2, etc. keys as standard function keys`
 
--   `Text`
+`Text`
 
-    - Clear all `Replace With`
-    - Clear all checkboxes
+- Clear all `Replace With`
+- Clear all checkboxes
 
--   `Shortcuts`
+`Shortcuts`
 
-    - Add `App Shortcuts`
-        - `Google Chrome` → `Duplicate Tab` → `⇧ ⌘ D`
-        - `iTerm` → `Toggle Full Screen` → `^ ⌘ F`
+- Add `App Shortcuts`
+    - `Google Chrome` → `Duplicate Tab` → `⇧ ⌘ D`
+    - `iTerm` → `Toggle Full Screen` → `^ ⌘ F`
 
--   `Input Sources`
+`Input Sources`
 
-    - Clear the unused input sources
+- Clear the unused input sources
 
 #### Key Repeat
 
@@ -785,9 +785,13 @@ Reference : Search "macos keyboard cannot repeat" on Google
 #### Sogou Input
 
 1. `System Preferences` → `Keyboard` → `Input Sources` → Add `搜狗拼音`
+
 1. Clear the input methods except `ABC` and `搜狗拼音`
+
 1. Switch the input source to `搜狗拼音`d
+
 1. Menu Bar → `Input Source Menu` → `搜狗拼音` → `偏好设置` → `同步`
+
     1. → Login via the WeChat account
     1. → `配置同步` → `下载配置`
 
@@ -904,40 +908,58 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 #### Copy 'Em
 
-`Sort Order` int the top right corner of the popup menu
+-   `Sort Order` int the top right corner of the popup menu
 
-- Select `Most Recently Used` or press `⌥ ⌘ R`
+    -   Select `Most Recently Used` or press `⌥ ⌘ R`
 
-`Preferences` in the bottom left corner of the popup menu
+-   `Preferences` in the bottom left corner of the popup menu
 
-- Enable `Launch at Login`
-- `Window Appearance`
-    - Select `Midday`
-    - Set `Minimum Font Size` 15
-    - Select `Auto-Scroll to Last Selected After List Change`
-- `Window Position` → `Open at Active Screen`
-- `Search Field`
-    - Enable `Toggle Search Filters with ⌘ F`
-    - Eanble `Search Immediately After Each Keystroke`
-- `Keyboard Shortcuts…`
-    - `Global Shortcuts`
-        - Set `Open window` to `⌥ V`
-        - Set `Paste current clipboard item as plain test` to `⇧ ⌘ V`
-    - `Local Shortcuts`
-        - Set `Switch to 'All' list` to `⇧ ⌘ A`
-    - Clear the other shortcuts
-- Enbale `Get Titles of Web URLs`
-- Enable `Reject Duplicates`
-- `Auto-Delete Unstarred Items` → `Auto-Delete Oldest…`
-    - Store only the most recent `1000` unstarred items…
+    -   Enable `Launch at Login`
+
+    -   `Window Appearance`
+
+        -   Select `Midday`
+        -   Set `Minimum Font Size` 15
+        -   Select `Auto-Scroll to Last Selected After List Change`
+
+    -   `Window Position` → `Open at Active Screen`
+
+    -   `Search Field`
+
+        -   Enable `Toggle Search Filters with ⌘ F`
+        -   Eanble `Search Immediately After Each Keystroke`
+
+    -   `Keyboard Shortcuts…`
+
+        -   `Global Shortcuts`
+
+            -   Set `Open window` to `⌥ V`
+            -   Set `Paste current clipboard item as plain test` to `⇧ ⌘ V`
+
+        -   `Local Shortcuts`
+
+            -   Set `Switch to 'All' list` to `⇧ ⌘ A`
+
+        -   Clear the other shortcuts
+
+    -   Enbale `Get Titles of Web URLs`
+
+    -   Enable `Reject Duplicates`
+
+    -   `Auto-Delete Unstarred Items` → `Auto-Delete Oldest…`
+
+        -   Store only the most recent `1000` unstarred items…
 
 #### Snipaste
 
 `Preferences…`
 
 - `General`
+
     - Enable `Run on system startup`
+
 - `Control` → `Global Hotkeys`
+
     - Set `Snip` to `^ ⌘ A`
     - Clear the other hotkeys
 
@@ -952,7 +974,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 #### Itsycal
 
-`Preference…`
+`Preferences…`
 
 -   `General`
 
@@ -1010,7 +1032,9 @@ REQUIRED by Maven, Gradle, JetBrains IDEs and etc.
 
 #### Install JDKs
 
-RECOMMEND to install the JDKs of version **11** and the latest LTS **17**
+RECOMMEND to install the JDKs of the common used version **11** and the latest LTS version **17**
+
+LTS - Long-Term Support
 
 -   A.  via Homebrew - recommended
 
@@ -1032,25 +1056,27 @@ RECOMMEND to install the JDKs of version **11** and the latest LTS **17**
         Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
 
         ```bash
-        sdk install java
+        sdk install java [VERSION]
         ```
 
--   C. via the installation downloaded from the official website
+-   C. via the installation downloaded from the websites
 
     Reference : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)
 
 #### JAVA_HOME
 
-Set the environment variable `JAVA_HOME` - automatically via the dotfiles above
+Set the environment variable `JAVA_HOME` - automatically
 
-or do it manually - append the command below to the ZSH configuration file `~/.zshrc` :
+e.g. via the dotfiles downloaded above
+
+I can do it manually : append the command below to the ZSH configuration file `~/.zshrc` :
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 ```
 
 - If `~/.zshrc` doesn't exists, create it
-- If use `bash` instead of `zsh`, append to the file `~/.bashrc`
+- If use `bash` instead of `zsh`, append to the BASH configuration file `~/.bashrc`
 
 Note : The tilde symbol `~` equals the path of the current user's home directory, e.g. for me `/Users/icehe`
 
@@ -1065,13 +1091,10 @@ $ /usr/libexec/java_home -v 1.8
 
 RECOMMEND to use JetBrains tools to develop
 
-RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
-    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-)
-
 #### Install Tools
 
 1.  Login the JetBrains account on [account.jetbrains.com/login](https://account.jetbrains.com/login)
-1.  Open `JetBrains Toolbox` → Menu Bar → `JetBrains Toolbox` → `Settings` → `Log in` → `Approve` → Jump back to `JetBrains Toolbox`
+1.  Open `JetBrains Toolbox` → Menu Bar → `JetBrains Toolbox` → `Settings` → `Log in` → `Approve` → Jump back to `JetBrains Toolbox` Menu
 1.  Install the required tools
 
     e.g. for me
@@ -1087,7 +1110,9 @@ RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#ed
 
 #### Plugins
 
-RECOMMEND to use the plugins to develop, e.g. for me
+RECOMMEND to use the JetBrains IDE plugins
+
+e.g. for me
 
 Common
 
@@ -1106,6 +1131,7 @@ Common
 -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation) :
     Case switching, sorting, filtering, incrementing,
     aligning to columns, grepping, escaping, encoding…
+-   …
 
 <!--
 
@@ -1122,18 +1148,14 @@ IntelliJ IDEA
     [Project Lombok](https://projectlombok.org/)
     is a java library that automatically plugs into the editor
     and build tools, spicing up your java.
-    _Early access to future java features such as val, and much more._
+    Early access to future java features such as val, and much more.
 -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper) :
     A must have plugin for working with Maven
-
-<!--
-
--   _[google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :_
-    _Reformats Java source code to comply with_
-    _[Google Java Style](https://google.github.io/styleguide/javaguide.html)_
--   _[generateAllSetter](https://github.com/gejun123456/intellij-generateAllSetMethod)_
-
--->
+-   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :
+    Reformats Java source code to comply with
+    [Google Java Style](https://google.github.io/styleguide/javaguide.html)
+-   [generateAllSetter](https://github.com/gejun123456/intellij-generateAllSetMethod)
+-   …
 
 ### Java
 
@@ -1151,7 +1173,7 @@ IntelliJ IDEA
     SKIP if I install via JetBrains Toolbox - which has been logined the account with the related license
 
     RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
-    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
+    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-)
 
     -   Menu Bar → `Help` → `Register…` → Enter the license
 
@@ -1159,10 +1181,11 @@ IntelliJ IDEA
 
     e.g. ClashX Pro
 
-    1.  `Peferences` → `Appearance & Behavior` → `System Settings` → `HTTP Proxy` → Select `Manual proxy configuration` → Select `SOCKS`
+    `Peferences` → `Appearance & Behavior` → `System Settings` → `HTTP Proxy` → Select `Manual proxy configuration` → Select `SOCKS`
+
     1.  `Host name:` Enter `127.0.0.1`
     1.  `Port number:` Enter `7890`
-    1.  Click `Check connection`, enter `http://google.com` and then click `OK`
+    1.  `Check connection` → Enter `http://google.com` → `OK`
         - Prompt `Connection successful` if success
 
 1.  Synchronize the settings - optional
@@ -1179,39 +1202,49 @@ IntelliJ IDEA
 
         1. `File` → `Manage IDE Settings` → `Settings Repository…`
         1. Enter HTTPS URL to the settings GitHub repository
-        1. Enter the GitHub access token
+        1. Enter the GitHub personal access token from [github.com/settings/tokens](https://github.com/settings/tokens)
         1. Select `Overwrite Local` at the first synchronization
 
     -   C. via exporting and importing the configuration file
 
         Reference : [Export your settings](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#import-export-settings)
 
-1.  Install the plugins - optional - automatically via IDE Settings Sync above
+1.  Install the plugins - optional - automatically
+
+    e.g. via IDE Settings Sync above
 
     As metioned above : "JetBrains Toolbox - Plugins"
 
-1.  Set the font `Consolas` - optional - automatically via IDE Settings Sync above
+1.  Set the font `Consolas` - optional - automatically
+
+    e.g. via IDE Settings Sync above
 
     1.  Search on the Internet, download and install
     1.  `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
 
-1.  Set the color scheme `Solarized Light (Alternate)` - optional - automatically via IDE Settings Sync above
+1.  Set the color scheme `Solarized Light (Alternate)` - optional - automatically
 
-    1.  Download on the Internet
-        - A. [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
-        - B. [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
-    1.  `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
+    e.g. via IDE Settings Sync above
+
+    1.  Download on the Internet :
+
+        -   A. [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
+        -   B. [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
+
+    1.  `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select the file downloaded above
 
 #### Maven
 
-1.  Install [Apache Maven](https://maven.apache.org/) `mvn`
+Reference : [Apache Maven](https://maven.apache.org/)
+
+1.  Install `mvn` -
 
     ```bash
     brew install maven
     mvn -version
     ```
 
-1.  Create / Update the content of the Maven configuration file `~/.m2/settting.xml` - optional
+1.  Create / Update the Maven configuration file `~/.m2/settting.xml` - optional
 
     e.g. according to the sample file `~/.m2/settings_demo.xml`
 
@@ -1219,19 +1252,19 @@ IntelliJ IDEA
     open ~/.m2/settting.xml
     ```
 
-    Note : `open` file with default editor
+    Note : `open` file with the default editor
 
-NOTICE : If I use the private Mac and the Maven configuration file exists, please merge the existing content with the new content carefully
+NOTICE : If I use the private Mac and the Maven configuration file MAY exists, please merge the existing content with the new content carefully
 
 ### JavaScript
 
 #### Node.js
 
-RECOMMEND to use the Node.js of version **16**
-
-Note : The latest main version is **17**
+RECOMMEND to use the Node.js of the main version **16**
 
 -   A. via Homebrew
+
+    e.g. for me
 
     ```bash
     brew install node@16
@@ -1274,9 +1307,9 @@ Note : The latest main version is **17**
 
         Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-    1.  Preapre the environment
+    1.  Configure the environment
 
-        e.g. follow the PROMPT from the `brew install nvm` output above
+        e.g. follow the PROMPT from the output of the command `brew install nvm` above
 
         1.  Create NVM's working directory if it doesn't exist :
 
@@ -1284,9 +1317,7 @@ Note : The latest main version is **17**
             mkdir ~/.nvm
             ```
 
-        1.  Just execute the following commands for now - recommended
-
-            _or Add the following commands to `~/.zshrc` or my desired shell configuration file :_
+        1.  Append / Update the commands below to the ZSH configuration file `~/.zshrc` :
 
             ```bash
             export NVM_DIR="$HOME/.nvm"
@@ -1296,31 +1327,37 @@ Note : The latest main version is **17**
             [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
             ```
 
-    1.  Install [Node.js](https://nodejs.org/en/) - `node`, e.g.
+    1.  Install [Node.js](https://nodejs.org/en/) - `node`
+
+        e.g. for me
 
         ```bash
         nvm install node
-        node -v
+        node --version
         nvm install 16
         node use 16
-        node -v
+        node --version
         node alias default 16
         ```
 
+        Note : The latest main version is **17**
+
         Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
 
-    1.  Check the versions, e.g.
+    1.  Check the versions
+
+        e.g. for me
 
         ```bash
-        $ nvm -v
+        $ nvm --version
         0.39.0
-        $ node -v
-        v16.13.0
+        $ node --version
+        v16.13.1
         ```
 
     1.  Upgrade - in the future
 
-        e.g.
+        e.g. for me
 
         ```bash
         nvm install node
@@ -1345,29 +1382,31 @@ Troubleshooting - References :
 
 ### Android
 
-#### Kotlin & Gradle
+#### Gradle & Kotlin
+
+e.g. via Homebrew
 
 ```bash
 brew install \
-    kotlin \
-    gradle
+    gradle \
+    kotlin
 ```
 
 #### AndroidStudio
 
 Refer to IntelliJ IDEA above
 
-The different parts as below
+The parts that are different from IntelliJ IDEA as below :
 
 1.  Synchronize the settings - optional
 
-    -   A. ~~via IDE Settings Sync~~ - NOT SUPPORTED
+    -   A. ~~via IDE Settings Sync~~ - NOT SUPPORTED by Android Studio!
 
     -   B. via the settings repository - recommended
 
     -   C. via exporting and importing the configuration file
 
-1.  Install the plugins manually
+1.  Install the plugins - manually
 
     As metioned above : "JetBrains Toolbox - Plugins"
 
