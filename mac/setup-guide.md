@@ -10,7 +10,7 @@ Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 ---
 
-This guide has been recently used on 2021-12-01
+This guide has been recently used on 2021/12/01
 
 - macOS **Monterey** version **12.0.1**
 - MacBook Pro 2021 with **M1 Pro** chip
@@ -950,13 +950,15 @@ JDK - Java Development Kit
 
 1.  Install JDKs
 
-    RECOMMEND to install the JDKs of version **11** and the latest LTS **17** ( on 2021-01-01 )
+    RECOMMEND to install the JDKs of version **11** and the latest LTS **17** on 2021/12/01
 
     -   A.  via Homebrew - recommended
 
         ```bash
-        brew install openjdk
         brew install openjdk@11
+        java --version
+        brew install openjdk
+        java --version
         ```
 
     -   B.  via SDKMAN!
@@ -999,24 +1001,17 @@ JDK - Java Development Kit
 
 #### IntelliJ IDEA
 
-1.  Download the [latest Isntallation](https://www.jetbrains.com/idea/download/#section=mac) on the [offical website](https://www.jetbrains.com/idea/)
-
-    You can choose the Community verion to skip setting the license.
-
 1.  Install
 
-    TODO
+    -   A. via Jetbrains Toolbox - recommended
+    -   B. via the installation downloaded from [the official website](https://www.jetbrains.com/idea/download/#section=mac)
 
-    - A. via Jetbrains Toolbox
+        Note : You can choose the Community verion to skip entering the license
 
-    - B. via the installation from the official websites
+1.  Enter the license
 
-1.  Get and set the lincense
-
-    You'd better [buy commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+    You'd better [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
-
-    Reference : [Free Educational Licenses](https://www.jetbrains.com/community/education/#students) / [学生授权申请方式](https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式)
 
 1.  Synchronize the settings
 
@@ -1025,11 +1020,11 @@ JDK - Java Development Kit
 
     1. `File` → `Manage IDE Settings` → `Settings Repository…`
     1. Enter HTTPS URL of the settings Github repository
-    1. Enter the Github access token
+    1. Enter the GitHub access token
 
-    But you cannot synchronize the plugins in this way. So the next step is to…
+    TBD : But you cannot synchronize the plugins in this way. So the next step is to… ?
 
-1.  Install plugins - can sync so unnecessary ?
+1.  Install plugins - TBD : can auto sync?
 
     -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts) :
         Forces the user to use keyboard shortcuts by blocking click action
@@ -1065,16 +1060,17 @@ JDK - Java Development Kit
 
 1.  Set the font `Consolas`
 
-    1.  Download on the Internet
-    1.  Update the preference :
+    1.  Search and download on the Internet
+    1.  Install
+    1.  Configure on the IDE :
         `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
 
 1.  Set the color scheme `Solarized Light (Alternate)`
 
     1.  Download on the Internet
-        -   [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
-            [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
-    1.  Update the preference :
+        - A. [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
+        - B. [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
+    1.  Configure on the IDE :
         `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
 
 #### Maven
@@ -1174,7 +1170,7 @@ brew install node
     nvm install 16
     ```
 
-    RECOMMEND to install the Node.js of version **16** ( on 2021-11-30 )
+    RECOMMEND to install the Node.js of version **16** on 2021/12/01
 
     Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
 
@@ -1195,7 +1191,7 @@ References
 
 - [How to make WebStorm format code according to eslint? - Stack Overflow](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint)
 
-### Android - Kotlin
+### Android
 
 CLI
 
