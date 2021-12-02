@@ -1016,9 +1016,12 @@ $ /usr/libexec/java_home -v 1.8
 
 ### JetBrains Toolbox
 
-#### Install Tools
-
 RECOMMEND to use JetBrains tools to develop
+
+RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+    or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-)
+
+#### Install Tools
 
 1.  Login the JetBrains account on [account.jetbrains.com/login](https://account.jetbrains.com/login)
 1.  Open `JetBrains Toolbox` → Menubar → `JetBrains Toolbox` → `Settings` → `Log in` → `Approve` → Jump back to `JetBrains Toolbox`
@@ -1100,10 +1103,10 @@ IntelliJ IDEA
 
     SKIP if you install via JetBrains Toolbox - which has been logined the account with the related license
 
-    -   Menubar → `Help` → `Register…` → Enter the license
-
-    RECOMMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+    RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
+
+    -   Menubar → `Help` → `Register…` → Enter the license
 
 1.  Configure the network proxy - optional
 
@@ -1315,20 +1318,9 @@ The different parts as below
 
     -   B. via the settings repository - recommended
 
-        NOTE : It can share the same settings accross multiple JetBrains's accounts
-
-        Reference : [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
-
-        1. `File` → `Manage IDE Settings` → `Settings Repository…`
-        1. Enter HTTPS URL to the settings GitHub repository
-        1. Enter the GitHub access token
-        1. Select `Overwrite Local` at the first synchronization
-
     -   C. via exporting and importing the configuration file
 
-        Reference : [Export your settings](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#import-export-settings)
-
-1.  Install the plugins - optional
+1.  Install the plugins manually
 
     As metioned above : "JetBrains Toolbox - Plugins"
 
