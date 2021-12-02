@@ -1081,8 +1081,7 @@ IntelliJ IDEA
 -   _[google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :_
     _Reformats Java source code to comply with_
     _[Google Java Style](https://google.github.io/styleguide/javaguide.html)_
--   _[GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus) :_
-    _Generate POJO according to JSON_
+-   _[generateAllSetter](https://github.com/gejun123456/intellij-generateAllSetMethod)_
 
 -->
 

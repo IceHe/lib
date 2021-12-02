@@ -563,7 +563,8 @@ Reference : https://www.computerhope.com/keys.htm
 - lru : least recently used
 - ls : list
 - ltd : limited
-- LVS: [Linus Virtual Server](https://en.wikipedia.org/wiki/Linux_Virtual_Server) - a load balancing software
+- LTS : [Long-Term Support](https://en.wikipedia.org/wiki/Long-term_support)
+- LVS : [Linus Virtual Server](https://en.wikipedia.org/wiki/Linux_Virtual_Server) - a load balancing software
 - lyt : layout
 
 ### M
