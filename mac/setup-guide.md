@@ -1016,13 +1016,13 @@ $ /usr/libexec/java_home -v 1.8
 
 ### JetBrains Toolbox
 
-#### Tools
+#### Install Tools
 
 RECOMMEND to use JetBrains tools to develop
 
 1.  Login the JetBrains account on [account.jetbrains.com/login](https://account.jetbrains.com/login)
 1.  Open `JetBrains Toolbox` → Menubar → `JetBrains Toolbox` → `Settings` → `Log in` → `Approve` → Jump back to `JetBrains Toolbox`
-1.  Download the required tools
+1.  Install the required tools
 
     e.g. for me
 
@@ -1178,10 +1178,14 @@ NOTICE : If your use the private Mac and the Maven configuration file exists, pl
 
 #### Node.js
 
+RECOMMEND to use the Node.js of version **16**
+
+Note : The latest main version is **17**
+
 -   A. via Homebrew
 
     ```bash
-    brew install node
+    brew install node@16
     ```
 
 -   B. via [Node Version Manager](https://github.com/nvm-sh/nvm) - recommended
@@ -1245,12 +1249,13 @@ NOTICE : If your use the private Mac and the Maven configuration file exists, pl
 
     1.  Install [Node.js](https://nodejs.org/en/) - `node`, e.g.
 
-        RECOMMEND to install the Node.js of version **16**
-
         ```bash
         nvm install node
         node -v
         nvm install 16
+        node use 16
+        node -v
+        node alias default 16
         ```
 
         Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
@@ -1264,17 +1269,34 @@ NOTICE : If your use the private Mac and the Maven configuration file exists, pl
         v16.13.0
         ```
 
+    1.  Upgrade - in the future
+
+        e.g.
+
+        ```bash
+        nvm install 16
+        nvm install node
+        ```
+
+#### pnpm
+
+Install or upgrade
+
+```bash
+npm install -g pnpm
+```
+
 #### WebStorm
 
-Like IntelliJ IDEA above
+Refer to IntelliJ IDEA above
 
-References
+Troubleshooting - References :
 
 - [How to make WebStorm format code according to eslint? - Stack Overflow](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint)
 
 ### Android
 
-CLI
+#### Kotlin & Gradle
 
 ```bash
 brew install \
@@ -1284,14 +1306,32 @@ brew install \
 
 #### AndroidStudio
 
-Like IntelliJ IDEA above
+Refer to IntelliJ IDEA above
 
-CANNOT Synchroize via IDE Settings Sync
+The different parts as below
 
-TODO : Synchroize with the GitHub repository
+1.  Synchronize the settings - optional
 
-Troubleshooting
+    -   A. ~~via IDE Settings Sync~~ - NOT SUPPORTED
 
-References
+    -   B. via the settings repository - recommended
+
+        NOTE : It can share the same settings accross multiple JetBrains's accounts
+
+        Reference : [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+
+        1. `File` → `Manage IDE Settings` → `Settings Repository…`
+        1. Enter HTTPS URL to the settings GitHub repository
+        1. Enter the GitHub access token
+
+    -   C. via exporting and importing the configuration file
+
+        Reference : [Export your settings](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#import-export-settings)
+
+1.  Install the plugins - optional
+
+    As metioned above : "JetBrains Toolbox - Plugins"
+
+Troubleshooting - References :
 
 - ["Failed to install the following Android SDK packages as some licences have not been accepted" error](https://stackoverflow.com/questions/54273412/failed-to-install-the-following-android-sdk-packages-as-some-licences-have-not/61480578#61480578)
