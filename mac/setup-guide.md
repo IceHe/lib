@@ -1,4 +1,4 @@
-# macOS Setup Guide : 设置指南
+# macOS Setup Guide - 设置指南
 
 How to setup my Mac step by step?
 
