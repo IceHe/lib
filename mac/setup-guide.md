@@ -6,7 +6,7 @@ How to setup my Mac step by step?
 
 Reference : [macOS Setup Guide - Sourabh Bajaj](http://sourabhbajaj.com/mac-setup)
 
-Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
+Related : [macOS Efficiency Guide - 效率指南](/mac/efficiency-guide.md)
 
 ---
 
