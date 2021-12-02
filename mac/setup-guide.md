@@ -942,6 +942,18 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 ## Development
 
+### Note on GitHub
+
+e.g. for me
+
+```bash
+cd ~
+git init
+git remote add origin git@github.com:IceHe/lib.git
+git pull origin master
+git branch --set-upstream-to=origin/master master
+```
+
 ### Java
 
 #### JDK
