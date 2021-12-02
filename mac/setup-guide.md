@@ -48,7 +48,7 @@ RECOMEND : 避免直接将备份数据还原到新系统中
 随着时间推移，我们不仅需要越来越大的存储空间来保存它们，而且可能会产生难以解决的问题。
 所以，为了适时淘汰这些可能存在问题的数据，建议每次迁移 Mac 时都尽量避免直接迁移旧数据。
 
-## Network and Passwords
+## Network & Passwords
 
 ### Network & AppleID
 
@@ -164,7 +164,7 @@ Configure the network proxy on CLI
 
     -   A. Temporarily : Open `Terminal` → Paste the shell command above to execute
 
-    -   B. All the time : Append the shell command above to the SHELL configuration file, e.g. `.zshrc`
+    -   B. All the time : Append the shell command above to the ZSH configuration file, e.g. `.zshrc`
 
         so that I can always use ZSH with the network proxy when ClashX Pro is running
 
@@ -1392,7 +1392,7 @@ brew install \
     kotlin
 ```
 
-#### AndroidStudio
+#### Android Studio
 
 Refer to IntelliJ IDEA above
 
