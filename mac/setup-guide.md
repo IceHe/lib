@@ -10,7 +10,7 @@ Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 ---
 
-This guide has been recently used by the author on 2021/12/01
+This guide has been recently used by the author on 2021/12/02
 
 - macOS **Monterey** version **12.0.1**
 - MacBook Pro 2021 with **M1 Pro** chip
@@ -34,7 +34,7 @@ Follow the principles :
 
 ## Install or Restore macOS
 
-SKIP this step when you set up a new Mac or have already re-installed a new macOS
+SKIP this step when I set up a new Mac or have already re-installed a new macOS
 
 Follow the references : Apple Support
 
@@ -42,7 +42,7 @@ Follow the references : Apple Support
 1. [如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
 1. [如何重新安装 macOS](https://support.apple.com/zh-cn/HT204904)
 
-NOTE : 避免直接将备份数据还原到新系统中
+RECOMEND : 避免直接将备份数据还原到新系统中
 
 因为每次将过去 Mac 的备份数据直接还原到新系统中都难免会产生冗余、无用甚至错误的数据；
 随着时间推移，我们不仅需要越来越大的存储空间来保存它们，而且可能会产生难以解决的问题。
@@ -60,11 +60,11 @@ First of all :
 
     - or sign up if you don't have an AppleID
 
-1.  Open [this guide](https://icehe.xyz/#/mac/setup-guide) on Mac so that you can continue the following steps
+1.  Open [this guide](https://icehe.xyz/#/mac/setup-guide) on Mac so that I can continue the following steps
 
 ### Password Manager
 
-The password manager makes it easier and safer for you to login other accounts
+The password manager makes it easier and safer for me to login other accounts
 
 e.g. using [1Password](https://1password.com/)
 
@@ -74,11 +74,13 @@ e.g. using [1Password](https://1password.com/)
 
     - or load the vaults on iCloud
 
-NOTE : [List of password managers - Wikipedia](https://en.wikipedia.org/wiki/List_of_password_managers)
+Note : [List of password managers - Wikipedia](https://en.wikipedia.org/wiki/List_of_password_managers)
 
 ### Network Proxy
 
-RECOMMEND to configure the network proxy for stable and faster Internet connections in China mainland
+RECOMMEND to configure the network proxy for stable Internet connections in China mainland
+
+so that I can continue the following steps more smoothly
 
 #### GUI Proxy
 
@@ -86,26 +88,30 @@ GUI - Graphical User Interface
 
 1.  Get the proxy service
 
-    How to get :
+    How to :
 
     - A. BUY - recommended
-    - B. Build it yourself
+    - B. Build it myself
 
-    NOTE :
-    Because the valid methods to build a stable network proxy may change often,
-    RECOMMEND to search the new methods on the Internet when you need
+    Note : Because the valid methods to get a stable network proxy may change often,
+
+    RECOMMEND to search the new methods on the Internet when I need
 
 1.  Get the proxy configurations from the proxy service
 
+    e.g. via subscription URL
+
     List of configuration methods :
 
-    - A. Subscription URL - recommended
-    - B. Configuration file
-    - C. Server URLs
+    - A. subscription URL - recommended
+    - B. configuration file
+    - C. server URLs
     - D. QR codes
     - …
 
-1.  Install the proxy plugin, e.g. [ClashX Pro](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
+1.  Install the proxy plugin
+
+    e.g. [ClashX Pro](https://github.com/Semporia/ClashX-Pro)
 
     List of proxy plugins :
 
@@ -128,7 +134,7 @@ GUI - Graphical User Interface
     1.  Open `ClashX Pro`
     1.  Menu Bar → `ClashX Pro`
         1. → `Config` → `Remote config` → `Manage` → `Add` → Enter the subscription URL → `OK`
-        1. → `Config` → Select the new config you added - usually uncessary
+        1. → `Config` → Select the new config I added - usually uncessary
         1. → `Set as system proxy`
         1. → `Dashboard` → `Setting` → Enable `Start at login`
 
@@ -144,7 +150,7 @@ Configure the network proxy on CLI
 
 1.  Get the proxy from the proxy plugin
 
-    e.g. from ClashX Pro
+    e.g. get it from ClashX Pro
 
     -   Menu Bar → `ClashX Pro` → `Copy shell command` :
 
@@ -154,13 +160,17 @@ Configure the network proxy on CLI
 
 1.  Add the proxy on CLI
 
-    e.g. add the proxy in Terminal
+    e.g. add it in the Terminal tab temporarily
 
-    -   Open `Terminal` → Paste the shell command above to execute
+    -   A. Temporarily : Open `Terminal` → Paste the shell command above to execute
+
+    -   B. All the time : Append the shell command above to the SHELL configuration file, e.g. `.zshrc`
+
+        so that I can always use ZSH with the network proxy when ClashX Pro is running
 
 1.  Check the Internet connection on CLI
 
-    e.g. visit [google.com](https://google.com) in the Terminal opened above :
+    e.g. visit [google.com](https://google.com) in Terminal tab opened above :
 
     ```bash
     $ curl google.com
@@ -179,11 +189,11 @@ Configure the network proxy on CLI
 
 ## Homebrew & Homebrew-Cask
 
-[Homebrew](https://brew.sh) is a macOS package manager for installing and managing softwares
+[Homebrew](https://brew.sh) is a software package management system that simplifies the installation of software on macOS
 
-[Homebrew-Cask](https://formulae.brew.sh/cask/) extends Homebrew and allows you to install the large binary files via a command-line tool
+[Homebrew-Cask](https://formulae.brew.sh/cask/) extends Homebrew and allows me to install the large binary files via a command-line tool
 
-NOTE : You can search the available softwares you need on [Homebrew Formulae](https://formulae.brew.sh)
+I can search the available softwares I need on [Homebrew Formulae](https://formulae.brew.sh)
 
 - CLI softwares : [Formula](https://formulae.brew.sh/formula/) - a listing of all packages available from the core tap
 - GUI softwares : [Cask](https://formulae.brew.sh/cask) - a listing of all casks available from the cask tap
@@ -198,35 +208,35 @@ NOTE : You can search the available softwares you need on [Homebrew Formulae](ht
 1.  Check
 
     ```bash
-    $ brew -v
-    # or
     $ brew --version
     # e.g.
-    Homebrew 3.3.5
-    Homebrew/homebrew-core (git revision 8be0d8cc6d4; last commit 2021-11-24)
-    Homebrew/homebrew-cask (git revision 2f292faf97; last commit 2021-11-24)
+    Homebrew 3.3.6
+    Homebrew/homebrew-core (git revision 628aed8b9e1; last commit 2021-12-02)
+    Homebrew/homebrew-cask (git revision 6c3d470278; last commit 2021-12-02)
     ```
 
 1.  Speed up
 
     Reference : [Homebrew (中国大陆) 有比较快的源 (mirror) 吗? - 知乎](https://www.zhihu.com/question/31360766/answer/749386652)
 
-1.  Update and Upgrade - in the future
+1.  Update & upgrade - in the future
 
     ```bash
     brew update && brew upgrade
     ```
-1.  PREPARE : Prevent Mac from automatically sleeping in a short time so that the installation can be done
+1.  PREPARE : Prevent Mac from automatically sleeping in a short time
 
-    e.g. change some battery settings temporarily
+    so that the installations WON'T be interrupted by auto-sleeping frequently
 
-    Open `System Preferences` → `Battery`
+    e.g. let the display wait for a long time before turning off
 
-    -   `Battery` Tab
-        - Set `Turn display off after:` 30 min+
+    `System Preferences` → `Battery`
+
+    -   `Battery`
+        - Set `Turn display off after:` 30 min
         - Disable `Put hard disks to sleep when possible` - optional
-    -   `Power Adapter` Tab
-        - Set `Turn display off after:` 30 min+
+    -   `Power Adapter`
+        - Set `Turn display off after:` 30 min
         - Enable `Prevent your Mac from automatically sleeping when the display off` - optional
 
 ## Install CLI Softwares
@@ -238,6 +248,8 @@ RECOMMEND to install CLI programs via Homebrew
 ### Required
 
 Install the required CLI softwares via Homebrew
+
+e.g. for me
 
 ```bash
 brew install \
@@ -252,35 +264,37 @@ brew install \
     tmux \
     vim \
     wget
+```
 
+```bash
 brew install libtool \
     && brew link libtool \
     && brew install graphviz \
     && brew link --overwrite graphviz
 ```
 
-NOTE : The pre-installed softwares may be outdated,
+Note : The pre-installed softwares may be outdated e.g. `git`,
+
 so RECOMMEND to install them via Homebrew again
 
 ---
 
-NOTE : Why I need these CLI softwares?
+Note : Why I need these CLI softwares?
 
 -   [coreutils](http://www.gnu.org/s/coreutils/) :
     The basic file, shell and text manipulation utilities of the GNU operating system
 
-    Include many useful commands, see TOC of
-    [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
+    It include many useful commands, see TOC of
+    [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html)
 
-    e.g. use [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html)
-    to get absolute path to a file or directory.
+    e.g. get the absolute path to a file or directory via [`realpath`](http://man7.org/linux/man-pages/man1/realpath.1.html) command
 
--   `tmux` requires [reattach-to-user-namespace](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
+-   `tmux` requires [`reattach-to-user-namespace`](https://superuser.com/questions/397076/tmux-exits-with-exited-on-mac-os-x)
     to write and read the system clipboard
 
-    Reattach to the per-user bootstrap namespace in its "Background" session then execute the program with arguments.
+    `reattach-to-user-namespace` reattaches to the per-user bootstrap namespace in its "background" session and then execute the program with arguments
 
--   PlantUML require [GraphViz](https://plantuml.com/zh/graphviz-dot)
+-   [PlantUML](http://plantuml.com/) requires [GraphViz](https://plantuml.com/zh/graphviz-dot)
     to write UML diagrams
 
     ```bash
@@ -290,9 +304,9 @@ NOTE : Why I need these CLI softwares?
     brew link --overwrite graphviz
     ```
 
-    NOTE : This could fix issues if you have installed GraphViz as `.dmg` package
+    Note : The commands above fix the issues if I installed GraphViz via the `.dmg` package
 
-    You can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
+    I can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
     By default, the dot executable is expected :
 
     - Firstly in : `/usr/local/bin/dot`
@@ -301,6 +315,8 @@ NOTE : Why I need these CLI softwares?
 ### Optional
 
 Install the optional CLI softwares via Homebrew
+
+e.g. for me
 
 ```bash
 brew install \
@@ -327,7 +343,9 @@ RECOMMEND to install the GUI softwares via Homebrew-Cask
 
 Install the required GUI softwares via Homebrew-Cask
 
--   First
+e.g. for me
+
+1.  First
 
     ```bash
     brew install --cask \
@@ -337,7 +355,7 @@ Install the required GUI softwares via Homebrew-Cask
         wechat
     ```
 
--   Later
+1.  Later
 
     ```bash
     brew install --cask \
@@ -357,8 +375,9 @@ Install the required GUI softwares via Homebrew-Cask
         visual-studio-code
     ```
 
-NOTICE : The installations may REQUIRE you to enter PASSWORD,
-e.g. `karabiner-elements`
+RECOMMEND to execute the commands above in parallel in multiple Terminal tabs
+
+NOTICE : The installations may REQUIRE me to enter Mac PASSWORD, e.g. `karabiner-elements`
 
 #### Mac App Store
 
@@ -373,6 +392,8 @@ Note : The GUI softwares unavailable on Homebrew-Cask may be available on Mac Ap
 
 #### Websites
 
+Install the required GUI softwares via the installations downloaded from the websites
+
 Note : Some GUI softwares are only available on the websites
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
@@ -380,22 +401,13 @@ Note : Some GUI softwares are only available on the websites
 - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
 
-NOTE : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3.
-Because I have already bought Sublime Text 3 and it still meets my requirements, I don't want to pay for the latest version.
+Note : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3,
+
+because I have already bought Sublime Text 3 and it still meets my requirements ( a lightweight editor for fast editing )
 
 ### Optional
 
 Install the optional GUI softwares via Homebrew-Cask
-
--   Entertainment
-
-    ```bash
-    brew install --cask \
-        iina \
-        parallels \
-        steam \
-        thunder
-    ```
 
 -   Development
 
@@ -410,6 +422,16 @@ Install the optional GUI softwares via Homebrew-Cask
         wireshark
     ```
 
+-   Entertainment
+
+    ```bash
+    brew install --cask \
+        iina \
+        parallels \
+        steam \
+        thunder
+    ```
+
 -   Office
 
     ```bash
@@ -420,7 +442,10 @@ Install the optional GUI softwares via Homebrew-Cask
         slack
     ```
 
-NOTICE : The installations may REQUIRE you to enter PASSWORD,
+RECOMMEND to execute the commands above in parallel in multiple Terminal tabs
+
+NOTICE : The installations may REQUIRE me to enter Mac PASSWORD,
+
 e.g. `microsoft-office`, `parallels`, `wireshark` and etc.
 
 ## CLI Preferences
@@ -431,9 +456,9 @@ GitLab keys ditto
 
 #### SSH Key
 
-Using the SSH protocol, you can connect and authenticate to remote servers and services
+Using the SSH protocol, I can connect and authenticate to remote servers and services
 
-- With SSH keys, you can connect to GitHub without supplying your username and personal access token at each visit
+- With SSH keys, I can connect to GitHub without supplying my username and personal access token at each visit
 
 How to :
 
@@ -459,7 +484,7 @@ How to :
 
 1.  Get the GPG pulic key
 
-    Reference : [cmd/g/gpg - icehe.xyz](/cmd/g/gpg.md)
+    Reference : [GPG Command Guide - icehe.xyz](/cmd/g/gpg.md)
 
 1.  Add the GPG key to the GitHub account
 
@@ -483,7 +508,7 @@ git branch --set-upstream-to=origin/master master
 
 e.g. for me
 
-1.  Synchronize the most of the settings via the configuration files
+1.  Synchronize the most of the settings via the global configuration files
 
     e.g. from the dotfiles downloaded above
 
@@ -492,31 +517,32 @@ e.g. for me
     - `~/.gitignore_global`
     - …
 
-1.  Initilize the global configuration file `.gitconfig`
+1.  Initilize the global configuration file `~/.gitconfig`
 
-    e.g. according to the sample file `.gitconfig.sample` from the dotfiles downloaded above
+    e.g. according to the sample file `~/.gitconfig.sample` from the dotfiles downloaded above
 
     ```bash
     cp .gitconfig .gitconfig.sample
     ```
 
-1.  Add / Update the user settings
+1.  Configure the global user name & email
 
     ```bash
     git config --global user.name IceHe.xyz
     git config --global user.email icehe.me@qq.com
     ```
 
-1.  Add / Update the GPG signing key from GitHub GPG Key generated above
+1.  Configure the global GPG signing key from the GitHub GPG key generated above
 
     ```bash
     git config --global user.signingkey [SIGNING_KEY]
     ```
 
-1.  Check the settings
+1.  Check the global settings
 
     ```bash
     $ git config --global -l
+    # e.g.
     core.ignorecase=false
     filter.lfs.required=true
     filter.lfs.clean=git-lfs clean -- %f
@@ -539,13 +565,11 @@ e.g. for me
 
     Reference : [Install oh-my-zsh now - ohmyz.sh](https://ohmyz.sh/#install)
 
-1.  Synchronize zsh settings - automatically via the dotfiles above
+1.  Synchronize the ZSH settings via the configuration file `~/.zshrc`
 
-    i.e. the configuration file `~/.zshrc` from the dotfiles above
+    e.g. from the dotfiles downloaded above
 
-1.  Install the plugin `zsh-autosuggestion`
-
-    via the git command :
+1.  Install the ZSH plugin `zsh-autosuggestion`
 
     ```bash
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -582,11 +606,11 @@ GUI - Graphical User Interface
 
 ### System
 
-Open `System Preferences`
+Open `System Preferences` at first
 
 #### Battery
 
-NOTE : Revert the battery settings changed above back to the default values
+Note : Revert the settings changed above back to the default values
 
 -   `Battery`
 
@@ -598,9 +622,9 @@ NOTE : Revert the battery settings changed above back to the default values
     - Set `Turn display off after:` 10 min
     - Disable `Prevent your Mac from automatically sleeping when the display off`
 
-#### Dock at the bottom of Screen
+#### Dock
 
-All the softwares appeared
+For all the softwares appeared on the Dock at the bottom of the desktop
 
 - Right click the software icon → `Options` → Disable `Keep in Dock`
 
@@ -610,6 +634,10 @@ All the softwares appeared
 
 - Enable `Automatically hide and show the Dock`
 - Disable `Show recent applications in Dock`
+
+Note : Menu Bar DOES NOT have enough space for many software icons so I have to hide some of them
+
+Some of the icons will still be visible in Control Center
 
 `Wi-Fi`
 
@@ -641,12 +669,12 @@ All the softwares appeared
 
 #### Keyboard
 
--   `Keyboard` Tab
+-   `Keyboard`
 
     - Set `Key Repeat` fastest
-    - Set `Delay Until Repeat` the 3rd shortest : 35 millis
+    - Set `Delay Until Repeat` the 3rd shortest i.e. 35 milliseconds
 
-        Check via the command :
+        Check :
 
         ```bash
         $ defaults read NSGlobalDomain InitialKeyRepeat
@@ -655,18 +683,18 @@ All the softwares appeared
 
     - Enable `Use F1, F2, etc. keys as standard function keys`
 
--   `Text` Tab
+-   `Text`
 
     - Clear all `Replace With`
     - Clear all checkboxes
 
--   `Shortcuts` Tab
+-   `Shortcuts`
 
-    - Add / Update `App Shortcuts`
-        - `Google Chrome` → `Duplicate Tab` ⇧ ⌘ D
-        - `iTerm` → `Toggle Full Screen` ^ ⌘ F
+    - Add `App Shortcuts`
+        - `Google Chrome` → `Duplicate Tab` → `⇧ ⌘ D`
+        - `iTerm` → `Toggle Full Screen` → `^ ⌘ F`
 
--   `Input Sources` Tab
+-   `Input Sources`
 
     - Clear the unused input sources
 
@@ -674,7 +702,7 @@ All the softwares appeared
 
 How to disable `Character Accents Popup` and enable `Key Repeat` :
 
-1. Enable `Key Repeat` via the command :
+1. Enable `Key Repeat` :
 
     ```bash
     defaults write -g ApplePressAndHoldEnabled -bool false
@@ -688,7 +716,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 #### Misson Control
 
-- `Hot Corners…` → The bottom right corner → Select `-` to disable `Quick Note`
+- `Hot Corners…` → The bottom right corner → Replace `Quick Note` with `-`
 
 #### Notification & Focus
 
@@ -708,13 +736,17 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 1.  Login the Google account
 
-1.  Turn on `Sync` - automatically request you to confirm
+1.  Turn on `Sync` - automatically
+
+    Chrome will usually request me to turn on `Sync` after logining
 
     MAY require the independent synchronization password
 
 1.  Synchronize the extensions - automatically
 
-    or do it manually if `Sync` does not work well
+    Chrome will do it in the background after I turning on `Sync`
+
+    Do it manually if `Sync` does not work well
 
     `Chrome` Menu Bar → `Window` → `Extensions` → Sidebar on the left → `Open Chrome Web Store`
 
@@ -728,52 +760,60 @@ Reference : Search "macos keyboard cannot repeat" on Google
     -   [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa) : make JSON easy to read
     -   [Elasticsearch Head](https://chrome.google.com/webstore/detail/elasticsearch-head/ffmkiejjmecolpfloofpjologoblkegm) : containing the excellent ElasticSearch Head application
 
-1.  Synchronize the extension `Proxy SwitchyOmega` settings
+1.  Synchronize the extension `Proxy SwitchyOmega` settings - manually
 
-    e.g. manually or via the configuration file from another device
+    e.g. via the configuration file from another Mac
 
 1.  Synchronize the extensions' keyboard shortcuts - automatically
 
-    or do it manually if `Sync` does not work well
+    Do it manually if `Sync` does not work well
 
-    `Chrome` Menu Bar → `Window` → `Extensions` → Sidebar on the left → `Keyboard shortcuts`
+    -   Menu Bar → `Window` → `Extensions` → Sidebar on the left → `Keyboard shortcuts`
 
-    - 1Password
-        - `⇧ ⌘ X` Activate the extension
-    - Proxy SwitchyOmega
-        - `^ ⌘ S` Activate the extension
-    - Chrono Download Manager
-        - `⇧ ⌘ J` Activate the extension
-    - OneTab
-        - `⇧ ⌘ O` Activate the extension
-        - `⇧ ⌘ S` DiSplay / Show OneTab
-        - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
-    - Edit required shortcuts and Clear uncessary ones
+        -   1Password
+            - `⇧ ⌘ X` Activate the extension
+        -   Proxy SwitchyOmega
+            - `^ ⌘ S` Activate the extension
+        -   Chrono Download Manager
+            - `⇧ ⌘ J` Activate the extension
+        -   OneTab
+            - `⇧ ⌘ O` Activate the extension
+            - `⇧ ⌘ S` DiSplay / Show OneTab
+            - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
+        -   Edit required shortcuts and Clear uncessary ones
 
 #### Sogou Input
 
-1. Login via the WeChat acount
-1. Menu Bar → `Input menu` → `搜狗拼音` → `偏好设置` → `同步` → `配置同步` → `下载配置`
-1. Add `Sogou Input` in `System Preferences` → `Keyboard` → `Input Sources`
+1. `System Preferences` → `Keyboard` → `Input Sources` → Add `搜狗拼音`
 1. Clear the input methods except `ABC` and `搜狗拼音`
+1. Switch the input source to `搜狗拼音`d
+1. Menu Bar → `Input Source Menu` → `搜狗拼音` → `偏好设置` → `同步`
+    1. → Login via the WeChat account
+    1. → `配置同步` → `下载配置`
 
 #### Karabiner-Elements
 
-1. Synchronize the settings via the configuration file
-    `~/.config/karabiner/karabiner.json` - automatically via the dotfiles above
+1.  Synchronize the settings - automatically
+
+    via the configuration file `~/.config/karabiner/karabiner.json`
+
+    e.g. from the dotfiles downloaded above
 
 #### Keyboard Maestro
 
 1.  Enter the license
 
     1. `Keyboard Maestro` → `Register Keyboard Maestro…`
+
     1. Enter `Email` and `License key`
 
 1.  Synchronize the macros
 
     1.  `File` → `Start Syncing Macros…` → `Open Existing…`
-    1.  Choose the configuration file
-        `~/.config/Keyboard Maestro Macros.kmsync` from the dotfiles above
+
+    1.  Choose the configuration file `~/.config/Keyboard Maestro Macros.kmsync`
+
+        e.g. from the dotfiles downloaded above
 
 1.  `Preferences` → `General` → Enable `Launch Engine at Login`
 
@@ -785,14 +825,22 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 1.  Synchronize the extensions - automatically
 
-    or do it manually if `Settings Sync` does not work well
+    Do it manually if `Settings Sync` does not work well
 
-    -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) : check Markdown style
-    -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
-        -   [PlatUML](http://plantuml.com) real-time rendering in Markdown code blocks
-    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) : support [PlatUML](http://plantuml.com/) - `\*.puml` files
-        -   Trouble-shooting : require [GraphViz](https://plantuml.com/zh/graphviz-dot) to provide `dot` program
-    -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) : emulator for editing text like Vim
+    -   [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) :
+        check Markdown style
+
+    -   [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) :
+        support [PlatUML](http://plantuml.com) real-time rendering in the Markdown code blocks
+
+    -   [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) :
+        support PlatUML real-time rendering in the files `\*.puml`
+
+        - Note : It requires [GraphViz](https://plantuml.com/zh/graphviz-dot) to provide `dot` program as mentioned above
+
+    -   [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) :
+        the emulator for editing text like Vim
+
     -   …
 
 #### Sublime Text
@@ -812,13 +860,13 @@ Reference : Search "macos keyboard cannot repeat" on Google
         }
         ```
 
-1.  Install `Package Control` - optional
+1.  Install `Package Control`
 
     1. Press the shortcut `⇧ ⌘ P`
     1. Search `install`
     1. Select `Install Package Control` to install
 
-1.  Install the package `Pretty JSON` - optional
+1.  Install the package `Pretty JSON`
 
     1. Press the shortcut `⇧ ⌘ P`
     1. Search `install`
@@ -839,26 +887,26 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
     1. `Preferences` → `General` → `Preferences`
     1. Enable `Load preference from a custom folder or URL`
-    1. Select the config folder
+    1. Select the config folder _from the dotfiles downloaded above_
     1. Select Save changes `When Quitting`
 
 1.  Enable the access to the system clipboard
 
-    or do it manually if the synchronization does not work well
+    Do it manually if the synchronization does not work well
 
     1. `Preferences` → `General` → `Selection`
     1. Enable `Applications in terminal may access clipboard`
 
-1.  Select the light color preset
+1.  Select the color theme
 
     1. `Preferences` → `Profiles` → `Colors` → `Color Presets`
-    1. Select any color preset you like
+    1. Select any color preset I like
 
 #### Copy 'Em
 
 `Sort Order` int the top right corner of the popup menu
 
-- Select `Most Recently Used` or Press ⌥ ⌘ R
+- Select `Most Recently Used` or press `⌥ ⌘ R`
 
 `Preferences` in the bottom left corner of the popup menu
 
@@ -873,10 +921,10 @@ Reference : Search "macos keyboard cannot repeat" on Google
     - Eanble `Search Immediately After Each Keystroke`
 - `Keyboard Shortcuts…`
     - `Global Shortcuts`
-        - Set `Open window` ⌥ V
-        - Set `Paste current clipboard item as plain test` ⇧ ⌘ V
+        - Set `Open window` to `⌥ V`
+        - Set `Paste current clipboard item as plain test` to `⇧ ⌘ V`
     - `Local Shortcuts`
-        - Set `Switch to 'All' list` ⇧ ⌘ A
+        - Set `Switch to 'All' list` to `⇧ ⌘ A`
     - Clear the other shortcuts
 - Enbale `Get Titles of Web URLs`
 - Enable `Reject Duplicates`
@@ -890,7 +938,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 - `General`
     - Enable `Run on system startup`
 - `Control` → `Global Hotkeys`
-    - Set `Snip` ^ ⌘ A
+    - Set `Snip` to `^ ⌘ A`
     - Clear the other hotkeys
 
 #### Bartender
@@ -1004,9 +1052,9 @@ export JAVA_HOME=`/usr/libexec/java_home -v 17`
 - If `~/.zshrc` doesn't exists, create it
 - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
 
-NOTE : The tilde symbol `~` equals the path of the current user's home directory, e.g. for me `/Users/icehe`
+Note : The tilde symbol `~` equals the path of the current user's home directory, e.g. for me `/Users/icehe`
 
-NOTE : Get the path to JDK via `/usr/libexec/java_home`, e.g. JDK 8
+Note : Get the path to JDK via `/usr/libexec/java_home`, e.g. JDK 8
 
 ```bash
 $ /usr/libexec/java_home -v 1.8
@@ -1049,7 +1097,7 @@ Common
     Colorize the indentation in front of the text
     alternating four different colors on each step
 -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X) :
-    Learn essential shortcuts while you are working
+    Learn essential shortcuts while I'm working
 -   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) :
     Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
 -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) :
@@ -1096,11 +1144,11 @@ IntelliJ IDEA
     -   A. via Jetbrains Toolbox - recommended
     -   B. via the installation downloaded from [the official website](https://www.jetbrains.com/idea/download/#section=mac)
 
-        Note : You can choose the Community verion to skip entering the license
+        Note : I can choose the Community verion to skip entering the license
 
 1.  Enter the license - optional
 
-    SKIP if you install via JetBrains Toolbox - which has been logined the account with the related license
+    SKIP if I install via JetBrains Toolbox - which has been logined the account with the related license
 
     RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
@@ -1125,7 +1173,7 @@ IntelliJ IDEA
 
     -   B. via the settings repository
 
-        NOTE : It can synchronize the same settings accross multiple JetBrains's accounts, but the settings DO NOT include the plugins
+        Note : It can synchronize the same settings accross multiple JetBrains's accounts, but the settings DO NOT include the plugins
 
         Reference : [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
 
@@ -1171,9 +1219,9 @@ IntelliJ IDEA
     open ~/.m2/settting.xml
     ```
 
-    NOTE : `open` file with default editor
+    Note : `open` file with default editor
 
-NOTICE : If your use the private Mac and the Maven configuration file exists, please merge the existing content with the new content carefully
+NOTICE : If I use the private Mac and the Maven configuration file exists, please merge the existing content with the new content carefully
 
 ### JavaScript
 
@@ -1238,7 +1286,7 @@ Note : The latest main version is **17**
 
         1.  Just execute the following commands for now - recommended
 
-            _or Add the following commands to `~/.zshrc` or your desired shell configuration file :_
+            _or Add the following commands to `~/.zshrc` or my desired shell configuration file :_
 
             ```bash
             export NVM_DIR="$HOME/.nvm"
