@@ -1123,14 +1123,14 @@ IntelliJ IDEA
 
     -   B. via the settings repository
 
-        NOTE : It can share the same settings accross multiple JetBrains's accounts
+        NOTE : It can synchronize the same settings accross multiple JetBrains's accounts, but the settings DO NOT include the plugins
 
         Reference : [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
 
         1. `File` → `Manage IDE Settings` → `Settings Repository…`
         1. Enter HTTPS URL to the settings GitHub repository
         1. Enter the GitHub access token
-        TBD : But you cannot synchronize the plugins in this way. So the next step is to… ?
+        1. Select `Overwrite Local` at the first synchronization
 
     -   C. via exporting and importing the configuration file
 
@@ -1273,8 +1273,8 @@ Note : The latest main version is **17**
         e.g.
 
         ```bash
-        nvm install 16
         nvm install node
+        nvm install 16
         ```
 
 #### pnpm
@@ -1322,6 +1322,7 @@ The different parts as below
         1. `File` → `Manage IDE Settings` → `Settings Repository…`
         1. Enter HTTPS URL to the settings GitHub repository
         1. Enter the GitHub access token
+        1. Select `Overwrite Local` at the first synchronization
 
     -   C. via exporting and importing the configuration file
 
