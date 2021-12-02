@@ -10,7 +10,7 @@ Related : [macOS Efficiency Guide : 效率指南](/mac/efficiency-guide.md)
 
 ---
 
-This guide has been recently used on 2021/12/01
+This guide has been recently used by the author on 2021/12/01
 
 - macOS **Monterey** version **12.0.1**
 - MacBook Pro 2021 with **M1 Pro** chip
@@ -24,7 +24,7 @@ Follow the principles :
     Assume that you are an experienced Mac user and a software developer,
     so I can focus on the procedure and skip the unnecessary descriptions
 
-    _e.g. the softwares' introductions & usages and development knowledge_
+    _e.g. the softwares' introductions, their usages and development knowledge_
 
 -   **OOTB - Out Of The Box** - 开箱即用
 
@@ -44,9 +44,9 @@ Follow the references : Apple Support
 
 NOTE : 避免直接将备份数据还原到新系统中
 
-因为每次将过去 Mac 的备份数据直接还原到新系统中都难免会产生并留下冗余、无用甚至错误的数据；
-随着时间推移，不但需要越来越大的存储空间来保存它们，而且可能会持续积累异常甚至产生疑难问题。
-所以，建议为了适时淘汰这些持续累积的可能存在问题的数据，每次迁移 Mac 时都尽量避免直接迁移数据。
+因为每次将过去 Mac 的备份数据直接还原到新系统中都难免会产生冗余、无用甚至错误的数据；
+随着时间推移，我们不仅需要越来越大的存储空间来保存它们，而且可能会产生难以解决的问题。
+所以，为了适时淘汰这些可能存在问题的数据，建议每次迁移 Mac 时都尽量避免直接迁移旧数据。
 
 ## Network and Passwords
 
@@ -54,13 +54,11 @@ NOTE : 避免直接将备份数据还原到新系统中
 
 First of all :
 
-1.  Turn on Mac
-
 1.  Connect to Internet via Wi-Fi or Erthernet
 
 1.  Sign in AppleID to synchronize the settings & iCloud data
 
-    - or sign up if you don't have AppleID
+    - or sign up if you don't have an AppleID
 
 1.  Open [this guide](https://icehe.xyz/#/mac/setup-guide) on Mac so that you can continue the following steps
 
@@ -68,11 +66,11 @@ First of all :
 
 The password manager makes it easier and safer for you to login other accounts
 
-e.g. [1Password](https://1password.com/)
+e.g. using [1Password](https://1password.com/)
 
 1.  Install via Mac App Store
 
-1.  Login the account on [my.1password.com](https://my.1password.com) - recommended
+1.  Open and login the account on my.1password.com - recommended
 
     - or load the vaults on iCloud
 
@@ -88,14 +86,14 @@ GUI - Graphical User Interface
 
 1.  Get the proxy service
 
-    How to :
+    How to get :
 
-    - A. BUY / RENT - recommended
+    - A. BUY - recommended
     - B. Build it yourself
 
     NOTE :
-    Because the valid ways to establish stable Internet connections may change often,
-    RECOMMEND to search them on the Internet when you need
+    Because the valid methods to build a stable network proxy may change often,
+    RECOMMEND to search the new methods on the Internet when you need
 
 1.  Get the proxy configurations from the proxy service
 
@@ -112,8 +110,8 @@ GUI - Graphical User Interface
     List of proxy plugins :
 
     - A. [Clash](https://github.com/Dreamacro/clash)
-    - B. [ClashX](https://github.com/yichengchen/clashX) - [releases](https://github.com/yichengchen/clashX/releases)
-    - C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) - [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public) - recommended
+    - B. [ClashX](https://github.com/yichengchen/clashX) : [releases](https://github.com/yichengchen/clashX/releases)
+    - C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) : [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public) - recommended
     - D. [Surge](https://nssurge.com/)
     - E. [Trojan](https://github.com/trojan-gfw/trojan)
     - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~
@@ -127,10 +125,12 @@ GUI - Graphical User Interface
 
     e.g. configure ClashX Pro via the subscription URL :
 
-    1.  Menubar → `ClashX Pro` → `Config` → `Remote config` → `Manage` → `Add` subscription URL
-    1.  Menubar → `ClashX Pro` → `Config` → Select the new config you added - usually uncessary
-    1.  Menubar → `ClashX Pro` → `Set as system proxy`
-    1.  Menubar → `ClashX Pro` → `Dashboard` → `Setting` → Enable `Start at login` - recommended
+    1.  Open `ClashX Pro`
+    1.  Menu Bar → `ClashX Pro`
+        1. → `Config` → `Remote config` → `Manage` → `Add` → Enter the subscription URL → `OK`
+        1. → `Config` → Select the new config you added - usually uncessary
+        1. → `Set as system proxy`
+        1. → `Dashboard` → `Setting` → Enable `Start at login`
 
 1.  Check the Internet connection
 
@@ -144,24 +144,23 @@ Configure the network proxy on CLI
 
 1.  Get the proxy from the proxy plugin
 
-    e.g. ClashX Pro
+    e.g. from ClashX Pro
 
-    Menubar → `ClashX Pro` → `Copy shell command` :
+    -   Menu Bar → `ClashX Pro` → `Copy shell command` :
 
-    ```bash
-    export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
-    ```
+        ```bash
+        export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+        ```
 
 1.  Add the proxy on CLI
 
-    e.g. Terminal
+    e.g. add the proxy in Terminal
 
-    1. Open `Terminal`
-    1. Paste the shell command above to execute
+    -   Open `Terminal` → Paste the shell command above to execute
 
 1.  Check the Internet connection on CLI
 
-    e.g. visit [google.com](https://google.com) on Terminal opened above :
+    e.g. visit [google.com](https://google.com) in the Terminal opened above :
 
     ```bash
     $ curl google.com
@@ -614,31 +613,31 @@ All the softwares appeared
 
 `Wi-Fi`
 
-- Disable `Show in the menubar`
+- Disable `Show in the Menu Bar`
 
 `Bluetooth`
 
-- Disable `Show in the menubar`
+- Disable `Show in the Menu Bar`
 
 `Screnn Mirroring`
 
-- Disable `Show in the menubar`
+- Disable `Show in the Menu Bar`
 
 `Display`
 
-- Disable `Show in the menubar`
+- Disable `Show in the Menu Bar`
 
 `Sound`
 
-- Enable `Show in the menubar` → Select `always`
+- Enable `Show in the Menu Bar` → Select `always`
 
 `Spotlight`
 
-- Disable `Show in the menubar`
+- Disable `Show in the Menu Bar`
 
 `Siri`
 
-- Disable `Show in the menubar`
+- Disable `Show in the Menu Bar`
 
 #### Keyboard
 
@@ -717,7 +716,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
     or do it manually if `Sync` does not work well
 
-    `Chrome` menubar → `Window` → `Extensions` → Sidebar on the left → `Open Chrome Web Store`
+    `Chrome` Menu Bar → `Window` → `Extensions` → Sidebar on the left → `Open Chrome Web Store`
 
     -   [1Password](https://agilebits.com/browsers/welcome.html) : password manager
     -   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif) : manage and switch between multiple proxies quickly & easily
@@ -737,7 +736,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
     or do it manually if `Sync` does not work well
 
-    `Chrome` menubar → `Window` → `Extensions` → Sidebar on the left → `Keyboard shortcuts`
+    `Chrome` Menu Bar → `Window` → `Extensions` → Sidebar on the left → `Keyboard shortcuts`
 
     - 1Password
         - `⇧ ⌘ X` Activate the extension
@@ -754,7 +753,7 @@ Reference : Search "macos keyboard cannot repeat" on Google
 #### Sogou Input
 
 1. Login via the WeChat acount
-1. Menubar → `Input menu` → `搜狗拼音` → `偏好设置` → `同步` → `配置同步` → `下载配置`
+1. Menu Bar → `Input menu` → `搜狗拼音` → `偏好设置` → `同步` → `配置同步` → `下载配置`
 1. Add `Sogou Input` in `System Preferences` → `Keyboard` → `Input Sources`
 1. Clear the input methods except `ABC` and `搜狗拼音`
 
@@ -1024,7 +1023,7 @@ RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#ed
 #### Install Tools
 
 1.  Login the JetBrains account on [account.jetbrains.com/login](https://account.jetbrains.com/login)
-1.  Open `JetBrains Toolbox` → Menubar → `JetBrains Toolbox` → `Settings` → `Log in` → `Approve` → Jump back to `JetBrains Toolbox`
+1.  Open `JetBrains Toolbox` → Menu Bar → `JetBrains Toolbox` → `Settings` → `Log in` → `Approve` → Jump back to `JetBrains Toolbox`
 1.  Install the required tools
 
     e.g. for me
@@ -1106,7 +1105,7 @@ IntelliJ IDEA
     RECOMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
-    -   Menubar → `Help` → `Register…` → Enter the license
+    -   Menu Bar → `Help` → `Register…` → Enter the license
 
 1.  Configure the network proxy - optional
 
