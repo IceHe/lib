@@ -415,7 +415,7 @@ Install the optional GUI softwares via Homebrew-Cask
 
     ```bash
     brew install --cask \
-        linear \
+        linear-linear \
         microsoft-office \
         notion \
         slack
@@ -695,6 +695,10 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 - Disable the unncessary softwares' notifications on demand
 
+#### Sharing
+
+- Edit `Computer Name:` e.g. macbook-pro-ice
+
 #### Trackpad
 
 - Set `Tracking speed` fastest
@@ -771,6 +775,8 @@ Reference : Search "macos keyboard cannot repeat" on Google
     1.  `File` → `Start Syncing Macros…` → `Open Existing…`
     1.  Choose the configuration file
         `~/.config/Keyboard Maestro Macros.kmsync` from the dotfiles above
+
+1.  `Preferences` → `General` → Enable `Launch Engine at Login`
 
 #### Visual Studio Code
 
@@ -888,6 +894,15 @@ Reference : Search "macos keyboard cannot repeat" on Google
     - Set `Snip` ^ ⌘ A
     - Clear the other hotkeys
 
+#### Bartender
+
+`Preferences…`
+
+-   `General`
+
+    -   Startup : Enable `Launch Bartender at login`
+    -   Bartender Bar : Enable `Use Bartender Bar to show hidden items`
+
 #### Itsycal
 
 `Preference…`
@@ -920,17 +935,6 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 - `Dock & Menu Bar` → `Clock` → Time Options: `Analog`
 
-#### Bartender
-
-`Preferences…`
-
--   `General`
-
-    -   Startup : Enable `Launch Bartender at login`
-    -   Bartender Bar : Enable `Use Bartender Bar to show hidden items`
-
-<!--
-
 #### ImageOptim
 
 `Preferences`
@@ -938,78 +942,151 @@ Reference : Search "macos keyboard cannot repeat" on Google
 - `General` → Set all checkboxes
 - `Quality` → Set all 50% ( JPEG, PNG, GIF and so on )
 
--->
-
 ## Development
 
-### Note on GitHub
+### Projects
+
+Git clone the projects to the local machine
 
 e.g. for me
 
 ```bash
-cd ~
-git init
-git remote add origin git@github.com:IceHe/lib.git
-git pull origin master
-git branch --set-upstream-to=origin/master master
+cd ~/Documents
+git clone git@github.com:IceHe/lib.git
 ```
 
-### Java
-
-#### JDK
+### JDK
 
 JDK - Java Development Kit
 
-1.  Install JDKs
+REQUIRED by Maven, Gradle, JetBrains IDEs and etc.
 
-    RECOMMEND to install the JDKs of version **11** and the latest LTS **17** on 2021/12/01
+#### Install JDKs
 
-    -   A.  via Homebrew - recommended
+RECOMMEND to install the JDKs of version **11** and the latest LTS **17**
+
+-   A.  via Homebrew - recommended
+
+    ```bash
+    brew install openjdk@11
+    java --version
+    brew install openjdk
+    java --version
+    ```
+
+-   B.  via SDKMAN!
+
+    1.  Install SDKMAN!
+
+        Reference : [Installation - SDKMAN!](https://sdkman.io/install)
+
+    2.  Install JDK via SDKMAN!
+
+        Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
 
         ```bash
-        brew install openjdk@11
-        java --version
-        brew install openjdk
-        java --version
+        sdk install java
         ```
 
-    -   B.  via SDKMAN!
+-   C. via the installation downloaded from the official website
 
-        1.  Install SDKMAN!
+    Reference : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)
 
-            Reference : [Installation - SDKMAN!](https://sdkman.io/install)
+#### JAVA_HOME
 
-        2.  Install JDK via SDKMAN!
+Set the environment variable `JAVA_HOME` - automatically via the dotfiles above
 
-            Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
+or do it manually - append the command below to the ZSH configuration file `~/.zshrc` :
 
-            ```bash
-            sdk install java
-            ```
+```bash
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
+```
 
-    -   C. via the installation downloaded from the official website
+- If `~/.zshrc` doesn't exists, create it
+- If use `bash` instead of `zsh`, append to the file `~/.bashrc`
 
-        Reference : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)
+NOTE : The tilde symbol `~` equals the path of the current user's home directory, e.g. for me `/Users/icehe`
 
-1.  Set the environment variable `JAVA_HOME` - automatically via the dotfiles above
+NOTE : Get the path to JDK via `/usr/libexec/java_home`, e.g. JDK 8
 
-    or do it manually - append the command below to the ZSH configuration file `~/.zshrc` :
+```bash
+$ /usr/libexec/java_home -v 1.8
+/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
+```
 
-    ```bash
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-    ```
+### JetBrains Toolbox
 
-    - If `~/.zshrc` doesn't exists, create it
-    - If use `bash` instead of `zsh`, append to the file `~/.bashrc`
+#### Tools
 
-    NOTE : The tilde symbol `~` equals the path of the current user's home directory, e.g. for me `/Users/icehe`
+RECOMMEND to use JetBrains tools to develop
 
-    NOTE : Get the path to JDK via `/usr/libexec/java_home`, e.g. JDK 8
+1.  Login the JetBrains account on [account.jetbrains.com/login](https://account.jetbrains.com/login)
+1.  Open `JetBrains Toolbox` → Menubar → `JetBrains Toolbox` → `Settings` → `Log in` → `Approve` → Jump back to `JetBrains Toolbox`
+1.  Download the required tools
 
-    ```bash
-    $ /usr/libexec/java_home -v 1.8
-    /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
-    ```
+    e.g. for me
+
+    - IntelliJ IDEA Ultimate
+    - WebStorm
+    - Android Studio
+    - DataGrip
+    - _CLion_
+    - _GoLand_
+    - ~~_PyCharm Professional Edition_~~
+    - ~~_PhpStorm_~~
+
+#### Plugins
+
+RECOMMEND to use the plugins to develop, e.g. for me
+
+Common
+
+-   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) :
+    Vim emulator - edit text like Vim
+-   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) :
+    Colorize the indentation in front of the text
+    alternating four different colors on each step
+-   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X) :
+    Learn essential shortcuts while you are working
+-   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) :
+    Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
+-   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) :
+    Code faster and smarter using code completions
+    learned from millions of programs directly
+-   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation) :
+    Case switching, sorting, filtering, incrementing,
+    aligning to columns, grepping, escaping, encoding…
+
+<!--
+
+-   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts) :
+    Forces the user to use keyboard shortcuts by blocking click action
+    and displaying the keyboard shortcut in a popup.
+
+-->
+
+IntelliJ IDEA
+
+-   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin) :
+    Never write another getter or equals method again
+    [Project Lombok](https://projectlombok.org/)
+    is a java library that automatically plugs into the editor
+    and build tools, spicing up your java.
+    _Early access to future java features such as val, and much more._
+-   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper) :
+    A must have plugin for working with Maven
+
+<!--
+
+-   _[google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :_
+    _Reformats Java source code to comply with_
+    _[Google Java Style](https://google.github.io/styleguide/javaguide.html)_
+-   _[GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus) :_
+    _Generate POJO according to JSON_
+
+-->
+
+### Java
 
 #### IntelliJ IDEA
 
@@ -1020,84 +1097,74 @@ JDK - Java Development Kit
 
         Note : You can choose the Community verion to skip entering the license
 
-1.  Enter the license
+1.  Enter the license - optional
 
-    You'd better [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
+    SKIP if you install via JetBrains Toolbox - which has been logined the account with the related license
+
+    -   Menubar → `Help` → `Register…` → Enter the license
+
+    RECOMMMEND to [buy the commercial license](https://www.jetbrains.com/idea/buy/#edition=commercial)
     or [offer free educational licence for students and teachers](https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers-).
 
-1.  Synchronize the settings
+1.  Configure the network proxy - optional
 
-    RECOMMEND to [configure a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
-    for sharing the same settings accroos multiple JetBrains's accounts.
+    e.g. ClashX Pro
 
-    1. `File` → `Manage IDE Settings` → `Settings Repository…`
-    1. Enter HTTPS URL of the settings Github repository
-    1. Enter the GitHub access token
+    1.  `Peferences` → `Appearance & Behavior` → `System Settings` → `HTTP Proxy` → Select `Manual proxy configuration` → Select `SOCKS`
+    1.  `Host name:` Enter `127.0.0.1`
+    1.  `Port number:` Enter `7890`
+    1.  Click `Check connection`, enter `http://google.com` and then click `OK`
+        - Prompt `Connection successful` if success
 
-    TBD : But you cannot synchronize the plugins in this way. So the next step is to… ?
+1.  Synchronize the settings - optional
 
-1.  Install plugins - TBD : can auto sync?
+    -   A. via IDE Settings Sync - recommended
 
-    -   [Force Shortcuts](https://plugins.jetbrains.com/plugin/8357-force-shortcuts) :
-        Forces the user to use keyboard shortcuts by blocking click action
-        <!-- and displaying the keyboard shortcut in a popup. -->
-    -   [google-java-format](https://plugins.jetbrains.com/plugin/8527-google-java-format) :
-        Reformats Java source code to comply with
-        [Google Java Style](https://google.github.io/styleguide/javaguide.html)
-    -   [GsonFormatPlus](https://plugins.jetbrains.com/plugin/14949-gsonformatplus) :
-        Generate POJO according to JSON
-    -   [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) :
-        Vim emulator - edit text like Vim
-    -   [Indent Rainbow](https://plugins.jetbrains.com/plugin/13308-indent-rainbow) :
-        Colorize the indentation in front of the text
-        alternating four different colors on each step
-    -   [Key Promoter X](https://plugins.jetbrains.com/plugin/index?xmlId=Key%20Promoter%20X) :
-        Learn essential shortcuts while you are working
-    -   [Lombok Plugin](https://plugins.jetbrains.com/plugin/6317-lombok-plugin) :
-        Never write another getter or equals method again
-        <!-- [Project Lombok](https://projectlombok.org/) -->
-        <!-- is a java library that automatically plugs into the editor -->
-        <!-- and build tools, spicing up your java. -->
-        <!-- _Early access to future java features such as val, and much more._ -->
-    -   [Maven Helper](https://plugins.jetbrains.com/plugin/7179-maven-helper) :
-        A must have plugin for working with Maven
-    -   [PlantUML integration](https://plugins.jetbrains.com/plugin/7017-plantuml-integration) :
-        Draw UML graphs for docs by [PlantUML](http://plantuml.com/)
-    -   [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets) :
-        Code faster and smarter using code completions
-        learned from millions of programs directly
-    -   [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation) :
-        Case switching, sorting, filtering, incrementing,
-        aligning to columns, grepping, escaping, encoding…
+        Reference : [Share settings through Settings Sync](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#IDE_settings_sync)
 
-1.  Set the font `Consolas`
+    -   B. via the settings repository
 
-    1.  Search and download on the Internet
-    1.  Install
-    1.  Configure on the IDE :
-        `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
+        NOTE : It can share the same settings accross multiple JetBrains's accounts
 
-1.  Set the color scheme `Solarized Light (Alternate)`
+        Reference : [Share settings through a settings repository](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository)
+
+        1. `File` → `Manage IDE Settings` → `Settings Repository…`
+        1. Enter HTTPS URL to the settings GitHub repository
+        1. Enter the GitHub access token
+        TBD : But you cannot synchronize the plugins in this way. So the next step is to… ?
+
+    -   C. via exporting and importing the configuration file
+
+        Reference : [Export your settings](https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#import-export-settings)
+
+1.  Install the plugins - optional - automatically via IDE Settings Sync above
+
+    As metioned above : "JetBrains Toolbox - Plugins"
+
+1.  Set the font `Consolas` - optional - automatically via IDE Settings Sync above
+
+    1.  Search on the Internet, download and install
+    1.  `Preferences` → `Editor` → `Color Scheme` → `Color Scheme Font` → `Font`
+
+1.  Set the color scheme `Solarized Light (Alternate)` - optional - automatically via IDE Settings Sync above
 
     1.  Download on the Internet
         - A. [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
         - B. [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
-    1.  Configure on the IDE :
-        `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
+    1.  `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select
 
 #### Maven
 
-1.  Install [Apache Maven](https://maven.apache.org/) - `mvn`
+1.  Install [Apache Maven](https://maven.apache.org/) `mvn`
 
     ```bash
     brew install maven
+    mvn -version
     ```
 
-1.  Copy the content of the Maven configuration file template
+1.  Create / Update the content of the Maven configuration file `~/.m2/settting.xml` - optional
 
-    Search it on the Internet
-
-1.  Open and overwrite the local Maven config file `~/.m2/settting.xml`
+    e.g. according to the sample file `~/.m2/settings_demo.xml`
 
     ```bash
     open ~/.m2/settting.xml
@@ -1105,99 +1172,101 @@ JDK - Java Development Kit
 
     NOTE : `open` file with default editor
 
-NOTICE : If use your own private devices & Maven configuration files exists, please merge the content of configurations carefully.
+NOTICE : If your use the private Mac and the Maven configuration file exists, please merge the existing content with the new content carefully
 
 ### JavaScript
 
-CLI
-
-```bash
-brew install node
-```
-
 #### Node.js
 
-1.  Install [Node Version Manager](https://github.com/nvm-sh/nvm) - `nvm`
+-   A. via Homebrew
 
     ```bash
-    $ brew install nvm
-
-    # e.g. output
-    ==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/nvm-0.39.0.all.bottle.tar.gz
-    Already downloaded: /Users/icehe/Library/Caches/Homebrew/downloads/4dc7eceb4921b8909c081af037518450c6e85151603a6f51695bf17bab3081f5--nvm-0.39.0.all.bottle.tar.gz
-    ==> Reinstalling nvm
-    ==> Pouring nvm-0.39.0.all.bottle.tar.gz
-    ==> Caveats
-    Please note that upstream has asked us to make explicit managing
-    nvm via Homebrew is unsupported by them and you should check any
-    problems against the standard nvm install method prior to reporting.
-
-    You should create NVM's working directory if it doesn't exist:
-
-    mkdir ~/.nvm
-
-    Add the following to ~/.zshrc or your desired shell
-    configuration file:
-
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-    You can set $NVM_DIR to any location, but leaving it unchanged from
-    /opt/homebrew/opt/nvm will destroy any nvm-installed Node installations
-    upon upgrade/reinstall.
-
-    Type `nvm help` for further information.
+    brew install node
     ```
 
-    Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+-   B. via [Node Version Manager](https://github.com/nvm-sh/nvm) - recommended
 
-1.  Preapre the environment
-
-    e.g. follow the PROMPT from the `brew install nvm` output above
-
-    1.  Create NVM's working directory if it doesn't exist :
+    1.  Install [Node Version Manager](https://github.com/nvm-sh/nvm) - `nvm`
 
         ```bash
+        $ brew install nvm
+
+        # e.g. output
+        ==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/nvm-0.39.0.all.bottle.tar.gz
+        Already downloaded: /Users/icehe/Library/Caches/Homebrew/downloads/4dc7eceb4921b8909c081af037518450c6e85151603a6f51695bf17bab3081f5--nvm-0.39.0.all.bottle.tar.gz
+        ==> Reinstalling nvm
+        ==> Pouring nvm-0.39.0.all.bottle.tar.gz
+        ==> Caveats
+        Please note that upstream has asked us to make explicit managing
+        nvm via Homebrew is unsupported by them and you should check any
+        problems against the standard nvm install method prior to reporting.
+
+        You should create NVM's working directory if it doesn't exist:
+
         mkdir ~/.nvm
+
+        Add the following to ~/.zshrc or your desired shell
+        configuration file:
+
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+        You can set $NVM_DIR to any location, but leaving it unchanged from
+        /opt/homebrew/opt/nvm will destroy any nvm-installed Node installations
+        upon upgrade/reinstall.
+
+        Type `nvm help` for further information.
         ```
 
-    1.  Just execute the following commands for now - recommended
+        Reference : [Installing and Updating - nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-        _or Add the following commands to `~/.zshrc` or your desired shell configuration file :_
+    1.  Preapre the environment
+
+        e.g. follow the PROMPT from the `brew install nvm` output above
+
+        1.  Create NVM's working directory if it doesn't exist :
+
+            ```bash
+            mkdir ~/.nvm
+            ```
+
+        1.  Just execute the following commands for now - recommended
+
+            _or Add the following commands to `~/.zshrc` or your desired shell configuration file :_
+
+            ```bash
+            export NVM_DIR="$HOME/.nvm"
+            # Loads nvm
+            [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+            # Loads nvm bash_completion
+            [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+            ```
+
+    1.  Install [Node.js](https://nodejs.org/en/) - `node`, e.g.
+
+        RECOMMEND to install the Node.js of version **16**
 
         ```bash
-        export NVM_DIR="$HOME/.nvm"
-        # Loads nvm
-        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-        # Loads nvm bash_completion
-        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+        nvm install node
+        node -v
+        nvm install 16
         ```
 
-1.  Install [Node.js](https://nodejs.org/en/) - `node`, e.g.
+        Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
 
-    ```bash
-    nvm install node
-    node -v
-    nvm install 16
-    ```
+    1.  Check the versions, e.g.
 
-    RECOMMEND to install the Node.js of version **16** on 2021/12/01
-
-    Reference : [Usage - nvm](https://github.com/nvm-sh/nvm#usage)
-
-1.  Check the versions, e.g.
-
-    ```bash
-    $ nvm -v
-    0.39.0
-    $ node -v
-    v16.13.0
-    ```
+        ```bash
+        $ nvm -v
+        0.39.0
+        $ node -v
+        v16.13.0
+        ```
 
 #### WebStorm
 
-TODO : Synchroize the preferences with the GitHub repository
+Like IntelliJ IDEA above
 
 References
 
@@ -1215,4 +1284,14 @@ brew install \
 
 #### AndroidStudio
 
+Like IntelliJ IDEA above
+
+CANNOT Synchroize via IDE Settings Sync
+
 TODO : Synchroize with the GitHub repository
+
+Troubleshooting
+
+References
+
+- ["Failed to install the following Android SDK packages as some licences have not been accepted" error](https://stackoverflow.com/questions/54273412/failed-to-install-the-following-android-sdk-packages-as-some-licences-have-not/61480578#61480578)
