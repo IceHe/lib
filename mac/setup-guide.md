@@ -996,13 +996,6 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
 - `Dock & Menu Bar` → `Clock` → Time Options: `Analog`
 
-#### ImageOptim
-
-`Preferences`
-
-- `General` → Set all checkboxes
-- `Quality` → Set all 50% ( JPEG, PNG, GIF and so on )
-
 ## Development
 
 ### Projects
