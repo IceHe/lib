@@ -463,6 +463,22 @@ How to :
 
     Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
+1.  Problem : gpg failed to sign the data
+
+    ```bash
+    $ git commit -m "troubleshooting"
+    error: gpg failed to sign the data
+    fatal: failed to write commit object
+    ```
+
+    Solution : `gpg` requires `pinentry-mac` on Mac
+
+    ```bash
+    brew install pinentry-mac
+    ```
+
+    Reference : [gpg failed to sign the data fatal: failed to write commit object](https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0)
+
 ### CLI Tools
 
 #### Dotfiles
