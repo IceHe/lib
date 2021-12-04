@@ -266,16 +266,7 @@ brew install \
     wget
 ```
 
-```bash
-brew install libtool \
-    && brew link libtool \
-    && brew install graphviz \
-    && brew link --overwrite graphviz
-```
-
-Note : The pre-installed softwares may be outdated e.g. `git`,
-
-so RECOMMEND to install them via Homebrew again
+Note : The pre-installed softwares may be outdated e.g. `git`, so RECOMMEND to install them via Homebrew again
 
 ---
 
@@ -293,24 +284,6 @@ Note : Why I need these CLI softwares?
     to write and read the system clipboard
 
     `reattach-to-user-namespace` reattaches to the per-user bootstrap namespace in its "background" session and then execute the program with arguments
-
--   [PlantUML](http://plantuml.com/) requires [GraphViz](https://plantuml.com/zh/graphviz-dot)
-    to write UML diagrams
-
-    ```bash
-    brew install libtool
-    brew link libtool
-    brew install graphviz
-    brew link --overwrite graphviz
-    ```
-
-    Note : The commands above fix the issues if I installed GraphViz via the `.dmg` package
-
-    I can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
-    By default, the dot executable is expected :
-
-    - Firstly in : `/usr/local/bin/dot`
-    - Then in : `/usr/bin/dot`
 
 ### Optional
 
@@ -576,6 +549,25 @@ e.g. for me
     ```
 
     Reference : [Installation - zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+
+#### PlantUML
+
+[PlantUML](http://plantuml.com/) requires [GraphViz](https://plantuml.com/zh/graphviz-dot) to write UML diagrams
+
+```bash
+brew install libtool
+brew link libtool
+brew install graphviz
+brew link --overwrite graphviz
+```
+
+Note : The commands above fix the issues if I installed GraphViz via the `.dmg` package
+
+I can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
+By default, the dot executable is expected :
+
+- Firstly in : `/usr/local/bin/dot`
+- Then in : `/usr/bin/dot`
 
 <!--
 
