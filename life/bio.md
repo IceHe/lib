@@ -35,8 +35,9 @@ IceHe's short biographical profile
 
 - 邮箱 : `icehe.xyz#qq.com`
     <!-- _- replace # with @_ -->
-- 微信 : `SWNlSG9vbw`
-    <!-- - _Base64 Encoded and Trimmed the trailing equal signs_ -->
+- 微信 : `SWNlSG9vbw==`
+    <!-- - A. _Base64 Encoded_ -->
+    <!-- - B. _Base64 Encoded and Trimmed the trailing equal signs_ -->
 
 <!--
 
