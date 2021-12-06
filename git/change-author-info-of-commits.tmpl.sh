@@ -1,6 +1,7 @@
 #!/bin/sh
 
-# Reference: [Changing author info - GitHub Help](https://help.github.com/en/articles/changing-author-info)
+# Reference:
+# [Changing author info - GitHub Help](https://help.github.com/en/articles/changing-author-info)
 
 git filter-branch --env-filter '
 
@@ -27,8 +28,7 @@ git filter-branch --env-filter '
 
 ' -f --tag-name-filter cat -- --branches --tags
 
-# After finishing, execute the following command to check
-#
+# After finishing, execute the following command to check:
 # ```bash
 # git log | grep -E '^Author' | sort | uniq
 # ```
