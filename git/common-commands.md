@@ -13,11 +13,11 @@ Omit the unusual commands at my work.
 
 ## References 参考
 
-- Git SCM ( official site ) : http://git-scm.com/
-- Git Book ( official guide ) : http://git-scm.com/book/en/v2 ( 细致全面 )
-    - 中文版 : http://git-scm.com/book/zh/v2
-- Git Reference ( official docs ) : http://git-scm.com/docs
-- 猴子都能懂的 Git 入门 : http://backlogtool.com/git-guide/en/ ( 深入浅出 )
+-   [Git SCM](http://git-scm.com/) - official site
+-   [Git Book](http://git-scm.com/book/en/v2) / [中文版](http://git-scm.com/book/zh/v2) -
+    official guide - 细致全面
+-   [Git Reference](http://git-scm.com/docs) - official documentations
+- [猴子都能懂的 Git 入门](http://backlogtool.com/git-guide/en/) - 深入浅出
     - 中文版 : http://backlogtool.com/git-guide/cn/
 - 闯过这 54 关，点亮你的 Git 技能树 : https://segmentfault.com/a/1190000004222489?utm_source=Weibo&utm_medium=shareLink&utm_campaign=socialShare
     - 实用主义, 在具体的工作场景下学习如何使用
