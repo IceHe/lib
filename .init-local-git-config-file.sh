@@ -25,3 +25,6 @@ echo '[commit]
 	name = IceHe.xyz
 	email = icehe.xyz@qq.com
 ' > ./.git/config
+
+less ./.git/config
+
