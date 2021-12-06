@@ -700,6 +700,7 @@ Some of the icons will still be visible in Control Center
 - Add `App Shortcuts`
     - `Google Chrome` → `Duplicate Tab` → `⇧ ⌘ D`
     - `iTerm` → `Toggle Full Screen` → `^ ⌘ F`
+- Clear the unused shortcuts
 
 `Input Sources`
 

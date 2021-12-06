@@ -28,4 +28,3 @@ echo '[commit]
 
 # View the local Git configuration file
 less ./.git/config
-
