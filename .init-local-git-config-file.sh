@@ -3,7 +3,7 @@
 # Initilize (Overwrite) the local Git configuration file
 echo '[commit]
     # https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
-    gpgsign = false
+	gpgsign = false
 [core]
 	repositoryformatversion = 0
 	bare = false
