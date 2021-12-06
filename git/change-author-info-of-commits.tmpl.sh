@@ -29,6 +29,7 @@ git filter-branch --env-filter '
 ' -f --tag-name-filter cat -- --branches --tags
 
 # After finishing, execute the following command to check:
+#
 # ```bash
 # git log | grep -E '^Author' | sort | uniq
 # ```
