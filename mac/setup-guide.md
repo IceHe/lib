@@ -34,7 +34,7 @@ Follow the principles :
 
 ## Install or Restore macOS
 
-SKIP this step when I set up a new Mac or have already re-installed a new macOS
+SKIP this step if I set up a new Mac or have already re-installed a new macOS
 
 Follow the references : Apple Support
 
@@ -445,6 +445,8 @@ How to :
     Reference : [Adding a new SSH key to your GitHub account - GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
 #### GPG Key
+
+SKIP this step if I don't need to sign git commits
 
 Use GPG to sign tags and commits locally
 
