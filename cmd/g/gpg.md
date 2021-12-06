@@ -94,7 +94,7 @@ ssb   cv25519/YYYYYYYYYYYYYYY 2021-10-01 [E] [expires: 2023-10-01]
 
 sec   ed25519/ZZZZZZZZZZZZZZZ 2021-10-01 [SC] [expires: 2023-10-01]
       D153D5F43C903D0045FEE740ZZZZZZZZZZZZZZZ
-uid                 [ultimate] IceHe <icehe.me@qq.com>
+uid                 [ultimate] IceHe <icehe.xyz@qq.com>
 ssb   cv25519/AAAAAAAAAAAAAAA 2021-10-01 [E] [expires: 2023-10-01]
 
 sec   ed25519/ED9624E8763D90E3 2021-10-02 [SC] [expires: 2023-10-02]

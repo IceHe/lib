@@ -4,7 +4,7 @@ Bulid Blog: Why 初衷、How 过程，Hexo 建站，Theme 主题，Domain Name �
 
 ---
 
-- 原博客：https://icehe.me
+- 原博客：https://icehe.github.io
 - **进阶文章**《 [折腾个人博客](/docsify/blog/changelog.md) 》
 
 ## 后记
@@ -97,13 +97,13 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 
 一般用于介绍博主或博客的页面。
 
-- 例如：[我的「Me 我」页面](https://icehe.me/about/)
+- 例如：[我的「Me 我」页面](https://icehe.github.io/about/)
 
 #### 404 找不到页面
 
 当访问一个不存在于博客中的页面时，展示的提示页面。
 
-- 例如：[我的 404 页面](https://icehe.me/not_found/)
+- 例如：[我的 404 页面](https://icehe.github.io/not_found/)
 - 推荐：[腾讯公益 404](http://www.qq.com/404/)
 
 #### 域名
@@ -136,7 +136,7 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 
 注意可能出现的 Bug
 
-- 本博客 [RSS Feed](http://icehe.me/atom.xml) 和 [search.xml](http://icehe.me/search.xml) 曾无法正常地以 UTF-8 的编码格式被解析。（后者用于 Hexo 的 NexT 主题文档推荐的 [站内搜索](#站内搜索) 之一的 [Local Search](http://theme-next.iissnan.com/third-party-services.html#local-search)）
+- 本博客 [RSS Feed](https://icehe.github.io/atom.xml) 和 [search.xml](https://icehe.github.io/search.xml) 曾无法正常地以 UTF-8 的编码格式被解析。（后者用于 Hexo 的 NexT 主题文档推荐的 [站内搜索](#站内搜索) 之一的 [Local Search](http://theme-next.iissnan.com/third-party-services.html#local-search)）
 
 后来我遍寻网上的相关搜索结果，在仔细研究之下，才发现这原来是因为
 
@@ -219,9 +219,9 @@ Hexo 官网的文档和 API 中有 theme 写法的说明，可以自己重新写
 ### 源代码
 
 - [博客实体的代码](https://github.com/IceHe/icehe.github.io)
-- [生成博客用的代码](https://github.com/IceHe/icehe.me)
-- [~~博客 Theme: Jacman 的代码~~](https://github.com/IceHe/Jacman)（旧）
-- [博客 Theme: NexT 的代码](https://github.com/IceHe/hexo-theme-next)（新）
+- [生成博客用的代码](https://github.com/IceHe/blog) - INVALID
+- [~~博客 Theme: Jacman 的代码~~](https://github.com/IceHe/Jacman)（旧）- INVALID
+- [博客 Theme: NexT 的代码](https://github.com/IceHe/hexo-theme-next)（新）- INVALID
 
 ### 鸣谢
 

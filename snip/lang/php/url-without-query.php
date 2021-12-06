@@ -17,8 +17,8 @@ $fns = [
 ];
 
 $keys = [
-    'https://icehe.me/about?from=gist.github.com',
-    'https://icehe.me/about',
+    'https://icehe.github.io/about?from=gist.github.com',
+    'https://icehe.github.io/about',
 ];
 
 $runTimes = 1000 * 1000;

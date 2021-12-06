@@ -233,9 +233,12 @@ I can search the available softwares I need on [Homebrew Formulae](https://formu
     `System Preferences` → `Battery`
 
     -   `Battery`
+
         - Set `Turn display off after:` 30 min
         - Disable `Put hard disks to sleep when possible` - optional
+
     -   `Power Adapter`
+
         - Set `Turn display off after:` 30 min
         - Enable `Prevent your Mac from automatically sleeping when the display off` - optional
 
@@ -267,8 +270,6 @@ brew install \
 ```
 
 Note : The pre-installed softwares may be outdated e.g. `git`, so RECOMMEND to install them via Homebrew again
-
----
 
 Note : Why I need these CLI softwares?
 
@@ -318,7 +319,7 @@ Install the required GUI softwares via Homebrew-Cask
 
 e.g. for me
 
-1.  First
+-   First
 
     ```bash
     brew install --cask \
@@ -328,7 +329,7 @@ e.g. for me
         wechat
     ```
 
-1.  Later
+-   Auxiliary
 
     ```bash
     brew install --cask \
@@ -518,7 +519,7 @@ e.g. for me
 
     ```bash
     git config --global user.name IceHe.xyz
-    git config --global user.email icehe.me@qq.com
+    git config --global user.email icehe.xyz@qq.com
     ```
 
 1.  Configure the global GPG signing key from the GitHub GPG key generated above
@@ -543,7 +544,7 @@ e.g. for me
     pager.branch=false
     pull.rebase=true
     user.name=IceHe.xyz
-    user.email=icehe.me@qq.com
+    user.email=icehe.xyz@qq.com
     user.signingkey=[SIGNING_KEY]
     …
     ```
@@ -566,6 +567,25 @@ e.g. for me
 
     Reference : [Installation - zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 
+<!--
+
+#### Neovim or Vim
+
+Run the command below to link `~/.vimrc` to `~/.config/nvim/init.vim` :
+
+e.g. for me
+
+```bash
+ln -s /Users/icehe/.vimrc /Users/icehe/.config/nvim/init.vim
+
+# Trouble-shooting in Vim or Nvim
+vim
+:checkhealth
+:help clipboard
+```
+
+-->
+
 #### PlantUML
 
 [PlantUML](http://plantuml.com/) requires [GraphViz](https://plantuml.com/zh/graphviz-dot) to write UML diagrams
@@ -584,29 +604,6 @@ By default, the dot executable is expected :
 
 - Firstly in : `/usr/local/bin/dot`
 - Then in : `/usr/bin/dot`
-
-<!--
-
-### Neovim
-
-Run the command below to link `~/.vimrc` to `~/.config/nvim/init.vim` :
-
-```bash
-ln -s /Users/[USERNAME]/.vimrc /Users/[USERNAME]/.config/nvim/init.vim
-# e.g.
-ln -s /Users/IceHe/.vimrc /Users/IceHe/.config/nvim/init.vim
-
-# Trouble-shooting in Vim or Nvim
-:checkhealth
-:help clipboard
-```
-
-_Or `nvim` maybe cannot write or read the system clipboard._
-
-Reference :
-[Global system clipboard (yank, paste) stopped working · Issue #7945 · neovim/neovim · GitHub](https://github.com/neovim/neovim/issues/7945)
-
--->
 
 ## GUI Preferences
 
@@ -1011,6 +1008,28 @@ Reference : Search "macos keyboard cannot repeat" on Google
 `System Preferences`
 
 - `Dock & Menu Bar` → `Clock` → Time Options: `Analog`
+
+#### EuDic
+
+`偏好设置`
+
+-   `同步`
+
+    - `登录…` → Login via QQ account
+
+-   `通用`
+
+    - `词典`
+        - Enable `自动展开在线词典内容`
+        - Enable `查词后自动加入生词本`
+
+-   `取词`
+
+    - Clear all checkboxes
+
+-   `快捷键`
+
+    - Clear all shortcuts
 
 ## Development
 

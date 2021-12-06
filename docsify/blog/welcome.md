@@ -78,7 +78,7 @@
 
 其实直接用 GitHub / GitLab 的代码仓库页面作为 "技术博客" 也是没问题的。不过个人更喜欢:
 
-- 拥有一个有独立域名的个人网站 ( 例如 [icehe.xyz](https://icehe.xyz) | [icehe.me](https://icehe.me) )
+- 拥有一个有独立域名的个人网站 ( 例如 [icehe.xyz](https://icehe.xyz) | [icehe.github.io](https://icehe.github.io) )
 - 使用 docsify 负责对内容进行渲染展示, 效果很不错！
     - 边栏能够根据文章的各级标题生成并显示 "目录" ( TOC : Table Of Content ) ！
     - 安装简单, 基本功能足够强大, 其添加和使用都很便捷, 还几乎没有副作用

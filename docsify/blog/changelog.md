@@ -6,7 +6,7 @@ Blog Changelog: 博客变更日志，以及《搭建个人博客》的详细拓�
 
 ## 说明
 
-- 原博客：https://icehe.me
+- 原博客：https://icehe.github.io
 - 这只是个一文不名的独立博客，但折腾它是博主的一种乐趣（消遣）。
 - 前文《[搭建个人博客](/docsify/blog/build.md)》只是简单说明了建站过程和定制点。
 - 本文《折腾个人博客》作为本博客今后的__「变更日志」__；
@@ -687,13 +687,13 @@ __动态图标__：旋转 `fa-spin` ，跳动 `fa-pulse`
     通常链接会加到主页的导航栏中：
     - 「关于」页面；
     - 专门的「友链」页面；
-    - 而我放到了博客的「[导航页](https://icehe.me/navigation/)」中。
+    - 而我放到了博客的「[导航页](https://icehe.github.io/navigation/)」中。
 
 ### __PV Top N 热榜__
 
 有了文章 PV 的统计数据，自然就能通过查询 PV 前 N 名的文章，从而实现一个文章 PV 的热榜。
 
-- 「热榜」详见博客右边栏的「站点概览」或 [博客导航](https://icehe.me/navigation/) 的第二节。
+- 「热榜」详见博客右边栏的「站点概览」或 [博客导航](https://icehe.github.io/navigation/) 的第二节。
     - 可以用浏览器的「审查元素」去常看展示效果和实现代码，源码详见 Theme [NexT](http://theme-next.iissnan.com/) 。
 - 实现 PV 计数用的 LeanCloud，API 完备、文档清晰，定制化的查询很容易实现。
 - 除了 PV 计数，其实还可以做很多其它数据的统计和活用，可以开一下你的脑洞。
@@ -746,12 +746,12 @@ __动态图标__：旋转 `fa-spin` ，跳动 `fa-pulse`
 
 ### 打赏
 
-详见《[实现网站的打赏功能](https://icehe.me/web/donate/)》
+详见《[实现网站的打赏功能](https://icehe.github.io/web/donate/)》
 
 Hexo Theme NexT 也自带了打赏模块，详见官方文章 [__开启打赏功能__](http://theme-next.iissnan.com/theme-settings.html#reward)。
 
 - 会自动在每篇文章末尾添加打赏用的二维码和文案。
-- 毕竟没几个人会打赏，为了精简网页元素，所以我只留了这一个入口 [__打赏博主__](https://icehe.me/reward/)。
+- 毕竟没几个人会打赏，为了精简网页元素，所以我只留了这一个入口 [__打赏博主__](https://icehe.github.io/reward/)。
 
 ### 404 页面
 

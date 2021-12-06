@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Author : IceHe
-# Email : icehe.me@qq.com
+# Email : icehe.xyz@qq.com
 # Website : https://icehe.xyz
 
 echo "

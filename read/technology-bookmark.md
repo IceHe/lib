@@ -212,9 +212,9 @@
 - [理解 OAuth 2.0](https://github.com/ruanyf/articles/blob/master/2014/2014-05-11-oauth-2-0.md)
 - [图解 SSL / TLS 协议](https://github.com/ruanyf/articles/blob/master/2014/2014-09-20-illustration-ssl.md)
 - [知道创宇研发技能表 v3](http://blog.knownsec.com/Knownsec_RD_Checklist/)
-- [总结 XSS 与 CSRF 两种跨站攻击](https://blog.tonyseek.com/post/introduce-to-xss-and-csrf/)
+- [总结 XSS 与 CSRF 两种跨站攻击](https://blog.tonyseek.com/post/introduce-to-xss-and-csrf/) - INVALID
 - [Web 安全入门](https://github.com/evilcos/papers) - 国内安全专家，[余弦](https://github.com/evilcos)
-- [我的通行你的证](http://lvwei.me/passport.html) - 帐号体系的安全 <sup>__Best__</sup>
+- [我的通行你的证](http://lvwei.me/passport.html) - 帐号体系的安全 <sup>__Best__</sup> - INVALID
 - [加盐密码哈希：如何正确使用](http://blog.jobbole.com/61872/) - [英文出处](https://crackstation.net/hashing-security.htm) <sup>__Best__</sup>
 - [CNNIC 干过的那些破事儿](https://program-think.blogspot.com/2010/02/about-cnnic.html) - 警告：不要在国内注册和使用 CN 域名
 - [CNNIC 证书的危害及各种清除方法](https://program-think.blogspot.com/2010/02/remove-cnnic-cert.html)

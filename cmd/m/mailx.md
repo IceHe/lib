@@ -37,13 +37,13 @@ vim /etc/mail.rc
 Append
 
 - Replace PASSWORD with your real password
-- Replace icehe.me@qq.com with your real email address
+- Replace icehe.xyz@qq.com with your real email address
 
 ```bash
-set from="icehe.me@qq.com"  # 邮箱
+set from="icehe.xyz@qq.com"  # 邮箱
 set smtp=smtp.qq.com        # SMTP 服务器
 set smtp-auth=login         # 登录行为
-set smtp-auth-user=icehe.me@qq.com  # 用户名
+set smtp-auth-user=icehe.xyz@qq.com  # 用户名
 set smtp-auth-password=PASSWORD     # 密码
 ```
 

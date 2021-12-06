@@ -34,7 +34,7 @@ set sendmail=/usr/local/bin/msmtp
 Create file `~/.msmtprc` & append configs to it as below
 
 - Replace PASSWORD with your real password
-- Replace icehe.me@qq.com with your real email address
+- Replace icehe.xyz@qq.com with your real email address
 
 ```bash
 # Use an external SMTP server with insecure authentication.
@@ -55,8 +55,8 @@ tls on
 tls_certcheck off
 port 465
 auth login
-from icehe.me@qq.com
-user icehe.me@qq.com
+from icehe.xyz@qq.com
+user icehe.xyz@qq.com
 password PASSWORD
 
 # If you don't use any "-a" parameter in your command line,

@@ -2309,13 +2309,13 @@ will probably eventually start receiving spam"
 _Bad_
 
 ```markdown
-<icehe.me@qq.com>
+<icehe.xyz@qq.com>
 ```
 
 _Good, e.g._
 
 ```markdown
-icehe.me#qq.com ( replace `#` with `@` )
+icehe.xyz#qq.com ( replace `#` with `@` )
 ```
 
 ### Content

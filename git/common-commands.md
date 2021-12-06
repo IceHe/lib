@@ -316,7 +316,7 @@ git push origin --delete backup
 ## Config 配置
 
 - `git config user.name "IceHe"` 设置用户名
-- `git config user.email "icehe.me@qq.com"` 设置邮箱
+- `git config user.email "icehe.xyz@qq.com"` 设置邮箱
 
 认证方式
 
