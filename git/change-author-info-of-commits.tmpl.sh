@@ -20,4 +20,3 @@ then
     export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
 fi
 ' -f --tag-name-filter cat -- --branches --tags
-
