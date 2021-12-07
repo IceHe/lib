@@ -1,6 +1,6 @@
 # IceHe's Bio
 
-IceHe's short biographical profile
+IceHe's short biographical profile | 个人简历
 
 <!-- CV - Curriculum Vitae -->
 
