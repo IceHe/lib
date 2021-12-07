@@ -1,6 +1,6 @@
 # Library
 
-[Welcome](/docsify/blog/welcome.md) to IceHe's Library !
+[Welcome](/life/welcome.md) to IceHe's Library !
 
 ---
 
