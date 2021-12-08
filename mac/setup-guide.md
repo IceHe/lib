@@ -26,6 +26,9 @@ Follow the principles :
 
     _e.g. the softwares' introductions, their usages and development knowledge_
 
+    If some content belongs to another page, there's no need to show it,
+    just give a reference link and tell the reader to return once finished
+
 -   **OOTB - Out Of The Box** - 开箱即用
 
     Try not to change the default settings
