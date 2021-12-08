@@ -666,21 +666,21 @@ Timeline
 
 - After 2018
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
-    - [2018 Spring ~ 2019 Autumn](/life/2018-spring-to-2019-autumn.md)
-    - [2018 Winter](/life/2018-winter.md)
-    - [Moments](/life/moments.md) : 回忆
+    - [2018 Spring ~ 2019 Autumn](/life/timeline/2018-spring-to-2019-autumn.md)
+    - [2018 Winter](/life/timeline/2018-winter.md)
+    - [Moments](/life/timeline/moments.md) : 回忆
     - [Rehabilitation](/life/grow/rehabilitation.md)
     - [Reflection](/life/grow/reflection.md)
 - 2015 ~ 2017
-    - [2017 Summer ~ Winter](/life/2017-summer-2-winter.md)
-    - [2017 Spring](/life/2017-spring.md)
-    - [2016 Winter](/life/2016-winter.md)
-    - [2016 Fall](/life/2016-fall.md)
-    - [2016 Spring & Summer](/life/2016-summer.md)
-    - [Bye 2015](/life/2015-bye.md)
+    - [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
+    - [2017 Spring](/life/timeline/2017-spring.md)
+    - [2016 Winter](/life/timeline/2016-winter.md)
+    - [2016 Fall](/life/timeline/2016-fall.md)
+    - [2016 Spring & Summer](/life/timeline/2016-summer.md)
+    - [Bye 2015](/life/timeline/2015-bye.md)
     - [icehe.github.io](https://icehe.github.io) : previous technology blog
 - Before 2015
-    - [QZone Index](/life/qzone-index.md) of the old posts
+    - [QZone Index](/life/timeline/qzone-index.md) of the old posts
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
