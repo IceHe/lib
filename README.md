@@ -13,15 +13,6 @@
 - Here : [https://icehe.xyz](https://icehe.xyz)
 - Whoami : [IceHe's bio](/life/bio.md)
 
-<!-- Contact : `aWNlaGUueHl6QHFxLmNvbQ`  -->
-<!-- - _Base64 Encoded and Trimmed the trailing equal signs_ -->
-
-<!-- WeChat : `SWNlSG9vbw`  -->
-<!-- - _Base64 Encoded and Trimmed the trailing equal signs_ -->
-
-<!-- Weibo : [@\_IceHe\_](https://weibo.com/icedes) -->
-<!-- GitHub : [IceHe](https://github.com/IceHe) -->
-
 ## Technology
 
 ### Book
@@ -660,15 +651,15 @@ Living
 <!-- > -->
 <!-- > —— The Shawshank Redemption -->
 
-[Bio](/life/bio.md) : Backend Experience & Education
+[Bio](/life/bio.md) : **Backend** Experience & Education
 
-- **Silverhand** : Founding Team
-- **YFD** : Zebra - Supply Chain
-- **Alibaba Local Life** : 蜂鸟跑腿前台
-- **Alibaba Local Life** : 众包物流运营&数据组后台
-- **Weibo** : Video Platform
-- **Weibo** : Mobile API
-- **Huawei** : Telecom Software Customization - Intern.
+- **Silverhand** : Founding Team - Node.js
+- **YFD** : Zebra - Supply Chain - Java
+- **Alibaba Local Life** : 蜂鸟跑腿前台 - Java
+- **Alibaba Local Life** : 众包物流运营&数据组后台 - Java
+- **Weibo** : Video Platform - Java
+- **Weibo** : Mobile API - PHP
+- **Huawei** : Telecom Software Customization - Java Intern.
 - **SCUT** : Software Engineering - Bachelor
 
 Timeline
@@ -803,14 +794,17 @@ Timeline
         -   不那么在意行动正确与否，更在意是否在行动。
         -   不那么在意所谓时机，更在意任务本身。
 
-<!-- -   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md)_ - _to read_ -->
-<!--     -   《 噪声 : 一个人类判断力的缺陷 》 -->
+<!--
+
+-   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md) - to read_
+    -   《 噪声 : 一个人类判断力的缺陷 》
+
+-->
 
 ### Friend
 
 > To be a better me.
 
-<!-- > To be a better man. -->
 <!-- > -->
 <!-- > —— Better Man - _Robbie Williams song_ -->
 
@@ -834,6 +828,7 @@ Timeline
 
 > 靡不有初，鮮克有終。
 
+<!-- > -->
 <!-- > —— 《诗经·大雅·荡》 -->
 
 <!--

@@ -22,7 +22,7 @@ IceHe's short biographical profile | 个人简历
     _2015.7 ~ 2018.3_
 -   华为软件 : 电信软件定制部 - Java 实习 <br/>
     _2014.8 ~ 2014.10_
--   华南理工大学 : 软件工程 - C++ 本科 <br/>
+-   华南理工大学 : 软件工程 - 本科 <br/>
     _2011.9 ~ 2015.7_
 
 动态
@@ -34,10 +34,9 @@ IceHe's short biographical profile | 个人简历
 联络
 
 - 邮箱 : `icehe.xyz#qq.com`
-    <!-- _- replace # with @_ -->
+    <!-- - _replace # with @_ -->
 - 微信 : `SWNlSG9vbw==`
-    <!-- - A. _Base64 Encoded_ -->
-    <!-- - B. _Base64 Encoded and Trimmed the trailing equal signs_ -->
+    <!-- - _Base64 Encoded and NOT trimmed the trailing equal signs_ -->
 
 <!--
 
