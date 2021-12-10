@@ -35,20 +35,24 @@ Coding
 -   [Pragmatic Programmer](/book/pragmatic-programmer.md)
     - Your journey to mastery - 2nd Edition
 -   [The Manager's Path](/book/the-manager-s-path.md)
-    <!-- to-read -->
+    <!-- todo -->
     - A Guide for Tech Leaders Navigating Growth and Change
--   [Peopleware](/book/peopleware.md)
-    <!-- to-read again -->
-    - Productive Projects and Teams
 -   [Clean Agile](/book/clean-agile.md)
     - Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
     - PEP 20
 
+<!-- todo
+
+-   [Peopleware](/book/peopleware.md) - todo again
+    - Productive Projects and Teams
+
+-->
+
 JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
 - [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
-- [Part III. Execution Engine](/book/understand-jvm-p3.md) - _to read_
+- [Part III. Execution Engine](/book/understand-jvm-p3.md) - _todo_
 - Part IV. Compile and Code Optimize
 
 Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-applications-toc.md)
@@ -72,21 +76,21 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC
 
-- [Part*  1](/book/tcp-ip-illustracted-protocols-p1.md) - to-read
+- [Part*  1](/book/tcp-ip-illustracted-protocols-p1.md) - todo
 
 xUnit Test Patterns : Refactoring Test Code - [douban.com](https://book.douban.com/subject/1859393/)
 
 Tools
 
 - Wireshark
-    - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - to-read
-    - [The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - to-read
+    - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - todo
+    - [The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - todo
 
 Others
 
-- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - to-read
-- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - to-read
-- [Linux Kernel](/book/linux.md) - to-read
+- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - todo
+- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - todo
+- [Linux Kernel](/book/linux.md) - todo
 
 -->
 
@@ -95,20 +99,25 @@ Others
 Basics
 
 -   [Auth*](/auth/auth.md) - Authentication & Authorization
+    <!-- todo -->
 
 -   [OIDC](/auth/oidc/oidc.md) - OpenID Connect
+    <!-- todo -->
 
     an interoperable authentication protocol based on the OAuth 2.0 family of specifications
 
     - [Core 1.0](/auth/oidc/core.md) functionality : authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+        <!-- todo -->
     - [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_
+        <!-- todo -->
 
 -   [OAuth](/auth/oauth.md) - Open **Authorization**
 
     an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
 
     - [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-pratical-course.md)
-    - [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md) - _to read_
+    - [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md)
+        <!-- todo -->
     - [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
 Solution Provider
@@ -146,9 +155,9 @@ Message Queue
 
 - [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
 - [RabbitMQ](/snip/mq/rabbit-mq.md)
-- [RocketMQ](/snip/mq/rocket-mq.md) - _to read_
+- [RocketMQ](/snip/mq/rocket-mq.md) - _todo_
 - [ActiveMQ](/snip/mq/active-mq.md)
-- [ZeroMQ](/snip/mq/zero-mq.md) - _to read_
+- [ZeroMQ](/snip/mq/zero-mq.md) - _todo_
 - _[MemcacheQ](/snip/mq/mcq.md)_
 - _[Notes](/snip/mq/notes.md)_
 
@@ -382,7 +391,7 @@ Manual
 - _[yes](/cmd/y/yes.md) : be repetitively affirmative_
 - [zsh](/cmd/z/zsh.md) : one of shells
 - [Linux Abbreviations](/cmd/linux-abbrs.md)
-- _[CLI Notes](/cmd/notes.md) - to read_
+- _[CLI Notes](/cmd/notes.md) - todo_
 
 Scene
 
@@ -431,7 +440,7 @@ Basics
         - **States** : { settled : [ fullfilled, rejected ] , unsettled : [ pending ] }
         - **Fates** : [ resolved, unresolved ]
 - [Event Loop](/js/basics/event-loop.md) : which the JavaScript concurrency model based on
-- **Tasks vs. Microtasks** : TODO
+- **Tasks vs. Microtasks** : todo
     - _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
     - _[In depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)_
 
@@ -466,7 +475,7 @@ NPM : the world's largest software registry
     - [npm link](/js/npm-cmd/npm-link.md) : symlink a package folder
     - [npm publish](/js/npm-cmd/npm-publish.md) : publish a package
     - [npm exec](/js/npm-cmd/npm-exec.md), `npx` : run a command from a local or remote npm package
-    - _TODO : e.g. `npm run build`_
+    - _todo : e.g. `npm run build`_
 
 Package
 
@@ -482,7 +491,7 @@ Package
 - **superstruct** : makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
     - other options : [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends : [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
 - **zustand** : a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
-- TODO : read & note-take
+- todo : read & note-take
 
 TypeScript
 
@@ -497,7 +506,7 @@ TypeScript
     - [More on Functions](/js/typescript/handbook/more-on-functions.md)
     - [Object Types](/js/typescript/handbook/type-objects.md)
     - [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
-    - TODO
+    - todo
 
 ### Java
 
