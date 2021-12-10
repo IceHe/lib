@@ -10,6 +10,51 @@ References
     - 《软件架构基础》（影印版）
     - [Table Of Content](/book/fundamentals-of-software-architecture-toc.md)
 
+<!--
+
+## 缩略版 TOC
+
+TODO : 还是太长需要继续缩略, 再展示其精华到首页 README.md 中 (2021/12/10)
+
+- 1\. Introduction
+    - Expectations of an Architect : Keep Current with Latest Trends / Ensure Compliance with Decisions / Diverse Exposure and Experience / Have Bussines Domain Knowledge / Understand and Navigate Politics
+    - Intersection of Architecture and … : Engineering Practices / Operations & DevOps / Process / Data
+- Part 1. Foundations
+    - 2\. Architectural Thinking : Architecture Versus Design / Technical Breadth / Analyze Trade-Offs / Understanding Business Drivers / Balancing Architecutre and Hands-On Coding
+    - 3\. **Modularity** : Measuring Modularity / **Cohesion** / **Coupling** / **Abstractness, Instability, and Distance from the Main Sequence** / **Distance from the Main Sequence** / **Connascence** / **Unifying Coupling and Connascence Metrics** / From Modules to Components
+    - 4\. **Architecture Characteristics** : Trade-Offs and Least Worst Architecture / Defined : (Partially) Listed : Operational / Structural / Cross-Cutting
+    - 5\. Indentifying Architectural Characteristics: Extracting Architecture Characteristics from Domain Concerns and Requirements / Characteristics: Explicit / Implicit
+    - 6\. Measuring and Governing Architecture Characteristics
+        - Measuring : Operational / Structural / Process
+        - Governance and Fitness Function : Governing Architecture Characteristics / Fitness Functions
+    - 7\. Scope of Architecture Characteristics: Coupling and Connascence / Architectural Quanta and Granularity
+    - 8\. Component-Based Thinking : Component Scope / Developer Role
+        - **Architect Role** : **Architecture Partitioning** / Case Study : Silicon Sanwiches: Partitioning
+        - Component Identification Flow : Identifying Initial Components / Assign Requirements to Components / Analyze Roles and Responsibilities / Analyze Architecture Characteristics / Restructure Components
+        - Component Granularity
+        - Architecture Quantum Redux : Choosing Between Monolithic Versus Distributed Architectures
+- Part 2. Architure Styles
+    - 9\. Foundations: Fundamental Patterns: Big Ball of Mud / Unitary Architecture / Client/Server
+        - **Monolithic Versus Distributed Architectures** - **Fallacies** :
+            - The Network Is Reliable / Latency Is Zero / Bandwidth Is Infinite / The Network Is Secure / The Topology Never Changes / There Is Only One Administrator / Transport Cost Is Zero / The Network Is Homogeneous
+    - 10\. **Layered** : Layers of Isolation
+    - 11\. **Pipeline** : **Pipes** / **Filters**
+    - 12\. **Microkernel** : **Core System** or **Plug-In Components** / **Registry** / **Contracts**
+    - 13\. **Service-Based** : Service Design and Granularity / Database Partitioning
+    - 14\. **Event-Driven** : **Broker** / **Mediator**
+        - Asynchronous Capabilities / Error Handling / Prevent Data Loss / Broadcast Capabilities / Request-Reply / Choosing Between Request-Reply and Event-Based / Hybrid** Event-Driven Architectures
+    - 15\. **Space-Based**
+        - Processing Unit / Virtualized Middleware / Data Pumps / Data Writers / Data Readers
+        - Data Collisions / Cloud Versus On-Premises Implementations / Replicated Versus Distributed Caching / Near-Cahce Considerations
+    - 16\. **Orchestration-Driven Service-Oriented** : Reuse … and Coupling / Taxonomy : Business / Enterprise / Application / Infrastructure / Orchestration / Message Flow
+    - 17\. **Microservices**
+        - Bounded Context : Granularity / Data Isolation
+        - Distributed / API Layer / Operational Reuse / Frontends
+        - Communication : Choreography and Orchestration / Transactions and Sages
+- ……
+
+-->
+
 ## Table of Contents
 
 -   Preface: Invalidating Axioms _( 公理 )_
