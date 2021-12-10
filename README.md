@@ -72,7 +72,7 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 [TCP/IP Illustrated, Volume 1 : The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC
 
-- _[Part*  1](/book/tcp-ip-illustracted-protocols-p1.md) - to read_
+- [Part*  1](/book/tcp-ip-illustracted-protocols-p1.md) - to-read
 
 xUnit Test Patterns : Refactoring Test Code - [douban.com](https://book.douban.com/subject/1859393/)
 
@@ -84,9 +84,9 @@ Tools
 
 Others
 
-- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - _to read
-- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - to read_
-- [Linux Kernel](/book/linux.md) - _to read_
+- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - to-read
+- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - to-read
+- [Linux Kernel](/book/linux.md) - to-read
 
 -->
 
