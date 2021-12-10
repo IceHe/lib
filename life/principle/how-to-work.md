@@ -1,5 +1,9 @@
 # How to Work
 
+Don't try, just do. Failure is not an option. —— Elon Musk
+
+---
+
 ## Working Standards
 
 - 请示工作说方案

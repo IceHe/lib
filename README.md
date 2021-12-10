@@ -693,23 +693,6 @@ Timeline
 - [Deployment Checklist](/snip/tmp/deployment-checklist.md) : avoid low-level mistakes
 - [How to Leave](/life/principle/how-to-leave.md) :《解除劳动合同告知书》
 
-<!-- - [SWOT Analysis](/life/principle/swot.md) : Strengths / Weakness / Oppertunities / Threats -->
-<!-- - [What Why How](/life/principle/what-why-how.md) -->
-<!-- - "Don't try, just do. Failure is not an option." - Elon Musk -->
-<!--
-
-    - How to Solve Problems :
-        1. 既无问题也无见解者，不用；
-        1. 只提问题无见解者，慎用；
-        1. 既提问题也有见解者，且有良好业绩者，重用！
-        1. 不能发现问题还回避问题者，淘汰！
-        1. 能发现问题还能提几套解决方案者，奖赏！
-        1. 能发现问题，又能从根源上解决问题者，重赏！
-        1. 能预见问题，能防范问题者，重用！
-        1. 不能发现问题，不能解决问题，还处处抱怨者，PK。
-
--->
-
 ### Read
 
 > 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
@@ -759,13 +742,6 @@ Timeline
         -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
         -   不那么在意行动正确与否，更在意是否在行动。
         -   不那么在意所谓时机，更在意任务本身。
-
-<!--
-
--   _[Noise : a Flaw in Human Judgement](/book/noise-a-flaw-in-human-judgement.md) - to read_
-    -   《 噪声 : 一个人类判断力的缺陷 》
-
--->
 
 ### Friend
 
