@@ -6,13 +6,9 @@ A JavaScript library for building user interfaces
 
 References
 
-- [reactjs.org/](https://reactjs.org/)
+- Homepage : [reactjs.org/](https://reactjs.org/)
 
-## Intro
-
-Reference : [reactjs.org/](https://reactjs.org/)
-
-### Features
+## Features
 
 -   **Declarative**<!-- 声明式的 -->
 
@@ -32,6 +28,8 @@ Reference : [reactjs.org/](https://reactjs.org/)
     We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.
 
     React can also render on the server using Node and power mobile apps using React Native.
+
+## Examples
 
 ### A Simple Component
 
@@ -61,8 +59,10 @@ ReactDOM.render(
 
 ### A Stateful Component
 
-**In addition to taking input data (accessed via `this.props`), a component can maintain internal state data (accessed via `this.state`).**
-When a component’s state data changes, the rendered markup will be updated by re-invoking `render()`.
+In addition to taking input data (accessed via `this.props`), a component can maintain internal state data (accessed via `this.state`).
+**When a component's state data changes, the rendered markup will be updated by re-invoking `render()`.**
+
+<!-- icehe : 下面的示例, 第一次看还不能完全理解. 2021/12/12 -->
 
 ```jsx
 class Timer extends React.Component {
@@ -97,5 +97,131 @@ class Timer extends React.Component {
 ReactDOM.render(
   <Timer />,
   document.getElementById('timer-example')
+);
+```
+
+### An Application
+
+Using `props` and `state`, we can put together a small Todo application.
+This example **uses `state` to track the current list of items as well as the text that the user has entered**.
+Although event handlers appear to be rendered inline, they will be collected and implemented using event delegation.
+
+```jsx
+class TodoApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { items: [], text: '' };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>TODO</h3>
+        <TodoList items={this.state.items} />
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="new-todo">
+            What needs to be done?
+          </label>
+          <input
+            id="new-todo"
+            onChange={this.handleChange}
+            value={this.state.text}
+          />
+          <button>
+            Add #{this.state.items.length + 1}
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+  handleChange(e) {
+    this.setState({ text: e.target.value });
+  }
+
+  handleSubmit(e) {
+    // icehe : 这句的用途又是什么? 待查. 2021/12/12
+    e.preventDefault();
+    if (this.state.text.length === 0) {
+      return;
+    }
+    const newItem = {
+      text: this.state.text,
+      id: Date.now()
+    };
+    this.setState(state => ({
+      items: state.items.concat(newItem),
+      text: ''
+    }));
+  }
+}
+
+class TodoList extends React.Component {
+  render() {
+    return (
+      <ul>
+        {this.props.items.map(item => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+ReactDOM.render(
+  <TodoApp />,
+  document.getElementById('todos-example')
+);
+```
+
+### A Component Using External Plugins
+
+**React allows you to interface with other libraries and frameworks.**
+This example uses **remarkable**, an external Markdown library, to convert the `<textarea>`’s value in real time.
+
+```jsx
+class MarkdownEditor extends React.Component {
+  constructor(props) {
+    super(props);
+    this.md = new Remarkable();
+    this.handleChange = this.handleChange.bind(this);
+    this.state = { value: 'Hello, **world**!' };
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  getRawMarkup() {
+    return { __html: this.md.render(this.state.value) };
+  }
+
+  render() {
+    return (
+      <div className="MarkdownEditor">
+        <h3>Input</h3>
+        <label htmlFor="markdown-content">
+          Enter some markdown
+        </label>
+        <textarea
+          id="markdown-content"
+          onChange={this.handleChange}
+          defaultValue={this.state.value}
+        />
+        <h3>Output</h3>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={this.getRawMarkup()}
+        />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <MarkdownEditor />,
+  document.getElementById('markdown-example')
 );
 ```
