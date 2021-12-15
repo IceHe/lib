@@ -707,6 +707,7 @@ Reference : https://www.computerhope.com/keys.htm
 - prog : [program](https://en.wikipedia.org/wiki/Computer_program)
 - pron. : pronoun 代词
 - prop : property
+- props : properties
 - pros and cons : 正反两方面; 赞成者和反对者
 - prt : print
 - ps : [process status](https://en.wikipedia.org/wiki/Process_state) | PhotoShop
