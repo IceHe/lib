@@ -6,7 +6,9 @@ A JavaScript library for building user interfaces
 
 References
 
-- Homepage : [reactjs.org/](https://reactjs.org/)
+- [Homepage : reactjs.org](https://reactjs.org/)
+    - [Getting Started - React Docs](https://reactjs.org/docs/getting-started.html)
+    - [Glossary of React Terms - React Docs](https://reactjs.org/docs/glossary.html)
 
 ## Features
 
@@ -448,7 +450,3 @@ Reference : [Reconciliation - React Docs](https://reactjs.org/docs/reconciliatio
 When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one.
 When they are not equal, React will update the DOM.
 This process is called "reconciliation".
-
-## Main Concepts
-
-Table of contents

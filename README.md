@@ -511,6 +511,8 @@ TypeScript
 React
 
 - [React](js/react/react.md) : a JavaScript library for building user interfaces
+- [Tutorial](js/react/tutorial.md) : this tutorial doesn't assume any existing React knowledge
+- [Main Conecpts](js/react/main-concepts.md) : step-by-step guide
 - [Hooks](js/react/hook.md) : let you use state and other React features without writing a class
 
 ### Java
