@@ -651,8 +651,8 @@ Timeline
     - [2018 Spring ~ 2019 Autumn](/life/timeline/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/life/timeline/2018-winter.md)
     - [Moments](/life/timeline/moments.md) : 回忆
-    - [Rehabilitation](/life/grow/rehabilitation.md)
     - [Reflection](/life/grow/reflection.md)
+    - [Rehabilitation](/life/grow/rehabilitation.md)
     - [Step By Step](/life/grow/step-by-step.md)
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
