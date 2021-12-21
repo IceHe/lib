@@ -131,14 +131,17 @@
               '\n',
               '{docsify-updated}',
               ' &nbsp;|&nbsp; ',
-              '[Source file](',
+              '[View](',
+              // View the source file in the GitHub.com
               'https://github.com/IceHe/lib/blob/master',
               vm.route.file, ')',
+              ' or ',
               // ' &nbsp;|&nbsp; ',
-              // '[Edit](',
-              // 'https://github.com/IceHe/lib/edit/master',
-              // // 'https://coding.net/u/IceHe/p/IceHe/git/edit/master',
-              // vm.route.file, ')',
+              '[Edit](',
+              // Edit the source file in the GitHub.dev ( the web editor - VS Code )
+              'https://github.dev/IceHe/lib/blob/master',
+              vm.route.file, ')',
+              ' source file',
             ].join('');
 
             var footer = [
