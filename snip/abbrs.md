@@ -716,6 +716,7 @@ Reference : https://www.computerhope.com/keys.htm
 - P.S. : [postscript](https://en.wikipedia.org/wiki/Postscript) 附言
 - PSH : push 传送 ( for TCP )
 - PTAL : Please Take A Look
+- PTO : [Paid / Planned / Personal Time Off](https://en.wikipedia.org/wiki/Paid_time_off)
 - ptr : pointer
 - pub : public
 - pw , pwd : passowrd
