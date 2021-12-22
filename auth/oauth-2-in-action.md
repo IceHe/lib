@@ -6,6 +6,10 @@ References
 
 - TODO
 
+## Temporary Notes
+
+---
+
 ## Table of Contents
 
 ## Terminology
