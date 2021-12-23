@@ -100,7 +100,7 @@ Part 4 : Taking OAuth further
 - 15. Beyond bearer tokens
 - 16. Summary and conclusions
 
----
+### Detailed
 
 **Part 1 : First steps**
 
@@ -323,7 +323,7 @@ Part 4 : Taking OAuth further
 - 16.4 The community
 - 16.5 The future
 
-## Terminology
+### Terminology
 
 - credential : 凭据
     - credential sharing : 凭据共享
@@ -344,3 +344,273 @@ Part 4 : Taking OAuth further
 - token replays : 令牌重放?
 - session hijacking : 会话劫持
 - client impresonation : 客户端冒充
+
+# Part 1 : First Steps
+
+## 1. What is OAuth 2.0 and why should you care
+
+### 1.1 What is OAuth 2.0?
+
+OAuth 2.0 is a **delegation protocol**, a means of letting someone who controls a resource allow a software application to access that resource on their behalf without impersonating<!-- 冒充 --> them.
+
+The application requests authorization from the owner of the resource and receives **tokens** that it can use to access the resource.
+
+This all happens without the application needing to impersonate the person who controls the resource, since the token explicitly represents a delegated right of access.
+
+……
+
+We know that OAuth is a **security protocol**, but what exactly does it do?
+… According to the specification that defines it:
+
+> The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service, either on behalf of<!-- 代表… --> a resource owner by orchestrating an approval interaction between the resource owner and the HTTP service, or by allowing the third-party application to obtain access on its own behalf.
+
+…… as an **authorization framework**, OAuth is all about getting the right of access from one component of a system to another.
+In particular, in the OAuth world, a client application wants to gain access to a protected resource on behalf of a resource owner (usually an **end user**).
+These are the components that we have so far:
+
+-   ……
+
+-   The protected resource is the component that the resource owner has access to.
+    This can take many different forms, but for the most part it's a web API of some kind.
+    Even though the name "resource" makes it sound as though this is something to be downloaded, these APIs can allow read, write, and other operations just as well.
+    ……
+
+-   The client is the piece of software that accesses the protected resource on behalf of the resource owner.
+
+    - If you're a web developer, the name "client" might make you think this is the web browser, but that's not how the term is used here.
+    - If you're a business application developer, you might think of the "client" as the person who's paying for your services, but that's not what we're talking about, either.
+
+    **In OAuth, the client is whatever software consumes the API that makes up the protected resource.**
+    ……
+    This is partially in deference to the fact that there are many different forms of client applications, ……, so no one icon will universally suffice.
+
+### 1.2 The bad old days: credential sharing (and credential theft)
+
+……
+
+> **Lightweight Directory Access Protocol (LDAP)** authentication
+>
+> Interestingly, this pattern is exactly how password-vault authentication technologies such as LDAP function.
+> **When using LDAP for authentication, a client application collects credentials directly from the user and then replays these credentials to the LDAP server to see whether they're valid.**
+> The client system must have access to the plaintext password of the user during the transaction; otherwise, it has no way of verifying it with the LDAP server.
+> In a very real sense, this method is a form of **man-in-the-middle attack** on the user, although one that’s generally benevolent in nature.
+
+### 1.3 Delegating access
+
+Beyond HTTP Basic and the password-sharing antipattern
+
+Authorization delegation: why it matters and how it’s used
+
+User-driven security and user choice
+
+### 1.4 OAuth 2.0: the good, the bad, and the ugly
+
+### 1.5 What OAuth 2.0 isn't
+
+## 2. The OAuth dance
+
+- 2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
+- 2.2 Following an OAuth 2.0 authorization grant in detail
+- 2.3 OAuth’s actors:
+    - **clients**,
+    - **authorization servers**,
+    - **resource owners**, and
+    - **protected resources**
+- 2.4 OAuth's components:
+    - **Access tokens**
+    - **Scopes**
+    - **Refresh tokens**
+    - **Authorization grants**
+- 2.5 Interactions between OAuth’s actors and components: back channel, front channel, and endpoints
+    - Back-channel communication
+    - Front-channel communication
+
+# Part 2 : Building an OAuth 2 environment
+
+## 3. Building a simple OAuth client
+
+- 3.1 Register an OAuth client with an authorization server
+- 3.2 Get a token using the authorization code grant type
+    - Sending the authorization request
+    - Processing the authorization response
+    - Adding cross-site protection with the **state** parameter
+- 3.3 Use the token with a protected resource
+- 3.4 Refresh the access token
+
+## 4. Building a simple OAuth protected resource
+
+- 4.1 Parsing the OAuth token from the HTTP request
+- 4.2 Validating the token against our data store
+- 4.3 Serving content based on the token
+    - Different scopes for different actions
+    - Different scopes for different data results
+    - Different users for different data results
+    - Additional access controls
+
+## 5. Building a simple OAuth authorization server
+
+- 5.1 Managing OAuth client registrations
+- 5.2 Authorizing a client
+    - The authorization endpoint
+    - Authorizing the client
+- 5.3 Issuing a token
+    - Authenticating the client
+    - Processing the authorization grant request
+- 5.4 Adding refresh token support
+- 5.5 Adding scope support
+
+## 6. OAuth 2.0 in the real world
+
+- 6.1 Authorization **grant types**
+    - Implicit grant type
+    - Client credentials grant type
+    - Resource owner credentials grant type
+    - Assertion grant types
+    - Choosing the appropriate grant type
+- 6.2 Client deployments
+    - Web applications
+    - Browser applications
+    - Native applications
+    - Handling secrets
+
+# Part 3 : OAuth 2 implementation and vulnerabilities
+
+## 7. Common client vulnerabilities
+
+- 7.1 General client security
+- 7.2 **CSRF** attack against the client
+- 7.3 Theft of client credentials
+- 7.4 Registration of the redirect URI
+    - Stealing the authorization code through the referrer
+    - Stealing the token through an open redirector
+- 7.5 Theft of authorization codes
+- 7.6 Theft of tokens
+- 7.7 Native applications best practices
+
+## 8. Common protected resources vulnerabilities
+
+- 8.1 How are protected resources vulnerable?
+- 8.2 Design of a protected resource endpoint
+    - How to protect a resource endpoint
+    - Adding implicit grant support
+- 8.3 Token replays
+
+## 9. Common authorization server vulnerabilities
+
+- 9.1 General security
+- 9.2 **Session hijacking**
+- 9.3 Redirect URI manipulation
+- 9.4 Client impersonation
+- 9.5 Open redirector
+
+## 10. Common OAuth token vulnerabilities
+
+- 10.1 What is a **bearer token**?
+- 10.2 Risks and considerations of using bearer tokens
+- 10.3 How to protect bearer tokens
+    - At the client
+    - At the authorization server
+    - At the protected resource
+- 10.4 Authorization code
+    - **Proof Key for Code Exchange (PKCE)**
+
+# Part 4 : Taking OAuth further
+
+## 11. OAuth tokens
+
+- 11.1 What are OAuth tokens?
+- 11.2 Structured tokens: **JSON Web Token (JWT)**
+    - The structure of a JWT
+    - JWT **claims**
+    - Implementing JWT in our servers
+    - User authentication with OAuth 2.0
+- 11.3 Cryptographic protection of tokens: **JSON Object Signing and Encryption (JOSE)**
+    - **Symmetric** signatures using HS256
+    - **Asymmetric** signatures using RS256
+    - Other token protection options
+- 11.4 Looking up a token’s information online: token introspection
+    - The introspection protocol
+    - Building the introspection endpoint
+    - **Introspecting**<!-- 内省? --> a token
+    - Combining introspection and JWT
+- 11.5 Managing the token **lifecycle** with token **revocation**
+    - The token revocation protocol
+    - Implementing the revocation endpoint
+    - Revoking a token
+- 11.6 The OAuth token lifecycle
+
+## 12. Dynamic client registration
+
+- 12.1 How the server knows about the client
+- 12.2 **Registering clients** at runtime
+    - How the protocol works
+    - Why use dynamic registration?
+    - Implementing the registration endpoint
+    - Having a client register itself
+- 12.3 **Client metadata**
+    - Table of core client metadata field names
+    - Internationalization of human-readable client metadata
+    - Software statements
+- 12.4 Managing dynamically registered clients
+    - How the management protocol works
+    - Implementing the dynamic client registration management API
+
+## 13. User authentication with OAuth 2.0
+
+- 13.1 Why OAuth 2.0 is not an authentication protocol
+    - Authentication vs. authorization : a delicious metaphor<!-- 隐喻 -->
+- 13.2 Mapping OAuth to an authentication protocol
+- 13.3 How OAuth 2.0 uses authentication
+- 13.4 Common pitfalls of using OAuth 2.0 for authentication
+    - Access tokens as proof of authentication
+    - Access of protected API as proof of authentication
+    - Injection of access tokens
+    - Lack of **audience** restriction
+    - Injection of invalid user information
+    - Different protocols for every potential identity provider
+- 13.5 **OpenID Connect**: a standard for authentication and identity on top of OAuth 2.0
+    - **ID tokens**
+    - The **UserInfo** endpoint
+    - **Dynamic server discovery** and client registration
+    - Compatibility with OAuth 2.0
+    - Advanced capabilities
+- 13.6 Building a simple OpenID Connect system
+    - Generating the ID token
+    - Creating the UserInfo endpoint
+    - Parsing the ID token
+    - Fetching the UserInfo
+
+## 14. Protocols and profiles using OAuth 2.0
+
+- 14.1 User Managed Access (UMA)
+    - Why UMA matters
+    - How the UMA protocol works
+- 14.2 Health Relationship Trust (HEART)
+    - Why HEART matters to you
+    - The HEART specifications
+    - HEART mechanical profiles
+    - HEART semantic profiles
+- 14.3 International Government Assurance (iGov)
+    - Why iGov matters to you
+    - The future of iGov
+
+## 15. Beyond bearer tokens
+
+- 15.1 Why do we need more than bearer tokens?
+- 15.2 **Proof of Possession (PoP)** tokens
+    - Requesting and issuing a PoP token
+    - Using a PoP token at a protected resource
+    - Validating a PoP token request
+- 15.3 Implementing PoP token support
+    - Issuing the token and keys
+    - Creating the signed header and sending it to the resource
+    - Parsing the header, introspecting the token, and validating the signature
+- 15.4 TLS token binding
+
+## 16. Summary and conclusions
+
+- 16.1 The right tool
+- 16.2 Making key decisions
+- 16.3 The wider ecosystem
+- 16.4 The community
+- 16.5 The future

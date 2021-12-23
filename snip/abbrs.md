@@ -543,6 +543,7 @@ Reference : https://www.computerhope.com/keys.htm
 - LAN : [Local Area Network](https://en.wikipedia.org/wiki/Local_area_network)
 - lang : language
 - LB : [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)) ( or balancer )
+- LDAP : [Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)
 - len : length
 - lex : LEXical 词汇的
 - lf : left | [line feed](https://en.wikipedia.org/wiki/Newline)
