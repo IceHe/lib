@@ -504,6 +504,38 @@ Trust On First Use.
 > This kind of security system fatigue breeds<!-- 引起 --> workarounds that are usually more insecure than the practices that the security system is attempting to address.
 > <!-- 这种由安全系统造成的疲劳感会引起工作懈怠, 遮蔽安全系统原本要解决的问题更危险. -->
 
+……
+
+Whitelist
+
+- Contains
+    - Internal parties
+    - Known business partners
+    - Customer organizations
+    - Trust frameworks
+- How to deal with
+    - Centralized control
+    - Traditional policy management
+
+Graylist
+
+- Contains
+    - Unknown entities
+    - Trust On First Use
+- How to deal with
+    - End user decisions
+    - Extensive auditing and logging
+    - Rules on when to move to the white or black lists
+
+Blacklist
+
+- Contains
+    - Known bad parties
+    - Attack sites
+- How to deal with
+    - Centralized control
+    - Traditional policy management
+
 ### 1.4 OAuth 2.0: the good, the bad, and the ugly
 
 ### 1.5 What OAuth 2.0 isn't
