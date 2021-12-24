@@ -586,24 +586,52 @@ OAuth is a widely used security standard that enables secure access to protected
 - OAuth **replaces the password-sharing antipattern with a delegation protocol** _that's simultaneously more secure and more usable._
 - OAuth is focused on solving a small set of problems and solving them well, which makes it a suitable component within larger security systems.
 
-
 ## 2. The OAuth dance
 
-- 2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
-- 2.2 Following an OAuth 2.0 authorization grant in detail
-- 2.3 OAuth’s actors:
-    - **clients**,
-    - **authorization servers**,
-    - **resource owners**, and
-    - **protected resources**
-- 2.4 OAuth's components:
-    - **Access tokens**
-    - **Scopes**
-    - **Refresh tokens**
-    - **Authorization grants**
-- 2.5 Interactions between OAuth’s actors and components: back channel, front channel, and endpoints
-    - Back-channel communication
-    - Front-channel communication
+2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
+
+……
+
+2.2 Following an OAuth 2.0 authorization grant in detail
+
+……
+
+<!-- TODO : 考虑自己用 plantuml 画一个完整的 授权码许可 的详细过程 -->
+<!-- The authoriation code grant in detail -->
+
+……
+
+The client performs an HTTP POST with its parameters as a form-encoded HTTP entity body, **passing its `client_id` and `client_secret` as an HTTP Basic authorization header**.
+This HTTP request is made directly between the client and the authorization server, without involving the browser or resource owner at all.
+
+```http
+POST /token
+Host: localhost:9001
+Accept: application/json
+Content-type: application/x-www-form-encoded
+Authorization: Basic b2F1dGgtY2xpZW50LTE6b2F1dGgtY2xpZW50LXNlY3JldC0x
+
+grant_type=authorization_code& redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback&code=8V1pr0rJ
+```
+
+2.3 OAuth’s actors:
+
+- **clients**,
+- **authorization servers**,
+- **resource owners**, and
+- **protected resources**
+
+2.4 OAuth's components:
+
+- **Access tokens**
+- **Scopes**
+- **Refresh tokens**
+- **Authorization grants**
+
+2.5 Interactions between OAuth’s actors and components: back channel, front channel, and endpoints
+
+- Back-channel communication
+- Front-channel communication
 
 # Part 2 : Building an OAuth 2 environment
 
