@@ -448,6 +448,39 @@ _Clients can then manage the tokens, and users can manage the client application
 
 ……
 
+<!-- TODO : 考虑自己用 plantuml 画一个完整的 OAuth 工作过程 -->
+<!-- The OAuth process, at a high level -->
+
+#### 1.3.1. Beyond HTTP Basic and the password-sharing antipattern
+
+……
+
+How did HTTP APIs become password-protected in the first place?
+
+The history of the HTTP protocol and its security methods is enlightening<!-- 有启迪的 -->.
+The HTTP protocol defines a mechanism whereby a user in a browser is **able to authenticate to a web page using a username and password over a protocol known as HTTP Basic Auth**.
+There is also a slightly more secure version of this, known as **HTTP Digest Auth**, but for our purposes they are interchangeable<!-- 可互换的, 即没什么区别的 --> as both assume the presence of a user and effectively require the presentation of a username and password to the HTTP server.
+_Additionally, because HTTP is a stateless protocol, it's assumed that these credentials will be presented again on every single transaction._
+
+This all makes sense in light of **HTTP's origins as a document access protocol**, but the web has grown significantly in both scope and breadth of use since those early days. ……
+_But as a consequence, when HTTP started to be used for direct-access APIs in addition to user-facing services, its existing security mechanisms were quickly adopted for this new use case._ ……
+
+**OAuth** was designed from the outset<!-- 开端 --> **as a protocol for use with APIs**, wherein<!-- 在其中 --> the main interaction is outside of the browser.
+_It usually has an end user in a browser to start the process, and indeed this is where the flexibility and power in the delegation model comes from, but the final steps of receiving the token and using it at a protected resource lie outside the view of the user._
+
+#### 1.3.2. Authorization delegation: why it matters and how it’s used
+
+Fundamental to the power of OAuth is the notion of **delegation**.
+Although OAuth is often called an **authorization protocol**
+(and this is the name given to it in the RFC which defines it), it is a **delegation protocol**.
+_Generally, a subset of a user's authorization is delegated, but OAuth itself doesn't carry or convey the authorizations._
+_Instead, it provides a means by which a client can request that a user delegate some of their authority to it._
+_The user can then approve this request, and the client can then act on it with the results of that approval._
+
+……
+
+#### 1.3.3. User-driven security and user choice
+
 ### 1.4 OAuth 2.0: the good, the bad, and the ugly
 
 ### 1.5 What OAuth 2.0 isn't
