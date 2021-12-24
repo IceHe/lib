@@ -552,6 +552,41 @@ OAuth tokens provide a mechanism that's only slightly more complex than password
 
 ### 1.5 What OAuth 2.0 isn't
 
+……
+
+**OAuth isn't defined outside of the HTTP protocol.**
+Since **OAuth 2.0 with bearer tokens provides no message signatures**, it is not meant to be used outside of HTTPS (HTTP over TLS). ……
+
+**OAuth isn't an authentication protocol**, even though it can be used to build one. ……
+
+**OAuth doesn't define a mechanism for user-to-user delegation**, even though it is fundamentally about delegation of a user to a piece of software.
+OAuth assumes that the resource owner is the one that's controlling the client.
+In order for the resource owner to authorize a different user, more than OAuth is needed.<!-- 仅使用 OAuth 是不行的 -->
+This kind of delegation is not an uncommon use case, and the User Managed Access protocol uses OAuth to create a system capable of user-to-user delegation.
+
+**OAuth doesn't define authorization-processing mechanisms.**
+OAuth provides a means to convey the fact that an authorization delegation has taken place, but it doesn’t define the contents of that authorization.  ……
+
+**OAuth doesn't define a token format.** ……
+Desire for interoperability at this level has led to the development of the **JSON Web Token (JWT)** format and the Token Introspection protocol. ……
+
+**OAuth 2.0 defines no cryptographic methods**, ……
+
+**Auth 2.0 is also not a single protocol.**
+As discussed previously, the specification is split into multiple definitions and flows, each of which has its own set of use cases.
+
+---
+
+1.6 Summary
+
+OAuth is a widely used security standard that enables secure access to protected resources in a fashion that’s friendly to web APIs.
+
+- OAuth is about **how to get a token** and **how to use a token**.
+- OAuth is a **delegation protocol that provides authorization across systems**.
+- OAuth **replaces the password-sharing antipattern with a delegation protocol** _that's simultaneously more secure and more usable._
+- OAuth is focused on solving a small set of problems and solving them well, which makes it a suitable component within larger security systems.
+
+
 ## 2. The OAuth dance
 
 - 2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
