@@ -395,13 +395,58 @@ These are the components that we have so far:
 > The client system must have access to the plaintext password of the user during the transaction; otherwise, it has no way of verifying it with the LDAP server.
 > In a very real sense, this method is a form of **man-in-the-middle attack** on the user, although one that’s generally benevolent in nature.
 
+For those situations in which it does work, it exposes the user's primary credentials to a potentially untrustworthy application, the client.
+
+**To continue to act as the user, the client has to store the user's password in a replayable fashion** ( often in plaintext or a reversible encryption mechanism ) **for later use at the protected resource.**
+If the client application is ever compromised<!-- 被攻破 -->, the attacker gains access not only to the client but also to the protected resource, as well as any other service where the end user may have used the same password.
+
+Furthermore, in both of these approaches, the client application is impersonating<!-- 扮演 --> the resource owner, and the protected resource has no way of distinguishing a call directly from the resource owner from a call being directed through a client.
+
+……
+
+Another common approach is to use a **developer key** issued to the client, which uses this to call the protected resource directly. ……
+
+This has the benefit of not exposing the user's credentials to the client, but at the cost of the client requiring a highly powerful credential.
+
+……
+
+Another possible approach is to **give users a special password** that's only for sharing with third-party services.
+Users don't use this password to log in themselves, but paste it into applications that they want to work for them. ……
+
+However, the usability of such a system is, on its own, not very good.
+This requires the user to generate, distribute, and manage these special credentials in addition to the primary passwords they already must curate.
+Since it's the user who must manage these credentials, there is also, generally speaking, no correlation between the client program and the credential itself.
+This makes it difficult to revoke access to a specific application.
+
+……
+
 ### 1.3 Delegating access
 
-Beyond HTTP Basic and the password-sharing antipattern
+OAuth is a protocol designed to do exactly that :
+in OAuth, the end user **delegate**s some part of their authority to access the protected resource to the client application to act on their behalf.
 
-Authorization delegation: why it matters and how it’s used
+To make that happen, OAuth introduces another component into the system :
+the **authorization server**.
 
-User-driven security and user choice
+The authorization server (AS) is trusted by the protected resource to issue special-purpose security credentials — called **OAuth access tokens** — to clients.
+To acquire a token, the client first sends the resource owner to the authorization server in order to request that the resource owner authorize this client.
+The resource owner authenticates to the authorization server and is generally presented with a choice of whether to authorize the client making the request.
+The client is able to ask for a subset of functionality, or **scopes**, which the resource owner may be able to further diminish.
+Once the authorization grant has been made, the client can then request an access token from the authorization server.
+This access token can be used at the protected resource to access the API, as granted by the resource owner.
+
+At no time<!-- 从不 --> in this process are the resource owner's credentials exposed to the client :
+the resource owner authenticates to the authorization server separately from anything used to communicate with the client.
+Neither does the client have a high-powered developer key :
+the client is unable to access anything on its own and instead must be authorized by a valid resource owner before it can access any protected resources.
+_This is true even though most OAuth clients have a means of authenticating themselves to the authorization server._
+
+<!-- 妙处 -->
+_The user generally never has to see or deal with the access token directly._
+_Instead of requiring the user to generate tokens and paste them into clients, the OAuth protocol facilitates this process and makes it relatively simple for the client to request a token and the user to authorize the client._
+_Clients can then manage the tokens, and users can manage the client applications._
+
+……
 
 ### 1.4 OAuth 2.0: the good, the bad, and the ugly
 
