@@ -538,6 +538,18 @@ Blacklist
 
 ### 1.4 OAuth 2.0: the good, the bad, and the ugly
 
+Auth 2.0 is very good at capturing a user delegation decision and expressing that across the network. ……
+
+One key assumption in the design of OAuth 2.0 was that there would always be several orders of magnitude more clients in the wild than there would be authorization servers or protected resource servers.
+**This makes sense, as a single authorization server can easily protect multiple resource servers, and there are likely to be many different kinds of clients wanting to consume any given API.**
+An authorization server can even have several different classes of clients that are trusted at differ- ent levels, …….
+As a consequence of this architectural decision, wherever possible, **complexity is shifted away from clients and onto servers.**
+This is good for client developers, as the client becomes the simplest piece of software in the system.
+Client developers no longer have to deal with signature normalizations or parsing complicated security policy documents, as they would have in previous security protocols, and they no longer have to worry about handling sensitive user credentials.
+OAuth tokens provide a mechanism that's only slightly more complex than passwords but significantly more secure when used properly.
+
+……
+
 ### 1.5 What OAuth 2.0 isn't
 
 ## 2. The OAuth dance
