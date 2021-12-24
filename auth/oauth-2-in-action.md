@@ -481,6 +481,29 @@ _The user can then approve this request, and the client can then act on it with 
 
 #### 1.3.3. User-driven security and user choice
 
+……
+
+OAuth systems often follow the principle of **TOFU - Trust On First Use**.
+
+In a TOFU model, the first time a security decision needs to be made at runtime, and there is no existing context or configuration under which the decision can be made, the user is prompted.
+This can be as simple as "Connect a new application?" although many implementations allow for greater control during this step.
+_Whatever the user experience here, the user with appropriate authority is allowed to make a security decision._
+The system offers to remember this decision for later use.
+In other words, the first time an authorization context is met, the system can be directed to trust the user's decision for later processing :
+Trust On First Use.
+
+> **Do I have to eat my TOFU?**<!-- TOFU 是强制要求吗? -->
+>
+> The Trust On First Use (TOFU) method of managing security decisions is not required by OAuth implementations, but it's especially common to find these two technologies together.
+>
+> Why is that?
+> **The TOFU method strikes a good balance between the flexibility of asking end users to make security decisions in context and the fatigue<!-- 疲劳, 疲乏 --> of asking them to make these decisions constantly.**
+>
+> Without the "Trust" portion of TOFU, users would have no say in how these delegations are made.
+> **Without the "On First Use" portion of TOFU, users would quickly become numb to an unending bar- rage of access requests.**
+> This kind of security system fatigue breeds<!-- 引起 --> workarounds that are usually more insecure than the practices that the security system is attempting to address.
+> <!-- 这种由安全系统造成的疲劳感会引起工作懈怠, 遮蔽安全系统原本要解决的问题更危险. -->
+
 ### 1.4 OAuth 2.0: the good, the bad, and the ugly
 
 ### 1.5 What OAuth 2.0 isn't
