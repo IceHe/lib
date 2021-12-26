@@ -115,9 +115,9 @@ Basics
 
     an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
 
-    - [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-pratical-course.md)
     - [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md)
         <!-- todo -->
+    - [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-pratical-course.md)
     - [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
 Solution Provider

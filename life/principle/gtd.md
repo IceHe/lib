@@ -24,9 +24,8 @@ while (Empty?) is (No)
                 if (Allow to delegate?) then (Yes)
                     #white:Follow-up|
                 else (No)
-                    if (  Should split up?) then (Yes)
+                    if (  SMART enough?) then (Yes)
                         #white:Split into\nsubtasks;
-                        note right : SMART 法则
                         #white:Inbox|
                     else (No)
                         #white:Set due time;
