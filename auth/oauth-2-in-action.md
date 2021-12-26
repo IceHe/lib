@@ -429,13 +429,89 @@ User-driven security and user choice
 
 ## 3. Building a simple OAuth client
 
-- 3.1 Register an OAuth client with an authorization server
-- 3.2 Get a token using the authorization code grant type
-    - Sending the authorization request
-    - Processing the authorization response
-    - Adding cross-site protection with the **state** parameter
-- 3.3 Use the token with a protected resource
-- 3.4 Refresh the access token
+This chapter covers
+
+- _Registering an OAuth client with an authorization server and configuring the client to talk to the authorization server_
+- _Requesting authorization from a resource owner using the authorization code grant type_
+- _Trading the authorization code for a token_
+- _Using the access token as a bearer token with a protected resource_
+- _Refreshing an access token_
+
+### 3.1 Register an OAuth client with an authorization server
+
+_First things first : the OAuth client and the authorization server need to know a few things about each other before they can talk. ……_
+_An OAuth client is identified by a special string known as the client identifier, referred to in our exercises and in several parts of the OAuth protocol with the name `client_id`._
+**The client identifier needs to be unique for each client at a given authorization server**, and is therefore almost always assigned by the authorization server to the client.
+**This assignment could happen through a developer portal<!-- 开发者门户 -->, dynamic client registration**, or through some other process.  ……
+
+……
+
+Our client is also what's known as a **confidential client**<!-- 保密客户端 --> in the OAuth world, which means that **it has a shared secret that it stores in order to authenticate itself when talking with the authorization server**, known as the `client_secret`.
+The `client_secret` can be passed to the authorization server's token endpoint in several different ways, …… .
+**The `client_secret` is also nearly always assigned by the authorization server**, …… .
+
+……
+
+_In this exercise,_ our client needs to know the locations of both the **authorization endpoint** and the **token endpoint**, but it doesn't really need to know anything about the server beyond that. ……
+
+```js
+var authServer = {
+   authorizationEndpoint: 'http://localhost:9001/authorize',
+   tokenEndpoint: 'http://localhost:9001/token'
+};
+```
+
+……
+
+### 3.2 Get a token using the authorization code grant type
+
+……
+
+#### 3.2.1 Sending the authorization request
+
+……
+
+#### 3.2.2 Processing the authorization response
+
+……
+
+Now we need to take this authorization code and send it directly to the token endpoint using an HTTP POST _( to get the access token )_ .
+
+_We'll include the code as a form parameter in the request body._
+
+```js
+var form_data = qs.stringify({ grant_type: 'authorization_code',
+    code: code,
+    redirect_uri: client.redirect_uris[0]
+});
+```
+
+As an aside, why do we include the `redirect_uri` in this call?
+We're not redirecting anything, after all.
+According to the OAuth specification, **if the redirect URI is specified in the authorization request, that same URI must also be included in the token request**.
+This practice **prevents an attacker from using a compromised redirect URI with an otherwise well-meaning client by injecting an authorization code from one session into another.** ……
+
+_We also need to send a few headers to tell the server that this is an HTTP form-encoded request, as well as authenticate our client using HTTP Basic._
+The **`Authorization` header in HTTP Basic is a base64 encoded string made by concatenating the username and password together, separated by a single colon (`:`) character.**
+**OAuth 2.0 tells us to use the client ID as the username and the client secret as the password**, but with each of these being URL encoded first. ……
+
+```js
+var headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': 'Basic ' + encodeClientCredentials(
+        client.client_id,
+        client.client_secret
+    )
+};
+```
+
+……
+
+#### 3.2.3 Adding cross-site protection with the **state** parameter
+
+### 3.3 Use the token with a protected resource
+
+### 3.4 Refresh the access token
 
 ## 4. Building a simple OAuth protected resource
 
