@@ -6,12 +6,6 @@ References
 
 - 《OAuth 2 in Action》Justin Richer
 
-TODOs
-
-- [ ] 快速过一遍, 形成大概的认识, 记录问题
-- [ ] 仔细阅读做笔记
-    _( 可能没必要再看一遍 : 已经理解了, 或者质量太差不值得再看 )_
-
 ## Preface
 
 ……
@@ -588,11 +582,11 @@ OAuth is a widely used security standard that enables secure access to protected
 
 ## 2. The OAuth dance
 
-2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
+### 2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
 
 ……
 
-2.2 Following an OAuth 2.0 authorization grant in detail
+### 2.2 Following an OAuth 2.0 authorization grant in detail
 
 ……
 
@@ -601,8 +595,66 @@ OAuth is a widely used security standard that enables secure access to protected
 
 ……
 
+The web client ( localhost:9000 ) redirects to the authorization server's authorization endpoint ( localhost:9001 ) .
+
+_Client HTTP Request :_
+
+```http
+HTTP/1.1 302 Moved Temporarily
+x-powered-by: Express
+Location: http://localhost:9001/authorize?response_type=code&scope=foo&client_id=oauth-client-1&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback& state=Lwt50DDQKUB8U7jtfLQCVGDL9cnmwHH1
+Vary: Accept
+Content-Type: text/html; charset=utf-8
+Content-Length: 444
+Date: Fri, 31 Jul 2015 20:50:19 GMT
+Connection: keep-alive
+```
+
+This redirect to the browser causes the browser to send an HTTP GET to the authorization server.
+
+_Browser HTTP Request :_
+
+```http
+GET /authorize?response_type=code&scope=foo&client_id=oauth-client-1&redirect_uri=http%3A%2F%2Flocalhost%3A9000% 2Fcallback&state=Lwt50DDQKUB8U7jtfLQCVGDL9cnmwHH1 HTTP/1.1
+Host: localhost:9001
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Referer: http://localhost:9000/
+Connection: keep-alive
+```
+
+……
+
+Next, the authorization server redirects the user back to the client application.
+This takes the form of an HTTP redirect to the client's `redirect_uri`.
+
+_AuthServer HTTP Response :_
+
+```http
+HTTP 302 Found
+Location: http://localhost:9000/oauth_callback?code=8V1pr0rJ&state=Lwt50DDQKUB8U7jtfLQCVGDL9cnmwHH1
+```
+
+……
+
+This in turn causes the browser to issue the following request back to the client.
+
+_Browser HTTP Request :_
+
+```http
+GET /callback?code=8V1pr0rJ&state=Lwt50DDQKUB8U7jtfLQCVGDL9cnmwHH1 HTTP/1.1 Host: localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Referer: http://localhost:9001/authorize?response_type=code&scope=foo&client_id=oauth-client-1&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback&state=Lwt50DDQKUB8U7jtfLQCVGDL9cnmwHH1
+Connection: keep-alive
+```
+
+……
+
 The client performs an HTTP POST with its parameters as a form-encoded HTTP entity body, **passing its `client_id` and `client_secret` as an HTTP Basic authorization header**.
 This HTTP request is made directly between the client and the authorization server, without involving the browser or resource owner at all.
+
+_Client HTTP Request :_
 
 ```http
 POST /token
@@ -611,24 +663,64 @@ Accept: application/json
 Content-type: application/x-www-form-encoded
 Authorization: Basic b2F1dGgtY2xpZW50LTE6b2F1dGgtY2xpZW50LXNlY3JldC0x
 
-grant_type=authorization_code& redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback&code=8V1pr0rJ
+grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback&code=8V1pr0rJ
 ```
 
-2.3 OAuth’s actors:
+……
+
+This token is returned in the HTTP response as a JSON object.
+
+_AuthServer HTTP Response :_
+
+```http
+HTTP 200 OK
+Date: Fri, 31 Jul 2015 21:19:03 GMT
+Content-type: application/json
+{
+    "access_token": "987tghjkiu6trfghjuytrghj",
+    "token_type": "Bearer"
+}
+```
+
+……
+
+The right to bear tokens
+The core OAuth specifications deal with bearer tokens, which means that anyone who carries the token has the right to use it. All of our examples throughout the book will use bearer tokens, except where specifically noted. Bearer tokens have particu- lar security properties, which are enumerated in chapter 10, and we’ll take a look ahead at nonbearer tokens in chapter 15.
+
+……
+
+> **The right to bear tokens**
+>
+> The core OAuth specifications deal with **bearer** tokens, which means that anyone who carries the token has the right to use it. ……
+> **Bearer tokens have particular security properties**, ……
+
+With the token in hand, the client can **present the token to the protected resource**.
+
+The client has several methods for presenting the access token, and in this example we're going to use the recommended method of **using the `Authorization` header**.
+
+```http
+GET /resource HTTP/1.1
+Host: localhost:9002
+Accept: application/json
+Connection: keep-alive
+Authorization: Bearer 987tghjkiu6trfghjuytrghj
+```
+
+### 2.3 OAuth's actors
 
 - **clients**,
 - **authorization servers**,
 - **resource owners**, and
 - **protected resources**
 
-2.4 OAuth's components:
+### 2.4 OAuth's components
 
 - **Access tokens**
 - **Scopes**
 - **Refresh tokens**
 - **Authorization grants**
 
-2.5 Interactions between OAuth’s actors and components: back channel, front channel, and endpoints
+### 2.5 Interactions between OAuth's actors and components: back channel, front channel, and endpoints
 
 - Back-channel communication
 - Front-channel communication
