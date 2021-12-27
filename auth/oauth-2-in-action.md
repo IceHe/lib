@@ -841,9 +841,88 @@ var headers = {
 
 #### 3.2.3 Adding cross-site protection with the **state** parameter
 
+_In the current setup, any time someone comes to http://localhost:9000/ callback,_ the client will naively take in the input code value and attempt to post it to the authorization server.
+This would mean that **an attacker could use our client to fish for<!-- 意译? 暴力搜索 --> valid authorization codes at the authorization server, wasting both client and server resources and potentially causing our client to fetch a token it never requested.**
+
+We can **mitigate<!-- 使缓和, 使减轻 --> this by using an optional OAuth parameter called `state`**, which we'll fill with a **random value** and save to a variable on our application.
+
+……
+
+It’s important that this value be saved to a place in our application that will still be available when the call to the `redirect_uri` comes back.
+_Remember, since we're using the front channel to communicate in this stage, once we send the redirect to the authorization endpoint, our client application cedes control of the OAuth protocol until this return call happens._
+We'll also need to **add the state to the list of parameters sent on the authorization URL**.
+
+……
+
+**When the authorization server receives an authorization request with the state parameter, it must always return that state parameter unchanged to the client alongside the authorization code.**
+This means that **we can check the state value that's passed in to the `redirect_uri` page and compare it to our saved value from earlier**.
+**If it doesn't match, we'll display an error to the end user.**
+
+……
+
+If the `state` value doesn't match what we’re expecting, that's a very good indication that something untoward is happening, such as a **session fixation attack**<!-- 会话固化攻击 -->, **fishing for a valid authorization code**<!-- 暴力搜索授权码 -->, or other shenanigans<!-- 诡计 -->. ……
+
 ### 3.3 Use the token with a protected resource
 
+All the client has to do is make a call to the protected resource and include the access token in one of the three valid locations.
+For our client, we'll **send the access token in the Authorization HTTP header**, **which is the method recommended by the specification wherever possible**.
+
+> **Ways to send a bearer token**
+>
+> The kind of OAuth access token that we have is known as a **bearer token**, which means that **whoever holds the token can present it to the protected resource**.
+> The OAuth Bearer Token Usage specification actually gives three ways to send the token value:
+>
+> - As an HTTP Authorization header
+> - As a form-encoded request body parameter
+> - As a URL-encoded query parameter
+>
+> The Authorization header is recommended whenever possible because of limitations in the other two forms.
+>
+> - **When using the query parameter, the value of the access token can possibly inadvertently leak into server-side logs, because it's part of the URL request.**
+> - Using the form-encoded parameter limits the input type of the protected resource to using form-encoded parameters and the POST method.
+>   If the API is already set up to do that, this can be fine as it doesn’t experience the same security limitations that the query parameter does.
+>
+> The Authorization header provides the maximum flexibility and security of all three methods, but it has the downside of being more difficult for some clients to use.
+> A robust client or server library will provide all three methods where appropriate, _and in fact our demonstration protected resource will accept an access token in any of the three locations._
+
+……
+
 ### 3.4 Refresh the access token
+
+> **Is my token any good?**
+>
+> How does an OAuth client know whether its access token is any good?
+>
+> The only real way to be sure is to **use it and see what happens**.
+> If the token is expected to expire, the authorization server can give a hint as to the expected expiration by using the optional expires_in field of the token response.
+> This is a value in seconds from the time of token issuance that the token is expected to no longer work.
+> A well-behaved client will pay attention to this value and throw out any tokens that are past the expiration time.
+>
+> However, knowledge of the expiration alone isn’t sufficient for a client to know the status of the token.
+> In many OAuth implementations, the resource owner can revoke the token before its expiration time.
+> A well-designed OAuth client must always expect that its access token could suddenly stop working at any time, and be able to react accordingly.
+
+……
+
+_Inside the `refreshAccessToken` function, we create a request to the token end- point, much like we did before._
+As you can see, refreshing an access token is a special case of an authorization grant, and we **use the value `refresh_token` for our `grant_type` parameter**.
+We also include our refresh token as one of the parameters.
+
+```js
+var form_data = qs.stringify({
+   grant_type: 'refresh_token',
+   refresh_token: refresh_token
+});
+var headers = {
+   'Content-Type': 'application/x-www-form-urlencoded',
+   'Authorization': 'Basic ' + encodeClientCredentials(client.client_id,
+   client.client_secret)
+};
+var tokRes = request('POST', authServer.tokenEndpoint, {
+       body: form_data,
+       headers: headers
+});
+```
 
 ## 4. Building a simple OAuth protected resource
 
