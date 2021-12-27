@@ -715,10 +715,42 @@ Authorization: Bearer 987tghjkiu6trfghjuytrghj
 
 ### 2.4 OAuth's components
 
-- **Access tokens**
-- **Scopes**
-- **Refresh tokens**
-- **Authorization grants**
+#### Access tokens
+
+OAuth tokens are opaque to the client, which means that the **client has no need (and often no ability) to look at the token itself**. <!-- 无法也不需要查看令牌内容 -->
+The client's job is to carry the token, requesting it from the authorization server and presenting it to the protected resource. ……
+This approach **allows the client to be much simpler than** it would otherwise need to be<!-- 使它简单得多 -->, as well as giving the authorization server and protected resource incredible flexibility in how these tokens are deployed.
+
+#### Scopes
+
+**An OAuth scope is a representation of a set of rights at a protected resource**.
+**Scopes are represented by strings in the OAuth protocol, and they can be combined into a set by using a space-separated list.** ……
+
+……
+
+( e.g. ) …… The photo-storage service's API defines several different scopes for accessing the photos :
+
+- read-photo,
+- read-metadata,
+- update-photo,
+- update-metadata,
+- create, _and_
+- delete.
+
+#### Refresh tokens
+
+…… What's different, though, is that the token is never sent to the protected resource.
+Instead, the client uses the refresh token to request new access tokens with- out involving the resource owner.
+
+……
+
+**Refresh tokens also give the client the ability to down-scope its access.**
+If a client is granted scopes A, B, and C, but it knows that it needs only scope A to make a particular call, it can use the refresh token to request an access token for only scope A.
+This lets a smart client **follow the security principle of least privilege** without burdening less-smart clients with trying to figure out what privileges an API needs.
+
+#### Authorization grants
+
+…… This is likely one of the most confusing terms in OAuth 2.0, because the term is used to define both the specific mechanism by which the user delegates authority as well as the act of delegation itself. ……
 
 ### 2.5 Interactions between OAuth's actors and components: back channel, front channel, and endpoints
 
