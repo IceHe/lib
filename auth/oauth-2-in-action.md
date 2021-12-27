@@ -926,13 +926,20 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 
 ## 4. Building a simple OAuth protected resource
 
-- 4.1 Parsing the OAuth token from the HTTP request
-- 4.2 Validating the token against our data store
-- 4.3 Serving content based on the token
-    - Different scopes for different actions
-    - Different scopes for different data results
-    - Different users for different data results
-    - Additional access controls
+### 4.1 Parsing the OAuth token from the HTTP request
+
+……
+
+### 4.2 Validating the token against our data store
+
+……
+
+### 4.3 Serving content based on the token
+
+- Different scopes for different actions
+- Different scopes for different data results
+- Different users for different data results
+- Additional access controls
 
 ## 5. Building a simple OAuth authorization server
 
