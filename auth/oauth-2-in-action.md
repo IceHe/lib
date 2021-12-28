@@ -934,6 +934,23 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 
 ……
 
+> **Do I have to share my database?**
+>
+> Although working with a shared database is a very common OAuth deployment pattern, it’s far from the only one available to you.
+> There's a standardized web protocol called **Token Introspection** that the authorization server can offer, **allowing the resource server to check the token's state at runtime**.
+> This lets the resource server treat the token itself as opaque, just like the client does, at the expense of more network traffic.
+> Alternatively, or even additionally, **the tokens themselves can contain information that the protected resource can parse and understand directly**.
+> One such structure is a **JSON Web Token, or JWT, which carries a set of claims in a cryptographically protected JSON object**. ……
+>
+> _You may also wonder whether you have to store your tokens as raw values in the database, as our example setup does._
+> _Although this is a simple and common approach, there are alternatives._
+> _For example,_ you can store a hash of the token value instead of the value itself, similar to how user passwords are usually stored.
+> When the token needs to be looked up, its value is hashed again and compared against the contents of the database.
+> You could instead add a unique identifier inside your token and sign it with the server's key, storing only the unique identifier in the database.
+> When the token must be looked up, the resource server can validate the signature, parse the token to find the identifier, and look up the identifier in the database to find the token’s information.
+
+……
+
 ### 4.3 Serving content based on the token
 
 - Different scopes for different actions
