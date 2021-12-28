@@ -953,22 +953,45 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 
 ### 4.3 Serving content based on the token
 
+……
+
 - Different scopes for different actions
 - Different scopes for different data results
 - Different users for different data results
 - Additional access controls
 
+……
+
 ## 5. Building a simple OAuth authorization server
 
-- 5.1 Managing OAuth client registrations
-- 5.2 Authorizing a client
-    - The authorization endpoint
-    - Authorizing the client
-- 5.3 Issuing a token
-    - Authenticating the client
-    - Processing the authorization grant request
-- 5.4 Adding refresh token support
-- 5.5 Adding scope support
+……
+
+### 5.1 Managing OAuth client registrations
+
+……
+
+### 5.2 Authorizing a client
+
+……
+
+-   The authorization endpoint
+-   Authorizing the client
+
+    …… when we set up the client to pass a `state` parameter to the server for the client's own protection?
+
+    Now that we're on the other end of the transaction, we need to pass through the `state` parameter exactly as it was sent to us.
+    **Even though clients aren't required to send the state value, the server is always required to send it back if one was sent in**.
+
+……
+
+### 5.3 Issuing a token
+
+- Authenticating the client
+- Processing the authorization grant request
+
+### 5.4 Adding refresh token support
+
+### 5.5 Adding scope support
 
 ## 6. OAuth 2.0 in the real world
 
