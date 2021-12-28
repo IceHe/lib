@@ -986,8 +986,25 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 
 ### 5.3 Issuing a token
 
-- Authenticating the client
-- Processing the authorization grant request
+……
+
+#### 5.3.1 Authenticating the client
+
+……
+
+#### 5.3.2 Processing the authorization grant request
+
+……
+
+Notice that **as soon as we know the code is a valid one, we remove it from storage**, regardless of the rest of the processing.
+We do this to err on the side of caution<!-- 出于安全考虑 -->, because a stolen authorization code presented by a bad client should be considered lost.
+Even if the right client shows up later with the authorization code, the authorization code won't work, as we know it has already been compromised. ……
+
+……
+
+…… You can store your tokens into a full-scale database; for a little added security, you can store a cryptographic hash of the token value so that if your database is compromised, the tokens themselves aren’t lost.
+Alternatively, your resource server could use token introspection to look up information about the token back at the authorization server without the need for a shared database.
+Or, if you can’t store them (or don’t want to), you can use a structured format to bake all the necessary information into the token itself for the protected resource to consume later without needing to look it up.
 
 ### 5.4 Adding refresh token support
 
