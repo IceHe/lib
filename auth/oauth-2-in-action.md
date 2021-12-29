@@ -1002,13 +1002,51 @@ Even if the right client shows up later with the authorization code, the authori
 
 ……
 
-…… You can store your tokens into a full-scale database; for a little added security, you can store a cryptographic hash of the token value so that if your database is compromised, the tokens themselves aren’t lost.
-Alternatively, your resource server could use token introspection to look up information about the token back at the authorization server without the need for a shared database.
-Or, if you can’t store them (or don’t want to), you can use a structured format to bake all the necessary information into the token itself for the protected resource to consume later without needing to look it up.
+…… You can store your tokens into a full-scale database; for a little added security, you **can store a cryptographic hash of the token value so that if your database is compromised, the tokens themselves aren't lost**.
+
+Alternatively, your resource server could use **<u>token introspection</u><!-- 内省 --> to look up information about the token back at the authorization server without the need for a shared database**.
+Or, if you can't store them ( or don't want to ) , you can **use a structured format to bake all the necessary information into the token itself for the protected resource to consume later without needing to look it up**.
+
+……
 
 ### 5.4 Adding refresh token support
 
+……
+
+The `token_type` parameter
+( along with the `expires_in` and `scope` parameters, when they're sent )
+applies only to the access token and not the refresh token, and there are no equivalents for the refresh token.
+**The refresh token is still allowed to expire, but since refresh tokens are intended to be fairly long lived, the client isn't given a hint about when that would happen**.
+When a refresh token no longer works, a client has to fall back on whatever regular OAuth authorization grant it used to get the access token in the first place, such as the authorization code grant.
+
+……
+
+Now we have to make sure that the token was issued to the client that authenticated at the token endpoint.
+If we don't make this check, then a malicious client could steal a good client's refresh token and use it to get new, completely valid ( but fraudulent<!-- 欺骗的 --> ) access tokens for itself that look like they came from the legitimate client.
+We also **remove the refresh token from our store, since we can assume that it's been compromised**.
+
+……
+
+When a refresh token is used, the **authorization server is free to issue a new refresh token to replace it**.
+The authorization server **can also decide to throw out all active access tokens that were issued to the client up until the time the refresh token was used**. ……
+
+<!-- icehe : 当 refresh token 被使用时, 授权服务器可以自己选择使用之前生成的未过期的 access token, 也可以废弃掉之前所有的有效的 access token 然后生成并返回新的有效的 access token. -->
+
 ### 5.5 Adding scope support
+
+……
+
+A client can ask for a subset of its scopes during its call to the authorization using the scope parameter, which is a string containing a space-separated list of scope val- ues.
+We'll need to parse that in our authorization endpoint, and we're going to turn it into an array for easier processing and store it in the `rscope` variable.
+Similarly, our **client can optionally have a set of scopes associated with it**, as we saw previously, and we'll parse that into an array as the `cscope` variable.
+But because `scope` is an optional parameter, we need to be a little bit careful in how we handle it, in case a value wasn't passed in.
+
+```js
+var rscope = req.query.scope ? req.query.scope.split(' ') : undefined;
+var cscope = client.scope ? client.scope.split(' ') : undefined;
+```
+
+……
 
 ## 6. OAuth 2.0 in the real world
 
