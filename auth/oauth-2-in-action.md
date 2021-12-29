@@ -1197,6 +1197,8 @@ In this example, the client is presenting a JWT assertion, which is reflected in
 
 #### 6.1.5 Choosing the appropriate grant type
 
+![choose-the-right-grant-type.png](_image/choose-the-right-grant-type.png)
+
 ### 6.2 Client deployments
 
 - Web applications
