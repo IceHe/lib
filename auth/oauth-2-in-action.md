@@ -1048,19 +1048,29 @@ var cscope = client.scope ? client.scope.split(' ') : undefined;
 
 ……
 
+**Refresh token requests are allowed to specify a subset of the scopes that the refresh token was issued with to tie to the new access token**.
+This lets a **client use its refresh token to ask for new access tokens that are strictly less powerful than the full set of rights it has been granted, which honors the security principle of least privilege**. ……
+
 ## 6. OAuth 2.0 in the real world
 
-- 6.1 Authorization **grant types**
-    - Implicit grant type
-    - Client credentials grant type
-    - Resource owner credentials grant type
-    - Assertion grant types
-    - Choosing the appropriate grant type
-- 6.2 Client deployments
-    - Web applications
-    - Browser applications
-    - Native applications
-    - Handling secrets
+### 6.1 Authorization **grant types**
+
+#### 6.1.1 Implicit grant type
+
+#### 6.1.2 Client credentials grant type
+
+#### 6.1.3 Resource owner credentials grant type
+
+#### 6.1.4 Assertion grant types
+
+#### 6.1.5 Choosing the appropriate grant type
+
+### 6.2 Client deployments
+
+- Web applications
+- Browser applications
+- Native applications
+- Handling secrets
 
 # Part 3 : OAuth 2 implementation and vulnerabilities
 
