@@ -1333,9 +1333,17 @@ _( icehe : 详见原文, 还挺复杂的, 也挺精彩的. Note it later. )_
 
 #### 7.4.2 Stealing the token through an open redirector
 
+_( icehe : 详见原文, 还不够理解. Note it later. )_
+
 ### 7.5 Theft of authorization codes
 
+……
+
 ### 7.6 Theft of tokens
+
+……
+
+_( icehe : 详见原文以及引用资料, 还没深入看. Note it later. )_
 
 ### 7.7 Native applications best practices
 
