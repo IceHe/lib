@@ -1201,10 +1201,44 @@ In this example, the client is presenting a JWT assertion, which is reflected in
 
 ### 6.2 Client deployments
 
-- Web applications
-- Browser applications
-- Native applications
-- Handling secrets
+#### 6.2.1 Web applications
+
+The original use case of the OAuth client is the web application.
+These are **applications that execute on a remote server and are accessed through a web browser**.
+**The application configuration and its runtime state are held on the web server, and the browser connection is usually connected using a session cookie.**
+
+These applications are able to make full use of both front- and back-channel communication methods.
+Since the user is already interacting through a browser, activating a request on the front channel is as simple as sending an HTTP redirect message to the browser.
+Listening for the response on the front channel is equally simple as the application is already listening for HTTP requests.
+Back channel communication can occur by making an HTTP call directly from the web server running the application.
+Because of this flexibility, web applications can easily use the authorization code, client credentials, or assertions flows most effectively.
+Since the fragment component of the request URI isn't usually passed to the server by the browser, the implicit flow doesn't work for web applications in most circumstances.
+<!-- icehe : 最后这一句确实不太理解 2021/12/29 -->
+
+……
+
+#### 6.2.2 Browser applications
+
+**Browser applications are those that execute entirely inside the web browser, typically using JavaScript.**
+Although the code for the application does need to be served from a web server, the code itself doesn't execute on the server, and the web server doesn't keep any of the runtime state of the application.
+Instead, everything about the application happens on the end user's computer inside their web browser.
+
+These clients can easily use the front channel, as sending the user to another page through an HTTP redirect is trivial.
+Responses from the front channel are also simple, as the client's software does need to be loaded from a web server.
+However, back-channel communication is more complicated, **as browser applications are limited by same-origin policies and other security restrictions designed to prevent cross-domain attacks**.
+Consequently, these types of applications are **best suited for the implicit flow**, which has been optimized for this case.
+
+……
+
+From here, our application can start using the access token with protected resources.
+Note that **access to external sites from a JavaScript application still requires cross-domain security configuration, such as CORS**, on the part of the protected resource.
+Using OAuth in this type of application allows for a kind of cross-domain session, mediated<!-- 裁定 --> by the resource owner and embodied<!-- 承载 --> by the access token.
+Access tokens in this case are usually short lived and often limited in scope.
+To refresh this session, send the resource owner back to the authorization server to get a new access token.
+
+#### 6.2.3 Native applications
+
+#### 6.2.4 Handling secrets
 
 # Part 3 : OAuth 2 implementation and vulnerabilities
 
