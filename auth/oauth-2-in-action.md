@@ -1327,6 +1327,10 @@ In addition, the larger the OAuth client's internet exposure, the easier it is t
 
 #### 7.4.1 Stealing the authorization code through the referrer
 
+……
+
+_( icehe : 详见原文, 还挺复杂的, 也挺精彩的. Note it later. )_
+
 #### 7.4.2 Stealing the token through an open redirector
 
 ### 7.5 Theft of authorization codes
