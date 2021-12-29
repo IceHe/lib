@@ -1238,7 +1238,24 @@ To refresh this session, send the resource owner back to the authorization serve
 
 #### 6.2.3 Native applications
 
+Native applications are those that run directly on the end user's device, be it a computer or mobile platform.
+The software for the application is generally compiled or packaged externally and then installed on the device.
+
+These applications can easily make use of the back channel by making a direct HTTP call outbound to the remote server.
+**Since the user isn't in a web browser, as they are with a web application or a browser client, the front channel is more problematic.**
+**To make a front-channel request, the native application needs to be able to reach out to the system web browser or an embedded browser view to get the user to the authorization server directly.**
+**To listen for front-channel responses, the native application needs to be able to serve a URI that the browser can be redirected to by the authorization server.**
+This usually takes one of the following forms:
+
+- An embedded web server running on localhost
+- A remote web server with some type of out-of-band push notification capability to the application
+- A **custom URI scheme** such as `com.oauthinaction.mynativeapp:/` that is **registered with the operating system such that the application is called when URIs with that scheme are accessed**
+
+……
+
 #### 6.2.4 Handling secrets
+
+……
 
 # Part 3 : OAuth 2 implementation and vulnerabilities
 
