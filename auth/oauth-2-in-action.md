@@ -1347,6 +1347,10 @@ _( icehe : 详见原文以及引用资料, 还没深入看. Note it later. )_
 
 ### 7.7 Native applications best practices
 
+……
+
+Further Reading : OAuth 2.0 for Native Apps
+
 ## 8. Common protected resources vulnerabilities
 
 - 8.1 How are protected resources vulnerable?
