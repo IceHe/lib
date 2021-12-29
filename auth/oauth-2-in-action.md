@@ -104,7 +104,7 @@ Part 4 : Taking OAuth further
 - 1.2 The bad old days: credential sharing (and credential theft)
 - 1.3 Delegating access
     - Beyond HTTP Basic and the password-sharing antipattern
-    - Authorization delegation: why it matters and how it’s used
+    - Authorization delegation: why it matters and how it's used
     - User-driven security and user choice
 - 1.4 OAuth 2.0: the good, the bad, and the ugly
 - 1.5 What OAuth 2.0 isn't
@@ -113,7 +113,7 @@ Part 4 : Taking OAuth further
 
 - 2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
 - 2.2 Following an OAuth 2.0 authorization grant in detail
-- 2.3 OAuth’s actors:
+- 2.3 OAuth's actors:
     - **clients**,
     - **authorization servers**,
     - **resource owners**, and
@@ -123,7 +123,7 @@ Part 4 : Taking OAuth further
     - **Scopes**
     - **Refresh tokens**
     - **Authorization grants**
-- 2.5 Interactions between OAuth’s actors and components: back channel, front channel, and endpoints
+- 2.5 Interactions between OAuth's actors and components: back channel, front channel, and endpoints
     - Back-channel communication
     - Front-channel communication
 
@@ -230,7 +230,7 @@ Part 4 : Taking OAuth further
     - **Symmetric** signatures using HS256
     - **Asymmetric** signatures using RS256
     - Other token protection options
-- 11.4 Looking up a token’s information online: token introspection
+- 11.4 Looking up a token's information online: token introspection
     - The introspection protocol
     - Building the introspection endpoint
     - **Introspecting**<!-- 内省? --> a token
@@ -387,7 +387,7 @@ These are the components that we have so far:
 > Interestingly, this pattern is exactly how password-vault authentication technologies such as LDAP function.
 > **When using LDAP for authentication, a client application collects credentials directly from the user and then replays these credentials to the LDAP server to see whether they're valid.**
 > The client system must have access to the plaintext password of the user during the transaction; otherwise, it has no way of verifying it with the LDAP server.
-> In a very real sense, this method is a form of **man-in-the-middle attack** on the user, although one that’s generally benevolent in nature.
+> In a very real sense, this method is a form of **man-in-the-middle attack** on the user, although one that's generally benevolent in nature.
 
 For those situations in which it does work, it exposes the user's primary credentials to a potentially untrustworthy application, the client.
 
@@ -462,7 +462,7 @@ _But as a consequence, when HTTP started to be used for direct-access APIs in ad
 **OAuth** was designed from the outset<!-- 开端 --> **as a protocol for use with APIs**, wherein<!-- 在其中 --> the main interaction is outside of the browser.
 _It usually has an end user in a browser to start the process, and indeed this is where the flexibility and power in the delegation model comes from, but the final steps of receiving the token and using it at a protected resource lie outside the view of the user._
 
-#### 1.3.2. Authorization delegation: why it matters and how it’s used
+#### 1.3.2. Authorization delegation: why it matters and how it's used
 
 Fundamental to the power of OAuth is the notion of **delegation**.
 Although OAuth is often called an **authorization protocol**
@@ -559,7 +559,7 @@ In order for the resource owner to authorize a different user, more than OAuth i
 This kind of delegation is not an uncommon use case, and the User Managed Access protocol uses OAuth to create a system capable of user-to-user delegation.
 
 **OAuth doesn't define authorization-processing mechanisms.**
-OAuth provides a means to convey the fact that an authorization delegation has taken place, but it doesn’t define the contents of that authorization.  ……
+OAuth provides a means to convey the fact that an authorization delegation has taken place, but it doesn't define the contents of that authorization.  ……
 
 **OAuth doesn't define a token format.** ……
 Desire for interoperability at this level has led to the development of the **JSON Web Token (JWT)** format and the Token Introspection protocol. ……
@@ -573,7 +573,7 @@ As discussed previously, the specification is split into multiple definitions an
 
 1.6 Summary
 
-OAuth is a widely used security standard that enables secure access to protected resources in a fashion that’s friendly to web APIs.
+OAuth is a widely used security standard that enables secure access to protected resources in a fashion that's friendly to web APIs.
 
 - OAuth is about **how to get a token** and **how to use a token**.
 - OAuth is a **delegation protocol that provides authorization across systems**.
@@ -685,7 +685,7 @@ Content-type: application/json
 ……
 
 The right to bear tokens
-The core OAuth specifications deal with bearer tokens, which means that anyone who carries the token has the right to use it. All of our examples throughout the book will use bearer tokens, except where specifically noted. Bearer tokens have particu- lar security properties, which are enumerated in chapter 10, and we’ll take a look ahead at nonbearer tokens in chapter 15.
+The core OAuth specifications deal with bearer tokens, which means that anyone who carries the token has the right to use it. All of our examples throughout the book will use bearer tokens, except where specifically noted. Bearer tokens have particu- lar security properties, which are enumerated in chapter 10, and we'll take a look ahead at nonbearer tokens in chapter 15.
 
 ……
 
@@ -848,7 +848,7 @@ We can **mitigate<!-- 使缓和, 使减轻 --> this by using an optional OAuth p
 
 ……
 
-It’s important that this value be saved to a place in our application that will still be available when the call to the `redirect_uri` comes back.
+It's important that this value be saved to a place in our application that will still be available when the call to the `redirect_uri` comes back.
 _Remember, since we're using the front channel to communicate in this stage, once we send the redirect to the authorization endpoint, our client application cedes control of the OAuth protocol until this return call happens._
 We'll also need to **add the state to the list of parameters sent on the authorization URL**.
 
@@ -860,7 +860,7 @@ This means that **we can check the state value that's passed in to the `redirect
 
 ……
 
-If the `state` value doesn't match what we’re expecting, that's a very good indication that something untoward is happening, such as a **session fixation attack**<!-- 会话固化攻击 -->, **fishing for a valid authorization code**<!-- 暴力搜索授权码 -->, or other shenanigans<!-- 诡计 -->. ……
+If the `state` value doesn't match what we're expecting, that's a very good indication that something untoward is happening, such as a **session fixation attack**<!-- 会话固化攻击 -->, **fishing for a valid authorization code**<!-- 暴力搜索授权码 -->, or other shenanigans<!-- 诡计 -->. ……
 
 ### 3.3 Use the token with a protected resource
 
@@ -880,7 +880,7 @@ For our client, we'll **send the access token in the Authorization HTTP header**
 >
 > - **When using the query parameter, the value of the access token can possibly inadvertently leak into server-side logs, because it's part of the URL request.**
 > - Using the form-encoded parameter limits the input type of the protected resource to using form-encoded parameters and the POST method.
->   If the API is already set up to do that, this can be fine as it doesn’t experience the same security limitations that the query parameter does.
+>   If the API is already set up to do that, this can be fine as it doesn't experience the same security limitations that the query parameter does.
 >
 > The Authorization header provides the maximum flexibility and security of all three methods, but it has the downside of being more difficult for some clients to use.
 > A robust client or server library will provide all three methods where appropriate, _and in fact our demonstration protected resource will accept an access token in any of the three locations._
@@ -898,7 +898,7 @@ For our client, we'll **send the access token in the Authorization HTTP header**
 > This is a value in seconds from the time of token issuance that the token is expected to no longer work.
 > A well-behaved client will pay attention to this value and throw out any tokens that are past the expiration time.
 >
-> However, knowledge of the expiration alone isn’t sufficient for a client to know the status of the token.
+> However, knowledge of the expiration alone isn't sufficient for a client to know the status of the token.
 > In many OAuth implementations, the resource owner can revoke the token before its expiration time.
 > A well-designed OAuth client must always expect that its access token could suddenly stop working at any time, and be able to react accordingly.
 
@@ -936,7 +936,7 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 
 > **Do I have to share my database?**
 >
-> Although working with a shared database is a very common OAuth deployment pattern, it’s far from the only one available to you.
+> Although working with a shared database is a very common OAuth deployment pattern, it's far from the only one available to you.
 > There's a standardized web protocol called **Token Introspection** that the authorization server can offer, **allowing the resource server to check the token's state at runtime**.
 > This lets the resource server treat the token itself as opaque, just like the client does, at the expense of more network traffic.
 > Alternatively, or even additionally, **the tokens themselves can contain information that the protected resource can parse and understand directly**.
@@ -947,7 +947,7 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 > _For example,_ you can store a hash of the token value instead of the value itself, similar to how user passwords are usually stored.
 > When the token needs to be looked up, its value is hashed again and compared against the contents of the database.
 > You could instead add a unique identifier inside your token and sign it with the server's key, storing only the unique identifier in the database.
-> When the token must be looked up, the resource server can validate the signature, parse the token to find the identifier, and look up the identifier in the database to find the token’s information.
+> When the token must be looked up, the resource server can validate the signature, parse the token to find the identifier, and look up the identifier in the database to find the token's information.
 
 ……
 
@@ -1139,6 +1139,42 @@ Content-type: application/json
 
 _资源拥有者凭据许可类型_
 
+If the resource owner has a plain username and password at the authorization server, then it could be possible for **the client to prompt the user for these credentials and trade them for an access token**.
+The **resource owner credentials grant type**, also known as the **password flow**, allows a client to do just that.
+The resource owner interacts directly with the client and never with the authorization server itself.
+The grant type **uses the token endpoint exclusively**, remaining confined to the back channel.
+
+……
+
+> Codifying the antipattern
+>
+> Let's review: why shouldn't you use this pattern? It's certainly simpler to program than dealing with all of the back-and-forth redirects.
+> But with that simplicity comes significantly increased security risk and decreased flexibility and functionality.
+> The resource owner's credentials are exposed in plain text to the client, which could cache them or replay them whenever it sees fit.
+> The credentials are presented in plain text (though over a TLS encrypted connection) to the authorization server, which then needs to verify them, leaving another potential attack surface.
+> Unlike OAuth tokens, which can be revoked and rotated without impact to the user experience, a user's username and password tend to be much more difficult to manage and change.
+> The requirement to collect and replay the user's credentials also limits the kinds of credentials that can be used to authenticate the user.
+> Although an authorization server accessed through a web browser can employ a wide variety of primary authentication technologies and user experiences, such as certificates or identity federation, many of the most effective and secure ones are designed to prevent the kind of credential replay that this grant type depends on.
+> This effectively limits the authentication to a plain username and password or its analogs.
+> Finally, this approach trains users to give their password to any application that asks for it.
+> Instead of this, we should be training users to give their passwords only to a core set of trusted applications, such as the authorization server.
+>
+> Why, then, would OAuth codify such bad practice?
+> When there are any other options available, this grant type is a pretty bad idea, but there aren't always other viable options.
+> This grant type is intended for clients that would normally be prompting for the resource owner's username and password anyway, and then replaying those credentials to every protected resource.
+> To do this without bothering the user, such a client would likely want to store the username and password so that they can be replayed in the future.
+> The protected resources would need to see and verify the user's password on every request, creating an enormous attack surface for sensi- tive materials.
+>
+> This grant type, then, can act as a stepping-stone toward a more modern security architecture that uses OAuth's other, more secure grant types.
+> For one, **the protected resource no longer needs to know or ever see the user's password, and it can deal only with OAuth tokens**.
+> This immediately limits the exposure of the user's credentials across the network and limits the number of components that ever see them.
+> Second, in using this grant type a well-meaning **client application no longer needs to store the passwords and transmit them to the resource servers**.
+> The client trades them for an access token that it can use at various protected resources.
+> **Combined with a refresh token, the user experience is unchanged from before but the security profile is greatly improved over the alternative.**
+> Although using something like the authorization code grant type is greatly preferable, using this flow is sometimes better than replaying the user's password to the protected resource on every request.
+
+……
+
 #### 6.1.4 Assertion grant types
 
 #### 6.1.5 Choosing the appropriate grant type
@@ -1205,7 +1241,7 @@ _资源拥有者凭据许可类型_
     - **Symmetric** signatures using HS256
     - **Asymmetric** signatures using RS256
     - Other token protection options
-- 11.4 Looking up a token’s information online: token introspection
+- 11.4 Looking up a token's information online: token introspection
     - The introspection protocol
     - Building the introspection endpoint
     - **Introspecting**<!-- 内省? --> a token
