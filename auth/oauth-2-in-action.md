@@ -1177,6 +1177,24 @@ The grant type **uses the token endpoint exclusively**, remaining confined to th
 
 #### 6.1.4 Assertion grant types
 
+In the first official extension grant types to be published by the OAuth working group, the **assertion grant types**, **the client is given a structured and cryptographically protected item** called an **assertion** to give to the authorization server in exchange for a token.
+You **can think of an assertion as something like a certified document such as a diploma<!-- 文凭 --> or license**.
+You can trust the document's contents to be true as long as you trust the certifying authority's ability to make those statements truthfully.
+
+Two formats are standardized so far: one using **Security Assertion Markup Language (SAML)**, and another using **JSON Web Token (JWT)**.
+This grant type **uses the back channel exclusively**, and much like the client credentials flow **there may not be an explicit resource owner involved**.
+Unlike the client credentials flow, **the rights associated with the resulting token are determined by the assertion being presented and not solely by the client itself**.
+Since the assertion generally comes from a third party external to the client, the client can remain unaware of the nature of the assertion itself.
+
+Like other back-channel flows, the client makes an HTTP POST to the authorization server's token endpoint.
+**The client authenticates itself as usual and includes the assertion as a parameter.**
+The means by which the client can get this assertion vary wildly, and are considered out of scope by many of the associated protocols.
+The client could be handed the assertion by a user, or by a configuration system, or through another non-OAuth protocol.
+In the end, as with an access token, it doesn't matter how the client got the assertion as long as it's able to present the assertion to the authorization server.
+In this example, the client is presenting a JWT assertion, which is reflected in the value of the `grant_type` parameter.
+
+……
+
 #### 6.1.5 Choosing the appropriate grant type
 
 ### 6.2 Client deployments
