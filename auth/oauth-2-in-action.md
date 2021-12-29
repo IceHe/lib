@@ -1053,13 +1053,91 @@ This lets a **client use its refresh token to ask for new access tokens that are
 
 ## 6. OAuth 2.0 in the real world
 
+……
+
 ### 6.1 Authorization **grant types**
+
+……
 
 #### 6.1.1 Implicit grant type
 
+_隐式许可类型_
+
+**One key aspect of the different steps in the authorization code flow is that it keeps information separate between different components**.
+This way, the browser doesn't learn things that only the client should know about, and the client doesn't get to see the state of the browser, and so on.
+But what **if we were to put the client inside the browser?**
+
+This is what happens with a JavaScript application running completely inside the browser.
+**The client then can't keep any secrets from the browser, which has full insight into the client's execution.**
+In this case, **there is no real benefit in passing the authorization code through the browser to the client, only to have the client exchange that for a token because the extra layer of secrets isn't protected against anyone involved**.
+
+The **implicit grant type** does away with this extra secret and its attendant round trip by **returning the token directly from the authorization endpoint**.
+The implicit grant type therefore uses only the front channel to communicate with the authorization server.
+This flow is very useful for JavaScript applications embedded within websites that need to be able to perform an authorized, and potentially limited, session sharing across security domains.
+
+The implicit grant has severe limitations that need to be considered when approaching it.
+First, **there is no realistic way for a client using this flow to keep a client secret, since the secret will be made available to the browser itself**.
+Since this flow uses only the authorization endpoint and not the token endpoint, this limitation does not affect its ability to function, as the client is never expected to authenticate at the authorization endpoint.
+However, the **lack of any means of authenticating the client** does impact the security profile of the grant type and it should be approached with caution.
+Additionally, the implicit flow can't be used to get a refresh token.
+Since in-browser applications are by nature short lived, lasting only the session length of the browser context that has loaded them, the usefulness of a refresh token would be very limited.
+Furthermore, unlike other grant types, the resource owner can be assumed to be still present in the browser and available to reauthorize the client if necessary. ……
+
+The client sends its **request to the authorization server's authorization endpoint** in the same manner as the authorization code flow, except that this time the **`response_type` parameter is set to `token` instead of `code`**.
+This signals the authorization server to generate a token immediately instead of generating an authorization code to be traded in for a token.
+
+```http
+HTTP/1.1 302 Moved Temporarily
+Location: http://localhost:9001/authorize?response_type=token&scope=foo&client_id=oauth-client-1&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Fcallback&state=Lwt50DDQKUB8U7jtfLQCVGDL9cnmwHH1
+Vary: Accept
+Content-Type: text/html; charset=utf-8
+Content-Length: 444
+Date: Fri, 31 Jul 2015 20:50:19 GMT
+```
+
+……
+
 #### 6.1.2 Client credentials grant type
 
+_客户端凭据许可类型_
+
+**What if there is no explicit resource owner, or the resource owner is indistinguishable from the client software itself?**
+This is a fairly common situation, in which there are back-end systems that need to communicate directly with each other and not necessarily on behalf of any one particular user. ……
+
+……
+
+The client **requests a token from the token endpoint** as it would with the authorization code grant, except that this time it uses the `client_credentials` value for the `grant_type` parameter and doesn't have an authorization code or other temporary credential to trade for the token. ……
+
+```http
+POST /token
+Host: localhost:9001
+Accept: application/json
+Content-type: application/x-www-form-encoded
+Authorization: Basic b2F1dGgtY2xpZW50LTE6b2F1dGgtY2xpZW50LXNlY3JldC0x
+grant_type=client_credentials&scope=foo%20bar
+```
+
+……
+
+_The response from the authorization server is a normal OAuth token endpoint response: a JSON object containing the token information._
+The client credentials flow does not issue a refresh token because the client is assumed to be in the position of being able to request a new token for itself at any time without involving a separate resource owner, which renders the refresh token unnecessary in this context.
+
+```http
+HTTP 200 OK
+Date: Fri, 31 Jul 2015 21:19:03 GMT
+Content-type: application/json
+{
+   "access_token": "987tghjkiu6trfghjuytrghj",
+   "scope": "foo bar",
+   "token_type": "Bearer"
+}
+```
+
+……
+
 #### 6.1.3 Resource owner credentials grant type
+
+_资源拥有者凭据许可类型_
 
 #### 6.1.4 Assertion grant types
 
