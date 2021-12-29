@@ -1291,15 +1291,49 @@ This effectively **turns what would otherwise need to be a configuration time se
 
 ## 7. Common client vulnerabilities
 
-- 7.1 General client security
-- 7.2 **CSRF** attack against the client
-- 7.3 Theft of client credentials
-- 7.4 Registration of the redirect URI
-    - Stealing the authorization code through the referrer
-    - Stealing the token through an open redirector
-- 7.5 Theft of authorization codes
-- 7.6 Theft of tokens
-- 7.7 Native applications best practices
+### 7.1 General client security
+
+…… The client also needs to be careful that these secrets aren't accidentally placed into audit logs or other ledgers where a third party could later surreptitiously look for them. ……
+
+…… **One of the most common mistakes is to use OAuth as an authentication protocol without taking any extra precautions**, and this is such a broad issue. ……
+There you'll encounter some issues such as the "confused deputy problem" and other authentication-related security issues.
+One of the worst results of a security breach to an OAuth client is to leak the resource owner's authorization codes or access tokens through sloppy<!-- 草率的 --> implementation of the OAuth protocol. ……
+
+### 7.2 CSRF attack against the client
+
+……
+
+External Reference : [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
+
+### 7.3 Theft of client credentials
+
+……
+
+### 7.4 Registration of the redirect URI
+
+……
+
+The main reason behind this is that sometimes authorization servers use different `redirect_uri` validation policies.
+……, **the only reliably safe validation method the authorization server should adopt is <u>exact matching</u>**.
+All the other potential solutions, based on regular expressions or allowing subdirectories of the registered `redirect_uri`, are suboptimal and sometimes even dangerous.
+
+……
+
+When the OAuth provider uses the **allowing subdirectory method** for matching the `redirect_uri`, there is certain flexibility on the `redirect_uri` request parameter ( for an additional example, see the **GitHub API security documentation** ) .
+
+Now it isn't necessarily true that having an authorization server that uses the allowing subdirectory validation strategy is bad, on its own.
+But when combined with an OAuth client registering a "too loose" `redirect_uri`, this is indeed lethal<!-- 致命的 -->.
+In addition, the larger the OAuth client's internet exposure, the easier it is to find a loophole<!-- 枪眼, 射弹孔 --> to exploit this vulnerability.
+
+#### 7.4.1 Stealing the authorization code through the referrer
+
+#### 7.4.2 Stealing the token through an open redirector
+
+### 7.5 Theft of authorization codes
+
+### 7.6 Theft of tokens
+
+### 7.7 Native applications best practices
 
 ## 8. Common protected resources vulnerabilities
 
