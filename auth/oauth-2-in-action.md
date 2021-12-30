@@ -1353,11 +1353,28 @@ Further Reading : OAuth 2.0 for Native Apps
 
 ## 8. Common protected resources vulnerabilities
 
-- 8.1 How are protected resources vulnerable?
-- 8.2 Design of a protected resource endpoint
-    - How to protect a resource endpoint
-    - Adding implicit grant support
-- 8.3 Token replays
+### 8.1 How are protected resources vulnerable?
+
+Protected resources are vulnerable in a number of ways, the first and most obvious being that **access tokens can leak**, giving an attacker data about protected resources.
+This can **happen via token hijacking**, or because the token has weak entropy<!-- 信息熵太弱 --> or an overly wide scope.
+Another issue related to protected resources is that **the endpoints can be vulnerable to cross-site scripting (XSS) attacks**.
+Indeed, if the resource server chooses to support `access_token` as a URI parameter, the attacker can forge<!-- 伪造 --> a URI containing the XSS attack and then use social engineering to trick a victim into following that link.
+**This can be as simple as a blog post with a review of the application, inviting people to try it out.**
+When someone clicks on that link, the malicious JavaScript is then executed.
+
+> **What is XSS?**
+>
+> **Cross-site scripting (XSS)** is the Open Web Application Security Project's (OWASP) Top Ten number three and is by far the most prevalent web application security flaw.
+> **Malicious scripts are injected into otherwise benign<!-- 良性的 --> and trusted websites to bypass access controls such as the same-origin policy.**
+> As a result, an attacker might inject a script and modify the web application to suit their own purposes, such as extracting data that will allow the attacker to impersonate an authenticated user or perhaps to input malicious code for the browser to execute.
+
+### 8.2 Design of a protected resource endpoint
+
+### 8.2.1 How to protect a resource endpoint
+
+### 8.2.2 Adding implicit grant support
+
+### 8.3 Token replays
 
 ## 9. Common authorization server vulnerabilities
 
