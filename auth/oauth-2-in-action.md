@@ -1451,6 +1451,18 @@ _( icehe : 详见原文, 还不够理解. Note it later. )_
 
 ### 9.5 Open redirector
 
+……
+
+In order to understand the issue we need to take a closer look at section 4.1.2.1 of the OAuth specification:
+
+> If the request fails due to a missing, invalid, or mismatching redirection URI, or if the client identifier is missing or invalid, the authorization server **SHOULD** inform the resource owner of the error and **MUST NOT** automatically redirect the user-agent to the invalid redirection URI.
+>
+> If the resource owner denies the access request or if the request fails for reasons other than a missing or invalid redirection URI, the authorization server informs the client by adding the following parameters to the query component of the redirection URI…
+
+……
+
+_( icehe : 详见原文, 还不够理解. Note it later. )_
+
 ## 10. Common OAuth token vulnerabilities
 
 - 10.1 What is a **bearer token**?
