@@ -312,6 +312,7 @@ Reference : https://www.computerhope.com/keys.htm
 - dat : data
 - db : database
 - DDL : [Data Definition Language](https://en.wikipedia.org/wiki/Data_definition_language)
+- de : Deutsche → German 德语 ( for languages )
 - dec : decimal
 - decr : decrease
 - def : define, definition
@@ -363,6 +364,7 @@ Reference : https://www.computerhope.com/keys.htm
     - Java log : error > warn > info > debug
     - PHP log : fatal > error > warn > info > debug ?
     - JetBrains : error > blocker > critial > major > warning > weak warning
+- en : English 英语 ( for languages )
 - EN : English
 - enc : encoding
 - env : environment
@@ -370,6 +372,8 @@ Reference : https://www.computerhope.com/keys.htm
 - eol : end of line ( [newline](https://en.wikipedia.org/wiki/Newline) )
 - ERP : Enterprise Resource Planning 企业资源规划
 - err : error
+- es : [Spain, Spanish, España](https://en.wikipedia.org/wiki/Spain) 西班牙语 ( for languages )
+- ES : [Elasticsearch](https://en.wikipedia.org/wiki/Elasticsearch)
 - esc : escape
 - ESM : [ES Modules](https://nodejs.org/api/esm.html)
 - ESTAB : established ( for TCP )
@@ -411,6 +415,7 @@ Reference : https://www.computerhope.com/keys.htm
 - fmt : format
 - fn : function
 - FOSS : [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software)
+- fr : French 法语 ( for languages )
 - fs : [file system](https://en.wikipedia.org/wiki/File_system)
 - fst : first ( see in Java class "Pair" )
 - FTF : face to face
@@ -498,6 +503,7 @@ Reference : https://www.computerhope.com/keys.htm
 - int : [integer](https://en.wikipedia.org/wiki/Integer_(computer_science))     | [interrupt](https://en.wikipedia.org/wiki/Interrupt)
 - io : input/output
 - ipc : [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)
+- it : Italian 意大利语 ( for languages )
 - ix : index ( for MySQL )
 
 ### J
