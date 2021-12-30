@@ -1372,6 +1372,26 @@ When someone clicks on that link, the malicious JavaScript is then executed.
 
 ### 8.2.1 How to protect a resource endpoint
 
+……
+
+_( icehe : 注入 `<script>` 的 XSS 漏洞, 详见原文, 此处暂略 )_
+
+……
+
+How to protect: ( keywords )
+
+- CSP - Content Security Policy
+- Escape / URI-Encode all untrusted data
+- Use correct `Content-Type`
+    - MUST contains `Content-Type`
+    - Better not `Content-Type: text/html`
+    - ……
+- `X-XSS-Options: nosniff`
+- `X-XSS-Protection: 1; mode=block`
+- ……
+
+_( icehe : 详见原文, 主要是 HTTP 安全的问题, 暂略. MAYBE note it later. )_
+
 ### 8.2.2 Adding implicit grant support
 
 ### 8.3 Token replays
