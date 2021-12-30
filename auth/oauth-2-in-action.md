@@ -1418,11 +1418,36 @@ var cors = require('cors');
 
 ### 9.1 General security
 
+Since the authorization server consists of both a user-facing website (for the front channel) and a machine-facing API (for the back channel), all general advice for deploying secure web servers applies here as well.
+This includes having **secured server logs**, using **Transport Layer Security (TLS) with valid certificates**, a **secure OS hosting environment with proper account access controls**, and many other things.
+……, "The web is a dangerous place; heed<!-- 留心 --> this advice well, and proceed with caution."
+
 ### 9.2 Session hijacking
+
+……
+
+It turns out that the OAuth core specification1 gives us a solution to this problem in section 4.1.3:
+
+> The client **MUST NOT** use the authorization code more than once.
+> If an authorization code is used more than once, the authorization server **MUST** deny the request and **SHOULD** revoke ( when possible ) all tokens previously issued based on that authorization code.
+
+……
+
+_( icehe : 添加流程图 : Authorization code grant flow forged )_
 
 ### 9.3 Redirect URI manipulation
 
+……
+
+Now let's be perfectly clear: **the only consistently safe validation method for the `redirect_uri` is <u>exact matching</u>**. ……
+
+……
+
 ### 9.4 Client impersonation
+
+……
+
+_( icehe : 详见原文, 还不够理解. Note it later. )_
 
 ### 9.5 Open redirector
 
