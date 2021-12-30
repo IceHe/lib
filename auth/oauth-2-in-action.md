@@ -1394,15 +1394,37 @@ _( icehe : 详见原文, 主要是 HTTP 安全的问题, 暂略. MAYBE note it l
 
 ### 8.2.2 Adding implicit grant support
 
+……
+
+…… we're trying to use JavaScript to call a URL with a different origin, hence violating the **same origin policy**. ……
+In essence, the same origin policy states that "**browser windows can work in contexts of each other only if they are from served from the same base URL, consisting of `protocol://domain:port`.**" ……
+
+The same origin policy is set up to keep JavaScript inside one page from loading malicious content from another domain.
+But in this case, it's fine to allowing a JavaScript call to our API, especially since we're protecting that API with OAuth to begin with.
+To solve this, we get a solution straight from the W3C specification: **cross-origin resource sharing (CORS)**.
+Adding CORS support in Node.js is extremely simple, and it's becoming commonly available in many languages and platforms. e.g.
+
+```js
+var cors = require('cors');
+```
+
+……
+
 ### 8.3 Token replays
+
+……
 
 ## 9. Common authorization server vulnerabilities
 
-- 9.1 General security
-- 9.2 **Session hijacking**
-- 9.3 Redirect URI manipulation
-- 9.4 Client impersonation
-- 9.5 Open redirector
+### 9.1 General security
+
+### 9.2 Session hijacking
+
+### 9.3 Redirect URI manipulation
+
+### 9.4 Client impersonation
+
+### 9.5 Open redirector
 
 ## 10. Common OAuth token vulnerabilities
 
