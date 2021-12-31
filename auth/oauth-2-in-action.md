@@ -1529,19 +1529,76 @@ _( icehe : Note it later. )_
 
 ## 12. Dynamic client registration
 
-- 12.1 How the server knows about the client
-- 12.2 **Registering clients** at runtime
-    - How the protocol works
-    - Why use dynamic registration?
-    - Implementing the registration endpoint
-    - Having a client register itself
-- 12.3 **Client metadata**
-    - Table of core client metadata field names
-    - Internationalization of human-readable client metadata
-    - Software statements
-- 12.4 Managing dynamically registered clients
-    - How the management protocol works
-    - Implementing the dynamic client registration management API
+### 12.1 How the server knows about the client
+
+……
+
+### 12.2 Registering clients at runtime
+
+The **OAuth Dynamic Client Registration protocol** provides a way for clients to introduce themselves to authorization servers, including all kinds of information about the client.
+The authorization server can then **provision a unique client ID** to the client software that the client can use for all subsequent OAuth transactions, and **if appropriate associate a client secret with that ID** as well. ……
+
+#### 12.2.1 How the protocol works
+
+……
+
+Client HTTP Request :
+
+```http
+POST /register HTTP/1.1
+Host: localhost:9001
+Content-Type: application/json
+Accept: application/json
+{
+    "client_name": "OAuth Client",
+    "redirect_uris": ["http://localhost:9000/callback"],
+    "client_uri": "http://localhost:9000/",
+    "grant_types": ["authorization_code"],
+    "scope": "foo bar baz"
+}
+```
+
+Authorization Server HTTP Response :
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+{
+  "client_id": "1234-wejeg-0392",
+  "client_secret": "6trfvbnklp0987trew2345tgvcxcvbjkiou87y6t5r",
+  "client_id_issued_at": 2893256800,
+  "client_secret_expires_at": 0,
+  "token_endpoint_auth_method": "client_secret_basic",
+  "client_name": "OAuth Client",
+  "redirect_uris": ["http://localhost:9000/callback"],
+  "client_uri": "http://localhost:9000/",
+  "grant_types": ["authorization_code"],
+  "response_types": ["code"],
+  "scope": "foo bar baz"
+}
+```
+
+……
+
+#### 12.2.2 Why use dynamic registration?
+
+#### 12.2.3 Implementing the registration endpoint
+
+#### 12.2.4 Having a client register itself
+
+### 12.3 **Client metadata**
+
+#### 12.3.1 Table of core client metadata field names
+
+#### 12.3.2 Internationalization of human-readable client metadata
+
+#### 12.3.3 Software statements
+
+### 12.4 Managing dynamically registered clients
+
+#### 12.4.1 How the management protocol works
+
+#### 12.4.2 Implementing the dynamic client registration management API
 
 ## 13. User authentication with OAuth 2.0
 
