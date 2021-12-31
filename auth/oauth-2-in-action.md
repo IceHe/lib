@@ -1582,17 +1582,89 @@ Content-Type: application/json
 
 #### 12.2.2 Why use dynamic registration?
 
+……
+
+…… **OpenID Connect provides a standardized identity API**, and the **System for Cross-domain Identity Management (SCIM)** protocol provides a standardized provisioning API.
+Both of these are protected by OAuth, and both can be stood up by different providers.
+
+……
+
 #### 12.2.3 Implementing the registration endpoint
+
+……
 
 #### 12.2.4 Having a client register itself
 
-### 12.3 **Client metadata**
+……
+
+### 12.3 Client metadata
+
+**The attributes associated with a registered client are collectively known as its <u>client metadata</u>.**
+These attributes include those that affect the functionality of the underlying protocol, such as `redirect_uris` and `token_endpoint_auth_method`, as well as those that affect the user experience, such as `client_name` and `logo_uri`. ……
+
+<!-- icehe : 怎么清理掉存储中没用的 client 注册数据? 没过一段时间, 清理掉这段时间内没被使用过的 client 注册数据. -->
 
 #### 12.3.1 Table of core client metadata field names
 
+The core dynamic client registration protocol defines a set of common client metadata names, and this set can be extended.
+For example, the **OpenID Connect Dynamic Client Registration specification**, which is based on and compatible with OAuth Dynamic Client Registration, _extends this list with a few more of its own, specific to the OpenID Connect protocol._
+_We've included **a few OpenID Connect specific extensions** in  the following table that have general applicability to OAuth clients._
+
+-   `redirect_uris`
+
+-   `token_endpoint_auth_method`
+
+-   `grant_types`
+
+-   `response_types`
+
+-   `client_name`
+
+-   `client_uri`
+
+-   `logo_uri`
+
+-   `scope`
+
+-   `contacts`
+
+-   `tos_uri`
+
+-   `policy_uri`
+
+-   `jwks_uri`
+
+-   `jwks`
+
+-   `software_id`
+
+-   `software_version`
+
+……
+
 #### 12.3.2 Internationalization of human-readable client metadata
 
+……
+
+In order to represent a different language or script, the client also sends a version of the field with the language tag appended to the field name with the # (pound or hash) character.
+For example, let's say that this client is known as "Mon Client" in French.
+The language code for French is `fr`, and so the field would be represented as `client_name#fr` in the JSON object.
+These two fields would be sent together.
+
+```json
+{
+    ……
+    "client_name": "My Client",
+    "client_name#fr": "Mon Client",
+    ……
+}
+```
+
+The authorization server should use the most specific entry possible in interacting with users. ……
+
 #### 12.3.3 Software statements
+
+……
 
 ### 12.4 Managing dynamically registered clients
 
