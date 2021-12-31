@@ -1463,41 +1463,69 @@ In order to understand the issue we need to take a closer look at section 4.1.2.
 
 _( icehe : 详见原文, 还不够理解. Note it later. )_
 
-## 10. Common OAuth token vulnerabilities
+## 10. Common OAuth token vulnerab ilities
 
-- 10.1 What is a **bearer token**?
-- 10.2 Risks and considerations of using bearer tokens
-- 10.3 How to protect bearer tokens
-    - At the client
-    - At the authorization server
-    - At the protected resource
-- 10.4 Authorization code
-    - **Proof Key for Code Exchange (PKCE)**
+_( icehe : Note it later. )_
+
+### 10.1 What is a bearer token?
+
+### 10.2 Risks and considerations of using bearer tokens
+
+### 10.3 How to protect bearer tokens
+
+#### 10.3.1 At the client
+
+#### 10.3.2 At the authorization server
+
+#### 10.3.3 At the protected resource
+
+### 10.4 Authorization code
+
+#### 10.4.1 Proof Key for Code Exchange (PKCE)
 
 # Part 4 : Taking OAuth further
 
 ## 11. OAuth tokens
 
-- 11.1 What are OAuth tokens?
-- 11.2 Structured tokens: **JSON Web Token (JWT)**
-    - The structure of a JWT
-    - JWT **claims**
-    - Implementing JWT in our servers
-    - User authentication with OAuth 2.0
-- 11.3 Cryptographic protection of tokens: **JSON Object Signing and Encryption (JOSE)**
-    - **Symmetric** signatures using HS256
-    - **Asymmetric** signatures using RS256
-    - Other token protection options
-- 11.4 Looking up a token's information online: token introspection
-    - The introspection protocol
-    - Building the introspection endpoint
-    - **Introspecting**<!-- 内省? --> a token
-    - Combining introspection and JWT
-- 11.5 Managing the token **lifecycle** with token **revocation**
-    - The token revocation protocol
-    - Implementing the revocation endpoint
-    - Revoking a token
-- 11.6 The OAuth token lifecycle
+### 11.1 What are OAuth tokens?
+
+### 11.2 Structured tokens: JSON Web Token (JWT)
+
+#### 11.2.1 The structure of a JWT
+
+#### 11.2.2 JWT claims
+
+#### 11.2.3 Implementing JWT in our servers
+
+#### 11.2.4 User authentication with OAuth 2.0
+
+### 11.3 Cryptographic protection of tokens: JSON Object Signing and Encryption (JOSE)
+
+#### 11.3.1 **Symmetric** signatures using HS256
+
+#### 11.3.2 **Asymmetric** signatures using RS256
+
+#### 11.3.3 Other token protection options
+
+### 11.4 Looking up a token's information online: token introspection
+
+#### 11.4.1 The introspection protocol
+
+#### 11.4.2 Building the introspection endpoint
+
+#### 11.4.3 **Introspecting**<!-- 内省? --> a token
+
+#### 11.4.4 Combining introspection and JWT
+
+### 11.5 Managing the token **lifecycle** with token **revocation**
+
+#### 11.5.1 The token revocation protocol
+
+#### 11.5.2 Implementing the revocation endpoint
+
+#### 11.5.3 Revoking a token
+
+### 11.6 The OAuth token lifecycle
 
 ## 12. Dynamic client registration
 
