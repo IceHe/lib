@@ -1668,9 +1668,8 @@ The authorization server should use the most specific entry possible in interact
 
 ### 12.4 Managing dynamically registered clients
 
-#### 12.4.1 How the management protocol works
-
-#### 12.4.2 Implementing the dynamic client registration management API
+- 12.4.1 How the management protocol works
+- 12.4.2 Implementing the dynamic client registration management API
 
 ## 13. User authentication with OAuth 2.0
 
