@@ -1719,17 +1719,43 @@ The authorization server should use the most specific entry possible in interact
 
 ## 14. Protocols and profiles using OAuth 2.0
 
-- 14.1 User Managed Access (UMA)
-    - Why UMA matters
-    - How the UMA protocol works
-- 14.2 Health Relationship Trust (HEART)
-    - Why HEART matters to you
-    - The HEART specifications
-    - HEART mechanical profiles
-    - HEART semantic profiles
-- 14.3 International Government Assurance (iGov)
-    - Why iGov matters to you
-    - The future of iGov
+### 14.1 User Managed Access (UMA)
+
+_UMA is a protocol built on top of OAuth 2.0 that allows the resource owner rich control over access to their resources through the use of an authorization server of the resource owner's choosing, either to software that they control or to software that another user may control._
+_The UMA protocol allows for two main functions to be built on top of OAuth 2.0: **user-to-user delegation**, and handling of multiple authorization servers per resource server._
+
+In other words, where OAuth 2.0 allows a resource owner to delegate to client software to act on their behalf, **UMA allows a resource owner to delegate to another user's client software to act on that other user's behalf**.
+
+_Colloquially<!-- 用俗话说 -->, OAuth enables Alice-to-Alice sharing ( since Alice is running the client herself ) ,_ whereas **UMA enables Alice-to-Bob sharing**.
+**UMA additionally allows Alice to bring her own authorization server and introduce it to the resource server.**
+**Bob's client can discover Alice's authorization server once it tries to access Alice's resources.**
+
+UMA manages this trick by changing the relationships between traditional OAuth roles and defining a brand-new role in the process: the **requesting party (RqP)**.
+The resource owner manages the relationship between the authorization server and the resource server, **setting up policies that allow third parties access to the resource.**
+**The client, in the control of the requesting party, can request an access token by presenting information about itself and about the requesting party in order to fulfill the requirements set by the resource owner.**
+The resource owner doesn't interact with the client at all, and instead delegates access to the requesting party.
+
+……
+
+#### 14.1.1 Why UMA matters
+
+#### 14.1.2 How the UMA protocol works
+
+### 14.2 Health Relationship Trust (HEART)
+
+#### 14.2.1 Why HEART matters to you
+
+#### 14.2.2 The HEART specifications
+
+#### 14.2.3 HEART mechanical profiles
+
+#### 14.2.4 HEART semantic profiles
+
+### 14.3 International Government Assurance (iGov)
+
+#### 14.3.1 Why iGov matters to you
+
+#### 14.3.2 The future of iGov
 
 ## 15. Beyond bearer tokens
 
