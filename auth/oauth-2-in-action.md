@@ -1673,28 +1673,49 @@ The authorization server should use the most specific entry possible in interact
 
 ## 13. User authentication with OAuth 2.0
 
-- 13.1 Why OAuth 2.0 is not an authentication protocol
-    - Authentication vs. authorization : a delicious metaphor<!-- 隐喻 -->
-- 13.2 Mapping OAuth to an authentication protocol
-- 13.3 How OAuth 2.0 uses authentication
-- 13.4 Common pitfalls of using OAuth 2.0 for authentication
-    - Access tokens as proof of authentication
-    - Access of protected API as proof of authentication
-    - Injection of access tokens
-    - Lack of **audience** restriction
-    - Injection of invalid user information
-    - Different protocols for every potential identity provider
-- 13.5 **OpenID Connect**: a standard for authentication and identity on top of OAuth 2.0
-    - **ID tokens**
-    - The **UserInfo** endpoint
-    - **Dynamic server discovery** and client registration
-    - Compatibility with OAuth 2.0
-    - Advanced capabilities
-- 13.6 Building a simple OpenID Connect system
-    - Generating the ID token
-    - Creating the UserInfo endpoint
-    - Parsing the ID token
-    - Fetching the UserInfo
+### 13.1 Why OAuth 2.0 is not an authentication protocol
+
+#### Authentication vs. authorization : a delicious metaphor<!-- 隐喻 -->
+
+### 13.2 Mapping OAuth to an authentication protocol
+
+### 13.3 How OAuth 2.0 uses authentication
+
+### 13.4 Common pitfalls of using OAuth 2.0 for authentication
+
+#### 13.4.1 Access tokens as proof of authentication
+
+#### 13.4.2 Access of protected API as proof of authentication
+
+#### 13.4.3 Injection of access tokens
+
+#### 13.4.4 Lack of audience restriction
+
+#### 13.4.5 Injection of invalid user information
+
+#### 13.4.6 Different protocols for every potential identity provider
+
+### 13.5 OpenID Connect: a standard for authentication and identity on top of OAuth 2.0
+
+#### 13.5.1 ID tokens
+
+#### 13.5.2 The UserInfo endpoint
+
+#### 13.5.3 Dynamic server discovery and client registration
+
+#### 13.5.4 Compatibility with OAuth 2.0
+
+#### 13.5.5 Advanced capabilities
+
+### 13.6 Building a simple OpenID Connect system
+
+#### 13.6.1 Generating the ID token
+
+#### 13.6.2 Creating the UserInfo endpoint
+
+#### 13.6.3 Parsing the ID token
+
+#### 13.6.4 Fetching the UserInfo
 
 ## 14. Protocols and profiles using OAuth 2.0
 
