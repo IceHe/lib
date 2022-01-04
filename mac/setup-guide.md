@@ -403,6 +403,7 @@ Note : Some GUI softwares are only available on the websites
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
 - [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release and then deprecate Logi Options_
 - [Sublime Text 3](https://www.sublimetext.com/3)
+
 <!-- - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac) -->
 
 Note : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3,
