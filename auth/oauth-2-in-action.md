@@ -356,6 +356,8 @@ These are the components that we have so far:
     ……
     This is partially in deference to the fact that there are many different forms of client applications, ……, so no one icon will universally suffice.
 
+![connecting-client-on-behalf-of-resource-owner.png](_image/connecting-client-on-behalf-of-resource-owner.png)
+
 ### 1.2 The bad old days: credential sharing (and credential theft)
 
 ……
@@ -392,6 +394,14 @@ This makes it difficult to revoke access to a specific application.
 
 ……
 
+![copy-resource-owner-s-credentials-without-asking.png](_image/copy-resource-owner-s-credentials-without-asking.png)
+
+![ask-for-resource-owner-s-credentials-and-replay-them.png](_image/ask-for-resource-owner-s-credentials-and-replay-them.png)
+
+![universal-developer-key-and-identify-user-on-whose-behalf-you-re-allegedly-acting.png](_image/universal-developer-key-and-identify-user-on-whose-behalf-you-re-allegedly-acting.png)
+
+![a-service-specific-password-that-limits-access.png](_image/a-service-specific-password-that-limits-access.png)
+
 ### 1.3 Delegating access
 
 OAuth is a protocol designed to do exactly that :
@@ -420,8 +430,11 @@ _Clients can then manage the tokens, and users can manage the client application
 
 ……
 
+![oauth-authorization-server-automates-service-specific-password-process.png](_image/oauth-authorization-server-automates-service-specific-password-process.png)
+
+![oauth-process-at-a-high-level.png](_image/oauth-process-at-a-high-level.png)
+
 <!-- TODO : 考虑自己用 plantuml 画一个完整的 OAuth 工作过程 -->
-<!-- The OAuth process, at a high level -->
 
 #### 1.3.1. Beyond HTTP Basic and the password-sharing antipattern
 
@@ -567,6 +580,8 @@ OAuth is a widely used security standard that enables secure access to protected
 ### 2.2 Following an OAuth 2.0 authorization grant in detail
 
 ……
+
+![authorization-code-grant-in-detail.png](_image/authorization-code-grant-in-detail.png)
 
 <!-- TODO : 考虑自己用 plantuml 画一个完整的 授权码许可 的详细过程 -->
 <!-- The authoriation code grant in detail -->
