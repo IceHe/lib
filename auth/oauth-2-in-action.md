@@ -55,12 +55,12 @@ Instead of defining one complex method to fit different deployment models, OAuth
 
 -   最后一部分由第 11~16 章构成，这一部分跳出 OAuth 2.0 协议的核心部分，探讨更外围生态系统中的标准和规范，最后还对全书进行了总结。
 
-    - 第 11 章介绍 JSON Web Token(JWT)及其所用的编码机制 JOSE，还包括令牌内省和撤 回，这些主题完整覆盖了令牌的生命周期。
+    - 第 11 章介绍 JSON Web Token(JWT)及其所用的编码机制 JOSE，还包括令牌内省和撤回，这些主题完整覆盖了令牌的生命周期。
     - 第 12 章介绍动态客户端注册，并讨论它对 OAuth 2.0 生态系统的影响。
     - 第 13 章先解释为什么 OAuth 2.0 不是身份认证协议，继而介绍如何基于它使用 OpenID Connect 构建一个身份认证协议。
-    - 第 14 章介绍构建于 OAuth 2.0 之上的 User Managed Access(UMA)协议，该协议允许用 户对用户(user-to-user)的分享。这一章还介绍了 HEART 和 iGov 这两个 OAuth 2.0 配置 规范以及 OpenID Connect，以及这些协议在特定行业领域中是如何应用的。
-    - 第 15 章指出 OAuth 2.0 核心规范中的常规 bearer 令牌并不能满足所有需求，并描述了 Proof of Possession(PoP)令牌及 TLS 令牌绑定如何与 OAuth 2.0 协同工作。
-    - 第 16 章对全书进行总结，并指导读者如何进一步应用这些知识，还介绍了相关代码库以 及范围更广的社区。
+    - 第 14 章介绍构建于 OAuth 2.0 之上的 User Managed Access (UMA) 协议，该协议允许用户对用户 (user-to-user) 的分享。这一章还介绍了 HEART 和 iGov 这两个 OAuth 2.0 配置 规范以及 OpenID Connect，以及这些协议在特定行业领域中是如何应用的。
+    - 第 15 章指出 OAuth 2.0 核心规范中的常规 bearer 令牌并不能满足所有需求，并描述了 Proof of Possession (PoP) 令牌及 TLS 令牌绑定如何与 OAuth 2.0 协同工作。
+    - 第 16 章对全书进行总结，并指导读者如何进一步应用这些知识，还介绍了相关代码库以及范围更广的社区。
 
 ## Table of Contents
 
@@ -316,28 +316,6 @@ Part 4 : Taking OAuth further
 - 16.3 The wider ecosystem
 - 16.4 The community
 - 16.5 The future
-
-### Terminology
-
-- credential : 凭据
-    - credential sharing : 凭据共享
-    - credential theft : 凭据盗用
-- authorization delegation : 授权委托
-- OAuth's actors : 角色
-    - clients : 客户端
-    - authorization servers : 授权服务器
-    - resource owners : 资源拥有者
-    - protected resources : 受保护资源
-- OAuth's components : 组件
-    - token : 令牌
-        - access token : 访问令牌
-        - refresh token : 刷新令牌
-    - scopes : 权限范围
-    - authorization grants : 授权许可
-- issue a token : 颁发令牌
-- token replays : 令牌重放?
-- session hijacking : 会话劫持
-- client impresonation : 客户端冒充
 
 # Part 1 : First Steps
 
@@ -1777,3 +1755,5 @@ The resource owner doesn't interact with the client at all, and instead delegate
 - 16.3 The wider ecosystem
 - 16.4 The community
 - 16.5 The future
+
+omitted
