@@ -402,8 +402,8 @@ Note : Some GUI softwares are only available on the websites
 
 - [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
 - [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release and then deprecate Logi Options_
-- [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac)
 - [Sublime Text 3](https://www.sublimetext.com/3)
+<!-- - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac) -->
 
 Note : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3,
 
@@ -745,12 +745,19 @@ Some of the icons can still be visible in Control Center
 `Shortcuts`
 
 - Add `App Shortcuts`
+
     - `Google Chrome` → `Duplicate Tab` → `⇧ ⌘ D`
     - `iTerm` → `Toggle Full Screen` → `^ ⌘ F`
 
-<!-- - Clear the unused shortcuts -->
+- Clear the unused shortcuts
 
 `Input Sources`
+
+- Add the input source `Shuangpin - Simplified`
+
+    - Shuangpin layout : `Xiaohe`
+    - Enable `Show predictive completions`
+    - Enable `Use halfwidth punctuation`
 
 - Clear the unused input sources
 
@@ -839,6 +846,8 @@ Reference : Search "macos keyboard cannot repeat" on Google
             - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
         -   Clear the unused shortcuts
 
+<!--
+
 #### Sogou Input
 
 1. `System Preferences` → `Keyboard` → `Input Sources` → Add `搜狗拼音`
@@ -851,6 +860,10 @@ Reference : Search "macos keyboard cannot repeat" on Google
 
     1. → Login via the WeChat account
     1. → `配置同步` → `下载配置`
+
+_( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使用, 那就弃用搜狗输入法. 2022/01/04 )_
+
+-->
 
 #### Karabiner-Elements
 
