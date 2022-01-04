@@ -4,6 +4,22 @@
 
 ---
 
+## 计划
+
+Weekly
+
+-   [ ] 2022/01/04 Tue ~ 2022/01/09 Sun = 6 days
+
+    充足睡觉, 恢复精力.
+
+-   [ ] 2022/01/10 Mon ~ 2022/01/16 Sun = 1 week
+
+    早起学习 1h.
+
+Monthly / Seasonly / Yearly
+
+-   TBD Later.
+
 ## 心态
 
 ### 接受不完美
