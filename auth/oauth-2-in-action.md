@@ -756,6 +756,8 @@ This lets a smart client **follow the security principle of least privilege** wi
 
 ![front-channel-communication.png](_image/front-channel-communication.png)
 
+![parts-of-a-front-channel-request-and-response.png](_image/parts-of-a-front-channel-request-and-response.png)
+
 # Part 2 : Building an OAuth 2 environment
 
 ## 3. Building a simple OAuth client
@@ -1096,6 +1098,8 @@ Date: Fri, 31 Jul 2015 20:50:19 GMT
 
 ……
 
+![implicit-grant-type.png](_image/implicit-grant-type.png)
+
 #### 6.1.2 Client credentials grant type
 
 _客户端凭据许可类型_
@@ -1133,6 +1137,8 @@ Content-type: application/json
 ```
 
 ……
+
+![client-credentials-grant-type.png](_image/client-credentials-grant-type.png)
 
 #### 6.1.3 Resource owner credentials grant type
 
@@ -1174,6 +1180,8 @@ The grant type **uses the token endpoint exclusively**, remaining confined to th
 
 ……
 
+![resource-owner-credentials-grant-type.png](_image/resource-owner-credentials-grant-type.png)
+
 #### 6.1.4 Assertion grant types
 
 In the first official extension grant types to be published by the OAuth working group, the **assertion grant types**, **the client is given a structured and cryptographically protected item** called an **assertion** to give to the authorization server in exchange for a token.
@@ -1193,6 +1201,8 @@ In the end, as with an access token, it doesn't matter how the client got the as
 In this example, the client is presenting a JWT assertion, which is reflected in the value of the `grant_type` parameter.
 
 ……
+
+![assertion-grant-type-family.png](_image/assertion-grant-type-family.png)
 
 #### 6.1.5 Choosing the appropriate grant type
 
