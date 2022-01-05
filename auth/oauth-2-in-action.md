@@ -741,6 +741,8 @@ Instead, the client uses the refresh token to request new access tokens with- ou
 If a client is granted scopes A, B, and C, but it knows that it needs only scope A to make a particular call, it can use the refresh token to request an access token for only scope A.
 This lets a smart client **follow the security principle of least privilege** without burdening less-smart clients with trying to figure out what privileges an API needs.
 
+![using-refresh-token.png](_image/using-refresh-token.png)
+
 #### Authorization grants
 
 …… This is likely one of the most confusing terms in OAuth 2.0, because the term is used to define both the specific mechanism by which the user delegates authority as well as the act of delegation itself. ……
@@ -749,6 +751,10 @@ This lets a smart client **follow the security principle of least privilege** wi
 
 - Back-channel communication
 - Front-channel communication
+
+![back-channel-communication.png](_image/back-channel-communication.png)
+
+![front-channel-communication.png](_image/front-channel-communication.png)
 
 # Part 2 : Building an OAuth 2 environment
 
