@@ -118,7 +118,7 @@ deactivate attacker
 
 ### Solution: Random STATE
 
-#### User hasn't requested to bind
+#### User hasn't requested to bind WeChat account
 
 ```plantuml
 @startuml
@@ -182,7 +182,7 @@ endrnote
 @enduml
 ```
 
-#### User requested to bind
+#### User requested to bind WeChat account
 
 ```plantuml
 @startuml
