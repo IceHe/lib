@@ -1310,7 +1310,27 @@ One of the worst results of a security breach to an OAuth client is to leak the 
 
 ### 7.2 CSRF attack against the client
 
-……
+……, both the authorization code and the implicit grant types mention a **recommended `state` parameter**.
+_This parameter is, according to the OAuth core specification:_
+
+> An opaque value used by the client to maintain state between the request and callback.
+> _The authorization server includes this value when redirecting the user-agent back to the client._
+> The parameter **SHOULD be used for preventing cross-site request forgery (CSRF)**.
+
+---
+
+> **What is OWASP?**
+>
+> The **Open Web Application Security Project (OWASP)** is a not-for-profit group that educates developers, designers, architects, and business owners about the risks associated with the most common web application security vulnerabilities.
+> _Project members include a variety of security experts from around the world who share their knowledge of vulnerabilities, threats, attacks, and countermeasures._
+
+CSRF occurs when a malicious application causes the user's browser to perform an unwanted action through a request to a web site where the user is currently authenticated.
+How is that possible?
+The main thing to keep in mind is that **browsers make requests (with cookies) to any origin, allowing specific actions to be performed when requested**.
+If a user is logged in to one site that offers the capability to execute some sort of task and an attacker tricks the user's browser into making a request to one of these task URIs, then the task is performed as the logged-in user.
+Typically, an attacker will embed malicious HTML or JavaScript code into an email or website to request a specific task URI that executes without the user's knowledge.
+
+The most common and effective mitigation is to **add an unpredictable element in each HTTP request**, which is the countermeasure<!-- 对策, 反措施 --> taken by the OAuth specification. ……
 
 External Reference : [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
