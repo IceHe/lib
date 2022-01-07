@@ -41,23 +41,25 @@ deactivate attacker
 
 user <-> geekbang_client: Login via username & password
 activate user
-user -> geekbang_client: Request to bind **User's WeChat account**
-activate geekbang_client
-user <-- geekbang_client: 1. Redirect User to AuthServer
-deactivate geekbang_client
+'user -> geekbang_client: Request to bind **User's WeChat account**
+'activate geekbang_client
+'user <-- geekbang_client: 1. Redirect User to AuthServer
+'deactivate geekbang_client
+'
+'user -> auth_server: Load AuthServer for authentication \n    with redirect_uri = **https://geekbang.com/client/callback**
+'activate auth_server
+'user <-- auth_server: 2. authorization code = **codeB**
+'deactivate auth_server
+'
+'note over user
+'    User DO NOT
+'        exchange for access_token
+'        with given authorization code IN TIME.
+'endrnote
+'
+'user -x geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeB**
 
-user -> auth_server: Load AuthServer for authentication \n    with redirect_uri = **https://geekbang.com/client/callback**
-activate auth_server
-user <-- auth_server: 2. authorization code = **codeB**
-deactivate auth_server
-
-note over user
-    User DO NOT
-        exchange for access_token
-        with given authorization code IN TIME.
-endrnote
-
-user -x geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeB**
+user -> user: Do something else
 
 rnote over user
     Attacker induces User to click the link to
@@ -115,6 +117,72 @@ deactivate attacker
 ```
 
 ### Solution: Random STATE
+
+#### User hasn't requested to bind
+
+```plantuml
+@startuml
+
+title CSRF Attack on OAuth 2.0 - Fraud to Bind WeChat Account - Solution: Random STATE
+
+actor attacker as "Attacker"
+actor user as "User"
+
+participant geekbang_client as "Geekbang Client"
+participant auth_server as "WeChat AuthServer"
+
+attacker -> geekbang_client: Request to bind **Attacker's WeChat account**
+activate attacker
+activate geekbang_client
+attacker <-- geekbang_client: 1. Redirect User to AuthServer
+deactivate geekbang_client
+
+attacker -> auth_server: Load AuthServer for authentication with redirect_uri = **https://geekbang.com/client/callback**
+activate auth_server
+attacker <-- auth_server: 2. authorization code = **codeA** for **Attacker's WeChat account**
+deactivate auth_server
+
+note over attacker
+    Attacker DO NOT
+        exchange for access_token
+        with given authorization code DELIBERATELY.
+endrnote
+
+attacker -x geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeA**
+deactivate attacker
+
+==Soon==
+
+user <-> geekbang_client: Login via username & password
+activate user
+user -> user: Do something else
+
+rnote over user
+    Attacker induces User to click the link to
+        **https://geekbang.com/client/callback?code=codeA&state=stateA**
+endrnote
+
+user -> geekbang_client: Redirect to Geekbang Client redirect_uri \n    with authorization code = **codeA** \n        and state = **stateA**
+deactivate user
+activate geekbang_client
+
+geekbang_client -x geekbang_client: Load original state, which **doesn't exist**, from storage \n    and compare with current state = **stateA**
+
+rnote over geekbang_client
+    Abort becuase state DOES NOT match!
+endrnote
+
+geekbang_client -x auth_server: 3. Exchange for access_token \n    with given authorization code = **codeA**
+deactivate geekbang_client
+
+rnote over geekbang_client
+    State protects User!
+endrnote
+
+@enduml
+```
+
+#### User requested to bind
 
 ```plantuml
 @startuml
