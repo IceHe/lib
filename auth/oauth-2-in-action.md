@@ -1332,6 +1332,10 @@ Typically, an attacker will embed malicious HTML or JavaScript code into an emai
 
 The most common and effective mitigation is to **add an unpredictable element in each HTTP request**, which is the countermeasure<!-- 对策, 反措施 --> taken by the OAuth specification. ……
 
+![example-of-csrf-attack.png](_image/example-of-csrf-attack.png)
+
+![example-of-oauth-csrf-attack.png](_image/example-of-oauth-csrf-attack.png)
+
 ……
 
 External Reference : [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
