@@ -1342,9 +1342,24 @@ External Reference : [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
 ### 7.3 Theft of client credentials
 
+_The OAuth core specification specifies four different grant types._
+Each grant type is designed with different security and deployment aspects in mind and should be used accordingly, …….
+For example, the implicit grant flow is to be used by OAuth clients where the client code executes within the user agent environment.
+Such clients are generally JavaScript-only applications, which have, of course, limited capability of hiding the `client_secret` in client side code running in the browser.
+On the other side of the fence there are classic server-side applications that can use the authorization code grant type and can safely store the `client_secret` somewhere in the server.
+
+What about **native applications**?
+……, and as a reminder **it isn't recommended that native applications use the implicit flow**.
+_It is important to understand that for a native application, even if the `client_secret` is somehow hidden in the compiled code it must not be considered as a secret._
+_Even the most arcane artifact can be decompiled and the `client_secret` is then no longer that secret._
+The same principle applies to mobile clients and desktop native applications. ……
+…… we're going to discuss in detail how to **use dynamic client registration to configure the `client_secret` at runtime**. ……
+
 ……
 
 ### 7.4 Registration of the redirect URI
+
+It is extremely important to pay particular attention when choosing the registered `redirect_uri` when the new OAuth client is created at the authorization server, specifically the **`redirect_uri` must be as specific as it can be**.
 
 ……
 
