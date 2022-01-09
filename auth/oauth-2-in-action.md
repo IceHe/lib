@@ -1509,6 +1509,14 @@ However, the more specific and direct the registration is, the less likely it is
 
 ### 7.5 Theft of authorization codes
 
+If the attacker hijacked the authorization code, can they "steal" anything, such as the resource owner's personal information as email, contact information, and so on?
+Not quite yet.
+
+Remember that the **authorization code is still an intermediate step between the OAuth client and the access token, which is the final goal of the attacker.**
+**To trade the authorization code for an access token, the `client_secret` is needed, and this is something that must be closely protected.**
+
+But if the client is a public client, it will have no client secret and therefore the authorization code can be used by anyone.
+With a confidential client, an attacker can either try to maliciously obtain the client secret, as seen in section 7.2, or attempt to trick the OAuth client into performing a sort of CSRF similar to the one we have seen in section 7.1.
 ……
 
 ### 7.6 Theft of tokens
