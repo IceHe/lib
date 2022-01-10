@@ -975,6 +975,7 @@ Reference : https://www.computerhope.com/keys.htm
 - wk : week
 - WLAN : [Wireless Local Area Network](https://en.wikipedia.org/wiki/Wireless_LAN)
 - wnd : window
+- w/o : without
 - wrk : work
 - ws : [Web Service](https://en.wikipedia.org/wiki/Web_service)
 - wtf : [what the fuck](https://en.wikipedia.org/wiki/Fuck#Modern_usage)
