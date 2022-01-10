@@ -8,17 +8,36 @@
 
 Weekly
 
--   [ ] 2022/01/09 Sun ~ 2022/01/16 Sun = 1 week+
+-   [ ] Week 2. 2022/01/09 Sun ~ 2022/01/16 Sun = 1 week+
 
     充足睡眠, 恢复精力
 
--   [ ] 2022/01/16 Sun ~ 2022/01/23 Sun = 1 week+
+-   [ ] Week 3. 2022/01/16 Sun ~ 2022/01/23 Sun = 1 week+
 
     早起 8:00-9:00 学习 1h
 
-Monthly / Seasonly / Yearly
+Monthly
 
--   TBD Later.
+-   2022 Jan
+
+    1. 充足睡眠, 恢复精力
+    2. 早起学习 1h
+
+-   2022 Feb
+
+    _TBD Later_
+
+Seasonly
+
+-   2022 S1
+
+    _TBD Later_
+
+Yearly
+
+-   2022
+
+    _TBD Later_
 
 ## 做法
 
