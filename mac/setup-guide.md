@@ -171,7 +171,7 @@ Configure the network proxy on CLI
 
     -   B. All the time : Use ZSH with the network proxy
 
-        -   Append the shell command above to the ZSH configuration file `.zshrc`
+        -   Append the shell command above to the ZSH configuration file `~/.zshrc`
 
 1.  Check the Internet connection on CLI
 
@@ -490,7 +490,7 @@ How to :
 
     Reference : [Adding a new GPG key to your GitHub account - GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
 
-1.  Problem : gpg failed to sign the data
+1.  Problem : `gpg failed to sign the data`
 
     ```bash
     $ git commit -m "troubleshooting"
@@ -498,13 +498,15 @@ How to :
     fatal: failed to write commit object
     ```
 
-    Solution : `gpg` requires `pinentry-mac` on Mac
+    Solution : Append the following shell command to the ZSH configuration file `~/.zshrc`
 
     ```bash
-    brew install pinentry-mac
+    export GPG_TTY=$(tty)
     ```
 
     Reference : [gpg failed to sign the data fatal: failed to write commit object](https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0)
+
+    - [The second answer](https://stackoverflow.com/a/42265848) is better.
 
 ### CLI Tools
 
