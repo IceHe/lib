@@ -1521,9 +1521,34 @@ With a confidential client, an attacker can either try to maliciously obtain the
 
 ### 7.6 Theft of tokens
 
-……
+The ultimate goal for an attacker that focuses their attention on an OAuth aware target is to steal an access token.
+The access token lets the attacker perform all kinds of operations that they were never intended to be able to do.
+We already saw how OAuth clients send access tokens to resource servers to consume APIs.
+This is usually done by **passing the bearer token as a request header (`Authorization: Bearer access_token_value`)**.
 
-_( icehe : 详见原文以及引用资料, 还没深入看. Note it later. )_
+RFC 6750 defines two other ways to pass the bearer token along.
+One of those, the URI query parameter, states that clients can send the access token in the URI using the `access_token` query parameter.
+Although the simplicity makes its use tempting, there are many drawbacks to using this method for submitting the access token to a protected resource.
+
+-   **The access token ends up being logged in `access.log` files as part of the URI.**
+-   People tend to be indiscriminate in what they copy and paste in a public forum when searching for answers (for example, Stackoverflow).
+    This might well end up **having the access token being pasted in one of these forums through HTTP transcripts or access URLs**.
+-   There is a risk of access token leakage<!-- 漏出 --> through the `referrer` similar to the one we have seen in the previous section, because **the `referrer` includes the entire URL**.
+
+This last method can be used to steal access tokens.
+
+Let's assume there is an OAuth client that sends the access token in the URI to the resource server, using something like the following:
+
+```http
+https://oauthapi.com/data/feed/api/user.html?access_token=2YotnFZFEjr1zCsicMWp
+```
+
+If an attacker is able to place even a simple link to this target page ( `data/feed/api/user.html` ) then the Referer header will disclose<!-- 揭露, 公开 --> the access token.
+
+**Using the standard Authorization header avoids these kinds of issues**, because the access token doesn't show up in the URL.
+Although the query parameter is still a valid method for OAuth, clients should use it only as a last resort and with extreme caution.
+
+![hijacking-of-access-token-through-query-parameter.png](_image/hijacking-of-access-token-through-query-parameter.png)
 
 ### 7.7 Native applications best practices
 
