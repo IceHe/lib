@@ -1652,11 +1652,6 @@ var cors = require('cors');
 
 ……
 
-![authorization-code-grant-flow-forged.png](_image/authorization-code-grant-flow-forged.png)
-
-> **The client MUST NOT use the authorization code more than once.**
-> **If an authorization code is used more than once, the authorization server MUST deny the request and SHOULD revoke (when possible) all tokens previously issued based on that authorization code.**
-
 ## 9. Common authorization server vulnerabilities
 
 ### 9.1 General security
@@ -1669,20 +1664,22 @@ This includes having **secured server logs**, using **Transport Layer Security (
 
 ……
 
-It turns out that the OAuth core specification1 gives us a solution to this problem in section 4.1.3:
+![authorization-code-grant-flow-forged.png](_image/authorization-code-grant-flow-forged.png)
+
+It turns out that the OAuth core specification gives us a solution to this problem:
 
 > The client **MUST NOT** use the authorization code more than once.
 > If an authorization code is used more than once, the authorization server **MUST** deny the request and **SHOULD** revoke ( when possible ) all tokens previously issued based on that authorization code.
 
 ……
 
-_( icehe : 添加流程图 : Authorization code grant flow forged )_
-
 ### 9.3 Redirect URI manipulation
 
 ……
 
 Now let's be perfectly clear: **the only consistently safe validation method for the `redirect_uri` is <u>exact matching</u>**. ……
+
+![attacker-steals-authorization-code.png](_image/attacker-steals-authorization-code.png)
 
 ……
 
