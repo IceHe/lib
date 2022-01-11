@@ -1550,11 +1550,43 @@ Although the query parameter is still a valid method for OAuth, clients should u
 
 ![hijacking-of-access-token-through-query-parameter.png](_image/hijacking-of-access-token-through-query-parameter.png)
 
+> **Authorization Server Mix-Up** <!-- 授权服务器混淆 -->
+>
+> …… The attack might affect **OAuth clients that have client IDs issued by more than one authorization server, effectively tricking a client to send secrets (including client secrets and authorization codes)** from one server to another malicious server.
+> Details about the attack can be found online.
+> At the time of writing this book, the IETF OAuth working group is working on a standardized solution.
+> As a temporary mitigation, a client should register a different `redirect_uri` value with each authorization server.
+> This will allow it to differentiate between requests without getting callbacks confused.
+
 ### 7.7 Native applications best practices
 
-……
+We have seen that native applications are OAuth clients that run directly on the end user's device, which these days usually means a mobile platform. ……
+To help smooth the user experience, it was common for **native OAuth clients to leverage a "web-view" component when sending the user to the authorization server's authorization endpoint (interacting with the front channel)**.
+A web-view is a system component that allows applications to display web content within the UI of an application.
+**The web-view acts as an embedded user-agent, separate from the system browser.**
+Unfortunately, the web-view has a long history of security vulnerabilities and concerns that come with it.
+Most notably<!-- 显著地, 尤其 -->, **the client applications can inspect the contents of the web-view component, and would therefore be able to eavesdrop<!-- 偷听 --> on the end-user credentials when they authenticated to the authorization server.**
+Since a major focus of OAuth is keeping the user's credentials out of the hands of the client applications entirely, this is counterproductive.
+The usability of the web-view component is far from ideal.
+Because it's embedded inside the application itself, the web-view doesn't have access to the system browser's cookies, memory, or session information.
+Accordingly, the web-view doesn't have access to any existing authentication sessions, forcing users to sign in multiple times.
+
+**Native OAuth clients can make HTTP requests exclusively through external user-agents such as the system browser.**
+A great advantage of using a system browser is that **the resource owner is able to see the URI address bar, which acts as a great anti-phishing<!-- 反网络钓鱼 --> defense**.
+It also helps train users to put their credentials only into trusted websites and not into any application that asks for them.
+
+In recent mobile operating systems, a third option has been added that combines the best of both of these approaches.
+In this mode, a special web-view style component is made available to the application developer.
+This component can be embedded within the application as in a traditional web-view.
+However, this new component shares the same security model as the system browser itself, allowing single-sign-on user experiences.
+Furthermore, it isn't able to be inspected by the host application, leading to greater security separation on par with using an external system browser.
 
 Further Reading : OAuth 2.0 for Native Apps
+
+-   For custom redirect URI schemes, pick a scheme that is globally unique and which you can assert ownership over.
+    One way of doing this is to use reversed DNS notation, as we have done in our example application: `com.oauthinaction.mynativeapp:/`.
+    This approach is a good way to avoid clashing with schemes used by other applications that could lead to a potential authorization code interception attack.
+-   _In order to mitigate some of the risk associated with authorization code interception attack, it's a good idea to use Proof Key for Code Exchange (PKCE). ……_
 
 ## 8. Common protected resources vulnerabilities
 
@@ -1577,9 +1609,7 @@ When someone clicks on that link, the malicious JavaScript is then executed.
 
 ### 8.2.1 How to protect a resource endpoint
 
-……
-
-_( icehe : 注入 `<script>` 的 XSS 漏洞, 详见原文, 此处暂略 )_
+_注入 `<script>` 的 XSS 漏洞, 详见原文, 此处略_
 
 ……
 
@@ -1590,12 +1620,15 @@ How to protect: ( keywords )
 - Use correct `Content-Type`
     - MUST contains `Content-Type`
     - Better not `Content-Type: text/html`
+        - e.g. `Content-Type: application/json`
     - ……
 - `X-XSS-Options: nosniff`
 - `X-XSS-Protection: 1; mode=block`
 - ……
 
-_( icehe : 详见原文, 主要是 HTTP 安全的问题, 暂略. MAYBE note it later. )_
+_主要是 HTTP 安全的问题, 详见原文, 此处略_
+
+……
 
 ### 8.2.2 Adding implicit grant support
 
@@ -1618,6 +1651,11 @@ var cors = require('cors');
 ### 8.3 Token replays
 
 ……
+
+![authorization-code-grant-flow-forged.png](_image/authorization-code-grant-flow-forged.png)
+
+> **The client MUST NOT use the authorization code more than once.**
+> **If an authorization code is used more than once, the authorization server MUST deny the request and SHOULD revoke (when possible) all tokens previously issued based on that authorization code.**
 
 ## 9. Common authorization server vulnerabilities
 
