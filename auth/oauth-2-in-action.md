@@ -1687,7 +1687,28 @@ Now let's be perfectly clear: **the only consistently safe validation method for
 
 ……
 
-_( icehe : 详见原文, 还不够理解. Note it later. )_
+_In chapter 7 and in the previous section of this chapter,_ we've seen several techniques to hijack authorization codes.
+**We've also seen that without the knowledge of the `client_secret`, an attacker can't achieve too much because the secret is needed in order to trade the authorization code for an access token.**
+This continues to hold true only if the authorization server follows section 4.1.3 of the OAuth core specification, in particular:
+
+> **ensure that the `redirect_uri` parameter is present if the `redirect_uri` parameter was included in the initial authorization request** as described in Section 4.1.1, **and if included ensure that their values are identical.**
+
+![hijacked-authorization-code-via-vaulnerable-authorization-server.png](_image/hijacked-authorization-code-via-vaulnerable-authorization-server.png)
+
+……
+
+_Solution on authorization server:_`
+
+```js
+if (code.request.redirect_uri) {
+  if (code.request.redirect_uri != req.body.redirect_uri) {
+    res.status(400).json({error: 'invalid_grant'});
+    return;
+  }
+}
+```
+
+……
 
 ### 9.5 Open redirector
 
