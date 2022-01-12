@@ -1781,9 +1781,19 @@ Other proposed mitigations include the following:
 
 ## 10. Common OAuth token vulnerab ilities
 
-_( icehe : Note it later. )_
-
 ### 10.1 What is a bearer token?
+
+One choice made by the OAuth working group while designing the OAuth 2.0 specification was to **drop the custom signature mechanism present in the original OAuth 1.0 specification in favor of relying on secure transport-layer mechanisms, such as TLS, between parties**.
+By removing the signing requirement from the base protocol, OAuth 2.0 can accommodate<!-- 容纳 --> different kinds of tokens.
+The OAuth specification defines a **bearer token** as a security device with the property that any party in possession of the token (a bearer) can use the token, regardless of who that party is.
+In this way, a bearer token is **much like a bus token or a ticket to an amusement park ride: these items grant access to services, and don't care who uses them**.
+As long as you've got a bus token, you can ride the bus.
+
+From a technological standpoint, you can think about bearer tokens in much the same way as you do browser cookies. Both share some basic properties:
+
+- They use plaintext strings.
+- **No secret or signature is involved.**
+- **TLS is the basis of the security model.**
 
 ### 10.2 Risks and considerations of using bearer tokens
 
