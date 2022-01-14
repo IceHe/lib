@@ -1859,11 +1859,27 @@ The protocol protects transmissions between two parties directly connected to ea
 - The connection is private because **symmetric cryptography is used to encrypt the data transmitted**.
 - The connection is reliable because each message transmitted includes a **message integrity check using a message authentication code**.
 
-This is achieved typically by using certificates with public key cryptography; in particu- lar, on the public internet, the application initiating the connection request verifies the certificate of the application receiving the connection request. In some limited circumstances, the certificate of the application initiating the connection request can also be verified, but such mutual authentication of the TLS connection is fairly limited and rare. It is important to remember that OAuth bearer tokens can’t be used securely without TLS being part of the connection in order to protect them in transit.
+This is **achieved typically by using certificates with public key cryptography**;
+in particular, on the public internet, the application initiating the connection request verifies the certificate of the application receiving the connection request.
+In some limited circumstances, the certificate of the application initiating the connection request can also be verified, but such **mutual authentication** of the TLS connection is fairly limited and rare.
+It is important to remember that OAuth bearer tokens can't be used securely without TLS being part of the connection in order to protect them in transit.
 
 ……
 
 #### 10.3.1 At the client
+
+We've seen in various parts of this book how access tokens can be stolen from client applications and revealed to the attacker.
+We need to remember that bearer access tokens are transparent for clients and there isn't any cryptographic operation they need to perform.
+Hence, when an attacker obtains a bearer access token, they're able to access all the resources associated with the token and its scope.
+
+One countermeasure<!-- 对策 --> that a client can apply is to **limit the scope of the token to the minimum required for its tasks**.
+_For example, if all the client needs to achieve its purpose is the resource owner's profile information, it would be enough to ask for the profile scope (and not any other scope, for example, photo or location)._
+This approach of "**minimal privilege**" limits what the token can be used for if it's captured.
+**To minimize impact on the user experience, a client can ask for all appropriate scopes during the authorization phase, then use the refresh token to get limited-scope access tokens to call the resource directly.**
+
+It would also be beneficial, if feasible, to **keep access tokens in transient memory to minimize attacks derived from repository injections**.
+Doing so **even if the attacker is able to get their hands on the client's database won't gain any information regarding access tokens**.
+This isn't always feasible for all client types, but secure storage of tokens, away from the prying eyes of other applications and even end users, is something that every OAuth client application should be doing.
 
 #### 10.3.2 At the authorization server
 
