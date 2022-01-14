@@ -9,6 +9,21 @@ References
 - [人件（原书第3版）- 豆瓣](https://book.douban.com/subject/25956450/)
 - [人件 原书第3版.pdf - github.com/clsaa/thinking-in-se](https://github.com/clsaa/thinking-in-se/blob/master/%E3%80%8A%E4%BA%BA%E4%BB%B6%20%E5%8E%9F%E4%B9%A6%E7%AC%AC3%E7%89%88%E3%80%8B.pdf)
 
+## Table of Contents
+
+Part I
+Chapter 1
+Chapter 2
+Chapter 3
+Managing the Human Resource 1
+Somewhere Today, a Project Is Failing 3 The Name of the Game 4 The High-Tech Illusion 5
+Make a Cheeseburger, Sell a Cheeseburger 7 A Quota for Errors 8 Management: The Bozo Definition 8 The People Store 9 A Project in Steady State Is Dead 10 We Haven’t Got Time to Think about This Job,
+Only to Do It 11
+Vienna Waits for You 13 Spanish Theory Management 13 And Now a Word from the Home Front 14 There Ain’t No Such Thing as Overtime 15 Workaholics 15 Productivity: Winning Battles and Losing Wars 16
+Reprise
+
+
+
 当时，我们正从洛杉矶赶往悉尼去教
 授软件工程的系列课程。在飞机上，我们难以人眠，索性谈论起自
 己经历的以及从客户那里了解到的软件系统的高复杂度。我们中的
