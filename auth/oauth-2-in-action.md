@@ -1850,6 +1850,19 @@ Security as an afterthought never works, and it's important the implementer make
 
 ### 10.3 How to protect bearer tokens
 
+It is of extreme importance that access tokens sent as bearer tokens are not sent in the clear over an insecure channel.
+As per the core OAuth specification, transmission of access tokens must be protected using end-to-end confidentiality, such as SSL/TLS.
+What is SSL/TLS then?
+**Transport Layer Security (TLS)**, formerly known as Secure Sockets Layer (SSL), is a cryptographic protocol designed to provide communications security over a computer network.
+The protocol protects transmissions between two parties directly connected to each other, and the encryption process has the following aspects:
+
+- The connection is private because **symmetric cryptography is used to encrypt the data transmitted**.
+- The connection is reliable because each message transmitted includes a **message integrity check using a message authentication code**.
+
+This is achieved typically by using certificates with public key cryptography; in particu- lar, on the public internet, the application initiating the connection request verifies the certificate of the application receiving the connection request. In some limited circumstances, the certificate of the application initiating the connection request can also be verified, but such mutual authentication of the TLS connection is fairly limited and rare. It is important to remember that OAuth bearer tokens can’t be used securely without TLS being part of the connection in order to protect them in transit.
+
+……
+
 #### 10.3.1 At the client
 
 #### 10.3.2 At the authorization server
