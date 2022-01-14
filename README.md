@@ -480,6 +480,7 @@ NPM : the world's largest software registry
 Package
 
 - **commitlint** : lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+- **eslint** : find and fix problems in your JavaScript code - [eslint.org](https://eslint.org/)
 - **husky** : modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
 - **jest** : a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
 - **lerna** : a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)

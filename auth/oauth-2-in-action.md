@@ -1795,6 +1795,21 @@ From a technological standpoint, you can think about bearer tokens in much the s
 - **No secret or signature is involved.**
 - **TLS is the basis of the security model.**
 
+**The original OAuth 1.0 protocol called for tokens that also had an associated secret, which was used to calculate a signature across the request.**
+**This signature was then verified by the protected resource alongside the token value itself, proving possession of both the token and its associated secret.**
+**Calculating this signature correctly and consistently turned out to be a big burden for client and server developers, and the process was prone to many frustrating errors.**
+Calculating the signature depended on many factors, such as encoding string values, ordering the request parameters, and canonization of the URI.
+In combination with the fact that cryptography doesn't forgive even the smallest mistake, things constantly broke because of mismatching signatures.
+
+……
+
+Furthermore, the requirement for TLS never went away.
+Without TLS for the get-a-token step, the access token and its secret could be stolen.
+Without TLS for the use-a-token step, the results of the authorized call could be stolen (and sometimes replayed within a time window).
+As a result, **OAuth 1.0 had the reputation of being a complicated, difficult-to-use protocol.**
+The **new OAuth 2.0 specification was formed with bearer tokens at the center of a new simplified protocol.**
+_Message-level signatures weren't entirely abandoned, but merely set aside. With time, some users of the OAuth 2.0 specification asked for an extension of the protocol that included some sort of sig- nature; we'll meet some alternatives to bearer tokens in chapter 15._
+
 ### 10.2 Risks and considerations of using bearer tokens
 
 ### 10.3 How to protect bearer tokens
