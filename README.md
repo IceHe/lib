@@ -751,11 +751,11 @@ Timeline
         -   **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，
         -   **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
 -   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
-    -    《 "绩点" 的暴政 》
+    -    《 "绩点" 的暴政》
         成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
 -   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md):
     -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
-    -   《 如何成为不完美主义者 》
+    -   《如何成为不完美主义者》
         -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
         -   不那么在意行动正确与否，更在意是否在行动。
         -   不那么在意所谓时机，更在意任务本身。
