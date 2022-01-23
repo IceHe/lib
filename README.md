@@ -651,6 +651,7 @@ Timeline
     - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
     - [2018 Spring ~ 2019 Autumn](/life/timeline/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/life/timeline/2018-winter.md)
+    - [2022 January](/life/timeline/2022-january.md)
     - [Moments](/life/timeline/moments.md): 回忆
     - [Rehabilitation](/life/grow/rehabilitation.md)
     - [Step By Step](/life/grow/step-by-step.md)
