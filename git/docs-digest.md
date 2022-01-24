@@ -128,6 +128,8 @@ See more in [Abbreviations](snips/abbrs.md)
 - `-B` ... , if the branch already exists, reset it to `<start_point>`
 - `<start_point>` The name of a commit at which to start the new branch. Defaults to HEAD.
 - `git checkout [--] <file_path>` Dangerous! 撤销对工作区修改；这个命令是以最新的存储时间节点（add和commit）为参照，拷贝原来版本的文件覆盖工作区对应文件。除非确实不要那个文件中的修改了，否则不要使用这个命令！
+    - [Choose Git merge strategy for specific files ("ours", "mine", "theirs")](https://stackoverflow.com/questions/16825849/choose-git-merge-strategy-for-specific-files-ours-mine-theirs)
+        - `git checkout --ours -- <paths>` or `git checkout --theirs -- <paths>`
 
 [merge](http://git-scm.com/docs/git-merge) `<commit>`
 
@@ -232,6 +234,11 @@ See more in [Abbreviations](snips/abbrs.md)
 - `--interactive` | `-i` Make a list of the commits which are about to be rebased. Let the user edit that list before rebasing.
 - `git rebase --continue` Restart the rebasing process after having resolved a merge conflict.
 - `git rebase --abort` Abort the rebase operation and reset HEAD to the original branch.
+- `git rebase -X <strategy-option>` |  `git rebase --strategy-option=<strategy-option>` Pass the `<strategy-option>` through to the merge strategy.
+    This implies `--merge` and, if no strategy has been specified, `-s ort`.
+    Note the reversal of `ours` and `theirs` as noted above for the `-m` option.
+    - [How to rebase against another branch overriding conflicts with your own branch changes](https://demisx.github.io/git/rebase/2015/07/02/git-rebase-keep-my-branch-changes.html)
+        - `git rebase master -X ours` = `git merge master -X theirs`
 
 [cherry-pick](http://git-scm.com/docs/git-cherry-pick) `<commit>…`
 

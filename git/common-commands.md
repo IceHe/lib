@@ -157,6 +157,7 @@ git rebase
     -i | --interactive
     --continue
     --abort
+    -X [ours|theirs] <branch_name>
 ```
 
 ```bash
@@ -344,6 +345,7 @@ git push origin --delete backup
 - `git rebase <branch_name>` 变基的操作可能会发生 “冲突” 等意外状况
 - `git rebase --continue` 修复 “冲突” 等意外后，执行它以继续变基操作
 - `git rebase --abort` 假如情况弄得一团糟，需要中途中止变基操作时，运行该指令
+- `git rebase master -X ours` = `git merge master -X theirs` 将 master 分支合并到当前分支, 出现代码冲突时默认使用 master 分支的代码
 
 ## Tag 标签
 
