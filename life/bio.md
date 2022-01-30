@@ -64,8 +64,8 @@ IceHe's short biographical profile | 个人简历
 
 编程语言
 
-- 胜任: Java / PHP / _JavaScript_<!-- learning --> / _TypeScript_<!-- learning -->
-- 了解: C / C++ / Python / Assembly / _Kotlin_<!-- learning -->
+- 胜任: Java / PHP
+- 了解: C / C++ / Python / Assembly / _JavaScript_<!-- learning --> / _TypeScript_<!-- learning --> / _Kotlin_<!-- learning -->
 
 存储 / 缓存 / 队列
 
@@ -97,7 +97,7 @@ _2021.10 至今_
 - 公司简介: [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 - 初始产品: [Logto](https://github.com/logto-io) - The open source customer identity solution. DOING!
 - 融资阶段: Seed money $4.5M+ from [Sequoia Capital](https://www.sequoiacap.com/china/) , [ZhenFund](http://www.zhenfund.com/) , [Eminence Ventures](http://www.emventures.cn/)
-- _JavaScript / TypeScript / Node / React / Kotlin / Android / PostgreSQL / GitHub Organization_
+- _TypeScript / JavaScript / Node.js / React / Kotlin / PostgreSQL / GitHub Organization_
 
 **猿辅导: 斑马 - 供应链 - Java** <br/>
 _2021.3 ~ 2021.8_

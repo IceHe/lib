@@ -20,6 +20,9 @@
 .cache/
 /dist
 
+# Local History - Git plugin of VS Code 
+.history/
+
 # Others
 _private/
 
