@@ -8,34 +8,41 @@
 
 Weekly
 
--   [ ] W4. 01/23 Sun ~ 01/30 Sun = 1 week
+-   [ ] W5. 01/31 Sun ~ 02/06 Sun = 1 week (WIP)
 
     - [ ] 理想: 早睡 22:45-7:15 睡足 7h+
-    - [ ] 合理: 早睡 22:45-8:15 睡足 8h+
+        - [ ] 合理: 早睡 22:45-8:15 睡足 8h+
 
--   [ ] W5. 01/31 Mon ~ 02/06 Sun = 1 week
+-   [ ] W5. 01/31 Mon ~ 02/06 Sun = 1 week (Next Up, Try my best)
 
     - [ ] 理想: 早起 8:00-9:00 学习 1h+
+    - [ ] 理想: 早起 9:00-9:45 运动 45m
 
 Monthly
 
--   Jan: 早睡, 早起 (WIP)
--   Feb: WLB → Focus on work (TBD)
+-   Feb:
+    - 早睡, 早起 (WIP)
+    - WLB → Focus on one thing at a time (Next Up, Try my best)
 
 Seasonly
 
 -   2022 S1
 
-    Work: Pass probation period
+    Work: Pass probation period (WIP)
 
 Yearly
 
 -   2022
 
-    Work: Catch up with partners (TBD)
+    Work: Catch up with partners (WIP)
 
-    1. Learn Node.js / TypeScript/ JavaScript / OIDC / OAuth2
-    2. Feel free to communicate with partners
+    - Tech:
+        - TypeScript (WIP)
+        - JavaScript
+        - Node.js
+    - Biz:
+        - OAuth2 (WIP)
+        - OIDC
 
     ……
 
