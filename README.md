@@ -653,8 +653,7 @@ Timeline
     - [2018 Winter](/life/timeline/2018-winter.md)
     - [2022 January](/life/timeline/2022-january.md)
     - [Moments](/life/timeline/moments.md): 回忆
-    - [Rehabilitation](/life/grow/rehabilitation.md)
-    - [Step By Step](/life/grow/step-by-step.md)
+    - [Rehabilitation](/life/principle/rehabilitation.md)
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
     - [2017 Spring](/life/timeline/2017-spring.md)
