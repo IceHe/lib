@@ -710,7 +710,6 @@ Timeline
 - [STAR principle](/life/principle/star.md): Situation → Target → Action → Result
 - [Deployment Checklist](/snip/tmp/deployment-checklist.md): avoid low-level mistakes
 - [How to Leave](/life/principle/how-to-leave.md):《解除劳动合同告知书》
-- [The New Way To Work](/life/principle/new-way-to-work.md) (draft)
 
 ### Read
 
