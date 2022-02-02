@@ -232,7 +232,6 @@ Others
 - _[ID Generator](/snip/tmp/id-generator.md)_
 - _[CentOS 6](/snip/tmp/centos6.md)_
 - _[Memcached](/snip/tmp/memcached.md)_
-- _[Mongo](/snip/tmp/mongo.md)_
 - _[Work Flow](/snip/tmp/work-flow.md)_
 - _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
 
