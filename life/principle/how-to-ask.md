@@ -24,8 +24,7 @@ References
     - `man top`
     - Official Docs Page
 3. Find FAQs ( Frequestly Aasked Qustions )
-4. Self Check : 避免低级错误
-    - 小黄鸭测试法
+4. Self Check : 避免低级错误 → 小黄鸭调试法
 5. Read Source Code
 6. 先问身边的强人朋友
 

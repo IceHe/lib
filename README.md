@@ -697,6 +697,7 @@ Timeline
 - [How to Ask](/life/principle/how-to-ask.md): Prepare before asking
     - JFGI: Just Fucking Google It
     - RTFM: Read The Fucking Manual
+    - **Trade-off: Ask for help if stuck over 15 (or 30) min.**
 - [How to Work](/life/principle/how-to-work.md): Working Standards
     - 请示工作说方案
     - 布置工作说标准
@@ -709,6 +710,7 @@ Timeline
 - [STAR principle](/life/principle/star.md): Situation → Target → Action → Result
 - [Deployment Checklist](/snip/tmp/deployment-checklist.md): avoid low-level mistakes
 - [How to Leave](/life/principle/how-to-leave.md):《解除劳动合同告知书》
+- [The New Way To Work](/life/principle/new-way-to-work.md) (draft)
 
 ### Read
 
