@@ -41,6 +41,9 @@ Coding
     - Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
     - PEP 20
+-   [Google Engineering Practices](/snip/tmp/google-eng-practices.md) (Notes)
+    - How to do code review
+    - How to get through a code review
 
 <!-- todo
 
