@@ -849,6 +849,7 @@ Reference : https://www.computerhope.com/keys.htm
 - ssh : [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)
 - SSL : [Secure Sockets Layer](https://en.wikipedia.org/wiki/Transport_Layer_Security) ( deprecated )
 - sso : [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on) 单点登录
+- SSOT : [Single Source Of Truth](https://en.wikipedia.org/wiki/Single_source_of_truth)
 - st : something | sometimes
 - stat : status | statistics
 - STFW : Search The Fucking Web的意思。
