@@ -27,7 +27,7 @@ IceHe's short biographical profile | 个人简历
 
 动态
 
-- 技术博客: [icehe.xyz](https://icehe.xyz)
+- 技术博客: [IceHe.xyz](https://icehe.xyz)
 - 生活日常: [Weibo@\_IceHe\_](https://weibo.com/icedes)
 - 代码仓库: [GitHub/IceHe](https://github.com/IceHe)
 
