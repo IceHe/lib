@@ -623,6 +623,7 @@ Reference : https://www.computerhope.com/keys.htm
 - NM : Never mind.
 - No. : number
 - no-no : n. 禁忌；不可作之事
+- noop: no-op, [nop (code)](https://en.wikipedia.org/wiki/NOP_(code)) — short for **no operation** / do nothing
 - NoSQL : [Not Only SQL](https://en.wikipedia.org/wiki/NoSQL) / "non SQL" or "non relational"
 - NOYB : None of your businness. 与你无关
 - NP : No problem.
