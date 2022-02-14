@@ -418,8 +418,8 @@ Scene
 
 Shell
 
-- [Notes](/shell/notes.md): a bash script example
-- [Terminal Colors](/shell/terminal-colors.md)
+- [Notes](/cmd/shell/notes.md): a bash script example
+- [Terminal Colors](/cmd/shell/terminal-colors.md)
 
 _Batch 批处理_
 
