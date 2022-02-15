@@ -15,6 +15,8 @@
 
 ## Technology
 
+[Best Gain Everyday](/life/timeline/best-gain-everyday.md)
+
 ### Book
 
 [IceHe's Booklist](https://book.douban.com/people/IceHeGZ/collect) @Douban.com

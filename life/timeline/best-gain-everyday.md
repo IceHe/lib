@@ -1,10 +1,17 @@
-# Gain Everyday
+# Best Gain Everyday
 
 ---
 
-## 2022-02-13
+# 2022 Feb
 
-### 刷题的意义？
+## 9. Browser sessionStorage & localStorage
+
+- [Web Storage API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+- [Using the Web Storage API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+- [Window.sessionStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+- [Window.localStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+## 13. 刷题的意义？
 
 > [@刘未鹏pongba](https://weibo.com/pongba): [2021-4-1 10:19](https://weibo.com/1882579600/K8RlzAj5R)
 >
@@ -94,8 +101,72 @@
 因为自己现在实在太弱鸡了 —— 无论能力（软技能、硬技能）还是意愿（身心习惯）都不行，
 所以想太多也没用，先把最基础的事情做好吧。
 
-## 2022-02-14
+## 14. JS property getter/setter
 
 [logto-io/js PR - feat(browser): signIn #170](https://github.com/logto-io/js/pull/170)
 
-- getter & setter from JavaScript & TypeScript
+- How to write the property getter/setter in JavaScript/TypeScript
+- How to mock crypto in jest?
+    ```ts
+    // jest.setup.js
+    const crypto = require('crypto');
+
+    global.crypto = {
+        getRandomValues: (buffer) => crypto.randomFillSync(buffer),
+        subtle: crypto.webcrypto.subtle,
+    };
+    ```
+- Use `URLSearchParams` to
+    - parse parameters from query string
+        ```ts
+        const [, queryString = ''] = uri.split('?');
+        const urlSearchParams = new URLSearchParams(queryString);
+        ```
+    - construct query string
+        ```ts
+        const urlSearchParameters = new URLSearchParams({
+          foo: 'bar',
+          ice: 'he',
+        });
+
+        for (const item of items ?? []) {
+          urlSearchParameters.append('item', item);
+        }
+
+        const urlWithQueryString = `${url}?${urlSearchParameters.toString()}`;
+        ```
+- Use `URL` to join URL safely with `baseUrl` and `path`
+    ```ts
+    // e.g.
+    const baseUrl = 'https://icehe.xyz/';
+    const path = '/foo/bar';
+    const url = new URL(path, baseUrl);
+    // url.toString() === 'https://icehe.xyz/foo/bar'
+    ```
+
+## 15. Differ aseert from create in superstruct
+
+[logto-io/js PR - feat(browser): sign-in session storage  #175](https://github.com/logto-io/js/pull/175)
+
+- Differences between `assert` and `create` from `superstruct` package
+    - [assert](https://docs.superstructjs.org/api-reference/core#assert): just validate
+    - [create](https://docs.superstructjs.org/api-reference/core#create): validate, fill with default values and etc.
+    - [Coercions](https://docs.superstructjs.org/api-reference/coercions): defaulted and trimmed
+- How to access and test the protected properties and methods of a class
+    - Extends the class, and re-encapsulate the protected properties and methods in the public methods
+- When to retrieve properties from `window.sessionStorage` or `window.localStorage` in the browser
+    - Consistent data in `LocalStorage` should be retrieved and store in the object when constructing (in `constructor`).
+    - Temporary data in `SessionStorage` are recommended to be retrieved when needed.
+- Browser session life cycle?
+    - [Window.sessionStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+        - **A page session lasts as long as the tab or the browser is open, and survives over page reloads and restores.**
+    - How to test sessionStorage life cycle?
+        - 1. Chrome → ( View → ) Developer → JavaScript Console
+        - 2. Store session item: Under a.com site, run `window.sessionStorage.setItem('foo', 'bar');`
+            - Check session item: Developer Tools → Application → View the session storage of a.com
+        - 3. Redirect to another site: Under a.com site, run `window.location = 'b.com';`
+            - Check session item: as above
+        - 4. A. Come back to original site: Under b.com site, run `window.location = 'a.com';`
+            - B. close the tab, and then restore it
+            - C. close the tab, and then open another tab with a.com
+        - 5. Check session item, and find `foo: bar` exists
