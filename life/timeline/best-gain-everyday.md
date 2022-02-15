@@ -1,6 +1,10 @@
 # Best Gain Everyday
 
+记录每天最大的收获
+
 ---
+
+Started to record my best gain everyday from 2022/02/16.
 
 # 2022 Feb
 
@@ -10,6 +14,16 @@
 - [Using the Web Storage API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 - [Window.sessionStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
 - [Window.localStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+## 11. 好桌游《现代艺术》
+
+跟朋友玩这个桌游，虽然自己没有成为大赢家，
+但发现它的卡牌设计得非常精致、非常有艺术感，相当有意思。
+
+## 12. 破游戏《马里奥派对：全明星》
+
+跟朋友一起玩 Switch 游戏《马里奥派对：全明星》，游戏体验极差，让我们玩得非常“生气”，都被它气笑了。
+就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，让我体验到了别样的欢乐。
 
 ## 13. 刷题的意义？
 
@@ -151,7 +165,7 @@
 - Differences between `assert` and `create` from `superstruct` package
     - [assert](https://docs.superstructjs.org/api-reference/core#assert): just validate
     - [create](https://docs.superstructjs.org/api-reference/core#create): validate, fill with default values and etc.
-    - [Coercions](https://docs.superstructjs.org/api-reference/coercions): defaulted and trimmed
+        - with [coercions](https://docs.superstructjs.org/api-reference/coercions): defaulted and trimmed
 - How to access and test the protected properties and methods of a class
     - Extends the class, and re-encapsulate the protected properties and methods in the public methods
 - When to retrieve properties from `window.sessionStorage` or `window.localStorage` in the browser
