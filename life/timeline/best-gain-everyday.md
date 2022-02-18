@@ -184,3 +184,7 @@ Started to record my best gain everyday from 2022/02/16.
             - B. close the tab, and then restore it
             - C. close the tab, and then open another tab with a.com
         - 5. Check session item, and find `foo: bar` exists
+
+## 18. *.d.ts
+
+- [*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
