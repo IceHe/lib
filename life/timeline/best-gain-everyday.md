@@ -10,10 +10,10 @@ Started to record my best gain everyday from 2022/02/16.
 
 ## 9. Browser sessionStorage & localStorage
 
-- [Web Storage API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
-- [Using the Web Storage API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Window.sessionStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
-- [Window.localStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [Web Storage API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+- [Using the Web Storage API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+- [Window.sessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+- [Window.localStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
 ## 11. 好桌游《现代艺术》
 
@@ -172,7 +172,7 @@ Started to record my best gain everyday from 2022/02/16.
     - Consistent data in `LocalStorage` should be retrieved and store in the object when constructing (in `constructor`).
     - Temporary data in `SessionStorage` are recommended to be retrieved when needed.
 - Browser session life cycle?
-    - [Window.sessionStorage - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+    - [Window.sessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
         - **A page session lasts as long as the tab or the browser is open, and survives over page reloads and restores.**
     - How to test sessionStorage life cycle?
         - 1. Chrome → ( View → ) Developer → JavaScript Console
@@ -188,3 +188,4 @@ Started to record my best gain everyday from 2022/02/16.
 ## 18. *.d.ts
 
 - [*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
+- [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint
