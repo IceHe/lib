@@ -453,7 +453,7 @@ Code Snippet
 - [Base Encoding](/js/code-snippet/base64-encoding.md): encode, decode
 - [Environment](/js/code-snippet/environment.md): running under Node or browser-like environments
 - [Jest](/js/code-snippet/jest.md): for unit tests
-- [*.d.ts](/js/code-snippet/d.ts.md): declaration file that functions as an interface to the components compiled in JavaScript
+- [*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
 
 Package Management
 
