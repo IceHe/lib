@@ -453,8 +453,10 @@ Code Snippet
 - [Base Encoding](/js/code-snippet/base64-encoding.md): encode, decode
 - [Environment](/js/code-snippet/environment.md): running under Node or browser-like environments
 - [Jest](/js/code-snippet/jest.md): for unit tests
-- [*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
+- [*.d.ts](/js/code-snippet/d.ts.md) declaration files that functions as an interface to the components compiled in JavaScript
 - [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint.
+    - [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
+        - DOM change, **XHR/Fetch**, event listener, **exception** and **function `debug(functionName)`**
 
 Package Management
 

@@ -158,7 +158,7 @@ Started to record my best gain everyday from 2022/02/16.
     // url.toString() === 'https://icehe.xyz/foo/bar'
     ```
 
-## 15. Differ aseert from create in superstruct
+## 15. Differ `aseert` from `create` in `superstruct`
 
 [logto-io/js PR - feat(browser): sign-in session storage  #175](https://github.com/logto-io/js/pull/175)
 
@@ -185,7 +185,12 @@ Started to record my best gain everyday from 2022/02/16.
             - C. close the tab, and then open another tab with a.com
         - 5. Check session item, and find `foo: bar` exists
 
-## 18. *.d.ts
+## 18. TypeScript declaration files `*.d.ts`
 
 - [*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
 - [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint
+
+## 19. Pause code with breakpoints - Chrome DevTools
+
+- [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
+    - DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
