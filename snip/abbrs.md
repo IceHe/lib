@@ -1004,6 +1004,7 @@ Reference : https://www.computerhope.com/keys.htm
 - yep : yes
 - YKW : You know what? 你知道么 / you-known-what 那个东西 _( 不需或不便言明的 )_
 - YMMV : [Your Mileage May Vary](https://dictionary.cambridge.org/us/dictionary/english/ymmv)
+- yo : N years old (e.g. 2yo)
 - yup : yes
 - yr : year / yeah / right / your
 - yrs : years | yours
