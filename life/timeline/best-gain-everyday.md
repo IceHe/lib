@@ -195,18 +195,16 @@ Started to record my best gain everyday from 2022/02/16.
 - [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
     - DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
 
-## 20.《贪婪的多巴胺》
+## 20. 阅读《贪婪的多巴胺》& 书摘
 
-Reference:
-
-- 《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》- The Molecule of More: How a Single Chemical in Your Brain Drives Love, Sex, and Creativity―and Will Determine the Fate of the Human Race
-- [我的微博 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)
-- [我的微博 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)
-- [我的微博 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)
+- 《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》The Molecule of More: How a Single Chemical in Your Brain Drives Love, Sex, and Creativity―and Will Determine the Fate of the Human Race
+    - [我的微博 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)
+    - [我的微博 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)
+    - [我的微博 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)
 
 ## 21. Return early
 
-References:
-
 - [Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)
-- [我的微博 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
+    - _[我的微博 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)_ (private)
+
+## 22. TODO
