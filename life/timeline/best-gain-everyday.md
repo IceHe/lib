@@ -195,19 +195,23 @@ Started to record my best gain everyday from 2022/02/16.
 - [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
     - DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
 
-## 20. 阅读《贪婪的多巴胺》& 书摘
+## 20. 读《贪婪的多巴胺》
 
-- 《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》The Molecule of More: How a Single Chemical in Your Brain Drives Love, Sex, and Creativity―and Will Determine the Fate of the Human Race
-    - [我的微博 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)
-    - [我的微博 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)
-    - [我的微博 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)
+- 《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》
+    - [我的微博书摘 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)
+    - [我的微博书摘 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)
+    - [我的微博书摘 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)
 
 ## 21. Return early
 
-- [Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)
-    - _[我的微博 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)_ (private)
+- **[Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)**
+    - [我的微博笔记分享 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
 
-## 22. eslint
+## 22. 通关《AI梦境档案》
 
-- eslint
+- 通关《[AI梦境档案](https://www.douban.com/game/30265812/)》
+- 读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》
+    - [我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)
+- Upgrade @silverhand/eslint-config
     - [fix(eslint-config): fix rule member-ordering via updating dependencies #18 - github.com/silverhand-io/configs](https://github.com/silverhand-io/configs/pull/18)
+    - TODO: FIXME
