@@ -207,4 +207,7 @@ Started to record my best gain everyday from 2022/02/16.
 - [Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)
     - _[我的微博 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)_ (private)
 
-## 22. TODO
+## 22. eslint
+
+- eslint
+    - [fix(eslint-config): fix rule member-ordering via updating dependencies #18 - github.com/silverhand-io/configs](https://github.com/silverhand-io/configs/pull/18)
