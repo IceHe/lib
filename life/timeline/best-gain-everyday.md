@@ -219,3 +219,10 @@ Started to record my best gain everyday from 2022/02/16.
         - [fix(eslint-config): update pnpm-lock.yaml #20](https://github.com/silverhand-io/configs/pull/20)
     - github.com/logto-io/js
         - [chore: bump eslint-config to 0.9.1 #196](https://github.com/logto-io/js/pull/196)
+
+## 23. 不要熬夜
+
+_从来都知道熬夜不对，会极大地影响第二天的身心状态。_
+_但是还是经常被多巴胺诱惑，不断地想要感受、享受 “更多”，_
+_熬夜熬到实在不能再继续了，才会停下来……_
+_虽说理性的策略是“既往不咎，纵情向前”，但是这种时候还是会对自己感到十分失望。_
