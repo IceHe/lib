@@ -213,5 +213,9 @@ Started to record my best gain everyday from 2022/02/16.
 - 读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》
     - [我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)
 - Upgrade @silverhand/eslint-config
-    - [fix(eslint-config): fix rule member-ordering via updating dependencies #18 - github.com/silverhand-io/configs](https://github.com/silverhand-io/configs/pull/18)
-    - TODO: FIXME
+    - github.com/silverhand-io/configs
+        - [fix(eslint-config): fix rule member-ordering via updating dependencies #18](https://github.com/silverhand-io/configs/pull/18)
+        - [fix: bump typescript eslint plugins and disable unnecessary rules #19](https://github.com/silverhand-io/configs/pull/19)
+        - [fix(eslint-config): update pnpm-lock.yaml #20](https://github.com/silverhand-io/configs/pull/20)
+    - github.com/logto-io/js
+        - [chore: bump eslint-config to 0.9.1 #196](https://github.com/logto-io/js/pull/196)
