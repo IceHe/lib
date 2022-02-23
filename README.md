@@ -33,7 +33,7 @@ Coding
 -   [Refactoring](/book/refactoring.md)
     - Improving the Design of Existing Code
 -   [Design Patterns](/book/design-patterns.md)
-    - Elements of Reusable Object-Oriented Software_
+    - Elements of Reusable Object-Oriented Software
 -   [Pragmatic Programmer](/book/pragmatic-programmer.md)
     - Your journey to mastery - 2nd Edition
 -   [The Manager's Path](/book/the-manager-s-path.md)
@@ -43,7 +43,7 @@ Coding
     - Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
     - PEP 20
--   [Google Engineering Practices](/snip/tmp/google-eng-practices.md) (Notes)
+-   [Google Engineering Practices](/snip/tmp/google-eng-practices.md) (notes)
     - How to do code review
     - How to get through a code review
 
