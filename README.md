@@ -470,6 +470,8 @@ NPM: the world's largest software registry
     - [package.json](/js/npm-configuring/package-json.md): a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
     - [package-lock.json](/js/npm-configuring/package-lock-json.md): a manifestation of the manifest
     - [folders](/js/npm-configuring/folders.md): folder Structures Used by npm
+    - [npm semver calculator](https://semver.npmjs.com/) & [Sematic Versioning](https://semver.org/) (external links)
+        - _[About semantic versioning - npm Docs](https://docs.npmjs.com/about-semantic-versioning)_
 - Using
     - [registry](/js/npm-using/registry.md): The JavaScript package registry
     - [scope](/js/npm-using/scope.md): scoped packages
