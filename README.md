@@ -15,7 +15,7 @@
 
 ## Technology
 
-[Best Gain Everyday](/life/timeline/best-gain-everyday.md) from both technology and life
+[Best Gain Everyday](/life/timeline/best-gain-everyday.md) from both technology practices and daily life.
 
 ### Book
 

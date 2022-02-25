@@ -6,24 +6,26 @@
 
 Started to record my best gain everyday from 2022/02/16.
 
+（标题带 `*` 表示收获一般，斜体内容表示不太重要。）
+
 # 2022 Feb
 
-## 9. Browser sessionStorage & localStorage
+## 9. Window sessionStorage & localStorage
 
 - [Web Storage API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
 - [Using the Web Storage API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 - [Window.sessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
 - [Window.localStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
-## 11. 好桌游《现代艺术》
+## *_11. 好桌游《现代艺术》_
 
-跟朋友玩这个桌游，虽然自己没有成为大赢家，
-但发现它的卡牌设计得非常精致、非常有艺术感，相当有意思。
+_跟朋友玩这个桌游，虽然自己没有成为大赢家，_
+_但发现它的卡牌设计得非常精致、很有艺术气息。_
 
-## 12. 破游戏《马里奥派对：全明星》
+## *_12. 破游戏《马里奥派对：全明星》_
 
-跟朋友一起玩 Switch 游戏《马里奥派对：全明星》，游戏体验极差，让我们玩得非常“生气”，都被它气笑了。
-就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，让我体验到了别样的欢乐。
+_跟朋友一起玩 Switch 游戏《马里奥派对：全明星》，游戏体验极差，让我们玩得非常“生气”，都被它气笑了。_
+_发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也能体验到别样的欢乐。_
 
 ## 13. 刷题的意义？
 
@@ -108,12 +110,7 @@ Started to record my best gain everyday from 2022/02/16.
 ![time-cost-benefit-curve.jpeg](./_image/time-cost-benefit-curve.jpeg)
 
 仅仅靠蛮力去做事是不行的，无论是工作、学习、游戏，还是日常生活。
-之前做了太多无关紧要的知识点积累，只是因为那样做有“一分耕耘，一份收获”的持续获得感。
-
-如果之前自己做得都不对，以后自己该怎么做呢？感觉又开始陷入迷茫。
-其实还好，对于现在的自己来说，实在没必要想太多……
-因为自己现在实在太弱鸡了 —— 无论能力（软技能、硬技能）还是意愿（身心习惯）都不行，
-所以想太多也没用，先把最基础的事情做好吧。
+之前做了太多无关紧要的知识点积累，只不过因为那样做有“一分耕耘，一份收获”的持续获得感罢了……
 
 ## 14. JS property getter/setter
 
@@ -185,7 +182,7 @@ Started to record my best gain everyday from 2022/02/16.
             - C. close the tab, and then open another tab with a.com
         - 5. Check session item, and find `foo: bar` exists
 
-## 18. TypeScript declaration files `*.d.ts`
+## 18. Declaration files `*.d.ts`
 
 - [*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
 - [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint
@@ -195,23 +192,24 @@ Started to record my best gain everyday from 2022/02/16.
 - [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
     - DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
 
-## 20. 读《贪婪的多巴胺》
+## *_20. 读《贪婪的多巴胺》_
 
-- 《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》
-    - [我的微博书摘 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)
-    - [我的微博书摘 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)
-    - [我的微博书摘 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)
+- _《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
+    - _[我的微博书摘 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)_
+    - _[我的微博书摘 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)_
+    - _[我的微博书摘 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)_
 
 ## 21. Return early
 
 - **[Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)**
     - [我的微博笔记分享 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
+    -  TODO: Take notes?
 
-## 22. 通关《AI梦境档案》
+## *_22. 通关《AI梦境档案》_
 
-- 通关《[AI梦境档案](https://www.douban.com/game/30265812/)》
-- 读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》
-    - [我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)
+- _通关《[AI梦境档案](https://www.douban.com/game/30265812/)》_
+- _读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
+    - _[我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)_
 - Upgrade @silverhand/eslint-config
     - github.com/silverhand-io/configs
         - [fix(eslint-config): fix rule member-ordering via updating dependencies #18](https://github.com/silverhand-io/configs/pull/18)
@@ -236,24 +234,24 @@ _（虽说理性的策略是“既往不咎，纵情向前”，接下来重新�
 不能保证头脑尽可能处于最佳状态，枉论做别的事能做得更多更好。
 （所以觉得自己学生时代的脑袋真是一桶浆糊，即使到了现在自己已经工作6年多了，还是在低效率地生活，无论做的是正事还是娱乐。）
 
-## 24. 了解自己 / 通过解决实际问题来快速进步
+## *_24. 了解自己 / 通过解决实际问题来快速进步_
 
-有些地方活得太马虎了，一点都不了解自己……
+_有些地方活得太马虎了，一点都不了解自己……_
 
-有阅读障碍，打剧本杀最初的读本读得慢，而且要带着耳机，不然别人一说话注意力和思路就被别人带走了。
-过程中分析的时候也是，很难一边听着别人分析，然后一边自己看着别的线索同时进行别的分析探索。
+_有阅读障碍，打剧本杀最初的读本读得慢，而且要带着耳机，不然别人一说话注意力和思路就被别人带走了。_
+_过程中分析的时候也是，很难一边听着别人分析，然后一边自己看着别的线索同时进行别的分析探索。_
 
-明明自己是个不聪明还容易分神的人，需要专注做事，很后来才了解自己。
-然而学生时代还是很喜欢一边听歌、唱歌一边做作业……
-现在干点什么正事，不但很少开音乐，还戴上降噪耳机。
+_明明自己是个不聪明还容易分神的人，需要专注做事，很后来才了解自己。_
+_然而学生时代还是很喜欢一边听歌、唱歌一边做作业……_
+_现在干点什么正事，不但很少开音乐，还戴上降噪耳机。_
 
-还有学生时代上体育课，靠风干、焐干自己的衣服，容易感冒，
-明明已经感冒很多次了，鼻炎难受极了，上体育课的日子还是不懂得带备用衣服，不会注意身体。
+_还有学生时代上体育课，靠风干、焐干自己的衣服，容易感冒，_
+_明明已经感冒很多次了，鼻炎难受极了，上体育课的日子还是不懂得带备用衣服，不会注意身体。_
 
 ---
 
-自己不爱去主动（或被动）地解决现实中的（正常或不得不面对的工作、学业或生活上的）问题，
-进步就非常慢……（记得这种趋势从学生时代的初一下学期就开始暴露了……）
+_自己不爱去主动（或被动）地解决现实中的（正常或不得不面对的工作、学业或生活上的）问题，_
+_进步就非常慢……（记得这种趋势从学生时代的初一下学期就开始暴露了……）_
 
 其实自己明白“抄书式”学习的效率很低，
 不如直接找一个问题去解决，找一个要做的事然后去实现，
@@ -264,4 +262,31 @@ _（虽说理性的策略是“既往不咎，纵情向前”，接下来重新�
 “知识点”上的积累，效率和质量都不高，但是有积累感 ——
 随时随地花一点时间就能够明确感受到自己又多知道了一点点新东西。
 
-自己是个俗人，没有多高的追求，然后采用“抄书式”学习的方式来缓解焦虑的做法就好像挺自然的？
+_自己是个俗人，没有多高的追求，然后采用“抄书式”学习的方式来缓解焦虑的做法就好像挺自然的？_
+
+## 25. Build `*.ts` excluding test files
+
+- [refactor(js): convert jest.config.js to jest.config.ts #203](https://github.com/logto-io/js/pull/203/files) ( - github.com/logto-io/js )
+    -   **`tsc` compiles `*.ts` excluding the test files**. e.g.
+        ```json
+        // package.json
+        {
+            "scripts": {
+                "build": "tsc -p tsconfig.build.json",
+                ……
+            },
+            ……
+        }
+        ```
+        ```json
+        {
+            "extends": "./tsconfig",
+            "include": [
+                "src"
+            ],
+            "exclude": [
+                "**/*.test.ts",
+            ]
+        }
+        ```
+    -   Use `jest.config.ts` instead of `jest.config.js`.
