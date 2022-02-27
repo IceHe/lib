@@ -17,12 +17,12 @@ Started to record my best gain everyday from 2022/02/16.
 - [Window.sessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
 - [Window.localStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
-## *_11. 好桌游《现代艺术》_
+## *_11. 精致的桌游《现代艺术》_
 
 _跟朋友玩这个桌游，虽然自己没有成为大赢家，_
 _但发现它的卡牌设计得非常精致、很有艺术气息。_
 
-## *_12. 破游戏《马里奥派对：全明星》_
+## *_12. 烂游戏《马里奥派对：全明星》_
 
 _跟朋友一起玩 Switch 游戏《马里奥派对：全明星》，游戏体验极差，让我们玩得非常“生气”，都被它气笑了。_
 _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也能体验到别样的欢乐。_
@@ -294,3 +294,15 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 ## *_26. 有趣的桌游《解码站》_
 
 略
+
+<!--
+
+## 27.
+
+## 28.
+
+# 2022 Mar
+
+## 1.
+
+-->
