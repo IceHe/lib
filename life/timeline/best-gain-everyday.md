@@ -321,6 +321,11 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 [logto-io/js PR - chore(js,browser): simplify wepack config… #205](https://github.com/logto-io/js/pull/205)
 
 - Simplify `webpack.config.js` in TypeScript projects
+    - How to use Webpack in [TypeScript](https://webpack.js.org/guides/typescript/#loader) projects
+        -   Webpack documentation recommends to use `ts-loader` to transpile the code, e.g. TypeScript.
+        -   Actually _"ts-loader uses tsc, the TypeScript compiler…"_,
+            so if have already used `tsc` to transpile TypeScript files `*.ts` into JavaScript files `*.js`,
+            we'd better package `*.js` directly instead of importing another devDependency `ts-loader` to deal with `*.ts` at first.
 
 # 2022 Mar
 
