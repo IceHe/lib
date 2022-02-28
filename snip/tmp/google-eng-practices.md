@@ -1,5 +1,7 @@
 # Google Engineering Practices
 
+Digest
+
 ---
 
 References
@@ -33,6 +35,27 @@ Terminology
 References
 
 - [How to do a code review](https://google.github.io/eng-practices/review/reviewer/)
+
+……
+
+_First, developers must be able to make progress on their tasks._
+_If you never submit an improvement to the codebase, then the codebase never improves._
+_Also,_ if a reviewer makes it very difficult for any change to go in, then developers are disincentivized to make improvements in the future.
+
+……
+
+**In general, reviewers should favor approving a CL once it is in a state where it definitely improves the overall code health of the system being worked on, even if the CL isn’t perfect.**
+
+That is the senior principle among all of the code review guidelines.
+
+_There are limitations to this, of course._
+_For example,_ if a CL adds a feature that the reviewer doesn’t want in their system, then the reviewer can certainly deny approval even if the code is well-designed.
+
+A key point here is that there is no such thing as “perfect” code — there is only better code.
+**Reviewers should not require the author to polish every tiny piece of a CL before granting approval.**
+**Rather, the reviewer should balance out the need to make forward progress compared to the importance of the changes they are suggesting.**
+**Instead of seeking perfection, what a reviewer should seek is continuous improvement.**
+A CL that, as a whole, improves the maintainability, readability, and understandability of the system shouldn’t be delayed for days or weeks because it isn’t “perfect.”
 
 ### The Standard of Code Review
 
