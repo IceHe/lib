@@ -12,10 +12,12 @@ Started to record my best gain everyday from 2022/02/16.
 
 ## 9. Window sessionStorage & localStorage
 
-- [Web Storage API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
-- [Using the Web Storage API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Window.sessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
-- [Window.localStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+_MDN Web Docs:_
+
+- [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+- [Using the Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+- [Window.sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+- [Window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
 ## *_11. 精致的桌游《现代艺术》_
 
@@ -189,21 +191,24 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
 ## 19. Pause code with breakpoints - Chrome DevTools
 
-- [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
-    - DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
+Chrome DevTools - [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints)
+
+- DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
 
 ## *_20. 读《贪婪的多巴胺》_
 
-- _《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
-    - _[我的微博书摘 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)_
-    - _[我的微博书摘 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)_
-    - _[我的微博书摘 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)_
+_《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
+
+- _[我的微博书摘 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)_
+- _[我的微博书摘 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)_
+- _[我的微博书摘 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)_
 
 ## 21. Should `return` early
 
-- **[Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)**
-    - [我的微博笔记分享 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
-    -  TODO: Take notes?
+**[Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)**
+
+- [我的微博笔记分享 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
+-  TODO: Take notes?
 
 ## *_22. 通关《AI梦境档案》_
 
@@ -266,38 +271,42 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 ## 25. Build `*.ts` excluding test files
 
-- [refactor(js): convert jest.config.js to jest.config.ts #203](https://github.com/logto-io/js/pull/203/files) ( - github.com/logto-io/js )
-    -   **`tsc` compiles `*.ts` excluding the test files**. e.g.
-        ```json
-        // package.json
-        {
-            "scripts": {
-                "build": "tsc -p tsconfig.build.json",
-                ……
-            },
+[logto-io/js PR - refactor(js): convert jest.config.js to jest.config.ts #203](https://github.com/logto-io/js/pull/203/files)
+
+-   **`tsc` compiles `*.ts` excluding the test files**. e.g.
+    ```json
+    // package.json
+    {
+        "scripts": {
+            "build": "tsc -p tsconfig.build.json",
             ……
-        }
-        ```
-        ```json
-        {
-            "extends": "./tsconfig",
-            "include": [
-                "src"
-            ],
-            "exclude": [
-                "**/*.test.ts",
-            ]
-        }
-        ```
-    -   Use `jest.config.ts` instead of `jest.config.js`.
+        },
+        ……
+    }
+    ```
+    ```json
+    {
+        "extends": "./tsconfig",
+        "include": [
+            "src"
+        ],
+        "exclude": [
+            "**/*.test.ts",
+        ]
+    }
+    ```
+-   Use `jest.config.ts` instead of `jest.config.js`.
 
 ## *_26. 有趣的桌游《截码站》/ 感受音乐酒吧 Tokyo Lounge_
 
-- 有趣的桌游《截码站》
-    - 后记：可惜第二天（27号）就玩腻了。
-- 去 Tokyo Lounge 东京酒廊，体验一下音乐酒吧。
-    - 虽然氛围感觉还不错，但人均消费对我来说还是偏贵了，自己一个人是不会考虑去那消磨时光的。
-    - [我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)
+有趣的桌游《截码站》
+
+- 后记：可惜第二天（27号）就玩腻了。
+
+去 Tokyo Lounge 东京酒廊，体验一下音乐酒吧。
+
+- 虽然氛围感觉还不错，但人均消费对我来说还是偏贵了，自己一个人是不会考虑去那消磨时光的。
+- [我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)
 
 ## *_27. 重玩《UNO》感觉还不错_
 
@@ -305,10 +314,14 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 ## 28. package.json peerDependencies & simplify webpack.config.js
 
-<!--
+[logto-io/js PR - refactor(react): init react package #201](https://github.com/logto-io/js/pull/201)
+
+- How to use `peerDependencies` in `package.json`
+
+[logto-io/js PR - chore(js,browser): simplify wepack config… #205](https://github.com/logto-io/js/pull/205)
+
+- Simplify `webpack.config.js` in TypeScript projects
 
 # 2022 Mar
 
-## 1.
-
--->
+## 1. TODO
