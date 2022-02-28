@@ -303,7 +303,7 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 略。
 
-## 28. package.json peerDependencies
+## 28. package.json peerDependencies & simplify webpack.config.js
 
 <!--
 
