@@ -316,7 +316,12 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 [logto-io/js PR - refactor(react): init react package #201](https://github.com/logto-io/js/pull/201)
 
-- How to use `peerDependencies` in `package.json`
+- `peerDependencies` in `package.json`
+    - References:
+        - [Peer Dependencies - nodejs.org/noticias](https://nodejs.org/es/blog/npm/peer-dependencies/)
+        - [探讨npm依赖管理之peerDependencies - wonyun - 博客园](https://www.cnblogs.com/wonyun/p/9692476.html)
+            - [package.json文件 # peerDependencies - JavaScript 标准参考教程（alpha）- 阮一峰](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc3)
+    - 一个 package 的 `peerDependencies` 用于提示引入该 package 的项目也需要安装哪些（指定版本范围的）其它 package。
 
 [logto-io/js PR - chore(js,browser): simplify wepack config… #205](https://github.com/logto-io/js/pull/205)
 
