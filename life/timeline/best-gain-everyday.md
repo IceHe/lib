@@ -360,3 +360,38 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
         > we'd better package `*.js` directly instead of importing another devDependency `ts-loader` to deal with `*.ts` at first.
 
 # 2022 Mar
+
+## 1. PostgreSQL `jsonb` & `timestamptz`
+
+`jsonb`
+
+- [8.14. JSON Types - PostgreSQL 14 Documentation](https://www.postgresql.org/docs/14/datatype-json.html)
+
+    > PostgreSQL offers two types for storing JSON data: `json` and `jsonb`. ……
+    >
+    > The `json` and `jsonb` data types accept almost identical sets of values as input.
+    > The major practical difference is one of efficiency.
+    > **The `json` data type stores an exact copy of the input text, which processing functions must reparse on each execution;**
+    > **while `jsonb` data is stored in a decomposed binary format that makes it slightly slower to input due to added conversion overhead,**
+    > **but significantly faster to process, since no reparsing is needed.**
+    > **`jsonb` also supports indexing, which can be a significant advantage.**
+    >
+    > Because the `json` type stores an exact copy of the input text,
+    > it will preserve semantically-insignificant white space between tokens, as well as the order of keys within JSON objects.
+    > Also, if a JSON object within the value contains the same key more than once, all the key/value pairs are kept.
+    > (The processing functions consider the last value as the operative one.)
+    > By contrast, `jsonb` does not preserve white space, does not preserve the order of object keys, and does not keep duplicate object keys.
+    > If duplicate keys are specified in the input, only the last value is kept.
+    >
+    > In general, most applications should prefer to store JSON data as `jsonb`,
+    > unless there are quite specialized needs, such as legacy assumptions about ordering of object keys.
+    >
+    > ……
+
+`timestamptz`
+
+- [8.5 Date/Time Types - PostgreSQL 14 Documentation](https://www.postgresql.org/docs/14/datatype-datetime.html)
+
+    > Note:
+    > The SQL standard requires that writing just `timestamp` be equivalent to **timestamp without time zone**, and PostgreSQL honors that behavior.
+    > `timestamptz` is accepted as an abbreviation for **timestamp with time zone**; this is a PostgreSQL extension.
