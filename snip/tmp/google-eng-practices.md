@@ -36,6 +36,10 @@ References
 
 - [How to do a code review](https://google.github.io/eng-practices/review/reviewer/)
 
+### The Standard of Code Review
+
+- [The Standard of Code Review](https://google.github.io/eng-practices/review/reviewer/standard.html)
+
 ……
 
 _First, developers must be able to make progress on their tasks._
@@ -44,7 +48,7 @@ _Also,_ if a reviewer makes it very difficult for any change to go in, then deve
 
 ……
 
-**In general, reviewers should favor approving a CL once it is in a state where it definitely improves the overall code health of the system being worked on, even if the CL isn’t perfect.**
+<u>**In general, reviewers should favor approving a CL once it is in a state where it definitely improves the overall code health of the system being worked on, even if the CL isn’t perfect.**</u>
 
 That is the senior principle among all of the code review guidelines.
 
@@ -56,10 +60,6 @@ A key point here is that there is no such thing as “perfect” code — there 
 **Rather, the reviewer should balance out the need to make forward progress compared to the importance of the changes they are suggesting.**
 **Instead of seeking perfection, what a reviewer should seek is continuous improvement.**
 A CL that, as a whole, improves the maintainability, readability, and understandability of the system shouldn’t be delayed for days or weeks because it isn’t “perfect.”
-
-### The Standard of Code Review
-
-- [The Standard of Code Review](https://google.github.io/eng-practices/review/reviewer/standard.html)
 
 ### What to Look For In a Code Review
 
