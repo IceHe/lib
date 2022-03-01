@@ -119,7 +119,9 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 [logto-io/js PR - feat(browser): signIn #170](https://github.com/logto-io/js/pull/170)
 
 - How to write the property getter/setter in JavaScript/TypeScript
+
 - How to mock crypto in jest?
+
     ```ts
     // jest.setup.js
     const crypto = require('crypto');
@@ -129,13 +131,18 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
         subtle: crypto.webcrypto.subtle,
     };
     ```
+
 - Use `URLSearchParams` to
+
     - parse parameters from query string
+
         ```ts
         const [, queryString = ''] = uri.split('?');
         const urlSearchParams = new URLSearchParams(queryString);
         ```
+
     - construct query string
+
         ```ts
         const urlSearchParameters = new URLSearchParams({
           foo: 'bar',
@@ -148,7 +155,9 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
         const urlWithQueryString = `${url}?${urlSearchParameters.toString()}`;
         ```
+
 - Use `URL` to join URL safely with `baseUrl` and `path`
+
     ```ts
     // e.g.
     const baseUrl = 'https://icehe.xyz/';
@@ -161,28 +170,44 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
 [logto-io/js PR - feat(browser): sign-in session storage  #175](https://github.com/logto-io/js/pull/175)
 
-- Differences between `assert` and `create` from `superstruct` package
+-   Differences between `assert` and `create` from `superstruct` package
+
     - [assert](https://docs.superstructjs.org/api-reference/core#assert): just validate
     - [create](https://docs.superstructjs.org/api-reference/core#create): validate, fill with default values and etc.
         - with [coercions](https://docs.superstructjs.org/api-reference/coercions): defaulted and trimmed
-- How to access and test the protected properties and methods of a class
-    - Extends the class, and re-encapsulate the protected properties and methods in the public methods
-- When to retrieve properties from `window.sessionStorage` or `window.localStorage` in the browser
+
+-   When to retrieve properties from `window.sessionStorage` or `window.localStorage` in the browser
+
     - Consistent data in `LocalStorage` should be retrieved and store in the object when constructing (in `constructor`).
     - Temporary data in `SessionStorage` are recommended to be retrieved when needed.
-- Browser session life cycle?
-    - [Window.sessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
-        - **A page session lasts as long as the tab or the browser is open, and survives over page reloads and restores.**
-    - How to test sessionStorage life cycle?
-        - 1. Chrome → ( View → ) Developer → JavaScript Console
-        - 2. Store session item: Under a.com site, run `window.sessionStorage.setItem('foo', 'bar');`
-            - Check session item: Developer Tools → Application → View the session storage of a.com
-        - 3. Redirect to another site: Under a.com site, run `window.location = 'b.com';`
-            - Check session item: as above
-        - 4. A. Come back to original site: Under b.com site, run `window.location = 'a.com';`
+
+-   Browser session life cycle?
+
+    -   [Window.sessionStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+
+        > A page session lasts as long as the tab or the browser is open, and survives over page reloads and restores.
+
+    -   How to test sessionStorage life cycle?
+
+        1.  Chrome → ( View → ) Developer → JavaScript Console
+        2.  Store session item: Under a.com site, run `window.sessionStorage.setItem('foo', 'bar');`
+
+            Check session item: Developer Tools → Application → View the session storage of a.com
+
+        3.  Redirect to another site: Under a.com site, run `window.location = 'b.com';`
+
+            Check session item: as above
+
+        4. A. Come back to original site: Under b.com site, run `window.location = 'a.com';`
+
             - B. close the tab, and then restore it
             - C. close the tab, and then open another tab with a.com
-        - 5. Check session item, and find `foo: bar` exists
+
+        5. Check session item, and find `foo: bar` exists
+
+-   How to access and test the protected properties and methods of a class?
+
+    -   Extends the class, and re-encapsulate the protected properties and methods in the public methods
 
 ## 18. Declaration files `*.d.ts`
 
@@ -321,17 +346,17 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
         - [Peer Dependencies - nodejs.org/noticias](https://nodejs.org/es/blog/npm/peer-dependencies/)
         - [探讨npm依赖管理之peerDependencies - wonyun - 博客园](https://www.cnblogs.com/wonyun/p/9692476.html)
             - [package.json文件 # peerDependencies - JavaScript 标准参考教程（alpha）- 阮一峰](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc3)
-    - 一个 package 的 `peerDependencies` 用于提示引入该 package 的项目也需要安装哪些（指定版本范围的）其它 package。
+
+    > 一个 package 的 `peerDependencies` 用于提示引入该 package 的项目也需要安装哪些（指定版本范围的）其它 package。
 
 [logto-io/js PR - chore(js,browser): simplify wepack config… #205](https://github.com/logto-io/js/pull/205)
 
 - Simplify `webpack.config.js` in TypeScript projects
     - How to use Webpack in [TypeScript](https://webpack.js.org/guides/typescript/#loader) projects
-        -   Webpack documentation recommends to use `ts-loader` to transpile the code, e.g. TypeScript.
-        -   Actually _"ts-loader uses tsc, the TypeScript compiler…"_,
-            so if have already used `tsc` to transpile TypeScript files `*.ts` into JavaScript files `*.js`,
-            we'd better package `*.js` directly instead of importing another devDependency `ts-loader` to deal with `*.ts` at first.
+        > Webpack documentation recommends to use `ts-loader` to transpile the code, e.g. TypeScript.
+        >
+        > Actually _"ts-loader uses tsc, the TypeScript compiler…"_,
+        > so if have already used `tsc` to transpile TypeScript files `*.ts` into JavaScript files `*.js`,
+        > we'd better package `*.js` directly instead of importing another devDependency `ts-loader` to deal with `*.ts` at first.
 
 # 2022 Mar
-
-## 1. TODO
