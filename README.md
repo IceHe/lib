@@ -36,9 +36,6 @@ Coding
     - Elements of Reusable Object-Oriented Software
 -   [Pragmatic Programmer](/book/pragmatic-programmer.md)
     - Your journey to mastery - 2nd Edition
--   [The Manager's Path](/book/the-manager-s-path.md)
-    <!-- todo -->
-    - A Guide for Tech Leaders Navigating Growth and Change
 -   [Clean Agile](/book/clean-agile.md)
     - Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
@@ -47,10 +44,12 @@ Coding
     - How to do code review
     - How to get through a code review
 
-<!-- todo
+<!-- TODO
 
--   [Peopleware](/book/peopleware.md) - todo again
+-   [Peopleware](/book/peopleware.md)
     - Productive Projects and Teams
+-   [The Manager's Path](/book/the-manager-s-path.md)
+    - A Guide for Tech Leaders Navigating Growth and Change
 
 -->
 
@@ -77,25 +76,20 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 - [reading notes](/book/fundamentals-of-software-architecture.md)
 
-<!--
+<!-- TODO
 
 [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC
 
-- [Part*  1](/book/tcp-ip-illustracted-protocols-p1.md) - todo
+- [Part*  1](/book/tcp-ip-illustracted-protocols-p1.md)
 
 xUnit Test Patterns: Refactoring Test Code - [douban.com](https://book.douban.com/subject/1859393/)
 
-Tools
-
-- Wireshark
-    - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md) - todo
-    - [The Art of Network Analysis Using Wireshark](/book/wireshark-the-art-of-network-analysis.md) - todo
-
 Others
 
-- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC - todo
-- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.md) - todo
-- [Linux Kernel](/book/linux.md) - todo
+- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC
+- [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md)
+- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.m
+- [Linux Kernel Development](/book/linux-kernel-development.md)
 
 -->
 
