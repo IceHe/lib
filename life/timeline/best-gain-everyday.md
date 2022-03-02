@@ -233,7 +233,26 @@ _《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
 **[Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)**
 
 - [我的微博笔记分享 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
--  TODO: Take notes?
+
+> \# Follow the "happy path"
+>
+> ……
+> Happy, because this is the expected positive result and this is the reason why we call this function.
+>
+> ![return-early-happy-path.jpeg](_image/return-early-happy-path.jpeg)
+>
+> Return early is the way of writing functions or methods so that the **expected positive result is returned at the end of the function** and **the rest of the code terminates the execution when conditions are not met**.
+>
+> \# Get rid of bad cases early
+>
+> We **should terminate the execution or simply return from function earlier**.
+> ……
+>
+> \# The Bouncer Pattern
+>
+> **It’s also known as “Assertions” or even  “Guard clauses”.**
+> All mean the same and they prevent code execution in case of the invalid state.
+> ……
 
 ## *_22. 通关《AI梦境档案》_
 
@@ -395,3 +414,7 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
     > Note:
     > The SQL standard requires that writing just `timestamp` be equivalent to **timestamp without time zone**, and PostgreSQL honors that behavior.
     > `timestamptz` is accepted as an abbreviation for **timestamp with time zone**; this is a PostgreSQL extension.
+
+## 2. koa
+
+TODO
