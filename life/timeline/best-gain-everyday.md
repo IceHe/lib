@@ -415,6 +415,10 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
     > The SQL standard requires that writing just `timestamp` be equivalent to **timestamp without time zone**, and PostgreSQL honors that behavior.
     > `timestamptz` is accepted as an abbreviation for **timestamp with time zone**; this is a PostgreSQL extension.
 
-## 2. koa: next generation web framework for node.js
+## 2. Get started with `koa`
 
-[koajs.com](https://koajs.com/)
+koa: next generation web framework for node.js - [koajs.com](https://koajs.com/)
+
+_生活日常：用挑染假发片模拟了一下挑染的效果，感觉耳目一新。_
+
+## 3. TODO
