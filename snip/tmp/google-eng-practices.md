@@ -107,7 +107,35 @@ Often the escalation path is to a broader team discussion, having a Technical Le
 
 ### What to Look For In a Code Review
 
+References
+
 - [What to Look For In a Code Review](https://google.github.io/eng-practices/review/reviewer/looking-for.html)
+
+#### Design
+
+#### Functionality
+
+#### Complexity
+
+#### Tests
+
+#### Naming
+
+#### Comments
+
+#### Style
+
+#### Consistency
+
+#### Documentation
+
+##### Exceptions
+
+#### Context
+
+#### Good Things
+
+#### Summary
 
 ### Navigating a CL in Review
 
