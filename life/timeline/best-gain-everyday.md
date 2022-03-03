@@ -421,4 +421,8 @@ koa: next generation web framework for node.js - [koajs.com](https://koajs.com/)
 
 _生活日常：用挑染假发片模拟了一下挑染的效果，感觉耳目一新。_
 
-## 3. TODO
+## 3. Sign in with Twitter
+
+- https://developer.twitter.com/en/docs/authentication/overview
+    - https://developer.twitter.com/en/docs/authentication/oauth-2-0
+        - https://developer.twitter.com/en/docs/authentication/oauth-2-0/bearer-tokens
