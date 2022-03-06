@@ -421,12 +421,6 @@ koa: next generation web framework for node.js - [koajs.com](https://koajs.com/)
 
 _生活日常：用挑染假发片模拟了一下挑染的效果，感觉耳目一新。_
 
-## 3. Sign in with Twitter
+## *_3. 剧情还不错的番剧《天才王子的赤字国家振兴术》_
 
-- https://developer.twitter.com/en/docs/authentication/overview
-    - https://developer.twitter.com/en/docs/authentication/oauth-2-0
-        - https://developer.twitter.com/en/docs/authentication/oauth-2-0/bearer-tokens
-
-## *_4. 剧情还不错的番剧《天才王子的赤字国家振兴术》_
-
-## *_5. 制作精良的异世界番剧《世界顶尖的暗杀者，转生为异世界贵族》_
+## *_4. 制作精良的异世界番剧《世界顶尖的暗杀者，转生为异世界贵族》_
