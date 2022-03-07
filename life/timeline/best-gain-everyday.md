@@ -116,7 +116,7 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
 ## 14. JS property getter/setter
 
-[logto-io/js PR - feat(browser): signIn #170](https://github.com/logto-io/js/pull/170)
+[feat(browser): signIn by IceHe · Pull Request #170 · logto-io/js](https://github.com/logto-io/js/pull/170)
 
 - How to write the property getter/setter in JavaScript/TypeScript
 
@@ -168,7 +168,7 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
 ## 15. Differ `aseert` from `create` in `superstruct`
 
-[logto-io/js PR - feat(browser): sign-in session storage  #175](https://github.com/logto-io/js/pull/175)
+[feat(browser): sign-in session storage by IceHe · Pull Request #175 · logto-io/js](https://github.com/logto-io/js/pull/175)
 
 -   Differences between `assert` and `create` from `superstruct` package
 
@@ -315,7 +315,7 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 ## 25. Build `*.ts` excluding test files
 
-[logto-io/js PR - refactor(js): convert jest.config.js to jest.config.ts #203](https://github.com/logto-io/js/pull/203/files)
+[refactor(js): convert jest.config.js to jest.config.ts by IceHe · Pull Request #203 · logto-io/js](https://github.com/logto-io/js/pull/203)
 
 -   **`tsc` compiles `*.ts` excluding the test files**. e.g.
     ```json
@@ -358,7 +358,7 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 ## 28. package.json peerDependencies & simplify webpack.config.js
 
-[logto-io/js PR - refactor(react): init react package #201](https://github.com/logto-io/js/pull/201)
+[refactor(react): init react package by IceHe · Pull Request #201 · logto-io/js](https://github.com/logto-io/js/pull/201)
 
 - `peerDependencies` in `package.json`
     - References:
@@ -368,7 +368,7 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
     > 一个 package 的 `peerDependencies` 用于提示引入该 package 的项目也需要安装哪些（指定版本范围的）其它 package。
 
-[logto-io/js PR - chore(js,browser): simplify wepack config… #205](https://github.com/logto-io/js/pull/205)
+[chore(js,browser): simplify wepack config & code coverage excludes src/index.ts by IceHe · Pull Request #205 · logto-io/js](https://github.com/logto-io/js/pull/205)
 
 - Simplify `webpack.config.js` in TypeScript projects
     - How to use Webpack in [TypeScript](https://webpack.js.org/guides/typescript/#loader) projects
@@ -424,3 +424,33 @@ _生活日常：用挑染假发片模拟了一下挑染的效果，感觉耳目�
 ## *_3. 剧情还不错的番剧《天才王子的赤字国家振兴术》_
 
 ## *_4. 制作精良的异世界番剧《世界顶尖的暗杀者，转生为异世界贵族》_
+
+## 7. Change the type definition in PostgreSQL _& Sign-in with Facebook_
+
+Change the type definition in PostgreSQL
+
+- References
+
+    - [ALTER TYPE - SQL Commands - PostgreSQL Docs](https://www.postgresql.org/docs/current/sql-altertype.html)
+    - [Updating Enum Values in PostgreSQL - The Safe and Easy Way](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/)
+        - Easy way: [tl;dr](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/#tldr)
+        - Safe way: [Updating/Renaming a Value](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/#updatingrenamingavalue)
+    - Debug
+        - [Setting up a PostgreSQL Database on Mac](https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/)
+        - [PostgreSQL - Psql commands - GeeksforGeeks](https://www.geeksforgeeks.org/postgresql-psql-commands/)
+        - [Display user-defined types and their details](https://dba.stackexchange.com/a/301746)
+            > With `psql`:
+            >
+            > - `\dT` show list of user-defined types.
+            > - `\dT+ <type_name>` show given user-defined type, with details.
+            > - `\dT <type_name>` show given user-defined type, without details.
+
+- TODO: note-taking?
+
+    - Setup PosgreSQL on Mac
+    - `psql` Usage
+    - Change the type definition in PostgreSQL
+
+---
+
+[feat(core): facebook connector by IceHe · Pull Request #321 · logto-io/logto](https://github.com/logto-io/logto/pull/321)
