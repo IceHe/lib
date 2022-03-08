@@ -454,3 +454,16 @@ Change the type definition in PostgreSQL
 ---
 
 [feat(core): facebook connector by IceHe · Pull Request #321 · logto-io/logto](https://github.com/logto-io/logto/pull/321)
+
+## 8. PostgreSQL & JSONB?
+
+<!--
+
+## ?. Lerna?
+
+Lerna
+
+- References:
+    - [lerna/lerna: A tool for managing JavaScript projects with multiple packages.](https://github.com/lerna/lerna)
+    - [Lerna · A tool for managing JavaScript projects with multiple packages.](https://lerna.js.org/)
+    - [learna - npm](https://www.npmjs.com/package/lerna)
