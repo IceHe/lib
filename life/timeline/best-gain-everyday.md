@@ -459,9 +459,13 @@ Change the type definition in PostgreSQL
 
 TODO
 
-## 9. PostgreSQL & JSONB?
+## 9. Slonik & `type is` 的 ts 语法？
+
+TODO
 
 <!--
+
+## 10. PostgreSQL & JSONB?
 
 ## 12. Lerna?
 
