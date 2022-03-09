@@ -455,11 +455,15 @@ Change the type definition in PostgreSQL
 
 [feat(core): facebook connector by IceHe · Pull Request #321 · logto-io/logto](https://github.com/logto-io/logto/pull/321)
 
-## 8. PostgreSQL & JSONB?
+## 8. Custom ORM supports `order by`
+
+TODO
+
+## 9. PostgreSQL & JSONB?
 
 <!--
 
-## ?. Lerna?
+## 12. Lerna?
 
 Lerna
 
