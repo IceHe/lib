@@ -191,18 +191,12 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
         1.  Chrome → ( View → ) Developer → JavaScript Console
         2.  Store session item: Under a.com site, run `window.sessionStorage.setItem('foo', 'bar');`
-
-            Check session item: Developer Tools → Application → View the session storage of a.com
-
+            - _Check session item: Developer Tools → Application → View the session storage of a.com_
         3.  Redirect to another site: Under a.com site, run `window.location = 'b.com';`
-
-            Check session item: as above
-
+            - _Check session item: as above_
         4. A. Come back to original site: Under b.com site, run `window.location = 'a.com';`
-
             - B. close the tab, and then restore it
             - C. close the tab, and then open another tab with a.com
-
         5. Check session item, and find `foo: bar` exists
 
 -   How to access and test the protected properties and methods of a class?
@@ -283,7 +277,7 @@ _（虽说理性的策略是“既往不咎，纵情向前”，接下来重新�
 不能保证头脑尽可能处于最佳状态，枉论做别的事能做得更多更好。
 （所以觉得自己学生时代的脑袋真是一桶浆糊，即使到了现在自己已经工作6年多了，还是在低效率地生活，无论做的是正事还是娱乐。）
 
-## *_24. 了解自己 / 通过解决实际问题来快速进步_
+## *_24. 了解自己 & 通过解决实际问题来快速进步_
 
 _有些地方活得太马虎了，一点都不了解自己……_
 
@@ -341,7 +335,7 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
     ```
 -   Use `jest.config.ts` instead of `jest.config.js`.
 
-## *_26. 有趣的桌游《截码站》/ 感受音乐酒吧 Tokyo Lounge_
+## *_26. 有趣的桌游《截码站》& 感受音乐酒吧 Tokyo Lounge_
 
 有趣的桌游《截码站》
 
@@ -353,8 +347,6 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 - [我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)
 
 ## *_27. 重玩《UNO》感觉还不错_
-
-略。
 
 ## 28. package.json peerDependencies & simplify webpack.config.js
 
@@ -419,13 +411,13 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 koa: next generation web framework for node.js - [koajs.com](https://koajs.com/)
 
-_生活日常：用挑染假发片模拟了一下挑染的效果，感觉耳目一新。_
+_（生活片段：用挑染假发片模拟了一下挑染的效果，感觉耳目一新）_
 
 ## *_3. 剧情还不错的番剧《天才王子的赤字国家振兴术》_
 
 ## *_4. 制作精良的异世界番剧《世界顶尖的暗杀者，转生为异世界贵族》_
 
-## 7. Change the type definition in PostgreSQL _& Sign-in with Facebook_
+## 7. Change the type definition in PostgreSQL & Sign-in with Facebook
 
 Change the type definition in PostgreSQL
 
@@ -451,17 +443,53 @@ Change the type definition in PostgreSQL
     - `psql` Usage
     - Change the type definition in PostgreSQL
 
----
-
 [feat(core): facebook connector by IceHe · Pull Request #321 · logto-io/logto](https://github.com/logto-io/logto/pull/321)
 
 ## 8. Custom ORM supports `order by`
 
-TODO
+[feat(core): findAllApplications order by createdAt desc by IceHe · Pull Request #344 · logto-io/logto](https://github.com/logto-io/logto/pull/344)
+
+- Implement the `ORDER BY` feature in the custom ORM using `Slonik`
+    - Wrong: It doesn't work!
+        ```ts
+        type OrderDirection = 'ASC' | 'DESC';
+
+        const orderDirection: OrderDirection = 'ASC';
+        const orderToken = sql`
+            ORDER BY created_at ${orderDirection}'
+        `;
+        ```
+        - Because (e.g.) any string injected into <code>sql\`xxx ${str} ooo\`</code> will be converted to `'xxx "str" ooo'` finally.
+    - Correct:
+        ```ts
+        const orderDirection = order === 'ASC' ? sql`ASC` : sql`DESC`;
+        const orderToken = sql`
+            ORDER BY created_at ${orderDirection}
+        `;
+        ```
+    - References
+        - [gajus/slonik: A PostgreSQL client with strict types, detailed logging and assertions.](https://github.com/gajus/slonik)
+            - Principles
+                - Promotes writing raw SQL.
+                - Discourages ad-hoc dynamic generation of SQL.
+            - To sum up, Slonik is designed to **prevent accidental creation of queries vulnerable to SQL injections**.
+        - [Discussion of Dynamically generating SQL queries using Node.js](https://dev.to/gajus/dynamically-generating-sql-queries-using-node-js-2c1g/comments)
+- Note: `ORDER BY` is after `WHERE` and before `LIMIT` `OFFSET`
+- See PR for more details
 
 ## 9. Slonik & `type is` 的 ts 语法？
 
 TODO
+
+## 10. TODO?
+
+Should declare the database table fields with default values?
+
+- Should not. Better initialize by code. (It's enough to just declare them `not null`.)
+
+Debug with GitHub Action/Workflow?
+
+- Inputs?
 
 <!--
 
