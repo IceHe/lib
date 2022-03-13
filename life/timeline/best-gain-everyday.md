@@ -493,9 +493,9 @@ Debug with GitHub Action/Workflow?
 
 <!--
 
-## 10. PostgreSQL & JSONB?
+## ?. PostgreSQL & JSONB?
 
-## 12. Lerna?
+## ?. Lerna?
 
 Lerna
 
