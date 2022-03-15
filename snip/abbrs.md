@@ -267,6 +267,7 @@ Reference : https://www.computerhope.com/keys.htm
 - const : constant
 - constr : [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming))
 - conv : convert
+- CORS : [Cross Origin Resource Sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 - cos : because
 - COW : [Copy-On-Write](https://en.wikipedia.org/wiki/Copy-on-write)
 - cp : [copy](https://en.wikipedia.org/wiki/Copy_(command))
