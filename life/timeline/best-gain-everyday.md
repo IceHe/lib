@@ -507,6 +507,17 @@ TODO
 
 TODO
 
+[feat(schemas): sign-in-experiences by IceHe · Pull Request #361 · logto-io/logto](https://github.com/logto-io/logto/pull/361)
+
+## 16. 理解 PR
+
+[refactor(browser): cache get access token promises by resource by gao-sun · Pull Request #229 · logto-io/js](https://github.com/logto-io/js/pull/229)
+
+- Reference:
+    - 理解 Loop Event: [JS Visualizer 9000](https://www.jsv9000.app/)
+
+TODO
+
 <!--
 
 ## ?. PostgreSQL & JSONB?
