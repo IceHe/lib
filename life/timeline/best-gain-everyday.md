@@ -518,6 +518,12 @@ TODO
 
 TODO
 
+## 17. 理解 PR
+
+[refactor(core): getConnectorInstances by IceHe · Pull Request #405 · logto-io/logto](https://github.com/logto-io/logto/pull/405)
+
+TODO
+
 <!--
 
 ## ?. PostgreSQL & JSONB?
