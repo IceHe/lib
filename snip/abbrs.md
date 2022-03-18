@@ -700,6 +700,7 @@ Reference : https://www.computerhope.com/keys.htm
 - pls : please
 - plz : please
 - PnP : [plug-and-play](https://en.wikipedia.org/wiki/Plug_and_play) 即插即用
+- POC | PoC : [Proof Of Concept](https://en.wikipedia.org/wiki/Proof_of_concept)
 - POJO : Plain Ordinary Java Object
     - 通常专指只有 setter / getter / toString 的简单类, 包括 DO/DTO/BO/VO 等
 - pom : [Project Oject Model](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) ( for Maven )
