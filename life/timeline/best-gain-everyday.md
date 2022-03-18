@@ -513,7 +513,7 @@ TODO
 
 [refactor(browser): cache get access token promises by resource by gao-sun · Pull Request #229 · logto-io/js](https://github.com/logto-io/js/pull/229)
 
-- Reference:
+- References:
     - 理解 Loop Event: [JS Visualizer 9000](https://www.jsv9000.app/)
 
 TODO
@@ -521,6 +521,19 @@ TODO
 ## 17. 理解 PR
 
 [refactor(core): getConnectorInstances by IceHe · Pull Request #405 · logto-io/logto](https://github.com/logto-io/logto/pull/405)
+
+TODO
+
+## 18. lodash.once
+
+- 并发：event loop
+- 数据存储设计：design of connectors DB & code
+- 协作：PR based on another PR
+
+[feat(core): resuse remote jwk set by IceHe · Pull Request #231 · logto-io/js](https://github.com/logto-io/js/pull/231)
+
+- References:
+    - lodash.once
 
 TODO
 
