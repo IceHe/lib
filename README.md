@@ -775,7 +775,7 @@ Timeline
 -   **Jan Fan**:
     Pythonist / Tencent / Applied Mathematics PhD @ Sweden
 -   **Johnson Zhang**:
-    Goer / Sina Mobile / Didi / Meituan / BioMind @ Beijing <!-- TODO: 跳槽了，待更新 -->
+    Sina Mobile / Didi / Meituan / BioMind @ Beijing <!-- TODO: 跳槽了，待更新 -->
 -   [SF Zhou](http://sf-zhou.github.io/):
     ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou
 -   **Shiwey Yan**:
