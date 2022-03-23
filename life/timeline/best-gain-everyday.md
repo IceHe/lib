@@ -537,17 +537,32 @@ TODO
 
 TODO
 
-## 19. 第一次卡丁车 & 羊大爷涮肉
+## *_19. 第一次开卡丁车 & 羊大爷涮肉_
 
 TODO
 
-## 20. 剧本杀《人偶之匣》
+## *_20. 剧本杀《人偶之匣》_
 
 TODO
 
 ## 21. Sign-in-exp PRs
 
+TODO: 豁然开朗，把上周 blocked 的变更，拆成一个个 PR 来提交；也用了 一个 open PR based on another open PR 的技巧来让同事可以并行 review 我的代码变更。
+
+- [refactor(core): make getConnectorInstances access DB only once by IceHe · Pull Request #429 · logto-io/logto](https://github.com/logto-io/logto/pull/429)
+- [refactor(core): get sign-in experience by IceHe · Pull Request #426 · logto-io/logto](https://github.com/logto-io/logto/pull/426)
+- *_[refactor(core): implement findAllConnectors by findMany and order by enabled desc, id asc by IceHe · Pull Request #430 · logto-io/logto](https://github.com/logto-io/logto/pull/430)_
+- *_[refactor(core): getEnabledPasswordlessConnectorInstanceByType  by IceHe · Pull Request #431 · logto-io/logto](https://github.com/logto-io/logto/pull/431)_
+- *_[refactor(core): change PATCH /sign-in-exp/:id to PATCH /sign-in-exp by IceHe · Pull Request #427 · logto-io/logto](https://github.com/logto-io/logto/pull/427)_
+
+## *_22. 急性胰腺炎 or 急性肠胃炎？_
+
 TODO
+
+## 23. Get sign-in experience
+
+- [refactor(core): get sign-in experience by IceHe · Pull Request #426 · logto-io/logto](https://github.com/logto-io/logto/pull/426)
+
 
 <!--
 
