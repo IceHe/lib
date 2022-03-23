@@ -782,7 +782,7 @@ Timeline
     Game Engine Developer / Tencent - Timi @ Shenzhen
 -   [Toxic Johann](https://github.com/toxic-johann):
     Frontend / 360 / UC / Tencent / Tubi @ Beijing
--   [ME](https://icehe.xyz/#/past/bio):
+-   [ME](/life/bio.md):
     Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
 -   …
 
