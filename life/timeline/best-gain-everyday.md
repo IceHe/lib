@@ -561,8 +561,9 @@ TODO
 
 ## 23. Get sign-in experience
 
-- [refactor(core): get sign-in experience by IceHe · Pull Request #426 · logto-io/logto](https://github.com/logto-io/logto/pull/426)
+[refactor(core): get sign-in experience by IceHe · Pull Request #426 · logto-io/logto](https://github.com/logto-io/logto/pull/426)
 
+- Do things asynchronously as possible `Promise.all([…])`.
 
 <!--
 
