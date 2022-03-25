@@ -5,7 +5,7 @@
 # IceHe<small>Life</small>
 
 ```
-<!-- Sleep early -->
+<!-- Sleep early. -->
 ```
 
 <!-- Later equals never. -->
