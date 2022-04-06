@@ -1,4 +1,10 @@
+<!-- # How to  -->
+
+<!-- --- -->
+
 # What to do?
+
+做正确的事
 
 _（焦虑、迷茫，茫然失措）_
 
@@ -9,9 +15,21 @@ _（焦虑、迷茫，茫然失措）_
 1.  之前计划的：待办事项清单
     <!-- todo list -->
 
+---
+
+-   抓住重点，要事第一。
+
+    First thing first.
+
+---
+
 # Whether to do?
 
- _（优柔寡断）_ 参考 **GTD** flow
+参考 **GTD** flow
+
+_（优柔寡断）_
+
+_（提示：无论是事前、事中、事后，都可以去想“要不要做”？）_
 
 1.  是否为 **必须做的**？是 → 立刻去做！
 
@@ -46,7 +64,17 @@ _（焦虑、迷茫，茫然失措）_
     <!-- 事件：一次性、周期性的，无论去不去参与，错过就不会再发生，或者可以下次再做 -->
     <!-- 日期时间不一定固定，可能会调整 -->
 
-_（提示：无论是事前、事中、事后，都可以去想“要不要做”？）_
+---
+
+-   **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
+-   在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：
+    **精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**
+-   **「不做事」一定是最节省时间、最高效的做事方式**；学会「做重要的事」才是掌控时间的终极法门。
+-   提高自控力的一个小窍门是 **尽量避免在无谓的小事情上做决定。**
+    -   **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪；……**
+    -   **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
+
+---
 
 # How to prepare before doing?
 
@@ -54,24 +82,35 @@ _（提示：无论是事前、事中、事后，都可以去想“要不要做�
 
 心理建设
 
-### How to stop hesitation?
-
 _（踟蹰不前、纠结不放）_
 
-#### Too many options?
+### Too many options?
 
--   [Happiness Course](https://zhuanlan.zhihu.com/p/19562678) - _[digest](/read/happiness-course.md)_
+> 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
+>
+> —— E.L. Doctorow
 
-    “如果你只有一个选择，它让你满意吗？”
+-   **如果你只有一个选择，它让你满意吗？**
+    <!-- [Happiness Course](https://zhuanlan.zhihu.com/p/19562678) - _[digest](/read/happiness-course.md)_ -->
+-   决策的第一要务是给自己创造足够多的好选项。大多数决策失败来源于在几个都不够好的选择中反复纠结。
 
-#### Think too long? <!-- 想太久 -->
+### Overthinking? Think too long? <!-- 想太多，想太久 -->
 
-- **对于日常小决策，决策速度大于决策质量，不要拖；**
-- _对于重大而难逆转的大决策，要收集足够多信息尽量保证做对。_
+-   **对于日常小决策，决策速度大于决策质量，不要拖；**_对于重大而难逆转的大决策，要收集足够多信息尽量保证做对。_
+-   **不是生活中的每一个问题都要解决，和问题共处是人生常态。把精力用在重要的事情上。**
 
-#### Overthinking? <!-- 想太多 -->
+---
 
-- **不是生活中的每一个问题都要解决，和问题共处是人生常态。把精力用在重要的事情上**。
+-   **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
+-   在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：**精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**
+-   **「不做事」一定是最节省时间、最高效的做事方式**，学会「做重要的事」才是掌控时间的终极法门。
+-   提高自控力的一个小窍门是尽量 **避免在无谓的小事情上做决定。**
+-   何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，_事实上研究表明，_
+    -   认知活动（阅读文字、视频等）加重了工作需求产生消极情绪，_另一项研究则表明，_
+    -   对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。
+    <!-- [Sspai Time Management](/read/sspai-time-mgt.md) -->
+
+---
 
 ### 忧郁时：用行动改善状态
 
@@ -87,6 +126,14 @@ _很颓废，什么都不想做，只想（过度）休息、放松、玩乐，�
 
 坚持做事，反而更有可能改善状态，至少还能得到一些做事的成果。
 所以，更要坚持做事，**用行动改善状态**。
+
+---
+
+-   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
+-   不那么在意行动正确与否，更在意是否在行动。
+-   不那么在意所谓时机，更在意任务本身。
+
+---
 
 ### 恬静或快乐时：尽力而为
 
@@ -145,13 +192,54 @@ _很颓废，什么都不想做，只想（过度）休息、放松、玩乐，�
     -   **设置时限：明确设置最近2周内的截止时间**
     -   不为开始时间在2周之后的待办事项设定截止时间
 
+# How to do?
+
+正确地做事
+
+## As simple as possible
+
+( Deadly simple )
+
+-   **如无必要，勿增实体。**
+
+    Do not multiply entities beyond necessity.
+
+-   **先完成，再完善**，但不必完美。
+
+    Done is better than perfect.
+
+-   **一时一事**
+
+    -   从小事做起，**做好一件小事，然后再做好下一件小事，然后不断循环**。
+
+        -   **TickTick - 减轻负担 & 培养习惯**
+
+            暂存事务，清空大脑，减轻心理负担；适时选择一件事务来做就行。
+            _没必要因为待办事项多而焦虑。_
+
+    -   防止经常分神
+
+        -   电脑：`vim /etc/hosts` 屏蔽 [ WB，B站 ]
+
+        -   手机：打开 Forest 种树 → 远离手机 → 戴手表（收通知）
+
+            -   **Forest - 保持专注。 Stay focus.**
+
+                减少玩手机分神的机会，缩短玩手机的时长。
+
+---
+
 # How to improve mood?
 
 ## Imperfectionist
 
 心态：接受不完美
 
+---
+
 > 接受当下的不完美
+
+### Less is more
 
 -   **弱水三千，只取一瓢。** Less is more.
 
@@ -169,11 +257,17 @@ _很颓废，什么都不想做，只想（过度）休息、放松、玩乐，�
     _一个人好好生活，变成更好的人，才是实在的事。_
     _爱情是奢侈品，而不是必需品，有则更好，没有也能活。_
 
+### Live with problems
+
 -   **不是生活中的每一个问题都要解决，和问题共处是人生常态，把精力用在重要的事情上。**
 
 -   改变本身就是反反复复的，失败本就是改变的一部分，我们要做的唯有接受它。
 
+---
+
 > 接受过去的不完美
+
+### Forget past
 
 -   **既往不咎，纵情向前**
 
@@ -190,86 +284,34 @@ _很颓废，什么都不想做，只想（过度）休息、放松、玩乐，�
     _等情绪平复之后回头看会发现没什么大不了的_
     _（大概最大的问题其实就是一时的情绪）。_
 
-# 目标：更好的生活 <!-- better living -->
+---
 
-How to rebuild a reasonable life convention?
+# Self-help
 
-- As simple as possible. (Deadly simple)
-    - 抓住重点，要事第一。(First thing first.) <!-- 希望以后能够提纲挈领 -->
-        - 这个确实做不到，抓不住，不然也不至于垃圾到现在。
-    - 如无必要，勿增实体。(Do not multiply entities beyond necessity.)
-        - 这个可行性比较高，没有必要的东西就不要买了，没有必要的事就不要做了。娱乐就不好说，很可能控制不住自己。尽力而为就好了。
-        - 心里装着一堆大道理，分不清主次，生活方式确实难以自洽，想要自洽地活着。
-- 不完美主义
-    - **不是生活中的每一个问题都要解决，和问题共处是人生常态。把精力用在重要的事情上**。
-        - 不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
-    - _在拖延、难以开始行动时，这很有效；但若足够理智，这就不是最佳策略了。_
-        - 不那么在意行动正确与否，更在意是否在行动。
-        - 不那么在意所谓时机，更在意任务本身。
-- 高效率
-    - **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
-    - 在考虑如何提高精力之前，我们得先解决导致精力被浪费的主要原因：**精力错位，也就是把最好的时间和状态，浪费在了低产出的任务上。**
-    - **「不做事」一定是最节省时间、最高效的做事方式**，学会「做重要的事」才是掌控时间的终极法门。
-    - 提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。
-    - **对于日常小决策，决策速度大于决策质量，不要拖**；对于重大而难逆转的大决策，要收集足够多信息尽量保证做对。
+打鸡血
 
-## 心态？
+## Reality
 
-<!-- 要求：更具体，更 focus，尽量简洁。 -->
+-   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) - _[ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)_ - _[digest](/read/cruel-reality.md)_
 
-<!--
+    “Nice guy? I never give a shit.”
 
-## 还是活的太复杂了
+-   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) - _[digest](/read/why-unhappy.md)_
 
-> **不是生活中的每一个问题都要解决，和问题共处是人生常态，把精力用在重要的事情上。**
+    “我，并不特别。”
 
-每次迷茫、焦虑、颓废的时候，都会去重温、反省 rehabilitation.md。
-最近几次这么做，花的时间越来越长，因为越来越难从中获得新的共鸣和感悟，
-从中越是得不到想要的东西，自己就越是会投入更多时间在这上面。
-而且也可能是对同样的内容感到了厌倦，反正这样做的收益越来越低了，
-（rehabilitation.md 和 TickTick）需要改变，找到新方法。
+-   [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) - _[digest](/read/teacher-said.md)_
 
-> 动力或许能让你产生写一本书的想法，但无法驱策你完成写作的行动。 原因何在？
->
-> 第一种动力只需要给你一个大体的原因，让你产生写书的想法，
-> 而第二种动力需要时刻提供一种激励，场合不同，心境不同，方式也不尽相同。
-> 我想每个人都有这样的经历： 虽然总体来说，我们想做某事，但到了具体实施阶段，我们却可能改变心意。
->
-> 如果你把做事的理由与做事的意愿混为一谈，那么你失去对后者的感觉的时候，就要重新为写书、健身、打扫或冥想找出理由。
-> 如果你以为“只要有想法就必定产生意愿”这种动力策略逻辑每次都能奏效，那你恐怕就天真了，因为这是违背人类情绪多变的本性的。
->
-> 一旦你把感觉当成行动与否的决定因素，你就彻底沦为了情绪的奴隶。你可以尝试各种激励技巧，但最终的结果一定如你的情绪一样根本不可靠。
+    -   “我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。”
+    -   “做正确的选择，而不是可以接受的选择。”
 
-将当前最有共鸣的部分加上去，Focus 一点，简单一点。
+## Do something
 
-<!-- -->
+-   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) - _[digest](/read/meaning.md)_
 
-> 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
+    “因为活着，才去寻找意义。”
 
-- [How to Ask](/life/principle/how-to-ask.md): Prepare before asking
-    - JFGI: Just Fucking Google It
-    - RTFM: Read The Fucking Manual
-    - **Trade-off: Ask for help if stuck over 15 (or 30) min.**
-- [How to Work](/life/principle/how-to-work.md): Working Standards
-    - 请示工作说方案
-    - 布置工作说标准
-    - 汇报工作说结果
-    - 总结工作说流程
-    - 回顾工作说感受
-- [GTD Flow](/life/principle/gtd.md): Get Thing Done
-- [PDCA Cycle](/life/principle/pdca.md): Plan → Do → Check → Act or Adjust
-- [SMART principle](/life/principle/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR principle](/life/principle/star.md): Situation → Target → Action → Result
-- [Deployment Checklist](/snip/tmp/deployment-checklist.md): avoid low-level mistakes
-- [How to Leave](/life/principle/how-to-leave.md):《解除劳动合同告知书》
-
-## Read
-
-> 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
-
-<!-- > —— E.L. Doctorow -->
-
-好文共赏
+# Read again
 
 -   Bookmarks
     -   [Reading](/read/reading-bookmark.md)
@@ -299,9 +341,6 @@ How to rebuild a reasonable life convention?
     -   何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，事实上研究表明，
         -   **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，
         -   **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
--   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
-    -    《 "绩点" 的暴政》
-        成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
 -   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md):
     -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
     -   《如何成为不完美主义者》
@@ -309,17 +348,21 @@ How to rebuild a reasonable life convention?
         -   不那么在意行动正确与否，更在意是否在行动。
         -   不那么在意所谓时机，更在意任务本身。
 
-<!-- # How to  -->
+    > 动力或许能让你产生写一本书的想法，但无法驱策你完成写作的行动。 原因何在？
+    >
+    > 第一种动力只需要给你一个大体的原因，让你产生写书的想法，
+    > 而第二种动力需要时刻提供一种激励，场合不同，心境不同，方式也不尽相同。
+    > 我想每个人都有这样的经历： 虽然总体来说，我们想做某事，但到了具体实施阶段，我们却可能改变心意。
+    >
+    > 如果你把做事的理由与做事的意愿混为一谈，那么你失去对后者的感觉的时候，就要重新为写书、健身、打扫或冥想找出理由。
+    > 如果你以为“只要有想法就必定产生意愿”这种动力策略逻辑每次都能奏效，那你恐怕就天真了，因为这是违背人类情绪多变的本性的。
+    >
+    > 一旦你把感觉当成行动与否的决定因素，你就彻底沦为了情绪的奴隶。你可以尝试各种激励技巧，但最终的结果一定如你的情绪一样根本不可靠。
 
-<!-- How to think, decide, and do -->
+- [How to Ask](/life/principle/how-to-ask.md): Prepare before asking
 
-<!-- --- -->
+    - JFGI: Just Fucking Google It
+    - RTFM: Read The Fucking Manual
+    - **Trade-off: Ask for help if stuck over 15 (or 30) min.**
 
-# TODO
-
-Use **checklists**? Try it!
-
-分场景：
-
-- 反馈：pdca
-- 提问：how to ask
+- [STAR principle](/life/principle/star.md): Situation → Target → Action → Result
