@@ -19,7 +19,7 @@
 
 ### Book
 
-[IceHe's Booklist](https://book.douban.com/people/IceHeGZ/collect) @Douban.com
+[IceHe's Book List](https://book.douban.com/people/IceHeGZ/collect) @douban.com
 
 > 短期太急躁，總想走捷徑快速見效；
 > 長期沒耐心，小覷長期堅持的成長。
@@ -78,9 +78,9 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 <!-- TODO
 
-[TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/book/tcp-ip-illustracted-protocols-toc.md) - TOC
+[TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/book/tcp-ip-illustrated-protocols-toc.md) - TOC
 
-- [Part*  1](/book/tcp-ip-illustracted-protocols-p1.md)
+- [Part*  1](/book/tcp-ip-illustrated-protocols-p1.md)
 
 xUnit Test Patterns: Refactoring Test Code - [douban.com](https://book.douban.com/subject/1859393/)
 
@@ -88,7 +88,7 @@ Others
 
 - JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC
 - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md)
-- [Java Concurrency in Pratice](/book/java-concurrency-in-pratice.m
+- [Java Concurrency in Practice](/book/java-concurrency-in-practice.md)
 - [Linux Kernel Development](/book/linux-kernel-development.md)
 
 -->
@@ -116,7 +116,7 @@ Basics
 
     - [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md)
         <!-- todo -->
-    - [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-pratical-course.md)
+    - [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)
     - [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
 Solution Provider
@@ -200,7 +200,7 @@ Storage
 Terminology
 
 - [Abbreviations](/snip/abbrs.md)
-    - are usually related to coding (programmming)
+    - are usually related to coding (programming)
 - [Glossaries](/snip/glossaries.md)
     - with intros to the common technology products
 
@@ -246,7 +246,7 @@ macOS
     - [Sublime Text shortcuts](/mac/shortcut/sublime-text.md)
     - [JetBrains IDE shortcuts](/mac/shortcut/jetbrains.md)
     - [mac-conf](https://github.com/IceHe/mac-conf): my macOS configuration files
-- [JVM Options Optimaization](/mac/jetbrains/README.md)
+- [JVM Options Optimization](/mac/jetbrains/vm-options.md)
     - _e.g. for JetBrains IDE - IntelliJ IDEA_
 
 Git
@@ -409,7 +409,7 @@ Scene
 - **notify**: terminal-notifier
 - **http benchmark**: ab, watch
 - **differ output**: comm, diff, vimdiff, watch
-- **run in backgroud**: `^z`, bg, fg, nohup [CMD] &
+- **run in background**: `^z`, bg, fg, nohup [CMD] &
 - ……
 
 Shell
@@ -435,7 +435,7 @@ Basics
 - [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
     -   [async & await](/js/basics/async-n-await.md): to simplify the syntax necessary to consume promise-based APIs
     -   [states & fates](/js/basics/promise-states-n-fates.md): clarify the different adjectives surrounding promises
-        - **States**: { settled: [ fullfilled, rejected ] , unsettled: [ pending ] }
+        - **States**: { settled: [ fulfilled, rejected ] , unsettled: [ pending ] }
         - **Fates**: [ resolved, unresolved ]
 - [Event Loop](/js/basics/event-loop.md): which the JavaScript concurrency model based on
 - **Tasks vs. Microtasks**: todo
@@ -517,7 +517,7 @@ React
 
 - [React](js/react/react.md): a JavaScript library for building user interfaces
 - [Tutorial](js/react/tutorial.md): this tutorial doesn't assume any existing React knowledge
-- [Main Conecpts](js/react/main-concepts.md): step-by-step guide
+- [Main Concepts](js/react/main-concepts.md): step-by-step guide
 - [Hooks](js/react/hook.md): let you use state and other React features without writing a class
 
 ### Java
@@ -599,8 +599,8 @@ Assembly
 _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 
 1. [register / cs / ip / CPU / memory](/asm/learning-note-1.md)
-2. [endien / register / ds / [addr] / stack](/asm/learning-note-2.md)
-3. [pesudo instruction / compile / link / debug / [bx] / loop / seg prefix  / mem space](/asm/learning-note-3.md)
+2. [endian / register / ds / [addr] / stack](/asm/learning-note-2.md)
+3. [pseudo instruction / compile / link / debug / [bx] / loop / seg prefix  / mem space](/asm/learning-note-3.md)
 4. [stack / data / code / 栈的段 / 多段程序 / 大小写转换 / addressing / si / di](/asm/learning-note-4.md)
 5. [bx / si / di / bp / addressing / division / dd / dup / Structural Data](/asm/learning-note-5.md)
 6. [jump / offset / jmp / jcxz / loop / dec / bounds checking](/asm/learning-note-6.md)
@@ -730,7 +730,7 @@ Timeline
     -   Nice guy? I never give a shit.
 -   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) - _[digest](/read/meaning.md)_
     -   因为活着，才去寻找意义。
--   [Happyness Course](https://zhuanlan.zhihu.com/p/19562678) - _[digest](/read/happiness-course.md)_
+-   [Happiness Course](https://zhuanlan.zhihu.com/p/19562678) - _[digest](/read/happiness-course.md)_
     -   如果你只有一个选择，它让你满意吗？
 -   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) - _[digest](/read/why-unhappy.md)_
     -   我，并不特别。

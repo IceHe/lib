@@ -24,7 +24,7 @@ File Path
 - Java SE 11 Docs - HotSpot Virtual Machine Garbage Collection Tuning Guide : https://docs.oracle.com/en/java/javase/11/gctuning/garbage-first-garbage-collector.html
 - Selecting the JDK version the IDE will run under - JetBrains IDEs Support : https://intellij-support.jetbrains.com/hc/en-us/articles/206544879-Selecting-the-JDK-version-the-IDE-will-run-under
 
-## Expaination
+## Explanation
 
 - `-Xms size` Sets the **initial size** (in bytes) of the **heap**.
     - _This value must be a multiple of 1024 and greater than 1 MB._
