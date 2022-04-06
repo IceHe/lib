@@ -204,9 +204,11 @@ _很颓废，什么都不想做，只想（过度）休息、放松、玩乐，�
 
     Do not multiply entities beyond necessity.
 
+## Done is better than perfect
+
 -   **先完成，再完善**，但不必完美。
 
-    Done is better than perfect.
+## Do only one thing at a time
 
 -   **一时一事**
 
@@ -217,15 +219,17 @@ _很颓废，什么都不想做，只想（过度）休息、放松、玩乐，�
             暂存事务，清空大脑，减轻心理负担；适时选择一件事务来做就行。
             _没必要因为待办事项多而焦虑。_
 
-    -   防止经常分神
+## Stay focus
 
-        -   电脑：`vim /etc/hosts` 屏蔽 [ WB，B站 ]
+-   防止经常分神
 
-        -   手机：打开 Forest 种树 → 远离手机 → 戴手表（收通知）
+    -   电脑：`vim /etc/hosts` 屏蔽 [ WB，B站 ]
 
-            -   **Forest - 保持专注。 Stay focus.**
+    -   手机：打开 Forest 种树 → 远离手机 → 戴手表（收通知）
 
-                减少玩手机分神的机会，缩短玩手机的时长。
+        -   **Forest - 保持专注**
+
+            减少玩手机分神的机会，缩短玩手机的时长。
 
 ---
 
@@ -341,7 +345,7 @@ _很颓废，什么都不想做，只想（过度）休息、放松、玩乐，�
     -   何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，事实上研究表明，
         -   **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，
         -   **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
--   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md):
+-   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md)
     -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
     -   《如何成为不完美主义者》
         -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。

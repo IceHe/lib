@@ -657,8 +657,7 @@ Timeline
     - [2018 Winter](/life/timeline/2018-winter.md)
     - [2022 January](/life/timeline/2022-january.md)
     - [Moments](/life/timeline/moments.md): 回忆
-    - [How to live](/life/principle/how-to-live.md)
-    - [Rehabilitation](/life/principle/rehabilitation.md)
+    - [How to live](/life/principle/how-to-live.md) | [Rehabilitation](/life/principle/rehabilitation.md)
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
     - [2017 Spring](/life/timeline/2017-spring.md)
@@ -759,7 +758,7 @@ Timeline
 -   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
     -    《 "绩点" 的暴政》
         成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
--   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md):
+-   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md)
     -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
     -   《如何成为不完美主义者》
         -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
