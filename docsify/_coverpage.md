@@ -1,12 +1,14 @@
-<!-- Referfence : https://docsify.js.org/#/cover -->
+<!-- Reference : https://docsify.js.org/#/cover -->
 
 <img src="https://cdn.icehe.xyz/_docsify/avatar-400.png" alt="avatar"  width="120px"/>
 
 # IceHe<small>Life</small>
 
 ```
-<!-- Relax -->
+<!-- You're free to be free. -->
 ```
+
+<!-- Relax -->
 
 <!-- Sleep early. -->
 
