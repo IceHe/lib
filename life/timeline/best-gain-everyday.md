@@ -12,7 +12,7 @@ Started to record my best gain everyday from 2022/02/16.
 
 ## 9. Window sessionStorage & localStorage
 
-_MDN Web Docs:_
+MDN Web Docs:
 
 - [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
 - [Using the Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
@@ -345,16 +345,16 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
 
 _有趣的桌游《截码站》_
 
-- _后记：可惜第二天（27号）就玩腻了_
+- _后记：可惜第二天（27号）就玩腻了。_
 
-_体验一下音乐酒吧 —— Tokyo Lounge 东京酒廊_
+_体验音乐酒吧 —— Tokyo Lounge 东京酒廊_
 
 - _虽然氛围感觉还不错，但人均消费对我来说还是偏贵了，自己一个人是不会考虑去那消磨时光的。_
 - _[我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)_
 
 ## *_27. 重温桌游《UNO》_
 
-_感觉还不错_
+_感觉还挺好玩的，跟朋友一起玩就是很欢乐。_
 
 ## 28. package.json peerDependencies & simplify webpack.config.js
 
@@ -423,11 +423,11 @@ _（生活片段：用挑染假发片模拟了一下挑染的效果，感觉耳�
 
 ## *_3. 番剧《天才王子的赤字国家振兴术》_
 
-_剧情还不错_
+_虽然制作很贫穷，但是剧情还不错。_
 
 ## *_4. 番剧《世界顶尖的暗杀者，转生为异世界贵族》_
 
-_制作精良的异世界番剧_
+_制作精良的异世界番剧，看得我津津有味，有点想接着看原作小说了。_
 
 ## 7. Change the type definition in PostgreSQL & Sign-in with Facebook
 
