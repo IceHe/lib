@@ -653,11 +653,17 @@ review 别人感觉就是不一样，
 点了一条青衣鱼比较贵，最后三个人吃了快1500块。
 虽然大家等位等了比较久，但好歹饭菜比较可口，还是吃得挺满意的。
 
-## *_16. 京城海南鸡油饭 & Coffee Holic_
+## *_16. 京城海南鸡饭 & Coffee Holic 的特调_
 
-详见微博 todo：加链接或者复制或转述
+京城海南鸡饭
 
-## *_17. 惟炉潮厨 & 温州大排档 & 既躺平又焦虑_
+- [我的微博 2022-04-16 13:42](https://weibo.com/2181657940/LoHC31PWA)
+
+久违的 Coffee Holic
+
+- [我的微博 2022-04-16 14:15](https://weibo.com/2181657940/LoHPm1zcS)
+
+## *_17. 惟炉潮厨 & 温州大排档 & 既躺平又焦虑，想要安稳_
 
 惟炉潮厨
 
@@ -675,13 +681,19 @@ review 别人感觉就是不一样，
 > 到了晚上，又知道了一个朋友被裁了。
 > 躺平是自然而然的，但人也会被社会现状（经济、人、事）弄得焦虑，是一种奇怪又正常的纠结的状态。 ​​​​
 
-## *_18. 大董的烤鸭确实不错就是贵_
+想要安稳
 
-[我的微博 2022-04-18 20:48](https://weibo.com/2181657940/Lp3g60Ar6)
+- [我的微博 2022-04-17 21:26](https://weibo.com/2181657940/LoU4OEMwO)
+
+## *_18. 大董的烤鸭_
+
+大董的烤鸭确实不错，就是贵
+
+- [我的微博 2022-04-18 20:48](https://weibo.com/2181657940/Lp3g60Ar6)
 
 [feat(schemas): logs schema and log payload type by IceHe · Pull Request #561 · logto-io/logto](https://github.com/logto-io/logto/pull/561)
 
--   如无必要，勿增实体。精简字段，等到有必要再增改。
+-   “如无必要，勿增实体。” 精简字段，等到有必要再增改。
 
     ```sql
     create table logs
@@ -697,13 +709,13 @@ review 别人感觉就是不一样，
     create index logs__created_at on logs (created_at);
     ```
 
-## *_19. 西粉堂的新疆炒粉太咸了_
+## *_19. 西粉堂的新疆炒米粉_
 
 _虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
 
 [feat(core): logs by IceHe · Pull Request #569 · logto-io/logto](https://github.com/logto-io/logto/pull/569)
 
-- 除了必须的信息外，其它 `...rest` 都放到日志的拓展字段中
+-   除了必须的信息外，其它 `...rest` 都放到日志的拓展字段中。
 
     ```ts
     const log = async (ctx: WithLogContext<Context>, result: LogResult) => {
