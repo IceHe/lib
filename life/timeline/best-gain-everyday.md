@@ -659,9 +659,75 @@ review 别人感觉就是不一样，
 
 ## *_17. 惟炉潮厨 & 温州大排档 & 既躺平又焦虑_
 
-TODO
+惟炉潮厨
 
-## *_18. 吃大董的烤鸭，味道不错_
+- [我的微博 2022-04-17 15:35](https://weibo.com/2181657940/LoRMy0oF7)
+
+温州大排档
+
+- [我的微博 2022-04-17 19:41](https://weibo.com/2181657940/LoTocF6PR)
+
+既躺平又焦虑
+
+- [我的微博 2022-04-19 00:15](https://weibo.com/2181657940/Lp4C2heO5)
+
+> 周末跟朋友吃饭聊天，聊到了那种既躺平又焦虑的状态。
+> 到了晚上，又知道了一个朋友被裁了。
+> 躺平是自然而然的，但人也会被社会现状（经济、人、事）弄得焦虑，是一种奇怪又正常的纠结的状态。 ​​​​
+
+## *_18. 大董的烤鸭确实不错就是贵_
+
+[我的微博 2022-04-18 20:48](https://weibo.com/2181657940/Lp3g60Ar6)
+
+[feat(schemas): logs schema and log payload type by IceHe · Pull Request #561 · logto-io/logto](https://github.com/logto-io/logto/pull/561)
+
+-   如无必要，勿增实体。精简字段，等到有必要再增改。
+
+    ```sql
+    create table logs
+    (
+      id          varchar(21)                      not null,
+      type        varchar(64)                      not null,
+      payload     jsonb /* @use ArbitraryObject */ not null default '{}'::jsonb,
+      created_at  timestamptz                      not null default (now()),
+      primary key (id)
+    );
+
+    create index logs__type on logs (type);
+    create index logs__created_at on logs (created_at);
+    ```
+
+## *_19. 西粉堂的新疆炒粉太咸了_
+
+_虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
+
+[feat(core): logs by IceHe · Pull Request #569 · logto-io/logto](https://github.com/logto-io/logto/pull/569)
+
+- 除了必须的信息外，其它 `...rest` 都放到日志的拓展字段中
+
+    ```ts
+    const log = async (ctx: WithLogContext<Context>, result: LogResult) => {
+      const { type, ...rest } = ctx.log;
+
+      if (!type) {
+        return;
+      }
+
+      try {
+        await insertLog({
+          id: nanoid(),
+          type,
+          payload: {
+              ...rest,
+              result,
+          },
+        });
+      } catch (error: unknown) {
+        console.error('An error occurred while inserting log');
+        console.error(error);
+      }
+    };
+    ```
 
 <!--
 
