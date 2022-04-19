@@ -250,16 +250,20 @@ _《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
 
 ## *_22. 通关《AI梦境档案》_
 
-- _通关《[AI梦境档案](https://www.douban.com/game/30265812/)》_
-- _读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
-    - _[我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)_
-- Upgrade @silverhand/eslint-config
-    - github.com/silverhand-io/configs
-        - [fix(eslint-config): fix rule member-ordering via updating dependencies #18](https://github.com/silverhand-io/configs/pull/18)
-        - [fix: bump typescript eslint plugins and disable unnecessary rules #19](https://github.com/silverhand-io/configs/pull/19)
-        - [fix(eslint-config): update pnpm-lock.yaml #20](https://github.com/silverhand-io/configs/pull/20)
-    - github.com/logto-io/js
-        - [chore: bump eslint-config to 0.9.1 #196](https://github.com/logto-io/js/pull/196)
+_通关《[AI梦境档案](https://www.douban.com/game/30265812/)》_
+
+_读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
+
+- _[我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)_
+
+Upgrade @silverhand/eslint-config
+
+- github.com/silverhand-io/configs
+    - [fix(eslint-config): fix rule member-ordering via updating dependencies #18](https://github.com/silverhand-io/configs/pull/18)
+    - [fix: bump typescript eslint plugins and disable unnecessary rules #19](https://github.com/silverhand-io/configs/pull/19)
+    - [fix(eslint-config): update pnpm-lock.yaml #20](https://github.com/silverhand-io/configs/pull/20)
+- github.com/logto-io/js
+    - [chore: bump eslint-config to 0.9.1 #196](https://github.com/logto-io/js/pull/196)
 
 ## *_23. 不要熬夜_
 
@@ -277,7 +281,7 @@ _（虽说理性的策略是“既往不咎，纵情向前”，接下来重新�
 不能保证头脑尽可能处于最佳状态，枉论做别的事能做得更多更好。
 （所以觉得自己学生时代的脑袋真是一桶浆糊，即使到了现在自己已经工作6年多了，还是在低效率地生活，无论做的是正事还是娱乐。）
 
-## *_24. 了解自己 & 通过解决实际问题来快速进步_
+## *_24. 了解自己 & 解决实际问题，快速进步_
 
 _有些地方活得太马虎了，一点都不了解自己……_
 
@@ -292,6 +296,8 @@ _还有学生时代上体育课，靠风干、焐干自己的衣服，容易感�
 _明明已经感冒很多次了，鼻炎难受极了，上体育课的日子还是不懂得带备用衣服，不会注意身体。_
 
 ---
+
+通过解决实际问题来快速进步
 
 _自己不爱去主动（或被动）地解决现实中的（正常或不得不面对的工作、学业或生活上的）问题，_
 _进步就非常慢……（记得这种趋势从学生时代的初一下学期就开始暴露了……）_
@@ -335,18 +341,20 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
     ```
 -   Use `jest.config.ts` instead of `jest.config.js`.
 
-## *_26. 有趣的桌游《截码站》& 感受音乐酒吧 Tokyo Lounge_
+## *_26. 桌游《截码站》& 音乐酒吧 Tokyo Lounge_
 
-有趣的桌游《截码站》
+_有趣的桌游《截码站》_
 
-- 后记：可惜第二天（27号）就玩腻了。
+- _后记：可惜第二天（27号）就玩腻了_
 
-去 Tokyo Lounge 东京酒廊，体验一下音乐酒吧。
+_体验一下音乐酒吧 —— Tokyo Lounge 东京酒廊_
 
-- 虽然氛围感觉还不错，但人均消费对我来说还是偏贵了，自己一个人是不会考虑去那消磨时光的。
-- [我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)
+- _虽然氛围感觉还不错，但人均消费对我来说还是偏贵了，自己一个人是不会考虑去那消磨时光的。_
+- _[我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)_
 
-## *_27. 重玩《UNO》感觉还不错_
+## *_27. 重温桌游《UNO》_
+
+_感觉还不错_
 
 ## 28. package.json peerDependencies & simplify webpack.config.js
 
@@ -413,9 +421,13 @@ koa: next generation web framework for node.js - [koajs.com](https://koajs.com/)
 
 _（生活片段：用挑染假发片模拟了一下挑染的效果，感觉耳目一新）_
 
-## *_3. 剧情还不错的番剧《天才王子的赤字国家振兴术》_
+## *_3. 番剧《天才王子的赤字国家振兴术》_
 
-## *_4. 制作精良的异世界番剧《世界顶尖的暗杀者，转生为异世界贵族》_
+_剧情还不错_
+
+## *_4. 番剧《世界顶尖的暗杀者，转生为异世界贵族》_
+
+_制作精良的异世界番剧_
 
 ## 7. Change the type definition in PostgreSQL & Sign-in with Facebook
 
@@ -622,7 +634,7 @@ TODO：名字待补充
 
 how-to-live.md
 
-## *_7. 朋友游戏真有趣_
+## *_7. 精彩的智斗漫画《朋友游戏》_
 
 ## *_8. Warp: The Terminal for the 21st Century & **You are free to be free.**_
 
@@ -636,30 +648,35 @@ how-to-live.md
 
 ## *_12. 搬家_
 
-## *_13. 去 Review PR 产生了掌控感_
+## *_13. Review PR 的掌控感_
 
 review 别人感觉就是不一样，
 最重要的还是得能够提出有价值的意见，才能够被认同。
 
-## *_14. 又去 KTV 了_
+## *_14. 又去 KTV_
 
 我们工作真浪，但需要凑齐那么几个人，我、大喜、思捷、挂面、Eric。
 
-## 15. Logs DB schema _& 肥福排档_
+## 15. Logs DB schema _& 肥福排档的清蒸鱼_
 
 讨论之后有了不一样的思路，因为同事的想法跟我有不小的差异。例如记录 route 和 status code，我就没这么想过。
 
-周五下班去得不够早，结果足足等了一小时才有位置。
-点了一条青衣鱼比较贵，最后三个人吃了快1500块。
-虽然大家等位等了比较久，但好歹饭菜比较可口，还是吃得挺满意的。
+- TODO
+
+_肥福排档的清蒸青衣鱼_
+
+-   _周五下班去得不够早，结果足足等了一小时才有位置。_
+    _点了一条青衣鱼比较贵，最后三个人吃了快1500块。_
+    _虽然大家等位等了比较久，但好歹饭菜比较可口，还是吃得挺满意的。_
+-   _[我的微博 2022-04-15 21:24](https://weibo.com/2181657940/LoBdkiqLQ)_
 
 ## *_16. 京城海南鸡饭 & Coffee Holic 的特调_
 
-京城海南鸡饭
+_京城海南鸡饭_
 
 - [我的微博 2022-04-16 13:42](https://weibo.com/2181657940/LoHC31PWA)
 
-久违的 Coffee Holic
+_久违的 Coffee Holic_
 
 - [我的微博 2022-04-16 14:15](https://weibo.com/2181657940/LoHPm1zcS)
 
