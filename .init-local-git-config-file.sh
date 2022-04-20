@@ -15,7 +15,7 @@ echo '[commit]
 [remote "origin"]
 	url = git@github.com:IceHe/lib.git
 	url = git@gitlab.com:IceHe/lib.git
-	url = git@e.coding.net:IceHe/lib.git
+	#url = git@e.coding.net:IceHe/lib.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "master"]
 	remote = origin
