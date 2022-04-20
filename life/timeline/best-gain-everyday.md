@@ -127,8 +127,8 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
     const crypto = require('crypto');
 
     global.crypto = {
-        getRandomValues: (buffer) => crypto.randomFillSync(buffer),
-        subtle: crypto.webcrypto.subtle,
+      getRandomValues: (buffer) => crypto.randomFillSync(buffer),
+      subtle: crypto.webcrypto.subtle,
     };
     ```
 
@@ -258,12 +258,10 @@ _读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
 
 Upgrade @silverhand/eslint-config
 
-- github.com/silverhand-io/configs
-    - [fix(eslint-config): fix rule member-ordering via updating dependencies #18](https://github.com/silverhand-io/configs/pull/18)
-    - [fix: bump typescript eslint plugins and disable unnecessary rules #19](https://github.com/silverhand-io/configs/pull/19)
-    - [fix(eslint-config): update pnpm-lock.yaml #20](https://github.com/silverhand-io/configs/pull/20)
-- github.com/logto-io/js
-    - [chore: bump eslint-config to 0.9.1 #196](https://github.com/logto-io/js/pull/196)
+- [fix(eslint-config): fix rule member-ordering via updating dependencies by IceHe · Pull Request #18 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/18)
+- [fix: bump typescript eslint plugins and disable unnecessary rules by demonzoo · Pull Request #19 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/19)
+- [fix(eslint-config): update `pnpm-lock.yaml` by demonzoo · Pull Request #20 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/20)
+- [chore: bump eslint-config to 0.9.1 by demonzoo · Pull Request #196 · logto-io/js](https://github.com/logto-io/js/pull/196)
 
 ## *_23. 不要熬夜_
 
@@ -433,27 +431,82 @@ _制作精良的异世界番剧，看得我津津有味，有点想接着看原�
 
 Change the type definition in PostgreSQL
 
-- References
+-   SQL command
 
-    - [ALTER TYPE - SQL Commands - PostgreSQL Docs](https://www.postgresql.org/docs/current/sql-altertype.html)
     - [Updating Enum Values in PostgreSQL - The Safe and Easy Way](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/)
-        - Easy way: [tl;dr](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/#tldr)
-        - Safe way: [Updating/Renaming a Value](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/#updatingrenamingavalue)
-    - Debug
-        - [Setting up a PostgreSQL Database on Mac](https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/)
-        - [PostgreSQL - Psql commands - GeeksforGeeks](https://www.geeksforgeeks.org/postgresql-psql-commands/)
-        - [Display user-defined types and their details](https://dba.stackexchange.com/a/301746)
-            > With `psql`:
-            >
-            > - `\dT` show list of user-defined types.
-            > - `\dT+ <type_name>` show given user-defined type, with details.
-            > - `\dT <type_name>` show given user-defined type, without details.
 
-- TODO: note-taking?
+        tl; dr:
 
-    - Setup PosgreSQL on Mac
-    - `psql` Usage
-    - Change the type definition in PostgreSQL
+        ```sql
+        ALTER TYPE status_enum RENAME VALUE 'waiting' TO 'blocked';
+
+        -- rename the existing type
+        ALTER TYPE status_enum RENAME TO status_enum_old;
+
+        -- create the new type
+        CREATE TYPE status_enum AS ENUM('queued', 'running', 'done');
+
+        -- update the columns to use the new type
+        ALTER TABLE job ALTER COLUMN job_status TYPE status_enum USING job_status::text::status_enum;
+
+        -- remove the old type
+        DROP TYPE status_enum_old;
+        ```
+
+    - Official doc: [ALTER TYPE - SQL Commands - PostgreSQL Docs](https://www.postgresql.org/docs/current/sql-altertype.html)
+
+- Test SQL command in localhost
+
+    - [Setting up a PostgreSQL Database on Mac](https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/)
+
+        ```bash
+        $ brew install postgresql
+        $ brew services start postgresql
+        $ psql postgres
+        > CREATE ROLE new_username WITH LOGIN PASSWORD 'password';
+        > ALTER ROLE new_username CREATEDB;
+        > \q
+        $ psql postgres -U new_username
+        ```
+
+    - [PostgreSQL - Psql commands - GeeksforGeeks](https://www.geeksforgeeks.org/postgresql-psql-commands/)
+
+        ```bash
+        # Connect to a database that resides on another host
+        # -h: host
+        # -d: database name
+        # -U: database user
+        $ psql -h host -d database -U user -W
+
+        # Switch connection to a new database
+        > \c dbname
+
+        # List available databases
+        > \l
+        # List available tables
+        > \dt
+        # Describe a table such as a column, type, modifiers of columns, etc.
+        > \d table_name
+
+        # Display command history
+        \s
+        # Know all available psql commands
+        \?
+        # Get help
+        > \h
+        # Exit psql shell
+        > \q
+        ```
+
+    - [Display user-defined types and their details](https://dba.stackexchange.com/a/301746)
+
+        > With `psql`:
+        >
+        > - `\dT` show list of user-defined types.
+        > - `\dT+ <type_name>` show given user-defined type, with details.
+        > - `\dT <type_name>` show given user-defined type, without details.
+
+-   TODO: move to another doc
 
 [feat(core): facebook connector by IceHe · Pull Request #321 · logto-io/logto](https://github.com/logto-io/logto/pull/321)
 
