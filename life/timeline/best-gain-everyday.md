@@ -6,7 +6,7 @@
 
 Started to record my best gain everyday from 2022/02/16.
 
-（标题带 `*` 表示收获一般，斜体内容表示不太重要。）
+（标题带 `*` 一般表示内容主要是吃喝玩乐；斜体一般表示内容不硬核。）
 
 # 2022 Feb
 
@@ -773,6 +773,14 @@ _虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
       }
     };
     ```
+
+## *_20. 鸡坤茶室的海南鸡和豉油鸡_
+
+_鸡坤茶室的海南鸡和豉油鸡挺好吃的！下次也试试肉骨茶～_
+
+- [我的微博 2022-04-20 21:14](https://weibo.com/2181657940/Lpmhwdwa0)
+
+[feat(core,schema): new koa-log middleware by IceHe · Pull Request #590 · logto-io/logto](https://github.com/logto-io/logto/pull/590)
 
 <!--
 
