@@ -463,7 +463,6 @@ _制作精良的异世界番剧，看得我津津有味，有点想接着看原�
             - To sum up, Slonik is designed to **prevent accidental creation of queries vulnerable to SQL injections**.
         - [Discussion of Dynamically generating SQL queries using Node.js](https://dev.to/gajus/dynamically-generating-sql-queries-using-node-js-2c1g/comments)
 - Note: `ORDER BY` is after `WHERE` and before `LIMIT` `OFFSET`
-- See PR for more details
 
 ## 9. Slonik & `type is` 的 ts 语法？
 
@@ -549,7 +548,7 @@ TODO: 豁然开朗，把上周 blocked 的变更，拆成一个个 PR 来提交�
 - *_[refactor(core): getEnabledPasswordlessConnectorInstanceByType  by IceHe · Pull Request #431 · logto-io/logto](https://github.com/logto-io/logto/pull/431)_
 - *_[refactor(core): change PATCH /sign-in-exp/:id to PATCH /sign-in-exp by IceHe · Pull Request #427 · logto-io/logto](https://github.com/logto-io/logto/pull/427)_
 
-## *_22. 急性胰腺炎 or 急性肠胃炎？_
+## *_22. 急性胰腺炎？阑尾炎！_
 
 TODO
 
@@ -569,7 +568,7 @@ TODO
 
 详见微博 26 转发的某条英文微博
 
-## *_26. 露营烤烧 & 提督烤鸭_
+## *_26. 露营烤烧 & 提督 的烤鸭_
 
 TODO
 
@@ -577,7 +576,9 @@ TODO
 
 TODO
 
-## *_28. 厚鲤甲赫的福建菜不错_
+## *_28. 厚鲤甲赫 的福建菜_
+
+_味道不错_
 
 TODO
 
@@ -595,7 +596,7 @@ TODO
 
 ## 2. 终于合进去了多个 PRs
 
-## *_2. 牛麟荟的潮汕牛肉火锅_
+## *_2. 牛麒荟 的潮汕牛肉火锅_
 
 ## *_3. 剧本杀《TODO》& 电影《超体》_
 
@@ -649,18 +650,28 @@ review 别人感觉就是不一样，
 
 同事们在工作日也很能浪，但需要凑齐那么几个人，我、大喜、思捷、挂面、Eric。
 
-## 15. Logs DB schema _& 肥福排档的清蒸鱼_
-
-讨论之后有了不一样的思路，因为同事的想法跟我有不小的差异。例如记录 route 和 status code，我就没这么想过。
-
-- TODO
-
-_肥福排档的清蒸青衣鱼_
+## *_15. 肥福排档 的清蒸青衣鱼_
 
 -   _周五下班去得不够早，结果足足等了一小时才有位置。_
     _点了一条青衣鱼比较贵，最后三个人吃了快1500块。_
     _虽然大家等位等了比较久，但好歹饭菜比较可口，还是吃得挺满意的。_
 -   _[我的微博 2022-04-15 21:24](https://weibo.com/2181657940/LoBdkiqLQ)_
+
+[chore(console,ui): parcel build --no-cache by IceHe · Pull Request #557 · logto-io/logto](https://github.com/logto-io/logto/pull/557)
+
+- [Caching - Parcel](https://parceljs.org/features/development/#caching)
+
+    > **Caching**
+    >
+    > Parcel caches everything it builds to disk.
+    > If you restart the dev server, Parcel will only rebuild files that have changed since the last time it ran.
+    > Parcel automatically tracks all of the files, configuration, plugins, and dev dependencies that are involved in your build, and granularly invalidates the cache when something changes.
+    > _For example, if you change a configuration file, all of the source files that rely on that configuration will be rebuilt._
+    >
+    > ……
+    >
+    > Caching can also be disabled using the `--no-cache` flag.
+    > Note that this only disables reading from the cache – a `.parcel-cache` folder will still be created.
 
 ## *_16. 京城海南鸡饭 & Coffee Holic 的特调_
 
@@ -694,7 +705,7 @@ _久违的 Coffee Holic_
 
 - [我的微博 2022-04-17 21:26](https://weibo.com/2181657940/LoU4OEMwO)
 
-## *_18. 大董的烤鸭_
+## *_18. 大董 的烤鸭_
 
 大董的烤鸭确实不错，就是贵
 
@@ -718,7 +729,7 @@ _久违的 Coffee Holic_
     create index logs__created_at on logs (created_at);
     ```
 
-## *_19. 西粉堂的新疆炒米粉_
+## *_19. 西粉堂 的新疆炒米粉_
 
 _虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
 
@@ -750,7 +761,7 @@ _虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
     };
     ```
 
-## *_20. 鸡坤茶室的海南鸡和豉油鸡_
+## *_20. 鸡坤茶室 的海南鸡和豉油鸡_
 
 _鸡坤茶室的海南鸡和豉油鸡挺好吃的！下次也试试肉骨茶～_
 
