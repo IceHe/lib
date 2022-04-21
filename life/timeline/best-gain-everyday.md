@@ -166,7 +166,7 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
     // url.toString() === 'https://icehe.xyz/foo/bar'
     ```
 
-## 15. Differ `aseert` from `create` in `superstruct`
+## 15. Differ `assert` from `create` in `superstruct`
 
 [feat(browser): sign-in session storage by IceHe · Pull Request #175 · logto-io/js](https://github.com/logto-io/js/pull/175)
 
@@ -366,7 +366,7 @@ _感觉还挺好玩的，跟朋友一起玩就是很欢乐。_
 
     > 一个 package 的 `peerDependencies` 用于提示引入该 package 的项目也需要安装哪些（指定版本范围的）其它 package。
 
-[chore(js,browser): simplify wepack config & code coverage excludes src/index.ts by IceHe · Pull Request #205 · logto-io/js](https://github.com/logto-io/js/pull/205)
+[chore(js,browser): simplify webpack config & code coverage excludes src/index.ts by IceHe · Pull Request #205 · logto-io/js](https://github.com/logto-io/js/pull/205)
 
 - Simplify `webpack.config.js` in TypeScript projects
     - How to use Webpack in [TypeScript](https://webpack.js.org/guides/typescript/#loader) projects
@@ -523,7 +523,7 @@ TODO
 - 数据存储设计：design of connectors DB & code
 - 协作：PR based on another PR
 
-[feat(core): resuse remote jwk set by IceHe · Pull Request #231 · logto-io/js](https://github.com/logto-io/js/pull/231)
+[feat(core): reuse remote jwk set by IceHe · Pull Request #231 · logto-io/js](https://github.com/logto-io/js/pull/231)
 
 - References:
     - lodash.once
@@ -780,4 +780,4 @@ Lerna
 - References:
     - [lerna/lerna: A tool for managing JavaScript projects with multiple packages.](https://github.com/lerna/lerna)
     - [Lerna · A tool for managing JavaScript projects with multiple packages.](https://lerna.js.org/)
-    - [learna - npm](https://www.npmjs.com/package/lerna)
+    - [lerna - npm](https://www.npmjs.com/package/lerna)
