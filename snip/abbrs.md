@@ -336,6 +336,7 @@ Reference : https://www.computerhope.com/keys.htm
 - DoD : [Definition of Done](https://en.wikipedia.org/wiki/Scrum_(software_development)#:~:text=the%20work%20item.-,Definition%20of%20done)
 - DoS : [Denial-of-Service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)
 - DSL : [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language)
+- DSN : [Data Source Name](https://en.wikipedia.org/wiki/Data_source_name)
 - dup : duplicate
 - dw : double word
 
