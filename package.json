@@ -1,0 +1,29 @@
+{
+  "name": "icehe.xyz",
+  "description": "IceHe's Lib",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "author": "IceHe",
+  "private": false,
+  "homepage": "https://github.com/IceHe/lib#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IceHe/lib.git"
+  },
+  "keywords": [
+    "icehe",
+    "tech"
+  ],
+  "main": "./index.html",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "start": "docsify serve -p 3100 ."
+  },
+  "dependencies": {
+    "docsify": "^4.12.2",
+    "docsify-cli": "^4.4.4"
+  },
+  "engines": {
+    "pnpm": ">=6"
+  }
+}
