@@ -484,11 +484,11 @@ TODO
 
 ## *_13. 剧本杀《持斧奥夫》& 桌游《三国杀》的国战模式_
 
-玩过套娃最猛的剧本杀《持斧奥夫》
+_玩过套娃最猛的剧本杀《持斧奥夫》_
 
 - TODO
 
-初识桌游《三国杀》的国战模式
+_初识桌游《三国杀》的国战模式_
 
 - TODO
 
@@ -558,7 +558,7 @@ TODO
 
 - Do things asynchronously as possible `Promise.all([…])`.
 
-## 24. GitHub Actions & _复诊确诊_
+## 24. GitHub Actions & _复诊确诊阑尾炎_
 
 TODO
 
@@ -685,31 +685,31 @@ _久违的 Coffee Holic_
 
 ## *_17. 惟炉潮厨 & 温州大排档 & 既躺平又焦虑，想要安稳_
 
-惟炉潮厨
+_惟炉潮厨_
 
-- [我的微博 2022-04-17 15:35](https://weibo.com/2181657940/LoRMy0oF7)
+- _[我的微博 2022-04-17 15:35](https://weibo.com/2181657940/LoRMy0oF7)_
 
-温州大排档
+_温州大排档_
 
-- [我的微博 2022-04-17 19:41](https://weibo.com/2181657940/LoTocF6PR)
+- _[我的微博 2022-04-17 19:41](https://weibo.com/2181657940/LoTocF6PR)_
 
-既躺平又焦虑
+_既躺平又焦虑_
 
-- [我的微博 2022-04-19 00:15](https://weibo.com/2181657940/Lp4C2heO5)
+- _[我的微博 2022-04-19 00:15](https://weibo.com/2181657940/Lp4C2heO5)_
 
 > 周末跟朋友吃饭聊天，聊到了那种既躺平又焦虑的状态。
 > 到了晚上，又知道了一个朋友被裁了。
 > 躺平是自然而然的，但人也会被社会现状（经济、人、事）弄得焦虑，是一种奇怪又正常的纠结的状态。 ​​​​
 
-想要安稳
+_想要安稳_
 
-- [我的微博 2022-04-17 21:26](https://weibo.com/2181657940/LoU4OEMwO)
+- _[我的微博 2022-04-17 21:26](https://weibo.com/2181657940/LoU4OEMwO)_
 
 ## *_18. 大董 的烤鸭_
 
-大董的烤鸭确实不错，就是贵
+_大董的烤鸭确实不错，就是贵_
 
-- [我的微博 2022-04-18 20:48](https://weibo.com/2181657940/Lp3g60Ar6)
+- _[我的微博 2022-04-18 20:48](https://weibo.com/2181657940/Lp3g60Ar6)_
 
 [feat(schemas): logs schema and log payload type by IceHe · Pull Request #561 · logto-io/logto](https://github.com/logto-io/logto/pull/561)
 
@@ -765,9 +765,35 @@ _虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
 
 _鸡坤茶室的海南鸡和豉油鸡挺好吃的！下次也试试肉骨茶～_
 
-- [我的微博 2022-04-20 21:14](https://weibo.com/2181657940/Lpmhwdwa0)
+- _[我的微博 2022-04-20 21:14](https://weibo.com/2181657940/Lpmhwdwa0)_
 
 [feat(core,schema): new koa-log middleware by IceHe · Pull Request #590 · logto-io/logto](https://github.com/logto-io/logto/pull/590)
+
+## *_21. 广东顺德菜馆·星爷鸡煲_
+
+_味道还行，但没有太惊喜。还需要跟其他朋友再来试试。_
+
+- _[我的微博 2022-04-21 20:15](https://weibo.com/2181657940/LpvklpcdF)_
+
+## *_22. ZH Live House & 瓷器牛肠专门店·烧鸟居酒屋_
+
+_ZH Live House 比上次去的 东京酒廊 气氛更好！曲风更流行，适合俺。_
+
+- _[我的微博 2022-04-22 22:47](https://weibo.com/2181657940/LpFKhsxKs)_
+
+_瓷器牛肠专门店·烧鸟居酒屋，还可以，偶尔再来试试。_
+
+TODO: 类型体操 `setValue(obj, key, value)`
+
+## *_23. 广东顺德菜馆·小院 & 先启半步癫小酒馆_
+
+_广东顺德菜馆·小院，点了推荐菜桑拿鸡，感觉一般般。_
+
+- _[我的微博 2022-04-23 17:39](https://weibo.com/2181657940/LpNa0Cgkm)_
+
+_先启半步癫小酒馆，菜挺辣的，炒饭没朋友说的那么好吃，问题应该出在不是现炒的。_
+
+- _[我的微博 2022-04-23 19:49](https://weibo.com/2181657940/LpNYurf41)_
 
 <!--
 
