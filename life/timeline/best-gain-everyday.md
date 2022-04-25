@@ -804,11 +804,25 @@ const set = <T, U extends keyof T>(object: T, key: keyof T, value: T[U]) => {
 
 TODO: 详见 PR 还有更多类型体操的操作
 
+## 25. 思考的方式 _& 满面·二郎系拉面_
+
+TODO：有漏洞，别人为什么逻辑那么清晰，不止是成事。
+
 <!--
 
 ## ?. varchar(256)
 
 详见 Notion 里的 logs schema design doc
+
+https://en.wikipedia.org/wiki/Universally_unique_identifier
+https://en.wikipedia.org/wiki/German_tank_problem
+https://www.techtarget.com/searchapparchitecture/definition/UUID-Universal-Unique-Identifier#:~:text=A%20UUID%20(Universal%20Unique%20Identifier,UUID%20generated%20until%20A.D.%203400.
+
+https://www.npmjs.com/package/nanoid
+
+https://softwareengineering.stackexchange.com/questions/328458/is-it-good-practice-to-always-have-an-autoincrement-integer-primary-key
+https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/
+https://levelup.gitconnected.com/why-you-should-graduate-from-using-auto-increment-id-for-database-record-1c1f584e958a
 
 ## ?. PostgreSQL & JSONB?
 
