@@ -783,8 +783,6 @@ _ZH Live House 比上次去的 东京酒廊 气氛更好！曲风更流行，适
 
 _瓷器牛肠专门店·烧鸟居酒屋，还可以，偶尔再来试试。_
 
-TODO: 类型体操 `setValue(obj, key, value)`
-
 ## *_23. 广东顺德菜馆·小院 & 先启半步癫小酒馆_
 
 _广东顺德菜馆·小院，点了推荐菜桑拿鸡，感觉一般般。_
@@ -795,13 +793,32 @@ _先启半步癫小酒馆，菜挺辣的，炒饭没朋友说的那么好吃，�
 
 - _[我的微博 2022-04-23 19:49](https://weibo.com/2181657940/LpNYurf41)_
 
+## 24. 类型体操：setValue 时根据 key 推断并提示 value 类型
+
+```ts
+const set = <T, U extends keyof T>(object: T, key: keyof T, value: T[U]) => {
+  // eslint-disable-next-line @silverhand/fp/no-mutation
+  object[key] = value;
+};
+```
+
+TODO: 详见 PR 还有更多类型体操的操作
+
 <!--
+
+## ?. varchar(256)
+
+详见 Notion 里的 logs schema design doc
 
 ## ?. PostgreSQL & JSONB?
 
 ## ?. Lerna?
 
 Lerna
+
+```bash
+pnpm -- lerna run --stream build
+```
 
 - References:
     - [lerna/lerna: A tool for managing JavaScript projects with multiple packages.](https://github.com/lerna/lerna)
