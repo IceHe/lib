@@ -656,8 +656,8 @@ Timeline
     - [2022 January](/life/timeline/2022-january.md)
     - [2022 Feb ~ Apr: Best Gain Everyday](/life/timeline/best-gain-everyday.md)
         - from both technology practices and daily life
-    - [Moments](/life/timeline/moments.md): 回忆
     - [How to live](/life/principle/how-to-live.md) | [Rehabilitation](/life/principle/rehabilitation.md)
+    - [Moments](/life/timeline/moments.md): 回忆
 - 2015 ~ 2017
     - [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
     - [2017 Spring](/life/timeline/2017-spring.md)
