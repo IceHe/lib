@@ -15,8 +15,6 @@
 
 ## Technology
 
-[Best Gain Everyday](/life/timeline/best-gain-everyday.md) from both technology practices and daily life.
-
 ### Book
 
 [IceHe's Book List](https://book.douban.com/people/IceHeGZ/collect) @douban.com
@@ -656,6 +654,8 @@ Timeline
     - [2018 Spring ~ 2019 Autumn](/life/timeline/2018-spring-to-2019-autumn.md)
     - [2018 Winter](/life/timeline/2018-winter.md)
     - [2022 January](/life/timeline/2022-january.md)
+    - [2022 Feb ~ Apr: Best Gain Everyday](/life/timeline/best-gain-everyday.md)
+        - from both technology practices and daily life
     - [Moments](/life/timeline/moments.md): 回忆
     - [How to live](/life/principle/how-to-live.md) | [Rehabilitation](/life/principle/rehabilitation.md)
 - 2015 ~ 2017
