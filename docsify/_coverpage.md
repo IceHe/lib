@@ -5,8 +5,10 @@
 # IceHe<small>Life</small>
 
 ```
-<!-- You're free to be free. -->
+<!-- Better me. -->
 ```
+
+<!-- You're free to be free. -->
 
 <!-- Relax -->
 
@@ -40,7 +42,7 @@
 
 [🧑🏻‍💻 About](/life/bio.md) [📚 Library](/README)
 
-<!-- [🎯 About](/life/bio.md) -->
+<!-- 🎯 -->
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->
 <!-- [💻 GitHub](https://github.com/IceHe) -->
 <!-- [📚 Library](/README) -->
