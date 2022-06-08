@@ -5,7 +5,7 @@
 # IceHe<small>Life</small>
 
 ```
-<!-- Better me. -->
+<!-- Better me -->
 ```
 
 <!-- You're free to be free. -->
