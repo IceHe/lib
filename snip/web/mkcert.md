@@ -14,7 +14,18 @@ References:
 ```bash
 brew install mkcert
 mkcert -install
+```
+
+## Setup
+
+```bash
 # e.g. under home directory
 mkcert local.icehe
 mkcert localhost 127.0.0.1 ::1
 ```
+
+## Configure on HTTP server
+
+It depends.
+
+TODO
