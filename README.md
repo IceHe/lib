@@ -10,8 +10,8 @@
 
 <!-- > —— LeBlanc's Law -->
 
-- Here: [https://icehe.xyz](https://icehe.xyz)
-- Whoami: [IceHe's bio](/life/bio.md)
+-   Here: [https://icehe.xyz](https://icehe.xyz)
+-   Whoami: [IceHe's bio](/life/bio.md)
 
 ## Technology
 
@@ -29,18 +29,18 @@
 Coding
 
 -   [Refactoring](/book/refactoring.md)
-    - Improving the Design of Existing Code
+    -   Improving the Design of Existing Code
 -   [Design Patterns](/book/design-patterns.md)
-    - Elements of Reusable Object-Oriented Software
+    -   Elements of Reusable Object-Oriented Software
 -   [Pragmatic Programmer](/book/pragmatic-programmer.md)
-    - Your journey to mastery - 2nd Edition
+    -   Your journey to mastery - 2nd Edition
 -   [Clean Agile](/book/clean-agile.md)
-    - Back to Basics
+    -   Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
-    - PEP 20
+    -   PEP 20
 -   [Google Engineering Practices](/snip/tmp/google-eng-practices.md) (notes)
-    - How to do code review
-    - How to get through a code review
+    -   How to do code review
+    -   How to get through a code review
 
 <!-- TODO
 
@@ -53,26 +53,26 @@ Coding
 
 JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
-- [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
-- [Part III. Execution Engine](/book/understand-jvm-p3.md) - _todo_
-- Part IV. Compile and Code Optimize
+-   [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
+-   [Part III. Execution Engine](/book/understand-jvm-p3.md) - _todo_
+-   Part IV. Compile and Code Optimize
 
 Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-applications-toc.md)
 
 -   [Part I. Foundations of Data Systems](/book/designing-data-intensive-applications-p1.md)
-    - 1\. **Reliable**, **Scalable**, and Maintainable Applications
-    - 2\. **Data Models** and Query Languages
-    - 3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
+    -   1\. **Reliable**, **Scalable**, and Maintainable Applications
+    -   2\. **Data Models** and Query Languages
+    -   3\. **Storage** and **Retrieval** / 4\. **Encoding** and Evolution
 -   [Part II. Distributed Data](/book/designing-data-intensive-applications-p2.md)
-    - 5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
-    - 8\. The Trouble with **Distributed Systems**
-    - 9\. **Consistency** and **Consensus**
+    -   5\. **Replication** / 6\. **Partitioning** / 7\. **Transactions**
+    -   8\. The Trouble with **Distributed Systems**
+    -   9\. **Consistency** and **Consensus**
 -   [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
-    - 10\. **Batch** Processing / 11\. **Stream** Processing / …
+    -   10\. **Batch** Processing / 11\. **Stream** Processing / …
 
 Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-architecture-toc.md)
 
-- [reading notes](/book/fundamentals-of-software-architecture.md)
+-   [reading notes](/book/fundamentals-of-software-architecture.md)
 
 <!-- TODO
 
@@ -91,11 +91,11 @@ Others
 
 -->
 
-### Auth*
+### Auth\*
 
 Basics
 
--   [Auth*](/auth/auth.md) - Authentication & Authorization
+-   [Auth\*](/auth/auth.md) - Authentication & Authorization
     <!-- todo -->
 
 -   [OIDC](/auth/oidc/oidc.md) - OpenID Connect
@@ -103,19 +103,19 @@ Basics
 
     an interoperable authentication protocol based on the OAuth 2.0 family of specifications
 
-    - [Core 1.0](/auth/oidc/core.md) functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
-        <!-- todo -->
-    - [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_
-        <!-- todo -->
+    -   [Core 1.0](/auth/oidc/core.md) functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
+          <!-- todo -->
+    -   [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_
+          <!-- todo -->
 
 -   [OAuth](/auth/oauth.md) - Open **Authorization**
 
     an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
 
-    - [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md)
-        <!-- todo -->
-    - [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)
-    - [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
+    -   [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md)
+          <!-- todo -->
+    -   [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)
+    -   [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
 Solution Provider
 
@@ -138,99 +138,99 @@ Client-side
 
     a mobile/desktop operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets
 
-    - [Intents and Intent Filters](/snip/android/intents-filters.md)
-    - [Intro to Activities](/snip/android/intro-to-activities.md)
-    - [Activity Lifecycle](/snip/android/activity-lifecycle.md)
-    - …
+    -   [Intents and Intent Filters](/snip/android/intents-filters.md)
+    -   [Intro to Activities](/snip/android/intro-to-activities.md)
+    -   [Activity Lifecycle](/snip/android/activity-lifecycle.md)
+    -   …
 
 Markdown
 
-- [Markdown Style Guide](/docsify/markdown/markdown-style-guide.md)
-- [MDL - Markdown Lint Tool](/docsify/markdown/lint/lint.md)
+-   [Markdown Style Guide](/docsify/markdown/markdown-style-guide.md)
+-   [MDL - Markdown Lint Tool](/docsify/markdown/lint/lint.md)
 
 Message Queue
 
-- [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
-- [RabbitMQ](/snip/mq/rabbit-mq.md)
-- [RocketMQ](/snip/mq/rocket-mq.md) - _todo_
-- [ActiveMQ](/snip/mq/active-mq.md)
-- [ZeroMQ](/snip/mq/zero-mq.md) - _todo_
-- _[MemcacheQ](/snip/mq/mcq.md)_
-- _[Notes](/snip/mq/notes.md)_
+-   [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
+-   [RabbitMQ](/snip/mq/rabbit-mq.md)
+-   [RocketMQ](/snip/mq/rocket-mq.md) - _todo_
+-   [ActiveMQ](/snip/mq/active-mq.md)
+-   [ZeroMQ](/snip/mq/zero-mq.md) - _todo_
+-   _[MemcacheQ](/snip/mq/mcq.md)_
+-   _[Notes](/snip/mq/notes.md)_
 
 Programming Languages - at a glance
 
 -   [Learn X in Y minutes](https://learnxinyminutes.com)
-    - programming languages / tools / …
+    -   programming languages / tools / …
 -   [Elixir](/snip/lang/elixir/elixir.md)
-    - a dynamic, functional language for building scalable and maintainable applications
+    -   a dynamic, functional language for building scalable and maintainable applications
 -   [Scala](/snip/lang/scala.md)
-    - combines object-oriented and functional programming in one concise, high-level language
+    -   combines object-oriented and functional programming in one concise, high-level language
 -   [PHP](/snip/lang/php/php.md)
-    - a popular general-purpose scripting language that is especially suited to web development
+    -   a popular general-purpose scripting language that is especially suited to web development
 -   [Python](/snip/lang/python.md)
-    - a programming language that lets you work quickly and integrate systems more effectively
+    -   a programming language that lets you work quickly and integrate systems more effectively
 -   [Kotlin](/snip/lang/kotlin/kotlin.md)
-    - a cross-platform, statically typed, general-purpose programming language with type inference
-    - [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) - _todo_ / [Compiler](/snip/lang/kotlin/compiler.md) / …
-    - Mocking for unit tests
-        - [MockK](/snip/lang/kotlin/mocking.md#MockK): mocking library for Kotlin
-        - [Mockito](/snip/lang/kotlin/mocking.md#Mockito): tasty mocking framework for unit tests in Java
+    -   a cross-platform, statically typed, general-purpose programming language with type inference
+    -   [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) - _todo_ / [Compiler](/snip/lang/kotlin/compiler.md) / …
+    -   Mocking for unit tests
+        -   [MockK](/snip/lang/kotlin/mocking.md#MockK): mocking library for Kotlin
+        -   [Mockito](/snip/lang/kotlin/mocking.md#Mockito): tasty mocking framework for unit tests in Java
 -   [AppleScript](/snip/lang/applescript/applescript.md)
-    - a scripting language that facilitates automated control over scriptable Mac applications
-    - [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
+    -   a scripting language that facilitates automated control over scriptable Mac applications
+    -   [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
 
 Storage
 
 -   **LSM Tree**: [Intro](/snip/lsm-tree/lsm-tree.md)
-    - basic data structure of LevelDB & RocksDB
+    -   basic data structure of LevelDB & RocksDB
 -   **Elasticsearch**: [Usage](/snip/elasticsearch.md)
-    - for search and analysis
+    -   for search and analysis
 -   **MySQL**: [Usage](/cmd/m/mysql.md)
-    - robust SQL database server
--   **Redis**: [Basics](/snip/redis/basics.md)  / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
-    - in-memory data structure store as a database, cache and message broker
-    <!-- basics: http://redis.io -->
-    <!-- usage: https://redis.io/commands -->
+    -   robust SQL database server
+-   **Redis**: [Basics](/snip/redis/basics.md) / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
+    -   in-memory data structure store as a database, cache and message broker
+        <!-- basics: http://redis.io -->
+        <!-- usage: https://redis.io/commands -->
 -   [Cache Patterns](/snip/cache-patterns.md)
-    - cache aside / read through / write through / write behind caching
+    -   cache aside / read through / write through / write behind caching
 
 Terminology
 
-- [Abbreviations](/snip/abbrs.md)
-    - are usually related to coding (programming)
-- [Glossaries](/snip/glossaries.md)
-    - with intros to the common technology products
+-   [Abbreviations](/snip/abbrs.md)
+    -   are usually related to coding (programming)
+-   [Glossaries](/snip/glossaries.md)
+    -   with intros to the common technology products
 
 Web
 
-- [IP Address](/snip/network/ip.md)
-- [Network - Notes](/snip/network/notes.md)
-- [URL Encoding](/snip/web/url-encoding.md)
+-   [IP Address](/snip/network/ip.md)
+-   [Network - Notes](/snip/network/notes.md)
+-   [URL Encoding](/snip/web/url-encoding.md)
     aka. Percent Encoding
-    - a method to encode arbitrary data in a Uniform Resource Identifier (URI) using only the limited US-ASCII characters legal within a URI
-- [Base64 Encoding](/snip/web/base64-encoding.md)
-    - a group of binary-to-text encoding schemes that represent binary data in an ASCII string format
-- Simple HTTP service
-    - [init.d](/snip/init.d/init.d.md) with `php -S`
-    - [Nginx](/snip/nginx/nginx.md) via the configuration file
-- How to build my personal website?
-    - Powered by [docsify](/docsify/how-to-docsify.md)
-- How to estimate the required computing resources?
-    - [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
+    -   a method to encode arbitrary data in a Uniform Resource Identifier (URI) using only the limited US-ASCII characters legal within a URI
+-   [Base64 Encoding](/snip/web/base64-encoding.md)
+    -   a group of binary-to-text encoding schemes that represent binary data in an ASCII string format
+-   Simple HTTP service
+    -   [init.d](/snip/init.d/init.d.md) with `php -S`
+    -   [Nginx](/snip/nginx/nginx.md) via the configuration file
+-   How to build my personal website?
+    -   Powered by [docsify](/docsify/how-to-docsify.md)
+-   How to estimate the required computing resources?
+    -   [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
 
 Others
 
-- [Alpine Linux](/snip/docker/alpine/alpine.md)
-    - minimal OS Docker image
-- [Regular Expression](/snip/regex.md)
-    - a sequence of characters that specifies a search pattern
-- _[Sorting Algorithms](/snip/sort/notes.md)_
-- _[ID Generator](/snip/tmp/id-generator.md)_
-- _[CentOS 6](/snip/tmp/centos6.md)_
-- _[Memcached](/snip/tmp/memcached.md)_
-- _[Work Flow](/snip/tmp/work-flow.md)_
-- _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
+-   [Alpine Linux](/snip/docker/alpine/alpine.md)
+    -   minimal OS Docker image
+-   [Regular Expression](/snip/regex.md)
+    -   a sequence of characters that specifies a search pattern
+-   _[Sorting Algorithms](/snip/sort/notes.md)_
+-   _[ID Generator](/snip/tmp/id-generator.md)_
+-   _[CentOS 6](/snip/tmp/centos6.md)_
+-   _[Memcached](/snip/tmp/memcached.md)_
+-   _[Work Flow](/snip/tmp/work-flow.md)_
+-   _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
 
 ### Efficiency
 
@@ -238,189 +238,189 @@ Others
 
 macOS
 
-- [Setup Guide](/mac/setup-guide.md) - 设置指南
-- [Efficiency Guide](/mac/efficiency-guide.md) - 效率指南
-    - [macOS shortcuts](/mac/shortcut/macos.md)
-    - [Sublime Text shortcuts](/mac/shortcut/sublime-text.md)
-    - [JetBrains IDE shortcuts](/mac/shortcut/jetbrains.md)
-    - [mac-conf](https://github.com/IceHe/mac-conf): my macOS configuration files
-- [JVM Options Optimization](/mac/jetbrains/vm-options.md)
-    - _e.g. for JetBrains IDE - IntelliJ IDEA_
+-   [Setup Guide](/mac/setup-guide.md) - 设置指南
+-   [Efficiency Guide](/mac/efficiency-guide.md) - 效率指南
+    -   [macOS shortcuts](/mac/shortcut/macos.md)
+    -   [Sublime Text shortcuts](/mac/shortcut/sublime-text.md)
+    -   [JetBrains IDE shortcuts](/mac/shortcut/jetbrains.md)
+    -   [mac-conf](https://github.com/IceHe/mac-conf): my macOS configuration files
+-   [JVM Options Optimization](/mac/jetbrains/vm-options.md)
+    -   _e.g. for JetBrains IDE - IntelliJ IDEA_
 
 Git
 
-- [Common Commands](/git/common-commands.md)
-- [Concepts & Theory](/git/concepts-n-theory.md)
-- [Docs Digest](/git/docs-digest.md)
-- [Commit Signature Verification](/git/commit-signature-verification.md)
+-   [Common Commands](/git/common-commands.md)
+-   [Concepts & Theory](/git/concepts-n-theory.md)
+-   [Docs Digest](/git/docs-digest.md)
+-   [Commit Signature Verification](/git/commit-signature-verification.md)
 
 ### Command
 
 Manual
 
-- [ab](/cmd/a/ab.md): Apache HTTP server benchmarking tool
-- [ag](/cmd/a/ag.md): The Silver Searcher. Like `ack`, but faster.
-- [awk](/cmd/a/awk.md): pattern-directed scanning and processing language
-    - [gawk](/cmd/a/awk.md): pattern scanning and processing language
-- [bash](/cmd/bash/bash.md): GNU Bourne-Again SHell
-    - [parameter](/cmd/bash/parameter.md): basic, expansion & substitution
-    - [shell variables](/cmd/bash/shell-variables.md): variables are set by the shell
-- [brew](/cmd/b/brew.md): the missing package manager for macOS
-- [bzip2](/cmd/b/bzip2.md): block-sorting file compressor
-- [cat](/cmd/c/cat.md): concatenate files & print on the standard output
-- [cd](/cmd/c/cd.md): change the current directory
-- [chgrp](/cmd/c/chgrp.md): change group ownership
-- [chmod](/cmd/c/chmod.md): change file mode bits
-- [chown](/cmd/c/chown.md): change file owner & group
-- [column](/cmd/c/column.md): columnate lists
-- [comm](/cmd/c/comm.md): compare two sorted files line by line
-- [cp](/cmd/c/cp.md): copy files & directories
-- [cpu](/cmd/c/cpu.md): show cpu info - _not a command_
-- [crontab](/cmd/c/crontab.md): time-based job scheduler
-- [curl](/cmd/c/curl.md): transfer data from or to a server
-- [cut](/cmd/c/cut.md): remove sections from each line of files
-    - common combo: `column | cut`
-- [date](/cmd/d/date.md): print or set the system date & time
-- [df](/cmd/d/df.md): report file system disk space usage - _display free space_
-- [diff](/cmd/d/diff.md): compare files line by line
-    - better choice: `comm`
-- [dig](/cmd/d/dig.md): DNS lookup utility
-- [docker](/cmd/d/docker.md): base command for the Docker CLI
-- [dstat](/cmd/d/dstat.md): versatile tool for generating system resource statistics
-    - [iftop](/cmd/i/iftop.md): display bandwidth usage on an interface by host
-    - [iostat](/cmd/i/iostat.md): statistics of CPU & IO for devices & partitions
-    - [vmstat](/cmd/v/vmstat.md): report virtual memory statistics
-- [du](/cmd/d/du.md): estimate file space usage - _disk usage_
-- [env](/cmd/e/env.md): run a program in a modified environment
-- [expect](/cmd/e/expect.md): interact with programs
-- [expr](/cmd/e/expr.md): evaluate expressions
-- [file](/cmd/f/file.md): determine file type
-- [find](/cmd/f/find.md): search for files in a directory hierarchy
-- [git](/cmd/g/git.md): the stupid content tracker
-- [gpg](/cmd/g/gpg.md): OpenPGP encryption and signing tool
-- [grep](/cmd/g/grep.md): print lines matching a pattern
-    - [zgrep](/cmd/z/zgrep.md): search possibly compressed files for a regular expression
-- [head](/cmd/h/head.md): output the first part of files
-- [htop](/cmd/h/htop.md): interactive process viewer
-- [ifconfig](/cmd/i/ifconfig.md): configure a network interface
-- [ip](/cmd/i/ip.md): show / manipulate routing, devices, policy routing & tunnels
-- [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
-    - stop (suspend) the execution of processes & continue (resume) their execution at a later point
-- [join](/cmd/j/join.md): join lines of two files on a common field
-- [jq](/cmd/j/jq.md): command-line JSON processor
-- [kill](/cmd/k/kill.md): terminate or signal a process
-    - [killall](/cmd/k/killall.md): kill processes by name
-- [last](/cmd/l/last.md): show listing of last logged in users
-- [less](/cmd/l/less.md): provides \`more\` emulation plus extensive enhancements
-    - more: file perusal filter for paging through text one screenful at a time
-- [ln](/cmd/l/ln.md): make links between files
-- [locale](/cmd/l/locale.md): get locale-specific information
-- [ls](/cmd/l/ls.md): list directory contents
-- [lsof](/cmd/l/lsof.md): list open files
-- [man](/cmd/m/man.md): an interface to the on-line reference manuals
-- [mailx](/cmd/m/mailx.md): send mails on CentOS
-- _[msmtp](/cmd/m/msmtp.md): send mails on macOS - sth wrong?_
-- [mkdir](/cmd/m/mkdir.md): make directories
-- [mount](/cmd/m/mount.md): mount a filesystem
-    - [umount](/cmd/m/mount.md#umount): un-mount a filesystem
-- [mv](/cmd/m/mv.md): move (rename) files
-- [mvn](/cmd/m/mvn.md): a tool for building & managing any Java-based project
-- [mysql](/cmd/m/mysql.md): MySQL CLI tool - _not only a command_
-- [nc](/cmd/n/nc.md): TCP / UDP connect & listen
-- [netstat](/cmd/n/network-status.md): show network status
-- [nl](/cmd/n/nl.md): number lines of files
-- [nohup](cmd/n/nohup): invoke a utility immune to hangups
-- [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
-- [os](/cmd/o/os.md): show os info - _not a command_
-- [output](/cmd/o/output.md): redirect output - _not a command_
-- [passwd](/cmd/p/passwd.md): modify a user's password
-- [paste](/cmd/p/paste.md): merge lines of files
-- [perf](/cmd/p/perf.md): performance analysis tools for Linux
-- [php](/cmd/p/php.md): PHP Command Line Interface
-- [pidstat](/cmd/p/pidstat.md): report statistics for Linux tasks
-- [ping](/cmd/p/ping.md): send ICMP ECHO_REQUEST to network hosts
-- [python](/cmd/p/python.md): Python Command Line Interface
-- [ps](/cmd/p/ps.md): process status
-- [realpath](/cmd/r/realpath.md): print the resolved path
-- [redis-cli](/cmd/redis/redis-cli.md): Redis client
-- [redis-server](/cmd/redis/redis-server.md) & redis-sentinel: Redis server
-- [redis-dump](/cmd/redis/redis-dump.md) & redis-load: Backup & restore Redis data to and from JSON
-- [rm](/cmd/r/rm.md): remove files or directories
-- [rsync](/cmd/rsync/rsync.md): transfer files
-- [scp](/cmd/s/scp.md): secure copy - _remote file copy program_
-- [sed](/cmd/s/sed.md): stream editor for filtering & transforming text
-- [seq](/cmd/s/seq.md): print a sequence of numbers
-- [service](/cmd/s/service.md): run a System V init script
-- [sleep](/cmd/s/sleep.md): delay for a specified amount of time
-- [sort](/cmd/s/sort.md): sort lines of text files
-- [ssh](/cmd/s/ssh.md): OpenSSH Client - _remote login program_
-- [stat](/cmd/s/stat.md): display file or file system status
-- [su](/cmd/s/su.md): run a command with substitute user & group ID
-- [sudo](/cmd/s/sudo.md): execute a command as another user
-- _[sysctl](/cmd/s/sysctl.md): configure kernel parameters at runtime_
-- [systemctl](/cmd/s/systemctl.md): control systemd & service manager
-- [tac](/cmd/t/tac.md): concatenate and print files in reverse
-- [tail](/cmd/t/tail.md): output the last part of files
-- [tar](/cmd/t/tar.md): pack & compress
-- [tee](/cmd/t/tee.md): write to standard output & files
-- [telnet](/cmd/t/telnet.md): user interface to the TELNET protocol
-- [terminal-notifier](/cmd/t/terminal-notifier): send macOS User Notifications
-- [time](/cmd/t/time.md): time command execution
-- [timeout](/cmd/t/timeout.md): run a command with a time limit
-- [tmux](/cmd/t/tmux.md): terminal multiplexer
-- [touch](/cmd/t/touch.md): change file access & modification times
-- [tr](/cmd/t/tr.md): translate or delete characters
-- _[ulimit](/cmd/u/ulimit.md): system resource limit to shell_
-- _[uname](/cmd/u/uname.md): print system information_
-- [uniq](/cmd/u/uniq.md): report or omit repeated lines
-- _[uptime](/cmd/u/uptime.md): show how long system has been running_
-- [vim](/cmd/v/vim.md): terminal text editor
-- [visudo](/cmd/v/visudo.md): edit the sudoers file
-- _[w](/cmd/w/w.md): show who is logged on & what they are doing_
-- [watch](/cmd/w/watch.md):  execute a program periodically, showing output fullscreen
-- [wc](/cmd/w/wc.md): print newline, word, & byte counts for each file
-- [wget](/cmd/w/wget.md): network downloader
-- [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md): locate, show path & description
-- _[whoami](/cmd/w/whoami.md): print effective userid_
-- [xargs](/cmd/x/xargs.md): build and execute command lines from standard input
-- _[xxd](/cmd/x/xxd.md): make a hexdump or do the reverse_
-- _[yes](/cmd/y/yes.md): be repetitively affirmative_
-- [zsh](/cmd/z/zsh.md): one of shells
-- [Linux Abbreviations](/cmd/linux-abbrs.md)
-- _[CLI Notes](/cmd/notes.md) - todo_
+-   [ab](/cmd/a/ab.md): Apache HTTP server benchmarking tool
+-   [ag](/cmd/a/ag.md): The Silver Searcher. Like `ack`, but faster.
+-   [awk](/cmd/a/awk.md): pattern-directed scanning and processing language
+    -   [gawk](/cmd/a/awk.md): pattern scanning and processing language
+-   [bash](/cmd/bash/bash.md): GNU Bourne-Again SHell
+    -   [parameter](/cmd/bash/parameter.md): basic, expansion & substitution
+    -   [shell variables](/cmd/bash/shell-variables.md): variables are set by the shell
+-   [brew](/cmd/b/brew.md): the missing package manager for macOS
+-   [bzip2](/cmd/b/bzip2.md): block-sorting file compressor
+-   [cat](/cmd/c/cat.md): concatenate files & print on the standard output
+-   [cd](/cmd/c/cd.md): change the current directory
+-   [chgrp](/cmd/c/chgrp.md): change group ownership
+-   [chmod](/cmd/c/chmod.md): change file mode bits
+-   [chown](/cmd/c/chown.md): change file owner & group
+-   [column](/cmd/c/column.md): columnate lists
+-   [comm](/cmd/c/comm.md): compare two sorted files line by line
+-   [cp](/cmd/c/cp.md): copy files & directories
+-   [cpu](/cmd/c/cpu.md): show cpu info - _not a command_
+-   [crontab](/cmd/c/crontab.md): time-based job scheduler
+-   [curl](/cmd/c/curl.md): transfer data from or to a server
+-   [cut](/cmd/c/cut.md): remove sections from each line of files
+    -   common combo: `column | cut`
+-   [date](/cmd/d/date.md): print or set the system date & time
+-   [df](/cmd/d/df.md): report file system disk space usage - _display free space_
+-   [diff](/cmd/d/diff.md): compare files line by line
+    -   better choice: `comm`
+-   [dig](/cmd/d/dig.md): DNS lookup utility
+-   [docker](/cmd/d/docker.md): base command for the Docker CLI
+-   [dstat](/cmd/d/dstat.md): versatile tool for generating system resource statistics
+    -   [iftop](/cmd/i/iftop.md): display bandwidth usage on an interface by host
+    -   [iostat](/cmd/i/iostat.md): statistics of CPU & IO for devices & partitions
+    -   [vmstat](/cmd/v/vmstat.md): report virtual memory statistics
+-   [du](/cmd/d/du.md): estimate file space usage - _disk usage_
+-   [env](/cmd/e/env.md): run a program in a modified environment
+-   [expect](/cmd/e/expect.md): interact with programs
+-   [expr](/cmd/e/expr.md): evaluate expressions
+-   [file](/cmd/f/file.md): determine file type
+-   [find](/cmd/f/find.md): search for files in a directory hierarchy
+-   [git](/cmd/g/git.md): the stupid content tracker
+-   [gpg](/cmd/g/gpg.md): OpenPGP encryption and signing tool
+-   [grep](/cmd/g/grep.md): print lines matching a pattern
+    -   [zgrep](/cmd/z/zgrep.md): search possibly compressed files for a regular expression
+-   [head](/cmd/h/head.md): output the first part of files
+-   [htop](/cmd/h/htop.md): interactive process viewer
+-   [ifconfig](/cmd/i/ifconfig.md): configure a network interface
+-   [ip](/cmd/i/ip.md): show / manipulate routing, devices, policy routing & tunnels
+-   [jobs](/cmd/j/jobs.md), bg, fg, disown, wait, …
+    -   stop (suspend) the execution of processes & continue (resume) their execution at a later point
+-   [join](/cmd/j/join.md): join lines of two files on a common field
+-   [jq](/cmd/j/jq.md): command-line JSON processor
+-   [kill](/cmd/k/kill.md): terminate or signal a process
+    -   [killall](/cmd/k/killall.md): kill processes by name
+-   [last](/cmd/l/last.md): show listing of last logged in users
+-   [less](/cmd/l/less.md): provides \`more\` emulation plus extensive enhancements
+    -   more: file perusal filter for paging through text one screenful at a time
+-   [ln](/cmd/l/ln.md): make links between files
+-   [locale](/cmd/l/locale.md): get locale-specific information
+-   [ls](/cmd/l/ls.md): list directory contents
+-   [lsof](/cmd/l/lsof.md): list open files
+-   [man](/cmd/m/man.md): an interface to the on-line reference manuals
+-   [mailx](/cmd/m/mailx.md): send mails on CentOS
+-   _[msmtp](/cmd/m/msmtp.md): send mails on macOS - sth wrong?_
+-   [mkdir](/cmd/m/mkdir.md): make directories
+-   [mount](/cmd/m/mount.md): mount a filesystem
+    -   [umount](/cmd/m/mount.md#umount): un-mount a filesystem
+-   [mv](/cmd/m/mv.md): move (rename) files
+-   [mvn](/cmd/m/mvn.md): a tool for building & managing any Java-based project
+-   [mysql](/cmd/m/mysql.md): MySQL CLI tool - _not only a command_
+-   [nc](/cmd/n/nc.md): TCP / UDP connect & listen
+-   [netstat](/cmd/n/network-status.md): show network status
+-   [nl](/cmd/n/nl.md): number lines of files
+-   [nohup](cmd/n/nohup): invoke a utility immune to hangups
+-   [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
+-   [os](/cmd/o/os.md): show os info - _not a command_
+-   [output](/cmd/o/output.md): redirect output - _not a command_
+-   [passwd](/cmd/p/passwd.md): modify a user's password
+-   [paste](/cmd/p/paste.md): merge lines of files
+-   [perf](/cmd/p/perf.md): performance analysis tools for Linux
+-   [php](/cmd/p/php.md): PHP Command Line Interface
+-   [pidstat](/cmd/p/pidstat.md): report statistics for Linux tasks
+-   [ping](/cmd/p/ping.md): send ICMP ECHO_REQUEST to network hosts
+-   [python](/cmd/p/python.md): Python Command Line Interface
+-   [ps](/cmd/p/ps.md): process status
+-   [realpath](/cmd/r/realpath.md): print the resolved path
+-   [redis-cli](/cmd/redis/redis-cli.md): Redis client
+-   [redis-server](/cmd/redis/redis-server.md) & redis-sentinel: Redis server
+-   [redis-dump](/cmd/redis/redis-dump.md) & redis-load: Backup & restore Redis data to and from JSON
+-   [rm](/cmd/r/rm.md): remove files or directories
+-   [rsync](/cmd/rsync/rsync.md): transfer files
+-   [scp](/cmd/s/scp.md): secure copy - _remote file copy program_
+-   [sed](/cmd/s/sed.md): stream editor for filtering & transforming text
+-   [seq](/cmd/s/seq.md): print a sequence of numbers
+-   [service](/cmd/s/service.md): run a System V init script
+-   [sleep](/cmd/s/sleep.md): delay for a specified amount of time
+-   [sort](/cmd/s/sort.md): sort lines of text files
+-   [ssh](/cmd/s/ssh.md): OpenSSH Client - _remote login program_
+-   [stat](/cmd/s/stat.md): display file or file system status
+-   [su](/cmd/s/su.md): run a command with substitute user & group ID
+-   [sudo](/cmd/s/sudo.md): execute a command as another user
+-   _[sysctl](/cmd/s/sysctl.md): configure kernel parameters at runtime_
+-   [systemctl](/cmd/s/systemctl.md): control systemd & service manager
+-   [tac](/cmd/t/tac.md): concatenate and print files in reverse
+-   [tail](/cmd/t/tail.md): output the last part of files
+-   [tar](/cmd/t/tar.md): pack & compress
+-   [tee](/cmd/t/tee.md): write to standard output & files
+-   [telnet](/cmd/t/telnet.md): user interface to the TELNET protocol
+-   [terminal-notifier](/cmd/t/terminal-notifier): send macOS User Notifications
+-   [time](/cmd/t/time.md): time command execution
+-   [timeout](/cmd/t/timeout.md): run a command with a time limit
+-   [tmux](/cmd/t/tmux.md): terminal multiplexer
+-   [touch](/cmd/t/touch.md): change file access & modification times
+-   [tr](/cmd/t/tr.md): translate or delete characters
+-   _[ulimit](/cmd/u/ulimit.md): system resource limit to shell_
+-   _[uname](/cmd/u/uname.md): print system information_
+-   [uniq](/cmd/u/uniq.md): report or omit repeated lines
+-   _[uptime](/cmd/u/uptime.md): show how long system has been running_
+-   [vim](/cmd/v/vim.md): terminal text editor
+-   [visudo](/cmd/v/visudo.md): edit the sudoers file
+-   _[w](/cmd/w/w.md): show who is logged on & what they are doing_
+-   [watch](/cmd/w/watch.md): execute a program periodically, showing output fullscreen
+-   [wc](/cmd/w/wc.md): print newline, word, & byte counts for each file
+-   [wget](/cmd/w/wget.md): network downloader
+-   [whereis](/cmd/w/whereis.md) & [which](/cmd/w/which.md) & [whatis](/cmd/w/whatis.md): locate, show path & description
+-   _[whoami](/cmd/w/whoami.md): print effective userid_
+-   [xargs](/cmd/x/xargs.md): build and execute command lines from standard input
+-   _[xxd](/cmd/x/xxd.md): make a hexdump or do the reverse_
+-   _[yes](/cmd/y/yes.md): be repetitively affirmative_
+-   [zsh](/cmd/z/zsh.md): one of shells
+-   [Linux Abbreviations](/cmd/linux-abbrs.md)
+-   _[CLI Notes](/cmd/notes.md) - todo_
 
 Scene
 
-- **automate**: expect, yes
-- **connect**: curl, nc, ssh, telnet
-- **directory**: cp, find, ln, ls, mv
-- **disk**: df, du
-- **monitor status**: dstat, htop, lsof, netstat, pidstat, ps, stat, top
-- **network detect**: dig, ifconfig, ip, netstat, nslookup, ping
-- **string display**: cat, head, less, tac, tail
-- **string process**:
-    - awk, column, comm, cut, grep,
-    - join, jq, paste, sed, sort,
-    - tr, uniq, wc, …
-- **transfer data**: ftp, nc, rsync, scp
-- **write file**: tee, `>`, `2>&1`
-- **notify**: terminal-notifier
-- **http benchmark**: ab, watch
-- **differ output**: comm, diff, vimdiff, watch
-- **run in background**: `^z`, bg, fg, nohup [CMD] &
-- ……
+-   **automate**: expect, yes
+-   **connect**: curl, nc, ssh, telnet
+-   **directory**: cp, find, ln, ls, mv
+-   **disk**: df, du, duf
+-   **monitor status**: dstat, htop, lsof, netstat, pidstat, ps, stat, top
+-   **network detect**: dig, ifconfig, ip, netstat, nslookup, ping
+-   **string display**: cat, head, less, tac, tail
+-   **string process**:
+    -   awk, column, comm, cut, grep,
+    -   join, jq, paste, sed, sort,
+    -   tr, uniq, wc, …
+-   **transfer data**: ftp, nc, rsync, scp
+-   **write file**: tee, `>`, `2>&1`
+-   **notify**: terminal-notifier
+-   **http benchmark**: ab, watch
+-   **differ output**: comm, diff, vimdiff, watch
+-   **run in background**: `^z`, bg, fg, nohup [CMD] &
+-   ……
 
 Shell
 
-- [Notes](/cmd/shell/notes.md): a bash script example
-- [Terminal Colors](/cmd/shell/terminal-colors.md)
+-   [Notes](/cmd/shell/notes.md): a bash script example
+-   [Terminal Colors](/cmd/shell/terminal-colors.md)
 
 _Batch 批处理_
 
-- _[Batch 批处理指令](/cmd/batch/commands.md)_
-- _[Batch 批处理中的特殊符号](/cmd/batch/dos-special-symbol.md)_
-- _[DOS Common Commands](/cmd/batch/dos-common-commands.md)_
-- _[DOS Environment Variables](/cmd/batch/dos-environment-variable.md)_
+-   _[Batch 批处理指令](/cmd/batch/commands.md)_
+-   _[Batch 批处理中的特殊符号](/cmd/batch/dos-special-symbol.md)_
+-   _[DOS Common Commands](/cmd/batch/dos-common-commands.md)_
+-   _[DOS Environment Variables](/cmd/batch/dos-environment-variable.md)_
 
 ### JavaScript
 
@@ -430,93 +430,93 @@ Basics
 -   [HTML Living Standard](js/js/html-standard.md): TODO - [html.spec.whatwg.org](https://html.spec.whatwg.org)
 -   [Node.js](/js/nodejs.md): a JavaScript runtime built on Chrome's V8 JavaScript engine
     -   [API Documentation](/js/nodejs-api.md): for 16.X LTS version
-- [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
+-   [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
     -   [async & await](/js/basics/async-n-await.md): to simplify the syntax necessary to consume promise-based APIs
     -   [states & fates](/js/basics/promise-states-n-fates.md): clarify the different adjectives surrounding promises
-        - **States**: { settled: [ fulfilled, rejected ] , unsettled: [ pending ] }
-        - **Fates**: [ resolved, unresolved ]
-- [Event Loop](/js/basics/event-loop.md): which the JavaScript concurrency model based on
-- **Tasks vs. Microtasks**: todo
-    - _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
-    - _[In depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)_
+        -   **States**: { settled: [ fulfilled, rejected ] , unsettled: [ pending ] }
+        -   **Fates**: [ resolved, unresolved ]
+-   [Event Loop](/js/basics/event-loop.md): which the JavaScript concurrency model based on
+-   **Tasks vs. Microtasks**: todo
+    -   _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
+    -   _[In depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)_
 
 Code Snippet
 
-- [Base Encoding](/js/code-snippet/base64-encoding.md): encode, decode
-- [Environment](/js/code-snippet/environment.md): running under Node or browser-like environments
-- [Jest](/js/code-snippet/jest.md): for unit tests
-- [*.d.ts](/js/code-snippet/d.ts.md) declaration files that functions as an interface to the components compiled in JavaScript
-- [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint.
-    - [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
-        - DOM change, **XHR/Fetch**, event listener, **exception** and **function `debug(functionName)`**
+-   [Base Encoding](/js/code-snippet/base64-encoding.md): encode, decode
+-   [Environment](/js/code-snippet/environment.md): running under Node or browser-like environments
+-   [Jest](/js/code-snippet/jest.md): for unit tests
+-   [\*.d.ts](/js/code-snippet/d.ts.md) declaration files that functions as an interface to the components compiled in JavaScript
+-   [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint.
+    -   [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints) - Chrome DevTools
+        -   DOM change, **XHR/Fetch**, event listener, **exception** and **function `debug(functionName)`**
 
 Package Management
 
-- [npm](/js/package-management/npm.md): share and borrow packages
-- [yarn](/js/package-management/yarn.md): a package manager that doubles down as project manager
-- [pnpm](/js/package-management/pnpm.md): fast, disk space efficient package manager
+-   [npm](/js/package-management/npm.md): share and borrow packages
+-   [yarn](/js/package-management/yarn.md): a package manager that doubles down as project manager
+-   [pnpm](/js/package-management/pnpm.md): fast, disk space efficient package manager
 
 NPM: the world's largest software registry
 
-- Configuring
-    - [package.json](/js/npm-configuring/package-json.md): a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
-    - [package-lock.json](/js/npm-configuring/package-lock-json.md): a manifestation of the manifest
-    - [folders](/js/npm-configuring/folders.md): folder Structures Used by npm
-    - [npm semver calculator](https://semver.npmjs.com/) & [Sematic Versioning](https://semver.org/) (external links)
-        - _[About semantic versioning - npm Docs](https://docs.npmjs.com/about-semantic-versioning)_
-- Using
-    - [registry](/js/npm-using/registry.md): The JavaScript package registry
-    - [scope](/js/npm-using/scope.md): scoped packages
-    - [scripts](/js/npm-using/scripts.md): How npm handles the "scripts" field
-    - [workspaces](/js/npm-using/workspaces.md): Working with workspaces
-    - ……
-- Command
-    - [npm](/js/npm-cmd/npm.md): javascript package manager
-    - [npm init](/js/npm-cmd/npm-init.md): create a `package.json` file
-    - [npm install](/js/npm-cmd/npm-install.md): install a package
-    - [npm link](/js/npm-cmd/npm-link.md): symlink a package folder
-    - [npm publish](/js/npm-cmd/npm-publish.md): publish a package
-    - [npm exec](/js/npm-cmd/npm-exec.md), `npx`: run a command from a local or remote npm package
-    - _todo: e.g. `npm run build`_
+-   Configuring
+    -   [package.json](/js/npm-configuring/package-json.md): a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
+    -   [package-lock.json](/js/npm-configuring/package-lock-json.md): a manifestation of the manifest
+    -   [folders](/js/npm-configuring/folders.md): folder Structures Used by npm
+    -   [npm semver calculator](https://semver.npmjs.com/) & [Sematic Versioning](https://semver.org/) (external links)
+        -   _[About semantic versioning - npm Docs](https://docs.npmjs.com/about-semantic-versioning)_
+-   Using
+    -   [registry](/js/npm-using/registry.md): The JavaScript package registry
+    -   [scope](/js/npm-using/scope.md): scoped packages
+    -   [scripts](/js/npm-using/scripts.md): How npm handles the "scripts" field
+    -   [workspaces](/js/npm-using/workspaces.md): Working with workspaces
+    -   ……
+-   Command
+    -   [npm](/js/npm-cmd/npm.md): javascript package manager
+    -   [npm init](/js/npm-cmd/npm-init.md): create a `package.json` file
+    -   [npm install](/js/npm-cmd/npm-install.md): install a package
+    -   [npm link](/js/npm-cmd/npm-link.md): symlink a package folder
+    -   [npm publish](/js/npm-cmd/npm-publish.md): publish a package
+    -   [npm exec](/js/npm-cmd/npm-exec.md), `npx`: run a command from a local or remote npm package
+    -   _todo: e.g. `npm run build`_
 
 Package
 
-- **commitlint**: lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
-- **eslint**: find and fix problems in your JavaScript code - [eslint.org](https://eslint.org/)
-- **husky**: modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
-- **jest**: a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
-- **lerna**: a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
-- **lodash**: a modern JavaScript utility library delivering modularity, performance & extras - [lodash.com](https://lodash.com/)
-- [nanoid](/js/package/nanoid.md): a tiny (108 bytes), secure, URL-friendly, unique string ID generator
-- **next**: React Framework for Production - [nextjs.org](https://nextjs.org/)
-- **razzle**: build modern JavaScript applications from zero to production - [razzlejs.org](https://razzlejs.org/)
-- **parcel**: zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
-- **superstruct**: makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
-    - other options: [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends: [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
-- **zustand**: a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
-- todo: read & note-take
+-   **commitlint**: lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
+-   **eslint**: find and fix problems in your JavaScript code - [eslint.org](https://eslint.org/)
+-   **husky**: modern native Git hooks made easy - [typicode.github.io](https://typicode.github.io/husky/#/)
+-   **jest**: a delightful JavaScript Testing Framework with a focus on simplicity - [jestjs.io](https://jestjs.io/)
+-   **lerna**: a tool for managing JavaScript projects with multiple packages - [lerna.js.org](https://lerna.js.org/)
+-   **lodash**: a modern JavaScript utility library delivering modularity, performance & extras - [lodash.com](https://lodash.com/)
+-   [nanoid](/js/package/nanoid.md): a tiny (108 bytes), secure, URL-friendly, unique string ID generator
+-   **next**: React Framework for Production - [nextjs.org](https://nextjs.org/)
+-   **razzle**: build modern JavaScript applications from zero to production - [razzlejs.org](https://razzlejs.org/)
+-   **parcel**: zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
+-   **superstruct**: makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
+    -   other options: [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends: [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
+-   **zustand**: a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
+-   todo: read & note-take
 
 TypeScript
 
-- [TypeScript](/js/typescript/typescript.md): JavaScript with syntax for types
-- [tsc](/js/typescript/tsc.md): compiles the current project, with additional settings
-- [tsconfig.json](/js/typescript/tsconfig-json.md): specifies the root files and the compiler options required to compile the project
-- Handbook
-    - [Intro](/js/typescript/handbook/intro.md)
-    - [Basics](/js/typescript/handbook/basics.md)
-    - [Everyday Types](/js/typescript/handbook/everyday-types.md)
-    - [Narrowing](/js/typescript/handbook/narrowing.md)
-    - [More on Functions](/js/typescript/handbook/more-on-functions.md)
-    - [Object Types](/js/typescript/handbook/type-objects.md)
-    - [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
-    - todo
+-   [TypeScript](/js/typescript/typescript.md): JavaScript with syntax for types
+-   [tsc](/js/typescript/tsc.md): compiles the current project, with additional settings
+-   [tsconfig.json](/js/typescript/tsconfig-json.md): specifies the root files and the compiler options required to compile the project
+-   Handbook
+    -   [Intro](/js/typescript/handbook/intro.md)
+    -   [Basics](/js/typescript/handbook/basics.md)
+    -   [Everyday Types](/js/typescript/handbook/everyday-types.md)
+    -   [Narrowing](/js/typescript/handbook/narrowing.md)
+    -   [More on Functions](/js/typescript/handbook/more-on-functions.md)
+    -   [Object Types](/js/typescript/handbook/type-objects.md)
+    -   [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
+    -   todo
 
 React
 
-- [React](js/react/react.md): a JavaScript library for building user interfaces
-- [Tutorial](js/react/tutorial.md): this tutorial doesn't assume any existing React knowledge
-- [Main Concepts](js/react/main-concepts.md): step-by-step guide
-- [Hooks](js/react/hook.md): let you use state and other React features without writing a class
+-   [React](js/react/react.md): a JavaScript library for building user interfaces
+-   [Tutorial](js/react/tutorial.md): this tutorial doesn't assume any existing React knowledge
+-   [Main Concepts](js/react/main-concepts.md): step-by-step guide
+-   [Hooks](js/react/hook.md): let you use state and other React features without writing a class
 
 ### Java
 
@@ -534,61 +534,61 @@ Basics
 
 Package Manager
 
-- [Maven](/java/maven.md): a software project management and comprehension tool
-    - Based on the concept of a **project object model** (POM), Maven can:
-        - manage a project's build,
-        - reporting _and_
-        - documentation from a central piece of information.
-- [Gradle](/java/gradle.md)
-    - From mobile apps to microservices, from small startups to big enterprises,
-    - Gradle helps teams build, automate and deliver better software, faster.
+-   [Maven](/java/maven.md): a software project management and comprehension tool
+    -   Based on the concept of a **project object model** (POM), Maven can:
+        -   manage a project's build,
+        -   reporting _and_
+        -   documentation from a central piece of information.
+-   [Gradle](/java/gradle.md)
+    -   From mobile apps to microservices, from small startups to big enterprises,
+    -   Gradle helps teams build, automate and deliver better software, faster.
 
 Benchmark, Stress Testing & Unit Testing
 
-- **Benchmark & Stress Testing**: [JMH](/java/jmh.md) - Java Microbenchmark Harness
-- **Unit testing & Integration testing**: [Spock](/java/spock.md) or JUnit
-    - [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
+-   **Benchmark & Stress Testing**: [JMH](/java/jmh.md) - Java Microbenchmark Harness
+-   **Unit testing & Integration testing**: [Spock](/java/spock.md) or JUnit
+    -   [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
 
 Code Snippet
 
-- [Collection](/java/code-snippet/collection.md)
-- [Common DTOs](/java/code-snippet/common-dtos.md)
-- [Deep Clone](/java/code-snippet/deep-clone.md)
-- [CSV - Comma Separate Value](/java/code-snippet/csv.md)
-- [Elasticsearch](/java/code-snippet/elasticsearch.md)
-- [Enum](/java/code-snippet/enum.md)
-- [Excel](/java/code-snippet/excel.md)
-- [Executor](/java/code-snippet/executor.md)
-- [HTTP](/java/code-snippet/http.md)
-- [JSON](/java/code-snippet/json.md)
-- [LocalDateTime](/java/code-snippet/local-date-time.md)
-- [MyBatis and JDBC](/java/code-snippet/mybatis-n-jdbc.md)
-- [Number](/java/code-snippet/number.md)
-- [OSS - Object Storage Service](/java/code-snippet/oss.md)
-- [Spring Beans](/java/code-snippet/spring-beans.md)
-- [Spring ConstraintValidator](/java/code-snippet/spring-constraint-validator.md)
-- [Stream and Optional](/java/code-snippet/stream-n-optional.md)
-- [String](/java/code-snippet/string.md)
-- [Task](task.md)
+-   [Collection](/java/code-snippet/collection.md)
+-   [Common DTOs](/java/code-snippet/common-dtos.md)
+-   [Deep Clone](/java/code-snippet/deep-clone.md)
+-   [CSV - Comma Separate Value](/java/code-snippet/csv.md)
+-   [Elasticsearch](/java/code-snippet/elasticsearch.md)
+-   [Enum](/java/code-snippet/enum.md)
+-   [Excel](/java/code-snippet/excel.md)
+-   [Executor](/java/code-snippet/executor.md)
+-   [HTTP](/java/code-snippet/http.md)
+-   [JSON](/java/code-snippet/json.md)
+-   [LocalDateTime](/java/code-snippet/local-date-time.md)
+-   [MyBatis and JDBC](/java/code-snippet/mybatis-n-jdbc.md)
+-   [Number](/java/code-snippet/number.md)
+-   [OSS - Object Storage Service](/java/code-snippet/oss.md)
+-   [Spring Beans](/java/code-snippet/spring-beans.md)
+-   [Spring ConstraintValidator](/java/code-snippet/spring-constraint-validator.md)
+-   [Stream and Optional](/java/code-snippet/stream-n-optional.md)
+-   [String](/java/code-snippet/string.md)
+-   [Task](task.md)
 
 Command Line Tool
 
-- [jar](/java/cmd/jar.md): archive tool
-- [java](/java/cmd/java.md): application launcher
-- [javac](/java/cmd/javac.md): compiler
-- [javap](/java/cmd/javap.md): class file disassembler
-- [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
-- [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
-- [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
-    - _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
-    - _available after JDK 9_
-- _Seldom-used and deprecated_
-    - _[javadoc](/java/cmd/javadoc.md): API documentation generator_
-    - _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
-    - _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
-    - _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
-    - _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
-    - _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
+-   [jar](/java/cmd/jar.md): archive tool
+-   [java](/java/cmd/java.md): application launcher
+-   [javac](/java/cmd/javac.md): compiler
+-   [javap](/java/cmd/javap.md): class file disassembler
+-   [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
+-   [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
+-   [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
+    -   _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
+    -   _available after JDK 9_
+-   _Seldom-used and deprecated_
+    -   _[javadoc](/java/cmd/javadoc.md): API documentation generator_
+    -   _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
+    -   _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
+    -   _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
+    -   _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
+    -   _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
 
 ### ASM & CPP
 
@@ -598,7 +598,7 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 
 1. [register / cs / ip / CPU / memory](/asm/learning-note-1.md)
 2. [endian / register / ds / [addr] / stack](/asm/learning-note-2.md)
-3. [pseudo instruction / compile / link / debug / [bx] / loop / seg prefix  / mem space](/asm/learning-note-3.md)
+3. [pseudo instruction / compile / link / debug / [bx] / loop / seg prefix / mem space](/asm/learning-note-3.md)
 4. [stack / data / code / 栈的段 / 多段程序 / 大小写转换 / addressing / si / di](/asm/learning-note-4.md)
 5. [bx / si / di / bp / addressing / division / dd / dup / Structural Data](/asm/learning-note-5.md)
 6. [jump / offset / jmp / jcxz / loop / dec / bounds checking](/asm/learning-note-6.md)
@@ -611,15 +611,15 @@ _[Prepare on Windows 7](/asm/prepare-on-windows-7.md)_
 13. [external interrupt / 接口芯片和端口，可屏蔽|不可屏蔽中断，PC 机键盘的处理过程 / tests](/asm/learning-note-13.md)
 14. [直接定址表 / data / 地址标号 / 在其它段中，计算 sin(x) / tests](/asm/learning-note-14.md)
 15. [用 BIOS 进行键盘输入和磁盘读写 / tests](/asm/learning-note-15.md)
-16. [Appendix: 汇编编译器对jmp的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
+16. [Appendix: 汇编编译器对 jmp 的处理，地址计数器（AC），处理伪操作指令，栈传递参数，无溢出除法…](/asm/learning-note-16.md)
 
 C++
 
-- [C++ Primer 5th](/cpp/primer-5th.md)
-- [C++ Interview Book](/cpp/interview-book.md)
-- [C++ Coding Standards](/cpp/code-standards.md)
-- [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
-- Effective C++: [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
+-   [C++ Primer 5th](/cpp/primer-5th.md)
+-   [C++ Interview Book](/cpp/interview-book.md)
+-   [C++ Coding Standards](/cpp/code-standards.md)
+-   [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
+-   Effective C++: [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
 
 ## Life
 
@@ -638,36 +638,36 @@ Living
 
 [Bio](/life/bio.md): **Backend** Experience & Education
 
-- **Silverhand**: Founding Team - Node.js
-- **YFD**: Zebra - Supply Chain - Java
-- **Alibaba Local Life**: 蜂鸟跑腿前台 - Java
-- **Alibaba Local Life**: 众包物流运营&数据组后台 - Java
-- **Weibo**: Video Platform - Java
-- **Weibo**: Mobile API - PHP
-- **Huawei**: Telecom Software Customization - Java Intern.
-- **SCUT**: Software Engineering - Bachelor
+-   **Silverhand**: Founding Team - Node.js
+-   **YFD**: Zebra - Supply Chain - Java
+-   **Alibaba Local Life**: 蜂鸟跑腿前台 - Java
+-   **Alibaba Local Life**: 众包物流运营&数据组后台 - Java
+-   **Weibo**: Video Platform - Java
+-   **Weibo**: Mobile API - PHP
+-   **Huawei**: Telecom Software Customization - Java Intern.
+-   **SCUT**: Software Engineering - Bachelor
 
 Timeline
 
-- After 2018
-    - [2022 Feb ~ Apr: Best Gain Everyday](/life/timeline/best-gain-everyday.md)
-        - _from both technology practice and daily life_
-    - [2022 January](/life/timeline/2022-january.md)
-    - [2018 Winter](/life/timeline/2018-winter.md)
-    - [2018 Spring ~ 2019 Autumn](/life/timeline/2018-spring-to-2019-autumn.md)
-    - [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
-    - [How to live](/life/principle/how-to-live.md) | [Rehabilitation](/life/principle/rehabilitation.md)
-    - [Moments](/life/timeline/moments.md): 回忆
-- 2015 ~ 2017
-    - [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
-    - [2017 Spring](/life/timeline/2017-spring.md)
-    - [2016 Winter](/life/timeline/2016-winter.md)
-    - [2016 Fall](/life/timeline/2016-fall.md)
-    - [2016 Spring & Summer](/life/timeline/2016-summer.md)
-    - [Bye 2015](/life/timeline/2015-bye.md)
-    - [icehe.github.io](https://icehe.github.io): previous technology blog
-- Before 2015
-    - [QZone Index](/life/timeline/qzone-index.md) of the old posts
+-   After 2018
+    -   [2022 Feb ~ Apr: Best Gain Everyday](/life/timeline/best-gain-everyday.md)
+        -   _from both technology practice and daily life_
+    -   [2022 January](/life/timeline/2022-january.md)
+    -   [2018 Winter](/life/timeline/2018-winter.md)
+    -   [2018 Spring ~ 2019 Autumn](/life/timeline/2018-spring-to-2019-autumn.md)
+    -   [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
+    -   [How to live](/life/principle/how-to-live.md) | [Rehabilitation](/life/principle/rehabilitation.md)
+    -   [Moments](/life/timeline/moments.md): 回忆
+-   2015 ~ 2017
+    -   [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
+    -   [2017 Spring](/life/timeline/2017-spring.md)
+    -   [2016 Winter](/life/timeline/2016-winter.md)
+    -   [2016 Fall](/life/timeline/2016-fall.md)
+    -   [2016 Spring & Summer](/life/timeline/2016-summer.md)
+    -   [Bye 2015](/life/timeline/2015-bye.md)
+    -   [icehe.github.io](https://icehe.github.io): previous technology blog
+-   Before 2015
+    -   [QZone Index](/life/timeline/qzone-index.md) of the old posts
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
@@ -698,22 +698,22 @@ Timeline
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
-- [How to Ask](/life/principle/how-to-ask.md): Prepare before asking
-    - JFGI: Just Fucking Google It
-    - RTFM: Read The Fucking Manual
-    - **Trade-off: Ask for help if stuck over 15 (or 30) min.**
-- [How to Work](/life/principle/how-to-work.md): Working Standards
-    - 请示工作说方案
-    - 布置工作说标准
-    - 汇报工作说结果
-    - 总结工作说流程
-    - 回顾工作说感受
-- [GTD Flow](/life/principle/gtd.md): Get Thing Done
-- [PDCA Cycle](/life/principle/pdca.md): Plan → Do → Check → Act or Adjust
-- [SMART principle](/life/principle/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
-- [STAR principle](/life/principle/star.md): Situation → Target → Action → Result
-- [Deployment Checklist](/snip/tmp/deployment-checklist.md): avoid low-level mistakes
-- [How to Leave](/life/principle/how-to-leave.md):《解除劳动合同告知书》
+-   [How to Ask](/life/principle/how-to-ask.md): Prepare before asking
+    -   JFGI: Just Fucking Google It
+    -   RTFM: Read The Fucking Manual
+    -   **Trade-off: Ask for help if stuck over 15 (or 30) min.**
+-   [How to Work](/life/principle/how-to-work.md): Working Standards
+    -   请示工作说方案
+    -   布置工作说标准
+    -   汇报工作说结果
+    -   总结工作说流程
+    -   回顾工作说感受
+-   [GTD Flow](/life/principle/gtd.md): Get Thing Done
+-   [PDCA Cycle](/life/principle/pdca.md): Plan → Do → Check → Act or Adjust
+-   [SMART principle](/life/principle/smart.md): Specific / Measurable / Achievable / Relevant / Time-based
+-   [STAR principle](/life/principle/star.md): Situation → Target → Action → Result
+-   [Deployment Checklist](/snip/tmp/deployment-checklist.md): avoid low-level mistakes
+-   [How to Leave](/life/principle/how-to-leave.md):《解除劳动合同告知书》
 
 ### Read
 
@@ -756,7 +756,7 @@ Timeline
         -   **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，
         -   **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
 -   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
-    -    《 "绩点" 的暴政》
+    -   《 "绩点" 的暴政》
         成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
 -   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md)
     -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
