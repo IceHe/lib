@@ -49,9 +49,9 @@ $ psql -h host -d database -U user -W
 
 References:
 
-- [Updating Enum Values in PostgreSQL - The Safe and Easy Way](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/)
-- [Display user-defined types and their details](https://dba.stackexchange.com/a/301746)
-- Official doc: [ALTER TYPE - SQL Commands - PostgreSQL Docs](https://www.postgresql.org/docs/current/sql-altertype.html)
+-   [Updating Enum Values in PostgreSQL - The Safe and Easy Way](https://blog.yo1.dog/updating-enum-values-in-postgresql-the-safe-and-easy-way/)
+-   [Display user-defined types and their details](https://dba.stackexchange.com/a/301746)
+-   Official doc: [ALTER TYPE - SQL Commands - PostgreSQL Docs](https://www.postgresql.org/docs/current/sql-altertype.html)
 
 tl; dr:
 
@@ -73,6 +73,6 @@ DROP TYPE status_enum_old;
 
 Another way with `psql`:
 
-- `\dT` show list of user-defined types.
-- `\dT+ <type_name>` show given user-defined type, with details.
-- `\dT <type_name>` show given user-defined type, without details.
+-   `\dT` show list of user-defined types.
+-   `\dT+ <type_name>` show given user-defined type, with details.
+-   `\dT <type_name>` show given user-defined type, without details.

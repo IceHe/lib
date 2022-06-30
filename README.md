@@ -188,6 +188,7 @@ Storage
     -   for search and analysis
 -   **MySQL**: [Usage](/cmd/m/mysql.md)
     -   robust SQL database server
+-   **PostgreSQL**: [Notes](/snip/postgresql/notes.md)
 -   **Redis**: [Basics](/snip/redis/basics.md) / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
     -   in-memory data structure store as a database, cache and message broker
         <!-- basics: http://redis.io -->
