@@ -95,25 +95,20 @@ Others
 
 Basics
 
--   [Auth\*](/auth/auth.md) - Authentication & Authorization
-    <!-- todo -->
+-   [Auth\*](/auth/auth.md) - Authentication & Authorization <!-- todo -->
 
--   [OIDC](/auth/oidc/oidc.md) - OpenID Connect
-    <!-- todo -->
+-   [OIDC](/auth/oidc/oidc.md) - OpenID Connect <!-- todo -->
 
     an interoperable authentication protocol based on the OAuth 2.0 family of specifications
 
-    -   [Core 1.0](/auth/oidc/core.md) functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User
-          <!-- todo -->
-    -   [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_
-          <!-- todo -->
+    -   [Core 1.0](/auth/oidc/core.md) functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User <!-- todo -->
+    -   [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_ <!-- todo -->
 
 -   [OAuth](/auth/oauth.md) - Open **Authorization**
 
     an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
 
-    -   [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md)
-          <!-- todo -->
+    -   [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md) <!-- todo -->
     -   [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)
     -   [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
