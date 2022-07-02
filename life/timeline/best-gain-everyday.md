@@ -14,24 +14,24 @@ Started to record my best gain everyday from 2022/02/16.
 
 MDN Web Docs:
 
-- [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
-- [Using the Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Window.sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
-- [Window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+-   [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+-   [Using the Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+-   [Window.sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+-   [Window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
-## *_11. 精致的桌游《现代艺术》_
+## \*_11. 精致的桌游《现代艺术》_
 
 _跟朋友玩这个桌游，虽然自己没有成为大赢家，_
 _但发现它的卡牌设计得非常精致、很有艺术气息。_
 
-## *_12. 烂游戏《马里奥派对：全明星》_
+## \*_12. 烂游戏《马里奥派对：全明星》_
 
 _跟朋友一起玩 Switch 游戏《马里奥派对：全明星》，游戏体验极差，让我们玩得非常“生气”，都被它气笑了。_
 _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也能体验到别样的欢乐。_
 
 ## 13. 刷题的意义？
 
-> [@刘未鹏pongba](https://weibo.com/pongba): [2021-4-1 10:19](https://weibo.com/1882579600/K8RlzAj5R)
+> [@刘未鹏 pongba](https://weibo.com/pongba): [2021-4-1 10:19](https://weibo.com/1882579600/K8RlzAj5R)
 >
 > 很多人之所以喜欢大量的刷题，就是因为有一个“基础牢靠很重要”的思维。
 > 这说法好像是挺流行的。我当年上学的时候老师就这么讲了。
@@ -62,12 +62,12 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 > 我想了想算了，这次先不硬杠意志吧，于是我给列了一张纸的启发式思考策略，和数学没啥特定的关系，
 > 就是一些帮助从卡住的状态中脱出来的策略（大多在《How to Solve It》里有），例如：
 >
-> - 问题的条件有哪些，从条件可以得到哪些结论
-> - 需要求解的是什么，想要到达解，需要什么成立
-> - 能否通过增加、减少、改变问题的条件求解一个类似的问题从而获得某种启发
-> - 能否通过把问题中抽象的部分变成具体的来求解一个具体的问题
-> - 能否通过把具体的问题抽象成一个一般性的问题来求解
-> - 等等等等
+> -   问题的条件有哪些，从条件可以得到哪些结论
+> -   需要求解的是什么，想要到达解，需要什么成立
+> -   能否通过增加、减少、改变问题的条件求解一个类似的问题从而获得某种启发
+> -   能否通过把问题中抽象的部分变成具体的来求解一个具体的问题
+> -   能否通过把具体的问题抽象成一个一般性的问题来求解
+> -   等等等等
 >
 > 这些策略和她的特定问题，甚至和数学都不一定相关，
 > 但是有了这些策略作为拐杖，她最终把那个问题想出来了。
@@ -83,11 +83,11 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 > 例如可能方向对了四两拨千斤，少量投入带来巨大的成果；
 > 反过来，也可能是一开始时间投入带来的进展不错，但越到后来进展越困难缓慢；
 > 还有可能是相当长一段时间卡死在一个看似毫无进展的情况中，
-> 在苦苦求索之后的某一点灵光乍现，柳暗花明，于是奖励曲线直接90度向上；
+> 在苦苦求索之后的某一点灵光乍现，柳暗花明，于是奖励曲线直接 90 度向上；
 > 还有可能是有时候觉得有所突破，而后又发现是假突破，反反复复螺旋上升。
 > 如果根据每种情况画出对应的曲线，大概如附图所示：
 >
-> 数学提供的就是面对后面4种类型的收益曲线锻炼你心态会不会崩。
+> 数学提供的就是面对后面 4 种类型的收益曲线锻炼你心态会不会崩。
 > 尤其是最后两种，在某一类问题中很典型。
 > 如果心态慢慢适应这些变化多端的收益曲线，
 > 就意味着你面对各种多变的问题和任务自然就具备了不容易放弃的心态和适应能力，
@@ -118,50 +118,50 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
 [feat(browser): signIn by IceHe · Pull Request #170 · logto-io/js](https://github.com/logto-io/js/pull/170)
 
-- How to write the property getter/setter in JavaScript/TypeScript
+-   How to write the property getter/setter in JavaScript/TypeScript
 
-- How to mock crypto in jest?
+-   How to mock crypto in jest?
 
     ```ts
     // jest.setup.js
-    const crypto = require('crypto');
+    const crypto = require("crypto");
 
     global.crypto = {
-      getRandomValues: (buffer) => crypto.randomFillSync(buffer),
-      subtle: crypto.webcrypto.subtle,
+        getRandomValues: (buffer) => crypto.randomFillSync(buffer),
+        subtle: crypto.webcrypto.subtle,
     };
     ```
 
-- Use `URLSearchParams` to
+-   Use `URLSearchParams` to
 
-    - parse parameters from query string
+    -   parse parameters from query string
 
         ```ts
-        const [, queryString = ''] = uri.split('?');
+        const [, queryString = ""] = uri.split("?");
         const urlSearchParams = new URLSearchParams(queryString);
         ```
 
-    - construct query string
+    -   construct query string
 
         ```ts
         const urlSearchParameters = new URLSearchParams({
-          foo: 'bar',
-          ice: 'he',
+            foo: "bar",
+            ice: "he",
         });
 
         for (const item of items ?? []) {
-          urlSearchParameters.append('item', item);
+            urlSearchParameters.append("item", item);
         }
 
         const urlWithQueryString = `${url}?${urlSearchParameters.toString()}`;
         ```
 
-- Use `URL` to join URL safely with `baseUrl` and `path`
+-   Use `URL` to join URL safely with `baseUrl` and `path`
 
     ```ts
     // e.g.
-    const baseUrl = 'https://icehe.xyz/';
-    const path = '/foo/bar';
+    const baseUrl = "https://icehe.xyz/";
+    const path = "/foo/bar";
     const url = new URL(path, baseUrl);
     // url.toString() === 'https://icehe.xyz/foo/bar'
     ```
@@ -172,14 +172,14 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
 -   Differences between `assert` and `create` from `superstruct` package
 
-    - [assert](https://docs.superstructjs.org/api-reference/core#assert): just validate
-    - [create](https://docs.superstructjs.org/api-reference/core#create): validate, fill with default values and etc.
-        - with [coercions](https://docs.superstructjs.org/api-reference/coercions): defaulted and trimmed
+    -   [assert](https://docs.superstructjs.org/api-reference/core#assert): just validate
+    -   [create](https://docs.superstructjs.org/api-reference/core#create): validate, fill with default values and etc.
+        -   with [coercions](https://docs.superstructjs.org/api-reference/coercions): defaulted and trimmed
 
 -   When to retrieve properties from `window.sessionStorage` or `window.localStorage` in the browser
 
-    - Consistent data in `LocalStorage` should be retrieved and store in the object when constructing (in `constructor`).
-    - Temporary data in `SessionStorage` are recommended to be retrieved when needed.
+    -   Consistent data in `LocalStorage` should be retrieved and store in the object when constructing (in `constructor`).
+    -   Temporary data in `SessionStorage` are recommended to be retrieved when needed.
 
 -   Browser session life cycle?
 
@@ -191,13 +191,13 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
         1.  Chrome → ( View → ) Developer → JavaScript Console
         2.  Store session item: Under a.com site, run `window.sessionStorage.setItem('foo', 'bar');`
-            - _Check session item: Developer Tools → Application → View the session storage of a.com_
+            -   _Check session item: Developer Tools → Application → View the session storage of a.com_
         3.  Redirect to another site: Under a.com site, run `window.location = 'b.com';`
-            - _Check session item: as above_
-        4. A. Come back to original site: Under b.com site, run `window.location = 'a.com';`
-            - B. close the tab, and then restore it
-            - C. close the tab, and then open another tab with a.com
-        5. Check session item, and find `foo: bar` exists
+            -   _Check session item: as above_
+        4.  A. Come back to original site: Under b.com site, run `window.location = 'a.com';`
+            -   B. close the tab, and then restore it
+            -   C. close the tab, and then open another tab with a.com
+        5.  Check session item, and find `foo: bar` exists
 
 -   How to access and test the protected properties and methods of a class?
 
@@ -205,28 +205,28 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
 ## 18. Declaration files `*.d.ts`
 
-- [*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
-- [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint
+-   [\*.d.ts](/js/code-snippet/d.ts.md): declaration files that functions as an interface to the components compiled in JavaScript
+-   [debugger](/js/code-snippet/debugger.md) statement invokes any available debugging functionality, such as setting a breakpoint
 
 ## 19. Pause code with breakpoints - Chrome DevTools
 
 Chrome DevTools - [Pause code with breakpoints](/js/code-snippet/debugger.md#Pause-code-with-breakpoints)
 
-- DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
+-   DOM change, **XHR/Fetch**, event listener, **exception** and function `debug(functionName)`
 
-## *_20. 读《贪婪的多巴胺》_
+## \*_20. 读《贪婪的多巴胺》_
 
 _《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
 
-- _[我的微博书摘 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)_
-- _[我的微博书摘 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)_
-- _[我的微博书摘 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)_
+-   _[我的微博书摘 2022-02-21 13:00](https://weibo.com/2181657940/LgkPF3HJI)_
+-   _[我的微博书摘 2022-02-21 18:32](https://weibo.com/2181657940/Lgn0t5tag)_
+-   _[我的微博书摘 2022-02-21 21:45](https://weibo.com/2181657940/LgogZyFqL)_
 
 ## 21. Should `return` early
 
 **[Why should you return early?](https://szymonkrajewski.pl/why-should-you-return-early/)**
 
-- [我的微博笔记分享 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
+-   [我的微博笔记分享 2022-02-21 14:49](https://weibo.com/2181657940/LguYrEtdF)
 
 > \# Follow the "happy path"
 >
@@ -244,26 +244,26 @@ _《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
 >
 > \# The Bouncer Pattern
 >
-> **It’s also known as “Assertions” or even  “Guard clauses”.**
+> **It’s also known as “Assertions” or even “Guard clauses”.**
 > All mean the same and they prevent code execution in case of the invalid state.
 > ……
 
-## *_22. 通关《AI梦境档案》_
+## \*_22. 通关《AI 梦境档案》_
 
-_通关《[AI梦境档案](https://www.douban.com/game/30265812/)》_
+_通关《[AI 梦境档案](https://www.douban.com/game/30265812/)》_
 
 _读完《[贪婪的多巴胺](https://book.douban.com/subject/35545272/)》_
 
-- _[我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)_
+-   _[我的微博书摘 2022-02-22 20:12](https://weibo.com/2181657940/LgGwfl3YT)_
 
 Upgrade @silverhand/eslint-config
 
-- [fix(eslint-config): fix rule member-ordering via updating dependencies by IceHe · Pull Request #18 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/18)
-- [fix: bump typescript eslint plugins and disable unnecessary rules by demonzoo · Pull Request #19 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/19)
-- [fix(eslint-config): update `pnpm-lock.yaml` by demonzoo · Pull Request #20 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/20)
-- [chore: bump eslint-config to 0.9.1 by demonzoo · Pull Request #196 · logto-io/js](https://github.com/logto-io/js/pull/196)
+-   [fix(eslint-config): fix rule member-ordering via updating dependencies by IceHe · Pull Request #18 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/18)
+-   [fix: bump typescript eslint plugins and disable unnecessary rules by demonzoo · Pull Request #19 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/19)
+-   [fix(eslint-config): update `pnpm-lock.yaml` by demonzoo · Pull Request #20 · silverhand-io/configs](https://github.com/silverhand-io/configs/pull/20)
+-   [chore: bump eslint-config to 0.9.1 by demonzoo · Pull Request #196 · logto-io/js](https://github.com/logto-io/js/pull/196)
 
-## *_23. 不要熬夜_
+## \*_23. 不要熬夜_
 
 _其实现在的情况跟之前差不多，当下该做什么其实还是挺明确的，没什么需要迷惘。_
 _但是熬夜玩游戏搅乱身心状态之后，感觉不太好，干啥都不得劲。_
@@ -277,9 +277,9 @@ _（虽说理性的策略是“既往不咎，纵情向前”，接下来重新�
 从理性的角度分析，觉得自己熬夜去做各种事就像是“还没学会走，就迫不及待想要跑起来”。
 **还没有养成保证自己充分休息（睡眠）的习惯，就开始贪心、急迫地想要做到更多别的事情，真是愚蠢……**
 不能保证头脑尽可能处于最佳状态，枉论做别的事能做得更多更好。
-（所以觉得自己学生时代的脑袋真是一桶浆糊，即使到了现在自己已经工作6年多了，还是在低效率地生活，无论做的是正事还是娱乐。）
+（所以觉得自己学生时代的脑袋真是一桶浆糊，即使到了现在自己已经工作 6 年多了，还是在低效率地生活，无论做的是正事还是娱乐。）
 
-## *_24. 了解自己 & 解决实际问题，快速进步_
+## \*_24. 了解自己 & 解决实际问题，快速进步_
 
 _有些地方活得太马虎了，一点都不了解自己……_
 
@@ -329,28 +329,24 @@ _自己是个俗人，没有多高的追求，然后采用“抄书式”学习�
     ```json
     {
         "extends": "./tsconfig",
-        "include": [
-            "src"
-        ],
-        "exclude": [
-            "**/*.test.ts",
-        ]
+        "include": ["src"],
+        "exclude": ["**/*.test.ts"]
     }
     ```
 -   Use `jest.config.ts` instead of `jest.config.js`.
 
-## *_26. 桌游《截码站》& 音乐酒吧 Tokyo Lounge_
+## \*_26. 桌游《截码站》& 音乐酒吧 Tokyo Lounge_
 
 _有趣的桌游《截码站》_
 
-- _后记：可惜第二天（27号）就玩腻了。_
+-   _后记：可惜第二天（27 号）就玩腻了。_
 
 _体验音乐酒吧 —— Tokyo Lounge 东京酒廊_
 
-- _虽然氛围感觉还不错，但人均消费对我来说还是偏贵了，自己一个人是不会考虑去那消磨时光的。_
-- _[我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)_
+-   _虽然氛围感觉还不错，但人均消费对我来说还是偏贵了，自己一个人是不会考虑去那消磨时光的。_
+-   _[我的微博视频 2022-02-26 23:44](https://weibo.com/2181657940/LhjC5nvX1)_
 
-## *_27. 重温桌游《UNO》_
+## \*_27. 重温桌游《UNO》_
 
 _感觉还挺好玩的，跟朋友一起玩就是很欢乐。_
 
@@ -358,18 +354,19 @@ _感觉还挺好玩的，跟朋友一起玩就是很欢乐。_
 
 [refactor(react): init react package by IceHe · Pull Request #201 · logto-io/js](https://github.com/logto-io/js/pull/201)
 
-- `peerDependencies` in `package.json`
-    - References:
-        - [Peer Dependencies - nodejs.org/noticias](https://nodejs.org/es/blog/npm/peer-dependencies/)
-        - [探讨npm依赖管理之peerDependencies - wonyun - 博客园](https://www.cnblogs.com/wonyun/p/9692476.html)
-            - [package.json文件 # peerDependencies - JavaScript 标准参考教程（alpha）- 阮一峰](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc3)
+-   `peerDependencies` in `package.json`
+
+    -   References:
+        -   [Peer Dependencies - nodejs.org/noticias](https://nodejs.org/es/blog/npm/peer-dependencies/)
+        -   [探讨 npm 依赖管理之 peerDependencies - wonyun - 博客园](https://www.cnblogs.com/wonyun/p/9692476.html)
+            -   [package.json 文件 # peerDependencies - JavaScript 标准参考教程（alpha）- 阮一峰](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc3)
 
     > 一个 package 的 `peerDependencies` 用于提示引入该 package 的项目也需要安装哪些（指定版本范围的）其它 package。
 
 [chore(js,browser): simplify webpack config & code coverage excludes src/index.ts by IceHe · Pull Request #205 · logto-io/js](https://github.com/logto-io/js/pull/205)
 
-- Simplify `webpack.config.js` in TypeScript projects
-    - How to use Webpack in [TypeScript](https://webpack.js.org/guides/typescript/#loader) projects
+-   Simplify `webpack.config.js` in TypeScript projects
+    -   How to use Webpack in [TypeScript](https://webpack.js.org/guides/typescript/#loader) projects
         > Webpack documentation recommends to use `ts-loader` to transpile the code, e.g. TypeScript.
         >
         > Actually _"ts-loader uses tsc, the TypeScript compiler…"_,
@@ -382,16 +379,13 @@ _感觉还挺好玩的，跟朋友一起玩就是很欢乐。_
 
 `jsonb`
 
-- [8.14. JSON Types - PostgreSQL 14 Documentation](https://www.postgresql.org/docs/14/datatype-json.html)
+-   [8.14. JSON Types - PostgreSQL 14 Documentation](https://www.postgresql.org/docs/14/datatype-json.html)
 
     > PostgreSQL offers two types for storing JSON data: `json` and `jsonb`. ……
     >
     > The `json` and `jsonb` data types accept almost identical sets of values as input.
     > The major practical difference is one of efficiency.
-    > **The `json` data type stores an exact copy of the input text, which processing functions must reparse on each execution;**
-    > **while `jsonb` data is stored in a decomposed binary format that makes it slightly slower to input due to added conversion overhead,**
-    > **but significantly faster to process, since no reparsing is needed.**
-    > **`jsonb` also supports indexing, which can be a significant advantage.**
+    > **The `json` data type stores an exact copy of the input text, which processing functions must reparse on each execution;** > **while `jsonb` data is stored in a decomposed binary format that makes it slightly slower to input due to added conversion overhead,** > **but significantly faster to process, since no reparsing is needed.** > **`jsonb` also supports indexing, which can be a significant advantage.**
     >
     > Because the `json` type stores an exact copy of the input text,
     > it will preserve semantically-insignificant white space between tokens, as well as the order of keys within JSON objects.
@@ -407,7 +401,7 @@ _感觉还挺好玩的，跟朋友一起玩就是很欢乐。_
 
 `timestamptz`
 
-- [8.5 Date/Time Types - PostgreSQL 14 Documentation](https://www.postgresql.org/docs/14/datatype-datetime.html)
+-   [8.5 Date/Time Types - PostgreSQL 14 Documentation](https://www.postgresql.org/docs/14/datatype-datetime.html)
 
     > Note:
     > The SQL standard requires that writing just `timestamp` be equivalent to **timestamp without time zone**, and PostgreSQL honors that behavior.
@@ -419,11 +413,11 @@ koa: next generation web framework for node.js - [koajs.com](https://koajs.com/)
 
 _（生活片段：用挑染假发片模拟了一下挑染的效果，感觉耳目一新）_
 
-## *_3. 番剧《天才王子的赤字国家振兴术》_
+## \*_3. 番剧《天才王子的赤字国家振兴术》_
 
 _虽然制作很贫穷，但是剧情还不错。_
 
-## *_4. 番剧《世界顶尖的暗杀者，转生为异世界贵族》_
+## \*_4. 番剧《世界顶尖的暗杀者，转生为异世界贵族》_
 
 _制作精良的异世界番剧，看得我津津有味，有点想接着看原作小说了。_
 
@@ -437,32 +431,37 @@ _制作精良的异世界番剧，看得我津津有味，有点想接着看原�
 
 [feat(core): findAllApplications order by createdAt desc by IceHe · Pull Request #344 · logto-io/logto](https://github.com/logto-io/logto/pull/344)
 
-- Implement the `ORDER BY` feature in the custom ORM using `Slonik`
-    - Wrong: It doesn't work!
-        ```ts
-        type OrderDirection = 'ASC' | 'DESC';
+-   Implement the `ORDER BY` feature in the custom ORM using `Slonik`
 
-        const orderDirection: OrderDirection = 'ASC';
+    -   Wrong: It doesn't work!
+
+        ```ts
+        type OrderDirection = "ASC" | "DESC";
+
+        const orderDirection: OrderDirection = "ASC";
         const orderToken = sql`
             ORDER BY created_at ${orderDirection}'
         `;
         ```
-        - Because (e.g.) any string injected into <code>sql\`xxx ${str} ooo\`</code> will be converted to `'xxx "str" ooo'` finally.
-    - Correct:
+
+        -   Because (e.g.) any string injected into <code>sql\`xxx ${str} ooo\`</code> will be converted to `'xxx "str" ooo'` finally.
+
+    -   Correct:
         ```ts
-        const orderDirection = order === 'ASC' ? sql`ASC` : sql`DESC`;
+        const orderDirection = order === "ASC" ? sql`ASC` : sql`DESC`;
         const orderToken = sql`
             ORDER BY created_at ${orderDirection}
         `;
         ```
-    - References
-        - [gajus/slonik: A PostgreSQL client with strict types, detailed logging and assertions.](https://github.com/gajus/slonik)
-            - Principles
-                - Promotes writing raw SQL.
-                - Discourages ad-hoc dynamic generation of SQL.
-            - To sum up, Slonik is designed to **prevent accidental creation of queries vulnerable to SQL injections**.
-        - [Discussion of Dynamically generating SQL queries using Node.js](https://dev.to/gajus/dynamically-generating-sql-queries-using-node-js-2c1g/comments)
-- Note: `ORDER BY` is after `WHERE` and before `LIMIT` `OFFSET`
+    -   References
+        -   [gajus/slonik: A PostgreSQL client with strict types, detailed logging and assertions.](https://github.com/gajus/slonik)
+            -   Principles
+                -   Promotes writing raw SQL.
+                -   Discourages ad-hoc dynamic generation of SQL.
+            -   To sum up, Slonik is designed to **prevent accidental creation of queries vulnerable to SQL injections**.
+        -   [Discussion of Dynamically generating SQL queries using Node.js](https://dev.to/gajus/dynamically-generating-sql-queries-using-node-js-2c1g/comments)
+
+-   Note: `ORDER BY` is after `WHERE` and before `LIMIT` `OFFSET`
 
 ## 9. Slonik & `type is` 的 ts 语法？
 
@@ -472,25 +471,25 @@ TODO
 
 Should declare the database table fields with default values?
 
-- Should not. Better initialize by code. (It's enough to just declare them `not null`.)
+-   Should not. Better initialize by code. (It's enough to just declare them `not null`.)
 
 Debug with GitHub Action/Workflow?
 
-- Inputs?
+-   Inputs?
 
 ## 12. 迷茫
 
 TODO
 
-## *_13. 剧本杀《持斧奥夫》& 桌游《三国杀》的国战模式_
+## \*_13. 剧本杀《持斧奥夫》& 桌游《三国杀》的国战模式_
 
 _玩过套娃最猛的剧本杀《持斧奥夫》_
 
-- TODO
+-   TODO
 
 _初识桌游《三国杀》的国战模式_
 
-- TODO
+-   TODO
 
 ## 14. JSONB vs Separate columns
 
@@ -506,8 +505,8 @@ TODO
 
 [refactor(browser): cache get access token promises by resource by gao-sun · Pull Request #229 · logto-io/js](https://github.com/logto-io/js/pull/229)
 
-- References:
-    - 理解 Loop Event: [JS Visualizer 9000](https://www.jsv9000.app/)
+-   References:
+    -   理解 Loop Event: [JS Visualizer 9000](https://www.jsv9000.app/)
 
 TODO
 
@@ -519,22 +518,22 @@ TODO
 
 ## 18. lodash.once
 
-- 并发：event loop
-- 数据存储设计：design of connectors DB & code
-- 协作：PR based on another PR
+-   并发：event loop
+-   数据存储设计：design of connectors DB & code
+-   协作：PR based on another PR
 
 [feat(core): reuse remote jwk set by IceHe · Pull Request #231 · logto-io/js](https://github.com/logto-io/js/pull/231)
 
-- References:
-    - lodash.once
+-   References:
+    -   lodash.once
 
 TODO
 
-## *_19. 第一次开卡丁车 & 羊大爷涮肉_
+## \*_19. 第一次开卡丁车 & 羊大爷涮肉_
 
 TODO
 
-## *_20. 剧本杀《人偶之匣》_
+## \*_20. 剧本杀《人偶之匣》_
 
 TODO
 
@@ -542,13 +541,13 @@ TODO
 
 TODO: 豁然开朗，把上周 blocked 的变更，拆成一个个 PR 来提交；也用了 一个 open PR based on another open PR 的技巧来让同事可以并行 review 我的代码变更。
 
-- [refactor(core): make getConnectorInstances access DB only once by IceHe · Pull Request #429 · logto-io/logto](https://github.com/logto-io/logto/pull/429)
-- [refactor(core): get sign-in experience by IceHe · Pull Request #426 · logto-io/logto](https://github.com/logto-io/logto/pull/426)
-- *_[refactor(core): implement findAllConnectors by findMany and order by enabled desc, id asc by IceHe · Pull Request #430 · logto-io/logto](https://github.com/logto-io/logto/pull/430)_
-- *_[refactor(core): getEnabledPasswordlessConnectorInstanceByType  by IceHe · Pull Request #431 · logto-io/logto](https://github.com/logto-io/logto/pull/431)_
-- *_[refactor(core): change PATCH /sign-in-exp/:id to PATCH /sign-in-exp by IceHe · Pull Request #427 · logto-io/logto](https://github.com/logto-io/logto/pull/427)_
+-   [refactor(core): make getConnectorInstances access DB only once by IceHe · Pull Request #429 · logto-io/logto](https://github.com/logto-io/logto/pull/429)
+-   [refactor(core): get sign-in experience by IceHe · Pull Request #426 · logto-io/logto](https://github.com/logto-io/logto/pull/426)
+-   \*_[refactor(core): implement findAllConnectors by findMany and order by enabled desc, id asc by IceHe · Pull Request #430 · logto-io/logto](https://github.com/logto-io/logto/pull/430)_
+-   \*_[refactor(core): getEnabledPasswordlessConnectorInstanceByType by IceHe · Pull Request #431 · logto-io/logto](https://github.com/logto-io/logto/pull/431)_
+-   \*_[refactor(core): change PATCH /sign-in-exp/:id to PATCH /sign-in-exp by IceHe · Pull Request #427 · logto-io/logto](https://github.com/logto-io/logto/pull/427)_
 
-## *_22. 急性胰腺炎？阑尾炎！_
+## \*_22. 急性胰腺炎？阑尾炎！_
 
 TODO
 
@@ -556,7 +555,7 @@ TODO
 
 [refactor(core): get sign-in experience by IceHe · Pull Request #426 · logto-io/logto](https://github.com/logto-io/logto/pull/426)
 
-- Do things asynchronously as possible `Promise.all([…])`.
+-   Do things asynchronously as possible `Promise.all([…])`.
 
 ## 24. GitHub Actions & _复诊确诊阑尾炎_
 
@@ -568,15 +567,15 @@ TODO
 
 详见微博 26 转发的某条英文微博
 
-## *_26. 露营烤烧 & 提督 的烤鸭_
+## \*_26. 露营烤烧 & 提督 的烤鸭_
 
 TODO
 
-## *_27. 剧本杀《一座城》& 暖房玩《达芬奇密码》& 惟炉潮厨的潮汕菜不错_
+## \*_27. 剧本杀《一座城》& 暖房玩《达芬奇密码》& 惟炉潮厨的潮汕菜不错_
 
 TODO
 
-## *_28. 厚鲤甲赫 的福建菜_
+## \*_28. 厚鲤甲赫 的福建菜_
 
 _味道不错_
 
@@ -586,7 +585,7 @@ TODO
 
 TODO
 
-## *_30. 京A喝酒_
+## \*_30. 京 A 喝酒_
 
 TODO
 
@@ -596,20 +595,20 @@ TODO
 
 ## 2. 终于合进去了多个 PRs
 
-## *_2. 牛麒荟 的潮汕牛肉火锅_
+## \*_2. 牛麒荟 的潮汕牛肉火锅_
 
-## *_3. 剧本杀《TODO》& 电影《超体》_
+## \*_3. 剧本杀《TODO》& 电影《超体》_
 
 TODO：名字待补充
 
-## *_4._
+## \*_4._
 
-- 恐怖游戏Demo实况《三伏》最后一幕非常精彩
+-   恐怖游戏 Demo 实况《三伏》最后一幕非常精彩
 
-## *_5._
+## \*_5._
 
-- 又去大喜家和同事一起玩玩《马里奥派对》
-- 又去新京熹吃饭
+-   又去大喜家和同事一起玩玩《马里奥派对》
+-   又去新京熹吃饭
 
 ## 6.
 
@@ -617,49 +616,49 @@ TODO：名字待补充
 
 how-to-live.md
 
-## *_7. 漫画《朋友游戏》_
+## \*_7. 漫画《朋友游戏》_
 
 _精彩的智斗剧情！_
 
-## *_8. Warp: The Terminal for the 21st Century & You are free to be free._
+## \*_8. Warp: The Terminal for the 21st Century & You are free to be free._
 
 大环境焦虑得不行，好多人都怕被这社会和自然淘汰，都快静不下心来做点自己真正想做的事了……（躺平、吃喝玩乐？​​​）
 
-## *_9. 找房准备搬家 & 番剧《派对浪客诸葛孔明》意外地有趣_
+## \*_9. 找房准备搬家 & 番剧《派对浪客诸葛孔明》意外地有趣_
 
 _找房准备搬家_
 
-- TODO
+-   TODO
 
 _番剧《派对浪客诸葛孔明》意外地有趣！_
 
-- TODO: WB link
+-   TODO: WB link
 
-## *_10. 剧本杀情感本《逢山遇鬼》& 新住处试睡_
+## \*_10. 剧本杀情感本《逢山遇鬼》& 新住处试睡_
 
-## *_11. 收拾行李_
+## \*_11. 收拾行李_
 
-## *_12. 搬家_
+## \*_12. 搬家_
 
-## *_13. Review PR 的掌控感_
+## \*_13. Review PR 的掌控感_
 
 review 别人感觉就是不一样，
 最重要的还是得能够提出有价值的意见，才能够被认同。
 
-## *_14. 又去 KTV_
+## \*_14. 又去 KTV_
 
 同事们在工作日也很能浪，但需要凑齐那么几个人，我、大喜、思捷、挂面、Eric。
 
-## *_15. 肥福排档 的清蒸青衣鱼_
+## \*_15. 肥福排档 的清蒸青衣鱼_
 
 -   _周五下班去得不够早，结果足足等了一小时才有位置。_
-    _点了一条青衣鱼比较贵，最后三个人吃了快1500块。_
+    _点了一条青衣鱼比较贵，最后三个人吃了快 1500 块。_
     _虽然大家等位等了比较久，但好歹饭菜比较可口，还是吃得挺满意的。_
 -   _[我的微博 2022-04-15 21:24](https://weibo.com/2181657940/LoBdkiqLQ)_
 
 [chore(console,ui): parcel build --no-cache by IceHe · Pull Request #557 · logto-io/logto](https://github.com/logto-io/logto/pull/557)
 
-- [Caching - Parcel](https://parceljs.org/features/development/#caching)
+-   [Caching - Parcel](https://parceljs.org/features/development/#caching)
 
     > **Caching**
     >
@@ -673,29 +672,29 @@ review 别人感觉就是不一样，
     > Caching can also be disabled using the `--no-cache` flag.
     > Note that this only disables reading from the cache – a `.parcel-cache` folder will still be created.
 
-## *_16. 京城海南鸡饭 & Coffee Holic 的特调_
+## \*_16. 京城海南鸡饭 & Coffee Holic 的特调_
 
 _京城海南鸡饭_
 
-- [我的微博 2022-04-16 13:42](https://weibo.com/2181657940/LoHC31PWA)
+-   [我的微博 2022-04-16 13:42](https://weibo.com/2181657940/LoHC31PWA)
 
 _久违的 Coffee Holic_
 
-- [我的微博 2022-04-16 14:15](https://weibo.com/2181657940/LoHPm1zcS)
+-   [我的微博 2022-04-16 14:15](https://weibo.com/2181657940/LoHPm1zcS)
 
-## *_17. 惟炉潮厨 & 温州大排档 & 既躺平又焦虑，想要安稳_
+## \*_17. 惟炉潮厨 & 温州大排档 & 既躺平又焦虑，想要安稳_
 
 _惟炉潮厨_
 
-- _[我的微博 2022-04-17 15:35](https://weibo.com/2181657940/LoRMy0oF7)_
+-   _[我的微博 2022-04-17 15:35](https://weibo.com/2181657940/LoRMy0oF7)_
 
 _温州大排档_
 
-- _[我的微博 2022-04-17 19:41](https://weibo.com/2181657940/LoTocF6PR)_
+-   _[我的微博 2022-04-17 19:41](https://weibo.com/2181657940/LoTocF6PR)_
 
 _既躺平又焦虑_
 
-- _[我的微博 2022-04-19 00:15](https://weibo.com/2181657940/Lp4C2heO5)_
+-   _[我的微博 2022-04-19 00:15](https://weibo.com/2181657940/Lp4C2heO5)_
 
 > 周末跟朋友吃饭聊天，聊到了那种既躺平又焦虑的状态。
 > 到了晚上，又知道了一个朋友被裁了。
@@ -703,13 +702,13 @@ _既躺平又焦虑_
 
 _想要安稳_
 
-- _[我的微博 2022-04-17 21:26](https://weibo.com/2181657940/LoU4OEMwO)_
+-   _[我的微博 2022-04-17 21:26](https://weibo.com/2181657940/LoU4OEMwO)_
 
-## *_18. 大董 的烤鸭_
+## \*_18. 大董 的烤鸭_
 
 _大董的烤鸭确实不错，就是贵_
 
-- _[我的微博 2022-04-18 20:48](https://weibo.com/2181657940/Lp3g60Ar6)_
+-   _[我的微博 2022-04-18 20:48](https://weibo.com/2181657940/Lp3g60Ar6)_
 
 [feat(schemas): logs schema and log payload type by IceHe · Pull Request #561 · logto-io/logto](https://github.com/logto-io/logto/pull/561)
 
@@ -729,7 +728,7 @@ _大董的烤鸭确实不错，就是贵_
     create index logs__created_at on logs (created_at);
     ```
 
-## *_19. 西粉堂 的新疆炒米粉_
+## \*_19. 西粉堂 的新疆炒米粉_
 
 _虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
 
@@ -739,80 +738,70 @@ _虽然我觉得好吃，但是思捷和大喜觉得太咸了_ 😂
 
     ```ts
     const log = async (ctx: WithLogContext<Context>, result: LogResult) => {
-      const { type, ...rest } = ctx.log;
+        const { type, ...rest } = ctx.log;
 
-      if (!type) {
-        return;
-      }
+        if (!type) {
+            return;
+        }
 
-      try {
-        await insertLog({
-          id: nanoid(),
-          type,
-          payload: {
-              ...rest,
-              result,
-          },
-        });
-      } catch (error: unknown) {
-        console.error('An error occurred while inserting log');
-        console.error(error);
-      }
+        try {
+            await insertLog({
+                id: nanoid(),
+                type,
+                payload: {
+                    ...rest,
+                    result,
+                },
+            });
+        } catch (error: unknown) {
+            console.error("An error occurred while inserting log");
+            console.error(error);
+        }
     };
     ```
 
-## *_20. 鸡坤茶室 的海南鸡和豉油鸡_
+## \*_20. 鸡坤茶室 的海南鸡和豉油鸡_
 
 _鸡坤茶室的海南鸡和豉油鸡挺好吃的！下次也试试肉骨茶～_
 
-- _[我的微博 2022-04-20 21:14](https://weibo.com/2181657940/Lpmhwdwa0)_
+-   _[我的微博 2022-04-20 21:14](https://weibo.com/2181657940/Lpmhwdwa0)_
 
 [feat(core,schema): new koa-log middleware by IceHe · Pull Request #590 · logto-io/logto](https://github.com/logto-io/logto/pull/590)
 
-## *_21. 广东顺德菜馆·星爷鸡煲_
+## \*_21. 广东顺德菜馆·星爷鸡煲_
 
 _味道还行，但没有太惊喜。还需要跟其他朋友再来试试。_
 
-- _[我的微博 2022-04-21 20:15](https://weibo.com/2181657940/LpvklpcdF)_
+-   _[我的微博 2022-04-21 20:15](https://weibo.com/2181657940/LpvklpcdF)_
 
-## *_22. ZH Live House & 瓷器牛肠专门店·烧鸟居酒屋_
+## \*_22. ZH Live House & 瓷器牛肠专门店·烧鸟居酒屋_
 
 _ZH Live House 比上次去的 东京酒廊 气氛更好！曲风更流行，适合俺。_
 
-- _[我的微博 2022-04-22 22:47](https://weibo.com/2181657940/LpFKhsxKs)_
+-   _[我的微博 2022-04-22 22:47](https://weibo.com/2181657940/LpFKhsxKs)_
 
 _瓷器牛肠专门店·烧鸟居酒屋，还可以，偶尔再来试试。_
 
-## *_23. 广东顺德菜馆·小院 & 先启半步癫小酒馆_
+## \*_23. 广东顺德菜馆·小院 & 先启半步癫小酒馆_
 
 _广东顺德菜馆·小院，点了推荐菜桑拿鸡，感觉一般般。_
 
-- _[我的微博 2022-04-23 17:39](https://weibo.com/2181657940/LpNa0Cgkm)_
+-   _[我的微博 2022-04-23 17:39](https://weibo.com/2181657940/LpNa0Cgkm)_
 
 _先启半步癫小酒馆，菜挺辣的，炒饭没朋友说的那么好吃，问题应该出在不是现炒的。_
 
-- _[我的微博 2022-04-23 19:49](https://weibo.com/2181657940/LpNYurf41)_
+-   _[我的微博 2022-04-23 19:49](https://weibo.com/2181657940/LpNYurf41)_
 
 ## 24. 类型体操：setValue 时根据 key 推断并提示 value 类型
 
 ```ts
 const set = <T, U extends keyof T>(object: T, key: keyof T, value: T[U]) => {
-  // eslint-disable-next-line @silverhand/fp/no-mutation
-  object[key] = value;
+    // eslint-disable-next-line @silverhand/fp/no-mutation
+    object[key] = value;
 };
 ```
 
 TODO: 详见 PR 还有更多类型体操的操作
-
-## 25. 思考的方式 _& 满面·二郎系拉面_
-
-TODO：有漏洞，别人为什么逻辑那么清晰，不止是成事。
-
-# May
-
-## 23. 新的枷锁
-
-TODO
 
 <!--
 
