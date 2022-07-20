@@ -2,8 +2,8 @@
 
 约束校验器
 
-- JavaBean Validation - Object Association validation with @Valid
-  : https://www.logicbig.com/tutorials/java-ee-tutorial/bean-validation/cascaded-validation.html
+-   JavaBean Validation - Object Association validation with @Valid
+    : https://www.logicbig.com/tutorials/java-ee-tutorial/bean-validation/cascaded-validation.html
 
 ## AbstractValidator
 
@@ -24,7 +24,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * <p>校验器：用于校验方法返回值、字段、参数
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @see ConstraintValidator
  * @see <a href="https://zhuanlan.zhihu.com/p/27643133">秒懂，Java 注解 （Annotation）你可以这样学 - 知乎</a>
  * @see <a href="https://docs.jboss.org/hibernate/validator/4.2/reference/zh-CN/html/validator-customconstraints.html#validator-customconstraints-constraintannotation">创建自己的约束规则</a>
@@ -113,7 +113,7 @@ import static java.lang.annotation.ElementType.PARAMETER;
  *
  * <p>考虑添加对 Integer 和 String 等类型的校验支持, 有空或有必要时写.
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Documented
@@ -172,7 +172,7 @@ import xyz.icehe.validate.validator.AbstractValidator;
  *
  * <p>只精确到两位小数，后面的部分舍弃掉
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 public class DoublePercentValidator extends AbstractValidator<ValidPercent, Double> {
@@ -269,7 +269,7 @@ import static java.lang.annotation.ElementType.PARAMETER;
  *
  * <p>支持单个值或集合
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Documented
@@ -341,7 +341,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * 校验一个集合的值是否在枚举类指定的范围内
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 public class WithinEnumValidator extends AbstractValidator<WithinEnum, Object> {
@@ -459,7 +459,7 @@ public class WithinEnumValidator extends AbstractValidator<WithinEnum, Object> {
 
 ## Interceptor
 
-- ServiceInterceptor and its Helpers
+-   ServiceInterceptor and its Helpers
 
 ### Helpers
 
@@ -482,7 +482,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 /**
  * 连接点操作的辅助组件
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @UtilityClass
@@ -565,7 +565,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 /**
  * 参数校验器
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/04
  */
 @Component
@@ -759,7 +759,7 @@ import lombok.NoArgsConstructor;
  * <p>Should use static factory methods {@link Responses#of} and so on instead of {@code new}
  * constructor to of a response.
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/04
  */
 @Data
@@ -818,7 +818,7 @@ import org.springframework.stereotype.Component;
  *
  * <p><a href="https://www.mekau.com/4880.html">AspectJ切入点@Pointcut语法详解 &#8211; 不静之心</a>
  *
- * @author icehe.xyzj
+ * @author icehe.life
  * @since 2020/11/04
  */
 @Slf4j

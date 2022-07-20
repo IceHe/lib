@@ -130,7 +130,7 @@ import lombok.Getter;
 import static xyz.icehe.enums.ReviewState.*;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Getter
@@ -201,7 +201,7 @@ import lombok.Getter;
 import xyz.icehe.utils.EnumParsers;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Getter
@@ -272,7 +272,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * <p>标准: 返回 null 用于表示 "解析失败" 的情况!
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @UtilityClass
@@ -421,7 +421,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * 枚举常量集合的解析器
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Getter
@@ -626,7 +626,7 @@ import xyz.icehe.utils.parser.EnumsParser;
 /**
  * 枚举常量集合的解析器的静态工厂
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @UtilityClass

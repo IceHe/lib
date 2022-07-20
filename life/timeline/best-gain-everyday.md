@@ -160,10 +160,10 @@ _发现就算玩的是烂游戏，但是跟朋友一起玩、一起吐槽，也�
 
     ```ts
     // e.g.
-    const baseUrl = "https://icehe.xyz/";
+    const baseUrl = "https://icehe.life/";
     const path = "/foo/bar";
     const url = new URL(path, baseUrl);
-    // url.toString() === 'https://icehe.xyz/foo/bar'
+    // url.toString() === 'https://icehe.life/foo/bar'
     ```
 
 ## 15. Differ `assert` from `create` in `superstruct`

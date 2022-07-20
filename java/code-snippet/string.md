@@ -8,15 +8,15 @@ String.valueOf(new Object());
 
 ```
 
-- Object
-- byte[]
-- boolean
-- char[]
-- char
-- int
-- long
-- float
-- double
+-   Object
+-   byte[]
+-   boolean
+-   char[]
+-   char
+-   int
+-   long
+-   float
+-   double
 
 ## To Number
 
@@ -52,7 +52,7 @@ import lombok.experimental.UtilityClass;
 /**
  * 字符串切割工具集
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @UtilityClass
@@ -92,7 +92,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * 字符串连接工具集
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @UtilityClass
@@ -141,7 +141,7 @@ import org.apache.commons.lang3.StringUtils;
  *   <li>判断字符串是否可解析为特定类型的对象
  * </ul>
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @UtilityClass
@@ -243,7 +243,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * MD5 工具
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/29
  */
 @UtilityClass
@@ -284,7 +284,7 @@ public class MD5Utils {
 
 Reference
 
-- [Java Regex - Matcher](http://tutorials.jenkov.com/java-regex/matcher.html)
+-   [Java Regex - Matcher](http://tutorials.jenkov.com/java-regex/matcher.html)
 
 ```java
 import java.util.regex.Matcher;
@@ -301,7 +301,7 @@ boolean likeMixedZhEn = mixedZhEnMatcher.find();
 
 Reference
 
-- [How can I convert a stack trace to a string?](https://stackoverflow.com/questions/1149703/how-can-i-convert-a-stack-trace-to-a-string)
+-   [How can I convert a stack trace to a string?](https://stackoverflow.com/questions/1149703/how-can-i-convert-a-stack-trace-to-a-string)
 
 ```java
 String stackTrace = ExceptionUtils.getStackTrace(e);

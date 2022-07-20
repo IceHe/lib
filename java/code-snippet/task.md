@@ -41,7 +41,7 @@ import java.util.stream.Stream;
 /**
  * 任务状态
  *
- * @author icehe.xyz
+ * @author icehe.life
  */
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -97,7 +97,7 @@ import java.util.Optional;
 /**
  * 任务服务
  *
- * @author icehe.xyz
+ * @author icehe.life
  */
 public interface TaskService {
 
@@ -159,7 +159,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  */
 @Slf4j
 @Service
@@ -364,7 +364,7 @@ import java.util.Set;
 /**
  * 任务的存取
  *
- * @author icehe.xyz
+ * @author icehe.life
  */
 public interface TaskStorage {
 
@@ -476,7 +476,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  */
 @Repository
 public class DbTaskStorage implements TaskStorage {

@@ -1,7 +1,7 @@
 # Excel
 
-- [Busy Developers' Guide to HSSF and XSSF Features](https://poi.apache.org/components/spreadsheet/quick-guide.html) ( new )
-- ~~[How to Write to an Excel file in Java using Apache POI | CalliCoder](https://www.callicoder.com/java-write-excel-file-apache-poi/)~~ ( archived )
+-   [Busy Developers' Guide to HSSF and XSSF Features](https://poi.apache.org/components/spreadsheet/quick-guide.html) ( new )
+-   ~~[How to Write to an Excel file in Java using Apache POI | CalliCoder](https://www.callicoder.com/java-write-excel-file-apache-poi/)~~ ( archived )
 
 ## Maven
 
@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2021/05/11
  */
 @UtilityClass
@@ -149,7 +149,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * Excel 文件写入器
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Slf4j
@@ -305,7 +305,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.data.util.StreamUtils;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @UtilityClass
@@ -410,7 +410,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * Excel 文件写入器
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Slf4j

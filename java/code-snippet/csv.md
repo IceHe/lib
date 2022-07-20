@@ -28,7 +28,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  */
 @Slf4j
 @UtilityClass
@@ -96,7 +96,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  */
 public class CsvWriter {
 

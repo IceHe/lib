@@ -6,7 +6,7 @@ send ICMP ECHO_REQUEST to network hosts
 
 References
 
-- `man ping`
+-   `man ping`
 
 ## Synopsis
 
@@ -26,15 +26,15 @@ ping  [-aAbBdDfhLnOqrRUvV46]
 
 ## Options
 
-- `-4` Use IPv4 only.
-- `-6` Use IPv6 only.
-- `-c count` Stop after sending count ECHO_REQUEST packets.
-    - With deadline option, ping waits for count ECHO_REPLY packets, until the timeout expires.
-- `-i interval` Wait interval seconds between sending each packet.
-    - The default is to wait for one second between each packet normally, or not to wait in flood mode.
-    - Only super-user may set interval to values less 0.2 seconds.
-- `-t ttl` Set the IP Time to Live
-- ……
+-   `-4` Use IPv4 only.
+-   `-6` Use IPv6 only.
+-   `-c count` Stop after sending count ECHO_REQUEST packets.
+    -   With deadline option, ping waits for count ECHO_REPLY packets, until the timeout expires.
+-   `-i interval` Wait interval seconds between sending each packet.
+    -   The default is to wait for one second between each packet normally, or not to wait in flood mode.
+    -   Only super-user may set interval to values less 0.2 seconds.
+-   `-t ttl` Set the IP Time to Live
+-   ……
 
 More : see `man ping`
 
@@ -46,7 +46,7 @@ More : see `man ping`
 ping <URL_or_IP>
 
 # e.g.
-$ ping icehe.xyz
+$ ping icehe.life
 PING icehe.coding.me (103.72.146.182) 56(84) bytes of data.
 64 bytes from 103.72.146.182 (103.72.146.182): icmp_seq=1 ttl=46 time=39.7 ms
 64 bytes from 103.72.146.182 (103.72.146.182): icmp_seq=2 ttl=46 time=39.7 ms
@@ -85,7 +85,7 @@ Ping 3 times
 ping -c <count> <url>
 
 # e.g.
-$ ping -c 3 icehe.xyz
+$ ping -c 3 icehe.life
 PING icehe.coding.me (103.72.146.182) 56(84) bytes of data.
 64 bytes from 103.72.146.182 (103.72.146.182): icmp_seq=1 ttl=46 time=39.7 ms
 64 bytes from 103.72.146.182 (103.72.146.182): icmp_seq=2 ttl=46 time=39.6 ms
@@ -101,7 +101,7 @@ Interval 2 sec
 ```bash
 ping -i <seconds> <url>
 # e.g.
-ping -i 2 icehe.xyz
+ping -i 2 icehe.life
 ```
 
 TTL 255
@@ -109,6 +109,5 @@ TTL 255
 ```bash
 ping -t <TTL> <url>
 # e.g.
-ping -t 255 icehe.xyz
+ping -t 255 icehe.life
 ```
-

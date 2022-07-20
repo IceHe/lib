@@ -2,15 +2,15 @@
 
 将字符串转换为日期对象
 
-- Java 8 - How to convert String to LocalDate : https://www.mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
-    - Java 应该用 LocalDate / LocalTime / LocalDateTime 保存时间
-    - 禁止使用 java.util.Date & java.text.SimpleDateFormat !
+-   Java 8 - How to convert String to LocalDate : https://www.mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
+    -   Java 应该用 LocalDate / LocalTime / LocalDateTime 保存时间
+    -   禁止使用 java.util.Date & java.text.SimpleDateFormat !
 
 ## Serializer
 
 References
 
-- Jackson Date | Baeldung : https://www.baeldung.com/jackson-serialize-dates#custom-serializer
+-   Jackson Date | Baeldung : https://www.baeldung.com/jackson-serialize-dates#custom-serializer
 
 ```java
 import java.io.IOException;
@@ -124,7 +124,7 @@ public class TestDTO {
 
 Reference
 
-- Custom JSON Deserialization with Jackson - Stack Overflow : https://stackoverflow.com/questions/19158345/custom-json-deserialization-with-jackson
+-   Custom JSON Deserialization with Jackson - Stack Overflow : https://stackoverflow.com/questions/19158345/custom-json-deserialization-with-jackson
 
 ## LocalDateTimeUtils
 
@@ -141,7 +141,7 @@ import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/15
  */
 @UtilityClass
@@ -354,7 +354,7 @@ import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/15
  */
 @UtilityClass
@@ -441,7 +441,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  */
 @UtilityClass
 public class TimeUtil {

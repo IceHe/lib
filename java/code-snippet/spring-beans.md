@@ -2,7 +2,7 @@
 
 References
 
-- [How to get bean using application context in spring boot](https://stackoverflow.com/questions/34088780/how-to-get-bean-using-application-context-in-spring-boot)
+-   [How to get bean using application context in spring boot](https://stackoverflow.com/questions/34088780/how-to-get-bean-using-application-context-in-spring-boot)
 
 ## BeansUtil
 
@@ -16,7 +16,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2021/08/10
  */
 @Component

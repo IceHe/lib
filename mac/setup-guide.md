@@ -12,8 +12,8 @@ Related : [macOS Efficiency Guide - 效率指南](/mac/efficiency-guide.md)
 
 This guide has been recently used by the author on 2021/12/02
 
-- macOS **Monterey** version **12.0.1**
-- MacBook Pro 2021 with **M1 Pro** chip
+-   macOS **Monterey** version **12.0.1**
+-   MacBook Pro 2021 with **M1 Pro** chip
 
 ## Guidelines
 
@@ -61,9 +61,9 @@ First of all :
 
 1.  Login AppleID to synchronize the settings & iCloud data
 
-    - or register at first if without an AppleID
+    -   or register at first if without an AppleID
 
-1.  Open [this guide](https://icehe.xyz/#/mac/setup-guide) on Mac so that I can continue the following steps
+1.  Open [this guide](https://icehe.life/#/mac/setup-guide) on Mac so that I can continue the following steps
 
 ### Password Manager
 
@@ -75,7 +75,7 @@ e.g. using [1Password](https://1password.com/)
 
 1.  Open and login the account on my.1password.com - recommended
 
-    - or load the vaults on iCloud
+    -   or load the vaults on iCloud
 
 Note : [List of password managers - Wikipedia](https://en.wikipedia.org/wiki/List_of_password_managers)
 
@@ -95,8 +95,8 @@ GUI - Graphical User Interface
 
     How to :
 
-    - A. BUY - recommended
-    - B. Build it myself
+    -   A. BUY - recommended
+    -   B. Build it myself
 
 1.  Get the proxy configurations from the proxy service
 
@@ -104,11 +104,11 @@ GUI - Graphical User Interface
 
     List of configuration methods :
 
-    - A. subscription URL - recommended
-    - B. configuration file
-    - C. server URLs
-    - D. QR codes
-    - …
+    -   A. subscription URL - recommended
+    -   B. configuration file
+    -   C. server URLs
+    -   D. QR codes
+    -   …
 
 1.  Install the proxy plugin
 
@@ -116,17 +116,17 @@ GUI - Graphical User Interface
 
     List of proxy plugins :
 
-    - A. [Clash](https://github.com/Dreamacro/clash)
-    - B. [ClashX](https://github.com/yichengchen/clashX) : [releases](https://github.com/yichengchen/clashX/releases)
-    - C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) : [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public) - recommended
-    - D. [Surge](https://nssurge.com/)
-    - E. [Trojan](https://github.com/trojan-gfw/trojan)
-    - F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~
-    - G. ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~
-    - H. [Shadowsocks](https://github.com/shadowsocks)
-    - I. ~~[ShadowsocksX](https://github.com/RobertYim/ShadowsocksX)~~
-    - J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~
-    - …
+    -   A. [Clash](https://github.com/Dreamacro/clash)
+    -   B. [ClashX](https://github.com/yichengchen/clashX) : [releases](https://github.com/yichengchen/clashX/releases)
+    -   C. [ClashX Pro](https://github.com/Semporia/ClashX-Pro) : [releases](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public) - recommended
+    -   D. [Surge](https://nssurge.com/)
+    -   E. [Trojan](https://github.com/trojan-gfw/trojan)
+    -   F. ~~[TrojanX](https://github.com/JimLee1996/TrojanX)~~
+    -   G. ~~[Trojan-Qt5](https://github.com/Trojan-Qt5/Trojan-Qt5)~~
+    -   H. [Shadowsocks](https://github.com/shadowsocks)
+    -   I. ~~[ShadowsocksX](https://github.com/RobertYim/ShadowsocksX)~~
+    -   J. ~~[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)~~
+    -   …
 
 1.  Import the proxy configurations into the proxy plugin
 
@@ -200,15 +200,15 @@ Configure the network proxy on CLI
 
 I can search the available softwares I need on [Homebrew Formulae](https://formulae.brew.sh)
 
-- CLI softwares : [Formula](https://formulae.brew.sh/formula/) - a listing of all packages available from the core tap
-- GUI softwares : [Cask](https://formulae.brew.sh/cask) - a listing of all casks available from the cask tap
+-   CLI softwares : [Formula](https://formulae.brew.sh/formula/) - a listing of all packages available from the core tap
+-   GUI softwares : [Cask](https://formulae.brew.sh/cask) - a listing of all casks available from the cask tap
 
 1.  Install
 
     How to :
 
-    - A. [Homebrew - brew.sh](https://brew.sh) - official
-    - B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) - recommended
+    -   A. [Homebrew - brew.sh](https://brew.sh) - official
+    -   B. [国内如何自动安装 - 知乎](https://zhuanlan.zhihu.com/p/111014448) - recommended
 
 1.  Check
 
@@ -229,6 +229,7 @@ I can search the available softwares I need on [Homebrew Formulae](https://formu
     ```bash
     brew update && brew upgrade
     ```
+
 1.  RECOMMEND to prevent Mac from automatically sleeping in a short time
 
     so that the installations can be less likely to be interrupted by auto-sleeping
@@ -239,13 +240,13 @@ I can search the available softwares I need on [Homebrew Formulae](https://formu
 
     -   `Battery`
 
-        - Set `Turn display off after:` 40 minutes
-        - Disable `Put hard disks to sleep when possible` - optional
+        -   Set `Turn display off after:` 40 minutes
+        -   Disable `Put hard disks to sleep when possible` - optional
 
     -   `Power Adapter`
 
-        - Set `Turn display off after:` 40 minutes
-        - Enable `Prevent your Mac from automatically sleeping when the display off` - optional
+        -   Set `Turn display off after:` 40 minutes
+        -   Enable `Prevent your Mac from automatically sleeping when the display off` - optional
 
 ## Install CLI Softwares
 
@@ -389,10 +390,10 @@ Install the GUI softwares via Mac App Store
 
 Note : The GUI softwares unavailable on Homebrew-Cask may be available on Mac App Store
 
-- 1Password - _done before_
-- Copy 'Em
-- EasyRes
-- EuDic 欧路词典 - _相对于 "增强版" 而言, 属于 "免费版"_
+-   1Password - _done before_
+-   Copy 'Em
+-   EasyRes
+-   EuDic 欧路词典 - _相对于 "增强版" 而言, 属于 "免费版"_
 
 ### Websites
 
@@ -400,9 +401,9 @@ Install the GUI softwares via the installations downloaded from the websites
 
 Note : Some GUI softwares are only available on the websites
 
-- [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
-- [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release and then deprecate Logi Options_
-- [Sublime Text 3](https://www.sublimetext.com/3)
+-   [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
+-   [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release and then deprecate Logi Options_
+-   [Sublime Text 3](https://www.sublimetext.com/3)
 
 <!-- - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac) -->
 
@@ -451,7 +452,7 @@ GitLab keys ditto
 
 Using the SSH protocol, I can connect and authenticate to remote servers and services
 
-- With SSH keys, I can connect to GitHub without supplying my username and personal access token at each visit
+-   With SSH keys, I can connect to GitHub without supplying my username and personal access token at each visit
 
 How to :
 
@@ -467,7 +468,7 @@ How to :
 
 Use GPG to sign tags and commits locally
 
-- These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source
+-   These tags or commits are marked as verified on GitHub so other people can be confident that the changes come from a trusted source
 
 SKIP this step if don't need to sign the git commits
 
@@ -484,7 +485,7 @@ How to :
 
 1.  Get the GPG pulic key
 
-    Reference : [GPG Command Guide - icehe.xyz](/cmd/g/gpg.md)
+    Reference : [GPG Command Guide - icehe.life](/cmd/g/gpg.md)
 
 1.  Add the GPG key to the GitHub account
 
@@ -506,7 +507,7 @@ How to :
 
     Reference : [gpg failed to sign the data fatal: failed to write commit object](https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0)
 
-    - [The second answer](https://stackoverflow.com/a/42265848) is better.
+    -   [The second answer](https://stackoverflow.com/a/42265848) is better.
 
 ### CLI Tools
 
@@ -530,10 +531,10 @@ e.g. for me
 
     e.g. from the dotfiles downloaded above
 
-    - `~/.gitconfig.sample`
-    - `~/.gitignore`
-    - `~/.gitignore_global`
-    - …
+    -   `~/.gitconfig.sample`
+    -   `~/.gitignore`
+    -   `~/.gitignore_global`
+    -   …
 
 1.  Initilize the global configuration file `~/.gitconfig`
 
@@ -548,7 +549,7 @@ e.g. for me
     _Note : `~/.gitconfig.sample` have already conatained the following two same configuration items by default_
 
     ```bash
-    git config --global user.name IceHe.xyz
+    git config --global user.name icehe.life
     git config --global user.email icehe.xyz@qq.com
     ```
 
@@ -586,7 +587,7 @@ e.g. for me
     http.sslverify=false
     pager.branch=false
     pull.rebase=true
-    user.name=IceHe.xyz
+    user.name=icehe.life
     user.email=icehe.xyz@qq.com
     user.signingkey=[SIGNING_KEY]
     …
@@ -647,8 +648,8 @@ Note : The commands above fix the issues if installed GraphViz via the `.dmg` pa
 I can specify the environment variable `GRAPHVIZ_DOT` to set the exact location of the GraphViz executable.
 By default, the dot executable is expected :
 
-- Firstly in : `/usr/local/bin/dot`
-- Then in : `/usr/bin/dot`
+-   Firstly in : `/usr/local/bin/dot`
+-   Then in : `/usr/bin/dot`
 
 ## GUI Preferences
 
@@ -666,26 +667,26 @@ Note : Revert the settings changed above back to the default values
 
 -   `Battery`
 
-    - Set `Turn display off after:` 3 min
-    - Enable `Put hard disks to sleep when possible`
+    -   Set `Turn display off after:` 3 min
+    -   Enable `Put hard disks to sleep when possible`
 
 -   `Power Adapter`
 
-    - Set `Turn display off after:` 10 min
-    - Disable `Prevent your Mac from automatically sleeping when the display off`
+    -   Set `Turn display off after:` 10 min
+    -   Disable `Prevent your Mac from automatically sleeping when the display off`
 
 #### Dock
 
 For all the softwares appeared on the Dock at the bottom of the desktop
 
-- Right click the software icon → `Options` → Disable `Keep in Dock`
+-   Right click the software icon → `Options` → Disable `Keep in Dock`
 
 #### Dock & Menu Bar
 
 `Dock & Menu Bar`
 
-- Enable `Automatically hide and show the Dock`
-- Disable `Show recent applications in Dock`
+-   Enable `Automatically hide and show the Dock`
+-   Disable `Show recent applications in Dock`
 
 Note : Menu Bar DOES NOT have enough space for many software icons so I have to hide some of them
 
@@ -693,31 +694,31 @@ Some of the icons can still be visible in Control Center
 
 `Wi-Fi`
 
-- Disable `Show in the Menu Bar`
+-   Disable `Show in the Menu Bar`
 
 `Bluetooth`
 
-- Disable `Show in the Menu Bar`
+-   Disable `Show in the Menu Bar`
 
 `Screnn Mirroring`
 
-- Disable `Show in the Menu Bar`
+-   Disable `Show in the Menu Bar`
 
 `Display`
 
-- Disable `Show in the Menu Bar`
+-   Disable `Show in the Menu Bar`
 
 `Sound`
 
-- Enable `Show in the Menu Bar` → Select `always`
+-   Enable `Show in the Menu Bar` → Select `always`
 
 `Spotlight`
 
-- Disable `Show in the Menu Bar`
+-   Disable `Show in the Menu Bar`
 
 `Siri`
 
-- Disable `Show in the Menu Bar`
+-   Disable `Show in the Menu Bar`
 
 #### Keyboard
 
@@ -738,31 +739,31 @@ Some of the icons can still be visible in Control Center
 
 -->
 
-- Enable `Use F1, F2, etc. keys as standard function keys`
+-   Enable `Use F1, F2, etc. keys as standard function keys`
 
 `Text`
 
-- Clear all `Replace With`
-- Clear all checkboxes
+-   Clear all `Replace With`
+-   Clear all checkboxes
 
 `Shortcuts`
 
-- Add `App Shortcuts`
+-   Add `App Shortcuts`
 
-    - `Google Chrome` → `Duplicate Tab` → `⇧ ⌘ D`
-    - `iTerm` → `Toggle Full Screen` → `^ ⌘ F`
+    -   `Google Chrome` → `Duplicate Tab` → `⇧ ⌘ D`
+    -   `iTerm` → `Toggle Full Screen` → `^ ⌘ F`
 
-- Clear the unused shortcuts
+-   Clear the unused shortcuts
 
 `Input Sources`
 
-- Add the input source `Shuangpin - Simplified`
+-   Add the input source `Shuangpin - Simplified`
 
-    - Shuangpin layout : `Xiaohe`
-    - Enable `Show predictive completions`
-    - Enable `Use halfwidth punctuation`
+    -   Shuangpin layout : `Xiaohe`
+    -   Enable `Show predictive completions`
+    -   Enable `Use halfwidth punctuation`
 
-- Clear the unused input sources
+-   Clear the unused input sources
 
 #### Key Repeat
 
@@ -776,19 +777,19 @@ How to disable `Character Accents Popup` and enable `Key Repeat` :
 
 Reference : Search "macos keyboard cannot repeat" on Google
 
-- [Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
+-   [Choose Between the Character Accents Popup and Key Repeat When Holding Down a Key](https://infinitediaries.net/os-x-choose-between-the-character-accents-popup-and-key-repeat-when-holding-down-a-key)
 
 #### Misson Control
 
-- `Hot Corners…` → The bottom right corner → Replace `Quick Note` with `-`
+-   `Hot Corners…` → The bottom right corner → Replace `Quick Note` with `-`
 
 #### Notification & Focus
 
-- Disable the unncessary softwares' notifications on demand
+-   Disable the unncessary softwares' notifications on demand
 
 #### Sharing
 
-- Edit `Computer Name:` e.g. macbook-pro-ice
+-   Edit `Computer Name:` e.g. macbook-pro-ice
 
 <!--
 
@@ -840,13 +841,13 @@ Reference : Search "macos keyboard cannot repeat" on Google
     -   Menu Bar → `Window` → `Extensions` → Sidebar on the left → `Keyboard shortcuts`
 
         -   1Password
-            - `⇧ ⌘ X` Activate the extension
+            -   `⇧ ⌘ X` Activate the extension
         -   Chrono Download Manager
-            - `⇧ ⌘ J` Activate the extension
+            -   `⇧ ⌘ J` Activate the extension
         -   OneTab
-            - `⇧ ⌘ O` Activate the extension
-            - `⇧ ⌘ S` DiSplay / Show OneTab
-            - `⇧ ⌘ C` Send the **C**urrent tab to OneTab
+            -   `⇧ ⌘ O` Activate the extension
+            -   `⇧ ⌘ S` DiSplay / Show OneTab
+            -   `⇧ ⌘ C` Send the **C**urrent tab to OneTab
         -   Clear the unused shortcuts
 
 <!--
@@ -919,7 +920,7 @@ _( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使�
 
 1.  Configure
 
-    1.  Press the shortcut  `⌘ ,` to open `Preferences.sublime-settings` of the User
+    1.  Press the shortcut `⌘ ,` to open `Preferences.sublime-settings` of the User
     1.  Edit the content as below :
 
         ```json
@@ -946,7 +947,7 @@ _( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使�
     1. Search `Pretty JSON`
     1. Select `Pretty JSON` to install
 
-1. Enter the license - optional
+1.  Enter the license - optional
 
     1. `Help` → `Enter License`
     1. Enter the license key
@@ -1022,14 +1023,14 @@ _( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使�
 
 `Preferences…`
 
-- `General`
+-   `General`
 
-    - Enable `Run on system startup`
+    -   Enable `Run on system startup`
 
-- `Control` → `Global Hotkeys`
+-   `Control` → `Global Hotkeys`
 
-    - Set `Snip` to `^ ⌘ A`
-    - Clear the unused hotkeys
+    -   Set `Snip` to `^ ⌘ A`
+    -   Clear the unused hotkeys
 
 #### Bartender
 
@@ -1049,11 +1050,11 @@ _( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使�
 
 -   `Menu Bar Layout`
 
-    - Change on demand
+    -   Change on demand
 
 -   `License`
 
-    - Enter the License
+    -   Enter the License
 
 #### Itsycal
 
@@ -1061,31 +1062,31 @@ _( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使�
 
 -   `General`
 
-    - Enable `Launch at login`
-    - First day of week: `Monday`
-    - Enable the calendars on demand
+    -   Enable `Launch at login`
+    -   First day of week: `Monday`
+    -   Enable the calendars on demand
 
 -   `Appearance`
 
     -   `Menu Bar`
 
-        - Datetime pattern : `E, dd MMM HH:mm:ss`
-            <!-- - or `E, dd MMM HH:mm:ss` -->
-            <!-- - or ` Y.MM.dd  E  HH:mm:ss ` -->
-        - Enable `Hide icon`
+        -   Datetime pattern : `E, dd MMM HH:mm:ss`
+              <!-- - or `E, dd MMM HH:mm:ss` -->
+              <!-- - or ` Y.MM.dd  E  HH:mm:ss ` -->
+        -   Enable `Hide icon`
 
     -   `Calendar`
 
-        - `Highlight`
-            - Enable `Saturday` and `Sunday`
-        - Enable `Show event dots`
-            - Enable `Use colored dots`
-        - Enable `Use event location`
-        - Enable `Use calendar weeks`
+        -   `Highlight`
+            -   Enable `Saturday` and `Sunday`
+        -   Enable `Show event dots`
+            -   Enable `Use colored dots`
+        -   Enable `Use event location`
+        -   Enable `Use calendar weeks`
 
 `System Preferences`
 
-- `Dock & Menu Bar` → `Clock` → Time Options : `Analog`
+-   `Dock & Menu Bar` → `Clock` → Time Options : `Analog`
 
 #### EuDic
 
@@ -1093,22 +1094,22 @@ _( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使�
 
 -   `同步`
 
-    - `登录…` → Login via QQ account
+    -   `登录…` → Login via QQ account
 
 -   `通用`
 
-    - `词典`
-        - Enable `自动展开在线词典内容`
-        - Enable `查词后自动加入生词本`
-        - …
+    -   `词典`
+        -   Enable `自动展开在线词典内容`
+        -   Enable `查词后自动加入生词本`
+        -   …
 
 -   `取词`
 
-    - Clear the unused checkboxes
+    -   Clear the unused checkboxes
 
 -   `快捷键`
 
-    - Clear the unused shortcuts
+    -   Clear the unused shortcuts
 
 ## Development
 
@@ -1136,7 +1137,7 @@ RECOMMEND to install the JDKs of the common used version **11** and the latest L
 
 LTS - Long-Term Support
 
--   A.  via Homebrew - recommended
+-   A. via Homebrew - recommended
 
     ```bash
     brew install openjdk@11
@@ -1145,7 +1146,7 @@ LTS - Long-Term Support
     java --version
     ```
 
--   B.  via SDKMAN!
+-   B. via SDKMAN!
 
     1.  Install SDKMAN!
 
@@ -1175,7 +1176,7 @@ I can do it manually : append the command below to the ZSH configuration file `~
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 ```
 
-- If use `bash` instead of `zsh`, append to the BASH configuration file `~/.bashrc`
+-   If use `bash` instead of `zsh`, append to the BASH configuration file `~/.bashrc`
 
 Note : The tilde symbol `~` equals the path of the current user home directory, e.g. for me `/Users/icehe`
 
@@ -1204,14 +1205,14 @@ RECOMMEND to use JetBrains tools
 
     e.g. for me
 
-    - IntelliJ IDEA Ultimate
-    - WebStorm
-    - Android Studio
-    - DataGrip
-    - _CLion_
-    - _GoLand_
-    - ~~_PyCharm Professional Edition_~~
-    - ~~_PhpStorm_~~
+    -   IntelliJ IDEA Ultimate
+    -   WebStorm
+    -   Android Studio
+    -   DataGrip
+    -   _CLion_
+    -   _GoLand_
+    -   ~~_PyCharm Professional Edition_~~
+    -   ~~_PhpStorm_~~
 
 #### Plugins
 
@@ -1291,7 +1292,7 @@ IntelliJ IDEA
     1.  `Host name:` Enter `127.0.0.1`
     1.  `Port number:` Enter `7890`
     1.  `Check connection` → Enter `http://google.com` → `OK`
-        - Prompt `Connection successful` if success
+        -   Prompt `Connection successful` if success
 
 1.  Synchronize the settings - optional
 
@@ -1333,8 +1334,8 @@ IntelliJ IDEA
 
     1.  Download on the Internet :
 
-        -   A. [Solarized_Light__Alternate_.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
-        -   B. [Solarized_Light__Alternate_.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
+        -   A. [Solarized*Light\_\_Alternate*.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
+        -   B. [Solarized*Light\_\_Alternate*.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
 
     1.  `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select the file downloaded above
 
@@ -1485,7 +1486,7 @@ Refer to IntelliJ IDEA above
 
 Troubleshooting - References :
 
-- [How to make WebStorm format code according to eslint? - Stack Overflow](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint)
+-   [How to make WebStorm format code according to eslint? - Stack Overflow](https://stackoverflow.com/questions/41735890/how-to-make-webstorm-format-code-according-to-eslint)
 
 ### Android
 
@@ -1519,4 +1520,4 @@ The following parts are different from IntelliJ IDEA :
 
 Troubleshooting - References :
 
-- ["Failed to install the following Android SDK packages as some licences have not been accepted" error](https://stackoverflow.com/questions/54273412/failed-to-install-the-following-android-sdk-packages-as-some-licences-have-not/61480578#61480578)
+-   ["Failed to install the following Android SDK packages as some licences have not been accepted" error](https://stackoverflow.com/questions/54273412/failed-to-install-the-following-android-sdk-packages-as-some-licences-have-not/61480578#61480578)

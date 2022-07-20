@@ -7,4 +7,4 @@ function printNumberOrString(numberOrString) {
     console.log("The content is: " + numberOrString);
 }
 printNumberOrString(666);
-printNumberOrString('icehe.xyz');
+printNumberOrString('icehe.life');

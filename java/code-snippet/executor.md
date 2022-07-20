@@ -2,9 +2,9 @@
 
 References
 
-- https://blog.csdn.net/chzphoenix/article/details/78968075
-- Java并发编程：线程池的使用 - Matrix海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
-- https://blog.csdn.net/wqh8522/article/details/79224290
+-   https://blog.csdn.net/chzphoenix/article/details/78968075
+-   Java 并发编程：线程池的使用 - Matrix 海子 - 博客园 : https://www.cnblogs.com/dolphin0520/p/3932921.html
+-   https://blog.csdn.net/wqh8522/article/details/79224290
 
 ## Default ThreadPoolTaskExcecutor
 
@@ -24,7 +24,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
  *
  * <p>另外，此类在META-INF/spring.factories中定义
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/06
  */
 @Slf4j

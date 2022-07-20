@@ -2,7 +2,7 @@
 
 # Author : IceHe
 # Email : icehe.xyz@qq.com
-# Website : https://icehe.xyz
+# Website : https://icehe.life
 
 echo "
 ================================================================================
