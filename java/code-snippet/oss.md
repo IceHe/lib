@@ -22,7 +22,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  */
 @Service
 @Slf4j

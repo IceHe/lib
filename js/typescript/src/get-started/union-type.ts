@@ -14,4 +14,4 @@ function printNumberOrString(numberOrString: number | string) {
 }
 
 printNumberOrString(666);
-printNumberOrString('icehe.xyz');
+printNumberOrString('icehe.life');

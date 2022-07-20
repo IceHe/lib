@@ -4,7 +4,7 @@
 
 Prepare
 
-- on macOS
+-   on macOS
 
 ```bash
 brew install terminal-notifier
@@ -74,7 +74,7 @@ getLatestPipeline () {
     local cookie=$3
 
     local pipeline=`curl --silent \
-        --location "https://infra-api.icehe.xyz/infra-phoenix-console/api/pipeline/icehe-xyz-project?branchName=${branchName}&page=0&authorName=${authorName}" \
+        --location "https://infra-api.icehe.life/infra-phoenix-console/api/pipeline/icehe-xyz-project?branchName=${branchName}&page=0&authorName=${authorName}" \
         --request GET \
         --header "${cookie}" \
         | jq '.list[0]'`
@@ -88,7 +88,7 @@ getPipelineDetail () {
     local cookie=$3
 
     local pipelineDetail=`curl --silent \
-        --location "https://infra-api.icehe.xyz/infra-phoenix-console/api/pipeline/detail/v2/${pipelineId}/${projectIdentity}" \
+        --location "https://infra-api.icehe.life/infra-phoenix-console/api/pipeline/detail/v2/${pipelineId}/${projectIdentity}" \
         --request GET \
         --header "${cookie}"`
     echo "$pipelineDetail"
@@ -102,7 +102,7 @@ triggerBuild () {
 
     echo -e "triggerBuild () { … }"
     curl \
-        --location "https://infra-api.icehe.xyz/infra-phoenix-console/api/action/triggerBuild?projectIdentity=${projectIdentity}&branch=${branchName}" \
+        --location "https://infra-api.icehe.life/infra-phoenix-console/api/action/triggerBuild?projectIdentity=${projectIdentity}&branch=${branchName}" \
         --request POST \
         --header "${cookie}"
     echo
@@ -117,7 +117,7 @@ triggerDeploy () {
 
     echo -e "triggerDeploy () { … }"
     curl \
-        --location "https://infra-api.icehe.xyz/infra-phoenix-console/api/action/triggerDeployment?projectIdentity=${projectIdentity}&pipelineId=${pipelineId}&stage=${stage}" \
+        --location "https://infra-api.icehe.life/infra-phoenix-console/api/action/triggerDeployment?projectIdentity=${projectIdentity}&pipelineId=${pipelineId}&stage=${stage}" \
         --request POST \
         --header "${cookie}"
     echo
@@ -164,7 +164,7 @@ fi
 if [ "$toTriggerBuild" == "1" ]; then
     triggerBuild "$projectIdentity" "$branchName" "$cookie"
     notify "Pineline ${pipelineId}" "Building branch $branchName" \
-        "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
+        "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
     waitForSecs 30
 
     latestPipeline=`getLatestPipeline "$branchName" "$authorName" "$cookie"`
@@ -185,7 +185,7 @@ if [ "$toTriggerBuild" == "1" ]; then
 
     if [ $triggeredSecs -lt `expr $nowSecs - 120` ]; then
         notify "Pineline ${pipelineId}" "Recent pineline not found for branch ${branchName}" \
-            "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
+            "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
         exit
     fi
 
@@ -208,7 +208,7 @@ else
 
     #if [ $triggeredSecs -lt `expr $nowSecs - 1200` ]; then
     #    notify "Pineline ${pipelineId}" "Recent pineline not found for branch ${branchName}" \
-    #        "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
+    #        "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/?branch=${branchName}&page=0"
     #    exit
     #fi
 fi
@@ -225,13 +225,13 @@ for i in `seq 1 ${times}`; do
 
     if [ "$buildStageStatus" == "\"FAILED\"" ]; then
         notify "Pineline ${pipelineId}" "Failed to build branch ${branchName}" \
-            "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=BUILD"
+            "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=BUILD"
         exit
     fi
 
     if [ "$buildStageStatus" == "\"SUCCESS\"" ]; then
         notify "Pineline ${pipelineId}" "Builded branch ${branchName}" \
-            "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=TESTING"
+            "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=TESTING"
         buildSuccess=1
         break 1
     fi
@@ -241,7 +241,7 @@ done
 
 if [ "$buildSuccess" != "1" ]; then
     notify "Pineline ${pipelineId}" "Build timeout or failed for branch ${branchName}" \
-        "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=BUILD"
+        "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=BUILD"
     exit
 fi
 
@@ -255,19 +255,19 @@ if [ "$toTriggerDeploy" == "1" ]; then
 
     if [ "$testingStageStatus" == "\"FAILED\"" ]; then
         notify "Pineline ${pipelineId}" "Failed to deploy TESTING, no need to re-deploy branch ${branchName}" \
-            "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+            "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
         exit
     fi
 
     if [ "$testingStageStatus" == "\"SUCCESS\"" ]; then
         notify "Pineline ${pipelineId}" "Deployed TESTING, no need to re-deploy branch ${branchName}" \
-            "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+            "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
         exit
     fi
 
     triggerDeploy "$projectIdentity" "$pipelineId" "$stage" "$cookie"
     notify "Pineline ${pipelineId}" "Deploying $stage for branch ${branchName}" \
-        "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+        "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
 fi
 
 if [ "$toCheckDeploy" == "1" ]; then
@@ -283,13 +283,13 @@ if [ "$toCheckDeploy" == "1" ]; then
 
         if [ "$testingStageStatus" == "\"FAILED\"" ]; then
             notify "Pineline ${pipelineId}" "Failed to deploy TESTING for branch ${branchName}" \
-                "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+                "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
             exit
         fi
 
         if [ "$testingStageStatus" == "\"SUCCESS\"" ]; then
             notify "Pineline ${pipelineId}" "Deployed TESTING for branch ${branchName}" \
-                "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+                "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
             deploySuccess=1
             break 1
         fi
@@ -299,7 +299,7 @@ if [ "$toCheckDeploy" == "1" ]; then
 
     if [ "$deploySuccess" != "1" ]; then
         notify "Pineline ${pipelineId}" "Deploy timeout or failed for branch ${branchName}" \
-            "https://console.icehe.xyz/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
+            "https://console.icehe.life/#/management/projects/${projectIdentity}/pipelines/${pipelineId}?stage=${stage}"
         exit
     fi
 fi

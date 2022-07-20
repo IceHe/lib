@@ -2,14 +2,14 @@
 
 Reference
 
-- MyBatis 3
-    - https://mybatis.org/mybatis-3/zh/index.html
-- MyBatis-Plus ( TO TRY )
-    - https://mybatis.plus | https://mybatis.plus/en
+-   MyBatis 3
+    -   https://mybatis.org/mybatis-3/zh/index.html
+-   MyBatis-Plus ( TO TRY )
+    -   https://mybatis.plus | https://mybatis.plus/en
 
 ## Generate
 
-- generatorConfig.xml
+-   generatorConfig.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -99,7 +99,7 @@ Reference
 
 ```
 
-- jdbc.properties
+-   jdbc.properties
 
 ```java
 jdbc.driverClassName=com.mysql.jdbc.Driver
@@ -133,7 +133,7 @@ import java.util.Set;
 /**
  * 配置 Persistent Object 的 Mapper
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/03
  */
 @Component
@@ -454,7 +454,7 @@ import xyz.icehe.enums.ConfigState;
 /**
  * 配置 Persistent Object
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/03
  */
 @Data
@@ -533,7 +533,7 @@ import org.springframework.util.CollectionUtils;
 /**
  * 配置的存储仓库
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/03
  */
 @Slf4j
@@ -695,7 +695,7 @@ import xyz.icehe.enums.ConfigState;
 /**
  * 配置的查询条件
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/03
  */
 @Data
@@ -766,7 +766,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/03
  */
 @Getter
@@ -900,8 +900,8 @@ public enum ConfigState {
 
 Reference
 
-- https://pagehelper.github.io/docs
-- 在系统中发现了多个分页插件, 请检查系统配置 : https://www.cnblogs.com/imdeveloper/p/13529827.html
+-   https://pagehelper.github.io/docs
+-   在系统中发现了多个分页插件, 请检查系统配置 : https://www.cnblogs.com/imdeveloper/p/13529827.html
 
 ### Utils
 
@@ -917,7 +917,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * PageHelper 的工具集
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/03
  */
 @Slf4j
@@ -1051,7 +1051,7 @@ import org.springframework.stereotype.Repository;
 /**
  * 记录的仓库
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/03
  */
 @Slf4j

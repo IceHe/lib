@@ -4,14 +4,14 @@ Report Central Processing Unit (CPU) statistics and input/output statistics for 
 
 ---
 
-- The iostat command is used for monitoring system input/output device loading by observing the time the devices are active in relation to their average transfer rates.
-- The iostat command generates reports that can be used to change system configuration to better balance the input/output load between physical disks.
-- See `man iostat` for more.
-- Recommend to use [`dstat`](/cmd/d/dstat.md).
+-   The iostat command is used for monitoring system input/output device loading by observing the time the devices are active in relation to their average transfer rates.
+-   The iostat command generates reports that can be used to change system configuration to better balance the input/output load between physical disks.
+-   See `man iostat` for more.
+-   Recommend to use [`dstat`](/cmd/d/dstat.md).
 
 References
 
-- `man iostat`
+-   `man iostat`
 
 ## Quickstart
 
@@ -42,15 +42,15 @@ iostat [ -c ] [ -d ] [ -h ] [ -k | -m ]
 
 Display
 
-- `-c` Display **CPU** utilization report
-- `-d` Display **device** utilization report
-- `-x` Display **extended statistics**
+-   `-c` Display **CPU** utilization report
+-   `-d` Display **device** utilization report
+-   `-x` Display **extended statistics**
 
 Format
 
-- `-k` Display statistics in **kilobytes** per second
-- `-m` Display statistics in **megabytes** per second
-- `-t` Print **time** for each report displayed
+-   `-k` Display statistics in **kilobytes** per second
+-   `-m` Display statistics in **megabytes** per second
+-   `-t` Print **time** for each report displayed
 
 ## Usage
 
@@ -60,7 +60,7 @@ Format
 
 ```bash
 $ iostat
-Linux 3.10.0-862.6.3.el7.x86_64 (box0.icehe.xyz)        11/08/2018      _x86_64_        (24 CPU)
+Linux 3.10.0-862.6.3.el7.x86_64 (box0.icehe.life)        11/08/2018      _x86_64_        (24 CPU)
 
 avg-cpu:  %user   %nice %system %iowait  %steal   %idle
            0.56    0.00    0.43    0.05    0.00   98.96
@@ -104,11 +104,11 @@ sda               0.10     5.23    1.57    8.74   108.07   179.64    55.81     0
 
 ### Interval
 
-- 2 seconds
+-   2 seconds
 
 ```bash
 $ iostat 2
-Linux 3.10.0-862.6.3.el7.x86_64 (box0.icehe.xyz )        11/08/2018      _x86_64_        (24 CPU)
+Linux 3.10.0-862.6.3.el7.x86_64 (box0.icehe.life )        11/08/2018      _x86_64_        (24 CPU)
 
 avg-cpu:  %user   %nice %system %iowait  %steal   %idle
            0.56    0.00    0.43    0.05    0.00   98.96
@@ -133,12 +133,12 @@ sda               2.50         0.00        30.00          0         60
 
 ### Count
 
-- 1 second
-- 3 times
+-   1 second
+-   3 times
 
 ```bash
 $ iostat 1 3
-Linux 3.10.0-862.6.3.el7.x86_64 (box0.icehe.xyz )        11/08/2018      _x86_64_        (24 CPU)
+Linux 3.10.0-862.6.3.el7.x86_64 (box0.icehe.life )        11/08/2018      _x86_64_        (24 CPU)
 
 avg-cpu:  %user   %nice %system %iowait  %steal   %idle
            0.56    0.00    0.43    0.05    0.00   98.96

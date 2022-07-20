@@ -26,7 +26,7 @@ function printNumberOrString(numberOrString: number | string) {
 }
 
 printNumberOrString(666);
-printNumberOrString('icehe.xyz');
+printNumberOrString('icehe.life');
 
 function welcomePeople(people: string[] | string) {
   if (Array.isArray(people)) {

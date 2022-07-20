@@ -22,7 +22,7 @@ echo '[commit]
 	merge = refs/heads/master
 [user]
     # https://git-scm.com/docs/git-config#Documentation/git-config.txt-username
-	name = IceHe.xyz
+	name = IceHe.life
 	email = icehe.xyz@qq.com
 ' > ./.git/config
 

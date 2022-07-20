@@ -6,8 +6,8 @@ OpenPGP encryption and signing tool
 
 References
 
-- `man gpg`
-- [Managing commit signature verification - GitHub Docs](https://docs.github.com/en/authentication/managing-commit-signature-verification)
+-   `man gpg`
+-   [Managing commit signature verification - GitHub Docs](https://docs.github.com/en/authentication/managing-commit-signature-verification)
 
 ## Quickstart
 
@@ -103,7 +103,7 @@ uid                 [ultimate] TestGen <test-gen@gmail.com>
 ssb   cv25519/638524AD23ED6E6B 2021-10-02 [E] [expires: 2023-10-02]
 ```
 
-- `XXXXXXXXXXXXXXX` above is a GPG key ID.
+-   `XXXXXXXXXXXXXXX` above is a GPG key ID.
 
 ### Export Key
 
@@ -151,10 +151,10 @@ This is a secret key! - really delete? (y/N) y
 
 TODO
 
-- Intro
-    - Synopsis
-    - Description
-    - Return Value
-    - WARNINGS
-    - Interoperability
-- Commands
+-   Intro
+    -   Synopsis
+    -   Description
+    -   Return Value
+    -   WARNINGS
+    -   Interoperability
+-   Commands

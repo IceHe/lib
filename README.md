@@ -10,7 +10,7 @@
 
 <!-- > —— LeBlanc's Law -->
 
--   Here: [https://icehe.xyz](https://icehe.xyz)
+-   Here: [https://icehe.life](https://icehe.life)
 -   Whoami: [IceHe's bio](/life/bio.md)
 
 ## Technology

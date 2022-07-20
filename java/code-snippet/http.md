@@ -14,7 +14,7 @@ import lombok.experimental.UtilityClass;
 /**
  * HTTP 工具集
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/19
  */
 @UtilityClass
@@ -70,7 +70,7 @@ import lombok.experimental.UtilityClass;
 /**
  * IP 工具集
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/19
  */
 @UtilityClass
@@ -120,7 +120,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  */
 @Slf4j
 @UtilityClass
@@ -221,7 +221,7 @@ import org.springframework.util.CollectionUtils;
  *
  * <p>Require httpclient version 4.5+
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/11/17
  */
 @Slf4j

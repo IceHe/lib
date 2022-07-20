@@ -2905,7 +2905,7 @@ My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
     - GitLab: https://docs.gitlab.com/ee/user/markdown.html#footnotes
 - Unavailable
     - GitHub
-    - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
+    - docsify _( 本网站 icehe.life 的 Markdown 内容依赖它来渲染 )_
 - 如果使用, 标准是:
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 
@@ -2918,7 +2918,7 @@ My image: [icehe/alpine](https://hub.docker.com/r/icehe/alpine) @ hub.docker.com
     - Visual Studio Code: Markdown Preview Enhanced
 - Unavailable
     - GitHub
-    - docsify _( 本网站 icehe.xyz 的 Markdown 内容依赖它来渲染 )_
+    - docsify _( 本网站 icehe.life 的 Markdown 内容依赖它来渲染 )_
 - 如果使用, 标准是:
     - https://cirosantilli.com/markdown-style-guide/#reference-style-links
 

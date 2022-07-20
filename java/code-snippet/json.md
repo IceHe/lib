@@ -4,7 +4,7 @@
 
 References
 
-- [How to enable pretty print JSON output](https://mkyong.com/java/how-to-enable-pretty-print-json-output-jackson/)
+-   [How to enable pretty print JSON output](https://mkyong.com/java/how-to-enable-pretty-print-json-output-jackson/)
 
 ### JsonUtil
 
@@ -29,7 +29,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * JSON 序列化工具
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @see com.fasterxml.jackson.databind.ObjectMapper
  * @since 2020/10/19
  */
@@ -263,7 +263,7 @@ public class JsonUtil {
 
 Example
 
-- CompanyDTO.java
+-   CompanyDTO.java
 
 ```java
 @Data
@@ -279,7 +279,7 @@ public class CompanyDTO {
 
 ```
 
-- Long2StringSerializer.java
+-   Long2StringSerializer.java
 
 ```java
 import java.io.IOException;
@@ -318,7 +318,7 @@ public class Long2StringSerializer extends StdSerializer<Long> {
 
 ```
 
-- String2LongDeserializer.java
+-   String2LongDeserializer.java
 
 ```java
 import java.io.IOException;
@@ -395,7 +395,7 @@ import lombok.experimental.UtilityClass;
 /**
  * Gson 序列化工具
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @see com.google.gson.Gson
  * @since 2020/10/19
  */

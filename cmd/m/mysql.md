@@ -6,9 +6,9 @@ MySQL CLI tool ( not a command )
 
 References
 
-- [www.mysql.com](https://www.mysql.com)
-    - [Documentation](https://dev.mysql.com/doc)
-        - [General Infomation](https://dev.mysql.com/doc/refman/8.0/en/introduction.html)
+-   [www.mysql.com](https://www.mysql.com)
+    -   [Documentation](https://dev.mysql.com/doc)
+        -   [General Infomation](https://dev.mysql.com/doc/refman/8.0/en/introduction.html)
 
 ## Install on macOS
 
@@ -20,24 +20,24 @@ brew install mysql
 
 Or using native packages
 
-- https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html
+-   https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html
 
 ## Commands
 
 References
 
-- Getting Started with MySQL : https://dev.mysql.com/doc/mysql-getting-started/en/
+-   Getting Started with MySQL : https://dev.mysql.com/doc/mysql-getting-started/en/
 
 ### Dump
 
 References
 
-- Dump Data : http://www.runoob.com/mysql/mysql-database-export.html
-- Import Data : http://www.runoob.com/mysql/mysql-database-import.html
+-   Dump Data : http://www.runoob.com/mysql/mysql-database-export.html
+-   Import Data : http://www.runoob.com/mysql/mysql-database-import.html
 
 Trouble-shooting
 
-- How should I tackle --secure-file-priv in MySQL? https://stackoverflow.com/a/40419548/5110899
+-   How should I tackle --secure-file-priv in MySQL? https://stackoverflow.com/a/40419548/5110899
 
 Dump
 
@@ -48,7 +48,7 @@ mysqldump -u USERNAME -p DATABASE | tee -a dump.sql
 
 Import
 
-- Read & Execute SQL
+-   Read & Execute SQL
 
 ```bash
 mysql -u USERNAME -p DATABASE < dump.sql
@@ -68,15 +68,15 @@ $ mysql.server start
 
 References
 
-- [MYSQL Error – Server Quit Without Updating PID File – Quick fix!](https://bobcares.com/blog/mysql-error-server-quit-without-updating-pid-file/)
-- [Can't open and lock privilege tables: Table 'mysql.user' doesn't exist](https://stackoverflow.com/questions/34516664/cant-open-and-lock-privilege-tables-table-mysql-user-doesnt-exist)
-- [Can't open the mysql.plugin table. Please run mysql_upgrade to create it](https://stackoverflow.com/questions/41531225/cant-open-the-mysql-plugin-table-please-run-mysql-upgrade-to-create-it/41532987)
+-   [MYSQL Error – Server Quit Without Updating PID File – Quick fix!](https://bobcares.com/blog/mysql-error-server-quit-without-updating-pid-file/)
+-   [Can't open and lock privilege tables: Table 'mysql.user' doesn't exist](https://stackoverflow.com/questions/34516664/cant-open-and-lock-privilege-tables-table-mysql-user-doesnt-exist)
+-   [Can't open the mysql.plugin table. Please run mysql_upgrade to create it](https://stackoverflow.com/questions/41531225/cant-open-the-mysql-plugin-table-please-run-mysql-upgrade-to-create-it/41532987)
 
 Error Keyword
 
 > MySql server startup error 'The server quit without updating PID file '
 
-- StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
+-   StackOverflow : https://stackoverflow.com/questions/4963171/mysql-server-startup-error-the-server-quit-without-updating-pid-file
 
 Problem
 
@@ -112,7 +112,7 @@ $ mysqld --initialize-insecure
 ```bash
 $ mysql -h HOST -P PORT -u USERNAME -pPASSWORD
 # e.g.
-$ mysql -h db.icehe.xyz -P 5104 -u username -ppassword
+$ mysql -h db.icehe.life -P 5104 -u username -ppassword
 ```
 
 First time after installing
@@ -324,7 +324,7 @@ show variables like '%slow%';
 
 ### Processlist
 
-Ref : MySQL慢查询&分析SQL执行效率浅谈 - 简书 : https://www.jianshu.com/p/43091bfa8aa7
+Ref : MySQL 慢查询&分析 SQL 执行效率浅谈 - 简书 : https://www.jianshu.com/p/43091bfa8aa7
 
 ```bash
 mysql> show processlist;
@@ -354,7 +354,7 @@ mysql> show warnings;
 
 References
 
-- MySQL Transactional and Locking Commands - MySQL Reference Manual [Book] : https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
+-   MySQL Transactional and Locking Commands - MySQL Reference Manual [Book] : https://www.oreilly.com/library/view/mysql-reference-manual/0596002653/ch06s07.html
 
 ```sql
 > lock table table_name write;
@@ -393,7 +393,7 @@ mysql> select @@global.tx_isolation, @@tx_isolation, version();
 
 References
 
-- MySQL :: MySQL 8.0 Reference Manual :: 4.5.1.2 mysql Client Commands : https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html
+-   MySQL :: MySQL 8.0 Reference Manual :: 4.5.1.2 mysql Client Commands : https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html
 
 ```bash
 mysql> help
@@ -441,13 +441,13 @@ For server side help, type 'help contents'
 
 References
 
-- [清官谈 MySQL 中 utf8 和 utf8mb4 区别](http://blogread.cn/it/article/7546?f=wb_blogread)
+-   [清官谈 MySQL 中 utf8 和 utf8mb4 区别](http://blogread.cn/it/article/7546?f=wb_blogread)
 
 ### Binlog
 
 References
 
-- [mysql中如何开启binlog?](https://www.cnblogs.com/chuanzhang053/p/9335924.html)
+-   [mysql 中如何开启 binlog?](https://www.cnblogs.com/chuanzhang053/p/9335924.html)
 
 ```bash
 mysql> set @@binlog_format=row;
@@ -518,11 +518,11 @@ mysql> show variables like '%sql_safe_updates%';
 
 References
 
-- 35 | join语句怎么优化？: https://time.geekbang.org/column/article/80147
+-   35 | join 语句怎么优化？: https://time.geekbang.org/column/article/80147
 
 优化算法，开启方法
 
-- 依赖 MRR
+-   依赖 MRR
 
 ```sql
 set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
@@ -540,15 +540,15 @@ set Innodb_lock_wait_timeout = 5;
 
 References
 
-- [Avg_row_length是怎么计算的？](https://www.cnblogs.com/sunss/p/6122997.html)
-- Q & A ( on MySQL Forums )
-    - [How Avg_row_length is calculated?](https://forums.mysql.com/read.php?22,219129)
-    - [Re: How Avg_row_length is calculated?](https://forums.mysql.com/read.php?22,219129,224296#msg-224296)
+-   [Avg_row_length 是怎么计算的？](https://www.cnblogs.com/sunss/p/6122997.html)
+-   Q & A ( on MySQL Forums )
+    -   [How Avg_row_length is calculated?](https://forums.mysql.com/read.php?22,219129)
+    -   [Re: How Avg_row_length is calculated?](https://forums.mysql.com/read.php?22,219129,224296#msg-224296)
 
 Command
 
-- Avg_row_length 顾名思义是：平均每行的长度
-    - e.g. 查询命令 & 输出，如下
+-   Avg_row_length 顾名思义是：平均每行的长度
+    -   e.g. 查询命令 & 输出，如下
 
 ```sql
 show table status like 'tb_name'\G
@@ -579,12 +579,12 @@ row in set (0.00 sec)
 
 该值是如何计算得出？
 
-- InnoDB 的行数是一个近似值
-- 平均每行长度 = 数据大小 / 行数
-- 大部分都是超过了每行的长度
-    - 因为在 InnoDB 的老版本中为了页对齐都自动的往上增加了
-    - 比如有一行行长 29 bytes 为了保证页对齐，往上加了 1 或 2 bytes
-- 在经历了多次块分裂后，认为「块」到达约 69% 满了
+-   InnoDB 的行数是一个近似值
+-   平均每行长度 = 数据大小 / 行数
+-   大部分都是超过了每行的长度
+    -   因为在 InnoDB 的老版本中为了页对齐都自动的往上增加了
+    -   比如有一行行长 29 bytes 为了保证页对齐，往上加了 1 或 2 bytes
+-   在经历了多次块分裂后，认为「块」到达约 69% 满了
 
 ## SQL
 
@@ -594,11 +594,11 @@ row in set (0.00 sec)
 
 The `DECIMAL` and `NUMERIC` types **store exact numeric data values**.
 
-- These types are used when it is important to **preserve exact precision**,
+-   These types are used when it is important to **preserve exact precision**,
     for example with monetary data.
-- _In MySQL, NUMERIC is implemented as DECIMAL,_
+-   _In MySQL, NUMERIC is implemented as DECIMAL,_
     _so the following remarks about DECIMAL apply equally to NUMERIC._
-- _MySQL stores DECIMAL values in binary format._
+-   _MySQL stores DECIMAL values in binary format._
 
 ```sql
 salary DECIMAL(5,2)
@@ -606,8 +606,8 @@ salary DECIMAL(5,2)
 
 In this example, **5 is the precision and 2 is the scale**.
 
-- The precision represents the number of significant digits that are stored for values,
-- and the scale represents the number of digits that can be stored following the decimal point.
+-   The precision represents the number of significant digits that are stored for values,
+-   and the scale represents the number of digits that can be stored following the decimal point.
 
 Standard SQL requires that `DECIMAL(5,2)` be able to store any value with five digits and two decimals,
 so values that can be stored in the salary column range **from -999.99 to 999.99**.
@@ -616,41 +616,41 @@ so values that can be stored in the salary column range **from -999.99 to 999.99
 
 Rferences
 
-- [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/8.0/en/datetime.html)
+-   [The DATE, DATETIME, and TIMESTAMP Types](https://dev.mysql.com/doc/refman/8.0/en/datetime.html)
 
 `DATE`
 
-- The DATE type is used for values with a date part but no time part.
-- MySQL retrieves and displays DATE values in **'YYYY-MM-DD'** format.
-- The supported range is **'1000-01-01' to '9999-12-31'**.
+-   The DATE type is used for values with a date part but no time part.
+-   MySQL retrieves and displays DATE values in **'YYYY-MM-DD'** format.
+-   The supported range is **'1000-01-01' to '9999-12-31'**.
 
 `DATETIME`
 
-- The DATETIME type is used for values that contain both date and time parts.
-- MySQL retrieves and displays DATETIME values in **'YYYY-MM-DD hh:mm:ss'** format.
-- The supported range is **'1000-01-01 00:00:00' to '9999-12-31 23:59:59'**.
+-   The DATETIME type is used for values that contain both date and time parts.
+-   MySQL retrieves and displays DATETIME values in **'YYYY-MM-DD hh:mm:ss'** format.
+-   The supported range is **'1000-01-01 00:00:00' to '9999-12-31 23:59:59'**.
 
 `TIMESTAMP`
 
-- The TIMESTAMP data type is used for values that contain both date and time parts.
-- TIMESTAMP has a range of **'1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC**.
+-   The TIMESTAMP data type is used for values that contain both date and time parts.
+-   TIMESTAMP has a range of **'1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC**.
 
 **Precision**
 
 A DATETIME or TIMESTAMP value **can include a trailing fractional seconds part in up to microseconds (6 digits) precision.**
 
-- _In particular, any fractional part in a value inserted into a DATETIME or TIMESTAMP column is stored rather than discarded._
-- With the fractional part included,
-    - the format for these values is **'YYYY-MM-DD hh:mm:ss[.fraction]'**,
-    - the range for DATETIME values is **'1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999'**,
-    - and the range for TIMESTAMP values is **'1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999'**.
-- The fractional part should always be separated from the rest of the time by a decimal point;
+-   _In particular, any fractional part in a value inserted into a DATETIME or TIMESTAMP column is stored rather than discarded._
+-   With the fractional part included,
+    -   the format for these values is **'YYYY-MM-DD hh:mm:ss[.fraction]'**,
+    -   the range for DATETIME values is **'1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999'**,
+    -   and the range for TIMESTAMP values is **'1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999'**.
+-   The fractional part should always be separated from the rest of the time by a decimal point;
     no other fractional seconds delimiter is recognized.
-- _See [Fractional Seconds in Time Values](https://dev.mysql.com/doc/refman/8.0/en/fractional-seconds.html)_
+-   _See [Fractional Seconds in Time Values](https://dev.mysql.com/doc/refman/8.0/en/fractional-seconds.html)_
 
 The **TIMESTAMP and DATETIME data types offer automatic initialization and updating to the current date and time.**
 
-- _See [Automatic Initialization and Updating for TIMESTAMP and DATETIME](https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html)_
+-   _See [Automatic Initialization and Updating for TIMESTAMP and DATETIME](https://dev.mysql.com/doc/refman/8.0/en/timestamp-initialization.html)_
 
 Time Zone
 
@@ -670,38 +670,38 @@ _This occurs because the same time zone was not used for conversion in both dire
 
 References
 
-- [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/8.0/en/char.html)
+-   [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/8.0/en/char.html)
 
 `CHAR`
 
-- The length of a CHAR column is fixed to the length that you declare when you create the table.
-- The length can be any value **from 0 to 255**.
-- When CHAR values are stored, they are right-padded with spaces to the specified length.
+-   The length of a CHAR column is fixed to the length that you declare when you create the table.
+-   The length can be any value **from 0 to 255**.
+-   When CHAR values are stored, they are right-padded with spaces to the specified length.
 
 `VARCHAR`
 
-- Values in VARCHAR columns are variable-length strings.
-- The length can be specified as a value **from 0 to 65,535**.
-- The **effective maximum length of a VARCHAR is subject to the [maximum row size](https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html)** ( 65,535 bytes, which is shared among all columns ) and the character set used.
+-   Values in VARCHAR columns are variable-length strings.
+-   The length can be specified as a value **from 0 to 65,535**.
+-   The **effective maximum length of a VARCHAR is subject to the [maximum row size](https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html)** ( 65,535 bytes, which is shared among all columns ) and the character set used.
 
 In contrast to CHAR, VARCHAR values are stored as a 1-byte or 2-byte length prefix plus data.
 
-- The length prefix indicates the number of bytes in the value.
-- A column uses one length byte if values require no more than 255 bytes,
-    - two length bytes if values may require more than 255 bytes.
+-   The length prefix indicates the number of bytes in the value.
+-   A column uses one length byte if values require no more than 255 bytes,
+    -   two length bytes if values may require more than 255 bytes.
 
 If strict SQL mode is not enabled
 and you **assign a value to a CHAR or VARCHAR column**
 **that exceeds the column's maximum length,**
 **the value is truncated to fit** and a warning is generated.
 
-- For truncation of nonspace characters, you can cause an error to occur ( rather than a warning ) and suppress insertion of the value by using strict SQL mode.
+-   For truncation of nonspace characters, you can cause an error to occur ( rather than a warning ) and suppress insertion of the value by using strict SQL mode.
 
 #### TEXT
 
 References
 
-- [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/8.0/en/blob.html)
+-   [The BLOB and TEXT Types](https://dev.mysql.com/doc/refman/8.0/en/blob.html)
 
 The four `TEXT` types are **`TINYTEXT`, `TEXT`, `MEDIUMTEXT`, and `LONGTEXT`**. …
 
@@ -717,9 +717,9 @@ _In most respects, you can regard a BLOB column as a VARBINARY column that can b
 _Similarly, you can regard a TEXT column as a VARCHAR column._
 _BLOB and TEXT differ from VARBINARY and VARCHAR in the following ways:_
 
-- For indexes on BLOB and TEXT columns,
+-   For indexes on BLOB and TEXT columns,
     you must specify an index prefix length.
-- For CHAR and VARCHAR, a prefix length is optional.
+-   For CHAR and VARCHAR, a prefix length is optional.
 
 **`BLOB` and `TEXT` columns cannot have `DEFAULT` values.**
 
@@ -731,7 +731,7 @@ _This is in contrast to all other data types, for which storage is allocated onc
 
 References
 
-- [The JSON Data Type](https://dev.mysql.com/doc/refman/8.0/en/json.html)
+-   [The JSON Data Type](https://dev.mysql.com/doc/refman/8.0/en/json.html)
 
 MySQL supports a native JSON data type _defined by RFC 7159_
 that **enables efficient access to data in JSON** _(JavaScript Object Notation)_ documents.
@@ -784,33 +784,33 @@ This optimization can be performed for an update that meets the following condit
 
 References
 
-- [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html)
+-   [Data Type Storage Requirements](https://dev.mysql.com/doc/refman/8.0/en/storage-requirements.html)
 
 ##### Numeric
 
-- `TINYINT` 1 bytes
+-   `TINYINT` 1 bytes
 
-- `SMALLINT` 2 bytes
+-   `SMALLINT` 2 bytes
 
-- `MIDIUMINT` 3 bytes
+-   `MIDIUMINT` 3 bytes
 
-- `INT`, `INTEGER` 4 bytes
+-   `INT`, `INTEGER` 4 bytes
 
-    - `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
+    -   `INT(11)` 中的 11 表示显示宽度，使用了 zerofille(0) 后，未满的宽度会用 0 填充
 
-- `BIGINT` 8 bytes
+-   `BIGINT` 8 bytes
 
-- `FLOAT(p)` 4 bytes
+-   `FLOAT(p)` 4 bytes
 
-    - if 0 <= p <= 24, 8 bytes if 25 <= p <= 53
+    -   if 0 <= p <= 24, 8 bytes if 25 <= p <= 53
 
-- `FLOAT` 4 bytes
+-   `FLOAT` 4 bytes
 
-- `DOUBLE [PRECISION]`, `REAL` 8 bytes
+-   `DOUBLE [PRECISION]`, `REAL` 8 bytes
 
-- `BIT(M)` approximately (M+7)/8 bytes
+-   `BIT(M)` approximately (M+7)/8 bytes
 
-- `DECIMAL(M, D)`, `NUMERIC(M, D)` Varies ( it depends )
+-   `DECIMAL(M, D)`, `NUMERIC(M, D)` Varies ( it depends )
 
     -   **M** is the precision and **D** is the scale
 
@@ -830,13 +830,13 @@ _the storage required for tables created before MySQL 5.6.4 differs from tables 
 _This is due to a change in 5.6.4 that permits these types to have a fractional part,_
 _which requires from 0 to 3 bytes._
 
-|Data Type|Storage Required Before MySQL 5.6.4|Storage Required as of MySQL 5.6.4|
-|-|-|-|
-|YEAR|1 byte|1 byte|
-|DATE|3 bytes|3 bytes|
-|TIME|3 bytes|3 bytes + fractional seconds storage|
-|DATETIME|8 bytes|5 bytes + fractional seconds storage|
-|TIMESTAMP|4 bytes|4 bytes + fractional seconds storage|
+| Data Type | Storage Required Before MySQL 5.6.4 | Storage Required as of MySQL 5.6.4   |
+| --------- | ----------------------------------- | ------------------------------------ |
+| YEAR      | 1 byte                              | 1 byte                               |
+| DATE      | 3 bytes                             | 3 bytes                              |
+| TIME      | 3 bytes                             | 3 bytes + fractional seconds storage |
+| DATETIME  | 8 bytes                             | 5 bytes + fractional seconds storage |
+| TIMESTAMP | 4 bytes                             | 4 bytes + fractional seconds storage |
 
 …
 
@@ -894,52 +894,52 @@ In the following table,
 
 ### Pagenation
 
-- `LIMIT length`
-- `LIMIT offset, length` = `LIMIT length OFFSET offset`
+-   `LIMIT length`
+-   `LIMIT offset, length` = `LIMIT length OFFSET offset`
 
 ### ON DUPLICATE KEY UPDATE
 
-- References
-    - [INSERT ... ON DUPLICATE KEY UPDATE Statement - MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/insert-on-duplicate.html)
+-   References
+    -   [INSERT ... ON DUPLICATE KEY UPDATE Statement - MySQL 8.0](https://dev.mysql.com/doc/refman/8.0/en/insert-on-duplicate.html)
 
 ### Prepare
 
-- References
-    - [理解Mysql prepare预处理语句](https://www.cnblogs.com/simpman/p/6510604.html)
-    - [MySQL :: MySQL 8.0 Reference Manual :: 13.5 Prepared SQL Statement Syntax](https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html)
+-   References
+    -   [理解 Mysql prepare 预处理语句](https://www.cnblogs.com/simpman/p/6510604.html)
+    -   [MySQL :: MySQL 8.0 Reference Manual :: 13.5 Prepared SQL Statement Syntax](https://dev.mysql.com/doc/refman/8.0/en/sql-syntax-prepared-statements.html)
 
 ### Explain
 
-- References
-    - [MySQL 性能优化神器 Explain 使用分析](https://segmentfault.com/a/1190000008131735)
+-   References
+    -   [MySQL 性能优化神器 Explain 使用分析](https://segmentfault.com/a/1190000008131735)
 
 ### SERIAL
 
 `SERIAL` SQL TYPE
 
-- an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
+-   an alias for `BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE`
 
 ### binlog_row_image
 
 References
 
-- [MySQL 5.7贴心参数之binlog_row_image](http://www.cnblogs.com/gomysql/p/6155160.html)
+-   [MySQL 5.7 贴心参数之 binlog_row_image](http://www.cnblogs.com/gomysql/p/6155160.html)
 
 ### Index & Key
 
 References
 
-- [mysql中index和key的区别](https://blog.csdn.net/kusedexingfu/article/details/78347354)
+-   [mysql 中 index 和 key 的区别](https://blog.csdn.net/kusedexingfu/article/details/78347354)
 
 > KEY | INDEX
 >
-> - KEY is normally a synonym for INDEX. The key attribute PRIMARY KEY can also be specified as just KEY when given in a column definition. This was implemented for compatibility with other database systems.
+> -   KEY is normally a synonym for INDEX. The key attribute PRIMARY KEY can also be specified as just KEY when given in a column definition. This was implemented for compatibility with other database systems.
 
 ### Multi-Range Read
 
 References
 
-- [35 | join语句怎么优化？](https://time.geekbang.org/column/article/80147)
+-   [35 | join 语句怎么优化？](https://time.geekbang.org/column/article/80147)
 
 优化开启语句
 
@@ -959,5 +959,5 @@ mysql> explain select * from t1 where a>=1 and a<=100;
 
 ### Union
 
-- `union` : 去重
-- `union all` : 不去重
+-   `union` : 去重
+-   `union all` : 不去重

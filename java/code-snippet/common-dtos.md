@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 /**
  * 翻页条件
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Data
@@ -63,7 +63,7 @@ import lombok.NoArgsConstructor;
 /**
  * 可翻页数据
  *
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2020/10/16
  */
 @Data
