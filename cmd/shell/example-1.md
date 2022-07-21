@@ -62,7 +62,7 @@ query_param=`echo $query_param | sed "s/datetime_from_xxx/$datetime_from/" | sed
 #echo
 
 ids=`curl -s \
---location --request POST 'https://icehe.xyz/api/querySomething' \
+--location --request POST 'https://icehe.life/api/querySomething' \
 --header 'content-type: application/json;charset=UTF-8' \
 --data-raw "$query_param" \
 | jq '[.data.items[].id]'`
@@ -78,7 +78,7 @@ if [ "$ids" != "[]" ]; then
     echo
 
     result=`curl -s \
-    --location --request POST 'https://icehe.xyz/api/doSomething' \
+    --location --request POST 'https://icehe.life/api/doSomething' \
     --header 'content-type: application/json;charset=UTF-8' \
     --header "$cookie_from_file" \
     --data-raw "$update_param"`
