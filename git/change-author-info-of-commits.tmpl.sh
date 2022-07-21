@@ -5,7 +5,7 @@
 
 git filter-branch --env-filter '
 
-    CORRECT_NAME="IceHe.xyz"
+    CORRECT_NAME="icehe.life"
     CORRECT_EMAIL="icehe.xyz@qq.com"
 
     OLD_EMAILS=(

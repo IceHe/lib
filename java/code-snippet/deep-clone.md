@@ -15,7 +15,7 @@ import lombok.experimental.UtilityClass;
 import org.springframework.beans.BeanUtils;
 
 /**
- * @author icehe.xyz
+ * @author icehe.life
  * @since 2021/07/17
  */
 @UtilityClass
