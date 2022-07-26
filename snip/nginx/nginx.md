@@ -14,6 +14,7 @@ A free, open-source, high-performance HTTP server and reverse proxy, as well as 
 
 -   Put config file in directory `/etc/nginx/conf.d/`
     -   or `/usr/local/etc/nginx/servers` ( macOS )
+    -   or see `brew info nginx` ( Apple Silicon macOS )
 -   Replace `/path/to/website` with real path
 -   Run `service nginx restart` in terminal ( SysVinit )
     -   or `systemctl restart nginx` ( systemd )
