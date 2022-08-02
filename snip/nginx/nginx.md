@@ -42,4 +42,16 @@ File : proxy_pass.conf
 
 ## Basic
 
+Restart nginx
+
+```bash
+systemctl reload nginx
+```
+
+List installed Nginx modules
+
+```bash
+systemctl reload nginx
+```
+
 TODO
