@@ -112,15 +112,6 @@ Basics
     -   [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)
     -   [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
 
-Solution Provider
-
--   [Auth0](/auth/solution-provider/auth0.md):
-    an easy to implement, adaptable authentication and authorization platform
--   [Okta](/auth/solution-provider/okta.md):
-    the world's #1 identity platform
--   [Authing](/auth/solution-provider/authing.md):
-    connect every person and app on the planet
-
 ### Snippet
 
 > 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。

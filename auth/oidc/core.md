@@ -6,7 +6,7 @@ Core functionality: authentication built on top of OAuth 2.0 and the use of Clai
 
 References
 
-- [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
+-   [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 
 The **core** OpenID Connect **functionality**:
 authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User.
@@ -14,190 +14,190 @@ _It also describes the security and privacy considerations for using OpenID Conn
 
 ## Table of Contents
 
-- 1.  Introduction
-    - 1.1.  Requirements Notation and Conventions
-    - 1.2.  Terminology
-    - 1.3.  Overview
-- 2.  ID Token
-- 3.  Authentication
-    - 3.1.  Authentication using the Authorization Code Flow
-        - 3.1.1.  Authorization Code Flow Steps
-        - 3.1.2.  Authorization Endpoint
-            - 3.1.2.1.  Authentication Request
-            - 3.1.2.2.  Authentication Request Validation
-            - 3.1.2.3.  Authorization Server Authenticates End-User
-            - 3.1.2.4.  Authorization Server Obtains End-User Consent/Authorization
-            - 3.1.2.5.  Successful Authentication Response
-            - 3.1.2.6.  Authentication Error Response
-            - 3.1.2.7.  Authentication Response Validation
-        - 3.1.3.  Token Endpoint
-            - 3.1.3.1.  Token Request
-            - 3.1.3.2.  Token Request Validation
-            - 3.1.3.3.  Successful Token Response
-            - 3.1.3.4.  Token Error Response
-            - 3.1.3.5.  Token Response Validation
-            - 3.1.3.6.  ID Token
-            - 3.1.3.7.  ID Token Validation
-            - 3.1.3.8.  Access Token Validation
-    - 3.2.  Authentication using the Implicit Flow
-        - 3.2.1.  Implicit Flow Steps
-        - 3.2.2.  Authorization Endpoint
-            - 3.2.2.1.  Authentication Request
-            - 3.2.2.2.  Authentication Request Validation
-            - 3.2.2.3.  Authorization Server Authenticates End-User
-            - 3.2.2.4.  Authorization Server Obtains End-User Consent/Authorization
-            - 3.2.2.5.  Successful Authentication Response
-            - 3.2.2.6.  Authentication Error Response
-            - 3.2.2.7.  Redirect URI Fragment Handling
-            - 3.2.2.8.  Authentication Response Validation
-            - 3.2.2.9.  Access Token Validation
-            - 3.2.2.10.  ID Token
-            - 3.2.2.11.  ID Token Validation
-    - 3.3.  Authentication using the Hybrid Flow
-        - 3.3.1.  Hybrid Flow Steps
-        - 3.3.2.  Authorization Endpoint
-            - 3.3.2.1.  Authentication Request
-            - 3.3.2.2.  Authentication Request Validation
-            - 3.3.2.3.  Authorization Server Authenticates End-User
-            - 3.3.2.4.  Authorization Server Obtains End-User Consent/Authorization
-            - 3.3.2.5.  Successful Authentication Response
-            - 3.3.2.6.  Authentication Error Response
-            - 3.3.2.7.  Redirect URI Fragment Handling
-            - 3.3.2.8.  Authentication Response Validation
-            - 3.3.2.9.  Access Token Validation
-            - 3.3.2.10.  Authorization Code Validation
-            - 3.3.2.11.  ID Token
-            - 3.3.2.12.  ID Token Validation
-        - 3.3.3.  Token Endpoint
-            - 3.3.3.1.  Token Request
-            - 3.3.3.2.  Token Request Validation
-            - 3.3.3.3.  Successful Token Response
-            - 3.3.3.4.  Token Error Response
-            - 3.3.3.5.  Token Response Validation
-            - 3.3.3.6.  ID Token
-            - 3.3.3.7.  ID Token Validation
-            - 3.3.3.8.  Access Token
-            - 3.3.3.9.  Access Token Validation
-- 4.  Initiating Login from a Third Party
-- 5.  Claims
-    - 5.1.  Standard Claims
-        - 5.1.1.  Address Claim
-        - 5.1.2.  Additional Claims
-    - 5.2.  Claims Languages and Scripts
-    - 5.3.  UserInfo Endpoint
-        - 5.3.1.  UserInfo Request
-        - 5.3.2.  Successful UserInfo Response
-        - 5.3.3.  UserInfo Error Response
-        - 5.3.4.  UserInfo Response Validation
-    - 5.4.  Requesting Claims using Scope Values
-    - 5.5.  Requesting Claims using the "claims" Request Parameter
-        - 5.5.1.  Individual Claims Requests
-            - 5.5.1.1.  Requesting the "acr" Claim
-        - 5.5.2.  Languages and Scripts for Individual Claims
-    - 5.6.  Claim Types
-        - 5.6.1.  Normal Claims
-        - 5.6.2.  Aggregated and Distributed Claims
-            - 5.6.2.1.  Example of Aggregated Claims
-            - 5.6.2.2.  Example of Distributed Claims
-    - 5.7.  Claim Stability and Uniqueness
-- 6.  Passing Request Parameters as JWTs
-    - 6.1.  Passing a Request Object by Value
-        - 6.1.1.  Request using the "request" Request Parameter
-    - 6.2.  Passing a Request Object by Reference
-        - 6.2.1.  URL Referencing the Request Object
-        - 6.2.2.  Request using the "request_uri" Request Parameter
-        - 6.2.3.  Authorization Server Fetches Request Object
-        - 6.2.4.  "request_uri" Rationale
-    - 6.3.  Validating JWT-Based Requests
-        - 6.3.1.  Encrypted Request Object
-        - 6.3.2.  Signed Request Object
-        - 6.3.3.  Request Parameter Assembly and Validation
-- 7.  Self-Issued OpenID Provider
-    - 7.1.  Self-Issued OpenID Provider Discovery
-    - 7.2.  Self-Issued OpenID Provider Registration
-        - 7.2.1.  Providing Information with the "registration" Request Parameter
-    - 7.3.  Self-Issued OpenID Provider Request
-    - 7.4.  Self-Issued OpenID Provider Response
-    - 7.5.  Self-Issued ID Token Validation
-- 8.  Subject Identifier Types
-    - 8.1.  Pairwise Identifier Algorithm
-- 9.  Client Authentication
-- 10.  Signatures and Encryption
-    - 10.1.  Signing
-        - 10.1.1.  Rotation of Asymmetric Signing Keys
-    - 10.2.  Encryption
-        - 10.2.1.  Rotation of Asymmetric Encryption Keys
-- 11.  Offline Access
-- 12.  Using Refresh Tokens
-    - 12.1.  Refresh Request
-    - 12.2.  Successful Refresh Response
-    - 12.3.  Refresh Error Response
-- 13.  Serializations
-    - 13.1.  Query String Serialization
-    - 13.2.  Form Serialization
-    - 13.3.  JSON Serialization
-- 14.  String Operations
-- 15.  Implementation Considerations
-    - 15.1.  Mandatory to Implement Features for All OpenID Providers
-    - 15.2.  Mandatory to Implement Features for Dynamic OpenID Providers
-    - 15.3.  Discovery and Registration
-    - 15.4.  Mandatory to Implement Features for Relying Parties
-    - 15.5.  Implementation Notes
-        - 15.5.1.  Authorization Code Implementation Notes
-        - 15.5.2.  Nonce Implementation Notes
-        - 15.5.3.  Redirect URI Fragment Handling Implementation Notes
-    - 15.6.  Compatibility Notes
-        - 15.6.1.  Pre-Final IETF Specifications
-        - 15.6.2.  Google "iss" Value
-    - 15.7.  Related Specifications and Implementer's Guides
-- 16.  Security Considerations
-    - 16.1.  Request Disclosure
-    - 16.2.  Server Masquerading
-    - 16.3.  Token Manufacture/Modification
-    - 16.4.  Access Token Disclosure
-    - 16.5.  Server Response Disclosure
-    - 16.6.  Server Response Repudiation
-    - 16.7.  Request Repudiation
-    - 16.8.  Access Token Redirect
-    - 16.9.  Token Reuse
-    - 16.10.  Eavesdropping or Leaking Authorization Codes (Secondary Authenticator Capture)
-    - 16.11.  Token Substitution
-    - 16.12.  Timing Attack
-    - 16.13.  Other Crypto Related Attacks
-    - 16.14.  Signing and Encryption Order
-    - 16.15.  Issuer Identifier
-    - 16.16.  Implicit Flow Threats
-    - 16.17.  TLS Requirements
-    - 16.18.  Lifetimes of Access Tokens and Refresh Tokens
-    - 16.19.  Symmetric Key Entropy
-    - 16.20.  Need for Signed Requests
-    - 16.21.  Need for Encrypted Requests
-- 17.  Privacy Considerations
-    - 17.1.  Personally Identifiable Information
-    - 17.2.  Data Access Monitoring
-    - 17.3.  Correlation
-    - 17.4.  Offline Access
-- 18.  IANA Considerations
-    - 18.1.  JSON Web Token Claims Registration
-        - 18.1.1.  Registry Contents
-    - 18.2.  OAuth Parameters Registration
-        - 18.2.1.  Registry Contents
-    - 18.3.  OAuth Extensions Error Registration
-        - 18.3.1.  Registry Contents
-- 19.  References
-    - 19.1.  Normative References
-    - 19.2.  Informative References
-- Appendix A. Authorization Examples
-    <!-- - 1\. Example using response_type=code -->
-    <!-- - 2\. Example using response_type=id_token -->
-    <!-- - 3\. Example using response_type=id_token token -->
-    <!-- - 4\. Example using response_type=code id_token -->
-    <!-- - 5\. Example using response_type=code token -->
-    <!-- - 6\. Example using response_type=code id_token token -->
-    <!-- - 7\. RSA Key Used in Examples -->
-- Appendix B. Acknowledgements
-- Appendix C. Notices
-- ……
+-   1.  Introduction
+    -   1.1. Requirements Notation and Conventions
+    -   1.2. Terminology
+    -   1.3. Overview
+-   2.  ID Token
+-   3.  Authentication
+    -   3.1. Authentication using the Authorization Code Flow
+        -   3.1.1. Authorization Code Flow Steps
+        -   3.1.2. Authorization Endpoint
+            -   3.1.2.1. Authentication Request
+            -   3.1.2.2. Authentication Request Validation
+            -   3.1.2.3. Authorization Server Authenticates End-User
+            -   3.1.2.4. Authorization Server Obtains End-User Consent/Authorization
+            -   3.1.2.5. Successful Authentication Response
+            -   3.1.2.6. Authentication Error Response
+            -   3.1.2.7. Authentication Response Validation
+        -   3.1.3. Token Endpoint
+            -   3.1.3.1. Token Request
+            -   3.1.3.2. Token Request Validation
+            -   3.1.3.3. Successful Token Response
+            -   3.1.3.4. Token Error Response
+            -   3.1.3.5. Token Response Validation
+            -   3.1.3.6. ID Token
+            -   3.1.3.7. ID Token Validation
+            -   3.1.3.8. Access Token Validation
+    -   3.2. Authentication using the Implicit Flow
+        -   3.2.1. Implicit Flow Steps
+        -   3.2.2. Authorization Endpoint
+            -   3.2.2.1. Authentication Request
+            -   3.2.2.2. Authentication Request Validation
+            -   3.2.2.3. Authorization Server Authenticates End-User
+            -   3.2.2.4. Authorization Server Obtains End-User Consent/Authorization
+            -   3.2.2.5. Successful Authentication Response
+            -   3.2.2.6. Authentication Error Response
+            -   3.2.2.7. Redirect URI Fragment Handling
+            -   3.2.2.8. Authentication Response Validation
+            -   3.2.2.9. Access Token Validation
+            -   3.2.2.10. ID Token
+            -   3.2.2.11. ID Token Validation
+    -   3.3. Authentication using the Hybrid Flow
+        -   3.3.1. Hybrid Flow Steps
+        -   3.3.2. Authorization Endpoint
+            -   3.3.2.1. Authentication Request
+            -   3.3.2.2. Authentication Request Validation
+            -   3.3.2.3. Authorization Server Authenticates End-User
+            -   3.3.2.4. Authorization Server Obtains End-User Consent/Authorization
+            -   3.3.2.5. Successful Authentication Response
+            -   3.3.2.6. Authentication Error Response
+            -   3.3.2.7. Redirect URI Fragment Handling
+            -   3.3.2.8. Authentication Response Validation
+            -   3.3.2.9. Access Token Validation
+            -   3.3.2.10. Authorization Code Validation
+            -   3.3.2.11. ID Token
+            -   3.3.2.12. ID Token Validation
+        -   3.3.3. Token Endpoint
+            -   3.3.3.1. Token Request
+            -   3.3.3.2. Token Request Validation
+            -   3.3.3.3. Successful Token Response
+            -   3.3.3.4. Token Error Response
+            -   3.3.3.5. Token Response Validation
+            -   3.3.3.6. ID Token
+            -   3.3.3.7. ID Token Validation
+            -   3.3.3.8. Access Token
+            -   3.3.3.9. Access Token Validation
+-   4.  Initiating Login from a Third Party
+-   5.  Claims
+    -   5.1. Standard Claims
+        -   5.1.1. Address Claim
+        -   5.1.2. Additional Claims
+    -   5.2. Claims Languages and Scripts
+    -   5.3. UserInfo Endpoint
+        -   5.3.1. UserInfo Request
+        -   5.3.2. Successful UserInfo Response
+        -   5.3.3. UserInfo Error Response
+        -   5.3.4. UserInfo Response Validation
+    -   5.4. Requesting Claims using Scope Values
+    -   5.5. Requesting Claims using the "claims" Request Parameter
+        -   5.5.1. Individual Claims Requests
+            -   5.5.1.1. Requesting the "acr" Claim
+        -   5.5.2. Languages and Scripts for Individual Claims
+    -   5.6. Claim Types
+        -   5.6.1. Normal Claims
+        -   5.6.2. Aggregated and Distributed Claims
+            -   5.6.2.1. Example of Aggregated Claims
+            -   5.6.2.2. Example of Distributed Claims
+    -   5.7. Claim Stability and Uniqueness
+-   6.  Passing Request Parameters as JWTs
+    -   6.1. Passing a Request Object by Value
+        -   6.1.1. Request using the "request" Request Parameter
+    -   6.2. Passing a Request Object by Reference
+        -   6.2.1. URL Referencing the Request Object
+        -   6.2.2. Request using the "request_uri" Request Parameter
+        -   6.2.3. Authorization Server Fetches Request Object
+        -   6.2.4. "request_uri" Rationale
+    -   6.3. Validating JWT-Based Requests
+        -   6.3.1. Encrypted Request Object
+        -   6.3.2. Signed Request Object
+        -   6.3.3. Request Parameter Assembly and Validation
+-   7.  Self-Issued OpenID Provider
+    -   7.1. Self-Issued OpenID Provider Discovery
+    -   7.2. Self-Issued OpenID Provider Registration
+        -   7.2.1. Providing Information with the "registration" Request Parameter
+    -   7.3. Self-Issued OpenID Provider Request
+    -   7.4. Self-Issued OpenID Provider Response
+    -   7.5. Self-Issued ID Token Validation
+-   8.  Subject Identifier Types
+    -   8.1. Pairwise Identifier Algorithm
+-   9.  Client Authentication
+-   10. Signatures and Encryption
+    -   10.1. Signing
+        -   10.1.1. Rotation of Asymmetric Signing Keys
+    -   10.2. Encryption
+        -   10.2.1. Rotation of Asymmetric Encryption Keys
+-   11. Offline Access
+-   12. Using Refresh Tokens
+    -   12.1. Refresh Request
+    -   12.2. Successful Refresh Response
+    -   12.3. Refresh Error Response
+-   13. Serializations
+    -   13.1. Query String Serialization
+    -   13.2. Form Serialization
+    -   13.3. JSON Serialization
+-   14. String Operations
+-   15. Implementation Considerations
+    -   15.1. Mandatory to Implement Features for All OpenID Providers
+    -   15.2. Mandatory to Implement Features for Dynamic OpenID Providers
+    -   15.3. Discovery and Registration
+    -   15.4. Mandatory to Implement Features for Relying Parties
+    -   15.5. Implementation Notes
+        -   15.5.1. Authorization Code Implementation Notes
+        -   15.5.2. Nonce Implementation Notes
+        -   15.5.3. Redirect URI Fragment Handling Implementation Notes
+    -   15.6. Compatibility Notes
+        -   15.6.1. Pre-Final IETF Specifications
+        -   15.6.2. Google "iss" Value
+    -   15.7. Related Specifications and Implementer's Guides
+-   16. Security Considerations
+    -   16.1. Request Disclosure
+    -   16.2. Server Masquerading
+    -   16.3. Token Manufacture/Modification
+    -   16.4. Access Token Disclosure
+    -   16.5. Server Response Disclosure
+    -   16.6. Server Response Repudiation
+    -   16.7. Request Repudiation
+    -   16.8. Access Token Redirect
+    -   16.9. Token Reuse
+    -   16.10. Eavesdropping or Leaking Authorization Codes (Secondary Authenticator Capture)
+    -   16.11. Token Substitution
+    -   16.12. Timing Attack
+    -   16.13. Other Crypto Related Attacks
+    -   16.14. Signing and Encryption Order
+    -   16.15. Issuer Identifier
+    -   16.16. Implicit Flow Threats
+    -   16.17. TLS Requirements
+    -   16.18. Lifetimes of Access Tokens and Refresh Tokens
+    -   16.19. Symmetric Key Entropy
+    -   16.20. Need for Signed Requests
+    -   16.21. Need for Encrypted Requests
+-   17. Privacy Considerations
+    -   17.1. Personally Identifiable Information
+    -   17.2. Data Access Monitoring
+    -   17.3. Correlation
+    -   17.4. Offline Access
+-   18. IANA Considerations
+    -   18.1. JSON Web Token Claims Registration
+        -   18.1.1. Registry Contents
+    -   18.2. OAuth Parameters Registration
+        -   18.2.1. Registry Contents
+    -   18.3. OAuth Extensions Error Registration
+        -   18.3.1. Registry Contents
+-   19. References
+    -   19.1. Normative References
+    -   19.2. Informative References
+-   Appendix A. Authorization Examples
+      <!-- - 1\. Example using response_type=code -->
+      <!-- - 2\. Example using response_type=id_token -->
+      <!-- - 3\. Example using response_type=id_token token -->
+      <!-- - 4\. Example using response_type=code id_token -->
+      <!-- - 5\. Example using response_type=code token -->
+      <!-- - 6\. Example using response_type=code id_token token -->
+      <!-- - 7\. RSA Key Used in Examples -->
+-   Appendix B. Acknowledgements
+-   Appendix C. Notices
+-   ……
 
 ## 1. Introduction
 
@@ -368,7 +368,7 @@ Likewise, this specification assumes that **the Relying Party has already obtain
 
 ### 1.3. Overview
 
-TODO
+todo
 
 ## 2. ID Token
 
@@ -376,8 +376,8 @@ TODO
 
 The ID Token is
 
-- **a security token that contains Claims about the Authentication of an End-User by an Authorization Server** when using a Client, and potentially other requested Claims.
-- **represented as a JSON Web Token (JWT).**
+-   **a security token that contains Claims about the Authentication of an End-User by an Authorization Server** when using a Client, and potentially other requested Claims.
+-   **represented as a JSON Web Token (JWT).**
 
 The following **Claims are used within the ID Token for all OAuth 2.0 flows used by OpenID Connect:**
 
@@ -438,8 +438,8 @@ The following **Claims are used within the ID Token for all OAuth 2.0 flows used
 
     **The value is passed through unmodified from the Authentication Request to the ID Token.**
 
-    - If present in the ID Token, Clients MUST verify that the `nonce` Claim Value is equal to the value of the `nonce` parameter sent in the Authentication Request.
-    - If present in the Authentication Request, Authorization Servers MUST include a `nonce` Claim in the ID Token with the Claim Value being the `nonce` value sent in the Authentication Request.
+    -   If present in the ID Token, Clients MUST verify that the `nonce` Claim Value is equal to the value of the `nonce` parameter sent in the Authentication Request.
+    -   If present in the Authentication Request, Authorization Servers MUST include a `nonce` Claim in the ID Token with the Claim Value being the `nonce` value sent in the Authentication Request.
 
     Authorization Servers SHOULD perform no other processing on nonce values used.
     The `nonce` value is a case sensitive string.
@@ -506,7 +506,7 @@ The following is a non-normative<!-- 非标准的 --> example of the set of Clai
 
 ## 3. Authentication
 
-TODO
+todo
 
 ### 3.1. Authentication using the Authorization Code Flow
 
@@ -521,8 +521,8 @@ An Authentication Request is an OAuth 2.0 Authorization Request that requests th
 Authorization Servers MUST support the use of the HTTP GET and POST methods defined in RFC 2616 [RFC2616] at the Authorization Endpoint.
 **Clients MAY use the HTTP GET or POST methods to send the Authorization Request** to the Authorization Server.
 
-- If using the HTTP **GET** method, the request parameters are serialized using **URI Query String Serialization**, _per Section 13.1._
-- If using the HTTP **POST** method, the request parameters are serialized using **Form Serialization**, _per Section 13.2._
+-   If using the HTTP **GET** method, the request parameters are serialized using **URI Query String Serialization**, _per Section 13.1._
+-   If using the HTTP **POST** method, the request parameters are serialized using **Form Serialization**, _per Section 13.2._
 
 OpenID Connect uses the following OAuth 2.0 **request parameters with the Authorization Code Flow:**
 
@@ -575,65 +575,65 @@ OpenID Connect uses the following OAuth 2.0 **request parameters with the Author
 
 #### 3.1.3. Token Endpoint
 
-- 3.1.3.1. Token Request
-- 3.1.3.2. Token Request Validation
-- 3.1.3.3. Successful Token Response
-- 3.1.3.4. Token Error Response
-- 3.1.3.5. Token Response Validation
-- 3.1.3.6. ID Token
-- 3.1.3.7. ID Token Validation
-- 3.1.3.8. Access Token Validation
+-   3.1.3.1. Token Request
+-   3.1.3.2. Token Request Validation
+-   3.1.3.3. Successful Token Response
+-   3.1.3.4. Token Error Response
+-   3.1.3.5. Token Response Validation
+-   3.1.3.6. ID Token
+-   3.1.3.7. ID Token Validation
+-   3.1.3.8. Access Token Validation
 
 ### 3.2. Authentication using the Implicit Flow
 
-TODO ignore?
+todo ignore?
 
-- 3.2.1.  Implicit Flow Steps
-- 3.2.2.  Authorization Endpoint
-    <!-- - 3.2.2.1.  Authentication Request -->
-    <!-- - 3.2.2.2.  Authentication Request Validation -->
-    <!-- - 3.2.2.3.  Authorization Server Authenticates End-User -->
-    <!-- - 3.2.2.4.  Authorization Server Obtains End-User Consent/Authorization -->
-    <!-- - 3.2.2.5.  Successful Authentication Response -->
-    <!-- - 3.2.2.6.  Authentication Error Response -->
-    <!-- - 3.2.2.7.  Redirect URI Fragment Handling -->
-    <!-- - 3.2.2.8.  Authentication Response Validation -->
-    <!-- - 3.2.2.9.  Access Token Validation -->
-    <!-- - 3.2.2.10.  ID Token -->
-    <!-- - 3.2.2.11.  ID Token Validation -->
+-   3.2.1. Implicit Flow Steps
+-   3.2.2. Authorization Endpoint
+      <!-- - 3.2.2.1.  Authentication Request -->
+      <!-- - 3.2.2.2.  Authentication Request Validation -->
+      <!-- - 3.2.2.3.  Authorization Server Authenticates End-User -->
+      <!-- - 3.2.2.4.  Authorization Server Obtains End-User Consent/Authorization -->
+      <!-- - 3.2.2.5.  Successful Authentication Response -->
+      <!-- - 3.2.2.6.  Authentication Error Response -->
+      <!-- - 3.2.2.7.  Redirect URI Fragment Handling -->
+      <!-- - 3.2.2.8.  Authentication Response Validation -->
+      <!-- - 3.2.2.9.  Access Token Validation -->
+      <!-- - 3.2.2.10.  ID Token -->
+      <!-- - 3.2.2.11.  ID Token Validation -->
 
 ### 3.3. Authentication using the Hybrid Flow
 
-TODO ignore?
+todo ignore?
 
-- 3.3.1.  Hybrid Flow Steps
-- 3.3.2.  Authorization Endpoint
-    <!-- - 3.3.2.1.  Authentication Request -->
-    <!-- - 3.3.2.2.  Authentication Request Validation -->
-    <!-- - 3.3.2.3.  Authorization Server Authenticates End-User -->
-    <!-- - 3.3.2.4.  Authorization Server Obtains End-User Consent/Authorization -->
-    <!-- - 3.3.2.5.  Successful Authentication Response -->
-    <!-- - 3.3.2.6.  Authentication Error Response -->
-    <!-- - 3.3.2.7.  Redirect URI Fragment Handling -->
-    <!-- - 3.3.2.8.  Authentication Response Validation -->
-    <!-- - 3.3.2.9.  Access Token Validation -->
-    <!-- - 3.3.2.10.  Authorization Code Validation -->
-    <!-- - 3.3.2.11.  ID Token -->
-    <!-- - 3.3.2.12.  ID Token Validation -->
-- 3.3.3.  Token Endpoint
-    <!-- - 3.3.3.1.  Token Request -->
-    <!-- - 3.3.3.2.  Token Request Validation -->
-    <!-- - 3.3.3.3.  Successful Token Response -->
-    <!-- - 3.3.3.4.  Token Error Response -->
-    <!-- - 3.3.3.5.  Token Response Validation -->
-    <!-- - 3.3.3.6.  ID Token -->
-    <!-- - 3.3.3.7.  ID Token Validation -->
-    <!-- - 3.3.3.8.  Access Token -->
-    <!-- - 3.3.3.9.  Access Token Validation -->
+-   3.3.1. Hybrid Flow Steps
+-   3.3.2. Authorization Endpoint
+      <!-- - 3.3.2.1.  Authentication Request -->
+      <!-- - 3.3.2.2.  Authentication Request Validation -->
+      <!-- - 3.3.2.3.  Authorization Server Authenticates End-User -->
+      <!-- - 3.3.2.4.  Authorization Server Obtains End-User Consent/Authorization -->
+      <!-- - 3.3.2.5.  Successful Authentication Response -->
+      <!-- - 3.3.2.6.  Authentication Error Response -->
+      <!-- - 3.3.2.7.  Redirect URI Fragment Handling -->
+      <!-- - 3.3.2.8.  Authentication Response Validation -->
+      <!-- - 3.3.2.9.  Access Token Validation -->
+      <!-- - 3.3.2.10.  Authorization Code Validation -->
+      <!-- - 3.3.2.11.  ID Token -->
+      <!-- - 3.3.2.12.  ID Token Validation -->
+-   3.3.3. Token Endpoint
+      <!-- - 3.3.3.1.  Token Request -->
+      <!-- - 3.3.3.2.  Token Request Validation -->
+      <!-- - 3.3.3.3.  Successful Token Response -->
+      <!-- - 3.3.3.4.  Token Error Response -->
+      <!-- - 3.3.3.5.  Token Response Validation -->
+      <!-- - 3.3.3.6.  ID Token -->
+      <!-- - 3.3.3.7.  ID Token Validation -->
+      <!-- - 3.3.3.8.  Access Token -->
+      <!-- - 3.3.3.9.  Access Token Validation -->
 
 ## 4. Initiating Login from a Third Party
 
-TODO
+todo
 
 ## 5. Claims
 
@@ -643,7 +643,7 @@ It also **defines a standard set of basic profile Claims.**
 **Pre-defined sets of Claims can be requested using specific scope values or individual Claims can be requested using the `claims` request parameter.**
 The Claims can come directly from the OpenID Provider or from distributed sources as well.
 
-### 5.1.  Standard Claims
+### 5.1. Standard Claims
 
 -   `Member` Type
 
@@ -695,20 +695,20 @@ The Claims can come directly from the OpenID Provider or from distributed source
 
     **Its value is a JSON number representing the number of seconds from `1970-01-01T0:0:0Z` as measured in UTC until the date/time.**
 
-#### 5.1.1.  Address Claim
+#### 5.1.1. Address Claim
 
-#### 5.1.2.  Additional Claims
+#### 5.1.2. Additional Claims
 
-### 5.2.  Claims Languages and Scripts
+### 5.2. Claims Languages and Scripts
 
-### 5.3.  UserInfo Endpoint
+### 5.3. UserInfo Endpoint
 
 <!-- - 5.3.1.  UserInfo Request -->
 <!-- - 5.3.2.  Successful UserInfo Response -->
 <!-- - 5.3.3.  UserInfo Error Response -->
 <!-- - 5.3.4.  UserInfo Response Validation -->
 
-### 5.4.  Requesting Claims using Scope Values
+### 5.4. Requesting Claims using Scope Values
 
 OpenID Connect Clients use `scope` values, _as defined in Section 3.3 of OAuth 2.0 [RFC6749],_ to **specify what access privileges are being requested for Access Tokens.**
 
@@ -725,27 +725,27 @@ _OpenID Connect defines the following `scope` values that are used to request Cl
 
     This scope value requests access to the End-User's default profile Claims, which are:
 
-    - `name`
-    - `family_name`
-    - `given_name`
-    - `middle_name`
-    - `nickname`
-    - `preferred_username`
-    - `profile`
-    - `picture`
-    - `website`
-    - `gender`
-    - `birthdate`
-    - `zoneinfo`
-    - `locale`
-    - `updated_at`
+    -   `name`
+    -   `family_name`
+    -   `given_name`
+    -   `middle_name`
+    -   `nickname`
+    -   `preferred_username`
+    -   `profile`
+    -   `picture`
+    -   `website`
+    -   `gender`
+    -   `birthdate`
+    -   `zoneinfo`
+    -   `locale`
+    -   `updated_at`
 
 -   **`email`** _OPTIONAL_
 
     This scope value requests access to the
 
-    - `email` and
-    - `email_verified` Claims.
+    -   `email` and
+    -   `email_verified` Claims.
 
 -   **`address`** _OPTIONAL_
 
@@ -755,8 +755,8 @@ _OpenID Connect defines the following `scope` values that are used to request Cl
 
     This scope value requests access to the
 
-    - `phone_number` and
-    - `phone_number_verified` Claims.
+    -   `phone_number` and
+    -   `phone_number_verified` Claims.
 
 Multiple scope values MAY be used by creating a space delimited, case sensitive list of ASCII scope values.
 
@@ -772,177 +772,177 @@ The following is a non-normative example of an unencoded scope request:
 scope=openid profile email phone
 ```
 
-### 5.5.  Requesting Claims using the "claims" Request Parameter
+### 5.5. Requesting Claims using the "claims" Request Parameter
 
 <!-- - 5.5.1.  Individual Claims Requests -->
 <!--    - 5.5.1.1.  Requesting the "acr" Claim -->
 <!-- - 5.5.2.  Languages and Scripts for Individual Claims -->
 
-### 5.6.  Claim Types
+### 5.6. Claim Types
 
-- 5.6.1.  Normal Claims
-- 5.6.2.  Aggregated and Distributed Claims
-    - 5.6.2.1.  Example of Aggregated Claims
-    - 5.6.2.2.  Example of Distributed Claims
+-   5.6.1. Normal Claims
+-   5.6.2. Aggregated and Distributed Claims
+    -   5.6.2.1. Example of Aggregated Claims
+    -   5.6.2.2. Example of Distributed Claims
 
-### 5.7.  Claim Stability and Uniqueness
+### 5.7. Claim Stability and Uniqueness
 
 ## 6. Passing Request Parameters as JWTs
 
-TODO
+todo
 
-- 6.1.  Passing a Request Object by Value
-    <!-- - 6.1.1.  Request using the "request" Request Parameter -->
-- 6.2.  Passing a Request Object by Reference
-    <!-- - 6.2.1.  URL Referencing the Request Object -->
-    <!-- - 6.2.2.  Request using the "request_uri" Request Parameter -->
-    <!-- - 6.2.3.  Authorization Server Fetches Request Object -->
-    <!-- - 6.2.4.  "request_uri" Rationale -->
-- 6.3.  Validating JWT-Based Requests
-    <!-- - 6.3.1.  Encrypted Request Object -->
-    <!-- - 6.3.2.  Signed Request Object -->
-    <!-- - 6.3.3.  Request Parameter Assembly and Validation -->
+-   6.1. Passing a Request Object by Value
+      <!-- - 6.1.1.  Request using the "request" Request Parameter -->
+-   6.2. Passing a Request Object by Reference
+      <!-- - 6.2.1.  URL Referencing the Request Object -->
+      <!-- - 6.2.2.  Request using the "request_uri" Request Parameter -->
+      <!-- - 6.2.3.  Authorization Server Fetches Request Object -->
+      <!-- - 6.2.4.  "request_uri" Rationale -->
+-   6.3. Validating JWT-Based Requests
+      <!-- - 6.3.1.  Encrypted Request Object -->
+      <!-- - 6.3.2.  Signed Request Object -->
+      <!-- - 6.3.3.  Request Parameter Assembly and Validation -->
 
 ## 7. Self-Issued OpenID Provider
 
-TODO
+todo
 
-- 7.1.  Self-Issued OpenID Provider Discovery
-- 7.2.  Self-Issued OpenID Provider Registration
-    <!-- - 7.2.1.  Providing Information with the "registration" Request Parameter -->
-- 7.3.  Self-Issued OpenID Provider Request
-- 7.4.  Self-Issued OpenID Provider Response
-- 7.5.  Self-Issued ID Token Validation
+-   7.1. Self-Issued OpenID Provider Discovery
+-   7.2. Self-Issued OpenID Provider Registration
+      <!-- - 7.2.1.  Providing Information with the "registration" Request Parameter -->
+-   7.3. Self-Issued OpenID Provider Request
+-   7.4. Self-Issued OpenID Provider Response
+-   7.5. Self-Issued ID Token Validation
 
 ## 8. Subject Identifier Types
 
-TODO
+todo
 
-- 8.1.  Pairwise Identifier Algorithm
+-   8.1. Pairwise Identifier Algorithm
 
 ## 9. Client Authentication
 
-TODO
+todo
 
-## 10.  Signatures and Encryption
+## 10. Signatures and Encryption
 
-TODO
+todo
 
-- 10.1.  Signing
-    <!-- - 10.1.1.  Rotation of Asymmetric Signing Keys -->
-- 10.2.  Encryption
-    <!-- - 10.2.1.  Rotation of Asymmetric Encryption Keys -->
+-   10.1. Signing
+      <!-- - 10.1.1.  Rotation of Asymmetric Signing Keys -->
+-   10.2. Encryption
+      <!-- - 10.2.1.  Rotation of Asymmetric Encryption Keys -->
 
 ## 11. Offline Access
 
-TODO
+todo
 
 ## 12. Using Refresh Tokens
 
-TODO
+todo
 
-- 12.1.  Refresh Request
-- 12.2.  Successful Refresh Response
-- 12.3.  Refresh Error Response
+-   12.1. Refresh Request
+-   12.2. Successful Refresh Response
+-   12.3. Refresh Error Response
 
-## 13.  Serializations
+## 13. Serializations
 
-TODO
+todo
 
-- 13.1.  Query String Serialization
-- 13.2.  Form Serialization
-- 13.3.  JSON Serialization
+-   13.1. Query String Serialization
+-   13.2. Form Serialization
+-   13.3. JSON Serialization
 
-## 14.  String Operations
+## 14. String Operations
 
-TODO
+todo
 
-## 15.  Implementation Considerations
+## 15. Implementation Considerations
 
-TODO
+todo
 
-- 15.1.  Mandatory to Implement Features for All OpenID Providers
-- 15.2.  Mandatory to Implement Features for Dynamic OpenID Providers
-- 15.3.  Discovery and Registration
-- 15.4.  Mandatory to Implement Features for Relying Parties
-- 15.5.  Implementation Notes
-    <!-- - 15.5.1.  Authorization Code Implementation Notes -->
-    <!-- - 15.5.2.  Nonce Implementation Notes -->
-    <!-- - 15.5.3.  Redirect URI Fragment Handling Implementation Notes -->
-- 15.6.  Compatibility Notes
-    <!-- - 15.6.1.  Pre-Final IETF Specifications -->
-    <!-- - 15.6.2.  Google "iss" Value -->
-- 15.7.  Related Specifications and Implementer's Guides
+-   15.1. Mandatory to Implement Features for All OpenID Providers
+-   15.2. Mandatory to Implement Features for Dynamic OpenID Providers
+-   15.3. Discovery and Registration
+-   15.4. Mandatory to Implement Features for Relying Parties
+-   15.5. Implementation Notes
+      <!-- - 15.5.1.  Authorization Code Implementation Notes -->
+      <!-- - 15.5.2.  Nonce Implementation Notes -->
+      <!-- - 15.5.3.  Redirect URI Fragment Handling Implementation Notes -->
+-   15.6. Compatibility Notes
+      <!-- - 15.6.1.  Pre-Final IETF Specifications -->
+      <!-- - 15.6.2.  Google "iss" Value -->
+-   15.7. Related Specifications and Implementer's Guides
 
 ## 16. Security Considerations
 
-TODO
+todo
 
-- 16.1. Request Disclosure
-- 16.2. Server Masquerading
-- 16.3. Token Manufacture/Modification
-- 16.4. Access Token Disclosure
-- 16.5. Server Response Disclosure
-- 16.6. Server Response Repudiation
-- 16.7. Request Repudiation
-- 16.8. Access Token Redirect
-- 16.9. Token Reuse
-- 16.10. Eavesdropping or Leaking Authorization Codes (Secondary Authenticator Capture)
-- 16.11. Token Substitution
-- 16.12. Timing Attack
-- 16.13. Other Crypto Related Attacks
-- 16.14. Signing and Encryption Order
-- 16.15. Issuer Identifier
-- 16.16. Implicit Flow Threats
-- 16.17. TLS Requirements
-- 16.18. Lifetimes of Access Tokens and Refresh Tokens
-- 16.19. Symmetric Key Entropy
-- 16.20. Need for Signed Requests
-- 16.21. Need for Encrypted Requests
+-   16.1. Request Disclosure
+-   16.2. Server Masquerading
+-   16.3. Token Manufacture/Modification
+-   16.4. Access Token Disclosure
+-   16.5. Server Response Disclosure
+-   16.6. Server Response Repudiation
+-   16.7. Request Repudiation
+-   16.8. Access Token Redirect
+-   16.9. Token Reuse
+-   16.10. Eavesdropping or Leaking Authorization Codes (Secondary Authenticator Capture)
+-   16.11. Token Substitution
+-   16.12. Timing Attack
+-   16.13. Other Crypto Related Attacks
+-   16.14. Signing and Encryption Order
+-   16.15. Issuer Identifier
+-   16.16. Implicit Flow Threats
+-   16.17. TLS Requirements
+-   16.18. Lifetimes of Access Tokens and Refresh Tokens
+-   16.19. Symmetric Key Entropy
+-   16.20. Need for Signed Requests
+-   16.21. Need for Encrypted Requests
 
 ## 17. Privacy Considerations
 
-TODO
+todo
 
-- 17.1.  Personally Identifiable Information
-- 17.2.  Data Access Monitoring
-- 17.3.  Correlation
-- 17.4.  Offline Access
+-   17.1. Personally Identifiable Information
+-   17.2. Data Access Monitoring
+-   17.3. Correlation
+-   17.4. Offline Access
 
 ## 18. IANA Considerations
 
-TODO
+todo
 
-- 18.1. JSON Web Token Claims Registration
-    <!-- - 18.1.1. Registry Contents -->
-- 18.2. OAuth Parameters Registration
-    <!-- - 18.2.1. Registry Contents -->
-- 18.3. OAuth Extensions Error Registration
-    <!-- - 18.3.1. Registry Contents -->
+-   18.1. JSON Web Token Claims Registration
+      <!-- - 18.1.1. Registry Contents -->
+-   18.2. OAuth Parameters Registration
+      <!-- - 18.2.1. Registry Contents -->
+-   18.3. OAuth Extensions Error Registration
+      <!-- - 18.3.1. Registry Contents -->
 
 ## 19. References
 
-TODO
+todo
 
-- 19.1. Normative References
-- 19.2. Informative References
+-   19.1. Normative References
+-   19.2. Informative References
 
 ## Appendix A. Authorization Examples
 
-TODO
+todo
 
-- A.1. Example using response_type=code
-- A.2. Example using response_type=id_token
-- A.3. Example using response_type=id_token token
-- A.4. Example using response_type=code id_token
-- A.5. Example using response_type=code token
-- A.6. Example using response_type=code id_token token
-- A.7. RSA Key Used in Examples
+-   A.1. Example using response_type=code
+-   A.2. Example using response_type=id_token
+-   A.3. Example using response_type=id_token token
+-   A.4. Example using response_type=code id_token
+-   A.5. Example using response_type=code token
+-   A.6. Example using response_type=code id_token token
+-   A.7. RSA Key Used in Examples
 
-## Appendix B.  Acknowledgements
+## Appendix B. Acknowledgements
 
-TODO
+todo
 
-## Appendix C.  Notices
+## Appendix C. Notices
 
-TODO
+todo
