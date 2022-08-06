@@ -42,7 +42,7 @@ Coding
     -   How to do code review
     -   How to get through a code review
 
-<!-- TODO
+<!-- todo
 
 -   [Peopleware](/book/peopleware.md)
     - Productive Projects and Teams
@@ -74,7 +74,7 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 -   [reading notes](/book/fundamentals-of-software-architecture.md)
 
-<!-- TODO
+<!-- todo
 
 [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/book/tcp-ip-illustrated-protocols-toc.md) - TOC
 
@@ -104,7 +104,7 @@ Basics
     -   [Core 1.0](/auth/oidc/core.md) functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User <!-- todo -->
     -   [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_ <!-- todo -->
 
--   [OAuth](/auth/oauth.md) - Open **Authorization**
+-   [OAuth](https://en.wikipedia.org/wiki/OAuth) - Open **Authorization**
 
     an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
 
@@ -423,7 +423,7 @@ _Batch 批处理_
 Basics
 
 -   [JavaScript](/js/js.md): aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
--   [HTML Living Standard](js/js/html-standard.md): TODO - [html.spec.whatwg.org](https://html.spec.whatwg.org)
+-   HTML Living Standard: todo - [html.spec.whatwg.org](https://html.spec.whatwg.org)
 -   [Node.js](/js/nodejs.md): a JavaScript runtime built on Chrome's V8 JavaScript engine
     -   [API Documentation](/js/nodejs-api.md): for 16.X LTS version
 -   [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
@@ -490,7 +490,8 @@ Package
 -   **superstruct**: makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
     -   other options: [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends: [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
 -   **zustand**: a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
--   todo: read & note-take
+-   **zod**: todo
+-   todo: read & note-take ( rethink: is it necessary? )
 
 TypeScript
 
@@ -760,6 +761,7 @@ Timeline
         -   不那么在意问题本身，更在意在有问题存在的情况下能取得的进展。
         -   不那么在意行动正确与否，更在意是否在行动。
         -   不那么在意所谓时机，更在意任务本身。
+    -   个人感受：很棒的书，解决了很多自己对于工作和生活的困惑以及心态问题；但说实话，不能应用到完美主义的职场中。
 
 ### Friend
 
@@ -771,7 +773,7 @@ Timeline
 -   **Jan Fan**:
     Pythonist / Tencent / Applied Mathematics PhD @ Sweden
 -   **Johnson Zhang**:
-    Sina Mobile / Didi / Meituan / BioMind @ Beijing <!-- TODO: 跳槽了，待更新 -->
+    Sina Mobile / Didi / Meituan / BioMind @ Beijing
 -   [SF Zhou](http://sf-zhou.github.io/):
     ACMer / Microsoft / SenseTime / Weixin / High-Flyer Quant @Hangzhou
 -   **Shiwey Yan**:

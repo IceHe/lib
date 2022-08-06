@@ -4,7 +4,7 @@
 
 References
 
-- 《OAuth 2 in Action》Justin Richer
+-   《OAuth 2 in Action》Justin Richer
 
 ## Preface
 
@@ -24,9 +24,9 @@ This proposed protocol took the **core aspects** of the OAuth 1.0a protocol — 
 
 ……
 
-- **RFC 6749** details how to **get a token**, while
-- **RFC 6750** details how to **use a particular type of token** (the **Bearer token**) at a **protected resource**.
-- Furthermore, the core of RFC6749 details multiple ways to get a token and provides an extension mechanism.
+-   **RFC 6749** details how to **get a token**, while
+-   **RFC 6750** details how to **use a particular type of token** (the **Bearer token**) at a **protected resource**.
+-   Furthermore, the core of RFC6749 details multiple ways to get a token and provides an extension mechanism.
 
 Instead of defining one complex method to fit different deployment models, OAuth 2.0 defines **four different grant types**, each suited to a different application type.
 
@@ -40,27 +40,27 @@ Instead of defining one complex method to fit different deployment models, OAuth
 
 -   第一部分由第 1~2 章构成，概述了 OAuth 2.0 协议，可以说 是核心阅读材料。
 
-    - 第 1 章概述了 OAuth 2.0，讲述了开发它的动机，还介绍了 OAuth 出现之前与 API 安全相关的方法。
-    - 第 2 章深入讲解授权码许可类型，这是 OAuth 2.0 核心中最常用、最典型的一种许可类型。
+    -   第 1 章概述了 OAuth 2.0，讲述了开发它的动机，还介绍了 OAuth 出现之前与 API 安全相关的方法。
+    -   第 2 章深入讲解授权码许可类型，这是 OAuth 2.0 核心中最常用、最典型的一种许可类型。
 
 -   第二部分由第 3~6 章构成，展示了如何构建一个完整的 OAuth 2.0 生态系统。
 
-    - 第 3~5 章分别展示如何构建简易但功能完整的 OAuth 2.0 客户端、受保护的资源服务器，以及授权服务器。
-    - 第 6 章讨论 OAuth 2.0 协议内部的多样性，介绍了授权码之外的其他许可类型，还讨论了原生应用中的许可类型。
+    -   第 3~5 章分别展示如何构建简易但功能完整的 OAuth 2.0 客户端、受保护的资源服务器，以及授权服务器。
+    -   第 6 章讨论 OAuth 2.0 协议内部的多样性，介绍了授权码之外的其他许可类型，还讨论了原生应用中的许可类型。
 
 -   第三部分由第 7~10 章构成，讨论了 OAuth 2.0 生态系统中各个部分可能出现的漏洞，以及如何规避。
 
-    - 第 7~9 章分别讨论 OAuth 2.0 客户端、受保护资源及授权服务器中常见的漏洞，以及如何避免这些漏洞。
-    - 第 10 章讨论 OAuth 2.0 中 bearer 令牌和授权码的弱点，针对它们的攻击，以及如何规避。
+    -   第 7~9 章分别讨论 OAuth 2.0 客户端、受保护资源及授权服务器中常见的漏洞，以及如何避免这些漏洞。
+    -   第 10 章讨论 OAuth 2.0 中 bearer 令牌和授权码的弱点，针对它们的攻击，以及如何规避。
 
 -   最后一部分由第 11~16 章构成，这一部分跳出 OAuth 2.0 协议的核心部分，探讨更外围生态系统中的标准和规范，最后还对全书进行了总结。
 
-    - 第 11 章介绍 JSON Web Token(JWT)及其所用的编码机制 JOSE，还包括令牌内省和撤回，这些主题完整覆盖了令牌的生命周期。
-    - 第 12 章介绍动态客户端注册，并讨论它对 OAuth 2.0 生态系统的影响。
-    - 第 13 章先解释为什么 OAuth 2.0 不是身份认证协议，继而介绍如何基于它使用 OpenID Connect 构建一个身份认证协议。
-    - 第 14 章介绍构建于 OAuth 2.0 之上的 User Managed Access (UMA) 协议，该协议允许用户对用户 (user-to-user) 的分享。这一章还介绍了 HEART 和 iGov 这两个 OAuth 2.0 配置 规范以及 OpenID Connect，以及这些协议在特定行业领域中是如何应用的。
-    - 第 15 章指出 OAuth 2.0 核心规范中的常规 bearer 令牌并不能满足所有需求，并描述了 Proof of Possession (PoP) 令牌及 TLS 令牌绑定如何与 OAuth 2.0 协同工作。
-    - 第 16 章对全书进行总结，并指导读者如何进一步应用这些知识，还介绍了相关代码库以及范围更广的社区。
+    -   第 11 章介绍 JSON Web Token(JWT)及其所用的编码机制 JOSE，还包括令牌内省和撤回，这些主题完整覆盖了令牌的生命周期。
+    -   第 12 章介绍动态客户端注册，并讨论它对 OAuth 2.0 生态系统的影响。
+    -   第 13 章先解释为什么 OAuth 2.0 不是身份认证协议，继而介绍如何基于它使用 OpenID Connect 构建一个身份认证协议。
+    -   第 14 章介绍构建于 OAuth 2.0 之上的 User Managed Access (UMA) 协议，该协议允许用户对用户 (user-to-user) 的分享。这一章还介绍了 HEART 和 iGov 这两个 OAuth 2.0 配置 规范以及 OpenID Connect，以及这些协议在特定行业领域中是如何应用的。
+    -   第 15 章指出 OAuth 2.0 核心规范中的常规 bearer 令牌并不能满足所有需求，并描述了 Proof of Possession (PoP) 令牌及 TLS 令牌绑定如何与 OAuth 2.0 协同工作。
+    -   第 16 章对全书进行总结，并指导读者如何进一步应用这些知识，还介绍了相关代码库以及范围更广的社区。
 
 ## Table of Contents
 
@@ -68,31 +68,31 @@ Instead of defining one complex method to fit different deployment models, OAuth
 
 Part 1 : First steps
 
-- 1. What is OAuth 2.0 and why should you care?
-- 2. The OAuth dance
+-   1. What is OAuth 2.0 and why should you care?
+-   2. The OAuth dance
 
 Part 2 : Building an OAuth 2 environment
 
-- 3. Building a simple OAuth client
-- 4. Building a simple OAuth protected resource
-- 5. Building a simple OAuth authorization server
-- 6. OAuth 2.0 in the real world
+-   3. Building a simple OAuth client
+-   4. Building a simple OAuth protected resource
+-   5. Building a simple OAuth authorization server
+-   6. OAuth 2.0 in the real world
 
 Part 3 : OAuth 2 implementation and vulnerabilities
 
-- 7. Common client vulnerabilities
-- 8. Common protected resources vulnerabilities
-- 9. Common authorization server vulnerabilities
-- 10. Common OAuth token vulnerabilities 168
+-   7. Common client vulnerabilities
+-   8. Common protected resources vulnerabilities
+-   9. Common authorization server vulnerabilities
+-   10. Common OAuth token vulnerabilities 168
 
 Part 4 : Taking OAuth further
 
-- 11. OAuth tokens
-- 12. Dynamic client registration
-- 13. User authentication with OAuth 2.0
-- 14. Protocols and profiles using OAuth 2.0
-- 15. Beyond bearer tokens
-- 16. Summary and conclusions
+-   11. OAuth tokens
+-   12. Dynamic client registration
+-   13. User authentication with OAuth 2.0
+-   14. Protocols and profiles using OAuth 2.0
+-   15. Beyond bearer tokens
+-   16. Summary and conclusions
 
 ### Detailed
 
@@ -100,222 +100,222 @@ Part 4 : Taking OAuth further
 
 1\. What is OAuth 2.0 and why should you care?
 
-- 1.1 What is OAuth 2.0?
-- 1.2 The bad old days: credential sharing (and credential theft)
-- 1.3 Delegating access
-    - Beyond HTTP Basic and the password-sharing antipattern
-    - Authorization delegation: why it matters and how it's used
-    - User-driven security and user choice
-- 1.4 OAuth 2.0: the good, the bad, and the ugly
-- 1.5 What OAuth 2.0 isn't
+-   1.1 What is OAuth 2.0?
+-   1.2 The bad old days: credential sharing (and credential theft)
+-   1.3 Delegating access
+    -   Beyond HTTP Basic and the password-sharing antipattern
+    -   Authorization delegation: why it matters and how it's used
+    -   User-driven security and user choice
+-   1.4 OAuth 2.0: the good, the bad, and the ugly
+-   1.5 What OAuth 2.0 isn't
 
 2\. The OAuth dance
 
-- 2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
-- 2.2 Following an OAuth 2.0 authorization grant in detail
-- 2.3 OAuth's actors:
-    - **clients**,
-    - **authorization servers**,
-    - **resource owners**, and
-    - **protected resources**
-- 2.4 OAuth's components:
-    - **Access tokens**
-    - **Scopes**
-    - **Refresh tokens**
-    - **Authorization grants**
-- 2.5 Interactions between OAuth's actors and components: back channel, front channel, and endpoints
-    - Back-channel communication
-    - Front-channel communication
+-   2.1 Overview of the OAuth 2.0 protocol: getting and using tokens
+-   2.2 Following an OAuth 2.0 authorization grant in detail
+-   2.3 OAuth's actors:
+    -   **clients**,
+    -   **authorization servers**,
+    -   **resource owners**, and
+    -   **protected resources**
+-   2.4 OAuth's components:
+    -   **Access tokens**
+    -   **Scopes**
+    -   **Refresh tokens**
+    -   **Authorization grants**
+-   2.5 Interactions between OAuth's actors and components: back channel, front channel, and endpoints
+    -   Back-channel communication
+    -   Front-channel communication
 
 **Part 2 : Building an OAuth 2 environment**
 
 3\. Building a simple OAuth client
 
-- 3.1 Register an OAuth client with an authorization server
-- 3.2 Get a token using the authorization code grant type
-    - Sending the authorization request
-    - Processing the authorization response
-    - Adding cross-site protection with the **state** parameter
-- 3.3 Use the token with a protected resource
-- 3.4 Refresh the access token
+-   3.1 Register an OAuth client with an authorization server
+-   3.2 Get a token using the authorization code grant type
+    -   Sending the authorization request
+    -   Processing the authorization response
+    -   Adding cross-site protection with the **state** parameter
+-   3.3 Use the token with a protected resource
+-   3.4 Refresh the access token
 
 4\. Building a simple OAuth protected resource
 
-- 4.1 Parsing the OAuth token from the HTTP request
-- 4.2 Validating the token against our data store
-- 4.3 Serving content based on the token
-    - Different scopes for different actions
-    - Different scopes for different data results
-    - Different users for different data results
-    - Additional access controls
+-   4.1 Parsing the OAuth token from the HTTP request
+-   4.2 Validating the token against our data store
+-   4.3 Serving content based on the token
+    -   Different scopes for different actions
+    -   Different scopes for different data results
+    -   Different users for different data results
+    -   Additional access controls
 
 5\. Building a simple OAuth authorization server
 
-- 5.1 Managing OAuth client registrations
-- 5.2 Authorizing a client
-    - The authorization endpoint
-    - Authorizing the client
-- 5.3 Issuing a token
-    - Authenticating the client
-    - Processing the authorization grant request
-- 5.4 Adding refresh token support
-- 5.5 Adding scope support
+-   5.1 Managing OAuth client registrations
+-   5.2 Authorizing a client
+    -   The authorization endpoint
+    -   Authorizing the client
+-   5.3 Issuing a token
+    -   Authenticating the client
+    -   Processing the authorization grant request
+-   5.4 Adding refresh token support
+-   5.5 Adding scope support
 
 6\. OAuth 2.0 in the real world
 
-- 6.1 Authorization **grant types**
-    - Implicit grant type
-    - Client credentials grant type
-    - Resource owner credentials grant type
-    - Assertion grant types
-    - Choosing the appropriate grant type
-- 6.2 Client deployments
-    - Web applications
-    - Browser applications
-    - Native applications
-    - Handling secrets
+-   6.1 Authorization **grant types**
+    -   Implicit grant type
+    -   Client credentials grant type
+    -   Resource owner credentials grant type
+    -   Assertion grant types
+    -   Choosing the appropriate grant type
+-   6.2 Client deployments
+    -   Web applications
+    -   Browser applications
+    -   Native applications
+    -   Handling secrets
 
 **Part 3 : OAuth 2 implementation and vulnerabilities**
 
 7\. Common client vulnerabilities
 
-- 7.1 General client security
-- 7.2 **CSRF** attack against the client
-- 7.3 Theft of client credentials
-- 7.4 Registration of the redirect URI
-    - Stealing the authorization code through the referrer
-    - Stealing the token through an open redirector
-- 7.5 Theft of authorization codes
-- 7.6 Theft of tokens
-- 7.7 Native applications best practices
+-   7.1 General client security
+-   7.2 **CSRF** attack against the client
+-   7.3 Theft of client credentials
+-   7.4 Registration of the redirect URI
+    -   Stealing the authorization code through the referrer
+    -   Stealing the token through an open redirector
+-   7.5 Theft of authorization codes
+-   7.6 Theft of tokens
+-   7.7 Native applications best practices
 
 8\. Common protected resources vulnerabilities
 
-- 8.1 How are protected resources vulnerable?
-- 8.2 Design of a protected resource endpoint
-    - How to protect a resource endpoint
-    - Adding implicit grant support
-- 8.3 Token replays
+-   8.1 How are protected resources vulnerable?
+-   8.2 Design of a protected resource endpoint
+    -   How to protect a resource endpoint
+    -   Adding implicit grant support
+-   8.3 Token replays
 
 9\. Common authorization server vulnerabilities
 
-- 9.1 General security
-- 9.2 **Session hijacking**
-- 9.3 Redirect URI manipulation
-- 9.4 Client impersonation
-- 9.5 Open redirector
+-   9.1 General security
+-   9.2 **Session hijacking**
+-   9.3 Redirect URI manipulation
+-   9.4 Client impersonation
+-   9.5 Open redirector
 
 10\. Common OAuth token vulnerabilities
 
-- 10.1 What is a **bearer token**?
-- 10.2 Risks and considerations of using bearer tokens
-- 10.3 How to protect bearer tokens
-    - At the client
-    - At the authorization server
-    - At the protected resource
-- 10.4 Authorization code
-    - **Proof Key for Code Exchange (PKCE)**
+-   10.1 What is a **bearer token**?
+-   10.2 Risks and considerations of using bearer tokens
+-   10.3 How to protect bearer tokens
+    -   At the client
+    -   At the authorization server
+    -   At the protected resource
+-   10.4 Authorization code
+    -   **Proof Key for Code Exchange (PKCE)**
 
 **Part 4 : Taking OAuth further**
 
 11\. OAuth tokens
 
-- 11.1 What are OAuth tokens?
-- 11.2 Structured tokens: **JSON Web Token (JWT)**
-    - The structure of a JWT
-    - JWT **claims**
-    - Implementing JWT in our servers
-    - User authentication with OAuth 2.0
-- 11.3 Cryptographic protection of tokens: **JSON Object Signing and Encryption (JOSE)**
-    - **Symmetric** signatures using HS256
-    - **Asymmetric** signatures using RS256
-    - Other token protection options
-- 11.4 Looking up a token's information online: token introspection
-    - The introspection protocol
-    - Building the introspection endpoint
-    - **Introspecting**<!-- 内省? --> a token
-    - Combining introspection and JWT
-- 11.5 Managing the token **lifecycle** with token **revocation**
-    - The token revocation protocol
-    - Implementing the revocation endpoint
-    - Revoking a token
-- 11.6 The OAuth token lifecycle
+-   11.1 What are OAuth tokens?
+-   11.2 Structured tokens: **JSON Web Token (JWT)**
+    -   The structure of a JWT
+    -   JWT **claims**
+    -   Implementing JWT in our servers
+    -   User authentication with OAuth 2.0
+-   11.3 Cryptographic protection of tokens: **JSON Object Signing and Encryption (JOSE)**
+    -   **Symmetric** signatures using HS256
+    -   **Asymmetric** signatures using RS256
+    -   Other token protection options
+-   11.4 Looking up a token's information online: token introspection
+    -   The introspection protocol
+    -   Building the introspection endpoint
+    -   **Introspecting**<!-- 内省? --> a token
+    -   Combining introspection and JWT
+-   11.5 Managing the token **lifecycle** with token **revocation**
+    -   The token revocation protocol
+    -   Implementing the revocation endpoint
+    -   Revoking a token
+-   11.6 The OAuth token lifecycle
 
 12\. Dynamic client registration
 
-- 12.1 How the server knows about the client
-- 12.2 **Registering clients** at runtime
-    - How the protocol works
-    - Why use dynamic registration?
-    - Implementing the registration endpoint
-    - Having a client register itself
-- 12.3 **Client metadata**
-    - Table of core client metadata field names
-    - Internationalization of human-readable client metadata
-    - Software statements
-- 12.4 Managing dynamically registered clients
-    - How the management protocol works
-    - Implementing the dynamic client registration management API
+-   12.1 How the server knows about the client
+-   12.2 **Registering clients** at runtime
+    -   How the protocol works
+    -   Why use dynamic registration?
+    -   Implementing the registration endpoint
+    -   Having a client register itself
+-   12.3 **Client metadata**
+    -   Table of core client metadata field names
+    -   Internationalization of human-readable client metadata
+    -   Software statements
+-   12.4 Managing dynamically registered clients
+    -   How the management protocol works
+    -   Implementing the dynamic client registration management API
 
 13\. User authentication with OAuth 2.0
 
-- 13.1 Why OAuth 2.0 is not an authentication protocol
-    - Authentication vs. authorization : a delicious metaphor<!-- 隐喻 -->
-- 13.2 Mapping OAuth to an authentication protocol
-- 13.3 How OAuth 2.0 uses authentication
-- 13.4 Common pitfalls of using OAuth 2.0 for authentication
-    - Access tokens as proof of authentication
-    - Access of protected API as proof of authentication
-    - Injection of access tokens
-    - Lack of **audience** restriction
-    - Injection of invalid user information
-    - Different protocols for every potential identity provider
-- 13.5 **OpenID Connect**: a standard for authentication and identity on top of OAuth 2.0
-    - **ID tokens**
-    - The **UserInfo** endpoint
-    - **Dynamic server discovery** and client registration
-    - Compatibility with OAuth 2.0
-    - Advanced capabilities
-- 13.6 Building a simple OpenID Connect system
-    - Generating the ID token
-    - Creating the UserInfo endpoint
-    - Parsing the ID token
-    - Fetching the UserInfo
+-   13.1 Why OAuth 2.0 is not an authentication protocol
+    -   Authentication vs. authorization : a delicious metaphor<!-- 隐喻 -->
+-   13.2 Mapping OAuth to an authentication protocol
+-   13.3 How OAuth 2.0 uses authentication
+-   13.4 Common pitfalls of using OAuth 2.0 for authentication
+    -   Access tokens as proof of authentication
+    -   Access of protected API as proof of authentication
+    -   Injection of access tokens
+    -   Lack of **audience** restriction
+    -   Injection of invalid user information
+    -   Different protocols for every potential identity provider
+-   13.5 **OpenID Connect**: a standard for authentication and identity on top of OAuth 2.0
+    -   **ID tokens**
+    -   The **UserInfo** endpoint
+    -   **Dynamic server discovery** and client registration
+    -   Compatibility with OAuth 2.0
+    -   Advanced capabilities
+-   13.6 Building a simple OpenID Connect system
+    -   Generating the ID token
+    -   Creating the UserInfo endpoint
+    -   Parsing the ID token
+    -   Fetching the UserInfo
 
 14\. Protocols and profiles using OAuth 2.0
 
-- 14.1 User Managed Access (UMA)
-    - Why UMA matters
-    - How the UMA protocol works
-- 14.2 Health Relationship Trust (HEART)
-    - Why HEART matters to you
-    - The HEART specifications
-    - HEART mechanical profiles
-    - HEART semantic profiles
-- 14.3 International Government Assurance (iGov)
-    - Why iGov matters to you
-    - The future of iGov
+-   14.1 User Managed Access (UMA)
+    -   Why UMA matters
+    -   How the UMA protocol works
+-   14.2 Health Relationship Trust (HEART)
+    -   Why HEART matters to you
+    -   The HEART specifications
+    -   HEART mechanical profiles
+    -   HEART semantic profiles
+-   14.3 International Government Assurance (iGov)
+    -   Why iGov matters to you
+    -   The future of iGov
 
 15\. Beyond bearer tokens
 
-- 15.1 Why do we need more than bearer tokens?
-- 15.2 **Proof of Possession (PoP)** tokens
-    - Requesting and issuing a PoP token
-    - Using a PoP token at a protected resource
-    - Validating a PoP token request
-- 15.3 Implementing PoP token support
-    - Issuing the token and keys
-    - Creating the signed header and sending it to the resource
-    - Parsing the header, introspecting the token, and validating the signature
-- 15.4 TLS token binding
+-   15.1 Why do we need more than bearer tokens?
+-   15.2 **Proof of Possession (PoP)** tokens
+    -   Requesting and issuing a PoP token
+    -   Using a PoP token at a protected resource
+    -   Validating a PoP token request
+-   15.3 Implementing PoP token support
+    -   Issuing the token and keys
+    -   Creating the signed header and sending it to the resource
+    -   Parsing the header, introspecting the token, and validating the signature
+-   15.4 TLS token binding
 
 16\. Summary and conclusions
 
-- 16.1 The right tool
-- 16.2 Making key decisions
-- 16.3 The wider ecosystem
-- 16.4 The community
-- 16.5 The future
+-   16.1 The right tool
+-   16.2 Making key decisions
+-   16.3 The wider ecosystem
+-   16.4 The community
+-   16.5 The future
 
 # Part 1 : First Steps
 
@@ -349,8 +349,8 @@ These are the components that we have so far:
 
 -   The client is the piece of software that accesses the protected resource on behalf of the resource owner.
 
-    - If you're a web developer, the name "client" might make you think this is the web browser, but that's not how the term is used here.
-    - If you're a business application developer, you might think of the "client" as the person who's paying for your services, but that's not what we're talking about, either.
+    -   If you're a web developer, the name "client" might make you think this is the web browser, but that's not how the term is used here.
+    -   If you're a business application developer, you might think of the "client" as the person who's paying for your services, but that's not what we're talking about, either.
 
     **In OAuth, the client is whatever software consumes the API that makes up the protected resource.**
     ……
@@ -424,6 +424,7 @@ the client is unable to access anything on its own and instead must be authorize
 _This is true even though most OAuth clients have a means of authenticating themselves to the authorization server._
 
 <!-- 妙处 -->
+
 _The user generally never has to see or deal with the access token directly._
 _Instead of requiring the user to generate tokens and paste them into clients, the OAuth protocol facilitates this process and makes it relatively simple for the client to request a token and the user to authorize the client._
 _Clients can then manage the tokens, and users can manage the client applications._
@@ -433,8 +434,6 @@ _Clients can then manage the tokens, and users can manage the client application
 ![oauth-authorization-server-automates-service-specific-password-process.png](_image/oauth-authorization-server-automates-service-specific-password-process.png)
 
 ![oauth-process-at-a-high-level.png](_image/oauth-process-at-a-high-level.png)
-
-<!-- TODO : 考虑自己用 plantuml 画一个完整的 OAuth 工作过程 -->
 
 #### 1.3.1. Beyond HTTP Basic and the password-sharing antipattern
 
@@ -487,39 +486,40 @@ Trust On First Use.
 > Without the "Trust" portion of TOFU, users would have no say in how these delegations are made.
 > **Without the "On First Use" portion of TOFU, users would quickly become numb to an unending bar- rage of access requests.**
 > This kind of security system fatigue breeds<!-- 引起 --> workarounds that are usually more insecure than the practices that the security system is attempting to address.
+>
 > <!-- 这种由安全系统造成的疲劳感会引起工作懈怠, 遮蔽安全系统原本要解决的问题更危险. -->
 
 ……
 
 Whitelist
 
-- Contains
-    - Internal parties
-    - Known business partners
-    - Customer organizations
-    - Trust frameworks
-- How to deal with
-    - Centralized control
-    - Traditional policy management
+-   Contains
+    -   Internal parties
+    -   Known business partners
+    -   Customer organizations
+    -   Trust frameworks
+-   How to deal with
+    -   Centralized control
+    -   Traditional policy management
 
 Graylist
 
-- Contains
-    - Unknown entities
-    - Trust On First Use
-- How to deal with
-    - End user decisions
-    - Extensive auditing and logging
-    - Rules on when to move to the white or black lists
+-   Contains
+    -   Unknown entities
+    -   Trust On First Use
+-   How to deal with
+    -   End user decisions
+    -   Extensive auditing and logging
+    -   Rules on when to move to the white or black lists
 
 Blacklist
 
-- Contains
-    - Known bad parties
-    - Attack sites
-- How to deal with
-    - Centralized control
-    - Traditional policy management
+-   Contains
+    -   Known bad parties
+    -   Attack sites
+-   How to deal with
+    -   Centralized control
+    -   Traditional policy management
 
 ### 1.4 OAuth 2.0: the good, the bad, and the ugly
 
@@ -550,7 +550,7 @@ In order for the resource owner to authorize a different user, more than OAuth i
 This kind of delegation is not an uncommon use case, and the User Managed Access protocol uses OAuth to create a system capable of user-to-user delegation.
 
 **OAuth doesn't define authorization-processing mechanisms.**
-OAuth provides a means to convey the fact that an authorization delegation has taken place, but it doesn't define the contents of that authorization.  ……
+OAuth provides a means to convey the fact that an authorization delegation has taken place, but it doesn't define the contents of that authorization. ……
 
 **OAuth doesn't define a token format.** ……
 Desire for interoperability at this level has led to the development of the **JSON Web Token (JWT)** format and the Token Introspection protocol. ……
@@ -566,10 +566,10 @@ As discussed previously, the specification is split into multiple definitions an
 
 OAuth is a widely used security standard that enables secure access to protected resources in a fashion that's friendly to web APIs.
 
-- OAuth is about **how to get a token** and **how to use a token**.
-- OAuth is a **delegation protocol that provides authorization across systems**.
-- OAuth **replaces the password-sharing antipattern with a delegation protocol** _that's simultaneously more secure and more usable._
-- OAuth is focused on solving a small set of problems and solving them well, which makes it a suitable component within larger security systems.
+-   OAuth is about **how to get a token** and **how to use a token**.
+-   OAuth is a **delegation protocol that provides authorization across systems**.
+-   OAuth **replaces the password-sharing antipattern with a delegation protocol** _that's simultaneously more secure and more usable._
+-   OAuth is focused on solving a small set of problems and solving them well, which makes it a suitable component within larger security systems.
 
 ## 2. The OAuth dance
 
@@ -583,8 +583,7 @@ OAuth is a widely used security standard that enables secure access to protected
 
 ![authorization-code-grant-in-detail.png](_image/authorization-code-grant-in-detail.png)
 
-<!-- TODO : 考虑自己用 plantuml 画一个完整的 授权码许可 的详细过程 -->
-<!-- The authoriation code grant in detail -->
+<!-- The authorization code grant in detail -->
 
 ……
 
@@ -701,10 +700,10 @@ Authorization: Bearer 987tghjkiu6trfghjuytrghj
 
 ### 2.3 OAuth's actors
 
-- **clients**,
-- **authorization servers**,
-- **resource owners**, and
-- **protected resources**
+-   **clients**,
+-   **authorization servers**,
+-   **resource owners**, and
+-   **protected resources**
 
 ### 2.4 OAuth's components
 
@@ -723,12 +722,12 @@ This approach **allows the client to be much simpler than** it would otherwise n
 
 ( e.g. ) …… The photo-storage service's API defines several different scopes for accessing the photos :
 
-- read-photo,
-- read-metadata,
-- update-photo,
-- update-metadata,
-- create, _and_
-- delete.
+-   read-photo,
+-   read-metadata,
+-   update-photo,
+-   update-metadata,
+-   create, _and_
+-   delete.
 
 #### Refresh tokens
 
@@ -749,8 +748,8 @@ This lets a smart client **follow the security principle of least privilege** wi
 
 ### 2.5 Interactions between OAuth's actors and components: back channel, front channel, and endpoints
 
-- Back-channel communication
-- Front-channel communication
+-   Back-channel communication
+-   Front-channel communication
 
 ![back-channel-communication.png](_image/back-channel-communication.png)
 
@@ -764,18 +763,18 @@ This lets a smart client **follow the security principle of least privilege** wi
 
 This chapter covers
 
-- _Registering an OAuth client with an authorization server and configuring the client to talk to the authorization server_
-- _Requesting authorization from a resource owner using the authorization code grant type_
-- _Trading the authorization code for a token_
-- _Using the access token as a bearer token with a protected resource_
-- _Refreshing an access token_
+-   _Registering an OAuth client with an authorization server and configuring the client to talk to the authorization server_
+-   _Requesting authorization from a resource owner using the authorization code grant type_
+-   _Trading the authorization code for a token_
+-   _Using the access token as a bearer token with a protected resource_
+-   _Refreshing an access token_
 
 ### 3.1 Register an OAuth client with an authorization server
 
 _First things first : the OAuth client and the authorization server need to know a few things about each other before they can talk. ……_
 _An OAuth client is identified by a special string known as the client identifier, referred to in our exercises and in several parts of the OAuth protocol with the name `client_id`._
 **The client identifier needs to be unique for each client at a given authorization server**, and is therefore almost always assigned by the authorization server to the client.
-**This assignment could happen through a developer portal<!-- 开发者门户 -->, dynamic client registration**, or through some other process.  ……
+**This assignment could happen through a developer portal<!-- 开发者门户 -->, dynamic client registration**, or through some other process. ……
 
 ……
 
@@ -789,8 +788,8 @@ _In this exercise,_ our client needs to know the locations of both the **authori
 
 ```js
 var authServer = {
-   authorizationEndpoint: 'http://localhost:9001/authorize',
-   tokenEndpoint: 'http://localhost:9001/token'
+    authorizationEndpoint: "http://localhost:9001/authorize",
+    tokenEndpoint: "http://localhost:9001/token",
 };
 ```
 
@@ -813,9 +812,10 @@ Now we need to take this authorization code and send it directly to the token en
 _We'll include the code as a form parameter in the request body._
 
 ```js
-var form_data = qs.stringify({ grant_type: 'authorization_code',
+var form_data = qs.stringify({
+    grant_type: "authorization_code",
     code: code,
-    redirect_uri: client.redirect_uris[0]
+    redirect_uri: client.redirect_uris[0],
 });
 ```
 
@@ -830,11 +830,10 @@ The **`Authorization` header in HTTP Basic is a base64 encoded string made by co
 
 ```js
 var headers = {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'Authorization': 'Basic ' + encodeClientCredentials(
-        client.client_id,
-        client.client_secret
-    )
+    "Content-Type": "application/x-www-form-urlencoded",
+    Authorization:
+        "Basic " +
+        encodeClientCredentials(client.client_id, client.client_secret),
 };
 ```
 
@@ -873,15 +872,15 @@ For our client, we'll **send the access token in the Authorization HTTP header**
 > The kind of OAuth access token that we have is known as a **bearer token**, which means that **whoever holds the token can present it to the protected resource**.
 > The OAuth Bearer Token Usage specification actually gives three ways to send the token value:
 >
-> - As an HTTP Authorization header
-> - As a form-encoded request body parameter
-> - As a URL-encoded query parameter
+> -   As an HTTP Authorization header
+> -   As a form-encoded request body parameter
+> -   As a URL-encoded query parameter
 >
 > The Authorization header is recommended whenever possible because of limitations in the other two forms.
 >
-> - **When using the query parameter, the value of the access token can possibly inadvertently leak into server-side logs, because it's part of the URL request.**
-> - Using the form-encoded parameter limits the input type of the protected resource to using form-encoded parameters and the POST method.
->   If the API is already set up to do that, this can be fine as it doesn't experience the same security limitations that the query parameter does.
+> -   **When using the query parameter, the value of the access token can possibly inadvertently leak into server-side logs, because it's part of the URL request.**
+> -   Using the form-encoded parameter limits the input type of the protected resource to using form-encoded parameters and the POST method.
+>     If the API is already set up to do that, this can be fine as it doesn't experience the same security limitations that the query parameter does.
 >
 > The Authorization header provides the maximum flexibility and security of all three methods, but it has the downside of being more difficult for some clients to use.
 > A robust client or server library will provide all three methods where appropriate, _and in fact our demonstration protected resource will accept an access token in any of the three locations._
@@ -911,17 +910,18 @@ We also include our refresh token as one of the parameters.
 
 ```js
 var form_data = qs.stringify({
-   grant_type: 'refresh_token',
-   refresh_token: refresh_token
+    grant_type: "refresh_token",
+    refresh_token: refresh_token,
 });
 var headers = {
-   'Content-Type': 'application/x-www-form-urlencoded',
-   'Authorization': 'Basic ' + encodeClientCredentials(client.client_id,
-   client.client_secret)
+    "Content-Type": "application/x-www-form-urlencoded",
+    Authorization:
+        "Basic " +
+        encodeClientCredentials(client.client_id, client.client_secret),
 };
-var tokRes = request('POST', authServer.tokenEndpoint, {
-       body: form_data,
-       headers: headers
+var tokRes = request("POST", authServer.tokenEndpoint, {
+    body: form_data,
+    headers: headers,
 });
 ```
 
@@ -943,9 +943,7 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 > Alternatively, or even additionally, **the tokens themselves can contain information that the protected resource can parse and understand directly**.
 > One such structure is a **JSON Web Token, or JWT, which carries a set of claims in a cryptographically protected JSON object**. ……
 >
-> _You may also wonder whether you have to store your tokens as raw values in the database, as our example setup does._
-> _Although this is a simple and common approach, there are alternatives._
-> _For example,_ you can store a hash of the token value instead of the value itself, similar to how user passwords are usually stored.
+> _You may also wonder whether you have to store your tokens as raw values in the database, as our example setup does._ > _Although this is a simple and common approach, there are alternatives._ > _For example,_ you can store a hash of the token value instead of the value itself, similar to how user passwords are usually stored.
 > When the token needs to be looked up, its value is hashed again and compared against the contents of the database.
 > You could instead add a unique identifier inside your token and sign it with the server's key, storing only the unique identifier in the database.
 > When the token must be looked up, the resource server can validate the signature, parse the token to find the identifier, and look up the identifier in the database to find the token's information.
@@ -956,10 +954,10 @@ var tokRes = request('POST', authServer.tokenEndpoint, {
 
 ……
 
-- Different scopes for different actions
-- Different scopes for different data results
-- Different users for different data results
-- Additional access controls
+-   Different scopes for different actions
+-   Different scopes for different data results
+-   Different users for different data results
+-   Additional access controls
 
 ……
 
@@ -1043,8 +1041,8 @@ Similarly, our **client can optionally have a set of scopes associated with it**
 But because `scope` is an optional parameter, we need to be a little bit careful in how we handle it, in case a value wasn't passed in.
 
 ```js
-var rscope = req.query.scope ? req.query.scope.split(' ') : undefined;
-var cscope = client.scope ? client.scope.split(' ') : undefined;
+var rscope = req.query.scope ? req.query.scope.split(" ") : undefined;
+var cscope = client.scope ? client.scope.split(" ") : undefined;
 ```
 
 ……
@@ -1222,6 +1220,7 @@ Listening for the response on the front channel is equally simple as the applica
 Back channel communication can occur by making an HTTP call directly from the web server running the application.
 Because of this flexibility, web applications can easily use the authorization code, client credentials, or assertions flows most effectively.
 Since the fragment component of the request URI isn't usually passed to the server by the browser, the implicit flow doesn't work for web applications in most circumstances.
+
 <!-- icehe : 最后这一句确实不太理解 2021/12/29 -->
 
 ……
@@ -1256,9 +1255,9 @@ These applications can easily make use of the back channel by making a direct HT
 **To listen for front-channel responses, the native application needs to be able to serve a URI that the browser can be redirected to by the authorization server.**
 This usually takes one of the following forms:
 
-- An embedded web server running on localhost
-- A remote web server with some type of out-of-band push notification capability to the application
-- A **custom URI scheme** such as `com.oauthinaction.mynativeapp:/` that is **registered with the operating system such that the application is called when URIs with that scheme are accessed**
+-   An embedded web server running on localhost
+-   A remote web server with some type of out-of-band push notification capability to the application
+-   A **custom URI scheme** such as `com.oauthinaction.mynativeapp:/` that is **registered with the operating system such that the application is called when URIs with that scheme are accessed**
 
 ……
 
@@ -1429,7 +1428,7 @@ However, let's have a closer look at the code of attackerpage.html:
 ```html
 <html>
     <h1>Authorization in progress</h1>
-    <img src="https://attackersite.com/">
+    <img src="https://attackersite.com/" />
 </html>
 ```
 
@@ -1615,16 +1614,16 @@ _注入 `<script>` 的 XSS 漏洞, 详见原文, 此处略_
 
 How to protect: ( keywords )
 
-- CSP - Content Security Policy
-- Escape / URI-Encode all untrusted data
-- Use correct `Content-Type`
-    - MUST contains `Content-Type`
-    - Better not `Content-Type: text/html`
-        - e.g. `Content-Type: application/json`
-    - ……
-- `X-XSS-Options: nosniff`
-- `X-XSS-Protection: 1; mode=block`
-- ……
+-   CSP - Content Security Policy
+-   Escape / URI-Encode all untrusted data
+-   Use correct `Content-Type`
+    -   MUST contains `Content-Type`
+    -   Better not `Content-Type: text/html`
+        -   e.g. `Content-Type: application/json`
+    -   ……
+-   `X-XSS-Options: nosniff`
+-   `X-XSS-Protection: 1; mode=block`
+-   ……
 
 _主要是 HTTP 安全的问题, 详见原文, 此处略_
 
@@ -1643,7 +1642,7 @@ To solve this, we get a solution straight from the W3C specification: **cross-or
 Adding CORS support in Node.js is extremely simple, and it's becoming commonly available in many languages and platforms. e.g.
 
 ```js
-var cors = require('cors');
+var cors = require("cors");
 ```
 
 ……
@@ -1701,10 +1700,10 @@ _Solution on authorization server:_`
 
 ```js
 if (code.request.redirect_uri) {
-  if (code.request.redirect_uri != req.body.redirect_uri) {
-    res.status(400).json({error: 'invalid_grant'});
-    return;
-  }
+    if (code.request.redirect_uri != req.body.redirect_uri) {
+        res.status(400).json({ error: "invalid_grant" });
+        return;
+    }
 }
 ```
 
@@ -1724,8 +1723,8 @@ In order to understand the issue we need to take a closer look at section 4.1.2.
 
 Let's assume that an attacker does the following :
 
-- Registers a new client to the `https://victim.com` authorization server.
-- Registers a `redirect_uri` such as `https://attacker.com`.
+-   Registers a new client to the `https://victim.com` authorization server.
+-   Registers a `redirect_uri` such as `https://attacker.com`.
 
 Then the attacker can craft a special URI of the form
 
@@ -1776,8 +1775,8 @@ One of the mitigations included in the draft is to **respond with an HTTP 400 (B
 An HTTP 400 (Bad Request) status code is returned instead of the 30x redirect.
 Other proposed mitigations include the following:
 
-- **Perform a redirect to an intermediate URI under the control of the authorization server to clear Referer information in the browser** that may contain security token information.
-- **Append `#` to the error redirect URI** (this **prevents the browser from reattaching the fragment from a previous URI to the new location URI**).
+-   **Perform a redirect to an intermediate URI under the control of the authorization server to clear Referer information in the browser** that may contain security token information.
+-   **Append `#` to the error redirect URI** (this **prevents the browser from reattaching the fragment from a previous URI to the new location URI**).
 
 ## 10. Common OAuth token vulnerab ilities
 
@@ -1791,9 +1790,9 @@ As long as you've got a bus token, you can ride the bus.
 
 From a technological standpoint, you can think about bearer tokens in much the same way as you do browser cookies. Both share some basic properties:
 
-- They use plaintext strings.
-- **No secret or signature is involved.**
-- **TLS is the basis of the security model.**
+-   They use plaintext strings.
+-   **No secret or signature is involved.**
+-   **TLS is the basis of the security model.**
 
 **The original OAuth 1.0 protocol called for tokens that also had an associated secret, which was used to calculate a signature across the request.**
 **This signature was then verified by the protected resource alongside the token value itself, proving possession of both the token and its associated secret.**
@@ -1856,8 +1855,8 @@ What is SSL/TLS then?
 **Transport Layer Security (TLS)**, formerly known as Secure Sockets Layer (SSL), is a cryptographic protocol designed to provide communications security over a computer network.
 The protocol protects transmissions between two parties directly connected to each other, and the encryption process has the following aspects:
 
-- The connection is private because **symmetric cryptography is used to encrypt the data transmitted**.
-- The connection is reliable because each message transmitted includes a **message integrity check using a message authentication code**.
+-   The connection is private because **symmetric cryptography is used to encrypt the data transmitted**.
+-   The connection is reliable because each message transmitted includes a **message integrity check using a message authentication code**.
 
 This is **achieved typically by using certificates with public key cryptography**;
 in particular, on the public internet, the application initiating the connection request verifies the certificate of the application receiving the connection request.
@@ -2014,7 +2013,7 @@ These attributes include those that affect the functionality of the underlying p
 
 The core dynamic client registration protocol defines a set of common client metadata names, and this set can be extended.
 For example, the **OpenID Connect Dynamic Client Registration specification**, which is based on and compatible with OAuth Dynamic Client Registration, _extends this list with a few more of its own, specific to the OpenID Connect protocol._
-_We've included **a few OpenID Connect specific extensions** in  the following table that have general applicability to OAuth clients._
+_We've included **a few OpenID Connect specific extensions** in the following table that have general applicability to OAuth clients._
 
 -   `redirect_uris`
 
@@ -2074,8 +2073,8 @@ The authorization server should use the most specific entry possible in interact
 
 ### 12.4 Managing dynamically registered clients
 
-- 12.4.1 How the management protocol works
-- 12.4.2 Implementing the dynamic client registration management API
+-   12.4.1 How the management protocol works
+-   12.4.2 Implementing the dynamic client registration management API
 
 ## 13. User authentication with OAuth 2.0
 
@@ -2165,23 +2164,23 @@ The resource owner doesn't interact with the client at all, and instead delegate
 
 ## 15. Beyond bearer tokens
 
-- 15.1 Why do we need more than bearer tokens?
-- 15.2 **Proof of Possession (PoP)** tokens
-    - Requesting and issuing a PoP token
-    - Using a PoP token at a protected resource
-    - Validating a PoP token request
-- 15.3 Implementing PoP token support
-    - Issuing the token and keys
-    - Creating the signed header and sending it to the resource
-    - Parsing the header, introspecting the token, and validating the signature
-- 15.4 TLS token binding
+-   15.1 Why do we need more than bearer tokens?
+-   15.2 **Proof of Possession (PoP)** tokens
+    -   Requesting and issuing a PoP token
+    -   Using a PoP token at a protected resource
+    -   Validating a PoP token request
+-   15.3 Implementing PoP token support
+    -   Issuing the token and keys
+    -   Creating the signed header and sending it to the resource
+    -   Parsing the header, introspecting the token, and validating the signature
+-   15.4 TLS token binding
 
 ## 16. Summary and conclusions
 
-- 16.1 The right tool
-- 16.2 Making key decisions
-- 16.3 The wider ecosystem
-- 16.4 The community
-- 16.5 The future
+-   16.1 The right tool
+-   16.2 Making key decisions
+-   16.3 The wider ecosystem
+-   16.4 The community
+-   16.5 The future
 
 omitted
