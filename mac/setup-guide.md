@@ -655,8 +655,6 @@ By default, the dot executable is expected :
 
 GUI - Graphical User Interface
 
-<!-- TODO : TRY DEFAULT PREFERENCES NEXT TIME after 2021/12/07 -->
-
 ### System
 
 Open `System Preferences` at first

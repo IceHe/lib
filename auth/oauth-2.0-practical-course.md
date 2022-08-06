@@ -94,7 +94,7 @@ Security Risks 安全风险
 
 -   CSRF ( Cross-Site Request Forgery ) 跨站请求伪造
     -   Solution : using `state` parameter with random value
-        -   todo 需要自己理解, 绘制一个被攻击的情况的时序图, 以保证充分理解
+        -   todo oneday: 需要自己理解, 绘制一个被攻击的情况的时序图, 以保证充分理解
 -   XSS ( Cross Site Scripting ) 跨站脚本攻击
 -   水平越权
 -   授权码失窃

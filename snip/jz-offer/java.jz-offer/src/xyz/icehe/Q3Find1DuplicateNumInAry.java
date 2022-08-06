@@ -3,7 +3,7 @@ package xyz.icehe;
 import xyz.icehe.utils.CommonUtils;
 
 /**
- * todo oneday: 最好重做一下
+ * todo oneday: refactor or rewrite
  */
 public class Q3Find1DuplicateNumInAry {
     public static void main(String[] args) {

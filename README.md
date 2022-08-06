@@ -417,7 +417,7 @@ _Batch 批处理_
 Basics
 
 -   [JavaScript](/js/js.md): aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
--   HTML Living Standard: todo - [html.spec.whatwg.org](https://html.spec.whatwg.org)
+-   HTML Living Standard: [html.spec.whatwg.org](https://html.spec.whatwg.org)
 -   [Node.js](/js/nodejs.md): a JavaScript runtime built on Chrome's V8 JavaScript engine
     -   [API Documentation](/js/nodejs-api.md): for 16.X LTS version
 -   [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
@@ -426,7 +426,7 @@ Basics
         -   **States**: { settled: [ fulfilled, rejected ] , unsettled: [ pending ] }
         -   **Fates**: [ resolved, unresolved ]
 -   [Event Loop](/js/basics/event-loop.md): which the JavaScript concurrency model based on
--   **Tasks vs. Microtasks**: todo
+-   **Tasks vs. Microtasks**:
     -   _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
     -   _[In depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)_
 
@@ -482,10 +482,8 @@ Package
 -   **razzle**: build modern JavaScript applications from zero to production - [razzlejs.org](https://razzlejs.org/)
 -   **parcel**: zero configuration build tool for XXX - [parceljs.org](https://parceljs.org/)
 -   **superstruct**: makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
-    -   other options: [zod](https://github.com/colinhacks/zod), [yup](https://github.com/jquense/yup) | npm trends: [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
--   **zustand**: a small, fast and scalable bearbones state-management solution using simplified flux principles - [repo](https://github.com/pmndrs/zustand)
--   **zod**: todo
--   todo: read & note-take ( rethink: is it necessary? )
+    -   other options: zod, [yup](https://github.com/jquense/yup) | npm trends: [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
+-   **zod**: TypeScript-first schema validation with static type inference - [zod.dev](https://zod.dev/) - [repo](https://github.com/colinhacks/zod)
 
 TypeScript
 

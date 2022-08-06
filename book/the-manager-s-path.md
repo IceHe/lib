@@ -270,7 +270,7 @@ It’s also OK to say no to mentoring.
 
 ### Good Manager, Bad Manager:The Alpha Geek
 
-todo
+todo oneday
 
 ### Tips for the Manager of a Mentor
 
