@@ -417,7 +417,6 @@ _Batch 批处理_
 Basics
 
 -   [JavaScript](/js/js.md): aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
--   HTML Living Standard: [html.spec.whatwg.org](https://html.spec.whatwg.org)
 -   [Node.js](/js/nodejs.md): a JavaScript runtime built on Chrome's V8 JavaScript engine
     -   [API Documentation](/js/nodejs-api.md): for 16.X LTS version
 -   [Promise](/js/basics/promise.md) object represents the eventual completion (or failure) of an asynchronous operation and its resulting value
@@ -429,6 +428,7 @@ Basics
 -   **Tasks vs. Microtasks**:
     -   _[Using microtasks in JavaScript with queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)_
     -   _[In depth: Microtasks and the JavaScript runtime environment](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth)_
+-   HTML Living Standard: [html.spec.whatwg.org](https://html.spec.whatwg.org)
 
 Code Snippet
 
@@ -451,7 +451,7 @@ NPM: the world's largest software registry
 -   Configuring
     -   [package.json](/js/npm-configuring/package-json.md): a lot of the behavior described in this document is affected by the config settings described in [config](https://docs.npmjs.com/cli/v7/using-npm/config).
     -   [package-lock.json](/js/npm-configuring/package-lock-json.md): a manifestation of the manifest
-    -   [folders](/js/npm-configuring/folders.md): folder Structures Used by npm
+    -   [folders](/js/npm-configuring/folders.md): folder structures used by npm
     -   [npm semver calculator](https://semver.npmjs.com/) & [Sematic Versioning](https://semver.org/) (external links)
         -   _[About semantic versioning - npm Docs](https://docs.npmjs.com/about-semantic-versioning)_
 -   Using
@@ -469,6 +469,22 @@ NPM: the world's largest software registry
     -   [npm exec](/js/npm-cmd/npm-exec.md), `npx`: run a command from a local or remote npm package
     -   ……
 
+TypeScript
+
+-   [TypeScript Deep Dive](/js/typescript/typescript-deep-dive.md)
+-   [TypeScript](/js/typescript/typescript.md): JavaScript with syntax for types
+-   [tsc](/js/typescript/tsc.md): compiles the current project, with additional settings
+-   [tsconfig.json](/js/typescript/tsconfig-json.md): specifies the root files and the compiler options required to compile the project
+-   Handbook
+    -   [Intro](/js/typescript/handbook/intro.md)
+    -   [Basics](/js/typescript/handbook/basics.md)
+    -   [Everyday Types](/js/typescript/handbook/everyday-types.md)
+    -   [Narrowing](/js/typescript/handbook/narrowing.md)
+    -   [More on Functions](/js/typescript/handbook/more-on-functions.md)
+    -   [Object Types](/js/typescript/handbook/type-objects.md)
+    -   [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
+    -   ……
+
 Package
 
 -   **commitlint**: lint commit messages - [commitlint.js.org](https://commitlint.js.org/#/)
@@ -484,21 +500,7 @@ Package
 -   **superstruct**: makes it easy to define interfaces and then validate JavaScript data against them - [repo](https://github.com/ianstormtaylor/superstruct)
     -   other options: zod, [yup](https://github.com/jquense/yup) | npm trends: [yup vs zod vs superstruct](https://www.npmtrends.com/yup-vs-zod-vs-superstruct)
 -   **zod**: TypeScript-first schema validation with static type inference - [zod.dev](https://zod.dev/) - [repo](https://github.com/colinhacks/zod)
-
-TypeScript
-
--   [TypeScript](/js/typescript/typescript.md): JavaScript with syntax for types
--   [tsc](/js/typescript/tsc.md): compiles the current project, with additional settings
--   [tsconfig.json](/js/typescript/tsconfig-json.md): specifies the root files and the compiler options required to compile the project
--   Handbook
-    -   [Intro](/js/typescript/handbook/intro.md)
-    -   [Basics](/js/typescript/handbook/basics.md)
-    -   [Everyday Types](/js/typescript/handbook/everyday-types.md)
-    -   [Narrowing](/js/typescript/handbook/narrowing.md)
-    -   [More on Functions](/js/typescript/handbook/more-on-functions.md)
-    -   [Object Types](/js/typescript/handbook/type-objects.md)
-    -   [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
-    -   ……
+-   ……
 
 ### Java
 
