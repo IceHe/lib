@@ -4,20 +4,20 @@
 
 ---
 
-- 原文：How to Study: A Brief Guide
-- 链接：<https://www.cse.buffalo.edu//~rapaport/howtostudy.html>
-- 翻译始于原文 2017 年 7 月 5 日周三更新的版本。
+-   原文：How to Study: A Brief Guide
+-   链接：<https://www.cse.buffalo.edu//~rapaport/howtostudy.html>
+-   翻译始于原文 2017 年 7 月 5 日周三更新的版本。
 
 ---
 
-- 2016 年春就发现了这篇文章，觉得写得很好，便开始对其中的一些原文片段做摘录笔记。由于当时繁琐的工作事务和学习、生活态度上的懈怠，最后别说摘录笔记，连完全的通读都没有做到。「靡不有初，鲜克有终」我对自己并不抱有多大的信心，这篇可能会辍笔，不过总比什么都不做强。
-- 我不喜欢写短文章，无论关于思绪还是技术，要写博文就写一篇长的，不然发微博或者微信朋友圈就够了。我对博文的质量很挑剔，无论是对内容还是文笔，甚至于格式的美观。可是我深知自己水平有限，即使对自己再挑剔，写出的文章也未必能满足读者的挑剔要求。
-- 还是不要那么「完美主义」了，「进一寸有一寸的欢喜」，想起以前的自己那么不争气，却发现现在的自己更不争气，虽然已经是一条咸鱼了，还能挣扎的日子里，还是多挣扎几下吧。
-- 记于 2017-12-30。
+-   2016 年春就发现了这篇文章，觉得写得很好，便开始对其中的一些原文片段做摘录笔记。由于当时繁琐的工作事务和学习、生活态度上的懈怠，最后别说摘录笔记，连完全的通读都没有做到。「靡不有初，鲜克有终」我对自己并不抱有多大的信心，这篇可能会辍笔，不过总比什么都不做强。
+-   我不喜欢写短文章，无论关于思绪还是技术，要写博文就写一篇长的，不然发微博或者微信朋友圈就够了。我对博文的质量很挑剔，无论是对内容还是文笔，甚至于格式的美观。可是我深知自己水平有限，即使对自己再挑剔，写出的文章也未必能满足读者的挑剔要求。
+-   还是不要那么「完美主义」了，「进一寸有一寸的欢喜」，想起以前的自己那么不争气，却发现现在的自己更不争气，虽然已经是一条咸鱼了，还能挣扎的日子里，还是多挣扎几下吧。
+-   记于 2017-12-30。
 
 ---
 
-- 大纲和索引：
+-   大纲和索引：
     1\. 引言
     2\. 管理你的时间
     3\. 在课堂做笔记，在家重写笔记
@@ -34,24 +34,24 @@
 
 每个人都声称自己有着不同的「[学习风格](http://www.ldpride.net/learning-style-test.html)」
 
-- 如果你相信它的存在以及有效性，你可能对以下这些参考资料感兴趣：
-    - [Claxton & Murrell 1987](#参考资料),
-    - ["Learning Styles" (Wikipedia)](https://en.wikipedia.org/wiki/Learning_styles)（「学习风格」（维基百科））,
-    - [Keirsey Temperament and Character Web Site](http://keirsey.com/)（性格测试网站）,
-    - [William Perry's Scheme of Intellectual and Ethical Development](https://www.cse.buffalo.edu//~rapaport/perry-positions.html) （智力模板和伦理发展？）,
-    - [Holland 1966](#参考资料),
-    - [Kolb 1984](#参考资料),
-    - [Sternberg 1999](#参考资料).
-    - For some online tools targeted at different learning styles, see "100 Helpful Web Tools for Every Kind of Learner".（一些配合不同学习风格的在线工具，详见《100 个对各种类型学习者有效的网页工具》）
-- 然而，并没有证据支持这些做法。主要的相关研究有 [Pashler et al. 2009](#参考资料)；也可以参考 [Glenn 2009/2010](#参考资料)。
+-   如果你相信它的存在以及有效性，你可能对以下这些参考资料感兴趣：
+    -   [Claxton & Murrell 1987](#参考资料),
+    -   ["Learning Styles" (Wikipedia)](https://en.wikipedia.org/wiki/Learning_styles)（「学习风格」（维基百科））,
+    -   [Keirsey Temperament and Character Web Site](http://keirsey.com/)（性格测试网站）,
+    -   [William Perry's Scheme of Intellectual and Ethical Development](https://www.cse.buffalo.edu//~rapaport/perry-positions.html) （智力模板和伦理发展？）,
+    -   [Holland 1966](#参考资料),
+    -   [Kolb 1984](#参考资料),
+    -   [Sternberg 1999](#参考资料).
+    -   For some online tools targeted at different learning styles, see "100 Helpful Web Tools for Every Kind of Learner".（一些配合不同学习风格的在线工具，详见《100 个对各种类型学习者有效的网页工具》）
+-   然而，并没有证据支持这些做法。主要的相关研究有 [Pashler et al. 2009](#参考资料)；也可以参考 [Glenn 2009/2010](#参考资料)。
 
 但每个人确实拥有不同的「学习风格」。
 
-__更重要的是，你现在正在使用的学习方法可能并是不最适合你的学习方法__：
+**更重要的是，你现在正在使用的学习方法可能并是不最适合你的学习方法**：
 怎么知道？很简单：如果你的成绩不符合你的期望，那么你很可能需要调整你的学习方法！
 
 在我们开始之前，由一个重要的说明：
-__「学习」并不等同于「做作业」！__
+**「学习」并不等同于「做作业」！**
 
 学习的内容可能包括做作业，但是它还包括许多其它的内容，接下来你将会了解到这些内容。
 （所以如果你说你没有作业，因此没法学习或者没必要去学习，这是错误的！）
@@ -70,9 +70,9 @@ __「学习」并不等同于「做作业」！__
 
 在校生是一个全职的工作，管理好你的时间很重要。
 
-- 如果你上课之后还有一个用来消遣（或者挣额外零花钱）的「真正的」工作，或者你参加了额外的（学校相关或者无关的）课程活动，要把你的优先级谨记在心中：
-    __你的教育（学习）应该摆在第一位！__
-- 如果你（为了收支平衡）必须工作，以应该认识到它施加在你学习时间上的限制。
+-   如果你上课之后还有一个用来消遣（或者挣额外零花钱）的「真正的」工作，或者你参加了额外的（学校相关或者无关的）课程活动，要把你的优先级谨记在心中：
+    **你的教育（学习）应该摆在第一位！**
+-   如果你（为了收支平衡）必须工作，以应该认识到它施加在你学习时间上的限制。
 
 你应该贡献多少时间在学习上？一个最近的 [高等教育编年史的研究](https://www.cse.buffalo.edu//~rapaport/che.homework.html) 显示学生没有花足够的时间在学习上。所以，多少时间算是足够呢？如果你假定你的教育（学习）是一个全职工作，那么你应该每周花 40 小时在这上面。假定 1 个学分大约等于 1 个小时。所以，如果你要拿 15 个学分，你就要花 15 小时上课。还要从 40 小时中减去给你在家（或者图书馆）学习用的 25 小时。
 
@@ -92,10 +92,10 @@ __「学习」并不等同于「做作业」！__
 
 还有一些关于时间管理的网站，可以看一看：
 
-- ["How to Be Punctual"](https://www.wikihow.com/Be-Punctual)（如何守时）
-- …… 或者在 Google 上搜索 ["time management"（时间管理）](http://www.google.com/search?hl=en&q=time+management)来找些新方法。
-- 有一堆漂亮的可打印的网络日历、日程表等，可以在 [ePrintableCalendars.com](http://www.eprintablecalendars.com/) 和 [timeanddate.com](https://www.timeanddate.com/) 上找到。
-- Marie, Niclas (2014), ["Tips for Making & Following a Study Schedule"](https://www.timecenter.com/articles/tips-for-making-and-following-a-study-schedule/)（制订并遵守学习日程表的窍门）
+-   ["How to Be Punctual"](https://www.wikihow.com/Be-Punctual)（如何守时）
+-   …… 或者在 Google 上搜索 ["time management"（时间管理）](http://www.google.com/search?hl=en&q=time+management)来找些新方法。
+-   有一堆漂亮的可打印的网络日历、日程表等，可以在 [ePrintableCalendars.com](http://www.eprintablecalendars.com/) 和 [timeanddate.com](https://www.timeanddate.com/) 上找到。
+-   Marie, Niclas (2014), ["Tips for Making & Following a Study Schedule"](https://www.timecenter.com/articles/tips-for-making-and-following-a-study-schedule/)（制订并遵守学习日程表的窍门）
 
 ---
 
@@ -200,12 +200,12 @@ wh : which
 
 > 1\. Main idea 1
 >
-> - detail 1
-> - detail 2
->     - further detail 2.1
-> - detail 3
->     - further detail 3.1
->     - further detail 3.2
+> -   detail 1
+> -   detail 2
+>     -   further detail 2.1
+> -   detail 3
+>     -   further detail 3.1
+>     -   further detail 3.2
 >
 > ===
 >
@@ -229,10 +229,10 @@ wh : which
 
 由于以上的原因，请在课堂上关闭你的电脑。当然还有你的智能手机等电子设备，反正是任何会使你分心的东西。理由如下：
 
-- Bugeja, Michael J. (2007), "Distractions in the Wireless Classroom"（在有无线网络的教室里分神）, Chronicle of Higher Education (26 January): C1,C4.
-- Zhu, Erping; Kaplan, Matthew; Dershimer, R. Charles; & Bergom, Inger (2011), ["Use of Laptops in the Classroom: Research and Best Practices"](http://www.crlt.umich.edu/publinks/CRLT_no30.pdf)（在教室里使用笔记本电脑：研究与最佳实践）, CRLT Occasional Papers No. 30 (University of Michigan Center for Research on Learning and Teaching).
-- Mueller, Pam A.; & Oppenheimer, Daniel M. (2014), "The Pen Is Mightier than the Keyboard: Advantages of Longhand over Laptop Note Taking"（笔比键盘更强有力：普通书写做笔记的优势超过笔记本电脑）, Psychological Science 25(6): 1159–1168; summarized at [Journalist's Resource](http://journalistsresource.org/studies/society/education/longhand-versus-laptop-note-taking).
-- Klass, Perri (2016), ["Why Handwriting Is Still Essential in the Keyboard Age"](http://well.blogs.nytimes.com/2016/06/20/why-handwriting-is-still-essential-in-the-keyboard-age/)（为什么在键盘时代手写依然至关重要）, New York Times (20 June).
+-   Bugeja, Michael J. (2007), "Distractions in the Wireless Classroom"（在有无线网络的教室里分神）, Chronicle of Higher Education (26 January): C1,C4.
+-   Zhu, Erping; Kaplan, Matthew; Dershimer, R. Charles; & Bergom, Inger (2011), ["Use of Laptops in the Classroom: Research and Best Practices"](http://www.crlt.umich.edu/publinks/CRLT_no30.pdf)（在教室里使用笔记本电脑：研究与最佳实践）, CRLT Occasional Papers No. 30 (University of Michigan Center for Research on Learning and Teaching).
+-   Mueller, Pam A.; & Oppenheimer, Daniel M. (2014), "The Pen Is Mightier than the Keyboard: Advantages of Longhand over Laptop Note Taking"（笔比键盘更强有力：普通书写做笔记的优势超过笔记本电脑）, Psychological Science 25(6): 1159–1168; summarized at [Journalist's Resource](http://journalistsresource.org/studies/society/education/longhand-versus-laptop-note-taking).
+-   Klass, Perri (2016), ["Why Handwriting Is Still Essential in the Keyboard Age"](http://well.blogs.nytimes.com/2016/06/20/why-handwriting-is-still-essential-in-the-keyboard-age/)（为什么在键盘时代手写依然至关重要）, New York Times (20 June).
 
 ### 3.8. 不要依赖老师的课堂笔记
 
@@ -240,21 +240,21 @@ wh : which
 
 ### 3.9. 拓展阅读
 
-- Pappano, Laura (2008), ["Strategy: Notetaking—To Survive the Lecture Course, Take Heed if the Professor Waves His Arms"](http://www.nytimes.com/2008/01/06/education/edlife/strategy.html?ref=edlife)（记笔记的策略——为了在在课堂上存活，当教授的手臂挥动时要留意）, New York Times Education Life (6 January): 6.
-- Hoffmann, Roald; & McGuire, Saundra Y. (2010), ["Learning and Teaching Strategies"](http://www.americanscientist.org/issues/pub/learning-and-teaching-strategies/1)（学习和教学的策略）, American Scientist 98(5) (September-October): 378–382.
-    - The first of their "Six Learning Strategies" [(pp. 378–379)](http://www.americanscientist.org/issues/pub/learning-and-teaching-strategies/2) "is to take notes by hand" and "rewrite your notes, by hand".（他们的六条学习策略中的第一条，就是「靠手写记笔记，然后靠手写重写笔记」）
+-   Pappano, Laura (2008), ["Strategy: Notetaking—To Survive the Lecture Course, Take Heed if the Professor Waves His Arms"](http://www.nytimes.com/2008/01/06/education/edlife/strategy.html?ref=edlife)（记笔记的策略——为了在在课堂上存活，当教授的手臂挥动时要留意）, New York Times Education Life (6 January): 6.
+-   Hoffmann, Roald; & McGuire, Saundra Y. (2010), ["Learning and Teaching Strategies"](http://www.americanscientist.org/issues/pub/learning-and-teaching-strategies/1)（学习和教学的策略）, American Scientist 98(5) (September-October): 378–382.
+    -   The first of their "Six Learning Strategies" [(pp. 378–379)](http://www.americanscientist.org/issues/pub/learning-and-teaching-strategies/2) "is to take notes by hand" and "rewrite your notes, by hand".（他们的六条学习策略中的第一条，就是「靠手写记笔记，然后靠手写重写笔记」）
 
 ---
 
 ## 4. 先学困难的内容，在安静的地方学习
 
-__先学困难的内容__。每晚（或白天）学习或做作业的时候，先做那些需要你聚精会神的部分。然后将简单的、更有乐趣的部分放到之后做。
+**先学困难的内容**。每晚（或白天）学习或做作业的时候，先做那些需要你聚精会神的部分。然后将简单的、更有乐趣的部分放到之后做。
 
-__在安静的地方学习__，尽可能少地分心。不用听音乐、看电视：如果其中一件事是学习的话，是几乎不可能同时做好两件事的。（为什么这么做很困难的证据是 —— 同时做两件事是不可能的（称为「多任务处理」））可以看：
+**在安静的地方学习**，尽可能少地分心。不用听音乐、看电视：如果其中一件事是学习的话，是几乎不可能同时做好两件事的。（为什么这么做很困难的证据是 —— 同时做两件事是不可能的（称为「多任务处理」））可以看：
 
-- [Willingham, Daniel T.](http://www.danielwillingham.com/) (2010), "Have Technology and Multitasking Rewired How Students Learn?"（技术与多任务处理是否和学生的学习方式重新产生了联系？）, Ask the Cognitive Scientist（认知科学家问道）, [American Educator](http://www.aft.org/newspubs/periodicals/ae/index.cfm) (Summer): 23–28, 42. [[PDF]](http://www.aft.org/pdfs/americaneducator/summer2010/Willingham.pdf)
+-   [Willingham, Daniel T.](http://www.danielwillingham.com/) (2010), "Have Technology and Multitasking Rewired How Students Learn?"（技术与多任务处理是否和学生的学习方式重新产生了联系？）, Ask the Cognitive Scientist（认知科学家问道）, [American Educator](http://www.aft.org/newspubs/periodicals/ae/index.cfm) (Summer): 23–28, 42. [[PDF]](http://www.aft.org/pdfs/americaneducator/summer2010/Willingham.pdf)
 
-__你应该什么时候学习和做作业__？这会诱惑你将作业拖延到最后一分钟。这里有至少两个好理由去说服你尽可能早开始做作业而非拖到太阳下山后的晚上（尽管你应该在上完课后、做作业前先修整一下）：
+**你应该什么时候学习和做作业**？这会诱惑你将作业拖延到最后一分钟。这里有至少两个好理由去说服你尽可能早开始做作业而非拖到太阳下山后的晚上（尽管你应该在上完课后、做作业前先修整一下）：
 
 1. 这样可以给自己留下充足的时间，更好地完成作业。如果拖延，你就可能发现一个又一个任务花费的时间比你想象的更长。如果你更早地开始，在你放松前完成，你就能有足够的时间分给那些困难的任务（尽管这意味着你没有足够时间逛 Facebook 、玩电视游戏或阅读取乐）。一条通用的规则：不要先吃甜点！
 2. 在白天或在放松之后，你会更清醒；这是说在下课大约一个小时之后，而不是在即将睡觉之前。
@@ -346,7 +346,7 @@ __你应该什么时候学习和做作业__？这会诱惑你将作业拖延到�
 
 一个稍微没那么乱但同样没用的方法就是用钢笔或铅笔去划下划线将重要或有趣的段落标注处理出来。我可以保证最后你也会给每页的每句话加上下划线，最终还是等于什么都没有标注出来。
 
-我建议的方法看起来也容易受到上述问题的影响，但是它有个内在的手段去克服这个问题，因此你大可放心重读，然后每次着重标注出不同的段落。这个技巧就是用竖线（右中括号 `]`）在页面空白的地方去着重标注某些内容。我喜欢在页面右侧的空白边缘去画一个巨大的右方括号：`]`（可能会竖跨好几行，用以标注多行的内容）。如果你想让标注的内容更突出，也可以 __\[__ 用左方括号去标注需要着重标注的内容的起始处，用右方括号标注结束处 __\]__，就像刚才我对这本句话所做的那样，记得还要在右侧的页面空白加上一个单独的大的右竖线 `]`。用这种方法，尽管你会陷入着重标注的陷阱，给每页的每句话加上着重标注，但至少你不会破坏书页。而且当你重读的时候，你就可以用不同的方法来标注更重要的内容（例如加下划线）。有时，我会在第二轮着重标注时，用双重括号 `]]`，然后用加下划线来作为第三轮着重标注的手段。如果你还是想要做的话，在第四轮标注的时候再用黄色马克笔吧。
+我建议的方法看起来也容易受到上述问题的影响，但是它有个内在的手段去克服这个问题，因此你大可放心重读，然后每次着重标注出不同的段落。这个技巧就是用竖线（右中括号 `]`）在页面空白的地方去着重标注某些内容。我喜欢在页面右侧的空白边缘去画一个巨大的右方括号：`]`（可能会竖跨好几行，用以标注多行的内容）。如果你想让标注的内容更突出，也可以 **\[** 用左方括号去标注需要着重标注的内容的起始处，用右方括号标注结束处 **\]**，就像刚才我对这本句话所做的那样，记得还要在右侧的页面空白加上一个单独的大的右竖线 `]`。用这种方法，尽管你会陷入着重标注的陷阱，给每页的每句话加上着重标注，但至少你不会破坏书页。而且当你重读的时候，你就可以用不同的方法来标注更重要的内容（例如加下划线）。有时，我会在第二轮着重标注时，用双重括号 `]]`，然后用加下划线来作为第三轮着重标注的手段。如果你还是想要做的话，在第四轮标注的时候再用黄色马克笔吧。
 
 ### 5.4. 在页边的空白做笔记
 
@@ -406,14 +406,14 @@ __你应该什么时候学习和做作业__？这会诱惑你将作业拖延到�
 
 你应该「为了习得和理解而学习」：
 
-- David Jaffee, ["Stop Telling Students to Study for Exams"](http://chronicle.com/article/Stop-Telling-Students-to-Study/131622/)（别告诉学生是为了考试而学习）, Chronicle of Higher Education (27 April 2012): A35.
-- Henry L. Roediger III, ["How Tests Make Us Smarter"](http://www.nytimes.com/2014/07/20/opinion/sunday/how-tests-make-us-smarter.html)（测试怎样让我们变得更聪明）, New York Times (20 July 2014): SR12.
+-   David Jaffee, ["Stop Telling Students to Study for Exams"](http://chronicle.com/article/Stop-Telling-Students-to-Study/131622/)（别告诉学生是为了考试而学习）, Chronicle of Higher Education (27 April 2012): A35.
+-   Henry L. Roediger III, ["How Tests Make Us Smarter"](http://www.nytimes.com/2014/07/20/opinion/sunday/how-tests-make-us-smarter.html)（测试怎样让我们变得更聪明）, New York Times (20 July 2014): SR12.
 
 但是如果你真的只是为了应付考试而学习，接下来我有几个建议……
 
 ### 7.2. 管理你的时间
 
-第一法则：__别死记硬背！__
+第一法则：**别死记硬背！**
 
 [之前](#time) TODO: Link 我们讨论过管理时间的话题。当你即将面临考试，时间管理就变得更关键了。
 
@@ -446,13 +446,13 @@ __你应该什么时候学习和做作业__？这会诱惑你将作业拖延到�
 
 ### 7.3. 如何不去学习
 
-无论你相不相信，__为了应付考试复习而重读课本「基本上是没什么用的」__。(Callender & McDaniel 2009; see also John Dunlosky, ["Strengthening the Student Toolbox: Study Strategies to Boost Learning"](http://www.aft.org/ae/fall2013/dunlosky), [American Educator](https://www.aft.org/newspubs/periodicals/ae/) 37(3) (Fall 2013): 12–21.)
+无论你相不相信，**为了应付考试复习而重读课本「基本上是没什么用的」**。(Callender & McDaniel 2009; see also John Dunlosky, ["Strengthening the Student Toolbox: Study Strategies to Boost Learning"](http://www.aft.org/ae/fall2013/dunlosky), [American Educator](https://www.aft.org/newspubs/periodicals/ae/) 37(3) (Fall 2013): 12–21.)
 
 大多数学生认识不到这个试试，因为当他们重读笔记和课本时有一种「胜任的错觉」（"我做得到"，那是你自以为自己比想象中更能干）(Karpicke et al. 2009; Belluck 2011)，特别是在消极被动地而非积极主动地重读时。
 
 有一种比消极被动重读更好的学习方法就是「阅读——背诵——回顾」方法（read-recite-review, "3R"）：「阅读内容，然后将内容放到旁边，开始大声背诵记得的内容（你可以的），然后再读内容第二遍。」(McDaniel et al. 2009)
 
-更重要的是，__比起反复的阅读，你更能从反复的测试中学得更好、记得更多__（无论是从课堂小测还是从在家的自测中）（Karpicke et al. 2009）。（所以当你的老师给你大量的小测，或者让你去背诵基础知识时，不要去抱怨！那是习得和记忆的最好方法。）
+更重要的是，**比起反复的阅读，你更能从反复的测试中学得更好、记得更多**（无论是从课堂小测还是从在家的自测中）（Karpicke et al. 2009）。（所以当你的老师给你大量的小测，或者让你去背诵基础知识时，不要去抱怨！那是习得和记忆的最好方法。）
 
 接下来几个小节会给你一些如何做到的建议。
 
@@ -476,34 +476,34 @@ __你应该什么时候学习和做作业__？这会诱惑你将作业拖延到�
 
 ## 参考资料
 
-- Adams, Dennis (2006), "Wireless Laptops in the Classroom (and the Sesame Street Syndrome)", Communications of the ACM 49(9; September): 25-27.
-- Belluck, Pam (2011), "Take a Test to Really Learn, Research Suggests", New York Times (21 January): A14.
-- Callender, Aimee A.; & McDaniel, Mark A. (2009), "The Limited Benefits of Rereading Educational Texts", Contemporary Educational Psychology 34: 30–41.
-- Claxton, Charles S., & Murrell, Patricia H. (1987), Learning Styles: Implications for Improving Educational Practices, ASHE-ERIC Higher Education Report No. 4 (Washington, DC: Association for the Study of Higher Education).
-- Glenn, David (2010, January 8), "Customized Teaching Fails a Test", Chronicle of Higher Education: A1, A7–A8.
-    - 在网上以 "Matching Teaching Style to Learning Style May Not Help Students" (15 December 2009) 为名发布
-    - 又见 "An Assortment of Learning Styles", Chronicle of Higher Education (8 January 2010): A8; published online 15 December 2009.
-- Holland, John L. (1966), The Psychology of Vocational Choice (Waltham, MA: Ginn & Co.)
-- Karpicke, Jeffrey D.; Butler, Andrew C.; & Roediger III, Henry L. (2009), "Metacognitive Strategie in Student learning: Do Students practise Retrieval When They Study on Their Own?", Memory 17(4): 471–479.
-- Kolb, David A. (1984), Experiential Learning: Experience as the Source of Learning and Development (Englewood Cliffs, NJ: Prentice-Hall).
-- McDaniel, Mark A.; Howard, Daniel C.; & Einstein, Gilles O. (2009), "The Read-Recite-Review Study Strategy: Effective and Portable", Psychological Science 20(4): 516–522.
-- Pashler, Harold; McDaniel, Mark; Rohrer, Doug; & Bjork, Robert (2009), "Learning Styles: Concepts and Evidence", Psychological Science in the Public Interest 9(3): 105–119.
-    - 又见 Mayer, Richard E. (2009), "Editorial: Advances in Applying the Science of Learning and Instruction to Education", Psychological Science in the Public Interest 9(3): i–ii.
-- Sternberg, Robert J. (1999), Thinking Styles (Cambridge, UK: Cambridge University Press); summary at "Theory of Mental Self-Government: Thinking Styles"
-- Swerdlow, Joel L. (1999, August), "The Power of Writing", National Geographic 196(2): 110-133, 136.
+-   Adams, Dennis (2006), "Wireless Laptops in the Classroom (and the Sesame Street Syndrome)", Communications of the ACM 49(9; September): 25-27.
+-   Belluck, Pam (2011), "Take a Test to Really Learn, Research Suggests", New York Times (21 January): A14.
+-   Callender, Aimee A.; & McDaniel, Mark A. (2009), "The Limited Benefits of Rereading Educational Texts", Contemporary Educational Psychology 34: 30–41.
+-   Claxton, Charles S., & Murrell, Patricia H. (1987), Learning Styles: Implications for Improving Educational Practices, ASHE-ERIC Higher Education Report No. 4 (Washington, DC: Association for the Study of Higher Education).
+-   Glenn, David (2010, January 8), "Customized Teaching Fails a Test", Chronicle of Higher Education: A1, A7–A8.
+    -   在网上以 "Matching Teaching Style to Learning Style May Not Help Students" (15 December 2009) 为名发布
+    -   又见 "An Assortment of Learning Styles", Chronicle of Higher Education (8 January 2010): A8; published online 15 December 2009.
+-   Holland, John L. (1966), The Psychology of Vocational Choice (Waltham, MA: Ginn & Co.)
+-   Karpicke, Jeffrey D.; Butler, Andrew C.; & Roediger III, Henry L. (2009), "Metacognitive Strategie in Student learning: Do Students practise Retrieval When They Study on Their Own?", Memory 17(4): 471–479.
+-   Kolb, David A. (1984), Experiential Learning: Experience as the Source of Learning and Development (Englewood Cliffs, NJ: Prentice-Hall).
+-   McDaniel, Mark A.; Howard, Daniel C.; & Einstein, Gilles O. (2009), "The Read-Recite-Review Study Strategy: Effective and Portable", Psychological Science 20(4): 516–522.
+-   Pashler, Harold; McDaniel, Mark; Rohrer, Doug; & Bjork, Robert (2009), "Learning Styles: Concepts and Evidence", Psychological Science in the Public Interest 9(3): 105–119.
+    -   又见 Mayer, Richard E. (2009), "Editorial: Advances in Applying the Science of Learning and Instruction to Education", Psychological Science in the Public Interest 9(3): i–ii.
+-   Sternberg, Robert J. (1999), Thinking Styles (Cambridge, UK: Cambridge University Press); summary at "Theory of Mental Self-Government: Thinking Styles"
+-   Swerdlow, Joel L. (1999, August), "The Power of Writing", National Geographic 196(2): 110-133, 136.
 
 ## Other links
 
-- [How Tests Make Us Smarter](https://mobile.nytimes.com/2014/07/20/opinion/sunday/how-tests-make-us-smarter.html)
-- [Stop Telling Students to Study for Exams](https://www.chronicle.com/article/Stop-Telling-Students-to-Study/131622)
-- [Sorry, You Can't Speed Read](https://mobile.nytimes.com/2016/04/17/opinion/sunday/sorry-you-cant-speed-read.html?referer=)
-- [Does speed reading training actually work?](http://www.straightdope.com/columns/read/1021/does-speed-reading-training-actually-work/)
-- [Why Handwriting is Still Essential in the keyboard Age](https://well.blogs.nytimes.com/2016/06/20/why-handwriting-is-still-essential-in-the-keyboard-age/)
-- [USE OF LAPTOPS IN THE CLASSROOM: RESEARCH AND BEST PRACTICES](CRLT_no30.pdf)
+-   [How Tests Make Us Smarter](https://mobile.nytimes.com/2014/07/20/opinion/sunday/how-tests-make-us-smarter.html)
+-   [Stop Telling Students to Study for Exams](https://www.chronicle.com/article/Stop-Telling-Students-to-Study/131622)
+-   [Sorry, You Can't Speed Read](https://mobile.nytimes.com/2016/04/17/opinion/sunday/sorry-you-cant-speed-read.html?referer=)
+-   [Does speed reading training actually work?](http://www.straightdope.com/columns/read/1021/does-speed-reading-training-actually-work/)
+-   [Why Handwriting is Still Essential in the keyboard Age](https://well.blogs.nytimes.com/2016/06/20/why-handwriting-is-still-essential-in-the-keyboard-age/)
+-   [USE OF LAPTOPS IN THE CLASSROOM: RESEARCH AND BEST PRACTICES](CRLT_no30.pdf)
 
 Read
 
-- [Slow Reading Lists (and the meaning of Slow Reading)](http://www.freelance-academy.org/slowread.htm)
-- [Homework? What Homework?](https://www.cse.buffalo.edu//~rapaport/che.homework.html)
+-   [Slow Reading Lists (and the meaning of Slow Reading)](http://www.freelance-academy.org/slowread.htm)
+-   [Homework? What Homework?](https://www.cse.buffalo.edu//~rapaport/che.homework.html)
 
-TODO
+todo oneday

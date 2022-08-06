@@ -53,5 +53,3 @@ List installed Nginx modules
 ```bash
 systemctl reload nginx
 ```
-
-TODO

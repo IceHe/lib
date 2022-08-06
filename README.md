@@ -42,7 +42,7 @@ Coding
     -   How to do code review
     -   How to get through a code review
 
-<!-- todo
+<!-- todo oneday
 
 -   [Peopleware](/book/peopleware.md)
     - Productive Projects and Teams
@@ -74,7 +74,7 @@ Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-arc
 
 -   [reading notes](/book/fundamentals-of-software-architecture.md)
 
-<!-- todo
+<!-- todo oneday
 
 [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/book/tcp-ip-illustrated-protocols-toc.md) - TOC
 
@@ -118,6 +118,8 @@ Basics
 
 <!-- > —— 鲁迅《致赖少麟》 -->
 
+<!-- todo oneday
+
 Client-side
 
 -   [Android](/snip/android/android.md)
@@ -129,6 +131,8 @@ Client-side
     -   [Activity Lifecycle](/snip/android/activity-lifecycle.md)
     -   …
 
+-->
+
 Markdown
 
 -   [Markdown Style Guide](/docsify/markdown/markdown-style-guide.md)
@@ -138,9 +142,9 @@ Message Queue
 
 -   [kafka](/snip/mq/kafka.md) - _[digest](/snip/mq/kafka-digest.md)_
 -   [RabbitMQ](/snip/mq/rabbit-mq.md)
--   [RocketMQ](/snip/mq/rocket-mq.md) - _todo_
+-   [RocketMQ](/snip/mq/rocket-mq.md)
 -   [ActiveMQ](/snip/mq/active-mq.md)
--   [ZeroMQ](/snip/mq/zero-mq.md) - _todo_
+    <!-- -   [ZeroMQ](/snip/mq/zero-mq.md) - _todo oneday_ -->
 -   _[MemcacheQ](/snip/mq/mcq.md)_
 -   _[Notes](/snip/mq/notes.md)_
 
@@ -373,7 +377,7 @@ Manual
 -   _[yes](/cmd/y/yes.md): be repetitively affirmative_
 -   [zsh](/cmd/z/zsh.md): one of shells
 -   [Linux Abbreviations](/cmd/linux-abbrs.md)
--   _[CLI Notes](/cmd/notes.md) - todo_
+-   _[CLI Notes](/cmd/notes.md) - todo oneday_
 
 Scene
 

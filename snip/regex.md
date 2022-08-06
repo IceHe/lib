@@ -6,21 +6,19 @@ a sequence of characters that specifies a search pattern
 
 Reference
 
-- [Wikipedia EN](https://en.wikipedia.org/wiki/Regular_expression) ( better )
-- [Wikipedia ZH](https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-- [百度百科](https://baike.baidu.com/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
+-   [Wikipedia EN](https://en.wikipedia.org/wiki/Regular_expression) ( better )
+-   [Wikipedia ZH](https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
+-   [百度百科](https://baike.baidu.com/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
 
 Online tester & debugger: PHP, PCRE, Python, Golang & JavaScript
 
-- [Regex 101](https://regex101.com/)
+-   [Regex 101](https://regex101.com/)
 
 ## Intro
 
 Since the 1980s, different syntaxes for writing regular expressions exist, one being the **POSIX standard** and another, widely used, being the **Perl syntax**.
 
-**Usage**
-
-TODO
+**Usage**: todo oneday
 
 ## CH & EN
 
@@ -53,21 +51,21 @@ Date Range
 
 Replace HTML Tag
 
-- Bold
+-   Bold
 
 ```bash
 <b[^>]*>([^<]*)</b>
 \*\*$1\*\*
 ```
 
-- Image
+-   Image
 
 ```bash
 <img[^>]*src="([^"]*)"[^>]*/>
 ![]($1)
 ```
 
-- Link
+-   Link
 
 ```bash
 <a href="([^"]*)"[^>]*>([^<]*)</a>
@@ -133,25 +131,25 @@ Replace "" with ''
 
 Pattern Match
 
-- **`(pattern)` 匹配获取** Capturing Parenthesis
-- **`(?:pattern)` 非匹配获取** Non-Capturing Parenthesis
-    - e.g. `(Windows )(?:\d+)`
-        - <code><u>Windows </u>98</code> matched
-        - <code><u>Windows </u>2000</code> matched
-        - `Windows XP` not matched
-- **`(?=pattern)` 正向肯定预查** Lookahead Positive Assertions
-    - e.g. `Windows (?=98)`
-        - <code><u>Windows </u>98</code> matched
-        - `Windows XP` not matched
-- **`(?!pattern)` 正向否定预查** Lookahead Negative Assertions
-    - e.g. `Windows (?!98)`
-        - `Windows 98` not matched
-        - <code><u>Windows </u>XP</code> matched
-- **`(?<=pattern)` 反向肯定预查** Lookbehind Positive Assertions
-    - e.g. `(?<=My) Windows`
-        - <code>My<u> Windows</u></code> matched
-        - `X Windows` not matched
-- **`(?<!pattern)` 反向否定预查** Lookbehind Negative Assertions
-    - e.g. `(?<!My) Windows`
-        - `My Windows` not matched
-        - <code>X<u> Windows</u></code> matched
+-   **`(pattern)` 匹配获取** Capturing Parenthesis
+-   **`(?:pattern)` 非匹配获取** Non-Capturing Parenthesis
+    -   e.g. `(Windows )(?:\d+)`
+        -   <code><u>Windows </u>98</code> matched
+        -   <code><u>Windows </u>2000</code> matched
+        -   `Windows XP` not matched
+-   **`(?=pattern)` 正向肯定预查** Lookahead Positive Assertions
+    -   e.g. `Windows (?=98)`
+        -   <code><u>Windows </u>98</code> matched
+        -   `Windows XP` not matched
+-   **`(?!pattern)` 正向否定预查** Lookahead Negative Assertions
+    -   e.g. `Windows (?!98)`
+        -   <code><u>Windows </u>XP</code> matched
+        -   `Windows 98` not matched
+-   **`(?<=pattern)` 反向肯定预查** Lookbehind Positive Assertions
+    -   e.g. `(?<=My) Windows`
+        -   <code>My<u> Windows</u></code> matched
+        -   `X Windows` not matched
+-   **`(?<!pattern)` 反向否定预查** Lookbehind Negative Assertions
+    -   e.g. `(?<!My) Windows`
+        -   <code>X<u> Windows</u></code> matched
+        -   `My Windows` not matched

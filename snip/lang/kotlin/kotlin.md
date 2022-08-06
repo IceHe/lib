@@ -6,9 +6,9 @@ a cross-platform, statically typed, general-purpose programming language with ty
 
 References
 
-- [Kotlin (programming language)](https://en.wikipedia.org/wiki/Kotlin_(programming_language))
-- [kotlinlang.org](https://kotlinlang.org/)
-    - [Docs Home](https://kotlinlang.org/docs/home.html)
+-   [Kotlin (programming language)](<https://en.wikipedia.org/wiki/Kotlin_(programming_language)>)
+-   [kotlinlang.org](https://kotlinlang.org/)
+    -   [Docs Home](https://kotlinlang.org/docs/home.html)
 
 ## Get Started
 

@@ -2,6 +2,7 @@
     // "extends": "@silverhand/ts-config/tsconfig.base",
     "compilerOptions": {
         "exactOptionalPropertyTypes": true,
+        "isolatedModules": true,
         "module": "commonjs",
         "noFallthroughCasesInSwitch": false,
         "noImplicitAny": true,

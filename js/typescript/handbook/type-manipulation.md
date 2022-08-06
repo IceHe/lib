@@ -1,12 +1,12 @@
 # Type Manipulation
 
-- [Creating Type from Types - Type Manipulation](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
+-   [Creating Type from Types - Type Manipulation](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
 
 ## Creating Type from Types
 
 References
 
-- [Creating Type from Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
+-   [Creating Type from Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
 
 TypeScript's type system is very powerful because it allows expressing types _in terms of other types_.
 
@@ -16,19 +16,19 @@ It's also possible to express types in terms of _values_ that we already have.
 **By combining various type operators, we can express complex operations and values in a succinct<!-- 简明的 -->, maintainable way.**
 _In this section we'll cover ways to express a new type in terms of an existing type or value._
 
-- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html) - Types which take parameters
-- [Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html) - Using the `keyof` operator to create new types
-- [Typeof Type Operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html) - Using the `typeof` operator to create new types
-- [Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html) - Using `Type['a']` syntax to access a subset of a type
-- [Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) - Types which act like if statements in the type system
-- [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) - Creating types by mapping each property in an existing type
-- [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) - Mapped types which change properties via template literal strings
+-   [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html) - Types which take parameters
+-   [Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html) - Using the `keyof` operator to create new types
+-   [Typeof Type Operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html) - Using the `typeof` operator to create new types
+-   [Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html) - Using `Type['a']` syntax to access a subset of a type
+-   [Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) - Types which act like if statements in the type system
+-   [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) - Creating types by mapping each property in an existing type
+-   [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) - Mapped types which change properties via template literal strings
 
 ## Generics
 
 References
 
-- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+-   [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 
 _A major part of software engineering is building components that not only have well-defined and consistent APIs, but are also reusable._
 _Components that are capable of working on the data of today as well as the data of tomorrow will give you the most flexible capabilities for building up large software systems._
@@ -44,16 +44,16 @@ _This allows users to consume these components and use their own types._
 
 ```ts
 function loggingIdentity<Type>(arg: Type): Type {
-  console.log(arg.length);
-  // Property 'length' does not exist on type 'Type'.
-  return arg;
+    console.log(arg.length);
+    // Property 'length' does not exist on type 'Type'.
+    return arg;
 }
 ```
 
 ```ts
 function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
-  console.log(arg.length); // Array has a .length, so no more error
-  return arg;
+    console.log(arg.length); // Array has a .length, so no more error
+    return arg;
 }
 ```
 
@@ -63,7 +63,7 @@ function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
 
 ```ts
 function identity<Type>(arg: Type): Type {
-  return arg;
+    return arg;
 }
 
 let myIdentity: <Type>(arg: Type) => Type = identity;
@@ -71,7 +71,7 @@ let myIdentity: <Type>(arg: Type) => Type = identity;
 
 ```ts
 function identity<Type>(arg: Type): Type {
-  return arg;
+    return arg;
 }
 
 let myIdentity: <Input>(arg: Input) => Input = identity;
@@ -79,11 +79,11 @@ let myIdentity: <Input>(arg: Input) => Input = identity;
 
 ```ts
 interface GenericIdentityFn {
-  <Type>(arg: Type): Type;
+    <Type>(arg: Type): Type;
 }
 
 function identity<Type>(arg: Type): Type {
-  return arg;
+    return arg;
 }
 
 let myIdentity: GenericIdentityFn = identity;
@@ -91,11 +91,11 @@ let myIdentity: GenericIdentityFn = identity;
 
 ```ts
 interface GenericIdentityFn<Type> {
-  (arg: Type): Type;
+    (arg: Type): Type;
 }
 
 function identity<Type>(arg: Type): Type {
-  return arg;
+    return arg;
 }
 
 let myIdentity: GenericIdentityFn<number> = identity;
@@ -107,14 +107,14 @@ let myIdentity: GenericIdentityFn<number> = identity;
 
 ```ts
 class GenericNumber<NumType> {
-  zeroValue: NumType;
-  add: (x: NumType, y: NumType) => NumType;
+    zeroValue: NumType;
+    add: (x: NumType, y: NumType) => NumType;
 }
 
 let myGenericNumber = new GenericNumber<number>();
 myGenericNumber.zeroValue = 0;
 myGenericNumber.add = function (x, y) {
-  return x + y;
+    return x + y;
 };
 ```
 
@@ -122,7 +122,7 @@ myGenericNumber.add = function (x, y) {
 let stringNumeric = new GenericNumber<string>();
 stringNumeric.zeroValue = "";
 stringNumeric.add = function (x, y) {
-  return x + y;
+    return x + y;
 };
 
 console.log(stringNumeric.add(stringNumeric.zeroValue, "test"));
@@ -134,12 +134,12 @@ console.log(stringNumeric.add(stringNumeric.zeroValue, "test"));
 
 ```ts
 interface Lengthwise {
-  length: number;
+    length: number;
 }
 
 function loggingIdentity<Type extends Lengthwise>(arg: Type): Type {
-  console.log(arg.length); // Now we know it has a .length property, so no more error
-  return arg;
+    console.log(arg.length); // Now we know it has a .length property, so no more error
+    return arg;
 }
 ```
 
@@ -153,7 +153,7 @@ We'd like to ensure that we're not accidentally grabbing a property that does no
 
 ```ts
 function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
-  return obj[key];
+    return obj[key];
 }
 
 let x = { a: 1, b: 2, c: 3, d: 4 };
@@ -167,27 +167,27 @@ getProperty(x, "m");
 
 ```ts
 class BeeKeeper {
-  hasMask: boolean = true;
+    hasMask: boolean = true;
 }
 
 class ZooKeeper {
-  nametag: string = "Mikle";
+    nametag: string = "Mikle";
 }
 
 class Animal {
-  numLegs: number = 4;
+    numLegs: number = 4;
 }
 
 class Bee extends Animal {
-  keeper: BeeKeeper = new BeeKeeper();
+    keeper: BeeKeeper = new BeeKeeper();
 }
 
 class Lion extends Animal {
-  keeper: ZooKeeper = new ZooKeeper();
+    keeper: ZooKeeper = new ZooKeeper();
 }
 
 function createInstance<A extends Animal>(c: new () => A): A {
-  return new c();
+    return new c();
 }
 
 createInstance(Lion).keeper.nametag;
@@ -200,7 +200,7 @@ createInstance(Bee).keeper.hasMask;
 
 References
 
-- [Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
+-   [Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
 
 ### `keyof` type operator
 
@@ -262,7 +262,7 @@ _If we try to use `ReturnType` on a function name, we see an instructive error:_
 
 ```ts
 function f() {
-  return { x: 10, y: 3 };
+    return { x: 10, y: 3 };
 }
 type P = ReturnType<f>;
 // 'f' refers to a value, but is being used as a type here. Did you mean 'typeof f'?
@@ -273,7 +273,7 @@ _To refer to the type that the value f has, we use `typeof`:_
 
 ```ts
 function f() {
-  return { x: 10, y: 3 };
+    return { x: 10, y: 3 };
 }
 
 type P = ReturnType<typeof f>;
@@ -332,9 +332,9 @@ _We can combine this with `typeof` to conveniently capture the element type of a
 
 ```ts
 const MyArray = [
-  { name: "Alice", age: 15 },
-  { name: "Bob", age: 23 },
-  { name: "Eve", age: 38 },
+    { name: "Alice", age: 15 },
+    { name: "Bob", age: 23 },
+    { name: "Eve", age: 38 },
 ];
 
 type Person = typeof MyArray[number];
@@ -342,14 +342,14 @@ type Person = typeof MyArray[number];
 type Person = {
     name: string;
     age: number;
-}
+};
 type Age = typeof MyArray[number]["age"];
 
-type Age = number
+type Age = number;
 // Or
 type Age2 = Person["age"];
 
-type Age2 = number
+type Age2 = number;
 ```
 
 _You can only use types when indexing, meaning you can't use a const to make a variable reference:_
@@ -378,10 +378,10 @@ JavaScript programs are no different, but given the fact that values can be easi
 
 ```ts
 interface Animal {
-  live(): void;
+    live(): void;
 }
 interface Dog extends Animal {
-  woof(): void;
+    woof(): void;
 }
 
 type Example1 = Dog extends Animal ? number : string;
@@ -406,17 +406,17 @@ _For example, let's take the following `createLabel` function:_
 
 ```ts
 interface IdLabel {
-  id: number /* some fields */;
+    id: number /* some fields */;
 }
 interface NameLabel {
-  name: string /* other fields */;
+    name: string /* other fields */;
 }
 
 function createLabel(id: number): IdLabel;
 function createLabel(name: string): NameLabel;
 function createLabel(nameOrId: string | number): IdLabel | NameLabel;
 function createLabel(nameOrId: string | number): IdLabel | NameLabel {
-  throw "unimplemented";
+    throw "unimplemented";
 }
 ```
 
@@ -432,15 +432,15 @@ _Instead, we can encode that logic in a conditional type:_
 
 ```ts
 type NameOrId<T extends number | string> = T extends number
-  ? IdLabel
-  : NameLabel;
+    ? IdLabel
+    : NameLabel;
 ```
 
 _We can then use that conditional type to simplify our overloads down to a single function with no overloads._
 
 ```ts
 function createLabel<T extends number | string>(idOrName: T): NameOrId<T> {
-  throw "unimplemented";
+    throw "unimplemented";
 }
 
 let a = createLabel("typescript");
@@ -472,7 +472,7 @@ We could constrain `T`, and TypeScript would no longer complain:
 type MessageOf<T extends { message: unknown }> = T["message"];
 
 interface Email {
-  message: string;
+    message: string;
 }
 
 type EmailMessageContents = MessageOf<Email>;
@@ -486,11 +486,11 @@ We can do this by moving the constraint out and introducing a conditional type:
 type MessageOf<T> = T extends { message: unknown } ? T["message"] : never;
 
 interface Email {
-  message: string;
+    message: string;
 }
 
 interface Dog {
-  bark(): void;
+    bark(): void;
 }
 
 type EmailMessageContents = MessageOf<Email>;
@@ -541,8 +541,8 @@ _For example, for simple cases, we can extract the return type out from function
 
 ```ts
 type GetReturnType<Type> = Type extends (...args: never[]) => infer Return
-  ? Return
-  : never;
+    ? Return
+    : never;
 
 type Num = GetReturnType<() => number>;
 // type Num = number
@@ -623,18 +623,18 @@ Mapped types build on the syntax for index signatures, which are used to declare
 
 ```ts
 type OnlyBoolsAndHorses = {
-  [key: string]: boolean | Horse;
+    [key: string]: boolean | Horse;
 };
 
 const conforms: OnlyBoolsAndHorses = {
-  del: true,
-  rodney: false,
+    del: true,
+    rodney: false,
 };
 ```
 
 _A mapped type is a generic type which uses a union of PropertyKeys (frequently created via a keyof) to iterate through keys to create a type:_
 
-TODO
+todo oneday
 
 ### Mapping Modifiers
 

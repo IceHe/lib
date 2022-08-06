@@ -3,15 +3,14 @@ type DescribableFunction = {
   (someArgument: number): boolean;
 };
 
-function f1(handle: DescribableFunction) {
+function fun1(handle: DescribableFunction) {
   console.log(handle.description + ' returned ' + handle(6));
 }
 
-// TODO / FIXME : 还是没有成功声明出一个可以调用的函数
-function testOverloadSignature(argument: number) {
+function testOverloadSignature1(argument: number) {
   return true;
 }
 
-testOverloadSignature.description = 'test';
+testOverloadSignature1.description = 'test';
 
-f1(testOverloadSignature);
+fun1(testOverloadSignature1);

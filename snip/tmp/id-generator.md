@@ -6,65 +6,65 @@
 
 References
 
-- IM消息ID技术专题(六) : 深度解密滴滴的高性能ID生成器(Tinyid) : https://zhuanlan.zhihu.com/p/226216776
-- 分布式ID神器之雪花算法简介 : https://zhuanlan.zhihu.com/p/85837641
+-   IM 消息 ID 技术专题(六) : 深度解密滴滴的高性能 ID 生成器(Tinyid) : https://zhuanlan.zhihu.com/p/226216776
+-   分布式 ID 神器之雪花算法简介 : https://zhuanlan.zhihu.com/p/85837641
 
 ## Intro
 
 ### 分布式 ID 特点
 
-- 全局唯一性
-    - 不能出现有重复的 ID 标识, 这是基本要求.
-- 递增性
-    - 确保生成 ID 对于用户或业务是递增的.
-- 高可用性
-    - 确保任何时候都能生成正确的 ID.
-- 高性能性
-    - 在高并发的环境下依然表现良好.
+-   全局唯一性
+    -   不能出现有重复的 ID 标识, 这是基本要求.
+-   递增性
+    -   确保生成 ID 对于用户或业务是递增的.
+-   高可用性
+    -   确保任何时候都能生成正确的 ID.
+-   高性能性
+    -   在高并发的环境下依然表现良好.
 
 ### 常见解决方案
 
 UUID
 
-- Java 自带的生成一串唯一随机 36 位字符串 ( 32个字符串+4个 "-" ) 的算法.
-    - 它可以保证唯一性, 且据说够用 N 亿年, 但是其 **业务可读性差, 无法有序递增.**
+-   Java 自带的生成一串唯一随机 36 位字符串 ( 32 个字符串+4 个 "-" ) 的算法.
+    -   它可以保证唯一性, 且据说够用 N 亿年, 但是其 **业务可读性差, 无法有序递增.**
 
 SnowFlake
 
-- 雪花算法, 它是 Twitter 开源的由 64 位整数组成分布式ID, 性能较高, 并且在单机上递增.
-- Reference : https://github.com/twitter-archive/snowflake
+-   雪花算法, 它是 Twitter 开源的由 64 位整数组成分布式 ID, 性能较高, 并且在单机上递增.
+-   Reference : https://github.com/twitter-archive/snowflake
 
 UidGenerator
 
-- UidGenerator 是百度开源的分布式 ID 生成器, 其基于雪花算法实现.
-- Reference : https://github.com/baidu/uid-generator/blob/master/README.zh_cn.md
+-   UidGenerator 是百度开源的分布式 ID 生成器, 其基于雪花算法实现.
+-   Reference : https://github.com/baidu/uid-generator/blob/master/README.zh_cn.md
 
 Leaf
 
-- Leaf是美团开源的分布式ID生成器, 能保证全局唯一, 趋势递增,
-    - 但 **需要依赖关系数据库、Zookeeper 等中间件**.
-- Reference : https://tech.meituan.com/MT_Leaf.html
+-   Leaf 是美团开源的分布式 ID 生成器, 能保证全局唯一, 趋势递增,
+    -   但 **需要依赖关系数据库、Zookeeper 等中间件**.
+-   Reference : https://tech.meituan.com/MT_Leaf.html
 
 ### SnowFlake
 
-_SnowFlake 是 Twitter 公司采用的一种算法,_ 目的是 **在分布式系统中产生全局唯一且趋势递增的ID.**
+_SnowFlake 是 Twitter 公司采用的一种算法,_ 目的是 **在分布式系统中产生全局唯一且趋势递增的 ID.**
 
 ![snowflake-id-example.jpg](_image/snowflake-id-example.jpg)
 
 组成部分 ( 64bit )
 
-- 1\. 第一位 占用 1 bit,
-    - 其值始终是0, 没有实际作用.
-- 2\. **时间戳** 占用 41 bit,
-    - **精确到毫秒**, 总共可以容纳约 69 年的时间.
-- 3\. **工作机器 id** 占用 10 bit,
-    - 其中高位 5 bit 是 **数据中心 ID**,
-    - 低位 5 bit 是 **工作节点 ID**,
-    - 最多可以容纳 1024 个节点.
-- 4\. **序列号** 占用 12 bit,
-    - 每个节点每毫秒 0 开始不断累加,
-    - 最多可以累加到 4095,
-    - 一共可以产生 4096 个 ID.
+-   1\. 第一位 占用 1 bit,
+    -   其值始终是 0, 没有实际作用.
+-   2\. **时间戳** 占用 41 bit,
+    -   **精确到毫秒**, 总共可以容纳约 69 年的时间.
+-   3\. **工作机器 id** 占用 10 bit,
+    -   其中高位 5 bit 是 **数据中心 ID**,
+    -   低位 5 bit 是 **工作节点 ID**,
+    -   最多可以容纳 1024 个节点.
+-   4\. **序列号** 占用 12 bit,
+    -   每个节点每毫秒 0 开始不断累加,
+    -   最多可以累加到 4095,
+    -   一共可以产生 4096 个 ID.
 
 SnowFlake 算法在同一毫秒内, 最多可以生成的全局唯一 ID 个数 :
 
@@ -228,4 +228,4 @@ public class SnowflakeIdWorker {
 }
 ```
 
-TODO
+todo oneday

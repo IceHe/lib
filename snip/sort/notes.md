@@ -2,45 +2,45 @@
 
 References
 
-- [Sorting Algorithms](https://www.toptal.com/developers/sorting-algorithms)
+-   [Sorting Algorithms](https://www.toptal.com/developers/sorting-algorithms)
 
 Index
 
-- Insertion Sort
-- Selection Sort
-- Bubble Sort
-- Shell Sort
-- Merge Sort
-- Quick Sort
-- Quick Sort 3 Way
-- Heap Sort
-- 基数排序
+-   Insertion Sort
+-   Selection Sort
+-   Bubble Sort
+-   Shell Sort
+-   Merge Sort
+-   Quick Sort
+-   Quick Sort 3 Way
+-   Heap Sort
+-   基数排序
 
-Todos
+todo oneday
 
-- [ ] Study
-    - [x] Insertion Sort
-    - [x] Selection Sort
-    - [x] Bubble Sort
-    - [x] Shell Sort
-    - [x] Merge Sort
-    - [x] Quick Sort
-    - [ ] Quick Sort 3 Way
-    - [ ] Heap Sort
-    - [ ] 基数排序
-- [ ] Review
-    - [ ] Insertion Sort
-    - [ ] Selection Sort
-    - [ ] **Bubble Sort !**
-    - [ ] **Shell Sort !!!**
-    - [ ] **Merge Sort Recursive !**
-    - [ ] **Merge Sort Iterative !!!**
-    - [ ] **Quick Sort Recursive !!!!**
-    - [ ] **Quick Sort Recursive Simple !!!**
-    - [ ] Quick Sort Iterative
-    - [ ] Quick Sort 3 Way
-    - [ ] Heap Sort
-    - [ ] 基数排序
+-   [ ] Study
+    -   [x] Insertion Sort
+    -   [x] Selection Sort
+    -   [x] Bubble Sort
+    -   [x] Shell Sort
+    -   [x] Merge Sort
+    -   [x] Quick Sort
+    -   [ ] Quick Sort 3 Way
+    -   [ ] Heap Sort
+    -   [ ] 基数排序
+-   [ ] Review
+    -   [ ] Insertion Sort
+    -   [ ] Selection Sort
+    -   [ ] **Bubble Sort !**
+    -   [ ] **Shell Sort !!!**
+    -   [ ] **Merge Sort Recursive !**
+    -   [ ] **Merge Sort Iterative !!!**
+    -   [ ] **Quick Sort Recursive !!!!**
+    -   [ ] **Quick Sort Recursive Simple !!!**
+    -   [ ] Quick Sort Iterative
+    -   [ ] Quick Sort 3 Way
+    -   [ ] Heap Sort
+    -   [ ] 基数排序
 
 ## Insertion Sort
 
@@ -48,11 +48,11 @@ Reference: [Insertion Sort](https://www.toptal.com/developers/sorting-algorithms
 
 Properties
 
-- Stable
-- O(1) extra space
-- O(n^2) comparisons and swaps
-- **Adaptive: O(n) time when nearly sorted**
-- Very low overhead
+-   Stable
+-   O(1) extra space
+-   O(n^2) comparisons and swaps
+-   **Adaptive: O(n) time when nearly sorted**
+-   Very low overhead
 
 Pseudocode
 
@@ -70,11 +70,11 @@ Reference: [Selection Sort](https://www.toptal.com/developers/sorting-algorithms
 
 Properties
 
-- **Not stable?**
-- O(1) extra space
-- Θ(n^2) comparisons
-- **Θ(n) swaps**
-- **Not adaptive**: _always Θ(n^2) comparisons_
+-   **Not stable?**
+-   O(1) extra space
+-   Θ(n^2) comparisons
+-   **Θ(n) swaps**
+-   **Not adaptive**: _always Θ(n^2) comparisons_
 
 Pseudocode
 
@@ -90,9 +90,9 @@ end
 
 Others
 
-- Why not stable? I think:
-    - If alway swap a[i, k], it's not stable.
-    - If swap a[i, k] only when i != k, it's stable.
+-   Why not stable? I think:
+    -   If alway swap a[i, k], it's not stable.
+    -   If swap a[i, k] only when i != k, it's stable.
 
 ## Bubble Sort
 
@@ -100,10 +100,10 @@ Reference: [Bubble Sort](https://www.toptal.com/developers/sorting-algorithms/bu
 
 Properties
 
-- Stable
-- O(1) extra space
-- O(n^2) comparisons and swaps
-- **Adaptive**: O(n) when nearly sorted
+-   Stable
+-   O(1) extra space
+-   O(n^2) comparisons and swaps
+-   **Adaptive**: O(n) when nearly sorted
 
 Pseudocode
 
@@ -132,10 +132,10 @@ Reference: [Shell Sort](https://www.toptal.com/developers/sorting-algorithms)
 
 Properties
 
-- Not stable
-- O(1) extra space
-- **O(n^3/2) time**
-- **Adaptive: O(n·lg(n)) time when nearly sorted**
+-   Not stable
+-   O(1) extra space
+-   **O(n^3/2) time**
+-   **Adaptive: O(n·lg(n)) time when nearly sorted**
 
 Pseudocode
 
@@ -173,12 +173,12 @@ Reference: [Merge Sort](https://www.toptal.com/developers/sorting-algorithms/mer
 
 Properties
 
-- Stable
-- **Θ(n) extra space for arrays**
-- Θ(lg(n)) extra space for linked lists
-- **Θ(n·lg(n)) time**
-- Not adaptive
-- **Does not require random access to data**
+-   Stable
+-   **Θ(n) extra space for arrays**
+-   Θ(lg(n)) extra space for linked lists
+-   **Θ(n·lg(n)) time**
+-   Not adaptive
+-   **Does not require random access to data**
 
 Pseudocode
 
@@ -213,10 +213,10 @@ Reference: [Quick Sort](https://www.toptal.com/developers/sorting-algorithms/qui
 
 Properties
 
-- Not stable
-- O(lg(n)) extra space
-- O(n^2) time, but typically O(n·lg(n)) time
-- Not adaptive
+-   Not stable
+-   O(lg(n)) extra space
+-   O(n^2) time, but typically O(n·lg(n)) time
+-   Not adaptive
 
 Pseudocode
 
@@ -256,4 +256,5 @@ Properties
 Pseudocode
 
 ```bash
+
 ```

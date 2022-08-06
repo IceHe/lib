@@ -402,7 +402,7 @@ Install the GUI softwares via the installations downloaded from the websites
 Note : Some GUI softwares are only available on the websites
 
 -   [Copy 'Em Helper](https://apprywhere.com/ce-helper.html)
--   [Logi Options](https://www.logitech.com.cn/zh-cn/product/options) - _TODO : Wait for Logi Option+ public release and then deprecate Logi Options_
+-   [Logi Options+](https://www.logitech.com.cn/zh-cn/software/logi-options-plus.html)
 -   [Sublime Text 3](https://www.sublimetext.com/3)
 
 <!-- - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac) -->
