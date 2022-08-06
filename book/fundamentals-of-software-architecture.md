@@ -6,54 +6,9 @@
 
 References
 
-- Book "Fundamentals of Software Architecture" Mark Richards, Neal Ford 著
-    - 《软件架构基础》（影印版）
-    - [Table Of Content](/book/fundamentals-of-software-architecture-toc.md)
-
-<!--
-
-## 缩略版 TOC
-
-TODO : 还是太长需要继续缩略, 再展示其精华到首页 README.md 中 (2021/12/10)
-
-- 1\. Introduction
-    - Expectations of an Architect : Keep Current with Latest Trends / Ensure Compliance with Decisions / Diverse Exposure and Experience / Have Bussines Domain Knowledge / Understand and Navigate Politics
-    - Intersection of Architecture and … : Engineering Practices / Operations & DevOps / Process / Data
-- Part 1. Foundations
-    - 2\. Architectural Thinking : Architecture Versus Design / Technical Breadth / Analyze Trade-Offs / Understanding Business Drivers / Balancing Architecutre and Hands-On Coding
-    - 3\. **Modularity** : Measuring Modularity / **Cohesion** / **Coupling** / **Abstractness, Instability, and Distance from the Main Sequence** / **Distance from the Main Sequence** / **Connascence** / **Unifying Coupling and Connascence Metrics** / From Modules to Components
-    - 4\. **Architecture Characteristics** : Trade-Offs and Least Worst Architecture / Defined : (Partially) Listed : Operational / Structural / Cross-Cutting
-    - 5\. Indentifying Architectural Characteristics: Extracting Architecture Characteristics from Domain Concerns and Requirements / Characteristics: Explicit / Implicit
-    - 6\. Measuring and Governing Architecture Characteristics
-        - Measuring : Operational / Structural / Process
-        - Governance and Fitness Function : Governing Architecture Characteristics / Fitness Functions
-    - 7\. Scope of Architecture Characteristics: Coupling and Connascence / Architectural Quanta and Granularity
-    - 8\. Component-Based Thinking : Component Scope / Developer Role
-        - **Architect Role** : **Architecture Partitioning** / Case Study : Silicon Sanwiches: Partitioning
-        - Component Identification Flow : Identifying Initial Components / Assign Requirements to Components / Analyze Roles and Responsibilities / Analyze Architecture Characteristics / Restructure Components
-        - Component Granularity
-        - Architecture Quantum Redux : Choosing Between Monolithic Versus Distributed Architectures
-- Part 2. Architure Styles
-    - 9\. Foundations: Fundamental Patterns: Big Ball of Mud / Unitary Architecture / Client/Server
-        - **Monolithic Versus Distributed Architectures** - **Fallacies** :
-            - The Network Is Reliable / Latency Is Zero / Bandwidth Is Infinite / The Network Is Secure / The Topology Never Changes / There Is Only One Administrator / Transport Cost Is Zero / The Network Is Homogeneous
-    - 10\. **Layered** : Layers of Isolation
-    - 11\. **Pipeline** : **Pipes** / **Filters**
-    - 12\. **Microkernel** : **Core System** or **Plug-In Components** / **Registry** / **Contracts**
-    - 13\. **Service-Based** : Service Design and Granularity / Database Partitioning
-    - 14\. **Event-Driven** : **Broker** / **Mediator**
-        - Asynchronous Capabilities / Error Handling / Prevent Data Loss / Broadcast Capabilities / Request-Reply / Choosing Between Request-Reply and Event-Based / Hybrid** Event-Driven Architectures
-    - 15\. **Space-Based**
-        - Processing Unit / Virtualized Middleware / Data Pumps / Data Writers / Data Readers
-        - Data Collisions / Cloud Versus On-Premises Implementations / Replicated Versus Distributed Caching / Near-Cahce Considerations
-    - 16\. **Orchestration-Driven Service-Oriented** : Reuse … and Coupling / Taxonomy : Business / Enterprise / Application / Infrastructure / Orchestration / Message Flow
-    - 17\. **Microservices**
-        - Bounded Context : Granularity / Data Isolation
-        - Distributed / API Layer / Operational Reuse / Frontends
-        - Communication : Choreography and Orchestration / Transactions and Sages
-- ……
-
--->
+-   Book "Fundamentals of Software Architecture" Mark Richards, Neal Ford 著
+    -   《软件架构基础》（影印版）
+    -   [Table Of Content](/book/fundamentals-of-software-architecture-toc.md)
 
 ## Table of Contents
 
@@ -61,300 +16,300 @@ TODO : 还是太长需要继续缩略, 再展示其精华到首页 README.md 中
 
 -   1\. Introduction
 
-    - Defining Software Architecture
-    - Expectations of an Architect
-        - Continually Analyze the Archituecture
-        - Keep Current with Latest Trends
-        - Ensure Compliance _( 服从 )_ with Decisions
-        - Diverse _( 不同的 )_ Exposure _( 显露? )_ and Experience
-        - Have Bussines Domain Knowledge
-        - Understand and Navigate _( 操纵 )_ Politics
-    - Intersection _( 交叉点 )_ of Architecture and …
-        - **Engineering Practices**
-        - **Operations / DevOps**
-        - **Process**
-        - **Data**
-    - **Laws of Software Architecutre**
+    -   Defining Software Architecture
+    -   Expectations of an Architect
+        -   Continually Analyze the Archituecture
+        -   Keep Current with Latest Trends
+        -   Ensure Compliance _( 服从 )_ with Decisions
+        -   Diverse _( 不同的 )_ Exposure _( 显露? )_ and Experience
+        -   Have Bussines Domain Knowledge
+        -   Understand and Navigate _( 操纵 )_ Politics
+    -   Intersection _( 交叉点 )_ of Architecture and …
+        -   **Engineering Practices**
+        -   **Operations / DevOps**
+        -   **Process**
+        -   **Data**
+    -   **Laws of Software Architecutre**
 
 ### Part 1. Foundations
 
 -   2\. Architectural _( 建筑学上的 )_ Thinking
 
-    - Architecture Versus Design
-    - Technical Breadth
-    - Analyze Trade-Offs
-    - Understanding Business Drivers
-    - Balancing Architecutre and Hands-On Coding
+    -   Architecture Versus Design
+    -   Technical Breadth
+    -   Analyze Trade-Offs
+    -   Understanding Business Drivers
+    -   Balancing Architecutre and Hands-On Coding
 
 -   3\. **Modularity _( 模块性 )_**
 
-    - Definition
-    - Measuring Modularity
-        - **Cohesion**
-        - **Coupling**
-        - **Abstractness, Instability, and Distance from the Main Sequence**
-        - **Distance from the Main Sequence**
-        - **Connascence _( 共生性 )_**
-        - **Unifying Coupling and Connascence Metrics**
-    - **From Modules to Components**
+    -   Definition
+    -   Measuring Modularity
+        -   **Cohesion**
+        -   **Coupling**
+        -   **Abstractness, Instability, and Distance from the Main Sequence**
+        -   **Distance from the Main Sequence**
+        -   **Connascence _( 共生性 )_**
+        -   **Unifying Coupling and Connascence Metrics**
+    -   **From Modules to Components**
 
 -   4\. **Architecture Characteristics _( 特征 )_** Defined
 
-    - Architectural Characteristics ( Partially ) Listed
-        - **Operational** Architecture Characteristics
-        - **Structural** Architecture Characteristics
-        - **Cross-Cutting** Architecture Characteristics
-    - Trade-Offs and Least Worst Architecture
+    -   Architectural Characteristics ( Partially ) Listed
+        -   **Operational** Architecture Characteristics
+        -   **Structural** Architecture Characteristics
+        -   **Cross-Cutting** Architecture Characteristics
+    -   Trade-Offs and Least Worst Architecture
 
 -   5\. Indentifying Architectural Characteristics
 
-    - Extracting Architecture Characteristics from Domain Concerns
-    - Extracting Architecture Characteristics from Requirements
-    - Case Study: Silicon Sandwiches
-        - Explicit Characteristics
-        - Implicit Characteristics
+    -   Extracting Architecture Characteristics from Domain Concerns
+    -   Extracting Architecture Characteristics from Requirements
+    -   Case Study: Silicon Sandwiches
+        -   Explicit Characteristics
+        -   Implicit Characteristics
 
 -   6\. Measuring and Governing Architecture Characteristics
 
-    - Measuring Architecture Characteristics
-        - Operational Measures
-        - Structural Measures
-        - Process Measures
-    - Governance _( 管理 )_ and Fitness _( 适当 )_ Function
-        - Governing Architecture Characteristics
-        - Fitness Functions
+    -   Measuring Architecture Characteristics
+        -   Operational Measures
+        -   Structural Measures
+        -   Process Measures
+    -   Governance _( 管理 )_ and Fitness _( 适当 )_ Function
+        -   Governing Architecture Characteristics
+        -   Fitness Functions
 
 -   7\. **Scope** of Architecture Characteristics
 
-    - **Coupling and Connascence**
-    - **Architectural Quanta _( 量 )_ and Granularity _( 粒度 )_**
-        - Case Study: Going, Going, Gone
+    -   **Coupling and Connascence**
+    -   **Architectural Quanta _( 量 )_ and Granularity _( 粒度 )_**
+        -   Case Study: Going, Going, Gone
 
 -   8\. Component-Based Thinking
 
-    - Component Scope
-    - **Architect Role _( 职责 )_**
-        - **Architecture Partitioning _( 分割 )_**
-        - Case Study: Silicon Sanwiches: Partitioning
-    - **Developer Role**
-    - Component Identification Flow
-        - Identifying Initial Components
-        - Assign Requirements to Components
-        - Analyze Roles and Responsibilities
-        - Analyze Architecture Characteristics
-        - Restructure Components
-    - Component Granularity
-    - Component Design
-        - Discovering Components
-    - Case Study: Going, Going, Gone: Discovering Components
-    - Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
+    -   Component Scope
+    -   **Architect Role _( 职责 )_**
+        -   **Architecture Partitioning _( 分割 )_**
+        -   Case Study: Silicon Sanwiches: Partitioning
+    -   **Developer Role**
+    -   Component Identification Flow
+        -   Identifying Initial Components
+        -   Assign Requirements to Components
+        -   Analyze Roles and Responsibilities
+        -   Analyze Architecture Characteristics
+        -   Restructure Components
+    -   Component Granularity
+    -   Component Design
+        -   Discovering Components
+    -   Case Study: Going, Going, Gone: Discovering Components
+    -   Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
 
 ### Part 2. Architure Styles
 
 -   9\. Foundations
 
-    - Fundamental Patterns
-        - Big Ball of Mud
-        - Unitary _( 统一的 )_ Architecture
-        - Client / Server
-    - **Monolithic Versus Distributed Architectures**
-        - **Fallacy _( 谬误 )_ #1: The Network Is Reliable**
-        - **Fallacy #2: Latency Is Zero**
-        - **Fallacy #3: Bandwidth Is Infinite**
-        - **Fallacy #4: The Network Is Secure**
-        - **Fallacy #5: The Topology Never Changes**
-        - **Fallacy #6: There Is Only One Administrator**
-        - **Fallacy #7: Transport Cost Is Zero**
-        - **Fallacy #8: The Network Is Homogeneous**
-        - Other Distributed Considerations
+    -   Fundamental Patterns
+        -   Big Ball of Mud
+        -   Unitary _( 统一的 )_ Architecture
+        -   Client / Server
+    -   **Monolithic Versus Distributed Architectures**
+        -   **Fallacy _( 谬误 )_ #1: The Network Is Reliable**
+        -   **Fallacy #2: Latency Is Zero**
+        -   **Fallacy #3: Bandwidth Is Infinite**
+        -   **Fallacy #4: The Network Is Secure**
+        -   **Fallacy #5: The Topology Never Changes**
+        -   **Fallacy #6: There Is Only One Administrator**
+        -   **Fallacy #7: Transport Cost Is Zero**
+        -   **Fallacy #8: The Network Is Homogeneous**
+        -   Other Distributed Considerations
 
 -   10\. **Layered** Architecture Style
 
-    - Topology
-    - **Layers of Isolation**
-    - Adding Layers
-    - Other Considerations
-    - Why Use This Architecture Style
-    - Architecture Characteristics Ratings
+    -   Topology
+    -   **Layers of Isolation**
+    -   Adding Layers
+    -   Other Considerations
+    -   Why Use This Architecture Style
+    -   Architecture Characteristics Ratings
 
 -   11\. **Pipeline** Architecture Style
 
-    - Topology
-        - **Pipes**
-        - **Filters**
-    - Example
-    - Architecture Characteristics Ratings
+    -   Topology
+        -   **Pipes**
+        -   **Filters**
+    -   Example
+    -   Architecture Characteristics Ratings
 
 -   12\. **Microkernel** Architecture Style
 
-    - Topology
-        - **Core System**
-        - **Plug-In Components**
-    - **Registry**
-    - **Contracts**
-    - Examples of Use Cases
-    - Architecture Characteristics Ratings
+    -   Topology
+        -   **Core System**
+        -   **Plug-In Components**
+    -   **Registry**
+    -   **Contracts**
+    -   Examples of Use Cases
+    -   Architecture Characteristics Ratings
 
 -   13\. **Service-Based** Architecture Style
 
-    - Topology
-    - Topology Variants
-    - Service Design and Granularity
-    - **Database Partitioning**
-    - Example Architecture
-    - Architecture Characteristics Ratings
-    - When to Use This Architecture Style
+    -   Topology
+    -   Topology Variants
+    -   Service Design and Granularity
+    -   **Database Partitioning**
+    -   Example Architecture
+    -   Architecture Characteristics Ratings
+    -   When to Use This Architecture Style
 
 -   14\. **Event-Driven** Architecture Style
 
-    - Topology
-    - **Broker** Topology
-    - **Mediator** Topology
-    - **Asynchronous Capabilities**
-    - **Error Handling**
-    - **Prevent Data Loss**
-    - **Broadcast Capabilities**
-    - **Request-Reply**
-    - Choosing Between Request-Reply and **Event-Based**
-    - **Hybrid** Event-Driven Architectures
-    - Architecture Characteristics Ratings
+    -   Topology
+    -   **Broker** Topology
+    -   **Mediator** Topology
+    -   **Asynchronous Capabilities**
+    -   **Error Handling**
+    -   **Prevent Data Loss**
+    -   **Broadcast Capabilities**
+    -   **Request-Reply**
+    -   Choosing Between Request-Reply and **Event-Based**
+    -   **Hybrid** Event-Driven Architectures
+    -   Architecture Characteristics Ratings
 
 -   15\. **Space-Based** Architecture Style
 
-    - General Topology
-        - **Processing Unit**
-        - **Virtualized Middleware**
-        - **Data Pumps _( 泵 )_**
-        - **Data Writers**
-        - **Data Readers**
-    - **Data Collisions**
-    - **Cloud Versus On-Premises _( 内部部署 )_ Implementations**
-    - **Replicated Versus Distributed Caching**
-    - **Near-Cahce** Considerations
-    - Implementation Examples
-        - Correct Ticketing System
-        - Online Auction System
-    - Architecture Characteristics Ratings
+    -   General Topology
+        -   **Processing Unit**
+        -   **Virtualized Middleware**
+        -   **Data Pumps _( 泵 )_**
+        -   **Data Writers**
+        -   **Data Readers**
+    -   **Data Collisions**
+    -   **Cloud Versus On-Premises _( 内部部署 )_ Implementations**
+    -   **Replicated Versus Distributed Caching**
+    -   **Near-Cahce** Considerations
+    -   Implementation Examples
+        -   Correct Ticketing System
+        -   Online Auction System
+    -   Architecture Characteristics Ratings
 
 -   16\. **Orchestration-Driven Service-Oriented** Architecture
 
-    - History and Philosophy
-    - Topology
-    - Taxonomy
-        - **Business** Services
-        - **Enterprise** Services
-        - **Application** Services
-        - **Infrastructure** Services
-        - **Orchestration** Services
-        - **Message Flow**
-    - **Reuse … and Coupling**
-    - Architecture Characteristics Ratings
+    -   History and Philosophy
+    -   Topology
+    -   Taxonomy
+        -   **Business** Services
+        -   **Enterprise** Services
+        -   **Application** Services
+        -   **Infrastructure** Services
+        -   **Orchestration** Services
+        -   **Message Flow**
+    -   **Reuse … and Coupling**
+    -   Architecture Characteristics Ratings
 
 -   17\. **Microservices** Architecture
 
-    - History
-    - Topology
-    - **Distributed**
-    - **Bounded Context**
-        - **Granularity**
-        - **Data Isolation**
-    - **API Layer**
-    - Operational Reuse
-    - **Frontends _( 前端的 )_**
-    - Communication
-        - **Choreography _( 舞蹈舞蹈设计 )_ and Orchestration**
-        - **Transactions and Sages _( 圣人, 智者 )_**
-    - Architecture Characteristics Ratings
-    - Additional References
+    -   History
+    -   Topology
+    -   **Distributed**
+    -   **Bounded Context**
+        -   **Granularity**
+        -   **Data Isolation**
+    -   **API Layer**
+    -   Operational Reuse
+    -   **Frontends _( 前端的 )_**
+    -   Communication
+        -   **Choreography _( 舞蹈舞蹈设计 )_ and Orchestration**
+        -   **Transactions and Sages _( 圣人, 智者 )_**
+    -   Architecture Characteristics Ratings
+    -   Additional References
 
 -   18\. Choosing the Appropriate Architecture Style
 
-    - Shifting "Fashion" in Architecture
-    - **Decision Criteria _( 标准, 条件 )_**
-    - Monolith Case Study: Silicon Sandwiches
-        - Modular Monolith
-        - Microkernel
-    - Distributed Case Study: Going, Going, Gone
+    -   Shifting "Fashion" in Architecture
+    -   **Decision Criteria _( 标准, 条件 )_**
+    -   Monolith Case Study: Silicon Sandwiches
+        -   Modular Monolith
+        -   Microkernel
+    -   Distributed Case Study: Going, Going, Gone
 
 ### Part 3. Techniques and Soft Skills
 
 -   19\. **Architecture Decisions**
 
-    - Architecture Decision **Anti-Patterns**
-        - **Governing Your Assets** Anti-Pattern
-        - **Groundhog Day _( 土拨鼠日 )_** Anti-Pattern
-        - **Email-Driven** Architecture Anti-Pattern
-    - Architecturally Significant
-    - Architecture Decision Records
-        - Basic Structure
-        - Storing ADRs
-        - ADRs as Documentation
-        - Using ADRs for Standards
-        - Example
+    -   Architecture Decision **Anti-Patterns**
+        -   **Governing Your Assets** Anti-Pattern
+        -   **Groundhog Day _( 土拨鼠日 )_** Anti-Pattern
+        -   **Email-Driven** Architecture Anti-Pattern
+    -   Architecturally Significant
+    -   Architecture Decision Records
+        -   Basic Structure
+        -   Storing ADRs
+        -   ADRs as Documentation
+        -   Using ADRs for Standards
+        -   Example
 
 -   20\. Analyzing Architecture **Risk**
 
-    - Risk Matrix
-    - Risk Assessments _( 估价 )_
-    - Risk Storming
-        - Identification
-        - Consensus
-    - Agile Story Risk Analysis
-    - Risk Storming Examples
-        - Availability
-        - **Elasticity _( 弹性 )_**
-        - Security
+    -   Risk Matrix
+    -   Risk Assessments _( 估价 )_
+    -   Risk Storming
+        -   Identification
+        -   Consensus
+    -   Agile Story Risk Analysis
+    -   Risk Storming Examples
+        -   Availability
+        -   **Elasticity _( 弹性 )_**
+        -   Security
 
 -   21\. Diagramming and Presenting Architecture
 
-    - Diagramming
-        - Tools
-        - Diagramming Standards: **UML, C4, and ArchiMate**
-        - Diagram Guidelines
-    - Presenting
-        - Manipulating Time
-        - Incremental Builds
-        - **Infodecks Versus Presentations**
-        - **Slides Are Half of the Story**
-        - Invisibility
+    -   Diagramming
+        -   Tools
+        -   Diagramming Standards: **UML, C4, and ArchiMate**
+        -   Diagram Guidelines
+    -   Presenting
+        -   Manipulating Time
+        -   Incremental Builds
+        -   **Infodecks Versus Presentations**
+        -   **Slides Are Half of the Story**
+        -   Invisibility
 
 -   22\. Making Teams Effective
 
-    - Team Boundaries
-    - Architect Personalities
-        - Control Freak _( 怪物; 反常的事 )_
-        - Armchair _( 扶手椅 )_ Architect
-        - Effective Architect
-    - How Much Control?
-    - Team Warning Signs
-    - **Leveraging Checklists**
-        - **Developer Code Completion** Checklist
-        - **Unit and Functional Testing** Checklist
-        - **Software Release** Checklist
-    - Providing Guidance
-    - Summary
+    -   Team Boundaries
+    -   Architect Personalities
+        -   Control Freak _( 怪物; 反常的事 )_
+        -   Armchair _( 扶手椅 )_ Architect
+        -   Effective Architect
+    -   How Much Control?
+    -   Team Warning Signs
+    -   **Leveraging Checklists**
+        -   **Developer Code Completion** Checklist
+        -   **Unit and Functional Testing** Checklist
+        -   **Software Release** Checklist
+    -   Providing Guidance
+    -   Summary
 
 -   23\. Negotiation and Leadership Skills
 
-    - **Negotiation and Facilitation** _( 助长, 简易化 )_
-        - Negotiating with Business Stakeholders
-        - Negotiating with Other Architects
-        - Negotiating with Developers
-    - The Software Architect as a Leader
-        - The 4 C's of Architecture
-        - Be Pragmatic, Yet Visionary _( 有眼光的, 有远见的 )_
-        - Leading Teams By Example
-    - Integrating with the Development Team
-    - Summary
+    -   **Negotiation and Facilitation** _( 助长, 简易化 )_
+        -   Negotiating with Business Stakeholders
+        -   Negotiating with Other Architects
+        -   Negotiating with Developers
+    -   The Software Architect as a Leader
+        -   The 4 C's of Architecture
+        -   Be Pragmatic, Yet Visionary _( 有眼光的, 有远见的 )_
+        -   Leading Teams By Example
+    -   Integrating with the Development Team
+    -   Summary
 
 -   24\. Developing a Career Path
 
-    - The 20-Minute Rule
-    - Developing a Personal Radar
-        - The ThoughtWorks Technology Radar
-        - Open Source Visualization Bits
-    - Using Social Media
-    - Parting Words of Advice
+    -   The 20-Minute Rule
+    -   Developing a Personal Radar
+        -   The ThoughtWorks Technology Radar
+        -   Open Source Visualization Bits
+    -   Using Social Media
+    -   Parting Words of Advice
 
 -   Appendix. Self-Assessment Questions
 
@@ -364,21 +319,21 @@ TODO : 还是太长需要继续缩略, 再展示其精华到首页 README.md 中
 
 Architecture characteristics referes to the "-illities" that the system must support
 
-- Availability 可用性
-- Reliability 可靠性
-    - _Software Reliability is the probability of failure-free software operation for a specified period of time in a specified environment. ( [ref](https://users.ece.cmu.edu/~koopman/des_s99/sw_reliability/#:~:text=Software%20Reliability%20is%20the%20probability,important%20factor%20affecting%20system%20reliability.&text=Measurement%20in%20software%20is%20still%20in%20its%20infancy.) )_
-- Testability 可测试性
-- Scalability 可伸缩性
-    - _Scalability handles the changing needs of an application within the confines of the infrastructure via statically adding or removing resources to meet applications demands if needed. ( [ref](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
-- Security 安全性
-- Agility 敏捷性
-- Fault Tolerance 错误容忍性
-- Elasticity 弹性
-    - _The purpose of Elasticity is to match the resources allocated with actual amount of resources needed at any given point in time. ( [ref](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
-- Recoverability 可恢复性
-- Performance 性能
-- Deployability 可部署性
-- Learnability 可学习性?
+-   Availability 可用性
+-   Reliability 可靠性
+    -   _Software Reliability is the probability of failure-free software operation for a specified period of time in a specified environment. ( [ref](https://users.ece.cmu.edu/~koopman/des_s99/sw_reliability/#:~:text=Software%20Reliability%20is%20the%20probability,important%20factor%20affecting%20system%20reliability.&text=Measurement%20in%20software%20is%20still%20in%20its%20infancy.) )_
+-   Testability 可测试性
+-   Scalability 可伸缩性
+    -   _Scalability handles the changing needs of an application within the confines of the infrastructure via statically adding or removing resources to meet applications demands if needed. ( [ref](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
+-   Security 安全性
+-   Agility 敏捷性
+-   Fault Tolerance 错误容忍性
+-   Elasticity 弹性
+    -   _The purpose of Elasticity is to match the resources allocated with actual amount of resources needed at any given point in time. ( [ref](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
+-   Recoverability 可恢复性
+-   Performance 性能
+-   Deployability 可部署性
+-   Learnability 可学习性?
 
 _( [Scalability vs. Elasticity](https://blog.turbonomic.com/blog/on-technology/cloud-elasticity-vs-cloud-scalability#:~:text=The%20purpose%20of%20Elasticity%20is,meet%20applications%20demands%20if%20needed.) )_
 
@@ -417,16 +372,16 @@ Trade-offs between topics and queues
 
 Topic advantages
 
-- Architecture extensibility
-- Service decoupling
+-   Architecture extensibility
+-   Service decoupling
 
 Topic disadvantages
 
-- Data access and data security conerns
+-   Data access and data security conerns
     _( 可以像阿里那样用管理后台管控 topic 接入, 但实际可以通过代码绕过去 )_
-- No heterogeneous contents
+-   No heterogeneous contents
     _( 不同消费方关注的字段各不相同, 生产方只能提供消费方所需字段的超集, 没法为消费方按需提供数据 )_
-- Monitoring and programmatic scalability
+-   Monitoring and programmatic scalability
     _( 无法单独监控 topic 的消息消费情况, 就难以为各个消费方单独做自动扩缩容 )_
 
 _( icehe : 初见, 感觉基于 topic 是 "完美的" , 实则同样存在的取舍平衡 )_
@@ -435,13 +390,13 @@ _( icehe : 初见, 感觉基于 topic 是 "完美的" , 实则同样存在的取
 
 First way is to do frequent proof-of-concepts or POCs.
 
-- … it also helps validate an architecuture decision by talking the implementation details into account.
-- _Our advice when doing proof-of-concept work is that, whenever possible, the architect should write the best production-quality code they can._
+-   … it also helps validate an architecuture decision by talking the implementation details into account.
+-   _Our advice when doing proof-of-concept work is that, whenever possible, the architect should write the best production-quality code they can._
 
 Another way an architect can remain hands-on is to tackle some of the technical debt stories or architecture stories, _freeing the development team up to work on the critical functional user stories._
 
-- _Similarly, working on bugfixes within an iteration…_
-- Leveraging automation by creating simple command-line tools and analyzers _to help the development team with their day-to-day tasks is another great way to maintain hands-on coding skills while making the development team more effective_
+-   _Similarly, working on bugfixes within an iteration…_
+-   Leveraging automation by creating simple command-line tools and analyzers _to help the development team with their day-to-day tasks is another great way to maintain hands-on coding skills while making the development team more effective_
 
 Do frequent code reviews.
 
@@ -459,28 +414,28 @@ ArchUnit is a free, simple and extensible library for checking the architecture 
 
 _( 内聚 )_
 
-- **Functional** cohesion
-    - Every part of the module is related to the other, ant he module contains everything essential to function
-- **Sequential** cohesion
-    - Two modules interact, where one outputs data that becomes the input ofr the other
-- **Communicational** cohesion
-    - Two modules form a communication chain
-    - e.g. ad a record to db → gen an email based on it
-- **Procedural** cohesion
-    - Must execute in particular order
-- **Temporal** cohesion
-    - Related based on timing dependencies
-    - e.g. things that must be initialized at system startup
-- **Logical** cohesion
-    - Related logically but not functionally
-    - e.g. StringUtils package
-        - Operations are related, but the functions are quite different
-- **Coincidental** cohesion _( negative )_
-    - e.g. not related but being in the same source file
+-   **Functional** cohesion
+    -   Every part of the module is related to the other, ant he module contains everything essential to function
+-   **Sequential** cohesion
+    -   Two modules interact, where one outputs data that becomes the input ofr the other
+-   **Communicational** cohesion
+    -   Two modules form a communication chain
+    -   e.g. ad a record to db → gen an email based on it
+-   **Procedural** cohesion
+    -   Must execute in particular order
+-   **Temporal** cohesion
+    -   Related based on timing dependencies
+    -   e.g. things that must be initialized at system startup
+-   **Logical** cohesion
+    -   Related logically but not functionally
+    -   e.g. StringUtils package
+        -   Operations are related, but the functions are quite different
+-   **Coincidental** cohesion _( negative )_
+    -   e.g. not related but being in the same source file
 
 **LCOM** : Lack of Cohesion in Methods
 
-- The sume of sets of methods not shared via sharing fields
+-   The sume of sets of methods not shared via sharing fields
 
 #### Coupling
 
@@ -501,8 +456,8 @@ $$
 A = \frac{\sum{m^a}}{\sum{m^c}}
 $$
 
-- $m^a$ represents abstract elements (interfaces or abstract classes) with the module
-- $m^c$ represents concrete elements (nonabstract classes)
+-   $m^a$ represents abstract elements (interfaces or abstract classes) with the module
+-   $m^c$ represents concrete elements (nonabstract classes)
 
 **Instability** is the ratio of efferent coupling to the sum of both efferent and afferent coupling.
 
@@ -510,8 +465,8 @@ $$
 I = \frac{C^e}{C^e+C^a}
 $$
 
-- $c^e$ represents efferent (or outgoing) coupling
-- $c^a$ represents afferent (or incoming) coupling
+-   $c^e$ represents efferent (or outgoing) coupling
+-   $c^a$ represents afferent (or incoming) coupling
 
 The instability _( 不稳定 )_ metric determines the volatility _( 变化无常, 不稳定 )_ of a code base. A code base that exhibits high degrees of instability breaks more easily when changed because of high coupling.
 
@@ -642,8 +597,8 @@ Three guidelines for using connascence to improve system modularity:
 
 _The lengendary software architecture innovator Jim Weirich offers two great pieces of advices:_
 
-- **Rule of Degree**: convert strong forms of connascence into weaker forms of connascence
-- **Rule of Locality**: as the distance between software elements increases, use weaker forms fo connascence
+-   **Rule of Degree**: convert strong forms of connascence into weaker forms of connascence
+-   **Rule of Locality**: as the distance between software elements increases, use weaker forms fo connascence
 
 #### Unifying Coupling and Connascence Metrics
 
@@ -667,19 +622,19 @@ _We'll disscuss more in Chapter 8._
 
 A software solution consists of both domain requirements and architectural.
 
-- **Auditability**
-- **Performance**
-- **Security**
-- **Requirements**
-- **Data**
-- **Legality**
-- **Scalability**
+-   **Auditability**
+-   **Performance**
+-   **Security**
+-   **Requirements**
+-   **Data**
+-   **Legality**
+-   **Scalability**
 
 An architecture characteristic meets three criteria
 
-- Specifies a nondomain design consideration
-- Influences some structuralaspect of the design
-- Is critical or important to application success
+-   Specifies a nondomain design consideration
+-   Influences some structuralaspect of the design
+-   Is critical or important to application success
 
 ![differentiating-features-of-architecture-characteristics.jpeg](_image/fundamentals-of-software-architecture/differentiating-features-of-architecture-characteristics.jpeg)
 
@@ -827,8 +782,8 @@ Term & Definition
 
 **Italy-ility**
 
-- _Years ago, becuse of a freak communication outage, the head office had lost communication with the Italian branches, and it was organizationally traumatic._
-- Italy-ility is **a unique combination of availability, recoverability, and resilience.**
+-   _Years ago, becuse of a freak communication outage, the head office had lost communication with the Italian branches, and it was organizationally traumatic._
+-   Italy-ility is **a unique combination of availability, recoverability, and resilience.**
 
 #### Others from ISO
 
@@ -922,7 +877,7 @@ the application must do more on-the-fly _( 即时 )_ encryption, indirection for
 and other activities that potentially degrade performance.
 
 ……
-Each  architecture characteristic that an architect designs support for potentially complicates the overall design.
+Each architecture characteristic that an architect designs support for potentially complicates the overall design.
 
 Thus, **architects rarely encounter the situation where they are able to design a system and maximize every single architecture characteristic.**
 **More often, the decisions come down to trade-offs between several competing concerns.**
@@ -949,13 +904,13 @@ _the original motivation for writing the software._
 
 Translation of domain concers to architecture characteristics
 
-|Domian concern|Architecture characteristics|
-|-|-|
-|Mergers and acquisitions|Interoperability, scalability, adaptability, extensibility|
-|Time to market|Agility, testability, deployability|
-|User satisfaction|Performance, availability, fault tolerance, testability, deployability, agility, security|
-|Competitive advantage|Agility, testability, deployablity, scalability, availability, fault tolerance|
-|Time and budget|Simplicity, feasibility|
+| Domian concern           | Architecture characteristics                                                              |
+| ------------------------ | ----------------------------------------------------------------------------------------- |
+| Mergers and acquisitions | Interoperability, scalability, adaptability, extensibility                                |
+| Time to market           | Agility, testability, deployability                                                       |
+| User satisfaction        | Performance, availability, fault tolerance, testability, deployability, agility, security |
+| Competitive advantage    | Agility, testability, deployablity, scalability, availability, fault tolerance            |
+| Time and budget          | Simplicity, feasibility                                                                   |
 
 ### Extracting Architecture Characteristics from Requirements
 
@@ -974,8 +929,8 @@ Translation of domain concers to architecture characteristics
 
 ……
 
-- Scalability —— the ablility to handle a large number of concurrent users without serious performance degradation.
-- Elasticity —— the ablility to handle bursts of requests.
+-   Scalability —— the ablility to handle a large number of concurrent users without serious performance degradation.
+-   Elasticity —— the ablility to handle bursts of requests.
 
 ##### Implicit Characteristics
 
@@ -1010,9 +965,9 @@ such as scalability or availability.
 
 CC = E - N + 2
 
-- N: nodes ( lines of codes )
-- E: edges ( possible decisions )
-- 2: a simplification for a single function/method
+-   N: nodes ( lines of codes )
+-   E: edges ( possible decisions )
+-   2: a simplification for a single function/method
 
 For fan-out calls to other methods
 (known as _connected components_ in graph theory ) ,
@@ -1020,7 +975,7 @@ the more general formula is:
 
 CC = E - N + 2P
 
-- P: the number of connected components
+-   P: the number of connected components
 
 **What's a Good Value for Cyclomatic Complexity?**
 
@@ -1068,9 +1023,9 @@ _The word quantum derives from Latin, meaning "how great" or "how much."_
 
 And independently deployable artifact with high functional cohesion and synchrous connscence
 
-- Independently deployable
-- High functional cohesion
-- Synchronous connscence
+-   Independently deployable
+-   High functional cohesion
+-   Synchronous connscence
     -   It implies synchronous calls within an application context or between distributed service that for this architecture quantum.
     -   For example, if one service in microservice architecture calls another one synchrounously,
         each service cannot exhibit extreme differences in operational architecture characteristcis.
@@ -1116,8 +1071,8 @@ they must know how to partition the architecture.
 
 **Top-level partitioning** _( 顶层分区 )_
 
-- Layered
-- Modular
+-   Layered
+-   Modular
 
 ![types-of-top-level-architecture-partitioning-layered-n-modular.jpeg](_image/fundamentals-of-software-architecture/types-of-top-level-architecture-partitioning-layered-n-modular.jpeg)
 
@@ -1125,11 +1080,11 @@ they must know how to partition the architecture.
 
 The architect has partitioned functionality of the system into _technical capabilities_:
 
-- presentation
-- bussiness rules
-- service
-- persistence
-- …
+-   presentation
+-   bussiness rules
+-   service
+-   persistence
+-   …
 
 _This way of organizing a code base certainly makes sense._
 _All the persistence code resides in one layer in the architecture,_
@@ -1273,7 +1228,7 @@ differeing architecture characteristics.
 ##### Entity Trap
 
 While there is no one true way to ascertain _( 弄清; 确认 )_ components,
-a common anti-pattern lurks _( 潜伏; 埋伏; 潜藏 )_ : the _entity trap_.  …
+a common anti-pattern lurks _( 潜伏; 埋伏; 潜藏 )_ : the _entity trap_. …
 
 ![building-an-architecture-as-an-object-relational-mapping.jpg](_image/fundamentals-of-software-architecture/building-an-architecture-as-an-object-relational-mapping.jpg)
 
@@ -1401,14 +1356,14 @@ requires a distributed architecture to accommodate differing architecture charac
 
 **Architecture Style**
 
-- The **overarching _( 首要的 )_ structure of how the user interface and backend source code are orgainized**
-    - ( such as within layers of a monolithic deployment or seqparately deployed )
-- and **how that source code interacts with datastore**.
+-   The **overarching _( 首要的 )_ structure of how the user interface and backend source code are orgainized**
+    -   ( such as within layers of a monolithic deployment or seqparately deployed )
+-   and **how that source code interacts with datastore**.
 
 **Arcitecture Patterns**
 
-- **Lower-level design structures that help form specific solutions within an architecture style**
-    - ( such as how to achieve high scalability or high performance within a set of operations or between sets of services )
+-   **Lower-level design structures that help form specific solutions within an architecture style**
+    -   ( such as how to achieve high scalability or high performance within a set of operations or between sets of services )
 
 _Understanding architecture styles occupies much of the time and effort for new architects because they share importance and abundance._
 
@@ -1559,17 +1514,17 @@ The perpetual advice to **favor simple designs is in many ways defense against f
 
 Monolithic
 
-- Layered architecture _( Chapter 10 )_
-- Pipeline architecture  _( Chapter 11 )_
-- Microkernel architecture  _( Chapter 12 )_
+-   Layered architecture _( Chapter 10 )_
+-   Pipeline architecture _( Chapter 11 )_
+-   Microkernel architecture _( Chapter 12 )_
 
 Distributed
 
-- Service-based architecture _( Chapter 13 )_
-- Event-driven architecture _( Chapter 14 )_
-- Space-based architecture _( Chapter 15 )_
-- Service-oriented architecture _( Chapter 16 )_
-- Microservices architecture _( Chapter 17 )_
+-   Service-based architecture _( Chapter 13 )_
+-   Event-driven architecture _( Chapter 14 )_
+-   Space-based architecture _( Chapter 15 )_
+-   Service-oriented architecture _( Chapter 16 )_
+-   Microservices architecture _( Chapter 17 )_
 
 The first group issues facing all distributed architecture are described in
 [the fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing).
@@ -1634,8 +1589,7 @@ causing networks to slow down, thus impacting latency (fallacy #2) and reliabili
 >
 > When a composite data structure is shared between two modules,
 > some of the fields in the data structure may not even be used.
-> For example, **a module passes a composite data structure to another module,**
-> **which then just uses one field in it.**
+> For example, **a module passes a composite data structure to another module,** > **which then just uses one field in it.**
 >
 > It is similar to **data coupling**,
 > except that the data shared is a composite data type rather than primitive data values
@@ -1711,7 +1665,7 @@ _are outside the scope of this book._
 ……
 
 Standard **commits** and **rollbacks** executed from persistence frameworks
-leverage ACID ( atomicity, consistency, isolation, durability )  transactions
+leverage ACID ( atomicity, consistency, isolation, durability ) transactions
 to guarentee that the data is updated
 in a correct way to ensure high data consistency and integrity.
 
@@ -1727,11 +1681,11 @@ are one way to manage distributed transactions.
 **Sagas utilize either _event sourcing_ for compensation**
 **or _finite state machine_ manage the state of transaction.**
 
-In addition to sagas, **BASE transactions** are used.  BASE stands for
+In addition to sagas, **BASE transactions** are used. BASE stands for
 
-- **Basic Available**
-- **Soft state**
-- **Eventual consistency**.
+-   **Basic Available**
+-   **Soft state**
+-   **Eventual consistency**.
 
 **Soft state in BASE refers to the transit of data from a source to a target,**
 **as well as the inconsistency between data sources.**

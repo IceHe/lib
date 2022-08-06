@@ -6,7 +6,7 @@ OpenSSH Client (remote login program)
 
 References
 
-- `man ssh`
+-   `man ssh`
 
 ## Quickstart
 
@@ -691,4 +691,4 @@ If a command is specified, it is executed on the remote host instead of a login 
 
 ## Usage
 
-TODO
+maybe one day…

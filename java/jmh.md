@@ -8,13 +8,13 @@ JMH is developed by the same people who implement the Java virtual machine, so t
 
 References
 
-- Java Performace - JMH : http://tutorials.jenkov.com/java-performance/jmh.html
-- Code Tools - jmh : http://openjdk.java.net/projects/code-tools/jmh/
-- 使用JMH实现性能测试 : https://xnslong.github.io/blog/#/tools/java/JMH-benchmarking
+-   Java Performance - JMH : http://tutorials.jenkov.com/java-performance/jmh.html
+-   Code Tools - jmh : http://openjdk.java.net/projects/code-tools/jmh/
+-   使用 JMH 实现性能测试 : https://xnslong.github.io/blog/#/tools/java/JMH-benchmarking
 
 Others
 
-- 接口性能测试方案 白皮书 V1.0 : https://blog.csdn.net/hexieshangwang/article/details/47186507
+-   接口性能测试方案 白皮书 V1.0 : https://blog.csdn.net/hexieshangwang/article/details/47186507
 
 ## Usage
 
@@ -37,4 +37,4 @@ mvn clean install
 java -jar target/benchmarks.jar
 ```
 
-TODO
+maybe one day…

@@ -6,11 +6,11 @@ The base command for the Docker CLI.
 
 References
 
-- [docker.com](https://www.docker.com)
-    - [docs](https://docs.docker.com)
-    - [hub](https://hub.docker.com)
-    - [training](https://training.docker.com)
-- [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/) @ GitBook
+-   [docker.com](https://www.docker.com)
+    -   [docs](https://docs.docker.com)
+    -   [hub](https://hub.docker.com)
+    -   [training](https://training.docker.com)
+-   [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/) @ GitBook
 
 ## Login Registry
 
@@ -18,8 +18,8 @@ References
 
 `login` to a Docker registry
 
-- Register on [hub.docker.com](https://hub.docker.com)
-- Login by your [username] registered
+-   Register on [hub.docker.com](https://hub.docker.com)
+-   Login by your [username] registered
 
 ```bash
 docker login [OPTIONS] [SERVER]
@@ -81,14 +81,14 @@ docker push icehe/alpine
 
 Examples
 
-- https://hub.docker.com/r/icehe/alpine
-- https://hub.docker.com/r/icehe/markdownlint
+-   https://hub.docker.com/r/icehe/alpine
+-   https://hub.docker.com/r/icehe/markdownlint
 
 ## Pull Image
 
 `pull` an image or a repository from a registry
 
-- if without optional `:TAG`, pull default tag `:latest`
+-   if without optional `:TAG`, pull default tag `:latest`
 
 ```bash
 docker pull IMAGE_NAME[:TAG]
@@ -100,13 +100,13 @@ docker pull icehe/alpine:latest
 
 `run` a command in a new container
 
-- Options
-    - `-d` | `--detach` Run container background & print container ID
-    - `-i` | `--interactive` Keep STDIN open even if not attached
-    - `-t` | `--tty` Allocate a pseudo-TTY
-    - `--name NAME` Assign a name to the container
-    - `-p, --publish list` Publish a continer's port(s) to the host
-        - `-p [HOST_PORT]:[CONTAINER_PORT]` e.g. `-p 8080:80`
+-   Options
+    -   `-d` | `--detach` Run container background & print container ID
+    -   `-i` | `--interactive` Keep STDIN open even if not attached
+    -   `-t` | `--tty` Allocate a pseudo-TTY
+    -   `--name NAME` Assign a name to the container
+    -   `-p, --publish list` Publish a continer's port(s) to the host
+        -   `-p [HOST_PORT]:[CONTAINER_PORT]` e.g. `-p 8080:80`
 
 ```bash
 docker run [OPTIONS] IMAGE [COMMAND]
@@ -153,9 +153,9 @@ docker exec -it icehe_alpine bash
 
 `ps` : process status
 
-- Options
-    - `-a` | `--all` Show all containers ( default shows just running ones )
-    - `-n, --last int` Show n last created containers ( includes all status )
+-   Options
+    -   `-a` | `--all` Show all containers ( default shows just running ones )
+    -   `-n, --last int` Show n last created containers ( includes all status )
 
 ```bash
 docker ps [OPTIONS]
@@ -179,8 +179,8 @@ PID                 USER                TIME                COMMAND
 
 ### Images
 
-- Options
-    - `-a` | `--all` Show all images ( default hides intermediate images )
+-   Options
+    -   `-a` | `--all` Show all images ( default hides intermediate images )
 
 ```bash
 $ docker images
@@ -217,7 +217,7 @@ docker help
 
 `rm` : Remove one or more **containers**
 
-- Options : `-f` | `--force` Force the removal of a running container ( uses SIGKILL )
+-   Options : `-f` | `--force` Force the removal of a running container ( uses SIGKILL )
 
 ```bash
 docker rm CONTAINER [CONTAINER...]
@@ -229,7 +229,7 @@ docker rm icehe_alpine
 
 `rmi` : Remove one or more **images**
 
-- Options : `-f` | `--force` Force removal of the images
+-   Options : `-f` | `--force` Force removal of the images
 
 ```bash
 docker rm [OPTIONS] IMAGE [IMAGE...]
@@ -241,7 +241,7 @@ docker rmi icehe/markdownlint icehe/alpine ruby
 
 `kill` one or more running containers
 
-- Options : `-s, --signal string` Signal to send to the container ( default "KILL" )
+-   Options : `-s, --signal string` Signal to send to the container ( default "KILL" )
 
 ```bash
 docker kill CONTAINER [CONTAINER...]
@@ -257,14 +257,12 @@ Define and run multi-container applications with Docker.
 
 References
 
-- Overview : https://docs.docker.com/compose/overview
-- Install : https://docs.docker.com/compose/install
-- Get started : https://docs.docker.com/compose/gettingstarted
-- Compose file : https://docs.docker.com/compose/compose-file
-- Environment Variables : https://docs.docker.com/compose/environment-variables
+-   Overview : https://docs.docker.com/compose/overview
+-   Install : https://docs.docker.com/compose/install
+-   Get started : https://docs.docker.com/compose/gettingstarted
+-   Compose file : https://docs.docker.com/compose/compose-file
+-   Environment Variables : https://docs.docker.com/compose/environment-variables
 
 ```bash
 docker-compose help
 ```
-
-TODO

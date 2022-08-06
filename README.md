@@ -350,7 +350,6 @@ Manual
 -   [tail](/cmd/t/tail.md): output the last part of files
 -   [tar](/cmd/t/tar.md): pack & compress
 -   [tee](/cmd/t/tee.md): write to standard output & files
--   [telnet](/cmd/t/telnet.md): user interface to the TELNET protocol
 -   [terminal-notifier](/cmd/t/terminal-notifier): send macOS User Notifications
 -   [time](/cmd/t/time.md): time command execution
 -   [timeout](/cmd/t/timeout.md): run a command with a time limit

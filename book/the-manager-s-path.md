@@ -8,18 +8,18 @@ _—— Camille Fournier_
 
 Table of Contents
 
-- _Introduction_
-- 1\. Management 101
-- 2\. Mentoring
-- 3\. Tech Lead
-- 4\. Managing People
-- 5\. Managing a Team
-- 6\. Managing Multiple Teams
-- 7\. Managing Managers
-- 8\. The Big Leagues
-- 9\. Bootstrapping Culture
-- 10\. Conclusion
-- _Index_
+-   _Introduction_
+-   1\. Management 101
+-   2\. Mentoring
+-   3\. Tech Lead
+-   4\. Managing People
+-   5\. Managing a Team
+-   6\. Managing Multiple Teams
+-   7\. Managing Managers
+-   8\. The Big Leagues
+-   9\. Bootstrapping Culture
+-   10\. Conclusion
+-   _Index_
 
 ## _Introduction_
 
@@ -266,11 +266,11 @@ It’s also OK to say no to mentoring.
 
 ###### When you are a mentee
 
-……
+…
 
 ### Good Manager, Bad Manager:The Alpha Geek
 
-TODO
+todo
 
 ### Tips for the Manager of a Mentor
 

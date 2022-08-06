@@ -146,15 +146,3 @@ sec  ed25519/ED9624E8763D90E3 2021-09-24 TestGen <test-gen@gmail.com>
 Delete this key from the keyring? (y/N) y
 This is a secret key! - really delete? (y/N) y
 ```
-
----
-
-TODO
-
--   Intro
-    -   Synopsis
-    -   Description
-    -   Return Value
-    -   WARNINGS
-    -   Interoperability
--   Commands

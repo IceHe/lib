@@ -6,7 +6,7 @@ secure copy (remote file copy program)
 
 References
 
-- `man scp`
+-   `man scp`
 
 ## Synopsis
 
@@ -104,66 +104,66 @@ _This is useful for specifying options for which there is no separate scp comman
 _For full details of the options listed below,_
 _and their possible values, see `ssh_config`._
 
-- _AddressFamily_
-- _BatchMode_
-- _BindAddress_
-- _BindInterface_
-- _CanonicalDomains_
-- _CanonicalizeFallbackLocal_
-- _CanonicalizeHostname_
-- _CanonicalizeMaxDots_
-- _CanonicalizePermittedCNAMEs_
-- _CASignatureAlgorithms_
-- _CertificateFile_
-- _ChallengeResponseAuthentication_
-- _CheckHostIP_
-- _Ciphers_
-- _Compression_
-- _ConnectionAttempts_
-- _ConnectTimeout_
-- _ControlMaster_
-- _ControlPath_
-- _ControlPersist_
-- _GlobalKnownHostsFile_
-- _GSSAPIAuthentication_
-- _GSSAPIDelegateCredentials_
-- _HashKnownHosts_
-- _Host_
-- _HostbasedAuthentication_
-- _HostbasedKeyTypes_
-- _HostKeyAlgorithms_
-- _HostKeyAlias_
-- _Hostname_
-- _IdentitiesOnly_
-- _IdentityAgent_
-- _IdentityFile_
-- _IPQoS_
-- _KbdInteractiveAuthentication_
-- _KbdInteractiveDevices_
-- _KexAlgorithms_
-- _LogLevel_
-- _MACs_
-- _NoHostAuthenticationForLocalhost_
-- _NumberOfPasswordPrompts_
-- _PasswordAuthentication_
-- _PKCS11Provider_
-- _Port_
-- _PreferredAuthentications_
-- _ProxyCommand_
-- _ProxyJump_
-- _PubkeyAcceptedKeyTypes_
-- _PubkeyAuthentication_
-- _RekeyLimit_
-- _SendEnv_
-- _ServerAliveInterval_
-- _ServerAliveCountMax_
-- _SetEnv_
-- _StrictHostKeyChecking_
-- _TCPKeepAlive_
-- _UpdateHostKeys_
-- _User_
-- _UserKnownHostsFile_
-- _VerifyHostKeyDNS_
+-   _AddressFamily_
+-   _BatchMode_
+-   _BindAddress_
+-   _BindInterface_
+-   _CanonicalDomains_
+-   _CanonicalizeFallbackLocal_
+-   _CanonicalizeHostname_
+-   _CanonicalizeMaxDots_
+-   _CanonicalizePermittedCNAMEs_
+-   _CASignatureAlgorithms_
+-   _CertificateFile_
+-   _ChallengeResponseAuthentication_
+-   _CheckHostIP_
+-   _Ciphers_
+-   _Compression_
+-   _ConnectionAttempts_
+-   _ConnectTimeout_
+-   _ControlMaster_
+-   _ControlPath_
+-   _ControlPersist_
+-   _GlobalKnownHostsFile_
+-   _GSSAPIAuthentication_
+-   _GSSAPIDelegateCredentials_
+-   _HashKnownHosts_
+-   _Host_
+-   _HostbasedAuthentication_
+-   _HostbasedKeyTypes_
+-   _HostKeyAlgorithms_
+-   _HostKeyAlias_
+-   _Hostname_
+-   _IdentitiesOnly_
+-   _IdentityAgent_
+-   _IdentityFile_
+-   _IPQoS_
+-   _KbdInteractiveAuthentication_
+-   _KbdInteractiveDevices_
+-   _KexAlgorithms_
+-   _LogLevel_
+-   _MACs_
+-   _NoHostAuthenticationForLocalhost_
+-   _NumberOfPasswordPrompts_
+-   _PasswordAuthentication_
+-   _PKCS11Provider_
+-   _Port_
+-   _PreferredAuthentications_
+-   _ProxyCommand_
+-   _ProxyJump_
+-   _PubkeyAcceptedKeyTypes_
+-   _PubkeyAuthentication_
+-   _RekeyLimit_
+-   _SendEnv_
+-   _ServerAliveInterval_
+-   _ServerAliveCountMax_
+-   _SetEnv_
+-   _StrictHostKeyChecking_
+-   _TCPKeepAlive_
+-   _UpdateHostKeys_
+-   _User_
+-   _UserKnownHostsFile_
+-   _VerifyHostKeyDNS_
 
 **`-P port`**
 
@@ -210,8 +210,8 @@ _the server will not send unexpected filenames._
 **`-v`**
 
 **Verbose mode.**
-Causes scp and `ssh` to print debugging messages about their progress.  This is helpful in debugging connection, authentication, and configuration problems.
+Causes scp and `ssh` to print debugging messages about their progress. This is helpful in debugging connection, authentication, and configuration problems.
 
 ## Usage
 
-TODO
+maybe one day…

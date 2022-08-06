@@ -1,6 +1,6 @@
 # Bash
 
-Todos
+todo
 
 -   Compound Commands ( Control Structure )
 -   Built-in Function
@@ -41,4 +41,4 @@ Reference: [set -e, -u, -o, -x pipefail](https://gist.github.com/vncsna/64825d56
     -   If any command in a pipeline fails, that return code will be used as the return code of the whole pipeline.
     -   By default, the pipeline's return code is that of the last command even if it succeeds.
 
-TODO
+todo
