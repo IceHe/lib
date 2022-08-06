@@ -4,8 +4,8 @@
 
 References
 
-- [npm-link - npm docs](https://docs.npmjs.com/cli/v7/commands/npm-link)
-- `man npm-link`
+-   [npm-link - npm docs](https://docs.npmjs.com/cli/v7/commands/npm-link)
+-   `man npm-link`
 
 ## Synopsis
 
@@ -21,4 +21,4 @@ This is **handy for installing your own stuff, so that you can work on it and te
 
 ……
 
-TODO when necessary
+todo oneday

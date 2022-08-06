@@ -6,8 +6,8 @@ Create a package.json file
 
 References
 
-- [npm-init - npm docs](https://docs.npmjs.com/cli/v7/commands/npm-init)
-- `man npm-init`
+-   [npm-init - npm docs](https://docs.npmjs.com/cli/v7/commands/npm-init)
+-   `man npm-init`
 
 ## Synopsis
 
@@ -24,4 +24,4 @@ npm init [-w <dir>] [args...]
 
 ……
 
-TODO when necessary
+todo oneday

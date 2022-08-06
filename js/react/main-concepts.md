@@ -4,10 +4,6 @@ Step-by-step guide
 
 ---
 
-References
-
-- TODO
-
-Table of contents
-
-- TODO
+-   References
+-   Table of contents
+-   ……

@@ -6,8 +6,8 @@ Run a command from a local or remote npm package
 
 References
 
-- [npm-exec - npm docs]
-- `man npm-exec`
+-   [npm-exec - npm docs]
+-   `man npm-exec`
 
 ## Synopsis
 
@@ -60,4 +60,4 @@ $ foo bar --package=@npmcli/foo
 
 ……
 
-TODO when necessary
+todo oneday

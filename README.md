@@ -463,7 +463,7 @@ NPM: the world's largest software registry
     -   [npm link](/js/npm-cmd/npm-link.md): symlink a package folder
     -   [npm publish](/js/npm-cmd/npm-publish.md): publish a package
     -   [npm exec](/js/npm-cmd/npm-exec.md), `npx`: run a command from a local or remote npm package
-    -   _todo: e.g. `npm run build`_
+    -   ……
 
 Package
 
@@ -496,7 +496,9 @@ TypeScript
     -   [More on Functions](/js/typescript/handbook/more-on-functions.md)
     -   [Object Types](/js/typescript/handbook/type-objects.md)
     -   [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
-    -   todo
+    -   ……
+
+<!-- todo oneday
 
 React
 
@@ -504,6 +506,8 @@ React
 -   [Tutorial](js/react/tutorial.md): this tutorial doesn't assume any existing React knowledge
 -   [Main Concepts](js/react/main-concepts.md): step-by-step guide
 -   [Hooks](js/react/hook.md): let you use state and other React features without writing a class
+
+-->
 
 ### Java
 

@@ -6,20 +6,20 @@ aka. ECMAScript
 
 References
 
-- [JavaScript - Wikipedia](https://en.wikipedia.org/wiki/JavaScript)
-    - aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
-- [create-project.js.org](https://create-project.js.org/)
+-   [JavaScript - Wikipedia](https://en.wikipedia.org/wiki/JavaScript)
+    -   aka. [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+-   [create-project.js.org](https://create-project.js.org/)
 
 ## peerDependencies
 
 References
 
-- [What is the difference between .js, .tsx and .jsx in React? - stack overflow](https://stackoverflow.com/questions/64343698/what-is-the-difference-between-js-tsx-and-jsx-in-react)
+-   [What is the difference between .js, .tsx and .jsx in React? - stack overflow](https://stackoverflow.com/questions/64343698/what-is-the-difference-between-js-tsx-and-jsx-in-react)
 
 TL;DR:
 
-- **`dependencies` and `devDependencies` are used to make a difference between the libraries that will be (or won't be) in your final bundle.**
-- **`peerDependencies` are useful only if you want to create and publish your own library.**
+-   **`dependencies` and `devDependencies` are used to make a difference between the libraries that will be (or won't be) in your final bundle.**
+-   **`peerDependencies` are useful only if you want to create and publish your own library.**
 
 ### dependencies
 
@@ -34,11 +34,11 @@ As we can guess thanks to its name, the libraries under devDependencies are thos
 
 _So you'll find here different types of libraries such as:_
 
-- **formatting libraries**: **eslint**, **prettier**, ...
-- **bundlers**: webpack, gulp, **parceljs**, ...
-- babel and all its plugins
-- everything related to tests: enzyme, jest, ...
-- a bunch of other libraries: storybook, react-styleguidist, **husky**, ...
+-   **formatting libraries**: **eslint**, **prettier**, ...
+-   **bundlers**: webpack, gulp, **parceljs**, ...
+-   babel and all its plugins
+-   everything related to tests: enzyme, jest, ...
+-   a bunch of other libraries: storybook, react-styleguidist, **husky**, ...
 
 ### peerDependencies
 
@@ -53,8 +53,8 @@ If you want to **make sure that the version of peer-lib used in MainProject work
 
 References
 
-- [The difference between "require(x)" and "import x" - stack overflow](https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x)
-- [Require vs Import - EDUCBA](https://www.educba.com/require-vs-import)
+-   [The difference between "require(x)" and "import x" - stack overflow](https://stackoverflow.com/questions/46677752/the-difference-between-requirex-and-import-x)
+-   [Require vs Import - EDUCBA](https://www.educba.com/require-vs-import)
 
 <!-- - [JavaScript require() vs import()](https://flexiple.com/javascript-require-vs-import) -->
 
@@ -64,8 +64,8 @@ Reference : [The difference between "require(x)" and "import x" - stack overflow
 
 ![require-vs-import.png](_image/require-vs-import.png)
 
-- You can't selectively load only the pieces you need with `require` but with **`import`**, you can **selectively load only the pieces you need**, which can save memory.
-- **Loading is synchronous(step by step) for `require`** on the other hand **`import` can be asynchronous (without waiting for previous import)** so it can perform a little better than require.
+-   You can't selectively load only the pieces you need with `require` but with **`import`**, you can **selectively load only the pieces you need**, which can save memory.
+-   **Loading is synchronous(step by step) for `require`** on the other hand **`import` can be asynchronous (without waiting for previous import)** so it can perform a little better than require.
 
 ### DDUCBA
 
@@ -196,7 +196,7 @@ ES modules can be loaded dynamically via the `import()` function unlike `require
 
 References
 
-- [What are CJS, AMD, UMD, and ESM in Javascript? - dev.to](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
+-   [What are CJS, AMD, UMD, and ESM in Javascript? - dev.to](https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm)
 
 In the beginning, Javascript did not have a way to import/export modules. This is a problem.
 Then, people much, much smarter than me attempted to add modularity to Javascript.
@@ -206,18 +206,18 @@ Some of them are CJS, AMD, UMD, and ESM.
 
 References
 
-- [CommonJS - Wikipedia](https://en.wikipedia.org/wiki/CommonJS)
+-   [CommonJS - Wikipedia](https://en.wikipedia.org/wiki/CommonJS)
 
 CJS is short for **CommonJS**. _Here is what it looks like:_
 
 ```js
 // importing
-const doSomething = require('./doSomething.js');
+const doSomething = require("./doSomething.js");
 
 // exporting
 module.exports = function doSomething(n) {
-  // do something
-}
+    // do something
+};
 ```
 
 -   [CJS module format](https://blog.risingstack.com/node-js-at-scale-module-system-commonjs-require/).
@@ -235,14 +235,14 @@ module.exports = function doSomething(n) {
 
 References
 
-- [Asynchronous Module Definition - Wikipedia](https://en.wikipedia.org/wiki/Asynchronous_module_definition)
+-   [Asynchronous Module Definition - Wikipedia](https://en.wikipedia.org/wiki/Asynchronous_module_definition)
 
 AMD stands for **Asynchronous Module Definition**. _Here is a sample code:_
 
 ```js
-define(['dep1', 'dep2'], function (dep1, dep2) {
-  // Define the module value by returning a value.
-  return function () {};
+define(["dep1", "dep2"], function (dep1, dep2) {
+    // Define the module value by returning a value.
+    return function () {};
 });
 ```
 
@@ -251,21 +251,21 @@ or
 ```js
 // "simplified CommonJS wrapping" https://requirejs.org/docs/whyamd.html
 define(function (require) {
-    var dep1 = require('dep1'),
-        dep2 = require('dep2');
+    var dep1 = require("dep1"),
+        dep2 = require("dep2");
     return function () {};
 });
 ```
 
-- AMD **imports modules asynchronously** (hence the name).
-- AMD is **made for frontend (when it was proposed) (while CJS backend)**.
-- AMD syntax is **less intuitive than CJS**. _I think of AMD as the exact opposite sibling of CJS._
+-   AMD **imports modules asynchronously** (hence the name).
+-   AMD is **made for frontend (when it was proposed) (while CJS backend)**.
+-   AMD syntax is **less intuitive than CJS**. _I think of AMD as the exact opposite sibling of CJS._
 
 ### UMD
 
 Reference:
 
-- [UMD (Universal Module Definition) - github.com/umdjs/umd](https://github.com/umdjs/umd#:~:text=These%20are%20modules%20which%20are,(e.g%20RequireJS%20amongst%20others).)
+-   [UMD (Universal Module Definition) - github.com/umdjs/umd](<https://github.com/umdjs/umd#:~:text=These%20are%20modules%20which%20are,(e.g%20RequireJS%20amongst%20others).>)
 
 UMD stands for **Universal Module Definition**. _Here is what it may look like:_
 
@@ -287,24 +287,24 @@ UMD stands for **Universal Module Definition**. _Here is what it may look like:_
 }));
 ```
 
-- Works on **front and back end** (hence the name universal).
-- Unlike CJS or AMD, UMD is **more like a pattern to configure several module systems**.
-- UMD is usually used as a fallback module when using bundler like Rollup/Webpack _( icehe : 暂时不太懂什么意思 2021/10/11 )_
+-   Works on **front and back end** (hence the name universal).
+-   Unlike CJS or AMD, UMD is **more like a pattern to configure several module systems**.
+-   UMD is usually used as a fallback module when using bundler like Rollup/Webpack _( icehe : 暂时不太懂什么意思 2021/10/11 )_
 
 ### ESM
 
 References
 
-- [Modules: ECMAScript modules - nodjs.org](https://nodejs.org/api/esm.html)
-- [ES modules: A cartoon deep-dive - hacks.mozilla.org](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) TBD?
-- [Introduction to ES Modules - flaviocopes.com](https://flaviocopes.com/es-modules/) TBD?
+-   [Modules: ECMAScript modules - nodjs.org](https://nodejs.org/api/esm.html)
+-   [ES modules: A cartoon deep-dive - hacks.mozilla.org](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) TBD?
+-   [Introduction to ES Modules - flaviocopes.com](https://flaviocopes.com/es-modules/) TBD?
 
-ESM stands for **ES Modules**.  It is **Javascript's proposal to implement a standard module system**.
+ESM stands for **ES Modules**. It is **Javascript's proposal to implement a standard module system**.
 
 _I am sure many of you have seen this:_
 
 ```js
-import React from 'react';
+import React from "react";
 ```
 
 _Other sightings in the wild:_
@@ -317,32 +317,29 @@ export const function1() {...};
 export const function2() {...};
 ```
 
-- Works in many modern browsers
-- It has the best of both worlds: **CJS-like simple syntax and AMD's async**
-- **[Tree-shakeable](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking), due to ES6's [static module structure](https://exploringjs.com/es6/ch_modules.html#static-module-structure)**
-- ESM allows bundlers like Rollup to [remove unnecessary code](https://dev.to/bennypowers/you-should-be-using-esm-kn3), allowing sites to ship less codes to get faster load.
-- Can be called in HTML, just do:
+-   Works in many modern browsers
+-   It has the best of both worlds: **CJS-like simple syntax and AMD's async**
+-   **[Tree-shakeable](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking), due to ES6's [static module structure](https://exploringjs.com/es6/ch_modules.html#static-module-structure)**
+-   ESM allows bundlers like Rollup to [remove unnecessary code](https://dev.to/bennypowers/you-should-be-using-esm-kn3), allowing sites to ship less codes to get faster load.
+-   Can be called in HTML, just do:
     ```js
-    <script type="module">
-        import {func1} from 'my-lib';
-        func1();
-    </script>
+    <script type="module">import {func1} from 'my-lib'; func1();</script>
     ```
 
 ### Summary
 
-- **ESM** is the best module format thanks to its simple syntax, async nature, and tree-shakeability.
-- **UMD** works everywhere and usually used as a fallback in case ESM does not work
-- **CJS** is synchronous and good for back end.
-- **AMD** is asynchronous and good for front end.
+-   **ESM** is the best module format thanks to its simple syntax, async nature, and tree-shakeability.
+-   **UMD** works everywhere and usually used as a fallback in case ESM does not work
+-   **CJS** is synchronous and good for back end.
+-   **AMD** is asynchronous and good for front end.
 
 ## `export`
 
 References
 
-- [export - developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
-- _[export const vs. export default in ES6 - stack overflow](https://stackoverflow.com/questions/33611812/export-const-vs-export-default-in-es6)_
-- _[Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)_
+-   [export - developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+-   _[export const vs. export default in ES6 - stack overflow](https://stackoverflow.com/questions/33611812/export-const-vs-export-default-in-es6)_
+-   _[Named Export vs Default Export in ES6 - Medium](https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910)_
 
 ### Introduction
 
@@ -357,8 +354,8 @@ The export statement cannot be used in embedded scripts.
 
 There are two types of exports:
 
-- Named Exports (Zero or more exports per module)
-- Default Exports (One per module)
+-   Named Exports (Zero or more exports per module)
+-   Default Exports (One per module)
 
 ```js
 // Exporting individual features
@@ -433,20 +430,20 @@ _But a default export can be imported with any name for example:_
 
 ```js
 // file test.js
-let k; export default k = 12;
+let k;
+export default k = 12;
 ```
 
 ```js
 // some other file
-import m from './test'; // note that we have the freedom to use import m instead of import k, because k was default export
-console.log(m);        // will log 12
+import m from "./test"; // note that we have the freedom to use import m instead of import k, because k was default export
+console.log(m); // will log 12
 ```
 
 _You can also rename named exports to avoid naming conflicts:_
 
 ```js
-export { myFunction as function1,
-         myVariable as variable };
+export { myFunction as function1, myVariable as variable };
 ```
 
 #### Re-exporting / Aggregating
@@ -457,15 +454,13 @@ In other words, one can create a single module concentrating various exports fro
 This can be achieved with the "export from" syntax:
 
 ```js
-export { default as function1,
-         function2 } from 'bar.js';
+export { default as function1, function2 } from "bar.js";
 ```
 
 Which is comparable to a combination of import and export:
 
 ```js
-import { default as function1,
-         function2 } from 'bar.js';
+import { default as function1, function2 } from "bar.js";
 export { function1, function2 };
 ```
 
@@ -474,23 +469,23 @@ But where `function1` and `function2` do not become available inside the current
 > Note: The following is syntactically invalid despite its import equivalent:
 
 ```js
-import DefaultExport from 'bar.js'; // Valid
+import DefaultExport from "bar.js"; // Valid
 ```
 
 ```js
-export DefaultExport from 'bar.js'; // Invalid
+export DefaultExport from "bar.js"; // Invalid
 ```
 
 The correct way of doing this is **to rename the export**:
 
 ```js
-export { default as DefaultExport } from 'bar.js';
+export { default as DefaultExport } from "bar.js";
 ```
 
 The "export from" syntax allows the `as` token to be omitted; however this will mean the default item cannot be imported as a named import:
 
 ```js
-export { default, function2 } from 'bar.js';
+export { default, function2 } from "bar.js";
 ```
 
 ### Examples
@@ -502,20 +497,20 @@ In a module `my-module.js`, we could include the following code:
 ```js
 // module "my-module.js"
 function cube(x) {
-  return x * x * x;
+    return x * x * x;
 }
 
 const foo = Math.PI + Math.SQRT2;
 
 var graph = {
-  options: {
-      color:'white',
-      thickness:'2px'
-  },
-  draw: function() {
-      console.log('From graph draw function');
-  }
-}
+    options: {
+        color: "white",
+        thickness: "2px",
+    },
+    draw: function () {
+        console.log("From graph draw function");
+    },
+};
 
 export { cube, foo, graph };
 ```
@@ -523,16 +518,16 @@ export { cube, foo, graph };
 Then in the top-level module included in your HTML page, we could have:
 
 ```js
-import { cube, foo, graph } from './my-module.js';
+import { cube, foo, graph } from "./my-module.js";
 
 graph.options = {
-    color:'blue',
-    thickness:'3px'
+    color: "blue",
+    thickness: "3px",
 };
 
 graph.draw();
 console.log(cube(3)); // 27
-console.log(foo);     // 4.555806215962888
+console.log(foo); // 4.555806215962888
 ```
 
 It is important to note the following:
@@ -549,14 +544,14 @@ If we want to export a single value or to have a fallback value for your module,
 // module "my-module.js"
 
 export default function cube(x) {
-  return x * x * x;
+    return x * x * x;
 }
 ```
 
 Then, in another script, it is straightforward to import the default export:
 
 ```js
-import cube from './my-module.js';
+import cube from "./my-module.js";
 console.log(cube(3)); // 27
 ```
 
@@ -564,10 +559,10 @@ console.log(cube(3)); // 27
 
 Let's take an example where we have the following hierarchy:
 
-- `childModule1.js`: exporting `myFunction` and `myVariable`
-- `childModule2.js`: exporting `myClass`
-- `parentModule.js`: acting as an aggregator (and doing nothing else)
-- top level module: consuming the exports of `parentModule.js`
+-   `childModule1.js`: exporting `myFunction` and `myVariable`
+-   `childModule2.js`: exporting `myClass`
+-   `parentModule.js`: acting as an aggregator (and doing nothing else)
+-   top level module: consuming the exports of `parentModule.js`
 
 This is what it would look like using code snippets:
 
@@ -588,23 +583,23 @@ export myClass;
 // In parentModule.js
 // Only aggregating the exports from childModule1 and childModule2
 // to re-export them
-export { myFunction, myVariable } from 'childModule1.js';
-export { myClass } from 'childModule2.js';
+export { myFunction, myVariable } from "childModule1.js";
+export { myClass } from "childModule2.js";
 ```
 
 ```js
 // In top-level module
 // We can consume the exports from a single module since parentModule
 // "collected"/"bundled" them in a single source
-import { myFunction, myVariable, myClass } from 'parentModule.js'
+import { myFunction, myVariable, myClass } from "parentModule.js";
 ```
 
 ### Others
 
 Notes
 
-- **The syntax favours default exports as slightly more concise because their use case is more common** ([See the discussion here](https://esdiscuss.org/topic/moduleimport)).
-- **A default export is actually a named export with the name `default`** so you are able to import it with a named import:
+-   **The syntax favours default exports as slightly more concise because their use case is more common** ([See the discussion here](https://esdiscuss.org/topic/moduleimport)).
+-   **A default export is actually a named export with the name `default`** so you are able to import it with a named import:
     ```js
     import { default as MyDefaultExport } from "./MyFileWithADefaultExport";
     ```
@@ -617,7 +612,7 @@ Notes
 
 References
 
-- [JavaScript Transpilers: What They Are & Why We Need Them - scotch.io](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them) on 2016-04-25
+-   [JavaScript Transpilers: What They Are & Why We Need Them - scotch.io](https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them) on 2016-04-25
 
 ### Introduction
 
@@ -630,8 +625,8 @@ Oh, and, even though people tend to use "**compile**/r" and "**transpile**/r" in
 
 You've probably heard about [CoffeeScript](http://coffeescript.org/) and [TypeScript](https://www.typescriptlang.org/).
 
-- CoffeeScript provides syntactic sugar for a [number of features](http://coffeescript.org/#loops) not yet native to JavaScript, while [discouraging some of JavaScript's "bad parts"](https://github.com/jashkenas/coffeescript/issues/1693).
-- TypeScript is more drastic<!-- 激烈的 -->, adding [classical object-oriented semantics](https://www.typescriptlang.org/docs/handbook/2/objects.html) to a [fundamentally different language](https://scotch.io/tutorials/better-javascript-with-es6-pt-ii-a-deep-dive-into-classes).
+-   CoffeeScript provides syntactic sugar for a [number of features](http://coffeescript.org/#loops) not yet native to JavaScript, while [discouraging some of JavaScript's "bad parts"](https://github.com/jashkenas/coffeescript/issues/1693).
+-   TypeScript is more drastic<!-- 激烈的 -->, adding [classical object-oriented semantics](https://www.typescriptlang.org/docs/handbook/2/objects.html) to a [fundamentally different language](https://scotch.io/tutorials/better-javascript-with-es6-pt-ii-a-deep-dive-into-classes).
 
 Anything you can write in JavaScript, you can write in CoffeeScript or TypeScript.
 
@@ -639,7 +634,7 @@ Anything you can write in JavaScript, you can write in CoffeeScript or TypeScrip
 "use strict";
 
 // Good 'ol JS
-function printSecret ( secret ) {
+function printSecret(secret) {
     console.log(`${secret}. But don't tell anyone.`);
 }
 
@@ -660,7 +655,7 @@ printSecret "I don't like JavaScript."
 "use strict";
 
 // TypeScript -- JavaScript, with types and stuff
-function printSecret ( secret : string ) {
+function printSecret(secret: string) {
     console.log("${secret}. But don't tell anyone.");
 }
 
@@ -682,9 +677,9 @@ That's where transpilers come in:
 _In the case of languages that target JavaScript, it's largely a matter of preference or background._
 **Writing in a language that "thinks" the way you do makes you more productive.**
 
-- _People with backgrounds in OOP often like TypeScript because it's familiar territory._
-- _Pythonistas like CoffeeScript._
-- _Clojurists write ClojureScript. You get the idea._
+-   _People with backgrounds in OOP often like TypeScript because it's familiar territory._
+-   _Pythonistas like CoffeeScript._
+-   _Clojurists write ClojureScript. You get the idea._
 
 But the rest of us, who are perfectly fine with writing plain JavaScript, still use transpilers,
 because they're the only reliable way to use features from ES2015 and beyond.
@@ -697,8 +692,8 @@ because they're the only reliable way to use features from ES2015 and beyond.
 
 References
 
-- [TC39](https://en.wikipedia.org/wiki/Ecma_International#Committees) – responsible for ECMAScript.
-- [The TC39 process for ECMAScript features](https://2ality.com/2015/11/tc39-process.html)
+-   [TC39](https://en.wikipedia.org/wiki/Ecma_International#Committees) – responsible for ECMAScript.
+-   [The TC39 process for ECMAScript features](https://2ality.com/2015/11/tc39-process.html)
 
 ……
 
@@ -720,7 +715,7 @@ To recap, transpilers:
 
 References
 
-- [About "*.d.ts" in TypeScript - stack overflow](https://stackoverflow.com/questions/21247278/about-d-ts-in-typescript)
+-   [About "\*.d.ts" in TypeScript - stack overflow](https://stackoverflow.com/questions/21247278/about-d-ts-in-typescript)
 
 The `d.ts` file is used to **provide typescript type information about an API that's written in JavaScript.**
 The idea is that you're using something like jQuery or underscore, an existing javascript library.
@@ -733,10 +728,9 @@ This works thanks to TypeScript's constraint of not letting you add the `.ts` ex
 Because of that, when you reference some file, let's say, **`my-module.js`, if there is a `my-module.d.ts` next to it, then TypeScript will include its content:**
 
 ```js
-src/
-  my-module.js
-  my-module.d.ts
-  index.ts
+src / my - module.js;
+my - module.d.ts;
+index.ts;
 ```
 
 ```js
@@ -766,7 +760,7 @@ type TypeOfThing = typeof thing; // number
 
 References
 
-- [tslib - npmjs.com](https://www.npmjs.com/package/tslib)
+-   [tslib - npmjs.com](https://www.npmjs.com/package/tslib)
 
 **tslib is a runtime library for TypeScript that contains all of the TypeScript helper functions.**
 
@@ -776,7 +770,7 @@ This library is primarily used by the `--importHelpers` flag in TypeScript. …�
 
 References
 
-- [JavaScript Use Strict - w3schools.com](https://www.w3schools.com/js/js_strict.asp)
+-   [JavaScript Use Strict - w3schools.com](https://www.w3schools.com/js/js_strict.asp)
 
 **`"use strict";` defines that JavaScript code should be executed in "strict mode".**
 
@@ -790,7 +784,7 @@ All modern browsers support "use strict" except Internet Explorer 9 and lower: �
 
 References
 
-- [node-gyp - github.com](https://github.com/nodejs/node-gyp)
+-   [node-gyp - github.com](https://github.com/nodejs/node-gyp)
 
 ### Intro
 
@@ -801,13 +795,5 @@ _It contains a vendored copy of the `gyp-next` project that was previously used 
 
 ### Features
 
-- The same build commands work on any of the supported platforms
-- Supports the targeting of different versions of Node.js
-
----
-
-## TODO
-
-Other Topics
-
-- [WASM is AWSM](https://dev.to/vibalijoshi/wasm-is-awsm-3a98)
+-   The same build commands work on any of the supported platforms
+-   Supports the targeting of different versions of Node.js
