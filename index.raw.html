@@ -95,37 +95,18 @@
             // })
 
             // Inspired by `Edit on GitHub` : https://github.com/njleonzhang/docsify-edit-on-github
-            var toEdit = [
-              '\n',
-              '{docsify-updated}',
-              ' | ',
-              '[view](',
-              // View the source file in the GitHub.com
-              'https://github.com/IceHe/lib/blob/master',
-              vm.route.file, ')',
-              ' source or ',
-              // ' &nbsp;|&nbsp; ',
-              '[edit](',
-              // Edit the source file in the GitHub.dev ( the web editor - VS Code )
-              'https://github.dev/IceHe/lib/blob/master',
-              vm.route.file, ')',
-            ].join('');
+            const editedAt = `\n{docsify-updated} _edited [source file](https://github.com/IceHe/lib/blob/master${vm.route.file})_`;
 
-            var footer = [
+            const footer = [
               // '\u273F Later equals never.',
               // '\u2726 Better me.',
               '\u2726 Early sleep.',
               '&copy; ' + new Date().getFullYear() + ' IceHe.Life',
               '\u101C <a href="https://beian.miit.gov.cn/" style="color: inherit; font-weight: normal; text-decoration: none;">京 ICP 备 18038982 号</a>',
               '',
-            ].join(' <br/> ');
+            ].join('<br/>');
 
-            return [
-              toEdit, '\n',
-              content,
-              '\n\n----\n\n',
-              footer,
-            ].join('')
+            return `${editedAt}\n${content}\n\n----\n\n${footer}`;
           });
         },
       ]

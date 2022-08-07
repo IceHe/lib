@@ -33,30 +33,14 @@
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (content) {
-            var toEdit = [
-              '\n',
-              '{docsify-updated}',
-              ' | ',
-              '[view](',
-              'https://github.com/IceHe/lib/blob/master',
-              vm.route.file, ')',
-              ' source or ',
-              '[edit](',
-              'https://github.dev/IceHe/lib/blob/master',
-              vm.route.file, ')',
-            ].join('');
-            var footer = [
+            const editedAt = `\n{docsify-updated} _edited [source file](https://github.com/IceHe/lib/blob/master${vm.route.file})_`;
+            const footer = [
               '\u2726 Early sleep.',
               '&copy; ' + new Date().getFullYear() + ' IceHe.Life',
               '\u101C <a href="https://beian.miit.gov.cn/" style="color: inherit; font-weight: normal; text-decoration: none;">京 ICP 备 18038982 号</a>',
               '',
-            ].join(' <br/> ');
-            return [
-              toEdit, '\n',
-              content,
-              '\n\n----\n\n',
-              footer,
-            ].join('')
+            ].join('<br/>');
+            return `${editedAt}\n${content}\n\n----\n\n${footer}`;
           });
         },
       ]
