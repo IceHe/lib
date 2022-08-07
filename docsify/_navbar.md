@@ -1,8 +1,8 @@
-- [Library](/README.md)
-- Others
-    - [🧑🏻‍💻 About](/life/bio.md)
-    - [🏄 Weibo](https://weibo.com/icedes)
-    - [💻 GitHub](https://github.com/IceHe)
+-   [Library](/README.md)
+-   Others
+    -   [🦾 About](/life/bio.md)
+    -   [🏄 Weibo](https://weibo.com/icedes)
+    -   [🧑🏻‍💻 GitHub](https://github.com/IceHe)
 
 <!-- - External -->
 <!--     - [Chat](https://gitter.im/IceHe/community) -->
