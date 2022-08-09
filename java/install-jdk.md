@@ -1,53 +1,69 @@
 # Install JDK
 
+JDK - Java Development Kit
+
+---
+
 ## macOS
 
-Install [Java Development Kit](https://en.wikipedia.org/wiki/Java_Development_Kit) Version 8 ( [History](https://en.wikipedia.org/wiki/Java_version_history#Java_SE_8) )
+RECOMMEND to install the JDKs of the common used version **11** and the latest LTS version **17**
 
-- Recommended: Install by command line ( as follow )
-- Optional: Download Binary Installation for Mac OS X x64  ( [Link](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) )
+LTS - Long-Term Support
 
-Steps
+-   A. via Homebrew - recommended
 
-- Configure Software Source
+    ```bash
+    brew install openjdk@11
+    java --version
+    brew install openjdk
+    java --version
+    ```
+
+-   B. via SDKMAN!
+
+    1.  Install SDKMAN!
+
+        Reference : [Installation - SDKMAN!](https://sdkman.io/install)
+
+    2.  Install JDK via SDKMAN!
+
+        Reference : [JDKs - SDKMAN!](https://sdkman.io/jdks)
+
+        ```bash
+        sdk install java [VERSION]
+        ```
+
+-   C. via the installation downloaded from the websites
+
+    Reference : [Java Downloads - Oracle](https://www.oracle.com/java/technologies/downloads/)
+
+### JAVA_HOME
+
+Set the environment variable `JAVA_HOME` - automatically
+
+e.g. via the dotfiles downloaded above
+
+I can do it manually : append the command below to the ZSH configuration file `~/.zshrc` :
 
 ```bash
-brew tap caskroom/versions
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
 ```
 
-- Install JDK 8
-    - Notice: You have to enter your mac password once.
-    - If require Java 10+ (latest version), use `brew cask install java`
+-   If use `bash` instead of `zsh`, append to the BASH configuration file `~/.bashrc`
+
+Note : The tilde symbol `~` equals the path of the current user home directory, e.g. for me `/Users/icehe`
+
+Note : Get the path to JDK via `/usr/libexec/java_home`, e.g. JDK 8
 
 ```bash
-brew cask install java8
-```
-
-Get PATH to JDK
-
-- If for Java 10+ (latest version), use `/usr/libexec/java_home`
-
-```bash
-/usr/libexec/java_home -v 1.8
-
-# (The actual version may vary, depending upon which version was installed.)
-# output e.g.: /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk
-```
-
-Set Environment Variable JAVA_HOME
-
-- Append the command below to config file `~/.bashrc`
-    - If config file `~/.bashrc` doesn't exist, create it.
-    - If you use other Shell other than Bash, i.e. Zsh, append to config file `~/.zshrc`
-
-```bash
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+$ /usr/libexec/java_home -v 1.8
+/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
 ```
 
 ## CentOS
 
-- Reference : https://www.digitalocean.com/community/tutorials/how-to-install-java-on-centos-and-fedora
-- Download Java 8 - Binary Installation : https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+-   Reference : https://www.digitalocean.com/community/tutorials/how-to-install-java-on-centos-and-fedora
+-   Download Java 8 - Binary Installation : https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 ```bash
 # 下载
