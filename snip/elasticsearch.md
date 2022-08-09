@@ -17,7 +17,7 @@ References
 
 ### Elasticsearch
 
-Offical
+Official
 
 -   Elasticsearch: RESTful, Distributed Search & Analytics : https://www.elastic.co/products/elasticsearch
     -   Download : https://www.elastic.co/downloads/elasticsearch

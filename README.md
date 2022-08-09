@@ -150,25 +150,18 @@ Message Queue
 
 Programming Languages - at a glance
 
--   [Learn X in Y minutes](https://learnxinyminutes.com)
-    -   programming languages / tools / …
--   [Elixir](/snip/lang/elixir/elixir.md)
-    -   a dynamic, functional language for building scalable and maintainable applications
--   [Scala](/snip/lang/scala.md)
-    -   combines object-oriented and functional programming in one concise, high-level language
--   [PHP](/snip/lang/php/php.md)
-    -   a popular general-purpose scripting language that is especially suited to web development
--   [Python](/snip/lang/python.md)
-    -   a programming language that lets you work quickly and integrate systems more effectively
--   [Kotlin](/snip/lang/kotlin/kotlin.md)
-    -   a cross-platform, statically typed, general-purpose programming language with type inference
-    -   [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) - _todo_ / [Compiler](/snip/lang/kotlin/compiler.md) / …
+-   [Kotlin](/snip/lang/kotlin/kotlin.md): a cross-platform, statically typed, general-purpose programming language with type inference
+    -   [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) (todo) / [Compiler](/snip/lang/kotlin/compiler.md) / …
     -   Mocking for unit tests
         -   [MockK](/snip/lang/kotlin/mocking.md#MockK): mocking library for Kotlin
         -   [Mockito](/snip/lang/kotlin/mocking.md#Mockito): tasty mocking framework for unit tests in Java
--   [AppleScript](/snip/lang/applescript/applescript.md)
-    -   a scripting language that facilitates automated control over scriptable Mac applications
+-   [PHP](/snip/lang/php/php.md): a popular general-purpose scripting language that is especially suited to web development
+-   [AppleScript](/snip/lang/applescript/applescript.md): a scripting language that facilitates automated control over scriptable Mac applications
     -   [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
+-   [Learn X in Y minutes](https://learnxinyminutes.com)
+    -   _[Elixir](/snip/lang/elixir/elixir.md): a dynamic, functional language for building scalable and maintainable applications_
+    -   _[Scala](/snip/lang/scala.md): combines object-oriented and functional programming in one concise, high-level language_
+    -   _[Python](/snip/lang/python.md): a programming language that lets you work quickly and integrate systems more effectively_
 
 Storage
 
@@ -212,6 +205,7 @@ Web
 
 Others
 
+-   [Debug](/snip/debug/notes.md)
 -   [Alpine Linux](/snip/docker/alpine/alpine.md)
     -   minimal OS Docker image
 -   [Regular Expression](/snip/regex.md)
