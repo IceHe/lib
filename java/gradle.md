@@ -36,13 +36,138 @@ References:
     -   [The Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html#sec:using_wrapper):
         It is recommended to always execute a build with the Wrapper to ensure a reliable, controlled and standardized execution of the build.
 
-Identifying project structure
+### Identifying project structure
 
 ```bash
 gradle projects
 # or
 ./gradlew projects
 ```
+
+### Executing tasks by fully qualified name
+
+```bash
+gradle :services:webservice:build
+```
+
+### Know what tasks are in a particular subproject
+
+```bash
+gradle :services:webservice:tasks
+```
+
+### Structuring and Building a Software Component with Gradle
+
+Reference: [Structuring and Building a Software Component with Gradle](https://docs.gradle.org/current/userguide/multi_project_builds.html#multi_project_builds)
+
+Basic multi-project build
+
+```text
+.
+├── app
+│   ...
+│   └── build.gradle.kts
+└── settings.gradle.kts
+```
+
+settings.gradle.kts
+
+```kts
+rootProject.name = "basic-multiproject"
+include("app")
+```
+
+View the structure of a multi-project build
+
+```bash
+$ gradle -q projects
+
+------------------------------------------------------------
+Root project 'basic-multiproject'
+------------------------------------------------------------
+
+Root project 'basic-multiproject'
+\--- Project ':app'
+
+To see a list of the tasks of a project, run gradle <project-path>:tasks
+For example, try running gradle :app:tasks
+```
+
+app/build.gradle.kts
+
+```kts
+plugins {
+    id("application")
+}
+
+application {
+    mainClass.set("com.example.Hello")
+}
+```
+
+app/src/main/java/com/example/Hello.java
+
+```java
+package com.example;
+
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello, world!");
+    }
+}
+```
+
+Run the application by executing the run task from the application plugin
+
+```bash
+$ gradle -q run
+Hello, world!
+```
+
+### Learn more about the tasks
+
+```bash
+gradle help --task <taskname>.
+```
+
+### The Basic Plugins
+
+Reference: [The Base Plugin](https://docs.gradle.org/current/userguide/base_plugin.html)
+
+Applying the Base Plugin
+
+```kts
+plugins {
+    base
+}
+```
+
+### Command Line Interface
+
+Reference: [Command-Line Interface](https://docs.gradle.org/current/userguide/command_line_interface.html#command_line_interface)
+
+List project properties
+
+```bash
+$ gradle -q properties
+# more detailed
+$ gradle -q api:properties
+
+------------------------------------------------------------
+Project ':api' - The shared API for the application
+------------------------------------------------------------
+
+allprojects: [project ':api']
+ant: org.gradle.api.internal.project.DefaultAntBuilder@12345
+antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@12345
+artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@12345
+asDynamicObject: DynamicObject for project ':api'
+baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@12345
+```
+
+---
+
+## Archived
 
 ### Creating Multi-project Builds
 
