@@ -118,25 +118,12 @@ Basics
 
 <!-- > —— 鲁迅《致赖少麟》 -->
 
-<!-- todo oneday
+Terminology
 
-Client-side
-
--   [Android](/snip/android/android.md)
-
-    a mobile/desktop operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets
-
-    -   [Intents and Intent Filters](/snip/android/intents-filters.md)
-    -   [Intro to Activities](/snip/android/intro-to-activities.md)
-    -   [Activity Lifecycle](/snip/android/activity-lifecycle.md)
-    -   …
-
--->
-
-Markdown
-
--   [Markdown Style Guide](/docsify/markdown/markdown-style-guide.md)
--   [MDL - Markdown Lint Tool](/docsify/markdown/lint/lint.md)
+-   [Abbreviations](/snip/abbrs.md)
+    -   usually related to coding (programming)
+-   [Glossaries](/snip/glossaries.md)
+    -   with intros to the common technology products
 
 Message Queue
 
@@ -148,43 +135,26 @@ Message Queue
 -   _[MemcacheQ](/snip/mq/mcq.md)_
 -   _[Notes](/snip/mq/notes.md)_
 
-Programming Languages - at a glance
-
--   [Kotlin](/snip/lang/kotlin/kotlin.md): a cross-platform, statically typed, general-purpose programming language with type inference
-    -   [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) (todo) / [Compiler](/snip/lang/kotlin/compiler.md) / …
-    -   Mocking for unit tests
-        -   [MockK](/snip/lang/kotlin/mocking.md#MockK): mocking library for Kotlin
-        -   [Mockito](/snip/lang/kotlin/mocking.md#Mockito): tasty mocking framework for unit tests in Java
--   [PHP](/snip/lang/php/php.md): a popular general-purpose scripting language that is especially suited to web development
--   [AppleScript](/snip/lang/applescript/applescript.md): a scripting language that facilitates automated control over scriptable Mac applications
-    -   [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
--   [Learn X in Y minutes](https://learnxinyminutes.com)
-    -   _[Elixir](/snip/lang/elixir/elixir.md): a dynamic, functional language for building scalable and maintainable applications_
-    -   _[Scala](/snip/lang/scala.md): combines object-oriented and functional programming in one concise, high-level language_
-    -   _[Python](/snip/lang/python.md): a programming language that lets you work quickly and integrate systems more effectively_
-
 Storage
 
--   **LSM Tree**: [Intro](/snip/lsm-tree/lsm-tree.md)
+-   **LSM Tree**: [intro](/snip/lsm-tree/lsm-tree.md)
     -   basic data structure of LevelDB & RocksDB
--   **Elasticsearch**: [Usage](/snip/elasticsearch.md)
+-   **Elasticsearch**: [usage](/snip/elasticsearch.md)
     -   for search and analysis
--   **MySQL**: [Usage](/cmd/m/mysql.md)
+-   **MySQL**: [usage](/cmd/m/mysql.md)
     -   robust SQL database server
--   **PostgreSQL**: [Notes](/snip/postgresql/notes.md)
--   **Redis**: [Basics](/snip/redis/basics.md) / [Notes](/snip/redis/notes.md) / [Key Notes](/snip/redis/key-notes.md)
+-   **PostgreSQL**: [notes](/snip/postgresql/notes.md)
+-   **Redis**: [basics](/snip/redis/basics.md) / [notes](/snip/redis/notes.md) / [key notes](/snip/redis/key-notes.md)
     -   in-memory data structure store as a database, cache and message broker
         <!-- basics: http://redis.io -->
         <!-- usage: https://redis.io/commands -->
 -   [Cache Patterns](/snip/cache-patterns.md)
     -   cache aside / read through / write through / write behind caching
 
-Terminology
+Markdown
 
--   [Abbreviations](/snip/abbrs.md)
-    -   are usually related to coding (programming)
--   [Glossaries](/snip/glossaries.md)
-    -   with intros to the common technology products
+-   [Markdown Style Guide](/docsify/markdown/markdown-style-guide.md)
+-   [MDL - Markdown Lint Tool](/docsify/markdown/lint/lint.md)
 
 Web
 
@@ -202,6 +172,39 @@ Web
     -   Powered by [docsify](/docsify/how-to-docsify.md)
 -   How to estimate the required computing resources?
     -   [QPS to CPU Cores](/snip/web/qps-to-cpu-cores.md)
+
+Programming Languages - at a glance
+
+-   [Kotlin](/snip/lang/kotlin/kotlin.md)
+    -   a cross-platform, statically typed, general-purpose programming language with type inference
+    -   [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) (todo) / [Compiler](/snip/lang/kotlin/compiler.md) / …
+    -   Mocking for unit tests
+        -   [MockK](/snip/lang/kotlin/mocking.md#MockK): mocking library for Kotlin
+        -   [Mockito](/snip/lang/kotlin/mocking.md#Mockito): tasty mocking framework for unit tests in Java
+-   [PHP](/snip/lang/php/php.md)
+    -   a popular general-purpose scripting language that is especially suited to web development
+-   [AppleScript](/snip/lang/applescript/applescript.md)
+    -   a scripting language that facilitates automated control over scriptable Mac applications
+    -   [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
+-   [Learn X in Y minutes](https://learnxinyminutes.com)
+    -   _[Elixir](/snip/lang/elixir/elixir.md): a dynamic, functional language for building scalable and maintainable applications_
+    -   _[Scala](/snip/lang/scala.md): combines object-oriented and functional programming in one concise, high-level language_
+    -   _[Python](/snip/lang/python.md): a programming language that lets you work quickly and integrate systems more effectively_
+
+<!-- todo oneday
+
+Client-side
+
+-   [Android](/snip/android/android.md)
+
+    a mobile/desktop operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets
+
+    -   [Intents and Intent Filters](/snip/android/intents-filters.md)
+    -   [Intro to Activities](/snip/android/intro-to-activities.md)
+    -   [Activity Lifecycle](/snip/android/activity-lifecycle.md)
+    -   …
+
+-->
 
 Others
 
