@@ -165,6 +165,102 @@ asDynamicObject: DynamicObject for project ':api'
 baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@12345
 ```
 
+## Build Script Basics
+
+Reference: [Build Script Basics](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html)
+
+…… We call **`build.gradle.kts` file a build script**, although strictly speaking it is a build configuration script.
+
+```kts
+tasks.register("hello") {
+    doLast {
+        println("Hello world!")
+    }
+}
+```
+
+_Test the build script above_
+
+```bash
+$ gradle -q hello
+Hello world!
+```
+
+### Build scripts are code
+
+build.gradle.kts
+
+```kts
+tasks.register("upper") {
+    doLast {
+        val someString = "mY_nAmE"
+        println("Original: $someString")
+        println("Upper case: ${someString.toUpperCase()}")
+    }
+}
+```
+
+_Test the build script above_
+
+```bash
+$ gradle -q upper
+Original: mY_nAmE
+Upper case: MY_NAME
+```
+
+### Task dependencies
+
+build.gradle.kts
+
+```kts
+tasks.register("hello") {
+    doLast {
+        println("Hello world!")
+    }
+}
+tasks.register("intro") {
+    dependsOn("hello")
+    doLast {
+        println("I'm Gradle")
+    }
+}
+```
+
+_Test build script above_
+
+```bash
+$ gradle -q intro
+Hello world!
+I'm Gradle
+```
+
+### Flexible task registration
+
+build.gradle.kts
+
+```kts
+repeat(4) { counter ->
+    tasks.register("task$counter") {
+        doLast {
+            println("I'm task number $counter")
+        }
+    }
+}
+```
+
+_Test build script above_
+
+```bash
+$ gradle -q task1
+I'm task number 1
+```
+
+……
+
+## Using Gradle Plugins
+
+Reference: [Using Gradle Plugins](https://docs.gradle.org/current/userguide/plugins.html)
+
 ---
 
 ## Archived
