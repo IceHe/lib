@@ -1078,7 +1078,7 @@ The implicit grant has severe limitations that need to be considered when approa
 First, **there is no realistic way for a client using this flow to keep a client secret, since the secret will be made available to the browser itself**.
 Since this flow uses only the authorization endpoint and not the token endpoint, this limitation does not affect its ability to function, as the client is never expected to authenticate at the authorization endpoint.
 However, the **lack of any means of authenticating the client** does impact the security profile of the grant type and it should be approached with caution.
-Additionally, the implicit flow can't be used to get a refresh token.
+<u>**Additionally, the implicit flow can't be used to get a refresh token.**</u>
 Since in-browser applications are by nature short lived, lasting only the session length of the browser context that has loaded them, the usefulness of a refresh token would be very limited.
 Furthermore, unlike other grant types, the resource owner can be assumed to be still present in the browser and available to reauthorize the client if necessary. ……
 
