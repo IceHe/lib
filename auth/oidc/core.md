@@ -188,13 +188,13 @@ _It also describes the security and privacy considerations for using OpenID Conn
     -   19.1. Normative References
     -   19.2. Informative References
 -   Appendix A. Authorization Examples
-      <!-- - 1\. Example using response_type=code -->
-      <!-- - 2\. Example using response_type=id_token -->
-      <!-- - 3\. Example using response_type=id_token token -->
-      <!-- - 4\. Example using response_type=code id_token -->
-      <!-- - 5\. Example using response_type=code token -->
-      <!-- - 6\. Example using response_type=code id_token token -->
-      <!-- - 7\. RSA Key Used in Examples -->
+    <!-- - 1\. Example using response_type=code -->
+    <!-- - 2\. Example using response_type=id_token -->
+    <!-- - 3\. Example using response_type=id_token token -->
+    <!-- - 4\. Example using response_type=code id_token -->
+    <!-- - 5\. Example using response_type=code token -->
+    <!-- - 6\. Example using response_type=code id_token token -->
+    <!-- - 7\. RSA Key Used in Examples -->
 -   Appendix B. Acknowledgements
 -   Appendix C. Notices
 -   ……
@@ -413,7 +413,7 @@ The following **Claims are used within the ID Token for all OAuth 2.0 flows used
     The processing of this parameter requires that the current date/time MUST be before the expiration date/time listed in the value.
 
     Implementers MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew.
-    Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time.
+    Its value is a JSON number representing the number of seconds from `1970-01-01T0:0:0Z` as measured in UTC until the date/time.
 
     _See RFC 3339 for details regarding date/times in general and UTC in particular._
 
