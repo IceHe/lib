@@ -261,6 +261,36 @@ I'm task number 1
 
 Reference: [Using Gradle Plugins](https://docs.gradle.org/current/userguide/plugins.html)
 
+Gradle at its core intentionally provides very little for real world automation.
+**All of the useful features, like the ability to compile Java code, are added by plugins.**
+Plugins add new tasks (e.g. JavaCompile), domain objects (e.g. SourceSet), conventions (e.g. Java source is located at src/main/java) as well as extending core objects and objects from other plugins.
+
+### What plugins do
+
+By applying plugins, rather than adding logic to the project build script, we can reap a number of benefits. Applying plugins:
+
+-   Promotes reuse and reduces the overhead of maintaining similar logic across multiple projects
+-   Allows a higher degree of modularization, enhancing comprehensibility and organization
+-   Encapsulates imperative logic and allows build scripts to be as declarative as possible
+
+### Types of plugins
+
+There are two general types of plugins in Gradle,
+
+-   **binary plugins** and
+-   **script plugins**.
+
+Binary plugins are written either programmatically by implementing Plugin interface or declaratively using one of Gradle’s DSL languages.
+Binary plugins can reside within a build script, within the project hierarchy or externally in a plugin jar.
+Script plugins are additional build scripts that further configure the build and usually implement a declarative approach to manipulating the build.
+They are typically used within a build although they can be externalized and accessed from a remote location.
+
+### Using plugins
+
+……
+
+### Binary plugins
+
 ---
 
 ## Archived
