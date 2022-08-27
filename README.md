@@ -93,24 +93,26 @@ Others
 
 ### Auth\*
 
-Basics
-
--   [Auth\*](/auth/auth.md) - Authentication & Authorization <!-- todo -->
-
--   [OIDC](/auth/oidc/oidc.md) - OpenID Connect <!-- todo -->
-
-    an interoperable authentication protocol based on the OAuth 2.0 family of specifications
-
-    -   [Core 1.0](/auth/oidc/core.md) functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User <!-- todo -->
-    -   [PKCE](/auth/oidc/pkce.md) - Proof Key for Code Exchange _by OAuth Public Clients_ <!-- todo -->
-
--   [OAuth](https://en.wikipedia.org/wiki/OAuth) - Open **Authorization**
+-   [OAuth 2](https://oauth.net/2/) - Open **Authorization**
 
     an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
 
-    -   [OAuth 2 in Action - Book](/auth/oauth-2-in-action.md) <!-- todo -->
-    -   [OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)
+    -   [Resource Indicators for OAuth 2.0](https://www.rfc-editor.org/rfc/rfc8707.html) - RFC 8707
+    -   [The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://www.rfc-editor.org/rfc/rfc6750) - RFC 6750
     -   [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
+    -   _[OAuth 2 in Action - Book](/auth/oauth-2-in-action.md) <!-- todo -->_
+    -   _[OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)_
+
+-   OIDC (Open ID Connect)
+
+    an interoperable authentication protocol based on the OAuth 2.0 family of specifications
+
+    -   [OIDC Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
+        -   OpenID Connect Core 1.0 incorporating errata set 1
+        -   It defines the core OpenID Connect functionality:
+            authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User.
+        -   _It also describes the security and privacy considerations for using OpenID Connect._
+    -   [PKCE](https://datatracker.ietf.org/doc/html/rfc7636): Proof Key for Code Exchange by OAuth Public Clients - RFC7636
 
 ### Snippet
 

@@ -1,4 +1,4 @@
-# OpenID Connect Core 1.0
+# OpenID Connect Core 1.0 - Notes
 
 Core functionality: authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User.
 
