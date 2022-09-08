@@ -491,6 +491,7 @@ Reference : https://www.computerhope.com/keys.htm
 - IFS : Internal Field Seperators ( for CLI )
 - IK : I know.
 - img : image
+- IMO : In My Opinion / 
 - imp : improve
 - impl : implement
 - Inc. : [incorporated](https://www.legalzoom.com/articles/what-does-incorporated-mean-in-business)
