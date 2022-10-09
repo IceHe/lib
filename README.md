@@ -91,29 +91,6 @@ Others
 
 -->
 
-### Auth\*
-
--   [OAuth 2](https://oauth.net/2/) - Open **Authorization**
-
-    an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
-
-    -   [Resource Indicators for OAuth 2.0](https://www.rfc-editor.org/rfc/rfc8707.html) - RFC 8707
-    -   [The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://www.rfc-editor.org/rfc/rfc6750) - RFC 6750
-    -   [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
-    -   _[OAuth 2 in Action - Book](/auth/oauth-2-in-action.md) <!-- todo -->_
-    -   _[OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)_
-
--   OIDC (Open ID Connect)
-
-    an interoperable authentication protocol based on the OAuth 2.0 family of specifications
-
-    -   [OIDC Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
-        -   OpenID Connect Core 1.0 incorporating errata set 1
-        -   It defines the core OpenID Connect functionality:
-            authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User.
-        -   _It also describes the security and privacy considerations for using OpenID Connect._
-    -   [PKCE](https://datatracker.ietf.org/doc/html/rfc7636): Proof Key for Code Exchange by OAuth Public Clients - RFC7636
-
 ### Snippet
 
 > 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。
@@ -412,6 +389,78 @@ _Batch 批处理_
 -   _[DOS Common Commands](/cmd/batch/dos-common-commands.md)_
 -   _[DOS Environment Variables](/cmd/batch/dos-environment-variable.md)_
 
+### Java
+
+Basics
+
+-   [Glossaries](/java/glossaries.md)
+-   **Install**: [JDK](/java/install-jdk.md)
+-   **IDE**: [IntelliJ IDEA](/java/intellij-idea.md) usage
+-   **Code Style Guide**: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
+-   [Annotations](/java/annotations.md):
+    Spring / Lombok / FastJson / Jackson / …
+-   [Exceptions](/java/exceptions.md):
+    exception class hierarchy / …
+-   **Others**: [Notes](/java/notes.md)
+
+Package Manager
+
+-   [Maven](/java/maven.md): a software project management and comprehension tool
+    -   Based on the concept of a **project object model** (POM), Maven can:
+        -   manage a project's build,
+        -   reporting _and_
+        -   documentation from a central piece of information.
+-   [Gradle](/java/gradle.md)
+    -   From mobile apps to microservices, from small startups to big enterprises,
+    -   Gradle helps teams build, automate and deliver better software, faster.
+
+Benchmark, Stress Testing & Unit Testing
+
+-   **Benchmark & Stress Testing**: [JMH](/java/jmh.md) - Java Microbenchmark Harness
+-   **Unit testing & Integration testing**: [Spock](/java/spock.md) or JUnit
+    -   [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
+
+Code Snippet
+
+-   [Collection](/java/code-snippet/collection.md)
+-   [Common DTOs](/java/code-snippet/common-dtos.md)
+-   [Deep Clone](/java/code-snippet/deep-clone.md)
+-   [CSV - Comma Separate Value](/java/code-snippet/csv.md)
+-   [Elasticsearch](/java/code-snippet/elasticsearch.md)
+-   [Enum](/java/code-snippet/enum.md)
+-   [Excel](/java/code-snippet/excel.md)
+-   [Executor](/java/code-snippet/executor.md)
+-   [HTTP](/java/code-snippet/http.md)
+-   [JSON](/java/code-snippet/json.md)
+-   [LocalDateTime](/java/code-snippet/local-date-time.md)
+-   [MyBatis and JDBC](/java/code-snippet/mybatis-n-jdbc.md)
+-   [Number](/java/code-snippet/number.md)
+-   [OSS - Object Storage Service](/java/code-snippet/oss.md)
+-   [Spring Beans](/java/code-snippet/spring-beans.md)
+-   [Spring ConstraintValidator](/java/code-snippet/spring-constraint-validator.md)
+-   [Stream and Optional](/java/code-snippet/stream-n-optional.md)
+-   [String](/java/code-snippet/string.md)
+-   [Task](task.md)
+
+Command Line Tool
+
+-   [jar](/java/cmd/jar.md): archive tool
+-   [java](/java/cmd/java.md): application launcher
+-   [javac](/java/cmd/javac.md): compiler
+-   [javap](/java/cmd/javap.md): class file disassembler
+-   [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
+-   [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
+-   [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
+    -   _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
+    -   _available after JDK 9_
+-   _Seldom-used and deprecated_
+    -   _[javadoc](/java/cmd/javadoc.md): API documentation generator_
+    -   _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
+    -   _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
+    -   _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
+    -   _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
+    -   _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
+
 ### JavaScript
 
 Basics
@@ -502,78 +551,6 @@ Package
 -   **zod**: TypeScript-first schema validation with static type inference - [zod.dev](https://zod.dev/) - [repo](https://github.com/colinhacks/zod)
 -   ……
 
-### Java
-
-Basics
-
--   [Glossaries](/java/glossaries.md)
--   **Install**: [JDK](/java/install-jdk.md)
--   **IDE**: [IntelliJ IDEA](/java/intellij-idea.md) usage
--   **Code Style Guide**: [Alibaba](https://edu.aliyun.com/certification/cldt02) & [Google](https://google.github.io/styleguide/javaguide.html)
--   [Annotations](/java/annotations.md):
-    Spring / Lombok / FastJson / Jackson / …
--   [Exceptions](/java/exceptions.md):
-    exception class hierarchy / …
--   **Others**: [Notes](/java/notes.md)
-
-Package Manager
-
--   [Maven](/java/maven.md): a software project management and comprehension tool
-    -   Based on the concept of a **project object model** (POM), Maven can:
-        -   manage a project's build,
-        -   reporting _and_
-        -   documentation from a central piece of information.
--   [Gradle](/java/gradle.md)
-    -   From mobile apps to microservices, from small startups to big enterprises,
-    -   Gradle helps teams build, automate and deliver better software, faster.
-
-Benchmark, Stress Testing & Unit Testing
-
--   **Benchmark & Stress Testing**: [JMH](/java/jmh.md) - Java Microbenchmark Harness
--   **Unit testing & Integration testing**: [Spock](/java/spock.md) or JUnit
-    -   [Groovy](/java/groovy.md): a multi-faceted language for the Java platform
-
-Code Snippet
-
--   [Collection](/java/code-snippet/collection.md)
--   [Common DTOs](/java/code-snippet/common-dtos.md)
--   [Deep Clone](/java/code-snippet/deep-clone.md)
--   [CSV - Comma Separate Value](/java/code-snippet/csv.md)
--   [Elasticsearch](/java/code-snippet/elasticsearch.md)
--   [Enum](/java/code-snippet/enum.md)
--   [Excel](/java/code-snippet/excel.md)
--   [Executor](/java/code-snippet/executor.md)
--   [HTTP](/java/code-snippet/http.md)
--   [JSON](/java/code-snippet/json.md)
--   [LocalDateTime](/java/code-snippet/local-date-time.md)
--   [MyBatis and JDBC](/java/code-snippet/mybatis-n-jdbc.md)
--   [Number](/java/code-snippet/number.md)
--   [OSS - Object Storage Service](/java/code-snippet/oss.md)
--   [Spring Beans](/java/code-snippet/spring-beans.md)
--   [Spring ConstraintValidator](/java/code-snippet/spring-constraint-validator.md)
--   [Stream and Optional](/java/code-snippet/stream-n-optional.md)
--   [String](/java/code-snippet/string.md)
--   [Task](task.md)
-
-Command Line Tool
-
--   [jar](/java/cmd/jar.md): archive tool
--   [java](/java/cmd/java.md): application launcher
--   [javac](/java/cmd/javac.md): compiler
--   [javap](/java/cmd/javap.md): class file disassembler
--   [jps](/java/cmd/jps.md): JVM process status - _list the instrumented JVMs on the target system_
--   [jcmd](/java/cmd/jcmd.md): send diagnostic command requests to a running JVM
--   [jhsdb](/java/cmd/jhsdb.md): HotSpot Debugger
-    -   _attach to a Java process or launch a postmortem debugger to analyze the content of a core dump from a crashed JVM_
-    -   _available after JDK 9_
--   _Seldom-used and deprecated_
-    -   _[javadoc](/java/cmd/javadoc.md): API documentation generator_
-    -   _[jstat](/java/cmd/jstat.md): monitor JVM statistics_
-    -   _[jinfo](/java/cmd/jinfo.md): configuration info_ - _generate configuration info for a specified Java process_
-    -   _[jmap](/java/cmd/jmap.md): memory map_ - _print details of a specified process_
-    -   _~~[jhat](/java/cmd/jhat.md): Heap Analysis Tool~~_ - _only available in JDK 8 !_
-    -   _[jstack](/java/cmd/jstack.md): stack trace_ - _print Java stack traces of Java threads for a specified Java process_
-
 ### ASM & CPP
 
 Assembly
@@ -604,6 +581,29 @@ C++
 -   [C++ Coding Standards](/cpp/code-standards.md)
 -   [C++ Macros & Bit Operations](/cpp/macro-n-bit-operations.md)
 -   Effective C++: [Part 1](/cpp/effective-cpp-reading-note-1.md) / [Part 2](/cpp/effective-cpp-reading-note-2.md) / [Part 3](/cpp/effective-cpp-reading-note-3.md) / [Part 4](/cpp/effective-cpp-reading-note-4.md)
+
+### Auth\*
+
+-   [OAuth 2](https://oauth.net/2/) - Open **Authorization**
+
+    an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
+
+    -   [Resource Indicators for OAuth 2.0](https://www.rfc-editor.org/rfc/rfc8707.html) - RFC 8707
+    -   [The OAuth 2.0 Authorization Framework: Bearer Token Usage](https://www.rfc-editor.org/rfc/rfc6750) - RFC 6750
+    -   [CSRF Attack on OAuth 2.0](/auth/csrf-attack-on-oauth.md)
+    -   _[OAuth 2 in Action - Book](/auth/oauth-2-in-action.md) <!-- todo -->_
+    -   _[OAuth 2.0 实战课 - Geekbang](/auth/oauth-2.0-practical-course.md)_
+
+-   OIDC (Open ID Connect)
+
+    an interoperable authentication protocol based on the OAuth 2.0 family of specifications
+
+    -   [OIDC Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
+        -   OpenID Connect Core 1.0 incorporating errata set 1
+        -   It defines the core OpenID Connect functionality:
+            authentication built on top of OAuth 2.0 and the use of Claims to communicate information about the End-User.
+        -   _It also describes the security and privacy considerations for using OpenID Connect._
+    -   [PKCE](https://datatracker.ietf.org/doc/html/rfc7636): Proof Key for Code Exchange by OAuth Public Clients - RFC7636
 
 ## Life
 

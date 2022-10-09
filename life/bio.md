@@ -9,7 +9,7 @@ IceHe's short biographical profile | 个人简历
 经历 - 后端
 
 -   武侍科技: 创始团队 - Node.js <br/>
-    _2021.10 至今_
+    _2021.10 ~ 2022.9_
 -   猿辅导: 斑马 - 供应链 - Java <br/>
     _2021.3 ~ 2021.8_
 -   阿里本地生活: 前台研发部 - 蜂鸟跑腿组 - Java <br/>
@@ -64,22 +64,17 @@ IceHe's short biographical profile | 个人简历
 
 编程语言
 
--   胜任: Java / PHP / _TypeScript_ / _JavaScript_
--   了解: C / C++ / Python / Assembly
+-   胜任: Java / PHP / TypeScript / JavaScript
+-   了解: C / C++ / Assembly
 
 框架
 
--   Spring / Spring Boot / _Node.js_
+-   Spring / Spring Boot / Node.js
 
 存储 / 缓存 / 队列
 
 -   胜任: Elasticsearch / MySQL / Redis
--   了解: Kafaka / RabbitMQ / RocketMQ / Memcached
-
-开发工具
-
--   熟悉: Git / Vim / VS Code / IntelliJ IDEA
--   胜任: Zsh / Bash
+-   了解: Kafaka / RabbitMQ / Memcached
 
 沟通语言
 
@@ -91,12 +86,12 @@ IceHe's short biographical profile | 个人简历
 > **技术方向: 后端 - Node.js / Java / PHP**
 
 **武侍科技: 创始团队 - Node.js** <br/>
-_2021.10 至今_
+_2021.10 ~ 2022.9_
 
 -   公司简介: [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
 -   初始产品: [Logto](https://github.com/logto-io/logto) - The open source customer identity solution.
-    <!-- -   融资阶段: Seed money from [Sequoia Capital](https://www.sequoiacap.com/china/) , [ZhenFund](http://www.zhenfund.com/) , [Eminence Ventures](http://www.emventures.cn/) -->
--   _TypeScript / JavaScript / Node.js / PostgreSQL / GitHub Organization_
+    <!-- -   融资阶段: Seed money from [Sequoia Capital](https://www.sequoiacap.com/china/) , [ZhenFund](http://www.zhenfund.com/) -->
+-   _TypeScript / JavaScript / Node.js / PostgreSQL / OAuth 2 / OIDC_
 
 **猿辅导: 斑马 - 供应链 - Java** <br/>
 _2021.3 ~ 2021.8_
