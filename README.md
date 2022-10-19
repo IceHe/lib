@@ -193,7 +193,6 @@ Others
 -   [Regular Expression](/snip/regex.md)
     -   a sequence of characters that specifies a search pattern
 -   [Kotlin + Spring Boot](/snip/tmp/kotlin-spring-boot.md) (doing)
--   _[Sorting Algorithms](/snip/sort/notes.md)_
 -   _[ID Generator](/snip/tmp/id-generator.md)_
 -   _[CentOS 6](/snip/tmp/centos6.md)_
 -   _[Memcached](/snip/tmp/memcached.md)_
