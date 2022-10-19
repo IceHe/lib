@@ -5,10 +5,11 @@ References
 - How To Ask Questions The Smart Way : http://www.catb.org/~esr/faqs/smart-questions.html ( 原文 )
 - 繁体中文译文 : https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way
     - 简体 : https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md
+- Related: [Stop to ask questions the stupid ways](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)
 
 ## 请多思考
 
-我们不讳言我们对那些不愿思考、或者在发问前不做他们该做的事的人的蔑视。那些人是时间杀手 —— 他们只想索取，从不付出，消耗我们可用在更有趣的问题或更值得回答的人身上的时间。我们称这样的人为 失败者（撸瑟） （由于历史原因，我们有时把它拼作 lusers）。
+我们不讳言我们对那些不愿思考、或者在发问前不做他们该做的事的人的蔑视。那些人是时间杀手 —— 他们只想索取，从不付出，消耗我们可用在更有趣的问题或更值得回答的人身上的时间。我们称这样的人为 失败者（撸瑟）（由于历史原因，我们有时把它拼作 lusers）。
 
 我们无情的滤掉一些话题，特别是拋弃那些看起来像失败者的家伙，以便更高效的利用时间来回答赢家（winner）的问题。
 
@@ -148,7 +149,7 @@ References
 
 对问题研究得还不够深入
 
-> 问题：我的{程序/设定/SQL 语句}不工作
+> 问题：我的{程序/设定/SQL语句}不工作
 >
 > 回答：这不算是问题吧，我对要我问你二十个问题才找得出你真正问题的问题没兴趣 —— 我有更有意思的事要做呢。在看到这类问题的时候，我的反应通常不外如下三种
 >

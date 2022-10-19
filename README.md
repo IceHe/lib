@@ -682,9 +682,10 @@ Timeline
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
 
 -   [How to Ask](/life/principle/how-to-ask.md): Prepare before asking
+    -   [Avoid the stupid ways](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)
     -   JFGI: Just Fucking Google It
     -   RTFM: Read The Fucking Manual
-    -   **Trade-off: Ask for help if stuck over 15 (or 30) min.**
+    -   **Trade-off: Ask for help if stuck over 15 | 30 min.**
 -   [How to Work](/life/principle/how-to-work.md): Working Standards
     -   请示工作说方案
     -   布置工作说标准
