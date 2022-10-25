@@ -74,7 +74,7 @@ IceHe's short biographical profile | 个人简历
 存储 / 缓存 / 队列
 
 -   胜任: Elasticsearch / MySQL / Redis
--   了解: Kafaka / RabbitMQ / Memcached
+-   了解: kafaka / RabbitMQ / Memcached
 
 沟通语言
 
@@ -83,14 +83,14 @@ IceHe's short biographical profile | 个人简历
 
 ## 经历
 
-> **技术方向: 后端 - Node.js / Java / PHP**
+> **技术方向: 后端 - Java / Node.js / PHP**
 
 **武侍科技: 创始团队 - Node.js** <br/>
 _2021.10 ~ 2022.9_
 
--   公司简介: [Silverhand](https://github.com/silverhand-io) - Supercharge innovations.
+-   公司简介: [Silverhand](https://github.com/silverhand-io) - seed money from [Sequoia Capital](https://www.sequoiacap.com/china/) , [ZhenFund](http://www.zhenfund.com/)
 -   初始产品: [Logto](https://github.com/logto-io/logto) - The open source customer identity solution.
-    <!-- -   融资阶段: Seed money from [Sequoia Capital](https://www.sequoiacap.com/china/) , [ZhenFund](http://www.zhenfund.com/) -->
+-   用户日志 / 仪表板：如新增、活跃用户数 / Localization 多语言文案配置 / JS SDK / 相关文档
 -   _TypeScript / JavaScript / Node.js / PostgreSQL / OAuth 2 / OIDC_
 
 **猿辅导: 斑马 - 供应链 - Java** <br/>
@@ -119,7 +119,7 @@ _2019.3 ~ 2020.3_
 _2018.4 ~ 2019.2_
 
 -   媒体库 / 探测报警 (API 健康) / 视频墙 (个人主页发布视频列表) / 文档库 / Partial request / …
--   _Java / Groovy / Spring Boot / MySQL / MyBatis / Redis / Memcached / Kafka / Docker / CentOS / Bash_
+-   _Java / Groovy / Spring Boot / MySQL / MyBatis / Redis / Memcached / kafka / Docker / CentOS / Bash_
 
 **新浪微博: 移动应用服务 - PHP** <br/>
 _2015.7 ~ 2018.3_
