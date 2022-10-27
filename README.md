@@ -749,6 +749,8 @@ Timeline
         -   不那么在意行动正确与否，更在意是否在行动。
         -   不那么在意所谓时机，更在意任务本身。
     -   个人感受：很棒的书，解决了很多自己对于工作和生活的困惑以及心态问题；但说实话，不能应用到完美主义的职场中。
+-   [The Complete Guide to Effective Reading](https://maartenvandoorn.medium.com/the-complete-guide-to-effective-reading-fc1835937757)
+-   [Just-In-Case vs. Just-In-Time Learning](https://medium.com/hackernoon/just-in-case-vs-just-in-time-learning-c87f61d24360)
 
 ### Friend
 
