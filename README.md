@@ -120,7 +120,7 @@ Storage
     -   basic data structure of LevelDB & RocksDB
 -   **Elasticsearch**: [usage](/snip/elasticsearch.md)
     -   for search and analysis
--   **MySQL**: [usage](/cmd/m/mysql.md)
+-   **MySQL**: [lessons](/snip/mysql/mysql-pratice-45-lectures.md)
     -   robust SQL database server
 -   **PostgreSQL**: [notes](/snip/postgresql/notes.md)
 -   **Redis**: [basics](/snip/redis/basics.md) / [notes](/snip/redis/notes.md) / [key notes](/snip/redis/key-notes.md)
