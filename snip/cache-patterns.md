@@ -123,7 +123,7 @@ _icehe: 时间久了，发现自己对 write / read through 的套路记得不�
 
 - read / write through: cache 和 db 被视为一个统一的 storage，维护 cache 操作由 storage 自己接管。
     - read through: 类似 cache aside 的做法，如上文所述 storage 自己维护 cache，不需要调用方操心。
-    - write through: cache miss 写到 db；cache hit 则写到 cache，storage 会自己将 cache 值回写到 db，不需要调用方操心。
+    - write through: cache miss 写到 db，同步（synchronously）写到 cache；cache hit 则写到 cache，storage 会自己将 cache 值回写到 db，不需要调用方操心。
 
 ## Write Behind Caching
 
