@@ -154,12 +154,6 @@ Web
 
 Programming Languages - at a glance
 
--   [Kotlin](/snip/lang/kotlin/kotlin.md)
-    -   a cross-platform, statically typed, general-purpose programming language with type inference
-    -   [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) (todo) / [Compiler](/snip/lang/kotlin/compiler.md) / …
-    -   Mocking for unit tests
-        -   [MockK](/snip/lang/kotlin/mocking.md#MockK): mocking library for Kotlin
-        -   [Mockito](/snip/lang/kotlin/mocking.md#Mockito): tasty mocking framework for unit tests in Java
 -   [PHP](/snip/lang/php/php.md)
     -   a popular general-purpose scripting language that is especially suited to web development
 -   [AppleScript](/snip/lang/applescript/applescript.md)
@@ -171,6 +165,13 @@ Programming Languages - at a glance
     -   _[Python](/snip/lang/python.md): a programming language that lets you work quickly and integrate systems more effectively_
 
 <!-- todo oneday
+
+-   [Kotlin](/snip/lang/kotlin/kotlin.md)
+    -   a cross-platform, statically typed, general-purpose programming language with type inference
+    -   [Basics](/snip/lang/kotlin/basics.md) / [Idioms](/snip/lang/kotlin/idioms.md) (todo) / [Compiler](/snip/lang/kotlin/compiler.md) / …
+    -   Mocking for unit tests
+        -   [MockK](/snip/lang/kotlin/mocking.md#MockK): mocking library for Kotlin
+        -   [Mockito](/snip/lang/kotlin/mocking.md#Mockito): tasty mocking framework for unit tests in Java
 
 Client-side
 
