@@ -4,43 +4,42 @@
 
 ---
 
-## Tools
+## Online Tools
 
--   BeJson: http://www.bejson.com
-
-    -   JSON 格式校验、格式化，及网络、前端、编码、转换等相关工具
-
-        类似 - JSON.cn: https://www.json.cn
-
--   Regex101: https://regex101.com
-
-    Online regex tester and debugger: PHP, PCRE, Python, Golang and JavaScript
-
--   Crontab.guru:
-    https://crontab.guru/#0_*_*_*_*
-
-    The cron schedule expression editor
+-   [json.cn](https://www.json.cn)
+-   [bejson.com](http://www.bejson.com): JSON 校验 & 格式化，以及 Base64、Escape、URL 编解码等
+-   [epochconverter.com](https://www.epochconverter.com): epoch & Unix timestamp conversion tools
+-   [regex101.com](https://regex101.com): build, test, and debug regex
+    -   [正则表达式 - wikipedia](https://zh.wikipedia.org/zh-hans/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)
+-   [crontab.guru](https://crontab.guru/#0_*_*_*_*): cron schedule expression editor
+-   [freeformatter.com/json-validator.html](https://www.freeformatter.com/cron-expression-generator-quartz.html): cron expression generator & explainer
+-   [plantuml.com](https://plantuml.com/zh/): uses simple textual descriptions to draw beautiful UML diagrams
+    -   [object oriented design](https://cheatography.com/david/cheat-sheets/object-oriented-design/): meanings of different class associations
 
 ## 文档
 
 最好的习惯：查阅官方网站的文档。
 
-- [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png) - Vim 键位操作总结图
-- [PHP.net](http://php.net) 官方文档
-- [PHP Type Comparisons](http://www.php.net/manual/en/types.comparisons.php) - PHP 变量比较结果参考
-- [Mac Developer Library](https://developer.apple.com/library/mac/navigation/) -> [AppleScript Language Guide](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html)
-- [Object Oriented Design](http://www.cheatography.com/david/cheat-sheets/object-oriented-design/) ( Cheat Sheet )
-- Elasticsearch Cheatsheet - 1.X ~ 7.X: http://elasticsearch-cheatsheet.jolicode.com
+-   [PostgreSQL Documentation (current version)](https://www.postgresql.org/docs/current/)
+-   [MySQL 8.0 Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/)
+-   [Redis Docs](https://redis.io/docs/)
+-   [Redis Commands](https://redis.io/commands/)
+-   [Elasticsearch Cheatsheet](http://elasticsearch-cheatsheet.jolicode.com)
+-   [HTTP status codes - wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+-   [MDN Web Docs](https://developer.mozilla.org/en-US/)
+-   [Node.js Docs](https://nodejs.org/en/docs/)
+-   [Vim Cheat Sheet](http://coolshell.cn//wp-content/uploads/2011/09/vim_cheat_sheet_for_programmers_print.png): 键位操作总结图
+-   [PHP.net](http://php.net) / [Type Comparisons](http://www.php.net/manual/en/types.comparisons.php)（变量比较结果参考表）
 
 ## 算法
 
-- [Advanced Data Structures](http://courses.csail.mit.edu/6.851/)
 - [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms/)
-- [Visual Algo](http://visualgo.net/) - Visualising data structures and algorithms through animation.
-- [ACM Cheat Sheet](https://github.com/soulmachine/acm-cheat-sheet) - 入门范例 <sup>__Best__</sup>
-- [Consistent Hashing 五分钟理解一致性哈希算法](http://blog.csdn.net/cywosp/article/details/23397179)
-- [尾递归调用](https://github.com/ruanyf/articles/blob/master/2015/2015-04-10-tail-call.md)
-- [随机问题 - 洗牌算法](http://mp.weixin.qq.com/s?__biz=MzA4NjE3MDg4OQ==&amp;mid=403338527&amp;idx=1&amp;sn=0c3649ba03268f8b9605b1b75e14cb8b&amp;scene=1&amp;srcid=0406vMkKTTz3LabAOl04P8L6#rd)
+- [Advanced Data Structures](http://courses.csail.mit.edu/6.851/) - todo
+- [Visual Algo](http://visualgo.net/) - Visualising data structures and algorithms through animation - todo
+- [ACM Cheat Sheet](https://github.com/soulmachine/acm-cheat-sheet) - 入门范例 - todo
+- [Consistent Hashing 五分钟理解一致性哈希算法](http://blog.csdn.net/cywosp/article/details/23397179) - todo
+- [尾递归调用](https://github.com/ruanyf/articles/blob/master/2015/2015-04-10-tail-call.md) - todo
+- [随机问题 - 洗牌算法](http://mp.weixin.qq.com/s?__biz=MzA4NjE3MDg4OQ==&amp;mid=403338527&amp;idx=1&amp;sn=0c3649ba03268f8b9605b1b75e14cb8b&amp;scene=1&amp;srcid=0406vMkKTTz3LabAOl04P8L6#rd) - todo
 - [结构之法 算法之道](http://blog.csdn.net/v_july_v)
 
 ## GitHub 仓库
