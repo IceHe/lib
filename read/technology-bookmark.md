@@ -214,8 +214,9 @@
 - [知道创宇研发技能表 v3](http://blog.knownsec.com/Knownsec_RD_Checklist/)
 - [总结 XSS 与 CSRF 两种跨站攻击](https://blog.tonyseek.com/post/introduce-to-xss-and-csrf/) - INVALID
 - [Web 安全入门](https://github.com/evilcos/papers) - 国内安全专家，[余弦](https://github.com/evilcos)
-- [我的通行你的证](http://lvwei.me/passport.html) - 帐号体系的安全 <sup>__Best__</sup> - INVALID
-- [加盐密码哈希：如何正确使用](http://blog.jobbole.com/61872/) - [英文出处](https://crackstation.net/hashing-security.htm) <sup>__Best__</sup>
+- [我的通行你的证](https://paper.seebug.org/papers/Archive/drops2/%E6%88%91%E7%9A%84%E9%80%9A%E8%A1%8C%E4%BD%A0%E7%9A%84%E8%AF%81.html) - 帐号体系的安全 <sup>__Best__</sup>
+- [加盐密码哈希：如何正确使用](https://www.tomczhen.com/2016/10/10/hashing-security/) - [英文出处](https://crackstation.net/hashing-security.htm) <sup>__Best__</sup>
+    <!-- - [加盐密码哈希：如何正确使用](http://blog.jobbole.com/61872/) - [英文出处](https://crackstation.net/hashing-security.htm) <sup>__Best__</sup> -->
 - [CNNIC 干过的那些破事儿](https://program-think.blogspot.com/2010/02/about-cnnic.html) - 警告：不要在国内注册和使用 CN 域名
 - [CNNIC 证书的危害及各种清除方法](https://program-think.blogspot.com/2010/02/remove-cnnic-cert.html)
 - [矛与盾：二进制漏洞攻防思想对抗](http://www.freebuf.com/articles/system/127207.html?from=groupmessage&isappinstalled=0)
