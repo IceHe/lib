@@ -657,27 +657,6 @@ Timeline
 
 <!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
 
-<!--
-
-<details>
-<summary>少不更事</summary>
-<blockquote>
-我没有一天不后悔。<br/>
-并非受到惩罚才感到后悔。<br/>
-回首往事，<br/>
-那个愚钝的年轻笨蛋，<br/>
-想跟他谈谈，<br/>
-想要跟他讲道理，<br/>
-想让他明白，<br/>
-但是办不到。<br/>
-那个少年早就不见了，<br/>
-只剩下垂老的身躯，<br/>
-我得接受现实。<br/>
-</blockquote>
-</details>
-
--->
-
 ### Practice
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
