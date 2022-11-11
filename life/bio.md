@@ -74,7 +74,7 @@ IceHe's short biographical profile | 个人简历
 存储 / 缓存 / 队列
 
 -   胜任: Elasticsearch / MySQL / Redis
--   了解: kafaka / RabbitMQ / Memcached
+-   了解: RabbitMQ / Memcached <!-- / kafka -->
 
 沟通语言
 

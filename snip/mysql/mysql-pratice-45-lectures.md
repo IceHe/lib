@@ -1102,3 +1102,28 @@ InnoDB 的策略是尽量使用内存，因此对于一个长时间运行的库�
 所以，InnoDB 需要有控制脏页比例的机制，来尽量避免上面的这两种情况。
 
 ## 脏页比例的控制策略
+
+要用 **innodb_io_capacity** 参数告诉 InnoDB 所在主机的 IO 能力，
+这样 InnoDB 才能知道需要全力刷脏页的时候，可以刷多快。
+
+这个值 **建议设置成磁盘的 IOPS**。
+磁盘的 IOPS 可以通过 fio 这个工具来测试，
+下面的语句是用来测试磁盘随机读写的命令：
+
+```bash
+fio -filename=$filename -direct=1 -iodepth 1 \
+    -thread -rw=randrw -ioengine=psync -bs=16k \
+    -size=500M -numjobs=10 -runtime=10 \
+    -group_reporting -name=mytest
+```
+
+InnoDB 的刷盘速度就是要参考两个因素：
+
+1. **脏页比例**
+2. **redo log 写盘速度**
+
+InnoDB 会根据这两个因素先单独算出两个数字。
+参数 innodb_max_dirty_pages_pct 是脏页比例上限，
+默认值是 75%（MySQL 8.0+ 默认值为 90%）。
+
+InnoDB 会根据当前的脏页比例（假设为 M），算出一个范围在 0 到 100 之间的数字，计算这个数字的伪代码类似这样：
