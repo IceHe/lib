@@ -6,9 +6,13 @@
 
 > 好记性不如烂博客
 
-<!-- > Later equals never. -->
+<!--
 
-<!-- > —— LeBlanc's Law -->
+> Later equals never.
+>
+> —— LeBlanc's Law
+
+-->
 
 -   Here: [https://icehe.life](https://icehe.life)
 -   Whoami: [IceHe's bio](/life/bio.md)
@@ -22,9 +26,13 @@
 > 短期太急躁，總想走捷徑快速見效；
 > 長期沒耐心，小覷長期堅持的成長。
 
-<!-- > 紙上得來終覺淺，絕知此事要躬行。 -->
+<!--
 
-<!-- > —— 陆游《冬夜读书示子聿》 -->
+> 紙上得來終覺淺，絕知此事要躬行。
+>
+> —— 陆游《冬夜读书示子聿》
+
+-->
 
 Coding
 
@@ -51,12 +59,6 @@ Coding
 
 -->
 
-JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
-
--   [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
--   [Part III. Execution Engine](/book/understand-jvm-p3.md) - _todo_
--   Part IV. Compile and Code Optimize
-
 Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-applications-toc.md)
 
 -   [Part I. Foundations of Data Systems](/book/designing-data-intensive-applications-p1.md)
@@ -69,6 +71,12 @@ Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-app
     -   9\. **Consistency** and **Consensus**
 -   [Part III. Derived Data](/book/designing-data-intensive-applications-p3.md)
     -   10\. **Batch** Processing / 11\. **Stream** Processing / …
+
+JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
+
+-   [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
+-   [Part III. Execution Engine](/book/understand-jvm-p3.md) - _todo_
+-   Part IV. Compile and Code Optimize
 
 Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-architecture-toc.md)
 
@@ -84,7 +92,6 @@ xUnit Test Patterns: Refactoring Test Code - [douban.com](https://book.douban.co
 
 Others
 
-- JZ Offer: [TOC](/book/jz-offer-toc.md) / [P1](/book/jz-offer-p1.md) / TBC
 - [Life Is Tough, But Wireshark Makes It Easy](/book/wireshark-makes-life-easy.md)
 - [Java Concurrency in Practice](/book/java-concurrency-in-practice.md)
 - [Linux Kernel Development](/book/linux-kernel-development.md)
@@ -94,8 +101,8 @@ Others
 ### Snippet
 
 > 巨大的建築，總是由一木一石疊起來的，我們何妨做做這一木一石呢？我時常做些零碎事，就是為此。
-
-<!-- > —— 鲁迅《致赖少麟》 -->
+>
+> —— 鲁迅《致赖少麟》
 
 Terminology
 
@@ -195,7 +202,6 @@ Others
     -   a sequence of characters that specifies a search pattern
 -   [Kotlin + Spring Boot](/snip/tmp/kotlin-spring-boot.md) (doing)
 -   _[ID Generator](/snip/tmp/id-generator.md)_
--   _[CentOS 6](/snip/tmp/centos6.md)_
 -   _[Memcached](/snip/tmp/memcached.md)_
 -   _[Work Flow](/snip/tmp/work-flow.md)_
 -   _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
@@ -616,9 +622,13 @@ Living
 <!-- > -->
 <!-- > —— 电影《流浪地球》导演郭帆 -->
 
-<!-- > Get busy living or get busy dying. -->
-<!-- > -->
-<!-- > —— The Shawshank Redemption -->
+<!--
+
+> Get busy living or get busy dying.
+>
+> —— The Shawshank Redemption
+
+-->
 
 [Bio](/life/bio.md): **Backend** Experience & Education
 
@@ -655,8 +665,6 @@ Timeline
 
 > 愚蠢，懒惰，贫穷，没有梦想。越活越畏畏缩缩，生怕别人发现自己尚未泯灭的野心，还有无能。
 
-<!-- [GitHub DMCA](/path/to/github-dmca.md): Alert myself! -->
-
 ### Practice
 
 > 博弈论：理性就是对你的各种东西设定一个优先级，并且能够贯彻执行这个优先级。
@@ -682,8 +690,8 @@ Timeline
 ### Read
 
 > 写一部小说就像在黑夜里开车，你只能看到车灯照亮的部分，但是你却可以走完整个旅程。
-
-<!-- > —— E.L. Doctorow -->
+>
+> —— E.L. Doctorow
 
 好文共赏
 
@@ -736,8 +744,13 @@ Timeline
 
 > To be a better me.
 
-<!-- > -->
-<!-- > —— Better Man - _Robbie Williams song_ -->
+<!--
+
+> To be a better man.
+>
+> —— Better Man - _Robbie Williams song_
+
+-->
 
 -   **Jan Fan**:
     Pythonist / Tencent / Applied Mathematics PhD @ Sweden
