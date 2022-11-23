@@ -1484,3 +1484,111 @@ redo log 一般设置多大？
 例如，现在用几个 TB 的磁盘，可以直接将 redo log 设置为 4 个文件、每个文件 1GB。
 
 # 16. order by 如何工作？
+
+## 全字段排序
+
+```sql
+CREATE TABLE `t` (
+    `id` int(11) NOT NULL,
+    `city` varchar(16) NOT NULL,
+    `name` varchar(16) NOT NULL,
+    `age` int(11) NOT NULL,
+    `addr` varchar(128) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `city` (`city`)
+) ENGINE=InnoDB;
+```
+
+```sql
+select city,name,age from t where city='杭州' order by name limit 1000;
+```
+
+![explain-order-by-example-1](_image/explain-order-by-example-1.webp)
+
+explain SQL 语句的结果中，
+Extra 这个字段中的 “**Using filesort**” 表示的就是需要排序，
+MySQL 会 **给每个线程分配一块内存用于排序，称为 sort_buffer**（在 server 层。）。
+
+例如，“全字段排序”执行流程如下：
+
+1.  初始化 sort_buffer，确定放入 name、city、age 这三个字段；
+2.  从索引 city 找到第一个满足 city='杭州’条件的主键 id；
+3.  到主键 id 索引取出整行，
+    **取 name、city、age 三个字段的值，存入 sort_buffer 中；**
+4.  从索引 city 取下一个记录的主键 id；
+5.  重复步骤 3、4 直到 city 的值不满足查询条件为止；
+6.  **对 sort_buffer 中的数据按照字段 name 做快速排序；**
+7.  按照排序结果取前 1000 行返回给客户端。
+
+![full-field-sorting](_image/full-field-sorting.webp)
+
+sort_buffer_size 是 MySQL 为排序开辟的内存（sort_buffer）的大小。
+
+如果要排序的数据量小于 sort_buffer_size，排序就在内存中完成（内排序）。
+但如果排序数据量太大，内存放不下，则不得不利用磁盘临时文件辅助排序（外排序）。
+
+如何确定一个排序语句是否使用了临时文件？
+详情 [见原文](https://time.geekbang.org/column/article/73479)
+
+## rowid 排序
+
+如果单行数据太长，全字段排序的效率下降。
+
+**rowid 排序只将主键 id 和需要排序的字段放到 sort_buffer。**
+
+![row-id-sorting](_image/row-id-sorting.webp)
+
+1.  初始化 sort_buffer，确定放入两个字段，即 name 和 id；
+2.  从索引 city 找到第一个满足 city='杭州’条件的主键 id；
+3.  **到主键 id 索引取出整行，取 name、id 这两个字段，存入 sort_buffer 中；**
+4.  从索引 city 取下一个记录的主键 id；
+5.  重复步骤 3、4 直到不满足 city='杭州’条件为止；
+6.  对 sort_buffer 中的数据按照字段 name 进行排序；
+7.  遍历排序结果，取前 1000 行，**并按照 id 的值回到原表中取出 city、name 和 age 三个字段返回给客户端。**
+
+## 全字段排序 vs rowid 排序
+
+**如果内存够，就要多利用内存，尽量减少磁盘访问。**
+
+如果 MySQL 实在是担心排序内存太小，会影响排序效率，才会采用 rowid 排序算法，
+这样排序过程中一次可以排序更多行，但是需要再回到原表去取数据。
+
+如果 MySQL 认为内存足够大，会优先选择全字段排序，把需要的字段都放到 sort_buffer 中，
+这样排序后就会直接从内存里面返回查询结果了，不用再回到原表去取数据。
+
+## 利用索引 order by
+
+接上文的例子，如果有 city 和 name 的联合索引，就可以不用 sort_buffer 来排序了。
+
+```sql
+alter table t add index city_user(city, name);
+```
+
+![composite-index-for-order-by](_image/composite-index-for-order-by.webp)
+
+即，**有覆盖所需字段的索引，其中字段的顺序也跟 order by 语句一致，**就不需要临时表和排序了。
+
+![use-composite-index-to-order-by](_image/use-composite-index-to-order-by.webp)
+
+这时查看对应的 explain 语句结果，
+Extra 字段中没有 Using filesort 了，可以确定 MySQL 执行语句时不需要排序了。
+
+![explain-order-by-using-composite-index](_image/explain-order-by-using-composite-index.webp)
+
+---
+
+还可以利用 **覆盖索引** 进一步优化：
+如果覆盖索引包含 select 需要的所有字段，甚至不需要回表（查询主键索引获取所需字段）。
+
+接上文例子
+
+```sql
+alter table t add index city_user_age(city, name, age);
+```
+
+![use-covering-index-to-order-by](_image/use-covering-index-to-order-by.webp)
+
+这时查看对应的 explain 语句结果，
+Extra 字段里面多了“Using index”，表示的就是使用了覆盖索引。
+
+# 17. 如何正确地显示随机消息？
