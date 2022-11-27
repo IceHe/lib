@@ -1805,4 +1805,50 @@ tmp_table_size 这个配置限制了内存临时表的大小，默认值是 16M�
 磁盘临时表使用的引擎默认是 InnoDB，是由参数 internal_tmp_disk_storage_engine 控制的。
 icehe：现在可能是参数 default_tmp_storage_engine（未验证 2022-11-25）。
 
+当使用磁盘临时表的时候，对应的就是一个没有显式索引的 InnoDB 表的排序过程。
+
+---
+
+复现 MySQL 使用磁盘临时表的过程，详见 [原文](https://time.geekbang.org/column/article/73795)
+
+简单来说，方法包括：
+
+-   把临时表的大小调小：
+    例如 tmp_table_size → 1024
+-   把 sort_buffer 的大小调小：
+    例如 sort_buffer_size → 32768
+-   把 sort_buffer 允许的每行数据最大长度调小：
+    例如 max_length_for_sort_data → 16
+
+```sql
+/* 执行语句 */
+select word from words order by rand() limit 3;
+/* 查看执行后的 OPTIMIZER_TRACE 输出 */
+select * from `information_schema`.`OPTIMIZER_TRACE`\G
+```
+
+![optimizer-trace-sort-with-disk-tmp-table](_image/optimizer-trace-sort-with-disk-tmp-table.webp)
+
+发现 number_of_tmp_files 为 0，即 SQL 没有使用临时文件；
+因为 MySQL 5.6 后引入了 **有限队列排序算法**（即堆排序）。
+可以精确地得到前三个值，不需要对其余的元素进行多余的排序操作。
+
+OPTIMIZER_TRACE 结果中，filesort_priority_queue_optimization 这个部分的 chosen=true，就表示使用了优先队列排序算法，这个过程不需要临时文件。
+
+---
+
+如果这时执行的语句是：
+
+```sql
+select city,name,age from t where city='杭州' order by name limit 1000  ;
+```
+
+则不会使用优先队列排序算法，因为此时堆要维持 1000 行数据，所需的内存大于 sort_buffer_size，所以改用归并排序算法（需要临时文件）。
+
+---
+
+_关于如何正确地选取随机几个表中的行，就不展开了，详见原文。_
+
+# 18. 相同的逻辑，不同的 SQL 写法，性能可能差距巨大
+
 TODO
