@@ -774,6 +774,10 @@ insert into T values
 
 ![innodb-btree-records-example.png](_image/innodb-btree-records-example.png)
 
+```sql
+select * from T where k between 3 and 5
+```
+
 现在，我们一起来看看这条 SQL 查询语句的执行流程：
 
 - 1\. 在 k 索引树上找到 k=3 的记录，取得 ID = 300；
