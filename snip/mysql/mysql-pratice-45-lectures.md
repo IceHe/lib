@@ -1,8 +1,8 @@
 # MySQL 实战 45 讲
 
-References
+Reference
 
-- MySQL 实战 45 讲 - 极客时间：https://time.geekbang.org/column/article/68319
+- [MySQL 实战 45 讲 - 极客时间](https://time.geekbang.org/column/article/68319)
 
 # 01. 基础架构：SQL查询语句如何执行
 
@@ -1855,4 +1855,30 @@ _关于如何正确地选取随机几个表中的行，就不展开了，详见�
 
 # 18. 相同的逻辑，不同的 SQL 写法，性能可能差距巨大
 
-TODO
+## _IceHe Summary_
+
+key problem:
+
+-   对字段使用函数，会导致查询时无法利用索引（只能走全表扫描）。
+
+    非人为故意的情况：
+
+    -   查询字段的隐式类型转换
+
+        数字跟字符串做比较时，字符串会先转换为数字再比较，
+        例如 `… id = "123"` 或 `select "10" > 9;`（结果是 1）；
+        如果字符串无法转换为数字时，则转换为 0，
+        例如 `select 0 = "";` 的结果是 1。
+
+    -   表的字符集不同
+
+        在 utf8 字符集的值和 utf8mb4 字符集的值做比较的时候，
+        因为 utf8mb4 是 utf8 的超集，所以 utf8 的值会被转换为 utf8mb4 类型然后才比较。
+
+solution:
+
+-   查询时，不要对字段使用函数，而是对具体的值使用。
+
+other concepts:
+
+-   联表查询时的驱动表、被驱动表。
