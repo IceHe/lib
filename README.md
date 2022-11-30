@@ -123,17 +123,23 @@ Message Queue
 
 Storage
 
--   **LSM Tree**: [intro](/snip/lsm-tree/lsm-tree.md)
-    -   basic data structure of LevelDB & RocksDB
--   **Elasticsearch**: [usage](/snip/elasticsearch.md)
-    -   for search and analysis
--   **MySQL**: [lessons](/snip/mysql/mysql-pratice-45-lectures.md)
+-   **MySQL**: lessons
+    [p1](/snip/mysql/45-practice-lectures-p1.md.md) /
+    [p2](/snip/mysql/45-practice-lectures-p2.md.md) /
+    [p3](/snip/mysql/45-practice-lectures-p3.md.md)
     -   robust SQL database server
 -   **PostgreSQL**: [notes](/snip/postgresql/notes.md)
--   **Redis**: [basics](/snip/redis/basics.md) / [notes](/snip/redis/notes.md) / [key notes](/snip/redis/key-notes.md)
+-   **Elasticsearch**: [usage](/snip/elasticsearch.md)
+    -   for search and analysis
+-   **Redis**:
+    [basics](/snip/redis/basics.md) /
+    [notes](/snip/redis/notes.md) /
+    [key notes](/snip/redis/key-notes.md)
     -   in-memory data structure store as a database, cache and message broker
         <!-- basics: http://redis.io -->
         <!-- usage: https://redis.io/commands -->
+-   **LSM Tree**: [intro](/snip/lsm-tree/lsm-tree.md)
+    -   basic data structure of LevelDB & RocksDB
 -   [Cache Patterns](/snip/cache-patterns.md)
     -   cache aside / read through / write through / write behind caching
 
