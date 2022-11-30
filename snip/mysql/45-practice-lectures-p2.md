@@ -4,9 +4,7 @@ Lesson 9~16
 
 ---
 
-Reference
-
-- [MySQL 实战 45 讲 - 极客时间](https://time.geekbang.org/column/article/68319)
+Reference: [MySQL 实战 45 讲 - 极客时间](https://time.geekbang.org/column/article/68319)
 
 # 09. 普通索引 vs 唯一索引
 

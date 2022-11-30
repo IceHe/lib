@@ -1,12 +1,10 @@
-# MySQL 实战 45 讲 - Part 2
+# MySQL 实战 45 讲 - Part 3
 
 Lesson 17~?
 
 ---
 
-Reference
-
-- [MySQL 实战 45 讲 - 极客时间](https://time.geekbang.org/column/article/68319)
+Reference: [MySQL 实战 45 讲 - 极客时间](https://time.geekbang.org/column/article/68319)
 
 # 17. 在 MySQL 执行随机排序的查询会发生什么？
 
@@ -206,32 +204,68 @@ select city,name,age from t where city='杭州' order by name limit 1000  ;
 
 _关于如何正确地选取随机几个表中的行，就不展开了，详见原文。_
 
-# 18. 相同的逻辑，不同的 SQL 写法，性能可能差距巨大
+# 18. 尽量对具体的值而非字段使用函数
 
-## _IceHe Summary_
+详见 [原文](https://time.geekbang.org/column/article/74059)
 
-key problem:
+Problem：**对字段使用函数，会导致查询时无法利用索引**（只能走全表扫描）。
 
--   对字段使用函数，会导致查询时无法利用索引（只能走全表扫描）。
+Solution：**查询时，不要对字段使用函数，而是对具体的值使用。**
 
-    非人为故意的情况：
+```sql
+-- e.g. 查询 logs 表自 2016 年创建以来每年 7 月份的日志数量
 
-    -   查询字段的隐式类型转换
+-- before：对字段使用函数
+select count(*) from log where month(updated)=7;
+-- after：避免对字段使用函数
+select count(*) from log where
+    (updated >= '2016-7-1' and updated<'2016-8-1') or
+    (updated >= '2017-7-1' and updated<'2017-8-1') or
+    (updated >= '2018-7-1' and updated<'2018-8-1');
+```
 
-        数字跟字符串做比较时，字符串会先转换为数字再比较，
-        例如 `… id = "123"` 或 `select "10" > 9;`（结果是 1）；
-        如果字符串无法转换为数字时，则转换为 0，
-        例如 `select 0 = "";` 的结果是 1。
+## 隐式使用函数
 
-    -   表的字符集不同
+-   查询字段的隐式类型转换
 
-        在 utf8 字符集的值和 utf8mb4 字符集的值做比较的时候，
-        因为 utf8mb4 是 utf8 的超集，所以 utf8 的值会被转换为 utf8mb4 类型然后才比较。
+    数字跟字符串做比较时，字符串会先转换为数字再比较。
+    _例如 `… id = "123"` 或 `select "10" > 9;`（结果为 1）。_
 
-solution:
+    如果字符串无法转换为数字时，则转换为 0。
+    _例如 `select 0 = "";` 的结果是 1。_
 
--   查询时，不要对字段使用函数，而是对具体的值使用。
+    ```sql
+    -- e.g. 根据 id 查询 log 表的某条数据，
+    -- log 表的 id 是 varchar(32) 类型的。
 
-other concepts:
+    -- before：
+    select * from log where id=123456;
+    -- same as
+    select * from log where CAST(id as signed int)=123456;
 
--   联表查询时的驱动表、被驱动表。
+    -- after：避免对字段的隐式类型转换（隐式地使用了函数）
+    select * from log where id="123456";
+    ```
+
+-   表的字符集不同
+
+    在 utf8 字符集的值和 utf8mb4 字符集的值做比较的时候，
+    因为 utf8mb4 是 utf8 的超集，
+    所以 utf8 的值会被转换为 utf8mb4 类型然后才比较。
+
+    ```sql
+    -- e.g. 根据 trade_log id 查询对应 trade_detail。
+    -- trade_log charset=utf8bm4
+    -- trade_detail charset=utf8
+    select d.* from tradelog l, trade_detail d
+    where d.tradeid=l.tradeid and l.id=2;
+    -- same as
+    select d.* from tradelog l, trade_detail d
+    where CONVERT(d.tradeid USING utf8mb4)=l.tradeid and l.id=2;
+    -- 连接过程中要求在被驱动表的索引字段上使用函数，
+    -- 导致需要全表扫描 trade_detail。
+    ```
+
+    此联表查询时，tradelog 是 _驱动表_ ，trade_detai 是 _被驱动表_ 。
+
+# 19. TODO

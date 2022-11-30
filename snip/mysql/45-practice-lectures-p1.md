@@ -4,9 +4,7 @@ Lesson 1~8
 
 ---
 
-Reference
-
-- [MySQL 实战 45 讲 - 极客时间](https://time.geekbang.org/column/article/68319)
+Reference: [MySQL 实战 45 讲 - 极客时间](https://time.geekbang.org/column/article/68319)
 
 # 01. 基础架构：SQL查询语句如何执行
 
