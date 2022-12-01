@@ -206,7 +206,7 @@ _关于如何正确地选取随机几个表中的行，就不展开了，详见�
 
 # 18. 尽量对具体的值而非字段使用函数
 
-详见 [原文](https://time.geekbang.org/column/article/74059)
+详见 [原文](https://time.geekbang.org/column/article/74059)。
 
 Problem：**对字段使用函数，会导致查询时无法利用索引**（只能走全表扫描）。
 
@@ -268,4 +268,182 @@ select count(*) from log where
 
     此联表查询时，tradelog 是 _驱动表_ ，trade_detai 是 _被驱动表_ 。
 
-# 19. TODO
+# 19. SQL 执行慢的原因
+
+详见 [原文](https://time.geekbang.org/column/article/74687)。
+
+Problem: SQL 执行慢。
+
+现象及其可能的原因：
+
+1.  查询长时间不返回
+
+    -   等 MDL 锁（表锁）
+    -   等 flush：_例如全库备份_
+    -   等行锁
+
+2.  查询慢
+
+    例如，在 RR 隔离界别下，一个长事务要读某行数据，
+    但是在长事务执行期间、读该行数据前，它被频繁修改，产生了很多它相关的 undo log；
+    这时需要根据该行的当前值以及 undo log 倒推出长事务开始时它的值，所以花费的时间会比较长。
+
+下文为复现与解决过程。
+
+## 等 MDL 锁
+
+```sql
+select * from t where id=1;
+```
+
+一个简单的查询语句慢，一般是因为表被锁住，
+这时应该查看语句处于什么状态，以确认根本原因：
+
+```sql
+show processlist;
+```
+
+![waiting-for-table-mdl](_image/waiting-for-table-mdl.webp)
+
+Waiting for table metadata lock 表示有一个线程正在请求或者持有表 t 的 MDL 写锁。
+
+复现现象：MDL 写锁如何阻塞后续查询
+
+```sql
+-- Time 1 Session A
+lock tables t write;
+
+-- Time 2 Session B
+select * from t where id = 1;
+-- It will be blocked by session A.
+
+-- Time 3 Session A
+unlock tables;
+
+-- Time 4 Session B
+-- Previous blocked query will finish.
+```
+
+解决方法：
+
+1.  确定哪个线程持有 MDL 写锁
+
+    通过查询 `sys.schema_table_lock_waits` 这张表，就可以直接找出造成阻塞的 process id。
+
+    ```bash
+    mysql> select * from sys.schema_table_lock_waits \G
+    *************************** 1. row ***************************
+                object_schema: test
+                    object_name: t
+            waiting_thread_id: 97
+                    waiting_pid: 55
+                waiting_account: root@localhost
+            waiting_lock_type: SHARED_READ
+        waiting_lock_duration: TRANSACTION
+                waiting_query: /* ApplicationName=DataGrip 20 ... / select * from t where id = 1
+            waiting_query_secs: 247
+    waiting_query_rows_affected: 0
+    waiting_query_rows_examined: 0
+            blocking_thread_id: 90
+                    blocking_pid: 48
+                blocking_account: root@localhost
+            blocking_lock_type: SHARED_NO_READ_WRITE
+        blocking_lock_duration: TRANSACTION
+        sql_kill_blocking_query: KILL QUERY 48
+    sql_kill_blocking_connection: KILL 48
+    1 row in set (0.00 sec)
+    ```
+
+    确定 blocking_pid 为 48。
+
+    _注意：需要 MySQL 启动时设置 `performance_schema=on`，相比于设置为 off 会有 10% 左右的性能损失。_
+
+2.  [kill](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 掉该线程
+
+    ```sql
+    -- KILL [CONNECTION | QUERY] processlist_id
+    kill 48;
+    ```
+
+## 等 flush
+
+查看 show processlist 执行结果中的 STATE 值，
+其中值为 Waiting for table flush 表示等待 MySQL 对该表完成 flush 操作。
+
+可能的原因例如：不支持事务的存储引擎进行数据库备份时，锁住整个数据库。
+
+复现现象：flush 如何阻塞后续查询
+
+```sql
+-- Time 1 Session A
+select sleep(30) from t;
+-- It will selep for 30 seconds.
+
+-- Time 2 Session B
+flush tables t;
+-- It will be blocked by session A.
+
+-- Time 3 Session C
+select * from t where id = 1;
+-- It will be blocked by session B.
+```
+
+解决方法：类同上一小节，此处略。
+
+## 等行锁
+
+复现现象：行锁如何阻塞后续写操作
+
+```sql
+-- Time 1 Session A
+begin; -- It starts a transction.
+update t set c=c+1 where id=1;
+-- The transaction has not been committed.
+
+-- Time 2 Session B
+select * from t where id=1 lock in share mode;
+-- It will be blocked by session A.
+```
+
+解决方法：类同上一小节，此处略。
+
+通过 `sys.innodb_lock_waits` 表查到 blocking_pid 为 4：
+
+```bash
+mysql> select * from sys.innodb_lock_waits
+       where locked_table = '`test`.`t`' \G
+*************************** 1. row ***************************
+                wait_started: 2022-12-01 16:48:27
+                    wait_age: 00:00:39
+               wait_age_secs: 39
+                locked_table: `test`.`t`
+         locked_table_schema: test
+           locked_table_name: t
+      locked_table_partition: NULL
+   locked_table_subpartition: NULL
+                locked_index: PRIMARY
+                 locked_type: RECORD
+              waiting_trx_id: 281480366626248
+         waiting_trx_started: 2022-12-01 16:48:27
+             waiting_trx_age: 00:00:39
+     waiting_trx_rows_locked: 1
+   waiting_trx_rows_modified: 0
+                 waiting_pid: 56
+               waiting_query: /* ApplicationName=DataGrip 20 ... here id = 1 lock in share mode
+             waiting_lock_id: 5389915592:46:5:2:4420887064
+           waiting_lock_mode: S,REC_NOT_GAP
+             blocking_trx_id: 118121
+                blocking_pid: 61
+              blocking_query: NULL
+            blocking_lock_id: 5389913216:46:5:2:4420873240
+          blocking_lock_mode: X,REC_NOT_GAP
+        blocking_trx_started: 2022-12-01 16:46:16
+            blocking_trx_age: 00:02:50
+    blocking_trx_rows_locked: 1
+  blocking_trx_rows_modified: 1
+     sql_kill_blocking_query: KILL QUERY 61
+sql_kill_blocking_connection: KILL 61
+1 row in set (0.00 sec)
+```
+
+kill 掉该线程后，其中的事务会被回滚，该行的写锁就会被释放。
