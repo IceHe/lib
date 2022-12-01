@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>IceHe's Life</title>
+  <title>IceHe.Life</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="IceHe's Life">
@@ -41,9 +41,12 @@
             ].join('<br/>');
             return `${editedAt}\n${content}\n\n----\n\n${footer}`;
           });
+          hook.doneEach(function () {
+            document.title = `${document.querySelector("#main h1").innerText} | IceHe.Life`;
+          });
         },
-      ]
-    }
+      ],
+    };
   </script>
   <script src="docsify/resource/__unpkg.com_docsify@4"></script>
   <script src="docsify/resource/__unpkg.com_docsify-copy-code"></script>
