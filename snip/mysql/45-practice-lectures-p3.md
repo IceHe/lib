@@ -513,4 +513,273 @@ kill 掉该线程后，其中的事务会被回滚，该行的写锁就会被释
     备份的数据版本跟在开始备份的那一刻是一样的，
     （即使过程中产生了一些新数据或者其中一些数据产生了新的版本）。
 
-# 21. TODO
+# 21. 加锁规则
+
+详见 [原文](https://time.geekbang.org/column/article/75659)。
+
+前提：
+
+-   隔离级别：可重复读
+-   MySQL 版本：8.0.31
+
+加锁规则：
+
+1.  **原则 1：加锁的基本单位是 next-key lock。**
+
+    _next-key lock 是前开后闭区间。_
+
+2.  **原则 2：查找过程中访问到的对象才会加锁。**
+
+    _例如：_
+
+    -   _查询条件涉及的字段只是普通索引（非唯一索引），不是主键索引（唯一索引）；_
+        _而且查询的字段能够被覆盖索引覆盖，就不用回表访问主键索引。_
+    -   _语句中有 limit 2 只查询两个对象。_
+    -   _……_
+
+3.  **优化 1：索引上的等值查询，给唯一索引加锁时，**
+    **next-key lock 退化为行锁。**
+
+4.  **优化 2：索引上的等值查询，向右遍历到第一个不满足条件的行时，**
+    **next-key lock 退化为间隙锁。**
+
+_icehe：原文还有第 5 条规则，该规则在 MySQL 的新版本下已失效，无需考虑。_
+
+---
+
+实验准备
+
+```sql
+CREATE TABLE `t2`
+(
+    `id` int(11) NOT NULL,
+    `c`  int(11) DEFAULT NULL,
+    `d`  int(11) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `c` (`c`)
+) ENGINE = InnoDB;
+
+insert into t values
+(0,0,0),(5,5,5),(10,10,10),
+(15,15,15),(20,20,20),(25,25,25);
+
+-- 查询隔离级别
+show variables like 'transaction_isolation';
+-- 查询 MySQL 的版本
+show variables like 'version';
+```
+
+## 实验 1：唯一索引的等值查询
+
+```sql
+-- session A
+-- time 1
+begin;
+update t set d=d+1 where id=7;
+-- id 为主键索引（唯一索引），根据规则 3，
+-- 等值查询时 next-key lock 应该退化为行锁；
+-- 但是并不存在 id=7 的行，又根据规则 4，
+-- 等值查询时，向右遍历到第一个不满足条件的行时
+-- （即遍历到 (10,10,10) 行时），
+-- next-key lock 应退化为间隙锁，
+-- 所以加锁范围为 id 主键索引的 (5, 10) 。
+
+-- session B
+-- time 2
+insert into t values (8,8,8);
+-- blocked
+
+-- session C
+-- time 3
+update t set d=d+1 where id=10;
+-- succeeded
+```
+
+## 实验 2：非唯一索引的等值查询
+
+```sql
+-- session A
+-- time 1
+begin;
+select id from t where c=5 lock in share mode;
+-- c 为非唯一索引，根据规则 1 和 3，
+-- 左侧的区间应加 next-key lock；
+-- 然后右侧区间，根据规则 4，
+-- 等值查询时，向右遍历到第一个不满足条件的行时
+-- （即遍历到 (10,10,10) 行时），
+-- next-key lock 退化为间隙锁，
+-- 所以完整加锁范围为 c 普通索引的 (0, 5], (5, 10) 。
+
+-- session B
+-- time 2
+update t set d=d+1 where id=5;
+-- succeeded
+-- 因为 session A 的语句只 select id 并条件查询 c 字段，
+-- c 普通索引就能够覆盖这些字段，
+-- 所以不用需要回表，即不需要访问 id 主键索引。
+-- 然后根据规则 2，没有访问到对象不会被加锁，
+-- 所以 id 主键索引在 session A 事务执行时没被加锁。
+-- 因此该语句不会被阻塞，能够正常执行。
+
+-- session C
+-- time 3
+insert into t values (7,7,7);
+-- blocked
+```
+
+## 实验 3：主键索引的范围查询
+
+```sql
+-- session A
+-- time 1
+begin;
+select * from t where id>=10 and id<11 for update;
+-- id 为主键索引，根据规则 3，
+-- 等值查询时，next-key lock 退化为行锁，
+-- 所以左侧的加锁范围为 id 索引上的 10 这一行；
+-- 然后右侧的范围不涉及等值查询，
+-- 所以不适用规则 4，不过仍适用规则 1。
+-- 因此完整加锁范围为 id 主键索引的 [10], (10, 15] 。
+
+-- session B
+-- time 2
+insert into t values (8,8,8);
+-- succeeded
+-- time 3
+insert into t values (13,13,13);
+-- blocked
+
+-- session C
+-- time 4
+update t set d=d+1 where id=15;
+-- blocked
+```
+
+## 实验 4：非唯一索引的范围查询
+
+```sql
+-- session A
+-- time 1
+begin;
+select * from t where c>=10 and c<11 for update;
+-- 即使左侧的范围涉及等值查询，但是 c 为非唯一索引，
+-- 所以不适用规则 3，不过仍适用规则 1；
+-- 然后由于右侧的范围不涉及等值查询，所以不适用规则 4。
+-- 因此完整的加锁范围为 c 普通索引的 (5, 10], (10, 15]
+-- （应该还有 id 主键索引的 id=10 这一行）。
+
+-- session B
+-- time 2
+insert into t values (8,8,8);
+-- blocked
+
+-- session C
+-- time 3
+update t set d=d+1 where c=15;
+-- blocked
+```
+
+## 实验 5：唯一索引的范围查询 2
+
+```sql
+-- session A
+-- time 1
+begin;
+select * from t where id>10 and id<=15 for update;
+-- 根据规则 1，左侧的加锁范围应为 (10, 15]；
+-- id 为主键索引，根据规则 4，
+-- 等值查询时，向右遍历到第一个不满足条件的行时
+-- （即遍历到 (20,20,20) 行时），
+-- next-key lock 应退化为间隙锁，
+-- 所以完整的加锁范围为 id 主键索引的 (10, 15], (15, 20) 。
+
+-- session B
+-- time 2
+update t set d=d+1 where id=10;
+-- succeeded
+-- time 3
+update t set d=d+1 where id=20;
+-- succeeded
+
+-- session C
+-- time 4
+insert into t values (11,11,11);
+-- blocked
+-- time 5
+insert into t values (16,16,16);
+-- blocked
+```
+
+## 实验 6：非唯一索引的等值查询 2
+
+```sql
+-- session A
+-- time 1
+begin;
+delete from t where c=10;
+-- c 为非唯一索引，等值查询时，也不适用规则 3；
+-- 根据规则 4，next-key lock 应退化为间隙锁；
+-- 所以完整的加锁范围为 c 普通索引的 (5, 10], (10, 15)，
+
+-- session B
+-- time 2
+insert into t values (12,12,12);
+-- blocked
+
+-- session C
+-- time 3
+update t set d=d+1 where c=15;
+-- succeeded
+```
+
+## 实验 7：limit 语句加锁
+
+```sql
+-- 额外的数据准备工作
+insert into t values (30, 10, 30);
+
+-- session A
+-- time 1
+begin;
+delete from t where c=10 limit 2;
+-- 添不添加 limit 2 的删除效果都一样，但是加锁范围不一样！
+-- 向右遍历到 (10,10,10) 和 (30,10,30) 两行数据后，
+-- 满足条件的数据行数满足 limit 2 的条件了，循环就结束了；
+-- 根据规则 2，最后的加锁范围为 c 普通索引的 (5, 10] 。
+
+-- session B
+-- time 2
+insert into t values (12,12,12);
+-- succeeded
+```
+
+经验：**删除数据时，尽量加 limit！**
+
+1.  **删除数据条数受限，操作更安全。**
+2.  **缩小加锁的范围，降低锁冲突的可能性，提升 MySQL 性能。**
+
+## 实验 8：死锁
+
+```sql
+-- session A
+-- time 1
+begin;
+select id from t where c=10 lock in share mode;
+-- c 为非唯一索引，等值查询时，也不适用规则 3；
+-- 然后右侧区间，根据规则 4，
+-- 等值查询时，向右遍历到第一个不符合条件的行时
+-- （即遍历到 (10,10,10) 行时），
+-- next-key lock 应退化为间隙锁，
+-- 所以完整的加锁范围为 c 普通索引的 (5, 10], (10, 15) 。
+
+-- session B
+-- time 2
+update t set d=d+1 where c=10;
+-- blocked
+
+-- session A
+-- time 3
+insert into t values (8,8,8);
+-- error found:
+-- [40001][1213] Deadlock found when trying to get lock; try restarting transaction
+```
