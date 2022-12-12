@@ -5,8 +5,12 @@
 # IceHe<small>Life</small>
 
 ```
-<!-- 靡不有初 鲜克有终 -->
+<!-- Do things that matter. -->
 ```
+
+<!-- Keep walking. -->
+
+<!-- 靡不有初 鲜克有终 -->
 
 <!-- Better me -->
 
