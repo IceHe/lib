@@ -783,3 +783,39 @@ insert into t values (8,8,8);
 -- error found:
 -- [40001][1213] Deadlock found when trying to get lock; try restarting transaction
 ```
+
+## 实验9：order by 的加锁范围
+
+```sql
+-- session A
+-- time 1
+begin;
+select * from t where c>=15 and c<=20 order by c desc lock in share mode;
+-- c 为非唯一索引，等值查询时，根据规则 4，
+-- 向右遍历到第一个不满足条件的行时
+-- （即遍历到 (25,25,25) 行时），
+-- next-key lock 应退化为间隙锁，
+-- 所以右侧的加锁范围为 c 普通索引的 (15, 20], (20, 25) ；
+-- 在索引 c 向左遍历，要扫描到 c=10 时才停下来，
+-- 根据规则 1 和 2，要加 next-key lock，
+-- 查找过程中访问到的对象才会加锁，
+-- 所以左侧的加锁范围为 c 普通索引的 (5, 10], (10, 15] ；
+-- 因此完整的加锁范围为 c 普通索引的 (5, 10], (10, 15], (15, 20], (20, 25)
+-- （还有 id 主键索引上的 id=15,20 这两行，其中 id=10 行锁是被优化掉了）。
+
+-- session B
+-- time 2
+insert into t values (6,6,6);
+-- blocked
+-- time 3
+insert into t values (12,12,12);
+-- blocked
+-- time 4
+insert into t values (19,19,19);
+-- blocked
+-- time 5
+insert into t values (24,24,24);
+-- blocked
+```
+
+# 22. “饮鸩止渴”的性能提升方法
