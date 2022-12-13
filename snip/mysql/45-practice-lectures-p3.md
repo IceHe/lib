@@ -851,7 +851,7 @@ insert into t values (24,24,24);
     （哪怕被直接关闭的连接的事务能够被自动回滚）。
 
     **通过 `show processlist;` 列出当前连接，**
-    **然后可以通过 `select * from events_transactions_current;`**
+    **然后可以通过 `select * from information_schema.INNODB_TRX;`**
     **过滤掉正在处于事务中的连接，**
     **最后通过 `kill connection ID;` 直接断开连接**
     （还有 `kill query ID` 语句）。
