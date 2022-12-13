@@ -819,3 +819,108 @@ insert into t values (24,24,24);
 ```
 
 # 22. “饮鸩止渴”的性能提升方法
+
+详见 [原文](https://time.geekbang.org/column/article/75746)。
+
+## 短连接过多
+
+正常的短连接模式就是连接到数据库后，
+执行很少的 SQL 语句就断开，下次需要的时候再重连。
+
+如果使用的是短连接，在业务高峰期的时候，
+就可能出现连接数突然暴涨的情况。
+
+建立连接的成本比较高：
+除了正常的网络连接三次握手外，
+还需要做登陆权限判断，
+以及获得该连接的数据读写权限。
+
+---
+
+处理方法：
+
+-   将 max_connections 参数调大，
+    可能导致情况进一步恶化。
+
+    _MySQL 系统拒绝连接，会提示“Too many connections”。_
+
+-   **在 MySQL 主动关闭 sleep 状态的空闲连接**
+    （它们占着连接但是暂时不工作）。
+
+    **尽量避免关闭正在处于事务中的连接**
+    （哪怕被直接关闭的连接的事务能够被自动回滚）。
+
+    **通过 `show processlist;` 列出当前连接，**
+    **然后可以通过 `select * from events_transactions_current;`**
+    **过滤掉正在处于事务中的连接，**
+    **最后通过 `kill connection ID;` 直接断开连接**
+    （还有 `kill query ID` 语句）。
+
+    需要连接客户端可以自行重连，
+    要求客户端能正确处理 MySQL 主动断连的异常，
+    即“ERROR 2013 (HY000): Lost connection to MySQL server during query”。
+
+-   降低连接过程的消耗。
+
+    **关闭掉连接的权限验证。**
+
+    注意：在 MySQL 8.0 版本里，
+    如果启用 `-skip-grant-tables` 参数，
+    `--skip-networking` 参数也会被默认打开，
+    表示这时数据库只能被本地的客户端连接。
+
+## 慢查询性能问题
+
+慢查询可能的原因：
+
+1.  索引没设计好：
+
+    可以在备库添加所需索引，然后主备切换
+    （以下 DDL 方案比较粗暴，最好采用更稳健和现代的方案如 gh-ost）：
+
+    1.  备库上停写 binlog `set sql_log_bin=off`
+    2.  备库上添加索引 `alter table add index …`
+    3.  主碑切换
+    4.  在原主库（现备库）上停写 binlog `set sql_log_bin=off`
+    5.  在原主库（现备库）添加索引 `alter table add index …`
+
+2.  SQL 语句没写好：
+
+    在 MySQL 添加语句改写规则，即 **query_rewrite** 功能，改写查询语句。
+
+    _例如将 where id + 1 = 100 改写为 where id = 100 - 1。_
+
+3.  MySQL 选错了索引:
+
+    在 MySQL 添加语句改写规则，改写查询语句。
+
+    _例如添加 **force index** 到语句上。_
+
+最好提前预防，在测试库上模拟查询：
+
+1.  打开慢查询日志：
+
+    将 long_query_time 参数设置成 0，确保每个语句都会被记录入慢查询日志。
+
+2.  插入模拟线上的数据，做回归测试：执行语句，查看执行效果。
+
+    例如查看 row_examined 扫描的行数是否与预期一致，
+    有没使用到设计好的索引。
+
+    SQL 语句的回归测试，可以考虑开源工具
+    [pt-query-digest](https://docs.percona.com/percona-toolkit/pt-query-digest.html)。
+
+## QPS 突增
+
+可能由于业务高峰或者程序 bug，
+可以下线掉对应业务（可能是新功能）的流量。
+
+1.  例如从白名单下掉对应业务的服务器 IP。
+
+2.  如果新业务使用独立的 MySQL 用户访问，
+    可以禁用相关用户，并关闭掉相关用户的连接。
+
+3.  通过查询重写功能，
+    将相关语句直接重写为 `select 1;`。
+
+以上操作可能比较粗暴，小心操作，应仅供业务止血之用。
