@@ -9,6 +9,7 @@ References
 
 - [JetBrains](https://www.jetbrains.com)
     - [IntelliJ IDEA](https://www.jetbrains.com/idea)
+    - [WebStorm](https://www.jetbrains.com/webstorm)
     - [PhpStorm](https://www.jetbrains.com/phpstorm)
     - …
 
@@ -38,6 +39,7 @@ References
 
 <!-- - _`^ 凵` Auto Complete_ -->
 
+- `⌘ j` **Insert Live Template**
 - **`⌘ /` Line Comment**
 - _`⌥ ⌘ /` Block Comment_
 - _`⌥ ↑` Extend Selection_
@@ -94,8 +96,8 @@ References
 - `F2` Next Highlighted Error
 - `⇧ F2` Prev Highlighted Error
 - `⌥ F1` Select current file or symbol in any view
-- `⌘ j` Next Method
-- `⌘ k` Prev Method
+- `^ ⇧ j` Next Method
+- `^ ⇧ k` Prev Method
 - `⌘ e` Recent Files
 - `⇧ ⌘ E` Recently Edited Files
 - `⇧ ⌘ T` Test Subject: Jump to Test for current file | Create Test for it
