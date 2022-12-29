@@ -288,6 +288,7 @@ Reference : https://www.computerhope.com/keys.htm
 -   CSRF : [Cross Site Request Forgery](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
 -   CSV : [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
 -   CTR : [Click Through Rate](https://en.wikipedia.org/wiki/Click-through_rate) 点进率
+-   ctr : center / centre
 -   ctl : control? / control tool?
 -   ctrl : control
 -   ctx : context
