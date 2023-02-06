@@ -46,16 +46,16 @@ Coding
     -   Back to Basics
 -   [The Zen of Python](https://www.python.org/dev/peps/pep-0020)
     -   PEP 20
+
+<!-- todo some day
+
+-   [Peopleware](/book/peopleware.md)
+    -   Productive Projects and Teams
+-   [The Manager's Path](/book/the-manager-s-path.md)
+    -   A Guide for Tech Leaders Navigating Growth and Change
 -   [Google Engineering Practices](/snip/tmp/google-eng-practices.md) (notes)
     -   How to do code review
     -   How to get through a code review
-
-<!-- todo oneday
-
--   [Peopleware](/book/peopleware.md)
-    - Productive Projects and Teams
--   [The Manager's Path](/book/the-manager-s-path.md)
-    - A Guide for Tech Leaders Navigating Growth and Change
 
 -->
 
@@ -75,14 +75,14 @@ Designing Data Intensive Applications - [TOC](/book/designing-data-intensive-app
 JVM - Java Virtual Machine - [TOC](/book/understand-jvm-toc.md)
 
 -   [Part I & Part II. Automatic Memory Management](/book/understand-jvm-p1-n-p2.md)
--   [Part III. Execution Engine](/book/understand-jvm-p3.md) - _todo_
+-   [Part III. Execution Engine](/book/understand-jvm-p3.md) - _todo some day_
 -   Part IV. Compile and Code Optimize
 
-Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-architecture-toc.md)
+_Fundamentals of Software Architecture - [TOC](/book/fundamentals-of-software-architecture-toc.md)_
 
--   [reading notes](/book/fundamentals-of-software-architecture.md)
+-   _[reading notes](/book/fundamentals-of-software-architecture.md)_ <!-- 这本书感觉一般 -->
 
-<!-- todo oneday
+<!-- todo some day
 
 [TCP/IP Illustrated, Volume 1: The Protocols, 2nd Edition](/book/tcp-ip-illustrated-protocols-toc.md) - TOC
 
@@ -117,7 +117,7 @@ Message Queue
 -   [RabbitMQ](/snip/mq/rabbit-mq.md)
 -   [RocketMQ](/snip/mq/rocket-mq.md)
 -   [ActiveMQ](/snip/mq/active-mq.md)
-    <!-- -   [ZeroMQ](/snip/mq/zero-mq.md) - _todo oneday_ -->
+    <!-- -   [ZeroMQ](/snip/mq/zero-mq.md) - _todo some day_ -->
 -   _[MemcacheQ](/snip/mq/mcq.md)_
 -   _[Notes](/snip/mq/notes.md)_
 
@@ -173,11 +173,12 @@ Programming Languages - at a glance
     -   a scripting language that facilitates automated control over scriptable Mac applications
     -   [Control Evernote & macOS](/snip/lang/applescript/evernote-macos.md)
 -   [Learn X in Y minutes](https://learnxinyminutes.com)
+
+<!-- maybe some day
+
     -   _[Elixir](/snip/lang/elixir/elixir.md): a dynamic, functional language for building scalable and maintainable applications_
     -   _[Scala](/snip/lang/scala.md): combines object-oriented and functional programming in one concise, high-level language_
     -   _[Python](/snip/lang/python.md): a programming language that lets you work quickly and integrate systems more effectively_
-
-<!-- todo oneday
 
 -   [Kotlin](/snip/lang/kotlin/kotlin.md)
     -   a cross-platform, statically typed, general-purpose programming language with type inference
@@ -366,7 +367,7 @@ Manual
 -   _[yes](/cmd/y/yes.md): be repetitively affirmative_
 -   [zsh](/cmd/z/zsh.md): one of shells
 -   [Linux Abbreviations](/cmd/linux-abbrs.md)
--   _[CLI Notes](/cmd/notes.md) - todo oneday_
+-   _[CLI Notes](/cmd/notes.md) - todo some day_
 
 Scene
 
@@ -544,7 +545,7 @@ TypeScript
     -   [More on Functions](/js/typescript/handbook/more-on-functions.md)
     -   [Object Types](/js/typescript/handbook/type-objects.md)
     -   [Type Manipulation](/js/typescript/handbook/type-manipulation.md)
-    -   ……
+    -   …todo some day…
 
 Package
 
@@ -641,7 +642,7 @@ Living
 -   **Silverhand**: Founding Team - Node.js
 -   **YFD**: Zebra - Supply Chain - Java
 -   **Alibaba Local Life**: 蜂鸟跑腿前台 - Java
--   **Alibaba Local Life**: 众包物流运营&数据组后台 - Java
+-   **Alibaba Local Life**: 众包物流运营 & 数据组后台 - Java
 -   **Weibo**: Video Platform - Java
 -   **Weibo**: Mobile API - PHP
 -   **Huawei**: Telecom Software Customization - Java Intern.
@@ -731,10 +732,10 @@ Timeline
     -   **「不做事」一定是最节省时间、最高效的做事方式**，学会「做重要的事」才是掌控时间的终极法门。
     -   提高自控力的一个小窍门是尽量避免在无谓的小事情上做决定。
     -   何谓「真正的休息」呢？不少人习惯将阅读网站和新闻当作一种休息，事实上研究表明，
-        -   **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，
-        -   **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
+        **认知活动（阅读文字、视频等）加重了工作需求产生消极情绪**，另一项研究则表明，
+        **对于减少疲惫感，而且通过智能手机应用休息的效果差于与朋友或同事社交。**
 -   [The Tyranny of Merit](/book/the-tyranny-of-merit.md)
-    -   《 "绩点" 的暴政》
+    -   《“绩点”的暴政》
         成功者會認為他們的成功是靠自己的才能和努力，而與社會無關，既然成功是我自己的事，那失敗就是輸家自己的錯，這會製造出「才德的驕傲」（meritocratic hubris），對階梯下的人缺乏同理心，甚至不屑和輕蔑，因此更不會有對於共同體內同胞的相互責任。
 -   [How to Be an Imperfectionist](/book/how-to-be-an-imperfectionist.md)
     -   The New Way to Self-Acceptance, Fearless Living, and Freedom from Perfectionism
@@ -769,7 +770,7 @@ Timeline
 -   [Toxic Johann](https://github.com/toxic-johann):
     Frontend / 360 / UC / Tencent / Tubi @ Beijing
 -   [ME](/life/bio.md):
-    Backend / Weibo / Alibaba / YFD / Silverhand @ Beijing
+    Backend / Weibo / Alibaba / YFD / Silverhand / What's next? @ Beijing
 -   …
 
 ---
