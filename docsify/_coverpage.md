@@ -1,6 +1,6 @@
 <!-- Reference : https://docsify.js.org/#/cover -->
 
-<img src="https://cdn.icehe.xyz/_docsify/avatar-400.png" alt="avatar"  width="120px"/>
+<img src="_docsify/avatar-400.png" alt="avatar"  width="120px"/>
 
 # IceHe<small>Life</small>
 

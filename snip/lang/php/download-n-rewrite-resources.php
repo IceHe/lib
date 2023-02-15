@@ -62,7 +62,6 @@ if ($toRewrite) {
         }
 
         $replacePath = $localFilePath;
-        // $replacePath = "https://cdn.icehe.xyz/{$localFilePath}";
 
         // Replace links to resources in `index.html`
         $modifiedContent = str_replace($resource, $replacePath, $modifiedContent);
