@@ -651,14 +651,13 @@ Living
 Timeline
 
 -   After 2018
+    -   [How to live](/life/principle/how-to-live.md)
     -   [2022 Feb ~ Apr: Best Gain Everyday](/life/timeline/best-gain-everyday.md)
         -   _from both technology practice and daily life_
-            <!-- -   [2022 July](/life/timeline/2022-july.md) -->
+    -   [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
     -   [2018 Winter](/life/timeline/2018-winter.md)
     -   [2018 Spring ~ 2019 Autumn](/life/timeline/2018-spring-to-2019-autumn.md)
-    -   [2019 ~ 2021 on Weibo](https://weibo.com/icedes)
-    -   [How to live](/life/principle/how-to-live.md) | [Rehabilitation](/life/principle/rehabilitation.md)
-    -   [Moments](/life/timeline/moments.md): 回忆
+    -   [Moments](/life/timeline/moments.md) 回忆
 -   2015 ~ 2017
     -   [2017 Summer ~ Winter](/life/timeline/2017-summer-2-winter.md)
     -   [2017 Spring](/life/timeline/2017-spring.md)
