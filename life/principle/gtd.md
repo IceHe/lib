@@ -343,8 +343,6 @@ end
 
 4\. Act / Adjust - Improve daily flow
 
-- Update regulations in rehabilitation.md
-
 ## References
 
 ### Original
