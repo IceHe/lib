@@ -158,6 +158,8 @@ git rebase
     --continue
     --abort
     -X [ours|theirs] <branch_name>
+
+git log --raw | grep files_changed
 ```
 
 ```bash
