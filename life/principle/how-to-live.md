@@ -6,9 +6,8 @@
 
 ## Do the right thing
 
-做正确的事
+做正确的事。要事第一。<!-- First thing first. -->
 
--   要事第一。<!-- First thing first. -->
 -   **更大的效率来自于重要事情上做得好，而不是在处处做得好，管理精力比管理时间更重要。**
 
 ## Give up the unimportant things
@@ -124,7 +123,7 @@
 
 **先完成，再完善**，但不必完美。
 
-## Do only one thing at a time
+## Do one thing at a time
 
 **一时一事**：从小事做起，**做好一件小事，然后再做好下一件小事，然后不断循环**。
 
@@ -137,7 +136,7 @@
 -   电脑：`vim /etc/hosts` 屏蔽 [ WB，B 站 ]
 -   手机：打开 Forest 种树 → 远离手机 → 戴手表（收通知）
 
-# How to improve mood?
+# How to improve emotion?
 
 ## Imperfectionist
 
@@ -185,8 +184,6 @@
     （大概最大的问题其实就是一时的情绪）。
 
 # To re-read
-
-## Digests
 
 -   Bookmarks
     -   [Reading](/read/reading-bookmark.md)
@@ -242,24 +239,3 @@
     -   **Trade-off: Ask for help if stuck over 15 (or 30) min.**
 
 -   [STAR principle](/life/principle/star.md): Situation → Target → Action → Result
-
-## Reality
-
--   [Cruel Reality](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/) - _[ZH ver.](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359)_ - _[digest](/read/cruel-reality.md)_
-
-    “Nice guy? I never give a shit.”
-
--   [Why Unhappy](https://zhuanlan.zhihu.com/p/19582894) - _[digest](/read/why-unhappy.md)_
-
-    “我，并不特别。”
-
--   [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) - _[digest](/read/teacher-said.md)_
-
-    -   “我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。”
-    -   “做正确的选择，而不是可以接受的选择。”
-
-## Do something
-
--   [Life Meaning](https://www.zhihu.com/question/24561532/answer/28240920) - _[digest](/read/meaning.md)_
-
-    “因为活着，才去寻找意义。”
