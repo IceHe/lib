@@ -5,8 +5,12 @@
 # IceHe<small>Life</small>
 
 ```
-<!-- Do things that matter. -->
+<!-- Shorten warm-up time. -->
 ```
+
+<!-- Do one thing at a time. -->
+
+<!-- Do things that matter. -->
 
 <!-- Keep walking. -->
 
