@@ -5,12 +5,14 @@
 # IceHe<small>Life</small>
 
 ```
-<!-- Shorten warm-up time. -->
+<!-- Step by step. -->
 ```
 
-<!-- Do one thing at a time. -->
+<!-- Shorten warm-up time. -->
 
 <!-- Do things that matter. -->
+
+<!-- Do one thing at a time. -->
 
 <!-- Keep walking. -->
 
