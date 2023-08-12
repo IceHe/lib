@@ -6,7 +6,7 @@
 
 **上标**
 
-- The item with <sup>__Best__</sup>&nbsp; implies it is `one of the best`.
+- The item with <sup>**Best**</sup>&nbsp; implies it is `one of the best`.
 - The item with <sup>Note</sup>&nbsp; implies it is `a link to my related note`.
 - The item with <sup>_todo_</sup>&nbsp; implies it has `not been read-through`.
 - The item with <sup>_temp_</sup>&nbsp; implies it might `be removed one day`.
@@ -18,23 +18,23 @@
 
 ### 人生
 
-- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](https://www.zhihu.com/question/24561532/answer/28240920)- 灯塔 <sup>__Best__ / [Note](/read/meaning.md)</sup>
-- [眼前的苟且，也正是诗和远方](http://zhuanlan.zhihu.com/lswlsw/19895904) - 迷茫 <sup>__Best__ / [Note](/read/poet.md)</sup>
-- [为什么长大以后反而不容易快乐？](http://zhuanlan.zhihu.com/xiepanda/19582894)- You are not special. <sup>__Best__ / [Note](/read/why-unhappy.md)</sup>
-- [《 幸福课 》动机在杭州 的知乎专栏](http://zhuanlan.zhihu.com/happy) - 平常心 <sup>__Best__ / [Note](/read/happiness-course.md)</sup>
-- [风尘棋客](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=216723229&amp;idx=1&amp;sn=87c7dbb95abce565fa001c3a5063427a&amp;scene=1&amp;srcid=0308jCVD1x8LridYzELGd0ZS#rd)  <sup>__Best__ / [Note](/read/chinese-chess.md)</sup>
+- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](https://www.zhihu.com/question/24561532/answer/28240920)- 灯塔 <sup>**Best** / [Note](/read/meaning.md)</sup>
+- [眼前的苟且，也正是诗和远方](http://zhuanlan.zhihu.com/lswlsw/19895904) - 迷茫 <sup>**Best** / [Note](/read/poet.md)</sup>
+- [为什么长大以后反而不容易快乐？](http://zhuanlan.zhihu.com/xiepanda/19582894)- You are not special. <sup>**Best** / [Note](/read/why-unhappy.md)</sup>
+- [《 幸福课 》动机在杭州 的知乎专栏](http://zhuanlan.zhihu.com/happy) - 平常心 <sup>**Best** / [Note](/read/happiness-course.md)</sup>
+- [风尘棋客](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=216723229&amp;idx=1&amp;sn=87c7dbb95abce565fa001c3a5063427a&amp;scene=1&amp;srcid=0308jCVD1x8LridYzELGd0ZS#rd)  <sup>**Best** / [Note](/read/chinese-chess.md)</sup>
     「年轻的时候，我一直觉得世界上最酷的事情，莫过于无忧无虑地四处环游；可就在刚才，看到许银川在比以前更胖了的赵大胖面前推枰认负的那一刻，忽然觉得，能十年如一日地把一件看似简单的事情做到极致，或许更酷一点。」
 - [我与清华的差距在哪里？](https://www.zhihu.com/question/47607160/answer/107439050) - 从一开始就……
-- [《 论悲观主义的益处 》阿兰·德·波顿](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=233397081&amp;idx=1&amp;sn=836801a648013f925fca14de3572c45c&amp;scene=1&amp;srcid=0309TRipy9egTmxD0B51Q272#rd) <sup>__Best__ / [Note](/read/pessimist.md)</sup>
+- [《 论悲观主义的益处 》阿兰·德·波顿](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&amp;mid=233397081&amp;idx=1&amp;sn=836801a648013f925fca14de3572c45c&amp;scene=1&amp;srcid=0309TRipy9egTmxD0B51Q272#rd) <sup>**Best** / [Note](/read/pessimist.md)</sup>
     「如果你拒绝让你的悲伤压在身上，哪怕只有一个钟点的时光；假如你总是汲汲营营地试图提前避免或者推迟一切可能的伤痛；假如你认为痛苦是邪恶的，是可憎的，是理应消灭的，是异常变态的存在，那么你的心中显然窃据着舒适的宗教。对幸福的理解是多么浅薄啊，你这个贪图舒适且渺小的家伙！幸福与不幸乃双生姐妹，要么一起成长，要么一起萎缩，就像你的处境一样。」
-- [Loser 应该知道的 6 个残酷人生事实](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) <sup>__Best__ / [Note](/read/cruel-reality.md)</sup>
+- [Loser 应该知道的 6 个残酷人生事实](http://mp.weixin.qq.com/s?__biz=MzA5MTM0NzIwNQ==&mid=2649760227&idx=2&sn=89fcbaf26cb56a21da2c4364fa3c9359) <sup>**Best** / [Note](/read/cruel-reality.md)</sup>
     「这个世界只关心你能给予什么。」英语原文：[6 Harsh Truths That Will Make You a Better Person](http://www.cracked.com/blog/6-harsh-truths-that-will-make-you-better-person/)
 - [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](https://www.zhihu.com/question/23721974/answer/25493813) <sup>[Note](/read/teacher-said.md)</sup>
     「我们用『我能做到什么』来判断和定位自己，而别人用『你已经做过什么』来判断和定位你。」
 - [70 后和 80 后对于刚刚踏入社会的 90 后毕业生有什么建议？](https://www.zhihu.com/question/20773220) <sup>[Note](/read/suggestions-for_the-young.md)</sup>
     「如果不能先学着适应环境，就不要妄想改变环境。」
 - [精致的利己主义者和常青藤的绵羊](http://mp.weixin.qq.com/s?__biz=MjM5NzExOTE2Ng==&mid=208583700&idx=1&sn=9bb0ea491064b3ffb93e7f24f9fc04a3&scene=5#rd) - 中西 <sup>[Note](/read/excellent-sheep.md)</sup>
-- [《 感谢你给我机会上场 》方励的一席演讲](http://yixi.tv/lecture/177) - 循着乐趣前行 <sup>__Best__</sup>
+- [《 感谢你给我机会上场 》方励的一席演讲](http://yixi.tv/lecture/177) - 循着乐趣前行 <sup>**Best**</sup>
 - [《 潜台词 》李松蔚 的知乎专栏](http://zhuanlan.zhihu.com/lswlsw) - 洞悉人心
 - [苦难有什么价值？](https://www.zhihu.com/question/19988077)- 无谓的苦难
 - [你有什么道理后悔没有早点知道？](https://www.zhihu.com/question/23819007)
@@ -49,7 +49,7 @@
 
 ### 方法
 
-- [How to Study: A Brief Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html) - 方法论 <sup>__Best__ / [Note](/read/how-to-study.md)</sup>
+- [How to Study: A Brief Guide](http://www.cse.buffalo.edu/~rapaport/howtostudy.html) - 方法论 <sup>**Best** / [Note](/read/how-to-study.md)</sup>
     - [Stop Telling Students to Study for Exams](http://www.chronicle.com/article/Stop-Telling-Students-to-Study/131622/)
     - [How Tests Make Us Smarter](http://www.nytimes.com/2014/07/20/opinion/sunday/how-tests-make-us-smarter.html)
     - [Sorry, You Can’t Speed Read](https://www.nytimes.com/2016/04/17/opinion/sunday/sorry-you-cant-speed-read.html)
@@ -67,8 +67,8 @@
 ### 关系
 
 - [本分和情分](http://zhuanlan.zhihu.com/xinliyushenghuo/19993302) -「别人帮你，那是情分，不帮你，那是本分。容不容得下是你的气度，能不能让你容下是我的本事。」
-- [圈子不同，不必强融](http://mp.weixin.qq.com/s?__biz=MjM5MzI5NzQ1MA==&amp;mid=207716479&amp;idx=1&amp;sn=195e46c808f83f95990bb3aff09a349b&amp;scene=1#rd) -「怎么样才可以真正地做到不计较呢？强大到让别人计较你。」<sup>__Best__</sup>
-- [孤独让人成瘾（下）：依赖真实的关系](http://www.vccoo.com/v/6a28e8) <sup>__Best__</sup>
+- [圈子不同，不必强融](http://mp.weixin.qq.com/s?__biz=MjM5MzI5NzQ1MA==&amp;mid=207716479&amp;idx=1&amp;sn=195e46c808f83f95990bb3aff09a349b&amp;scene=1#rd) -「怎么样才可以真正地做到不计较呢？强大到让别人计较你。」<sup>**Best**</sup>
+- [孤独让人成瘾（下）：依赖真实的关系](http://www.vccoo.com/v/6a28e8) <sup>**Best**</sup>
     「交一个真正的朋友是一件很累人的事，但是人生那么长，不累一累，那又该干嘛呢？」
 - [为什么人越长大越孤单？](https://www.zhihu.com/question/22613634/answer/77378235)- 自我定型后，想要寻找与我们真正相似的人
 - [谢谢你曾拒绝我｜被排斥会给一个人留下怎样的影响？](http://mp.weixin.qq.com/s?__biz=MzI1OTAwNDc1OA==&amp;mid=405129874&amp;idx=1&amp;sn=97889db6769448ff81a249be802c23a8&amp;scene=1&amp;srcid=0401FOHGUq43ZmJKAfljBV8z#rd)- 低自尊
@@ -93,17 +93,17 @@
 
 ### 思维
 
-- [想要提高效率，就得不公平](http://www.geekonomics10000.com/973) - 极简 <sup>__Best__</sup>
+- [想要提高效率，就得不公平](http://www.geekonomics10000.com/973) - 极简 <sup>**Best**</sup>
     「衣着无比整洁，东西摆放井井有条，对什么事情都有记录存档，这样的作风并不值得学习，这种人设定了错误的优先级。达到这样的状态要花费很多时间去整理生活，这些时间完全可以用来做些更有意思的事。」
-- [如何用3个月毁掉你的室友？（大学生版）](https://zhuanlan.zhihu.com/p/21249109) - 写照 <sup>__Best__</sup>
-- [智商高低是因为思维习惯不同造成的吗？](https://www.zhihu.com/question/27283467)- 思考能力 <sup>__Best__</sup>
+- [如何用3个月毁掉你的室友？（大学生版）](https://zhuanlan.zhihu.com/p/21249109) - 写照 <sup>**Best**</sup>
+- [智商高低是因为思维习惯不同造成的吗？](https://www.zhihu.com/question/27283467)- 思考能力 <sup>**Best**</sup>
 - [如何从思维上彻底改变学习模式？](https://www.zhihu.com/question/20416520)- 实用主义 VS 完美主义
 - [哪些素质很重要，却是读书学不来的？](https://www.zhihu.com/question/28626263)- 纸上得来终觉浅，绝知此事要躬行
-- [科技如何劫持人们的心智——来自一位魔术师和谷歌的设计伦理学家(Design Ethicist)](http://matrix.sspai.com/p/d060ba00) <sup>__Best__</sup>
+- [科技如何劫持人们的心智——来自一位魔术师和谷歌的设计伦理学家(Design Ethicist)](http://matrix.sspai.com/p/d060ba00) <sup>**Best**</sup>
 - [人类为什么会有「 雄心壮志 」？为何有人「 小富即安 」，有人有「 鸿鹄之志 」？](https://www.zhihu.com/question/21568048/answer/18848977)- 成就动机 Achievement、亲和动机 Affiliation、影响力动机 Power
 - [普通人怎么让自己更努力？(3)](http://zhuanlan.zhihu.com/individual/19777122)- 发掘内心的真实想法…
 - [年轻人如何在独居时有效地保持自律？](https://www.zhihu.com/question/48749292/answer/130737189) - 普通人的方法
-- [Larry Smith：你为何不会成就伟业](http://open.163.com/movie/2015/6/H/4/MAPPMO5L9_MAPPP7FH4.html) - 庸人的借口 <sup>__Best__</sup>
+- [Larry Smith：你为何不会成就伟业](http://open.163.com/movie/2015/6/H/4/MAPPMO5L9_MAPPP7FH4.html) - 庸人的借口 <sup>**Best**</sup>
 - [别让工作拖垮你，最实用的 25 条时间管理 TIPS](http://mp.weixin.qq.com/s?__biz=MjM5MzEzNjI2MA==&amp;mid=206759033&amp;idx=1&amp;sn=84f86dd4e6078c8bd3e84e25ab00e93e&amp;scene=1#rd) - 时间管理的目的是为了提高效率，去做更多的工作？
 - [男生有钱到底有多重要？](https://www.zhihu.com/question/22879746)- 「有时候不在于它能带给你什么，而在于它能让你不失去什么」。自立，自尊
 - [什么是「 富人思维 」？](https://www.zhihu.com/question/26980854)- 自我投资，善假于物
@@ -125,13 +125,13 @@
 - [Power 錕的紙牌屋](https://www.facebook.com/professorofpower) ( [Youtube Link](https://www.youtube.com/channel/UCp5-fK2eOL8yKDHCU3snE0w/playlists) ) <sup>[Note](/read/power-kun.md)</sup>
 - [驱离的世界：社会分层与阶级固化](http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650672863&idx=1&sn=abba62bbd7a4683368bff346ed6e26a4&chksm=bed481fe89a308e8fdc87d3f1e859ed6bd1fdecb9ad72b437727b22403ebb0810dce171fd276&mpshare=1&scene=1&srcid=0129QvkvhNvqPmhNcTfZI3jX#rd) - 现实 <sup>批判学习</sup>
     - From: 微信公众号[「大浪淘沙」](http://chuansong.me/account/knowledgewealth)
-- [城堡的落成：上升通道即将关闭的中国社会](http://mp.weixin.qq.com/s?__biz=MzI0NzA3MTM5NQ==&mid=2650556875&idx=1&sn=f4ff05366f08ce9d0c57c12936efc492&chksm=f1bd7e07c6caf7119f88e5fba355ef17b94b821d144f04d8f2eed30172181b47f678dbf3f660&mpshare=1&scene=1&srcid=0217gRDhIcXQIjTPNp1PGMsq#rd) <sup>__Best__</sup>
+- [城堡的落成：上升通道即将关闭的中国社会](http://mp.weixin.qq.com/s?__biz=MzI0NzA3MTM5NQ==&mid=2650556875&idx=1&sn=f4ff05366f08ce9d0c57c12936efc492&chksm=f1bd7e07c6caf7119f88e5fba355ef17b94b821d144f04d8f2eed30172181b47f678dbf3f660&mpshare=1&scene=1&srcid=0217gRDhIcXQIjTPNp1PGMsq#rd) <sup>**Best**</sup>
     - From: 微信公众号[「肥肥猫的小酒馆」](http://chuansong.me/account/zhihufeifeimao)
 - [被吞噬的中产阶级](http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=402667616&idx=1&sn=bff275d46d168f9844d1ebacc5d70ec6&mpshare=1&scene=1&srcid=0215SH6okFOOl1FPziKH2NXA#rd) - 中产？无产
 - [我们，新时代的“新穷人”](http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650672961&idx=1&sn=4a12793b86cecd485b90c9fbbbff2130&chksm=bed4806089a30976e36eb60c81939e28e4bd6e5e2d37519943d8dc0618f90c62edd9b260fa79&mpshare=1&scene=1&srcid=0117qPK7GvUf9PO6Wk73aBiB#rd) - 连剥削的价值也没有
-- [房地产、银行、贷款、政府、贫民、富民、泡沫、经济崩溃，他们之间是什么联系关系？](https://www.zhihu.com/question/19894997/answer/123847049?from=singlemessage&isappinstalled=0) - 房地产问题 <sup>__Best__</sup>
+- [房地产、银行、贷款、政府、贫民、富民、泡沫、经济崩溃，他们之间是什么联系关系？](https://www.zhihu.com/question/19894997/answer/123847049?from=singlemessage&isappinstalled=0) - 房地产问题 <sup>**Best**</sup>
 - [让你信上帝未必肯，让你发财干不干？](http://media.weibo.cn/article?id=2309404063588640796878&jumpfrom=weibocom&luicode=20000174&_T_WM=2ea9d53d6c410dabd0bcf6a54bc05fd4) - 宗教的逻辑？
-- [中国房价最终会崩盘吗？](https://www.zhihu.com/question/62145336/answer/195893425)<sup>__Best__</sup>
+- [中国房价最终会崩盘吗？](https://www.zhihu.com/question/62145336/answer/195893425)<sup>**Best**</sup>
 
 ### 健康
 
@@ -175,10 +175,10 @@
 
 ### 理财
 
-- __[商业分析能力是怎样炼成的？](https://www.zhihu.com/question/20603837/answer/47073613)__<sup>__Best__</sup>
-- [如何用保险保障自己的一生？](https://www.zhihu.com/question/22316395)- 安稳人生 <sup>__Best__</sup>
+- __[商业分析能力是怎样炼成的？](https://www.zhihu.com/question/20603837/answer/47073613)__<sup>**Best**</sup>
+- [如何用保险保障自己的一生？](https://www.zhihu.com/question/22316395)- 安稳人生 <sup>**Best**</sup>
 - [普通人如何合理的理财投资，有哪些书可以学习阅读？](https://www.zhihu.com/question/22818974)- 必修 <sup>_todo_</sup>
-- [《 天上不会掉馅饼 》知乎专栏](http://zhuanlan.zhihu.com/wontfallinyourlap) - 金融投资诈骗真相与投资方面的常识 <sup>__Best__</sup>
+- [《 天上不会掉馅饼 》知乎专栏](http://zhuanlan.zhihu.com/wontfallinyourlap) - 金融投资诈骗真相与投资方面的常识 <sup>**Best**</sup>
 - [大学生应该持一种怎样的存钱/花钱态度？](https://www.zhihu.com/question/20201206)- 投资自己
 - [如何看待「 钱不是省出来的 」这句话？](https://www.zhihu.com/question/25258679)
     「该花的钱一定要花，不该花的钱一定要省。」 然后，要有智慧分辨两者的不同
@@ -203,7 +203,7 @@
 
 ### 食
 
-- [食べ物](https://www.zhihu.com/collection/39354991) <sup>__Best__</sup>
+- [食べ物](https://www.zhihu.com/collection/39354991) <sup>**Best**</sup>
 - [北京有哪些深藏不露的餐馆？](https://www.zhihu.com/question/30400300)
 - [去香港一定不能错过哪些美食？](https://www.zhihu.com/question/19803431)
 
@@ -216,12 +216,12 @@
 
 ### 法律
 
-- [《Legal High》呈现的是怎样的三观？](https://www.zhihu.com/question/28226028)- 法律至高 <sup>__Best__</sup>
+- [《Legal High》呈现的是怎样的三观？](https://www.zhihu.com/question/28226028)- 法律至高 <sup>**Best**</sup>
 - [KTV 不允许带酒水和零食违法不违法？](https://www.zhihu.com/question/35814611/answer/65416013)- 合法权益
 
 ### 杂
 
-- [音乐的秘密](http://www.letv.com/ptv/vplay/24200614.html#vid=24200614) - 梁欢制作的纪录片电影。向不为人知的幕后音乐人致敬 <sup>__Best__</sup>
+- [音乐的秘密](http://www.letv.com/ptv/vplay/24200614.html#vid=24200614) - 梁欢制作的纪录片电影。向不为人知的幕后音乐人致敬 <sup>**Best**</sup>
 - [如何防止鞋带松掉？](https://www.zhihu.com/question/20093377#answer-700224)- 绑鞋带
 - [扇贝英语](http://www.shanbay.com/) - 一整套学习英语的系列 App 服务
 - [网易公开课](http://open.163.com/) - 国内最好的公开课平台，包含 TED、Coursera、可汗学院的翻译视频 <sup>_todo_</sup>
@@ -232,14 +232,14 @@
 - [国史大纲](http://book.douban.com/subject/1046492/) - 钱穆，通史。
 - [论语新解](http://book.douban.com/subject/6097222/) - 钱穆，儒。
 - [中国哲学简史](http://book.douban.com/subject/5253759/) - 冯友兰，哲学。
-- [社会心理学](http://book.douban.com/subject/1476651/) <sup>__Best__</sup> - _Social Psychology_ _- 经典教材。
+- [社会心理学](http://book.douban.com/subject/1476651/) <sup>**Best**</sup> - _Social Psychology_ _- 经典教材。
 - [思考快与慢](http://book.douban.com/subject/10785583/) - _Thinking Fast and Slow_ - 心理学经典。
-- 怪诞行为学 <sup>__Best__</sup> - 心理弱点。
+- 怪诞行为学 <sup>**Best**</sup> - 心理弱点。
     1. _[Predictably Irrational: The Hidden Forces That Shape Our Decisions](http://book.douban.com/subject/4929844/)_
     2. _[The Upside of Irrationality: The Unexpected Benefits of Defying Logic at Work and at Home](http://book.douban.com/subject/5253757)_
 - [经济学原理](http://book.douban.com/subject/1138061/) - _Principles of Economics_ - 曼昆。
 - [高效能人士的7个习惯](http://book.douban.com/subject/5325618/) - _The Seven Habits of Highly Effective People_ - 个人成长。
-- [国王，武士，祭司，诗人](http://book.douban.com/subject/2893591/) <sup>__Best__</sup> - _King, Warrior, Magician, Lover_ - 男人。
+- [国王，武士，祭司，诗人](http://book.douban.com/subject/2893591/) <sup>**Best**</sup> - _King, Warrior, Magician, Lover_ - 男人。
 - [万万没想到：用理工科思维理解世界](http://book.douban.com/subject/25986341/) - 理性。
 - [知日断舍离](http://book.douban.com/subject/24749465/) - 极简。
 - [奇特的一生](http://book.douban.com/subject/1115353/) - 手帐。
@@ -250,7 +250,7 @@
     Steve Yegge 以幽默、辛辣的口吻，表达了作为一个资深程序员的独到见解。
 - [重来](https://book.douban.com/subject/5320866/) - 《Rework》[DHH](http://david.heinemeierhansson.com/) 简洁有力的文字，独到辛辣的见解，直指人心。
 - [异类](https://book.douban.com/subject/25863621/) - 成功的随机性，与家世的积累。
-- [反脆弱](https://book.douban.com/subject/25782902/) - 脆弱性、坚韧性与 __反脆弱性__！承受小的风险和挫折，会让我们更强大。警惕毁灭性的危险。
+- [反脆弱](https://book.douban.com/subject/25782902/) - 脆弱性、坚韧性与 **反脆弱性**！承受小的风险和挫折，会让我们更强大。警惕毁灭性的危险。
 - [重构](http://book.douban.com/subject/4262627/) - _Refactoring : Improving the Design of Existing Code_
 - [代码大全2](http://book.douban.com/subject/1477390/) - _Code Complete : A Practical Handbook of Software Construction_
 - [设计模式](http://book.douban.com/subject/1052241/) - _Design Pattern_
@@ -270,7 +270,7 @@
     建议不要从第一期开始听，前期的节目我觉得真的不行，中期才算渐入佳境。
     好节目不常有，我常把它作为平时步行、骑行、闲暇时的背景音，时有收获。
     （已停播，「一天世界」就是它的续集。）
-- [太医来了](http://ipn.li/taiyilaile/) <sup>__Best__</sup>
+- [太医来了](http://ipn.li/taiyilaile/) <sup>**Best**</sup>
     主打健康、饮食、身体、医疗等常识的科普，收益颇丰。（IPN 旗下播客节目）@Podcasts
     - 仅从男性角度收藏节目，忽略了部分期关于女性问题的好节目。
     - [15. 蛋白粉、阿胶、鱼翅、燕窝、虫草……我们不吃！都不吃！](http://ipn.li/taiyilaile/15/) - 补品、营养品
@@ -308,7 +308,7 @@
     - [29. Terminal Emulators](http://ipn.li/kernelpanic/29/)
     - [31. 覃超专访（之一）](http://ipn.li/kernelpanic/31/)
     - [32. 覃超专访（之二）](http://ipn.li/kernelpanic/32/)
-- [罗辑思维](http://www.luofans.com/) <sup>__Best__</sup>&nbsp; - 知识与观点。 @喜马拉雅FM
+- [罗辑思维](http://www.luofans.com/) <sup>**Best**</sup>&nbsp; - 知识与观点。 @喜马拉雅FM
     总体质量高，内容精彩的期数很多，只对近期的节目印象较深。可以一期期听，略听之后不感兴趣，再跳过就好。
     - [180. 黄执中：你如何听懂我说的话？](http://www.ximalaya.com/1412917/sound/19143044)
     - [174. 联盟：雇主与员工的新型关系](http://www.ximalaya.com/1412917/sound/17162998)
@@ -317,7 +317,7 @@
     - [170. 杜月笙的代价](http://www.ximalaya.com/1412917/sound/15967459)
 - [充电时间](http://www.ximalaya.com/zhubo/15450066/)
     帮助主流经营者提升高价值信息内容获取效率，通过收听习惯保持知识结构与世界趋势吻合。（Loud News 旗下的系列节目） @喜马拉雅FM
-    各子频道：__专栏精粹__ <sup>__Best__</sup> 、TMT创业者、电商治愈系、文化媒体人、资深管理人、进击的PM、左脑时刻、营销方法论、销售行为学、知乎哲野。
+    各子频道：**专栏精粹** <sup>**Best**</sup> 、TMT创业者、电商治愈系、文化媒体人、资深管理人、进击的PM、左脑时刻、营销方法论、销售行为学、知乎哲野。
 - [锵锵三人行](http://phtv.ifeng.com/program/qqsrx/#01e74c9c-c77b-404f-958a-96e513ab1e00) - 独行时也可以听到高质量的谈话，了解他人的人生与生活见解。 @凤凰FM
 - [南都之声](http://diantai.ifeng.com/index.php/public/programnavDetails?pid=83069) -「有温度的城市生活。」 @凤凰FM
 - [三联听周刊](http://diantai.ifeng.com/index.php/#!/category/1/76316) -「三联生活周刊，一本杂志和他倡导的生活。」 @喜马拉雅FM
@@ -332,34 +332,34 @@
 - [聊聊架构](http://chuansong.me/account/archtime)
 - [道哥的黑板报](https://zhuanlan.zhihu.com/taosay) - 商业、创业、技术、管理，杂谈。
 - [程序人生](http://chuansong.me/account/programmer_life) <sup>_temp_</sup> - 服务端技术实践与感悟，以及杂谈。 @[陈天](https://www.zhihu.com/people/tchen/answers)
-- [幸福课](http://chuansong.me/account/happinessclass) <sup>__Best__</sup> - 心理学。作者：动机在杭州（陈海贤），[知乎专栏](http://zhuanlan.zhihu.com/happy) 同步更新。
-- [李松蔚](http://chuansong.me/account/therapistlsw) <sup>__Best__</sup> - 洞悉人心。[知乎专栏《潜台词》](http://zhuanlan.zhihu.com/lswlsw) 同步更新。
+- [幸福课](http://chuansong.me/account/happinessclass) <sup>**Best**</sup> - 心理学。作者：动机在杭州（陈海贤），[知乎专栏](http://zhuanlan.zhihu.com/happy) 同步更新。
+- [李松蔚](http://chuansong.me/account/therapistlsw) <sup>**Best**</sup> - 洞悉人心。[知乎专栏《潜台词》](http://zhuanlan.zhihu.com/lswlsw) 同步更新。
 - [有点自卑](http://chuansong.me/account/bocai_zhu) - 两性情感。
-- [爱迪生商业实验室](http://zhuanlan.zhihu.com/edisonlab) <sup>__Best__</sup> - 商业独见。
+- [爱迪生商业实验室](http://zhuanlan.zhihu.com/edisonlab) <sup>**Best**</sup> - 商业独见。
     - [《JOIN创始人鸡汤》为什么你看了那么多商业案例，还是做不好一个小生意？](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=2663857178&idx=1&sn=c26ea9e5cc7b20bf3b3cb853ec33cbcc&chksm=8b43d05bbc34594d75b1d9a3b4ab386297e4e0bdfd906b2e722675824fbe4401390f2344a699&mpshare=1&scene=1&srcid=1231AlLnijYbzjtHLBqfsrLa#rd)
 - [TOMsInsight](http://chuansong.me/account/TOMsInsight) <sup>_temp_</sup> - 互联网数据深度分析报告。
 - [吃惑](http://www.gzhphb.com/item/16/168190.html) - 健康饮食、正确健身。
 - [大浪淘沙](http://chuansong.me/account/knowledgewealth) - 政治、历史的一些有启发的见解（可供参考，请批判）。
     - [穷是因为懒、被骗因为笨、女生被性侵因为穿的少——这些“奇葩”思想的根源在哪里？](http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650672679&idx=1&sn=aa72c26e937580b45df811e0efc957ee&scene=1&srcid=0703iYn1sTVmEdj8qxEMWwfd#rd)
-- [Kane的小K屋](http://chuansong.me/account/KRoom01) <sup>__Best__</sup> - 通俗有趣的金融、经济、社会常识！
-- [caoz的梦呓](http://chuansong.me/account/caozsay) <sup>__Best__</sup> - 创业、技术、科技
-- [丁香园](http://chuansong.me/account/caozsay) <sup>__Best__</sup> - 健康、医疗的常识科普！（还推荐他的知乎问答！）
+- [Kane的小K屋](http://chuansong.me/account/KRoom01) <sup>**Best**</sup> - 通俗有趣的金融、经济、社会常识！
+- [caoz的梦呓](http://chuansong.me/account/caozsay) <sup>**Best**</sup> - 创业、技术、科技
+- [丁香园](http://chuansong.me/account/caozsay) <sup>**Best**</sup> - 健康、医疗的常识科普！（还推荐他的知乎问答！）
 
 ## 笔记
 
 - [你的自控能力强么？｜研究：不快乐的人自控力更差](/read/self_control.md)
-- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](/read/meaning.md) <sup>__Best__</sup>
-- [眼前的苟且，也正是诗和远方](/read/poet.md) <sup>__Best__</sup>
+- [若一辈子没有赚大钱，当大官，和自己爱的人在一起（哪怕一次），活着能算有意义吗？](/read/meaning.md) <sup>**Best**</sup>
+- [眼前的苟且，也正是诗和远方](/read/poet.md) <sup>**Best**</sup>
 - [为什么长大以后反而不容易快乐？](/read/why-unhappy.md)
 - [《 幸福课 》动机在杭州 的知乎专栏](/read/happiness-course.md)
 - [风尘棋客](/read/chinese-chess.md)
 - [《 论悲观主义的益处 》阿兰·德·波顿](/read/pessimist.md)
-- [Loser 应该知道的 6 个残酷人生事实](/read/cruel-reality.md) <sup>__Best__</sup>
+- [Loser 应该知道的 6 个残酷人生事实](/read/cruel-reality.md) <sup>**Best**</sup>
 - [你曾经的老师说过的哪句话印象最为深刻，对你影响较大甚至在十多年或更久之后都记在心里？](/read/teacher-said.md)
 - [论底层青年如何逆袭到中上阶层：什么是命？如何革你的命？](/read/family-accumulation.md)
 - [精致的利己主义者和常青藤的绵羊](/read/excellent-sheep.md)
 - [How to Study: A Brief Guide](/read/how-to-study.md)
-- [牙齿保健 - 刷牙、蛀牙、智齿](/read/tooth.md) <sup>__Best__</sup>
+- [牙齿保健 - 刷牙、蛀牙、智齿](/read/tooth.md) <sup>**Best**</sup>
 - Not Mentioned Above.
     - [《The Power of Less》书摘](/read/power-of-less.md)
     - [《反脆弱》书摘](/read/anti-fragile.md)
