@@ -4,10 +4,6 @@ Redis Client
 
 ---
 
-References
-
-- 9个提升逼格的redis命令 : http://cmsblogs.com/?p=2642
-
 ## Synopsis
 
 ```bash

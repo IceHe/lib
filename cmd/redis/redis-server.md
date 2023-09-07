@@ -21,8 +21,6 @@ Redis is an open source (BSD licensed), in-memory data structure store, used as 
 - `-` Read configuration from stdin.
 - `--sentinel` Run in sentinel mode
 - `--test-memory megabytes` Run a memory check and exit.
-- `--help, -h` Output this help and exit.
-- `--version, -v` Output version and exit.
 
 All parameters described in redis.conf file can be passed as command line option, e.g. `--port port`
 

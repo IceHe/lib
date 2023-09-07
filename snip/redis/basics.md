@@ -8,14 +8,9 @@ References
 
 -   Home Page : https://redis.io
     -   Introduce : https://redis.io/topics/introduction
-    -   _Clients_ : https://redis.io/clients
     -   Commands : https://redis.io/commands
     -   Documentation : https://redis.io/documentation
-    -   _Download_ : https://redis.io/download
 -   Others
-    -   ZH Docs : http://redisdoc.com
-    -   基本原理和方案设计
-        -   **Redis 深度历险：核心原理与应用实践** : https://juejin.im/book/5afc2e5f6fb9a07a9b362527 ( 推荐 )
     -   容量评估
         -   **Redis 容量预估** - 极数云舟 : http://www.redis.cn/redis_memory/
         -   Redis 容量评估模型 - 腾讯游戏学院 : https://gameinstitute.qq.com/community/detail/114987
@@ -23,11 +18,7 @@ References
 
 ## Intro
 
-Reference
-
--   Introduce : https://redis.io/topics/introduction
-
-Redis is an _open source ( BSD licensed ) ,_ **in-memory data structure store**, **used as a database, cache and message broker**.
+Redis is an **in-memory data structure store**, **used as a database, cache and message broker**.
 
 -   It supports **data structures** such as [strings](https://redis.io/topics/data-types-intro#strings), [hashes](https://redis.io/topics/data-types-intro#hashes), [lists](https://redis.io/topics/data-types-intro#lists), [sets](https://redis.io/topics/data-types-intro#sets), [sorted sets](https://redis.io/topics/data-types-intro#sorted-sets) with range queries, [bitmaps](https://redis.io/topics/data-types-intro#bitmaps), [hyperloglogs](https://redis.io/topics/data-types-intro#hyperloglogs), [geospatial indexes](https://redis.io/commands/geoadd) with radius queries and [streams](https://redis.io/topics/streams-intro).
 -   Redis has built-in [replication](https://redis.io/topics/replication), [Lua scripting](https://redis.io/commands/eval), [LRU eviction](https://redis.io/topics/lru-cache), [transactions](https://redis.io/topics/transactions) and different levels of [on-disk persistence](https://redis.io/topics/persistence), and provides high availability via [Redis Sentinel](https://redis.io/topics/sentinel) and automatic partitioning with [Redis Cluster](https://redis.io/topics/cluster-tutorial).
@@ -41,11 +32,9 @@ You can run **atomic operations** on these types, like
 -   or [getting the member with highest ranking in a sorted set](https://redis.io/commands/zrangebyscore).
 
 In order to achieve its outstanding performance, Redis works with an **in-memory dataset**.
+Depending on your use case, you can **persist it either by** [dumping the dataset to disk](https://redis.io/topics/persistence#snapshotting) every once in a while, or by [appending each command](https://redis.io/topics/persistence#append-only-file) to a log.
 
--   Depending on your use case, you can **persist it either by** [dumping the dataset to disk](https://redis.io/topics/persistence#snapshotting) every once in a while, or by [appending each command](https://redis.io/topics/persistence#append-only-file) to a log.
--   _Persistence can be optionally disabled, if you just need a feature-rich, networked, in-memory cache._
-
-Redis also supports trivial-to-setup ( 微不足道的设置 ) [master-slave asynchronous replication](https://redis.io/topics/replication), with very fast non-blocking first synchronization, auto-reconnection with partial resynchronization on net split.
+Redis also supports trivial-to-setup ( 琐碎的设置 ) [master-slave asynchronous replication](https://redis.io/topics/replication), with very fast non-blocking first synchronization, auto-reconnection with partial resynchronization on net split.
 
 Other features include:
 
@@ -56,33 +45,18 @@ Other features include:
 -   [LRU eviction of keys](https://redis.io/topics/lru-cache)
 -   [Automatic failover](https://redis.io/topics/sentinel)
 
-_You can use Redis from [most programming languages](https://redis.io/clients) out there._
-
-Redis is written in **ANSI C** _and works in most POSIX systems like Linux, \*BSD, macOS without external dependencies._
-
--   Linux and macOS are the two operating systems where Redis is developed and tested the most, and we **recommend using Linux for deploying**.
--   _Redis may work in Solaris-derived systems like SmartOS, but the support is best effort._
--   _There is no official support for Windows builds._
-
 ## Documentation
 
 Reference
 
 -   Documentation : https://redis.io/documentation
 
-Note :
-
--   The Redis Documentation is also available in raw (computer friendly) format in the redis-doc github repository.
-    -   The Redis Documentation is released under the Creative Commons Attribution-ShareAlike 4.0 International license.
-
 ### Programming with Redis
 
--   \_[The full list of commands](https://redis.io/commands)
-    -   implemented by Redis, along with thorough documentation for each of them.\_
 -   [Pipelining](https://redis.io/topics/pipelining)
     -   Learn how to **send multiple commands at once, saving on round trip time.**
 -   [Redis Pub/Sub](https://redis.io/topics/pubsub)
-    -   Redis is a **fast and stable Publish/Subscribe messaging system!** Check it out.
+    -   Redis is a **fast and stable Publish/Subscribe messaging system!**
 -   [Redis Lua scripting](https://redis.io/commands/eval)
     -   Redis Lua scripting feature documentation.
 -   [Debugging Lua scripts](https://redis.io/topics/ldb)
@@ -243,7 +217,7 @@ Omited…
 
 -   See [Redis Usage](redis-usage.md)
 
-## Redis 6.0 多线程 IO 处理
+# Redis 6.0 多线程 IO 处理
 
 Reference
 
@@ -251,11 +225,11 @@ Reference
 
 解释暂略, 详见原文
 
-### 单线程 IO 处理过程
+## 单线程 IO 处理过程
 
 ![redis-single-thread-process.jpg](_image/redis-single-thread-process.jpg)
 
-### 多线程 IO 处理过程
+## 多线程 IO 处理过程
 
 ![redis-multiple-threads-process.jpg](_image/redis-multiple-threads-process.jpg)
 
