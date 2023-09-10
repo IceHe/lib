@@ -20,19 +20,25 @@ References
 
 Redis is an **in-memory data structure store**, **used as a database, cache and message broker**.
 
--   It supports **data structures** such as [strings](https://redis.io/topics/data-types-intro#strings), [hashes](https://redis.io/topics/data-types-intro#hashes), [lists](https://redis.io/topics/data-types-intro#lists), [sets](https://redis.io/topics/data-types-intro#sets), [sorted sets](https://redis.io/topics/data-types-intro#sorted-sets) with range queries, [bitmaps](https://redis.io/topics/data-types-intro#bitmaps), [hyperloglogs](https://redis.io/topics/data-types-intro#hyperloglogs), [geospatial indexes](https://redis.io/commands/geoadd) with radius queries and [streams](https://redis.io/topics/streams-intro).
+-   It supports data structures such as [strings](https://redis.io/topics/data-types-intro#strings), [hashes](https://redis.io/topics/data-types-intro#hashes), [lists](https://redis.io/topics/data-types-intro#lists), [sets](https://redis.io/topics/data-types-intro#sets), [sorted sets](https://redis.io/topics/data-types-intro#sorted-sets) with range queries, [bitmaps](https://redis.io/topics/data-types-intro#bitmaps), [hyperloglogs](https://redis.io/topics/data-types-intro#hyperloglogs), [geospatial indexes](https://redis.io/commands/geoadd) with radius queries and [streams](https://redis.io/topics/streams-intro).
 -   Redis has built-in [replication](https://redis.io/topics/replication), [Lua scripting](https://redis.io/commands/eval), [LRU eviction](https://redis.io/topics/lru-cache), [transactions](https://redis.io/topics/transactions) and different levels of [on-disk persistence](https://redis.io/topics/persistence), and provides high availability via [Redis Sentinel](https://redis.io/topics/sentinel) and automatic partitioning with [Redis Cluster](https://redis.io/topics/cluster-tutorial).
 
-You can run **atomic operations** on these types, like
+You can run **atomic operations** on these types. …
 
--   [appending to a string](https://redis.io/commands/append);
--   [incrementing the value in a hash](https://redis.io/commands/hincrby);
--   [pushing an element to a list](https://redis.io/commands/lpush);
--   [computing set intersection](https://redis.io/commands/sinter), [union](https://redis.io/commands/sunion) and [difference](https://redis.io/commands/sdiff);
--   or [getting the member with highest ranking in a sorted set](https://redis.io/commands/zrangebyscore).
+<!--
 
-In order to achieve its outstanding performance, Redis works with an **in-memory dataset**.
-Depending on your use case, you can **persist it either by** [dumping the dataset to disk](https://redis.io/topics/persistence#snapshotting) every once in a while, or by [appending each command](https://redis.io/topics/persistence#append-only-file) to a log.
+E.g.:
+[appending to a string](https://redis.io/commands/append);
+[incrementing the value in a hash](https://redis.io/commands/hincrby);
+[pushing an element to a list](https://redis.io/commands/lpush);
+[computing set intersection](https://redis.io/commands/sinter), [union](https://redis.io/commands/sunion) and [difference](https://redis.io/commands/sdiff);
+or [getting the member with highest ranking in a sorted set](https://redis.io/commands/zrangebyscore).
+
+-->
+
+… Depending on your use case, you can **persist it either by** [dumping the dataset to disk](https://redis.io/topics/persistence#snapshotting) every once in a while, or by [appending each command](https://redis.io/topics/persistence#append-only-file) to a log.
+
+<!--
 
 Redis also supports trivial-to-setup ( 琐碎的设置 ) [master-slave asynchronous replication](https://redis.io/topics/replication), with very fast non-blocking first synchronization, auto-reconnection with partial resynchronization on net split.
 
@@ -45,11 +51,28 @@ Other features include:
 -   [LRU eviction of keys](https://redis.io/topics/lru-cache)
 -   [Automatic failover](https://redis.io/topics/sentinel)
 
+-->
+
+## FAQ
+
+[Ref](https://redis.io/docs/getting-started/faq/)
+
+How is Redis different from other key-value stores?
+
+-   Redis data types are **closely related to fundamental data structures** and are exposed to the programmer as such, without additional abstraction layers.
+
+    简而言之，很接近基础的数据结构，方便程序员使用。
+
+What's the Redis memory footprint? ……
+
+What happens if Redis runs out of memory?
+
+-   If this limit is reached,
+    Redis will start to **reply with an error to write commands (but will continue to accept read-only commands).**
+
 ## Documentation
 
-Reference
-
--   Documentation : https://redis.io/documentation
+[Ref](https://redis.io/documentation)
 
 ### Programming with Redis
 

@@ -521,7 +521,6 @@ NPM: the world's largest software registry
     -   [scope](/js/npm-using/scope.md): scoped packages
     -   [scripts](/js/npm-using/scripts.md): How npm handles the "scripts" field
     -   [workspaces](/js/npm-using/workspaces.md): Working with workspaces
-    -   ……
 -   Command
     -   [npm](/js/npm-cmd/npm.md): javascript package manager
     -   [npm init](/js/npm-cmd/npm-init.md): create a `package.json` file
@@ -529,7 +528,6 @@ NPM: the world's largest software registry
     -   [npm link](/js/npm-cmd/npm-link.md): symlink a package folder
     -   [npm publish](/js/npm-cmd/npm-publish.md): publish a package
     -   [npm exec](/js/npm-cmd/npm-exec.md), `npx`: run a command from a local or remote npm package
-    -   ……
 
 TypeScript
 
