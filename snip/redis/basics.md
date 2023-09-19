@@ -70,6 +70,89 @@ What happens if Redis runs out of memory?
 -   If this limit is reached,
     Redis will start to **reply with an error to write commands (but will continue to accept read-only commands).**
 
+## Data Types
+
+-   String
+
+    Limits: By default, **a single Redis string can be a maximum of 512 MB**.
+
+-   **JSON**
+
+    _The JSON capability of Redis Stack provides JavaScript Object Notation (JSON) support for Redis._
+    It lets you store, update, and retrieve JSON values in a Redis database, similar to any other Redis data type.
+
+-   List
+
+    Redis Lists are implemented with linked lists because for a database system it is crucial to be able to add elements to a very long list in a very fast way.
+    Another strong advantage, as you'll see in a moment, is that Redis Lists can be taken at constant length in constant time.
+
+-   Set
+
+    A Redis set is an unordered collection of unique strings (members).
+
+-   Hash
+
+-   Sorted Set
+
+-   **Stream**
+
+    -   Entry ID: `<millisecondsTime>-<sequenceNumber>`
+
+        The milliseconds time part is actually the local time in the local Redis node generating the stream ID,
+        however **if the current milliseconds time happens to be smaller than the previous entry time, then the previous entry time is used instead,**
+        **so if a clock jumps backward the monotonically incrementing ID property still holds.**
+
+        ……
+
+        If for some reason the user needs incremental IDs that are not related to time but are actually associated to another external system ID, as previously mentioned,
+        **the `XADD` command can take an explicit ID instead of the `*` wildcard ID that triggers auto-generation**, …
+
+-   **Geospatial**
+
+-   **Bitmaps**
+
+    Bitmaps are not an actual data type,
+    but a set of bit-oriented operations defined on the String type which is treated like a bit vector.
+
+-   **Bitfields**
+
+    … let you set, increment, and get integer values of arbitrary bit length.
+    For example, you can operate on anything from unsigned 1-bit integers to signed 63-bit integers.
+
+    These values are stored using binary-encoded Redis strings.
+    Bitfields support atomic read, write and increment operations, making them a good choice for managing counters and similar numerical values.
+
+-   **Probabilistic**
+
+    -   HyperLogLog:
+        estimates the cardinality of a set.
+    -   Bloom filter:
+        checks for presence of an element in a set.
+    -   Cuckoo filer:
+        checks for presence of an element in a set.
+    -   t-digest:
+        estimate the percentile of a data stream.
+        (例如统计 99% DB操作平均延迟是多少)
+    -   Top-K
+    -   Count-min sketch:
+        estimates the frequency of an element in a data stream.
+
+-   **Time series**
+
+    ……
+
+-   Indexing, Query, Search, …
+
+    -   Stop-words (停用词，高频但无意义的词),
+        Tokenization (标记器，分割词，去掉标点符号，小写化),
+        Sorting,
+        Scoring,
+        Stemming (词干提取),
+        Synonym (同义词),
+        Spellchecking,
+        Phonetic (语音匹配, 发音搜索),
+        Chinese (中文分词，标记化)
+
 ## Others
 
 -   [Redis Cheat Sheet](https://cheatography.com/tasjaevan/cheat-sheets/redis/)

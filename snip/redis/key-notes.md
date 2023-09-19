@@ -6,7 +6,6 @@ Redis: **RE**mote **DI**ctionary **S**erver
 
 ## references
 
--   [Redis 深度历险 : 核心原理与应用实践](https://juejin.im/book/5afc2e5f6fb9a07a9b362527)
 -   [Redis.io](https://redis.io)
     -   [Introduce](https://redis.io/topics/introduction)
     -   [Commands](https://redis.io/commands)
@@ -490,7 +489,6 @@ _( multiplexing 多路复用 )_
         1. int: `:1024\r\n`
         1. error : `-Error message\r\n`
         1. array: `*2\r\n:1\r\n$3\r\nfoo\r\n` ( `*` 开头, 后跟 array len )
-
             ```bash
             *2
             :1
@@ -1062,9 +1060,12 @@ _( multiplexing 多路复用 )_
 ### info
 
 -   场景:
+
     -   使用 Redis 时, 时常会遇到很多问题需要诊断, 在诊断之前需要了解 Redis 的运行状态.
     -   通过 `info` 指令, 可以清晰地知道 Redis 内部一系列运行参数.
+
 -   `info` 指令显示的信息非常繁多, 分为 9 大块 _( 每个块都有非常多参数 )_ :
+
     1. Server 服务器运行的环境参数
     1. Clients 客户端相关信息
     1. Memory 服务器运行内存统计数据
@@ -1074,7 +1075,9 @@ _( multiplexing 多路复用 )_
     1. CPU CPU 使用情况
     1. Cluster 集群信息
     1. KeySpace 键值对统计数量信息
+
 -   `info` 可以一次性获取所有的信息, 也可以按块取信息.
+
     ```bash
     # 获取所有信息
     > info
