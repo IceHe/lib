@@ -153,6 +153,15 @@ What happens if Redis runs out of memory?
         Phonetic (语音匹配, 发音搜索),
         Chinese (中文分词，标记化)
 
+## Use Redis
+
+### Keyspace
+
+Redis keys are binary safe;
+this means that you **can use any binary sequence as a key**,
+from a string like "foo" to the content of a JPEG file.
+The empty string is also a valid key.
+
 ## Others
 
 -   [Redis Cheat Sheet](https://cheatography.com/tasjaevan/cheat-sheets/redis/)

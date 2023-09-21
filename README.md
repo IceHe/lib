@@ -699,7 +699,7 @@ Timeline
 -   [Teacher Said](https://www.zhihu.com/question/23721974/answer/25493813) - _[digest](/read/teacher-said.md)_
     -   我们用「我能做到什么」来判断和定位自己，而别人用「你已经做过什么」来判断和定位你。
     -   做正确的选择，而不是可以接受的选择。
--   [Pessimist](http://mp.weixin.qq.com/s?__biz=MzA5MjIzMzAwNg==&mid=233397081&idx=1&sn=836801a648013f925fca14de3572c45c&scene=1&srcid=0309TRipy9egTmxD0B51Q272#rd) - _[digest](/read/pessimist.md)_
+-   Pessimist - _[digest](/read/pessimist.md)_
     -   It's the hardest part when memories remain.
 -   [Anti-Fragile](/read/anti-fragile.md) - _[book](https://item.jd.com/11364406.html)_
     -   一只火鸡被屠夫喂养了 1000 天，每天都向其分析师证实，屠夫对火鸡的爱的「统计置信度与日俱增」。
