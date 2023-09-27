@@ -181,4 +181,14 @@ _2013.3 ~ 2014.6_
 >
 > **E.L. Doctorow**
 
-<!-- 参考别人简历的内容和排版 - [Jiacheng Yang](https://assets.website-files.com/5e450cf18e9f31560e36ea38/5ff52f264ff29d79632c4852_Jiacheng_Yang_Resume_2021_1.pdf) -->
+<!--
+
+References:
+
+- [CMU](https://www.cmu.edu/career/documents/sample-resumes-cover-letters/sample-resumes_scs.pdf)
+- [Beamjobs](https://www.beamjobs.com/resumes/computer-science-resume-examples#computer-science-resumes-by-role)
+- [Novoresume](https://novoresume.com/career-blog/computer-science-resume)
+- [Enhancv](https://enhancv.com/resume-examples/computer-science/)
+- [Designer sample](https://assets.website-files.com/5e450cf18e9f31560e36ea38/5ff52f264ff29d79632c4852_Jiacheng_Yang_Resume_2021_1.pdf)
+
+-->
