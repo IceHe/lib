@@ -19,9 +19,9 @@
 
 ## Technology
 
-### Book
+### Reading
 
-[IceHe's Book List](https://book.douban.com/people/IceHeGZ/collect) @douban.com
+[IceHe's Reading List](https://book.douban.com/people/IceHeGZ/collect) @douban.com
 
 > 短期太急躁，總想走捷徑快速見效；
 > 長期沒耐心，小覷長期堅持的成長。
@@ -106,7 +106,7 @@ Others
 
 Algorithm & Data Structure
 
--   [LeetCode](https://leetcode.cn/u/icehehzy/)
+-   [LeetCode](https://leetcode.cn/u/icehehzy/): 光说不练假把式！
 
 Terminology
 
