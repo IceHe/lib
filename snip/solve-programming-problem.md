@@ -214,6 +214,14 @@
 
     e.g. [2642. 设计可以求最短路径的图类](https://leetcode.cn/problems/design-graph-with-shortest-path-calculator/)
 
+-   统计节点 indegree 入度的作用
+
+    可以找 root 节点，
+    判若是否有环；
+    配合 DFS + visited 标识，查询连通域（不连通的子图）的数量
+
+    e.g. [1361. 验证二叉树](https://leetcode.cn/problems/validate-binary-tree-nodes/)
+
 ### Interval Boundary
 
 -   Interval Length（区间长度）
@@ -293,8 +301,9 @@
         -   应用广泛
         -   e.g. 找中位数 / Top K：[347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/)
     -   Heap 堆排序
-        -   适合数组
-        -   e.g. 将数组直接 heapify 堆化，就无需额外空间 / 找数组中的 Top K
+        -   适合数组，将输入数组直接 heapify 堆化，就无需额外空间
+        -   找 Top K 个元素
+        -   e.g. [2558. 从数量最多的堆取走礼物](https://leetcode.cn/problems/take-gifts-from-the-richest-pile/)
     -   Bucket 桶排
         -   e.g. [164. 最大间距](https://leetcode.cn/problems/maximum-gap/)
     -   Counting 计数
@@ -332,7 +341,9 @@
 
 -   **Disjoint Set Union**（并查集）
 
-    适合 保存和查询节点的连通性、统计连通的一组节点的节点数量、连通的节点有多少组 等
+    适合 保存和查询节点的连通性、
+    统计连通域（连通的一组节点）的节点数量、
+    连通域的数量 等
 
     e.g. [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) /
     [2685. 统计完全连通分量的数量](https://leetcode.cn/problems/count-the-number-of-complete-components/)
