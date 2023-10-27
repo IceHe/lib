@@ -586,7 +586,8 @@ Solution Levels:
 
     e.g. [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/) /
     [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/) /
-    [1124. 表现良好的最长时间段](https://leetcode.cn/problems/longest-well-performing-interval/)
+    [1124. 表现良好的最长时间段](https://leetcode.cn/problems/longest-well-performing-interval/) /
+    [456. 132 模式](https://leetcode.cn/problems/132-pattern/)
 
 -   **Prefix & Suffix pre-process**（前后缀分解，预处理）
 
@@ -596,7 +597,7 @@ Solution Levels:
 
     利用 **前后缀分解**：符合要求的 前面的数 和 后面的数 可以通过 前缀｜后缀 预处理得到。
 
-    e.g. [456. 132 模式](https://leetcode.cn/problems/132-pattern/)
+    e.g. [456. 132 模式](https://leetcode.cn/problems/132-pattern/)（枚举中间的数对这题来说并非最优解，但容易想到）
 
 ### Mistakes
 
