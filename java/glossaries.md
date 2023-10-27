@@ -1,7 +1,5 @@
 # Java Glossaries
 
-[nested java code](../code/Solution.java ':include :type=code')
-
 ## JEE
 
 Java technology is both programming language & a platform
