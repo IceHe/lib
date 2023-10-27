@@ -106,6 +106,7 @@ Others
 
 Algorithm & Data Structure
 
+-   [Solve programming problems](/snip/solve-programming-problem.md): notes, aka. cheat sheet.
 -   [LeetCode](https://leetcode.cn/u/icehehzy/): 光说不练假把式！
 
 Terminology
