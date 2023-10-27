@@ -4,7 +4,7 @@
 
 ## Basics
 
-### Sorted & Binary Search
+### Sort Data & Binary Search
 
 -   **Unsorted** data → **Sorted** data（无序 → 有序）
 
@@ -127,9 +127,9 @@
 
 -   Traverse Order（遍历顺序）
 
-    -   Preorder（前缀）
-    -   Inorder（中缀）
-    -   Postorder（后缀）
+    -   Preorder（前序）
+    -   Inorder（中序）
+    -   Postorder（后序）
 
 -   Traverse Implementation（遍历的实现方式）
 
@@ -164,7 +164,7 @@
 
     -   Adjacent Matrix（邻接矩阵）
 
-        适合密集的数据，
+        适合密集的数据
 
         e.g. `boolean[][] connected = new boolean[m][n];`
 
@@ -432,7 +432,7 @@
         -  放在类实例的字段里，例如 `new Solution().result` 或 JS 的闭包里
     2.  **function stack**：通过递归或者函数式编程实现时，可以将上下文放到方法的入参里
         -   e.g. [机械人的运动范围](https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) 中的求和方式
-    3.  pass by **reference**：即传引用，将引用作为方法的如餐
+    3.  pass by **reference**：即传引用，将引用作为方法的入参
         -   例如 C++ 可以通过 &variable 传递引用
         -   但是像 Java 没办法显式传递简单的上下文信息 &intVal，得将这些信息封装成对象再传
     4.  **return multiple values**：方法返回所有需要关注的上下文信息
@@ -479,7 +479,7 @@ Solution Levels:
 
 -   别总想着 最优的 代码实现，先 简洁准确地 解决问题！
 
-    别总想着直接用 迭代 解决，先 **用递归把思路搞清楚**。
+    别总想着直接用 迭代 解决，先 **用递归把思路搞清楚**
 
 -   拓展思路
 
@@ -487,7 +487,7 @@ Solution Levels:
 
     - 举例归纳：从 特例 到 一般情况
 
-    - 分治：如何解决 简化的问题 或 拆解后的子问题。
+    - 分治：如何解决 简化的问题 或 拆解后的子问题
 
     - 枚举数据结构和算法：寻找匹配的方案，联系现实中的具体问题
 
@@ -505,13 +505,13 @@ Solution Levels:
 
 -   通过逻辑推导，**有的变量可以通过已有的数据推导出来。** 去掉多余的变量，简化逻辑
 
--   **匹配和处理字符串，用 Regular Expression 正则表达式。**
+-   **匹配和处理字符串，用 Regular Expression 正则表达式**
 
 -   可以用 `Math.max(…)`, `Math.min(…)` 简化条件语句；
 
-    不过总是赋值会让耗时变长（可以先 if 判断，有必要再赋值）。
+    不过总是赋值会让耗时变长（可以先 if 判断，有必要再赋值）
 
--   **处理链表时，可以考虑添加一个 Dummy Head 来简化代码逻辑！**
+-   **处理链表时，可以考虑添加一个 Dummy Head 来简化代码逻辑**
 
     e.g. [剑指 Offer 25. 合并两个排序的链表](https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/)
 
@@ -519,7 +519,7 @@ Solution Levels:
 
 -   用 **哈希表** 用空间换时间
 
-    由于复杂的数据结构自身有一定的性能消耗，不一定能让耗时变短。
+    由于复杂的数据结构自身有一定的性能消耗，不一定能让耗时变短
 
     e.g. [剑指 Offer II 006. 排序数组中两个数字之和](https://leetcode.cn/problems/kLl5u1/)
 
