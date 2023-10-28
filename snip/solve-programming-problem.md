@@ -512,6 +512,14 @@ Solution Levels:
 
     前置条件或明或暗，具体的实现细节会产生更多隐含的条件约束。
 
+-   Graph（图）的边界情况很多，边界情况应检尽检！
+
+    通常需要 **统计 indegree（入度）& outdegree（出度）+ DFS** 来确定所有情况
+
+    -   **有环**：可能导致 无限循环，找不到根节点，产生无法访问独立的连通域
+    -   **孤立节点、多个连通域**：只从一个节点出发，可能无法访问到所有节点
+    -   **菊花图**：可能导致 性能问题
+
 ### Concise
 
 -   通过逻辑推导，**有的变量可以通过已有的数据推导出来。** 去掉多余的变量，简化逻辑
@@ -587,7 +595,9 @@ Solution Levels:
 
     e.g. [2730. 找到最长的半重复子字符串](https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/)
 
--   Parse Token & 括号配对
+-   括号配对
+
+    记录 open（未闭合的）括号数量，当 --open == 0 时配对成功
 
     e.g. [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/) /
     [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/) /
