@@ -1,5 +1,5 @@
--   [Library](/README.md)
--   Others
+-   [Home](/README.md)
+-   IceHe
     -   [🧑🏻‍💻 About](/life/bio.md)
     -   [🏄‍♂ Weibo](https://weibo.com/icedes)
     -   [🐙 GitHub](https://github.com/IceHe)
