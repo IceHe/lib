@@ -72,7 +72,7 @@ public static final Map<String, String> NEXT_SUCCESS_STATUS_MAP =
 
 List Partion
 
-- https://stackoverflow.com/questions/2895342/java-how-can-i-split-an-arraylist-in-multiple-small-arraylists
+-   https://stackoverflow.com/questions/2895342/java-how-can-i-split-an-arraylist-in-multiple-small-arraylists
 
 ```java
 import com.google.common.collect.Lists;
@@ -88,6 +88,6 @@ List<List<String>> stringListPartions = Lists.partition(stringList, 50);
 import java.util.Arrays;
 
 int[] ints = {1, 2, 3}; // given
-Arrays.copyOf(ints, ints.length);
+List<Integer> list = Arrays.stream(ints).boxed().toList();
 
 ```

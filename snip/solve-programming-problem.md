@@ -12,7 +12,9 @@
 
 -   **Sorted** data → **Binary Search**（有序数据 → 二分查找）
 
-    e.g. Sorted Array, **Binary Search Tree**（二叉搜索树）
+    Applicable for Sorted Array, **Binary Search Tree**（二叉搜索树）
+
+    e.g. [378. 有序矩阵中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/)
 
     区间写法：
 
@@ -85,6 +87,10 @@
         例如，先找到最大的长度，再回溯找到最大长度的路径。
 
         e.g. [2901. 最长相邻不相等子序列 II](https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-ii/)
+
+    -   **树形 DP**
+
+        e.g. [100118. 在树上执行操作以后得到的最大分数](https://leetcode.cn/problems/maximum-score-after-applying-operations-on-a-tree/)
 
 ### Bits
 
@@ -266,7 +272,7 @@
 
         -   后半区间:
 
-            -   左闭右开：[start + half length, start + 2 * half length)
+            -   左闭右开：[start + half length, start + 2 \* half length)
             -   全闭区间：[start + half length, start + 2 * half length - 1]
 
     -   **B. as end index of first half（作为前半区间的结束点）**
@@ -440,7 +446,7 @@
     有时需要一些上下文来辅助解题，有多种上下文保存方式：
 
     1.  **object property** | closure：
-        -  放在类实例的字段里，例如 `new Solution().result` 或 JS 的闭包里
+        -   放在类实例的字段里，例如 `new Solution().result` 或 JS 的闭包里
     2.  **function stack**：通过递归或者函数式编程实现时，可以将上下文放到方法的入参里
         -   e.g. [机械人的运动范围](https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) 中的求和方式
     3.  pass by **reference**：即传引用，将引用作为方法的入参
@@ -463,7 +469,7 @@ Steps: 解题习惯！
 2.  理清思路：第一个想法通常不是最好的，稍微再想想；
     如果实在想不到…
     -   先解决：想出暴力破解的办法
-    -  <tab>再优化：根据约束条件（例如数据特征）考虑是否能简化
+    -   <tab>再优化：根据约束条件（例如数据特征）考虑是否能简化
     -   经验教训：如果想到的办法太复杂，要考虑的分支和边界情况太多，应该另觅它法！
 3.  编写代码：最好先写出测试用例，注意边界情况
     1. 解决问题
@@ -473,7 +479,7 @@ Steps: 解题习惯！
     5. 代码优雅
 4.  脑内测试（检查思路和实现细节）
 5.  运行测试
-6.  尝试优化（回到第2或第3步）
+6.  尝试优化（回到第 2 或第 3 步）
 
 Solution Levels:
 
@@ -494,13 +500,15 @@ Solution Levels:
 
 -   拓展思路
 
-    - 画图具像化：从 抽象 到 可想像
+    -   画图具像化：从 抽象 到 可想像
 
-    - 举例归纳：从 特例 到 一般情况
+    -   举例归纳：从 特例 到 一般情况
 
-    - 分治：如何解决 简化的问题 或 拆解后的子问题
+    -   分治：如何解决 简化的问题 或 拆解后的子问题
 
-    - 枚举数据结构和算法：寻找匹配的方案，联系现实中的具体问题
+    -   枚举数据结构和算法：寻找匹配的方案，联系现实中的具体问题
+
+    -   **正难则反！** 如果正向解决很复杂麻烦，考虑反向思考。
 
 ### Correct
 
@@ -565,7 +573,7 @@ Solution Levels:
             -   B. move K steps ahead
 
                 e.g. [160. 相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/) /
-                [剑指 Offer 22. 链表中倒数第k个节点](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
+                [剑指 Offer 22. 链表中倒数第 k 个节点](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
 
     -   C. left & right pointers
 
@@ -591,9 +599,11 @@ Solution Levels:
         ```python
         !(end1 <= start2 || end2 <= start1)
         ```
+
 -   **Sliding Window**（滑动窗口）
 
-    e.g. [2730. 找到最长的半重复子字符串](https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/)
+    e.g. [2730. 找到最长的半重复子字符串](https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/) /
+    [424. 替换后的最长重复字符](https://leetcode.cn/problems/longest-repeating-character-replacement/)
 
 -   括号配对
 
