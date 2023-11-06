@@ -7,17 +7,15 @@ Comma Separate Value
 ## Parse CSV File
 
 ```java
-package xyz.icehe.utils;
 
-import lombok.experimental.UtilityClass;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.input.BOMInputStream;
-import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -27,14 +25,9 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-/**
- * @author icehe.life
- */
 @Slf4j
-@UtilityClass
 public class CsvReader {
-
-    public List<CSVRecord> parseCsvRecordsFromCsvFileContent(@NotNull byte[] data) {
+    public static List<CSVRecord> parseCsvRecordsFromCsvFileContent(byte[] data) {
         List<CSVRecord> csvRecords = parseCsvFileByCharset(data, StandardCharsets.UTF_8);
         if (CollectionUtils.isEmpty(csvRecords)) {
             csvRecords = parseCsvFileByCharset(data, Charset.forName("GBK"));
@@ -43,32 +36,25 @@ public class CsvReader {
             throw new RuntimeException("wrong format");
         }
 
-        csvRecords.forEach(csvRecord -> {
+        for (CSVRecord csvRecord : csvRecords) {
             String idStr = csvRecord.get(0);
             try {
-                if (StringUtils.isNotBlank(idStr)) {
+                if (!StringUtils.hasText(idStr)) {
                     Integer.valueOf(idStr.trim());
                 }
             } catch (NumberFormatException e) {
                 throw new RuntimeException("idStr " + idStr + " must be integer", e);
             }
-        });
+        }
 
         return csvRecords;
     }
 
-    private List<CSVRecord> parseCsvFileByCharset(
-            @NotNull byte[] data,
-            @NotNull Charset charset
-    ) {
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new ByteArrayInputStream(data)), charset));
-            CSVParser csvParser = CSVFormat.DEFAULT.withHeader().withIgnoreEmptyLines(true).parse(reader);
-            return csvParser.getRecords();
-        } catch (IOException e) {
-            log.error("failed to parse csv file, data.length={}, charset={}", data.length, charset, e);
-            throw new RuntimeException("failed to parse csv file", e);
-        }
+    @SneakyThrows(IOException.class)
+    protected static List<CSVRecord> parseCsvFileByCharset(byte[] data, Charset charset) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(new ByteArrayInputStream(data)), charset));
+        CSVParser csvParser = CSVFormat.DEFAULT.builder().setIgnoreEmptyLines(true).build().parse(reader);
+        return csvParser.getRecords();
     }
 }
 
@@ -77,12 +63,10 @@ public class CsvReader {
 ## Write CSV File
 
 ```java
-package xyz.icehe.utils;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
+import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.lang.annotation.ElementType;
@@ -95,15 +79,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * @author icehe.life
- */
 public class CsvWriter {
-
     public static <T> void write(
-            @NotNull Appendable appendable,
-            @NotNull List<T> csvRows,
-            @NotNull Class<T> csvRowClazz
+            Appendable appendable,
+            List<T> csvRows,
+            Class<T> csvRowClazz
     ) throws IOException {
         appendable.append('\uFEFF');
 
@@ -121,10 +101,11 @@ public class CsvWriter {
 
                     return annotation.value();
                 })
-                .filter(StringUtils::isNotBlank)
+                .filter(StringUtils::hasText)
                 .toArray(String[]::new);
 
-        CSVPrinter printer = new CSVPrinter(appendable, CSVFormat.EXCEL.withHeader(csvHeaders));
+
+        CSVPrinter printer = new CSVPrinter(appendable, CSVFormat.EXCEL.builder().setHeader(csvHeaders).build());
 
         for (T csvRow : csvRows) {
             List<Object> columns = validFields.stream().map(f -> {
@@ -146,4 +127,5 @@ public class CsvWriter {
         String value() default "";
     }
 }
+
 ```

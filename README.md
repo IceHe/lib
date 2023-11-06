@@ -445,7 +445,6 @@ Code Snippet
 -   [Enum](/java/code-snippet/enum.md)
 -   [Excel](/java/code-snippet/excel.md)
 -   [Executor](/java/code-snippet/executor.md)
--   [HTTP](/java/code-snippet/http.md)
 -   [JSON](/java/code-snippet/json.md)
 -   [LocalDateTime](/java/code-snippet/local-date-time.md)
 -   [MyBatis and JDBC](/java/code-snippet/mybatis-n-jdbc.md)
