@@ -440,9 +440,6 @@ Benchmark, Stress Testing & Unit Testing
 
 Code Snippet
 
--   [Collection](/java/code-snippet/collection.md)
--   [Common DTOs](/java/code-snippet/common-dtos.md)
--   [Deep Clone](/java/code-snippet/deep-clone.md)
 -   [CSV - Comma Separate Value](/java/code-snippet/csv.md)
 -   [Elasticsearch](/java/code-snippet/elasticsearch.md)
 -   [Enum](/java/code-snippet/enum.md)
