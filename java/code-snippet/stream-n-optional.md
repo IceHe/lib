@@ -55,7 +55,7 @@ key2ValuesMap.forEach((key, vals) ->
 
 ### sorted
 
-Sort by multiple compartors
+Sort by multiple comparators
 
 ```java
 List<WarehouseEnum> recommendedWarehouses = warehouse2StockCheckResultMap.entrySet().stream()
@@ -101,18 +101,18 @@ List<WarehouseEnum> recommendedWarehouses = warehouse2StockCheckResultMap.entryS
 ### max, min
 
 ```java
-Obj maxObj = objs.stream()
-        .max(Comparator.comparing(keyExtractor, keyComparator)
-                .thenComparing(antoherKeyExtractor));
+Obj maxObj = objs.stream().max(
+    Comparator.comparing(keyExtractor, keyComparator)
+             .thenComparing(antoherKeyExtractor));
 ```
 
 ## Array T[] to List
 
 ```java
-// e.g.
-Arrays.stream(values()).collect(Collectors.toConcurrentMap(
+Arrays.stream(SomeEnum.values()).collect(Collectors.toConcurrentMap(
         SomeEnum::getKey,
-        SomeEnum::getVal)));
+        SomeEnum::getVal));
+
 ```
 
 ## Collection toArray
@@ -127,13 +127,13 @@ return wordCountMap.entrySet().stream()
     // 实际长度比较大，也会适应到指定的长度（震惊）！
 
     /**
-        * 解释摘要：<T> T[] toArray(T[] a);
-        * ……
-        * Otherwise, a new
-        * array is allocated with the runtime type of the specified array and
-        * the size of this list.
-        * ……
-        */
+     * 解释摘要：<T> T[] toArray(T[] a);
+     * ……
+     * Otherwise, a new
+     * array is allocated with the runtime type of the specified array and
+     * the size of this list.
+     * ……
+     */
 
 ```
 
@@ -141,7 +141,7 @@ return wordCountMap.entrySet().stream()
 
 Create new Map.Entry(key, velue) using \*Utils
 
-- How to create new Entry (key, value) - Stack Overflow : https://stackoverflow.com/questions/3110547/java-how-to-create-new-entry-key-value
+-   How to create new Entry (key, value) - Stack Overflow : https://stackoverflow.com/questions/3110547/java-how-to-create-new-entry-key-value
 
 ```java
 import java.util.AbstractMap;
@@ -151,11 +151,11 @@ Map.Entry<String,Integer> entry =
 
 ```
 
-## Find Duplicate Objects
+## Find duplicates
 
-使用 Strean 找出重复的对象
+使用 Stream 找出重复的对象
 
-- Find duplicates using Java 8 lambda : https://carsten-luxig.de/find-duplicated-items-in-2-collections-with-lambda-expressions
+-   Find duplicates using Java 8 lambda : https://carsten-luxig.de/find-duplicated-items-in-2-collections-with-lambda-expressions
 
 ```java
 Stream<Entry<String, List<Item>>> duplicates = merged
@@ -165,13 +165,13 @@ Stream<Entry<String, List<Item>>> duplicates = merged
 
 ```
 
-# Optinal
+# Optional
 
 Optional.ofNullable(…).ifPresent(…);
 
 ```java
 Optional.ofNullable(map.get("content"))
-        .ifPresent(it -> doSomething.withContent((Map<String, Object>) content));
+        .ifPresent(it -> doSomethingWith(content));
 
 ```
 

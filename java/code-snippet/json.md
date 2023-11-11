@@ -9,72 +9,37 @@ References
 ### JsonUtil
 
 ```java
-package xyz.icehe.utils;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonParser.Feature;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.StringUtils;
+
+import java.io.IOException;
+import java.util.Map;
+
+import static template.example.json.JsonTypes.MAP_STR_2_OBJ;
 
 /**
  * JSON 序列化工具
- *
- * @author icehe.life
+ * @link https://www.baeldung.com/jackson
+ * @link https://github.com/FasterXML/jackson
+ * @link https://github.com/fabienrenaud/java-json-benchmark
+ * @link https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java
  * @see com.fasterxml.jackson.databind.ObjectMapper
- * @since 2020/10/19
+ * @see template.example.json.JsonTypes
  */
 @UtilityClass
 public class JsonUtil {
 
-    public final TypeReference<List<Integer>> TYPE_REF_LIST_INT = new TypeReference<List<Integer>>() {};
-
-    public final TypeReference<Set<Integer>> TYPE_REF_SET_INT = new TypeReference<Set<Integer>>() {};
-
-    public final TypeReference<Map<Integer, Double>> TYPE_REF_MAP_INT_2_DOUBLE = new TypeReference<Map<Integer, Double>>() {};
-
-    public final TypeReference<Map<Integer, Integer>> TYPE_REF_MAP_INT_2_INT = new TypeReference<Map<Integer, Integer>>() {};
-
-    public final TypeReference<Map<Integer, Long>> TYPE_REF_MAP_INT_2_LONG = new TypeReference<Map<Integer, Long>>() {};
-
-    public final TypeReference<Map<Integer, List<Integer>>> TYPE_REF_MAP_INT_2_LIST_INT = new TypeReference<Map<Integer, List<Integer>>>() {};
-
-    public final TypeReference<Map<Integer, Set<Integer>>> TYPE_REF_MAP_INT_2_SET_INT = new TypeReference<Map<Integer, Set<Integer>>>() {};
-
-    public final TypeReference<List<Long>> TYPE_REF_LIST_LONG = new TypeReference<List<Long>>() {};
-
-    public final TypeReference<Set<Long>> TYPE_REF_SET_LONG = new TypeReference<Set<Long>>() {};
-
-    public final TypeReference<Map<Long, List<Long>>> TYPE_REF_MAP_LONG_2_LIST_LONG = new TypeReference<Map<Long, List<Long>>>() {};
-
-    public final TypeReference<Map<Long, List<String>>> TYPE_REF_MAP_LONG_2_LIST_STR = new TypeReference<Map<Long, List<String>>>() {};
-
-    public final TypeReference<Map<String, Object>> TYPE_REF_MAP_STR_2_OBJ = new TypeReference<Map<String, Object>>() {};
-
-    public final TypeReference<List<String>> TYPE_REF_LIST_STR = new TypeReference<List<String>>() {};
-
-    public final TypeReference<Set<String>> TYPE_REF_SET_STR = new TypeReference<Set<String>>() {};
-
-    public final TypeReference<Map<String, String>> TYPE_REF_MAP_STR_2_STR = new TypeReference<Map<String, String>>() {};
-
-    public final TypeReference<Map<String, List<String>>> TYPE_REF_MAP_STR_2_LIST_STR = new TypeReference<Map<String, List<String>>>() {};
-
-    public final TypeReference<Map<String, Object>> TYPE_REF_MAP_STR_2_OBJ = new TypeReference<Map<String, Object>>() {};
-
     private final ObjectMapper mapper = new ObjectMapper();
 
-    /*
-     * 全局生效的序列化配置
-     */
+    /* 全局生效的序列化配置 */
     static {
         // 解决实体未包含字段反序列化时抛出异常
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -82,179 +47,110 @@ public class JsonUtil {
         // 对于空的对象转 JSON 的时候不抛出错误
         mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
 
-        // 允许属性名称没有引号
-        mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+        // // 允许属性名称没有引号
+        // mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
 
-        // 允许单引号
-        mapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
+        // // 允许单引号
+        // mapper.configure(Feature.ALLOW_SINGLE_QUOTES, true);
 
-        // Include.NON_EMPTY 属性为 空 ("") 或者为 NULL 都不序列化, 则返回的 JSON 是没有这个字段的, 这样对移动端会更省流量
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+        // // Include.NON_EMPTY 属性为 空 ("") 或者为 NULL 都不序列化, 则返回的 JSON 是没有这个字段的, 节省空间
+        // mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
 
         // LocalDateTime 的序列化
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-        // Pretty Print ( enable on demand )
+        // Pretty Print
         // mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
-    /**
-     * Get internal Jackson ObjectMapper
-     *
-     * @return
-     */
+    /** Get Internal mapper */
     public ObjectMapper mapper() {
         return mapper;
     }
 
-    /**
-     * Serialize Object into JSON String ( without throwing an exception )
-     *
-     * @param object
-     * @return
-     */
-    public String writeValue(Object object) {
-        if (null == object) {
-            return null;
-        }
+    public String writeValue(Object o) {
+        if (null == o) return null;
         try {
-            return mapper.writeValueAsString(object);
+            return mapper.writeValueAsString(o);
         } catch (Exception e) {
             return null;
         }
     }
 
-    /**
-     * Serialize Object into Pretty JSON String ( without throwing an exception )
-     *
-     * @param object
-     * @return
-     */
-    public String writePrettyValue(Object object) {
-        if (null == object) {
-            return null;
-        }
+    public String writePrettyValue(Object o) {
+        if (null == o) return null;
         try {
-            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
+            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(o);
         } catch (Exception e) {
             return null;
         }
     }
 
-    /**
-     * Serialize Object into JSON String or throw an exception
-     *
-     * @param object
-     * @return
-     * @throws JsonProcessingException
-     */
-    public String writeValueOrThrowEx(Object object) throws JsonProcessingException {
-        if (null == object) {
-            return null;
-        }
-        return mapper.writeValueAsString(object);
+    @SneakyThrows(JsonProcessingException.class)
+    public String writeValueOrThrow(Object o) {
+        if (null == o) return null;
+        return mapper.writeValueAsString(o);
     }
 
-    /**
-     * Deserialize Object from JSON String ( without throwing an exception )
-     *
-     * @param content
-     * @param valueType
-     * @param <T>
-     * @return
-     */
-    public <T> T readValue(String content, Class<T> valueType) {
-        if (StringUtils.isBlank(content)) {
-            return null;
-        }
+    public <T> T readValue(String json, Class<T> valueType) {
+        if (!StringUtils.hasText(json)) return null;
         try {
-            return mapper.readValue(content, valueType);
+            return mapper.readValue(json, valueType);
         } catch (IOException e) {
             return null;
         }
     }
 
-    /**
-     * Deserialize Object from JSON String ( without throwing an exception )
-     *
-     * @param content
-     * @param typeReference
-     * @param <T>
-     * @return
-     */
-    public <T> T readValue(String content, TypeReference<T> typeReference) {
-        if (StringUtils.isBlank(content)) {
-            return null;
-        }
+    public <T> T readValue(String json, TypeReference<T> typeRef) {
+        if (!StringUtils.hasText(json)) return null;
         try {
-            return mapper.readValue(content, typeReference);
+            return mapper.readValue(json, typeRef);
         } catch (IOException e) {
             return null;
         }
     }
 
-    /**
-     * Deserialize Object from JSON String or throw an exception
-     *
-     * @param content
-     * @param valueType
-     * @param <T>
-     * @return
-     * @throws IOException
-     */
-    public <T> T readValueOrThrowEx(String content, Class<T> valueType) throws IOException {
-        if (StringUtils.isBlank(content)) {
-            return null;
-        }
-        return mapper.readValue(content, valueType);
+    @SneakyThrows(IOException.class)
+    public <T> T readValueOrThrow(String json, Class<T> valueType) {
+        if (!StringUtils.hasText(json)) return null;
+        return mapper.readValue(json, valueType);
     }
 
-    /**
-     * Deserialize Object from JSON String or throw an exception
-     *
-     * @param content
-     * @param typeReference
-     * @param <T>
-     * @return
-     * @throws IOException
-     */
-    public <T> T readValueOrThrowEx(String content, TypeReference<T> typeReference) throws IOException {
-        if (StringUtils.isBlank(content)) {
-            return null;
-        }
-        return mapper.readValue(content, typeReference);
+    @SneakyThrows(IOException.class)
+    public <T> T readValueOrThrow(String json, TypeReference<T> typeRef) {
+        if (!StringUtils.hasText(json)) return null;
+        return mapper.readValue(json, typeRef);
     }
 
-    /**
-     * Convert Object to Map ( without throwing an exception )
-     *
-     * @param object
-     * @return
-     */
-    public Map<String, Object> toMap(Object object) {
-        if (null == object) {
-            return Collections.emptyMap();
-        }
+    public Map<String, Object> toMap(Object o) {
+        if (null == o) return Map.of();
         try {
-            return mapper.convertValue(object, TYPE_REF_MAP_STR_2_OBJ);
+            return mapper.convertValue(o, MAP_STR_2_OBJ);
         } catch (Exception e) {
-            return Collections.emptyMap();
+            return Map.of();
         }
     }
 
-    /**
-     * Convert Object to Map or throw an exception
-     *
-     * @param object
-     * @return
-     */
-    public Map<String, Object> toMapOrThrowEx(Object object) throws IllegalArgumentException {
-        if (null == object) {
-            return Collections.emptyMap();
-        }
-        return mapper.convertValue(object, TYPE_REF_MAP_STR_2_OBJ);
+    @SneakyThrows(IllegalArgumentException.class)
+    public Map<String, Object> toMapOrThrow(Object o) {
+        if (null == o) return Map.of();
+        return mapper.convertValue(o, MAP_STR_2_OBJ);
     }
+}
+
+```
+
+JsonTypes
+
+```java
+
+public class JsonTypes {
+    public static final TypeReference<Map<String, Object>> MAP_STR_2_OBJ = new TypeReference<>() {};
+    public static final TypeReference<List<Integer>> LIST_INT = new TypeReference<>() {};
+    public static final TypeReference<List<String>> LIST_STR = new TypeReference<>() {};
+    public static final TypeReference<Set<Integer>> SET_INT = new TypeReference<>() {};
+    public static final TypeReference<Set<String>> SET_STR = new TypeReference<>() {};
 }
 
 ```
@@ -263,36 +159,18 @@ public class JsonUtil {
 
 Example
 
--   CompanyDTO.java
-
-```java
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class CompanyDTO {
-    /** 公司 ID */
-    @JsonSerialize(using = Long2StringSerializer.class)
-    @JsonDeserialize(using = String2LongDeserializer.class)
-    private Long companyId;
-}
-
-```
-
 -   Long2StringSerializer.java
 
 ```java
-import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
+import java.io.IOException;
+
 /**
- * 转换 Long 类型变量为字符串的序列化器
- *
- * @author icehe
- * @since 2020/10/14
+ * 将 Long 类型变量转换为字符串的 JSON 序列化器
  */
 public class Long2StringSerializer extends StdSerializer<Long> {
 
@@ -306,13 +184,15 @@ public class Long2StringSerializer extends StdSerializer<Long> {
 
     @Override
     public void serialize(
-        Long longValue, JsonGenerator gen, SerializerProvider provider)
-        throws IOException {
-        if (null == longValue) {
+            Long value,
+            JsonGenerator gen,
+            SerializerProvider provider
+    ) throws IOException {
+        if (null == value) {
             gen.writeNull();
             return;
         }
-        gen.writeString(longValue.toString());
+        gen.writeString(value.toString());
     }
 }
 
@@ -321,18 +201,15 @@ public class Long2StringSerializer extends StdSerializer<Long> {
 -   String2LongDeserializer.java
 
 ```java
-import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
+import java.io.IOException;
+
 /**
- * 转换毫秒数或字符串为 LocalDateTime 的反序列化器
- *
- * @author icehe
- * @since 2020/10/14
+ * 将数字字符串转换为 Long 类型变量的 JSON 反序列化器
  */
 public class String2LongDeserializer extends StdDeserializer<Object> {
 
@@ -345,16 +222,121 @@ public class String2LongDeserializer extends StdDeserializer<Object> {
     }
 
     @Override
-    public Object deserialize(JsonParser p, DeserializationContext ctxt)
-        throws IOException, JsonProcessingException {
+    public Object deserialize(
+            JsonParser p,
+            DeserializationContext ctxt
+    ) throws IOException {
         try {
             return p.readValueAs(Long.class);
-        } catch (IOException e) {
-            // do nothing
+        } catch (IOException ignored) {
+            return null;
         }
-
-        return null;
     }
+}
+
+```
+
+Test
+
+```java
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Data;
+import lombok.experimental.Accessors;
+import org.junit.jupiter.api.Test;
+import template.example.json.JsonUtil;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class Long2StringSerializerTest {
+
+    @Data
+    @Accessors(chain = true)
+    static class CompanyDTO {
+        @JsonSerialize(using = Long2StringSerializer.class)
+        @JsonDeserialize(using = String2LongDeserializer.class)
+        private Long companyId;
+    }
+
+    @Test
+    void test() {
+        final String json = """
+                {"companyId":"666"}""";
+        CompanyDTO companyDTO = new CompanyDTO().setCompanyId(666L);
+        System.out.println(companyDTO);
+        assertEquals(json, JsonUtil.writeValue(companyDTO));
+        assertEquals(companyDTO, JsonUtil.readValue(JsonUtil.writeValue(companyDTO), CompanyDTO.class));
+    }
+}
+
+```
+
+## Gson
+
+### GsonUtil
+
+```java
+
+import com.google.gson.Gson;
+import lombok.experimental.UtilityClass;
+
+import java.lang.reflect.Type;
+
+/**
+ * JSON 序列化工具
+ * @link https://www.baeldung.com/gson-serialization-guide
+ * @link https://www.baeldung.com/gson-deserialization-guide
+ * @link https://github.com/google/gson
+ * @link https://github.com/fabienrenaud/java-json-benchmark
+ * @link https://stackoverflow.com/questions/2591098/how-to-parse-json-in-java
+ * @see com.google.gson.Gson
+ * @see template.example.json.GsonTypes
+ */
+@UtilityClass
+public class GsonUtil {
+
+    private final Gson gson = new Gson();
+
+    /** Get internal Gson */
+    public Gson gson() {
+        return gson;
+    }
+
+    public String toJson(Object o) {
+        return gson.toJson(o);
+    }
+
+    public String toJson(Object o, Class<?> clazz) {
+        return gson.toJson(o, clazz);
+    }
+
+    public String toJson(Object o, Type type) {
+        return gson.toJson(o, type);
+    }
+
+    public <T> T fromJson(String json, Class<T> classOfT) {
+        return gson.fromJson(json, classOfT);
+    }
+
+    /** @see template.example.json.GsonTypes */
+    public <T> T fromJson(String json, Type typeOfT) {
+        return gson.fromJson(json, typeOfT);
+    }
+}
+
+```
+
+GsonTypes
+
+```java
+
+public class GsonTypes {
+    public static final Type MAP_STR_2_OBJ = new TypeToken<Map<String, Object>>() {}.getType();
+    public static final Type LIST_INT = new TypeToken<List<Integer>>() {}.getType();
+    public static final Type LIST_STR = new TypeToken<List<String>>() {}.getType();
+    public static final Type SET_INT = new TypeToken<Set<Integer>>() {}.getType();
+    public static final Type SET_STR = new TypeToken<Set<String>>() {}.getType();
 }
 
 ```
@@ -370,81 +352,9 @@ import com.alibaba.fastjson.TypeReference;
 
 public class Test {
     public static void main(String[] args) {
-        String jsonString =
-                "{\"aInt\":1,\"bStr\":\"boy\",\"cBool\":true,\"dNull\":null,\"eDouble\":3.14}";
-        Map<String, Object> map =
-                JSON.parseObject(jsonString, new TypeReference<Map<String, Object>>() {});
+        String jsonString = "{\"aInt\":1,\"bStr\":\"boy\",\"cBool\":true,\"dNull\":null,\"eDouble\":3.14}";
+        Map<String, Object> map = JSON.parseObject(jsonString, new TypeReference<Map<String, Object>>() {});
         System.out.println(map);
-    }
-}
-
-```
-
-## Gson
-
-### Gson Utils
-
-```java
-package xyz.icehe.utils;
-
-import java.lang.reflect.Type;
-
-import com.google.gson.Gson;
-import lombok.experimental.UtilityClass;
-
-/**
- * Gson 序列化工具
- *
- * @author icehe.life
- * @see com.google.gson.Gson
- * @since 2020/10/19
- */
-@UtilityClass
-public class GsonUtils {
-
-    private final Gson gson = new Gson();
-
-    /**
-     * Get internal Gson
-     *
-     * @return
-     */
-    public Gson gson() {
-        return gson;
-    }
-
-    /**
-     * Serialize Object into JSON String
-     *
-     * @param o
-     * @return
-     */
-    public String writeValue(Object o) {
-        return gson.toJson(o);
-    }
-
-    /**
-     * Deserialize Object from JSON String
-     *
-     * @param json
-     * @param classOfT
-     * @param <T>
-     * @return
-     */
-    public <T> T readValue(String json, Class<T> classOfT) {
-        return gson.fromJson(json, classOfT);
-    }
-
-    /**
-     * Deserialize Object from JSON String
-     *
-     * @param json
-     * @param typeOfT
-     * @param <T>
-     * @return
-     */
-    public <T> T readValue(String json, Type typeOfT) {
-        return gson.fromJson(json, typeOfT);
     }
 }
 

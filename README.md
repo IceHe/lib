@@ -441,20 +441,17 @@ Benchmark, Stress Testing & Unit Testing
 Code Snippet
 
 -   [CSV - Comma Separate Value](/java/code-snippet/csv.md)
--   [Elasticsearch](/java/code-snippet/elasticsearch.md)
--   [Enum](/java/code-snippet/enum.md)
 -   [Excel](/java/code-snippet/excel.md)
+-   [Elasticsearch](/java/code-snippet/elasticsearch.md)
 -   [Executor](/java/code-snippet/executor.md)
 -   [JSON](/java/code-snippet/json.md)
 -   [LocalDateTime](/java/code-snippet/local-date-time.md)
 -   [MyBatis and JDBC](/java/code-snippet/mybatis-n-jdbc.md)
--   [Number](/java/code-snippet/number.md)
 -   [OSS - Object Storage Service](/java/code-snippet/oss.md)
 -   [Spring Beans](/java/code-snippet/spring-beans.md)
 -   [Spring ConstraintValidator](/java/code-snippet/spring-constraint-validator.md)
 -   [Stream and Optional](/java/code-snippet/stream-n-optional.md)
--   [String](/java/code-snippet/string.md)
--   [Task](task.md)
+-   [Task](/java/code-snippet/task.md)
 
 Command Line Tool
 
