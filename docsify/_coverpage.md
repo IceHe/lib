@@ -1,6 +1,6 @@
 <!-- Reference : https://docsify.js.org/#/cover -->
 
-<img src="docsify/avatar-400.png" alt="avatar"  width="120px"/>
+<img src="docsify/avatar-400.png" alt="avatar"  width="100px"/>
 
 # IceHe<small>Life</small>
 
@@ -38,7 +38,7 @@
 
 <!-- <span class="token comment">[# 京 ICP 备 18038982 号 #](https://beian.miit.gov.cn/)</span> -->
 
-[🧑🏻‍💻 About](/life/bio.md) [📚 Library](/README)
+[🧑🏻‍💻 About](/life/bio.md) [📚 Notes](/README)
 
 <!-- 🎯 -->
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->

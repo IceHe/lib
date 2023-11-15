@@ -1,6 +1,8 @@
-# Library
+<!-- # Library -->
 
-[Welcome](/life/welcome.md) to IceHe's Library!
+# Notes
+
+[Welcome](/life/welcome.md) to IceHe's web notes!
 
 ---
 
@@ -158,6 +160,7 @@ Markdown
 
 Web
 
+-   [URL explained - The Fundamentals](https://ittavern.com/url-explained-the-fundamentals/)
 -   [IP Address](/snip/network/ip.md)
 -   [Network - Notes](/snip/network/notes.md)
 -   [URL Encoding](/snip/web/url-encoding.md)

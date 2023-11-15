@@ -4,9 +4,17 @@
 
 ---
 
+<!--
+
+IceHe's Library: https://icehe.life
+
 ## What is Library?
 
-[IceHe's Library](https://icehe.life)
+-->
+
+IceHe's Notes: https://icehe.life
+
+## What is Notes?
 
 ### Notebook
 
