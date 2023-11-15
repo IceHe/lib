@@ -131,8 +131,11 @@ Storage
 -   **MySQL**: lessons
     [p1](/snip/mysql/45-practice-lectures-p1.md.md) /
     [p2](/snip/mysql/45-practice-lectures-p2.md.md) /
-    [p3](/snip/mysql/45-practice-lectures-p3.md.md)
+    [p3](/snip/mysql/45-practice-lectures-p3.md.md) /
+    [commands](/cmd/m/mysql.md)
+
     -   robust SQL database server
+
 -   **PostgreSQL**: [notes](/snip/postgresql/notes.md)
 -   **Elasticsearch**: [usage](/snip/elasticsearch.md)
     -   for search and analysis

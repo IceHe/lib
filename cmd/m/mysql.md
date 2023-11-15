@@ -178,7 +178,7 @@ mysql -u root -p
 CREATE USER 'icehe'@'localhost' IDENTIFIED BY 'first_password';
 
 # grant privileges to new user ( DML )
-GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'localhost' IDENTIFIED BY 'first_password';
+GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'localhost';
 
 # if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
 mysql_upgrade -u root -p
@@ -189,6 +189,9 @@ mysql_upgrade -u root -p
 ```bash
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
 Query OK, 0 rows affected (0.02 sec)
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
 ```
 
 ### Database
