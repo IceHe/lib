@@ -223,6 +223,7 @@ Others
 -   _[Memcached](/snip/tmp/memcached.md)_
 -   _[Work Flow](/snip/tmp/work-flow.md)_
 -   _[XXL-JOB](https://www.xuxueli.com/xxl-job/) - [github](https://github.com/xuxueli/xxl-job)_
+-   _[Cache Line - False Sharing](https://www.cnblogs.com/cyfonly/p/5800758.html)_
 
 ### Efficiency
 
