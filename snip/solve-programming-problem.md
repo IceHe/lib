@@ -632,6 +632,12 @@ Solution Levels:
 
     e.g. [456. 132 模式](https://leetcode.cn/problems/132-pattern/)（枚举中间的数对这题来说并非最优解，但容易想到）
 
+-   **Greedy 反悔贪心 A\*B**
+
+    1. 让 A 离题目最佳越来越近
+    2. 让 B 离题目最佳越来越远
+    3. 通过枚举逼近最优解
+
 ### Mistakes
 
 -   成对的逻辑要同时添加或修改，避免后面忘了。
