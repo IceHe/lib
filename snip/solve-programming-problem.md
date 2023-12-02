@@ -10,6 +10,8 @@
 
     可以先将 无序数据 转换为 有序数据！
 
+    e.g. keyword **"subsequence"** (子序列) → sort the original array (因为顺序无关!)
+
 -   **Sorted** data → **Binary Search**（有序数据 → 二分查找）
 
     Applicable for Sorted Array, **Binary Search Tree**（二叉搜索树）

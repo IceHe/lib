@@ -41,6 +41,7 @@
 [🧑🏻‍💻 About](/life/bio.md) [📚 Notes](/README)
 
 <!-- 🎯 -->
+<!-- [🧑🏻‍💻 About](/life/bio.md) [📚 Library](/README) -->
 <!-- [🏄 Weibo](https://weibo.com/icedes) -->
 <!-- [💻 GitHub](https://github.com/IceHe) -->
 <!-- [📚 Library](/README) -->
