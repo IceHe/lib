@@ -1204,13 +1204,7 @@ RECOMMEND to use JetBrains tools
     e.g. for me
 
     -   IntelliJ IDEA Ultimate
-    -   WebStorm
-    -   Android Studio
     -   DataGrip
-    -   _CLion_
-    -   _GoLand_
-    -   ~~_PyCharm Professional Edition_~~
-    -   ~~_PhpStorm_~~
 
 #### Plugins
 
@@ -1332,8 +1326,8 @@ IntelliJ IDEA
 
     1.  Download on the Internet :
 
-        -   A. [Solarized*Light\_\_Alternate*.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
-        -   B. [Solarized*Light\_\_Alternate*.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
+        -   A. [SolarizedLight\_\_Alternate.icls](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.icls) or
+        -   B. [SolarizedLight\_\_Alternate.jar](https://github.com/IceHe/lib/raw/master/mac/jetbrains/Solarized_Light__Alternate_.jar)
 
     1.  `Preferences` → `Editor` → `Color Scheme` → `Scheme` → `Import` → Select the file downloaded above
 
