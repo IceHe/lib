@@ -331,14 +331,21 @@ Ref : MySQL 慢查询&分析 SQL 执行效率浅谈 - 简书 : https://www.jians
 
 ```bash
 mysql> show processlist;
-+----+-----------------+-----------+------+---------+------+------------------------+------------------+
-| Id | User            | Host      | db   | Command | Time | State                  | Info             |
-+----+-----------------+-----------+------+---------+------+------------------------+------------------+
-|  8 | event_scheduler | localhost | NULL | Daemon  | 1523 | Waiting on empty queue | NULL             |
-| 15 | root            | localhost | sys  | Query   |    0 | init                   | show processlist |
-| 17 | icehe           | localhost | NULL | Sleep   |    4 |                        | NULL             |
-+----+-----------------+-----------+------+---------+------+------------------------+------------------+
++-----+-----------------+-----------------+---------+---------+---------+------------------------+------------------+
+| Id  | User            | Host            | db      | Command | Time    | State                  | Info             |
++-----+-----------------+-----------------+---------+---------+---------+------------------------+------------------+
+|   7 | event_scheduler | localhost       | NULL    | Daemon  | 2367989 | Waiting on empty queue | NULL             |
+| 344 | icehe           | localhost       | NULL    | Query   |       0 | init                   | show processlist |
+| 385 | icehe           | localhost:56775 | example | Sleep   |       3 |                        | NULL             |
++-----+-----------------+-----------------+---------+---------+---------+------------------------+------------------+
 3 rows in set (0.00 sec)
+```
+
+### Kill Connection
+
+```bash
+mysql> kill connection 385;
+Query OK, 0 rows affected (0.00 sec)
 ```
 
 ### Warnings
