@@ -632,13 +632,6 @@ Solution Levels:
     [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/) /
     [385. 迷你语法分析器](https://leetcode.cn/problems/mini-parser/)
 
--   **Monotonic Stack**（单调栈）
-
-    e.g. [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/) /
-    [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/) /
-    [1124. 表现良好的最长时间段](https://leetcode.cn/problems/longest-well-performing-interval/) /
-    [456. 132 模式](https://leetcode.cn/problems/132-pattern/)
-
 -   **Prefix & Suffix pre-process**（前后缀分解，预处理）
 
     e.g. [238. 除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/)
@@ -649,11 +642,26 @@ Solution Levels:
 
     e.g. [456. 132 模式](https://leetcode.cn/problems/132-pattern/)（枚举中间的数对这题来说并非最优解，但容易想到）
 
+### Best or Greedy
+
+-   **Monotonic Stack**（单调栈）
+
+    e.g. [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/) /
+    [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/) /
+    [1124. 表现良好的最长时间段](https://leetcode.cn/problems/longest-well-performing-interval/) /
+    [456. 132 模式](https://leetcode.cn/problems/132-pattern/)
+
 -   **Greedy 反悔贪心 A\*B**
 
     1. 让 A 离题目最佳越来越近
     2. 让 B 离题目最佳越来越远
     3. 通过枚举逼近最优解
+
+-   启发：最优解的可能性
+
+    -   A. 平均数
+    -   B. 中位数
+    -   C. 众数
 
 ### Mistakes
 
