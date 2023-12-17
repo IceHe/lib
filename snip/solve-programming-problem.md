@@ -241,6 +241,20 @@
 
     e.g. [1361. 验证二叉树](https://leetcode.cn/problems/validate-binary-tree-nodes/)
 
+### Round
+
+-   Ceil —— Round Up (向上取整)
+
+    `ceil(n/m) = (n+(m-1))/m`
+
+    e.g. `ceil(n/2) = (n+1)/2`
+
+-   Floor —— Round Down (向下取整)
+
+    `floor(n/m) = (n-(m-1))/m`
+
+    e.g. `floor(n/2) = (n-1)/2`
+
 ### Interval Boundary
 
 -   Interval Length（区间长度）
@@ -657,10 +671,13 @@ Solution Levels:
     2. 让 B 离题目最佳越来越远
     3. 通过枚举逼近最优解
 
--   启发：最优解的可能性
+-   **Median Greedy** (中位数贪心)
+
+    启发：最优解可能在？
 
     -   A. 平均数
     -   B. 中位数
+        e.g. [100151. 使数组成为等数数组的最小代价](https://leetcode.cn/problems/minimum-cost-to-make-array-equalindromic/solutions/2569308/yu-chu-li-hui-wen-shu-zhong-wei-shu-tan-7j0zy/)
     -   C. 众数
 
 ### Mistakes
