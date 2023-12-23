@@ -236,7 +236,7 @@ I can search the available softwares I need on [Homebrew Formulae](https://formu
 
     e.g. let the display wait for a long time before turning off
 
-    `System Preferences` → `Battery`
+    `System Settings` → `Battery`
 
     -   `Battery`
 
@@ -405,8 +405,6 @@ Note : Some GUI softwares are only available on the websites
 -   [Logi Options+](https://www.logitech.com.cn/zh-cn/software/logi-options-plus.html)
 -   [Sublime Text 3](https://www.sublimetext.com/3)
 
-<!-- - [Sogou Input 搜狗输入法](https://pinyin.sogou.com/mac) -->
-
 Note : `brew install --cask sublime-text` will install the latest version, but I still stick on version 3,
 
 because I have already bought Sublime Text 3 and it still meets my requirements - a lightweight editor for fast editing
@@ -442,7 +440,7 @@ e.g. `microsoft-office`
 
 -->
 
-## CLI Preferences
+## CLI Settings
 
 ### GitHub Keys
 
@@ -651,13 +649,13 @@ By default, the dot executable is expected :
 -   Firstly in : `/usr/local/bin/dot`
 -   Then in : `/usr/bin/dot`
 
-## GUI Preferences
+## GUI Settings
 
 GUI - Graphical User Interface
 
 ### System
 
-Open `System Preferences` at first
+Open `System Settings` at first
 
 #### Battery
 
@@ -847,25 +845,6 @@ Reference : Search "macos keyboard cannot repeat" on Google
             -   `⇧ ⌘ S` DiSplay / Show OneTab
             -   `⇧ ⌘ C` Send the **C**urrent tab to OneTab
         -   Clear the unused shortcuts
-
-<!--
-
-#### Sogou Input
-
-1. `System Preferences` → `Keyboard` → `Input Sources` → Add `搜狗拼音`
-
-1. Clear the input methods except `ABC` and `搜狗拼音`
-
-1. Switch the input source to `搜狗拼音`
-
-1. Menu Bar → `Input Source Menu` → `搜狗拼音` → `偏好设置` → `同步`
-
-    1. → Login via the WeChat account
-    1. → `配置同步` → `下载配置`
-
-_( icehe : 如果三个月之后确定 macOS 自带的双拼输入法满足使用, 那就弃用搜狗输入法. 2022/01/04 )_
-
--->
 
 #### Karabiner-Elements
 
