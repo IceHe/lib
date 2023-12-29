@@ -77,6 +77,17 @@
         //skin: 'default',
       },
 
+      // https://docsify.js.org/#/plugins?id=full-text-search
+      // FXIME: 1. 路径不对 2. 搜索不到子目录的内容
+      // search: 'auto', // default
+      // search: {
+      //   maxAge: 86400000, // Expiration time, the default one day
+      //   paths: 'auto', // or 'auto'
+      //   placeholder: 'Search',
+      //   noData: 'No Results!',
+      //   depth: 6, // Depth of search, default is 2
+      // },
+
       // https://docsify.js.org/#/write-a-plugin
       plugins: [
         function (hook, vm) {
@@ -130,6 +141,9 @@
 
   <!-- Copy to Clipboard : https://docsify.js.org/#/plugins?id=copy-to-clipboard -->
   <script src="//unpkg.com/docsify-copy-code"></script>
+
+  <!-- Full Text Search : https://docsify.js.org/#/plugins?id=full-text-search -->
+  <!-- <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script> -->
 
   <!-- PlantUML : https://github.com/imyelo/docsify-plantuml -->
   <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>

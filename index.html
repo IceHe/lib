@@ -29,6 +29,13 @@
       plantuml: {
         skin: 'classic',
       },
+      search: {
+        maxAge: 86400000, 
+        paths: 'auto', 
+        placeholder: 'Search',
+        noData: 'No Results!',
+        depth: 6, 
+      },
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (content) {
@@ -49,6 +56,7 @@
   </script>
   <script src="docsify/resource/__unpkg.com_docsify@4"></script>
   <script src="docsify/resource/__unpkg.com_docsify-copy-code"></script>
+  <script src="docsify/resource/__unpkg.com_docsify_lib_plugins_search.min.js"></script>
   <script src="docsify/resource/__unpkg.com_docsify-plantuml_dist_docsify-plantuml.min.js"></script>
   <script src="docsify/resource/__unpkg.com_docsify_lib_plugins_zoom-image.min.js"></script>
   <script src="docsify/resource/__unpkg.com_prismjs_components_prism-applescript.min.js"></script>
