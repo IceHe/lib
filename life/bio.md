@@ -37,7 +37,8 @@ IceHe's short biographical profile | 个人简历
 -   技术博客：[icehe.life](https://icehe.life)
 -   代码仓库：[GitHub/IceHe](https://github.com/IceHe)
 -   生活日常：[Weibo@\_IceHe\_](https://weibo.com/icedes)
--   算法刷题：[LeetCode.cn/icehehzy](https://leetcode.cn/u/icehehzy/)
+
+<!-- -   算法刷题：[LeetCode.cn/icehehzy](https://leetcode.cn/u/icehehzy/) -->
 
 ## 技能
 
