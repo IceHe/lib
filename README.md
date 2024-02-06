@@ -322,7 +322,8 @@ Manual
 -   [nc](/cmd/n/nc.md): TCP / UDP connect & listen
 -   [netstat](/cmd/n/network-status.md): show network status
 -   [nl](/cmd/n/nl.md): number lines of files
--   [nohup](cmd/n/nohup): invoke a utility immune to hangups
+-   [nginx](/cmd/n/nginx.md): HTTP and reverse proxy server
+-   [nohup](/cmd/n/nohup): invoke a utility immune to hangups
 -   [nslookup](/cmd/n/nslookup.md): query Internet name servers interactively
 -   [os](/cmd/o/os.md): show os info - _not a command_
 -   [output](/cmd/o/output.md): redirect output - _not a command_
