@@ -1,13 +1,48 @@
 # ID 生成器
 
-发号器
+又称发号器
 
 ---
 
-References
+References:
 
--   IM 消息 ID 技术专题(六) : 深度解密滴滴的高性能 ID 生成器(Tinyid) : https://zhuanlan.zhihu.com/p/226216776
--   分布式 ID 神器之雪花算法简介 : https://zhuanlan.zhihu.com/p/85837641
+-   [生成全局唯一 ID 的 3 个思路，来自一个资深架构师的总结](https://mp.weixin.qq.com/s?__biz=MzI4MTY5NTk4Ng==&mid=2247489561&idx=1&sn=7396f373af4efa62ba4dbecc6d7f83b3)
+-   [IM 消息 ID 技术专题(六) : 深度解密滴滴的高性能 ID 生成器(Tinyid)](https://zhuanlan.zhihu.com/p/226216776)
+-   [分布式 ID 神器之雪花算法简介](https://zhuanlan.zhihu.com/p/85837641)
+
+生成办法：
+
+1.  DB
+
+    简单直接（毕竟基本每个服务都有 DB），
+    集中式处理容易单点故障，且生成速度有限
+
+    -   MySQL AUTO_INCREMENT
+    -   PostgreSQL SEQUENCE
+
+2.  分布式集群协调器
+
+    一致性强（但需要额外的部署），
+    分布式处理要保持好一致性，生成速度有限 (?)
+
+    -   Zookeeper 强一致性 (Paxos)
+    -   Consul 最终一致性 (Gossip)
+
+3.  划分命名空间并行生成
+
+    性能高（但要小心时间回拨问题），
+    小心 ID 冲突
+    （hostId|machineId 的选取要避免暴露 MAC 地址）
+
+    -   Twitter Snowflake 雪花算法
+    -   Mongo 的 ObjectId 算法
+
+分布式 ID 生成器（发号器）通常采用第 3 种方法。
+
+1.  timestamp (unix epoch)
+2.  machine id | host id (主机标识，例如 MAC 地址)
+3.  process id (单机多线程并行生成)
+4.  sequence | counter (rolling num 滚动生成 or 随机初始值?)
 
 ## Intro
 
@@ -227,5 +262,3 @@ public class SnowflakeIdWorker {
     }
 }
 ```
-
-todo oneday
