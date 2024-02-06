@@ -40,16 +40,11 @@ File : proxy_pass.conf
 
 [proxy_pass.conf](./proxy_pass.conf ":include :type=code nginx")
 
-## Basic
+## VHOST
 
-Restart nginx
+Nginx 虚拟主机（Virtual Host）是一种在单个服务器上托管多个网站的功能。
 
-```bash
-systemctl reload nginx
-```
-
-List installed Nginx modules
-
-```bash
-systemctl reload nginx
-```
+它类似于 Apache 的虚拟主机，允许您在同一台服务器上托管多个域名或网站。
+Nginx 的虚拟主机配置文件被称为"server block"，
+它允许您根据不同的域名或请求路径来配置不同的网站内容和行为。
+通过配置 Nginx 虚拟主机，您可以将多个网站托管在同一台服务器上，而无需为每个网站设置一个独立的服务器。
