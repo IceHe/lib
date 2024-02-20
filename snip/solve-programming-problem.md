@@ -581,9 +581,13 @@ Solution Levels:
 
     由于复杂的数据结构自身有一定的性能消耗，不一定能让耗时变短
 
-    e.g. [剑指 Offer II 006. 排序数组中两个数字之和](https://leetcode.cn/problems/kLl5u1/)
-
     -   优化：是否可以使用 **一般数组 代替 哈希表**？
+
+        e.g. [剑指 Offer II 006. 排序数组中两个数字之和](https://leetcode.cn/problems/kLl5u1/)
+
+    -   条件：unique value → 可以通过 value 反查 key 或 index
+
+        e.g. [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
 -   用 **位运算** 压缩所需内存空间，甚至可以缩短耗时
 
