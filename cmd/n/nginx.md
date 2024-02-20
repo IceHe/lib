@@ -91,6 +91,8 @@ nginx: configuration file /usr/local/openresty/nginx/conf/nginx.conf test is suc
 ## View config
 
 ```bash
+$ nginx -t
+# or
 $ nginx -T
 …
 # configuration file /usr/local/openresty/nginx/conf/vhost/example.icehe.life.conf:
