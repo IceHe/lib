@@ -7,6 +7,15 @@ secure copy (remote file copy program)
 References
 
 -   `man scp`
+-   [How to copy files from one machine to another using ssh](https://unix.stackexchange.com/questions/106480/how-to-copy-files-from-one-machine-to-another-using-ssh)
+
+## Quickstart
+
+```bash
+# scp <source> <destination>
+scp /local/path/to/file username@host_ip:/remote/path/to/destination
+scp username@host_ip:/remote/path/to/destination /local/path/to/file
+```
 
 ## Synopsis
 
