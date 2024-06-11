@@ -175,13 +175,23 @@ _仅供参考_
 mysql -u root -p
 
 # create new user
-CREATE USER 'icehe'@'localhost' IDENTIFIED BY 'first_password';
+CREATE USER 'icehe'@'%' IDENTIFIED BY 'first_password';
+# CREATE USER 'icehe'@'localhost' IDENTIFIED BY 'first_password';
 
 # grant privileges to new user ( DML )
-GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'%';
+# GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'localhost';
 
 # if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
 mysql_upgrade -u root -p
+```
+
+```bash
+SHOW GRANTS FOR 'source_user'@'%';
+
+GRANT <GRANT_ABOVE> ON `database_name`.* TO 'target_user'@'host';
+
+FLUSH PRIVILEGES;
 ```
 
 ### Change Password
