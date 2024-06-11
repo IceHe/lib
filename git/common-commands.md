@@ -332,9 +332,29 @@ git push origin --delete backup
     -   `git config credential.helper store` 长久储存密码，不用每次输入（非 macOS）
     -   `git config --unset credential.helper` 密码更改后，重新设定
 
-其它
+输出
 
 -   `git config --global pager.branch false` 将 `git branch` 的内容输出到 stdout
+
+指定不同的 SSH Key 用于不同的 Git 仓库
+
+-   A. `~/.ssh/config` 文件中添加如下内容
+
+    ```bash
+    Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_rsa_github
+    ```
+
+-   B. 为特定的 Git 仓库设置 SSH Key
+
+    ```bash
+    cd /path/to/project
+    git remote set-url origin
+    git config core.sshCommand "ssh -i /path/to/your/private_key"
+    # git config –global core.sshCommand "ssh -i /path/to/your/private_key"
+    ```
 
 ## Pull & Push
 
