@@ -182,6 +182,9 @@ CREATE USER 'icehe'@'%' IDENTIFIED BY 'first_password';
 GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'%';
 # GRANT ALL PRIVILEGES ON *.* TO 'icehe'@'localhost';
 
+# revoke grants
+REVOKE ALL PRIVILEGES ON *.* FROM 'icehe'@'%';
+
 # if encounter 'Cannot load from mysql.procs_priv, the table is probably corrupted'
 mysql_upgrade -u root -p
 ```

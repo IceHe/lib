@@ -31,6 +31,10 @@ curl -s -X POST -H "Foo: bar" icehe.life
 curl -LO https://raw.githubusercontent.com/IceHe/lib/master/README.md
 # -L | --location : Enable redirect
 # -O : Write local file named like remote file
+
+# 指定 HTTP 请求的域名和 IP 地址
+# e.g.
+curl --resolve example.com:80:192.168.1.100 http://example.com/path
 ```
 
 ## Options
