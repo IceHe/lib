@@ -35,6 +35,7 @@ curl -LO https://raw.githubusercontent.com/IceHe/lib/master/README.md
 # 指定 HTTP 请求的域名和 IP 地址
 # e.g.
 curl --resolve example.com:80:192.168.1.100 http://example.com/path
+curl --resolve example.com:443:192.168.1.100 https://example.com/path
 ```
 
 ## Options
