@@ -15,6 +15,7 @@
 -   [freeformatter.com/json-validator.html](https://www.freeformatter.com/cron-expression-generator-quartz.html): cron expression generator & explainer
 -   [plantuml.com](https://plantuml.com/zh/): uses simple textual descriptions to draw beautiful UML diagrams
     -   [object oriented design](https://cheatography.com/david/cheat-sheets/object-oriented-design/): meanings of different class associations
+-   [jsoning.com/api/](https://jsoning.com/api/): mock rest api
 
 ## 文档
 
