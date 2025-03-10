@@ -23,6 +23,10 @@ def tune_avg(bitmap: int) -> int:
     return i
 
 
+# 直接用平均概率
+tune = tune_avg
+
+
 # 有效词条数量
 def valid_count(bitmap: int, valid_bitmap: int) -> int:
     return (bitmap & valid_bitmap).bit_count()
@@ -123,6 +127,26 @@ def upgrade_311a() -> int:
     return bitmap
 
 
+def upgrade_131() -> int:
+    bitmap = 0
+
+    # 先开1个词条
+    bitmap |= 1 << tune(bitmap)
+    if valid_count(bitmap, DCRIT_ATK) < 1:
+        return bitmap
+
+    # 再开3个词条
+    bitmap |= 1 << tune(bitmap)
+    bitmap |= 1 << tune(bitmap)
+    bitmap |= 1 << tune(bitmap)
+    if valid_count(bitmap, DCRIT_ATK) < 2:
+        return bitmap
+
+    # 再开剩下的词条
+    bitmap |= 1 << tune(bitmap)
+    return bitmap
+
+
 def upgrade_221a() -> int:
     bitmap = 0
 
@@ -130,11 +154,10 @@ def upgrade_221a() -> int:
     bitmap |= 1 << tune(bitmap)
     bitmap |= 1 << tune(bitmap)
 
-    # 如果没双暴，但有大攻击，再开一个词条
     if valid_count(bitmap, DCRIT_ATK) < 1:
         return bitmap
 
-    # 再开2个词条
+    # 如果有双暴或大攻击，再开2个词条
     bitmap |= 1 << tune(bitmap)
     bitmap |= 1 << tune(bitmap)
     if valid_count(bitmap, DCRIT_ATK) < 2:

@@ -10,6 +10,7 @@ from data import (
     TUNER_RECYCLING_RATE,
 )
 from util import (
+    upgrade_131,
     upgrade_221a,
     upgrade_23or212a,
     upgrade_311a,
@@ -180,6 +181,10 @@ if __name__ == "__main__":
     print("=======================================================")
     print("方法：先开 3 个词条，再开 1 个词条，最后 1 个词条\n")
     upgrade_stats(loop_count, tuner_count, exp_total, upgrade_311a)
+
+    print("=======================================================")
+    print("方法：先开 1 个词条，再开 3 个词条，最后 1 个词条\n")
+    upgrade_stats(loop_count, tuner_count, exp_total, upgrade_131)
 
     print("=======================================================")
     print("方法：先开 2 个词条，再开 2 个词条，最后 1 个词条\n")
