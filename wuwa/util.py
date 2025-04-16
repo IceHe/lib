@@ -2,10 +2,17 @@
 import random
 from data import ATK, DCRIT_ATK, DIST, HATK, TWO_CRIT, CRIT, CRIT_DMG
 
+def count_bits(n: int):
+    count = 0
+    while n:
+        count += 1
+        n &= n - 1
+    return count
 
 # 开一个词条
 def tune(bitmap: int) -> int:
-    if bitmap.bit_count() >= 5:
+    # if bitmap.bit_count() >= 5:
+    if count_bits(bitmap) >= 5:
         raise ValueError("已开词条数量>=5")
     i = DIST[random.randint(0, 999)]
     if bitmap & (1 << i):
@@ -15,7 +22,8 @@ def tune(bitmap: int) -> int:
 
 # 开一个词条，平均概率
 def tune_avg(bitmap: int) -> int:
-    if bitmap.bit_count() >= 5:
+    # if bitmap.bit_count() >= 5:
+    if count_bits(bitmap) >= 5:
         raise ValueError("已开词条数量>=5")
     i = random.randint(0, 12)
     if bitmap & (1 << i):
@@ -29,7 +37,8 @@ tune = tune_avg
 
 # 有效词条数量
 def valid_count(bitmap: int, valid_bitmap: int) -> int:
-    return (bitmap & valid_bitmap).bit_count()
+    # return (bitmap & valid_bitmap).bit_count()
+    return count_bits(bitmap & valid_bitmap)
 
 
 # 是否有暴击词条
@@ -182,6 +191,7 @@ def upgrade_23or212a() -> int:
         return bitmap
 
     # 再开剩下的词条
-    for _ in range(5 - bitmap.bit_count()):
+    # for _ in range(5 - bitmap.bit_count()):
+    for _ in range(5 - count_bits(bitmap)):
         bitmap |= 1 << tune(bitmap)
     return bitmap
