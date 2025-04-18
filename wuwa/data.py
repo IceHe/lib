@@ -48,10 +48,12 @@ PROB = [
 CRIT = 1 << 0  # 暴击
 CRIT_DMG = 1 << 1  # 暴击伤害
 ATK = 1 << 2  # 攻击（百分比）
+ATK_FIXED = 1 << 5 # 攻击固定值
 ENERGY = 1 << 8  # 共鸣效率
 HATK = 1 << 10  # 重击
 TWO_CRIT = CRIT | CRIT_DMG  # 双暴
 DCRIT_ATK = TWO_CRIT | ATK  # 双暴+大攻击
+VALID6 = DCRIT_ATK | ATK_FIXED | HATK | ENERGY # 双暴+大攻击+小攻击+重击+共效
 
 # 词条分布映射
 DIST = [0] * 1000

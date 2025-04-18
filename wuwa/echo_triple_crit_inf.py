@@ -13,6 +13,7 @@ from util import (
     count_bits,
     upgrade_131,
     upgrade_14,
+    upgrade_212a,
     upgrade_221a,
     upgrade_23,
     upgrade_23or212a,
@@ -103,31 +104,41 @@ if __name__ == "__main__":
     # tuner_count = 500
     # exp_total = 5000 * 120  # = 600000
 
-    print("目标：双暴+大攻击\n\n")
+    print("目标：暴击 + 暴击伤害 + 攻击百分比\n\n")
     # print(f"每种方法的模拟次数\t{loop_count:,}")
     print(f"每种方法的开声骸个数\t{echo_limit:,}")
     print()
 
     print("=======================================================")
-    print("方法：一次开 5 个词条\n")
+    print("方法5：一次开 5 个词条\n")
     upgrade_stats(loop_count, echo_limit, upgrade_all5)
 
     print("=======================================================")
-    print("方法：先开 4 个词条，再开 1 个词条\n")
+    print("方法41：先开 4 个词条，如果有至少 2 个目标词条，再开 1 个词条\n")
     upgrade_stats(loop_count, echo_limit, upgrade_41a)
 
     print("=======================================================")
-    print("方法：先开 3 个词条，再开 1 个词条，最后 1 个词条\n")
+    print("方法311：先开 3 个词条，如果有至少 1 个目标词条，开 1 个词条")
+    print("           如果有至少 2 个目标词条，再开最后 1 个词条\n")
     upgrade_stats(loop_count, echo_limit, upgrade_311a)
 
     print("=======================================================")
-    print("方法：先开 1 个词条，再开 3 个词条，最后 1 个词条\n")
+    print("方法131：先开 1 个词条，如果有至少 1 个目标词条，再开 3 个词条")
+    print("           如果有至少 2 个目标词条，再开最后 1 个词条\n")
     upgrade_stats(loop_count, echo_limit, upgrade_131)
 
     print("=======================================================")
-    print("方法：先开 2 个词条，再开 2 个词条，最后 1 个词条\n")
+    print("方法221：先开 2 个词条，如果有至少 1 个目标词条，再开 2 个词条")
+    print("           如果有至少 2 个目标词条，再开最后 1 个词条\n")
     upgrade_stats(loop_count, echo_limit, upgrade_221a)
 
     print("=======================================================")
-    print("方法：先开2个词条，再开1个词条；如果前两个词条没有双暴但有大攻击，再开1个词条\n")
-    upgrade_stats(loop_count, echo_limit, upgrade_23or212a)
+    print("方法212：先开 2 个词条，如果有至少 1 个目标词条，再开 1 个词条")
+    print("           如果有至少 2 个目标词条，再开最后 2 个词条\n")
+    upgrade_stats(loop_count, echo_limit, upgrade_212a)
+
+    # print("=======================================================")
+    # print("方法：先开2个词条，如果有至少 1 个目标词条，再开1个词条，")
+    # print("      如果前两个词条没有双暴但有大攻击，再开1个词条；")
+    # print("      如果前两或三个个词条没有双暴但有大攻击，再开1个词条；\n")
+    # upgrade_stats(loop_count, echo_limit, upgrade_23or212a)

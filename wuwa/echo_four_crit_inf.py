@@ -1,19 +1,32 @@
 from collections import defaultdict
 
 from data import (
+    CRIT,
+    DCRIT_ATK,
     EXP,
     EXP_GOLD,
     TUNER_EXP_PRODUCE_RATIO,
     TWO_CRIT,
     EXP_RETURN,
     TUNER_RECYCLING_RATE,
+    VALID6,
 )
 from util import (
     count_bits,
+    upgrade_131,
     upgrade_14,
+    upgrade_2111,
+    upgrade_212a,
+    upgrade_221a,
+    upgrade_221b,
     upgrade_23,
+    upgrade_23or212a,
+    upgrade_311a,
+    upgrade_311b,
     upgrade_32,
     upgrade_41,
+    upgrade_41a,
+    upgrade_41b,
     upgrade_all5,
 )
 
@@ -30,7 +43,7 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
     exp_consumed = 0
     word_total = 0
     echo_total = 0
-    double_crit_total = 0
+    target_total = 0
 
     while echo_total < echo_limit:
         bitmap = upgrade()
@@ -42,19 +55,19 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
         word_total += word_count
         echo_total += 1
 
-        if (bitmap & TWO_CRIT) == TWO_CRIT:
-            double_crit_total += 1
+        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID6) >= 4:
+            target_total += 1
 
     if print_detail:
         print("累计开词条:", word_total)
         print("累计消耗调谐器:", word_total * 10)
         print("累计消耗声骸经验:", exp_consumed)
         print("消耗胚子:", echo_total)
-        print("双暴声骸:", double_crit_total)
+        print("双暴声骸:", target_total)
         print()
 
     return {
-        "double_crit_total": double_crit_total,
+        "double_crit_total": target_total,
         "exp_consumed": exp_consumed,
         "word_total": word_total,
         "echo_total": echo_total,
@@ -94,8 +107,10 @@ def upgrade_stats(
 if __name__ == "__main__":
     loop_count = 1
     echo_limit = 1000000
+    # tuner_count = 500
+    # exp_total = 5000 * 120  # = 600000
 
-    print("目标：暴击 + 暴击伤害\n\n")
+    print("目标：4 有效词条 暴击 + 暴击伤害 \n +（攻击百分比、攻击固定值、重击伤害加成、共鸣效率) 四选二\n\n")
     # print(f"每种方法的模拟次数\t{loop_count:,}")
     print(f"每种方法的开声骸个数\t{echo_limit:,}")
     print()
@@ -105,21 +120,26 @@ if __name__ == "__main__":
     upgrade_stats(loop_count, echo_limit, upgrade_all5)
 
     print("=======================================================")
-    print("方法41：先开 4 个词条，如果有至少 1 个目标词条，再开 1 个词条\n")
-    upgrade_stats(loop_count, echo_limit, upgrade_41)
+    print("方法41：先开 4 个词条，如果有至少 3 个目标词条，再开 1 个词条\n")
+    upgrade_stats(loop_count, echo_limit, upgrade_41b)
 
     print("=======================================================")
-    print("方法14：先开 1 个词条，如果有至少 1 个目标词条，再开 4 个词条\n")
-    upgrade_stats(loop_count, echo_limit, upgrade_14)
+    print("方法311：先开 3 个词条，如果有至少 2 个目标词条，开 1 个词条")
+    print("           如果有至少 3 个目标词条，再开最后 1 个词条\n")
+    upgrade_stats(loop_count, echo_limit, upgrade_311b)
+
+    # print("=======================================================")
+    # print("方法131：先开 1 个词条，如果有至少 1 个目标词条，再开 3 个词条")
+    # print("           如果有至少 2 个目标词条，再开最后 1 个词条\n")
+    # upgrade_stats(loop_count, echo_limit, upgrade_131b)
 
     print("=======================================================")
-    print("方法23：先开 2 个词条，如果有至少 1 个目标词条，再开 3 个词条\n")
-    upgrade_stats(loop_count, echo_limit, upgrade_23)
+    print("方法221：先开 2 个词条，\n如果有至少 1 个目标词条，再开 1 个词条")
+    print("           如果有至少 2 个目标词条，再开 1 个词条")
+    print("           如果有至少 3 个目标词条，再开最后 1 个词条\n")
+    upgrade_stats(loop_count, echo_limit, upgrade_221b)
 
     print("=======================================================")
-    print("方法32：先开 3 个词条，如果有至少 1 个目标词条，再开 2 个词条\n")
-    upgrade_stats(loop_count, echo_limit, upgrade_32)
-
-    # print('目标：双暴+大攻击')
-    # print("先开2个词条，再开1个词条；如果前两个词条没有双暴但大攻击，再开1个词条")
-    # upgrade_stats(loop_count, upgrade_23or212)
+    print("方法2111：先开 2 个词条，如果有至少 1 个目标词条，再开 1 个词条")
+    print("           如果有至少 2 个目标词条，再开最后 2 个词条\n")
+    upgrade_stats(loop_count, echo_limit, upgrade_2111)

@@ -173,19 +173,19 @@ if __name__ == "__main__":
     upgrade_stats(loop_count, tuner_count, exp_total, upgrade_all5)
 
     print("=======================================================")
-    print("方法：先开 4 个词条，再开 1 个词条\n")
+    print("方法：先开 4 个词条，如果有至少 1 个有效词条，再开 1 个词条\n")
     upgrade_stats(loop_count, tuner_count, exp_total, upgrade_41)
 
     print("=======================================================")
-    print("方法：先开 1 个词条，再开 4 个词条\n")
+    print("方法：先开 1 个词条，如果有至少 1 个有效词条，再开 4 个词条\n")
     upgrade_stats(loop_count, tuner_count, exp_total, upgrade_14)
 
     print("=======================================================")
-    print("方法：先开 2 个词条，再开 3 个词条\n")
+    print("方法：先开 2 个词条，如果有至少 1 个有效词条，再开 3 个词条\n")
     upgrade_stats(loop_count, tuner_count, exp_total, upgrade_23)
 
     print("=======================================================")
-    print("方法：先开 3 个词条，再开 2 个词条\n")
+    print("方法：先开 3 个词条，如果有至少 1 个有效词条，再开 2 个词条\n")
     upgrade_stats(loop_count, tuner_count, exp_total, upgrade_32)
 
     # print('目标：双暴+大攻击')
