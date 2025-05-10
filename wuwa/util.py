@@ -1,6 +1,6 @@
 # 返回词条下标
 import random
-from data import ATK, DCRIT_ATK, DIST, HATK, TWO_CRIT, CRIT, CRIT_DMG, VALID6
+from data import ATK, DCRIT_ATK, TWO_CRIT, VALID7
 
 def count_bits(n: int):
     count = 0
@@ -9,15 +9,15 @@ def count_bits(n: int):
         n &= n - 1
     return count
 
-# 开一个词条
-def tune(bitmap: int) -> int:
-    # if bitmap.bit_count() >= 5:
-    if count_bits(bitmap) >= 5:
-        raise ValueError("已开词条数量>=5")
-    i = DIST[random.randint(0, 999)]
-    if bitmap & (1 << i):
-        return tune(bitmap)  # 已出现相同的词条，重新roll
-    return i
+# # 开一个词条 (带权重)
+# def tune(bitmap: int) -> int:
+#     # if bitmap.bit_count() >= 5:
+#     if count_bits(bitmap) >= 5:
+#         raise ValueError("已开词条数量>=5")
+#     i = DIST[random.randint(0, 999)]
+#     if bitmap & (1 << i):
+#         return tune(bitmap)  # 已出现相同的词条，重新roll
+#     return i
 
 
 # 开一个词条，平均概率
@@ -126,7 +126,7 @@ def upgrade_41b() -> int:
     bitmap |= 1 << tune(bitmap)
 
     # 如果没双暴或大攻击，再开1个词条
-    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID6) < 3:
+    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID7) < 3:
         return bitmap
 
     # 再开剩下的词条
@@ -160,12 +160,12 @@ def upgrade_311b() -> int:
     bitmap |= 1 << tune(bitmap)
     bitmap |= 1 << tune(bitmap)
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, VALID6) < 2:
+    if valid_count(bitmap, VALID7) < 2:
         return bitmap
 
     # 再开1个词条
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID6) < 3:
+    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID7) < 3:
         return bitmap
 
     # 再开剩下的词条
@@ -197,14 +197,14 @@ def upgrade_131() -> int:
 
 #     # 先开1个词条
 #     bitmap |= 1 << tune(bitmap)
-#     if valid_count(bitmap, VALID6) < 1:
+#     if valid_count(bitmap, VALID7) < 1:
 #         return bitmap
 
 #     # 再开3个词条
 #     bitmap |= 1 << tune(bitmap)
 #     bitmap |= 1 << tune(bitmap)
 #     bitmap |= 1 << tune(bitmap)
-#     if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID6) < 3:
+#     if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID7) < 3:
 #         return bitmap
 
 #     # 再开剩下的词条
@@ -238,13 +238,13 @@ def upgrade_221b() -> int:
     # 先开2个词条
     bitmap |= 1 << tune(bitmap)
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, VALID6) < 1:
+    if valid_count(bitmap, VALID7) < 1:
         return bitmap
 
     # 如果有双暴或大攻击，再开2个词条
     bitmap |= 1 << tune(bitmap)
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID6) < 3:
+    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID7) < 3:
         return bitmap
 
     # 再开剩下的词条
@@ -297,15 +297,15 @@ def upgrade_2111() -> int:
     # 先开2个词条
     bitmap |= 1 << tune(bitmap)
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, VALID6) < 1:
+    if valid_count(bitmap, VALID7) < 1:
         return bitmap
 
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, VALID6) < 2:
+    if valid_count(bitmap, VALID7) < 2:
         return bitmap
 
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID6) < 3:
+    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID7) < 3:
         return bitmap
 
     # 再开剩下的词条
@@ -317,19 +317,19 @@ def upgrade_11111() -> int:
 
     # 先开2个词条
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, VALID6) < 1:
+    if valid_count(bitmap, VALID7) != 1:
         return bitmap
 
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, VALID6) < 2:
+    if valid_count(bitmap, VALID7) != 2:
         return bitmap
 
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, VALID6) < 3:
+    if valid_count(bitmap, VALID7) != 3:
         return bitmap
 
     bitmap |= 1 << tune(bitmap)
-    if valid_count(bitmap, TWO_CRIT) < 1 or valid_count(bitmap, VALID6) < 4:
+    if valid_count(bitmap, VALID7) != 4 or valid_count(bitmap, TWO_CRIT) < 1:
         return bitmap
 
     # 再开剩下的词条

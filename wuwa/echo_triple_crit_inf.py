@@ -1,10 +1,7 @@
-from collections import defaultdict
-
 from data import (
     DCRIT_ATK,
     EXP,
     EXP_GOLD,
-    TUNER_EXP_PRODUCE_RATIO,
     TWO_CRIT,
     EXP_RETURN,
     TUNER_RECYCLING_RATE,

@@ -1,33 +1,13 @@
-from collections import defaultdict
-
 from data import (
-    CRIT,
-    DCRIT_ATK,
     EXP,
     EXP_GOLD,
-    TUNER_EXP_PRODUCE_RATIO,
     TWO_CRIT,
     EXP_RETURN,
-    TUNER_RECYCLING_RATE,
-    VALID6,
+    VALID7,
 )
 from util import (
     count_bits,
     upgrade_11111,
-    upgrade_131,
-    upgrade_14,
-    upgrade_2111,
-    upgrade_212a,
-    upgrade_221a,
-    upgrade_221b,
-    upgrade_23,
-    upgrade_23or212a,
-    upgrade_311a,
-    upgrade_311b,
-    upgrade_32,
-    upgrade_41,
-    upgrade_41a,
-    upgrade_41b,
     upgrade_all5,
 )
 
@@ -39,12 +19,13 @@ print_detail = False
 
 
 def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
-    global TUNER_RECYCLING_RATE, TWO_CRIT, EXP_RETURN
+    global TWO_CRIT, EXP_RETURN
 
+    target_total = 0
     exp_consumed = 0
+    tuner_consumed = 0
     word_total = 0
     echo_total = 0
-    target_total = 0
 
     while echo_total < echo_limit:
         bitmap = upgrade()
@@ -52,12 +33,17 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
         word_count = count_bits(bitmap)
 
         exp_consumed += EXP[1][word_count * 5]
-
+        tuner_consumed += word_count * 10
         word_total += word_count
         echo_total += 1
 
-        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID6) == 5:
+        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID7) == 5:
             target_total += 1
+        else:
+            # 其他情况，回收调谐器和经验
+            exp_consumed -= EXP_RETURN[word_count * 5]
+            tuner_consumed -= word_count * 10 * 0.3
+            word_count = word_count
 
     if print_detail:
         print("累计开词条:", word_total)
@@ -68,7 +54,7 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
         print()
 
     return {
-        "double_crit_total": target_total,
+        "target_total": target_total,
         "exp_consumed": exp_consumed,
         "word_total": word_total,
         "echo_total": echo_total,
@@ -79,18 +65,18 @@ def upgrade_stats(
     loop_count: int, echo_limit: int, upgrade: callable
 ) -> dict:
 
-    double_crit_total = 0
+    target_total = 0
     exp_consumed = 0
     word_total = 0
     echo_total = 0
     for _ in range(loop_count):
         resp = upgrade_test(echo_limit, upgrade)
-        double_crit_total += resp["double_crit_total"]
+        target_total += resp["target_total"]
         exp_consumed += resp["exp_consumed"]
         word_total += resp["word_total"]
         echo_total += resp["echo_total"]
 
-    # double_crit_per_loop = double_crit_total / loop_count
+    # double_crit_per_loop = target_total / loop_count
     # print(f"出货数量\t {double_crit_per_loop:.2f}")
     # print()
 
@@ -99,21 +85,22 @@ def upgrade_stats(
     # # print(f"累计消耗声骸经验\t {exp_consumed / loop_count:.2f}")
     # print(f"累计消耗金密音筒\t {exp_consumed / EXP_GOLD / loop_count:.1f}")
     # print(f"累计消耗胚子\t\t {echo_total / loop_count:.1f}")
-    print(f"平均每次出货消耗调谐器\t {word_total * 10 / double_crit_total:.1f}")
-    print(f"平均每次出货消耗金筒\t {exp_consumed / double_crit_total / EXP_GOLD:.1f}")
-    print(f"平均每次出货消耗胚子\t {echo_total / double_crit_total:.1f}")
+    print(f"平均每次出货消耗调谐器\t {word_total * 10 / target_total:.1f}")
+    print(f"平均每次出货消耗金筒\t {exp_consumed / target_total / EXP_GOLD:.1f}")
+    print(f"平均每次出货消耗胚子\t {echo_total / target_total:.1f}")
     print()
 
 
 if __name__ == "__main__":
-    loop_count = 1
+    loop_count = 10
     echo_limit = 1000000
     # tuner_count = 500
     # exp_total = 5000 * 120  # = 600000
 
-    print("目标：5 有效词条 暴击 + 暴击伤害 \n +（攻击百分比、攻击固定值、重击伤害加成、共鸣效率) 四选三\n\n")
-    # print(f"每种方法的模拟次数\t{loop_count:,}")
-    print(f"每种方法的开声骸个数\t{echo_limit:,}")
+    print("\n目标：5 有效词条 暴击 + 暴击伤害 + 三个其他有效词条\n（攻击百分比、攻击固定值、重击伤害加成、共鸣效率、共鸣技能) 五选三\n（模拟有效词条有7种的情况）")
+    print("前提：词条出率均等，不满足目标要求的声骸都会直接回收声骸经验和调谐器\n\n")
+    print(f"每种方法开出 {echo_limit:,} 个五有效声骸为止")
+    print(f"重复 {loop_count:,} 次这个过程")
     print()
 
     print("=======================================================")

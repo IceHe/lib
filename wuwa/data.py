@@ -22,28 +22,6 @@ WORD = [
     ################
 ]
 
-# 千分概率 probabilities
-PROB = [
-    73,  # 0暴击
-    64,  # 1暴击伤害
-    ################
-    72,  # 2攻击
-    75,  # 3防御
-    79,  # 4生命
-    ################
-    74,  # 5攻击固定值
-    83,  # 6防御固定值
-    83,  # 7生命固定值
-    ################
-    75,  # 8共鸣效率
-    85,  # 9普攻
-    75,  # 10重击
-    81,  # 11共鸣技能
-    81,  # 12共鸣解放
-    ################
-    0,  # 空，仅占位
-]
-
 # 词条位图 substat slot bitmap
 CRIT = 1 << 0  # 暴击
 CRIT_DMG = 1 << 1  # 暴击伤害
@@ -51,26 +29,50 @@ ATK = 1 << 2  # 攻击（百分比）
 ATK_FIXED = 1 << 5 # 攻击固定值
 ENERGY = 1 << 8  # 共鸣效率
 HATK = 1 << 10  # 重击
+SATK = 1 << 11  # 共鸣技能
 TWO_CRIT = CRIT | CRIT_DMG  # 双暴
 DCRIT_ATK = TWO_CRIT | ATK  # 双暴+大攻击
 VALID6 = DCRIT_ATK | ATK_FIXED | HATK | ENERGY # 双暴+大攻击+小攻击+重击+共效
+VALID7 = VALID6 | SATK # 双暴+大攻击+小攻击+重击+共效+共鸣技能
 
-# 词条分布映射
-DIST = [0] * 1000
-
-print(sum(PROB))
-if sum(PROB) != 1000:
-    print("sum(PROB):", sum(PROB))
-    raise ValueError("千分概率之和必须为1000")
-
-cnt = 0
-for i, v in enumerate(PROB):
-    for j in range(cnt, cnt + v):
-        DIST[j] = i
-    cnt += v
-
-print(PROB)
-print()
+# # 千分概率 probabilities
+# PROB = [
+#     73,  # 0暴击
+#     64,  # 1暴击伤害
+#     ################
+#     72,  # 2攻击
+#     75,  # 3防御
+#     79,  # 4生命
+#     ################
+#     74,  # 5攻击固定值
+#     83,  # 6防御固定值
+#     83,  # 7生命固定值
+#     ################
+#     75,  # 8共鸣效率
+#     85,  # 9普攻
+#     75,  # 10重击
+#     81,  # 11共鸣技能
+#     81,  # 12共鸣解放
+#     ################
+#     0,  # 空，仅占位
+# ]
+#
+# # 词条分布映射
+# DIST = [0] * 1000
+#
+# print(sum(PROB))
+# if sum(PROB) != 1000:
+#     print("sum(PROB):", sum(PROB))
+#     raise ValueError("千分概率之和必须为1000")
+#
+# cnt = 0
+# for i, v in enumerate(PROB):
+#     for j in range(cnt, cnt + v):
+#         DIST[j] = i
+#     cnt += v
+#
+# print(PROB)
+# print()
 
 # 声骸从 x 级升到 y 级需要多少声骸经验
 EXP = defaultdict(lambda: defaultdict(int))
