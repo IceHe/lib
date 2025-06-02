@@ -47,6 +47,12 @@ class ConveneSimulator:
         self.star4_count = 0  # 四星数量
         self.star5_count = 0  # 五星数量
         self.counts = defaultdict(int)  # 部分内容的累计数量
+        # 送了5个四星角色
+        self.counts['白芷'] += 1
+        self.counts['秧秧'] += 1
+        self.counts['炽霞'] += 1
+        self.counts['散华'] += 1
+        self.counts['渊武'] += 1
 
         self.afterglow_coral = 0  # 余波珊瑚数量
         self.oscillated_coral = 0  # 残振珊瑚数量
@@ -157,8 +163,8 @@ class ConveneSimulator:
 
 
 def test_convene():
-    afterglow_target = 360 * 3
-    loop_count = 100000
+    afterglow_target = 360
+    loop_count = 10000
     global DEBUG
     DEBUG = False
     
