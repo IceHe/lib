@@ -43,7 +43,8 @@ DEBUG = True
 
 class ConveneSimulator:
     def __init__(self, target: int, freshman: bool):
-        print("target:", target, "freshman:", freshman)
+        if DEBUG:
+            print("target:", target, "freshman:", freshman)
 
         # 当前限定角色卡池轮到哪3个四星角色的出率提升
         self.star4_resonator_up_idx = 0  # 下标标识
@@ -83,6 +84,7 @@ class ConveneSimulator:
                 print('非新手：假设四星角色全满链，常驻五星角色各一个')
                 for x in self.counts:
                     print(f"{x}: {self.counts[x]} 个")
+                print()
 
     def done(self):
         # 检查是否达到目标余波珊瑚数量
@@ -125,20 +127,20 @@ class ConveneSimulator:
                 # 假设新手池抽满50抽，获得15个余波珊瑚
                 if DEBUG:
                     print(f"\n抽出五星，累计 {convene_50} 抽", end='')
-                self.afterglow_coral += 15
                 convene_50 = 0
                 convene_10 = 0
                 y = standard_star5_resonators[randint(0, len(standard_star5_resonators) - 1)]
                 self.counts[y] += 1
+                self.afterglow_coral += 40 if self.counts[y] > 7 else 15
                 if DEBUG:
                     print(f"新手池抽出【五星常驻共鸣者】{y} (累计{self.counts[y]}个) 余波珊瑚 {self.afterglow_coral}")
                 return True
             elif convene_10 == 10 or x < star4_rate:
                 # 假设新手池抽满50抽，获得3个余波珊瑚
-                self.afterglow_coral += 3
                 convene_10 = 0
                 y = star4_all[randint(0, len(star4_all) - 1)]
                 self.counts[y] += 1
+                self.afterglow_coral += 8 if self.counts[y] > 7 else 3
                 if DEBUG:
                     print(f"新手池抽出【四星内容】{y} (累计{self.counts[y]}个) 余波珊瑚 {self.afterglow_coral}")
                 return False
@@ -203,7 +205,7 @@ class ConveneSimulator:
             print("新手抽常驻武器池，用完蓝球，新手期模拟结束\n（简化情况，新手期后不再模拟蓝球抽取）\n")
 
     # 单抽
-    def convene(self, is_resonator=True) -> bool:
+    def convene(self, is_resonator=True) -> int:
         self.convene_all += 1
         self.convene_80 += 1
         self.convene_10 += 1
@@ -237,7 +239,7 @@ class ConveneSimulator:
                         ]
                     if DEBUG:
                         print(f"中了【限定五星共鸣者】，余波珊瑚 {self.afterglow_coral}\n")
-                    return True
+                    return 2
                 else:
                     # 50%概率获得常驻五星角色
                     self.featured_guarantee = True  # 设置大保底
@@ -248,15 +250,14 @@ class ConveneSimulator:
                     self.afterglow_coral += 45 if self.counts[std_s5_resonator] > 7 else 15
                     if DEBUG:
                         print(f"歪了【常驻五星共鸣者】{std_s5_resonator}，余波珊瑚 {self.afterglow_coral}\n")
-                    return False
+                    return 1
             else:
                 # 限定武器池
                 self.counts['五星限定武器'] += 1
-                # 一般获得 15 个余波珊瑚，若已满链（累计抽出7个相同角色后）则获得 45 个
                 self.afterglow_coral += 15
                 if DEBUG:
                     print(f"中了【限定五星武器】，余波珊瑚 {self.afterglow_coral}\n")
-                return True
+                return 2
 
         elif self.convene_10 == 10 or x < star4_rate:
             # 抽出四星
@@ -278,7 +279,10 @@ class ConveneSimulator:
                     # 抽出非当期出率上升的四星共鸣者
                     y = star4_all[randint(0, len(star4_all) - 1)]
                     self.counts[y] += 1
-                    self.afterglow_coral += 3
+                    if y in star4_resonator_set:
+                        self.afterglow_coral += 8 if self.counts[y] > 7 else 3
+                    else:
+                        self.afterglow_coral += 3
                     if DEBUG:
                         print(
                             f"抽出非当期出率上升的【四星内容】{y} (累计{self.counts[y]}个) 余波珊瑚 {self.afterglow_coral}")
@@ -286,31 +290,34 @@ class ConveneSimulator:
                 # 限定武器池
                 y = star4_all[randint(0, len(star4_all) - 1)]
                 self.counts[y] += 1
-                self.afterglow_coral += 3
+                if y in star4_resonator_set:
+                    self.afterglow_coral += 8 if self.counts[y] > 7 else 3
+                else:
+                    self.afterglow_coral += 3
                 if DEBUG:
                     print(f"抽出【四星内容】{y} (累计{self.counts[y]}个) 余波珊瑚 {self.afterglow_coral}")
-            return False
+            return 0
 
         else:
             # 抽出三星
             self.star3_count += 1
             self.counts["三星"] += 1
             self.oscillated_coral += 15
-            return False
+            return 0
 
 
 def test_convene():
     afterglow_target = 360
 
-    # loop_count = 100000
+    loop_count = 100000
     # loop_count = 10000
-    loop_count = 1
+    # loop_count = 1
 
     # is_freshman = True
     is_freshman = False
 
     global DEBUG
-    # DEBUG = False
+    DEBUG = False
 
     print(f"问题：攒够 {afterglow_target} 个余波珊瑚（俗称大珊瑚）要多少次限定唤取？")
     print(f"注意：只算金球和金剑(铸潮波纹)，不算蓝球的抽数")
@@ -329,10 +336,16 @@ def test_convene():
 
     convene_total = 0
     resonator_total = 0
+    standard_resonator_total = 0
     weapon_total = 0
+
     min_convene = float('inf')
     max_convene = 0
     freshman_coral_total = 0
+
+    coral_from_resonator = 0
+    coral_from_weapon = 0
+
     for i in range(loop_count):
         if DEBUG:
             print(f"【第 {i} 模拟开始】\n")
@@ -343,19 +356,31 @@ def test_convene():
         resonator_count = 0
         weapon_count = 0
         while not simulator.done():
+            prev_coral = simulator.afterglow_coral
+
             if DEBUG:
                 print("「先抽限定角色池」")
                 print("当前限定角色池提升出率的四星角色：", simulator.star4_resonator_up)
             while not simulator.done():
-                if simulator.convene(is_resonator=True):
+                result = simulator.convene(is_resonator=True)
+                if result == 2:
                     resonator_count += 1
+                    coral_from_resonator += simulator.afterglow_coral - prev_coral
+                    prev_coral = simulator.afterglow_coral
                     break
+                elif result == 1:
+                    standard_resonator_total += 1
+                    coral_from_resonator += simulator.afterglow_coral - prev_coral
+                    prev_coral = simulator.afterglow_coral
 
             if DEBUG:
                 print("「再抽限定武器池」")
             while not simulator.done():
-                if simulator.convene(is_resonator=False):
+                result = simulator.convene(is_resonator=False)
+                if result == 2:
                     weapon_count += 1
+                    coral_from_weapon += simulator.afterglow_coral - prev_coral
+                    # prev_coral = simulator.afterglow_coral
                     break
 
         if DEBUG:
@@ -372,11 +397,18 @@ def test_convene():
         min_convene = min(min_convene, simulator.convene_all)
         max_convene = max(max_convene, simulator.convene_all)
 
-    print(
-        f"\n【平均每次模拟要 {convene_total / loop_count:.2f} 抽，抽出 {resonator_total / loop_count:.2f} 个五星角色、{weapon_total / loop_count:.2f} 个五星武器】")
-    print(f"【极值：最少 {min_convene} 抽，最多 {max_convene} 抽】")
+    print()
     if is_freshman:
-        print(f"【新手期模拟：平均每次模拟获得 {freshman_coral_total / loop_count:.2f} 个余波珊瑚】")
+        print(f"【萌新】模拟 {loop_count} 次")
+        print(f"【新手期模拟：平均每次模拟获得 {(freshman_coral_total / loop_count, 2)} 个余波珊瑚】")
+    else:
+        print(f"【四星满链老登】模拟 {loop_count} 次")
+
+    print(f"【平均要 {round(convene_total / loop_count, 2)} 抽，最少 {min_convene} 抽，最多 {max_convene} 抽】")
+    print(f"【抽出 {round(resonator_total / loop_count, 2)} 个限定五星共鸣者、{round(weapon_total / loop_count, 2)} 个五星武器】")
+    print(f"【抽出 {round(standard_resonator_total / loop_count, 2)} 个常驻五星共鸣者】")
+    print(f"【平均每次限定角色池保底能获得 {round(coral_from_resonator / (resonator_total + standard_resonator_total), 2)}】")
+    print(f"【平均每次限定武器池保底能获得 {round(coral_from_weapon / weapon_total, 2)}】")
 
 
 if __name__ == "__main__":
