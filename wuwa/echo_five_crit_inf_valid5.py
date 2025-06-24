@@ -3,7 +3,7 @@ from data import (
     EXP_GOLD,
     TWO_CRIT,
     EXP_RETURN,
-    VALID7,
+    VALID5,
 )
 from util import (
     count_bits,
@@ -37,7 +37,7 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
         word_total += word_count
         echo_total += 1
 
-        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID7) == 5:
+        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID5) == 5:
             target_total += 1
         else:
             # 其他情况，回收调谐器和经验
@@ -100,9 +100,7 @@ if __name__ == "__main__":
     # tuner_count = 500
     # exp_total = 5000 * 120  # = 600000
 
-    print(
-        "\n目标：5 有效词条 暴击 + 暴击伤害 + 三个其他有效词条\n（攻击百分比、攻击固定值、重击伤害加成、共鸣效率、共鸣技能) 五选三\n（模拟有效词条有7种的情况）"
-    )
+    print("\n目标：5 有效词条 暴击 + 暴击伤害 + 攻击百分比 + 攻击固定值 + 共鸣技能")
     print("前提：词条出率均等，不满足目标要求的声骸都会直接回收声骸经验和调谐器\n\n")
     print(f"每种方法开出 {echo_limit:,} 个五有效声骸为止")
     print(f"重复 {loop_count:,} 次这个过程")

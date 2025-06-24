@@ -26,6 +26,7 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
 
     exp_consumed = 0
     word_total = 0
+    tuner_total = 0
     echo_total = 0
     double_crit_total = 0
 
@@ -36,15 +37,19 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
 
         exp_consumed += EXP[1][word_count * 5]
 
+        tuner_total += word_count * 10
         word_total += word_count
         echo_total += 1
 
         if (bitmap & TWO_CRIT) == TWO_CRIT:
             double_crit_total += 1
+        else:
+            tuner_total -= word_count * 3
 
     if print_detail:
         print("累计开词条:", word_total)
-        print("累计消耗调谐器:", word_total * 10)
+        print("累计直接消耗调谐器:", word_total * 10)
+        print("累计实际消耗调谐器:", tuner_total)
         print("累计消耗声骸经验:", exp_consumed)
         print("消耗胚子:", echo_total)
         print("双暴声骸:", double_crit_total)
@@ -53,25 +58,26 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
     return {
         "double_crit_total": double_crit_total,
         "exp_consumed": exp_consumed,
+        "tuner_total": tuner_total,
         "word_total": word_total,
         "echo_total": echo_total,
     }
 
 
-def upgrade_stats(
-    loop_count: int, echo_limit: int, upgrade: callable
-) -> dict:
+def upgrade_stats(loop_count: int, echo_limit: int, upgrade: callable) -> dict:
 
     double_crit_total = 0
     exp_consumed = 0
     word_total = 0
     echo_total = 0
+    tuner_total = 0
     for _ in range(loop_count):
         resp = upgrade_test(echo_limit, upgrade)
         double_crit_total += resp["double_crit_total"]
         exp_consumed += resp["exp_consumed"]
         word_total += resp["word_total"]
         echo_total += resp["echo_total"]
+        tuner_total += resp["tuner_total"]
 
     # double_crit_per_loop = double_crit_total / loop_count
     # print(f"出货数量\t {double_crit_per_loop:.2f}")
@@ -82,7 +88,8 @@ def upgrade_stats(
     # # print(f"累计消耗声骸经验\t {exp_consumed / loop_count:.2f}")
     # print(f"累计消耗金密音筒\t {exp_consumed / EXP_GOLD / loop_count:.1f}")
     # print(f"累计消耗胚子\t\t {echo_total / loop_count:.1f}")
-    print(f"平均每次出货消耗调谐器\t {word_total * 10 / double_crit_total:.1f}")
+    # print(f"平均每次出货直接消耗调谐器\t {word_total * 10 / double_crit_total:.1f}")
+    print(f"平均每次出货消耗调谐器\t {tuner_total / double_crit_total:.1f}")
     print(f"平均每次出货消耗金筒\t {exp_consumed / double_crit_total / EXP_GOLD:.1f}")
     print(f"平均每次出货消耗胚子\t {echo_total / double_crit_total:.1f}")
     print()

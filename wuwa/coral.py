@@ -309,15 +309,15 @@ class ConveneSimulator:
 def test_convene():
     afterglow_target = 360
 
-    loop_count = 100000
-    # loop_count = 10000
+    # loop_count = 100000
+    loop_count = 10000
     # loop_count = 1
 
-    # is_freshman = True
-    is_freshman = False
+    is_freshman = True
+    # is_freshman = False
 
     global DEBUG
-    DEBUG = False
+    # DEBUG = False
 
     print(f"问题：攒够 {afterglow_target} 个余波珊瑚（俗称大珊瑚）要多少次限定唤取？")
     print(f"注意：只算金球和金剑(铸潮波纹)，不算蓝球的抽数")
@@ -400,7 +400,7 @@ def test_convene():
     print()
     if is_freshman:
         print(f"【萌新】模拟 {loop_count} 次")
-        print(f"【新手期模拟：平均每次模拟获得 {(freshman_coral_total / loop_count, 2)} 个余波珊瑚】")
+        print(f"【新手期模拟：平均每次模拟获得 {round(freshman_coral_total / loop_count, 2)} 个余波珊瑚】")
     else:
         print(f"【四星满链老登】模拟 {loop_count} 次")
 

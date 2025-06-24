@@ -4,6 +4,7 @@ from data import (
     TWO_CRIT,
     EXP_RETURN,
     TUNER_RECYCLING_RATE,
+    VALID4,
     VALID6,
 )
 from util import (
@@ -52,7 +53,7 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
         word_total += word_count
         echo_total += 1
 
-        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID6) >= 4:
+        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID4) >= 4:
             target_total += 1
         else:
             tuner_total -= word_count * 3
@@ -112,9 +113,7 @@ if __name__ == "__main__":
     # tuner_count = 500
     # exp_total = 5000 * 120  # = 600000
 
-    print(
-        "目标：4 有效词条 暴击 + 暴击伤害 \n +（攻击百分比、攻击固定值、重击伤害加成、共鸣效率) 四选二\n\n"
-    )
+    print("目标：4 有效词条 暴击 + 暴击伤害 + 攻击百分比 + 攻击固定值\n")
     # print(f"每种方法的模拟次数\t{loop_count:,}")
     print(f"每种方法的开声骸个数\t{echo_limit:,}")
     print()

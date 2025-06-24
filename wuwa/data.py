@@ -26,14 +26,16 @@ WORD = [
 CRIT = 1 << 0  # 暴击
 CRIT_DMG = 1 << 1  # 暴击伤害
 ATK = 1 << 2  # 攻击（百分比）
-ATK_FIXED = 1 << 5 # 攻击固定值
+ATK_FIXED = 1 << 5  # 攻击固定值
 ENERGY = 1 << 8  # 共鸣效率
 HATK = 1 << 10  # 重击
 SATK = 1 << 11  # 共鸣技能
 TWO_CRIT = CRIT | CRIT_DMG  # 双暴
 DCRIT_ATK = TWO_CRIT | ATK  # 双暴+大攻击
-VALID6 = DCRIT_ATK | ATK_FIXED | HATK | ENERGY # 双暴+大攻击+小攻击+重击+共效
-VALID7 = VALID6 | SATK # 双暴+大攻击+小攻击+重击+共效+共鸣技能
+VALID6 = DCRIT_ATK | ATK_FIXED | HATK | ENERGY  # 双暴+大攻击+小攻击+重击+共效
+VALID7 = VALID6 | SATK  # 双暴+大攻击+小攻击+重击+共效+共鸣技能
+VALID5 = DCRIT_ATK | ATK_FIXED | SATK
+VALID4 = DCRIT_ATK | SATK
 
 # # 千分概率 probabilities
 # PROB = [
