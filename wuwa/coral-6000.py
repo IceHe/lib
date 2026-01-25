@@ -239,7 +239,8 @@ class ConveneSimulator:
                 # 限定角色池
                 if self.star5_up_guarantee or randint(0, 1):
                     # 大保底必定获得 or 50%概率获得 → 限定五星共鸣者
-                    self.star5_up_guarantee = False  # 重置为小保底
+                    self.star5_up_guarantee = False  # 重置5星大保底
+                    self.star4_up_guarantee = False  # 重置4星大保底
                     self.incr_star5_resonator("限定五星共鸣者")
                     # FIXME：模拟场景是「抽调整器」，暂定只在一期卡池内连续抽，不考虑四星角色轮换的情况
                     # # 抽出限定五星共鸣者后，轮换3个提升出率的四星角色
@@ -265,6 +266,8 @@ class ConveneSimulator:
                 self.afterglow_coral += 15
                 if DEBUG:
                     print(f"出了【限定五星武器】，余波珊瑚累计 {self.afterglow_coral}\n")
+                self.star5_up_guarantee = False  # 重置5星大保底
+                self.star4_up_guarantee = False  # 重置4星大保底
                 return 2
 
         elif self.convene_10 == 10 or x < star4_rate:
@@ -439,11 +442,11 @@ def test_convene():
 
     print(f"【平均要 {round(convene_total / loop_count, 2)} 抽，最少 {min_convene} 抽，最多 {max_convene} 抽】")
     # print(f"【抽出 {round(resonator_total / loop_count, 2)} 个限定五星共鸣者、{round(weapon_total / loop_count, 2)} 个五星武器】")
-    print(f"【抽出 {round(resonator_total / loop_count, 2)} 个限定五星共鸣者】")
-    print(f"【抽出 {round(standard_resonator_total / loop_count, 2)} 个常驻五星共鸣者】")
+    print(f"【平均抽出 {round(resonator_total / loop_count, 2)} 个限定五星共鸣者】")
+    print(f"【平均抽出 {round(standard_resonator_total / loop_count, 2)} 个常驻五星共鸣者】")
     # print(f"【总共抽出 {round((resonator_total + standard_resonator_total) / loop_count, 2)} 个五星共鸣者】")
-    print(f"【抽出 {round(star4_resonator_total / loop_count, 2)} 个四星共鸣者】")
-    print(f"【抽出 {round(star4_weapon_total / loop_count, 2)} 个四星武器】")
+    print(f"【平均抽出 {round(star4_resonator_total / loop_count, 2)} 个四星共鸣者】")
+    print(f"【平均抽出 {round(star4_weapon_total / loop_count, 2)} 个四星武器】")
     # print(f"【平均每次限定角色池保底能获得 {round(coral_from_resonator / (resonator_total + standard_resonator_total), 2)}】")
     # print(f"【平均每次限定武器池保底能获得 {round(coral_from_weapon / weapon_total, 2)}】")
 
