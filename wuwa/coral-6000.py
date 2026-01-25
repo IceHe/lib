@@ -292,7 +292,7 @@ class ConveneSimulator:
 
             if is_resonator:
                 # 限定角色池
-                if self.star4_up_guarantee or randint(0, 1) == 1:
+                if self.star4_up_guarantee or randint(0, 1):
                     # 大保底必定获得 or 50%概率获得 → 当期4星角色UP
                     self.star4_up_guarantee = False  # 重置4星大保底
                     t = self.star4_resonator_up[randint(0, 2)]
@@ -311,7 +311,7 @@ class ConveneSimulator:
                         self.incr_star4_weapon(t)
             else:
                 # 限定武器池
-                if self.star4_up_guarantee or randint(0, 1) == 1:
+                if self.star4_up_guarantee or randint(0, 1):
                     # 大保底必定获得 or 50%概率获得 → 当期4星武器UP
                     self.star4_up_guarantee = False  # 重置4星大保底
                     t = self.star4_weapon_up[randint(0, 2)]
@@ -342,9 +342,10 @@ def test_convene():
     afterglow_target = 6000
 
     # loop_count = 100000
-    # loop_count = 10000
-    loop_count = 1000
+    loop_count = 10000
+    # loop_count = 1000
     # loop_count = 100
+    # loop_count = 1
 
     # is_freshman = True
     is_freshman = False
@@ -353,9 +354,9 @@ def test_convene():
     DEBUG = False
 
     print(f"问题：攒够 {afterglow_target} 个余波珊瑚（俗称大珊瑚）要多少次限定唤取？")
-    print(f"注意：只算金球，不算蓝球的抽数")
-    print('前提假设：抽限定角色池')
-    print('具体做法：一直抽限定角色池')
+    print(f"注意：只算金球和铸潮波纹，不算蓝球的抽数")
+    # print('前提假设：先抽限定武器+5，再一直抽限定角色池')
+    print('具体做法：先抽限定武器+5，再一直抽限定角色池，直到攒够目标余波珊瑚数量为止')
     if is_freshman:
         print('- 从0开始玩的入坑玩家开始模拟，定向获取常驻五星角色维里奈，')
         print('  只算第一个大版本&满探索能获得的蓝球，先抽完新手池，再全投入常驻武器池')
@@ -377,6 +378,7 @@ def test_convene():
 
     star4_resonator_counts = defaultdict(int)
     star4_weapon_counts = defaultdict(int)
+    convene_counts = defaultdict(int)
 
     min_convene = float('inf')
     max_convene = 0
@@ -394,33 +396,35 @@ def test_convene():
 
         resonator_count = 0
         weapon_count = 0
+
+        if DEBUG:
+            print("「抽限定武器池+5」")
+        prev_coral = simulator.afterglow_coral
         while not simulator.done():
-            prev_coral = simulator.afterglow_coral
-
-            # if DEBUG:
-            #     print("「抽限定武器池+5」")
-            # for _ in range(5):
-            #     result = simulator.convene(is_resonator=False)
-            #     if result == 2:
-            #         weapon_count += 1
-            #         coral_from_weapon += simulator.afterglow_coral - prev_coral
-            #         prev_coral = simulator.afterglow_coral
-            #         break
-
-            if DEBUG:
-                print("「一直抽限定角色池」")
-                print("当前限定角色池提升出率的四星角色：", simulator.star4_resonator_up)
-            while not simulator.done():
-                result = simulator.convene(is_resonator=True)
-                if result == 2:
-                    resonator_count += 1
-                    coral_from_resonator += simulator.afterglow_coral - prev_coral
-                    prev_coral = simulator.afterglow_coral
+            result = simulator.convene(is_resonator=False)
+            if result == 2:
+                weapon_count += 1
+                coral_from_weapon += simulator.afterglow_coral - prev_coral
+                prev_coral = simulator.afterglow_coral
+                if DEBUG:
+                    print(f"抽出第 {weapon_count} 个五星武器，余波珊瑚累计 {simulator.afterglow_coral}\n\n")
+                if weapon_count >= 5:
                     break
-                elif result == 1:
-                    standard_resonator_total += 1
-                    coral_from_resonator += simulator.afterglow_coral - prev_coral
-                    prev_coral = simulator.afterglow_coral
+
+        if DEBUG:
+            print("「抽限定角色池+N，直到攒够6千大珊瑚」")
+            print("当前限定角色池提升出率的四星角色：", simulator.star4_resonator_up)
+        prev_coral = simulator.afterglow_coral
+        while not simulator.done():
+            result = simulator.convene(is_resonator=True)
+            if result == 2:
+                resonator_count += 1
+                coral_from_resonator += simulator.afterglow_coral - prev_coral
+                prev_coral = simulator.afterglow_coral
+            elif result == 1:
+                standard_resonator_total += 1
+                coral_from_resonator += simulator.afterglow_coral - prev_coral
+                prev_coral = simulator.afterglow_coral
 
         for x in star4_resonators:
             star4_resonator_total += simulator.gains[x]
@@ -438,6 +442,7 @@ def test_convene():
         if DEBUG:
             print(f"\n【第 {i} 次模拟要 {simulator.convene_all} 抽，抽出 {resonator_count} 个五星角色、{weapon_count} 个五星武器】\n")
         convene_total += simulator.convene_all
+        convene_counts[simulator.convene_all] += 1
         resonator_total += resonator_count
         weapon_total += weapon_count
         min_convene = min(min_convene, simulator.convene_all)
@@ -454,6 +459,7 @@ def test_convene():
     # print(f"【抽出 {round(resonator_total / loop_count, 2)} 个限定五星角色、{round(weapon_total / loop_count, 2)} 个五星武器】")
     print(f"【平均抽出 {round(resonator_total / loop_count, 2)} 个限定五星角色】")
     print(f"【平均抽出 {round(standard_resonator_total / loop_count, 2)} 个常驻五星角色】")
+    print(f"【平均抽出 {round(weapon_total / loop_count, 2)} 个五星武器】")
     # print(f"【总共抽出 {round((resonator_total + standard_resonator_total) / loop_count, 2)} 个五星角色】")
     print(f"【平均抽出 {round(star4_resonator_total / loop_count, 2)} 个四星角色】")
     print(f"【平均抽出 {round(star4_weapon_total / loop_count, 2)} 个四星武器】")
@@ -472,6 +478,17 @@ def test_convene():
         print(f"四星武器 {x} 数量 {star4_weapon_counts[x]} 占比 {round(star4_weapon_counts[x] / star4_total * 100, 2)}%")
         percent_all += star4_weapon_counts[x] / star4_total * 100
     print(f"总占比 {round(percent_all, 2)}%")
+
+    gap = 50
+    stats = [0] * ((max_convene - min_convene) // gap + 1)
+    for i in range(min_convene, max_convene + 1):
+        x = convene_counts[i]
+        if x:
+            stats[(i - i % gap - min_convene) // gap] += x
+            # print(f"{i} 抽: {x} 次")
+
+    for i in range(len(stats)):
+        print(f"{min_convene + i * gap}~{min_convene + (i + 1) * gap - 1}\t{stats[i] / loop_count * 100:.2f}%\t{stats[i]}")
 
 if __name__ == "__main__":
     test_convene()
