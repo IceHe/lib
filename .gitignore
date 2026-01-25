@@ -20,7 +20,7 @@
 .cache/
 /dist
 
-# Local History - Git plugin of VS Code 
+# Local History - Git plugin of VS Code
 .history/
 
 # Others
@@ -91,3 +91,6 @@ typings/
 
 # next.js build output
 .next
+
+
+**/__pycache__

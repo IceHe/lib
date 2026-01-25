@@ -1,9 +1,12 @@
 from data import (
     EXP,
     EXP_GOLD,
+    HATK,
+    SATK,
     TWO_CRIT,
     EXP_RETURN,
     VALID5,
+    VALID6,
 )
 from util import (
     count_bits,
@@ -37,7 +40,11 @@ def upgrade_test(echo_limit: int, upgrade: callable) -> dict:
         word_total += word_count
         echo_total += 1
 
-        if (bitmap & TWO_CRIT) == TWO_CRIT and count_bits(bitmap & VALID5) == 5:
+        if (
+            (bitmap & TWO_CRIT) == TWO_CRIT
+            and bitmap & HATK == HATK
+            and count_bits(bitmap & VALID6) == 5
+        ):
             target_total += 1
         else:
             # 其他情况，回收调谐器和经验
