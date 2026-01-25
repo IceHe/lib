@@ -53,10 +53,12 @@ class ConveneSimulator:
         # 当前限定角色卡池轮到哪3个四星角色的出率提升
         self.star4_resonator_up_idx = 0  # 下标标识
         self.star4_resonator_up = star4_resonators[0:3]
+        self.star4_resonator_nonup = star4_resonators[3:] + star4_weapons
 
         # 当前限定武器卡池轮到哪3个四星武器的出率提升
         self.star4_weapon_up_idx = 0  # 下标标识
         self.star4_weapon_up = star4_weapons[0:3]
+        self.star4_weapon_nonup = star4_weapons[3:] + star4_resonators
 
         self.star5_up_guarantee = False  # 是否5星up大保底
         self.star4_up_guarantee = False  # 是否4星up大保底
@@ -295,11 +297,7 @@ class ConveneSimulator:
                 else:
                     # 50% 抽出非当期UP的四星内容
                     self.star4_up_guarantee = True  # 设置4星大保底
-
-                    t = star4_all[randint(0, len(star4_all) - 1)]
-                    while t in self.star4_resonator_up:
-                        t = star4_all[randint(0, len(star4_all) - 1)]
-
+                    t = self.star4_resonator_nonup[randint(0, len(self.star4_resonator_nonup) - 1)]
                     if t in star4_resonator_set:
                         self.incr_star4_resonator(t) # 四星角色
                     else:
@@ -316,11 +314,7 @@ class ConveneSimulator:
                 else:
                     # 50% 抽出非当期UP的四星内容
                     self.star4_up_guarantee = True  # 设置4星大保底
-
-                    t = star4_all[randint(0, len(star4_all) - 1)]
-                    while t in self.star4_weapon_up:
-                        t = star4_all[randint(0, len(star4_all) - 1)]
-
+                    t = self.star4_weapon_nonup[randint(0, len(self.star4_weapon_nonup) - 1)]
                     if t in star4_resonator_set:
                         self.incr_star4_resonator(t) # 四星角色
                     else:
@@ -339,8 +333,8 @@ def test_convene():
     afterglow_target = 6000
 
     # loop_count = 100000
-    loop_count = 10000
-    # loop_count = 1000
+    # loop_count = 10000
+    loop_count = 1000
     # loop_count = 100
 
     # is_freshman = True
@@ -371,6 +365,9 @@ def test_convene():
 
     star4_resonator_total = 0
     star4_weapon_total = 0
+
+    star4_resonator_counts = defaultdict(int)
+    star4_weapon_counts = defaultdict(int)
 
     min_convene = float('inf')
     max_convene = 0
@@ -418,8 +415,10 @@ def test_convene():
 
         for x in star4_resonators:
             star4_resonator_total += simulator.counts[x]
+            star4_resonator_counts[x] += simulator.counts[x]
         for x in star4_weapons:
             star4_weapon_total += simulator.counts[x]
+            star4_weapon_counts[x] += simulator.counts[x]
 
         if DEBUG:
             for x in standard_star5_resonators:
@@ -452,6 +451,18 @@ def test_convene():
     # print(f"【平均每次限定角色池保底能获得 {round(coral_from_resonator / (resonator_total + standard_resonator_total), 2)}】")
     # print(f"【平均每次限定武器池保底能获得 {round(coral_from_weapon / weapon_total, 2)}】")
 
+    star4_total = star4_resonator_total + star4_weapon_total
+    percent_all = 0.0
+    for x in star4_resonators[0:3]:
+        print(f"四星角色UP {x} 占比 {round(star4_resonator_counts[x] / star4_total * 100, 2)}%")
+        percent_all += star4_resonator_counts[x] / star4_total * 100
+    for x in star4_resonators[3:]:
+        print(f"四星角色 {x} 占比 {round(star4_resonator_counts[x] / star4_total * 100, 2)}%")
+        percent_all += star4_resonator_counts[x] / star4_total * 100
+    for x in star4_weapons:
+        print(f"四星武器 {x} 占比 {round(star4_weapon_counts[x] / star4_total * 100, 2)}%")
+        percent_all += star4_weapon_counts[x] / star4_total * 100
+    print(f"总占比 {round(percent_all, 2)}%")
 
 if __name__ == "__main__":
     test_convene()
