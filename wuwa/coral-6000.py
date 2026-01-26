@@ -341,8 +341,8 @@ class ConveneSimulator:
 def test_convene():
     afterglow_target = 6000
 
-    # loop_count = 100000
-    loop_count = 10000
+    loop_count = 100000
+    # loop_count = 10000
     # loop_count = 1000
     # loop_count = 100
     # loop_count = 1
@@ -479,16 +479,22 @@ def test_convene():
         percent_all += star4_weapon_counts[x] / star4_total * 100
     print(f"总占比 {round(percent_all, 2)}%")
 
-    gap = 50
+    min_convene -= min_convene % 10
+    max_convene += (10 - max_convene % 10) % 10
+    gap = (max_convene - min_convene + 20) // 20
+    gap -= gap % 10
+    print(f"\n抽数统计区间划分，最小抽数 {min_convene} 抽，最大抽数 {max_convene} 抽")
+    print(f"抽数统计区间划分，间隔 {gap} 抽\n")
+
     stats = [0] * ((max_convene - min_convene) // gap + 1)
     for i in range(min_convene, max_convene + 1):
-        x = convene_counts[i]
-        if x:
-            stats[(i - i % gap - min_convene) // gap] += x
-            # print(f"{i} 抽: {x} 次")
+        stats[(i - i % gap - min_convene) // gap] += convene_counts[i]
+        # print(f"{i} 抽: {x} 次")
 
+    print("\n抽数范围\t占比\t频数")
     for i in range(len(stats)):
-        print(f"{min_convene + i * gap}~{min_convene + (i + 1) * gap - 1}\t{stats[i] / loop_count * 100:.2f}%\t{stats[i]}")
+        # print(f"{min_convene + i * gap}~{min(min_convene + (i + 1) * gap - 1, max_convene)}\t{stats[i] / loop_count * 100:.2f}%\t{stats[i]}")
+        print(f"[{min_convene + i * gap}~{min(min_convene + (i + 1) * gap, max_convene)})\t{stats[i] / loop_count * 100:.3f}%\t{stats[i]}")
 
 if __name__ == "__main__":
     test_convene()
