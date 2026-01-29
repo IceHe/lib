@@ -362,7 +362,7 @@ def test_convene():
         print('  只算第一个大版本&满探索能获得的蓝球，先抽完新手池，再全投入常驻武器池')
         print('  至此新手期模拟结束；后续版本送的蓝球不多，为了简化情况，暂且忽略')
     else:
-        print('- 假设四星角色全满链，常驻五星角色也全满链，当期限定五星角色从0开始抽')
+        print('假设四星角色全满链，常驻五星角色也全满链，从没有当期限定五星角色开始抽')
         # print('  不模拟蓝球抽取，直接进入限定池模拟')
     # print('- 限定角色池会自动轮换3个提升出率的四星角色')
     print('- 每 80 抽，抽到第 65 抽后，限定角色或武器出率持续上升的情况，参考 @一颗平衡树 的公式')
@@ -455,7 +455,8 @@ def test_convene():
     else:
         print(f"【四星+常驻五星满链老登】模拟 {loop_count} 次")
 
-    print(f"【平均要 {round(convene_total / loop_count, 2)} 抽，最少 {min_convene} 抽，最多 {max_convene} 抽】")
+    avg_convene = convene_total / loop_count
+    print(f"【平均要 {round(avg_convene, 2)} 抽，最少 {min_convene} 抽，最多 {max_convene} 抽】")
     # print(f"【抽出 {round(resonator_total / loop_count, 2)} 个限定五星角色、{round(weapon_total / loop_count, 2)} 个五星武器】")
     print(f"【平均抽出 {round(resonator_total / loop_count, 2)} 个限定五星角色】")
     print(f"【平均抽出 {round(standard_resonator_total / loop_count, 2)} 个常驻五星角色】")
@@ -465,19 +466,20 @@ def test_convene():
     print(f"【平均抽出 {round(star4_weapon_total / loop_count, 2)} 个四星武器】")
     # print(f"【平均每次限定角色池保底能获得 {round(coral_from_resonator / (resonator_total + standard_resonator_total), 2)}】")
     # print(f"【平均每次限定武器池保底能获得 {round(coral_from_weapon / weapon_total, 2)}】")
+    print(f"【平均每抽获得 {afterglow_target} / {round(avg_convene, 2)} ≈ {round(afterglow_target / avg_convene, 3)} 个余波珊瑚】")
 
-    star4_total = star4_resonator_total + star4_weapon_total
-    percent_all = 0.0
-    for x in star4_resonators[0:3]:
-        print(f"四星角色UP {x} 数量 {star4_resonator_counts[x]} 占比 {round(star4_resonator_counts[x] / star4_total * 100, 2)}%")
-        percent_all += star4_resonator_counts[x] / star4_total * 100
-    for x in star4_resonators[3:]:
-        print(f"四星角色 {x} 数量 {star4_resonator_counts[x]} 占比 {round(star4_resonator_counts[x] / star4_total * 100, 2)}%")
-        percent_all += star4_resonator_counts[x] / star4_total * 100
-    for x in star4_weapons:
-        print(f"四星武器 {x} 数量 {star4_weapon_counts[x]} 占比 {round(star4_weapon_counts[x] / star4_total * 100, 2)}%")
-        percent_all += star4_weapon_counts[x] / star4_total * 100
-    print(f"总占比 {round(percent_all, 2)}%")
+    # star4_total = star4_resonator_total + star4_weapon_total
+    # percent_all = 0.0
+    # for x in star4_resonators[0:3]:
+    #     print(f"四星角色UP {x} 数量 {star4_resonator_counts[x]} 占比 {round(star4_resonator_counts[x] / star4_total * 100, 2)}%")
+    #     percent_all += star4_resonator_counts[x] / star4_total * 100
+    # for x in star4_resonators[3:]:
+    #     print(f"四星角色 {x} 数量 {star4_resonator_counts[x]} 占比 {round(star4_resonator_counts[x] / star4_total * 100, 2)}%")
+    #     percent_all += star4_resonator_counts[x] / star4_total * 100
+    # for x in star4_weapons:
+    #     print(f"四星武器 {x} 数量 {star4_weapon_counts[x]} 占比 {round(star4_weapon_counts[x] / star4_total * 100, 2)}%")
+    #     percent_all += star4_weapon_counts[x] / star4_total * 100
+    # print(f"总占比 {round(percent_all, 2)}%")
 
     min_convene -= min_convene % 10
     max_convene += (10 - max_convene % 10) % 10
