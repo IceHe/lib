@@ -14,6 +14,10 @@ References
 ssh user@host           # connect to host as user
 ssh -p port user@host   # connect using port
 ssh -D user@host        # connect & use bind port
+
+# 将本地 ssh 密钥添加到 远端服务器
+# 以便之后直接 ssh 登录连接 (不用密码)
+ssh-copy-id username@ip_addr
 ```
 
 ## Synopsis
